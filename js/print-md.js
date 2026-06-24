@@ -220,7 +220,7 @@ function _collectSideData(side) {
     }
 
     // Kurven
-    const kurvActive = (presets || []).filter((p) => p.on && p.strength !== 0);
+    const kurvActive = (elektrodenlautstaerkeKurven || []).filter((p) => p.on && p.strength !== 0);
     const kurvList = kurvActive.map((p) => ({
       typeKey: p.type,
       strength: p.strength,
@@ -1803,7 +1803,7 @@ function _archivChartKurven(sideBlock) {
     const yFor = (v) => zY - (v / maxAbs) * (pH / 2);
     const COLORS = ["#3b82f6", "#f97316", "#a855f7", "#06b6d4", "#84cc16", "#eab308", "#ec4899", "#14b8a6"];
     let ci = 0;
-    for (const p of presets) {
+    for (const p of elektrodenlautstaerkeKurven) {
       if (!p.on || p.strength === 0) continue;
       const curve = calcPresetCurve(p, n);
       ctx.strokeStyle = COLORS[ci % COLORS.length];

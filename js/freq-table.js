@@ -472,7 +472,7 @@ function switchMfr(m) {
   s.implant.upperLevel = new Array(s.nEl).fill(null);
   bindActiveSide();
   initPresets();
-  s.presets = presets;
+  s.elektrodenlautstaerkeKurven = elektrodenlautstaerkeKurven;
   elektrodenlautstaerkeResults.splice(0, elektrodenlautstaerkeResults.length);
   refEl = Math.floor(nEl / 2);
   // Sync akustische Seite wenn nötig

@@ -344,7 +344,7 @@ function printSchieberTab() {
 }
 
 function _buildPresetCardPrint() {
-  const active = presets.filter(pr => pr.on);
+  const active = elektrodenlautstaerkeKurven.filter(pr => pr.on);
   let rows = "";
   for (const pr of active) {
     let params = `${t("lvPrStr")}: <b>${pr.strength.toFixed(1)} dB</b>`;

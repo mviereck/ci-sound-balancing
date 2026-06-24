@@ -118,7 +118,7 @@ function resetAll() {
     sideData[s].elektrodenlautstaerkeSchieber = new Array(sideData[s].nEl).fill(0);
     sideData[s].refEl = Math.floor(sideData[s].nEl / 2);
     sideData[s].elektrodenlautstaerkeResults = [];
-    sideData[s].presets = [];
+    sideData[s].elektrodenlautstaerkeKurven = [];
     initSideData(s, "unknown");
   }
   defaultMfr = "unknown";
@@ -286,7 +286,7 @@ async function saveJson() {
         fmAdaptiveDur: sideData.left.fmAdaptiveDur != null ? sideData.left.fmAdaptiveDur : 200,
         fmAdaptivePau: sideData.left.fmAdaptivePau != null ? sideData.left.fmAdaptivePau : 200,
         manualLevels: sideData.left.elektrodenlautstaerkeSchieber,
-        presets: sideData.left.presets,
+        presets: sideData.left.elektrodenlautstaerkeKurven,
         fullSweepRound: sideData.left.fullSweepRound,
         fullSweepDonePairs: sideData.left.fullSweepDonePairs,
         implant: sideData.left.implant,
@@ -308,7 +308,7 @@ async function saveJson() {
         fmAdaptiveDur: sideData.right.fmAdaptiveDur != null ? sideData.right.fmAdaptiveDur : 200,
         fmAdaptivePau: sideData.right.fmAdaptivePau != null ? sideData.right.fmAdaptivePau : 200,
         manualLevels: sideData.right.elektrodenlautstaerkeSchieber,
-        presets: sideData.right.presets,
+        presets: sideData.right.elektrodenlautstaerkeKurven,
         fullSweepRound: sideData.right.fullSweepRound,
         fullSweepDonePairs: sideData.right.fullSweepDonePairs,
         implant: sideData.right.implant,
@@ -507,9 +507,9 @@ function applyLoadedData(d) {
   if (d.sides && d.presetFormat !== "freq-v3") {
     for (const side of SIDES) {
       const s = sideData[side];
-      if (s.presets && Array.isArray(s.presets)) {
-        s.presets = _migratePresetsFromIndexToFreq(
-          s.presets,
+      if (s.elektrodenlautstaerkeKurven && Array.isArray(s.elektrodenlautstaerkeKurven)) {
+        s.elektrodenlautstaerkeKurven = _migratePresetsFromIndexToFreq(
+          s.elektrodenlautstaerkeKurven,
           [...s.freqs],
           s.elFreqOwn,
         );
@@ -821,7 +821,7 @@ function applyLoadedData(d) {
   const MIGR_TYPES = ["tilt", "scurve", "pivot", "gauss"];
   const sideHasMeaningfulMigration = (side) =>
     sideData[side]._presetsMigrated === true &&
-    (sideData[side].presets || []).some(
+    (sideData[side].elektrodenlautstaerkeKurven || []).some(
       (p) => MIGR_TYPES.includes(p.type) && p.strength !== 0,
     );
   if (SIDES.some(sideHasMeaningfulMigration)) {

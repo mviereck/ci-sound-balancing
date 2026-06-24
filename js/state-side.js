@@ -56,12 +56,12 @@ let userFileSuffix = ""; // globaler Dateinamen-Suffix für alle Exporte
 let userLastName  = ""; // Nachname für Dateinamen und Druck-Seitentitel (BA 268)
 let userFirstName = ""; // Vorname für Dateinamen und Druck-Seitentitel (BA 268)
 
-let presets = [];
+let elektrodenlautstaerkeKurven = [];
 let elActive = [];  // BA 164: Aktivitäts-Flag pro Elektrode der aktiven Seite
 let fullSweepRound = null,
   fullSweepDonePairs = [];
 function initPresets() {
-  presets = PR_TYPES.map((tp) => ({
+  elektrodenlautstaerkeKurven = PR_TYPES.map((tp) => ({
     type: tp,
     on: false,
     strength: 0,
@@ -81,7 +81,7 @@ function bindActiveSide() {
   elNt = s.elNt;
   elExDur = s.elExDur;
   elektrodenlautstaerkeSchieber = s.elektrodenlautstaerkeSchieber;
-  presets = s.presets;
+  elektrodenlautstaerkeKurven = s.elektrodenlautstaerkeKurven;
   refEl = s.refEl;
   elektrodenlautstaerkeResults = s.elektrodenlautstaerkeResults;
   elActive = s.elActive || (s.elActive = new Array(s.nEl).fill(true));
@@ -160,7 +160,7 @@ function initSideData(side, m) {
   activeSide = side;
   bindActiveSide();
   initPresets();
-  s.presets = presets;
+  s.elektrodenlautstaerkeKurven = elektrodenlautstaerkeKurven;
 }
 function updSideButtons() {
   const L = document.getElementById("sideLeftBtn"),
@@ -433,7 +433,7 @@ function loadSideData(side, d) {
   s.freqmatchPiano = d.freqmatchPiano || null;
   s.elektrodenlautstaerkeSchieber = d.manualLevels || new Array(s.nEl).fill(0);
   if (d.presets && Array.isArray(d.presets)) {
-    s.presets = PR_TYPES.map((tp) => {
+    s.elektrodenlautstaerkeKurven = PR_TYPES.map((tp) => {
       const found = d.presets.find((p) => p.type === tp);
       return found || {
         type: tp, on: false, strength: 0, center: CENT_REF_HZ, width: 1200,
@@ -539,7 +539,7 @@ function withSide(side, fn) {
     elNt,
     elExDur,
     elektrodenlautstaerkeSchieber,
-    presets,
+    elektrodenlautstaerkeKurven,
     refEl,
     elektrodenlautstaerkeResults,
   };

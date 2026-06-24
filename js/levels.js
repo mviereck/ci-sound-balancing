@@ -99,7 +99,7 @@ function calcPresetCurve(pr) {
 }
 function getTotalPresetCurve() {
   const c = new Array(nEl).fill(0);
-  for (const pr of presets) {
+  for (const pr of elektrodenlautstaerkeKurven) {
     if (!pr.on || pr.strength === 0) continue;
     const pc = calcPresetCurve(pr);
     for (let i = 0; i < nEl; i++) c[i] += pc[i] * pr.strength;
@@ -120,7 +120,7 @@ function applyPresetDeltaOtherSide(pi, delta, currentPr) {
   if (!document.getElementById("prBothSides")?.checked) return;
   if (Math.abs(delta) < 0.001) return;
   const otherSide = activeSide === "left" ? "right" : "left";
-  const op = sideData[otherSide].presets;
+  const op = sideData[otherSide].elektrodenlautstaerkeKurven;
   if (!op || !op[pi]) return;
   op[pi].strength = Math.max(
     -20,
@@ -143,11 +143,11 @@ function _prStrTouchCtrl(inp, pi) {
 
   function step(dir) {
     var st = fineMode ? 0.1 : 0.5;
-    var oldVal = presets[pi].strength;
+    var oldVal = elektrodenlautstaerkeKurven[pi].strength;
     var newVal = Math.max(-20, Math.min(20, +(oldVal + dir * st).toFixed(1)));
-    presets[pi].strength = newVal;
+    elektrodenlautstaerkeKurven[pi].strength = newVal;
     inp.value = newVal.toFixed(1);
-    applyPresetDeltaOtherSide(pi, newVal - oldVal, presets[pi]);
+    applyPresetDeltaOtherSide(pi, newVal - oldVal, elektrodenlautstaerkeKurven[pi]);
     lvOnChange();
   }
 
@@ -188,8 +188,8 @@ function buildPrTbl() {
     .join("");
   // Mittelpunkt: Number-Input in Hz (50–20000, Schritt 50).
   // Breite (Gauß): Number-Input in Cent (50–4800, Schritt 50).
-  for (let pi = 0; pi < presets.length; pi++) {
-    const pr = presets[pi];
+  for (let pi = 0; pi < elektrodenlautstaerkeKurven.length; pi++) {
+    const pr = elektrodenlautstaerkeKurven[pi];
     const tr = document.createElement("tr");
     tr.className = pr.on ? "" : "pr-row-off";
     let params = '<div class="pr-param">';
@@ -220,12 +220,12 @@ function buildPrTbl() {
   tbl.querySelectorAll(".prOn").forEach((cb) =>
     cb.addEventListener("change", function () {
       const pi = +this.dataset.pi;
-      const wasOn = presets[pi].on;
-      presets[pi].on = this.checked;
+      const wasOn = elektrodenlautstaerkeKurven[pi].on;
+      elektrodenlautstaerkeKurven[pi].on = this.checked;
       // Mirror on/off to other side if checkbox active
       if (document.getElementById("prBothSides")?.checked) {
         const otherSide = activeSide === "left" ? "right" : "left";
-        const op = sideData[otherSide].presets;
+        const op = sideData[otherSide].elektrodenlautstaerkeKurven;
         if (op && op[pi]) {
           op[pi].on = this.checked;
         }
@@ -243,12 +243,12 @@ function buildPrTbl() {
   tbl.querySelectorAll(".prStr").forEach((inp) => {
     inp.addEventListener("change", function () {
       const pi = +this.dataset.pi;
-      const oldVal = presets[pi].strength;
+      const oldVal = elektrodenlautstaerkeKurven[pi].strength;
       const newVal = Math.max(-20, Math.min(20, parseFloat(this.value) || 0));
       const delta = newVal - oldVal;
-      presets[pi].strength = newVal;
+      elektrodenlautstaerkeKurven[pi].strength = newVal;
       this.value = newVal.toFixed(1);
-      applyPresetDeltaOtherSide(pi, delta, presets[pi]);
+      applyPresetDeltaOtherSide(pi, delta, elektrodenlautstaerkeKurven[pi]);
       lvOnChange();
     });
     inp.addEventListener("keydown", function (e) {
@@ -257,20 +257,20 @@ function buildPrTbl() {
         e.stopPropagation();
         const pi = +this.dataset.pi,
           st = 0.1;
-        const oldVal = presets[pi].strength;
+        const oldVal = elektrodenlautstaerkeKurven[pi].strength;
         if (e.key === "ArrowUp")
-          presets[pi].strength = Math.min(
+          elektrodenlautstaerkeKurven[pi].strength = Math.min(
             20,
-            +(presets[pi].strength + st).toFixed(1),
+            +(elektrodenlautstaerkeKurven[pi].strength + st).toFixed(1),
           );
         if (e.key === "ArrowDown")
-          presets[pi].strength = Math.max(
+          elektrodenlautstaerkeKurven[pi].strength = Math.max(
             -20,
-            +(presets[pi].strength - st).toFixed(1),
+            +(elektrodenlautstaerkeKurven[pi].strength - st).toFixed(1),
           );
-        const delta = presets[pi].strength - oldVal;
-        this.value = presets[pi].strength.toFixed(1);
-        applyPresetDeltaOtherSide(pi, delta, presets[pi]);
+        const delta = elektrodenlautstaerkeKurven[pi].strength - oldVal;
+        this.value = elektrodenlautstaerkeKurven[pi].strength.toFixed(1);
+        applyPresetDeltaOtherSide(pi, delta, elektrodenlautstaerkeKurven[pi]);
         lvOnChange();
       }
     });
@@ -282,12 +282,12 @@ function buildPrTbl() {
       let v = parseFloat(this.value);
       if (!isFinite(v) || v < 50) v = 50;
       if (v > 20000) v = 20000;
-      presets[pi].center = v;
+      elektrodenlautstaerkeKurven[pi].center = v;
       this.value = Math.round(v);
       if (document.getElementById("prBothSides")?.checked) {
         const otherSide = activeSide === "left" ? "right" : "left";
-        const op = sideData[otherSide].presets;
-        if (op && op[pi] && op[pi].type === presets[pi].type) {
+        const op = sideData[otherSide].elektrodenlautstaerkeKurven;
+        if (op && op[pi] && op[pi].type === elektrodenlautstaerkeKurven[pi].type) {
           op[pi].center = v;
         }
       }
@@ -300,12 +300,12 @@ function buildPrTbl() {
       let v = parseFloat(this.value);
       if (!isFinite(v) || v < 50) v = 50;
       if (v > 4800) v = 4800;
-      presets[pi].width = v;
+      elektrodenlautstaerkeKurven[pi].width = v;
       this.value = Math.round(v);
       if (document.getElementById("prBothSides")?.checked) {
         const otherSide = activeSide === "left" ? "right" : "left";
-        const op = sideData[otherSide].presets;
-        if (op && op[pi] && op[pi].type === presets[pi].type) {
+        const op = sideData[otherSide].elektrodenlautstaerkeKurven;
+        if (op && op[pi] && op[pi].type === elektrodenlautstaerkeKurven[pi].type) {
           op[pi].width = v;
         }
       }
@@ -314,7 +314,7 @@ function buildPrTbl() {
   );
   tbl.querySelectorAll(".prCut").forEach((sel) =>
     sel.addEventListener("change", function () {
-      presets[+this.dataset.pi].cutoff = +this.value;
+      elektrodenlautstaerkeKurven[+this.dataset.pi].cutoff = +this.value;
       lvOnChange();
     }),
   );
