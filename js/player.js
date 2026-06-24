@@ -13,6 +13,7 @@ let pCtx = null,
   pCurrentPlayback = null,   // { sources, stop() } für Variante B/A
   pPlayGen = 0,              // erhöht sich bei jedem pPlay/pPause; schützt den Vocoder-Await
   pGain = null,
+  pPlayerMuteGain = null,   // BA391: Player-Mute fuer Latenztest (1=hoerbar,0=stumm)
   pEqF = [],
   pEqFLeft = [],
   pEqFRight = [],
@@ -778,12 +779,17 @@ function pEnsureOutputBase(c) {
   if (pGain) return;
   pGain = c.createGain();
   pGain.gain.value = parseInt(document.getElementById("plVol").value) / 100;
-  // Latenz-Kette zwischen pGain und destination einhaengen
+  // BA391: EINZIGE Player-Mute-Stelle -- hinter pGain, an dessen einzigem
+  // Ausgang. pGain bleibt exklusiv der Lautstaerke-Pegel.
+  pPlayerMuteGain = c.createGain();
+  pPlayerMuteGain.gain.value = 1; // Default hoerbar
+  pGain.connect(pPlayerMuteGain);
+  // Latenz-Kette zwischen pPlayerMuteGain und destination einhaengen
   if (typeof latInitGraph === "function") {
     latInitGraph(c);
-    pGain.connect(pLatSplitter);
+    pPlayerMuteGain.connect(pLatSplitter);
   } else {
-    pGain.connect(c.destination);
+    pPlayerMuteGain.connect(c.destination);
   }
 }
 

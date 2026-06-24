@@ -38,11 +38,26 @@ let latBalSplitter = null;
 let latBalGainL    = null;
 let latBalGainR    = null;
 let latBalMerger   = null;
+let latClickMuteGain = null;   // BA391: Klick-Mute (1=hoerbar, 0=stumm)
 
 let pLatSplitter = null;
 let pLatDelayL = null;
 let pLatDelayR = null;
 let pLatMerger = null;
+
+// BA391: Setzt einen Gain mit kurzer linearer Rampe (20 ms) auf 0 (stumm)
+// oder 1 (hoerbar). Gemeinsame Mute-Mechanik fuer Player- und Klick-Mute.
+const LAT_MUTE_RAMP_S = 0.02; // 20 ms
+function latRampGain(gainNode, audible) {
+  if (!gainNode) return;
+  const ctx = (typeof gPC === "function") ? gPC() : null;
+  if (!ctx) { gainNode.gain.value = audible ? 1 : 0; return; }
+  const now = ctx.currentTime;
+  const target = audible ? 1 : 0;
+  gainNode.gain.cancelScheduledValues(now);
+  gainNode.gain.setValueAtTime(gainNode.gain.value, now);
+  gainNode.gain.linearRampToValueAtTime(target, now + LAT_MUTE_RAMP_S);
+}
 
 // --- Buffer-Generatoren ----------------------------------------------
 
@@ -165,12 +180,15 @@ function latStartTest() {
   latBalGainL.connect(latBalMerger, 0, 0);
   latBalGainR.connect(latBalMerger, 0, 1);
 
-  if (typeof pGain !== "undefined" && pGain) {
-    latBalMerger.connect(pGain);
-  } else if (pLatSplitter) {
-    latBalMerger.connect(pLatSplitter);
+  latClickMuteGain = ctx.createGain();
+  latClickMuteGain.gain.value = 1; // Default hoerbar; Toggle-Steuerung in BA392
+  latBalMerger.connect(latClickMuteGain);
+  if (pLatSplitter) {
+    latClickMuteGain.connect(pLatSplitter);
   } else {
-    latBalMerger.connect(ctx.destination);
+    // Fallback: keine Latenz-Kette vorhanden (sollte nach BA390-Warmlauf
+    // nicht vorkommen) -> direkt zum Ausgang, ohne Latenz.
+    latClickMuteGain.connect(ctx.destination);
   }
   latTestSource.start();
   latActive = true;
@@ -186,6 +204,7 @@ function latStopTest() {
   if (latBalGainL)    { try { latBalGainL.disconnect();    } catch (e) {} latBalGainL = null; }
   if (latBalGainR)    { try { latBalGainR.disconnect();    } catch (e) {} latBalGainR = null; }
   if (latBalMerger)   { try { latBalMerger.disconnect();   } catch (e) {} latBalMerger = null; }
+  if (latClickMuteGain) { try { latClickMuteGain.disconnect(); } catch (e) {} latClickMuteGain = null; }
   latTestBuf = null;
   latActive = false;
 }
