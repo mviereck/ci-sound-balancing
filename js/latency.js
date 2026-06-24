@@ -456,7 +456,13 @@ function latHookOnStart() {
       const startMs = (latencyResult && isFinite(latencyResult.valueMs))
         ? latencyResult.valueMs : 0;
       const slRef = latEls.verfahren.lat.slider;
-      if (slRef) testUI.slider.setValue(slRef, startMs);
+      if (slRef) {
+        testUI.slider.setValue(slRef, startMs);
+        // setValue setzt nur Range/Wert, nicht die Anzeige -> sonst zeigt
+        // der Slider beim Neustart den zuletzt geschobenen Text, bis man
+        // erneut schiebt. Anzeige analog lr-balance.js explizit setzen.
+        testUI.slider.setValueDisplay(slRef, startMs.toFixed(1) + " ms");
+      }
       latSetSliderMs(startMs);
       _latUpdateIntervalHint();
       // BA392: Hoerbarkeit bei jedem Start auf "beide hoerbar" zuruecksetzen
