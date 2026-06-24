@@ -40,6 +40,32 @@ let latBalGainR    = null;
 let latBalMerger   = null;
 let latClickMuteGain = null;   // BA391: Klick-Mute (1=hoerbar, 0=stumm)
 
+let latClicksAudible = true;   // BA392: Schalter "Klicktoene hoerbar"
+let latPlayerAudible = true;   // BA392: Schalter "Player hoerbar"
+
+// BA392: Zentrale Definition der zwei Hoerbarkeits-Schalter. Eine Stelle;
+// Erzeugung UND Optik-Refresh iterieren hierueber. Neuer Schalter = neuer
+// Eintrag. getFlag/setFlag kapseln das Flag, getMuteNode liefert den
+// Ziel-Gain ZUM KLICKZEITPUNKT (latClickMuteGain wechselt pro Test).
+const LAT_AUD_TOGGLES = [
+  {
+    id: 'latToggleClicks',
+    tKey: 'latToggleClicks',
+    getFlag: function() { return latClicksAudible; },
+    setFlag: function(v) { latClicksAudible = v; },
+    getMuteNode: function() { return latClickMuteGain; }
+  },
+  {
+    id: 'latTogglePlayer',
+    tKey: 'latTogglePlayer',
+    getFlag: function() { return latPlayerAudible; },
+    setFlag: function(v) { latPlayerAudible = v; },
+    getMuteNode: function() {
+      return (typeof pPlayerMuteGain !== "undefined") ? pPlayerMuteGain : null;
+    }
+  }
+];
+
 let pLatSplitter = null;
 let pLatDelayL = null;
 let pLatDelayR = null;
@@ -207,6 +233,12 @@ function latStopTest() {
   if (latClickMuteGain) { try { latClickMuteGain.disconnect(); } catch (e) {} latClickMuteGain = null; }
   latTestBuf = null;
   latActive = false;
+  // BA392: Player-Mute hoerbar zuruecksetzen -- Test-Audio ist beendet,
+  // der Player soll wieder normal laufen. Einzige Stelle dafuer (beide
+  // Test-Enden laufen durch latStopTest).
+  if (typeof pPlayerMuteGain !== "undefined" && pPlayerMuteGain) {
+    latRampGain(pPlayerMuteGain, true);
+  }
 }
 
 // Wird bei laufendem Test aufgerufen, wenn der User Klick-Typ,
@@ -336,7 +368,33 @@ function _latBuildExtraFragment() {
   });
   typeWrap.append(typeLbl, typeRow);
 
-  frag.append(intvWrap, typeWrap);
+  // BA392: Hoerbarkeits-Schalter (eigener Bereich unter Klangtyp)
+  const audWrap = document.createElement('div');
+  audWrap.style.margin = '12px 0';
+  const audLbl = document.createElement('div');
+  audLbl.style.cssText = 'font-weight:600;margin-bottom:6px;';
+  audLbl.dataset.t = 'latAudibleLabel';
+  const audRow = document.createElement('div');
+  audRow.className = 'btn-row';
+  audRow.style.cssText = 'display:flex;gap:6px;flex-wrap:wrap;';
+
+  LAT_AUD_TOGGLES.forEach(function(tg) {
+    const b = document.createElement('button');
+    b.className = 'btn lat-aud-btn' + (tg.getFlag() ? ' active' : '');
+    b.id = tg.id;
+    b.dataset.t = tg.tKey;
+    b.addEventListener('click', function() {
+      const next = !tg.getFlag();
+      tg.setFlag(next);
+      b.classList.toggle('active', next);
+      if (latActive) latRampGain(tg.getMuteNode(), next);
+    });
+    audRow.appendChild(b);
+  });
+
+  audWrap.append(audLbl, audRow);
+
+  frag.append(intvWrap, typeWrap, audWrap);
   return frag;
 }
 
@@ -348,6 +406,13 @@ function _latRefreshExtraActives() {
   });
   frag.querySelectorAll('.lat-click-btn').forEach(function(b) {
     b.classList.toggle('active', b.dataset.type === latClickType);
+  });
+}
+
+function _latRefreshAudibleBtns() {
+  LAT_AUD_TOGGLES.forEach(function(tg) {
+    const b = document.getElementById(tg.id);
+    if (b) b.classList.toggle('active', tg.getFlag());
   });
 }
 
@@ -394,7 +459,14 @@ function latHookOnStart() {
       if (slRef) testUI.slider.setValue(slRef, startMs);
       latSetSliderMs(startMs);
       _latUpdateIntervalHint();
+      // BA392: Hoerbarkeit bei jedem Start auf "beide hoerbar" zuruecksetzen
+      latClicksAudible = true;
+      latPlayerAudible = true;
+      _latRefreshAudibleBtns();
       latStartTest();
+      if (typeof pPlayerMuteGain !== "undefined" && pPlayerMuteGain) {
+        latRampGain(pPlayerMuteGain, true);
+      }
     },
     function() {
       // Abbruch im sideCheck -> testUI stoppt; wir raeumen nur unsere Resourcen.
