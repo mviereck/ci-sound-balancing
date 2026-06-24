@@ -493,21 +493,22 @@ function getPlayerBalance() {
 function getPlayerBalanceGains() {
   // Liefert {left, right} dB-Werte für die beiden Channel-Gains
   // im "both"-Modus. Berücksichtigt plBalanceMode.
-  // "sym" (Default): symmetrisch ±balance, wie bisher.
-  // "left":  Korrektur ausschließlich auf der linken Seite.
-  // "right": Korrektur ausschließlich auf der rechten Seite.
-  // Bei "left"/"right" wird der doppelte Wert auf eine Seite gelegt,
-  // damit der akustische L↔R-Unterschied derselbe ist wie symmetrisch.
+  // b ist die gemessene L↔R-Differenz in dB (= -mean der lrResults).
+  // Der akustische Unterschied muss in ALLEN Modi genau b betragen,
+  // wie beim Test eingestellt (lrPairGains verteilt off als ±off/2).
+  // "sym" (Default): symmetrisch, jede Seite trägt die Hälfte (±b/2).
+  // "left":  voller Ausgleich b ausschließlich auf der linken Seite.
+  // "right": voller Ausgleich b ausschließlich auf der rechten Seite.
   const b = getPlayerBalance();
   const mode = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
   const clamp = (v) => Math.max(-60, Math.min(60, v));
   if (mode === "left") {
-    return { left: clamp(2 * b), right: 0 };
+    return { left: clamp(b), right: 0 };
   }
   if (mode === "right") {
-    return { left: 0, right: clamp(-2 * b) };
+    return { left: 0, right: clamp(-b) };
   }
-  return { left: b, right: -b };
+  return { left: b / 2, right: -b / 2 };
 }
 function getRawBalanceGains() {
   // Wie getPlayerBalanceGains(), aber ignoriert plApplyBalance.
@@ -516,16 +517,17 @@ function getRawBalanceGains() {
   const vals = Object.values(lrResults).filter((v) => isFinite(v));
   if (!vals.length) return { left: 0, right: 0 };
   const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+  // b = gemessene L↔R-Differenz; Verteilung wie getPlayerBalanceGains.
   const b = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
   const mode = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
   const clamp = (v) => Math.max(-60, Math.min(60, v));
   if (mode === "left") {
-    return { left: clamp(2 * b), right: 0 };
+    return { left: clamp(b), right: 0 };
   }
   if (mode === "right") {
-    return { left: 0, right: clamp(-2 * b) };
+    return { left: 0, right: clamp(-b) };
   }
-  return { left: b, right: -b };
+  return { left: b / 2, right: -b / 2 };
 }
 function withSide(side, fn) {
   const prevSide = activeSide;
