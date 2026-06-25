@@ -213,7 +213,7 @@ function _fmrCollectNotPerceivable() {
     Object.keys(run.tracks).forEach(function(k) { elIdxSet.add(parseInt(k, 10)); });
 
     elIdxSet.forEach(function(elIdx) {
-      const tr = run.tracks[fmTrackKey(elIdx)];
+      const tr = run.tracks[FRQ_trackKey(elIdx)];
       if (tr && tr.status === 'not-perceivable') {
         result[side + ':' + elIdx] = true;
       }
@@ -229,7 +229,7 @@ function _fmrCollectNotPerceivable() {
 //   'in-progress'        : ≥4 Umkehrungen, Match aus Mittelwert,
 //                          Residuum aus halber Spanne der bisherigen Umkehrungen
 //   'in-progress-early'  : <2 Umkehrungen, kein Match, refFreq = varFreq (Platzhalter)
-// Schwellen kommen aus fmComputeProvisional in freqmatch-staircase.js.
+// Schwellen kommen aus FRQ_computeProvisional in freqmatch-staircase.js.
 
 function _fmrBuildInProgressEntries(side) {
   const out = [];
@@ -245,11 +245,11 @@ function _fmrBuildInProgressEntries(side) {
   Object.keys(run.tracks).forEach(function(k) { elIdxSet.add(parseInt(k, 10)); });
 
   elIdxSet.forEach(function(elIdx) {
-    const tr = run.tracks[fmTrackKey(elIdx)];
+    const tr = run.tracks[FRQ_trackKey(elIdx)];
     if (!tr || tr.status !== 'active') return;
 
     const varHz = withSide(side, function() { return effFreq(elIdx); });
-    const prov  = fmComputeProvisional(tr);
+    const prov  = FRQ_computeProvisional(tr);
     const totalTrials  = tr.trialCount || 0;
     const maxReversals = (tr.reversals && tr.reversals.length) || 0;
 
@@ -351,13 +351,13 @@ function _fmrBuildSliderEntries(side) {
 
 // BA353: Zentrale, nach aktivem Verfahren gefilterte Ergebnis-Quelle.
 // EINZIGE Stelle, durch die Ergebnisgraph, Player (Warp) und Druck gehen.
-// Generisch: vergleicht fmEntryMethod(eintrag) mit dem aktiven Verfahren,
+// Generisch: vergleicht FRQ_entryMethod(eintrag) mit dem aktiven Verfahren,
 // kennt die Verfahren nicht beim Namen. Vorrang final > provisorisch je
 // (varSide, elIdx) -- aber nur INNERHALB des aktiven Verfahrens.
-function fmActiveResults() {
-  const method = (typeof fmGetActiveMethod === "function") ? fmGetActiveMethod() : "adaptive";
-  const me = (typeof fmEntryMethod === "function")
-    ? fmEntryMethod
+function FRQ_activeResults() {
+  const method = (typeof FRQ_getActiveMethod === "function") ? FRQ_getActiveMethod() : "adaptive";
+  const me = (typeof FRQ_entryMethod === "function")
+    ? FRQ_entryMethod
     : function (r) { return (r && r.method === "slider") ? "slider" : "adaptive"; };
 
   // Finale Eintraege des aktiven Verfahrens.
@@ -420,10 +420,10 @@ function renderFreqMatchResults() {
   noData.style.display = "none";
   card.style.display = "";
   // BA353: Umschalter-Hervorhebung aktualisieren.
-  if (typeof fmUpdActiveMethodButtons === "function") fmUpdActiveMethodButtons();
+  if (typeof FRQ_updateActiveMethodButtons === "function") FRQ_updateActiveMethodButtons();
 
   // BA353: Anzeige-Daten: nur das aktive Verfahren, ciSide-gefiltert.
-  const displayData = ((typeof fmActiveResults === "function") ? fmActiveResults() : [])
+  const displayData = ((typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [])
     .filter(function (r) { return r && r.varSide === ciSide; });
 
   // Titel
@@ -472,8 +472,8 @@ function renderFreqMatchResults() {
   if (!th || !tb) return;
 
   // BA364: Konvergenz/Laufstreuung nur bei aktivem Adaptiv (Architektur 10.3).
-  var isAdaptiveActive = (typeof fmGetActiveMethod === "function")
-    && fmGetActiveMethod() === "adaptive";
+  var isAdaptiveActive = (typeof FRQ_getActiveMethod === "function")
+    && FRQ_getActiveMethod() === "adaptive";
   var advCols = isAdaptiveActive
     ? ("<th title=\"" + t("fmrThConvTip") + "\">" + t("fmrThConv") + "</th>"
      + "<th title=\"" + t("fmrThRunSpreadTip") + "\">" + t("fmrThRunSpread") + "</th>")
@@ -694,8 +694,8 @@ function renderFreqMatchResults() {
       ? faActive.runs[faActive.currentRunIdx] : null;
     const _activeTracks = (_faActiveRun && _faActiveRun.tracks) ? _faActiveRun.tracks : {};
     const hasActive = Object.keys(_activeTracks).some(function(k) { return _activeTracks[k].status === 'active'; });
-    if (hasActive && typeof fmComputeProgressStats === 'function') {
-      const stats = fmComputeProgressStats(_activeTracks);
+    if (hasActive && typeof FRQ_computeProgressStats === 'function') {
+      const stats = FRQ_computeProgressStats(_activeTracks);
       pBox.style.display = '';
       if (pText) pText.textContent =
         stats.done + ' / ' + stats.total + ' · ' + Math.round(stats.percent) + ' %';
@@ -835,7 +835,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function _fmrRefreshAfterClear() {
     if (typeof depLockApply === 'function') depLockApply();
     renderFreqMatchResults();
-    if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
+    if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
   }
 
   const allBtn = document.getElementById("fmrClearAllBtn");
@@ -856,7 +856,7 @@ document.addEventListener("DOMContentLoaded", function() {
     sliderBtn.addEventListener("click", function() {
       if (!confirm(t("fmrClearSliderConfirm") || "Slider-Schätzungen löschen?")) return;
       for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
-        if (FRQ_resultsArray[i] && fmEntryMethod(FRQ_resultsArray[i]) === "slider") FRQ_resultsArray.splice(i, 1);
+        if (FRQ_resultsArray[i] && FRQ_entryMethod(FRQ_resultsArray[i]) === "slider") FRQ_resultsArray.splice(i, 1);
       }
       if (typeof sideData !== "undefined") {
         ['left', 'right'].forEach(function(side) {
@@ -875,7 +875,7 @@ document.addEventListener("DOMContentLoaded", function() {
     adaptiveBtn.addEventListener("click", function() {
       if (!confirm(t("fmrClearAdaptiveConfirm") || "Adaptiv-Ergebnisse löschen?")) return;
       for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
-        if (FRQ_resultsArray[i] && fmEntryMethod(FRQ_resultsArray[i]) === "adaptive") FRQ_resultsArray.splice(i, 1);
+        if (FRQ_resultsArray[i] && FRQ_entryMethod(FRQ_resultsArray[i]) === "adaptive") FRQ_resultsArray.splice(i, 1);
       }
       if (typeof sideData !== "undefined") {
         ['left', 'right'].forEach(function(side) {
@@ -896,7 +896,7 @@ document.addEventListener("DOMContentLoaded", function() {
     pianoBtn.addEventListener("click", function() {
       if (!confirm(t("fmrClearPianoConfirm") || "Klavier-Ergebnisse loeschen?")) return;
       for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
-        if (FRQ_resultsArray[i] && fmEntryMethod(FRQ_resultsArray[i]) === "piano") FRQ_resultsArray.splice(i, 1);
+        if (FRQ_resultsArray[i] && FRQ_entryMethod(FRQ_resultsArray[i]) === "piano") FRQ_resultsArray.splice(i, 1);
       }
       if (typeof sideData !== "undefined") {
         ['left', 'right'].forEach(function(side) {

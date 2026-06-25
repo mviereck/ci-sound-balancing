@@ -673,12 +673,12 @@ function elTestData(opts) {
 // Gain) fuer eine Seite. Liest die bereits gegatete, vorzeichenrichtige
 // correction-dB pro Elektrode (elTestData) und interpoliert log-linear
 // ueber die Elektroden-Frequenzen bei hz. Liefert 1 (neutral), wenn keine
-// Messdaten/Frequenzen vorliegen. Logik identisch zu fmCorrGain
+// Messdaten/Frequenzen vorliegen. Logik identisch zu FRQ_correctionGain
 // (freqmatch.js); zentralisiert, damit alle Korrektur-Aufrufer (Klavier,
 // Vorspiel, Sweep) dieselbe Quelle nutzen.
 function measGain(side, hz) {
   return withSide(side, function () {
-    // BA 303: defensive Abfragen (aus fmCorrGain uebernommen). Ohne
+    // BA 303: defensive Abfragen (aus FRQ_correctionGain uebernommen). Ohne
     // Mess-Paare oder ohne compWLS neutral zurueck, BEVOR elTestData()
     // gerufen wird (nutzt intern elektrodenlautstaerkeResults.some -> wuerde sonst werfen).
     if (typeof elektrodenlautstaerkeResults === "undefined" || !elektrodenlautstaerkeResults || elektrodenlautstaerkeResults.length === 0) return 1;
@@ -791,7 +791,7 @@ let testEls = null;
 // LS-Hint Parameter (Bauanleitung 61)
 const LS_HINT_BASIS_DB = 2.5;
 const LS_HINT_K = 3;
-// BA 250: Helfer analog fmGVol/fmGDur/fmGPau in freqmatch.js.
+// BA 250: Helfer analog FRQ_getVolume/FRQ_getDuration/FRQ_getPause in freqmatch.js.
 // Lesen direkt aus den State-Variablen; macht die quadratische
 // Audio-Konversion fuer die Lautstaerke.
 function tGVol() { return Math.pow((volume_global || 0) / 100, 2); }

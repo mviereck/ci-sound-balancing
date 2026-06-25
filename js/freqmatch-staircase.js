@@ -81,7 +81,7 @@ const FM_TRIALS_PER_ELECTRODE_ESTIMATE = 25;   // Schätzwert für Trial-Fortsch
 //                 - Lauf 1 mit Slider-Schätzung: startOffset = schätzung.cent + sign · FM_INITIAL_START_OFFSET
 //                 - Lauf 2+ mit Vorlauf-Match:   startOffset = match ± FM_FOLLOWUP_BRACKET_OFFSET
 //                 - Sonst: startOffset = sign · FM_INITIAL_START_OFFSET.
-function fmCreateTrack(electrodeIdx, startSign, startOffset) {
+function frq_createTrack(electrodeIdx, startSign, startOffset) {
   const START_MAG = 100;
   const sign      = (startSign === -1) ? -1 : +1;
   const effOffset = (typeof startOffset === 'number' && isFinite(startOffset))
@@ -117,7 +117,7 @@ function fmCreateTrack(electrodeIdx, startSign, startOffset) {
 // lastPickedKey:    für Wiederholungs-Sperre im kleinen Pool
 //
 // returns: trackKey (String) oder null wenn alle abgeschlossen
-function fmPickNextTrack(state, rng, lastPickedKey) {
+function frq_pickNextTrack(state, rng, lastPickedKey) {
   // Rückwärtskompatibilität: alter Aufruf mit tracks-Objekt direkt
   if (state && state.electrodeIdx === undefined && state.tracks === undefined) {
     state = { tracks: state, roundQueue: [] };
@@ -204,7 +204,7 @@ function fmPickNextTrack(state, rng, lastPickedKey) {
 // Schrittweite halbiert sich nach jeder Umkehrung der Bewegungsrichtung.
 //
 // Rückgabe: aktualisierter status
-function fmApplyResponse(track, response, isCatch, catchCorrect, firstSide) {
+function frq_applyResponse(track, response, isCatch, catchCorrect, firstSide) {
   if (track.status !== 'active') return track.status;
 
   // Trial in History eintragen
@@ -258,7 +258,7 @@ function _fmHalfStep(currentStep) {
 }
 
 // --- Match (Mittel der letzten 6 Umkehrungen) ---
-function fmComputeMatch(track) {
+function frq_computeMatch(track) {
   if (!track.reversals || track.reversals.length < FM_REVERSALS_WIN) return null;
   const tail = track.reversals.slice(-FM_REVERSALS_WIN);
   let sum = 0;
@@ -267,7 +267,7 @@ function fmComputeMatch(track) {
 }
 
 // --- Residuum (halbe Spanne der letzten 6 Umkehrungen) ---
-function fmComputeResidual(track) {
+function frq_computeResidual(track) {
   if (!track.reversals || track.reversals.length < FM_REVERSALS_WIN) return null;
   const tail = track.reversals.slice(-FM_REVERSALS_WIN);
   let max = -Infinity, min = Infinity;
@@ -302,7 +302,7 @@ function _fmHalfSpanReversals(track) {
 // Verteilung: erste zwei Catches bei Trial 4 und 8 (eng am Anfang,
 // damit not-perceivable früher greifen kann); danach jeder
 // FM_CATCH_INTERVAL-te ab FM_CATCH_REGULAR_FROM.
-// Aufruf: VOR dem trialCount++ in fmApplyResponse — also nach
+// Aufruf: VOR dem trialCount++ in frq_applyResponse — also nach
 // trialCount === 4 ist der nächste Trial der 5., aber der Catch greift,
 // wenn der trialCount im Aufruferkontext direkt vor Trial-Start
 // === 4 ist.
@@ -348,19 +348,19 @@ function _fmCheckAndUpdateStatus(track) {
   if (track.stepSize === FM_STEP_MIN
       && _revCount >= FM_SMART_STOP_REVERSALS
       && _revCount > (track._smartStopLastEvalAtRevCount || 0)) {
-    const _resNow = fmComputeResidual(track);
+    const _resNow = frq_computeResidual(track);
     if (_resNow != null) {
       const _resPrev = track._smartStopPrevResid;
       if (_resPrev != null) {
         if (_resNow <= FM_RESIDUAL_OK && _resPrev <= FM_RESIDUAL_OK) {
           track.status   = 'converged';
-          track.match    = fmComputeMatch(track);
+          track.match    = frq_computeMatch(track);
           track.residual = _resNow;
           return track.status;
         }
         if (_resNow <= FM_RESIDUAL_FAIR && _resPrev <= FM_RESIDUAL_FAIR) {
           track.status   = 'converged-fair';
-          track.match    = fmComputeMatch(track);
+          track.match    = frq_computeMatch(track);
           track.residual = _resNow;
           return track.status;
         }
@@ -375,23 +375,23 @@ function _fmCheckAndUpdateStatus(track) {
   // (3) Klassische Konvergenz: ≥8 Umkehrungen, Schrittweite am Minimum.
   // Match/Residuum werden aus den letzten 6 berechnet (FM_REVERSALS_WIN).
   if (track.reversals.length >= FM_REVERSALS_REQ && track.stepSize === FM_STEP_MIN) {
-    const residual = fmComputeResidual(track);
+    const residual = frq_computeResidual(track);
     if (residual != null) {
       if (residual <= FM_RESIDUAL_OK) {
         track.status   = 'converged';
-        track.match    = fmComputeMatch(track);
+        track.match    = frq_computeMatch(track);
         track.residual = residual;
         return track.status;
       }
       if (residual <= FM_RESIDUAL_FAIR) {
         track.status   = 'converged-fair';
-        track.match    = fmComputeMatch(track);
+        track.match    = frq_computeMatch(track);
         track.residual = residual;
         return track.status;
       }
       if (residual <= FM_RESIDUAL_WIDE) {
         track.status   = 'converged-wide';
-        track.match    = fmComputeMatch(track);
+        track.match    = frq_computeMatch(track);
         track.residual = residual;
         return track.status;
       }
@@ -403,9 +403,9 @@ function _fmCheckAndUpdateStatus(track) {
   // Trials und Residuum > FM_EARLY_UNSTABLE_RESID → unstable.
   if (track.trialCount >= FM_EARLY_UNSTABLE_TRIALS
       && track.reversals.length >= FM_REVERSALS_WIN) {
-    const _resEarly = fmComputeResidual(track);
+    const _resEarly = frq_computeResidual(track);
     if (_resEarly != null && _resEarly > FM_EARLY_UNSTABLE_RESID) {
-      track.match    = fmComputeMatch(track);
+      track.match    = frq_computeMatch(track);
       track.residual = _resEarly;
       track.status   = 'unstable';
       return track.status;
@@ -429,8 +429,8 @@ function _fmCheckAndUpdateStatus(track) {
   if (track.trialCount >= FM_TRIAL_CAP) {
     if (track.reversals.length >= FM_REVERSALS_WIN) {
       // Genug für 6er-Fenster: Standard-Match/Residuum
-      const residual = fmComputeResidual(track);
-      track.match    = fmComputeMatch(track);
+      const residual = frq_computeResidual(track);
+      track.match    = frq_computeMatch(track);
       track.residual = residual;
       track.status   = (residual != null && residual <= FM_RESIDUAL_WIDE)
                        ? 'converged-wide'
@@ -449,7 +449,7 @@ function _fmCheckAndUpdateStatus(track) {
 }
 
 // --- Statistik-Helfer für UI/Storage ---
-function fmTrackSummary(track) {
+function frq_trackSummary(track) {
   return {
     electrodeIdx:  track.electrodeIdx,
     status:        track.status,
@@ -466,7 +466,7 @@ function fmTrackSummary(track) {
 }
 
 // --- Vorläufige Schätzung für laufende Tracks ---
-function fmComputeProvisional(track) {
+function FRQ_computeProvisional(track) {
   const revCount = (track.reversals && track.reversals.length) || 0;
   const trials   = track.trialCount || 0;
   if (track.status !== 'active') {

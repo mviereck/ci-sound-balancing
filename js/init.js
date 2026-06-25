@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.applyLang = function() {
     _origApplyLang();
     updToneHint();
-    if (typeof fmApplyLang === "function") fmApplyLang();
+    if (typeof FRQ_applyLang === "function") FRQ_applyLang();
     // Sub-Tab-Beschriftungen
     const btnL = document.getElementById("tabElektrodenlautstaerkeBtn");
     if (btnL) btnL.textContent = t("tabElektrodenlautstaerke");
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     elektrodenlautstaerkeKurvenChartZeichnen();
     renderResults();
     if (typeof stereobalanceCheckData === "function") stereobalanceCheckData();
-    if (typeof fmApplyLang === "function") fmApplyLang();
+    if (typeof FRQ_applyLang === "function") FRQ_applyLang();
     if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
     plCheck();
   });
@@ -795,14 +795,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof pBuildEQ === "function") pBuildEQ();
       if (typeof pDrawEQ === "function") pDrawEQ();
       if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
-      if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
-      if (typeof fmApplyLang === "function") fmApplyLang();
+      if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
+      if (typeof FRQ_applyLang === "function") FRQ_applyLang();
       if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
       if (typeof stereobalanceRefreshElectrodeSelectionSummary === "function") stereobalanceRefreshElectrodeSelectionSummary();
-      if (typeof fmRefreshElectrodeSelectionSummary === "function") fmRefreshElectrodeSelectionSummary();
+      if (typeof FRQ_refreshElectrodeSelectionSummary === "function") FRQ_refreshElectrodeSelectionSummary();
       if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
       if (typeof stereobalanceRefreshToneTypeLabel === "function") stereobalanceRefreshToneTypeLabel();
-      if (typeof fmRefreshToneTypeLabel === "function") fmRefreshToneTypeLabel();
+      if (typeof FRQ_refreshToneTypeLabel === "function") FRQ_refreshToneTypeLabel();
       if (typeof testRefreshToneTypeLabel === "function") testRefreshToneTypeLabel();
       // BA389: Player-UI zentral spiegeln (ersetzt die ueber den Restore
       // verstreuten Einzel-Updates). Laeuft NACH dem Side-Change-Restore
@@ -824,9 +824,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // const _fmAdaBtn = document.getElementById("fmActiveMethodAdaptiveBtn");
   // const _fmSliBtn = document.getElementById("fmActiveMethodSliderBtn");
   // const _fmPiaBtn = document.getElementById("fmActiveMethodPianoBtn");
-  // if (_fmAdaBtn) _fmAdaBtn.addEventListener("click", function () { fmSetActiveMethod("adaptive"); });
-  // if (_fmSliBtn) _fmSliBtn.addEventListener("click", function () { fmSetActiveMethod("slider"); });
-  // if (_fmPiaBtn) _fmPiaBtn.addEventListener("click", function () { fmSetActiveMethod("piano"); });
+  // if (_fmAdaBtn) _fmAdaBtn.addEventListener("click", function () { FRQ_setActiveMethod("adaptive"); });
+  // if (_fmSliBtn) _fmSliBtn.addEventListener("click", function () { FRQ_setActiveMethod("slider"); });
+  // if (_fmPiaBtn) _fmPiaBtn.addEventListener("click", function () { FRQ_setActiveMethod("piano"); });
 
   // Modus-Toggle relativ/absolut
   document.querySelectorAll('input[name="elektrodenlautstaerkeSchieberMode"]').forEach((r) => {

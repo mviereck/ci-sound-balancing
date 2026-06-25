@@ -179,9 +179,9 @@ function resetAll() {
   if (typeof freqmatchTestSelection !== "undefined") freqmatchTestSelection = null;
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
   // BA 161: FreqMatch-Tab-UI nach Reset auffrischen
-  if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
+  if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
   if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
-  if (typeof fmApplyLang === "function") fmApplyLang();
+  if (typeof FRQ_applyLang === "function") FRQ_applyLang();
   // --- Player-Quellen-Knöpfe ---
   if (typeof plSrcMeas !== "undefined") {
     plSrcMeas = true; plSrcLevels = true; plSrcCurves = true;
@@ -791,14 +791,14 @@ function applyLoadedData(d) {
   buildFreqTable();
   renderResults();
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
-  if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
-  if (typeof fmApplyLang === "function") fmApplyLang();
+  if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
+  if (typeof FRQ_applyLang === "function") FRQ_applyLang();
   if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
   if (typeof stereobalanceRefreshElectrodeSelectionSummary === "function") stereobalanceRefreshElectrodeSelectionSummary();
-  if (typeof fmRefreshElectrodeSelectionSummary === "function") fmRefreshElectrodeSelectionSummary();
+  if (typeof FRQ_refreshElectrodeSelectionSummary === "function") FRQ_refreshElectrodeSelectionSummary();
   if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
   if (typeof stereobalanceRefreshToneTypeLabel === "function") stereobalanceRefreshToneTypeLabel();
-  if (typeof fmRefreshToneTypeLabel === "function") fmRefreshToneTypeLabel();
+  if (typeof FRQ_refreshToneTypeLabel === "function") FRQ_refreshToneTypeLabel();
   if (typeof testRefreshToneTypeLabel === "function") testRefreshToneTypeLabel();
   if (typeof elektrodenlautstaerkeKurvenTabelleBauen === "function") elektrodenlautstaerkeKurvenTabelleBauen();
   if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();

@@ -560,7 +560,7 @@ function openToneSelectionDialog(cfg, onChange) {
   // Korrektor-fn) werden NUR im Reiter Implantat genutzt; dort steuern
   // sie Vorschau, Klavier und Sweep. Die Test-Aufrufer setzen
   // showToggles:false und wenden ihre Elektrodenlautstaerke-Korrektur
-  // selbst an (stereobalanceCorrGain / fmCorrGain) — die fn liegt dort brach.
+  // selbst an (stereobalanceCorrGain / FRQ_correctionGain) — die fn liegt dort brach.
   if (cfg.showToggles !== false) {
     var togRow = document.createElement('div');
     togRow.style.cssText =

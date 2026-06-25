@@ -781,7 +781,7 @@ let toneType_freqmatch = TEST_DEFAULTS.freqmatch.toneType;
 // gelesen/geschrieben.
 let toneType_elektrodenlautstaerke = TEST_DEFAULTS.elektrodenlautstaerke.toneType;
 // BA 240: Vol/Dur/Pau leben jetzt als State-Variablen statt im testUI-Header.
-// Vol als int 0..100 (UI-Wert); fmGVol macht die quadratische Audio-Konversion.
+// Vol als int 0..100 (UI-Wert); FRQ_getVolume macht die quadratische Audio-Konversion.
 let duration_freqmatch = TEST_DEFAULTS.freqmatch.duration;
 let pause_freqmatch    = TEST_DEFAULTS.freqmatch.pause;
 // BA 250: Vol/Dur/Pau fuer Elektrodenlautstaerke. Analog zu freqmatch
@@ -790,7 +790,7 @@ let pause_freqmatch    = TEST_DEFAULTS.freqmatch.pause;
 // BA 287: gemeinsame Lautstaerke fuer alle drei Mess-Tests UND den
 // Implantat-Reiter. Ersetzt die frueheren volume_test/volume_balance/
 // volume_freqmatch/volume_implant. Vol als int 0..100; die Getter
-// (tGVol/stereobalanceGVol/fmGVol/...) machen die quadratische Audio-Konversion.
+// (tGVol/stereobalanceGVol/FRQ_getVolume/...) machen die quadratische Audio-Konversion.
 let volume_global = TEST_DEFAULTS.commonVolume;
 let duration_elektrodenlautstaerke = TEST_DEFAULTS.elektrodenlautstaerke.duration;
 let pause_elektrodenlautstaerke    = TEST_DEFAULTS.elektrodenlautstaerke.pause;

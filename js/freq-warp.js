@@ -135,8 +135,8 @@ let _pWarpFResVersion = 0;
 // BA353: Quelle = zentraler aktives-Verfahren-Filter (results.js).
 // Frueher: FRQ_resultsArray + in-progress + Slider-Schaetzungen ungefiltert vereinigt.
 function _warpFResSource() {
-  return (typeof fmActiveResults === "function")
-    ? fmActiveResults().filter(function (r) { return !(r && r.fmExcluded); })
+  return (typeof FRQ_activeResults === "function")
+    ? FRQ_activeResults().filter(function (r) { return !(r && r.fmExcluded); })
     : [];
 }
 

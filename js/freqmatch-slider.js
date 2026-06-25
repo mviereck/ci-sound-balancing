@@ -25,8 +25,8 @@ function fmUpdateSliderDisplay() {
     }
     return;
   }
-  const varHz = fmVarHz(frq_currentEl);
-  const refHz = fmFreqFromCents(varHz, frq_centOffset);
+  const varHz = frq_varHz(frq_currentEl);
+  const refHz = frq_freqFromCents(varHz, frq_centOffset);
   const hzStr = refHz.toFixed(2);
   if (slRefs && slRefs.slider) {
     testUI.slider.setValueDisplay(
@@ -46,7 +46,7 @@ function fmUpdateSliderDisplay() {
   }
 }
 
-function fmShowElectrode() {
+function frq_showElectrode() {
   if (!FRQ_els || frq_currentEl === null) return;
   const slRefs = FRQ_els.verfahren && FRQ_els.verfahren.slider;
   const pi = _fmSliderPI();
@@ -62,9 +62,9 @@ function fmShowElectrode() {
       });
     }
   } else {
-    const varHz = fmVarHz(frq_currentEl);
+    const varHz = frq_varHz(frq_currentEl);
     const varSideLabel = frq_varSide === "left" ? t("sideLeft") : t("sideRight");
-    const varText = withSide(frq_varSide, () => dENPrefix()) + fmDEN(frq_currentEl) + ", " +
+    const varText = withSide(frq_varSide, () => dENPrefix()) + frq_varSideElectrodeLabel(frq_currentEl) + ", " +
       varHz.toFixed(2) + " Hz (" + varSideLabel + ")";
     if (pi) {
       if (frq_varSide === "left") {
@@ -139,7 +139,7 @@ function _fmApplySelectionToSliderRun() {
   var fa = sideData[frq_varSide].freqmatchAdaptive;
   if (!fa || !fa.sliderPass) return;
   var pass = fa.sliderPass;
-  var freshSeq = frq_symmetric ? fmBuildSeqSymmetric() : fmBuildSeq();
+  var freshSeq = frq_symmetric ? frq_buildSequenceSymmetric() : frq_buildSequence();
   if (!Array.isArray(freshSeq)) freshSeq = [];
 
   // order und remaining auf aktuelle Auswahl (Frequenz-Reihenfolge) aktualisieren.
@@ -162,7 +162,7 @@ function fmStartSlider() {
   if (!FRQ_els) return;
   _fmInitSides();
   if (frq_symmetric) {
-    frq_sequence = fmBuildSeqSymmetric();
+    frq_sequence = frq_buildSequenceSymmetric();
     if (frq_sequence === null) {
       alert((typeof t === 'function' && t('fmSymmetricElMismatch'))
         || 'Symmetrischer Modus: Beide Seiten müssen dieselben aktiven Elektroden haben.');
@@ -177,13 +177,13 @@ function fmStartSlider() {
   } else {
     if ((sideData.left  && sideData.left.config)  === 'ci' &&
         (sideData.right && sideData.right.config) === 'ci' &&
-        fmBuildSeqSymmetric() === null) {
+        frq_buildSequenceSymmetric() === null) {
       alert((typeof t === 'function' && t('fmElMismatch'))
         || 'Frequenzabgleich nicht moeglich: Auf beiden Seiten müssen dieselben Elektroden aktiv sein.');
       FRQ_els._stopTest();
       return;
     }
-    frq_sequence = fmBuildSeq();
+    frq_sequence = frq_buildSequence();
     if (frq_sequence.length === 0) {
       alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
       FRQ_els._stopTest();
@@ -201,7 +201,7 @@ function _fmDoStartSlider() {
   _fmSliderPassEnsure();
   frq_sequenceIdx  = 0;
   FRQ_running = true;
-  fmLoadElectrode();
+  frq_loadElectrode();
   _fmStartTimer();
   _fmStartIdleSideCheck();
 }
@@ -213,9 +213,9 @@ function _fmSliderPassEnsure() {
   if (!fa.sliderEstimates) fa.sliderEstimates = {};
 
   // Feste Reihenfolge = die bestehende Frequenz-Reihenfolge von
-  // fmBuildSeq()/fmBuildSeqSymmetric() (tiefste Frequenz zuerst). KEIN
+  // frq_buildSequence()/frq_buildSequenceSymmetric() (tiefste Frequenz zuerst). KEIN
   // Shuffle, KEIN Umsortieren.
-  const elList = (frq_symmetric ? fmBuildSeqSymmetric() : fmBuildSeq()).slice();
+  const elList = (frq_symmetric ? frq_buildSequenceSymmetric() : frq_buildSequence()).slice();
 
   let pass = fa.sliderPass;
   // Neuer Durchgang, wenn keiner existiert oder die Seiten-Kombination wechselt.
@@ -244,16 +244,16 @@ function _fmSliderPassEnsure() {
   frq_sequenceIdx = 0;
 }
 
-function fmLoadElectrode() {
+function frq_loadElectrode() {
   if (frq_sequenceIdx >= frq_sequence.length) {
     _fmSliderFinish();   // Durchgang fertig (Schritt 4)
     return;
   }
   frq_currentEl = frq_sequence[frq_sequenceIdx];
-  frq_centOffset = fmPrevCent(frq_currentEl);   // Start auf gespeichertem Wert
+  frq_centOffset = frq_prevCent(frq_currentEl);   // Start auf gespeichertem Wert
   frq_firstSide = Math.random() < 0.5 ? "ref" : "var";
-  fmShowElectrode();
-  setTimeout(() => { if (FRQ_running) fmPlayCurrent(); }, 100);
+  frq_showElectrode();
+  setTimeout(() => { if (FRQ_running) frq_playCurrent(); }, 100);
 }
 
 function _fmSliderFinish() {
@@ -272,11 +272,11 @@ function _fmSliderFinish() {
   }
 }
 
-function fmConfirm() {
+function frq_confirm() {
   if (!FRQ_running || frq_currentEl === null) return;
   // BA353: Offset bestaetigt -> Schieber wird aktiv.
-  if (typeof fmSetActiveMethod === "function") fmSetActiveMethod("slider");
-  const varHz = fmVarHz(frq_currentEl);
+  if (typeof FRQ_setActiveMethod === "function") FRQ_setActiveMethod("slider");
+  const varHz = frq_varHz(frq_currentEl);
   const fa = sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive;
   if (!fa) return;
   if (!fa.sliderEstimates) fa.sliderEstimates = {};
@@ -315,7 +315,7 @@ function fmConfirm() {
   }
 
   frq_sequenceIdx++;
-  fmLoadElectrode();
+  frq_loadElectrode();
   if (typeof renderFreqMatchResults === 'function') {
     try { renderFreqMatchResults(); } catch (e) {}
   }
