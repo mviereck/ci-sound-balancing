@@ -455,7 +455,7 @@ function latenzHookOnStart() {
       // Startwert: vorhandenes Ergebnis oder 0
       const startMs = (latenzResult && isFinite(latenzResult.valueMs))
         ? latenzResult.valueMs : 0;
-      const slRef = latenzEls.verfahren.lat.slider;
+      const slRef = latenzEls.verfahren.latenz.slider;
       if (slRef) {
         testUI.slider.setValue(slRef, startMs);
         // setValue setzt nur Range/Wert, nicht die Anzeige -> sonst zeigt
