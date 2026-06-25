@@ -49,7 +49,7 @@ function effFreqDisplay(i, side) {
   const cs = centShift(baseHz, sideKey, points) * str;
   return baseHz * Math.pow(2, cs / 1200);
 }
-let lvFocus = 0;
+let elektrodenlautstaerkeFocus = 0;
 let defaultMfr = "unknown"; // BA 154: Erststart-Default
 let audiologUserNote = ""; // Patient-Notiz für Audiologen-Bericht (top-level, beide Seiten)
 let userFileSuffix = ""; // globaler Dateinamen-Suffix für alle Exporte

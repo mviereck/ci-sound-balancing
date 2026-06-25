@@ -633,70 +633,8 @@ select:disabled {
 .explain-heading:first-of-type {
   margin-top: 6px;
 }
-.lv-grid {
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  gap: 3px 8px;
-  align-items: center;
-  font-size: 0.88em;
-}
-.lv-grid .lv-lbl {
-  font-weight: 600;
-  white-space: nowrap;
-  text-align: right;
-  min-width: 60px;
-  font-size: 0.85em;
-  cursor: pointer;
-}
-.lv-bar-wrap {
-  height: 18px;
-  background: #e5e7eb;
-  border-radius: 3px;
-  position: relative;
-  cursor: pointer;
-  min-width: 100px;
-}
-.lv-bar {
-  height: 100%;
-  border-radius: 3px;
-  position: absolute;
-  top: 0;
-}
-.lv-bar.pos {
-  background: #2563eb;
-  left: 50%;
-}
-.lv-bar.neg {
-  background: #dc2626;
-  right: 50%;
-}
-.lv-grid .lv-val {
-  font-family: var(--mono);
-  font-size: 0.88em;
-  min-width: 55px;
-  text-align: right;
-}
-.lv-row {
-  display: contents;
-  cursor: pointer;
-}
-.lv-row.lv-focus .lv-lbl {
-  color: var(--accent);
-}
-.lv-row.lv-focus .lv-bar-wrap {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
-  border-radius: 3px;
-}
-.lv-num {
-  width: 62px;
-  padding: 2px 4px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  text-align: center;
-  font-family: var(--mono);
-  font-size: 0.86em;
-}
+/* BA 393.16: verwaiste .lv-*-CSS-Familie (Grid-Balkenlayout, durch Canvas
+   ersetzt) gelöscht — 0 Setzer/Leser in JS/HTML (Sweep B4, §3.5). */
 .kurven-tbl {
   width: 100%;
   border-collapse: collapse;

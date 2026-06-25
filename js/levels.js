@@ -415,9 +415,9 @@ function elektrodenlautstaerkeKurvenChartZeichnen() {
     ctx.fillText(lbl, tX(j), yE);
     ctx.font = "7px Consolas,monospace";
     ctx.fillStyle = "#999";
-    const lvF = axis.hzArr[j];
+    const elsF = axis.hzArr[j];
     ctx.fillText(
-      lvF >= 1000 ? (lvF / 1000).toFixed(1) + "k" : Math.round(lvF),
+      elsF >= 1000 ? (elsF / 1000).toFixed(1) + "k" : Math.round(elsF),
       tX(j),
       yHz,
     );

@@ -706,15 +706,15 @@ function measGain(side, hz) {
       var lo = Math.min(lgA, lgB);
       var hi = Math.max(lgA, lgB);
       if (lg >= lo && lg <= hi) {
-        var lvA = levels[i];
-        var lvB = levels[i + 1];
-        if (!isFinite(lvA) && !isFinite(lvB)) return 1;
-        if (!isFinite(lvA)) return dB2G(lvB);
-        if (!isFinite(lvB)) return dB2G(lvA);
+        var elsA = levels[i];
+        var elsB = levels[i + 1];
+        if (!isFinite(elsA) && !isFinite(elsB)) return 1;
+        if (!isFinite(elsA)) return dB2G(elsB);
+        if (!isFinite(elsB)) return dB2G(elsA);
         var tNum = lg - lgA;
         var tDen = lgB - lgA;
         var tt = (tDen === 0) ? 0 : (tNum / tDen);
-        var lv = lvA + (lvB - lvA) * tt;
+        var lv = elsA + (elsB - elsA) * tt;
         return dB2G(lv);
       }
     }

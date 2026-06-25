@@ -676,10 +676,10 @@ function _lrHasLvData(side) {
 
 // Sichtbarkeit der dynamischen Vortest-Hinweise oben in der Erklaer-Box.
 function _lrRenderPrereqHints() {
-  const lvLeftEl  = document.getElementById('stereobalancePrereqLvLeftPara');
-  const lvRightEl = document.getElementById('stereobalancePrereqLvRightPara');
-  if (lvLeftEl)  lvLeftEl.style.display  = _lrHasLvData('left')  ? 'none' : '';
-  if (lvRightEl) lvRightEl.style.display = _lrHasLvData('right') ? 'none' : '';
+  const elsLeftEl  = document.getElementById('stereobalancePrereqLvLeftPara');
+  const elsRightEl = document.getElementById('stereobalancePrereqLvRightPara');
+  if (elsLeftEl)  elsLeftEl.style.display  = _lrHasLvData('left')  ? 'none' : '';
+  if (elsRightEl) elsRightEl.style.display = _lrHasLvData('right') ? 'none' : '';
 }
 
 function stereobalanceCheckData() {

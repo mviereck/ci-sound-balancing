@@ -1401,11 +1401,11 @@ function _fmHasLvData(side) {
 }
 
 function _fmRenderPrereqHints() {
-  const lvLeftEl  = document.getElementById('fmPrereqLvLeftPara');
-  const lvRightEl = document.getElementById('fmPrereqLvRightPara');
+  const elsLeftEl  = document.getElementById('fmPrereqLvLeftPara');
+  const elsRightEl = document.getElementById('fmPrereqLvRightPara');
   const sbEl      = document.getElementById('fmPrereqSbHintPara');
-  if (lvLeftEl)  lvLeftEl.style.display  = _fmHasLvData('left')  ? 'none' : '';
-  if (lvRightEl) lvRightEl.style.display = _fmHasLvData('right') ? 'none' : '';
+  if (elsLeftEl)  elsLeftEl.style.display  = _fmHasLvData('left')  ? 'none' : '';
+  if (elsRightEl) elsRightEl.style.display = _fmHasLvData('right') ? 'none' : '';
   if (sbEl) {
     const hasSb = typeof stereobalanceResults !== 'undefined'
                && stereobalanceResults

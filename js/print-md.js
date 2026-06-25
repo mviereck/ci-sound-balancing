@@ -146,7 +146,7 @@ function _collectSideData(side) {
   return withSide(side, () => {
     const sd = sideData[side];
     const impl = (sd && sd.implant) || {};
-    const unit = (typeof lvUnitLabelFor === "function") ? lvUnitLabelFor(mfr) : "";
+    const unit = (typeof elektrodenlautstaerkeUnitLabelFor === "function") ? elektrodenlautstaerkeUnitLabelFor(mfr) : "";
 
     // Implantat-Elektroden-Tabelle
     const electrodes = [];
@@ -538,10 +538,10 @@ function _archivMdMeas(sd) {
   const refTxt = (sd.meas.refEl != null)
     ? `${(sd.implant.electrodes[sd.meas.refEl] || {}).label || ""}`
     : "—";
-  out.push(`### ${t("archivSecMeas")} (${t("archivMeasRef")}: ${refTxt})`);
+  out.push(`### ${t("archivSecMeas")} (${t("archivElektrodenlautstaerkeRef")}: ${refTxt})`);
   out.push("");
   if (sd.meas.sweep) {
-    out.push(`_${t("archivMeasSweepNote")
+    out.push(`_${t("archivElektrodenlautstaerkeSweepNote")
       .replace("{round}", sd.meas.sweep.round)
       .replace("{done}",  sd.meas.sweep.doneCount)
       .replace("{total}", sd.meas.sweep.totalPairs)}_`);
@@ -626,22 +626,22 @@ function _archivMdBilateral(data) {
   if (bil.stereobalance.has) {
     out.push(`### ${t("balTitle")}`);
     out.push("");
-    out.push(`| ${t("thEl")} | ${t("archivBalOffset")} |`);
+    out.push(`| ${t("thEl")} | ${t("archivStereobalanceOffset")} |`);
     out.push("|---|---|");
     for (const r of bil.stereobalance.rows) {
       out.push(`| E${r.elIdx + 1} | ${_mdFmtDb(r.value, true)} |`);
     }
     out.push("");
-    out.push(`**${t("archivBalMean")}**: ${_mdFmtDb(bil.stereobalance.mean, true)}`);
+    out.push(`**${t("archivStereobalanceMean")}**: ${_mdFmtDb(bil.stereobalance.mean, true)}`);
     out.push("");
   }
   if (bil.latenz.has) {
     const v = bil.latenz.value;
     const sideTxt = v.ms >= 0 ? t("sideRight") : t("sideLeft");
     out.push(`### ${t("latenzResTitle") || "Inter-Ohr-Latenz"}`);
-    out.push(`- ${t("archivLatValue")}: ${Math.abs(v.ms).toFixed(2)} ms (${sideTxt})`);
-    if (v.clickType)  out.push(`- ${t("archivLatClick")}: ${v.clickType}`);
-    if (v.intervalMs) out.push(`- ${t("archivLatInterval")}: ${v.intervalMs} ms`);
+    out.push(`- ${t("archivLatenzValue")}: ${Math.abs(v.ms).toFixed(2)} ms (${sideTxt})`);
+    if (v.clickType)  out.push(`- ${t("archivLatenzClick")}: ${v.clickType}`);
+    if (v.intervalMs) out.push(`- ${t("archivLatenzInterval")}: ${v.intervalMs} ms`);
     out.push("");
   }
   return out.join("\n");
@@ -774,7 +774,7 @@ function _audiologAbsDelta(side, i, dB) {
     const impl = sideData[side].implant || {};
     const mcl = impl.mcl && impl.mcl[i];
     const thr = impl.thr && impl.thr[i];
-    const unit = lvUnitLabelFor(mfr);
+    const unit = elektrodenlautstaerkeUnitLabelFor(mfr);
     let res = null;
     if (mfr === "medel" && mcl != null) {
       res = calcMedel(dB, mcl);
@@ -866,7 +866,7 @@ function _audiologLoudnessTable(side) {
   return withSide(side, () => {
     const dBs = _audiologDbForSide(side);
     const resArr = _audiologResForSide(side);
-    const unit = lvUnitLabelFor(mfr);
+    const unit = elektrodenlautstaerkeUnitLabelFor(mfr);
     const lines = [];
     lines.push(`| ${t("thEl")} | ${t("audColDb")} | ${t("audColRes")} | ${t("audColMcl")} (${unit}) | ${t("audColMclDelta")} (${unit}) | ${t("audColMclNew")} (${unit}) | ${t("audColStatus")} | ${t("archivImplExcl")} | ${t("audColNote")} | ${t("thRefEl")} |`);
     lines.push("|---|---|---|---|---|---|---|---|---|---|");

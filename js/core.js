@@ -135,15 +135,15 @@ function calcAB(dB, mOld, tOld, idr) {
 }
 
 // Y-Achsen-Maxima für Absolutmodus-Skala im Levels-Tab.
-const LV_AXIS_MAX = {
+const ELEKTRODENLAUTSTAERKE_AXIS_MAX = {
   medel: 300,
   cochlear: 255,
   ab: 600,
 };
-function lvAxisMaxFor(mfrId) {
-  return LV_AXIS_MAX[mfrId] || 300;
+function elektrodenlautstaerkeAxisMaxFor(mfrId) {
+  return ELEKTRODENLAUTSTAERKE_AXIS_MAX[mfrId] || 300;
 }
-function lvUnitLabelFor(mfrId) {
+function elektrodenlautstaerkeUnitLabelFor(mfrId) {
   if (mfrId === "medel") return "qu";
   if (mfrId === "cochlear") return "CL";
   if (mfrId === "ab") return "CU";

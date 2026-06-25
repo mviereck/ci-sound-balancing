@@ -167,8 +167,8 @@ function _schieberDrawAbsolute(ctx, W, H) {
   const isMedel = mfr === "medel";
   const isCoch = mfr === "cochlear";
   const isAB = mfr === "ab";
-  const yMax = lvAxisMaxFor(mfr);
-  const unitLbl = lvUnitLabelFor(mfr);
+  const yMax = elektrodenlautstaerkeAxisMaxFor(mfr);
+  const unitLbl = elektrodenlautstaerkeUnitLabelFor(mfr);
 
   const measArr = elTestData().correction;
   const preArr = elektrodenlautstaerkeKurvenSumme();
@@ -552,10 +552,10 @@ function elektrodenlautstaerkeSchieberStepAbsolute(i, dir, shift) {
   else if (isAB) curAbs = calcAB(curDb, mclAudi, im.thr?.[i], im.idr).absolute;
   if (curAbs == null) return;
 
-  // Schieberwert in Hersteller-Einheit auf [0, lvAxisMaxFor(mfr)] klammern.
+  // Schieberwert in Hersteller-Einheit auf [0, elektrodenlautstaerkeAxisMaxFor(mfr)] klammern.
   // Konvertierungen mit 0 sind für MED-EL (log) und AB (Span 0) undefiniert,
   // deshalb auf eine harte Mindestgrenze leicht über 0 setzen.
-  const yMax = lvAxisMaxFor(mfr);
+  const yMax = elektrodenlautstaerkeAxisMaxFor(mfr);
   const absMin = isMedel ? 1 : isAB ? 0 : 0;
   let nextAbs = curAbs + dir * step;
   nextAbs = Math.max(absMin, Math.min(yMax, nextAbs));
