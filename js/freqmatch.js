@@ -190,7 +190,7 @@ function _fmRefreshCochlearFatHintVisibility() {
       const dateStr = d.getUTCFullYear() + '-'
         + String(d.getUTCMonth() + 1).padStart(2, '0') + '-'
         + String(d.getUTCDate()).padStart(2, '0');
-      const txt = (typeof t === 'function') ? t('fmCochlearFatCorrectionInfo')
+      const txt = (typeof t === 'function') ? t('FRQ_cochlearFatCorrectionInfo')
         : 'Cochlear-FAT wurde korrigiert.';
       el.textContent = txt.replace('{date}', dateStr);
     }
@@ -631,7 +631,7 @@ function FRQ_refreshResumeHint() {
   const fa = (sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive) || null;
 
   if (!fa || !Array.isArray(fa.runs) || fa.runs.length === 0) {
-    startBtn.textContent = (typeof t === 'function' && t('fmLblStart')) || 'Test starten';
+    startBtn.textContent = (typeof t === 'function' && t('FRQ_lblStart')) || 'Test starten';
     return;
   }
 
@@ -641,9 +641,9 @@ function FRQ_refreshResumeHint() {
   });
 
   if (hasActive) {
-    startBtn.textContent = (typeof t === 'function' && t('fmLblResume')) || 'Test fortsetzen';
+    startBtn.textContent = (typeof t === 'function' && t('FRQ_lblResume')) || 'Test fortsetzen';
   } else {
-    startBtn.textContent = (typeof t === 'function' && t('fmLblNewRun')) || 'Weiteren Lauf starten';
+    startBtn.textContent = (typeof t === 'function' && t('FRQ_lblNewRun')) || 'Weiteren Lauf starten';
   }
 }
 
@@ -756,18 +756,18 @@ function frq_startPiano() {
   if (frq_symmetric) {
     frq_sequence = frq_buildSequenceSymmetric();
     if (frq_sequence === null) {
-      alert((typeof t === 'function' && t('fmSymmetricElMismatch'))
+      alert((typeof t === 'function' && t('FRQ_symmetricElMismatch'))
         || 'Symmetrischer Modus: Beide Seiten muessen dieselben aktiven Elektroden haben.');
       FRQ_els._stopTest(); return;
     }
     if (!frq_sequence.length) {
-      alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden.');
+      alert((typeof t === 'function' && t('FRQ_noActiveEl')) || 'Keine aktiven Elektroden.');
       FRQ_els._stopTest(); return;
     }
   } else {
     frq_sequence = frq_buildSequence();
     if (!frq_sequence.length) {
-      alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
+      alert((typeof t === 'function' && t('FRQ_noActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
       FRQ_els._stopTest(); return;
     }
   }
@@ -1163,7 +1163,7 @@ function _fmMigrateAltToPiano() {
 
   if (todo.length === 0) return;
 
-  if (!confirm(t("fmMigratePianoConfirm")
+  if (!confirm(t("FRQ_migratePianoConfirm")
       || "Vorhandene Messwerte ins Klavier-Verfahren uebernehmen?")) {
     return;
   }
@@ -1216,14 +1216,14 @@ function _fmMigrateAltToPiano() {
 function _fmPianoUpdateBoxes(border) {
   var pi = _fmPianoPI();
   var elLabel = withSide(frq_varSide, function() { return dENPrefix() + dEN(frq_currentEl); });
-  var roleUp  = (border === 'lower') ? t('fmPianoBoxLower') : t('fmPianoBoxHigher');
+  var roleUp  = (border === 'lower') ? t('FRQ_pianoBoxLower') : t('FRQ_pianoBoxHigher');
   if (pi) {
     pi.left.textContent  = elLabel + ' — ' + roleUp;
-    pi.right.textContent = t('fmPianoRefBox');
+    pi.right.textContent = t('FRQ_pianoRefBox');
   }
   var instr = FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.piano && FRQ_els.verfahren.piano.instruction;
   if (instr) {
-    instr.innerHTML = t('fmPianoInstruction').replace('{role}', roleUp.toLowerCase());
+    instr.innerHTML = t('FRQ_pianoInstruction').replace('{role}', roleUp.toLowerCase());
   }
 }
 
@@ -1256,7 +1256,7 @@ function _fmPianoUpdateProgress() {
   var total = FM_PIANO_STEPS.length * run.electrodeList.length * 2;
   var done  = _fmPianoCountConfirmed();
   var frac  = total > 0 ? done / total : 0;
-  var txt = t('fmPianoProgress')
+  var txt = t('FRQ_pianoProgress')
     .replace('{n}', n).replace('{m}', m)
     .replace('{r}', run.currentRound).replace('{y}', FM_PIANO_STEPS.length);
   testUI.progress.set(els, { fraction: frac, text: txt });
@@ -1274,18 +1274,18 @@ function _fmPianoShowRoundModal(round, total, curStep, nextStep, onNext, onFinis
     + 'min-width:300px;max-width:90vw;box-shadow:0 10px 30px rgba(0,0,0,.3);';
   var h = document.createElement('h3');
   h.style.cssText = 'margin:0 0 8px;font-size:1.05em;';
-  h.textContent = t('fmPianoRoundDoneTitle').replace('{x}', round).replace('{y}', total);
+  h.textContent = t('FRQ_pianoRoundDoneTitle').replace('{x}', round).replace('{y}', total);
   var p = document.createElement('p');
   p.style.cssText = 'margin:0 0 16px;line-height:1.5;';
-  p.textContent = t('fmPianoRoundDoneMsg').replace('{n}', curStep).replace('{m}', nextStep);
+  p.textContent = t('FRQ_pianoRoundDoneMsg').replace('{n}', curStep).replace('{m}', nextStep);
   var row = document.createElement('div');
   row.style.cssText = 'display:flex;gap:8px;justify-content:flex-end;';
   var bFin = document.createElement('button');
   bFin.className = 'btn btn-sm';
-  bFin.textContent = t('fmPianoRoundFinish');
+  bFin.textContent = t('FRQ_pianoRoundFinish');
   var bNext = document.createElement('button');
   bNext.className = 'btn btn-sm btn-primary';
-  bNext.textContent = t('fmPianoRoundNext');
+  bNext.textContent = t('FRQ_pianoRoundNext');
   function close() { if (overlay.parentNode) overlay.parentNode.removeChild(overlay); }
   bFin.addEventListener('click', function() { close(); onFinish(); });
   bNext.addEventListener('click', function() { close(); onNext(); });
@@ -1595,44 +1595,44 @@ document.addEventListener("DOMContentLoaded", () => {
   const fmCfg = {
     id: 'freqmatch',
     explain: {
-      titleKey: 'fmTitle',
+      titleKey: 'FRQ_title',
       // BA 220: preserveOrder, damit Gruppen-Headings, Methodentext und
       // zugehoerige Warnung visuell zusammenstehen statt durch die
       // Schwere-Sortierung gemischt zu werden.
       preserveOrder: true,
       paragraphs: [
-        { key: 'fmMaturityHint',         kind: 'caution' },
+        { key: 'FRQ_maturityHint',         kind: 'caution' },
 
         // Warn-Absaetze, deren Sichtbarkeit dynamisch umgeschaltet wird
         // (Initial hidden=true; testUI.explain.setVisible blendet bei Bedarf ein).
-        { key: 'fmHGWarn',               kind: 'warn',    id: 'fmHGWarnPara',
+        { key: 'FRQ_highGainWarn',               kind: 'warn',    id: 'fmHGWarnPara',
                                          hidden: true },
-        { key: 'fmCochlearFatCorrectionInfo', kind: 'warn', id: 'fmCochlearFatHintPara',
+        { key: 'FRQ_cochlearFatCorrectionInfo', kind: 'warn', id: 'fmCochlearFatHintPara',
                                          hidden: true },
 
         // Voraussetzungen — bleiben bedingt sichtbar (durch _fmRenderPrereqHints).
-        { key: 'fmPrereqLvLeft',         kind: 'warn',    id: 'fmPrereqLvLeftPara'    },
-        { key: 'fmPrereqLvRight',        kind: 'warn',    id: 'fmPrereqLvRightPara'   },
-        { key: 'fmPrereqSb',             kind: 'warn',    id: 'fmPrereqSbHintPara'    },
+        { key: 'FRQ_prereqLvLeft',         kind: 'warn',    id: 'fmPrereqLvLeftPara'    },
+        { key: 'FRQ_prereqLvRight',        kind: 'warn',    id: 'fmPrereqLvRightPara'   },
+        { key: 'FRQ_prereqSb',             kind: 'warn',    id: 'fmPrereqSbHintPara'    },
 
         // Gruppe 1: beidseitiges CI.
-        { key: 'fmGroupBothCi',          kind: 'heading' },
-        { key: 'fmHintMethodBothCI',     kind: 'plain' },
-        { key: 'fmHintWarnBothCI',       kind: 'caution' },
+        { key: 'FRQ_groupBothCi',          kind: 'heading' },
+        { key: 'FRQ_hintMethodBothCI',     kind: 'plain' },
+        { key: 'FRQ_hintWarnBothCI',       kind: 'caution' },
 
         // Gruppe 2: CI + akustische Gegenseite.
-        { key: 'fmGroupCiAcoustic',      kind: 'heading' },
-        { key: 'fmHintMethodCiNatural',  kind: 'plain' },
-        { key: 'fmHintWarn',             kind: 'caution' },
+        { key: 'FRQ_groupCiAcoustic',      kind: 'heading' },
+        { key: 'FRQ_hintMethodCiNatural',  kind: 'plain' },
+        { key: 'FRQ_hintWarn',             kind: 'caution' },
 
         // BA364: Vor-Schaetzung/Adaptiv-Workflow im Klavier-only-Betrieb aus.
-        { key: 'fmHintWorkflow',         kind: 'plain', id: 'fmHintWorkflowPara',
+        { key: 'FRQ_hintWorkflow',         kind: 'plain', id: 'fmHintWorkflowPara',
                                          hidden: true }
       ]
     },
     header: {
       common: {
-        refSelect:    { type: 'side', key: 'fmLblRef', includeSymmetric: true },
+        refSelect:    { type: 'side', key: 'FRQ_lblRef', includeSymmetric: true },
         // BA 240: Vol/Dur/Pau leben jetzt im Tonauswahl-Modal, nicht mehr im Header.
         volume:       false,
         duration:     false,
@@ -1820,19 +1820,19 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
       },
-      startStop: { startKey: 'fmLblStart', stopKey: 'btnPauseTest', resumable: true }
+      startStop: { startKey: 'FRQ_lblStart', stopKey: 'btnPauseTest', resumable: true }
     },
     verfahren: [
       {
         id: 'piano',
-        labelKey:   'fmModePiano',
-        explainKey: 'fmExplainPiano',
+        labelKey:   'FRQ_modePiano',
+        explainKey: 'FRQ_explainPiano',
         body: {
           progress:      { format: 'simple' },
-          pairIndicator: { variant: 'token', leftKey: 'fmTone1', rightKey: 'fmTone2' },
-          instruction:   { key: 'fmPianoInstruction' },
+          pairIndicator: { variant: 'token', leftKey: 'FRQ_tone1', rightKey: 'FRQ_tone2' },
+          instruction:   { key: 'FRQ_pianoInstruction' },
           piano:         {},
-          confirmButton: { key: 'fmPianoConfirm' },
+          confirmButton: { key: 'FRQ_pianoConfirmMsg' },
           actions:       ['undo', 'replay', 'simul']
         },
         hooks: {
@@ -1853,17 +1853,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       , {
         id: 'adaptive',
-        labelKey:   'fmModeAdaptive',
-        explainKey: 'fmExplainAdaptive',
+        labelKey:   'FRQ_modeAdaptive',
+        explainKey: 'FRQ_explainAdaptive',
         body: {
-          pairIndicator:   { variant: 'token', leftKey: 'fmTone1', rightKey: 'fmTone2' },
+          pairIndicator:   { variant: 'token', leftKey: 'FRQ_tone1', rightKey: 'FRQ_tone2' },
           progress:        { format: 'simple' },
           instruction:     { key: 'hjPrompt' },
           decisionButtons: { variant: 'updown' },
           statusGrid:      { show: true },
           actions:         ['undo','replay','simul'],
           background: {
-            bodyKey:    'fmExplainAdaptiveScience',
+            bodyKey:    'FRQ_explainAdaptiveScience',
             bodyAsHtml: true
           },
           debugRun: { key: 'btnDebugRun' }
@@ -1874,20 +1874,20 @@ document.addEventListener("DOMContentLoaded", () => {
         prerequisites: [
           {
             checkFn:    function() { return !_fmShouldOfferSliderEstimate(); },
-            titleKey:   'fmSliderEstimateTitle',
-            messageKey: 'fmSliderEstimateMsg',
+            titleKey:   'FRQ_sliderEstimateTitle',
+            messageKey: 'FRQ_sliderEstimateMsg',
             actions: [
               {
-                labelKey: 'fmSliderEstimateBtnSlider',
+                labelKey: 'FRQ_sliderEstimateBtnSlider',
                 kind:     'custom',
                 run:      function() { frq_setVerfahren('slider'); }
               },
               {
-                labelKey: 'fmSliderEstimateBtnSkip',
+                labelKey: 'FRQ_sliderEstimateBtnSkip',
                 kind:     'continue'
               },
               {
-                labelKey: 'fmSliderEstimateBtnCancel',
+                labelKey: 'FRQ_sliderEstimateBtnCancel',
                 kind:     'abort'
               }
             ]
@@ -1905,19 +1905,19 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         id: 'slider',
-        labelKey:   'fmModeSlider',
-        explainKey: 'fmExplainSlider',
+        labelKey:   'FRQ_modeSlider',
+        explainKey: 'FRQ_explainSlider',
         body: {
-          pairIndicator: { variant: 'token', leftKey: 'fmTone1', rightKey: 'fmTone2' },
+          pairIndicator: { variant: 'token', leftKey: 'FRQ_tone1', rightKey: 'FRQ_tone2' },
           progress:      { format: 'simple' },
-          instruction:   { key: 'fmSliderInstruction' },
+          instruction:   { key: 'FRQ_sliderInstruction' },
           keyHint:       { unitKey: 'sliderHintCent' },
           slider:        { unit: 'cent', initialRange: 100, maxRange: 1200, touchStep: 5, touchFineStep: 1, rangeHint: true },
           sliderValue:   { show: true },
           confirmButton: { key: 'btnConfirmOffset' },
           actions:       ['undo', 'replay', 'simul', 'pause'],
           background: {
-            bodyKey:    'fmExplainSliderScience',
+            bodyKey:    'FRQ_explainSliderScience',
             bodyAsHtml: true
           }
         },

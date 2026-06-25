@@ -10,7 +10,7 @@ function frq_updateSliderDisplay() {
   if (!FRQ_els || frq_currentEl === null) return;
   const slRefs = FRQ_els.verfahren && FRQ_els.verfahren.slider;
   const centStr = (frq_centOffset >= 0 ? "+" : "") + Math.round(frq_centOffset);
-  const centUnit = (typeof t === 'function' && t("fmCentUnit")) || "Cent";
+  const centUnit = (typeof t === 'function' && t("FRQ_centUnit")) || "Cent";
   if (frq_symmetric) {
     const leftBase  = withSide('left',  function() { return effFreq(frq_currentEl); });
     const rightBase = withSide('right', function() { return effFreq(frq_currentEl); });
@@ -164,13 +164,13 @@ function frq_startSlider() {
   if (frq_symmetric) {
     frq_sequence = frq_buildSequenceSymmetric();
     if (frq_sequence === null) {
-      alert((typeof t === 'function' && t('fmSymmetricElMismatch'))
+      alert((typeof t === 'function' && t('FRQ_symmetricElMismatch'))
         || 'Symmetrischer Modus: Beide Seiten müssen dieselben aktiven Elektroden haben.');
       FRQ_els._stopTest();
       return;
     }
     if (frq_sequence.length === 0) {
-      alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden.');
+      alert((typeof t === 'function' && t('FRQ_noActiveEl')) || 'Keine aktiven Elektroden.');
       FRQ_els._stopTest();
       return;
     }
@@ -178,14 +178,14 @@ function frq_startSlider() {
     if ((sideData.left  && sideData.left.config)  === 'ci' &&
         (sideData.right && sideData.right.config) === 'ci' &&
         frq_buildSequenceSymmetric() === null) {
-      alert((typeof t === 'function' && t('fmElMismatch'))
+      alert((typeof t === 'function' && t('FRQ_elMismatch'))
         || 'Frequenzabgleich nicht moeglich: Auf beiden Seiten müssen dieselben Elektroden aktiv sein.');
       FRQ_els._stopTest();
       return;
     }
     frq_sequence = frq_buildSequence();
     if (frq_sequence.length === 0) {
-      alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
+      alert((typeof t === 'function' && t('FRQ_noActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
       FRQ_els._stopTest();
       return;
     }
@@ -267,7 +267,7 @@ function _fmSliderFinish() {
     testUI.completion.show({
       nameKey:   'compNameFmSlider',
       subtabKey: 'subTabFreqMatch',
-      bodyKey:   'fmDoneExtra'
+      bodyKey:   'FRQ_doneExtra'
     });
   }
 }
@@ -340,7 +340,7 @@ function frq_updateSliderProgress() {
   const done  = pass ? (total - (pass.remaining ? pass.remaining.length : 0)) : frq_sequenceIdx;
   const cur   = Math.min(done + 1, total);
   const frac  = total > 0 ? Math.min(cur / total, 1) : 0;
-  const lbl = (typeof t === 'function' && t('fmSliderProgress')) || 'Elektrode %C von %T';
+  const lbl = (typeof t === 'function' && t('FRQ_sliderProgress')) || 'Elektrode %C von %T';
   const txt = lbl.replace('%C', cur).replace('%T', total);
   testUI.progress.set(_sprog, { fraction: frac, text: txt });
 }

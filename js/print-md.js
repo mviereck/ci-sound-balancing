@@ -512,7 +512,7 @@ function _archivMdTestSettings(data) {
 
   _renderRow("testVerfahrenFull",  ts.elektrodenlautstaerke);
   _renderRow("stereobalanceTitle",            ts.stereobalance);
-  _renderRow("fmTitle",            ts.freqmatch);
+  _renderRow("FRQ_title",            ts.freqmatch);
 
   return lines.join("\n") + "\n";
 }
@@ -602,8 +602,8 @@ function _archivMdKurven(sd) {
 }
 
 function _archivMdFreqmatch(sd) {
-  const out = [`### ${t("fmResultsTitle")}`, ""];
-  out.push(`| ${t("fmResColEl")} | ${t("fmResColVarFreq")} | ${t("fmResColRefFreq")} | ${t("fmResColCent")} |`);
+  const out = [`### ${t("FRQ_measureTitle")}`, ""];
+  out.push(`| ${t("FRQ_resColEl")} | ${t("FRQ_resColVarFreq")} | ${t("FRQ_resColRefFreq")} | ${t("FRQ_resColCent")} |`);
   out.push("|---|---|---|---|");
   let hasProv = false;
   for (const r of sd.freqmatch.rows) {
@@ -1845,7 +1845,7 @@ function _archivChartFreqmatch(sideBlock) {
   for (const r of rows) maxAbsCent = Math.max(maxAbsCent, Math.abs(r.cent));
   maxAbsCent = Math.ceil(maxAbsCent / 50) * 50;
   const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbsCent + " ¢", {
-    title: `${t("fmResultsTitle")} — ${sideBlock.label}`,
+    title: `${t("FRQ_measureTitle")} — ${sideBlock.label}`,
   });
   const freqs = rows.map((r) => r.varFreq);
   const fMin = Math.min(...freqs, 100), fMax = Math.max(...freqs, 8000);
@@ -1985,7 +1985,7 @@ function renderArchivPrintHtml(data) {
     }
     if (sd.freqmatch.has) {
       inserts.push({
-        anchorH3: `${t("fmResultsTitle")}`,
+        anchorH3: `${t("FRQ_measureTitle")}`,
         sideOnlyUnder: sd.label,
         img: _archivChartFreqmatch(sd),
       });

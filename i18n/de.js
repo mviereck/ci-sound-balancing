@@ -639,84 +639,84 @@ Object.assign(L.de, {
     implGenA: "Generation A (0,176 dB/CL)",
     implGenB: "Generation B (0,157 dB/CL)",
     implGenUnknown: "—",
-    fmElMismatch:          "Frequenzabgleich nicht möglich: Auf beiden Seiten müssen dieselben Elektroden aktiv sein. Bitte prüfen Sie, ob auf beiden Seiten dieselben Elektroden deaktiviert sind.",
-    fmSymmetricOption:     "Symmetrisch (bilateral CI)",
-    fmSymmetricElMismatch: "Symmetrischer Modus nicht möglich: Beide Seiten müssen dieselben aktiven Elektroden haben. Bitte prüfen Sie, ob auf beiden Seiten dieselben Elektroden deaktiviert sind.",
-    fmHGWarn:              "Eine Seite ist als Hörgerät konfiguriert. Die Tonhöhenwahrnehmung über ein Hörgerät kann durch Kompressor, Frequenzformung und Verstärkungseinstellung vom akustischen Original abweichen. Frequenzabgleich-Ergebnisse mit Hörgerät sind daher weniger verlässlich als mit normalem Restgehör. Alternativ testen Sie ohne Hörgerät, falls Ihr Resthörvermögen dafür ausreicht.",
+    FRQ_elMismatch:          "Frequenzabgleich nicht möglich: Auf beiden Seiten müssen dieselben Elektroden aktiv sein. Bitte prüfen Sie, ob auf beiden Seiten dieselben Elektroden deaktiviert sind.",
+    FRQ_symmetricOption:     "Symmetrisch (bilateral CI)",
+    FRQ_symmetricElMismatch: "Symmetrischer Modus nicht möglich: Beide Seiten müssen dieselben aktiven Elektroden haben. Bitte prüfen Sie, ob auf beiden Seiten dieselben Elektroden deaktiviert sind.",
+    FRQ_highGainWarn:              "Eine Seite ist als Hörgerät konfiguriert. Die Tonhöhenwahrnehmung über ein Hörgerät kann durch Kompressor, Frequenzformung und Verstärkungseinstellung vom akustischen Original abweichen. Frequenzabgleich-Ergebnisse mit Hörgerät sind daher weniger verlässlich als mit normalem Restgehör. Alternativ testen Sie ohne Hörgerät, falls Ihr Resthörvermögen dafür ausreicht.",
     stereobalanceBlockedSideUnknown:   "Bitte Hörtechnik (und ggf. Hersteller) für beide Seiten wählen, bevor der Stereo-Balance-Test gestartet wird.",
     cfgHintBothAcoustic:
       "<b>Tool nicht für rein akustische Versorgung vorgesehen.</b> Dieses Sound Balancing Tool richtet sich an Cochlea-Implantat-Träger und benötigt mindestens eine CI-Seite. Wenn Sie beide Seiten akustisch versorgt haben, sind Messung, Schieber und Player hier nicht anwendbar. (Eine spätere Programmversion könnte Messungen für beidseitig akustische Versorgung unterstützen.)",
-    fmCochlearFatCorrectionInfo: "Die Cochlear-Default-FAT wurde am {date} auf die offiziellen Werte (CI Select / Custom Sound Pro Standard, HFE 7938 Hz) korrigiert. Cochlear-Frequenztests von vor diesem Datum beziehen sich auf eine abweichende Default-Annahme — für eine aktuelle Korrekturkurve bitte den Test wiederholen.",
-    fmTitle: "Frequenzabgleich Links/Rechts",
-    fmMaturityHint:
+    FRQ_cochlearFatCorrectionInfo: "Die Cochlear-Default-FAT wurde am {date} auf die offiziellen Werte (CI Select / Custom Sound Pro Standard, HFE 7938 Hz) korrigiert. Cochlear-Frequenztests von vor diesem Datum beziehen sich auf eine abweichende Default-Annahme — für eine aktuelle Korrekturkurve bitte den Test wiederholen.",
+    FRQ_title: "Frequenzabgleich Links/Rechts",
+    FRQ_maturityHint:
       "Der aktuell implementierte Klaviertest sollte gut funktionieren und zuverlässige Ergebnisse liefern. Er ist jedoch erst wenig in der Praxis erprobt." +
       "<ul>" +
       "<li>Für Träger von 2 CI sollte er bereits gut funktionieren.</li>" +
       "<li>Für Träger mit nur 1 CI ist insbesondere die sehr unterschiedliche Wahrnehmung von Tönen problematisch, die Vergleichbarkeit schwierig macht und die Meßergebnisse verfälschen kann.</li>" +
       "</ul>",
-    fmHintWarn:
+    FRQ_hintWarn:
       "Achten Sie darauf, die richtige Referenzseite auszuwählen: die mit natürlichem Gehör.",
-    fmHintWarnBothCI:
+    FRQ_hintWarnBothCI:
       "Achten Sie darauf, als Referenzseite 'symmetrisch' auszuwählen. Dabei werden die Frequenzen in beiden CI beim Test gleichermaßen verändert, um das ungewollte Ansprechen von Nachbarelektroden zu minimieren.",
-    fmGroupBothCi:     "Bei beidseitigem CI",
-    fmGroupCiAcoustic: "Bei CI mit akustisch hörender Gegenseite",
-    fmHintMethod:
+    FRQ_groupBothCi:     "Bei beidseitigem CI",
+    FRQ_groupCiAcoustic: "Bei CI mit akustisch hörender Gegenseite",
+    FRQ_hintMethod:
       "Dieser Test vergleicht die Tonhöhen links und rechts.<br>" +
       "• Wenn Sie ein Ohr mit natürlichem Hören haben, ob normal- oder schwerhörig, stellen Sie es als Referenzohr ein.<br>" +
       "&nbsp;&nbsp;- Ziel des Testes ist es, die tatsächlich stimulierte Frequenz der CI-Elektroden festzustellen.<br>" +
       "&nbsp;&nbsp;- Auf Basis des Testergebnisses können die Mittenfrequenzen der Elektroden im CI neu eingestellt werden, so daß die Tonhöhen natürlichem Hören entsprechen.<br>" +
       "• Wenn Sie 2 CI tragen, können Sie mit diesem Test Frequenzabweichungen feststellen und beim Audiologen korrigieren lassen.",
-    fmHintMethodCiNatural:
+    FRQ_hintMethodCiNatural:
       "Dieser Test vergleicht die Tonhöhen links und rechts.<br>" +
       "• Ziel des Testes ist es, die tatsächlich stimulierte Frequenz der CI-Elektroden festzustellen.<br>" +
       "• Stellen Sie das Ohr, auf dem Sie natürlich hören, als Referenzohr ein. Das gilt für schwerhörig ebenso wie für normalhörend.<br>" +
       "• Auf Basis des Testergebnisses können die Mittenfrequenzen der Elektroden im CI neu eingestellt werden, so daß die Tonhöhen natürlichem Hören entsprechen.",
-    fmHintMethodBothCI:
+    FRQ_hintMethodBothCI:
       "Dieser Test vergleicht die Tonhöhen links und rechts.<br>" +
       "• Ziel des Testes ist es, die Tonhöhen beider CI einander anzugleichen, so daß sie auf beiden Seiten die gleiche Frequenz auch gleich hören.<br>" +
       "• Auf Basis des Testergebnisses können die Mittenfrequenzen der Elektroden im CI neu eingestellt werden.<br>" +
       "• Einschränkung des Testverfahrens: Je weiter die Testtöne von den eingestellten Mittenfrequenzen der CI entfernt sind, um so stärker werden Nachbarelektroden mit angesprochen, die das Meßergebnis verfälschen. Konsequenz: Bei großen Abweichungen kann es sein, daß Sie nach der Anpassung an die Meßergebnisse durch den Audiologen den Test erneut durchführen müssen, um sich den korrekten Werten weiter anzunähern.",
-    fmLblRef: "Referenzseite",
-    fmLblStart: "Start Frequenzabgleich",
-    fmCentUnit: "Cent",
-    fmResultsTitle: "Frequenzabgleich-Ergebnisse",
-    fmResColEl: "Elektrode",
-    fmResColVarFreq: "CI-Freq.",
-    fmResColRefFreq: "Ref.-Freq.",
-    fmResColCent: "Abweichung",
-    fmModeAdaptive:    "Adaptiv (2I-2AFC)",
-    fmModeSlider:      "Nachjustierung (Slider)",
-    fmModePiano:        "Klavier (seitliche Annäherung)",
-    fmExplainPiano:     "Selbstgesteuerter Frequenzabgleich über eine Klaviertastatur: Du näherst dich der passenden Tonhöhe von beiden Seiten an. (Der vollständige Runden-Ablauf folgt in den nächsten Bauschritten.)",
-    fmPianoInstruction:    "Finde die Klaviertaste, die gerade noch <b>eindeutig {role}</b> klingt als der Vergleichston, und bestätige sie.",
-    fmPianoBoxLower:       "TIEFER",
-    fmPianoBoxHigher:      "HÖHER",
-    fmPianoRefBox:         "Vergleichston",
-    fmPianoConfirm:        "Grenze bestätigen",
-    fmPianoRoundDoneTitle: "Runde {x} von {y} fertig",
-    fmPianoRoundDoneMsg:   "Schrittweite {n} ct abgeschlossen. Weiter mit feinerer Schrittweite {m} ct?",
-    fmPianoRoundNext:      "Weiter",
-    fmPianoRoundFinish:    "Beenden",
-    fmPianoProgress:       "Elektrode {n} von {m} · Runde {r} von {y}",
-    fmSliderTargetDisabledHint: "Sliderwirkung wird in eigener Erweiterung aktiviert.",
-    fmSliderEstimateTitle:     "Erst Vor-Schätzung machen?",
-    fmSliderEstimateMsg:       "Sie können den Frequenzabgleich beschleunigen, indem Sie zuerst pro Elektrode eine ungefähre Schieber-Einstellung treffen. Der adaptive Test startet dann nahe an Ihrer Schätzung statt aus ±100 Cent. Empfohlen vor allem, wenn Sie größere Frequenzabweichungen vermuten.",
-    fmSliderEstimateBtnSlider: "Erst Slider-Schätzung",
-    fmSliderEstimateBtnSkip:   "Direkt adaptiv starten",
-    fmSliderEstimateBtnCancel: "Abbrechen",
-    fmLblResume:       "Test fortsetzen",
-    fmLblNewRun:       'Weiteren Lauf starten',
-    fmAntiOverwriteMsg: 'Eine vorherige Messung ist bereits gespeichert (bisher {N} Lauf/Läufe). Ein weiterer Lauf wird zum Datensatz hinzugefügt und in die kombinierte Auswertung einbezogen. Die bisherigen Werte bleiben erhalten. Wenn Sie ganz neu beginnen wollen, drücken Sie „Messungen löschen".',
-    fmAgeWarnMsg:      'Ihre letzte Messung ist {D} Tage alt. Pitch-Wahrnehmung kann sich durch Plastizität verschoben haben.',
-    fmTone1:           "Ton 1",
-    fmTone2:           "Ton 2",
-    fmGridEl:          "Elektrode",
-    fmGridStatus:      "Status",
-    fmGridMatch:       "Match",
-    fmGridResid:       "Konvergenzweite (ct)",
-    fmGridTrials:      "Vergleiche",
-    fmGridCatch:       "Catch",
-    fmExplainAdaptiveScience:
+    FRQ_lblRef: "Referenzseite",
+    FRQ_lblStart: "Start Frequenzabgleich",
+    FRQ_centUnit: "Cent",
+    FRQ_measureTitle: "Frequenzabgleich-Ergebnisse",
+    FRQ_resColEl: "Elektrode",
+    FRQ_resColVarFreq: "CI-Freq.",
+    FRQ_resColRefFreq: "Ref.-Freq.",
+    FRQ_resColCent: "Abweichung",
+    FRQ_modeAdaptive:    "Adaptiv (2I-2AFC)",
+    FRQ_modeSlider:      "Nachjustierung (Slider)",
+    FRQ_modePiano:        "Klavier (seitliche Annäherung)",
+    FRQ_explainPiano:     "Selbstgesteuerter Frequenzabgleich über eine Klaviertastatur: Du näherst dich der passenden Tonhöhe von beiden Seiten an. (Der vollständige Runden-Ablauf folgt in den nächsten Bauschritten.)",
+    FRQ_pianoInstruction:    "Finde die Klaviertaste, die gerade noch <b>eindeutig {role}</b> klingt als der Vergleichston, und bestätige sie.",
+    FRQ_pianoBoxLower:       "TIEFER",
+    FRQ_pianoBoxHigher:      "HÖHER",
+    FRQ_pianoRefBox:         "Vergleichston",
+    FRQ_pianoConfirmMsg:        "Grenze bestätigen",
+    FRQ_pianoRoundDoneTitle: "Runde {x} von {y} fertig",
+    FRQ_pianoRoundDoneMsg:   "Schrittweite {n} ct abgeschlossen. Weiter mit feinerer Schrittweite {m} ct?",
+    FRQ_pianoRoundNext:      "Weiter",
+    FRQ_pianoRoundFinish:    "Beenden",
+    FRQ_pianoProgress:       "Elektrode {n} von {m} · Runde {r} von {y}",
+    FRQ_sliderTargetDisabledHint: "Sliderwirkung wird in eigener Erweiterung aktiviert.",
+    FRQ_sliderEstimateTitle:     "Erst Vor-Schätzung machen?",
+    FRQ_sliderEstimateMsg:       "Sie können den Frequenzabgleich beschleunigen, indem Sie zuerst pro Elektrode eine ungefähre Schieber-Einstellung treffen. Der adaptive Test startet dann nahe an Ihrer Schätzung statt aus ±100 Cent. Empfohlen vor allem, wenn Sie größere Frequenzabweichungen vermuten.",
+    FRQ_sliderEstimateBtnSlider: "Erst Slider-Schätzung",
+    FRQ_sliderEstimateBtnSkip:   "Direkt adaptiv starten",
+    FRQ_sliderEstimateBtnCancel: "Abbrechen",
+    FRQ_lblResume:       "Test fortsetzen",
+    FRQ_lblNewRun:       'Weiteren Lauf starten',
+    FRQ_antiOverwriteMsg: 'Eine vorherige Messung ist bereits gespeichert (bisher {N} Lauf/Läufe). Ein weiterer Lauf wird zum Datensatz hinzugefügt und in die kombinierte Auswertung einbezogen. Die bisherigen Werte bleiben erhalten. Wenn Sie ganz neu beginnen wollen, drücken Sie „Messungen löschen".',
+    FRQ_ageWarnMsg:      'Ihre letzte Messung ist {D} Tage alt. Pitch-Wahrnehmung kann sich durch Plastizität verschoben haben.',
+    FRQ_tone1:           "Ton 1",
+    FRQ_tone2:           "Ton 2",
+    FRQ_gridEl:          "Elektrode",
+    FRQ_gridStatus:      "Status",
+    FRQ_gridMatch:       "Match",
+    FRQ_gridResidual:       "Konvergenzweite (ct)",
+    FRQ_gridTrials:      "Vergleiche",
+    FRQ_gridCatch:       "Catch",
+    FRQ_explainAdaptiveScience:
       "<p><strong>Verwendete Methode.</strong> Sequentielle 2-Intervall-2-Alternative-Forced-Choice-Aufgabe (2I-2AFC) mit adaptiver 1-down-1-up-Regel nach Levitt (1971). Die Referenz-Frequenz wird nach jeder Antwort in Antwort-Richtung verschoben; die Schrittweite halbiert sich nach jeder Umkehrung der Bewegungsrichtung (50 → 25 → 12 → 6 → 3 cent). Das Verfahren konvergiert direkt auf den Punkt subjektiver Pitch-Gleichheit (PSE, 50 %-Punkt).</p>"
       + "<p><strong>Bekannte Bias-Quellen und Gegenmaßnahmen.</strong></p>"
       + "<ul>"
@@ -788,7 +788,7 @@ Object.assign(L.de, {
     FRQ_resultsClearAdaptiveConfirm: "Nur die Adaptiv-Ergebnisse löschen? Die Slider-Vor-Schätzungen bleiben erhalten.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Klavier-Ergebnisse löschen",
     FRQ_resultsClearPianoConfirm:   "Klavier-Ergebnisse löschen? Andere Verfahren bleiben erhalten.",
-    fmMigratePianoConfirm:  "In dieser Datei sind Messwerte aus anderen Verfahren (Adaptiv oder Nachjustierung) gespeichert. Sollen sie als Startwerte ins Klavier-Verfahren übernommen werden?",
+    FRQ_migratePianoConfirm:  "In dieser Datei sind Messwerte aus anderen Verfahren (Adaptiv oder Nachjustierung) gespeichert. Sollen sie als Startwerte ins Klavier-Verfahren übernommen werden?",
     FRQ_resultsChartHintPiano:      "Ist-Strich = programmierte Elektroden-Frequenz, Soll-Punkt = wahrgenommene Übereinstimmung. Oranges Band = Restunsicherheit (Breite = ±Residuum in Cent).",
     FRQ_resultsQualityPiano:           "Klaviertest: Runde {round} von {total} abgeschlossen (Annäherung ±{step} Cent).",
     cfgLabel: "Hörsituation",
@@ -896,7 +896,7 @@ Object.assign(L.de, {
     compSubLoudness:    "Elektrodenlautstärke",
     rrDoneExtra:        "Sie können die Meßergebnisse mit dem zweiten Testverfahren „Konvergenz“ weiter verfeinern. Sie können im Player die Wirkung der Korrektur anhören.",
     stereobalanceDoneExtra:        "Sie können Stereo-Balance im Player aktivieren.",
-    fmDoneExtra:        "Sie können Frequenz-Warping im Player aktivieren, um den Effekt einer angepaßten Frequenzverschiebung zu hören.",
+    FRQ_doneExtra:        "Sie können Frequenz-Warping im Player aktivieren, um den Effekt einer angepaßten Frequenzverschiebung zu hören.",
     // BA 279: Freesound-Quelle im Links-Reiter.
     linksFreesoundDesc:     "Freesound möchte eine riesige gemeinschaftliche Datenbank von Audio-Schnipseln, Samples, Aufnahmen, Bleeps, … aufbauen, die unter Creative-Commons-Lizenzen veröffentlicht sind und deren Wiederverwendung erlauben.",
     linksFreesoundUsedLabel: "In diesem Tool verwendet",
@@ -905,10 +905,10 @@ Object.assign(L.de, {
     stereobalancePrereqHint: "Führen Sie zuerst die Messung Elektrodenlautstärke für beide Seiten aus.",
     stereobalanceNoElMsg: "Keine gemeinsamen aktiven Elektroden gefunden.",
     latenzPrereqHint: "Führen Sie zuerst die Messungen Elektrodenlautstärke und Stereo-Balance für beide Seiten aus.",
-    fmPrereqLvLeft:  "Führen Sie zuerst die Messung Elektrodenlautstärke für die linke Seite aus.",
-    fmPrereqLvRight: "Führen Sie zuerst die Messung Elektrodenlautstärke für die rechte Seite aus.",
-    fmPrereqSb:      "Führen Sie zuerst die Messung Stereo-Balance aus.",
-    fmHintWorkflow:
+    FRQ_prereqLvLeft:  "Führen Sie zuerst die Messung Elektrodenlautstärke für die linke Seite aus.",
+    FRQ_prereqLvRight: "Führen Sie zuerst die Messung Elektrodenlautstärke für die rechte Seite aus.",
+    FRQ_prereqSb:      "Führen Sie zuerst die Messung Stereo-Balance aus.",
+    FRQ_hintWorkflow:
       "<strong>Empfohlenes Vorgehen:</strong><br>" +
       "• Zuerst Testverfahren 'Vor-Schätzung (Slider)' ausführen.<br>" +
       "&nbsp;&nbsp;&nbsp;&nbsp;– Dieser Test ist tendenziell ungenau, gibt aber einen ersten Eindruck und erste Ergebnisse.<br>" +
@@ -937,19 +937,19 @@ Object.assign(L.de, {
     testRunningTitleWord_test:    "Test",
     testRunningTitleWord_running: "läuft",
     btnDebugRun: "DEBUG: Testlauf",
-    fmExplainAdaptive: "Das adaptive Verfahren fragt höher/tiefer Vergleiche ab. Die Testreihe kann sehr lang dauern. Planen Sie genug Zeit und ein paar kleine Pausen ein. Die Testzeit kann verkürzt werden, wenn Sie vorher die Vor-Schätzung (Slider) ausführen.",
-    fmExplainSlider:   "Die Nachjustierung dient dazu, ein bereits gemessenes Ergebnis (aus dem adaptiven oder dem Klavier-Verfahren) von Hand etwas nachzubessern. Sie gehen die Elektroden der Reihe nach durch und stellen für jede mit dem Schieber den Wert ein, bei dem beide Töne gleich hoch klingen. Pro Elektrode wird genau ein Wert gespeichert; ein erneutes Bestätigen überschreibt ihn.",
-    fmSliderInstruction: "Stellen Sie den Schieber so ein, dass sich beide Töne gleich hoch anhören, dann bestätigen. Der Schieber startet auf dem zuletzt gespeicherten Wert dieser Elektrode.",
-    fmExplainSliderScience: "Die Nachjustierung ist kein eigenständiges Mess-Verfahren, sondern eine Feinkorrektur von Hand. Das Dreieck über dem Schieber zeigt das gespeicherte Ergebnis dieser Elektrode. Liegt aus einem anderen Verfahren ein Unsicherheitsbereich vor, erscheint er als farbiger Balken unter dem Schieber.",
-    fmSliderRoundProgress:   "Runde %R · Elektrode %C von %T",
-    fmSliderProgress:        "Elektrode %C von %T",
-    fmSliderRoundColEl:      "Elektrode",
-    fmSliderRoundColStartHz: "Startfreq (Hz)",
-    fmSliderRoundColCount:   "Anzahl Werte",
-    fmSliderRoundColRange:   "Bereich (Cent)",
-    fmSliderRoundColAgg:     "Aktuelle Schätzung",
-    fmSliderRoundColAggHz:   "Schätzung (Hz)",
-    fmSliderRoundColStatus:  "Status",
+    FRQ_explainAdaptive: "Das adaptive Verfahren fragt höher/tiefer Vergleiche ab. Die Testreihe kann sehr lang dauern. Planen Sie genug Zeit und ein paar kleine Pausen ein. Die Testzeit kann verkürzt werden, wenn Sie vorher die Vor-Schätzung (Slider) ausführen.",
+    FRQ_explainSlider:   "Die Nachjustierung dient dazu, ein bereits gemessenes Ergebnis (aus dem adaptiven oder dem Klavier-Verfahren) von Hand etwas nachzubessern. Sie gehen die Elektroden der Reihe nach durch und stellen für jede mit dem Schieber den Wert ein, bei dem beide Töne gleich hoch klingen. Pro Elektrode wird genau ein Wert gespeichert; ein erneutes Bestätigen überschreibt ihn.",
+    FRQ_sliderInstruction: "Stellen Sie den Schieber so ein, dass sich beide Töne gleich hoch anhören, dann bestätigen. Der Schieber startet auf dem zuletzt gespeicherten Wert dieser Elektrode.",
+    FRQ_explainSliderScience: "Die Nachjustierung ist kein eigenständiges Mess-Verfahren, sondern eine Feinkorrektur von Hand. Das Dreieck über dem Schieber zeigt das gespeicherte Ergebnis dieser Elektrode. Liegt aus einem anderen Verfahren ein Unsicherheitsbereich vor, erscheint er als farbiger Balken unter dem Schieber.",
+    FRQ_sliderRoundProgress:   "Runde %R · Elektrode %C von %T",
+    FRQ_sliderProgress:        "Elektrode %C von %T",
+    FRQ_sliderRoundColEl:      "Elektrode",
+    FRQ_sliderRoundColStartHz: "Startfreq (Hz)",
+    FRQ_sliderRoundColCount:   "Anzahl Werte",
+    FRQ_sliderRoundColRange:   "Bereich (Cent)",
+    FRQ_sliderRoundColAggregate:     "Aktuelle Schätzung",
+    FRQ_sliderRoundColAggregateHz:   "Schätzung (Hz)",
+    FRQ_sliderRoundColStatus:  "Status",
     btnPauseTest:            "■ Test pausieren",
     cumulativeDb: "Gesamt",
     testTabLockedHint: "Während eines laufenden Tests kann dieser Tab nicht verlassen werden. Sie können den Test jederzeit unterbrechen und später weitermachen.",

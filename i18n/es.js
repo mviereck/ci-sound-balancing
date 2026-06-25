@@ -589,73 +589,73 @@ Object.assign(L.es, {
     implGenA: "Generación A (0,176 dB/CL)",
     implGenB: "Generación B (0,157 dB/CL)",
     implGenUnknown: "—",
-    fmElMismatch:          "Ajuste de frecuencia no posible: en ambos lados deben estar activos los mismos electrodos. Compruebe si en ambos lados están desactivados los mismos electrodos.",
-    fmSymmetricOption:     "Simétrico (IC bilateral)",
-    fmSymmetricElMismatch: "Modo simétrico no posible: ambos lados deben tener los mismos electrodos activos. Compruebe si en ambos lados están desactivados los mismos electrodos.",
-    fmHGWarn:              "Un lado está configurado como audífono. La percepción tonal a través de un audífono puede desviarse del original acústico por compresor, conformación de frecuencia y ajuste de amplificación. Los resultados del ajuste de frecuencia con audífono son por tanto menos fiables que con audición residual normal. Alternativamente, pruebe sin audífono si su audición residual lo permite.",
+    FRQ_elMismatch:          "Ajuste de frecuencia no posible: en ambos lados deben estar activos los mismos electrodos. Compruebe si en ambos lados están desactivados los mismos electrodos.",
+    FRQ_symmetricOption:     "Simétrico (IC bilateral)",
+    FRQ_symmetricElMismatch: "Modo simétrico no posible: ambos lados deben tener los mismos electrodos activos. Compruebe si en ambos lados están desactivados los mismos electrodos.",
+    FRQ_highGainWarn:              "Un lado está configurado como audífono. La percepción tonal a través de un audífono puede desviarse del original acústico por compresor, conformación de frecuencia y ajuste de amplificación. Los resultados del ajuste de frecuencia con audífono son por tanto menos fiables que con audición residual normal. Alternativamente, pruebe sin audífono si su audición residual lo permite.",
     testBlockedSideUnknown: "Por favor, seleccione la tecnología auditiva y el fabricante para este lado antes de iniciar la prueba.",
     stereobalanceBlockedSideUnknown:   "Por favor, seleccione la tecnología auditiva (y, en su caso, el fabricante) para ambos lados antes de iniciar la prueba de balance estéreo.",
     cfgHintBothAcoustic:
       "<b>Herramienta no prevista para provisión puramente acústica.</b> Este Sound Balancing Tool está dirigido a portadores de implante coclear y necesita al menos un lado con IC. Si tiene ambos lados con provisión acústica, las funciones de medición, deslizadores y reproductor no son aplicables aquí. (Una versión futura del programa podría admitir mediciones para provisión acústica bilateral.)",
-    fmCochlearFatCorrectionInfo: "La FAT por defecto de Cochlear se corrigió el {date} a los valores oficiales (CI Select / Custom Sound Pro estándar, HFE 7938 Hz). Las pruebas de frecuencia de Cochlear anteriores a esa fecha se refieren a una suposición por defecto distinta — para una curva de corrección actualizada, repita la prueba.",
-    fmTitle: "Ajuste de frecuencia Izquierda/Derecha",
-    fmMaturityHint:
+    FRQ_cochlearFatCorrectionInfo: "La FAT por defecto de Cochlear se corrigió el {date} a los valores oficiales (CI Select / Custom Sound Pro estándar, HFE 7938 Hz). Las pruebas de frecuencia de Cochlear anteriores a esa fecha se refieren a una suposición por defecto distinta — para una curva de corrección actualizada, repita la prueba.",
+    FRQ_title: "Ajuste de frecuencia Izquierda/Derecha",
+    FRQ_maturityHint:
       "La prueba de piano actualmente implementada debería funcionar bien y ofrecer resultados fiables. No obstante, todavía se ha probado poco en la práctica." +
       "<ul>" +
       "<li>Para portadores de dos IC ya debería funcionar bien.</li>" +
       "<li>Para portadores de un solo IC resulta especialmente problemática la percepción muy distinta de los tonos, lo que dificulta la comparabilidad y puede falsear los resultados de medición.</li>" +
       "</ul>",
-    fmHintWarn:
+    FRQ_hintWarn:
       "Asegúrese de elegir el lado de referencia correcto: el de audición natural.",
-    fmHintWarnBothCI:
+    FRQ_hintWarnBothCI:
       "Asegúrese de seleccionar como lado de referencia «simétrico». Así las frecuencias se modifican por igual en ambos IC durante la prueba, para minimizar la activación no deseada de electrodos vecinos.",
-    fmGroupBothCi:     "IC bilateral",
-    fmGroupCiAcoustic: "IC con audición acústica contralateral",
-    fmHintMethod:
+    FRQ_groupBothCi:     "IC bilateral",
+    FRQ_groupCiAcoustic: "IC con audición acústica contralateral",
+    FRQ_hintMethod:
       "Esta prueba compara las alturas tonales de izquierda y derecha.<br>" +
       "• Si tiene un oído con audición natural, sea normal o hipoacúsica, establézcalo como oído de referencia.<br>" +
       "&nbsp;&nbsp;- El objetivo de la prueba es determinar la frecuencia realmente estimulada de los electrodos del IC.<br>" +
       "&nbsp;&nbsp;- A partir del resultado de la prueba se pueden reajustar las frecuencias centrales de los electrodos en el IC, de modo que las alturas tonales correspondan a la audición natural.<br>" +
       "• Si lleva 2 IC, con esta prueba puede detectar desviaciones de frecuencia y hacer que el audiólogo las corrija.",
-    fmHintMethodCiNatural:
+    FRQ_hintMethodCiNatural:
       "Esta prueba compara las alturas tonales de izquierda y derecha.<br>" +
       "• El objetivo de la prueba es determinar la frecuencia realmente estimulada de los electrodos del IC.<br>" +
       "• Establezca como oído de referencia el oído en el que oye de forma natural. Esto vale tanto para hipoacusia como para audición normal.<br>" +
       "• A partir del resultado de la prueba se pueden reajustar las frecuencias centrales de los electrodos en el IC, de modo que las alturas tonales correspondan a la audición natural.",
-    fmHintMethodBothCI:
+    FRQ_hintMethodBothCI:
       "Esta prueba compara las alturas tonales de izquierda y derecha.<br>" +
       "• El objetivo de la prueba es equiparar las alturas tonales de ambos IC, de modo que en ambos lados oiga igual la misma frecuencia.<br>" +
       "• A partir del resultado de la prueba se pueden reajustar las frecuencias centrales de los electrodos en el IC.<br>" +
       "• Limitación del procedimiento: cuanto más se alejen los tonos de prueba de las frecuencias centrales programadas del IC, más se activarán también los electrodos vecinos, lo que falsea el resultado de la medición. Consecuencia: con grandes desviaciones, puede que tras el ajuste del audiólogo basado en los resultados deba repetir la prueba para aproximarse más a los valores correctos.",
-    fmLblRef: "Lado de referencia",
-    fmLblStart: "Iniciar ajuste de frecuencia",
-    fmCentUnit: "Cent",
-    fmResultsTitle: "Resultados del ajuste de frecuencia",
-    fmResColEl: "Electrodo",
-    fmResColVarFreq: "Frec. IC",
-    fmResColRefFreq: "Frec. ref.",
-    fmResColCent: "Desviación",
-    fmModeAdaptive:    "Adaptativo (2I-2AFC)",
-    fmModeSlider:      "Reajuste (deslizador)",
-    fmSliderTargetDisabledHint: "El efecto del deslizador se activa en una extensión propia.",
-    fmSliderEstimateTitle:     "¿Hacer primero una pre-estimación?",
-    fmSliderEstimateMsg:       "Puede acelerar el ajuste de frecuencia haciendo primero un ajuste aproximado con el deslizador por electrodo. La prueba adaptativa partirá entonces cerca de su estimación en lugar de hacerlo desde ±100 cent. Recomendado especialmente si sospecha desviaciones de frecuencia grandes.",
-    fmSliderEstimateBtnSlider: "Primero estimación con deslizador",
-    fmSliderEstimateBtnSkip:   "Iniciar adaptativo directamente",
-    fmSliderEstimateBtnCancel: "Cancelar",
-    fmLblResume:       "Continuar prueba",
-    fmLblNewRun:       "Iniciar otra pasada",
-    fmAntiOverwriteMsg: "Ya hay una medición previa guardada (hasta ahora {N} pasada(s)). Otra pasada se añadirá al conjunto de datos y se incluirá en la evaluación combinada. Los valores previos se conservan. Si desea empezar completamente de nuevo, pulse «Borrar mediciones».",
-    fmAgeWarnMsg:      "Su última medición tiene {D} días. La percepción del pitch puede haberse desplazado por plasticidad.",
-    fmTone1:           "Tono 1",
-    fmTone2:           "Tono 2",
-    fmGridEl:          "Electrodo",
-    fmGridStatus:      "Estado",
-    fmGridMatch:       "Coincidencia",
-    fmGridResid:       "Anchura de convergencia (ct)",
-    fmGridTrials:      "Comparaciones",
-    fmGridCatch:       "Catch",
-    fmExplainAdaptiveScience:
+    FRQ_lblRef: "Lado de referencia",
+    FRQ_lblStart: "Iniciar ajuste de frecuencia",
+    FRQ_centUnit: "Cent",
+    FRQ_measureTitle: "Resultados del ajuste de frecuencia",
+    FRQ_resColEl: "Electrodo",
+    FRQ_resColVarFreq: "Frec. IC",
+    FRQ_resColRefFreq: "Frec. ref.",
+    FRQ_resColCent: "Desviación",
+    FRQ_modeAdaptive:    "Adaptativo (2I-2AFC)",
+    FRQ_modeSlider:      "Reajuste (deslizador)",
+    FRQ_sliderTargetDisabledHint: "El efecto del deslizador se activa en una extensión propia.",
+    FRQ_sliderEstimateTitle:     "¿Hacer primero una pre-estimación?",
+    FRQ_sliderEstimateMsg:       "Puede acelerar el ajuste de frecuencia haciendo primero un ajuste aproximado con el deslizador por electrodo. La prueba adaptativa partirá entonces cerca de su estimación en lugar de hacerlo desde ±100 cent. Recomendado especialmente si sospecha desviaciones de frecuencia grandes.",
+    FRQ_sliderEstimateBtnSlider: "Primero estimación con deslizador",
+    FRQ_sliderEstimateBtnSkip:   "Iniciar adaptativo directamente",
+    FRQ_sliderEstimateBtnCancel: "Cancelar",
+    FRQ_lblResume:       "Continuar prueba",
+    FRQ_lblNewRun:       "Iniciar otra pasada",
+    FRQ_antiOverwriteMsg: "Ya hay una medición previa guardada (hasta ahora {N} pasada(s)). Otra pasada se añadirá al conjunto de datos y se incluirá en la evaluación combinada. Los valores previos se conservan. Si desea empezar completamente de nuevo, pulse «Borrar mediciones».",
+    FRQ_ageWarnMsg:      "Su última medición tiene {D} días. La percepción del pitch puede haberse desplazado por plasticidad.",
+    FRQ_tone1:           "Tono 1",
+    FRQ_tone2:           "Tono 2",
+    FRQ_gridEl:          "Electrodo",
+    FRQ_gridStatus:      "Estado",
+    FRQ_gridMatch:       "Coincidencia",
+    FRQ_gridResidual:       "Anchura de convergencia (ct)",
+    FRQ_gridTrials:      "Comparaciones",
+    FRQ_gridCatch:       "Catch",
+    FRQ_explainAdaptiveScience:
       "<p><strong>Método utilizado.</strong> Tarea de elección forzada secuencial de 2 intervalos y 2 alternativas (2I-2AFC) con regla adaptativa 1-down-1-up según Levitt (1971). La frecuencia de referencia se desplaza tras cada respuesta en la dirección de la respuesta; el tamaño de paso se reduce a la mitad tras cada inversión del sentido del movimiento (50 → 25 → 12 → 6 → 3 cent). El procedimiento converge directamente al punto de igualdad subjetiva de pitch (PSE, punto del 50 %).</p>"
       + "<p><strong>Fuentes de sesgo conocidas y contramedidas.</strong></p>"
       + "<ul>"
@@ -724,7 +724,7 @@ Object.assign(L.es, {
     FRQ_resultsClearAdaptiveConfirm: "¿Borrar solo los resultados adaptativos? Las pre-estimaciones del deslizador se conservan.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Eliminar resultados del piano",
     FRQ_resultsClearPianoConfirm:   "¿Eliminar los resultados del piano? Se conservan los demás métodos.",
-    fmMigratePianoConfirm:  "Este archivo contiene mediciones de otros métodos (adaptativo o reajuste). ¿Transferirlas como valores iniciales al método del piano?",
+    FRQ_migratePianoConfirm:  "Este archivo contiene mediciones de otros métodos (adaptativo o reajuste). ¿Transferirlas como valores iniciales al método del piano?",
     FRQ_resultsChartHintPiano:      "Línea = frecuencia de electrodo programada, punto objetivo = coincidencia percibida. Banda naranja = incertidumbre residual (ancho = ±residuo en centésimas).",
     FRQ_resultsQualityPiano:           "Prueba de piano: ronda {round} de {total} completada (aproximación ±{step} centésimas).",
     cfgLabel: "Situación auditiva",
@@ -829,7 +829,7 @@ Object.assign(L.es, {
     compSubLoudness:    "Volumen de electrodos",
     rrDoneExtra:        "Puede refinar más los resultados de medición con el segundo procedimiento de prueba «Convergencia». Puede escuchar el efecto de la corrección en el reproductor.",
     stereobalanceDoneExtra:        "Puede activar el balance estéreo en el reproductor.",
-    fmDoneExtra:        "Puede activar el warping de frecuencia en el reproductor para oír el efecto de un desplazamiento de frecuencia ajustado.",
+    FRQ_doneExtra:        "Puede activar el warping de frecuencia en el reproductor para oír el efecto de un desplazamiento de frecuencia ajustado.",
     linksFreesoundDesc:     "Freesound pretende crear una enorme base de datos colaborativa de fragmentos de audio, muestras, grabaciones, pitidos, … publicados bajo licencias Creative Commons que permiten su reutilización.",
     linksFreesoundUsedLabel: "Usado en esta herramienta",
     stereobalanceRunningTitle: "Prueba de balance estéreo en curso",
@@ -837,10 +837,10 @@ Object.assign(L.es, {
     stereobalancePrereqHint: "Realice primero la medición de volumen de electrodos para ambos lados.",
     stereobalanceNoElMsg: "No se encontraron electrodos activos comunes.",
     latenzPrereqHint: "Realice primero las mediciones de volumen de electrodos y balance estéreo para ambos lados.",
-    fmPrereqLvLeft:  "Realice primero la medición de volumen de electrodos para el lado izquierdo.",
-    fmPrereqLvRight: "Realice primero la medición de volumen de electrodos para el lado derecho.",
-    fmPrereqSb:      "Realice primero la medición de balance estéreo.",
-    fmHintWorkflow:
+    FRQ_prereqLvLeft:  "Realice primero la medición de volumen de electrodos para el lado izquierdo.",
+    FRQ_prereqLvRight: "Realice primero la medición de volumen de electrodos para el lado derecho.",
+    FRQ_prereqSb:      "Realice primero la medición de balance estéreo.",
+    FRQ_hintWorkflow:
       "<strong>Procedimiento recomendado:</strong><br>" +
       "• Primero realice el procedimiento «Pre-estimación (deslizador)».<br>" +
       "&nbsp;&nbsp;&nbsp;&nbsp;– Esta prueba tiende a ser imprecisa, pero da una primera impresión y primeros resultados.<br>" +
@@ -869,19 +869,19 @@ Object.assign(L.es, {
     testRunningTitleWord_test:    "Prueba",
     testRunningTitleWord_running: "en curso",
     btnDebugRun: "DEBUG: pasada de prueba",
-    fmExplainAdaptive: "El procedimiento adaptativo realiza comparaciones más agudo/más grave. La serie de pruebas puede durar mucho. Reserve suficiente tiempo y algunas pequeñas pausas. El tiempo de prueba puede acortarse si antes ejecuta la pre-estimación (deslizador).",
-    fmExplainSlider:   "El reajuste sirve para afinar manualmente un resultado ya medido (con el método adaptativo o el método del piano). Recorre los electrodos uno por uno y, para cada uno, ajusta con el deslizador el valor en el que ambos tonos suenan igual de altos. Se guarda exactamente un valor por electrodo; confirmar de nuevo lo sobrescribe.",
-    fmSliderInstruction: "Ajuste el deslizador hasta que ambos tonos suenen igual de altos, luego confirme. El deslizador comienza en el último valor guardado para este electrodo.",
-    fmExplainSliderScience: "El reajuste no es una medición autónoma, sino una corrección manual. El triángulo sobre el deslizador muestra el resultado guardado para este electrodo. Si hay un rango de incertidumbre de otro método disponible, aparece como una barra de color bajo el deslizador.",
-    fmSliderRoundProgress:   "Ronda %R · Electrodo %C de %T",
-    fmSliderProgress:        "Electrodo %C de %T",
-    fmSliderRoundColEl:      "Electrodo",
-    fmSliderRoundColStartHz: "Frec. inicial (Hz)",
-    fmSliderRoundColCount:   "No de mediciones",
-    fmSliderRoundColRange:   "Rango (cent)",
-    fmSliderRoundColAgg:     "Estimación actual",
-    fmSliderRoundColAggHz:   "Estimación (Hz)",
-    fmSliderRoundColStatus:  "Estado",
+    FRQ_explainAdaptive: "El procedimiento adaptativo realiza comparaciones más agudo/más grave. La serie de pruebas puede durar mucho. Reserve suficiente tiempo y algunas pequeñas pausas. El tiempo de prueba puede acortarse si antes ejecuta la pre-estimación (deslizador).",
+    FRQ_explainSlider:   "El reajuste sirve para afinar manualmente un resultado ya medido (con el método adaptativo o el método del piano). Recorre los electrodos uno por uno y, para cada uno, ajusta con el deslizador el valor en el que ambos tonos suenan igual de altos. Se guarda exactamente un valor por electrodo; confirmar de nuevo lo sobrescribe.",
+    FRQ_sliderInstruction: "Ajuste el deslizador hasta que ambos tonos suenen igual de altos, luego confirme. El deslizador comienza en el último valor guardado para este electrodo.",
+    FRQ_explainSliderScience: "El reajuste no es una medición autónoma, sino una corrección manual. El triángulo sobre el deslizador muestra el resultado guardado para este electrodo. Si hay un rango de incertidumbre de otro método disponible, aparece como una barra de color bajo el deslizador.",
+    FRQ_sliderRoundProgress:   "Ronda %R · Electrodo %C de %T",
+    FRQ_sliderProgress:        "Electrodo %C de %T",
+    FRQ_sliderRoundColEl:      "Electrodo",
+    FRQ_sliderRoundColStartHz: "Frec. inicial (Hz)",
+    FRQ_sliderRoundColCount:   "No de mediciones",
+    FRQ_sliderRoundColRange:   "Rango (cent)",
+    FRQ_sliderRoundColAggregate:     "Estimación actual",
+    FRQ_sliderRoundColAggregateHz:   "Estimación (Hz)",
+    FRQ_sliderRoundColStatus:  "Estado",
     btnPauseTest:            "■ Pausar prueba",
     cumulativeDb: "Total",
     testTabLockedHint: "Durante una prueba en curso no se puede salir de esta pestaña. Puede interrumpir la prueba en cualquier momento y continuar más tarde.",

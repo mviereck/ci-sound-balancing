@@ -59,13 +59,13 @@ function frq_startAdaptive() {
   if (frq_symmetric) {
     const _symSeq = frq_buildSequenceSymmetric();
     if (_symSeq === null) {
-      alert((typeof t === 'function' && t('fmSymmetricElMismatch'))
+      alert((typeof t === 'function' && t('FRQ_symmetricElMismatch'))
         || 'Symmetrischer Modus: Beide Seiten müssen dieselben aktiven Elektroden haben.');
       FRQ_els._stopTest();
       return;
     }
     if (_symSeq.length === 0) {
-      alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden.');
+      alert((typeof t === 'function' && t('FRQ_noActiveEl')) || 'Keine aktiven Elektroden.');
       FRQ_els._stopTest();
       return;
     }
@@ -74,7 +74,7 @@ function frq_startAdaptive() {
   if ((sideData.left  && sideData.left.config)  === 'ci' &&
       (sideData.right && sideData.right.config) === 'ci' &&
       frq_buildSequenceSymmetric() === null) {
-    alert((typeof t === 'function' && t('fmElMismatch'))
+    alert((typeof t === 'function' && t('FRQ_elMismatch'))
       || 'Frequenzabgleich nicht möglich: Auf beiden Seiten müssen dieselben Elektroden aktiv sein.');
     FRQ_els._stopTest();
     return;
@@ -115,13 +115,13 @@ function _fmDoStartAdaptive() {
     const lastDone = lastRun && lastRun.completedAt != null;
     if (lastDone) {
       const daysOld = Math.floor((Date.now() - lastRun.completedAt) / (1000 * 60 * 60 * 24));
-      const baseMsg = (typeof t === 'function' && t('fmAntiOverwriteMsg'))
+      const baseMsg = (typeof t === 'function' && t('FRQ_antiOverwriteMsg'))
         || 'Sie haben bereits {N} Läufe gespeichert. Ein weiterer Lauf wird zum Datensatz '
          + 'hinzugefügt und in die kombinierte Auswertung einbezogen. Wenn Sie ganz neu '
          + 'beginnen wollen, drücken Sie „Messungen löschen".';
       let msg = baseMsg.replace('{N}', String(_fa.runs.length));
       if (daysOld >= 7) {
-        const ageMsg = (typeof t === 'function' && t('fmAgeWarnMsg'))
+        const ageMsg = (typeof t === 'function' && t('FRQ_ageWarnMsg'))
           || 'Ihre letzte Messung ist {D} Tage alt. Pitch-Wahrnehmung kann sich durch '
            + 'Plastizität verschoben haben.';
         msg += '\n\n' + ageMsg.replace('{D}', String(daysOld));
@@ -134,7 +134,7 @@ function _fmDoStartAdaptive() {
 
   const elIdxList = frq_buildSequence();
   if (elIdxList.length === 0) {
-    alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
+    alert((typeof t === 'function' && t('FRQ_noActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
     FRQ_els._stopTest();
     return;
   }
@@ -267,8 +267,8 @@ function frq_nextAdaptiveTrial() {
   const _api = _fmAdaptPI();
   if (_api) {
     testUI.pairIndicator.setLabels(_api, {
-      leftText:  (typeof t === 'function' && t('fmTone1')) || 'Ton 1',
-      rightText: (typeof t === 'function' && t('fmTone2')) || 'Ton 2'
+      leftText:  (typeof t === 'function' && t('FRQ_tone1')) || 'Ton 1',
+      rightText: (typeof t === 'function' && t('FRQ_tone2')) || 'Ton 2'
     });
   }
 
@@ -776,7 +776,7 @@ function frq_finishAdaptive() {
     testUI.completion.show({
       nameKey:   'compNameFmAdaptive',
       subtabKey: 'subTabFreqMatch',
-      bodyKey:   'fmDoneExtra'
+      bodyKey:   'FRQ_doneExtra'
     });
   }
 }
@@ -788,7 +788,7 @@ function frq_renderStatusGrid() {
   grid.innerHTML = '';
 
   const head = _mkEl('div', 'fm-status-row fm-status-head');
-  ['fmGridEl', 'fmGridStatus', 'fmGridMatch', 'fmGridResid', 'fmGridTrials', 'fmGridCatch']
+  ['FRQ_gridEl', 'FRQ_gridStatus', 'FRQ_gridMatch', 'FRQ_gridResidual', 'FRQ_gridTrials', 'FRQ_gridCatch']
     .forEach(function(key) {
       const c = _mkEl('div', 'fm-status-cell');
       c.dataset.t = key;

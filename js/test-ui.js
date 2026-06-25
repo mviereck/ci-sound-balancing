@@ -285,7 +285,7 @@ function _buildTestPanelNew(parentEl, cfg) {
       });
       if (hc.refSelect.includeSymmetric) {
         var optSym = new Option('', 'symmetric');
-        _tEl(optSym, 'fmSymmetricOption');
+        _tEl(optSym, 'FRQ_symmetricOption');
         refSelect.appendChild(optSym);
       }
     }

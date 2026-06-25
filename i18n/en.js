@@ -588,73 +588,73 @@ Object.assign(L.en, {
     implGenA: "Generation A (0.176 dB/CL)",
     implGenB: "Generation B (0.157 dB/CL)",
     implGenUnknown: "—",
-    fmElMismatch:          "Frequency matching not possible: the same electrodes must be active on both sides. Please check that the same electrodes are deactivated on both sides.",
-    fmSymmetricOption:     "Symmetrical (bilateral CI)",
-    fmSymmetricElMismatch: "Symmetrical mode not possible: both sides must have the same active electrodes. Please check that the same electrodes are deactivated on both sides.",
-    fmHGWarn:              "One side is configured as a hearing aid. Pitch perception via a hearing aid can deviate from the acoustic original due to compressor, frequency shaping and gain settings. Frequency matching results with a hearing aid are therefore less reliable than with normal residual hearing. Alternatively, test without the hearing aid if your residual hearing is sufficient.",
+    FRQ_elMismatch:          "Frequency matching not possible: the same electrodes must be active on both sides. Please check that the same electrodes are deactivated on both sides.",
+    FRQ_symmetricOption:     "Symmetrical (bilateral CI)",
+    FRQ_symmetricElMismatch: "Symmetrical mode not possible: both sides must have the same active electrodes. Please check that the same electrodes are deactivated on both sides.",
+    FRQ_highGainWarn:              "One side is configured as a hearing aid. Pitch perception via a hearing aid can deviate from the acoustic original due to compressor, frequency shaping and gain settings. Frequency matching results with a hearing aid are therefore less reliable than with normal residual hearing. Alternatively, test without the hearing aid if your residual hearing is sufficient.",
     testBlockedSideUnknown: "Please choose the hearing technology and manufacturer for this side before starting the test.",
     stereobalanceBlockedSideUnknown:   "Please choose the hearing technology (and manufacturer if applicable) for both sides before starting the stereo balance test.",
     cfgHintBothAcoustic:
       "<b>Tool not intended for purely acoustic provision.</b> This Sound Balancing Tool is aimed at cochlear implant users and requires at least one CI side. If both sides are acoustically supplied, the measurement, sliders and player are not applicable here. (A future program version could support measurements for bilaterally acoustic provision.)",
-    fmCochlearFatCorrectionInfo: "The Cochlear default FAT was corrected on {date} to the official values (CI Select / Custom Sound Pro standard, HFE 7938 Hz). Cochlear frequency tests from before this date refer to a different default assumption — for an up-to-date correction curve, please repeat the test.",
-    fmTitle: "Frequency matching left/right",
-    fmMaturityHint:
+    FRQ_cochlearFatCorrectionInfo: "The Cochlear default FAT was corrected on {date} to the official values (CI Select / Custom Sound Pro standard, HFE 7938 Hz). Cochlear frequency tests from before this date refer to a different default assumption — for an up-to-date correction curve, please repeat the test.",
+    FRQ_title: "Frequency matching left/right",
+    FRQ_maturityHint:
       "The currently implemented piano test should work well and provide reliable results. However, it has only been tried out to a limited extent in practice." +
       "<ul>" +
       "<li>For bilateral CI users (two CIs), it should already work well.</li>" +
       "<li>For users with only one CI, the very different perception of tones is particularly problematic, making comparability difficult and potentially distorting the measurement results.</li>" +
       "</ul>",
-    fmHintWarn:
+    FRQ_hintWarn:
       "Make sure to select the correct reference side: the one with natural hearing.",
-    fmHintWarnBothCI:
+    FRQ_hintWarnBothCI:
       "Make sure to select ‘symmetrical’ as the reference side. The frequencies in both CIs are then changed equally during the test to minimize the unwanted response of neighboring electrodes.",
-    fmGroupBothCi:     "Bilateral CI",
-    fmGroupCiAcoustic: "CI paired with acoustic hearing",
-    fmHintMethod:
+    FRQ_groupBothCi:     "Bilateral CI",
+    FRQ_groupCiAcoustic: "CI paired with acoustic hearing",
+    FRQ_hintMethod:
       "This test compares the pitches on the left and right.<br>" +
       "• If you have one ear with natural hearing, whether normal or hard of hearing, set it as the reference ear.<br>" +
       "&nbsp;&nbsp;- The goal of the test is to determine the actual stimulated frequency of the CI electrodes.<br>" +
       "&nbsp;&nbsp;- Based on the test result, the center frequencies of the electrodes in the CI can be readjusted so that the pitches correspond to natural hearing.<br>" +
       "• If you wear two CIs, you can use this test to detect frequency deviations and have them corrected by the audiologist.",
-    fmHintMethodCiNatural:
+    FRQ_hintMethodCiNatural:
       "This test compares the pitches on the left and right.<br>" +
       "• The goal of the test is to determine the actual stimulated frequency of the CI electrodes.<br>" +
       "• Set the ear on which you hear naturally as the reference ear. This applies to both hard of hearing and normal hearing.<br>" +
       "• Based on the test result, the center frequencies of the electrodes in the CI can be readjusted so that the pitches correspond to natural hearing.",
-    fmHintMethodBothCI:
+    FRQ_hintMethodBothCI:
       "This test compares the pitches on the left and right.<br>" +
       "• The goal of the test is to align the pitches of both CIs so that they hear the same frequency equally on both sides.<br>" +
       "• Based on the test result, the center frequencies of the electrodes in the CI can be readjusted.<br>" +
       "• Limitation of the test procedure: The further the test tones are from the configured center frequencies of the CI, the more neighboring electrodes are also stimulated, which distorts the measurement result. Consequence: With large deviations, you may have to repeat the test after the audiologist has adjusted the values, in order to approach the correct values further.",
-    fmLblRef: "Reference side",
-    fmLblStart: "Start frequency matching",
-    fmCentUnit: "Cent",
-    fmResultsTitle: "Frequency matching results",
-    fmResColEl: "Electrode",
-    fmResColVarFreq: "CI freq.",
-    fmResColRefFreq: "Ref. freq.",
-    fmResColCent: "Deviation",
-    fmModeAdaptive:    "Adaptive (2I-2AFC)",
-    fmModeSlider:      "Fine-tuning (slider)",
-    fmSliderTargetDisabledHint: "Slider action is activated in a separate extension.",
-    fmSliderEstimateTitle:     "Do a pre-estimate first?",
-    fmSliderEstimateMsg:       "You can speed up the frequency matching by first making an approximate slider setting per electrode. The adaptive test then starts close to your estimate instead of from ±100 cents. Recommended especially if you suspect larger frequency deviations.",
-    fmSliderEstimateBtnSlider: "Slider estimate first",
-    fmSliderEstimateBtnSkip:   "Start adaptive directly",
-    fmSliderEstimateBtnCancel: "Cancel",
-    fmLblResume:       "Resume test",
-    fmLblNewRun:       "Start another run",
-    fmAntiOverwriteMsg: "A previous measurement is already saved ({N} run(s) so far). Another run will be added to the data set and included in the combined evaluation. The previous values are preserved. If you want to start completely over, press “Delete measurements”.",
-    fmAgeWarnMsg:      "Your last measurement is {D} days old. Pitch perception may have shifted due to plasticity.",
-    fmTone1:           "Tone 1",
-    fmTone2:           "Tone 2",
-    fmGridEl:          "Electrode",
-    fmGridStatus:      "Status",
-    fmGridMatch:       "Match",
-    fmGridResid:       "Convergence width (ct)",
-    fmGridTrials:      "Comparisons",
-    fmGridCatch:       "Catch",
-    fmExplainAdaptiveScience:
+    FRQ_lblRef: "Reference side",
+    FRQ_lblStart: "Start frequency matching",
+    FRQ_centUnit: "Cent",
+    FRQ_measureTitle: "Frequency matching results",
+    FRQ_resColEl: "Electrode",
+    FRQ_resColVarFreq: "CI freq.",
+    FRQ_resColRefFreq: "Ref. freq.",
+    FRQ_resColCent: "Deviation",
+    FRQ_modeAdaptive:    "Adaptive (2I-2AFC)",
+    FRQ_modeSlider:      "Fine-tuning (slider)",
+    FRQ_sliderTargetDisabledHint: "Slider action is activated in a separate extension.",
+    FRQ_sliderEstimateTitle:     "Do a pre-estimate first?",
+    FRQ_sliderEstimateMsg:       "You can speed up the frequency matching by first making an approximate slider setting per electrode. The adaptive test then starts close to your estimate instead of from ±100 cents. Recommended especially if you suspect larger frequency deviations.",
+    FRQ_sliderEstimateBtnSlider: "Slider estimate first",
+    FRQ_sliderEstimateBtnSkip:   "Start adaptive directly",
+    FRQ_sliderEstimateBtnCancel: "Cancel",
+    FRQ_lblResume:       "Resume test",
+    FRQ_lblNewRun:       "Start another run",
+    FRQ_antiOverwriteMsg: "A previous measurement is already saved ({N} run(s) so far). Another run will be added to the data set and included in the combined evaluation. The previous values are preserved. If you want to start completely over, press “Delete measurements”.",
+    FRQ_ageWarnMsg:      "Your last measurement is {D} days old. Pitch perception may have shifted due to plasticity.",
+    FRQ_tone1:           "Tone 1",
+    FRQ_tone2:           "Tone 2",
+    FRQ_gridEl:          "Electrode",
+    FRQ_gridStatus:      "Status",
+    FRQ_gridMatch:       "Match",
+    FRQ_gridResidual:       "Convergence width (ct)",
+    FRQ_gridTrials:      "Comparisons",
+    FRQ_gridCatch:       "Catch",
+    FRQ_explainAdaptiveScience:
       "<p><strong>Method used.</strong> Sequential 2-interval 2-alternative-forced-choice task (2I-2AFC) with adaptive 1-down-1-up rule after Levitt (1971). The reference frequency is shifted in the direction of the response after each answer; the step size is halved after each reversal of the movement direction (50 → 25 → 12 → 6 → 3 cents). The procedure converges directly to the point of subjective pitch equality (PSE, 50% point).</p>"
       + "<p><strong>Known sources of bias and countermeasures.</strong></p>"
       + "<ul>"
@@ -723,7 +723,7 @@ Object.assign(L.en, {
     FRQ_resultsClearAdaptiveConfirm: "Delete only the adaptive results? The slider pre-estimates will be preserved.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Delete piano results",
     FRQ_resultsClearPianoConfirm:   "Delete piano results? Other methods are kept.",
-    fmMigratePianoConfirm:  "This file contains measurements from other methods (adaptive or readjustment). Transfer them as starting values into the piano method?",
+    FRQ_migratePianoConfirm:  "This file contains measurements from other methods (adaptive or readjustment). Transfer them as starting values into the piano method?",
     FRQ_resultsChartHintPiano:      "Solid line = programmed electrode frequency, target point = perceived match. Orange band = residual uncertainty (width = ±residual in cents).",
     FRQ_resultsQualityPiano:           "Piano test: round {round} of {total} completed (approximation ±{step} cents).",
     cfgLabel: "Hearing situation",
@@ -829,7 +829,7 @@ Object.assign(L.en, {
     compSubLoudness:    "Electrode loudness",
     rrDoneExtra:        "You can refine the measurement results further with the second test procedure “Convergence”. You can listen to the effect of the correction in the player.",
     stereobalanceDoneExtra:        "You can activate stereo balance in the player.",
-    fmDoneExtra:        "You can activate frequency warping in the player to hear the effect of an adjusted frequency shift.",
+    FRQ_doneExtra:        "You can activate frequency warping in the player to hear the effect of an adjusted frequency shift.",
     linksFreesoundDesc:     "Freesound aims to create a huge collaborative database of audio snippets, samples, recordings, bleeps, … released under Creative Commons licenses that allow their reuse.",
     linksFreesoundUsedLabel: "Used in this tool",
     stereobalanceRunningTitle: "Stereo balance test is running",
@@ -837,10 +837,10 @@ Object.assign(L.en, {
     stereobalancePrereqHint: "First run the electrode loudness measurement for both sides.",
     stereobalanceNoElMsg: "No common active electrodes found.",
     latenzPrereqHint: "First run the electrode loudness and stereo balance measurements for both sides.",
-    fmPrereqLvLeft:  "First run the electrode loudness measurement for the left side.",
-    fmPrereqLvRight: "First run the electrode loudness measurement for the right side.",
-    fmPrereqSb:      "First run the stereo balance measurement.",
-    fmHintWorkflow:
+    FRQ_prereqLvLeft:  "First run the electrode loudness measurement for the left side.",
+    FRQ_prereqLvRight: "First run the electrode loudness measurement for the right side.",
+    FRQ_prereqSb:      "First run the stereo balance measurement.",
+    FRQ_hintWorkflow:
       "<strong>Recommended procedure:</strong><br>" +
       "• First run the ‘Pre-estimate (slider)’ test procedure.<br>" +
       "&nbsp;&nbsp;&nbsp;&nbsp;– This test tends to be inaccurate, but gives a first impression and first results.<br>" +
@@ -869,19 +869,19 @@ Object.assign(L.en, {
     testRunningTitleWord_test:    "Test",
     testRunningTitleWord_running: "running",
     btnDebugRun: "DEBUG: test run",
-    fmExplainAdaptive: "The adaptive procedure asks higher/lower comparisons. The test series can take a very long time. Plan enough time and a few small breaks. The test time can be shortened if you first run the pre-estimate (slider).",
-    fmExplainSlider:   "Fine-tuning lets you manually refine a result that was already measured (with the adaptive or the piano method). You go through the electrodes one by one and, for each, use the slider to set the value at which both tones sound equally high. Exactly one value is stored per electrode; confirming again overwrites it.",
-    fmSliderInstruction: "Adjust the slider until both tones sound equally high, then confirm. The slider starts at the most recently stored value for this electrode.",
-    fmExplainSliderScience: "Fine-tuning is not a standalone measurement but a manual correction. The triangle above the slider shows the stored result for this electrode. If an uncertainty range from another method is available, it appears as a coloured bar below the slider.",
-    fmSliderRoundProgress:   "Round %R · Electrode %C of %T",
-    fmSliderProgress:        "Electrode %C of %T",
-    fmSliderRoundColEl:      "Electrode",
-    fmSliderRoundColStartHz: "Start freq (Hz)",
-    fmSliderRoundColCount:   "Reading count",
-    fmSliderRoundColRange:   "Range (cent)",
-    fmSliderRoundColAgg:     "Current estimate",
-    fmSliderRoundColAggHz:   "Estimate (Hz)",
-    fmSliderRoundColStatus:  "Status",
+    FRQ_explainAdaptive: "The adaptive procedure asks higher/lower comparisons. The test series can take a very long time. Plan enough time and a few small breaks. The test time can be shortened if you first run the pre-estimate (slider).",
+    FRQ_explainSlider:   "Fine-tuning lets you manually refine a result that was already measured (with the adaptive or the piano method). You go through the electrodes one by one and, for each, use the slider to set the value at which both tones sound equally high. Exactly one value is stored per electrode; confirming again overwrites it.",
+    FRQ_sliderInstruction: "Adjust the slider until both tones sound equally high, then confirm. The slider starts at the most recently stored value for this electrode.",
+    FRQ_explainSliderScience: "Fine-tuning is not a standalone measurement but a manual correction. The triangle above the slider shows the stored result for this electrode. If an uncertainty range from another method is available, it appears as a coloured bar below the slider.",
+    FRQ_sliderRoundProgress:   "Round %R · Electrode %C of %T",
+    FRQ_sliderProgress:        "Electrode %C of %T",
+    FRQ_sliderRoundColEl:      "Electrode",
+    FRQ_sliderRoundColStartHz: "Start freq (Hz)",
+    FRQ_sliderRoundColCount:   "Reading count",
+    FRQ_sliderRoundColRange:   "Range (cent)",
+    FRQ_sliderRoundColAggregate:     "Current estimate",
+    FRQ_sliderRoundColAggregateHz:   "Estimate (Hz)",
+    FRQ_sliderRoundColStatus:  "Status",
     btnPauseTest:            "■ Pause test",
     cumulativeDb: "Total",
     testTabLockedHint: "During a running test, this tab cannot be left. You can interrupt the test at any time and continue later.",

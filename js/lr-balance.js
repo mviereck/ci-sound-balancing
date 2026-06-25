@@ -837,8 +837,8 @@ document.addEventListener("DOMContentLoaded", function() {
         { key: 'stereobalanceMaturityHint', kind: 'info'  },
         { key: 'stereobalanceDesc',         kind: 'plain' },
         // Dynamische Vortest-Hinweise (Sichtbarkeit via _lrRenderPrereqHints)
-        { key: 'fmPrereqLvLeft',  kind: 'warn', id: 'stereobalancePrereqLvLeftPara'  },
-        { key: 'fmPrereqLvRight', kind: 'warn', id: 'stereobalancePrereqLvRightPara' }
+        { key: 'FRQ_prereqLvLeft',  kind: 'warn', id: 'stereobalancePrereqLvLeftPara'  },
+        { key: 'FRQ_prereqLvRight', kind: 'warn', id: 'stereobalancePrereqLvRightPara' }
       ]
     },
     header: {

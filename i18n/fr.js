@@ -589,73 +589,73 @@ Object.assign(L.fr, {
     implGenA: "Génération A (0,176 dB/CL)",
     implGenB: "Génération B (0,157 dB/CL)",
     implGenUnknown: "—",
-    fmElMismatch:          "Appariement fréquentiel impossible : les mêmes électrodes doivent être actives des deux côtés. Veuillez vérifier que les mêmes électrodes sont désactivées des deux côtés.",
-    fmSymmetricOption:     "Symétrique (IC bilatéral)",
-    fmSymmetricElMismatch: "Mode symétrique impossible : les deux côtés doivent avoir les mêmes électrodes actives. Veuillez vérifier que les mêmes électrodes sont désactivées des deux côtés.",
-    fmHGWarn:              "Un côté est configuré comme appareil auditif. La perception de la hauteur tonale via un appareil auditif peut s'écarter de l'original acoustique en raison du compresseur, de la mise en forme fréquentielle et du réglage de l'amplification. Les résultats d'appariement fréquentiel avec un appareil auditif sont donc moins fiables qu'avec une audition résiduelle normale. Comme alternative, testez sans appareil auditif si votre audition résiduelle le permet.",
+    FRQ_elMismatch:          "Appariement fréquentiel impossible : les mêmes électrodes doivent être actives des deux côtés. Veuillez vérifier que les mêmes électrodes sont désactivées des deux côtés.",
+    FRQ_symmetricOption:     "Symétrique (IC bilatéral)",
+    FRQ_symmetricElMismatch: "Mode symétrique impossible : les deux côtés doivent avoir les mêmes électrodes actives. Veuillez vérifier que les mêmes électrodes sont désactivées des deux côtés.",
+    FRQ_highGainWarn:              "Un côté est configuré comme appareil auditif. La perception de la hauteur tonale via un appareil auditif peut s'écarter de l'original acoustique en raison du compresseur, de la mise en forme fréquentielle et du réglage de l'amplification. Les résultats d'appariement fréquentiel avec un appareil auditif sont donc moins fiables qu'avec une audition résiduelle normale. Comme alternative, testez sans appareil auditif si votre audition résiduelle le permet.",
     testBlockedSideUnknown: "Veuillez choisir la technologie auditive et le fabricant pour ce côté avant de démarrer le test.",
     stereobalanceBlockedSideUnknown:   "Veuillez choisir la technologie auditive (et éventuellement le fabricant) pour les deux côtés avant de démarrer le test de balance stéréo.",
     cfgHintBothAcoustic:
       "<b>Outil non prévu pour un appareillage purement acoustique.</b> Ce Sound Balancing Tool s'adresse aux porteurs d'implant cochléaire et nécessite au moins un côté IC. Si vous êtes appareillé acoustiquement des deux côtés, la mesure, les curseurs et le Player ne sont pas applicables ici. (Une future version du programme pourrait prendre en charge des mesures pour un appareillage acoustique bilatéral.)",
-    fmCochlearFatCorrectionInfo: "La FAT par défaut Cochlear a été corrigée le {date} aux valeurs officielles (CI Select / Custom Sound Pro Standard, HFE 7938 Hz). Les tests de fréquence Cochlear antérieurs à cette date se réfèrent à une hypothèse par défaut différente — pour une courbe de correction actuelle, veuillez refaire le test.",
-    fmTitle: "Appariement fréquentiel Gauche/Droite",
-    fmMaturityHint:
+    FRQ_cochlearFatCorrectionInfo: "La FAT par défaut Cochlear a été corrigée le {date} aux valeurs officielles (CI Select / Custom Sound Pro Standard, HFE 7938 Hz). Les tests de fréquence Cochlear antérieurs à cette date se réfèrent à une hypothèse par défaut différente — pour une courbe de correction actuelle, veuillez refaire le test.",
+    FRQ_title: "Appariement fréquentiel Gauche/Droite",
+    FRQ_maturityHint:
       "Le test au piano actuellement implémenté devrait bien fonctionner et fournir des résultats fiables. Il n'a toutefois encore été que peu éprouvé en pratique." +
       "<ul>" +
       "<li>Pour les porteurs de deux IC, il devrait déjà bien fonctionner.</li>" +
       "<li>Pour les porteurs d'un seul IC, la perception très différente des sons est particulièrement problématique : elle rend la comparabilité difficile et peut fausser les résultats de mesure.</li>" +
       "</ul>",
-    fmHintWarn:
+    FRQ_hintWarn:
       "Veillez à choisir le bon côté de référence : celui avec une audition naturelle.",
-    fmHintWarnBothCI:
+    FRQ_hintWarnBothCI:
       "Veillez à choisir « symétrique » comme côté de référence. Les fréquences dans les deux IC sont alors modifiées de la même manière pendant le test, afin de minimiser la stimulation involontaire des électrodes voisines.",
-    fmGroupBothCi:     "IC bilatéral",
-    fmGroupCiAcoustic: "IC avec audition acoustique controlatérale",
-    fmHintMethod:
+    FRQ_groupBothCi:     "IC bilatéral",
+    FRQ_groupCiAcoustic: "IC avec audition acoustique controlatérale",
+    FRQ_hintMethod:
       "Ce test compare les hauteurs tonales gauche et droite.<br>" +
       "• Si vous avez une oreille avec audition naturelle, normo-entendante ou malentendante, réglez-la comme oreille de référence.<br>" +
       "&nbsp;&nbsp;- Le but du test est de déterminer la fréquence réellement stimulée des électrodes IC.<br>" +
       "&nbsp;&nbsp;- Sur la base du résultat du test, les fréquences centrales des électrodes dans l'IC peuvent être réajustées, de sorte que les hauteurs tonales correspondent à une audition naturelle.<br>" +
       "• Si vous portez 2 IC, vous pouvez avec ce test détecter des écarts de fréquence et les faire corriger par l'audiologiste.",
-    fmHintMethodCiNatural:
+    FRQ_hintMethodCiNatural:
       "Ce test compare les hauteurs tonales gauche et droite.<br>" +
       "• Le but du test est de déterminer la fréquence réellement stimulée des électrodes IC.<br>" +
       "• Réglez l'oreille avec laquelle vous entendez naturellement comme oreille de référence. Cela vaut aussi bien pour les malentendants que pour les normo-entendants.<br>" +
       "• Sur la base du résultat du test, les fréquences centrales des électrodes dans l'IC peuvent être réajustées, de sorte que les hauteurs tonales correspondent à une audition naturelle.",
-    fmHintMethodBothCI:
+    FRQ_hintMethodBothCI:
       "Ce test compare les hauteurs tonales gauche et droite.<br>" +
       "• Le but du test est d'aligner les hauteurs tonales des deux IC l'une sur l'autre, afin que vous entendiez la même fréquence aussi de la même manière des deux côtés.<br>" +
       "• Sur la base du résultat du test, les fréquences centrales des électrodes dans l'IC peuvent être réajustées.<br>" +
       "• Limitation de la procédure de test : plus les sons de test sont éloignés des fréquences centrales réglées de l'IC, plus les électrodes voisines sont stimulées également, ce qui fausse le résultat de mesure. Conséquence : en cas de grands écarts, il se peut qu'après l'ajustement aux résultats de mesure par l'audiologiste, vous deviez refaire le test, pour vous rapprocher davantage des valeurs correctes.",
-    fmLblRef: "Côté de référence",
-    fmLblStart: "Démarrer l'appariement fréquentiel",
-    fmCentUnit: "Cent",
-    fmResultsTitle: "Résultats d'appariement fréquentiel",
-    fmResColEl: "Électrode",
-    fmResColVarFreq: "Fréq. IC",
-    fmResColRefFreq: "Fréq. réf.",
-    fmResColCent: "Écart",
-    fmModeAdaptive:    "Adaptatif (2I-2AFC)",
-    fmModeSlider:      "Réajustement (curseur)",
-    fmSliderTargetDisabledHint: "L'effet du slider est activé dans une extension spécifique.",
-    fmSliderEstimateTitle:     "Faire d'abord une pré-estimation ?",
-    fmSliderEstimateMsg:       "Vous pouvez accélérer l'appariement fréquentiel en réglant d'abord approximativement un curseur par électrode. Le test adaptatif démarre alors près de votre estimation au lieu de ±100 cents. Recommandé surtout si vous soupçonnez de grands écarts de fréquence.",
-    fmSliderEstimateBtnSlider: "D'abord estimation Slider",
-    fmSliderEstimateBtnSkip:   "Démarrer directement en adaptatif",
-    fmSliderEstimateBtnCancel: "Annuler",
-    fmLblResume:       "Reprendre le test",
-    fmLblNewRun:       "Démarrer un autre parcours",
-    fmAntiOverwriteMsg: "Une mesure précédente est déjà enregistrée (jusqu'à présent {N} parcours). Un parcours supplémentaire sera ajouté à l'ensemble de données et inclus dans l'évaluation combinée. Les valeurs existantes sont conservées. Si vous voulez tout recommencer, appuyez sur « Effacer les mesures ».",
-    fmAgeWarnMsg:      "Votre dernière mesure date de {D} jours. La perception de la hauteur peut s'être déplacée en raison de la plasticité.",
-    fmTone1:           "Son 1",
-    fmTone2:           "Son 2",
-    fmGridEl:          "Électrode",
-    fmGridStatus:      "Statut",
-    fmGridMatch:       "Match",
-    fmGridResid:       "Largeur de convergence (ct)",
-    fmGridTrials:      "Comparaisons",
-    fmGridCatch:       "Catch",
-    fmExplainAdaptiveScience:
+    FRQ_lblRef: "Côté de référence",
+    FRQ_lblStart: "Démarrer l'appariement fréquentiel",
+    FRQ_centUnit: "Cent",
+    FRQ_measureTitle: "Résultats d'appariement fréquentiel",
+    FRQ_resColEl: "Électrode",
+    FRQ_resColVarFreq: "Fréq. IC",
+    FRQ_resColRefFreq: "Fréq. réf.",
+    FRQ_resColCent: "Écart",
+    FRQ_modeAdaptive:    "Adaptatif (2I-2AFC)",
+    FRQ_modeSlider:      "Réajustement (curseur)",
+    FRQ_sliderTargetDisabledHint: "L'effet du slider est activé dans une extension spécifique.",
+    FRQ_sliderEstimateTitle:     "Faire d'abord une pré-estimation ?",
+    FRQ_sliderEstimateMsg:       "Vous pouvez accélérer l'appariement fréquentiel en réglant d'abord approximativement un curseur par électrode. Le test adaptatif démarre alors près de votre estimation au lieu de ±100 cents. Recommandé surtout si vous soupçonnez de grands écarts de fréquence.",
+    FRQ_sliderEstimateBtnSlider: "D'abord estimation Slider",
+    FRQ_sliderEstimateBtnSkip:   "Démarrer directement en adaptatif",
+    FRQ_sliderEstimateBtnCancel: "Annuler",
+    FRQ_lblResume:       "Reprendre le test",
+    FRQ_lblNewRun:       "Démarrer un autre parcours",
+    FRQ_antiOverwriteMsg: "Une mesure précédente est déjà enregistrée (jusqu'à présent {N} parcours). Un parcours supplémentaire sera ajouté à l'ensemble de données et inclus dans l'évaluation combinée. Les valeurs existantes sont conservées. Si vous voulez tout recommencer, appuyez sur « Effacer les mesures ».",
+    FRQ_ageWarnMsg:      "Votre dernière mesure date de {D} jours. La perception de la hauteur peut s'être déplacée en raison de la plasticité.",
+    FRQ_tone1:           "Son 1",
+    FRQ_tone2:           "Son 2",
+    FRQ_gridEl:          "Électrode",
+    FRQ_gridStatus:      "Statut",
+    FRQ_gridMatch:       "Match",
+    FRQ_gridResidual:       "Largeur de convergence (ct)",
+    FRQ_gridTrials:      "Comparaisons",
+    FRQ_gridCatch:       "Catch",
+    FRQ_explainAdaptiveScience:
       "<p><strong>Méthode utilisée.</strong> Tâche séquentielle à 2 intervalles 2 alternatives à choix forcé (2I-2AFC) avec règle adaptative 1-down-1-up selon Levitt (1971). La fréquence de référence est décalée après chaque réponse dans la direction de la réponse ; la taille du pas est divisée par deux après chaque inversion de direction de mouvement (50 → 25 → 12 → 6 → 3 cents). La procédure converge directement vers le point d'égalité subjective de hauteur (PSE, point 50 %).</p>"
       + "<p><strong>Sources de biais connues et contre-mesures.</strong></p>"
       + "<ul>"
@@ -724,7 +724,7 @@ Object.assign(L.fr, {
     FRQ_resultsClearAdaptiveConfirm: "Effacer seulement les résultats Adaptatif ? Les pré-estimations Slider sont conservées.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Supprimer les résultats du piano",
     FRQ_resultsClearPianoConfirm:   "Supprimer les résultats du piano ? Les autres méthodes sont conservées.",
-    fmMigratePianoConfirm:  "Ce fichier contient des mesures d’autres méthodes (adaptative ou réajustement). Les reprendre comme valeurs de départ dans la méthode du piano ?",
+    FRQ_migratePianoConfirm:  "Ce fichier contient des mesures d’autres méthodes (adaptative ou réajustement). Les reprendre comme valeurs de départ dans la méthode du piano ?",
     FRQ_resultsChartHintPiano:      "Trait = fréquence d’électrode programmée, point cible = correspondance perçue. Bande orange = incertitude résiduelle (largeur = ±résidu en cents).",
     FRQ_resultsQualityPiano:           "Test au piano : tour {round} sur {total} terminé (approximation ±{step} cents).",
     cfgLabel: "Situation auditive",
@@ -829,7 +829,7 @@ Object.assign(L.fr, {
     compSubLoudness:    "Intensité des électrodes",
     rrDoneExtra:        "Vous pouvez affiner davantage les résultats de mesure avec la deuxième procédure de test « Convergence ». Vous pouvez écouter l’effet de la correction dans le Player.",
     stereobalanceDoneExtra:        "Vous pouvez activer la balance stéréo dans le Player.",
-    fmDoneExtra:        "Vous pouvez activer le warping fréquentiel dans le Player pour entendre l’effet d’un décalage de fréquence ajusté.",
+    FRQ_doneExtra:        "Vous pouvez activer le warping fréquentiel dans le Player pour entendre l’effet d’un décalage de fréquence ajusté.",
     linksFreesoundDesc:     "Freesound vise à créer une immense base de données collaborative de fragments audio, d’échantillons, d’enregistrements, de bips, … publiés sous licences Creative Commons qui permettent leur réutilisation.",
     linksFreesoundUsedLabel: "Utilisé dans cet outil",
     stereobalanceRunningTitle: "Test de balance stéréo en cours",
@@ -837,10 +837,10 @@ Object.assign(L.fr, {
     stereobalancePrereqHint: "Effectuez d'abord la mesure d'intensité d'électrode pour les deux côtés.",
     stereobalanceNoElMsg: "Aucune électrode active commune trouvée.",
     latenzPrereqHint: "Effectuez d'abord les mesures d'intensité d'électrode et de balance stéréo pour les deux côtés.",
-    fmPrereqLvLeft:  "Effectuez d'abord la mesure d'intensité d'électrode pour le côté gauche.",
-    fmPrereqLvRight: "Effectuez d'abord la mesure d'intensité d'électrode pour le côté droit.",
-    fmPrereqSb:      "Effectuez d'abord la mesure de balance stéréo.",
-    fmHintWorkflow:
+    FRQ_prereqLvLeft:  "Effectuez d'abord la mesure d'intensité d'électrode pour le côté gauche.",
+    FRQ_prereqLvRight: "Effectuez d'abord la mesure d'intensité d'électrode pour le côté droit.",
+    FRQ_prereqSb:      "Effectuez d'abord la mesure de balance stéréo.",
+    FRQ_hintWorkflow:
       "<strong>Procédure recommandée :</strong><br>" +
       "• D'abord exécuter la procédure de test « Pré-estimation (Slider) ».<br>" +
       "&nbsp;&nbsp;&nbsp;&nbsp;– Ce test est tendanciellement imprécis, mais donne une première impression et de premiers résultats.<br>" +
@@ -869,19 +869,19 @@ Object.assign(L.fr, {
     testRunningTitleWord_test:    "Test",
     testRunningTitleWord_running: "en cours",
     btnDebugRun: "DEBUG : parcours de test",
-    fmExplainAdaptive: "La procédure adaptative interroge des comparaisons plus haut/plus bas. La série de tests peut être très longue. Prévoyez suffisamment de temps et quelques petites pauses. Le temps de test peut être raccourci si vous exécutez d'abord la pré-estimation (Slider).",
-    fmExplainSlider:   "Le réajustement permet d'affiner manuellement un résultat déjà mesuré (avec la méthode adaptative ou la méthode du piano). Vous parcourez les électrodes une par une et, pour chacune, réglez à l'aide du curseur la valeur pour laquelle les deux sons ont la même hauteur. Une seule valeur est enregistrée par électrode ; confirmer à nouveau la remplace.",
-    fmSliderInstruction: "Ajustez le curseur jusqu'à ce que les deux sons aient la même hauteur, puis confirmez. Le curseur démarre sur la dernière valeur enregistrée pour cette électrode.",
-    fmExplainSliderScience: "Le réajustement n'est pas une mesure autonome mais une correction manuelle. Le triangle au-dessus du curseur indique le résultat enregistré pour cette électrode. Si une plage d'incertitude provenant d'une autre méthode est disponible, elle apparaît comme une barre colorée sous le curseur.",
-    fmSliderRoundProgress:   "Tour %R · Électrode %C sur %T",
-    fmSliderProgress:        "Électrode %C sur %T",
-    fmSliderRoundColEl:      "Électrode",
-    fmSliderRoundColStartHz: "Fréq. initiale (Hz)",
-    fmSliderRoundColCount:   "Nb de mesures",
-    fmSliderRoundColRange:   "Plage (cent)",
-    fmSliderRoundColAgg:     "Estimation actuelle",
-    fmSliderRoundColAggHz:   "Estimation (Hz)",
-    fmSliderRoundColStatus:  "Statut",
+    FRQ_explainAdaptive: "La procédure adaptative interroge des comparaisons plus haut/plus bas. La série de tests peut être très longue. Prévoyez suffisamment de temps et quelques petites pauses. Le temps de test peut être raccourci si vous exécutez d'abord la pré-estimation (Slider).",
+    FRQ_explainSlider:   "Le réajustement permet d'affiner manuellement un résultat déjà mesuré (avec la méthode adaptative ou la méthode du piano). Vous parcourez les électrodes une par une et, pour chacune, réglez à l'aide du curseur la valeur pour laquelle les deux sons ont la même hauteur. Une seule valeur est enregistrée par électrode ; confirmer à nouveau la remplace.",
+    FRQ_sliderInstruction: "Ajustez le curseur jusqu'à ce que les deux sons aient la même hauteur, puis confirmez. Le curseur démarre sur la dernière valeur enregistrée pour cette électrode.",
+    FRQ_explainSliderScience: "Le réajustement n'est pas une mesure autonome mais une correction manuelle. Le triangle au-dessus du curseur indique le résultat enregistré pour cette électrode. Si une plage d'incertitude provenant d'une autre méthode est disponible, elle apparaît comme une barre colorée sous le curseur.",
+    FRQ_sliderRoundProgress:   "Tour %R · Électrode %C sur %T",
+    FRQ_sliderProgress:        "Électrode %C sur %T",
+    FRQ_sliderRoundColEl:      "Électrode",
+    FRQ_sliderRoundColStartHz: "Fréq. initiale (Hz)",
+    FRQ_sliderRoundColCount:   "Nb de mesures",
+    FRQ_sliderRoundColRange:   "Plage (cent)",
+    FRQ_sliderRoundColAggregate:     "Estimation actuelle",
+    FRQ_sliderRoundColAggregateHz:   "Estimation (Hz)",
+    FRQ_sliderRoundColStatus:  "Statut",
     btnPauseTest:            "■ Mettre en pause",
     cumulativeDb: "Total",
     testTabLockedHint: "Pendant un test en cours, cet onglet ne peut pas être quitté. Vous pouvez interrompre le test à tout moment et le poursuivre plus tard.",
