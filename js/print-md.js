@@ -119,17 +119,17 @@ function _collectTestSettings() {
   }
   return {
     test: _row(
-      (typeof toneType_test !== "undefined") ? toneType_test : TEST_DEFAULTS.test.toneType,
-      (typeof sequence_test !== "undefined") ? sequence_test : TEST_DEFAULTS.test.sequence,
-      (typeof duration_test !== "undefined") ? duration_test : null,
-      (typeof pause_test    !== "undefined") ? pause_test    : null,
+      (typeof toneType_elektrodenlautstaerke !== "undefined") ? toneType_elektrodenlautstaerke : TEST_DEFAULTS.test.toneType,
+      (typeof sequence_elektrodenlautstaerke !== "undefined") ? sequence_elektrodenlautstaerke : TEST_DEFAULTS.test.sequence,
+      (typeof duration_elektrodenlautstaerke !== "undefined") ? duration_elektrodenlautstaerke : null,
+      (typeof pause_elektrodenlautstaerke    !== "undefined") ? pause_elektrodenlautstaerke    : null,
       (typeof volume_global !== "undefined") ? volume_global : null
     ),
     balance: _row(
-      (typeof toneType_balance !== "undefined") ? toneType_balance : TEST_DEFAULTS.balance.toneType,
-      (typeof sequence_balance !== "undefined") ? sequence_balance : TEST_DEFAULTS.balance.sequence,
-      (typeof duration_balance !== "undefined") ? duration_balance : null,
-      (typeof pause_balance    !== "undefined") ? pause_balance    : null,
+      (typeof toneType_stereobalance !== "undefined") ? toneType_stereobalance : TEST_DEFAULTS.balance.toneType,
+      (typeof sequence_stereobalance !== "undefined") ? sequence_stereobalance : TEST_DEFAULTS.balance.sequence,
+      (typeof duration_stereobalance !== "undefined") ? duration_stereobalance : null,
+      (typeof pause_stereobalance    !== "undefined") ? pause_stereobalance    : null,
       (typeof volume_global    !== "undefined") ? volume_global    : null
     ),
     freqmatch: _row(

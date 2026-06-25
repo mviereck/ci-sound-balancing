@@ -397,8 +397,8 @@ function _buildTestPanelNew(parentEl, cfg) {
       [['aba','ABA'],['ab','AB']].forEach(function(pair) {
         seqSelect.appendChild(new Option(pair[1], pair[0]));
       });
-      var seqVal = (id === 'test')      ? sequence_test
-                 : (id === 'balance')   ? sequence_balance
+      var seqVal = (id === 'test')      ? sequence_elektrodenlautstaerke
+                 : (id === 'balance')   ? sequence_stereobalance
                  : (id === 'freqmatch') ? sequence_freqmatch
                  : 'ab';
       seqSelect.value = seqVal;
@@ -1082,8 +1082,8 @@ function _buildTestPanelNew(parentEl, cfg) {
   // Sequence-Dropdown Event-Listener (pro Test)
   if (seqSelect) {
     seqSelect.addEventListener('change', function() {
-      if (id === 'test')      sequence_test      = seqSelect.value;
-      if (id === 'balance')   sequence_balance   = seqSelect.value;
+      if (id === 'test')      sequence_elektrodenlautstaerke      = seqSelect.value;
+      if (id === 'balance')   sequence_stereobalance   = seqSelect.value;
       if (id === 'freqmatch') sequence_freqmatch = seqSelect.value;
     });
   }

@@ -779,7 +779,7 @@ let toneType_freqmatch = TEST_DEFAULTS.freqmatch.toneType;
 // statt globalToneType, damit Tonart-Popup-Dialog (analog freqmatch)
 // pro Test funktioniert. Wird in BA 247 erstmals aus dem testUI-Header
 // gelesen/geschrieben.
-let toneType_test = TEST_DEFAULTS.test.toneType;
+let toneType_elektrodenlautstaerke = TEST_DEFAULTS.test.toneType;
 // BA 240: Vol/Dur/Pau leben jetzt als State-Variablen statt im testUI-Header.
 // Vol als int 0..100 (UI-Wert); fmGVol macht die quadratische Audio-Konversion.
 let duration_freqmatch = TEST_DEFAULTS.freqmatch.duration;
@@ -792,18 +792,18 @@ let pause_freqmatch    = TEST_DEFAULTS.freqmatch.pause;
 // volume_freqmatch/volume_implant. Vol als int 0..100; die Getter
 // (tGVol/stereobalanceGVol/fmGVol/...) machen die quadratische Audio-Konversion.
 let volume_global = TEST_DEFAULTS.commonVolume;
-let duration_test = TEST_DEFAULTS.test.duration;
-let pause_test    = TEST_DEFAULTS.test.pause;
+let duration_elektrodenlautstaerke = TEST_DEFAULTS.test.duration;
+let pause_elektrodenlautstaerke    = TEST_DEFAULTS.test.pause;
 // BA 253: Tonart, Lautstaerke, Tondauer, Tonpause speziell fuer
 // Stereo-Balance. Ueber die Tonauswahl-Modalbox eingestellt; getrennt
 // vom Frequenzabgleich- und Elektrodenlautstaerke-Test.
-let toneType_balance = TEST_DEFAULTS.balance.toneType;
-let duration_balance = TEST_DEFAULTS.balance.duration;
-let pause_balance    = TEST_DEFAULTS.balance.pause;
+let toneType_stereobalance = TEST_DEFAULTS.balance.toneType;
+let duration_stereobalance = TEST_DEFAULTS.balance.duration;
+let pause_stereobalance    = TEST_DEFAULTS.balance.pause;
 // BA 254: Tonfolge (AB/ABA) speziell pro Test. Ersetzt globalSequence.
 let sequence_freqmatch = TEST_DEFAULTS.freqmatch.sequence;
-let sequence_test      = TEST_DEFAULTS.test.sequence;
-let sequence_balance   = TEST_DEFAULTS.balance.sequence;
+let sequence_elektrodenlautstaerke      = TEST_DEFAULTS.test.sequence;
+let sequence_stereobalance   = TEST_DEFAULTS.balance.sequence;
 // BA 242: Implantat-Tab-Tonauswahl. Vol/Dur/Pau analog freqmatch.
 // Default-Tonart Sinus, weil im Implantat-Tab problematische Elektroden
 // per Sinus am besten zu erkennen sind (Rauschen, Aussetzer).

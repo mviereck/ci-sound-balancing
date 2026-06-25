@@ -46,8 +46,8 @@ function _lrUpdCumulative(v) {
 
 
 function stereobalanceGVol() { return Math.pow((volume_global || 0) / 100, 2); }
-function stereobalanceGDur() { return duration_balance || 1000; }
-function stereobalanceGPau() { return pause_balance    || 400;  }
+function stereobalanceGDur() { return duration_stereobalance || 1000; }
+function stereobalanceGPau() { return pause_stereobalance    || 400;  }
 
 // BA 253: Klavier-Helfer fuer die Tonauswahl-Modalbox des
 // Stereo-Balance-Tests. Tasten bis Min(leftN, rightN); disabled
@@ -174,9 +174,9 @@ async function stereobalancePlayCurrent() {
     && stereobalanceEls.verfahren.balance.pairIndicator;
   stereobalanceIsPlay = true;
   testUI.tonePlayer.playSequential(
-    stereobalanceSequence({ aba: sequence_balance === 'aba' }),
+    stereobalanceSequence({ aba: sequence_stereobalance === 'aba' }),
     {
-      toneType: toneType_balance,
+      toneType: toneType_stereobalance,
       onStepStart: function (index, token) {
         testUI.pairIndicator.setPlaying(_lrPI, (token && token.side) ? token.side : null);
       },
@@ -198,7 +198,7 @@ function stereobalancePlaySimul() {
   testUI.tonePlayer.playSimultaneous(
     stereobalanceSequence({ aba: false }),
     {
-      toneType: toneType_balance,
+      toneType: toneType_stereobalance,
       onDone: function () {
         stereobalanceIsPlay = false;
         testUI.pairIndicator.setPlaying(_lrPI, null);
@@ -852,8 +852,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // BA 253: Tonart-Dropdown durch tonePopupButton ersetzt.
         toneType:  false,
         tonePopupButton: {
-          getToneType: function()   { return toneType_balance; },
-          setToneType: function(tt) { toneType_balance = tt; },
+          getToneType: function()   { return toneType_stereobalance; },
+          setToneType: function(tt) { toneType_stereobalance = tt; },
           onToneSelected: function(tt) { _lrTpModalTone = tt; },
           onModalClose:   function()   { _lrTpModalTone = null; _lrTpCorrectVol = null; },
           onTogglesReady: function(fn) { _lrTpCorrectVol = fn; },
@@ -865,14 +865,14 @@ document.addEventListener("DOMContentLoaded", function() {
           showPause:    true,
           getVolumePercent: function()  { return volume_global; },
           setVolumePercent: function(v) { volume_global = v; },
-          getDurationMs:    function()  { return duration_balance; },
-          setDurationMs:    function(v) { duration_balance = v; },
-          getPauseMs:       function()  { return pause_balance; },
-          setPauseMs:       function(v) { pause_balance = v; },
+          getDurationMs:    function()  { return duration_stereobalance; },
+          setDurationMs:    function(v) { duration_stereobalance = v; },
+          getPauseMs:       function()  { return pause_stereobalance; },
+          setPauseMs:       function(v) { pause_stereobalance = v; },
           getVolume:   function() { return stereobalanceGVol(); },
           getPreviewSequence: function (lastHz) {
             if (stereobalanceRunning && stereobalanceCurrentEl !== null) {
-              return stereobalanceSequence({ aba: sequence_balance === 'aba' });
+              return stereobalanceSequence({ aba: sequence_stereobalance === 'aba' });
             }
             // Kein Test: gemerkter Ton, beide Seiten nacheinander.
             // BA 301: jede Seite mit ihrer Korrektur (Elektrodenlautstaerke
@@ -901,7 +901,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
             _lrKbT0 = (typeof performance !== 'undefined') ? performance.now() : Date.now();
-            var tt   = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_balance;
+            var tt   = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_stereobalance;
             var vol  = stereobalanceGVol();
             var panA = (activeSide === 'left') ? -1 : 1;
             var hzA;
@@ -924,7 +924,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var t1   = (typeof performance !== 'undefined') ? performance.now() : Date.now();
             var held = Math.max(0, t1 - _lrKbT0);
             if (held <= 0) return;
-            var tt    = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_balance;
+            var tt    = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_stereobalance;
             var vol   = stereobalanceGVol();
             var other = (activeSide === 'left') ? 'right' : 'left';
             var panB  = (activeSide === 'left') ? 1 : -1;

@@ -141,16 +141,16 @@ function resetAll() {
   // BA 254: Tonfolge pro Test
   if (typeof sequence_freqmatch !== "undefined") sequence_freqmatch = TEST_DEFAULTS.freqmatch.sequence;
   if (typeof fmActiveMethodVal !== "undefined") fmActiveMethodVal = null;
-  if (typeof sequence_test      !== "undefined") sequence_test      = TEST_DEFAULTS.test.sequence;
-  if (typeof sequence_balance   !== "undefined") sequence_balance   = TEST_DEFAULTS.balance.sequence;
+  if (typeof sequence_elektrodenlautstaerke      !== "undefined") sequence_elektrodenlautstaerke      = TEST_DEFAULTS.test.sequence;
+  if (typeof sequence_stereobalance   !== "undefined") sequence_stereobalance   = TEST_DEFAULTS.balance.sequence;
   // BA 246
-  if (typeof toneType_test !== "undefined") toneType_test = TEST_DEFAULTS.test.toneType;
+  if (typeof toneType_elektrodenlautstaerke !== "undefined") toneType_elektrodenlautstaerke = TEST_DEFAULTS.test.toneType;
   if (typeof volume_global !== "undefined") volume_global = TEST_DEFAULTS.commonVolume;
-  if (typeof duration_test !== "undefined") duration_test = TEST_DEFAULTS.test.duration;
-  if (typeof pause_test    !== "undefined") pause_test    = TEST_DEFAULTS.test.pause;
-  if (typeof toneType_balance !== "undefined") toneType_balance = TEST_DEFAULTS.balance.toneType;
-  if (typeof duration_balance !== "undefined") duration_balance = TEST_DEFAULTS.balance.duration;
-  if (typeof pause_balance    !== "undefined") pause_balance    = TEST_DEFAULTS.balance.pause;
+  if (typeof duration_elektrodenlautstaerke !== "undefined") duration_elektrodenlautstaerke = TEST_DEFAULTS.test.duration;
+  if (typeof pause_elektrodenlautstaerke    !== "undefined") pause_elektrodenlautstaerke    = TEST_DEFAULTS.test.pause;
+  if (typeof toneType_stereobalance !== "undefined") toneType_stereobalance = TEST_DEFAULTS.balance.toneType;
+  if (typeof duration_stereobalance !== "undefined") duration_stereobalance = TEST_DEFAULTS.balance.duration;
+  if (typeof pause_stereobalance    !== "undefined") pause_stereobalance    = TEST_DEFAULTS.balance.pause;
   if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = TEST_DEFAULTS.freqmatch.toneType;
   if (typeof duration_freqmatch !== "undefined") duration_freqmatch = TEST_DEFAULTS.freqmatch.duration;
   if (typeof pause_freqmatch    !== "undefined") pause_freqmatch    = TEST_DEFAULTS.freqmatch.pause;
@@ -328,8 +328,8 @@ async function saveJson() {
       ? freqmatchTestSelection : null,
     sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
     fmActiveMethod: (typeof fmActiveMethodVal !== "undefined") ? fmActiveMethodVal : null,
-    sequence_test:      (typeof sequence_test      !== "undefined") ? sequence_test      : TEST_DEFAULTS.test.sequence,
-    sequence_balance:   (typeof sequence_balance   !== "undefined") ? sequence_balance   : TEST_DEFAULTS.balance.sequence,
+    sequence_test:      (typeof sequence_elektrodenlautstaerke      !== "undefined") ? sequence_elektrodenlautstaerke      : TEST_DEFAULTS.test.sequence,
+    sequence_balance:   (typeof sequence_stereobalance   !== "undefined") ? sequence_stereobalance   : TEST_DEFAULTS.balance.sequence,
     playerSourceMeas: plSrcMeas,
     playerSourceLevels: plSrcLevels,
     playerSourceCurves: plSrcCurves,
@@ -346,20 +346,20 @@ async function saveJson() {
     toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
       ? toneType_freqmatch : TEST_DEFAULTS.freqmatch.toneType,
     // BA 246
-    toneType_test: (typeof toneType_test !== "undefined")
-      ? toneType_test : TEST_DEFAULTS.test.toneType,
+    toneType_test: (typeof toneType_elektrodenlautstaerke !== "undefined")
+      ? toneType_elektrodenlautstaerke : TEST_DEFAULTS.test.toneType,
     // BA 287: gemeinsame Lautstaerke.
     volume_global: (typeof volume_global !== "undefined") ? volume_global : TEST_DEFAULTS.commonVolume,
-    duration_test: (typeof duration_test !== "undefined") ? duration_test : TEST_DEFAULTS.test.duration,
-    pause_test:    (typeof pause_test    !== "undefined") ? pause_test    : TEST_DEFAULTS.test.pause,
+    duration_test: (typeof duration_elektrodenlautstaerke !== "undefined") ? duration_elektrodenlautstaerke : TEST_DEFAULTS.test.duration,
+    pause_test:    (typeof pause_elektrodenlautstaerke    !== "undefined") ? pause_elektrodenlautstaerke    : TEST_DEFAULTS.test.pause,
     // BA 240: Dur/Pau-State des Frequenzabgleichs persistieren.
     duration_freqmatch: (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : TEST_DEFAULTS.freqmatch.duration,
     pause_freqmatch:    (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : TEST_DEFAULTS.freqmatch.pause,
     // BA 253: Dur/Pau/ToneType fuer Stereo-Balance persistieren.
-    toneType_balance: (typeof toneType_balance !== "undefined")
-      ? toneType_balance : TEST_DEFAULTS.balance.toneType,
-    duration_balance: (typeof duration_balance !== "undefined") ? duration_balance : TEST_DEFAULTS.balance.duration,
-    pause_balance:    (typeof pause_balance    !== "undefined") ? pause_balance    : TEST_DEFAULTS.balance.pause,
+    toneType_balance: (typeof toneType_stereobalance !== "undefined")
+      ? toneType_stereobalance : TEST_DEFAULTS.balance.toneType,
+    duration_balance: (typeof duration_stereobalance !== "undefined") ? duration_stereobalance : TEST_DEFAULTS.balance.duration,
+    pause_balance:    (typeof pause_stereobalance    !== "undefined") ? pause_stereobalance    : TEST_DEFAULTS.balance.pause,
     toneType_implant:   (typeof toneType_implant !== "undefined") ? toneType_implant : TEST_DEFAULTS.implant.toneType,
     duration_implant:   (typeof duration_implant !== "undefined") ? duration_implant : TEST_DEFAULTS.implant.duration,
     pause_implant:      (typeof pause_implant    !== "undefined") ? pause_implant    : TEST_DEFAULTS.implant.pause,
@@ -545,11 +545,11 @@ function applyLoadedData(d) {
     // Gespeicherter Wert (adaptive/slider) wird verworfen; Messdaten bleiben.
     fmActiveMethodVal = "piano";
   }
-  if (typeof sequence_test !== "undefined") {
-    sequence_test = _validSeq(d.sequence_test) || _legacySeq;
+  if (typeof sequence_elektrodenlautstaerke !== "undefined") {
+    sequence_elektrodenlautstaerke = _validSeq(d.sequence_test) || _legacySeq;
   }
-  if (typeof sequence_balance !== "undefined") {
-    sequence_balance = _validSeq(d.sequence_balance) || _legacySeq;
+  if (typeof sequence_stereobalance !== "undefined") {
+    sequence_stereobalance = _validSeq(d.sequence_balance) || _legacySeq;
   }
   if (typeof d.plBothSides === "boolean") {
     const bsEl = document.getElementById("plBothSides");
@@ -585,13 +585,13 @@ function applyLoadedData(d) {
     }
   }
   // BA 246
-  if (typeof toneType_test !== "undefined") {
+  if (typeof toneType_elektrodenlautstaerke !== "undefined") {
     if (isValidToneType(d.toneType_test)) {
-      toneType_test = d.toneType_test;
+      toneType_elektrodenlautstaerke = d.toneType_test;
     } else if (isValidToneType(d.globalToneType)) {
-      toneType_test = d.globalToneType;
+      toneType_elektrodenlautstaerke = d.globalToneType;
     } else {
-      toneType_test = TEST_DEFAULTS.test.toneType;
+      toneType_elektrodenlautstaerke = TEST_DEFAULTS.test.toneType;
     }
   }
   // BA 287: gemeinsame Lautstaerke laden. Abwaertskompat: altes Profil
@@ -603,13 +603,13 @@ function applyLoadedData(d) {
     }
     volume_global = (isFinite(_vg) && _vg >= 0 && _vg <= 100) ? _vg : TEST_DEFAULTS.commonVolume;
   }
-  if (typeof duration_test !== "undefined") {
+  if (typeof duration_elektrodenlautstaerke !== "undefined") {
     var _du = parseInt(d.duration_test, 10);
-    duration_test = (isFinite(_du) && _du >= 100 && _du <= 3000) ? _du : TEST_DEFAULTS.test.duration;
+    duration_elektrodenlautstaerke = (isFinite(_du) && _du >= 100 && _du <= 3000) ? _du : TEST_DEFAULTS.test.duration;
   }
-  if (typeof pause_test !== "undefined") {
+  if (typeof pause_elektrodenlautstaerke !== "undefined") {
     var _pa = parseInt(d.pause_test, 10);
-    pause_test = (isFinite(_pa) && _pa >= 50 && _pa <= 2000) ? _pa : TEST_DEFAULTS.test.pause;
+    pause_elektrodenlautstaerke = (isFinite(_pa) && _pa >= 50 && _pa <= 2000) ? _pa : TEST_DEFAULTS.test.pause;
   }
   // BA 240: Vol/Dur/Pau aus gespeicherten Daten zuruecklesen, mit Default-Fallback.
   if (typeof duration_freqmatch !== "undefined") {
@@ -621,22 +621,22 @@ function applyLoadedData(d) {
     pause_freqmatch = (isFinite(sp) && sp >= 50 && sp <= 2000) ? sp : TEST_DEFAULTS.freqmatch.pause;
   }
   // BA 253: ToneType/Vol/Dur/Pau fuer Stereo-Balance aus JSON zuruecklesen.
-  if (typeof toneType_balance !== "undefined") {
+  if (typeof toneType_stereobalance !== "undefined") {
     if (isValidToneType(d.toneType_balance)) {
-      toneType_balance = d.toneType_balance;
+      toneType_stereobalance = d.toneType_balance;
     } else if (isValidToneType(d.globalToneType)) {
-      toneType_balance = d.globalToneType;
+      toneType_stereobalance = d.globalToneType;
     } else {
-      toneType_balance = TEST_DEFAULTS.balance.toneType;
+      toneType_stereobalance = TEST_DEFAULTS.balance.toneType;
     }
   }
-  if (typeof duration_balance !== "undefined") {
+  if (typeof duration_stereobalance !== "undefined") {
     var _dB = parseInt(d.duration_balance, 10);
-    duration_balance = (isFinite(_dB) && _dB >= 100 && _dB <= 3000) ? _dB : TEST_DEFAULTS.balance.duration;
+    duration_stereobalance = (isFinite(_dB) && _dB >= 100 && _dB <= 3000) ? _dB : TEST_DEFAULTS.balance.duration;
   }
-  if (typeof pause_balance !== "undefined") {
+  if (typeof pause_stereobalance !== "undefined") {
     var _pB = parseInt(d.pause_balance, 10);
-    pause_balance = (isFinite(_pB) && _pB >= 50 && _pB <= 2000) ? _pB : TEST_DEFAULTS.balance.pause;
+    pause_stereobalance = (isFinite(_pB) && _pB >= 50 && _pB <= 2000) ? _pB : TEST_DEFAULTS.balance.pause;
   }
   // BA 242: Implantat-State aus JSON zuruecklesen.
   if (typeof toneType_implant !== "undefined") {

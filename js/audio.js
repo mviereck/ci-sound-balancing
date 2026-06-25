@@ -67,8 +67,8 @@ loadToneEnvelope();
 
 function _activeTestInput(type) {
   // BA 250: Elektrodenlautstaerke-Test hat keine Header-Felder mehr —
-  // Vol/Dur/Pau leben dort als State-Variablen (volume_test/duration_test/
-  // pause_test). gVol/gDur/gPau lesen das direkt; _activeTestInput
+  // Vol/Dur/Pau leben dort als State-Variablen (volume_test/duration_elektrodenlautstaerke/
+  // pause_elektrodenlautstaerke). gVol/gDur/gPau lesen das direkt; _activeTestInput
   // braucht nur noch stereobalance-balance und freqmatch (rein vorgehalten — beide
   // haben eigene Helfer).
   if (typeof stereobalanceRunning !== 'undefined' && stereobalanceRunning
@@ -95,16 +95,16 @@ function gVol() {
 }
 function gDur() {
   // BA 250
-  if (testAct && typeof duration_test !== 'undefined') {
-    return duration_test || 750;
+  if (testAct && typeof duration_elektrodenlautstaerke !== 'undefined') {
+    return duration_elektrodenlautstaerke || 750;
   }
   const el = _activeTestInput('dur');
   return parseInt(el && el.value) || 1000;
 }
 function gPau() {
   // BA 250
-  if (testAct && typeof pause_test !== 'undefined') {
-    return pause_test || 300;
+  if (testAct && typeof pause_elektrodenlautstaerke !== 'undefined') {
+    return pause_elektrodenlautstaerke || 300;
   }
   const el = _activeTestInput('pau');
   return parseInt(el && el.value) || 500;

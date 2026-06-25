@@ -795,8 +795,8 @@ const LS_HINT_K = 3;
 // Lesen direkt aus den State-Variablen; macht die quadratische
 // Audio-Konversion fuer die Lautstaerke.
 function tGVol() { return Math.pow((volume_global || 0) / 100, 2); }
-function tGDur() { return duration_test || 750; }
-function tGPau() { return pause_test    || 300; }
+function tGDur() { return duration_elektrodenlautstaerke || 750; }
+function tGPau() { return pause_elektrodenlautstaerke    || 300; }
 
 // BA 252: Klavier-Helfer fuer die Tonauswahl-Modalbox des
 // Elektrodenlautstaerke-Tests. Eine Seite (aktive Seite), alle
@@ -1135,9 +1135,9 @@ function playCur() {
     testUI.pairIndicator.setPlaying(vref.pairIndicator, 'both');
   }
   testUI.tonePlayer.playSequential(
-    _testSequence({ aba: sequence_test === 'aba' }),
+    _testSequence({ aba: sequence_elektrodenlautstaerke === 'aba' }),
     {
-      toneType: toneType_test,
+      toneType: toneType_elektrodenlautstaerke,
       onStepStart: function (index, token) {
         if (token && typeof token.eIdx === 'number') updInd(token.eIdx, token.which);
         else updInd(-1);
@@ -1355,8 +1355,8 @@ document.addEventListener("DOMContentLoaded", function() {
         pause:     false,
         toneType:  false,
         tonePopupButton: {
-          getToneType: function()   { return toneType_test; },
-          setToneType: function(tt) { toneType_test = tt; },
+          getToneType: function()   { return toneType_elektrodenlautstaerke; },
+          setToneType: function(tt) { toneType_elektrodenlautstaerke = tt; },
           // BA 252: Tonart-Merker fuer Klavier-Anschlag im Modal.
           onToneSelected: function(tt) { _testTpModalTone = tt; },
           onModalClose:   function()   { _testTpModalTone = null; _testTpCorrectVol = null; },
@@ -1369,17 +1369,17 @@ document.addEventListener("DOMContentLoaded", function() {
           showPause:    true,
           getVolumePercent: function()  { return volume_global; },
           setVolumePercent: function(v) { volume_global = v; },
-          getDurationMs:    function()  { return duration_test; },
-          setDurationMs:    function(v) { duration_test = v; },
-          getPauseMs:       function()  { return pause_test; },
-          setPauseMs:       function(v) { pause_test = v; },
+          getDurationMs:    function()  { return duration_elektrodenlautstaerke; },
+          setDurationMs:    function(v) { duration_elektrodenlautstaerke = v; },
+          getPauseMs:       function()  { return pause_elektrodenlautstaerke; },
+          setPauseMs:       function(v) { pause_elektrodenlautstaerke = v; },
           // Probehoeren und Sequenz aus den neuen State-Werten.
           getVolume:   function() { return tGVol(); },
           getPreviewSequence: function (lastHz) {
             // Test laeuft -> echte Sequenz (aktuelles Paar + Schieber);
             // sonst ein Ton mit der zuletzt am Klavier angetippten Frequenz.
             if (testAct && testIdx < testPairs.length && curA != null && curB != null) {
-              return _testSequence({ aba: sequence_test === 'aba' });
+              return _testSequence({ aba: sequence_elektrodenlautstaerke === 'aba' });
             }
             var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
             var pan = (activeSide === 'left') ? -1 : 1;
@@ -1399,7 +1399,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
             var pan = (activeSide === 'left') ? -1 : 1;
-            var tt  = (_testTpModalTone !== null) ? _testTpModalTone : toneType_test;
+            var tt  = (_testTpModalTone !== null) ? _testTpModalTone : toneType_elektrodenlautstaerke;
             // BA 302: Korrektur ueber die Schalter-fn (Default an, abschaltbar).
             var vol = tGVol();
             if (typeof _testTpCorrectVol === 'function') vol = _testTpCorrectVol(vol, hz, pan);
@@ -1551,7 +1551,7 @@ function _testPlaySimul() {
   testUI.tonePlayer.playSimultaneous(
     _testSequence({ aba: false }),
     {
-      toneType: toneType_test,
+      toneType: toneType_elektrodenlautstaerke,
       onDone: function () {
         isPlay = false;
         if (vref && vref.pairIndicator) {
