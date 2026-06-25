@@ -77,7 +77,7 @@ const FM_TRIALS_PER_ELECTRODE_ESTIMATE = 25;   // Schätzwert für Trial-Fortsch
 //               angegeben, wird er direkt als startOffset/currentOffset
 //               verwendet. Wenn nicht angegeben, ergibt sich startOffset
 //               aus startSign · 100 cent (alte Voreinstellung).
-//               Verwendung in freqmatch.js fmStartAdaptive:
+//               Verwendung in freqmatch.js frq_startAdaptive:
 //                 - Lauf 1 mit Slider-Schätzung: startOffset = schätzung.cent + sign · FM_INITIAL_START_OFFSET
 //                 - Lauf 2+ mit Vorlauf-Match:   startOffset = match ± FM_FOLLOWUP_BRACKET_OFFSET
 //                 - Sonst: startOffset = sign · FM_INITIAL_START_OFFSET.

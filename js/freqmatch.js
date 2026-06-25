@@ -39,14 +39,14 @@ let frq_lastPickedTrackId = null;   // Wiederholungs-Sperre für Anker-Randomisi
 let frq_currentFirstSide     = 'ref';
 let frq_trialStartTs     = 0;
 // Gepaartes Bracketing-State für den aktuell startenden/laufenden Lauf
-// (wird in fmStartAdaptive berechnet und in _fmPersist in den Lauf geschrieben).
+// (wird in frq_startAdaptive berechnet und in _fmPersist in den Lauf geschrieben).
 let frq_currentPairedToPrevious = false;
 // Catch-Trial-Info des aktuellen Trials (Bauanleitung 02b/6)
 let frq_currentCatchInfo = null;   // null | { direction: +500|-500, expectedResponse: 'var-higher'|'var-lower' }
 
 // Undo-Support für adaptiven Modus
 let _fmUndoSnapshot = null;  // Track-State-Snapshot vor letzter Antwort
-let _fmNextTrialTO  = null;  // Timeout-Handle für fmNextAdaptiveTrial (canceln bei Undo)
+let _fmNextTrialTO  = null;  // Timeout-Handle für frq_nextAdaptiveTrial (canceln bei Undo)
 
 // Debug-Simulation
 let _fmSimActive  = false;
@@ -322,7 +322,7 @@ function _fmOnSelectionChanged() {
   }
   if (FRQ_running && !frq_adaptiveActive && typeof _fmApplySelectionToSliderRun === 'function') {
     _fmApplySelectionToSliderRun();
-    if (typeof fmUpdateSliderProgress === 'function') fmUpdateSliderProgress();
+    if (typeof frq_updateSliderProgress === 'function') frq_updateSliderProgress();
   }
 
   // Header-Summary nach-rendern
@@ -416,13 +416,13 @@ function frq_makeSequence(opts) {
 
 // --- Tonwiedergabe ---
 async function frq_playCurrent() {
-  // --- Adaptive-Modus: Replay des aktuellen Trials über fmPlayAdaptiveTrial ---
+  // --- Adaptive-Modus: Replay des aktuellen Trials über frq_playAdaptiveTrial ---
   if (frq_adaptiveActive) {
     if (frq_currentTrackId === null || !frq_tracks || !frq_tracks[frq_currentTrackId]) return;
     const track = frq_tracks[frq_currentTrackId];
-    // fmPlayAdaptiveTrial mutiert KEINEN Track-State — pure Wiedergabe-Routine.
+    // frq_playAdaptiveTrial mutiert KEINEN Track-State — pure Wiedergabe-Routine.
     // frq_awaitingResponse bleibt true, Antwort-Buttons bleiben aktiv.
-    await fmPlayAdaptiveTrial(track, frq_currentFirstSide, frq_currentCatchInfo);
+    await frq_playAdaptiveTrial(track, frq_currentFirstSide, frq_currentCatchInfo);
     return;
   }
 
@@ -545,7 +545,7 @@ function _fmPersist() {
   let run = (fa.currentRunIdx != null) ? fa.runs[fa.currentRunIdx] : null;
   if (!run || run.completedAt != null) {
     // Kein aktiver Lauf → neuen Lauf anlegen.
-    // startSigns/pairedToPrevious werden in fmStartAdaptive vorher berechnet
+    // startSigns/pairedToPrevious werden in frq_startAdaptive vorher berechnet
     // und in fmCurStartSigns/frq_currentPairedToPrevious zwischengespeichert.
     const elList = Array.from(new Set(
       Object.keys(frq_tracks).map(function(k) {
@@ -683,7 +683,7 @@ function _fmTickTimer() {
 // --- Shared Dispatchers ---
 
 function frq_undo() {
-  if (frq_adaptiveActive) { fmUndoAdaptive(); return; }
+  if (frq_adaptiveActive) { frq_undoAdaptive(); return; }
   if (!FRQ_running || frq_sequenceIdx === 0) return;
   frq_sequenceIdx--;
   const prevEl = frq_sequence[frq_sequenceIdx];
@@ -703,7 +703,7 @@ function frq_undo() {
     });
   }
 
-  fmUpdateSliderProgress();
+  frq_updateSliderProgress();
   frq_loadElectrode();
   if (typeof renderFreqMatchResults === 'function') {
     try { renderFreqMatchResults(); } catch (e) {}
@@ -750,7 +750,7 @@ function frq_abort() {
 }
 
 // --- Klavier-Verfahren (A1: nur erste Elektrode, Tonwiedergabe) ---
-function fmStartPiano() {
+function frq_startPiano() {
   if (!FRQ_els) return;
   _fmInitSides();
   if (frq_symmetric) {
@@ -900,14 +900,14 @@ function _fmPianoMarkCent(pr, cent) {
 }
 
 // Anschlag aus dem Baustein.
-function fmPianoOnPlay(evt) {
+function frq_pianoOnPlay(evt) {
   if (!FRQ_running || frq_currentEl === null) return;
   frq_centOffset = (evt && typeof evt.cent === 'number') ? evt.cent : 0;
   frq_playCurrent();
 }
 
 // Grenze bestaetigen: zuletzt gespielten Tasten-Offset speichern, weiter.
-function fmPianoConfirm() {
+function frq_pianoConfirm() {
   if (!FRQ_running || frq_currentEl === null) return;
   var run = _fmPianoData().run;
   if (!run) return;
@@ -937,7 +937,7 @@ function fmPianoConfirm() {
 
 // Zurueck: in der laufenden Runde eine Elektrode zurueck (bzw. aktuelle
 // Elektrode neu beginnen). Eine abgeschlossene Runde wird nicht aufgerollt.
-function fmPianoBack() {
+function frq_pianoBack() {
   if (!FRQ_running) return;
   var run = _fmPianoData().run;
   if (!run) return;
@@ -1323,7 +1323,7 @@ function _fmRequestExcl() {
 // --- Slider-Handler ---
 function frq_handleSlider(val) {
   frq_centOffset = parseFloat(val);
-  fmUpdateSliderDisplay();
+  frq_updateSliderDisplay();
 }
 
 // --- i18n-Aktualisierung ---
@@ -1836,17 +1836,17 @@ document.addEventListener("DOMContentLoaded", () => {
           actions:       ['undo', 'replay', 'simul']
         },
         hooks: {
-          onStart:     fmStartPiano,
+          onStart:     frq_startPiano,
           onStop:      frq_abort,
-          onPianoPlay: fmPianoOnPlay,
-          onConfirm:   fmPianoConfirm,
-          onUndo:      fmPianoBack,
+          onPianoPlay: frq_pianoOnPlay,
+          onConfirm:   frq_pianoConfirm,
+          onUndo:      frq_pianoBack,
           onReplay:    frq_playCurrent,
           onSimul:     frq_playSimultaneous
         }
       }
       /* BA363 Klavier-only: Adaptiv und Slider aus der UI verborgen.
-         Logik (fmStartAdaptive, fmStartSlider, Roh-Behaelter) bleibt im
+         Logik (frq_startAdaptive, frq_startSlider, Roh-Behaelter) bleibt im
          Code. Zum Reaktivieren diesen Block-Kommentar entfernen und die
          beiden Eintraege wieder als Array-Elemente einfuegen (mit fuehrendem
          Komma nach dem piano-Eintrag). Architektur 10.
@@ -1894,11 +1894,11 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         ],
         hooks: {
-          onStart:    fmStartAdaptive,
+          onStart:    frq_startAdaptive,
           onStop:     frq_abort,
           onDecision: frq_handleHeight,
           onReplay:   frq_playCurrent,
-          onUndo:     fmUndoAdaptive,
+          onUndo:     frq_undoAdaptive,
           onSimul:    frq_playSimultaneous,
           onDebugRun: frq_runDebugSimulation
         }
@@ -1922,9 +1922,9 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         },
         hooks: {
-          onStart:    fmStartSlider,
+          onStart:    frq_startSlider,
           onStop:     frq_abort,
-          onPause:    fmPauseSlider,
+          onPause:    frq_pauseSlider,
           onSlide:    frq_handleSlider,
           onConfirm:  frq_confirm,
           onReplay:   frq_playCurrent,

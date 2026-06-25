@@ -6,7 +6,7 @@
 
 // --- UI-Anzeige ---
 
-function fmUpdateSliderDisplay() {
+function frq_updateSliderDisplay() {
   if (!FRQ_els || frq_currentEl === null) return;
   const slRefs = FRQ_els.verfahren && FRQ_els.verfahren.slider;
   const centStr = (frq_centOffset >= 0 ? "+" : "") + Math.round(frq_centOffset);
@@ -80,9 +80,9 @@ function frq_showElectrode() {
     var _markerAbs = _fmSliderMarkerMaxAbs(frq_currentEl);
     testUI.slider.setValue(slRefs.slider, frq_centOffset, { minAbs: _markerAbs });
   }
-  fmUpdateSliderDisplay();
+  frq_updateSliderDisplay();
   _fmUpdateSliderRangeMarker();
-  fmUpdateSliderProgress();
+  frq_updateSliderProgress();
   const undoBtn = _fmSliderUndo();
   if (undoBtn) undoBtn.disabled = frq_sequenceIdx === 0;
 }
@@ -158,7 +158,7 @@ function _fmApplySelectionToSliderRun() {
   }
 }
 
-function fmStartSlider() {
+function frq_startSlider() {
   if (!FRQ_els) return;
   _fmInitSides();
   if (frq_symmetric) {
@@ -323,14 +323,14 @@ function frq_confirm() {
 }
 
 // BA 206: Pause — Lauf nicht abbrechen, nur stoppen.
-function fmPauseSlider() {
+function frq_pauseSlider() {
   if (!FRQ_running) return;
   if (FRQ_els && FRQ_els._stopTest) FRQ_els._stopTest();
 }
 
 // --- Fortschritt ---
 
-function fmUpdateSliderProgress() {
+function frq_updateSliderProgress() {
   if (!FRQ_els) return;
   const _sprog = FRQ_els.verfahren && FRQ_els.verfahren.slider && FRQ_els.verfahren.slider.progress;
   if (!_sprog) return;

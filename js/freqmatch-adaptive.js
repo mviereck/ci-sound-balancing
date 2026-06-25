@@ -52,7 +52,7 @@ function _fmApplySelectionToTracks() {
   }
 }
 
-function fmStartAdaptive() {
+function frq_startAdaptive() {
   if (!FRQ_els) return;
   _fmInitSides();
 
@@ -221,11 +221,11 @@ function _fmDoStartAdaptive() {
   _fmStartTimer();
   _fmDbg('start: ref=' + FRQ_refSide + ' var=' + frq_varSide
        + ', tracks=' + Object.keys(frq_tracks).length);
-  fmNextAdaptiveTrial();
+  frq_nextAdaptiveTrial();
   _fmStartIdleSideCheck();
 }
 
-function fmNextAdaptiveTrial() {
+function frq_nextAdaptiveTrial() {
   if (!frq_adaptiveActive) return;
   const _au0 = _fmAdaptUndo();
   if (_au0) _au0.disabled = true;
@@ -235,7 +235,7 @@ function fmNextAdaptiveTrial() {
   if (frq_currentTrackId !== null) frq_lastPickedTrackId = frq_currentTrackId;
   frq_roundQueue = _rrState.roundQueue;
   if (frq_currentTrackId === null) {
-    fmFinishAdaptive();
+    frq_finishAdaptive();
     return;
   }
 
@@ -272,7 +272,7 @@ function fmNextAdaptiveTrial() {
     });
   }
 
-  fmUpdateAdaptiveProgress();
+  frq_updateAdaptiveProgress();
   frq_disableHeightButtons();
 
   const track = frq_tracks[frq_currentTrackId];
@@ -283,7 +283,7 @@ function fmNextAdaptiveTrial() {
        + ' varHz=' + Math.round(_dbgVarHz)
        + ' offset=' + Math.round(track.currentOffset) + 'ct'
        + (frq_currentCatchInfo ? ' [CATCH dir=' + frq_currentCatchInfo.direction + ']' : ''));
-  fmPlayAdaptiveTrial(track, frq_currentFirstSide, frq_currentCatchInfo).then(function() {
+  frq_playAdaptiveTrial(track, frq_currentFirstSide, frq_currentCatchInfo).then(function() {
     if (!frq_adaptiveActive) return;
     frq_awaitingResponse = true;
     frq_enableHeightButtons();
@@ -293,7 +293,7 @@ function fmNextAdaptiveTrial() {
   });
 }
 
-async function fmPlayAdaptiveTrial(track, firstSide, catchInfo) {
+async function frq_playAdaptiveTrial(track, firstSide, catchInfo) {
   if (_fmSimActive) { frq_isPlaying = false; isPlay = false; return; }
   if (frq_isPlaying) {
     frq_isPlaying = false;
@@ -470,7 +470,7 @@ function frq_handleHeight(userChoice) {
 
   _fmNextTrialTO = setTimeout(function() {
     _fmNextTrialTO = null;
-    if (frq_adaptiveActive) fmNextAdaptiveTrial();
+    if (frq_adaptiveActive) frq_nextAdaptiveTrial();
   }, _fmSimActive ? 30 : 200);
 }
 
@@ -736,7 +736,7 @@ function _fmWriteResult(track) {
        + ' runs=' + agg.runsCount);
 }
 
-function fmFinishAdaptive() {
+function frq_finishAdaptive() {
   let _cv = 0, _fa2 = 0, _wide = 0, _un = 0, _np = 0;
   Object.keys(frq_tracks).forEach(function(k) {
     const st = frq_tracks[k].status;
@@ -769,8 +769,8 @@ function fmFinishAdaptive() {
   if (typeof renderFreqMatchResults === 'function') renderFreqMatchResults();
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
-  // BA 279: Abschluss-Box. fmFinishAdaptive wird nur erreicht, wenn keine
-  // Tracks mehr offen sind (frq_pickNextTrack === null in fmNextAdaptiveTrial)
+  // BA 279: Abschluss-Box. frq_finishAdaptive wird nur erreicht, wenn keine
+  // Tracks mehr offen sind (frq_pickNextTrack === null in frq_nextAdaptiveTrial)
   // — natuerliches Ende. Pause/Abbruch laeuft ueber frq_finish: KEINE Box.
   if (typeof testUI !== 'undefined' && testUI.completion) {
     testUI.completion.show({
@@ -892,7 +892,7 @@ function _mkCell(text) {
   return c;
 }
 
-function fmUpdateAdaptiveProgress() {
+function frq_updateAdaptiveProgress() {
   if (!FRQ_els) return;
   const _aprog = FRQ_els.verfahren && FRQ_els.verfahren.adaptive && FRQ_els.verfahren.adaptive.progress;
   if (!_aprog) return;
@@ -953,7 +953,7 @@ function FRQ_computeProgressStats(tracks) {
 
 // --- Undo ---
 
-function fmUndoAdaptive() {
+function frq_undoAdaptive() {
   if (!_fmUndoSnapshot) return;
   if (_fmNextTrialTO) { clearTimeout(_fmNextTrialTO); _fmNextTrialTO = null; }
 
@@ -973,7 +973,7 @@ function fmUndoAdaptive() {
   if (_au3) _au3.disabled = true;
   frq_disableHeightButtons();
   frq_awaitingResponse = false;
-  fmPlayAdaptiveTrial(track, frq_currentFirstSide, frq_currentCatchInfo).then(function() {
+  frq_playAdaptiveTrial(track, frq_currentFirstSide, frq_currentCatchInfo).then(function() {
     if (!frq_adaptiveActive) return;
     frq_awaitingResponse = true;
     frq_enableHeightButtons();
