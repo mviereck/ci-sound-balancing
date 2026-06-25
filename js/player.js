@@ -1389,7 +1389,7 @@ window.addEventListener("resize", () => {
   }
   if (document.getElementById("panel-levels").classList.contains("active"))
     drawLvChart();
-  if (document.getElementById("subpanel-ergebnisse-lrresults")?.classList.contains("active"))
+  if (document.getElementById("subpanel-ergebnisse-stereobalance")?.classList.contains("active"))
     stereobalanceDrawChart();
 });
 

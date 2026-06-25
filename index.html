@@ -447,15 +447,15 @@
       <div id="panel-messungen" class="panel">
         <div>
         <div class="subtabs">
-          <button class="subtab active" data-subtab="test" data-parent="messungen" data-t="subTabLoudness"></button>
-          <button class="subtab" data-subtab="balance" data-parent="messungen" data-t="tabBalance"></button>
+          <button class="subtab active" data-subtab="elektrodenlautstaerke" data-parent="messungen" data-t="tabElektrodenlautstaerke"></button>
+          <button class="subtab" data-subtab="stereobalance" data-parent="messungen" data-t="tabStereobalance"></button>
           <button class="subtab" data-subtab="latenz" data-parent="messungen" id="latenzSubtabBtn" data-t="tabLatenz"></button>
           <button class="subtab" data-subtab="freqmatch" data-parent="messungen" id="fmSubtabBtn" data-t="subTabFreqMatch"></button>
         </div>
-        <div id="subpanel-messungen-test" class="subpanel active">
+        <div id="subpanel-messungen-elektrodenlautstaerke" class="subpanel active">
           <!-- Inhalt wird von test-ui.js / test.js erzeugt -->
         </div>
-        <div id="subpanel-messungen-balance" class="subpanel"></div>
+        <div id="subpanel-messungen-stereobalance" class="subpanel"></div>
 
       <!-- ===== FREQUENZABGLEICH ===== -->
       <div id="subpanel-messungen-freqmatch" class="subpanel"></div>
@@ -473,8 +473,8 @@
       <!-- ===== ERGEBNISSE ===== -->
       <div id="panel-ergebnisse" class="panel">
         <div class="subtabs">
-          <button class="subtab active" data-subtab="results" data-parent="ergebnisse" id="subTabLoudnessBtn"></button>
-          <button class="subtab" data-subtab="lrresults" data-parent="ergebnisse" data-t="tabBalance"></button>
+          <button class="subtab active" data-subtab="elektrodenlautstaerke" data-parent="ergebnisse" id="tabElektrodenlautstaerkeBtn"></button>
+          <button class="subtab" data-subtab="stereobalance" data-parent="ergebnisse" data-t="tabStereobalance"></button>
           <button class="subtab" data-subtab="latenz" data-parent="ergebnisse" id="subTabLatenzBtn" data-t="tabLatenz">Latenz</button>
           <button class="subtab" data-subtab="freqmatch" data-parent="ergebnisse" id="subTabFreqMatchBtn"></button>
           <button class="btn" id="printErgebnisseBtn"
@@ -482,7 +482,7 @@
             🖨 <span data-t="printBtn"></span>
           </button>
         </div>
-        <div id="subpanel-ergebnisse-results" class="subpanel active">
+        <div id="subpanel-ergebnisse-elektrodenlautstaerke" class="subpanel active">
       <div id="panel-results-inner">
         <div class="card">
           <h2 id="resTitle"></h2>
@@ -582,7 +582,7 @@
         </div>
       </div>
         </div>
-        <div id="subpanel-ergebnisse-lrresults" class="subpanel">
+        <div id="subpanel-ergebnisse-stereobalance" class="subpanel">
         <div id="stereobalanceNoResults" class="card">
           <p style="color: var(--text-muted)" data-t="stereobalanceNoResultsMsg"></p>
         </div>

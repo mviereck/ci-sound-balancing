@@ -23,7 +23,7 @@ Object.assign(L.de, {
     introManualLink: "→ Ausführliche Bedienungsanleitung",
     introAudio: "Für Ihren Audiologen",
     tabPlayer: "Player",
-    tabBalance: "Stereo-Balance",
+    tabStereobalance: "Stereo-Balance",
     tabLatenz: "Latenz",
     latenzStartBtn: "▶ Test starten",
     latenzStopBtn: "■ Stop",
@@ -732,7 +732,7 @@ Object.assign(L.de, {
       + "<p><strong>Was die Messung kann — und was nicht.</strong> Sie liefert einen reproduzierbaren Anhaltspunkt, in welche Richtung und mit welcher Größenordnung die wahrgenommene Pitch-Zuordnung einzelner Elektroden von der programmierten Frequenz-Allokation abweicht. Sie ist genauer als die alleinige Slider-Methode und liefert mit Residuum und Lauf-Streuung Maße für die eigene Zuverlässigkeit.</p>"
       + "<p>Sie kann <em>nicht</em> entscheiden, ob eine gemessene Korrektur am CI zu besserem Sprachverstehen oder angenehmerem Klang führt. Die endgültige Bewertung muß durch eigenes Hören erfolgen — im Player dieses Tools, in einem vom Audiologen eingestellten Frequenz-Experimentier-Programm, und im Alltag. Das CI-Sound-Balancing-Tool stellt die Werkzeuge bereit; die Entscheidung über die richtige Korrektur liegt beim User und seinem Audiologen.</p>"
       + "<p><strong>Quellen.</strong> Adel et al. 2019 · Carlyon et al. 2010 · Jensen et al. 2021 · Lazard et al. 2012 · Levitt 1971 · Pieper et al. 2022 · Reiss et al. 2015 · Sagi &amp; Svirsky 2021 · Schatzer et al. 2014. Vollständige bibliographische Angaben siehe Spec-Dokument <code>.docs/spec/02b-freqmatch-adaptiv.md</code>. Die Arbeiten von Pieper und Jensen liegen im Projektordner <code>.manuals/</code> vor.</p>",
-    subTabLoudness: "Elektrodenlautstärke-Balance",
+    tabElektrodenlautstaerke: "Elektrodenlautstärke-Balance",
     subTabFreqMatch: "Frequenzabgleich",
     fmrTitle: "Ergebnis der Frequenzabgleich-Messung",
     fmrMethodNote: "Die Tonhöhenwahrnehmung beim CI ist plastisch und schwankt zwischen Messungen. Diese Werte sind eine subjektive Momentaufnahme. Sie eignen sich als Grundlage für ein Gespräch mit dem Audiologen über mögliche FAT-Anpassungen.",

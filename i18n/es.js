@@ -23,7 +23,7 @@ Object.assign(L.es, {
     introManualLink: "→ Manual de uso detallado",
     introAudio: "Para su audiólogo",
     tabPlayer: "Reproductor",
-    tabBalance: "Balance estéreo",
+    tabStereobalance: "Balance estéreo",
     tabLatenz: "Latencia",
     latenzStartBtn: "▶ Iniciar prueba",
     latenzStopBtn: "■ Detener",
@@ -671,7 +671,7 @@ Object.assign(L.es, {
       + "<p><strong>Lo que la medición puede — y lo que no.</strong> Proporciona un indicador reproducible sobre en qué dirección y con qué orden de magnitud la asignación de pitch percibida de electrodos individuales se desvía de la asignación de frecuencias programada. Es más precisa que el método del deslizador por sí solo y aporta, con residuo y dispersión entre pasadas, medidas de su propia fiabilidad.</p>"
       + "<p><em>No</em> puede decidir si una corrección medida en el IC conduce a mejor comprensión del habla o a una percepción sonora más agradable. La valoración final debe hacerse mediante escucha propia — en el reproductor de esta herramienta, en un programa de experimentación de frecuencias ajustado por el audiólogo y en el día a día. El CI Sound Balancing Tool proporciona las herramientas; la decisión sobre la corrección correcta corresponde al usuario y a su audiólogo.</p>"
       + "<p><strong>Fuentes.</strong> Adel et al. 2019 · Carlyon et al. 2010 · Jensen et al. 2021 · Lazard et al. 2012 · Levitt 1971 · Pieper et al. 2022 · Reiss et al. 2015 · Sagi y Svirsky 2021 · Schatzer et al. 2014. Referencias bibliográficas completas en el documento de especificación <code>.docs/spec/02b-freqmatch-adaptiv.md</code>. Los trabajos de Pieper y Jensen están en la carpeta del proyecto <code>.manuals/</code>.</p>",
-    subTabLoudness: "Balance de volumen de electrodos",
+    tabElektrodenlautstaerke: "Balance de volumen de electrodos",
     subTabFreqMatch: "Ajuste de frecuencia",
     fmrTitle: "Resultado de la medición de ajuste de frecuencia",
     fmrMethodNote: "La percepción tonal con IC es plástica y varía entre mediciones. Estos valores son una instantánea subjetiva. Sirven como base para una conversación con el audiólogo sobre posibles ajustes de la FAT.",

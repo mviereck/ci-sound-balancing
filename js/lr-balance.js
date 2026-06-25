@@ -392,8 +392,8 @@ function stereobalanceFinish() {
   // (aus stereobalanceShowPair, wenn stereobalanceSeqIdx >= stereobalanceSeq.length). stereobalancePause (Stop): KEINE Box.
   if (typeof testUI !== 'undefined' && testUI.completion) {
     testUI.completion.show({
-      nameKey:   'tabBalance',
-      subtabKey: 'tabBalance',
+      nameKey:   'tabStereobalance',
+      subtabKey: 'tabStereobalance',
       bodyKey:   'stereobalanceDoneExtra'
     });
   }
@@ -735,7 +735,7 @@ function _lrDoStart() {
   }
   stereobalanceRunning = true;
   stereobalanceUndoStack = [];
-  lockTestTabs(true, 'balance');
+  lockTestTabs(true, 'stereobalance');
   stereobalanceShowPair();
 }
 
@@ -824,13 +824,13 @@ function _lrBuildExtraFragment() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  var parentEl = document.getElementById("subpanel-messungen-balance");
+  var parentEl = document.getElementById("subpanel-messungen-stereobalance");
   if (!parentEl) return;
 
   var extraFrag = _lrBuildExtraFragment();
 
   var cfg = {
-    id: 'balance',
+    id: 'stereobalance',
     explain: {
       titleKey: 'stereobalanceTitle',
       paragraphs: [
@@ -979,7 +979,7 @@ document.addEventListener("DOMContentLoaded", function() {
       startStop: { startKey: 'btnStartTest', stopKey: 'btnPauseTest', resumable: true }
     },
     verfahren: [{
-      id: 'balance',
+      id: 'stereobalance',
       labelKey:   'stereobalanceTitle',
       explainKey: null,
       body: {
@@ -1058,14 +1058,14 @@ function stereobalanceRefreshToneTypeLabel() {
 
 // Hook into balance subtab activation
 document
-  .querySelector('.subtab[data-subtab="balance"][data-parent="messungen"]')
+  .querySelector('.subtab[data-subtab="stereobalance"][data-parent="messungen"]')
   ?.addEventListener('click', function() {
     setTimeout(function() { stereobalanceCheckData(); }, 0);
   });
 
-// Hook into lrresults subtab activation
+// Hook into stereobalance subtab activation
 document
-  .querySelector('.subtab[data-subtab="lrresults"][data-parent="ergebnisse"]')
+  .querySelector('.subtab[data-subtab="stereobalance"][data-parent="ergebnisse"]')
   ?.addEventListener('click', function() {
     setTimeout(function() { stereobalanceCheckData(); stereobalanceDrawChart(); }, 0);
   });

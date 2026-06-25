@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // nichts die Player-Box (verifiziert), daher verhaltensgleich.
   buildImplantCard();
   // Sub-Tab-Beschriftungen (werden auch von applyLang-Patch aktualisiert)
-  const _btnL = document.getElementById("subTabLoudnessBtn");
-  if (_btnL) _btnL.textContent = t("subTabLoudness");
+  const _btnL = document.getElementById("tabElektrodenlautstaerkeBtn");
+  if (_btnL) _btnL.textContent = t("tabElektrodenlautstaerke");
   const _btnF = document.getElementById("subTabFreqMatchBtn");
   if (_btnF) _btnF.textContent = t("subTabFreqMatch");
   const _nd = document.getElementById("fmrNoDataText");
@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
     updToneHint();
     if (typeof fmApplyLang === "function") fmApplyLang();
     // Sub-Tab-Beschriftungen
-    const btnL = document.getElementById("subTabLoudnessBtn");
-    if (btnL) btnL.textContent = t("subTabLoudness");
+    const btnL = document.getElementById("tabElektrodenlautstaerkeBtn");
+    if (btnL) btnL.textContent = t("tabElektrodenlautstaerke");
     const btnF = document.getElementById("subTabFreqMatchBtn");
     if (btnF) btnF.textContent = t("subTabFreqMatch");
     // fmrNoData-Text

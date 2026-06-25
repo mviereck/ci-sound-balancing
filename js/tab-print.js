@@ -145,8 +145,8 @@ function printErgebnisseTab() {
   );
   if (!sub) return;
   const id = sub.id;
-  if (id === "subpanel-ergebnisse-results")  return _printResLoudness();
-  if (id === "subpanel-ergebnisse-lrresults") return _printResLR();
+  if (id === "subpanel-ergebnisse-elektrodenlautstaerke")  return _printResLoudness();
+  if (id === "subpanel-ergebnisse-stereobalance") return _printResLR();
   if (id === "subpanel-ergebnisse-freqmatch") return _printResFreqmatch();
   if (id === "subpanel-ergebnisse-latenz")    return _printResLatency();
 }
@@ -197,8 +197,8 @@ function _printCloneSafe(rootSelector) {
 }
 
 function _printResLoudness() {
-  const body = _printCloneSafe('#subpanel-ergebnisse-results .card');
-  openPrintWindow(t("subTabLoudness") || "Elektrodenlautstärke-Balance", body);
+  const body = _printCloneSafe('#subpanel-ergebnisse-elektrodenlautstaerke .card');
+  openPrintWindow(t("tabElektrodenlautstaerke") || "Elektrodenlautstärke-Balance", body);
 }
 
 function _printResLR() {
@@ -207,7 +207,7 @@ function _printResLR() {
     ? '#stereobalanceResultsCard'
     : '#stereobalanceNoResults';
   const body = _printCloneSafe(target);
-  openPrintWindow(t("tabBalance") || "Stereo-Balance", body);
+  openPrintWindow(t("tabStereobalance") || "Stereo-Balance", body);
 }
 
 function _printResFreqmatch() {

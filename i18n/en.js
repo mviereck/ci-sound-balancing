@@ -23,7 +23,7 @@ Object.assign(L.en, {
     introManualLink: "→ Detailed user manual",
     introAudio: "For your audiologist",
     tabPlayer: "Player",
-    tabBalance: "Stereo balance",
+    tabStereobalance: "Stereo balance",
     tabLatenz: "Latency",
     latenzStartBtn: "▶ Start test",
     latenzStopBtn: "■ Stop",
@@ -670,7 +670,7 @@ Object.assign(L.en, {
       + "<p><strong>What the measurement can — and cannot — do.</strong> It provides a reproducible indication of the direction and magnitude by which the perceived pitch assignment of individual electrodes deviates from the programmed frequency allocation. It is more accurate than the slider method alone and provides, with residual and run dispersion, measures of its own reliability.</p>"
       + "<p>It <em>cannot</em> decide whether a measured correction at the CI leads to better speech understanding or more pleasant sound. The final evaluation must be made by one’s own listening — in this tool’s player, in a frequency experimentation program set by the audiologist, and in everyday life. The CI Sound Balancing Tool provides the tools; the decision about the correct correction lies with the user and their audiologist.</p>"
       + "<p><strong>Sources.</strong> Adel et al. 2019 · Carlyon et al. 2010 · Jensen et al. 2021 · Lazard et al. 2012 · Levitt 1971 · Pieper et al. 2022 · Reiss et al. 2015 · Sagi &amp; Svirsky 2021 · Schatzer et al. 2014. Full bibliographic details see the spec document <code>.docs/spec/02b-freqmatch-adaptiv.md</code>. The works by Pieper and Jensen are available in the project folder <code>.manuals/</code>.</p>",
-    subTabLoudness: "Electrode loudness balance",
+    tabElektrodenlautstaerke: "Electrode loudness balance",
     subTabFreqMatch: "Frequency matching",
     fmrTitle: "Result of the frequency matching measurement",
     fmrMethodNote: "Pitch perception with the CI is plastic and fluctuates between measurements. These values are a subjective snapshot. They are suitable as a basis for a conversation with the audiologist about possible FAT adjustments.",

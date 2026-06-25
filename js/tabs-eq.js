@@ -26,8 +26,8 @@ function _switchSubtabInternal(parent, subtab) {
     p.classList.toggle("active", name === subtab);
   });
   // Callbacks
-  if (parent === "ergebnisse" && subtab === "results") renderResults();
-  if (parent === "ergebnisse" && subtab === "lrresults") {
+  if (parent === "ergebnisse" && subtab === "elektrodenlautstaerke") renderResults();
+  if (parent === "ergebnisse" && subtab === "stereobalance") {
     stereobalanceCheckData();
     stereobalanceDrawChart();
   }
@@ -37,7 +37,7 @@ function _switchSubtabInternal(parent, subtab) {
   if (parent === "ergebnisse" && subtab === "latenz") {
     if (typeof latenzRenderResults === "function") latenzRenderResults();
   }
-  if (parent === "messungen" && subtab === "balance") {
+  if (parent === "messungen" && subtab === "stereobalance") {
     stereobalanceCheckData();
   }
   if (parent === "messungen" && subtab === "latenz") {
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // vergleichen beide Seiten und sind dann nicht sinnvoll.
 // ============================================================
 const LOCKED_SUBTABS_L2 = {
-  messungen: ["balance", "latenz", "freqmatch"],
+  messungen: ["stereobalance", "latenz", "freqmatch"],
 };
 
 // Liefert {hasDeaf, deafSide}. deafSide ist die zuerst gefundene
@@ -238,7 +238,7 @@ function _switchTabInternal(n) {
     const hasBal = typeof elektrodenlautstaerkeResults !== "undefined" && elektrodenlautstaerkeResults.length > 0;
     const hasFR = typeof fRes !== "undefined" && fRes.length > 0;
     const hasLR = typeof stereobalanceResults !== "undefined" && Object.keys(stereobalanceResults).length > 0;
-    if (!currentName || currentName === "results") {
+    if (!currentName || currentName === "elektrodenlautstaerke") {
       // Default-Auswahl: Tab mit Daten bevorzugen
       // BA 251: hasJdg entfaellt; reine Bal/FR-Logik bleibt.
       if (!hasBal && hasFR) {
@@ -274,8 +274,8 @@ function updateTabLockState() {
                           || (typeof fmRunning !== "undefined" && fmRunning)
                           || (typeof latenzActive !== "undefined" && latenzActive);
   var activeTestId = null;
-  if (testAct) activeTestId = 'test';
-  else if (typeof stereobalanceRunning !== "undefined" && stereobalanceRunning) activeTestId = 'balance';
+  if (testAct) activeTestId = 'elektrodenlautstaerke';
+  else if (typeof stereobalanceRunning !== "undefined" && stereobalanceRunning) activeTestId = 'stereobalance';
   else if (typeof fmRunning !== "undefined" && fmRunning) activeTestId = 'freqmatch';
   else if (typeof latenzActive !== "undefined" && latenzActive) activeTestId = 'latenz';
   lockTestTabs(locked, activeTestId);

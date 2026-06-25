@@ -896,7 +896,7 @@ function startTestFull() {
   testAct = true;
   curPlayed = false;
   convRnd = 0;
-  lockTestTabs(true, 'test');
+  lockTestTabs(true, 'elektrodenlautstaerke');
   showCurPair();
 }
 
@@ -911,7 +911,7 @@ function startTestConv() {
   testAct = true;
   curPlayed = false;
   convRnd = 1;
-  lockTestTabs(true, 'test');
+  lockTestTabs(true, 'elektrodenlautstaerke');
   showCurPair();
 }
 
@@ -1293,7 +1293,7 @@ function nextConvRnd() {
 let _testSelectedEls = null;
 
 document.addEventListener("DOMContentLoaded", function() {
-  var parentEl = document.getElementById("subpanel-messungen-test");
+  var parentEl = document.getElementById("subpanel-messungen-elektrodenlautstaerke");
   if (!parentEl) return;
 
   // Gemeinsamer Body fuer beide Verfahren (Round Robin und Konvergenz
@@ -1337,7 +1337,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   var cfg = {
-    id: 'test',
+    id: 'elektrodenlautstaerke',
     explain: {
       titleKey: 'testExplainTitle',
       paragraphs: [

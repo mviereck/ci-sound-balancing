@@ -23,7 +23,7 @@ Object.assign(L.fr, {
     introManualLink: "→ Mode d'emploi détaillé",
     introAudio: "Pour votre audiologiste",
     tabPlayer: "Player",
-    tabBalance: "Balance stéréo",
+    tabStereobalance: "Balance stéréo",
     tabLatenz: "Latence",
     latenzStartBtn: "▶ Démarrer le test",
     latenzStopBtn: "■ Stop",
@@ -671,7 +671,7 @@ Object.assign(L.fr, {
       + "<p><strong>Ce que la mesure peut faire — et ce qu'elle ne peut pas.</strong> Elle fournit un repère reproductible indiquant dans quelle direction et avec quelle ampleur l'attribution de hauteur perçue d'électrodes individuelles s'écarte de l'allocation fréquentielle programmée. Elle est plus précise que la seule méthode du Slider et fournit avec le résidu et la dispersion entre parcours des mesures de sa propre fiabilité.</p>"
       + "<p>Elle ne peut <em>pas</em> décider si une correction mesurée sur l'IC conduit à une meilleure compréhension de la parole ou à un son plus agréable. L'évaluation finale doit se faire par sa propre écoute — dans le Player de cet outil, dans un programme d'expérimentation fréquentielle réglé par l'audiologiste, et dans la vie quotidienne. Le CI Sound Balancing Tool met à disposition les outils ; la décision concernant la bonne correction appartient à l'utilisateur et à son audiologiste.</p>"
       + "<p><strong>Sources.</strong> Adel et al. 2019 · Carlyon et al. 2010 · Jensen et al. 2021 · Lazard et al. 2012 · Levitt 1971 · Pieper et al. 2022 · Reiss et al. 2015 · Sagi &amp; Svirsky 2021 · Schatzer et al. 2014. Références bibliographiques complètes voir le document de spécification <code>.docs/spec/02b-freqmatch-adaptiv.md</code>. Les travaux de Pieper et Jensen se trouvent dans le dossier de projet <code>.manuals/</code>.</p>",
-    subTabLoudness: "Équilibrage d'intensité des électrodes",
+    tabElektrodenlautstaerke: "Équilibrage d'intensité des électrodes",
     subTabFreqMatch: "Appariement fréquentiel",
     fmrTitle: "Résultat de la mesure d'appariement fréquentiel",
     fmrMethodNote: "La perception de la hauteur avec l'IC est plastique et fluctue entre les mesures. Ces valeurs sont un instantané subjectif. Elles servent de base pour une discussion avec l'audiologiste sur d'éventuels ajustements FAT.",
