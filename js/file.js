@@ -158,11 +158,11 @@ function resetAll() {
   if (typeof duration_implant !== "undefined") duration_implant = TEST_DEFAULTS.implant.duration;
   if (typeof pause_implant    !== "undefined") pause_implant    = TEST_DEFAULTS.implant.pause;
   // --- Latenz ---
-  if (typeof latenzResult !== "undefined") latenzResult = null;
+  if (typeof LTZ_result !== "undefined") LTZ_result = null;
   if (typeof plApplyLatency !== "undefined") plApplyLatency = true;
-  if (typeof latenzApplyToPlayer === "function") latenzApplyToPlayer();
-  if (typeof latenzRenderResults === "function") latenzRenderResults();
-  if (typeof latenzSliderInput === "function") latenzSliderInput(0);
+  if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
+  if (typeof LTZ_renderResults === "function") LTZ_renderResults();
+  if (typeof LTZ_sliderInput === "function") LTZ_sliderInput(0);
   // --- LR-Balance ---
   if (typeof stereobalanceResults !== "undefined") {
     Object.keys(stereobalanceResults).forEach(k => delete stereobalanceResults[k]);
@@ -319,7 +319,7 @@ async function saveJson() {
     currentSide: activeSide,
     lrResults: (typeof stereobalanceResults !== "undefined") ? stereobalanceResults : {},
     stereobalanceSnapshot: (typeof stereobalanceSnapshot !== "undefined") ? stereobalanceSnapshot : null, // BA 156
-    latencyResult: (typeof latenzResult !== "undefined") ? latenzResult : null,
+    latencyResult: (typeof LTZ_result !== "undefined") ? LTZ_result : null,
     plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
     plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
     plBalanceMode: (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym",
@@ -673,8 +673,8 @@ function applyLoadedData(d) {
   if (typeof stereobalanceSnapshot !== "undefined") {
     stereobalanceSnapshot = (d && d.stereobalanceSnapshot) ? d.stereobalanceSnapshot : null; // BA 156
   }
-  if (typeof latenzResult !== "undefined") {
-    latenzResult = (d && d.latencyResult) ? d.latencyResult : null;
+  if (typeof LTZ_result !== "undefined") {
+    LTZ_result = (d && d.latencyResult) ? d.latencyResult : null;
   }
   if (typeof plApplyLatency !== "undefined") {
     plApplyLatency = (d && typeof d.plApplyLatency === "boolean")
@@ -690,8 +690,8 @@ function applyLoadedData(d) {
       ? d.plBalanceMode : "sym";
   }
   if (typeof updBalApplyBtn === "function") updBalApplyBtn();
-  if (typeof latenzApplyToPlayer === "function") latenzApplyToPlayer();
-  if (typeof latenzRenderResults === "function") latenzRenderResults();
+  if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
+  if (typeof LTZ_renderResults === "function") LTZ_renderResults();
   if (typeof FRQ_resultsArray !== "undefined") {
     if (Array.isArray(d.fRes)) {
       // BA 106: KEIN fmStatus-Filter mehr — alle Einträge übernehmen.
@@ -851,7 +851,7 @@ function clearRes() {
 // damit exakt den Player (inkl. EQ-Schalter-Gate und nhSim).
 //   bands[i] = { freq, q, gainL, gainR }   (gainL===gainR wenn nicht split)
 //   splitChannels: true  -> echte Stereo-Kurven (Modus "both"/"mono")
-//   hasLat/latenzMs:  Latenz (ms>=0 verzoegert links, ms<0 rechts)
+//   hasLat/LTZ_ms:  Latenz (ms>=0 verzoegert links, ms<0 rechts)
 //   hasBal/balL/balR: Stereo-Balance dB-Pegel pro Ohr in allen Side-Modi
 //                     (Balance pro Ohr, spiegelt den Player)
 //   anyData: false -> nichts zu exportieren
@@ -888,9 +888,9 @@ function collectSysEqCorrection() {
   const monoSum = (mode === "left" || mode === "right" || mode === "mono");
   const muteCh = mode === "left" ? "R" : mode === "right" ? "L" : null;
 
-  const latenzMs = (typeof getPlayerLatencyMs === "function")
+  const LTZ_ms = (typeof getPlayerLatencyMs === "function")
     ? getPlayerLatencyMs() : 0;
-  const hasLat = latenzMs !== 0;
+  const hasLat = LTZ_ms !== 0;
   const hasBal = balL !== 0 || balR !== 0;
 
   const hasGain = (arr) => arr.some((v) => v !== 0);
@@ -914,7 +914,7 @@ function collectSysEqCorrection() {
     monoSum,
     muteCh,
     hasLat,
-    latenzMs,
+    LTZ_ms,
     hasBal,
     balL,
     balR,
@@ -987,7 +987,7 @@ function exportEasyEffects() {
     };
   }
   if (corr.hasLat || corr.hasBal) {
-    const ms = corr.hasLat ? corr.latenzMs : 0;
+    const ms = corr.hasLat ? corr.LTZ_ms : 0;
     const tL = ms >= 0 ? Math.abs(ms) : 0;
     const tR = ms < 0 ? Math.abs(ms) : 0;
     preset.output["delay#0"] = {
@@ -1088,12 +1088,12 @@ function exportEqualizerAPO() {
   // Latenz: ms>=0 verzoegert links, ms<0 rechts (analog Player/EasyEffects).
   if (corr.hasLat) {
     L.push("");
-    if (corr.latenzMs >= 0) {
+    if (corr.LTZ_ms >= 0) {
       L.push("Channel: L");
     } else {
       L.push("Channel: R");
     }
-    L.push("Delay: " + Math.abs(corr.latenzMs).toFixed(1) + " ms");
+    L.push("Delay: " + Math.abs(corr.LTZ_ms).toFixed(1) + " ms");
   }
 
   const blob = new Blob([L.join("\n") + "\n"], { type: "text/plain" }),

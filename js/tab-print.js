@@ -148,7 +148,7 @@ function printErgebnisseTab() {
   if (id === "subpanel-ergebnisse-elektrodenlautstaerke")  return _printResLoudness();
   if (id === "subpanel-ergebnisse-stereobalance") return _printResLR();
   if (id === "subpanel-ergebnisse-freqmatch") return _printResFreqmatch();
-  if (id === "subpanel-ergebnisse-latenz")    return _printResLatency();
+  if (id === "subpanel-ergebnisse-latenz")    return _printResLTZ();
 }
 
 function _printCloneSafe(rootSelector) {
@@ -220,44 +220,44 @@ function _printResFreqmatch() {
   openPrintWindow(t("subTabFreqMatch") || "Frequenzabgleich", body);
 }
 
-function _printResLatency() {
-  if (!latenzResult || !isFinite(latenzResult.valueMs)) {
-    return openPrintWindow(t("latenzResTitle"),
-      `<div class="print-card"><h2>${t("latenzResTitle")}</h2>` +
-      `<p>${t("latenzResNoneText")}</p></div>`);
+function _printResLTZ() {
+  if (!LTZ_result || !isFinite(LTZ_result.valueMs)) {
+    return openPrintWindow(t("LTZ_resTitle"),
+      `<div class="print-card"><h2>${t("LTZ_resTitle")}</h2>` +
+      `<p>${t("LTZ_resNoneText")}</p></div>`);
   }
-  const v = latenzResult.valueMs;
+  const v = LTZ_result.valueMs;
   const a = Math.abs(v).toFixed(1).replace(".", ",");
   let mainTxt;
   if (Math.abs(v) < 0.05) {
-    mainTxt = t("latenzResNoOffset");
+    mainTxt = t("LTZ_resNoOffset");
   } else if (v > 0) {
-    mainTxt = t("latenzResLeftFaster").replace("{ms}", a);
+    mainTxt = t("LTZ_resLeftFaster").replace("{ms}", a);
   } else {
-    mainTxt = t("latenzResRightFaster").replace("{ms}", a);
+    mainTxt = t("LTZ_resRightFaster").replace("{ms}", a);
   }
   const typeKey = {
-    "click":     "latenzTypeClick",
-    "burst500":  "latenzTypeBurst500",
-    "burst1500": "latenzTypeBurst1500",
-    "burst4000": "latenzTypeBurst4000",
-  }[latenzResult.clickType];
-  const typeLabel = typeKey ? t(typeKey) : (latenzResult.clickType || "");
+    "click":     "LTZ_typeClick",
+    "burst500":  "LTZ_typeBurst500",
+    "burst1500": "LTZ_typeBurst1500",
+    "burst4000": "LTZ_typeBurst4000",
+  }[LTZ_result.clickType];
+  const typeLabel = typeKey ? t(typeKey) : (LTZ_result.clickType || "");
   const sign = v >= 0 ? "+" : "−";
   const body = `
     <div class="print-card">
-      <h2>${t("latenzResTitle")}</h2>
+      <h2>${t("LTZ_resTitle")}</h2>
       <p style="font-size:1.4em;font-weight:600;">${sign}${a} ms</p>
       <p>${mainTxt}</p>
       <p style="font-size:0.9em;">
-        ${t("latenzResMeasuredWith")}: ${typeLabel},
-        ${t("latenzResInterval")} ${latenzResult.intervalMs} ms
+        ${t("LTZ_resMeasuredWith")}: ${typeLabel},
+        ${t("LTZ_resInterval")} ${LTZ_result.intervalMs} ms
       </p>
       <p style="font-size:0.9em;">
-        ${t("latenzResApplied")}: ${plApplyLatency ? t("yes") : t("no")}
+        ${t("LTZ_resApplied")}: ${plApplyLatency ? t("yes") : t("no")}
       </p>
     </div>`;
-  openPrintWindow(t("latenzResTitle"), body);
+  openPrintWindow(t("LTZ_resTitle"), body);
 }
 
 // --- Kurven-Tab ---

@@ -53,9 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
       renderFreqMatchResults();
     }
     // Latenz-UI-Texte
-    if (typeof latenzRenderResults === "function") latenzRenderResults();
-    if (typeof latenzUpdateValueText === "function") latenzUpdateValueText();
-    if (typeof latenzUpdateIntervalHint === "function") latenzUpdateIntervalHint();
+    if (typeof LTZ_renderResults === "function") LTZ_renderResults();
+    if (typeof LTZ_updateValueText === "function") LTZ_updateValueText();
+    if (typeof LTZ_updateIntervalHint === "function") LTZ_updateIntervalHint();
     // Warp-UI-Texte
     _pWarpApplyLangTexts();
     // Druck-Knöpfe Kurven- und Schieber-Tab
@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updEqToggleBtn();
     if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
     pUpdEQ();
-    if (typeof latenzApplyToPlayer === "function") latenzApplyToPlayer();
+    if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
     if (pWarpOn) {
       // getPlaybackBuffer entscheidet anhand plEqOn neu; bei laufender
       // Wiedergabe Pfad an aktueller Position wechseln.
@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", function () {
       if (typeof plLatLocked !== "undefined" && plLatLocked) return;
       plApplyLatency = !plApplyLatency;
-      latenzApplyToPlayer();
+      LTZ_applyToPlayer();
       updLatApplyBtn();
     });
   // BA388: zentraler Player-UI-Sync (ersetzt die einzelnen Box-Updates;
@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .getElementById("plNHInfo")
       .classList.toggle("hidden", !this.checked);
     pUpdEQ();
-    if (typeof latenzApplyToPlayer === "function") latenzApplyToPlayer();
+    if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
   });
   document.getElementById("plEqHeadroom").addEventListener("change", function () {
     plEqHeadroom = this.checked;
@@ -667,8 +667,8 @@ document.addEventListener("DOMContentLoaded", () => {
         Object.assign(stereobalanceResults, d.lrResults);
         if (typeof stereobalanceRenderResults === "function") stereobalanceRenderResults();
       }
-      if (typeof latenzResult !== "undefined") {
-        latenzResult = (d && d.latencyResult) ? d.latencyResult : null;
+      if (typeof LTZ_result !== "undefined") {
+        LTZ_result = (d && d.latencyResult) ? d.latencyResult : null;
       }
       if (typeof plApplyLatency !== "undefined") {
         plApplyLatency = (d && typeof d.plApplyLatency === "boolean")
@@ -684,8 +684,8 @@ document.addEventListener("DOMContentLoaded", () => {
           ? d.plBalanceMode : "sym";
       }
       // BA323: Player-Box-Felder werden beim Auto-Restore nicht mehr angewendet.
-      if (typeof latenzApplyToPlayer === "function") latenzApplyToPlayer();
-      if (typeof latenzRenderResults === "function") latenzRenderResults();
+      if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
+      if (typeof LTZ_renderResults === "function") LTZ_renderResults();
       if (Array.isArray(d.fRes) && typeof FRQ_resultsArray !== "undefined") {
         // BA 106: KEIN Filter, dieselbe Migrations-Sequenz wie in file.js.
         FRQ_resultsArray.splice(0, FRQ_resultsArray.length, ...d.fRes);
@@ -919,7 +919,7 @@ document.addEventListener("DOMContentLoaded", () => {
           lrResults: (typeof stereobalanceResults !== "undefined") ? stereobalanceResults : {},
           // BA 161
           stereobalanceSnapshot: (typeof stereobalanceSnapshot !== "undefined") ? stereobalanceSnapshot : null,
-          latencyResult: (typeof latenzResult !== "undefined") ? latenzResult : null,
+          latencyResult: (typeof LTZ_result !== "undefined") ? LTZ_result : null,
           plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
           plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
           plBalanceMode: (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym",

@@ -785,8 +785,8 @@ function pEnsureOutputBase(c) {
   pPlayerMuteGain.gain.value = 1; // Default hoerbar
   pGain.connect(pPlayerMuteGain);
   // Latenz-Kette zwischen pPlayerMuteGain und destination einhaengen
-  if (typeof latenzInitGraph === "function") {
-    latenzInitGraph(c);
+  if (typeof LTZ_initGraph === "function") {
+    LTZ_initGraph(c);
     pPlayerMuteGain.connect(pLatSplitter);
   } else {
     pPlayerMuteGain.connect(c.destination);

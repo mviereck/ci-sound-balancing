@@ -624,8 +624,8 @@ function renderSnapshotHint(testKey, containerEl) {
   if (testKey === 'stereobalance') {
     oldSnap = (typeof stereobalanceSnapshot !== 'undefined') ? stereobalanceSnapshot : null;
   } else if (testKey === 'latenz') {
-    oldSnap = (typeof latenzResult !== 'undefined' && latenzResult)
-            ? latenzResult.implantSnapshot : null;
+    oldSnap = (typeof LTZ_result !== 'undefined' && LTZ_result)
+            ? LTZ_result.implantSnapshot : null;
   }
   if (!oldSnap) { containerEl.innerHTML = ''; return; }
   const curSnap = implantSnapshot();

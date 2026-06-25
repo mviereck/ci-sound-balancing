@@ -202,9 +202,9 @@ h1 {
 /* Aktiv gewähltes Klickintervall / gewählter Klangtyp / aktiver
    Hörbarkeits-Schalter im Latenztest — gleiche Hervorhebung wie aktive
    Player-Knöpfe (.pbtn.active). */
-.latenz-interval-btn.active,
-.latenz-click-btn.active,
-.latenz-aud-btn.active {
+.ltz-interval-btn.active,
+.ltz-click-btn.active,
+.ltz-aud-btn.active {
   background: var(--accent-light);
   border-color: var(--accent);
 }

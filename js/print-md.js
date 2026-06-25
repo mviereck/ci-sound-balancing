@@ -316,13 +316,13 @@ function _collectBilateral() {
       out.stereobalance.mean = sorted.reduce((a, k) => a + stereobalanceResults[k], 0) / sorted.length;
     }
   }
-  if (typeof latenzResult !== "undefined" && latenzResult
-      && isFinite(latenzResult.valueMs) && latenzResult.valueMs !== 0) {
+  if (typeof LTZ_result !== "undefined" && LTZ_result
+      && isFinite(LTZ_result.valueMs) && LTZ_result.valueMs !== 0) {
     out.latenz.has = true;
     out.latenz.value = {
-      ms: latenzResult.valueMs,
-      clickType: latenzResult.clickType || null,
-      intervalMs: latenzResult.intervalMs || null,
+      ms: LTZ_result.valueMs,
+      clickType: LTZ_result.clickType || null,
+      intervalMs: LTZ_result.intervalMs || null,
     };
   }
   return out;
@@ -638,10 +638,10 @@ function _archivMdBilateral(data) {
   if (bil.latenz.has) {
     const v = bil.latenz.value;
     const sideTxt = v.ms >= 0 ? t("sideRight") : t("sideLeft");
-    out.push(`### ${t("latenzResTitle") || "Inter-Ohr-Latenz"}`);
-    out.push(`- ${t("archivLatenzValue")}: ${Math.abs(v.ms).toFixed(2)} ms (${sideTxt})`);
-    if (v.clickType)  out.push(`- ${t("archivLatenzClick")}: ${v.clickType}`);
-    if (v.intervalMs) out.push(`- ${t("archivLatenzInterval")}: ${v.intervalMs} ms`);
+    out.push(`### ${t("LTZ_resTitle") || "Inter-Ohr-Latenz"}`);
+    out.push(`- ${t("archivLTZValue")}: ${Math.abs(v.ms).toFixed(2)} ms (${sideTxt})`);
+    if (v.clickType)  out.push(`- ${t("archivLTZClick")}: ${v.clickType}`);
+    if (v.intervalMs) out.push(`- ${t("archivLTZInterval")}: ${v.intervalMs} ms`);
     out.push("");
   }
   return out.join("\n");
@@ -1029,20 +1029,20 @@ function _audiologBalanceBlock(mainSides) {
 
 // ---------- Latenz (immer wenn gemessen, auch einseitig) ----------
 
-function _audiologLatencyBlock(mainSides) {
-  if (typeof latenzResult === "undefined" || !latenzResult) return "";
-  if (!isFinite(latenzResult.valueMs)) return "";
-  const ms = latenzResult.valueMs;
+function _audiologLTZBlock(mainSides) {
+  if (typeof LTZ_result === "undefined" || !LTZ_result) return "";
+  if (!isFinite(LTZ_result.valueMs)) return "";
+  const ms = LTZ_result.valueMs;
   if (ms === 0) return "";
-  const latenzActive = (typeof plApplyLatency !== "undefined") && plApplyLatency
+  const LTZ_active = (typeof plApplyLatency !== "undefined") && plApplyLatency
                  && (mainSides.length === 2);
   const earlierSide = ms >= 0 ? t("sideLeft")  : t("sideRight");
   const laterSide   = ms >= 0 ? t("sideRight") : t("sideLeft");
   const lines = [];
-  lines.push(`## ${t("audiologSecLatency")}`);
+  lines.push(`## ${t("audiologSecLTZ")}`);
   lines.push("");
-  lines.push(`- ${t("audiologLatValue")}: **${Math.abs(ms).toFixed(2)} ms**`);
-  lines.push(`- ${t("audiologLatImpact")
+  lines.push(`- ${t("audiologLTZValue")}: **${Math.abs(ms).toFixed(2)} ms**`);
+  lines.push(`- ${t("audiologLTZImpact")
     .replace("{earlier}", earlierSide)
     .replace("{later}", laterSide)}`);
   lines.push("");
@@ -1193,7 +1193,7 @@ function buildAudiologMarkdown() {
   if (miss) parts.push(miss);
   const bal = _audiologBalanceBlock(mainSides);
   if (bal) parts.push(bal);
-  const lat = _audiologLatencyBlock(mainSides);
+  const lat = _audiologLTZBlock(mainSides);
   if (lat) parts.push(lat);
 
   // ===========================================================

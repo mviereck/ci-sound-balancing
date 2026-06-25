@@ -35,14 +35,14 @@ function _switchSubtabInternal(parent, subtab) {
     renderFreqMatchResults();
   }
   if (parent === "ergebnisse" && subtab === "latenz") {
-    if (typeof latenzRenderResults === "function") latenzRenderResults();
+    if (typeof LTZ_renderResults === "function") LTZ_renderResults();
   }
   if (parent === "messungen" && subtab === "stereobalance") {
     stereobalanceCheckData();
   }
   if (parent === "messungen" && subtab === "latenz") {
     if (typeof renderSnapshotHint === 'function') {
-      renderSnapshotHint('latenz', document.getElementById('snapHint_latenz'));
+      renderSnapshotHint('latenz', document.getElementById('snapHint_LTZ'));
     }
   }
   if (parent === "messungen" && subtab === "freqmatch") {
@@ -51,10 +51,10 @@ function _switchSubtabInternal(parent, subtab) {
   }
   // Sub-Tab-Wechsel weg vom Latenz-Tab: Test stoppen
   if (parent === "messungen" && subtab !== "latenz") {
-    if (typeof latenzActive !== "undefined" && latenzActive
-        && typeof latenzStopTest === "function") {
-      latenzStopTest();
-      if (typeof latenzUpdateButtonStates === "function") latenzUpdateButtonStates();
+    if (typeof LTZ_active !== "undefined" && LTZ_active
+        && typeof LTZ_stopTest === "function") {
+      LTZ_stopTest();
+      if (typeof LTZ_updateButtonStates === "function") LTZ_updateButtonStates();
       if (typeof updateTabLockState === "function") updateTabLockState();
     }
   }
@@ -209,7 +209,7 @@ function switchTab(n) {
   const anyTestRunning = testAct
     || (typeof stereobalanceRunning !== "undefined" && stereobalanceRunning)
     || (typeof FRQ_running !== "undefined" && FRQ_running)
-    || (typeof latenzActive !== "undefined" && latenzActive);
+    || (typeof LTZ_active !== "undefined" && LTZ_active);
   if (anyTestRunning && n !== "messungen") {
     return; // Tab-Wechsel blockiert
   }
@@ -272,12 +272,12 @@ function _switchTabInternal(n) {
 function updateTabLockState() {
   const locked = testAct || (typeof stereobalanceRunning !== "undefined" && stereobalanceRunning)
                           || (typeof FRQ_running !== "undefined" && FRQ_running)
-                          || (typeof latenzActive !== "undefined" && latenzActive);
+                          || (typeof LTZ_active !== "undefined" && LTZ_active);
   var activeTestId = null;
   if (testAct) activeTestId = 'elektrodenlautstaerke';
   else if (typeof stereobalanceRunning !== "undefined" && stereobalanceRunning) activeTestId = 'stereobalance';
   else if (typeof FRQ_running !== "undefined" && FRQ_running) activeTestId = 'freqmatch';
-  else if (typeof latenzActive !== "undefined" && latenzActive) activeTestId = 'latenz';
+  else if (typeof LTZ_active !== "undefined" && LTZ_active) activeTestId = 'latenz';
   lockTestTabs(locked, activeTestId);
   // BA 249: lockedHint liegt in der neuen API unter els.header.lockedHint,
   // nicht direkt auf els. _buildTestPanelNew setzt das DOM-Flag beim
@@ -295,9 +295,9 @@ function updateTabLockState() {
       && FRQ_els.header && FRQ_els.header.lockedHint) {
     FRQ_els.header.lockedHint.hidden = !(typeof FRQ_running !== "undefined" && FRQ_running);
   }
-  if (typeof latenzEls !== "undefined" && latenzEls
-      && latenzEls.header && latenzEls.header.lockedHint) {
-    latenzEls.header.lockedHint.hidden = !(typeof latenzActive !== "undefined" && latenzActive);
+  if (typeof LTZ_els !== "undefined" && LTZ_els
+      && LTZ_els.header && LTZ_els.header.lockedHint) {
+    LTZ_els.header.lockedHint.hidden = !(typeof LTZ_active !== "undefined" && LTZ_active);
   }
   // ciSideSelect auch sperren
   const sideSelect = document.getElementById("ciSideSelect");
