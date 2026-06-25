@@ -345,8 +345,8 @@ async function frq_playAdaptiveTrial(track, firstSide, catchInfo) {
   const ms  = FRQ_getDuration();
   const pau = FRQ_getPause();
 
-  const balG = (typeof getRawBalanceGains === 'function')
-    ? getRawBalanceGains() : { left: 0, right: 0 };
+  const balG = (typeof STB_rawGains === 'function')
+    ? STB_rawGains() : { left: 0, right: 0 };
 
   const c = gAC();
 

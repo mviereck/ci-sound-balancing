@@ -164,12 +164,12 @@ function resetAll() {
   if (typeof LTZ_renderResults === "function") LTZ_renderResults();
   if (typeof LTZ_sliderInput === "function") LTZ_sliderInput(0);
   // --- LR-Balance ---
-  if (typeof stereobalanceResults !== "undefined") {
-    Object.keys(stereobalanceResults).forEach(k => delete stereobalanceResults[k]);
-    if (typeof stereobalanceResetSequence === "function") stereobalanceResetSequence();
-    if (typeof stereobalanceSnapshot !== "undefined") stereobalanceSnapshot = null;
-    if (typeof stereobalanceRenderResults === "function") stereobalanceRenderResults();
-    if (typeof stereobalanceApplyMeanToBalance === "function") stereobalanceApplyMeanToBalance();
+  if (typeof STB_results !== "undefined") {
+    Object.keys(STB_results).forEach(k => delete STB_results[k]);
+    if (typeof STB_resetSequence === "function") STB_resetSequence();
+    if (typeof STB_snapshot !== "undefined") STB_snapshot = null;
+    if (typeof STB_renderResults === "function") STB_renderResults();
+    if (typeof STB_renderMean === "function") STB_renderMean();
   }
   if (typeof plApplyBalance !== "undefined") plApplyBalance = true;
   if (typeof plBalanceMode !== "undefined") plBalanceMode = "sym";
@@ -317,8 +317,8 @@ async function saveJson() {
       },
     },
     currentSide: activeSide,
-    lrResults: (typeof stereobalanceResults !== "undefined") ? stereobalanceResults : {},
-    stereobalanceSnapshot: (typeof stereobalanceSnapshot !== "undefined") ? stereobalanceSnapshot : null, // BA 156
+    lrResults: (typeof STB_results !== "undefined") ? STB_results : {},
+    STB_snapshot: (typeof STB_snapshot !== "undefined") ? STB_snapshot : null, // BA 156
     latencyResult: (typeof LTZ_result !== "undefined") ? LTZ_result : null,
     plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
     plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
@@ -664,14 +664,14 @@ function applyLoadedData(d) {
     plSrcCurves = true;
   }
   if (typeof updPlSrcButtons === "function") updPlSrcButtons();
-  if (typeof stereobalanceResults !== "undefined" && d.lrResults) {
-    Object.keys(stereobalanceResults).forEach((k) => delete stereobalanceResults[k]);
-    Object.assign(stereobalanceResults, d.lrResults);
-    if (typeof stereobalanceRenderResults === "function") stereobalanceRenderResults();
-    if (typeof stereobalanceApplyMeanToBalance === "function") stereobalanceApplyMeanToBalance();
+  if (typeof STB_results !== "undefined" && d.lrResults) {
+    Object.keys(STB_results).forEach((k) => delete STB_results[k]);
+    Object.assign(STB_results, d.lrResults);
+    if (typeof STB_renderResults === "function") STB_renderResults();
+    if (typeof STB_renderMean === "function") STB_renderMean();
   }
-  if (typeof stereobalanceSnapshot !== "undefined") {
-    stereobalanceSnapshot = (d && d.stereobalanceSnapshot) ? d.stereobalanceSnapshot : null; // BA 156
+  if (typeof STB_snapshot !== "undefined") {
+    STB_snapshot = (d && d.STB_snapshot) ? d.STB_snapshot : null; // BA 156
   }
   if (typeof LTZ_result !== "undefined") {
     LTZ_result = (d && d.latencyResult) ? d.latencyResult : null;
@@ -794,10 +794,10 @@ function applyLoadedData(d) {
   if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
   if (typeof FRQ_applyLang === "function") FRQ_applyLang();
   if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();
-  if (typeof stereobalanceRefreshElectrodeSelectionSummary === "function") stereobalanceRefreshElectrodeSelectionSummary();
+  if (typeof STB_refreshElectrodeSelectionSummary === "function") STB_refreshElectrodeSelectionSummary();
   if (typeof FRQ_refreshElectrodeSelectionSummary === "function") FRQ_refreshElectrodeSelectionSummary();
   if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
-  if (typeof stereobalanceRefreshToneTypeLabel === "function") stereobalanceRefreshToneTypeLabel();
+  if (typeof STB_refreshToneTypeLabel === "function") STB_refreshToneTypeLabel();
   if (typeof FRQ_refreshToneTypeLabel === "function") FRQ_refreshToneTypeLabel();
   if (typeof testRefreshToneTypeLabel === "function") testRefreshToneTypeLabel();
   if (typeof elektrodenlautstaerkeKurvenTabelleBauen === "function") elektrodenlautstaerkeKurvenTabelleBauen();
@@ -847,7 +847,7 @@ function clearRes() {
 
 // Sammelt die format-unabhaengige Korrektur fuer die System-Equalizer-
 // Exporte (EasyEffects, Equalizer APO). Liest ausschliesslich aus den
-// zentralen Funktionen (getPlayerCorrection, getPlayerLatencyMs) — spiegelt
+// zentralen Funktionen (getPlayerCorrection, getPlayerLTZMs) — spiegelt
 // damit exakt den Player (inkl. EQ-Schalter-Gate und nhSim).
 //   bands[i] = { freq, q, gainL, gainR }   (gainL===gainR wenn nicht split)
 //   splitChannels: true  -> echte Stereo-Kurven (Modus "both"/"mono")
@@ -888,8 +888,8 @@ function collectSysEqCorrection() {
   const monoSum = (mode === "left" || mode === "right" || mode === "mono");
   const muteCh = mode === "left" ? "R" : mode === "right" ? "L" : null;
 
-  const LTZ_ms = (typeof getPlayerLatencyMs === "function")
-    ? getPlayerLatencyMs() : 0;
+  const LTZ_ms = (typeof getPlayerLTZMs === "function")
+    ? getPlayerLTZMs() : 0;
   const hasLat = LTZ_ms !== 0;
   const hasBal = balL !== 0 || balR !== 0;
 

@@ -480,26 +480,26 @@ function getPlayerSide() {
   }
   return activeSide;
 }
-function getPlayerBalance() {
+function getPlayerSTB() {
   if (!plApplyBalance) return 0;
-  // Mean aus stereobalanceResults berechnen (stereobalanceResults ist global in stereobalance-balance.js)
-  if (typeof stereobalanceResults === "undefined") return 0;
-  const vals = Object.values(stereobalanceResults).filter((v) => isFinite(v));
+  // Mean aus STB_results berechnen (STB_results ist global in stereobalance-balance.js)
+  if (typeof STB_results === "undefined") return 0;
+  const vals = Object.values(STB_results).filter((v) => isFinite(v));
   if (!vals.length) return 0;
   const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
   // Positive mean = right louder → negative balance offset (rechts dämpfen)
   return Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
 }
-function getPlayerBalanceGains() {
+function getPlayerSTBGains() {
   // Liefert {left, right} dB-Werte für die beiden Channel-Gains
   // im "both"-Modus. Berücksichtigt plBalanceMode.
-  // b ist die gemessene L↔R-Differenz in dB (= -mean der stereobalanceResults).
+  // b ist die gemessene L↔R-Differenz in dB (= -mean der STB_results).
   // Der akustische Unterschied muss in ALLEN Modi genau b betragen,
-  // wie beim Test eingestellt (stereobalancePairGains verteilt off als ±off/2).
+  // wie beim Test eingestellt (STB_pairGains verteilt off als ±off/2).
   // "sym" (Default): symmetrisch, jede Seite trägt die Hälfte (±b/2).
   // "left":  voller Ausgleich b ausschließlich auf der linken Seite.
   // "right": voller Ausgleich b ausschließlich auf der rechten Seite.
-  const b = getPlayerBalance();
+  const b = getPlayerSTB();
   const mode = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
   const clamp = (v) => Math.max(-60, Math.min(60, v));
   if (mode === "left") {
@@ -510,14 +510,14 @@ function getPlayerBalanceGains() {
   }
   return { left: b / 2, right: -b / 2 };
 }
-function getRawBalanceGains() {
-  // Wie getPlayerBalanceGains(), aber ignoriert plApplyBalance.
+function STB_rawGains() {
+  // Wie getPlayerSTBGains(), aber ignoriert plApplyBalance.
   // Für Meßtests (Frequenzabgleich, Latenz): Balance immer anwenden.
-  if (typeof stereobalanceResults === "undefined") return { left: 0, right: 0 };
-  const vals = Object.values(stereobalanceResults).filter((v) => isFinite(v));
+  if (typeof STB_results === "undefined") return { left: 0, right: 0 };
+  const vals = Object.values(STB_results).filter((v) => isFinite(v));
   if (!vals.length) return { left: 0, right: 0 };
   const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
-  // b = gemessene L↔R-Differenz; Verteilung wie getPlayerBalanceGains.
+  // b = gemessene L↔R-Differenz; Verteilung wie getPlayerSTBGains.
   const b = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
   const mode = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
   const clamp = (v) => Math.max(-60, Math.min(60, v));
@@ -622,7 +622,7 @@ function renderSnapshotHint(testKey, containerEl) {
   if (!containerEl) return;
   let oldSnap = null;
   if (testKey === 'stereobalance') {
-    oldSnap = (typeof stereobalanceSnapshot !== 'undefined') ? stereobalanceSnapshot : null;
+    oldSnap = (typeof STB_snapshot !== 'undefined') ? STB_snapshot : null;
   } else if (testKey === 'latenz') {
     oldSnap = (typeof LTZ_result !== 'undefined' && LTZ_result)
             ? LTZ_result.implantSnapshot : null;
@@ -790,7 +790,7 @@ let pause_freqmatch    = TEST_DEFAULTS.freqmatch.pause;
 // BA 287: gemeinsame Lautstaerke fuer alle drei Mess-Tests UND den
 // Implantat-Reiter. Ersetzt die frueheren volume_test/volume_balance/
 // volume_freqmatch/volume_implant. Vol als int 0..100; die Getter
-// (tGVol/stereobalanceGVol/FRQ_getVolume/...) machen die quadratische Audio-Konversion.
+// (tGVol/STB_gVol/FRQ_getVolume/...) machen die quadratische Audio-Konversion.
 let volume_global = TEST_DEFAULTS.commonVolume;
 let duration_elektrodenlautstaerke = TEST_DEFAULTS.elektrodenlautstaerke.duration;
 let pause_elektrodenlautstaerke    = TEST_DEFAULTS.elektrodenlautstaerke.pause;

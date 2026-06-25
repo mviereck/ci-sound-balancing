@@ -335,15 +335,15 @@ button:disabled {
   min-width: 130px;
   font-size: 1em;
 }
-.balance-slider-wrap {
+.stb-slider-wrap {
   margin: 16px auto;
   max-width: 400px;
 }
-.balance-slider-wrap input[type="range"] {
+.stb-slider-wrap input[type="range"] {
   width: 100%;
   margin: 8px 0;
 }
-.balance-value {
+.stb-value {
   font-family: var(--mono);
   font-size: 1.15em;
   font-weight: 600;
@@ -756,7 +756,7 @@ select:disabled {
   .btn,
   .controls-row,
   .judgment-buttons,
-  .balance-slider-wrap,
+  .stb-slider-wrap,
   .no-print {
     display: none !important;
   }

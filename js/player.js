@@ -654,7 +654,7 @@ function getPlayerCorrection(side, applyNhSim) {
   // BA 319: ist die Absenkung seitenweise (Headroom an, Beide-Seiten aus),
   // wird die Stereo-Balance ausgesetzt (binaurale Balance ist kein Ziel).
   const balSuppressed = plEqHeadroom && !plEqHeadroomBoth;
-  const balG = getPlayerBalanceGains();          // {left,right} dB, 0 wenn plApplyBalance aus
+  const balG = getPlayerSTBGains();          // {left,right} dB, 0 wenn plApplyBalance aus
   const bRaw = balSuppressed ? 0 : ((side === "right") ? balG.right : balG.left);
   const balance = nhSim ? -bRaw : bRaw;
   return { eq: eq, balance: balance };
@@ -1390,7 +1390,7 @@ window.addEventListener("resize", () => {
   if (document.getElementById("panel-kurven").classList.contains("active"))
     elektrodenlautstaerkeKurvenChartZeichnen();
   if (document.getElementById("subpanel-ergebnisse-stereobalance")?.classList.contains("active"))
-    stereobalanceDrawChart();
+    STB_drawChart();
 });
 
 // Einzige Schreibstelle fuer den Sperr-Zustand des Stereo-Balance-Buttons.

@@ -393,8 +393,8 @@ function frq_makeSequence(opts) {
   var vol = FRQ_getVolume();
   var dur = FRQ_getDuration();
   var pau = FRQ_getPause();
-  var balG = (typeof getRawBalanceGains === "function")
-    ? getRawBalanceGains() : { left: 0, right: 0 };
+  var balG = (typeof STB_rawGains === "function")
+    ? STB_rawGains() : { left: 0, right: 0 };
   function tok(side, hz) {
     var pan   = side === "left" ? -1 : 1;
     var corr  = FRQ_correctionGain(side, hz);
@@ -485,8 +485,8 @@ async function frq_playSimultaneous() {
     const refPan = FRQ_refSide === "left" ? -1 : 1;
     const varPan = frq_varSide === "left" ? -1 : 1;
 
-    const balG = (typeof getRawBalanceGains === "function")
-      ? getRawBalanceGains() : { left: 0, right: 0 };
+    const balG = (typeof STB_rawGains === "function")
+      ? STB_rawGains() : { left: 0, right: 0 };
     const refCorr  = FRQ_correctionGain(FRQ_refSide, refHz);
     const varCorr  = FRQ_correctionGain(frq_varSide, varHz);
     const refBalDb = FRQ_refSide === "left" ? balG.left : balG.right;
@@ -1407,9 +1407,9 @@ function _frq_renderPrereqHints() {
   if (elsLeftEl)  elsLeftEl.style.display  = _frq_hasLvData('left')  ? 'none' : '';
   if (elsRightEl) elsRightEl.style.display = _frq_hasLvData('right') ? 'none' : '';
   if (sbEl) {
-    const hasSb = typeof stereobalanceResults !== 'undefined'
-               && stereobalanceResults
-               && Object.keys(stereobalanceResults).length > 0;
+    const hasSb = typeof STB_results !== 'undefined'
+               && STB_results
+               && Object.keys(STB_results).length > 0;
     sbEl.style.display = hasSb ? 'none' : '';
   }
 }

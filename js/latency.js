@@ -191,8 +191,8 @@ function ltz_startTest() {
 
   // Stereo-Balance-Gains (vor pGain). Splitter + L/R-Gains + Merger
   // entstehen pro Test und werden beim Stop wieder verworfen.
-  const balG = (typeof getRawBalanceGains === "function")
-    ? getRawBalanceGains() : { left: 0, right: 0 };
+  const balG = (typeof STB_rawGains === "function")
+    ? STB_rawGains() : { left: 0, right: 0 };
   const volFactor = _ltz_getVolumeFactor();   // 0..1, Default 0.5 (=50%)
   ltz_balSplitter = ctx.createChannelSplitter(2);
   ltz_balMerger   = ctx.createChannelMerger(2);
@@ -271,7 +271,7 @@ function ltz_setSliderMs(ms) {
 // BA 313: Zentrale Quelle fuer die anzuwendende Latenz (ms).
 // EQ-Schalter-Gate (Weg A) + nhSim-Spiegelung. Klang (LTZ_applyToPlayer)
 // und ab BA 314 der System-EQ-Export lesen NUR hier.
-function getPlayerLatencyMs() {
+function getPlayerLTZMs() {
   if (typeof plEqOn !== "undefined" && !plEqOn) return 0;
   if (!plApplyLatency) return 0;
   if (!LTZ_result || !isFinite(LTZ_result.valueMs)) return 0;
@@ -286,9 +286,9 @@ function getPlayerLatencyMs() {
 function LTZ_applyToPlayer() {
   if (LTZ_active) return; // während Test übernimmt ltz_setSliderMs
   if (!pLatDelayL || !pLatDelayR) return;
-  // getPlayerLatencyMs liefert 0, wenn EQ aus / Latenz aus / kein Wert;
+  // getPlayerLTZMs liefert 0, wenn EQ aus / Latenz aus / kein Wert;
   // ltz_setSliderMs(0) setzt beide Delays auf 0.
-  ltz_setSliderMs(getPlayerLatencyMs());
+  ltz_setSliderMs(getPlayerLTZMs());
   if (typeof updLatApplyBtn === "function") updLatApplyBtn();
 }
 
@@ -426,11 +426,11 @@ function _ltz_updateIntervalHint() {
   hint.textContent = s;
 }
 
-function _ltz_hasBalance() {
+function _ltz_hasSTB() {
   // Pragmatische Detektion: mindestens ein gemessener Balance-Wert
-  // existiert in stereobalanceResults ODER in sideData[*].elektrodenlautstaerkeResults.
-  if (typeof stereobalanceResults === 'object' && stereobalanceResults
-      && Object.values(stereobalanceResults).some(function(v) { return isFinite(v); })) return true;
+  // existiert in STB_results ODER in sideData[*].elektrodenlautstaerkeResults.
+  if (typeof STB_results === 'object' && STB_results
+      && Object.values(STB_results).some(function(v) { return isFinite(v); })) return true;
   if (typeof sideData === 'object' && sideData) {
     for (const side of ['left', 'right']) {
       const sd = sideData[side];
@@ -442,7 +442,7 @@ function _ltz_hasBalance() {
 
 function _ltz_refreshPrereqHints() {
   if (!LTZ_els) return;
-  testUI.explain.setVisible(LTZ_els, 'LTZ_vortestBalanceMissing', !_ltz_hasBalance());
+  testUI.explain.setVisible(LTZ_els, 'LTZ_vortestSTBMissing', !_ltz_hasSTB());
 }
 
 // --- Hook-Implementierungen ---
@@ -521,7 +521,7 @@ document.addEventListener("DOMContentLoaded", function() {
       paragraphs: [
         { key: 'LTZ_maturityHint',           kind: 'info'    },
         { key: 'LTZ_BTWarning',              kind: 'caution' },
-        { key: 'LTZ_vortestBalanceMissing',  kind: 'warn',  id: 'LTZ_vortestBalanceMissing',  hidden: true },
+        { key: 'LTZ_vortestSTBMissing',  kind: 'warn',  id: 'LTZ_vortestSTBMissing',  hidden: true },
         { key: 'LTZ_prereqHint',             kind: 'warn'    },
         { key: 'LTZ_measIntro2',             kind: 'plain'   },
         { key: 'LTZ_measIntro',              kind: 'plain'   },
@@ -570,8 +570,8 @@ document.addEventListener("DOMContentLoaded", function() {
       ltz_volume = parseFloat(LTZ_els.header.volInput.value) || 50;
       // Wenn der Test läuft: Gains live nachziehen
       if (LTZ_active && ltz_balGainL && ltz_balGainR) {
-        const balG = (typeof getRawBalanceGains === "function")
-          ? getRawBalanceGains() : { left: 0, right: 0 };
+        const balG = (typeof STB_rawGains === "function")
+          ? STB_rawGains() : { left: 0, right: 0 };
         const f = _ltz_getVolumeFactor();
         ltz_balGainL.gain.value = dB2G(balG.left)  * f;
         ltz_balGainR.gain.value = dB2G(balG.right) * f;

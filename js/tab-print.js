@@ -202,12 +202,12 @@ function _printResLoudness() {
 }
 
 function _printResLR() {
-  const card   = document.querySelector('#stereobalanceResultsCard');
+  const card   = document.querySelector('#STB_resultsCard');
   const target = (card && card.style.display !== 'none')
-    ? '#stereobalanceResultsCard'
-    : '#stereobalanceNoResults';
+    ? '#STB_resultsCard'
+    : '#STB_noResults';
   const body = _printCloneSafe(target);
-  openPrintWindow(t("tabStereobalance") || "Stereo-Balance", body);
+  openPrintWindow(t("tabSTB") || "Stereo-Balance", body);
 }
 
 function _printResFRQ() {

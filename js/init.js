@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
     elektrodenlautstaerkeKurvenTabelleBauen();
     elektrodenlautstaerkeKurvenChartZeichnen();
     renderResults();
-    if (typeof stereobalanceCheckData === "function") stereobalanceCheckData();
+    if (typeof STB_checkData === "function") STB_checkData();
     if (typeof FRQ_applyLang === "function") FRQ_applyLang();
     if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();
     plCheck();
@@ -312,8 +312,6 @@ document.addEventListener("DOMContentLoaded", () => {
     pUpdEQ();
     if (typeof _autoSaveState === "function") _autoSaveState();
   });
-  // balBalance wurde entfernt – kein Event-Listener nötig
-  // document.getElementById("balBalance").addEventListener(...);
 
   // ========== Globale Dateinamen-Ergänzung ==========
   const userFileSuffixEl   = document.getElementById("userFileSuffix");
@@ -663,9 +661,9 @@ document.addEventListener("DOMContentLoaded", () => {
           pMarkPlayerWarpDefaultAsApplied();
         }
       } catch (e) { /* defensiv */ }
-      if (d.lrResults && typeof stereobalanceResults !== "undefined") {
-        Object.assign(stereobalanceResults, d.lrResults);
-        if (typeof stereobalanceRenderResults === "function") stereobalanceRenderResults();
+      if (d.lrResults && typeof STB_results !== "undefined") {
+        Object.assign(STB_results, d.lrResults);
+        if (typeof STB_renderResults === "function") STB_renderResults();
       }
       if (typeof LTZ_result !== "undefined") {
         LTZ_result = (d && d.latencyResult) ? d.latencyResult : null;
@@ -785,8 +783,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const aNoteEl = document.getElementById("audiologNoteInput");
         if (aNoteEl) aNoteEl.value = audiologUserNote;
       }
-      if (typeof stereobalanceSnapshot !== "undefined") {
-        stereobalanceSnapshot = (d && d.stereobalanceSnapshot) ? d.stereobalanceSnapshot : null;
+      if (typeof STB_snapshot !== "undefined") {
+        STB_snapshot = (d && d.STB_snapshot) ? d.STB_snapshot : null;
       }
       FRQ_implantatTableBuild();
       buildImplantCard();
@@ -798,10 +796,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
       if (typeof FRQ_applyLang === "function") FRQ_applyLang();
       if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();
-      if (typeof stereobalanceRefreshElectrodeSelectionSummary === "function") stereobalanceRefreshElectrodeSelectionSummary();
+      if (typeof STB_refreshElectrodeSelectionSummary === "function") STB_refreshElectrodeSelectionSummary();
       if (typeof FRQ_refreshElectrodeSelectionSummary === "function") FRQ_refreshElectrodeSelectionSummary();
       if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
-      if (typeof stereobalanceRefreshToneTypeLabel === "function") stereobalanceRefreshToneTypeLabel();
+      if (typeof STB_refreshToneTypeLabel === "function") STB_refreshToneTypeLabel();
       if (typeof FRQ_refreshToneTypeLabel === "function") FRQ_refreshToneTypeLabel();
       if (typeof testRefreshToneTypeLabel === "function") testRefreshToneTypeLabel();
       // BA389: Player-UI zentral spiegeln (ersetzt die ueber den Restore
@@ -916,9 +914,9 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           defaultMfr: defaultMfr,
           currentSide: activeSide,
-          lrResults: (typeof stereobalanceResults !== "undefined") ? stereobalanceResults : {},
+          lrResults: (typeof STB_results !== "undefined") ? STB_results : {},
           // BA 161
-          stereobalanceSnapshot: (typeof stereobalanceSnapshot !== "undefined") ? stereobalanceSnapshot : null,
+          STB_snapshot: (typeof STB_snapshot !== "undefined") ? STB_snapshot : null,
           latencyResult: (typeof LTZ_result !== "undefined") ? LTZ_result : null,
           plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
           plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,

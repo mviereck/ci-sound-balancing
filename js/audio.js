@@ -71,11 +71,11 @@ function _activeTestInput(type) {
   // pause_elektrodenlautstaerke). gVol/gDur/gPau lesen das direkt; _activeTestInput
   // braucht nur noch stereobalance-balance und freqmatch (rein vorgehalten — beide
   // haben eigene Helfer).
-  if (typeof stereobalanceRunning !== 'undefined' && stereobalanceRunning
-      && typeof stereobalanceEls !== 'undefined' && stereobalanceEls && stereobalanceEls.header) {
-    if (type === 'vol') return stereobalanceEls.header.volInput;
-    if (type === 'dur') return stereobalanceEls.header.durInput;
-    if (type === 'pau') return stereobalanceEls.header.pauseInput;
+  if (typeof STB_running !== 'undefined' && STB_running
+      && typeof STB_els !== 'undefined' && STB_els && STB_els.header) {
+    if (type === 'vol') return STB_els.header.volInput;
+    if (type === 'dur') return STB_els.header.durInput;
+    if (type === 'pau') return STB_els.header.pauseInput;
   }
   if (typeof FRQ_running !== 'undefined' && FRQ_running
       && typeof FRQ_els !== 'undefined' && FRQ_els && FRQ_els.header) {

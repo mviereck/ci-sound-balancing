@@ -6,7 +6,7 @@
 // durchreichen (sonst erst beim naechsten Seitenwechsel/Laden aktuell).
 function _frq_implantatTableRefreshMeasSummaries() {
   if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
-  if (typeof stereobalanceRefreshElectrodeSelectionSummary === "function") stereobalanceRefreshElectrodeSelectionSummary();
+  if (typeof STB_refreshElectrodeSelectionSummary === "function") STB_refreshElectrodeSelectionSummary();
   if (typeof FRQ_refreshElectrodeSelectionSummary === "function") FRQ_refreshElectrodeSelectionSummary();
 }
 function FRQ_implantatTableBuild() {

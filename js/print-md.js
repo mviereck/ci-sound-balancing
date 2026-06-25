@@ -307,13 +307,13 @@ function _calcAbsDelta(side, i, dB, mfrLocal, impl) {
 
 function _collectBilateral() {
   const out = { stereobalance: { has: false, rows: [], mean: null }, latenz: { has: false, value: null } };
-  if (typeof stereobalanceResults !== "undefined") {
-    const keys = Object.keys(stereobalanceResults).filter((k) => isFinite(stereobalanceResults[k]));
+  if (typeof STB_results !== "undefined") {
+    const keys = Object.keys(STB_results).filter((k) => isFinite(STB_results[k]));
     if (keys.length > 0) {
       out.stereobalance.has = true;
       const sorted = keys.slice().sort((a, b) => (+a) - (+b));
-      out.stereobalance.rows = sorted.map((k) => ({ elIdx: +k, value: stereobalanceResults[k] }));
-      out.stereobalance.mean = sorted.reduce((a, k) => a + stereobalanceResults[k], 0) / sorted.length;
+      out.stereobalance.rows = sorted.map((k) => ({ elIdx: +k, value: STB_results[k] }));
+      out.stereobalance.mean = sorted.reduce((a, k) => a + STB_results[k], 0) / sorted.length;
     }
   }
   if (typeof LTZ_result !== "undefined" && LTZ_result
@@ -354,9 +354,9 @@ function _collectPlayer() {
     srcMeas:    (typeof plSrcMeas    !== "undefined") ? plSrcMeas    : true,
     srcLevels:  (typeof plSrcLevels  !== "undefined") ? plSrcLevels  : true,
     srcCurves:  (typeof plSrcCurves  !== "undefined") ? plSrcCurves  : true,
-    applyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : false,
+    applySTB: (typeof plApplyBalance !== "undefined") ? plApplyBalance : false,
     balanceMode:  (typeof plBalanceMode  !== "undefined") ? plBalanceMode  : "sym",
-    applyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : false,
+    applyLTZ: (typeof plApplyLatency !== "undefined") ? plApplyLatency : false,
     warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
 
     warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "right",
@@ -511,7 +511,7 @@ function _archivMdTestSettings(data) {
   }
 
   _renderRow("testVerfahrenFull",  ts.elektrodenlautstaerke);
-  _renderRow("stereobalanceTitle",            ts.stereobalance);
+  _renderRow("STB_title",            ts.stereobalance);
   _renderRow("FRQ_title",            ts.freqmatch);
 
   return lines.join("\n") + "\n";
@@ -626,13 +626,13 @@ function _archivMdBilateral(data) {
   if (bil.stereobalance.has) {
     out.push(`### ${t("balTitle")}`);
     out.push("");
-    out.push(`| ${t("thEl")} | ${t("archivStereobalanceOffset")} |`);
+    out.push(`| ${t("thEl")} | ${t("archivSTBOffset")} |`);
     out.push("|---|---|");
     for (const r of bil.stereobalance.rows) {
       out.push(`| E${r.elIdx + 1} | ${_mdFmtDb(r.value, true)} |`);
     }
     out.push("");
-    out.push(`**${t("archivStereobalanceMean")}**: ${_mdFmtDb(bil.stereobalance.mean, true)}`);
+    out.push(`**${t("archivSTBMean")}**: ${_mdFmtDb(bil.stereobalance.mean, true)}`);
     out.push("");
   }
   if (bil.latenz.has) {
@@ -672,8 +672,8 @@ function _archivMdPlayer(data) {
   }
   out.push(`- ${t("archivPlSrc")}: ${t("archivSrcMeas")} ${p.srcMeas ? "✓" : "✗"} · ${t("archivSrcLevels")} ${p.srcLevels ? "✓" : "✗"} · ${t("archivSrcCurves")} ${p.srcCurves ? "✓" : "✗"}`);
   const bmTxt = t("plBalMode" + p.balanceMode.charAt(0).toUpperCase() + p.balanceMode.slice(1)) || p.balanceMode;
-  out.push(`- ${t("archivPlBalance")}: ${p.applyBalance ? t("on") : t("off")}${p.applyBalance ? " (" + bmTxt + ")" : ""}`);
-  out.push(`- ${t("archivPlLatency")}: ${p.applyLatency ? t("on") : t("off")}`);
+  out.push(`- ${t("archivPlSTB")}: ${p.applySTB ? t("on") : t("off")}${p.applySTB ? " (" + bmTxt + ")" : ""}`);
+  out.push(`- ${t("archivPlLTZ")}: ${p.applyLTZ ? t("on") : t("off")}`);
   out.push(`- ${t("archivPlMaplaw")}: ${p.maplawOn ? t("on") : t("off")}${p.maplawOn ? " (Soll-c=" + p.maplawSollC + ")" : ""}`);
   if (p.warpOn) {
     const modeKey = p.warpMode === "left"  ? "pwModeLeft"
@@ -1003,11 +1003,11 @@ function _audiologMaplawSection(mainSides, headerLevel) {
 
 // ---------- Stereo-Balance (immer wenn gemessen, auch einseitig) ----------
 
-function _audiologBalanceBlock(mainSides) {
-  if (typeof stereobalanceResults === "undefined") return "";
-  const keys = Object.keys(stereobalanceResults).filter((k) => isFinite(stereobalanceResults[k]));
+function _audiologSTBBlock(mainSides) {
+  if (typeof STB_results === "undefined") return "";
+  const keys = Object.keys(STB_results).filter((k) => isFinite(STB_results[k]));
   if (keys.length === 0) return "";
-  const mean = keys.reduce((a, k) => a + stereobalanceResults[k], 0) / keys.length;
+  const mean = keys.reduce((a, k) => a + STB_results[k], 0) / keys.length;
   if (!isFinite(mean) || mean === 0) return "";
 
   const balActive = (typeof plApplyBalance !== "undefined") && plApplyBalance
@@ -1016,7 +1016,7 @@ function _audiologBalanceBlock(mainSides) {
   const quieterSide = mean > 0 ? t("sideLeft")  : t("sideRight");
 
   const lines = [];
-  lines.push(`## ${t("audiologSecBalance")}`);
+  lines.push(`## ${t("audiologSecSTB")}`);
   lines.push("");
   lines.push(`- ${t("audiologBalDiff")}: **${Math.abs(mean).toFixed(1)} dB**`);
   lines.push(`- ${t("audiologBalImpact")
@@ -1191,7 +1191,7 @@ function buildAudiologMarkdown() {
   parts.push(_audiologAdvice());
   const miss = _audiologMissingImplantData(mainSides);
   if (miss) parts.push(miss);
-  const bal = _audiologBalanceBlock(mainSides);
+  const bal = _audiologSTBBlock(mainSides);
   if (bal) parts.push(bal);
   const lat = _audiologLTZBlock(mainSides);
   if (lat) parts.push(lat);

@@ -727,14 +727,14 @@ function measGain(side, hz) {
 // side: "left" | "right" (vom Aufrufer aus dem Pan abgeleitet).
 // applyMeas / applyBal: einzeln schaltbar -- im Implantat-Reiter ueber die
 // zwei Box-Schalter, in den Mess-Reitern beide true. Balance kommt aus
-// getRawBalanceGains() (respektiert den Balance-Modus).
+// STB_rawGains() (respektiert den Balance-Modus).
 function corrVol(vol, side, hz, applyMeas, applyBal) {
   var v = vol;
   if (applyMeas && typeof measGain === "function") {
     v *= measGain(side, hz);
   }
-  if (applyBal && typeof getRawBalanceGains === "function") {
-    var bg = getRawBalanceGains() || { left: 0, right: 0 };
+  if (applyBal && typeof STB_rawGains === "function") {
+    var bg = STB_rawGains() || { left: 0, right: 0 };
     var bd = (side === "left") ? bg.left : (side === "right") ? bg.right : 0;
     if (bd) v *= dB2G(bd);
   }
@@ -974,7 +974,7 @@ function endTest() {
   // der Test nach dem letzten Vergleich haengen blieb (kein Ton, kein
   // Abschluss). _stopTest hat einen Re-Entry-Schutz (_testRunning), der
   // Aufruf ueber den onStop-Hook (-> endTest) laeuft also nicht in eine
-  // Endlosschleife. Vgl. stereobalanceFinish in stereobalance-balance.js.
+  // Endlosschleife. Vgl. STB_finish in stereobalance-balance.js.
   if (testEls && testEls._stopTest) testEls._stopTest();
 }
 function showCurPair() {

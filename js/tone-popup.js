@@ -280,7 +280,7 @@ function openToneSelectionDialog(cfg, onChange) {
   var playing = false;
   // BA 239: Korrektur-Toggles, Default an, lokal in der Modal-Instanz.
   var applyMeasLevels = true;
-  var applyBalance    = true;
+  var applySTB    = true;
   // BA 241: Sweep-State, nur aktiv wenn cfg.sweepMode === true.
   var sweepRunning = false;
   var sweepAbort   = false;
@@ -560,7 +560,7 @@ function openToneSelectionDialog(cfg, onChange) {
   // Korrektor-fn) werden NUR im Reiter Implantat genutzt; dort steuern
   // sie Vorschau, Klavier und Sweep. Die Test-Aufrufer setzen
   // showToggles:false und wenden ihre Elektrodenlautstaerke-Korrektur
-  // selbst an (stereobalanceCorrGain / FRQ_correctionGain) — die fn liegt dort brach.
+  // selbst an (STB_corrGain / FRQ_correctionGain) — die fn liegt dort brach.
   if (cfg.showToggles !== false) {
     var togRow = document.createElement('div');
     togRow.style.cssText =
@@ -592,13 +592,13 @@ function openToneSelectionDialog(cfg, onChange) {
     var togBal = document.createElement('button');
     togBal.type = 'button';
     togBal.className = 'btn btn-sm';
-    togBal.dataset.t = 'tonePopupApplyBalance';
+    togBal.dataset.t = 'tonePopupApplySTB';
     togBal.style.cssText = 'font-weight:600;border-radius:6px;';
     togBal.addEventListener('click', function() {
-      applyBalance = !applyBalance;
-      _tpUpdToggleStyle(togBal, applyBalance);
+      applySTB = !applySTB;
+      _tpUpdToggleStyle(togBal, applySTB);
     });
-    _tpUpdToggleStyle(togBal, applyBalance);
+    _tpUpdToggleStyle(togBal, applySTB);
 
     togRow.append(togMeas, togBal);
     dlg.appendChild(togRow);
@@ -668,13 +668,13 @@ function openToneSelectionDialog(cfg, onChange) {
 
   // BA 239 / BA 300: Korrektorfunktion fuer Klavier-onPress und Vorspiel.
   // Rechnet ueber die zentrale corrVol (test.js); side aus dem Pan.
-  // applyMeasLevels / applyBalance bleiben die Box-Schalter (Implantat).
+  // applyMeasLevels / applySTB bleiben die Box-Schalter (Implantat).
   if (typeof cfg.onTogglesReady === 'function') {
     cfg.onTogglesReady(function(vol, hz, pan) {
       var side = (pan < -0.01) ? 'left' : (pan > 0.01) ? 'right'
                : (typeof activeSide === 'string' ? activeSide : 'left');
       if (typeof corrVol !== 'function') return vol;
-      return corrVol(vol, side, hz, applyMeasLevels, applyBalance);
+      return corrVol(vol, side, hz, applyMeasLevels, applySTB);
     });
   }
 
@@ -778,7 +778,7 @@ function openToneSelectionDialog(cfg, onChange) {
       var swpSide = (pan < -0.01) ? 'left' : (pan > 0.01) ? 'right'
                   : (typeof activeSide === 'string' ? activeSide : 'left');
       if (typeof corrVol === 'function') {
-        vol = corrVol(vol, swpSide, hz, applyMeasLevels, applyBalance);
+        vol = corrVol(vol, swpSide, hz, applyMeasLevels, applySTB);
       }
 
       if (sweepKbHandle && typeof sweepKbHandle.highlightElectrode === 'function') {

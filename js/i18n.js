@@ -104,7 +104,7 @@ function applyLang() {
   const _peb = document.getElementById("printErgebnisseBtn");
   if (_peb) _peb.title = t("printBtn");
   if (document.getElementById("resC").style.display !== "none") renderResults();
-  if (typeof stereobalanceRenderResults === "function") stereobalanceRenderResults();
+  if (typeof STB_renderResults === "function") STB_renderResults();
   if (typeof sUpdateUI === "function") sUpdateUI();
   if (typeof _implValidateApplyLang === 'function') _implValidateApplyLang();
   // BA 172: Tab-Sperre L1 — Klassen-Toggle + Modal-Texte ggf. neu aufgrund Sprachwechsel

@@ -3,38 +3,38 @@
 // ============================================================
 
 // State
-let stereobalanceResults = {}; // {elIdx: offset_dB}  positive = right louder
+let STB_results = {}; // {elIdx: offset_dB}  positive = right louder
 // BA 156: Schnappschuß zum Zeitpunkt der ersten LR-Messung
-let stereobalanceSnapshot = null;
-let stereobalanceSeq = []; // sequence of electrode indices to test
-let stereobalanceSeqIdx = 0;
-let stereobalanceCurrentEl = null; // current electrode index (left side numbering)
-let stereobalanceFlipped = false; // if true, first tone is R then L
-let stereobalanceRunning = false;
-let stereobalanceUndoStack = []; // [{el, prev}]
-let stereobalancePlayTO = null;
+let STB_snapshot = null;
+let stb_seq = []; // sequence of electrode indices to test
+let stb_seqIdx = 0;
+let stb_currentEl = null; // current electrode index (left side numbering)
+let stb_flipped = false; // if true, first tone is R then L
+let STB_running = false;
+let stb_undoStack = []; // [{el, prev}]
+let stb_playTO = null;
 let _lrKbT0 = 0;   // BA 293: Zeitpunkt des Klavier-Anschlags (Haltedauer)
-let stereobalanceIsPlay = false;
+let stb_isPlay = false;
 
 // Element-Lookup (gebaut von buildTestPanel)
-let stereobalanceEls = null;
+let STB_els = null;
 
 // BA 245: Elektroden-Auswahl für den Test (null = alle testbaren).
-let stereobalanceSelectedEls = null;
+let stb_selectedEls = null;
 
 function _lrSliderVal() {
-  if (!stereobalanceEls) return 0;
-  var sl = stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
-    && stereobalanceEls.verfahren.stereobalance.slider && stereobalanceEls.verfahren.stereobalance.slider.input;
+  if (!STB_els) return 0;
+  var sl = STB_els.verfahren && STB_els.verfahren.stereobalance
+    && STB_els.verfahren.stereobalance.slider && STB_els.verfahren.stereobalance.slider.input;
   return sl ? parseFloat(sl.value) : 0;
 }
 
 function _lrUpdCumulative(v) {
-  if (!stereobalanceEls) return;
-  var cd = stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
-    && stereobalanceEls.verfahren.stereobalance.cumulativeDisplay;
+  if (!STB_els) return;
+  var cd = STB_els.verfahren && STB_els.verfahren.stereobalance
+    && STB_els.verfahren.stereobalance.cumulativeDisplay;
   if (!cd) return;
-  const existing = stereobalanceCurrentEl !== null ? stereobalanceResults[stereobalanceCurrentEl] : undefined;
+  const existing = stb_currentEl !== null ? STB_results[stb_currentEl] : undefined;
   if (existing !== undefined) {
     cd.textContent =
       t("cumulativeDb") + ": " + (existing >= 0 ? "+" : "") + existing.toFixed(1) + " dB";
@@ -45,9 +45,9 @@ function _lrUpdCumulative(v) {
 }
 
 
-function stereobalanceGVol() { return Math.pow((volume_global || 0) / 100, 2); }
-function stereobalanceGDur() { return duration_stereobalance || 1000; }
-function stereobalanceGPau() { return pause_stereobalance    || 400;  }
+function STB_gVol() { return Math.pow((volume_global || 0) / 100, 2); }
+function stb_gDur() { return duration_stereobalance || 1000; }
+function stb_gPau() { return pause_stereobalance    || 400;  }
 
 // BA 253: Klavier-Helfer fuer die Tonauswahl-Modalbox des
 // Stereo-Balance-Tests. Tasten bis Min(leftN, rightN); disabled
@@ -64,7 +64,7 @@ function _lrTpElectrodeFreqs() {
   var n = _lrTpKbdN();
   if (n <= 0) return [];
   var arr = [];
-  for (var i = 0; i < n; i++) arr.push(stereobalanceEffFreq(activeSide, i));
+  for (var i = 0; i < n; i++) arr.push(stb_effFRQ(activeSide, i));
   return arr;
 }
 function _lrTpElectrodeLabels() {
@@ -98,17 +98,17 @@ var _lrTpCorrectVol = null;
 var _lrTpModalTone  = null;
 
 // Get corrected volume gain for electrode i on given side (WLS levels only, no manual levels)
-function stereobalanceCorrGain(side, elIdx) {
+function STB_corrGain(side, elIdx) {
   return elTestData({ side }).correctionGain[elIdx];
 }
 
 // Get the effective frequency for electrode i on a given side
-function stereobalanceEffFreq(side, elIdx) {
+function stb_effFRQ(side, elIdx) {
   return withSide(side, () => FRQ_implantatEffektiv(elIdx));
 }
 
 // Get the electrode display number for a given side
-function stereobalanceDEN(side, elIdx) {
+function stb_dEN(side, elIdx) {
   return withSide(side, () => dEN(elIdx));
 }
 
@@ -120,7 +120,7 @@ function stereobalanceDEN(side, elIdx) {
 // proportional heruntergezogen, bis der lautere genau 1.0 ist (Verhaeltnis
 // = hoerbarer Unterschied bleibt erhalten, kein Sprung am Anschlag).
 // Rueckgabe { vL, vR, capped } mit capped = null | 'left' | 'right'.
-function stereobalancePairGains(baseL, baseR, off) {
+function STB_pairGains(baseL, baseR, off) {
   var idealL = baseL * dB2G(-off / 2);
   var idealR = baseR * dB2G(off / 2);
   var m = Math.max(idealL, idealR);
@@ -135,26 +135,26 @@ function stereobalancePairGains(baseL, baseR, off) {
 // BA 290: Token-Liste fuer das aktuelle Links/Rechts-Paar. Liefert
 // fertige Token { hz, pan, vol, durationMs, side } (vol inkl. Korrektur
 // und Deckelung) und Pausen { pauseMs }. 'side' ('left'|'right') dient
-// nur dem Aufleuchten (onStepStart). Reihenfolge folgt stereobalanceFlipped.
+// nur dem Aufleuchten (onStepStart). Reihenfolge folgt stb_flipped.
 //   opts.aba === true -> erste Seite am Ende wiederholt.
-function stereobalanceSequence(opts) {
+function stb_sequence(opts) {
   opts = opts || {};
-  var el = stereobalanceCurrentEl;
+  var el = stb_currentEl;
   var slOff = _lrSliderVal();
-  var vol = stereobalanceGVol();
-  var dur = stereobalanceGDur();
-  var pau = stereobalanceGPau();
+  var vol = STB_gVol();
+  var dur = stb_gDur();
+  var pau = stb_gPau();
   var rightNEl = sideData["right"].nEl;
   var rightEl = el < rightNEl ? el : rightNEl - 1;
-  var hzL = stereobalanceEffFreq("left", el);
-  var hzR = stereobalanceEffFreq("right", rightEl);
-  var corrL = stereobalanceCorrGain("left", el);
-  var corrR = stereobalanceCorrGain("right", rightEl);
-  var g = stereobalancePairGains(vol * corrL, vol * corrR, slOff);
+  var hzL = stb_effFRQ("left", el);
+  var hzR = stb_effFRQ("right", rightEl);
+  var corrL = STB_corrGain("left", el);
+  var corrR = STB_corrGain("right", rightEl);
+  var g = STB_pairGains(vol * corrL, vol * corrR, slOff);
   var tL = { hz: hzL, pan: -1, vol: g.vL, durationMs: dur, side: 'left' };
   var tR = { hz: hzR, pan:  1, vol: g.vR, durationMs: dur, side: 'right' };
-  var first  = stereobalanceFlipped ? tR : tL;
-  var second = stereobalanceFlipped ? tL : tR;
+  var first  = stb_flipped ? tR : tL;
+  var second = stb_flipped ? tL : tR;
   var seq = [ first, { pauseMs: pau }, second ];
   if (opts.aba) {
     seq.push({ pauseMs: pau });
@@ -164,50 +164,50 @@ function stereobalanceSequence(opts) {
 }
 
 // Play the current LR comparison sequence
-async function stereobalancePlayCurrent() {
-  if (stereobalanceCurrentEl === null) return;
-  if (stereobalanceIsPlay) {
-    stereobalanceStopPlay();
+async function stb_playCurrent() {
+  if (stb_currentEl === null) return;
+  if (stb_isPlay) {
+    stb_stopPlay();
     await new Promise((r) => setTimeout(r, 60));
   }
-  var _lrPI = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
-    && stereobalanceEls.verfahren.stereobalance.pairIndicator;
-  stereobalanceIsPlay = true;
+  var _lrPI = STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance
+    && STB_els.verfahren.stereobalance.pairIndicator;
+  stb_isPlay = true;
   testUI.tonePlayer.playSequential(
-    stereobalanceSequence({ aba: sequence_stereobalance === 'aba' }),
+    stb_sequence({ aba: sequence_stereobalance === 'aba' }),
     {
       toneType: toneType_stereobalance,
       onStepStart: function (index, token) {
         testUI.pairIndicator.setPlaying(_lrPI, (token && token.side) ? token.side : null);
       },
       onDone: function () {
-        stereobalanceIsPlay = false;
+        stb_isPlay = false;
         testUI.pairIndicator.setPlaying(_lrPI, null);
       }
     }
   );
 }
 
-function stereobalancePlaySimul() {
-  if (stereobalanceCurrentEl === null) return;
-  stereobalanceStopPlay();
-  var _lrPI = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
-    && stereobalanceEls.verfahren.stereobalance.pairIndicator;
-  stereobalanceIsPlay = true;
+function stb_playSimul() {
+  if (stb_currentEl === null) return;
+  stb_stopPlay();
+  var _lrPI = STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance
+    && STB_els.verfahren.stereobalance.pairIndicator;
+  stb_isPlay = true;
   testUI.pairIndicator.setPlaying(_lrPI, "both");
   testUI.tonePlayer.playSimultaneous(
-    stereobalanceSequence({ aba: false }),
+    stb_sequence({ aba: false }),
     {
       toneType: toneType_stereobalance,
       onDone: function () {
-        stereobalanceIsPlay = false;
+        stb_isPlay = false;
         testUI.pairIndicator.setPlaying(_lrPI, null);
       }
     }
   );
 }
 
-function stereobalanceStopPlay() {
+function stb_stopPlay() {
   // BA 290: laufende Token-Sequenz der gemeinsamen Maschine abbrechen.
   if (typeof testUI !== 'undefined' && testUI.tonePlayer) {
     testUI.tonePlayer.stop();
@@ -218,18 +218,18 @@ function stereobalanceStopPlay() {
     }
     runningSources = [];
   }
-  if (stereobalancePlayTO) {
-    clearTimeout(stereobalancePlayTO);
-    stereobalancePlayTO = null;
+  if (stb_playTO) {
+    clearTimeout(stb_playTO);
+    stb_playTO = null;
   }
-  stereobalanceIsPlay = false;
-  if (stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
-      && stereobalanceEls.verfahren.stereobalance.pairIndicator) {
-    testUI.pairIndicator.setPlaying(stereobalanceEls.verfahren.stereobalance.pairIndicator, null);
+  stb_isPlay = false;
+  if (STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance
+      && STB_els.verfahren.stereobalance.pairIndicator) {
+    testUI.pairIndicator.setPlaying(STB_els.verfahren.stereobalance.pairIndicator, null);
   }
 }
 
-function stereobalanceBuildSequence() {
+function stb_buildSequence() {
   // Use left side as reference for electrode count
   const leftNEl = sideData["left"].nEl;
   const rightNEl = sideData["right"].nEl;
@@ -247,50 +247,50 @@ function stereobalanceBuildSequence() {
   }
   // BA 245: Filter gegen Nutzer-Auswahl
   var filtered;
-  if (stereobalanceSelectedEls === null) {
+  if (stb_selectedEls === null) {
     filtered = available;
   } else {
-    var selSet = new Set(stereobalanceSelectedEls);
+    var selSet = new Set(stb_selectedEls);
     filtered = available.filter(function(i) { return selSet.has(i); });
   }
-  const mode = (stereobalanceEls && stereobalanceEls.header && stereobalanceEls.header.modeSelect)
-    ? stereobalanceEls.header.modeSelect.value : "random";
+  const mode = (STB_els && STB_els.header && STB_els.header.modeSelect)
+    ? STB_els.header.modeSelect.value : "random";
   if (mode === "ascending") {
-    stereobalanceSeq = filtered.slice();
+    stb_seq = filtered.slice();
   } else if (mode === "descending") {
-    stereobalanceSeq = filtered.slice().reverse();
+    stb_seq = filtered.slice().reverse();
   } else {
     const arr = filtered.slice();
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
-    stereobalanceSeq = arr;
+    stb_seq = arr;
   }
-  stereobalanceSeqIdx = 0;
+  stb_seqIdx = 0;
 }
 
-function stereobalanceDetermineFlip() {
-  const mode = (stereobalanceEls && stereobalanceEls.header && stereobalanceEls.header.runSelect)
-    ? stereobalanceEls.header.runSelect.value : "random";
+function stb_determineFlip() {
+  const mode = (STB_els && STB_els.header && STB_els.header.runSelect)
+    ? STB_els.header.runSelect.value : "random";
   if (mode === "lr") return false;
   if (mode === "rl") return true;
   return Math.random() < 0.5;
 }
 
-function stereobalanceShowPair() {
-  if (stereobalanceSeqIdx >= stereobalanceSeq.length) {
-    stereobalanceFinish();
+function stb_showPair() {
+  if (stb_seqIdx >= stb_seq.length) {
+    STB_finish();
     return;
   }
-  const el = stereobalanceSeq[stereobalanceSeqIdx];
-  stereobalanceCurrentEl = el;
-  stereobalanceFlipped = stereobalanceDetermineFlip();
+  const el = stb_seq[stb_seqIdx];
+  stb_currentEl = el;
+  stb_flipped = stb_determineFlip();
 
   // Slider: existing-Wert oder 0 setzen; Range wird über setValue automatisch erweitert
-  var slRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
-    && stereobalanceEls.verfahren.stereobalance.slider;
-  const existing = stereobalanceResults[el];
+  var slRef = STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance
+    && STB_els.verfahren.stereobalance.slider;
+  const existing = STB_results[el];
   if (slRef) {
     var startVal = (existing !== undefined && isFinite(existing)) ? existing : 0;
     testUI.slider.setValue(slRef, startVal);
@@ -304,12 +304,12 @@ function stereobalanceShowPair() {
   _lrUpdCumulative(0);
 
   // Progress über testUI-Helfer
-  var prRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
-    && stereobalanceEls.verfahren.stereobalance.progress;
+  var prRef = STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance
+    && STB_els.verfahren.stereobalance.progress;
   if (prRef) {
     testUI.progress.set(prRef, {
-      fraction: (stereobalanceSeqIdx + 1) / stereobalanceSeq.length,
-      text: t("comp") + " " + (stereobalanceSeqIdx + 1) + " " + t("of") + " " + stereobalanceSeq.length
+      fraction: (stb_seqIdx + 1) / stb_seq.length,
+      text: t("comp") + " " + (stb_seqIdx + 1) + " " + t("of") + " " + stb_seq.length
     });
   }
 
@@ -317,10 +317,10 @@ function stereobalanceShowPair() {
   const leftLabel = withSide("left", () => dENPrefix("left") + dEN(el));
   const rightEl = el < sideData["right"].nEl ? el : sideData["right"].nEl - 1;
   const rightLabel = withSide("right", () => dENPrefix("right") + dEN(rightEl));
-  const hzL = stereobalanceEffFreq("left", el);
-  const hzR = stereobalanceEffFreq("right", rightEl);
-  var piRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
-    && stereobalanceEls.verfahren.stereobalance.pairIndicator;
+  const hzL = stb_effFRQ("left", el);
+  const hzR = stb_effFRQ("right", rightEl);
+  var piRef = STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance
+    && STB_els.verfahren.stereobalance.pairIndicator;
   if (piRef) {
     testUI.pairIndicator.setLabels(piRef, {
       leftText:  "L: " + leftLabel,
@@ -331,89 +331,89 @@ function stereobalanceShowPair() {
   }
 
   // Undo-Button-Zustand
-  var undoBtn = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
-    && stereobalanceEls.verfahren.stereobalance.actions && stereobalanceEls.verfahren.stereobalance.actions.undo;
-  if (undoBtn) undoBtn.disabled = stereobalanceUndoStack.length === 0;
+  var undoBtn = STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance
+    && STB_els.verfahren.stereobalance.actions && STB_els.verfahren.stereobalance.actions.undo;
+  if (undoBtn) undoBtn.disabled = stb_undoStack.length === 0;
 
-  stereobalancePlayCurrent();
+  stb_playCurrent();
 }
 
-function stereobalanceConfirm() {
-  if (stereobalanceCurrentEl === null || !stereobalanceRunning) return;
-  const el = stereobalanceCurrentEl;
+function stb_confirm() {
+  if (stb_currentEl === null || !STB_running) return;
+  const el = stb_currentEl;
   const val = _lrSliderVal();
   // Save undo
-  stereobalanceUndoStack.push({ el, prev: stereobalanceResults[el] });
-  stereobalanceResults[el] = val;
+  stb_undoStack.push({ el, prev: STB_results[el] });
+  STB_results[el] = val;
   // BA 156
-  if (stereobalanceSnapshot === null && typeof implantSnapshot === 'function') {
-    stereobalanceSnapshot = implantSnapshot();
+  if (STB_snapshot === null && typeof implantSnapshot === 'function') {
+    STB_snapshot = implantSnapshot();
   }
-  stereobalanceSeqIdx++;
-  stereobalanceRenderResults();
-  stereobalanceApplyMeanToBalance();
-  stereobalanceShowPair();
+  stb_seqIdx++;
+  STB_renderResults();
+  STB_renderMean();
+  stb_showPair();
 }
 
-function stereobalanceUndo() {
-  if (!stereobalanceUndoStack.length) return;
-  stereobalanceStopPlay();
-  const { el, prev } = stereobalanceUndoStack.pop();
-  if (prev === undefined) delete stereobalanceResults[el];
-  else stereobalanceResults[el] = prev;
-  stereobalanceSeqIdx = Math.max(0, stereobalanceSeqIdx - 1);
-  stereobalanceRenderResults();
-  stereobalanceApplyMeanToBalance();
-  stereobalanceShowPair();
+function stb_undo() {
+  if (!stb_undoStack.length) return;
+  stb_stopPlay();
+  const { el, prev } = stb_undoStack.pop();
+  if (prev === undefined) delete STB_results[el];
+  else STB_results[el] = prev;
+  stb_seqIdx = Math.max(0, stb_seqIdx - 1);
+  STB_renderResults();
+  STB_renderMean();
+  stb_showPair();
 }
 
 // Setzt die Vergleichsreihe vollstaendig zurueck: Reihenfolge, Position,
 // aktuelle Elektrode und Undo-Stapel. Wird beim Loeschen der Ergebnisse
 // (Clear-Button, resetAll) gebraucht, damit ein pausierter Fortschritt
 // nicht in einen frischen Start hineinblutet (Stop = Pause, BA 245).
-function stereobalanceResetSequence() {
-  stereobalanceSeq = [];
-  stereobalanceSeqIdx = 0;
-  stereobalanceCurrentEl = null;
-  stereobalanceUndoStack = [];
+function STB_resetSequence() {
+  stb_seq = [];
+  stb_seqIdx = 0;
+  stb_currentEl = null;
+  stb_undoStack = [];
 }
 
-function stereobalanceFinish() {
-  stereobalanceStopPlay();
-  stereobalanceRunning = false;
-  stereobalanceSeq = [];
-  stereobalanceSeqIdx = 0;
-  if (stereobalanceEls && stereobalanceEls._stopTest) stereobalanceEls._stopTest();
+function STB_finish() {
+  stb_stopPlay();
+  STB_running = false;
+  stb_seq = [];
+  stb_seqIdx = 0;
+  if (STB_els && STB_els._stopTest) STB_els._stopTest();
   lockTestTabs(false, null);
   if (typeof depLockApply === 'function') depLockApply();
-  stereobalanceRenderResults();
-  stereobalanceApplyMeanToBalance();
-  // BA 279: Abschluss-Box. stereobalanceFinish ist das natuerliche Sequenz-Ende
-  // (aus stereobalanceShowPair, wenn stereobalanceSeqIdx >= stereobalanceSeq.length). stereobalancePause (Stop): KEINE Box.
+  STB_renderResults();
+  STB_renderMean();
+  // BA 279: Abschluss-Box. STB_finish ist das natuerliche Sequenz-Ende
+  // (aus stb_showPair, wenn stb_seqIdx >= stb_seq.length). stb_pause (Stop): KEINE Box.
   if (typeof testUI !== 'undefined' && testUI.completion) {
     testUI.completion.show({
-      nameKey:   'tabStereobalance',
-      subtabKey: 'tabStereobalance',
-      bodyKey:   'stereobalanceDoneExtra'
+      nameKey:   'tabSTB',
+      subtabKey: 'tabSTB',
+      bodyKey:   'STB_doneExtra'
     });
   }
 }
 
-// BA 245: "Stop" ist semantisch Pause — stereobalanceSeq und stereobalanceSeqIdx bleiben erhalten.
-function stereobalancePause() {
-  stereobalanceStopPlay();
-  stereobalanceRunning = false;
-  if (stereobalanceEls && stereobalanceEls._stopTest) stereobalanceEls._stopTest();
+// BA 245: "Stop" ist semantisch Pause — stb_seq und stb_seqIdx bleiben erhalten.
+function stb_pause() {
+  stb_stopPlay();
+  STB_running = false;
+  if (STB_els && STB_els._stopTest) STB_els._stopTest();
   lockTestTabs(false, null);
   if (typeof depLockApply === 'function') depLockApply();
-  stereobalanceRenderResults();
+  STB_renderResults();
 }
 
-function stereobalanceApplyMeanToBalance() {
+function STB_renderMean() {
   // Mittelwert nur über aktive (nicht deaktivierte) Elektroden
-  const activeKeys = Object.keys(stereobalanceResults).filter((k) => {
+  const activeKeys = Object.keys(STB_results).filter((k) => {
     const i = +k;
-    const v = stereobalanceResults[i];
+    const v = STB_results[i];
     if (!isFinite(v)) return false;
     // Eine Stereo-Messung gilt als deaktiviert, wenn die Elektrode auf
     // BEIDEN Seiten deaktiviert oder stumm-geschaltet ist
@@ -422,14 +422,14 @@ function stereobalanceApplyMeanToBalance() {
     return !(exL || exR);
   });
   if (!activeKeys.length) return;
-  const vals = activeKeys.map((k) => stereobalanceResults[+k]);
+  const vals = activeKeys.map((k) => STB_results[+k]);
   const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
-  // Positive stereobalanceResult = right louder = right needs to be quieter = negative balance offset
+  // Positive stb_result = right louder = right needs to be quieter = negative balance offset
   const balOffset = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
 
   // Mean-Anzeige
-  const mvEl = document.getElementById("stereobalanceMedianValue");
-  const mhEl = document.getElementById("stereobalanceMedianHint");
+  const mvEl = document.getElementById("STB_medianValue");
+  const mhEl = document.getElementById("STB_medianHint");
   if (mvEl) {
     mvEl.textContent =
       (balOffset >= 0 ? "+" : "") + balOffset.toFixed(1) + " dB";
@@ -445,29 +445,29 @@ function stereobalanceApplyMeanToBalance() {
   }
   if (mhEl) {
     if (Math.abs(balOffset) < 0.5)
-      mhEl.textContent = t('stereobalanceBalEqual');
+      mhEl.textContent = t('STB_balEqual');
     else if (balOffset > 0)
-      mhEl.textContent = t('stereobalanceRightLouder');
-    else mhEl.textContent = t('stereobalanceLeftLouder');
+      mhEl.textContent = t('STB_rightLouder');
+    else mhEl.textContent = t('STB_leftLouder');
   }
 }
 
-function stereobalanceRenderResults() {
-  const keys = Object.keys(stereobalanceResults).map(Number);
-  const noResEl = document.getElementById("stereobalanceNoResults");
+function STB_renderResults() {
+  const keys = Object.keys(STB_results).map(Number);
+  const noResEl = document.getElementById("STB_noResults");
   if (!keys.length) {
-    document.getElementById("stereobalanceResultsCard").style.display = "none";
+    document.getElementById("STB_resultsCard").style.display = "none";
     if (noResEl) noResEl.style.display = "";
     return;
   }
-  document.getElementById("stereobalanceResultsCard").style.display = "";
+  document.getElementById("STB_resultsCard").style.display = "";
   if (noResEl) noResEl.style.display = "none";
 
   // Table
-  const th = document.getElementById("stereobalanceResTH");
-  const tb = document.getElementById("stereobalanceResTB");
+  const th = document.getElementById("STB_resTH");
+  const tb = document.getElementById("STB_resTB");
   th.innerHTML =
-    `<th>${t('audColEl')}</th><th>${t('stereobalanceThHz1')}</th><th>${t('stereobalanceThHz2')}</th><th>Offset (dB)</th><th>${t('stereobalanceThMeaning')}</th>`;
+    `<th>${t('audColEl')}</th><th>${t('STB_thHz1')}</th><th>${t('STB_thHz2')}</th><th>Offset (dB)</th><th>${t('STB_thMeaning')}</th>`;
   tb.innerHTML = "";
 
   const count = Math.min(sideData["left"].nEl, sideData["right"].nEl);
@@ -476,9 +476,9 @@ function stereobalanceRenderResults() {
     const exL = sideData.left.elExDur[i]        !== null || sideData.left.elSt[i]        === 'mute';
     const exR = sideData.right.elExDur[rightEl] !== null || sideData.right.elSt[rightEl] === 'mute';
     const isDisabled = exL || exR;
-    const v = stereobalanceResults[i];
-    const hzL = stereobalanceEffFreq("left", i);
-    const hzR = stereobalanceEffFreq("right", rightEl);
+    const v = STB_results[i];
+    const hzL = stb_effFRQ("left", i);
+    const hzR = stb_effFRQ("right", rightEl);
     const leftLabel  = withSide("left",  () => dENPrefix("left")  + dEN(i));
     const rightLabel = withSide("right", () => dENPrefix("right") + dEN(rightEl));
     const tr = document.createElement("tr");
@@ -498,7 +498,7 @@ function stereobalanceRenderResults() {
         `<td style="font-size:.82em;color:#9ca3af">${t('notMeasured')}</td>`;
     } else {
       const meaning =
-        v > 0.1 ? t('stereobalanceMeaningRight') : v < -0.1 ? t('stereobalanceMeaningLeft') : t('stereobalanceMeaningEqual');
+        v > 0.1 ? t('STB_meaningRight') : v < -0.1 ? t('STB_meaningLeft') : t('STB_meaningEqual');
       const color = v > 0.1 ? "#dc2626" : v < -0.1 ? "#2563eb" : "#1a1a1a";
       tr.innerHTML =
         `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
@@ -509,16 +509,16 @@ function stereobalanceRenderResults() {
     tb.appendChild(tr);
   }
 
-  stereobalanceDrawChart();
-  stereobalanceApplyMeanToBalance();
+  STB_drawChart();
+  STB_renderMean();
   // BA 156
-  if (typeof renderSnapshotHint === 'function' && stereobalanceEls && stereobalanceEls.snapHintBox) {
-    renderSnapshotHint('stereobalance', stereobalanceEls.snapHintBox);
+  if (typeof renderSnapshotHint === 'function' && STB_els && STB_els.snapHintBox) {
+    renderSnapshotHint('stereobalance', STB_els.snapHintBox);
   }
 }
 
-function stereobalanceDrawChart() {
-  const cv = document.getElementById("stereobalanceResChart");
+function STB_drawChart() {
+  const cv = document.getElementById("STB_resChart");
   if (!cv) return;
   const wp = cv.parentElement;
   const dpr = window.devicePixelRatio || 1;
@@ -540,14 +540,14 @@ function stereobalanceDrawChart() {
     const exL = sideData.left.elExDur[i]        !== null || sideData.left.elSt[i]        === 'mute';
     const exR = sideData.right.elExDur[rightEl] !== null || sideData.right.elSt[rightEl] === 'mute';
     if (exL || exR) status[i] = 'disabled';
-    else if (stereobalanceResults[i] !== undefined) status[i] = 'measured';
+    else if (STB_results[i] !== undefined) status[i] = 'measured';
     else status[i] = 'unmeasured';
   }
 
   // Skala nur über gemessene aktive Werte
   const measuredVals = [];
   for (let i = 0; i < count; i++)
-    if (status[i] === 'measured') measuredVals.push(stereobalanceResults[i]);
+    if (status[i] === 'measured') measuredVals.push(STB_results[i]);
   if (!measuredVals.length && !status.includes('unmeasured')) return;
   const absMax = measuredVals.length
     ? Math.max(Math.ceil(Math.max(...measuredVals.map(Math.abs), 2)), 3)
@@ -559,7 +559,7 @@ function stereobalanceDrawChart() {
   const idxArr = [];
   for (let i = 0; i < count; i++) idxArr.push(i);
   const axis = buildLinearAxis(idxArr, pad.left, pW, function (i) {
-    return stereobalanceEffFreq("left", i);
+    return stb_effFRQ("left", i);
   });
   const tX = axis.tX;
   const tY = (v) => pad.top + (absMax - v) * (pH / (2 * absMax));
@@ -613,7 +613,7 @@ function stereobalanceDrawChart() {
       ctx.lineTo(x + bW * 0.75, zY);
       ctx.stroke();
     } else {
-      const v = stereobalanceResults[i];
+      const v = STB_results[i];
       const yV = tY(v);
       const col = v > 0.1 ? '#dc2626' : v < -0.1 ? '#2563eb' : '#9ca3af';
       ctx.fillStyle = col;
@@ -651,8 +651,8 @@ function stereobalanceDrawChart() {
   let first = true;
   for (let i = 0; i < count; i++) {
     if (status[i] !== 'measured') continue;
-    if (first) { ctx.moveTo(tX(i), tY(stereobalanceResults[i])); first = false; }
-    else ctx.lineTo(tX(i), tY(stereobalanceResults[i]));
+    if (first) { ctx.moveTo(tX(i), tY(STB_results[i])); first = false; }
+    else ctx.lineTo(tX(i), tY(STB_results[i]));
   }
   ctx.stroke();
 
@@ -676,19 +676,19 @@ function _lrHasLvData(side) {
 
 // Sichtbarkeit der dynamischen Vortest-Hinweise oben in der Erklaer-Box.
 function _lrRenderPrereqHints() {
-  const elsLeftEl  = document.getElementById('stereobalancePrereqLvLeftPara');
-  const elsRightEl = document.getElementById('stereobalancePrereqLvRightPara');
+  const elsLeftEl  = document.getElementById('stb_prereqLvLeftPara');
+  const elsRightEl = document.getElementById('stb_prereqLvRightPara');
   if (elsLeftEl)  elsLeftEl.style.display  = _lrHasLvData('left')  ? 'none' : '';
   if (elsRightEl) elsRightEl.style.display = _lrHasLvData('right') ? 'none' : '';
 }
 
-function stereobalanceCheckData() {
+function STB_checkData() {
   const hasLeft = sideData["left"].elektrodenlautstaerkeResults.length > 0;
   const hasRight = sideData["right"].elektrodenlautstaerkeResults.length > 0;
-  const nd = document.getElementById("stereobalanceNoData");
+  const nd = document.getElementById("stb_noData");
   if (nd) nd.style.display = hasLeft && hasRight ? "none" : "";
   // Deaf-Hinweis
-  const deafHint = document.getElementById("stereobalanceDeafHintEl");
+  const deafHint = document.getElementById("stb_deafHintEl");
   if (deafHint) {
     const hasDeaf = (sideData.left.config || "ci") === "deaf"
                  || (sideData.right.config || "ci") === "deaf";
@@ -696,15 +696,15 @@ function stereobalanceCheckData() {
     if (hasDeaf) deafHint.textContent = t("cfgHintDeafTest");
   }
   // BA 156
-  if (typeof renderSnapshotHint === 'function' && stereobalanceEls && stereobalanceEls.snapHintBox) {
-    renderSnapshotHint('stereobalance', stereobalanceEls.snapHintBox);
+  if (typeof renderSnapshotHint === 'function' && STB_els && STB_els.snapHintBox) {
+    renderSnapshotHint('stereobalance', STB_els.snapHintBox);
   }
   _lrRenderPrereqHints();
 }
 
 // ---- BA 245: testUI-Hooks ----
 
-function stereobalanceHookOnStart() {
+function stb_hookOnStart() {
   // BA 255: Seitenabfrage vor eigentlichem Start.
   testUI.sideCheck.run(
     { sides: 'both' },
@@ -712,7 +712,7 @@ function stereobalanceHookOnStart() {
       _lrDoStart();
     },
     function() {
-      if (stereobalanceEls && stereobalanceEls._stopTest) stereobalanceEls._stopTest();
+      if (STB_els && STB_els._stopTest) STB_els._stopTest();
     }
   );
 }
@@ -720,43 +720,43 @@ function stereobalanceHookOnStart() {
 function _lrDoStart() {
   if (typeof isSideUsable === 'function'
       && (!isSideUsable('left') || !isSideUsable('right'))) {
-    alert(t('stereobalanceBlockedSideUnknown'));
-    if (stereobalanceEls && stereobalanceEls._stopTest) stereobalanceEls._stopTest();
+    alert(t('STB_blockedSideUnknown'));
+    if (STB_els && STB_els._stopTest) STB_els._stopTest();
     return;
   }
   // Resume: Sequenz und Position erhalten, nur Zustand wieder hochfahren
-  if (!stereobalanceSeq || !stereobalanceSeq.length || stereobalanceSeqIdx >= stereobalanceSeq.length) {
-    stereobalanceBuildSequence();
+  if (!stb_seq || !stb_seq.length || stb_seqIdx >= stb_seq.length) {
+    stb_buildSequence();
   }
-  if (!stereobalanceSeq.length) {
-    alert(t("stereobalanceNoElMsg") || "Keine gemeinsamen aktiven Elektroden gefunden.");
-    if (stereobalanceEls && stereobalanceEls._stopTest) stereobalanceEls._stopTest();
+  if (!stb_seq.length) {
+    alert(t("STB_noElMsg") || "Keine gemeinsamen aktiven Elektroden gefunden.");
+    if (STB_els && STB_els._stopTest) STB_els._stopTest();
     return;
   }
-  stereobalanceRunning = true;
-  stereobalanceUndoStack = [];
+  STB_running = true;
+  stb_undoStack = [];
   lockTestTabs(true, 'stereobalance');
-  stereobalanceShowPair();
+  stb_showPair();
 }
 
-function stereobalanceHookOnStop() {
-  stereobalancePause();
+function stb_hookOnStop() {
+  stb_pause();
 }
 
 // BA 290: Deckelungs-Hinweis fuer Stereo-Balance (analog Test 1,
-// _testUpdateClipHint). Nutzt stereobalancePairGains.capped.
-function stereobalanceUpdateClipHint(off) {
-  var vref = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance;
+// _testUpdateClipHint). Nutzt STB_pairGains.capped.
+function stb_updateClipHint(off) {
+  var vref = STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance;
   if (!vref || !vref.clipHint) return;
-  if (stereobalanceCurrentEl === null) { testUI.clipHint.set(vref.clipHint, null); return; }
+  if (stb_currentEl === null) { testUI.clipHint.set(vref.clipHint, null); return; }
   if (off == null) off = _lrSliderVal();
-  var el = stereobalanceCurrentEl;
+  var el = stb_currentEl;
   var rightNEl = sideData["right"].nEl;
   var rightEl = el < rightNEl ? el : rightNEl - 1;
-  var vol = stereobalanceGVol();
-  var corrL = stereobalanceCorrGain("left", el);
-  var corrR = stereobalanceCorrGain("right", rightEl);
-  var g = stereobalancePairGains(vol * corrL, vol * corrR, off);
+  var vol = STB_gVol();
+  var corrL = STB_corrGain("left", el);
+  var corrR = STB_corrGain("right", rightEl);
+  var g = STB_pairGains(vol * corrL, vol * corrR, off);
   if (!g.capped) { testUI.clipHint.set(vref.clipHint, null); return; }
   var capLabel   = (g.capped === 'left') ? t('sideLeft') : t('sideRight');
   var otherLabel = (g.capped === 'left') ? t('sideRight') : t('sideLeft');
@@ -764,19 +764,19 @@ function stereobalanceUpdateClipHint(off) {
   testUI.clipHint.set(vref.clipHint, txt);
 }
 
-function stereobalanceHookOnSlide(v) {
+function stb_hookOnSlide(v) {
   // onSlide-Hook ist verdrahtet -> Auto-dB-Anzeige in test-ui.js laeuft
   // nicht; die Anzeige hier setzen (analog test.js, BA 285).
-  var slRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
-    && stereobalanceEls.verfahren.stereobalance.slider;
+  var slRef = STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance
+    && STB_els.verfahren.stereobalance.slider;
   if (slRef) testUI.slider.setValueDisplay(slRef, v.toFixed(1) + " dB");
   _lrUpdCumulative(v);
-  stereobalanceUpdateClipHint(v);
+  stb_updateClipHint(v);
 }
 
-function stereobalanceHookOnSwap() {
-  stereobalanceFlipped = !stereobalanceFlipped;
-  stereobalancePlayCurrent();
+function stb_hookOnSwap() {
+  stb_flipped = !stb_flipped;
+  stb_playCurrent();
 }
 
 // ---- DOMContentLoaded — buildTestPanel + Event-Wiring ----
@@ -785,16 +785,16 @@ function _lrBuildExtraFragment() {
   // Wird mit extra.inline:true in rowSequence reingehaengt, daher nur
   // ein toter Container - die Children (control-groups) wandern um.
   var frag = document.createElement('div');
-  frag.dataset.row = 'stereobalance-extra';
+  frag.dataset.row = 'stb-extra';
 
   // Label und Select muessen Geschwister sein, sonst loescht applyLang
   // den Select beim Setzen von textContent des Labels.
   var cgMode = document.createElement('div');
   cgMode.className = 'control-group';
   var lblMode = document.createElement('label');
-  lblMode.dataset.t = 'stereobalanceOrderLbl';
+  lblMode.dataset.t = 'STB_orderLbl';
   var modeSelect = document.createElement('select');
-  modeSelect.id = 'stereobalanceOrderSelect';
+  modeSelect.id = 'stb_orderSelect';
   [['random','optRandom'],['ascending','optAsc'],['descending','optDesc']]
     .forEach(function(opt) {
       var o = document.createElement('option');
@@ -806,9 +806,9 @@ function _lrBuildExtraFragment() {
   var cgSide = document.createElement('div');
   cgSide.className = 'control-group';
   var lblSide = document.createElement('label');
-  lblSide.dataset.t = 'stereobalanceSideLbl';
+  lblSide.dataset.t = 'STB_sideLbl';
   var runSelect = document.createElement('select');
-  runSelect.id = 'stereobalanceSideSelect';
+  runSelect.id = 'stb_sideSelect';
   [['random','optRandom'],['lr','optLR'],['rl','optRL']]
     .forEach(function(opt) {
       var o = document.createElement('option');
@@ -832,13 +832,13 @@ document.addEventListener("DOMContentLoaded", function() {
   var cfg = {
     id: 'stereobalance',
     explain: {
-      titleKey: 'stereobalanceTitle',
+      titleKey: 'STB_title',
       paragraphs: [
-        { key: 'stereobalanceMaturityHint', kind: 'info'  },
-        { key: 'stereobalanceDesc',         kind: 'plain' },
+        { key: 'STB_maturityHint', kind: 'info'  },
+        { key: 'STB_desc',         kind: 'plain' },
         // Dynamische Vortest-Hinweise (Sichtbarkeit via _lrRenderPrereqHints)
-        { key: 'FRQ_prereqLvLeft',  kind: 'warn', id: 'stereobalancePrereqLvLeftPara'  },
-        { key: 'FRQ_prereqLvRight', kind: 'warn', id: 'stereobalancePrereqLvRightPara' }
+        { key: 'FRQ_prereqLvLeft',  kind: 'warn', id: 'stb_prereqLvLeftPara'  },
+        { key: 'FRQ_prereqLvRight', kind: 'warn', id: 'stb_prereqLvRightPara' }
       ]
     },
     header: {
@@ -869,18 +869,18 @@ document.addEventListener("DOMContentLoaded", function() {
           setDurationMs:    function(v) { duration_stereobalance = v; },
           getPauseMs:       function()  { return pause_stereobalance; },
           setPauseMs:       function(v) { pause_stereobalance = v; },
-          getVolume:   function() { return stereobalanceGVol(); },
+          getVolume:   function() { return STB_gVol(); },
           getPreviewSequence: function (lastHz) {
-            if (stereobalanceRunning && stereobalanceCurrentEl !== null) {
-              return stereobalanceSequence({ aba: sequence_stereobalance === 'aba' });
+            if (STB_running && stb_currentEl !== null) {
+              return stb_sequence({ aba: sequence_stereobalance === 'aba' });
             }
             // Kein Test: gemerkter Ton, beide Seiten nacheinander.
             // BA 301: jede Seite mit ihrer Korrektur (Elektrodenlautstaerke
             // + Balance) ueber die zentrale corrVol -- nicht mehr "gleich laut".
             var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
-            var vol = stereobalanceGVol();
-            var dur = stereobalanceGDur();
-            var pau = stereobalanceGPau();
+            var vol = STB_gVol();
+            var dur = stb_gDur();
+            var pau = stb_gPau();
             // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an).
             // pan kodiert die Seite (-1 = links, +1 = rechts).
             var volL = (typeof _lrTpCorrectVol === 'function') ? _lrTpCorrectVol(vol, hz, -1) : vol;
@@ -896,17 +896,17 @@ document.addEventListener("DOMContentLoaded", function() {
           getElectrodeFreqs:     _lrTpElectrodeFreqs,
           getElectrodeLabels:    _lrTpElectrodeLabels,
           getDisabledElectrodes: _lrTpDisabledElectrodes,
-          getHighlightMs: function() { return stereobalanceGDur() * 2 + stereobalanceGPau(); },
+          getHighlightMs: function() { return stb_gDur() * 2 + stb_gPau(); },
           onPress: function (electrodeIdx, hz) {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
             _lrKbT0 = (typeof performance !== 'undefined') ? performance.now() : Date.now();
             var tt   = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_stereobalance;
-            var vol  = stereobalanceGVol();
+            var vol  = STB_gVol();
             var panA = (activeSide === 'left') ? -1 : 1;
             var hzA;
             if (electrodeIdx >= 0) {
-              hzA = stereobalanceEffFreq(activeSide, electrodeIdx);
+              hzA = stb_effFRQ(activeSide, electrodeIdx);
             } else {
               hzA = hz;
             }
@@ -925,14 +925,14 @@ document.addEventListener("DOMContentLoaded", function() {
             var held = Math.max(0, t1 - _lrKbT0);
             if (held <= 0) return;
             var tt    = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_stereobalance;
-            var vol   = stereobalanceGVol();
+            var vol   = STB_gVol();
             var other = (activeSide === 'left') ? 'right' : 'left';
             var panB  = (activeSide === 'left') ? 1 : -1;
             var hzB;
             if (electrodeIdx >= 0) {
               var rN = sideData[other] ? sideData[other].nEl : 0;
               var oIdx = electrodeIdx < rN ? electrodeIdx : rN - 1;
-              hzB = stereobalanceEffFreq(other, oIdx);
+              hzB = stb_effFRQ(other, oIdx);
             } else {
               hzB = hz;
             }
@@ -947,8 +947,8 @@ document.addEventListener("DOMContentLoaded", function() {
         sequence:  { show: true, source: 'global' },
         electrodeSelection: {
           minSelected: 1,
-          getSelection: function() { return stereobalanceSelectedEls; },
-          setSelection: function(sel) { stereobalanceSelectedEls = sel.slice(); },
+          getSelection: function() { return stb_selectedEls; },
+          setSelection: function(sel) { stb_selectedEls = sel.slice(); },
           getElectrodeStatus: function() {
             var leftN  = sideData.left.nEl;
             var rightN = sideData.right.nEl;
@@ -970,7 +970,7 @@ document.addEventListener("DOMContentLoaded", function() {
           },
           electrodeLabel: function(i) {
             var leftLabel = withSide("left", function() { return dENPrefix("left") + dEN(i); });
-            var hzL = stereobalanceEffFreq("left", i);
+            var hzL = stb_effFRQ("left", i);
             return leftLabel + " (" + Math.round(hzL) + " Hz)";
           }
         }
@@ -980,12 +980,12 @@ document.addEventListener("DOMContentLoaded", function() {
     },
     verfahren: [{
       id: 'stereobalance',
-      labelKey:   'stereobalanceTitle',
+      labelKey:   'STB_title',
       explainKey: null,
       body: {
         pairIndicator:     { variant: 'side' },
         progress:          { format: 'simple' },
-        instruction:       { key: 'stereobalanceRunningHint' },
+        instruction:       { key: 'STB_runningHint' },
         keyHint:           { unitKey: 'sliderHintDb' },
         slider:            { unit: 'dB', initialRange: 20, maxRange: 60, touchStep: 0.5, touchFineStep: 0.1 },
         sliderValue:       { show: true },
@@ -995,29 +995,29 @@ document.addEventListener("DOMContentLoaded", function() {
         actions:           ['undo','replay','simul','swap']
       },
       hooks: {
-        onStart:   stereobalanceHookOnStart,
-        onStop:    stereobalanceHookOnStop,
-        onSlide:   stereobalanceHookOnSlide,
-        onConfirm: stereobalanceConfirm,
-        onReplay:  stereobalancePlayCurrent,
-        onUndo:    stereobalanceUndo,
-        onSimul:   stereobalancePlaySimul,
-        onSwap:    stereobalanceHookOnSwap
+        onStart:   stb_hookOnStart,
+        onStop:    stb_hookOnStop,
+        onSlide:   stb_hookOnSlide,
+        onConfirm: stb_confirm,
+        onReplay:  stb_playCurrent,
+        onUndo:    stb_undo,
+        onSimul:   stb_playSimul,
+        onSwap:    stb_hookOnSwap
       }
     }]
   };
 
-  stereobalanceEls = buildTestPanel(parentEl, cfg);
+  STB_els = buildTestPanel(parentEl, cfg);
 
-  // Refs aus dem extra-Fragment in stereobalanceEls.header aufnehmen
-  if (stereobalanceEls && stereobalanceEls.header) {
-    stereobalanceEls.header.modeSelect = extraFrag._lrModeSelect;
-    stereobalanceEls.header.runSelect  = extraFrag._lrRunSelect;
+  // Refs aus dem extra-Fragment in STB_els.header aufnehmen
+  if (STB_els && STB_els.header) {
+    STB_els.header.modeSelect = extraFrag._lrModeSelect;
+    STB_els.header.runSelect  = extraFrag._lrRunSelect;
   }
 
   // Slider-Live-Anzeige aktualisiert auch das cumulativeDisplay
-  var slInput = stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
-    && stereobalanceEls.verfahren.stereobalance.slider && stereobalanceEls.verfahren.stereobalance.slider.input;
+  var slInput = STB_els.verfahren && STB_els.verfahren.stereobalance
+    && STB_els.verfahren.stereobalance.slider && STB_els.verfahren.stereobalance.slider.input;
   if (slInput) {
     slInput.addEventListener('input', function() {
       _lrUpdCumulative(parseFloat(this.value));
@@ -1025,34 +1025,34 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // Clear-Button im Ergebnis-Sub-Tab
-  var stereobalanceClearBtn = document.getElementById('stereobalanceClearBtn');
-  if (stereobalanceClearBtn) {
-    stereobalanceClearBtn.addEventListener('click', function() {
-      if (!confirm(t("stereobalanceClearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
-      stereobalanceResults = {};
-      stereobalanceSnapshot = null;
-      stereobalanceResetSequence();
+  var STB_clearBtn = document.getElementById('STB_clearBtn');
+  if (STB_clearBtn) {
+    STB_clearBtn.addEventListener('click', function() {
+      if (!confirm(t("stb_clearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
+      STB_results = {};
+      STB_snapshot = null;
+      STB_resetSequence();
       if (typeof depLockApply === 'function') depLockApply();
-      var stereobalanceRC = document.getElementById("stereobalanceResultsCard");
-      if (stereobalanceRC) stereobalanceRC.style.display = "none";
-      var stereobalanceNR = document.getElementById("stereobalanceNoResults");
-      if (stereobalanceNR) stereobalanceNR.style.display = "";
+      var stb_rC = document.getElementById("STB_resultsCard");
+      if (stb_rC) stb_rC.style.display = "none";
+      var stb_nR = document.getElementById("STB_noResults");
+      if (stb_nR) stb_nR.style.display = "";
     });
   }
 });
 
 // Wird von file.js/init.js nach loadSideData aufgerufen,
 // damit die Elektroden-Summary sofort die korrekte Anzahl zeigt.
-function stereobalanceRefreshElectrodeSelectionSummary() {
-  if (stereobalanceEls && stereobalanceEls.header && typeof stereobalanceEls.header.electrodeSelectionUpdate === 'function') {
-    stereobalanceEls.header.electrodeSelectionUpdate();
+function STB_refreshElectrodeSelectionSummary() {
+  if (STB_els && STB_els.header && typeof STB_els.header.electrodeSelectionUpdate === 'function') {
+    STB_els.header.electrodeSelectionUpdate();
   }
 }
 
 // BA 281: Tonart-Label im Kopf nach Laden eines Stands aktualisieren.
-function stereobalanceRefreshToneTypeLabel() {
-  if (stereobalanceEls && stereobalanceEls.header && typeof stereobalanceEls.header.tonePopupUpdate === 'function') {
-    stereobalanceEls.header.tonePopupUpdate();
+function STB_refreshToneTypeLabel() {
+  if (STB_els && STB_els.header && typeof STB_els.header.tonePopupUpdate === 'function') {
+    STB_els.header.tonePopupUpdate();
   }
 }
 
@@ -1060,12 +1060,12 @@ function stereobalanceRefreshToneTypeLabel() {
 document
   .querySelector('.subtab[data-subtab="stereobalance"][data-parent="messungen"]')
   ?.addEventListener('click', function() {
-    setTimeout(function() { stereobalanceCheckData(); }, 0);
+    setTimeout(function() { STB_checkData(); }, 0);
   });
 
 // Hook into stereobalance subtab activation
 document
   .querySelector('.subtab[data-subtab="stereobalance"][data-parent="ergebnisse"]')
   ?.addEventListener('click', function() {
-    setTimeout(function() { stereobalanceCheckData(); stereobalanceDrawChart(); }, 0);
+    setTimeout(function() { STB_checkData(); STB_drawChart(); }, 0);
   });

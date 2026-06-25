@@ -28,8 +28,8 @@ function _switchSubtabInternal(parent, subtab) {
   // Callbacks
   if (parent === "ergebnisse" && subtab === "elektrodenlautstaerke") renderResults();
   if (parent === "ergebnisse" && subtab === "stereobalance") {
-    stereobalanceCheckData();
-    stereobalanceDrawChart();
+    STB_checkData();
+    STB_drawChart();
   }
   if (parent === "ergebnisse" && subtab === "freqmatch") {
     FRQ_renderResults();
@@ -38,7 +38,7 @@ function _switchSubtabInternal(parent, subtab) {
     if (typeof LTZ_renderResults === "function") LTZ_renderResults();
   }
   if (parent === "messungen" && subtab === "stereobalance") {
-    stereobalanceCheckData();
+    STB_checkData();
   }
   if (parent === "messungen" && subtab === "latenz") {
     if (typeof renderSnapshotHint === 'function') {
@@ -207,7 +207,7 @@ function subtabLockApply() {
 function switchTab(n) {
   // Guard: Verhindere Tab-Wechsel während aktiver Test
   const anyTestRunning = testAct
-    || (typeof stereobalanceRunning !== "undefined" && stereobalanceRunning)
+    || (typeof STB_running !== "undefined" && STB_running)
     || (typeof FRQ_running !== "undefined" && FRQ_running)
     || (typeof LTZ_active !== "undefined" && LTZ_active);
   if (anyTestRunning && n !== "messungen") {
@@ -237,7 +237,7 @@ function _switchTabInternal(n) {
     const currentName = activeSubtab ? activeSubtab.dataset.subtab : null;
     const hasBal = typeof elektrodenlautstaerkeResults !== "undefined" && elektrodenlautstaerkeResults.length > 0;
     const hasFR = typeof FRQ_resultsArray !== "undefined" && FRQ_resultsArray.length > 0;
-    const hasLR = typeof stereobalanceResults !== "undefined" && Object.keys(stereobalanceResults).length > 0;
+    const hasLR = typeof STB_results !== "undefined" && Object.keys(STB_results).length > 0;
     if (!currentName || currentName === "elektrodenlautstaerke") {
       // Default-Auswahl: Tab mit Daten bevorzugen
       // BA 251: hasJdg entfaellt; reine Bal/FR-Logik bleibt.
@@ -270,12 +270,12 @@ function _switchTabInternal(n) {
 // Funktion zum Sperren/Entsperren der Tabs und Side-Select während Test
 // Delegiert an lockTestTabs (test-ui.js) für einheitliche Handhabung
 function updateTabLockState() {
-  const locked = testAct || (typeof stereobalanceRunning !== "undefined" && stereobalanceRunning)
+  const locked = testAct || (typeof STB_running !== "undefined" && STB_running)
                           || (typeof FRQ_running !== "undefined" && FRQ_running)
                           || (typeof LTZ_active !== "undefined" && LTZ_active);
   var activeTestId = null;
   if (testAct) activeTestId = 'elektrodenlautstaerke';
-  else if (typeof stereobalanceRunning !== "undefined" && stereobalanceRunning) activeTestId = 'stereobalance';
+  else if (typeof STB_running !== "undefined" && STB_running) activeTestId = 'stereobalance';
   else if (typeof FRQ_running !== "undefined" && FRQ_running) activeTestId = 'freqmatch';
   else if (typeof LTZ_active !== "undefined" && LTZ_active) activeTestId = 'latenz';
   lockTestTabs(locked, activeTestId);
@@ -287,9 +287,9 @@ function updateTabLockState() {
       && testEls.header && testEls.header.lockedHint) {
     testEls.header.lockedHint.hidden = !testAct;
   }
-  if (typeof stereobalanceEls !== "undefined" && stereobalanceEls
-      && stereobalanceEls.header && stereobalanceEls.header.lockedHint) {
-    stereobalanceEls.header.lockedHint.hidden = !(typeof stereobalanceRunning !== "undefined" && stereobalanceRunning);
+  if (typeof STB_els !== "undefined" && STB_els
+      && STB_els.header && STB_els.header.lockedHint) {
+    STB_els.header.lockedHint.hidden = !(typeof STB_running !== "undefined" && STB_running);
   }
   if (typeof FRQ_els !== "undefined" && FRQ_els
       && FRQ_els.header && FRQ_els.header.lockedHint) {
