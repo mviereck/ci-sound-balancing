@@ -342,10 +342,10 @@ function drawFreqMatchChart(cv, fResData, opts) {
     pH = h - pad.top - pad.bottom;
   ctx.clearRect(0, 0, w, h);
 
-  cv._fmcFResData = fResData;
-  cv._fmcOpts = opts;
+  cv._frq_chartResultsData = fResData;
+  cv._frq_chartOpts = opts;
   if (!fResData || fResData.length === 0) return;
-  const fmcArrowPos = {}, fmcLabelPos = {};
+  const frq_chartArrowPos = {}, frq_chartLabelPos = {};
 
   // i18n mit Fallback (andere Sprachen reichen "Ist"/"Soll" als Key zurück, bis übersetzt)
   const tt = (k, fb) => {
@@ -733,7 +733,7 @@ function drawFreqMatchChart(cv, fResData, opts) {
       const { x1, x2 } = hArrows[i];
       const y = yBase - laneOf[i] * laneH;
       const color = crossSet.has(i) ? "#ef4444" : "#22c55e";
-      fmcArrowPos[hArrows[i].el.elIdx] = { x1, x2, y, color };
+      frq_chartArrowPos[hArrows[i].el.elIdx] = { x1, x2, y, color };
       ctx.strokeStyle = color;
       ctx.lineWidth = 1.5;
       ctx.setLineDash([]);
@@ -778,7 +778,7 @@ function drawFreqMatchChart(cv, fResData, opts) {
     for (let i = 0; i < lblItems.length; i++) {
       const { x, text, color, el } = lblItems[i];
       const y = yLblBottom - laneOf[i] * (lineH + laneGap);
-      (fmcLabelPos[el.elIdx] = fmcLabelPos[el.elIdx] || []).push({ x, y, text });
+      (frq_chartLabelPos[el.elIdx] = frq_chartLabelPos[el.elIdx] || []).push({ x, y, text });
       ctx.fillStyle = color;
       ctx.fillText(text, x, y);
       if (el.isMeasured)
@@ -808,8 +808,8 @@ function drawFreqMatchChart(cv, fResData, opts) {
   ctx.fillStyle = "#000";
   ctx.fillText(lblSoll, legX + 18, legY + 23);
 
-  cv._fmcHitboxes = hitboxes;
-  cv._fmcState = { ctx, tX, tY, pad, pH, allEls, arrowPos: fmcArrowPos, labelPos: fmcLabelPos };
+  cv._frq_chartHitboxes = hitboxes;
+  cv._frq_chartState = { ctx, tX, tY, pad, pH, allEls, arrowPos: frq_chartArrowPos, labelPos: frq_chartLabelPos };
 }
 
 // Pfeil mit gefüllter Spitze; headAtEnd=false → Spitze in der Mitte, true → Spitze am Ende
@@ -847,8 +847,8 @@ function drawArrow(ctx, x1, y1, x2, y2, color, headAtEnd = false, lineWidth = 1.
   ctx.fill();
 }
 
-function _fmcDrawHighlight(cv, el) {
-  const s = cv._fmcState;
+function _frq_chartDrawHighlight(cv, el) {
+  const s = cv._frq_chartState;
   if (!s || !el || !el.isMeasured) return;
   const { ctx, tX, tY, pad, pH, arrowPos, labelPos } = s;
   const HL = "#22c55e";
@@ -893,30 +893,30 @@ function _fmcDrawHighlight(cv, el) {
   }
 }
 
-function _fmcTooltipHandler(cv, e) {
-  if (!cv._fmcHitboxes) return;
+function _frq_chartTooltipHandler(cv, e) {
+  if (!cv._frq_chartHitboxes) return;
   const rect = cv.getBoundingClientRect(),
     dpr = window.devicePixelRatio || 1,
     scaleX = (cv.width / dpr) / rect.width,
     scaleY = (cv.height / dpr) / rect.height,
     mx = (e.clientX - rect.left) * scaleX,
     my = (e.clientY - rect.top) * scaleY;
-  let tip = document.getElementById("fmcTooltip");
+  let tip = document.getElementById("frq_chartTooltip");
   if (!tip) {
     tip = document.createElement("div");
-    tip.id = "fmcTooltip";
+    tip.id = "frq_chartTooltip";
     tip.style.cssText =
       "position:fixed;background:#1e293b;color:#f8fafc;padding:6px 10px;" +
       "border-radius:6px;font-size:0.82em;pointer-events:none;display:none;" +
       "z-index:1000;line-height:1.6;white-space:nowrap;";
     document.body.appendChild(tip);
   }
-  const hit = cv._fmcHitboxes.find((h) => Math.hypot(h.x - mx, h.y - my) <= 12);
+  const hit = cv._frq_chartHitboxes.find((h) => Math.hypot(h.x - mx, h.y - my) <= 12);
   const newEl = hit ? hit.el : null;
-  if (newEl !== cv._fmcHighEl) {
-    cv._fmcHighEl = newEl;
-    drawFreqMatchChart(cv, cv._fmcFResData, cv._fmcOpts || {});
-    if (newEl) _fmcDrawHighlight(cv, newEl);
+  if (newEl !== cv._frq_chartHighEl) {
+    cv._frq_chartHighEl = newEl;
+    drawFreqMatchChart(cv, cv._frq_chartResultsData, cv._frq_chartOpts || {});
+    if (newEl) _frq_chartDrawHighlight(cv, newEl);
   }
   if (hit) {
     const el = hit.el;

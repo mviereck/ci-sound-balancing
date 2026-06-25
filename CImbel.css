@@ -448,7 +448,7 @@ canvas {
 }
 
 /* Adaptiver Frequenzabgleich — Status-Grid (Bauanleitung 02b/4) */
-.fm-status-grid {
+.frq-status-grid {
   display: grid;
   grid-template-columns: minmax(60px, 1.2fr) minmax(50px, 1fr) minmax(70px, 1fr) minmax(70px, 1fr) 60px 60px;
   gap: 0;
@@ -458,75 +458,75 @@ canvas {
   overflow: hidden;
   font-size: 0.88em;
 }
-.fm-status-row {
+.frq-status-row {
   display: contents;
 }
-.fm-status-row > .fm-status-cell {
+.frq-status-row > .frq-status-cell {
   padding: 4px 8px;
   border-top: 1px solid var(--border);
   text-align: center;
   background: var(--bg);
 }
-.fm-status-row.fm-status-head > .fm-status-cell {
+.frq-status-row.frq-status-head > .frq-status-cell {
   background: #f0f0f0;
   font-weight: bold;
   border-top: none;
 }
-.fm-status-row.fm-status-current > .fm-status-cell {
+.frq-status-row.frq-status-current > .frq-status-cell {
   background: #ffeaa7;
 }
-.fm-status-row.fm-status-converged > .fm-status-cell {
+.frq-status-row.frq-status-converged > .frq-status-cell {
   background: #d4edda;
 }
-.fm-status-row.fm-status-converged-noisy > .fm-status-cell {
+.frq-status-row.frq-status-converged-noisy > .frq-status-cell {
   background: #fff3cd;
 }
-.fm-status-row.fm-status-not-perceivable > .fm-status-cell {
+.frq-status-row.frq-status-not-perceivable > .frq-status-cell {
   background: #f8d7da;
   color: var(--text-muted);
 }
-.fm-status-provisional {
+.frq-status-provisional {
   font-style: italic;
   color: var(--text);
 }
 
-.fm-slider-status {
+.frq-slider-status {
   width: 100%;
   border-collapse: collapse;
   margin: 1em 0;
   font-size: 0.95em;
 }
-.fm-slider-status th,
-.fm-slider-status td {
+.frq-slider-status th,
+.frq-slider-status td {
   padding: 0.3em 0.6em;
   text-align: center;
   border-bottom: 1px solid #e5e7eb;
 }
-.fm-slider-status th {
+.frq-slider-status th {
   background: #f3f4f6;
   font-weight: 600;
 }
-.fm-slider-status tr.current-row td {
+.frq-slider-status tr.current-row td {
   background: #fef3c7;
   font-weight: 600;
 }
 
-.fm-badge {
+.frq-badge {
   display: inline-block;
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.82em;
   font-weight: 600;
 }
-.fm-badge-ok       { background: #d1fae5; color: #065f46; }
-.fm-badge-noisy    { background: #fef3c7; color: #92400e; }
-.fm-badge-fair     { background: #fef3c7; color: #92400e; }   /* gelb */
-.fm-badge-wide     { background: #fed7aa; color: #9a3412; }   /* orange */
-.fm-badge-unstable { background: #fecaca; color: #9a3412; }   /* rot-orange */
-.fm-badge-aborted  { background: #e5e7eb; color: #374151; }   /* grau */
-.fm-badge-err      { background: #fee2e2; color: #991b1b; }
-.fm-badge-prov     { background: #e0f2fe; color: #0c4a6e; border: 1px solid #7dd3fc; }
-.fm-badge-slider   { background: #f3f4f6; color: #4b5563; border: 1px solid #d1d5db; }
+.frq-badge-ok       { background: #d1fae5; color: #065f46; }
+.frq-badge-noisy    { background: #fef3c7; color: #92400e; }
+.frq-badge-fair     { background: #fef3c7; color: #92400e; }   /* gelb */
+.frq-badge-wide     { background: #fed7aa; color: #9a3412; }   /* orange */
+.frq-badge-unstable { background: #fecaca; color: #9a3412; }   /* rot-orange */
+.frq-badge-aborted  { background: #e5e7eb; color: #374151; }   /* grau */
+.frq-badge-err      { background: #fee2e2; color: #991b1b; }
+.frq-badge-prov     { background: #e0f2fe; color: #0c4a6e; border: 1px solid #7dd3fc; }
+.frq-badge-slider   { background: #f3f4f6; color: #4b5563; border: 1px solid #d1d5db; }
 
 .warning-bar {
   background: #fef3c7;
@@ -1396,12 +1396,12 @@ select:disabled {
 }
 
 /* BA 206: Slider Round — Bereich (Min..Max) + Median-Dreieck unter dem Slider. */
-.fm-range-hint {
+.frq-range-hint {
   position: relative;
   height: 18px;
   margin-top: 2px;
 }
-.fm-range-hint-band {
+.frq-range-hint-band {
   position: absolute;
   top: 6px;
   height: 6px;
@@ -1409,7 +1409,7 @@ select:disabled {
   border-radius: 3px;
   pointer-events: none;
 }
-.fm-range-hint-mark {
+.frq-range-hint-mark {
   position: absolute;
   top: 2px;
   width: 0; height: 0;
@@ -1419,7 +1419,7 @@ select:disabled {
   transform: translateX(-6px);
   pointer-events: none;
 }
-.fm-range-hint-label {
+.frq-range-hint-label {
   position: absolute;
   top: -14px;
   transform: translateX(-50%);

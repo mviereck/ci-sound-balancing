@@ -787,10 +787,10 @@ function frq_renderStatusGrid() {
   const grid = _sgEl;
   grid.innerHTML = '';
 
-  const head = _mkEl('div', 'fm-status-row fm-status-head');
+  const head = _mkEl('div', 'frq-status-row frq-status-head');
   ['FRQ_gridEl', 'FRQ_gridStatus', 'FRQ_gridMatch', 'FRQ_gridResidual', 'FRQ_gridTrials', 'FRQ_gridCatch']
     .forEach(function(key) {
-      const c = _mkEl('div', 'fm-status-cell');
+      const c = _mkEl('div', 'frq-status-cell');
       c.dataset.t = key;
       head.appendChild(c);
     });
@@ -814,9 +814,9 @@ function frq_renderStatusGrid() {
       : (trStatus === 'converged' || trStatus === 'converged-fair') ? 'converged'
       : (trStatus === 'converged-wide' || trStatus === 'unstable') ? 'converged-noisy'
       : 'not-perceivable';
-    const row = _mkEl('div', 'fm-status-row fm-status-' + cssClass);
+    const row = _mkEl('div', 'frq-status-row frq-status-' + cssClass);
     if (frq_currentTrackId != null && frq_parseTrackKey(frq_currentTrackId).electrodeIdx === idx) {
-      row.classList.add('fm-status-current');
+      row.classList.add('frq-status-current');
     }
 
     const elName = withSide(frq_varSide, function() { return dENPrefix() + dEN(idx); });
@@ -850,7 +850,7 @@ function frq_renderStatusGrid() {
       }
     }
     const matchCell = _mkCell(matchTxt);
-    if (matchProv) matchCell.classList.add('fm-status-provisional');
+    if (matchProv) matchCell.classList.add('frq-status-provisional');
     row.appendChild(matchCell);
 
     // Residuum: aus Track, sonst vorläufig
@@ -865,7 +865,7 @@ function frq_renderStatusGrid() {
       }
     }
     const residCell = _mkCell(residTxt);
-    if (residProv) residCell.classList.add('fm-status-provisional');
+    if (residProv) residCell.classList.add('frq-status-provisional');
     row.appendChild(residCell);
 
     const totalTrials   = tr ? (tr.trialCount  || 0) : 0;
@@ -887,7 +887,7 @@ function frq_renderStatusGrid() {
 }
 
 function _mkCell(text) {
-  const c = _mkEl('div', 'fm-status-cell');
+  const c = _mkEl('div', 'frq-status-cell');
   c.textContent = text;
   return c;
 }

@@ -745,11 +745,11 @@ function _buildTestPanelNew(parentEl, cfg) {
       // BA 206: Slider Round — Min/Max-Bereich + Median-Dreieck (eigene Klassen).
       var rangeHint = null, rangeHintBand = null, rangeHintMark = null, rangeHintLabel = null;
       if (vCfg.body.slider && vCfg.body.slider.rangeHint) {
-        rangeHint = _mkEl('div', 'fm-range-hint');
+        rangeHint = _mkEl('div', 'frq-range-hint');
         rangeHint.style.display = 'none';
-        rangeHintBand  = _mkEl('div', 'fm-range-hint-band');
-        rangeHintMark  = _mkEl('div', 'fm-range-hint-mark');
-        rangeHintLabel = _mkEl('div', 'fm-range-hint-label');
+        rangeHintBand  = _mkEl('div', 'frq-range-hint-band');
+        rangeHintMark  = _mkEl('div', 'frq-range-hint-mark');
+        rangeHintLabel = _mkEl('div', 'frq-range-hint-label');
         rangeHint.append(rangeHintBand, rangeHintMark, rangeHintLabel);
         slWrap.appendChild(rangeHint);
       }
@@ -908,7 +908,7 @@ function _buildTestPanelNew(parentEl, cfg) {
 
     // --- statusGrid ---
     if (body.statusGrid && (body.statusGrid === true || body.statusGrid.show !== false)) {
-      var sgEl = _mkEl('div', 'fm-status-grid');
+      var sgEl = _mkEl('div', 'frq-status-grid');
       sgEl.hidden = true;
       vWrap.appendChild(sgEl);
       refs.statusGrid = sgEl;
@@ -1631,9 +1631,9 @@ var testUI = {
       // Array von Objekten
       var html = '';
       (entries || []).forEach(function(e) {
-        html += '<div class="fm-status-row fm-status-' + (e.status || '') + '">'
-          + '<span class="fm-status-label">' + (e.label || '') + '</span>'
-          + '<span class="fm-status-value">' + (e.value || '') + '</span>'
+        html += '<div class="frq-status-row frq-status-' + (e.status || '') + '">'
+          + '<span class="frq-status-label">' + (e.label || '') + '</span>'
+          + '<span class="frq-status-value">' + (e.value || '') + '</span>'
           + '</div>';
       });
       els.innerHTML = html;

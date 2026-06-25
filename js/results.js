@@ -527,7 +527,7 @@ function renderFreqMatchResults() {
       const _faRun = fa && Array.isArray(fa.runs) && fa.currentRunIdx != null ? fa.runs[fa.currentRunIdx] : null;
       const notPercTrack = _faRun && _faRun.tracks && _faRun.tracks[i] && _faRun.tracks[i].status === 'not-perceivable';
       const note = notPercTrack
-        ? '<span class="fm-badge fm-badge-err" data-t="FRQ_resultsStatusNotPerceivable">✗ nicht wahrnehmbar</span>'
+        ? '<span class="frq-badge frq-badge-err" data-t="FRQ_resultsStatusNotPerceivable">✗ nicht wahrnehmbar</span>'
         : '<span style="font-size:.82em;color:#9ca3af">' + t('notMeasured') + '</span>';
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + elLabel + "</td>" +
@@ -625,42 +625,42 @@ function renderFreqMatchResults() {
 
       let statusBadge;
       if (isProvEarly) {
-        statusBadge = '<span class="fm-badge fm-badge-prov">'
+        statusBadge = '<span class="frq-badge frq-badge-prov">'
                     + t('FRQ_resultsStatusProvisionalEarly').replace('{n}', r.fmTrialCount || 0)
                     + '</span>';
       } else if (isProvLate) {
-        statusBadge = '<span class="fm-badge fm-badge-prov">'
+        statusBadge = '<span class="frq-badge frq-badge-prov">'
                     + t('FRQ_resultsStatusProvisionalLate').replace('{n}', r.fmReversals || 0)
                     + '</span>';
       } else if (r.fmStatus === 'converged') {
-        statusBadge = '<span class="fm-badge fm-badge-ok" data-t="FRQ_resultsStatusOk">'
+        statusBadge = '<span class="frq-badge frq-badge-ok" data-t="FRQ_resultsStatusOk">'
                     + t('FRQ_resultsStatusOk') + '</span>';
       } else if (r.fmStatus === 'converged-fair') {
-        statusBadge = '<span class="fm-badge fm-badge-fair" data-t="FRQ_resultsStatusFair">'
+        statusBadge = '<span class="frq-badge frq-badge-fair" data-t="FRQ_resultsStatusFair">'
                     + t('FRQ_resultsStatusFair') + '</span>';
       } else if (r.fmStatus === 'converged-wide') {
-        statusBadge = '<span class="fm-badge fm-badge-wide" data-t="FRQ_resultsStatusWide">'
+        statusBadge = '<span class="frq-badge frq-badge-wide" data-t="FRQ_resultsStatusWide">'
                     + t('FRQ_resultsStatusWide') + '</span>';
       } else if (r.fmStatus === 'unstable') {
-        statusBadge = '<span class="fm-badge fm-badge-unstable" data-t="FRQ_resultsStatusUnstable">'
+        statusBadge = '<span class="frq-badge frq-badge-unstable" data-t="FRQ_resultsStatusUnstable">'
                     + t('FRQ_resultsStatusUnstable') + '</span>';
       } else if (r.fmStatus === 'aborted') {
-        statusBadge = '<span class="fm-badge fm-badge-aborted" data-t="FRQ_resultsStatusAborted">'
+        statusBadge = '<span class="frq-badge frq-badge-aborted" data-t="FRQ_resultsStatusAborted">'
                     + t('FRQ_resultsStatusAborted') + '</span>';
       } else if (r.fmStatus === 'not-perceivable') {
-        statusBadge = '<span class="fm-badge fm-badge-err" data-t="FRQ_resultsStatusNotPerceivable">'
+        statusBadge = '<span class="frq-badge frq-badge-err" data-t="FRQ_resultsStatusNotPerceivable">'
                     + t('FRQ_resultsStatusNotPerceivable') + '</span>';
       } else if (r.fmStatus === 'slider-estimate') {
-        statusBadge = '<span class="fm-badge fm-badge-slider" data-t="FRQ_resultsStatusSliderEstimate">'
+        statusBadge = '<span class="frq-badge frq-badge-slider" data-t="FRQ_resultsStatusSliderEstimate">'
                     + t('FRQ_resultsStatusSliderEstimate') + '</span>';
       } else if (r.fmStatus === 'piano') {
-        statusBadge = '<span class="fm-badge fm-badge-slider" data-t="FRQ_resultsStatusPiano">'
+        statusBadge = '<span class="frq-badge frq-badge-slider" data-t="FRQ_resultsStatusPiano">'
                     + t('FRQ_resultsStatusPiano') + '</span>';
       } else if (r.fmStatus === 'piano-crossed') {
-        statusBadge = '<span class="fm-badge fm-badge-err" data-t="FRQ_resultsStatusPianoCrossed">'
+        statusBadge = '<span class="frq-badge frq-badge-err" data-t="FRQ_resultsStatusPianoCrossed">'
                     + t('FRQ_resultsStatusPianoCrossed') + '</span>';
       } else if (r.fmStatus === 'piano-wide') {
-        statusBadge = '<span class="fm-badge fm-badge-wide" data-t="FRQ_resultsStatusPianoWide">'
+        statusBadge = '<span class="frq-badge frq-badge-wide" data-t="FRQ_resultsStatusPianoWide">'
                     + t('FRQ_resultsStatusPianoWide') + '</span>';
       } else {
         statusBadge = '<span class="muted">—</span>';
@@ -805,13 +805,13 @@ function renderFreqMatchResults() {
       { notPerceivable: notPerc }
     );
     // Tooltip-Listener einmalig anhängen
-    if (!cv._fmcListenerAttached) {
-      cv.addEventListener("mousemove", (e) => _fmcTooltipHandler(cv, e));
+    if (!cv._frq_chartListenerAttached) {
+      cv.addEventListener("mousemove", (e) => _frq_chartTooltipHandler(cv, e));
       cv.addEventListener("mouseleave", () => {
-        const tip = document.getElementById("fmcTooltip");
+        const tip = document.getElementById("frq_chartTooltip");
         if (tip) tip.style.display = "none";
       });
-      cv._fmcListenerAttached = true;
+      cv._frq_chartListenerAttached = true;
     }
   }
 
