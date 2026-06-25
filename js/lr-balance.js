@@ -24,15 +24,15 @@ let stereobalanceSelectedEls = null;
 
 function _lrSliderVal() {
   if (!stereobalanceEls) return 0;
-  var sl = stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
-    && stereobalanceEls.verfahren.balance.slider && stereobalanceEls.verfahren.balance.slider.input;
+  var sl = stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
+    && stereobalanceEls.verfahren.stereobalance.slider && stereobalanceEls.verfahren.stereobalance.slider.input;
   return sl ? parseFloat(sl.value) : 0;
 }
 
 function _lrUpdCumulative(v) {
   if (!stereobalanceEls) return;
-  var cd = stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
-    && stereobalanceEls.verfahren.balance.cumulativeDisplay;
+  var cd = stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
+    && stereobalanceEls.verfahren.stereobalance.cumulativeDisplay;
   if (!cd) return;
   const existing = stereobalanceCurrentEl !== null ? stereobalanceResults[stereobalanceCurrentEl] : undefined;
   if (existing !== undefined) {
@@ -170,8 +170,8 @@ async function stereobalancePlayCurrent() {
     stereobalanceStopPlay();
     await new Promise((r) => setTimeout(r, 60));
   }
-  var _lrPI = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
-    && stereobalanceEls.verfahren.balance.pairIndicator;
+  var _lrPI = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
+    && stereobalanceEls.verfahren.stereobalance.pairIndicator;
   stereobalanceIsPlay = true;
   testUI.tonePlayer.playSequential(
     stereobalanceSequence({ aba: sequence_stereobalance === 'aba' }),
@@ -191,8 +191,8 @@ async function stereobalancePlayCurrent() {
 function stereobalancePlaySimul() {
   if (stereobalanceCurrentEl === null) return;
   stereobalanceStopPlay();
-  var _lrPI = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
-    && stereobalanceEls.verfahren.balance.pairIndicator;
+  var _lrPI = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
+    && stereobalanceEls.verfahren.stereobalance.pairIndicator;
   stereobalanceIsPlay = true;
   testUI.pairIndicator.setPlaying(_lrPI, "both");
   testUI.tonePlayer.playSimultaneous(
@@ -223,9 +223,9 @@ function stereobalanceStopPlay() {
     stereobalancePlayTO = null;
   }
   stereobalanceIsPlay = false;
-  if (stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
-      && stereobalanceEls.verfahren.balance.pairIndicator) {
-    testUI.pairIndicator.setPlaying(stereobalanceEls.verfahren.balance.pairIndicator, null);
+  if (stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
+      && stereobalanceEls.verfahren.stereobalance.pairIndicator) {
+    testUI.pairIndicator.setPlaying(stereobalanceEls.verfahren.stereobalance.pairIndicator, null);
   }
 }
 
@@ -288,8 +288,8 @@ function stereobalanceShowPair() {
   stereobalanceFlipped = stereobalanceDetermineFlip();
 
   // Slider: existing-Wert oder 0 setzen; Range wird über setValue automatisch erweitert
-  var slRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
-    && stereobalanceEls.verfahren.balance.slider;
+  var slRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
+    && stereobalanceEls.verfahren.stereobalance.slider;
   const existing = stereobalanceResults[el];
   if (slRef) {
     var startVal = (existing !== undefined && isFinite(existing)) ? existing : 0;
@@ -304,8 +304,8 @@ function stereobalanceShowPair() {
   _lrUpdCumulative(0);
 
   // Progress über testUI-Helfer
-  var prRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
-    && stereobalanceEls.verfahren.balance.progress;
+  var prRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
+    && stereobalanceEls.verfahren.stereobalance.progress;
   if (prRef) {
     testUI.progress.set(prRef, {
       fraction: (stereobalanceSeqIdx + 1) / stereobalanceSeq.length,
@@ -319,8 +319,8 @@ function stereobalanceShowPair() {
   const rightLabel = withSide("right", () => dENPrefix("right") + dEN(rightEl));
   const hzL = stereobalanceEffFreq("left", el);
   const hzR = stereobalanceEffFreq("right", rightEl);
-  var piRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
-    && stereobalanceEls.verfahren.balance.pairIndicator;
+  var piRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
+    && stereobalanceEls.verfahren.stereobalance.pairIndicator;
   if (piRef) {
     testUI.pairIndicator.setLabels(piRef, {
       leftText:  "L: " + leftLabel,
@@ -331,8 +331,8 @@ function stereobalanceShowPair() {
   }
 
   // Undo-Button-Zustand
-  var undoBtn = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
-    && stereobalanceEls.verfahren.balance.actions && stereobalanceEls.verfahren.balance.actions.undo;
+  var undoBtn = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
+    && stereobalanceEls.verfahren.stereobalance.actions && stereobalanceEls.verfahren.stereobalance.actions.undo;
   if (undoBtn) undoBtn.disabled = stereobalanceUndoStack.length === 0;
 
   stereobalancePlayCurrent();
@@ -746,7 +746,7 @@ function stereobalanceHookOnStop() {
 // BA 290: Deckelungs-Hinweis fuer Stereo-Balance (analog Test 1,
 // _testUpdateClipHint). Nutzt stereobalancePairGains.capped.
 function stereobalanceUpdateClipHint(off) {
-  var vref = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance;
+  var vref = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance;
   if (!vref || !vref.clipHint) return;
   if (stereobalanceCurrentEl === null) { testUI.clipHint.set(vref.clipHint, null); return; }
   if (off == null) off = _lrSliderVal();
@@ -767,8 +767,8 @@ function stereobalanceUpdateClipHint(off) {
 function stereobalanceHookOnSlide(v) {
   // onSlide-Hook ist verdrahtet -> Auto-dB-Anzeige in test-ui.js laeuft
   // nicht; die Anzeige hier setzen (analog test.js, BA 285).
-  var slRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
-    && stereobalanceEls.verfahren.balance.slider;
+  var slRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
+    && stereobalanceEls.verfahren.stereobalance.slider;
   if (slRef) testUI.slider.setValueDisplay(slRef, v.toFixed(1) + " dB");
   _lrUpdCumulative(v);
   stereobalanceUpdateClipHint(v);
@@ -1016,8 +1016,8 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // Slider-Live-Anzeige aktualisiert auch das cumulativeDisplay
-  var slInput = stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
-    && stereobalanceEls.verfahren.balance.slider && stereobalanceEls.verfahren.balance.slider.input;
+  var slInput = stereobalanceEls.verfahren && stereobalanceEls.verfahren.stereobalance
+    && stereobalanceEls.verfahren.stereobalance.slider && stereobalanceEls.verfahren.stereobalance.slider.input;
   if (slInput) {
     slInput.addEventListener('input', function() {
       _lrUpdCumulative(parseFloat(this.value));
