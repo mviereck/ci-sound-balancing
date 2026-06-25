@@ -276,8 +276,8 @@ function frq_nextAdaptiveTrial() {
   frq_disableHeightButtons();
 
   const track = frq_tracks[frq_currentTrackId];
-  const _dbgVarHz = (typeof withSide === 'function' && typeof effFreq === 'function')
-    ? withSide(frq_varSide, function() { return effFreq(track.electrodeIdx); }) : 0;
+  const _dbgVarHz = (typeof withSide === 'function' && typeof FRQ_implantatEffektiv === 'function')
+    ? withSide(frq_varSide, function() { return FRQ_implantatEffektiv(track.electrodeIdx); }) : 0;
   _frq_debug('trial #' + (track.trialCount + 1)
        + ' track=' + frq_currentTrackId
        + ' varHz=' + Math.round(_dbgVarHz)
@@ -303,8 +303,8 @@ async function frq_playAdaptiveTrial(track, firstSide, catchInfo) {
 
   let refHz, varHz;
   if (frq_symmetric) {
-    const varBase = withSide('left',  function() { return effFreq(track.electrodeIdx); });
-    const refBase = withSide('right', function() { return effFreq(track.electrodeIdx); });
+    const varBase = withSide('left',  function() { return FRQ_implantatEffektiv(track.electrodeIdx); });
+    const refBase = withSide('right', function() { return FRQ_implantatEffektiv(track.electrodeIdx); });
     const halfOff = track.currentOffset / 2;
     if (catchInfo) {
       // Catch im symmetric: die Catch-Spreizung wird halbiert auf beide
@@ -324,10 +324,10 @@ async function frq_playAdaptiveTrial(track, firstSide, catchInfo) {
       refHz = refBase * Math.pow(2, +halfOff / 1200);
     }
   } else {
-    const elFreq = withSide(frq_varSide, function() { return effFreq(track.electrodeIdx); });
+    const elFreq = withSide(frq_varSide, function() { return FRQ_implantatEffektiv(track.electrodeIdx); });
     if (catchInfo) {
       // Catch-Trial: die CI-Seite (var) bleibt auf der Soll-Frequenz
-      // effFreq(i) — eine Verschiebung würde Nachbarelektroden anregen.
+      // FRQ_implantatEffektiv(i) — eine Verschiebung würde Nachbarelektroden anregen.
       // Stattdessen wird die Referenz um die volle Catch-Spreizung
       // verschoben. direction>0 = var soll höher klingen → ref tiefer
       // (refHz = elFreq · 2^(-direction/1200)); Differenz var↔ref = direction.
@@ -620,14 +620,14 @@ function _frq_removeResult(elIdx) {
   if (agg.cent != null) {
     let varHz, refHz, _refSideOut, existingIdx;
     if (frq_symmetric) {
-      varHz = withSide('left',  function() { return effFreq(elIdx); });
-      refHz = withSide('right', function() { return effFreq(elIdx); });
+      varHz = withSide('left',  function() { return FRQ_implantatEffektiv(elIdx); });
+      refHz = withSide('right', function() { return FRQ_implantatEffektiv(elIdx); });
       _refSideOut = 'symmetric';
       existingIdx = FRQ_resultsArray.findIndex(function(r) {
         return r.refSide === 'symmetric' && r.elIdx === elIdx;
       });
     } else {
-      varHz = withSide(frq_varSide, function() { return effFreq(elIdx); });
+      varHz = withSide(frq_varSide, function() { return FRQ_implantatEffektiv(elIdx); });
       refHz = varHz * Math.pow(2, agg.cent / 1200);
       _refSideOut = FRQ_refSide;
       existingIdx = FRQ_resultsArray.findIndex(function(r) {
@@ -684,14 +684,14 @@ function _frq_writeResult(track) {
 
   let varHz, refHz, _refSideOut, existingIdx;
   if (frq_symmetric) {
-    varHz = withSide('left',  function() { return effFreq(elIdx); });
-    refHz = withSide('right', function() { return effFreq(elIdx); });
+    varHz = withSide('left',  function() { return FRQ_implantatEffektiv(elIdx); });
+    refHz = withSide('right', function() { return FRQ_implantatEffektiv(elIdx); });
     _refSideOut = 'symmetric';
     existingIdx = FRQ_resultsArray.findIndex(function(r) {
       return r.refSide === 'symmetric' && r.elIdx === elIdx;
     });
   } else {
-    varHz = withSide(frq_varSide, function() { return effFreq(elIdx); });
+    varHz = withSide(frq_varSide, function() { return FRQ_implantatEffektiv(elIdx); });
     refHz = (agg.cent != null)
       ? varHz * Math.pow(2, agg.cent / 1200)
       : null;
@@ -800,8 +800,8 @@ function frq_renderStatusGrid() {
     Object.keys(frq_tracks).map(function(k) { return frq_parseTrackKey(k).electrodeIdx; })
   ));
   ids.sort(function(a, b) {
-    const fa = withSide(frq_varSide, function() { return effFreq(a); });
-    const fb = withSide(frq_varSide, function() { return effFreq(b); });
+    const fa = withSide(frq_varSide, function() { return FRQ_implantatEffektiv(a); });
+    const fb = withSide(frq_varSide, function() { return FRQ_implantatEffektiv(b); });
     return fa - fb;
   });
 

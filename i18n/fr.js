@@ -64,9 +64,9 @@ Object.assign(L.fr, {
     no: "non",
     introAudioDesc:
       "Les résultats peuvent être imprimés. L'impression contient les résultats de mesure, les corrections souhaitées et les valeurs d'égaliseur en résultant.",
-    freqTitle: "Implant & électrodes",
+    FRQ_implantatTitle: "Implant & électrodes",
     lblMfr: "Fabricant :",
-    freqDeactHint:
+    FRQ_implantatDeactHint:
       "<b>Important — électrodes désactivées :</b> si des électrodes sont désactivées dans votre IC, l'implant répartit la plage de fréquences sur les électrodes actives restantes. Les fréquences centrales de toutes les autres électrodes se déplacent en conséquence — les valeurs par défaut préréglées ici ne sont alors plus valables.<br>Décochez les électrodes désactivées dans la colonne « Actif » et indiquez les fréquences centrales actuelles issues de votre réglage. Sans fréquences correctes, la mesure et l'égaliseur du Player ne sont pas significatifs.",
     thEl: "Él.",
     thHzStd: "Hz Standard",
@@ -565,9 +565,9 @@ Object.assign(L.fr, {
     plSrcCurves: "Courbes",
     plBothLabel: "Lire les deux côtés avec leurs ajustements respectifs",
     plMonoLabel: "Fusionner la stéréo en mono",
-    freqAbfHint:
+    FRQ_implantatAbfHint:
       "<b>Important — Anatomy Based Fitting (ABF) et FAT :</b> même avec Anatomy Based Fitting (ABF), d'autres fréquences centrales s'appliquent aux électrodes. En général : demandez à votre audiologiste la FAT (Frequency Allocation Table) de votre IC afin de connaître toutes les fréquences attribuées aux électrodes.",
-    freqExclHint:
+    FRQ_implantatExclHint:
       "Veuillez vérifier la qualité sonore de chaque électrode à l'aide du bouton <b>Écouter les électrodes via des tons</b>.<ul><li>Indiquez la qualité de chaque électrode dans le menu déroulant <b>Statut</b>.</li><li>Vous pouvez exclure des tests les électrodes peu audibles dans la colonne <b>Exclure</b>. Les électrodes désactivées sont automatiquement exclues des tests.</li></ul>",
     printPlayerTitle: "Réglages du Player",
     implTitle: "Données d'implant",

@@ -824,7 +824,7 @@ function pBuildEQ() {
       lf.type = "peaking";
       lf.frequency.value = nhSim
         ? effFreqDisplay(i, "left")
-        : withSide("left", () => effFreq(i));
+        : withSide("left", () => FRQ_implantatEffektiv(i));
       lf.Q.value = pCompQ(i);
       lf.gain.value = corrL.eq[i];
       pEqFLeft.push(lf);
@@ -832,7 +832,7 @@ function pBuildEQ() {
       rf.type = "peaking";
       rf.frequency.value = nhSim
         ? effFreqDisplay(i, "right")
-        : withSide("right", () => effFreq(i));
+        : withSide("right", () => FRQ_implantatEffektiv(i));
       rf.Q.value = pCompQ(i);
       rf.gain.value = corrR.eq[i];
       pEqFRight.push(rf);
@@ -858,7 +858,7 @@ function pBuildEQ() {
     for (let i = 0; i < nEl; i++) {
       const f = c.createBiquadFilter();
       f.type = "peaking";
-      f.frequency.value = nhSim ? effFreqDisplay(i) : effFreq(i);
+      f.frequency.value = nhSim ? effFreqDisplay(i) : FRQ_implantatEffektiv(i);
       f.Q.value = pCompQ(i);
       f.gain.value = corr.eq[i];
       pEqF.push(f);

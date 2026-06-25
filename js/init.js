@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Konfiguration pro Seite
   document.getElementById("cfgSelect").addEventListener("change", (e) => {
     setSideConfig(activeSide, e.target.value);
-    buildFreqTable();
+    FRQ_implantatTableBuild();
     buildImplantCard();
     elektrodenlautstaerkeKurvenTabelleBauen();
     elektrodenlautstaerkeKurvenChartZeichnen();
@@ -788,7 +788,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof stereobalanceSnapshot !== "undefined") {
         stereobalanceSnapshot = (d && d.stereobalanceSnapshot) ? d.stereobalanceSnapshot : null;
       }
-      buildFreqTable();
+      FRQ_implantatTableBuild();
       buildImplantCard();
       updSideButtons();
       if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
@@ -868,8 +868,8 @@ document.addEventListener("DOMContentLoaded", () => {
             left: {
               config: sideData.left.config || "ci",
               manufacturer: sideData.left.manufacturer,
-              frequencies: sideData.left.freqs,
-              electrodeFreqOwn: sideData.left.elFreqOwn,
+              frequencies: sideData.left.FRQ_implantat,
+              electrodeFreqOwn: sideData.left.FRQ_implantatOwn,
               electrodeStatus: sideData.left.elSt,
               // BA 164
               electrodeActive: sideData.left.elActive,
@@ -892,8 +892,8 @@ document.addEventListener("DOMContentLoaded", () => {
             right: {
               config: sideData.right.config || "ci",
               manufacturer: sideData.right.manufacturer,
-              frequencies: sideData.right.freqs,
-              electrodeFreqOwn: sideData.right.elFreqOwn,
+              frequencies: sideData.right.FRQ_implantat,
+              electrodeFreqOwn: sideData.right.FRQ_implantatOwn,
               electrodeStatus: sideData.right.elSt,
               // BA 164
               electrodeActive: sideData.right.elActive,

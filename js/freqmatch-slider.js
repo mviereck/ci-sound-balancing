@@ -12,8 +12,8 @@ function frq_updateSliderDisplay() {
   const centStr = (frq_centOffset >= 0 ? "+" : "") + Math.round(frq_centOffset);
   const centUnit = (typeof t === 'function' && t("FRQ_centUnit")) || "Cent";
   if (frq_symmetric) {
-    const leftBase  = withSide('left',  function() { return effFreq(frq_currentEl); });
-    const rightBase = withSide('right', function() { return effFreq(frq_currentEl); });
+    const leftBase  = withSide('left',  function() { return FRQ_implantatEffektiv(frq_currentEl); });
+    const rightBase = withSide('right', function() { return FRQ_implantatEffektiv(frq_currentEl); });
     const playL = leftBase  * Math.pow(2, -frq_centOffset / 2 / 1200);
     const playR = rightBase * Math.pow(2, +frq_centOffset / 2 / 1200);
     if (slRefs && slRefs.slider) {
@@ -51,8 +51,8 @@ function frq_showElectrode() {
   const slRefs = FRQ_els.verfahren && FRQ_els.verfahren.slider;
   const pi = _frq_sliderPairIndicator();
   if (frq_symmetric) {
-    const leftHz  = withSide('left',  function() { return effFreq(frq_currentEl); });
-    const rightHz = withSide('right', function() { return effFreq(frq_currentEl); });
+    const leftHz  = withSide('left',  function() { return FRQ_implantatEffektiv(frq_currentEl); });
+    const rightHz = withSide('right', function() { return FRQ_implantatEffektiv(frq_currentEl); });
     if (pi) {
       const leftLabel  = withSide('left',  function() { return dENPrefix() + dEN(frq_currentEl); });
       const rightLabel = withSide('right', function() { return dENPrefix() + dEN(frq_currentEl); });

@@ -685,7 +685,7 @@ function measGain(side, hz) {
     if (typeof compWLS !== "function") return 1;
     var levels = elTestData().correction;
     if (!levels || !levels.length) return 1;
-    var f = (typeof freqs !== "undefined" && freqs) ? freqs : null;
+    var f = (typeof FRQ_implantat !== "undefined" && FRQ_implantat) ? FRQ_implantat : null;
     if (!f || !f.length) return 1;
     var n = f.length;
     if (n === 1) return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
@@ -803,7 +803,7 @@ function tGPau() { return pause_elektrodenlautstaerke    || 300; }
 // Elektroden anzeigen, abgewaehlte/ausgeschlossene als disabled.
 function _testTpElectrodeFreqs() {
   var arr = [];
-  for (var i = 0; i < nEl; i++) arr.push(effFreq(i));
+  for (var i = 0; i < nEl; i++) arr.push(FRQ_implantatEffektiv(i));
   return arr;
 }
 function _testTpElectrodeLabels() {
@@ -853,8 +853,8 @@ function _testSwap() {
     testUI.pairIndicator.setLabels(vref.pairIndicator, {
       leftText:  dENPrefix() + dEN(curA),
       rightText: dENPrefix() + dEN(curB),
-      leftHz:    Math.round(effFreq(curA)),
-      rightHz:   Math.round(effFreq(curB))
+      leftHz:    Math.round(FRQ_implantatEffektiv(curA)),
+      rightHz:   Math.round(FRQ_implantatEffektiv(curB))
     });
   }
   _testUpdateRangeHint();
@@ -998,8 +998,8 @@ function showCurPair() {
     testUI.pairIndicator.setLabels(vref.pairIndicator, {
       leftText:  dENPrefix() + dEN(curA),
       rightText: dENPrefix() + dEN(curB),
-      leftHz:    Math.round(effFreq(curA)),
-      rightHz:   Math.round(effFreq(curB))
+      leftHz:    Math.round(FRQ_implantatEffektiv(curA)),
+      rightHz:   Math.round(FRQ_implantatEffektiv(curB))
     });
   }
 
@@ -1435,7 +1435,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return { testable: testable, muted: muted, excluded: excluded };
           },
           electrodeLabel: function(i) {
-            return dENPrefix() + dEN(i) + " (" + Math.round(effFreq(i)) + " Hz)";
+            return dENPrefix() + dEN(i) + " (" + Math.round(FRQ_implantatEffektiv(i)) + " Hz)";
           }
         }
       },
@@ -1520,7 +1520,7 @@ function _testSequence(opts) {
   var pau  = tGPau();
   function tone(eIdx, gain, which) {
     return {
-      hz: effFreq(eIdx),
+      hz: FRQ_implantatEffektiv(eIdx),
       pan: pan,
       vol: mute ? 0 : gain,
       durationMs: dur,

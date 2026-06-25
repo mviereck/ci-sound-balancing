@@ -75,13 +75,13 @@ function applyLang() {
   if (tabErgebnisse) tabErgebnisse.textContent = t("tabErgebnisse");
   const gEl2 = (id) => document.getElementById(id);
   if (gEl2("glossLSEl")) gEl2("glossLSEl").innerHTML = t("glossLS");
-  s("freqTitle", "freqTitle");
+  s("FRQ_implantatTitle", "FRQ_implantatTitle");
   s("lblMfr", "lblMfr");
 
-  const abfEl = document.getElementById("freqAbfHintEl");
-  if (abfEl) abfEl.innerHTML = t("freqAbfHint");
-  const exclEl = document.getElementById("freqExclHintEl");
-  if (exclEl) exclEl.innerHTML = t("freqExclHint");
+  const abfEl = document.getElementById("FRQ_implantatAbfHintEl");
+  if (abfEl) abfEl.innerHTML = t("FRQ_implantatAbfHint");
+  const exclEl = document.getElementById("FRQ_implantatExclHintEl");
+  if (exclEl) exclEl.innerHTML = t("FRQ_implantatExclHint");
   s("sweepBtn", "sweep");
   s("stopBtn", "stop");
   s("lblVol", "lblVol");
@@ -97,7 +97,7 @@ function applyLang() {
   s("stopTBtn", "stopTest");
   s("resTitle", "resTitle");
   updSideButtons();
-  buildFreqTable();
+  FRQ_implantatTableBuild();
   if (typeof buildImplantCard === "function") buildImplantCard();
   const _pib = document.getElementById("printImplantBtn");
   if (_pib) _pib.title = t("printBtn");

@@ -175,19 +175,19 @@ const MFR = {
     name: "—",
     n: 0,
     apFirst: true,
-    freqs: [],
+    FRQ_implantat: [],
   },
   medel: {
     name: "MED-EL",
     n: 12,
     apFirst: true,
-    freqs: [120, 235, 384, 579, 836, 1175, 1624, 2222, 3019, 4084, 5507, 7410],
+    FRQ_implantat: [120, 235, 384, 579, 836, 1175, 1624, 2222, 3019, 4084, 5507, 7410],
   },
   ab: {
     name: "Advanced Bionics",
     n: 16,
     apFirst: true,
-    freqs: [
+    FRQ_implantat: [
       333, 455, 540, 642, 762, 906, 1076, 1278, 1518, 1803, 2142, 2544, 3022,
       3590, 4264, 6665,
     ],
@@ -203,7 +203,7 @@ const MFR = {
     // unbekannter Quelle und wichen bis zu ~125 Cent an E1
     // (basal) ab. Siehe .manuals/Recherche_CI_Select_App.md
     // und .manuals/Recherche_Cochlear_FAT_Deaktivierung.md.
-    freqs: [
+    FRQ_implantat: [
       250, 375, 500, 625, 750, 875, 1000, 1125, 1250, 1438, 1688, 1938, 2188,
       2500, 2875, 3313, 3813, 4375, 5000, 5688, 6500, 7438,
     ],

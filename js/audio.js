@@ -137,25 +137,25 @@ function stopAll() {
   updInd(-1);
 }
 function getElectrodeBandwidth(hz) {
-  if (!freqs || freqs.length < 2) {
+  if (!FRQ_implantat || FRQ_implantat.length < 2) {
     return hz * 0.232;
   }
   let idx = 0;
-  let minDiff = Math.abs(freqs[0] - hz);
-  for (let i = 1; i < freqs.length; i++) {
-    const d = Math.abs(freqs[i] - hz);
+  let minDiff = Math.abs(FRQ_implantat[0] - hz);
+  for (let i = 1; i < FRQ_implantat.length; i++) {
+    const d = Math.abs(FRQ_implantat[i] - hz);
     if (d < minDiff) { minDiff = d; idx = i; }
   }
   let bwLow, bwHigh;
   if (idx === 0) {
-    bwHigh = (freqs[1] - freqs[0]) / 2;
+    bwHigh = (FRQ_implantat[1] - FRQ_implantat[0]) / 2;
     bwLow = bwHigh;
-  } else if (idx === freqs.length - 1) {
-    bwLow = (freqs[idx] - freqs[idx-1]) / 2;
+  } else if (idx === FRQ_implantat.length - 1) {
+    bwLow = (FRQ_implantat[idx] - FRQ_implantat[idx-1]) / 2;
     bwHigh = bwLow;
   } else {
-    bwLow = (freqs[idx] - freqs[idx-1]) / 2;
-    bwHigh = (freqs[idx+1] - freqs[idx]) / 2;
+    bwLow = (FRQ_implantat[idx] - FRQ_implantat[idx-1]) / 2;
+    bwHigh = (FRQ_implantat[idx+1] - FRQ_implantat[idx]) / 2;
   }
   return bwLow + bwHigh;
 }
@@ -796,7 +796,7 @@ function playWobbleSweepTone(c, hz, vol, ms, pan, ramp = 50) {
 
 // BA 273: Experimentelle Toene.
 // neighborSine — Sinus auf der Zielfrequenz plus die beiden direkt
-// benachbarten Elektroden-Mittenfrequenzen auf halbem Pegel. freqs ist
+// benachbarten Elektroden-Mittenfrequenzen auf halbem Pegel. FRQ_implantat ist
 // die global an die aktive Seite gebundene Elektroden-Frequenztabelle
 // (siehe getElectrodeBandwidth / state-side.js bindActiveSide). Amplituden
 // werden gegen die Summe normalisiert, damit kein Clipping entsteht; das
@@ -804,14 +804,14 @@ function playWobbleSweepTone(c, hz, vol, ms, pan, ramp = 50) {
 function playNeighborSineTone(c, hz, vol, ms, pan, ramp = 50) {
   return new Promise((r) => {
     var tones = [{ f: hz, amp: 1.0 }];
-    if (typeof freqs !== "undefined" && freqs && freqs.length >= 2) {
-      var idx = 0, minDiff = Math.abs(freqs[0] - hz);
-      for (var i = 1; i < freqs.length; i++) {
-        var d = Math.abs(freqs[i] - hz);
+    if (typeof FRQ_implantat !== "undefined" && FRQ_implantat && FRQ_implantat.length >= 2) {
+      var idx = 0, minDiff = Math.abs(FRQ_implantat[0] - hz);
+      for (var i = 1; i < FRQ_implantat.length; i++) {
+        var d = Math.abs(FRQ_implantat[i] - hz);
         if (d < minDiff) { minDiff = d; idx = i; }
       }
-      if (idx - 1 >= 0)           tones.push({ f: freqs[idx - 1], amp: 0.5 });
-      if (idx + 1 < freqs.length) tones.push({ f: freqs[idx + 1], amp: 0.5 });
+      if (idx - 1 >= 0)           tones.push({ f: FRQ_implantat[idx - 1], amp: 0.5 });
+      if (idx + 1 < FRQ_implantat.length) tones.push({ f: FRQ_implantat[idx + 1], amp: 0.5 });
     }
     var total   = tones.reduce(function (s, t) { return s + t.amp; }, 0) || 1;
     var nyquist = c.sampleRate / 2 - 100;
@@ -1063,7 +1063,7 @@ function pairGains(vol, off) {
 
 function updInd(i, w) {
   document
-    .querySelectorAll('.freq-table .pbtn[data-a="play"]')
+    .querySelectorAll('.frq-implantat-table .pbtn[data-a="play"]')
     .forEach((b, j) => {
       b.style.background = j === i ? "var(--accent-light)" : "";
     });

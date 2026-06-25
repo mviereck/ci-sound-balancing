@@ -104,7 +104,7 @@ function stereobalanceCorrGain(side, elIdx) {
 
 // Get the effective frequency for electrode i on a given side
 function stereobalanceEffFreq(side, elIdx) {
-  return withSide(side, () => effFreq(elIdx));
+  return withSide(side, () => FRQ_implantatEffektiv(elIdx));
 }
 
 // Get the electrode display number for a given side

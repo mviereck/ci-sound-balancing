@@ -246,7 +246,7 @@ function FRQ_correctionGain(side, hz) {
 
 // Frequenz der variablen Seite (CI) für Elektrode elIdx
 function frq_varHz(elIdx) {
-  return withSide(frq_varSide, () => effFreq(elIdx));
+  return withSide(frq_varSide, () => FRQ_implantatEffektiv(elIdx));
 }
 // Anzeigenummer der Elektrode
 function frq_varSideElectrodeLabel(elIdx) {
@@ -269,7 +269,7 @@ function frq_buildSequence() {
       // BA 164
       if (elActive[i] === false) continue;
       if (elExDur[i]) continue;
-      result.push({ idx: i, hz: effFreq(i) });
+      result.push({ idx: i, hz: FRQ_implantatEffektiv(i) });
     }
     return result;
   });
@@ -300,8 +300,8 @@ function frq_buildSequenceSymmetric() {
     if (leftList[j] !== rightList[j]) return null;
   }
   const seq = leftList.map(function(idx) {
-    const fl = withSide('left',  function() { return effFreq(idx); });
-    const fr = withSide('right', function() { return effFreq(idx); });
+    const fl = withSide('left',  function() { return FRQ_implantatEffektiv(idx); });
+    const fr = withSide('right', function() { return FRQ_implantatEffektiv(idx); });
     return { idx: idx, hz: (fl + fr) / 2 };
   });
   seq.sort(function(a, b) { return a.hz - b.hz; });
@@ -382,8 +382,8 @@ function frq_makeSequence(opts) {
   opts = opts || {};
   var varHz, refHz;
   if (frq_symmetric) {
-    var varBase = withSide('left',  function () { return effFreq(frq_currentEl); });
-    var refBase = withSide('right', function () { return effFreq(frq_currentEl); });
+    var varBase = withSide('left',  function () { return FRQ_implantatEffektiv(frq_currentEl); });
+    var refBase = withSide('right', function () { return FRQ_implantatEffektiv(frq_currentEl); });
     varHz = varBase * Math.pow(2, -frq_centOffset / 2 / 1200);
     refHz = refBase * Math.pow(2, +frq_centOffset / 2 / 1200);
   } else {
@@ -462,8 +462,8 @@ async function frq_playSimultaneous() {
     const track  = frq_tracks[frq_currentTrackId];
     let refHz, varHz;
     if (frq_symmetric) {
-      const varBase = withSide('left',  function() { return effFreq(track.electrodeIdx); });
-      const refBase = withSide('right', function() { return effFreq(track.electrodeIdx); });
+      const varBase = withSide('left',  function() { return FRQ_implantatEffektiv(track.electrodeIdx); });
+      const refBase = withSide('right', function() { return FRQ_implantatEffektiv(track.electrodeIdx); });
       const halfOff = track.currentOffset / 2;
       if (frq_currentCatchInfo) {
         const halfCatch = frq_currentCatchInfo.direction / 2;
@@ -474,7 +474,7 @@ async function frq_playSimultaneous() {
         refHz = refBase * Math.pow(2, +halfOff / 1200);
       }
     } else {
-      const elFreq = withSide(frq_varSide, function() { return effFreq(track.electrodeIdx); });
+      const elFreq = withSide(frq_varSide, function() { return FRQ_implantatEffektiv(track.electrodeIdx); });
       refHz = elFreq * Math.pow(2, track.currentOffset / 1200);
       varHz = frq_currentCatchInfo
         ? refHz * Math.pow(2, frq_currentCatchInfo.direction / 1200)
@@ -552,8 +552,8 @@ function _frq_persist() {
         return frq_parseTrackKey(k).electrodeIdx;
       })
     )).sort(function(a, b) {
-      const fa_ = withSide(frq_varSide, function() { return effFreq(a); });
-      const fb_ = withSide(frq_varSide, function() { return effFreq(b); });
+      const fa_ = withSide(frq_varSide, function() { return FRQ_implantatEffektiv(a); });
+      const fb_ = withSide(frq_varSide, function() { return FRQ_implantatEffektiv(b); });
       return fa_ - fb_;
     });
     // startSigns aus den Track-Objekten extrahieren (single source of truth)
@@ -1014,11 +1014,11 @@ function _frq_pianoWriteResults() {
 
     var varHz, refHz, refSideOut;
     if (sym) {
-      varHz = withSide("left",  function () { return effFreq(elIdx); });
-      refHz = withSide("right", function () { return effFreq(elIdx); });
+      varHz = withSide("left",  function () { return FRQ_implantatEffektiv(elIdx); });
+      refHz = withSide("right", function () { return FRQ_implantatEffektiv(elIdx); });
       refSideOut = "symmetric";
     } else {
-      varHz = withSide(run.varSide, function () { return effFreq(elIdx); });
+      varHz = withSide(run.varSide, function () { return FRQ_implantatEffektiv(elIdx); });
       refHz = frq_freqFromCents(varHz, pse);
       refSideOut = run.refSide;
     }
@@ -1708,7 +1708,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (n <= 0) return [];
             var freqs = [];
             withSide(vSide, function() {
-              for (var i = 0; i < n; i++) freqs.push(effFreq(i));
+              for (var i = 0; i < n; i++) freqs.push(FRQ_implantatEffektiv(i));
             });
             return freqs;
           },
@@ -1784,7 +1784,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (electrodeIdx >= 0) {
               var rN = sideData[refSide] ? sideData[refSide].nEl : 0;
               var rIdx = electrodeIdx < rN ? electrodeIdx : rN - 1;
-              hzRef = withSide(refSide, function () { return effFreq(rIdx); });
+              hzRef = withSide(refSide, function () { return FRQ_implantatEffektiv(rIdx); });
             } else {
               hzRef = hz;
             }

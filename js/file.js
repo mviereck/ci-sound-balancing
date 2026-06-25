@@ -110,11 +110,11 @@ function resetAll() {
     sideData[s].config = "unknown";
     sideData[s].manufacturer = "unknown";
     sideData[s].nEl = MFR["unknown"].n;
-    sideData[s].freqs = [...MFR["unknown"].freqs];
+    sideData[s].FRQ_implantat = [...MFR["unknown"].FRQ_implantat];
     sideData[s].elSt = new Array(sideData[s].nEl).fill(null);
     sideData[s].elNt = new Array(sideData[s].nEl).fill("");
     sideData[s].elExDur = new Array(sideData[s].nEl).fill(null);
-    sideData[s].elFreqOwn = new Array(sideData[s].nEl).fill(null);
+    sideData[s].FRQ_implantatOwn = new Array(sideData[s].nEl).fill(null);
     sideData[s].elektrodenlautstaerkeSchieber = new Array(sideData[s].nEl).fill(0);
     sideData[s].refEl = Math.floor(sideData[s].nEl / 2);
     sideData[s].elektrodenlautstaerkeResults = [];
@@ -240,7 +240,7 @@ function resetAll() {
   const _prBoth = document.getElementById("kurvenBothSides");
   if (_prBoth) _prBoth.checked = true;
   // --- UI-Refresh ---
-  buildFreqTable();
+  FRQ_implantatTableBuild();
   elektrodenlautstaerkeKurvenTabelleBauen();
   elektrodenlautstaerkeKurvenChartZeichnen();
   renderResults();
@@ -274,8 +274,8 @@ async function saveJson() {
       left: {
         config: sideData.left.config || "ci",
         manufacturer: sideData.left.manufacturer,
-        frequencies: sideData.left.freqs,
-        electrodeFreqOwn: sideData.left.elFreqOwn,
+        frequencies: sideData.left.FRQ_implantat,
+        electrodeFreqOwn: sideData.left.FRQ_implantatOwn,
         electrodeStatus: sideData.left.elSt,
         electrodeActive: sideData.left.elActive,
         electrodeNotes: sideData.left.elNt,
@@ -296,8 +296,8 @@ async function saveJson() {
       right: {
         config: sideData.right.config || "ci",
         manufacturer: sideData.right.manufacturer,
-        frequencies: sideData.right.freqs,
-        electrodeFreqOwn: sideData.right.elFreqOwn,
+        frequencies: sideData.right.FRQ_implantat,
+        electrodeFreqOwn: sideData.right.FRQ_implantatOwn,
         electrodeStatus: sideData.right.elSt,
         electrodeActive: sideData.right.elActive,
         electrodeNotes: sideData.right.elNt,
@@ -510,8 +510,8 @@ function applyLoadedData(d) {
       if (s.elektrodenlautstaerkeKurven && Array.isArray(s.elektrodenlautstaerkeKurven)) {
         s.elektrodenlautstaerkeKurven = _migratePresetsFromIndexToFreq(
           s.elektrodenlautstaerkeKurven,
-          [...s.freqs],
-          s.elFreqOwn,
+          [...s.FRQ_implantat],
+          s.FRQ_implantatOwn,
         );
         s._presetsMigrated = true;
       }
@@ -788,7 +788,7 @@ function applyLoadedData(d) {
     const aNoteEl = document.getElementById("audiologNoteInput");
     if (aNoteEl) aNoteEl.value = audiologUserNote;
   }
-  buildFreqTable();
+  FRQ_implantatTableBuild();
   renderResults();
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
   if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
@@ -901,7 +901,7 @@ function collectSysEqCorrection() {
   const bands = [];
   for (let i = 0; i < nEl; i++) {
     bands.push({
-      freq: effFreq(i),
+      freq: FRQ_implantatEffektiv(i),
       q: pCompQ(i),
       gainL: leftArr[i] || 0,
       gainR: rightArr[i] || 0,

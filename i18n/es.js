@@ -64,9 +64,9 @@ Object.assign(L.es, {
     no: "no",
     introAudioDesc:
       "Los resultados pueden imprimirse. La impresión contiene los resultados de medición, las correcciones deseadas y los valores resultantes del ecualizador.",
-    freqTitle: "Implante y electrodos",
+    FRQ_implantatTitle: "Implante y electrodos",
     lblMfr: "Fabricante:",
-    freqDeactHint:
+    FRQ_implantatDeactHint:
       "<b>Importante – electrodos desactivados:</b> si en su IC hay electrodos desactivados, el implante redistribuye el rango de frecuencias entre los electrodos activos restantes. Las frecuencias centrales de los demás electrodos se desplazan en consecuencia — los valores estándar preconfigurados ya no son válidos.<br>Marque los electrodos desactivados en la columna «Activo» y registre las frecuencias centrales actuales de su programación. Sin frecuencias correctas, la medición y el ecualizador del reproductor no son significativos.",
     thEl: "El.",
     thHzStd: "Hz Estándar",
@@ -565,9 +565,9 @@ Object.assign(L.es, {
     plSrcCurves: "Curvas",
     plBothLabel: "Reproducir ambos lados con sus respectivos ajustes",
     plMonoLabel: "Mezclar el estéreo a mono",
-    freqAbfHint:
+    FRQ_implantatAbfHint:
       "<b>Importante – Anatomy Based Fitting (ABF) y FAT:</b> también con Anatomy Based Fitting (ABF) se aplican otras frecuencias centrales para los electrodos. En general: pregunte a su audiólogo por la FAT (Frequency Allocation Table) de su IC, para conocer todas las frecuencias asignadas a los electrodos.",
-    freqExclHint:
+    FRQ_implantatExclHint:
       "Por favor, compruebe la calidad sonora de cada electrodo con el botón <b>Escuchar electrodos mediante tonos</b>.<ul><li>Indique la calidad de cada electrodo en el desplegable <b>Estado</b>.</li><li>Puede excluir de las pruebas los electrodos poco audibles en la columna <b>Excluir</b>. Los electrodos desactivados se excluyen automáticamente de las pruebas.</li></ul>",
     printPlayerTitle: "Ajustes del reproductor",
     implTitle: "Datos del implante",

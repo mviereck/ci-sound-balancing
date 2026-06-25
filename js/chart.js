@@ -34,10 +34,10 @@ function _drawRefElLabel(ctx, x, y, size) {
 // Gleichmäßige x-Verteilung der Elektroden über die Plot-Breite
 // (elektrodennummern-basiert). Verwendet von drawChart (Meßergebnisse
 // Loudness) und stereobalanceDrawChart (Stereo-Balance) seit Bauanleitung 67.
-// Liefert zusätzlich hzArr (per effFreq oder optionalem hzGetter) für
+// Liefert zusätzlich hzArr (per FRQ_implantatEffektiv oder optionalem hzGetter) für
 // die Hz-Beschriftung unter der x-Achse.
 function buildLinearAxis(electrodes, padLeft, plotW, hzGetter) {
-  const getHz = hzGetter || effFreq;
+  const getHz = hzGetter || FRQ_implantatEffektiv;
   const hzArr = electrodes.map(function (i) { return getHz(i); });
   const n = electrodes.length;
   if (n === 0) return { tX: function () { return padLeft; }, minDx: 0, hzArr: hzArr };
@@ -51,7 +51,7 @@ function buildLinearAxis(electrodes, padLeft, plotW, hzGetter) {
 }
 
 function buildCentAxis(electrodes, padLeft, plotW, hzGetter) {
-  const getHz = hzGetter || effFreq;
+  const getHz = hzGetter || FRQ_implantatEffektiv;
   const hzArr = electrodes.map(function (i) { return getHz(i); });
   const centArr = hzArr.map(hzToCent);
   let cMin = Math.min.apply(null, centArr),
@@ -370,7 +370,7 @@ function drawFreqMatchChart(cv, fResData, opts) {
   const allEls = [];
   for (let i = 0; i < nCi; i++) {
     const exCI = sideData[ciSide].elExDur[i] !== null || sideData[ciSide].elSt[i] === 'mute';
-    const hzIst = withSide(ciSide, () => effFreq(i));
+    const hzIst = withSide(ciSide, () => FRQ_implantatEffektiv(i));
     const r = measuredByIdx[i];
     const notPercFlag = !!notPerc[ciSide + ':' + i];
     allEls.push({

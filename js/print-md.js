@@ -154,8 +154,8 @@ function _collectSideData(side) {
       electrodes.push({
         idx: i,
         label: `${dENPrefix()}${dEN(i)}`,
-        hzStandard: (sd.freqs && sd.freqs[i]) || null,
-        hzOwn:      (sd.elFreqOwn && sd.elFreqOwn[i] != null) ? sd.elFreqOwn[i] : null,
+        hzStandard: (sd.FRQ_implantat && sd.FRQ_implantat[i]) || null,
+        hzOwn:      (sd.FRQ_implantatOwn && sd.FRQ_implantatOwn[i] != null) ? sd.FRQ_implantatOwn[i] : null,
         thr: (impl.thr && impl.thr[i] != null) ? impl.thr[i] : null,
         upper: _pickUpperLevel(impl, i, mfr),
         unit,
@@ -179,7 +179,7 @@ function _collectSideData(side) {
         measRows.push({
           idx: i,
           label: `${dENPrefix()}${dEN(i)}`,
-          hz: effFreq(i),
+          hz: FRQ_implantatEffektiv(i),
           offsetDb:   inMeas ? levels[i] : null,
           residualDb: inMeas ? elRes[i]  : null,
           // BA 164: inaktive Elektrode → "deactivated" für Archiv-Rendering
@@ -211,7 +211,7 @@ function _collectSideData(side) {
         schRows.push({
           idx: i,
           label: `${dENPrefix()}${dEN(i)}`,
-          hz: effFreq(i),
+          hz: FRQ_implantatEffektiv(i),
           relDb: v,
           absDelta,
           absUnit: unit,
@@ -920,7 +920,7 @@ function _audiologFmRowsForSide(side) {
   const rows = [];
   const elIdxList = Array.from(elIdxSet).sort((a, b) => a - b);
   for (const elIdx of elIdxList) {
-    const fSelf = withSide(side, () => effFreq(elIdx));
+    const fSelf = withSide(side, () => FRQ_implantatEffektiv(elIdx));
     if (!isFinite(fSelf) || fSelf <= 0) continue;
     const cs = centShift(fSelf, side, points);
     if (Math.abs(cs) < 1e-9) continue;
@@ -947,9 +947,9 @@ function _audiologFreqTable(side) {
     const lines = [];
     const sd = sideData[side];
     const defFreqs = (sd && sd.manufacturer && MFR[sd.manufacturer])
-      ? MFR[sd.manufacturer].freqs
-      : freqs;
-    const ownFreqOwn = (sd && sd.elFreqOwn) ? sd.elFreqOwn : null;
+      ? MFR[sd.manufacturer].FRQ_implantat
+      : FRQ_implantat;
+    const ownFreqOwn = (sd && sd.FRQ_implantatOwn) ? sd.FRQ_implantatOwn : null;
 
     let hasProv = false;
     let hasSliderEst = false;
@@ -1073,7 +1073,7 @@ function _audiologMissingImplantData(mainSides) {
     if (!mclSet) missing.push(t("audMissMcl"));
     const thrSet = (impl.thr || []).some((v) => v != null && isFinite(v));
     if (!thrSet) missing.push(t("audMissThr"));
-    const freqOwnSet = (sd && sd.elFreqOwn || []).some((v) => v != null && isFinite(v));
+    const freqOwnSet = (sd && sd.FRQ_implantatOwn || []).some((v) => v != null && isFinite(v));
     if (!freqOwnSet) missing.push(t("audMissFreqOwn"));
     if (sd && sd.manufacturer === "medel" && !impl.cValue) missing.push(t("audMissCValue"));
     if (sd && sd.manufacturer === "ab" && !impl.idr) missing.push(t("audMissIdr"));

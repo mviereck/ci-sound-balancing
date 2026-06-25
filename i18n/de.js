@@ -64,9 +64,9 @@ Object.assign(L.de, {
     no: "nein",
     introAudioDesc:
       "Die Ergebnisse können ausgedruckt werden. Der Ausdruck enthält die Meßergebnisse, Ihre gewünschten Korrekturen und die resultierenden Equalizer-Werte.",
-    freqTitle: "Implantat & Elektroden",
+    FRQ_implantatTitle: "Implantat & Elektroden",
     lblMfr: "Hersteller:",
-    freqDeactHint:
+    FRQ_implantatDeactHint:
       "<b>Wichtig – deaktivierte Elektroden:</b> Wenn in Ihrem CI Elektroden deaktiviert sind, verteilt das Implantat den Frequenzbereich auf die verbleibenden aktiven Elektroden. Die Mittenfrequenzen aller anderen Elektroden verschieben sich dadurch — die hier voreingestellten Standardwerte gelten dann nicht mehr.<br>Haken Sie deaktivierte Elektroden in der Spalte „Aktiv” ab und tragen Sie die aktuellen Mittenfrequenzen aus Ihrer Anpassung ein. Ohne korrekte Frequenzen sind Messung und Player-Equalizer nicht aussagekräftig.",
     thEl: "El.",
     thHzStd: "Hz Standard",
@@ -615,9 +615,9 @@ Object.assign(L.de, {
     plSrcCurves: "Kurven",
     plBothLabel: "Beide Seiten mit ihren jeweiligen Anpassungen abspielen",
     plMonoLabel: "Stereo zu Mono zusammenmischen",
-    freqAbfHint:
+    FRQ_implantatAbfHint:
       "<b>Wichtig – Anatomy Based Fitting (ABF) und FAT:</b> Auch bei Anatomy Based Fitting (ABF) gelten andere Mittenfrequenzen für die Elektroden. Generell: Fragen Sie Ihren Audiologen nach der FAT (Frequency Allocation Table) Ihres CI, um alle den Elektroden zugeordneten Frequenzen zu erfahren.",
-    freqExclHint:
+    FRQ_implantatExclHint:
       "Bitte überprüfen Sie die Klangqualität jeder Elektrode mit dem Button <b>Elektroden über Töne anspielen</b>.<ul><li>Geben Sie im Dropdown <b>Status</b> die Qualität der Elektroden an.</li><li>Sie können schlecht hörbare Elektroden in der Spalte <b>Ausschließen</b> von Tests ausschließen. Deaktivierte Elektroden sind automatisch von Tests ausgeschlossen.</li></ul>",
     printPlayerTitle: "Player-Einstellungen",
     implTitle: "Implantat-Daten",

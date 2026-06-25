@@ -4,12 +4,12 @@
 // Bug 0.4.279.3: Aktiv-/Ausschluss-Aenderung im Implantat-Reiter sofort
 // in die "x von y Elektroden gewaehlt"-Anzeige der Mess-Verfahren
 // durchreichen (sonst erst beim naechsten Seitenwechsel/Laden aktuell).
-function _freqTableRefreshMeasSummaries() {
+function _frq_implantatTableRefreshMeasSummaries() {
   if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
   if (typeof stereobalanceRefreshElectrodeSelectionSummary === "function") stereobalanceRefreshElectrodeSelectionSummary();
   if (typeof FRQ_refreshElectrodeSelectionSummary === "function") FRQ_refreshElectrodeSelectionSummary();
 }
-function buildFreqTable() {
+function FRQ_implantatTableBuild() {
   const im = sideData[activeSide].implant || {};
   const cfg = sideData[activeSide].config || "ci";
   const isAcoustic = ["hg", "normal", "shoh"].includes(cfg);  // BA 153
@@ -20,9 +20,9 @@ function buildFreqTable() {
   const isUnknownMfr = !isAcoustic && cfg === "ci"
     && (sideData[activeSide].manufacturer === "unknown" || !sideData[activeSide].manufacturer);
   const _hideTableArea = () => {
-    document.getElementById("freqTH").innerHTML = "";
-    document.getElementById("freqTB").innerHTML = "";
-    const ids = ["freqDeactHintEl","freqAbfHintEl","freqExclHintEl","implTonePopupRow"];
+    document.getElementById("FRQ_implantatTableHead").innerHTML = "";
+    document.getElementById("FRQ_implantatTableBody").innerHTML = "";
+    const ids = ["FRQ_implantatDeactHintEl","FRQ_implantatAbfHintEl","FRQ_implantatExclHintEl","implTonePopupRow"];
     ids.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = "none"; });
   };
   if (isUnknownCfg || isUnknownMfr) { _hideTableArea(); return; }
@@ -41,7 +41,7 @@ function buildFreqTable() {
       : t("implMLvlHdr");
   if (isAcoustic) {
     // BA 153: 8 Spalten ohne Hz-eigen, THR, Upper
-    document.getElementById("freqTH").innerHTML =
+    document.getElementById("FRQ_implantatTableHead").innerHTML =
       `<th>${elLbl}</th>` +
       `<th>${t("thHzCi")}</th>` +
       `<th>${t("thSt")}</th>` +
@@ -49,10 +49,10 @@ function buildFreqTable() {
       `<th>${t("thNote")}</th>`;
   } else {
     // BA 164: neue Spalte „Aktiv" vor Status
-    document.getElementById("freqTH").innerHTML =
+    document.getElementById("FRQ_implantatTableHead").innerHTML =
       `<th>${elLbl}</th><th>${t("thHzStd")}</th><th>${t("thHzOwn")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th style="white-space:nowrap">${t("thActive")}</th><th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th><th>${t("thNote")}</th>`;
   }
-  const tb = document.getElementById("freqTB");
+  const tb = document.getElementById("FRQ_implantatTableBody");
   tb.innerHTML = "";
   const inpStyle =
     "width:60px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em";
@@ -65,7 +65,7 @@ function buildFreqTable() {
       if (i === nEl - 1) ex = ` <span class="el-extra">(${t("basal")})</span>`;
       // CI-Frequenz pro Elektrode aus der Gegenseite zur Anzeige
       const ciSide = activeSide === "left" ? "right" : "left";
-      const ciEffHz = Math.round(withSide(ciSide, () => effFreq(i)));
+      const ciEffHz = Math.round(withSide(ciSide, () => FRQ_implantatEffektiv(i)));
       const ownExcl = elExDur[i] != null;
       if (ownExcl) tr.style.opacity = "0.55";
       // Status-Optionen ohne „im CI deaktiviert", mit akustischer Wortwahl
@@ -93,8 +93,8 @@ function buildFreqTable() {
     const isExcl  = elExDur[i] !== null;
     // BA 164: Aktivitäts-Status aus globaler elActive
     const isDeact = (elActive && elActive[i] === false);
-    const stdHz   = Math.round(freqs[i]);
-    const ownVal  = elFreqOwn[i] != null ? Math.round(elFreqOwn[i]) : "";
+    const stdHz   = Math.round(FRQ_implantat[i]);
+    const ownVal  = FRQ_implantatOwn[i] != null ? Math.round(FRQ_implantatOwn[i]) : "";
     const thrVal  =
       im.thr && im.thr[i] !== null && im.thr[i] !== undefined ? im.thr[i] : "";
     const upperVal = isMedel
@@ -134,25 +134,25 @@ function buildFreqTable() {
     tb.appendChild(tr);
     tr.querySelector(".ss").value = elSt[i] || "";
   }
-  // Hz own inputs — BA 169: kein buildFreqTable() mehr, damit Tab-Fokus erhalten bleibt
+  // Hz own inputs — BA 169: kein FRQ_implantatTableBuild() mehr, damit Tab-Fokus erhalten bleibt
   tb.querySelectorAll(".fo").forEach((inp) =>
     inp.addEventListener("change", (e) => {
       const i = +e.target.dataset.i,
         v = parseFloat(e.target.value);
       if (e.target.value === "" || isNaN(v)) {
-        elFreqOwn[i] = null;
+        FRQ_implantatOwn[i] = null;
         e.target.value = "";
       } else if (v >= 20 && v <= 20000) {
-        elFreqOwn[i] = v;
+        FRQ_implantatOwn[i] = v;
       } else {
-        e.target.value = elFreqOwn[i] != null ? Math.round(elFreqOwn[i]) : "";
+        e.target.value = FRQ_implantatOwn[i] != null ? Math.round(FRQ_implantatOwn[i]) : "";
         return; // ungültiger Wert: keine Updates
       }
       // BA 169: schmale Hinweise-Aktualisierung statt voller Rebuild.
-      // depLockApply wird intern in updateFreqTableHints aufgerufen.
-      updateFreqTableHints();
+      // depLockApply wird intern in frq_implantatTableUpdateHints aufgerufen.
+      frq_implantatTableUpdateHints();
       // Plausibilitätsprüfung neu laufen lassen (wie bei THR/Upper).
-      // Ging beim BA-169-Umbau vom vollen buildFreqTable() verloren.
+      // Ging beim BA-169-Umbau vom vollen FRQ_implantatTableBuild() verloren.
       if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
     }),
   );
@@ -232,7 +232,7 @@ function buildFreqTable() {
       if (val === "mute") {
         elExDur[idx] = elExDur[idx] || Date.now();
       }
-      buildFreqTable();
+      FRQ_implantatTableBuild();
       updRef();
       // BA 152
       if (typeof depLockApply === 'function') depLockApply();
@@ -242,9 +242,9 @@ function buildFreqTable() {
     cb.addEventListener("change", (e) => {
       const idx = +e.target.dataset.i;
       elExDur[idx] = e.target.checked ? elExDur[idx] || Date.now() : null;
-      buildFreqTable();
+      FRQ_implantatTableBuild();
       updRef();
-      _freqTableRefreshMeasSummaries();
+      _frq_implantatTableRefreshMeasSummaries();
     }),
   );
   // BA 164: Aktiv-Checkbox
@@ -266,10 +266,10 @@ function buildFreqTable() {
       // Funktionen den neuen Stand sehen.
       elActive = arr;
       // BA 164: KEINE Auto-Verknüpfung zur Ausschluss-Checkbox.
-      buildFreqTable();
+      FRQ_implantatTableBuild();
       updRef();
       if (typeof depLockApply === 'function') depLockApply();
-      _freqTableRefreshMeasSummaries();
+      _frq_implantatTableRefreshMeasSummaries();
     }),
   );
   tb.querySelectorAll(".ni").forEach((n) =>
@@ -278,25 +278,25 @@ function buildFreqTable() {
     }),
   );
   // BA 164/165: Hinweis & Warnung aus elActive[] + Sichtbarkeit nach „eigene Hz vollständig"
-  const hintEl = document.getElementById("freqDeactHintEl");
+  const hintEl = document.getElementById("FRQ_implantatDeactHintEl");
   const hasDeact = (elActive || []).some((a) => a === false);
-  // BA 165: „vollständig eigene Hz" = jede aktive Elektrode hat elFreqOwn[i] != null
+  // BA 165: „vollständig eigene Hz" = jede aktive Elektrode hat FRQ_implantatOwn[i] != null
   const ownHzComplete = [...Array(nEl).keys()]
     .filter((i) => elActive[i] !== false)
-    .every((i) => elFreqOwn[i] != null);
+    .every((i) => FRQ_implantatOwn[i] != null);
   if (hintEl) {
-    hintEl.innerHTML = t("freqDeactHint");
+    hintEl.innerHTML = t("FRQ_implantatDeactHint");
     // isAcoustic: Hinweise gelten nur für CI-Tabelle mit Aktiv-Spalte
     hintEl.style.display = (isAcoustic || ownHzComplete) ? "none" : "";
   }
-  const abfHintEl = document.getElementById("freqAbfHintEl");
+  const abfHintEl = document.getElementById("FRQ_implantatAbfHintEl");
   if (abfHintEl) {
-    abfHintEl.innerHTML = t("freqAbfHint");
+    abfHintEl.innerHTML = t("FRQ_implantatAbfHint");
     abfHintEl.style.display = (isAcoustic || ownHzComplete) ? "none" : "";
   }
-  const exclHintEl = document.getElementById("freqExclHintEl");
+  const exclHintEl = document.getElementById("FRQ_implantatExclHintEl");
   if (exclHintEl) {
-    exclHintEl.innerHTML = t("freqExclHint");
+    exclHintEl.innerHTML = t("FRQ_implantatExclHint");
     exclHintEl.style.display = isAcoustic ? "none" : "";
   }
   if (typeof _implTonePopupUpdLabel === "function") _implTonePopupUpdLabel();
@@ -306,7 +306,7 @@ function buildFreqTable() {
   let wb = document.getElementById("deactWarnBar");
   const activeHasDefault = [...Array(nEl).keys()]
     .filter((i) => elActive[i] !== false)
-    .some((i) => elFreqOwn[i] == null);
+    .some((i) => FRQ_implantatOwn[i] == null);
   if (hasDeact && activeHasDefault) {
     if (!wb) {
       wb = document.createElement("div");
@@ -314,10 +314,10 @@ function buildFreqTable() {
       wb.className = "warning-bar";
       wb.style.cssText =
         "background:#fee2e2;color:#dc2626;border-left:3px solid #dc2626;padding:8px 14px;border-radius:6px;margin-bottom:10px;font-size:.88em;line-height:1.5";
-      const freqCard = document.getElementById("freqTable").closest(".card");
-      freqCard.insertBefore(
+      const frq_implantatCard = document.getElementById("FRQ_implantatTable").closest(".card");
+      frq_implantatCard.insertBefore(
         wb,
-        document.getElementById("freqTable").parentElement,
+        document.getElementById("FRQ_implantatTable").parentElement,
       );
     }
     wb.innerHTML = t("warnDeactivated");
@@ -334,7 +334,7 @@ function buildFreqTable() {
 // BA 169: Aktualisiert nur die Hz-abhängigen Hinweise und den Warnbalken,
 // ohne die Tabelle neu zu rendern. Wird vom .fo-change-Handler aufgerufen,
 // damit Tab-Fokus zwischen Eingabefeldern erhalten bleibt.
-function updateFreqTableHints() {
+function frq_implantatTableUpdateHints() {
   const cfg = sideData[activeSide].config || "ci";
   const isAcoustic = ["hg", "normal", "shoh"].includes(cfg);
   const isUnknownCfg = cfg === "unknown";
@@ -348,7 +348,7 @@ function updateFreqTableHints() {
   // Wenn die Tabelle gar nicht gerendert würde: Hinweise und Warnbalken aus.
   // (Sollte beim .fo-change normalerweise nicht eintreten — Sicherheitsnetz.)
   if (isUnknownCfg || isUnknownMfr || bothAcoustic) {
-    ["freqDeactHintEl","freqAbfHintEl"].forEach((id) => {
+    ["FRQ_implantatDeactHintEl","FRQ_implantatAbfHintEl"].forEach((id) => {
       const el = document.getElementById(id);
       if (el) el.style.display = "none";
     });
@@ -356,15 +356,15 @@ function updateFreqTableHints() {
     if (wbOff) wbOff.remove();
     return;
   }
-  // „vollständig eigene Hz" = jede aktive Elektrode hat elFreqOwn[i] != null
+  // „vollständig eigene Hz" = jede aktive Elektrode hat FRQ_implantatOwn[i] != null
   const ownHzComplete = [...Array(nEl).keys()]
     .filter((i) => elActive[i] !== false)
-    .every((i) => elFreqOwn[i] != null);
-  const hintEl = document.getElementById("freqDeactHintEl");
+    .every((i) => FRQ_implantatOwn[i] != null);
+  const hintEl = document.getElementById("FRQ_implantatDeactHintEl");
   if (hintEl) {
     hintEl.style.display = (isAcoustic || ownHzComplete) ? "none" : "";
   }
-  const abfHintEl = document.getElementById("freqAbfHintEl");
+  const abfHintEl = document.getElementById("FRQ_implantatAbfHintEl");
   if (abfHintEl) {
     abfHintEl.style.display = (isAcoustic || ownHzComplete) ? "none" : "";
   }
@@ -372,7 +372,7 @@ function updateFreqTableHints() {
   const hasDeact = (elActive || []).some((a) => a === false);
   const activeHasDefault = [...Array(nEl).keys()]
     .filter((i) => elActive[i] !== false)
-    .some((i) => elFreqOwn[i] == null);
+    .some((i) => FRQ_implantatOwn[i] == null);
   let wb = document.getElementById("deactWarnBar");
   if (hasDeact && activeHasDefault) {
     if (!wb) {
@@ -381,10 +381,10 @@ function updateFreqTableHints() {
       wb.className = "warning-bar";
       wb.style.cssText =
         "background:#fee2e2;color:#dc2626;border-left:3px solid #dc2626;padding:8px 14px;border-radius:6px;margin-bottom:10px;font-size:.88em;line-height:1.5";
-      const freqCard = document.getElementById("freqTable").closest(".card");
-      freqCard.insertBefore(
+      const frq_implantatCard = document.getElementById("FRQ_implantatTable").closest(".card");
+      frq_implantatCard.insertBefore(
         wb,
-        document.getElementById("freqTable").parentElement,
+        document.getElementById("FRQ_implantatTable").parentElement,
       );
     }
     wb.innerHTML = t("warnDeactivated");
@@ -444,8 +444,8 @@ function switchMfr(m) {
   // Erreicht der Code diesen Punkt, ist das Feld nicht gesperrt — Wechsel frei.
   s.manufacturer = m;
   s.nEl = MFR[m].n;
-  s.freqs = [...MFR[m].freqs];
-  s.elFreqOwn = new Array(s.nEl).fill(null);
+  s.FRQ_implantat = [...MFR[m].FRQ_implantat];
+  s.FRQ_implantatOwn = new Array(s.nEl).fill(null);
   s.elSt = new Array(s.nEl).fill(null);
   s.elNt = new Array(s.nEl).fill("");
   s.elExDur = new Array(s.nEl).fill(null);
@@ -476,18 +476,18 @@ function switchMfr(m) {
   elektrodenlautstaerkeResults.splice(0, elektrodenlautstaerkeResults.length);
   refEl = Math.floor(nEl / 2);
   // Sync akustische Seite wenn nötig
-  syncFreqsToAcoustic();
-  buildFreqTable();
+  FRQ_implantatSyncToAcoustic();
+  FRQ_implantatTableBuild();
   buildImplantCard();
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
   // BA 172: Tab-Sperre L1 neu bewerten
   if (typeof tabLockApply === 'function') tabLockApply();
 }
-function resetFreqs() {
-  freqs = [...MFR[mfr].freqs];
-  elFreqOwn.fill(null);
-  buildFreqTable();
+function frq_implantatReset() {
+  FRQ_implantat = [...MFR[mfr].FRQ_implantat];
+  FRQ_implantatOwn.fill(null);
+  FRQ_implantatTableBuild();
 }
 
 // ============================================================

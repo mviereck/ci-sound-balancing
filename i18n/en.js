@@ -64,9 +64,9 @@ Object.assign(L.en, {
     no: "no",
     introAudioDesc:
       "The results can be printed. The printout contains the measurement results, your desired corrections, and the resulting equalizer values.",
-    freqTitle: "Implant & electrodes",
+    FRQ_implantatTitle: "Implant & electrodes",
     lblMfr: "Manufacturer:",
-    freqDeactHint:
+    FRQ_implantatDeactHint:
       "<b>Important – deactivated electrodes:</b> If electrodes in your CI are deactivated, the implant distributes the frequency range across the remaining active electrodes. The center frequencies of all other electrodes shift accordingly — the default values pre-configured here no longer apply.<br>Uncheck deactivated electrodes in the “Active” column and enter the current center frequencies from your fitting. Without correct frequencies, the measurement and the player equalizer are not meaningful.",
     thEl: "El.",
     thHzStd: "Hz standard",
@@ -564,9 +564,9 @@ Object.assign(L.en, {
     plSrcCurves: "Curves",
     plBothLabel: "Play both sides with their respective adjustments",
     plMonoLabel: "Mix stereo down to mono",
-    freqAbfHint:
+    FRQ_implantatAbfHint:
       "<b>Important – Anatomy Based Fitting (ABF) and FAT:</b> Even with Anatomy Based Fitting (ABF), different center frequencies apply to the electrodes. In general: ask your audiologist for the FAT (Frequency Allocation Table) of your CI to learn all the frequencies assigned to the electrodes.",
-    freqExclHint:
+    FRQ_implantatExclHint:
       "Please check the sound quality of each electrode using the <b>Play electrodes via tones</b> button.<ul><li>Use the <b>Status</b> dropdown to indicate the quality of each electrode.</li><li>You can exclude poorly audible electrodes from tests in the <b>Exclude</b> column. Deactivated electrodes are automatically excluded from tests.</li></ul>",
     printPlayerTitle: "Player settings",
     implTitle: "Implant data",

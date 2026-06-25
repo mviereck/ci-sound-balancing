@@ -3,7 +3,7 @@
 // ============================================================
 // Architektur:
 //   validateImplantTable(side) wird nach jedem Re-Render von
-//   buildFreqTable() in freq-table.js aufgerufen. Sie sammelt
+//   FRQ_implantatTableBuild() in freq-table.js aufgerufen. Sie sammelt
 //   Warnungen aus einzelnen Prüfungs-Funktionen (_check…),
 //   trägt die strengste Warnung pro Feld als CSS-Klassen-Rand
 //   an die Eingabefelder und rendert eine Liste in der
@@ -122,8 +122,8 @@ const IMPL_VAL_UNIT = {
 
 function _implEffFreqOf(s, i) {
   if (!s) return 0;
-  if (s.elFreqOwn && s.elFreqOwn[i] != null) return s.elFreqOwn[i];
-  return s.freqs ? s.freqs[i] : 0;
+  if (s.FRQ_implantatOwn && s.FRQ_implantatOwn[i] != null) return s.FRQ_implantatOwn[i];
+  return s.FRQ_implantat ? s.FRQ_implantat[i] : 0;
 }
 
 function _implThrOf(s, i) {
@@ -338,9 +338,9 @@ function _implCheckHzRange(s) {
   for (let i = 0; i < s.nEl; i++) {
     // BA 164
     if (s.elActive && s.elActive[i] === false) continue;
-    if (!s.elFreqOwn || s.elFreqOwn[i] == null) continue;
+    if (!s.FRQ_implantatOwn || s.FRQ_implantatOwn[i] == null) continue;
 
-    const hz = s.elFreqOwn[i];
+    const hz = s.FRQ_implantatOwn[i];
     if (hz < range.min || hz > range.max) {
       warnings.push({
         level: IMPL_VAL_LEVEL_RED,
@@ -361,17 +361,17 @@ function _implCheckHzRange(s) {
 
 function _implCheckHzMagnitude(s) {
   const warnings = [];
-  if (!s || !s.nEl || !s.freqs) return warnings;
+  if (!s || !s.nEl || !s.FRQ_implantat) return warnings;
   const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
   const fac = IMPL_VAL_HZ_MAGNITUDE_FACTOR;
 
   for (let i = 0; i < s.nEl; i++) {
     // BA 164
     if (s.elActive && s.elActive[i] === false) continue;
-    if (!s.elFreqOwn || s.elFreqOwn[i] == null) continue;
+    if (!s.FRQ_implantatOwn || s.FRQ_implantatOwn[i] == null) continue;
 
-    const eigen = s.elFreqOwn[i];
-    const def = s.freqs[i];
+    const eigen = s.FRQ_implantatOwn[i];
+    const def = s.FRQ_implantat[i];
     if (!def || def <= 0) continue;
 
     const ratio = eigen / def;
@@ -419,9 +419,9 @@ function _implCheckHzCochlearLookup(s) {
     // BA 164
     if (s.elActive && s.elActive[i] === false) continue;
     // Nur User-Override prüfen.
-    if (!s.elFreqOwn || s.elFreqOwn[i] == null) continue;
+    if (!s.FRQ_implantatOwn || s.FRQ_implantatOwn[i] == null) continue;
 
-    const eigen = s.elFreqOwn[i];
+    const eigen = s.FRQ_implantatOwn[i];
     const expected = fat[i];
     if (!expected || expected <= 0 || eigen <= 0) continue;
 
@@ -453,7 +453,7 @@ function _implCheckHzCochlearLookup(s) {
 
 function _implCheckHzTrendMedelAb(s) {
   const warnings = [];
-  if (!s || !s.nEl || !s.freqs) return warnings;
+  if (!s || !s.nEl || !s.FRQ_implantat) return warnings;
   if (s.manufacturer !== 'medel' && s.manufacturer !== 'ab') return warnings;
   const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
 
@@ -464,9 +464,9 @@ function _implCheckHzTrendMedelAb(s) {
   for (let i = 0; i < s.nEl; i++) {
     // BA 164
     if (s.elActive && s.elActive[i] === false) continue;
-    if (!s.elFreqOwn || s.elFreqOwn[i] == null) continue;
-    const eigen = s.elFreqOwn[i];
-    const def = s.freqs[i];
+    if (!s.FRQ_implantatOwn || s.FRQ_implantatOwn[i] == null) continue;
+    const eigen = s.FRQ_implantatOwn[i];
+    const def = s.FRQ_implantat[i];
     if (!eigen || !def || eigen <= 0 || def <= 0) continue;
     versatz[i] = 1200 * Math.log2(eigen / def);
   }
@@ -508,7 +508,7 @@ function _implCheckHzTrendMedelAb(s) {
 
 function _implCheckHzJumpMedelAb(s) {
   const warnings = [];
-  if (!s || !s.nEl || !s.freqs) return warnings;
+  if (!s || !s.nEl || !s.FRQ_implantat) return warnings;
   if (s.manufacturer !== 'medel' && s.manufacturer !== 'ab') return warnings;
   const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
 
@@ -521,17 +521,17 @@ function _implCheckHzJumpMedelAb(s) {
     // Sprung-Prüfung nur, wenn mindestens eine der beiden
     // Elektroden einen User-Override hat — sonst sind die Werte
     // = Default und die Schrittweite stimmt per Konstruktion.
-    const hasOverride = (s.elFreqOwn && s.elFreqOwn[i] != null)
-                     || (s.elFreqOwn && s.elFreqOwn[i + 1] != null);
+    const hasOverride = (s.FRQ_implantatOwn && s.FRQ_implantatOwn[i] != null)
+                     || (s.FRQ_implantatOwn && s.FRQ_implantatOwn[i + 1] != null);
     if (!hasOverride) continue;
 
-    const hzI = (s.elFreqOwn && s.elFreqOwn[i]     != null) ? s.elFreqOwn[i]     : s.freqs[i];
-    const hzJ = (s.elFreqOwn && s.elFreqOwn[i + 1] != null) ? s.elFreqOwn[i + 1] : s.freqs[i + 1];
+    const hzI = (s.FRQ_implantatOwn && s.FRQ_implantatOwn[i]     != null) ? s.FRQ_implantatOwn[i]     : s.FRQ_implantat[i];
+    const hzJ = (s.FRQ_implantatOwn && s.FRQ_implantatOwn[i + 1] != null) ? s.FRQ_implantatOwn[i + 1] : s.FRQ_implantat[i + 1];
     if (!hzI || !hzJ || hzI <= 0 || hzJ <= 0) continue;
-    if (!s.freqs[i] || !s.freqs[i + 1]) continue;
+    if (!s.FRQ_implantat[i] || !s.FRQ_implantat[i + 1]) continue;
 
     const stepUser  = 1200 * Math.log2(hzJ / hzI);
-    const stepDef   = 1200 * Math.log2(s.freqs[i + 1] / s.freqs[i]);
+    const stepDef   = 1200 * Math.log2(s.FRQ_implantat[i + 1] / s.FRQ_implantat[i]);
     const dev = Math.abs(stepUser - stepDef);
 
     let level = null;
@@ -741,7 +741,7 @@ function _implCheckFatOnDeactivation(s) {
   //   Alle aktiven Elektroden haben einen Hz-eigen-Override.
   //   Deutet auf vollständige globale Umverteilung der FAT.
   const allActiveOverridden = activeIdxs.every(function (i) {
-    return s.elFreqOwn && s.elFreqOwn[i] != null;
+    return s.FRQ_implantatOwn && s.FRQ_implantatOwn[i] != null;
   });
   if (allActiveOverridden) return warnings; // global-Test bestanden
 
@@ -756,7 +756,7 @@ function _implCheckFatOnDeactivation(s) {
     return neighbors.some(function (n) {
       // BA 164
       if (s.elActive && s.elActive[n] === false) return false;
-      return s.elFreqOwn && s.elFreqOwn[n] != null;
+      return s.FRQ_implantatOwn && s.FRQ_implantatOwn[n] != null;
     });
   });
   if (localTestPassed) return warnings; // lokal-Test bestanden
@@ -842,7 +842,7 @@ function _implCheckInfoFreqOwn(s) {
   for (let i = 0; i < s.nEl; i++) {
     if (s.elActive && s.elActive[i] === false) continue;
     totalActive++;
-    if (s.elFreqOwn && s.elFreqOwn[i] != null) ownCount++;
+    if (s.FRQ_implantatOwn && s.FRQ_implantatOwn[i] != null) ownCount++;
   }
   if (totalActive === 0) return warnings;
 

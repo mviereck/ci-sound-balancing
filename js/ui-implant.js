@@ -97,7 +97,7 @@ function buildImplantCard() {
   const hintDeaf = document.getElementById("cfgHintDeafEl");
   if (hintAc) {
     const isAcoustic = ["hg","normal","shoh"].includes(cfg);
-    const src = getFreqSource();
+    const src = FRQ_implantatGetSource();
     // BA 165: Hinweis nur sinnvoll, wenn andere Seite tatsächlich CI ist.
     // Sonst greift cfgHintBothAcoustic (an anderer Stelle gerendert).
     const showAc = isAcoustic && !!src;
@@ -274,7 +274,7 @@ function _implTonePopupUpdLabel() {
 
 function _implTpElectrodeFreqs() {
   var arr = [];
-  for (var i = 0; i < nEl; i++) arr.push(effFreq(i));
+  for (var i = 0; i < nEl; i++) arr.push(FRQ_implantatEffektiv(i));
   return arr;
 }
 
