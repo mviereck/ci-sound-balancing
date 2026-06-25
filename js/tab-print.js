@@ -146,7 +146,7 @@ function printErgebnisseTab() {
   if (!sub) return;
   const id = sub.id;
   if (id === "subpanel-ergebnisse-results")  return _printResLoudness();
-  if (id === "subpanel-ergebnisse-stereobalance") return _printResLR();
+  if (id === "subpanel-ergebnisse-lrresults") return _printResLR();
   if (id === "subpanel-ergebnisse-freqmatch") return _printResFreqmatch();
   if (id === "subpanel-ergebnisse-latenz")    return _printResLatency();
 }

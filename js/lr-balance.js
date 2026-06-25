@@ -1063,9 +1063,9 @@ document
     setTimeout(function() { stereobalanceCheckData(); }, 0);
   });
 
-// Hook into stereobalance subtab activation
+// Hook into lrresults subtab activation
 document
-  .querySelector('.subtab[data-subtab="stereobalance"][data-parent="ergebnisse"]')
+  .querySelector('.subtab[data-subtab="lrresults"][data-parent="ergebnisse"]')
   ?.addEventListener('click', function() {
     setTimeout(function() { stereobalanceCheckData(); stereobalanceDrawChart(); }, 0);
   });

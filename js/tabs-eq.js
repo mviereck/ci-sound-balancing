@@ -27,7 +27,7 @@ function _switchSubtabInternal(parent, subtab) {
   });
   // Callbacks
   if (parent === "ergebnisse" && subtab === "results") renderResults();
-  if (parent === "ergebnisse" && subtab === "stereobalance") {
+  if (parent === "ergebnisse" && subtab === "lrresults") {
     stereobalanceCheckData();
     stereobalanceDrawChart();
   }
