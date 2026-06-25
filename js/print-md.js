@@ -231,14 +231,14 @@ function _collectSideData(side) {
 
     // Frequenzabgleich — Quelle ist _warpFResSource() (FRQ_resultsArray + Provisionals
     // aus laufendem Test), identisch zu Player/Equalizer-Graph.
-    const fmRows = [];
-    const fmSrc = (typeof _warpFResSource === "function")
+    const frq_rows = [];
+    const frq_src = (typeof _warpFResSource === "function")
       ? _warpFResSource()
       : ((typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) ? FRQ_resultsArray : []);
-    for (const r of fmSrc) {
+    for (const r of frq_src) {
       if (r.varSide !== side) continue;
       const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
-      fmRows.push({
+      frq_rows.push({
         elIdx: r.elIdx,
         elLabel: `${dENPrefix()}${dEN(r.elIdx)}`,
         varFreq: r.varFreq,
@@ -282,8 +282,8 @@ function _collectSideData(side) {
         list: kurvList,
       },
       freqmatch: {
-        has: fmRows.length > 0,
-        rows: fmRows,
+        has: frq_rows.length > 0,
+        rows: frq_rows,
       },
     };
   });
@@ -900,18 +900,18 @@ function _audiologLoudnessTable(side) {
 function _audiologFmRowsForSide(side) {
   if (typeof pWarpOn === "undefined" || !pWarpOn) return [];
   if (typeof buildWarpPoints !== "function" || typeof centShift !== "function") return [];
-  const fmSrc = (typeof _warpFResSource === "function")
+  const frq_src = (typeof _warpFResSource === "function")
     ? _warpFResSource()
     : ((typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) ? FRQ_resultsArray : []);
-  if (fmSrc.length === 0) return [];
+  if (frq_src.length === 0) return [];
 
   const mode = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
-  const points = buildWarpPoints(fmSrc, mode);
+  const points = buildWarpPoints(frq_src, mode);
 
   const elIdxSet = new Set();
   const provByEl = {};
   const sliderByEl = {};
-  for (const r of fmSrc) {
+  for (const r of frq_src) {
     elIdxSet.add(r.elIdx);
     if (r._sliderEstimate)   sliderByEl[r.elIdx] = true;
     else if (r._provisional) provByEl[r.elIdx]   = true;

@@ -181,10 +181,10 @@ function _frq_shouldShowCochlearFatHint() {
 function _frq_refreshCochlearFatHintVisibility() {
   if (!FRQ_els) return;
   const visible = _frq_shouldShowCochlearFatHint();
-  testUI.explain.setVisible(FRQ_els, 'fmCochlearFatHintPara', visible);
+  testUI.explain.setVisible(FRQ_els, 'FRQ_cochlearFatHintPara', visible);
   // Datum in den Text einsetzen (jedes Mal frisch, falls Sprache wechselt).
   if (visible) {
-    const el = FRQ_els.explainBox && FRQ_els.explainBox.querySelector('#fmCochlearFatHintPara');
+    const el = FRQ_els.explainBox && FRQ_els.explainBox.querySelector('#FRQ_cochlearFatHintPara');
     if (el) {
       const d = new Date(COCHLEAR_FAT_CORRECTION_DATE);
       const dateStr = d.getUTCFullYear() + '-'
@@ -546,7 +546,7 @@ function _frq_persist() {
   if (!run || run.completedAt != null) {
     // Kein aktiver Lauf → neuen Lauf anlegen.
     // startSigns/pairedToPrevious werden in frq_startAdaptive vorher berechnet
-    // und in fmCurStartSigns/frq_currentPairedToPrevious zwischengespeichert.
+    // und in frq_currentStartSigns/frq_currentPairedToPrevious zwischengespeichert.
     const elList = Array.from(new Set(
       Object.keys(frq_tracks).map(function(k) {
         return frq_parseTrackKey(k).electrodeIdx;
@@ -1389,7 +1389,7 @@ function _frq_refreshHighGainWarningVisibility() {
   // HG-Warnung nur zeigen, wenn Test nicht ohnehin geblockt ist.
   const blocked = _frq_evalTestEligibility().blocked;
   const visible = hasHG && !blocked;
-  testUI.explain.setVisible(FRQ_els, 'fmHGWarnPara', visible);
+  testUI.explain.setVisible(FRQ_els, 'FRQ_highGainWarnPara', visible);
 }
 
 
@@ -1401,9 +1401,9 @@ function _frq_hasLvData(side) {
 }
 
 function _frq_renderPrereqHints() {
-  const elsLeftEl  = document.getElementById('fmPrereqLvLeftPara');
-  const elsRightEl = document.getElementById('fmPrereqLvRightPara');
-  const sbEl      = document.getElementById('fmPrereqSbHintPara');
+  const elsLeftEl  = document.getElementById('FRQ_prereqLvLeftPara');
+  const elsRightEl = document.getElementById('FRQ_prereqLvRightPara');
+  const sbEl      = document.getElementById('FRQ_prereqSbHintPara');
   if (elsLeftEl)  elsLeftEl.style.display  = _frq_hasLvData('left')  ? 'none' : '';
   if (elsRightEl) elsRightEl.style.display = _frq_hasLvData('right') ? 'none' : '';
   if (sbEl) {
@@ -1592,7 +1592,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!parentEl) return;
   _frq_parentEl = parentEl;
 
-  const fmCfg = {
+  const frq_cfg = {
     id: 'freqmatch',
     explain: {
       titleKey: 'FRQ_title',
@@ -1605,15 +1605,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Warn-Absaetze, deren Sichtbarkeit dynamisch umgeschaltet wird
         // (Initial hidden=true; testUI.explain.setVisible blendet bei Bedarf ein).
-        { key: 'FRQ_highGainWarn',               kind: 'warn',    id: 'fmHGWarnPara',
+        { key: 'FRQ_highGainWarn',               kind: 'warn',    id: 'FRQ_highGainWarnPara',
                                          hidden: true },
-        { key: 'FRQ_cochlearFatCorrectionInfo', kind: 'warn', id: 'fmCochlearFatHintPara',
+        { key: 'FRQ_cochlearFatCorrectionInfo', kind: 'warn', id: 'FRQ_cochlearFatHintPara',
                                          hidden: true },
 
         // Voraussetzungen — bleiben bedingt sichtbar (durch _frq_renderPrereqHints).
-        { key: 'FRQ_prereqLvLeft',         kind: 'warn',    id: 'fmPrereqLvLeftPara'    },
-        { key: 'FRQ_prereqLvRight',        kind: 'warn',    id: 'fmPrereqLvRightPara'   },
-        { key: 'FRQ_prereqSb',             kind: 'warn',    id: 'fmPrereqSbHintPara'    },
+        { key: 'FRQ_prereqLvLeft',         kind: 'warn',    id: 'FRQ_prereqLvLeftPara'    },
+        { key: 'FRQ_prereqLvRight',        kind: 'warn',    id: 'FRQ_prereqLvRightPara'   },
+        { key: 'FRQ_prereqSb',             kind: 'warn',    id: 'FRQ_prereqSbHintPara'    },
 
         // Gruppe 1: beidseitiges CI.
         { key: 'FRQ_groupBothCi',          kind: 'heading' },
@@ -1626,7 +1626,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { key: 'FRQ_hintWarn',             kind: 'caution' },
 
         // BA364: Vor-Schaetzung/Adaptiv-Workflow im Klavier-only-Betrieb aus.
-        { key: 'FRQ_hintWorkflow',         kind: 'plain', id: 'fmHintWorkflowPara',
+        { key: 'FRQ_hintWorkflow',         kind: 'plain', id: 'FRQ_hintWorkflowPara',
                                          hidden: true }
       ]
     },
@@ -1936,7 +1936,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ]
   };
 
-  FRQ_els = buildTestPanel(parentEl, fmCfg);
+  FRQ_els = buildTestPanel(parentEl, frq_cfg);
 
   // Events: Referenzseiten-Wechsel (BA 151: Sperre statt Custom-Dialog)
   FRQ_els.header.refSelect.addEventListener('change', function() {
