@@ -450,7 +450,7 @@
           <button class="subtab active" data-subtab="elektrodenlautstaerke" data-parent="messungen" data-t="tabElektrodenlautstaerke"></button>
           <button class="subtab" data-subtab="stereobalance" data-parent="messungen" data-t="tabStereobalance"></button>
           <button class="subtab" data-subtab="latenz" data-parent="messungen" id="latenzSubtabBtn" data-t="tabLatenz"></button>
-          <button class="subtab" data-subtab="freqmatch" data-parent="messungen" id="fmSubtabBtn" data-t="subTabFreqMatch"></button>
+          <button class="subtab" data-subtab="freqmatch" data-parent="messungen" id="FRQ_subtabBtn" data-t="subTabFreqMatch"></button>
         </div>
         <div id="subpanel-messungen-elektrodenlautstaerke" class="subpanel active">
           <!-- Inhalt wird von test-ui.js / test.js erzeugt -->
@@ -697,10 +697,10 @@
             ></div>
             <!-- BA353: vorlaeufiger Umschalter aktives Verfahren -->
             <!-- BA363 Klavier-only: ausgeblendet; zum Reaktivieren display:none entfernen -->
-            <div id="fmActiveMethodSwitch" style="display:none">
-              <button id="fmActiveMethodAdaptiveBtn" class="btn btn-sm" style="font-weight:600;border-radius:6px" data-t="fmModeAdaptive"></button>
-              <button id="fmActiveMethodSliderBtn" class="btn btn-sm" style="font-weight:600;border-radius:6px" data-t="fmModeSlider"></button>
-              <button id="fmActiveMethodPianoBtn" class="btn btn-sm" style="font-weight:600;border-radius:6px" data-t="fmModePiano"></button>
+            <div id="FRQ_activeMethodSwitch" style="display:none">
+              <button id="FRQ_activeMethodAdaptiveBtn" class="btn btn-sm" style="font-weight:600;border-radius:6px" data-t="fmModeAdaptive"></button>
+              <button id="FRQ_activeMethodSliderBtn" class="btn btn-sm" style="font-weight:600;border-radius:6px" data-t="fmModeSlider"></button>
+              <button id="FRQ_activeMethodPianoBtn" class="btn btn-sm" style="font-weight:600;border-radius:6px" data-t="fmModePiano"></button>
             </div>
             <div class="chart-container" style="margin-bottom:16px">
               <canvas id="fmrChart" width="800" height="360"></canvas>

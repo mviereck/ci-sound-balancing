@@ -821,9 +821,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // BA353: Umschalter aktives Verfahren.
   // BA363 Klavier-only: Listener auskommentiert; zum Reaktivieren entfernen.
-  // const _fmAdaBtn = document.getElementById("fmActiveMethodAdaptiveBtn");
-  // const _fmSliBtn = document.getElementById("fmActiveMethodSliderBtn");
-  // const _fmPiaBtn = document.getElementById("fmActiveMethodPianoBtn");
+  // const _fmAdaBtn = document.getElementById("FRQ_activeMethodAdaptiveBtn");
+  // const _fmSliBtn = document.getElementById("FRQ_activeMethodSliderBtn");
+  // const _fmPiaBtn = document.getElementById("FRQ_activeMethodPianoBtn");
   // if (_fmAdaBtn) _fmAdaBtn.addEventListener("click", function () { FRQ_setActiveMethod("adaptive"); });
   // if (_fmSliBtn) _fmSliBtn.addEventListener("click", function () { FRQ_setActiveMethod("slider"); });
   // if (_fmPiaBtn) _fmPiaBtn.addEventListener("click", function () { FRQ_setActiveMethod("piano"); });

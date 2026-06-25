@@ -1514,9 +1514,9 @@ function FRQ_setActiveMethod(m) {
 function FRQ_updateActiveMethodButtons() {
   const method = FRQ_getActiveMethod();
   const map = [
-    { id: "fmActiveMethodAdaptiveBtn", m: "adaptive" },
-    { id: "fmActiveMethodSliderBtn",   m: "slider" },
-    { id: "fmActiveMethodPianoBtn",    m: "piano" }
+    { id: "FRQ_activeMethodAdaptiveBtn", m: "adaptive" },
+    { id: "FRQ_activeMethodSliderBtn",   m: "slider" },
+    { id: "FRQ_activeMethodPianoBtn",    m: "piano" }
   ];
   for (let i = 0; i < map.length; i++) {
     const btn = document.getElementById(map[i].id);
