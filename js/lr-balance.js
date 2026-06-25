@@ -3,38 +3,38 @@
 // ============================================================
 
 // State
-let lrResults = {}; // {elIdx: offset_dB}  positive = right louder
+let stereobalanceResults = {}; // {elIdx: offset_dB}  positive = right louder
 // BA 156: Schnappschuß zum Zeitpunkt der ersten LR-Messung
-let lrSnapshot = null;
-let lrSeq = []; // sequence of electrode indices to test
-let lrSeqIdx = 0;
-let lrCurrentEl = null; // current electrode index (left side numbering)
-let lrFlipped = false; // if true, first tone is R then L
-let lrRunning = false;
-let lrUndoStack = []; // [{el, prev}]
-let lrPlayTO = null;
+let stereobalanceSnapshot = null;
+let stereobalanceSeq = []; // sequence of electrode indices to test
+let stereobalanceSeqIdx = 0;
+let stereobalanceCurrentEl = null; // current electrode index (left side numbering)
+let stereobalanceFlipped = false; // if true, first tone is R then L
+let stereobalanceRunning = false;
+let stereobalanceUndoStack = []; // [{el, prev}]
+let stereobalancePlayTO = null;
 let _lrKbT0 = 0;   // BA 293: Zeitpunkt des Klavier-Anschlags (Haltedauer)
-let lrIsPlay = false;
+let stereobalanceIsPlay = false;
 
 // Element-Lookup (gebaut von buildTestPanel)
-let lrEls = null;
+let stereobalanceEls = null;
 
 // BA 245: Elektroden-Auswahl für den Test (null = alle testbaren).
-let lrSelectedEls = null;
+let stereobalanceSelectedEls = null;
 
 function _lrSliderVal() {
-  if (!lrEls) return 0;
-  var sl = lrEls.verfahren && lrEls.verfahren.balance
-    && lrEls.verfahren.balance.slider && lrEls.verfahren.balance.slider.input;
+  if (!stereobalanceEls) return 0;
+  var sl = stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
+    && stereobalanceEls.verfahren.balance.slider && stereobalanceEls.verfahren.balance.slider.input;
   return sl ? parseFloat(sl.value) : 0;
 }
 
 function _lrUpdCumulative(v) {
-  if (!lrEls) return;
-  var cd = lrEls.verfahren && lrEls.verfahren.balance
-    && lrEls.verfahren.balance.cumulativeDisplay;
+  if (!stereobalanceEls) return;
+  var cd = stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
+    && stereobalanceEls.verfahren.balance.cumulativeDisplay;
   if (!cd) return;
-  const existing = lrCurrentEl !== null ? lrResults[lrCurrentEl] : undefined;
+  const existing = stereobalanceCurrentEl !== null ? stereobalanceResults[stereobalanceCurrentEl] : undefined;
   if (existing !== undefined) {
     cd.textContent =
       t("cumulativeDb") + ": " + (existing >= 0 ? "+" : "") + existing.toFixed(1) + " dB";
@@ -45,9 +45,9 @@ function _lrUpdCumulative(v) {
 }
 
 
-function lrGVol() { return Math.pow((volume_global || 0) / 100, 2); }
-function lrGDur() { return duration_balance || 1000; }
-function lrGPau() { return pause_balance    || 400;  }
+function stereobalanceGVol() { return Math.pow((volume_global || 0) / 100, 2); }
+function stereobalanceGDur() { return duration_balance || 1000; }
+function stereobalanceGPau() { return pause_balance    || 400;  }
 
 // BA 253: Klavier-Helfer fuer die Tonauswahl-Modalbox des
 // Stereo-Balance-Tests. Tasten bis Min(leftN, rightN); disabled
@@ -64,7 +64,7 @@ function _lrTpElectrodeFreqs() {
   var n = _lrTpKbdN();
   if (n <= 0) return [];
   var arr = [];
-  for (var i = 0; i < n; i++) arr.push(lrEffFreq(activeSide, i));
+  for (var i = 0; i < n; i++) arr.push(stereobalanceEffFreq(activeSide, i));
   return arr;
 }
 function _lrTpElectrodeLabels() {
@@ -98,17 +98,17 @@ var _lrTpCorrectVol = null;
 var _lrTpModalTone  = null;
 
 // Get corrected volume gain for electrode i on given side (WLS levels only, no manual levels)
-function lrCorrGain(side, elIdx) {
+function stereobalanceCorrGain(side, elIdx) {
   return elTestData({ side }).correctionGain[elIdx];
 }
 
 // Get the effective frequency for electrode i on a given side
-function lrEffFreq(side, elIdx) {
+function stereobalanceEffFreq(side, elIdx) {
   return withSide(side, () => effFreq(elIdx));
 }
 
 // Get the electrode display number for a given side
-function lrDEN(side, elIdx) {
+function stereobalanceDEN(side, elIdx) {
   return withSide(side, () => dEN(elIdx));
 }
 
@@ -120,7 +120,7 @@ function lrDEN(side, elIdx) {
 // proportional heruntergezogen, bis der lautere genau 1.0 ist (Verhaeltnis
 // = hoerbarer Unterschied bleibt erhalten, kein Sprung am Anschlag).
 // Rueckgabe { vL, vR, capped } mit capped = null | 'left' | 'right'.
-function lrPairGains(baseL, baseR, off) {
+function stereobalancePairGains(baseL, baseR, off) {
   var idealL = baseL * dB2G(-off / 2);
   var idealR = baseR * dB2G(off / 2);
   var m = Math.max(idealL, idealR);
@@ -135,26 +135,26 @@ function lrPairGains(baseL, baseR, off) {
 // BA 290: Token-Liste fuer das aktuelle Links/Rechts-Paar. Liefert
 // fertige Token { hz, pan, vol, durationMs, side } (vol inkl. Korrektur
 // und Deckelung) und Pausen { pauseMs }. 'side' ('left'|'right') dient
-// nur dem Aufleuchten (onStepStart). Reihenfolge folgt lrFlipped.
+// nur dem Aufleuchten (onStepStart). Reihenfolge folgt stereobalanceFlipped.
 //   opts.aba === true -> erste Seite am Ende wiederholt.
-function lrSequence(opts) {
+function stereobalanceSequence(opts) {
   opts = opts || {};
-  var el = lrCurrentEl;
+  var el = stereobalanceCurrentEl;
   var slOff = _lrSliderVal();
-  var vol = lrGVol();
-  var dur = lrGDur();
-  var pau = lrGPau();
+  var vol = stereobalanceGVol();
+  var dur = stereobalanceGDur();
+  var pau = stereobalanceGPau();
   var rightNEl = sideData["right"].nEl;
   var rightEl = el < rightNEl ? el : rightNEl - 1;
-  var hzL = lrEffFreq("left", el);
-  var hzR = lrEffFreq("right", rightEl);
-  var corrL = lrCorrGain("left", el);
-  var corrR = lrCorrGain("right", rightEl);
-  var g = lrPairGains(vol * corrL, vol * corrR, slOff);
+  var hzL = stereobalanceEffFreq("left", el);
+  var hzR = stereobalanceEffFreq("right", rightEl);
+  var corrL = stereobalanceCorrGain("left", el);
+  var corrR = stereobalanceCorrGain("right", rightEl);
+  var g = stereobalancePairGains(vol * corrL, vol * corrR, slOff);
   var tL = { hz: hzL, pan: -1, vol: g.vL, durationMs: dur, side: 'left' };
   var tR = { hz: hzR, pan:  1, vol: g.vR, durationMs: dur, side: 'right' };
-  var first  = lrFlipped ? tR : tL;
-  var second = lrFlipped ? tL : tR;
+  var first  = stereobalanceFlipped ? tR : tL;
+  var second = stereobalanceFlipped ? tL : tR;
   var seq = [ first, { pauseMs: pau }, second ];
   if (opts.aba) {
     seq.push({ pauseMs: pau });
@@ -164,50 +164,50 @@ function lrSequence(opts) {
 }
 
 // Play the current LR comparison sequence
-async function lrPlayCurrent() {
-  if (lrCurrentEl === null) return;
-  if (lrIsPlay) {
-    lrStopPlay();
+async function stereobalancePlayCurrent() {
+  if (stereobalanceCurrentEl === null) return;
+  if (stereobalanceIsPlay) {
+    stereobalanceStopPlay();
     await new Promise((r) => setTimeout(r, 60));
   }
-  var _lrPI = lrEls && lrEls.verfahren && lrEls.verfahren.balance
-    && lrEls.verfahren.balance.pairIndicator;
-  lrIsPlay = true;
+  var _lrPI = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
+    && stereobalanceEls.verfahren.balance.pairIndicator;
+  stereobalanceIsPlay = true;
   testUI.tonePlayer.playSequential(
-    lrSequence({ aba: sequence_balance === 'aba' }),
+    stereobalanceSequence({ aba: sequence_balance === 'aba' }),
     {
       toneType: toneType_balance,
       onStepStart: function (index, token) {
         testUI.pairIndicator.setPlaying(_lrPI, (token && token.side) ? token.side : null);
       },
       onDone: function () {
-        lrIsPlay = false;
+        stereobalanceIsPlay = false;
         testUI.pairIndicator.setPlaying(_lrPI, null);
       }
     }
   );
 }
 
-function lrPlaySimul() {
-  if (lrCurrentEl === null) return;
-  lrStopPlay();
-  var _lrPI = lrEls && lrEls.verfahren && lrEls.verfahren.balance
-    && lrEls.verfahren.balance.pairIndicator;
-  lrIsPlay = true;
+function stereobalancePlaySimul() {
+  if (stereobalanceCurrentEl === null) return;
+  stereobalanceStopPlay();
+  var _lrPI = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
+    && stereobalanceEls.verfahren.balance.pairIndicator;
+  stereobalanceIsPlay = true;
   testUI.pairIndicator.setPlaying(_lrPI, "both");
   testUI.tonePlayer.playSimultaneous(
-    lrSequence({ aba: false }),
+    stereobalanceSequence({ aba: false }),
     {
       toneType: toneType_balance,
       onDone: function () {
-        lrIsPlay = false;
+        stereobalanceIsPlay = false;
         testUI.pairIndicator.setPlaying(_lrPI, null);
       }
     }
   );
 }
 
-function lrStopPlay() {
+function stereobalanceStopPlay() {
   // BA 290: laufende Token-Sequenz der gemeinsamen Maschine abbrechen.
   if (typeof testUI !== 'undefined' && testUI.tonePlayer) {
     testUI.tonePlayer.stop();
@@ -218,18 +218,18 @@ function lrStopPlay() {
     }
     runningSources = [];
   }
-  if (lrPlayTO) {
-    clearTimeout(lrPlayTO);
-    lrPlayTO = null;
+  if (stereobalancePlayTO) {
+    clearTimeout(stereobalancePlayTO);
+    stereobalancePlayTO = null;
   }
-  lrIsPlay = false;
-  if (lrEls && lrEls.verfahren && lrEls.verfahren.balance
-      && lrEls.verfahren.balance.pairIndicator) {
-    testUI.pairIndicator.setPlaying(lrEls.verfahren.balance.pairIndicator, null);
+  stereobalanceIsPlay = false;
+  if (stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
+      && stereobalanceEls.verfahren.balance.pairIndicator) {
+    testUI.pairIndicator.setPlaying(stereobalanceEls.verfahren.balance.pairIndicator, null);
   }
 }
 
-function lrBuildSequence() {
+function stereobalanceBuildSequence() {
   // Use left side as reference for electrode count
   const leftNEl = sideData["left"].nEl;
   const rightNEl = sideData["right"].nEl;
@@ -247,50 +247,50 @@ function lrBuildSequence() {
   }
   // BA 245: Filter gegen Nutzer-Auswahl
   var filtered;
-  if (lrSelectedEls === null) {
+  if (stereobalanceSelectedEls === null) {
     filtered = available;
   } else {
-    var selSet = new Set(lrSelectedEls);
+    var selSet = new Set(stereobalanceSelectedEls);
     filtered = available.filter(function(i) { return selSet.has(i); });
   }
-  const mode = (lrEls && lrEls.header && lrEls.header.modeSelect)
-    ? lrEls.header.modeSelect.value : "random";
+  const mode = (stereobalanceEls && stereobalanceEls.header && stereobalanceEls.header.modeSelect)
+    ? stereobalanceEls.header.modeSelect.value : "random";
   if (mode === "ascending") {
-    lrSeq = filtered.slice();
+    stereobalanceSeq = filtered.slice();
   } else if (mode === "descending") {
-    lrSeq = filtered.slice().reverse();
+    stereobalanceSeq = filtered.slice().reverse();
   } else {
     const arr = filtered.slice();
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
-    lrSeq = arr;
+    stereobalanceSeq = arr;
   }
-  lrSeqIdx = 0;
+  stereobalanceSeqIdx = 0;
 }
 
-function lrDetermineFlip() {
-  const mode = (lrEls && lrEls.header && lrEls.header.runSelect)
-    ? lrEls.header.runSelect.value : "random";
+function stereobalanceDetermineFlip() {
+  const mode = (stereobalanceEls && stereobalanceEls.header && stereobalanceEls.header.runSelect)
+    ? stereobalanceEls.header.runSelect.value : "random";
   if (mode === "lr") return false;
   if (mode === "rl") return true;
   return Math.random() < 0.5;
 }
 
-function lrShowPair() {
-  if (lrSeqIdx >= lrSeq.length) {
-    lrFinish();
+function stereobalanceShowPair() {
+  if (stereobalanceSeqIdx >= stereobalanceSeq.length) {
+    stereobalanceFinish();
     return;
   }
-  const el = lrSeq[lrSeqIdx];
-  lrCurrentEl = el;
-  lrFlipped = lrDetermineFlip();
+  const el = stereobalanceSeq[stereobalanceSeqIdx];
+  stereobalanceCurrentEl = el;
+  stereobalanceFlipped = stereobalanceDetermineFlip();
 
   // Slider: existing-Wert oder 0 setzen; Range wird über setValue automatisch erweitert
-  var slRef = lrEls && lrEls.verfahren && lrEls.verfahren.balance
-    && lrEls.verfahren.balance.slider;
-  const existing = lrResults[el];
+  var slRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
+    && stereobalanceEls.verfahren.balance.slider;
+  const existing = stereobalanceResults[el];
   if (slRef) {
     var startVal = (existing !== undefined && isFinite(existing)) ? existing : 0;
     testUI.slider.setValue(slRef, startVal);
@@ -304,12 +304,12 @@ function lrShowPair() {
   _lrUpdCumulative(0);
 
   // Progress über testUI-Helfer
-  var prRef = lrEls && lrEls.verfahren && lrEls.verfahren.balance
-    && lrEls.verfahren.balance.progress;
+  var prRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
+    && stereobalanceEls.verfahren.balance.progress;
   if (prRef) {
     testUI.progress.set(prRef, {
-      fraction: (lrSeqIdx + 1) / lrSeq.length,
-      text: t("comp") + " " + (lrSeqIdx + 1) + " " + t("of") + " " + lrSeq.length
+      fraction: (stereobalanceSeqIdx + 1) / stereobalanceSeq.length,
+      text: t("comp") + " " + (stereobalanceSeqIdx + 1) + " " + t("of") + " " + stereobalanceSeq.length
     });
   }
 
@@ -317,10 +317,10 @@ function lrShowPair() {
   const leftLabel = withSide("left", () => dENPrefix("left") + dEN(el));
   const rightEl = el < sideData["right"].nEl ? el : sideData["right"].nEl - 1;
   const rightLabel = withSide("right", () => dENPrefix("right") + dEN(rightEl));
-  const hzL = lrEffFreq("left", el);
-  const hzR = lrEffFreq("right", rightEl);
-  var piRef = lrEls && lrEls.verfahren && lrEls.verfahren.balance
-    && lrEls.verfahren.balance.pairIndicator;
+  const hzL = stereobalanceEffFreq("left", el);
+  const hzR = stereobalanceEffFreq("right", rightEl);
+  var piRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
+    && stereobalanceEls.verfahren.balance.pairIndicator;
   if (piRef) {
     testUI.pairIndicator.setLabels(piRef, {
       leftText:  "L: " + leftLabel,
@@ -331,89 +331,89 @@ function lrShowPair() {
   }
 
   // Undo-Button-Zustand
-  var undoBtn = lrEls && lrEls.verfahren && lrEls.verfahren.balance
-    && lrEls.verfahren.balance.actions && lrEls.verfahren.balance.actions.undo;
-  if (undoBtn) undoBtn.disabled = lrUndoStack.length === 0;
+  var undoBtn = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
+    && stereobalanceEls.verfahren.balance.actions && stereobalanceEls.verfahren.balance.actions.undo;
+  if (undoBtn) undoBtn.disabled = stereobalanceUndoStack.length === 0;
 
-  lrPlayCurrent();
+  stereobalancePlayCurrent();
 }
 
-function lrConfirm() {
-  if (lrCurrentEl === null || !lrRunning) return;
-  const el = lrCurrentEl;
+function stereobalanceConfirm() {
+  if (stereobalanceCurrentEl === null || !stereobalanceRunning) return;
+  const el = stereobalanceCurrentEl;
   const val = _lrSliderVal();
   // Save undo
-  lrUndoStack.push({ el, prev: lrResults[el] });
-  lrResults[el] = val;
+  stereobalanceUndoStack.push({ el, prev: stereobalanceResults[el] });
+  stereobalanceResults[el] = val;
   // BA 156
-  if (lrSnapshot === null && typeof implantSnapshot === 'function') {
-    lrSnapshot = implantSnapshot();
+  if (stereobalanceSnapshot === null && typeof implantSnapshot === 'function') {
+    stereobalanceSnapshot = implantSnapshot();
   }
-  lrSeqIdx++;
-  lrRenderResults();
-  lrApplyMeanToBalance();
-  lrShowPair();
+  stereobalanceSeqIdx++;
+  stereobalanceRenderResults();
+  stereobalanceApplyMeanToBalance();
+  stereobalanceShowPair();
 }
 
-function lrUndo() {
-  if (!lrUndoStack.length) return;
-  lrStopPlay();
-  const { el, prev } = lrUndoStack.pop();
-  if (prev === undefined) delete lrResults[el];
-  else lrResults[el] = prev;
-  lrSeqIdx = Math.max(0, lrSeqIdx - 1);
-  lrRenderResults();
-  lrApplyMeanToBalance();
-  lrShowPair();
+function stereobalanceUndo() {
+  if (!stereobalanceUndoStack.length) return;
+  stereobalanceStopPlay();
+  const { el, prev } = stereobalanceUndoStack.pop();
+  if (prev === undefined) delete stereobalanceResults[el];
+  else stereobalanceResults[el] = prev;
+  stereobalanceSeqIdx = Math.max(0, stereobalanceSeqIdx - 1);
+  stereobalanceRenderResults();
+  stereobalanceApplyMeanToBalance();
+  stereobalanceShowPair();
 }
 
 // Setzt die Vergleichsreihe vollstaendig zurueck: Reihenfolge, Position,
 // aktuelle Elektrode und Undo-Stapel. Wird beim Loeschen der Ergebnisse
 // (Clear-Button, resetAll) gebraucht, damit ein pausierter Fortschritt
 // nicht in einen frischen Start hineinblutet (Stop = Pause, BA 245).
-function lrResetSequence() {
-  lrSeq = [];
-  lrSeqIdx = 0;
-  lrCurrentEl = null;
-  lrUndoStack = [];
+function stereobalanceResetSequence() {
+  stereobalanceSeq = [];
+  stereobalanceSeqIdx = 0;
+  stereobalanceCurrentEl = null;
+  stereobalanceUndoStack = [];
 }
 
-function lrFinish() {
-  lrStopPlay();
-  lrRunning = false;
-  lrSeq = [];
-  lrSeqIdx = 0;
-  if (lrEls && lrEls._stopTest) lrEls._stopTest();
+function stereobalanceFinish() {
+  stereobalanceStopPlay();
+  stereobalanceRunning = false;
+  stereobalanceSeq = [];
+  stereobalanceSeqIdx = 0;
+  if (stereobalanceEls && stereobalanceEls._stopTest) stereobalanceEls._stopTest();
   lockTestTabs(false, null);
   if (typeof depLockApply === 'function') depLockApply();
-  lrRenderResults();
-  lrApplyMeanToBalance();
-  // BA 279: Abschluss-Box. lrFinish ist das natuerliche Sequenz-Ende
-  // (aus lrShowPair, wenn lrSeqIdx >= lrSeq.length). lrPause (Stop): KEINE Box.
+  stereobalanceRenderResults();
+  stereobalanceApplyMeanToBalance();
+  // BA 279: Abschluss-Box. stereobalanceFinish ist das natuerliche Sequenz-Ende
+  // (aus stereobalanceShowPair, wenn stereobalanceSeqIdx >= stereobalanceSeq.length). stereobalancePause (Stop): KEINE Box.
   if (typeof testUI !== 'undefined' && testUI.completion) {
     testUI.completion.show({
       nameKey:   'tabBalance',
       subtabKey: 'tabBalance',
-      bodyKey:   'lrDoneExtra'
+      bodyKey:   'stereobalanceDoneExtra'
     });
   }
 }
 
-// BA 245: "Stop" ist semantisch Pause — lrSeq und lrSeqIdx bleiben erhalten.
-function lrPause() {
-  lrStopPlay();
-  lrRunning = false;
-  if (lrEls && lrEls._stopTest) lrEls._stopTest();
+// BA 245: "Stop" ist semantisch Pause — stereobalanceSeq und stereobalanceSeqIdx bleiben erhalten.
+function stereobalancePause() {
+  stereobalanceStopPlay();
+  stereobalanceRunning = false;
+  if (stereobalanceEls && stereobalanceEls._stopTest) stereobalanceEls._stopTest();
   lockTestTabs(false, null);
   if (typeof depLockApply === 'function') depLockApply();
-  lrRenderResults();
+  stereobalanceRenderResults();
 }
 
-function lrApplyMeanToBalance() {
+function stereobalanceApplyMeanToBalance() {
   // Mittelwert nur über aktive (nicht deaktivierte) Elektroden
-  const activeKeys = Object.keys(lrResults).filter((k) => {
+  const activeKeys = Object.keys(stereobalanceResults).filter((k) => {
     const i = +k;
-    const v = lrResults[i];
+    const v = stereobalanceResults[i];
     if (!isFinite(v)) return false;
     // Eine Stereo-Messung gilt als deaktiviert, wenn die Elektrode auf
     // BEIDEN Seiten deaktiviert oder stumm-geschaltet ist
@@ -422,14 +422,14 @@ function lrApplyMeanToBalance() {
     return !(exL || exR);
   });
   if (!activeKeys.length) return;
-  const vals = activeKeys.map((k) => lrResults[+k]);
+  const vals = activeKeys.map((k) => stereobalanceResults[+k]);
   const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
-  // Positive lrResult = right louder = right needs to be quieter = negative balance offset
+  // Positive stereobalanceResult = right louder = right needs to be quieter = negative balance offset
   const balOffset = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
 
   // Mean-Anzeige
-  const mvEl = document.getElementById("lrMedianValue");
-  const mhEl = document.getElementById("lrMedianHint");
+  const mvEl = document.getElementById("stereobalanceMedianValue");
+  const mhEl = document.getElementById("stereobalanceMedianHint");
   if (mvEl) {
     mvEl.textContent =
       (balOffset >= 0 ? "+" : "") + balOffset.toFixed(1) + " dB";
@@ -445,29 +445,29 @@ function lrApplyMeanToBalance() {
   }
   if (mhEl) {
     if (Math.abs(balOffset) < 0.5)
-      mhEl.textContent = t('lrBalEqual');
+      mhEl.textContent = t('stereobalanceBalEqual');
     else if (balOffset > 0)
-      mhEl.textContent = t('lrRightLouder');
-    else mhEl.textContent = t('lrLeftLouder');
+      mhEl.textContent = t('stereobalanceRightLouder');
+    else mhEl.textContent = t('stereobalanceLeftLouder');
   }
 }
 
-function lrRenderResults() {
-  const keys = Object.keys(lrResults).map(Number);
-  const noResEl = document.getElementById("lrNoResults");
+function stereobalanceRenderResults() {
+  const keys = Object.keys(stereobalanceResults).map(Number);
+  const noResEl = document.getElementById("stereobalanceNoResults");
   if (!keys.length) {
-    document.getElementById("lrResultsCard").style.display = "none";
+    document.getElementById("stereobalanceResultsCard").style.display = "none";
     if (noResEl) noResEl.style.display = "";
     return;
   }
-  document.getElementById("lrResultsCard").style.display = "";
+  document.getElementById("stereobalanceResultsCard").style.display = "";
   if (noResEl) noResEl.style.display = "none";
 
   // Table
-  const th = document.getElementById("lrResTH");
-  const tb = document.getElementById("lrResTB");
+  const th = document.getElementById("stereobalanceResTH");
+  const tb = document.getElementById("stereobalanceResTB");
   th.innerHTML =
-    `<th>${t('audColEl')}</th><th>${t('lrThHz1')}</th><th>${t('lrThHz2')}</th><th>Offset (dB)</th><th>${t('lrThMeaning')}</th>`;
+    `<th>${t('audColEl')}</th><th>${t('stereobalanceThHz1')}</th><th>${t('stereobalanceThHz2')}</th><th>Offset (dB)</th><th>${t('stereobalanceThMeaning')}</th>`;
   tb.innerHTML = "";
 
   const count = Math.min(sideData["left"].nEl, sideData["right"].nEl);
@@ -476,9 +476,9 @@ function lrRenderResults() {
     const exL = sideData.left.elExDur[i]        !== null || sideData.left.elSt[i]        === 'mute';
     const exR = sideData.right.elExDur[rightEl] !== null || sideData.right.elSt[rightEl] === 'mute';
     const isDisabled = exL || exR;
-    const v = lrResults[i];
-    const hzL = lrEffFreq("left", i);
-    const hzR = lrEffFreq("right", rightEl);
+    const v = stereobalanceResults[i];
+    const hzL = stereobalanceEffFreq("left", i);
+    const hzR = stereobalanceEffFreq("right", rightEl);
     const leftLabel  = withSide("left",  () => dENPrefix("left")  + dEN(i));
     const rightLabel = withSide("right", () => dENPrefix("right") + dEN(rightEl));
     const tr = document.createElement("tr");
@@ -498,7 +498,7 @@ function lrRenderResults() {
         `<td style="font-size:.82em;color:#9ca3af">${t('notMeasured')}</td>`;
     } else {
       const meaning =
-        v > 0.1 ? t('lrMeaningRight') : v < -0.1 ? t('lrMeaningLeft') : t('lrMeaningEqual');
+        v > 0.1 ? t('stereobalanceMeaningRight') : v < -0.1 ? t('stereobalanceMeaningLeft') : t('stereobalanceMeaningEqual');
       const color = v > 0.1 ? "#dc2626" : v < -0.1 ? "#2563eb" : "#1a1a1a";
       tr.innerHTML =
         `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
@@ -509,16 +509,16 @@ function lrRenderResults() {
     tb.appendChild(tr);
   }
 
-  lrDrawChart();
-  lrApplyMeanToBalance();
+  stereobalanceDrawChart();
+  stereobalanceApplyMeanToBalance();
   // BA 156
-  if (typeof renderSnapshotHint === 'function' && lrEls && lrEls.snapHintBox) {
-    renderSnapshotHint('lr', lrEls.snapHintBox);
+  if (typeof renderSnapshotHint === 'function' && stereobalanceEls && stereobalanceEls.snapHintBox) {
+    renderSnapshotHint('stereobalance', stereobalanceEls.snapHintBox);
   }
 }
 
-function lrDrawChart() {
-  const cv = document.getElementById("lrResChart");
+function stereobalanceDrawChart() {
+  const cv = document.getElementById("stereobalanceResChart");
   if (!cv) return;
   const wp = cv.parentElement;
   const dpr = window.devicePixelRatio || 1;
@@ -540,14 +540,14 @@ function lrDrawChart() {
     const exL = sideData.left.elExDur[i]        !== null || sideData.left.elSt[i]        === 'mute';
     const exR = sideData.right.elExDur[rightEl] !== null || sideData.right.elSt[rightEl] === 'mute';
     if (exL || exR) status[i] = 'disabled';
-    else if (lrResults[i] !== undefined) status[i] = 'measured';
+    else if (stereobalanceResults[i] !== undefined) status[i] = 'measured';
     else status[i] = 'unmeasured';
   }
 
   // Skala nur über gemessene aktive Werte
   const measuredVals = [];
   for (let i = 0; i < count; i++)
-    if (status[i] === 'measured') measuredVals.push(lrResults[i]);
+    if (status[i] === 'measured') measuredVals.push(stereobalanceResults[i]);
   if (!measuredVals.length && !status.includes('unmeasured')) return;
   const absMax = measuredVals.length
     ? Math.max(Math.ceil(Math.max(...measuredVals.map(Math.abs), 2)), 3)
@@ -559,7 +559,7 @@ function lrDrawChart() {
   const idxArr = [];
   for (let i = 0; i < count; i++) idxArr.push(i);
   const axis = buildLinearAxis(idxArr, pad.left, pW, function (i) {
-    return lrEffFreq("left", i);
+    return stereobalanceEffFreq("left", i);
   });
   const tX = axis.tX;
   const tY = (v) => pad.top + (absMax - v) * (pH / (2 * absMax));
@@ -613,7 +613,7 @@ function lrDrawChart() {
       ctx.lineTo(x + bW * 0.75, zY);
       ctx.stroke();
     } else {
-      const v = lrResults[i];
+      const v = stereobalanceResults[i];
       const yV = tY(v);
       const col = v > 0.1 ? '#dc2626' : v < -0.1 ? '#2563eb' : '#9ca3af';
       ctx.fillStyle = col;
@@ -651,8 +651,8 @@ function lrDrawChart() {
   let first = true;
   for (let i = 0; i < count; i++) {
     if (status[i] !== 'measured') continue;
-    if (first) { ctx.moveTo(tX(i), tY(lrResults[i])); first = false; }
-    else ctx.lineTo(tX(i), tY(lrResults[i]));
+    if (first) { ctx.moveTo(tX(i), tY(stereobalanceResults[i])); first = false; }
+    else ctx.lineTo(tX(i), tY(stereobalanceResults[i]));
   }
   ctx.stroke();
 
@@ -676,19 +676,19 @@ function _lrHasLvData(side) {
 
 // Sichtbarkeit der dynamischen Vortest-Hinweise oben in der Erklaer-Box.
 function _lrRenderPrereqHints() {
-  const lvLeftEl  = document.getElementById('lrPrereqLvLeftPara');
-  const lvRightEl = document.getElementById('lrPrereqLvRightPara');
+  const lvLeftEl  = document.getElementById('stereobalancePrereqLvLeftPara');
+  const lvRightEl = document.getElementById('stereobalancePrereqLvRightPara');
   if (lvLeftEl)  lvLeftEl.style.display  = _lrHasLvData('left')  ? 'none' : '';
   if (lvRightEl) lvRightEl.style.display = _lrHasLvData('right') ? 'none' : '';
 }
 
-function lrCheckData() {
+function stereobalanceCheckData() {
   const hasLeft = sideData["left"].elektrodenlautstaerkeResults.length > 0;
   const hasRight = sideData["right"].elektrodenlautstaerkeResults.length > 0;
-  const nd = document.getElementById("lrNoData");
+  const nd = document.getElementById("stereobalanceNoData");
   if (nd) nd.style.display = hasLeft && hasRight ? "none" : "";
   // Deaf-Hinweis
-  const deafHint = document.getElementById("lrDeafHintEl");
+  const deafHint = document.getElementById("stereobalanceDeafHintEl");
   if (deafHint) {
     const hasDeaf = (sideData.left.config || "ci") === "deaf"
                  || (sideData.right.config || "ci") === "deaf";
@@ -696,15 +696,15 @@ function lrCheckData() {
     if (hasDeaf) deafHint.textContent = t("cfgHintDeafTest");
   }
   // BA 156
-  if (typeof renderSnapshotHint === 'function' && lrEls && lrEls.snapHintBox) {
-    renderSnapshotHint('lr', lrEls.snapHintBox);
+  if (typeof renderSnapshotHint === 'function' && stereobalanceEls && stereobalanceEls.snapHintBox) {
+    renderSnapshotHint('stereobalance', stereobalanceEls.snapHintBox);
   }
   _lrRenderPrereqHints();
 }
 
 // ---- BA 245: testUI-Hooks ----
 
-function lrHookOnStart() {
+function stereobalanceHookOnStart() {
   // BA 255: Seitenabfrage vor eigentlichem Start.
   testUI.sideCheck.run(
     { sides: 'both' },
@@ -712,7 +712,7 @@ function lrHookOnStart() {
       _lrDoStart();
     },
     function() {
-      if (lrEls && lrEls._stopTest) lrEls._stopTest();
+      if (stereobalanceEls && stereobalanceEls._stopTest) stereobalanceEls._stopTest();
     }
   );
 }
@@ -720,43 +720,43 @@ function lrHookOnStart() {
 function _lrDoStart() {
   if (typeof isSideUsable === 'function'
       && (!isSideUsable('left') || !isSideUsable('right'))) {
-    alert(t('lrBlockedSideUnknown'));
-    if (lrEls && lrEls._stopTest) lrEls._stopTest();
+    alert(t('stereobalanceBlockedSideUnknown'));
+    if (stereobalanceEls && stereobalanceEls._stopTest) stereobalanceEls._stopTest();
     return;
   }
   // Resume: Sequenz und Position erhalten, nur Zustand wieder hochfahren
-  if (!lrSeq || !lrSeq.length || lrSeqIdx >= lrSeq.length) {
-    lrBuildSequence();
+  if (!stereobalanceSeq || !stereobalanceSeq.length || stereobalanceSeqIdx >= stereobalanceSeq.length) {
+    stereobalanceBuildSequence();
   }
-  if (!lrSeq.length) {
-    alert(t("lrNoElMsg") || "Keine gemeinsamen aktiven Elektroden gefunden.");
-    if (lrEls && lrEls._stopTest) lrEls._stopTest();
+  if (!stereobalanceSeq.length) {
+    alert(t("stereobalanceNoElMsg") || "Keine gemeinsamen aktiven Elektroden gefunden.");
+    if (stereobalanceEls && stereobalanceEls._stopTest) stereobalanceEls._stopTest();
     return;
   }
-  lrRunning = true;
-  lrUndoStack = [];
+  stereobalanceRunning = true;
+  stereobalanceUndoStack = [];
   lockTestTabs(true, 'balance');
-  lrShowPair();
+  stereobalanceShowPair();
 }
 
-function lrHookOnStop() {
-  lrPause();
+function stereobalanceHookOnStop() {
+  stereobalancePause();
 }
 
 // BA 290: Deckelungs-Hinweis fuer Stereo-Balance (analog Test 1,
-// _testUpdateClipHint). Nutzt lrPairGains.capped.
-function lrUpdateClipHint(off) {
-  var vref = lrEls && lrEls.verfahren && lrEls.verfahren.balance;
+// _testUpdateClipHint). Nutzt stereobalancePairGains.capped.
+function stereobalanceUpdateClipHint(off) {
+  var vref = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance;
   if (!vref || !vref.clipHint) return;
-  if (lrCurrentEl === null) { testUI.clipHint.set(vref.clipHint, null); return; }
+  if (stereobalanceCurrentEl === null) { testUI.clipHint.set(vref.clipHint, null); return; }
   if (off == null) off = _lrSliderVal();
-  var el = lrCurrentEl;
+  var el = stereobalanceCurrentEl;
   var rightNEl = sideData["right"].nEl;
   var rightEl = el < rightNEl ? el : rightNEl - 1;
-  var vol = lrGVol();
-  var corrL = lrCorrGain("left", el);
-  var corrR = lrCorrGain("right", rightEl);
-  var g = lrPairGains(vol * corrL, vol * corrR, off);
+  var vol = stereobalanceGVol();
+  var corrL = stereobalanceCorrGain("left", el);
+  var corrR = stereobalanceCorrGain("right", rightEl);
+  var g = stereobalancePairGains(vol * corrL, vol * corrR, off);
   if (!g.capped) { testUI.clipHint.set(vref.clipHint, null); return; }
   var capLabel   = (g.capped === 'left') ? t('sideLeft') : t('sideRight');
   var otherLabel = (g.capped === 'left') ? t('sideRight') : t('sideLeft');
@@ -764,19 +764,19 @@ function lrUpdateClipHint(off) {
   testUI.clipHint.set(vref.clipHint, txt);
 }
 
-function lrHookOnSlide(v) {
+function stereobalanceHookOnSlide(v) {
   // onSlide-Hook ist verdrahtet -> Auto-dB-Anzeige in test-ui.js laeuft
   // nicht; die Anzeige hier setzen (analog test.js, BA 285).
-  var slRef = lrEls && lrEls.verfahren && lrEls.verfahren.balance
-    && lrEls.verfahren.balance.slider;
+  var slRef = stereobalanceEls && stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
+    && stereobalanceEls.verfahren.balance.slider;
   if (slRef) testUI.slider.setValueDisplay(slRef, v.toFixed(1) + " dB");
   _lrUpdCumulative(v);
-  lrUpdateClipHint(v);
+  stereobalanceUpdateClipHint(v);
 }
 
-function lrHookOnSwap() {
-  lrFlipped = !lrFlipped;
-  lrPlayCurrent();
+function stereobalanceHookOnSwap() {
+  stereobalanceFlipped = !stereobalanceFlipped;
+  stereobalancePlayCurrent();
 }
 
 // ---- DOMContentLoaded — buildTestPanel + Event-Wiring ----
@@ -785,16 +785,16 @@ function _lrBuildExtraFragment() {
   // Wird mit extra.inline:true in rowSequence reingehaengt, daher nur
   // ein toter Container - die Children (control-groups) wandern um.
   var frag = document.createElement('div');
-  frag.dataset.row = 'lr-extra';
+  frag.dataset.row = 'stereobalance-extra';
 
   // Label und Select muessen Geschwister sein, sonst loescht applyLang
   // den Select beim Setzen von textContent des Labels.
   var cgMode = document.createElement('div');
   cgMode.className = 'control-group';
   var lblMode = document.createElement('label');
-  lblMode.dataset.t = 'lrOrderLbl';
+  lblMode.dataset.t = 'stereobalanceOrderLbl';
   var modeSelect = document.createElement('select');
-  modeSelect.id = 'lrOrderSelect';
+  modeSelect.id = 'stereobalanceOrderSelect';
   [['random','optRandom'],['ascending','optAsc'],['descending','optDesc']]
     .forEach(function(opt) {
       var o = document.createElement('option');
@@ -806,9 +806,9 @@ function _lrBuildExtraFragment() {
   var cgSide = document.createElement('div');
   cgSide.className = 'control-group';
   var lblSide = document.createElement('label');
-  lblSide.dataset.t = 'lrSideLbl';
+  lblSide.dataset.t = 'stereobalanceSideLbl';
   var runSelect = document.createElement('select');
-  runSelect.id = 'lrSideSelect';
+  runSelect.id = 'stereobalanceSideSelect';
   [['random','optRandom'],['lr','optLR'],['rl','optRL']]
     .forEach(function(opt) {
       var o = document.createElement('option');
@@ -832,13 +832,13 @@ document.addEventListener("DOMContentLoaded", function() {
   var cfg = {
     id: 'balance',
     explain: {
-      titleKey: 'lrTitle',
+      titleKey: 'stereobalanceTitle',
       paragraphs: [
-        { key: 'lrMaturityHint', kind: 'info'  },
-        { key: 'lrDesc',         kind: 'plain' },
+        { key: 'stereobalanceMaturityHint', kind: 'info'  },
+        { key: 'stereobalanceDesc',         kind: 'plain' },
         // Dynamische Vortest-Hinweise (Sichtbarkeit via _lrRenderPrereqHints)
-        { key: 'fmPrereqLvLeft',  kind: 'warn', id: 'lrPrereqLvLeftPara'  },
-        { key: 'fmPrereqLvRight', kind: 'warn', id: 'lrPrereqLvRightPara' }
+        { key: 'fmPrereqLvLeft',  kind: 'warn', id: 'stereobalancePrereqLvLeftPara'  },
+        { key: 'fmPrereqLvRight', kind: 'warn', id: 'stereobalancePrereqLvRightPara' }
       ]
     },
     header: {
@@ -869,18 +869,18 @@ document.addEventListener("DOMContentLoaded", function() {
           setDurationMs:    function(v) { duration_balance = v; },
           getPauseMs:       function()  { return pause_balance; },
           setPauseMs:       function(v) { pause_balance = v; },
-          getVolume:   function() { return lrGVol(); },
+          getVolume:   function() { return stereobalanceGVol(); },
           getPreviewSequence: function (lastHz) {
-            if (lrRunning && lrCurrentEl !== null) {
-              return lrSequence({ aba: sequence_balance === 'aba' });
+            if (stereobalanceRunning && stereobalanceCurrentEl !== null) {
+              return stereobalanceSequence({ aba: sequence_balance === 'aba' });
             }
             // Kein Test: gemerkter Ton, beide Seiten nacheinander.
             // BA 301: jede Seite mit ihrer Korrektur (Elektrodenlautstaerke
             // + Balance) ueber die zentrale corrVol -- nicht mehr "gleich laut".
             var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
-            var vol = lrGVol();
-            var dur = lrGDur();
-            var pau = lrGPau();
+            var vol = stereobalanceGVol();
+            var dur = stereobalanceGDur();
+            var pau = stereobalanceGPau();
             // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an).
             // pan kodiert die Seite (-1 = links, +1 = rechts).
             var volL = (typeof _lrTpCorrectVol === 'function') ? _lrTpCorrectVol(vol, hz, -1) : vol;
@@ -896,17 +896,17 @@ document.addEventListener("DOMContentLoaded", function() {
           getElectrodeFreqs:     _lrTpElectrodeFreqs,
           getElectrodeLabels:    _lrTpElectrodeLabels,
           getDisabledElectrodes: _lrTpDisabledElectrodes,
-          getHighlightMs: function() { return lrGDur() * 2 + lrGPau(); },
+          getHighlightMs: function() { return stereobalanceGDur() * 2 + stereobalanceGPau(); },
           onPress: function (electrodeIdx, hz) {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
             _lrKbT0 = (typeof performance !== 'undefined') ? performance.now() : Date.now();
             var tt   = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_balance;
-            var vol  = lrGVol();
+            var vol  = stereobalanceGVol();
             var panA = (activeSide === 'left') ? -1 : 1;
             var hzA;
             if (electrodeIdx >= 0) {
-              hzA = lrEffFreq(activeSide, electrodeIdx);
+              hzA = stereobalanceEffFreq(activeSide, electrodeIdx);
             } else {
               hzA = hz;
             }
@@ -925,14 +925,14 @@ document.addEventListener("DOMContentLoaded", function() {
             var held = Math.max(0, t1 - _lrKbT0);
             if (held <= 0) return;
             var tt    = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_balance;
-            var vol   = lrGVol();
+            var vol   = stereobalanceGVol();
             var other = (activeSide === 'left') ? 'right' : 'left';
             var panB  = (activeSide === 'left') ? 1 : -1;
             var hzB;
             if (electrodeIdx >= 0) {
               var rN = sideData[other] ? sideData[other].nEl : 0;
               var oIdx = electrodeIdx < rN ? electrodeIdx : rN - 1;
-              hzB = lrEffFreq(other, oIdx);
+              hzB = stereobalanceEffFreq(other, oIdx);
             } else {
               hzB = hz;
             }
@@ -947,8 +947,8 @@ document.addEventListener("DOMContentLoaded", function() {
         sequence:  { show: true, source: 'global' },
         electrodeSelection: {
           minSelected: 1,
-          getSelection: function() { return lrSelectedEls; },
-          setSelection: function(sel) { lrSelectedEls = sel.slice(); },
+          getSelection: function() { return stereobalanceSelectedEls; },
+          setSelection: function(sel) { stereobalanceSelectedEls = sel.slice(); },
           getElectrodeStatus: function() {
             var leftN  = sideData.left.nEl;
             var rightN = sideData.right.nEl;
@@ -970,7 +970,7 @@ document.addEventListener("DOMContentLoaded", function() {
           },
           electrodeLabel: function(i) {
             var leftLabel = withSide("left", function() { return dENPrefix("left") + dEN(i); });
-            var hzL = lrEffFreq("left", i);
+            var hzL = stereobalanceEffFreq("left", i);
             return leftLabel + " (" + Math.round(hzL) + " Hz)";
           }
         }
@@ -980,12 +980,12 @@ document.addEventListener("DOMContentLoaded", function() {
     },
     verfahren: [{
       id: 'balance',
-      labelKey:   'lrTitle',
+      labelKey:   'stereobalanceTitle',
       explainKey: null,
       body: {
         pairIndicator:     { variant: 'side' },
         progress:          { format: 'simple' },
-        instruction:       { key: 'lrRunningHint' },
+        instruction:       { key: 'stereobalanceRunningHint' },
         keyHint:           { unitKey: 'sliderHintDb' },
         slider:            { unit: 'dB', initialRange: 20, maxRange: 60, touchStep: 0.5, touchFineStep: 0.1 },
         sliderValue:       { show: true },
@@ -995,29 +995,29 @@ document.addEventListener("DOMContentLoaded", function() {
         actions:           ['undo','replay','simul','swap']
       },
       hooks: {
-        onStart:   lrHookOnStart,
-        onStop:    lrHookOnStop,
-        onSlide:   lrHookOnSlide,
-        onConfirm: lrConfirm,
-        onReplay:  lrPlayCurrent,
-        onUndo:    lrUndo,
-        onSimul:   lrPlaySimul,
-        onSwap:    lrHookOnSwap
+        onStart:   stereobalanceHookOnStart,
+        onStop:    stereobalanceHookOnStop,
+        onSlide:   stereobalanceHookOnSlide,
+        onConfirm: stereobalanceConfirm,
+        onReplay:  stereobalancePlayCurrent,
+        onUndo:    stereobalanceUndo,
+        onSimul:   stereobalancePlaySimul,
+        onSwap:    stereobalanceHookOnSwap
       }
     }]
   };
 
-  lrEls = buildTestPanel(parentEl, cfg);
+  stereobalanceEls = buildTestPanel(parentEl, cfg);
 
-  // Refs aus dem extra-Fragment in lrEls.header aufnehmen
-  if (lrEls && lrEls.header) {
-    lrEls.header.modeSelect = extraFrag._lrModeSelect;
-    lrEls.header.runSelect  = extraFrag._lrRunSelect;
+  // Refs aus dem extra-Fragment in stereobalanceEls.header aufnehmen
+  if (stereobalanceEls && stereobalanceEls.header) {
+    stereobalanceEls.header.modeSelect = extraFrag._lrModeSelect;
+    stereobalanceEls.header.runSelect  = extraFrag._lrRunSelect;
   }
 
   // Slider-Live-Anzeige aktualisiert auch das cumulativeDisplay
-  var slInput = lrEls.verfahren && lrEls.verfahren.balance
-    && lrEls.verfahren.balance.slider && lrEls.verfahren.balance.slider.input;
+  var slInput = stereobalanceEls.verfahren && stereobalanceEls.verfahren.balance
+    && stereobalanceEls.verfahren.balance.slider && stereobalanceEls.verfahren.balance.slider.input;
   if (slInput) {
     slInput.addEventListener('input', function() {
       _lrUpdCumulative(parseFloat(this.value));
@@ -1025,34 +1025,34 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // Clear-Button im Ergebnis-Sub-Tab
-  var lrClearBtn = document.getElementById('lrClearBtn');
-  if (lrClearBtn) {
-    lrClearBtn.addEventListener('click', function() {
-      if (!confirm(t("lrClearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
-      lrResults = {};
-      lrSnapshot = null;
-      lrResetSequence();
+  var stereobalanceClearBtn = document.getElementById('stereobalanceClearBtn');
+  if (stereobalanceClearBtn) {
+    stereobalanceClearBtn.addEventListener('click', function() {
+      if (!confirm(t("stereobalanceClearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
+      stereobalanceResults = {};
+      stereobalanceSnapshot = null;
+      stereobalanceResetSequence();
       if (typeof depLockApply === 'function') depLockApply();
-      var lrRC = document.getElementById("lrResultsCard");
-      if (lrRC) lrRC.style.display = "none";
-      var lrNR = document.getElementById("lrNoResults");
-      if (lrNR) lrNR.style.display = "";
+      var stereobalanceRC = document.getElementById("stereobalanceResultsCard");
+      if (stereobalanceRC) stereobalanceRC.style.display = "none";
+      var stereobalanceNR = document.getElementById("stereobalanceNoResults");
+      if (stereobalanceNR) stereobalanceNR.style.display = "";
     });
   }
 });
 
 // Wird von file.js/init.js nach loadSideData aufgerufen,
 // damit die Elektroden-Summary sofort die korrekte Anzahl zeigt.
-function lrRefreshElectrodeSelectionSummary() {
-  if (lrEls && lrEls.header && typeof lrEls.header.electrodeSelectionUpdate === 'function') {
-    lrEls.header.electrodeSelectionUpdate();
+function stereobalanceRefreshElectrodeSelectionSummary() {
+  if (stereobalanceEls && stereobalanceEls.header && typeof stereobalanceEls.header.electrodeSelectionUpdate === 'function') {
+    stereobalanceEls.header.electrodeSelectionUpdate();
   }
 }
 
 // BA 281: Tonart-Label im Kopf nach Laden eines Stands aktualisieren.
-function lrRefreshToneTypeLabel() {
-  if (lrEls && lrEls.header && typeof lrEls.header.tonePopupUpdate === 'function') {
-    lrEls.header.tonePopupUpdate();
+function stereobalanceRefreshToneTypeLabel() {
+  if (stereobalanceEls && stereobalanceEls.header && typeof stereobalanceEls.header.tonePopupUpdate === 'function') {
+    stereobalanceEls.header.tonePopupUpdate();
   }
 }
 
@@ -1060,12 +1060,12 @@ function lrRefreshToneTypeLabel() {
 document
   .querySelector('.subtab[data-subtab="balance"][data-parent="messungen"]')
   ?.addEventListener('click', function() {
-    setTimeout(function() { lrCheckData(); }, 0);
+    setTimeout(function() { stereobalanceCheckData(); }, 0);
   });
 
-// Hook into lrresults subtab activation
+// Hook into stereobalance subtab activation
 document
-  .querySelector('.subtab[data-subtab="lrresults"][data-parent="ergebnisse"]')
+  .querySelector('.subtab[data-subtab="stereobalance"][data-parent="ergebnisse"]')
   ?.addEventListener('click', function() {
-    setTimeout(function() { lrCheckData(); lrDrawChart(); }, 0);
+    setTimeout(function() { stereobalanceCheckData(); stereobalanceDrawChart(); }, 0);
   });

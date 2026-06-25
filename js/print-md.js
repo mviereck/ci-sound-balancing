@@ -306,14 +306,14 @@ function _calcAbsDelta(side, i, dB, mfrLocal, impl) {
 }
 
 function _collectBilateral() {
-  const out = { lr: { has: false, rows: [], mean: null }, latenz: { has: false, value: null } };
-  if (typeof lrResults !== "undefined") {
-    const keys = Object.keys(lrResults).filter((k) => isFinite(lrResults[k]));
+  const out = { stereobalance: { has: false, rows: [], mean: null }, latenz: { has: false, value: null } };
+  if (typeof stereobalanceResults !== "undefined") {
+    const keys = Object.keys(stereobalanceResults).filter((k) => isFinite(stereobalanceResults[k]));
     if (keys.length > 0) {
-      out.lr.has = true;
+      out.stereobalance.has = true;
       const sorted = keys.slice().sort((a, b) => (+a) - (+b));
-      out.lr.rows = sorted.map((k) => ({ elIdx: +k, value: lrResults[k] }));
-      out.lr.mean = sorted.reduce((a, k) => a + lrResults[k], 0) / sorted.length;
+      out.stereobalance.rows = sorted.map((k) => ({ elIdx: +k, value: stereobalanceResults[k] }));
+      out.stereobalance.mean = sorted.reduce((a, k) => a + stereobalanceResults[k], 0) / sorted.length;
     }
   }
   if (typeof latenzResult !== "undefined" && latenzResult
@@ -511,7 +511,7 @@ function _archivMdTestSettings(data) {
   }
 
   _renderRow("testVerfahrenFull",  ts.test);
-  _renderRow("lrTitle",            ts.balance);
+  _renderRow("stereobalanceTitle",            ts.balance);
   _renderRow("fmTitle",            ts.freqmatch);
 
   return lines.join("\n") + "\n";
@@ -621,18 +621,18 @@ function _archivMdFreqmatch(sd) {
 
 function _archivMdBilateral(data) {
   const bil = data.bilateral;
-  if (!bil.lr.has && !bil.latenz.has) return "";
+  if (!bil.stereobalance.has && !bil.latenz.has) return "";
   const out = [`\n## ${t("archivSecBilateral")}\n`];
-  if (bil.lr.has) {
+  if (bil.stereobalance.has) {
     out.push(`### ${t("balTitle")}`);
     out.push("");
     out.push(`| ${t("thEl")} | ${t("archivBalOffset")} |`);
     out.push("|---|---|");
-    for (const r of bil.lr.rows) {
+    for (const r of bil.stereobalance.rows) {
       out.push(`| E${r.elIdx + 1} | ${_mdFmtDb(r.value, true)} |`);
     }
     out.push("");
-    out.push(`**${t("archivBalMean")}**: ${_mdFmtDb(bil.lr.mean, true)}`);
+    out.push(`**${t("archivBalMean")}**: ${_mdFmtDb(bil.stereobalance.mean, true)}`);
     out.push("");
   }
   if (bil.latenz.has) {
@@ -1004,10 +1004,10 @@ function _audiologMaplawSection(mainSides, headerLevel) {
 // ---------- Stereo-Balance (immer wenn gemessen, auch einseitig) ----------
 
 function _audiologBalanceBlock(mainSides) {
-  if (typeof lrResults === "undefined") return "";
-  const keys = Object.keys(lrResults).filter((k) => isFinite(lrResults[k]));
+  if (typeof stereobalanceResults === "undefined") return "";
+  const keys = Object.keys(stereobalanceResults).filter((k) => isFinite(stereobalanceResults[k]));
   if (keys.length === 0) return "";
-  const mean = keys.reduce((a, k) => a + lrResults[k], 0) / keys.length;
+  const mean = keys.reduce((a, k) => a + stereobalanceResults[k], 0) / keys.length;
   if (!isFinite(mean) || mean === 0) return "";
 
   const balActive = (typeof plApplyBalance !== "undefined") && plApplyBalance
@@ -1882,12 +1882,12 @@ function _archivChartFreqmatch(sideBlock) {
 
 // 5. Stereo-Balance (bilateral)
 function _archivChartLR(bilateral) {
-  if (!bilateral.lr.has) return "";
+  if (!bilateral.stereobalance.has) return "";
   return withSide("left", () => {
     const { canvas, ctx } = _archivMkCanvas();
     const W = canvas.width, H = canvas.height;
     const pad = { l: 36, r: 14, t: 22, b: 46 };
-    const rows = bilateral.lr.rows;
+    const rows = bilateral.stereobalance.rows;
     let maxAbs = 1;
     for (const r of rows) maxAbs = Math.max(maxAbs, Math.abs(r.value));
     maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
@@ -1991,7 +1991,7 @@ function renderArchivPrintHtml(data) {
       });
     }
   }
-  if (data.bilateral.lr.has) {
+  if (data.bilateral.stereobalance.has) {
     inserts.push({
       anchorH3: `${t("balTitle")}`,
       sideOnlyUnder: null,

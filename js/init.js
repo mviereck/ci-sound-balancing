@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
     buildPrTbl();
     drawLvChart();
     renderResults();
-    if (typeof lrCheckData === "function") lrCheckData();
+    if (typeof stereobalanceCheckData === "function") stereobalanceCheckData();
     if (typeof fmApplyLang === "function") fmApplyLang();
     if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
     plCheck();
@@ -663,9 +663,9 @@ document.addEventListener("DOMContentLoaded", () => {
           pMarkPlayerWarpDefaultAsApplied();
         }
       } catch (e) { /* defensiv */ }
-      if (d.lrResults && typeof lrResults !== "undefined") {
-        Object.assign(lrResults, d.lrResults);
-        if (typeof lrRenderResults === "function") lrRenderResults();
+      if (d.lrResults && typeof stereobalanceResults !== "undefined") {
+        Object.assign(stereobalanceResults, d.lrResults);
+        if (typeof stereobalanceRenderResults === "function") stereobalanceRenderResults();
       }
       if (typeof latenzResult !== "undefined") {
         latenzResult = (d && d.latencyResult) ? d.latencyResult : null;
@@ -785,8 +785,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const aNoteEl = document.getElementById("audiologNoteInput");
         if (aNoteEl) aNoteEl.value = audiologUserNote;
       }
-      if (typeof lrSnapshot !== "undefined") {
-        lrSnapshot = (d && d.lrSnapshot) ? d.lrSnapshot : null;
+      if (typeof stereobalanceSnapshot !== "undefined") {
+        stereobalanceSnapshot = (d && d.stereobalanceSnapshot) ? d.stereobalanceSnapshot : null;
       }
       buildFreqTable();
       buildImplantCard();
@@ -798,10 +798,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
       if (typeof fmApplyLang === "function") fmApplyLang();
       if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
-      if (typeof lrRefreshElectrodeSelectionSummary === "function") lrRefreshElectrodeSelectionSummary();
+      if (typeof stereobalanceRefreshElectrodeSelectionSummary === "function") stereobalanceRefreshElectrodeSelectionSummary();
       if (typeof fmRefreshElectrodeSelectionSummary === "function") fmRefreshElectrodeSelectionSummary();
       if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
-      if (typeof lrRefreshToneTypeLabel === "function") lrRefreshToneTypeLabel();
+      if (typeof stereobalanceRefreshToneTypeLabel === "function") stereobalanceRefreshToneTypeLabel();
       if (typeof fmRefreshToneTypeLabel === "function") fmRefreshToneTypeLabel();
       if (typeof testRefreshToneTypeLabel === "function") testRefreshToneTypeLabel();
       // BA389: Player-UI zentral spiegeln (ersetzt die ueber den Restore
@@ -916,9 +916,9 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           defaultMfr: defaultMfr,
           currentSide: activeSide,
-          lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
+          lrResults: (typeof stereobalanceResults !== "undefined") ? stereobalanceResults : {},
           // BA 161
-          lrSnapshot: (typeof lrSnapshot !== "undefined") ? lrSnapshot : null,
+          stereobalanceSnapshot: (typeof stereobalanceSnapshot !== "undefined") ? stereobalanceSnapshot : null,
           latencyResult: (typeof latenzResult !== "undefined") ? latenzResult : null,
           plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
           plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,

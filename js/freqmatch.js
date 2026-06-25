@@ -1407,9 +1407,9 @@ function _fmRenderPrereqHints() {
   if (lvLeftEl)  lvLeftEl.style.display  = _fmHasLvData('left')  ? 'none' : '';
   if (lvRightEl) lvRightEl.style.display = _fmHasLvData('right') ? 'none' : '';
   if (sbEl) {
-    const hasSb = typeof lrResults !== 'undefined'
-               && lrResults
-               && Object.keys(lrResults).length > 0;
+    const hasSb = typeof stereobalanceResults !== 'undefined'
+               && stereobalanceResults
+               && Object.keys(stereobalanceResults).length > 0;
     sbEl.style.display = hasSb ? 'none' : '';
   }
 }

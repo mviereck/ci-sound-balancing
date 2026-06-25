@@ -164,12 +164,12 @@ function resetAll() {
   if (typeof latenzRenderResults === "function") latenzRenderResults();
   if (typeof latenzSliderInput === "function") latenzSliderInput(0);
   // --- LR-Balance ---
-  if (typeof lrResults !== "undefined") {
-    Object.keys(lrResults).forEach(k => delete lrResults[k]);
-    if (typeof lrResetSequence === "function") lrResetSequence();
-    if (typeof lrSnapshot !== "undefined") lrSnapshot = null;
-    if (typeof lrRenderResults === "function") lrRenderResults();
-    if (typeof lrApplyMeanToBalance === "function") lrApplyMeanToBalance();
+  if (typeof stereobalanceResults !== "undefined") {
+    Object.keys(stereobalanceResults).forEach(k => delete stereobalanceResults[k]);
+    if (typeof stereobalanceResetSequence === "function") stereobalanceResetSequence();
+    if (typeof stereobalanceSnapshot !== "undefined") stereobalanceSnapshot = null;
+    if (typeof stereobalanceRenderResults === "function") stereobalanceRenderResults();
+    if (typeof stereobalanceApplyMeanToBalance === "function") stereobalanceApplyMeanToBalance();
   }
   if (typeof plApplyBalance !== "undefined") plApplyBalance = true;
   if (typeof plBalanceMode !== "undefined") plBalanceMode = "sym";
@@ -317,8 +317,8 @@ async function saveJson() {
       },
     },
     currentSide: activeSide,
-    lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
-    lrSnapshot: (typeof lrSnapshot !== "undefined") ? lrSnapshot : null, // BA 156
+    lrResults: (typeof stereobalanceResults !== "undefined") ? stereobalanceResults : {},
+    stereobalanceSnapshot: (typeof stereobalanceSnapshot !== "undefined") ? stereobalanceSnapshot : null, // BA 156
     latencyResult: (typeof latenzResult !== "undefined") ? latenzResult : null,
     plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
     plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
@@ -664,14 +664,14 @@ function applyLoadedData(d) {
     plSrcCurves = true;
   }
   if (typeof updPlSrcButtons === "function") updPlSrcButtons();
-  if (typeof lrResults !== "undefined" && d.lrResults) {
-    Object.keys(lrResults).forEach((k) => delete lrResults[k]);
-    Object.assign(lrResults, d.lrResults);
-    if (typeof lrRenderResults === "function") lrRenderResults();
-    if (typeof lrApplyMeanToBalance === "function") lrApplyMeanToBalance();
+  if (typeof stereobalanceResults !== "undefined" && d.lrResults) {
+    Object.keys(stereobalanceResults).forEach((k) => delete stereobalanceResults[k]);
+    Object.assign(stereobalanceResults, d.lrResults);
+    if (typeof stereobalanceRenderResults === "function") stereobalanceRenderResults();
+    if (typeof stereobalanceApplyMeanToBalance === "function") stereobalanceApplyMeanToBalance();
   }
-  if (typeof lrSnapshot !== "undefined") {
-    lrSnapshot = (d && d.lrSnapshot) ? d.lrSnapshot : null; // BA 156
+  if (typeof stereobalanceSnapshot !== "undefined") {
+    stereobalanceSnapshot = (d && d.stereobalanceSnapshot) ? d.stereobalanceSnapshot : null; // BA 156
   }
   if (typeof latenzResult !== "undefined") {
     latenzResult = (d && d.latencyResult) ? d.latencyResult : null;
@@ -794,10 +794,10 @@ function applyLoadedData(d) {
   if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
   if (typeof fmApplyLang === "function") fmApplyLang();
   if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
-  if (typeof lrRefreshElectrodeSelectionSummary === "function") lrRefreshElectrodeSelectionSummary();
+  if (typeof stereobalanceRefreshElectrodeSelectionSummary === "function") stereobalanceRefreshElectrodeSelectionSummary();
   if (typeof fmRefreshElectrodeSelectionSummary === "function") fmRefreshElectrodeSelectionSummary();
   if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
-  if (typeof lrRefreshToneTypeLabel === "function") lrRefreshToneTypeLabel();
+  if (typeof stereobalanceRefreshToneTypeLabel === "function") stereobalanceRefreshToneTypeLabel();
   if (typeof fmRefreshToneTypeLabel === "function") fmRefreshToneTypeLabel();
   if (typeof testRefreshToneTypeLabel === "function") testRefreshToneTypeLabel();
   if (typeof buildPrTbl === "function") buildPrTbl();

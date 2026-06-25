@@ -583,13 +583,13 @@
       </div>
         </div>
         <div id="subpanel-ergebnisse-lrresults" class="subpanel">
-        <div id="lrNoResults" class="card">
-          <p style="color: var(--text-muted)" data-t="lrNoResultsMsg"></p>
+        <div id="stereobalanceNoResults" class="card">
+          <p style="color: var(--text-muted)" data-t="stereobalanceNoResultsMsg"></p>
         </div>
-        <div class="card" id="lrResultsCard" style="display: none">
-          <h2 id="lrResTitle" data-t="lrResTitle"></h2>
+        <div class="card" id="stereobalanceResultsCard" style="display: none">
+          <h2 id="stereobalanceResTitle" data-t="stereobalanceResTitle"></h2>
           <div
-            id="lrMedianDisplay"
+            id="stereobalanceMedianDisplay"
             style="
               text-align: center;
               margin: 12px 0 16px;
@@ -605,11 +605,11 @@
                 color: var(--text-muted);
                 margin-bottom: 4px;
               "
-              id="lrMedianLabel"
-              data-t="lrMedianLabel"
+              id="stereobalanceMedianLabel"
+              data-t="stereobalanceMedianLabel"
             ></div>
             <div
-              id="lrMedianValue"
+              id="stereobalanceMedianValue"
               style="
                 font-size: 2.2em;
                 font-weight: 700;
@@ -620,7 +620,7 @@
               0.0 dB
             </div>
             <div
-              id="lrMedianHint"
+              id="stereobalanceMedianHint"
               style="
                 font-size: 0.8em;
                 color: var(--text-muted);
@@ -634,11 +634,11 @@
               color: var(--text-muted);
               margin-bottom: 8px;
             "
-            id="lrResDesc"
-            data-t="lrResDesc"
+            id="stereobalanceResDesc"
+            data-t="stereobalanceResDesc"
           ></p>
           <div
-            id="lrResChartWrap"
+            id="stereobalanceResChartWrap"
             style="
               position: relative;
               width: 100%;
@@ -650,27 +650,27 @@
             "
           >
             <canvas
-              id="lrResChart"
+              id="stereobalanceResChart"
               style="width: 100%; height: 100%; display: block"
             ></canvas>
           </div>
           <div style="overflow-x: auto">
-            <table class="results-table" id="lrResTable">
+            <table class="results-table" id="stereobalanceResTable">
               <thead>
-                <tr id="lrResTH"></tr>
+                <tr id="stereobalanceResTH"></tr>
               </thead>
-              <tbody id="lrResTB"></tbody>
+              <tbody id="stereobalanceResTB"></tbody>
             </table>
           </div>
           <div style="margin-top: 12px">
             <button
               class="btn btn-sm"
-              id="lrClearBtn"
+              id="stereobalanceClearBtn"
               style="color: var(--danger)"
-              data-t="lrClearBtnLabel"
+              data-t="stereobalanceClearBtnLabel"
             ></button>
           </div>
-          <div class="explain" style="margin-top: 12px" id="lrResNote" data-t="lrResNote"></div>
+          <div class="explain" style="margin-top: 12px" id="stereobalanceResNote" data-t="stereobalanceResNote"></div>
         </div>
         </div>
 

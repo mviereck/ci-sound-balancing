@@ -1,6 +1,6 @@
 // Zeichnet eine deaktivierte/gemute Elektrode als hellgrauen
 // Vollbalken mit dunkler X-Diagonale. Wird von chart.js
-// (drawChart) und lr-balance.js (lrDrawChart) genutzt. NICHT für
+// (drawChart) und stereobalance-balance.js (stereobalanceDrawChart) genutzt. NICHT für
 // drawFreqMatchChart geeignet (dort log-Hz-Achse).
 function drawDisabledBar(ctx, x, yTop, yBot, bW) {
   ctx.fillStyle = '#e5e7eb';
@@ -33,7 +33,7 @@ function _drawRefElLabel(ctx, x, y, size) {
 
 // Gleichmäßige x-Verteilung der Elektroden über die Plot-Breite
 // (elektrodennummern-basiert). Verwendet von drawChart (Meßergebnisse
-// Loudness) und lrDrawChart (Stereo-Balance) seit Bauanleitung 67.
+// Loudness) und stereobalanceDrawChart (Stereo-Balance) seit Bauanleitung 67.
 // Liefert zusätzlich hzArr (per effFreq oder optionalem hzGetter) für
 // die Hz-Beschriftung unter der x-Achse.
 function buildLinearAxis(electrodes, padLeft, plotW, hzGetter) {

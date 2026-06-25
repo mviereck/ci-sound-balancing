@@ -69,13 +69,13 @@ function _activeTestInput(type) {
   // BA 250: Elektrodenlautstaerke-Test hat keine Header-Felder mehr —
   // Vol/Dur/Pau leben dort als State-Variablen (volume_test/duration_test/
   // pause_test). gVol/gDur/gPau lesen das direkt; _activeTestInput
-  // braucht nur noch lr-balance und freqmatch (rein vorgehalten — beide
+  // braucht nur noch stereobalance-balance und freqmatch (rein vorgehalten — beide
   // haben eigene Helfer).
-  if (typeof lrRunning !== 'undefined' && lrRunning
-      && typeof lrEls !== 'undefined' && lrEls && lrEls.header) {
-    if (type === 'vol') return lrEls.header.volInput;
-    if (type === 'dur') return lrEls.header.durInput;
-    if (type === 'pau') return lrEls.header.pauseInput;
+  if (typeof stereobalanceRunning !== 'undefined' && stereobalanceRunning
+      && typeof stereobalanceEls !== 'undefined' && stereobalanceEls && stereobalanceEls.header) {
+    if (type === 'vol') return stereobalanceEls.header.volInput;
+    if (type === 'dur') return stereobalanceEls.header.durInput;
+    if (type === 'pau') return stereobalanceEls.header.pauseInput;
   }
   if (typeof fmRunning !== 'undefined' && fmRunning
       && typeof fmEls !== 'undefined' && fmEls && fmEls.header) {

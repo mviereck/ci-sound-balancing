@@ -974,7 +974,7 @@ function endTest() {
   // der Test nach dem letzten Vergleich haengen blieb (kein Ton, kein
   // Abschluss). _stopTest hat einen Re-Entry-Schutz (_testRunning), der
   // Aufruf ueber den onStop-Hook (-> endTest) laeuft also nicht in eine
-  // Endlosschleife. Vgl. lrFinish in lr-balance.js.
+  // Endlosschleife. Vgl. stereobalanceFinish in stereobalance-balance.js.
   if (testEls && testEls._stopTest) testEls._stopTest();
 }
 function showCurPair() {
@@ -1288,7 +1288,7 @@ function nextConvRnd() {
 // BA 247: DOMContentLoaded — buildTestPanel (neue testUI-API)
 // ============================================================
 // BA 247fix: null = "alle testable ausgewaehlt" (Konvention aus
-// test-ui.js Z. 2270 und aus lr-balance). Leeres Array waere im
+// test-ui.js Z. 2270 und aus stereobalance-balance). Leeres Array waere im
 // Modal als "keine ausgewaehlt" interpretiert.
 let _testSelectedEls = null;
 

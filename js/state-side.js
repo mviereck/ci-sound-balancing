@@ -482,9 +482,9 @@ function getPlayerSide() {
 }
 function getPlayerBalance() {
   if (!plApplyBalance) return 0;
-  // Mean aus lrResults berechnen (lrResults ist global in lr-balance.js)
-  if (typeof lrResults === "undefined") return 0;
-  const vals = Object.values(lrResults).filter((v) => isFinite(v));
+  // Mean aus stereobalanceResults berechnen (stereobalanceResults ist global in stereobalance-balance.js)
+  if (typeof stereobalanceResults === "undefined") return 0;
+  const vals = Object.values(stereobalanceResults).filter((v) => isFinite(v));
   if (!vals.length) return 0;
   const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
   // Positive mean = right louder → negative balance offset (rechts dämpfen)
@@ -493,9 +493,9 @@ function getPlayerBalance() {
 function getPlayerBalanceGains() {
   // Liefert {left, right} dB-Werte für die beiden Channel-Gains
   // im "both"-Modus. Berücksichtigt plBalanceMode.
-  // b ist die gemessene L↔R-Differenz in dB (= -mean der lrResults).
+  // b ist die gemessene L↔R-Differenz in dB (= -mean der stereobalanceResults).
   // Der akustische Unterschied muss in ALLEN Modi genau b betragen,
-  // wie beim Test eingestellt (lrPairGains verteilt off als ±off/2).
+  // wie beim Test eingestellt (stereobalancePairGains verteilt off als ±off/2).
   // "sym" (Default): symmetrisch, jede Seite trägt die Hälfte (±b/2).
   // "left":  voller Ausgleich b ausschließlich auf der linken Seite.
   // "right": voller Ausgleich b ausschließlich auf der rechten Seite.
@@ -513,8 +513,8 @@ function getPlayerBalanceGains() {
 function getRawBalanceGains() {
   // Wie getPlayerBalanceGains(), aber ignoriert plApplyBalance.
   // Für Meßtests (Frequenzabgleich, Latenz): Balance immer anwenden.
-  if (typeof lrResults === "undefined") return { left: 0, right: 0 };
-  const vals = Object.values(lrResults).filter((v) => isFinite(v));
+  if (typeof stereobalanceResults === "undefined") return { left: 0, right: 0 };
+  const vals = Object.values(stereobalanceResults).filter((v) => isFinite(v));
   if (!vals.length) return { left: 0, right: 0 };
   const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
   // b = gemessene L↔R-Differenz; Verteilung wie getPlayerBalanceGains.
@@ -617,12 +617,12 @@ function implantSnapshotsDiffer(a, b) {
   return !(_eqSide(a.left, b.left) && _eqSide(a.right, b.right));
 }
 
-// BA 156: Hinweis-Banner-Helper. testKey ∈ {'lr', 'latenz'}.
+// BA 156: Hinweis-Banner-Helper. testKey ∈ {'stereobalance', 'latenz'}.
 function renderSnapshotHint(testKey, containerEl) {
   if (!containerEl) return;
   let oldSnap = null;
-  if (testKey === 'lr') {
-    oldSnap = (typeof lrSnapshot !== 'undefined') ? lrSnapshot : null;
+  if (testKey === 'stereobalance') {
+    oldSnap = (typeof stereobalanceSnapshot !== 'undefined') ? stereobalanceSnapshot : null;
   } else if (testKey === 'latenz') {
     oldSnap = (typeof latenzResult !== 'undefined' && latenzResult)
             ? latenzResult.implantSnapshot : null;
@@ -790,7 +790,7 @@ let pause_freqmatch    = TEST_DEFAULTS.freqmatch.pause;
 // BA 287: gemeinsame Lautstaerke fuer alle drei Mess-Tests UND den
 // Implantat-Reiter. Ersetzt die frueheren volume_test/volume_balance/
 // volume_freqmatch/volume_implant. Vol als int 0..100; die Getter
-// (tGVol/lrGVol/fmGVol/...) machen die quadratische Audio-Konversion.
+// (tGVol/stereobalanceGVol/fmGVol/...) machen die quadratische Audio-Konversion.
 let volume_global = TEST_DEFAULTS.commonVolume;
 let duration_test = TEST_DEFAULTS.test.duration;
 let pause_test    = TEST_DEFAULTS.test.pause;

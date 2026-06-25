@@ -428,9 +428,9 @@ function _latUpdateIntervalHint() {
 
 function _latHasBalance() {
   // Pragmatische Detektion: mindestens ein gemessener Balance-Wert
-  // existiert in lrResults ODER in sideData[*].elektrodenlautstaerkeResults.
-  if (typeof lrResults === 'object' && lrResults
-      && Object.values(lrResults).some(function(v) { return isFinite(v); })) return true;
+  // existiert in stereobalanceResults ODER in sideData[*].elektrodenlautstaerkeResults.
+  if (typeof stereobalanceResults === 'object' && stereobalanceResults
+      && Object.values(stereobalanceResults).some(function(v) { return isFinite(v); })) return true;
   if (typeof sideData === 'object' && sideData) {
     for (const side of ['left', 'right']) {
       const sd = sideData[side];
@@ -460,7 +460,7 @@ function latenzHookOnStart() {
         testUI.slider.setValue(slRef, startMs);
         // setValue setzt nur Range/Wert, nicht die Anzeige -> sonst zeigt
         // der Slider beim Neustart den zuletzt geschobenen Text, bis man
-        // erneut schiebt. Anzeige analog lr-balance.js explizit setzen.
+        // erneut schiebt. Anzeige analog stereobalance-balance.js explizit setzen.
         testUI.slider.setValueDisplay(slRef, startMs.toFixed(1) + " ms");
       }
       latenzSetSliderMs(startMs);

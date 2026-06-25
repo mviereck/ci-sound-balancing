@@ -6,7 +6,7 @@
 // durchreichen (sonst erst beim naechsten Seitenwechsel/Laden aktuell).
 function _freqTableRefreshMeasSummaries() {
   if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
-  if (typeof lrRefreshElectrodeSelectionSummary === "function") lrRefreshElectrodeSelectionSummary();
+  if (typeof stereobalanceRefreshElectrodeSelectionSummary === "function") stereobalanceRefreshElectrodeSelectionSummary();
   if (typeof fmRefreshElectrodeSelectionSummary === "function") fmRefreshElectrodeSelectionSummary();
 }
 function buildFreqTable() {
