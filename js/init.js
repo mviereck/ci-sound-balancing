@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Sub-Tab-Beschriftungen (werden auch von applyLang-Patch aktualisiert)
   const _btnL = document.getElementById("tabElektrodenlautstaerkeBtn");
   if (_btnL) _btnL.textContent = t("tabElektrodenlautstaerke");
-  const _btnF = document.getElementById("subTabFreqMatchBtn");
-  if (_btnF) _btnF.textContent = t("subTabFreqMatch");
+  const _btnF = document.getElementById("subTabFRQBtn");
+  if (_btnF) _btnF.textContent = t("subTabFRQ");
   const _nd = document.getElementById("FRQ_resultsNoDataText");
   if (_nd) _nd.textContent = t("FRQ_resultsNoData");
   document.getElementById("langSelect").addEventListener("change", () => window.applyLang());
@@ -42,15 +42,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Sub-Tab-Beschriftungen
     const btnL = document.getElementById("tabElektrodenlautstaerkeBtn");
     if (btnL) btnL.textContent = t("tabElektrodenlautstaerke");
-    const btnF = document.getElementById("subTabFreqMatchBtn");
-    if (btnF) btnF.textContent = t("subTabFreqMatch");
+    const btnF = document.getElementById("subTabFRQBtn");
+    if (btnF) btnF.textContent = t("subTabFRQ");
     // FRQ_resultsNoData-Text
     const nd = document.getElementById("FRQ_resultsNoDataText");
     if (nd) nd.textContent = t("FRQ_resultsNoData");
     // Wenn Frequenzabgleich-Tab aktiv: neu rendern
     const activeSubtab = document.querySelector('.subtab[data-parent="ergebnisse"].active');
     if (activeSubtab && activeSubtab.dataset.subtab === "freqmatch") {
-      renderFreqMatchResults();
+      FRQ_renderResults();
     }
     // Latenz-UI-Texte
     if (typeof LTZ_renderResults === "function") LTZ_renderResults();

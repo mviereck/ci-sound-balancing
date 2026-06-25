@@ -466,7 +466,7 @@ function frq_trackSummary(track) {
 }
 
 // --- Vorläufige Schätzung für laufende Tracks ---
-function FRQ_computeProvisional(track) {
+function frq_computeProvisional(track) {
   const revCount = (track.reversals && track.reversals.length) || 0;
   const trials   = track.trialCount || 0;
   if (track.status !== 'active') {

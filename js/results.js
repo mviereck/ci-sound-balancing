@@ -213,7 +213,7 @@ function _frq_resultsCollectNotPerceivable() {
     Object.keys(run.tracks).forEach(function(k) { elIdxSet.add(parseInt(k, 10)); });
 
     elIdxSet.forEach(function(elIdx) {
-      const tr = run.tracks[FRQ_trackKey(elIdx)];
+      const tr = run.tracks[frq_trackKey(elIdx)];
       if (tr && tr.status === 'not-perceivable') {
         result[side + ':' + elIdx] = true;
       }
@@ -229,7 +229,7 @@ function _frq_resultsCollectNotPerceivable() {
 //   'in-progress'        : ≥4 Umkehrungen, Match aus Mittelwert,
 //                          Residuum aus halber Spanne der bisherigen Umkehrungen
 //   'in-progress-early'  : <2 Umkehrungen, kein Match, refFreq = varFreq (Platzhalter)
-// Schwellen kommen aus FRQ_computeProvisional in freqmatch-staircase.js.
+// Schwellen kommen aus frq_computeProvisional in freqmatch-staircase.js.
 
 function _frq_resultsBuildInProgressEntries(side) {
   const out = [];
@@ -245,11 +245,11 @@ function _frq_resultsBuildInProgressEntries(side) {
   Object.keys(run.tracks).forEach(function(k) { elIdxSet.add(parseInt(k, 10)); });
 
   elIdxSet.forEach(function(elIdx) {
-    const tr = run.tracks[FRQ_trackKey(elIdx)];
+    const tr = run.tracks[frq_trackKey(elIdx)];
     if (!tr || tr.status !== 'active') return;
 
     const varHz = withSide(side, function() { return FRQ_implantatEffektiv(elIdx); });
-    const prov  = FRQ_computeProvisional(tr);
+    const prov  = frq_computeProvisional(tr);
     const totalTrials  = tr.trialCount || 0;
     const maxReversals = (tr.reversals && tr.reversals.length) || 0;
 
@@ -351,13 +351,13 @@ function _frq_resultsBuildSliderEntries(side) {
 
 // BA353: Zentrale, nach aktivem Verfahren gefilterte Ergebnis-Quelle.
 // EINZIGE Stelle, durch die Ergebnisgraph, Player (Warp) und Druck gehen.
-// Generisch: vergleicht FRQ_entryMethod(eintrag) mit dem aktiven Verfahren,
+// Generisch: vergleicht frq_entryMethod(eintrag) mit dem aktiven Verfahren,
 // kennt die Verfahren nicht beim Namen. Vorrang final > provisorisch je
 // (varSide, elIdx) -- aber nur INNERHALB des aktiven Verfahrens.
 function FRQ_activeResults() {
-  const method = (typeof FRQ_getActiveMethod === "function") ? FRQ_getActiveMethod() : "adaptive";
-  const me = (typeof FRQ_entryMethod === "function")
-    ? FRQ_entryMethod
+  const method = (typeof frq_getActiveMethod === "function") ? frq_getActiveMethod() : "adaptive";
+  const me = (typeof frq_entryMethod === "function")
+    ? frq_entryMethod
     : function (r) { return (r && r.method === "slider") ? "slider" : "adaptive"; };
 
   // Finale Eintraege des aktiven Verfahrens.
@@ -389,7 +389,7 @@ function FRQ_activeResults() {
   return out;
 }
 
-function renderFreqMatchResults() {
+function FRQ_renderResults() {
   const noData = document.getElementById("FRQ_resultsNoData");
   const card = document.getElementById("FRQ_resultsCard");
   if (!noData || !card) return;
@@ -420,7 +420,7 @@ function renderFreqMatchResults() {
   noData.style.display = "none";
   card.style.display = "";
   // BA353: Umschalter-Hervorhebung aktualisieren.
-  if (typeof FRQ_updateActiveMethodButtons === "function") FRQ_updateActiveMethodButtons();
+  if (typeof frq_updateActiveMethodButtons === "function") frq_updateActiveMethodButtons();
 
   // BA353: Anzeige-Daten: nur das aktive Verfahren, ciSide-gefiltert.
   const displayData = ((typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [])
@@ -472,8 +472,8 @@ function renderFreqMatchResults() {
   if (!th || !tb) return;
 
   // BA364: Konvergenz/Laufstreuung nur bei aktivem Adaptiv (Architektur 10.3).
-  var isAdaptiveActive = (typeof FRQ_getActiveMethod === "function")
-    && FRQ_getActiveMethod() === "adaptive";
+  var isAdaptiveActive = (typeof frq_getActiveMethod === "function")
+    && frq_getActiveMethod() === "adaptive";
   var advCols = isAdaptiveActive
     ? ("<th title=\"" + t("FRQ_resultsColConvergenceTip") + "\">" + t("FRQ_resultsColConvergence") + "</th>"
      + "<th title=\"" + t("FRQ_resultsColRunSpreadTip") + "\">" + t("FRQ_resultsColRunSpread") + "</th>")
@@ -694,8 +694,8 @@ function renderFreqMatchResults() {
       ? faActive.runs[faActive.currentRunIdx] : null;
     const _activeTracks = (_faActiveRun && _faActiveRun.tracks) ? _faActiveRun.tracks : {};
     const hasActive = Object.keys(_activeTracks).some(function(k) { return _activeTracks[k].status === 'active'; });
-    if (hasActive && typeof FRQ_computeProgressStats === 'function') {
-      const stats = FRQ_computeProgressStats(_activeTracks);
+    if (hasActive && typeof frq_computeProgressStats === 'function') {
+      const stats = frq_computeProgressStats(_activeTracks);
       pBox.style.display = '';
       if (pText) pText.textContent =
         stats.done + ' / ' + stats.total + ' · ' + Math.round(stats.percent) + ' %';
@@ -799,7 +799,7 @@ function renderFreqMatchResults() {
   const cv = document.getElementById("FRQ_resultsChart");
   if (cv) {
     const notPerc = _frq_resultsCollectNotPerceivable();
-    drawFreqMatchChart(
+    drawFRQChart(
       cv,
       displayData.filter(function (r) { return !(r && r.fmExcluded); }),
       { notPerceivable: notPerc }
@@ -834,7 +834,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // BA 157: drei Knöpfe statt einem
   function _frq_resultsRefreshAfterClear() {
     if (typeof depLockApply === 'function') depLockApply();
-    renderFreqMatchResults();
+    FRQ_renderResults();
     if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
   }
 
@@ -856,7 +856,7 @@ document.addEventListener("DOMContentLoaded", function() {
     sliderBtn.addEventListener("click", function() {
       if (!confirm(t("FRQ_resultsClearSliderConfirm") || "Slider-Schätzungen löschen?")) return;
       for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
-        if (FRQ_resultsArray[i] && FRQ_entryMethod(FRQ_resultsArray[i]) === "slider") FRQ_resultsArray.splice(i, 1);
+        if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === "slider") FRQ_resultsArray.splice(i, 1);
       }
       if (typeof sideData !== "undefined") {
         ['left', 'right'].forEach(function(side) {
@@ -875,7 +875,7 @@ document.addEventListener("DOMContentLoaded", function() {
     adaptiveBtn.addEventListener("click", function() {
       if (!confirm(t("FRQ_resultsClearAdaptiveConfirm") || "Adaptiv-Ergebnisse löschen?")) return;
       for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
-        if (FRQ_resultsArray[i] && FRQ_entryMethod(FRQ_resultsArray[i]) === "adaptive") FRQ_resultsArray.splice(i, 1);
+        if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === "adaptive") FRQ_resultsArray.splice(i, 1);
       }
       if (typeof sideData !== "undefined") {
         ['left', 'right'].forEach(function(side) {
@@ -896,7 +896,7 @@ document.addEventListener("DOMContentLoaded", function() {
     pianoBtn.addEventListener("click", function() {
       if (!confirm(t("FRQ_resultsClearPianoConfirm") || "Klavier-Ergebnisse loeschen?")) return;
       for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
-        if (FRQ_resultsArray[i] && FRQ_entryMethod(FRQ_resultsArray[i]) === "piano") FRQ_resultsArray.splice(i, 1);
+        if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === "piano") FRQ_resultsArray.splice(i, 1);
       }
       if (typeof sideData !== "undefined") {
         ['left', 'right'].forEach(function(side) {

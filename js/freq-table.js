@@ -223,7 +223,7 @@ function FRQ_implantatTableBuild() {
           && _FRQ_hasAdaptiveData()) {
         e.target.value = elSt[idx] || '';
         if (typeof depLockShowTransientPopup === 'function') {
-          depLockShowTransientPopup(e.target, 'depFieldMute', ['depReasonFreqMatchAdaptive']);
+          depLockShowTransientPopup(e.target, 'depFieldMute', ['depReasonFRQAdaptive']);
         }
         return;
       }

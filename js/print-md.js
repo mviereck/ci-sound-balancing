@@ -525,7 +525,7 @@ function _archivMdSidesContent(data) {
     if (sd.meas.has)      sections.push(_archivMdMeas(sd));
     if (sd.schieber.has)  sections.push(_archivMdSchieber(sd));
     if (sd.kurven.has)    sections.push(_archivMdKurven(sd));
-    if (sd.freqmatch.has) sections.push(_archivMdFreqmatch(sd));
+    if (sd.freqmatch.has) sections.push(_archivMdFRQ(sd));
     if (sections.length === 0) continue;
     out.push(`\n## ${sd.label}\n`);
     out.push(sections.join("\n"));
@@ -601,7 +601,7 @@ function _archivMdKurven(sd) {
   return out.join("\n") + "\n";
 }
 
-function _archivMdFreqmatch(sd) {
+function _archivMdFRQ(sd) {
   const out = [`### ${t("FRQ_measureTitle")}`, ""];
   out.push(`| ${t("FRQ_resColEl")} | ${t("FRQ_resColVarFreq")} | ${t("FRQ_resColRefFreq")} | ${t("FRQ_resColCent")} |`);
   out.push("|---|---|---|---|");
@@ -1835,7 +1835,7 @@ function _archivChartKurven(sideBlock) {
 }
 
 // 4. Frequenzabgleich (log-Hz x lin-Cent)
-function _archivChartFreqmatch(sideBlock) {
+function _archivChartFRQ(sideBlock) {
   if (!sideBlock.freqmatch.has) return "";
   const { canvas, ctx } = _archivMkCanvas();
   const W = canvas.width, H = canvas.height;
@@ -1987,7 +1987,7 @@ function renderArchivPrintHtml(data) {
       inserts.push({
         anchorH3: `${t("FRQ_measureTitle")}`,
         sideOnlyUnder: sd.label,
-        img: _archivChartFreqmatch(sd),
+        img: _archivChartFRQ(sd),
       });
     }
   }

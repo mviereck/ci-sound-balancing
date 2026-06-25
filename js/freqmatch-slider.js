@@ -266,7 +266,7 @@ function _frq_sliderFinish() {
   if (typeof testUI !== 'undefined' && testUI.completion) {
     testUI.completion.show({
       nameKey:   'compNameFmSlider',
-      subtabKey: 'subTabFreqMatch',
+      subtabKey: 'subTabFRQ',
       bodyKey:   'FRQ_doneExtra'
     });
   }
@@ -316,8 +316,8 @@ function frq_confirm() {
 
   frq_sequenceIdx++;
   frq_loadElectrode();
-  if (typeof renderFreqMatchResults === 'function') {
-    try { renderFreqMatchResults(); } catch (e) {}
+  if (typeof FRQ_renderResults === 'function') {
+    try { FRQ_renderResults(); } catch (e) {}
   }
   if (typeof depLockApply === 'function') depLockApply();
 }

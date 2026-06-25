@@ -177,7 +177,7 @@ function resetAll() {
   // --- Frequenzabgleich-Ergebnisse ---
   if (typeof FRQ_resultsArray !== "undefined") FRQ_resultsArray.splice(0, FRQ_resultsArray.length);
   if (typeof freqmatchTestSelection !== "undefined") freqmatchTestSelection = null;
-  if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
+  if (typeof FRQ_renderResults === "function") FRQ_renderResults();
   // BA 161: FreqMatch-Tab-UI nach Reset auffrischen
   if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
   if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();
@@ -790,7 +790,7 @@ function applyLoadedData(d) {
   }
   FRQ_implantatTableBuild();
   renderResults();
-  if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
+  if (typeof FRQ_renderResults === "function") FRQ_renderResults();
   if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
   if (typeof FRQ_applyLang === "function") FRQ_applyLang();
   if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();

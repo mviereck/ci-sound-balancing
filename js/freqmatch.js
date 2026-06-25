@@ -86,7 +86,7 @@ function _frq_shouldOfferSliderEstimate() {
 
 // --- Track-Key-Schema: Key = String(electrodeIdx). Pro Lauf eine
 // Staircase je Elektrode (Bracketing über Läufe statt parallel).
-function FRQ_trackKey(electrodeIdx) {
+function frq_trackKey(electrodeIdx) {
   return String(electrodeIdx);
 }
 function frq_parseTrackKey(key) {
@@ -124,7 +124,7 @@ function _frq_aggregateCent(rounds) {
 }
 
 // BA 206: Min/Max aus rounds[]-Historie. Rückgabe {min, max} oder null.
-function _FRQ_rangeCent(rounds) {
+function _frq_rangeCent(rounds) {
   if (!Array.isArray(rounds) || rounds.length === 0) return null;
   const vals = rounds.map(function(r) { return r && typeof r.cent === 'number' ? r.cent : null; })
                      .filter(function(v) { return v != null && isFinite(v); });
@@ -705,8 +705,8 @@ function frq_undo() {
 
   frq_updateSliderProgress();
   frq_loadElectrode();
-  if (typeof renderFreqMatchResults === 'function') {
-    try { renderFreqMatchResults(); } catch (e) {}
+  if (typeof FRQ_renderResults === 'function') {
+    try { FRQ_renderResults(); } catch (e) {}
   }
 }
 
@@ -921,8 +921,8 @@ function frq_pianoConfirm() {
 
   if (typeof FRQ_setActiveMethod === "function") FRQ_setActiveMethod("piano");
   _frq_pianoWriteResults();
-  if (typeof renderFreqMatchResults === "function") {
-    try { renderFreqMatchResults(); } catch (e) {}
+  if (typeof FRQ_renderResults === "function") {
+    try { FRQ_renderResults(); } catch (e) {}
   }
 
   run.posInBorder++;
@@ -986,7 +986,7 @@ function _frq_pianoFinish() {
 function _frq_pianoWriteResults() {
   if (typeof FRQ_resultsArray === "undefined") return;
   for (var i = FRQ_resultsArray.length - 1; i >= 0; i--) {
-    if (FRQ_resultsArray[i] && FRQ_entryMethod(FRQ_resultsArray[i]) === "piano") FRQ_resultsArray.splice(i, 1);
+    if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === "piano") FRQ_resultsArray.splice(i, 1);
   }
   var fp = _frq_pianoData();
   var run = fp && fp.run;
@@ -1055,7 +1055,7 @@ function _frq_migrateAltForEl(side, elIdx) {
     for (var i = 0; i < FRQ_resultsArray.length; i++) {
       var r = FRQ_resultsArray[i];
       if (!r || r.elIdx !== elIdx) continue;
-      if (FRQ_entryMethod(r) !== "adaptive") continue;
+      if (frq_entryMethod(r) !== "adaptive") continue;
       var symA = (r.refSide === "symmetric");
       if (r.varSide !== side && !symA) continue;
       var centA = null;
@@ -1099,7 +1099,7 @@ function _frq_migrateHasPiano(side, elIdx) {
   if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
     for (var i = 0; i < FRQ_resultsArray.length; i++) {
       var r = FRQ_resultsArray[i];
-      if (r && r.elIdx === elIdx && FRQ_entryMethod(r) === "piano"
+      if (r && r.elIdx === elIdx && frq_entryMethod(r) === "piano"
           && (r.varSide === side || r.refSide === "symmetric")) {
         return true;
       }
@@ -1124,7 +1124,7 @@ function _FRQ_migrateAltToPiano() {
     if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
       for (var i = 0; i < FRQ_resultsArray.length; i++) {
         var r = FRQ_resultsArray[i];
-        if (r && FRQ_entryMethod(r) === "adaptive"
+        if (r && frq_entryMethod(r) === "adaptive"
             && (r.varSide === side || r.refSide === "symmetric")) return true;
       }
     }
@@ -1145,7 +1145,7 @@ function _FRQ_migrateAltToPiano() {
   }
   if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
     FRQ_resultsArray.forEach(function (r) {
-      if (r && FRQ_entryMethod(r) === "adaptive"
+      if (r && frq_entryMethod(r) === "adaptive"
           && (r.varSide === varSide || r.refSide === "symmetric")) {
         elSet[r.elIdx] = true;
       }
@@ -1301,7 +1301,7 @@ function frq_finish() {
   FRQ_running   = false;
   frq_currentEl = null;
   if (FRQ_els && FRQ_els._stopTest) FRQ_els._stopTest();
-  if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
+  if (typeof FRQ_renderResults === "function") FRQ_renderResults();
 }
 
 // --- Elektroden-Ausschluss ---
@@ -1452,18 +1452,18 @@ let FRQ_activeMethodValue = null;
 
 // Method-Kennung eines Eintrags. Konvention: nur "slider" ist Schieber,
 // alles andere (inkl. fehlend) zaehlt als "adaptive" (Altstaende ohne Feld).
-function FRQ_entryMethod(r) {
+function frq_entryMethod(r) {
   if (r && r.method === "piano")  return "piano";
   if (r && r.method === "slider") return "slider";
   return "adaptive";
 }
 
 // Hat ein Verfahren ueberhaupt Daten? (fuer Default-Ableitung)
-// BA363: aktuell ungenutzt (FRQ_getActiveMethod gibt hart "piano"), fuer Reaktivierung erhalten.
+// BA363: aktuell ungenutzt (frq_getActiveMethod gibt hart "piano"), fuer Reaktivierung erhalten.
 function frq_methodHasData(method) {
   if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
     for (let i = 0; i < FRQ_resultsArray.length; i++) {
-      if (FRQ_resultsArray[i] && FRQ_entryMethod(FRQ_resultsArray[i]) === method) return true;
+      if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === method) return true;
     }
   }
   const sides = ["left", "right"];
@@ -1489,7 +1489,7 @@ function frq_methodHasData(method) {
 // Aktiv geltendes Verfahren. Klavier-only-Betrieb (BA363): immer "piano".
 // Der gespeicherte FRQ_activeMethodValue bleibt unangetastet (Reaktivierung von
 // Adaptiv/Slider ist ein reiner Sichtbarkeits-Schritt). Architektur 10.1.
-function FRQ_getActiveMethod() {
+function frq_getActiveMethod() {
   return "piano";
 }
 
@@ -1500,10 +1500,10 @@ function FRQ_setActiveMethod(m) {
   if (m !== "adaptive" && m !== "slider" && m !== "piano") return;
   const changed = (FRQ_activeMethodValue !== m);
   FRQ_activeMethodValue = m;
-  if (typeof FRQ_updateActiveMethodButtons === "function") FRQ_updateActiveMethodButtons();
+  if (typeof frq_updateActiveMethodButtons === "function") frq_updateActiveMethodButtons();
   if (!changed) return;
-  if (typeof renderFreqMatchResults === "function") {
-    try { renderFreqMatchResults(); } catch (e) {}
+  if (typeof FRQ_renderResults === "function") {
+    try { FRQ_renderResults(); } catch (e) {}
   }
   if (typeof pWarpTrigger === "function") {
     try { pWarpTrigger(); } catch (e) {}
@@ -1511,8 +1511,8 @@ function FRQ_setActiveMethod(m) {
 }
 
 // Hervorhebung der zwei Umschalt-Buttons (Vorbild: updPlSrcButtons).
-function FRQ_updateActiveMethodButtons() {
-  const method = FRQ_getActiveMethod();
+function frq_updateActiveMethodButtons() {
+  const method = frq_getActiveMethod();
   const map = [
     { id: "FRQ_activeMethodAdaptiveBtn", m: "adaptive" },
     { id: "FRQ_activeMethodSliderBtn",   m: "slider" },

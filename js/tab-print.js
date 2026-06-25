@@ -147,7 +147,7 @@ function printErgebnisseTab() {
   const id = sub.id;
   if (id === "subpanel-ergebnisse-elektrodenlautstaerke")  return _printResLoudness();
   if (id === "subpanel-ergebnisse-stereobalance") return _printResLR();
-  if (id === "subpanel-ergebnisse-freqmatch") return _printResFreqmatch();
+  if (id === "subpanel-ergebnisse-freqmatch") return _printResFRQ();
   if (id === "subpanel-ergebnisse-latenz")    return _printResLTZ();
 }
 
@@ -210,14 +210,14 @@ function _printResLR() {
   openPrintWindow(t("tabStereobalance") || "Stereo-Balance", body);
 }
 
-function _printResFreqmatch() {
+function _printResFRQ() {
   const noData = document.querySelector('#FRQ_resultsNoData');
   const card   = document.querySelector('#FRQ_resultsCard');
   const target = (card && card.style.display !== 'none')
     ? '#FRQ_resultsCard'
     : '#FRQ_resultsNoData';
   const body = _printCloneSafe(target);
-  openPrintWindow(t("subTabFreqMatch") || "Frequenzabgleich", body);
+  openPrintWindow(t("subTabFRQ") || "Frequenzabgleich", body);
 }
 
 function _printResLTZ() {

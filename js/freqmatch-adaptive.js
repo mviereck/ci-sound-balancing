@@ -203,7 +203,7 @@ function _frq_doStartAdaptive() {
         startOffset = sign * FM_INITIAL_START_OFFSET;
       }
 
-      frq_tracks[FRQ_trackKey(idx)] = frq_createTrack(idx, sign, startOffset);
+      frq_tracks[frq_trackKey(idx)] = frq_createTrack(idx, sign, startOffset);
     });
     _frq_persist();
   }
@@ -508,7 +508,7 @@ function _frq_aggregateRunsForElectrode(side, electrodeIdx) {
   };
   if (!fa || !Array.isArray(fa.runs)) return empty;
 
-  const key = FRQ_trackKey(electrodeIdx);
+  const key = frq_trackKey(electrodeIdx);
   const RANK = { 'converged': 0, 'converged-fair': 1, 'converged-wide': 2,
                  'unstable': 3, 'not-perceivable': 4, 'aborted': 5 };
 
@@ -766,7 +766,7 @@ function frq_finishAdaptive() {
 
   if (FRQ_els) FRQ_els._stopTest();
   FRQ_refreshResumeHint();
-  if (typeof renderFreqMatchResults === 'function') renderFreqMatchResults();
+  if (typeof FRQ_renderResults === 'function') FRQ_renderResults();
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
   // BA 279: Abschluss-Box. frq_finishAdaptive wird nur erreicht, wenn keine
@@ -775,7 +775,7 @@ function frq_finishAdaptive() {
   if (typeof testUI !== 'undefined' && testUI.completion) {
     testUI.completion.show({
       nameKey:   'compNameFmAdaptive',
-      subtabKey: 'subTabFreqMatch',
+      subtabKey: 'subTabFRQ',
       bodyKey:   'FRQ_doneExtra'
     });
   }
@@ -806,7 +806,7 @@ function frq_renderStatusGrid() {
   });
 
   ids.forEach(function(idx) {
-    const tr = frq_tracks[FRQ_trackKey(idx)];
+    const tr = frq_tracks[frq_trackKey(idx)];
     const trStatus = (tr && tr.status) || 'active';
 
     // CSS-Klasse: bestehende Klassen weiterverwenden
@@ -842,8 +842,8 @@ function frq_renderStatusGrid() {
     let matchTxt = '—', matchProv = false;
     if (tr && tr.match != null) {
       matchTxt = (tr.match >= 0 ? '+' : '') + Math.round(tr.match) + ' ct';
-    } else if (tr && tr.status === 'active' && typeof FRQ_computeProvisional === 'function') {
-      const prov = FRQ_computeProvisional(tr);
+    } else if (tr && tr.status === 'active' && typeof frq_computeProvisional === 'function') {
+      const prov = frq_computeProvisional(tr);
       if (prov.match != null) {
         matchTxt = (prov.match >= 0 ? '+' : '') + Math.round(prov.match) + ' ct';
         matchProv = true;
@@ -857,8 +857,8 @@ function frq_renderStatusGrid() {
     let residTxt = '—', residProv = false;
     if (tr && tr.residual != null) {
       residTxt = '±' + Math.round(tr.residual) + ' ct';
-    } else if (tr && tr.status === 'active' && typeof FRQ_computeProvisional === 'function') {
-      const prov = FRQ_computeProvisional(tr);
+    } else if (tr && tr.status === 'active' && typeof frq_computeProvisional === 'function') {
+      const prov = frq_computeProvisional(tr);
       if (prov.residual != null) {
         residTxt = '±' + Math.round(prov.residual) + ' ct';
         residProv = true;
@@ -899,7 +899,7 @@ function frq_updateAdaptiveProgress() {
   const ids = Object.keys(frq_tracks);
 
   if (ids.length > 0) {
-    const stats    = FRQ_computeProgressStats(frq_tracks);
+    const stats    = frq_computeProgressStats(frq_tracks);
     const curTrial = (stats.totalTrials || 0) + (frq_awaitingResponse ? 1 : 0);
     const estTotal = ids.length * FM_TRIALS_PER_ELECTRODE_ESTIMATE;
     const txt = 'Trial ' + curTrial + ' von ca. ' + estTotal;
@@ -916,12 +916,12 @@ function frq_updateAdaptiveProgress() {
 }
 
 // Wiederverwendbare Fortschritts-Statistik. Auch genutzt von
-// renderFreqMatchResults für den Ergebnis-Reiter-Balken.
+// FRQ_renderResults für den Ergebnis-Reiter-Balken.
 //
 // Pro Track (1 Track je Elektrode je Lauf):
 //   - Endzustand    → Beitrag 1.0
 //   - aktiv         → Beitrag min(reversals.length / FM_REVERSALS_REQ, 0.95)
-function FRQ_computeProgressStats(tracks) {
+function frq_computeProgressStats(tracks) {
   const allKeys = Object.keys(tracks);
   let total = 0, done = 0, totalTrials = 0, contrib = 0;
   allKeys.forEach(function(k) {

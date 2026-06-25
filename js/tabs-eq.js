@@ -32,7 +32,7 @@ function _switchSubtabInternal(parent, subtab) {
     stereobalanceDrawChart();
   }
   if (parent === "ergebnisse" && subtab === "freqmatch") {
-    renderFreqMatchResults();
+    FRQ_renderResults();
   }
   if (parent === "ergebnisse" && subtab === "latenz") {
     if (typeof LTZ_renderResults === "function") LTZ_renderResults();
@@ -247,7 +247,7 @@ function _switchTabInternal(n) {
       }
     }
     renderResults();
-    if (currentName === "freqmatch") renderFreqMatchResults();
+    if (currentName === "freqmatch") FRQ_renderResults();
   }
   if (n === "player") {
     plCheck();

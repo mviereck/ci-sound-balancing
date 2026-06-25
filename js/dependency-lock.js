@@ -40,12 +40,12 @@ const DEP_LOCK_RULES = [
       // oder Laufdaten in runs[] (auch ohne konvergierten Match).
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
-          reasons.push('depReasonFreqMatchAdaptive');
+          reasons.push('depReasonFRQAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ — ignorieren */ }
       try {
         if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
-          if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
-            reasons.push('depReasonFreqMatchAdaptive');
+          if (reasons.indexOf('depReasonFRQAdaptive') === -1)
+            reasons.push('depReasonFRQAdaptive');
       } catch(ex) {}
       // Frequenzabgleich Schieber: Daten liegen in sliderEstimates, nicht in FRQ_resultsArray.
       try {
@@ -56,7 +56,7 @@ const DEP_LOCK_RULES = [
             hasSlider = true;
           }
         });
-        if (hasSlider) reasons.push('depReasonFreqMatchSlider');
+        if (hasSlider) reasons.push('depReasonFRQSlider');
       } catch(ex) { /* sliderEstimates noch nicht initialisiert — ignorieren */ }
       return reasons;
     }
@@ -77,12 +77,12 @@ const DEP_LOCK_RULES = [
       // Adaptiv: FRQ_resultsArray (konvergierte Ergebnisse) oder Laufdaten in runs[]
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
-          reasons.push('depReasonFreqMatchAdaptive');
+          reasons.push('depReasonFRQAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       try {
         if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
-          if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
-            reasons.push('depReasonFreqMatchAdaptive');
+          if (reasons.indexOf('depReasonFRQAdaptive') === -1)
+            reasons.push('depReasonFRQAdaptive');
       } catch(ex) {}
       // Slider: Daten liegen in sliderEstimates, nicht in FRQ_resultsArray
       try {
@@ -92,7 +92,7 @@ const DEP_LOCK_RULES = [
           if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0)
             hasSlider = true;
         });
-        if (hasSlider) reasons.push('depReasonFreqMatchSlider');
+        if (hasSlider) reasons.push('depReasonFRQSlider');
       } catch(ex) { /* sliderEstimates noch nicht initialisiert */ }
       return reasons;
     }
@@ -110,12 +110,12 @@ const DEP_LOCK_RULES = [
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
-          reasons.push('depReasonFreqMatchAdaptive');
+          reasons.push('depReasonFRQAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       try {
         if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
-          if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
-            reasons.push('depReasonFreqMatchAdaptive');
+          if (reasons.indexOf('depReasonFRQAdaptive') === -1)
+            reasons.push('depReasonFRQAdaptive');
       } catch(ex) {}
       try {
         var hasSlider = false;
@@ -124,7 +124,7 @@ const DEP_LOCK_RULES = [
           if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0)
             hasSlider = true;
         });
-        if (hasSlider) reasons.push('depReasonFreqMatchSlider');
+        if (hasSlider) reasons.push('depReasonFRQSlider');
       } catch(ex) { /* sliderEstimates noch nicht initialisiert */ }
       return reasons;
     }
@@ -139,7 +139,7 @@ const DEP_LOCK_RULES = [
       const reasons = [];
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
-          reasons.push('depReasonFreqMatchAdaptive');
+          reasons.push('depReasonFRQAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       try {
         var hasSlider = false;
@@ -148,13 +148,13 @@ const DEP_LOCK_RULES = [
           if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0)
             hasSlider = true;
         });
-        if (hasSlider) reasons.push('depReasonFreqMatchSlider');
+        if (hasSlider) reasons.push('depReasonFRQSlider');
       } catch(ex) { /* sliderEstimates noch nicht initialisiert */ }
       // Laufdaten (noch nicht abgeschlossene Runs) ebenfalls berücksichtigen
       try {
         if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
-          if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
-            reasons.push('depReasonFreqMatchAdaptive');
+          if (reasons.indexOf('depReasonFRQAdaptive') === -1)
+            reasons.push('depReasonFRQAdaptive');
       } catch(ex) {}
       return reasons;
     }
@@ -173,12 +173,12 @@ const DEP_LOCK_RULES = [
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
-          reasons.push('depReasonFreqMatchAdaptive');
+          reasons.push('depReasonFRQAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       try {
         if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
-          if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
-            reasons.push('depReasonFreqMatchAdaptive');
+          if (reasons.indexOf('depReasonFRQAdaptive') === -1)
+            reasons.push('depReasonFRQAdaptive');
       } catch(ex) {}
       try {
         var hasSlider = false;
@@ -187,7 +187,7 @@ const DEP_LOCK_RULES = [
           if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0)
             hasSlider = true;
         });
-        if (hasSlider) reasons.push('depReasonFreqMatchSlider');
+        if (hasSlider) reasons.push('depReasonFRQSlider');
       } catch(ex) {}
       return reasons;
     }
@@ -202,7 +202,7 @@ const DEP_LOCK_RULES = [
       var reasons = [];
       try {
         if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
-          reasons.push('depReasonFreqMatchAdaptive');
+          reasons.push('depReasonFRQAdaptive');
       } catch(ex) { /* freqmatch noch nicht initialisiert */ }
       return reasons;
     }

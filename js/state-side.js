@@ -244,7 +244,7 @@ function _FRQ_cleanupLegacyResults() {
     }
   }
 }
-function _FRQ_migrateAdaptive(fa) {
+function _frq_migrateAdaptive(fa) {
   if (!fa) return null;
   if (!Array.isArray(fa.runs)) return null;   // Vor-runs[]-Schemas → weg
 
@@ -365,7 +365,7 @@ function _FRQ_migrateSliderRounds() {
       if (Array.isArray(e.rounds)) {
         // min/max nur, wenn noch nicht gesetzt und >=2 unterschiedliche Werte.
         if ((e.min == null || e.max == null)) {
-          const range = (typeof _FRQ_rangeCent === 'function') ? _FRQ_rangeCent(e.rounds) : null;
+          const range = (typeof _frq_rangeCent === 'function') ? _frq_rangeCent(e.rounds) : null;
           if (range && range.min !== range.max) {
             e.min = range.min;
             e.max = range.max;
@@ -429,7 +429,7 @@ function loadSideData(side, d) {
   s.fmMode = (d.fmMode === 'slider' || d.fmMode === 'adaptive') ? d.fmMode : 'adaptive';
   s.fmAdaptiveDur = (d.fmAdaptiveDur != null) ? d.fmAdaptiveDur : 200;
   s.fmAdaptivePau = (d.fmAdaptivePau != null) ? d.fmAdaptivePau : 200;
-  s.freqmatchAdaptive = _FRQ_migrateAdaptive(d.freqmatchAdaptive);
+  s.freqmatchAdaptive = _frq_migrateAdaptive(d.freqmatchAdaptive);
   s.freqmatchPiano = d.freqmatchPiano || null;
   s.elektrodenlautstaerkeSchieber = d.manualLevels || new Array(s.nEl).fill(0);
   if (d.presets && Array.isArray(d.presets)) {

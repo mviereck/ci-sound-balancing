@@ -1,7 +1,7 @@
 // Zeichnet eine deaktivierte/gemute Elektrode als hellgrauen
 // Vollbalken mit dunkler X-Diagonale. Wird von chart.js
 // (drawChart) und stereobalance-balance.js (stereobalanceDrawChart) genutzt. NICHT für
-// drawFreqMatchChart geeignet (dort log-Hz-Achse).
+// drawFRQChart geeignet (dort log-Hz-Achse).
 function drawDisabledBar(ctx, x, yTop, yBot, bW) {
   ctx.fillStyle = '#e5e7eb';
   ctx.fillRect(x, yTop, bW, yBot - yTop);
@@ -323,7 +323,7 @@ function drawChart(cv, vals, res, isOff, elColor) {
 // ============================================================
 // FREQ MATCH CHART
 // ============================================================
-function drawFreqMatchChart(cv, fResData, opts) {
+function drawFRQChart(cv, fResData, opts) {
   opts = opts || {};
   const notPerc = opts.notPerceivable || {};
   const ctx = cv.getContext("2d"),
@@ -915,7 +915,7 @@ function _frq_chartTooltipHandler(cv, e) {
   const newEl = hit ? hit.el : null;
   if (newEl !== cv._frq_chartHighEl) {
     cv._frq_chartHighEl = newEl;
-    drawFreqMatchChart(cv, cv._frq_chartResultsData, cv._frq_chartOpts || {});
+    drawFRQChart(cv, cv._frq_chartResultsData, cv._frq_chartOpts || {});
     if (newEl) _frq_chartDrawHighlight(cv, newEl);
   }
   if (hit) {
@@ -942,7 +942,7 @@ function _frq_chartTooltipHandler(cv, e) {
         hzIst + "\u202fHz \u2192 " + hzSoll + "\u202fHz<br>" +
         cIst + " \u2192 " + cSoll;
       // Restunsicherheit nennen, wenn der Graph daf\u00fcr ein Residuum zeichnet
-      // (einheitlich f\u00fcr alle Verfahren; vgl. hasResidual in drawFreqMatchChart).
+      // (einheitlich f\u00fcr alle Verfahren; vgl. hasResidual in drawFRQChart).
       const _hasResidual = el.fmStatus !== 'in-progress-early'
                         && el.fmResidual > 0;
       if (_hasResidual) {
