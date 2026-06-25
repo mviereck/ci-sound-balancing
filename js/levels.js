@@ -113,7 +113,7 @@ function elektrodenlautstaerkeEffektiv() {
 
 function elektrodenlautstaerkeKurvenOnChange() {
   elektrodenlautstaerkeKurvenChartZeichnen();
-  if (typeof lvTabDraw === "function") lvTabDraw();
+  if (typeof elektrodenlautstaerkeSchieberDraw === "function") elektrodenlautstaerkeSchieberDraw();
   if (pEqF.length > 0) pUpdEQ();
 }
 function elektrodenlautstaerkeKurvenDeltaAndereSeite(pi, delta, currentPr) {

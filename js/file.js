@@ -223,19 +223,19 @@ function resetAll() {
   const _spk = document.getElementById("plSentSpeaker");
   if (_spk) _spk.value = "";
   // --- Schieber-Tab-Modus und -Variante ---
-  if (typeof lvTabMode !== "undefined") lvTabMode = "rel";
-  if (typeof lvTabVariant !== "undefined") lvTabVariant = "stack";
-  if (typeof lvTabShowMeas !== "undefined") lvTabShowMeas = false;
-  if (typeof lvTabShowCurves !== "undefined") lvTabShowCurves = false;
-  const _lvModeRel = document.getElementById("lvTabModeRel");
+  if (typeof elektrodenlautstaerkeSchieberMode !== "undefined") elektrodenlautstaerkeSchieberMode = "rel";
+  if (typeof elektrodenlautstaerkeSchieberVariant !== "undefined") elektrodenlautstaerkeSchieberVariant = "stack";
+  if (typeof elektrodenlautstaerkeSchieberShowMeas !== "undefined") elektrodenlautstaerkeSchieberShowMeas = false;
+  if (typeof elektrodenlautstaerkeSchieberShowCurves !== "undefined") elektrodenlautstaerkeSchieberShowCurves = false;
+  const _lvModeRel = document.getElementById("schieberModeRel");
   if (_lvModeRel) _lvModeRel.checked = true;
-  const _lvVarStack = document.getElementById("lvTabVarStack");
+  const _lvVarStack = document.getElementById("schieberVarStack");
   if (_lvVarStack) _lvVarStack.checked = true;
-  const _lvChkMeas = document.getElementById("lvTabChkMeas");
+  const _lvChkMeas = document.getElementById("schieberChkMeas");
   if (_lvChkMeas) _lvChkMeas.checked = false;
-  const _lvChkCurves = document.getElementById("lvTabChkCurves");
+  const _lvChkCurves = document.getElementById("schieberChkCurves");
   if (_lvChkCurves) _lvChkCurves.checked = false;
-  if (typeof lvTabUpdateModeAvailability === "function") lvTabUpdateModeAvailability();
+  if (typeof elektrodenlautstaerkeSchieberUpdateModeAvailability === "function") elektrodenlautstaerkeSchieberUpdateModeAvailability();
   // --- „Schieber für beide Seiten gleich"-Checkbox ---
   const _prBoth = document.getElementById("prBothSides");
   if (_prBoth) _prBoth.checked = true;
@@ -245,7 +245,7 @@ function resetAll() {
   elektrodenlautstaerkeKurvenChartZeichnen();
   renderResults();
   if (typeof buildImplantCard === "function") buildImplantCard();
-  if (typeof lvTabRebuild === "function") lvTabRebuild();
+  if (typeof elektrodenlautstaerkeSchieberRebuild === "function") elektrodenlautstaerkeSchieberRebuild();
   if (typeof updSideButtons === "function") updSideButtons();
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
@@ -333,10 +333,10 @@ async function saveJson() {
     playerSourceMeas: plSrcMeas,
     playerSourceLevels: plSrcLevels,
     playerSourceCurves: plSrcCurves,
-    levelsTabShowMeas: lvTabShowMeas,
-    levelsTabShowCurves: lvTabShowCurves,
-    levelsTabMode: lvTabMode,
-    levelsTabVariant: lvTabVariant,
+    levelsTabShowMeas: elektrodenlautstaerkeSchieberShowMeas,
+    levelsTabShowCurves: elektrodenlautstaerkeSchieberShowCurves,
+    levelsTabMode: elektrodenlautstaerkeSchieberMode,
+    levelsTabVariant: elektrodenlautstaerkeSchieberVariant,
     plSide: getPlayerSide(),
     plBothSides: document.getElementById("plBothSides").checked,
     plMonoEQ: document.getElementById("plMonoEQ").checked,
@@ -802,14 +802,14 @@ function applyLoadedData(d) {
   if (typeof testRefreshToneTypeLabel === "function") testRefreshToneTypeLabel();
   if (typeof elektrodenlautstaerkeKurvenTabelleBauen === "function") elektrodenlautstaerkeKurvenTabelleBauen();
   if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
-  if (typeof d.levelsTabShowMeas === "boolean") lvTabShowMeas = d.levelsTabShowMeas;
-  if (typeof d.levelsTabShowCurves === "boolean") lvTabShowCurves = d.levelsTabShowCurves;
-  if (typeof d.levelsTabMode === "string") lvTabMode = d.levelsTabMode;
-  if (typeof d.levelsTabVariant === "string") lvTabVariant = d.levelsTabVariant;
-  if (typeof lvTabUpdateModeAvailability === "function") lvTabUpdateModeAvailability();
-  if (typeof lvTabRebuild === "function" &&
+  if (typeof d.levelsTabShowMeas === "boolean") elektrodenlautstaerkeSchieberShowMeas = d.levelsTabShowMeas;
+  if (typeof d.levelsTabShowCurves === "boolean") elektrodenlautstaerkeSchieberShowCurves = d.levelsTabShowCurves;
+  if (typeof d.levelsTabMode === "string") elektrodenlautstaerkeSchieberMode = d.levelsTabMode;
+  if (typeof d.levelsTabVariant === "string") elektrodenlautstaerkeSchieberVariant = d.levelsTabVariant;
+  if (typeof elektrodenlautstaerkeSchieberUpdateModeAvailability === "function") elektrodenlautstaerkeSchieberUpdateModeAvailability();
+  if (typeof elektrodenlautstaerkeSchieberRebuild === "function" &&
       document.getElementById("panel-schieber")?.classList.contains("active")) {
-    lvTabRebuild();
+    elektrodenlautstaerkeSchieberRebuild();
   }
   if (typeof updFClearBtn === "function") updFClearBtn();
   if (typeof buildImplantCard === "function") buildImplantCard();

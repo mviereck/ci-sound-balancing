@@ -460,7 +460,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pWarpTrigger();
       if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
       if (typeof pDrawEQ === "function") pDrawEQ();
-      if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
+      if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
       return;
     }
 
@@ -476,7 +476,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (typeof pBuildEQ === "function") pBuildEQ();
     if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
     if (typeof pDrawEQ === "function") pDrawEQ();
-    if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
+    if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
   });
   // BA374: Stop-Button am Fortschrittsbalken. Bricht die Berechnung ab,
   // schaltet Frequenz-Warping aus und spielt ungewarpt an gleicher
@@ -494,7 +494,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (wasPlaying) { if (typeof _pSetPlayWish === "function") _pSetPlayWish(true); if (typeof pPlay === "function") pPlay(); }
       if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
       if (typeof pDrawEQ === "function") pDrawEQ();
-      if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
+      if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
     });
   }
 
@@ -514,7 +514,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!pPlaying && typeof pBuildEQ === "function") pBuildEQ();
     if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
     if (typeof pDrawEQ === "function") pDrawEQ();
-    if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
+    if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
   });
   // BA375: Berechnungs-Modus (Schnell/Mittel/Beste). Persistent.
   // Quelle fuer engine + Streaming-Pfad. Wechsel bei aktivem Warp ->
@@ -554,28 +554,28 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", function (e) {
     const pan = document.getElementById("panel-schieber");
     if (!pan || !pan.classList.contains("active")) return;
-    const cv = document.getElementById("lvTabCv");
+    const cv = document.getElementById("schieberCv");
     if (!cv || document.activeElement !== cv) return;
-    const nav = (typeof lvTabNavigableEl === "function") ? lvTabNavigableEl() : actEl();
+    const nav = (typeof elektrodenlautstaerkeSchieberNavigableEl === "function") ? elektrodenlautstaerkeSchieberNavigableEl() : actEl();
     if (!nav.length) return;
     if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
       e.preventDefault();
-      let ci = nav.indexOf(lvTabFocus);
+      let ci = nav.indexOf(elektrodenlautstaerkeSchieberFocus);
       if (ci < 0) ci = 0;
       if (e.key === "ArrowLeft") ci = Math.max(0, ci - 1);
       else ci = Math.min(nav.length - 1, ci + 1);
-      lvTabFocus = nav[ci];
-      lvTabDraw();
+      elektrodenlautstaerkeSchieberFocus = nav[ci];
+      elektrodenlautstaerkeSchieberDraw();
     }
     if (e.key === "ArrowUp" || e.key === "ArrowDown") {
       e.preventDefault();
       const dir = e.key === "ArrowUp" ? 1 : -1;
-      if (lvTabMode === "abs") {
-        lvTabStepAbsolute(lvTabFocus, dir, e.shiftKey);
+      if (elektrodenlautstaerkeSchieberMode === "abs") {
+        elektrodenlautstaerkeSchieberStepAbsolute(elektrodenlautstaerkeSchieberFocus, dir, e.shiftKey);
       } else {
         const st = e.shiftKey ? 0.1 : 0.5;
-        const cur = elektrodenlautstaerkeSchieber[lvTabFocus] || 0;
-        lvTabOnSchieberChange(lvTabFocus, cur + dir * st);
+        const cur = elektrodenlautstaerkeSchieber[elektrodenlautstaerkeSchieberFocus] || 0;
+        elektrodenlautstaerkeSchieberOnChange(elektrodenlautstaerkeSchieberFocus, cur + dir * st);
       }
     }
   });
@@ -760,8 +760,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof sequence_stereobalance !== "undefined") {
         sequence_stereobalance = _validSeq(d.sequence_balance) || _legacySeq;
       }
-      if (typeof d.levelsTabMode === "string") lvTabMode = d.levelsTabMode;
-      if (typeof d.levelsTabVariant === "string") lvTabVariant = d.levelsTabVariant;
+      if (typeof d.levelsTabMode === "string") elektrodenlautstaerkeSchieberMode = d.levelsTabMode;
+      if (typeof d.levelsTabVariant === "string") elektrodenlautstaerkeSchieberVariant = d.levelsTabVariant;
       if (typeof d.plBothSides === "boolean") {
         const bsEl = document.getElementById("plBothSides");
         if (bsEl) {
@@ -794,7 +794,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
       if (typeof pBuildEQ === "function") pBuildEQ();
       if (typeof pDrawEQ === "function") pDrawEQ();
-      if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
+      if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
       if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
       if (typeof fmApplyLang === "function") fmApplyLang();
       if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
@@ -829,32 +829,32 @@ document.addEventListener("DOMContentLoaded", () => {
   // if (_fmPiaBtn) _fmPiaBtn.addEventListener("click", function () { fmSetActiveMethod("piano"); });
 
   // Modus-Toggle relativ/absolut
-  document.querySelectorAll('input[name="lvTabMode"]').forEach((r) => {
+  document.querySelectorAll('input[name="elektrodenlautstaerkeSchieberMode"]').forEach((r) => {
     r.addEventListener("change", function () {
       if (!this.checked) return;
       const newMode = this.value;
-      if (newMode === "abs" && !lvTabAbsoluteAvailable()) {
+      if (newMode === "abs" && !elektrodenlautstaerkeSchieberAbsoluteAvailable()) {
         this.checked = false;
-        const relBtn = document.getElementById("lvTabModeRel");
+        const relBtn = document.getElementById("schieberModeRel");
         if (relBtn) relBtn.checked = true;
-        alert(t("lvTabAbsNotAvailable"));
+        alert(t("schieberAbsNotAvailable"));
         return;
       }
-      lvTabMode = newMode;
-      // lvTabVariant wird hier NICHT überschrieben — die vom Nutzer
+      elektrodenlautstaerkeSchieberMode = newMode;
+      // elektrodenlautstaerkeSchieberVariant wird hier NICHT überschrieben — die vom Nutzer
       // gewählte Anzeige-Variante (gestapelt / nur Summe) bleibt
       // beim Modus-Wechsel erhalten.
       // Fokus für den neuen Modus revalidieren (Absolutmodus überspringt
       // Elektroden ohne MCL).
-      lvTabRebuild();
+      elektrodenlautstaerkeSchieberRebuild();
     });
   });
   // Variante-Toggle
-  document.querySelectorAll('input[name="lvTabVariant"]').forEach((r) => {
+  document.querySelectorAll('input[name="elektrodenlautstaerkeSchieberVariant"]').forEach((r) => {
     r.addEventListener("change", function () {
       if (!this.checked) return;
-      lvTabVariant = this.value;
-      lvTabDraw();
+      elektrodenlautstaerkeSchieberVariant = this.value;
+      elektrodenlautstaerkeSchieberDraw();
     });
   });
 
@@ -963,10 +963,10 @@ document.addEventListener("DOMContentLoaded", () => {
           sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
           sequence_test:      (typeof sequence_elektrodenlautstaerke      !== "undefined") ? sequence_elektrodenlautstaerke      : TEST_DEFAULTS.elektrodenlautstaerke.sequence,
           sequence_balance:   (typeof sequence_stereobalance   !== "undefined") ? sequence_stereobalance   : TEST_DEFAULTS.stereobalance.sequence,
-          levelsTabMode: lvTabMode,
-          levelsTabVariant: lvTabVariant,
-          levelsTabShowMeas: lvTabShowMeas,
-          levelsTabShowCurves: lvTabShowCurves,
+          levelsTabMode: elektrodenlautstaerkeSchieberMode,
+          levelsTabVariant: elektrodenlautstaerkeSchieberVariant,
+          levelsTabShowMeas: elektrodenlautstaerkeSchieberShowMeas,
+          levelsTabShowCurves: elektrodenlautstaerkeSchieberShowCurves,
           plBothSides: document.getElementById("plBothSides").checked,
           plMonoEQ: document.getElementById("plMonoEQ")
             ? document.getElementById("plMonoEQ").checked : false,
@@ -1024,7 +1024,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } finally {
     _suppressHashPush = false;
   }
-  if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
+  if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
   // BA 172: Initialer Sperr-Stand

@@ -110,7 +110,7 @@ function _axisTooltipHandler(cv, e) {
     return mx >= h.x0 && mx <= h.x1 && my >= h.y0 && my <= h.y1;
   });
   if (hit) {
-    const elLbl = (typeof t === "function" ? t("lvTabElLabel") : "Elektrode");
+    const elLbl = (typeof t === "function" ? t("schieberElLabel") : "Elektrode");
     let html = "<b>" + elLbl + " " + hit.label + "</b>";
     if (hit.hz != null && isFinite(hit.hz)) {
       const hzTxt = hit.hzDec ? hit.hz.toFixed(hit.hzDec) : Math.round(hit.hz);

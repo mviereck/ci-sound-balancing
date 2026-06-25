@@ -752,71 +752,71 @@
       <div id="panel-schieber" class="panel">
         <div class="card">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
-            <h2 data-t="lvTabTitle" style="margin:0;"></h2>
+            <h2 data-t="schieberTitle" style="margin:0;"></h2>
             <button class="btn" id="printSchieberBtn"
                     style="padding:4px 10px;font-size:0.9em;">
               🖨 <span data-t="printBtn"></span>
             </button>
           </div>
-          <p style="font-size:.84em;color:var(--text-muted);margin-bottom:10px;margin-top:6px;" data-t="lvTabDesc"></p>
+          <p style="font-size:.84em;color:var(--text-muted);margin-bottom:10px;margin-top:6px;" data-t="schieberDesc"></p>
           <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:6px;font-size:.86em">
             <!-- Hauptmodus -->
-            <span style="font-weight:600" data-t="lvTabModeLabel"></span>
+            <span style="font-weight:600" data-t="schieberModeLabel"></span>
             <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
-              <input type="radio" name="lvTabMode" id="lvTabModeRel" value="rel" checked>
-              <span data-t="lvTabModeRelative"></span>
+              <input type="radio" name="elektrodenlautstaerkeSchieberMode" id="schieberModeRel" value="rel" checked>
+              <span data-t="schieberModeRelative"></span>
             </label>
             <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
-              <input type="radio" name="lvTabMode" id="lvTabModeAbs" value="abs">
-              <span data-t="lvTabModeAbsolute"></span>
+              <input type="radio" name="elektrodenlautstaerkeSchieberMode" id="schieberModeAbs" value="abs">
+              <span data-t="schieberModeAbsolute"></span>
             </label>
             <span style="color:var(--text-muted)">|</span>
             <!-- Variante -->
-            <span style="font-weight:600" data-t="lvTabVariantLabel"></span>
+            <span style="font-weight:600" data-t="schieberVariantLabel"></span>
             <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
-              <input type="radio" name="lvTabVariant" id="lvTabVarSum" value="sum">
-              <span data-t="lvTabVarSum"></span>
+              <input type="radio" name="elektrodenlautstaerkeSchieberVariant" id="schieberVarSum" value="sum">
+              <span data-t="schieberVarSum"></span>
             </label>
             <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
-              <input type="radio" name="lvTabVariant" id="lvTabVarStack" value="stack" checked>
-              <span data-t="lvTabVarStack"></span>
+              <input type="radio" name="elektrodenlautstaerkeSchieberVariant" id="schieberVarStack" value="stack" checked>
+              <span data-t="schieberVarStack"></span>
             </label>
             <label style="display:none;align-items:center;gap:4px;cursor:pointer">
-              <input type="radio" name="lvTabVariant" id="lvTabVarLines" value="lines">
-              <span data-t="lvTabVarLines"></span>
+              <input type="radio" name="elektrodenlautstaerkeSchieberVariant" id="schieberVarLines" value="lines">
+              <span data-t="schieberVarLines"></span>
             </label>
           </div>
           <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:6px;font-size:.86em">
             <!-- Quellen-Toggles (eigene Zeile) -->
-            <span style="font-weight:600" data-t="lvTabShowLabel"></span>
+            <span style="font-weight:600" data-t="schieberShowLabel"></span>
             <label style="display:flex;align-items:center;gap:4px">
               <span style="display:inline-block;width:12px;height:12px;background:#16a34a;border-radius:2px"></span>
-              <span data-t="lvTabSrcSlider"></span>
+              <span data-t="schieberSrcSlider"></span>
             </label>
             <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
-              <input type="checkbox" id="lvTabChkMeas">
+              <input type="checkbox" id="schieberChkMeas">
               <span style="display:inline-block;width:12px;height:12px;background:#2563eb;border-radius:2px"></span>
-              <span data-t="lvTabSrcMeas"></span>
+              <span data-t="schieberSrcMeas"></span>
             </label>
             <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
-              <input type="checkbox" id="lvTabChkCurves">
+              <input type="checkbox" id="schieberChkCurves">
               <span style="display:inline-block;width:12px;height:12px;background:#d97706;border-radius:2px"></span>
-              <span data-t="lvTabSrcCurves"></span>
+              <span data-t="schieberSrcCurves"></span>
             </label>
           </div>
           <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:10px;font-size:.86em">
             <!-- Reset-Button (eigene Zeile unter Anzeigen:) -->
-            <button class="btn btn-sm" id="lvTabResetBtn" data-t="lvTabReset"></button>
+            <button class="btn btn-sm" id="schieberResetBtn" data-t="schieberReset"></button>
           </div>
           <div style="position:relative;width:100%;height:620px;background:var(--bg);border-radius:8px;overflow:hidden">
-            <canvas id="lvTabCv" tabindex="0" style="width:100%;height:100%;display:block;outline:none"></canvas>
+            <canvas id="schieberCv" tabindex="0" style="width:100%;height:100%;display:block;outline:none"></canvas>
           </div>
           <div
-            id="lvTabWarpHint"
-            data-t="lvTabWarpHint"
+            id="schieberWarpHint"
+            data-t="schieberWarpHint"
             style="margin-top:6px;font-size:0.78em;color:#888;display:none;"
           ></div>
-          <p style="font-size:.78em;color:var(--text-muted);margin-top:8px" data-t="lvTabKeyHint"></p>
+          <p style="font-size:.78em;color:var(--text-muted);margin-top:8px" data-t="schieberKeyHint"></p>
         </div>
       </div>
 

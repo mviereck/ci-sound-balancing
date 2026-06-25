@@ -273,16 +273,16 @@ function printSchieberTab() {
   const s = sideData[activeSide];
   if (!s) return;
   const m = s.manufacturer || "medel";
-  const isAbs = lvTabMode === "abs";
+  const isAbs = elektrodenlautstaerkeSchieberMode === "abs";
 
-  const modeLabel  = isAbs ? (t("lvTabModeAbsolute") || "absolut")
-                           : (t("lvTabModeRelative") || "relativ");
+  const modeLabel  = isAbs ? (t("schieberModeAbsolute") || "absolut")
+                           : (t("schieberModeRelative") || "relativ");
   const variantLbl =
-    lvTabVariant === "sum"   ? (t("lvTabVarSum")   || "nur Summe")
-    : lvTabVariant === "lines" ? (t("lvTabVarLines") || "Vergleichslinien")
-    : (t("lvTabVarStack") || "gestapelt");
+    elektrodenlautstaerkeSchieberVariant === "sum"   ? (t("schieberVarSum")   || "nur Summe")
+    : elektrodenlautstaerkeSchieberVariant === "lines" ? (t("schieberVarLines") || "Vergleichslinien")
+    : (t("schieberVarStack") || "gestapelt");
 
-  const cv = document.getElementById("lvTabCv");
+  const cv = document.getElementById("schieberCv");
   const canvasImg = cv ? canvasToImg(cv, 800) : "";
 
   const ml = s.elektrodenlautstaerkeSchieber || [];
@@ -333,14 +333,14 @@ function printSchieberTab() {
 
   const info = `
     <p style="font-size:0.9em;margin:8px 0 12px 0;color:#444;">
-      <strong>${_tpEsc(t("lvTabModeLabel") || "Modus")}:</strong> ${_tpEsc(modeLabel)}
+      <strong>${_tpEsc(t("schieberModeLabel") || "Modus")}:</strong> ${_tpEsc(modeLabel)}
       &nbsp;·&nbsp;
-      <strong>${_tpEsc(t("lvTabVariantLabel") || "Variante")}:</strong> ${_tpEsc(variantLbl)}
+      <strong>${_tpEsc(t("schieberVariantLabel") || "Variante")}:</strong> ${_tpEsc(variantLbl)}
     </p>
   `;
 
   const body = info + canvasImg + '<div style="height:12px;"></div>' + table;
-  openPrintWindow(t("lvTabTitle") || "Schieber", body);
+  openPrintWindow(t("schieberTitle") || "Schieber", body);
 }
 
 function _buildPresetCardPrint() {

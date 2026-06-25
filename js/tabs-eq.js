@@ -257,7 +257,7 @@ function _switchTabInternal(n) {
     elektrodenlautstaerkeKurvenChartZeichnen();
   }
   if (n === "schieber") {
-    if (typeof lvTabRebuild === "function") lvTabRebuild();
+    if (typeof elektrodenlautstaerkeSchieberRebuild === "function") elektrodenlautstaerkeSchieberRebuild();
   }
   if (n === "file") {
     if (typeof _audiologUpdWarn === "function") _audiologUpdWarn();

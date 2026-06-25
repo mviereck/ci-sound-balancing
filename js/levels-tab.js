@@ -8,15 +8,15 @@
 // Drei Varianten: gestapelt / nur Summe / Summe + Vergleichslinien.
 
 // Fokus-Index der aktuell ausgewählten Elektrode (für Pfeiltasten).
-let lvTabFocus = 0;
+let elektrodenlautstaerkeSchieberFocus = 0;
 // Hat das Canvas gerade Tastatur-/UI-Fokus? Steuert, ob die Umrahmung
 // um die aktive Elektrode gezeichnet wird.
-let lvTabHasFocus = false;
+let elektrodenlautstaerkeSchieberHasFocus = false;
 
-const LV_TAB_RANGE = 60; // ±60 dB Anzeigebereich (nur Relativmodus)
+const ELEKTRODENLAUTSTAERKE_SCHIEBER_RANGE = 60; // ±60 dB Anzeigebereich (nur Relativmodus)
 
 // Hat die Elektrode i einen MCL-Wert eingetragen?
-function lvTabElHasMcl(i) {
+function elektrodenlautstaerkeSchieberElHasMcl(i) {
   const im = sideData[activeSide].implant || {};
   const mcl = mfr === "medel" ? im.mcl?.[i] : im.upperLevel?.[i];
   return mcl != null && mcl > 0;
@@ -24,35 +24,35 @@ function lvTabElHasMcl(i) {
 
 // Aktive Elektroden, die in der aktuellen Modus-Konfiguration anwählbar
 // sind. Im Absolutmodus werden Elektroden ohne MCL übersprungen.
-function lvTabNavigableEl() {
+function elektrodenlautstaerkeSchieberNavigableEl() {
   const base = actEl();
-  if (lvTabMode === "abs") return base.filter(lvTabElHasMcl);
+  if (elektrodenlautstaerkeSchieberMode === "abs") return base.filter(elektrodenlautstaerkeSchieberElHasMcl);
   return base;
 }
 
-function lvTabUpdateWarpHint() {
-  const el = document.getElementById("lvTabWarpHint");
+function elektrodenlautstaerkeSchieberUpdateWarpHint() {
+  const el = document.getElementById("schieberWarpHint");
   if (!el) return;
   const warpActive = (typeof pWarpOn !== "undefined") && pWarpOn === true;
-  const curvesShown = (typeof lvTabShowCurves !== "undefined")
-    && lvTabShowCurves === true;
+  const curvesShown = (typeof elektrodenlautstaerkeSchieberShowCurves !== "undefined")
+    && elektrodenlautstaerkeSchieberShowCurves === true;
   el.style.display = (warpActive && curvesShown) ? "" : "none";
 }
 
-function lvTabRebuild() {
-  lvTabUpdateModeAvailability();
-  const meas = document.getElementById("lvTabChkMeas");
-  const cur = document.getElementById("lvTabChkCurves");
-  if (meas) meas.checked = lvTabShowMeas;
-  if (cur) cur.checked = lvTabShowCurves;
-  const nav = lvTabNavigableEl();
-  if (nav.length && !nav.includes(lvTabFocus)) lvTabFocus = nav[0];
-  lvTabDraw();
-  lvTabUpdateWarpHint();
+function elektrodenlautstaerkeSchieberRebuild() {
+  elektrodenlautstaerkeSchieberUpdateModeAvailability();
+  const meas = document.getElementById("schieberChkMeas");
+  const cur = document.getElementById("schieberChkCurves");
+  if (meas) meas.checked = elektrodenlautstaerkeSchieberShowMeas;
+  if (cur) cur.checked = elektrodenlautstaerkeSchieberShowCurves;
+  const nav = elektrodenlautstaerkeSchieberNavigableEl();
+  if (nav.length && !nav.includes(elektrodenlautstaerkeSchieberFocus)) elektrodenlautstaerkeSchieberFocus = nav[0];
+  elektrodenlautstaerkeSchieberDraw();
+  elektrodenlautstaerkeSchieberUpdateWarpHint();
 }
 
-function lvTabDraw() {
-  const cv = document.getElementById("lvTabCv");
+function elektrodenlautstaerkeSchieberDraw() {
+  const cv = document.getElementById("schieberCv");
   if (!cv) return;
   const wp = cv.parentElement;
   const dpr = window.devicePixelRatio || 1;
@@ -63,10 +63,10 @@ function lvTabDraw() {
   ctx.scale(dpr, dpr);
   ctx.clearRect(0, 0, W, H);
 
-  if (lvTabMode === "abs") {
-    lvTabDrawAbsolute(ctx, W, H);
+  if (elektrodenlautstaerkeSchieberMode === "abs") {
+    _schieberDrawAbsolute(ctx, W, H);
   } else {
-    lvTabDrawRelative(ctx, W, H);
+    _schieberDrawRelative(ctx, W, H);
   }
 }
 
@@ -74,7 +74,7 @@ function lvTabDraw() {
 // (elektrodennummern-basiert). Ersetzt buildCentAxis im Schieber-Tab:
 // hier soll die x-Achse keinerlei Frequenzbezug haben, weil der
 // Schieber nur dB-Korrekturen pro Elektrode verändert.
-function _lvTabBuildAxis(electrodes, padLeft, plotW) {
+function _schieberBuildAxis(electrodes, padLeft, plotW) {
   const n = electrodes.length;
   if (n === 0) return { tX: () => padLeft, minDx: 0 };
   if (n === 1) return { tX: () => padLeft + plotW / 2, minDx: plotW };
@@ -85,7 +85,7 @@ function _lvTabBuildAxis(electrodes, padLeft, plotW) {
 
 // ---------- Modus A: relativ (±dB) ----------
 
-function lvTabDrawRelative(ctx, W, H) {
+function _schieberDrawRelative(ctx, W, H) {
   const all = allEl();
   if (!all.length) return;
   const isExcluded = (i) =>
@@ -97,8 +97,8 @@ function lvTabDrawRelative(ctx, W, H) {
   const cols = all.map((i) => {
     if (isExcluded(i)) return { i, excluded: true };
     const sch = elektrodenlautstaerkeSchieber[i] || 0;
-    const mes = lvTabShowMeas ? measArr[i] : 0;
-    const cur = lvTabShowCurves ? preArr[i] : 0;
+    const mes = elektrodenlautstaerkeSchieberShowMeas ? measArr[i] : 0;
+    const cur = elektrodenlautstaerkeSchieberShowCurves ? preArr[i] : 0;
     return { i, excluded: false, sch, mes, cur, sum: sch + mes + cur };
   });
 
@@ -108,10 +108,10 @@ function lvTabDrawRelative(ctx, W, H) {
   const plotW = W - padL - padR;
   const plotH = H - padTop - padBot;
   const zeroY = padTop + plotH / 2;
-  const axis = _lvTabBuildAxis(all, padL, plotW);
+  const axis = _schieberBuildAxis(all, padL, plotW);
   cols.forEach((c, idx) => { c.xMid = axis.tX(idx); c._axisIdx = idx; });
   const barW = Math.max(8, Math.min(40, (axis.minDx || 24) * 0.6));
-  const yPerDb = plotH / (2 * LV_TAB_RANGE);
+  const yPerDb = plotH / (2 * ELEKTRODENLAUTSTAERKE_SCHIEBER_RANGE);
 
   // Skala
   ctx.strokeStyle = "#e5e5e5";
@@ -137,26 +137,26 @@ function lvTabDrawRelative(ctx, W, H) {
   cols.forEach((col) => {
     const xMid = col.xMid;
     if (col.excluded) {
-      lvTabDrawExcludedColumn(ctx, xMid, barW, padTop, plotH, H, padBot, col.i);
+      _schieberDrawExcludedColumn(ctx, xMid, barW, padTop, plotH, H, padBot, col.i);
       return;
     }
-    if (lvTabVariant === "stack") {
-      lvTabDrawStackRelative(ctx, xMid, barW, zeroY, yPerDb, col);
+    if (elektrodenlautstaerkeSchieberVariant === "stack") {
+      _schieberDrawStackRelative(ctx, xMid, barW, zeroY, yPerDb, col);
     } else {
-      lvTabDrawSumBarRelative(ctx, xMid, barW, zeroY, yPerDb, col);
+      _schieberDrawSumBarRelative(ctx, xMid, barW, zeroY, yPerDb, col);
     }
-    lvTabDrawFocusAndSum(ctx, xMid, barW, padTop, plotH, zeroY, yPerDb, col);
-    lvTabDrawLabelsRelative(ctx, xMid, H, padBot, col);
+    _schieberDrawFocusAndSum(ctx, xMid, barW, padTop, plotH, zeroY, yPerDb, col);
+    _schieberDrawLabelsRelative(ctx, xMid, H, padBot, col);
   });
 
-  if (lvTabVariant === "lines") {
-    lvTabDrawCompareLinesRelative(ctx, zeroY, yPerDb, cols);
+  if (elektrodenlautstaerkeSchieberVariant === "lines") {
+    _schieberDrawCompareLinesRelative(ctx, zeroY, yPerDb, cols);
   }
 }
 
 // ---------- Modus B: absolut (qu/CL/CU) ----------
 
-function lvTabDrawAbsolute(ctx, W, H) {
+function _schieberDrawAbsolute(ctx, W, H) {
   const all = allEl();
   if (!all.length) return;
   const isExcluded = (i) =>
@@ -187,8 +187,8 @@ function lvTabDrawAbsolute(ctx, W, H) {
     if (mclAudi == null) return { i, excluded: false, noMcl: true };
 
     const schDb = elektrodenlautstaerkeSchieber[i] || 0;
-    const mesDb = lvTabShowMeas ? measArr[i] : 0;
-    const curDb = lvTabShowCurves ? preArr[i] : 0;
+    const mesDb = elektrodenlautstaerkeSchieberShowMeas ? measArr[i] : 0;
+    const curDb = elektrodenlautstaerkeSchieberShowCurves ? preArr[i] : 0;
     const sumDb = schDb + mesDb + curDb;
 
     return {
@@ -207,7 +207,7 @@ function lvTabDrawAbsolute(ctx, W, H) {
   const padL = 36, padR = 14;
   const plotW = W - padL - padR;
   const plotH = H - padTop - padBot;
-  const axis = _lvTabBuildAxis(all, padL, plotW);
+  const axis = _schieberBuildAxis(all, padL, plotW);
   cols.forEach((c, idx) => { c.xMid = axis.tX(idx); c._axisIdx = idx; });
   const barW = Math.max(8, Math.min(40, (axis.minDx || 24) * 0.6));
   const yPerUnit = plotH / yMax;
@@ -229,17 +229,17 @@ function lvTabDrawAbsolute(ctx, W, H) {
   cols.forEach((col) => {
     const xMid = col.xMid;
     if (col.excluded) {
-      lvTabDrawExcludedColumn(ctx, xMid, barW, padTop, plotH, H, padBot, col.i);
+      _schieberDrawExcludedColumn(ctx, xMid, barW, padTop, plotH, H, padBot, col.i);
       return;
     }
     if (col.noMcl) {
-      lvTabDrawNoMclColumn(ctx, xMid, barW, padTop, plotH, H, padBot, col.i);
+      _schieberDrawNoMclColumn(ctx, xMid, barW, padTop, plotH, H, padBot, col.i);
       return;
     }
-    if (lvTabVariant === "stack") {
-      lvTabDrawStackAbsolute(ctx, xMid, barW, baseY, padTop, yPerUnit, col, toAbs);
+    if (elektrodenlautstaerkeSchieberVariant === "stack") {
+      _schieberDrawStackAbsolute(ctx, xMid, barW, baseY, padTop, yPerUnit, col, toAbs);
     } else {
-      lvTabDrawSumBarAbsolute(ctx, xMid, barW, baseY, yPerUnit, col);
+      _schieberDrawSumBarAbsolute(ctx, xMid, barW, baseY, yPerUnit, col);
     }
     // THR-Zone — wenn der Schieberwert unter THR liegt, die rote Zone
     // auf den Bereich zwischen THR-Linie und Schieber verkleinern,
@@ -286,7 +286,7 @@ function lvTabDrawAbsolute(ctx, W, H) {
       ctx.stroke();
     }
     // Fokus (nur wenn das Canvas auch wirklich Fokus hat)
-    if (col.i === lvTabFocus && lvTabHasFocus) {
+    if (col.i === elektrodenlautstaerkeSchieberFocus && elektrodenlautstaerkeSchieberHasFocus) {
       ctx.strokeStyle = "#1a1a1a";
       ctx.lineWidth = 2;
       ctx.strokeRect(xMid - barW / 2 - 2, padTop, barW + 4, plotH);
@@ -302,17 +302,17 @@ function lvTabDrawAbsolute(ctx, W, H) {
     const dbTxt = "(" + (col.sumDb >= 0 ? "+" : "") + col.sumDb.toFixed(1) + " dB)";
     ctx.fillText(dbTxt, xMid, padTop - 12);
     // Beschriftung unten
-    lvTabDrawLabelsRelative(ctx, xMid, H, padBot, col);
+    _schieberDrawLabelsRelative(ctx, xMid, H, padBot, col);
   });
 
-  if (lvTabVariant === "lines") {
-    lvTabDrawCompareLinesAbsolute(ctx, baseY, yPerUnit, cols);
+  if (elektrodenlautstaerkeSchieberVariant === "lines") {
+    _schieberDrawCompareLinesAbsolute(ctx, baseY, yPerUnit, cols);
   }
 }
 
 // ---------- Helper-Zeichenfunktionen ----------
 
-function lvTabDrawExcludedColumn(ctx, xMid, barW, padTop, plotH, H, padBot, i) {
+function _schieberDrawExcludedColumn(ctx, xMid, barW, padTop, plotH, H, padBot, i) {
   const x0 = xMid - barW / 2, x1 = xMid + barW / 2;
   const y0 = padTop, y1 = padTop + plotH;
   ctx.fillStyle = "#e5e7eb";
@@ -329,7 +329,7 @@ function lvTabDrawExcludedColumn(ctx, xMid, barW, padTop, plotH, H, padBot, i) {
   ctx.fillText(dENPrefix() + dEN(i), xMid, H - padBot + 14);
 }
 
-function lvTabDrawNoMclColumn(ctx, xMid, barW, padTop, plotH, H, padBot, i) {
+function _schieberDrawNoMclColumn(ctx, xMid, barW, padTop, plotH, H, padBot, i) {
   ctx.strokeStyle = "#cbd5e1";
   ctx.lineWidth = 1;
   ctx.setLineDash([3, 3]);
@@ -342,7 +342,7 @@ function lvTabDrawNoMclColumn(ctx, xMid, barW, padTop, plotH, H, padBot, i) {
   ctx.fillText(dENPrefix() + dEN(i), xMid, H - padBot + 14);
 }
 
-function lvTabDrawStackRelative(ctx, xMid, barW, zeroY, yPerDb, col) {
+function _schieberDrawStackRelative(ctx, xMid, barW, zeroY, yPerDb, col) {
   const cSch = "#16a34a", cMes = "#2563eb", cCur = "#d97706";
   function drawSeg(fromY, value, color) {
     if (Math.abs(value) < 0.001) return fromY;
@@ -363,7 +363,7 @@ function lvTabDrawStackRelative(ctx, xMid, barW, zeroY, yPerDb, col) {
   if (col.cur < 0) yDn = drawSeg(yDn, col.cur, cCur);
 }
 
-function lvTabDrawSumBarRelative(ctx, xMid, barW, zeroY, yPerDb, col) {
+function _schieberDrawSumBarRelative(ctx, xMid, barW, zeroY, yPerDb, col) {
   if (Math.abs(col.sum) < 0.001) return;
   const dy = -col.sum * yPerDb;
   const y0 = Math.min(zeroY, zeroY + dy);
@@ -372,7 +372,7 @@ function lvTabDrawSumBarRelative(ctx, xMid, barW, zeroY, yPerDb, col) {
   ctx.fillRect(xMid - barW / 2, y0, barW, y1 - y0);
 }
 
-function lvTabDrawStackAbsolute(ctx, xMid, barW, baseY, padTop, yPerUnit, col, toAbs) {
+function _schieberDrawStackAbsolute(ctx, xMid, barW, baseY, padTop, yPerUnit, col, toAbs) {
   if (col.mclAudi == null || col.mclAudi <= 0) return;
   const yAudi = baseY - col.mclAudi * yPerUnit;
   // Grauer Basis-Block: 0 bis Audiologen-MCL
@@ -415,7 +415,7 @@ function lvTabDrawStackAbsolute(ctx, xMid, barW, baseY, padTop, yPerUnit, col, t
   cum = drawSeg(cum, Math.min(0, col.curDb), cCur);
 }
 
-function lvTabDrawSumBarAbsolute(ctx, xMid, barW, baseY, yPerUnit, col) {
+function _schieberDrawSumBarAbsolute(ctx, xMid, barW, baseY, yPerUnit, col) {
   if (col.mclNew == null || col.mclNew <= 0) return;
   const yNew = baseY - col.mclNew * yPerUnit;
   // Schieber-Balken einheitlich grün.
@@ -423,8 +423,8 @@ function lvTabDrawSumBarAbsolute(ctx, xMid, barW, baseY, yPerUnit, col) {
   ctx.fillRect(xMid - barW / 2, yNew, barW, baseY - yNew);
 }
 
-function lvTabDrawFocusAndSum(ctx, xMid, barW, padTop, plotH, zeroY, yPerDb, col) {
-  if (col.i === lvTabFocus && lvTabHasFocus) {
+function _schieberDrawFocusAndSum(ctx, xMid, barW, padTop, plotH, zeroY, yPerDb, col) {
+  if (col.i === elektrodenlautstaerkeSchieberFocus && elektrodenlautstaerkeSchieberHasFocus) {
     ctx.strokeStyle = "#1a1a1a";
     ctx.lineWidth = 2;
     ctx.strokeRect(xMid - barW / 2 - 2, padTop, barW + 4, plotH);
@@ -442,7 +442,7 @@ function lvTabDrawFocusAndSum(ctx, xMid, barW, padTop, plotH, zeroY, yPerDb, col
   ctx.font = "bold 12px Consolas,monospace";
   const schTxt = (col.sch >= 0 ? "+" : "") + col.sch.toFixed(1);
   ctx.fillText(schTxt, xMid, padTop - 26);
-  if (lvTabShowMeas || lvTabShowCurves) {
+  if (elektrodenlautstaerkeSchieberShowMeas || elektrodenlautstaerkeSchieberShowCurves) {
     ctx.font = "10px Consolas,monospace";
     ctx.fillStyle = "#555";
     const sTxt = "(S: " + (col.sum >= 0 ? "+" : "") + col.sum.toFixed(1) + ")";
@@ -450,14 +450,14 @@ function lvTabDrawFocusAndSum(ctx, xMid, barW, padTop, plotH, zeroY, yPerDb, col
   }
 }
 
-function lvTabDrawLabelsRelative(ctx, xMid, H, padBot, col) {
+function _schieberDrawLabelsRelative(ctx, xMid, H, padBot, col) {
   ctx.fillStyle = "#333";
   ctx.font = "10px Segoe UI,sans-serif";
   ctx.textAlign = "center";
   ctx.fillText(dENPrefix() + dEN(col.i), xMid, H - padBot + 14);
 }
 
-function lvTabDrawCompareLinesRelative(ctx, zeroY, yPerDb, cols) {
+function _schieberDrawCompareLinesRelative(ctx, zeroY, yPerDb, cols) {
   const drawSrc = (key, color) => {
     ctx.strokeStyle = color;
     ctx.lineWidth = 1.5;
@@ -475,11 +475,11 @@ function lvTabDrawCompareLinesRelative(ctx, zeroY, yPerDb, cols) {
     ctx.setLineDash([]);
   };
   drawSrc("sch", "#16a34a");
-  if (lvTabShowMeas) drawSrc("mes", "#2563eb");
-  if (lvTabShowCurves) drawSrc("cur", "#d97706");
+  if (elektrodenlautstaerkeSchieberShowMeas) drawSrc("mes", "#2563eb");
+  if (elektrodenlautstaerkeSchieberShowCurves) drawSrc("cur", "#d97706");
 }
 
-function lvTabDrawCompareLinesAbsolute(ctx, baseY, yPerUnit, cols) {
+function _schieberDrawCompareLinesAbsolute(ctx, baseY, yPerUnit, cols) {
   const drawLine = (key, color) => {
     ctx.strokeStyle = color;
     ctx.lineWidth = 1.5;
@@ -498,13 +498,13 @@ function lvTabDrawCompareLinesAbsolute(ctx, baseY, yPerUnit, cols) {
     ctx.setLineDash([]);
   };
   drawLine("mclSch", "#16a34a");
-  if (lvTabShowMeas) drawLine("mesMclAbs", "#2563eb");
-  if (lvTabShowCurves) drawLine("curMclAbs", "#d97706");
+  if (elektrodenlautstaerkeSchieberShowMeas) drawLine("mesMclAbs", "#2563eb");
+  if (elektrodenlautstaerkeSchieberShowCurves) drawLine("curMclAbs", "#d97706");
 }
 
 // ---------- Verfügbarkeit Absolutmodus ----------
 
-function lvTabAbsoluteAvailable() {
+function elektrodenlautstaerkeSchieberAbsoluteAvailable() {
   const im = sideData[activeSide].implant || {};
   const act = actEl();
   const isMedel = mfr === "medel";
@@ -515,28 +515,28 @@ function lvTabAbsoluteAvailable() {
   return false;
 }
 
-function lvTabUpdateModeAvailability() {
-  const btn = document.getElementById("lvTabModeAbs");
+function elektrodenlautstaerkeSchieberUpdateModeAvailability() {
+  const btn = document.getElementById("schieberModeAbs");
   if (!btn) return;
-  const ok = lvTabAbsoluteAvailable();
+  const ok = elektrodenlautstaerkeSchieberAbsoluteAvailable();
   btn.disabled = !ok;
   const lbl = btn.parentElement;
   if (lbl) {
     lbl.style.opacity = ok ? "1" : "0.5";
-    lbl.title = ok ? "" : t("lvTabAbsNotAvailable");
+    lbl.title = ok ? "" : t("schieberAbsNotAvailable");
   }
-  if (lvTabMode === "abs" && !ok) {
-    lvTabMode = "rel";
-    const relBtn = document.getElementById("lvTabModeRel");
+  if (elektrodenlautstaerkeSchieberMode === "abs" && !ok) {
+    elektrodenlautstaerkeSchieberMode = "rel";
+    const relBtn = document.getElementById("schieberModeRel");
     if (relBtn) relBtn.checked = true;
-    // lvTabVariant wird hier NICHT überschrieben — die vom Nutzer
+    // elektrodenlautstaerkeSchieberVariant wird hier NICHT überschrieben — die vom Nutzer
     // gewählte Variante bleibt auch beim Fallback erhalten.
   }
 }
 
 // ---------- Pfeiltasten: Schritt im Absolutmodus ----------
 
-function lvTabStepAbsolute(i, dir, shift) {
+function elektrodenlautstaerkeSchieberStepAbsolute(i, dir, shift) {
   const im = sideData[activeSide].implant || {};
   const isMedel = mfr === "medel";
   const isCoch = mfr === "cochlear";
@@ -566,14 +566,14 @@ function lvTabStepAbsolute(i, dir, shift) {
   else if (isAB) nextDb = dbFromAB(nextAbs, mclAudi, im.thr?.[i], im.idr);
   if (nextDb == null) return;
 
-  lvTabOnSchieberChange(i, nextDb);
+  elektrodenlautstaerkeSchieberOnChange(i, nextDb);
 }
 
 // ---------- Datenpfad ----------
 
-function lvTabOnSchieberChange(i, newVal) {
+function elektrodenlautstaerkeSchieberOnChange(i, newVal) {
   let val;
-  if (lvTabMode === "abs") {
+  if (elektrodenlautstaerkeSchieberMode === "abs") {
     // Absolutmodus: volle Float-Präzision halten. Bei hohem MCL ist
     // ein einzelner qu/CL/CU-Schritt eine sehr kleine dB-Änderung
     // (bei MCL 200 qu MED-EL: +1 qu ≈ 0.022 dB). Rundung auf 0.1 dB
@@ -583,44 +583,44 @@ function lvTabOnSchieberChange(i, newVal) {
   } else {
     // Relativmodus: 0.1 dB Granularität, ±60 dB Klammer
     val = +newVal.toFixed(1);
-    val = Math.max(-LV_TAB_RANGE, Math.min(LV_TAB_RANGE, val));
+    val = Math.max(-ELEKTRODENLAUTSTAERKE_SCHIEBER_RANGE, Math.min(ELEKTRODENLAUTSTAERKE_SCHIEBER_RANGE, val));
   }
   elektrodenlautstaerkeSchieber[i] = val;
   if (typeof elektrodenlautstaerkeKurvenTabelleBauen === "function") elektrodenlautstaerkeKurvenTabelleBauen();
   if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
   if (typeof pEqF !== "undefined" && pEqF.length > 0) pUpdEQ();
-  lvTabDraw();
+  elektrodenlautstaerkeSchieberDraw();
 }
 
-function lvTabResetAll() {
+function elektrodenlautstaerkeSchieberResetAll() {
   for (let i = 0; i < nEl; i++) elektrodenlautstaerkeSchieber[i] = 0;
   if (typeof elektrodenlautstaerkeKurvenTabelleBauen === "function") elektrodenlautstaerkeKurvenTabelleBauen();
   if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
   if (typeof pEqF !== "undefined" && pEqF.length > 0) pUpdEQ();
-  lvTabDraw();
+  elektrodenlautstaerkeSchieberDraw();
 }
 
 // ---------- DOM-Listener (Klick, Toggle, Resize) ----------
 
 document.addEventListener("DOMContentLoaded", () => {
-  const cv = document.getElementById("lvTabCv");
+  const cv = document.getElementById("schieberCv");
   if (!cv) return;
   // Fokus-Tracking: nur wenn das Canvas wirklich fokussiert ist,
   // wird die Umrahmung um die aktive Elektrode gezeichnet.
   cv.addEventListener("focus", () => {
-    lvTabHasFocus = true;
-    lvTabDraw();
+    elektrodenlautstaerkeSchieberHasFocus = true;
+    elektrodenlautstaerkeSchieberDraw();
   });
   cv.addEventListener("blur", () => {
-    lvTabHasFocus = false;
-    lvTabDraw();
+    elektrodenlautstaerkeSchieberHasFocus = false;
+    elektrodenlautstaerkeSchieberDraw();
   });
   cv.addEventListener("click", (e) => {
     const rect = cv.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const all = allEl();
     if (!all.length) return;
-    const padL = lvTabMode === "abs" ? 36 : 28;
+    const padL = elektrodenlautstaerkeSchieberMode === "abs" ? 36 : 28;
     const padR = 14;
     const plotW = rect.width - padL - padR;
     const slotW = plotW / all.length;
@@ -630,51 +630,51 @@ document.addEventListener("DOMContentLoaded", () => {
     if (elActive[i] === false || elSt[i] === "mute" || elExDur[i] !== null) return;
     // Im Absolutmodus dürfen nur Elektroden mit MCL den Fokus erhalten,
     // weil Pfeiltasten dort sonst keine Wirkung haben.
-    if (lvTabMode === "abs" && !lvTabElHasMcl(i)) return;
-    lvTabFocus = i;
-    lvTabDraw();
+    if (elektrodenlautstaerkeSchieberMode === "abs" && !elektrodenlautstaerkeSchieberElHasMcl(i)) return;
+    elektrodenlautstaerkeSchieberFocus = i;
+    elektrodenlautstaerkeSchieberDraw();
   });
-  document.getElementById("lvTabChkMeas")?.addEventListener("change", function () {
-    lvTabShowMeas = this.checked;
-    lvTabDraw();
+  document.getElementById("schieberChkMeas")?.addEventListener("change", function () {
+    elektrodenlautstaerkeSchieberShowMeas = this.checked;
+    elektrodenlautstaerkeSchieberDraw();
   });
-  document.getElementById("lvTabChkCurves")?.addEventListener("change", function () {
-    lvTabShowCurves = this.checked;
-    lvTabDraw();
-    lvTabUpdateWarpHint();
+  document.getElementById("schieberChkCurves")?.addEventListener("change", function () {
+    elektrodenlautstaerkeSchieberShowCurves = this.checked;
+    elektrodenlautstaerkeSchieberDraw();
+    elektrodenlautstaerkeSchieberUpdateWarpHint();
   });
-  document.getElementById("lvTabResetBtn")?.addEventListener("click", lvTabResetAll);
+  document.getElementById("schieberResetBtn")?.addEventListener("click", elektrodenlautstaerkeSchieberResetAll);
   window.addEventListener("resize", () => {
     if (document.getElementById("panel-schieber")?.classList.contains("active")) {
-      lvTabDraw();
+      elektrodenlautstaerkeSchieberDraw();
     }
   });
 
   // Touch-Bedienleisten: Elektrode wechseln + dB ändern
   (function () {
-    var cv = document.getElementById('lvTabCv');
+    var cv = document.getElementById('schieberCv');
     if (!cv) return;
     var canvasWrap = cv.parentNode;
     var host = canvasWrap ? canvasWrap.parentNode : null; // die <div class="card">
     if (!host || !canvasWrap) return;
 
     var ctrlRow = document.createElement('div');
-    ctrlRow.className = 'lv-tab-touch-row';
+    ctrlRow.className = 'schieber-touch-row';
     ctrlRow.style.cssText = 'display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:10px;';
 
     var lblE = document.createElement('span');
-    lblE.textContent = (typeof t === 'function' ? t('lvTabElLabel') : 'Elektrode') + ':';
+    lblE.textContent = (typeof t === 'function' ? t('schieberElLabel') : 'Elektrode') + ':';
     lblE.style.cssText = 'align-self:center;font-weight:600;';
 
     var stepE = buildStepperPair({
       labelDec: '◀',
       labelInc: '▶',
-      onDec: function () { _lvTabTouchEl(-1); },
-      onInc: function () { _lvTabTouchEl(+1); }
+      onDec: function () { _schieberTouchEl(-1); },
+      onInc: function () { _schieberTouchEl(+1); }
     });
 
     var lblV = document.createElement('span');
-    lblV.textContent = (typeof t === 'function' ? t('lvTabVlLabel') : 'Wert') + ':';
+    lblV.textContent = (typeof t === 'function' ? t('schieberVlLabel') : 'Wert') + ':';
     lblV.style.cssText = 'align-self:center;font-weight:600;';
 
     var fineMode = false;
@@ -690,8 +690,8 @@ document.addEventListener("DOMContentLoaded", () => {
     var stepV = buildStepperPair({
       labelDec: '▼',
       labelInc: '▲',
-      onDec: function () { _lvTabTouchVal(-1, fineMode); },
-      onInc: function () { _lvTabTouchVal(+1, fineMode); }
+      onDec: function () { _schieberTouchVal(-1, fineMode); },
+      onInc: function () { _schieberTouchVal(+1, fineMode); }
     });
 
     var groupE = document.createElement('div');
@@ -703,28 +703,28 @@ document.addEventListener("DOMContentLoaded", () => {
     groupV.append(lblV, stepV.box, bFine);
 
     ctrlRow.append(groupE, groupV);
-    // Direkt unter dem Canvas-Wrapper einfügen, vor dem lvTabKeyHint-<p>.
+    // Direkt unter dem Canvas-Wrapper einfügen, vor dem schieberKeyHint-<p>.
     host.insertBefore(ctrlRow, canvasWrap.nextSibling);
   })();
 
-  function _lvTabTouchEl(dir) {
-    var nav = (typeof lvTabNavigableEl === 'function') ? lvTabNavigableEl() : actEl();
+  function _schieberTouchEl(dir) {
+    var nav = (typeof elektrodenlautstaerkeSchieberNavigableEl === 'function') ? elektrodenlautstaerkeSchieberNavigableEl() : actEl();
     if (!nav.length) return;
-    var ci = nav.indexOf(lvTabFocus);
+    var ci = nav.indexOf(elektrodenlautstaerkeSchieberFocus);
     if (ci < 0) ci = 0;
     if (dir < 0) ci = Math.max(0, ci - 1);
     else ci = Math.min(nav.length - 1, ci + 1);
-    lvTabFocus = nav[ci];
-    lvTabDraw();
+    elektrodenlautstaerkeSchieberFocus = nav[ci];
+    elektrodenlautstaerkeSchieberDraw();
   }
 
-  function _lvTabTouchVal(dir, fine) {
-    if (lvTabMode === 'abs') {
-      lvTabStepAbsolute(lvTabFocus, dir, fine);
+  function _schieberTouchVal(dir, fine) {
+    if (elektrodenlautstaerkeSchieberMode === 'abs') {
+      elektrodenlautstaerkeSchieberStepAbsolute(elektrodenlautstaerkeSchieberFocus, dir, fine);
     } else {
       var st = fine ? 0.1 : 0.5;
-      var cur = elektrodenlautstaerkeSchieber[lvTabFocus] || 0;
-      lvTabOnSchieberChange(lvTabFocus, cur + dir * st);
+      var cur = elektrodenlautstaerkeSchieber[elektrodenlautstaerkeSchieberFocus] || 0;
+      elektrodenlautstaerkeSchieberOnChange(elektrodenlautstaerkeSchieberFocus, cur + dir * st);
     }
   }
 });

@@ -213,7 +213,7 @@ function setActiveSide(side) {
   buildFreqTable();
   elektrodenlautstaerkeKurvenTabelleBauen();
   elektrodenlautstaerkeKurvenChartZeichnen();
-  if (typeof lvTabRebuild === "function") lvTabRebuild();
+  if (typeof elektrodenlautstaerkeSchieberRebuild === "function") elektrodenlautstaerkeSchieberRebuild();
   renderResults();
   buildImplantCard();
   updSideButtons();
@@ -853,8 +853,8 @@ let plMusicCategory     = "_all";   // "(alle)" als Default
 let plMusicSearchQuery  = "";       // Such-String (persistiert)
 let pBookBuf         = null;          // dekodierter Kapitel-Buffer (Laufzeit, nicht persistiert)
 
-let lvTabShowMeas = false;
-let lvTabShowCurves = false;
-let lvTabMode = "rel";    // "rel" = relativ (±dB), "abs" = absolut (qu/CL/CU)
-let lvTabVariant = "stack"; // "stack" = gestapelt, "sum" = nur Summe, "lines" = Summe + Vergleichslinien
+let elektrodenlautstaerkeSchieberShowMeas = false;
+let elektrodenlautstaerkeSchieberShowCurves = false;
+let elektrodenlautstaerkeSchieberMode = "rel";    // "rel" = relativ (±dB), "abs" = absolut (qu/CL/CU)
+let elektrodenlautstaerkeSchieberVariant = "stack"; // "stack" = gestapelt, "sum" = nur Summe, "lines" = Summe + Vergleichslinien
 

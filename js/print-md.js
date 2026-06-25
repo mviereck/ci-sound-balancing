@@ -95,11 +95,11 @@ function collectArchivData() {
     },
     testSettings: _collectTestSettings(),
     defaultMfr: defaultMfr,
-    lvTab: {
-      mode: lvTabMode,
-      variant: lvTabVariant,
-      showMeas: lvTabShowMeas,
-      showCurves: lvTabShowCurves,
+    schieber: {
+      mode: elektrodenlautstaerkeSchieberMode,
+      variant: elektrodenlautstaerkeSchieberVariant,
+      showMeas: elektrodenlautstaerkeSchieberShowMeas,
+      showCurves: elektrodenlautstaerkeSchieberShowCurves,
     },
     sides: {
       left:  _collectSideData("left"),
@@ -201,9 +201,9 @@ function _collectSideData(side) {
     const schHasNonZero = ml.some((v) => v != null && v !== 0);
     const schRows = [];
     if (schHasNonZero) {
-      const absMode = (lvTabMode === "abs"
-                       && typeof lvTabAbsoluteAvailable === "function"
-                       && lvTabAbsoluteAvailable());
+      const absMode = (elektrodenlautstaerkeSchieberMode === "abs"
+                       && typeof elektrodenlautstaerkeSchieberAbsoluteAvailable === "function"
+                       && elektrodenlautstaerkeSchieberAbsoluteAvailable());
       for (let i = 0; i < nEl; i++) {
         const v = ml[i] || 0;
         let absDelta = null;
@@ -274,7 +274,7 @@ function _collectSideData(side) {
       },
       schieber: {
         has: schHasNonZero,
-        mode: lvTabMode,
+        mode: elektrodenlautstaerkeSchieberMode,
         rows: schRows,
       },
       kurven: {
@@ -563,7 +563,7 @@ function _archivMdMeas(sd) {
 
 function _archivMdSchieber(sd) {
   const out = [];
-  const modeLabel = (sd.schieber.mode === "abs") ? t("lvTabModeAbsolute") : t("lvTabModeRelative");
+  const modeLabel = (sd.schieber.mode === "abs") ? t("schieberModeAbsolute") : t("schieberModeRelative");
   out.push(`### ${t("archivSecSchieber")} (${modeLabel})`);
   out.push("");
   const showAbs = sd.schieber.mode === "abs" && sd.schieber.rows.some((r) => r.absDelta != null);
@@ -700,10 +700,10 @@ function _archivMdPlayer(data) {
 function _archivMdMisc(data) {
   const out = [`\n## ${t("archivSecMisc")}\n`];
   out.push(`- ${t("archivCfgDefMfr")}: ${(MFR[data.defaultMfr] && MFR[data.defaultMfr].name) || data.defaultMfr}`);
-  out.push(`- ${t("archivMiscLvMode")}: ${data.lvTab.mode === "abs" ? t("lvTabModeAbsolute") : t("lvTabModeRelative")}`);
-  out.push(`- ${t("archivMiscLvVariant")}: ${data.lvTab.variant}`);
-  out.push(`- ${t("archivMiscLvShowMeas")}: ${data.lvTab.showMeas ? t("on") : t("off")}`);
-  out.push(`- ${t("archivMiscLvShowCurves")}: ${data.lvTab.showCurves ? t("on") : t("off")}`);
+  out.push(`- ${t("archivSchieberMode")}: ${data.schieber.mode === "abs" ? t("schieberModeAbsolute") : t("schieberModeRelative")}`);
+  out.push(`- ${t("archivSchieberVariant")}: ${data.schieber.variant}`);
+  out.push(`- ${t("archivSchieberShowMeas")}: ${data.schieber.showMeas ? t("on") : t("off")}`);
+  out.push(`- ${t("archivSchieberShowCurves")}: ${data.schieber.showCurves ? t("on") : t("off")}`);
   if (data.saetze.collections.length > 0) {
     out.push("");
     out.push(`### ${t("archivMiscSaetze")}`);
