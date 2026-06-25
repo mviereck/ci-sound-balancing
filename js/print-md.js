@@ -229,12 +229,12 @@ function _collectSideData(side) {
       cutoff: (p.cutoff !== undefined) ? p.cutoff : null,
     }));
 
-    // Frequenzabgleich — Quelle ist _warpFResSource() (fRes + Provisionals
+    // Frequenzabgleich — Quelle ist _warpFResSource() (FRQ_resultsArray + Provisionals
     // aus laufendem Test), identisch zu Player/Equalizer-Graph.
     const fmRows = [];
     const fmSrc = (typeof _warpFResSource === "function")
       ? _warpFResSource()
-      : ((typeof fRes !== "undefined" && Array.isArray(fRes)) ? fRes : []);
+      : ((typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) ? FRQ_resultsArray : []);
     for (const r of fmSrc) {
       if (r.varSide !== side) continue;
       const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
@@ -902,7 +902,7 @@ function _audiologFmRowsForSide(side) {
   if (typeof buildWarpPoints !== "function" || typeof centShift !== "function") return [];
   const fmSrc = (typeof _warpFResSource === "function")
     ? _warpFResSource()
-    : ((typeof fRes !== "undefined" && Array.isArray(fRes)) ? fRes : []);
+    : ((typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) ? FRQ_resultsArray : []);
   if (fmSrc.length === 0) return [];
 
   const mode = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
@@ -1256,13 +1256,13 @@ function buildAudiologMarkdown() {
     if (mlSide) parts.push(mlSide);
 
     // H3 Änderung der Mittenfrequenzen — falls relevant für diese Seite.
-    // Quelle ist _warpFResSource() (fRes + Provisionals aus laufendem Test).
+    // Quelle ist _warpFResSource() (FRQ_resultsArray + Provisionals aus laufendem Test).
     // Bei sym-Warp + einseitigem Druck: zusätzlich eigene H3-Sektion
     // (Graph + Tabelle) für die andere Seite, da sym auf beide Seiten wirkt.
     if (typeof pWarpOn !== "undefined" && pWarpOn
         && typeof plEqOn !== "undefined" && plEqOn
         && ((typeof _warpFResSource === "function" && _warpFResSource().length > 0)
-            || (typeof fRes !== "undefined" && fRes.length > 0))) {
+            || (typeof FRQ_resultsArray !== "undefined" && FRQ_resultsArray.length > 0))) {
       const isSymSingle = (mainSides.length === 1
                           && typeof pWarpMode !== "undefined"
                           && pWarpMode === "symmetric");

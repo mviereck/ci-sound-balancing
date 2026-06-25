@@ -210,7 +210,7 @@ const MFR = {
   },
 };
 // Datum der Cochlear-FAT-Default-Korrektur (BA 136).
-// Vergleichsmaßstab für fRes-Einträge: Einträge mit
+// Vergleichsmaßstab für FRQ_resultsArray-Einträge: Einträge mit
 // timestamp < diesem Wert wurden vor der Korrektur gemessen
 // und beziehen sich auf eine abweichende Default-Annahme
 // (HFE 8000 statt 7938 Hz). Wird in freqmatch.js für die

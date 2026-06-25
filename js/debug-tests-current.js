@@ -61,8 +61,8 @@
       typeof FM_SLIDER_RANGES === 'undefined');
     chk('fmSlRangeIdx entfernt',
       typeof fmSlRangeIdx === 'undefined');
-    var slRef = typeof fmEls !== 'undefined' && fmEls &&
-      fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.slider;
+    var slRef = typeof FRQ_els !== 'undefined' && FRQ_els &&
+      FRQ_els.verfahren && FRQ_els.verfahren.slider && FRQ_els.verfahren.slider.slider;
     chk('slider.initialRange === 100', !!slRef && slRef.initialRange === 100);
     chk('slider.maxRange === 1200', !!slRef && slRef.maxRange === 1200);
     chk('extendBtn nicht in slider-refs', !!slRef && !('extendBtn' in slRef));

@@ -1,5 +1,5 @@
 // ============================================================
-// FREQ-WARP – Offline-Frequenz-Warping auf Basis von fRes
+// FREQ-WARP – Offline-Frequenz-Warping auf Basis von FRQ_resultsArray
 // ============================================================
 // Geladen zwischen player.js (#14) und lr-balance.js (#15).
 // Exportiert ins globale Scope:
@@ -126,14 +126,14 @@ function _rbBuildLiveOptionBits(opts) {
 
 let _pWarpFResVersion = 0;
 
-// Quelle der Warp-Punkte: fRes (final) + laufende Tracks (vorläufig), exakt
+// Quelle der Warp-Punkte: FRQ_resultsArray (final) + laufende Tracks (vorläufig), exakt
 // dieselbe Vereinigung wie die Meßergebnis-Tabelle in results.js. So sieht
 // das Warping immer das, was der Nutzer in der Tabelle sieht — keine
 // abweichende Logik. fmStatus 'in-progress' und 'in-progress-early'
 // (Platzhalter cent=0) werden mitgenommen; final hat Vorrang pro
 // (varSide, elIdx).
 // BA353: Quelle = zentraler aktives-Verfahren-Filter (results.js).
-// Frueher: fRes + in-progress + Slider-Schaetzungen ungefiltert vereinigt.
+// Frueher: FRQ_resultsArray + in-progress + Slider-Schaetzungen ungefiltert vereinigt.
 function _warpFResSource() {
   return (typeof fmActiveResults === "function")
     ? fmActiveResults().filter(function (r) { return !(r && r.fmExcluded); })
@@ -211,8 +211,8 @@ function buildWarpPoints(fResData, warpMode, invert = false) {
 
 // ---- Migrations-Helfer für Alt-Werte ref_side/var_side ----
 // Übersetzt Alt-Werte in absolute Seiten anhand der Referenzseite,
-// die in den gespeicherten fRes-Einträgen steht. Wenn keine
-// fRes-Daten vorhanden sind, fallback auf Default-Seite.
+// die in den gespeicherten FRQ_resultsArray-Einträgen steht. Wenn keine
+// FRQ_resultsArray-Daten vorhanden sind, fallback auf Default-Seite.
 function _migrateLegacyWarpMode(savedMode, savedFRes) {
   if (savedMode !== "ref_side" && savedMode !== "var_side") {
     return savedMode;
@@ -1340,10 +1340,10 @@ function pApplyWarpModeDefaultFromFm() {
   if (_pPlayerWarpDefaultApplied) return;
   _pPlayerWarpDefaultApplied = true;
   let mode = "right";
-  if (typeof fmRefSide === "string") {
-    if (fmRefSide === "left")            mode = "right";
-    else if (fmRefSide === "right")      mode = "left";
-    else if (fmRefSide === "symmetric")  mode = "symmetric";
+  if (typeof FRQ_refSide === "string") {
+    if (FRQ_refSide === "left")            mode = "right";
+    else if (FRQ_refSide === "right")      mode = "left";
+    else if (FRQ_refSide === "symmetric")  mode = "symmetric";
   }
   pWarpMode = mode;
   const sel = document.getElementById("plWarpModeSelect");

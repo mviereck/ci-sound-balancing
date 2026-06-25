@@ -7,15 +7,15 @@
 // --- UI-Anzeige ---
 
 function fmUpdateSliderDisplay() {
-  if (!fmEls || fmCurrentEl === null) return;
-  const slRefs = fmEls.verfahren && fmEls.verfahren.slider;
-  const centStr = (fmCentOffset >= 0 ? "+" : "") + Math.round(fmCentOffset);
+  if (!FRQ_els || frq_currentEl === null) return;
+  const slRefs = FRQ_els.verfahren && FRQ_els.verfahren.slider;
+  const centStr = (frq_centOffset >= 0 ? "+" : "") + Math.round(frq_centOffset);
   const centUnit = (typeof t === 'function' && t("fmCentUnit")) || "Cent";
-  if (fmSymmetric) {
-    const leftBase  = withSide('left',  function() { return effFreq(fmCurrentEl); });
-    const rightBase = withSide('right', function() { return effFreq(fmCurrentEl); });
-    const playL = leftBase  * Math.pow(2, -fmCentOffset / 2 / 1200);
-    const playR = rightBase * Math.pow(2, +fmCentOffset / 2 / 1200);
+  if (frq_symmetric) {
+    const leftBase  = withSide('left',  function() { return effFreq(frq_currentEl); });
+    const rightBase = withSide('right', function() { return effFreq(frq_currentEl); });
+    const playL = leftBase  * Math.pow(2, -frq_centOffset / 2 / 1200);
+    const playR = rightBase * Math.pow(2, +frq_centOffset / 2 / 1200);
     if (slRefs && slRefs.slider) {
       testUI.slider.setValueDisplay(
         slRefs.slider,
@@ -25,8 +25,8 @@ function fmUpdateSliderDisplay() {
     }
     return;
   }
-  const varHz = fmVarHz(fmCurrentEl);
-  const refHz = fmFreqFromCents(varHz, fmCentOffset);
+  const varHz = fmVarHz(frq_currentEl);
+  const refHz = fmFreqFromCents(varHz, frq_centOffset);
   const hzStr = refHz.toFixed(2);
   if (slRefs && slRefs.slider) {
     testUI.slider.setValueDisplay(
@@ -34,11 +34,11 @@ function fmUpdateSliderDisplay() {
       centStr + " " + centUnit + " (" + hzStr + " Hz)"
     );
   }
-  const refSideLabel = fmRefSide === "left" ? t("sideLeft") : t("sideRight");
+  const refSideLabel = FRQ_refSide === "left" ? t("sideLeft") : t("sideRight");
   const refText = refSideLabel + ": " + hzStr + " Hz, " + centStr + " " + centUnit;
   const pi = _fmSliderPI();
   if (pi) {
-    if (fmRefSide === "left") {
+    if (FRQ_refSide === "left") {
       testUI.pairIndicator.setLabels(pi, { leftText: refText });
     } else {
       testUI.pairIndicator.setLabels(pi, { rightText: refText });
@@ -47,27 +47,27 @@ function fmUpdateSliderDisplay() {
 }
 
 function fmShowElectrode() {
-  if (!fmEls || fmCurrentEl === null) return;
-  const slRefs = fmEls.verfahren && fmEls.verfahren.slider;
+  if (!FRQ_els || frq_currentEl === null) return;
+  const slRefs = FRQ_els.verfahren && FRQ_els.verfahren.slider;
   const pi = _fmSliderPI();
-  if (fmSymmetric) {
-    const leftHz  = withSide('left',  function() { return effFreq(fmCurrentEl); });
-    const rightHz = withSide('right', function() { return effFreq(fmCurrentEl); });
+  if (frq_symmetric) {
+    const leftHz  = withSide('left',  function() { return effFreq(frq_currentEl); });
+    const rightHz = withSide('right', function() { return effFreq(frq_currentEl); });
     if (pi) {
-      const leftLabel  = withSide('left',  function() { return dENPrefix() + dEN(fmCurrentEl); });
-      const rightLabel = withSide('right', function() { return dENPrefix() + dEN(fmCurrentEl); });
+      const leftLabel  = withSide('left',  function() { return dENPrefix() + dEN(frq_currentEl); });
+      const rightLabel = withSide('right', function() { return dENPrefix() + dEN(frq_currentEl); });
       testUI.pairIndicator.setLabels(pi, {
         leftText:  leftLabel  + ", " + leftHz.toFixed(2)  + " Hz (" + t("sideLeft")  + ")",
         rightText: rightLabel + ", " + rightHz.toFixed(2) + " Hz (" + t("sideRight") + ")"
       });
     }
   } else {
-    const varHz = fmVarHz(fmCurrentEl);
-    const varSideLabel = fmVarSide === "left" ? t("sideLeft") : t("sideRight");
-    const varText = withSide(fmVarSide, () => dENPrefix()) + fmDEN(fmCurrentEl) + ", " +
+    const varHz = fmVarHz(frq_currentEl);
+    const varSideLabel = frq_varSide === "left" ? t("sideLeft") : t("sideRight");
+    const varText = withSide(frq_varSide, () => dENPrefix()) + fmDEN(frq_currentEl) + ", " +
       varHz.toFixed(2) + " Hz (" + varSideLabel + ")";
     if (pi) {
-      if (fmVarSide === "left") {
+      if (frq_varSide === "left") {
         testUI.pairIndicator.setLabels(pi, { leftText: varText });
       } else {
         testUI.pairIndicator.setLabels(pi, { rightText: varText });
@@ -77,22 +77,22 @@ function fmShowElectrode() {
   if (slRefs && slRefs.slider) {
     // BA 221: Slider-Range so erweitern, dass Marker und Min/Max des
     // Range-Hints reinpassen. Sonst blendet setRangeHint sie aus.
-    var _markerAbs = _fmSliderMarkerMaxAbs(fmCurrentEl);
-    testUI.slider.setValue(slRefs.slider, fmCentOffset, { minAbs: _markerAbs });
+    var _markerAbs = _fmSliderMarkerMaxAbs(frq_currentEl);
+    testUI.slider.setValue(slRefs.slider, frq_centOffset, { minAbs: _markerAbs });
   }
   fmUpdateSliderDisplay();
   _fmUpdateSliderRangeMarker();
   fmUpdateSliderProgress();
   const undoBtn = _fmSliderUndo();
-  if (undoBtn) undoBtn.disabled = fmSeqIdx === 0;
+  if (undoBtn) undoBtn.disabled = frq_sequenceIdx === 0;
 }
 
 // BA 362: Maximaler Absolutbetrag aus cent/min/max dieser Elektrode —
 // fuer minAbs in testUI.slider.setValue.
 // Liefert 0, wenn keine Daten oder keine endlichen Werte vorliegen.
 function _fmSliderMarkerMaxAbs(elIdx) {
-  const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
-    ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
+  const store = (sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive)
+    ? sideData[frq_varSide].freqmatchAdaptive.sliderEstimates : null;
   if (!store) return 0;
   const e = store[String(elIdx)];
   if (!e) return 0;
@@ -106,13 +106,13 @@ function _fmSliderMarkerMaxAbs(elIdx) {
 // BA 362: Dreieck aus .cent, Band aus min/max (falls vorhanden).
 // Daten werden an testUI.slider.setRangeHint uebergeben — dort steckt die DOM-Logik.
 function _fmUpdateSliderRangeMarker() {
-  if (!fmEls || fmCurrentEl === null) return;
-  const slRefs = fmEls.verfahren && fmEls.verfahren.slider;
+  if (!FRQ_els || frq_currentEl === null) return;
+  const slRefs = FRQ_els.verfahren && FRQ_els.verfahren.slider;
   if (!slRefs || !slRefs.slider) return;
 
-  const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
-    ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
-  const e = store ? store[String(fmCurrentEl)] : null;
+  const store = (sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive)
+    ? sideData[frq_varSide].freqmatchAdaptive.sliderEstimates : null;
+  const e = store ? store[String(frq_currentEl)] : null;
 
   if (!e || typeof e.cent !== 'number' || !isFinite(e.cent)) {
     testUI.slider.setRangeHint(slRefs.slider, null);
@@ -135,11 +135,11 @@ function _fmUpdateSliderRangeMarker() {
 // Synchronisiert sliderPass mit der User-Auswahl.
 // Wird nach Auswahl-Änderung aufgerufen, wenn der Slider-Modus aktiv ist.
 function _fmApplySelectionToSliderRun() {
-  if (!sideData[fmVarSide]) return;
-  var fa = sideData[fmVarSide].freqmatchAdaptive;
+  if (!sideData[frq_varSide]) return;
+  var fa = sideData[frq_varSide].freqmatchAdaptive;
   if (!fa || !fa.sliderPass) return;
   var pass = fa.sliderPass;
-  var freshSeq = fmSymmetric ? fmBuildSeqSymmetric() : fmBuildSeq();
+  var freshSeq = frq_symmetric ? fmBuildSeqSymmetric() : fmBuildSeq();
   if (!Array.isArray(freshSeq)) freshSeq = [];
 
   // order und remaining auf aktuelle Auswahl (Frequenz-Reihenfolge) aktualisieren.
@@ -148,30 +148,30 @@ function _fmApplySelectionToSliderRun() {
   pass.remaining = (pass.remaining || []).filter(function(i) { return freshSet.has(i); });
   if (pass.remaining.length === 0) pass.remaining = freshSeq.slice();
 
-  // fmSeq spiegeln und fmSeqIdx nachjustieren.
-  fmSeq = pass.remaining.slice();
-  if (fmCurrentEl != null && freshSet.has(fmCurrentEl)) {
-    var pos = fmSeq.indexOf(fmCurrentEl);
-    fmSeqIdx = pos >= 0 ? pos : 0;
+  // frq_sequence spiegeln und frq_sequenceIdx nachjustieren.
+  frq_sequence = pass.remaining.slice();
+  if (frq_currentEl != null && freshSet.has(frq_currentEl)) {
+    var pos = frq_sequence.indexOf(frq_currentEl);
+    frq_sequenceIdx = pos >= 0 ? pos : 0;
   } else {
-    fmSeqIdx = 0;
+    frq_sequenceIdx = 0;
   }
 }
 
 function fmStartSlider() {
-  if (!fmEls) return;
+  if (!FRQ_els) return;
   _fmInitSides();
-  if (fmSymmetric) {
-    fmSeq = fmBuildSeqSymmetric();
-    if (fmSeq === null) {
+  if (frq_symmetric) {
+    frq_sequence = fmBuildSeqSymmetric();
+    if (frq_sequence === null) {
       alert((typeof t === 'function' && t('fmSymmetricElMismatch'))
         || 'Symmetrischer Modus: Beide Seiten müssen dieselben aktiven Elektroden haben.');
-      fmEls._stopTest();
+      FRQ_els._stopTest();
       return;
     }
-    if (fmSeq.length === 0) {
+    if (frq_sequence.length === 0) {
       alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden.');
-      fmEls._stopTest();
+      FRQ_els._stopTest();
       return;
     }
   } else {
@@ -180,51 +180,51 @@ function fmStartSlider() {
         fmBuildSeqSymmetric() === null) {
       alert((typeof t === 'function' && t('fmElMismatch'))
         || 'Frequenzabgleich nicht moeglich: Auf beiden Seiten müssen dieselben Elektroden aktiv sein.');
-      fmEls._stopTest();
+      FRQ_els._stopTest();
       return;
     }
-    fmSeq = fmBuildSeq();
-    if (fmSeq.length === 0) {
+    frq_sequence = fmBuildSeq();
+    if (frq_sequence.length === 0) {
       alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
-      fmEls._stopTest();
+      FRQ_els._stopTest();
       return;
     }
   }
   testUI.sideCheck.run(
     { sides: 'both' },
     _fmDoStartSlider,
-    function() { if (fmEls) fmEls._stopTest(); }
+    function() { if (FRQ_els) FRQ_els._stopTest(); }
   );
 }
 
 function _fmDoStartSlider() {
   _fmSliderPassEnsure();
-  fmSeqIdx  = 0;
-  fmRunning = true;
+  frq_sequenceIdx  = 0;
+  FRQ_running = true;
   fmLoadElectrode();
   _fmStartTimer();
   _fmStartIdleSideCheck();
 }
 
 function _fmSliderPassEnsure() {
-  if (!sideData[fmVarSide]) return;
-  const fa = sideData[fmVarSide].freqmatchAdaptive
-    || (sideData[fmVarSide].freqmatchAdaptive = { runs: [], currentRunIdx: null, sliderEstimates: {} });
+  if (!sideData[frq_varSide]) return;
+  const fa = sideData[frq_varSide].freqmatchAdaptive
+    || (sideData[frq_varSide].freqmatchAdaptive = { runs: [], currentRunIdx: null, sliderEstimates: {} });
   if (!fa.sliderEstimates) fa.sliderEstimates = {};
 
   // Feste Reihenfolge = die bestehende Frequenz-Reihenfolge von
   // fmBuildSeq()/fmBuildSeqSymmetric() (tiefste Frequenz zuerst). KEIN
   // Shuffle, KEIN Umsortieren.
-  const elList = (fmSymmetric ? fmBuildSeqSymmetric() : fmBuildSeq()).slice();
+  const elList = (frq_symmetric ? fmBuildSeqSymmetric() : fmBuildSeq()).slice();
 
   let pass = fa.sliderPass;
   // Neuer Durchgang, wenn keiner existiert oder die Seiten-Kombination wechselt.
-  if (!pass || pass.varSide !== fmVarSide || pass.refSide !== fmRefSide
-      || pass.symmetric !== fmSymmetric) {
+  if (!pass || pass.varSide !== frq_varSide || pass.refSide !== FRQ_refSide
+      || pass.symmetric !== frq_symmetric) {
     pass = {
-      varSide:   fmVarSide,
-      refSide:   fmRefSide,
-      symmetric: fmSymmetric,
+      varSide:   frq_varSide,
+      refSide:   FRQ_refSide,
+      symmetric: frq_symmetric,
       order:     elList.slice(),
       remaining: elList.slice()
     };
@@ -239,29 +239,29 @@ function _fmSliderPassEnsure() {
     if (pass.remaining.length === 0) pass.remaining = elList.slice();
   }
 
-  // fmSeq spiegelt die noch offenen Elektroden in fester Reihenfolge.
-  fmSeq = pass.remaining.slice();
-  fmSeqIdx = 0;
+  // frq_sequence spiegelt die noch offenen Elektroden in fester Reihenfolge.
+  frq_sequence = pass.remaining.slice();
+  frq_sequenceIdx = 0;
 }
 
 function fmLoadElectrode() {
-  if (fmSeqIdx >= fmSeq.length) {
+  if (frq_sequenceIdx >= frq_sequence.length) {
     _fmSliderFinish();   // Durchgang fertig (Schritt 4)
     return;
   }
-  fmCurrentEl = fmSeq[fmSeqIdx];
-  fmCentOffset = fmPrevCent(fmCurrentEl);   // Start auf gespeichertem Wert
-  fmFirstSide = Math.random() < 0.5 ? "ref" : "var";
+  frq_currentEl = frq_sequence[frq_sequenceIdx];
+  frq_centOffset = fmPrevCent(frq_currentEl);   // Start auf gespeichertem Wert
+  frq_firstSide = Math.random() < 0.5 ? "ref" : "var";
   fmShowElectrode();
-  setTimeout(() => { if (fmRunning) fmPlayCurrent(); }, 100);
+  setTimeout(() => { if (FRQ_running) fmPlayCurrent(); }, 100);
 }
 
 function _fmSliderFinish() {
   // Durchgang leeren, damit der nächste Start frisch ab Elektrode 1 beginnt.
-  const fa = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
+  const fa = sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive;
   if (fa && fa.sliderPass) fa.sliderPass.remaining = [];
 
-  if (fmEls && fmEls._stopTest) fmEls._stopTest();
+  if (FRQ_els && FRQ_els._stopTest) FRQ_els._stopTest();
 
   if (typeof testUI !== 'undefined' && testUI.completion) {
     testUI.completion.show({
@@ -273,23 +273,23 @@ function _fmSliderFinish() {
 }
 
 function fmConfirm() {
-  if (!fmRunning || fmCurrentEl === null) return;
+  if (!FRQ_running || frq_currentEl === null) return;
   // BA353: Offset bestaetigt -> Schieber wird aktiv.
   if (typeof fmSetActiveMethod === "function") fmSetActiveMethod("slider");
-  const varHz = fmVarHz(fmCurrentEl);
-  const fa = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
+  const varHz = fmVarHz(frq_currentEl);
+  const fa = sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive;
   if (!fa) return;
   if (!fa.sliderEstimates) fa.sliderEstimates = {};
   const now = Date.now();
-  const cent = Math.round(fmCentOffset);
+  const cent = Math.round(frq_centOffset);
 
-  const key = String(fmCurrentEl);
+  const key = String(frq_currentEl);
   let entry = fa.sliderEstimates[key];
   if (!entry || typeof entry !== 'object') {
     entry = {
       cent:      cent,
-      varSide:   fmVarSide,
-      refSide:   fmSymmetric ? 'symmetric' : fmRefSide,
+      varSide:   frq_varSide,
+      refSide:   frq_symmetric ? 'symmetric' : FRQ_refSide,
       varFreq:   varHz,
       timestamp: now
       // KEIN rounds[]. min/max nur, falls aus Migration/Uebertragung vorhanden.
@@ -299,14 +299,14 @@ function fmConfirm() {
     // Ueberschreiben: nur cent + Metadaten neu; min/max bleiben unangetastet.
     entry.cent = cent;
   }
-  entry.varSide   = fmVarSide;
-  entry.refSide   = fmSymmetric ? 'symmetric' : fmRefSide;
+  entry.varSide   = frq_varSide;
+  entry.refSide   = frq_symmetric ? 'symmetric' : FRQ_refSide;
   entry.varFreq   = varHz;
   entry.timestamp = now;
 
   const pass = fa.sliderPass;
   if (pass) {
-    const idx = pass.remaining.indexOf(fmCurrentEl);
+    const idx = pass.remaining.indexOf(frq_currentEl);
     if (idx >= 0) pass.remaining.splice(idx, 1);
   }
 
@@ -314,7 +314,7 @@ function fmConfirm() {
     pApplyWarpModeDefaultFromFm();
   }
 
-  fmSeqIdx++;
+  frq_sequenceIdx++;
   fmLoadElectrode();
   if (typeof renderFreqMatchResults === 'function') {
     try { renderFreqMatchResults(); } catch (e) {}
@@ -324,20 +324,20 @@ function fmConfirm() {
 
 // BA 206: Pause — Lauf nicht abbrechen, nur stoppen.
 function fmPauseSlider() {
-  if (!fmRunning) return;
-  if (fmEls && fmEls._stopTest) fmEls._stopTest();
+  if (!FRQ_running) return;
+  if (FRQ_els && FRQ_els._stopTest) FRQ_els._stopTest();
 }
 
 // --- Fortschritt ---
 
 function fmUpdateSliderProgress() {
-  if (!fmEls) return;
-  const _sprog = fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.progress;
+  if (!FRQ_els) return;
+  const _sprog = FRQ_els.verfahren && FRQ_els.verfahren.slider && FRQ_els.verfahren.slider.progress;
   if (!_sprog) return;
-  const fa = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
+  const fa = sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive;
   const pass = fa && fa.sliderPass;
-  const total = pass ? (pass.order ? pass.order.length : 0) : (fmSeq ? fmSeq.length : 0);
-  const done  = pass ? (total - (pass.remaining ? pass.remaining.length : 0)) : fmSeqIdx;
+  const total = pass ? (pass.order ? pass.order.length : 0) : (frq_sequence ? frq_sequence.length : 0);
+  const done  = pass ? (total - (pass.remaining ? pass.remaining.length : 0)) : frq_sequenceIdx;
   const cur   = Math.min(done + 1, total);
   const frac  = total > 0 ? Math.min(cur / total, 1) : 0;
   const lbl = (typeof t === 'function' && t('fmSliderProgress')) || 'Elektrode %C von %T';

@@ -6,7 +6,7 @@
 // --- Verfahren-Schaltflächen ---
 
 function fmEnableHeightButtons() {
-  const vr = fmEls && fmEls.verfahren && fmEls.verfahren.adaptive;
+  const vr = FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.adaptive;
   if (vr && vr.decisionButtons) {
     vr.decisionButtons.up.disabled   = false;
     vr.decisionButtons.down.disabled = false;
@@ -15,7 +15,7 @@ function fmEnableHeightButtons() {
 function fmDisableHeightButtons() {
   const pi = _fmAdaptPI();
   if (pi) { pi.left.classList.remove('playing'); pi.right.classList.remove('playing'); }
-  const vr = fmEls && fmEls.verfahren && fmEls.verfahren.adaptive;
+  const vr = FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.adaptive;
   if (vr && vr.decisionButtons) {
     vr.decisionButtons.up.disabled   = true;
     vr.decisionButtons.down.disabled = true;
@@ -32,12 +32,12 @@ function fmDisableHeightButtons() {
 //   - alle anderen Status (converged*, unstable, not-perceivable, aborted)
 //     bleiben unverändert. Konvergierte Ergebnisse gehen NICHT verloren.
 function _fmApplySelectionToTracks() {
-  if (!fmTracks) return;
+  if (!frq_tracks) return;
   var sel = freqmatchTestSelection;
   var hasSel = (sel != null);
   var selSet = hasSel ? new Set(sel) : null;
-  Object.keys(fmTracks).forEach(function(k) {
-    var tr = fmTracks[k];
+  Object.keys(frq_tracks).forEach(function(k) {
+    var tr = frq_tracks[k];
     if (!tr) return;
     var idx = fmParseTrackKey(k).electrodeIdx;
     var wanted = !hasSel || selSet.has(idx);
@@ -46,27 +46,27 @@ function _fmApplySelectionToTracks() {
   });
   // Wenn der aktuell vorgemerkte Track jetzt 'deselected' ist:
   // RoundQueue stumpf leeren, beim nächsten fmPickNextTrack wird neu gepickt.
-  if (fmCurTrackId != null && fmTracks[fmCurTrackId]
-      && fmTracks[fmCurTrackId].status === 'deselected') {
-    fmRoundQueue = [];
+  if (frq_currentTrackId != null && frq_tracks[frq_currentTrackId]
+      && frq_tracks[frq_currentTrackId].status === 'deselected') {
+    frq_roundQueue = [];
   }
 }
 
 function fmStartAdaptive() {
-  if (!fmEls) return;
+  if (!FRQ_els) return;
   _fmInitSides();
 
-  if (fmSymmetric) {
+  if (frq_symmetric) {
     const _symSeq = fmBuildSeqSymmetric();
     if (_symSeq === null) {
       alert((typeof t === 'function' && t('fmSymmetricElMismatch'))
         || 'Symmetrischer Modus: Beide Seiten müssen dieselben aktiven Elektroden haben.');
-      fmEls._stopTest();
+      FRQ_els._stopTest();
       return;
     }
     if (_symSeq.length === 0) {
       alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden.');
-      fmEls._stopTest();
+      FRQ_els._stopTest();
       return;
     }
   }
@@ -76,13 +76,13 @@ function fmStartAdaptive() {
       fmBuildSeqSymmetric() === null) {
     alert((typeof t === 'function' && t('fmElMismatch'))
       || 'Frequenzabgleich nicht möglich: Auf beiden Seiten müssen dieselben Elektroden aktiv sein.');
-    fmEls._stopTest();
+    FRQ_els._stopTest();
     return;
   }
 
   // Warnung wenn Slider-Test nur teilweise abgeschlossen
-  const _slEst = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
-    ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
+  const _slEst = (sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive)
+    ? sideData[frq_varSide].freqmatchAdaptive.sliderEstimates : null;
   if (_slEst) {
     const _seq = fmBuildSeq();
     const _estCount = _seq.filter(function(e) { return _slEst[String(e)] !== undefined; }).length;
@@ -91,23 +91,23 @@ function fmStartAdaptive() {
         + _estCount + ' von ' + _seq.length + ' Elektroden).\n'
         + 'Empfehlung: erst den Slider-Test beenden, dann adaptiv starten.\n\n'
         + 'Trotzdem adaptiv starten?';
-      if (!window.confirm(msg)) { fmEls._stopTest(); return; }
+      if (!window.confirm(msg)) { FRQ_els._stopTest(); return; }
     }
   }
 
   testUI.sideCheck.run(
     { sides: 'both' },
     _fmDoStartAdaptive,
-    function() { if (fmEls) fmEls._stopTest(); }
+    function() { if (FRQ_els) FRQ_els._stopTest(); }
   );
 }
 
 // Eigentliche Adaptiv-Start-Logik (nach Dialog-Bestätigung).
 function _fmDoStartAdaptive() {
-  if (!fmEls) return;
+  if (!FRQ_els) return;
 
   // Anti-Überschreib-Check (BA 93): bei 2+ abgeschlossenen Läufen Bestätigungsdialog.
-  const _refVal  = fmEls.header.refSelect.value;
+  const _refVal  = FRQ_els.header.refSelect.value;
   const _varSide = _refVal === 'left' ? 'right' : 'left';
   const _fa = (sideData[_varSide] && sideData[_varSide].freqmatchAdaptive) || null;
   if (_fa && Array.isArray(_fa.runs) && _fa.runs.length >= 1) {
@@ -126,7 +126,7 @@ function _fmDoStartAdaptive() {
            + 'Plastizität verschoben haben.';
         msg += '\n\n' + ageMsg.replace('{D}', String(daysOld));
       }
-      if (!window.confirm(msg)) { fmEls._stopTest(); return; }
+      if (!window.confirm(msg)) { FRQ_els._stopTest(); return; }
     }
   }
 
@@ -135,12 +135,12 @@ function _fmDoStartAdaptive() {
   const elIdxList = fmBuildSeq();
   if (elIdxList.length === 0) {
     alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
-    fmEls._stopTest();
+    FRQ_els._stopTest();
     return;
   }
 
   if (_fmTryRestore(elIdxList)) {
-    console.log('[freqmatch] Adaptiver Lauf fortgesetzt:', Object.keys(fmTracks).length, 'Tracks');
+    console.log('[freqmatch] Adaptiver Lauf fortgesetzt:', Object.keys(frq_tracks).length, 'Tracks');
   } else {
     // Gepaartes Bracketing über Läufe bestimmen:
     // - kein vorhandener Lauf, oder letzter Lauf ist selbst schon "gepaart"
@@ -149,26 +149,26 @@ function _fmDoStartAdaptive() {
     // - letzter abgeschlossener Lauf ist "ungepaart" → dieser Lauf
     //   invertiert dessen startSigns (pro Elektrode); für Elektroden, die
     //   im Vorgänger nicht vorkamen, zufällig.
-    const _faNow = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive) || null;
+    const _faNow = (sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive) || null;
     const _runs  = (_faNow && Array.isArray(_faNow.runs)) ? _faNow.runs : [];
     let prevRun = null;
     for (let i = _runs.length - 1; i >= 0; i--) {
       if (_runs[i] && _runs[i].completedAt != null) { prevRun = _runs[i]; break; }
     }
     const prevPaired = !!(prevRun && prevRun.pairedToPrevious);
-    fmCurPairedToPrevious = !!(prevRun && !prevPaired);
+    frq_currentPairedToPrevious = !!(prevRun && !prevPaired);
 
-    fmTracks = {};
-    fmRoundQueue = [];
+    frq_tracks = {};
+    frq_roundQueue = [];
 
     // Slider-Estimate-Quelle für Lauf 1 (kein vorheriger Lauf).
-    const _slStore = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive
-                      && sideData[fmVarSide].freqmatchAdaptive.sliderEstimates) || {};
+    const _slStore = (sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive
+                      && sideData[frq_varSide].freqmatchAdaptive.sliderEstimates) || {};
 
     elIdxList.forEach(function(idx) {
       // --- 1) Bracketing-Vorzeichen wie bisher ---
       let sign;
-      if (fmCurPairedToPrevious && prevRun && prevRun.startSigns
+      if (frq_currentPairedToPrevious && prevRun && prevRun.startSigns
           && prevRun.startSigns[idx] != null) {
         sign = (prevRun.startSigns[idx] === -1) ? +1 : -1;
       } else {
@@ -203,65 +203,65 @@ function _fmDoStartAdaptive() {
         startOffset = sign * FM_INITIAL_START_OFFSET;
       }
 
-      fmTracks[fmTrackKey(idx)] = fmCreateTrack(idx, sign, startOffset);
+      frq_tracks[fmTrackKey(idx)] = fmCreateTrack(idx, sign, startOffset);
     });
     _fmPersist();
   }
 
-  fmRunning           = true;
-  fmAdaptiveActive    = true;
-  fmAwaitingResponse  = false;
-  fmCurTrackId        = null;
-  fmLastPickedTrackId = null;
+  FRQ_running           = true;
+  frq_adaptiveActive    = true;
+  frq_awaitingResponse  = false;
+  frq_currentTrackId        = null;
+  frq_lastPickedTrackId = null;
   _fmUndoSnapshot     = null;
   const _adaptUndo = _fmAdaptUndo();
   if (_adaptUndo) _adaptUndo.disabled = true;
 
   fmRenderStatusGrid();
   _fmStartTimer();
-  _fmDbg('start: ref=' + fmRefSide + ' var=' + fmVarSide
-       + ', tracks=' + Object.keys(fmTracks).length);
+  _fmDbg('start: ref=' + FRQ_refSide + ' var=' + frq_varSide
+       + ', tracks=' + Object.keys(frq_tracks).length);
   fmNextAdaptiveTrial();
   _fmStartIdleSideCheck();
 }
 
 function fmNextAdaptiveTrial() {
-  if (!fmAdaptiveActive) return;
+  if (!frq_adaptiveActive) return;
   const _au0 = _fmAdaptUndo();
   if (_au0) _au0.disabled = true;
 
-  const _rrState = { tracks: fmTracks, roundQueue: fmRoundQueue };
-  fmCurTrackId = fmPickNextTrack(_rrState, undefined, fmLastPickedTrackId);
-  if (fmCurTrackId !== null) fmLastPickedTrackId = fmCurTrackId;
-  fmRoundQueue = _rrState.roundQueue;
-  if (fmCurTrackId === null) {
+  const _rrState = { tracks: frq_tracks, roundQueue: frq_roundQueue };
+  frq_currentTrackId = fmPickNextTrack(_rrState, undefined, frq_lastPickedTrackId);
+  if (frq_currentTrackId !== null) frq_lastPickedTrackId = frq_currentTrackId;
+  frq_roundQueue = _rrState.roundQueue;
+  if (frq_currentTrackId === null) {
     fmFinishAdaptive();
     return;
   }
 
-  fmCurFirstSide     = (Math.random() < 0.5) ? 'ref' : 'var';
-  fmAwaitingResponse = false;
+  frq_currentFirstSide     = (Math.random() < 0.5) ? 'ref' : 'var';
+  frq_awaitingResponse = false;
 
   // --- Catch-Entscheidung: deterministisch pro Track ---
   // Verteilung (BA 182): Trial 4, 8, 14, 22, 30, … — siehe
   // _fmIsCatchTrial in freqmatch-staircase.js.
-  if (_fmIsCatchTrial(fmTracks[fmCurTrackId].trialCount)) {
+  if (_fmIsCatchTrial(frq_tracks[frq_currentTrackId].trialCount)) {
     // Adaptive Spreizung: bei großem lokalem Residuum wird ±500 ct nicht
     // mehr eindeutig hörbar. Spreizung wächst mit dem aktuellen Residuum
     // (halbe Spanne der letzten 6 Umkehrungen via fmComputeResidual);
     // vor 6 Umkehrungen greift die Untergrenze FM_CATCH_MAGNITUDE.
-    const _t = fmTracks[fmCurTrackId];
+    const _t = frq_tracks[frq_currentTrackId];
     const _resForCatch = (typeof fmComputeResidual === 'function')
       ? (fmComputeResidual(_t) || 0)
       : 0;
     const _mag = Math.max(FM_CATCH_MAGNITUDE, 2 * _resForCatch);
     const dir = (Math.random() < 0.5) ? +_mag : -_mag;
-    fmCurCatchInfo = {
+    frq_currentCatchInfo = {
       direction:        dir,
       expectedResponse: (dir > 0) ? 'var-higher' : 'var-lower'
     };
   } else {
-    fmCurCatchInfo = null;
+    frq_currentCatchInfo = null;
   }
 
   const _api = _fmAdaptPI();
@@ -275,34 +275,34 @@ function fmNextAdaptiveTrial() {
   fmUpdateAdaptiveProgress();
   fmDisableHeightButtons();
 
-  const track = fmTracks[fmCurTrackId];
+  const track = frq_tracks[frq_currentTrackId];
   const _dbgVarHz = (typeof withSide === 'function' && typeof effFreq === 'function')
-    ? withSide(fmVarSide, function() { return effFreq(track.electrodeIdx); }) : 0;
+    ? withSide(frq_varSide, function() { return effFreq(track.electrodeIdx); }) : 0;
   _fmDbg('trial #' + (track.trialCount + 1)
-       + ' track=' + fmCurTrackId
+       + ' track=' + frq_currentTrackId
        + ' varHz=' + Math.round(_dbgVarHz)
        + ' offset=' + Math.round(track.currentOffset) + 'ct'
-       + (fmCurCatchInfo ? ' [CATCH dir=' + fmCurCatchInfo.direction + ']' : ''));
-  fmPlayAdaptiveTrial(track, fmCurFirstSide, fmCurCatchInfo).then(function() {
-    if (!fmAdaptiveActive) return;
-    fmAwaitingResponse = true;
+       + (frq_currentCatchInfo ? ' [CATCH dir=' + frq_currentCatchInfo.direction + ']' : ''));
+  fmPlayAdaptiveTrial(track, frq_currentFirstSide, frq_currentCatchInfo).then(function() {
+    if (!frq_adaptiveActive) return;
+    frq_awaitingResponse = true;
     fmEnableHeightButtons();
     const _au = _fmAdaptUndo();
     if (_au) _au.disabled = !_fmUndoSnapshot;
-    fmTrialStartTs = Date.now();
+    frq_trialStartTs = Date.now();
   });
 }
 
 async function fmPlayAdaptiveTrial(track, firstSide, catchInfo) {
-  if (_fmSimActive) { fmIsPlay = false; isPlay = false; return; }
-  if (fmIsPlay) {
-    fmIsPlay = false;
-    if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
+  if (_fmSimActive) { frq_isPlaying = false; isPlay = false; return; }
+  if (frq_isPlaying) {
+    frq_isPlaying = false;
+    if (frq_playTimeout) { clearTimeout(frq_playTimeout); frq_playTimeout = null; }
     await new Promise(function(r) { setTimeout(r, 60); });
   }
 
   let refHz, varHz;
-  if (fmSymmetric) {
+  if (frq_symmetric) {
     const varBase = withSide('left',  function() { return effFreq(track.electrodeIdx); });
     const refBase = withSide('right', function() { return effFreq(track.electrodeIdx); });
     const halfOff = track.currentOffset / 2;
@@ -324,7 +324,7 @@ async function fmPlayAdaptiveTrial(track, firstSide, catchInfo) {
       refHz = refBase * Math.pow(2, +halfOff / 1200);
     }
   } else {
-    const elFreq = withSide(fmVarSide, function() { return effFreq(track.electrodeIdx); });
+    const elFreq = withSide(frq_varSide, function() { return effFreq(track.electrodeIdx); });
     if (catchInfo) {
       // Catch-Trial: die CI-Seite (var) bleibt auf der Soll-Frequenz
       // effFreq(i) — eine Verschiebung würde Nachbarelektroden anregen.
@@ -359,68 +359,68 @@ async function fmPlayAdaptiveTrial(track, firstSide, catchInfo) {
   }
 
   const _adaptPI = _fmAdaptPI();
-  fmIsPlay = true;
+  frq_isPlaying = true;
   isPlay   = true;
 
   if (firstSide === 'ref') {
     testUI.pairIndicator.setPlaying(_adaptPI, 'left');
-    await playOne(fmRefSide, refHz);
+    await playOne(FRQ_refSide, refHz);
     testUI.pairIndicator.setPlaying(_adaptPI, null);
-    if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
-    await new Promise(function(r) { fmPlayTO = setTimeout(r, pau); });
-    if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
+    if (!frq_adaptiveActive) { frq_isPlaying = false; isPlay = false; return; }
+    await new Promise(function(r) { frq_playTimeout = setTimeout(r, pau); });
+    if (!frq_adaptiveActive) { frq_isPlaying = false; isPlay = false; return; }
     testUI.pairIndicator.setPlaying(_adaptPI, 'right');
-    await playOne(fmVarSide, varHz);
+    await playOne(frq_varSide, varHz);
     testUI.pairIndicator.setPlaying(_adaptPI, null);
   } else {
     testUI.pairIndicator.setPlaying(_adaptPI, 'left');
-    await playOne(fmVarSide, varHz);
+    await playOne(frq_varSide, varHz);
     testUI.pairIndicator.setPlaying(_adaptPI, null);
-    if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
-    await new Promise(function(r) { fmPlayTO = setTimeout(r, pau); });
-    if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
+    if (!frq_adaptiveActive) { frq_isPlaying = false; isPlay = false; return; }
+    await new Promise(function(r) { frq_playTimeout = setTimeout(r, pau); });
+    if (!frq_adaptiveActive) { frq_isPlaying = false; isPlay = false; return; }
     testUI.pairIndicator.setPlaying(_adaptPI, 'right');
-    await playOne(fmRefSide, refHz);
+    await playOne(FRQ_refSide, refHz);
     testUI.pairIndicator.setPlaying(_adaptPI, null);
   }
 
   // ABA: dritten Ton (Wiederholung des ersten) abspielen
   if (fmGAba()) {
-    if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
-    await new Promise(function(r) { fmPlayTO = setTimeout(r, pau); });
-    if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
+    if (!frq_adaptiveActive) { frq_isPlaying = false; isPlay = false; return; }
+    await new Promise(function(r) { frq_playTimeout = setTimeout(r, pau); });
+    if (!frq_adaptiveActive) { frq_isPlaying = false; isPlay = false; return; }
     testUI.pairIndicator.setPlaying(_adaptPI, 'left');
     if (firstSide === 'ref') {
-      await playOne(fmRefSide, refHz);
+      await playOne(FRQ_refSide, refHz);
     } else {
-      await playOne(fmVarSide, varHz);
+      await playOne(frq_varSide, varHz);
     }
     testUI.pairIndicator.setPlaying(_adaptPI, null);
   }
 
-  fmIsPlay = false;
+  frq_isPlaying = false;
   isPlay   = false;
 }
 
 // userChoice: 'up' | 'down' — was der User über höher/tiefer-Buttons
 //             oder ↑/↓-Tasten gewählt hat (bezogen auf den zweiten Ton)
 function fmHandleHeight(userChoice) {
-  if (!fmAdaptiveActive || !fmAwaitingResponse) return;
+  if (!frq_adaptiveActive || !frq_awaitingResponse) return;
   // BA353: erste/jede adaptive Entscheidung -> Adaptiv wird aktiv.
   if (typeof fmSetActiveMethod === "function") fmSetActiveMethod("adaptive");
-  fmAwaitingResponse = false;
+  frq_awaitingResponse = false;
   fmDisableHeightButtons();
 
-  const response = _fmConvertHeight(userChoice, fmCurFirstSide);
-  const track    = fmTracks[fmCurTrackId];
+  const response = _fmConvertHeight(userChoice, frq_currentFirstSide);
+  const track    = frq_tracks[frq_currentTrackId];
 
-  const isCatch      = !!fmCurCatchInfo;
-  const catchCorrect = isCatch && (response === fmCurCatchInfo.expectedResponse);
+  const isCatch      = !!frq_currentCatchInfo;
+  const catchCorrect = isCatch && (response === frq_currentCatchInfo.expectedResponse);
   const _prevStatus  = track.status;
 
   // Snapshot vor Staircase-Mutation — ermöglicht Undo bei Fehleingabe
   _fmUndoSnapshot = {
-    trackId:    fmCurTrackId,
+    trackId:    frq_currentTrackId,
     trackState: {
       currentOffset:   track.currentOffset,
       stepSize:        track.stepSize,
@@ -435,11 +435,11 @@ function fmHandleHeight(userChoice) {
     },
     reversals:    track.reversals.slice(),
     trialHistory: track.trialHistory.slice(),
-    firstSide:    fmCurFirstSide,
-    catchInfo:    fmCurCatchInfo
+    firstSide:    frq_currentFirstSide,
+    catchInfo:    frq_currentCatchInfo
   };
 
-  fmApplyResponse(track, response, isCatch, catchCorrect, fmCurFirstSide);
+  fmApplyResponse(track, response, isCatch, catchCorrect, frq_currentFirstSide);
 
   // Hook C: Response-Log
   _fmDbg('response: ' + response
@@ -447,14 +447,14 @@ function fmHandleHeight(userChoice) {
        + ' step=' + track.stepSize + ' reversals=' + (track.reversals || []).length);
   // Hook D: Status-Wechsel-Log
   if (track.status !== _prevStatus) {
-    _fmDbg('status: track=' + fmCurTrackId + ' ' + _prevStatus + '→' + track.status
+    _fmDbg('status: track=' + frq_currentTrackId + ' ' + _prevStatus + '→' + track.status
          + (track.status === 'not-perceivable'
               ? ' (catchErrors=' + (track.catchErrors || 0) + '/' + (track.catchTotal || 0) + ')'
               : ''));
   }
 
   // Catch-Info aufräumen (vor nächstem Trial)
-  fmCurCatchInfo = null;
+  frq_currentCatchInfo = null;
 
   if (track.status === 'converged' || track.status === 'converged-fair'
       || track.status === 'converged-wide' || track.status === 'unstable') {
@@ -470,7 +470,7 @@ function fmHandleHeight(userChoice) {
 
   _fmNextTrialTO = setTimeout(function() {
     _fmNextTrialTO = null;
-    if (fmAdaptiveActive) fmNextAdaptiveTrial();
+    if (frq_adaptiveActive) fmNextAdaptiveTrial();
   }, _fmSimActive ? 30 : 200);
 }
 
@@ -616,26 +616,26 @@ function _fmAggregateRunsForElectrode(side, electrodeIdx) {
 
 function _fmRemoveResult(elIdx) {
   // Andere Läufe könnten noch ein Ergebnis liefern → Aggregat prüfen.
-  const agg = _fmAggregateRunsForElectrode(fmVarSide, elIdx);
+  const agg = _fmAggregateRunsForElectrode(frq_varSide, elIdx);
   if (agg.cent != null) {
     let varHz, refHz, _refSideOut, existingIdx;
-    if (fmSymmetric) {
+    if (frq_symmetric) {
       varHz = withSide('left',  function() { return effFreq(elIdx); });
       refHz = withSide('right', function() { return effFreq(elIdx); });
       _refSideOut = 'symmetric';
-      existingIdx = fRes.findIndex(function(r) {
+      existingIdx = FRQ_resultsArray.findIndex(function(r) {
         return r.refSide === 'symmetric' && r.elIdx === elIdx;
       });
     } else {
-      varHz = withSide(fmVarSide, function() { return effFreq(elIdx); });
+      varHz = withSide(frq_varSide, function() { return effFreq(elIdx); });
       refHz = varHz * Math.pow(2, agg.cent / 1200);
-      _refSideOut = fmRefSide;
-      existingIdx = fRes.findIndex(function(r) {
-        return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;
+      _refSideOut = FRQ_refSide;
+      existingIdx = FRQ_resultsArray.findIndex(function(r) {
+        return r.varSide === frq_varSide && r.refSide === FRQ_refSide && r.elIdx === elIdx;
       });
     }
     const entry = {
-      varSide:               fmVarSide,
+      varSide:               frq_varSide,
       refSide:               _refSideOut,
       elIdx:                 elIdx,
       varFreq:               varHz,
@@ -652,57 +652,57 @@ function _fmRemoveResult(elIdx) {
       fmRunsCount:           agg.runsCount,
       fmStatusLast:          agg.fmStatusLast
     };
-    if (fmSymmetric) entry.cent = Math.round(agg.cent);
-    if (existingIdx >= 0) fRes[existingIdx] = entry;
-    else                  fRes.push(entry);
+    if (frq_symmetric) entry.cent = Math.round(agg.cent);
+    if (existingIdx >= 0) FRQ_resultsArray[existingIdx] = entry;
+    else                  FRQ_resultsArray.push(entry);
     if (typeof pApplyWarpModeDefaultFromFm === "function") {
       pApplyWarpModeDefaultFromFm();
     }
     // BA 151
     if (typeof depLockApply === 'function') depLockApply();
-    _fmDbg('fRes keep via agg: side=' + fmVarSide + ' el=' + elIdx
-         + (fmSymmetric ? ' [SYM]' : '')
+    _fmDbg('FRQ_resultsArray keep via agg: side=' + frq_varSide + ' el=' + elIdx
+         + (frq_symmetric ? ' [SYM]' : '')
          + ' (not-perceivable im aktuellen Lauf, andere Läufe haben Daten)');
     return;
   }
-  const idx = fRes.findIndex(function(r) {
-    return fmSymmetric
+  const idx = FRQ_resultsArray.findIndex(function(r) {
+    return frq_symmetric
       ? (r.refSide === 'symmetric' && r.elIdx === elIdx)
-      : (r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx);
+      : (r.varSide === frq_varSide && r.refSide === FRQ_refSide && r.elIdx === elIdx);
   });
-  if (idx >= 0) fRes.splice(idx, 1);
+  if (idx >= 0) FRQ_resultsArray.splice(idx, 1);
   // BA 151
   if (typeof depLockApply === 'function') depLockApply();
-  _fmDbg('fRes remove: side=' + fmVarSide + ' el=' + elIdx
-       + (fmSymmetric ? ' [SYM]' : '')
+  _fmDbg('FRQ_resultsArray remove: side=' + frq_varSide + ' el=' + elIdx
+       + (frq_symmetric ? ' [SYM]' : '')
        + ' (not-perceivable)');
 }
 
 function _fmWriteResult(track) {
   const elIdx = track.electrodeIdx;
-  const agg   = _fmAggregateRunsForElectrode(fmVarSide, elIdx);
+  const agg   = _fmAggregateRunsForElectrode(frq_varSide, elIdx);
 
   let varHz, refHz, _refSideOut, existingIdx;
-  if (fmSymmetric) {
+  if (frq_symmetric) {
     varHz = withSide('left',  function() { return effFreq(elIdx); });
     refHz = withSide('right', function() { return effFreq(elIdx); });
     _refSideOut = 'symmetric';
-    existingIdx = fRes.findIndex(function(r) {
+    existingIdx = FRQ_resultsArray.findIndex(function(r) {
       return r.refSide === 'symmetric' && r.elIdx === elIdx;
     });
   } else {
-    varHz = withSide(fmVarSide, function() { return effFreq(elIdx); });
+    varHz = withSide(frq_varSide, function() { return effFreq(elIdx); });
     refHz = (agg.cent != null)
       ? varHz * Math.pow(2, agg.cent / 1200)
       : null;
-    _refSideOut = fmRefSide;
-    existingIdx = fRes.findIndex(function(r) {
-      return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;
+    _refSideOut = FRQ_refSide;
+    existingIdx = FRQ_resultsArray.findIndex(function(r) {
+      return r.varSide === frq_varSide && r.refSide === FRQ_refSide && r.elIdx === elIdx;
     });
   }
 
   const entry = {
-    varSide:               fmVarSide,
+    varSide:               frq_varSide,
     refSide:               _refSideOut,
     elIdx:                 elIdx,
     varFreq:               varHz,
@@ -719,18 +719,18 @@ function _fmWriteResult(track) {
     fmRunsCount:           agg.runsCount,
     fmStatusLast:          agg.fmStatusLast
   };
-  if (fmSymmetric) {
+  if (frq_symmetric) {
     entry.cent = (agg.cent != null) ? Math.round(agg.cent) : null;
   }
-  if (existingIdx >= 0) fRes[existingIdx] = entry;
-  else                  fRes.push(entry);
+  if (existingIdx >= 0) FRQ_resultsArray[existingIdx] = entry;
+  else                  FRQ_resultsArray.push(entry);
   if (typeof pApplyWarpModeDefaultFromFm === "function") {
     pApplyWarpModeDefaultFromFm();
   }
   // BA 151
   if (typeof depLockApply === 'function') depLockApply();
-  _fmDbg('fRes write: side=' + fmVarSide + ' el=' + elIdx
-       + (fmSymmetric ? ' [SYM]' : '')
+  _fmDbg('FRQ_resultsArray write: side=' + frq_varSide + ' el=' + elIdx
+       + (frq_symmetric ? ' [SYM]' : '')
        + ' cent=' + (agg.cent != null ? agg.cent.toFixed(1) : 'null')
        + ' resid=' + (agg.fmResiduum != null ? agg.fmResiduum.toFixed(1) : 'null')
        + ' runs=' + agg.runsCount);
@@ -738,33 +738,33 @@ function _fmWriteResult(track) {
 
 function fmFinishAdaptive() {
   let _cv = 0, _fa2 = 0, _wide = 0, _un = 0, _np = 0;
-  Object.keys(fmTracks).forEach(function(k) {
-    const st = fmTracks[k].status;
+  Object.keys(frq_tracks).forEach(function(k) {
+    const st = frq_tracks[k].status;
     if (st === 'converged')            _cv++;
     else if (st === 'converged-fair')  _fa2++;
     else if (st === 'converged-wide')  _wide++;
     else if (st === 'unstable')        _un++;
     else if (st === 'not-perceivable') _np++;
   });
-  const _faStore = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive) || {};
+  const _faStore = (sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive) || {};
   const _runNum = Array.isArray(_faStore.runs) ? _faStore.runs.length : '?';
   _fmDbg('finish run#' + _runNum + ': ' + _cv + ' conv, ' + _fa2 + ' fair, '
        + _wide + ' wide, ' + _un + ' unstable, ' + _np + ' not-perceivable');
 
-  fmAdaptiveActive   = false;
-  fmAwaitingResponse = false;
-  fmIsPlay           = false;
-  fmRunning          = false;
-  fmCurTrackId       = null;
+  frq_adaptiveActive   = false;
+  frq_awaitingResponse = false;
+  frq_isPlaying           = false;
+  FRQ_running          = false;
+  frq_currentTrackId       = null;
   _fmStopTimer();
   testUI.pairIndicator.setPlaying(_fmAdaptPI(), null);
 
   _fmPersist();       // finale Tracks in runs[currentRunIdx] sichern
   _fmMarkCompleted(); // completedAt setzen
-  fmTracks     = {};
-  fmRoundQueue = [];
+  frq_tracks     = {};
+  frq_roundQueue = [];
 
-  if (fmEls) fmEls._stopTest();
+  if (FRQ_els) FRQ_els._stopTest();
   fmRefreshResumeHint();
   if (typeof renderFreqMatchResults === 'function') renderFreqMatchResults();
   // BA 149
@@ -782,7 +782,7 @@ function fmFinishAdaptive() {
 }
 
 function fmRenderStatusGrid() {
-  const _sgEl = fmEls && fmEls.verfahren && fmEls.verfahren.adaptive && fmEls.verfahren.adaptive.statusGrid;
+  const _sgEl = FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.adaptive && FRQ_els.verfahren.adaptive.statusGrid;
   if (!_sgEl) return;
   const grid = _sgEl;
   grid.innerHTML = '';
@@ -797,16 +797,16 @@ function fmRenderStatusGrid() {
   grid.appendChild(head);
 
   const ids = Array.from(new Set(
-    Object.keys(fmTracks).map(function(k) { return fmParseTrackKey(k).electrodeIdx; })
+    Object.keys(frq_tracks).map(function(k) { return fmParseTrackKey(k).electrodeIdx; })
   ));
   ids.sort(function(a, b) {
-    const fa = withSide(fmVarSide, function() { return effFreq(a); });
-    const fb = withSide(fmVarSide, function() { return effFreq(b); });
+    const fa = withSide(frq_varSide, function() { return effFreq(a); });
+    const fb = withSide(frq_varSide, function() { return effFreq(b); });
     return fa - fb;
   });
 
   ids.forEach(function(idx) {
-    const tr = fmTracks[fmTrackKey(idx)];
+    const tr = frq_tracks[fmTrackKey(idx)];
     const trStatus = (tr && tr.status) || 'active';
 
     // CSS-Klasse: bestehende Klassen weiterverwenden
@@ -815,11 +815,11 @@ function fmRenderStatusGrid() {
       : (trStatus === 'converged-wide' || trStatus === 'unstable') ? 'converged-noisy'
       : 'not-perceivable';
     const row = _mkEl('div', 'fm-status-row fm-status-' + cssClass);
-    if (fmCurTrackId != null && fmParseTrackKey(fmCurTrackId).electrodeIdx === idx) {
+    if (frq_currentTrackId != null && fmParseTrackKey(frq_currentTrackId).electrodeIdx === idx) {
       row.classList.add('fm-status-current');
     }
 
-    const elName = withSide(fmVarSide, function() { return dENPrefix() + dEN(idx); });
+    const elName = withSide(frq_varSide, function() { return dENPrefix() + dEN(idx); });
     row.appendChild(_mkCell(elName));
 
     const iconMap = {
@@ -893,14 +893,14 @@ function _mkCell(text) {
 }
 
 function fmUpdateAdaptiveProgress() {
-  if (!fmEls) return;
-  const _aprog = fmEls.verfahren && fmEls.verfahren.adaptive && fmEls.verfahren.adaptive.progress;
+  if (!FRQ_els) return;
+  const _aprog = FRQ_els.verfahren && FRQ_els.verfahren.adaptive && FRQ_els.verfahren.adaptive.progress;
   if (!_aprog) return;
-  const ids = Object.keys(fmTracks);
+  const ids = Object.keys(frq_tracks);
 
   if (ids.length > 0) {
-    const stats    = fmComputeProgressStats(fmTracks);
-    const curTrial = (stats.totalTrials || 0) + (fmAwaitingResponse ? 1 : 0);
+    const stats    = fmComputeProgressStats(frq_tracks);
+    const curTrial = (stats.totalTrials || 0) + (frq_awaitingResponse ? 1 : 0);
     const estTotal = ids.length * FM_TRIALS_PER_ELECTRODE_ESTIMATE;
     const txt = 'Trial ' + curTrial + ' von ca. ' + estTotal;
     testUI.progress.set(_aprog, {
@@ -960,22 +960,22 @@ function fmUndoAdaptive() {
   const snap      = _fmUndoSnapshot;
   _fmUndoSnapshot = null;
 
-  const track = fmTracks[snap.trackId];
+  const track = frq_tracks[snap.trackId];
   Object.assign(track, snap.trackState);
   track.reversals    = snap.reversals.slice();
   track.trialHistory = snap.trialHistory.slice();
 
-  fmCurTrackId   = snap.trackId;
-  fmCurFirstSide = snap.firstSide;
-  fmCurCatchInfo = snap.catchInfo;
+  frq_currentTrackId   = snap.trackId;
+  frq_currentFirstSide = snap.firstSide;
+  frq_currentCatchInfo = snap.catchInfo;
 
   const _au3 = _fmAdaptUndo();
   if (_au3) _au3.disabled = true;
   fmDisableHeightButtons();
-  fmAwaitingResponse = false;
-  fmPlayAdaptiveTrial(track, fmCurFirstSide, fmCurCatchInfo).then(function() {
-    if (!fmAdaptiveActive) return;
-    fmAwaitingResponse = true;
+  frq_awaitingResponse = false;
+  fmPlayAdaptiveTrial(track, frq_currentFirstSide, frq_currentCatchInfo).then(function() {
+    if (!frq_adaptiveActive) return;
+    frq_awaitingResponse = true;
     fmEnableHeightButtons();
   });
 }
@@ -984,17 +984,17 @@ function fmUndoAdaptive() {
 
 function fmRunDebugSim() {
   if (_fmSimActive) return;
-  if (fmVerfahren !== 'adaptive') return;
+  if (frq_verfahren !== 'adaptive') return;
   _fmSimActive  = true;
   _fmSimOffsets = {};
   _fmSimStep();
 }
 
 function _fmSimStep() {
-  if (!_fmSimActive || !fmAdaptiveActive) { _fmSimActive = false; return; }
-  if (!fmAwaitingResponse) { setTimeout(_fmSimStep, 80); return; }
+  if (!_fmSimActive || !frq_adaptiveActive) { _fmSimActive = false; return; }
+  if (!frq_awaitingResponse) { setTimeout(_fmSimStep, 80); return; }
 
-  const track = fmTracks[fmCurTrackId];
+  const track = frq_tracks[frq_currentTrackId];
   if (!track) { _fmSimActive = false; return; }
 
   if (_fmSimOffsets[track.electrodeIdx] === undefined) {
@@ -1003,9 +1003,9 @@ function _fmSimStep() {
   }
 
   let choiceUD;
-  if (fmCurCatchInfo) {
-    const exp = fmCurCatchInfo.expectedResponse;
-    choiceUD = (fmCurFirstSide === 'ref')
+  if (frq_currentCatchInfo) {
+    const exp = frq_currentCatchInfo.expectedResponse;
+    choiceUD = (frq_currentFirstSide === 'ref')
       ? (exp === 'var-higher' ? 'up' : 'down')
       : (exp === 'var-higher' ? 'down' : 'up');
   } else {
@@ -1018,13 +1018,13 @@ function _fmSimStep() {
     else errProb = absGap < 30 ? 0.40 : absGap < 60 ? 0.20 : 0.02;
     let varResp = gap > 0 ? 'var-lower' : 'var-higher';
     if (Math.random() < errProb) varResp = varResp === 'var-higher' ? 'var-lower' : 'var-higher';
-    choiceUD = (fmCurFirstSide === 'ref')
+    choiceUD = (frq_currentFirstSide === 'ref')
       ? (varResp === 'var-higher' ? 'up' : 'down')
       : (varResp === 'var-higher' ? 'down' : 'up');
   }
 
   setTimeout(function() {
-    if (!_fmSimActive || !fmAdaptiveActive) { _fmSimActive = false; return; }
+    if (!_fmSimActive || !frq_adaptiveActive) { _fmSimActive = false; return; }
     fmHandleHeight(choiceUD);
     setTimeout(_fmSimStep, 50);
   }, 60 + Math.random() * 60);

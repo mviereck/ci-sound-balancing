@@ -39,7 +39,7 @@ function effFreqDisplay(i, side) {
   if (typeof pWarpOn === "undefined" || !pWarpOn) return baseHz;
   const src = (typeof _warpFResSource === "function")
     ? _warpFResSource()
-    : (typeof fRes !== "undefined" && Array.isArray(fRes) ? fRes : []);
+    : (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray) ? FRQ_resultsArray : []);
   if (!src.length) return baseHz;
   if (typeof buildWarpPoints !== "function" ||
       typeof centShift !== "function") return baseHz;
@@ -229,18 +229,18 @@ function setActiveSide(side) {
 // werden alte Frequenzabgleichs-Daten beim Laden verworfen; alle übrigen
 // Mess-Datentypen (Slider, Vergleich, …) bleiben erhalten.
 //
-// Korrespondierend dazu räumt _fmCleanupLegacyFRes() Einträge aus fRes weg,
+// Korrespondierend dazu räumt _fmCleanupLegacyFRes() Einträge aus FRQ_resultsArray weg,
 // die noch die alten Detail-Felder tragen (sie stammen sicher aus dem alten
 // 2-Track-Schema und sind mit der neuen Auswertung nicht vereinbar). Wird in
-// file.js und init.js nach dem fRes-Load aufgerufen.
+// file.js und init.js nach dem FRQ_resultsArray-Load aufgerufen.
 function _fmCleanupLegacyFRes() {
-  if (typeof fRes === 'undefined' || !Array.isArray(fRes)) return;
-  for (let i = fRes.length - 1; i >= 0; i--) {
-    const r = fRes[i];
+  if (typeof FRQ_resultsArray === 'undefined' || !Array.isArray(FRQ_resultsArray)) return;
+  for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
+    const r = FRQ_resultsArray[i];
     if (!r) continue;
     if (r.fmConvUp != null || r.fmConvDown != null || r.fmTrackDiff != null
         || r.fmStatusUpLast != null || r.fmStatusDownLast != null) {
-      fRes.splice(i, 1);
+      FRQ_resultsArray.splice(i, 1);
     }
   }
 }
@@ -275,14 +275,14 @@ function _fmMigrateAdaptive(fa) {
   return fa;
 }
 
-// Migriert Alt-Slider-Einträge aus fRes nach
+// Migriert Alt-Slider-Einträge aus FRQ_resultsArray nach
 // sideData[varSide].freqmatchAdaptive.sliderEstimates.
 //
 // Hintergrund: bis BA 102 schrieb der klassische Slider-Modus seine
-// Werte direkt in fRes — ohne fmStatus-Feld, weil der Eintrag als
+// Werte direkt in FRQ_resultsArray — ohne fmStatus-Feld, weil der Eintrag als
 // finaler Wert galt. Ab BA 102 lebt der Slider-Modus als Vor-Schätzung
-// in freqmatchAdaptive.sliderEstimates; fRes enthält nur noch adaptive
-// Mess-Ergebnisse (mit fmStatus). Alte fRes-Einträge ohne fmStatus sind
+// in freqmatchAdaptive.sliderEstimates; FRQ_resultsArray enthält nur noch adaptive
+// Mess-Ergebnisse (mit fmStatus). Alte FRQ_resultsArray-Einträge ohne fmStatus sind
 // Klassisch-Slider-Werte und werden hier in die neue Datenstruktur
 // überführt, damit sie als Startwerte für einen anschließenden adaptiven
 // Test wieder zur Verfügung stehen.
@@ -294,30 +294,30 @@ function _fmMigrateAdaptive(fa) {
 // Wird in file.js (JSON-Load) und init.js (Autosave-Load) NACH
 // _fmCleanupLegacyFRes() aufgerufen.
 function _fmMigrateAltSliderFRes() {
-  if (typeof fRes === 'undefined' || !Array.isArray(fRes)) return;
+  if (typeof FRQ_resultsArray === 'undefined' || !Array.isArray(FRQ_resultsArray)) return;
   if (typeof sideData === 'undefined') return;
 
-  for (let i = fRes.length - 1; i >= 0; i--) {
-    const r = fRes[i];
+  for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
+    const r = FRQ_resultsArray[i];
     if (!r) continue;
     if (r.fmStatus != null) continue;   // adaptive Einträge bleiben unangetastet
 
     const side = r.varSide;
     if (side !== 'left' && side !== 'right') {
-      fRes.splice(i, 1);   // korrupte Seite: still verwerfen
+      FRQ_resultsArray.splice(i, 1);   // korrupte Seite: still verwerfen
       continue;
     }
     const sd = sideData[side];
-    if (!sd) { fRes.splice(i, 1); continue; }
+    if (!sd) { FRQ_resultsArray.splice(i, 1); continue; }
 
     const elIdx = r.elIdx;
-    if (typeof elIdx !== 'number') { fRes.splice(i, 1); continue; }
+    if (typeof elIdx !== 'number') { FRQ_resultsArray.splice(i, 1); continue; }
     const nElSide = sd.nEl || 22;
-    if (elIdx < 0 || elIdx >= nElSide) { fRes.splice(i, 1); continue; }
+    if (elIdx < 0 || elIdx >= nElSide) { FRQ_resultsArray.splice(i, 1); continue; }
 
     if (typeof r.varFreq !== 'number' || typeof r.refFreq !== 'number'
         || r.varFreq <= 0 || r.refFreq <= 0) {
-      fRes.splice(i, 1); continue;
+      FRQ_resultsArray.splice(i, 1); continue;
     }
 
     // freqmatchAdaptive-Container ggf. anlegen
@@ -333,7 +333,7 @@ function _fmMigrateAltSliderFRes() {
 
     // Vorrang: existierender neuer sliderEstimate gewinnt.
     if (store[String(elIdx)] != null) {
-      fRes.splice(i, 1);
+      FRQ_resultsArray.splice(i, 1);
       continue;
     }
 
@@ -345,10 +345,10 @@ function _fmMigrateAltSliderFRes() {
       refSide:   r.refSide || (side === 'left' ? 'right' : 'left'),
       varFreq:   r.varFreq,
       timestamp: _ts206,
-      // BA 206: Alt-Slider-fRes-Eintrag wird als R1-Wert übernommen.
+      // BA 206: Alt-Slider-FRQ_resultsArray-Eintrag wird als R1-Wert übernommen.
       rounds:    [{ cent: cent, ts: _ts206, round: 1 }]
     };
-    fRes.splice(i, 1);
+    FRQ_resultsArray.splice(i, 1);
   }
 }
 
@@ -813,7 +813,7 @@ let pause_implant    = TEST_DEFAULTS.implant.pause;
 
 // Frequenzabgleich-Ergebnisse (global, nicht pro Seite)
 // { varSide, refSide, elIdx, varFreq, refFreq, timestamp }
-let fRes = [];
+let FRQ_resultsArray = [];
 
 let plEqOn = true; // EQ toggle state
 let plApplyBalance = true; // Stereo-Balance anwenden

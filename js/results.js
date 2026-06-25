@@ -222,8 +222,8 @@ function _fmrCollectNotPerceivable() {
   return result;
 }
 
-// Liefert Pseudo-fRes-Einträge für aktive Tracks (Bauanleitung 84).
-// Wird nicht in das globale fRes geschrieben — nur temporär für Anzeige.
+// Liefert Pseudo-FRQ_resultsArray-Einträge für aktive Tracks (Bauanleitung 84).
+// Wird nicht in das globale FRQ_resultsArray geschrieben — nur temporär für Anzeige.
 //
 // Status-Konvention:
 //   'in-progress'        : ≥4 Umkehrungen, Match aus Mittelwert,
@@ -296,13 +296,13 @@ function _fmrBuildInProgressEntries(side) {
   return out;
 }
 
-// Pseudo-fRes-Einträge aus sliderEstimates (Bauanleitung 103).
+// Pseudo-FRQ_resultsArray-Einträge aus sliderEstimates (Bauanleitung 103).
 //
 // Slider-Vor-Schätzungen leben in
 // sideData[side].freqmatchAdaptive.sliderEstimates[elIdx] und werden
-// nicht ins globale fRes geschrieben (siehe BA 102). Diese Funktion
+// nicht ins globale FRQ_resultsArray geschrieben (siehe BA 102). Diese Funktion
 // macht sie für Anzeige und Warp verfügbar — als dritte Datenquelle
-// unter fRes (final) und unter den 'in-progress'-Pseudo-Einträgen
+// unter FRQ_resultsArray (final) und unter den 'in-progress'-Pseudo-Einträgen
 // aus aktiven Tracks.
 function _fmrBuildSliderEntries(side) {
   const out = [];
@@ -361,8 +361,8 @@ function fmActiveResults() {
     : function (r) { return (r && r.method === "slider") ? "slider" : "adaptive"; };
 
   // Finale Eintraege des aktiven Verfahrens.
-  let finals = (typeof fRes !== "undefined" && Array.isArray(fRes))
-    ? fRes.filter(function (r) { return r && me(r) === method; })
+  let finals = (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray))
+    ? FRQ_resultsArray.filter(function (r) { return r && me(r) === method; })
     : [];
 
   // Provisorische Eintraege (beide Arten sammeln, dann nach method filtern).
@@ -394,14 +394,14 @@ function renderFreqMatchResults() {
   const card = document.getElementById("fmrCard");
   if (!noData || !card) return;
 
-  // CI-Seite bestimmen: fRes hat Vorrang, dann runs[]-varSide, dann Config-Fallback
+  // CI-Seite bestimmen: FRQ_resultsArray hat Vorrang, dann runs[]-varSide, dann Config-Fallback
   function _fmrVarSide(fa) {
     if (!fa || !Array.isArray(fa.runs) || fa.runs.length === 0) return null;
     const r = fa.runs[fa.currentRunIdx != null ? fa.currentRunIdx : fa.runs.length - 1];
     return r ? r.varSide : null;
   }
-  const ciSide = (fRes.length > 0)
-    ? fRes[fRes.length - 1].varSide
+  const ciSide = (FRQ_resultsArray.length > 0)
+    ? FRQ_resultsArray[FRQ_resultsArray.length - 1].varSide
     : (_fmrVarSide(sideData.left.freqmatchAdaptive)
         || _fmrVarSide(sideData.right.freqmatchAdaptive)
         || (sideData.left.config === 'ci' ? 'left' : 'right'));
@@ -410,7 +410,7 @@ function renderFreqMatchResults() {
   const provisional = _fmrBuildInProgressEntries(ciSide);
   const sliderEsts  = _fmrBuildSliderEntries(ciSide);
 
-  if ((typeof fRes === "undefined" || fRes.length === 0)
+  if ((typeof FRQ_resultsArray === "undefined" || FRQ_resultsArray.length === 0)
       && provisional.length === 0
       && sliderEsts.length === 0) {
     noData.style.display = "";
@@ -708,7 +708,7 @@ function renderFreqMatchResults() {
   // Qualitätstext
   const qEl = document.getElementById('fmrQualityText');
   if (qEl) {
-    const finalEntries = fRes.filter(function(r) { return r.varSide === ciSide; });
+    const finalEntries = FRQ_resultsArray.filter(function(r) { return r.varSide === ciSide; });
     const provEntries  = provisional;
     const nElTotal = sideData[ciSide].nEl;
     const nExcluded = sideData[ciSide].elExDur.filter(function(v) { return v !== null; }).length
@@ -784,7 +784,7 @@ function renderFreqMatchResults() {
   // Hinweis: Residuum erst ab 2 Läufen zuverlässig
   const runHintEl = document.getElementById('fmrRunHint');
   if (runHintEl) {
-    const finalEntries = fRes.filter(function(r) { return r.varSide === ciSide; });
+    const finalEntries = FRQ_resultsArray.filter(function(r) { return r.varSide === ciSide; });
     const hasData = finalEntries.length > 0 || provisional.length > 0;
     const allComplete2 = provisional.length === 0
       && finalEntries.length > 0
@@ -842,7 +842,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if (allBtn) {
     allBtn.addEventListener("click", function() {
       if (!confirm(t("fmrClearAllConfirm") || "Alle löschen?")) return;
-      fRes.splice(0, fRes.length);
+      FRQ_resultsArray.splice(0, FRQ_resultsArray.length);
       if (typeof sideData !== "undefined") {
         if (sideData.left)  sideData.left.freqmatchAdaptive  = null;
         if (sideData.right) sideData.right.freqmatchAdaptive = null;
@@ -855,8 +855,8 @@ document.addEventListener("DOMContentLoaded", function() {
   if (sliderBtn) {
     sliderBtn.addEventListener("click", function() {
       if (!confirm(t("fmrClearSliderConfirm") || "Slider-Schätzungen löschen?")) return;
-      for (let i = fRes.length - 1; i >= 0; i--) {
-        if (fRes[i] && fmEntryMethod(fRes[i]) === "slider") fRes.splice(i, 1);
+      for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
+        if (FRQ_resultsArray[i] && fmEntryMethod(FRQ_resultsArray[i]) === "slider") FRQ_resultsArray.splice(i, 1);
       }
       if (typeof sideData !== "undefined") {
         ['left', 'right'].forEach(function(side) {
@@ -874,8 +874,8 @@ document.addEventListener("DOMContentLoaded", function() {
   if (adaptiveBtn) {
     adaptiveBtn.addEventListener("click", function() {
       if (!confirm(t("fmrClearAdaptiveConfirm") || "Adaptiv-Ergebnisse löschen?")) return;
-      for (let i = fRes.length - 1; i >= 0; i--) {
-        if (fRes[i] && fmEntryMethod(fRes[i]) === "adaptive") fRes.splice(i, 1);
+      for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
+        if (FRQ_resultsArray[i] && fmEntryMethod(FRQ_resultsArray[i]) === "adaptive") FRQ_resultsArray.splice(i, 1);
       }
       if (typeof sideData !== "undefined") {
         ['left', 'right'].forEach(function(side) {
@@ -890,13 +890,13 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // BA364: Klavier-Loeschbutton — entfernt nur piano-Eintraege aus fRes.
+  // BA364: Klavier-Loeschbutton — entfernt nur piano-Eintraege aus FRQ_resultsArray.
   const pianoBtn = document.getElementById("fmrClearPianoBtn");
   if (pianoBtn) {
     pianoBtn.addEventListener("click", function() {
       if (!confirm(t("fmrClearPianoConfirm") || "Klavier-Ergebnisse loeschen?")) return;
-      for (let i = fRes.length - 1; i >= 0; i--) {
-        if (fRes[i] && fmEntryMethod(fRes[i]) === "piano") fRes.splice(i, 1);
+      for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
+        if (FRQ_resultsArray[i] && fmEntryMethod(FRQ_resultsArray[i]) === "piano") FRQ_resultsArray.splice(i, 1);
       }
       if (typeof sideData !== "undefined") {
         ['left', 'right'].forEach(function(side) {

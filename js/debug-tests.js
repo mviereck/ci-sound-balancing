@@ -69,7 +69,7 @@
   });
 
   // -------- frequenzabgleich/adaptiv --------
-  // Abweichung von BA-Snippet: fRes-Einträge haben .elIdx (nicht .el) und .varSide (nicht .side).
+  // Abweichung von BA-Snippet: FRQ_resultsArray-Einträge haben .elIdx (nicht .el) und .varSide (nicht .side).
   // catchErrors/catchTotal statt catchFails/catchHits (so heißen die Track-Felder im Code).
   dbg.test(
     'frequenzabgleich/adaptiv',
@@ -97,12 +97,12 @@
         else if (st === 'not-perceivable')  notp++;
         else active++;
       });
-      // Konsistenz: alle Tracks mit Match müssen einen fRes-Eintrag haben.
+      // Konsistenz: alle Tracks mit Match müssen einen FRQ_resultsArray-Eintrag haben.
       let missingInFres = 0;
-      if (typeof fRes !== 'undefined' && Array.isArray(fRes)) {
+      if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray)) {
         const fresMap = Object.create(null);
-        for (let i = 0; i < fRes.length; i++) {
-          const e = fRes[i];
+        for (let i = 0; i < FRQ_resultsArray.length; i++) {
+          const e = FRQ_resultsArray[i];
           if (e && e.varSide === activeSide) fresMap[e.elIdx] = true;
         }
         tkeys.forEach(function (k) {
@@ -119,7 +119,7 @@
               + conv + ' conv, ' + fair + ' fair, ' + wide + ' wide, '
               + unst + ' unstable, ' + notp + ' notp, ' + active + ' aktiv';
       if (missingInFres > 0) {
-        return { ok: false, msg: msg + ' — ' + missingInFres + ' konvergierte Tracks fehlen in fRes!' };
+        return { ok: false, msg: msg + ' — ' + missingInFres + ' konvergierte Tracks fehlen in FRQ_resultsArray!' };
       }
       return { ok: true, msg: msg };
     }

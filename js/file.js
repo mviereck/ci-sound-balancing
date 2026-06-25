@@ -140,7 +140,7 @@ function resetAll() {
   // --- Globale Test-Parameter ---
   // BA 254: Tonfolge pro Test
   if (typeof sequence_freqmatch !== "undefined") sequence_freqmatch = TEST_DEFAULTS.freqmatch.sequence;
-  if (typeof fmActiveMethodVal !== "undefined") fmActiveMethodVal = null;
+  if (typeof FRQ_activeMethodValue !== "undefined") FRQ_activeMethodValue = null;
   if (typeof sequence_elektrodenlautstaerke      !== "undefined") sequence_elektrodenlautstaerke      = TEST_DEFAULTS.elektrodenlautstaerke.sequence;
   if (typeof sequence_stereobalance   !== "undefined") sequence_stereobalance   = TEST_DEFAULTS.stereobalance.sequence;
   // BA 246
@@ -175,7 +175,7 @@ function resetAll() {
   if (typeof plBalanceMode !== "undefined") plBalanceMode = "sym";
   if (typeof updBalApplyBtn === "function") updBalApplyBtn();
   // --- Frequenzabgleich-Ergebnisse ---
-  if (typeof fRes !== "undefined") fRes.splice(0, fRes.length);
+  if (typeof FRQ_resultsArray !== "undefined") FRQ_resultsArray.splice(0, FRQ_resultsArray.length);
   if (typeof freqmatchTestSelection !== "undefined") freqmatchTestSelection = null;
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
   // BA 161: FreqMatch-Tab-UI nach Reset auffrischen
@@ -323,11 +323,11 @@ async function saveJson() {
     plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
     plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
     plBalanceMode: (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym",
-    fRes: (typeof fRes !== "undefined") ? fRes : [],
+    fRes: (typeof FRQ_resultsArray !== "undefined") ? FRQ_resultsArray : [],
     freqmatchTestSelection: (typeof freqmatchTestSelection !== "undefined")
       ? freqmatchTestSelection : null,
     sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
-    fmActiveMethod: (typeof fmActiveMethodVal !== "undefined") ? fmActiveMethodVal : null,
+    fmActiveMethod: (typeof FRQ_activeMethodValue !== "undefined") ? FRQ_activeMethodValue : null,
     sequence_test:      (typeof sequence_elektrodenlautstaerke      !== "undefined") ? sequence_elektrodenlautstaerke      : TEST_DEFAULTS.elektrodenlautstaerke.sequence,
     sequence_balance:   (typeof sequence_stereobalance   !== "undefined") ? sequence_stereobalance   : TEST_DEFAULTS.stereobalance.sequence,
     playerSourceMeas: plSrcMeas,
@@ -540,10 +540,10 @@ function applyLoadedData(d) {
   if (typeof sequence_freqmatch !== "undefined") {
     sequence_freqmatch = _validSeq(d.sequence_freqmatch) || _legacySeq;
   }
-  if (typeof fmActiveMethodVal !== "undefined") {
+  if (typeof FRQ_activeMethodValue !== "undefined") {
     // BA363 Klavier-only: aktives Verfahren beim Laden hart auf piano.
     // Gespeicherter Wert (adaptive/slider) wird verworfen; Messdaten bleiben.
-    fmActiveMethodVal = "piano";
+    FRQ_activeMethodValue = "piano";
   }
   if (typeof sequence_elektrodenlautstaerke !== "undefined") {
     sequence_elektrodenlautstaerke = _validSeq(d.sequence_test) || _legacySeq;
@@ -692,7 +692,7 @@ function applyLoadedData(d) {
   if (typeof updBalApplyBtn === "function") updBalApplyBtn();
   if (typeof latenzApplyToPlayer === "function") latenzApplyToPlayer();
   if (typeof latenzRenderResults === "function") latenzRenderResults();
-  if (typeof fRes !== "undefined") {
+  if (typeof FRQ_resultsArray !== "undefined") {
     if (Array.isArray(d.fRes)) {
       // BA 106: KEIN fmStatus-Filter mehr — alle Einträge übernehmen.
       // _fmCleanupLegacyFRes() entfernt Alt-Adaptive-Schema-Einträge
@@ -700,9 +700,9 @@ function applyLoadedData(d) {
       // Alt-Slider-Einträge (ohne fmStatus) nach
       // freqmatchAdaptive.sliderEstimates, damit sie als Startwerte
       // für den adaptiven Test verfügbar sind.
-      fRes.splice(0, fRes.length, ...d.fRes);
+      FRQ_resultsArray.splice(0, FRQ_resultsArray.length, ...d.fRes);
     } else {
-      fRes.splice(0, fRes.length); // keine fRes im JSON → zurücksetzen
+      FRQ_resultsArray.splice(0, FRQ_resultsArray.length); // keine FRQ_resultsArray im JSON → zurücksetzen
     }
     if (typeof _fmCleanupLegacyFRes === "function") _fmCleanupLegacyFRes();
     if (typeof _fmMigrateAltSliderFRes === "function") _fmMigrateAltSliderFRes();
@@ -740,7 +740,7 @@ function applyLoadedData(d) {
   // den gespeicherten pWarpMode nicht überschreibt.
   try {
     const _hasFm =
-      (Array.isArray(fRes) && fRes.length > 0)
+      (Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
       || (typeof _fmHasSliderEstimates === "function" && _fmHasSliderEstimates())
       || (typeof _fmHasAdaptiveData === "function" && _fmHasAdaptiveData());
     if (_hasFm && typeof pMarkPlayerWarpDefaultAsApplied === "function") {

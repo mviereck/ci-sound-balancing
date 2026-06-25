@@ -656,7 +656,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // vorhanden sind, Default-Anwendungs-Flag setzen.
       try {
         const _hasFm =
-          (Array.isArray(fRes) && fRes.length > 0)
+          (Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
           || (typeof _fmHasSliderEstimates === "function" && _fmHasSliderEstimates())
           || (typeof _fmHasAdaptiveData === "function" && _fmHasAdaptiveData());
         if (_hasFm && typeof pMarkPlayerWarpDefaultAsApplied === "function") {
@@ -686,9 +686,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // BA323: Player-Box-Felder werden beim Auto-Restore nicht mehr angewendet.
       if (typeof latenzApplyToPlayer === "function") latenzApplyToPlayer();
       if (typeof latenzRenderResults === "function") latenzRenderResults();
-      if (Array.isArray(d.fRes) && typeof fRes !== "undefined") {
+      if (Array.isArray(d.fRes) && typeof FRQ_resultsArray !== "undefined") {
         // BA 106: KEIN Filter, dieselbe Migrations-Sequenz wie in file.js.
-        fRes.splice(0, fRes.length, ...d.fRes);
+        FRQ_resultsArray.splice(0, FRQ_resultsArray.length, ...d.fRes);
         if (typeof _fmCleanupLegacyFRes === "function") _fmCleanupLegacyFRes();
         if (typeof _fmMigrateAltSliderFRes === "function") _fmMigrateAltSliderFRes();
       }
@@ -923,7 +923,7 @@ document.addEventListener("DOMContentLoaded", () => {
           plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
           plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
           plBalanceMode: (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym",
-          fRes: (typeof fRes !== "undefined") ? fRes : [],
+          fRes: (typeof FRQ_resultsArray !== "undefined") ? FRQ_resultsArray : [],
           playerSourceMeas: plSrcMeas,
           playerSourceLevels: plSrcLevels,
           playerSourceCurves: plSrcCurves,

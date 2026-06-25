@@ -77,11 +77,11 @@ function _activeTestInput(type) {
     if (type === 'dur') return stereobalanceEls.header.durInput;
     if (type === 'pau') return stereobalanceEls.header.pauseInput;
   }
-  if (typeof fmRunning !== 'undefined' && fmRunning
-      && typeof fmEls !== 'undefined' && fmEls && fmEls.header) {
-    if (type === 'vol') return fmEls.header.volInput;
-    if (type === 'dur') return fmEls.header.durInput;
-    if (type === 'pau') return fmEls.header.pauseInput;
+  if (typeof FRQ_running !== 'undefined' && FRQ_running
+      && typeof FRQ_els !== 'undefined' && FRQ_els && FRQ_els.header) {
+    if (type === 'vol') return FRQ_els.header.volInput;
+    if (type === 'dur') return FRQ_els.header.durInput;
+    if (type === 'pau') return FRQ_els.header.pauseInput;
   }
   return null;
 }

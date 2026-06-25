@@ -208,7 +208,7 @@ function switchTab(n) {
   // Guard: Verhindere Tab-Wechsel während aktiver Test
   const anyTestRunning = testAct
     || (typeof stereobalanceRunning !== "undefined" && stereobalanceRunning)
-    || (typeof fmRunning !== "undefined" && fmRunning)
+    || (typeof FRQ_running !== "undefined" && FRQ_running)
     || (typeof latenzActive !== "undefined" && latenzActive);
   if (anyTestRunning && n !== "messungen") {
     return; // Tab-Wechsel blockiert
@@ -236,7 +236,7 @@ function _switchTabInternal(n) {
     const activeSubtab = document.querySelector('.subtab[data-parent="ergebnisse"].active');
     const currentName = activeSubtab ? activeSubtab.dataset.subtab : null;
     const hasBal = typeof elektrodenlautstaerkeResults !== "undefined" && elektrodenlautstaerkeResults.length > 0;
-    const hasFR = typeof fRes !== "undefined" && fRes.length > 0;
+    const hasFR = typeof FRQ_resultsArray !== "undefined" && FRQ_resultsArray.length > 0;
     const hasLR = typeof stereobalanceResults !== "undefined" && Object.keys(stereobalanceResults).length > 0;
     if (!currentName || currentName === "elektrodenlautstaerke") {
       // Default-Auswahl: Tab mit Daten bevorzugen
@@ -271,12 +271,12 @@ function _switchTabInternal(n) {
 // Delegiert an lockTestTabs (test-ui.js) für einheitliche Handhabung
 function updateTabLockState() {
   const locked = testAct || (typeof stereobalanceRunning !== "undefined" && stereobalanceRunning)
-                          || (typeof fmRunning !== "undefined" && fmRunning)
+                          || (typeof FRQ_running !== "undefined" && FRQ_running)
                           || (typeof latenzActive !== "undefined" && latenzActive);
   var activeTestId = null;
   if (testAct) activeTestId = 'elektrodenlautstaerke';
   else if (typeof stereobalanceRunning !== "undefined" && stereobalanceRunning) activeTestId = 'stereobalance';
-  else if (typeof fmRunning !== "undefined" && fmRunning) activeTestId = 'freqmatch';
+  else if (typeof FRQ_running !== "undefined" && FRQ_running) activeTestId = 'freqmatch';
   else if (typeof latenzActive !== "undefined" && latenzActive) activeTestId = 'latenz';
   lockTestTabs(locked, activeTestId);
   // BA 249: lockedHint liegt in der neuen API unter els.header.lockedHint,
@@ -291,9 +291,9 @@ function updateTabLockState() {
       && stereobalanceEls.header && stereobalanceEls.header.lockedHint) {
     stereobalanceEls.header.lockedHint.hidden = !(typeof stereobalanceRunning !== "undefined" && stereobalanceRunning);
   }
-  if (typeof fmEls !== "undefined" && fmEls
-      && fmEls.header && fmEls.header.lockedHint) {
-    fmEls.header.lockedHint.hidden = !(typeof fmRunning !== "undefined" && fmRunning);
+  if (typeof FRQ_els !== "undefined" && FRQ_els
+      && FRQ_els.header && FRQ_els.header.lockedHint) {
+    FRQ_els.header.lockedHint.hidden = !(typeof FRQ_running !== "undefined" && FRQ_running);
   }
   if (typeof latenzEls !== "undefined" && latenzEls
       && latenzEls.header && latenzEls.header.lockedHint) {

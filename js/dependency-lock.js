@@ -36,18 +36,18 @@ const DEP_LOCK_RULES = [
       const otherHasLoud = otherSync
         && (sideData[other].elektrodenlautstaerkeResults && sideData[other].elektrodenlautstaerkeResults.length > 0);
       if (otherHasLoud) reasons.push('depReasonLoudnessOtherSide');
-      // Frequenzabgleich adaptiv: konvergierte Ergebnisse in fRes
+      // Frequenzabgleich adaptiv: konvergierte Ergebnisse in FRQ_resultsArray
       // oder Laufdaten in runs[] (auch ohne konvergierten Match).
       try {
-        if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0)
+        if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
           reasons.push('depReasonFreqMatchAdaptive');
-      } catch(ex) { /* fRes noch in TDZ — ignorieren */ }
+      } catch(ex) { /* FRQ_resultsArray noch in TDZ — ignorieren */ }
       try {
         if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
           if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
             reasons.push('depReasonFreqMatchAdaptive');
       } catch(ex) {}
-      // Frequenzabgleich Schieber: Daten liegen in sliderEstimates, nicht in fRes.
+      // Frequenzabgleich Schieber: Daten liegen in sliderEstimates, nicht in FRQ_resultsArray.
       try {
         var hasSlider = false;
         ['left', 'right'].forEach(function(side) {
@@ -74,17 +74,17 @@ const DEP_LOCK_RULES = [
       // BA 251: jRes entfaellt; nur noch elektrodenlautstaerkeResults.
       const ownHasLoud = (s.elektrodenlautstaerkeResults && s.elektrodenlautstaerkeResults.length > 0);
       if (ownHasLoud) reasons.push('depReasonLoudness');
-      // Adaptiv: fRes (konvergierte Ergebnisse) oder Laufdaten in runs[]
+      // Adaptiv: FRQ_resultsArray (konvergierte Ergebnisse) oder Laufdaten in runs[]
       try {
-        if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0)
+        if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
           reasons.push('depReasonFreqMatchAdaptive');
-      } catch(ex) { /* fRes noch in TDZ */ }
+      } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       try {
         if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
           if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
             reasons.push('depReasonFreqMatchAdaptive');
       } catch(ex) {}
-      // Slider: Daten liegen in sliderEstimates, nicht in fRes
+      // Slider: Daten liegen in sliderEstimates, nicht in FRQ_resultsArray
       try {
         var hasSlider = false;
         ['left', 'right'].forEach(function(side) {
@@ -109,9 +109,9 @@ const DEP_LOCK_RULES = [
       const ownHasLoud = (s.elektrodenlautstaerkeResults && s.elektrodenlautstaerkeResults.length > 0);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
-        if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0)
+        if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
           reasons.push('depReasonFreqMatchAdaptive');
-      } catch(ex) { /* fRes noch in TDZ */ }
+      } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       try {
         if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
           if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
@@ -138,9 +138,9 @@ const DEP_LOCK_RULES = [
     getReasonKeys: function() {
       const reasons = [];
       try {
-        if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0)
+        if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
           reasons.push('depReasonFreqMatchAdaptive');
-      } catch(ex) { /* fRes noch in TDZ */ }
+      } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       try {
         var hasSlider = false;
         ['left', 'right'].forEach(function(side) {
@@ -172,9 +172,9 @@ const DEP_LOCK_RULES = [
       const ownHasLoud = (s.elektrodenlautstaerkeResults && s.elektrodenlautstaerkeResults.length > 0);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
-        if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0)
+        if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
           reasons.push('depReasonFreqMatchAdaptive');
-      } catch(ex) { /* fRes noch in TDZ */ }
+      } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       try {
         if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
           if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
