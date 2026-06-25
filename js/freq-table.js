@@ -219,8 +219,8 @@ function buildFreqTable() {
       // Anderes Dropdown-Verhalten bleibt frei. Wert auf alten Stand zurücksetzen,
       // Transient-Popup mit derselben Begründung wie .ec/.ec-active zeigen.
       if (val === "mute"
-          && typeof _fmHasAdaptiveData === 'function'
-          && _fmHasAdaptiveData()) {
+          && typeof _FRQ_hasAdaptiveData === 'function'
+          && _FRQ_hasAdaptiveData()) {
         e.target.value = elSt[idx] || '';
         if (typeof depLockShowTransientPopup === 'function') {
           depLockShowTransientPopup(e.target, 'depFieldMute', ['depReasonFreqMatchAdaptive']);

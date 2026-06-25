@@ -13,7 +13,7 @@
 // --- State ---
 let frq_modalTone = null;   // BA 230: live-Tonart waehrend des Tonauswahl-Modals; null = kein Modal offen
 let frq_keyboardCorrectVolume = null; // BA 239: Korrektorfunktion(vol,hz,pan) aus Modal-Toggles; null = kein Modal offen
-let _fmKbT0 = 0;   // BA 293: Zeitpunkt des Klavier-Anschlags (Haltedauer)
+let _frq_keyboardT0 = 0;   // BA 293: Zeitpunkt des Klavier-Anschlags (Haltedauer)
 let FRQ_running = false;
 let FRQ_els = null;
 let FRQ_refSide = "left";
@@ -39,19 +39,19 @@ let frq_lastPickedTrackId = null;   // Wiederholungs-Sperre für Anker-Randomisi
 let frq_currentFirstSide     = 'ref';
 let frq_trialStartTs     = 0;
 // Gepaartes Bracketing-State für den aktuell startenden/laufenden Lauf
-// (wird in frq_startAdaptive berechnet und in _fmPersist in den Lauf geschrieben).
+// (wird in frq_startAdaptive berechnet und in _frq_persist in den Lauf geschrieben).
 let frq_currentPairedToPrevious = false;
 // Catch-Trial-Info des aktuellen Trials (Bauanleitung 02b/6)
 let frq_currentCatchInfo = null;   // null | { direction: +500|-500, expectedResponse: 'var-higher'|'var-lower' }
 
 // Undo-Support für adaptiven Modus
-let _fmUndoSnapshot = null;  // Track-State-Snapshot vor letzter Antwort
-let _fmNextTrialTO  = null;  // Timeout-Handle für frq_nextAdaptiveTrial (canceln bei Undo)
+let _frq_undoSnapshot = null;  // Track-State-Snapshot vor letzter Antwort
+let _frq_nextTrialTimeout  = null;  // Timeout-Handle für frq_nextAdaptiveTrial (canceln bei Undo)
 
 // Debug-Simulation
-let _fmSimActive  = false;
-let _fmSimOffsets = {};   // electrodeIdx → simulierter Wahrnehmungs-Offset (Cent, pos oder neg)
-let _fmParentEl = null;   // gesetzt im DOMContentLoaded
+let _frq_simActive  = false;
+let _frq_simOffsets = {};   // electrodeIdx → simulierter Wahrnehmungs-Offset (Cent, pos oder neg)
+let _frq_parentEl = null;   // gesetzt im DOMContentLoaded
 
 // BA 207: Selektion der zu testenden Elektroden.
 // null  = Default (= alle aktiven Elektroden testen).
@@ -62,7 +62,7 @@ let _fmParentEl = null;   // gesetzt im DOMContentLoaded
 let freqmatchTestSelection = null;
 
 // Live-Log-Brücke ins Debug-Panel — schreibt nur wenn dbg.flag('adaptiv.live') true ist.
-function _fmDbg(msg) {
+function _frq_debug(msg) {
   if (typeof dbg !== 'undefined' && dbg.flag && dbg.flag('adaptiv.live')) {
     dbg.log(msg, 'info');
   }
@@ -70,12 +70,12 @@ function _fmDbg(msg) {
 
 // Liefert true, wenn der Empfehlungs-Dialog vor dem adaptiven Start
 // gezeigt werden soll: noch kein Lauf, keine sliderEstimates vorhanden.
-function _fmShouldOfferSliderEstimate() {
+function _frq_shouldOfferSliderEstimate() {
   const sd = sideData[frq_varSide];
   if (!sd) return false;
   const fa = sd.freqmatchAdaptive;
   if (fa && Array.isArray(fa.runs) && fa.runs.length > 0) return false;
-  const store = _fmEnsureSliderStore(frq_varSide);
+  const store = _frq_ensureSliderStore(frq_varSide);
   if (!store) return false;
   const seq = frq_buildSequence();
   for (var i = 0; i < seq.length; i++) {
@@ -95,7 +95,7 @@ function frq_parseTrackKey(key) {
 
 // Stellt sicher, daß sideData[side].freqmatchAdaptive existiert und
 // ein gültiges sliderEstimates-Feld hat.
-function _fmEnsureSliderStore(side) {
+function _frq_ensureSliderStore(side) {
   const sd = sideData[side];
   if (!sd) return null;
   if (!sd.freqmatchAdaptive) {
@@ -110,7 +110,7 @@ function _fmEnsureSliderStore(side) {
 
 // BA 206: Aggregat-Wert aus rounds[]-Historie berechnen.
 // Regel: ≥3 Werte → Median, =2 → Mittelwert, =1 → der Wert selbst, 0 → null.
-function _fmAggregateCent(rounds) {
+function _frq_aggregateCent(rounds) {
   if (!Array.isArray(rounds) || rounds.length === 0) return null;
   const vals = rounds.map(function(r) { return r && typeof r.cent === 'number' ? r.cent : null; })
                      .filter(function(v) { return v != null && isFinite(v); });
@@ -124,7 +124,7 @@ function _fmAggregateCent(rounds) {
 }
 
 // BA 206: Min/Max aus rounds[]-Historie. Rückgabe {min, max} oder null.
-function _fmRangeCent(rounds) {
+function _FRQ_rangeCent(rounds) {
   if (!Array.isArray(rounds) || rounds.length === 0) return null;
   const vals = rounds.map(function(r) { return r && typeof r.cent === 'number' ? r.cent : null; })
                      .filter(function(v) { return v != null && isFinite(v); });
@@ -137,7 +137,7 @@ function _fmRangeCent(rounds) {
   return { min: mn, max: mx };
 }
 
-function _fmShuffle(arr) {
+function _frq_shuffle(arr) {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -147,7 +147,7 @@ function _fmShuffle(arr) {
 }
 
 // BA 362: Letzter/aktueller Slider-Wert dieser Elektrode (= Startwert).
-function _fmLastRoundCent(elIdx) {
+function _frq_lastRoundCent(elIdx) {
   const store = (sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive)
     ? sideData[frq_varSide].freqmatchAdaptive.sliderEstimates : null;
   if (!store) return null;
@@ -164,7 +164,7 @@ function frq_freqFromCents(refHz, c) {
   return refHz * Math.pow(2, c / 1200);
 }
 
-function _fmShouldShowCochlearFatHint() {
+function _frq_shouldShowCochlearFatHint() {
   if (typeof FRQ_resultsArray === 'undefined' || !Array.isArray(FRQ_resultsArray)) return false;
   if (typeof sideData === 'undefined') return false;
   if (typeof COCHLEAR_FAT_CORRECTION_DATE !== 'number') return false;
@@ -178,9 +178,9 @@ function _fmShouldShowCochlearFatHint() {
   return false;
 }
 
-function _fmRefreshCochlearFatHintVisibility() {
+function _frq_refreshCochlearFatHintVisibility() {
   if (!FRQ_els) return;
-  const visible = _fmShouldShowCochlearFatHint();
+  const visible = _frq_shouldShowCochlearFatHint();
   testUI.explain.setVisible(FRQ_els, 'fmCochlearFatHintPara', visible);
   // Datum in den Text einsetzen (jedes Mal frisch, falls Sprache wechselt).
   if (visible) {
@@ -208,29 +208,29 @@ function FRQ_getPause() {
 }
 
 // Helfer: Verfahren-Refs
-function _fmAdaptPI() {
+function _frq_adaptivePairIndicator() {
   return FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.adaptive && FRQ_els.verfahren.adaptive.pairIndicator;
 }
-function _fmSliderPI() {
+function _frq_sliderPairIndicator() {
   return FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.slider && FRQ_els.verfahren.slider.pairIndicator;
 }
-function _fmPianoPI() {
+function _frq_pianoPairIndicator() {
   return FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.piano && FRQ_els.verfahren.piano.pairIndicator;
 }
 // Referenzen des Klavier-Bausteins (refs.piano im Verfahren 'piano').
-function _fmPianoRefs() {
+function _frq_pianoRefs() {
   return FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.piano && FRQ_els.verfahren.piano.piano;
 }
 // Ton-Boxen des aktiven Verfahrens (fuer setPlaying-Aufleuchten).
-function _fmActivePI() {
-  if (frq_adaptiveActive) return _fmAdaptPI();
-  if (frq_pianoActive) return _fmPianoPI();
-  return _fmSliderPI();
+function _frq_activePairIndicator() {
+  if (frq_adaptiveActive) return _frq_adaptivePairIndicator();
+  if (frq_pianoActive) return _frq_pianoPairIndicator();
+  return _frq_sliderPairIndicator();
 }
-function _fmAdaptUndo() {
+function _frq_adaptiveUndo() {
   return FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.adaptive && FRQ_els.verfahren.adaptive.actions && FRQ_els.verfahren.adaptive.actions.undo;
 }
-function _fmSliderUndo() {
+function _frq_sliderUndo() {
   return FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.slider && FRQ_els.verfahren.slider.actions && FRQ_els.verfahren.slider.actions.undo;
 }
 function frq_isAbaSequence() {
@@ -256,7 +256,7 @@ function frq_varSideElectrodeLabel(elIdx) {
 // BA 207: Schneidet eine Elektroden-Sequenz auf die User-Auswahl.
 // freqmatchTestSelection === null → keine Einschränkung (alle aktiven).
 // freqmatchTestSelection !== null → Schnittmenge mit gewählten.
-function _fmFilterSeqBySelection(seq) {
+function _frq_filterSequenceBySelection(seq) {
   if (freqmatchTestSelection == null) return seq;
   var selSet = new Set(freqmatchTestSelection);
   return seq.filter(function(i) { return selSet.has(i); });
@@ -274,7 +274,7 @@ function frq_buildSequence() {
     return result;
   });
   elList.sort((a, b) => a.hz - b.hz);
-  return _fmFilterSeqBySelection(elList.map((x) => x.idx));
+  return _frq_filterSequenceBySelection(elList.map((x) => x.idx));
 }
 
 // Symmetrische Sequenz: nur wenn beide Seiten dieselbe Menge aktiver
@@ -305,7 +305,7 @@ function frq_buildSequenceSymmetric() {
     return { idx: idx, hz: (fl + fr) / 2 };
   });
   seq.sort(function(a, b) { return a.hz - b.hz; });
-  return _fmFilterSeqBySelection(seq.map(function(x) { return x.idx; }));
+  return _frq_filterSequenceBySelection(seq.map(function(x) { return x.idx; }));
 }
 
 // BA 207: Wird vom Auswahl-Dialog nach Confirm aufgerufen.
@@ -314,14 +314,14 @@ function frq_buildSequenceSymmetric() {
 //   - Slider: laufenden Slider-Round-State synchronisieren
 //   - Header-Zusammenfassung neu rendern
 //   - Wenn nach Filter keine Elektrode mehr übrig: laufenden Test sauber beenden
-function _fmOnSelectionChanged() {
-  if (frq_adaptiveActive && typeof _fmApplySelectionToTracks === 'function') {
-    _fmApplySelectionToTracks();
+function _frq_onSelectionChanged() {
+  if (frq_adaptiveActive && typeof _frq_applySelectionToTracks === 'function') {
+    _frq_applySelectionToTracks();
     // Statusgrid neu zeichnen, falls existiert.
     if (typeof frq_renderStatusGrid === 'function') frq_renderStatusGrid();
   }
-  if (FRQ_running && !frq_adaptiveActive && typeof _fmApplySelectionToSliderRun === 'function') {
-    _fmApplySelectionToSliderRun();
+  if (FRQ_running && !frq_adaptiveActive && typeof _frq_applySelectionToSliderRun === 'function') {
+    _frq_applySelectionToSliderRun();
     if (typeof frq_updateSliderProgress === 'function') frq_updateSliderProgress();
   }
 
@@ -345,7 +345,7 @@ function _fmOnSelectionChanged() {
 
 // BA 206: Startwert für eine Elektrode = letzter Wert aus rounds[].
 function frq_prevCent(elIdx) {
-  const last = _fmLastRoundCent(elIdx);
+  const last = _frq_lastRoundCent(elIdx);
   if (last != null) return Math.round(last);
 
   const existing = FRQ_resultsArray.find((r) => frq_symmetric
@@ -360,7 +360,7 @@ function frq_prevCent(elIdx) {
 }
 
 // Gemeinsame Initialisierung zu Beginn jedes Verfahren-Starts
-function _fmInitSides() {
+function _frq_initSides() {
   const val = FRQ_els.header.refSelect.value;
   frq_symmetric = (val === 'symmetric');
   if (frq_symmetric) {
@@ -433,7 +433,7 @@ async function frq_playCurrent() {
     isPlay = false;
     await new Promise((r) => setTimeout(r, 60));
   }
-  var _spi = _fmActivePI();
+  var _spi = _frq_activePairIndicator();
   isPlay = true;
   testUI.tonePlayer.playSequential(
     frq_makeSequence({ aba: frq_isAbaSequence() }),
@@ -496,12 +496,12 @@ async function frq_playSimultaneous() {
 
     const c = gAC();
     isPlay = true;
-    testUI.pairIndicator.setPlaying(_fmAdaptPI(), 'both');
+    testUI.pairIndicator.setPlaying(_frq_adaptivePairIndicator(), 'both');
     await Promise.all([
       playToneTyped(c, refHz, refVol, ms, refPan, toneType_freqmatch),
       playToneTyped(c, varHz, varVol, ms, varPan, toneType_freqmatch)
     ]);
-    testUI.pairIndicator.setPlaying(_fmAdaptPI(), null);
+    testUI.pairIndicator.setPlaying(_frq_adaptivePairIndicator(), null);
     isPlay = false;
     return;
   }
@@ -513,7 +513,7 @@ async function frq_playSimultaneous() {
     isPlay = false;
     await new Promise((r) => setTimeout(r, 60));
   }
-  var _spi = _fmActivePI();
+  var _spi = _frq_activePairIndicator();
   isPlay = true;
   testUI.pairIndicator.setPlaying(_spi, 'both');
   testUI.tonePlayer.playSimultaneous(
@@ -530,7 +530,7 @@ async function frq_playSimultaneous() {
 
 // --- Persistenz (Bauanleitung 02b/5) ---
 
-function _fmPersist() {
+function _frq_persist() {
   if (!frq_varSide || !sideData[frq_varSide]) return;
   let fa = sideData[frq_varSide].freqmatchAdaptive;
   if (!fa || !Array.isArray(fa.runs)) {
@@ -581,10 +581,10 @@ function _fmPersist() {
     run.roundQueue = frq_roundQueue.slice();
   }
 
-  _fmDbg('persist: run#' + fa.currentRunIdx + ', tracks=' + Object.keys(frq_tracks).length);
+  _frq_debug('persist: run#' + fa.currentRunIdx + ', tracks=' + Object.keys(frq_tracks).length);
 }
 
-function _fmMarkCompleted() {
+function _frq_markCompleted() {
   if (!frq_varSide || !sideData[frq_varSide]) return;
   const fa = sideData[frq_varSide].freqmatchAdaptive;
   if (!fa || fa.currentRunIdx == null) return;
@@ -592,12 +592,12 @@ function _fmMarkCompleted() {
   if (run) run.completedAt = Date.now();
 }
 
-function _fmClearPersist(side) {
+function _frq_clearPersist(side) {
   side = side || frq_varSide;
   if (side && sideData[side]) sideData[side].freqmatchAdaptive = null;
 }
 
-function _fmTryRestore(currentElIdxList) {
+function _frq_tryRestore(currentElIdxList) {
   if (!sideData[frq_varSide]) return false;
   const fa = sideData[frq_varSide].freqmatchAdaptive;
   if (!fa || !Array.isArray(fa.runs) || fa.runs.length === 0) return false;
@@ -620,7 +620,7 @@ function _fmTryRestore(currentElIdxList) {
 
   frq_tracks     = run.tracks;
   frq_roundQueue = Array.isArray(run.roundQueue) ? run.roundQueue.slice() : [];
-  _fmDbg('restore: run#' + fa.currentRunIdx + ', ' + Object.keys(frq_tracks).length + ' tracks');
+  _frq_debug('restore: run#' + fa.currentRunIdx + ', ' + Object.keys(frq_tracks).length + ' tracks');
   return true;
 }
 
@@ -647,23 +647,23 @@ function FRQ_refreshResumeHint() {
   }
 }
 
-// onStart-Hook für adaptive verfahren — ruft nach Dialog-Check _fmDoStartAdaptive.
-let _fmTimerInterval = null;
-let _fmTimerStartTs  = 0;
+// onStart-Hook für adaptive verfahren — ruft nach Dialog-Check _frq_doStartAdaptive.
+let _frq_timerInterval = null;
+let _frq_timerStartTs  = 0;
 
-function _fmStartTimer() {
-  _fmTimerStartTs = Date.now();
-  _fmStopTimer();
-  _fmTimerInterval = setInterval(_fmTickTimer, 1000);
-  _fmTickTimer();
+function _frq_startTimer() {
+  _frq_timerStartTs = Date.now();
+  _frq_stopTimer();
+  _frq_timerInterval = setInterval(_frq_tickTimer, 1000);
+  _frq_tickTimer();
 }
-function _fmStopTimer() {
-  if (_fmTimerInterval) {
-    clearInterval(_fmTimerInterval);
-    _fmTimerInterval = null;
+function _frq_stopTimer() {
+  if (_frq_timerInterval) {
+    clearInterval(_frq_timerInterval);
+    _frq_timerInterval = null;
   }
 }
-function _fmActiveProgress() {
+function _frq_activeProgress() {
   if (!FRQ_els || !FRQ_els.verfahren) return null;
   if (frq_adaptiveActive && FRQ_els.verfahren.adaptive)
     return FRQ_els.verfahren.adaptive.progress;
@@ -671,12 +671,12 @@ function _fmActiveProgress() {
     return FRQ_els.verfahren.slider.progress;
   return null;
 }
-function _fmTickTimer() {
-  const secs = Math.floor((Date.now() - _fmTimerStartTs) / 1000);
+function _frq_tickTimer() {
+  const secs = Math.floor((Date.now() - _frq_timerStartTs) / 1000);
   const mm   = Math.floor(secs / 60);
   const ss   = secs % 60;
   const txt  = mm + ':' + (ss < 10 ? '0' : '') + ss;
-  const _prog = _fmActiveProgress();
+  const _prog = _frq_activeProgress();
   if (_prog && _prog.timer) _prog.timer.textContent = txt;
 }
 
@@ -714,12 +714,12 @@ function frq_undo() {
 // kommentarlos zu stoppen). Bei Erfolg wird der Idle-Watch neu gestartet,
 // damit der Mechanismus nach jeder Bestätigung wieder aktiv ist; bei Abbruch
 // durch den Nutzer wird der Test gestoppt.
-function _fmStartIdleSideCheck() {
-  testUI.sideCheck.startIdleWatch(_fmParentEl, 5 * 60 * 1000, function() {
+function _frq_startIdleSideCheck() {
+  testUI.sideCheck.startIdleWatch(_frq_parentEl, 5 * 60 * 1000, function() {
     if (!FRQ_running) return;
     testUI.sideCheck.run(
       { sides: 'both' },
-      function() { _fmStartIdleSideCheck(); },
+      function() { _frq_startIdleSideCheck(); },
       function() { if (FRQ_els) FRQ_els._stopTest(); }
     );
   });
@@ -727,23 +727,23 @@ function _fmStartIdleSideCheck() {
 
 function frq_abort() {
   testUI.sideCheck.stopIdleWatch();
-  _fmSimActive = false;
+  _frq_simActive = false;
   frq_pianoActive = false;
   if (frq_adaptiveActive) {
-    _fmPersist();
+    _frq_persist();
     frq_adaptiveActive   = false;
     frq_awaitingResponse = false;
     frq_isPlaying           = false;
     if (frq_playTimeout) { clearTimeout(frq_playTimeout); frq_playTimeout = null; }
     FRQ_running          = false;
     frq_currentTrackId       = null;
-    _fmStopTimer();
+    _frq_stopTimer();
     FRQ_refreshResumeHint();
     return;
   }
   frq_isPlaying = false;
   if (frq_playTimeout) { clearTimeout(frq_playTimeout); frq_playTimeout = null; }
-  _fmStopTimer();
+  _frq_stopTimer();
   FRQ_running   = false;
   frq_currentEl = null;
   FRQ_refreshResumeHint();
@@ -752,7 +752,7 @@ function frq_abort() {
 // --- Klavier-Verfahren (A1: nur erste Elektrode, Tonwiedergabe) ---
 function frq_startPiano() {
   if (!FRQ_els) return;
-  _fmInitSides();
+  _frq_initSides();
   if (frq_symmetric) {
     frq_sequence = frq_buildSequenceSymmetric();
     if (frq_sequence === null) {
@@ -773,7 +773,7 @@ function frq_startPiano() {
   }
   testUI.sideCheck.run(
     { sides: 'both' },
-    _fmDoStartPiano,
+    _frq_doStartPiano,
     function() { if (FRQ_els) FRQ_els._stopTest(); }
   );
 }
@@ -783,43 +783,43 @@ var FM_PIANO_STEPS = [250, 100, 50, 25, 10, 5];
 var FM_PIANO_MAX_SPAN = 1200;   // ct: groessere Spanne -> verdaechtig, ausgeschlossen
 
 // Roh-Speicher der var-Seite holen/anlegen.
-function _fmPianoData() {
+function _frq_pianoData() {
   var sd = sideData[frq_varSide];
   if (!sd) return null;
   if (!sd.freqmatchPiano) sd.freqmatchPiano = { run: null, perElectrode: {} };
   return sd.freqmatchPiano;
 }
 
-function _fmRandBorderOrder() {
+function _frq_randBorderOrder() {
   return (Math.random() < 0.5) ? ['lower', 'upper'] : ['upper', 'lower'];
 }
 
 // Bestaetigten Grenzwert lesen (cent) oder null.
-function _fmPianoBorderVal(elIdx, round, border) {
-  var fp = _fmPianoData();
+function _frq_pianoBorderVal(elIdx, round, border) {
+  var fp = _frq_pianoData();
   var pe = fp && fp.perElectrode && fp.perElectrode[elIdx];
   var r  = pe && pe.rounds && pe.rounds[round];
   return (r && typeof r[border] === 'number') ? r[border] : null;
 }
 
 // Bezugswert fuer den Runden-Start: Vorrunden-Wert derselben Grenze.
-function _fmPianoPrevBorder(elIdx, round, border) {
+function _frq_pianoPrevBorder(elIdx, round, border) {
   if (round <= 1) return 0;
-  var v = _fmPianoBorderVal(elIdx, round - 1, border);
+  var v = _frq_pianoBorderVal(elIdx, round - 1, border);
   return (v == null) ? 0 : v;
 }
 
 // Grenze speichern.
-function _fmPianoSetBorder(elIdx, round, border, cent) {
-  var fp = _fmPianoData();
+function _frq_pianoSetBorder(elIdx, round, border, cent) {
+  var fp = _frq_pianoData();
   if (!fp.perElectrode[elIdx]) fp.perElectrode[elIdx] = { rounds: {} };
   if (!fp.perElectrode[elIdx].rounds[round]) fp.perElectrode[elIdx].rounds[round] = { lower: null, upper: null };
   fp.perElectrode[elIdx].rounds[round][border] = cent;
 }
 
 // Lauf anlegen oder fortsetzen (Pause/Resume innerhalb der Sitzung).
-function _fmPianoEnsureRun() {
-  var fp = _fmPianoData();
+function _frq_pianoEnsureRun() {
+  var fp = _frq_pianoData();
   var elList = frq_sequence.slice();
   var run = fp.run;
   if (!run || run.varSide !== frq_varSide || run.refSide !== FRQ_refSide
@@ -833,9 +833,9 @@ function _fmPianoEnsureRun() {
       symmetric:    frq_symmetric,
       electrodeList: elList,
       currentRound: 1,
-      roundOrder:   _fmShuffle(elList),
+      roundOrder:   _frq_shuffle(elList),
       posInRound:   0,
-      borderOrder:  _fmRandBorderOrder(),
+      borderOrder:  _frq_randBorderOrder(),
       posInBorder:  0
     };
     fp.run = run;
@@ -844,36 +844,36 @@ function _fmPianoEnsureRun() {
   // (Resume: bestehenden run unveraendert weiterlaufen lassen.)
 }
 
-function _fmDoStartPiano() {
-  _fmPianoEnsureRun();
+function _frq_doStartPiano() {
+  _frq_pianoEnsureRun();
   frq_pianoActive = true;
   FRQ_running   = true;
   frq_firstSide = 'var';     // Kandidat zuerst, dann Vergleich
-  _fmPianoLoadStep();
-  _fmStartIdleSideCheck();
+  _frq_pianoLoadStep();
+  _frq_startIdleSideCheck();
 }
 
 // Aktuelle (Elektrode, Grenze) laden: Tastatur stellen, Box-Rolle setzen.
-function _fmPianoLoadStep() {
-  var run = _fmPianoData().run;
+function _frq_pianoLoadStep() {
+  var run = _frq_pianoData().run;
   if (!run) return;
-  if (run.posInRound >= run.roundOrder.length) { _fmPianoRoundTransition(); return; }
+  if (run.posInRound >= run.roundOrder.length) { _frq_pianoRoundTransition(); return; }
 
   var elIdx  = run.roundOrder[run.posInRound];
   var border = run.borderOrder[run.posInBorder];   // 'lower' | 'upper'
   var step   = FM_PIANO_STEPS[run.currentRound - 1];
-  var center = _fmPianoPrevBorder(elIdx, run.currentRound, border);
+  var center = _frq_pianoPrevBorder(elIdx, run.currentRound, border);
 
   frq_currentEl  = elIdx;
   frq_centOffset = center;
 
-  var pr = _fmPianoRefs();
+  var pr = _frq_pianoRefs();
   if (pr && typeof testUI !== 'undefined' && testUI.piano) {
     testUI.piano.setRound(pr, { stepCent: step, centerCent: center, baseFreq: frq_varHz(elIdx) });
     // Bei Wiederholung (Zurueck) den zuvor bestaetigten Wert dieser Runde markieren.
-    var prevThisRound = _fmPianoBorderVal(elIdx, run.currentRound, border);
+    var prevThisRound = _frq_pianoBorderVal(elIdx, run.currentRound, border);
     if (prevThisRound != null) {
-      _fmPianoMarkCent(pr, prevThisRound);
+      _frq_pianoMarkCent(pr, prevThisRound);
       frq_centOffset = prevThisRound;
     }
   }
@@ -882,12 +882,12 @@ function _fmPianoLoadStep() {
     && FRQ_els.verfahren.piano.actions && FRQ_els.verfahren.piano.actions.undo;
   if (_ub) _ub.disabled = !(run.posInRound > 0 || run.posInBorder > 0);
 
-  _fmPianoUpdateBoxes(border);
-  _fmPianoUpdateProgress();
+  _frq_pianoUpdateBoxes(border);
+  _frq_pianoUpdateProgress();
 }
 
 // Eine Taste markieren, die dem Cent-Wert entspricht (falls im Fenster).
-function _fmPianoMarkCent(pr, cent) {
+function _frq_pianoMarkCent(pr, cent) {
   var rel = (cent - pr.originCent) / pr.stepCent;
   var w = Math.round(rel);
   if (Math.abs(rel - w) < 0.01 && w >= 0 && w <= 8) {
@@ -909,18 +909,18 @@ function frq_pianoOnPlay(evt) {
 // Grenze bestaetigen: zuletzt gespielten Tasten-Offset speichern, weiter.
 function frq_pianoConfirm() {
   if (!FRQ_running || frq_currentEl === null) return;
-  var run = _fmPianoData().run;
+  var run = _frq_pianoData().run;
   if (!run) return;
-  var pr = _fmPianoRefs();
+  var pr = _frq_pianoRefs();
   if (!pr || pr.markedAbsCent == null) return;   // noch keine Taste gespielt
 
   var elIdx  = run.roundOrder[run.posInRound];
   var border = run.borderOrder[run.posInBorder];
-  _fmPianoSetBorder(elIdx, run.currentRound, border, pr.markedAbsCent);
+  _frq_pianoSetBorder(elIdx, run.currentRound, border, pr.markedAbsCent);
   run.lastUpdate = Date.now();
 
   if (typeof FRQ_setActiveMethod === "function") FRQ_setActiveMethod("piano");
-  _fmPianoWriteResults();
+  _frq_pianoWriteResults();
   if (typeof renderFreqMatchResults === "function") {
     try { renderFreqMatchResults(); } catch (e) {}
   }
@@ -928,67 +928,67 @@ function frq_pianoConfirm() {
   run.posInBorder++;
   if (run.posInBorder >= 2) {
     run.posInBorder = 0;
-    run.borderOrder = _fmRandBorderOrder();
+    run.borderOrder = _frq_randBorderOrder();
     run.posInRound++;
   }
-  if (run.posInRound >= run.roundOrder.length) _fmPianoRoundTransition();
-  else                                          _fmPianoLoadStep();
+  if (run.posInRound >= run.roundOrder.length) _frq_pianoRoundTransition();
+  else                                          _frq_pianoLoadStep();
 }
 
 // Zurueck: in der laufenden Runde eine Elektrode zurueck (bzw. aktuelle
 // Elektrode neu beginnen). Eine abgeschlossene Runde wird nicht aufgerollt.
 function frq_pianoBack() {
   if (!FRQ_running) return;
-  var run = _fmPianoData().run;
+  var run = _frq_pianoData().run;
   if (!run) return;
   if (run.posInBorder > 0) {
     run.posInBorder = 0;
-    run.borderOrder = _fmRandBorderOrder();
+    run.borderOrder = _frq_randBorderOrder();
   } else if (run.posInRound > 0) {
     run.posInRound--;
     run.posInBorder = 0;
-    run.borderOrder = _fmRandBorderOrder();
+    run.borderOrder = _frq_randBorderOrder();
   } else {
     return; // Rundenanfang: nichts
   }
-  _fmPianoLoadStep();
+  _frq_pianoLoadStep();
 }
 
 // Runden-Uebergang: Modal (Runden 1..5) oder direkter Abschluss (nach Runde 6).
-function _fmPianoRoundTransition() {
-  var run = _fmPianoData().run;
+function _frq_pianoRoundTransition() {
+  var run = _frq_pianoData().run;
   if (!run) return;
-  if (run.currentRound >= FM_PIANO_STEPS.length) { _fmPianoFinish(); return; }
+  if (run.currentRound >= FM_PIANO_STEPS.length) { _frq_pianoFinish(); return; }
   var curStep  = FM_PIANO_STEPS[run.currentRound - 1];
   var nextStep = FM_PIANO_STEPS[run.currentRound];
-  _fmPianoShowRoundModal(run.currentRound, FM_PIANO_STEPS.length, curStep, nextStep,
+  _frq_pianoShowRoundModal(run.currentRound, FM_PIANO_STEPS.length, curStep, nextStep,
     function onNext() {
       run.currentRound++;
-      run.roundOrder  = _fmShuffle(run.electrodeList);
+      run.roundOrder  = _frq_shuffle(run.electrodeList);
       run.posInRound  = 0;
-      run.borderOrder = _fmRandBorderOrder();
+      run.borderOrder = _frq_randBorderOrder();
       run.posInBorder = 0;
-      _fmPianoLoadStep();
+      _frq_pianoLoadStep();
     },
-    function onFinish() { _fmPianoFinish(); }
+    function onFinish() { _frq_pianoFinish(); }
   );
 }
 
-function _fmPianoFinish() {
+function _frq_pianoFinish() {
   FRQ_running = false;
-  _fmPianoWriteResults();
+  _frq_pianoWriteResults();
   if (FRQ_els && typeof FRQ_els._stopTest === 'function') FRQ_els._stopTest();
 }
 
 // B1: Klavier-Ergebnisse aus dem Roh-Speicher nach FRQ_resultsArray (live).
 // Ergebnis je Elektrode = Mittelwert der feinsten Runde mit BEIDEN Grenzen.
 // (Plausibilitaets-Ausschluss kommt in B2.)
-function _fmPianoWriteResults() {
+function _frq_pianoWriteResults() {
   if (typeof FRQ_resultsArray === "undefined") return;
   for (var i = FRQ_resultsArray.length - 1; i >= 0; i--) {
     if (FRQ_resultsArray[i] && FRQ_entryMethod(FRQ_resultsArray[i]) === "piano") FRQ_resultsArray.splice(i, 1);
   }
-  var fp = _fmPianoData();
+  var fp = _frq_pianoData();
   var run = fp && fp.run;
   if (!run || !fp.perElectrode) return;
   var sym = run.symmetric;
@@ -1049,7 +1049,7 @@ function _fmPianoWriteResults() {
 
 // BA365: Quell-Wert einer Elektrode fuer die Klavier-Uebernahme.
 // Adaptiv hat Vorrang vor Slider. Liefert { cent, refSide, symmetric } oder null.
-function _fmMigrAltForEl(side, elIdx) {
+function _frq_migrateAltForEl(side, elIdx) {
   // 1) Adaptiv aus FRQ_resultsArray
   if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
     for (var i = 0; i < FRQ_resultsArray.length; i++) {
@@ -1089,7 +1089,7 @@ function _fmMigrAltForEl(side, elIdx) {
 
 // BA365: true, wenn die Elektrode bereits einen Klavierwert hat
 // (Roh-Behaelter ODER FRQ_resultsArray-piano-Eintrag) -> keine Uebernahme.
-function _fmMigrHasPiano(side, elIdx) {
+function _frq_migrateHasPiano(side, elIdx) {
   var fp = sideData[side] && sideData[side].freqmatchPiano;
   if (fp && fp.perElectrode && fp.perElectrode[elIdx]
       && fp.perElectrode[elIdx].rounds
@@ -1110,7 +1110,7 @@ function _fmMigrHasPiano(side, elIdx) {
 
 // BA365: Beim Laden Altwerte (Adaptiv/Slider) ins Klavier uebernehmen.
 // Nur fuer Elektroden ohne vorhandenen Klavierwert. Eine Abfrage je Datei.
-function _fmMigrateAltToPiano() {
+function _FRQ_migrateAltToPiano() {
   if (typeof sideData === "undefined") return;
 
   // 1) Quell-Seite bestimmen: die EINE Seite mit Altdaten (Adaptiv/Slider).
@@ -1154,8 +1154,8 @@ function _fmMigrateAltToPiano() {
   Object.keys(elSet).forEach(function (k) {
     var elIdx = parseInt(k, 10);
     if (!isFinite(elIdx)) return;
-    if (_fmMigrHasPiano(varSide, elIdx)) return;          // Klavier hat Vorrang
-    var alt = _fmMigrAltForEl(varSide, elIdx);
+    if (_frq_migrateHasPiano(varSide, elIdx)) return;          // Klavier hat Vorrang
+    var alt = _frq_migrateAltForEl(varSide, elIdx);
     if (!alt || alt.cent == null || !isFinite(alt.cent)) return;
     todo.push({ elIdx: elIdx, cent: alt.cent,
                 refSide: alt.refSide, symmetric: alt.symmetric });
@@ -1172,7 +1172,7 @@ function _fmMigrateAltToPiano() {
     ? FM_PIANO_STEPS[0] : 250;
 
   // 3) Kuenstlichen Klavier-Lauf + Runden in den Roh-Behaelter der EINEN
-  //    Seite schreiben, dann _fmPianoWriteResults() EINMAL aufrufen.
+  //    Seite schreiben, dann _frq_pianoWriteResults() EINMAL aufrufen.
   if (!sd.freqmatchPiano) sd.freqmatchPiano = { run: null, perElectrode: {} };
   var fp = sd.freqmatchPiano;
   if (!fp.perElectrode) fp.perElectrode = {};
@@ -1193,7 +1193,7 @@ function _fmMigrateAltToPiano() {
     posInBorder:  0
   };
   // Kuenstliche Runde 1 je Elektrode: Mitte = cent, Band = +-band.
-  // _fmPianoWriteResults nimmt pse = (lower+upper)/2 = cent,
+  // _frq_pianoWriteResults nimmt pse = (lower+upper)/2 = cent,
   // fmResiduum = span/2 = band.
   todo.forEach(function (it) {
     fp.perElectrode[it.elIdx] = {
@@ -1201,20 +1201,20 @@ function _fmMigrateAltToPiano() {
     };
   });
 
-  // _fmPianoWriteResults liest sideData[frq_varSide] ueber _fmPianoData().
+  // _frq_pianoWriteResults liest sideData[frq_varSide] ueber _frq_pianoData().
   // frq_varSide auf die Quell-Seite lenken; mit try/finally restaurieren.
   var _prevVarSide = frq_varSide;
   try {
     frq_varSide = varSide;
-    _fmPianoWriteResults();
+    _frq_pianoWriteResults();
   } finally {
     frq_varSide = _prevVarSide;
   }
 }
 
 // Boxen: Kandidat (var) zeigt Elektrode + Rolle; Referenz zeigt Vergleichston.
-function _fmPianoUpdateBoxes(border) {
-  var pi = _fmPianoPI();
+function _frq_pianoUpdateBoxes(border) {
+  var pi = _frq_pianoPairIndicator();
   var elLabel = withSide(frq_varSide, function() { return dENPrefix() + dEN(frq_currentEl); });
   var roleUp  = (border === 'lower') ? t('FRQ_pianoBoxLower') : t('FRQ_pianoBoxHigher');
   if (pi) {
@@ -1228,8 +1228,8 @@ function _fmPianoUpdateBoxes(border) {
 }
 
 // Zahl der bisher bestaetigten Grenzen (ueber alle Runden/Elektroden).
-function _fmPianoCountConfirmed() {
-  var fp = _fmPianoData();
+function _frq_pianoCountConfirmed() {
+  var fp = _frq_pianoData();
   if (!fp || !fp.perElectrode) return 0;
   var c = 0;
   Object.keys(fp.perElectrode).forEach(function(el) {
@@ -1244,17 +1244,17 @@ function _fmPianoCountConfirmed() {
 }
 
 // Fortschrittsanzeige: Text + Gesamtbalken (alle 6 Runden).
-function _fmPianoUpdateProgress() {
+function _frq_pianoUpdateProgress() {
   var els = FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.piano
     && FRQ_els.verfahren.piano.progress;
   if (!els) return;
-  var fp = _fmPianoData();
+  var fp = _frq_pianoData();
   var run = fp && fp.run;
   if (!run) return;
   var m = run.roundOrder.length;
   var n = Math.min(run.posInRound + 1, m);
   var total = FM_PIANO_STEPS.length * run.electrodeList.length * 2;
-  var done  = _fmPianoCountConfirmed();
+  var done  = _frq_pianoCountConfirmed();
   var frac  = total > 0 ? done / total : 0;
   var txt = t('FRQ_pianoProgress')
     .replace('{n}', n).replace('{m}', m)
@@ -1263,7 +1263,7 @@ function _fmPianoUpdateProgress() {
 }
 
 // Runden-Uebergangs-Modal.
-function _fmPianoShowRoundModal(round, total, curStep, nextStep, onNext, onFinish) {
+function _frq_pianoShowRoundModal(round, total, curStep, nextStep, onNext, onFinish) {
   var overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
   overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);'
@@ -1297,7 +1297,7 @@ function _fmPianoShowRoundModal(round, total, curStep, nextStep, onNext, onFinis
 
 function frq_finish() {
   frq_isPlaying    = false;
-  _fmStopTimer();
+  _frq_stopTimer();
   FRQ_running   = false;
   frq_currentEl = null;
   if (FRQ_els && FRQ_els._stopTest) FRQ_els._stopTest();
@@ -1305,7 +1305,7 @@ function frq_finish() {
 }
 
 // --- Elektroden-Ausschluss ---
-function _fmRequestExcl() {
+function _frq_requestExclude() {
   if (!FRQ_running || frq_currentEl === null || !FRQ_els) return;
   setTestExclConfirm(FRQ_els.exclOverlay, frq_varSideElectrodeLabel(frq_currentEl), function() {
     withSide(frq_varSide, () => { elExDur[frq_currentEl] = true; });
@@ -1332,12 +1332,12 @@ function FRQ_applyLang() {
   if (FRQ_els.header && FRQ_els.header.startBtn) {
     FRQ_refreshResumeHint();
   }
-  _fmRefreshHGWarningVisibility();
-  _fmRefreshCochlearFatHintVisibility();
-  _fmRenderPrereqHints();
+  _frq_refreshHighGainWarningVisibility();
+  _frq_refreshCochlearFatHintVisibility();
+  _frq_renderPrereqHints();
 }
 
-function _fmEvalTestEligibility() {
+function _frq_evalTestEligibility() {
   // BA 155: „Keine Angabe" / Hersteller-fehlend
   if (typeof isSideUsable === 'function') {
     if (!isSideUsable('left') || !isSideUsable('right')) {
@@ -1356,13 +1356,13 @@ function _fmEvalTestEligibility() {
   return { blocked: false, reason: null };
 }
 
-function _fmAutoSetRefMode() {
+function _frq_autoSetRefMode() {
   if (!FRQ_els || !FRQ_els.header || !FRQ_els.header.refSelect) return;
   // Schutz: solange Daten vorliegen, refSelect nicht implizit umstellen —
   // ein manueller Wechsel ist durch depLock gesperrt (Popup mit Begründung).
   if (FRQ_resultsArray.length > 0) return;
-  if (_fmHasAdaptiveData()) return;
-  if (_fmHasSliderEstimates()) return;
+  if (_FRQ_hasAdaptiveData()) return;
+  if (_FRQ_hasSliderEstimates()) return;
   const leftCfg  = (sideData.left  && sideData.left.config)  || 'ci';
   const rightCfg = (sideData.right && sideData.right.config) || 'ci';
   const leftIsCI  = (leftCfg  === 'ci');
@@ -1381,31 +1381,31 @@ function _fmAutoSetRefMode() {
   // beide akustisch: kein Override (Sperre wird durch L1-Tab-Sperre BA 172 behandelt).
 }
 
-function _fmRefreshHGWarningVisibility() {
+function _frq_refreshHighGainWarningVisibility() {
   if (!FRQ_els) return;
   const leftCfg  = (sideData.left  && sideData.left.config)  || 'ci';
   const rightCfg = (sideData.right && sideData.right.config) || 'ci';
   const hasHG = (leftCfg === 'hg') || (rightCfg === 'hg');
   // HG-Warnung nur zeigen, wenn Test nicht ohnehin geblockt ist.
-  const blocked = _fmEvalTestEligibility().blocked;
+  const blocked = _frq_evalTestEligibility().blocked;
   const visible = hasHG && !blocked;
   testUI.explain.setVisible(FRQ_els, 'fmHGWarnPara', visible);
 }
 
 
 // BA 251: jRes entfaellt; Lautstaerke-Daten = elektrodenlautstaerkeResults.
-function _fmHasLvData(side) {
+function _frq_hasLvData(side) {
   const s = sideData[side];
   if (!s) return false;
   return (s.elektrodenlautstaerkeResults && s.elektrodenlautstaerkeResults.length > 0);
 }
 
-function _fmRenderPrereqHints() {
+function _frq_renderPrereqHints() {
   const elsLeftEl  = document.getElementById('fmPrereqLvLeftPara');
   const elsRightEl = document.getElementById('fmPrereqLvRightPara');
   const sbEl      = document.getElementById('fmPrereqSbHintPara');
-  if (elsLeftEl)  elsLeftEl.style.display  = _fmHasLvData('left')  ? 'none' : '';
-  if (elsRightEl) elsRightEl.style.display = _fmHasLvData('right') ? 'none' : '';
+  if (elsLeftEl)  elsLeftEl.style.display  = _frq_hasLvData('left')  ? 'none' : '';
+  if (elsRightEl) elsRightEl.style.display = _frq_hasLvData('right') ? 'none' : '';
   if (sbEl) {
     const hasSb = typeof stereobalanceResults !== 'undefined'
                && stereobalanceResults
@@ -1414,19 +1414,19 @@ function _fmRenderPrereqHints() {
   }
 }
 
-function _fmRefreshTabState() {
+function _FRQ_refreshTabState() {
   if (!FRQ_els) return;
   if (!FRQ_running) {
-    _fmAutoSetRefMode();
+    _frq_autoSetRefMode();
     frq_loadVerfahrenFromSide();
   }
   if (typeof FRQ_refreshResumeHint === 'function') FRQ_refreshResumeHint();
-  _fmRefreshHGWarningVisibility();
-  _fmRefreshCochlearFatHintVisibility();
-  _fmRenderPrereqHints();
+  _frq_refreshHighGainWarningVisibility();
+  _frq_refreshCochlearFatHintVisibility();
+  _frq_renderPrereqHints();
 }
 
-function _fmHasSliderEstimates() {
+function _FRQ_hasSliderEstimates() {
   return ['left', 'right'].some(function(side) {
     const fa = sideData[side] && sideData[side].freqmatchAdaptive;
     const est = fa && typeof fa.sliderEstimates === 'object' && fa.sliderEstimates;
@@ -1434,7 +1434,7 @@ function _fmHasSliderEstimates() {
   });
 }
 
-function _fmHasAdaptiveData() {
+function _FRQ_hasAdaptiveData() {
   return ['left', 'right'].some(function(side) {
     const fa = sideData[side] && sideData[side].freqmatchAdaptive;
     return !!(fa && Array.isArray(fa.runs) && fa.runs.some(function(r) {
@@ -1533,8 +1533,8 @@ function FRQ_updateActiveMethodButtons() {
   }
 }
 
-let _fmDurStash_slider  = 400;
-let _fmPauStash_slider  = 400;
+let _frq_durStash_slider  = 400;
+let _frq_pauStash_slider  = 400;
 
 function frq_setVerfahren(newVerfahren, opts) {
   opts = opts || {};
@@ -1548,12 +1548,12 @@ function frq_setVerfahren(newVerfahren, opts) {
 
   // BA 240: Dur/Pau-Stash arbeitet jetzt auf State-Variablen statt DOM-Inputs.
   if (oldVerfahren === 'slider') {
-    _fmDurStash_slider = duration_freqmatch || 400;
-    _fmPauStash_slider = pause_freqmatch    || 400;
+    _frq_durStash_slider = duration_freqmatch || 400;
+    _frq_pauStash_slider = pause_freqmatch    || 400;
   }
   if (newVerfahren === 'slider') {
-    duration_freqmatch = _fmDurStash_slider;
-    pause_freqmatch    = _fmPauStash_slider;
+    duration_freqmatch = _frq_durStash_slider;
+    pause_freqmatch    = _frq_pauStash_slider;
   }
 
   testUI.verfahren.select(FRQ_els, newVerfahren);
@@ -1590,7 +1590,7 @@ function frq_loadVerfahrenFromSide() {
 document.addEventListener("DOMContentLoaded", () => {
   const parentEl = document.getElementById("subpanel-messungen-freqmatch");
   if (!parentEl) return;
-  _fmParentEl = parentEl;
+  _frq_parentEl = parentEl;
 
   const fmCfg = {
     id: 'freqmatch',
@@ -1610,7 +1610,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { key: 'FRQ_cochlearFatCorrectionInfo', kind: 'warn', id: 'fmCochlearFatHintPara',
                                          hidden: true },
 
-        // Voraussetzungen — bleiben bedingt sichtbar (durch _fmRenderPrereqHints).
+        // Voraussetzungen — bleiben bedingt sichtbar (durch _frq_renderPrereqHints).
         { key: 'FRQ_prereqLvLeft',         kind: 'warn',    id: 'fmPrereqLvLeftPara'    },
         { key: 'FRQ_prereqLvRight',        kind: 'warn',    id: 'fmPrereqLvRightPara'   },
         { key: 'FRQ_prereqSb',             kind: 'warn',    id: 'fmPrereqSbHintPara'    },
@@ -1680,14 +1680,14 @@ document.addEventListener("DOMContentLoaded", () => {
             var varPan  = (varSide === 'left') ? -1 : 1;
             // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an);
             // taube Seite stumm (isDeaf) wie beim Klavier. pan kodiert die Seite.
-            var _fmCv = function (side, pan) {
+            var _frq_correctVolume = function (side, pan) {
               if (typeof isDeaf === 'function' && isDeaf(side)) return 0;
               return (typeof frq_keyboardCorrectVolume === 'function') ? frq_keyboardCorrectVolume(vol, hz, pan) : vol;
             };
             return [
-              { hz: hz, pan: varPan,  vol: _fmCv(varSide, varPan),  durationMs: dur },
+              { hz: hz, pan: varPan,  vol: _frq_correctVolume(varSide, varPan),  durationMs: dur },
               { pauseMs: pau },
-              { hz: hz, pan: -varPan, vol: _fmCv(refSide, -varPan), durationMs: dur }
+              { hz: hz, pan: -varPan, vol: _frq_correctVolume(refSide, -varPan), durationMs: dur }
             ];
           },
           // BA 228/229: Klavier-Widget in der Modalbox aktivieren.
@@ -1754,7 +1754,7 @@ document.addEventListener("DOMContentLoaded", () => {
           onPress: function (electrodeIdx, hz) {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
-            _fmKbT0 = (typeof performance !== 'undefined') ? performance.now() : Date.now();
+            _frq_keyboardT0 = (typeof performance !== 'undefined') ? performance.now() : Date.now();
             var tt      = (frq_modalTone !== null) ? frq_modalTone : toneType_freqmatch;
             var vol     = FRQ_getVolume();
             var varSide = (typeof frq_varSide === 'string' && frq_varSide) ? frq_varSide : activeSide;
@@ -1771,7 +1771,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (typeof stopAll === 'function') stopAll();
             if (!c) return;
             var t1   = (typeof performance !== 'undefined') ? performance.now() : Date.now();
-            var held = Math.max(0, t1 - _fmKbT0);
+            var held = Math.max(0, t1 - _frq_keyboardT0);
             if (held <= 0) return;
             var tt      = (frq_modalTone !== null) ? frq_modalTone : toneType_freqmatch;
             var vol     = FRQ_getVolume();
@@ -1804,7 +1804,7 @@ document.addEventListener("DOMContentLoaded", () => {
           getSelection: function() { return freqmatchTestSelection; },
           setSelection: function(sel) {
             freqmatchTestSelection = sel.slice();
-            _fmOnSelectionChanged();
+            _frq_onSelectionChanged();
           },
           getElectrodeStatus: function() {
             var testable = [], muted = [], excluded = [];
@@ -1873,7 +1873,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // oeffnet vor onStart ein Modal mit drei Optionen.
         prerequisites: [
           {
-            checkFn:    function() { return !_fmShouldOfferSliderEstimate(); },
+            checkFn:    function() { return !_frq_shouldOfferSliderEstimate(); },
             titleKey:   'FRQ_sliderEstimateTitle',
             messageKey: 'FRQ_sliderEstimateMsg',
             actions: [
@@ -1946,11 +1946,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Texte initial setzen
   FRQ_applyLang();
 
-  if (!FRQ_running) _fmAutoSetRefMode();
+  if (!FRQ_running) _frq_autoSetRefMode();
   frq_loadVerfahrenFromSide();
   FRQ_refreshResumeHint();
-  _fmRefreshHGWarningVisibility();
-  _fmRefreshCochlearFatHintVisibility();
+  _frq_refreshHighGainWarningVisibility();
+  _frq_refreshCochlearFatHintVisibility();
 });
 
 function FRQ_refreshElectrodeSelectionSummary() {

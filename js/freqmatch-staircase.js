@@ -105,7 +105,7 @@ function frq_createTrack(electrodeIdx, startSign, startOffset) {
     match:           null,
     residual:        null
     // _smartStopPrevResid und _smartStopLastEvalAtRevCount werden in
-    // _fmCheckAndUpdateStatus lazy gesetzt (BA 182, Smart Stop).
+    // _frq_checkAndUpdateStatus lazy gesetzt (BA 182, Smart Stop).
   };
 }
 
@@ -222,7 +222,7 @@ function frq_applyResponse(track, response, isCatch, catchCorrect, firstSide) {
     // Catch-Trials zählen NICHT für Staircase-Bewegung
     track.catchTotal++;
     if (!catchCorrect) track.catchErrors++;
-    return _fmCheckAndUpdateStatus(track);
+    return _frq_checkAndUpdateStatus(track);
   }
 
   // Antwort-Interpretation (REF-Frequenz wird geschoben, var bleibt fest):
@@ -236,18 +236,18 @@ function frq_applyResponse(track, response, isCatch, catchCorrect, firstSide) {
   // Umkehr-Erkennung über lastMoveDir.
   if (track.lastMoveDir && track.lastMoveDir !== adjustDir) {
     track.reversals.push(track.currentOffset);
-    track.stepSize = _fmHalfStep(track.stepSize);
+    track.stepSize = _frq_halfStep(track.stepSize);
   }
 
   const sign = (adjustDir === 'up') ? +1 : -1;
   track.currentOffset += sign * track.stepSize;
   track.lastMoveDir = adjustDir;
 
-  return _fmCheckAndUpdateStatus(track);
+  return _frq_checkAndUpdateStatus(track);
 }
 
 // --- Schrittweiten-Halbierung gemäß Sequenz 50→25→12→6→3 ---
-function _fmHalfStep(currentStep) {
+function _frq_halfStep(currentStep) {
   const idx = FM_STEP_SEQUENCE.indexOf(currentStep);
   if (idx >= 0 && idx < FM_STEP_SEQUENCE.length - 1) {
     return FM_STEP_SEQUENCE[idx + 1];
@@ -279,7 +279,7 @@ function frq_computeResidual(track) {
 }
 
 // --- Match-Fallback aus beliebig vielen Reversals (für unstable) ---
-function _fmMeanReversals(track) {
+function _frq_meanReversals(track) {
   if (!track.reversals || track.reversals.length === 0) return null;
   let sum = 0;
   for (let i = 0; i < track.reversals.length; i++) sum += track.reversals[i];
@@ -287,7 +287,7 @@ function _fmMeanReversals(track) {
 }
 
 // --- Halbe Spanne aus beliebig vielen Reversals (für unstable) ---
-function _fmHalfSpanReversals(track) {
+function _frq_halfSpanReversals(track) {
   if (!track.reversals || track.reversals.length < 2) return null;
   let max = -Infinity, min = Infinity;
   for (let i = 0; i < track.reversals.length; i++) {
@@ -307,7 +307,7 @@ function _fmHalfSpanReversals(track) {
 // wenn der trialCount im Aufruferkontext direkt vor Trial-Start
 // === 4 ist.
 //
-function _fmIsCatchTrial(trialCount) {
+function _frq_isCatchTrial(trialCount) {
   for (let i = 0; i < FM_CATCH_TRIALS_EARLY.length; i++) {
     if (trialCount === FM_CATCH_TRIALS_EARLY[i]) return true;
   }
@@ -320,7 +320,7 @@ function _fmIsCatchTrial(trialCount) {
 // Schreibt status / match / residual auf den Track, wenn ein Endzustand
 // erreicht ist. Gibt den (ggf. aktualisierten) status zurück.
 //
-function _fmCheckAndUpdateStatus(track) {
+function _frq_checkAndUpdateStatus(track) {
   if (track.status !== 'active') return track.status;
 
   // (1) Not-perceivable-Check: immer, unabhängig von Umkehr-Zahl.
@@ -418,9 +418,9 @@ function _fmCheckAndUpdateStatus(track) {
   // aller bisherigen Reversals).
   if (track.trialCount >= FM_EARLY_NO_PROGRESS_TRIALS
       && track.reversals.length < FM_EARLY_NO_PROGRESS_MIN_REVERSALS) {
-    track.match    = _fmMeanReversals(track);
+    track.match    = _frq_meanReversals(track);
     if (track.match == null) track.match = track.currentOffset;
-    track.residual = _fmHalfSpanReversals(track);
+    track.residual = _frq_halfSpanReversals(track);
     track.status   = 'unstable';
     return track.status;
   }
@@ -438,9 +438,9 @@ function _fmCheckAndUpdateStatus(track) {
       return track.status;
     }
     // Weniger als 6 Reversals: Fallback auf Mittel aller Reversals.
-    track.match    = _fmMeanReversals(track);
+    track.match    = _frq_meanReversals(track);
     if (track.match == null) track.match = track.currentOffset;
-    track.residual = _fmHalfSpanReversals(track);
+    track.residual = _frq_halfSpanReversals(track);
     track.status   = 'unstable';
     return track.status;
   }

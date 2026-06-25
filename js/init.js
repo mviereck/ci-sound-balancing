@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderResults();
     if (typeof stereobalanceCheckData === "function") stereobalanceCheckData();
     if (typeof FRQ_applyLang === "function") FRQ_applyLang();
-    if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
+    if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();
     plCheck();
   });
   // ciSideSelect hidden; side switching via sideLeftBtn/sideRightBtn onclick
@@ -657,8 +657,8 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         const _hasFm =
           (Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
-          || (typeof _fmHasSliderEstimates === "function" && _fmHasSliderEstimates())
-          || (typeof _fmHasAdaptiveData === "function" && _fmHasAdaptiveData());
+          || (typeof _FRQ_hasSliderEstimates === "function" && _FRQ_hasSliderEstimates())
+          || (typeof _FRQ_hasAdaptiveData === "function" && _FRQ_hasAdaptiveData());
         if (_hasFm && typeof pMarkPlayerWarpDefaultAsApplied === "function") {
           pMarkPlayerWarpDefaultAsApplied();
         }
@@ -689,8 +689,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (Array.isArray(d.fRes) && typeof FRQ_resultsArray !== "undefined") {
         // BA 106: KEIN Filter, dieselbe Migrations-Sequenz wie in file.js.
         FRQ_resultsArray.splice(0, FRQ_resultsArray.length, ...d.fRes);
-        if (typeof _fmCleanupLegacyFRes === "function") _fmCleanupLegacyFRes();
-        if (typeof _fmMigrateAltSliderFRes === "function") _fmMigrateAltSliderFRes();
+        if (typeof _FRQ_cleanupLegacyResults === "function") _FRQ_cleanupLegacyResults();
+        if (typeof _FRQ_migrateAltSliderResults === "function") _FRQ_migrateAltSliderResults();
       }
       // BA 209 + BA 225: Per-Test-Tonart Frequenzabgleich (Auto-Restore).
       // Migration aus altem globalToneType-Feld (nur lesen, nicht mehr schreiben).
@@ -797,7 +797,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
       if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
       if (typeof FRQ_applyLang === "function") FRQ_applyLang();
-      if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
+      if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();
       if (typeof stereobalanceRefreshElectrodeSelectionSummary === "function") stereobalanceRefreshElectrodeSelectionSummary();
       if (typeof FRQ_refreshElectrodeSelectionSummary === "function") FRQ_refreshElectrodeSelectionSummary();
       if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
@@ -821,12 +821,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // BA353: Umschalter aktives Verfahren.
   // BA363 Klavier-only: Listener auskommentiert; zum Reaktivieren entfernen.
-  // const _fmAdaBtn = document.getElementById("FRQ_activeMethodAdaptiveBtn");
-  // const _fmSliBtn = document.getElementById("FRQ_activeMethodSliderBtn");
-  // const _fmPiaBtn = document.getElementById("FRQ_activeMethodPianoBtn");
-  // if (_fmAdaBtn) _fmAdaBtn.addEventListener("click", function () { FRQ_setActiveMethod("adaptive"); });
-  // if (_fmSliBtn) _fmSliBtn.addEventListener("click", function () { FRQ_setActiveMethod("slider"); });
-  // if (_fmPiaBtn) _fmPiaBtn.addEventListener("click", function () { FRQ_setActiveMethod("piano"); });
+  // const _FRQ_adaBtn = document.getElementById("FRQ_activeMethodAdaptiveBtn");
+  // const _FRQ_sliBtn = document.getElementById("FRQ_activeMethodSliderBtn");
+  // const _FRQ_piaBtn = document.getElementById("FRQ_activeMethodPianoBtn");
+  // if (_FRQ_adaBtn) _FRQ_adaBtn.addEventListener("click", function () { FRQ_setActiveMethod("adaptive"); });
+  // if (_FRQ_sliBtn) _FRQ_sliBtn.addEventListener("click", function () { FRQ_setActiveMethod("slider"); });
+  // if (_FRQ_piaBtn) _FRQ_piaBtn.addEventListener("click", function () { FRQ_setActiveMethod("piano"); });
 
   // Modus-Toggle relativ/absolut
   document.querySelectorAll('input[name="elektrodenlautstaerkeSchieberMode"]').forEach((r) => {

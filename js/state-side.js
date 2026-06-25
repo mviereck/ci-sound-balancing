@@ -229,11 +229,11 @@ function setActiveSide(side) {
 // werden alte Frequenzabgleichs-Daten beim Laden verworfen; alle übrigen
 // Mess-Datentypen (Slider, Vergleich, …) bleiben erhalten.
 //
-// Korrespondierend dazu räumt _fmCleanupLegacyFRes() Einträge aus FRQ_resultsArray weg,
+// Korrespondierend dazu räumt _FRQ_cleanupLegacyResults() Einträge aus FRQ_resultsArray weg,
 // die noch die alten Detail-Felder tragen (sie stammen sicher aus dem alten
 // 2-Track-Schema und sind mit der neuen Auswertung nicht vereinbar). Wird in
 // file.js und init.js nach dem FRQ_resultsArray-Load aufgerufen.
-function _fmCleanupLegacyFRes() {
+function _FRQ_cleanupLegacyResults() {
   if (typeof FRQ_resultsArray === 'undefined' || !Array.isArray(FRQ_resultsArray)) return;
   for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
     const r = FRQ_resultsArray[i];
@@ -244,7 +244,7 @@ function _fmCleanupLegacyFRes() {
     }
   }
 }
-function _fmMigrateAdaptive(fa) {
+function _FRQ_migrateAdaptive(fa) {
   if (!fa) return null;
   if (!Array.isArray(fa.runs)) return null;   // Vor-runs[]-Schemas → weg
 
@@ -292,8 +292,8 @@ function _fmMigrateAdaptive(fa) {
 // erhalten — der Alt-Eintrag wird verworfen.
 //
 // Wird in file.js (JSON-Load) und init.js (Autosave-Load) NACH
-// _fmCleanupLegacyFRes() aufgerufen.
-function _fmMigrateAltSliderFRes() {
+// _FRQ_cleanupLegacyResults() aufgerufen.
+function _FRQ_migrateAltSliderResults() {
   if (typeof FRQ_resultsArray === 'undefined' || !Array.isArray(FRQ_resultsArray)) return;
   if (typeof sideData === 'undefined') return;
 
@@ -354,7 +354,7 @@ function _fmMigrateAltSliderFRes() {
 
 // BA 362: Alt-Slider-Eintraege mit rounds[]-Historie auf min/max migrieren.
 // rounds[] wird danach verworfen. cent bleibt unveraendert (Aggregat aus BA 206).
-function _fmMigrateSliderRounds() {
+function _FRQ_migrateSliderRounds() {
   if (typeof sideData === 'undefined') return;
   ['left', 'right'].forEach(function(side) {
     const fa = sideData[side] && sideData[side].freqmatchAdaptive;
@@ -365,7 +365,7 @@ function _fmMigrateSliderRounds() {
       if (Array.isArray(e.rounds)) {
         // min/max nur, wenn noch nicht gesetzt und >=2 unterschiedliche Werte.
         if ((e.min == null || e.max == null)) {
-          const range = (typeof _fmRangeCent === 'function') ? _fmRangeCent(e.rounds) : null;
+          const range = (typeof _FRQ_rangeCent === 'function') ? _FRQ_rangeCent(e.rounds) : null;
           if (range && range.min !== range.max) {
             e.min = range.min;
             e.max = range.max;
@@ -429,7 +429,7 @@ function loadSideData(side, d) {
   s.fmMode = (d.fmMode === 'slider' || d.fmMode === 'adaptive') ? d.fmMode : 'adaptive';
   s.fmAdaptiveDur = (d.fmAdaptiveDur != null) ? d.fmAdaptiveDur : 200;
   s.fmAdaptivePau = (d.fmAdaptivePau != null) ? d.fmAdaptivePau : 200;
-  s.freqmatchAdaptive = _fmMigrateAdaptive(d.freqmatchAdaptive);
+  s.freqmatchAdaptive = _FRQ_migrateAdaptive(d.freqmatchAdaptive);
   s.freqmatchPiano = d.freqmatchPiano || null;
   s.elektrodenlautstaerkeSchieber = d.manualLevels || new Array(s.nEl).fill(0);
   if (d.presets && Array.isArray(d.presets)) {

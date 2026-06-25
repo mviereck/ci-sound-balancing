@@ -36,7 +36,7 @@ function frq_updateSliderDisplay() {
   }
   const refSideLabel = FRQ_refSide === "left" ? t("sideLeft") : t("sideRight");
   const refText = refSideLabel + ": " + hzStr + " Hz, " + centStr + " " + centUnit;
-  const pi = _fmSliderPI();
+  const pi = _frq_sliderPairIndicator();
   if (pi) {
     if (FRQ_refSide === "left") {
       testUI.pairIndicator.setLabels(pi, { leftText: refText });
@@ -49,7 +49,7 @@ function frq_updateSliderDisplay() {
 function frq_showElectrode() {
   if (!FRQ_els || frq_currentEl === null) return;
   const slRefs = FRQ_els.verfahren && FRQ_els.verfahren.slider;
-  const pi = _fmSliderPI();
+  const pi = _frq_sliderPairIndicator();
   if (frq_symmetric) {
     const leftHz  = withSide('left',  function() { return effFreq(frq_currentEl); });
     const rightHz = withSide('right', function() { return effFreq(frq_currentEl); });
@@ -77,20 +77,20 @@ function frq_showElectrode() {
   if (slRefs && slRefs.slider) {
     // BA 221: Slider-Range so erweitern, dass Marker und Min/Max des
     // Range-Hints reinpassen. Sonst blendet setRangeHint sie aus.
-    var _markerAbs = _fmSliderMarkerMaxAbs(frq_currentEl);
+    var _markerAbs = _frq_sliderMarkerMaxAbs(frq_currentEl);
     testUI.slider.setValue(slRefs.slider, frq_centOffset, { minAbs: _markerAbs });
   }
   frq_updateSliderDisplay();
-  _fmUpdateSliderRangeMarker();
+  _FRQ_updateSliderRangeMarker();
   frq_updateSliderProgress();
-  const undoBtn = _fmSliderUndo();
+  const undoBtn = _frq_sliderUndo();
   if (undoBtn) undoBtn.disabled = frq_sequenceIdx === 0;
 }
 
 // BA 362: Maximaler Absolutbetrag aus cent/min/max dieser Elektrode —
 // fuer minAbs in testUI.slider.setValue.
 // Liefert 0, wenn keine Daten oder keine endlichen Werte vorliegen.
-function _fmSliderMarkerMaxAbs(elIdx) {
+function _frq_sliderMarkerMaxAbs(elIdx) {
   const store = (sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive)
     ? sideData[frq_varSide].freqmatchAdaptive.sliderEstimates : null;
   if (!store) return 0;
@@ -105,7 +105,7 @@ function _fmSliderMarkerMaxAbs(elIdx) {
 
 // BA 362: Dreieck aus .cent, Band aus min/max (falls vorhanden).
 // Daten werden an testUI.slider.setRangeHint uebergeben — dort steckt die DOM-Logik.
-function _fmUpdateSliderRangeMarker() {
+function _FRQ_updateSliderRangeMarker() {
   if (!FRQ_els || frq_currentEl === null) return;
   const slRefs = FRQ_els.verfahren && FRQ_els.verfahren.slider;
   if (!slRefs || !slRefs.slider) return;
@@ -134,7 +134,7 @@ function _fmUpdateSliderRangeMarker() {
 
 // Synchronisiert sliderPass mit der User-Auswahl.
 // Wird nach Auswahl-Änderung aufgerufen, wenn der Slider-Modus aktiv ist.
-function _fmApplySelectionToSliderRun() {
+function _frq_applySelectionToSliderRun() {
   if (!sideData[frq_varSide]) return;
   var fa = sideData[frq_varSide].freqmatchAdaptive;
   if (!fa || !fa.sliderPass) return;
@@ -160,7 +160,7 @@ function _fmApplySelectionToSliderRun() {
 
 function frq_startSlider() {
   if (!FRQ_els) return;
-  _fmInitSides();
+  _frq_initSides();
   if (frq_symmetric) {
     frq_sequence = frq_buildSequenceSymmetric();
     if (frq_sequence === null) {
@@ -192,21 +192,21 @@ function frq_startSlider() {
   }
   testUI.sideCheck.run(
     { sides: 'both' },
-    _fmDoStartSlider,
+    _frq_doStartSlider,
     function() { if (FRQ_els) FRQ_els._stopTest(); }
   );
 }
 
-function _fmDoStartSlider() {
-  _fmSliderPassEnsure();
+function _frq_doStartSlider() {
+  _frq_sliderPassEnsure();
   frq_sequenceIdx  = 0;
   FRQ_running = true;
   frq_loadElectrode();
-  _fmStartTimer();
-  _fmStartIdleSideCheck();
+  _frq_startTimer();
+  _frq_startIdleSideCheck();
 }
 
-function _fmSliderPassEnsure() {
+function _frq_sliderPassEnsure() {
   if (!sideData[frq_varSide]) return;
   const fa = sideData[frq_varSide].freqmatchAdaptive
     || (sideData[frq_varSide].freqmatchAdaptive = { runs: [], currentRunIdx: null, sliderEstimates: {} });
@@ -246,7 +246,7 @@ function _fmSliderPassEnsure() {
 
 function frq_loadElectrode() {
   if (frq_sequenceIdx >= frq_sequence.length) {
-    _fmSliderFinish();   // Durchgang fertig (Schritt 4)
+    _frq_sliderFinish();   // Durchgang fertig (Schritt 4)
     return;
   }
   frq_currentEl = frq_sequence[frq_sequenceIdx];
@@ -256,7 +256,7 @@ function frq_loadElectrode() {
   setTimeout(() => { if (FRQ_running) frq_playCurrent(); }, 100);
 }
 
-function _fmSliderFinish() {
+function _frq_sliderFinish() {
   // Durchgang leeren, damit der nächste Start frisch ab Elektrode 1 beginnt.
   const fa = sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive;
   if (fa && fa.sliderPass) fa.sliderPass.remaining = [];

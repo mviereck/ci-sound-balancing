@@ -180,7 +180,7 @@ function resetAll() {
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
   // BA 161: FreqMatch-Tab-UI nach Reset auffrischen
   if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
-  if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
+  if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();
   if (typeof FRQ_applyLang === "function") FRQ_applyLang();
   // --- Player-Quellen-Knöpfe ---
   if (typeof plSrcMeas !== "undefined") {
@@ -695,8 +695,8 @@ function applyLoadedData(d) {
   if (typeof FRQ_resultsArray !== "undefined") {
     if (Array.isArray(d.fRes)) {
       // BA 106: KEIN fmStatus-Filter mehr — alle Einträge übernehmen.
-      // _fmCleanupLegacyFRes() entfernt Alt-Adaptive-Schema-Einträge
-      // (mit fmConvUp etc.). _fmMigrateAltSliderFRes() überführt
+      // _FRQ_cleanupLegacyResults() entfernt Alt-Adaptive-Schema-Einträge
+      // (mit fmConvUp etc.). _FRQ_migrateAltSliderResults() überführt
       // Alt-Slider-Einträge (ohne fmStatus) nach
       // freqmatchAdaptive.sliderEstimates, damit sie als Startwerte
       // für den adaptiven Test verfügbar sind.
@@ -704,11 +704,11 @@ function applyLoadedData(d) {
     } else {
       FRQ_resultsArray.splice(0, FRQ_resultsArray.length); // keine FRQ_resultsArray im JSON → zurücksetzen
     }
-    if (typeof _fmCleanupLegacyFRes === "function") _fmCleanupLegacyFRes();
-    if (typeof _fmMigrateAltSliderFRes === "function") _fmMigrateAltSliderFRes();
-    if (typeof _fmMigrateSliderRounds === "function") _fmMigrateSliderRounds();
+    if (typeof _FRQ_cleanupLegacyResults === "function") _FRQ_cleanupLegacyResults();
+    if (typeof _FRQ_migrateAltSliderResults === "function") _FRQ_migrateAltSliderResults();
+    if (typeof _FRQ_migrateSliderRounds === "function") _FRQ_migrateSliderRounds();
     // BA365: Altwerte (Adaptiv/Slider) ins Klavier uebernehmen (Abfrage).
-    if (typeof _fmMigrateAltToPiano === "function") _fmMigrateAltToPiano();
+    if (typeof _FRQ_migrateAltToPiano === "function") _FRQ_migrateAltToPiano();
   }
   // BA 207: Auswahl der Testelektroden für FreqMatch.
   // Alte Dateien ohne dieses Feld → null (= alle aktiven testen).
@@ -741,8 +741,8 @@ function applyLoadedData(d) {
   try {
     const _hasFm =
       (Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
-      || (typeof _fmHasSliderEstimates === "function" && _fmHasSliderEstimates())
-      || (typeof _fmHasAdaptiveData === "function" && _fmHasAdaptiveData());
+      || (typeof _FRQ_hasSliderEstimates === "function" && _FRQ_hasSliderEstimates())
+      || (typeof _FRQ_hasAdaptiveData === "function" && _FRQ_hasAdaptiveData());
     if (_hasFm && typeof pMarkPlayerWarpDefaultAsApplied === "function") {
       pMarkPlayerWarpDefaultAsApplied();
     }
@@ -793,7 +793,7 @@ function applyLoadedData(d) {
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
   if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
   if (typeof FRQ_applyLang === "function") FRQ_applyLang();
-  if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
+  if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();
   if (typeof stereobalanceRefreshElectrodeSelectionSummary === "function") stereobalanceRefreshElectrodeSelectionSummary();
   if (typeof FRQ_refreshElectrodeSelectionSummary === "function") FRQ_refreshElectrodeSelectionSummary();
   if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();

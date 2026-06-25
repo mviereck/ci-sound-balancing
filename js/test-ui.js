@@ -1741,7 +1741,7 @@ var testUI = {
 
     /**
      * BA 219: Range-Hint unter dem Slider (Min/Max-Band + Marker-Dreieck).
-     * Generischer Ersatz fuer die alte _fmUpdateSliderRangeMarker-Logik
+     * Generischer Ersatz fuer die alte _FRQ_updateSliderRangeMarker-Logik
      * (freqmatch) und perspektivisch fuer ls-hint (lr-balance, alte API).
      * No-op wenn rangeHint nicht konfiguriert.
      *

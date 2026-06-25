@@ -43,7 +43,7 @@ const DEP_LOCK_RULES = [
           reasons.push('depReasonFreqMatchAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ — ignorieren */ }
       try {
-        if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
+        if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
           if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
             reasons.push('depReasonFreqMatchAdaptive');
       } catch(ex) {}
@@ -80,7 +80,7 @@ const DEP_LOCK_RULES = [
           reasons.push('depReasonFreqMatchAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       try {
-        if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
+        if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
           if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
             reasons.push('depReasonFreqMatchAdaptive');
       } catch(ex) {}
@@ -113,7 +113,7 @@ const DEP_LOCK_RULES = [
           reasons.push('depReasonFreqMatchAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       try {
-        if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
+        if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
           if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
             reasons.push('depReasonFreqMatchAdaptive');
       } catch(ex) {}
@@ -152,7 +152,7 @@ const DEP_LOCK_RULES = [
       } catch(ex) { /* sliderEstimates noch nicht initialisiert */ }
       // Laufdaten (noch nicht abgeschlossene Runs) ebenfalls berücksichtigen
       try {
-        if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
+        if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
           if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
             reasons.push('depReasonFreqMatchAdaptive');
       } catch(ex) {}
@@ -176,7 +176,7 @@ const DEP_LOCK_RULES = [
           reasons.push('depReasonFreqMatchAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       try {
-        if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
+        if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
           if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
             reasons.push('depReasonFreqMatchAdaptive');
       } catch(ex) {}
@@ -194,14 +194,14 @@ const DEP_LOCK_RULES = [
   }
   ,
   // BA 205: Ausschluss-Checkbox — gesperrt, wenn adaptive FreqMatch-Trials vorliegen.
-  // Bewußt eng nur auf _fmHasAdaptiveData(); Loudness- und Slider-Bezug bleibt außen vor.
+  // Bewußt eng nur auf _FRQ_hasAdaptiveData(); Loudness- und Slider-Bezug bleibt außen vor.
   {
     selectorAll: '.ec',
     fieldLabelKey: 'depFieldExclude',
     getReasonKeys: function() {
       var reasons = [];
       try {
-        if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
+        if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
           reasons.push('depReasonFreqMatchAdaptive');
       } catch(ex) { /* freqmatch noch nicht initialisiert */ }
       return reasons;

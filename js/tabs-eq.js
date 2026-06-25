@@ -47,7 +47,7 @@ function _switchSubtabInternal(parent, subtab) {
   }
   if (parent === "messungen" && subtab === "freqmatch") {
     if (typeof FRQ_applyLang === "function") FRQ_applyLang();
-    if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
+    if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();
   }
   // Sub-Tab-Wechsel weg vom Latenz-Tab: Test stoppen
   if (parent === "messungen" && subtab !== "latenz") {
