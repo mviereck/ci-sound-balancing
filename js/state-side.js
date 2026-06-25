@@ -61,7 +61,7 @@ let elActive = [];  // BA 164: Aktivitäts-Flag pro Elektrode der aktiven Seite
 let fullSweepRound = null,
   fullSweepDonePairs = [];
 function initElektrodenlautstaerkeKurven() {
-  elektrodenlautstaerkeKurven = PR_TYPES.map((tp) => ({
+  elektrodenlautstaerkeKurven = KURVEN_TYPES.map((tp) => ({
     type: tp,
     on: false,
     strength: 0,
@@ -433,7 +433,7 @@ function loadSideData(side, d) {
   s.freqmatchPiano = d.freqmatchPiano || null;
   s.elektrodenlautstaerkeSchieber = d.manualLevels || new Array(s.nEl).fill(0);
   if (d.presets && Array.isArray(d.presets)) {
-    s.elektrodenlautstaerkeKurven = PR_TYPES.map((tp) => {
+    s.elektrodenlautstaerkeKurven = KURVEN_TYPES.map((tp) => {
       const found = d.presets.find((p) => p.type === tp);
       return found || {
         type: tp, on: false, strength: 0, center: CENT_REF_HZ, width: 1200,

@@ -505,51 +505,51 @@ Object.assign(L.fr, {
     schieberVarStack: "empilé",
     schieberVarLines: "lignes de comparaison",
     schieberAbsNotAvailable: "Le mode absolu nécessite des valeurs MCL. Saisir dans l'onglet Implant.",
-    lvPreset: "Preset :",
-    lvPrTilt: "Tilt (aigus/graves)",
-    lvPrPivot: "Pivot (accentuer le milieu)",
-    lvPrSpeech: "Parole (SII)",
-    lvPrVolume: "Volume",
-    lvPrScurve: "Courbe en S",
-    lvPrGauss: "Gauss",
-    lvPrBass: "Bass Boost",
-    lvPrHigh: "High Boost",
-    lvPrStr: "Force :",
-    lvPrExplTilt:
+    kurvenChartLineLabel: "Preset :",
+    kurvenTilt: "Tilt (aigus/graves)",
+    kurvenPivot: "Pivot (accentuer le milieu)",
+    kurvenSpeech: "Parole (SII)",
+    kurvenVolume: "Volume",
+    kurvenScurve: "Courbe en S",
+    kurvenGauss: "Gauss",
+    kurvenBass: "Bass Boost",
+    kurvenHigh: "High Boost",
+    kurvenStrLabel: "Force :",
+    kurvenExplTilt:
       "Augmentation linéaire de l'apical au basal. Valeurs positives accentuent les aigus, négatives les graves. Correspond à l'outil Tilt de MAESTRO.",
-    lvPrExplPivot:
+    kurvenExplPivot:
       "Accentuer le milieu, abaisser les bords (positif) ou inversement. Correspond à l'outil Pivot de MAESTRO.",
-    lvPrExplScurve:
+    kurvenExplScurve:
       "Comme Tilt, mais avec une transition plus douce au milieu. À gauche du milieu abaissé, à droite relevé (ou inversement).",
-    lvPrExplGauss:
+    kurvenExplGauss:
       "Courbe en cloche autour d'une électrode choisie. La largeur détermine combien d'électrodes voisines sont affectées.",
-    lvPrExplBass:
+    kurvenExplBass:
       "Augmenter (positif) ou abaisser (négatif) les basses fréquences. Le point limite détermine jusqu'à quelle électrode l'effet agit.",
-    lvPrExplHigh:
+    kurvenExplHigh:
       "Augmenter (positif) ou abaisser (négatif) les hautes fréquences. Le point limite détermine à partir de quelle électrode l'effet agit.",
-    lvPrExplSpeech:
+    kurvenExplSpeech:
       "Pondération selon l'intelligibilité de la parole (ANSI S3.5 Band Importance Function). Valeurs positives augmentent les fréquences pertinentes pour la parole (env. 800–4000 Hz), négatives les abaissent.",
-    lvPrExplVolume:
+    kurvenExplVolume:
       "Augmente ou abaisse toutes les électrodes actives du même nombre de dB. Agit comme un volume global supplémentaire indépendant du gain du Player.",
-    lvIntroTitle: "Courbes",
-    lvIntroDesc:
+    kurvenIntroTitle: "Courbes",
+    kurvenIntroDesc:
       "Ajustement de l'intensité des électrodes sur toutes les électrodes. Choisissez parmi les fonctions de courbe proposées et ajustez les valeurs en direct.",
-    lvPresetTitle: "Fonctions de courbe",
-    lvPresetBoth: "Appliquer la modification aux deux côtés",
-    lvPresetDesc:
+    kurvenTitle: "Fonctions de courbe",
+    kurvenBoth: "Appliquer la modification aux deux côtés",
+    kurvenDesc:
       "Formes de courbe prédéfinies. Tilt et Pivot correspondent aux outils MAESTRO du même nom. Le preset Parole pondère les fréquences selon leur importance pour l'intelligibilité de la parole (ANSI S3.5). Clavier : ↑↓ ajuste les valeurs dans le champ de saisie.",
-    lvChartTitle: "Vue d'ensemble",
-    lvChartMan: "Manuel",
-    lvChartSum: "Somme",
-    lvChartWarpHint:
+    kurvenChartTitle: "Vue d'ensemble",
+    kurvenChartMan: "Manuel",
+    kurvenChartSum: "Somme",
+    kurvenChartWarpHint:
       "Les écarts de fréquence entre les électrodes sont pris en compte dans ce graphique.<br>" +
       "Avec le warping fréquentiel activé, l'effet des courbes se décale " +
       "légèrement par électrode.",
-    lvPrCenter: "Milieu",
-    lvPrWidth: "Largeur",
-    lvPrCutoff: "Point limite :",
-    lvPrUnitHz: "Hz",
-    lvPrUnitCent: "¢",
+    kurvenCenter: "Milieu",
+    kurvenWidth: "Largeur",
+    kurvenCutoff: "Point limite :",
+    kurvenUnitHz: "Hz",
+    kurvenUnitCent: "¢",
     loadMigratedCurves:
       "Le calcul des courbes a été mathématiquement affiné " +
       "(basé sur la fréquence au lieu des électrodes). Vos anciens " +

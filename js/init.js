@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("apoExportBtn")
     .addEventListener("click", exportEqualizerAPO);
-  ["lvChkMeas", "lvChkMan", "lvChkPre"].forEach((id) =>
+  ["kurvenChkMeas", "kurvenChkMan", "kurvenChkPre"].forEach((id) =>
     document.getElementById(id).addEventListener("change", elektrodenlautstaerkeKurvenChartZeichnen),
   );
   // Player EQ toggle — wirkt als Master-Bypass auch für Frequenz-Warping.

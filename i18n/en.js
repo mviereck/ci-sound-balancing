@@ -504,51 +504,51 @@ Object.assign(L.en, {
     schieberVarStack: "stacked",
     schieberVarLines: "comparison lines",
     schieberAbsNotAvailable: "Absolute mode requires MCL values. Enter them in the Implant tab.",
-    lvPreset: "Preset:",
-    lvPrTilt: "Tilt (treble/bass)",
-    lvPrPivot: "Pivot (emphasize middle)",
-    lvPrSpeech: "Speech (SII)",
-    lvPrVolume: "Volume",
-    lvPrScurve: "S-curve",
-    lvPrGauss: "Gaussian",
-    lvPrBass: "Bass boost",
-    lvPrHigh: "High boost",
-    lvPrStr: "Strength:",
-    lvPrExplTilt:
+    kurvenChartLineLabel: "Preset:",
+    kurvenTilt: "Tilt (treble/bass)",
+    kurvenPivot: "Pivot (emphasize middle)",
+    kurvenSpeech: "Speech (SII)",
+    kurvenVolume: "Volume",
+    kurvenScurve: "S-curve",
+    kurvenGauss: "Gaussian",
+    kurvenBass: "Bass boost",
+    kurvenHigh: "High boost",
+    kurvenStrLabel: "Strength:",
+    kurvenExplTilt:
       "Linear increase from apical to basal. Positive values emphasize treble, negative values bass. Equivalent to the MAESTRO Tilt tool.",
-    lvPrExplPivot:
+    kurvenExplPivot:
       "Emphasize the middle, lower the edges (positive) or vice versa. Equivalent to the MAESTRO Pivot tool.",
-    lvPrExplScurve:
+    kurvenExplScurve:
       "Like Tilt, but with a softer transition in the middle. Lowered to the left of the middle, raised to the right (or vice versa).",
-    lvPrExplGauss:
+    kurvenExplGauss:
       "Bell curve around a chosen electrode. The width determines how many neighboring electrodes are affected.",
-    lvPrExplBass:
+    kurvenExplBass:
       "Boost (positive) or attenuate (negative) low frequencies. The cutoff point determines up to which electrode the effect acts.",
-    lvPrExplHigh:
+    kurvenExplHigh:
       "Boost (positive) or attenuate (negative) high frequencies. The cutoff point determines from which electrode the effect acts.",
-    lvPrExplSpeech:
+    kurvenExplSpeech:
       "Weighting according to speech intelligibility (ANSI S3.5 Band Importance Function). Positive values raise speech-relevant frequencies (approx. 800–4000 Hz), negative values lower them.",
-    lvPrExplVolume:
+    kurvenExplVolume:
       "Raises or lowers all active electrodes by the same dB amount. Acts like an additional overall volume independent of the player gain.",
-    lvIntroTitle: "Curves",
-    lvIntroDesc:
+    kurvenIntroTitle: "Curves",
+    kurvenIntroDesc:
       "Adjustment of the electrode loudness across all electrodes. Choose from the provided curve functions and adjust the values live.",
-    lvPresetTitle: "Curve functions",
-    lvPresetBoth: "Apply changes to both sides",
-    lvPresetDesc:
+    kurvenTitle: "Curve functions",
+    kurvenBoth: "Apply changes to both sides",
+    kurvenDesc:
       "Predefined curve shapes. Tilt and Pivot correspond to the MAESTRO tools of the same name. The Speech preset weights frequencies by their importance for speech intelligibility (ANSI S3.5). Keyboard: ↑↓ adjusts values in the input field.",
-    lvChartTitle: "Overview",
-    lvChartMan: "Manual",
-    lvChartSum: "Sum",
-    lvChartWarpHint:
+    kurvenChartTitle: "Overview",
+    kurvenChartMan: "Manual",
+    kurvenChartSum: "Sum",
+    kurvenChartWarpHint:
       "The frequency spacings of the electrodes are taken into account in this graph.<br>" +
       "With frequency warping enabled, the effect of the curves " +
       "shifts slightly per electrode.",
-    lvPrCenter: "Center",
-    lvPrWidth: "Width",
-    lvPrCutoff: "Cutoff:",
-    lvPrUnitHz: "Hz",
-    lvPrUnitCent: "¢",
+    kurvenCenter: "Center",
+    kurvenWidth: "Width",
+    kurvenCutoff: "Cutoff:",
+    kurvenUnitHz: "Hz",
+    kurvenUnitCent: "¢",
     loadMigratedCurves:
       "The curve calculation has been mathematically refined " +
       "(frequency-based instead of electrode-based). Your old " +

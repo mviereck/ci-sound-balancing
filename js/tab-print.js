@@ -347,21 +347,21 @@ function _buildPresetCardPrint() {
   const active = elektrodenlautstaerkeKurven.filter(pr => pr.on);
   let rows = "";
   for (const pr of active) {
-    let params = `${t("lvPrStr")}: <b>${pr.strength.toFixed(1)} dB</b>`;
-    if (PR_HAS_CENTER[pr.type])
-      params += ` &nbsp; ${t("lvPrCenter")}: ${Math.round(pr.center != null ? pr.center : CENT_REF_HZ)} ${t("lvPrUnitHz")}`;
-    if (PR_HAS_WIDTH[pr.type])
-      params += ` &nbsp; ${t("lvPrWidth")}: ${Math.round(pr.width != null ? pr.width : 1200)} ${t("lvPrUnitCent")}`;
-    if (PR_HAS_CUTOFF[pr.type])
-      params += ` &nbsp; ${t("lvPrCutoff")}: ${pfx}${dEN(pr.cutoff)}`;
+    let params = `${t("kurvenStrLabel")}: <b>${pr.strength.toFixed(1)} dB</b>`;
+    if (KURVEN_HAS_CENTER[pr.type])
+      params += ` &nbsp; ${t("kurvenCenter")}: ${Math.round(pr.center != null ? pr.center : CENT_REF_HZ)} ${t("kurvenUnitHz")}`;
+    if (KURVEN_HAS_WIDTH[pr.type])
+      params += ` &nbsp; ${t("kurvenWidth")}: ${Math.round(pr.width != null ? pr.width : 1200)} ${t("kurvenUnitCent")}`;
+    if (KURVEN_HAS_CUTOFF[pr.type])
+      params += ` &nbsp; ${t("kurvenCutoff")}: ${pfx}${dEN(pr.cutoff)}`;
     rows += `<tr>
-      <td class="pr-name" style="font-weight:bold;padding-right:12px;vertical-align:top">${t(PR_NAMES[pr.type])}</td>
+      <td class="kurven-name" style="font-weight:bold;padding-right:12px;vertical-align:top">${t(KURVEN_NAMES[pr.type])}</td>
       <td style="font-size:.9em;vertical-align:top">${params}</td>
     </tr><tr>
-      <td colspan="2" style="font-size:.78em;padding-top:0;padding-bottom:6px">${t(PR_EXPL[pr.type])}</td>
+      <td colspan="2" style="font-size:.78em;padding-top:0;padding-bottom:6px">${t(KURVEN_EXPL[pr.type])}</td>
     </tr>`;
   }
-  if (!rows) rows = `<tr><td style="font-style:italic">(${t("lvPresetTitle")} — ${t("tabLevels")} keine aktiv)</td></tr>`;
-  return `<div><h2 style="margin-bottom:8px">${t("lvPresetTitle") || "Kurvenfunktionen"}</h2>
+  if (!rows) rows = `<tr><td style="font-style:italic">(${t("kurvenTitle")} — ${t("tabLevels")} keine aktiv)</td></tr>`;
+  return `<div><h2 style="margin-bottom:8px">${t("kurvenTitle") || "Kurvenfunktionen"}</h2>
     <table style="border-collapse:collapse;width:100%">${rows}</table></div>`;
 }

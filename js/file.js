@@ -237,7 +237,7 @@ function resetAll() {
   if (_lvChkCurves) _lvChkCurves.checked = false;
   if (typeof elektrodenlautstaerkeSchieberUpdateModeAvailability === "function") elektrodenlautstaerkeSchieberUpdateModeAvailability();
   // --- „Schieber für beide Seiten gleich"-Checkbox ---
-  const _prBoth = document.getElementById("prBothSides");
+  const _prBoth = document.getElementById("kurvenBothSides");
   if (_prBoth) _prBoth.checked = true;
   // --- UI-Refresh ---
   buildFreqTable();

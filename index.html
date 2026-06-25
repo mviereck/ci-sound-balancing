@@ -823,12 +823,12 @@
       <!-- ===== LEVELS ===== -->
       <div id="panel-levels" class="panel">
         <div class="card">
-          <h2 data-t="lvIntroTitle"></h2>
-          <div class="explain-plain" data-t="lvIntroDesc"></div>
+          <h2 data-t="kurvenIntroTitle"></h2>
+          <div class="explain-plain" data-t="kurvenIntroDesc"></div>
         </div>
-        <div class="card lv-chart-card">
+        <div class="card kurven-chart-card">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
-            <h2 data-t="lvChartTitle" style="margin:0;"></h2>
+            <h2 data-t="kurvenChartTitle" style="margin:0;"></h2>
             <button class="btn" id="printKurvenBtn"
                     style="padding:4px 10px;font-size:0.9em;">
               🖨 <span data-t="printBtn"></span>
@@ -850,7 +850,7 @@
                 gap: 4px;
                 cursor: pointer;
               "
-              ><input type="checkbox" id="lvChkMeas" />
+              ><input type="checkbox" id="kurvenChkMeas" />
               <span style="color: #2563eb">&#9632;</span>
               <span data-t="plSrcMeas"></span
             ></label>
@@ -861,9 +861,9 @@
                 gap: 4px;
                 cursor: pointer;
               "
-              ><input type="checkbox" id="lvChkMan" />
+              ><input type="checkbox" id="kurvenChkMan" />
               <span style="color: #16a34a">&#9632;</span>
-              <span data-t="lvChartMan"></span
+              <span data-t="kurvenChartMan"></span
             ></label>
             <label
               style="
@@ -872,30 +872,30 @@
                 gap: 4px;
                 cursor: pointer;
               "
-              ><input type="checkbox" id="lvChkPre" checked />
+              ><input type="checkbox" id="kurvenChkPre" checked />
               <span style="color: #d97706">&#9632;</span>
-              <span data-t="lvPreset"></span
+              <span data-t="kurvenChartLineLabel"></span
             ></label>
             <span style="color: var(--text-muted)">|</span>
             <span style="font-weight: 600"
-              >&#9644; <span data-t="lvChartSum"></span
+              >&#9644; <span data-t="kurvenChartSum"></span
             ></span>
           </div>
-          <div class="lv-chart-wrap">
-            <canvas id="lvChartCv"></canvas>
+          <div class="kurven-chart-wrap">
+            <canvas id="kurvenChartCv"></canvas>
           </div>
           <div
-            id="lvChartWarpHint"
-            data-t="lvChartWarpHint"
+            id="kurvenChartWarpHint"
+            data-t="kurvenChartWarpHint"
             style="margin-top: 6px; font-size: 0.82em; color: #888;"
           ></div>
         </div>
         <div class="card">
-          <h2 data-t="lvPresetTitle"></h2>
+          <h2 data-t="kurvenTitle"></h2>
           <div
             class="explain-plain"
             style="margin-bottom: 10px"
-            data-t="lvPresetDesc"
+            data-t="kurvenDesc"
           ></div>
           <label
             style="
@@ -907,10 +907,10 @@
               cursor: pointer;
               margin-bottom: 10px;
             "
-            ><input type="checkbox" id="prBothSides" checked />
-            <span data-t="lvPresetBoth"></span
+            ><input type="checkbox" id="kurvenBothSides" checked />
+            <span data-t="kurvenBoth"></span
           ></label>
-          <table class="pr-tbl" id="prTbl"></table>
+          <table class="kurven-tbl" id="kurvenTbl"></table>
         </div>
       </div>
 

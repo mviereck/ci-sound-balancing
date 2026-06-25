@@ -590,7 +590,7 @@ function _archivMdSchieber(sd) {
 function _archivMdKurven(sd) {
   const out = [`### ${t("archivSecKurven")}`, ""];
   for (const p of sd.kurven.list) {
-    const name = (typeof PR_NAMES !== "undefined" && PR_NAMES[p.typeKey]) ? t(PR_NAMES[p.typeKey]) : p.typeKey;
+    const name = (typeof KURVEN_NAMES !== "undefined" && KURVEN_NAMES[p.typeKey]) ? t(KURVEN_NAMES[p.typeKey]) : p.typeKey;
     const parts = [];
     parts.push(`${t("archivKurvStrength")}: ${(p.strength >= 0 ? "+" : "") + p.strength} dB`);
     if (p.center !== null) parts.push(`${t("archivKurvCenter")}: ${(sd.implant.electrodes[Math.round(p.center)] || {}).label || ("E" + p.center)}`);

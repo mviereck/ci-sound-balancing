@@ -697,52 +697,52 @@ select:disabled {
   font-family: var(--mono);
   font-size: 0.86em;
 }
-.pr-tbl {
+.kurven-tbl {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.86em;
 }
-.pr-tbl td {
+.kurven-tbl td {
   padding: 5px 6px;
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
 }
-.pr-tbl td:first-child {
+.kurven-tbl td:first-child {
   width: 28px;
   text-align: center;
 }
-.pr-tbl .pr-name {
+.kurven-tbl .kurven-name {
   font-weight: 600;
   white-space: nowrap;
   min-width: 80px;
 }
-.pr-tbl .pr-param {
+.kurven-tbl .kurven-param {
   display: flex;
   gap: 6px;
   align-items: center;
   flex-wrap: wrap;
 }
-.pr-tbl .pr-param label {
+.kurven-tbl .kurven-param label {
   font-size: 0.82em;
   color: var(--text-muted);
   white-space: nowrap;
 }
-.pr-tbl .pr-param select,
-.pr-tbl .pr-param input[type="number"] {
+.kurven-tbl .kurven-param select,
+.kurven-tbl .kurven-param input[type="number"] {
   padding: 2px 4px;
   border: 1px solid var(--border);
   border-radius: 4px;
   font-family: var(--mono);
   font-size: 0.86em;
 }
-.pr-tbl .pr-param select {
+.kurven-tbl .kurven-param select {
   font-family: var(--font);
 }
-.pr-tbl .pr-param input[type="number"] {
+.kurven-tbl .kurven-param input[type="number"] {
   width: 62px;
   text-align: center;
 }
-.pr-row-off {
+.kurven-row-off {
   opacity: 0.45;
 }
 .subtabs {
@@ -944,7 +944,7 @@ select:disabled {
   gap: 4px;
   margin-top: 4px;
 }
-.lv-chart-wrap {
+.kurven-chart-wrap {
   position: relative;
   width: 100%;
   height: 400px;
@@ -952,16 +952,16 @@ select:disabled {
   border-radius: 8px;
   overflow: hidden;
 }
-.lv-chart-wrap canvas {
+.kurven-chart-wrap canvas {
   width: 100%;
   height: 100%;
   display: block;
 }
-.lv-chart-card {
+.kurven-chart-card {
   background: var(--surface);
 }
 @media (max-width: 768px) {
-  .lv-chart-card {
+  .kurven-chart-card {
     position: sticky;
     top: 0;
     z-index: 5;
@@ -1003,7 +1003,7 @@ select:disabled {
     padding: 4px 10px;
     font-size: 1em;
   }
-  .lv-chart-wrap {
+  .kurven-chart-wrap {
     height: 200px;
   }
 }
@@ -1052,7 +1052,7 @@ select:disabled {
   padding: 2px 8px;
   font-size: 0.95em;
 }
-.prStr-touch {
+.kurvenStr-touch {
   margin-left: 6px;
 }
 
