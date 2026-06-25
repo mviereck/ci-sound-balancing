@@ -241,8 +241,8 @@ function resetAll() {
   if (_prBoth) _prBoth.checked = true;
   // --- UI-Refresh ---
   buildFreqTable();
-  buildPrTbl();
-  drawLvChart();
+  elektrodenlautstaerkeKurvenTabelleBauen();
+  elektrodenlautstaerkeKurvenChartZeichnen();
   renderResults();
   if (typeof buildImplantCard === "function") buildImplantCard();
   if (typeof lvTabRebuild === "function") lvTabRebuild();
@@ -800,8 +800,8 @@ function applyLoadedData(d) {
   if (typeof stereobalanceRefreshToneTypeLabel === "function") stereobalanceRefreshToneTypeLabel();
   if (typeof fmRefreshToneTypeLabel === "function") fmRefreshToneTypeLabel();
   if (typeof testRefreshToneTypeLabel === "function") testRefreshToneTypeLabel();
-  if (typeof buildPrTbl === "function") buildPrTbl();
-  if (typeof drawLvChart === "function") drawLvChart();
+  if (typeof elektrodenlautstaerkeKurvenTabelleBauen === "function") elektrodenlautstaerkeKurvenTabelleBauen();
+  if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
   if (typeof d.levelsTabShowMeas === "boolean") lvTabShowMeas = d.levelsTabShowMeas;
   if (typeof d.levelsTabShowCurves === "boolean") lvTabShowCurves = d.levelsTabShowCurves;
   if (typeof d.levelsTabMode === "string") lvTabMode = d.levelsTabMode;

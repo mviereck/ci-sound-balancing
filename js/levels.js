@@ -2,7 +2,7 @@
 // LEVELS – Preset-Berechnung und Levels-Tab
 // ============================================================
 
-function calcPresetCurve(pr) {
+function elektrodenlautstaerkeKurveBerechnen(pr) {
   const act = allEl(),
     n = nEl,
     c = new Array(n).fill(0);
@@ -97,26 +97,26 @@ function calcPresetCurve(pr) {
   }
   return c;
 }
-function getTotalPresetCurve() {
+function elektrodenlautstaerkeKurvenSumme() {
   const c = new Array(nEl).fill(0);
   for (const pr of elektrodenlautstaerkeKurven) {
     if (!pr.on || pr.strength === 0) continue;
-    const pc = calcPresetCurve(pr);
+    const pc = elektrodenlautstaerkeKurveBerechnen(pr);
     for (let i = 0; i < nEl; i++) c[i] += pc[i] * pr.strength;
   }
   return c;
 }
-function getEffectiveLevels() {
-  const pc = getTotalPresetCurve();
+function elektrodenlautstaerkeEffektiv() {
+  const pc = elektrodenlautstaerkeKurvenSumme();
   return elektrodenlautstaerkeSchieber.map((m, i) => m + pc[i]);
 }
 
-function lvOnChange() {
-  drawLvChart();
+function elektrodenlautstaerkeKurvenOnChange() {
+  elektrodenlautstaerkeKurvenChartZeichnen();
   if (typeof lvTabDraw === "function") lvTabDraw();
   if (pEqF.length > 0) pUpdEQ();
 }
-function applyPresetDeltaOtherSide(pi, delta, currentPr) {
+function elektrodenlautstaerkeKurvenDeltaAndereSeite(pi, delta, currentPr) {
   if (!document.getElementById("prBothSides")?.checked) return;
   if (Math.abs(delta) < 0.001) return;
   const otherSide = activeSide === "left" ? "right" : "left";
@@ -133,7 +133,7 @@ function applyPresetDeltaOtherSide(pi, delta, currentPr) {
     if (currentPr.cutoff !== undefined) op[pi].cutoff = currentPr.cutoff;
   }
 }
-function _prStrTouchCtrl(inp, pi) {
+function _elektrodenlautstaerkeKurvenStrTouchCtrl(inp, pi) {
   if (!inp) return null;
   var box = document.createElement('div');
   box.className = 'touch-ctrl prStr-touch';
@@ -147,8 +147,8 @@ function _prStrTouchCtrl(inp, pi) {
     var newVal = Math.max(-20, Math.min(20, +(oldVal + dir * st).toFixed(1)));
     elektrodenlautstaerkeKurven[pi].strength = newVal;
     inp.value = newVal.toFixed(1);
-    applyPresetDeltaOtherSide(pi, newVal - oldVal, elektrodenlautstaerkeKurven[pi]);
-    lvOnChange();
+    elektrodenlautstaerkeKurvenDeltaAndereSeite(pi, newVal - oldVal, elektrodenlautstaerkeKurven[pi]);
+    elektrodenlautstaerkeKurvenOnChange();
   }
 
   function mkBtn(label, cls) {
@@ -178,7 +178,7 @@ function _prStrTouchCtrl(inp, pi) {
   }
   return box;
 }
-function buildPrTbl() {
+function elektrodenlautstaerkeKurvenTabelleBauen() {
   const tbl = document.getElementById("prTbl");
   tbl.innerHTML = "";
   const act = allEl();
@@ -230,8 +230,8 @@ function buildPrTbl() {
           op[pi].on = this.checked;
         }
       }
-      buildPrTbl();
-      lvOnChange();
+      elektrodenlautstaerkeKurvenTabelleBauen();
+      elektrodenlautstaerkeKurvenOnChange();
       if (this.checked) {
         const strInp = tbl.querySelector(
           `.prStr[data-pi="${this.dataset.pi}"]`,
@@ -248,8 +248,8 @@ function buildPrTbl() {
       const delta = newVal - oldVal;
       elektrodenlautstaerkeKurven[pi].strength = newVal;
       this.value = newVal.toFixed(1);
-      applyPresetDeltaOtherSide(pi, delta, elektrodenlautstaerkeKurven[pi]);
-      lvOnChange();
+      elektrodenlautstaerkeKurvenDeltaAndereSeite(pi, delta, elektrodenlautstaerkeKurven[pi]);
+      elektrodenlautstaerkeKurvenOnChange();
     });
     inp.addEventListener("keydown", function (e) {
       if (e.key === "ArrowUp" || e.key === "ArrowDown") {
@@ -270,11 +270,11 @@ function buildPrTbl() {
           );
         const delta = elektrodenlautstaerkeKurven[pi].strength - oldVal;
         this.value = elektrodenlautstaerkeKurven[pi].strength.toFixed(1);
-        applyPresetDeltaOtherSide(pi, delta, elektrodenlautstaerkeKurven[pi]);
-        lvOnChange();
+        elektrodenlautstaerkeKurvenDeltaAndereSeite(pi, delta, elektrodenlautstaerkeKurven[pi]);
+        elektrodenlautstaerkeKurvenOnChange();
       }
     });
-    _prStrTouchCtrl(inp, +inp.dataset.pi);
+    _elektrodenlautstaerkeKurvenStrTouchCtrl(inp, +inp.dataset.pi);
   });
   tbl.querySelectorAll(".prCtr").forEach((inp) =>
     inp.addEventListener("change", function () {
@@ -291,7 +291,7 @@ function buildPrTbl() {
           op[pi].center = v;
         }
       }
-      lvOnChange();
+      elektrodenlautstaerkeKurvenOnChange();
     }),
   );
   tbl.querySelectorAll(".prWid").forEach((inp) =>
@@ -309,18 +309,18 @@ function buildPrTbl() {
           op[pi].width = v;
         }
       }
-      lvOnChange();
+      elektrodenlautstaerkeKurvenOnChange();
     }),
   );
   tbl.querySelectorAll(".prCut").forEach((sel) =>
     sel.addEventListener("change", function () {
       elektrodenlautstaerkeKurven[+this.dataset.pi].cutoff = +this.value;
-      lvOnChange();
+      elektrodenlautstaerkeKurvenOnChange();
     }),
   );
   applyMobileReadonly(tbl);
 }
-function drawLvChart() {
+function elektrodenlautstaerkeKurvenChartZeichnen() {
   const cv = document.getElementById("lvChartCv");
   if (!cv) return;
   const wp = cv.parentElement,
@@ -338,7 +338,7 @@ function drawLvChart() {
   const act = allEl();
   if (!act.length) return;
   const corr = elTestData().correction;
-  const pc = getTotalPresetCurve();
+  const pc = elektrodenlautstaerkeKurvenSumme();
   const measV = act.map((i) => corr[i]);
   const manV = act.map((i) => elektrodenlautstaerkeSchieber[i]);
   const preV = act.map((i) => pc[i]);

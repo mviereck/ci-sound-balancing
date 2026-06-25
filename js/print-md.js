@@ -831,7 +831,7 @@ function _audStatusText(side, i) {
 
 // ---------- Testprogramm-Heuristik ----------
 // Erkennt: keine elektroden-spezifische Klangformung.
-// Schieber (getTotalPresetCurve) + Kurven (elektrodenlautstaerkeSchieber) werden mit
+// Schieber (elektrodenlautstaerkeKurvenSumme) + Kurven (elektrodenlautstaerkeSchieber) werden mit
 // EQ-Stärke skaliert; Mittelwert wird abgezogen (reine Pegelver-
 // schiebung ist erlaubt); Standardabweichung über aktive Elektroden
 // muß < 0.2 dB sein. Außerdem: EQ aktiv, NH-Sim aus.
@@ -843,7 +843,7 @@ function _audiologIsTestProgram(side) {
   if (nhSim) return false;
   return withSide(side, () => {
     const presetC = (typeof plSrcCurves !== "undefined" && plSrcCurves)
-      ? getTotalPresetCurve() : new Array(nEl).fill(0);
+      ? elektrodenlautstaerkeKurvenSumme() : new Array(nEl).fill(0);
     const lvls = (typeof plSrcLevels !== "undefined" && plSrcLevels)
       ? elektrodenlautstaerkeSchieber.slice() : new Array(nEl).fill(0);
     const active = [];
@@ -1788,7 +1788,7 @@ function _archivChartKurven(sideBlock) {
     const W = canvas.width, H = canvas.height;
     const pad = { l: 36, r: 14, t: 22, b: 46 };
     const n = nEl;
-    const total = getTotalPresetCurve();
+    const total = elektrodenlautstaerkeKurvenSumme();
     let maxAbs = 1;
     for (let i = 0; i < n; i++) maxAbs = Math.max(maxAbs, Math.abs(total[i] || 0));
     maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
@@ -1805,7 +1805,7 @@ function _archivChartKurven(sideBlock) {
     let ci = 0;
     for (const p of elektrodenlautstaerkeKurven) {
       if (!p.on || p.strength === 0) continue;
-      const curve = calcPresetCurve(p, n);
+      const curve = elektrodenlautstaerkeKurveBerechnen(p, n);
       ctx.strokeStyle = COLORS[ci % COLORS.length];
       ctx.lineWidth = 1.2;
       ctx.beginPath();

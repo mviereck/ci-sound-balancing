@@ -22,7 +22,7 @@ function effFreq(i) {
 }
 // Effektive Anzeige-/Berechnungs-Frequenz unter Berücksichtigung des
 // aktuellen Frequenz-Warping-Zustands. Verwendet von Kurven-Tab
-// (drawLvChart, calcPresetCurve) und Player (pDrawEQ, pBuildEQ) für
+// (elektrodenlautstaerkeKurvenChartZeichnen, elektrodenlautstaerkeKurveBerechnen) und Player (pDrawEQ, pBuildEQ) für
 // die Cent-basierte x-Achse und die Frequenz-Interpolation.
 //
 // Andere Module (Tests, Audio-Pfad, Schieber-Tab, Meßergebnisse,
@@ -60,7 +60,7 @@ let elektrodenlautstaerkeKurven = [];
 let elActive = [];  // BA 164: Aktivitäts-Flag pro Elektrode der aktiven Seite
 let fullSweepRound = null,
   fullSweepDonePairs = [];
-function initPresets() {
+function initElektrodenlautstaerkeKurven() {
   elektrodenlautstaerkeKurven = PR_TYPES.map((tp) => ({
     type: tp,
     on: false,
@@ -121,7 +121,7 @@ function setRefEl(v) {
   refEl = v;
   if (sideData[activeSide]) sideData[activeSide].refEl = v;
   if (typeof renderResults === "function") renderResults();
-  if (typeof drawLvChart === "function") drawLvChart();
+  if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
   if (typeof pUpdEQ === "function") pUpdEQ();
 }
 function initSideData(side, m) {
@@ -159,7 +159,7 @@ function initSideData(side, m) {
   };
   activeSide = side;
   bindActiveSide();
-  initPresets();
+  initElektrodenlautstaerkeKurven();
   s.elektrodenlautstaerkeKurven = elektrodenlautstaerkeKurven;
 }
 function updSideButtons() {
@@ -211,8 +211,8 @@ function setActiveSide(side) {
   if (cfgSel) cfgSel.value = config;
 
   buildFreqTable();
-  buildPrTbl();
-  drawLvChart();
+  elektrodenlautstaerkeKurvenTabelleBauen();
+  elektrodenlautstaerkeKurvenChartZeichnen();
   if (typeof lvTabRebuild === "function") lvTabRebuild();
   renderResults();
   buildImplantCard();

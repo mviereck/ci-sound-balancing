@@ -417,7 +417,7 @@ function updRef() {
   if (sideData[activeSide]) sideData[activeSide].refEl = want;
   if (want !== prevRef) {
     if (typeof renderResults === 'function') renderResults();
-    if (typeof drawLvChart    === 'function') drawLvChart();
+    if (typeof elektrodenlautstaerkeKurvenChartZeichnen    === 'function') elektrodenlautstaerkeKurvenChartZeichnen();
     if (typeof pUpdEQ         === 'function') pUpdEQ();
   }
 }
@@ -471,7 +471,7 @@ function switchMfr(m) {
   s.implant.thr = new Array(s.nEl).fill(null);
   s.implant.upperLevel = new Array(s.nEl).fill(null);
   bindActiveSide();
-  initPresets();
+  initElektrodenlautstaerkeKurven();
   s.elektrodenlautstaerkeKurven = elektrodenlautstaerkeKurven;
   elektrodenlautstaerkeResults.splice(0, elektrodenlautstaerkeResults.length);
   refEl = Math.floor(nEl / 2);

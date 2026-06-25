@@ -93,7 +93,7 @@ function lvTabDrawRelative(ctx, W, H) {
     elActive[i] === false || elSt[i] === "mute" || elExDur[i] !== null;
 
   const measArr = elTestData().correction;
-  const preArr = getTotalPresetCurve();
+  const preArr = elektrodenlautstaerkeKurvenSumme();
   const cols = all.map((i) => {
     if (isExcluded(i)) return { i, excluded: true };
     const sch = elektrodenlautstaerkeSchieber[i] || 0;
@@ -171,7 +171,7 @@ function lvTabDrawAbsolute(ctx, W, H) {
   const unitLbl = lvUnitLabelFor(mfr);
 
   const measArr = elTestData().correction;
-  const preArr = getTotalPresetCurve();
+  const preArr = elektrodenlautstaerkeKurvenSumme();
 
   const toAbs = (dB, mclAudi, thrAudi) => {
     if (isMedel) return calcMedel(dB, mclAudi).absolute;
@@ -586,16 +586,16 @@ function lvTabOnSchieberChange(i, newVal) {
     val = Math.max(-LV_TAB_RANGE, Math.min(LV_TAB_RANGE, val));
   }
   elektrodenlautstaerkeSchieber[i] = val;
-  if (typeof buildPrTbl === "function") buildPrTbl();
-  if (typeof drawLvChart === "function") drawLvChart();
+  if (typeof elektrodenlautstaerkeKurvenTabelleBauen === "function") elektrodenlautstaerkeKurvenTabelleBauen();
+  if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
   if (typeof pEqF !== "undefined" && pEqF.length > 0) pUpdEQ();
   lvTabDraw();
 }
 
 function lvTabResetAll() {
   for (let i = 0; i < nEl; i++) elektrodenlautstaerkeSchieber[i] = 0;
-  if (typeof buildPrTbl === "function") buildPrTbl();
-  if (typeof drawLvChart === "function") drawLvChart();
+  if (typeof elektrodenlautstaerkeKurvenTabelleBauen === "function") elektrodenlautstaerkeKurvenTabelleBauen();
+  if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
   if (typeof pEqF !== "undefined" && pEqF.length > 0) pUpdEQ();
   lvTabDraw();
 }

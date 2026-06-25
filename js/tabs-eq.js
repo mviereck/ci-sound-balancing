@@ -253,8 +253,8 @@ function _switchTabInternal(n) {
     plCheck();
   }
   if (n === "levels") {
-    buildPrTbl();
-    drawLvChart();
+    elektrodenlautstaerkeKurvenTabelleBauen();
+    elektrodenlautstaerkeKurvenChartZeichnen();
   }
   if (n === "schieber") {
     if (typeof lvTabRebuild === "function") lvTabRebuild();

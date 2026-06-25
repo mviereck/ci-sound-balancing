@@ -576,7 +576,7 @@ function getPlaybackBuffer() {
 
 function computeGains() {
   const corr = elTestData().correction;
-  const presetCurve = getTotalPresetCurve();
+  const presetCurve = elektrodenlautstaerkeKurvenSumme();
   const g = new Array(nEl).fill(0);
   for (let i = 0; i < nEl; i++) {
     // corr[i] ist bereits gegatet (ungemessen/ausgeschlossen/stumm => 0),
@@ -1388,7 +1388,7 @@ window.addEventListener("resize", () => {
       renderResults();
   }
   if (document.getElementById("panel-levels").classList.contains("active"))
-    drawLvChart();
+    elektrodenlautstaerkeKurvenChartZeichnen();
   if (document.getElementById("subpanel-ergebnisse-stereobalance")?.classList.contains("active"))
     stereobalanceDrawChart();
 });

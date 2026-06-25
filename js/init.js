@@ -103,8 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
     setSideConfig(activeSide, e.target.value);
     buildFreqTable();
     buildImplantCard();
-    buildPrTbl();
-    drawLvChart();
+    elektrodenlautstaerkeKurvenTabelleBauen();
+    elektrodenlautstaerkeKurvenChartZeichnen();
     renderResults();
     if (typeof stereobalanceCheckData === "function") stereobalanceCheckData();
     if (typeof fmApplyLang === "function") fmApplyLang();
@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("apoExportBtn")
     .addEventListener("click", exportEqualizerAPO);
   ["lvChkMeas", "lvChkMan", "lvChkPre"].forEach((id) =>
-    document.getElementById(id).addEventListener("change", drawLvChart),
+    document.getElementById(id).addEventListener("change", elektrodenlautstaerkeKurvenChartZeichnen),
   );
   // Player EQ toggle — wirkt als Master-Bypass auch für Frequenz-Warping.
   // Wenn pWarpOn=true und Wiedergabe läuft, muss der Audio-Graph gewechselt
@@ -458,7 +458,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
       if (wasPlaying && typeof _pSetPlayWish === "function") _pSetPlayWish(true);
       pWarpTrigger();
-      if (typeof drawLvChart === "function") drawLvChart();
+      if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
       if (typeof pDrawEQ === "function") pDrawEQ();
       if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
       return;
@@ -474,7 +474,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pWarpUpdUI();
     if (wasPlaying) pPlay();
     else if (typeof pBuildEQ === "function") pBuildEQ();
-    if (typeof drawLvChart === "function") drawLvChart();
+    if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
     if (typeof pDrawEQ === "function") pDrawEQ();
     if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
   });
@@ -492,7 +492,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pBuf = getPlaybackBuffer();   // ungewarpt (pWarpOn === false)
       if (typeof pWarpUpdUI === "function") pWarpUpdUI();
       if (wasPlaying) { if (typeof _pSetPlayWish === "function") _pSetPlayWish(true); if (typeof pPlay === "function") pPlay(); }
-      if (typeof drawLvChart === "function") drawLvChart();
+      if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
       if (typeof pDrawEQ === "function") pDrawEQ();
       if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
     });
@@ -512,7 +512,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pWarpMode = this.value;
     _pWarpParamsChanged();
     if (!pPlaying && typeof pBuildEQ === "function") pBuildEQ();
-    if (typeof drawLvChart === "function") drawLvChart();
+    if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
     if (typeof pDrawEQ === "function") pDrawEQ();
     if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
   });
@@ -791,7 +791,7 @@ document.addEventListener("DOMContentLoaded", () => {
       buildFreqTable();
       buildImplantCard();
       updSideButtons();
-      if (typeof drawLvChart === "function") drawLvChart();
+      if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
       if (typeof pBuildEQ === "function") pBuildEQ();
       if (typeof pDrawEQ === "function") pDrawEQ();
       if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
