@@ -947,22 +947,22 @@ document.addEventListener("DOMContentLoaded", () => {
           toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
             ? toneType_freqmatch : TEST_DEFAULTS.freqmatch.toneType,
           toneType_balance: (typeof toneType_stereobalance !== "undefined")
-            ? toneType_stereobalance : TEST_DEFAULTS.balance.toneType,
+            ? toneType_stereobalance : TEST_DEFAULTS.stereobalance.toneType,
           // BA 287: gemeinsame Lautstaerke.
           volume_global: (typeof volume_global !== "undefined") ? volume_global : TEST_DEFAULTS.commonVolume,
-          duration_balance: (typeof duration_stereobalance !== "undefined") ? duration_stereobalance : TEST_DEFAULTS.balance.duration,
-          pause_balance:    (typeof pause_stereobalance    !== "undefined") ? pause_stereobalance    : TEST_DEFAULTS.balance.pause,
+          duration_balance: (typeof duration_stereobalance !== "undefined") ? duration_stereobalance : TEST_DEFAULTS.stereobalance.duration,
+          pause_balance:    (typeof pause_stereobalance    !== "undefined") ? pause_stereobalance    : TEST_DEFAULTS.stereobalance.pause,
           // BA 282: Tonart/Dur/Pau Elektrodenlautstaerke (wie Datei-Save).
           toneType_test: (typeof toneType_elektrodenlautstaerke !== "undefined")
-            ? toneType_elektrodenlautstaerke : TEST_DEFAULTS.test.toneType,
-          duration_test: (typeof duration_elektrodenlautstaerke !== "undefined") ? duration_elektrodenlautstaerke : TEST_DEFAULTS.test.duration,
-          pause_test:    (typeof pause_elektrodenlautstaerke    !== "undefined") ? pause_elektrodenlautstaerke    : TEST_DEFAULTS.test.pause,
+            ? toneType_elektrodenlautstaerke : TEST_DEFAULTS.elektrodenlautstaerke.toneType,
+          duration_test: (typeof duration_elektrodenlautstaerke !== "undefined") ? duration_elektrodenlautstaerke : TEST_DEFAULTS.elektrodenlautstaerke.duration,
+          pause_test:    (typeof pause_elektrodenlautstaerke    !== "undefined") ? pause_elektrodenlautstaerke    : TEST_DEFAULTS.elektrodenlautstaerke.pause,
           // BA 282: Dur/Pau Frequenzabgleich (wie Datei-Save; Tonart ist oben schon dabei).
           duration_freqmatch: (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : TEST_DEFAULTS.freqmatch.duration,
           pause_freqmatch:    (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : TEST_DEFAULTS.freqmatch.pause,
           sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
-          sequence_test:      (typeof sequence_elektrodenlautstaerke      !== "undefined") ? sequence_elektrodenlautstaerke      : TEST_DEFAULTS.test.sequence,
-          sequence_balance:   (typeof sequence_stereobalance   !== "undefined") ? sequence_stereobalance   : TEST_DEFAULTS.balance.sequence,
+          sequence_test:      (typeof sequence_elektrodenlautstaerke      !== "undefined") ? sequence_elektrodenlautstaerke      : TEST_DEFAULTS.elektrodenlautstaerke.sequence,
+          sequence_balance:   (typeof sequence_stereobalance   !== "undefined") ? sequence_stereobalance   : TEST_DEFAULTS.stereobalance.sequence,
           levelsTabMode: lvTabMode,
           levelsTabVariant: lvTabVariant,
           levelsTabShowMeas: lvTabShowMeas,

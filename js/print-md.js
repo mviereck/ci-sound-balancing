@@ -118,16 +118,16 @@ function _collectTestSettings() {
              duration: duration, pause: pause, volume: volume };
   }
   return {
-    test: _row(
-      (typeof toneType_elektrodenlautstaerke !== "undefined") ? toneType_elektrodenlautstaerke : TEST_DEFAULTS.test.toneType,
-      (typeof sequence_elektrodenlautstaerke !== "undefined") ? sequence_elektrodenlautstaerke : TEST_DEFAULTS.test.sequence,
+    elektrodenlautstaerke: _row(
+      (typeof toneType_elektrodenlautstaerke !== "undefined") ? toneType_elektrodenlautstaerke : TEST_DEFAULTS.elektrodenlautstaerke.toneType,
+      (typeof sequence_elektrodenlautstaerke !== "undefined") ? sequence_elektrodenlautstaerke : TEST_DEFAULTS.elektrodenlautstaerke.sequence,
       (typeof duration_elektrodenlautstaerke !== "undefined") ? duration_elektrodenlautstaerke : null,
       (typeof pause_elektrodenlautstaerke    !== "undefined") ? pause_elektrodenlautstaerke    : null,
       (typeof volume_global !== "undefined") ? volume_global : null
     ),
-    balance: _row(
-      (typeof toneType_stereobalance !== "undefined") ? toneType_stereobalance : TEST_DEFAULTS.balance.toneType,
-      (typeof sequence_stereobalance !== "undefined") ? sequence_stereobalance : TEST_DEFAULTS.balance.sequence,
+    stereobalance: _row(
+      (typeof toneType_stereobalance !== "undefined") ? toneType_stereobalance : TEST_DEFAULTS.stereobalance.toneType,
+      (typeof sequence_stereobalance !== "undefined") ? sequence_stereobalance : TEST_DEFAULTS.stereobalance.sequence,
       (typeof duration_stereobalance !== "undefined") ? duration_stereobalance : null,
       (typeof pause_stereobalance    !== "undefined") ? pause_stereobalance    : null,
       (typeof volume_global    !== "undefined") ? volume_global    : null
@@ -510,8 +510,8 @@ function _archivMdTestSettings(data) {
     if (row.volume   != null) lines.push("- " + t("lblVol") + ": " + row.volume   + " %");
   }
 
-  _renderRow("testVerfahrenFull",  ts.test);
-  _renderRow("stereobalanceTitle",            ts.balance);
+  _renderRow("testVerfahrenFull",  ts.elektrodenlautstaerke);
+  _renderRow("stereobalanceTitle",            ts.stereobalance);
   _renderRow("fmTitle",            ts.freqmatch);
 
   return lines.join("\n") + "\n";
