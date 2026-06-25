@@ -1532,7 +1532,7 @@ function _audiologFreqChartImg(side) {
     if (hasSliderEst) {
       ctx.fillStyle = "#555"; ctx.font = "9px sans-serif"; ctx.textAlign = "right";
       const legendY = hasProv ? 30 : 18;
-      ctx.fillText("◇ " + t("fmrStatusSliderEst"), Wlog - pad.r, legendY);
+      ctx.fillText("◇ " + t("FRQ_resultsStatusSliderEstimate"), Wlog - pad.r, legendY);
     }
 
     return `<img src="${canvas.toDataURL("image/png")}" style="width:${Wlog}px;max-width:100%;height:auto;" />`;

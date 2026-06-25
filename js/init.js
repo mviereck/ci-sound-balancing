@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (_btnL) _btnL.textContent = t("tabElektrodenlautstaerke");
   const _btnF = document.getElementById("subTabFreqMatchBtn");
   if (_btnF) _btnF.textContent = t("subTabFreqMatch");
-  const _nd = document.getElementById("fmrNoDataText");
-  if (_nd) _nd.textContent = t("fmrNoData");
+  const _nd = document.getElementById("FRQ_resultsNoDataText");
+  if (_nd) _nd.textContent = t("FRQ_resultsNoData");
   document.getElementById("langSelect").addEventListener("change", () => window.applyLang());
   // toneHint-Texte: keine separaten Boxen mehr — in buildTestPanel-Erklärungsblock
   function updToneHint() {
@@ -44,9 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnL) btnL.textContent = t("tabElektrodenlautstaerke");
     const btnF = document.getElementById("subTabFreqMatchBtn");
     if (btnF) btnF.textContent = t("subTabFreqMatch");
-    // fmrNoData-Text
-    const nd = document.getElementById("fmrNoDataText");
-    if (nd) nd.textContent = t("fmrNoData");
+    // FRQ_resultsNoData-Text
+    const nd = document.getElementById("FRQ_resultsNoDataText");
+    if (nd) nd.textContent = t("FRQ_resultsNoData");
     // Wenn Frequenzabgleich-Tab aktiv: neu rendern
     const activeSubtab = document.querySelector('.subtab[data-parent="ergebnisse"].active');
     if (activeSubtab && activeSubtab.dataset.subtab === "freqmatch") {

@@ -675,25 +675,25 @@
         </div>
 
         <div id="subpanel-ergebnisse-freqmatch" class="subpanel">
-          <div id="fmrNoData" class="card">
-            <p style="color: var(--text-muted)" id="fmrNoDataText"></p>
+          <div id="FRQ_resultsNoData" class="card">
+            <p style="color: var(--text-muted)" id="FRQ_resultsNoDataText"></p>
           </div>
-          <div class="card" id="fmrCard" style="display:none">
-            <h2 id="fmrTitle"></h2>
-            <p style="font-size:0.84em;color:var(--text-muted);margin-bottom:10px" id="fmrMeta"></p>
-            <div id="fmrProgressBox" style="display:none;margin:10px 0;">
+          <div class="card" id="FRQ_resultsCard" style="display:none">
+            <h2 id="FRQ_resultsTitle"></h2>
+            <p style="font-size:0.84em;color:var(--text-muted);margin-bottom:10px" id="FRQ_resultsMeta"></p>
+            <div id="FRQ_resultsProgressBox" style="display:none;margin:10px 0;">
               <div style="display:flex;justify-content:space-between;font-size:.85em;color:#555;margin-bottom:4px;">
-                <span data-t="fmrProgressLabel">Fortschritt laufende Messung</span>
-                <span id="fmrProgressText">—</span>
+                <span data-t="FRQ_resultsProgressLabel">Fortschritt laufende Messung</span>
+                <span id="FRQ_resultsProgressText">—</span>
               </div>
               <div style="background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
-                <div id="fmrProgressFill" style="background:#3b82f6;height:100%;width:0%;transition:width .3s ease;"></div>
+                <div id="FRQ_resultsProgressFill" style="background:#3b82f6;height:100%;width:0%;transition:width .3s ease;"></div>
               </div>
             </div>
-            <div id="fmrQualityText" data-t="" style="margin:10px 0;padding:8px 10px;background:#f9fafb;border-left:3px solid #cbd5e1;font-size:.9em;color:#374151;border-radius:0 4px 4px 0;display:none;"></div>
+            <div id="FRQ_resultsQualityText" data-t="" style="margin:10px 0;padding:8px 10px;background:#f9fafb;border-left:3px solid #cbd5e1;font-size:.9em;color:#374151;border-radius:0 4px 4px 0;display:none;"></div>
             <div
               style="margin-bottom:14px;padding:12px 16px;background:var(--accent-light);border-radius:8px;border-left:3px solid var(--accent);font-size:0.86em;line-height:1.6"
-              id="fmrMethodNote"
+              id="FRQ_resultsMethodNote"
             ></div>
             <!-- BA353: vorlaeufiger Umschalter aktives Verfahren -->
             <!-- BA363 Klavier-only: ausgeblendet; zum Reaktivieren display:none entfernen -->
@@ -703,25 +703,25 @@
               <button id="FRQ_activeMethodPianoBtn" class="btn btn-sm" style="font-weight:600;border-radius:6px" data-t="fmModePiano"></button>
             </div>
             <div class="chart-container" style="margin-bottom:16px">
-              <canvas id="fmrChart" width="800" height="360"></canvas>
+              <canvas id="FRQ_resultsChart" width="800" height="360"></canvas>
               <p
                 style="font-size:0.82em;color:var(--text-muted);margin-top:10px;line-height:1.5"
-                id="fmrChartHint"
+                id="FRQ_resultsChartHint"
               ></p>
             </div>
-            <div id="fmrRunHint" style="display:none;margin-bottom:14px;padding:10px 14px;background:#fefce8;border-left:3px solid #ca8a04;border-radius:0 4px 4px 0;font-size:0.86em;line-height:1.6;color:#374151"></div>
-            <div id="fmrSidesDesc" style="margin-bottom:14px;font-size:0.86em;line-height:1.6;color:#374151"></div>
+            <div id="FRQ_resultsRunHint" style="display:none;margin-bottom:14px;padding:10px 14px;background:#fefce8;border-left:3px solid #ca8a04;border-radius:0 4px 4px 0;font-size:0.86em;line-height:1.6;color:#374151"></div>
+            <div id="FRQ_resultsSidesDescription" style="margin-bottom:14px;font-size:0.86em;line-height:1.6;color:#374151"></div>
             <div style="overflow-x:auto">
-              <table class="results-table" id="fmrTable">
-                <thead><tr id="fmrTH"></tr></thead>
-                <tbody id="fmrTB"></tbody>
+              <table class="results-table" id="FRQ_resultsTable">
+                <thead><tr id="FRQ_resultsTableHead"></tr></thead>
+                <tbody id="FRQ_resultsTableBody"></tbody>
               </table>
             </div>
             <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px">
-              <button class="btn" id="fmrClearPianoBtn" style="color:var(--danger)" data-t="fmrClearPianoBtnLabel"></button>
-              <button class="btn" id="fmrClearAllBtn" style="color:var(--danger);display:none" data-t="fmrClearAllBtnLabel"></button>
-              <button class="btn" id="fmrClearSliderBtn" style="display:none" data-t="fmrClearSliderBtnLabel"></button>
-              <button class="btn" id="fmrClearAdaptiveBtn" style="display:none" data-t="fmrClearAdaptiveBtnLabel"></button>
+              <button class="btn" id="FRQ_resultsClearPianoBtn" style="color:var(--danger)" data-t="FRQ_resultsClearPianoBtnLabel"></button>
+              <button class="btn" id="FRQ_resultsClearAllBtn" style="color:var(--danger);display:none" data-t="FRQ_resultsClearAllBtnLabel"></button>
+              <button class="btn" id="FRQ_resultsClearSliderBtn" style="display:none" data-t="FRQ_resultsClearSliderBtnLabel"></button>
+              <button class="btn" id="FRQ_resultsClearAdaptiveBtn" style="display:none" data-t="FRQ_resultsClearAdaptiveBtnLabel"></button>
             </div>
           </div>
         </div>

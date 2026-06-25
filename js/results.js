@@ -201,7 +201,7 @@ function renderResults() {
 // ============================================================
 // FREQ MATCH RESULTS
 // ============================================================
-function _fmrCollectNotPerceivable() {
+function _frq_resultsCollectNotPerceivable() {
   const result = {};
   ['left', 'right'].forEach(function(side) {
     const fa = sideData[side] && sideData[side].freqmatchAdaptive;
@@ -231,7 +231,7 @@ function _fmrCollectNotPerceivable() {
 //   'in-progress-early'  : <2 Umkehrungen, kein Match, refFreq = varFreq (Platzhalter)
 // Schwellen kommen aus FRQ_computeProvisional in freqmatch-staircase.js.
 
-function _fmrBuildInProgressEntries(side) {
+function _frq_resultsBuildInProgressEntries(side) {
   const out = [];
   const sd = sideData[side];
   if (!sd) return out;
@@ -304,7 +304,7 @@ function _fmrBuildInProgressEntries(side) {
 // macht sie für Anzeige und Warp verfügbar — als dritte Datenquelle
 // unter FRQ_resultsArray (final) und unter den 'in-progress'-Pseudo-Einträgen
 // aus aktiven Tracks.
-function _fmrBuildSliderEntries(side) {
+function _frq_resultsBuildSliderEntries(side) {
   const out = [];
   const sd = sideData[side];
   if (!sd) return out;
@@ -369,8 +369,8 @@ function FRQ_activeResults() {
   let prov = [];
   const sides = ["left", "right"];
   for (let s = 0; s < sides.length; s++) {
-    try { prov = prov.concat(_fmrBuildInProgressEntries(sides[s]) || []); } catch (e) {}
-    try { prov = prov.concat(_fmrBuildSliderEntries(sides[s]) || []); } catch (e) {}
+    try { prov = prov.concat(_frq_resultsBuildInProgressEntries(sides[s]) || []); } catch (e) {}
+    try { prov = prov.concat(_frq_resultsBuildSliderEntries(sides[s]) || []); } catch (e) {}
   }
   prov = prov.filter(function (r) { return r && me(r) === method; });
 
@@ -390,25 +390,25 @@ function FRQ_activeResults() {
 }
 
 function renderFreqMatchResults() {
-  const noData = document.getElementById("fmrNoData");
-  const card = document.getElementById("fmrCard");
+  const noData = document.getElementById("FRQ_resultsNoData");
+  const card = document.getElementById("FRQ_resultsCard");
   if (!noData || !card) return;
 
   // CI-Seite bestimmen: FRQ_resultsArray hat Vorrang, dann runs[]-varSide, dann Config-Fallback
-  function _fmrVarSide(fa) {
+  function _frq_resultsVarSide(fa) {
     if (!fa || !Array.isArray(fa.runs) || fa.runs.length === 0) return null;
     const r = fa.runs[fa.currentRunIdx != null ? fa.currentRunIdx : fa.runs.length - 1];
     return r ? r.varSide : null;
   }
   const ciSide = (FRQ_resultsArray.length > 0)
     ? FRQ_resultsArray[FRQ_resultsArray.length - 1].varSide
-    : (_fmrVarSide(sideData.left.freqmatchAdaptive)
-        || _fmrVarSide(sideData.right.freqmatchAdaptive)
+    : (_frq_resultsVarSide(sideData.left.freqmatchAdaptive)
+        || _frq_resultsVarSide(sideData.right.freqmatchAdaptive)
         || (sideData.left.config === 'ci' ? 'left' : 'right'));
 
   // Aktive Tracks → Zwischenstand-Einträge
-  const provisional = _fmrBuildInProgressEntries(ciSide);
-  const sliderEsts  = _fmrBuildSliderEntries(ciSide);
+  const provisional = _frq_resultsBuildInProgressEntries(ciSide);
+  const sliderEsts  = _frq_resultsBuildSliderEntries(ciSide);
 
   if ((typeof FRQ_resultsArray === "undefined" || FRQ_resultsArray.length === 0)
       && provisional.length === 0
@@ -427,15 +427,15 @@ function renderFreqMatchResults() {
     .filter(function (r) { return r && r.varSide === ciSide; });
 
   // Titel
-  const titleEl = document.getElementById("fmrTitle");
-  if (titleEl) titleEl.textContent = t("fmrTitle");
+  const titleEl = document.getElementById("FRQ_resultsTitle");
+  if (titleEl) titleEl.textContent = t("FRQ_resultsTitle");
 
   // Methoden-Hinweis
-  const noteEl = document.getElementById("fmrMethodNote");
-  if (noteEl) noteEl.textContent = t("fmrMethodNote");
+  const noteEl = document.getElementById("FRQ_resultsMethodNote");
+  if (noteEl) noteEl.textContent = t("FRQ_resultsMethodNote");
 
   // Meta-Zeile
-  const metaEl = document.getElementById("fmrMeta");
+  const metaEl = document.getElementById("FRQ_resultsMeta");
   if (metaEl) {
     const finalCount  = displayData.filter(function (r) { return !r._provisional; }).length;
     const provCount   = displayData.filter(function (r) { return r._provisional && !r._sliderEstimate; }).length;
@@ -453,11 +453,11 @@ function renderFreqMatchResults() {
       metaText = dateStr + " · " + finalCount + " Messpunkte · Ref: " + refLabelMeta;
     }
     if (provCount > 0) {
-      const provStr = t('fmrProvisionalCount').replace('{n}', provCount);
+      const provStr = t('FRQ_resultsProvisionalCount').replace('{n}', provCount);
       metaText += (metaText ? ' · ' : '') + provStr;
     }
     if (sliderCount > 0) {
-      const sliderStr = t('fmrSliderEstimateCount').replace('{n}', sliderCount);
+      const sliderStr = t('FRQ_resultsSliderEstimateCount').replace('{n}', sliderCount);
       metaText += (metaText ? ' · ' : '') + sliderStr;
     }
     metaEl.textContent = metaText;
@@ -467,33 +467,33 @@ function renderFreqMatchResults() {
   const refLabel = ciSide === 'left' ? t('sideRight') : t('sideLeft');
 
   // Tabellen-Header
-  const th = document.getElementById("fmrTH");
-  const tb = document.getElementById("fmrTB");
+  const th = document.getElementById("FRQ_resultsTableHead");
+  const tb = document.getElementById("FRQ_resultsTableBody");
   if (!th || !tb) return;
 
   // BA364: Konvergenz/Laufstreuung nur bei aktivem Adaptiv (Architektur 10.3).
   var isAdaptiveActive = (typeof FRQ_getActiveMethod === "function")
     && FRQ_getActiveMethod() === "adaptive";
   var advCols = isAdaptiveActive
-    ? ("<th title=\"" + t("fmrThConvTip") + "\">" + t("fmrThConv") + "</th>"
-     + "<th title=\"" + t("fmrThRunSpreadTip") + "\">" + t("fmrThRunSpread") + "</th>")
+    ? ("<th title=\"" + t("FRQ_resultsColConvergenceTip") + "\">" + t("FRQ_resultsColConvergence") + "</th>"
+     + "<th title=\"" + t("FRQ_resultsColRunSpreadTip") + "\">" + t("FRQ_resultsColRunSpread") + "</th>")
     : "";
 
   th.innerHTML =
-    "<th>" + t("fmrThEl") + "</th>" +
-    "<th>" + t("fmrThVarHz").replace('{side}', varLabel) + "</th>" +
-    "<th>" + t("fmrThRefHz").replace('{side}', varLabel) + "</th>" +
-    "<th>" + t("fmrThDiffHz") + "</th>" +
-    "<th>" + t("fmrThDiffCent") + "</th>" +
+    "<th>" + t("FRQ_resultsColEl") + "</th>" +
+    "<th>" + t("FRQ_resultsColVarHz").replace('{side}', varLabel) + "</th>" +
+    "<th>" + t("FRQ_resultsColRefHz").replace('{side}', varLabel) + "</th>" +
+    "<th>" + t("FRQ_resultsColDiffHz") + "</th>" +
+    "<th>" + t("FRQ_resultsColDiffCent") + "</th>" +
     advCols +
-    "<th title=\"" + t("fmrThResiduumTip") + "\">" + t("fmrThResiduum") + "</th>" +
-    "<th>" + t("fmrThStatus") + "</th>";
+    "<th title=\"" + t("FRQ_resultsColResiduumTip") + "\">" + t("FRQ_resultsColResiduum") + "</th>" +
+    "<th>" + t("FRQ_resultsColStatus") + "</th>";
 
   // Beschreibungstext über der Tabelle
-  const descEl = document.getElementById("fmrSidesDesc");
+  const descEl = document.getElementById("FRQ_resultsSidesDescription");
   if (descEl) {
-    const line1 = t("fmrSidesDesc1").replace('{ref}', refLabel).replace('{var}', varLabel);
-    const line2 = t("fmrSidesDesc2").replace('{ref}', refLabel).replace('{var}', varLabel);
+    const line1 = t("FRQ_resultsSidesDescription1").replace('{ref}', refLabel).replace('{var}', varLabel);
+    const line2 = t("FRQ_resultsSidesDescription2").replace('{ref}', refLabel).replace('{var}', varLabel);
     descEl.innerHTML =
       "<p style=\"font-weight:600;margin:0 0 6px\">" + line1 + "</p>" +
       "<p style=\"margin:0\">" + line2 + "</p>";
@@ -527,7 +527,7 @@ function renderFreqMatchResults() {
       const _faRun = fa && Array.isArray(fa.runs) && fa.currentRunIdx != null ? fa.runs[fa.currentRunIdx] : null;
       const notPercTrack = _faRun && _faRun.tracks && _faRun.tracks[i] && _faRun.tracks[i].status === 'not-perceivable';
       const note = notPercTrack
-        ? '<span class="fm-badge fm-badge-err" data-t="fmrStatusNotPerc">✗ nicht wahrnehmbar</span>'
+        ? '<span class="fm-badge fm-badge-err" data-t="FRQ_resultsStatusNotPerceivable">✗ nicht wahrnehmbar</span>'
         : '<span style="font-size:.82em;color:#9ca3af">' + t('notMeasured') + '</span>';
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + elLabel + "</td>" +
@@ -626,42 +626,42 @@ function renderFreqMatchResults() {
       let statusBadge;
       if (isProvEarly) {
         statusBadge = '<span class="fm-badge fm-badge-prov">'
-                    + t('fmrStatusProvEarly').replace('{n}', r.fmTrialCount || 0)
+                    + t('FRQ_resultsStatusProvisionalEarly').replace('{n}', r.fmTrialCount || 0)
                     + '</span>';
       } else if (isProvLate) {
         statusBadge = '<span class="fm-badge fm-badge-prov">'
-                    + t('fmrStatusProvLate').replace('{n}', r.fmReversals || 0)
+                    + t('FRQ_resultsStatusProvisionalLate').replace('{n}', r.fmReversals || 0)
                     + '</span>';
       } else if (r.fmStatus === 'converged') {
-        statusBadge = '<span class="fm-badge fm-badge-ok" data-t="fmrStatusOk">'
-                    + t('fmrStatusOk') + '</span>';
+        statusBadge = '<span class="fm-badge fm-badge-ok" data-t="FRQ_resultsStatusOk">'
+                    + t('FRQ_resultsStatusOk') + '</span>';
       } else if (r.fmStatus === 'converged-fair') {
-        statusBadge = '<span class="fm-badge fm-badge-fair" data-t="fmrStatusFair">'
-                    + t('fmrStatusFair') + '</span>';
+        statusBadge = '<span class="fm-badge fm-badge-fair" data-t="FRQ_resultsStatusFair">'
+                    + t('FRQ_resultsStatusFair') + '</span>';
       } else if (r.fmStatus === 'converged-wide') {
-        statusBadge = '<span class="fm-badge fm-badge-wide" data-t="fmrStatusWide">'
-                    + t('fmrStatusWide') + '</span>';
+        statusBadge = '<span class="fm-badge fm-badge-wide" data-t="FRQ_resultsStatusWide">'
+                    + t('FRQ_resultsStatusWide') + '</span>';
       } else if (r.fmStatus === 'unstable') {
-        statusBadge = '<span class="fm-badge fm-badge-unstable" data-t="fmrStatusUnstable">'
-                    + t('fmrStatusUnstable') + '</span>';
+        statusBadge = '<span class="fm-badge fm-badge-unstable" data-t="FRQ_resultsStatusUnstable">'
+                    + t('FRQ_resultsStatusUnstable') + '</span>';
       } else if (r.fmStatus === 'aborted') {
-        statusBadge = '<span class="fm-badge fm-badge-aborted" data-t="fmrStatusAborted">'
-                    + t('fmrStatusAborted') + '</span>';
+        statusBadge = '<span class="fm-badge fm-badge-aborted" data-t="FRQ_resultsStatusAborted">'
+                    + t('FRQ_resultsStatusAborted') + '</span>';
       } else if (r.fmStatus === 'not-perceivable') {
-        statusBadge = '<span class="fm-badge fm-badge-err" data-t="fmrStatusNotPerc">'
-                    + t('fmrStatusNotPerc') + '</span>';
+        statusBadge = '<span class="fm-badge fm-badge-err" data-t="FRQ_resultsStatusNotPerceivable">'
+                    + t('FRQ_resultsStatusNotPerceivable') + '</span>';
       } else if (r.fmStatus === 'slider-estimate') {
-        statusBadge = '<span class="fm-badge fm-badge-slider" data-t="fmrStatusSliderEst">'
-                    + t('fmrStatusSliderEst') + '</span>';
+        statusBadge = '<span class="fm-badge fm-badge-slider" data-t="FRQ_resultsStatusSliderEstimate">'
+                    + t('FRQ_resultsStatusSliderEstimate') + '</span>';
       } else if (r.fmStatus === 'piano') {
-        statusBadge = '<span class="fm-badge fm-badge-slider" data-t="fmrStatusPiano">'
-                    + t('fmrStatusPiano') + '</span>';
+        statusBadge = '<span class="fm-badge fm-badge-slider" data-t="FRQ_resultsStatusPiano">'
+                    + t('FRQ_resultsStatusPiano') + '</span>';
       } else if (r.fmStatus === 'piano-crossed') {
-        statusBadge = '<span class="fm-badge fm-badge-err" data-t="fmrStatusPianoCrossed">'
-                    + t('fmrStatusPianoCrossed') + '</span>';
+        statusBadge = '<span class="fm-badge fm-badge-err" data-t="FRQ_resultsStatusPianoCrossed">'
+                    + t('FRQ_resultsStatusPianoCrossed') + '</span>';
       } else if (r.fmStatus === 'piano-wide') {
-        statusBadge = '<span class="fm-badge fm-badge-wide" data-t="fmrStatusPianoWide">'
-                    + t('fmrStatusPianoWide') + '</span>';
+        statusBadge = '<span class="fm-badge fm-badge-wide" data-t="FRQ_resultsStatusPianoWide">'
+                    + t('FRQ_resultsStatusPianoWide') + '</span>';
       } else {
         statusBadge = '<span class="muted">—</span>';
       }
@@ -686,9 +686,9 @@ function renderFreqMatchResults() {
 
   // Fortschrittsbalken: nur sichtbar bei laufendem adaptivem Track
   const faActive = sideData[ciSide] && sideData[ciSide].freqmatchAdaptive;
-  const pBox  = document.getElementById('fmrProgressBox');
-  const pText = document.getElementById('fmrProgressText');
-  const pFill = document.getElementById('fmrProgressFill');
+  const pBox  = document.getElementById('FRQ_resultsProgressBox');
+  const pText = document.getElementById('FRQ_resultsProgressText');
+  const pFill = document.getElementById('FRQ_resultsProgressFill');
   if (pBox) {
     const _faActiveRun = faActive && Array.isArray(faActive.runs) && faActive.currentRunIdx != null
       ? faActive.runs[faActive.currentRunIdx] : null;
@@ -706,7 +706,7 @@ function renderFreqMatchResults() {
   }
 
   // Qualitätstext
-  const qEl = document.getElementById('fmrQualityText');
+  const qEl = document.getElementById('FRQ_resultsQualityText');
   if (qEl) {
     const finalEntries = FRQ_resultsArray.filter(function(r) { return r.varSide === ciSide; });
     const provEntries  = provisional;
@@ -719,7 +719,7 @@ function renderFreqMatchResults() {
     if (finalEntries.length === 0 && provEntries.length === 0) {
       txt = '';
     } else if (finalEntries.length === 0) {
-      txt = t('fmrQualEarly')
+      txt = t('FRQ_resultsQualityEarly')
         .replace('{n}', provEntries.length)
         .replace('{t}', totalActive);
     } else if (finalEntries.length < totalActive) {
@@ -729,7 +729,7 @@ function renderFreqMatchResults() {
       const meanRes = resVals.length > 0
         ? resVals.reduce(function(s, v) { return s + v; }, 0) / resVals.length
         : 0;
-      txt = t('fmrQualPartial')
+      txt = t('FRQ_resultsQualityPartial')
         .replace('{done}', finalEntries.length)
         .replace('{total}', totalActive)
         .replace('{res}', meanRes.toFixed(1));
@@ -753,11 +753,11 @@ function renderFreqMatchResults() {
           const names = noisy.map(function(r) {
             return withSide(ciSide, function() { return dENPrefix() + dEN(r.elIdx); });
           }).join(', ');
-          txt = t('fmrQualOkWithNoisy')
+          txt = t('FRQ_resultsQualityOkWithNoisy')
             .replace('{res}', meanRes.toFixed(1))
             .replace('{names}', names);
         } else {
-          txt = t('fmrQualOk').replace('{res}', meanRes.toFixed(1));
+          txt = t('FRQ_resultsQualityOk').replace('{res}', meanRes.toFixed(1));
         }
       } else if (_pianoRun && _pianoRun.currentRound >= 1) {
         // --- BA364 Klavier-Zweig ---
@@ -766,7 +766,7 @@ function renderFreqMatchResults() {
         var _pStep  = (typeof FM_PIANO_STEPS !== "undefined")
           ? FM_PIANO_STEPS[_pRound - 1] : null;
         if (_pStep != null) {
-          txt = t('fmrQualPiano')
+          txt = t('FRQ_resultsQualityPiano')
             .replace('{round}', _pRound)
             .replace('{total}', _pTot)
             .replace('{step}', _pStep);
@@ -782,7 +782,7 @@ function renderFreqMatchResults() {
   }
 
   // Hinweis: Residuum erst ab 2 Läufen zuverlässig
-  const runHintEl = document.getElementById('fmrRunHint');
+  const runHintEl = document.getElementById('FRQ_resultsRunHint');
   if (runHintEl) {
     const finalEntries = FRQ_resultsArray.filter(function(r) { return r.varSide === ciSide; });
     const hasData = finalEntries.length > 0 || provisional.length > 0;
@@ -791,14 +791,14 @@ function renderFreqMatchResults() {
       && finalEntries.every(function(r) { return (r.fmRunsCount || 0) >= 2; });
     // BA364: nur bei aktivem Adaptiv.
     const show = isAdaptiveActive && hasData && !allComplete2;
-    runHintEl.textContent = show ? t('fmrRunHint') : '';
+    runHintEl.textContent = show ? t('FRQ_resultsRunHint') : '';
     runHintEl.style.display = show ? '' : 'none';
   }
 
   // Chart
-  const cv = document.getElementById("fmrChart");
+  const cv = document.getElementById("FRQ_resultsChart");
   if (cv) {
-    const notPerc = _fmrCollectNotPerceivable();
+    const notPerc = _frq_resultsCollectNotPerceivable();
     drawFreqMatchChart(
       cv,
       displayData.filter(function (r) { return !(r && r.fmExcluded); }),
@@ -816,45 +816,45 @@ function renderFreqMatchResults() {
   }
 
   // Chart-Hinweis
-  const hintEl = document.getElementById("fmrChartHint");
+  const hintEl = document.getElementById("FRQ_resultsChartHint");
   if (hintEl) {
     // BA364: Klavier-Legende, solange Adaptiv nicht aktiv ist.
     if (isAdaptiveActive) {
-      const hintAdaptive = t("fmrChartHintAdaptive");
-      hintEl.textContent = (hintAdaptive && hintAdaptive !== "fmrChartHintAdaptive")
+      const hintAdaptive = t("FRQ_resultsChartHintAdaptive");
+      hintEl.textContent = (hintAdaptive && hintAdaptive !== "FRQ_resultsChartHintAdaptive")
         ? hintAdaptive
-        : t("fmrChartHint");
+        : t("FRQ_resultsChartHint");
     } else {
-      hintEl.textContent = t("fmrChartHintPiano");
+      hintEl.textContent = t("FRQ_resultsChartHintPiano");
     }
   }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
   // BA 157: drei Knöpfe statt einem
-  function _fmrRefreshAfterClear() {
+  function _frq_resultsRefreshAfterClear() {
     if (typeof depLockApply === 'function') depLockApply();
     renderFreqMatchResults();
     if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
   }
 
-  const allBtn = document.getElementById("fmrClearAllBtn");
+  const allBtn = document.getElementById("FRQ_resultsClearAllBtn");
   if (allBtn) {
     allBtn.addEventListener("click", function() {
-      if (!confirm(t("fmrClearAllConfirm") || "Alle löschen?")) return;
+      if (!confirm(t("FRQ_resultsClearAllConfirm") || "Alle löschen?")) return;
       FRQ_resultsArray.splice(0, FRQ_resultsArray.length);
       if (typeof sideData !== "undefined") {
         if (sideData.left)  sideData.left.freqmatchAdaptive  = null;
         if (sideData.right) sideData.right.freqmatchAdaptive = null;
       }
-      _fmrRefreshAfterClear();
+      _frq_resultsRefreshAfterClear();
     });
   }
 
-  const sliderBtn = document.getElementById("fmrClearSliderBtn");
+  const sliderBtn = document.getElementById("FRQ_resultsClearSliderBtn");
   if (sliderBtn) {
     sliderBtn.addEventListener("click", function() {
-      if (!confirm(t("fmrClearSliderConfirm") || "Slider-Schätzungen löschen?")) return;
+      if (!confirm(t("FRQ_resultsClearSliderConfirm") || "Slider-Schätzungen löschen?")) return;
       for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
         if (FRQ_resultsArray[i] && FRQ_entryMethod(FRQ_resultsArray[i]) === "slider") FRQ_resultsArray.splice(i, 1);
       }
@@ -866,14 +866,14 @@ document.addEventListener("DOMContentLoaded", function() {
           fa.sliderPass = null;
         });
       }
-      _fmrRefreshAfterClear();
+      _frq_resultsRefreshAfterClear();
     });
   }
 
-  const adaptiveBtn = document.getElementById("fmrClearAdaptiveBtn");
+  const adaptiveBtn = document.getElementById("FRQ_resultsClearAdaptiveBtn");
   if (adaptiveBtn) {
     adaptiveBtn.addEventListener("click", function() {
-      if (!confirm(t("fmrClearAdaptiveConfirm") || "Adaptiv-Ergebnisse löschen?")) return;
+      if (!confirm(t("FRQ_resultsClearAdaptiveConfirm") || "Adaptiv-Ergebnisse löschen?")) return;
       for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
         if (FRQ_resultsArray[i] && FRQ_entryMethod(FRQ_resultsArray[i]) === "adaptive") FRQ_resultsArray.splice(i, 1);
       }
@@ -886,15 +886,15 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         });
       }
-      _fmrRefreshAfterClear();
+      _frq_resultsRefreshAfterClear();
     });
   }
 
   // BA364: Klavier-Loeschbutton — entfernt nur piano-Eintraege aus FRQ_resultsArray.
-  const pianoBtn = document.getElementById("fmrClearPianoBtn");
+  const pianoBtn = document.getElementById("FRQ_resultsClearPianoBtn");
   if (pianoBtn) {
     pianoBtn.addEventListener("click", function() {
-      if (!confirm(t("fmrClearPianoConfirm") || "Klavier-Ergebnisse loeschen?")) return;
+      if (!confirm(t("FRQ_resultsClearPianoConfirm") || "Klavier-Ergebnisse loeschen?")) return;
       for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
         if (FRQ_resultsArray[i] && FRQ_entryMethod(FRQ_resultsArray[i]) === "piano") FRQ_resultsArray.splice(i, 1);
       }
@@ -905,7 +905,7 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         });
       }
-      _fmrRefreshAfterClear();
+      _frq_resultsRefreshAfterClear();
     });
   }
 });

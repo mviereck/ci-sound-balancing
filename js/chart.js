@@ -353,8 +353,8 @@ function drawFreqMatchChart(cv, fResData, opts) {
     const v = t(k);
     return (v && v !== k) ? v : fb;
   };
-  const lblIst  = tt('fmrLblIst',  'Ist');
-  const lblSoll = tt('fmrLblSoll', 'Soll');
+  const lblIst  = tt('FRQ_resultsLblIst',  'Ist');
+  const lblSoll = tt('FRQ_resultsLblSoll', 'Soll');
 
   // Cent gegenüber 1 kHz
   const REF_HZ = 1000;
@@ -692,11 +692,11 @@ function drawFreqMatchChart(cv, fResData, opts) {
   ctx.fillStyle = "#666";
   ctx.font = "10px Segoe UI,sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText(t("fmrChartXLabel"), pad.left + pW / 2, h - 6);
+  ctx.fillText(t("FRQ_resultsChartXLabel"), pad.left + pW / 2, h - 6);
   ctx.save();
   ctx.translate(13, pad.top + pH / 2);
   ctx.rotate(-Math.PI / 2);
-  ctx.fillText(t("fmrChartYLabel"), 0, 0);
+  ctx.fillText(t("FRQ_resultsChartYLabel"), 0, 0);
   ctx.restore();
 
   // --- Horizontale Pfeile oben: Ist → Soll ---
@@ -927,12 +927,12 @@ function _fmcTooltipHandler(cv, e) {
     };
     let tipHtml;
     if (el.isNotPerceivable) {
-      tipHtml = "<b>E" + el.elNum + "</b><br>" + tipT('fmrTipNotPerc', 'nicht wahrnehmbar');
+      tipHtml = "<b>E" + el.elNum + "</b><br>" + tipT('FRQ_resultsTipNotPerceivable', 'nicht wahrnehmbar');
     } else if (el.fmStatus === 'slider-estimate') {
       const cent = el.dCent != null ? Math.round(el.dCent) : 0;
       const centStr = (cent >= 0 ? "+" : "") + cent + " ct";
       tipHtml = "<b>E" + el.elNum + "</b><br>"
-              + tipT('fmrTipSliderEst', 'Vor-Schätzung') + ": " + centStr;
+              + tipT('FRQ_resultsTipSliderEstimate', 'Vor-Schätzung') + ": " + centStr;
     } else {
       const hzIst  = Math.round(el.hzIst);
       const hzSoll = Math.round(el.hzSoll);
@@ -946,7 +946,7 @@ function _fmcTooltipHandler(cv, e) {
       const _hasResidual = el.fmStatus !== 'in-progress-early'
                         && el.fmResidual > 0;
       if (_hasResidual) {
-        tipHtml += "<br>" + tipT('fmrTipResidual', 'Restunsicherheit') +
+        tipHtml += "<br>" + tipT('FRQ_resultsTipResidual', 'Restunsicherheit') +
           " \u00b1" + Math.round(el.fmResidual) + "\u202fct";
       }
     }

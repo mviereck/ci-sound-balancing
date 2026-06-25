@@ -211,11 +211,11 @@ function _printResLR() {
 }
 
 function _printResFreqmatch() {
-  const noData = document.querySelector('#fmrNoData');
-  const card   = document.querySelector('#fmrCard');
+  const noData = document.querySelector('#FRQ_resultsNoData');
+  const card   = document.querySelector('#FRQ_resultsCard');
   const target = (card && card.style.display !== 'none')
-    ? '#fmrCard'
-    : '#fmrNoData';
+    ? '#FRQ_resultsCard'
+    : '#FRQ_resultsNoData';
   const body = _printCloneSafe(target);
   openPrintWindow(t("subTabFreqMatch") || "Frequenzabgleich", body);
 }
