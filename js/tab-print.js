@@ -262,10 +262,10 @@ function _printResLatency() {
 
 // --- Kurven-Tab ---
 function printKurvenTab() {
-  const chartCard  = _printCloneSafe('#panel-levels .card:nth-of-type(2)');
+  const chartCard  = _printCloneSafe('#panel-kurven .card:nth-of-type(2)');
   const presetHtml = _buildPresetCardPrint();
   const body = chartCard + '<div style="margin-top:16px;"></div>' + presetHtml;
-  openPrintWindow(t("tabLevels") || "Kurven", body);
+  openPrintWindow(t("tabKurven") || "Kurven", body);
 }
 
 // --- Schieber-Tab ---
@@ -361,7 +361,7 @@ function _buildPresetCardPrint() {
       <td colspan="2" style="font-size:.78em;padding-top:0;padding-bottom:6px">${t(KURVEN_EXPL[pr.type])}</td>
     </tr>`;
   }
-  if (!rows) rows = `<tr><td style="font-style:italic">(${t("kurvenTitle")} — ${t("tabLevels")} keine aktiv)</td></tr>`;
+  if (!rows) rows = `<tr><td style="font-style:italic">(${t("kurvenTitle")} — ${t("tabKurven")} keine aktiv)</td></tr>`;
   return `<div><h2 style="margin-bottom:8px">${t("kurvenTitle") || "Kurvenfunktionen"}</h2>
     <table style="border-collapse:collapse;width:100%">${rows}</table></div>`;
 }

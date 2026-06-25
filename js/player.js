@@ -1387,7 +1387,7 @@ window.addEventListener("resize", () => {
     if (document.getElementById("resC").style.display !== "none")
       renderResults();
   }
-  if (document.getElementById("panel-levels").classList.contains("active"))
+  if (document.getElementById("panel-kurven").classList.contains("active"))
     elektrodenlautstaerkeKurvenChartZeichnen();
   if (document.getElementById("subpanel-ergebnisse-stereobalance")?.classList.contains("active"))
     stereobalanceDrawChart();

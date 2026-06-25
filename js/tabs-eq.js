@@ -69,7 +69,7 @@ function _switchSubtabInternal(parent, subtab) {
 // Sperrt Haupt-Reiter, wenn die Implantat-Angaben unzureichend
 // sind. Sperr-Schwelle und Tab-Liste sind hier zentral.
 // ============================================================
-const LOCKED_TABS_L1 = ["messungen", "ergebnisse", "levels", "schieber"];
+const LOCKED_TABS_L1 = ["messungen", "ergebnisse", "kurven", "schieber"];
 
 // Liefert den aktuellen Sperr-Zustand:
 //   { locked: false, reason: null }                 — frei
@@ -252,7 +252,7 @@ function _switchTabInternal(n) {
   if (n === "player") {
     plCheck();
   }
-  if (n === "levels") {
+  if (n === "kurven") {
     elektrodenlautstaerkeKurvenTabelleBauen();
     elektrodenlautstaerkeKurvenChartZeichnen();
   }

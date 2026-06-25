@@ -63,8 +63,8 @@ function applyLang() {
   s("tabIntro", "tabIntro");
   s("tabSetup", "tabFreq");
   // tabTest und tabResults haben feste mehrsprachige Texte unten
-  s("tabLevels", "tabCurves");
-  s("tabSchieber", "tabLevels");
+  s("tabKurven", "tabKurven");
+  s("tabSchieber", "tabSchieber");
   s("tabPlayer", "tabPlayer");
   // tabBalance entfernt – kein eigener Tab mehr
   s("tabFile", "tabFile");
