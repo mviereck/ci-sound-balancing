@@ -318,7 +318,7 @@ async function saveJson() {
     },
     currentSide: activeSide,
     lrResults: (typeof STB_results !== "undefined") ? STB_results : {},
-    STB_snapshot: (typeof STB_snapshot !== "undefined") ? STB_snapshot : null, // BA 156
+    stereobalanceSnapshot: (typeof STB_snapshot !== "undefined") ? STB_snapshot : null, // BA 156 (Feld-Key bleibt bis §5c)
     latencyResult: (typeof LTZ_result !== "undefined") ? LTZ_result : null,
     plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
     plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
@@ -671,7 +671,10 @@ function applyLoadedData(d) {
     if (typeof STB_renderMean === "function") STB_renderMean();
   }
   if (typeof STB_snapshot !== "undefined") {
-    STB_snapshot = (d && d.STB_snapshot) ? d.STB_snapshot : null; // BA 156
+    // Lese-Migration: neuer Key STB_snapshot, Fallback auf Alt-Namen
+    // stereobalanceSnapshot (BA393.6–STB) und lrSnapshot (vor BA393.6). // BA 156
+    STB_snapshot = (d && (d.STB_snapshot || d.stereobalanceSnapshot || d.lrSnapshot))
+      ? (d.STB_snapshot || d.stereobalanceSnapshot || d.lrSnapshot) : null;
   }
   if (typeof LTZ_result !== "undefined") {
     LTZ_result = (d && d.latencyResult) ? d.latencyResult : null;

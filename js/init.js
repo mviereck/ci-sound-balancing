@@ -784,7 +784,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (aNoteEl) aNoteEl.value = audiologUserNote;
       }
       if (typeof STB_snapshot !== "undefined") {
-        STB_snapshot = (d && d.STB_snapshot) ? d.STB_snapshot : null;
+        // Lese-Migration: Fallback auf Alt-Namen stereobalanceSnapshot / lrSnapshot
+        STB_snapshot = (d && (d.STB_snapshot || d.stereobalanceSnapshot || d.lrSnapshot))
+          ? (d.STB_snapshot || d.stereobalanceSnapshot || d.lrSnapshot) : null;
       }
       FRQ_implantatTableBuild();
       buildImplantCard();
@@ -916,7 +918,7 @@ document.addEventListener("DOMContentLoaded", () => {
           currentSide: activeSide,
           lrResults: (typeof STB_results !== "undefined") ? STB_results : {},
           // BA 161
-          STB_snapshot: (typeof STB_snapshot !== "undefined") ? STB_snapshot : null,
+          stereobalanceSnapshot: (typeof STB_snapshot !== "undefined") ? STB_snapshot : null,
           latencyResult: (typeof LTZ_result !== "undefined") ? LTZ_result : null,
           plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
           plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
