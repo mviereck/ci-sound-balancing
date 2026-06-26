@@ -26,7 +26,7 @@ function _switchSubtabInternal(parent, subtab) {
     p.classList.toggle("active", name === subtab);
   });
   // Callbacks
-  if (parent === "ergebnisse" && subtab === "elektrodenlautstaerke") renderResults();
+  if (parent === "ergebnisse" && subtab === "elektrodenlautstaerke") ELL_renderResults();
   if (parent === "ergebnisse" && subtab === "stereobalance") {
     STB_checkData();
     STB_drawChart();
@@ -206,7 +206,7 @@ function subtabLockApply() {
 // ============================================================
 function switchTab(n) {
   // Guard: Verhindere Tab-Wechsel während aktiver Test
-  const anyTestRunning = testAct
+  const anyTestRunning = ELL_testAct
     || (typeof STB_running !== "undefined" && STB_running)
     || (typeof FRQ_running !== "undefined" && FRQ_running)
     || (typeof LTZ_active !== "undefined" && LTZ_active);
@@ -235,7 +235,7 @@ function _switchTabInternal(n) {
     // Aktiven Sub-Tab prüfen; falls keiner aktiv oder aktiver leer, sinnvollen wählen
     const activeSubtab = document.querySelector('.subtab[data-parent="ergebnisse"].active');
     const currentName = activeSubtab ? activeSubtab.dataset.subtab : null;
-    const hasBal = typeof elektrodenlautstaerkeResults !== "undefined" && elektrodenlautstaerkeResults.length > 0;
+    const hasBal = typeof ELL_results !== "undefined" && ELL_results.length > 0;
     const hasFR = typeof FRQ_resultsArray !== "undefined" && FRQ_resultsArray.length > 0;
     const hasLR = typeof STB_results !== "undefined" && Object.keys(STB_results).length > 0;
     if (!currentName || currentName === "elektrodenlautstaerke") {
@@ -246,7 +246,7 @@ function _switchTabInternal(n) {
         return;
       }
     }
-    renderResults();
+    ELL_renderResults();
     if (currentName === "freqmatch") FRQ_renderResults();
   }
   if (n === "player") {
@@ -270,11 +270,11 @@ function _switchTabInternal(n) {
 // Funktion zum Sperren/Entsperren der Tabs und Side-Select während Test
 // Delegiert an lockTestTabs (test-ui.js) für einheitliche Handhabung
 function updateTabLockState() {
-  const locked = testAct || (typeof STB_running !== "undefined" && STB_running)
+  const locked = ELL_testAct || (typeof STB_running !== "undefined" && STB_running)
                           || (typeof FRQ_running !== "undefined" && FRQ_running)
                           || (typeof LTZ_active !== "undefined" && LTZ_active);
   var activeTestId = null;
-  if (testAct) activeTestId = 'elektrodenlautstaerke';
+  if (ELL_testAct) activeTestId = 'elektrodenlautstaerke';
   else if (typeof STB_running !== "undefined" && STB_running) activeTestId = 'stereobalance';
   else if (typeof FRQ_running !== "undefined" && FRQ_running) activeTestId = 'freqmatch';
   else if (typeof LTZ_active !== "undefined" && LTZ_active) activeTestId = 'latenz';
@@ -283,9 +283,9 @@ function updateTabLockState() {
   // nicht direkt auf els. _buildTestPanelNew setzt das DOM-Flag beim
   // Start/Stop selbst (test-ui.js: Start = hidden=false, Stop = hidden=true);
   // diese Schleife synchronisiert nur den Querzustand (z.B. nach Tab-Wechsel).
-  if (typeof testEls !== "undefined" && testEls
-      && testEls.header && testEls.header.lockedHint) {
-    testEls.header.lockedHint.hidden = !testAct;
+  if (typeof ELL_testEls !== "undefined" && ELL_testEls
+      && ELL_testEls.header && ELL_testEls.header.lockedHint) {
+    ELL_testEls.header.lockedHint.hidden = !ELL_testAct;
   }
   if (typeof STB_els !== "undefined" && STB_els
       && STB_els.header && STB_els.header.lockedHint) {

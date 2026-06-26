@@ -133,12 +133,12 @@ Object.assign(L.de, {
     hjPrompt: "Geben Sie an, ob der zweite Ton höher oder tiefer war als der erste Ton.",
     bExtend: "Bereich erweitern (±40 dB)",
     bCanc: "Abbrechen",
-    resTitle: "Ergebnisse der Messung Elektrodenlautstärke-Balance",
-    noRes: 'Noch keine Ergebnisse. Führen Sie erst eine Messung in „Messungen → Elektrodenlautstärke ausgleichen“ durch.',
+    ELL_resTitle: "Ergebnisse der Messung Elektrodenlautstärke-Balance",
+    ELL_noRes: 'Noch keine Ergebnisse. Führen Sie erst eine Messung in „Messungen → Elektrodenlautstärke ausgleichen“ durch.',
     comp: "Vergleich",
     of: "von",
     round: "Runde",
-    chartExplB:
+    ELL_chartExplB:
       "Wahrgenommene Lautstärke relativ zur Referenz (0 dB). Positiv = lauter, negativ = leiser. Fehlerbalken = mittleres Residuum. Berechnung: Gewichtete Least Squares.",
     chartExplJ:
       'Score = „lauter" minus „leiser". Hohe positive Werte = wird als zu laut empfunden.',
@@ -178,25 +178,25 @@ Object.assign(L.de, {
     thRefEl: "Ref.El.",
     thSc: "Score",
     thComp: "Vergl.",
-    resExplain:
+    ELL_resExplain:
       "Residuum: Die mittlere Abweichung der Einzelmessungen einer Elektrode vom Gesamtergebnis. Hohe Werte = unsichere Messung, z.B. durch verrauschte Elektrode oder schwieriges Urteil. Least Squares: Mathematisches Verfahren, das aus allen Paarvergleichen gleichzeitig die bestmöglichen Offset-Werte berechnet. Einzelne Meßfehler haben wenig Einfluß, weil sie sich gegen viele andere Messungen behaupten müssen. Gewichtung: Starkes Rauschen (0.1), Rauschen mit etwas Ton (0.5), Ton mit Rauschen (0.9), fast stumm (0.1) fließen mit reduziertem Gewicht ein.",
     fClear: "Meßergebnisse für eingestellte Seite löschen",
     delConfirmMeas: "Meßergebnisse löschen?",
     resetConfirm:
       "Wirklich alles zurücksetzen? Alle Einstellungen, Meßwerte und Notizen werden gelöscht.",
     resetDone: "Alles zurückgesetzt.",
-    glossTitle: "Begriffserklärung",
-    glossResiduum:
+    ELL_glossTitle: "Begriffserklärung",
+    ELL_glossResiduum:
       "<b>Residuum</b>: Zeigt, wie widersprüchlich Ihre Urteile bei einer Elektrode waren. Kurze Fehlerbalken = konsistente Urteile, lange Fehlerbalken = die Einschätzungen haben geschwankt.",
-    glossErrBar:
+    ELL_glossErrBar:
       "<b>Fehlerbalken</b> (die senkrechten Striche an den Balken): Zeigen die Größe des Residuums – je länger, desto unsicherer die Messung.",
-    glossAnpassung:
+    ELL_glossAnpassung:
       "<b>Anpassung</b>: Gibt an, um wie viel dB diese Elektrode lauter (+) oder leiser (−) eingestellt wird als die Referenzelektrode.",
-    glossFarbe:
+    ELL_glossFarbe:
       "<b>Ampelfarben</b>: Grün = zuverlässig gemessen, Gelb = grenzwertig, Rot = unsichere Messung, Grau = noch keine Messung für diese Elektrode. Die Farbe zeigt die Meßqualität – nicht die Stärke der Änderung.",
-    glossRef:
+    ELL_glossRef:
       "<b>Referenzelektrode</b>: Der Fixpunkt der Messung. Ihre Anpassung ist immer 0 dB. Alle anderen Elektroden werden relativ zu ihr bewertet.",
-    glossLS:
+    ELL_glossLS:
       "<b>Least Squares</b>: Mathematisches Verfahren, das aus allen Paarvergleichen gleichzeitig die bestmöglichen Offset-Werte berechnet. Einzelne Meßehler haben wenig Einfluß, weil sie sich gegen viele andere Messungen behaupten müssen. Im Reiter „Implantat“ als problematisch markierte Elektroden fließen mit reduziertem Gewicht ein.",
     apikal: "apikal",
     basal: "basal",
@@ -210,8 +210,8 @@ Object.assign(L.de, {
     excluded: "ausgeschl.",
     excludedSkipped: "deaktiviert/ausgelassen",
     notMeasured: "nicht gemessen",
-    resNotDoneTitle: "Testreihe noch nicht abgeschlossen.",
-    resNotDoneDetail: "Modus Round Robin: Runde {round} von {maxRounds}, {done} von {total} Paaren bestätigt.",
+    ELL_resNotDoneTitle: "Testreihe noch nicht abgeschlossen.",
+    ELL_resNotDoneDetail: "Modus Round Robin: Runde {round} von {maxRounds}, {done} von {total} Paaren bestätigt.",
     copyDone: "Kopiert.",
     delConfirmMeas: "Meßergebnisse löschen?",
     plTitle: "Audioplayer mit Korrektur-Equalizer",
@@ -857,8 +857,8 @@ Object.assign(L.de, {
     plWarpBusyTooltip: "Frequenz-Warping-Berechnung läuft",
     pwProgressLabel: "Berechnung Frequenz Warping:",
     // Neue Keys für vereinheitlichte Test-UI
-    testExplainTitle: "Elektrodenlautstärke ausgleichen",
-    testIntro:
+    ell_explainTitle: "Elektrodenlautstärke ausgleichen",
+    ell_intro:
       "Dieser Test vergleicht die Lautstärke der Elektroden miteinander. " +
       "Ziel ist es, eine ausgeglichene Lautstärke für alle Elektroden zu finden." +
       "<br> - Dies ist bereits eine gute Einstellung für Naturgeräusche und Musik." +
@@ -884,13 +884,13 @@ Object.assign(L.de, {
       "Test ausgeschlossen." +
       "<br><br>Passen Sie die Lautstärke der beiden Töne an, bis sie sich gleich laut anhören.",
     // BA 247: Verfahren-Labels fuer Elektrodenlautstaerke (zwei Verfahren).
-    testVerfahrenFull: "Round Robin (Vollständig)",
-    testVerfahrenConv: "Konvergenz",
+    ELL_verfahrenFull: "Round Robin (Vollständig)",
+    ell_verfahrenConv: "Konvergenz",
     // BA 279: Testende-Modalbox (Abschluss-Hinweis).
     testDoneTitle:      "Test {name} beendet.",
     testDoneResultHint: "Sie können das Ergebnis des Tests in Reiter Meßergebnisse → {subtab} sehen.",
     compBtnOk:          "OK",
-    testRrName:         "Round Robin",
+    ell_rrName:         "Round Robin",
     compNameFmAdaptive: "Frequenzabgleich (Adaptiv)",
     compNameFmSlider:   "Frequenzabgleich (Nachjustierung)",
     compSubLoudness:    "Elektrodenlautstärke",
@@ -1001,7 +1001,7 @@ Object.assign(L.de, {
     STB_desc: "Dieser Test vergleicht die wahrgenommene Lautstärke links und rechts für jedes Elektrodenpaar. Damit soll erreicht werden, daß Sie links und rechts gleich laut hören.",
     STB_orderLbl: "Reihenfolge:",
     STB_sideLbl: "Seitenfolge:",
-    testMaturityHint: "Dieser Test ist bereits gut ausgereift und kann zuverlässige Ergebnisse bringen.",
+    ell_maturityHint: "Dieser Test ist bereits gut ausgereift und kann zuverlässige Ergebnisse bringen.",
     testInRound: "Test in dieser Runde:",
     footerImprint: "Impressum",
     footerLicense: "GNU GPL v2+",

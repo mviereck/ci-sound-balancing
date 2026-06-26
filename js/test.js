@@ -547,7 +547,7 @@ function shuffle(a) {
 function randAB(p) {
   return p.map(([x, y]) => (Math.random() < 0.5 ? [x, y] : [y, x]));
 }
-function gWt(i) {
+function ell_gWt(i) {
   const s = elSt[i];
   if (elExDur[i] !== null || s === "mute") return 0;
   if (s === "almostMute") return 0.05;
@@ -556,10 +556,10 @@ function gWt(i) {
   if (s === "noisyLess") return 0.8;
   return 1;
 }
-function compWLS() {
+function ELL_compWLS() {
   const n = nEl,
     lv = new Array(n).fill(0);
-  const valid = elektrodenlautstaerkeResults.filter(
+  const valid = ELL_results.filter(
     (r) =>
       r.a >= 0 &&
       r.a < n &&
@@ -574,21 +574,21 @@ function compWLS() {
     return {
       levels: lv,
       residuals: [],
-      elRes: new Array(n).fill(0),
-      elWt: new Array(n).fill(1),
+      ELL_res: new Array(n).fill(0),
+      ELL_wt: new Array(n).fill(1),
     };
   for (let it = 0; it < 80; it++) {
     const su = new Array(n).fill(0),
       wt = new Array(n).fill(0);
     for (const r of valid) {
-      const w = Math.min(gWt(r.a), gWt(r.b));
+      const w = Math.min(ell_gWt(r.a), ell_gWt(r.b));
       su[r.b] += (lv[r.a] - r.offset) * w;
       wt[r.b] += w;
       su[r.a] += (lv[r.b] + r.offset) * w;
       wt[r.a] += w;
     }
     for (let i = 0; i < n; i++) {
-      if (i === refEl) {
+      if (i === ELL_refEl) {
         lv[i] = 0;
         continue;
       }
@@ -604,25 +604,25 @@ function compWLS() {
     ea[r.a].push(r.residual);
     ea[r.b].push(r.residual);
   }
-  const elRes = ea.map((a) =>
+  const ELL_res = ea.map((a) =>
     a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0,
   );
   return {
     levels: lv,
     residuals: res,
-    elRes,
-    elWt: new Array(n).fill(0).map((_, i) => gWt(i)),
+    ELL_res,
+    ELL_wt: new Array(n).fill(0).map((_, i) => ell_gWt(i)),
   };
 }
 
 // ============================================================
-// elTestData — EINZIGE Schnittstelle zu den Ergebnissen des
-// Elektrodenlautstaerke-Tests (compWLS). Alle Stellen, die diese
+// ELL_testData — EINZIGE Schnittstelle zu den Ergebnissen des
+// Elektrodenlautstaerke-Tests (ELL_compWLS). Alle Stellen, die diese
 // Werte brauchen (Korrektur wie Anzeige), rufen NUR diese Funktion
 // auf und drehen das Vorzeichen NICHT mehr selbst.
 //
-// Ruft compWLS() genau EINMAL pro Aufruf und liefert ein Objekt:
-//   raw[i]            rohe Mess-dB direkt aus compWLS (ungegatet).
+// Ruft ELL_compWLS() genau EINMAL pro Aufruf und liefert ein Objekt:
+//   raw[i]            rohe Mess-dB direkt aus ELL_compWLS (ungegatet).
 //                     Ist-Zustand: zu leise => negativ. Fuer Anzeige
 //                     und Statistik, die ihren eigenen Filter haben.
 //   measured[i]       Ist-Zustand, GEGATET: Elektrode ohne gueltige
@@ -631,23 +631,23 @@ function compWLS() {
 //                     (= beim Abspielen anheben). = -measured.
 //   correctionGain[i] correction als linearer Faktor dB2G(correction);
 //                     ungemessen => 1 (neutral).
-//   residual[i]       Streuung/Residuum pro Elektrode (elRes).
-//   weight[i]         Gewicht pro Elektrode (elWt).
+//   residual[i]       Streuung/Residuum pro Elektrode (ELL_res).
+//   weight[i]         Gewicht pro Elektrode (ELL_wt).
 //
 // opts.side: optionale Seite ("left"/"right"); sonst aktive Seite.
 //
 // Das Gate (gueltige Messdaten?) ist hier dieselbe Bedingung wie der
 // frueher in player.js/tone-popup.js duplizierte hd-Check.
-function elTestData(opts) {
+function ELL_testData(opts) {
   opts = opts || {};
   const run = function () {
     const n = nEl;
-    const { levels, elRes, elWt } = compWLS();
+    const { levels, ELL_res, ELL_wt } = ELL_compWLS();
     const measured = new Array(n);
     const correction = new Array(n);
     const correctionGain = new Array(n);
     for (let i = 0; i < n; i++) {
-      const hd = elektrodenlautstaerkeResults.some(function (r) {
+      const hd = ELL_results.some(function (r) {
         return (r.a === i || r.b === i)
           && elExDur[r.a] === null && elSt[r.a] !== "mute"
           && elExDur[r.b] === null && elSt[r.b] !== "mute";
@@ -662,8 +662,8 @@ function elTestData(opts) {
       measured: measured,
       correction: correction,
       correctionGain: correctionGain,
-      residual: elRes,
-      weight: elWt,
+      residual: ELL_res,
+      weight: ELL_wt,
     };
   };
   return opts.side ? withSide(opts.side, run) : run();
@@ -671,19 +671,19 @@ function elTestData(opts) {
 
 // BA 300: Frequenzaufgeloeste Elektrodenlautstaerke-Korrektur (linearer
 // Gain) fuer eine Seite. Liest die bereits gegatete, vorzeichenrichtige
-// correction-dB pro Elektrode (elTestData) und interpoliert log-linear
+// correction-dB pro Elektrode (ELL_testData) und interpoliert log-linear
 // ueber die Elektroden-Frequenzen bei hz. Liefert 1 (neutral), wenn keine
 // Messdaten/Frequenzen vorliegen. Logik identisch zu FRQ_correctionGain
 // (freqmatch.js); zentralisiert, damit alle Korrektur-Aufrufer (Klavier,
 // Vorspiel, Sweep) dieselbe Quelle nutzen.
-function measGain(side, hz) {
+function ELL_measGain(side, hz) {
   return withSide(side, function () {
     // BA 303: defensive Abfragen (aus FRQ_correctionGain uebernommen). Ohne
-    // Mess-Paare oder ohne compWLS neutral zurueck, BEVOR elTestData()
-    // gerufen wird (nutzt intern elektrodenlautstaerkeResults.some -> wuerde sonst werfen).
-    if (typeof elektrodenlautstaerkeResults === "undefined" || !elektrodenlautstaerkeResults || elektrodenlautstaerkeResults.length === 0) return 1;
-    if (typeof compWLS !== "function") return 1;
-    var levels = elTestData().correction;
+    // Mess-Paare oder ohne ELL_compWLS neutral zurueck, BEVOR ELL_testData()
+    // gerufen wird (nutzt intern ELL_results.some -> wuerde sonst werfen).
+    if (typeof ELL_results === "undefined" || !ELL_results || ELL_results.length === 0) return 1;
+    if (typeof ELL_compWLS !== "function") return 1;
+    var levels = ELL_testData().correction;
     if (!levels || !levels.length) return 1;
     var f = (typeof FRQ_implantat !== "undefined" && FRQ_implantat) ? FRQ_implantat : null;
     if (!f || !f.length) return 1;
@@ -725,13 +725,13 @@ function measGain(side, hz) {
 // BA 300: Kombinierter Pegel-Korrektor. Wendet auf einen Grundpegel die
 // Elektrodenlautstaerke- und/oder die Stereo-Balance-Korrektur an.
 // side: "left" | "right" (vom Aufrufer aus dem Pan abgeleitet).
-// applyMeas / applyBal: einzeln schaltbar -- im Implantat-Reiter ueber die
+// applyELL / applyBal: einzeln schaltbar -- im Implantat-Reiter ueber die
 // zwei Box-Schalter, in den Mess-Reitern beide true. Balance kommt aus
 // STB_rawGains() (respektiert den Balance-Modus).
-function corrVol(vol, side, hz, applyMeas, applyBal) {
+function corrVol(vol, side, hz, applyELL, applyBal) {
   var v = vol;
-  if (applyMeas && typeof measGain === "function") {
-    v *= measGain(side, hz);
+  if (applyELL && typeof ELL_measGain === "function") {
+    v *= ELL_measGain(side, hz);
   }
   if (applyBal && typeof STB_rawGains === "function") {
     var bg = STB_rawGains() || { left: 0, right: 0 };
@@ -742,8 +742,8 @@ function corrVol(vol, side, hz, applyMeas, applyBal) {
 }
 
 function getConvPairs(fast) {
-  if (fast && elektrodenlautstaerkeResults.length > 0) {
-    const { residuals } = compWLS();
+  if (fast && ELL_results.length > 0) {
+    const { residuals } = ELL_compWLS();
     const act = new Set(actEl());
     const vr = residuals
       .filter((r) => act.has(r.a) && act.has(r.b))
@@ -770,24 +770,24 @@ function getConvPairs(fast) {
 // ============================================================
 // LS-HINT: Schätzung und Unsicherheit für Paar (a, b)
 // ============================================================
-function getLsEstimate(a, b) {
-  if (elektrodenlautstaerkeResults.length === 0) return { estimate: 0, halfWidth: 0, hasData: false };
-  const { raw: levels, residual: elRes } = elTestData();
-  const wA = gWt(a), wB = gWt(b);
+function ell_getLsEstimate(a, b) {
+  if (ELL_results.length === 0) return { estimate: 0, halfWidth: 0, hasData: false };
+  const { raw: levels, residual: ELL_res } = ELL_testData();
+  const wA = ell_gWt(a), wB = ell_gWt(b);
   if (wA <= 0 || wB <= 0) return { estimate: 0, halfWidth: 0, hasData: false };
-  const nA = elektrodenlautstaerkeResults.filter(r => r.a === a || r.b === a).length;
-  const nB = elektrodenlautstaerkeResults.filter(r => r.a === b || r.b === b).length;
+  const nA = ELL_results.filter(r => r.a === a || r.b === a).length;
+  const nB = ELL_results.filter(r => r.a === b || r.b === b).length;
   const N = Math.min(nA, nB);
-  const resTerm = Math.max(elRes[a] || 0, elRes[b] || 0);
+  const resTerm = Math.max(ELL_res[a] || 0, ELL_res[b] || 0);
   const prior = LS_HINT_BASIS_DB * LS_HINT_K / (LS_HINT_K + N);
   const halfWidth = Math.sqrt(resTerm * resTerm + prior * prior);
   return { estimate: levels[a] - levels[b], halfWidth, hasData: true };
 }
 
 // ============================================================
-// TEST — Element-Lookup via testEls (gebaut von buildTestPanel)
+// TEST — Element-Lookup via ELL_testEls (gebaut von buildTestPanel)
 // ============================================================
-let testEls = null;
+let ELL_testEls = null;
 // LS-Hint Parameter (Bauanleitung 61)
 const LS_HINT_BASIS_DB = 2.5;
 const LS_HINT_K = 3;
@@ -801,12 +801,12 @@ function tGPau() { return pause_elektrodenlautstaerke    || 300; }
 // BA 252: Klavier-Helfer fuer die Tonauswahl-Modalbox des
 // Elektrodenlautstaerke-Tests. Eine Seite (aktive Seite), alle
 // Elektroden anzeigen, abgewaehlte/ausgeschlossene als disabled.
-function _testTpElectrodeFreqs() {
+function _ell_tpElectrodeFreqs() {
   var arr = [];
   for (var i = 0; i < nEl; i++) arr.push(FRQ_implantatEffektiv(i));
   return arr;
 }
-function _testTpElectrodeLabels() {
+function _ell_tpElectrodeLabels() {
   var prefix = (typeof dENPrefix === 'function') ? dENPrefix() : 'E';
   var arr = [];
   for (var i = 0; i < nEl; i++) {
@@ -814,7 +814,7 @@ function _testTpElectrodeLabels() {
   }
   return arr;
 }
-function _testTpDisabledElectrodes() {
+function _ell_tpDisabledElectrodes() {
   var arr = [];
   for (var i = 0; i < nEl; i++) {
     if (elActive[i] === false) { arr.push(i); continue; }
@@ -824,26 +824,26 @@ function _testTpDisabledElectrodes() {
 }
 
 // BA 252: Korrektur-Toggle-Callback und Modal-Ton-Zwischenspeicher.
-var _testTpCorrectVol = null;
-var _testTpModalTone  = null;
+var _ell_tpCorrectVol = null;
+var _ell_tpModalTone  = null;
 
-function _testSliderVal() {
-  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+function _ell_sliderVal() {
+  var vref = ELL_testEls && ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
   return (vref && vref.slider && vref.slider.input)
     ? parseFloat(vref.slider.input.value) : 0;
 }
 
 
 // ---- Swap-Helfer ----
-function _testSwap() {
-  if (!testAct || testIdx >= testPairs.length || !testEls) return;
+function _ell_swap() {
+  if (!ELL_testAct || ELL_testIdx >= ELL_testPairs.length || !ELL_testEls) return;
   stopAll();
-  var oldVal = _testSliderVal();
-  var swapped = [curB, curA];
-  curA = swapped[0]; curB = swapped[1];
-  testPairs[testIdx] = [curA, curB];
+  var oldVal = _ell_sliderVal();
+  var swapped = [ELL_curB, ELL_curA];
+  ELL_curA = swapped[0]; ELL_curB = swapped[1];
+  ELL_testPairs[ELL_testIdx] = [ELL_curA, ELL_curB];
   var newVal = -oldVal;
-  var vref = testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  var vref = ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
   if (vref && vref.slider) {
     testUI.slider.setValue(vref.slider, newVal);
     testUI.slider.setValueDisplay(vref.slider, newVal.toFixed(1) + " dB");
@@ -851,19 +851,19 @@ function _testSwap() {
   if (vref && vref.pairIndicator) {
     // BA 247fix2: korrekte Property-Namen der testUI-setLabels-API.
     testUI.pairIndicator.setLabels(vref.pairIndicator, {
-      leftText:  dENPrefix() + dEN(curA),
-      rightText: dENPrefix() + dEN(curB),
-      leftHz:    Math.round(FRQ_implantatEffektiv(curA)),
-      rightHz:   Math.round(FRQ_implantatEffektiv(curB))
+      leftText:  dENPrefix() + dEN(ELL_curA),
+      rightText: dENPrefix() + dEN(ELL_curB),
+      leftHz:    Math.round(FRQ_implantatEffektiv(ELL_curA)),
+      rightHz:   Math.round(FRQ_implantatEffektiv(ELL_curB))
     });
   }
-  _testUpdateRangeHint();
-  _testUpdateClipHint();
+  _ell_updateRangeHint();
+  ELL_updateClipHint();
 }
 
 // BA 247: Round-Robin-Start (frueher 'full' in startTest)
 function startTestFull() {
-  if (!testEls) return;
+  if (!ELL_testEls) return;
   var s = sideData[activeSide];
   var rrTable = ROUND_ROBIN[nEl];
   var p;
@@ -889,30 +889,30 @@ function startTestFull() {
     });
   }
   // BA 247: Elektroden-Auswahl im Header filtert die Sequenz.
-  p = _testFilterByElectrodeSelection(p);
-  testPairs = randAB(shuffle(p));
-  testIdx = 0;
+  p = _ell_filterByElectrodeSelection(p);
+  ELL_testPairs = randAB(shuffle(p));
+  ELL_testIdx = 0;
   undoSt = [];
-  testAct = true;
-  curPlayed = false;
+  ELL_testAct = true;
+  ELL_curPlayed = false;
   convRnd = 0;
   lockTestTabs(true, 'elektrodenlautstaerke');
-  showCurPair();
+  ell_showCurPair();
 }
 
 // BA 247: Konvergenz-Start (frueher 'conv_fast' in startTest)
 function startTestConv() {
-  if (!testEls) return;
+  if (!ELL_testEls) return;
   var p = getConvPairs(true);
-  p = _testFilterByElectrodeSelection(p);
-  testPairs = randAB(shuffle(p));
-  testIdx = 0;
+  p = _ell_filterByElectrodeSelection(p);
+  ELL_testPairs = randAB(shuffle(p));
+  ELL_testIdx = 0;
   undoSt = [];
-  testAct = true;
-  curPlayed = false;
+  ELL_testAct = true;
+  ELL_curPlayed = false;
   convRnd = 1;
   lockTestTabs(true, 'elektrodenlautstaerke');
-  showCurPair();
+  ell_showCurPair();
 }
 
 // BA 247: Sequenz auf die im Header gewaehlten Elektroden filtern.
@@ -920,8 +920,8 @@ function startTestConv() {
 // in denen BEIDE Elektroden in der Auswahl stehen. Konsequenz: ein
 // Paarvergleich braucht mindestens zwei ausgewaehlte Elektroden
 // (vgl. minSelected: 2 im electrodeSelection-Block).
-function _testFilterByElectrodeSelection(pairs) {
-  var sel = _testSelectedEls;
+function _ell_filterByElectrodeSelection(pairs) {
+  var sel = _ell_selectedEls;
   if (!sel || !sel.length) return pairs;
   var s = new Set(sel);
   return pairs.filter(function(p) {
@@ -930,40 +930,40 @@ function _testFilterByElectrodeSelection(pairs) {
 }
 
 // Bugfix (0.4.279.1): Aenderung der Elektrodenauswahl WAEHREND eines
-// laufenden Tests. _testFilterByElectrodeSelection greift nur beim Start
+// laufenden Tests. _ell_filterByElectrodeSelection greift nur beim Start
 // (startTestFull/startTestConv); ohne diesen Helfer blieben abgewaehlte
 // Elektroden in der bereits gebauten Sequenz und wurden weiter abgefragt.
 // Semantik (im Modal bestaetigt): ein betroffenes aktuelles Paar wird
 // sofort uebersprungen; bereits absolvierte Vergleiche bleiben erhalten.
-function _testApplySelectionDuringRun() {
-  if (!testAct || testIdx >= testPairs.length) return;
-  var sel = _testSelectedEls;
+function _ell_applySelectionDuringRun() {
+  if (!ELL_testAct || ELL_testIdx >= ELL_testPairs.length) return;
+  var sel = _ell_selectedEls;
   if (!sel || !sel.length) return;
   var s = new Set(sel);
-  var cur = testPairs[testIdx];
-  var curAffected = !(s.has(cur[0]) && s.has(cur[1]));
+  var cur = ELL_testPairs[ELL_testIdx];
+  var ell_curAffected = !(s.has(cur[0]) && s.has(cur[1]));
   // Ab der aktuellen Position nur Paare behalten, deren beide Elektroden
   // noch ausgewaehlt sind. Bereits gespielte Vergleiche unangetastet.
-  var rem = testPairs.slice(testIdx).filter(function(p) {
+  var rem = ELL_testPairs.slice(ELL_testIdx).filter(function(p) {
     return s.has(p[0]) && s.has(p[1]);
   });
-  testPairs = testPairs.slice(0, testIdx).concat(rem);
-  if (testIdx >= testPairs.length) {
+  ELL_testPairs = ELL_testPairs.slice(0, ELL_testIdx).concat(rem);
+  if (ELL_testIdx >= ELL_testPairs.length) {
     endTest();
-    renderResults();
-  } else if (curAffected) {
+    ELL_renderResults();
+  } else if (ell_curAffected) {
     // Aktuelles Paar war betroffen -> sofort zum naechsten gueltigen.
     stopAll();
-    showCurPair();
+    ell_showCurPair();
   } else {
     // Aktuelles Paar bleibt; nur Restzahl/Fortschritt aktualisieren.
-    _testUpdateProgress();
+    _ell_updateProgress();
   }
 }
 function endTest() {
   stopAll();
-  testAct = false;
-  curPlayed = false;
+  ELL_testAct = false;
+  ELL_curPlayed = false;
   lockTestTabs(false, null);
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
@@ -975,35 +975,35 @@ function endTest() {
   // Abschluss). _stopTest hat einen Re-Entry-Schutz (_testRunning), der
   // Aufruf ueber den onStop-Hook (-> endTest) laeuft also nicht in eine
   // Endlosschleife. Vgl. STB_finish in stereobalance-balance.js.
-  if (testEls && testEls._stopTest) testEls._stopTest();
+  if (ELL_testEls && ELL_testEls._stopTest) ELL_testEls._stopTest();
 }
-function showCurPair() {
-  if (!testEls) return;
-  if (testIdx >= testPairs.length) {
+function ell_showCurPair() {
+  if (!ELL_testEls) return;
+  if (ELL_testIdx >= ELL_testPairs.length) {
     if (convRnd === 0) return nextFullRound();
     if (convRnd > 0)  return nextConvRnd();
     endTest();
-    renderResults();
+    ELL_renderResults();
     return;
   }
-  var pair = testPairs[testIdx];
-  curA = pair[0];
-  curB = pair[1];
+  var pair = ELL_testPairs[ELL_testIdx];
+  ELL_curA = pair[0];
+  ELL_curB = pair[1];
 
-  _testUpdateProgress();
+  _ell_updateProgress();
 
-  var vref = testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  var vref = ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
   if (vref && vref.pairIndicator) {
     // BA 247fix2: korrekte Property-Namen der testUI-setLabels-API.
     testUI.pairIndicator.setLabels(vref.pairIndicator, {
-      leftText:  dENPrefix() + dEN(curA),
-      rightText: dENPrefix() + dEN(curB),
-      leftHz:    Math.round(FRQ_implantatEffektiv(curA)),
-      rightHz:   Math.round(FRQ_implantatEffektiv(curB))
+      leftText:  dENPrefix() + dEN(ELL_curA),
+      rightText: dENPrefix() + dEN(ELL_curB),
+      leftHz:    Math.round(FRQ_implantatEffektiv(ELL_curA)),
+      rightHz:   Math.round(FRQ_implantatEffektiv(ELL_curB))
     });
   }
 
-  // BA 247: curBase ist immer 0. Slider sitzt auf dem gespeicherten
+  // BA 247: ELL_curBase ist immer 0. Slider sitzt auf dem gespeicherten
   // Wert (falls vorhanden).
   // Direkt-Edit 280.2: Paar ohne eigenen Messwert startet am zufaellig
   // gewaehlten Rand des Unsicherheitsbandes der Voreinschaetzung
@@ -1015,15 +1015,15 @@ function showCurPair() {
   // Ohne Datenbasis (kein hasData) weiterhin 0 dB. Gilt fuer beide
   // Verfahren (full / conv); im Konvergenz-Normalfall greift fast immer
   // der gespeicherte Wert.
-  curBase = 0;
-  var ex = elektrodenlautstaerkeResults.find(function(r) {
-    return (r.a === curA && r.b === curB) || (r.a === curB && r.b === curA);
+  ELL_curBase = 0;
+  var ex = ELL_results.find(function(r) {
+    return (r.a === ELL_curA && r.b === ELL_curB) || (r.a === ELL_curB && r.b === ELL_curA);
   });
   var startVal = 0;
   if (ex) {
-    startVal = (ex.a === curA) ? ex.offset : -ex.offset;
+    startVal = (ex.a === ELL_curA) ? ex.offset : -ex.offset;
   } else {
-    var estStart = getLsEstimate(curA, curB);
+    var estStart = ell_getLsEstimate(ELL_curA, ELL_curB);
     if (estStart.hasData) {
       var edgeSign = (Math.random() < 0.5) ? -1 : 1;
       startVal = estStart.estimate + edgeSign * estStart.halfWidth;
@@ -1034,21 +1034,21 @@ function showCurPair() {
     testUI.slider.setValueDisplay(vref.slider, startVal.toFixed(1) + " dB");
   }
 
-  _testUpdateRangeHint();
-  _testUpdateClipHint();
+  _ell_updateRangeHint();
+  ELL_updateClipHint();
 
-  curPlayed = false;
-  updUndo();
+  ELL_curPlayed = false;
+  ell_updUndo();
   playCur();
 }
 
-// BA 247: Helfer fuer showCurPair, ehemals inline.
-let _testActiveVerfahren = "full";
+// BA 247: Helfer fuer ell_showCurPair, ehemals inline.
+let _ELL_activeVerfahren = "full";
 
-function _testUpdateProgress() {
-  var vref = testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+function _ell_updateProgress() {
+  var vref = ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
   if (!vref || !vref.progress) return;
-  if (_testActiveVerfahren === "full") {
+  if (_ELL_activeVerfahren === "full") {
     var s = sideData[activeSide];
     var rrTable = ROUND_ROBIN[nEl];
     if (rrTable) {
@@ -1056,7 +1056,7 @@ function _testUpdateProgress() {
       var pairsPerRound = rrTable[0].length;
       var completedRounds = (s.fullSweepRound || 1) - 1;
       var totalPairs = maxRounds * pairsPerRound;
-      var n = completedRounds * pairsPerRound + testIdx + 1;
+      var n = completedRounds * pairsPerRound + ELL_testIdx + 1;
       // BA 247fix2: progress.set erwartet ein opts-Objekt, kein String.
       testUI.progress.set(vref.progress, {
         text: t("comp") + " " + n + " " + t("of") + " " + totalPairs +
@@ -1066,27 +1066,27 @@ function _testUpdateProgress() {
     }
   } else {
     testUI.progress.set(vref.progress, {
-      text: t("comp") + " " + (testIdx + 1) + " " + t("of") + " " + testPairs.length +
+      text: t("comp") + " " + (ELL_testIdx + 1) + " " + t("of") + " " + ELL_testPairs.length +
             (convRnd > 0 ? " (" + t("round") + " " + convRnd + ")" : ""),
-      fraction: (testIdx + 1) / Math.max(1, testPairs.length)
+      fraction: (ELL_testIdx + 1) / Math.max(1, ELL_testPairs.length)
     });
   }
 }
 
 // BA 285: Deckelungs-Hinweis aktualisieren. off optional (sonst aktueller
 // Slider-Wert). Nutzt pairGains.capped aus audio.js (BA 284).
-function _testUpdateClipHint(off) {
-  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+function ELL_updateClipHint(off) {
+  var vref = ELL_testEls && ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
   if (!vref || !vref.clipHint) return;
-  if (off == null) off = _testSliderVal();
+  if (off == null) off = _ell_sliderVal();
   var g = pairGains(tGVol(), off);
   if (!g.capped) {
     testUI.clipHint.set(vref.clipHint, null);
     return;
   }
   var prefix = dENPrefix();
-  var labelA = prefix + dEN(curA);
-  var labelB = prefix + dEN(curB);
+  var labelA = prefix + dEN(ELL_curA);
+  var labelB = prefix + dEN(ELL_curB);
   var capLabel   = (g.capped === 'a') ? labelA : labelB;
   var otherLabel = (g.capped === 'a') ? labelB : labelA;
   var txt = t('clipHintCapped').replace('{capped}', capLabel).replace('{other}', otherLabel);
@@ -1096,22 +1096,22 @@ function _testUpdateClipHint(off) {
 // BA 285: Slider-Bewegung. Da jetzt ein onSlide-Hook vorhanden ist,
 // uebernimmt dieser auch die dB-Anzeige (das Auto-Update in test-ui.js
 // laeuft nur OHNE onSlide-Hook).
-function _testOnSlide(off) {
-  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+function _ell_onSlide(off) {
+  var vref = ELL_testEls && ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
   if (vref && vref.slider) {
     testUI.slider.setValueDisplay(vref.slider, off.toFixed(1) + " dB");
   }
-  _testUpdateClipHint(off);
+  ELL_updateClipHint(off);
 }
 
-function _testUpdateRangeHint() {
-  var vref = testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+function _ell_updateRangeHint() {
+  var vref = ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
   if (!vref || !vref.slider) return;
-  if (!testAct || testIdx >= testPairs.length) {
+  if (!ELL_testAct || ELL_testIdx >= ELL_testPairs.length) {
     testUI.slider.setRangeHint(vref.slider, null);
     return;
   }
-  var est = getLsEstimate(curA, curB);
+  var est = ell_getLsEstimate(ELL_curA, ELL_curB);
   if (!est.hasData) {
     testUI.slider.setRangeHint(vref.slider, null);
     return;
@@ -1124,18 +1124,18 @@ function _testUpdateRangeHint() {
   });
 }
 function playCur() {
-  if (testIdx >= testPairs.length) return;
+  if (ELL_testIdx >= ELL_testPairs.length) return;
   stopAll();
   isPlay = true;
-  curPlayed = true;
-  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  ELL_curPlayed = true;
+  var vref = ELL_testEls && ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
   // setPlaying('both') setzt die Replay-Sperre (confirm, swap). Das
   // praezise Aufleuchten pro Ton macht jetzt der onStepStart-Hook.
   if (vref && vref.pairIndicator) {
     testUI.pairIndicator.setPlaying(vref.pairIndicator, 'both');
   }
   testUI.tonePlayer.playSequential(
-    _testSequence({ aba: sequence_elektrodenlautstaerke === 'aba' }),
+    _ell_sequence({ aba: sequence_elektrodenlautstaerke === 'aba' }),
     {
       toneType: toneType_elektrodenlautstaerke,
       onStepStart: function (index, token) {
@@ -1151,21 +1151,21 @@ function playCur() {
     }
   );
 }
-function recBal() {
-  if (!testAct || testIdx >= testPairs.length) return;
-  // BA 247: curBase ist immer 0.
-  const a = curA, b = curB, tot = _testSliderVal();
+function ell_recBal() {
+  if (!ELL_testAct || ELL_testIdx >= ELL_testPairs.length) return;
+  // BA 247: ELL_curBase ist immer 0.
+  const a = ELL_curA, b = ELL_curB, tot = _ell_sliderVal();
   const ne = { a, b, offset: tot, timestamp: Date.now() };
-  const ei = elektrodenlautstaerkeResults.findIndex((x) => (x.a === a && x.b === b) || (x.a === b && x.b === a));
+  const ei = ELL_results.findIndex((x) => (x.a === a && x.b === b) || (x.a === b && x.b === a));
   if (ei >= 0) {
-    undoSt.push({ t: "b", a: "r", e: ne, p: { ...elektrodenlautstaerkeResults[ei] } });
-    elektrodenlautstaerkeResults[ei] = ne;
+    undoSt.push({ t: "b", a: "r", e: ne, p: { ...ELL_results[ei] } });
+    ELL_results[ei] = ne;
   } else {
     undoSt.push({ t: "b", a: "a", e: ne });
-    elektrodenlautstaerkeResults.push(ne);
+    ELL_results.push(ne);
   }
   // BA 247: Vollstaendig: gemessenes Paar als erledigt markieren.
-  if (_testActiveVerfahren === "full") {
+  if (_ELL_activeVerfahren === "full") {
     const ka = Math.min(a, b), kb = Math.max(a, b);
     const s = sideData[activeSide];
     if (!s.fullSweepDonePairs.some(([x, y]) => x === ka && y === kb)) {
@@ -1173,25 +1173,25 @@ function recBal() {
     }
     fullSweepDonePairs = s.fullSweepDonePairs;
   }
-  testIdx++;
-  updUndo();
-  showCurPair();
+  ELL_testIdx++;
+  ell_updUndo();
+  ell_showCurPair();
 }
-function undoL() {
-  if (!testAct || !undoSt.length || testIdx <= 0) return;
+function ell_undoL() {
+  if (!ELL_testAct || !undoSt.length || ELL_testIdx <= 0) return;
   stopAll();
-  testIdx--;
+  ELL_testIdx--;
   const u = undoSt.pop();
   // BA 247: nur noch der b-Pfad (balance); j-Pfad entfaellt mit judgment.
   if (u.a === "a") {
-    const i = elektrodenlautstaerkeResults.findIndex(function(x) { return x.timestamp === u.e.timestamp; });
-    if (i >= 0) elektrodenlautstaerkeResults.splice(i, 1);
+    const i = ELL_results.findIndex(function(x) { return x.timestamp === u.e.timestamp; });
+    if (i >= 0) ELL_results.splice(i, 1);
   } else {
-    const i = elektrodenlautstaerkeResults.findIndex(function(x) { return x.a === u.e.a && x.b === u.e.b; });
-    if (i >= 0) elektrodenlautstaerkeResults[i] = u.p;
+    const i = ELL_results.findIndex(function(x) { return x.a === u.e.a && x.b === u.e.b; });
+    if (i >= 0) ELL_results[i] = u.p;
   }
   // Bug-Fix §6.9: Bei full-Verfahren auch aus fullSweepDonePairs entfernen.
-  if (_testActiveVerfahren === "full") {
+  if (_ELL_activeVerfahren === "full") {
     const ka = Math.min(u.e.a, u.e.b);
     const kb = Math.max(u.e.a, u.e.b);
     const s = sideData[activeSide];
@@ -1199,16 +1199,16 @@ function undoL() {
     if (idx >= 0) s.fullSweepDonePairs.splice(idx, 1);
     fullSweepDonePairs = s.fullSweepDonePairs;
   }
-  updUndo();
-  showCurPair();
+  ell_updUndo();
+  ell_showCurPair();
 }
-function updUndo() {
+function ell_updUndo() {
   // BA 247fix2: Undo-Button liegt in der neuen API unter
-  // testEls.verfahren[<id>].actions.undo, nicht direkt auf testEls.
-  if (!testEls || !testEls.verfahren) return;
-  var vref = testEls.verfahren[_testActiveVerfahren];
+  // ELL_testEls.verfahren[<id>].actions.undo, nicht direkt auf ELL_testEls.
+  if (!ELL_testEls || !ELL_testEls.verfahren) return;
+  var vref = ELL_testEls.verfahren[_ELL_activeVerfahren];
   var btn = vref && vref.actions && vref.actions.undo;
-  if (btn) btn.disabled = testIdx <= 0 || !undoSt.length;
+  if (btn) btn.disabled = ELL_testIdx <= 0 || !undoSt.length;
 }
 function nextFullRound() {
   const s = sideData[activeSide];
@@ -1224,12 +1224,12 @@ function nextFullRound() {
     fullSweepRound = null;
     fullSweepDonePairs = [];
     endTest();
-    renderResults();
+    ELL_renderResults();
     // BA 279: Abschluss-Box NUR beim vollstaendigen Round-Robin-Durchlauf.
     // Konvergenz (nextConvRnd) und Pause/Stop (onStop -> endTest): KEINE Box.
-    if (testEls && typeof testUI !== 'undefined' && testUI.completion) {
+    if (ELL_testEls && typeof testUI !== 'undefined' && testUI.completion) {
       testUI.completion.show({
-        nameKey:   'testRrName',
+        nameKey:   'ell_rrName',
         subtabKey: 'compSubLoudness',
         bodyKey:   'rrDoneExtra'
       });
@@ -1242,20 +1242,20 @@ function nextFullRound() {
   );
   // BA 247fix: Elektroden-Auswahl im Header gilt auch ab der zweiten
   // Runde, nicht nur beim Start (startTestFull).
-  const filtered = _testFilterByElectrodeSelection(roundPairs);
-  testPairs = randAB(shuffle(filtered));
-  testIdx = 0;
+  const filtered = _ell_filterByElectrodeSelection(roundPairs);
+  ELL_testPairs = randAB(shuffle(filtered));
+  ELL_testIdx = 0;
   undoSt = [];
-  showCurPair();
+  ell_showCurPair();
 }
 function nextConvRnd() {
-  const { residuals } = compWLS();
+  const { residuals } = ELL_compWLS();
   const act = new Set(actEl());
   const vr = residuals.filter((r) => act.has(r.a) && act.has(r.b));
   const mx = vr.length ? Math.max(...vr.map((r) => r.residual)) : 0;
   if (mx < 1) {
     endTest();
-    renderResults();
+    ELL_renderResults();
     return;
   }
   convRnd++;
@@ -1270,18 +1270,18 @@ function nextConvRnd() {
     const k = Math.min(p[0], p[1]) + "-" + Math.max(p[0], p[1]);
     if (!seen.has(k)) { seen.add(k); mg.push(p); }
   });
-  testPairs = randAB(shuffle(mg));
-  testIdx = 0;
+  ELL_testPairs = randAB(shuffle(mg));
+  ELL_testIdx = 0;
   undoSt = [];
   // BA 247fix2: progress.set erwartet ein opts-Objekt.
-  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  var vref = ELL_testEls && ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
   if (vref && vref.progress) {
     testUI.progress.set(vref.progress, {
       text: t("round") + " " + convRnd + " – " + mg.length + " (max res: " + mx.toFixed(1) + " dB)",
       fraction: 0
     });
   }
-  showCurPair();
+  ell_showCurPair();
 }
 
 // ============================================================
@@ -1290,7 +1290,7 @@ function nextConvRnd() {
 // BA 247fix: null = "alle testable ausgewaehlt" (Konvention aus
 // test-ui.js Z. 2270 und aus stereobalance-balance). Leeres Array waere im
 // Modal als "keine ausgewaehlt" interpretiert.
-let _testSelectedEls = null;
+let _ell_selectedEls = null;
 
 document.addEventListener("DOMContentLoaded", function() {
   var parentEl = document.getElementById("subpanel-messungen-elektrodenlautstaerke");
@@ -1298,7 +1298,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Gemeinsamer Body fuer beide Verfahren (Round Robin und Konvergenz
   // unterscheiden sich nur im Start-/Sequenz-Aufbau, nicht in der UI).
-  function _testBody() {
+  function _ell_body() {
     return {
       pairIndicator:  { variant: 'electrode' },
       progress:       { format: 'rounds' },
@@ -1324,25 +1324,25 @@ document.addEventListener("DOMContentLoaded", function() {
     };
   }
 
-  function _testHooksCommon() {
+  function _ell_hooksCommon() {
     return {
-      onStop:    function() { endTest(); renderResults(); },
-      onConfirm: function() { recBal(); },
+      onStop:    function() { endTest(); ELL_renderResults(); },
+      onConfirm: function() { ell_recBal(); },
       onReplay:  function() { playCur(); },
-      onUndo:    function() { undoL(); },
-      onSimul:   function() { _testPlaySimul(); },
-      onSwap:    function() { _testSwap(); },
-      onSlide:   function(off) { _testOnSlide(off); }
+      onUndo:    function() { ell_undoL(); },
+      onSimul:   function() { _ell_playSimul(); },
+      onSwap:    function() { _ell_swap(); },
+      onSlide:   function(off) { _ell_onSlide(off); }
     };
   }
 
   var cfg = {
     id: 'elektrodenlautstaerke',
     explain: {
-      titleKey: 'testExplainTitle',
+      titleKey: 'ell_explainTitle',
       paragraphs: [
-        { key: 'testMaturityHint', kind: 'ok'    },
-        { key: 'testIntro',        kind: 'plain' }
+        { key: 'ell_maturityHint', kind: 'ok'    },
+        { key: 'ell_intro',        kind: 'plain' }
       ]
     },
     header: {
@@ -1358,9 +1358,9 @@ document.addEventListener("DOMContentLoaded", function() {
           getToneType: function()   { return toneType_elektrodenlautstaerke; },
           setToneType: function(tt) { toneType_elektrodenlautstaerke = tt; },
           // BA 252: Tonart-Merker fuer Klavier-Anschlag im Modal.
-          onToneSelected: function(tt) { _testTpModalTone = tt; },
-          onModalClose:   function()   { _testTpModalTone = null; _testTpCorrectVol = null; },
-          onTogglesReady: function(fn) { _testTpCorrectVol = fn; },
+          onToneSelected: function(tt) { _ell_tpModalTone = tt; },
+          onModalClose:   function()   { _ell_tpModalTone = null; _ell_tpCorrectVol = null; },
+          onTogglesReady: function(fn) { _ell_tpCorrectVol = fn; },
           // BA 302: Korrektur-Schalter auch im Lautstaerke-Messreiter zeigen.
           showToggles:  true,
           // BA 250: Lautstaerke/Tondauer/Tonpause als Modalbox-Felder.
@@ -1378,31 +1378,31 @@ document.addEventListener("DOMContentLoaded", function() {
           getPreviewSequence: function (lastHz) {
             // Test laeuft -> echte Sequenz (aktuelles Paar + Schieber);
             // sonst ein Ton mit der zuletzt am Klavier angetippten Frequenz.
-            if (testAct && testIdx < testPairs.length && curA != null && curB != null) {
-              return _testSequence({ aba: sequence_elektrodenlautstaerke === 'aba' });
+            if (ELL_testAct && ELL_testIdx < ELL_testPairs.length && ELL_curA != null && ELL_curB != null) {
+              return _ell_sequence({ aba: sequence_elektrodenlautstaerke === 'aba' });
             }
             var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
             var pan = (activeSide === 'left') ? -1 : 1;
             // BA 302: Korrektur ueber die Schalter-fn (Default an, abschaltbar).
             var vol = tGVol();
-            if (typeof _testTpCorrectVol === 'function') vol = _testTpCorrectVol(vol, hz, pan);
+            if (typeof _ell_tpCorrectVol === 'function') vol = _ell_tpCorrectVol(vol, hz, pan);
             return [{ hz: hz, pan: pan, vol: vol, durationMs: tGDur() }];
           },
           // BA 252: Klavier-Widget in der Modalbox -- aktive Seite,
           // Implantat-Logik (abgewaehlt/ausgeschlossen = X-Overlay).
           keyboardMode:          true,
-          getElectrodeFreqs:     _testTpElectrodeFreqs,
-          getElectrodeLabels:    _testTpElectrodeLabels,
-          getDisabledElectrodes: _testTpDisabledElectrodes,
+          getElectrodeFreqs:     _ell_tpElectrodeFreqs,
+          getElectrodeLabels:    _ell_tpElectrodeLabels,
+          getDisabledElectrodes: _ell_tpDisabledElectrodes,
           getHighlightMs: function() { return tGDur(); },
           onPress: function (electrodeIdx, hz) {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
             var pan = (activeSide === 'left') ? -1 : 1;
-            var tt  = (_testTpModalTone !== null) ? _testTpModalTone : toneType_elektrodenlautstaerke;
+            var tt  = (_ell_tpModalTone !== null) ? _ell_tpModalTone : toneType_elektrodenlautstaerke;
             // BA 302: Korrektur ueber die Schalter-fn (Default an, abschaltbar).
             var vol = tGVol();
-            if (typeof _testTpCorrectVol === 'function') vol = _testTpCorrectVol(vol, hz, pan);
+            if (typeof _ell_tpCorrectVol === 'function') vol = _ell_tpCorrectVol(vol, hz, pan);
             try {
               playToneTyped(c, hz, vol, 60000, pan, tt);
             } catch (e) { /* swallow */ }
@@ -1415,13 +1415,13 @@ document.addEventListener("DOMContentLoaded", function() {
         electrodeSelection: {
           // BA 247fix: zwei Elektroden noetig, sonst kein Paar.
           minSelected: 2,
-          getSelection:    function()    { return _testSelectedEls ? _testSelectedEls.slice() : null; },
+          getSelection:    function()    { return _ell_selectedEls ? _ell_selectedEls.slice() : null; },
           setSelection:    function(sel) {
-            _testSelectedEls = sel.slice();
+            _ell_selectedEls = sel.slice();
             // Bugfix (0.4.279.1): bei laufendem Test verbleibende Sequenz
             // sofort neu filtern, sonst werden abgewaehlte Elektroden
             // weiter abgefragt.
-            _testApplySelectionDuringRun();
+            _ell_applySelectionDuringRun();
           },
           getElectrodeStatus: function() {
             // BA 247: Filter NUR auf aktive Seite.
@@ -1444,63 +1444,63 @@ document.addEventListener("DOMContentLoaded", function() {
     verfahren: [
       {
         id: 'full',
-        labelKey:   'testVerfahrenFull',
+        labelKey:   'ELL_verfahrenFull',
         explainKey: null,
-        body: _testBody(),
+        body: _ell_body(),
         hooks: Object.assign({
           onStart: function() {
             // BA 255: Seitenabfrage vor eigentlichem Start.
             testUI.sideCheck.run(
               { sides: 'one', side: activeSide },
               function() {
-                _testActiveVerfahren = 'full';
+                _ELL_activeVerfahren = 'full';
                 startTestFull();
               },
               function() {
                 // Abbruch: testUI stoppt sich selbst, hier nichts weiter zu tun.
-                if (testEls && testEls._stopTest) testEls._stopTest();
+                if (ELL_testEls && ELL_testEls._stopTest) ELL_testEls._stopTest();
               }
             );
           }
-        }, _testHooksCommon())
+        }, _ell_hooksCommon())
       },
       {
         id: 'conv',
-        labelKey:   'testVerfahrenConv',
+        labelKey:   'ell_verfahrenConv',
         explainKey: null,
-        body: _testBody(),
+        body: _ell_body(),
         hooks: Object.assign({
           onStart: function() {
             // BA 255: Seitenabfrage vor eigentlichem Start.
             testUI.sideCheck.run(
               { sides: 'one', side: activeSide },
               function() {
-                _testActiveVerfahren = 'conv';
+                _ELL_activeVerfahren = 'conv';
                 startTestConv();
               },
               function() {
-                if (testEls && testEls._stopTest) testEls._stopTest();
+                if (ELL_testEls && ELL_testEls._stopTest) ELL_testEls._stopTest();
               }
             );
           }
-        }, _testHooksCommon())
+        }, _ell_hooksCommon())
       }
     ]
   };
 
-  testEls = buildTestPanel(parentEl, cfg);
+  ELL_testEls = buildTestPanel(parentEl, cfg);
 });
 
-function testRefreshElectrodeSelectionSummary() {
-  if (testEls && testEls.header && typeof testEls.header.electrodeSelectionUpdate === 'function') {
-    testEls.header.electrodeSelectionUpdate();
+function ELL_refreshElectrodeSelectionSummary() {
+  if (ELL_testEls && ELL_testEls.header && typeof ELL_testEls.header.electrodeSelectionUpdate === 'function') {
+    ELL_testEls.header.electrodeSelectionUpdate();
   }
 }
 
 // BA 281: Tonart-Label im Kopf nach Laden eines Stands aktualisieren.
-function testRefreshToneTypeLabel() {
-  if (testEls && testEls.header && typeof testEls.header.tonePopupUpdate === 'function') {
-    testEls.header.tonePopupUpdate();
+function ELL_refreshToneTypeLabel() {
+  if (ELL_testEls && ELL_testEls.header && typeof ELL_testEls.header.tonePopupUpdate === 'function') {
+    ELL_testEls.header.tonePopupUpdate();
   }
 }
 
@@ -1510,9 +1510,9 @@ function testRefreshToneTypeLabel() {
 // Pausen-Token { pauseMs }. eIdx/which dienen nur dem Aufleuchten
 // (onStepStart-Hook), die Maschine ignoriert sie.
 //   opts.aba === true  -> dritter Ton (A wiederholt) angehaengt.
-function _testSequence(opts) {
+function _ell_sequence(opts) {
   opts = opts || {};
-  var off  = _testSliderVal();
+  var off  = _ell_sliderVal();
   var g    = pairGains(tGVol(), off);          // { vA, vB, capped }
   var pan  = (activeSide === 'left') ? -1 : 1;
   var mute = isDeaf(activeSide);
@@ -1528,10 +1528,10 @@ function _testSequence(opts) {
       which: which
     };
   }
-  var seq = [ tone(curA, g.vA, 'a'), { pauseMs: pau }, tone(curB, g.vB, 'b') ];
+  var seq = [ tone(ELL_curA, g.vA, 'a'), { pauseMs: pau }, tone(ELL_curB, g.vB, 'b') ];
   if (opts.aba) {
     seq.push({ pauseMs: pau });
-    seq.push(tone(curA, g.vA, 'a'));
+    seq.push(tone(ELL_curA, g.vA, 'a'));
   }
   return seq;
 }
@@ -1539,17 +1539,17 @@ function _testSequence(opts) {
 // BA 247/288: "beide Toene gleichzeitig". Nutzt dieselbe Token-Funktion
 // wie die Sequenz, aber ohne ABA-Wiederholung; die Maschine spielt die
 // Ton-Token parallel (Pausen werden im Gleichzeitig-Modus ignoriert).
-function _testPlaySimul() {
-  if (!testAct || testIdx >= testPairs.length) return;
+function _ell_playSimul() {
+  if (!ELL_testAct || ELL_testIdx >= ELL_testPairs.length) return;
   stopAll();
   isPlay = true;
-  curPlayed = true;
-  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  ELL_curPlayed = true;
+  var vref = ELL_testEls && ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
   if (vref && vref.pairIndicator) {
     testUI.pairIndicator.setPlaying(vref.pairIndicator, 'both');
   }
   testUI.tonePlayer.playSimultaneous(
-    _testSequence({ aba: false }),
+    _ell_sequence({ aba: false }),
     {
       toneType: toneType_elektrodenlautstaerke,
       onDone: function () {

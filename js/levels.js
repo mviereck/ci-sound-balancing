@@ -106,7 +106,7 @@ function elektrodenlautstaerkeKurvenSumme() {
   }
   return c;
 }
-function elektrodenlautstaerkeEffektiv() {
+function ell_effektiv() {
   const pc = elektrodenlautstaerkeKurvenSumme();
   return elektrodenlautstaerkeSchieber.map((m, i) => m + pc[i]);
 }
@@ -337,7 +337,7 @@ function elektrodenlautstaerkeKurvenChartZeichnen() {
   const showPre = document.getElementById("kurvenChkPre").checked;
   const act = allEl();
   if (!act.length) return;
-  const corr = elTestData().correction;
+  const corr = ELL_testData().correction;
   const pc = elektrodenlautstaerkeKurvenSumme();
   const measV = act.map((i) => corr[i]);
   const manV = act.map((i) => elektrodenlautstaerkeSchieber[i]);
@@ -405,7 +405,7 @@ function elektrodenlautstaerkeKurvenChartZeichnen() {
   drawLine(sumV, "#1a1a1a", 2.5, null);
   cv._axisHits = [];
   for (let j = 0; j < act.length; j++) {
-    ctx.fillStyle = act[j] === refEl ? "#2563eb" : "#555";
+    ctx.fillStyle = act[j] === ELL_refEl ? "#2563eb" : "#555";
     ctx.font = "9px Segoe UI,sans-serif";
     ctx.textAlign = "center";
     const yE = H - pad.bottom + 12,

@@ -273,9 +273,9 @@ function _buildTestPanelNew(parentEl, cfg) {
     var lblRef = _mkEl('label');
     _tEl(lblRef, hc.refSelect.key || 'lblRef');
     refSelect = _mkEl('select');
-    refSelect.id = 'refEl_' + id;
+    refSelect.id = 'ELL_refEl_' + id;
     if (hc.refSelect.type === 'electrode') {
-      refSelect.id = 'refEl';
+      refSelect.id = 'ELL_refEl';
       // Optionen werden nach Build durch aufrufendes Modul befüllt
     } else if (hc.refSelect.type === 'side') {
       ['left', 'right'].forEach(function(s) {

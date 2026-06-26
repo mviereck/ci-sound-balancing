@@ -1,6 +1,6 @@
 // Zeichnet eine deaktivierte/gemute Elektrode als hellgrauen
 // Vollbalken mit dunkler X-Diagonale. Wird von chart.js
-// (drawChart) und stereobalance-balance.js (STB_drawChart) genutzt. NICHT für
+// (ELL_drawChart) und stereobalance-balance.js (STB_drawChart) genutzt. NICHT für
 // drawFRQChart geeignet (dort log-Hz-Achse).
 function drawDisabledBar(ctx, x, yTop, yBot, bW) {
   ctx.fillStyle = '#e5e7eb';
@@ -25,14 +25,14 @@ function _drawRefElLabel(ctx, x, y, size) {
 }
 
 // ============================================================
-// Cent-x-Achse — Hilfsfunktionen (gemeinsam für drawChart und
+// Cent-x-Achse — Hilfsfunktionen (gemeinsam für ELL_drawChart und
 // elektrodenlautstaerkeKurvenChartZeichnen). Elektroden werden nach ihrer Cent-Position
 // (re 1000 Hz) auf der x-Achse plaziert; mindestens zwei
 // Elektroden, sonst lineare Notlösung.
 // ============================================================
 
 // Gleichmäßige x-Verteilung der Elektroden über die Plot-Breite
-// (elektrodennummern-basiert). Verwendet von drawChart (Meßergebnisse
+// (elektrodennummern-basiert). Verwendet von ELL_drawChart (Meßergebnisse
 // Loudness) und STB_drawChart (Stereo-Balance) seit Bauanleitung 67.
 // Liefert zusätzlich hzArr (per FRQ_implantatEffektiv oder optionalem hzGetter) für
 // die Hz-Beschriftung unter der x-Achse.
@@ -133,7 +133,7 @@ function _axisTooltipHandler(cv, e) {
 // ============================================================
 // CHART
 // ============================================================
-function drawChart(cv, vals, res, isOff, elColor) {
+function ELL_drawChart(cv, vals, res, isOff, ell_color) {
   const ctx = cv.getContext("2d"),
     dpr = window.devicePixelRatio || 1,
     w = cv.parentElement.clientWidth - 32,
@@ -203,8 +203,8 @@ function drawChart(cv, vals, res, isOff, elColor) {
     red: "#dc2626",
     grey: "#9ca3af",
   };
-  if (typeof refEl !== "undefined" && refEl !== null) {
-    const jRef = allE.indexOf(refEl);
+  if (typeof ELL_refEl !== "undefined" && ELL_refEl !== null) {
+    const jRef = allE.indexOf(ELL_refEl);
     if (jRef >= 0) {
       _drawRefElLabel(ctx, tX(jRef), pad.top - 4);
     }
@@ -222,8 +222,8 @@ function drawChart(cv, vals, res, isOff, elColor) {
     if (isDisabled) {
       drawDisabledBar(ctx, x, pad.top, pad.top + pH, bW);
     } else {
-      const col = elColor
-        ? colorMap[elColor(i) || "grey"]
+      const col = ell_color
+        ? colorMap[ell_color(i) || "grey"]
         : v > 0.05
           ? "#2563eb"
           : v < -0.05
@@ -252,8 +252,8 @@ function drawChart(cv, vals, res, isOff, elColor) {
       }
     }
 
-    ctx.fillStyle = i === refEl ? "#2563eb" : "#555";
-    ctx.font = (i === refEl ? "bold " : "") + "10px Segoe UI,sans-serif";
+    ctx.fillStyle = i === ELL_refEl ? "#2563eb" : "#555";
+    ctx.font = (i === ELL_refEl ? "bold " : "") + "10px Segoe UI,sans-serif";
     ctx.textAlign = "center";
     const yE = h - pad.bottom + 14,
           yHz = h - pad.bottom + 25,

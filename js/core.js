@@ -140,10 +140,10 @@ const ELEKTRODENLAUTSTAERKE_AXIS_MAX = {
   cochlear: 255,
   ab: 600,
 };
-function elektrodenlautstaerkeAxisMaxFor(mfrId) {
+function ELL_axisMaxFor(mfrId) {
   return ELEKTRODENLAUTSTAERKE_AXIS_MAX[mfrId] || 300;
 }
-function elektrodenlautstaerkeUnitLabelFor(mfrId) {
+function ELL_unitLabelFor(mfrId) {
   if (mfrId === "medel") return "qu";
   if (mfrId === "cochlear") return "CL";
   if (mfrId === "ab") return "CU";

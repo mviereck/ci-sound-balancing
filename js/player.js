@@ -574,8 +574,8 @@ function getPlaybackBuffer() {
   }
 }
 
-function computeGains() {
-  const corr = elTestData().correction;
+function ELL_computeGains() {
+  const corr = ELL_testData().correction;
   const presetCurve = elektrodenlautstaerkeKurvenSumme();
   const g = new Array(nEl).fill(0);
   for (let i = 0; i < nEl; i++) {
@@ -593,7 +593,7 @@ function computeGains() {
 // Hoechste noetige Anhebung ueber BEIDE Seiten, aber nur unter den
 // REGULAEREN Elektroden (nicht stumm/fast stumm/deaktiviert/ausgeschlossen).
 // Rueckgabe >= 0; 0 = keine Anhebung noetig => keine Absenkung.
-// computeGains() liefert die negierte Korrektur (eqRaw-Konvention), die
+// ELL_computeGains() liefert die negierte Korrektur (eqRaw-Konvention), die
 // echte Korrektur (positiv = Anhebung) ist daher -g[i].
 // BA 320: Kern — hoechste noetige Anhebung ueber die uebergebenen Seiten,
 // UNABHAENGIG von plEqHeadroomBoth. Fuer den Vergleich gemeinsam vs.
@@ -603,7 +603,7 @@ function _eqHeadroomOffsetForSides(sides) {
   let mx = 0;
   sides.forEach(function (s) {
     withSide(s, function () {
-      const g = computeGains();
+      const g = ELL_computeGains();
       for (let i = 0; i < nEl; i++) {
         if (elSt[i] === "mute" || elSt[i] === "almostMute") continue;
         if (elActive && elActive[i] === false) continue;
@@ -636,7 +636,7 @@ function _eqHeadroomOffset(scopeSide) {
 // rechnet eigene EQ-/Balance-Logik.
 function getPlayerCorrection(side, applyNhSim) {
   if (applyNhSim === undefined) applyNhSim = true;   // BA 315: Ausdruck ruft mit false
-  const eqRaw = withSide(side, computeGains);   // computeGains-Konvention (negierte Korrektur)
+  const eqRaw = withSide(side, ELL_computeGains);   // ELL_computeGains-Konvention (negierte Korrektur)
   if (!plEqOn) {
     return { eq: eqRaw.map(function () { return 0; }), balance: 0 };
   }
@@ -1255,8 +1255,8 @@ function pDrawEQ() {
   ctx.font = "9px Consolas,monospace";
   ctx.textAlign = "right";
   ctx.fillText("0", pad.left - 4, zY + 3);
-  if (typeof refEl !== "undefined" && refEl !== null) {
-    const jRef = allE.indexOf(refEl);
+  if (typeof ELL_refEl !== "undefined" && ELL_refEl !== null) {
+    const jRef = allE.indexOf(ELL_refEl);
     if (jRef >= 0) {
       _drawRefElLabel(ctx, tX(jRef), pad.top - 3, 10);
     }
@@ -1382,10 +1382,10 @@ function pMaplawUpdUI() {
 }
 
 window.addEventListener("resize", () => {
-  if (elektrodenlautstaerkeResults.length > 0) {
+  if (ELL_results.length > 0) {
     pDrawEQ();
-    if (document.getElementById("resC").style.display !== "none")
-      renderResults();
+    if (document.getElementById("ELL_resC").style.display !== "none")
+      ELL_renderResults();
   }
   if (document.getElementById("panel-kurven").classList.contains("active"))
     elektrodenlautstaerkeKurvenChartZeichnen();

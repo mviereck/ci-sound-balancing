@@ -428,13 +428,13 @@ function _ltz_updateIntervalHint() {
 
 function _ltz_hasSTB() {
   // Pragmatische Detektion: mindestens ein gemessener Balance-Wert
-  // existiert in STB_results ODER in sideData[*].elektrodenlautstaerkeResults.
+  // existiert in STB_results ODER in sideData[*].ELL_results.
   if (typeof STB_results === 'object' && STB_results
       && Object.values(STB_results).some(function(v) { return isFinite(v); })) return true;
   if (typeof sideData === 'object' && sideData) {
     for (const side of ['left', 'right']) {
       const sd = sideData[side];
-      if (sd && Array.isArray(sd.elektrodenlautstaerkeResults) && sd.elektrodenlautstaerkeResults.length > 0) return true;
+      if (sd && Array.isArray(sd.ELL_results) && sd.ELL_results.length > 0) return true;
     }
   }
   return false;

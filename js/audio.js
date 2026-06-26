@@ -87,7 +87,7 @@ function _activeTestInput(type) {
 }
 function gVol() {
   // BA 287: gemeinsame Lautstaerke (frueher volume_test).
-  if (testAct && typeof volume_global !== 'undefined') {
+  if (ELL_testAct && typeof volume_global !== 'undefined') {
     return Math.pow((volume_global || 0) / 100, 2);
   }
   const el = _activeTestInput('vol');
@@ -95,7 +95,7 @@ function gVol() {
 }
 function gDur() {
   // BA 250
-  if (testAct && typeof duration_elektrodenlautstaerke !== 'undefined') {
+  if (ELL_testAct && typeof duration_elektrodenlautstaerke !== 'undefined') {
     return duration_elektrodenlautstaerke || 750;
   }
   const el = _activeTestInput('dur');
@@ -103,7 +103,7 @@ function gDur() {
 }
 function gPau() {
   // BA 250
-  if (testAct && typeof pause_elektrodenlautstaerke !== 'undefined') {
+  if (ELL_testAct && typeof pause_elektrodenlautstaerke !== 'undefined') {
     return pause_elektrodenlautstaerke || 300;
   }
   const el = _activeTestInput('pau');
@@ -1068,15 +1068,15 @@ function updInd(i, w) {
       b.style.background = j === i ? "var(--accent-light)" : "";
     });
   // BA 248: Pair-Anzeige nur noch ueber neue testUI-API
-  // (testEls.verfahren[...].pairIndicator). Alte API und DOM-Fallback
+  // (ELL_testEls.verfahren[...].pairIndicator). Alte API und DOM-Fallback
   // sind mit BA 248 weg.
   let pL = null, pR = null;
-  if (typeof testEls !== 'undefined' && testEls
-      && testEls.verfahren && typeof _testActiveVerfahren !== 'undefined'
-      && testEls.verfahren[_testActiveVerfahren]
-      && testEls.verfahren[_testActiveVerfahren].pairIndicator) {
-    pL = testEls.verfahren[_testActiveVerfahren].pairIndicator.left;
-    pR = testEls.verfahren[_testActiveVerfahren].pairIndicator.right;
+  if (typeof ELL_testEls !== 'undefined' && ELL_testEls
+      && ELL_testEls.verfahren && typeof _ELL_activeVerfahren !== 'undefined'
+      && ELL_testEls.verfahren[_ELL_activeVerfahren]
+      && ELL_testEls.verfahren[_ELL_activeVerfahren].pairIndicator) {
+    pL = ELL_testEls.verfahren[_ELL_activeVerfahren].pairIndicator.left;
+    pR = ELL_testEls.verfahren[_ELL_activeVerfahren].pairIndicator.right;
   }
   if (pL) pL.classList.toggle("playing", w === "a");
   if (pR) pR.classList.toggle("playing", w === "b");

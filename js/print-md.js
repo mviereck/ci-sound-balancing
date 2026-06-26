@@ -146,7 +146,7 @@ function _collectSideData(side) {
   return withSide(side, () => {
     const sd = sideData[side];
     const impl = (sd && sd.implant) || {};
-    const unit = (typeof elektrodenlautstaerkeUnitLabelFor === "function") ? elektrodenlautstaerkeUnitLabelFor(mfr) : "";
+    const unit = (typeof ELL_unitLabelFor === "function") ? ELL_unitLabelFor(mfr) : "";
 
     // Implantat-Elektroden-Tabelle
     const electrodes = [];
@@ -167,21 +167,21 @@ function _collectSideData(side) {
     }
 
     // Messungen
-    const measHas = Array.isArray(elektrodenlautstaerkeResults) && elektrodenlautstaerkeResults.length > 0;
+    const measHas = Array.isArray(ELL_results) && ELL_results.length > 0;
     let measRows = [];
     let measRefEl = null;
     let measSweep = null;
     if (measHas) {
-      measRefEl = refEl;
-      const { raw: levels, residual: elRes } = elTestData();
+      measRefEl = ELL_refEl;
+      const { raw: levels, residual: ELL_res } = ELL_testData();
       for (let i = 0; i < nEl; i++) {
-        const inMeas = elektrodenlautstaerkeResults.some((r) => r.a === i || r.b === i);
+        const inMeas = ELL_results.some((r) => r.a === i || r.b === i);
         measRows.push({
           idx: i,
           label: `${dENPrefix()}${dEN(i)}`,
           hz: FRQ_implantatEffektiv(i),
           offsetDb:   inMeas ? levels[i] : null,
-          residualDb: inMeas ? elRes[i]  : null,
+          residualDb: inMeas ? ELL_res[i]  : null,
           // BA 164: inaktive Elektrode → "deactivated" für Archiv-Rendering
           status: (elActive && elActive[i] === false) ? "deactivated" : (elSt[i] || null),
           note: elNt[i] || "",
@@ -268,7 +268,7 @@ function _collectSideData(side) {
       meas: {
         has: measHas,
         hasNonZero: measRows.some((r) => r.offsetDb != null && Math.abs(r.offsetDb) > 0),
-        refEl: measRefEl,
+        ELL_refEl: measRefEl,
         rows: measRows,
         sweep: measSweep,
       },
@@ -510,7 +510,7 @@ function _archivMdTestSettings(data) {
     if (row.volume   != null) lines.push("- " + t("lblVol") + ": " + row.volume   + " %");
   }
 
-  _renderRow("testVerfahrenFull",  ts.elektrodenlautstaerke);
+  _renderRow("ELL_verfahrenFull",  ts.elektrodenlautstaerke);
   _renderRow("STB_title",            ts.stereobalance);
   _renderRow("FRQ_title",            ts.freqmatch);
 
@@ -522,7 +522,7 @@ function _archivMdSidesContent(data) {
   for (const side of ["left", "right"]) {
     const sd = data.sides[side];
     const sections = [];
-    if (sd.meas.has)      sections.push(_archivMdMeas(sd));
+    if (sd.meas.has)      sections.push(_archivMdELL(sd));
     if (sd.schieber.has)  sections.push(_archivMdSchieber(sd));
     if (sd.kurven.has)    sections.push(_archivMdKurven(sd));
     if (sd.freqmatch.has) sections.push(_archivMdFRQ(sd));
@@ -533,10 +533,10 @@ function _archivMdSidesContent(data) {
   return out.join("\n");
 }
 
-function _archivMdMeas(sd) {
+function _archivMdELL(sd) {
   const out = [];
-  const refTxt = (sd.meas.refEl != null)
-    ? `${(sd.implant.electrodes[sd.meas.refEl] || {}).label || ""}`
+  const refTxt = (sd.meas.ELL_refEl != null)
+    ? `${(sd.implant.electrodes[sd.meas.ELL_refEl] || {}).label || ""}`
     : "—";
   out.push(`### ${t("archivSecMeas")} (${t("archivElektrodenlautstaerkeRef")}: ${refTxt})`);
   out.push("");
@@ -555,7 +555,7 @@ function _archivMdMeas(sd) {
     const _ST_KEY2 = { noisyLess: "stNoisyLess", noisyMore: "stNoisyMore", noisyHeavy: "stNoisyHeavy", almostMute: "stAlmMute", mute: "stMute", deactivated: "stDeactivated" }; // BA 164: Quelle ist jetzt elActive (via _collectSideData)
     const stTxt  = r.status ? (t(_ST_KEY2[r.status] || "") || r.status) : "";
     const noteTxt = r.note ? ` (${_mdEsc(r.note)})` : "";
-    const refMark = (sd.meas.refEl != null && r.idx === sd.meas.refEl) ? "**X**" : "";
+    const refMark = (sd.meas.ELL_refEl != null && r.idx === sd.meas.ELL_refEl) ? "**X**" : "";
     out.push(`| ${r.label} | ${_mdFmtHz(r.hz)} | ${offTxt} | ${resTxt} | ${stTxt}${noteTxt} | ${refMark} |`);
   }
   return out.join("\n") + "\n";
@@ -756,11 +756,11 @@ function _audiologDbForSide(side) {
 
 // ---------- Residuum pro Elektrode (für Tabelle + Chart) ----------
 
-function _audiologResForSide(side) {
+function _audiologELLResForSide(side) {
   return withSide(side, () => {
     try {
-      const { elRes } = compWLS();
-      return Array.from(elRes || []);
+      const { ELL_res } = ELL_compWLS();
+      return Array.from(ELL_res || []);
     } catch (e) {
       return new Array(nEl).fill(0);
     }
@@ -774,7 +774,7 @@ function _audiologAbsDelta(side, i, dB) {
     const impl = sideData[side].implant || {};
     const mcl = impl.mcl && impl.mcl[i];
     const thr = impl.thr && impl.thr[i];
-    const unit = elektrodenlautstaerkeUnitLabelFor(mfr);
+    const unit = ELL_unitLabelFor(mfr);
     let res = null;
     if (mfr === "medel" && mcl != null) {
       res = calcMedel(dB, mcl);
@@ -862,11 +862,11 @@ function _audiologIsTestProgram(side) {
 
 // ---------- Lautstärken-Tabelle pro Seite ----------
 
-function _audiologLoudnessTable(side) {
+function _audiologELLTable(side) {
   return withSide(side, () => {
     const dBs = _audiologDbForSide(side);
-    const resArr = _audiologResForSide(side);
-    const unit = elektrodenlautstaerkeUnitLabelFor(mfr);
+    const resArr = _audiologELLResForSide(side);
+    const unit = ELL_unitLabelFor(mfr);
     const lines = [];
     lines.push(`| ${t("thEl")} | ${t("audColDb")} | ${t("audColRes")} | ${t("audColMcl")} (${unit}) | ${t("audColMclDelta")} (${unit}) | ${t("audColMclNew")} (${unit}) | ${t("audColStatus")} | ${t("archivImplExcl")} | ${t("audColNote")} | ${t("thRefEl")} |`);
     lines.push("|---|---|---|---|---|---|---|---|---|---|");
@@ -877,7 +877,7 @@ function _audiologLoudnessTable(side) {
       const status = _audStatusText(side, i);
       const excl = (elExDur[i] !== null && elExDur[i] !== undefined) ? "**X**" : "";
       const note = (elNt && elNt[i]) ? elNt[i] : "";
-      const refMark = (typeof refEl !== "undefined" && refEl != null && i === refEl) ? "**X**" : "";
+      const refMark = (typeof ELL_refEl !== "undefined" && ELL_refEl != null && i === ELL_refEl) ? "**X**" : "";
       lines.push(
         `| ${dENPrefix()}${dEN(i)} | **${_audDb(dB)}** | ${r > 0 ? r.toFixed(1) + " dB" : ""} | ${_audUnitAbs(abs.mcl, abs.unit)} | ${_audUnit(abs.delta, abs.unit)} | ${_audUnitAbs(abs.newVal, abs.unit)} | ${status} | ${excl} | ${note} | ${refMark} |`
       );
@@ -1108,9 +1108,9 @@ function _audiologAdvice() {
   return lines.join("\n");
 }
 
-// BA 251: jRes entfaellt; letzte Messung kommt nur noch aus elektrodenlautstaerkeResults.
+// BA 251: jRes entfaellt; letzte Messung kommt nur noch aus ELL_results.
 
-function _audiologLastMeas(side) {
+function _audiologLastELL(side) {
   const sd = sideData[side];
   if (!sd) return null;
   let max = 0;
@@ -1118,7 +1118,7 @@ function _audiologLastMeas(side) {
     if (!Array.isArray(arr)) return;
     for (const e of arr) if (e && e.timestamp && e.timestamp > max) max = e.timestamp;
   };
-  collect(sd.elektrodenlautstaerkeResults);
+  collect(sd.ELL_results);
   return max > 0 ? new Date(max) : null;
 }
 
@@ -1213,7 +1213,7 @@ function buildAudiologMarkdown() {
     meta.push(`${t("audiologMfr")}: ${mfrLbl}`);
     if (impl.processor) meta.push(`${t("audiologProcessor")}: ${impl.processor}`);
     if (impl.model)     meta.push(`${t("audiologImplant")}: ${impl.model}`);
-    const lastM = _audiologLastMeas(side);
+    const lastM = _audiologLastELL(side);
     if (lastM) meta.push(`${t("audiologLastMeas")}: ${_audiologDateStr(lastM)}`);
     parts.push(`_${meta.join(" · ")}_`);
     parts.push("");
@@ -1222,7 +1222,7 @@ function buildAudiologMarkdown() {
     // H3 Lautstärken-Korrektur
     parts.push(`### ${t("audiologSecLoudness")}`);
     parts.push("");
-    parts.push(_audiologLoudnessTable(side));
+    parts.push(_audiologELLTable(side));
     parts.push("");
     parts.push(`_${t("audiologLoudnessLegend")}_`);
     parts.push("");
@@ -1362,7 +1362,7 @@ function _mdToHtmlBasic(md) {
 
 function _audiologChartImg(side) {
   const dBs = _audiologDbForSide(side);
-  const resArr = _audiologResForSide(side);
+  const resArr = _audiologELLResForSide(side);
   return withSide(side, () => {
     const SCALE = 2;
     const Wlog = 700, Hlog = 240;
@@ -1394,8 +1394,8 @@ function _audiologChartImg(side) {
     ctx.fillText("0", pad.l - 4, zY + 3);
     ctx.fillText("-" + maxAbs, pad.l - 4, Hlog - pad.b + 4);
 
-    if (typeof refEl !== "undefined" && refEl !== null && refEl >= 0 && refEl < nEl) {
-      _drawRefElLabel(ctx, pad.l + refEl * gW + gW / 2, pad.t - 4);
+    if (typeof ELL_refEl !== "undefined" && ELL_refEl !== null && ELL_refEl >= 0 && ELL_refEl < nEl) {
+      _drawRefElLabel(ctx, pad.l + ELL_refEl * gW + gW / 2, pad.t - 4);
     }
     for (let i = 0; i < nEl; i++) {
       const v = dBs[i] || 0;
@@ -1651,7 +1651,7 @@ function _archivDrawElCentLabel(ctx, elLabel, cx, H, padB, axis, j) {
 }
 
 // Variante für elektrodennummern-basierte Charts mit Hz-Zeile
-// (ohne Cent) — verwendet von _archivChartLoudness und
+// (ohne Cent) — verwendet von _archivChartELL und
 // _archivChartLR seit Bauanleitung 71.
 function _archivDrawElHzLabel(ctx, elLabel, cx, H, padB, axis, j) {
   ctx.fillStyle = "#555";
@@ -1702,7 +1702,7 @@ function _archivDrawAxis(ctx, pad, W, H, maxAbs, opts) {
 }
 
 // 1. Loudness-Balance (Meßergebnis-Sub-Tab 1)
-function _archivChartLoudness(sideBlock) {
+function _archivChartELL(sideBlock) {
   if (!sideBlock.meas.hasNonZero) return "";
   return withSide(sideBlock.side, () => {
     const { canvas, ctx } = _archivMkCanvas();
@@ -1718,7 +1718,7 @@ function _archivChartLoudness(sideBlock) {
     const idxArr = rows.map((r) => r.idx);
     const axis = buildLinearAxis(idxArr, pad.l, pW);
     const w = Math.max(2, Math.min((axis.minDx || 12) * 0.6, 30));
-    const refIdx = sideBlock.meas.refEl;
+    const refIdx = sideBlock.meas.ELL_refEl;
     if (refIdx != null) {
       const jRef = idxArr.indexOf(refIdx);
       if (jRef >= 0) _drawRefElLabel(ctx, axis.tX(jRef), pad.t - 4);
@@ -1732,7 +1732,7 @@ function _archivChartLoudness(sideBlock) {
         ctx.fillRect(x, zY - 1, w, 2);
       } else {
         const h = (Math.abs(r.offsetDb) / maxAbs) * (pH / 2);
-        ctx.fillStyle = (r.idx === sideBlock.meas.refEl) ? "#a855f7"
+        ctx.fillStyle = (r.idx === sideBlock.meas.ELL_refEl) ? "#a855f7"
                       : r.offsetDb >= 0 ? "#16a34a" : "#dc2626";
         if (r.offsetDb >= 0) ctx.fillRect(x, zY - h, w, h);
         else                 ctx.fillRect(x, zY,    w, h);
@@ -1966,7 +1966,7 @@ function renderArchivPrintHtml(data) {
       inserts.push({
         anchorH3: `${t("archivSecMeas")} (`,
         sideOnlyUnder: sd.label,
-        img: _archivChartLoudness(sd),
+        img: _archivChartELL(sd),
       });
     }
     if (sd.schieber.has) {

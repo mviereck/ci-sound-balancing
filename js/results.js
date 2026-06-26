@@ -1,25 +1,25 @@
 // ============================================================
 // RESULTS
 // ============================================================
-function renderResults() {
-  // BA 251: hJ entfaellt (judgment-Verfahren raus); nur noch elektrodenlautstaerkeResults.
-  const hB = elektrodenlautstaerkeResults.length > 0;
+function ELL_renderResults() {
+  // BA 251: hJ entfaellt (judgment-Verfahren raus); nur noch ELL_results.
+  const hB = ELL_results.length > 0;
   if (!hB) {
-    const nr = document.getElementById("noRes");
-    const rc = document.getElementById("resC");
+    const nr = document.getElementById("ELL_noRes");
+    const rc = document.getElementById("ELL_resC");
     if (nr) nr.style.display = "";
     if (rc) rc.style.display = "none";
     return;
   }
-  const noResEl = document.getElementById("noRes");
+  const noResEl = document.getElementById("ELL_noRes");
   if (noResEl) noResEl.style.display = "none";
-  const resCEl = document.getElementById("resC");
-  if (resCEl) resCEl.style.display = "";
+  const ELL_resCEl = document.getElementById("ELL_resC");
+  if (ELL_resCEl) ELL_resCEl.style.display = "";
 
   // Hinweis "Testreihe noch nicht abgeschlossen" — nur für Modus full
-  const ndBox    = document.getElementById('resNotDoneBox');
-  const ndTitle  = document.getElementById('resNotDoneTitle');
-  const ndDetail = document.getElementById('resNotDoneDetail');
+  const ndBox    = document.getElementById('ELL_resNotDoneBox');
+  const ndTitle  = document.getElementById('ELL_resNotDoneTitle');
+  const ndDetail = document.getElementById('ELL_resNotDoneDetail');
   if (ndBox && ndTitle && ndDetail) {
     const s = sideData[activeSide];
     const rrTable = (typeof ROUND_ROBIN !== 'undefined') ? ROUND_ROBIN[nEl] : null;
@@ -28,8 +28,8 @@ function renderResults() {
       const maxRounds = rrTable.length;
       const pairsPerRound = rrTable[s.fullSweepRound - 1].length;
       const done = (s.fullSweepDonePairs || []).length;
-      ndTitle.textContent  = t('resNotDoneTitle');
-      ndDetail.textContent = t('resNotDoneDetail')
+      ndTitle.textContent  = t('ELL_resNotDoneTitle');
+      ndDetail.textContent = t('ELL_resNotDoneDetail')
         .replace('{round}',     s.fullSweepRound)
         .replace('{maxRounds}', maxRounds)
         .replace('{done}',      done)
@@ -45,32 +45,32 @@ function renderResults() {
   // eingestellt). Fallback 75 wie bisher.
   const vol = (typeof volume_global !== 'undefined') ? volume_global : 75;
   let meta = `${new Date().toLocaleString(lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US")}`;
-  if (hB) meta += ` · ${elektrodenlautstaerkeResults.length} bal.`;
+  if (hB) meta += ` · ${ELL_results.length} bal.`;
   meta += ` · ${t("lblVol")} ${vol}% · ${MFR[mfr].name}`;
-  const rMeta = document.getElementById("resMeta");
+  const rMeta = document.getElementById("ELL_resMeta");
   if (rMeta) rMeta.innerHTML = meta;
-  const th = document.getElementById("resTH"),
-    tb = document.getElementById("resTB");
+  const th = document.getElementById("ELL_resTH"),
+    tb = document.getElementById("ELL_resTB");
   th.innerHTML = "";
   tb.innerHTML = "";
   // Glossar befüllen
   const gEl = (id) => document.getElementById(id);
-  if (gEl("glossTitleEl")) gEl("glossTitleEl").textContent = t("glossTitle");
+  if (gEl("ELL_glossTitleEl")) gEl("ELL_glossTitleEl").textContent = t("ELL_glossTitle");
   [
-    "glossResiduum",
-    "glossErrBar",
-    "glossAnpassung",
-    "glossFarbe",
-    "glossRef",
-    "glossLS",
+    "ELL_glossResiduum",
+    "ELL_glossErrBar",
+    "ELL_glossAnpassung",
+    "ELL_glossFarbe",
+    "ELL_glossRef",
+    "ELL_glossLS",
   ].forEach((k) => {
     const el = gEl(k + "El");
     if (el) el.innerHTML = t(k);
   });
   if (hB) {
-    const { raw: levels, residual: elRes, weight: elWt } = elTestData();
+    const { raw: levels, residual: ELL_res, weight: ELL_wt } = ELL_testData();
     const pc = new Array(nEl).fill(0);
-    const valid = elektrodenlautstaerkeResults.filter(
+    const valid = ELL_results.filter(
       (r) =>
         elExDur[r.a] === null &&
         elSt[r.a] !== "mute" &&
@@ -84,9 +84,9 @@ function renderResults() {
     // Zuverlässigkeitseinschätzung berechnen
     const act = actEl();
     const maxLv = Math.max(...act.map((i) => Math.abs(levels[i])), 0.001);
-    function elColor(i) {
+    function ell_color(i) {
       if (!pc[i]) return "grey";
-      const res = elRes[i] || 0.001;
+      const res = ELL_res[i] || 0.001;
       if (res <= 1.0) return "green";
       if (res < 3.0) return "yellow";
       return "red";
@@ -94,15 +94,15 @@ function renderResults() {
     // Fließtext
     const avgMeas =
       act.length > 0 ? pc.reduce((s, v) => s + v, 0) / act.length : 0;
-    const rtEl = document.getElementById("reliabilityText");
+    const rtEl = document.getElementById("ELL_reliabilityText");
     if (rtEl && rtEl.parentElement) {
       const rmsLv = Math.sqrt(
         act.reduce((s, i) => s + levels[i] ** 2, 0) / (act.length || 1),
       );
-      const meanRes = act.reduce((s, i) => s + elRes[i], 0) / (act.length || 1);
+      const meanRes = act.reduce((s, i) => s + ELL_res[i], 0) / (act.length || 1);
       const globalSNR = meanRes > 0 ? rmsLv / meanRes : 0;
-      const redEls = act.filter((i) => elColor(i) === "red");
-      const yellEls = act.filter((i) => elColor(i) === "yellow");
+      const redEls = act.filter((i) => ell_color(i) === "red");
+      const yellEls = act.filter((i) => ell_color(i) === "yellow");
       let txt = "";
       if (avgMeas < 2) {
         const msgs = {
@@ -179,22 +179,22 @@ function renderResults() {
       if (ex) {
         tr.style.opacity = "0.4";
       }
-      tr.innerHTML = `<td style="font-weight:600">${dENPrefix()}${dEN(i)}</td><td>${Math.round(FRQ_implantatEffektiv(i))}</td><td style="color:${ex ? "#999" : v > 0.05 ? "#2563eb" : v < -0.05 ? "#dc2626" : "#1a1a1a"}">${ex ? "—" : (v >= 0 ? "+" : "") + v.toFixed(1)}</td><td>${pc[i] || "—"}</td><td style="color:${ex ? "#999" : elColor(i) === "green" ? "#16a34a" : elColor(i) === "yellow" ? "#d97706" : elColor(i) === "red" ? "#dc2626" : "#999"}">${elRes[i] > 0 ? elRes[i].toFixed(1) : "—"}</td><td>${ex ? "—" : elWt[i].toFixed(1)}</td><td style="font-size:.78em">${st}</td><td style="text-align:center;font-weight:700">${i === refEl ? "X" : ""}</td>`;
+      tr.innerHTML = `<td style="font-weight:600">${dENPrefix()}${dEN(i)}</td><td>${Math.round(FRQ_implantatEffektiv(i))}</td><td style="color:${ex ? "#999" : v > 0.05 ? "#2563eb" : v < -0.05 ? "#dc2626" : "#1a1a1a"}">${ex ? "—" : (v >= 0 ? "+" : "") + v.toFixed(1)}</td><td>${pc[i] || "—"}</td><td style="color:${ex ? "#999" : ell_color(i) === "green" ? "#16a34a" : ell_color(i) === "yellow" ? "#d97706" : ell_color(i) === "red" ? "#dc2626" : "#999"}">${ELL_res[i] > 0 ? ELL_res[i].toFixed(1) : "—"}</td><td>${ex ? "—" : ELL_wt[i].toFixed(1)}</td><td style="font-size:.78em">${st}</td><td style="text-align:center;font-weight:700">${i === ELL_refEl ? "X" : ""}</td>`;
       tb.appendChild(tr);
     }
-    drawChart(
-      document.getElementById("resChart"),
+    ELL_drawChart(
+      document.getElementById("ELL_resChart"),
       levels,
-      elRes,
+      ELL_res,
       true,
-      elColor,
+      ell_color,
     );
-    const chE = document.getElementById("chartExpl");
-    if (chE) chE.textContent = t("chartExplB");
+    const chE = document.getElementById("ELL_chartExpl");
+    if (chE) chE.textContent = t("ELL_chartExplB");
   }
-  const reExp = document.getElementById("resExplain");
-  if (reExp) reExp.textContent = t("resExplain");
-  if (typeof updFClearBtn === "function") updFClearBtn();
+  const reExp = document.getElementById("ELL_resExplain");
+  if (reExp) reExp.textContent = t("ELL_resExplain");
+  if (typeof ELL_updFClearBtn === "function") ELL_updFClearBtn();
 }
 
 

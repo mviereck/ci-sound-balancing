@@ -149,12 +149,12 @@ Object.assign(L.es, {
     bEqual: "Igual",
     bExtend: "Ampliar rango (±40 dB)",
     bCanc: "Cancelar",
-    resTitle: "Resultados de la medición de balance de volumen de electrodos",
-    noRes: "Aún no hay resultados. Realice primero una medición en «Mediciones → Compensar volumen de electrodos».",
+    ELL_resTitle: "Resultados de la medición de balance de volumen de electrodos",
+    ELL_noRes: "Aún no hay resultados. Realice primero una medición en «Mediciones → Compensar volumen de electrodos».",
     comp: "Comparación",
     of: "de",
     round: "Ronda",
-    chartExplB:
+    ELL_chartExplB:
       "Intensidad percibida respecto a la referencia (0 dB). Positivo = más fuerte, negativo = más débil. Barras de error = residuo medio. Cálculo: mínimos cuadrados ponderados.",
     chartExplJ:
       "Puntuación = «más fuerte» menos «más débil». Valores positivos altos = se percibe como demasiado fuerte.",
@@ -194,25 +194,25 @@ Object.assign(L.es, {
     thRefEl: "El. ref.",
     thSc: "Puntuación",
     thComp: "Comp.",
-    resExplain:
+    ELL_resExplain:
       "Residuo: la desviación media de las mediciones individuales de un electrodo respecto al resultado global. Valores altos = medición incierta, p. ej. por electrodo ruidoso o juicio difícil. Mínimos cuadrados: procedimiento matemático que calcula simultáneamente, a partir de todas las comparaciones por pares, los mejores valores de offset posibles. Los errores de medición aislados tienen poco peso, porque deben imponerse frente a muchas otras mediciones. Ponderación: ruido fuerte (0,1), ruido con algo de tono (0,5), tono con ruido (0,9), casi mudo (0,1) entran con peso reducido.",
     fClear: "Borrar resultados de medición del lado seleccionado",
     delConfirmMeas: "¿Borrar resultados de medición?",
     resetConfirm:
       "¿Realmente reiniciar todo? Se borrarán todos los ajustes, valores medidos y notas.",
     resetDone: "Todo reiniciado.",
-    glossTitle: "Glosario",
-    glossResiduum:
+    ELL_glossTitle: "Glosario",
+    ELL_glossResiduum:
       "<b>Residuo</b>: muestra cuán contradictorios fueron sus juicios sobre un electrodo. Barras de error cortas = juicios consistentes, barras largas = las estimaciones fluctuaron.",
-    glossErrBar:
+    ELL_glossErrBar:
       "<b>Barras de error</b> (las líneas verticales en las barras): muestran el tamaño del residuo — cuanto más largas, más incierta la medición.",
-    glossAnpassung:
+    ELL_glossAnpassung:
       "<b>Ajuste</b>: indica cuántos dB se sube (+) o se baja (−) este electrodo respecto al electrodo de referencia.",
-    glossFarbe:
+    ELL_glossFarbe:
       "<b>Colores tipo semáforo</b>: verde = medición fiable, amarillo = límite, rojo = medición incierta, gris = todavía sin medición para este electrodo. El color muestra la calidad de la medición, no la magnitud del cambio.",
-    glossRef:
+    ELL_glossRef:
       "<b>Electrodo de referencia</b>: el punto fijo de la medición. Su ajuste siempre es 0 dB. Los demás electrodos se evalúan en relación a él.",
-    glossLS:
+    ELL_glossLS:
       "<b>Mínimos cuadrados</b>: procedimiento matemático que calcula simultáneamente, a partir de todas las comparaciones por pares, los mejores valores de offset posibles. Los errores de medición aislados tienen poco peso, porque deben imponerse frente a muchas otras mediciones. Los electrodos marcados como problemáticos en la pestaña «Implante» entran con peso reducido.",
     apikal: "apical",
     basal: "basal",
@@ -226,8 +226,8 @@ Object.assign(L.es, {
     excluded: "excluido",
     excludedSkipped: "desactivado/omitido",
     notMeasured: "no medido",
-    resNotDoneTitle: "Serie de pruebas aún no finalizada.",
-    resNotDoneDetail: "Modo Round Robin: ronda {round} de {maxRounds}, {done} de {total} pares confirmados.",
+    ELL_resNotDoneTitle: "Serie de pruebas aún no finalizada.",
+    ELL_resNotDoneDetail: "Modo Round Robin: ronda {round} de {maxRounds}, {done} de {total} pares confirmados.",
     copyDone: "Copiado.",
     delConfirmMeas: "¿Borrar resultados de medición?",
     manComp: "Comparación manual",
@@ -792,8 +792,8 @@ Object.assign(L.es, {
     plWarpStopBtn: "Detener cálculo",
     plWarpBusyTooltip: "Calculando el warping de frecuencia",
     // Neue Keys für vereinheitlichte Test-UI
-    testExplainTitle: "Compensar volumen de electrodos",
-    testIntro:
+    ell_explainTitle: "Compensar volumen de electrodos",
+    ell_intro:
       "Esta prueba compara la intensidad de los electrodos entre sí. " +
       "El objetivo es encontrar una sonoridad equilibrada para todos los electrodos." +
       "<br> - Esta es ya una buena configuración para sonidos naturales y música." +
@@ -823,7 +823,7 @@ Object.assign(L.es, {
     testDoneTitle:      "Prueba {name} finalizada.",
     testDoneResultHint: "Puede ver el resultado de la prueba en la pestaña Resultados de medición → {subtab}.",
     compBtnOk:          "OK",
-    testRrName:         "Round Robin",
+    ell_rrName:         "Round Robin",
     compNameFmAdaptive: "Ajuste de frecuencia (Adaptativo)",
     compNameFmSlider:   "Emparejamiento de frecuencia (reajuste)",
     compSubLoudness:    "Volumen de electrodos",
@@ -935,7 +935,7 @@ Object.assign(L.es, {
     STB_desc: "Esta prueba compara la sonoridad percibida izquierda y derecha para cada par de electrodos. Con ella se pretende lograr que oiga igual de fuerte por izquierda y derecha.",
     STB_orderLbl: "Orden:",
     STB_sideLbl: "Orden de lados:",
-    testMaturityHint: "Esta prueba ya está bien desarrollada y puede ofrecer resultados fiables.",
+    ell_maturityHint: "Esta prueba ya está bien desarrollada y puede ofrecer resultados fiables.",
     testExplainRecommend: "Recomendaciones:\n1. Ajuste el volumen aproximadamente a 3/4. Es decir, más que medio pero todavía no incómodamente alto.\n2. En lo posible, utilice Bluetooth para el streaming.\n3. Primero realice una prueba «Round Robin» y después una o varias veces la prueba «Convergencia».\n4. Una marca bajo el deslizador muestra el valor calculado a partir de todas las mediciones realizadas hasta ahora; la zona coloreada indica la incertidumbre de esa estimación.",
     testExplainVarious: " - Puede interrumpir las pruebas en cualquier momento y continuarlas más tarde en el mismo punto.\n - La prueba «Round Robin» se desarrolla en varias rondas. Tras unas 3 o 4 rondas ya puede hacerse una idea aproximada en la pestaña «Resultados de medición» de hacia dónde apunta su medición.\n - Si un electrodo resulta no medible en el transcurso de la prueba (demasiado débil, inactivo), márquelo en consecuencia en la pestaña «Implante». Quedará entonces excluido de la prueba.",
     testInRound: "Prueba en esta ronda:",

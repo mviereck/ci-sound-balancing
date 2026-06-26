@@ -5,7 +5,7 @@
 // in die "x von y Elektroden gewaehlt"-Anzeige der Mess-Verfahren
 // durchreichen (sonst erst beim naechsten Seitenwechsel/Laden aktuell).
 function _frq_implantatTableRefreshMeasSummaries() {
-  if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
+  if (typeof ELL_refreshElectrodeSelectionSummary === "function") ELL_refreshElectrodeSelectionSummary();
   if (typeof STB_refreshElectrodeSelectionSummary === "function") STB_refreshElectrodeSelectionSummary();
   if (typeof FRQ_refreshElectrodeSelectionSummary === "function") FRQ_refreshElectrodeSelectionSummary();
 }
@@ -395,9 +395,9 @@ function frq_implantatTableUpdateHints() {
   if (typeof depLockApply === 'function') depLockApply();
 }
 function updRef() {
-  const sel = document.getElementById("refEl");
+  const sel = document.getElementById("ELL_refEl");
   if (!sel) return;
-  const prevRef = refEl;
+  const prevRef = ELL_refEl;
   const pfx = dENPrefix();
   sel.innerHTML = "";
   for (let i = 0; i < nEl; i++) {
@@ -407,16 +407,16 @@ function updRef() {
   // Seitenspezifischer Wert ist die Wahrheit: behalten, solange er noch
   // eine waehlbare (aktive) Elektrode trifft; sonst seitenspezifischer
   // Default (Mitte, deaktivierte uebersprungen).
-  const stored = sideData[activeSide] ? sideData[activeSide].refEl : refEl;
+  const stored = sideData[activeSide] ? sideData[activeSide].ELL_refEl : ELL_refEl;
   let want = stored;
   if (want == null || !sel.querySelector(`option[value="${want}"]`)) {
     want = pickDefaultRefEl(activeSide);
   }
   sel.value = String(want);
-  refEl = want;
-  if (sideData[activeSide]) sideData[activeSide].refEl = want;
+  ELL_refEl = want;
+  if (sideData[activeSide]) sideData[activeSide].ELL_refEl = want;
   if (want !== prevRef) {
-    if (typeof renderResults === 'function') renderResults();
+    if (typeof ELL_renderResults === 'function') ELL_renderResults();
     if (typeof elektrodenlautstaerkeKurvenChartZeichnen    === 'function') elektrodenlautstaerkeKurvenChartZeichnen();
     if (typeof pUpdEQ         === 'function') pUpdEQ();
   }
@@ -450,8 +450,8 @@ function switchMfr(m) {
   s.elNt = new Array(s.nEl).fill("");
   s.elExDur = new Array(s.nEl).fill(null);
   s.elektrodenlautstaerkeSchieber = new Array(s.nEl).fill(0);
-  s.refEl = Math.floor(s.nEl / 2);
-  s.elektrodenlautstaerkeResults = [];
+  s.ELL_refEl = Math.floor(s.nEl / 2);
+  s.ELL_results = [];
   // Reset implant arrays to new electrode count, preserve global params
   if (!s.implant)
     s.implant = {
@@ -473,8 +473,8 @@ function switchMfr(m) {
   bindActiveSide();
   initElektrodenlautstaerkeKurven();
   s.elektrodenlautstaerkeKurven = elektrodenlautstaerkeKurven;
-  elektrodenlautstaerkeResults.splice(0, elektrodenlautstaerkeResults.length);
-  refEl = Math.floor(nEl / 2);
+  ELL_results.splice(0, ELL_results.length);
+  ELL_refEl = Math.floor(nEl / 2);
   // Sync akustische Seite wenn nötig
   FRQ_implantatSyncToAcoustic();
   FRQ_implantatTableBuild();

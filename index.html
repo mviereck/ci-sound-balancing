@@ -485,17 +485,17 @@
         <div id="subpanel-ergebnisse-elektrodenlautstaerke" class="subpanel active">
       <div id="panel-results-inner">
         <div class="card">
-          <h2 id="resTitle"></h2>
-          <div id="noRes">
-            <p style="color: var(--text-muted)" data-t="noRes"></p>
+          <h2 id="ELL_resTitle"></h2>
+          <div id="ELL_noRes">
+            <p style="color: var(--text-muted)" data-t="ELL_noRes"></p>
           </div>
-          <div id="resC" style="display: none">
-            <div id="resNotDoneBox" style="display:none;margin-bottom:14px;padding:12px 16px;background:#fef3c7;border-radius:8px;border-left:3px solid #d97706;font-size:0.88em;line-height:1.6">
-              <strong id="resNotDoneTitle"></strong>
-              <div id="resNotDoneDetail" style="margin-top:4px"></div>
+          <div id="ELL_resC" style="display: none">
+            <div id="ELL_resNotDoneBox" style="display:none;margin-bottom:14px;padding:12px 16px;background:#fef3c7;border-radius:8px;border-left:3px solid #d97706;font-size:0.88em;line-height:1.6">
+              <strong id="ELL_resNotDoneTitle"></strong>
+              <div id="ELL_resNotDoneDetail" style="margin-top:4px"></div>
             </div>
             <div
-              id="reliabilityText"
+              id="ELL_reliabilityText"
               style="
                 margin-bottom: 14px;
                 padding: 12px 16px;
@@ -512,16 +512,16 @@
                 color: var(--text-muted);
                 margin-bottom: 10px;
               "
-              id="resMeta"
+              id="ELL_resMeta"
             ></p>
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:0.88em">
-              <label for="refEl" data-t="lblRef" style="white-space:nowrap"></label>
-              <select id="refEl" style="font-family:var(--mono);padding:4px 8px"></select>
+              <label for="ELL_refEl" data-t="lblRef" style="white-space:nowrap"></label>
+              <select id="ELL_refEl" style="font-family:var(--mono);padding:4px 8px"></select>
             </div>
             <div class="chart-container">
-              <canvas id="resChart" width="800" height="320"></canvas>
+              <canvas id="ELL_resChart" width="800" height="320"></canvas>
               <p
-                id="chartExpl"
+                id="ELL_chartExpl"
                 style="
                   font-size: 0.82em;
                   color: var(--text-muted);
@@ -531,11 +531,11 @@
               ></p>
             </div>
             <div style="overflow-x: auto; margin-top: 14px">
-              <table class="results-table" id="resT">
+              <table class="results-table" id="ELL_resT">
                 <thead>
-                  <tr id="resTH"></tr>
+                  <tr id="ELL_resTH"></tr>
                 </thead>
-                <tbody id="resTB"></tbody>
+                <tbody id="ELL_resTB"></tbody>
               </table>
             </div>
             <div style="margin-top: 16px">
@@ -553,7 +553,7 @@
               "
             >
               <h3
-                id="glossTitleEl"
+                id="ELL_glossTitleEl"
                 style="
                   font-size: 0.95em;
                   font-weight: 600;
@@ -570,12 +570,12 @@
                   gap: 8px;
                 "
               >
-                <div id="glossResiduumEl"></div>
-                <div id="glossErrBarEl"></div>
-                <div id="glossAnpassungEl"></div>
-                <div id="glossFarbeEl"></div>
-                <div id="glossRefEl"></div>
-                <div id="glossLSEl"></div>
+                <div id="ELL_glossResiduumEl"></div>
+                <div id="ELL_glossErrBarEl"></div>
+                <div id="ELL_glossAnpassungEl"></div>
+                <div id="ELL_glossFarbeEl"></div>
+                <div id="ELL_glossRefEl"></div>
+                <div id="ELL_glossLSEl"></div>
               </div>
             </div>
           </div>

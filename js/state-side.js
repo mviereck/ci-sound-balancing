@@ -13,8 +13,8 @@ let mfr,
   elNt,
   elExDur,
   elektrodenlautstaerkeSchieber,
-  refEl,
-  elektrodenlautstaerkeResults,
+  ELL_refEl,
+  ELL_results,
   config;
 // FRQ_implantatEffektiv[i] = FRQ_implantatOwn[i] ?? FRQ_implantat[i] (MFR default)
 function FRQ_implantatEffektiv(i) {
@@ -49,7 +49,7 @@ function effFreqDisplay(i, side) {
   const cs = centShift(baseHz, sideKey, points) * str;
   return baseHz * Math.pow(2, cs / 1200);
 }
-let elektrodenlautstaerkeFocus = 0;
+let ell_focus = 0;
 let defaultMfr = "unknown"; // BA 154: Erststart-Default
 let audiologUserNote = ""; // Patient-Notiz für Audiologen-Bericht (top-level, beide Seiten)
 let userFileSuffix = ""; // globaler Dateinamen-Suffix für alle Exporte
@@ -82,8 +82,8 @@ function bindActiveSide() {
   elExDur = s.elExDur;
   elektrodenlautstaerkeSchieber = s.elektrodenlautstaerkeSchieber;
   elektrodenlautstaerkeKurven = s.elektrodenlautstaerkeKurven;
-  refEl = s.refEl;
-  elektrodenlautstaerkeResults = s.elektrodenlautstaerkeResults;
+  ELL_refEl = s.ELL_refEl;
+  ELL_results = s.ELL_results;
   elActive = s.elActive || (s.elActive = new Array(s.nEl).fill(true));
   config = s.config || "ci";
   fullSweepRound = s.fullSweepRound !== undefined ? s.fullSweepRound : null;
@@ -112,15 +112,15 @@ function pickDefaultRefEl(side) {
   return mid;
 }
 // Einziger Schreibweg fuer die Referenzelektrode. Die Wahrheit liegt
-// seitenspezifisch in sideData[activeSide].refEl; die gespiegelte
+// seitenspezifisch in sideData[activeSide].ELL_refEl; die gespiegelte
 // globale Ansicht wird synchron gehalten, damit der Wert beim
 // Seiten-Umschalten (bindActiveSide/withSide) nicht verlorengeht.
 // Zieht die abhaengigen Anzeigen nach (Ergebnis-Tabelle, Pegel-Graph,
 // Player-EQ).
 function setRefEl(v) {
-  refEl = v;
-  if (sideData[activeSide]) sideData[activeSide].refEl = v;
-  if (typeof renderResults === "function") renderResults();
+  ELL_refEl = v;
+  if (sideData[activeSide]) sideData[activeSide].ELL_refEl = v;
+  if (typeof ELL_renderResults === "function") ELL_renderResults();
   if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
   if (typeof pUpdEQ === "function") pUpdEQ();
 }
@@ -136,8 +136,8 @@ function initSideData(side, m) {
   s.elExDur = new Array(s.nEl).fill(null);
   s.FRQ_implantatOwn = new Array(s.nEl).fill(null);
   s.elektrodenlautstaerkeSchieber = new Array(s.nEl).fill(0);
-  s.refEl = Math.floor(s.nEl / 2);
-  s.elektrodenlautstaerkeResults = [];
+  s.ELL_refEl = Math.floor(s.nEl / 2);
+  s.ELL_results = [];
   // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
   s.elActive = new Array(s.nEl).fill(true);
   s.fmMode = 'adaptive';
@@ -194,7 +194,7 @@ function updSideButtons() {
     L.style.borderColor = "";
   }
 }
-function updFClearBtn() {
+function ELL_updFClearBtn() {
   const btn = document.getElementById("fClearBtn");
   if (!btn) return;
   const sideLabel = activeSide === "left" ? "LINKS" : "RECHTS";
@@ -214,10 +214,10 @@ function setActiveSide(side) {
   elektrodenlautstaerkeKurvenTabelleBauen();
   elektrodenlautstaerkeKurvenChartZeichnen();
   if (typeof elektrodenlautstaerkeSchieberRebuild === "function") elektrodenlautstaerkeSchieberRebuild();
-  renderResults();
+  ELL_renderResults();
   buildImplantCard();
   updSideButtons();
-  updFClearBtn();
+  ELL_updFClearBtn();
   updPlSrcButtons();
   if (pBuf) updatePlayerForSideChange();
   else plCheck();
@@ -422,10 +422,10 @@ function loadSideData(side, d) {
     const valid =
       typeof r === "number" && r >= 0 && r < s.nEl &&
       s.elExDur[r] == null && s.elSt[r] !== "mute";
-    s.refEl = valid ? r : pickDefaultRefEl(side);
+    s.ELL_refEl = valid ? r : pickDefaultRefEl(side);
   }
   // BA 251: judgmentResults aus alten Dateien werden stillschweigend ignoriert.
-  s.elektrodenlautstaerkeResults = d.balanceResults || [];
+  s.ELL_results = d.balanceResults || [];
   s.fmMode = (d.fmMode === 'slider' || d.fmMode === 'adaptive') ? d.fmMode : 'adaptive';
   s.fmAdaptiveDur = (d.fmAdaptiveDur != null) ? d.fmAdaptiveDur : 200;
   s.fmAdaptivePau = (d.fmAdaptivePau != null) ? d.fmAdaptivePau : 200;
@@ -540,8 +540,8 @@ function withSide(side, fn) {
     elExDur,
     elektrodenlautstaerkeSchieber,
     elektrodenlautstaerkeKurven,
-    refEl,
-    elektrodenlautstaerkeResults,
+    ELL_refEl,
+    ELL_results,
   };
   activeSide = side;
   bindActiveSide();
@@ -738,14 +738,14 @@ let audioCtx = null,
   playTO = null,
   isPlay = false,
   holdIdx = -1;
-let testAct = false,
-  testPairs = [],
-  testIdx = 0,
-  curPlayed = false,
-  curBase = 0,
+let ELL_testAct = false,
+  ELL_testPairs = [],
+  ELL_testIdx = 0,
+  ELL_curPlayed = false,
+  ELL_curBase = 0,
   slExt = false;
-let curA = -1,
-  curB = -1,
+let ELL_curA = -1,
+  ELL_curB = -1,
   undoSt = [],
   convRnd = 0;
 

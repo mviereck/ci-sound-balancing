@@ -239,9 +239,9 @@ function frq_isAbaSequence() {
 
 function FRQ_correctionGain(side, hz) {
   // BA 303: dedupliziert -- die Interpolations-Logik liegt jetzt zentral
-  // in measGain (test.js). FRQ_correctionGain bleibt als benannter Aufrufer fuer
+  // in ELL_measGain (test.js). FRQ_correctionGain bleibt als benannter Aufrufer fuer
   // die Frequenzabgleich-Sequenzen erhalten.
-  return (typeof measGain === "function") ? measGain(side, hz) : 1;
+  return (typeof ELL_measGain === "function") ? ELL_measGain(side, hz) : 1;
 }
 
 // Frequenz der variablen Seite (CI) für Elektrode elIdx
@@ -1393,11 +1393,11 @@ function _frq_refreshHighGainWarningVisibility() {
 }
 
 
-// BA 251: jRes entfaellt; Lautstaerke-Daten = elektrodenlautstaerkeResults.
+// BA 251: jRes entfaellt; Lautstaerke-Daten = ELL_results.
 function _frq_hasLvData(side) {
   const s = sideData[side];
   if (!s) return false;
-  return (s.elektrodenlautstaerkeResults && s.elektrodenlautstaerkeResults.length > 0);
+  return (s.ELL_results && s.ELL_results.length > 0);
 }
 
 function _frq_renderPrereqHints() {

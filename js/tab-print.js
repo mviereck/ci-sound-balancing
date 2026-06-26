@@ -145,7 +145,7 @@ function printErgebnisseTab() {
   );
   if (!sub) return;
   const id = sub.id;
-  if (id === "subpanel-ergebnisse-elektrodenlautstaerke")  return _printResLoudness();
+  if (id === "subpanel-ergebnisse-elektrodenlautstaerke")  return _printResELL();
   if (id === "subpanel-ergebnisse-stereobalance") return _printResLR();
   if (id === "subpanel-ergebnisse-freqmatch") return _printResFRQ();
   if (id === "subpanel-ergebnisse-latenz")    return _printResLTZ();
@@ -196,7 +196,7 @@ function _printCloneSafe(rootSelector) {
   return clone.innerHTML;
 }
 
-function _printResLoudness() {
+function _printResELL() {
   const body = _printCloneSafe('#subpanel-ergebnisse-elektrodenlautstaerke .card');
   openPrintWindow(t("tabElektrodenlautstaerke") || "Elektrodenlautstärke-Balance", body);
 }

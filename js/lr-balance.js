@@ -99,7 +99,7 @@ var _lrTpModalTone  = null;
 
 // Get corrected volume gain for electrode i on given side (WLS levels only, no manual levels)
 function STB_corrGain(side, elIdx) {
-  return elTestData({ side }).correctionGain[elIdx];
+  return ELL_testData({ side }).correctionGain[elIdx];
 }
 
 // Get the effective frequency for electrode i on a given side
@@ -667,11 +667,11 @@ function STB_drawChart() {
   ctx.restore();
 }
 
-// BA 251: jRes entfaellt; Lautstaerke-Daten = elektrodenlautstaerkeResults.
+// BA 251: jRes entfaellt; Lautstaerke-Daten = ELL_results.
 function _lrHasLvData(side) {
   const s = sideData[side];
   if (!s) return false;
-  return (s.elektrodenlautstaerkeResults && s.elektrodenlautstaerkeResults.length > 0);
+  return (s.ELL_results && s.ELL_results.length > 0);
 }
 
 // Sichtbarkeit der dynamischen Vortest-Hinweise oben in der Erklaer-Box.
@@ -683,8 +683,8 @@ function _lrRenderPrereqHints() {
 }
 
 function STB_checkData() {
-  const hasLeft = sideData["left"].elektrodenlautstaerkeResults.length > 0;
-  const hasRight = sideData["right"].elektrodenlautstaerkeResults.length > 0;
+  const hasLeft = sideData["left"].ELL_results.length > 0;
+  const hasRight = sideData["right"].ELL_results.length > 0;
   const nd = document.getElementById("stb_noData");
   if (nd) nd.style.display = hasLeft && hasRight ? "none" : "";
   // Deaf-Hinweis
@@ -744,7 +744,7 @@ function stb_hookOnStop() {
 }
 
 // BA 290: Deckelungs-Hinweis fuer Stereo-Balance (analog Test 1,
-// _testUpdateClipHint). Nutzt STB_pairGains.capped.
+// ELL_updateClipHint). Nutzt STB_pairGains.capped.
 function stb_updateClipHint(off) {
   var vref = STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance;
   if (!vref || !vref.clipHint) return;

@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   applyLang();
   updSideButtons();
-  updFClearBtn();
+  ELL_updFClearBtn();
   // BA389: Player-UI-Einzelupdates entfernt — der zentrale plSyncUI()
   // weiter unten (BA388, ca. Z. 273) spiegelt die Box. Dazwischen rendert
   // nichts die Player-Box (verifiziert), daher verhaltensgleich.
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     buildImplantCard();
     elektrodenlautstaerkeKurvenTabelleBauen();
     elektrodenlautstaerkeKurvenChartZeichnen();
-    renderResults();
+    ELL_renderResults();
     if (typeof STB_checkData === "function") STB_checkData();
     if (typeof FRQ_applyLang === "function") FRQ_applyLang();
     if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();
@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   document.getElementById("fResetBtn").addEventListener("click", resetAll);
-  document.getElementById("fClearBtn").addEventListener("click", clearRes);
+  document.getElementById("fClearBtn").addEventListener("click", ELL_clearRes);
   document
     .getElementById("eeExportBtn")
     .addEventListener("click", exportEasyEffects);
@@ -800,10 +800,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();
       if (typeof STB_refreshElectrodeSelectionSummary === "function") STB_refreshElectrodeSelectionSummary();
       if (typeof FRQ_refreshElectrodeSelectionSummary === "function") FRQ_refreshElectrodeSelectionSummary();
-      if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
+      if (typeof ELL_refreshElectrodeSelectionSummary === "function") ELL_refreshElectrodeSelectionSummary();
       if (typeof STB_refreshToneTypeLabel === "function") STB_refreshToneTypeLabel();
       if (typeof FRQ_refreshToneTypeLabel === "function") FRQ_refreshToneTypeLabel();
-      if (typeof testRefreshToneTypeLabel === "function") testRefreshToneTypeLabel();
+      if (typeof ELL_refreshToneTypeLabel === "function") ELL_refreshToneTypeLabel();
       // BA389: Player-UI zentral spiegeln (ersetzt die ueber den Restore
       // verstreuten Einzel-Updates). Laeuft NACH dem Side-Change-Restore
       // (d.plBothSides/d.plMonoEQ) und nach pBuildEQ, damit der gespiegelte
@@ -812,7 +812,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   } catch (e) {}
   // Referenzelektroden-Dropdown im Ergebnis-Reiter
-  const _refSel = document.getElementById('refEl');
+  const _refSel = document.getElementById('ELL_refEl');
   if (_refSel) {
     _refSel.addEventListener('change', function() {
       setRefEl(+this.value);
@@ -875,8 +875,8 @@ document.addEventListener("DOMContentLoaded", () => {
               electrodeActive: sideData.left.elActive,
               electrodeNotes: sideData.left.elNt,
               electrodeExcludedDuring: sideData.left.elExDur,
-              referenceElectrode: sideData.left.refEl,
-              balanceResults: sideData.left.elektrodenlautstaerkeResults,
+              referenceElectrode: sideData.left.ELL_refEl,
+              balanceResults: sideData.left.ELL_results,
               manualLevels: sideData.left.elektrodenlautstaerkeSchieber,
               presets: sideData.left.elektrodenlautstaerkeKurven,
               fullSweepRound: sideData.left.fullSweepRound,
@@ -899,8 +899,8 @@ document.addEventListener("DOMContentLoaded", () => {
               electrodeActive: sideData.right.elActive,
               electrodeNotes: sideData.right.elNt,
               electrodeExcludedDuring: sideData.right.elExDur,
-              referenceElectrode: sideData.right.refEl,
-              balanceResults: sideData.right.elektrodenlautstaerkeResults,
+              referenceElectrode: sideData.right.ELL_refEl,
+              balanceResults: sideData.right.ELL_results,
               manualLevels: sideData.right.elektrodenlautstaerkeSchieber,
               presets: sideData.right.elektrodenlautstaerkeKurven,
               fullSweepRound: sideData.right.fullSweepRound,

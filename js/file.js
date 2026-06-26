@@ -116,8 +116,8 @@ function resetAll() {
     sideData[s].elExDur = new Array(sideData[s].nEl).fill(null);
     sideData[s].FRQ_implantatOwn = new Array(sideData[s].nEl).fill(null);
     sideData[s].elektrodenlautstaerkeSchieber = new Array(sideData[s].nEl).fill(0);
-    sideData[s].refEl = Math.floor(sideData[s].nEl / 2);
-    sideData[s].elektrodenlautstaerkeResults = [];
+    sideData[s].ELL_refEl = Math.floor(sideData[s].nEl / 2);
+    sideData[s].ELL_results = [];
     sideData[s].elektrodenlautstaerkeKurven = [];
     initSideData(s, "unknown");
   }
@@ -243,7 +243,7 @@ function resetAll() {
   FRQ_implantatTableBuild();
   elektrodenlautstaerkeKurvenTabelleBauen();
   elektrodenlautstaerkeKurvenChartZeichnen();
-  renderResults();
+  ELL_renderResults();
   if (typeof buildImplantCard === "function") buildImplantCard();
   if (typeof elektrodenlautstaerkeSchieberRebuild === "function") elektrodenlautstaerkeSchieberRebuild();
   if (typeof updSideButtons === "function") updSideButtons();
@@ -280,8 +280,8 @@ async function saveJson() {
         electrodeActive: sideData.left.elActive,
         electrodeNotes: sideData.left.elNt,
         electrodeExcludedDuring: sideData.left.elExDur,
-        referenceElectrode: sideData.left.refEl,
-        balanceResults: sideData.left.elektrodenlautstaerkeResults,
+        referenceElectrode: sideData.left.ELL_refEl,
+        balanceResults: sideData.left.ELL_results,
         fmMode: sideData.left.fmMode || 'adaptive',
         fmAdaptiveDur: sideData.left.fmAdaptiveDur != null ? sideData.left.fmAdaptiveDur : 200,
         fmAdaptivePau: sideData.left.fmAdaptivePau != null ? sideData.left.fmAdaptivePau : 200,
@@ -302,8 +302,8 @@ async function saveJson() {
         electrodeActive: sideData.right.elActive,
         electrodeNotes: sideData.right.elNt,
         electrodeExcludedDuring: sideData.right.elExDur,
-        referenceElectrode: sideData.right.refEl,
-        balanceResults: sideData.right.elektrodenlautstaerkeResults,
+        referenceElectrode: sideData.right.ELL_refEl,
+        balanceResults: sideData.right.ELL_results,
         fmMode: sideData.right.fmMode || 'adaptive',
         fmAdaptiveDur: sideData.right.fmAdaptiveDur != null ? sideData.right.fmAdaptiveDur : 200,
         fmAdaptivePau: sideData.right.fmAdaptivePau != null ? sideData.right.fmAdaptivePau : 200,
@@ -792,17 +792,17 @@ function applyLoadedData(d) {
     if (aNoteEl) aNoteEl.value = audiologUserNote;
   }
   FRQ_implantatTableBuild();
-  renderResults();
+  ELL_renderResults();
   if (typeof FRQ_renderResults === "function") FRQ_renderResults();
   if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
   if (typeof FRQ_applyLang === "function") FRQ_applyLang();
   if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();
   if (typeof STB_refreshElectrodeSelectionSummary === "function") STB_refreshElectrodeSelectionSummary();
   if (typeof FRQ_refreshElectrodeSelectionSummary === "function") FRQ_refreshElectrodeSelectionSummary();
-  if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
+  if (typeof ELL_refreshElectrodeSelectionSummary === "function") ELL_refreshElectrodeSelectionSummary();
   if (typeof STB_refreshToneTypeLabel === "function") STB_refreshToneTypeLabel();
   if (typeof FRQ_refreshToneTypeLabel === "function") FRQ_refreshToneTypeLabel();
-  if (typeof testRefreshToneTypeLabel === "function") testRefreshToneTypeLabel();
+  if (typeof ELL_refreshToneTypeLabel === "function") ELL_refreshToneTypeLabel();
   if (typeof elektrodenlautstaerkeKurvenTabelleBauen === "function") elektrodenlautstaerkeKurvenTabelleBauen();
   if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
   if (typeof d.levelsTabShowMeas === "boolean") elektrodenlautstaerkeSchieberShowMeas = d.levelsTabShowMeas;
@@ -814,7 +814,7 @@ function applyLoadedData(d) {
       document.getElementById("panel-schieber")?.classList.contains("active")) {
     elektrodenlautstaerkeSchieberRebuild();
   }
-  if (typeof updFClearBtn === "function") updFClearBtn();
+  if (typeof ELL_updFClearBtn === "function") ELL_updFClearBtn();
   if (typeof buildImplantCard === "function") buildImplantCard();
   if (pEqF && pEqF.length > 0) pUpdEQ();
   updSideButtons();
@@ -835,16 +835,16 @@ function applyLoadedData(d) {
   if (typeof tabLockApply === "function") tabLockApply();
   if (typeof depLockApply === "function") depLockApply();
 }
-function clearRes() {
+function ELL_clearRes() {
   const ch = confirm(t("delConfirmMeas"));
   if (!ch) return;
-  sideData[activeSide].elektrodenlautstaerkeResults.splice(0, sideData[activeSide].elektrodenlautstaerkeResults.length);
+  sideData[activeSide].ELL_results.splice(0, sideData[activeSide].ELL_results.length);
   sideData[activeSide].fullSweepRound = null;
   sideData[activeSide].fullSweepDonePairs = [];
-  elektrodenlautstaerkeResults = sideData[activeSide].elektrodenlautstaerkeResults;
+  ELL_results = sideData[activeSide].ELL_results;
   fullSweepRound = null;
   fullSweepDonePairs = [];
-  renderResults();
+  ELL_renderResults();
   pUpdEQ();
 }
 

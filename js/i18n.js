@@ -74,7 +74,7 @@ function applyLang() {
   if (tabMessungen) tabMessungen.textContent = t("tabMessungen");
   if (tabErgebnisse) tabErgebnisse.textContent = t("tabErgebnisse");
   const gEl2 = (id) => document.getElementById(id);
-  if (gEl2("glossLSEl")) gEl2("glossLSEl").innerHTML = t("glossLS");
+  if (gEl2("ELL_glossLSEl")) gEl2("ELL_glossLSEl").innerHTML = t("ELL_glossLS");
   s("FRQ_implantatTitle", "FRQ_implantatTitle");
   s("lblMfr", "lblMfr");
 
@@ -95,7 +95,7 @@ function applyLang() {
   s("balLabel", "balLabel");
   s("startBtn", "startTest");
   s("stopTBtn", "stopTest");
-  s("resTitle", "resTitle");
+  s("ELL_resTitle", "ELL_resTitle");
   updSideButtons();
   FRQ_implantatTableBuild();
   if (typeof buildImplantCard === "function") buildImplantCard();
@@ -103,7 +103,7 @@ function applyLang() {
   if (_pib) _pib.title = t("printBtn");
   const _peb = document.getElementById("printErgebnisseBtn");
   if (_peb) _peb.title = t("printBtn");
-  if (document.getElementById("resC").style.display !== "none") renderResults();
+  if (document.getElementById("ELL_resC").style.display !== "none") ELL_renderResults();
   if (typeof STB_renderResults === "function") STB_renderResults();
   if (typeof sUpdateUI === "function") sUpdateUI();
   if (typeof _implValidateApplyLang === 'function') _implValidateApplyLang();

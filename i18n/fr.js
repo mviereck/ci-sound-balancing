@@ -149,12 +149,12 @@ Object.assign(L.fr, {
     bEqual: "Égal",
     bExtend: "Étendre la plage (±40 dB)",
     bCanc: "Annuler",
-    resTitle: "Résultats de la mesure d'équilibrage de l'intensité des électrodes",
-    noRes: "Pas encore de résultats. Effectuez d'abord une mesure dans « Mesures → Équilibrer l'intensité des électrodes ».",
+    ELL_resTitle: "Résultats de la mesure d'équilibrage de l'intensité des électrodes",
+    ELL_noRes: "Pas encore de résultats. Effectuez d'abord une mesure dans « Mesures → Équilibrer l'intensité des électrodes ».",
     comp: "Comparaison",
     of: "sur",
     round: "Tour",
-    chartExplB:
+    ELL_chartExplB:
       "Intensité perçue par rapport à la référence (0 dB). Positif = plus fort, négatif = plus faible. Barres d'erreur = résidu moyen. Calcul : moindres carrés pondérés.",
     chartExplJ:
       'Score = « plus fort » moins « plus faible ». Valeurs positives élevées = perçu comme trop fort.',
@@ -194,25 +194,25 @@ Object.assign(L.fr, {
     thRefEl: "Él.réf.",
     thSc: "Score",
     thComp: "Compar.",
-    resExplain:
+    ELL_resExplain:
       "Résidu : écart moyen des mesures individuelles d'une électrode par rapport au résultat global. Valeurs élevées = mesure incertaine, p.ex. due à une électrode bruyante ou à un jugement difficile. Moindres carrés : procédé mathématique qui calcule simultanément, à partir de toutes les comparaisons par paires, les valeurs d'offset les meilleures possibles. Les erreurs de mesure isolées ont peu d'influence, car elles doivent s'imposer face à de nombreuses autres mesures. Pondération : bruit fort (0.1), bruit avec un peu de son (0.5), son avec bruit (0.9), presque muet (0.1) entrent avec un poids réduit.",
     fClear: "Effacer les résultats de mesure pour le côté sélectionné",
     delConfirmMeas: "Effacer les résultats de mesure ?",
     resetConfirm:
       "Vraiment tout réinitialiser ? Tous les réglages, valeurs de mesure et notes seront effacés.",
     resetDone: "Tout a été réinitialisé.",
-    glossTitle: "Glossaire",
-    glossResiduum:
+    ELL_glossTitle: "Glossaire",
+    ELL_glossResiduum:
       "<b>Résidu</b> : indique à quel point vos jugements étaient contradictoires pour une électrode. Barres d'erreur courtes = jugements cohérents, barres d'erreur longues = les évaluations ont fluctué.",
-    glossErrBar:
+    ELL_glossErrBar:
       "<b>Barres d'erreur</b> (les traits verticaux sur les barres) : montrent la taille du résidu — plus elles sont longues, plus la mesure est incertaine.",
-    glossAnpassung:
+    ELL_glossAnpassung:
       "<b>Ajustement</b> : indique de combien de dB cette électrode est réglée plus fort (+) ou plus faible (−) que l'électrode de référence.",
-    glossFarbe:
+    ELL_glossFarbe:
       "<b>Couleurs feux tricolores</b> : Vert = mesure fiable, Jaune = limite, Rouge = mesure incertaine, Gris = pas encore de mesure pour cette électrode. La couleur indique la qualité de la mesure — pas l'ampleur de la modification.",
-    glossRef:
+    ELL_glossRef:
       "<b>Électrode de référence</b> : point fixe de la mesure. Son ajustement est toujours 0 dB. Toutes les autres électrodes sont évaluées par rapport à elle.",
-    glossLS:
+    ELL_glossLS:
       "<b>Moindres carrés</b> : procédé mathématique qui calcule simultanément, à partir de toutes les comparaisons par paires, les valeurs d'offset les meilleures possibles. Les erreurs de mesure isolées ont peu d'influence, car elles doivent s'imposer face à de nombreuses autres mesures. Les électrodes marquées comme problématiques dans l'onglet « Implant » entrent avec un poids réduit.",
     apikal: "apical",
     basal: "basal",
@@ -226,8 +226,8 @@ Object.assign(L.fr, {
     excluded: "exclu",
     excludedSkipped: "désactivé/omis",
     notMeasured: "non mesuré",
-    resNotDoneTitle: "Série de tests pas encore terminée.",
-    resNotDoneDetail: "Mode Round Robin : tour {round} sur {maxRounds}, {done} sur {total} paires confirmées.",
+    ELL_resNotDoneTitle: "Série de tests pas encore terminée.",
+    ELL_resNotDoneDetail: "Mode Round Robin : tour {round} sur {maxRounds}, {done} sur {total} paires confirmées.",
     copyDone: "Copié.",
     delConfirmMeas: "Effacer les résultats de mesure ?",
     manComp: "Comparaison manuelle",
@@ -792,8 +792,8 @@ Object.assign(L.fr, {
     plWarpStopBtn: "Arrêter le calcul",
     plWarpBusyTooltip: "Calcul du warping fréquentiel en cours",
     // Neue Keys für vereinheitlichte Test-UI
-    testExplainTitle: "Équilibrer l'intensité des électrodes",
-    testIntro:
+    ell_explainTitle: "Équilibrer l'intensité des électrodes",
+    ell_intro:
       "Ce test compare l'intensité des électrodes entre elles. " +
       "L'objectif est de trouver une intensité équilibrée pour toutes les électrodes." +
       "<br> - C'est déjà un bon réglage pour les sons naturels et la musique." +
@@ -823,7 +823,7 @@ Object.assign(L.fr, {
     testDoneTitle:      "Test {name} terminé.",
     testDoneResultHint: "Vous pouvez voir le résultat du test dans l’onglet Résultats de mesure → {subtab}.",
     compBtnOk:          "OK",
-    testRrName:         "Round Robin",
+    ell_rrName:         "Round Robin",
     compNameFmAdaptive: "Appariement fréquentiel (Adaptatif)",
     compNameFmSlider:   "Appariement de fréquence (réajustement)",
     compSubLoudness:    "Intensité des électrodes",
@@ -935,7 +935,7 @@ Object.assign(L.fr, {
     STB_desc: "Ce test compare l'intensité perçue gauche et droite pour chaque paire d'électrodes. Le but est que vous entendiez aussi fort à gauche et à droite.",
     STB_orderLbl: "Ordre :",
     STB_sideLbl: "Ordre des côtés :",
-    testMaturityHint: "Ce test est déjà bien abouti et peut fournir des résultats fiables.",
+    ell_maturityHint: "Ce test est déjà bien abouti et peut fournir des résultats fiables.",
     testExplainRecommend: "Recommandations :\n1. Réglez le volume à environ 3/4. Donc plus que moyen, mais pas encore désagréablement fort.\n2. Utilisez si possible le Bluetooth pour le streaming.\n3. Faites d'abord un test « Round Robin », puis une ou plusieurs fois le test « Convergence ».\n4. Une marque sous le curseur indique la valeur calculée à partir de toutes les mesures précédentes ; la zone colorée montre l'incertitude de cette estimation.",
     testExplainVarious: " - Vous pouvez interrompre les tests à tout moment et les poursuivre au même endroit plus tard.\n - Le test « Round Robin » se déroule sur quelques tours. Après environ 3 à 4 tours, vous pouvez déjà estimer grossièrement dans l'onglet « Résultats de mesure » où mène votre mesure.\n - Si une électrode s'avère non mesurable au cours du test (trop faible, inactive), marquez-la en conséquence dans l'onglet « Implant ». Elle sera alors exclue du test.",
     testInRound: "Test dans ce tour :",

@@ -149,12 +149,12 @@ Object.assign(L.en, {
     bEqual: "Equal",
     bExtend: "Extend range (±40 dB)",
     bCanc: "Cancel",
-    resTitle: "Results of the electrode loudness balance measurement",
-    noRes: "No results yet. First run a measurement under “Measurements → Balance electrode loudness”.",
+    ELL_resTitle: "Results of the electrode loudness balance measurement",
+    ELL_noRes: "No results yet. First run a measurement under “Measurements → Balance electrode loudness”.",
     comp: "Comparison",
     of: "of",
     round: "Round",
-    chartExplB:
+    ELL_chartExplB:
       "Perceived loudness relative to the reference (0 dB). Positive = louder, negative = quieter. Error bars = mean residual. Calculation: weighted least squares.",
     chartExplJ:
       "Score = “louder” minus “quieter”. High positive values = perceived as too loud.",
@@ -194,25 +194,25 @@ Object.assign(L.en, {
     thRefEl: "Ref. El.",
     thSc: "Score",
     thComp: "Comp.",
-    resExplain:
+    ELL_resExplain:
       "Residual: The mean deviation of the individual measurements of an electrode from the overall result. High values = uncertain measurement, e.g. due to a noisy electrode or difficult judgment. Least squares: A mathematical method that calculates the best possible offset values from all pair comparisons simultaneously. Individual measurement errors have little influence because they have to compete against many other measurements. Weighting: Strong noise (0.1), noise with some tone (0.5), tone with noise (0.9), almost mute (0.1) are weighted accordingly with reduced weight.",
     fClear: "Delete measurement results for the selected side",
     delConfirmMeas: "Delete measurement results?",
     resetConfirm:
       "Really reset everything? All settings, measurements and notes will be deleted.",
     resetDone: "Everything reset.",
-    glossTitle: "Glossary",
-    glossResiduum:
+    ELL_glossTitle: "Glossary",
+    ELL_glossResiduum:
       "<b>Residual</b>: Shows how contradictory your judgments were for an electrode. Short error bars = consistent judgments, long error bars = the assessments fluctuated.",
-    glossErrBar:
+    ELL_glossErrBar:
       "<b>Error bars</b> (the vertical lines on the bars): Show the size of the residual – the longer, the more uncertain the measurement.",
-    glossAnpassung:
+    ELL_glossAnpassung:
       "<b>Adjustment</b>: Indicates by how many dB this electrode is set louder (+) or quieter (−) than the reference electrode.",
-    glossFarbe:
+    ELL_glossFarbe:
       "<b>Traffic light colors</b>: Green = reliably measured, yellow = borderline, red = uncertain measurement, gray = no measurement yet for this electrode. The color indicates the measurement quality – not the size of the change.",
-    glossRef:
+    ELL_glossRef:
       "<b>Reference electrode</b>: The fixed point of the measurement. Its adjustment is always 0 dB. All other electrodes are evaluated relative to it.",
-    glossLS:
+    ELL_glossLS:
       "<b>Least squares</b>: A mathematical method that calculates the best possible offset values from all pair comparisons simultaneously. Individual measurement errors have little influence because they have to compete against many other measurements. Electrodes marked as problematic in the “Implant” tab are weighted with reduced weight.",
     apikal: "apical",
     basal: "basal",
@@ -226,8 +226,8 @@ Object.assign(L.en, {
     excluded: "excluded",
     excludedSkipped: "deactivated/skipped",
     notMeasured: "not measured",
-    resNotDoneTitle: "Test series not yet completed.",
-    resNotDoneDetail: "Round Robin mode: round {round} of {maxRounds}, {done} of {total} pairs confirmed.",
+    ELL_resNotDoneTitle: "Test series not yet completed.",
+    ELL_resNotDoneDetail: "Round Robin mode: round {round} of {maxRounds}, {done} of {total} pairs confirmed.",
     copyDone: "Copied.",
     manComp: "Manual comparison",
     plTitle: "Audio player with correction equalizer",
@@ -791,8 +791,8 @@ Object.assign(L.en, {
     plWarpStopBtn: "Stop computation",
     plWarpBusyTooltip: "Frequency warping is calculating",
     // New keys for unified test UI
-    testExplainTitle: "Balance electrode loudness",
-    testIntro:
+    ell_explainTitle: "Balance electrode loudness",
+    ell_intro:
       "This test compares the loudness of the electrodes with each other. " +
       "The goal is to find a balanced loudness for all electrodes." +
       "<br> - This is already a good setting for natural sounds and music." +
@@ -823,7 +823,7 @@ Object.assign(L.en, {
     testDoneTitle:      "{name} test completed.",
     testDoneResultHint: "You can view the test result in the Measurement results tab → {subtab}.",
     compBtnOk:          "OK",
-    testRrName:         "Round Robin",
+    ell_rrName:         "Round Robin",
     compNameFmAdaptive: "Frequency matching (Adaptive)",
     compNameFmSlider:   "Frequency matching (fine-tuning)",
     compSubLoudness:    "Electrode loudness",
@@ -935,7 +935,7 @@ Object.assign(L.en, {
     STB_desc: "This test compares the perceived loudness on the left and right for each electrode pair. The goal is for you to hear equally loud on the left and right.",
     STB_orderLbl: "Order:",
     STB_sideLbl: "Side order:",
-    testMaturityHint: "This test is already well developed and can deliver reliable results.",
+    ell_maturityHint: "This test is already well developed and can deliver reliable results.",
     testExplainRecommend: "Recommendations:\n1. Set the volume so that it is about 3/4 loud. So more than just medium, but not yet uncomfortably loud.\n2. If possible, use Bluetooth for streaming.\n3. First run a ‘Round Robin’ test, then once or several times the ‘Convergence’ test.\n4. A marker below the slider shows the value calculated from all measurements so far; the colored area shows the uncertainty of this estimate.",
     testExplainVarious: " - You can pause the tests at any time and continue later at the same point.\n - The ‘Round Robin’ test runs over several rounds. After about 3 to 4 rounds, you can already roughly estimate in the ‘Measurement results’ tab where your measurement is heading.\n - If an electrode turns out to be unmeasurable during the test (too quiet, inactive), mark it accordingly in the ‘Implant’ tab. It will then be excluded from the test.",
     testInRound: "Test in this round:",
