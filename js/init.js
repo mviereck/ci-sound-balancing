@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Druck-Knöpfe Kurven- und Schieber-Tab
     const _pkb = document.getElementById("printKurvenELLBtn");
     if (_pkb) _pkb.title = t("printBtn");
-    const _psb = document.getElementById("printSchieberBtn");
+    const _psb = document.getElementById("printSchieberELLBtn");
     if (_psb) _psb.title = t("printBtn");
   };
 
@@ -180,10 +180,10 @@ document.addEventListener("DOMContentLoaded", () => {
     printKurvenELLBtn.title = t("printBtn");
     printKurvenELLBtn.addEventListener("click", printKurvenELLTab);
   }
-  const printSchieberBtn = document.getElementById("printSchieberBtn");
-  if (printSchieberBtn) {
-    printSchieberBtn.title = t("printBtn");
-    printSchieberBtn.addEventListener("click", printSchieberTab);
+  const printSchieberELLBtn = document.getElementById("printSchieberELLBtn");
+  if (printSchieberELLBtn) {
+    printSchieberELLBtn.title = t("printBtn");
+    printSchieberELLBtn.addEventListener("click", printSchieberELLTab);
   }
   document.getElementById("fPrintBtn").addEventListener("click", () => {
     const data = collectArchivData();
@@ -458,7 +458,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pWarpTrigger();
       if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
       if (typeof pDrawEQ === "function") pDrawEQ();
-      if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
+      if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
       return;
     }
 
@@ -474,7 +474,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (typeof pBuildEQ === "function") pBuildEQ();
     if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
     if (typeof pDrawEQ === "function") pDrawEQ();
-    if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
+    if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
   });
   // BA374: Stop-Button am Fortschrittsbalken. Bricht die Berechnung ab,
   // schaltet Frequenz-Warping aus und spielt ungewarpt an gleicher
@@ -492,7 +492,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (wasPlaying) { if (typeof _pSetPlayWish === "function") _pSetPlayWish(true); if (typeof pPlay === "function") pPlay(); }
       if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
       if (typeof pDrawEQ === "function") pDrawEQ();
-      if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
+      if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
     });
   }
 
@@ -512,7 +512,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!pPlaying && typeof pBuildEQ === "function") pBuildEQ();
     if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
     if (typeof pDrawEQ === "function") pDrawEQ();
-    if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
+    if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
   });
   // BA375: Berechnungs-Modus (Schnell/Mittel/Beste). Persistent.
   // Quelle fuer engine + Streaming-Pfad. Wechsel bei aktivem Warp ->
@@ -552,28 +552,28 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", function (e) {
     const pan = document.getElementById("panel-schieber");
     if (!pan || !pan.classList.contains("active")) return;
-    const cv = document.getElementById("schieberCv");
+    const cv = document.getElementById("schieberELLCv");
     if (!cv || document.activeElement !== cv) return;
-    const nav = (typeof elektrodenlautstaerkeSchieberNavigableEl === "function") ? elektrodenlautstaerkeSchieberNavigableEl() : actEl();
+    const nav = (typeof schieberELLNavigableEl === "function") ? schieberELLNavigableEl() : actEl();
     if (!nav.length) return;
     if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
       e.preventDefault();
-      let ci = nav.indexOf(elektrodenlautstaerkeSchieberFocus);
+      let ci = nav.indexOf(schieberELLFocus);
       if (ci < 0) ci = 0;
       if (e.key === "ArrowLeft") ci = Math.max(0, ci - 1);
       else ci = Math.min(nav.length - 1, ci + 1);
-      elektrodenlautstaerkeSchieberFocus = nav[ci];
-      elektrodenlautstaerkeSchieberDraw();
+      schieberELLFocus = nav[ci];
+      schieberELLDraw();
     }
     if (e.key === "ArrowUp" || e.key === "ArrowDown") {
       e.preventDefault();
       const dir = e.key === "ArrowUp" ? 1 : -1;
-      if (elektrodenlautstaerkeSchieberMode === "abs") {
-        elektrodenlautstaerkeSchieberStepAbsolute(elektrodenlautstaerkeSchieberFocus, dir, e.shiftKey);
+      if (schieberELLMode === "abs") {
+        schieberELLStepAbsolute(schieberELLFocus, dir, e.shiftKey);
       } else {
         const st = e.shiftKey ? 0.1 : 0.5;
-        const cur = elektrodenlautstaerkeSchieber[elektrodenlautstaerkeSchieberFocus] || 0;
-        elektrodenlautstaerkeSchieberOnChange(elektrodenlautstaerkeSchieberFocus, cur + dir * st);
+        const cur = schieberELL[schieberELLFocus] || 0;
+        schieberELLOnChange(schieberELLFocus, cur + dir * st);
       }
     }
   });
@@ -758,8 +758,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof sequence_stereobalance !== "undefined") {
         sequence_stereobalance = _validSeq(d.sequence_balance) || _legacySeq;
       }
-      if (typeof d.levelsTabMode === "string") elektrodenlautstaerkeSchieberMode = d.levelsTabMode;
-      if (typeof d.levelsTabVariant === "string") elektrodenlautstaerkeSchieberVariant = d.levelsTabVariant;
+      if (typeof d.levelsTabMode === "string") schieberELLMode = d.levelsTabMode;
+      if (typeof d.levelsTabVariant === "string") schieberELLVariant = d.levelsTabVariant;
       if (typeof d.plBothSides === "boolean") {
         const bsEl = document.getElementById("plBothSides");
         if (bsEl) {
@@ -794,7 +794,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
       if (typeof pBuildEQ === "function") pBuildEQ();
       if (typeof pDrawEQ === "function") pDrawEQ();
-      if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
+      if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
       if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
       if (typeof FRQ_applyLang === "function") FRQ_applyLang();
       if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();
@@ -829,32 +829,32 @@ document.addEventListener("DOMContentLoaded", () => {
   // if (_FRQ_piaBtn) _FRQ_piaBtn.addEventListener("click", function () { FRQ_setActiveMethod("piano"); });
 
   // Modus-Toggle relativ/absolut
-  document.querySelectorAll('input[name="elektrodenlautstaerkeSchieberMode"]').forEach((r) => {
+  document.querySelectorAll('input[name="schieberELLMode"]').forEach((r) => {
     r.addEventListener("change", function () {
       if (!this.checked) return;
       const newMode = this.value;
-      if (newMode === "abs" && !elektrodenlautstaerkeSchieberAbsoluteAvailable()) {
+      if (newMode === "abs" && !schieberELLAbsoluteAvailable()) {
         this.checked = false;
-        const relBtn = document.getElementById("schieberModeRel");
+        const relBtn = document.getElementById("schieberELLModeRel");
         if (relBtn) relBtn.checked = true;
-        alert(t("schieberAbsNotAvailable"));
+        alert(t("schieberELLAbsNotAvailable"));
         return;
       }
-      elektrodenlautstaerkeSchieberMode = newMode;
-      // elektrodenlautstaerkeSchieberVariant wird hier NICHT überschrieben — die vom Nutzer
+      schieberELLMode = newMode;
+      // schieberELLVariant wird hier NICHT überschrieben — die vom Nutzer
       // gewählte Anzeige-Variante (gestapelt / nur Summe) bleibt
       // beim Modus-Wechsel erhalten.
       // Fokus für den neuen Modus revalidieren (Absolutmodus überspringt
       // Elektroden ohne MCL).
-      elektrodenlautstaerkeSchieberRebuild();
+      schieberELLRebuild();
     });
   });
   // Variante-Toggle
-  document.querySelectorAll('input[name="elektrodenlautstaerkeSchieberVariant"]').forEach((r) => {
+  document.querySelectorAll('input[name="schieberELLVariant"]').forEach((r) => {
     r.addEventListener("change", function () {
       if (!this.checked) return;
-      elektrodenlautstaerkeSchieberVariant = this.value;
-      elektrodenlautstaerkeSchieberDraw();
+      schieberELLVariant = this.value;
+      schieberELLDraw();
     });
   });
 
@@ -877,7 +877,7 @@ document.addEventListener("DOMContentLoaded", () => {
               electrodeExcludedDuring: sideData.left.elExDur,
               referenceElectrode: sideData.left.ELL_refEl,
               balanceResults: sideData.left.ELL_results,
-              manualLevels: sideData.left.elektrodenlautstaerkeSchieber,
+              manualLevels: sideData.left.schieberELL,
               presets: sideData.left.kurvenELL,
               fullSweepRound: sideData.left.fullSweepRound,
               fullSweepDonePairs: sideData.left.fullSweepDonePairs,
@@ -901,7 +901,7 @@ document.addEventListener("DOMContentLoaded", () => {
               electrodeExcludedDuring: sideData.right.elExDur,
               referenceElectrode: sideData.right.ELL_refEl,
               balanceResults: sideData.right.ELL_results,
-              manualLevels: sideData.right.elektrodenlautstaerkeSchieber,
+              manualLevels: sideData.right.schieberELL,
               presets: sideData.right.kurvenELL,
               fullSweepRound: sideData.right.fullSweepRound,
               fullSweepDonePairs: sideData.right.fullSweepDonePairs,
@@ -963,10 +963,10 @@ document.addEventListener("DOMContentLoaded", () => {
           sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
           sequence_test:      (typeof sequence_elektrodenlautstaerke      !== "undefined") ? sequence_elektrodenlautstaerke      : TEST_DEFAULTS.elektrodenlautstaerke.sequence,
           sequence_balance:   (typeof sequence_stereobalance   !== "undefined") ? sequence_stereobalance   : TEST_DEFAULTS.stereobalance.sequence,
-          levelsTabMode: elektrodenlautstaerkeSchieberMode,
-          levelsTabVariant: elektrodenlautstaerkeSchieberVariant,
-          levelsTabShowMeas: elektrodenlautstaerkeSchieberShowMeas,
-          levelsTabShowCurves: elektrodenlautstaerkeSchieberShowCurves,
+          levelsTabMode: schieberELLMode,
+          levelsTabVariant: schieberELLVariant,
+          levelsTabShowMeas: schieberELLShowMeas,
+          levelsTabShowCurves: schieberELLShowCurves,
           plBothSides: document.getElementById("plBothSides").checked,
           plMonoEQ: document.getElementById("plMonoEQ")
             ? document.getElementById("plMonoEQ").checked : false,
@@ -1024,7 +1024,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } finally {
     _suppressHashPush = false;
   }
-  if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
+  if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
   // BA 172: Initialer Sperr-Stand

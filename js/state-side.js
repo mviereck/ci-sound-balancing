@@ -12,7 +12,7 @@ let mfr,
   elSt,
   elNt,
   elExDur,
-  elektrodenlautstaerkeSchieber,
+  schieberELL,
   ELL_refEl,
   ELL_results,
   config;
@@ -80,7 +80,7 @@ function bindActiveSide() {
   elSt = s.elSt;
   elNt = s.elNt;
   elExDur = s.elExDur;
-  elektrodenlautstaerkeSchieber = s.elektrodenlautstaerkeSchieber;
+  schieberELL = s.schieberELL;
   kurvenELL = s.kurvenELL;
   ELL_refEl = s.ELL_refEl;
   ELL_results = s.ELL_results;
@@ -135,7 +135,7 @@ function initSideData(side, m) {
   s.elNt = new Array(s.nEl).fill("");
   s.elExDur = new Array(s.nEl).fill(null);
   s.FRQ_implantatOwn = new Array(s.nEl).fill(null);
-  s.elektrodenlautstaerkeSchieber = new Array(s.nEl).fill(0);
+  s.schieberELL = new Array(s.nEl).fill(0);
   s.ELL_refEl = Math.floor(s.nEl / 2);
   s.ELL_results = [];
   // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
@@ -213,7 +213,7 @@ function setActiveSide(side) {
   FRQ_implantatTableBuild();
   kurvenELLTabelleBauen();
   kurvenELLChartZeichnen();
-  if (typeof elektrodenlautstaerkeSchieberRebuild === "function") elektrodenlautstaerkeSchieberRebuild();
+  if (typeof schieberELLRebuild === "function") schieberELLRebuild();
   ELL_renderResults();
   buildImplantCard();
   updSideButtons();
@@ -431,7 +431,7 @@ function loadSideData(side, d) {
   s.fmAdaptivePau = (d.fmAdaptivePau != null) ? d.fmAdaptivePau : 200;
   s.freqmatchAdaptive = _frq_migrateAdaptive(d.freqmatchAdaptive);
   s.freqmatchPiano = d.freqmatchPiano || null;
-  s.elektrodenlautstaerkeSchieber = d.manualLevels || new Array(s.nEl).fill(0);
+  s.schieberELL = d.manualLevels || new Array(s.nEl).fill(0);
   if (d.presets && Array.isArray(d.presets)) {
     s.kurvenELL = KURVEN_ELL_TYPES.map((tp) => {
       const found = d.presets.find((p) => p.type === tp);
@@ -538,7 +538,7 @@ function withSide(side, fn) {
     elSt,
     elNt,
     elExDur,
-    elektrodenlautstaerkeSchieber,
+    schieberELL,
     kurvenELL,
     ELL_refEl,
     ELL_results,
@@ -658,7 +658,7 @@ function FRQ_implantatSyncToAcoustic() {
           otherData.FRQ_implantatOwn = new Array(otherData.nEl).fill(null);
         }
         // Arrays auf neue Elektrodenzahl anpassen
-        ["elSt","elNt","elExDur","elektrodenlautstaerkeSchieber"].forEach(k => {
+        ["elSt","elNt","elExDur","schieberELL"].forEach(k => {
           if (!otherData[k] || otherData[k].length !== otherData.nEl) {
             const def = k === "elSt" || k === "elExDur" ? null : (k === "elNt" ? "" : 0);
             otherData[k] = new Array(otherData.nEl).fill(def);
@@ -689,7 +689,7 @@ function FRQ_implantatSyncToAcoustic() {
             s.FRQ_implantat = [...MFR[defaultMfr].FRQ_implantat];
             s.manufacturer = defaultMfr;
             s.FRQ_implantatOwn = new Array(defN).fill(null);
-            ["elSt","elNt","elExDur","elektrodenlautstaerkeSchieber"].forEach(k => {
+            ["elSt","elNt","elExDur","schieberELL"].forEach(k => {
               if (!s[k] || s[k].length !== defN) {
                 const def = k === "elSt" || k === "elExDur" ? null : (k === "elNt" ? "" : 0);
                 s[k] = new Array(defN).fill(def);
@@ -853,8 +853,8 @@ let plMusicCategory     = "_all";   // "(alle)" als Default
 let plMusicSearchQuery  = "";       // Such-String (persistiert)
 let pBookBuf         = null;          // dekodierter Kapitel-Buffer (Laufzeit, nicht persistiert)
 
-let elektrodenlautstaerkeSchieberShowMeas = false;
-let elektrodenlautstaerkeSchieberShowCurves = false;
-let elektrodenlautstaerkeSchieberMode = "rel";    // "rel" = relativ (±dB), "abs" = absolut (qu/CL/CU)
-let elektrodenlautstaerkeSchieberVariant = "stack"; // "stack" = gestapelt, "sum" = nur Summe, "lines" = Summe + Vergleichslinien
+let schieberELLShowMeas = false;
+let schieberELLShowCurves = false;
+let schieberELLMode = "rel";    // "rel" = relativ (±dB), "abs" = absolut (qu/CL/CU)
+let schieberELLVariant = "stack"; // "stack" = gestapelt, "sum" = nur Summe, "lines" = Summe + Vergleichslinien
 

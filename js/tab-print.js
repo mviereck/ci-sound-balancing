@@ -269,23 +269,23 @@ function printKurvenELLTab() {
 }
 
 // --- Schieber-Tab ---
-function printSchieberTab() {
+function printSchieberELLTab() {
   const s = sideData[activeSide];
   if (!s) return;
   const m = s.manufacturer || "medel";
-  const isAbs = elektrodenlautstaerkeSchieberMode === "abs";
+  const isAbs = schieberELLMode === "abs";
 
-  const modeLabel  = isAbs ? (t("schieberModeAbsolute") || "absolut")
-                           : (t("schieberModeRelative") || "relativ");
+  const modeLabel  = isAbs ? (t("schieberELLModeAbsolute") || "absolut")
+                           : (t("schieberELLModeRelative") || "relativ");
   const variantLbl =
-    elektrodenlautstaerkeSchieberVariant === "sum"   ? (t("schieberVarSum")   || "nur Summe")
-    : elektrodenlautstaerkeSchieberVariant === "lines" ? (t("schieberVarLines") || "Vergleichslinien")
-    : (t("schieberVarStack") || "gestapelt");
+    schieberELLVariant === "sum"   ? (t("schieberELLVarSum")   || "nur Summe")
+    : schieberELLVariant === "lines" ? (t("schieberELLVarLines") || "Vergleichslinien")
+    : (t("schieberELLVarStack") || "gestapelt");
 
-  const cv = document.getElementById("schieberCv");
+  const cv = document.getElementById("schieberELLCv");
   const canvasImg = cv ? canvasToImg(cv, 800) : "";
 
-  const ml = s.elektrodenlautstaerkeSchieber || [];
+  const ml = s.schieberELL || [];
   const im = s.implant || {};
   const headers = ["Nr.", "dB-Wert"];
   if (isAbs) headers.push(_upperHdr(m) + " (neu)");
@@ -333,14 +333,14 @@ function printSchieberTab() {
 
   const info = `
     <p style="font-size:0.9em;margin:8px 0 12px 0;color:#444;">
-      <strong>${_tpEsc(t("schieberModeLabel") || "Modus")}:</strong> ${_tpEsc(modeLabel)}
+      <strong>${_tpEsc(t("schieberELLModeLabel") || "Modus")}:</strong> ${_tpEsc(modeLabel)}
       &nbsp;·&nbsp;
-      <strong>${_tpEsc(t("schieberVariantLabel") || "Variante")}:</strong> ${_tpEsc(variantLbl)}
+      <strong>${_tpEsc(t("schieberELLVariantLabel") || "Variante")}:</strong> ${_tpEsc(variantLbl)}
     </p>
   `;
 
   const body = info + canvasImg + '<div style="height:12px;"></div>' + table;
-  openPrintWindow(t("schieberTitle") || "Schieber", body);
+  openPrintWindow(t("schieberELLTitle") || "Schieber", body);
 }
 
 function _buildPresetCardPrint() {

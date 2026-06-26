@@ -582,7 +582,7 @@ function ELL_computeGains() {
     // corr[i] ist bereits gegatet (ungemessen/ausgeschlossen/stumm => 0),
     // daher kein eigener hd-Check mehr noetig.
     const addMeas = plSrcMeas ? -corr[i] : 0;
-    const addLvls = plSrcLevels ? -elektrodenlautstaerkeSchieber[i] : 0;
+    const addLvls = plSrcLevels ? -schieberELL[i] : 0;
     const addCurves = plSrcCurves ? -presetCurve[i] : 0;
     g[i] = addMeas + addLvls + addCurves;
   }

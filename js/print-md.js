@@ -95,11 +95,11 @@ function collectArchivData() {
     },
     testSettings: _collectTestSettings(),
     defaultMfr: defaultMfr,
-    schieber: {
-      mode: elektrodenlautstaerkeSchieberMode,
-      variant: elektrodenlautstaerkeSchieberVariant,
-      showMeas: elektrodenlautstaerkeSchieberShowMeas,
-      showCurves: elektrodenlautstaerkeSchieberShowCurves,
+    schieberELL: {
+      mode: schieberELLMode,
+      variant: schieberELLVariant,
+      showMeas: schieberELLShowMeas,
+      showCurves: schieberELLShowCurves,
     },
     sides: {
       left:  _collectSideData("left"),
@@ -197,13 +197,13 @@ function _collectSideData(side) {
     }
 
     // Schieber
-    const ml = elektrodenlautstaerkeSchieber || [];
+    const ml = schieberELL || [];
     const schHasNonZero = ml.some((v) => v != null && v !== 0);
     const schRows = [];
     if (schHasNonZero) {
-      const absMode = (elektrodenlautstaerkeSchieberMode === "abs"
-                       && typeof elektrodenlautstaerkeSchieberAbsoluteAvailable === "function"
-                       && elektrodenlautstaerkeSchieberAbsoluteAvailable());
+      const absMode = (schieberELLMode === "abs"
+                       && typeof schieberELLAbsoluteAvailable === "function"
+                       && schieberELLAbsoluteAvailable());
       for (let i = 0; i < nEl; i++) {
         const v = ml[i] || 0;
         let absDelta = null;
@@ -272,9 +272,9 @@ function _collectSideData(side) {
         rows: measRows,
         sweep: measSweep,
       },
-      schieber: {
+      schieberELL: {
         has: schHasNonZero,
-        mode: elektrodenlautstaerkeSchieberMode,
+        mode: schieberELLMode,
         rows: schRows,
       },
       kurvenELL: {
@@ -523,7 +523,7 @@ function _archivMdSidesContent(data) {
     const sd = data.sides[side];
     const sections = [];
     if (sd.ell.has)      sections.push(_archivMdELL(sd));
-    if (sd.schieber.has)  sections.push(_archivMdSchieber(sd));
+    if (sd.schieberELL.has)  sections.push(_archivMdSchieberELL(sd));
     if (sd.kurvenELL.has)    sections.push(_archivMdKurvenELL(sd));
     if (sd.freqmatch.has) sections.push(_archivMdFRQ(sd));
     if (sections.length === 0) continue;
@@ -538,7 +538,7 @@ function _archivMdELL(sd) {
   const refTxt = (sd.ell.ELL_refEl != null)
     ? `${(sd.implant.electrodes[sd.ell.ELL_refEl] || {}).label || ""}`
     : "—";
-  out.push(`### ${t("archivSecMeas")} (${t("archivElektrodenlautstaerkeRef")}: ${refTxt})`);
+  out.push(`### ${t("archivSecELL")} (${t("archivElektrodenlautstaerkeRef")}: ${refTxt})`);
   out.push("");
   if (sd.ell.sweep) {
     out.push(`_${t("archivElektrodenlautstaerkeSweepNote")
@@ -561,17 +561,17 @@ function _archivMdELL(sd) {
   return out.join("\n") + "\n";
 }
 
-function _archivMdSchieber(sd) {
+function _archivMdSchieberELL(sd) {
   const out = [];
-  const modeLabel = (sd.schieber.mode === "abs") ? t("schieberModeAbsolute") : t("schieberModeRelative");
-  out.push(`### ${t("archivSecSchieber")} (${modeLabel})`);
+  const modeLabel = (sd.schieberELL.mode === "abs") ? t("schieberELLModeAbsolute") : t("schieberELLModeRelative");
+  out.push(`### ${t("archivSecSchieberELL")} (${modeLabel})`);
   out.push("");
-  const showAbs = sd.schieber.mode === "abs" && sd.schieber.rows.some((r) => r.absDelta != null);
+  const showAbs = sd.schieberELL.mode === "abs" && sd.schieberELL.rows.some((r) => r.absDelta != null);
   if (showAbs) {
     const unit = sd.implant.unit || "";
     out.push(`| ${t("thEl")} | ${t("thHz")} | ${t("archivColRel")} | ${unit} |`);
     out.push("|---|---|---|---|");
-    for (const r of sd.schieber.rows) {
+    for (const r of sd.schieberELL.rows) {
       const absTxt = (r.absDelta != null)
         ? `${r.absDelta >= 0 ? "+" : ""}${r.absDelta.toFixed(1)}`
         : "—";
@@ -580,7 +580,7 @@ function _archivMdSchieber(sd) {
   } else {
     out.push(`| ${t("thEl")} | ${t("thHz")} | ${t("archivColRel")} |`);
     out.push("|---|---|---|");
-    for (const r of sd.schieber.rows) {
+    for (const r of sd.schieberELL.rows) {
       out.push(`| ${r.label} | ${_mdFmtHz(r.hz)} | ${_mdFmtDb(r.relDb, true)} |`);
     }
   }
@@ -588,14 +588,14 @@ function _archivMdSchieber(sd) {
 }
 
 function _archivMdKurvenELL(sd) {
-  const out = [`### ${t("archivSecKurven")}`, ""];
+  const out = [`### ${t("archivSecKurvenELL")}`, ""];
   for (const p of sd.kurvenELL.list) {
     const name = (typeof KURVEN_ELL_NAMES !== "undefined" && KURVEN_ELL_NAMES[p.typeKey]) ? t(KURVEN_ELL_NAMES[p.typeKey]) : p.typeKey;
     const parts = [];
-    parts.push(`${t("archivKurvStrength")}: ${(p.strength >= 0 ? "+" : "") + p.strength} dB`);
-    if (p.center !== null) parts.push(`${t("archivKurvCenter")}: ${(sd.implant.electrodes[Math.round(p.center)] || {}).label || ("E" + p.center)}`);
-    if (p.width  !== null) parts.push(`${t("archivKurvWidth")}: ${p.width}`);
-    if (p.cutoff !== null) parts.push(`${t("archivKurvCutoff")}: ${(sd.implant.electrodes[p.cutoff] || {}).label || ("E" + p.cutoff)}`);
+    parts.push(`${t("archivKurvenELLStrength")}: ${(p.strength >= 0 ? "+" : "") + p.strength} dB`);
+    if (p.center !== null) parts.push(`${t("archivKurvenELLCenter")}: ${(sd.implant.electrodes[Math.round(p.center)] || {}).label || ("E" + p.center)}`);
+    if (p.width  !== null) parts.push(`${t("archivKurvenELLWidth")}: ${p.width}`);
+    if (p.cutoff !== null) parts.push(`${t("archivKurvenELLCutoff")}: ${(sd.implant.electrodes[p.cutoff] || {}).label || ("E" + p.cutoff)}`);
     out.push(`- **${name}** — ${parts.join(", ")}`);
   }
   return out.join("\n") + "\n";
@@ -670,7 +670,7 @@ function _archivMdPlayer(data) {
       .replace("{dbL}", (p.eqHeadroomDbLeft || 0).toFixed(1))
       .replace("{dbR}", (p.eqHeadroomDbRight || 0).toFixed(1))}`);
   }
-  out.push(`- ${t("archivPlSrc")}: ${t("archivSrcMeas")} ${p.srcMeas ? "✓" : "✗"} · ${t("archivSrcLevels")} ${p.srcLevels ? "✓" : "✗"} · ${t("archivSrcCurves")} ${p.srcCurves ? "✓" : "✗"}`);
+  out.push(`- ${t("archivPlSrc")}: ${t("archivSrcELL")} ${p.srcMeas ? "✓" : "✗"} · ${t("archivSrcLevels")} ${p.srcLevels ? "✓" : "✗"} · ${t("archivSrcCurves")} ${p.srcCurves ? "✓" : "✗"}`);
   const bmTxt = t("plBalMode" + p.balanceMode.charAt(0).toUpperCase() + p.balanceMode.slice(1)) || p.balanceMode;
   out.push(`- ${t("archivPlSTB")}: ${p.applySTB ? t("on") : t("off")}${p.applySTB ? " (" + bmTxt + ")" : ""}`);
   out.push(`- ${t("archivPlLTZ")}: ${p.applyLTZ ? t("on") : t("off")}`);
@@ -700,10 +700,10 @@ function _archivMdPlayer(data) {
 function _archivMdMisc(data) {
   const out = [`\n## ${t("archivSecMisc")}\n`];
   out.push(`- ${t("archivCfgDefMfr")}: ${(MFR[data.defaultMfr] && MFR[data.defaultMfr].name) || data.defaultMfr}`);
-  out.push(`- ${t("archivSchieberMode")}: ${data.schieber.mode === "abs" ? t("schieberModeAbsolute") : t("schieberModeRelative")}`);
-  out.push(`- ${t("archivSchieberVariant")}: ${data.schieber.variant}`);
-  out.push(`- ${t("archivSchieberShowMeas")}: ${data.schieber.showMeas ? t("on") : t("off")}`);
-  out.push(`- ${t("archivSchieberShowCurves")}: ${data.schieber.showCurves ? t("on") : t("off")}`);
+  out.push(`- ${t("archivSchieberELLMode")}: ${data.schieberELL.mode === "abs" ? t("schieberELLModeAbsolute") : t("schieberELLModeRelative")}`);
+  out.push(`- ${t("archivSchieberELLVariant")}: ${data.schieberELL.variant}`);
+  out.push(`- ${t("archivSchieberELLShowMeas")}: ${data.schieberELL.showMeas ? t("on") : t("off")}`);
+  out.push(`- ${t("archivSchieberELLShowCurves")}: ${data.schieberELL.showCurves ? t("on") : t("off")}`);
   if (data.saetze.collections.length > 0) {
     out.push("");
     out.push(`### ${t("archivMiscSaetze")}`);
@@ -831,7 +831,7 @@ function _audStatusText(side, i) {
 
 // ---------- Testprogramm-Heuristik ----------
 // Erkennt: keine elektroden-spezifische Klangformung.
-// Schieber (kurvenELLSumme) + Kurven (elektrodenlautstaerkeSchieber) werden mit
+// Schieber (kurvenELLSumme) + Kurven (schieberELL) werden mit
 // EQ-Stärke skaliert; Mittelwert wird abgezogen (reine Pegelver-
 // schiebung ist erlaubt); Standardabweichung über aktive Elektroden
 // muß < 0.2 dB sein. Außerdem: EQ aktiv, NH-Sim aus.
@@ -845,7 +845,7 @@ function _audiologIsTestProgram(side) {
     const presetC = (typeof plSrcCurves !== "undefined" && plSrcCurves)
       ? kurvenELLSumme() : new Array(nEl).fill(0);
     const lvls = (typeof plSrcLevels !== "undefined" && plSrcLevels)
-      ? elektrodenlautstaerkeSchieber.slice() : new Array(nEl).fill(0);
+      ? schieberELL.slice() : new Array(nEl).fill(0);
     const active = [];
     for (let i = 0; i < nEl; i++) {
       if (elSt[i] === "mute" || elExDur[i] !== null) continue;
@@ -1666,7 +1666,7 @@ function _archivDrawElHzLabel(ctx, elLabel, cx, H, padB, axis, j) {
 }
 
 // Variante nur mit Elektroden-Label (kein Hz, kein Cent) —
-// verwendet von _archivChartSchieber seit Bauanleitung 71.
+// verwendet von _archivChartSchieberELL seit Bauanleitung 71.
 function _archivDrawElLabel(ctx, elLabel, cx, H, padB) {
   ctx.fillStyle = "#555";
   ctx.font = "9px sans-serif";
@@ -1713,7 +1713,7 @@ function _archivChartELL(sideBlock) {
     for (const r of rows) if (r.offsetDb != null) maxAbs = Math.max(maxAbs, Math.abs(r.offsetDb));
     maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
     const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbs, {
-      title: `${t("archivSecMeas")} — ${sideBlock.label}`,
+      title: `${t("archivSecELL")} — ${sideBlock.label}`,
     });
     const idxArr = rows.map((r) => r.idx);
     const axis = buildLinearAxis(idxArr, pad.l, pW);
@@ -1744,18 +1744,18 @@ function _archivChartELL(sideBlock) {
 }
 
 // 2. Schieber (Schieber-Tab, relative dB-Werte)
-function _archivChartSchieber(sideBlock) {
-  if (!sideBlock.schieber.has) return "";
+function _archivChartSchieberELL(sideBlock) {
+  if (!sideBlock.schieberELL.has) return "";
   return withSide(sideBlock.side, () => {
     const { canvas, ctx } = _archivMkCanvas();
     const W = canvas.width, H = canvas.height;
     const pad = { l: 36, r: 14, t: 22, b: 46 };
-    const rows = sideBlock.schieber.rows;
+    const rows = sideBlock.schieberELL.rows;
     let maxAbs = 1;
     for (const r of rows) maxAbs = Math.max(maxAbs, Math.abs(r.relDb || 0));
     maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
     const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbs, {
-      title: `${t("archivSecSchieber")} — ${sideBlock.label}`,
+      title: `${t("archivSecSchieberELL")} — ${sideBlock.label}`,
     });
     const idxArr = rows.map((r) => r.idx != null ? r.idx : 0);
     const axis = buildLinearAxis(idxArr, pad.l, pW);
@@ -1793,7 +1793,7 @@ function _archivChartKurvenELL(sideBlock) {
     for (let i = 0; i < n; i++) maxAbs = Math.max(maxAbs, Math.abs(total[i] || 0));
     maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
     const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbs, {
-      title: `${t("archivSecKurven")} — ${sideBlock.label}`,
+      title: `${t("archivSecKurvenELL")} — ${sideBlock.label}`,
     });
     const idxArr = [];
     for (let i = 0; i < n; i++) idxArr.push(i);
@@ -1964,21 +1964,21 @@ function renderArchivPrintHtml(data) {
     const sd = data.sides[side];
     if (sd.ell.hasNonZero) {
       inserts.push({
-        anchorH3: `${t("archivSecMeas")} (`,
+        anchorH3: `${t("archivSecELL")} (`,
         sideOnlyUnder: sd.label,
         img: _archivChartELL(sd),
       });
     }
-    if (sd.schieber.has) {
+    if (sd.schieberELL.has) {
       inserts.push({
-        anchorH3: `${t("archivSecSchieber")} (`,
+        anchorH3: `${t("archivSecSchieberELL")} (`,
         sideOnlyUnder: sd.label,
-        img: _archivChartSchieber(sd),
+        img: _archivChartSchieberELL(sd),
       });
     }
     if (sd.kurvenELL.has) {
       inserts.push({
-        anchorH3: `${t("archivSecKurven")}`,
+        anchorH3: `${t("archivSecKurvenELL")}`,
         sideOnlyUnder: sd.label,
         img: _archivChartKurvenELL(sd),
       });

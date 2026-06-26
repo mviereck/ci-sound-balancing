@@ -108,12 +108,12 @@ function kurvenELLSumme() {
 }
 function ell_effektiv() {
   const pc = kurvenELLSumme();
-  return elektrodenlautstaerkeSchieber.map((m, i) => m + pc[i]);
+  return schieberELL.map((m, i) => m + pc[i]);
 }
 
 function kurvenELLOnChange() {
   kurvenELLChartZeichnen();
-  if (typeof elektrodenlautstaerkeSchieberDraw === "function") elektrodenlautstaerkeSchieberDraw();
+  if (typeof schieberELLDraw === "function") schieberELLDraw();
   if (pEqF.length > 0) pUpdEQ();
 }
 function kurvenELLDeltaAndereSeite(pi, delta, currentPr) {
@@ -340,7 +340,7 @@ function kurvenELLChartZeichnen() {
   const corr = ELL_testData().correction;
   const pc = kurvenELLSumme();
   const measV = act.map((i) => corr[i]);
-  const manV = act.map((i) => elektrodenlautstaerkeSchieber[i]);
+  const manV = act.map((i) => schieberELL[i]);
   const preV = act.map((i) => pc[i]);
   const sumV = act.map(
     (_, j) =>

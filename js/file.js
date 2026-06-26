@@ -115,7 +115,7 @@ function resetAll() {
     sideData[s].elNt = new Array(sideData[s].nEl).fill("");
     sideData[s].elExDur = new Array(sideData[s].nEl).fill(null);
     sideData[s].FRQ_implantatOwn = new Array(sideData[s].nEl).fill(null);
-    sideData[s].elektrodenlautstaerkeSchieber = new Array(sideData[s].nEl).fill(0);
+    sideData[s].schieberELL = new Array(sideData[s].nEl).fill(0);
     sideData[s].ELL_refEl = Math.floor(sideData[s].nEl / 2);
     sideData[s].ELL_results = [];
     sideData[s].kurvenELL = [];
@@ -223,19 +223,19 @@ function resetAll() {
   const _spk = document.getElementById("plSentSpeaker");
   if (_spk) _spk.value = "";
   // --- Schieber-Tab-Modus und -Variante ---
-  if (typeof elektrodenlautstaerkeSchieberMode !== "undefined") elektrodenlautstaerkeSchieberMode = "rel";
-  if (typeof elektrodenlautstaerkeSchieberVariant !== "undefined") elektrodenlautstaerkeSchieberVariant = "stack";
-  if (typeof elektrodenlautstaerkeSchieberShowMeas !== "undefined") elektrodenlautstaerkeSchieberShowMeas = false;
-  if (typeof elektrodenlautstaerkeSchieberShowCurves !== "undefined") elektrodenlautstaerkeSchieberShowCurves = false;
-  const _lvModeRel = document.getElementById("schieberModeRel");
+  if (typeof schieberELLMode !== "undefined") schieberELLMode = "rel";
+  if (typeof schieberELLVariant !== "undefined") schieberELLVariant = "stack";
+  if (typeof schieberELLShowMeas !== "undefined") schieberELLShowMeas = false;
+  if (typeof schieberELLShowCurves !== "undefined") schieberELLShowCurves = false;
+  const _lvModeRel = document.getElementById("schieberELLModeRel");
   if (_lvModeRel) _lvModeRel.checked = true;
-  const _lvVarStack = document.getElementById("schieberVarStack");
+  const _lvVarStack = document.getElementById("schieberELLVarStack");
   if (_lvVarStack) _lvVarStack.checked = true;
-  const _lvChkMeas = document.getElementById("schieberChkMeas");
+  const _lvChkMeas = document.getElementById("schieberELLChkMeas");
   if (_lvChkMeas) _lvChkMeas.checked = false;
-  const _lvChkCurves = document.getElementById("schieberChkCurves");
+  const _lvChkCurves = document.getElementById("schieberELLChkCurves");
   if (_lvChkCurves) _lvChkCurves.checked = false;
-  if (typeof elektrodenlautstaerkeSchieberUpdateModeAvailability === "function") elektrodenlautstaerkeSchieberUpdateModeAvailability();
+  if (typeof schieberELLUpdateModeAvailability === "function") schieberELLUpdateModeAvailability();
   // --- „Schieber für beide Seiten gleich"-Checkbox ---
   const _prBoth = document.getElementById("kurvenELLBothSides");
   if (_prBoth) _prBoth.checked = true;
@@ -245,7 +245,7 @@ function resetAll() {
   kurvenELLChartZeichnen();
   ELL_renderResults();
   if (typeof buildImplantCard === "function") buildImplantCard();
-  if (typeof elektrodenlautstaerkeSchieberRebuild === "function") elektrodenlautstaerkeSchieberRebuild();
+  if (typeof schieberELLRebuild === "function") schieberELLRebuild();
   if (typeof updSideButtons === "function") updSideButtons();
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
@@ -285,7 +285,7 @@ async function saveJson() {
         fmMode: sideData.left.fmMode || 'adaptive',
         fmAdaptiveDur: sideData.left.fmAdaptiveDur != null ? sideData.left.fmAdaptiveDur : 200,
         fmAdaptivePau: sideData.left.fmAdaptivePau != null ? sideData.left.fmAdaptivePau : 200,
-        manualLevels: sideData.left.elektrodenlautstaerkeSchieber,
+        manualLevels: sideData.left.schieberELL,
         presets: sideData.left.kurvenELL,
         fullSweepRound: sideData.left.fullSweepRound,
         fullSweepDonePairs: sideData.left.fullSweepDonePairs,
@@ -307,7 +307,7 @@ async function saveJson() {
         fmMode: sideData.right.fmMode || 'adaptive',
         fmAdaptiveDur: sideData.right.fmAdaptiveDur != null ? sideData.right.fmAdaptiveDur : 200,
         fmAdaptivePau: sideData.right.fmAdaptivePau != null ? sideData.right.fmAdaptivePau : 200,
-        manualLevels: sideData.right.elektrodenlautstaerkeSchieber,
+        manualLevels: sideData.right.schieberELL,
         presets: sideData.right.kurvenELL,
         fullSweepRound: sideData.right.fullSweepRound,
         fullSweepDonePairs: sideData.right.fullSweepDonePairs,
@@ -333,10 +333,10 @@ async function saveJson() {
     playerSourceMeas: plSrcMeas,
     playerSourceLevels: plSrcLevels,
     playerSourceCurves: plSrcCurves,
-    levelsTabShowMeas: elektrodenlautstaerkeSchieberShowMeas,
-    levelsTabShowCurves: elektrodenlautstaerkeSchieberShowCurves,
-    levelsTabMode: elektrodenlautstaerkeSchieberMode,
-    levelsTabVariant: elektrodenlautstaerkeSchieberVariant,
+    levelsTabShowMeas: schieberELLShowMeas,
+    levelsTabShowCurves: schieberELLShowCurves,
+    levelsTabMode: schieberELLMode,
+    levelsTabVariant: schieberELLVariant,
     plSide: getPlayerSide(),
     plBothSides: document.getElementById("plBothSides").checked,
     plMonoEQ: document.getElementById("plMonoEQ").checked,
@@ -805,14 +805,14 @@ function applyLoadedData(d) {
   if (typeof ELL_refreshToneTypeLabel === "function") ELL_refreshToneTypeLabel();
   if (typeof kurvenELLTabelleBauen === "function") kurvenELLTabelleBauen();
   if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
-  if (typeof d.levelsTabShowMeas === "boolean") elektrodenlautstaerkeSchieberShowMeas = d.levelsTabShowMeas;
-  if (typeof d.levelsTabShowCurves === "boolean") elektrodenlautstaerkeSchieberShowCurves = d.levelsTabShowCurves;
-  if (typeof d.levelsTabMode === "string") elektrodenlautstaerkeSchieberMode = d.levelsTabMode;
-  if (typeof d.levelsTabVariant === "string") elektrodenlautstaerkeSchieberVariant = d.levelsTabVariant;
-  if (typeof elektrodenlautstaerkeSchieberUpdateModeAvailability === "function") elektrodenlautstaerkeSchieberUpdateModeAvailability();
-  if (typeof elektrodenlautstaerkeSchieberRebuild === "function" &&
+  if (typeof d.levelsTabShowMeas === "boolean") schieberELLShowMeas = d.levelsTabShowMeas;
+  if (typeof d.levelsTabShowCurves === "boolean") schieberELLShowCurves = d.levelsTabShowCurves;
+  if (typeof d.levelsTabMode === "string") schieberELLMode = d.levelsTabMode;
+  if (typeof d.levelsTabVariant === "string") schieberELLVariant = d.levelsTabVariant;
+  if (typeof schieberELLUpdateModeAvailability === "function") schieberELLUpdateModeAvailability();
+  if (typeof schieberELLRebuild === "function" &&
       document.getElementById("panel-schieber")?.classList.contains("active")) {
-    elektrodenlautstaerkeSchieberRebuild();
+    schieberELLRebuild();
   }
   if (typeof ELL_updFClearBtn === "function") ELL_updFClearBtn();
   if (typeof buildImplantCard === "function") buildImplantCard();
