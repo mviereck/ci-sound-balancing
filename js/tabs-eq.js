@@ -253,8 +253,8 @@ function _switchTabInternal(n) {
     plCheck();
   }
   if (n === "kurven") {
-    elektrodenlautstaerkeKurvenTabelleBauen();
-    elektrodenlautstaerkeKurvenChartZeichnen();
+    kurvenELLTabelleBauen();
+    kurvenELLChartZeichnen();
   }
   if (n === "schieber") {
     if (typeof elektrodenlautstaerkeSchieberRebuild === "function") elektrodenlautstaerkeSchieberRebuild();

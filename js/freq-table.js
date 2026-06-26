@@ -417,7 +417,7 @@ function updRef() {
   if (sideData[activeSide]) sideData[activeSide].ELL_refEl = want;
   if (want !== prevRef) {
     if (typeof ELL_renderResults === 'function') ELL_renderResults();
-    if (typeof elektrodenlautstaerkeKurvenChartZeichnen    === 'function') elektrodenlautstaerkeKurvenChartZeichnen();
+    if (typeof kurvenELLChartZeichnen    === 'function') kurvenELLChartZeichnen();
     if (typeof pUpdEQ         === 'function') pUpdEQ();
   }
 }
@@ -472,7 +472,7 @@ function switchMfr(m) {
   s.implant.upperLevel = new Array(s.nEl).fill(null);
   bindActiveSide();
   initElektrodenlautstaerkeKurven();
-  s.elektrodenlautstaerkeKurven = elektrodenlautstaerkeKurven;
+  s.kurvenELL = kurvenELL;
   ELL_results.splice(0, ELL_results.length);
   ELL_refEl = Math.floor(nEl / 2);
   // Sync akustische Seite wenn nötig

@@ -505,51 +505,51 @@ Object.assign(L.es, {
     schieberVarStack: "apilado",
     schieberVarLines: "líneas de comparación",
     schieberAbsNotAvailable: "El modo absoluto requiere valores MCL. Introdúzcalos en la pestaña Implante.",
-    kurvenChartLineLabel: "Curvas:",
-    kurvenTilt: "Tilt (agudos/graves)",
-    kurvenPivot: "Pivot (resaltar centro)",
-    kurvenSpeech: "Habla (SII)",
-    kurvenVolume: "Volumen",
-    kurvenScurve: "Curva S",
-    kurvenGauss: "Gauss",
-    kurvenBass: "Bass Boost",
-    kurvenHigh: "High Boost",
-    kurvenStrLabel: "Intensidad:",
-    kurvenExplTilt:
+    kurvenELLChartLineLabel: "Curvas:",
+    kurvenELLTilt: "Tilt (agudos/graves)",
+    kurvenELLPivot: "Pivot (resaltar centro)",
+    kurvenELLSpeech: "Habla (SII)",
+    kurvenELLVolume: "Volumen",
+    kurvenELLScurve: "Curva S",
+    kurvenELLGauss: "Gauss",
+    kurvenELLBass: "Bass Boost",
+    kurvenELLHigh: "High Boost",
+    kurvenELLStrLabel: "Intensidad:",
+    kurvenELLExplTilt:
       "Aumento lineal de apical a basal. Valores positivos realzan los agudos, negativos los graves. Equivale a la herramienta Tilt de MAESTRO.",
-    kurvenExplPivot:
+    kurvenELLExplPivot:
       "Resaltar el centro y atenuar los bordes (positivo) o al revés. Equivale a la herramienta Pivot de MAESTRO.",
-    kurvenExplScurve:
+    kurvenELLExplScurve:
       "Como Tilt, pero con una transición más suave en el centro. A la izquierda del centro atenuado, a la derecha realzado (o viceversa).",
-    kurvenExplGauss:
+    kurvenELLExplGauss:
       "Curva en forma de campana alrededor de un electrodo elegido. La anchura determina cuántos electrodos vecinos se ven afectados.",
-    kurvenExplBass:
+    kurvenELLExplBass:
       "Realzar (positivo) o atenuar (negativo) las frecuencias bajas. El punto de corte determina hasta qué electrodo actúa el efecto.",
-    kurvenExplHigh:
+    kurvenELLExplHigh:
       "Realzar (positivo) o atenuar (negativo) las frecuencias altas. El punto de corte determina a partir de qué electrodo actúa el efecto.",
-    kurvenExplSpeech:
+    kurvenELLExplSpeech:
       "Ponderación según inteligibilidad del habla (ANSI S3.5 Band Importance Function). Valores positivos realzan las frecuencias relevantes para el habla (aprox. 800–4000 Hz), negativos las atenúan.",
-    kurvenExplVolume:
+    kurvenELLExplVolume:
       "Sube o baja todos los electrodos activos en la misma cantidad de dB. Actúa como un volumen general adicional independiente de la ganancia del reproductor.",
-    kurvenIntroTitle: "Curvas",
-    kurvenIntroDesc:
+    kurvenELLIntroTitle: "Curvas",
+    kurvenELLIntroDesc:
       "Ajuste del volumen de electrodos a lo largo de todos los electrodos. Elija entre las funciones de curva ofrecidas y ajuste los valores en directo.",
-    kurvenTitle: "Funciones de curva",
-    kurvenBoth: "Aplicar el cambio a ambos lados",
-    kurvenDesc:
+    kurvenELLTitle: "Funciones de curva",
+    kurvenELLBoth: "Aplicar el cambio a ambos lados",
+    kurvenELLDesc:
       "Formas de curva predefinidas. Tilt y Pivot corresponden a las herramientas homónimas de MAESTRO. El preset Habla pondera las frecuencias según su importancia para la inteligibilidad del habla (ANSI S3.5). Teclado: ↑↓ ajusta los valores en el campo de entrada.",
-    kurvenChartTitle: "Vista general",
-    kurvenChartMan: "Manual",
-    kurvenChartSum: "Suma",
-    kurvenChartWarpHint:
+    kurvenELLChartTitle: "Vista general",
+    kurvenELLChartMan: "Manual",
+    kurvenELLChartSum: "Suma",
+    kurvenELLChartWarpHint:
       "En este gráfico se tienen en cuenta las distancias en frecuencia entre electrodos.<br>" +
       "Con warping de frecuencia activo, el efecto de las curvas se desplaza " +
       "ligeramente por electrodo.",
-    kurvenCenter: "Centro",
-    kurvenWidth: "Anchura",
-    kurvenCutoff: "Punto de corte:",
-    kurvenUnitHz: "Hz",
-    kurvenUnitCent: "¢",
+    kurvenELLCenter: "Centro",
+    kurvenELLWidth: "Anchura",
+    kurvenELLCutoff: "Punto de corte:",
+    kurvenELLUnitHz: "Hz",
+    kurvenELLUnitCent: "¢",
     loadMigratedCurves:
       "El cálculo de las curvas se ha precisado matemáticamente " +
       "(basado en frecuencias en lugar de basado en electrodos). Tus antiguos " +

@@ -247,7 +247,7 @@ function meanCentStepOfFreqs(freqArr) {
   return n > 0 ? sum / n : 600;
 }
 const SIDES = ["left", "right"];
-const KURVEN_TYPES = [
+const KURVEN_ELL_TYPES = [
   "speech",
   "volume",
   "tilt",
@@ -257,27 +257,27 @@ const KURVEN_TYPES = [
   "bassboost",
   "highboost",
 ];
-const KURVEN_NAMES = {
-  speech: "kurvenSpeech",
-  volume: "kurvenVolume",
-  tilt: "kurvenTilt",
-  scurve: "kurvenScurve",
-  pivot: "kurvenPivot",
-  gauss: "kurvenGauss",
-  bassboost: "kurvenBass",
-  highboost: "kurvenHigh",
+const KURVEN_ELL_NAMES = {
+  speech: "kurvenELLSpeech",
+  volume: "kurvenELLVolume",
+  tilt: "kurvenELLTilt",
+  scurve: "kurvenELLScurve",
+  pivot: "kurvenELLPivot",
+  gauss: "kurvenELLGauss",
+  bassboost: "kurvenELLBass",
+  highboost: "kurvenELLHigh",
 };
-const KURVEN_EXPL = {
-  speech: "kurvenExplSpeech",
-  volume: "kurvenExplVolume",
-  tilt: "kurvenExplTilt",
-  scurve: "kurvenExplScurve",
-  pivot: "kurvenExplPivot",
-  gauss: "kurvenExplGauss",
-  bassboost: "kurvenExplBass",
-  highboost: "kurvenExplHigh",
+const KURVEN_ELL_EXPL = {
+  speech: "kurvenELLExplSpeech",
+  volume: "kurvenELLExplVolume",
+  tilt: "kurvenELLExplTilt",
+  scurve: "kurvenELLExplScurve",
+  pivot: "kurvenELLExplPivot",
+  gauss: "kurvenELLExplGauss",
+  bassboost: "kurvenELLExplBass",
+  highboost: "kurvenELLExplHigh",
 };
-const KURVEN_HAS_CENTER = {
+const KURVEN_ELL_HAS_CENTER = {
   tilt: true,
   scurve: true,
   pivot: true,
@@ -287,8 +287,8 @@ const KURVEN_HAS_CENTER = {
   speech: false,
   volume: false,
 };
-const KURVEN_HAS_WIDTH = { gauss: true };
-const KURVEN_HAS_CUTOFF = { bassboost: true, highboost: true };
+const KURVEN_ELL_HAS_WIDTH = { gauss: true };
+const KURVEN_ELL_HAS_CUTOFF = { bassboost: true, highboost: true };
 
 
 // SII Band Importance Function (ANSI S3.5-1997)

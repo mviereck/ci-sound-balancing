@@ -555,51 +555,51 @@ Object.assign(L.de, {
     schieberVarStack: "gestapelt",
     schieberVarLines: "Vergleichslinien",
     schieberAbsNotAvailable: "Absolutmodus erfordert MCL-Werte. Im Reiter Implantat eintragen.",
-    kurvenChartLineLabel: "Kurven:",
-    kurvenTilt: "Tilt (Höhen/Tiefen)",
-    kurvenPivot: "Pivot (Mitte betonen)",
-    kurvenSpeech: "Sprache (SII)",
-    kurvenVolume: "Lautstärke",
-    kurvenScurve: "S-Kurve",
-    kurvenGauss: "Gauß",
-    kurvenBass: "Bass Boost",
-    kurvenHigh: "High Boost",
-    kurvenStrLabel: "Stärke:",
-    kurvenExplTilt:
+    kurvenELLChartLineLabel: "Kurven:",
+    kurvenELLTilt: "Tilt (Höhen/Tiefen)",
+    kurvenELLPivot: "Pivot (Mitte betonen)",
+    kurvenELLSpeech: "Sprache (SII)",
+    kurvenELLVolume: "Lautstärke",
+    kurvenELLScurve: "S-Kurve",
+    kurvenELLGauss: "Gauß",
+    kurvenELLBass: "Bass Boost",
+    kurvenELLHigh: "High Boost",
+    kurvenELLStrLabel: "Stärke:",
+    kurvenELLExplTilt:
       "Linearer Anstieg von apikal nach basal. Positive Werte betonen Höhen, negative Tiefen. Entspricht dem MAESTRO Tilt-Werkzeug.",
-    kurvenExplPivot:
+    kurvenELLExplPivot:
       "Mitte betonen, Ränder absenken (positiv) oder umgekehrt. Entspricht dem MAESTRO Pivot-Werkzeug.",
-    kurvenExplScurve:
+    kurvenELLExplScurve:
       "Wie Tilt, aber mit weicherem Übergang in der Mitte. Links der Mitte abgesenkt, rechts angehoben (oder umgekehrt).",
-    kurvenExplGauss:
+    kurvenELLExplGauss:
       "Glockenkurve um eine gewählte Elektrode. Breite bestimmt, wie viele Nachbarelektroden betroffen sind.",
-    kurvenExplBass:
+    kurvenELLExplBass:
       "Tiefe Frequenzen anheben (positiv) oder absenken (negativ). Grenzpunkt bestimmt, bis zu welcher Elektrode der Effekt wirkt.",
-    kurvenExplHigh:
+    kurvenELLExplHigh:
       "Hohe Frequenzen anheben (positiv) oder absenken (negativ). Grenzpunkt bestimmt, ab welcher Elektrode der Effekt wirkt.",
-    kurvenExplSpeech:
+    kurvenELLExplSpeech:
       "Gewichtung nach Sprachverständlichkeit (ANSI S3.5 Band Importance Function). Positive Werte heben sprachrelevante Frequenzen (ca. 800–4000 Hz) an, negative senken sie ab.",
-    kurvenExplVolume:
+    kurvenELLExplVolume:
       "Hebt oder senkt alle aktiven Elektroden um den gleichen dB-Betrag. Wirkt wie eine zusätzliche Gesamtlautstärke unabhängig von der Player-Verstärkung.",
-    kurvenIntroTitle: "Kurven",
-    kurvenIntroDesc:
+    kurvenELLIntroTitle: "Kurven",
+    kurvenELLIntroDesc:
       "Anpassung der Elektrodenlautstärke über alle Elektroden hinweg. Wählen Sie aus angebotenen Kurvenfunktionen und passen Sie die Werte live an.",
-    kurvenTitle: "Kurvenfunktionen",
-    kurvenBoth: "Veränderung auf beide Seiten anwenden",
-    kurvenDesc:
+    kurvenELLTitle: "Kurvenfunktionen",
+    kurvenELLBoth: "Veränderung auf beide Seiten anwenden",
+    kurvenELLDesc:
       "Vordefinierte Kurvenformen. Tilt und Pivot entsprechen den gleichnamigen MAESTRO-Werkzeugen. Das Sprache-Preset gewichtet Frequenzen nach ihrer Bedeutung für die Sprachverständlichkeit (ANSI S3.5). Tastatur: ↑↓ justiert Werte im Eingabefeld.",
-    kurvenChartTitle: "Übersicht",
-    kurvenChartMan: "Manuell",
-    kurvenChartSum: "Summe",
-    kurvenChartWarpHint:
+    kurvenELLChartTitle: "Übersicht",
+    kurvenELLChartMan: "Manuell",
+    kurvenELLChartSum: "Summe",
+    kurvenELLChartWarpHint:
       "Die Frequenzabstände der Elektroden werden in diesem Graphen berücksichtigt.<br>" +
       "Bei aktiviertem Frequenz-Warping verschiebt sich die Auswirkung der Kurven " +
       "pro Elektrode etwas.",
-    kurvenCenter: "Mitte",
-    kurvenWidth: "Breite",
-    kurvenCutoff: "Grenzpunkt:",
-    kurvenUnitHz: "Hz",
-    kurvenUnitCent: "¢",
+    kurvenELLCenter: "Mitte",
+    kurvenELLWidth: "Breite",
+    kurvenELLCutoff: "Grenzpunkt:",
+    kurvenELLUnitHz: "Hz",
+    kurvenELLUnitCent: "¢",
     loadMigratedCurves:
       "Die Kurvenberechnung wurde mathematisch präzisiert " +
       "(Frequenz-basiert statt elektroden-basiert). Deine alten " +

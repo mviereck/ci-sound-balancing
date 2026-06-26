@@ -220,7 +220,7 @@ function _collectSideData(side) {
     }
 
     // Kurven
-    const kurvActive = (elektrodenlautstaerkeKurven || []).filter((p) => p.on && p.strength !== 0);
+    const kurvActive = (kurvenELL || []).filter((p) => p.on && p.strength !== 0);
     const kurvList = kurvActive.map((p) => ({
       typeKey: p.type,
       strength: p.strength,
@@ -265,7 +265,7 @@ function _collectSideData(side) {
         unit,
         electrodes,
       },
-      meas: {
+      ell: {
         has: measHas,
         hasNonZero: measRows.some((r) => r.offsetDb != null && Math.abs(r.offsetDb) > 0),
         ELL_refEl: measRefEl,
@@ -277,7 +277,7 @@ function _collectSideData(side) {
         mode: elektrodenlautstaerkeSchieberMode,
         rows: schRows,
       },
-      kurven: {
+      kurvenELL: {
         has: kurvList.length > 0,
         list: kurvList,
       },
@@ -522,9 +522,9 @@ function _archivMdSidesContent(data) {
   for (const side of ["left", "right"]) {
     const sd = data.sides[side];
     const sections = [];
-    if (sd.meas.has)      sections.push(_archivMdELL(sd));
+    if (sd.ell.has)      sections.push(_archivMdELL(sd));
     if (sd.schieber.has)  sections.push(_archivMdSchieber(sd));
-    if (sd.kurven.has)    sections.push(_archivMdKurven(sd));
+    if (sd.kurvenELL.has)    sections.push(_archivMdKurvenELL(sd));
     if (sd.freqmatch.has) sections.push(_archivMdFRQ(sd));
     if (sections.length === 0) continue;
     out.push(`\n## ${sd.label}\n`);
@@ -535,27 +535,27 @@ function _archivMdSidesContent(data) {
 
 function _archivMdELL(sd) {
   const out = [];
-  const refTxt = (sd.meas.ELL_refEl != null)
-    ? `${(sd.implant.electrodes[sd.meas.ELL_refEl] || {}).label || ""}`
+  const refTxt = (sd.ell.ELL_refEl != null)
+    ? `${(sd.implant.electrodes[sd.ell.ELL_refEl] || {}).label || ""}`
     : "—";
   out.push(`### ${t("archivSecMeas")} (${t("archivElektrodenlautstaerkeRef")}: ${refTxt})`);
   out.push("");
-  if (sd.meas.sweep) {
+  if (sd.ell.sweep) {
     out.push(`_${t("archivElektrodenlautstaerkeSweepNote")
-      .replace("{round}", sd.meas.sweep.round)
-      .replace("{done}",  sd.meas.sweep.doneCount)
-      .replace("{total}", sd.meas.sweep.totalPairs)}_`);
+      .replace("{round}", sd.ell.sweep.round)
+      .replace("{done}",  sd.ell.sweep.doneCount)
+      .replace("{total}", sd.ell.sweep.totalPairs)}_`);
     out.push("");
   }
   out.push(`| ${t("thEl")} | ${t("thHz")} | ${t("thOff")} | ${t("thRes")} | ${t("thStR")} | ${t("thRefEl")} |`);
   out.push("|---|---|---|---|---|---|");
-  for (const r of sd.meas.rows) {
+  for (const r of sd.ell.rows) {
     const offTxt = (r.offsetDb   != null) ? _mdFmtDb(r.offsetDb, true)  : "—";
     const resTxt = (r.residualDb != null) ? _mdFmtDb(r.residualDb, false) : "—";
     const _ST_KEY2 = { noisyLess: "stNoisyLess", noisyMore: "stNoisyMore", noisyHeavy: "stNoisyHeavy", almostMute: "stAlmMute", mute: "stMute", deactivated: "stDeactivated" }; // BA 164: Quelle ist jetzt elActive (via _collectSideData)
     const stTxt  = r.status ? (t(_ST_KEY2[r.status] || "") || r.status) : "";
     const noteTxt = r.note ? ` (${_mdEsc(r.note)})` : "";
-    const refMark = (sd.meas.ELL_refEl != null && r.idx === sd.meas.ELL_refEl) ? "**X**" : "";
+    const refMark = (sd.ell.ELL_refEl != null && r.idx === sd.ell.ELL_refEl) ? "**X**" : "";
     out.push(`| ${r.label} | ${_mdFmtHz(r.hz)} | ${offTxt} | ${resTxt} | ${stTxt}${noteTxt} | ${refMark} |`);
   }
   return out.join("\n") + "\n";
@@ -587,10 +587,10 @@ function _archivMdSchieber(sd) {
   return out.join("\n") + "\n";
 }
 
-function _archivMdKurven(sd) {
+function _archivMdKurvenELL(sd) {
   const out = [`### ${t("archivSecKurven")}`, ""];
-  for (const p of sd.kurven.list) {
-    const name = (typeof KURVEN_NAMES !== "undefined" && KURVEN_NAMES[p.typeKey]) ? t(KURVEN_NAMES[p.typeKey]) : p.typeKey;
+  for (const p of sd.kurvenELL.list) {
+    const name = (typeof KURVEN_ELL_NAMES !== "undefined" && KURVEN_ELL_NAMES[p.typeKey]) ? t(KURVEN_ELL_NAMES[p.typeKey]) : p.typeKey;
     const parts = [];
     parts.push(`${t("archivKurvStrength")}: ${(p.strength >= 0 ? "+" : "") + p.strength} dB`);
     if (p.center !== null) parts.push(`${t("archivKurvCenter")}: ${(sd.implant.electrodes[Math.round(p.center)] || {}).label || ("E" + p.center)}`);
@@ -831,7 +831,7 @@ function _audStatusText(side, i) {
 
 // ---------- Testprogramm-Heuristik ----------
 // Erkennt: keine elektroden-spezifische Klangformung.
-// Schieber (elektrodenlautstaerkeKurvenSumme) + Kurven (elektrodenlautstaerkeSchieber) werden mit
+// Schieber (kurvenELLSumme) + Kurven (elektrodenlautstaerkeSchieber) werden mit
 // EQ-Stärke skaliert; Mittelwert wird abgezogen (reine Pegelver-
 // schiebung ist erlaubt); Standardabweichung über aktive Elektroden
 // muß < 0.2 dB sein. Außerdem: EQ aktiv, NH-Sim aus.
@@ -843,7 +843,7 @@ function _audiologIsTestProgram(side) {
   if (nhSim) return false;
   return withSide(side, () => {
     const presetC = (typeof plSrcCurves !== "undefined" && plSrcCurves)
-      ? elektrodenlautstaerkeKurvenSumme() : new Array(nEl).fill(0);
+      ? kurvenELLSumme() : new Array(nEl).fill(0);
     const lvls = (typeof plSrcLevels !== "undefined" && plSrcLevels)
       ? elektrodenlautstaerkeSchieber.slice() : new Array(nEl).fill(0);
     const active = [];
@@ -1703,12 +1703,12 @@ function _archivDrawAxis(ctx, pad, W, H, maxAbs, opts) {
 
 // 1. Loudness-Balance (Meßergebnis-Sub-Tab 1)
 function _archivChartELL(sideBlock) {
-  if (!sideBlock.meas.hasNonZero) return "";
+  if (!sideBlock.ell.hasNonZero) return "";
   return withSide(sideBlock.side, () => {
     const { canvas, ctx } = _archivMkCanvas();
     const W = canvas.width, H = canvas.height;
     const pad = { l: 36, r: 14, t: 22, b: 46 };
-    const rows = sideBlock.meas.rows;
+    const rows = sideBlock.ell.rows;
     let maxAbs = 1;
     for (const r of rows) if (r.offsetDb != null) maxAbs = Math.max(maxAbs, Math.abs(r.offsetDb));
     maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
@@ -1718,7 +1718,7 @@ function _archivChartELL(sideBlock) {
     const idxArr = rows.map((r) => r.idx);
     const axis = buildLinearAxis(idxArr, pad.l, pW);
     const w = Math.max(2, Math.min((axis.minDx || 12) * 0.6, 30));
-    const refIdx = sideBlock.meas.ELL_refEl;
+    const refIdx = sideBlock.ell.ELL_refEl;
     if (refIdx != null) {
       const jRef = idxArr.indexOf(refIdx);
       if (jRef >= 0) _drawRefElLabel(ctx, axis.tX(jRef), pad.t - 4);
@@ -1732,7 +1732,7 @@ function _archivChartELL(sideBlock) {
         ctx.fillRect(x, zY - 1, w, 2);
       } else {
         const h = (Math.abs(r.offsetDb) / maxAbs) * (pH / 2);
-        ctx.fillStyle = (r.idx === sideBlock.meas.ELL_refEl) ? "#a855f7"
+        ctx.fillStyle = (r.idx === sideBlock.ell.ELL_refEl) ? "#a855f7"
                       : r.offsetDb >= 0 ? "#16a34a" : "#dc2626";
         if (r.offsetDb >= 0) ctx.fillRect(x, zY - h, w, h);
         else                 ctx.fillRect(x, zY,    w, h);
@@ -1781,14 +1781,14 @@ function _archivChartSchieber(sideBlock) {
 }
 
 // 3. Kurven (4-Linien-Chart, vereinfacht — eine Linie pro aktive Kurvenfunktion + Summe)
-function _archivChartKurven(sideBlock) {
-  if (!sideBlock.kurven.has) return "";
+function _archivChartKurvenELL(sideBlock) {
+  if (!sideBlock.kurvenELL.has) return "";
   return withSide(sideBlock.side, () => {
     const { canvas, ctx } = _archivMkCanvas();
     const W = canvas.width, H = canvas.height;
     const pad = { l: 36, r: 14, t: 22, b: 46 };
     const n = nEl;
-    const total = elektrodenlautstaerkeKurvenSumme();
+    const total = kurvenELLSumme();
     let maxAbs = 1;
     for (let i = 0; i < n; i++) maxAbs = Math.max(maxAbs, Math.abs(total[i] || 0));
     maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
@@ -1803,9 +1803,9 @@ function _archivChartKurven(sideBlock) {
     const yFor = (v) => zY - (v / maxAbs) * (pH / 2);
     const COLORS = ["#3b82f6", "#f97316", "#a855f7", "#06b6d4", "#84cc16", "#eab308", "#ec4899", "#14b8a6"];
     let ci = 0;
-    for (const p of elektrodenlautstaerkeKurven) {
+    for (const p of kurvenELL) {
       if (!p.on || p.strength === 0) continue;
-      const curve = elektrodenlautstaerkeKurveBerechnen(p, n);
+      const curve = kurvenELLBerechnen(p, n);
       ctx.strokeStyle = COLORS[ci % COLORS.length];
       ctx.lineWidth = 1.2;
       ctx.beginPath();
@@ -1962,7 +1962,7 @@ function renderArchivPrintHtml(data) {
   const inserts = [];
   for (const side of ["left", "right"]) {
     const sd = data.sides[side];
-    if (sd.meas.hasNonZero) {
+    if (sd.ell.hasNonZero) {
       inserts.push({
         anchorH3: `${t("archivSecMeas")} (`,
         sideOnlyUnder: sd.label,
@@ -1976,11 +1976,11 @@ function renderArchivPrintHtml(data) {
         img: _archivChartSchieber(sd),
       });
     }
-    if (sd.kurven.has) {
+    if (sd.kurvenELL.has) {
       inserts.push({
         anchorH3: `${t("archivSecKurven")}`,
         sideOnlyUnder: sd.label,
-        img: _archivChartKurven(sd),
+        img: _archivChartKurvenELL(sd),
       });
     }
     if (sd.freqmatch.has) {

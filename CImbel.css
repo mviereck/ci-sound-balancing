@@ -635,52 +635,52 @@ select:disabled {
 }
 /* BA 393.16: verwaiste .lv-*-CSS-Familie (Grid-Balkenlayout, durch Canvas
    ersetzt) gelöscht — 0 Setzer/Leser in JS/HTML (Sweep B4, §3.5). */
-.kurven-tbl {
+.kurven-ell-tbl {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.86em;
 }
-.kurven-tbl td {
+.kurven-ell-tbl td {
   padding: 5px 6px;
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
 }
-.kurven-tbl td:first-child {
+.kurven-ell-tbl td:first-child {
   width: 28px;
   text-align: center;
 }
-.kurven-tbl .kurven-name {
+.kurven-ell-tbl .kurven-ell-name {
   font-weight: 600;
   white-space: nowrap;
   min-width: 80px;
 }
-.kurven-tbl .kurven-param {
+.kurven-ell-tbl .kurven-ell-param {
   display: flex;
   gap: 6px;
   align-items: center;
   flex-wrap: wrap;
 }
-.kurven-tbl .kurven-param label {
+.kurven-ell-tbl .kurven-ell-param label {
   font-size: 0.82em;
   color: var(--text-muted);
   white-space: nowrap;
 }
-.kurven-tbl .kurven-param select,
-.kurven-tbl .kurven-param input[type="number"] {
+.kurven-ell-tbl .kurven-ell-param select,
+.kurven-ell-tbl .kurven-ell-param input[type="number"] {
   padding: 2px 4px;
   border: 1px solid var(--border);
   border-radius: 4px;
   font-family: var(--mono);
   font-size: 0.86em;
 }
-.kurven-tbl .kurven-param select {
+.kurven-ell-tbl .kurven-ell-param select {
   font-family: var(--font);
 }
-.kurven-tbl .kurven-param input[type="number"] {
+.kurven-ell-tbl .kurven-ell-param input[type="number"] {
   width: 62px;
   text-align: center;
 }
-.kurven-row-off {
+.kurven-ell-row-off {
   opacity: 0.45;
 }
 .subtabs {
@@ -882,7 +882,7 @@ select:disabled {
   gap: 4px;
   margin-top: 4px;
 }
-.kurven-chart-wrap {
+.kurven-ell-chart-wrap {
   position: relative;
   width: 100%;
   height: 400px;
@@ -890,16 +890,16 @@ select:disabled {
   border-radius: 8px;
   overflow: hidden;
 }
-.kurven-chart-wrap canvas {
+.kurven-ell-chart-wrap canvas {
   width: 100%;
   height: 100%;
   display: block;
 }
-.kurven-chart-card {
+.kurven-ell-chart-card {
   background: var(--surface);
 }
 @media (max-width: 768px) {
-  .kurven-chart-card {
+  .kurven-ell-chart-card {
     position: sticky;
     top: 0;
     z-index: 5;
@@ -941,7 +941,7 @@ select:disabled {
     padding: 4px 10px;
     font-size: 1em;
   }
-  .kurven-chart-wrap {
+  .kurven-ell-chart-wrap {
     height: 200px;
   }
 }
@@ -990,7 +990,7 @@ select:disabled {
   padding: 2px 8px;
   font-size: 0.95em;
 }
-.kurvenStr-touch {
+.kurven-ell-str-touch {
   margin-left: 6px;
 }
 

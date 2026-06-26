@@ -118,7 +118,7 @@ function resetAll() {
     sideData[s].elektrodenlautstaerkeSchieber = new Array(sideData[s].nEl).fill(0);
     sideData[s].ELL_refEl = Math.floor(sideData[s].nEl / 2);
     sideData[s].ELL_results = [];
-    sideData[s].elektrodenlautstaerkeKurven = [];
+    sideData[s].kurvenELL = [];
     initSideData(s, "unknown");
   }
   defaultMfr = "unknown";
@@ -237,12 +237,12 @@ function resetAll() {
   if (_lvChkCurves) _lvChkCurves.checked = false;
   if (typeof elektrodenlautstaerkeSchieberUpdateModeAvailability === "function") elektrodenlautstaerkeSchieberUpdateModeAvailability();
   // --- „Schieber für beide Seiten gleich"-Checkbox ---
-  const _prBoth = document.getElementById("kurvenBothSides");
+  const _prBoth = document.getElementById("kurvenELLBothSides");
   if (_prBoth) _prBoth.checked = true;
   // --- UI-Refresh ---
   FRQ_implantatTableBuild();
-  elektrodenlautstaerkeKurvenTabelleBauen();
-  elektrodenlautstaerkeKurvenChartZeichnen();
+  kurvenELLTabelleBauen();
+  kurvenELLChartZeichnen();
   ELL_renderResults();
   if (typeof buildImplantCard === "function") buildImplantCard();
   if (typeof elektrodenlautstaerkeSchieberRebuild === "function") elektrodenlautstaerkeSchieberRebuild();
@@ -286,7 +286,7 @@ async function saveJson() {
         fmAdaptiveDur: sideData.left.fmAdaptiveDur != null ? sideData.left.fmAdaptiveDur : 200,
         fmAdaptivePau: sideData.left.fmAdaptivePau != null ? sideData.left.fmAdaptivePau : 200,
         manualLevels: sideData.left.elektrodenlautstaerkeSchieber,
-        presets: sideData.left.elektrodenlautstaerkeKurven,
+        presets: sideData.left.kurvenELL,
         fullSweepRound: sideData.left.fullSweepRound,
         fullSweepDonePairs: sideData.left.fullSweepDonePairs,
         implant: sideData.left.implant,
@@ -308,7 +308,7 @@ async function saveJson() {
         fmAdaptiveDur: sideData.right.fmAdaptiveDur != null ? sideData.right.fmAdaptiveDur : 200,
         fmAdaptivePau: sideData.right.fmAdaptivePau != null ? sideData.right.fmAdaptivePau : 200,
         manualLevels: sideData.right.elektrodenlautstaerkeSchieber,
-        presets: sideData.right.elektrodenlautstaerkeKurven,
+        presets: sideData.right.kurvenELL,
         fullSweepRound: sideData.right.fullSweepRound,
         fullSweepDonePairs: sideData.right.fullSweepDonePairs,
         implant: sideData.right.implant,
@@ -507,9 +507,9 @@ function applyLoadedData(d) {
   if (d.sides && d.presetFormat !== "freq-v3") {
     for (const side of SIDES) {
       const s = sideData[side];
-      if (s.elektrodenlautstaerkeKurven && Array.isArray(s.elektrodenlautstaerkeKurven)) {
-        s.elektrodenlautstaerkeKurven = _migratePresetsFromIndexToFreq(
-          s.elektrodenlautstaerkeKurven,
+      if (s.kurvenELL && Array.isArray(s.kurvenELL)) {
+        s.kurvenELL = _migratePresetsFromIndexToFreq(
+          s.kurvenELL,
           [...s.FRQ_implantat],
           s.FRQ_implantatOwn,
         );
@@ -803,8 +803,8 @@ function applyLoadedData(d) {
   if (typeof STB_refreshToneTypeLabel === "function") STB_refreshToneTypeLabel();
   if (typeof FRQ_refreshToneTypeLabel === "function") FRQ_refreshToneTypeLabel();
   if (typeof ELL_refreshToneTypeLabel === "function") ELL_refreshToneTypeLabel();
-  if (typeof elektrodenlautstaerkeKurvenTabelleBauen === "function") elektrodenlautstaerkeKurvenTabelleBauen();
-  if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
+  if (typeof kurvenELLTabelleBauen === "function") kurvenELLTabelleBauen();
+  if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
   if (typeof d.levelsTabShowMeas === "boolean") elektrodenlautstaerkeSchieberShowMeas = d.levelsTabShowMeas;
   if (typeof d.levelsTabShowCurves === "boolean") elektrodenlautstaerkeSchieberShowCurves = d.levelsTabShowCurves;
   if (typeof d.levelsTabMode === "string") elektrodenlautstaerkeSchieberMode = d.levelsTabMode;
@@ -824,7 +824,7 @@ function applyLoadedData(d) {
   const MIGR_TYPES = ["tilt", "scurve", "pivot", "gauss"];
   const sideHasMeaningfulMigration = (side) =>
     sideData[side]._presetsMigrated === true &&
-    (sideData[side].elektrodenlautstaerkeKurven || []).some(
+    (sideData[side].kurvenELL || []).some(
       (p) => MIGR_TYPES.includes(p.type) && p.strength !== 0,
     );
   if (SIDES.some(sideHasMeaningfulMigration)) {

@@ -823,13 +823,13 @@
       <!-- ===== LEVELS ===== -->
       <div id="panel-kurven" class="panel">
         <div class="card">
-          <h2 data-t="kurvenIntroTitle"></h2>
-          <div class="explain-plain" data-t="kurvenIntroDesc"></div>
+          <h2 data-t="kurvenELLIntroTitle"></h2>
+          <div class="explain-plain" data-t="kurvenELLIntroDesc"></div>
         </div>
-        <div class="card kurven-chart-card">
+        <div class="card kurven-ell-chart-card">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
-            <h2 data-t="kurvenChartTitle" style="margin:0;"></h2>
-            <button class="btn" id="printKurvenBtn"
+            <h2 data-t="kurvenELLChartTitle" style="margin:0;"></h2>
+            <button class="btn" id="printKurvenELLBtn"
                     style="padding:4px 10px;font-size:0.9em;">
               🖨 <span data-t="printBtn"></span>
             </button>
@@ -850,7 +850,7 @@
                 gap: 4px;
                 cursor: pointer;
               "
-              ><input type="checkbox" id="kurvenChkMeas" />
+              ><input type="checkbox" id="kurvenELLChkMeas" />
               <span style="color: #2563eb">&#9632;</span>
               <span data-t="plSrcMeas"></span
             ></label>
@@ -861,9 +861,9 @@
                 gap: 4px;
                 cursor: pointer;
               "
-              ><input type="checkbox" id="kurvenChkMan" />
+              ><input type="checkbox" id="kurvenELLChkMan" />
               <span style="color: #16a34a">&#9632;</span>
-              <span data-t="kurvenChartMan"></span
+              <span data-t="kurvenELLChartMan"></span
             ></label>
             <label
               style="
@@ -872,30 +872,30 @@
                 gap: 4px;
                 cursor: pointer;
               "
-              ><input type="checkbox" id="kurvenChkPre" checked />
+              ><input type="checkbox" id="kurvenELLChkPre" checked />
               <span style="color: #d97706">&#9632;</span>
-              <span data-t="kurvenChartLineLabel"></span
+              <span data-t="kurvenELLChartLineLabel"></span
             ></label>
             <span style="color: var(--text-muted)">|</span>
             <span style="font-weight: 600"
-              >&#9644; <span data-t="kurvenChartSum"></span
+              >&#9644; <span data-t="kurvenELLChartSum"></span
             ></span>
           </div>
-          <div class="kurven-chart-wrap">
-            <canvas id="kurvenChartCv"></canvas>
+          <div class="kurven-ell-chart-wrap">
+            <canvas id="kurvenELLChartCv"></canvas>
           </div>
           <div
-            id="kurvenChartWarpHint"
-            data-t="kurvenChartWarpHint"
+            id="kurvenELLChartWarpHint"
+            data-t="kurvenELLChartWarpHint"
             style="margin-top: 6px; font-size: 0.82em; color: #888;"
           ></div>
         </div>
         <div class="card">
-          <h2 data-t="kurvenTitle"></h2>
+          <h2 data-t="kurvenELLTitle"></h2>
           <div
             class="explain-plain"
             style="margin-bottom: 10px"
-            data-t="kurvenDesc"
+            data-t="kurvenELLDesc"
           ></div>
           <label
             style="
@@ -907,10 +907,10 @@
               cursor: pointer;
               margin-bottom: 10px;
             "
-            ><input type="checkbox" id="kurvenBothSides" checked />
-            <span data-t="kurvenBoth"></span
+            ><input type="checkbox" id="kurvenELLBothSides" checked />
+            <span data-t="kurvenELLBoth"></span
           ></label>
-          <table class="kurven-tbl" id="kurvenTbl"></table>
+          <table class="kurven-ell-tbl" id="kurvenELLTbl"></table>
         </div>
       </div>
 

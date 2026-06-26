@@ -93,7 +93,7 @@ function _schieberDrawRelative(ctx, W, H) {
     elActive[i] === false || elSt[i] === "mute" || elExDur[i] !== null;
 
   const measArr = ELL_testData().correction;
-  const preArr = elektrodenlautstaerkeKurvenSumme();
+  const preArr = kurvenELLSumme();
   const cols = all.map((i) => {
     if (isExcluded(i)) return { i, excluded: true };
     const sch = elektrodenlautstaerkeSchieber[i] || 0;
@@ -171,7 +171,7 @@ function _schieberDrawAbsolute(ctx, W, H) {
   const unitLbl = ELL_unitLabelFor(mfr);
 
   const measArr = ELL_testData().correction;
-  const preArr = elektrodenlautstaerkeKurvenSumme();
+  const preArr = kurvenELLSumme();
 
   const toAbs = (dB, mclAudi, thrAudi) => {
     if (isMedel) return calcMedel(dB, mclAudi).absolute;
@@ -586,16 +586,16 @@ function elektrodenlautstaerkeSchieberOnChange(i, newVal) {
     val = Math.max(-ELEKTRODENLAUTSTAERKE_SCHIEBER_RANGE, Math.min(ELEKTRODENLAUTSTAERKE_SCHIEBER_RANGE, val));
   }
   elektrodenlautstaerkeSchieber[i] = val;
-  if (typeof elektrodenlautstaerkeKurvenTabelleBauen === "function") elektrodenlautstaerkeKurvenTabelleBauen();
-  if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
+  if (typeof kurvenELLTabelleBauen === "function") kurvenELLTabelleBauen();
+  if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
   if (typeof pEqF !== "undefined" && pEqF.length > 0) pUpdEQ();
   elektrodenlautstaerkeSchieberDraw();
 }
 
 function elektrodenlautstaerkeSchieberResetAll() {
   for (let i = 0; i < nEl; i++) elektrodenlautstaerkeSchieber[i] = 0;
-  if (typeof elektrodenlautstaerkeKurvenTabelleBauen === "function") elektrodenlautstaerkeKurvenTabelleBauen();
-  if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
+  if (typeof kurvenELLTabelleBauen === "function") kurvenELLTabelleBauen();
+  if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
   if (typeof pEqF !== "undefined" && pEqF.length > 0) pUpdEQ();
   elektrodenlautstaerkeSchieberDraw();
 }

@@ -26,7 +26,7 @@ function _drawRefElLabel(ctx, x, y, size) {
 
 // ============================================================
 // Cent-x-Achse — Hilfsfunktionen (gemeinsam für ELL_drawChart und
-// elektrodenlautstaerkeKurvenChartZeichnen). Elektroden werden nach ihrer Cent-Position
+// kurvenELLChartZeichnen). Elektroden werden nach ihrer Cent-Position
 // (re 1000 Hz) auf der x-Achse plaziert; mindestens zwei
 // Elektroden, sonst lineare Notlösung.
 // ============================================================

@@ -22,7 +22,7 @@ function FRQ_implantatEffektiv(i) {
 }
 // Effektive Anzeige-/Berechnungs-Frequenz unter Berücksichtigung des
 // aktuellen Frequenz-Warping-Zustands. Verwendet von Kurven-Tab
-// (elektrodenlautstaerkeKurvenChartZeichnen, elektrodenlautstaerkeKurveBerechnen) und Player (pDrawEQ, pBuildEQ) für
+// (kurvenELLChartZeichnen, kurvenELLBerechnen) und Player (pDrawEQ, pBuildEQ) für
 // die Cent-basierte x-Achse und die Frequenz-Interpolation.
 //
 // Andere Module (Tests, Audio-Pfad, Schieber-Tab, Meßergebnisse,
@@ -56,12 +56,12 @@ let userFileSuffix = ""; // globaler Dateinamen-Suffix für alle Exporte
 let userLastName  = ""; // Nachname für Dateinamen und Druck-Seitentitel (BA 268)
 let userFirstName = ""; // Vorname für Dateinamen und Druck-Seitentitel (BA 268)
 
-let elektrodenlautstaerkeKurven = [];
+let kurvenELL = [];
 let elActive = [];  // BA 164: Aktivitäts-Flag pro Elektrode der aktiven Seite
 let fullSweepRound = null,
   fullSweepDonePairs = [];
 function initElektrodenlautstaerkeKurven() {
-  elektrodenlautstaerkeKurven = KURVEN_TYPES.map((tp) => ({
+  kurvenELL = KURVEN_ELL_TYPES.map((tp) => ({
     type: tp,
     on: false,
     strength: 0,
@@ -81,7 +81,7 @@ function bindActiveSide() {
   elNt = s.elNt;
   elExDur = s.elExDur;
   elektrodenlautstaerkeSchieber = s.elektrodenlautstaerkeSchieber;
-  elektrodenlautstaerkeKurven = s.elektrodenlautstaerkeKurven;
+  kurvenELL = s.kurvenELL;
   ELL_refEl = s.ELL_refEl;
   ELL_results = s.ELL_results;
   elActive = s.elActive || (s.elActive = new Array(s.nEl).fill(true));
@@ -121,7 +121,7 @@ function setRefEl(v) {
   ELL_refEl = v;
   if (sideData[activeSide]) sideData[activeSide].ELL_refEl = v;
   if (typeof ELL_renderResults === "function") ELL_renderResults();
-  if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
+  if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
   if (typeof pUpdEQ === "function") pUpdEQ();
 }
 function initSideData(side, m) {
@@ -160,7 +160,7 @@ function initSideData(side, m) {
   activeSide = side;
   bindActiveSide();
   initElektrodenlautstaerkeKurven();
-  s.elektrodenlautstaerkeKurven = elektrodenlautstaerkeKurven;
+  s.kurvenELL = kurvenELL;
 }
 function updSideButtons() {
   const L = document.getElementById("sideLeftBtn"),
@@ -211,8 +211,8 @@ function setActiveSide(side) {
   if (cfgSel) cfgSel.value = config;
 
   FRQ_implantatTableBuild();
-  elektrodenlautstaerkeKurvenTabelleBauen();
-  elektrodenlautstaerkeKurvenChartZeichnen();
+  kurvenELLTabelleBauen();
+  kurvenELLChartZeichnen();
   if (typeof elektrodenlautstaerkeSchieberRebuild === "function") elektrodenlautstaerkeSchieberRebuild();
   ELL_renderResults();
   buildImplantCard();
@@ -433,7 +433,7 @@ function loadSideData(side, d) {
   s.freqmatchPiano = d.freqmatchPiano || null;
   s.elektrodenlautstaerkeSchieber = d.manualLevels || new Array(s.nEl).fill(0);
   if (d.presets && Array.isArray(d.presets)) {
-    s.elektrodenlautstaerkeKurven = KURVEN_TYPES.map((tp) => {
+    s.kurvenELL = KURVEN_ELL_TYPES.map((tp) => {
       const found = d.presets.find((p) => p.type === tp);
       return found || {
         type: tp, on: false, strength: 0, center: CENT_REF_HZ, width: 1200,
@@ -539,7 +539,7 @@ function withSide(side, fn) {
     elNt,
     elExDur,
     elektrodenlautstaerkeSchieber,
-    elektrodenlautstaerkeKurven,
+    kurvenELL,
     ELL_refEl,
     ELL_results,
   };

@@ -505,51 +505,51 @@ Object.assign(L.fr, {
     schieberVarStack: "empilé",
     schieberVarLines: "lignes de comparaison",
     schieberAbsNotAvailable: "Le mode absolu nécessite des valeurs MCL. Saisir dans l'onglet Implant.",
-    kurvenChartLineLabel: "Courbes :",
-    kurvenTilt: "Tilt (aigus/graves)",
-    kurvenPivot: "Pivot (accentuer le milieu)",
-    kurvenSpeech: "Parole (SII)",
-    kurvenVolume: "Volume",
-    kurvenScurve: "Courbe en S",
-    kurvenGauss: "Gauss",
-    kurvenBass: "Bass Boost",
-    kurvenHigh: "High Boost",
-    kurvenStrLabel: "Force :",
-    kurvenExplTilt:
+    kurvenELLChartLineLabel: "Courbes :",
+    kurvenELLTilt: "Tilt (aigus/graves)",
+    kurvenELLPivot: "Pivot (accentuer le milieu)",
+    kurvenELLSpeech: "Parole (SII)",
+    kurvenELLVolume: "Volume",
+    kurvenELLScurve: "Courbe en S",
+    kurvenELLGauss: "Gauss",
+    kurvenELLBass: "Bass Boost",
+    kurvenELLHigh: "High Boost",
+    kurvenELLStrLabel: "Force :",
+    kurvenELLExplTilt:
       "Augmentation linéaire de l'apical au basal. Valeurs positives accentuent les aigus, négatives les graves. Correspond à l'outil Tilt de MAESTRO.",
-    kurvenExplPivot:
+    kurvenELLExplPivot:
       "Accentuer le milieu, abaisser les bords (positif) ou inversement. Correspond à l'outil Pivot de MAESTRO.",
-    kurvenExplScurve:
+    kurvenELLExplScurve:
       "Comme Tilt, mais avec une transition plus douce au milieu. À gauche du milieu abaissé, à droite relevé (ou inversement).",
-    kurvenExplGauss:
+    kurvenELLExplGauss:
       "Courbe en cloche autour d'une électrode choisie. La largeur détermine combien d'électrodes voisines sont affectées.",
-    kurvenExplBass:
+    kurvenELLExplBass:
       "Augmenter (positif) ou abaisser (négatif) les basses fréquences. Le point limite détermine jusqu'à quelle électrode l'effet agit.",
-    kurvenExplHigh:
+    kurvenELLExplHigh:
       "Augmenter (positif) ou abaisser (négatif) les hautes fréquences. Le point limite détermine à partir de quelle électrode l'effet agit.",
-    kurvenExplSpeech:
+    kurvenELLExplSpeech:
       "Pondération selon l'intelligibilité de la parole (ANSI S3.5 Band Importance Function). Valeurs positives augmentent les fréquences pertinentes pour la parole (env. 800–4000 Hz), négatives les abaissent.",
-    kurvenExplVolume:
+    kurvenELLExplVolume:
       "Augmente ou abaisse toutes les électrodes actives du même nombre de dB. Agit comme un volume global supplémentaire indépendant du gain du Player.",
-    kurvenIntroTitle: "Courbes",
-    kurvenIntroDesc:
+    kurvenELLIntroTitle: "Courbes",
+    kurvenELLIntroDesc:
       "Ajustement de l'intensité des électrodes sur toutes les électrodes. Choisissez parmi les fonctions de courbe proposées et ajustez les valeurs en direct.",
-    kurvenTitle: "Fonctions de courbe",
-    kurvenBoth: "Appliquer la modification aux deux côtés",
-    kurvenDesc:
+    kurvenELLTitle: "Fonctions de courbe",
+    kurvenELLBoth: "Appliquer la modification aux deux côtés",
+    kurvenELLDesc:
       "Formes de courbe prédéfinies. Tilt et Pivot correspondent aux outils MAESTRO du même nom. Le preset Parole pondère les fréquences selon leur importance pour l'intelligibilité de la parole (ANSI S3.5). Clavier : ↑↓ ajuste les valeurs dans le champ de saisie.",
-    kurvenChartTitle: "Vue d'ensemble",
-    kurvenChartMan: "Manuel",
-    kurvenChartSum: "Somme",
-    kurvenChartWarpHint:
+    kurvenELLChartTitle: "Vue d'ensemble",
+    kurvenELLChartMan: "Manuel",
+    kurvenELLChartSum: "Somme",
+    kurvenELLChartWarpHint:
       "Les écarts de fréquence entre les électrodes sont pris en compte dans ce graphique.<br>" +
       "Avec le warping fréquentiel activé, l'effet des courbes se décale " +
       "légèrement par électrode.",
-    kurvenCenter: "Milieu",
-    kurvenWidth: "Largeur",
-    kurvenCutoff: "Point limite :",
-    kurvenUnitHz: "Hz",
-    kurvenUnitCent: "¢",
+    kurvenELLCenter: "Milieu",
+    kurvenELLWidth: "Largeur",
+    kurvenELLCutoff: "Point limite :",
+    kurvenELLUnitHz: "Hz",
+    kurvenELLUnitCent: "¢",
     loadMigratedCurves:
       "Le calcul des courbes a été mathématiquement affiné " +
       "(basé sur la fréquence au lieu des électrodes). Vos anciens " +

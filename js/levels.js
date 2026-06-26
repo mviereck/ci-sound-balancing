@@ -2,7 +2,7 @@
 // LEVELS – Preset-Berechnung und Levels-Tab
 // ============================================================
 
-function elektrodenlautstaerkeKurveBerechnen(pr) {
+function kurvenELLBerechnen(pr) {
   const act = allEl(),
     n = nEl,
     c = new Array(n).fill(0);
@@ -97,30 +97,30 @@ function elektrodenlautstaerkeKurveBerechnen(pr) {
   }
   return c;
 }
-function elektrodenlautstaerkeKurvenSumme() {
+function kurvenELLSumme() {
   const c = new Array(nEl).fill(0);
-  for (const pr of elektrodenlautstaerkeKurven) {
+  for (const pr of kurvenELL) {
     if (!pr.on || pr.strength === 0) continue;
-    const pc = elektrodenlautstaerkeKurveBerechnen(pr);
+    const pc = kurvenELLBerechnen(pr);
     for (let i = 0; i < nEl; i++) c[i] += pc[i] * pr.strength;
   }
   return c;
 }
 function ell_effektiv() {
-  const pc = elektrodenlautstaerkeKurvenSumme();
+  const pc = kurvenELLSumme();
   return elektrodenlautstaerkeSchieber.map((m, i) => m + pc[i]);
 }
 
-function elektrodenlautstaerkeKurvenOnChange() {
-  elektrodenlautstaerkeKurvenChartZeichnen();
+function kurvenELLOnChange() {
+  kurvenELLChartZeichnen();
   if (typeof elektrodenlautstaerkeSchieberDraw === "function") elektrodenlautstaerkeSchieberDraw();
   if (pEqF.length > 0) pUpdEQ();
 }
-function elektrodenlautstaerkeKurvenDeltaAndereSeite(pi, delta, currentPr) {
-  if (!document.getElementById("kurvenBothSides")?.checked) return;
+function kurvenELLDeltaAndereSeite(pi, delta, currentPr) {
+  if (!document.getElementById("kurvenELLBothSides")?.checked) return;
   if (Math.abs(delta) < 0.001) return;
   const otherSide = activeSide === "left" ? "right" : "left";
-  const op = sideData[otherSide].elektrodenlautstaerkeKurven;
+  const op = sideData[otherSide].kurvenELL;
   if (!op || !op[pi]) return;
   op[pi].strength = Math.max(
     -20,
@@ -133,22 +133,22 @@ function elektrodenlautstaerkeKurvenDeltaAndereSeite(pi, delta, currentPr) {
     if (currentPr.cutoff !== undefined) op[pi].cutoff = currentPr.cutoff;
   }
 }
-function _elektrodenlautstaerkeKurvenStrTouchCtrl(inp, pi) {
+function _kurvenELLStrTouchCtrl(inp, pi) {
   if (!inp) return null;
   var box = document.createElement('div');
-  box.className = 'touch-ctrl kurvenStr-touch';
+  box.className = 'touch-ctrl kurven-ell-str-touch';
   box.style.cssText = 'display:inline-flex;gap:4px;margin-left:6px;vertical-align:middle;';
 
   var fineMode = false;
 
   function step(dir) {
     var st = fineMode ? 0.1 : 0.5;
-    var oldVal = elektrodenlautstaerkeKurven[pi].strength;
+    var oldVal = kurvenELL[pi].strength;
     var newVal = Math.max(-20, Math.min(20, +(oldVal + dir * st).toFixed(1)));
-    elektrodenlautstaerkeKurven[pi].strength = newVal;
+    kurvenELL[pi].strength = newVal;
     inp.value = newVal.toFixed(1);
-    elektrodenlautstaerkeKurvenDeltaAndereSeite(pi, newVal - oldVal, elektrodenlautstaerkeKurven[pi]);
-    elektrodenlautstaerkeKurvenOnChange();
+    kurvenELLDeltaAndereSeite(pi, newVal - oldVal, kurvenELL[pi]);
+    kurvenELLOnChange();
   }
 
   function mkBtn(label, cls) {
@@ -178,8 +178,8 @@ function _elektrodenlautstaerkeKurvenStrTouchCtrl(inp, pi) {
   }
   return box;
 }
-function elektrodenlautstaerkeKurvenTabelleBauen() {
-  const tbl = document.getElementById("kurvenTbl");
+function kurvenELLTabelleBauen() {
+  const tbl = document.getElementById("kurvenELLTbl");
   tbl.innerHTML = "";
   const act = allEl();
   const pfx = dENPrefix();
@@ -188,68 +188,68 @@ function elektrodenlautstaerkeKurvenTabelleBauen() {
     .join("");
   // Mittelpunkt: Number-Input in Hz (50–20000, Schritt 50).
   // Breite (Gauß): Number-Input in Cent (50–4800, Schritt 50).
-  for (let pi = 0; pi < elektrodenlautstaerkeKurven.length; pi++) {
-    const pr = elektrodenlautstaerkeKurven[pi];
+  for (let pi = 0; pi < kurvenELL.length; pi++) {
+    const pr = kurvenELL[pi];
     const tr = document.createElement("tr");
-    tr.className = pr.on ? "" : "kurven-row-off";
-    let params = '<div class="kurven-param">';
-    params += `<label>${t("kurvenStrLabel")}</label><input type="number" class="kurvenStr" data-pi="${pi}" value="${pr.strength.toFixed(1)}" min="-20" max="20" step="0.5">`;
-    if (KURVEN_HAS_CENTER[pr.type])
-      params += ` <label>${t("kurvenCenter")}</label><input type="number" class="kurvenCtr" data-pi="${pi}" min="50" max="20000" step="50" style="width:80px"> ${t("kurvenUnitHz")}`;
-    if (KURVEN_HAS_WIDTH[pr.type])
-      params += ` <label>${t("kurvenWidth")}</label><input type="number" class="kurvenWid" data-pi="${pi}" min="50" max="4800" step="50" style="width:80px"> ${t("kurvenUnitCent")}`;
-    if (KURVEN_HAS_CUTOFF[pr.type])
-      params += ` <label>${t("kurvenCutoff")}</label><select class="kurvenCut" data-pi="${pi}">${elOpts}</select>`;
+    tr.className = pr.on ? "" : "kurven-ell-row-off";
+    let params = '<div class="kurven-ell-param">';
+    params += `<label>${t("kurvenELLStrLabel")}</label><input type="number" class="kurven-ell-str" data-pi="${pi}" value="${pr.strength.toFixed(1)}" min="-20" max="20" step="0.5">`;
+    if (KURVEN_ELL_HAS_CENTER[pr.type])
+      params += ` <label>${t("kurvenELLCenter")}</label><input type="number" class="kurven-ell-ctr" data-pi="${pi}" min="50" max="20000" step="50" style="width:80px"> ${t("kurvenELLUnitHz")}`;
+    if (KURVEN_ELL_HAS_WIDTH[pr.type])
+      params += ` <label>${t("kurvenELLWidth")}</label><input type="number" class="kurven-ell-wid" data-pi="${pi}" min="50" max="4800" step="50" style="width:80px"> ${t("kurvenELLUnitCent")}`;
+    if (KURVEN_ELL_HAS_CUTOFF[pr.type])
+      params += ` <label>${t("kurvenELLCutoff")}</label><select class="kurven-ell-cut" data-pi="${pi}">${elOpts}</select>`;
     params += "</div>";
-    tr.innerHTML = `<td><input type="checkbox" class="kurvenOn" data-pi="${pi}" ${pr.on ? "checked" : ""}></td><td class="kurven-name">${t(KURVEN_NAMES[pr.type])}</td><td>${params}</td>`;
+    tr.innerHTML = `<td><input type="checkbox" class="kurven-ell-on" data-pi="${pi}" ${pr.on ? "checked" : ""}></td><td class="kurven-ell-name">${t(KURVEN_ELL_NAMES[pr.type])}</td><td>${params}</td>`;
     tbl.appendChild(tr);
-    const ctrInp = tr.querySelector(".kurvenCtr");
+    const ctrInp = tr.querySelector(".kurven-ell-ctr");
     if (ctrInp)
       ctrInp.value = Math.round(
         pr.center !== undefined ? pr.center : CENT_REF_HZ,
       );
-    const widInp = tr.querySelector(".kurvenWid");
+    const widInp = tr.querySelector(".kurven-ell-wid");
     if (widInp) widInp.value = Math.round(pr.width != null ? pr.width : 1200);
-    const cutSel = tr.querySelector(".kurvenCut");
+    const cutSel = tr.querySelector(".kurven-ell-cut");
     if (cutSel) cutSel.value = pr.cutoff;
     const tr2 = document.createElement("tr");
-    tr2.className = pr.on ? "" : "kurven-row-off";
-    tr2.innerHTML = `<td></td><td colspan="2" style="font-size:.78em;color:var(--text-muted);padding-top:0">${t(KURVEN_EXPL[pr.type])}</td>`;
+    tr2.className = pr.on ? "" : "kurven-ell-row-off";
+    tr2.innerHTML = `<td></td><td colspan="2" style="font-size:.78em;color:var(--text-muted);padding-top:0">${t(KURVEN_ELL_EXPL[pr.type])}</td>`;
     tbl.appendChild(tr2);
   }
-  tbl.querySelectorAll(".kurvenOn").forEach((cb) =>
+  tbl.querySelectorAll(".kurven-ell-on").forEach((cb) =>
     cb.addEventListener("change", function () {
       const pi = +this.dataset.pi;
-      const wasOn = elektrodenlautstaerkeKurven[pi].on;
-      elektrodenlautstaerkeKurven[pi].on = this.checked;
+      const wasOn = kurvenELL[pi].on;
+      kurvenELL[pi].on = this.checked;
       // Mirror on/off to other side if checkbox active
-      if (document.getElementById("kurvenBothSides")?.checked) {
+      if (document.getElementById("kurvenELLBothSides")?.checked) {
         const otherSide = activeSide === "left" ? "right" : "left";
-        const op = sideData[otherSide].elektrodenlautstaerkeKurven;
+        const op = sideData[otherSide].kurvenELL;
         if (op && op[pi]) {
           op[pi].on = this.checked;
         }
       }
-      elektrodenlautstaerkeKurvenTabelleBauen();
-      elektrodenlautstaerkeKurvenOnChange();
+      kurvenELLTabelleBauen();
+      kurvenELLOnChange();
       if (this.checked) {
         const strInp = tbl.querySelector(
-          `.kurvenStr[data-pi="${this.dataset.pi}"]`,
+          `.kurven-ell-str[data-pi="${this.dataset.pi}"]`,
         );
         if (strInp) safeFocus(strInp);
       }
     }),
   );
-  tbl.querySelectorAll(".kurvenStr").forEach((inp) => {
+  tbl.querySelectorAll(".kurven-ell-str").forEach((inp) => {
     inp.addEventListener("change", function () {
       const pi = +this.dataset.pi;
-      const oldVal = elektrodenlautstaerkeKurven[pi].strength;
+      const oldVal = kurvenELL[pi].strength;
       const newVal = Math.max(-20, Math.min(20, parseFloat(this.value) || 0));
       const delta = newVal - oldVal;
-      elektrodenlautstaerkeKurven[pi].strength = newVal;
+      kurvenELL[pi].strength = newVal;
       this.value = newVal.toFixed(1);
-      elektrodenlautstaerkeKurvenDeltaAndereSeite(pi, delta, elektrodenlautstaerkeKurven[pi]);
-      elektrodenlautstaerkeKurvenOnChange();
+      kurvenELLDeltaAndereSeite(pi, delta, kurvenELL[pi]);
+      kurvenELLOnChange();
     });
     inp.addEventListener("keydown", function (e) {
       if (e.key === "ArrowUp" || e.key === "ArrowDown") {
@@ -257,71 +257,71 @@ function elektrodenlautstaerkeKurvenTabelleBauen() {
         e.stopPropagation();
         const pi = +this.dataset.pi,
           st = 0.1;
-        const oldVal = elektrodenlautstaerkeKurven[pi].strength;
+        const oldVal = kurvenELL[pi].strength;
         if (e.key === "ArrowUp")
-          elektrodenlautstaerkeKurven[pi].strength = Math.min(
+          kurvenELL[pi].strength = Math.min(
             20,
-            +(elektrodenlautstaerkeKurven[pi].strength + st).toFixed(1),
+            +(kurvenELL[pi].strength + st).toFixed(1),
           );
         if (e.key === "ArrowDown")
-          elektrodenlautstaerkeKurven[pi].strength = Math.max(
+          kurvenELL[pi].strength = Math.max(
             -20,
-            +(elektrodenlautstaerkeKurven[pi].strength - st).toFixed(1),
+            +(kurvenELL[pi].strength - st).toFixed(1),
           );
-        const delta = elektrodenlautstaerkeKurven[pi].strength - oldVal;
-        this.value = elektrodenlautstaerkeKurven[pi].strength.toFixed(1);
-        elektrodenlautstaerkeKurvenDeltaAndereSeite(pi, delta, elektrodenlautstaerkeKurven[pi]);
-        elektrodenlautstaerkeKurvenOnChange();
+        const delta = kurvenELL[pi].strength - oldVal;
+        this.value = kurvenELL[pi].strength.toFixed(1);
+        kurvenELLDeltaAndereSeite(pi, delta, kurvenELL[pi]);
+        kurvenELLOnChange();
       }
     });
-    _elektrodenlautstaerkeKurvenStrTouchCtrl(inp, +inp.dataset.pi);
+    _kurvenELLStrTouchCtrl(inp, +inp.dataset.pi);
   });
-  tbl.querySelectorAll(".kurvenCtr").forEach((inp) =>
+  tbl.querySelectorAll(".kurven-ell-ctr").forEach((inp) =>
     inp.addEventListener("change", function () {
       const pi = +this.dataset.pi;
       let v = parseFloat(this.value);
       if (!isFinite(v) || v < 50) v = 50;
       if (v > 20000) v = 20000;
-      elektrodenlautstaerkeKurven[pi].center = v;
+      kurvenELL[pi].center = v;
       this.value = Math.round(v);
-      if (document.getElementById("kurvenBothSides")?.checked) {
+      if (document.getElementById("kurvenELLBothSides")?.checked) {
         const otherSide = activeSide === "left" ? "right" : "left";
-        const op = sideData[otherSide].elektrodenlautstaerkeKurven;
-        if (op && op[pi] && op[pi].type === elektrodenlautstaerkeKurven[pi].type) {
+        const op = sideData[otherSide].kurvenELL;
+        if (op && op[pi] && op[pi].type === kurvenELL[pi].type) {
           op[pi].center = v;
         }
       }
-      elektrodenlautstaerkeKurvenOnChange();
+      kurvenELLOnChange();
     }),
   );
-  tbl.querySelectorAll(".kurvenWid").forEach((inp) =>
+  tbl.querySelectorAll(".kurven-ell-wid").forEach((inp) =>
     inp.addEventListener("change", function () {
       const pi = +this.dataset.pi;
       let v = parseFloat(this.value);
       if (!isFinite(v) || v < 50) v = 50;
       if (v > 4800) v = 4800;
-      elektrodenlautstaerkeKurven[pi].width = v;
+      kurvenELL[pi].width = v;
       this.value = Math.round(v);
-      if (document.getElementById("kurvenBothSides")?.checked) {
+      if (document.getElementById("kurvenELLBothSides")?.checked) {
         const otherSide = activeSide === "left" ? "right" : "left";
-        const op = sideData[otherSide].elektrodenlautstaerkeKurven;
-        if (op && op[pi] && op[pi].type === elektrodenlautstaerkeKurven[pi].type) {
+        const op = sideData[otherSide].kurvenELL;
+        if (op && op[pi] && op[pi].type === kurvenELL[pi].type) {
           op[pi].width = v;
         }
       }
-      elektrodenlautstaerkeKurvenOnChange();
+      kurvenELLOnChange();
     }),
   );
-  tbl.querySelectorAll(".kurvenCut").forEach((sel) =>
+  tbl.querySelectorAll(".kurven-ell-cut").forEach((sel) =>
     sel.addEventListener("change", function () {
-      elektrodenlautstaerkeKurven[+this.dataset.pi].cutoff = +this.value;
-      elektrodenlautstaerkeKurvenOnChange();
+      kurvenELL[+this.dataset.pi].cutoff = +this.value;
+      kurvenELLOnChange();
     }),
   );
   applyMobileReadonly(tbl);
 }
-function elektrodenlautstaerkeKurvenChartZeichnen() {
-  const cv = document.getElementById("kurvenChartCv");
+function kurvenELLChartZeichnen() {
+  const cv = document.getElementById("kurvenELLChartCv");
   if (!cv) return;
   const wp = cv.parentElement,
     dpr = window.devicePixelRatio || 1,
@@ -332,13 +332,13 @@ function elektrodenlautstaerkeKurvenChartZeichnen() {
   const ctx = cv.getContext("2d");
   ctx.scale(dpr, dpr);
   ctx.clearRect(0, 0, W, H);
-  const showMeas = document.getElementById("kurvenChkMeas").checked;
-  const showMan = document.getElementById("kurvenChkMan").checked;
-  const showPre = document.getElementById("kurvenChkPre").checked;
+  const showMeas = document.getElementById("kurvenELLChkMeas").checked;
+  const showMan = document.getElementById("kurvenELLChkMan").checked;
+  const showPre = document.getElementById("kurvenELLChkPre").checked;
   const act = allEl();
   if (!act.length) return;
   const corr = ELL_testData().correction;
-  const pc = elektrodenlautstaerkeKurvenSumme();
+  const pc = kurvenELLSumme();
   const measV = act.map((i) => corr[i]);
   const manV = act.map((i) => elektrodenlautstaerkeSchieber[i]);
   const preV = act.map((i) => pc[i]);

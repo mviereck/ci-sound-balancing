@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Warp-UI-Texte
     _pWarpApplyLangTexts();
     // Druck-Knöpfe Kurven- und Schieber-Tab
-    const _pkb = document.getElementById("printKurvenBtn");
+    const _pkb = document.getElementById("printKurvenELLBtn");
     if (_pkb) _pkb.title = t("printBtn");
     const _psb = document.getElementById("printSchieberBtn");
     if (_psb) _psb.title = t("printBtn");
@@ -103,8 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
     setSideConfig(activeSide, e.target.value);
     FRQ_implantatTableBuild();
     buildImplantCard();
-    elektrodenlautstaerkeKurvenTabelleBauen();
-    elektrodenlautstaerkeKurvenChartZeichnen();
+    kurvenELLTabelleBauen();
+    kurvenELLChartZeichnen();
     ELL_renderResults();
     if (typeof STB_checkData === "function") STB_checkData();
     if (typeof FRQ_applyLang === "function") FRQ_applyLang();
@@ -175,10 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
     printErgebnisseBtn.title = t("printBtn");
     printErgebnisseBtn.addEventListener("click", printErgebnisseTab);
   }
-  const printKurvenBtn = document.getElementById("printKurvenBtn");
-  if (printKurvenBtn) {
-    printKurvenBtn.title = t("printBtn");
-    printKurvenBtn.addEventListener("click", printKurvenTab);
+  const printKurvenELLBtn = document.getElementById("printKurvenELLBtn");
+  if (printKurvenELLBtn) {
+    printKurvenELLBtn.title = t("printBtn");
+    printKurvenELLBtn.addEventListener("click", printKurvenELLTab);
   }
   const printSchieberBtn = document.getElementById("printSchieberBtn");
   if (printSchieberBtn) {
@@ -216,8 +216,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("apoExportBtn")
     .addEventListener("click", exportEqualizerAPO);
-  ["kurvenChkMeas", "kurvenChkMan", "kurvenChkPre"].forEach((id) =>
-    document.getElementById(id).addEventListener("change", elektrodenlautstaerkeKurvenChartZeichnen),
+  ["kurvenELLChkMeas", "kurvenELLChkMan", "kurvenELLChkPre"].forEach((id) =>
+    document.getElementById(id).addEventListener("change", kurvenELLChartZeichnen),
   );
   // Player EQ toggle — wirkt als Master-Bypass auch für Frequenz-Warping.
   // Wenn pWarpOn=true und Wiedergabe läuft, muss der Audio-Graph gewechselt
@@ -456,7 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
       if (wasPlaying && typeof _pSetPlayWish === "function") _pSetPlayWish(true);
       pWarpTrigger();
-      if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
+      if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
       if (typeof pDrawEQ === "function") pDrawEQ();
       if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
       return;
@@ -472,7 +472,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pWarpUpdUI();
     if (wasPlaying) pPlay();
     else if (typeof pBuildEQ === "function") pBuildEQ();
-    if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
+    if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
     if (typeof pDrawEQ === "function") pDrawEQ();
     if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
   });
@@ -490,7 +490,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pBuf = getPlaybackBuffer();   // ungewarpt (pWarpOn === false)
       if (typeof pWarpUpdUI === "function") pWarpUpdUI();
       if (wasPlaying) { if (typeof _pSetPlayWish === "function") _pSetPlayWish(true); if (typeof pPlay === "function") pPlay(); }
-      if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
+      if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
       if (typeof pDrawEQ === "function") pDrawEQ();
       if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
     });
@@ -510,7 +510,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pWarpMode = this.value;
     _pWarpParamsChanged();
     if (!pPlaying && typeof pBuildEQ === "function") pBuildEQ();
-    if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
+    if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
     if (typeof pDrawEQ === "function") pDrawEQ();
     if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
   });
@@ -791,7 +791,7 @@ document.addEventListener("DOMContentLoaded", () => {
       FRQ_implantatTableBuild();
       buildImplantCard();
       updSideButtons();
-      if (typeof elektrodenlautstaerkeKurvenChartZeichnen === "function") elektrodenlautstaerkeKurvenChartZeichnen();
+      if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
       if (typeof pBuildEQ === "function") pBuildEQ();
       if (typeof pDrawEQ === "function") pDrawEQ();
       if (typeof elektrodenlautstaerkeSchieberUpdateWarpHint === "function") elektrodenlautstaerkeSchieberUpdateWarpHint();
@@ -878,7 +878,7 @@ document.addEventListener("DOMContentLoaded", () => {
               referenceElectrode: sideData.left.ELL_refEl,
               balanceResults: sideData.left.ELL_results,
               manualLevels: sideData.left.elektrodenlautstaerkeSchieber,
-              presets: sideData.left.elektrodenlautstaerkeKurven,
+              presets: sideData.left.kurvenELL,
               fullSweepRound: sideData.left.fullSweepRound,
               fullSweepDonePairs: sideData.left.fullSweepDonePairs,
               implant: sideData.left.implant,
@@ -902,7 +902,7 @@ document.addEventListener("DOMContentLoaded", () => {
               referenceElectrode: sideData.right.ELL_refEl,
               balanceResults: sideData.right.ELL_results,
               manualLevels: sideData.right.elektrodenlautstaerkeSchieber,
-              presets: sideData.right.elektrodenlautstaerkeKurven,
+              presets: sideData.right.kurvenELL,
               fullSweepRound: sideData.right.fullSweepRound,
               fullSweepDonePairs: sideData.right.fullSweepDonePairs,
               implant: sideData.right.implant,

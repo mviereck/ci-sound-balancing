@@ -576,7 +576,7 @@ function getPlaybackBuffer() {
 
 function ELL_computeGains() {
   const corr = ELL_testData().correction;
-  const presetCurve = elektrodenlautstaerkeKurvenSumme();
+  const presetCurve = kurvenELLSumme();
   const g = new Array(nEl).fill(0);
   for (let i = 0; i < nEl; i++) {
     // corr[i] ist bereits gegatet (ungemessen/ausgeschlossen/stumm => 0),
@@ -1388,7 +1388,7 @@ window.addEventListener("resize", () => {
       ELL_renderResults();
   }
   if (document.getElementById("panel-kurven").classList.contains("active"))
-    elektrodenlautstaerkeKurvenChartZeichnen();
+    kurvenELLChartZeichnen();
   if (document.getElementById("subpanel-ergebnisse-stereobalance")?.classList.contains("active"))
     STB_drawChart();
 });

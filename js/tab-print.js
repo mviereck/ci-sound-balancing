@@ -261,7 +261,7 @@ function _printResLTZ() {
 }
 
 // --- Kurven-Tab ---
-function printKurvenTab() {
+function printKurvenELLTab() {
   const chartCard  = _printCloneSafe('#panel-kurven .card:nth-of-type(2)');
   const presetHtml = _buildPresetCardPrint();
   const body = chartCard + '<div style="margin-top:16px;"></div>' + presetHtml;
@@ -344,24 +344,24 @@ function printSchieberTab() {
 }
 
 function _buildPresetCardPrint() {
-  const active = elektrodenlautstaerkeKurven.filter(pr => pr.on);
+  const active = kurvenELL.filter(pr => pr.on);
   let rows = "";
   for (const pr of active) {
-    let params = `${t("kurvenStrLabel")}: <b>${pr.strength.toFixed(1)} dB</b>`;
-    if (KURVEN_HAS_CENTER[pr.type])
-      params += ` &nbsp; ${t("kurvenCenter")}: ${Math.round(pr.center != null ? pr.center : CENT_REF_HZ)} ${t("kurvenUnitHz")}`;
-    if (KURVEN_HAS_WIDTH[pr.type])
-      params += ` &nbsp; ${t("kurvenWidth")}: ${Math.round(pr.width != null ? pr.width : 1200)} ${t("kurvenUnitCent")}`;
-    if (KURVEN_HAS_CUTOFF[pr.type])
-      params += ` &nbsp; ${t("kurvenCutoff")}: ${pfx}${dEN(pr.cutoff)}`;
+    let params = `${t("kurvenELLStrLabel")}: <b>${pr.strength.toFixed(1)} dB</b>`;
+    if (KURVEN_ELL_HAS_CENTER[pr.type])
+      params += ` &nbsp; ${t("kurvenELLCenter")}: ${Math.round(pr.center != null ? pr.center : CENT_REF_HZ)} ${t("kurvenELLUnitHz")}`;
+    if (KURVEN_ELL_HAS_WIDTH[pr.type])
+      params += ` &nbsp; ${t("kurvenELLWidth")}: ${Math.round(pr.width != null ? pr.width : 1200)} ${t("kurvenELLUnitCent")}`;
+    if (KURVEN_ELL_HAS_CUTOFF[pr.type])
+      params += ` &nbsp; ${t("kurvenELLCutoff")}: ${pfx}${dEN(pr.cutoff)}`;
     rows += `<tr>
-      <td class="kurven-name" style="font-weight:bold;padding-right:12px;vertical-align:top">${t(KURVEN_NAMES[pr.type])}</td>
+      <td class="kurven-ell-name" style="font-weight:bold;padding-right:12px;vertical-align:top">${t(KURVEN_ELL_NAMES[pr.type])}</td>
       <td style="font-size:.9em;vertical-align:top">${params}</td>
     </tr><tr>
-      <td colspan="2" style="font-size:.78em;padding-top:0;padding-bottom:6px">${t(KURVEN_EXPL[pr.type])}</td>
+      <td colspan="2" style="font-size:.78em;padding-top:0;padding-bottom:6px">${t(KURVEN_ELL_EXPL[pr.type])}</td>
     </tr>`;
   }
-  if (!rows) rows = `<tr><td style="font-style:italic">(${t("kurvenTitle")} — ${t("tabKurven")} keine aktiv)</td></tr>`;
-  return `<div><h2 style="margin-bottom:8px">${t("kurvenTitle") || "Kurvenfunktionen"}</h2>
+  if (!rows) rows = `<tr><td style="font-style:italic">(${t("kurvenELLTitle")} — ${t("tabKurven")} keine aktiv)</td></tr>`;
+  return `<div><h2 style="margin-bottom:8px">${t("kurvenELLTitle") || "Kurvenfunktionen"}</h2>
     <table style="border-collapse:collapse;width:100%">${rows}</table></div>`;
 }
