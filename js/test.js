@@ -699,8 +699,12 @@ function ELL_measGain(side, hz) {
     if (typeof ELL_compWLS !== "function") return 1;
     var levels = ELL_testData({ ctx: ELL_ctx("global") }).correction;
     if (!levels || !levels.length) return 1;
-    var f = (typeof FRQ_implantat !== "undefined" && FRQ_implantat) ? FRQ_implantat : null;
-    if (!f || !f.length) return 1;
+    var nEff = (typeof nEl === "number" && nEl > 0) ? nEl
+             : ((typeof FRQ_implantat !== "undefined" && FRQ_implantat) ? FRQ_implantat.length : 0);
+    if (!nEff) return 1;
+    var f = [];
+    for (var _fi = 0; _fi < nEff; _fi++) f.push(FRQ_implantatEffektiv(_fi));
+    if (!f.length) return 1;
     var n = f.length;
     if (n === 1) return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
     var lg = Math.log(hz);

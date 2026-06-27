@@ -199,3 +199,58 @@
     return lines.join('\n');
   });
 })();
+
+/* BA401 — ELL_measGain nutzt effektive Frequenz */
+(function() {
+  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
+  dbg.test('build/BA401/measgain-effektiv', {
+    tab: 'messungen',
+    label: 'BA401: ELL_measGain nutzt effektive Frequenz'
+  }, function() {
+    var lines = [];
+    function chk(label, val) { lines.push((val ? '✓' : '✗') + ' ' + label); }
+
+    var sd = sideData[activeSide];
+    var hasData = sd && sd.ELL_results && sd.ELL_results.length > 0
+               && typeof ELL_compWLS === 'function';
+    if (!hasData) {
+      return 'n/a — keine ELL-Messdaten fuer aktive Seite';
+    }
+
+    // Gepruefte Elektrode k: erste mit endlichem correction-Wert
+    var levels = ELL_testData({ ctx: ELL_ctx('global') }).correction;
+    var k = -1;
+    for (var _i = 0; _i < levels.length; _i++) {
+      if (isFinite(levels[_i])) { k = _i; break; }
+    }
+    if (k < 0) { return 'n/a — alle correction-Werte nicht-endlich'; }
+
+    // Originale FRQ_implantatOwn sichern
+    var origOwn = sd.FRQ_implantatOwn.slice();
+
+    // Deutlich abweichenden eigenen Frequenzwert setzen
+    var origHz = FRQ_implantat[k];
+    var fakeHz = origHz * 1.5;
+    sd.FRQ_implantatOwn[k] = fakeHz;
+    bindActiveSide();
+
+    // ELL_measGain genau bei der ueberschriebenen Frequenz aufrufen
+    var gEff = ELL_measGain(activeSide, fakeHz);
+    // Erwarteter Gain: dB2G(levels[k]) — Stuetzstelle sitzt jetzt an fakeHz
+    var gExpected = dB2G(levels[k]);
+
+    // Zustand exakt wiederherstellen
+    sd.FRQ_implantatOwn = origOwn;
+    bindActiveSide();
+
+    var tol = 1e-6;
+    chk('gEff(fakeHz) nahe gExpected(levels[k]) (Fix wirkt)', Math.abs(gEff - gExpected) < tol);
+    chk('FRQ_implantatOwn nach Test wiederhergestellt', sd.FRQ_implantatOwn[k] === origOwn[k]);
+    chk('Globale FRQ_implantatOwn nach bindActiveSide korrekt', FRQ_implantatOwn[k] === origOwn[k]);
+
+    lines.push('  gEff=' + gEff.toFixed(6) + ' gExpected=' + gExpected.toFixed(6)
+             + ' diff=' + Math.abs(gEff - gExpected).toExponential(2));
+
+    return lines.join('\n');
+  });
+})();

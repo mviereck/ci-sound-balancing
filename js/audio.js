@@ -141,21 +141,21 @@ function getElectrodeBandwidth(hz) {
     return hz * 0.232;
   }
   let idx = 0;
-  let minDiff = Math.abs(FRQ_implantat[0] - hz);
+  let minDiff = Math.abs(FRQ_implantatEffektiv(0) - hz);
   for (let i = 1; i < FRQ_implantat.length; i++) {
-    const d = Math.abs(FRQ_implantat[i] - hz);
+    const d = Math.abs(FRQ_implantatEffektiv(i) - hz);
     if (d < minDiff) { minDiff = d; idx = i; }
   }
   let bwLow, bwHigh;
   if (idx === 0) {
-    bwHigh = (FRQ_implantat[1] - FRQ_implantat[0]) / 2;
+    bwHigh = (FRQ_implantatEffektiv(1) - FRQ_implantatEffektiv(0)) / 2;
     bwLow = bwHigh;
   } else if (idx === FRQ_implantat.length - 1) {
-    bwLow = (FRQ_implantat[idx] - FRQ_implantat[idx-1]) / 2;
+    bwLow = (FRQ_implantatEffektiv(idx) - FRQ_implantatEffektiv(idx-1)) / 2;
     bwHigh = bwLow;
   } else {
-    bwLow = (FRQ_implantat[idx] - FRQ_implantat[idx-1]) / 2;
-    bwHigh = (FRQ_implantat[idx+1] - FRQ_implantat[idx]) / 2;
+    bwLow = (FRQ_implantatEffektiv(idx) - FRQ_implantatEffektiv(idx-1)) / 2;
+    bwHigh = (FRQ_implantatEffektiv(idx+1) - FRQ_implantatEffektiv(idx)) / 2;
   }
   return bwLow + bwHigh;
 }
@@ -805,13 +805,13 @@ function playNeighborSineTone(c, hz, vol, ms, pan, ramp = 50) {
   return new Promise((r) => {
     var tones = [{ f: hz, amp: 1.0 }];
     if (typeof FRQ_implantat !== "undefined" && FRQ_implantat && FRQ_implantat.length >= 2) {
-      var idx = 0, minDiff = Math.abs(FRQ_implantat[0] - hz);
+      var idx = 0, minDiff = Math.abs(FRQ_implantatEffektiv(0) - hz);
       for (var i = 1; i < FRQ_implantat.length; i++) {
-        var d = Math.abs(FRQ_implantat[i] - hz);
+        var d = Math.abs(FRQ_implantatEffektiv(i) - hz);
         if (d < minDiff) { minDiff = d; idx = i; }
       }
-      if (idx - 1 >= 0)           tones.push({ f: FRQ_implantat[idx - 1], amp: 0.5 });
-      if (idx + 1 < FRQ_implantat.length) tones.push({ f: FRQ_implantat[idx + 1], amp: 0.5 });
+      if (idx - 1 >= 0)           tones.push({ f: FRQ_implantatEffektiv(idx - 1), amp: 0.5 });
+      if (idx + 1 < FRQ_implantat.length) tones.push({ f: FRQ_implantatEffektiv(idx + 1), amp: 0.5 });
     }
     var total   = tones.reduce(function (s, t) { return s + t.amp; }, 0) || 1;
     var nyquist = c.sampleRate / 2 - 100;
