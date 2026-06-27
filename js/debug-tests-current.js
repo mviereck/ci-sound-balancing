@@ -254,3 +254,31 @@
     return lines.join('\n');
   });
 })();
+
+/* BA402 — FRQ_implantatEffektiv(i, srcData) == _implEffFreqOf */
+(function() {
+  dbg.test('build/BA402/effektiv-srcData-neutral', {
+    tab: 'messungen',
+    label: 'BA402: FRQ_implantatEffektiv(i,srcData) == _implEffFreqOf'
+  }, function() {
+    var lines = [];
+    function chk(desc, ok) { lines.push((ok ? 'OK' : 'FAIL') + ' ' + desc); }
+
+    // Synthetisches srcData
+    var sA = { FRQ_implantat: [100, 200, 300], FRQ_implantatOwn: [null, 250, null] };
+    chk('i=0 -> Default 100', FRQ_implantatEffektiv(0, sA) === 100);
+    chk('i=1 -> Own 250',     FRQ_implantatEffektiv(1, sA) === 250);
+    chk('i=2 -> Default 300', FRQ_implantatEffektiv(2, sA) === 300);
+
+    // 0-Fallback: kein FRQ_implantat im Objekt
+    chk('0-Fallback kein FRQ_implantat', FRQ_implantatEffektiv(0, {}) === 0);
+
+    // undefined -> globaler Pfad (nicht 0)
+    var globalVal = FRQ_implantatEffektiv(0);
+    var globalViaUndefined = FRQ_implantatEffektiv(0, undefined);
+    chk('undefined -> globaler Pfad (nicht 0)', globalViaUndefined === globalVal);
+    lines.push('  globalVal[0]=' + globalVal + ' globalViaUndefined[0]=' + globalViaUndefined);
+
+    return lines.join('\n');
+  });
+})();

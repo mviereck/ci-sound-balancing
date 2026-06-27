@@ -120,11 +120,6 @@ const IMPL_VAL_UNIT = {
 
 // --- Helfer -------------------------------------------------
 
-function _implEffFreqOf(s, i) {
-  if (!s) return 0;
-  if (s.FRQ_implantatOwn && s.FRQ_implantatOwn[i] != null) return s.FRQ_implantatOwn[i];
-  return s.FRQ_implantat ? s.FRQ_implantat[i] : 0;
-}
 
 function _implThrOf(s, i) {
   if (!s || !s.implant || !s.implant.thr) return null;
@@ -307,8 +302,8 @@ function _implCheckHzMonotonie(s) {
     // BA 164
     if (s.elActive && s.elActive[i + 1] === false) continue;
 
-    const hzI = _implEffFreqOf(s, i);
-    const hzJ = _implEffFreqOf(s, i + 1);
+    const hzI = FRQ_implantatEffektiv(i, s);
+    const hzJ = FRQ_implantatEffektiv(i + 1, s);
     if (hzJ <= hzI) {
       warnings.push({
         level: IMPL_VAL_LEVEL_RED,
@@ -525,8 +520,8 @@ function _implCheckHzJumpMedelAb(s) {
                      || (s.FRQ_implantatOwn && s.FRQ_implantatOwn[i + 1] != null);
     if (!hasOverride) continue;
 
-    const hzI = (s.FRQ_implantatOwn && s.FRQ_implantatOwn[i]     != null) ? s.FRQ_implantatOwn[i]     : s.FRQ_implantat[i];
-    const hzJ = (s.FRQ_implantatOwn && s.FRQ_implantatOwn[i + 1] != null) ? s.FRQ_implantatOwn[i + 1] : s.FRQ_implantat[i + 1];
+    const hzI = FRQ_implantatEffektiv(i, s);
+    const hzJ = FRQ_implantatEffektiv(i + 1, s);
     if (!hzI || !hzJ || hzI <= 0 || hzJ <= 0) continue;
     if (!s.FRQ_implantat[i] || !s.FRQ_implantat[i + 1]) continue;
 

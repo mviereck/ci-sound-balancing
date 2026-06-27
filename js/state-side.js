@@ -17,7 +17,15 @@ let mfr,
   ELL_results,
   config;
 // FRQ_implantatEffektiv[i] = FRQ_implantatOwn[i] ?? FRQ_implantat[i] (MFR default)
-function FRQ_implantatEffektiv(i) {
+// Optionales srcData: ohne = globale Seite (58 Bestandsaufrufer), mit = explizites Seiten-Objekt
+// (ersetzt _implEffFreqOf; 0-Fallback nur im srcData-Zweig)
+function FRQ_implantatEffektiv(i, srcData) {
+  if (srcData) {
+    var own = srcData.FRQ_implantatOwn;
+    if (own && own[i] != null) return own[i];
+    var def = srcData.FRQ_implantat;
+    return def ? def[i] : 0;          // 0-Fallback wie _implEffFreqOf
+  }
   return FRQ_implantatOwn && FRQ_implantatOwn[i] != null ? FRQ_implantatOwn[i] : FRQ_implantat[i];
 }
 // Effektive Anzeige-/Berechnungs-Frequenz unter Berücksichtigung des
