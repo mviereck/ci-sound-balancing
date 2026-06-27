@@ -547,28 +547,37 @@ function shuffle(a) {
 function randAB(p) {
   return p.map(([x, y]) => (Math.random() < 0.5 ? [x, y] : [y, x]));
 }
-function ell_gWt(i) {
-  const s = elSt[i];
-  if (elExDur[i] !== null || s === "mute") return 0;
+function ell_gWt(i, elSt_, elExDur_) {
+  var _elSt    = elSt_    || elSt;
+  var _elExDur = elExDur_ || elExDur;
+  const s = _elSt[i];
+  if (_elExDur[i] !== null || s === "mute") return 0;
   if (s === "almostMute") return 0.05;
   if (s === "noisyHeavy") return 0.15;
-  if (s === "noisyMore") return 0.4;
-  if (s === "noisyLess") return 0.8;
+  if (s === "noisyMore")  return 0.4;
+  if (s === "noisyLess")  return 0.8;
   return 1;
 }
-function ELL_compWLS() {
-  const n = nEl,
+function ELL_compWLS(ctx) {
+  ctx = ctx || {};
+  var _nEl     = (ctx.nEl        != null) ? ctx.nEl        : nEl;
+  var _results = (ctx.ELL_results != null) ? ctx.ELL_results : ELL_results;
+  var _elSt    = (ctx.elSt       != null) ? ctx.elSt       : elSt;
+  var _elExDur = (ctx.elExDur    != null) ? ctx.elExDur    : elExDur;
+  var _refEl   = (ctx.ELL_refEl  != null) ? ctx.ELL_refEl  : ELL_refEl;
+
+  const n = _nEl,
     lv = new Array(n).fill(0);
-  const valid = ELL_results.filter(
+  const valid = _results.filter(
     (r) =>
       r.a >= 0 &&
       r.a < n &&
       r.b >= 0 &&
       r.b < n &&
-      elExDur[r.a] === null &&
-      elSt[r.a] !== "mute" &&
-      elExDur[r.b] === null &&
-      elSt[r.b] !== "mute",
+      _elExDur[r.a] === null &&
+      _elSt[r.a] !== "mute" &&
+      _elExDur[r.b] === null &&
+      _elSt[r.b] !== "mute",
   );
   if (!valid.length)
     return {
@@ -581,14 +590,14 @@ function ELL_compWLS() {
     const su = new Array(n).fill(0),
       wt = new Array(n).fill(0);
     for (const r of valid) {
-      const w = Math.min(ell_gWt(r.a), ell_gWt(r.b));
+      const w = Math.min(ell_gWt(r.a, _elSt, _elExDur), ell_gWt(r.b, _elSt, _elExDur));
       su[r.b] += (lv[r.a] - r.offset) * w;
       wt[r.b] += w;
       su[r.a] += (lv[r.b] + r.offset) * w;
       wt[r.a] += w;
     }
     for (let i = 0; i < n; i++) {
-      if (i === ELL_refEl) {
+      if (i === _refEl) {
         lv[i] = 0;
         continue;
       }
@@ -611,7 +620,7 @@ function ELL_compWLS() {
     levels: lv,
     residuals: res,
     ELL_res,
-    ELL_wt: new Array(n).fill(0).map((_, i) => ell_gWt(i)),
+    ELL_wt: new Array(n).fill(0).map((_, i) => ell_gWt(i, _elSt, _elExDur)),
   };
 }
 
@@ -640,17 +649,22 @@ function ELL_compWLS() {
 // frueher in player.js/tone-popup.js duplizierte hd-Check.
 function ELL_testData(opts) {
   opts = opts || {};
+  const _ctx = opts.ctx || {};
   const run = function () {
-    const n = nEl;
-    const { levels, ELL_res, ELL_wt } = ELL_compWLS();
+    var _nEl      = (_ctx.nEl        != null) ? _ctx.nEl        : nEl;
+    var _results  = (_ctx.ELL_results != null) ? _ctx.ELL_results : ELL_results;
+    var _elSt     = (_ctx.elSt       != null) ? _ctx.elSt       : elSt;
+    var _elExDur  = (_ctx.elExDur    != null) ? _ctx.elExDur    : elExDur;
+    const n = _nEl;
+    const { levels, ELL_res, ELL_wt } = ELL_compWLS(opts.ctx);
     const measured = new Array(n);
     const correction = new Array(n);
     const correctionGain = new Array(n);
     for (let i = 0; i < n; i++) {
-      const hd = ELL_results.some(function (r) {
+      const hd = _results.some(function (r) {
         return (r.a === i || r.b === i)
-          && elExDur[r.a] === null && elSt[r.a] !== "mute"
-          && elExDur[r.b] === null && elSt[r.b] !== "mute";
+          && _elExDur[r.a] === null && _elSt[r.a] !== "mute"
+          && _elExDur[r.b] === null && _elSt[r.b] !== "mute";
       });
       const m = (hd && isFinite(levels[i])) ? levels[i] : 0;
       measured[i] = m;

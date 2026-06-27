@@ -133,8 +133,23 @@ function _axisTooltipHandler(cv, e) {
 // ============================================================
 // CHART
 // ============================================================
-function ELL_drawChart(cv, vals, res, isOff, ell_color) {
-  const ctx = cv.getContext("2d"),
+function ELL_drawChart(cv, vals, res, isOff, ell_color, ctx) {
+  ctx = ctx || {};
+  var _nEl      = (ctx.nEl       != null) ? ctx.nEl       : nEl;
+  var _elSt     = (ctx.elSt      != null) ? ctx.elSt      : elSt;
+  var _elExDur  = (ctx.elExDur   != null) ? ctx.elExDur   : elExDur;
+  var _refEl    = (ctx.ELL_refEl != null) ? ctx.ELL_refEl : (typeof ELL_refEl !== "undefined" ? ELL_refEl : null);
+  var _hzGetter = ctx.hzGetter || null;
+  var _dEN       = ctx.dEN       || dEN;
+  var _dENPrefix = ctx.dENPrefix || dENPrefix;
+
+  var allE = [];
+  for (var _i = 0; _i < _nEl; _i++) allE.push(_i);
+  var act = allE.filter(function (i) {
+    return _elExDur[i] === null && _elSt[i] !== "mute";
+  });
+
+  const ctx2d = cv.getContext("2d"),
     dpr = window.devicePixelRatio || 1,
     w = cv.parentElement.clientWidth - 32,
     h = 320;
@@ -142,14 +157,12 @@ function ELL_drawChart(cv, vals, res, isOff, ell_color) {
   cv.height = h * dpr;
   cv.style.width = w + "px";
   cv.style.height = h + "px";
-  ctx.scale(dpr, dpr);
+  ctx2d.scale(dpr, dpr);
   const pad = { top: 30, right: 20, bottom: 57, left: 55 },
     pW = w - pad.left - pad.right,
     pH = h - pad.top - pad.bottom;
-  ctx.clearRect(0, 0, w, h);
-  const act = actEl(),
-    allE = allEl(),
-    aV = act.map((i) => vals[i]),
+  ctx2d.clearRect(0, 0, w, h);
+  const aV = act.map((i) => vals[i]),
     aR = res ? act.map((i) => res[i]) : null;
   let yMn, yMx;
   if (isOff) {
@@ -168,33 +181,33 @@ function ELL_drawChart(cv, vals, res, isOff, ell_color) {
     yMn -= r * 0.1;
     yMx += r * 0.1;
   }
-  const axis = buildLinearAxis(allE, pad.left, pW),
+  const axis = buildLinearAxis(allE, pad.left, pW, _hzGetter),
     tX = axis.tX,
     xS = axis.minDx,
     tY = (v) => pad.top + (yMx - v) * (pH / (yMx - yMn || 1));
-  ctx.strokeStyle = "#e5e5e5";
-  ctx.lineWidth = 1;
+  ctx2d.strokeStyle = "#e5e5e5";
+  ctx2d.lineWidth = 1;
   for (let i = 0; i <= 5; i++) {
     const v = yMn + ((yMx - yMn) * i) / 5,
       y = tY(v);
-    ctx.beginPath();
-    ctx.moveTo(pad.left, y);
-    ctx.lineTo(w - pad.right, y);
-    ctx.stroke();
-    ctx.fillStyle = "#999";
-    ctx.font = "10px Consolas,monospace";
-    ctx.textAlign = "right";
-    ctx.fillText(v.toFixed(1), pad.left - 8, y + 4);
+    ctx2d.beginPath();
+    ctx2d.moveTo(pad.left, y);
+    ctx2d.lineTo(w - pad.right, y);
+    ctx2d.stroke();
+    ctx2d.fillStyle = "#999";
+    ctx2d.font = "10px Consolas,monospace";
+    ctx2d.textAlign = "right";
+    ctx2d.fillText(v.toFixed(1), pad.left - 8, y + 4);
   }
   if (yMn < 0 && yMx > 0) {
-    ctx.strokeStyle = "#aaa";
-    ctx.lineWidth = 1.5;
-    ctx.setLineDash([4, 3]);
-    ctx.beginPath();
-    ctx.moveTo(pad.left, tY(0));
-    ctx.lineTo(w - pad.right, tY(0));
-    ctx.stroke();
-    ctx.setLineDash([]);
+    ctx2d.strokeStyle = "#aaa";
+    ctx2d.lineWidth = 1.5;
+    ctx2d.setLineDash([4, 3]);
+    ctx2d.beginPath();
+    ctx2d.moveTo(pad.left, tY(0));
+    ctx2d.lineTo(w - pad.right, tY(0));
+    ctx2d.stroke();
+    ctx2d.setLineDash([]);
   }
   const bW = Math.min(xS * 0.6, 34);
   const colorMap = {
@@ -203,10 +216,10 @@ function ELL_drawChart(cv, vals, res, isOff, ell_color) {
     red: "#dc2626",
     grey: "#9ca3af",
   };
-  if (typeof ELL_refEl !== "undefined" && ELL_refEl !== null) {
-    const jRef = allE.indexOf(ELL_refEl);
+  if (_refEl !== null) {
+    const jRef = allE.indexOf(_refEl);
     if (jRef >= 0) {
-      _drawRefElLabel(ctx, tX(jRef), pad.top - 4);
+      _drawRefElLabel(ctx2d, tX(jRef), pad.top - 4);
     }
   }
   for (let j = 0; j < allE.length; j++) {
@@ -216,11 +229,10 @@ function ELL_drawChart(cv, vals, res, isOff, ell_color) {
       yZ = tY(0),
       yV = tY(v);
 
-    const isDisabled = (typeof elExDur !== 'undefined' && elExDur[i] !== null)
-                    || (typeof elSt    !== 'undefined' && elSt[i] === 'mute');
+    const isDisabled = _elExDur[i] !== null || _elSt[i] === "mute";
 
     if (isDisabled) {
-      drawDisabledBar(ctx, x, pad.top, pad.top + pH, bW);
+      drawDisabledBar(ctx2d, x, pad.top, pad.top + pH, bW);
     } else {
       const col = ell_color
         ? colorMap[ell_color(i) || "grey"]
@@ -229,46 +241,46 @@ function ELL_drawChart(cv, vals, res, isOff, ell_color) {
           : v < -0.05
             ? "#dc2626"
             : "#9ca3af";
-      ctx.fillStyle = col;
-      ctx.fillRect(x, Math.min(yZ, yV), bW, Math.abs(yV - yZ) || 2);
+      ctx2d.fillStyle = col;
+      ctx2d.fillRect(x, Math.min(yZ, yV), bW, Math.abs(yV - yZ) || 2);
       if (res && res[i] > 0 && act.includes(i)) {
         const r = res[i],
           yt = tY(v + r),
           yb = tY(v - r);
-        ctx.strokeStyle = "#00000044";
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.moveTo(tX(j), yt);
-        ctx.lineTo(tX(j), yb);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(tX(j) - 4, yt);
-        ctx.lineTo(tX(j) + 4, yt);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(tX(j) - 4, yb);
-        ctx.lineTo(tX(j) + 4, yb);
-        ctx.stroke();
+        ctx2d.strokeStyle = "#00000044";
+        ctx2d.lineWidth = 1.5;
+        ctx2d.beginPath();
+        ctx2d.moveTo(tX(j), yt);
+        ctx2d.lineTo(tX(j), yb);
+        ctx2d.stroke();
+        ctx2d.beginPath();
+        ctx2d.moveTo(tX(j) - 4, yt);
+        ctx2d.lineTo(tX(j) + 4, yt);
+        ctx2d.stroke();
+        ctx2d.beginPath();
+        ctx2d.moveTo(tX(j) - 4, yb);
+        ctx2d.lineTo(tX(j) + 4, yb);
+        ctx2d.stroke();
       }
     }
 
-    ctx.fillStyle = i === ELL_refEl ? "#2563eb" : "#555";
-    ctx.font = (i === ELL_refEl ? "bold " : "") + "10px Segoe UI,sans-serif";
-    ctx.textAlign = "center";
+    ctx2d.fillStyle = i === _refEl ? "#2563eb" : "#555";
+    ctx2d.font = (i === _refEl ? "bold " : "") + "10px Segoe UI,sans-serif";
+    ctx2d.textAlign = "center";
     const yE = h - pad.bottom + 14,
           yHz = h - pad.bottom + 25,
           yAB = h - pad.bottom + 38;
-    ctx.fillText(dENPrefix() + dEN(i), tX(j), yE);
-    ctx.font = "8px Consolas,monospace";
-    ctx.fillStyle = "#999";
-    ctx.fillText(Math.round(axis.hzArr[j]), tX(j), yHz);
+    ctx2d.fillText(_dENPrefix() + _dEN(i), tX(j), yE);
+    ctx2d.font = "8px Consolas,monospace";
+    ctx2d.fillStyle = "#999";
+    ctx2d.fillText(Math.round(axis.hzArr[j]), tX(j), yHz);
     if (j === 0) {
-      ctx.font = "8px Segoe UI,sans-serif";
-      ctx.fillText(t("apikal"), tX(j), yAB);
+      ctx2d.font = "8px Segoe UI,sans-serif";
+      ctx2d.fillText(t("apikal"), tX(j), yAB);
     }
     if (j === allE.length - 1) {
-      ctx.font = "8px Segoe UI,sans-serif";
-      ctx.fillText(t("basal"), tX(j), yAB);
+      ctx2d.font = "8px Segoe UI,sans-serif";
+      ctx2d.fillText(t("basal"), tX(j), yAB);
     }
   }
   cv._axisHits = [];
@@ -279,44 +291,44 @@ function ELL_drawChart(cv, vals, res, isOff, ell_color) {
     cv._axisHits.push({
       x0: cx - halfDx, x1: cx + halfDx,
       y0: h - pad.bottom + 2, y1: h - pad.bottom + 34,
-      label: dENPrefix() + dEN(i),
+      label: _dENPrefix() + _dEN(i),
       hz: axis.hzArr[j],
       // cent fehlt absichtlich — Tooltip zeigt seit BA 67 nur noch Hz
     });
   }
   _attachAxisTooltip(cv);
-  ctx.strokeStyle = "#2563eb44";
-  ctx.lineWidth = 2;
-  ctx.beginPath();
+  ctx2d.strokeStyle = "#2563eb44";
+  ctx2d.lineWidth = 2;
+  ctx2d.beginPath();
   let first = true;
   for (let j = 0; j < allE.length; j++) {
     const i = allE[j];
     if (!act.includes(i)) continue;
     if (first) {
-      ctx.moveTo(tX(j), tY(vals[i]));
+      ctx2d.moveTo(tX(j), tY(vals[i]));
       first = false;
-    } else ctx.lineTo(tX(j), tY(vals[i]));
+    } else ctx2d.lineTo(tX(j), tY(vals[i]));
   }
-  ctx.stroke();
+  ctx2d.stroke();
   for (let j = 0; j < allE.length; j++) {
     const i = allE[j];
     if (!act.includes(i)) continue;
-    ctx.beginPath();
-    ctx.arc(tX(j), tY(vals[i]), 3.5, 0, Math.PI * 2);
-    ctx.fillStyle = "#2563eb";
-    ctx.fill();
-    ctx.strokeStyle = "#fff";
-    ctx.lineWidth = 2;
-    ctx.stroke();
+    ctx2d.beginPath();
+    ctx2d.arc(tX(j), tY(vals[i]), 3.5, 0, Math.PI * 2);
+    ctx2d.fillStyle = "#2563eb";
+    ctx2d.fill();
+    ctx2d.strokeStyle = "#fff";
+    ctx2d.lineWidth = 2;
+    ctx2d.stroke();
   }
-  ctx.save();
-  ctx.translate(12, pad.top + pH / 2);
-  ctx.rotate(-Math.PI / 2);
-  ctx.fillStyle = "#666";
-  ctx.font = "10px Segoe UI,sans-serif";
-  ctx.textAlign = "center";
-  ctx.fillText("dB", 0, 0);
-  ctx.restore();
+  ctx2d.save();
+  ctx2d.translate(12, pad.top + pH / 2);
+  ctx2d.rotate(-Math.PI / 2);
+  ctx2d.fillStyle = "#666";
+  ctx2d.font = "10px Segoe UI,sans-serif";
+  ctx2d.textAlign = "center";
+  ctx2d.fillText("dB", 0, 0);
+  ctx2d.restore();
 }
 
 

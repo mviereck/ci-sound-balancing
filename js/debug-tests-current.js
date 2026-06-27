@@ -104,3 +104,58 @@
     return lines.join('\n');
   });
 })();
+
+/* BA399 — ELL_compWLS/drawChart-Parametrisierung neutral */
+(function() {
+  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
+  dbg.test('build/BA399/parametrisierung-neutral', {
+    tab: 'messungen',
+    label: 'BA399: ELL_compWLS/drawChart-Parametrisierung neutral'
+  }, function() {
+    var lines = [];
+    function chk(label, val) { lines.push((val ? '✓' : '✗') + ' ' + label); }
+
+    // Test 1: ELL_compWLS ohne ctx vs. mit gleichwertigem ctx — identische levels
+    var r1 = ELL_compWLS();
+    var r2 = ELL_compWLS({
+      ELL_results: ELL_results,
+      elSt: elSt,
+      elExDur: elExDur,
+      ELL_refEl: ELL_refEl,
+      nEl: nEl
+    });
+    var identical = r1.levels.length === r2.levels.length;
+    if (identical) {
+      for (var i = 0; i < r1.levels.length; i++) {
+        if (Math.abs(r1.levels[i] - r2.levels[i]) > 1e-9) { identical = false; break; }
+      }
+    }
+    chk('levels ohne ctx == levels mit globalem ctx (Toleranz 1e-9)', identical);
+
+    // Test 2: ctx wirkt wirklich (Mini-ctx)
+    var resultsVorher = ELL_results.slice();
+    var miniCtx = {
+      nEl: 3,
+      ELL_results: [{a:0, b:1, offset:6}, {a:1, b:2, offset:6}],
+      elSt: [null, null, null],
+      elExDur: [null, null, null],
+      ELL_refEl: 1
+    };
+    var r3 = ELL_compWLS(miniCtx);
+    chk('Mini-ctx: levels hat 3 Elemente', r3.levels.length === 3);
+    // Mit refEl=1, Paaren 0<1 und 1<2 mit offset=6 ergibt: lv[1]=0 (refEl),
+    // lv[0] negativ (tiefer als Ref), lv[2] positiv (hoeher als Ref)
+    chk('Mini-ctx: levels[0] < levels[1] (= 0)', r3.levels[0] < r3.levels[1]);
+    chk('Mini-ctx: levels[1] (= 0) < levels[2]', r3.levels[1] < r3.levels[2]);
+    // Globaler Zustand unveraendert
+    var zustandUnveraendert = ELL_results.length === resultsVorher.length;
+    if (zustandUnveraendert) {
+      for (var j = 0; j < resultsVorher.length; j++) {
+        if (ELL_results[j] !== resultsVorher[j]) { zustandUnveraendert = false; break; }
+      }
+    }
+    chk('Globaler ELL_results unveraendert nach Mini-ctx-Aufruf', zustandUnveraendert);
+
+    return lines.join('\n');
+  });
+})();
