@@ -364,26 +364,3 @@
     return lines.join('\n');
   });
 })();
-
-/* BA405 — Verlaufsanalyse-Reiter & Debug-Sichtbarkeit */
-(function() {
-  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
-  dbg.test('build/BA405/reiter-debug', { label: 'BA405: Verlaufsanalyse-Reiter & Debug-Sichtbarkeit' }, function() {
-    var lines = [];
-    function chk(label, val) { lines.push((val ? '✓' : '✗') + ' ' + label); }
-
-    var tabBtn = document.getElementById('tabVerlaufsanalyse');
-    chk('#tabVerlaufsanalyse existiert im DOM', !!tabBtn);
-
-    var debugOn = !!(window.dbg && typeof window.dbg.isActive === 'function' && window.dbg.isActive());
-    if (tabBtn) {
-      chk('Tab sichtbar wenn Debug aktiv', debugOn ? tabBtn.style.display !== 'none' : true);
-    }
-
-    chk('#panel-verlaufsanalyse existiert', !!document.getElementById('panel-verlaufsanalyse'));
-    chk('_isCimbelSave als Funktion verfügbar', typeof _isCimbelSave === 'function');
-    chk('_looksLikeEasyEffects als Funktion verfügbar', typeof _looksLikeEasyEffects === 'function');
-
-    return lines.join('\n');
-  });
-})();
