@@ -250,7 +250,7 @@ function frq_varHz(elIdx) {
 }
 // Anzeigenummer der Elektrode
 function frq_varSideElectrodeLabel(elIdx) {
-  return withSide(frq_varSide, () => dEN(elIdx));
+  return dEN(elIdx, frq_varSide);
 }
 // Alle aktiven Elektroden der variablen Seite (aufsteigend nach Frequenz)
 // BA 207: Schneidet eine Elektroden-Sequenz auf die User-Auswahl.
@@ -1215,7 +1215,7 @@ function _FRQ_migrateAltToPiano() {
 // Boxen: Kandidat (var) zeigt Elektrode + Rolle; Referenz zeigt Vergleichston.
 function _frq_pianoUpdateBoxes(border) {
   var pi = _frq_pianoPairIndicator();
-  var elLabel = withSide(frq_varSide, function() { return dENPrefix() + dEN(frq_currentEl); });
+  var elLabel = dENPrefix(frq_varSide) + dEN(frq_currentEl, frq_varSide);
   var roleUp  = (border === 'lower') ? t('FRQ_pianoBoxLower') : t('FRQ_pianoBoxHigher');
   if (pi) {
     pi.left.textContent  = elLabel + ' — ' + roleUp;

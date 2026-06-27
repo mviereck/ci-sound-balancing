@@ -510,7 +510,7 @@ function FRQ_renderResults() {
     const exCI = sideData[ciSide].elExDur[i] !== null || sideData[ciSide].elSt[i] === 'mute';
     const r = byIdx[i];
     const tr = document.createElement("tr");
-    const elLabel = withSide(ciSide, () => dENPrefix() + dEN(i));
+    const elLabel = dENPrefix(ciSide) + dEN(i, ciSide);
 
     if (exCI) {
       tr.style.opacity = "0.4";
@@ -752,7 +752,7 @@ function FRQ_renderResults() {
           : 0;
         if (noisy.length > 0) {
           const names = noisy.map(function(r) {
-            return withSide(ciSide, function() { return dENPrefix() + dEN(r.elIdx); });
+            return dENPrefix(ciSide) + dEN(r.elIdx, ciSide);
           }).join(', ');
           txt = t('FRQ_resultsQualityOkWithNoisy')
             .replace('{res}', meanRes.toFixed(1))

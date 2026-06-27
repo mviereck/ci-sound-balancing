@@ -320,4 +320,47 @@
 
     return lines.join('\n');
   });
+
+  dbg.test('build/BA404/den-side-neutral', {
+    tab: 'messungen',
+    label: 'BA404: dEN(i,side) == withSide-Label, seitenrichtig'
+  }, function() {
+    var lines = [];
+    function chk(desc, ok) { lines.push((ok ? 'OK' : 'FAIL') + ' ' + desc); }
+
+    // 1. dEN(i, side) == withSide(side, ()=>dEN(i)) fuer beide Seiten
+    var sideBefore = activeSide;
+    ['left', 'right'].forEach(function(side) {
+      [0, 1, 2].forEach(function(i) {
+        var via_param = dEN(i, side);
+        var via_ws    = withSide(side, function() { return dEN(i); });
+        chk('dEN(' + i + ',"' + side + '") == withSide', via_param === via_ws);
+      });
+    });
+
+    // 2. dEN(i) ohne Argument == globales Verhalten unveraendert
+    var globalMfr = MFR[mfr];
+    [0, 1, 2].forEach(function(i) {
+      var expected = globalMfr.apFirst ? i + 1 : nEl - i;
+      chk('dEN(' + i + ') ohne side == global', dEN(i) === expected);
+    });
+
+    // 3. Kein globaler Seiteneffekt nach dEN(i, otherSide)
+    var otherSide = (activeSide === 'left') ? 'right' : 'left';
+    dEN(0, otherSide);
+    chk('activeSide nach dEN(i,otherSide) unveraendert', activeSide === sideBefore);
+
+    // 4. ELL_ctx.dEN weiterhin korrekt (Duplikat sauber aufgeloest)
+    ['left', 'right'].forEach(function(side) {
+      [0, 1].forEach(function(i) {
+        var via_ctx   = ELL_ctx(side).dEN(i);
+        var via_param = dEN(i, side);
+        chk('ELL_ctx("' + side + '").dEN(' + i + ') == dEN(i,side)', via_ctx === via_param);
+      });
+    });
+    var ctxGlobal = ELL_ctx('global');
+    chk('ELL_ctx("global").dEN(0) == dEN(0, activeSide)', ctxGlobal.dEN(0) === dEN(0, activeSide));
+
+    return lines.join('\n');
+  });
 })();

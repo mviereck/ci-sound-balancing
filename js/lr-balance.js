@@ -71,9 +71,9 @@ function _lrTpElectrodeLabels() {
   var n = _lrTpKbdN();
   if (n <= 0) return [];
   var arr = [];
-  var prefix = withSide(activeSide, function() { return dENPrefix(); });
+  var prefix = dENPrefix(activeSide);
   for (var i = 0; i < n; i++) {
-    arr.push(prefix + withSide(activeSide, function() { return dEN(i); }));
+    arr.push(prefix + dEN(i, activeSide));
   }
   return arr;
 }
@@ -109,7 +109,7 @@ function stb_effFRQ(side, elIdx) {
 
 // Get the electrode display number for a given side
 function stb_dEN(side, elIdx) {
-  return withSide(side, () => dEN(elIdx));
+  return dEN(elIdx, side);
 }
 
 // BA 290: Pegel-Aufteilung fuer das Links/Rechts-Paar mit Deckelung
@@ -314,9 +314,9 @@ function stb_showPair() {
   }
 
   // pairIndicator: Labels und Hz-Zeile setzen
-  const leftLabel = withSide("left", () => dENPrefix("left") + dEN(el));
+  const leftLabel = dENPrefix("left") + dEN(el, "left");
   const rightEl = el < sideData["right"].nEl ? el : sideData["right"].nEl - 1;
-  const rightLabel = withSide("right", () => dENPrefix("right") + dEN(rightEl));
+  const rightLabel = dENPrefix("right") + dEN(rightEl, "right");
   const hzL = stb_effFRQ("left", el);
   const hzR = stb_effFRQ("right", rightEl);
   var piRef = STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance
@@ -479,8 +479,8 @@ function STB_renderResults() {
     const v = STB_results[i];
     const hzL = stb_effFRQ("left", i);
     const hzR = stb_effFRQ("right", rightEl);
-    const leftLabel  = withSide("left",  () => dENPrefix("left")  + dEN(i));
-    const rightLabel = withSide("right", () => dENPrefix("right") + dEN(rightEl));
+    const leftLabel  = dENPrefix("left")  + dEN(i, "left");
+    const rightLabel = dENPrefix("right") + dEN(rightEl, "right");
     const tr = document.createElement("tr");
 
     if (isDisabled) {
@@ -621,7 +621,7 @@ function STB_drawChart() {
     }
 
     // X-Achsenbeschriftung pro Elektrode (E / Hz)
-    const leftLabel = withSide("left", () => dENPrefix("left") + dEN(i));
+    const leftLabel = dENPrefix("left") + dEN(i, "left");
     ctx.fillStyle = "#555";
     ctx.font = "9px Segoe UI,sans-serif";
     ctx.textAlign = "center";
@@ -637,7 +637,7 @@ function STB_drawChart() {
     cv._axisHits.push({
       x0: tX(i) - halfDx, x1: tX(i) + halfDx,
       y0: H - pad.bottom + 2, y1: H - pad.bottom + 32,
-      label: withSide("left", () => dENPrefix("left") + dEN(i)),
+      label: dENPrefix("left") + dEN(i, "left"),
       hz: axis.hzArr[i],
       // cent fehlt absichtlich — Tooltip zeigt seit BA 67 nur noch Hz
     });
@@ -969,7 +969,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return { testable: testable, muted: muted, excluded: excluded };
           },
           electrodeLabel: function(i) {
-            var leftLabel = withSide("left", function() { return dENPrefix("left") + dEN(i); });
+            var leftLabel = dENPrefix("left") + dEN(i, "left");
             var hzL = stb_effFRQ("left", i);
             return leftLabel + " (" + Math.round(hzL) + " Hz)";
           }

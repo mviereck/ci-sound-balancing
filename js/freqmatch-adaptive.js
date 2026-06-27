@@ -819,7 +819,7 @@ function frq_renderStatusGrid() {
       row.classList.add('frq-status-current');
     }
 
-    const elName = withSide(frq_varSide, function() { return dENPrefix() + dEN(idx); });
+    const elName = dENPrefix(frq_varSide) + dEN(idx, frq_varSide);
     row.appendChild(_mkCell(elName));
 
     const iconMap = {

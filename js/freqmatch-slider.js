@@ -54,8 +54,8 @@ function frq_showElectrode() {
     const leftHz  = withSide('left',  function() { return FRQ_implantatEffektiv(frq_currentEl); });
     const rightHz = withSide('right', function() { return FRQ_implantatEffektiv(frq_currentEl); });
     if (pi) {
-      const leftLabel  = withSide('left',  function() { return dENPrefix() + dEN(frq_currentEl); });
-      const rightLabel = withSide('right', function() { return dENPrefix() + dEN(frq_currentEl); });
+      const leftLabel  = dENPrefix("left")  + dEN(frq_currentEl, "left");
+      const rightLabel = dENPrefix("right") + dEN(frq_currentEl, "right");
       testUI.pairIndicator.setLabels(pi, {
         leftText:  leftLabel  + ", " + leftHz.toFixed(2)  + " Hz (" + t("sideLeft")  + ")",
         rightText: rightLabel + ", " + rightHz.toFixed(2) + " Hz (" + t("sideRight") + ")"
@@ -64,7 +64,7 @@ function frq_showElectrode() {
   } else {
     const varHz = frq_varHz(frq_currentEl);
     const varSideLabel = frq_varSide === "left" ? t("sideLeft") : t("sideRight");
-    const varText = withSide(frq_varSide, () => dENPrefix()) + frq_varSideElectrodeLabel(frq_currentEl) + ", " +
+    const varText = dENPrefix(frq_varSide) + frq_varSideElectrodeLabel(frq_currentEl) + ", " +
       varHz.toFixed(2) + " Hz (" + varSideLabel + ")";
     if (pi) {
       if (frq_varSide === "left") {

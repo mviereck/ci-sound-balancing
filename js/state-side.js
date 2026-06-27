@@ -141,9 +141,6 @@ function ELL_ctx(side) {
   var key = (side === "left" || side === "right") ? side : activeSide;
   var s = sideData[key];
   if (!s) return {};                 // defensiv: keine Seite -> leeres ctx
-  // MFR-Eintrag der Seite (für dEN-Closure)
-  var mfrEntry = MFR[s.manufacturer];
-  var apFirst = mfrEntry ? mfrEntry.apFirst : true;
   var _nEl = s.nEl;
   var _frq    = s.FRQ_implantat;
   var _frqOwn = s.FRQ_implantatOwn;
@@ -160,7 +157,7 @@ function ELL_ctx(side) {
       return (_frqOwn && _frqOwn[i] != null) ? _frqOwn[i] : _frq[i];
     },
     dEN: function (i) {
-      return apFirst ? i + 1 : _nEl - i;
+      return dEN(i, key);
     },
     dENPrefix: function () {
       return _cfg === "ci" ? t("cfgLblEnCI") : t("cfgLblEnAcoustic");
@@ -596,7 +593,15 @@ function withSide(side, fn) {
     bindActiveSide();
   }
 }
-function dEN(i) {
+function dEN(i, side) {
+  if (side === "left" || side === "right") {
+    var s = sideData[side];
+    if (s) {
+      var me = MFR[s.manufacturer];
+      var ap = me ? me.apFirst : true;
+      return ap ? i + 1 : s.nEl - i;
+    }
+  }
   return MFR[mfr].apFirst ? i + 1 : nEl - i;
 }
 // Liefert das Präfix ("E" oder "B") für die aktive Seite

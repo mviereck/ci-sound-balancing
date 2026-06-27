@@ -387,7 +387,7 @@ function drawFRQChart(cv, fResData, opts) {
     const notPercFlag = !!notPerc[ciSide + ':' + i];
     allEls.push({
       elIdx: i,
-      elNum: withSide(ciSide, () => dEN(i)),
+      elNum: dEN(i, ciSide),
       hzIst: hzIst,
       cIst:  hzToCt(hzIst),
       hzSoll: r ? r.refFreq : null,
