@@ -14,6 +14,99 @@
     return out;
   }
 
+  // true = aktiv; nur explizites false macht inaktiv (BA 407).
+  function normActive(arr, n) {
+    var out = new Array(n);
+    for (var i = 0; i < n; i++) out[i] = !(Array.isArray(arr) && arr[i] === false);
+    return out;
+  }
+
+  // ---- Dedup-Konstanten (BA 407) ----
+  var ZA_DEDUP_MAX_H      = 24;    // Stunden: max. Abstand der juengsten Mess-Stempel
+  var ZA_DEDUP_MIN_SIM    = 0.90;  // Anteil identischer Paare
+  var ZA_DEDUP_OFFSET_EPS = 0.1;   // dB: Offset-Differenz, ab der ein Paar als verschieden gilt
+
+  // Juengster Mess-Stempel einer Sitzung (interner Stempel in raw[].timestamp).
+  function zaYoungestTs(session) {
+    var ts = null;
+    (session.raw || []).forEach(function (r) {
+      if (typeof r.timestamp === "number" && (ts === null || r.timestamp > ts)) ts = r.timestamp;
+    });
+    return ts;   // ms oder null (alte Datei ohne Stempel)
+  }
+
+  // Paar-Map einer Sitzung (Schluessel = sortiertes Paar, Wert = offset).
+  function zaPairMap(session) {
+    var m = {};
+    (session.raw || []).forEach(function (r) {
+      if (typeof r.a !== "number" || typeof r.b !== "number") return;
+      var k = Math.min(r.a, r.b) + "-" + Math.max(r.a, r.b);
+      m[k] = r.offset;
+    });
+    return m;
+  }
+
+  // true, wenn zwei Sitzungen zeitnah und inhaltlich aehnlich genug sind.
+  function zaSameSession(a, b) {
+    var ta = zaYoungestTs(a), tb = zaYoungestTs(b);
+    if (ta === null || tb === null) return false;
+    if (Math.abs(ta - tb) >= ZA_DEDUP_MAX_H * 3600 * 1000) return false;
+    var pa = zaPairMap(a), pb = zaPairMap(b);
+    var keysA = Object.keys(pa), keysB = Object.keys(pb);
+    var common = keysA.filter(function (k) { return k in pb; });
+    if (!common.length) return false;
+    var same = common.filter(function (k) { return Math.abs(pa[k] - pb[k]) < ZA_DEDUP_OFFSET_EPS; }).length;
+    var sim = same / Math.max(keysA.length, keysB.length);
+    return sim >= ZA_DEDUP_MIN_SIM;
+  }
+
+  // Gruppiert Sitzungen; behaelt je Gruppe den juengsten Repraesentanten.
+  // Vergleicht nur Sitzungen gleicher Seite.
+  function zaDedup(sessions) {
+    var used = new Array(sessions.length).fill(false);
+    var kept = [];
+    var merged = 0;
+    for (var i = 0; i < sessions.length; i++) {
+      if (used[i]) continue;
+      var group = [i];
+      used[i] = true;
+      for (var j = i + 1; j < sessions.length; j++) {
+        if (used[j]) continue;
+        if (sessions[i].side !== sessions[j].side) continue;
+        var match = group.some(function (k) { return zaSameSession(sessions[k], sessions[j]); });
+        if (match) { group.push(j); used[j] = true; }
+      }
+      var rep = group.reduce(function (best, k) {
+        var tb = zaYoungestTs(sessions[best]) || 0, tk = zaYoungestTs(sessions[k]) || 0;
+        return tk > tb ? k : best;
+      }, group[0]);
+      kept.push(sessions[rep]);
+      merged += (group.length - 1);
+    }
+    return { kept: kept, mergedCount: merged };
+  }
+
+  // ---- Vollstaendigkeitsfilter (BA 407) ----
+
+  // aktiv = nicht ausgeschlossen UND nicht stumm UND nicht abgewaehlt
+  function zaIsActive(session, i) {
+    return (session.elExDur[i] == null)
+        && (session.elSt[i] !== "mute")
+        && (session.elActive[i] !== false);
+  }
+
+  function zaIsComplete(session) {
+    var measured = {};
+    (session.raw || []).forEach(function (r) {
+      if (typeof r.a === "number") measured[r.a] = true;
+      if (typeof r.b === "number") measured[r.b] = true;
+    });
+    for (var i = 0; i < session.nEl; i++) {
+      if (zaIsActive(session, i) && !measured[i]) return false;
+    }
+    return true;
+  }
+
   // Modul-Zustand (überlebt Reiterwechsel, NICHT Neuladen — Architektur §8)
   var zaSessions = [];   // [{file, side, manufacturer, nEl, count, raw, elSt, elExDur, refEl, meanResidual}]
   var zaBilanz   = { eingelesen: 0, fremd: 0, herstellerKonflikt: 0,
@@ -71,7 +164,7 @@
   function zaProcess(parsed) {
     zaSessions = [];
     zaBilanz = { eingelesen: parsed.length, fremd: 0, herstellerKonflikt: 0,
-                 ohneSeite: 0, sitzungen: 0 };
+                 ohneSeite: 0, zusammengefasst: 0, unvollstaendig: 0, sitzungen: 0 };
 
     // 1) Fremdinhalt raus (vorhandene Helfer aus file.js)
     var cimbel = [];
@@ -104,7 +197,8 @@
                           // NEU (fuer die Pro-Datei-Rechnung, BA 406):
                           elSt:    normStatus(s.electrodeStatus,         nEl, null),
                           elExDur: normStatus(s.electrodeExcludedDuring, nEl, null),
-                          refEl:   (typeof s.referenceElectrode === "number") ? s.referenceElectrode : 0 });
+                          refEl:   (typeof s.referenceElectrode === "number") ? s.referenceElectrode : 0,
+                          elActive: normActive(s.electrodeActive, nEl) });
       });
     });
 
@@ -126,11 +220,25 @@
       zaBilanz.herstellerKonflikt = conflicts.length;
     }
 
-    zaSessions = candidates;
-    zaSessions.forEach(function (s) {
-      s.meanResidual = zaMeanResidual(s);   // Zahl (dB) oder null
+    // 1) Dedup (Architektur §6c)
+    var dd = zaDedup(candidates);
+    var deduped = dd.kept;
+    zaBilanz.zusammengefasst = dd.mergedCount;
+
+    // 2) Vollstaendigkeit (Architektur §6d) — auf den deduplizierten Repraesentanten
+    var vollstaendig = [];
+    var unvollstaendig = 0;
+    deduped.forEach(function (s) {
+      if (zaIsComplete(s)) vollstaendig.push(s);
+      else unvollstaendig++;
     });
-    zaBilanz.sitzungen = candidates.length;
+    zaBilanz.unvollstaendig = unvollstaendig;
+
+    // 3) Pro-Datei-Rechnung (BA 406) nur auf vollstaendigen Sitzungen
+    zaSessions = vollstaendig;
+    zaSessions.forEach(function (s) { s.meanResidual = zaMeanResidual(s); });
+    zaBilanz.sitzungen = zaSessions.length;
+
     zaRenderBilanz();
     zaRenderSessionList();
   }
@@ -186,18 +294,18 @@
         + 'Bitte Auswahl bereinigen und erneut wählen.</div>';
       return;
     }
-    var parts = [];
-    parts.push("<b>" + b.sitzungen + "</b> Mess-Seite(n) eingelesen");
+    var hauptzeile = "<b>" + b.sitzungen + "</b> Sitzung(en) ausgewertet";
+    if (b.zusammengefasst > 0) {
+      hauptzeile += " (aus " + (b.sitzungen + b.zusammengefasst) + " Dateien zusammengefasst)";
+    }
     var raus = [];
     if (b.fremd) raus.push(b.fremd + "× Fremdinhalt");
     if (b.herstellerKonflikt) raus.push(b.herstellerKonflikt + "× Hersteller-Konflikt");
+    if (b.unvollstaendig) raus.push(b.unvollstaendig + "× unvollständig");
     var aus = raus.length ? " — ausgelassen: " + raus.join(", ") : "";
     el.innerHTML = '<div style="background:#f3f4f6;border-radius:6px;padding:10px">'
-      + parts.join("") + aus
-      + '<div style="color:#888;font-size:.85em;margin-top:4px">'
-      + 'Hinweis: Mehrfach gespeicherte Fassungen derselben Messung werden in '
-      + 'dieser Stufe noch als eigene Zeilen gezählt; das Zusammenfassen folgt.'
-      + '</div></div>';
+      + hauptzeile + aus
+      + '</div>';
   }
 
   function zaRenderSessionList() {
@@ -235,8 +343,14 @@
 
   // Export für debug.js-Hook
   window.zaUpdateTabVisibility = zaUpdateTabVisibility;
-  // Debug-Hook für BA406-Diagnose-Test (zaToCtx/zaMeanResidual modul-lokal)
-  window.zaDebug = { toCtx: zaToCtx, meanResidual: zaMeanResidual };
+  // Debug-Hook fuer Diagnose-Tests (zaToCtx/zaMeanResidual BA406; Dedup/isComplete BA407)
+  window.zaDebug = {
+    toCtx:       zaToCtx,
+    meanResidual: zaMeanResidual,
+    sameSession:  zaSameSession,
+    dedup:        zaDedup,
+    isComplete:   zaIsComplete,
+  };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", zaInit);

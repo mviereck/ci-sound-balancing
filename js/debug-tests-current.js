@@ -342,6 +342,96 @@
   });
 })();
 
+/* BA407 — Dedup + Vollstaendigkeitsfilter */
+(function() {
+  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
+  dbg.test('build/BA407/dedup-vollstaendigkeit', {
+    tab: 'messungen',
+    label: 'BA407: Dedup + Vollstaendigkeitsfilter'
+  }, function() {
+    var lines = [];
+    function chk(label, val) { lines.push((val ? 'OK' : 'FAIL') + ' ' + label); }
+
+    if (!window.zaDebug) { return 'FAIL zaDebug nicht exportiert'; }
+    var zaSameSession = window.zaDebug.sameSession;
+    var zaDedup       = window.zaDebug.dedup;
+    var zaIsComplete  = window.zaDebug.isComplete;
+
+    var now = Date.now();
+    var H = 3600 * 1000;
+
+    // Hilfsfunktion: minimale synthetische Sitzung
+    function mkSess(side, stempelMs, pairs) {
+      var raw = pairs.map(function(p) {
+        return { a: p[0], b: p[1], offset: p[2], timestamp: stempelMs };
+      });
+      return {
+        side: side, nEl: 3,
+        raw: raw,
+        elSt:    [null, null, null],
+        elExDur: [null, null, null],
+        elActive: [true, true, true]
+      };
+    }
+
+    var pairsA = [[0,1,3.0], [1,2,2.0]];
+
+    // Test 1: Dedup fasst zusammen — gleiche Seite, 1 h Abstand, identische Paare
+    var sA = mkSess('right', now,       pairsA);
+    var sB = mkSess('right', now + H,   pairsA);   // 1 h juenger
+    chk('zaSameSession: gleiche Seite 1h — true', zaSameSession(sA, sB));
+    var dd1 = zaDedup([sA, sB]);
+    chk('zaDedup: kept.length === 1', dd1.kept.length === 1);
+    chk('zaDedup: mergedCount === 1', dd1.mergedCount === 1);
+    chk('zaDedup: behalten = juengerer (sB)', dd1.kept[0] === sB);
+
+    // Test 2: Dedup trennt — 48 h Abstand
+    var sC = mkSess('right', now + 48 * H, pairsA);
+    chk('zaSameSession: 48h Abstand — false', !zaSameSession(sA, sC));
+    var dd2 = zaDedup([sA, sC]);
+    chk('zaDedup: 48h — kept.length === 2', dd2.kept.length === 2);
+
+    // Test 3: Verschiedene Seiten werden nie zusammengefasst
+    var sLeft = mkSess('left',  now,     pairsA);
+    var sRight = mkSess('right', now + H, pairsA);
+    var dd3 = zaDedup([sLeft, sRight]);
+    chk('zaDedup: links+rechts — kept.length === 2', dd3.kept.length === 2);
+
+    // Test 4: Vollstaendigkeit — alle aktiven Elektroden gemessen
+    var sessKomplett = {
+      side: 'right', nEl: 3,
+      raw: [{a:0, b:1, offset:1, timestamp: now},
+            {a:1, b:2, offset:1, timestamp: now}],
+      elSt:    [null, null, null],
+      elExDur: [null, null, null],
+      elActive: [true, true, true]
+    };
+    chk('zaIsComplete: alle gemessen — true', zaIsComplete(sessKomplett));
+
+    // Test 5: Vollstaendigkeit — E1 aktiv aber ungemessen
+    var sessLuecke = {
+      side: 'right', nEl: 3,
+      raw: [{a:0, b:2, offset:1, timestamp: now}],   // E1 fehlt
+      elSt:    [null, null, null],
+      elExDur: [null, null, null],
+      elActive: [true, true, true]
+    };
+    chk('zaIsComplete: E1 ungemessen — false', !zaIsComplete(sessLuecke));
+
+    // Test 6: Vollstaendigkeit — E1 abgewaehlt (elActive=false), ungemessen -> ok
+    var sessAbgewaehlt = {
+      side: 'right', nEl: 3,
+      raw: [{a:0, b:2, offset:1, timestamp: now}],
+      elSt:    [null, null, null],
+      elExDur: [null, null, null],
+      elActive: [true, false, true]   // E1 abgewaehlt
+    };
+    chk('zaIsComplete: E1 abgewaehlt+ungemessen — true', zaIsComplete(sessAbgewaehlt));
+
+    return lines.join('\n');
+  });
+})();
+
 /* BA403 — ELL_measGain/ELL_testData ohne withSide, seitenrichtig */
 (function() {
   dbg.test('build/BA403/withside-ellctx-neutral', {
