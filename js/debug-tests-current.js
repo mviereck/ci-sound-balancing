@@ -282,3 +282,42 @@
     return lines.join('\n');
   });
 })();
+
+/* BA403 — ELL_measGain/ELL_testData ohne withSide, seitenrichtig */
+(function() {
+  dbg.test('build/BA403/withside-ellctx-neutral', {
+    tab: 'messungen',
+    label: 'BA403: ELL_measGain/ELL_testData ohne withSide, seitenrichtig'
+  }, function() {
+    var lines = [];
+    function chk(desc, ok) { lines.push((ok ? 'OK' : 'FAIL') + ' ' + desc); }
+
+    // 1. ELL_measGain seitenrichtig: Seite ohne Messdaten liefert 1
+    var sideBefore = activeSide;
+    var otherSide = (activeSide === 'left') ? 'right' : 'left';
+    var ctxOther = ELL_ctx(otherSide);
+    var hasOtherData = ctxOther.ELL_results && ctxOther.ELL_results.length > 0;
+    if (!hasOtherData) {
+      chk('ELL_measGain(otherSide, 1000) == 1 (keine Daten)', ELL_measGain(otherSide, 1000) === 1);
+    } else {
+      lines.push('INFO otherSide hat Messdaten, Wert-Check entfaellt');
+      var val = ELL_measGain(otherSide, 1000);
+      chk('ELL_measGain(otherSide, 1000) finit', isFinite(val) && val > 0);
+    }
+
+    // 2. Kein globaler Seiteneffekt: activeSide unveraendert nach ELL_measGain
+    ELL_measGain(otherSide, 1000);
+    chk('activeSide nach ELL_measGain unveraendert', activeSide === sideBefore);
+
+    // 3. ELL_testData({side}) == ELL_testData({ctx: ELL_ctx(side)}) elementweise
+    var side = activeSide;
+    var viaside = ELL_testData({ side: side }).correction;
+    var viactx  = ELL_testData({ ctx: ELL_ctx(side) }).correction;
+    var corrMatch = viaside && viactx && viaside.length === viactx.length &&
+      viaside.every(function(v, i) { return Math.abs(v - viactx[i]) < 1e-9; });
+    chk('ELL_testData({side}) == ELL_testData({ctx}) elementweise', !!corrMatch);
+    lines.push('  correction.length=' + (viaside ? viaside.length : 'n/a'));
+
+    return lines.join('\n');
+  });
+})();

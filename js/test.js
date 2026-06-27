@@ -649,14 +649,14 @@ function ELL_compWLS(ctx) {
 // frueher in player.js/tone-popup.js duplizierte hd-Check.
 function ELL_testData(opts) {
   opts = opts || {};
-  const _ctx = opts.ctx || {};
+  const _ctx = opts.ctx || (opts.side ? ELL_ctx(opts.side) : {});
   const run = function () {
     var _nEl      = (_ctx.nEl        != null) ? _ctx.nEl        : nEl;
     var _results  = (_ctx.ELL_results != null) ? _ctx.ELL_results : ELL_results;
     var _elSt     = (_ctx.elSt       != null) ? _ctx.elSt       : elSt;
     var _elExDur  = (_ctx.elExDur    != null) ? _ctx.elExDur    : elExDur;
     const n = _nEl;
-    const { levels, ELL_res, ELL_wt } = ELL_compWLS(opts.ctx);
+    const { levels, ELL_res, ELL_wt } = ELL_compWLS(_ctx);
     const measured = new Array(n);
     const correction = new Array(n);
     const correctionGain = new Array(n);
@@ -680,7 +680,7 @@ function ELL_testData(opts) {
       weight: ELL_wt,
     };
   };
-  return opts.side ? withSide(opts.side, run) : run();
+  return run();
 }
 
 // BA 300: Frequenzaufgeloeste Elektrodenlautstaerke-Korrektur (linearer
@@ -691,53 +691,51 @@ function ELL_testData(opts) {
 // (freqmatch.js); zentralisiert, damit alle Korrektur-Aufrufer (Klavier,
 // Vorspiel, Sweep) dieselbe Quelle nutzen.
 function ELL_measGain(side, hz) {
-  return withSide(side, function () {
-    // BA 303: defensive Abfragen (aus FRQ_correctionGain uebernommen). Ohne
-    // Mess-Paare oder ohne ELL_compWLS neutral zurueck, BEVOR ELL_testData()
-    // gerufen wird (nutzt intern ELL_results.some -> wuerde sonst werfen).
-    if (typeof ELL_results === "undefined" || !ELL_results || ELL_results.length === 0) return 1;
-    if (typeof ELL_compWLS !== "function") return 1;
-    var levels = ELL_testData({ ctx: ELL_ctx("global") }).correction;
-    if (!levels || !levels.length) return 1;
-    var nEff = (typeof nEl === "number" && nEl > 0) ? nEl
-             : ((typeof FRQ_implantat !== "undefined" && FRQ_implantat) ? FRQ_implantat.length : 0);
-    if (!nEff) return 1;
-    var f = [];
-    for (var _fi = 0; _fi < nEff; _fi++) f.push(FRQ_implantatEffektiv(_fi));
-    if (!f.length) return 1;
-    var n = f.length;
-    if (n === 1) return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
-    var lg = Math.log(hz);
-    var lgFirst = Math.log(f[0]);
-    var lgLast  = Math.log(f[n - 1]);
-    var ascending = lgLast > lgFirst;
-    if (ascending) {
-      if (lg <= lgFirst) return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
-      if (lg >= lgLast)  return isFinite(levels[n - 1]) ? dB2G(levels[n - 1]) : 1;
-    } else {
-      if (lg >= lgFirst) return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
-      if (lg <= lgLast)  return isFinite(levels[n - 1]) ? dB2G(levels[n - 1]) : 1;
+  var ctx = ELL_ctx(side);
+  // BA 303: defensive Abfragen (aus FRQ_correctionGain uebernommen). Ohne
+  // Mess-Paare oder ohne ELL_compWLS neutral zurueck, BEVOR ELL_testData()
+  // gerufen wird (nutzt intern ELL_results.some -> wuerde sonst werfen).
+  if (!ctx.ELL_results || ctx.ELL_results.length === 0) return 1;
+  if (typeof ELL_compWLS !== "function") return 1;
+  var levels = ELL_testData({ ctx: ctx }).correction;
+  if (!levels || !levels.length) return 1;
+  var nEff = (typeof ctx.nEl === "number" && ctx.nEl > 0) ? ctx.nEl : 0;
+  if (!nEff) return 1;
+  var f = [];
+  for (var _fi = 0; _fi < nEff; _fi++) f.push(ctx.hzGetter(_fi));
+  if (!f.length) return 1;
+  var n = f.length;
+  if (n === 1) return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
+  var lg = Math.log(hz);
+  var lgFirst = Math.log(f[0]);
+  var lgLast  = Math.log(f[n - 1]);
+  var ascending = lgLast > lgFirst;
+  if (ascending) {
+    if (lg <= lgFirst) return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
+    if (lg >= lgLast)  return isFinite(levels[n - 1]) ? dB2G(levels[n - 1]) : 1;
+  } else {
+    if (lg >= lgFirst) return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
+    if (lg <= lgLast)  return isFinite(levels[n - 1]) ? dB2G(levels[n - 1]) : 1;
+  }
+  for (var i = 0; i < n - 1; i++) {
+    var lgA = Math.log(f[i]);
+    var lgB = Math.log(f[i + 1]);
+    var lo = Math.min(lgA, lgB);
+    var hi = Math.max(lgA, lgB);
+    if (lg >= lo && lg <= hi) {
+      var elsA = levels[i];
+      var elsB = levels[i + 1];
+      if (!isFinite(elsA) && !isFinite(elsB)) return 1;
+      if (!isFinite(elsA)) return dB2G(elsB);
+      if (!isFinite(elsB)) return dB2G(elsA);
+      var tNum = lg - lgA;
+      var tDen = lgB - lgA;
+      var tt = (tDen === 0) ? 0 : (tNum / tDen);
+      var lv = elsA + (elsB - elsA) * tt;
+      return dB2G(lv);
     }
-    for (var i = 0; i < n - 1; i++) {
-      var lgA = Math.log(f[i]);
-      var lgB = Math.log(f[i + 1]);
-      var lo = Math.min(lgA, lgB);
-      var hi = Math.max(lgA, lgB);
-      if (lg >= lo && lg <= hi) {
-        var elsA = levels[i];
-        var elsB = levels[i + 1];
-        if (!isFinite(elsA) && !isFinite(elsB)) return 1;
-        if (!isFinite(elsA)) return dB2G(elsB);
-        if (!isFinite(elsB)) return dB2G(elsA);
-        var tNum = lg - lgA;
-        var tDen = lgB - lgA;
-        var tt = (tDen === 0) ? 0 : (tNum / tDen);
-        var lv = elsA + (elsB - elsA) * tt;
-        return dB2G(lv);
-      }
-    }
-    return 1;
-  });
+  }
+  return 1;
 }
 
 // BA 300: Kombinierter Pegel-Korrektor. Wendet auf einen Grundpegel die
