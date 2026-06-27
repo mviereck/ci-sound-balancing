@@ -283,6 +283,65 @@
   });
 })();
 
+/* BA406 — Pro-Datei-Rechnung via ELL_compWLS(ctx) */
+(function() {
+  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
+  dbg.test('build/BA406/prodatei-rechnung', {
+    tab: 'messungen',
+    label: 'BA406: Pro-Datei-Rechnung via ELL_compWLS(ctx)'
+  }, function() {
+    var lines = [];
+    function chk(label, val) { lines.push((val ? 'OK' : 'FAIL') + ' ' + label); }
+
+    if (!window.zaDebug) { return 'FAIL zaDebug nicht exportiert'; }
+    var zaToCtx = window.zaDebug.toCtx;
+    var zaMeanResidual = window.zaDebug.meanResidual;
+
+    // 1. Synthetische Sitzung
+    var session = {
+      nEl: 3,
+      raw: [{a:0, b:1, offset:6}, {a:1, b:2, offset:6}],
+      elSt:    [null, null, null],
+      elExDur: [null, null, null],
+      refEl:   1
+    };
+    var mr = zaMeanResidual(session);
+    chk('meanResidual: endliche Zahl >= 0 (kein NaN/null)', typeof mr === 'number' && isFinite(mr) && mr >= 0);
+
+    // 2. zaToCtx-Felder korrekt
+    var ctx = zaToCtx(session);
+    chk('zaToCtx: nEl korrekt',         ctx.nEl         === session.nEl);
+    chk('zaToCtx: ELL_results === raw', ctx.ELL_results === session.raw);
+    chk('zaToCtx: elSt korrekt',        ctx.elSt        === session.elSt);
+    chk('zaToCtx: elExDur korrekt',     ctx.elExDur     === session.elExDur);
+    chk('zaToCtx: ELL_refEl === refEl', ctx.ELL_refEl   === session.refEl);
+
+    // 3. Kein globaler Seiteneffekt
+    var ellBefore = (typeof ELL_results !== 'undefined') ? ELL_results.slice() : null;
+    var sideBefore = (typeof activeSide !== 'undefined') ? activeSide : null;
+    zaMeanResidual(session);
+    var ellAfter = (typeof ELL_results !== 'undefined') ? ELL_results : null;
+    if (ellBefore !== null && ellAfter !== null) {
+      var unchanged = ellBefore.length === ellAfter.length;
+      if (unchanged) {
+        for (var i = 0; i < ellBefore.length; i++) {
+          if (ellBefore[i] !== ellAfter[i]) { unchanged = false; break; }
+        }
+      }
+      chk('ELL_results global unveraendert nach zaMeanResidual', unchanged);
+    } else {
+      lines.push('INFO ELL_results nicht verfuegbar (kein Tool-Zustand)');
+    }
+    if (sideBefore !== null) {
+      chk('activeSide unveraendert nach zaMeanResidual',
+        (typeof activeSide !== 'undefined') && activeSide === sideBefore);
+    }
+
+    lines.push('  meanResidual=' + (mr !== null ? mr.toFixed(4) : 'null'));
+    return lines.join('\n');
+  });
+})();
+
 /* BA403 — ELL_measGain/ELL_testData ohne withSide, seitenrichtig */
 (function() {
   dbg.test('build/BA403/withside-ellctx-neutral', {

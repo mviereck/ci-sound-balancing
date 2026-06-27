@@ -5,8 +5,17 @@
 (function () {
   "use strict";
 
+  // Normalisiert ein Status-Array auf Laenge n; fehlende Eintraege erhalten fill.
+  // Verhindert, dass leere Arrays in ELL_compWLS-Filtern als "undefined" gelten
+  // und Paare faelschlich ausschliessen (BA 406).
+  function normStatus(arr, n, fill) {
+    var out = new Array(n);
+    for (var i = 0; i < n; i++) out[i] = (Array.isArray(arr) && arr[i] != null) ? arr[i] : fill;
+    return out;
+  }
+
   // Modul-Zustand (überlebt Reiterwechsel, NICHT Neuladen — Architektur §8)
-  var zaSessions = [];   // [{file, side, manufacturer, nEl, count, raw}]
+  var zaSessions = [];   // [{file, side, manufacturer, nEl, count, raw, elSt, elExDur, refEl, meanResidual}]
   var zaBilanz   = { eingelesen: 0, fremd: 0, herstellerKonflikt: 0,
                      ohneSeite: 0, sitzungen: 0 };
 
@@ -91,7 +100,11 @@
           return;
         }
         candidates.push({ file: p.name, side: sd, manufacturer: mfr,
-                          nEl: nEl, count: br.length, raw: br });
+                          nEl: nEl, count: br.length, raw: br,
+                          // NEU (fuer die Pro-Datei-Rechnung, BA 406):
+                          elSt:    normStatus(s.electrodeStatus,         nEl, null),
+                          elExDur: normStatus(s.electrodeExcludedDuring, nEl, null),
+                          refEl:   (typeof s.referenceElectrode === "number") ? s.referenceElectrode : 0 });
       });
     });
 
@@ -114,9 +127,41 @@
     }
 
     zaSessions = candidates;
+    zaSessions.forEach(function (s) {
+      s.meanResidual = zaMeanResidual(s);   // Zahl (dB) oder null
+    });
     zaBilanz.sitzungen = candidates.length;
     zaRenderBilanz();
     zaRenderSessionList();
+  }
+
+  // Baut das ELL_compWLS-ctx aus einer eingelesenen Sitzung (tool-fremde Datei).
+  // Architektur-Kapitel 00-zeitanalyse §3 (Datensatz-Vertrag, ELL-Variante).
+  function zaToCtx(session) {
+    return {
+      nEl:         session.nEl,
+      ELL_results: session.raw,
+      elSt:        session.elSt,
+      elExDur:     session.elExDur,
+      ELL_refEl:   session.refEl,
+    };
+  }
+
+  // Mittleres Residuum (dB) einer Sitzung: ELL_compWLS ueber ihr ctx,
+  // dann Mittel von ELL_res ueber die aktiven Elektroden der Sitzung.
+  function zaMeanResidual(session) {
+    if (typeof ELL_compWLS !== "function") return null;
+    var ctx = zaToCtx(session);
+    var r = ELL_compWLS(ctx);
+    if (!r || !r.ELL_res) return null;
+    var sum = 0, cnt = 0;
+    for (var i = 0; i < session.nEl; i++) {
+      var aktiv = (ctx.elExDur[i] == null) && (ctx.elSt[i] !== "mute");
+      if (!aktiv) continue;
+      sum += r.ELL_res[i];
+      cnt++;
+    }
+    return cnt ? (sum / cnt) : null;
   }
 
   // Erwarteter Hersteller/nEl der Seite aus dem aktuellen Tool-Zustand.
@@ -164,13 +209,17 @@
         + "</td><td style='padding:2px 10px'>" + (s.side === "left" ? "links" : "rechts")
         + "</td><td style='padding:2px 10px'>" + (s.manufacturer || "?")
         + "</td><td style='padding:2px 10px'>" + (s.nEl || "?")
-        + "</td><td style='padding:2px 10px;text-align:right'>" + s.count + "</td></tr>";
+        + "</td><td style='padding:2px 10px;text-align:right'>" + s.count
+        + "</td><td style='padding:2px 10px;text-align:right'>"
+        + (typeof s.meanResidual === "number" ? s.meanResidual.toFixed(2) + " dB" : "—")
+        + "</td></tr>";
     }).join("");
     el.innerHTML = "<table style='border-collapse:collapse;font-size:.9em'>"
       + "<tr style='font-weight:600;border-bottom:1px solid #ccc'>"
       + "<td style='padding:2px 10px'>Datei</td><td style='padding:2px 10px'>Seite</td>"
       + "<td style='padding:2px 10px'>Hersteller</td><td style='padding:2px 10px'>Elektroden</td>"
-      + "<td style='padding:2px 10px'>Vergleiche</td></tr>" + rows + "</table>";
+      + "<td style='padding:2px 10px'>Vergleiche</td>"
+      + "<td style='padding:2px 10px'>mittl. Residuum</td></tr>" + rows + "</table>";
   }
 
   // ---- Init ----
@@ -186,6 +235,8 @@
 
   // Export für debug.js-Hook
   window.zaUpdateTabVisibility = zaUpdateTabVisibility;
+  // Debug-Hook für BA406-Diagnose-Test (zaToCtx/zaMeanResidual modul-lokal)
+  window.zaDebug = { toCtx: zaToCtx, meanResidual: zaMeanResidual };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", zaInit);
