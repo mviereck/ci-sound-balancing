@@ -81,6 +81,7 @@
     _startRefreshLoop();
     _applyDefaultSelection();
     _renderTests();
+    if (typeof zaUpdateTabVisibility === "function") zaUpdateTabVisibility();
   }
 
   function _deactivate() {
@@ -90,6 +91,7 @@
     _writePersistedActive(false);
     document.body.classList.remove('dbg-active');
     if (_panel) _panel.style.display = 'none';
+    if (typeof zaUpdateTabVisibility === "function") zaUpdateTabVisibility();
   }
 
   function _toggle() { _active ? _deactivate() : _activate(); }
