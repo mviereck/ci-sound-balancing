@@ -124,6 +124,42 @@ function setRefEl(v) {
   if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
   if (typeof pUpdEQ === "function") pUpdEQ();
 }
+// Baut das vollständige ctx-Objekt einer Seite für die parametrisierten
+// ELL-Funktionen (ELL_compWLS, ELL_drawChart, ELL_testData). side:
+// 'left' | 'right' | 'global' ('global' = aktuell gebundene Seite).
+// Liefert seitenrichtige Daten UND Closures, ohne die globalen Tool-
+// Variablen zu binden (kein withSide nötig).
+function ELL_ctx(side) {
+  var key = (side === "left" || side === "right") ? side : activeSide;
+  var s = sideData[key];
+  if (!s) return {};                 // defensiv: keine Seite -> leeres ctx
+  // MFR-Eintrag der Seite (für dEN-Closure)
+  var mfrEntry = MFR[s.manufacturer];
+  var apFirst = mfrEntry ? mfrEntry.apFirst : true;
+  var _nEl = s.nEl;
+  var _frq    = s.FRQ_implantat;
+  var _frqOwn = s.FRQ_implantatOwn;
+  var _cfg    = s.config || "ci";
+  return {
+    // Datenfelder (compWLS + drawChart)
+    nEl:         _nEl,
+    ELL_results: s.ELL_results,
+    elSt:        s.elSt,
+    elExDur:     s.elExDur,
+    ELL_refEl:   s.ELL_refEl,
+    // Funktions-Closures (drawChart) — seitenrichtig, lesen NICHT die Globalen
+    hzGetter: function (i) {
+      return (_frqOwn && _frqOwn[i] != null) ? _frqOwn[i] : _frq[i];
+    },
+    dEN: function (i) {
+      return apFirst ? i + 1 : _nEl - i;
+    },
+    dENPrefix: function () {
+      return _cfg === "ci" ? t("cfgLblEnCI") : t("cfgLblEnAcoustic");
+    },
+  };
+}
+
 function initSideData(side, m) {
   const s = sideData[side];
   // BA 154: Default jetzt „Keine Angabe" statt „ci"/„medel"

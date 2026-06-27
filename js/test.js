@@ -697,7 +697,7 @@ function ELL_measGain(side, hz) {
     // gerufen wird (nutzt intern ELL_results.some -> wuerde sonst werfen).
     if (typeof ELL_results === "undefined" || !ELL_results || ELL_results.length === 0) return 1;
     if (typeof ELL_compWLS !== "function") return 1;
-    var levels = ELL_testData().correction;
+    var levels = ELL_testData({ ctx: ELL_ctx("global") }).correction;
     if (!levels || !levels.length) return 1;
     var f = (typeof FRQ_implantat !== "undefined" && FRQ_implantat) ? FRQ_implantat : null;
     if (!f || !f.length) return 1;
@@ -757,7 +757,7 @@ function corrVol(vol, side, hz, applyELL, applyBal) {
 
 function getConvPairs(fast) {
   if (fast && ELL_results.length > 0) {
-    const { residuals } = ELL_compWLS();
+    const { residuals } = ELL_compWLS(ELL_ctx("global"));
     const act = new Set(actEl());
     const vr = residuals
       .filter((r) => act.has(r.a) && act.has(r.b))
@@ -786,7 +786,7 @@ function getConvPairs(fast) {
 // ============================================================
 function ell_getLsEstimate(a, b) {
   if (ELL_results.length === 0) return { estimate: 0, halfWidth: 0, hasData: false };
-  const { raw: levels, residual: ELL_res } = ELL_testData();
+  const { raw: levels, residual: ELL_res } = ELL_testData({ ctx: ELL_ctx("global") });
   const wA = ell_gWt(a), wB = ell_gWt(b);
   if (wA <= 0 || wB <= 0) return { estimate: 0, halfWidth: 0, hasData: false };
   const nA = ELL_results.filter(r => r.a === a || r.b === a).length;
@@ -1263,7 +1263,7 @@ function nextFullRound() {
   ell_showCurPair();
 }
 function nextConvRnd() {
-  const { residuals } = ELL_compWLS();
+  const { residuals } = ELL_compWLS(ELL_ctx("global"));
   const act = new Set(actEl());
   const vr = residuals.filter((r) => act.has(r.a) && act.has(r.b));
   const mx = vr.length ? Math.max(...vr.map((r) => r.residual)) : 0;

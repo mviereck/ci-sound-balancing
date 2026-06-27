@@ -173,7 +173,7 @@ function _collectSideData(side) {
     let measSweep = null;
     if (measHas) {
       measRefEl = ELL_refEl;
-      const { raw: levels, residual: ELL_res } = ELL_testData();
+      const { raw: levels, residual: ELL_res } = ELL_testData({ ctx: ELL_ctx("global") });
       for (let i = 0; i < nEl; i++) {
         const inMeas = ELL_results.some((r) => r.a === i || r.b === i);
         measRows.push({

@@ -575,7 +575,7 @@ function getPlaybackBuffer() {
 }
 
 function ELL_computeGains() {
-  const corr = ELL_testData().correction;
+  const corr = ELL_testData({ ctx: ELL_ctx("global") }).correction;
   const presetCurve = kurvenELLSumme();
   const g = new Array(nEl).fill(0);
   for (let i = 0; i < nEl; i++) {

@@ -337,7 +337,7 @@ function kurvenELLChartZeichnen() {
   const showPre = document.getElementById("kurvenELLChkPre").checked;
   const act = allEl();
   if (!act.length) return;
-  const corr = ELL_testData().correction;
+  const corr = ELL_testData({ ctx: ELL_ctx("global") }).correction;
   const pc = kurvenELLSumme();
   const measV = act.map((i) => corr[i]);
   const manV = act.map((i) => schieberELL[i]);

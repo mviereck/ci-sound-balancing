@@ -68,7 +68,7 @@ function ELL_renderResults() {
     if (el) el.innerHTML = t(k);
   });
   if (hB) {
-    const { raw: levels, residual: ELL_res, weight: ELL_wt } = ELL_testData();
+    const { raw: levels, residual: ELL_res, weight: ELL_wt } = ELL_testData({ ctx: ELL_ctx("global") });
     const pc = new Array(nEl).fill(0);
     const valid = ELL_results.filter(
       (r) =>
@@ -188,6 +188,7 @@ function ELL_renderResults() {
       ELL_res,
       true,
       ell_color,
+      ELL_ctx("global"),
     );
     const chE = document.getElementById("ELL_chartExpl");
     if (chE) chE.textContent = t("ELL_chartExplB");

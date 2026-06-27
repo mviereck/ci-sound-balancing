@@ -158,4 +158,44 @@
 
     return lines.join('\n');
   });
+
+  // BA400: ELL_ctx-Bauer reproduziert globalen Zustand
+  dbg.test('build/BA400/ctx-bauer-neutral', {
+    tab: 'messungen',
+    label: 'BA400: ELL_ctx-Bauer reproduziert globalen Zustand'
+  }, function() {
+    var lines = [];
+    function chk(label, val) { lines.push((val ? '✓' : '✗') + ' ' + label); }
+
+    // Test 1: ELL_compWLS() vs ELL_compWLS(ELL_ctx("global")) — levels identisch
+    var r1 = ELL_compWLS();
+    var r2 = ELL_compWLS(ELL_ctx("global"));
+    var identical = r1.levels.length === r2.levels.length;
+    if (identical) {
+      for (var i = 0; i < r1.levels.length; i++) {
+        if (Math.abs(r1.levels[i] - r2.levels[i]) > 1e-9) { identical = false; break; }
+      }
+    }
+    chk('compWLS(): levels ohne ctx == levels mit ELL_ctx("global") (Toleranz 1e-9)', identical);
+
+    // Test 2: ctx-Felder korrekt
+    var c = ELL_ctx("global");
+    chk('c.nEl === nEl', c.nEl === nEl);
+    chk('c.ELL_results === ELL_results', c.ELL_results === ELL_results);
+    chk('c.ELL_refEl === ELL_refEl', c.ELL_refEl === ELL_refEl);
+    chk('c.dEN(0) == dEN(0)', c.dEN(0) === dEN(0));
+    chk('c.dENPrefix() == dENPrefix()', c.dENPrefix() === dENPrefix());
+    chk('c.hzGetter(0) == FRQ_implantatEffektiv(0)', c.hzGetter(0) === FRQ_implantatEffektiv(0));
+
+    // Test 3: andere Seite liefert DEREN nEl/ELL_results, globaler Zustand unveraendert
+    var otherSide = activeSide === "left" ? "right" : "left";
+    var co = ELL_ctx(otherSide);
+    var otherSd = sideData[otherSide];
+    var otherOk = otherSd && co.nEl === otherSd.nEl && co.ELL_results === otherSd.ELL_results;
+    chk('ELL_ctx(otherSide).nEl/ELL_results gehoert zur anderen Seite', !!otherOk);
+    chk('Globale nEl nach ELL_ctx(otherSide) unveraendert', nEl === c.nEl);
+    chk('Globale ELL_results nach ELL_ctx(otherSide) unveraendert', ELL_results === c.ELL_results);
+
+    return lines.join('\n');
+  });
 })();
