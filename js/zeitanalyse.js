@@ -690,6 +690,36 @@
   }
 
   // ---- Init ----
+  function zaTransferToTool() {
+    var side = activeSide;
+    var pairs = zaConsensusPairs(side);
+    if (!pairs.length) {
+      alert("Keine konsolidierten Daten fuer diese Seite — nichts zu uebernehmen.");
+      return;
+    }
+    var sideLbl = (side === "left") ? "LINKS" : "RECHTS";
+    var ok = confirm(
+      "Die konsolidierten Werte werden als Mess-Ergebnis der Seite " + sideLbl
+      + " uebernommen.\n\nDer aktuelle Elektrodenlautstaerke-Stand dieser Seite "
+      + "(inkl. eines evtl. laufenden Round-Robin) wird dabei ERSETZT.\n\n"
+      + "Fortfahren?");
+    if (!ok) return;
+
+    var s = sideData[side];
+    if (!s) return;
+    s.ELL_results        = pairs;
+    s.fullSweepRound     = null;
+    s.fullSweepDonePairs = [];
+    undoSt               = [];
+
+    if (typeof bindActiveSide === "function") bindActiveSide();
+    if (typeof ELL_renderResults === "function") ELL_renderResults();
+
+    var hint = document.getElementById("zaTransferHint");
+    if (hint) hint.textContent = "Uebernommen — siehe Reiter Messergebnisse, Elektrodenlautstaerke ("
+                               + sideLbl + ").";
+  }
+
   function zaInit() {
     var btn = document.getElementById("zaPickBtn");
     var inp = document.getElementById("zaFileInput");
@@ -707,6 +737,8 @@
       hm.style.cursor = "pointer";
     }
     zaUpdateTabVisibility();
+    var tb = document.getElementById("zaTransferBtn");
+    if (tb) tb.addEventListener("click", zaTransferToTool);
   }
 
   // Export für debug.js-Hook

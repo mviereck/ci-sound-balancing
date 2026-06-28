@@ -700,6 +700,54 @@
   });
 })();
 
+/* BA411 — Konsens-Paarliste hat ELL_results-Format */
+(function() {
+  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
+  dbg.test('build/BA411/uebertrag', {
+    tab: 'messungen',
+    label: 'BA411: Konsens-Paarliste hat ELL_results-Format'
+  }, function() {
+    var lines = [];
+    function chk(label, val) { lines.push((val ? 'OK' : 'FAIL') + ' ' + label); }
+
+    if (!window.zaDebug || typeof window.zaDebug.consensusPairs !== 'function') {
+      return 'FAIL zaDebug.consensusPairs fehlt';
+    }
+    var side = (typeof activeSide !== 'undefined') ? activeSide : 'right';
+    var pairs = window.zaDebug.consensusPairs(side);
+
+    if (!Array.isArray(pairs)) return 'FAIL consensusPairs liefert kein Array';
+
+    if (pairs.length === 0) {
+      lines.push('INFO keine konsolidierten Paare — Format-Tests uebersprungen');
+      return lines.join('\n');
+    }
+
+    // Test 1: Format jedes Eintrags
+    var allFormat = pairs.every(function(p) {
+      return typeof p.a === 'number' && typeof p.b === 'number'
+          && typeof p.offset === 'number' && typeof p.timestamp === 'number';
+    });
+    chk('alle Eintraege: {a,b,offset,timestamp} mit Zahlen', allFormat);
+
+    // Test 2: normalisiert (a < b)
+    var allNorm = pairs.every(function(p) { return p.a < p.b; });
+    chk('alle Eintraege: a < b (normalisiert)', allNorm);
+
+    // Test 3: ein Eintrag pro Paar (keine Duplikate)
+    var seen = {};
+    var noDup = pairs.every(function(p) {
+      var key = p.a + ',' + p.b;
+      if (seen[key]) return false;
+      seen[key] = true;
+      return true;
+    });
+    chk('kein doppeltes (a,b)-Paar', noDup);
+
+    return lines.join('\n');
+  });
+})();
+
 /* BA403 — ELL_measGain/ELL_testData ohne withSide, seitenrichtig */
 (function() {
   dbg.test('build/BA403/withside-ellctx-neutral', {
