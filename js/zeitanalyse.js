@@ -78,15 +78,21 @@
     };
   }
 
-  // ---- Heatmap (BA 409) ----
+  // ---- Heatmap (BA 409) + Zeit-Trend (BA 410) ----
 
   var ZA_HM_RANGE = 10;   // dB; Werte darueber/darunter werden gekappt
   var ZA_HM_MIN_COL_W = 14;   // px Mindestbreite je Spalte
+  var ZA_HM_PAD_T = 12;   // Oberer Abstand der Heatmap (Schritt 2 BA 410)
+  var ZA_HM_ROW_H = 18;   // Zeilenhoehe der Heatmap (Schritt 2 BA 410)
+
+  // Gewaehlte Elektrode fuer den Zeit-Trend (Index oder null)
+  var zaTrendEl = null;
 
   // Liefert die Heatmap-Daten der aktuellen Seite:
-  //   { sessions: [{ ts, corr:[..], active:[..] }], elCount, tMin, tMax }
-  // corr[i]   = Korrektur-dB der Elektrode i in dieser Sitzung (-levels[i])
+  //   { sessions: [{ ts, corr:[..], active:[..], res:[..] }], elCount, tMin, tMax }
+  // corr[i]   = levels[i] (Ist-Pegel, positiv=zu laut/blau, negativ=zu leise/rot)
   // active[i] = war Elektrode i in DIESER Sitzung aktiv (historischer Status)?
+  // res[i]    = Pro-Elektrode-Residuum dieser Sitzung (gemeinsame Quelle fuer Heatmap+Trend)
   // ts        = juengster Mess-Stempel der Sitzung (Kalenderzeit)
   function zaHeatmapData(side) {
     var out = [];
@@ -96,17 +102,18 @@
       var ts = zaYoungestTs(s);
       if (ts === null) return;                 // ohne Stempel keine Zeitposition
       var ctx = zaToCtx(s);                    // historischer Status der DATEI (§6f)
-      var r = ELL_compWLS(ctx);                // {levels, ...}
+      var r = ELL_compWLS(ctx);                // {levels, ELL_res, ...}
       elCount = Math.max(elCount, s.nEl);
-      var corr = [], active = [];
+      var corr = [], active = [], res = [];
       for (var i = 0; i < s.nEl; i++) {
         // aktiv = nicht ausgeschlossen, nicht stumm, nicht abgewaehlt (§6d-Definition)
         var act = (s.elExDur[i] == null) && (s.elSt[i] !== "mute")
                   && (s.elActive[i] !== false);
         active[i] = act;
-        corr[i] = act ? -r.levels[i] : null;   // inaktiv -> null (graue Zelle)
+        corr[i] = act ? r.levels[i] : null;    // levels (Ist): zu laut=positiv, zu leise=negativ -- wie Meszergebnis-Tabelle/Kurve. inaktiv -> null (grau)
+        res[i]  = act ? (r.ELL_res[i] || 0) : null;   // Pro-Elektrode-Residuum (BA 410)
       }
-      out.push({ ts: ts, corr: corr, active: active });
+      out.push({ ts: ts, corr: corr, active: active, res: res });
     });
     out.sort(function (a, b) { return a.ts - b.ts; });   // chronologisch
     var tMin = out.length ? out[0].ts : 0;
@@ -116,8 +123,11 @@
 
   function zaHeatColor(dB) {
     if (dB === null || typeof dB !== "number" || !isFinite(dB)) return "#e5e5e5"; // grau = inaktiv/kein Wert
-    var t = Math.max(-1, Math.min(1, dB / ZA_HM_RANGE));   // -1..+1 (gekappt)
-    // -1 blau (59,130,246) ... 0 weiss (255,255,255) ... +1 rot (220,38,38)
+    // dB = levels (Ist): zu laut = positiv -> BLAU, zu leise = negativ -> ROT
+    // (Konvention wie Meszergebnis-Tabelle). Dazu t = -dB/RANGE: positiv dB
+    // ergibt t<0 (blau-Seite), negativ dB ergibt t>0 (rot-Seite).
+    var t = Math.max(-1, Math.min(1, -dB / ZA_HM_RANGE));   // -1..+1 (gekappt)
+    // t=-1 blau (59,130,246) ... 0 weiss (255,255,255) ... t=+1 rot (220,38,38)
     var r, g, b;
     if (t < 0) {            // blau-Seite
       var u = t + 1;        // 0..1 (0=blau, 1=weiss)
@@ -153,10 +163,9 @@
 
     var dpr = window.devicePixelRatio || 1;
     var w = cv.parentElement.clientWidth - 32;
-    var padL = 46, padR = 12, padT = 12, padB = 40;
+    var padL = 46, padR = 12, padB = 40;
     var plotW = w - padL - padR;
-    var rowH = 18;
-    var h = padT + padB + data.elCount * rowH;
+    var h = ZA_HM_PAD_T + padB + data.elCount * ZA_HM_ROW_H;
     cv.width = w * dpr; cv.height = h * dpr;
     cv.style.width = w + "px"; cv.style.height = h + "px";
     var g = cv.getContext("2d"); g.scale(dpr, dpr);
@@ -182,15 +191,22 @@
       var cx = col.x - col.cw / 2;
       for (var i = 0; i < data.elCount; i++) {
         var dB = (i < col.s.corr.length) ? col.s.corr[i] : null;
-        var y = padT + i * rowH;
+        var y = ZA_HM_PAD_T + i * ZA_HM_ROW_H;
         g.fillStyle = zaHeatColor(dB);
-        g.fillRect(cx, y, col.cw - 1, rowH - 1);
+        g.fillRect(cx, y, col.cw - 1, ZA_HM_ROW_H - 1);
         if (zaHeatClipped(dB)) {   // gekappt-Markierung
           g.fillStyle = "#000";
-          g.beginPath(); g.arc(cx + col.cw / 2, y + rowH / 2, 1.6, 0, Math.PI * 2); g.fill();
+          g.beginPath(); g.arc(cx + col.cw / 2, y + ZA_HM_ROW_H / 2, 1.6, 0, Math.PI * 2); g.fill();
         }
       }
     });
+
+    // Markierung der gewaehlten Zeile fuer den Zeit-Trend
+    if (zaTrendEl !== null && zaTrendEl < data.elCount) {
+      g.strokeStyle = "#111"; g.lineWidth = 2;
+      g.strokeRect(padL, ZA_HM_PAD_T + zaTrendEl * ZA_HM_ROW_H - 0.5,
+                   plotW, ZA_HM_ROW_H);
+    }
 
     // Y-Achse: Elektroden-Labels (dEN der aktuellen Seite via ELL_ctx)
     var ctxLbl = ELL_ctx(side === "left" || side === "right" ? side : "global");
@@ -198,7 +214,7 @@
     var pfxFn  = ctxLbl.dENPrefix || dENPrefix;
     g.fillStyle = "#555"; g.font = "10px Segoe UI,sans-serif"; g.textAlign = "right";
     for (var i = 0; i < data.elCount; i++) {
-      g.fillText(pfxFn() + dENfn(i), padL - 6, padT + i * rowH + rowH / 2 + 3);
+      g.fillText(pfxFn() + dENfn(i), padL - 6, ZA_HM_PAD_T + i * ZA_HM_ROW_H + ZA_HM_ROW_H / 2 + 3);
     }
 
     // X-Achse: ein paar Datums-Labels (erste, letzte, ggf. mittlere)
@@ -216,7 +232,122 @@
 
     // Legende (kurz, unter der X-Achse)
     g.textAlign = "left"; g.fillStyle = "#888";
-    g.fillText("blau = leiser noetig   rot = lauter noetig   grau = inaktiv", padL, h - 6);
+    g.fillText("blau = zu laut gemessen   rot = zu leise gemessen   grau = inaktiv", padL, h - 6);
+  }
+
+  // ---- Zeit-Trend (BA 410) ----
+
+  // Klick-Handler auf dem Heatmap-Canvas: Elektrode aus Y-Position ableiten.
+  function zaOnHeatmapClick(ev) {
+    var cv = document.getElementById("zaHeatmap");
+    if (!cv) return;
+    var rect = cv.getBoundingClientRect();
+    var y = ev.clientY - rect.top;
+    var i = Math.floor((y - ZA_HM_PAD_T) / ZA_HM_ROW_H);
+    var data = zaHeatmapData(activeSide);
+    if (i < 0 || i >= data.elCount) return;
+    zaTrendEl = i;
+    zaDrawHeatmap();
+    zaDrawTrend();
+  }
+
+  // Trend-Datenbasis fuer eine Elektrode (eine Datenquelle zaHeatmapData).
+  function zaTrendData(side, elIdx) {
+    var hm = zaHeatmapData(side);
+    var pts = [];
+    hm.sessions.forEach(function (s) {
+      var c = (elIdx < s.corr.length) ? s.corr[elIdx] : null;
+      if (c === null) return;
+      var r = (s.res && elIdx < s.res.length) ? (s.res[elIdx] || 0) : 0;
+      pts.push({ ts: s.ts, corr: c, res: r });
+    });
+    return { points: pts, tMin: hm.tMin, tMax: hm.tMax };
+  }
+
+  function zaDrawTrend() {
+    var cv = document.getElementById("zaTrend");
+    if (!cv) return;
+    var hint = document.getElementById("zaTrendHint");
+    var g = cv.getContext("2d");
+    if (zaTrendEl === null) {
+      if (hint) hint.textContent = "Elektrode in der Heatmap anklicken, um ihren Verlauf zu sehen.";
+      cv.width = cv.width;
+      return;
+    }
+    var side = activeSide;
+    var td = zaTrendData(side, zaTrendEl);
+    if (!td.points.length) {
+      if (hint) hint.textContent = "Keine Messwerte fuer diese Elektrode.";
+      cv.width = cv.width;
+      return;
+    }
+    if (hint) hint.textContent = "";
+
+    var dpr = window.devicePixelRatio || 1;
+    var w = cv.parentElement.clientWidth - 32;
+    var h = 220;
+    var padL = 46, padR = 12, padT = 16, padB = 34;
+    var plotW = w - padL - padR, plotH = h - padT - padB;
+    cv.width = w * dpr; cv.height = h * dpr;
+    cv.style.width = w + "px"; cv.style.height = h + "px";
+    g.scale(dpr, dpr); g.clearRect(0, 0, w, h);
+
+    // Y-Bereich: symmetrisch um 0, deckt corr+-res ab (min 4 dB Halbspanne)
+    var amax = 4;
+    td.points.forEach(function (p) { amax = Math.max(amax, Math.abs(p.corr) + p.res); });
+    amax = Math.ceil(amax);
+    function tY(v) { return padT + (amax - v) / (2 * amax) * plotH; }
+    function tX(ts) {
+      if (td.tMax === td.tMin) return padL + plotW / 2;
+      return padL + (ts - td.tMin) / (td.tMax - td.tMin) * plotW;
+    }
+
+    // Gitter + Nulllinie + Y-Ticks
+    [-amax, -amax/2, 0, amax/2, amax].forEach(function (v) {
+      var y = tY(v);
+      g.strokeStyle = (v === 0) ? "#aaa" : "#eee"; g.lineWidth = (v === 0) ? 1.5 : 1;
+      g.beginPath(); g.moveTo(padL, y); g.lineTo(w - padR, y); g.stroke();
+      g.fillStyle = "#999"; g.font = "9px Consolas,monospace"; g.textAlign = "right";
+      g.fillText(v.toFixed(0), padL - 6, y + 3);
+    });
+
+    // Trendlinie (Punkte verbunden)
+    g.strokeStyle = "#2563eb"; g.lineWidth = 2; g.beginPath();
+    td.points.forEach(function (p, i) {
+      var x = tX(p.ts), y = tY(p.corr);
+      if (i === 0) g.moveTo(x, y); else g.lineTo(x, y);
+    });
+    g.stroke();
+
+    // Fehlerbalken + Punkte
+    td.points.forEach(function (p) {
+      var x = tX(p.ts);
+      if (p.res > 0) {
+        g.strokeStyle = "#00000044"; g.lineWidth = 1.5;
+        g.beginPath(); g.moveTo(x, tY(p.corr + p.res)); g.lineTo(x, tY(p.corr - p.res)); g.stroke();
+        g.beginPath(); g.moveTo(x - 3, tY(p.corr + p.res)); g.lineTo(x + 3, tY(p.corr + p.res)); g.stroke();
+        g.beginPath(); g.moveTo(x - 3, tY(p.corr - p.res)); g.lineTo(x + 3, tY(p.corr - p.res)); g.stroke();
+      }
+      g.beginPath(); g.arc(x, tY(p.corr), 3.5, 0, Math.PI * 2);
+      g.fillStyle = "#2563eb"; g.fill();
+      g.strokeStyle = "#fff"; g.lineWidth = 2; g.stroke();
+    });
+
+    // X-Achse: erste/letzte Datums-Labels
+    g.fillStyle = "#888"; g.font = "9px Segoe UI,sans-serif"; g.textAlign = "center";
+    function dateLbl(ts) { var d = new Date(ts); return d.getDate() + "." + (d.getMonth()+1) + "."; }
+    if (td.points.length) {
+      g.fillText(dateLbl(td.points[0].ts), tX(td.points[0].ts), h - padB + 16);
+      if (td.points.length > 1) {
+        g.fillText(dateLbl(td.points[td.points.length-1].ts), tX(td.points[td.points.length-1].ts), h - padB + 16);
+      }
+    }
+
+    // Titel: welche Elektrode
+    var ctxLbl = ELL_ctx(side === "left" || side === "right" ? side : "global");
+    var label = (ctxLbl.dENPrefix || dENPrefix)() + (ctxLbl.dEN || dEN)(zaTrendEl);
+    g.fillStyle = "#333"; g.font = "11px Segoe UI,sans-serif"; g.textAlign = "left";
+    g.fillText("Verlauf " + label + " (gemessene Abweichung dB, Balken = Residuum)", padL, 11);
   }
 
   function zaDrawCurve() {
@@ -468,6 +599,7 @@
     zaRenderSessionList();
     zaDrawCurve();
     zaDrawHeatmap();
+    zaDrawTrend();
   }
 
   // Baut das ELL_compWLS-ctx aus einer eingelesenen Sitzung (tool-fremde Datei).
@@ -569,12 +701,17 @@
       var b = document.getElementById("zaSharp_" + k);
       if (b) b.addEventListener("click", function () { zaOnSharpness(k); });
     });
+    var hm = document.getElementById("zaHeatmap");
+    if (hm) {
+      hm.addEventListener("click", zaOnHeatmapClick);
+      hm.style.cursor = "pointer";
+    }
     zaUpdateTabVisibility();
   }
 
   // Export für debug.js-Hook
   window.zaUpdateTabVisibility = zaUpdateTabVisibility;
-  // Debug-Hook fuer Diagnose-Tests (zaToCtx/zaMeanResidual BA406; Dedup/isComplete BA407; BA408)
+  // Debug-Hook fuer Diagnose-Tests (zaToCtx/zaMeanResidual BA406; Dedup/isComplete BA407; BA408; BA410)
   window.zaDebug = {
     toCtx:          zaToCtx,
     meanResidual:   zaMeanResidual,
@@ -586,6 +723,7 @@
     consolidatedCtx: zaConsolidatedCtx,
     heatmapData:    zaHeatmapData,
     heatColor:      zaHeatColor,
+    trendData:      zaTrendData,
   };
 
   if (document.readyState === "loading") {

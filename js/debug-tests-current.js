@@ -617,6 +617,89 @@
   });
 })();
 
+/* BA410 — Zeit-Trend-Datenbasis */
+(function() {
+  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
+  dbg.test('build/BA410/trend-daten', {
+    tab: 'messungen',
+    label: 'BA410: Zeit-Trend-Datenbasis'
+  }, function() {
+    var lines = [];
+    function chk(label, val) { lines.push((val ? 'OK' : 'FAIL') + ' ' + label); }
+
+    if (!window.zaDebug) return 'FAIL zaDebug nicht exportiert';
+    var heatmapData = window.zaDebug.heatmapData;
+    var trendData   = window.zaDebug.trendData;
+    if (typeof heatmapData !== 'function') return 'FAIL zaDebug.heatmapData fehlt';
+    if (typeof trendData   !== 'function') return 'FAIL zaDebug.trendData fehlt';
+
+    var side = (typeof activeSide !== 'undefined') ? activeSide : 'right';
+    var hm = heatmapData(side);
+
+    // Test 1: Residuum in der Datenquelle
+    if (hm.sessions.length > 0) {
+      var s0 = hm.sessions[0];
+      chk('sessions[0].res ist Array', Array.isArray(s0.res));
+      chk('sessions[0].res.length === corr.length', s0.res.length === s0.corr.length);
+    } else {
+      lines.push('INFO keine Sitzungen geladen — Tests 1-3 uebersprungen');
+      return lines.join('\n');
+    }
+
+    // Test 2: Trend-Punkte fuer eine gemessene Elektrode
+    var measuredEl = null;
+    for (var i = 0; i < hm.elCount; i++) {
+      var hasPts = hm.sessions.some(function(s) {
+        return i < s.corr.length && s.corr[i] !== null;
+      });
+      if (hasPts) { measuredEl = i; break; }
+    }
+    if (measuredEl !== null) {
+      var td = trendData(side, measuredEl);
+      chk('trendData: points.length > 0', td.points.length > 0);
+      var allValid = td.points.every(function(p) {
+        return typeof p.ts === 'number' && isFinite(p.corr) && isFinite(p.res);
+      });
+      chk('alle Punkte: {ts, corr, res} endliche Zahlen', allValid);
+      var sorted = td.points.every(function(p, i) {
+        return i === 0 || p.ts >= td.points[i-1].ts;
+      });
+      chk('Punkte chronologisch sortiert (ts aufsteigend)', sorted);
+    } else {
+      lines.push('INFO keine gemessene Elektrode gefunden');
+    }
+
+    // Test 3: Inaktive Sitzungen erzeugen keinen Trend-Punkt
+    // Synthethisch: trendData fuer Elektroden-Index ausserhalb aller corr-Arrays
+    var outsideIdx = hm.elCount + 99;
+    var tdOut = trendData(side, outsideIdx);
+    chk('trendData: inaktiver Index ergibt 0 Punkte', tdOut.points.length === 0);
+
+    // Test 4: Kein globaler Seiteneffekt
+    var ellBefore = (typeof ELL_results !== 'undefined') ? ELL_results.slice() : null;
+    var sideBefore = (typeof activeSide !== 'undefined') ? activeSide : null;
+    trendData(side, measuredEl !== null ? measuredEl : 0);
+    var ellAfter = (typeof ELL_results !== 'undefined') ? ELL_results : null;
+    if (ellBefore !== null && ellAfter !== null) {
+      var unchanged = ellBefore.length === ellAfter.length;
+      if (unchanged) {
+        for (var j = 0; j < ellBefore.length; j++) {
+          if (ellBefore[j] !== ellAfter[j]) { unchanged = false; break; }
+        }
+      }
+      chk('ELL_results nach trendData unveraendert', unchanged);
+    } else {
+      lines.push('INFO ELL_results nicht verfuegbar');
+    }
+    if (sideBefore !== null) {
+      chk('activeSide nach trendData unveraendert',
+        (typeof activeSide !== 'undefined') && activeSide === sideBefore);
+    }
+
+    return lines.join('\n');
+  });
+})();
+
 /* BA403 — ELL_measGain/ELL_testData ohne withSide, seitenrichtig */
 (function() {
   dbg.test('build/BA403/withside-ellctx-neutral', {
