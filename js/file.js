@@ -699,18 +699,13 @@ function applyLoadedData(d) {
     if (Array.isArray(d.fRes)) {
       // BA 106: KEIN fmStatus-Filter mehr — alle Einträge übernehmen.
       // _FRQ_cleanupLegacyResults() entfernt Alt-Adaptive-Schema-Einträge
-      // (mit fmConvUp etc.). _FRQ_migrateAltSliderResults() überführt
-      // Alt-Slider-Einträge (ohne fmStatus) nach
-      // freqmatchAdaptive.sliderEstimates, damit sie als Startwerte
-      // für den adaptiven Test verfügbar sind.
+      // (mit fmConvUp etc.).
       FRQ_resultsArray.splice(0, FRQ_resultsArray.length, ...d.fRes);
     } else {
       FRQ_resultsArray.splice(0, FRQ_resultsArray.length); // keine FRQ_resultsArray im JSON → zurücksetzen
     }
     if (typeof _FRQ_cleanupLegacyResults === "function") _FRQ_cleanupLegacyResults();
-    if (typeof _FRQ_migrateAltSliderResults === "function") _FRQ_migrateAltSliderResults();
-    if (typeof _FRQ_migrateSliderRounds === "function") _FRQ_migrateSliderRounds();
-    // BA365: Altwerte (Adaptiv/Slider) ins Klavier uebernehmen (Abfrage).
+    // BA365: Altwerte ins Klavier uebernehmen (Abfrage).
     if (typeof _FRQ_migrateAltToPiano === "function") _FRQ_migrateAltToPiano();
   }
   // BA 207: Auswahl der Testelektroden für FreqMatch.

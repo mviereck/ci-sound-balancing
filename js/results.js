@@ -202,153 +202,6 @@ function ELL_renderResults() {
 // ============================================================
 // FREQ MATCH RESULTS
 // ============================================================
-function _frq_resultsCollectNotPerceivable() {
-  const result = {};
-  ['left', 'right'].forEach(function(side) {
-    const fa = sideData[side] && sideData[side].freqmatchAdaptive;
-    if (!fa || !Array.isArray(fa.runs) || fa.currentRunIdx == null) return;
-    const run = fa.runs[fa.currentRunIdx];
-    if (!run || !run.tracks) return;
-
-    const elIdxSet = new Set();
-    Object.keys(run.tracks).forEach(function(k) { elIdxSet.add(parseInt(k, 10)); });
-
-    elIdxSet.forEach(function(elIdx) {
-      const tr = run.tracks[frq_trackKey(elIdx)];
-      if (tr && tr.status === 'not-perceivable') {
-        result[side + ':' + elIdx] = true;
-      }
-    });
-  });
-  return result;
-}
-
-// Liefert Pseudo-FRQ_resultsArray-Einträge für aktive Tracks (Bauanleitung 84).
-// Wird nicht in das globale FRQ_resultsArray geschrieben — nur temporär für Anzeige.
-//
-// Status-Konvention:
-//   'in-progress'        : ≥4 Umkehrungen, Match aus Mittelwert,
-//                          Residuum aus halber Spanne der bisherigen Umkehrungen
-//   'in-progress-early'  : <2 Umkehrungen, kein Match, refFreq = varFreq (Platzhalter)
-// Schwellen kommen aus frq_computeProvisional in freqmatch-staircase.js.
-
-function _frq_resultsBuildInProgressEntries(side) {
-  const out = [];
-  const sd = sideData[side];
-  if (!sd) return out;
-  const fa = sd.freqmatchAdaptive;
-  if (!fa || !Array.isArray(fa.runs) || fa.currentRunIdx == null) return out;
-  const run = fa.runs[fa.currentRunIdx];
-  if (!run || !run.tracks) return out;
-  const refSide = run.refSide || (side === 'left' ? 'right' : 'left');
-
-  const elIdxSet = new Set();
-  Object.keys(run.tracks).forEach(function(k) { elIdxSet.add(parseInt(k, 10)); });
-
-  elIdxSet.forEach(function(elIdx) {
-    const tr = run.tracks[frq_trackKey(elIdx)];
-    if (!tr || tr.status !== 'active') return;
-
-    const varHz = withSide(side, function() { return FRQ_implantatEffektiv(elIdx); });
-    const prov  = frq_computeProvisional(tr);
-    const totalTrials  = tr.trialCount || 0;
-    const maxReversals = (tr.reversals && tr.reversals.length) || 0;
-
-    if (prov.match != null) {
-      out.push({
-        varSide: side, refSide: refSide, elIdx: elIdx,
-        varFreq: varHz,
-        refFreq: varHz * Math.pow(2, prov.match / 1200),
-        timestamp: Date.now(),
-        method:       "adaptive",
-        fmStatus:     'in-progress',
-        fmResidual:   prov.residual,
-        fmCombinedUncertainty: null,
-        fmConv:       null,
-        fmRunSpread:  null,
-        fmResiduum:   null,
-        fmRunsCount:  0,
-        fmStatusLast: null,
-        fmTrialCount: totalTrials,
-        fmReversals:  maxReversals,
-        _provisional: true
-      });
-    } else {
-      out.push({
-        varSide: side, refSide: refSide, elIdx: elIdx,
-        varFreq: varHz,
-        refFreq: varHz,
-        timestamp: Date.now(),
-        method:       "adaptive",
-        fmStatus:     'in-progress-early',
-        fmResidual:   null,
-        fmCombinedUncertainty: null,
-        fmConv:       null,
-        fmRunSpread:  null,
-        fmResiduum:   null,
-        fmRunsCount:  0,
-        fmStatusLast: null,
-        fmTrialCount: totalTrials,
-        fmReversals:  maxReversals,
-        _provisional: true
-      });
-    }
-  });
-  return out;
-}
-
-// Pseudo-FRQ_resultsArray-Einträge aus sliderEstimates (Bauanleitung 103).
-//
-// Slider-Vor-Schätzungen leben in
-// sideData[side].freqmatchAdaptive.sliderEstimates[elIdx] und werden
-// nicht ins globale FRQ_resultsArray geschrieben (siehe BA 102). Diese Funktion
-// macht sie für Anzeige und Warp verfügbar — als dritte Datenquelle
-// unter FRQ_resultsArray (final) und unter den 'in-progress'-Pseudo-Einträgen
-// aus aktiven Tracks.
-function _frq_resultsBuildSliderEntries(side) {
-  const out = [];
-  const sd = sideData[side];
-  if (!sd) return out;
-  const fa = sd.freqmatchAdaptive;
-  if (!fa || !fa.sliderEstimates || typeof fa.sliderEstimates !== 'object') return out;
-  const ests = fa.sliderEstimates;
-  const keys = Object.keys(ests);
-  for (var i = 0; i < keys.length; i++) {
-    const elIdx = parseInt(keys[i], 10);
-    if (!isFinite(elIdx)) continue;
-    const est = ests[keys[i]];
-    if (!est || typeof est.cent !== 'number') continue;
-    // varFreq aus der gespeicherten Schätzung; falls fehlend, aktuell rechnen.
-    const varHz = (typeof est.varFreq === 'number' && est.varFreq > 0)
-      ? est.varFreq
-      : withSide(side, function() { return FRQ_implantatEffektiv(elIdx); });
-    if (!isFinite(varHz) || varHz <= 0) continue;
-    const refSide = est.refSide || (side === 'left' ? 'right' : 'left');
-    const refHz   = varHz * Math.pow(2, est.cent / 1200);
-    out.push({
-      varSide:      side,
-      refSide:      refSide,
-      elIdx:        elIdx,
-      varFreq:      varHz,
-      refFreq:      refHz,
-      timestamp:    est.timestamp || Date.now(),
-      method:       "slider",
-      fmStatus:     'slider-estimate',
-      fmResidual:   null,
-      fmCombinedUncertainty: null,
-      fmConv:       null,
-      fmRunSpread:  null,
-      fmResiduum:   null,
-      fmRunsCount:  0,
-      fmStatusLast: null,
-      fmTrialCount: 0,
-      fmReversals:  0,
-      _provisional:    true,
-      _sliderEstimate: true
-    });
-  }
-  return out;
-}
 
 // BA353: Zentrale, nach aktivem Verfahren gefilterte Ergebnis-Quelle.
 // EINZIGE Stelle, durch die Ergebnisgraph, Player (Warp) und Druck gehen.
@@ -356,38 +209,11 @@ function _frq_resultsBuildSliderEntries(side) {
 // kennt die Verfahren nicht beim Namen. Vorrang final > provisorisch je
 // (varSide, elIdx) -- aber nur INNERHALB des aktiven Verfahrens.
 function FRQ_activeResults() {
-  const method = (typeof frq_getActiveMethod === "function") ? frq_getActiveMethod() : "adaptive";
-  const me = (typeof frq_entryMethod === "function")
-    ? frq_entryMethod
-    : function (r) { return (r && r.method === "slider") ? "slider" : "adaptive"; };
-
-  // Finale Eintraege des aktiven Verfahrens.
-  let finals = (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray))
-    ? FRQ_resultsArray.filter(function (r) { return r && me(r) === method; })
+  const method = (typeof frq_getActiveMethod === "function") ? frq_getActiveMethod() : "piano";
+  const me = (typeof frq_entryMethod === "function") ? frq_entryMethod : function(r) { return "piano"; };
+  return (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray))
+    ? FRQ_resultsArray.filter(function(r) { return r && me(r) === method; })
     : [];
-
-  // Provisorische Eintraege (beide Arten sammeln, dann nach method filtern).
-  let prov = [];
-  const sides = ["left", "right"];
-  for (let s = 0; s < sides.length; s++) {
-    try { prov = prov.concat(_frq_resultsBuildInProgressEntries(sides[s]) || []); } catch (e) {}
-    try { prov = prov.concat(_frq_resultsBuildSliderEntries(sides[s]) || []); } catch (e) {}
-  }
-  prov = prov.filter(function (r) { return r && me(r) === method; });
-
-  // Vorrang final > provisorisch je (varSide, elIdx).
-  const out = finals.slice();
-  const covered = {};
-  for (let i = 0; i < finals.length; i++) {
-    const r = finals[i];
-    if (r && r.varSide != null) covered[r.varSide + ":" + r.elIdx] = true;
-  }
-  for (let j = 0; j < prov.length; j++) {
-    const p = prov[j];
-    const k = p.varSide + ":" + p.elIdx;
-    if (!covered[k]) { out.push(p); covered[k] = true; }
-  }
-  return out;
 }
 
 function FRQ_renderResults() {
@@ -395,25 +221,11 @@ function FRQ_renderResults() {
   const card = document.getElementById("FRQ_resultsCard");
   if (!noData || !card) return;
 
-  // CI-Seite bestimmen: FRQ_resultsArray hat Vorrang, dann runs[]-varSide, dann Config-Fallback
-  function _frq_resultsVarSide(fa) {
-    if (!fa || !Array.isArray(fa.runs) || fa.runs.length === 0) return null;
-    const r = fa.runs[fa.currentRunIdx != null ? fa.currentRunIdx : fa.runs.length - 1];
-    return r ? r.varSide : null;
-  }
   const ciSide = (FRQ_resultsArray.length > 0)
     ? FRQ_resultsArray[FRQ_resultsArray.length - 1].varSide
-    : (_frq_resultsVarSide(sideData.left.freqmatchAdaptive)
-        || _frq_resultsVarSide(sideData.right.freqmatchAdaptive)
-        || (sideData.left.config === 'ci' ? 'left' : 'right'));
+    : (sideData.left.config === 'ci' ? 'left' : 'right');
 
-  // Aktive Tracks → Zwischenstand-Einträge
-  const provisional = _frq_resultsBuildInProgressEntries(ciSide);
-  const sliderEsts  = _frq_resultsBuildSliderEntries(ciSide);
-
-  if ((typeof FRQ_resultsArray === "undefined" || FRQ_resultsArray.length === 0)
-      && provisional.length === 0
-      && sliderEsts.length === 0) {
+  if (typeof FRQ_resultsArray === "undefined" || FRQ_resultsArray.length === 0) {
     noData.style.display = "";
     card.style.display = "none";
     return;
@@ -438,12 +250,8 @@ function FRQ_renderResults() {
   // Meta-Zeile
   const metaEl = document.getElementById("FRQ_resultsMeta");
   if (metaEl) {
-    const finalCount  = displayData.filter(function (r) { return !r._provisional; }).length;
-    const provCount   = displayData.filter(function (r) { return r._provisional && !r._sliderEstimate; }).length;
-    const sliderCount = displayData.filter(function (r) { return r._sliderEstimate; }).length;
-    const last = finalCount > 0
-      ? displayData.filter(function (r) { return !r._provisional; }).slice(-1)[0]
-      : null;
+    const finalCount = displayData.length;
+    const last = finalCount > 0 ? displayData.slice(-1)[0] : null;
     let metaText = '';
     if (last) {
       const d = new Date(last.timestamp);
@@ -452,14 +260,6 @@ function FRQ_renderResults() {
       );
       const refLabelMeta = last.refSide === "left" ? t("sideLeft") : t("sideRight");
       metaText = dateStr + " · " + finalCount + " Messpunkte · Ref: " + refLabelMeta;
-    }
-    if (provCount > 0) {
-      const provStr = t('FRQ_resultsProvisionalCount').replace('{n}', provCount);
-      metaText += (metaText ? ' · ' : '') + provStr;
-    }
-    if (sliderCount > 0) {
-      const sliderStr = t('FRQ_resultsSliderEstimateCount').replace('{n}', sliderCount);
-      metaText += (metaText ? ' · ' : '') + sliderStr;
     }
     metaEl.textContent = metaText;
   }
@@ -472,21 +272,12 @@ function FRQ_renderResults() {
   const tb = document.getElementById("FRQ_resultsTableBody");
   if (!th || !tb) return;
 
-  // BA364: Konvergenz/Laufstreuung nur bei aktivem Adaptiv (Architektur 10.3).
-  var isAdaptiveActive = (typeof frq_getActiveMethod === "function")
-    && frq_getActiveMethod() === "adaptive";
-  var advCols = isAdaptiveActive
-    ? ("<th title=\"" + t("FRQ_resultsColConvergenceTip") + "\">" + t("FRQ_resultsColConvergence") + "</th>"
-     + "<th title=\"" + t("FRQ_resultsColRunSpreadTip") + "\">" + t("FRQ_resultsColRunSpread") + "</th>")
-    : "";
-
   th.innerHTML =
     "<th>" + t("FRQ_resultsColEl") + "</th>" +
     "<th>" + t("FRQ_resultsColVarHz").replace('{side}', varLabel) + "</th>" +
     "<th>" + t("FRQ_resultsColRefHz").replace('{side}', varLabel) + "</th>" +
     "<th>" + t("FRQ_resultsColDiffHz") + "</th>" +
     "<th>" + t("FRQ_resultsColDiffCent") + "</th>" +
-    advCols +
     "<th title=\"" + t("FRQ_resultsColResiduumTip") + "\">" + t("FRQ_resultsColResiduum") + "</th>" +
     "<th>" + t("FRQ_resultsColStatus") + "</th>";
 
@@ -520,38 +311,21 @@ function FRQ_renderResults() {
         "<td>—</td>" +
         "<td>—</td>" +
         "<td>—</td>" +
-        (isAdaptiveActive ? "<td>—</td><td>—</td>" : "") +
         "<td>—</td>" +
         "<td style=\"font-size:.82em\">" + t('excludedSkipped') + "</td>";
     } else if (!r) {
-      const fa = sideData[ciSide] && sideData[ciSide].freqmatchAdaptive;
-      const _faRun = fa && Array.isArray(fa.runs) && fa.currentRunIdx != null ? fa.runs[fa.currentRunIdx] : null;
-      const notPercTrack = _faRun && _faRun.tracks && _faRun.tracks[i] && _faRun.tracks[i].status === 'not-perceivable';
-      const note = notPercTrack
-        ? '<span class="frq-badge frq-badge-err" data-t="FRQ_resultsStatusNotPerceivable">✗ nicht wahrnehmbar</span>'
-        : '<span style="font-size:.82em;color:#9ca3af">' + t('notMeasured') + '</span>';
+      const note = '<span style="font-size:.82em;color:#9ca3af">' + t('notMeasured') + '</span>';
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + elLabel + "</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
-        (isAdaptiveActive ? "<td style=\"color:#9ca3af\">—</td><td style=\"color:#9ca3af\">—</td>" : "") +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td>" + note + "</td>";
     } else {
-      const isProvEarly  = (r.fmStatus === 'in-progress-early');
-      const isProvLate   = (r.fmStatus === 'in-progress');
-      const isSliderEst  = (r.fmStatus === 'slider-estimate');
-      const isProv       = isProvEarly || isProvLate || isSliderEst;
-
       let varHzCell, refHzCell, diffHzCell, diffCtCell;
-      if (isProvEarly) {
-        varHzCell  = r.varFreq.toFixed(2);
-        refHzCell  = "<span style=\"color:#9ca3af\">—</span>";
-        diffHzCell = "<span style=\"color:#9ca3af\">—</span>";
-        diffCtCell = "<span style=\"color:#9ca3af\">—</span>";
-      } else if (r.refFreq == null) {
+      if (r.refFreq == null) {
         varHzCell  = r.varFreq.toFixed(2);
         refHzCell  = "<span style=\"color:#9ca3af\">—</span>";
         diffHzCell = "<span style=\"color:#9ca3af\">—</span>";
@@ -560,8 +334,7 @@ function FRQ_renderResults() {
         const diffHzRaw = r.refFreq - r.varFreq;
         const cent      = 1200 * Math.log2(r.refFreq / r.varFreq);
         const centRound = Math.round(cent);
-        const diffColor = isProv ? "#6b7280"
-                        : Math.abs(diffHzRaw) < 20 ? "#666"
+        const diffColor = Math.abs(diffHzRaw) < 20 ? "#666"
                         : diffHzRaw > 0 ? "#2563eb" : "#dc2626";
         varHzCell  = r.varFreq.toFixed(2);
         refHzCell  = r.refFreq.toFixed(2);
@@ -571,69 +344,21 @@ function FRQ_renderResults() {
                    + (centRound >= 0 ? "+" : "") + centRound + "</span>";
       }
 
-      // Drei Spalten: Konvergenz σ_konv, Lauf-Streuung σ_run, Residuum
       const isNotPerc = (r.fmStatus === 'not-perceivable');
-      const runs      = r.fmRunsCount || 0;
-
-      let convCell;
-      if (isNotPerc) {
-        convCell = '<span style="color:#9ca3af">—</span>';
-      } else if (isProv) {
-        const provKW = r.fmResidual != null ? Math.round(r.fmResidual) : null;
-        convCell = provKW != null
-          ? '<span style="color:#9ca3af">±' + provKW + '</span>'
-          : '<span style="color:#9ca3af">—</span>';
-      } else if (r.fmConv == null) {
-        convCell = '<span style="color:#9ca3af">—</span>';
-      } else {
-        convCell = '<span style="color:#374151">±' + Math.round(r.fmConv) + '</span>';
-      }
-
-      let runSpreadCell;
-      if (isProv || isNotPerc || (r.fmStatus && r.fmStatus.indexOf('piano') === 0)) {
-        runSpreadCell = '<span style="color:#9ca3af">—</span>';
-      } else if (runs < 2) {
-        runSpreadCell = '<span style="color:#9ca3af" title="erst ab 2 Läufen">— (1. Lauf)</span>';
-      } else if (r.fmRunSpread == null) {
-        runSpreadCell = '<span style="color:#9ca3af">—</span>';
-      } else {
-        runSpreadCell = '<span style="color:#374151">±' + Math.round(r.fmRunSpread) + '</span>';
-      }
 
       let residuumCell;
-      if (isProv || r.fmResiduum == null || isNotPerc) {
+      if (r.fmResiduum == null || isNotPerc) {
         residuumCell = '<span style="color:#9ca3af">—</span>';
       } else {
         const re      = Math.round(r.fmResiduum);
         const reColor = re <= 10 ? '#16a34a'
                       : re <= 25 ? '#d97706'
                       :            '#dc2626';
-        const tipParts = [];
-        if (r.fmConv != null) {
-          tipParts.push('Konvergenzweite ±' + Math.round(r.fmConv) + ' ct');
-        }
-        if (runs >= 2 && r.fmRunSpread != null) {
-          tipParts.push('Lauf-Streuung ±' + Math.round(r.fmRunSpread) + ' ct');
-        }
-        const runsLabel = (runs === 1) ? '1 Lauf'
-                        : (runs > 1)   ? runs + ' Läufe'
-                        : '';
-        if (runsLabel) tipParts.push('(' + runsLabel + ')');
-        const tipText = tipParts.join(' · ');
-        residuumCell = '<span style="color:' + reColor + ';font-weight:600" title="'
-                     + tipText + '">±' + re + ' ct</span>';
+        residuumCell = '<span style="color:' + reColor + ';font-weight:600">±' + re + ' ct</span>';
       }
 
       let statusBadge;
-      if (isProvEarly) {
-        statusBadge = '<span class="frq-badge frq-badge-prov">'
-                    + t('FRQ_resultsStatusProvisionalEarly').replace('{n}', r.fmTrialCount || 0)
-                    + '</span>';
-      } else if (isProvLate) {
-        statusBadge = '<span class="frq-badge frq-badge-prov">'
-                    + t('FRQ_resultsStatusProvisionalLate').replace('{n}', r.fmReversals || 0)
-                    + '</span>';
-      } else if (r.fmStatus === 'converged') {
+      if (r.fmStatus === 'converged') {
         statusBadge = '<span class="frq-badge frq-badge-ok" data-t="FRQ_resultsStatusOk">'
                     + t('FRQ_resultsStatusOk') + '</span>';
       } else if (r.fmStatus === 'converged-fair') {
@@ -651,9 +376,6 @@ function FRQ_renderResults() {
       } else if (r.fmStatus === 'not-perceivable') {
         statusBadge = '<span class="frq-badge frq-badge-err" data-t="FRQ_resultsStatusNotPerceivable">'
                     + t('FRQ_resultsStatusNotPerceivable') + '</span>';
-      } else if (r.fmStatus === 'slider-estimate') {
-        statusBadge = '<span class="frq-badge frq-badge-slider" data-t="FRQ_resultsStatusSliderEstimate">'
-                    + t('FRQ_resultsStatusSliderEstimate') + '</span>';
       } else if (r.fmStatus === 'piano') {
         statusBadge = '<span class="frq-badge frq-badge-slider" data-t="FRQ_resultsStatusPiano">'
                     + t('FRQ_resultsStatusPiano') + '</span>';
@@ -667,62 +389,30 @@ function FRQ_renderResults() {
         statusBadge = '<span class="muted">—</span>';
       }
 
-      // BA364: advCells nur bei aktivem Adaptiv (gleiche Bedingung wie Header).
-      var advCells = isAdaptiveActive
-        ? ("<td>" + convCell + "</td>" + "<td>" + runSpreadCell + "</td>")
-        : "";
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + elLabel + "</td>" +
         "<td>" + varHzCell + "</td>" +
         "<td>" + refHzCell + "</td>" +
         "<td>" + diffHzCell + "</td>" +
         "<td>" + diffCtCell + "</td>" +
-        advCells +
         "<td>" + residuumCell + "</td>" +
         "<td>" + statusBadge + "</td>";
-      if (isProv) tr.style.fontStyle = 'italic';
     }
     tb.appendChild(tr);
-  }
-
-  // Fortschrittsbalken: nur sichtbar bei laufendem adaptivem Track
-  const faActive = sideData[ciSide] && sideData[ciSide].freqmatchAdaptive;
-  const pBox  = document.getElementById('FRQ_resultsProgressBox');
-  const pText = document.getElementById('FRQ_resultsProgressText');
-  const pFill = document.getElementById('FRQ_resultsProgressFill');
-  if (pBox) {
-    const _faActiveRun = faActive && Array.isArray(faActive.runs) && faActive.currentRunIdx != null
-      ? faActive.runs[faActive.currentRunIdx] : null;
-    const _activeTracks = (_faActiveRun && _faActiveRun.tracks) ? _faActiveRun.tracks : {};
-    const hasActive = Object.keys(_activeTracks).some(function(k) { return _activeTracks[k].status === 'active'; });
-    if (hasActive && typeof frq_computeProgressStats === 'function') {
-      const stats = frq_computeProgressStats(_activeTracks);
-      pBox.style.display = '';
-      if (pText) pText.textContent =
-        stats.done + ' / ' + stats.total + ' · ' + Math.round(stats.percent) + ' %';
-      if (pFill) pFill.style.width = stats.percent + '%';
-    } else {
-      pBox.style.display = 'none';
-    }
   }
 
   // Qualitätstext
   const qEl = document.getElementById('FRQ_resultsQualityText');
   if (qEl) {
     const finalEntries = FRQ_resultsArray.filter(function(r) { return r.varSide === ciSide; });
-    const provEntries  = provisional;
     const nElTotal = sideData[ciSide].nEl;
     const nExcluded = sideData[ciSide].elExDur.filter(function(v) { return v !== null; }).length
                     + sideData[ciSide].elSt.filter(function(s) { return s === 'mute'; }).length;
     const totalActive = nElTotal - nExcluded;
 
     let txt = '';
-    if (finalEntries.length === 0 && provEntries.length === 0) {
+    if (finalEntries.length === 0) {
       txt = '';
-    } else if (finalEntries.length === 0) {
-      txt = t('FRQ_resultsQualityEarly')
-        .replace('{n}', provEntries.length)
-        .replace('{t}', totalActive);
     } else if (finalEntries.length < totalActive) {
       const resVals = finalEntries
         .filter(function(r) { return r.fmResidual != null; })
@@ -735,33 +425,9 @@ function FRQ_renderResults() {
         .replace('{total}', totalActive)
         .replace('{res}', meanRes.toFixed(1));
     } else {
-      // BA364: aktiver Klavier-Lauf der angezeigten Seite (oder null).
       var _pianoRun = (sideData[ciSide] && sideData[ciSide].freqmatchPiano
                        && sideData[ciSide].freqmatchPiano.run) || null;
-      if (isAdaptiveActive) {
-        // --- bisheriger Adaptiv-Zweig, unveraendert ---
-        const noisy = finalEntries.filter(function(r) {
-          return r.fmStatus === 'converged-fair' || r.fmStatus === 'converged-wide'
-              || r.fmStatus === 'unstable';
-        });
-        const resVals = finalEntries
-          .filter(function(r) { return r.fmResidual != null; })
-          .map(function(r) { return r.fmResidual; });
-        const meanRes = resVals.length > 0
-          ? resVals.reduce(function(s, v) { return s + v; }, 0) / resVals.length
-          : 0;
-        if (noisy.length > 0) {
-          const names = noisy.map(function(r) {
-            return dENPrefix(ciSide) + dEN(r.elIdx, ciSide);
-          }).join(', ');
-          txt = t('FRQ_resultsQualityOkWithNoisy')
-            .replace('{res}', meanRes.toFixed(1))
-            .replace('{names}', names);
-        } else {
-          txt = t('FRQ_resultsQualityOk').replace('{res}', meanRes.toFixed(1));
-        }
-      } else if (_pianoRun && _pianoRun.currentRound >= 1) {
-        // --- BA364 Klavier-Zweig ---
+      if (_pianoRun && _pianoRun.currentRound >= 1) {
         var _pTot = (typeof FM_PIANO_STEPS !== "undefined") ? FM_PIANO_STEPS.length : 6;
         var _pRound = _pianoRun.currentRound;
         var _pStep  = (typeof FM_PIANO_STEPS !== "undefined")
@@ -771,38 +437,18 @@ function FRQ_renderResults() {
             .replace('{round}', _pRound)
             .replace('{total}', _pTot)
             .replace('{step}', _pStep);
-        } else {
-          txt = '';
         }
-      } else {
-        txt = '';
       }
     }
     qEl.textContent = txt;
     qEl.style.display = txt ? '' : 'none';
   }
 
-  // Hinweis: Residuum erst ab 2 Läufen zuverlässig
-  const runHintEl = document.getElementById('FRQ_resultsRunHint');
-  if (runHintEl) {
-    const finalEntries = FRQ_resultsArray.filter(function(r) { return r.varSide === ciSide; });
-    const hasData = finalEntries.length > 0 || provisional.length > 0;
-    const allComplete2 = provisional.length === 0
-      && finalEntries.length > 0
-      && finalEntries.every(function(r) { return (r.fmRunsCount || 0) >= 2; });
-    // BA364: nur bei aktivem Adaptiv.
-    const show = isAdaptiveActive && hasData && !allComplete2;
-    runHintEl.textContent = show ? t('FRQ_resultsRunHint') : '';
-    runHintEl.style.display = show ? '' : 'none';
-  }
-
   // Chart
   const cv = document.getElementById("FRQ_resultsChart");
   if (cv) {
-    const notPerc = _frq_resultsCollectNotPerceivable();
-    // fmExcluded (piano-crossed/-wide) wird NICHT mehr herausgefiltert: diese
-    // Werte sollen im Graphen erscheinen, dort aber mit Warndreieck markiert
-    // werden. Das Flag bleibt am Datensatz fuer spaeteren Gebrauch erhalten.
+    const notPerc = displayData.filter(function(r) { return r.fmStatus === 'not-perceivable'; })
+                               .map(function(r) { return r.elIdx; });
     drawFRQChart(
       cv,
       displayData,
@@ -822,24 +468,14 @@ function FRQ_renderResults() {
   // Chart-Hinweis
   const hintEl = document.getElementById("FRQ_resultsChartHint");
   if (hintEl) {
-    // BA364: Klavier-Legende, solange Adaptiv nicht aktiv ist.
-    if (isAdaptiveActive) {
-      const hintAdaptive = t("FRQ_resultsChartHintAdaptive");
-      hintEl.textContent = (hintAdaptive && hintAdaptive !== "FRQ_resultsChartHintAdaptive")
-        ? hintAdaptive
-        : t("FRQ_resultsChartHint");
-    } else {
-      hintEl.textContent = t("FRQ_resultsChartHintPiano");
-    }
+    hintEl.textContent = t("FRQ_resultsChartHintPiano");
   }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  // BA 157: drei Knöpfe statt einem
   function _frq_resultsRefreshAfterClear() {
     if (typeof depLockApply === 'function') depLockApply();
     FRQ_renderResults();
-    if (typeof FRQ_refreshResumeHint === "function") FRQ_refreshResumeHint();
   }
 
   const allBtn = document.getElementById("FRQ_resultsClearAllBtn");
@@ -847,49 +483,6 @@ document.addEventListener("DOMContentLoaded", function() {
     allBtn.addEventListener("click", function() {
       if (!confirm(t("FRQ_resultsClearAllConfirm") || "Alle löschen?")) return;
       FRQ_resultsArray.splice(0, FRQ_resultsArray.length);
-      if (typeof sideData !== "undefined") {
-        if (sideData.left)  sideData.left.freqmatchAdaptive  = null;
-        if (sideData.right) sideData.right.freqmatchAdaptive = null;
-      }
-      _frq_resultsRefreshAfterClear();
-    });
-  }
-
-  const sliderBtn = document.getElementById("FRQ_resultsClearSliderBtn");
-  if (sliderBtn) {
-    sliderBtn.addEventListener("click", function() {
-      if (!confirm(t("FRQ_resultsClearSliderConfirm") || "Slider-Schätzungen löschen?")) return;
-      for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
-        if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === "slider") FRQ_resultsArray.splice(i, 1);
-      }
-      if (typeof sideData !== "undefined") {
-        ['left', 'right'].forEach(function(side) {
-          const fa = sideData[side] && sideData[side].freqmatchAdaptive;
-          if (!fa) return;
-          if (fa.sliderEstimates) fa.sliderEstimates = {};
-          fa.sliderPass = null;
-        });
-      }
-      _frq_resultsRefreshAfterClear();
-    });
-  }
-
-  const adaptiveBtn = document.getElementById("FRQ_resultsClearAdaptiveBtn");
-  if (adaptiveBtn) {
-    adaptiveBtn.addEventListener("click", function() {
-      if (!confirm(t("FRQ_resultsClearAdaptiveConfirm") || "Adaptiv-Ergebnisse löschen?")) return;
-      for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
-        if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === "adaptive") FRQ_resultsArray.splice(i, 1);
-      }
-      if (typeof sideData !== "undefined") {
-        ['left', 'right'].forEach(function(side) {
-          const fa = sideData[side] && sideData[side].freqmatchAdaptive;
-          if (fa) {
-            fa.runs = [];
-            fa.currentRunIdx = null;
-          }
-        });
-      }
       _frq_resultsRefreshAfterClear();
     });
   }

@@ -639,42 +639,11 @@ Object.assign(L.en, {
     FRQ_resColVarFreq: "CI freq.",
     FRQ_resColRefFreq: "Ref. freq.",
     FRQ_resColCent: "Deviation",
-    FRQ_modeAdaptive:    "Adaptive (2I-2AFC)",
-    FRQ_modeSlider:      "Fine-tuning (slider)",
     FRQ_sliderTargetDisabledHint: "Slider action is activated in a separate extension.",
-    FRQ_sliderEstimateTitle:     "Do a pre-estimate first?",
-    FRQ_sliderEstimateMsg:       "You can speed up the frequency matching by first making an approximate slider setting per electrode. The adaptive test then starts close to your estimate instead of from ±100 cents. Recommended especially if you suspect larger frequency deviations.",
-    FRQ_sliderEstimateBtnSlider: "Slider estimate first",
-    FRQ_sliderEstimateBtnSkip:   "Start adaptive directly",
-    FRQ_sliderEstimateBtnCancel: "Cancel",
     FRQ_lblResume:       "Resume test",
     FRQ_lblNewRun:       "Start another run",
-    FRQ_antiOverwriteMsg: "A previous measurement is already saved ({N} run(s) so far). Another run will be added to the data set and included in the combined evaluation. The previous values are preserved. If you want to start completely over, press “Delete measurements”.",
-    FRQ_ageWarnMsg:      "Your last measurement is {D} days old. Pitch perception may have shifted due to plasticity.",
     FRQ_tone1:           "Tone 1",
     FRQ_tone2:           "Tone 2",
-    FRQ_gridEl:          "Electrode",
-    FRQ_gridStatus:      "Status",
-    FRQ_gridMatch:       "Match",
-    FRQ_gridResidual:       "Convergence width (ct)",
-    FRQ_gridTrials:      "Comparisons",
-    FRQ_gridCatch:       "Catch",
-    FRQ_explainAdaptiveScience:
-      "<p><strong>Method used.</strong> Sequential 2-interval 2-alternative-forced-choice task (2I-2AFC) with adaptive 1-down-1-up rule after Levitt (1971). The reference frequency is shifted in the direction of the response after each answer; the step size is halved after each reversal of the movement direction (50 → 25 → 12 → 6 → 3 cents). The procedure converges directly to the point of subjective pitch equality (PSE, 50% point).</p>"
-      + "<p><strong>Known sources of bias and countermeasures.</strong></p>"
-      + "<ul>"
-      + "<li><em>Range bias</em> (Carlyon et al. 2010; Jensen et al. 2021): Answers unconsciously center on the midpoint of the response range. We mitigate this by covering all active electrodes in randomized order.</li>"
-      + "<li><em>Starting point bias</em> (Carlyon et al. 2010; Schatzer et al. 2014): The starting value of an adaptive track influences the result. Countermeasure: paired bracketing across runs — each run picks a random starting value of ±100 cents per electrode; the immediately following run takes the opposite sign. After two runs, the bias averages out.</li>"
-      + "<li><em>Stimulus specificity</em> (Adel et al. 2019; Lazard et al. 2012): Pitch depends on the acoustic stimulus type. The default is a harmonic complex tone, which is closer to the CI sound than a pure sine.</li>"
-      + "<li><em>Level dependence</em> (Sagi &amp; Svirsky 2021): Louder tones are perceived as higher. Level correction and prior loudness balancing minimize this.</li>"
-      + "<li><em>Plasticity</em> (Reiss et al. 2015; Pieper et al. 2022): Pitch perception adapts to the programmed frequency bands after months. The test measures the current perception, not an objective anatomical truth — for a self-balancing tool, exactly the right measure. Remeasure after larger MAP changes.</li>"
-      + "<li><em>Convergence threshold 10 cents</em>: ambitious; CI pitch match dispersions in the literature are often 20–100 cents. Graduated quality categories (converged / dispersion / strong dispersion) make visible which electrodes reach the strict threshold.</li>"
-      + "</ul>"
-      + "<p><strong>Fundamental limit of the method.</strong> There is no procedure recognized as reliable for binaural frequency mismatch determination that could be performed in the browser. Pieper et al. 2022 (p. 11) write: <em>“Overall pitch matching does not appear to be suitable to estimate the mismatch for the purpose of improving binaural hearing.”</em> Pieper instead recommends CT imaging or ITD sensitivity measurements — both clinical procedures that a browser tool cannot provide.</p>"
-      + "<p>Jensen et al. 2021 compare three pitch comparison methods (discrimination, ranking, matching) in bilateral CI users and find ranking to be the methodologically most robust; matching is “second-best”, but with tolerable bias effects (all below the Carlyon criterion 0.5). This tool deliberately uses matching, because only matching provides absolute cent values needed for the frequency correction curve.</p>"
-      + "<p><strong>What the measurement can — and cannot — do.</strong> It provides a reproducible indication of the direction and magnitude by which the perceived pitch assignment of individual electrodes deviates from the programmed frequency allocation. It is more accurate than the slider method alone and provides, with residual and run dispersion, measures of its own reliability.</p>"
-      + "<p>It <em>cannot</em> decide whether a measured correction at the CI leads to better speech understanding or more pleasant sound. The final evaluation must be made by one’s own listening — in this tool’s player, in a frequency experimentation program set by the audiologist, and in everyday life. The CI Sound Balancing Tool provides the tools; the decision about the correct correction lies with the user and their audiologist.</p>"
-      + "<p><strong>Sources.</strong> Adel et al. 2019 · Carlyon et al. 2010 · Jensen et al. 2021 · Lazard et al. 2012 · Levitt 1971 · Pieper et al. 2022 · Reiss et al. 2015 · Sagi &amp; Svirsky 2021 · Schatzer et al. 2014. Full bibliographic details see the spec document <code>.docs/spec/02b-freqmatch-adaptiv.md</code>. The works by Pieper and Jensen are available in the project folder <code>.manuals/</code>.</p>",
     tabElektrodenlautstaerke: "Electrode loudness balance",
     subTabFRQ: "Frequency matching",
     FRQ_resultsTitle: "Result of the frequency matching measurement",
@@ -702,20 +671,13 @@ Object.assign(L.en, {
     FRQ_resultsStatusProvisionalEarly:      "running · {n} comparisons",
     FRQ_resultsStatusProvisionalLate:       "in progress · {n} reversals",
     FRQ_resultsProvisionalCount:     "{n} running",
-    FRQ_resultsStatusSliderEstimate:      "🎚 pre-estimate",
     FRQ_resultsSliderEstimateCount:  "{n} pre-estimate(s)",
-    FRQ_resultsTipSliderEstimate:         "Pre-estimate",
     FRQ_resultsProgressLabel:     "Progress of current measurement",
-    FRQ_resultsRunHint:           "The residual uncertainty of the measurement can only be reliably estimated after 2 complete test runs. With only one run, the run dispersion as a second source of error is missing — the uncertainty shown in the graph is therefore preliminary.",
-    FRQ_resultsQualityEarly:         "First measurements are running ({n} of {t} electrodes). Values are preliminary, please complete the test to the end.",
     FRQ_resultsQualityPartial:       "Partially measured ({done} of {total} electrodes converged, mean residual uncertainty {res} cents). Values are roughly usable, the test should be completed for a reliable result.",
-    FRQ_resultsQualityOk:            "Measurement complete (mean residual uncertainty {res} cents). Values are suitable as a reference for a FAT adjustment.",
-    FRQ_resultsQualityOkWithNoisy:   "Measurement complete (mean residual uncertainty {res} cents). The following electrodes have significant residual uncertainty: {names}. Values usable, but be cautious when transferring them.",
     FRQ_resultsTipNotPerceivable: "not perceivable",
     FRQ_resultsTipResidual: "residual uncertainty",
     FRQ_resultsTipPianoCrossed: "Bounds reversed – value uncertain",
     FRQ_resultsTipPianoWide: "Uncertainty very large",
-    FRQ_resultsChartHintAdaptive: "Actual line = programmed electrode frequency, target point = perceived match. ✓ = clean convergence, orange band = residual uncertainty (width = ±residual in cents), ✗ = not perceivable. Hollow blue circle = preliminary interim state (measurement still running); hollow circle with “?” = not enough data yet for an estimate.",
     FRQ_resultsChartXLabel: "Frequency (cents relative to 1 kHz)",
     FRQ_resultsChartYLabel: "Deviation (cents)",
     FRQ_resultsLblIst: "Actual",
@@ -723,11 +685,7 @@ Object.assign(L.en, {
     FRQ_resultsChartHint: "Gray (dashed) line = actual frequency, as programmed in the implant. Black line = target frequency, at which the electrode is perceived according to the measurement. The arrow shows the necessary correction; the Y-axis shows its size in cents. Unmeasured electrodes: only actual line + circle. Excluded electrodes: only actual line + ✕.",
     FRQ_resultsNoData: "No frequency matching results yet.",
     FRQ_resultsClearAllBtnLabel: "🗑 Delete all frequency matching results",
-    FRQ_resultsClearSliderBtnLabel: "🗑 Delete fine-tuning values only",
-    FRQ_resultsClearAdaptiveBtnLabel: "🗑 Delete only adaptive results",
     FRQ_resultsClearAllConfirm: "Delete all frequency matching results and track raw data (slider and adaptive)? This action cannot be undone.",
-    FRQ_resultsClearSliderConfirm: "Delete fine-tuning values?",
-    FRQ_resultsClearAdaptiveConfirm: "Delete only the adaptive results? The slider pre-estimates will be preserved.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Delete piano results",
     FRQ_resultsClearPianoConfirm:   "Delete piano results? Other methods are kept.",
     FRQ_migratePianoConfirm:  "This file contains measurements from other methods (adaptive or readjustment). Transfer them as starting values into the piano method?",
@@ -752,7 +710,6 @@ Object.assign(L.en, {
     depLockedFooter: "Delete the listed results or reset the tool to change this setting.",
     depReasonLoudness: "Loudness test",
     depReasonLoudnessOtherSide: "Loudness test of the other side (carried over)",
-    depReasonFRQSlider: "Frequency matching – pre-estimate with sliders",
     depReasonFRQAdaptive: "Frequency matching – adaptive test",
     depFieldCfg: "Hearing technology",
     depFieldHzEigen: "Hz custom",
@@ -876,12 +833,7 @@ Object.assign(L.en, {
     testRunningTitleWord_test:    "Test",
     testRunningTitleWord_running: "running",
     btnDebugRun: "DEBUG: test run",
-    FRQ_explainAdaptive: "The adaptive procedure asks higher/lower comparisons. The test series can take a very long time. Plan enough time and a few small breaks. The test time can be shortened if you first run the pre-estimate (slider).",
-    FRQ_explainSlider:   "Fine-tuning lets you manually refine a result that was already measured (with the adaptive or the piano method). You go through the electrodes one by one and, for each, use the slider to set the value at which both tones sound equally high. Exactly one value is stored per electrode; confirming again overwrites it.",
-    FRQ_sliderInstruction: "Adjust the slider until both tones sound equally high, then confirm. The slider starts at the most recently stored value for this electrode.",
-    FRQ_explainSliderScience: "Fine-tuning is not a standalone measurement but a manual correction. The triangle above the slider shows the stored result for this electrode. If an uncertainty range from another method is available, it appears as a coloured bar below the slider.",
     FRQ_sliderRoundProgress:   "Round %R · Electrode %C of %T",
-    FRQ_sliderProgress:        "Electrode %C of %T",
     FRQ_sliderRoundColEl:      "Electrode",
     FRQ_sliderRoundColStartHz: "Start freq (Hz)",
     FRQ_sliderRoundColCount:   "Reading count",

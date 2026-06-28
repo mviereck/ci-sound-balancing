@@ -640,42 +640,11 @@ Object.assign(L.fr, {
     FRQ_resColVarFreq: "Fréq. IC",
     FRQ_resColRefFreq: "Fréq. réf.",
     FRQ_resColCent: "Écart",
-    FRQ_modeAdaptive:    "Adaptatif (2I-2AFC)",
-    FRQ_modeSlider:      "Réajustement (curseur)",
     FRQ_sliderTargetDisabledHint: "L'effet du slider est activé dans une extension spécifique.",
-    FRQ_sliderEstimateTitle:     "Faire d'abord une pré-estimation ?",
-    FRQ_sliderEstimateMsg:       "Vous pouvez accélérer l'appariement fréquentiel en réglant d'abord approximativement un curseur par électrode. Le test adaptatif démarre alors près de votre estimation au lieu de ±100 cents. Recommandé surtout si vous soupçonnez de grands écarts de fréquence.",
-    FRQ_sliderEstimateBtnSlider: "D'abord estimation Slider",
-    FRQ_sliderEstimateBtnSkip:   "Démarrer directement en adaptatif",
-    FRQ_sliderEstimateBtnCancel: "Annuler",
     FRQ_lblResume:       "Reprendre le test",
     FRQ_lblNewRun:       "Démarrer un autre parcours",
-    FRQ_antiOverwriteMsg: "Une mesure précédente est déjà enregistrée (jusqu'à présent {N} parcours). Un parcours supplémentaire sera ajouté à l'ensemble de données et inclus dans l'évaluation combinée. Les valeurs existantes sont conservées. Si vous voulez tout recommencer, appuyez sur « Effacer les mesures ».",
-    FRQ_ageWarnMsg:      "Votre dernière mesure date de {D} jours. La perception de la hauteur peut s'être déplacée en raison de la plasticité.",
     FRQ_tone1:           "Son 1",
     FRQ_tone2:           "Son 2",
-    FRQ_gridEl:          "Électrode",
-    FRQ_gridStatus:      "Statut",
-    FRQ_gridMatch:       "Match",
-    FRQ_gridResidual:       "Largeur de convergence (ct)",
-    FRQ_gridTrials:      "Comparaisons",
-    FRQ_gridCatch:       "Catch",
-    FRQ_explainAdaptiveScience:
-      "<p><strong>Méthode utilisée.</strong> Tâche séquentielle à 2 intervalles 2 alternatives à choix forcé (2I-2AFC) avec règle adaptative 1-down-1-up selon Levitt (1971). La fréquence de référence est décalée après chaque réponse dans la direction de la réponse ; la taille du pas est divisée par deux après chaque inversion de direction de mouvement (50 → 25 → 12 → 6 → 3 cents). La procédure converge directement vers le point d'égalité subjective de hauteur (PSE, point 50 %).</p>"
-      + "<p><strong>Sources de biais connues et contre-mesures.</strong></p>"
-      + "<ul>"
-      + "<li><em>Biais d'étendue</em> (Carlyon et al. 2010 ; Jensen et al. 2021) : les réponses se centrent inconsciemment sur le milieu de la plage de réponse. Nous atténuons cela par la couverture de toutes les électrodes actives dans un ordre randomisé.</li>"
-      + "<li><em>Biais du point de départ</em> (Carlyon et al. 2010 ; Schatzer et al. 2014) : la valeur de départ d'une piste adaptative influence le résultat. Contre-mesure : bracketing apparié sur les parcours — chaque parcours choisit par électrode une valeur de départ aléatoire ±100 cents ; le parcours suivant prend le signe opposé. Après deux parcours, le biais se moyenne.</li>"
-      + "<li><em>Spécificité du stimulus</em> (Adel et al. 2019 ; Lazard et al. 2012) : la hauteur dépend du type de stimulus acoustique. La valeur par défaut est un son complexe harmonique, plus proche du son de l'IC qu'un sinus pur.</li>"
-      + "<li><em>Dépendance au niveau</em> (Sagi &amp; Svirsky 2021) : les sons plus forts sont perçus comme plus aigus. La correction de niveau et l'équilibrage d'intensité préalable minimisent cela.</li>"
-      + "<li><em>Plasticité</em> (Reiss et al. 2015 ; Pieper et al. 2022) : la perception de la hauteur s'adapte au bout de mois aux bandes de fréquences programmées. Le test mesure la perception actuelle, pas une vérité anatomique objective — exactement la bonne mesure pour un outil de self-balancing. En cas de modifications MAP importantes, remesurer.</li>"
-      + "<li><em>Seuil de convergence 10 cents</em> : sportif ; les dispersions de pitch-match d'IC se situent souvent dans la littérature entre 20 et 100 cents. Les catégories de qualité graduées (convergé / dispersion / forte dispersion) rendent visible quelles électrodes atteignent le seuil strict.</li>"
-      + "</ul>"
-      + "<p><strong>Limite fondamentale de la méthode.</strong> Il n'existe pas de procédure reconnue comme fiable pour déterminer le mismatch fréquentiel binaural qui soit réalisable dans le navigateur. Pieper et al. 2022 (p. 11) écrivent : <em>« Overall pitch matching does not appear to be suitable to estimate the mismatch for the purpose of improving binaural hearing. »</em> Pieper recommande à la place l'imagerie CT ou des mesures de sensibilité ITD — deux procédures cliniques qu'un outil navigateur ne peut pas fournir.</p>"
-      + "<p>Jensen et al. 2021 comparent trois méthodes de comparaison de hauteur (Discrimination, Ranking, Matching) chez des porteurs d'IC bilatéraux et trouvent que le Ranking est la plus robuste méthodologiquement ; Matching est « second-best », mais avec des effets de biais tolérables (tous sous le critère de Carlyon 0,5). Cet outil utilise sciemment Matching, car seul Matching fournit des valeurs absolues en cents nécessaires à la courbe de correction de fréquence.</p>"
-      + "<p><strong>Ce que la mesure peut faire — et ce qu'elle ne peut pas.</strong> Elle fournit un repère reproductible indiquant dans quelle direction et avec quelle ampleur l'attribution de hauteur perçue d'électrodes individuelles s'écarte de l'allocation fréquentielle programmée. Elle est plus précise que la seule méthode du Slider et fournit avec le résidu et la dispersion entre parcours des mesures de sa propre fiabilité.</p>"
-      + "<p>Elle ne peut <em>pas</em> décider si une correction mesurée sur l'IC conduit à une meilleure compréhension de la parole ou à un son plus agréable. L'évaluation finale doit se faire par sa propre écoute — dans le Player de cet outil, dans un programme d'expérimentation fréquentielle réglé par l'audiologiste, et dans la vie quotidienne. Le CI Sound Balancing Tool met à disposition les outils ; la décision concernant la bonne correction appartient à l'utilisateur et à son audiologiste.</p>"
-      + "<p><strong>Sources.</strong> Adel et al. 2019 · Carlyon et al. 2010 · Jensen et al. 2021 · Lazard et al. 2012 · Levitt 1971 · Pieper et al. 2022 · Reiss et al. 2015 · Sagi &amp; Svirsky 2021 · Schatzer et al. 2014. Références bibliographiques complètes voir le document de spécification <code>.docs/spec/02b-freqmatch-adaptiv.md</code>. Les travaux de Pieper et Jensen se trouvent dans le dossier de projet <code>.manuals/</code>.</p>",
     tabElektrodenlautstaerke: "Équilibrage d'intensité des électrodes",
     subTabFRQ: "Appariement fréquentiel",
     FRQ_resultsTitle: "Résultat de la mesure d'appariement fréquentiel",
@@ -703,20 +672,13 @@ Object.assign(L.fr, {
     FRQ_resultsStatusProvisionalEarly:      "en cours · {n} comparaisons",
     FRQ_resultsStatusProvisionalLate:       "en cours · {n} inversions",
     FRQ_resultsProvisionalCount:     "{n} en cours",
-    FRQ_resultsStatusSliderEstimate:      "🎚 Pré-estimation",
     FRQ_resultsSliderEstimateCount:  "{n} pré-estimation(s)",
-    FRQ_resultsTipSliderEstimate:         "Pré-estimation",
     FRQ_resultsProgressLabel:     "Progression de la mesure en cours",
-    FRQ_resultsRunHint:           "L'incertitude résiduelle de la mesure ne peut être estimée de manière fiable qu'après 2 parcours de test complets. Avec un seul parcours, la dispersion entre parcours manque comme seconde source d'erreur — l'incertitude affichée dans le graphique est donc provisoire.",
-    FRQ_resultsQualityEarly:         "Premières mesures en cours ({n} sur {t} électrodes). Les valeurs sont provisoires, veuillez effectuer le test jusqu'au bout.",
     FRQ_resultsQualityPartial:       "Partiellement mesuré ({done} sur {total} électrodes convergées, incertitude résiduelle moyenne {res} cents). Les valeurs sont grossièrement utilisables, le test devrait être achevé pour un résultat fiable.",
-    FRQ_resultsQualityOk:            "Mesure complète (incertitude résiduelle moyenne {res} cents). Les valeurs sont appropriées comme repère pour un ajustement FAT.",
-    FRQ_resultsQualityOkWithNoisy:   "Mesure complète (incertitude résiduelle moyenne {res} cents). Électrodes suivantes avec incertitude résiduelle notable : {names}. Valeurs utilisables, mais prudence lors du transfert pour ces électrodes.",
     FRQ_resultsTipNotPerceivable: "non perceptible",
     FRQ_resultsTipResidual: "Incertitude résiduelle",
     FRQ_resultsTipPianoCrossed: "Bornes inversées – valeur incertaine",
     FRQ_resultsTipPianoWide: "Incertitude très grande",
-    FRQ_resultsChartHintAdaptive: "Trait actuel = fréquence d'électrode programmée, point cible = correspondance perçue. ✓ = convergence propre, bande orange = incertitude résiduelle (largeur = ±résidu en cents), ✗ = non perceptible. Cercle bleu vide = état intermédiaire provisoire (mesure encore en cours) ; cercle vide avec « ? » = encore trop peu de données pour une estimation.",
     FRQ_resultsChartXLabel: "Fréquence (cents par rapport à 1 kHz)",
     FRQ_resultsChartYLabel: "Écart (cents)",
     FRQ_resultsLblIst: "Actuel",
@@ -724,11 +686,7 @@ Object.assign(L.fr, {
     FRQ_resultsChartHint: "Trait gris (pointillé) = fréquence actuelle, telle que programmée dans l'implant. Trait noir = fréquence cible, à laquelle l'électrode est perçue selon la mesure. La flèche montre la correction nécessaire ; l'axe Y montre son ampleur en cents. Électrodes non mesurées : seulement trait actuel + cercle. Électrodes exclues : seulement trait actuel + ✕.",
     FRQ_resultsNoData: "Pas encore de résultats d'appariement fréquentiel.",
     FRQ_resultsClearAllBtnLabel: "🗑 Effacer tous les résultats d'appariement fréquentiel",
-    FRQ_resultsClearSliderBtnLabel: "🗑 Supprimer uniquement les valeurs de réajustement",
-    FRQ_resultsClearAdaptiveBtnLabel: "🗑 Effacer seulement les résultats Adaptatif",
     FRQ_resultsClearAllConfirm: "Effacer tous les résultats d'appariement fréquentiel et les données brutes de piste (Slider et Adaptatif) ? Cette action ne peut pas être annulée.",
-    FRQ_resultsClearSliderConfirm: "Supprimer les valeurs de réajustement ?",
-    FRQ_resultsClearAdaptiveConfirm: "Effacer seulement les résultats Adaptatif ? Les pré-estimations Slider sont conservées.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Supprimer les résultats du piano",
     FRQ_resultsClearPianoConfirm:   "Supprimer les résultats du piano ? Les autres méthodes sont conservées.",
     FRQ_migratePianoConfirm:  "Ce fichier contient des mesures d’autres méthodes (adaptative ou réajustement). Les reprendre comme valeurs de départ dans la méthode du piano ?",
@@ -753,7 +711,6 @@ Object.assign(L.fr, {
     depLockedFooter: "Effacez d'abord les résultats mentionnés ou réinitialisez l'outil pour modifier ce réglage.",
     depReasonLoudness: "Test d'intensité",
     depReasonLoudnessOtherSide: "Test d'intensité de l'autre côté (est repris)",
-    depReasonFRQSlider: "Appariement fréquentiel — pré-estimation avec curseurs",
     depReasonFRQAdaptive: "Appariement fréquentiel — test adaptatif",
     depFieldCfg: "Technologie auditive",
     depFieldHzEigen: "Hz-propre",
@@ -876,12 +833,7 @@ Object.assign(L.fr, {
     testRunningTitleWord_test:    "Test",
     testRunningTitleWord_running: "en cours",
     btnDebugRun: "DEBUG : parcours de test",
-    FRQ_explainAdaptive: "La procédure adaptative interroge des comparaisons plus haut/plus bas. La série de tests peut être très longue. Prévoyez suffisamment de temps et quelques petites pauses. Le temps de test peut être raccourci si vous exécutez d'abord la pré-estimation (Slider).",
-    FRQ_explainSlider:   "Le réajustement permet d'affiner manuellement un résultat déjà mesuré (avec la méthode adaptative ou la méthode du piano). Vous parcourez les électrodes une par une et, pour chacune, réglez à l'aide du curseur la valeur pour laquelle les deux sons ont la même hauteur. Une seule valeur est enregistrée par électrode ; confirmer à nouveau la remplace.",
-    FRQ_sliderInstruction: "Ajustez le curseur jusqu'à ce que les deux sons aient la même hauteur, puis confirmez. Le curseur démarre sur la dernière valeur enregistrée pour cette électrode.",
-    FRQ_explainSliderScience: "Le réajustement n'est pas une mesure autonome mais une correction manuelle. Le triangle au-dessus du curseur indique le résultat enregistré pour cette électrode. Si une plage d'incertitude provenant d'une autre méthode est disponible, elle apparaît comme une barre colorée sous le curseur.",
     FRQ_sliderRoundProgress:   "Tour %R · Électrode %C sur %T",
-    FRQ_sliderProgress:        "Électrode %C sur %T",
     FRQ_sliderRoundColEl:      "Électrode",
     FRQ_sliderRoundColStartHz: "Fréq. initiale (Hz)",
     FRQ_sliderRoundColCount:   "Nb de mesures",

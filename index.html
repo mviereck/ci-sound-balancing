@@ -138,7 +138,7 @@
         'i18n/de.js', 'i18n/en.js', 'i18n/fr.js', 'i18n/es.js',
         'js/dependency-lock.js',
         'js/core.js', 'js/state-side.js', 'js/audio-source.js', 'assets/audio-embed/noises.js', 'js/richtone-profiles.js', 'js/citest-profiles.js', 'js/audio.js',
-        'js/ui-implant.js', 'js/freq-table.js', 'js/data/cochlear-fats.js', 'js/implant-validate.js', 'js/tone-popup.js', 'js/sampler-keyboard.js', 'js/test-ui.js', 'js/test.js', 'js/freqmatch-staircase.js', 'js/freqmatch.js', 'js/freqmatch-adaptive.js', 'js/freqmatch-slider.js',
+        'js/ui-implant.js', 'js/freq-table.js', 'js/data/cochlear-fats.js', 'js/implant-validate.js', 'js/tone-popup.js', 'js/sampler-keyboard.js', 'js/test-ui.js', 'js/test.js', 'js/freqmatch.js',
         'js/results.js', 'js/chart.js', 'js/file.js', 'js/print.js', 'js/print-md.js', 'js/tab-print.js', 'js/tabs-eq.js', 'js/levels.js',
         'vendors/rubberband-wasm/dist/index.umd.min.js',
         'js/rubberband-loader.js',
@@ -697,13 +697,6 @@
               style="margin-bottom:14px;padding:12px 16px;background:var(--accent-light);border-radius:8px;border-left:3px solid var(--accent);font-size:0.86em;line-height:1.6"
               id="FRQ_resultsMethodNote"
             ></div>
-            <!-- BA353: vorlaeufiger Umschalter aktives Verfahren -->
-            <!-- BA363 Klavier-only: ausgeblendet; zum Reaktivieren display:none entfernen -->
-            <div id="FRQ_activeMethodSwitch" style="display:none">
-              <button id="FRQ_activeMethodAdaptiveBtn" class="btn btn-sm" style="font-weight:600;border-radius:6px" data-t="FRQ_modeAdaptive"></button>
-              <button id="FRQ_activeMethodSliderBtn" class="btn btn-sm" style="font-weight:600;border-radius:6px" data-t="FRQ_modeSlider"></button>
-              <button id="FRQ_activeMethodPianoBtn" class="btn btn-sm" style="font-weight:600;border-radius:6px" data-t="FRQ_modePiano"></button>
-            </div>
             <div class="chart-container" style="margin-bottom:16px">
               <canvas id="FRQ_resultsChart" width="800" height="360"></canvas>
               <p
@@ -711,7 +704,6 @@
                 id="FRQ_resultsChartHint"
               ></p>
             </div>
-            <div id="FRQ_resultsRunHint" style="display:none;margin-bottom:14px;padding:10px 14px;background:#fefce8;border-left:3px solid #ca8a04;border-radius:0 4px 4px 0;font-size:0.86em;line-height:1.6;color:#374151"></div>
             <div id="FRQ_resultsSidesDescription" style="margin-bottom:14px;font-size:0.86em;line-height:1.6;color:#374151"></div>
             <div style="overflow-x:auto">
               <table class="results-table" id="FRQ_resultsTable">
@@ -722,8 +714,6 @@
             <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px">
               <button class="btn" id="FRQ_resultsClearPianoBtn" style="color:var(--danger)" data-t="FRQ_resultsClearPianoBtnLabel"></button>
               <button class="btn" id="FRQ_resultsClearAllBtn" style="color:var(--danger);display:none" data-t="FRQ_resultsClearAllBtnLabel"></button>
-              <button class="btn" id="FRQ_resultsClearSliderBtn" style="display:none" data-t="FRQ_resultsClearSliderBtnLabel"></button>
-              <button class="btn" id="FRQ_resultsClearAdaptiveBtn" style="display:none" data-t="FRQ_resultsClearAdaptiveBtnLabel"></button>
             </div>
           </div>
         </div>

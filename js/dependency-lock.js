@@ -25,39 +25,17 @@ const DEP_LOCK_RULES = [
     getReasonKeys: function() {
       const reasons = [];
       const s = sideData[activeSide];
-      // Eigene Lautstärke-Daten der aktiven Seite
-      // BA 251: jRes entfaellt; nur noch ELL_results.
       const ownHasLoud = (s.ELL_results && s.ELL_results.length > 0);
       if (ownHasLoud) reasons.push('depReasonLoudness');
-      // Andere Seite akustisch → Hersteller-Wechsel zieht Frequenzraster mit
       const other = activeSide === 'left' ? 'right' : 'left';
       const otherSync = (sideData[other].config || 'ci') !== 'ci';
-      // BA 251: jRes entfaellt; nur noch ELL_results.
       const otherHasLoud = otherSync
         && (sideData[other].ELL_results && sideData[other].ELL_results.length > 0);
       if (otherHasLoud) reasons.push('depReasonLoudnessOtherSide');
-      // Frequenzabgleich adaptiv: konvergierte Ergebnisse in FRQ_resultsArray
-      // oder Laufdaten in runs[] (auch ohne konvergierten Match).
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
           reasons.push('depReasonFRQAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ — ignorieren */ }
-      try {
-        if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
-          if (reasons.indexOf('depReasonFRQAdaptive') === -1)
-            reasons.push('depReasonFRQAdaptive');
-      } catch(ex) {}
-      // Frequenzabgleich Schieber: Daten liegen in sliderEstimates, nicht in FRQ_resultsArray.
-      try {
-        var hasSlider = false;
-        ['left', 'right'].forEach(function(side) {
-          var fa = sideData[side] && sideData[side].freqmatchAdaptive;
-          if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0) {
-            hasSlider = true;
-          }
-        });
-        if (hasSlider) reasons.push('depReasonFRQSlider');
-      } catch(ex) { /* sliderEstimates noch nicht initialisiert — ignorieren */ }
       return reasons;
     }
   }
@@ -71,29 +49,12 @@ const DEP_LOCK_RULES = [
     getReasonKeys: function() {
       const reasons = [];
       const s = sideData[activeSide];
-      // BA 251: jRes entfaellt; nur noch ELL_results.
       const ownHasLoud = (s.ELL_results && s.ELL_results.length > 0);
       if (ownHasLoud) reasons.push('depReasonLoudness');
-      // Adaptiv: FRQ_resultsArray (konvergierte Ergebnisse) oder Laufdaten in runs[]
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
           reasons.push('depReasonFRQAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
-      try {
-        if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
-          if (reasons.indexOf('depReasonFRQAdaptive') === -1)
-            reasons.push('depReasonFRQAdaptive');
-      } catch(ex) {}
-      // Slider: Daten liegen in sliderEstimates, nicht in FRQ_resultsArray
-      try {
-        var hasSlider = false;
-        ['left', 'right'].forEach(function(side) {
-          var fa = sideData[side] && sideData[side].freqmatchAdaptive;
-          if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0)
-            hasSlider = true;
-        });
-        if (hasSlider) reasons.push('depReasonFRQSlider');
-      } catch(ex) { /* sliderEstimates noch nicht initialisiert */ }
       return reasons;
     }
   },
@@ -105,33 +66,17 @@ const DEP_LOCK_RULES = [
     getReasonKeys: function(el) {
       const reasons = [];
       const s = sideData[activeSide];
-      // BA 251: jRes entfaellt; nur noch ELL_results.
       const ownHasLoud = (s.ELL_results && s.ELL_results.length > 0);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
           reasons.push('depReasonFRQAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
-      try {
-        if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
-          if (reasons.indexOf('depReasonFRQAdaptive') === -1)
-            reasons.push('depReasonFRQAdaptive');
-      } catch(ex) {}
-      try {
-        var hasSlider = false;
-        ['left', 'right'].forEach(function(side) {
-          var fa = sideData[side] && sideData[side].freqmatchAdaptive;
-          if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0)
-            hasSlider = true;
-        });
-        if (hasSlider) reasons.push('depReasonFRQSlider');
-      } catch(ex) { /* sliderEstimates noch nicht initialisiert */ }
       return reasons;
     }
   },
 
   // Referenzseite im Frequenzabgleich (BA 151)
-  // ID: refEl_freqmatch (cfg.id='freqmatch', type='side' → kein Überschreiben)
   {
     selector: '#refEl_freqmatch',
     fieldLabelKey: 'depFieldRefSide',
@@ -141,69 +86,23 @@ const DEP_LOCK_RULES = [
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
           reasons.push('depReasonFRQAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
-      try {
-        var hasSlider = false;
-        ['left', 'right'].forEach(function(side) {
-          var fa = sideData[side] && sideData[side].freqmatchAdaptive;
-          if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0)
-            hasSlider = true;
-        });
-        if (hasSlider) reasons.push('depReasonFRQSlider');
-      } catch(ex) { /* sliderEstimates noch nicht initialisiert */ }
-      // Laufdaten (noch nicht abgeschlossene Runs) ebenfalls berücksichtigen
-      try {
-        if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
-          if (reasons.indexOf('depReasonFRQAdaptive') === -1)
-            reasons.push('depReasonFRQAdaptive');
-      } catch(ex) {}
       return reasons;
     }
   },
 
-  // BA 164: Aktiv-Häkchen pro Elektrode — kann nicht umgeschaltet
-  // werden, wenn Meßergebnisse der aktiven Seite vorliegen.
+  // BA 164: Aktiv-Häkchen pro Elektrode
   {
     selectorAll: '.ec-active',
     fieldLabelKey: 'depFieldActive',
     getReasonKeys: function() {
       const reasons = [];
       const s = sideData[activeSide];
-      // BA 251: jRes entfaellt; nur noch ELL_results.
       const ownHasLoud = (s.ELL_results && s.ELL_results.length > 0);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
           reasons.push('depReasonFRQAdaptive');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
-      try {
-        if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
-          if (reasons.indexOf('depReasonFRQAdaptive') === -1)
-            reasons.push('depReasonFRQAdaptive');
-      } catch(ex) {}
-      try {
-        var hasSlider = false;
-        ['left', 'right'].forEach(function(side) {
-          var fa = sideData[side] && sideData[side].freqmatchAdaptive;
-          if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0)
-            hasSlider = true;
-        });
-        if (hasSlider) reasons.push('depReasonFRQSlider');
-      } catch(ex) {}
-      return reasons;
-    }
-  }
-  ,
-  // BA 205: Ausschluss-Checkbox — gesperrt, wenn adaptive FreqMatch-Trials vorliegen.
-  // Bewußt eng nur auf _FRQ_hasAdaptiveData(); Loudness- und Slider-Bezug bleibt außen vor.
-  {
-    selectorAll: '.ec',
-    fieldLabelKey: 'depFieldExclude',
-    getReasonKeys: function() {
-      var reasons = [];
-      try {
-        if (typeof _FRQ_hasAdaptiveData === 'function' && _FRQ_hasAdaptiveData())
-          reasons.push('depReasonFRQAdaptive');
-      } catch(ex) { /* freqmatch noch nicht initialisiert */ }
       return reasons;
     }
   }

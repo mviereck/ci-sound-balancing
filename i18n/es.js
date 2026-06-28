@@ -640,42 +640,11 @@ Object.assign(L.es, {
     FRQ_resColVarFreq: "Frec. IC",
     FRQ_resColRefFreq: "Frec. ref.",
     FRQ_resColCent: "Desviación",
-    FRQ_modeAdaptive:    "Adaptativo (2I-2AFC)",
-    FRQ_modeSlider:      "Reajuste (deslizador)",
     FRQ_sliderTargetDisabledHint: "El efecto del deslizador se activa en una extensión propia.",
-    FRQ_sliderEstimateTitle:     "¿Hacer primero una pre-estimación?",
-    FRQ_sliderEstimateMsg:       "Puede acelerar el ajuste de frecuencia haciendo primero un ajuste aproximado con el deslizador por electrodo. La prueba adaptativa partirá entonces cerca de su estimación en lugar de hacerlo desde ±100 cent. Recomendado especialmente si sospecha desviaciones de frecuencia grandes.",
-    FRQ_sliderEstimateBtnSlider: "Primero estimación con deslizador",
-    FRQ_sliderEstimateBtnSkip:   "Iniciar adaptativo directamente",
-    FRQ_sliderEstimateBtnCancel: "Cancelar",
     FRQ_lblResume:       "Continuar prueba",
     FRQ_lblNewRun:       "Iniciar otra pasada",
-    FRQ_antiOverwriteMsg: "Ya hay una medición previa guardada (hasta ahora {N} pasada(s)). Otra pasada se añadirá al conjunto de datos y se incluirá en la evaluación combinada. Los valores previos se conservan. Si desea empezar completamente de nuevo, pulse «Borrar mediciones».",
-    FRQ_ageWarnMsg:      "Su última medición tiene {D} días. La percepción del pitch puede haberse desplazado por plasticidad.",
     FRQ_tone1:           "Tono 1",
     FRQ_tone2:           "Tono 2",
-    FRQ_gridEl:          "Electrodo",
-    FRQ_gridStatus:      "Estado",
-    FRQ_gridMatch:       "Coincidencia",
-    FRQ_gridResidual:       "Anchura de convergencia (ct)",
-    FRQ_gridTrials:      "Comparaciones",
-    FRQ_gridCatch:       "Catch",
-    FRQ_explainAdaptiveScience:
-      "<p><strong>Método utilizado.</strong> Tarea de elección forzada secuencial de 2 intervalos y 2 alternativas (2I-2AFC) con regla adaptativa 1-down-1-up según Levitt (1971). La frecuencia de referencia se desplaza tras cada respuesta en la dirección de la respuesta; el tamaño de paso se reduce a la mitad tras cada inversión del sentido del movimiento (50 → 25 → 12 → 6 → 3 cent). El procedimiento converge directamente al punto de igualdad subjetiva de pitch (PSE, punto del 50 %).</p>"
-      + "<p><strong>Fuentes de sesgo conocidas y contramedidas.</strong></p>"
-      + "<ul>"
-      + "<li><em>Range bias</em> (Carlyon et al. 2010; Jensen et al. 2021): las respuestas se centran inconscientemente en el punto medio del rango de respuesta. Lo mitigamos cubriendo todos los electrodos activos en orden aleatorizado.</li>"
-      + "<li><em>Sesgo de punto de partida</em> (Carlyon et al. 2010; Schatzer et al. 2014): el valor inicial de un track adaptativo influye en el resultado. Contramedida: bracketing emparejado entre pasadas — cada pasada elige por electrodo un valor inicial aleatorio de ±100 cent; la pasada inmediatamente siguiente toma el signo contrario. Tras dos pasadas el sesgo se promedia.</li>"
-      + "<li><em>Especificidad del estímulo</em> (Adel et al. 2019; Lazard et al. 2012): el pitch depende del tipo de estímulo acústico. Por defecto se usa un tono complejo armónico, más cercano al sonido del IC que un seno puro.</li>"
-      + "<li><em>Dependencia del nivel</em> (Sagi y Svirsky 2021): los tonos más fuertes se perciben como más agudos. La corrección de nivel y el balanceo de sonoridad previo lo minimizan.</li>"
-      + "<li><em>Plasticidad</em> (Reiss et al. 2015; Pieper et al. 2022): la percepción del pitch se adapta tras meses a las bandas de frecuencia programadas. La prueba mide la percepción actual, no una verdad anatómica objetiva — para una herramienta de auto-balanceo, exactamente la medida adecuada. Tras cambios mayores en el MAP, volver a medir.</li>"
-      + "<li><em>Umbral de convergencia 10 cent</em>: exigente; en la literatura las dispersiones de pitch-match en IC suelen estar entre 20 y 100 cent. Las categorías de calidad escalonadas (convergido / dispersión / dispersión fuerte) hacen visible qué electrodos alcanzan el umbral estricto.</li>"
-      + "</ul>"
-      + "<p><strong>Límite fundamental del método.</strong> No existe un procedimiento reconocido como fiable para determinar el mismatch de frecuencia binaural que sea ejecutable en un navegador. Pieper et al. 2022 (p. 11) escriben: <em>«Overall pitch matching does not appear to be suitable to estimate the mismatch for the purpose of improving binaural hearing.»</em> Pieper recomienda en cambio imágenes de TAC o mediciones de sensibilidad ITD — ambos procedimientos clínicos que una herramienta de navegador no puede ofrecer.</p>"
-      + "<p>Jensen et al. 2021 comparan tres métodos de comparación de pitch (Discrimination, Ranking, Matching) en portadores de IC bilateral y encuentran el Ranking como el más robusto metodológicamente; Matching es «second-best», pero con efectos de sesgo tolerables (todos por debajo del criterio de Carlyon 0,5). Esta herramienta usa conscientemente Matching, porque solo Matching proporciona valores absolutos en cent, necesarios para la curva de corrección de frecuencia.</p>"
-      + "<p><strong>Lo que la medición puede — y lo que no.</strong> Proporciona un indicador reproducible sobre en qué dirección y con qué orden de magnitud la asignación de pitch percibida de electrodos individuales se desvía de la asignación de frecuencias programada. Es más precisa que el método del deslizador por sí solo y aporta, con residuo y dispersión entre pasadas, medidas de su propia fiabilidad.</p>"
-      + "<p><em>No</em> puede decidir si una corrección medida en el IC conduce a mejor comprensión del habla o a una percepción sonora más agradable. La valoración final debe hacerse mediante escucha propia — en el reproductor de esta herramienta, en un programa de experimentación de frecuencias ajustado por el audiólogo y en el día a día. El CI Sound Balancing Tool proporciona las herramientas; la decisión sobre la corrección correcta corresponde al usuario y a su audiólogo.</p>"
-      + "<p><strong>Fuentes.</strong> Adel et al. 2019 · Carlyon et al. 2010 · Jensen et al. 2021 · Lazard et al. 2012 · Levitt 1971 · Pieper et al. 2022 · Reiss et al. 2015 · Sagi y Svirsky 2021 · Schatzer et al. 2014. Referencias bibliográficas completas en el documento de especificación <code>.docs/spec/02b-freqmatch-adaptiv.md</code>. Los trabajos de Pieper y Jensen están en la carpeta del proyecto <code>.manuals/</code>.</p>",
     tabElektrodenlautstaerke: "Balance de volumen de electrodos",
     subTabFRQ: "Ajuste de frecuencia",
     FRQ_resultsTitle: "Resultado de la medición de ajuste de frecuencia",
@@ -703,20 +672,13 @@ Object.assign(L.es, {
     FRQ_resultsStatusProvisionalEarly:      "en curso · {n} comparaciones",
     FRQ_resultsStatusProvisionalLate:       "en proceso · {n} inversiones",
     FRQ_resultsProvisionalCount:     "{n} en curso",
-    FRQ_resultsStatusSliderEstimate:      "🎚 Pre-estimación",
     FRQ_resultsSliderEstimateCount:  "{n} pre-estimación(es)",
-    FRQ_resultsTipSliderEstimate:         "Pre-estimación",
     FRQ_resultsProgressLabel:     "Progreso de la medición en curso",
-    FRQ_resultsRunHint:           "La incertidumbre residual de la medición solo puede estimarse de forma fiable tras 2 pasadas completas de la prueba. Con una sola pasada falta la dispersión entre pasadas como segunda fuente de error — la incertidumbre mostrada en el gráfico es por tanto provisional.",
-    FRQ_resultsQualityEarly:         "Primeras mediciones en curso ({n} de {t} electrodos). Los valores son provisionales; por favor, lleve la prueba hasta el final.",
     FRQ_resultsQualityPartial:       "Medición parcial ({done} de {total} electrodos convergidos, incertidumbre residual media {res} cent). Los valores son aproximadamente útiles; la prueba debe completarse para un resultado fiable.",
-    FRQ_resultsQualityOk:            "Medición completa (incertidumbre residual media {res} cent). Los valores son aptos como referencia para un ajuste de la FAT.",
-    FRQ_resultsQualityOkWithNoisy:   "Medición completa (incertidumbre residual media {res} cent). Los siguientes electrodos con notable incertidumbre residual: {names}. Valores aptos, pero con precaución al transferirlos en esos casos.",
     FRQ_resultsTipNotPerceivable: "no perceptible",
     FRQ_resultsTipResidual: "Incertidumbre residual",
     FRQ_resultsTipPianoCrossed: "Límites invertidos – valor incierto",
     FRQ_resultsTipPianoWide: "Incertidumbre muy grande",
-    FRQ_resultsChartHintAdaptive: "Línea «Es» = frecuencia programada del electrodo, punto «Deseado» = coincidencia percibida. ✓ = convergencia limpia, banda naranja = incertidumbre residual (anchura = ±residuo en cent), ✗ = no perceptible. Círculo azul vacío = estado intermedio provisional (medición aún en curso); círculo vacío con «?» = aún demasiado pocos datos para una estimación.",
     FRQ_resultsChartXLabel: "Frecuencia (cent respecto a 1 kHz)",
     FRQ_resultsChartYLabel: "Desviación (cent)",
     FRQ_resultsLblIst: "Es",
@@ -724,11 +686,7 @@ Object.assign(L.es, {
     FRQ_resultsChartHint: "Línea gris (a trazos) = frecuencia actual, tal como está programada en el implante. Línea negra = frecuencia deseada en la que se percibe el electrodo según la medición. La flecha muestra la corrección necesaria; el eje Y muestra su tamaño en cent. Electrodos no medidos: solo línea «Es» + círculo. Electrodos excluidos: solo línea «Es» + ✕.",
     FRQ_resultsNoData: "Aún no hay resultados de ajuste de frecuencia.",
     FRQ_resultsClearAllBtnLabel: "🗑 Borrar todos los resultados de ajuste de frecuencia",
-    FRQ_resultsClearSliderBtnLabel: "🗑 Borrar solo valores de reajuste",
-    FRQ_resultsClearAdaptiveBtnLabel: "🗑 Borrar solo resultados adaptativos",
     FRQ_resultsClearAllConfirm: "¿Borrar todos los resultados de ajuste de frecuencia y los datos brutos de track (deslizador y adaptativo)? Esta acción no se puede deshacer.",
-    FRQ_resultsClearSliderConfirm: "¿Borrar valores de reajuste?",
-    FRQ_resultsClearAdaptiveConfirm: "¿Borrar solo los resultados adaptativos? Las pre-estimaciones del deslizador se conservan.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Eliminar resultados del piano",
     FRQ_resultsClearPianoConfirm:   "¿Eliminar los resultados del piano? Se conservan los demás métodos.",
     FRQ_migratePianoConfirm:  "Este archivo contiene mediciones de otros métodos (adaptativo o reajuste). ¿Transferirlas como valores iniciales al método del piano?",
@@ -753,7 +711,6 @@ Object.assign(L.es, {
     depLockedFooter: "Borre primero los resultados mencionados o reinicie la herramienta para cambiar este ajuste.",
     depReasonLoudness: "Prueba de volumen",
     depReasonLoudnessOtherSide: "Prueba de volumen del otro lado (se aplica también)",
-    depReasonFRQSlider: "Ajuste de frecuencia – pre-estimación con deslizadores",
     depReasonFRQAdaptive: "Ajuste de frecuencia – prueba adaptativa",
     depFieldCfg: "Tecnología auditiva",
     depFieldHzEigen: "Hz propio",
@@ -876,12 +833,7 @@ Object.assign(L.es, {
     testRunningTitleWord_test:    "Prueba",
     testRunningTitleWord_running: "en curso",
     btnDebugRun: "DEBUG: pasada de prueba",
-    FRQ_explainAdaptive: "El procedimiento adaptativo realiza comparaciones más agudo/más grave. La serie de pruebas puede durar mucho. Reserve suficiente tiempo y algunas pequeñas pausas. El tiempo de prueba puede acortarse si antes ejecuta la pre-estimación (deslizador).",
-    FRQ_explainSlider:   "El reajuste sirve para afinar manualmente un resultado ya medido (con el método adaptativo o el método del piano). Recorre los electrodos uno por uno y, para cada uno, ajusta con el deslizador el valor en el que ambos tonos suenan igual de altos. Se guarda exactamente un valor por electrodo; confirmar de nuevo lo sobrescribe.",
-    FRQ_sliderInstruction: "Ajuste el deslizador hasta que ambos tonos suenen igual de altos, luego confirme. El deslizador comienza en el último valor guardado para este electrodo.",
-    FRQ_explainSliderScience: "El reajuste no es una medición autónoma, sino una corrección manual. El triángulo sobre el deslizador muestra el resultado guardado para este electrodo. Si hay un rango de incertidumbre de otro método disponible, aparece como una barra de color bajo el deslizador.",
     FRQ_sliderRoundProgress:   "Ronda %R · Electrodo %C de %T",
-    FRQ_sliderProgress:        "Electrodo %C de %T",
     FRQ_sliderRoundColEl:      "Electrodo",
     FRQ_sliderRoundColStartHz: "Frec. inicial (Hz)",
     FRQ_sliderRoundColCount:   "No de mediciones",

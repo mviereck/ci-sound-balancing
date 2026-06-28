@@ -420,7 +420,6 @@ function drawFRQChart(cv, fResData, opts) {
   // alle Verfahren (Klavier wie adaptiv) und für in-progress.
   const hasResidual = (el) =>
     el.isMeasured
-    && el.fmStatus !== 'slider-estimate'
     && el.fmStatus !== 'in-progress-early'
     && el.fmResidual > 0;
 
@@ -540,33 +539,6 @@ function drawFRQChart(cv, fResData, opts) {
       ctx.arc(xi, yi, 3, 0, Math.PI * 2);
       ctx.fillStyle = "#6b7280";
       ctx.fill();
-
-      if (el.fmStatus === 'slider-estimate') {
-        // Hohle graue Raute am Soll-Punkt, gestrichelte Verbindung zur Nullinie.
-        const xs = tX(el.cSoll), ys = tY(el.dCent), y0 = tY(0);
-        ctx.save();
-        ctx.fillStyle = '#ffffff';
-        ctx.strokeStyle = '#6b7280';
-        ctx.lineWidth = 1.5;
-        const sz = 6;
-        ctx.beginPath();
-        ctx.moveTo(xs, ys - sz);
-        ctx.lineTo(xs + sz, ys);
-        ctx.lineTo(xs, ys + sz);
-        ctx.lineTo(xs - sz, ys);
-        ctx.closePath();
-        ctx.fill();
-        ctx.stroke();
-        ctx.setLineDash([3, 3]);
-        ctx.beginPath();
-        ctx.moveTo(xs, ys);
-        ctx.lineTo(xs, y0);
-        ctx.stroke();
-        ctx.setLineDash([]);
-        ctx.restore();
-        hitboxes.push({ x: xs, y: ys, el: el });
-        continue;
-      }
 
       if (el.fmStatus === 'in-progress-early') {
         // <4 Umkehrungen: hohler blauer Kreis am Ist-Strich mit "?"
@@ -967,11 +939,6 @@ function _frq_chartTooltipHandler(cv, e) {
     let tipHtml;
     if (el.isNotPerceivable) {
       tipHtml = "<b>E" + el.elNum + "</b><br>" + tipT('FRQ_resultsTipNotPerceivable', 'nicht wahrnehmbar');
-    } else if (el.fmStatus === 'slider-estimate') {
-      const cent = el.dCent != null ? Math.round(el.dCent) : 0;
-      const centStr = (cent >= 0 ? "+" : "") + cent + " ct";
-      tipHtml = "<b>E" + el.elNum + "</b><br>"
-              + tipT('FRQ_resultsTipSliderEstimate', 'Vor-Schätzung') + ": " + centStr;
     } else {
       const hzIst  = Math.round(el.hzIst);
       const hzSoll = Math.round(el.hzSoll);

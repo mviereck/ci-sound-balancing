@@ -689,8 +689,6 @@ Object.assign(L.de, {
     FRQ_resColVarFreq: "CI-Freq.",
     FRQ_resColRefFreq: "Ref.-Freq.",
     FRQ_resColCent: "Abweichung",
-    FRQ_modeAdaptive:    "Adaptiv (2I-2AFC)",
-    FRQ_modeSlider:      "Nachjustierung (Slider)",
     FRQ_modePiano:        "Klavier (seitliche Annäherung)",
     FRQ_explainPiano:     "Selbstgesteuerter Frequenzabgleich über eine Klaviertastatur: Du näherst dich der passenden Tonhöhe von beiden Seiten an. (Der vollständige Runden-Ablauf folgt in den nächsten Bauschritten.)",
     FRQ_pianoInstruction:    "Finde die Klaviertaste, die gerade noch <b>eindeutig {role}</b> klingt als der Vergleichston, und bestätige sie.",
@@ -704,39 +702,10 @@ Object.assign(L.de, {
     FRQ_pianoRoundFinish:    "Beenden",
     FRQ_pianoProgress:       "Elektrode {n} von {m} · Runde {r} von {y}",
     FRQ_sliderTargetDisabledHint: "Sliderwirkung wird in eigener Erweiterung aktiviert.",
-    FRQ_sliderEstimateTitle:     "Erst Vor-Schätzung machen?",
-    FRQ_sliderEstimateMsg:       "Sie können den Frequenzabgleich beschleunigen, indem Sie zuerst pro Elektrode eine ungefähre Schieber-Einstellung treffen. Der adaptive Test startet dann nahe an Ihrer Schätzung statt aus ±100 Cent. Empfohlen vor allem, wenn Sie größere Frequenzabweichungen vermuten.",
-    FRQ_sliderEstimateBtnSlider: "Erst Slider-Schätzung",
-    FRQ_sliderEstimateBtnSkip:   "Direkt adaptiv starten",
-    FRQ_sliderEstimateBtnCancel: "Abbrechen",
     FRQ_lblResume:       "Test fortsetzen",
     FRQ_lblNewRun:       'Weiteren Lauf starten',
-    FRQ_antiOverwriteMsg: 'Eine vorherige Messung ist bereits gespeichert (bisher {N} Lauf/Läufe). Ein weiterer Lauf wird zum Datensatz hinzugefügt und in die kombinierte Auswertung einbezogen. Die bisherigen Werte bleiben erhalten. Wenn Sie ganz neu beginnen wollen, drücken Sie „Messungen löschen".',
-    FRQ_ageWarnMsg:      'Ihre letzte Messung ist {D} Tage alt. Pitch-Wahrnehmung kann sich durch Plastizität verschoben haben.',
     FRQ_tone1:           "Ton 1",
     FRQ_tone2:           "Ton 2",
-    FRQ_gridEl:          "Elektrode",
-    FRQ_gridStatus:      "Status",
-    FRQ_gridMatch:       "Match",
-    FRQ_gridResidual:       "Konvergenzweite (ct)",
-    FRQ_gridTrials:      "Vergleiche",
-    FRQ_gridCatch:       "Catch",
-    FRQ_explainAdaptiveScience:
-      "<p><strong>Verwendete Methode.</strong> Sequentielle 2-Intervall-2-Alternative-Forced-Choice-Aufgabe (2I-2AFC) mit adaptiver 1-down-1-up-Regel nach Levitt (1971). Die Referenz-Frequenz wird nach jeder Antwort in Antwort-Richtung verschoben; die Schrittweite halbiert sich nach jeder Umkehrung der Bewegungsrichtung (50 → 25 → 12 → 6 → 3 cent). Das Verfahren konvergiert direkt auf den Punkt subjektiver Pitch-Gleichheit (PSE, 50 %-Punkt).</p>"
-      + "<p><strong>Bekannte Bias-Quellen und Gegenmaßnahmen.</strong></p>"
-      + "<ul>"
-      + "<li><em>Range-Bias</em> (Carlyon et al. 2010; Jensen et al. 2021): Antworten zentrieren unbewußt am Mittelpunkt des Antwortbereichs. Wir mindern das durch Coverage aller aktiven Elektroden in randomisierter Reihenfolge.</li>"
-      + "<li><em>Startpunkt-Bias</em> (Carlyon et al. 2010; Schatzer et al. 2014): Der Startwert eines adaptiven Tracks beeinflußt das Ergebnis. Gegenmaßnahme: gepaartes Bracketing über Läufe — jeder Lauf wählt pro Elektrode einen zufälligen Startwert ±100 cent; der direkt folgende Lauf nimmt jeweils das andere Vorzeichen. Nach zwei Läufen mittelt sich der Bias heraus.</li>"
-      + "<li><em>Stimulus-Spezifität</em> (Adel et al. 2019; Lazard et al. 2012): Pitch hängt vom akustischen Stimulustyp ab. Default ist ein harmonischer Komplexton, der näher am CI-Klang ist als ein reiner Sinus.</li>"
-      + "<li><em>Pegelabhängigkeit</em> (Sagi &amp; Svirsky 2021): Lautere Töne werden als höher wahrgenommen. Pegelkorrektur und vorgelagertes Loudness-Balancing minimieren das.</li>"
-      + "<li><em>Plastizität</em> (Reiss et al. 2015; Pieper et al. 2022): Pitch-Wahrnehmung paßt sich nach Monaten an die programmierten Frequenzbänder an. Der Test mißt die aktuelle Wahrnehmung, nicht eine objektive anatomische Wahrheit — für ein Self-Balancing-Tool genau das richtige Maß. Bei größeren MAP-Änderungen neu messen.</li>"
-      + "<li><em>Konvergenz-Schwelle 10 cent</em>: sportlich; CI-Pitch-Match-Streuungen liegen in der Literatur oft bei 20–100 cent. Abgestufte Qualitäts-Kategorien (konvergiert / Streuung / starke Streuung) machen sichtbar, welche Elektroden die strenge Schwelle erreichen.</li>"
-      + "</ul>"
-      + "<p><strong>Fundamentale Grenze der Methode.</strong> Es gibt kein als zuverlässig anerkanntes Verfahren zur binauralen Frequenz-Mismatch-Bestimmung, das im Browser durchführbar wäre. Pieper et al. 2022 (S. 11) schreiben: <em>„Overall pitch matching does not appear to be suitable to estimate the mismatch for the purpose of improving binaural hearing.\"</em> Pieper empfiehlt stattdessen CT-Bildgebung oder ITD-Sensitivitäts-Messungen — beides klinische Verfahren, die ein Browser-Tool nicht leisten kann.</p>"
-      + "<p>Jensen et al. 2021 vergleichen drei Pitch-Vergleichs-Methoden (Discrimination, Ranking, Matching) bei bilateralen CI-Trägern und finden Ranking als methodisch robusteste; Matching ist „second-best\", aber mit tolerierbaren Bias-Effekten (alle unter dem Carlyon-Kriterium 0,5). Dieses Tool verwendet bewußt Matching, weil nur Matching absolute Cent-Werte liefert, die für die Frequenz-Korrekturkurve gebraucht werden.</p>"
-      + "<p><strong>Was die Messung kann — und was nicht.</strong> Sie liefert einen reproduzierbaren Anhaltspunkt, in welche Richtung und mit welcher Größenordnung die wahrgenommene Pitch-Zuordnung einzelner Elektroden von der programmierten Frequenz-Allokation abweicht. Sie ist genauer als die alleinige Slider-Methode und liefert mit Residuum und Lauf-Streuung Maße für die eigene Zuverlässigkeit.</p>"
-      + "<p>Sie kann <em>nicht</em> entscheiden, ob eine gemessene Korrektur am CI zu besserem Sprachverstehen oder angenehmerem Klang führt. Die endgültige Bewertung muß durch eigenes Hören erfolgen — im Player dieses Tools, in einem vom Audiologen eingestellten Frequenz-Experimentier-Programm, und im Alltag. Das CI-Sound-Balancing-Tool stellt die Werkzeuge bereit; die Entscheidung über die richtige Korrektur liegt beim User und seinem Audiologen.</p>"
-      + "<p><strong>Quellen.</strong> Adel et al. 2019 · Carlyon et al. 2010 · Jensen et al. 2021 · Lazard et al. 2012 · Levitt 1971 · Pieper et al. 2022 · Reiss et al. 2015 · Sagi &amp; Svirsky 2021 · Schatzer et al. 2014. Vollständige bibliographische Angaben siehe Spec-Dokument <code>.docs/spec/02b-freqmatch-adaptiv.md</code>. Die Arbeiten von Pieper und Jensen liegen im Projektordner <code>.manuals/</code> vor.</p>",
     tabElektrodenlautstaerke: "Elektrodenlautstärke-Balance",
     subTabFRQ: "Frequenzabgleich",
     FRQ_resultsTitle: "Ergebnis der Frequenzabgleich-Messung",
@@ -764,23 +733,16 @@ Object.assign(L.de, {
     FRQ_resultsStatusProvisionalEarly:      "läuft · {n} Vergleiche",
     FRQ_resultsStatusProvisionalLate:       "in Arbeit · {n} Umkehrungen",
     FRQ_resultsProvisionalCount:     "{n} laufend",
-    FRQ_resultsStatusSliderEstimate:      "🎚 Vor-Schätzung",
     FRQ_resultsStatusPiano:          "Klavier",
     FRQ_resultsStatusPianoCrossed:   "Klavier — überkreuzt",
     FRQ_resultsStatusPianoWide:      "Klavier — Spanne zu breit",
     FRQ_resultsSliderEstimateCount:  "{n} Vor-Schätzung(en)",
-    FRQ_resultsTipSliderEstimate:         "Vor-Schätzung",
     FRQ_resultsProgressLabel:     "Fortschritt laufende Messung",
-    FRQ_resultsRunHint:           "Die Restunsicherheit der Messung kann erst nach 2 vollständigen Testdurchläufen zuverlässig eingeschätzt werden. Mit nur einem Lauf fehlt die Lauf-Streuung als zweite Fehlerquelle — die im Graph gezeigte Unsicherheit ist daher vorläufig.",
-    FRQ_resultsQualityEarly:         "Erste Messungen laufen ({n} von {t} Elektroden). Werte sind vorläufig, bitte den Test bis zum Ende durchführen.",
     FRQ_resultsQualityPartial:       "Teilweise gemessen ({done} von {total} Elektroden konvergiert, mittlere Restunsicherheit {res} Cent). Werte sind grob brauchbar, der Test sollte für ein verläßliches Ergebnis abgeschlossen werden.",
-    FRQ_resultsQualityOk:            "Messung vollständig (mittlere Restunsicherheit {res} Cent). Werte sind als Anhalt für eine FAT-Anpassung tauglich.",
-    FRQ_resultsQualityOkWithNoisy:   "Messung vollständig (mittlere Restunsicherheit {res} Cent). Folgende Elektroden mit deutlicher Restunsicherheit: {names}. Werte tauglich, dort aber Vorsicht beim Übertragen.",
     FRQ_resultsTipNotPerceivable: "nicht wahrnehmbar",
     FRQ_resultsTipResidual: "Restunsicherheit",
     FRQ_resultsTipPianoCrossed: "Grenzen vertauscht – Wert unsicher",
     FRQ_resultsTipPianoWide: "Unsicherheit sehr groß",
-    FRQ_resultsChartHintAdaptive: "Ist-Strich = programmierte Elektroden-Frequenz, Soll-Punkt = wahrgenommene Übereinstimmung. ✓ = saubere Konvergenz, oranges Band = Restunsicherheit (Breite = ±Residuum in Cent), ✗ = nicht wahrnehmbar. Hohler blauer Kreis = vorläufiger Zwischenstand (Messung läuft noch); hohler Kreis mit „?“ = noch zu wenig Daten für einen Schätzwert.",
     FRQ_resultsChartXLabel: "Frequenz (Cent gegenüber 1 kHz)",
     FRQ_resultsChartYLabel: "Abweichung (Cent)",
     FRQ_resultsLblIst: "Ist",
@@ -788,11 +750,7 @@ Object.assign(L.de, {
     FRQ_resultsChartHint: "Grauer (gestrichelter) Strich = Ist-Frequenz, wie im Implantat einprogrammiert. Schwarzer Strich = Soll-Frequenz, an der die Elektrode laut Messung wahrgenommen wird. Der Pfeil zeigt die nötige Korrektur; die Y-Achse zeigt deren Größe in Cent. Ungemessene Elektroden: nur Ist-Strich + Kreis. Ausgeschlossene Elektroden: nur Ist-Strich + ✕.",
     FRQ_resultsNoData: "Noch keine Frequenzabgleich-Ergebnisse.",
     FRQ_resultsClearAllBtnLabel: "🗑 Alle Frequenzabgleich-Ergebnisse löschen",
-    FRQ_resultsClearSliderBtnLabel: "🗑 Nur Nachjustierungs-Werte löschen",
-    FRQ_resultsClearAdaptiveBtnLabel: "🗑 Nur Adaptiv-Ergebnisse löschen",
     FRQ_resultsClearAllConfirm: "Alle Frequenzabgleich-Ergebnisse und Track-Rohdaten (Slider und Adaptiv) löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
-    FRQ_resultsClearSliderConfirm: "Nachjustierungs-Werte löschen?",
-    FRQ_resultsClearAdaptiveConfirm: "Nur die Adaptiv-Ergebnisse löschen? Die Slider-Vor-Schätzungen bleiben erhalten.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Klavier-Ergebnisse löschen",
     FRQ_resultsClearPianoConfirm:   "Klavier-Ergebnisse löschen? Andere Verfahren bleiben erhalten.",
     FRQ_migratePianoConfirm:  "In dieser Datei sind Messwerte aus anderen Verfahren (Adaptiv oder Nachjustierung) gespeichert. Sollen sie als Startwerte ins Klavier-Verfahren übernommen werden?",
@@ -817,7 +775,6 @@ Object.assign(L.de, {
     depLockedFooter: "Erst die genannten Ergebnisse löschen oder das Tool zurücksetzen, um diese Einstellung zu ändern.",
     depReasonLoudness: "Lautstärke-Test",
     depReasonLoudnessOtherSide: "Lautstärke-Test der anderen Seite (wird mit übernommen)",
-    depReasonFRQSlider: "Frequenzabgleich – Vor-Schätzung mit Schiebern",
     depReasonFRQAdaptive: "Frequenzabgleich – Adaptiv-Test",
     depFieldCfg: "Hörtechnik",
     depFieldHzEigen: "Hz-eigen",
@@ -944,12 +901,7 @@ Object.assign(L.de, {
     testRunningTitleWord_test:    "Test",
     testRunningTitleWord_running: "läuft",
     btnDebugRun: "DEBUG: Testlauf",
-    FRQ_explainAdaptive: "Das adaptive Verfahren fragt höher/tiefer Vergleiche ab. Die Testreihe kann sehr lang dauern. Planen Sie genug Zeit und ein paar kleine Pausen ein. Die Testzeit kann verkürzt werden, wenn Sie vorher die Vor-Schätzung (Slider) ausführen.",
-    FRQ_explainSlider:   "Die Nachjustierung dient dazu, ein bereits gemessenes Ergebnis (aus dem adaptiven oder dem Klavier-Verfahren) von Hand etwas nachzubessern. Sie gehen die Elektroden der Reihe nach durch und stellen für jede mit dem Schieber den Wert ein, bei dem beide Töne gleich hoch klingen. Pro Elektrode wird genau ein Wert gespeichert; ein erneutes Bestätigen überschreibt ihn.",
-    FRQ_sliderInstruction: "Stellen Sie den Schieber so ein, dass sich beide Töne gleich hoch anhören, dann bestätigen. Der Schieber startet auf dem zuletzt gespeicherten Wert dieser Elektrode.",
-    FRQ_explainSliderScience: "Die Nachjustierung ist kein eigenständiges Mess-Verfahren, sondern eine Feinkorrektur von Hand. Das Dreieck über dem Schieber zeigt das gespeicherte Ergebnis dieser Elektrode. Liegt aus einem anderen Verfahren ein Unsicherheitsbereich vor, erscheint er als farbiger Balken unter dem Schieber.",
     FRQ_sliderRoundProgress:   "Runde %R · Elektrode %C von %T",
-    FRQ_sliderProgress:        "Elektrode %C von %T",
     FRQ_sliderRoundColEl:      "Elektrode",
     FRQ_sliderRoundColStartHz: "Startfreq (Hz)",
     FRQ_sliderRoundColCount:   "Anzahl Werte",

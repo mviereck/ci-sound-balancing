@@ -688,7 +688,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // BA 106: KEIN Filter, dieselbe Migrations-Sequenz wie in file.js.
         FRQ_resultsArray.splice(0, FRQ_resultsArray.length, ...d.fRes);
         if (typeof _FRQ_cleanupLegacyResults === "function") _FRQ_cleanupLegacyResults();
-        if (typeof _FRQ_migrateAltSliderResults === "function") _FRQ_migrateAltSliderResults();
       }
       // BA 209 + BA 225: Per-Test-Tonart Frequenzabgleich (Auto-Restore).
       // Migration aus altem globalToneType-Feld (nur lesen, nicht mehr schreiben).

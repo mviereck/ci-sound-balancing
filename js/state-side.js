@@ -182,9 +182,6 @@ function initSideData(side, m) {
   s.ELL_results = [];
   // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
   s.elActive = new Array(s.nEl).fill(true);
-  s.fmMode = 'adaptive';
-  s.fmAdaptiveDur = 200;
-  s.fmAdaptivePau = 200;
   s.freqmatchAdaptive = null;
   s.freqmatchPiano = null;
   s.fullSweepRound = null;
@@ -286,139 +283,6 @@ function _FRQ_cleanupLegacyResults() {
     }
   }
 }
-function _frq_migrateAdaptive(fa) {
-  if (!fa) return null;
-  if (!Array.isArray(fa.runs)) return null;   // Vor-runs[]-Schemas → weg
-
-  // Wenn irgendein Lauf noch das alte 2-Track-Key-Schema ':up'/':down' hat,
-  // ist das gesamte Aggregat nicht mehr verlässlich aggregierbar → verwerfen.
-  // sliderEstimates bleibt jedoch erhalten.
-  const savedEstimates = (fa && typeof fa.sliderEstimates === 'object' && fa.sliderEstimates)
-    ? fa.sliderEstimates : {};
-  for (let i = 0; i < fa.runs.length; i++) {
-    const r = fa.runs[i];
-    if (!r || !r.tracks) continue;
-    const keys = Object.keys(r.tracks);
-    for (let j = 0; j < keys.length; j++) {
-      if (keys[j].indexOf(':') >= 0) {
-        return { runs: [], currentRunIdx: null, sliderEstimates: savedEstimates };
-      }
-    }
-  }
-  fa.sliderEstimates = savedEstimates;
-  // BA 206: Alte sliderEstimates (ohne rounds[]-Feld) auf R1-Historie heben.
-  Object.keys(fa.sliderEstimates).forEach(function(k) {
-    const e = fa.sliderEstimates[k];
-    if (!e || typeof e !== 'object') return;
-    if (Array.isArray(e.rounds)) return;
-    if (typeof e.cent !== 'number') return;
-    e.rounds = [{ cent: e.cent, ts: e.timestamp || Date.now(), round: 1 }];
-  });
-  return fa;
-}
-
-// Migriert Alt-Slider-Einträge aus FRQ_resultsArray nach
-// sideData[varSide].freqmatchAdaptive.sliderEstimates.
-//
-// Hintergrund: bis BA 102 schrieb der klassische Slider-Modus seine
-// Werte direkt in FRQ_resultsArray — ohne fmStatus-Feld, weil der Eintrag als
-// finaler Wert galt. Ab BA 102 lebt der Slider-Modus als Vor-Schätzung
-// in freqmatchAdaptive.sliderEstimates; FRQ_resultsArray enthält nur noch adaptive
-// Mess-Ergebnisse (mit fmStatus). Alte FRQ_resultsArray-Einträge ohne fmStatus sind
-// Klassisch-Slider-Werte und werden hier in die neue Datenstruktur
-// überführt, damit sie als Startwerte für einen anschließenden adaptiven
-// Test wieder zur Verfügung stehen.
-//
-// Vorrang-Regel: wenn für eine (varSide, elIdx)-Kombination bereits ein
-// sliderEstimate existiert (neuere Daten, BA 102+), bleibt dieser
-// erhalten — der Alt-Eintrag wird verworfen.
-//
-// Wird in file.js (JSON-Load) und init.js (Autosave-Load) NACH
-// _FRQ_cleanupLegacyResults() aufgerufen.
-function _FRQ_migrateAltSliderResults() {
-  if (typeof FRQ_resultsArray === 'undefined' || !Array.isArray(FRQ_resultsArray)) return;
-  if (typeof sideData === 'undefined') return;
-
-  for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
-    const r = FRQ_resultsArray[i];
-    if (!r) continue;
-    if (r.fmStatus != null) continue;   // adaptive Einträge bleiben unangetastet
-
-    const side = r.varSide;
-    if (side !== 'left' && side !== 'right') {
-      FRQ_resultsArray.splice(i, 1);   // korrupte Seite: still verwerfen
-      continue;
-    }
-    const sd = sideData[side];
-    if (!sd) { FRQ_resultsArray.splice(i, 1); continue; }
-
-    const elIdx = r.elIdx;
-    if (typeof elIdx !== 'number') { FRQ_resultsArray.splice(i, 1); continue; }
-    const nElSide = sd.nEl || 22;
-    if (elIdx < 0 || elIdx >= nElSide) { FRQ_resultsArray.splice(i, 1); continue; }
-
-    if (typeof r.varFreq !== 'number' || typeof r.refFreq !== 'number'
-        || r.varFreq <= 0 || r.refFreq <= 0) {
-      FRQ_resultsArray.splice(i, 1); continue;
-    }
-
-    // freqmatchAdaptive-Container ggf. anlegen
-    if (!sd.freqmatchAdaptive) {
-      sd.freqmatchAdaptive = { runs: [], currentRunIdx: null, sliderEstimates: {} };
-    }
-    if (!sd.freqmatchAdaptive.sliderEstimates
-        || typeof sd.freqmatchAdaptive.sliderEstimates !== 'object'
-        || Array.isArray(sd.freqmatchAdaptive.sliderEstimates)) {
-      sd.freqmatchAdaptive.sliderEstimates = {};
-    }
-    const store = sd.freqmatchAdaptive.sliderEstimates;
-
-    // Vorrang: existierender neuer sliderEstimate gewinnt.
-    if (store[String(elIdx)] != null) {
-      FRQ_resultsArray.splice(i, 1);
-      continue;
-    }
-
-    const cent = Math.round(1200 * Math.log2(r.refFreq / r.varFreq));
-    const _ts206 = (typeof r.timestamp === 'number') ? r.timestamp : Date.now();
-    store[String(elIdx)] = {
-      cent:      cent,
-      varSide:   r.varSide,
-      refSide:   r.refSide || (side === 'left' ? 'right' : 'left'),
-      varFreq:   r.varFreq,
-      timestamp: _ts206,
-      // BA 206: Alt-Slider-FRQ_resultsArray-Eintrag wird als R1-Wert übernommen.
-      rounds:    [{ cent: cent, ts: _ts206, round: 1 }]
-    };
-    FRQ_resultsArray.splice(i, 1);
-  }
-}
-
-// BA 362: Alt-Slider-Eintraege mit rounds[]-Historie auf min/max migrieren.
-// rounds[] wird danach verworfen. cent bleibt unveraendert (Aggregat aus BA 206).
-function _FRQ_migrateSliderRounds() {
-  if (typeof sideData === 'undefined') return;
-  ['left', 'right'].forEach(function(side) {
-    const fa = sideData[side] && sideData[side].freqmatchAdaptive;
-    if (!fa || !fa.sliderEstimates) return;
-    Object.keys(fa.sliderEstimates).forEach(function(key) {
-      const e = fa.sliderEstimates[key];
-      if (!e || typeof e !== 'object') return;
-      if (Array.isArray(e.rounds)) {
-        // min/max nur, wenn noch nicht gesetzt und >=2 unterschiedliche Werte.
-        if ((e.min == null || e.max == null)) {
-          const range = (typeof _frq_rangeCent === 'function') ? _frq_rangeCent(e.rounds) : null;
-          if (range && range.min !== range.max) {
-            e.min = range.min;
-            e.max = range.max;
-          }
-        }
-        delete e.rounds;
-      }
-    });
-  });
-}
-
 function loadSideData(side, d) {
   const s = sideData[side];
   s.config = d.config || "ci";
@@ -468,10 +332,7 @@ function loadSideData(side, d) {
   }
   // BA 251: judgmentResults aus alten Dateien werden stillschweigend ignoriert.
   s.ELL_results = d.balanceResults || [];
-  s.fmMode = (d.fmMode === 'slider' || d.fmMode === 'adaptive') ? d.fmMode : 'adaptive';
-  s.fmAdaptiveDur = (d.fmAdaptiveDur != null) ? d.fmAdaptiveDur : 200;
-  s.fmAdaptivePau = (d.fmAdaptivePau != null) ? d.fmAdaptivePau : 200;
-  s.freqmatchAdaptive = _frq_migrateAdaptive(d.freqmatchAdaptive);
+  s.freqmatchAdaptive = d.freqmatchAdaptive || null;
   s.freqmatchPiano = d.freqmatchPiano || null;
   s.schieberELL = d.manualLevels || new Array(s.nEl).fill(0);
   if (d.presets && Array.isArray(d.presets)) {

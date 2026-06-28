@@ -1,14 +1,6 @@
 // ============================================================
-// freqmatch.js — Frequenzabgleich: gemeinsame Basis
+// freqmatch.js — Frequenzabgleich (Klavier-Verfahren)
 // ============================================================
-// Architektur: Pro Testverfahren eine eigene Datei.
-//   freqmatch.js          — shared State, Hilfsfunktionen, Persistenz, Audio
-//   freqmatch-adaptive.js — Adaptives Verfahren (Staircase/Bracketing)
-//   freqmatch-slider.js   — Slider-Verfahren (manuelle Schätzung)
-// Ladereihenfolge: freqmatch.js zuerst, dann die Verfahren-Dateien.
-// Diese Konvention gilt für alle Messungen-Sub-Tabs: jedes Testverfahren
-// bekommt seine eigene Datei; gemeinsame Infrastruktur bleibt in der
-// Basis-Datei des jeweiligen Sub-Tabs.
 
 // --- State ---
 let frq_modalTone = null;   // BA 230: live-Tonart waehrend des Tonauswahl-Modals; null = kein Modal offen
@@ -28,25 +20,7 @@ let frq_firstSide = "ref";
 let frq_isPlaying = false;
 let frq_playTimeout = null;
 
-// Adaptiver Modus (Bauanleitung 02b/4)
-let frq_adaptiveActive   = false;
-let frq_pianoActive      = false;   // true waehrend eines laufenden Klaviertests (BA356-fix)
-let frq_awaitingResponse = false;
-let frq_tracks           = {};
-let frq_roundQueue       = [];   // geshuffelter Round-Robin-State
-let frq_currentTrackId       = null;
-let frq_lastPickedTrackId = null;   // Wiederholungs-Sperre für Anker-Randomisierung
-let frq_currentFirstSide     = 'ref';
-let frq_trialStartTs     = 0;
-// Gepaartes Bracketing-State für den aktuell startenden/laufenden Lauf
-// (wird in frq_startAdaptive berechnet und in _frq_persist in den Lauf geschrieben).
-let frq_currentPairedToPrevious = false;
-// Catch-Trial-Info des aktuellen Trials (Bauanleitung 02b/6)
-let frq_currentCatchInfo = null;   // null | { direction: +500|-500, expectedResponse: 'var-higher'|'var-lower' }
-
-// Undo-Support für adaptiven Modus
-let _frq_undoSnapshot = null;  // Track-State-Snapshot vor letzter Antwort
-let _frq_nextTrialTimeout  = null;  // Timeout-Handle für frq_nextAdaptiveTrial (canceln bei Undo)
+let frq_pianoActive      = false;   // true waehrend eines laufenden Klaviertests
 
 // Debug-Simulation
 let _frq_simActive  = false;
@@ -68,75 +42,6 @@ function _frq_debug(msg) {
   }
 }
 
-// Liefert true, wenn der Empfehlungs-Dialog vor dem adaptiven Start
-// gezeigt werden soll: noch kein Lauf, keine sliderEstimates vorhanden.
-function _frq_shouldOfferSliderEstimate() {
-  const sd = sideData[frq_varSide];
-  if (!sd) return false;
-  const fa = sd.freqmatchAdaptive;
-  if (fa && Array.isArray(fa.runs) && fa.runs.length > 0) return false;
-  const store = _frq_ensureSliderStore(frq_varSide);
-  if (!store) return false;
-  const seq = frq_buildSequence();
-  for (var i = 0; i < seq.length; i++) {
-    if (store[String(seq[i])] != null) return false;
-  }
-  return seq.length > 0;
-}
-
-// --- Track-Key-Schema: Key = String(electrodeIdx). Pro Lauf eine
-// Staircase je Elektrode (Bracketing über Läufe statt parallel).
-function frq_trackKey(electrodeIdx) {
-  return String(electrodeIdx);
-}
-function frq_parseTrackKey(key) {
-  return { electrodeIdx: parseInt(String(key), 10) };
-}
-
-// Stellt sicher, daß sideData[side].freqmatchAdaptive existiert und
-// ein gültiges sliderEstimates-Feld hat.
-function _frq_ensureSliderStore(side) {
-  const sd = sideData[side];
-  if (!sd) return null;
-  if (!sd.freqmatchAdaptive) {
-    sd.freqmatchAdaptive = { runs: [], currentRunIdx: null, sliderEstimates: {} };
-  }
-  if (!sd.freqmatchAdaptive.sliderEstimates ||
-      typeof sd.freqmatchAdaptive.sliderEstimates !== 'object') {
-    sd.freqmatchAdaptive.sliderEstimates = {};
-  }
-  return sd.freqmatchAdaptive.sliderEstimates;
-}
-
-// BA 206: Aggregat-Wert aus rounds[]-Historie berechnen.
-// Regel: ≥3 Werte → Median, =2 → Mittelwert, =1 → der Wert selbst, 0 → null.
-function _frq_aggregateCent(rounds) {
-  if (!Array.isArray(rounds) || rounds.length === 0) return null;
-  const vals = rounds.map(function(r) { return r && typeof r.cent === 'number' ? r.cent : null; })
-                     .filter(function(v) { return v != null && isFinite(v); });
-  if (vals.length === 0) return null;
-  if (vals.length === 1) return vals[0];
-  if (vals.length === 2) return (vals[0] + vals[1]) / 2;
-  const sorted = vals.slice().sort(function(a, b) { return a - b; });
-  const mid = Math.floor(sorted.length / 2);
-  if (sorted.length % 2 === 1) return sorted[mid];
-  return (sorted[mid - 1] + sorted[mid]) / 2;
-}
-
-// BA 206: Min/Max aus rounds[]-Historie. Rückgabe {min, max} oder null.
-function _frq_rangeCent(rounds) {
-  if (!Array.isArray(rounds) || rounds.length === 0) return null;
-  const vals = rounds.map(function(r) { return r && typeof r.cent === 'number' ? r.cent : null; })
-                     .filter(function(v) { return v != null && isFinite(v); });
-  if (vals.length === 0) return null;
-  let mn = vals[0], mx = vals[0];
-  for (let i = 1; i < vals.length; i++) {
-    if (vals[i] < mn) mn = vals[i];
-    if (vals[i] > mx) mx = vals[i];
-  }
-  return { min: mn, max: mx };
-}
-
 function _frq_shuffle(arr) {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
@@ -144,16 +49,6 @@ function _frq_shuffle(arr) {
     const tmp = a[i]; a[i] = a[j]; a[j] = tmp;
   }
   return a;
-}
-
-// BA 362: Letzter/aktueller Slider-Wert dieser Elektrode (= Startwert).
-function _frq_lastRoundCent(elIdx) {
-  const store = (sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive)
-    ? sideData[frq_varSide].freqmatchAdaptive.sliderEstimates : null;
-  if (!store) return null;
-  const e = store[String(elIdx)];
-  if (!e || typeof e.cent !== 'number' || !isFinite(e.cent)) return null;
-  return e.cent;
 }
 
 // --- Hilfsfunktionen ---
@@ -208,12 +103,6 @@ function FRQ_getPause() {
 }
 
 // Helfer: Verfahren-Refs
-function _frq_adaptivePairIndicator() {
-  return FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.adaptive && FRQ_els.verfahren.adaptive.pairIndicator;
-}
-function _frq_sliderPairIndicator() {
-  return FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.slider && FRQ_els.verfahren.slider.pairIndicator;
-}
 function _frq_pianoPairIndicator() {
   return FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.piano && FRQ_els.verfahren.piano.pairIndicator;
 }
@@ -223,15 +112,7 @@ function _frq_pianoRefs() {
 }
 // Ton-Boxen des aktiven Verfahrens (fuer setPlaying-Aufleuchten).
 function _frq_activePairIndicator() {
-  if (frq_adaptiveActive) return _frq_adaptivePairIndicator();
-  if (frq_pianoActive) return _frq_pianoPairIndicator();
-  return _frq_sliderPairIndicator();
-}
-function _frq_adaptiveUndo() {
-  return FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.adaptive && FRQ_els.verfahren.adaptive.actions && FRQ_els.verfahren.adaptive.actions.undo;
-}
-function _frq_sliderUndo() {
-  return FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.slider && FRQ_els.verfahren.slider.actions && FRQ_els.verfahren.slider.actions.undo;
+  return _frq_pianoPairIndicator();
 }
 function frq_isAbaSequence() {
   return sequence_freqmatch === "aba";
@@ -309,22 +190,7 @@ function frq_buildSequenceSymmetric() {
 }
 
 // BA 207: Wird vom Auswahl-Dialog nach Confirm aufgerufen.
-// Aufgaben:
-//   - Adaptive: laufende Tracks mit neuer Auswahl synchronisieren
-//   - Slider: laufenden Slider-Round-State synchronisieren
-//   - Header-Zusammenfassung neu rendern
-//   - Wenn nach Filter keine Elektrode mehr übrig: laufenden Test sauber beenden
 function _frq_onSelectionChanged() {
-  if (frq_adaptiveActive && typeof _frq_applySelectionToTracks === 'function') {
-    _frq_applySelectionToTracks();
-    // Statusgrid neu zeichnen, falls existiert.
-    if (typeof frq_renderStatusGrid === 'function') frq_renderStatusGrid();
-  }
-  if (FRQ_running && !frq_adaptiveActive && typeof _frq_applySelectionToSliderRun === 'function') {
-    _frq_applySelectionToSliderRun();
-    if (typeof frq_updateSliderProgress === 'function') frq_updateSliderProgress();
-  }
-
   // Header-Summary nach-rendern
   if (FRQ_els && FRQ_els.header && typeof FRQ_els.header.electrodeSelectionUpdate === 'function') {
     FRQ_els.header.electrodeSelectionUpdate();
@@ -341,22 +207,6 @@ function _frq_onSelectionChanged() {
       if (FRQ_els && FRQ_els._stopTest) FRQ_els._stopTest();
     }
   }
-}
-
-// BA 206: Startwert für eine Elektrode = letzter Wert aus rounds[].
-function frq_prevCent(elIdx) {
-  const last = _frq_lastRoundCent(elIdx);
-  if (last != null) return Math.round(last);
-
-  const existing = FRQ_resultsArray.find((r) => frq_symmetric
-    ? (r.refSide === 'symmetric' && r.elIdx === elIdx)
-    : (r.varSide === frq_varSide && r.refSide === FRQ_refSide && r.elIdx === elIdx)
-  );
-  if (!existing) return 0;
-  if (frq_symmetric && typeof existing.cent === 'number' && isFinite(existing.cent)) {
-    return Math.round(existing.cent);
-  }
-  return Math.round(frq_cents(existing.varFreq, existing.refFreq));
 }
 
 // Gemeinsame Initialisierung zu Beginn jedes Verfahren-Starts
@@ -416,17 +266,6 @@ function frq_makeSequence(opts) {
 
 // --- Tonwiedergabe ---
 async function frq_playCurrent() {
-  // --- Adaptive-Modus: Replay des aktuellen Trials über frq_playAdaptiveTrial ---
-  if (frq_adaptiveActive) {
-    if (frq_currentTrackId === null || !frq_tracks || !frq_tracks[frq_currentTrackId]) return;
-    const track = frq_tracks[frq_currentTrackId];
-    // frq_playAdaptiveTrial mutiert KEINEN Track-State — pure Wiedergabe-Routine.
-    // frq_awaitingResponse bleibt true, Antwort-Buttons bleiben aktiv.
-    await frq_playAdaptiveTrial(track, frq_currentFirstSide, frq_currentCatchInfo);
-    return;
-  }
-
-  // --- Slider-Modus: auf die Token-Maschine (BA 291) ---
   if (frq_currentEl === null) return;
   if (isPlay) {
     if (typeof testUI !== 'undefined' && testUI.tonePlayer) testUI.tonePlayer.stop();
@@ -451,62 +290,6 @@ async function frq_playCurrent() {
 }
 
 async function frq_playSimultaneous() {
-  // --- Adaptive-Modus: Ref- und Var-Ton gleichzeitig mit aktuellem Track-Offset ---
-  if (frq_adaptiveActive) {
-    if (frq_currentTrackId === null || !frq_tracks || !frq_tracks[frq_currentTrackId]) return;
-    if (isPlay) {
-      isPlay = false;
-      if (frq_playTimeout) { clearTimeout(frq_playTimeout); frq_playTimeout = null; }
-      await new Promise((r) => setTimeout(r, 60));
-    }
-    const track  = frq_tracks[frq_currentTrackId];
-    let refHz, varHz;
-    if (frq_symmetric) {
-      const varBase = withSide('left',  function() { return FRQ_implantatEffektiv(track.electrodeIdx); });
-      const refBase = withSide('right', function() { return FRQ_implantatEffektiv(track.electrodeIdx); });
-      const halfOff = track.currentOffset / 2;
-      if (frq_currentCatchInfo) {
-        const halfCatch = frq_currentCatchInfo.direction / 2;
-        varHz = varBase * Math.pow(2, (-halfOff - halfCatch) / 1200);
-        refHz = refBase * Math.pow(2, (+halfOff + halfCatch) / 1200);
-      } else {
-        varHz = varBase * Math.pow(2, -halfOff / 1200);
-        refHz = refBase * Math.pow(2, +halfOff / 1200);
-      }
-    } else {
-      const elFreq = withSide(frq_varSide, function() { return FRQ_implantatEffektiv(track.electrodeIdx); });
-      refHz = elFreq * Math.pow(2, track.currentOffset / 1200);
-      varHz = frq_currentCatchInfo
-        ? refHz * Math.pow(2, frq_currentCatchInfo.direction / 1200)
-        : elFreq;
-    }
-    const vol    = FRQ_getVolume();
-    const ms     = FRQ_getDuration();
-    const refPan = FRQ_refSide === "left" ? -1 : 1;
-    const varPan = frq_varSide === "left" ? -1 : 1;
-
-    const balG = (typeof STB_rawGains === "function")
-      ? STB_rawGains() : { left: 0, right: 0 };
-    const refCorr  = FRQ_correctionGain(FRQ_refSide, refHz);
-    const varCorr  = FRQ_correctionGain(frq_varSide, varHz);
-    const refBalDb = FRQ_refSide === "left" ? balG.left : balG.right;
-    const varBalDb = frq_varSide === "left" ? balG.left : balG.right;
-    const refVol   = isDeaf(FRQ_refSide) ? 0 : vol * refCorr * dB2G(refBalDb);
-    const varVol   = isDeaf(frq_varSide) ? 0 : vol * varCorr * dB2G(varBalDb);
-
-    const c = gAC();
-    isPlay = true;
-    testUI.pairIndicator.setPlaying(_frq_adaptivePairIndicator(), 'both');
-    await Promise.all([
-      playToneTyped(c, refHz, refVol, ms, refPan, toneType_freqmatch),
-      playToneTyped(c, varHz, varVol, ms, varPan, toneType_freqmatch)
-    ]);
-    testUI.pairIndicator.setPlaying(_frq_adaptivePairIndicator(), null);
-    isPlay = false;
-    return;
-  }
-
-  // --- Slider-Modus: auf die Token-Maschine (BA 291) ---
   if (frq_currentEl === null) return;
   if (isPlay) {
     if (typeof testUI !== 'undefined' && testUI.tonePlayer) testUI.tonePlayer.stop();
@@ -528,126 +311,6 @@ async function frq_playSimultaneous() {
   );
 }
 
-// --- Persistenz (Bauanleitung 02b/5) ---
-
-function _frq_persist() {
-  if (!frq_varSide || !sideData[frq_varSide]) return;
-  let fa = sideData[frq_varSide].freqmatchAdaptive;
-  if (!fa || !Array.isArray(fa.runs)) {
-    const prevEst = (fa && typeof fa.sliderEstimates === 'object' && fa.sliderEstimates) ? fa.sliderEstimates : {};
-    fa = { runs: [], currentRunIdx: null, sliderEstimates: prevEst };
-    sideData[frq_varSide].freqmatchAdaptive = fa;
-  }
-  if (!fa.sliderEstimates || typeof fa.sliderEstimates !== 'object') {
-    fa.sliderEstimates = {};
-  }
-
-  let run = (fa.currentRunIdx != null) ? fa.runs[fa.currentRunIdx] : null;
-  if (!run || run.completedAt != null) {
-    // Kein aktiver Lauf → neuen Lauf anlegen.
-    // startSigns/pairedToPrevious werden in frq_startAdaptive vorher berechnet
-    // und in frq_currentStartSigns/frq_currentPairedToPrevious zwischengespeichert.
-    const elList = Array.from(new Set(
-      Object.keys(frq_tracks).map(function(k) {
-        return frq_parseTrackKey(k).electrodeIdx;
-      })
-    )).sort(function(a, b) {
-      const fa_ = withSide(frq_varSide, function() { return FRQ_implantatEffektiv(a); });
-      const fb_ = withSide(frq_varSide, function() { return FRQ_implantatEffektiv(b); });
-      return fa_ - fb_;
-    });
-    // startSigns aus den Track-Objekten extrahieren (single source of truth)
-    const ssg = {};
-    Object.keys(frq_tracks).forEach(function(k) {
-      ssg[frq_tracks[k].electrodeIdx] = frq_tracks[k].startSign || +1;
-    });
-    run = {
-      runId:             new Date().toISOString(),
-      startedAt:         Date.now(),
-      completedAt:       null,
-      varSide:           frq_varSide,
-      refSide:           FRQ_refSide,
-      electrodeIdxList:  elList,
-      startSigns:        ssg,
-      pairedToPrevious:  !!frq_currentPairedToPrevious,
-      tracks:            frq_tracks,
-      roundQueue:        frq_roundQueue.slice()
-    };
-    fa.runs.push(run);
-    fa.currentRunIdx = fa.runs.length - 1;
-  } else {
-    // Bestehenden Lauf aktualisieren (Pause/Resume-Fall)
-    run.tracks     = frq_tracks;
-    run.roundQueue = frq_roundQueue.slice();
-  }
-
-  _frq_debug('persist: run#' + fa.currentRunIdx + ', tracks=' + Object.keys(frq_tracks).length);
-}
-
-function _frq_markCompleted() {
-  if (!frq_varSide || !sideData[frq_varSide]) return;
-  const fa = sideData[frq_varSide].freqmatchAdaptive;
-  if (!fa || fa.currentRunIdx == null) return;
-  const run = fa.runs[fa.currentRunIdx];
-  if (run) run.completedAt = Date.now();
-}
-
-function _frq_clearPersist(side) {
-  side = side || frq_varSide;
-  if (side && sideData[side]) sideData[side].freqmatchAdaptive = null;
-}
-
-function _frq_tryRestore(currentElIdxList) {
-  if (!sideData[frq_varSide]) return false;
-  const fa = sideData[frq_varSide].freqmatchAdaptive;
-  if (!fa || !Array.isArray(fa.runs) || fa.runs.length === 0) return false;
-
-  const run = (fa.currentRunIdx != null) ? fa.runs[fa.currentRunIdx] : null;
-  if (!run) return false;
-  if (run.completedAt != null) return false;            // letzter Lauf war fertig
-  if (run.varSide !== frq_varSide || run.refSide !== FRQ_refSide) return false;
-  if (!run.tracks) return false;
-
-  const saved = (run.electrodeIdxList || []).slice().sort(function(a, b) { return a - b; });
-  const now   = currentElIdxList.slice().sort(function(a, b) { return a - b; });
-  if (saved.length !== now.length) return false;
-  for (let i = 0; i < saved.length; i++) if (saved[i] !== now[i]) return false;
-
-  const hasActive = Object.keys(run.tracks).some(function(k) {
-    return run.tracks[k].status === 'active';
-  });
-  if (!hasActive) return false;
-
-  frq_tracks     = run.tracks;
-  frq_roundQueue = Array.isArray(run.roundQueue) ? run.roundQueue.slice() : [];
-  _frq_debug('restore: run#' + fa.currentRunIdx + ', ' + Object.keys(frq_tracks).length + ' tracks');
-  return true;
-}
-
-function FRQ_refreshResumeHint() {
-  if (!FRQ_els) return;
-  const startBtn = FRQ_els.header && FRQ_els.header.startBtn;
-  if (!startBtn) return;
-  const fa = (sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive) || null;
-
-  if (!fa || !Array.isArray(fa.runs) || fa.runs.length === 0) {
-    startBtn.textContent = (typeof t === 'function' && t('FRQ_lblStart')) || 'Test starten';
-    return;
-  }
-
-  const run = (fa.currentRunIdx != null) ? fa.runs[fa.currentRunIdx] : null;
-  const hasActive = run && run.tracks && Object.keys(run.tracks).some(function(k) {
-    return run.tracks[k].status === 'active';
-  });
-
-  if (hasActive) {
-    startBtn.textContent = (typeof t === 'function' && t('FRQ_lblResume')) || 'Test fortsetzen';
-  } else {
-    startBtn.textContent = (typeof t === 'function' && t('FRQ_lblNewRun')) || 'Weiteren Lauf starten';
-  }
-}
-
-// onStart-Hook für adaptive verfahren — ruft nach Dialog-Check _frq_doStartAdaptive.
 let _frq_timerInterval = null;
 let _frq_timerStartTs  = 0;
 
@@ -664,11 +327,6 @@ function _frq_stopTimer() {
   }
 }
 function _frq_activeProgress() {
-  if (!FRQ_els || !FRQ_els.verfahren) return null;
-  if (frq_adaptiveActive && FRQ_els.verfahren.adaptive)
-    return FRQ_els.verfahren.adaptive.progress;
-  if (FRQ_running && FRQ_els.verfahren.slider)
-    return FRQ_els.verfahren.slider.progress;
   return null;
 }
 function _frq_tickTimer() {
@@ -678,36 +336,6 @@ function _frq_tickTimer() {
   const txt  = mm + ':' + (ss < 10 ? '0' : '') + ss;
   const _prog = _frq_activeProgress();
   if (_prog && _prog.timer) _prog.timer.textContent = txt;
-}
-
-// --- Shared Dispatchers ---
-
-function frq_undo() {
-  if (frq_adaptiveActive) { frq_undoAdaptive(); return; }
-  if (!FRQ_running || frq_sequenceIdx === 0) return;
-  frq_sequenceIdx--;
-  const prevEl = frq_sequence[frq_sequenceIdx];
-  const store = (sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive)
-    ? sideData[frq_varSide].freqmatchAdaptive.sliderEstimates : null;
-  if (store) delete store[String(prevEl)];
-
-  // Elektrode wieder in pass.remaining aufnehmen, an der korrekten Position
-  // gemäß pass.order (Frequenz-Reihenfolge).
-  const fa = sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive;
-  const pass = fa && fa.sliderPass;
-  if (pass && !pass.remaining.includes(prevEl)) {
-    pass.remaining.push(prevEl);
-    // Reihenfolge gemäß pass.order wiederherstellen.
-    pass.remaining.sort(function(a, b) {
-      return pass.order.indexOf(a) - pass.order.indexOf(b);
-    });
-  }
-
-  frq_updateSliderProgress();
-  frq_loadElectrode();
-  if (typeof FRQ_renderResults === 'function') {
-    try { FRQ_renderResults(); } catch (e) {}
-  }
 }
 
 // Nach 5 Min Inaktivität die Seitenabfrage erneut auslösen (statt den Test
@@ -729,24 +357,11 @@ function frq_abort() {
   testUI.sideCheck.stopIdleWatch();
   _frq_simActive = false;
   frq_pianoActive = false;
-  if (frq_adaptiveActive) {
-    _frq_persist();
-    frq_adaptiveActive   = false;
-    frq_awaitingResponse = false;
-    frq_isPlaying           = false;
-    if (frq_playTimeout) { clearTimeout(frq_playTimeout); frq_playTimeout = null; }
-    FRQ_running          = false;
-    frq_currentTrackId       = null;
-    _frq_stopTimer();
-    FRQ_refreshResumeHint();
-    return;
-  }
   frq_isPlaying = false;
   if (frq_playTimeout) { clearTimeout(frq_playTimeout); frq_playTimeout = null; }
   _frq_stopTimer();
   FRQ_running   = false;
   frq_currentEl = null;
-  FRQ_refreshResumeHint();
 }
 
 // --- Klavier-Verfahren (A1: nur erste Elektrode, Tonwiedergabe) ---
@@ -1309,29 +924,14 @@ function _frq_requestExclude() {
   if (!FRQ_running || frq_currentEl === null || !FRQ_els) return;
   setTestExclConfirm(FRQ_els.exclOverlay, frq_varSideElectrodeLabel(frq_currentEl), function() {
     withSide(frq_varSide, () => { elExDur[frq_currentEl] = true; });
-    // Ausschluss: aktuelle Elektrode aus dem Durchgang nehmen, weiter.
-    const _fa = sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive;
-    if (_fa && _fa.sliderPass) {
-      const _i = _fa.sliderPass.remaining.indexOf(frq_currentEl);
-      if (_i >= 0) _fa.sliderPass.remaining.splice(_i, 1);
-    }
     frq_sequenceIdx++;
-    frq_loadElectrode();
+    _frq_pianoLoadStep();
   });
-}
-
-// --- Slider-Handler ---
-function frq_handleSlider(val) {
-  frq_centOffset = parseFloat(val);
-  frq_updateSliderDisplay();
 }
 
 // --- i18n-Aktualisierung ---
 function FRQ_applyLang() {
   if (!FRQ_els) return;
-  if (FRQ_els.header && FRQ_els.header.startBtn) {
-    FRQ_refreshResumeHint();
-  }
   _frq_refreshHighGainWarningVisibility();
   _frq_refreshCochlearFatHintVisibility();
   _frq_renderPrereqHints();
@@ -1361,8 +961,6 @@ function _frq_autoSetRefMode() {
   // Schutz: solange Daten vorliegen, refSelect nicht implizit umstellen —
   // ein manueller Wechsel ist durch depLock gesperrt (Popup mit Begründung).
   if (FRQ_resultsArray.length > 0) return;
-  if (_FRQ_hasAdaptiveData()) return;
-  if (_FRQ_hasSliderEstimates()) return;
   const leftCfg  = (sideData.left  && sideData.left.config)  || 'ci';
   const rightCfg = (sideData.right && sideData.right.config) || 'ci';
   const leftIsCI  = (leftCfg  === 'ci');
@@ -1420,29 +1018,9 @@ function _FRQ_refreshTabState() {
     _frq_autoSetRefMode();
     frq_loadVerfahrenFromSide();
   }
-  if (typeof FRQ_refreshResumeHint === 'function') FRQ_refreshResumeHint();
   _frq_refreshHighGainWarningVisibility();
   _frq_refreshCochlearFatHintVisibility();
   _frq_renderPrereqHints();
-}
-
-function _FRQ_hasSliderEstimates() {
-  return ['left', 'right'].some(function(side) {
-    const fa = sideData[side] && sideData[side].freqmatchAdaptive;
-    const est = fa && typeof fa.sliderEstimates === 'object' && fa.sliderEstimates;
-    return !!(est && Object.keys(est).length > 0);
-  });
-}
-
-function _FRQ_hasAdaptiveData() {
-  return ['left', 'right'].some(function(side) {
-    const fa = sideData[side] && sideData[side].freqmatchAdaptive;
-    return !!(fa && Array.isArray(fa.runs) && fa.runs.some(function(r) {
-      return r.tracks && Object.keys(r.tracks).some(function(k) {
-        return r.tracks[k] && (r.tracks[k].trialCount || 0) > 0;
-      });
-    }));
-  });
 }
 
 // BA353: Aktives Frequenzabgleich-Verfahren.
@@ -1458,30 +1036,18 @@ function frq_entryMethod(r) {
   return "adaptive";
 }
 
-// Hat ein Verfahren ueberhaupt Daten? (fuer Default-Ableitung)
-// BA363: aktuell ungenutzt (frq_getActiveMethod gibt hart "piano"), fuer Reaktivierung erhalten.
+// Hat ein Verfahren ueberhaupt Daten? (fuer Default-Ableitung, aktuell ungenutzt)
 function frq_methodHasData(method) {
+  if (method !== "piano") return false;
   if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
     for (let i = 0; i < FRQ_resultsArray.length; i++) {
-      if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === method) return true;
+      if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === "piano") return true;
     }
   }
   const sides = ["left", "right"];
   for (let s = 0; s < sides.length; s++) {
-    const fa = sideData[sides[s]] && sideData[sides[s]].freqmatchAdaptive;
-    if (!fa) continue;
-    if (method === "piano") {
-      var fpp = sideData[sides[s]] && sideData[sides[s]].freqmatchPiano;
-      if (fpp && fpp.perElectrode && Object.keys(fpp.perElectrode).length > 0) return true;
-    } else if (method === "slider") {
-      if (fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0) return true;
-    } else {
-      if (Array.isArray(fa.runs) && fa.runs.some(function (r) {
-        return r && r.tracks && Object.keys(r.tracks).some(function (k) {
-          return r.tracks[k] && (r.tracks[k].trialCount || 0) > 0;
-        });
-      })) return true;
-    }
+    var fpp = sideData[sides[s]] && sideData[sides[s]].freqmatchPiano;
+    if (fpp && fpp.perElectrode && Object.keys(fpp.perElectrode).length > 0) return true;
   }
   return false;
 }
@@ -1497,7 +1063,7 @@ function frq_getActiveMethod() {
 // jede Bestaetigung (Trigger) und jeder Button-Klick ruft das hier.
 // Refresh (Graph + Player-Warp) nur bei echtem Wechsel.
 function FRQ_setActiveMethod(m) {
-  if (m !== "adaptive" && m !== "slider" && m !== "piano") return;
+  if (m !== "piano") return;
   const changed = (FRQ_activeMethodValue !== m);
   FRQ_activeMethodValue = m;
   if (typeof frq_updateActiveMethodButtons === "function") frq_updateActiveMethodButtons();
@@ -1514,9 +1080,7 @@ function FRQ_setActiveMethod(m) {
 function frq_updateActiveMethodButtons() {
   const method = frq_getActiveMethod();
   const map = [
-    { id: "FRQ_activeMethodAdaptiveBtn", m: "adaptive" },
-    { id: "FRQ_activeMethodSliderBtn",   m: "slider" },
-    { id: "FRQ_activeMethodPianoBtn",    m: "piano" }
+    { id: "FRQ_activeMethodPianoBtn", m: "piano" }
   ];
   for (let i = 0; i < map.length; i++) {
     const btn = document.getElementById(map[i].id);
@@ -1533,33 +1097,6 @@ function frq_updateActiveMethodButtons() {
   }
 }
 
-let _frq_durStash_slider  = 400;
-let _frq_pauStash_slider  = 400;
-
-function frq_setVerfahren(newVerfahren, opts) {
-  opts = opts || {};
-  if (newVerfahren !== 'slider' && newVerfahren !== 'adaptive' && newVerfahren !== 'piano') return;
-  if (newVerfahren === frq_verfahren && !opts.force) return;
-
-  const oldVerfahren = frq_verfahren;
-  frq_verfahren = newVerfahren;
-
-  if (!FRQ_els || !FRQ_els.header) return;
-
-  // BA 240: Dur/Pau-Stash arbeitet jetzt auf State-Variablen statt DOM-Inputs.
-  if (oldVerfahren === 'slider') {
-    _frq_durStash_slider = duration_freqmatch || 400;
-    _frq_pauStash_slider = pause_freqmatch    || 400;
-  }
-  if (newVerfahren === 'slider') {
-    duration_freqmatch = _frq_durStash_slider;
-    pause_freqmatch    = _frq_pauStash_slider;
-  }
-
-  testUI.verfahren.select(FRQ_els, newVerfahren);
-  FRQ_refreshResumeHint();
-}
-
 function frq_loadVerfahrenFromSide() {
   if (!FRQ_els) return;
   const _refVal = FRQ_els.header.refSelect.value;
@@ -1571,19 +1108,6 @@ function frq_loadVerfahrenFromSide() {
     FRQ_refSide = _refVal;
     frq_varSide = (FRQ_refSide === 'left') ? 'right' : 'left';
   }
-
-  const fa = (sideData[frq_varSide] && sideData[frq_varSide].freqmatchAdaptive) || null;
-  const hasAdaptive = !!(fa && Array.isArray(fa.runs) && fa.runs.some(function(r) {
-    return r.tracks && Object.keys(r.tracks).some(function(k) {
-      return r.tracks[k] && (r.tracks[k].trialCount || 0) > 0;
-    });
-  }));
-
-  if (hasAdaptive) {
-    frq_setVerfahren('adaptive', { force: true });
-  }
-
-  FRQ_refreshResumeHint();
 }
 
 // --- DOMContentLoaded ---
@@ -1663,10 +1187,7 @@ document.addEventListener("DOMContentLoaded", () => {
           hintKey: 'tonePopupHint',
           getVolume:   function() { return FRQ_getVolume(); },
           getPreviewSequence: function (lastHz) {
-            // Slider-Modus laeuft -> echte Sequenz. Sonst (inkl. Adaptiv-Modus)
-            // gemerkter Ton, beide Seiten nacheinander (Vergleichs- dann
-            // Referenz-Seite).
-            if (FRQ_running && frq_currentEl != null && !frq_adaptiveActive) {
+            if (FRQ_running && frq_currentEl != null) {
               return frq_makeSequence({ aba: frq_isAbaSequence() });
             }
             // BA 301: jede Seite mit zentraler Korrektur (Elektrodenlautstaerke
@@ -1845,94 +1366,6 @@ document.addEventListener("DOMContentLoaded", () => {
           onSimul:     frq_playSimultaneous
         }
       }
-      /* BA363 Klavier-only: Adaptiv und Slider aus der UI verborgen.
-         Logik (frq_startAdaptive, frq_startSlider, Roh-Behaelter) bleibt im
-         Code. Zum Reaktivieren diesen Block-Kommentar entfernen und die
-         beiden Eintraege wieder als Array-Elemente einfuegen (mit fuehrendem
-         Komma nach dem piano-Eintrag). Architektur 10.
-
-      , {
-        id: 'adaptive',
-        labelKey:   'FRQ_modeAdaptive',
-        explainKey: 'FRQ_explainAdaptive',
-        body: {
-          pairIndicator:   { variant: 'token', leftKey: 'FRQ_tone1', rightKey: 'FRQ_tone2' },
-          progress:        { format: 'simple' },
-          instruction:     { key: 'hjPrompt' },
-          decisionButtons: { variant: 'updown' },
-          statusGrid:      { show: true },
-          actions:         ['undo','replay','simul'],
-          background: {
-            bodyKey:    'FRQ_explainAdaptiveScience',
-            bodyAsHtml: true
-          },
-          debugRun: { key: 'btnDebugRun' }
-        },
-        // BA 222: Vortest-Empfehlung. Verletzt, wenn fuer keine einzige
-        // testbare Elektrode eine Slider-Schaetzung vorliegt. TestUI
-        // oeffnet vor onStart ein Modal mit drei Optionen.
-        prerequisites: [
-          {
-            checkFn:    function() { return !_frq_shouldOfferSliderEstimate(); },
-            titleKey:   'FRQ_sliderEstimateTitle',
-            messageKey: 'FRQ_sliderEstimateMsg',
-            actions: [
-              {
-                labelKey: 'FRQ_sliderEstimateBtnSlider',
-                kind:     'custom',
-                run:      function() { frq_setVerfahren('slider'); }
-              },
-              {
-                labelKey: 'FRQ_sliderEstimateBtnSkip',
-                kind:     'continue'
-              },
-              {
-                labelKey: 'FRQ_sliderEstimateBtnCancel',
-                kind:     'abort'
-              }
-            ]
-          }
-        ],
-        hooks: {
-          onStart:    frq_startAdaptive,
-          onStop:     frq_abort,
-          onDecision: frq_handleHeight,
-          onReplay:   frq_playCurrent,
-          onUndo:     frq_undoAdaptive,
-          onSimul:    frq_playSimultaneous,
-          onDebugRun: frq_runDebugSimulation
-        }
-      },
-      {
-        id: 'slider',
-        labelKey:   'FRQ_modeSlider',
-        explainKey: 'FRQ_explainSlider',
-        body: {
-          pairIndicator: { variant: 'token', leftKey: 'FRQ_tone1', rightKey: 'FRQ_tone2' },
-          progress:      { format: 'simple' },
-          instruction:   { key: 'FRQ_sliderInstruction' },
-          keyHint:       { unitKey: 'sliderHintCent' },
-          slider:        { unit: 'cent', initialRange: 100, maxRange: 1200, touchStep: 5, touchFineStep: 1, rangeHint: true },
-          sliderValue:   { show: true },
-          confirmButton: { key: 'btnConfirmOffset' },
-          actions:       ['undo', 'replay', 'simul', 'pause'],
-          background: {
-            bodyKey:    'FRQ_explainSliderScience',
-            bodyAsHtml: true
-          }
-        },
-        hooks: {
-          onStart:    frq_startSlider,
-          onStop:     frq_abort,
-          onPause:    frq_pauseSlider,
-          onSlide:    frq_handleSlider,
-          onConfirm:  frq_confirm,
-          onReplay:   frq_playCurrent,
-          onUndo:     frq_undo,
-          onSimul:    frq_playSimultaneous
-        }
-      }
-      */
     ]
   };
 
@@ -1948,7 +1381,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!FRQ_running) _frq_autoSetRefMode();
   frq_loadVerfahrenFromSide();
-  FRQ_refreshResumeHint();
   _frq_refreshHighGainWarningVisibility();
   _frq_refreshCochlearFatHintVisibility();
 });
