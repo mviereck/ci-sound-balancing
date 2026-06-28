@@ -75,6 +75,7 @@ function initElektrodenlautstaerkeKurven() {
     strength: 0,
     center: CENT_REF_HZ,
     width: 1200,
+    phon: 70,
     cutoff:
       tp === "bassboost" ? Math.floor(nEl / 3) : Math.floor((nEl * 2) / 3),
   }));
@@ -476,8 +477,13 @@ function loadSideData(side, d) {
   if (d.presets && Array.isArray(d.presets)) {
     s.kurvenELL = KURVEN_ELL_TYPES.map((tp) => {
       const found = d.presets.find((p) => p.type === tp);
-      return found || {
+      if (found) {
+        if (found.phon == null) found.phon = 70;
+        return found;
+      }
+      return {
         type: tp, on: false, strength: 0, center: CENT_REF_HZ, width: 1200,
+        phon: 70,
         cutoff: tp === "bassboost" ? Math.floor(s.nEl / 3) : Math.floor((s.nEl * 2) / 3),
       };
     });

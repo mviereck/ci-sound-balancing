@@ -514,6 +514,7 @@ Object.assign(L.es, {
     kurvenELLGauss: "Gauss",
     kurvenELLBass: "Bass Boost",
     kurvenELLHigh: "High Boost",
+    kurvenELLIso226: "Isofónica (ISO 226)",
     kurvenELLStrLabel: "Intensidad:",
     kurvenELLExplTilt:
       "Aumento lineal de apical a basal. Valores positivos realzan los agudos, negativos los graves. Equivale a la herramienta Tilt de MAESTRO.",
@@ -531,6 +532,8 @@ Object.assign(L.es, {
       "Ponderación según inteligibilidad del habla (ANSI S3.5 Band Importance Function). Valores positivos realzan las frecuencias relevantes para el habla (aprox. 800–4000 Hz), negativos las atenúan.",
     kurvenELLExplVolume:
       "Sube o baja todos los electrodos activos en la misma cantidad de dB. Actúa como un volumen general adicional independiente de la ganancia del reproductor.",
+    kurvenELLExplIso226:
+      "Reproduce la ponderación natural de frecuencias del oído normal (curvas isofónicas según ISO 226:2003). Los valores positivos realzan las frecuencias graves y agudas respecto a los medios, los negativos invierten el efecto. El valor en fonios define el nivel de escucha al que se aplica.",
     kurvenELLIntroTitle: "Curvas",
     kurvenELLIntroDesc:
       "Ajuste del volumen de electrodos a lo largo de todos los electrodos. Elija entre las funciones de curva ofrecidas y ajuste los valores en directo.",
@@ -550,6 +553,8 @@ Object.assign(L.es, {
     kurvenELLCutoff: "Punto de corte:",
     kurvenELLUnitHz: "Hz",
     kurvenELLUnitCent: "¢",
+    kurvenELLPhon: "Nivel",
+    kurvenELLUnitPhon: "fonios",
     loadMigratedCurves:
       "El cálculo de las curvas se ha precisado matemáticamente " +
       "(basado en frecuencias en lugar de basado en electrodos). Tus antiguos " +
@@ -709,6 +714,8 @@ Object.assign(L.es, {
     FRQ_resultsQualityOkWithNoisy:   "Medición completa (incertidumbre residual media {res} cent). Los siguientes electrodos con notable incertidumbre residual: {names}. Valores aptos, pero con precaución al transferirlos en esos casos.",
     FRQ_resultsTipNotPerceivable: "no perceptible",
     FRQ_resultsTipResidual: "Incertidumbre residual",
+    FRQ_resultsTipPianoCrossed: "Límites invertidos – valor incierto",
+    FRQ_resultsTipPianoWide: "Incertidumbre muy grande",
     FRQ_resultsChartHintAdaptive: "Línea «Es» = frecuencia programada del electrodo, punto «Deseado» = coincidencia percibida. ✓ = convergencia limpia, banda naranja = incertidumbre residual (anchura = ±residuo en cent), ✗ = no perceptible. Círculo azul vacío = estado intermedio provisional (medición aún en curso); círculo vacío con «?» = aún demasiado pocos datos para una estimación.",
     FRQ_resultsChartXLabel: "Frecuencia (cent respecto a 1 kHz)",
     FRQ_resultsChartYLabel: "Desviación (cent)",

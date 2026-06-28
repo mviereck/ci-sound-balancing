@@ -87,6 +87,15 @@ function kurvenELLBerechnen(pr) {
     for (let i = 0; i < n; i++) c[i] /= mx2;
     return c;
   }
+  if (pr.type === "iso226") {
+    const LN = pr.phon != null ? pr.phon : 70;
+    const effF = Array.from({ length: n }, (_, i) => effFreqDisplay(i));
+    const w = iso226WeightsForFreqs(effF, LN);
+    // w ist bereits relativ zu 1000 Hz in echten dB; keine weitere
+    // Normierung. Stärke-Faktor wird in kurvenELLSumme angewandt.
+    for (let i = 0; i < n; i++) c[i] = w[i];
+    return c;
+  }
   if (pr.type === "volume") {
     // Gleichmäßige Anhebung/Absenkung aller aktiven Elektroden.
     // Inaktive (deaktiviert / mute / während Test ausgeschlossen)
@@ -200,6 +209,12 @@ function kurvenELLTabelleBauen() {
       params += ` <label>${t("kurvenELLWidth")}</label><input type="number" class="kurven-ell-wid" data-pi="${pi}" min="50" max="4800" step="50" style="width:80px"> ${t("kurvenELLUnitCent")}`;
     if (KURVEN_ELL_HAS_CUTOFF[pr.type])
       params += ` <label>${t("kurvenELLCutoff")}</label><select class="kurven-ell-cut" data-pi="${pi}">${elOpts}</select>`;
+    if (pr.type === "iso226") {
+      const phonOpts = [20, 40, 60, 70, 80]
+        .map((p) => `<option value="${p}">${p}</option>`)
+        .join("");
+      params += ` <label>${t("kurvenELLPhon")}</label><select class="kurven-ell-phon" data-pi="${pi}">${phonOpts}</select> ${t("kurvenELLUnitPhon")}`;
+    }
     params += "</div>";
     tr.innerHTML = `<td><input type="checkbox" class="kurven-ell-on" data-pi="${pi}" ${pr.on ? "checked" : ""}></td><td class="kurven-ell-name">${t(KURVEN_ELL_NAMES[pr.type])}</td><td>${params}</td>`;
     tbl.appendChild(tr);
@@ -212,6 +227,8 @@ function kurvenELLTabelleBauen() {
     if (widInp) widInp.value = Math.round(pr.width != null ? pr.width : 1200);
     const cutSel = tr.querySelector(".kurven-ell-cut");
     if (cutSel) cutSel.value = pr.cutoff;
+    const phonSel = tr.querySelector(".kurven-ell-phon");
+    if (phonSel) phonSel.value = pr.phon != null ? pr.phon : 70;
     const tr2 = document.createElement("tr");
     tr2.className = pr.on ? "" : "kurven-ell-row-off";
     tr2.innerHTML = `<td></td><td colspan="2" style="font-size:.78em;color:var(--text-muted);padding-top:0">${t(KURVEN_ELL_EXPL[pr.type])}</td>`;
@@ -315,6 +332,20 @@ function kurvenELLTabelleBauen() {
   tbl.querySelectorAll(".kurven-ell-cut").forEach((sel) =>
     sel.addEventListener("change", function () {
       kurvenELL[+this.dataset.pi].cutoff = +this.value;
+      kurvenELLOnChange();
+    }),
+  );
+  tbl.querySelectorAll(".kurven-ell-phon").forEach((sel) =>
+    sel.addEventListener("change", function () {
+      const pi = +this.dataset.pi;
+      kurvenELL[pi].phon = +this.value;
+      if (document.getElementById("kurvenELLBothSides")?.checked) {
+        const otherSide = activeSide === "left" ? "right" : "left";
+        const op = sideData[otherSide].kurvenELL;
+        if (op && op[pi] && op[pi].type === kurvenELL[pi].type) {
+          op[pi].phon = +this.value;
+        }
+      }
       kurvenELLOnChange();
     }),
   );

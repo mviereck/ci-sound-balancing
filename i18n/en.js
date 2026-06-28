@@ -513,6 +513,7 @@ Object.assign(L.en, {
     kurvenELLGauss: "Gaussian",
     kurvenELLBass: "Bass boost",
     kurvenELLHigh: "High boost",
+    kurvenELLIso226: "Equal-loudness (ISO 226)",
     kurvenELLStrLabel: "Strength:",
     kurvenELLExplTilt:
       "Linear increase from apical to basal. Positive values emphasize treble, negative values bass. Equivalent to the MAESTRO Tilt tool.",
@@ -530,6 +531,8 @@ Object.assign(L.en, {
       "Weighting according to speech intelligibility (ANSI S3.5 Band Importance Function). Positive values raise speech-relevant frequencies (approx. 800–4000 Hz), negative values lower them.",
     kurvenELLExplVolume:
       "Raises or lowers all active electrodes by the same dB amount. Acts like an additional overall volume independent of the player gain.",
+    kurvenELLExplIso226:
+      "Reproduces the natural frequency weighting of the normal ear (equal-loudness contours per ISO 226:2003). Positive values raise low and high frequencies relative to the midrange, negative values reverse the effect. The phon value sets the listening level the weighting applies to.",
     kurvenELLIntroTitle: "Curves",
     kurvenELLIntroDesc:
       "Adjustment of the electrode loudness across all electrodes. Choose from the provided curve functions and adjust the values live.",
@@ -549,6 +552,8 @@ Object.assign(L.en, {
     kurvenELLCutoff: "Cutoff:",
     kurvenELLUnitHz: "Hz",
     kurvenELLUnitCent: "¢",
+    kurvenELLPhon: "Level",
+    kurvenELLUnitPhon: "phon",
     loadMigratedCurves:
       "The curve calculation has been mathematically refined " +
       "(frequency-based instead of electrode-based). Your old " +
@@ -708,6 +713,8 @@ Object.assign(L.en, {
     FRQ_resultsQualityOkWithNoisy:   "Measurement complete (mean residual uncertainty {res} cents). The following electrodes have significant residual uncertainty: {names}. Values usable, but be cautious when transferring them.",
     FRQ_resultsTipNotPerceivable: "not perceivable",
     FRQ_resultsTipResidual: "residual uncertainty",
+    FRQ_resultsTipPianoCrossed: "Bounds reversed – value uncertain",
+    FRQ_resultsTipPianoWide: "Uncertainty very large",
     FRQ_resultsChartHintAdaptive: "Actual line = programmed electrode frequency, target point = perceived match. ✓ = clean convergence, orange band = residual uncertainty (width = ±residual in cents), ✗ = not perceivable. Hollow blue circle = preliminary interim state (measurement still running); hollow circle with “?” = not enough data yet for an estimate.",
     FRQ_resultsChartXLabel: "Frequency (cents relative to 1 kHz)",
     FRQ_resultsChartYLabel: "Deviation (cents)",

@@ -762,13 +762,15 @@ function drawFRQChart(cv, fResData, opts) {
     const yBase = pad.top - 6;                          // unterste Pfeil-Lane
     const yLblBottom = yBase - arrowLaneCount * laneH - 4; // unterste Label-Lane
 
-    // Alle Labels (Ist grau + Soll schwarz) in einem Pool
+    // Alle Labels (Ist grau + Soll schwarz) in einem Pool. Klavier-Sonderfaelle
+    // (piano-crossed/-wide) bekommen am Soll-Label ein gelb-oranges Warndreieck.
     const lblItems = [];
     for (const el of allEls) {
       const cross = crossingEls.has(el.elIdx);
+      const warn  = (el.fmStatus === 'piano-crossed' || el.fmStatus === 'piano-wide');
       lblItems.push({ x: tX(el.cIst), text: "E" + el.elNum, color: cross ? "#ef4444" : "#6b7280", el });
       if (el.isMeasured && !el.isExcluded)
-        lblItems.push({ x: tX(el.cSoll), text: "E" + el.elNum, color: cross ? "#ef4444" : "#000", el });
+        lblItems.push({ x: tX(el.cSoll), text: "E" + el.elNum, color: cross ? "#ef4444" : "#000", el, warn });
     }
 
     // Greedy Lane-Zuweisung nach x sortiert (Breite ≈ 7px/Zeichen)
@@ -788,11 +790,12 @@ function drawFRQChart(cv, fResData, opts) {
     ctx.font = "10px Segoe UI,sans-serif";
     ctx.textAlign = "center";
     for (let i = 0; i < lblItems.length; i++) {
-      const { x, text, color, el } = lblItems[i];
+      const { x, text, color, el, warn } = lblItems[i];
       const y = yLblBottom - laneOf[i] * (lineH + laneGap);
       (frq_chartLabelPos[el.elIdx] = frq_chartLabelPos[el.elIdx] || []).push({ x, y, text });
       ctx.fillStyle = color;
       ctx.fillText(text, x, y);
+      if (warn) drawWarnTriangle(ctx, x - text.length * 3.5 - 6, y - 4);
       if (el.isMeasured)
         hitboxes.push({ x, y, el });
     }
@@ -857,6 +860,30 @@ function drawArrow(ctx, x1, y1, x2, y2, color, headAtEnd = false, lineWidth = 1.
   }
   ctx.closePath();
   ctx.fill();
+}
+
+// Kleines gelb-oranges Warndreieck mit Ausrufezeichen (Klavier-Sonderfaelle
+// piano-crossed/-wide). (cx,cy) = obere Spitze des Dreiecks.
+function drawWarnTriangle(ctx, cx, cy) {
+  const w = 9, hgt = 8;
+  ctx.save();
+  ctx.fillStyle = "#f59e0b";
+  ctx.strokeStyle = "#92400e";
+  ctx.lineWidth = 0.75;
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.lineTo(cx - w / 2, cy + hgt);
+  ctx.lineTo(cx + w / 2, cy + hgt);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  // Ausrufezeichen
+  ctx.fillStyle = "#3b2600";
+  ctx.font = "bold 6px Segoe UI,sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText("!", cx, cy + hgt * 0.62);
+  ctx.restore();
 }
 
 function _frq_chartDrawHighlight(cv, el) {
@@ -960,6 +987,15 @@ function _frq_chartTooltipHandler(cv, e) {
       if (_hasResidual) {
         tipHtml += "<br>" + tipT('FRQ_resultsTipResidual', 'Restunsicherheit') +
           " \u00b1" + Math.round(el.fmResidual) + "\u202fct";
+      }
+      // Warnhinweis bei Klavier-Sonderfaellen (piano-crossed/-wide): Wert wird
+      // verwendet, ist aber als unplausibel markiert.
+      if (el.fmStatus === 'piano-crossed') {
+        tipHtml += "<br>\u26a0\ufe0f " + tipT('FRQ_resultsTipPianoCrossed',
+          'Grenzen vertauscht \u2013 Wert unsicher');
+      } else if (el.fmStatus === 'piano-wide') {
+        tipHtml += "<br>\u26a0\ufe0f " + tipT('FRQ_resultsTipPianoWide',
+          'Unsicherheit sehr gro\u00df');
       }
     }
     tip.innerHTML = tipHtml;

@@ -514,6 +514,7 @@ Object.assign(L.fr, {
     kurvenELLGauss: "Gauss",
     kurvenELLBass: "Bass Boost",
     kurvenELLHigh: "High Boost",
+    kurvenELLIso226: "Isosonique (ISO 226)",
     kurvenELLStrLabel: "Force :",
     kurvenELLExplTilt:
       "Augmentation linéaire de l'apical au basal. Valeurs positives accentuent les aigus, négatives les graves. Correspond à l'outil Tilt de MAESTRO.",
@@ -531,6 +532,8 @@ Object.assign(L.fr, {
       "Pondération selon l'intelligibilité de la parole (ANSI S3.5 Band Importance Function). Valeurs positives augmentent les fréquences pertinentes pour la parole (env. 800–4000 Hz), négatives les abaissent.",
     kurvenELLExplVolume:
       "Augmente ou abaisse toutes les électrodes actives du même nombre de dB. Agit comme un volume global supplémentaire indépendant du gain du Player.",
+    kurvenELLExplIso226:
+      "Reproduit la pondération naturelle des fréquences de l'oreille normale (courbes isosoniques selon ISO 226:2003). Les valeurs positives augmentent les basses et les hautes fréquences par rapport au médium, les négatives inversent l'effet. La valeur en phones définit le niveau d'écoute concerné.",
     kurvenELLIntroTitle: "Courbes",
     kurvenELLIntroDesc:
       "Ajustement de l'intensité des électrodes sur toutes les électrodes. Choisissez parmi les fonctions de courbe proposées et ajustez les valeurs en direct.",
@@ -550,6 +553,8 @@ Object.assign(L.fr, {
     kurvenELLCutoff: "Point limite :",
     kurvenELLUnitHz: "Hz",
     kurvenELLUnitCent: "¢",
+    kurvenELLPhon: "Niveau",
+    kurvenELLUnitPhon: "phones",
     loadMigratedCurves:
       "Le calcul des courbes a été mathématiquement affiné " +
       "(basé sur la fréquence au lieu des électrodes). Vos anciens " +
@@ -709,6 +714,8 @@ Object.assign(L.fr, {
     FRQ_resultsQualityOkWithNoisy:   "Mesure complète (incertitude résiduelle moyenne {res} cents). Électrodes suivantes avec incertitude résiduelle notable : {names}. Valeurs utilisables, mais prudence lors du transfert pour ces électrodes.",
     FRQ_resultsTipNotPerceivable: "non perceptible",
     FRQ_resultsTipResidual: "Incertitude résiduelle",
+    FRQ_resultsTipPianoCrossed: "Bornes inversées – valeur incertaine",
+    FRQ_resultsTipPianoWide: "Incertitude très grande",
     FRQ_resultsChartHintAdaptive: "Trait actuel = fréquence d'électrode programmée, point cible = correspondance perçue. ✓ = convergence propre, bande orange = incertitude résiduelle (largeur = ±résidu en cents), ✗ = non perceptible. Cercle bleu vide = état intermédiaire provisoire (mesure encore en cours) ; cercle vide avec « ? » = encore trop peu de données pour une estimation.",
     FRQ_resultsChartXLabel: "Fréquence (cents par rapport à 1 kHz)",
     FRQ_resultsChartYLabel: "Écart (cents)",

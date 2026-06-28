@@ -564,6 +564,7 @@ Object.assign(L.de, {
     kurvenELLGauss: "Gauß",
     kurvenELLBass: "Bass Boost",
     kurvenELLHigh: "High Boost",
+    kurvenELLIso226: "Gehörrichtig (ISO 226)",
     kurvenELLStrLabel: "Stärke:",
     kurvenELLExplTilt:
       "Linearer Anstieg von apikal nach basal. Positive Werte betonen Höhen, negative Tiefen. Entspricht dem MAESTRO Tilt-Werkzeug.",
@@ -581,6 +582,8 @@ Object.assign(L.de, {
       "Gewichtung nach Sprachverständlichkeit (ANSI S3.5 Band Importance Function). Positive Werte heben sprachrelevante Frequenzen (ca. 800–4000 Hz) an, negative senken sie ab.",
     kurvenELLExplVolume:
       "Hebt oder senkt alle aktiven Elektroden um den gleichen dB-Betrag. Wirkt wie eine zusätzliche Gesamtlautstärke unabhängig von der Player-Verstärkung.",
+    kurvenELLExplIso226:
+      "Bildet die natürliche Frequenzgewichtung des Normalohrs nach (gehörrichtige Lautstärke nach ISO 226:2003, Kurven gleicher Lautheit). Positive Werte heben tiefe und hohe Frequenzen gegenüber der Mitte an, negative kehren den Effekt um. Der phon-Wert bestimmt, für welche Hörlautstärke die Gewichtung gilt.",
     kurvenELLIntroTitle: "Kurven",
     kurvenELLIntroDesc:
       "Anpassung der Elektrodenlautstärke über alle Elektroden hinweg. Wählen Sie aus angebotenen Kurvenfunktionen und passen Sie die Werte live an.",
@@ -600,6 +603,8 @@ Object.assign(L.de, {
     kurvenELLCutoff: "Grenzpunkt:",
     kurvenELLUnitHz: "Hz",
     kurvenELLUnitCent: "¢",
+    kurvenELLPhon: "Pegel",
+    kurvenELLUnitPhon: "phon",
     loadMigratedCurves:
       "Die Kurvenberechnung wurde mathematisch präzisiert " +
       "(Frequenz-basiert statt elektroden-basiert). Deine alten " +
@@ -773,6 +778,8 @@ Object.assign(L.de, {
     FRQ_resultsQualityOkWithNoisy:   "Messung vollständig (mittlere Restunsicherheit {res} Cent). Folgende Elektroden mit deutlicher Restunsicherheit: {names}. Werte tauglich, dort aber Vorsicht beim Übertragen.",
     FRQ_resultsTipNotPerceivable: "nicht wahrnehmbar",
     FRQ_resultsTipResidual: "Restunsicherheit",
+    FRQ_resultsTipPianoCrossed: "Grenzen vertauscht – Wert unsicher",
+    FRQ_resultsTipPianoWide: "Unsicherheit sehr groß",
     FRQ_resultsChartHintAdaptive: "Ist-Strich = programmierte Elektroden-Frequenz, Soll-Punkt = wahrgenommene Übereinstimmung. ✓ = saubere Konvergenz, oranges Band = Restunsicherheit (Breite = ±Residuum in Cent), ✗ = nicht wahrnehmbar. Hohler blauer Kreis = vorläufiger Zwischenstand (Messung läuft noch); hohler Kreis mit „?“ = noch zu wenig Daten für einen Schätzwert.",
     FRQ_resultsChartXLabel: "Frequenz (Cent gegenüber 1 kHz)",
     FRQ_resultsChartYLabel: "Abweichung (Cent)",

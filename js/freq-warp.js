@@ -135,8 +135,11 @@ let _pWarpFResVersion = 0;
 // BA353: Quelle = zentraler aktives-Verfahren-Filter (results.js).
 // Frueher: FRQ_resultsArray + in-progress + Slider-Schaetzungen ungefiltert vereinigt.
 function _warpFResSource() {
+  // fmExcluded (piano-crossed/-wide) wird NICHT mehr herausgefiltert: diese
+  // Werte sollen normal ins Warping einflieszen. Das Flag bleibt am Datensatz
+  // fuer spaeteren Gebrauch erhalten.
   return (typeof FRQ_activeResults === "function")
-    ? FRQ_activeResults().filter(function (r) { return !(r && r.fmExcluded); })
+    ? FRQ_activeResults()
     : [];
 }
 

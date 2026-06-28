@@ -800,9 +800,12 @@ function FRQ_renderResults() {
   const cv = document.getElementById("FRQ_resultsChart");
   if (cv) {
     const notPerc = _frq_resultsCollectNotPerceivable();
+    // fmExcluded (piano-crossed/-wide) wird NICHT mehr herausgefiltert: diese
+    // Werte sollen im Graphen erscheinen, dort aber mit Warndreieck markiert
+    // werden. Das Flag bleibt am Datensatz fuer spaeteren Gebrauch erhalten.
     drawFRQChart(
       cv,
-      displayData.filter(function (r) { return !(r && r.fmExcluded); }),
+      displayData,
       { notPerceivable: notPerc }
     );
     // Tooltip-Listener einmalig anhängen

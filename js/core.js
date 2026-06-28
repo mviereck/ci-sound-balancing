@@ -249,6 +249,7 @@ function meanCentStepOfFreqs(freqArr) {
 const SIDES = ["left", "right"];
 const KURVEN_ELL_TYPES = [
   "speech",
+  "iso226",
   "volume",
   "tilt",
   "scurve",
@@ -266,6 +267,7 @@ const KURVEN_ELL_NAMES = {
   gauss: "kurvenELLGauss",
   bassboost: "kurvenELLBass",
   highboost: "kurvenELLHigh",
+  iso226: "kurvenELLIso226",
 };
 const KURVEN_ELL_EXPL = {
   speech: "kurvenELLExplSpeech",
@@ -276,6 +278,7 @@ const KURVEN_ELL_EXPL = {
   gauss: "kurvenELLExplGauss",
   bassboost: "kurvenELLExplBass",
   highboost: "kurvenELLExplHigh",
+  iso226: "kurvenELLExplIso226",
 };
 const KURVEN_ELL_HAS_CENTER = {
   tilt: true,
@@ -286,6 +289,7 @@ const KURVEN_ELL_HAS_CENTER = {
   highboost: false,
   speech: false,
   volume: false,
+  iso226: false,
 };
 const KURVEN_ELL_HAS_WIDTH = { gauss: true };
 const KURVEN_ELL_HAS_CUTOFF = { bassboost: true, highboost: true };
@@ -322,6 +326,73 @@ function siiWeightsForFreqs(fArr) {
   }
   const mx = Math.max(...w);
   return w.map((v) => v / mx);
+}
+
+// ISO 226:2003 — Kurven gleicher Lautheit (equal-loudness contours).
+// Parameter aus PyDSM (Sergio Callegari), Norm-Daten + publizierte
+// Suzuki-Takeshima-Formel (J. Acoust. Soc. Am. 116, 2004).
+// Verifiziert: Lp(1000 Hz, L_N phon) == L_N (1-kHz-Definition).
+const ISO226_F = [
+  20, 25, 31.5, 40, 50, 63, 80, 100, 125, 160, 200, 250, 315, 400, 500,
+  630, 800, 1000, 1250, 1600, 2000, 2500, 3150, 4000, 5000, 6300, 8000,
+  10000, 12500,
+];
+const ISO226_AF = [
+  0.532, 0.506, 0.48, 0.455, 0.432, 0.409, 0.387, 0.367, 0.349, 0.33,
+  0.315, 0.301, 0.288, 0.276, 0.267, 0.259, 0.253, 0.25, 0.246, 0.244,
+  0.243, 0.243, 0.243, 0.242, 0.242, 0.245, 0.254, 0.271, 0.301,
+];
+const ISO226_LU = [
+  -31.6, -27.2, -23.0, -19.1, -15.9, -13.0, -10.3, -8.1, -6.2, -4.5,
+  -3.1, -2.0, -1.1, -0.4, 0.0, 0.3, 0.5, 0.0, -2.7, -4.1, -1.0, 1.7,
+  2.5, 1.2, -2.1, -7.1, -11.2, -10.7, -3.1,
+];
+const ISO226_TF = [
+  78.5, 68.7, 59.5, 51.1, 44.0, 37.5, 31.5, 26.5, 22.1, 17.9, 14.4,
+  11.4, 8.6, 6.2, 4.4, 3.0, 2.2, 2.4, 3.5, 1.7, -1.3, -4.2, -6.0, -5.4,
+  -1.5, 6.0, 12.6, 13.9, 12.3,
+];
+
+// Schalldruckpegel L_p (dB SPL) an Tabellen-Index j fuer Lautstaerke
+// L_N (phon). ISO 226:2003 Abschnitt 4.1.
+function _iso226LpAt(j, LN) {
+  const af = ISO226_AF[j],
+    Tf = ISO226_TF[j],
+    Lu = ISO226_LU[j];
+  const Af =
+    4.47e-3 * (Math.pow(10, 0.025 * LN) - 1.15) +
+    Math.pow(0.4 * Math.pow(10, (Tf + Lu) / 10 - 9), af);
+  return (10 / af) * Math.log10(Af) - Lu + 94;
+}
+
+// Equal-loudness-Gewichte fuer beliebige Frequenzen, RELATIV zu 1000 Hz
+// (1 kHz = 0 dB), bei Lautstaerke LN (phon). Log-lineare Interpolation
+// zwischen den Tabellen-Stuetzpunkten (wie siiWeightsForFreqs). Rueckgabe
+// in echten dB-Differenzen re 1 kHz; KEINE /max-Normierung.
+function iso226WeightsForFreqs(fArr, LN) {
+  const sf = ISO226_F,
+    n = fArr.length,
+    out = [];
+  // Lp je Stuetzpunkt einmal vorberechnen.
+  const lp = sf.map((_, j) => _iso226LpAt(j, LN));
+  // Lp bei 1000 Hz (Stuetzpunkt-Index 17) als Referenz.
+  const ref = lp[17];
+  for (let i = 0; i < n; i++) {
+    const f = fArr[i];
+    let val;
+    if (f <= sf[0]) val = lp[0];
+    else if (f >= sf[sf.length - 1]) val = lp[sf.length - 1];
+    else {
+      let k = 0;
+      while (k < sf.length - 1 && sf[k + 1] < f) k++;
+      const r =
+        (Math.log(f) - Math.log(sf[k])) /
+        (Math.log(sf[k + 1]) - Math.log(sf[k]));
+      val = lp[k] + r * (lp[k + 1] - lp[k]);
+    }
+    out.push(val - ref);
+  }
+  return out;
 }
 
 // Versions-Vergleich fuer Save-Format-Migrationen. Vergleicht
