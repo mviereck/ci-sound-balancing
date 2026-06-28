@@ -1798,6 +1798,24 @@
           </div>
           <div id="zaBilanz" style="margin:16px 0"></div>
           <div id="zaSessionList" style="margin:16px 0"></div>
+          <div id="zaSharpRow" style="margin:16px 0">
+            <span style="margin-right:8px;color:#555">Gewichtungs-Schärfe:</span>
+            <button id="zaSharp_mild"   class="btn">mild</button>
+            <button id="zaSharp_mittel" class="btn" style="font-weight:700">mittel</button>
+            <button id="zaSharp_scharf" class="btn">scharf</button>
+            <span style="margin-left:10px;color:#888;font-size:.85em">
+              je schärfer, desto stärker zählen sorgfältige Messungen (kleines Residuum)
+            </span>
+          </div>
+          <div style="margin:8px 0">
+            <canvas id="zaCurveChart"></canvas>
+            <div id="zaCurveHint" style="color:#888;font-size:.85em"></div>
+          </div>
+          <h3 style="margin:20px 0 6px">Verlauf (Heatmap)</h3>
+          <div style="margin:4px 0">
+            <canvas id="zaHeatmap"></canvas>
+            <div id="zaHeatmapHint" style="color:#888;font-size:.85em"></div>
+          </div>
         </div>
       </div>
 

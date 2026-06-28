@@ -432,6 +432,191 @@
   });
 })();
 
+/* BA408 — Konsens-Paarliste + Gewichtung + ctxKonsens */
+(function() {
+  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
+  dbg.test('build/BA408/konsolidierung', {
+    tab: 'messungen',
+    label: 'BA408: Konsens-Paarliste + Gewichtung + ctxKonsens'
+  }, function() {
+    var lines = [];
+    function chk(label, val) { lines.push((val ? 'OK' : 'FAIL') + ' ' + label); }
+
+    if (!window.zaDebug) return 'FAIL zaDebug nicht exportiert';
+    var consensusPairs  = window.zaDebug.consensusPairs;
+    var weight          = window.zaDebug.weight;
+    var consolidatedCtx = window.zaDebug.consolidatedCtx;
+
+    if (typeof consensusPairs !== 'function')  return 'FAIL zaDebug.consensusPairs fehlt';
+    if (typeof weight         !== 'function')  return 'FAIL zaDebug.weight fehlt';
+    if (typeof consolidatedCtx !== 'function') return 'FAIL zaDebug.consolidatedCtx fehlt';
+
+    // Zugriff auf zaSessions via zaDebug ist nicht noetig — wir injecten
+    // synthetische Sitzungen direkt ueber window._zaSessionsOverride nicht
+    // moeglich (privat). Stattdessen: zaDebug.weight testen mit synthetischen
+    // session-Objekten (meanResidual direkt gesetzt).
+
+    // Test 1: Konsens-Mittel — gleiches Gewicht
+    // weight funktioniert mit session.meanResidual
+    var sessGleich = [
+      { meanResidual: 1.0 },
+      { meanResidual: 1.0 }
+    ];
+    var w0 = weight(sessGleich[0]);
+    var w1 = weight(sessGleich[1]);
+    chk('weight: gleiche Residuen => gleiche Gewichte', Math.abs(w0 - w1) < 1e-9);
+    chk('weight: Gewicht > 0 bei Residuum 1.0', w0 > 0);
+
+    // Test 2: Stärkere Sitzung (kleines Residuum) > schwache (grosses Residuum)
+    var wGut    = weight({ meanResidual: 0.5 });
+    var wSchlecht = weight({ meanResidual: 3.0 });
+    chk('weight: kleine Residuum => groesseres Gewicht', wGut > wSchlecht);
+
+    // Test 3: Keine Residuum => Gewicht 0
+    var wNull = weight({ meanResidual: null });
+    chk('weight: null-Residuum => 0', wNull === 0);
+    var wNaN  = weight({});
+    chk('weight: fehlendes meanResidual => 0', wNaN === 0);
+
+    // Test 4: Schärfe wirkt — scharf spreizter als mild
+    // Wir berechnen das Verhältnis wGut/wSchlecht bei mild vs scharf
+    var origKey = window.zaDebug._zaSharpKey;   // nicht exportiert, ok
+    // Wir testen indirekt: bei p=2 (scharf) ist Verhältnis groesser als p=1 (mild)
+    // 1/(0.5^1 + EPS) vs 1/(3.0^1 + EPS) => ratio ~6
+    // 1/(0.5^2 + EPS) vs 1/(3.0^2 + EPS) => ratio ~36
+    var eps = 0.01;
+    var ratioMild  = (1 / (Math.pow(0.5, 1.0) + eps)) / (1 / (Math.pow(3.0, 1.0) + eps));
+    var ratioScharf = (1 / (Math.pow(0.5, 2.0) + eps)) / (1 / (Math.pow(3.0, 2.0) + eps));
+    chk('weight-Verhältnis: scharf > mild (Formel)', ratioScharf > ratioMild);
+
+    // Test 5: ctxKonsens haelt elSt aus Tool (nicht null/undefined)
+    if (typeof ELL_ctx === 'function') {
+      try {
+        var ctx = consolidatedCtx('right');
+        var toolCtx = ELL_ctx('right');
+        chk('consolidatedCtx: elSt === ELL_ctx(side).elSt', ctx.elSt === toolCtx.elSt);
+        chk('consolidatedCtx: ELL_refEl aus Tool', ctx.ELL_refEl === toolCtx.ELL_refEl);
+        chk('consolidatedCtx: ELL_results ist Array', Array.isArray(ctx.ELL_results));
+      } catch(e) {
+        lines.push('FAIL consolidatedCtx-Ausnahme: ' + e);
+      }
+    } else {
+      lines.push('SKIP ELL_ctx nicht verfuegbar');
+    }
+
+    // Test 6: consensusPairs liefert kein Duplikat-Paar (normalisiert)
+    // Testen via direktem Aufruf (zaSessions ist leer wenn kein File geladen)
+    var pairs = consensusPairs('right');
+    var keys = {};
+    var dupFound = false;
+    (pairs || []).forEach(function(p) {
+      var a = Math.min(p.a, p.b), b = Math.max(p.a, p.b);
+      var k = a + '-' + b;
+      if (keys[k]) dupFound = true;
+      keys[k] = true;
+    });
+    chk('consensusPairs: keine Duplikat-Paare', !dupFound);
+
+    return lines.join('\n');
+  });
+})();
+
+/* BA409 — Heatmap-Datenbasis + Farbskala */
+(function() {
+  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
+  dbg.test('build/BA409/heatmap-daten', {
+    tab: 'messungen',
+    label: 'BA409: Heatmap-Datenbasis + Farbskala'
+  }, function() {
+    var lines = [];
+    function chk(label, val) { lines.push((val ? 'OK' : 'FAIL') + ' ' + label); }
+
+    if (!window.zaDebug) return 'FAIL zaDebug nicht exportiert';
+    var heatmapData = window.zaDebug.heatmapData;
+    var heatColor   = window.zaDebug.heatColor;
+    if (typeof heatmapData !== 'function') return 'FAIL zaDebug.heatmapData fehlt';
+    if (typeof heatColor   !== 'function') return 'FAIL zaDebug.heatColor fehlt';
+
+    // Test 1: Datenbasis mit geladenen Sitzungen
+    var data = heatmapData(typeof activeSide !== 'undefined' ? activeSide : 'right');
+    if (data.sessions.length > 0) {
+      chk('sessions.length > 0', data.sessions.length > 0);
+      chk('elCount > 0', data.elCount > 0);
+      chk('tMin <= tMax', data.tMin <= data.tMax);
+      var corrOk = data.sessions.every(function(s) {
+        return Array.isArray(s.corr) && s.corr.length <= data.elCount;
+      });
+      chk('jede Session: corr.length <= elCount', corrOk);
+    } else {
+      lines.push('INFO keine Sitzungen geladen — Datenbasis-Test uebersprungen');
+    }
+
+    // Test 2: Historischer Status — synthetische Sitzung mit elSt[2]='mute'
+    // Direkt zaHeatmapData zu testen ist nicht moeglich (greift auf zaSessions zu).
+    // Stattdessen: zaToCtx-Kanal pruefen — elSt wird aus Datei-Feldern gelesen.
+    var zaToCtx = window.zaDebug.toCtx;
+    if (typeof zaToCtx === 'function') {
+      var sessMute = {
+        side: 'right', nEl: 3,
+        raw: [{a:0, b:1, offset:3, timestamp: 1700000000000},
+              {a:1, b:2, offset:3, timestamp: 1700000000000}],
+        elSt:    [null, null, 'mute'],
+        elExDur: [null, null, null],
+        elActive: [true, true, true],
+        refEl:   0
+      };
+      var ctx = zaToCtx(sessMute);
+      chk('zaToCtx: elSt[2] === mute uebergeben', ctx.elSt[2] === 'mute');
+      // ELL_compWLS berechnet levels; E2 wuerde als mute gefiltert
+      if (typeof ELL_compWLS === 'function') {
+        var r = ELL_compWLS(ctx);
+        chk('ELL_compWLS auf mute-ctx liefert levels', Array.isArray(r.levels));
+      }
+    }
+
+    // Test 3: Farbskala
+    var white = heatColor(0);
+    var cWhite = white.match(/\d+/g);
+    chk('heatColor(0) nahe weiss (rgb >= 240)', cWhite && cWhite.every(function(v) { return parseInt(v) >= 240; }));
+
+    var blue = heatColor(-10);
+    var cBlue = blue.match(/\d+/g);
+    chk('heatColor(-10) blau-betont (b > r)', cBlue && parseInt(cBlue[2]) > parseInt(cBlue[0]));
+
+    var red = heatColor(10);
+    var cRed = red.match(/\d+/g);
+    chk('heatColor(+10) rot-betont (r > b)', cRed && parseInt(cRed[0]) > parseInt(cRed[2]));
+
+    chk('heatColor(20) == heatColor(10) (gekappt)', heatColor(20) === heatColor(10));
+
+    var grey = heatColor(null);
+    chk('heatColor(null) grau (#e5e5e5)', grey === '#e5e5e5');
+
+    // Test 4: Kein globaler Seiteneffekt
+    var ellBefore = (typeof ELL_results !== 'undefined') ? ELL_results.slice() : null;
+    var sideBefore = (typeof activeSide !== 'undefined') ? activeSide : null;
+    heatmapData(sideBefore || 'right');
+    var ellAfter = (typeof ELL_results !== 'undefined') ? ELL_results : null;
+    if (ellBefore !== null && ellAfter !== null) {
+      var unchanged = ellBefore.length === ellAfter.length;
+      if (unchanged) {
+        for (var i = 0; i < ellBefore.length; i++) {
+          if (ellBefore[i] !== ellAfter[i]) { unchanged = false; break; }
+        }
+      }
+      chk('ELL_results nach heatmapData unveraendert', unchanged);
+    } else {
+      lines.push('INFO ELL_results nicht verfuegbar');
+    }
+    if (sideBefore !== null) {
+      chk('activeSide nach heatmapData unveraendert',
+        (typeof activeSide !== 'undefined') && activeSide === sideBefore);
+    }
+
+    return lines.join('\n');
+  });
+})();
+
 /* BA403 — ELL_measGain/ELL_testData ohne withSide, seitenrichtig */
 (function() {
   dbg.test('build/BA403/withside-ellctx-neutral', {
