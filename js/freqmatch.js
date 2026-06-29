@@ -649,10 +649,10 @@ function _frq_pianoWriteResults() {
   });
 }
 
-// BA365: Quell-Wert einer Elektrode fuer die Klavier-Uebernahme.
-// Adaptiv hat Vorrang vor Slider. Liefert { cent, refSide, symmetric } oder null.
+// BA415: Quell-Wert einer Elektrode fuer die Klavier-Uebernahme.
+// NUR Adaptiv-Altwerte (Slider-Rettung entfaellt — Alt-Konvention nicht mehr belegbar).
+// Liefert { rawOffset, testmode } (pse-Konvention: refHz = varHz * 2^(rawOffset/1200)) oder null.
 function _frq_migrateAltForEl(side, elIdx) {
-  // 1) Adaptiv aus FRQ_resultsArray
   if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
     for (var i = 0; i < FRQ_resultsArray.length; i++) {
       var r = FRQ_resultsArray[i];
@@ -660,31 +660,17 @@ function _frq_migrateAltForEl(side, elIdx) {
       if (frq_entryMethod(r) !== "adaptive") continue;
       var symA = (r.refSide === "symmetric");
       if (r.varSide !== side && !symA) continue;
-      var centA = null;
-      if (typeof r.cent === "number" && isFinite(r.cent)) {
-        centA = r.cent;
-      } else if (typeof r.varFreq === "number" && typeof r.refFreq === "number"
-          && r.varFreq > 0 && r.refFreq > 0) {
-        centA = 1200 * Math.log2(r.refFreq / r.varFreq);
+      var raw = null;
+      if (typeof r.refFreq === "number" && typeof r.varFreq === "number"
+          && r.refFreq > 0 && r.varFreq > 0) {
+        raw = 1200 * Math.log2(r.refFreq / r.varFreq);
+      } else if (typeof r.cent === "number" && isFinite(r.cent)) {
+        raw = r.cent;   // sym-Altfall: altes cent war roher pse
       }
-      if (centA == null) continue;
-      return {
-        cent:      centA,
-        refSide:   symA ? "symmetric" : (r.refSide || (side === "left" ? "right" : "left")),
-        symmetric: symA
-      };
+      if (raw == null) continue;
+      var tmA = symA ? "symmetric" : (r.varSide === "right" ? "right" : "left");
+      return { rawOffset: raw, testmode: tmA };
     }
-  }
-  // 2) Slider aus sliderEstimates
-  var fa = sideData[side] && sideData[side].freqmatchAdaptive;
-  var est = fa && fa.sliderEstimates && fa.sliderEstimates[elIdx];
-  if (est && typeof est.cent === "number" && isFinite(est.cent)) {
-    var symS = (est.refSide === "symmetric");
-    return {
-      cent:      est.cent,
-      refSide:   est.refSide || (side === "left" ? "right" : "left"),
-      symmetric: symS
-    };
   }
   return null;
 }
@@ -738,13 +724,9 @@ function _FRQ_migrateAltToPiano() {
   // (Falls wider Erwarten BEIDE Seiten Altdaten tragen -> nur die erste wird behandelt.)
 
   // 2) Uebernehmbare Elektroden sammeln (kein vorhandener Klavierwert).
-  var todo = [];   // {elIdx, cent, refSide, symmetric}
+  var todo = [];   // {elIdx, rawOffset, testmode}
   var sd = sideData[varSide];
   var elSet = {};
-  var fa = sd.freqmatchAdaptive;
-  if (fa && fa.sliderEstimates) {
-    Object.keys(fa.sliderEstimates).forEach(function (k) { elSet[k] = true; });
-  }
   if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
     FRQ_resultsArray.forEach(function (r) {
       if (r && frq_entryMethod(r) === "adaptive"
@@ -758,9 +740,8 @@ function _FRQ_migrateAltToPiano() {
     if (!isFinite(elIdx)) return;
     if (_frq_migrateHasPiano(varSide, elIdx)) return;          // Klavier hat Vorrang
     var alt = _frq_migrateAltForEl(varSide, elIdx);
-    if (!alt || alt.cent == null || !isFinite(alt.cent)) return;
-    todo.push({ elIdx: elIdx, cent: alt.cent,
-                refSide: alt.refSide, symmetric: alt.symmetric });
+    if (!alt || alt.rawOffset == null || !isFinite(alt.rawOffset)) return;
+    todo.push({ elIdx: elIdx, rawOffset: alt.rawOffset, testmode: alt.testmode });
   });
 
   if (todo.length === 0) return;
@@ -779,14 +760,15 @@ function _FRQ_migrateAltToPiano() {
   var fp = sd.freqmatchPiano;
   if (!fp.perElectrode) fp.perElectrode = {};
 
-  var sample = todo[0];   // refSide/symmetric ist fuer alle einheitlich
+  var sample = todo[0];   // testmode ist fuer alle einheitlich
   fp.run = {
     runId:        "migrated:" + new Date().toISOString(),
     startedAt:    Date.now(),
     lastUpdate:   Date.now(),
     varSide:      varSide,
-    refSide:      sample.refSide,
-    symmetric:    !!sample.symmetric,
+    refSide:      (sample.testmode === "symmetric") ? "symmetric"
+                : (varSide === "left" ? "right" : "left"),
+    symmetric:    (sample.testmode === "symmetric"),
     electrodeList: todo.map(function (it) { return it.elIdx; }),
     currentRound: 1,
     roundOrder:   todo.map(function (it) { return it.elIdx; }),
@@ -794,12 +776,12 @@ function _FRQ_migrateAltToPiano() {
     borderOrder:  ["lower", "upper"],
     posInBorder:  0
   };
-  // Kuenstliche Runde 1 je Elektrode: Mitte = cent, Band = +-band.
-  // _frq_pianoWriteResults nimmt pse = (lower+upper)/2 = cent,
-  // fmResiduum = span/2 = band.
+  // Kuenstliche Runde 1 je Elektrode: Mitte = rawOffset (pse), Band = +-band.
+  // _frq_pianoWriteResults nimmt pse = (lower+upper)/2 = rawOffset,
+  // kanonisiert einmal via FRQ_canonicalCent(testmode, pse).
   todo.forEach(function (it) {
     fp.perElectrode[it.elIdx] = {
-      rounds: { 1: { lower: it.cent - band, upper: it.cent + band } }
+      rounds: { 1: { lower: it.rawOffset - band, upper: it.rawOffset + band } }
     };
   });
 

@@ -283,6 +283,56 @@ function _FRQ_cleanupLegacyResults() {
     }
   }
 }
+// BA415: Hebt alte Frequenzabgleich-Eintraege auf das kanonische Format
+// (cent kanonisch + testmode). Idempotent: Eintraege, die bereits
+// kanonisch sind (haben 'testmode'), werden uebersprungen.
+// cent-Konvention (s. core.js FRQ_canonicalCent): +cent = rechtes Ohr hoeher.
+function _FRQ_migrateResultsFormat() {
+  if (typeof FRQ_resultsArray === 'undefined' || !Array.isArray(FRQ_resultsArray)) return;
+  for (var i = 0; i < FRQ_resultsArray.length; i++) {
+    var r = FRQ_resultsArray[i];
+    if (!r) continue;
+    if (typeof r.testmode === 'string') continue;   // schon kanonisch -> nichts tun
+
+    // 1) testmode aus Alt-Feldern ableiten.
+    var testmode;
+    if (r.refSide === 'symmetric')      testmode = 'symmetric';
+    else if (r.varSide === 'right')     testmode = 'right';
+    else                                testmode = 'left';   // Default/legacy
+
+    // 2) Rohen Offset (pse-Konvention: refHz = varHz * 2^(pse/1200)) rekonstruieren.
+    //    - asym Altdaten: Offset steckt in refFreq/varFreq.
+    //    - sym Altdaten:  altes r.cent IST der rohe pse (= Offset gegen Mitte).
+    var rawOffset = null;
+    if (typeof r.refFreq === 'number' && typeof r.varFreq === 'number'
+        && r.refFreq > 0 && r.varFreq > 0) {
+      rawOffset = 1200 * Math.log2(r.refFreq / r.varFreq);
+    } else if (typeof r.cent === 'number' && isFinite(r.cent)) {
+      rawOffset = r.cent;   // sym-Altfall: altes cent war roher pse
+    }
+    if (rawOffset == null) {
+      r._frqUnmigratable = true;
+      continue;
+    }
+
+    // 3) Kanonisieren (FRQ_canonicalCent aus core.js).
+    r.cent     = Math.round(FRQ_canonicalCent(testmode, rawOffset));
+    r.testmode = testmode;
+
+    // 4) Alte Felder entfernen.
+    delete r.varSide;
+    delete r.refSide;
+    delete r.varFreq;
+    delete r.refFreq;
+  }
+  // Nicht migrierbare Eintraege entfernen.
+  for (var j = FRQ_resultsArray.length - 1; j >= 0; j--) {
+    if (FRQ_resultsArray[j] && FRQ_resultsArray[j]._frqUnmigratable) {
+      FRQ_resultsArray.splice(j, 1);
+    }
+  }
+}
+
 function loadSideData(side, d) {
   const s = sideData[side];
   s.config = d.config || "ci";

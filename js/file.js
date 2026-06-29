@@ -705,6 +705,7 @@ function applyLoadedData(d) {
       FRQ_resultsArray.splice(0, FRQ_resultsArray.length); // keine FRQ_resultsArray im JSON → zurücksetzen
     }
     if (typeof _FRQ_cleanupLegacyResults === "function") _FRQ_cleanupLegacyResults();
+    if (typeof _FRQ_migrateResultsFormat === "function") _FRQ_migrateResultsFormat();
     // BA365: Altwerte ins Klavier uebernehmen (Abfrage).
     if (typeof _FRQ_migrateAltToPiano === "function") _FRQ_migrateAltToPiano();
   }
