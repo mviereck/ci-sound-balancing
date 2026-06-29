@@ -424,8 +424,7 @@ function FRQ_renderResults() {
         .replace('{total}', totalActive)
         .replace('{res}', meanRes.toFixed(1));
     } else {
-      var _pianoRun = (sideData[ciSide] && sideData[ciSide].freqmatchPiano
-                       && sideData[ciSide].freqmatchPiano.run) || null;
+      var _pianoRun = (FRQ_pianoSession && FRQ_pianoSession.run) || null;
       if (_pianoRun && _pianoRun.currentRound >= 1) {
         var _pTot = (typeof FM_PIANO_STEPS !== "undefined") ? FM_PIANO_STEPS.length : 6;
         var _pRound = _pianoRun.currentRound;
@@ -499,13 +498,7 @@ document.addEventListener("DOMContentLoaded", function() {
       for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
         if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === "piano") FRQ_resultsArray.splice(i, 1);
       }
-      if (typeof sideData !== "undefined") {
-        ['left', 'right'].forEach(function(side) {
-          if (sideData[side]) {
-            sideData[side].freqmatchPiano = { run: null, perElectrode: {} };
-          }
-        });
-      }
+      FRQ_pianoSession = null;
       _frq_resultsRefreshAfterClear();
     });
   }

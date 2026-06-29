@@ -397,12 +397,12 @@ function frq_startPiano() {
 var FM_PIANO_STEPS = [250, 100, 50, 25, 10, 5];
 var FM_PIANO_MAX_SPAN = 1200;   // ct: groessere Spanne -> verdaechtig, ausgeschlossen
 
-// Roh-Speicher der var-Seite holen/anlegen.
+// BA416: seitenloser Zugriff auf die globale Klaviertest-Session.
 function _frq_pianoData() {
-  var sd = sideData[frq_varSide];
-  if (!sd) return null;
-  if (!sd.freqmatchPiano) sd.freqmatchPiano = { run: null, perElectrode: {} };
-  return sd.freqmatchPiano;
+  if (!FRQ_pianoSession) {
+    FRQ_pianoSession = { frqRefMode: null, run: null, perElectrode: {} };
+  }
+  return FRQ_pianoSession;
 }
 
 function _frq_randBorderOrder() {
@@ -436,27 +436,23 @@ function _frq_pianoSetBorder(elIdx, round, border, cent) {
 function _frq_pianoEnsureRun() {
   var fp = _frq_pianoData();
   var elList = frq_sequence.slice();
-  var run = fp.run;
-  if (!run || run.varSide !== frq_varSide || run.refSide !== FRQ_refSide
-      || run.symmetric !== frq_symmetric) {
-    run = {
-      runId:        new Date().toISOString(),
-      startedAt:    Date.now(),
-      lastUpdate:   Date.now(),
-      varSide:      frq_varSide,
-      refSide:      FRQ_refSide,
-      symmetric:    frq_symmetric,
-      electrodeList: elList,
-      currentRound: 1,
-      roundOrder:   _frq_shuffle(elList),
-      posInRound:   0,
-      borderOrder:  _frq_randBorderOrder(),
-      posInBorder:  0
-    };
-    fp.run = run;
-    fp.perElectrode = {};
-  }
-  // (Resume: bestehenden run unveraendert weiterlaufen lassen.)
+  // Resume: existiert ein Lauf -> unveraendert fortsetzen (kein Seiten-/
+  // Konfig-Check mehr; BA416 Architektur 6a.3, Alt-Verwerf-Bug entfernt).
+  if (fp.run) return;
+  // Neuer Lauf: frqRefMode aus der aktuellen Referenzeinstellung einfrieren.
+  fp.frqRefMode = frq_symmetric ? "symmetric" : frq_varSide;
+  fp.run = {
+    runId:        new Date().toISOString(),
+    startedAt:    Date.now(),
+    lastUpdate:   Date.now(),
+    electrodeList: elList,
+    currentRound: 1,
+    roundOrder:   _frq_shuffle(elList),
+    posInRound:   0,
+    borderOrder:  _frq_randBorderOrder(),
+    posInBorder:  0
+  };
+  fp.perElectrode = {};
 }
 
 function _frq_doStartPiano() {
@@ -606,7 +602,7 @@ function _frq_pianoWriteResults() {
   var fp = _frq_pianoData();
   var run = fp && fp.run;
   if (!run || !fp.perElectrode) return;
-  var sym = run.symmetric;
+  var frqRefMode = fp.frqRefMode;   // bei Testbeginn eingefroren (BA416)
 
   Object.keys(fp.perElectrode).forEach(function (elKey) {
     var elIdx  = parseInt(elKey, 10);
@@ -627,11 +623,10 @@ function _frq_pianoWriteResults() {
     var pStatus = crossed ? "piano-crossed" : (wide ? "piano-wide" : "piano");
     var pExcl   = (crossed || wide);
 
-    var testmode = sym ? "symmetric" : run.varSide;   // 'left'|'right'|'symmetric'
     var entry = {
-      elIdx:     elIdx,
-      cent:      Math.round(FRQ_canonicalCent(testmode, pse)),
-      testmode:  testmode,
+      elIdx:      elIdx,
+      cent:       Math.round(FRQ_canonicalCent(frqRefMode, pse)),
+      frqRefMode: frqRefMode,
       timestamp: Date.now(),
       method:    "piano",
       fmStatus:  pStatus,
@@ -651,7 +646,7 @@ function _frq_pianoWriteResults() {
 
 // BA415: Quell-Wert einer Elektrode fuer die Klavier-Uebernahme.
 // NUR Adaptiv-Altwerte (Slider-Rettung entfaellt — Alt-Konvention nicht mehr belegbar).
-// Liefert { rawOffset, testmode } (pse-Konvention: refHz = varHz * 2^(rawOffset/1200)) oder null.
+// Liefert { rawOffset, frqRefMode } (pse-Konvention: refHz = varHz * 2^(rawOffset/1200)) oder null.
 function _frq_migrateAltForEl(side, elIdx) {
   if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
     for (var i = 0; i < FRQ_resultsArray.length; i++) {
@@ -668,17 +663,17 @@ function _frq_migrateAltForEl(side, elIdx) {
         raw = r.cent;   // sym-Altfall: altes cent war roher pse
       }
       if (raw == null) continue;
-      var tmA = symA ? "symmetric" : (r.varSide === "right" ? "right" : "left");
-      return { rawOffset: raw, testmode: tmA };
+      var frqRefMode = symA ? "symmetric" : (r.varSide === "right" ? "right" : "left");
+      return { rawOffset: raw, frqRefMode: frqRefMode };
     }
   }
   return null;
 }
 
 // BA365: true, wenn die Elektrode bereits einen Klavierwert hat
-// (Roh-Behaelter ODER FRQ_resultsArray-piano-Eintrag) -> keine Uebernahme.
+// (globale Session ODER FRQ_resultsArray-piano-Eintrag) -> keine Uebernahme.
 function _frq_migrateHasPiano(side, elIdx) {
-  var fp = sideData[side] && sideData[side].freqmatchPiano;
+  var fp = FRQ_pianoSession;
   if (fp && fp.perElectrode && fp.perElectrode[elIdx]
       && fp.perElectrode[elIdx].rounds
       && Object.keys(fp.perElectrode[elIdx].rounds).length > 0) {
@@ -705,10 +700,6 @@ function _FRQ_migrateAltToPiano() {
   //    Frequenzabgleich liefert ein interaurales Ergebnis -> nur eine Seite
   //    traegt Rohdaten (Architektur 4.1).
   function _sideHasAlt(side) {
-    var sd = sideData[side];
-    if (!sd) return false;
-    var fa = sd.freqmatchAdaptive;
-    if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0) return true;
     if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
       for (var i = 0; i < FRQ_resultsArray.length; i++) {
         var r = FRQ_resultsArray[i];
@@ -724,8 +715,7 @@ function _FRQ_migrateAltToPiano() {
   // (Falls wider Erwarten BEIDE Seiten Altdaten tragen -> nur die erste wird behandelt.)
 
   // 2) Uebernehmbare Elektroden sammeln (kein vorhandener Klavierwert).
-  var todo = [];   // {elIdx, rawOffset, testmode}
-  var sd = sideData[varSide];
+  var todo = [];   // {elIdx, rawOffset, frqRefMode}
   var elSet = {};
   if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
     FRQ_resultsArray.forEach(function (r) {
@@ -741,7 +731,7 @@ function _FRQ_migrateAltToPiano() {
     if (_frq_migrateHasPiano(varSide, elIdx)) return;          // Klavier hat Vorrang
     var alt = _frq_migrateAltForEl(varSide, elIdx);
     if (!alt || alt.rawOffset == null || !isFinite(alt.rawOffset)) return;
-    todo.push({ elIdx: elIdx, rawOffset: alt.rawOffset, testmode: alt.testmode });
+    todo.push({ elIdx: elIdx, rawOffset: alt.rawOffset, frqRefMode: alt.frqRefMode });
   });
 
   if (todo.length === 0) return;
@@ -754,21 +744,15 @@ function _FRQ_migrateAltToPiano() {
   var band = (typeof FM_PIANO_STEPS !== "undefined" && FM_PIANO_STEPS.length)
     ? FM_PIANO_STEPS[0] : 250;
 
-  // 3) Kuenstlichen Klavier-Lauf + Runden in den Roh-Behaelter der EINEN
-  //    Seite schreiben, dann _frq_pianoWriteResults() EINMAL aufrufen.
-  if (!sd.freqmatchPiano) sd.freqmatchPiano = { run: null, perElectrode: {} };
-  var fp = sd.freqmatchPiano;
-  if (!fp.perElectrode) fp.perElectrode = {};
-
-  var sample = todo[0];   // testmode ist fuer alle einheitlich
+  // 3) Kuenstlichen Klavier-Lauf direkt in die globale Session schreiben,
+  //    dann _frq_pianoWriteResults() EINMAL aufrufen. BA416: seitenlos.
+  var fp = _frq_pianoData();   // legt FRQ_pianoSession an falls null
+  var sample = todo[0];   // frqRefMode ist fuer alle einheitlich
+  fp.frqRefMode = sample.frqRefMode;
   fp.run = {
     runId:        "migrated:" + new Date().toISOString(),
     startedAt:    Date.now(),
     lastUpdate:   Date.now(),
-    varSide:      varSide,
-    refSide:      (sample.testmode === "symmetric") ? "symmetric"
-                : (varSide === "left" ? "right" : "left"),
-    symmetric:    (sample.testmode === "symmetric"),
     electrodeList: todo.map(function (it) { return it.elIdx; }),
     currentRound: 1,
     roundOrder:   todo.map(function (it) { return it.elIdx; }),
@@ -776,24 +760,19 @@ function _FRQ_migrateAltToPiano() {
     borderOrder:  ["lower", "upper"],
     posInBorder:  0
   };
+  fp.perElectrode = {};
   // Kuenstliche Runde 1 je Elektrode: Mitte = rawOffset (pse), Band = +-band.
   // _frq_pianoWriteResults nimmt pse = (lower+upper)/2 = rawOffset,
-  // kanonisiert einmal via FRQ_canonicalCent(testmode, pse).
+  // kanonisiert einmal via FRQ_canonicalCent(frqRefMode, pse).
   todo.forEach(function (it) {
     fp.perElectrode[it.elIdx] = {
       rounds: { 1: { lower: it.rawOffset - band, upper: it.rawOffset + band } }
     };
   });
 
-  // _frq_pianoWriteResults liest sideData[frq_varSide] ueber _frq_pianoData().
-  // frq_varSide auf die Quell-Seite lenken; mit try/finally restaurieren.
-  var _prevVarSide = frq_varSide;
-  try {
-    frq_varSide = varSide;
-    _frq_pianoWriteResults();
-  } finally {
-    frq_varSide = _prevVarSide;
-  }
+  // BA416: _frq_pianoData() liefert jetzt die globale Session --
+  // kein frq_varSide-Umlenken + try/finally mehr noetig.
+  _frq_pianoWriteResults();
 }
 
 // Boxen: Kandidat (var) zeigt Elektrode + Rolle; Referenz zeigt Vergleichston.
@@ -1013,11 +992,8 @@ function frq_methodHasData(method) {
       if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === "piano") return true;
     }
   }
-  const sides = ["left", "right"];
-  for (let s = 0; s < sides.length; s++) {
-    var fpp = sideData[sides[s]] && sideData[sides[s]].freqmatchPiano;
-    if (fpp && fpp.perElectrode && Object.keys(fpp.perElectrode).length > 0) return true;
-  }
+  if (FRQ_pianoSession && FRQ_pianoSession.perElectrode
+      && Object.keys(FRQ_pianoSession.perElectrode).length > 0) return true;
   return false;
 }
 

@@ -290,8 +290,6 @@ async function saveJson() {
         fullSweepRound: sideData.left.fullSweepRound,
         fullSweepDonePairs: sideData.left.fullSweepDonePairs,
         implant: sideData.left.implant,
-        freqmatchAdaptive: sideData.left.freqmatchAdaptive || null,
-        freqmatchPiano: sideData.left.freqmatchPiano || null,
       },
       right: {
         config: sideData.right.config || "ci",
@@ -312,8 +310,6 @@ async function saveJson() {
         fullSweepRound: sideData.right.fullSweepRound,
         fullSweepDonePairs: sideData.right.fullSweepDonePairs,
         implant: sideData.right.implant,
-        freqmatchAdaptive: sideData.right.freqmatchAdaptive || null,
-        freqmatchPiano: sideData.right.freqmatchPiano || null,
       },
     },
     currentSide: activeSide,
@@ -324,6 +320,7 @@ async function saveJson() {
     plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
     plBalanceMode: (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym",
     fRes: (typeof FRQ_resultsArray !== "undefined") ? FRQ_resultsArray : [],
+    pianoSession: (typeof FRQ_pianoSession !== "undefined") ? FRQ_pianoSession : null,
     freqmatchTestSelection: (typeof freqmatchTestSelection !== "undefined")
       ? freqmatchTestSelection : null,
     sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
@@ -708,6 +705,9 @@ function applyLoadedData(d) {
     if (typeof _FRQ_migrateResultsFormat === "function") _FRQ_migrateResultsFormat();
     // BA365: Altwerte ins Klavier uebernehmen (Abfrage).
     if (typeof _FRQ_migrateAltToPiano === "function") _FRQ_migrateAltToPiano();
+    // BA416: Klaviertest-Session laden/migrieren (nach Bruecke, damit
+    // gespeicherte pianoSession Vorrang vor Bruecken-Ergebnis hat).
+    if (typeof _FRQ_loadPianoSession === "function") _FRQ_loadPianoSession(d);
   }
   // BA 207: Auswahl der Testelektroden für FreqMatch.
   // Alte Dateien ohne dieses Feld → null (= alle aktiven testen).

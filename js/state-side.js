@@ -182,8 +182,6 @@ function initSideData(side, m) {
   s.ELL_results = [];
   // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
   s.elActive = new Array(s.nEl).fill(true);
-  s.freqmatchAdaptive = null;
-  s.freqmatchPiano = null;
   s.fullSweepRound = null;
   s.fullSweepDonePairs = [];
   s.implant = {
@@ -254,6 +252,10 @@ function setActiveSide(side) {
   kurvenELLChartZeichnen();
   if (typeof schieberELLRebuild === "function") schieberELLRebuild();
   ELL_renderResults();
+  // BA414-Folgefix: FRQ-Ergebnisgraph haengt seit der kanonischen Umstellung
+  // an der aktiven Seite (FRQ_refHzForMode/FRQ_seitenWerte) -> bei Seiten-
+  // wechsel neu rendern, sonst bleibt die Anzeige auf der alten Seite stehen.
+  if (typeof FRQ_renderResults === "function") FRQ_renderResults();
   buildImplantCard();
   updSideButtons();
   ELL_updFClearBtn();
@@ -284,21 +286,29 @@ function _FRQ_cleanupLegacyResults() {
   }
 }
 // BA415: Hebt alte Frequenzabgleich-Eintraege auf das kanonische Format
-// (cent kanonisch + testmode). Idempotent: Eintraege, die bereits
-// kanonisch sind (haben 'testmode'), werden uebersprungen.
+// (cent kanonisch + frqRefMode). Idempotent.
+// BA416: testmode -> frqRefMode (Feld-Umbenennung); alte BA414/415-Eintraege
+// mit 'testmode' werden auf 'frqRefMode' gehoben.
 // cent-Konvention (s. core.js FRQ_canonicalCent): +cent = rechtes Ohr hoeher.
 function _FRQ_migrateResultsFormat() {
   if (typeof FRQ_resultsArray === 'undefined' || !Array.isArray(FRQ_resultsArray)) return;
   for (var i = 0; i < FRQ_resultsArray.length; i++) {
     var r = FRQ_resultsArray[i];
     if (!r) continue;
-    if (typeof r.testmode === 'string') continue;   // schon kanonisch -> nichts tun
+    // Schon auf frqRefMode umgestellt -> nichts tun.
+    if (typeof r.frqRefMode === 'string') continue;
+    // BA414/415-Eintrag mit altem Feld 'testmode': nur Feld umbenennen.
+    if (typeof r.testmode === 'string') {
+      r.frqRefMode = r.testmode;
+      delete r.testmode;
+      continue;
+    }
 
-    // 1) testmode aus Alt-Feldern ableiten.
-    var testmode;
-    if (r.refSide === 'symmetric')      testmode = 'symmetric';
-    else if (r.varSide === 'right')     testmode = 'right';
-    else                                testmode = 'left';   // Default/legacy
+    // 1) frqRefMode aus Alt-Feldern ableiten.
+    var frqRefMode;
+    if (r.refSide === 'symmetric')      frqRefMode = 'symmetric';
+    else if (r.varSide === 'right')     frqRefMode = 'right';
+    else                                frqRefMode = 'left';   // Default/legacy
 
     // 2) Rohen Offset (pse-Konvention: refHz = varHz * 2^(pse/1200)) rekonstruieren.
     //    - asym Altdaten: Offset steckt in refFreq/varFreq.
@@ -316,8 +326,8 @@ function _FRQ_migrateResultsFormat() {
     }
 
     // 3) Kanonisieren (FRQ_canonicalCent aus core.js).
-    r.cent     = Math.round(FRQ_canonicalCent(testmode, rawOffset));
-    r.testmode = testmode;
+    r.cent       = Math.round(FRQ_canonicalCent(frqRefMode, rawOffset));
+    r.frqRefMode = frqRefMode;
 
     // 4) Alte Felder entfernen.
     delete r.varSide;
@@ -331,6 +341,57 @@ function _FRQ_migrateResultsFormat() {
       FRQ_resultsArray.splice(j, 1);
     }
   }
+}
+
+// BA416: Laedt FRQ_pianoSession aus den geladenen Daten. Migriert alte
+// pro-Seite-Behaelter (d.sides[side].freqmatchPiano) auf die globale,
+// seitenlose Session. d = das geladene JSON-Objekt.
+function _FRQ_loadPianoSession(d) {
+  // 1) Neues Format: globale Session direkt.
+  if (d && d.pianoSession) {
+    FRQ_pianoSession = d.pianoSession;
+    return;
+  }
+  // 2) Alt-Format: die EINE Seite mit freqmatchPiano-Daten finden.
+  FRQ_pianoSession = null;
+  if (!d || !d.sides) return;
+  var srcSide = null, src = null;
+  ['left', 'right'].forEach(function (side) {
+    var fp = d.sides[side] && d.sides[side].freqmatchPiano;
+    if (!srcSide && fp && fp.perElectrode
+        && Object.keys(fp.perElectrode).length > 0) {
+      srcSide = side; src = fp;
+    }
+  });
+  // (Falls BEIDE Seiten Daten tragen: die erste gefundene -- Beschluss.)
+  if (!src) return;
+  // run aus Alt-Format: varSide/refSide/symmetric -> frqRefMode ableiten.
+  var oldRun = src.run || null;
+  var frqRefMode = 'left';
+  if (oldRun) {
+    if (oldRun.symmetric)                frqRefMode = 'symmetric';
+    else if (oldRun.varSide === 'right') frqRefMode = 'right';
+    else                                 frqRefMode = 'left';
+  }
+  var newRun = null;
+  if (oldRun) {
+    newRun = {
+      runId:        oldRun.runId || new Date().toISOString(),
+      startedAt:    oldRun.startedAt || Date.now(),
+      lastUpdate:   oldRun.lastUpdate || Date.now(),
+      electrodeList: oldRun.electrodeList || [],
+      currentRound: oldRun.currentRound || 1,
+      roundOrder:   oldRun.roundOrder || [],
+      posInRound:   oldRun.posInRound || 0,
+      borderOrder:  oldRun.borderOrder || ['lower', 'upper'],
+      posInBorder:  oldRun.posInBorder || 0
+    };
+  }
+  FRQ_pianoSession = {
+    frqRefMode:   frqRefMode,
+    run:          newRun,
+    perElectrode: src.perElectrode || {}
+  };
 }
 
 function loadSideData(side, d) {
@@ -382,8 +443,6 @@ function loadSideData(side, d) {
   }
   // BA 251: judgmentResults aus alten Dateien werden stillschweigend ignoriert.
   s.ELL_results = d.balanceResults || [];
-  s.freqmatchAdaptive = d.freqmatchAdaptive || null;
-  s.freqmatchPiano = d.freqmatchPiano || null;
   s.schieberELL = d.manualLevels || new Array(s.nEl).fill(0);
   if (d.presets && Array.isArray(d.presets)) {
     s.kurvenELL = KURVEN_ELL_TYPES.map((tp) => {
@@ -780,6 +839,10 @@ let pause_implant    = TEST_DEFAULTS.implant.pause;
 // Frequenzabgleich-Ergebnisse (global, nicht pro Seite)
 // { varSide, refSide, elIdx, varFreq, refFreq, timestamp }
 let FRQ_resultsArray = [];
+
+// BA416: Klaviertest-Sitzungszustand, global+seitenlos (Architektur 6a).
+// null = keine Session. Persistiert in .cimbel (global) + localStorage.
+let FRQ_pianoSession = null;
 
 let plEqOn = true; // EQ toggle state
 let plApplyBalance = true; // Stereo-Balance anwenden

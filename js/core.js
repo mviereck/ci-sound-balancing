@@ -255,12 +255,12 @@ function meanCentStepOfFreqs(freqArr) {
 // Wandelt den gemessenen Roh-Offset (pse, in der Mess-Konvention
 // "refHz = varHz * 2^(pse/1200)") in den kanonischen cent.
 // Herleitung (am Mess-Code belegt, BA 414):
-//   testmode 'left'      (var=links,  ref=rechts): pse>0 => rechts hoeher => +pse
-//   testmode 'right'     (var=rechts, ref=links):  pse>0 => links  hoeher => -pse
-//   testmode 'symmetric' (rechts +offset/2, links -offset/2): pse>0 => rechts hoeher => +pse
-function FRQ_canonicalCent(testmode, rawOffset) {
+//   frqRefMode 'left'      (var=links,  ref=rechts): pse>0 => rechts hoeher => +pse
+//   frqRefMode 'right'     (var=rechts, ref=links):  pse>0 => links  hoeher => -pse
+//   frqRefMode 'symmetric' (rechts +offset/2, links -offset/2): pse>0 => rechts hoeher => +pse
+function FRQ_canonicalCent(frqRefMode, rawOffset) {
   var c = (typeof rawOffset === "number" && isFinite(rawOffset)) ? rawOffset : 0;
-  return (testmode === "right") ? -c : c;
+  return (frqRefMode === "right") ? -c : c;
 }
 
 // Verteilt den KANONISCHEN cent nach der Player-Einstellung warpMode

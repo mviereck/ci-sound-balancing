@@ -159,7 +159,7 @@ function _warpFResStats() {
 // ---- Warp-Kurve aufbauen --------------------------------
 
 function buildWarpPoints(fResData, warpMode, invert = false) {
-  // fResData: Array { elIdx, cent, testmode, method, ... }
+  // fResData: Array { elIdx, cent, frqRefMode, method, ... }
   // Gibt sortiertes Array { varFreq, csL, csR } zurück.
   //
   // Vorzeichen-Konvention der zurückgegebenen cs-Werte:
