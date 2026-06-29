@@ -691,6 +691,7 @@ Object.assign(L.es, {
     FRQ_resultsClearPianoConfirm:   "¿Eliminar los resultados del piano? Se conservan los demás métodos.",
     FRQ_migratePianoConfirm:  "Este archivo contiene mediciones de otros métodos (adaptativo o reajuste). ¿Transferirlas como valores iniciales al método del piano?",
     FRQ_resultsChartHintPiano:      "Línea = frecuencia de electrodo programada, punto objetivo = coincidencia percibida. Banda naranja = incertidumbre residual (ancho = ±residuo en centésimas).",
+    FRQ_resultsChartCanonicalHint: "El gráfico muestra el desplazamiento de frecuencia medido tal como se aplicaría completamente al lado activo %S. Esto le permite ver la magnitud total de la medición. La distribución real (izquierda/derecha/simétrica) se configura en las opciones del reproductor.",
     FRQ_resultsQualityPiano:           "Prueba de piano: ronda {round} de {total} completada (aproximación ±{step} centésimas).",
     cfgLabel: "Situación auditiva",
     cfgUnknown: "Sin indicar",

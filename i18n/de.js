@@ -755,6 +755,7 @@ Object.assign(L.de, {
     FRQ_resultsClearPianoConfirm:   "Klavier-Ergebnisse löschen? Andere Verfahren bleiben erhalten.",
     FRQ_migratePianoConfirm:  "In dieser Datei sind Messwerte aus anderen Verfahren (Adaptiv oder Nachjustierung) gespeichert. Sollen sie als Startwerte ins Klavier-Verfahren übernommen werden?",
     FRQ_resultsChartHintPiano:      "Ist-Strich = programmierte Elektroden-Frequenz, Soll-Punkt = wahrgenommene Übereinstimmung. Oranges Band = Restunsicherheit (Breite = ±Residuum in Cent).",
+    FRQ_resultsChartCanonicalHint: "Der Graph zeigt die gemessene Frequenzverschiebung für den Fall, daß sie voll auf die aktive Seite %S angewendet wird. So sehen Sie das volle Ausmaß der Messung. Die tatsächliche Anwendung links/rechts/symmetrisch wird in den Player-Einstellungen entschieden.",
     FRQ_resultsQualityPiano:           "Klaviertest: Runde {round} von {total} abgeschlossen (Annäherung ±{step} Cent).",
     cfgLabel: "Hörsituation",
     cfgUnknown: "Keine Angabe",

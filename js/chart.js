@@ -372,11 +372,19 @@ function drawFRQChart(cv, fResData, opts) {
   const REF_HZ = 1000;
   const hzToCt = (hz) => 1200 * Math.log2(hz / REF_HZ);
 
-  // CI-Seite und alle Elektroden
-  const ciSide = fResData[fResData.length - 1].varSide;
+  // CI-Seite = aktive Seite (Bezug fuer Graph-X-Achse und Vorzeichen)
+  const ciSide = (typeof activeSide === "string") ? activeSide : "right";
   const nCi    = sideData[ciSide].nEl;
   const measuredByIdx = {};
   for (const r of fResData) measuredByIdx[r.elIdx] = r;
+
+  // Y-Verschiebung der aktiven Seite aus kanonischem cent (eine Wertquelle).
+  // cent>0 = rechts hoeher; aktive Seite 'right' -> +cent, 'left' -> -cent.
+  const _dCentFor = (cent) => {
+    if (cent == null) return null;
+    const sw = FRQ_seitenWerte(cent, ciSide);
+    return (ciSide === "left") ? sw.csL : sw.csR;
+  };
 
   // Liste aller Elektroden (alle bekommen mindestens einen Ist-Strich)
   const allEls = [];
@@ -385,14 +393,16 @@ function drawFRQChart(cv, fResData, opts) {
     const hzIst = withSide(ciSide, () => FRQ_implantatEffektiv(i));
     const r = measuredByIdx[i];
     const notPercFlag = !!notPerc[ciSide + ':' + i];
+    const dc = r && r.cent != null ? _dCentFor(r.cent) : null;
+    const hzRef = r && r.cent != null ? FRQ_refHzForMode(r.elIdx) : null;
     allEls.push({
       elIdx: i,
       elNum: dEN(i, ciSide),
       hzIst: hzIst,
       cIst:  hzToCt(hzIst),
-      hzSoll: r ? r.refFreq : null,
-      cSoll:  r && r.refFreq != null ? hzToCt(r.refFreq) : null,
-      dCent:  r && r.refFreq != null ? (hzToCt(r.refFreq) - hzToCt(hzIst)) : null,
+      hzSoll: hzRef != null && dc != null ? hzRef * Math.pow(2, dc / 1200) : null,
+      cSoll:  hzRef != null && dc != null ? hzToCt(hzRef) + dc : null,
+      dCent:  dc,
       isMeasured: !!r,
       isExcluded: exCI,
       isNotPerceivable: notPercFlag,

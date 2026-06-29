@@ -627,23 +627,11 @@ function _frq_pianoWriteResults() {
     var pStatus = crossed ? "piano-crossed" : (wide ? "piano-wide" : "piano");
     var pExcl   = (crossed || wide);
 
-    var varHz, refHz, refSideOut;
-    if (sym) {
-      varHz = withSide("left",  function () { return FRQ_implantatEffektiv(elIdx); });
-      refHz = withSide("right", function () { return FRQ_implantatEffektiv(elIdx); });
-      refSideOut = "symmetric";
-    } else {
-      varHz = withSide(run.varSide, function () { return FRQ_implantatEffektiv(elIdx); });
-      refHz = frq_freqFromCents(varHz, pse);
-      refSideOut = run.refSide;
-    }
-
+    var testmode = sym ? "symmetric" : run.varSide;   // 'left'|'right'|'symmetric'
     var entry = {
-      varSide:   run.varSide,
-      refSide:   refSideOut,
       elIdx:     elIdx,
-      varFreq:   varHz,
-      refFreq:   refHz,
+      cent:      Math.round(FRQ_canonicalCent(testmode, pse)),
+      testmode:  testmode,
       timestamp: Date.now(),
       method:    "piano",
       fmStatus:  pStatus,
@@ -657,7 +645,6 @@ function _frq_pianoWriteResults() {
       fmRunsCount:           0,
       fmStatusLast:          null
     };
-    if (sym) entry.cent = Math.round(pse);
     FRQ_resultsArray.push(entry);
   });
 }

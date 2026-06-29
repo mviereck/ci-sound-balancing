@@ -221,8 +221,8 @@ function FRQ_renderResults() {
   const card = document.getElementById("FRQ_resultsCard");
   if (!noData || !card) return;
 
-  const ciSide = (FRQ_resultsArray.length > 0)
-    ? FRQ_resultsArray[FRQ_resultsArray.length - 1].varSide
+  // CI-Seite = aktive Seite (seit BA 414 kein varSide mehr in Eintraegen).
+  const ciSide = (typeof activeSide === "string") ? activeSide
     : (sideData.left.config === 'ci' ? 'left' : 'right');
 
   if (typeof FRQ_resultsArray === "undefined" || FRQ_resultsArray.length === 0) {
@@ -235,9 +235,8 @@ function FRQ_renderResults() {
   // BA353: Umschalter-Hervorhebung aktualisieren.
   if (typeof frq_updateActiveMethodButtons === "function") frq_updateActiveMethodButtons();
 
-  // BA353: Anzeige-Daten: nur das aktive Verfahren, ciSide-gefiltert.
-  const displayData = ((typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [])
-    .filter(function (r) { return r && r.varSide === ciSide; });
+  // BA353: Anzeige-Daten: aktives Verfahren (kein varSide-Filter mehr noetig).
+  const displayData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
 
   // Titel
   const titleEl = document.getElementById("FRQ_resultsTitle");
@@ -258,8 +257,7 @@ function FRQ_renderResults() {
       const dateStr = d.toLocaleString(
         lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US"
       );
-      const refLabelMeta = last.refSide === "left" ? t("sideLeft") : t("sideRight");
-      metaText = dateStr + " · " + finalCount + " Messpunkte · Ref: " + refLabelMeta;
+      metaText = dateStr + " · " + finalCount + " Messpunkte";
     }
     metaEl.textContent = metaText;
   }
@@ -325,19 +323,20 @@ function FRQ_renderResults() {
         "<td>" + note + "</td>";
     } else {
       let varHzCell, refHzCell, diffHzCell, diffCtCell;
-      if (r.refFreq == null) {
-        varHzCell  = r.varFreq.toFixed(2);
+      if (r.cent == null) {
+        varHzCell  = "<span style=\"color:#9ca3af\">—</span>";
         refHzCell  = "<span style=\"color:#9ca3af\">—</span>";
         diffHzCell = "<span style=\"color:#9ca3af\">—</span>";
         diffCtCell = "<span style=\"color:#9ca3af\">—</span>";
       } else {
-        const diffHzRaw = r.refFreq - r.varFreq;
-        const cent      = 1200 * Math.log2(r.refFreq / r.varFreq);
-        const centRound = Math.round(cent);
+        const varHz    = withSide(ciSide, function () { return FRQ_implantatEffektiv(r.elIdx); });
+        const refHz    = varHz * Math.pow(2, r.cent / 1200);
+        const diffHzRaw = refHz - varHz;
+        const centRound = Math.round(r.cent);
         const diffColor = Math.abs(diffHzRaw) < 20 ? "#666"
                         : diffHzRaw > 0 ? "#2563eb" : "#dc2626";
-        varHzCell  = r.varFreq.toFixed(2);
-        refHzCell  = r.refFreq.toFixed(2);
+        varHzCell  = varHz.toFixed(2);
+        refHzCell  = refHz.toFixed(2);
         diffHzCell = "<span style=\"color:" + diffColor + "\">"
                    + (diffHzRaw >= 0 ? "+" : "") + diffHzRaw.toFixed(2) + "</span>";
         diffCtCell = "<span style=\"color:" + diffColor + "\">"
@@ -404,7 +403,7 @@ function FRQ_renderResults() {
   // Qualitätstext
   const qEl = document.getElementById('FRQ_resultsQualityText');
   if (qEl) {
-    const finalEntries = FRQ_resultsArray.filter(function(r) { return r.varSide === ciSide; });
+    const finalEntries = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
     const nElTotal = sideData[ciSide].nEl;
     const nExcluded = sideData[ciSide].elExDur.filter(function(v) { return v !== null; }).length
                     + sideData[ciSide].elSt.filter(function(s) { return s === 'mute'; }).length;
@@ -465,10 +464,15 @@ function FRQ_renderResults() {
     }
   }
 
-  // Chart-Hinweis
+  // Chart-Hinweise
   const hintEl = document.getElementById("FRQ_resultsChartHint");
   if (hintEl) {
     hintEl.textContent = t("FRQ_resultsChartHintPiano");
+  }
+  const canonHintEl = document.getElementById("FRQ_resultsChartCanonicalHint");
+  if (canonHintEl) {
+    const sideLbl = ciSide === "left" ? t("sideLeft") : t("sideRight");
+    canonHintEl.textContent = t("FRQ_resultsChartCanonicalHint").replace("%S", sideLbl);
   }
 }
 

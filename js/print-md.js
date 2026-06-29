@@ -229,21 +229,17 @@ function _collectSideData(side) {
       cutoff: (p.cutoff !== undefined) ? p.cutoff : null,
     }));
 
-    // Frequenzabgleich — Quelle ist _warpFResSource() (FRQ_resultsArray + Provisionals
-    // aus laufendem Test), identisch zu Player/Equalizer-Graph.
+    // Frequenzabgleich — Archiv-Format: kanonisches cent, seitenneutral (eine
+    // Zeile je Elektrode, kein Seiten-Filter, kein Player-Bezug).
     const frq_rows = [];
     const frq_src = (typeof _warpFResSource === "function")
       ? _warpFResSource()
       : ((typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) ? FRQ_resultsArray : []);
     for (const r of frq_src) {
-      if (r.varSide !== side) continue;
-      const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
       frq_rows.push({
         elIdx: r.elIdx,
         elLabel: `${dENPrefix()}${dEN(r.elIdx)}`,
-        varFreq: r.varFreq,
-        refFreq: r.refFreq,
-        cent,
+        cent: r.cent,
         provisional: !!r._provisional,
       });
     }
@@ -603,14 +599,14 @@ function _archivMdKurvenELL(sd) {
 
 function _archivMdFRQ(sd) {
   const out = [`### ${t("FRQ_measureTitle")}`, ""];
-  out.push(`| ${t("FRQ_resColEl")} | ${t("FRQ_resColVarFreq")} | ${t("FRQ_resColRefFreq")} | ${t("FRQ_resColCent")} |`);
-  out.push("|---|---|---|---|");
+  out.push(`| ${t("FRQ_resColEl")} | ${t("FRQ_resColCent")} |`);
+  out.push("|---|---|");
   let hasProv = false;
   for (const r of sd.freqmatch.rows) {
     const centStr = `${r.cent >= 0 ? "+" : ""}${Math.round(r.cent)} ¢`;
     const lbl = r.provisional ? `${r.elLabel} *` : r.elLabel;
     if (r.provisional) hasProv = true;
-    out.push(`| ${lbl} | ${_mdFmtHz(r.varFreq)} | ${_mdFmtHz(r.refFreq)} | ${centStr} |`);
+    out.push(`| ${lbl} | ${centStr} |`);
   }
   if (hasProv) {
     out.push("");
@@ -1834,52 +1830,6 @@ function _archivChartKurvenELL(sideBlock) {
   });
 }
 
-// 4. Frequenzabgleich (log-Hz x lin-Cent)
-function _archivChartFRQ(sideBlock) {
-  if (!sideBlock.freqmatch.has) return "";
-  const { canvas, ctx } = _archivMkCanvas();
-  const W = canvas.width, H = canvas.height;
-  const pad = { l: 40, r: 14, t: 22, b: 28 };
-  const rows = sideBlock.freqmatch.rows;
-  let maxAbsCent = 50;
-  for (const r of rows) maxAbsCent = Math.max(maxAbsCent, Math.abs(r.cent));
-  maxAbsCent = Math.ceil(maxAbsCent / 50) * 50;
-  const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbsCent + " ¢", {
-    title: `${t("FRQ_measureTitle")} — ${sideBlock.label}`,
-  });
-  const freqs = rows.map((r) => r.varFreq);
-  const fMin = Math.min(...freqs, 100), fMax = Math.max(...freqs, 8000);
-  const xFor = (hz) => pad.l + (Math.log2(hz / fMin) / Math.log2(fMax / fMin)) * pW;
-  let hasProv = false;
-  for (const r of rows) {
-    const x = xFor(r.varFreq);
-    const y = zY - (r.cent / maxAbsCent) * (pH / 2);
-    const color = r.cent >= 0 ? "#16a34a" : "#dc2626";
-    ctx.beginPath();
-    ctx.arc(x, y, 4, 0, Math.PI * 2);
-    if (r.provisional) {
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-      hasProv = true;
-    } else {
-      ctx.fillStyle = color;
-      ctx.fill();
-    }
-    ctx.fillStyle = "#555";
-    ctx.font = "9px sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillText(r.elLabel, x, H - pad.b + 14);
-  }
-  if (hasProv) {
-    ctx.fillStyle = "#555";
-    ctx.font = "9px sans-serif";
-    ctx.textAlign = "right";
-    ctx.fillText(t("archivFmProvLegend"), W - pad.r, pad.t - 6);
-  }
-  return canvas.toDataURL("image/png");
-}
-
 // 5. Stereo-Balance (bilateral)
 function _archivChartLR(bilateral) {
   if (!bilateral.stereobalance.has) return "";
@@ -1983,13 +1933,8 @@ function renderArchivPrintHtml(data) {
         img: _archivChartKurvenELL(sd),
       });
     }
-    if (sd.freqmatch.has) {
-      inserts.push({
-        anchorH3: `${t("FRQ_measureTitle")}`,
-        sideOnlyUnder: sd.label,
-        img: _archivChartFRQ(sd),
-      });
-    }
+    // Archiv-FRQ-Graph entfernt (BA 414): kanonischer cent ist seitenneutral
+    // und braucht keine Seitenprojektions-Grafik im Archiv-Druck.
   }
   if (data.bilateral.stereobalance.has) {
     inserts.push({

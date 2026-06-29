@@ -246,6 +246,47 @@ function meanCentStepOfFreqs(freqArr) {
   }
   return n > 0 ? sum / n : 600;
 }
+// ============================================================
+// FREQUENZABGLEICH -- kanonisches cent + Seitenverteilung
+// (Architektur: 00-freqmatch-ergebnisformat-architektur.md, 4.2)
+// cent-Konvention: +cent = rechtes Ohr hoeher (= linkes Ohr tiefer).
+// ============================================================
+
+// Wandelt den gemessenen Roh-Offset (pse, in der Mess-Konvention
+// "refHz = varHz * 2^(pse/1200)") in den kanonischen cent.
+// Herleitung (am Mess-Code belegt, BA 414):
+//   testmode 'left'      (var=links,  ref=rechts): pse>0 => rechts hoeher => +pse
+//   testmode 'right'     (var=rechts, ref=links):  pse>0 => links  hoeher => -pse
+//   testmode 'symmetric' (rechts +offset/2, links -offset/2): pse>0 => rechts hoeher => +pse
+function FRQ_canonicalCent(testmode, rawOffset) {
+  var c = (typeof rawOffset === "number" && isFinite(rawOffset)) ? rawOffset : 0;
+  return (testmode === "right") ? -c : c;
+}
+
+// Verteilt den KANONISCHEN cent nach der Player-Einstellung warpMode
+// auf die beiden Seiten. Rueckgabe { csL, csR } = Cent-Shift links/rechts.
+// Braucht KEINEN testmode (Mess-Herkunft ist im kanonischen cent
+// bereits aufgeloest). cent>0 = rechts hoeher.
+//   warpMode 'right':     volle Differenz aufs rechte Ohr   -> csR = cent
+//   warpMode 'left':      volle Differenz aufs linke Ohr    -> csL = -cent
+//   warpMode 'symmetric': haelftig gegenlaeufig             -> csR=cent/2, csL=-cent/2
+function FRQ_seitenWerte(cent, warpMode) {
+  var c = (typeof cent === "number" && isFinite(cent)) ? cent : 0;
+  if (warpMode === "left")      return { csL: -c, csR: 0 };
+  if (warpMode === "symmetric") return { csL: -c / 2, csR: c / 2 };
+  // Default/'right'
+  return { csL: 0, csR: c };
+}
+
+// Bezugsfrequenz (Hz) einer Elektrode fuer die Ergebnis-Graph-X-Achse:
+// die eingetragene Implantat-Frequenz auf der global AKTIVEN Seite
+// (Konzept: "Graph relativ zur aktiven Seite"). Braucht withSide +
+// FRQ_implantatEffektiv (global verfuegbar) + activeSide.
+function FRQ_refHzForMode(elIdx) {
+  var side = (typeof activeSide === "string") ? activeSide : "right";
+  return withSide(side, function () { return FRQ_implantatEffektiv(elIdx); });
+}
+
 const SIDES = ["left", "right"];
 const KURVEN_ELL_TYPES = [
   "speech",

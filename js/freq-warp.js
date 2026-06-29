@@ -159,15 +159,14 @@ function _warpFResStats() {
 // ---- Warp-Kurve aufbauen --------------------------------
 
 function buildWarpPoints(fResData, warpMode, invert = false) {
-  // fResData: Array { varSide, refSide, elIdx, varFreq, refFreq }
+  // fResData: Array { elIdx, cent, testmode, method, ... }
   // Gibt sortiertes Array { varFreq, csL, csR } zurück.
   //
   // Vorzeichen-Konvention der zurückgegebenen cs-Werte:
-  // - Ohne invert (Default): cs = 1200 * log2(refFreq / varFreq), also die
-  //   Wahrnehmungs-/Simulations-Richtung — wie die Cochlea die Wahrnehmung
-  //   gegenüber der nominellen Elektroden-Mittenfrequenz verschiebt.
-  //   `effFreqDisplay` nutzt das so, um die wahrgenommene Frequenz für die
-  //   Anzeige zu berechnen.
+  // - Ohne invert (Default): Wahrnehmungs-/Simulations-Richtung — wie die
+  //   Cochlea die Wahrnehmung gegenüber der nominellen Elektroden-Mittenfrequenz
+  //   verschiebt. `effFreqDisplay` nutzt das so, um die wahrgenommene Frequenz
+  //   für die Anzeige zu berechnen.
   // - Mit invert=true: Vorzeichen gespiegelt; ergibt die Korrektur-/Vorhalt-
   //   Richtung — das Audio wird so vorverarbeitet, daß nach der Cochlea-
   //   Verzerrung beim CI-Träger die richtige Frequenz ankommt.
@@ -178,35 +177,11 @@ function buildWarpPoints(fResData, warpMode, invert = false) {
   //   wird direkt aufs Audio gelegt.
   const pts = [];
   for (const r of fResData) {
-    const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
-    let csL = 0, csR = 0;
-    if (warpMode === "left") {
-      if (r.refSide === "symmetric") {
-        // sym-Eintrag ohne klare Ref-/Var-Seite: gleichmäßig verteilen
-        csL = cent / 2;
-        csR = cent / 2;
-      } else if (r.varSide === "left") {
-        csL = cent;
-      } else if (r.refSide === "left") {
-        csL = -cent;
-      }
-    } else if (warpMode === "right") {
-      if (r.refSide === "symmetric") {
-        csL = cent / 2;
-        csR = cent / 2;
-      } else if (r.varSide === "right") {
-        csR = cent;
-      } else if (r.refSide === "right") {
-        csR = -cent;
-      }
-    } else { // symmetric
-      if (r.refSide === "left")  csL = -cent / 2;
-      else                       csR = -cent / 2;
-      if (r.varSide === "left")  csL += cent / 2;
-      else                       csR += cent / 2;
-    }
+    const sw = FRQ_seitenWerte(r.cent, warpMode);
+    let csL = sw.csL, csR = sw.csR;
     if (invert) { csL = -csL; csR = -csR; }
-    pts.push({ varFreq: r.varFreq, csL, csR });
+    // varFreq (X-Stuetzstelle) = Bezugsfrequenz der Elektrode auf der aktiven Seite.
+    pts.push({ varFreq: FRQ_refHzForMode(r.elIdx), csL, csR });
   }
   pts.sort((a, b) => a.varFreq - b.varFreq);
   return pts;
