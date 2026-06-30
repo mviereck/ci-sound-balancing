@@ -1317,14 +1317,15 @@ function _pWarpCalcModeApply() {
 function pApplyWarpModeDefaultFromFm() {
   if (_pPlayerWarpDefaultApplied) return;
   _pPlayerWarpDefaultApplied = true;
-  let mode = "right";
-  if (typeof FRQ_refSide === "string") {
-    if (FRQ_refSide === "left")            mode = "right";
-    else if (FRQ_refSide === "right")      mode = "left";
-    else if (FRQ_refSide === "symmetric")  mode = "symmetric";
-  }
+  var rm = (typeof frq_referenzmodus === "function") ? frq_referenzmodus() : "right";
+  // referenzmodus = welche Seite im Test der veraenderbare Ton war.
+  // Default-Warp: Mapping nach Nutzer-Beschluss (BA417).
+  var mode = "left";
+  if (rm === "left")            mode = "right";
+  else if (rm === "right")      mode = "left";
+  else if (rm === "symmetric")  mode = "symmetric";
   pWarpMode = mode;
-  const sel = document.getElementById("plWarpModeSelect");
+  var sel = document.getElementById("plWarpModeSelect");
   if (sel) sel.value = pWarpMode;
 }
 

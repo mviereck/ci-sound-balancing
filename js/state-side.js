@@ -289,7 +289,7 @@ function _FRQ_cleanupLegacyResults() {
 // (cent kanonisch + frqRefMode). Idempotent.
 // BA416: testmode -> frqRefMode (Feld-Umbenennung); alte BA414/415-Eintraege
 // mit 'testmode' werden auf 'frqRefMode' gehoben.
-// cent-Konvention (s. core.js FRQ_canonicalCent): +cent = rechtes Ohr hoeher.
+// cent-Konvention (s. core.js FRQ_varRefOffsetToCanonical): +cent = rechtes Ohr hoeher.
 function _FRQ_migrateResultsFormat() {
   if (typeof FRQ_resultsArray === 'undefined' || !Array.isArray(FRQ_resultsArray)) return;
   for (var i = 0; i < FRQ_resultsArray.length; i++) {
@@ -325,8 +325,8 @@ function _FRQ_migrateResultsFormat() {
       continue;
     }
 
-    // 3) Kanonisieren (FRQ_canonicalCent aus core.js).
-    r.cent       = Math.round(FRQ_canonicalCent(frqRefMode, rawOffset));
+    // 3) Kanonisieren (FRQ_varRefOffsetToCanonical aus core.js, var/ref-Migration).
+    r.cent       = Math.round(FRQ_varRefOffsetToCanonical(frqRefMode, rawOffset));
     r.frqRefMode = frqRefMode;
 
     // 4) Alte Felder entfernen.

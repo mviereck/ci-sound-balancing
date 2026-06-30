@@ -1427,6 +1427,16 @@ function _pnShift(p, vCfg, dir) {
   if (vCfg && vCfg.hooks && vCfg.hooks.onPianoShift) vCfg.hooks.onPianoShift(dir);
 }
 
+// BA417: Setzt mehrere Textzeilen in ein Element (durch <br> getrennt),
+// ohne rohes innerHTML -- jede Zeile als Text-Knoten.
+function _tuSetLines(el, lines) {
+  el.textContent = '';
+  for (var i = 0; i < lines.length; i++) {
+    if (i > 0) el.appendChild(document.createElement('br'));
+    el.appendChild(document.createTextNode(lines[i]));
+  }
+}
+
 // ===== testUI Helfer-API =====
 
 var testUI = {
@@ -1441,8 +1451,12 @@ var testUI = {
      */
     setLabels: function(els, opts) {
       if (!els) return;
-      if (opts.leftText !== undefined) els.left.textContent = opts.leftText;
-      if (opts.rightText !== undefined) els.right.textContent = opts.rightText;
+      // BA417: mehrzeilige Labels (Array) -> je Eintrag eine Zeile (per <br>).
+      // Sicher ueber Text-Knoten gebaut, kein rohes innerHTML.
+      if (Array.isArray(opts.leftLines))       _tuSetLines(els.left,  opts.leftLines);
+      else if (opts.leftText !== undefined)    els.left.textContent  = opts.leftText;
+      if (Array.isArray(opts.rightLines))      _tuSetLines(els.right, opts.rightLines);
+      else if (opts.rightText !== undefined)   els.right.textContent = opts.rightText;
       if (els.freq) {
         var parts = [];
         if (opts.leftHz !== undefined) parts.push(opts.leftHz + ' Hz');

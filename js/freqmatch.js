@@ -8,15 +8,11 @@ let frq_keyboardCorrectVolume = null; // BA 239: Korrektorfunktion(vol,hz,pan) a
 let _frq_keyboardT0 = 0;   // BA 293: Zeitpunkt des Klavier-Anschlags (Haltedauer)
 let FRQ_running = false;
 let FRQ_els = null;
-let FRQ_refSide = "left";
-let frq_varSide = "right";
-let frq_symmetric = false;   // true wenn refSelect.value === 'symmetric'
 let frq_verfahren = 'piano';   // 'slider' | 'adaptive' | 'piano' — realer Default (Klavier-only-Betrieb, BA363)
 let frq_sequence = [];
 let frq_sequenceIdx = 0;
 let frq_currentEl = null;
 let frq_centOffset = 0;
-let frq_firstSide = "ref";
 let frq_isPlaying = false;
 let frq_playTimeout = null;
 
@@ -30,7 +26,7 @@ let _frq_parentEl = null;   // gesetzt im DOMContentLoaded
 // BA 207: Selektion der zu testenden Elektroden.
 // null  = Default (= alle aktiven Elektroden testen).
 // []    = Nutzer hat explizit nichts ausgewählt (Test startet nicht).
-// [...] = explizite Auswahl. Filter greift in frq_buildSequence / frq_buildSequenceSymmetric.
+// [...] = explizite Auswahl. Filter greift in frq_buildSequenceBoth.
 // Die Auswahl gilt für beide Seiten gleichzeitig, weil FreqMatch
 // links↔rechts vergleicht.
 let freqmatchTestSelection = null;
@@ -57,6 +53,35 @@ function frq_cents(refHz, hz) {
 }
 function frq_freqFromCents(refHz, c) {
   return refHz * Math.pow(2, c / 1200);
+}
+
+// BA417: Der EINE referenzmodus = welche Seite verschiebbar ist.
+// Waehrend eines Tests die eingefrorene Session-Einstellung, sonst die
+// aktuelle Dropdown-Wahl. Werte: 'left' | 'right' | 'symmetric'.
+function frq_referenzmodus() {
+  if (FRQ_pianoSession && FRQ_pianoSession.frqRefMode) return FRQ_pianoSession.frqRefMode;
+  var v = FRQ_els && FRQ_els.header && FRQ_els.header.refSelect
+    ? FRQ_els.header.refSelect.value : 'right';
+  return (v === 'left' || v === 'right' || v === 'symmetric') ? v : 'right';
+}
+
+// BA417: Verteilung des rohen Offsets auf die beiden Seiten beim MESSEN.
+// referenzmodus = verschiebbare Seite. Rueckgabe { csL, csR } = Cent-Shift
+// links/rechts auf die je eigene Start-Mittenfrequenz.
+// (Eigene kleine Mess-Verteilung -- NICHT FRQ_seitenWerte, das ist die
+//  Player-Verteilung des fertigen kanonischen cent, eine andere Achse.)
+function frq_verschiebung(off, referenzmodus) {
+  var o = (typeof off === "number" && isFinite(off)) ? off : 0;
+  if (referenzmodus === "symmetric") return { csL: -o / 2, csR: +o / 2 };
+  if (referenzmodus === "left")      return { csL: +o,     csR: 0    };
+  return { csL: 0, csR: +o };   // 'right'
+}
+
+// BA417: Tonfolge je referenzmodus. [ersteSeite, zweiteSeite].
+function frq_tonfolge(referenzmodus) {
+  if (referenzmodus === "left")  return ["right", "left"];
+  if (referenzmodus === "right") return ["left",  "right"];
+  return ["right", "left"];   // 'symmetric'
 }
 
 function _frq_shouldShowCochlearFatHint() {
@@ -125,15 +150,6 @@ function FRQ_correctionGain(side, hz) {
   return (typeof ELL_measGain === "function") ? ELL_measGain(side, hz) : 1;
 }
 
-// Frequenz der variablen Seite (CI) für Elektrode elIdx
-function frq_varHz(elIdx) {
-  return withSide(frq_varSide, () => FRQ_implantatEffektiv(elIdx));
-}
-// Anzeigenummer der Elektrode
-function frq_varSideElectrodeLabel(elIdx) {
-  return dEN(elIdx, frq_varSide);
-}
-// Alle aktiven Elektroden der variablen Seite (aufsteigend nach Frequenz)
 // BA 207: Schneidet eine Elektroden-Sequenz auf die User-Auswahl.
 // freqmatchTestSelection === null → keine Einschränkung (alle aktiven).
 // freqmatchTestSelection !== null → Schnittmenge mit gewählten.
@@ -143,50 +159,34 @@ function _frq_filterSequenceBySelection(seq) {
   return seq.filter(function(i) { return selSet.has(i); });
 }
 
-function frq_buildSequence() {
-  const elList = withSide(frq_varSide, () => {
-    const result = [];
-    for (let i = 0; i < nEl; i++) {
-      // BA 164
-      if (elActive[i] === false) continue;
-      if (elExDur[i]) continue;
-      result.push({ idx: i, hz: FRQ_implantatEffektiv(i) });
-    }
-    return result;
-  });
-  elList.sort((a, b) => a.hz - b.hz);
-  return _frq_filterSequenceBySelection(elList.map((x) => x.idx));
+// BA417: Status je Elektrode ueber BEIDE Seiten. Testbar nur, wenn auf
+// BEIDEN Seiten aktiv und nicht ausgeschlossen. Vorrang 'excluded' vor 'muted'.
+function frq_electrodeStatusBoth(i) {
+  var exclL = withSide('left',  function () { return elExDur[i] != null; });
+  var exclR = withSide('right', function () { return elExDur[i] != null; });
+  if (exclL || exclR) return 'excluded';
+  var mutedL = withSide('left',  function () { return elActive[i] === false; });
+  var mutedR = withSide('right', function () { return elActive[i] === false; });
+  if (mutedL || mutedR) return 'muted';
+  return 'testable';
 }
 
-// Symmetrische Sequenz: nur wenn beide Seiten dieselbe Menge aktiver
-// Elektroden haben (selbe Indices). Rückgabe sonst null.
-// Sortiert nach Durchschnitts-Mittenfrequenz (links/rechts gemittelt).
-function frq_buildSequenceSymmetric() {
-  function activeList(side) {
-    return withSide(side, function() {
-      const r = [];
-      for (let i = 0; i < nEl; i++) {
-        // BA 164
-        if (elActive[i] === false) continue;
-        if (elExDur[i]) continue;
-        r.push(i);
-      }
-      return r;
-    });
+// BA417: Testreihe = beidseitige Schnittmenge, sortiert nach gemittelter
+// Mittenfrequenz. EINE Logik fuer ALLE Modi. Danach User-Auswahl-Filter.
+function frq_buildSequenceBoth() {
+  var nL = sideData.left  ? sideData.left.nEl  : 0;
+  var nR = sideData.right ? sideData.right.nEl : 0;
+  var n  = Math.min(nL, nR);
+  var seq = [];
+  for (var i = 0; i < n; i++) {
+    if (frq_electrodeStatusBoth(i) !== 'testable') continue;
+    var idx = i;
+    var fl = withSide('left',  function () { return FRQ_implantatEffektiv(idx); });
+    var fr = withSide('right', function () { return FRQ_implantatEffektiv(idx); });
+    seq.push({ idx: idx, hz: (fl + fr) / 2 });
   }
-  const leftList  = activeList('left');
-  const rightList = activeList('right');
-  if (leftList.length !== rightList.length) return null;
-  for (let j = 0; j < leftList.length; j++) {
-    if (leftList[j] !== rightList[j]) return null;
-  }
-  const seq = leftList.map(function(idx) {
-    const fl = withSide('left',  function() { return FRQ_implantatEffektiv(idx); });
-    const fr = withSide('right', function() { return FRQ_implantatEffektiv(idx); });
-    return { idx: idx, hz: (fl + fr) / 2 };
-  });
-  seq.sort(function(a, b) { return a.hz - b.hz; });
-  return _frq_filterSequenceBySelection(seq.map(function(x) { return x.idx; }));
+  seq.sort(function (a, b) { return a.hz - b.hz; });
+  return _frq_filterSequenceBySelection(seq.map(function (x) { return x.idx; }));
 }
 
 // BA 207: Wird vom Auswahl-Dialog nach Confirm aufgerufen.
@@ -199,7 +199,7 @@ function _frq_onSelectionChanged() {
   // Wenn nach Filter keine testbare Elektrode mehr in der Auswahl ist
   // UND ein Test läuft: sauber beenden.
   if (FRQ_running) {
-    var freshSeq = frq_symmetric ? frq_buildSequenceSymmetric() : frq_buildSequence();
+    var freshSeq = frq_buildSequenceBoth();
     if (!Array.isArray(freshSeq) || freshSeq.length === 0) {
       var msg = (typeof t === 'function' && t('electrodeSelectionEmptyEnd'))
         || 'Test beendet: Keine ausgewählte Elektrode mehr verfügbar.';
@@ -209,53 +209,36 @@ function _frq_onSelectionChanged() {
   }
 }
 
-// Gemeinsame Initialisierung zu Beginn jedes Verfahren-Starts
-function _frq_initSides() {
-  const val = FRQ_els.header.refSelect.value;
-  frq_symmetric = (val === 'symmetric');
-  if (frq_symmetric) {
-    frq_varSide = 'left';
-    FRQ_refSide = 'right';
-  } else {
-    FRQ_refSide = val;
-    frq_varSide = (FRQ_refSide === 'left') ? 'right' : 'left';
-  }
-}
-
-// BA 291: Token-Liste fuer den Slider-Modus des Frequenzabgleichs.
-// Liefert fertige Token { hz, pan, vol, durationMs, side } (hz mit
-// cent-Offset; vol = vol * Korrektur * Stereo-Balance, taube Seite 0)
-// und Pausen { pauseMs }. 'side' ('left'|'right') dient dem Aufleuchten.
-// Reihenfolge folgt frq_firstSide ('ref' zuerst oder 'var' zuerst).
-//   opts.aba === true -> erster Ton am Ende wiederholt.
+// BA417: Seitenlos. Jede Seite startet bei IHRER eingetragenen
+// Mittenfrequenz; der rohe Offset wird je referenzmodus verteilt
+// (frq_verschiebung). Reihenfolge + Aufleuchten folgen frq_tonfolge.
 function frq_makeSequence(opts) {
   opts = opts || {};
-  var varHz, refHz;
-  if (frq_symmetric) {
-    var varBase = withSide('left',  function () { return FRQ_implantatEffektiv(frq_currentEl); });
-    var refBase = withSide('right', function () { return FRQ_implantatEffektiv(frq_currentEl); });
-    varHz = varBase * Math.pow(2, -frq_centOffset / 2 / 1200);
-    refHz = refBase * Math.pow(2, +frq_centOffset / 2 / 1200);
-  } else {
-    varHz = frq_varHz(frq_currentEl);
-    refHz = frq_freqFromCents(varHz, frq_centOffset);
-  }
+  var mode = frq_referenzmodus();
+
+  var startL = withSide('left',  function () { return FRQ_implantatEffektiv(frq_currentEl); });
+  var startR = withSide('right', function () { return FRQ_implantatEffektiv(frq_currentEl); });
+  var cs  = frq_verschiebung(frq_centOffset, mode);
+  var hzL = startL * Math.pow(2, cs.csL / 1200);
+  var hzR = startR * Math.pow(2, cs.csR / 1200);
+
   var vol = FRQ_getVolume();
   var dur = FRQ_getDuration();
   var pau = FRQ_getPause();
   var balG = (typeof STB_rawGains === "function")
     ? STB_rawGains() : { left: 0, right: 0 };
-  function tok(side, hz) {
-    var pan   = side === "left" ? -1 : 1;
+  function tok(side) {
+    var hz    = (side === "left") ? hzL : hzR;
+    var pan   = (side === "left") ? -1 : 1;
     var corr  = FRQ_correctionGain(side, hz);
-    var balDb = side === "left" ? balG.left : balG.right;
+    var balDb = (side === "left") ? balG.left : balG.right;
     var v     = isDeaf(side) ? 0 : vol * corr * dB2G(balDb);
     return { hz: hz, pan: pan, vol: v, durationMs: dur, side: side };
   }
-  var refTok = tok(FRQ_refSide, refHz);
-  var varTok = tok(frq_varSide, varHz);
-  var first  = (frq_firstSide === "ref") ? refTok : varTok;
-  var second = (frq_firstSide === "ref") ? varTok : refTok;
+
+  var order  = frq_tonfolge(mode);   // [ersteSeite, zweiteSeite]
+  var first  = tok(order[0]);
+  var second = tok(order[1]);
   var seq = [ first, { pauseMs: pau }, second ];
   if (opts.aba) {
     seq.push({ pauseMs: pau });
@@ -367,24 +350,10 @@ function frq_abort() {
 // --- Klavier-Verfahren (A1: nur erste Elektrode, Tonwiedergabe) ---
 function frq_startPiano() {
   if (!FRQ_els) return;
-  _frq_initSides();
-  if (frq_symmetric) {
-    frq_sequence = frq_buildSequenceSymmetric();
-    if (frq_sequence === null) {
-      alert((typeof t === 'function' && t('FRQ_symmetricElMismatch'))
-        || 'Symmetrischer Modus: Beide Seiten muessen dieselben aktiven Elektroden haben.');
-      FRQ_els._stopTest(); return;
-    }
-    if (!frq_sequence.length) {
-      alert((typeof t === 'function' && t('FRQ_noActiveEl')) || 'Keine aktiven Elektroden.');
-      FRQ_els._stopTest(); return;
-    }
-  } else {
-    frq_sequence = frq_buildSequence();
-    if (!frq_sequence.length) {
-      alert((typeof t === 'function' && t('FRQ_noActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
-      FRQ_els._stopTest(); return;
-    }
+  frq_sequence = frq_buildSequenceBoth();
+  if (!frq_sequence.length) {
+    alert((typeof t === 'function' && t('FRQ_noActiveEl')) || 'Keine aktiven Elektroden.');
+    FRQ_els._stopTest(); return;
   }
   testUI.sideCheck.run(
     { sides: 'both' },
@@ -439,8 +408,8 @@ function _frq_pianoEnsureRun() {
   // Resume: existiert ein Lauf -> unveraendert fortsetzen (kein Seiten-/
   // Konfig-Check mehr; BA416 Architektur 6a.3, Alt-Verwerf-Bug entfernt).
   if (fp.run) return;
-  // Neuer Lauf: frqRefMode aus der aktuellen Referenzeinstellung einfrieren.
-  fp.frqRefMode = frq_symmetric ? "symmetric" : frq_varSide;
+  // BA417: referenzmodus direkt einfrieren (welche Seite beweglich ist).
+  fp.frqRefMode = frq_referenzmodus();
   fp.run = {
     runId:        new Date().toISOString(),
     startedAt:    Date.now(),
@@ -459,7 +428,6 @@ function _frq_doStartPiano() {
   _frq_pianoEnsureRun();
   frq_pianoActive = true;
   FRQ_running   = true;
-  frq_firstSide = 'var';     // Kandidat zuerst, dann Vergleich
   _frq_pianoLoadStep();
   _frq_startIdleSideCheck();
 }
@@ -480,7 +448,7 @@ function _frq_pianoLoadStep() {
 
   var pr = _frq_pianoRefs();
   if (pr && typeof testUI !== 'undefined' && testUI.piano) {
-    testUI.piano.setRound(pr, { stepCent: step, centerCent: center, baseFreq: frq_varHz(elIdx) });
+    testUI.piano.setRound(pr, { stepCent: step, centerCent: center });
     // Bei Wiederholung (Zurueck) den zuvor bestaetigten Wert dieser Runde markieren.
     var prevThisRound = _frq_pianoBorderVal(elIdx, run.currentRound, border);
     if (prevThisRound != null) {
@@ -625,7 +593,7 @@ function _frq_pianoWriteResults() {
 
     var entry = {
       elIdx:      elIdx,
-      cent:       Math.round(FRQ_canonicalCent(frqRefMode, pse)),
+      cent:       Math.round((frqRefMode === 'left') ? -pse : pse),
       frqRefMode: frqRefMode,
       timestamp: Date.now(),
       method:    "piano",
@@ -644,146 +612,22 @@ function _frq_pianoWriteResults() {
   });
 }
 
-// BA415: Quell-Wert einer Elektrode fuer die Klavier-Uebernahme.
-// NUR Adaptiv-Altwerte (Slider-Rettung entfaellt — Alt-Konvention nicht mehr belegbar).
-// Liefert { rawOffset, frqRefMode } (pse-Konvention: refHz = varHz * 2^(rawOffset/1200)) oder null.
-function _frq_migrateAltForEl(side, elIdx) {
-  if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
-    for (var i = 0; i < FRQ_resultsArray.length; i++) {
-      var r = FRQ_resultsArray[i];
-      if (!r || r.elIdx !== elIdx) continue;
-      if (frq_entryMethod(r) !== "adaptive") continue;
-      var symA = (r.refSide === "symmetric");
-      if (r.varSide !== side && !symA) continue;
-      var raw = null;
-      if (typeof r.refFreq === "number" && typeof r.varFreq === "number"
-          && r.refFreq > 0 && r.varFreq > 0) {
-        raw = 1200 * Math.log2(r.refFreq / r.varFreq);
-      } else if (typeof r.cent === "number" && isFinite(r.cent)) {
-        raw = r.cent;   // sym-Altfall: altes cent war roher pse
-      }
-      if (raw == null) continue;
-      var frqRefMode = symA ? "symmetric" : (r.varSide === "right" ? "right" : "left");
-      return { rawOffset: raw, frqRefMode: frqRefMode };
-    }
-  }
-  return null;
-}
-
-// BA365: true, wenn die Elektrode bereits einen Klavierwert hat
-// (globale Session ODER FRQ_resultsArray-piano-Eintrag) -> keine Uebernahme.
-function _frq_migrateHasPiano(side, elIdx) {
-  var fp = FRQ_pianoSession;
-  if (fp && fp.perElectrode && fp.perElectrode[elIdx]
-      && fp.perElectrode[elIdx].rounds
-      && Object.keys(fp.perElectrode[elIdx].rounds).length > 0) {
-    return true;
-  }
-  if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
-    for (var i = 0; i < FRQ_resultsArray.length; i++) {
-      var r = FRQ_resultsArray[i];
-      if (r && r.elIdx === elIdx && frq_entryMethod(r) === "piano"
-          && (r.varSide === side || r.refSide === "symmetric")) {
-        return true;
-      }
-    }
-  }
-  return false;
-}
-
-// BA365: Beim Laden Altwerte (Adaptiv/Slider) ins Klavier uebernehmen.
-// Nur fuer Elektroden ohne vorhandenen Klavierwert. Eine Abfrage je Datei.
-function _FRQ_migrateAltToPiano() {
-  if (typeof sideData === "undefined") return;
-
-  // 1) Quell-Seite bestimmen: die EINE Seite mit Altdaten (Adaptiv/Slider).
-  //    Frequenzabgleich liefert ein interaurales Ergebnis -> nur eine Seite
-  //    traegt Rohdaten (Architektur 4.1).
-  function _sideHasAlt(side) {
-    if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
-      for (var i = 0; i < FRQ_resultsArray.length; i++) {
-        var r = FRQ_resultsArray[i];
-        if (r && frq_entryMethod(r) === "adaptive"
-            && (r.varSide === side || r.refSide === "symmetric")) return true;
-      }
-    }
-    return false;
-  }
-  var varSide = _sideHasAlt("left") ? "left"
-              : _sideHasAlt("right") ? "right" : null;
-  if (!varSide) return;
-  // (Falls wider Erwarten BEIDE Seiten Altdaten tragen -> nur die erste wird behandelt.)
-
-  // 2) Uebernehmbare Elektroden sammeln (kein vorhandener Klavierwert).
-  var todo = [];   // {elIdx, rawOffset, frqRefMode}
-  var elSet = {};
-  if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
-    FRQ_resultsArray.forEach(function (r) {
-      if (r && frq_entryMethod(r) === "adaptive"
-          && (r.varSide === varSide || r.refSide === "symmetric")) {
-        elSet[r.elIdx] = true;
-      }
-    });
-  }
-  Object.keys(elSet).forEach(function (k) {
-    var elIdx = parseInt(k, 10);
-    if (!isFinite(elIdx)) return;
-    if (_frq_migrateHasPiano(varSide, elIdx)) return;          // Klavier hat Vorrang
-    var alt = _frq_migrateAltForEl(varSide, elIdx);
-    if (!alt || alt.rawOffset == null || !isFinite(alt.rawOffset)) return;
-    todo.push({ elIdx: elIdx, rawOffset: alt.rawOffset, frqRefMode: alt.frqRefMode });
-  });
-
-  if (todo.length === 0) return;
-
-  if (!confirm(t("FRQ_migratePianoConfirm")
-      || "Vorhandene Messwerte ins Klavier-Verfahren uebernehmen?")) {
-    return;
-  }
-
-  var band = (typeof FM_PIANO_STEPS !== "undefined" && FM_PIANO_STEPS.length)
-    ? FM_PIANO_STEPS[0] : 250;
-
-  // 3) Kuenstlichen Klavier-Lauf direkt in die globale Session schreiben,
-  //    dann _frq_pianoWriteResults() EINMAL aufrufen. BA416: seitenlos.
-  var fp = _frq_pianoData();   // legt FRQ_pianoSession an falls null
-  var sample = todo[0];   // frqRefMode ist fuer alle einheitlich
-  fp.frqRefMode = sample.frqRefMode;
-  fp.run = {
-    runId:        "migrated:" + new Date().toISOString(),
-    startedAt:    Date.now(),
-    lastUpdate:   Date.now(),
-    electrodeList: todo.map(function (it) { return it.elIdx; }),
-    currentRound: 1,
-    roundOrder:   todo.map(function (it) { return it.elIdx; }),
-    posInRound:   0,
-    borderOrder:  ["lower", "upper"],
-    posInBorder:  0
-  };
-  fp.perElectrode = {};
-  // Kuenstliche Runde 1 je Elektrode: Mitte = rawOffset (pse), Band = +-band.
-  // _frq_pianoWriteResults nimmt pse = (lower+upper)/2 = rawOffset,
-  // kanonisiert einmal via FRQ_canonicalCent(frqRefMode, pse).
-  todo.forEach(function (it) {
-    fp.perElectrode[it.elIdx] = {
-      rounds: { 1: { lower: it.rawOffset - band, upper: it.rawOffset + band } }
-    };
-  });
-
-  // BA416: _frq_pianoData() liefert jetzt die globale Session --
-  // kein frq_varSide-Umlenken + try/finally mehr noetig.
-  _frq_pianoWriteResults();
-}
-
-// Boxen: Kandidat (var) zeigt Elektrode + Rolle; Referenz zeigt Vergleichston.
 function _frq_pianoUpdateBoxes(border) {
   var pi = _frq_pianoPairIndicator();
-  var elLabel = dENPrefix(frq_varSide) + dEN(frq_currentEl, frq_varSide);
-  var roleUp  = (border === 'lower') ? t('FRQ_pianoBoxLower') : t('FRQ_pianoBoxHigher');
-  if (pi) {
-    pi.left.textContent  = elLabel + ' — ' + roleUp;
-    pi.right.textContent = t('FRQ_pianoRefBox');
+  if (!pi) return;
+  var mode   = frq_referenzmodus();
+  var roleUp = (border === 'lower') ? t('FRQ_pianoBoxLower') : t('FRQ_pianoBoxHigher');
+  // Die vom User gesteuerte (anspielbare) Seite traegt die Rolle-Zeile.
+  // asym: die im Dropdown gewaehlte Seite; symmetrisch: rechts (Festlegung).
+  var hinweisSide = (mode === 'left') ? 'left' : 'right';
+
+  function lines(side) {
+    var ls = [ sideLetter(side), dENPrefix(side) + dEN(frq_currentEl, side) ];
+    if (side === hinweisSide) ls.push(roleUp);
+    return ls;
   }
+  testUI.pairIndicator.setLabels(pi, { leftLines: lines('left'), rightLines: lines('right') });
+
   var instr = FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.piano && FRQ_els.verfahren.piano.instruction;
   if (instr) {
     instr.innerHTML = t('FRQ_pianoInstruction').replace('{role}', roleUp.toLowerCase());
@@ -870,8 +714,9 @@ function frq_finish() {
 // --- Elektroden-Ausschluss ---
 function _frq_requestExclude() {
   if (!FRQ_running || frq_currentEl === null || !FRQ_els) return;
-  setTestExclConfirm(FRQ_els.exclOverlay, frq_varSideElectrodeLabel(frq_currentEl), function() {
-    withSide(frq_varSide, () => { elExDur[frq_currentEl] = true; });
+  setTestExclConfirm(FRQ_els.exclOverlay, dEN(frq_currentEl), function() {
+    withSide('left',  function(){ elExDur[frq_currentEl] = true; });
+    withSide('right', function(){ elExDur[frq_currentEl] = true; });
     frq_sequenceIdx++;
     _frq_pianoLoadStep();
   });
@@ -964,7 +809,6 @@ function _FRQ_refreshTabState() {
   if (!FRQ_els) return;
   if (!FRQ_running) {
     _frq_autoSetRefMode();
-    frq_loadVerfahrenFromSide();
   }
   _frq_refreshHighGainWarningVisibility();
   _frq_refreshCochlearFatHintVisibility();
@@ -1039,19 +883,6 @@ function frq_updateActiveMethodButtons() {
       btn.style.color       = "var(--text)";
       btn.style.borderColor = "var(--border)";
     }
-  }
-}
-
-function frq_loadVerfahrenFromSide() {
-  if (!FRQ_els) return;
-  const _refVal = FRQ_els.header.refSelect.value;
-  frq_symmetric = (_refVal === 'symmetric');
-  if (frq_symmetric) {
-    frq_varSide = 'left';
-    FRQ_refSide = 'right';
-  } else {
-    FRQ_refSide = _refVal;
-    frq_varSide = (FRQ_refSide === 'left') ? 'right' : 'left';
   }
 }
 
@@ -1141,8 +972,8 @@ document.addEventListener("DOMContentLoaded", () => {
             var vol = FRQ_getVolume();
             var dur = FRQ_getDuration();
             var pau = FRQ_getPause();
-            var varSide = (typeof frq_varSide === 'string' && frq_varSide) ? frq_varSide : activeSide;
-            var refSide = (varSide === 'left') ? 'right' : 'left';
+            var varSide = activeSide;
+            var refSide = (activeSide === 'left') ? 'right' : 'left';
             var varPan  = (varSide === 'left') ? -1 : 1;
             // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an);
             // taube Seite stumm (isDeaf) wie beim Klavier. pan kodiert die Seite.
@@ -1164,10 +995,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // Frequenzen kommen von der var-Seite (CI-Seite im
             // Frequenzabgleich-Kontext). Kein Filter auf
             // elActive/elExDur -- das macht getDisabledElectrodes.
-            var vSide = (typeof frq_varSide === 'string' && frq_varSide)
-              ? frq_varSide : activeSide;
-            var rSide = (typeof FRQ_refSide === 'string' && FRQ_refSide)
-              ? FRQ_refSide : (vSide === 'left' ? 'right' : 'left');
+            var vSide = activeSide;
+            var rSide = (activeSide === 'left') ? 'right' : 'left';
             var vN = sideData[vSide] ? sideData[vSide].nEl : 0;
             var rN = sideData[rSide] ? sideData[rSide].nEl : 0;
             var n  = Math.min(vN, rN);
@@ -1179,10 +1008,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return freqs;
           },
           getElectrodeLabels: function() {
-            var vSide = (typeof frq_varSide === 'string' && frq_varSide)
-              ? frq_varSide : activeSide;
-            var rSide = (typeof FRQ_refSide === 'string' && FRQ_refSide)
-              ? FRQ_refSide : (vSide === 'left' ? 'right' : 'left');
+            var vSide = activeSide;
+            var rSide = (activeSide === 'left') ? 'right' : 'left';
             var vN = sideData[vSide] ? sideData[vSide].nEl : 0;
             var rN = sideData[rSide] ? sideData[rSide].nEl : 0;
             var n  = Math.min(vN, rN);
@@ -1197,10 +1024,8 @@ document.addEventListener("DOMContentLoaded", () => {
           getDisabledElectrodes: function() {
             // Disabled = auf var- ODER ref-Seite abgewaehlt
             // (elActive === false) oder ausgeschlossen (elExDur !== null).
-            var vSide = (typeof frq_varSide === 'string' && frq_varSide)
-              ? frq_varSide : activeSide;
-            var rSide = (typeof FRQ_refSide === 'string' && FRQ_refSide)
-              ? FRQ_refSide : (vSide === 'left' ? 'right' : 'left');
+            var vSide = activeSide;
+            var rSide = (activeSide === 'left') ? 'right' : 'left';
             var sdV = sideData[vSide], sdR = sideData[rSide];
             if (!sdV || !sdR) return [];
             var n = Math.min(sdV.nEl || 0, sdR.nEl || 0);
@@ -1223,7 +1048,7 @@ document.addEventListener("DOMContentLoaded", () => {
             _frq_keyboardT0 = (typeof performance !== 'undefined') ? performance.now() : Date.now();
             var tt      = (frq_modalTone !== null) ? frq_modalTone : toneType_freqmatch;
             var vol     = FRQ_getVolume();
-            var varSide = (typeof frq_varSide === 'string' && frq_varSide) ? frq_varSide : activeSide;
+            var varSide = activeSide;
             var varPan  = (varSide === 'left') ? -1 : 1;
             // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an).
             var volVar  = isDeaf(varSide) ? 0
@@ -1241,8 +1066,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (held <= 0) return;
             var tt      = (frq_modalTone !== null) ? frq_modalTone : toneType_freqmatch;
             var vol     = FRQ_getVolume();
-            var varSide = (typeof frq_varSide === 'string' && frq_varSide) ? frq_varSide : activeSide;
-            var refSide = (varSide === 'left') ? 'right' : 'left';
+            var varSide = activeSide;
+            var refSide = (activeSide === 'left') ? 'right' : 'left';
             var refPan  = (varSide === 'left') ? 1 : -1;
             // Eingestellte Frequenz der Elektrode auf der Ref-Seite (kann
             // sich von der Var-Seite unterscheiden).
@@ -1274,10 +1099,14 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           getElectrodeStatus: function() {
             var testable = [], muted = [], excluded = [];
-            for (var i = 0; i < nEl; i++) {
-              if (elExDur[i] != null)         excluded.push(i);
-              else if (elActive[i] === false) muted.push(i);
-              else                            testable.push(i);
+            var nL = sideData.left  ? sideData.left.nEl  : 0;
+            var nR = sideData.right ? sideData.right.nEl : 0;
+            var n  = Math.min(nL, nR);
+            for (var i = 0; i < n; i++) {
+              var st = frq_electrodeStatusBoth(i);
+              if (st === 'excluded')   excluded.push(i);
+              else if (st === 'muted') muted.push(i);
+              else                     testable.push(i);
             }
             return { testable: testable, muted: muted, excluded: excluded };
           },
@@ -1316,16 +1145,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   FRQ_els = buildTestPanel(parentEl, frq_cfg);
 
-  // Events: Referenzseiten-Wechsel (BA 151: Sperre statt Custom-Dialog)
-  FRQ_els.header.refSelect.addEventListener('change', function() {
-    setTimeout(frq_loadVerfahrenFromSide, 0);
-  });
-
   // Texte initial setzen
   FRQ_applyLang();
 
   if (!FRQ_running) _frq_autoSetRefMode();
-  frq_loadVerfahrenFromSide();
   _frq_refreshHighGainWarningVisibility();
   _frq_refreshCochlearFatHintVisibility();
 });

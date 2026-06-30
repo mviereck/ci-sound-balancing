@@ -689,7 +689,6 @@ Object.assign(L.fr, {
     FRQ_resultsClearAllConfirm: "Effacer tous les résultats d'appariement fréquentiel et les données brutes de piste (Slider et Adaptatif) ? Cette action ne peut pas être annulée.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Supprimer les résultats du piano",
     FRQ_resultsClearPianoConfirm:   "Supprimer les résultats du piano ? Les autres méthodes sont conservées.",
-    FRQ_migratePianoConfirm:  "Ce fichier contient des mesures d’autres méthodes (adaptative ou réajustement). Les reprendre comme valeurs de départ dans la méthode du piano ?",
     FRQ_resultsChartHintPiano:      "Trait = fréquence d’électrode programmée, point cible = correspondance perçue. Bande orange = incertitude résiduelle (largeur = ±résidu en cents).",
     FRQ_resultsChartCanonicalHint: "Le graphique montre le décalage de fréquence mesuré tel qu'il serait appliqué entièrement au côté actif %S. Cela vous permet de voir l'ampleur totale de la mesure. La répartition effective (gauche/droite/symétrique) se règle dans les options du lecteur.",
     FRQ_resultsQualityPiano:           "Test au piano : tour {round} sur {total} terminé (approximation ±{step} cents).",

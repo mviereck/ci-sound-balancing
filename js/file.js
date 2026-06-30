@@ -703,10 +703,8 @@ function applyLoadedData(d) {
     }
     if (typeof _FRQ_cleanupLegacyResults === "function") _FRQ_cleanupLegacyResults();
     if (typeof _FRQ_migrateResultsFormat === "function") _FRQ_migrateResultsFormat();
-    // BA365: Altwerte ins Klavier uebernehmen (Abfrage).
-    if (typeof _FRQ_migrateAltToPiano === "function") _FRQ_migrateAltToPiano();
-    // BA416: Klaviertest-Session laden/migrieren (nach Bruecke, damit
-    // gespeicherte pianoSession Vorrang vor Bruecken-Ergebnis hat).
+    // BA417: Adaptiv->Piano-Bruecke entfernt (war faktisch tot, s. BA417).
+    // BA416: Klaviertest-Session laden/migrieren.
     if (typeof _FRQ_loadPianoSession === "function") _FRQ_loadPianoSession(d);
   }
   // BA 207: Auswahl der Testelektroden für FreqMatch.

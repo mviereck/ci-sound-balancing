@@ -217,6 +217,9 @@ const MFR = {
 // Info-Box-Anzeige gelesen.
 const COCHLEAR_FAT_CORRECTION_DATE = Date.UTC(2026, 4, 31); // 2026-05-31 UTC
 // ============================================================
+// BA417: Feste, sprachunabhaengige Kurzkennung einer Seite ('L' | 'R').
+function sideLetter(side) { return (side === "left") ? "L" : "R"; }
+
 // FREQUENCY HELPERS (Cent, log-Interpolation)
 // ============================================================
 // Cent re 1000 Hz: 1000 Hz = 0 ¢, eine Oktave = 1200 ¢.
@@ -252,13 +255,13 @@ function meanCentStepOfFreqs(freqArr) {
 // cent-Konvention: +cent = rechtes Ohr hoeher (= linkes Ohr tiefer).
 // ============================================================
 
-// Wandelt den gemessenen Roh-Offset (pse, in der Mess-Konvention
-// "refHz = varHz * 2^(pse/1200)") in den kanonischen cent.
-// Herleitung (am Mess-Code belegt, BA 414):
-//   frqRefMode 'left'      (var=links,  ref=rechts): pse>0 => rechts hoeher => +pse
-//   frqRefMode 'right'     (var=rechts, ref=links):  pse>0 => links  hoeher => -pse
-//   frqRefMode 'symmetric' (rechts +offset/2, links -offset/2): pse>0 => rechts hoeher => +pse
-function FRQ_canonicalCent(frqRefMode, rawOffset) {
+// Wandelt einen Roh-Offset in der ALTEN var/ref-Mess-Konvention
+// ("refHz = varHz * 2^(rawOffset/1200)") in den kanonischen cent.
+// NUR fuer die Lade-Migration alter .cimbel-Dateien (var/ref-Felder).
+// Der Live-Test schreibt cent direkt aus referenzmodus (freqmatch.js).
+//   frqRefMode 'right' (var=rechts, ref=links): pse>0 => links hoeher => -pse
+//   sonst ('left'/'symmetric'):                                        => +pse
+function FRQ_varRefOffsetToCanonical(frqRefMode, rawOffset) {
   var c = (typeof rawOffset === "number" && isFinite(rawOffset)) ? rawOffset : 0;
   return (frqRefMode === "right") ? -c : c;
 }

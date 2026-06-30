@@ -688,7 +688,6 @@ Object.assign(L.en, {
     FRQ_resultsClearAllConfirm: "Delete all frequency matching results and track raw data (slider and adaptive)? This action cannot be undone.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Delete piano results",
     FRQ_resultsClearPianoConfirm:   "Delete piano results? Other methods are kept.",
-    FRQ_migratePianoConfirm:  "This file contains measurements from other methods (adaptive or readjustment). Transfer them as starting values into the piano method?",
     FRQ_resultsChartHintPiano:      "Solid line = programmed electrode frequency, target point = perceived match. Orange band = residual uncertainty (width = ±residual in cents).",
     FRQ_resultsChartCanonicalHint: "The graph shows the measured frequency shift as it would be applied fully to the active side %S. This lets you see the full extent of the measurement. The actual distribution (left/right/symmetric) is set in the player options.",
     FRQ_resultsQualityPiano:           "Piano test: round {round} of {total} completed (approximation ±{step} cents).",

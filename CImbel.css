@@ -868,6 +868,8 @@ select:disabled {
   border-radius: 8px;
   padding: 8px 18px;
   min-width: 90px;
+  text-align: center;
+  line-height: 1.35;
 }
 .conf-quality-label {
   font-size: 0.85em;
