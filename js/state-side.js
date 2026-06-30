@@ -343,6 +343,24 @@ function _FRQ_migrateResultsFormat() {
   }
 }
 
+// BA417.1: Wurde die Datei/localStorage VOR BA417 gespeichert? Dann trug
+// frqRefMode (und run.varSide im Alt-Format) die alte var-Seiten-Semantik
+// (= FESTE Seite). version-Feld fehlt oder dritte Stelle < 417 => alt.
+function _FRQ_pianoSessionPreBA417(d) {
+  var v = d && d.version;
+  if (typeof v !== "string") return true;
+  var m = v.match(/^\d+\.\d+\.(\d+)/);
+  return m ? (parseInt(m[1], 10) < 417) : true;
+}
+
+// BA417.1: Dreht einen frqRefMode aus der alten var-Seiten-Semantik
+// (gespeichert = feste Seite) in die BA417-referenzmodus-Semantik
+// (= steuerbare Seite = Gegenseite). 'symmetric' bleibt.
+function _FRQ_frqRefModeFromLegacy(m) {
+  if (m === "symmetric") return "symmetric";
+  return (m === "right") ? "left" : "right";
+}
+
 // BA416: Laedt FRQ_pianoSession aus den geladenen Daten. Migriert alte
 // pro-Seite-Behaelter (d.sides[side].freqmatchPiano) auf die globale,
 // seitenlose Session. d = das geladene JSON-Objekt.
@@ -350,6 +368,12 @@ function _FRQ_loadPianoSession(d) {
   // 1) Neues Format: globale Session direkt.
   if (d && d.pianoSession) {
     FRQ_pianoSession = d.pianoSession;
+    // BA417.1: vor BA417 trug frqRefMode die alte var-Seiten-Semantik
+    // (Gegenseite der Referenz). Ungedreht steuert der fortgesetzte Test
+    // die falsche Seite UND schreibt das Vorzeichen invertiert -> drehen.
+    if (FRQ_pianoSession && _FRQ_pianoSessionPreBA417(d)) {
+      FRQ_pianoSession.frqRefMode = _FRQ_frqRefModeFromLegacy(FRQ_pianoSession.frqRefMode);
+    }
     return;
   }
   // 2) Alt-Format: die EINE Seite mit freqmatchPiano-Daten finden.
@@ -366,12 +390,13 @@ function _FRQ_loadPianoSession(d) {
   // (Falls BEIDE Seiten Daten tragen: die erste gefundene -- Beschluss.)
   if (!src) return;
   // run aus Alt-Format: varSide/refSide/symmetric -> frqRefMode ableiten.
+  // BA417.1: oldRun.varSide ist die alte FESTE Seite -> die neue steuerbare
+  // Seite (referenzmodus) ist die Gegenseite.
   var oldRun = src.run || null;
-  var frqRefMode = 'left';
+  var frqRefMode = 'right';
   if (oldRun) {
-    if (oldRun.symmetric)                frqRefMode = 'symmetric';
-    else if (oldRun.varSide === 'right') frqRefMode = 'right';
-    else                                 frqRefMode = 'left';
+    frqRefMode = oldRun.symmetric ? 'symmetric'
+               : _FRQ_frqRefModeFromLegacy(oldRun.varSide);
   }
   var newRun = null;
   if (oldRun) {
