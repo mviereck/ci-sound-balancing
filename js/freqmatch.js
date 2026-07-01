@@ -128,7 +128,7 @@ function _frq_filterSequenceBySelection(seq) {
 
 // BA417: Status je Elektrode ueber BEIDE Seiten. Testbar nur, wenn auf
 // BEIDEN Seiten aktiv und nicht ausgeschlossen. Vorrang 'excluded' vor 'muted'.
-function frq_electrodeStatusBoth(i) {
+function FRQ_electrodeStatusBoth(i) {
   var exclL = withSide('left',  function () { return elExDur[i] != null; });
   var exclR = withSide('right', function () { return elExDur[i] != null; });
   if (exclL || exclR) return 'excluded';
@@ -146,7 +146,7 @@ function frq_buildSequenceBoth() {
   var n  = Math.min(nL, nR);
   var seq = [];
   for (var i = 0; i < n; i++) {
-    if (frq_electrodeStatusBoth(i) !== 'testable') continue;
+    if (FRQ_electrodeStatusBoth(i) !== 'testable') continue;
     var idx = i;
     var fl = withSide('left',  function () { return FRQ_implantatEffektiv(idx); });
     var fr = withSide('right', function () { return FRQ_implantatEffektiv(idx); });
@@ -1065,7 +1065,7 @@ document.addEventListener("DOMContentLoaded", () => {
             var nR = sideData.right ? sideData.right.nEl : 0;
             var n  = Math.min(nL, nR);
             for (var i = 0; i < n; i++) {
-              var st = frq_electrodeStatusBoth(i);
+              var st = FRQ_electrodeStatusBoth(i);
               if (st === 'excluded')   excluded.push(i);
               else if (st === 'muted') muted.push(i);
               else                     testable.push(i);

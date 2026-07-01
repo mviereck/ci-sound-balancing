@@ -287,6 +287,105 @@ function FRQ_refHzForMode(elIdx) {
   return withSide(side, function () { return FRQ_implantatEffektiv(elIdx); });
 }
 
+// BA418: Zentrale Frequenzabgleich-Wertquelle. EINE Stelle, aus der alle
+// Konsumenten ihre Frequenzwerte beziehen. Siehe
+// .docs/spec/00-freqmatch-wertquelle-architektur.md
+//
+// Argumente:
+//   form         'roh' | 'warp' | 'gehoert'  (konsumenten-benannt, traegt Richtung)
+//   modus        'left' | 'right' | 'symmetric'  = die KORRIGIERTE/verschobene
+//                Seite. Die Funktion kennt den Begriff "Referenzseite" NICHT;
+//                Referenzmodus-Konsumenten uebersetzen ihn selbst (spaeter).
+//   invertieren  bool (Default false) -- dreht die form-eigene Richtung.
+//
+// Rueckgabe: sortiertes Array (aufsteigend nach elIdx), EIN Eintrag je
+// Elektrode der beidseitigen Menge (min(nL, nR)). IMMER beide Seiten
+// (entry.left / entry.right); der Konsument pickt entry[seite]. Ungemessene
+// und deaktivierte Elektroden bekommen Null-Werte fuer die MESS-abgeleiteten
+// Groessen -- die nominellen Frequenzen (keine Messgroesse) bleiben erhalten.
+//
+// Vorzeichen-Wahrheit (eingefroren, kanonisch +cent = rechtes Ohr nimmt
+// tiefer wahr): base = FRQ_seitenWerte(cent, modus) ist die WARP-Richtung.
+//   warp    :  +base   (invertieren -> -base)
+//   gehoert :  -base   (invertieren -> +base)   -- gehoert = -warp
+//   roh     :  cent unveraendert, plus Referenzseite (nur hier genannt).
+function FRQ_werte(form, modus, invertieren) {
+  var inv = !!invertieren;
+
+  // Gemessene Eintraege des aktiven Verfahrens, indexiert nach elIdx.
+  var measured = {};
+  var active = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
+  for (var k = 0; k < active.length; k++) {
+    if (active[k] && active[k].elIdx != null) measured[active[k].elIdx] = active[k];
+  }
+
+  // Beidseitige Elektroden-Menge (was der Frequenztest ueberhaupt vergleicht).
+  var nL = (typeof sideData !== "undefined" && sideData.left)  ? sideData.left.nEl  : 0;
+  var nR = (typeof sideData !== "undefined" && sideData.right) ? sideData.right.nEl : 0;
+  var n  = Math.min(nL, nR);
+
+  var out = [];
+  for (var i = 0; i < n; i++) {
+    var r = measured[i];
+    var gemessen = !!(r && r.cent != null);
+    var deaktiviert = (FRQ_electrodeStatusBoth(i) !== "testable");
+
+    // Nominelle (eingetragene) Frequenz je Seite -- keine Messgroesse,
+    // existiert immer.
+    var nomL = withSide("left",  function () { return FRQ_implantatEffektiv(i); });
+    var nomR = withSide("right", function () { return FRQ_implantatEffektiv(i); });
+
+    var left  = { nominellHz: nomL };
+    var right = { nominellHz: nomR };
+    var entry = {
+      elIdx: i,
+      gemessen: gemessen,
+      deaktiviert: deaktiviert,
+      left: left,
+      right: right
+    };
+
+    if (form === "roh") {
+      // Dokumentations-Form: kanonischer Offset + Referenzseite (Herkunft).
+      entry.cent       = gemessen ? r.cent : null;
+      entry.frqRefMode = gemessen ? r.frqRefMode : null;
+
+    } else if (form === "warp" || form === "gehoert") {
+      if (gemessen) {
+        var base = FRQ_seitenWerte(r.cent, modus);   // Warp-Richtung { csL, csR }
+        // warp: +base (inv -> -base). gehoert: -base (inv -> +base).
+        var sgn = (form === "warp") ? (inv ? -1 : 1) : (inv ? 1 : -1);
+        var shL = sgn * base.csL;
+        var shR = sgn * base.csR;
+        if (form === "warp") {
+          left.cs  = shL;
+          right.cs = shR;
+        } else {
+          left.shiftCent  = shL;
+          right.shiftCent = shR;
+          left.gehoertHz  = nomL * Math.pow(2, shL / 1200);
+          right.gehoertHz = nomR * Math.pow(2, shR / 1200);
+          left.shiftHz    = left.gehoertHz  - nomL;
+          right.shiftHz   = right.gehoertHz - nomR;
+        }
+      } else {
+        // Ungemessen -> Null fuer Mess-abgeleitete Groessen (nominell bleibt).
+        if (form === "warp") {
+          left.cs = null; right.cs = null;
+        } else {
+          left.shiftCent = null;  right.shiftCent = null;
+          left.gehoertHz = null;  right.gehoertHz = null;
+          left.shiftHz   = null;  right.shiftHz   = null;
+        }
+      }
+    }
+    // Unbekannte form: nur die gemeinsame Basis (elIdx, Flags, nominell).
+
+    out.push(entry);
+  }
+  return out;
+}
+
 const SIDES = ["left", "right"];
 const KURVEN_ELL_TYPES = [
   "speech",
