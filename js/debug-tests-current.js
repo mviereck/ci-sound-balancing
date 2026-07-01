@@ -49,27 +49,6 @@
   });
 })();
 
-/* BA113 — Slider Auto-Extend API */
-(function() {
-  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
-  dbg.test('build/BA113/slider-auto-extend', { tab: 'messungen', label: 'Slider Auto-Extend API (BA113)' }, function() {
-    var lines = [];
-    function chk(label, val) { lines.push((val ? '✓' : '✗') + ' ' + label); }
-    chk('testUI.slider.setValue vorhanden',
-      typeof testUI !== 'undefined' && !!testUI.slider && typeof testUI.slider.setValue === 'function');
-    chk('FM_SLIDER_RANGES entfernt',
-      typeof FM_SLIDER_RANGES === 'undefined');
-    chk('fmSlRangeIdx entfernt',
-      typeof fmSlRangeIdx === 'undefined');
-    var slRef = typeof FRQ_els !== 'undefined' && FRQ_els &&
-      FRQ_els.verfahren && FRQ_els.verfahren.slider && FRQ_els.verfahren.slider.slider;
-    chk('slider.initialRange === 100', !!slRef && slRef.initialRange === 100);
-    chk('slider.maxRange === 1200', !!slRef && slRef.maxRange === 1200);
-    chk('extendBtn nicht in slider-refs', !!slRef && !('extendBtn' in slRef));
-    return lines.join('\n');
-  });
-})();
-
 /* BA368 — LiveShifter-Methode: Diagnose-Test */
 (function() {
   if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;

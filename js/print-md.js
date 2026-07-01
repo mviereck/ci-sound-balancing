@@ -885,14 +885,14 @@ function _audiologELLTable(side) {
 // ---------- Frequenz-Tabelle pro Seite (mit sym-Warp-Zusatzspalten) ----------
 
 // Liefert pro Elektrode auf `side` die effektive Frequenzabgleich-Zeile
-// (varFreq=aktuelle Mittenfrequenz, refFreq=Wunsch nach Warp,
+// (hzIst=aktuelle Mittenfrequenz, hzWunsch=Wunsch nach Warp,
 // cent=tatsächliche Cent-Verschiebung dieser Seite, _provisional).
 // Quelle ist `_warpFResSource()` + `buildWarpPoints/centShift` — also
 // exakt dieselbe Mathematik, die der Player im Audio-Pfad anwendet.
-// var_side: nur Einträge mit varSide===side; andere Seite bleibt leer.
-// ref_side: nur Einträge mit refSide===side (Verschiebung gespiegelt).
-// symmetric: beide Seiten haben je cent/2 — Tabelle/Graph für die andere
-// Seite erscheinen daher auch bei einseitigem Druck mit Daten.
+// Für jede Elektrode wird der kanonische cent über centShift auf DIESE
+// Seite umgerechnet; Zeilen ohne Verschiebung entfallen. Im symmetrischen
+// Modus tragen beide Seiten je die halbe Verschiebung, daher erscheinen
+// Tabelle/Graph auch bei einseitigem Druck mit Daten.
 function _audiologFmRowsForSide(side) {
   if (typeof pWarpOn === "undefined" || !pWarpOn) return [];
   if (typeof buildWarpPoints !== "function" || typeof centShift !== "function") return [];
@@ -923,8 +923,8 @@ function _audiologFmRowsForSide(side) {
     const fWish = fSelf * Math.pow(2, cs / 1200);
     rows.push({
       elIdx,
-      varFreq: fSelf,
-      refFreq: fWish,
+      hzIst: fSelf,
+      hzWunsch: fWish,
       cent: cs,
       _provisional:    !!provByEl[elIdx],
       _sliderEstimate: !!sliderByEl[elIdx],
@@ -959,9 +959,9 @@ function _audiologFreqTable(side) {
       else if (r._provisional)    elLabel += " *";
       const hzDef = defFreqs[r.elIdx] != null ? _mdFmtHz(defFreqs[r.elIdx]) : "—";
       const hzMan = (ownFreqOwn && ownFreqOwn[r.elIdx] != null) ? _mdFmtHz(ownFreqOwn[r.elIdx]) : "—";
-      const dHzV  = r.refFreq - r.varFreq;
+      const dHzV  = r.hzWunsch - r.hzIst;
       const dHz   = isFinite(dHzV) ? `${dHzV >= 0 ? "+" : ""}${Math.round(dHzV)} Hz` : "—";
-      lines.push(`| ${elLabel} | ${hzDef} | ${hzMan} | ${_audCent(r.varFreq, r.refFreq)} | ${dHz} | **${_mdFmtHz(r.refFreq)}** |`);
+      lines.push(`| ${elLabel} | ${hzDef} | ${hzMan} | ${_audCent(r.hzIst, r.hzWunsch)} | ${dHz} | **${_mdFmtHz(r.hzWunsch)}** |`);
     }
     if (hasProv) {
       lines.push("");
@@ -1464,7 +1464,7 @@ function _audiologFreqChartImg(side) {
     const pW = Wlog - pad.l - pad.r, pH = Hlog - pad.t - pad.b;
     const zY = pad.t + pH / 2;
 
-    const freqs = rows.map((r) => r.varFreq);
+    const freqs = rows.map((r) => r.hzIst);
     const fMin = Math.min.apply(null, freqs.concat([100]));
     const fMax = Math.max.apply(null, freqs.concat([8000]));
     const xFor = (hz) => pad.l + (Math.log2(hz / fMin) / Math.log2(fMax / fMin)) * pW;
@@ -1480,7 +1480,7 @@ function _audiologFreqChartImg(side) {
     let hasProv = false;
     let hasSliderEst = false;
     for (const r of rows) {
-      const x = xFor(r.varFreq);
+      const x = xFor(r.hzIst);
       const y = zY - (r.cent / maxAbsCent) * (pH / 2);
       if (r._sliderEstimate) {
         hasSliderEst = true;

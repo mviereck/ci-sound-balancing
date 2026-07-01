@@ -602,7 +602,6 @@ Object.assign(L.es, {
     STB_blockedSideUnknown:   "Por favor, seleccione la tecnología auditiva (y, en su caso, el fabricante) para ambos lados antes de iniciar la prueba de balance estéreo.",
     cfgHintBothAcoustic:
       "<b>Herramienta no prevista para provisión puramente acústica.</b> Este Sound Balancing Tool está dirigido a portadores de implante coclear y necesita al menos un lado con IC. Si tiene ambos lados con provisión acústica, las funciones de medición, deslizadores y reproductor no son aplicables aquí. (Una versión futura del programa podría admitir mediciones para provisión acústica bilateral.)",
-    FRQ_cochlearFatCorrectionInfo: "La FAT por defecto de Cochlear se corrigió el {date} a los valores oficiales (CI Select / Custom Sound Pro estándar, HFE 7938 Hz). Las pruebas de frecuencia de Cochlear anteriores a esa fecha se refieren a una suposición por defecto distinta — para una curva de corrección actualizada, repita la prueba.",
     FRQ_title: "Ajuste de frecuencia Izquierda/Derecha",
     FRQ_maturityHint:
       "La prueba de piano actualmente implementada debería funcionar bien y ofrecer resultados fiables. No obstante, todavía se ha probado poco en la práctica." +

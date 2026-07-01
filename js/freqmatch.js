@@ -84,39 +84,6 @@ function frq_tonfolge(referenzmodus) {
   return ["right", "left"];   // 'symmetric'
 }
 
-function _frq_shouldShowCochlearFatHint() {
-  if (typeof FRQ_resultsArray === 'undefined' || !Array.isArray(FRQ_resultsArray)) return false;
-  if (typeof sideData === 'undefined') return false;
-  if (typeof COCHLEAR_FAT_CORRECTION_DATE !== 'number') return false;
-  for (let i = 0; i < FRQ_resultsArray.length; i++) {
-    const e = FRQ_resultsArray[i];
-    if (!e || typeof e.timestamp !== 'number') continue;
-    if (e.timestamp >= COCHLEAR_FAT_CORRECTION_DATE) continue;
-    const sd = sideData[e.varSide];
-    if (sd && sd.manufacturer === 'cochlear') return true;
-  }
-  return false;
-}
-
-function _frq_refreshCochlearFatHintVisibility() {
-  if (!FRQ_els) return;
-  const visible = _frq_shouldShowCochlearFatHint();
-  testUI.explain.setVisible(FRQ_els, 'FRQ_cochlearFatHintPara', visible);
-  // Datum in den Text einsetzen (jedes Mal frisch, falls Sprache wechselt).
-  if (visible) {
-    const el = FRQ_els.explainBox && FRQ_els.explainBox.querySelector('#FRQ_cochlearFatHintPara');
-    if (el) {
-      const d = new Date(COCHLEAR_FAT_CORRECTION_DATE);
-      const dateStr = d.getUTCFullYear() + '-'
-        + String(d.getUTCMonth() + 1).padStart(2, '0') + '-'
-        + String(d.getUTCDate()).padStart(2, '0');
-      const txt = (typeof t === 'function') ? t('FRQ_cochlearFatCorrectionInfo')
-        : 'Cochlear-FAT wurde korrigiert.';
-      el.textContent = txt.replace('{date}', dateStr);
-    }
-  }
-}
-
 function FRQ_getVolume() {
   return Math.pow(volume_global / 100, 2);
 }
@@ -726,7 +693,6 @@ function _frq_requestExclude() {
 function FRQ_applyLang() {
   if (!FRQ_els) return;
   _frq_refreshHighGainWarningVisibility();
-  _frq_refreshCochlearFatHintVisibility();
   _frq_renderPrereqHints();
 }
 
@@ -811,7 +777,6 @@ function _FRQ_refreshTabState() {
     _frq_autoSetRefMode();
   }
   _frq_refreshHighGainWarningVisibility();
-  _frq_refreshCochlearFatHintVisibility();
   _frq_renderPrereqHints();
 }
 
@@ -907,8 +872,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // (Initial hidden=true; testUI.explain.setVisible blendet bei Bedarf ein).
         { key: 'FRQ_highGainWarn',               kind: 'warn',    id: 'FRQ_highGainWarnPara',
                                          hidden: true },
-        { key: 'FRQ_cochlearFatCorrectionInfo', kind: 'warn', id: 'FRQ_cochlearFatHintPara',
-                                         hidden: true },
 
         // Voraussetzungen — bleiben bedingt sichtbar (durch _frq_renderPrereqHints).
         { key: 'FRQ_prereqLvLeft',         kind: 'warn',    id: 'FRQ_prereqLvLeftPara'    },
@@ -972,9 +935,9 @@ document.addEventListener("DOMContentLoaded", () => {
             var vol = FRQ_getVolume();
             var dur = FRQ_getDuration();
             var pau = FRQ_getPause();
-            var varSide = activeSide;
-            var refSide = (activeSide === 'left') ? 'right' : 'left';
-            var varPan  = (varSide === 'left') ? -1 : 1;
+            var aktivSide = activeSide;
+            var gegenSide = (activeSide === 'left') ? 'right' : 'left';
+            var aktivPan  = (aktivSide === 'left') ? -1 : 1;
             // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an);
             // taube Seite stumm (isDeaf) wie beim Klavier. pan kodiert die Seite.
             var _frq_correctVolume = function (side, pan) {
@@ -982,65 +945,64 @@ document.addEventListener("DOMContentLoaded", () => {
               return (typeof frq_keyboardCorrectVolume === 'function') ? frq_keyboardCorrectVolume(vol, hz, pan) : vol;
             };
             return [
-              { hz: hz, pan: varPan,  vol: _frq_correctVolume(varSide, varPan),  durationMs: dur },
+              { hz: hz, pan: aktivPan,  vol: _frq_correctVolume(aktivSide, aktivPan),  durationMs: dur },
               { pauseMs: pau },
-              { hz: hz, pan: -varPan, vol: _frq_correctVolume(refSide, -varPan), durationMs: dur }
+              { hz: hz, pan: -aktivPan, vol: _frq_correctVolume(gegenSide, -aktivPan), durationMs: dur }
             ];
           },
           // BA 228/229: Klavier-Widget in der Modalbox aktivieren.
           // BA 252: beidseitige Disabled-Logik, kein elActive-Filter hier.
           keyboardMode: true,
           getElectrodeFreqs: function() {
-            // Anzahl Tasten = Minimum aus var- und ref-Seite.
-            // Frequenzen kommen von der var-Seite (CI-Seite im
-            // Frequenzabgleich-Kontext). Kein Filter auf
+            // Anzahl Tasten = Minimum aus aktiver und Gegenseite.
+            // Frequenzen kommen von der aktiven Seite. Kein Filter auf
             // elActive/elExDur -- das macht getDisabledElectrodes.
-            var vSide = activeSide;
-            var rSide = (activeSide === 'left') ? 'right' : 'left';
-            var vN = sideData[vSide] ? sideData[vSide].nEl : 0;
-            var rN = sideData[rSide] ? sideData[rSide].nEl : 0;
-            var n  = Math.min(vN, rN);
+            var aktivSide = activeSide;
+            var gegenSide = (activeSide === 'left') ? 'right' : 'left';
+            var nAktiv = sideData[aktivSide] ? sideData[aktivSide].nEl : 0;
+            var nGegen = sideData[gegenSide] ? sideData[gegenSide].nEl : 0;
+            var n  = Math.min(nAktiv, nGegen);
             if (n <= 0) return [];
             var freqs = [];
-            withSide(vSide, function() {
+            withSide(aktivSide, function() {
               for (var i = 0; i < n; i++) freqs.push(FRQ_implantatEffektiv(i));
             });
             return freqs;
           },
           getElectrodeLabels: function() {
-            var vSide = activeSide;
-            var rSide = (activeSide === 'left') ? 'right' : 'left';
-            var vN = sideData[vSide] ? sideData[vSide].nEl : 0;
-            var rN = sideData[rSide] ? sideData[rSide].nEl : 0;
-            var n  = Math.min(vN, rN);
+            var aktivSide = activeSide;
+            var gegenSide = (activeSide === 'left') ? 'right' : 'left';
+            var nAktiv = sideData[aktivSide] ? sideData[aktivSide].nEl : 0;
+            var nGegen = sideData[gegenSide] ? sideData[gegenSide].nEl : 0;
+            var n  = Math.min(nAktiv, nGegen);
             if (n <= 0) return [];
             var labels = [];
-            withSide(vSide, function() {
+            withSide(aktivSide, function() {
               var prefix = dENPrefix();
               for (var i = 0; i < n; i++) labels.push(prefix + dEN(i));
             });
             return labels;
           },
           getDisabledElectrodes: function() {
-            // Disabled = auf var- ODER ref-Seite abgewaehlt
+            // Disabled = auf aktiver ODER Gegenseite abgewaehlt
             // (elActive === false) oder ausgeschlossen (elExDur !== null).
-            var vSide = activeSide;
-            var rSide = (activeSide === 'left') ? 'right' : 'left';
-            var sdV = sideData[vSide], sdR = sideData[rSide];
-            if (!sdV || !sdR) return [];
-            var n = Math.min(sdV.nEl || 0, sdR.nEl || 0);
+            var aktivSide = activeSide;
+            var gegenSide = (activeSide === 'left') ? 'right' : 'left';
+            var sdAktiv = sideData[aktivSide], sdGegen = sideData[gegenSide];
+            if (!sdAktiv || !sdGegen) return [];
+            var n = Math.min(sdAktiv.nEl || 0, sdGegen.nEl || 0);
             var dis = [];
             for (var i = 0; i < n; i++) {
-              var off = (sdV.elActive && sdV.elActive[i] === false)
-                     || (sdV.elExDur  && sdV.elExDur[i]  != null)
-                     || (sdR.elActive && sdR.elActive[i] === false)
-                     || (sdR.elExDur  && sdR.elExDur[i]  != null);
+              var off = (sdAktiv.elActive && sdAktiv.elActive[i] === false)
+                     || (sdAktiv.elExDur  && sdAktiv.elExDur[i]  != null)
+                     || (sdGegen.elActive && sdGegen.elActive[i] === false)
+                     || (sdGegen.elExDur  && sdGegen.elExDur[i]  != null);
               if (off) dis.push(i);
             }
             return dis;
           },
-          // BA 229: Aufleucht-Dauer = volle Sequenz (Var-Burst + Pause +
-          // Ref-Burst), passt zur Anschlag-Logik in onPress.
+          // BA 229: Aufleucht-Dauer = volle Sequenz (erster Burst + Pause +
+          // zweiter Burst), passt zur Anschlag-Logik in onPress.
           getHighlightMs: function() { return FRQ_getDuration() * 2 + FRQ_getPause(); },
           onPress: function (electrodeIdx, hz) {
             var c = (typeof gAC === 'function') ? gAC() : null;
@@ -1048,13 +1010,13 @@ document.addEventListener("DOMContentLoaded", () => {
             _frq_keyboardT0 = (typeof performance !== 'undefined') ? performance.now() : Date.now();
             var tt      = (frq_modalTone !== null) ? frq_modalTone : toneType_freqmatch;
             var vol     = FRQ_getVolume();
-            var varSide = activeSide;
-            var varPan  = (varSide === 'left') ? -1 : 1;
+            var aktivSide = activeSide;
+            var aktivPan  = (aktivSide === 'left') ? -1 : 1;
             // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an).
-            var volVar  = isDeaf(varSide) ? 0
-              : ((typeof frq_keyboardCorrectVolume === 'function') ? frq_keyboardCorrectVolume(vol, hz, varPan) : vol);
+            var volAktiv  = isDeaf(aktivSide) ? 0
+              : ((typeof frq_keyboardCorrectVolume === 'function') ? frq_keyboardCorrectVolume(vol, hz, aktivPan) : vol);
             try {
-              playToneTyped(c, hz, volVar, 60000, varPan, tt);
+              playToneTyped(c, hz, volAktiv, 60000, aktivPan, tt);
             } catch (e) { /* swallow */ }
           },
           onRelease: function (electrodeIdx, hz) {
@@ -1066,24 +1028,24 @@ document.addEventListener("DOMContentLoaded", () => {
             if (held <= 0) return;
             var tt      = (frq_modalTone !== null) ? frq_modalTone : toneType_freqmatch;
             var vol     = FRQ_getVolume();
-            var varSide = activeSide;
-            var refSide = (activeSide === 'left') ? 'right' : 'left';
-            var refPan  = (varSide === 'left') ? 1 : -1;
-            // Eingestellte Frequenz der Elektrode auf der Ref-Seite (kann
-            // sich von der Var-Seite unterscheiden).
-            var hzRef;
+            var aktivSide = activeSide;
+            var gegenSide = (activeSide === 'left') ? 'right' : 'left';
+            var gegenPan  = (aktivSide === 'left') ? 1 : -1;
+            // Eingestellte Frequenz der Elektrode auf der Gegenseite (kann
+            // sich von der aktiven Seite unterscheiden).
+            var hzGegen;
             if (electrodeIdx >= 0) {
-              var rN = sideData[refSide] ? sideData[refSide].nEl : 0;
-              var rIdx = electrodeIdx < rN ? electrodeIdx : rN - 1;
-              hzRef = withSide(refSide, function () { return FRQ_implantatEffektiv(rIdx); });
+              var nGegen = sideData[gegenSide] ? sideData[gegenSide].nEl : 0;
+              var idxGegen = electrodeIdx < nGegen ? electrodeIdx : nGegen - 1;
+              hzGegen = withSide(gegenSide, function () { return FRQ_implantatEffektiv(idxGegen); });
             } else {
-              hzRef = hz;
+              hzGegen = hz;
             }
             // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an).
-            var volRef = isDeaf(refSide) ? 0
-              : ((typeof frq_keyboardCorrectVolume === 'function') ? frq_keyboardCorrectVolume(vol, hzRef, refPan) : vol);
+            var volGegen = isDeaf(gegenSide) ? 0
+              : ((typeof frq_keyboardCorrectVolume === 'function') ? frq_keyboardCorrectVolume(vol, hzGegen, gegenPan) : vol);
             try {
-              playToneTyped(c, hzRef, volRef, held, refPan, tt);
+              playToneTyped(c, hzGegen, volGegen, held, gegenPan, tt);
             } catch (e) { /* swallow */ }
           }
         },
@@ -1150,7 +1112,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!FRQ_running) _frq_autoSetRefMode();
   _frq_refreshHighGainWarningVisibility();
-  _frq_refreshCochlearFatHintVisibility();
 });
 
 function FRQ_refreshElectrodeSelectionSummary() {

@@ -602,7 +602,6 @@ Object.assign(L.fr, {
     STB_blockedSideUnknown:   "Veuillez choisir la technologie auditive (et éventuellement le fabricant) pour les deux côtés avant de démarrer le test de balance stéréo.",
     cfgHintBothAcoustic:
       "<b>Outil non prévu pour un appareillage purement acoustique.</b> Ce Sound Balancing Tool s'adresse aux porteurs d'implant cochléaire et nécessite au moins un côté IC. Si vous êtes appareillé acoustiquement des deux côtés, la mesure, les curseurs et le Player ne sont pas applicables ici. (Une future version du programme pourrait prendre en charge des mesures pour un appareillage acoustique bilatéral.)",
-    FRQ_cochlearFatCorrectionInfo: "La FAT par défaut Cochlear a été corrigée le {date} aux valeurs officielles (CI Select / Custom Sound Pro Standard, HFE 7938 Hz). Les tests de fréquence Cochlear antérieurs à cette date se réfèrent à une hypothèse par défaut différente — pour une courbe de correction actuelle, veuillez refaire le test.",
     FRQ_title: "Appariement fréquentiel Gauche/Droite",
     FRQ_maturityHint:
       "Le test au piano actuellement implémenté devrait bien fonctionner et fournir des résultats fiables. Il n'a toutefois encore été que peu éprouvé en pratique." +

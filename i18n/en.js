@@ -601,7 +601,6 @@ Object.assign(L.en, {
     STB_blockedSideUnknown:   "Please choose the hearing technology (and manufacturer if applicable) for both sides before starting the stereo balance test.",
     cfgHintBothAcoustic:
       "<b>Tool not intended for purely acoustic provision.</b> This Sound Balancing Tool is aimed at cochlear implant users and requires at least one CI side. If both sides are acoustically supplied, the measurement, sliders and player are not applicable here. (A future program version could support measurements for bilaterally acoustic provision.)",
-    FRQ_cochlearFatCorrectionInfo: "The Cochlear default FAT was corrected on {date} to the official values (CI Select / Custom Sound Pro standard, HFE 7938 Hz). Cochlear frequency tests from before this date refer to a different default assumption — for an up-to-date correction curve, please repeat the test.",
     FRQ_title: "Frequency matching left/right",
     FRQ_maturityHint:
       "The currently implemented piano test should work well and provide reliable results. However, it has only been tried out to a limited extent in practice." +

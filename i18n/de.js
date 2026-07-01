@@ -651,7 +651,6 @@ Object.assign(L.de, {
     STB_blockedSideUnknown:   "Bitte Hörtechnik (und ggf. Hersteller) für beide Seiten wählen, bevor der Stereo-Balance-Test gestartet wird.",
     cfgHintBothAcoustic:
       "<b>Tool nicht für rein akustische Versorgung vorgesehen.</b> Dieses Sound Balancing Tool richtet sich an Cochlea-Implantat-Träger und benötigt mindestens eine CI-Seite. Wenn Sie beide Seiten akustisch versorgt haben, sind Messung, Schieber und Player hier nicht anwendbar. (Eine spätere Programmversion könnte Messungen für beidseitig akustische Versorgung unterstützen.)",
-    FRQ_cochlearFatCorrectionInfo: "Die Cochlear-Default-FAT wurde am {date} auf die offiziellen Werte (CI Select / Custom Sound Pro Standard, HFE 7938 Hz) korrigiert. Cochlear-Frequenztests von vor diesem Datum beziehen sich auf eine abweichende Default-Annahme — für eine aktuelle Korrekturkurve bitte den Test wiederholen.",
     FRQ_title: "Frequenzabgleich Links/Rechts",
     FRQ_maturityHint:
       "Der aktuell implementierte Klaviertest sollte gut funktionieren und zuverlässige Ergebnisse liefern. Er ist jedoch erst wenig in der Praxis erprobt." +

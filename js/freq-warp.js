@@ -130,8 +130,7 @@ let _pWarpFResVersion = 0;
 // dieselbe Vereinigung wie die Meßergebnis-Tabelle in results.js. So sieht
 // das Warping immer das, was der Nutzer in der Tabelle sieht — keine
 // abweichende Logik. fmStatus 'in-progress' und 'in-progress-early'
-// (Platzhalter cent=0) werden mitgenommen; final hat Vorrang pro
-// (varSide, elIdx).
+// (Platzhalter cent=0) werden mitgenommen; final hat Vorrang pro Elektrode.
 // BA353: Quelle = zentraler aktives-Verfahren-Filter (results.js).
 // Frueher: FRQ_resultsArray + in-progress + Slider-Schaetzungen ungefiltert vereinigt.
 function _warpFResSource() {
@@ -160,7 +159,7 @@ function _warpFResStats() {
 
 function buildWarpPoints(fResData, warpMode, invert = false) {
   // fResData: Array { elIdx, cent, frqRefMode, method, ... }
-  // Gibt sortiertes Array { varFreq, csL, csR } zurück.
+  // Gibt sortiertes Array { hz, csL, csR } zurück.
   //
   // Vorzeichen-Konvention der zurückgegebenen cs-Werte:
   // - Ohne invert (Default): Wahrnehmungs-/Simulations-Richtung — wie die
@@ -180,10 +179,10 @@ function buildWarpPoints(fResData, warpMode, invert = false) {
     const sw = FRQ_seitenWerte(r.cent, warpMode);
     let csL = sw.csL, csR = sw.csR;
     if (invert) { csL = -csL; csR = -csR; }
-    // varFreq (X-Stuetzstelle) = Bezugsfrequenz der Elektrode auf der aktiven Seite.
-    pts.push({ varFreq: FRQ_refHzForMode(r.elIdx), csL, csR });
+    // hz (X-Stuetzstelle) = Bezugsfrequenz der Elektrode auf der aktiven Seite.
+    pts.push({ hz: FRQ_refHzForMode(r.elIdx), csL, csR });
   }
-  pts.sort((a, b) => a.varFreq - b.varFreq);
+  pts.sort((a, b) => a.hz - b.hz);
   return pts;
 }
 
@@ -228,13 +227,13 @@ function centShift(f, side, points) {
   const key = side === "left" ? "csL" : "csR";
   if (points.length === 1) return points[0][key];
   const logF = Math.log2(f);
-  const logFirst = Math.log2(points[0].varFreq);
-  const logLast  = Math.log2(points[points.length - 1].varFreq);
+  const logFirst = Math.log2(points[0].hz);
+  const logLast  = Math.log2(points[points.length - 1].hz);
   if (logF <= logFirst) return points[0][key];
   if (logF >= logLast)  return points[points.length - 1][key];
   for (let i = 0; i < points.length - 1; i++) {
-    const f1 = Math.log2(points[i].varFreq);
-    const f2 = Math.log2(points[i + 1].varFreq);
+    const f1 = Math.log2(points[i].hz);
+    const f2 = Math.log2(points[i + 1].hz);
     if (logF >= f1 && logF <= f2) {
       const t = (logF - f1) / (f2 - f1);
       return points[i][key] + t * (points[i + 1][key] - points[i][key]);
@@ -578,7 +577,7 @@ function _rbBuildBandEdges(points, nyquist) {
   }
   const edges = [0];
   for (let i = 0; i < points.length - 1; i++) {
-    edges.push(Math.sqrt(points[i].varFreq * points[i + 1].varFreq));
+    edges.push(Math.sqrt(points[i].hz * points[i + 1].hz));
   }
   edges.push(nyquist * 0.999);
 

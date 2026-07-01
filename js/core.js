@@ -209,13 +209,6 @@ const MFR = {
     ],
   },
 };
-// Datum der Cochlear-FAT-Default-Korrektur (BA 136).
-// Vergleichsmaßstab für FRQ_resultsArray-Einträge: Einträge mit
-// timestamp < diesem Wert wurden vor der Korrektur gemessen
-// und beziehen sich auf eine abweichende Default-Annahme
-// (HFE 8000 statt 7938 Hz). Wird in freqmatch.js für die
-// Info-Box-Anzeige gelesen.
-const COCHLEAR_FAT_CORRECTION_DATE = Date.UTC(2026, 4, 31); // 2026-05-31 UTC
 // ============================================================
 // BA417: Feste, sprachunabhaengige Kurzkennung einer Seite ('L' | 'R').
 function sideLetter(side) { return (side === "left") ? "L" : "R"; }
@@ -252,7 +245,10 @@ function meanCentStepOfFreqs(freqArr) {
 // ============================================================
 // FREQUENZABGLEICH -- kanonisches cent + Seitenverteilung
 // (Architektur: 00-freqmatch-ergebnisformat-architektur.md, 4.2)
-// cent-Konvention: +cent = rechtes Ohr hoeher (= linkes Ohr tiefer).
+// cent-Konvention (Wahrnehmung, eindeutig): +cent = rechtes Ohr nimmt tiefer
+// wahr als linkes. VORSICHT: die Korrektur-Richtung folgt daraus nicht
+// pauschal -- der Player-Warp HEBT das rechte Audio an (s. FRQ_seitenWerte),
+// die CI-Umprogrammierung SENKT umgekehrt die rechte Mittenfrequenz.
 // ============================================================
 
 // Wandelt einen Roh-Offset in der ALTEN var/ref-Mess-Konvention
@@ -269,7 +265,8 @@ function FRQ_varRefOffsetToCanonical(frqRefMode, rawOffset) {
 // Verteilt den KANONISCHEN cent nach der Player-Einstellung warpMode
 // auf die beiden Seiten. Rueckgabe { csL, csR } = Cent-Shift links/rechts.
 // Braucht KEINEN testmode (Mess-Herkunft ist im kanonischen cent
-// bereits aufgeloest). cent>0 = rechts hoeher.
+// bereits aufgeloest). cent>0 => rechte Seite wird angehoben (Warp-Richtung;
+// die Wahrnehmung ist umgekehrt: bei +cent klingt rechts tiefer).
 //   warpMode 'right':     volle Differenz aufs rechte Ohr   -> csR = cent
 //   warpMode 'left':      volle Differenz aufs linke Ohr    -> csL = -cent
 //   warpMode 'symmetric': haelftig gegenlaeufig             -> csR=cent/2, csL=-cent/2

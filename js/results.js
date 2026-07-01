@@ -206,8 +206,7 @@ function ELL_renderResults() {
 // BA353: Zentrale, nach aktivem Verfahren gefilterte Ergebnis-Quelle.
 // EINZIGE Stelle, durch die Ergebnisgraph, Player (Warp) und Druck gehen.
 // Generisch: vergleicht frq_entryMethod(eintrag) mit dem aktiven Verfahren,
-// kennt die Verfahren nicht beim Namen. Vorrang final > provisorisch je
-// (varSide, elIdx) -- aber nur INNERHALB des aktiven Verfahrens.
+// kennt die Verfahren nicht beim Namen.
 function FRQ_activeResults() {
   const method = (typeof frq_getActiveMethod === "function") ? frq_getActiveMethod() : "piano";
   const me = (typeof frq_entryMethod === "function") ? frq_entryMethod : function(r) { return "piano"; };
@@ -221,8 +220,8 @@ function FRQ_renderResults() {
   const card = document.getElementById("FRQ_resultsCard");
   if (!noData || !card) return;
 
-  // CI-Seite = aktive Seite (seit BA 414 kein varSide mehr in Eintraegen).
-  const ciSide = (typeof activeSide === "string") ? activeSide
+  // Bezug = aktive (angezeigte) Seite.
+  const aktivSide = (typeof activeSide === "string") ? activeSide
     : (sideData.left.config === 'ci' ? 'left' : 'right');
 
   if (typeof FRQ_resultsArray === "undefined" || FRQ_resultsArray.length === 0) {
@@ -235,7 +234,7 @@ function FRQ_renderResults() {
   // BA353: Umschalter-Hervorhebung aktualisieren.
   if (typeof frq_updateActiveMethodButtons === "function") frq_updateActiveMethodButtons();
 
-  // BA353: Anzeige-Daten: aktives Verfahren (kein varSide-Filter mehr noetig).
+  // BA353: Anzeige-Daten: aktives Verfahren.
   const displayData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
 
   // Titel
@@ -262,8 +261,8 @@ function FRQ_renderResults() {
     metaEl.textContent = metaText;
   }
 
-  const varLabel = ciSide === 'left' ? t('sideLeft')  : t('sideRight');
-  const refLabel = ciSide === 'left' ? t('sideRight') : t('sideLeft');
+  const varLabel = aktivSide === 'left' ? t('sideLeft')  : t('sideRight');
+  const refLabel = aktivSide === 'left' ? t('sideRight') : t('sideLeft');
 
   // Tabellen-Header
   const th = document.getElementById("FRQ_resultsTableHead");
@@ -289,17 +288,17 @@ function FRQ_renderResults() {
       "<p style=\"margin:0\">" + line2 + "</p>";
   }
 
-  // Tabellen-Body: alle Elektroden der CI-Seite
-  const nCi = sideData[ciSide].nEl;
+  // Tabellen-Body: alle Elektroden der aktiven Seite
+  const nCi = sideData[aktivSide].nEl;
   const byIdx = {};
   for (const r of displayData) byIdx[r.elIdx] = r;
 
   tb.innerHTML = "";
   for (let i = 0; i < nCi; i++) {
-    const exCI = sideData[ciSide].elExDur[i] !== null || sideData[ciSide].elSt[i] === 'mute';
+    const exCI = sideData[aktivSide].elExDur[i] !== null || sideData[aktivSide].elSt[i] === 'mute';
     const r = byIdx[i];
     const tr = document.createElement("tr");
-    const elLabel = dENPrefix(ciSide) + dEN(i, ciSide);
+    const elLabel = dENPrefix(aktivSide) + dEN(i, aktivSide);
 
     if (exCI) {
       tr.style.opacity = "0.4";
@@ -329,7 +328,7 @@ function FRQ_renderResults() {
         diffHzCell = "<span style=\"color:#9ca3af\">—</span>";
         diffCtCell = "<span style=\"color:#9ca3af\">—</span>";
       } else {
-        const varHz    = withSide(ciSide, function () { return FRQ_implantatEffektiv(r.elIdx); });
+        const varHz    = withSide(aktivSide, function () { return FRQ_implantatEffektiv(r.elIdx); });
         const refHz    = varHz * Math.pow(2, r.cent / 1200);
         const diffHzRaw = refHz - varHz;
         const centRound = Math.round(r.cent);
@@ -404,9 +403,9 @@ function FRQ_renderResults() {
   const qEl = document.getElementById('FRQ_resultsQualityText');
   if (qEl) {
     const finalEntries = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
-    const nElTotal = sideData[ciSide].nEl;
-    const nExcluded = sideData[ciSide].elExDur.filter(function(v) { return v !== null; }).length
-                    + sideData[ciSide].elSt.filter(function(s) { return s === 'mute'; }).length;
+    const nElTotal = sideData[aktivSide].nEl;
+    const nExcluded = sideData[aktivSide].elExDur.filter(function(v) { return v !== null; }).length
+                    + sideData[aktivSide].elSt.filter(function(s) { return s === 'mute'; }).length;
     const totalActive = nElTotal - nExcluded;
 
     let txt = '';
@@ -470,7 +469,7 @@ function FRQ_renderResults() {
   }
   const canonHintEl = document.getElementById("FRQ_resultsChartCanonicalHint");
   if (canonHintEl) {
-    const sideLbl = ciSide === "left" ? t("sideLeft") : t("sideRight");
+    const sideLbl = aktivSide === "left" ? t("sideLeft") : t("sideRight");
     canonHintEl.textContent = t("FRQ_resultsChartCanonicalHint").replace("%S", sideLbl);
   }
 }
