@@ -382,9 +382,8 @@ function FRQ_werte(form, modus, nhSim) {
         // nhSim -> form-eigene Richtung (die EINE Vorzeichen-Wahrheit):
         //   gehoert: nhSim aus = gehoerte/Korrektur-Richtung (sgn -1);
         //            nhSim an  = um die nominelle Frequenz gespiegelt (sgn +1).
-        //   warp:    Player-Konvention invert = !nhSim (freq-warp.js Z.173):
-        //            nhSim aus = Vorhalt/Korrektur (sgn +1... siehe unten).
-        // Merke: fuer Form 'warp' ohne nhSim war frueher inv=false -> sgn=+1.
+        //   warp:    nhSim aus = Vorhalt/Korrektur (sgn +1);
+        //            nhSim an  = Verzerrungs-Simulation (sgn -1).
         var sgn = (form === "warp")
           ? (_nhSim ? -1 : 1)
           : (_nhSim ? 1 : -1);
@@ -399,6 +398,11 @@ function FRQ_werte(form, modus, nhSim) {
         if (form === "warp") {
           left.cs  = shL;
           right.cs = shR;
+          // BA427: Bandmitte = Quell-Frequenz des Warps (Abgreifpunkt im
+          // Original-Audio). NH-Sim aus -> gehoerte Frequenz
+          // (nominell * 2^(-cs/1200)); NH-Sim an -> nominelle Frequenz selbst.
+          left.bandHz  = _nhSim ? nomL : nomL * Math.pow(2, -shL / 1200);
+          right.bandHz = _nhSim ? nomR : nomR * Math.pow(2, -shR / 1200);
         } else {
           left.shiftCent  = shL;
           right.shiftCent = shR;
@@ -412,6 +416,7 @@ function FRQ_werte(form, modus, nhSim) {
         left.residuum = null; right.residuum = null;
         if (form === "warp") {
           left.cs = null; right.cs = null;
+          left.bandHz = null; right.bandHz = null;
         } else {
           left.shiftCent = null;  right.shiftCent = null;
           left.gehoertHz = null;  right.gehoertHz = null;
