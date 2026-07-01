@@ -337,10 +337,21 @@ function ELL_drawChart(cv, vals, res, isOff, ell_color, ctx) {
 // ============================================================
 function drawFRQChart(cv, fResData, opts) {
   opts = opts || {};
-  const ctx = cv.getContext("2d"),
-    dpr = window.devicePixelRatio || 1,
-    w = cv.parentElement.clientWidth - 32,
+  const ctx = cv.getContext("2d");
+  const fixed = opts.fixedSize || null;
+  let w, h, dpr;
+  if (fixed) {
+    // Feste Druckgroesse (z.B. Audiologen-Ausdruck): kein parentElement,
+    // definierte Aufloesung ueber dpr fuer scharfe PNGs.
+    dpr = fixed.dpr || 2;
+    w = fixed.w;
+    h = fixed.h;
+  } else {
+    // Bildschirm: an den umgebenden Kasten anpassen (unveraendert).
+    dpr = window.devicePixelRatio || 1;
+    w = cv.parentElement.clientWidth - 32;
     h = 420;
+  }
   cv.width = w * dpr;
   cv.height = h * dpr;
   cv.style.width = w + "px";
@@ -375,7 +386,8 @@ function drawFRQChart(cv, fResData, opts) {
   // LINKS/RECHTS-Umschalter. Die VERTEILUNG der Verschiebung kommt dagegen
   // aus dem Referenzmodus (im Test bewegte Seite), NICHT aus dem Umschalter;
   // dazu wird er in den "korrigierte Seite"-Modus fuer FRQ_werte uebersetzt.
-  const aktivSide = (typeof activeSide === "string") ? activeSide : "right";
+  const aktivSide = (typeof opts.side === "string") ? opts.side
+    : ((typeof activeSide === "string") ? activeSide : "right");
   const measuredByIdx = {};
   for (const r of fResData) measuredByIdx[r.elIdx] = r;
 
@@ -384,8 +396,12 @@ function drawFRQChart(cv, fResData, opts) {
   // "nicht Teil der Messung"-Flag. Der Graph rechnet daraus nur noch seine
   // Achsen-/Pixel-Positionen, keine Frequenz-Ableitung mehr selbst.
   // Mess-Reiter kennt kein NH-Sim -> nhSim=false (gehoerte/Korrektur-Richtung).
-  const modus = FRQ_modusVonReferenzmodus(frq_referenzmodus());
-  const werte = FRQ_werte("gehoert", modus, false);
+  // Default = Mess-Reiter: Verteilung aus dem Referenzmodus, kein NH-Sim.
+  // opts.modus / opts.nhSim erlauben Anwendungs-Konsumenten (Ausdruck),
+  // stattdessen den Player-warpMode + NH-Sim vorzugeben.
+  const modus = (typeof opts.modus === "string") ? opts.modus
+    : FRQ_modusVonReferenzmodus(frq_referenzmodus());
+  const werte = FRQ_werte("gehoert", modus, !!opts.nhSim);
 
   // Liste aller Elektroden (alle bekommen mindestens einen Ist-Strich).
   // Iteration ueber die Wertquelle; der Status ("hat Eintrag", fmStatus)
