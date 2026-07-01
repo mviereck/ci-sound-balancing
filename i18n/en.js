@@ -407,6 +407,8 @@ Object.assign(L.en, {
     audiologSecLoudness: "Loudness change",
     audiologSecMaplaw: "MAPLAW change",
     audiologSecFreq: "Change of center frequencies",
+    audiologFreqWarnAcoustic: "This correction applies to an acoustically hearing ear ({side}). It cannot be programmed into a CI and only affects playback in the player.",
+    audiologFreqWarnNhSim: "These values come from the normal-hearing simulation mode. They reproduce the distortion instead of correcting it and are not meaningful CI settings.",
     audiologSecSTB: "Stereo balance",
     audiologSecLTZ: "Inter-ear latency",
     audiologSecAdvice: "Notes for the audiologist",

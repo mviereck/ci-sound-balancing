@@ -882,97 +882,84 @@ function _audiologELLTable(side) {
   });
 }
 
-// ---------- Frequenz-Tabelle pro Seite (mit sym-Warp-Zusatzspalten) ----------
+// ---------- Frequenz-Tabelle pro Seite ----------
 
-// Liefert pro Elektrode auf `side` die effektive Frequenzabgleich-Zeile
-// (hzIst=aktuelle Mittenfrequenz, hzWunsch=Wunsch nach Warp,
-// cent=tatsächliche Cent-Verschiebung dieser Seite, _provisional).
-// Quelle ist `_warpFResSource()` + `buildWarpPoints/centShift` — also
-// exakt dieselbe Mathematik, die der Player im Audio-Pfad anwendet.
-// Für jede Elektrode wird der kanonische cent über centShift auf DIESE
-// Seite umgerechnet; Zeilen ohne Verschiebung entfallen. Im symmetrischen
-// Modus tragen beide Seiten je die halbe Verschiebung, daher erscheinen
-// Tabelle/Graph auch bei einseitigem Druck mit Daten.
-function _audiologFmRowsForSide(side) {
-  if (typeof pWarpOn === "undefined" || !pWarpOn) return [];
-  if (typeof buildWarpPoints !== "function" || typeof centShift !== "function") return [];
-  const frq_src = (typeof _warpFResSource === "function")
-    ? _warpFResSource()
-    : ((typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) ? FRQ_resultsArray : []);
-  if (frq_src.length === 0) return [];
-
-  const mode = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
-  const points = buildWarpPoints(frq_src, mode);
-
-  const elIdxSet = new Set();
-  const provByEl = {};
-  const sliderByEl = {};
-  for (const r of frq_src) {
-    elIdxSet.add(r.elIdx);
-    if (r._sliderEstimate)   sliderByEl[r.elIdx] = true;
-    else if (r._provisional) provByEl[r.elIdx]   = true;
-  }
-
-  const rows = [];
-  const elIdxList = Array.from(elIdxSet).sort((a, b) => a - b);
-  for (const elIdx of elIdxList) {
-    const fSelf = withSide(side, () => FRQ_implantatEffektiv(elIdx));
-    if (!isFinite(fSelf) || fSelf <= 0) continue;
-    const cs = centShift(fSelf, side, points);
-    if (Math.abs(cs) < 1e-9) continue;
-    const fWish = fSelf * Math.pow(2, cs / 1200);
-    rows.push({
-      elIdx,
-      hzIst: fSelf,
-      hzWunsch: fWish,
-      cent: cs,
-      _provisional:    !!provByEl[elIdx],
-      _sliderEstimate: !!sliderByEl[elIdx],
-    });
-  }
-  return rows;
-}
-
+// BA424: Frequenz-Tabelle fuer Ausdruck UND Markdown-Export. Gleiche Zeilen-
+// Quelle wie der Reiter (FRQ_tabellenZeilen), hier als Markdown, ohne Status-
+// Spalte. Werte folgen der Player-Einstellung: modus=pWarpMode, nhSim=plNHSim.
+// Rueckgabe "" wenn Warping aus oder keine Zeilen mit Daten.
 function _audiologFreqTable(side) {
   if (typeof pWarpOn === "undefined" || !pWarpOn) return "";
   if (typeof plEqOn !== "undefined" && !plEqOn) return "";
-  const rows = _audiologFmRowsForSide(side);
-  if (rows.length === 0) return "";
+  if (typeof FRQ_tabellenZeilen !== "function") return "";
+  const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
+  const nhEl  = document.getElementById("plNHSim");
+  const nhSim = !!(nhEl && nhEl.checked);
+  const zeilen = FRQ_tabellenZeilen({ side: side, modus: modus, nhSim: nhSim });
 
-  return withSide(side, () => {
-    const lines = [];
-    const sd = sideData[side];
-    const defFreqs = (sd && sd.manufacturer && MFR[sd.manufacturer])
-      ? MFR[sd.manufacturer].FRQ_implantat
-      : FRQ_implantat;
-    const ownFreqOwn = (sd && sd.FRQ_implantatOwn) ? sd.FRQ_implantatOwn : null;
-
-    let hasProv = false;
-    let hasSliderEst = false;
-    lines.push(`| ${t("thEl")} | ${t("audColHzDefault")} | ${t("audColHzManual")} | ${t("audColCent")} | ${t("audColDeltaHz")} | ${t("audColHzWish")} |`);
-    lines.push("|---|---|---|---|---|---|");
-    for (const r of rows) {
-      if (r._sliderEstimate)      hasSliderEst = true;
-      else if (r._provisional)    hasProv = true;
-      let elLabel = `${dENPrefix()}${dEN(r.elIdx)}`;
-      if (r._sliderEstimate)      elLabel += " †";
-      else if (r._provisional)    elLabel += " *";
-      const hzDef = defFreqs[r.elIdx] != null ? _mdFmtHz(defFreqs[r.elIdx]) : "—";
-      const hzMan = (ownFreqOwn && ownFreqOwn[r.elIdx] != null) ? _mdFmtHz(ownFreqOwn[r.elIdx]) : "—";
-      const dHzV  = r.hzWunsch - r.hzIst;
-      const dHz   = isFinite(dHzV) ? `${dHzV >= 0 ? "+" : ""}${Math.round(dHzV)} Hz` : "—";
-      lines.push(`| ${elLabel} | ${hzDef} | ${hzMan} | ${_audCent(r.hzIst, r.hzWunsch)} | ${dHz} | **${_mdFmtHz(r.hzWunsch)}** |`);
-    }
-    if (hasProv) {
-      lines.push("");
-      lines.push(`_${t("archivFmProvNote")}_`);
-    }
-    if (hasSliderEst) {
-      lines.push("");
-      lines.push(`_${t("audFmSliderEstNote")}_`);
-    }
-    return lines.join("\n") + "\n";
+  // Nur zeigen, wenn mindestens eine Elektrode echte Verschiebungs-Daten hat.
+  const hasData = zeilen.some(function (z) {
+    return z.kind === "data" && z.gehoertHz != null && z.diffCent != null;
   });
+  if (!hasData) return "";
+
+  const dashMd = "—";
+  const lines = [];
+  // Reiter-Spalten OHNE Status (Nutzer: "Status kann weg").
+  lines.push("| " + t("FRQ_resultsColEl")
+    + " | " + t("FRQ_resultsColNominalHz")
+    + " | " + t("FRQ_resultsColPerceivedHz")
+    + " | " + t("FRQ_resultsColDiffHz")
+    + " | " + t("FRQ_resultsColDiffCent")
+    + " | " + t("FRQ_resultsColResiduum") + " |");
+  lines.push("|---|---|---|---|---|---|");
+  for (const z of zeilen) {
+    if (z.kind === "excluded") {
+      lines.push("| " + z.elLabel + " | — | — | — | — | " + t("excludedSkipped") + " |");
+      continue;
+    }
+    if (z.kind === "notMeasured") {
+      lines.push("| " + z.elLabel + " | — | — | — | — | " + t("notMeasured") + " |");
+      continue;
+    }
+    let nomC = dashMd, perC = dashMd, dHzC = dashMd, dCtC = dashMd, resC = dashMd;
+    if (z.gehoertHz != null && z.diffCent != null) {
+      nomC = z.nominellHz.toFixed(2);
+      perC = z.gehoertHz.toFixed(2);
+      dHzC = (z.diffHz >= 0 ? "+" : "") + z.diffHz.toFixed(2);
+      dCtC = (z.diffCent >= 0 ? "+" : "") + z.diffCent;
+    } else if (z.nominellHz != null) {
+      nomC = z.nominellHz.toFixed(2);
+    }
+    if (z.residuum != null) resC = "±" + Math.round(z.residuum) + " ct";
+    lines.push("| " + z.elLabel + " | " + nomC + " | " + perC
+      + " | " + dHzC + " | " + dCtC + " | " + resC + " |");
+  }
+  return lines.join("\n") + "\n";
+}
+
+// BA424 (Konzept §10): Warnhinweise im Frequenz-Abschnitt einer Seite.
+// (a) Korrektur trifft ein akustisch hoerendes Ohr -> nicht ins CI programmierbar.
+// (b) NH-Sim aktiv -> Werte bilden die Verzerrung nach, keine CI-Einstellung.
+// Beide koennen gleichzeitig zutreffen. "" wenn keiner zutrifft.
+function _audiologFreqWarnungen(side) {
+  if (typeof pWarpOn === "undefined" || !pWarpOn) return "";
+  if (typeof plEqOn !== "undefined" && !plEqOn) return "";
+  const lines = [];
+  // (a) Zielseite akustisch?
+  const sd = sideData[side];
+  const cfg = (sd && sd.config) || "ci";
+  if (cfg !== "ci") {
+    const sideLbl = side === "left" ? t("sideLeft") : t("sideRight");
+    lines.push("> ⚠️ " + t("audiologFreqWarnAcoustic").replace("{side}", sideLbl));
+  }
+  // (b) NH-Sim aktiv?
+  const nhEl = document.getElementById("plNHSim");
+  if (nhEl && nhEl.checked) {
+    lines.push("> ⚠️ " + t("audiologFreqWarnNhSim"));
+  }
+  if (lines.length === 0) return "";
+  return lines.join("\n") + "\n";
 }
 
 // ---------- MAPLAW — eigene H2-Sektion ----------
@@ -1173,13 +1160,6 @@ function buildAudiologMarkdown() {
     parts.push(`> ${t("audiologEqOff")}\n`);
   }
 
-  // ---- nhSim war aktiv (BA 315) ----
-  const _nhEl = document.getElementById("plNHSim");
-  if (typeof plEqOn !== "undefined" && plEqOn && _nhEl && _nhEl.checked) {
-    parts.push(`> ${t("nhSimNotApplied")}\n`);
-  }
-
-
   // ===========================================================
   // BILATERAL-BLOCK — vor den Seiten-Blöcken.
   // Reihenfolge: Balance → Latenz → Hinweise → Fehlende Angaben.
@@ -1270,6 +1250,8 @@ function buildAudiologMarkdown() {
         if (ft) {
           parts.push(`### ${t("audiologSecFreq")} — ${sideLbl}`);
           parts.push("");
+          const warn = _audiologFreqWarnungen(side);
+          if (warn) { parts.push(warn); }
           parts.push(ft);
         }
         const otherSide = side === "left" ? "right" : "left";
@@ -1278,11 +1260,15 @@ function buildAudiologMarkdown() {
         if (ftOther) {
           parts.push(`### ${t("audiologSecFreq")} — ${otherLbl}`);
           parts.push("");
+          const warnOther = _audiologFreqWarnungen(otherSide);
+          if (warnOther) { parts.push(warnOther); }
           parts.push(ftOther);
         }
       } else if (ft) {
         parts.push(`### ${t("audiologSecFreq")}`);
         parts.push("");
+        const warn = _audiologFreqWarnungen(side);
+        if (warn) { parts.push(warn); }
         parts.push(ft);
       }
     }
@@ -1434,105 +1420,31 @@ function _audiologChartImg(side) {
   });
 }
 
-// Frequenzabgleich-Graph für Audiologen-Druck. Selbe Datenquelle wie
-// _audiologFreqTable: _audiologFmRowsForSide(side) — modus-bewußte
-// effektive Cent-Verschiebung pro Seite. Punkte grün/rot je Cent-
-// Vorzeichen mit Elektrodenlabel; provisorische Punkte (laufender Test)
-// als offener Kreis statt gefüllt, mit Legende `archivFmProvLegend`.
-// Rückgabe "" wenn keine Punkte für die Seite vorliegen.
+// BA424: Frequenz-Graph fuer den Ausdruck. Nutzt DENSELBEN Zeichencode wie
+// der Reiter (drawFRQChart, BA422) in fester Druckgroesse. Werte folgen der
+// Player-Einstellung (modus=pWarpMode, nhSim=plNHSim). "" wenn Warping aus
+// oder keine gemessenen Daten fuer die Seite.
 function _audiologFreqChartImg(side) {
   if (typeof pWarpOn === "undefined" || !pWarpOn) return "";
   if (typeof plEqOn !== "undefined" && !plEqOn) return "";
-  const rows = _audiologFmRowsForSide(side);
-  if (rows.length === 0) return "";
+  if (typeof drawFRQChart !== "function") return "";
+  const displayData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
+  if (!displayData || displayData.length === 0) return "";
 
-  return withSide(side, () => {
-    const SCALE = 2;
-    const Wlog = 700, Hlog = 240;
-    const canvas = document.createElement("canvas");
-    canvas.width = Wlog * SCALE;
-    canvas.height = Hlog * SCALE;
-    const ctx = canvas.getContext("2d");
-    ctx.scale(SCALE, SCALE);
-    ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, Wlog, Hlog);
+  const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
+  const nhEl  = document.getElementById("plNHSim");
+  const nhSim = !!(nhEl && nhEl.checked);
 
-    let maxAbsCent = 50;
-    for (const r of rows) maxAbsCent = Math.max(maxAbsCent, Math.abs(r.cent));
-    maxAbsCent = Math.ceil(maxAbsCent / 50) * 50;
-
-    const pad = { l: 50, r: 14, t: 30, b: 32 };
-    const pW = Wlog - pad.l - pad.r, pH = Hlog - pad.t - pad.b;
-    const zY = pad.t + pH / 2;
-
-    const freqs = rows.map((r) => r.hzIst);
-    const fMin = Math.min.apply(null, freqs.concat([100]));
-    const fMax = Math.max.apply(null, freqs.concat([8000]));
-    const xFor = (hz) => pad.l + (Math.log2(hz / fMin) / Math.log2(fMax / fMin)) * pW;
-
-    ctx.strokeStyle = "#888"; ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(pad.l, zY); ctx.lineTo(Wlog - pad.r, zY); ctx.stroke();
-
-    ctx.fillStyle = "#444"; ctx.font = "10px sans-serif"; ctx.textAlign = "right";
-    ctx.fillText("+" + maxAbsCent + " ¢", pad.l - 4, pad.t + 8);
-    ctx.fillText("0", pad.l - 4, zY + 3);
-    ctx.fillText("-" + maxAbsCent + " ¢", pad.l - 4, Hlog - pad.b + 4);
-
-    let hasProv = false;
-    let hasSliderEst = false;
-    for (const r of rows) {
-      const x = xFor(r.hzIst);
-      const y = zY - (r.cent / maxAbsCent) * (pH / 2);
-      if (r._sliderEstimate) {
-        hasSliderEst = true;
-        // Hohle graue Raute
-        const sz = 5;
-        ctx.fillStyle = '#ffffff';
-        ctx.strokeStyle = '#6b7280';
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.moveTo(x, y - sz);
-        ctx.lineTo(x + sz, y);
-        ctx.lineTo(x, y + sz);
-        ctx.lineTo(x - sz, y);
-        ctx.closePath();
-        ctx.fill();
-        ctx.stroke();
-      } else {
-        const color = r.cent >= 0 ? "#16a34a" : "#dc2626";
-        ctx.beginPath();
-        ctx.arc(x, y, 4, 0, Math.PI * 2);
-        if (r._provisional) {
-          ctx.strokeStyle = color;
-          ctx.lineWidth = 1.5;
-          ctx.stroke();
-          hasProv = true;
-        } else {
-          ctx.fillStyle = color;
-          ctx.fill();
-        }
-      }
-      ctx.fillStyle = "#444";
-      ctx.font = "10px sans-serif";
-      ctx.textAlign = "center";
-      ctx.fillText(`${dENPrefix()}${dEN(r.elIdx)}`, x, Hlog - pad.b + 16);
-    }
-
-    ctx.fillStyle = "#000"; ctx.font = "bold 12px sans-serif"; ctx.textAlign = "left";
-    const sideName = side === "left" ? t("sideLeft") : t("sideRight");
-    ctx.fillText(`${t("audiologSecFreq")} — ${sideName}`, pad.l, 18);
-
-    if (hasProv) {
-      ctx.fillStyle = "#555"; ctx.font = "9px sans-serif"; ctx.textAlign = "right";
-      ctx.fillText(t("archivFmProvLegend"), Wlog - pad.r, 18);
-    }
-    if (hasSliderEst) {
-      ctx.fillStyle = "#555"; ctx.font = "9px sans-serif"; ctx.textAlign = "right";
-      const legendY = hasProv ? 30 : 18;
-      ctx.fillText("◇ " + t("FRQ_resultsStatusSliderEstimate"), Wlog - pad.r, legendY);
-    }
-
-    return `<img src="${canvas.toDataURL("image/png")}" style="width:${Wlog}px;max-width:100%;height:auto;" />`;
+  const cv = document.createElement("canvas");
+  // Feste Druckgroesse wie der bisherige Ausdruck-Graph (700x240), scharf via dpr.
+  drawFRQChart(cv, displayData, {
+    side: side,
+    modus: modus,
+    nhSim: nhSim,
+    fixedSize: { w: 700, h: 240, dpr: 2 }
   });
+  const url = cv.toDataURL("image/png");
+  return '<img src="' + url + '" style="width:700px;max-width:100%;height:auto;" />';
 }
 
 // BA 321: Warnhinweis in der Audiologen-Karte. Sichtbar, wenn

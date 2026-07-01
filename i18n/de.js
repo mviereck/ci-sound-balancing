@@ -458,6 +458,8 @@ Object.assign(L.de, {
     audiologSecLoudness: "Lautstärken-Änderung",
     audiologSecMaplaw: "MAPLAW-Änderung",
     audiologSecFreq: "Änderung der Mittenfrequenzen",
+    audiologFreqWarnAcoustic: "Diese Korrektur betrifft ein akustisch hörendes Ohr ({side}). Sie lässt sich nicht in ein CI programmieren und dient nur der Wiedergabe im Player.",
+    audiologFreqWarnNhSim: "Diese Werte stammen aus dem Simulationsmodus für Normalhörende. Sie bilden die Verzerrung nach, statt sie zu korrigieren, und sind keine sinnvollen CI-Einstellungen.",
     audiologSecSTB: "Stereo-Balance",
     audiologSecLTZ: "Inter-Ohr-Latenz",
     audiologSecAdvice: "Hinweise für den Audiologen",

@@ -408,6 +408,8 @@ Object.assign(L.fr, {
     audiologSecLoudness: "Modification d'intensité",
     audiologSecMaplaw: "Modification MAPLAW",
     audiologSecFreq: "Modification des fréquences centrales",
+    audiologFreqWarnAcoustic: "Cette correction concerne une oreille à audition acoustique ({side}). Elle ne peut pas être programmée dans un implant et n'agit que sur la lecture dans le lecteur.",
+    audiologFreqWarnNhSim: "Ces valeurs proviennent du mode de simulation pour normo-entendants. Elles reproduisent la distorsion au lieu de la corriger et ne constituent pas des réglages d'implant pertinents.",
     audiologSecSTB: "Balance stéréo",
     audiologSecLTZ: "Latence inter-aurale",
     audiologSecAdvice: "Indications pour l'audiologiste",
