@@ -1318,12 +1318,8 @@ function pApplyWarpModeDefaultFromFm() {
   _pPlayerWarpDefaultApplied = true;
   var rm = (typeof frq_referenzmodus === "function") ? frq_referenzmodus() : "right";
   // referenzmodus = welche Seite im Test der veraenderbare Ton war.
-  // Default-Warp: Mapping nach Nutzer-Beschluss (BA417).
-  var mode = "left";
-  if (rm === "left")            mode = "right";
-  else if (rm === "right")      mode = "left";
-  else if (rm === "symmetric")  mode = "symmetric";
-  pWarpMode = mode;
+  // Mapping in den korrigierte-Seite-Modus jetzt zentral (BA419).
+  pWarpMode = FRQ_modusVonReferenzmodus(rm);
   var sel = document.getElementById("plWarpModeSelect");
   if (sel) sel.value = pWarpMode;
 }

@@ -287,6 +287,18 @@ function FRQ_refHzForMode(elIdx) {
   return withSide(side, function () { return FRQ_implantatEffektiv(elIdx); });
 }
 
+// BA419: Uebersetzt den Referenzmodus (im Test bewegte Seite) in den
+// "korrigierte Seite"-Modus, den FRQ_werte/FRQ_seitenWerte erwarten. EINE
+// geteilte Stelle fuer alle Referenzmodus-Konsumenten (Ergebnis-Graph,
+// spaeter Ergebnis-Tabelle, Player-Warp-Default). Mapping nach
+// Nutzer-Beschluss BA417: left<->right getauscht, symmetric bleibt.
+function FRQ_modusVonReferenzmodus(rm) {
+  if (rm === "left")      return "right";
+  if (rm === "right")     return "left";
+  if (rm === "symmetric") return "symmetric";
+  return "left";
+}
+
 // BA418: Zentrale Frequenzabgleich-Wertquelle. EINE Stelle, aus der alle
 // Konsumenten ihre Frequenzwerte beziehen. Siehe
 // .docs/spec/00-freqmatch-wertquelle-architektur.md
@@ -329,6 +341,11 @@ function FRQ_werte(form, modus, invertieren) {
     var r = measured[i];
     var gemessen = !!(r && r.cent != null);
     var deaktiviert = (FRQ_electrodeStatusBoth(i) !== "testable");
+    // Residuum (Mess-Unsicherheit in cent) aus dem fRes-Eintrag; null, wenn
+    // kein Eintrag. Formabhaengig ausgegeben: roh seitenlos (entry.residuum),
+    // warp/gehoert pro Seite verteilt wie die Verschiebung (s.u.).
+    var residuum = r ? (r.fmResiduum != null ? r.fmResiduum
+                       : (r.fmResidual != null ? r.fmResidual : null)) : null;
 
     // Nominelle (eingetragene) Frequenz je Seite -- keine Messgroesse,
     // existiert immer.
@@ -346,9 +363,11 @@ function FRQ_werte(form, modus, invertieren) {
     };
 
     if (form === "roh") {
-      // Dokumentations-Form: kanonischer Offset + Referenzseite (Herkunft).
+      // Dokumentations-Form: kanonischer Offset + Referenzseite (Herkunft) +
+      // seitenlose interaurale Unsicherheit.
       entry.cent       = gemessen ? r.cent : null;
       entry.frqRefMode = gemessen ? r.frqRefMode : null;
+      entry.residuum   = residuum;
 
     } else if (form === "warp" || form === "gehoert") {
       if (gemessen) {
@@ -357,6 +376,12 @@ function FRQ_werte(form, modus, invertieren) {
         var sgn = (form === "warp") ? (inv ? -1 : 1) : (inv ? 1 : -1);
         var shL = sgn * base.csL;
         var shR = sgn * base.csR;
+        // Residuum folgt DERSELBEN Seitenverteilung wie die Verschiebung:
+        // unverschobene Seite 0, volle Seite voll, symmetrisch je zur Haelfte.
+        // Verteilungsfaktor je Seite = |Seitenanteil| (aus FRQ_seitenWerte).
+        var fac = FRQ_seitenWerte(1, modus);
+        left.residuum  = (residuum != null) ? Math.abs(fac.csL) * residuum : null;
+        right.residuum = (residuum != null) ? Math.abs(fac.csR) * residuum : null;
         if (form === "warp") {
           left.cs  = shL;
           right.cs = shR;
@@ -370,6 +395,7 @@ function FRQ_werte(form, modus, invertieren) {
         }
       } else {
         // Ungemessen -> Null fuer Mess-abgeleitete Groessen (nominell bleibt).
+        left.residuum = null; right.residuum = null;
         if (form === "warp") {
           left.cs = null; right.cs = null;
         } else {

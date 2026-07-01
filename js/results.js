@@ -444,13 +444,7 @@ function FRQ_renderResults() {
   // Chart
   const cv = document.getElementById("FRQ_resultsChart");
   if (cv) {
-    const notPerc = displayData.filter(function(r) { return r.fmStatus === 'not-perceivable'; })
-                               .map(function(r) { return r.elIdx; });
-    drawFRQChart(
-      cv,
-      displayData,
-      { notPerceivable: notPerc }
-    );
+    drawFRQChart(cv, displayData);
     // Tooltip-Listener einmalig anhängen
     if (!cv._frq_chartListenerAttached) {
       cv.addEventListener("mousemove", (e) => _frq_chartTooltipHandler(cv, e));

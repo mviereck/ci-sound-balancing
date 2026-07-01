@@ -337,7 +337,6 @@ function ELL_drawChart(cv, vals, res, isOff, ell_color, ctx) {
 // ============================================================
 function drawFRQChart(cv, fResData, opts) {
   opts = opts || {};
-  const notPerc = opts.notPerceivable || {};
   const ctx = cv.getContext("2d"),
     dpr = window.devicePixelRatio || 1,
     w = cv.parentElement.clientWidth - 32,
@@ -372,42 +371,46 @@ function drawFRQChart(cv, fResData, opts) {
   const REF_HZ = 1000;
   const hzToCt = (hz) => 1200 * Math.log2(hz / REF_HZ);
 
-  // Bezug fuer Graph-X-Achse und Vorzeichen = aktive (angezeigte) Seite
+  // Anzeige-Seite (X-Achsenbezug) = aktive (angezeigte) Seite -- der
+  // LINKS/RECHTS-Umschalter. Die VERTEILUNG der Verschiebung kommt dagegen
+  // aus dem Referenzmodus (im Test bewegte Seite), NICHT aus dem Umschalter;
+  // dazu wird er in den "korrigierte Seite"-Modus fuer FRQ_werte uebersetzt.
   const aktivSide = (typeof activeSide === "string") ? activeSide : "right";
-  const nCi    = sideData[aktivSide].nEl;
   const measuredByIdx = {};
   for (const r of fResData) measuredByIdx[r.elIdx] = r;
 
-  // Y-Verschiebung der aktiven Seite aus kanonischem cent (eine Wertquelle).
-  // cent>0 = rechts hoeher; aktive Seite 'right' -> +cent, 'left' -> -cent.
-  const _dCentFor = (cent) => {
-    if (cent == null) return null;
-    const sw = FRQ_seitenWerte(cent, aktivSide);
-    return (aktivSide === "left") ? sw.csL : sw.csR;
-  };
+  // EINE Wertquelle (BA419): FRQ_werte liefert je Elektrode fuer beide Seiten
+  // die gehoerte Situation (nominell/gehoert/Verschiebung) + Residuum + das
+  // "nicht Teil der Messung"-Flag. Der Graph rechnet daraus nur noch seine
+  // Achsen-/Pixel-Positionen, keine Frequenz-Ableitung mehr selbst.
+  // Form 'gehoert', invertieren=false (Mess-Reiter kennt kein NH-Sim).
+  const modus = FRQ_modusVonReferenzmodus(frq_referenzmodus());
+  const werte = FRQ_werte("gehoert", modus, false);
 
-  // Liste aller Elektroden (alle bekommen mindestens einen Ist-Strich)
+  // Liste aller Elektroden (alle bekommen mindestens einen Ist-Strich).
+  // Iteration ueber die Wertquelle; der Status ("hat Eintrag", fmStatus)
+  // kommt weiter aus dem gespeicherten Ergebnis (measuredByIdx).
   const allEls = [];
-  for (let i = 0; i < nCi; i++) {
-    const exCI = sideData[aktivSide].elExDur[i] !== null || sideData[aktivSide].elSt[i] === 'mute';
-    const hzIst = withSide(aktivSide, () => FRQ_implantatEffektiv(i));
-    const r = measuredByIdx[i];
-    const notPercFlag = !!notPerc[aktivSide + ':' + i];
-    const dc = r && r.cent != null ? _dCentFor(r.cent) : null;
-    const hzRef = r && r.cent != null ? FRQ_refHzForMode(r.elIdx) : null;
+  for (const wr of werte) {
+    const i = wr.elIdx;
+    const seite = wr[aktivSide];          // angezeigte Seite
+    const r = measuredByIdx[i];           // Ergebnis-Eintrag = Status-Ebene
+    const hzIst  = seite.nominellHz;
+    const hzSoll = seite.gehoertHz;       // null wenn ungemessen
+    const dc     = seite.shiftCent;       // gehoerte Verschiebung, null wenn ungemessen
     allEls.push({
       elIdx: i,
       elNum: dEN(i, aktivSide),
       hzIst: hzIst,
       cIst:  hzToCt(hzIst),
-      hzSoll: hzRef != null && dc != null ? hzRef * Math.pow(2, dc / 1200) : null,
-      cSoll:  hzRef != null && dc != null ? hzToCt(hzRef) + dc : null,
+      hzSoll: hzSoll,
+      cSoll:  hzSoll != null ? hzToCt(hzSoll) : null,
       dCent:  dc,
       isMeasured: !!r,
-      isExcluded: exCI,
-      isNotPerceivable: notPercFlag,
-      fmStatus:   r ? (r.fmStatus   || 'converged') : null,
-      fmResidual: r ? (r.fmResiduum != null ? r.fmResiduum : (r.fmResidual || 0)) : null,
+      isExcluded: wr.deaktiviert,         // seitenlos: auf mind. einer Seite nicht testbar
+      isNotPerceivable: !!(r && r.fmStatus === "not-perceivable"),
+      fmStatus:   r ? (r.fmStatus || "converged") : null,
+      fmResidual: seite.residuum != null ? seite.residuum : 0,
       r: r,
     });
   }
