@@ -399,7 +399,6 @@
       _autoFields['warp.on'] = pWarpOn;
       if (pWarpOn) {
         if (typeof pWarpMode === 'string')     _autoFields['warp.mode']     = pWarpMode;
-        if (typeof pWarpStrength === 'number') _autoFields['warp.strength'] = pWarpStrength;
       }
     }
 

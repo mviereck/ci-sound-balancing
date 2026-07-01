@@ -53,8 +53,7 @@ function effFreqDisplay(i, side) {
       typeof centShift !== "function") return baseHz;
   const points = buildWarpPoints(src, pWarpMode);
   const sideKey = side || activeSide;
-  const str = (typeof pWarpStrength === "number" ? pWarpStrength : 100) / 100;
-  const cs = centShift(baseHz, sideKey, points) * str;
+  const cs = centShift(baseHz, sideKey, points);
   return baseHz * Math.pow(2, cs / 1200);
 }
 let ell_focus = 0;

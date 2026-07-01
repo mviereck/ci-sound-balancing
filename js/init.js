@@ -634,8 +634,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const _wMode     = (typeof d.warpMode     === "string")  ? d.warpMode
                          : (typeof d.pWarpMode    === "string")  ? d.pWarpMode    : undefined;
-        const _wStrength = (typeof d.warpStrength === "number")  ? d.warpStrength
-                         : (typeof d.pWarpStrength === "number") ? d.pWarpStrength : undefined;
         if (typeof _wOn === "boolean") pWarpOn = _wOn;
         if (typeof _wMode === "string") {
           pWarpMode = (typeof _migrateLegacyWarpMode === "function")

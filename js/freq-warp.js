@@ -6,7 +6,7 @@
 //   buildWarpPoints(fResData, warpMode) → points[]
 //   centShift(f, side, points) → number
 //   pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) → Promise<AudioBuffer>
-//   pWarpedBuf, pWarpMode, pWarpOn, pWarpStrength, pWarpBusy  (State)
+//   pWarpedBuf, pWarpMode, pWarpOn, pWarpBusy  (State)
 //   pWarpTrigger()   – UI → Vorberechnung auslösen
 //   pWarpUpdUI()     – Status-Anzeige aktualisieren
 
@@ -15,7 +15,6 @@ let pWarpedBufNHSim = null;
 let pWarpOn = true;
 let pWarpSettingsOpen = false;
 let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
-let pWarpStrength = 100;        // 0–150
 let pWarpCalcMode = "fast";    // BA375: Berechnungs-Modus. "fast"|"mid"|"best".
                                // Quelle fuer engine (r2/r3) + Streaming/Voll.
                                // Persistent (localStorage + JSON), Default "fast".
@@ -186,6 +185,35 @@ function buildWarpPoints(fResData, warpMode, invert = false) {
   return pts;
 }
 
+// BA428: Warp-Stuetzpunkte aus der zentralen Wertquelle FRQ_werte
+// (Form "warp"). Ersetzt buildWarpPoints fuer die Audio-Pipeline.
+// Liefert je GEMESSENE Elektrode einen Eintrag mit SEITENWEISER Bandmitte
+// (hzL/hzR = Abgreifpunkt im Original) und seitenweisem Shift (csL/csR).
+// Ungemessene Elektroden werden ausgelassen (wie buildWarpPoints, das nur
+// ueber fRes-Eintraege lief). nhSim wird an FRQ_werte durchgereicht; die
+// gesamte Vorzeichen-/Bandmitten-Wahrheit lebt dort (BA427), nicht hier.
+//   warpMode: "left" | "right" | "symmetric"  (Player-warpMode direkt)
+//   nhSim:    bool
+// Rueckgabe: sortiertes Array { hzL, hzR, csL, csR }, aufsteigend nach hzL.
+function buildWarpPointsFromWerte(warpMode, nhSim) {
+  if (typeof FRQ_werte !== "function") return [];
+  const werte = FRQ_werte("warp", warpMode, !!nhSim);
+  const pts = [];
+  for (const w of werte) {
+    if (!w.gemessen) continue;              // ungemessene auslassen
+    const hzL = w.left.bandHz, hzR = w.right.bandHz;
+    if (hzL == null || hzR == null) continue;
+    pts.push({
+      hzL: hzL,
+      hzR: hzR,
+      csL: (w.left.cs  != null ? w.left.cs  : 0),
+      csR: (w.right.cs != null ? w.right.cs : 0),
+    });
+  }
+  pts.sort((a, b) => a.hzL - b.hzL);
+  return pts;
+}
+
 // ---- Migrations-Helfer für Alt-Werte ref_side/var_side ----
 // Übersetzt Alt-Werte in absolute Seiten anhand der Referenzseite,
 // die in den gespeicherten FRQ_resultsArray-Einträgen steht. Wenn keine
@@ -212,6 +240,17 @@ function _migrateLegacyWarpMode(savedMode, savedFRes) {
 // ---- Hilfsfunktion: betroffene Seiten ermitteln ---------
 
 function _warpAffectedSides(points) {
+  let l = false, r = false;
+  for (const p of points) {
+    if (Math.abs(p.csL) > 1e-9) l = true;
+    if (Math.abs(p.csR) > 1e-9) r = true;
+  }
+  return { warpsLeft: l, warpsRight: r };
+}
+
+// BA428: wie _warpAffectedSides, aber fuer die {hzL,hzR,csL,csR}-Struktur
+// aus buildWarpPointsFromWerte. (csL/csR heissen gleich -> Logik identisch.)
+function _warpAffectedSidesLR(points) {
   let l = false, r = false;
   for (const p of points) {
     if (Math.abs(p.csL) > 1e-9) l = true;
@@ -397,9 +436,9 @@ async function streamFillBuffer(srcBuf, target, stage, onSegmentReady, onProgres
 // Abweichung zum Voll-Pfad (anderer Bezugspunkt: Abschnitt-0-Verhaeltnis
 // vs. stückweites Verhaeltnis) ist bewusst akzeptiert.
 // Spaeter ggf. erste N Abschnitte mitteln (Nutzer-Entscheidung).
-function buildWarpStage(srcBuf, warpMode, strength) {
+function buildWarpStage(srcBuf, warpMode) {
   const src = _warpFResSource();
-  if (warpMode === "off" || src.length === 0 || strength === 0) {
+  if (warpMode === "off" || src.length === 0) {
     // Bypass: liefert originale Abschnitte unveraendert zurueck.
     return {
       changesLength: false,
@@ -417,19 +456,23 @@ function buildWarpStage(srcBuf, warpMode, strength) {
   }
 
   const nhSim = !!(document.getElementById("plNHSim") ? document.getElementById("plNHSim").checked : false);
-  const points = buildWarpPoints(src, warpMode, !nhSim);
-  const warpAffected = _warpAffectedSides(points);
-  const str = strength / 100;
+  // BA428: Warp-Punkte aus der zentralen Wertquelle (Form "warp") --
+  // seitenweise Bandmitte (hzL/hzR) + seitenweiser Shift (csL/csR).
+  const points = buildWarpPointsFromWerte(warpMode, nhSim);
+  const warpAffected = _warpAffectedSidesLR(points);
 
   const playerSide = (typeof getPlayerSide === "function") ? getPlayerSide() : "both";
-  const decided = _rbDecideAffectedSides(points, playerSide);
+  const decided = _rbDecideAffectedSidesLR(points, playerSide);
 
   const sampleRate = srcBuf.sampleRate;
   const nyquist = sampleRate / 2;
-  const bands = _rbBuildBandEdges(points, nyquist);
+  // BA428: Bandgrenzen JE SEITE aus der seitenweisen Bandmitte.
+  const bandsL = _rbBuildBandEdgesFor(points.map(function(p) { return p.hzL; }), nyquist);
+  const bandsR = _rbBuildBandEdgesFor(points.map(function(p) { return p.hzR; }), nyquist);
 
-  const csL = points.map(function(p) { return p.csL * str; });
-  const csR = points.map(function(p) { return p.csR * str; });
+  // BA428: keine Staerke-Skalierung mehr.
+  const csL = points.map(function(p) { return p.csL; });
+  const csR = points.map(function(p) { return p.csR; });
 
   const useLive = !!pRubberbandOptions.liveShifter;
   const optionBits = useLive
@@ -468,7 +511,8 @@ function buildWarpStage(srcBuf, warpMode, strength) {
   const sameAsLAnticipated = decided.needL && decided.needR
     && fullSrcL === fullSrcR
     && csL.length === csR.length
-    && csL.every(function(v, i) { return v === csR[i]; });
+    && csL.every(function(v, i) { return v === csR[i]; })
+    && _bandsEqual(bandsL, bandsR);   // BA428: nur bei identischen Baendern zusammenlegbar
 
   // rb-Handle wird lazy (beim ersten processSegment-Aufruf) geladen.
   let rbHandle = null;
@@ -517,11 +561,11 @@ function buildWarpStage(srcBuf, warpMode, strength) {
 
       if (decided.needL) {
         if (isFirst) {
-          const res = await _processSide(rb, srcSeg.L, sampleRate, bands, csL, onBand, optionBits, undefined, true);
+          const res = await _processSide(rb, srcSeg.L, sampleRate, bandsL, csL, onBand, optionBits, undefined, true);
           outL = res.out;
           streamScaleL = res.scale;
         } else {
-          outL = await _processSide(rb, srcSeg.L, sampleRate, bands, csL, onBand, optionBits, streamScaleL);
+          outL = await _processSide(rb, srcSeg.L, sampleRate, bandsL, csL, onBand, optionBits, streamScaleL);
         }
       }
       if (decided.needR) {
@@ -531,11 +575,11 @@ function buildWarpStage(srcBuf, warpMode, strength) {
         } else {
           if (pWarpCancel) throw new Error("__warp_cancelled__");
           if (isFirst) {
-            const res = await _processSide(rb, srcSeg.R, sampleRate, bands, csR, onBand, optionBits, undefined, true);
+            const res = await _processSide(rb, srcSeg.R, sampleRate, bandsR, csR, onBand, optionBits, undefined, true);
             outR = res.out;
             streamScaleR = res.scale;
           } else {
-            outR = await _processSide(rb, srcSeg.R, sampleRate, bands, csR, onBand, optionBits, streamScaleR);
+            outR = await _processSide(rb, srcSeg.R, sampleRate, bandsR, csR, onBand, optionBits, streamScaleR);
           }
         }
       }
@@ -567,22 +611,46 @@ function _rbDecideAffectedSides(points, playerSide) {
   };
 }
 
-// Geometrische Bandgrenzen aus Stuetzpunkt-Frequenzen.
-// Gibt Array von [low, high] Tupeln zurueck, gleiche Anzahl wie points.
-// Bei einem einzigen Stuetzpunkt: ein Vollband (0 .. ~Nyquist).
-function _rbBuildBandEdges(points, nyquist) {
-  if (points.length === 0) return [];
-  if (points.length === 1) {
+// BA428: wie _rbDecideAffectedSides, fuer die neue Punkt-Struktur.
+function _rbDecideAffectedSidesLR(points, playerSide) {
+  const aff = _warpAffectedSidesLR(points);
+  let audibleL = false, audibleR = false;
+  if (playerSide === "left") audibleL = true;
+  else if (playerSide === "right") audibleR = true;
+  else { audibleL = true; audibleR = true; } // "both" oder "mono"
+  return {
+    needL: audibleL && aff.warpsLeft,
+    needR: audibleR && aff.warpsRight,
+  };
+}
+
+// BA428: Zwei Bandgrenzen-Reihen auf Gleichheit pruefen (fuer die
+// Kanal-Zusammenlegung sameAsLAnticipated). Gleich = gleiche Laenge und
+// paarweise (nahezu) gleiche [low,high]-Grenzen.
+function _bandsEqual(a, b) {
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i++) {
+    if (Math.abs(a[i][0] - b[i][0]) > 1e-6) return false;
+    if (Math.abs(a[i][1] - b[i][1]) > 1e-6) return false;
+  }
+  return true;
+}
+
+// BA428: Bandgrenzen aus einer Frequenzliste (seitenweise). Gleiche
+// geometrische Logik wie die entfernte _rbBuildBandEdges, aber Eingabe ist ein reines
+// hz-Array (eine Seite). Ein Frequenzwert -> ein Vollband.
+function _rbBuildBandEdgesFor(hzArr, nyquist) {
+  if (hzArr.length === 0) return [];
+  if (hzArr.length === 1) {
     return [[0, nyquist * 0.999]];
   }
   const edges = [0];
-  for (let i = 0; i < points.length - 1; i++) {
-    edges.push(Math.sqrt(points[i].hz * points[i + 1].hz));
+  for (let i = 0; i < hzArr.length - 1; i++) {
+    edges.push(Math.sqrt(hzArr[i] * hzArr[i + 1]));
   }
   edges.push(nyquist * 0.999);
-
   const bands = [];
-  for (let i = 0; i < points.length; i++) {
+  for (let i = 0; i < hzArr.length; i++) {
     bands.push([edges[i], edges[i + 1]]);
   }
   return bands;
@@ -975,27 +1043,30 @@ async function _rbLivePitchShift(rb, signal, sampleRate, cents, liveOpts) {
   }
 }
 
-async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) {
+async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode) {
   const src = _warpFResSource();
-  if (warpMode === "off" || src.length === 0 || strength === 0) {
+  if (warpMode === "off" || src.length === 0) {
     return srcBuf;
   }
 
   const nhSim = !!(document.getElementById("plNHSim")?.checked);
-  const points = buildWarpPoints(src, warpMode, !nhSim);
-  pWarpAffected = _warpAffectedSides(points);
-  const str = strength / 100;
+  // BA428: Warp-Punkte aus der zentralen Wertquelle (Form "warp").
+  const points = buildWarpPointsFromWerte(warpMode, nhSim);
+  pWarpAffected = _warpAffectedSidesLR(points);
 
   const playerSide = (typeof getPlayerSide === "function")
     ? getPlayerSide() : "both";
-  const decided = _rbDecideAffectedSides(points, playerSide);
+  const decided = _rbDecideAffectedSidesLR(points, playerSide);
 
   const sampleRate = srcBuf.sampleRate;
   const nyquist = sampleRate / 2;
-  const bands = _rbBuildBandEdges(points, nyquist);
+  // BA428: Bandgrenzen JE SEITE.
+  const bandsL = _rbBuildBandEdgesFor(points.map(p => p.hzL), nyquist);
+  const bandsR = _rbBuildBandEdgesFor(points.map(p => p.hzR), nyquist);
 
-  const csL = points.map(p => p.csL * str);
-  const csR = points.map(p => p.csR * str);
+  // BA428: keine Staerke-Skalierung mehr.
+  const csL = points.map(p => p.csL);
+  const csR = points.map(p => p.csR);
 
   // Rubberband-Interface lazy laden (kann mit sprechender Fehlermeldung
   // werfen — der pWarpTrigger-catch-Block reicht sie nach
@@ -1034,11 +1105,11 @@ async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) {
   const sameAsLAnticipated = decided.needL && decided.needR
     && srcL === srcR
     && csL.length === csR.length
-    && csL.every((v, i) => v === csR[i]);
-  const totalBands = bands.length * (
-    (decided.needL ? 1 : 0)
-    + (decided.needR && !sameAsLAnticipated ? 1 : 0)
-  );
+    && csL.every((v, i) => v === csR[i])
+    && _bandsEqual(bandsL, bandsR);   // BA428
+  const totalBands =
+    (decided.needL ? bandsL.length : 0)
+    + (decided.needR && !sameAsLAnticipated ? bandsR.length : 0);
   let doneBands = 0;
   const onBand = () => {
     if (totalBands > 0) {
@@ -1065,14 +1136,14 @@ async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) {
   const _processSide = useLive ? _rbProcessMonoSideLive : _rbProcessMonoSide;
 
   if (decided.needL) {
-    outL = await _processSide(rb, srcL, sampleRate, bands, csL, onBand, optionBits);
+    outL = await _processSide(rb, srcL, sampleRate, bandsL, csL, onBand, optionBits);
   }
   if (decided.needR) {
     if (sameAsLAnticipated) {
       outR = outL;
     } else {
       if (pWarpCancel) throw new Error("__warp_cancelled__");
-      outR = await _processSide(rb, srcR, sampleRate, bands, csR, onBand, optionBits);
+      outR = await _processSide(rb, srcR, sampleRate, bandsR, csR, onBand, optionBits);
     }
   }
 
@@ -1175,7 +1246,7 @@ async function pWarpTrigger() {
       // Leeren Ziel-Buffer anlegen (volle Länge, Stereo).
       pWarpedBuf = c.createBuffer(2, srcBuf.length, srcBuf.sampleRate);
 
-      const stage = buildWarpStage(srcBuf, pWarpMode, pWarpStrength);
+      const stage = buildWarpStage(srcBuf, pWarpMode);
 
       // BA376: Startposition merken, bevor State zurueckgesetzt wird.
       if (typeof _streamSetStartPos === "function") _streamSetStartPos(pOff);
@@ -1223,7 +1294,7 @@ async function pWarpTrigger() {
     // ---- Voll-Vorrechnen-Pfad (unverändert) ----
     try {
       pWarpedBuf = await pComputeRubberbandWarpedBuffer(
-        pSourceBuf, pWarpMode, pWarpStrength
+        pSourceBuf, pWarpMode
       );
     } catch (err) {
       if (err && err.message === "__warp_cancelled__") {
