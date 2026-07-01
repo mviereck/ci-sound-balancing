@@ -237,6 +237,15 @@ function FRQ_renderResults() {
   // BA353: Anzeige-Daten: aktives Verfahren.
   const displayData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
 
+  // BA420: EINE Wertquelle. Verteilung nach Referenzmodus (im Test bewegte
+  // Seite = 0, Gegenseite = Korrektur), gehoert-Richtung, kein NH-Sim.
+  // Identisch zum Ergebnis-Graphen (chart.js). Die Tabelle rechnet cent NICHT
+  // mehr selbst in Frequenzen um.
+  const frqModus = FRQ_modusVonReferenzmodus(frq_referenzmodus());
+  const frqWerte = FRQ_werte("gehoert", frqModus, false);
+  const werteByIdx = {};
+  for (const wr of frqWerte) werteByIdx[wr.elIdx] = wr;
+
   // Titel
   const titleEl = document.getElementById("FRQ_resultsTitle");
   if (titleEl) titleEl.textContent = t("FRQ_resultsTitle");
@@ -262,7 +271,6 @@ function FRQ_renderResults() {
   }
 
   const varLabel = aktivSide === 'left' ? t('sideLeft')  : t('sideRight');
-  const refLabel = aktivSide === 'left' ? t('sideRight') : t('sideLeft');
 
   // Tabellen-Header
   const th = document.getElementById("FRQ_resultsTableHead");
@@ -271,21 +279,20 @@ function FRQ_renderResults() {
 
   th.innerHTML =
     "<th>" + t("FRQ_resultsColEl") + "</th>" +
-    "<th>" + t("FRQ_resultsColVarHz").replace('{side}', varLabel) + "</th>" +
-    "<th>" + t("FRQ_resultsColRefHz").replace('{side}', varLabel) + "</th>" +
+    "<th>" + t("FRQ_resultsColNominalHz") + "</th>" +
+    "<th>" + t("FRQ_resultsColPerceivedHz") + "</th>" +
     "<th>" + t("FRQ_resultsColDiffHz") + "</th>" +
     "<th>" + t("FRQ_resultsColDiffCent") + "</th>" +
     "<th title=\"" + t("FRQ_resultsColResiduumTip") + "\">" + t("FRQ_resultsColResiduum") + "</th>" +
     "<th>" + t("FRQ_resultsColStatus") + "</th>";
 
-  // Beschreibungstext über der Tabelle
+  // BA420: Seitenangabe statt Referenz-/Zielseiten-Erklärung. {side} = die
+  // angezeigte Seite (LINKS/RECHTS-Umschalter).
   const descEl = document.getElementById("FRQ_resultsSidesDescription");
   if (descEl) {
-    const line1 = t("FRQ_resultsSidesDescription1").replace('{ref}', refLabel).replace('{var}', varLabel);
-    const line2 = t("FRQ_resultsSidesDescription2").replace('{ref}', refLabel).replace('{var}', varLabel);
+    const line1 = t("FRQ_resultsSidesDescription1").replace('{side}', varLabel);
     descEl.innerHTML =
-      "<p style=\"font-weight:600;margin:0 0 6px\">" + line1 + "</p>" +
-      "<p style=\"margin:0\">" + line2 + "</p>";
+      "<p style=\"font-weight:600;margin:0\">" + line1 + "</p>";
   }
 
   // Tabellen-Body: alle Elektroden der aktiven Seite
@@ -321,21 +328,29 @@ function FRQ_renderResults() {
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td>" + note + "</td>";
     } else {
-      let varHzCell, refHzCell, diffHzCell, diffCtCell;
-      if (r.cent == null) {
-        varHzCell  = "<span style=\"color:#9ca3af\">—</span>";
-        refHzCell  = "<span style=\"color:#9ca3af\">—</span>";
+      // BA420: Werte aus der zentralen Wertquelle (angezeigte Seite).
+      // nominellHz existiert immer; gehoertHz/shiftHz/shiftCent sind null,
+      // wenn ungemessen. Auf der Referenzseite (im Test bewegt) ist die
+      // Verschiebung 0 -- so gewollt (Tabelle folgt dem Graphen).
+      const wr    = werteByIdx[r.elIdx];
+      const wSide = wr ? wr[aktivSide] : null;
+      let nomHzCell, percHzCell, diffHzCell, diffCtCell;
+      if (!wSide || wSide.gehoertHz == null || wSide.shiftCent == null) {
+        // nominell trotzdem zeigen, wenn vorhanden; Rest "—".
+        nomHzCell  = (wSide && wSide.nominellHz != null)
+                   ? wSide.nominellHz.toFixed(2)
+                   : "<span style=\"color:#9ca3af\">—</span>";
+        percHzCell = "<span style=\"color:#9ca3af\">—</span>";
         diffHzCell = "<span style=\"color:#9ca3af\">—</span>";
         diffCtCell = "<span style=\"color:#9ca3af\">—</span>";
       } else {
-        const varHz    = withSide(aktivSide, function () { return FRQ_implantatEffektiv(r.elIdx); });
-        const refHz    = varHz * Math.pow(2, r.cent / 1200);
-        const diffHzRaw = refHz - varHz;
-        const centRound = Math.round(r.cent);
-        const diffColor = Math.abs(diffHzRaw) < 20 ? "#666"
-                        : diffHzRaw > 0 ? "#2563eb" : "#dc2626";
-        varHzCell  = varHz.toFixed(2);
-        refHzCell  = refHz.toFixed(2);
+        const nomHz     = wSide.nominellHz;
+        const percHz    = wSide.gehoertHz;
+        const diffHzRaw = wSide.shiftHz;
+        const centRound = Math.round(wSide.shiftCent);
+        const diffColor = diffHzRaw >= 0 ? "#2563eb" : "#dc2626";
+        nomHzCell  = nomHz.toFixed(2);
+        percHzCell = percHz.toFixed(2);
         diffHzCell = "<span style=\"color:" + diffColor + "\">"
                    + (diffHzRaw >= 0 ? "+" : "") + diffHzRaw.toFixed(2) + "</span>";
         diffCtCell = "<span style=\"color:" + diffColor + "\">"
@@ -344,11 +359,14 @@ function FRQ_renderResults() {
 
       const isNotPerc = (r.fmStatus === 'not-perceivable');
 
+      // BA420: verteiltes Residuum aus der Wertquelle (angezeigte Seite).
+      // Auf der Referenzseite 0, symmetrisch halb -- wie die Verschiebung.
+      const wRes = (wSide && wSide.residuum != null) ? wSide.residuum : null;
       let residuumCell;
-      if (r.fmResiduum == null || isNotPerc) {
+      if (wRes == null || isNotPerc) {
         residuumCell = '<span style="color:#9ca3af">—</span>';
       } else {
-        const re      = Math.round(r.fmResiduum);
+        const re      = Math.round(wRes);
         const reColor = re <= 10 ? '#16a34a'
                       : re <= 25 ? '#d97706'
                       :            '#dc2626';
@@ -389,8 +407,8 @@ function FRQ_renderResults() {
 
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + elLabel + "</td>" +
-        "<td>" + varHzCell + "</td>" +
-        "<td>" + refHzCell + "</td>" +
+        "<td>" + nomHzCell + "</td>" +
+        "<td>" + percHzCell + "</td>" +
         "<td>" + diffHzCell + "</td>" +
         "<td>" + diffCtCell + "</td>" +
         "<td>" + residuumCell + "</td>" +
@@ -460,11 +478,6 @@ function FRQ_renderResults() {
   const hintEl = document.getElementById("FRQ_resultsChartHint");
   if (hintEl) {
     hintEl.textContent = t("FRQ_resultsChartHintPiano");
-  }
-  const canonHintEl = document.getElementById("FRQ_resultsChartCanonicalHint");
-  if (canonHintEl) {
-    const sideLbl = aktivSide === "left" ? t("sideLeft") : t("sideRight");
-    canonHintEl.textContent = t("FRQ_resultsChartCanonicalHint").replace("%S", sideLbl);
   }
 }
 
