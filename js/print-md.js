@@ -884,6 +884,25 @@ function _audiologELLTable(side) {
 
 // ---------- Frequenz-Tabelle pro Seite ----------
 
+// BA425: Hat die Seite mindestens eine Elektrode mit Frequenz-
+// Verschiebung != 0 (gerundet)? EINE Quelle fuer Tabelle, Graph und
+// Gate. Grundlage: FRQ_tabellenZeilen (gleiche Zeilen-Quelle wie der
+// Reiter). Bug-Fix: frueher wurde "!= null" geprueft, was diffCent=0
+// (nicht getragene Seite) faelschlich als Aenderung wertete.
+function _audiologSideHasFreqChange(side) {
+  if (typeof pWarpOn === "undefined" || !pWarpOn) return false;
+  if (typeof plEqOn !== "undefined" && !plEqOn) return false;
+  if (typeof FRQ_tabellenZeilen !== "function") return false;
+  const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
+  const nhEl  = document.getElementById("plNHSim");
+  const nhSim = !!(nhEl && nhEl.checked);
+  const zeilen = FRQ_tabellenZeilen({ side: side, modus: modus, nhSim: nhSim });
+  return zeilen.some(function (z) {
+    return z.kind === "data" && z.diffCent != null
+      && Math.round(z.diffCent) !== 0;
+  });
+}
+
 // BA424: Frequenz-Tabelle fuer Ausdruck UND Markdown-Export. Gleiche Zeilen-
 // Quelle wie der Reiter (FRQ_tabellenZeilen), hier als Markdown, ohne Status-
 // Spalte. Werte folgen der Player-Einstellung: modus=pWarpMode, nhSim=plNHSim.
@@ -897,11 +916,8 @@ function _audiologFreqTable(side) {
   const nhSim = !!(nhEl && nhEl.checked);
   const zeilen = FRQ_tabellenZeilen({ side: side, modus: modus, nhSim: nhSim });
 
-  // Nur zeigen, wenn mindestens eine Elektrode echte Verschiebungs-Daten hat.
-  const hasData = zeilen.some(function (z) {
-    return z.kind === "data" && z.gehoertHz != null && z.diffCent != null;
-  });
-  if (!hasData) return "";
+  // BA425: Nur zeigen, wenn die Seite eine Aenderung != 0 hat.
+  if (!_audiologSideHasFreqChange(side)) return "";
 
   const dashMd = "—";
   const lines = [];
@@ -938,28 +954,76 @@ function _audiologFreqTable(side) {
   return lines.join("\n") + "\n";
 }
 
-// BA424 (Konzept §10): Warnhinweise im Frequenz-Abschnitt einer Seite.
-// (a) Korrektur trifft ein akustisch hoerendes Ohr -> nicht ins CI programmierbar.
-// (b) NH-Sim aktiv -> Werte bilden die Verzerrung nach, keine CI-Einstellung.
-// Beide koennen gleichzeitig zutreffen. "" wenn keiner zutrifft.
-function _audiologFreqWarnungen(side) {
-  if (typeof pWarpOn === "undefined" || !pWarpOn) return "";
-  if (typeof plEqOn !== "undefined" && !plEqOn) return "";
-  const lines = [];
-  // (a) Zielseite akustisch?
-  const sd = sideData[side];
-  const cfg = (sd && sd.config) || "ci";
-  if (cfg !== "ci") {
-    const sideLbl = side === "left" ? t("sideLeft") : t("sideRight");
-    lines.push("> ⚠️ " + t("audiologFreqWarnAcoustic").replace("{side}", sideLbl));
+// BA425: Gemeinsame Warn-Quelle fuer UI (Box) und Ausdruck. Liefert
+// ein Array reiner Warntexte in fester Reihenfolge. UI und Ausdruck
+// setzen Symbol/Markup selbst davor. EQ-aus hat Vorrang: dann nur die
+// EQ-aus-Warnung, alles andere ist gegenstandslos.
+function _audiologWarnTexts() {
+  const out = [];
+  const eqOn = (typeof plEqOn === "undefined") ? true : plEqOn;
+
+  // 1. EQ ganz aus.
+  if (!eqOn) {
+    out.push(t("audiologWarnEqOff"));
+    // 1b. Elektrodenlautstärke-Ergebnisse vorhanden, aber EQ aus.
+    const hasELLResults = ["left", "right"].some(function (s) {
+      return sideData[s] && sideData[s].ELL_results
+        && sideData[s].ELL_results.length > 0;
+    });
+    if (hasELLResults) out.push(t("audiologWarnMeasuredNoEQ"));
+    return out;
   }
-  // (b) NH-Sim aktiv?
-  const nhEl = document.getElementById("plNHSim");
-  if (nhEl && nhEl.checked) {
-    lines.push("> ⚠️ " + t("audiologFreqWarnNhSim"));
+
+  const warpOn = (typeof pWarpOn !== "undefined") && pWarpOn;
+  const hasFreqResults = (typeof FRQ_activeResults === "function")
+    && FRQ_activeResults().length > 0;
+
+  // 2. Frequenzabgleich gemessen, aber Warping aus.
+  if (hasFreqResults && !warpOn) {
+    out.push(t("audiologWarnMeasuredNoWarp"));
   }
-  if (lines.length === 0) return "";
-  return lines.join("\n") + "\n";
+
+  // Die restlichen Warnungen betreffen die Frequenz-Wiedergabe und
+  // gelten nur bei aktivem Warping.
+  if (warpOn) {
+    // 3. NH-Sim aktiv.
+    const nhEl = document.getElementById("plNHSim");
+    if (nhEl && nhEl.checked) {
+      out.push(t("audiologWarnNhSim"));
+    }
+
+    // 4. Warp traegt ein akustisches (Nicht-CI) Ohr. Zusammengefasst
+    // aus altem b (Warp-Seite) + c (akustisch). Feuert, sobald eine
+    // Nicht-CI-Seite vom Warp getragen wird.
+    const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
+    const acousticSides = [];
+    for (const side of ["left", "right"]) {
+      const sd = sideData[side];
+      const cfg = (sd && sd.config) || "ci";
+      if (cfg === "ci") continue;
+      // Traegt der Warp-Modus diese Seite (Seitenwert != 0)?
+      const sw = (typeof FRQ_seitenWerte === "function")
+        ? FRQ_seitenWerte(1, modus) : { csL: 0, csR: 0 };
+      const borne = side === "left" ? (sw.csL !== 0) : (sw.csR !== 0);
+      if (borne) acousticSides.push(side);
+    }
+    if (acousticSides.length > 0) {
+      const modeLbl = modus === "left" ? t("pwModeLeft")
+        : modus === "right" ? t("pwModeRight") : t("pwModeSym");
+      // Vorschlag: die CI-Seite (nur bei einseitigem CI eindeutig).
+      const ciSide = (typeof FRQ_implantatGetSource === "function")
+        ? FRQ_implantatGetSource() : null;
+      const ciLbl = ciSide === "left" ? t("sideLeft")
+        : ciSide === "right" ? t("sideRight") : null;
+      let msg = t("audiologWarnAcousticWarp").replace("{mode}", modeLbl);
+      if (ciLbl) {
+        msg += " " + t("audiologWarnAcousticWarpFix").replace("{ciSide}", ciLbl);
+      }
+      out.push(msg);
+    }
+  }
+
+  return out;
 }
 
 // ---------- MAPLAW — eigene H2-Sektion ----------
@@ -1155,9 +1219,12 @@ function buildAudiologMarkdown() {
     parts.push(_note);
   }
 
-  // ---- EQ aus ----
-  if (typeof plEqOn !== "undefined" && !plEqOn) {
-    parts.push(`> ${t("audiologEqOff")}\n`);
+  // ---- BA425: Warn-Block ganz oben (gemeinsame Quelle) ----
+  const _warnTexts = _audiologWarnTexts();
+  if (_warnTexts.length > 0) {
+    for (const w of _warnTexts) {
+      parts.push(`> ⚠️ ${w}\n`);
+    }
   }
 
   // ===========================================================
@@ -1245,13 +1312,15 @@ function buildAudiologMarkdown() {
       const sideLbl = side === "left" ? t("sideLeft") : t("sideRight");
       const ft = _audiologFreqTable(side);
       if (isSymSingle) {
-        parts.push(`_${t("audiologFreqSymHint")}_`);
-        parts.push("");
+        const otherSidePre = side === "left" ? "right" : "left";
+        const anyFt = ft || _audiologFreqTable(otherSidePre);
+        if (anyFt) {
+          parts.push(`_${t("audiologFreqSymHint")}_`);
+          parts.push("");
+        }
         if (ft) {
           parts.push(`### ${t("audiologSecFreq")} — ${sideLbl}`);
           parts.push("");
-          const warn = _audiologFreqWarnungen(side);
-          if (warn) { parts.push(warn); }
           parts.push(ft);
         }
         const otherSide = side === "left" ? "right" : "left";
@@ -1260,15 +1329,11 @@ function buildAudiologMarkdown() {
         if (ftOther) {
           parts.push(`### ${t("audiologSecFreq")} — ${otherLbl}`);
           parts.push("");
-          const warnOther = _audiologFreqWarnungen(otherSide);
-          if (warnOther) { parts.push(warnOther); }
           parts.push(ftOther);
         }
       } else if (ft) {
         parts.push(`### ${t("audiologSecFreq")}`);
         parts.push("");
-        const warn = _audiologFreqWarnungen(side);
-        if (warn) { parts.push(warn); }
         parts.push(ft);
       }
     }
@@ -1430,6 +1495,8 @@ function _audiologFreqChartImg(side) {
   if (typeof drawFRQChart !== "function") return "";
   const displayData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
   if (!displayData || displayData.length === 0) return "";
+  // BA425: Kein Graph, wenn diese Seite keine Aenderung != 0 hat.
+  if (!_audiologSideHasFreqChange(side)) return "";
 
   const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
   const nhEl  = document.getElementById("plNHSim");
@@ -1447,13 +1514,18 @@ function _audiologFreqChartImg(side) {
   return '<img src="' + url + '" style="width:700px;max-width:100%;height:auto;" />';
 }
 
-// BA 321: Warnhinweis in der Audiologen-Karte. Sichtbar, wenn
-// "Beide Seiten beruecksichtigen" an ist, nur EINE Seite gedruckt wird
-// und deren Wert durch die andere Seite mit-abgesenkt wurde.
+// BA321 + BA425: Warnhinweise in der Audiologen-Box, ueber der
+// Buttonzeile. Zeigt (1) die EQ-Headroom-Warnung (BA321) UND (2) die
+// gemeinsamen Warntexte aus _audiologWarnTexts(). Alles im selben
+// Element #audiologEqWarn, mehrzeilig.
 function _audiologUpdWarn() {
   const el = document.getElementById("audiologEqWarn");
   if (!el) return;
-  let show = false;
+
+  const lines = [];
+
+  // (1) EQ-Headroom-Warnung (BA321): nur wenn "Beide Seiten" an, EINE
+  // Seite gedruckt wird und deren Wert mit-abgesenkt wurde.
   if (typeof plEqHeadroom !== "undefined" && plEqHeadroom
       && typeof plEqHeadroomBoth !== "undefined" && plEqHeadroomBoth
       && typeof _eqHeadroomOffsetForSides === "function"
@@ -1463,10 +1535,29 @@ function _audiologUpdWarn() {
       const side = sides[0];
       const ownDb  = _eqHeadroomOffsetForSides([side]);
       const bothDb = _eqHeadroomOffsetForSides(["left", "right"]);
-      if (bothDb > ownDb) show = true;
+      if (bothDb > ownDb) lines.push(t("eqHeadroomWarnUI"));
     }
   }
-  el.classList.toggle("hidden", !show);
+
+  // (2) Gemeinsame Warntexte.
+  if (typeof _audiologWarnTexts === "function") {
+    for (const w of _audiologWarnTexts()) lines.push(w);
+  }
+
+  if (lines.length === 0) {
+    el.classList.add("hidden");
+    el.textContent = "";
+    return;
+  }
+  el.classList.remove("hidden");
+  // Mehrere Warnungen als separate Zeilen mit Warnsymbol.
+  el.innerHTML = lines
+    .map(function (w) {
+      const span = document.createElement("span");
+      span.textContent = "⚠️ " + w;
+      return span.outerHTML;
+    })
+    .join("<br>");
 }
 
 function audiologPrint() {

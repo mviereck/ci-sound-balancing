@@ -676,6 +676,8 @@ function frq_finish() {
   frq_currentEl = null;
   if (FRQ_els && FRQ_els._stopTest) FRQ_els._stopTest();
   if (typeof FRQ_renderResults === "function") FRQ_renderResults();
+  // BA425: Audiologen-Box ueber den zentralen Sammelpunkt auffrischen.
+  if (typeof plSyncUI === "function") plSyncUI();
 }
 
 // --- Elektroden-Ausschluss ---

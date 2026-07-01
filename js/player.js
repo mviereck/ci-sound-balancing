@@ -893,7 +893,6 @@ function pUpdEQ() {
     if (pMonoBalGain) pMonoBalGain.gain.value = dB2G(corr.balance);
   }
   pDrawEQ();
-  if (typeof _audiologUpdWarn === "function") _audiologUpdWarn();
 }
 
 function pToggle() {
@@ -3498,6 +3497,9 @@ function plSyncUI(opts) {
 
   // E. Bibliotheks-Listen
   if (typeof plSyncLibraries === "function") plSyncLibraries();
+
+  // F. Audiologen-Box: Warnhinweise (BA425)
+  if (typeof _audiologUpdWarn === "function") _audiologUpdWarn();
 
   // --- Ebene 2: teure Neuberechnung (nur auf Anforderung) ---
   // Reihenfolge: rebuildSide vor retriggerWarp ist am realen Code belegt
