@@ -241,6 +241,7 @@ function FRQ_renderResults() {
   // Seite = 0, Gegenseite = Korrektur), gehoert-Richtung, kein NH-Sim.
   // Identisch zum Ergebnis-Graphen (chart.js). Die Tabelle rechnet cent NICHT
   // mehr selbst in Frequenzen um.
+  // Mess-Reiter kennt kein NH-Sim -> nhSim=false (gehoerte/Korrektur-Richtung).
   const frqModus = FRQ_modusVonReferenzmodus(frq_referenzmodus());
   const frqWerte = FRQ_werte("gehoert", frqModus, false);
   const werteByIdx = {};

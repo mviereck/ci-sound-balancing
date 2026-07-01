@@ -308,7 +308,10 @@ function FRQ_modusVonReferenzmodus(rm) {
 //   modus        'left' | 'right' | 'symmetric'  = die KORRIGIERTE/verschobene
 //                Seite. Die Funktion kennt den Begriff "Referenzseite" NICHT;
 //                Referenzmodus-Konsumenten uebersetzen ihn selbst (spaeter).
-//   invertieren  bool (Default false) -- dreht die form-eigene Richtung.
+//   nhSim        bool (Default false) -- Player-Einstellung
+//                "Normalhoerenden-Simulation". Wird HIER pro Form in die
+//                noetige Spiegelung uebersetzt; der Konsument denkt nicht
+//                ueber Vorzeichen nach.
 //
 // Rueckgabe: sortiertes Array (aufsteigend nach elIdx), EIN Eintrag je
 // Elektrode der beidseitigen Menge (min(nL, nR)). IMMER beide Seiten
@@ -318,11 +321,15 @@ function FRQ_modusVonReferenzmodus(rm) {
 //
 // Vorzeichen-Wahrheit (eingefroren, kanonisch +cent = rechtes Ohr nimmt
 // tiefer wahr): base = FRQ_seitenWerte(cent, modus) ist die WARP-Richtung.
-//   warp    :  +base   (invertieren -> -base)
-//   gehoert :  -base   (invertieren -> +base)   -- gehoert = -warp
-//   roh     :  cent unveraendert, plus Referenzseite (nur hier genannt).
-function FRQ_werte(form, modus, invertieren) {
-  var inv = !!invertieren;
+//   warp    :  nhSim aus -> Vorhalt/Korrektur; nhSim an -> Verzerrung.
+//   gehoert :  nhSim aus -> gehoerte/Korrektur-Richtung; nhSim an -> gespiegelt.
+//   roh     :  cent unveraendert, plus Referenzseite (nhSim ohne Wirkung).
+function FRQ_werte(form, modus, nhSim) {
+  // nhSim: bool -- die Player-Einstellung "Normalhoerenden-Simulation".
+  // Die gesamte Vorzeichen-/Spiegelungslogik lebt HIER, nicht im Konsumenten
+  // (Nutzer-Vorgabe BA421: kein Konsument denkt ueber Vorzeichen nach).
+  // Intern wird nhSim pro Form in die noetige Spiegelung uebersetzt (2b).
+  var _nhSim = !!nhSim;
 
   // Gemessene Eintraege des aktiven Verfahrens, indexiert nach elIdx.
   var measured = {};
@@ -372,8 +379,15 @@ function FRQ_werte(form, modus, invertieren) {
     } else if (form === "warp" || form === "gehoert") {
       if (gemessen) {
         var base = FRQ_seitenWerte(r.cent, modus);   // Warp-Richtung { csL, csR }
-        // warp: +base (inv -> -base). gehoert: -base (inv -> +base).
-        var sgn = (form === "warp") ? (inv ? -1 : 1) : (inv ? 1 : -1);
+        // nhSim -> form-eigene Richtung (die EINE Vorzeichen-Wahrheit):
+        //   gehoert: nhSim aus = gehoerte/Korrektur-Richtung (sgn -1);
+        //            nhSim an  = um die nominelle Frequenz gespiegelt (sgn +1).
+        //   warp:    Player-Konvention invert = !nhSim (freq-warp.js Z.173):
+        //            nhSim aus = Vorhalt/Korrektur (sgn +1... siehe unten).
+        // Merke: fuer Form 'warp' ohne nhSim war frueher inv=false -> sgn=+1.
+        var sgn = (form === "warp")
+          ? (_nhSim ? -1 : 1)
+          : (_nhSim ? 1 : -1);
         var shL = sgn * base.csL;
         var shR = sgn * base.csR;
         // Residuum folgt DERSELBEN Seitenverteilung wie die Verschiebung:

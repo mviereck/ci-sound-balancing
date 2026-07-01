@@ -383,7 +383,7 @@ function drawFRQChart(cv, fResData, opts) {
   // die gehoerte Situation (nominell/gehoert/Verschiebung) + Residuum + das
   // "nicht Teil der Messung"-Flag. Der Graph rechnet daraus nur noch seine
   // Achsen-/Pixel-Positionen, keine Frequenz-Ableitung mehr selbst.
-  // Form 'gehoert', invertieren=false (Mess-Reiter kennt kein NH-Sim).
+  // Mess-Reiter kennt kein NH-Sim -> nhSim=false (gehoerte/Korrektur-Richtung).
   const modus = FRQ_modusVonReferenzmodus(frq_referenzmodus());
   const werte = FRQ_werte("gehoert", modus, false);
 
