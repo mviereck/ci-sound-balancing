@@ -688,7 +688,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // BA 106: KEIN Filter, dieselbe Migrations-Sequenz wie in file.js.
         FRQ_resultsArray.splice(0, FRQ_resultsArray.length, ...d.fRes);
         if (typeof _FRQ_cleanupLegacyResults === "function") _FRQ_cleanupLegacyResults();
-        if (typeof _FRQ_migrateResultsFormat === "function") _FRQ_migrateResultsFormat();
+        if (typeof _FRQ_migrateResultsFormat === "function") _FRQ_migrateResultsFormat(d);
       }
       // BA416: Klaviertest-Session laden/migrieren.
       if (typeof _FRQ_loadPianoSession === "function") _FRQ_loadPianoSession(d);

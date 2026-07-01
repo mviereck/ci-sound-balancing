@@ -286,29 +286,46 @@ function _FRQ_cleanupLegacyResults() {
   }
 }
 // BA415: Hebt alte Frequenzabgleich-Eintraege auf das kanonische Format
-// (cent kanonisch + frqRefMode). Idempotent.
+// (cent kanonisch + frqRefMode). Laeuft stets direkt nach splice(...d.fRes)
+// auf ROHEN Datei-Eintraegen -> arbeitet nie auf bereits Migriertem (idempotent
+// ueber Lade-Zyklen).
 // BA416: testmode -> frqRefMode (Feld-Umbenennung); alte BA414/415-Eintraege
 // mit 'testmode' werden auf 'frqRefMode' gehoben.
-// cent-Konvention (s. core.js FRQ_varRefOffsetToCanonical): +cent = rechtes Ohr hoeher.
-function _FRQ_migrateResultsFormat() {
+// BA417.x (2026-07-01): pre-BA417-Dateien tragen im Kennzeichen
+// (frqRefMode/testmode/varSide) die alte FESTE-Seiten-Semantik -> das Kennzeichen
+// auf die BA417-Bedeutung (bewegte/steuerbare Seite = Gegenseite) drehen. Das
+// cent-VORZEICHEN bleibt UNANGETASTET: es wird aus den gemessenen Frequenzen +
+// der festen (var-)Seite berechnet, die die BA417-Umbenennung nicht beruehrt.
+// (An zwei realen E1-Messungen verifiziert: alt +245/right -> +245/left deckt
+// sich mit frisch +240/left; ein Mitdrehen des Vorzeichens ergaebe faelschlich
+// -245. S. Konzept_Frequenzabgleich_Anwendung.md §12.)
+// cent-Konvention (s. core.js FRQ_varRefOffsetToCanonical): +cent = rechtes
+// Ohr nimmt tiefer wahr als linkes (Wahrnehmung; die Korrektur-Richtung folgt
+// daraus nicht pauschal, s. core.js-Kommentar bei FRQ_seitenWerte).
+function _FRQ_migrateResultsFormat(d) {
   if (typeof FRQ_resultsArray === 'undefined' || !Array.isArray(FRQ_resultsArray)) return;
+  var preBA417 = _FRQ_pianoSessionPreBA417(d);   // Versions-Stempel der Datei
   for (var i = 0; i < FRQ_resultsArray.length; i++) {
     var r = FRQ_resultsArray[i];
     if (!r) continue;
-    // Schon auf frqRefMode umgestellt -> nichts tun.
-    if (typeof r.frqRefMode === 'string') continue;
-    // BA414/415-Eintrag mit altem Feld 'testmode': nur Feld umbenennen.
+    // Schon auf frqRefMode umgestellt: bei pre-BA417 nur das Kennzeichen drehen
+    // (cent bleibt), sonst nichts tun.
+    if (typeof r.frqRefMode === 'string') {
+      if (preBA417) r.frqRefMode = _FRQ_frqRefModeFromLegacy(r.frqRefMode);
+      continue;
+    }
+    // BA414/415-Eintrag mit altem Feld 'testmode': umbenennen (+ pre-BA417 drehen).
     if (typeof r.testmode === 'string') {
-      r.frqRefMode = r.testmode;
+      r.frqRefMode = preBA417 ? _FRQ_frqRefModeFromLegacy(r.testmode) : r.testmode;
       delete r.testmode;
       continue;
     }
 
-    // 1) frqRefMode aus Alt-Feldern ableiten.
-    var frqRefMode;
-    if (r.refSide === 'symmetric')      frqRefMode = 'symmetric';
-    else if (r.varSide === 'right')     frqRefMode = 'right';
-    else                                frqRefMode = 'left';   // Default/legacy
+    // 1) FESTE (var-)Seite aus Alt-Feldern ableiten -- sie orientiert das cent.
+    var varMode;
+    if (r.refSide === 'symmetric')      varMode = 'symmetric';
+    else if (r.varSide === 'right')     varMode = 'right';
+    else                                varMode = 'left';   // Default/legacy
 
     // 2) Rohen Offset (pse-Konvention: refHz = varHz * 2^(pse/1200)) rekonstruieren.
     //    - asym Altdaten: Offset steckt in refFreq/varFreq.
@@ -325,11 +342,14 @@ function _FRQ_migrateResultsFormat() {
       continue;
     }
 
-    // 3) Kanonisieren (FRQ_varRefOffsetToCanonical aus core.js, var/ref-Migration).
-    r.cent       = Math.round(FRQ_varRefOffsetToCanonical(frqRefMode, rawOffset));
-    r.frqRefMode = frqRefMode;
+    // 3) cent kanonisch aus der FESTEN (var-)Seite -- Vorzeichen unabhaengig
+    //    von der BA417-Kennzeichen-Semantik.
+    r.cent = Math.round(FRQ_varRefOffsetToCanonical(varMode, rawOffset));
+    // 4) Kennzeichen: var/ref-Eintraege sind stets alte (feste-Seiten-)Semantik
+    //    -> auf die BA417-Bedeutung (bewegte Seite = Gegenseite) drehen.
+    r.frqRefMode = _FRQ_frqRefModeFromLegacy(varMode);
 
-    // 4) Alte Felder entfernen.
+    // 5) Alte Felder entfernen.
     delete r.varSide;
     delete r.refSide;
     delete r.varFreq;

@@ -702,7 +702,7 @@ function applyLoadedData(d) {
       FRQ_resultsArray.splice(0, FRQ_resultsArray.length); // keine FRQ_resultsArray im JSON → zurücksetzen
     }
     if (typeof _FRQ_cleanupLegacyResults === "function") _FRQ_cleanupLegacyResults();
-    if (typeof _FRQ_migrateResultsFormat === "function") _FRQ_migrateResultsFormat();
+    if (typeof _FRQ_migrateResultsFormat === "function") _FRQ_migrateResultsFormat(d);
     // BA417: Adaptiv->Piano-Bruecke entfernt (war faktisch tot, s. BA417).
     // BA416: Klaviertest-Session laden/migrieren.
     if (typeof _FRQ_loadPianoSession === "function") _FRQ_loadPianoSession(d);
