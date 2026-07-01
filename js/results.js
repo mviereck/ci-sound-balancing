@@ -215,6 +215,107 @@ function FRQ_activeResults() {
     : [];
 }
 
+// Status-Badge-HTML fuer die Reiter-Tabelle. Aus der frueheren Inline-Kaskade
+// in FRQ_renderResults ausgelagert (BA423). Nur der Reiter zeigt Status; der
+// Audiologen-Ausdruck laesst die Status-Spalte weg (BA424).
+function _FRQ_statusBadgeHtml(fmStatus) {
+  if (fmStatus === "converged")
+    return '<span class="frq-badge frq-badge-ok" data-t="FRQ_resultsStatusOk">' + t("FRQ_resultsStatusOk") + "</span>";
+  if (fmStatus === "converged-fair")
+    return '<span class="frq-badge frq-badge-fair" data-t="FRQ_resultsStatusFair">' + t("FRQ_resultsStatusFair") + "</span>";
+  if (fmStatus === "converged-wide")
+    return '<span class="frq-badge frq-badge-wide" data-t="FRQ_resultsStatusWide">' + t("FRQ_resultsStatusWide") + "</span>";
+  if (fmStatus === "unstable")
+    return '<span class="frq-badge frq-badge-unstable" data-t="FRQ_resultsStatusUnstable">' + t("FRQ_resultsStatusUnstable") + "</span>";
+  if (fmStatus === "aborted")
+    return '<span class="frq-badge frq-badge-aborted" data-t="FRQ_resultsStatusAborted">' + t("FRQ_resultsStatusAborted") + "</span>";
+  if (fmStatus === "not-perceivable")
+    return '<span class="frq-badge frq-badge-err" data-t="FRQ_resultsStatusNotPerceivable">' + t("FRQ_resultsStatusNotPerceivable") + "</span>";
+  if (fmStatus === "piano")
+    return '<span class="frq-badge frq-badge-slider" data-t="FRQ_resultsStatusPiano">' + t("FRQ_resultsStatusPiano") + "</span>";
+  if (fmStatus === "piano-crossed")
+    return '<span class="frq-badge frq-badge-err" data-t="FRQ_resultsStatusPianoCrossed">' + t("FRQ_resultsStatusPianoCrossed") + "</span>";
+  if (fmStatus === "piano-wide")
+    return '<span class="frq-badge frq-badge-wide" data-t="FRQ_resultsStatusPianoWide">' + t("FRQ_resultsStatusPianoWide") + "</span>";
+  return '<span class="muted">—</span>';
+}
+
+// Gemeinsame Zeilen-Quelle der Frequenzabgleich-Tabelle. Liefert je Elektrode
+// der ANGEZEIGTEN/gedruckten Seite eine reine Daten-Zeile (keine HTML/MD-
+// Formatierung). Genutzt vom Reiter (HTML) und vom Audiologen-Ausdruck/
+// Markdown-Export (Markdown, BA424) -- EINE Spalten-/Zahlen-Wahrheit.
+//
+// opts:
+//   side   'left' | 'right'  -- die angezeigte/gedruckte Seite (Pflicht).
+//   modus  'left'|'right'|'symmetric' -- Verschiebungs-Verteilung fuer
+//          FRQ_werte. Default = Mess-Reiter: FRQ_modusVonReferenzmodus(
+//          frq_referenzmodus()). Ausdruck gibt den Player-warpMode.
+//   nhSim  bool -- Default false (Mess-Reiter). Ausdruck gibt plNHSim.
+//
+// Rueckgabe: Array in Elektroden-Reihenfolge der Seite, je Eintrag:
+//   { elIdx, elLabel,
+//     kind: 'excluded' | 'notMeasured' | 'data',
+//     nominellHz|null, gehoertHz|null, diffHz|null, diffCent|null,
+//     residuum|null, isNotPerceivable, fmStatus|null }
+// kind='excluded'   -> ausgeschlossene CI-Elektrode (elExDur/mute).
+// kind='notMeasured'-> keine Messung fuer diese Elektrode.
+// kind='data'       -> Messwerte vorhanden (Felder gefuellt; einzelne koennen
+//                      null sein, wenn ungemessen/Referenzseite).
+function FRQ_tabellenZeilen(opts) {
+  opts = opts || {};
+  const side = (opts.side === "left" || opts.side === "right")
+    ? opts.side
+    : ((typeof activeSide === "string") ? activeSide
+       : (sideData.left.config === "ci" ? "left" : "right"));
+  const modus = (typeof opts.modus === "string")
+    ? opts.modus
+    : FRQ_modusVonReferenzmodus(frq_referenzmodus());
+  const nhSim = !!opts.nhSim;
+
+  const displayData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
+  const frqWerte = FRQ_werte("gehoert", modus, nhSim);
+  const werteByIdx = {};
+  for (const wr of frqWerte) werteByIdx[wr.elIdx] = wr;
+  const byIdx = {};
+  for (const r of displayData) byIdx[r.elIdx] = r;
+
+  const rows = [];
+  const nCi = sideData[side].nEl;
+  for (let i = 0; i < nCi; i++) {
+    const elLabel = dENPrefix(side) + dEN(i, side);
+    const exCI = sideData[side].elExDur[i] !== null || sideData[side].elSt[i] === "mute";
+    const r = byIdx[i];
+    if (exCI) {
+      rows.push({ elIdx: i, elLabel, kind: "excluded",
+        nominellHz: null, gehoertHz: null, diffHz: null, diffCent: null,
+        residuum: null, isNotPerceivable: false, fmStatus: null });
+      continue;
+    }
+    if (!r) {
+      rows.push({ elIdx: i, elLabel, kind: "notMeasured",
+        nominellHz: null, gehoertHz: null, diffHz: null, diffCent: null,
+        residuum: null, isNotPerceivable: false, fmStatus: null });
+      continue;
+    }
+    const wr    = werteByIdx[r.elIdx];
+    const wSide = wr ? wr[side] : null;
+    const isNotPerc = (r.fmStatus === "not-perceivable");
+    let nominellHz = null, gehoertHz = null, diffHz = null, diffCent = null;
+    if (wSide && wSide.nominellHz != null) nominellHz = wSide.nominellHz;
+    if (wSide && wSide.gehoertHz != null && wSide.shiftCent != null) {
+      gehoertHz = wSide.gehoertHz;
+      diffHz    = wSide.shiftHz;
+      diffCent  = Math.round(wSide.shiftCent);
+    }
+    const residuum = (wSide && wSide.residuum != null && !isNotPerc)
+      ? wSide.residuum : null;
+    rows.push({ elIdx: i, elLabel, kind: "data",
+      nominellHz, gehoertHz, diffHz, diffCent, residuum,
+      isNotPerceivable: isNotPerc, fmStatus: r.fmStatus || null });
+  }
+  return rows;
+}
+
 function FRQ_renderResults() {
   const noData = document.getElementById("FRQ_resultsNoData");
   const card = document.getElementById("FRQ_resultsCard");
@@ -236,16 +337,6 @@ function FRQ_renderResults() {
 
   // BA353: Anzeige-Daten: aktives Verfahren.
   const displayData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
-
-  // BA420: EINE Wertquelle. Verteilung nach Referenzmodus (im Test bewegte
-  // Seite = 0, Gegenseite = Korrektur), gehoert-Richtung, kein NH-Sim.
-  // Identisch zum Ergebnis-Graphen (chart.js). Die Tabelle rechnet cent NICHT
-  // mehr selbst in Frequenzen um.
-  // Mess-Reiter kennt kein NH-Sim -> nhSim=false (gehoerte/Korrektur-Richtung).
-  const frqModus = FRQ_modusVonReferenzmodus(frq_referenzmodus());
-  const frqWerte = FRQ_werte("gehoert", frqModus, false);
-  const werteByIdx = {};
-  for (const wr of frqWerte) werteByIdx[wr.elIdx] = wr;
 
   // Titel
   const titleEl = document.getElementById("FRQ_resultsTitle");
@@ -296,125 +387,62 @@ function FRQ_renderResults() {
       "<p style=\"font-weight:600;margin:0\">" + line1 + "</p>";
   }
 
-  // Tabellen-Body: alle Elektroden der aktiven Seite
-  const nCi = sideData[aktivSide].nEl;
-  const byIdx = {};
-  for (const r of displayData) byIdx[r.elIdx] = r;
-
+  // BA423: Zeilen aus der gemeinsamen Quelle (dieselbe wie Ausdruck/Export).
+  // Hier nur noch HTML-Formatierung, keine Werte-Rechnung mehr.
+  const zeilen = FRQ_tabellenZeilen({ side: aktivSide });
+  const grey = "color:#9ca3af";
+  const dash = '<span style="' + grey + '">—</span>';
   tb.innerHTML = "";
-  for (let i = 0; i < nCi; i++) {
-    const exCI = sideData[aktivSide].elExDur[i] !== null || sideData[aktivSide].elSt[i] === 'mute';
-    const r = byIdx[i];
+  for (const z of zeilen) {
     const tr = document.createElement("tr");
-    const elLabel = dENPrefix(aktivSide) + dEN(i, aktivSide);
-
-    if (exCI) {
+    if (z.kind === "excluded") {
       tr.style.opacity = "0.4";
       tr.innerHTML =
-        "<td style=\"font-weight:600\">" + elLabel + "</td>" +
-        "<td>—</td>" +
-        "<td>—</td>" +
-        "<td>—</td>" +
-        "<td>—</td>" +
-        "<td>—</td>" +
-        "<td style=\"font-size:.82em\">" + t('excludedSkipped') + "</td>";
-    } else if (!r) {
-      const note = '<span style="font-size:.82em;color:#9ca3af">' + t('notMeasured') + '</span>';
-      tr.innerHTML =
-        "<td style=\"font-weight:600\">" + elLabel + "</td>" +
-        "<td style=\"color:#9ca3af\">—</td>" +
-        "<td style=\"color:#9ca3af\">—</td>" +
-        "<td style=\"color:#9ca3af\">—</td>" +
-        "<td style=\"color:#9ca3af\">—</td>" +
-        "<td style=\"color:#9ca3af\">—</td>" +
-        "<td>" + note + "</td>";
-    } else {
-      // BA420: Werte aus der zentralen Wertquelle (angezeigte Seite).
-      // nominellHz existiert immer; gehoertHz/shiftHz/shiftCent sind null,
-      // wenn ungemessen. Auf der Referenzseite (im Test bewegt) ist die
-      // Verschiebung 0 -- so gewollt (Tabelle folgt dem Graphen).
-      const wr    = werteByIdx[r.elIdx];
-      const wSide = wr ? wr[aktivSide] : null;
-      let nomHzCell, percHzCell, diffHzCell, diffCtCell;
-      if (!wSide || wSide.gehoertHz == null || wSide.shiftCent == null) {
-        // nominell trotzdem zeigen, wenn vorhanden; Rest "—".
-        nomHzCell  = (wSide && wSide.nominellHz != null)
-                   ? wSide.nominellHz.toFixed(2)
-                   : "<span style=\"color:#9ca3af\">—</span>";
-        percHzCell = "<span style=\"color:#9ca3af\">—</span>";
-        diffHzCell = "<span style=\"color:#9ca3af\">—</span>";
-        diffCtCell = "<span style=\"color:#9ca3af\">—</span>";
-      } else {
-        const nomHz     = wSide.nominellHz;
-        const percHz    = wSide.gehoertHz;
-        const diffHzRaw = wSide.shiftHz;
-        const centRound = Math.round(wSide.shiftCent);
-        const diffColor = diffHzRaw >= 0 ? "#2563eb" : "#dc2626";
-        nomHzCell  = nomHz.toFixed(2);
-        percHzCell = percHz.toFixed(2);
-        diffHzCell = "<span style=\"color:" + diffColor + "\">"
-                   + (diffHzRaw >= 0 ? "+" : "") + diffHzRaw.toFixed(2) + "</span>";
-        diffCtCell = "<span style=\"color:" + diffColor + "\">"
-                   + (centRound >= 0 ? "+" : "") + centRound + "</span>";
-      }
-
-      const isNotPerc = (r.fmStatus === 'not-perceivable');
-
-      // BA420: verteiltes Residuum aus der Wertquelle (angezeigte Seite).
-      // Auf der Referenzseite 0, symmetrisch halb -- wie die Verschiebung.
-      const wRes = (wSide && wSide.residuum != null) ? wSide.residuum : null;
-      let residuumCell;
-      if (wRes == null || isNotPerc) {
-        residuumCell = '<span style="color:#9ca3af">—</span>';
-      } else {
-        const re      = Math.round(wRes);
-        const reColor = re <= 10 ? '#16a34a'
-                      : re <= 25 ? '#d97706'
-                      :            '#dc2626';
-        residuumCell = '<span style="color:' + reColor + ';font-weight:600">±' + re + ' ct</span>';
-      }
-
-      let statusBadge;
-      if (r.fmStatus === 'converged') {
-        statusBadge = '<span class="frq-badge frq-badge-ok" data-t="FRQ_resultsStatusOk">'
-                    + t('FRQ_resultsStatusOk') + '</span>';
-      } else if (r.fmStatus === 'converged-fair') {
-        statusBadge = '<span class="frq-badge frq-badge-fair" data-t="FRQ_resultsStatusFair">'
-                    + t('FRQ_resultsStatusFair') + '</span>';
-      } else if (r.fmStatus === 'converged-wide') {
-        statusBadge = '<span class="frq-badge frq-badge-wide" data-t="FRQ_resultsStatusWide">'
-                    + t('FRQ_resultsStatusWide') + '</span>';
-      } else if (r.fmStatus === 'unstable') {
-        statusBadge = '<span class="frq-badge frq-badge-unstable" data-t="FRQ_resultsStatusUnstable">'
-                    + t('FRQ_resultsStatusUnstable') + '</span>';
-      } else if (r.fmStatus === 'aborted') {
-        statusBadge = '<span class="frq-badge frq-badge-aborted" data-t="FRQ_resultsStatusAborted">'
-                    + t('FRQ_resultsStatusAborted') + '</span>';
-      } else if (r.fmStatus === 'not-perceivable') {
-        statusBadge = '<span class="frq-badge frq-badge-err" data-t="FRQ_resultsStatusNotPerceivable">'
-                    + t('FRQ_resultsStatusNotPerceivable') + '</span>';
-      } else if (r.fmStatus === 'piano') {
-        statusBadge = '<span class="frq-badge frq-badge-slider" data-t="FRQ_resultsStatusPiano">'
-                    + t('FRQ_resultsStatusPiano') + '</span>';
-      } else if (r.fmStatus === 'piano-crossed') {
-        statusBadge = '<span class="frq-badge frq-badge-err" data-t="FRQ_resultsStatusPianoCrossed">'
-                    + t('FRQ_resultsStatusPianoCrossed') + '</span>';
-      } else if (r.fmStatus === 'piano-wide') {
-        statusBadge = '<span class="frq-badge frq-badge-wide" data-t="FRQ_resultsStatusPianoWide">'
-                    + t('FRQ_resultsStatusPianoWide') + '</span>';
-      } else {
-        statusBadge = '<span class="muted">—</span>';
-      }
-
-      tr.innerHTML =
-        "<td style=\"font-weight:600\">" + elLabel + "</td>" +
-        "<td>" + nomHzCell + "</td>" +
-        "<td>" + percHzCell + "</td>" +
-        "<td>" + diffHzCell + "</td>" +
-        "<td>" + diffCtCell + "</td>" +
-        "<td>" + residuumCell + "</td>" +
-        "<td>" + statusBadge + "</td>";
+        "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
+        "<td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>" +
+        "<td style=\"font-size:.82em\">" + t("excludedSkipped") + "</td>";
+      tb.appendChild(tr);
+      continue;
     }
+    if (z.kind === "notMeasured") {
+      const note = '<span style="font-size:.82em;color:#9ca3af">' + t("notMeasured") + "</span>";
+      tr.innerHTML =
+        "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
+        "<td style=\"" + grey + "\">—</td>".repeat(5) +
+        "<td>" + note + "</td>";
+      tb.appendChild(tr);
+      continue;
+    }
+    // kind === "data"
+    let nomHzCell, percHzCell, diffHzCell, diffCtCell;
+    if (z.gehoertHz == null || z.diffCent == null) {
+      nomHzCell  = (z.nominellHz != null) ? z.nominellHz.toFixed(2) : dash;
+      percHzCell = dash; diffHzCell = dash; diffCtCell = dash;
+    } else {
+      const diffColor = z.diffHz >= 0 ? "#2563eb" : "#dc2626";
+      nomHzCell  = z.nominellHz.toFixed(2);
+      percHzCell = z.gehoertHz.toFixed(2);
+      diffHzCell = "<span style=\"color:" + diffColor + "\">"
+                 + (z.diffHz >= 0 ? "+" : "") + z.diffHz.toFixed(2) + "</span>";
+      diffCtCell = "<span style=\"color:" + diffColor + "\">"
+                 + (z.diffCent >= 0 ? "+" : "") + z.diffCent + "</span>";
+    }
+    let residuumCell;
+    if (z.residuum == null) {
+      residuumCell = dash;
+    } else {
+      const re = Math.round(z.residuum);
+      const reColor = re <= 10 ? "#16a34a" : re <= 25 ? "#d97706" : "#dc2626";
+      residuumCell = '<span style="color:' + reColor + ';font-weight:600">±' + re + ' ct</span>';
+    }
+    tr.innerHTML =
+      "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
+      "<td>" + nomHzCell + "</td>" +
+      "<td>" + percHzCell + "</td>" +
+      "<td>" + diffHzCell + "</td>" +
+      "<td>" + diffCtCell + "</td>" +
+      "<td>" + residuumCell + "</td>" +
+      "<td>" + _FRQ_statusBadgeHtml(z.fmStatus) + "</td>";
     tb.appendChild(tr);
   }
 
