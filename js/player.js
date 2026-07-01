@@ -1212,8 +1212,29 @@ function pDrawEQ() {
     pW = W - pad.left - pad.right,
     pH = H - pad.top - pad.bottom,
     zY = pad.top + pH / 2;
+  // BA426: Player-Graph zieht seine Frequenz-Positionen ausschliesslich aus
+  // der zentralen Wertquelle FRQ_werte (Form "gehoert"), NICHT mehr aus
+  // effFreqDisplay. Anwendungs-Konsument: folgt dem Player-warpMode und dem
+  // NH-Sim-Schalter. Verschiebung nur bei eingeschaltetem Warp (pWarpOn);
+  // bei Warp aus stehen die Balken auf den nominellen Frequenzen.
+  const _frqNhSim = !!(document.getElementById("plNHSim")
+                       && document.getElementById("plNHSim").checked);
+  const _frqWerte = FRQ_werte("gehoert",
+    (typeof pWarpMode !== "undefined") ? pWarpMode : "right", _frqNhSim);
+  const _frqByIdx = {};
+  for (const _w of _frqWerte) _frqByIdx[_w.elIdx] = _w;
+  const _frqWarpAn = (typeof pWarpOn !== "undefined") && pWarpOn;
   const axis = buildCentAxis(allE, pad.left, pW, function (i) {
-    return effFreqDisplay(i);
+    const w = _frqByIdx[i];
+    // Kein Eintrag (Elektrode ausserhalb der beidseitigen Vergleichsmenge)
+    // -> nominelle Frequenz der aktiven Seite.
+    if (!w) return withSide(activeSide, function () { return FRQ_implantatEffektiv(i); });
+    const s = w[activeSide];
+    // Warp aus  -> nominelle Frequenz.
+    // Warp an   -> gehoerte Frequenz; ungemessen (gehoertHz == null)
+    //              faellt auf nominell zurueck (Balken bleibt stehen).
+    if (!_frqWarpAn) return s.nominellHz;
+    return (s.gehoertHz != null) ? s.gehoertHz : s.nominellHz;
   });
   const bW = Math.max(5, Math.min((axis.minDx || 12) * 0.6, 22));
   const _hm = Math.ceil(bW / 2) + 2;
