@@ -15,9 +15,12 @@ let pWarpedBufNHSim = null;
 let pWarpOn = true;
 let pWarpSettingsOpen = false;
 let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
-let pWarpCalcMode = "fast";    // BA375: Berechnungs-Modus. "fast"|"mid"|"best".
+let pWarpCalcMode = "mid";     // BA375: Berechnungs-Modus. "fast"|"mid"|"best".
                                // Quelle fuer engine (r2/r3) + Streaming/Voll.
-                               // Persistent (localStorage + JSON), Default "fast".
+                               // Persistent (localStorage + JSON), Default "mid".
+                               // Default "mid" statt "fast" (2026-07-02): "fast"
+                               // (R2) liefert bei schmalbandigem Ton pendelnde
+                               // Tonhoehe; "mid" (R3-Streaming) ist sauber.
 let pWarpBusy = false;
 let pWarpCancel = false;     // wird vom Stop-Button gesetzt, von _rbProcessMonoSide gelesen
 let pWarpProgress = 0;        // 0..1, nur bei Rubberband gefüttert
@@ -1379,7 +1382,7 @@ let _pPlayerWarpDefaultApplied = false;
 // BA375: Spiegelt den persistenten pWarpCalcMode-Wert auf die Radio-Buttons.
 // Nach jedem Laden (localStorage-Autoload, JSON-Datei) aufrufen.
 function _pWarpCalcModeApply() {
-  const v = (pWarpCalcMode === "mid" || pWarpCalcMode === "best") ? pWarpCalcMode : "fast";
+  const v = (pWarpCalcMode === "fast" || pWarpCalcMode === "best") ? pWarpCalcMode : "mid";
   const r = document.querySelector('input[name="plWarpMode"][value="' + v + '"]');
   if (r) r.checked = true;
 }

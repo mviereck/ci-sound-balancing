@@ -522,7 +522,7 @@ document.addEventListener("DOMContentLoaded", () => {
     r.addEventListener("change", function () {
       if (!this.checked) return;
       const v = this.value;
-      pWarpCalcMode = (v === "mid" || v === "best") ? v : "fast";
+      pWarpCalcMode = (v === "fast" || v === "best") ? v : "mid";
       if (typeof _autoSaveState === "function") _autoSaveState();
       // SW (BA379): Lief Wiedergabe ODER wartete sie (amber)? Dann Wunsch
       // halten, damit nach Neuberechnung am neuen Gate automatisch gestartet
@@ -643,9 +643,9 @@ document.addEventListener("DOMContentLoaded", () => {
           if (sel) sel.value = pWarpMode;
         }
         // BA375: Berechnungs-Modus. Keine Migration von playerWarpLive
-        // (alter Wert wird ignoriert). Fehlt der Wert -> Default "fast".
+        // (alter Wert wird ignoriert). Fehlt der Wert -> Default "mid".
         pWarpCalcMode = (d.playerWarpMode === "fast" || d.playerWarpMode === "mid" || d.playerWarpMode === "best")
-          ? d.playerWarpMode : "fast";
+          ? d.playerWarpMode : "mid";
         if (typeof _pWarpCalcModeApply === "function") _pWarpCalcModeApply();
       }
       // BA 177: wenn beim Auto-Restore schon Frequenzabgleich-Messungen
@@ -934,7 +934,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // BA 161: Warp-Feldnamen vereinheitlicht (gleicher Schlüssel wie in Datei-Save)
           warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
           warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "right",
-          playerWarpMode: (typeof pWarpCalcMode !== "undefined") ? pWarpCalcMode : "fast",
+          playerWarpMode: (typeof pWarpCalcMode !== "undefined") ? pWarpCalcMode : "mid",
           version: (typeof APP_VERSION !== "undefined") ? APP_VERSION : "",
           userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
           userLastName:   (typeof userLastName   === "string") ? userLastName   : "",
