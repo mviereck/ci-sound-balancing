@@ -21,7 +21,6 @@ let pCtx = null,
   pChannelMerger = null,
   pChannelLeftGain = null,
   pChannelRightGain = null,
-  pMonoBalGain = null,
   pMaplawOn = false,
   pMaplawSollC = 1000,
   pMaplawNode = null,
@@ -794,16 +793,16 @@ function pCompQ(i, side, nhSim) {
 // (pChannelSplitter -> pEqFLeft/pEqFRight -> pChannelMerger) gebaut und
 // genutzt werden. Gilt fuer "both" (echtes Stereo) UND "mono"
 // (Mono-Inhalt, aber weiterhin getrennte Seiten-Korrektur pro Ohr).
+// BA431: Der EQ baut IMMER zwei seitenweise Ketten (Kanaele sind vorne
+// belegt; der EQ kennt nur 2 Kanaele). Diese Funktion entscheidet nur noch
+// den echten BYPASS: ohne Buffer oder ohne Elektroden werden keine Filter
+// gebaut, das Signal laeuft unbearbeitet durch (Quelle -> pGain). Kein
+// mode-Bezug mehr -- die Mono/Seiten-Frage ist Sache der Buffer-
+// Vorverarbeitung, nicht des EQ.
 function _pUseSplitChains(mode) {
   if (!pSourceBuf) return false;
-  // Kein Implantat konfiguriert (Hersteller „—") -> nEl = 0 -> keine
-  // Elektroden-Filter zu bauen. Ohne diesen Riegel liefe pBuildEQ in den
-  // Doppel-Ketten-Zweig, baute eine leere Filterliste und scheiterte an
-  // pChannelSplitter.connect(pEqFLeft[0], …) (pEqFLeft[0] === undefined).
-  // false -> Signal läuft unbearbeitet durch (Quelle -> pGain).
   if (typeof nEl !== "number" || nEl <= 0) return false;
-  if (mode === "mono") return true;
-  return mode === "both" && pSourceBuf.numberOfChannels > 1;
+  return true;
 }
 
 // BA390: Stellt pGain und die Latenz-Delay-Kette her, ohne EQ-Filter und
@@ -844,8 +843,6 @@ function pBuildEQ() {
   pChannelLeftGain = null;
   pChannelRightGain && pChannelRightGain.disconnect();
   pChannelRightGain = null;
-  pMonoBalGain && pMonoBalGain.disconnect();
-  pMonoBalGain = null;
   pEnsureOutputBase(c);
   const mode = getPlayerSide();
   const nhSim = document.getElementById("plNHSim").checked;
@@ -884,46 +881,23 @@ function pBuildEQ() {
     pChannelLeftGain.connect(pChannelMerger, 0, 0);
     pChannelRightGain.connect(pChannelMerger, 0, 1);
     pEqF.push(pChannelMerger);
-  } else {
-    const corrSide = (mode === "left" || mode === "right") ? mode : activeSide;
-    const corr = getPlayerCorrection(corrSide);
-    for (let i = 0; i < nEl; i++) {
-      const f = c.createBiquadFilter();
-      f.type = "peaking";
-      f.frequency.value = pEqFreq(i, corrSide, nhSim);
-      f.Q.value = pCompQ(i, corrSide, nhSim);
-      f.gain.value = corr.eq[i];
-      pEqF.push(f);
-    }
-    for (let i = 0; i < pEqF.length - 1; i++) pEqF[i].connect(pEqF[i + 1]);
-    if (pEqF.length > 0) {
-      pMonoBalGain = c.createGain();
-      pMonoBalGain.gain.value = dB2G(corr.balance);
-      pEqF[pEqF.length - 1].connect(pMonoBalGain);
-    }
   }
+  // BA431: Bypass (else): keine Filter, keine Ketten -> pEqF/pEqFLeft/pEqFRight
+  // bleiben leer; _pWireOutputChain leitet das Signal Quelle -> pGain durch.
 }
 
 function pUpdEQ() {
-  const mode = getPlayerSide();
-  if (mode === "both" || mode === "mono") {
-    const corrL = getPlayerCorrection("left");
-    const corrR = getPlayerCorrection("right");
-    for (let i = 0; i < pEqFLeft.length; i++) {
-      pEqFLeft[i].gain.value = corrL.eq[i] || 0;
-    }
-    for (let i = 0; i < pEqFRight.length; i++) {
-      pEqFRight[i].gain.value = corrR.eq[i] || 0;
-    }
-    if (pChannelLeftGain) pChannelLeftGain.gain.value = dB2G(corrL.balance);
-    if (pChannelRightGain) pChannelRightGain.gain.value = dB2G(corrR.balance);
-  } else {
-    const corr = getPlayerCorrection(mode === "right" ? "right" : "left");
-    for (let i = 0; i < pEqF.length; i++) {
-      pEqF[i].gain.value = corr.eq[i] || 0;
-    }
-    if (pMonoBalGain) pMonoBalGain.gain.value = dB2G(corr.balance);
+  // BA431: immer beide seitenweise Ketten aktualisieren (kein mode-Zweig).
+  const corrL = getPlayerCorrection("left");
+  const corrR = getPlayerCorrection("right");
+  for (let i = 0; i < pEqFLeft.length; i++) {
+    pEqFLeft[i].gain.value = corrL.eq[i] || 0;
   }
+  for (let i = 0; i < pEqFRight.length; i++) {
+    pEqFRight[i].gain.value = corrR.eq[i] || 0;
+  }
+  if (pChannelLeftGain) pChannelLeftGain.gain.value = dB2G(corrL.balance);
+  if (pChannelRightGain) pChannelRightGain.gain.value = dB2G(corrR.balance);
   pDrawEQ();
 }
 
@@ -949,11 +923,7 @@ async function _pWireOutputChain(c, playGen) {
       : pGain;
   const lastEq = stereoMode
     ? pChannelMerger
-    : pMonoBalGain
-      ? pMonoBalGain
-      : pEqF.length > 0
-        ? pEqF[pEqF.length - 1]
-        : null;
+    : (pEqF.length > 0 ? pEqF[pEqF.length - 1] : null);
   // Alte ausgehende Verbindung trennen, bevor neu verdrahtet wird.
   // Verhindert Doppelpfad lastEq->pGain + lastEq->pMaplawNode->pGain.
   if (lastEq) {
