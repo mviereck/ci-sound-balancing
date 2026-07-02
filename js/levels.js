@@ -2,7 +2,52 @@
 // LEVELS – Preset-Berechnung und Levels-Tab
 // ============================================================
 
+// BA429: Frequenz-Position einer Elektrode im Kurven-Reiter.
+// Ersetzt _kurvenFreq: bezieht die Frequenz aus der zentralen Wertquelle
+// FRQ_werte (Form "gehoert") statt aus dem alten buildWarpPoints-Pfad, der
+// die falsche Vorzeichen-Richtung lieferte (E1: 138 statt 104 Hz).
+//
+// Verhalten (Nutzer-Vorgabe):
+//   - Frequenz der AKTIVEN Seite (activeSide).
+//   - folgt der Player-Warp-Einstellung: pWarpOn (an/aus) + pWarpMode (Seite).
+//   - Warp aus  -> nominelle Frequenz; Warp an -> gehoerte Frequenz;
+//     ungemessen (gehoertHz == null) -> nominell (Rueckfall).
+//   - NH-Sim wird IGNORIERT (nhSim fest false) -- der Kurven-Reiter zeigt
+//     immer die echte gehoerte Position, keine ~141-Spiegelung. Bewusster
+//     Unterschied zum Player-Graph.
+//
+// typeof-Guards, weil freq-warp.js (pWarpMode/pWarpOn) und core.js
+// (FRQ_werte) zur Ladezeit evtl. noch nicht bereitstehen -- Aufruf erfolgt
+// aber immer erst zur Laufzeit (in den Zeichen-/Berechnungs-Funktionen).
+let _kurvenFrqCache = null;
+
+function _kurvenFrqRefresh() {
+  // Einmal je Zeichen-/Berechnungslauf die Wertquelle ziehen und nach
+  // elIdx indizieren. Aufrufer rufen _kurvenFreq(i); der Cache wird zu
+  // Beginn jedes Laufs neu aufgebaut (siehe kurvenELLBerechnen /
+  // kurvenELLChartZeichnen).
+  if (typeof FRQ_werte !== "function") { _kurvenFrqCache = null; return; }
+  const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
+  const werte = FRQ_werte("gehoert", modus, false);   // nhSim fest false
+  const byIdx = {};
+  for (const w of werte) byIdx[w.elIdx] = w;
+  _kurvenFrqCache = byIdx;
+}
+
+function _kurvenFreq(i) {
+  // Nominelle Frequenz der aktiven Seite als Basis/Rueckfall.
+  const nom = FRQ_implantatEffektiv(i);
+  const warpAn = (typeof pWarpOn !== "undefined") && pWarpOn;
+  if (!warpAn || !_kurvenFrqCache) return nom;
+  const w = _kurvenFrqCache[i];
+  if (!w) return nom;                       // Elektrode ausserhalb der Menge
+  const s = w[activeSide];
+  if (!s) return nom;
+  return (s.gehoertHz != null) ? s.gehoertHz : nom;
+}
+
 function kurvenELLBerechnen(pr) {
+  _kurvenFrqRefresh();               // BA429: Wertquelle einmal je Lauf ziehen
   const act = allEl(),
     n = nEl,
     c = new Array(n).fill(0);
@@ -12,15 +57,15 @@ function kurvenELLBerechnen(pr) {
   const ctrHz = pr.center != null ? pr.center : CENT_REF_HZ;
   const ctrC = hzToCent(ctrHz);
   // Span in Cent über die aktiven Elektroden
-  const fMin = effFreqDisplay(act[0]);
-  const fMax = effFreqDisplay(act[act.length - 1]);
+  const fMin = _kurvenFreq(act[0]);
+  const fMax = _kurvenFreq(act[act.length - 1]);
   const cMin = hzToCent(fMin);
   const cMax = hzToCent(fMax);
   const halfSpanC = Math.max(1, (cMax - cMin) / 2);
 
   if (pr.type === "tilt") {
     for (const i of act) {
-      const xC = hzToCent(effFreqDisplay(i)) - ctrC;
+      const xC = hzToCent(_kurvenFreq(i)) - ctrC;
       c[i] = xC / halfSpanC;
     }
     const mx2 = Math.max(...c.map(Math.abs)) || 1;
@@ -29,7 +74,7 @@ function kurvenELLBerechnen(pr) {
   }
   if (pr.type === "scurve") {
     for (const i of act) {
-      const x = (hzToCent(effFreqDisplay(i)) - ctrC) / halfSpanC;
+      const x = (hzToCent(_kurvenFreq(i)) - ctrC) / halfSpanC;
       c[i] = Math.sign(x) * Math.pow(Math.abs(x), 0.6);
     }
     const mx2 = Math.max(...c.map(Math.abs)) || 1;
@@ -38,7 +83,7 @@ function kurvenELLBerechnen(pr) {
   }
   if (pr.type === "pivot") {
     for (const i of act) {
-      const d = Math.abs(hzToCent(effFreqDisplay(i)) - ctrC) / halfSpanC;
+      const d = Math.abs(hzToCent(_kurvenFreq(i)) - ctrC) / halfSpanC;
       c[i] = -(d * d * 2 - 1);
     }
     const mx2 = Math.max(...c.map(Math.abs)) || 1;
@@ -49,7 +94,7 @@ function kurvenELLBerechnen(pr) {
     // Breite in Cent (Default 1200 ¢ = 1 Oktave)
     const sigC = Math.max(50, pr.width || 1200);
     for (const i of act) {
-      const dC = hzToCent(effFreqDisplay(i)) - ctrC;
+      const dC = hzToCent(_kurvenFreq(i)) - ctrC;
       c[i] = Math.exp(-0.5 * Math.pow(dC / sigC, 2));
     }
     const mx2 = Math.max(...c.map(Math.abs)) || 1;
@@ -79,7 +124,7 @@ function kurvenELLBerechnen(pr) {
     return c;
   }
   if (pr.type === "speech") {
-    const effF = Array.from({ length: n }, (_, i) => effFreqDisplay(i));
+    const effF = Array.from({ length: n }, (_, i) => _kurvenFreq(i));
     const w = siiWeightsForFreqs(effF);
     const mean = w.reduce((a, b) => a + b, 0) / n;
     for (let i = 0; i < n; i++) c[i] = w[i] - mean;
@@ -89,7 +134,7 @@ function kurvenELLBerechnen(pr) {
   }
   if (pr.type === "iso226") {
     const LN = pr.phon != null ? pr.phon : 70;
-    const effF = Array.from({ length: n }, (_, i) => effFreqDisplay(i));
+    const effF = Array.from({ length: n }, (_, i) => _kurvenFreq(i));
     const w = iso226WeightsForFreqs(effF, LN);
     // w ist bereits relativ zu 1000 Hz in echten dB; keine weitere
     // Normierung. Stärke-Faktor wird in kurvenELLSumme angewandt.
@@ -368,6 +413,7 @@ function kurvenELLChartZeichnen() {
   const showPre = document.getElementById("kurvenELLChkPre").checked;
   const act = allEl();
   if (!act.length) return;
+  _kurvenFrqRefresh();               // BA429: Wertquelle einmal je Zeichenlauf
   const corr = ELL_testData({ ctx: ELL_ctx("global") }).correction;
   const pc = kurvenELLSumme();
   const measV = act.map((i) => corr[i]);
@@ -385,7 +431,7 @@ function kurvenELLChartZeichnen() {
     pH = H - pad.top - pad.bottom;
   const zY = pad.top + pH / 2;
   const axis = buildCentAxis(act, pad.left, pW, function (i) {
-    return effFreqDisplay(i);
+    return _kurvenFreq(i);
   });
   const tX = axis.tX;
   const tY = (v) => pad.top + (yMx - v) * (pH / (2 * yMx));
