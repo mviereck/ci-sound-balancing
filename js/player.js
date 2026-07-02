@@ -734,12 +734,47 @@ function updatePlayerForSideChange() {
   plCheck();
 }
 
-function pCompQ(i) {
-  const ef = effFreqDisplay(i),
-    ef0 = effFreqDisplay(0),
-    ef1 = effFreqDisplay(Math.min(1, nEl - 1)),
-    efN = effFreqDisplay(nEl - 1),
-    efNm1 = effFreqDisplay(Math.max(0, nEl - 2));
+// BA430: Filter-Positionsfrequenz einer Elektrode im EQ-Audio-Pfad.
+// Ersetzt effFreqDisplay/FRQ_implantatEffektiv als Frequenz-Quelle.
+// Bezieht die Frequenz aus der zentralen Wertquelle FRQ_werte (Form
+// "gehoert"). Modusabhaengig (s. .docs/spec/00-eq-kette-architektur.md, 4):
+//   NH-Sim aus -> nominelle Frequenz (Filter sitzt dort, wohin der Warp
+//                 das Material schiebt).
+//   NH-Sim an  -> echte gehoerte Frequenz (Warp schiebt Material dorthin);
+//                 ungemessen -> Rueckfall nominell.
+//   Elektrode ohne FRQ_werte-Eintrag -> nominell.
+// modus = pWarpMode. Cache je Bau-/Update-Lauf einmal fuellen (pFrqRefresh).
+// typeof-Guards, da FRQ_werte/pWarpMode zur Laufzeit gerufen werden.
+let _pEqFrqCache = null;
+
+function pFrqRefresh() {
+  if (typeof FRQ_werte !== "function") { _pEqFrqCache = null; return; }
+  const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
+  const werte = FRQ_werte("gehoert", modus, false);   // nhSim NICHT durchreichen
+  const byIdx = {};
+  for (const w of werte) byIdx[w.elIdx] = w;
+  _pEqFrqCache = byIdx;
+}
+
+// Filter-Positionsfrequenz fuer Elektrode i auf 'side' ("left"|"right").
+// nhSim: Player-Einstellung (bool).
+function pEqFreq(i, side, nhSim) {
+  const nom = withSide(side, function () { return FRQ_implantatEffektiv(i); });
+  if (!nhSim) return nom;                     // Korrektur -> nominell
+  if (!_pEqFrqCache) return nom;
+  const w = _pEqFrqCache[i];
+  if (!w) return nom;                         // ausserhalb der Menge
+  const s = w[side];
+  if (!s || s.gehoertHz == null) return nom;  // ungemessen -> nominell
+  return s.gehoertHz;                         // NH-Sim -> gehoert
+}
+
+function pCompQ(i, side, nhSim) {
+  const ef = pEqFreq(i, side, nhSim),
+    ef0 = pEqFreq(0, side, nhSim),
+    ef1 = pEqFreq(Math.min(1, nEl - 1), side, nhSim),
+    efN = pEqFreq(nEl - 1, side, nhSim),
+    efNm1 = pEqFreq(Math.max(0, nEl - 2), side, nhSim);
   let fL, fH;
   if (i === 0) {
     fL = (ef0 * ef0) / (ef1 || ef0);
@@ -748,8 +783,8 @@ function pCompQ(i) {
     fL = efNm1;
     fH = (ef * ef) / efNm1;
   } else {
-    fL = effFreqDisplay(i - 1);
-    fH = effFreqDisplay(i + 1);
+    fL = pEqFreq(i - 1, side, nhSim);
+    fH = pEqFreq(i + 1, side, nhSim);
   }
   const bw = Math.log2(Math.sqrt(ef * fH)) - Math.log2(Math.sqrt(fL * ef));
   return ef / (ef * (Math.pow(2, bw / 2) - Math.pow(2, -bw / 2)));
@@ -814,6 +849,7 @@ function pBuildEQ() {
   pEnsureOutputBase(c);
   const mode = getPlayerSide();
   const nhSim = document.getElementById("plNHSim").checked;
+  pFrqRefresh();                     // BA430: Wertquelle einmal je Bau-Lauf
   if (_pUseSplitChains(mode)) {
     const corrL = getPlayerCorrection("left");
     const corrR = getPlayerCorrection("right");
@@ -822,18 +858,14 @@ function pBuildEQ() {
     for (let i = 0; i < nEl; i++) {
       const lf = c.createBiquadFilter();
       lf.type = "peaking";
-      lf.frequency.value = nhSim
-        ? effFreqDisplay(i, "left")
-        : withSide("left", () => FRQ_implantatEffektiv(i));
-      lf.Q.value = pCompQ(i);
+      lf.frequency.value = pEqFreq(i, "left", nhSim);
+      lf.Q.value = pCompQ(i, "left", nhSim);
       lf.gain.value = corrL.eq[i];
       pEqFLeft.push(lf);
       const rf = c.createBiquadFilter();
       rf.type = "peaking";
-      rf.frequency.value = nhSim
-        ? effFreqDisplay(i, "right")
-        : withSide("right", () => FRQ_implantatEffektiv(i));
-      rf.Q.value = pCompQ(i);
+      rf.frequency.value = pEqFreq(i, "right", nhSim);
+      rf.Q.value = pCompQ(i, "right", nhSim);
       rf.gain.value = corrR.eq[i];
       pEqFRight.push(rf);
     }
@@ -858,8 +890,8 @@ function pBuildEQ() {
     for (let i = 0; i < nEl; i++) {
       const f = c.createBiquadFilter();
       f.type = "peaking";
-      f.frequency.value = nhSim ? effFreqDisplay(i) : FRQ_implantatEffektiv(i);
-      f.Q.value = pCompQ(i);
+      f.frequency.value = pEqFreq(i, corrSide, nhSim);
+      f.Q.value = pCompQ(i, corrSide, nhSim);
       f.gain.value = corr.eq[i];
       pEqF.push(f);
     }
