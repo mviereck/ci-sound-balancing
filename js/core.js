@@ -175,18 +175,21 @@ const MFR = {
     name: "—",
     n: 0,
     apFirst: true,
+    defaultRange: null,
     FRQ_implantat: [],
   },
   medel: {
     name: "MED-EL",
     n: 12,
     apFirst: true,
+    defaultRange: [70, 8500],   // BA433: echte From/To (MAESTRO-Default)
     FRQ_implantat: [120, 235, 384, 579, 836, 1175, 1624, 2222, 3019, 4084, 5507, 7410],
   },
   ab: {
     name: "Advanced Bionics",
     n: 16,
     apFirst: true,
+    defaultRange: null,
     FRQ_implantat: [
       333, 455, 540, 642, 762, 906, 1076, 1278, 1518, 1803, 2142, 2544, 3022,
       3590, 4264, 6665,
@@ -196,6 +199,7 @@ const MFR = {
     name: "Cochlear",
     n: 22,
     apFirst: false,
+    defaultRange: [188, 7938],  // Standard-FAT 188–7938 Hz
     // Standard-FAT bei LFE 188 Hz, HFE 7938 Hz, 22 aktiven
     // Kanälen. Quelle: CI Select App Manual S. 12/13 (NYU
     // Langone, Svirsky-Labor) und PMC11493529. Korrigiert in
@@ -274,9 +278,19 @@ function FRQ_baender(mitten) {
     }
   }
   if (kette.length === 0) return { bands: [] };
-  // Ueberlauf-Pruefung: streng monoton steigende Mitten.
+  // Ueberlauf-Pruefung: streng monoton steigende Mitten. Sammelt die
+  // elIdx-Paare, die die Reihenfolge kippen (BA433, fuer die Anzeige).
+  var overlapEls = [];
   for (var k = 1; k < kette.length; k++) {
-    if (kette[k].hz <= kette[k - 1].hz) return { error: "overlap" };
+    if (kette[k].hz <= kette[k - 1].hz) {
+      overlapEls.push(kette[k - 1].elIdx, kette[k].elIdx);
+    }
+  }
+  if (overlapEls.length > 0) {
+    // Duplikate entfernen, aufsteigend.
+    var uniq = overlapEls.filter(function (v, idx) { return overlapEls.indexOf(v) === idx; });
+    uniq.sort(function (a, b) { return a - b; });
+    return { error: "overlap", elektroden: uniq };
   }
   // Einzelne Elektrode: kein Nachbar zum Spiegeln -> kein Band
   // definierbar. Leere Bandliste (Konsument zeigt dann kein Band).
@@ -298,6 +312,27 @@ function FRQ_baender(mitten) {
     bands.push({ elIdx: kette[e].elIdx, loHz: edges[e], hiHz: edges[e + 1] });
   }
   return { bands: bands };
+}
+// BA433 (§9.8a): Cent-Abweichung der berechneten (gespiegelten)
+// Bandraender von den echten Hersteller-Gesamtgrenzen (defaultRange),
+// laufzeit-berechnet aus den Default-Mitten. Rueckgabe:
+//   { untenCent, obenCent }  (negativ = echte Grenze liegt tiefer)
+//   | null  wenn Hersteller keine bekannten Grenzen hat (AB/unknown).
+function FRQ_randAbweichungCent(mfrKey) {
+  var m = MFR[mfrKey];
+  if (!m || !m.defaultRange || !Array.isArray(m.FRQ_implantat)
+      || m.FRQ_implantat.length < 2) return null;
+  var mitten = m.FRQ_implantat;
+  // Gespiegelte Raender aus den Default-Mitten (wie FRQ_baender).
+  var loInner = geomMitte(mitten[0], mitten[1]);
+  var hiInner = geomMitte(mitten[mitten.length - 2], mitten[mitten.length - 1]);
+  var loEdge = (mitten[0] * mitten[0]) / loInner;
+  var hiEdge = (mitten[mitten.length - 1] * mitten[mitten.length - 1]) / hiInner;
+  var from = m.defaultRange[0], to = m.defaultRange[1];
+  return {
+    untenCent: 1200 * Math.log2(from / loEdge),
+    obenCent:  1200 * Math.log2(to   / hiEdge),
+  };
 }
 // Log-Interpolation zwischen zwei Frequenzen, t in [0,1].
 function logInterpHz(f1, f2, t) {
@@ -529,6 +564,7 @@ function FRQ_werte(form, modus, nhSim) {
         out.forEach(function (entry) {
           if (entry[seite]) {
             entry[seite].bandOverlap = true;
+            entry[seite].bandOverlapEls = res.elektroden || [];
             entry[seite].bandLoHz = null;
             entry[seite].bandHiHz = null;
           }
@@ -540,6 +576,7 @@ function FRQ_werte(form, modus, nhSim) {
           if (!entry[seite]) return;
           var b = byIdx[entry.elIdx];
           entry[seite].bandOverlap = false;
+          entry[seite].bandOverlapEls = [];
           entry[seite].bandLoHz = b ? b.loHz : null;
           entry[seite].bandHiHz = b ? b.hiHz : null;
         });

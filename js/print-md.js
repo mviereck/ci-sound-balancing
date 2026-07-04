@@ -924,17 +924,19 @@ function _audiologFreqTable(side) {
   lines.push("| " + t("FRQ_resultsColEl")
     + " | " + t("FRQ_resultsColNominalHz")
     + " | " + t("FRQ_resultsColPerceivedHz")
+    + " | " + t("FRQ_resultsColBand")
     + " | " + t("FRQ_resultsColDiffHz")
     + " | " + t("FRQ_resultsColDiffCent")
     + " | " + t("FRQ_resultsColResiduum") + " |");
-  lines.push("|---|---|---|---|---|---|");
+  lines.push("|---|---|---|---|---|---|---|");
   for (const z of zeilen) {
-    if (z.kind === "excluded") {
-      lines.push("| " + z.elLabel + " | — | — | — | — | " + t("excludedSkipped") + " |");
+    if (z.kind === "notActive") {
+      // BA433-Fix: nur elActive===false. Kein Band.
+      lines.push("| " + z.elLabel + " | — | — | — | — | — | " + t("FRQ_resultsStatusNotActive") + " |");
       continue;
     }
     if (z.kind === "notMeasured") {
-      lines.push("| " + z.elLabel + " | — | — | — | — | " + t("notMeasured") + " |");
+      lines.push("| " + z.elLabel + " | — | — | — | — | — | " + t("notMeasured") + " |");
       continue;
     }
     let nomC = dashMd, perC = dashMd, dHzC = dashMd, dCtC = dashMd, resC = dashMd;
@@ -942,15 +944,60 @@ function _audiologFreqTable(side) {
       nomC = z.nominellHz.toFixed(2);
       perC = z.gehoertHz.toFixed(2);
       dHzC = (z.diffHz >= 0 ? "+" : "") + z.diffHz.toFixed(2);
-      dCtC = (z.diffCent >= 0 ? "+" : "") + z.diffCent;
+      dCtC = (z.diffCent >= 0 ? "+" : "") + fmtNum(z.diffCent, "cent");
     } else if (z.nominellHz != null) {
       nomC = z.nominellHz.toFixed(2);
     }
+    let bandC = dashMd;
+    if (z.bandOverlap) {
+      bandC = "⚠";
+    } else if (z.bandLoHz != null && z.bandHiHz != null) {
+      bandC = fmtNum(z.bandLoHz, "hz") + " - " + fmtNum(z.bandHiHz, "hz") + " Hz";
+    }
     if (z.residuum != null) resC = "±" + Math.round(z.residuum) + " ct";
     lines.push("| " + z.elLabel + " | " + nomC + " | " + perC
-      + " | " + dHzC + " | " + dCtC + " | " + resC + " |");
+      + " | " + bandC + " | " + dHzC + " | " + dCtC + " | " + resC + " |");
   }
+
+  // BA433: Texte nach der Ausdruck-Tabelle (Reihenfolge §9.8a).
+  let overlapEls = [];
+  for (const z of zeilen) {
+    if (z.bandOverlap && z.bandOverlapEls && z.bandOverlapEls.length) {
+      overlapEls = z.bandOverlapEls; break;
+    }
+  }
+  if (overlapEls.length) {
+    const labels = overlapEls.map(function (idx) { return dENPrefix(side) + dEN(idx, side); }).join(", ");
+    lines.push("\n⚠ " + t("FRQ_bandOverlapNote").replace("{els}", labels));
+  }
+  lines.push("\n" + t("FRQ_bandExplain"));
+  lines.push("\n" + _FRQ_randHinweisMd(side));
+
   return lines.join("\n") + "\n";
+}
+
+// BA433: Markdown-Variante des Rand-Hinweises. Rechen-Helfer
+// FRQ_randAbweichungCent und _FRQ_apikalBandKorrigiert kommen aus
+// results.js (global) -- nicht duplizieren.
+function _FRQ_randHinweisMd(side) {
+  const medel = FRQ_randAbweichungCent("medel");
+  const coch  = FRQ_randAbweichungCent("cochlear");
+  let md = t("FRQ_randHinweisIntro") + "\n\n";
+  md += "| | " + t("FRQ_randCol1") + " | " + t("FRQ_randCol2") + " |\n";
+  md += "|---|---|---|\n";
+  md += "| MED-EL | " + fmtNum(medel.untenCent, "cent") + " cent | " + fmtNum(medel.obenCent, "cent") + " cent |\n";
+  md += "| Cochlear | " + fmtNum(coch.untenCent, "cent") + " cent | " + fmtNum(coch.obenCent, "cent") + " cent |\n\n";
+  md += t("FRQ_randHinweisOutro");
+  const mfrKey = sideData[side] ? sideData[side].manufacturer : null;
+  const abw = mfrKey ? FRQ_randAbweichungCent(mfrKey) : null;
+  if (abw) {
+    const z2 = _FRQ_apikalBandKorrigiert(side, abw.untenCent);
+    if (z2) {
+      md += "\n\n" + t("FRQ_randBlock2Intro") + "\n"
+        + z2.label + ": " + fmtNum(z2.loHz, "hz") + " Hz - " + fmtNum(z2.hiHz, "hz") + " Hz";
+    }
+  }
+  return md;
 }
 
 // BA425: Gemeinsame Warn-Quelle fuer UI (Box) und Ausdruck. Liefert

@@ -254,13 +254,17 @@ function _FRQ_statusBadgeHtml(fmStatus) {
 //
 // Rueckgabe: Array in Elektroden-Reihenfolge der Seite, je Eintrag:
 //   { elIdx, elLabel,
-//     kind: 'excluded' | 'notMeasured' | 'data',
+//     kind: 'notActive' | 'notMeasured' | 'data',
 //     nominellHz|null, gehoertHz|null, diffHz|null, diffCent|null,
-//     residuum|null, isNotPerceivable, fmStatus|null }
-// kind='excluded'   -> ausgeschlossene CI-Elektrode (elExDur/mute).
+//     residuum|null, isNotPerceivable, fmStatus|null,
+//     bandLoHz|null, bandHiHz|null, bandOverlap, bandOverlapEls }
+// kind='notActive'  -> NICHT aktive Elektrode (elActive===false, vom
+//                      Audiologen abgeschaltet). Nicht existent -> kein Band,
+//                      Nachbarn ruecken zusammen (BA433-Fix, §9.5).
 // kind='notMeasured'-> keine Messung fuer diese Elektrode.
-// kind='data'       -> Messwerte vorhanden (Felder gefuellt; einzelne koennen
-//                      null sein, wenn ungemessen/Referenzseite).
+// kind='data'       -> Aktive Elektrode (auch stumm/ausgeschlossen/ungemessen):
+//                      Felder gefuellt; einzelne koennen null sein, wenn
+//                      ungemessen. Band via nomineller Mitte, wenn ungemessen.
 function FRQ_tabellenZeilen(opts) {
   opts = opts || {};
   const side = (opts.side === "left" || opts.side === "right")
@@ -283,35 +287,43 @@ function FRQ_tabellenZeilen(opts) {
   const nCi = sideData[side].nEl;
   for (let i = 0; i < nCi; i++) {
     const elLabel = dENPrefix(side) + dEN(i, side);
-    const exCI = sideData[side].elExDur[i] !== null || sideData[side].elSt[i] === "mute";
     const r = byIdx[i];
-    if (exCI) {
-      rows.push({ elIdx: i, elLabel, kind: "excluded",
+    // BA433-Fix (§9.5): Nur NICHT AKTIVE Elektroden (elActive===false,
+    // vom Audiologen abgeschaltet) fallen aus der Tabelle als "nicht
+    // existent" -> kind "notActive", kein Band. Stumme/ausgeschlossene
+    // Elektroden sind AKTIV -> normale Datenzeile MIT Band (nominelle
+    // Mitte), Wahrnehmung/Diff "—" wenn ungemessen.
+    if (sideData[side].elActive && sideData[side].elActive[i] === false) {
+      rows.push({ elIdx: i, elLabel, kind: "notActive",
         nominellHz: null, gehoertHz: null, diffHz: null, diffCent: null,
-        residuum: null, isNotPerceivable: false, fmStatus: null });
+        residuum: null, isNotPerceivable: false, fmStatus: null,
+        bandLoHz: null, bandHiHz: null, bandOverlap: false, bandOverlapEls: [] });
       continue;
     }
-    if (!r) {
-      rows.push({ elIdx: i, elLabel, kind: "notMeasured",
-        nominellHz: null, gehoertHz: null, diffHz: null, diffCent: null,
-        residuum: null, isNotPerceivable: false, fmStatus: null });
-      continue;
-    }
-    const wr    = werteByIdx[r.elIdx];
+    // Aktive Elektrode: Werte aus der Wertquelle holen (auch ungemessene
+    // bekommen dort ein Band via nomineller Mitte). wr existiert je
+    // Elektrode der beidseitigen Menge; r (Messeintrag) kann fehlen.
+    const wr    = werteByIdx[i];
     const wSide = wr ? wr[side] : null;
-    const isNotPerc = (r.fmStatus === "not-perceivable");
+    const isNotPerc = (r && r.fmStatus === "not-perceivable");
     let nominellHz = null, gehoertHz = null, diffHz = null, diffCent = null;
     if (wSide && wSide.nominellHz != null) nominellHz = wSide.nominellHz;
     if (wSide && wSide.gehoertHz != null && wSide.shiftCent != null) {
       gehoertHz = wSide.gehoertHz;
       diffHz    = wSide.shiftHz;
-      diffCent  = Math.round(wSide.shiftCent);
+      diffCent  = wSide.shiftCent;
     }
     const residuum = (wSide && wSide.residuum != null && !isNotPerc)
       ? wSide.residuum : null;
+    // BA433: Band-Felder aus der Wertquelle durchreichen.
+    const bandLoHz  = wSide ? (wSide.bandLoHz != null ? wSide.bandLoHz : null) : null;
+    const bandHiHz  = wSide ? (wSide.bandHiHz != null ? wSide.bandHiHz : null) : null;
+    const bandOverlap = !!(wSide && wSide.bandOverlap);
+    const bandOverlapEls = (wSide && wSide.bandOverlapEls) ? wSide.bandOverlapEls : [];
     rows.push({ elIdx: i, elLabel, kind: "data",
       nominellHz, gehoertHz, diffHz, diffCent, residuum,
-      isNotPerceivable: isNotPerc, fmStatus: r.fmStatus || null });
+      bandLoHz, bandHiHz, bandOverlap, bandOverlapEls,
+      isNotPerceivable: isNotPerc, fmStatus: (r && r.fmStatus) || null });
   }
   return rows;
 }
@@ -373,6 +385,7 @@ function FRQ_renderResults() {
     "<th>" + t("FRQ_resultsColEl") + "</th>" +
     "<th>" + t("FRQ_resultsColNominalHz") + "</th>" +
     "<th>" + t("FRQ_resultsColPerceivedHz") + "</th>" +
+    "<th>" + t("FRQ_resultsColBand") + "</th>" +
     "<th>" + t("FRQ_resultsColDiffHz") + "</th>" +
     "<th>" + t("FRQ_resultsColDiffCent") + "</th>" +
     "<th title=\"" + t("FRQ_resultsColResiduumTip") + "\">" + t("FRQ_resultsColResiduum") + "</th>" +
@@ -395,12 +408,13 @@ function FRQ_renderResults() {
   tb.innerHTML = "";
   for (const z of zeilen) {
     const tr = document.createElement("tr");
-    if (z.kind === "excluded") {
+    if (z.kind === "notActive") {
+      // BA433-Fix: nur elActive===false. Ausgegraut, kein Band.
       tr.style.opacity = "0.4";
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
-        "<td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>" +
-        "<td style=\"font-size:.82em\">" + t("excludedSkipped") + "</td>";
+        "<td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>" +
+        "<td style=\"font-size:.82em\">" + t("FRQ_resultsStatusNotActive") + "</td>";
       tb.appendChild(tr);
       continue;
     }
@@ -408,7 +422,7 @@ function FRQ_renderResults() {
       const note = '<span style="font-size:.82em;color:#9ca3af">' + t("notMeasured") + "</span>";
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
-        "<td style=\"" + grey + "\">—</td>".repeat(5) +
+        "<td style=\"" + grey + "\">—</td>".repeat(6) +
         "<td>" + note + "</td>";
       tb.appendChild(tr);
       continue;
@@ -425,7 +439,18 @@ function FRQ_renderResults() {
       diffHzCell = "<span style=\"color:" + diffColor + "\">"
                  + (z.diffHz >= 0 ? "+" : "") + z.diffHz.toFixed(2) + "</span>";
       diffCtCell = "<span style=\"color:" + diffColor + "\">"
-                 + (z.diffCent >= 0 ? "+" : "") + z.diffCent + "</span>";
+                 + (z.diffCent >= 0 ? "+" : "") + fmtNum(z.diffCent, "cent") + "</span>";
+    }
+    // BA433: Bandempfehlung-Zelle. Ueberlauf -> Warndreieck; sonst
+    // "lo - hi Hz" (2 NK, fmtNum) oder "—" wenn keine Grenzen.
+    let bandCell;
+    if (z.bandOverlap) {
+      bandCell = "<span title=\"" + t("FRQ_bandOverlapCellTip")
+               + "\" style=\"color:#dc2626;font-weight:700\">⚠</span>";
+    } else if (z.bandLoHz != null && z.bandHiHz != null) {
+      bandCell = fmtNum(z.bandLoHz, "hz") + " - " + fmtNum(z.bandHiHz, "hz") + " Hz";
+    } else {
+      bandCell = dash;
     }
     let residuumCell;
     if (z.residuum == null) {
@@ -439,10 +464,14 @@ function FRQ_renderResults() {
       "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
       "<td>" + nomHzCell + "</td>" +
       "<td>" + percHzCell + "</td>" +
+      "<td>" + bandCell + "</td>" +
       "<td>" + diffHzCell + "</td>" +
       "<td>" + diffCtCell + "</td>" +
       "<td>" + residuumCell + "</td>" +
-      "<td>" + _FRQ_statusBadgeHtml(z.fmStatus) + "</td>";
+      "<td>" + (z.fmStatus
+        ? _FRQ_statusBadgeHtml(z.fmStatus)
+        : '<span style="font-size:.82em;color:#9ca3af">' + t("notMeasured") + "</span>")
+        + "</td>";
     tb.appendChild(tr);
   }
 
@@ -508,6 +537,110 @@ function FRQ_renderResults() {
   if (hintEl) {
     hintEl.textContent = t("FRQ_resultsChartHintPiano");
   }
+
+  // BA433: Textblöcke unter der Tabelle (Reihenfolge §9.8a).
+  _FRQ_renderBandNotes(aktivSide, zeilen);
+}
+
+// BA433: Bandempfehlung-Texte unter der Tabelle. Reihenfolge:
+// 1) Ueberlauf-Warnung (nur wenn Overlap), 2) Erklaertext (immer),
+// 3) Rand-Hinweis Block1 (immer) + Block2 (nur MED-EL/Cochlear).
+function _FRQ_renderBandNotes(side, zeilen) {
+  const box = document.getElementById("FRQ_resultsBandNotes");
+  if (!box) return;
+  const parts = [];
+
+  // 1) Ueberlauf-Warnung: welche Elektroden ueberkreuzen?
+  let overlapEls = [];
+  for (const z of zeilen) {
+    if (z.bandOverlap && z.bandOverlapEls && z.bandOverlapEls.length) {
+      overlapEls = z.bandOverlapEls; break;
+    }
+  }
+  if (overlapEls.length) {
+    const labels = overlapEls.map(function (idx) {
+      return dENPrefix(side) + dEN(idx, side);
+    }).join(", ");
+    parts.push(
+      "<p style=\"color:#dc2626;font-weight:600;margin:0 0 8px\">⚠ "
+      + t("FRQ_bandOverlapNote").replace("{els}", labels) + "</p>");
+  }
+
+  // 2) Erklaertext (immer)
+  parts.push("<p style=\"margin:0 0 8px\">" + t("FRQ_bandExplain") + "</p>");
+
+  // 3) Rand-Hinweis Block1 (immer) + Block2 (nur mit defaultRange)
+  parts.push(_FRQ_randHinweisHtml(side));
+
+  box.innerHTML = parts.join("");
+}
+
+// Rand-Hinweis Block1 (Cent-Tabelle MED-EL/Cochlear) + Block2 (apikale
+// aktive Elektrode, nur wenn Implantat-Hersteller MED-EL oder Cochlear).
+function _FRQ_randHinweisHtml(side) {
+  const medel = FRQ_randAbweichungCent("medel");
+  const coch  = FRQ_randAbweichungCent("cochlear");
+  let html = "<p style=\"margin:0 0 8px\">" + t("FRQ_randHinweisIntro") + "</p>";
+  const thS = "text-align:right;padding:3px 10px;border-bottom:1px solid var(--border);font-weight:600";
+  const thL = "text-align:left;padding:3px 10px;border-bottom:1px solid var(--border);font-weight:600";
+  const tdL = "text-align:left;padding:3px 10px;font-weight:600";
+  const tdR = "text-align:right;padding:3px 10px;font-variant-numeric:tabular-nums";
+  html += "<table style=\"border-collapse:collapse;margin:0 0 10px;font-size:0.9em\">"
+    + "<thead><tr>"
+    + "<th style=\"" + thL + "\"></th>"
+    + "<th style=\"" + thS + "\">" + t("FRQ_randCol1") + "</th>"
+    + "<th style=\"" + thS + "\">" + t("FRQ_randCol2") + "</th>"
+    + "</tr></thead><tbody>"
+    + "<tr><td style=\"" + tdL + "\">MED-EL</td>"
+    + "<td style=\"" + tdR + "\">" + fmtNum(medel.untenCent, "cent") + " cent</td>"
+    + "<td style=\"" + tdR + "\">" + fmtNum(medel.obenCent, "cent") + " cent</td></tr>"
+    + "<tr><td style=\"" + tdL + "\">Cochlear</td>"
+    + "<td style=\"" + tdR + "\">" + fmtNum(coch.untenCent, "cent") + " cent</td>"
+    + "<td style=\"" + tdR + "\">" + fmtNum(coch.obenCent, "cent") + " cent</td></tr>"
+    + "</tbody></table>";
+  html += "<p style=\"margin:0 0 8px\">" + t("FRQ_randHinweisOutro") + "</p>";
+
+  // Block2: nur wenn der Hersteller DIESER Seite bekannte Grenzen hat.
+  const mfrKey = sideData[side] ? sideData[side].manufacturer : null;
+  const abw = mfrKey ? FRQ_randAbweichungCent(mfrKey) : null;
+  if (abw) {
+    const z2 = _FRQ_apikalBandKorrigiert(side, abw.untenCent);
+    if (z2) {
+      html += "<p style=\"margin:8px 0 0\">" + t("FRQ_randBlock2Intro") + "<br>"
+        + z2.label + ": " + fmtNum(z2.loHz, "hz") + " Hz - "
+        + fmtNum(z2.hiHz, "hz") + " Hz</p>";
+    }
+  }
+  return html;
+}
+
+// Ermittelt die apikale AKTIVE Elektrode dieser Seite und liefert ihr
+// Band mit nach unten korrigierter Untergrenze (Cent-Abweichung).
+// Apikal = tiefste Frequenz. apFirst=true -> niedrigster elIdx;
+// apFirst=false -> hoechster elIdx. Deaktivierte (elActive===false)
+// werden uebersprungen. Rueckgabe {label, loHz, hiHz} | null.
+function _FRQ_apikalBandKorrigiert(side, untenCent) {
+  const werte = (typeof FRQ_werte === "function")
+    ? FRQ_werte("gehoert", FRQ_modusVonReferenzmodus(frq_referenzmodus()), false) : [];
+  const s = sideData[side];
+  if (!s) return null;
+  const me = MFR[s.manufacturer];
+  const apFirst = me ? me.apFirst : true;
+  // Reihenfolge apikal->basal: apFirst -> aufsteigender elIdx.
+  const order = werte.map(function (w) { return w.elIdx; });
+  order.sort(function (a, b) { return apFirst ? a - b : b - a; });
+  for (const idx of order) {
+    const w = werte.find(function (x) { return x.elIdx === idx; });
+    const ws = w ? w[side] : null;
+    if (!ws || !ws.aktiv) continue;              // apikalste AKTIVE
+    if (ws.bandLoHz == null || ws.bandHiHz == null) return null; // kein Band
+    return {
+      label: dENPrefix(side) + dEN(idx, side),
+      loHz:  ws.bandLoHz * Math.pow(2, untenCent / 1200),   // nach unten korrigiert
+      hiHz:  ws.bandHiHz,                                    // obere unveraendert
+    };
+  }
+  return null;
 }
 
 document.addEventListener("DOMContentLoaded", function() {
