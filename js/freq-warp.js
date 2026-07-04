@@ -197,24 +197,28 @@ function buildWarpPoints(fResData, warpMode, invert = false) {
 // gesamte Vorzeichen-/Bandmitten-Wahrheit lebt dort (BA427), nicht hier.
 //   warpMode: "left" | "right" | "symmetric"  (Player-warpMode direkt)
 //   nhSim:    bool
-// Rueckgabe: sortiertes Array { hzL, hzR, csL, csR }, aufsteigend nach hzL.
+// BA434: Zwei UNABHAENGIGE Seitenketten statt einer index-parallelen
+// Liste. Jede Seite filtert + sortiert fuer sich -> seitenweise
+// unterschiedliche Elektrodenmengen moeglich. Auswahl-Logik hier noch
+// UNVERAENDERT (nur gemessene mit gueltiger bandHz) -- die Umstellung auf
+// die zentrale Bandquelle folgt in BA435.
+// Rueckgabe: { L: [{hz,cs},...], R: [{hz,cs},...] }, je aufsteigend hz.
 function buildWarpPointsFromWerte(warpMode, nhSim) {
-  if (typeof FRQ_werte !== "function") return [];
+  if (typeof FRQ_werte !== "function") return { L: [], R: [] };
   const werte = FRQ_werte("warp", warpMode, !!nhSim);
-  const pts = [];
+  const L = [], R = [];
   for (const w of werte) {
-    if (!w.gemessen) continue;              // ungemessene auslassen
-    const hzL = w.left.bandHz, hzR = w.right.bandHz;
-    if (hzL == null || hzR == null) continue;
-    pts.push({
-      hzL: hzL,
-      hzR: hzR,
-      csL: (w.left.cs  != null ? w.left.cs  : 0),
-      csR: (w.right.cs != null ? w.right.cs : 0),
-    });
+    if (!w.gemessen) continue;              // (BA435: entfaellt)
+    if (w.left.bandHz != null) {
+      L.push({ hz: w.left.bandHz, cs: (w.left.cs != null ? w.left.cs : 0) });
+    }
+    if (w.right.bandHz != null) {
+      R.push({ hz: w.right.bandHz, cs: (w.right.cs != null ? w.right.cs : 0) });
+    }
   }
-  pts.sort((a, b) => a.hzL - b.hzL);
-  return pts;
+  L.sort((a, b) => a.hz - b.hz);
+  R.sort((a, b) => a.hz - b.hz);
+  return { L: L, R: R };
 }
 
 // ---- Migrations-Helfer für Alt-Werte ref_side/var_side ----
@@ -251,14 +255,11 @@ function _warpAffectedSides(points) {
   return { warpsLeft: l, warpsRight: r };
 }
 
-// BA428: wie _warpAffectedSides, aber fuer die {hzL,hzR,csL,csR}-Struktur
-// aus buildWarpPointsFromWerte. (csL/csR heissen gleich -> Logik identisch.)
-function _warpAffectedSidesLR(points) {
+// BA434: nimmt die zwei Seitenketten { L, R }.
+function _warpAffectedSidesLR(wp) {
   let l = false, r = false;
-  for (const p of points) {
-    if (Math.abs(p.csL) > 1e-9) l = true;
-    if (Math.abs(p.csR) > 1e-9) r = true;
-  }
+  for (const p of wp.L) { if (Math.abs(p.cs) > 1e-9) { l = true; break; } }
+  for (const p of wp.R) { if (Math.abs(p.cs) > 1e-9) { r = true; break; } }
   return { warpsLeft: l, warpsRight: r };
 }
 
@@ -459,23 +460,22 @@ function buildWarpStage(srcBuf, warpMode) {
   }
 
   const nhSim = !!(document.getElementById("plNHSim") ? document.getElementById("plNHSim").checked : false);
-  // BA428: Warp-Punkte aus der zentralen Wertquelle (Form "warp") --
-  // seitenweise Bandmitte (hzL/hzR) + seitenweiser Shift (csL/csR).
-  const points = buildWarpPointsFromWerte(warpMode, nhSim);
-  const warpAffected = _warpAffectedSidesLR(points);
+  // BA434: Warp-Punkte als zwei unabhaengige Seitenketten.
+  const wp = buildWarpPointsFromWerte(warpMode, nhSim);
+  const warpAffected = _warpAffectedSidesLR(wp);
 
   const playerSide = (typeof getPlayerSide === "function") ? getPlayerSide() : "both";
-  const decided = _rbDecideAffectedSidesLR(points, playerSide);
+  const decided = _rbDecideAffectedSidesLR(wp, playerSide);
 
   const sampleRate = srcBuf.sampleRate;
   const nyquist = sampleRate / 2;
-  // BA428: Bandgrenzen JE SEITE aus der seitenweisen Bandmitte.
-  const bandsL = _rbBuildBandEdgesFor(points.map(function(p) { return p.hzL; }), nyquist);
-  const bandsR = _rbBuildBandEdgesFor(points.map(function(p) { return p.hzR; }), nyquist);
+  // BA434: Bandgrenzen je Seite aus der eigenen Seitenkette (Randlogik
+  // 0/Nyquist noch unveraendert -- BA435 stellt auf FRQ_werte-Baender um).
+  const bandsL = _rbBuildBandEdgesFor(wp.L.map(function(p) { return p.hz; }), nyquist);
+  const bandsR = _rbBuildBandEdgesFor(wp.R.map(function(p) { return p.hz; }), nyquist);
 
-  // BA428: keine Staerke-Skalierung mehr.
-  const csL = points.map(function(p) { return p.csL; });
-  const csR = points.map(function(p) { return p.csR; });
+  const csL = wp.L.map(function(p) { return p.cs; });
+  const csR = wp.R.map(function(p) { return p.cs; });
 
   const useLive = !!pRubberbandOptions.liveShifter;
   const optionBits = useLive
@@ -615,8 +615,8 @@ function _rbDecideAffectedSides(points, playerSide) {
 }
 
 // BA428: wie _rbDecideAffectedSides, fuer die neue Punkt-Struktur.
-function _rbDecideAffectedSidesLR(points, playerSide) {
-  const aff = _warpAffectedSidesLR(points);
+function _rbDecideAffectedSidesLR(wp, playerSide) {
+  const aff = _warpAffectedSidesLR(wp);
   let audibleL = false, audibleR = false;
   if (playerSide === "left") audibleL = true;
   else if (playerSide === "right") audibleR = true;
@@ -1053,23 +1053,22 @@ async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode) {
   }
 
   const nhSim = !!(document.getElementById("plNHSim")?.checked);
-  // BA428: Warp-Punkte aus der zentralen Wertquelle (Form "warp").
-  const points = buildWarpPointsFromWerte(warpMode, nhSim);
-  pWarpAffected = _warpAffectedSidesLR(points);
+  // BA434: Warp-Punkte als zwei unabhaengige Seitenketten.
+  const wp = buildWarpPointsFromWerte(warpMode, nhSim);
+  pWarpAffected = _warpAffectedSidesLR(wp);
 
   const playerSide = (typeof getPlayerSide === "function")
     ? getPlayerSide() : "both";
-  const decided = _rbDecideAffectedSidesLR(points, playerSide);
+  const decided = _rbDecideAffectedSidesLR(wp, playerSide);
 
   const sampleRate = srcBuf.sampleRate;
   const nyquist = sampleRate / 2;
-  // BA428: Bandgrenzen JE SEITE.
-  const bandsL = _rbBuildBandEdgesFor(points.map(p => p.hzL), nyquist);
-  const bandsR = _rbBuildBandEdgesFor(points.map(p => p.hzR), nyquist);
+  // BA434: Bandgrenzen je Seite aus der eigenen Seitenkette.
+  const bandsL = _rbBuildBandEdgesFor(wp.L.map(p => p.hz), nyquist);
+  const bandsR = _rbBuildBandEdgesFor(wp.R.map(p => p.hz), nyquist);
 
-  // BA428: keine Staerke-Skalierung mehr.
-  const csL = points.map(p => p.csL);
-  const csR = points.map(p => p.csR);
+  const csL = wp.L.map(p => p.cs);
+  const csR = wp.R.map(p => p.cs);
 
   // Rubberband-Interface lazy laden (kann mit sprechender Fehlermeldung
   // werfen — der pWarpTrigger-catch-Block reicht sie nach
