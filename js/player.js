@@ -1504,6 +1504,16 @@ function plUpdWarpLock() {
   }
 }
 
+// BA435: Warp-Ueberlauf-Hinweis (ueberkreuzende Messung).
+function _plShowWarpOverlapHint() {
+  const el = document.getElementById("plWarpOverlapHint");
+  if (el) { el.textContent = t("plWarpOverlapHint"); el.style.display = ""; }
+}
+function _plHideWarpOverlapHint() {
+  const el = document.getElementById("plWarpOverlapHint");
+  if (el) el.style.display = "none";
+}
+
 // ===== BA192: zentrale Wiedergabe-Steuerung =====
 
 function plPlayPauseToggle() {

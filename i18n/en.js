@@ -767,6 +767,7 @@ Object.assign(L.en, {
     pwStatusBusyProgress: "Computing… {pct} %",
     plWarpStopBtn: "Stop computation",
     plWarpBusyTooltip: "Frequency warping is calculating",
+    plWarpOverlapHint: "Measurement error, please check under Measurement results.",
     // New keys for unified test UI
     ell_explainTitle: "Balance electrode loudness",
     ell_intro:

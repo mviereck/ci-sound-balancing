@@ -768,6 +768,7 @@ Object.assign(L.es, {
     pwStatusBusyProgress: "Calculando… {pct} %",
     plWarpStopBtn: "Detener cálculo",
     plWarpBusyTooltip: "Calculando el warping de frecuencia",
+    plWarpOverlapHint: "Error de medición, consulte en Resultados de medición.",
     // Neue Keys für vereinheitlichte Test-UI
     ell_explainTitle: "Compensar volumen de electrodos",
     ell_intro:

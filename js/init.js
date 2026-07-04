@@ -466,6 +466,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // AUSschalten bei laufender Berechnung bricht NICHT ab -- die Berechnung
     // laeuft im Hintergrund weiter; getPlaybackBuffer liefert hier ungewarpt
     // (pWarpOn === false), die Wiedergabe wechselt sofort.
+    if (typeof _plHideWarpOverlapHint === "function") _plHideWarpOverlapHint();
     const wasPlaying = pPlaying;
     if (wasPlaying) pPause();
     pBuf = getPlaybackBuffer();

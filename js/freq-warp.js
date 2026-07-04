@@ -197,28 +197,39 @@ function buildWarpPoints(fResData, warpMode, invert = false) {
 // gesamte Vorzeichen-/Bandmitten-Wahrheit lebt dort (BA427), nicht hier.
 //   warpMode: "left" | "right" | "symmetric"  (Player-warpMode direkt)
 //   nhSim:    bool
-// BA434: Zwei UNABHAENGIGE Seitenketten statt einer index-parallelen
-// Liste. Jede Seite filtert + sortiert fuer sich -> seitenweise
-// unterschiedliche Elektrodenmengen moeglich. Auswahl-Logik hier noch
-// UNVERAENDERT (nur gemessene mit gueltiger bandHz) -- die Umstellung auf
-// die zentrale Bandquelle folgt in BA435.
-// Rueckgabe: { L: [{hz,cs},...], R: [{hz,cs},...] }, je aufsteigend hz.
+// BA435: Warp bezieht Mitten, Shift UND Bandgrenzen aus FRQ_werte
+// (Form 'warp'). Seitenweise: eine Elektrode kommt in die L-Kette, wenn
+// sie LINKS aktiv ist (R entsprechend). Ungemessene/stumme aktive werden
+// mit nomineller Mitte + cs=0 einbezogen (Luecke aufgefuellt, §9.3 #3/#4).
+// Bandgrenzen (lo/hi) kommen fertig aus FRQ_werte -- der Warp rechnet sie
+// NICHT mehr selbst (kein _rbBuildBandEdgesFor).
+// Rueckgabe: { L, R, overlap }.
+//   L/R: [{ hz, cs, lo, hi }], aufsteigend hz.
+//   overlap: bool -- eine Seite hat ueberkreuzende Mitten -> kein Warp.
 function buildWarpPointsFromWerte(warpMode, nhSim) {
-  if (typeof FRQ_werte !== "function") return { L: [], R: [] };
+  if (typeof FRQ_werte !== "function") return { L: [], R: [], overlap: false };
   const werte = FRQ_werte("warp", warpMode, !!nhSim);
   const L = [], R = [];
+  let overlap = false;
   for (const w of werte) {
-    if (!w.gemessen) continue;              // (BA435: entfaellt)
-    if (w.left.bandHz != null) {
-      L.push({ hz: w.left.bandHz, cs: (w.left.cs != null ? w.left.cs : 0) });
+    const wl = w.left, wr = w.right;
+    if (wl.bandOverlap || wr.bandOverlap) overlap = true;
+    // Linke Kette: nur wenn links aktiv + Band vorhanden.
+    if (wl.aktiv && wl.bandLoHz != null && wl.bandHiHz != null) {
+      const hz = (wl.bandHz != null) ? wl.bandHz : wl.nominellHz;
+      L.push({ hz: hz, cs: (wl.cs != null ? wl.cs : 0),
+               lo: wl.bandLoHz, hi: wl.bandHiHz });
     }
-    if (w.right.bandHz != null) {
-      R.push({ hz: w.right.bandHz, cs: (w.right.cs != null ? w.right.cs : 0) });
+    // Rechte Kette analog (eigenes aktiv-Flag).
+    if (wr.aktiv && wr.bandLoHz != null && wr.bandHiHz != null) {
+      const hz = (wr.bandHz != null) ? wr.bandHz : wr.nominellHz;
+      R.push({ hz: hz, cs: (wr.cs != null ? wr.cs : 0),
+               lo: wr.bandLoHz, hi: wr.bandHiHz });
     }
   }
   L.sort((a, b) => a.hz - b.hz);
   R.sort((a, b) => a.hz - b.hz);
-  return { L: L, R: R };
+  return { L: L, R: R, overlap: overlap };
 }
 
 // ---- Migrations-Helfer für Alt-Werte ref_side/var_side ----
@@ -442,7 +453,11 @@ async function streamFillBuffer(srcBuf, target, stage, onSegmentReady, onProgres
 // Spaeter ggf. erste N Abschnitte mitteln (Nutzer-Entscheidung).
 function buildWarpStage(srcBuf, warpMode) {
   const src = _warpFResSource();
-  if (warpMode === "off" || src.length === 0) {
+  const nhSim = !!(document.getElementById("plNHSim") ? document.getElementById("plNHSim").checked : false);
+  // BA435: wp vor Bypass holen, damit overlap in den Bypass-Zweig aufgenommen werden kann.
+  const wp = buildWarpPointsFromWerte(warpMode, nhSim);
+  if (warpMode === "off" || src.length === 0 || wp.overlap) {
+    if (wp.overlap && typeof _plShowWarpOverlapHint === "function") _plShowWarpOverlapHint();
     // Bypass: liefert originale Abschnitte unveraendert zurueck.
     return {
       changesLength: false,
@@ -458,10 +473,8 @@ function buildWarpStage(srcBuf, warpMode) {
       },
     };
   }
+  if (typeof _plHideWarpOverlapHint === "function") _plHideWarpOverlapHint();
 
-  const nhSim = !!(document.getElementById("plNHSim") ? document.getElementById("plNHSim").checked : false);
-  // BA434: Warp-Punkte als zwei unabhaengige Seitenketten.
-  const wp = buildWarpPointsFromWerte(warpMode, nhSim);
   const warpAffected = _warpAffectedSidesLR(wp);
 
   const playerSide = (typeof getPlayerSide === "function") ? getPlayerSide() : "both";
@@ -469,10 +482,9 @@ function buildWarpStage(srcBuf, warpMode) {
 
   const sampleRate = srcBuf.sampleRate;
   const nyquist = sampleRate / 2;
-  // BA434: Bandgrenzen je Seite aus der eigenen Seitenkette (Randlogik
-  // 0/Nyquist noch unveraendert -- BA435 stellt auf FRQ_werte-Baender um).
-  const bandsL = _rbBuildBandEdgesFor(wp.L.map(function(p) { return p.hz; }), nyquist);
-  const bandsR = _rbBuildBandEdgesFor(wp.R.map(function(p) { return p.hz; }), nyquist);
+  // BA435: Bandgrenzen fertig aus FRQ_werte (Form warp), gespiegelte Raender.
+  const bandsL = wp.L.map(function(p) { return [p.lo, p.hi]; });
+  const bandsR = wp.R.map(function(p) { return [p.lo, p.hi]; });
 
   const csL = wp.L.map(function(p) { return p.cs; });
   const csR = wp.R.map(function(p) { return p.cs; });
@@ -637,26 +649,6 @@ function _bandsEqual(a, b) {
     if (Math.abs(a[i][1] - b[i][1]) > 1e-6) return false;
   }
   return true;
-}
-
-// BA428: Bandgrenzen aus einer Frequenzliste (seitenweise). Gleiche
-// geometrische Logik wie die entfernte _rbBuildBandEdges, aber Eingabe ist ein reines
-// hz-Array (eine Seite). Ein Frequenzwert -> ein Vollband.
-function _rbBuildBandEdgesFor(hzArr, nyquist) {
-  if (hzArr.length === 0) return [];
-  if (hzArr.length === 1) {
-    return [[0, nyquist * 0.999]];
-  }
-  const edges = [0];
-  for (let i = 0; i < hzArr.length - 1; i++) {
-    edges.push(Math.sqrt(hzArr[i] * hzArr[i + 1]));
-  }
-  edges.push(nyquist * 0.999);
-  const bands = [];
-  for (let i = 0; i < hzArr.length; i++) {
-    bands.push([edges[i], edges[i + 1]]);
-  }
-  return bands;
 }
 
 // FIR-Bandpass-Koeffizienten (linearphasig, Blackman-Harris-Fenster).
@@ -1048,13 +1040,15 @@ async function _rbLivePitchShift(rb, signal, sampleRate, cents, liveOpts) {
 
 async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode) {
   const src = _warpFResSource();
-  if (warpMode === "off" || src.length === 0) {
-    return srcBuf;
-  }
-
   const nhSim = !!(document.getElementById("plNHSim")?.checked);
-  // BA434: Warp-Punkte als zwei unabhaengige Seitenketten.
+  // BA435: wp vor Bypass holen, damit overlap in den Bypass-Zweig aufgenommen werden kann.
   const wp = buildWarpPointsFromWerte(warpMode, nhSim);
+  if (warpMode === "off" || src.length === 0 || wp.overlap) {
+    if (wp.overlap && typeof _plShowWarpOverlapHint === "function") _plShowWarpOverlapHint();
+    return srcBuf;   // Original (kein Warp)
+  }
+  if (typeof _plHideWarpOverlapHint === "function") _plHideWarpOverlapHint();
+
   pWarpAffected = _warpAffectedSidesLR(wp);
 
   const playerSide = (typeof getPlayerSide === "function")
@@ -1063,9 +1057,9 @@ async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode) {
 
   const sampleRate = srcBuf.sampleRate;
   const nyquist = sampleRate / 2;
-  // BA434: Bandgrenzen je Seite aus der eigenen Seitenkette.
-  const bandsL = _rbBuildBandEdgesFor(wp.L.map(p => p.hz), nyquist);
-  const bandsR = _rbBuildBandEdgesFor(wp.R.map(p => p.hz), nyquist);
+  // BA435: Bandgrenzen fertig aus FRQ_werte (Form warp), gespiegelte Raender.
+  const bandsL = wp.L.map(p => [p.lo, p.hi]);
+  const bandsR = wp.R.map(p => [p.lo, p.hi]);
 
   const csL = wp.L.map(p => p.cs);
   const csR = wp.R.map(p => p.cs);

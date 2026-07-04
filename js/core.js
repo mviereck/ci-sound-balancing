@@ -546,16 +546,20 @@ function FRQ_werte(form, modus, nhSim) {
     out.push(entry);
   }
 
-  // BA432 (§9.4): Bandberechnung als Nachlauf, nur Form 'gehoert'.
-  // Mitte = gehoerte Frequenz falls gemessen, sonst nominelle.
+  // BA432 (§9.4): Bandberechnung als Nachlauf fuer 'gehoert' und 'warp'.
+  // Mitte = Form-abhaengige Hz (gehoert: gehoertHz; warp: bandHz), sonst nominell.
   // Je Seite getrennt. Ergebnis in entry[seite].bandLoHz/bandHiHz;
   // bei Ueberlauf entry[seite].bandOverlap = true (keine Grenzen).
-  if (form === "gehoert") {
+  if (form === "gehoert" || form === "warp") {
     ["left", "right"].forEach(function (seite) {
       var mitten = out.map(function (entry) {
         var s = entry[seite];
-        var hz = (s && s.gehoertHz != null) ? s.gehoertHz
-               : (s ? s.nominellHz : null);
+        var hz;
+        if (form === "warp") {
+          hz = (s && s.bandHz != null) ? s.bandHz : (s ? s.nominellHz : null);
+        } else {
+          hz = (s && s.gehoertHz != null) ? s.gehoertHz : (s ? s.nominellHz : null);
+        }
         // Aktivitaet JE SEITE (Nutzer-Beschluss): das seitenweise Flag.
         return { elIdx: entry.elIdx, hz: hz, aktiv: !!(s && s.aktiv) };
       });
