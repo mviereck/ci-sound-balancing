@@ -224,6 +224,81 @@ function hzToCent(hz) {
 function centToHz(c) {
   return CENT_REF_HZ * Math.pow(2, c / 1200);
 }
+// ============================================================
+// ZENTRALER ZAHLEN-AUSGABE-HELFER (BA432, §10)
+// EINE Stelle, ueber die alle Zahlenausgaben des Tools formatiert
+// werden. Kategoriengetrieben: benannte Formate, kein Sonderfall-Wust.
+// Start: die zwei Frequenz-Formate. Weitere (dB, %, qu/CL/CU, Zeit)
+// docken spaeter als Eintrag in FMT_SPECS an. Dezimaltrennzeichen
+// durchgehend Punkt (JS-toFixed liefert das ohnehin).
+// Intern wird NIE gerundet (in cent gerechnet); Rundung nur hier, am
+// Darstellungsrand.
+const FMT_SPECS = {
+  hz:   { nk: 2 },   // Frequenz in Hz, 2 Nachkommastellen
+  cent: { nk: 1 },   // Cent, 1 Nachkommastelle
+};
+// fmtNum(wert, format) -> String. Bei null/undefined/NaN -> "".
+// Der Aufrufer haengt Einheit/Vorzeichen selbst an (der Helfer
+// formatiert nur die Zahl).
+function fmtNum(wert, format) {
+  if (wert == null || (typeof wert === "number" && !isFinite(wert))) return "";
+  var spec = FMT_SPECS[format];
+  if (!spec) {
+    console.warn("fmtNum: unbekanntes Format", format);
+    return String(wert);
+  }
+  return Number(wert).toFixed(spec.nk);
+}
+// Geometrische (logarithmische) Mitte zweier Frequenzen (BA432, §9.3).
+// Gemeinsamer Kern der Bandgrenzen fuer Empfehlung UND Warp.
+function geomMitte(a, b) {
+  return Math.sqrt(a * b);
+}
+// Frequenzband-Berechnung (BA432, §9). Log-Mitte-Methode, einheitlich
+// fuer alle Hersteller. EINZIGER Aufrufer ist FRQ_werte (Schritt 4);
+// kein Konsument ruft dies direkt.
+//
+// Eingang: mitten = Array je Elektrode in Elektroden-Reihenfolge,
+//   { elIdx, hz, aktiv }. hz = Bandmitte (gehoert|nominell, vom
+//   Aufrufer bestimmt). aktiv=false NUR bei elActive===false.
+// Rueckgabe:
+//   { bands: [ { elIdx, loHz, hiHz }, ... ] }  (nur aktive Elektroden)
+//   | { error: "overlap" }  bei Ueberholung (nicht streng monoton).
+function FRQ_baender(mitten) {
+  // Nur aktive Elektroden bilden die Kette (nicht aktive: Nachbarn
+  // ruecken zusammen).
+  var kette = [];
+  for (var i = 0; i < mitten.length; i++) {
+    if (mitten[i] && mitten[i].aktiv && mitten[i].hz != null) {
+      kette.push(mitten[i]);
+    }
+  }
+  if (kette.length === 0) return { bands: [] };
+  // Ueberlauf-Pruefung: streng monoton steigende Mitten.
+  for (var k = 1; k < kette.length; k++) {
+    if (kette[k].hz <= kette[k - 1].hz) return { error: "overlap" };
+  }
+  // Einzelne Elektrode: kein Nachbar zum Spiegeln -> kein Band
+  // definierbar. Leere Bandliste (Konsument zeigt dann kein Band).
+  if (kette.length === 1) return { bands: [] };
+
+  // Innere Grenzen = geometrische Mitte benachbarter Mitten.
+  var inner = [];
+  for (var j = 0; j < kette.length - 1; j++) {
+    inner.push(geomMitte(kette[j].hz, kette[j + 1].hz));
+  }
+  // Raender = inneren Log-Abstand spiegeln.
+  var lowEdge  = (kette[0].hz * kette[0].hz) / inner[0];
+  var highEdge = (kette[kette.length - 1].hz * kette[kette.length - 1].hz)
+               / inner[inner.length - 1];
+  var edges = [lowEdge].concat(inner, [highEdge]);
+
+  var bands = [];
+  for (var e = 0; e < kette.length; e++) {
+    bands.push({ elIdx: kette[e].elIdx, loHz: edges[e], hiHz: edges[e + 1] });
+  }
+  return { bands: bands };
+}
 // Log-Interpolation zwischen zwei Frequenzen, t in [0,1].
 function logInterpHz(f1, f2, t) {
   if (!f1 || !f2 || f1 <= 0 || f2 <= 0) return f1 || f2 || CENT_REF_HZ;
@@ -348,6 +423,13 @@ function FRQ_werte(form, modus, nhSim) {
     var r = measured[i];
     var gemessen = !!(r && r.cent != null);
     var deaktiviert = (FRQ_electrodeStatusBoth(i) !== "testable");
+    // BA432 (§9.5): "aktiv" JE SEITE. Nur elActive===false (komplett
+    // abgeschaltet) macht die Elektrode auf DIESER Seite nicht existent
+    // (Nachbarn ruecken zusammen). Stumm/ausgeschlossen bleiben aktiv ->
+    // behalten Band. Seiten getrennt (Nutzer-Beschluss): eine links
+    // abgeschaltete Elektrode faellt nur aus der linken Kette.
+    var aktivL = withSide("left",  function () { return elActive[i] !== false; });
+    var aktivR = withSide("right", function () { return elActive[i] !== false; });
     // Residuum (Mess-Unsicherheit in cent) aus dem fRes-Eintrag; null, wenn
     // kein Eintrag. Formabhaengig ausgegeben: roh seitenlos (entry.residuum),
     // warp/gehoert pro Seite verteilt wie die Verschiebung (s.u.).
@@ -359,8 +441,8 @@ function FRQ_werte(form, modus, nhSim) {
     var nomL = withSide("left",  function () { return FRQ_implantatEffektiv(i); });
     var nomR = withSide("right", function () { return FRQ_implantatEffektiv(i); });
 
-    var left  = { nominellHz: nomL };
-    var right = { nominellHz: nomR };
+    var left  = { nominellHz: nomL, aktiv: aktivL };
+    var right = { nominellHz: nomR, aktiv: aktivR };
     var entry = {
       elIdx: i,
       gemessen: gemessen,
@@ -428,6 +510,43 @@ function FRQ_werte(form, modus, nhSim) {
 
     out.push(entry);
   }
+
+  // BA432 (§9.4): Bandberechnung als Nachlauf, nur Form 'gehoert'.
+  // Mitte = gehoerte Frequenz falls gemessen, sonst nominelle.
+  // Je Seite getrennt. Ergebnis in entry[seite].bandLoHz/bandHiHz;
+  // bei Ueberlauf entry[seite].bandOverlap = true (keine Grenzen).
+  if (form === "gehoert") {
+    ["left", "right"].forEach(function (seite) {
+      var mitten = out.map(function (entry) {
+        var s = entry[seite];
+        var hz = (s && s.gehoertHz != null) ? s.gehoertHz
+               : (s ? s.nominellHz : null);
+        // Aktivitaet JE SEITE (Nutzer-Beschluss): das seitenweise Flag.
+        return { elIdx: entry.elIdx, hz: hz, aktiv: !!(s && s.aktiv) };
+      });
+      var res = FRQ_baender(mitten);
+      if (res.error === "overlap") {
+        out.forEach(function (entry) {
+          if (entry[seite]) {
+            entry[seite].bandOverlap = true;
+            entry[seite].bandLoHz = null;
+            entry[seite].bandHiHz = null;
+          }
+        });
+      } else {
+        var byIdx = {};
+        res.bands.forEach(function (b) { byIdx[b.elIdx] = b; });
+        out.forEach(function (entry) {
+          if (!entry[seite]) return;
+          var b = byIdx[entry.elIdx];
+          entry[seite].bandOverlap = false;
+          entry[seite].bandLoHz = b ? b.loHz : null;
+          entry[seite].bandHiHz = b ? b.hiHz : null;
+        });
+      }
+    });
+  }
+
   return out;
 }
 

@@ -808,3 +808,42 @@
     return lines.join('\n');
   });
 })();
+
+/* BA432 — Bandberechnung Fundament */
+(function () {
+  if (typeof dbg === "undefined" || typeof dbg.test !== "function") return;
+  dbg.test("build/BA432/bandberechnung", { tab: "results", label: "BA432 Bandberechnung" }, function () {
+    var lines = [];
+    // 1. geomMitte
+    var gm = geomMitte(100, 400);
+    lines.push("geomMitte(100,400) = " + gm.toFixed(2) + " (erwartet 200.00)");
+    // 2. fmtNum
+    lines.push("fmtNum(85.752, 'hz') = " + fmtNum(85.752, "hz") + " (erwartet 85.75)");
+    lines.push("fmtNum(-12.34, 'cent') = " + fmtNum(-12.34, "cent") + " (erwartet -12.3)");
+    lines.push("fmtNum(null, 'hz') = '" + fmtNum(null, "hz") + "' (erwartet leer)");
+    // 3. FRQ_baender an MED-EL Default-Mitten, alle aktiv
+    var medel = [120,235,384,579,836,1175,1624,2222,3019,4084,5507,7410];
+    var mitten = medel.map(function (hz, i) { return { elIdx: i, hz: hz, aktiv: true }; });
+    var res = FRQ_baender(mitten);
+    if (res.error) {
+      lines.push("FRQ_baender FEHLER: " + res.error);
+    } else {
+      var b0 = res.bands[0], bl = res.bands[res.bands.length - 1];
+      lines.push("E1 Band: " + b0.loHz.toFixed(2) + " - " + b0.hiHz.toFixed(2)
+        + " (erwartet ca. 85.75 - 167.93)");
+      lines.push("E12 Band: " + bl.loHz.toFixed(2) + " - " + bl.hiHz.toFixed(2)
+        + " (erwartet ca. 6388.03 - 8595.47)");
+    }
+    // 4. Ueberlauf: eine Mitte ueberholt den Nachbarn
+    var kaputt = [{elIdx:0,hz:200,aktiv:true},{elIdx:1,hz:150,aktiv:true}];
+    var ov = FRQ_baender(kaputt);
+    lines.push("Ueberlauf-Test: " + (ov.error === "overlap" ? "overlap erkannt OK" : "NICHT erkannt FEHLER"));
+    // 5. Nicht-aktive faellt raus: mittlere Elektrode aktiv=false
+    var m3 = [{elIdx:0,hz:100,aktiv:true},{elIdx:1,hz:200,aktiv:false},{elIdx:2,hz:400,aktiv:true}];
+    var r3 = FRQ_baender(m3);
+    lines.push("Nicht-aktiv raus: " + r3.bands.length + " Baender (erwartet 2), "
+      + "Grenze E0/E2 = " + (r3.bands[0] ? r3.bands[0].hiHz.toFixed(2) : "?")
+      + " (erwartet 200.00 = geomMitte 100/400)");
+    return lines.join("\n");
+  });
+})();
