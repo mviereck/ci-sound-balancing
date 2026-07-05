@@ -347,7 +347,7 @@ function _FRQ_chartLegendHtml() {
   const intro = t("FRQ_chartLegendIntro");
   const eqCell = "<td style=\"padding:0 6px;color:#374151\">=</td>";
   let rows = "";
-  for (let n = 1; n <= 6; n++) {
+  for (let n = 1; n <= 7; n++) {
     const raw = t("FRQ_chartLegendRow" + n);
     if (!raw || raw === "FRQ_chartLegendRow" + n) continue;
     const parts = raw.split("|");
@@ -492,7 +492,7 @@ function FRQ_renderResults() {
       bandCell = "<span title=\"" + t("FRQ_bandOverlapCellTip")
                + "\" style=\"color:#dc2626;font-weight:700\">⚠</span>";
     } else if (z.bandLoHz != null && z.bandHiHz != null) {
-      bandCell = fmtNum(z.bandLoHz, "hz") + " - " + fmtNum(z.bandHiHz, "hz") + " Hz";
+      bandCell = fmtNum(z.bandLoHz, "hz") + " – " + fmtNum(z.bandHiHz, "hz") + " Hz";
     } else {
       bandCell = dash;
     }
@@ -654,7 +654,7 @@ function _FRQ_randHinweisHtml(side) {
     const z2 = _FRQ_apikalBandKorrigiert(side, abw.untenCent);
     if (z2) {
       html += "<p style=\"margin:8px 0 0\">" + t("FRQ_randBlock2Intro") + "<br>"
-        + "<b>" + z2.label + ": " + fmtNum(z2.loHz, "hz") + " Hz - "
+        + "<b>" + z2.label + ": " + fmtNum(z2.loHz, "hz") + " Hz – "
         + fmtNum(z2.hiHz, "hz") + " Hz</b></p>";
     }
   }

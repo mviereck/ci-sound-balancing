@@ -337,6 +337,11 @@ function ELL_drawChart(cv, vals, res, isOff, ell_color, ctx) {
 // ============================================================
 function drawFRQChart(cv, fResData, opts) {
   opts = opts || {};
+  // BA436: Streifenzeile fuer die Bandbreiten-Empfehlung unter der
+  // Datenflaeche. BAND_H = Hoehe der Farbstreifen, BAND_GAP = Abstand
+  // Datenflaeche->Streifen. BAND_EXTRA = Gesamt-Hoehenzuwachs der Grafik.
+  const BAND_H = 14, BAND_GAP = 4;
+  const BAND_EXTRA = BAND_GAP + BAND_H;   // 18 px
   const ctx = cv.getContext("2d");
   const fixed = opts.fixedSize || null;
   let w, h, dpr;
@@ -345,12 +350,12 @@ function drawFRQChart(cv, fResData, opts) {
     // definierte Aufloesung ueber dpr fuer scharfe PNGs.
     dpr = fixed.dpr || 2;
     w = fixed.w;
-    h = fixed.h;
+    h = fixed.h + BAND_EXTRA;   // BA436: Grafik hoeher fuers Streifenband
   } else {
     // Bildschirm: an den umgebenden Kasten anpassen (unveraendert).
     dpr = window.devicePixelRatio || 1;
     w = cv.parentElement.clientWidth - 32;
-    h = 420;
+    h = 420 + BAND_EXTRA;       // BA436: Grafik hoeher fuers Streifenband
   }
   cv.width = w * dpr;
   cv.height = h * dpr;
@@ -359,7 +364,9 @@ function drawFRQChart(cv, fResData, opts) {
   ctx.scale(dpr, dpr);
 
   // pad.bottom hat Platz für: Y-Titel-Padding (10) + 6 Label-Zeilen × ~11px (66) + Achsentitel (14) = ~90
-  const pad = { top: 80, right: 30, bottom: 54, left: 70 },
+  // BA436: + BAND_EXTRA fuer die Streifenzeile. Zusammen mit h += BAND_EXTRA
+  // (2b) bleibt pH (Datenflaeche) unveraendert.
+  const pad = { top: 80, right: 30, bottom: 54 + BAND_EXTRA, left: 70 },
     pW = w - pad.left - pad.right,
     pH = h - pad.top - pad.bottom;
   ctx.clearRect(0, 0, w, h);
@@ -418,6 +425,10 @@ function drawFRQChart(cv, fResData, opts) {
       isNotPerceivable: !!(r && r.fmStatus === "not-perceivable"),
       fmStatus:   r ? (r.fmStatus || "converged") : null,
       fmResidual: seite.residuum != null ? seite.residuum : 0,
+      // BA436: empfohlene Bandbreite dieser Seite (null wenn kein Band:
+      // Ueberkreuzung, oder Elektrode vom Audiologen abgeschaltet).
+      bandLoHz: (seite.bandLoHz != null) ? seite.bandLoHz : null,
+      bandHiHz: (seite.bandHiHz != null) ? seite.bandHiHz : null,
       r: r,
     });
   }
@@ -659,8 +670,44 @@ function drawFRQChart(cv, fResData, opts) {
     }
   }
 
+  // --- BA436: Streifenband der Bandbreiten-Empfehlung ---
+  // Je Elektrode mit definiertem Band (bandLoHz/bandHiHz != null) ein
+  // Farbfeld von tX(loHz)..tX(hiHz), zwei Grautoene im Wechsel, Nummer
+  // mittig im Feld. Elektroden ohne Band (Ueberkreuzung, abgeschaltet)
+  // erscheinen gar nicht -> automatisch kein Streifen.
+  {
+    const bandTop = pad.top + pH + BAND_GAP;   // Oberkante der Streifenzeile
+    // Elektroden mit Band, nach unterer Grenze sortiert (Reihenfolge fuer
+    // die Zwei-Farben-Abwechslung stabil = links nach rechts).
+    const bandEls = allEls
+      .filter(e => e.bandLoHz != null && e.bandHiHz != null)
+      .sort((a, b) => a.bandLoHz - b.bandLoHz);
+    let toggle = 0;
+    for (const el of bandEls) {
+      const x0 = tX(hzToCt(el.bandLoHz));
+      const x1 = tX(hzToCt(el.bandHiHz));
+      const xL = Math.min(x0, x1), xR = Math.max(x0, x1);
+      const fill = (toggle % 2 === 0) ? "#e5e7eb" : "#cbd5e1";
+      toggle++;
+      ctx.fillStyle = fill;
+      ctx.fillRect(xL, bandTop, xR - xL, BAND_H);
+      // Elektrodennummer mittig im Farbfeld (geometrische Feldmitte in
+      // Pixeln). Versatz zum Soll-Strich macht Band-Asymmetrie sichtbar.
+      const xMid = (xL + xR) / 2;
+      ctx.fillStyle = "#374151";
+      ctx.font = "9px Segoe UI,sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("E" + el.elNum, xMid, bandTop + BAND_H / 2 + 0.5);
+      ctx.textBaseline = "alphabetic";   // Default wiederherstellen
+      // Rechteck-Hitbox fuer denselben Hover-Mechanismus wie oben.
+      hitboxes.push({ rect: { x0: xL, x1: xR, y0: bandTop, y1: bandTop + BAND_H }, el: el });
+    }
+  }
+
   // --- X-Skala: Hz und Cent ---
-  const yScaleTop = pad.top + pH + 2;
+  // BA436: unter der Streifenzeile (Datenflaeche + Gap + Streifenhoehe).
+  const yScaleTop = pad.top + pH + BAND_GAP + BAND_H + 2;
   {
     const hzBase = [125, 250, 500, 1000, 2000, 4000, 8000];
     let tks = hzBase.map(hz => ({ hz, c: hzToCt(hz) })).filter(tk => tk.c > cMin && tk.c < cMax);
@@ -921,6 +968,18 @@ function _frq_chartDrawHighlight(cv, el) {
       ctx.fillText(lbl.text, lbl.x, lbl.y);
     }
   }
+
+  // BA436: Streifen dieser Elektrode dezent umranden (Rechteck-Hitbox
+  // derselben Elektrode aus den Hitboxen holen).
+  const hbs = cv._frq_chartHitboxes || [];
+  const bandHit = hbs.find(h => h.rect && h.el && h.el.elIdx === el.elIdx);
+  if (bandHit) {
+    const rc = bandHit.rect;
+    ctx.strokeStyle = HL;
+    ctx.lineWidth = 2;
+    ctx.setLineDash([]);
+    ctx.strokeRect(rc.x0 + 1, rc.y0 + 1, (rc.x1 - rc.x0) - 2, (rc.y1 - rc.y0) - 2);
+  }
 }
 
 function _frq_chartTooltipHandler(cv, e) {
@@ -941,7 +1000,14 @@ function _frq_chartTooltipHandler(cv, e) {
       "z-index:1000;line-height:1.6;white-space:nowrap;";
     document.body.appendChild(tip);
   }
-  const hit = cv._frq_chartHitboxes.find((h) => Math.hypot(h.x - mx, h.y - my) <= 12);
+  // BA436: Punkt-Hitboxen (x/y, Radius 12) ODER Rechteck-Hitboxen (rect).
+  const hit = cv._frq_chartHitboxes.find((h) => {
+    if (h.rect) {
+      return mx >= h.rect.x0 && mx <= h.rect.x1
+          && my >= h.rect.y0 && my <= h.rect.y1;
+    }
+    return Math.hypot(h.x - mx, h.y - my) <= 12;
+  });
   const newEl = hit ? hit.el : null;
   if (newEl !== cv._frq_chartHighEl) {
     cv._frq_chartHighEl = newEl;
@@ -989,6 +1055,12 @@ function _frq_chartTooltipHandler(cv, e) {
         tipHtml += "<br>\u26a0\ufe0f " + tipT('FRQ_resultsTipPianoWide',
           'Unsicherheit sehr gro\u00df');
       }
+    }
+    // BA436: empfohlene Bandbreite anhaengen (falls diese Elektrode ein
+    // Band hat; bei Ueberkreuzung/abgeschaltet fehlt es -> keine Zeile).
+    if (el.bandLoHz != null && el.bandHiHz != null) {
+      const bw = fmtNum(el.bandLoHz, "hz") + " – " + fmtNum(el.bandHiHz, "hz") + " Hz";
+      tipHtml += "<br>" + tipT("FRQ_resultsTipBand", "Bandbreite") + ": " + bw;
     }
     tip.innerHTML = tipHtml;
     tip.style.display = "block";

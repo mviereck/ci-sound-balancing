@@ -960,7 +960,7 @@ function _audiologFreqTable(side) {
     if (z.bandOverlap) {
       bandC = "⚠";
     } else if (z.bandLoHz != null && z.bandHiHz != null) {
-      bandC = fmtNum(z.bandLoHz, "hz") + " - " + fmtNum(z.bandHiHz, "hz") + " Hz";
+      bandC = fmtNum(z.bandLoHz, "hz") + " – " + fmtNum(z.bandHiHz, "hz") + " Hz";
     }
     if (z.residuum != null) resC = "±" + Math.round(z.residuum) + " ct";
     // Status: gemessene Datenzeile hat fmStatus; ungemessene aktive Zeile
@@ -1006,7 +1006,7 @@ function _FRQ_randHinweisMd(side) {
     const z2 = _FRQ_apikalBandKorrigiert(side, abw.untenCent);
     if (z2) {
       md += "\n\n" + t("FRQ_randBlock2Intro") + "\n"
-        + z2.label + ": " + fmtNum(z2.loHz, "hz") + " Hz - " + fmtNum(z2.hiHz, "hz") + " Hz";
+        + z2.label + ": " + fmtNum(z2.loHz, "hz") + " Hz – " + fmtNum(z2.hiHz, "hz") + " Hz";
     }
   }
   return md;
