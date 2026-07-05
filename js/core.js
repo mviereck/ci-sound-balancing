@@ -258,6 +258,13 @@ function fmtNum(wert, format) {
 function geomMitte(a, b) {
   return Math.sqrt(a * b);
 }
+// Arithmetische (lineare) Mitte zweier Frequenzen (BA440, §11.3).
+// Kern des cochlear-Bandverfahrens: Cochlear bildet Baender im linearen
+// d0-Vielfachen-Raster, mittelt also arithmetisch statt geometrisch
+// (belegt in .docs/Konzept_MAESTRO_Uebertragung.md §5.14).
+function arithMitte(a, b) {
+  return (a + b) / 2;
+}
 // Greenwood-Funktion (Cochlea-Position <-> Frequenz), klassische Parameter.
 // x in [0,1] = relative Cochlea-Position (0 = apikal/tief, 1 = basal/hoch).
 // Grundlage des greenwood-Bandverfahrens (Architektur 00-freqmatch-
@@ -314,6 +321,32 @@ var FRQ_bandVerfahren = {
     center: function (lo, hi) {
       return greenwoodHz((greenwoodX(lo) + greenwoodX(hi)) / 2);
     }
+  },
+  // Neu (BA440, §11.3): arithmetische Mitte + linear gespiegelte Raender.
+  // Cochlear bildet Baender im linearen d0-Raster (belegt §5.14/§5.16 in
+  // .docs/Konzept_MAESTRO_Uebertragung.md), mittelt also arithmetisch statt
+  // geometrisch -- strukturgleich zu 'geometrisch', nur im LINEAREN Raum.
+  // Aus frei gemessenen (gehoerten) Frequenzen entsteht KEIN echtes
+  // d0-Raster mehr (§5.16 Abs. 3); das Verfahren naehert nahtlose,
+  // arithmetisch-gespiegelte Baender an, es rekonstruiert die Standard-FAT
+  // nicht exakt. Raender werden gespiegelt, NICHT auf feste LFE/HFE
+  // geklemmt (§5.16: in Custom Sound frei setzbar).
+  cochlear: {
+    innerEdge: function (a, b) { return arithMitte(a, b); },
+    lowEdge: function (kette) {
+      var first = kette[0].hz;
+      var inner = arithMitte(kette[0].hz, kette[1].hz);
+      return 2 * first - inner;         // Linearen Abstand nach unten spiegeln
+    },
+    highEdge: function (kette) {
+      var n = kette.length;
+      var last = kette[n - 1].hz;
+      var inner = arithMitte(kette[n - 2].hz, kette[n - 1].hz);
+      return 2 * last - inner;          // Linearen Abstand nach oben spiegeln
+    },
+    // Center = arithmetische Mitte der zwei Bandgrenzen (Nutzer-Beschluss
+    // 2026-07-05: konsistent zum arithmetischen Cochlear-Bildungsgesetz).
+    center: function (lo, hi) { return arithMitte(lo, hi); }
   }
 };
 // Frequenzband-Berechnung (Architektur Sec. 9 + Sec. 11). Gemeinsamer
@@ -325,7 +358,8 @@ var FRQ_bandVerfahren = {
 // Eingang: mitten = Array je Elektrode in Elektroden-Reihenfolge,
 //   { elIdx, hz, aktiv }. hz = Bandmitte (gehoert|nominell, vom Aufrufer
 //   bestimmt). aktiv=false NUR bei elActive===false.
-//   verfahren = "geometrisch" | "greenwood" (Default "geometrisch").
+//   verfahren = "geometrisch" | "greenwood" | "cochlear"
+//     (Default "geometrisch").
 // Rueckgabe:
 //   { bands: [ { elIdx, loHz, hiHz, centerHz }, ... ] }  (nur aktive)
 //   | { error: "overlap", elektroden: [...] }  bei Ueberholung.
