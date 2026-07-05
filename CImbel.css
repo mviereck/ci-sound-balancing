@@ -1443,6 +1443,9 @@ body.dbg-active {
 .dbg-only { display: none; }
 body.dbg-active .dbg-only { display: inline-block; }
 
+.wv-debug-only { display: none; }
+body.dbg-active .wv-debug-only { display: block; }
+
 .dbg-panel {
   position: fixed;
   top: 0;
