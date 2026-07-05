@@ -433,27 +433,6 @@ function FRQ_baender(mitten, verfahren, topologie) {
   }
   return { bands: bands };
 }
-// BA433 (§9.8a): Cent-Abweichung der berechneten (gespiegelten)
-// Bandraender von den echten Hersteller-Gesamtgrenzen (defaultRange),
-// laufzeit-berechnet aus den Default-Mitten. Rueckgabe:
-//   { untenCent, obenCent }  (negativ = echte Grenze liegt tiefer)
-//   | null  wenn Hersteller keine bekannten Grenzen hat (AB/unknown).
-function FRQ_randAbweichungCent(mfrKey) {
-  var m = MFR[mfrKey];
-  if (!m || !m.defaultRange || !Array.isArray(m.FRQ_implantat)
-      || m.FRQ_implantat.length < 2) return null;
-  var mitten = m.FRQ_implantat;
-  // Gespiegelte Raender aus den Default-Mitten (wie FRQ_baender).
-  var loInner = geomMitte(mitten[0], mitten[1]);
-  var hiInner = geomMitte(mitten[mitten.length - 2], mitten[mitten.length - 1]);
-  var loEdge = (mitten[0] * mitten[0]) / loInner;
-  var hiEdge = (mitten[mitten.length - 1] * mitten[mitten.length - 1]) / hiInner;
-  var from = m.defaultRange[0], to = m.defaultRange[1];
-  return {
-    untenCent: 1200 * Math.log2(from / loEdge),
-    obenCent:  1200 * Math.log2(to   / hiEdge),
-  };
-}
 // Log-Interpolation zwischen zwei Frequenzen, t in [0,1].
 function logInterpHz(f1, f2, t) {
   if (!f1 || !f2 || f1 <= 0 || f2 <= 0) return f1 || f2 || CENT_REF_HZ;
