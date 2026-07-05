@@ -76,8 +76,15 @@ function _wv_detectFreq(signal, sr, fMin, fMax) {
 }
 
 // --- Ein Messfenster (mittleres Drittel) aus dem gewarpten Buffer holen
-function _wv_middleThird(buf) {
-  const ch = buf.getChannelData(0);
+// WICHTIG: pComputeRubberbandWarpedBuffer warpt bei Einseiten-Modus NUR
+// den Kanal der korrigierten Seite; der andere Kanal bleibt ungewarpt
+// (Original). Bei aktiver Seite "right" liegt das gewarpte Signal auf
+// Kanal 1, bei "left" auf Kanal 0. Darum den zur aktiven Seite passenden
+// Kanal messen -- sonst misst der Test den ungewarpten Kanal (Bug bis
+// 0.5.438.1: es wurde immer Kanal 0 genommen -> gehoert==gemessen).
+function _wv_middleThird(buf, seite) {
+  const chIdx = (seite === "right" && buf.numberOfChannels > 1) ? 1 : 0;
+  const ch = buf.getChannelData(chIdx);
   const n = ch.length;
   const a = Math.floor(n / 3);
   const b = Math.floor(2 * n / 3);
@@ -103,29 +110,48 @@ async function wv_runWarpVerify() {
   // Seite = aktive globale Seite (Umschalter), NICHT aus modus abgeleitet.
   const seite = (typeof activeSide === "string") ? activeSide : "right";
 
+  // Qualitaet: Der Test misst IMMER "beste" (R3 am Stueck), unabhaengig
+  // vom eingestellten pWarpCalcMode (Nutzer-Entscheidung 2026-07-05).
+  // pComputeRubberbandWarpedBuffer liest pRubberbandOptions.engine, setzt
+  // es aber NICHT selbst aus dem Modus (das tut nur der Wiedergabe-Pfad,
+  // freq-warp.js ~1234). Ohne dieses Setzen wuerde der Test mit dem
+  // zuletzt gesetzten Engine-Wert warpen (evtl. R2 von einer vorherigen
+  // Wiedergabe). Darum hier gezielt R3/fast=false erzwingen und den
+  // vorherigen Player-Zustand danach wiederherstellen.
+  const _prevEngine = pRubberbandOptions.engine;
+  const _prevFast   = pRubberbandOptions.fast;
+  pRubberbandOptions.engine = "r3";
+  pRubberbandOptions.fast   = false;
+
   const rows = [];
-  for (const w of werte) {
-    const s = w[seite];
-    if (!s || s.gehoertHz == null || !s.aktiv) continue;
-    const gehoert  = s.gehoertHz;
-    const nominell = s.nominellHz;
+  try {
+    for (const w of werte) {
+      const s = w[seite];
+      if (!s || s.gehoertHz == null || !s.aktiv) continue;
+      const gehoert  = s.gehoertHz;
+      const nominell = s.nominellHz;
 
-    const src = _wv_makeToneBuffer(ctx, gehoert, 3, sr);
-    const out = await pComputeRubberbandWarpedBuffer(src, modus);
+      const src = _wv_makeToneBuffer(ctx, gehoert, 3, sr);
+      const out = await pComputeRubberbandWarpedBuffer(src, modus);
 
-    const sig = _wv_middleThird(out);
-    const fMin = Math.min(gehoert, nominell) * 0.6;
-    const fMax = Math.max(gehoert, nominell) * 1.7;
-    const gemessen = _wv_detectFreq(sig, sr, fMin, fMax);
+      const sig = _wv_middleThird(out, seite);
+      const fMin = Math.min(gehoert, nominell) * 0.6;
+      const fMax = Math.max(gehoert, nominell) * 1.7;
+      const gemessen = _wv_detectFreq(sig, sr, fMin, fMax);
 
-    const dCent = 1200 * Math.log2(gemessen / nominell);
-    const ok = Math.abs(dCent) <= 20;
+      const dCent = 1200 * Math.log2(gemessen / nominell);
+      const ok = Math.abs(dCent) <= 20;
 
-    rows.push({
-      el: w.elIdx + 1,
-      gehoert, nominell, gemessen, dCent, ok,
-      status: statusByIdx[w.elIdx] || ""
-    });
+      rows.push({
+        el: w.elIdx + 1,
+        gehoert, nominell, gemessen, dCent, ok,
+        status: statusByIdx[w.elIdx] || ""
+      });
+    }
+  } finally {
+    // Player-Zustand nicht veraendern.
+    pRubberbandOptions.engine = _prevEngine;
+    pRubberbandOptions.fast   = _prevFast;
   }
 
   _wv_renderTable(rows, modus, nhSim);

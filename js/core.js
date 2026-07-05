@@ -258,17 +258,83 @@ function fmtNum(wert, format) {
 function geomMitte(a, b) {
   return Math.sqrt(a * b);
 }
-// Frequenzband-Berechnung (BA432, §9). Log-Mitte-Methode, einheitlich
-// fuer alle Hersteller. EINZIGER Aufrufer ist FRQ_werte (Schritt 4);
-// kein Konsument ruft dies direkt.
+// Greenwood-Funktion (Cochlea-Position <-> Frequenz), klassische Parameter.
+// x in [0,1] = relative Cochlea-Position (0 = apikal/tief, 1 = basal/hoch).
+// Grundlage des greenwood-Bandverfahrens (Architektur 00-freqmatch-
+// wertquelle-architektur.md Sec. 11, Memo_Bandempfehlung_Greenwood.md).
+function greenwoodHz(x) {
+  return 165.4 * (Math.pow(10, 2.1 * x) - 0.88);
+}
+function greenwoodX(hz) {
+  return (1 / 2.1) * Math.log10(hz / 165.4 + 0.88);
+}
+// Bandberechnungs-Verfahren (Architektur 00-freqmatch-wertquelle-
+// architektur.md Sec. 11). Registry: Verfahrensname -> Rechen-Hooks.
+// Der gemeinsame Rahmen (FRQ_baender) bildet die Kette, prueft Monotonie
+// und setzt die Baender inkl. centerHz zusammen; das Verfahren liefert nur
+// die drei Rechenschritte. Ein neues Verfahren ist EIN Registry-Eintrag,
+// kein if-Zweig (Strukturprinzip 3).
+var FRQ_bandVerfahren = {
+  // Heute (Sec. 9.2): geometrische Mitte + gespiegelte Log-Raender.
+  geometrisch: {
+    innerEdge: function (a, b) { return geomMitte(a, b); },
+    lowEdge: function (kette) {
+      var first = kette[0].hz;
+      var inner = geomMitte(kette[0].hz, kette[1].hz);
+      return (first * first) / inner;   // Log-Abstand nach unten spiegeln
+    },
+    highEdge: function (kette) {
+      var n = kette.length;
+      var last = kette[n - 1].hz;
+      var inner = geomMitte(kette[n - 2].hz, kette[n - 1].hz);
+      return (last * last) / inner;     // Log-Abstand nach oben spiegeln
+    },
+    // Center = geometrische Mitte der zwei Bandgrenzen.
+    center: function (lo, hi) { return geomMitte(lo, hi); }
+  },
+  // Neu (Sec. 11.3, Memo Sec. 2): Greenwood-Grenzen + Greenwood-Center.
+  // Alle Mittelungen laufen im POSITIONSRAUM (linear in x), nicht im
+  // Frequenzraum -- das ist der Unterschied zu geometrisch.
+  greenwood: {
+    innerEdge: function (a, b) {
+      return greenwoodHz((greenwoodX(a) + greenwoodX(b)) / 2);
+    },
+    lowEdge: function (kette) {
+      var x0 = greenwoodX(kette[0].hz);
+      var xMid = (greenwoodX(kette[0].hz) + greenwoodX(kette[1].hz)) / 2;
+      return greenwoodHz(2 * x0 - xMid);   // Positions-Abstand am Rand spiegeln
+    },
+    highEdge: function (kette) {
+      var n = kette.length;
+      var xN = greenwoodX(kette[n - 1].hz);
+      var xMid = (greenwoodX(kette[n - 2].hz) + greenwoodX(kette[n - 1].hz)) / 2;
+      return greenwoodHz(2 * xN - xMid);
+    },
+    // Center = Greenwood-Frequenz des Positions-Mittelpunkts der Grenzen.
+    center: function (lo, hi) {
+      return greenwoodHz((greenwoodX(lo) + greenwoodX(hi)) / 2);
+    }
+  }
+};
+// Frequenzband-Berechnung (Architektur Sec. 9 + Sec. 11). Gemeinsamer
+// Rahmen: bildet die aktive Kette, prueft strenge Monotonie, behandelt
+// den Einzel-Elektrode-Fall -- DANN ruft er das gewaehlte Verfahren
+// (FRQ_bandVerfahren[verfahren]) fuer Grenzen + Center. EINZIGER Aufrufer
+// ist FRQ_werte (Sec. 9.4); kein Konsument ruft dies direkt.
 //
 // Eingang: mitten = Array je Elektrode in Elektroden-Reihenfolge,
-//   { elIdx, hz, aktiv }. hz = Bandmitte (gehoert|nominell, vom
-//   Aufrufer bestimmt). aktiv=false NUR bei elActive===false.
+//   { elIdx, hz, aktiv }. hz = Bandmitte (gehoert|nominell, vom Aufrufer
+//   bestimmt). aktiv=false NUR bei elActive===false.
+//   verfahren = "geometrisch" | "greenwood" (Default "geometrisch").
 // Rueckgabe:
-//   { bands: [ { elIdx, loHz, hiHz }, ... ] }  (nur aktive Elektroden)
-//   | { error: "overlap" }  bei Ueberholung (nicht streng monoton).
-function FRQ_baender(mitten) {
+//   { bands: [ { elIdx, loHz, hiHz, centerHz }, ... ] }  (nur aktive)
+//   | { error: "overlap", elektroden: [...] }  bei Ueberholung.
+function FRQ_baender(mitten, verfahren) {
+  var vf = FRQ_bandVerfahren[verfahren || "geometrisch"];
+  // Ungueltiger Verfahrensname -> Fehler (kein Fallback, Nutzer-Beschluss
+  // 2026-07-05). Notausgang-Prinzip Sec. 11.7: kein stilles Ausweichen.
+  if (!vf) return { error: "unknownVerfahren", verfahren: verfahren };
+
   // Nur aktive Elektroden bilden die Kette (nicht aktive: Nachbarn
   // ruecken zusammen).
   var kette = [];
@@ -278,8 +344,9 @@ function FRQ_baender(mitten) {
     }
   }
   if (kette.length === 0) return { bands: [] };
+
   // Ueberlauf-Pruefung: streng monoton steigende Mitten. Sammelt die
-  // elIdx-Paare, die die Reihenfolge kippen (BA433, fuer die Anzeige).
+  // elIdx-Paare, die die Reihenfolge kippen (fuer die Anzeige).
   var overlapEls = [];
   for (var k = 1; k < kette.length; k++) {
     if (kette[k].hz <= kette[k - 1].hz) {
@@ -287,29 +354,29 @@ function FRQ_baender(mitten) {
     }
   }
   if (overlapEls.length > 0) {
-    // Duplikate entfernen, aufsteigend.
     var uniq = overlapEls.filter(function (v, idx) { return overlapEls.indexOf(v) === idx; });
     uniq.sort(function (a, b) { return a - b; });
     return { error: "overlap", elektroden: uniq };
   }
-  // Einzelne Elektrode: kein Nachbar zum Spiegeln -> kein Band
-  // definierbar. Leere Bandliste (Konsument zeigt dann kein Band).
+
+  // Einzelne Elektrode: kein Nachbar zum Spiegeln -> kein Band definierbar.
   if (kette.length === 1) return { bands: [] };
 
-  // Innere Grenzen = geometrische Mitte benachbarter Mitten.
+  // Innere Grenzen (verfahrensabhaengig).
   var inner = [];
   for (var j = 0; j < kette.length - 1; j++) {
-    inner.push(geomMitte(kette[j].hz, kette[j + 1].hz));
+    inner.push(vf.innerEdge(kette[j].hz, kette[j + 1].hz));
   }
-  // Raender = inneren Log-Abstand spiegeln.
-  var lowEdge  = (kette[0].hz * kette[0].hz) / inner[0];
-  var highEdge = (kette[kette.length - 1].hz * kette[kette.length - 1].hz)
-               / inner[inner.length - 1];
+  // Aeussere Raender (verfahrensabhaengig).
+  var lowEdge  = vf.lowEdge(kette);
+  var highEdge = vf.highEdge(kette);
   var edges = [lowEdge].concat(inner, [highEdge]);
 
   var bands = [];
   for (var e = 0; e < kette.length; e++) {
-    bands.push({ elIdx: kette[e].elIdx, loHz: edges[e], hiHz: edges[e + 1] });
+    var lo = edges[e], hi = edges[e + 1];
+    bands.push({ elIdx: kette[e].elIdx, loHz: lo, hiHz: hi,
+                 centerHz: vf.center(lo, hi) });
   }
   return { bands: bands };
 }
@@ -422,6 +489,10 @@ function FRQ_modusVonReferenzmodus(rm) {
 //                "Normalhoerenden-Simulation". Wird HIER pro Form in die
 //                noetige Spiegelung uebersetzt; der Konsument denkt nicht
 //                ueber Vorzeichen nach.
+//   verfahren    'geometrisch' | 'greenwood'  (Default 'geometrisch',
+//                Sec. 11). Bandberechnungs-Verfahren, an FRQ_baender
+//                durchgereicht. KEIN Konsument denkt ueber Baender-Mathe
+//                nach -- er waehlt nur den Namen (heute alle: Default).
 //
 // Rueckgabe: sortiertes Array (aufsteigend nach elIdx), EIN Eintrag je
 // Elektrode der beidseitigen Menge (min(nL, nR)). IMMER beide Seiten
@@ -434,7 +505,7 @@ function FRQ_modusVonReferenzmodus(rm) {
 //   warp    :  nhSim aus -> Vorhalt/Korrektur; nhSim an -> Verzerrung.
 //   gehoert :  nhSim aus -> gehoerte/Korrektur-Richtung; nhSim an -> gespiegelt.
 //   roh     :  cent unveraendert, plus Referenzseite (nhSim ohne Wirkung).
-function FRQ_werte(form, modus, nhSim) {
+function FRQ_werte(form, modus, nhSim, verfahren) {
   // nhSim: bool -- die Player-Einstellung "Normalhoerenden-Simulation".
   // Die gesamte Vorzeichen-/Spiegelungslogik lebt HIER, nicht im Konsumenten
   // (Nutzer-Vorgabe BA421: kein Konsument denkt ueber Vorzeichen nach).
@@ -563,7 +634,7 @@ function FRQ_werte(form, modus, nhSim) {
         // Aktivitaet JE SEITE (Nutzer-Beschluss): das seitenweise Flag.
         return { elIdx: entry.elIdx, hz: hz, aktiv: !!(s && s.aktiv) };
       });
-      var res = FRQ_baender(mitten);
+      var res = FRQ_baender(mitten, verfahren);
       if (res.error === "overlap") {
         out.forEach(function (entry) {
           if (entry[seite]) {
@@ -571,6 +642,7 @@ function FRQ_werte(form, modus, nhSim) {
             entry[seite].bandOverlapEls = res.elektroden || [];
             entry[seite].bandLoHz = null;
             entry[seite].bandHiHz = null;
+            entry[seite].bandCenterHz = null;   // Sec. 11.4
           }
         });
       } else {
@@ -583,6 +655,7 @@ function FRQ_werte(form, modus, nhSim) {
           entry[seite].bandOverlapEls = [];
           entry[seite].bandLoHz = b ? b.loHz : null;
           entry[seite].bandHiHz = b ? b.hiHz : null;
+          entry[seite].bandCenterHz = b ? b.centerHz : null;   // Sec. 11.4
         });
       }
     });
