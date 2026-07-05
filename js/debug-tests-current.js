@@ -915,3 +915,77 @@
     return lines.join("\n");
   });
 })();
+
+/* BA443 — Band-Topologie (nahtlos identisch, lueckig/ueberlappend Eigenschaften) */
+(function () {
+  if (typeof dbg === "undefined" || typeof dbg.test !== "function") return;
+  dbg.test("build/BA443/topologie", {
+    tab: "results", label: "BA443: Band-Topologie"
+  }, function () {
+    var lines = [];
+    function chk(label, ok) { lines.push((ok ? "OK" : "FAIL") + " " + label); }
+
+    var hz = [120,235,384,579,836,1175,1624,2222,3019,4084,5507,7410];
+    var mitten = hz.map(function (h, i) { return { elIdx: i, hz: h, aktiv: true }; });
+    var TOL = 1e-9;
+
+    ["geometrisch", "greenwood", "cochlear"].forEach(function (vf) {
+      // 1. nahtlos == kein topologie-Argument (Default) == BA442-Verhalten
+      var d = FRQ_baender(mitten, vf);                 // Default nahtlos
+      var s = FRQ_baender(mitten, vf, "nahtlos");      // explizit
+      var same = d.bands.length === s.bands.length && d.bands.every(function (b, i) {
+        return Math.abs(b.loHz - s.bands[i].loHz) < TOL
+            && Math.abs(b.hiHz - s.bands[i].hiHz) < TOL
+            && Math.abs(b.centerHz - s.bands[i].centerHz) < TOL;
+      });
+      chk(vf + ": nahtlos-Default == nahtlos-explizit", same);
+
+      var gap = FRQ_baender(mitten, vf, "lueckig").bands;
+      var ovl = FRQ_baender(mitten, vf, "ueberlappend").bands;
+
+      // 2. lueckig/ueberlappend: Center == gehoerte Frequenz (symmetrisch)
+      var gapCenterOk = gap.every(function (b, i) { return Math.abs(b.centerHz - hz[i]) < 1e-6; });
+      var ovlCenterOk = ovl.every(function (b, i) { return Math.abs(b.centerHz - hz[i]) < 1e-6; });
+      chk(vf + ": lueckig Center == gehoerte Frequenz", gapCenterOk);
+      chk(vf + ": ueberlappend Center == gehoerte Frequenz", ovlCenterOk);
+
+      // 3. lueckig: nie Ueberlappung (hi[k] <= lo[k+1], Toleranz)
+      var nieOverlap = true;
+      for (var k = 0; k < gap.length - 1; k++) if (gap[k].hiHz > gap[k+1].loHz + 1e-6) nieOverlap = false;
+      chk(vf + ": lueckig -> nie Ueberlappung", nieOverlap);
+
+      // 4. ueberlappend: nie Luecke (hi[k] >= lo[k+1], Toleranz)
+      var nieLuecke = true;
+      for (var m = 0; m < ovl.length - 1; m++) if (ovl[m].hiHz < ovl[m+1].loHz - 1e-6) nieLuecke = false;
+      chk(vf + ": ueberlappend -> nie Luecke", nieLuecke);
+
+      // 5. Symmetrie im Positionsraum: Center-Position == Mittelpunkt der Grenz-Positionen
+      //    (bei lueckig/ueberlappend per Konstruktion; hier ueber Hz zurueckgeprueft
+      //     via Verfahrens-toP)
+      var toP = FRQ_bandVerfahren[vf].toP;
+      var gapSym = gap.every(function (b, i) {
+        return Math.abs((toP(b.loHz) + toP(b.hiHz)) / 2 - toP(hz[i])) < 1e-9;
+      });
+      chk(vf + ": lueckig symmetrisch in p", gapSym);
+    });
+
+    // 6. Unbekannte Topologie -> Fehler
+    chk("unbekannte Topologie -> error",
+      FRQ_baender(mitten, "geometrisch", "gibtsnicht").error === "unknownTopologie");
+
+    // 7. Gleichmaessige Abstaende (in p): lueckig == ueberlappend == nahtlos
+    //    Konstruiere Mitten mit konstantem Log-Abstand (fuer geometrisch).
+    var eq = [];
+    for (var q = 0; q < 6; q++) eq.push({ elIdx: q, hz: 100 * Math.pow(2, q), aktiv: true });
+    var eN = FRQ_baender(eq, "geometrisch", "nahtlos").bands;
+    var eG = FRQ_baender(eq, "geometrisch", "lueckig").bands;
+    var eO = FRQ_baender(eq, "geometrisch", "ueberlappend").bands;
+    var eqSame = eN.every(function (b, i) {
+      return Math.abs(b.loHz - eG[i].loHz) < 1e-6 && Math.abs(b.loHz - eO[i].loHz) < 1e-6
+          && Math.abs(b.hiHz - eG[i].hiHz) < 1e-6 && Math.abs(b.hiHz - eO[i].hiHz) < 1e-6;
+    });
+    chk("gleichmaessige Abstaende: nahtlos==lueckig==ueberlappend", eqSame);
+
+    return lines.join("\n");
+  });
+})();

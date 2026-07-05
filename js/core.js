@@ -297,27 +297,89 @@ var FRQ_bandVerfahren = {
   // Linearer Raum: arithmetische Mitte (Cochlear-d0-Raster, war §11.3).
   cochlear:    { toP: identityHz, fromP: identityHz }
 };
+// Band-Topologie = GRENZSETZUNG in Positions-Koordinaten (BA443, §13.3/
+// §13.4). Registry: Topologie-Name -> Funktion(P) -> [{loP,hiP}, ...]
+// (ein Paar je Band, Laenge P.length). Rechnet NUR mit Positionen; der
+// Rechenraum steckt bereits in P (via vf.toP im Rahmen). Jede Topologie
+// funktioniert dadurch fuer JEDEN Rechenraum. nahtlos ist ein expliziter
+// Eintrag, KEIN if-Sonderpfad (Strukturprinzip 3).
+//
+// P ist streng steigend und hat mindestens 2 Elemente (Einzel-Elektrode
+// faengt der Rahmen vorher ab).
+var FRQ_bandTopologie = {
+  // Nahtlos (bisheriges Verhalten, §13.4): Grenze = Mittelpunkt der
+  // Positions-Nachbarn; Raender = inneren Abstand spiegeln. Band um die
+  // gehoerte Position ASYMMETRISCH -> Ergebnis-Center weicht i.A. ab.
+  nahtlos: function (P) {
+    var n = P.length;
+    var innerP = [];
+    for (var j = 0; j < n - 1; j++) innerP.push((P[j] + P[j + 1]) / 2);
+    var lowP  = 2 * P[0]     - innerP[0];
+    var highP = 2 * P[n - 1] - innerP[n - 2];
+    var edges = [lowP].concat(innerP, [highP]);   // Laenge n+1, geteilt
+    var out = [];
+    for (var e = 0; e < n; e++) out.push({ loP: edges[e], hiP: edges[e + 1] });
+    return out;
+  },
+  // Lueckig (§13.4): symmetrisch um P[k], halbe Breite = halber KLEINERER
+  // Nachbarabstand -> nie Ueberlappung, minimale Luecke. Center = P[k].
+  lueckig: function (P) {
+    return _bandSymmetrisch(P, Math.min);
+  },
+  // Ueberlappend (§13.4): symmetrisch, halbe Breite = halber GROESSERER
+  // Nachbarabstand -> nie Luecke, minimale Ueberlappung. Center = P[k].
+  ueberlappend: function (P) {
+    return _bandSymmetrisch(P, Math.max);
+  }
+};
+
+// Gemeinsamer Kern von lueckig/ueberlappend (§13.4): symmetrische Baender
+// um jede Position, halbe Breite aus min bzw. max der Nachbarabstaende.
+// Randband: nur ein Nachbar -> min=max=D -> h=D/2 (kein Sonderfall).
+function _bandSymmetrisch(P, pick) {
+  var n = P.length;
+  var out = [];
+  for (var k = 0; k < n; k++) {
+    var dL = (k > 0)     ? (P[k] - P[k - 1]) : null;
+    var dR = (k < n - 1) ? (P[k + 1] - P[k]) : null;
+    var d;
+    if (dL != null && dR != null) d = pick(dL, dR);
+    else                          d = (dL != null) ? dL : dR;   // Rand
+    var h = d / 2;
+    out.push({ loP: P[k] - h, hiP: P[k] + h });
+  }
+  return out;
+}
 // Frequenzband-Berechnung (Architektur Sec. 9 + Sec. 11). Gemeinsamer
 // Rahmen: bildet die aktive Kette, prueft strenge Monotonie, behandelt
 // den Einzel-Elektrode-Fall -- DANN ruft er das gewaehlte Verfahren
-// (FRQ_bandVerfahren[verfahren]) fuer Grenzen + Center. EINZIGER Aufrufer
-// ist FRQ_werte (Sec. 9.4); kein Konsument ruft dies direkt.
+// (FRQ_bandVerfahren[verfahren]) fuer Grenzen + Center und die gewaehlte
+// Topologie (FRQ_bandTopologie[topologie]) fuer die Grenzsetzung.
+// EINZIGER Aufrufer ist FRQ_werte (Sec. 9.4); kein Konsument ruft dies
+// direkt.
 //
 // Eingang: mitten = Array je Elektrode in Elektroden-Reihenfolge,
 //   { elIdx, hz, aktiv }. hz = Bandmitte (gehoert|nominell, vom Aufrufer
 //   bestimmt). aktiv=false NUR bei elActive===false.
 //   verfahren = "geometrisch" | "greenwood" | "cochlear"
 //     (Default "geometrisch").
+//   topologie = "nahtlos" | "lueckig" | "ueberlappend"
+//     (Default "nahtlos").
 // Rueckgabe:
 //   { bands: [ { elIdx, loHz, hiHz, centerHz }, ... ] }  (nur aktive)
 //   | { error: "overlap", elektroden: [...] }  bei Ueberholung.
-function FRQ_baender(mitten, verfahren) {
+//   | { error: "unknownVerfahren" | "unknownTopologie", ... }  bei Fehler.
+function FRQ_baender(mitten, verfahren, topologie) {
   var vf = FRQ_bandVerfahren[verfahren || "geometrisch"];
   // Ungueltiger Verfahrensname -> Fehler (kein Fallback, Nutzer-Beschluss
   // 2026-07-05). Notausgang-Prinzip Sec. 11.7/§13.8: kein stilles
   // Ausweichen. vf liefert toP/fromP (Rechenraum, §13.3).
   if (!vf || typeof vf.toP !== "function" || typeof vf.fromP !== "function")
     return { error: "unknownVerfahren", verfahren: verfahren };
+  var topo = FRQ_bandTopologie[topologie || "nahtlos"];
+  // Ungueltige Topologie -> Fehler, analog Verfahren (§13.8: kein Fallback).
+  if (typeof topo !== "function")
+    return { error: "unknownTopologie", topologie: topologie };
 
   // Nur aktive Elektroden bilden die Kette (nicht aktive: Nachbarn
   // ruecken zusammen).
@@ -346,35 +408,25 @@ function FRQ_baender(mitten, verfahren) {
   // Einzelne Elektrode: kein Nachbar zum Spiegeln -> kein Band definierbar.
   if (kette.length === 1) return { bands: [] };
 
-  // --- Nahtlose Grenzsetzung, zentral in Positions-Koordinaten (§13.4).
-  // Alle Verfahren teilen diese eine Regel; der Raum steckt nur in
-  // vf.toP/vf.fromP. In BA443 kommt hier die Topologie-Fallunterscheidung
-  // dazu; jetzt ist "nahtlos" die einzige (implizite) Topologie.
+  // --- Grenzsetzung ueber die Topologie-Registry (§13.3/§13.4).
+  // Der Raum steckt in vf.toP/vf.fromP, die Topologie in topo. Beide
+  // Achsen frei kombinierbar (3x3).
   var toP = vf.toP, fromP = vf.fromP;
 
   // Positionen der gehoerten Mitten im Rechenraum.
   var P = [];
   for (var p = 0; p < kette.length; p++) P.push(toP(kette[p].hz));
 
-  // Innere Grenzen: arithmetisches Mittel benachbarter Positionen.
-  var edgesP = [];                       // Laenge kette.length + 1
-  var innerP = [];
-  for (var j = 0; j < kette.length - 1; j++) {
-    innerP.push((P[j] + P[j + 1]) / 2);
-  }
-  // Aeussere Raender: inneren Positions-Abstand am Rand spiegeln.
-  // unten: 2*P[0] - innerP[0] ; oben: 2*P[n-1] - innerP[n-2].
-  var n = kette.length;
-  var lowP  = 2 * P[0]     - innerP[0];
-  var highP = 2 * P[n - 1] - innerP[n - 2];
-  edgesP = [lowP].concat(innerP, [highP]);
+  // Topologie liefert je Band ein {loP, hiP}-Paar (Positions-Koordinaten).
+  var pairs = topo(P);
 
   var bands = [];
   for (var e = 0; e < kette.length; e++) {
-    var loP = edgesP[e], hiP = edgesP[e + 1];
+    var loP = pairs[e].loP, hiP = pairs[e].hiP;
     var lo = fromP(loP), hi = fromP(hiP);
     // Ergebnis-Center = Ruecktransform des Positions-Mittelpunkts der
-    // Grenzen (§13.5, nahtlos: weicht i.A. von der gehoerten Frequenz ab).
+    // Grenzen (§13.5). nahtlos: weicht i.A. von der gehoerten Frequenz ab;
+    // lueckig/ueberlappend: Band symmetrisch -> Center == gehoerte Frequenz.
     var centerHz = fromP((loP + hiP) / 2);
     bands.push({ elIdx: kette[e].elIdx, loHz: lo, hiHz: hi,
                  centerHz: centerHz });
@@ -506,7 +558,7 @@ function FRQ_modusVonReferenzmodus(rm) {
 //   warp    :  nhSim aus -> Vorhalt/Korrektur; nhSim an -> Verzerrung.
 //   gehoert :  nhSim aus -> gehoerte/Korrektur-Richtung; nhSim an -> gespiegelt.
 //   roh     :  cent unveraendert, plus Referenzseite (nhSim ohne Wirkung).
-function FRQ_werte(form, modus, nhSim, verfahren) {
+function FRQ_werte(form, modus, nhSim, verfahren, topologie) {
   // nhSim: bool -- die Player-Einstellung "Normalhoerenden-Simulation".
   // Die gesamte Vorzeichen-/Spiegelungslogik lebt HIER, nicht im Konsumenten
   // (Nutzer-Vorgabe BA421: kein Konsument denkt ueber Vorzeichen nach).
@@ -635,7 +687,7 @@ function FRQ_werte(form, modus, nhSim, verfahren) {
         // Aktivitaet JE SEITE (Nutzer-Beschluss): das seitenweise Flag.
         return { elIdx: entry.elIdx, hz: hz, aktiv: !!(s && s.aktiv) };
       });
-      var res = FRQ_baender(mitten, verfahren);
+      var res = FRQ_baender(mitten, verfahren, topologie);
       if (res.error === "overlap") {
         out.forEach(function (entry) {
           if (entry[seite]) {
