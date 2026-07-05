@@ -920,23 +920,31 @@ function _audiologFreqTable(side) {
 
   const dashMd = "—";
   const lines = [];
-  // Reiter-Spalten OHNE Status (Nutzer: "Status kann weg").
+  // Nachbesserung 435.1: Status-Spalte JETZT MIT im Ausdruck (Umkehr der
+  // BA424-Entscheidung). Reiter und Ausdruck zeigen denselben Inhalt/dieselben
+  // Statustexte. Status als Klartext ueber _FRQ_statusText (gemeinsame Quelle).
+  const statusText = (typeof _FRQ_statusText === "function")
+    ? _FRQ_statusText : function () { return "—"; };
   lines.push("| " + t("FRQ_resultsColEl")
     + " | " + t("FRQ_resultsColNominalHz")
     + " | " + t("FRQ_resultsColPerceivedHz")
     + " | " + t("FRQ_resultsColBand")
     + " | " + t("FRQ_resultsColDiffHz")
     + " | " + t("FRQ_resultsColDiffCent")
-    + " | " + t("FRQ_resultsColResiduum") + " |");
-  lines.push("|---|---|---|---|---|---|---|");
+    + " | " + t("FRQ_resultsColResiduum")
+    + " | " + t("FRQ_resultsColStatus") + " |");
+  lines.push("|---|---|---|---|---|---|---|---|");
   for (const z of zeilen) {
     if (z.kind === "notActive") {
-      // BA433-Fix: nur elActive===false. Kein Band.
-      lines.push("| " + z.elLabel + " | — | — | — | — | — | " + t("FRQ_resultsStatusNotActive") + " |");
+      // Deaktivierte Elektrode: Nominal-Hz angezeigt, Rest "—", Status
+      // "deaktiviert" (wie im Reiter).
+      const nomD = (z.nominellHz != null) ? z.nominellHz.toFixed(2) : "—";
+      lines.push("| " + z.elLabel + " | " + nomD + " | — | — | — | — | — | "
+        + t("FRQ_resultsStatusNotActive") + " |");
       continue;
     }
     if (z.kind === "notMeasured") {
-      lines.push("| " + z.elLabel + " | — | — | — | — | — | " + t("notMeasured") + " |");
+      lines.push("| " + z.elLabel + " | — | — | — | — | — | — | " + t("notMeasured") + " |");
       continue;
     }
     let nomC = dashMd, perC = dashMd, dHzC = dashMd, dCtC = dashMd, resC = dashMd;
@@ -955,8 +963,12 @@ function _audiologFreqTable(side) {
       bandC = fmtNum(z.bandLoHz, "hz") + " - " + fmtNum(z.bandHiHz, "hz") + " Hz";
     }
     if (z.residuum != null) resC = "±" + Math.round(z.residuum) + " ct";
+    // Status: gemessene Datenzeile hat fmStatus; ungemessene aktive Zeile
+    // (kein fmStatus) -> "nicht gemessen".
+    const statC = z.fmStatus ? statusText(z.fmStatus) : t("notMeasured");
     lines.push("| " + z.elLabel + " | " + nomC + " | " + perC
-      + " | " + bandC + " | " + dHzC + " | " + dCtC + " | " + resC + " |");
+      + " | " + bandC + " | " + dHzC + " | " + dCtC + " | " + resC
+      + " | " + statC + " |");
   }
 
   // BA433: Texte nach der Ausdruck-Tabelle (Reihenfolge §9.8a).

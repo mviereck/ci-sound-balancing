@@ -215,29 +215,34 @@ function FRQ_activeResults() {
     : [];
 }
 
-// Status-Badge-HTML fuer die Reiter-Tabelle. Aus der frueheren Inline-Kaskade
-// in FRQ_renderResults ausgelagert (BA423). Nur der Reiter zeigt Status; der
-// Audiologen-Ausdruck laesst die Status-Spalte weg (BA424).
+// EINE Wahrheit fuer fmStatus -> {key, cls}. key = i18n-Schluessel des
+// Statustexts, cls = Badge-CSS-Klasse (nur Reiter). Reiter (Badge-HTML) und
+// Audiologen-Ausdruck (Klartext, BA424-Umkehr 435.1) gehen beide hier durch,
+// damit Reiter und Ausdruck denselben Statustext zeigen.
+// "not-perceivable" entfernt (vom Klaviertest nicht mehr erzeugt, 435.1).
+const _FRQ_STATUS_MAP = {
+  "converged":       { key: "FRQ_resultsStatusOk",       cls: "frq-badge-ok" },
+  "converged-fair":  { key: "FRQ_resultsStatusFair",     cls: "frq-badge-fair" },
+  "converged-wide":  { key: "FRQ_resultsStatusWide",     cls: "frq-badge-wide" },
+  "unstable":        { key: "FRQ_resultsStatusUnstable", cls: "frq-badge-unstable" },
+  "aborted":         { key: "FRQ_resultsStatusAborted",  cls: "frq-badge-aborted" },
+  "piano":           { key: "FRQ_resultsStatusPiano",        cls: "frq-badge-ok" },
+  "piano-crossed":   { key: "FRQ_resultsStatusPianoCrossed", cls: "frq-badge-err" },
+  "piano-wide":      { key: "FRQ_resultsStatusPianoWide",    cls: "frq-badge-wide" },
+};
+
+// Reiner Statustext (Klartext) fuer einen fmStatus. Genutzt vom Ausdruck.
+function _FRQ_statusText(fmStatus) {
+  const m = _FRQ_STATUS_MAP[fmStatus];
+  return m ? t(m.key) : "—";
+}
+
+// Status-Badge-HTML fuer die Reiter-Tabelle.
 function _FRQ_statusBadgeHtml(fmStatus) {
-  if (fmStatus === "converged")
-    return '<span class="frq-badge frq-badge-ok" data-t="FRQ_resultsStatusOk">' + t("FRQ_resultsStatusOk") + "</span>";
-  if (fmStatus === "converged-fair")
-    return '<span class="frq-badge frq-badge-fair" data-t="FRQ_resultsStatusFair">' + t("FRQ_resultsStatusFair") + "</span>";
-  if (fmStatus === "converged-wide")
-    return '<span class="frq-badge frq-badge-wide" data-t="FRQ_resultsStatusWide">' + t("FRQ_resultsStatusWide") + "</span>";
-  if (fmStatus === "unstable")
-    return '<span class="frq-badge frq-badge-unstable" data-t="FRQ_resultsStatusUnstable">' + t("FRQ_resultsStatusUnstable") + "</span>";
-  if (fmStatus === "aborted")
-    return '<span class="frq-badge frq-badge-aborted" data-t="FRQ_resultsStatusAborted">' + t("FRQ_resultsStatusAborted") + "</span>";
-  if (fmStatus === "not-perceivable")
-    return '<span class="frq-badge frq-badge-err" data-t="FRQ_resultsStatusNotPerceivable">' + t("FRQ_resultsStatusNotPerceivable") + "</span>";
-  if (fmStatus === "piano")
-    return '<span class="frq-badge frq-badge-slider" data-t="FRQ_resultsStatusPiano">' + t("FRQ_resultsStatusPiano") + "</span>";
-  if (fmStatus === "piano-crossed")
-    return '<span class="frq-badge frq-badge-err" data-t="FRQ_resultsStatusPianoCrossed">' + t("FRQ_resultsStatusPianoCrossed") + "</span>";
-  if (fmStatus === "piano-wide")
-    return '<span class="frq-badge frq-badge-wide" data-t="FRQ_resultsStatusPianoWide">' + t("FRQ_resultsStatusPianoWide") + "</span>";
-  return '<span class="muted">—</span>';
+  const m = _FRQ_STATUS_MAP[fmStatus];
+  if (!m) return '<span class="muted">—</span>';
+  return '<span class="frq-badge ' + m.cls + '" data-t="' + m.key + '">'
+    + t(m.key) + "</span>";
 }
 
 // Gemeinsame Zeilen-Quelle der Frequenzabgleich-Tabelle. Liefert je Elektrode
@@ -294,8 +299,14 @@ function FRQ_tabellenZeilen(opts) {
     // Elektroden sind AKTIV -> normale Datenzeile MIT Band (nominelle
     // Mitte), Wahrnehmung/Diff "—" wenn ungemessen.
     if (sideData[side].elActive && sideData[side].elActive[i] === false) {
+      // Nachbesserung 435.1: Deaktivierte Elektrode erscheint MIT nomineller
+      // Standardfrequenz (ausgegraut), Status "deaktiviert". Nominalwert aus
+      // der Wertquelle dieser Seite (FRQ_implantatEffektiv mit srcData=Seite).
+      const nomDeact = (typeof FRQ_implantatEffektiv === "function")
+        ? FRQ_implantatEffektiv(i, sideData[side]) : null;
       rows.push({ elIdx: i, elLabel, kind: "notActive",
-        nominellHz: null, gehoertHz: null, diffHz: null, diffCent: null,
+        nominellHz: (nomDeact != null ? nomDeact : null),
+        gehoertHz: null, diffHz: null, diffCent: null,
         residuum: null, isNotPerceivable: false, fmStatus: null,
         bandLoHz: null, bandHiHz: null, bandOverlap: false, bandOverlapEls: [] });
       continue;
@@ -326,6 +337,34 @@ function FRQ_tabellenZeilen(opts) {
       isNotPerceivable: isNotPerc, fmStatus: (r && r.fmStatus) || null });
   }
   return rows;
+}
+
+// Nachbesserung 435.1: HTML der Graph-Legende. Einleitungssatz + dreispaltige
+// Tabelle. Jede Zeile FRQ_chartLegendRowN = "Begriff|Wert|Erklaerung".
+// Die zwei "="-Zeichen entstehen als eigene schmale Spalten, wodurch sie
+// untereinander stehen (Ausrichtung durch die Tabellenstruktur).
+function _FRQ_chartLegendHtml() {
+  const intro = t("FRQ_chartLegendIntro");
+  const eqCell = "<td style=\"padding:0 6px;color:#374151\">=</td>";
+  let rows = "";
+  for (let n = 1; n <= 6; n++) {
+    const raw = t("FRQ_chartLegendRow" + n);
+    if (!raw || raw === "FRQ_chartLegendRow" + n) continue;
+    const parts = raw.split("|");
+    const begriff = parts[0] || "";
+    const wert    = parts[1] || "";
+    const erkl    = parts[2] || "";
+    rows +=
+      "<tr>" +
+      "<td style=\"padding:1px 0;white-space:nowrap;font-weight:600\">" + begriff + "</td>" +
+      eqCell +
+      "<td style=\"padding:1px 0;white-space:nowrap\">" + wert + "</td>" +
+      eqCell +
+      "<td style=\"padding:1px 0\">" + erkl + "</td>" +
+      "</tr>";
+  }
+  return "<p style=\"margin:0 0 6px\">" + intro + "</p>" +
+    "<table style=\"border-collapse:collapse;font-size:1em\"><tbody>" + rows + "</tbody></table>";
 }
 
 function FRQ_renderResults() {
@@ -409,17 +448,23 @@ function FRQ_renderResults() {
   for (const z of zeilen) {
     const tr = document.createElement("tr");
     if (z.kind === "notActive") {
-      // BA433-Fix: nur elActive===false. Ausgegraut, kein Band.
-      tr.style.opacity = "0.4";
+      // Nachbesserung 435.1: Nominalfrequenz ausgegraut anzeigen, alle
+      // anderen Spalten "—", Status "deaktiviert". (Zeile nicht mehr
+      // pauschal transparent — nur die Nominal-Zelle ist grau.)
+      const nomCell = (z.nominellHz != null)
+        ? "<span style=\"" + grey + "\">" + z.nominellHz.toFixed(2) + "</span>"
+        : "—";
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
-        "<td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>" +
+        "<td>" + nomCell + "</td>" +
+        "<td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>" +
         "<td style=\"font-size:.82em\">" + t("FRQ_resultsStatusNotActive") + "</td>";
       tb.appendChild(tr);
       continue;
     }
     if (z.kind === "notMeasured") {
-      const note = '<span style="font-size:.82em;color:#9ca3af">' + t("notMeasured") + "</span>";
+      // Nachbesserung 435.1: "nicht gemessen" in schwarzer Schrift.
+      const note = '<span style="font-size:.82em">' + t("notMeasured") + "</span>";
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
         "<td style=\"" + grey + "\">—</td>".repeat(6) +
@@ -433,13 +478,12 @@ function FRQ_renderResults() {
       nomHzCell  = (z.nominellHz != null) ? z.nominellHz.toFixed(2) : dash;
       percHzCell = dash; diffHzCell = dash; diffCtCell = dash;
     } else {
-      const diffColor = z.diffHz >= 0 ? "#2563eb" : "#dc2626";
+      // Nachbesserung 435.1: Diff-Spalten schwarz, keine +/-Farbunterscheidung
+      // mehr. Vorzeichen bleibt erhalten (schwarze Tabellenschrift).
       nomHzCell  = z.nominellHz.toFixed(2);
       percHzCell = z.gehoertHz.toFixed(2);
-      diffHzCell = "<span style=\"color:" + diffColor + "\">"
-                 + (z.diffHz >= 0 ? "+" : "") + z.diffHz.toFixed(2) + "</span>";
-      diffCtCell = "<span style=\"color:" + diffColor + "\">"
-                 + (z.diffCent >= 0 ? "+" : "") + fmtNum(z.diffCent, "cent") + "</span>";
+      diffHzCell = (z.diffHz >= 0 ? "+" : "") + z.diffHz.toFixed(2);
+      diffCtCell = (z.diffCent >= 0 ? "+" : "") + fmtNum(z.diffCent, "cent");
     }
     // BA433: Bandempfehlung-Zelle. Ueberlauf -> Warndreieck; sonst
     // "lo - hi Hz" (2 NK, fmtNum) oder "—" wenn keine Grenzen.
@@ -457,7 +501,8 @@ function FRQ_renderResults() {
       residuumCell = dash;
     } else {
       const re = Math.round(z.residuum);
-      const reColor = re <= 10 ? "#16a34a" : re <= 25 ? "#d97706" : "#dc2626";
+      // Nachbesserung 435.1: 0..25 ct grün, 25..100 ct orange, >100 ct rot.
+      const reColor = re <= 25 ? "#16a34a" : re <= 100 ? "#d97706" : "#dc2626";
       residuumCell = '<span style="color:' + reColor + ';font-weight:600">±' + re + ' ct</span>';
     }
     tr.innerHTML =
@@ -470,7 +515,7 @@ function FRQ_renderResults() {
       "<td>" + residuumCell + "</td>" +
       "<td>" + (z.fmStatus
         ? _FRQ_statusBadgeHtml(z.fmStatus)
-        : '<span style="font-size:.82em;color:#9ca3af">' + t("notMeasured") + "</span>")
+        : '<span style="font-size:.82em">' + t("notMeasured") + "</span>")
         + "</td>";
     tb.appendChild(tr);
   }
@@ -532,10 +577,12 @@ function FRQ_renderResults() {
     }
   }
 
-  // Chart-Hinweise
+  // Chart-Legende (Nachbesserung 435.1): Einleitungssatz + dreispaltige
+  // Tabelle (Begriff = Wert = Erklaerung, je zwei "="), an den "="-Spalten
+  // ausgerichtet. Jede Zeile aus einem i18n-Key mit "|"-getrennten Teilen.
   const hintEl = document.getElementById("FRQ_resultsChartHint");
   if (hintEl) {
-    hintEl.textContent = t("FRQ_resultsChartHintPiano");
+    hintEl.innerHTML = _FRQ_chartLegendHtml();
   }
 
   // BA433: Textblöcke unter der Tabelle (Reihenfolge §9.8a).
@@ -607,8 +654,8 @@ function _FRQ_randHinweisHtml(side) {
     const z2 = _FRQ_apikalBandKorrigiert(side, abw.untenCent);
     if (z2) {
       html += "<p style=\"margin:8px 0 0\">" + t("FRQ_randBlock2Intro") + "<br>"
-        + z2.label + ": " + fmtNum(z2.loHz, "hz") + " Hz - "
-        + fmtNum(z2.hiHz, "hz") + " Hz</p>";
+        + "<b>" + z2.label + ": " + fmtNum(z2.loHz, "hz") + " Hz - "
+        + fmtNum(z2.hiHz, "hz") + " Hz</b></p>";
     }
   }
   return html;

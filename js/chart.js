@@ -369,15 +369,6 @@ function drawFRQChart(cv, fResData, opts) {
   if (!fResData || fResData.length === 0) return;
   const frq_chartArrowPos = {}, frq_chartLabelPos = {};
 
-  // i18n mit Fallback (andere Sprachen reichen "Ist"/"Soll" als Key zurück, bis übersetzt)
-  const tt = (k, fb) => {
-    if (typeof t !== 'function') return fb;
-    const v = t(k);
-    return (v && v !== k) ? v : fb;
-  };
-  const lblIst  = tt('FRQ_resultsLblIst',  'Ist');
-  const lblSoll = tt('FRQ_resultsLblSoll', 'Soll');
-
   // Cent gegenüber 1 kHz
   const REF_HZ = 1000;
   const hzToCt = (hz) => 1200 * Math.log2(hz / REF_HZ);
@@ -492,7 +483,7 @@ function drawFRQChart(cv, fResData, opts) {
       ctx.lineTo(pad.left + pW, y);
       ctx.stroke();
     }
-    ctx.fillStyle = (c === 0) ? "#000" : "#999";
+    ctx.fillStyle = "#000"; // Nachbesserung 435.1: Y-Achsen-Beschriftung schwarz
     const lbl = c === 0 ? "0" : ((c > 0 ? "+" : "") + c);
     ctx.fillText(lbl, pad.left - 6, y + 3);
   }
@@ -662,6 +653,9 @@ function drawFRQChart(cv, fResData, opts) {
         ctx.fill();
         ctx.stroke();
       }
+      // Nachbesserung 435.1: auch ausgeschlossene/ungemessene Elektroden
+      // bekommen eine Hitbox -> Tooltip (Nr., Nominal-Hz, "nicht gemessen").
+      hitboxes.push({ x, y, el });
     }
   }
 
@@ -694,7 +688,7 @@ function drawFRQChart(cv, fResData, opts) {
       ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(x, yScaleTop); ctx.lineTo(x, yScaleTop + 4); ctx.stroke();
       ctx.font = "9px Segoe UI,sans-serif";
-      ctx.fillStyle = "#374151";
+      ctx.fillStyle = "#000"; // Nachbesserung 435.1: X-Achsen-Beschriftung schwarz
       ctx.fillText(tk.hz + " Hz", x, yScaleTop + 14);
       const ctLbl = (tk.c >= 0 ? "+" : "") + Math.round(tk.c) + " ct";
       ctx.fillText(ctLbl, x, yScaleTop + 25);
@@ -702,7 +696,7 @@ function drawFRQChart(cv, fResData, opts) {
   }
 
   // --- Achsentitel ---
-  ctx.fillStyle = "#666";
+  ctx.fillStyle = "#000"; // Nachbesserung 435.1: Achsentitel (X + Y) schwarz
   ctx.font = "10px Segoe UI,sans-serif";
   ctx.textAlign = "center";
   ctx.fillText(t("FRQ_resultsChartXLabel"), pad.left + pW / 2, h - 6);
@@ -718,8 +712,11 @@ function drawFRQChart(cv, fResData, opts) {
   {
     const laneH = 12, yBase = pad.top - 6;
 
+    // Nachbesserung 435.1: Pfeil immer zeigen, sobald eine echte Verschiebung
+    // vorliegt (dCent != 0) -- nicht mehr an eine Mindest-Pixellaenge gekoppelt,
+    // sonst fehlt der Pfeil bei kleiner Verschiebung.
     const hArrows = allEls
-      .filter(e => e.isMeasured && Math.abs(tX(e.cSoll) - tX(e.cIst)) >= 6)
+      .filter(e => e.isMeasured && e.dCent != null && Math.round(e.dCent) !== 0)
       .map(e => ({ x1: tX(e.cIst), x2: tX(e.cSoll), el: e }));
 
     const crossSet = new Set();
@@ -797,32 +794,18 @@ function drawFRQChart(cv, fResData, opts) {
       ctx.fillStyle = color;
       ctx.fillText(text, x, y);
       if (warn) drawWarnTriangle(ctx, x - text.length * 3.5 - 6, y - 4);
-      if (el.isMeasured)
-        hitboxes.push({ x, y, el });
+      // Nachbesserung 435.1 (Bugfix): Hitbox fuer JEDES Nummern-Label, auch
+      // bei nicht gemessenen/ausgeschlossenen Elektroden -- damit das Mouseover
+      // ueber der Elektrodennummer den Tooltip zeigt (Wunsch aus der
+      // Eingangspost). Gemessene Elektroden haben zwei Labels (Ist + Soll),
+      // beide bekommen wie bisher eine Hitbox.
+      hitboxes.push({ x, y, el });
     }
   }
 
-  // --- Mini-Legende oben rechts ---
-  const legX = pad.left + pW - 80, legY = pad.top + 4;
-  ctx.font = "10px Segoe UI,sans-serif";
-  ctx.textAlign = "left";
-  // Ist (grau)
-  ctx.strokeStyle = "#9ca3af";
-  ctx.lineWidth = 1;
-  ctx.setLineDash([]);
-  ctx.beginPath();
-  ctx.moveTo(legX, legY + 6); ctx.lineTo(legX + 14, legY + 6);
-  ctx.stroke();
-  ctx.fillStyle = "#6b7280";
-  ctx.fillText(lblIst, legX + 18, legY + 9);
-  // Soll (schwarz)
-  ctx.strokeStyle = "#000";
-  ctx.lineWidth = 1.75;
-  ctx.beginPath();
-  ctx.moveTo(legX, legY + 20); ctx.lineTo(legX + 14, legY + 20);
-  ctx.stroke();
-  ctx.fillStyle = "#000";
-  ctx.fillText(lblSoll, legX + 18, legY + 23);
+  // Nachbesserung 435.1: Die fruehere Mini-Legende oben rechts (Ist/Soll)
+  // wurde entfernt -- sie ueberschnitt sich mit dem Graph-Inhalt; die
+  // Erklaerung steht jetzt vollstaendig in der Legende unter dem Graphen.
 
   cv._frq_chartHitboxes = hitboxes;
   cv._frq_chartState = { ctx, tX, tY, pad, pH, allEls, arrowPos: frq_chartArrowPos, labelPos: frq_chartLabelPos };
@@ -889,14 +872,19 @@ function drawWarnTriangle(ctx, cx, cy) {
 
 function _frq_chartDrawHighlight(cv, el) {
   const s = cv._frq_chartState;
-  if (!s || !el || !el.isMeasured) return;
+  if (!s || !el) return;
   const { ctx, tX, tY, pad, pH, arrowPos, labelPos } = s;
   const HL = "#22c55e";
   const GLOW = "rgba(34,197,94,0.35)";
+  // Nachbesserung 435.1: Highlight auch fuer NICHT gemessene Elektroden --
+  // aber nur der Ist-Strich (kein Soll-Strich/-Punkt/-Pfeil, die es dort
+  // nicht gibt). Bei gemessenen wie bisher Ist + Soll.
+  const measured = !!el.isMeasured;
 
-  // Senkrechte Striche: Glow-Hintergrund
+  // Senkrechte Striche: Glow-Hintergrund. Soll-Strich nur, wenn gemessen.
   ctx.setLineDash([]);
-  for (const cx of [tX(el.cIst), tX(el.cSoll)]) {
+  const glowXs = measured ? [tX(el.cIst), tX(el.cSoll)] : [tX(el.cIst)];
+  for (const cx of glowXs) {
     ctx.strokeStyle = GLOW;
     ctx.lineWidth = 8;
     ctx.beginPath();
@@ -904,13 +892,15 @@ function _frq_chartDrawHighlight(cv, el) {
     ctx.stroke();
   }
 
-  // Ringe um Ist- und Soll-Punkt
+  // Ring um Ist-Punkt (immer); Ring um Soll-Punkt nur bei gemessenen.
   ctx.strokeStyle = HL;
   ctx.lineWidth = 2;
   ctx.beginPath(); ctx.arc(tX(el.cIst),  tY(0),        9, 0, Math.PI * 2); ctx.stroke();
-  ctx.beginPath(); ctx.arc(tX(el.cSoll), tY(el.dCent), 9, 0, Math.PI * 2); ctx.stroke();
+  if (measured) {
+    ctx.beginPath(); ctx.arc(tX(el.cSoll), tY(el.dCent), 9, 0, Math.PI * 2); ctx.stroke();
+  }
 
-  // Horizontaler Pfeil: dicker neu zeichnen
+  // Horizontaler Pfeil: dicker neu zeichnen (nur wenn vorhanden = gemessen).
   const ap = arrowPos[el.elIdx];
   if (ap) {
     const c = ap.color === "#ef4444" ? "#ef4444" : "#22c55e";
@@ -966,7 +956,13 @@ function _frq_chartTooltipHandler(cv, e) {
       return (v && v !== k) ? v : fb;
     };
     let tipHtml;
-    if (el.isNotPerceivable) {
+    if (!el.isMeasured) {
+      // Nachbesserung 435.1: ausgeschlossene/ungemessene Elektrode ->
+      // Nr., Nominalfrequenz, "nicht gemessen" (zeilenweise).
+      tipHtml = "<b>E" + el.elNum + "</b><br>" +
+        Math.round(el.hzIst) + " Hz<br>" +
+        tipT('notMeasured', 'nicht gemessen');
+    } else if (el.isNotPerceivable) {
       tipHtml = "<b>E" + el.elNum + "</b><br>" + tipT('FRQ_resultsTipNotPerceivable', 'nicht wahrnehmbar');
     } else {
       const hzIst  = Math.round(el.hzIst);
