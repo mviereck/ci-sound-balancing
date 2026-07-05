@@ -544,6 +544,15 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie) {
   // Intern wird nhSim pro Form in die noetige Spiegelung uebersetzt (2b).
   var _nhSim = !!nhSim;
 
+  // BA445: Default-Achsen = global gewaehlte Zustaende (Architektur Sec.
+  // 11.5 / 13.6 Fortschreibung). Explizites Argument gewinnt (Override).
+  // typeof-Guards, falls die Zustaende (freq-warp.js) zur Aufrufzeit noch
+  // nicht existieren -> die alten festen Defaults als sicherer Fallback.
+  var _verfahren = verfahren
+    || ((typeof FRQ_bandVerfahrenWahl === "string") ? FRQ_bandVerfahrenWahl : "geometrisch");
+  var _topologie = topologie
+    || ((typeof FRQ_bandTopologieWahl === "string") ? FRQ_bandTopologieWahl : "nahtlos");
+
   // Gemessene Eintraege des aktiven Verfahrens, indexiert nach elIdx.
   var measured = {};
   var active = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
@@ -666,7 +675,7 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie) {
         // Aktivitaet JE SEITE (Nutzer-Beschluss): das seitenweise Flag.
         return { elIdx: entry.elIdx, hz: hz, aktiv: !!(s && s.aktiv) };
       });
-      var res = FRQ_baender(mitten, verfahren, topologie);
+      var res = FRQ_baender(mitten, _verfahren, _topologie);
       if (res.error === "overlap") {
         out.forEach(function (entry) {
           if (entry[seite]) {

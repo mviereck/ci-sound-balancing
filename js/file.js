@@ -210,6 +210,15 @@ function resetAll() {
     }
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();
   }
+  // BA445: Bandberechnung-Wahl zuruecksetzen.
+  if (typeof FRQ_bandVerfahrenWahl !== "undefined") {
+    FRQ_bandVerfahrenWahl = "greenwood";
+    FRQ_bandTopologieWahl = "nahtlos";
+    var _rvr = document.querySelector('input[name="FRQ_bandVerfahren"][value="greenwood"]');
+    if (_rvr) _rvr.checked = true;
+    var _rtr = document.querySelector('input[name="FRQ_bandTopologie"][value="nahtlos"]');
+    if (_rtr) _rtr.checked = true;
+  }
   // --- MAPLAW-Knopf ---
   if (typeof pMaplawOn !== "undefined") pMaplawOn = false;
   if (typeof pMaplawSollC !== "undefined") pMaplawSollC = 1000;
@@ -363,6 +372,8 @@ async function saveJson() {
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
     playerWarpMode: (typeof pWarpCalcMode !== "undefined") ? pWarpCalcMode : "mid",
+    bandVerfahren: (typeof FRQ_bandVerfahrenWahl !== "undefined") ? FRQ_bandVerfahrenWahl : "greenwood",
+    bandTopologie: (typeof FRQ_bandTopologieWahl !== "undefined") ? FRQ_bandTopologieWahl : "nahtlos",
 
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
@@ -732,6 +743,17 @@ function applyLoadedData(d) {
   pWarpCalcMode = (d.playerWarpMode === "fast" || d.playerWarpMode === "mid" || d.playerWarpMode === "best")
     ? d.playerWarpMode : "mid";
   if (typeof _pWarpCalcModeApply === "function") _pWarpCalcModeApply();
+  // BA445: gewaehlte Bandberechnung laden (fehlt in Alt-Dateien -> Default).
+  if (typeof FRQ_bandVerfahrenWahl !== "undefined" && d.bandVerfahren !== undefined) {
+    FRQ_bandVerfahrenWahl = d.bandVerfahren;
+    var _rv = document.querySelector('input[name="FRQ_bandVerfahren"][value="' + FRQ_bandVerfahrenWahl + '"]');
+    if (_rv) _rv.checked = true;
+  }
+  if (typeof FRQ_bandTopologieWahl !== "undefined" && d.bandTopologie !== undefined) {
+    FRQ_bandTopologieWahl = d.bandTopologie;
+    var _rt = document.querySelector('input[name="FRQ_bandTopologie"][value="' + FRQ_bandTopologieWahl + '"]');
+    if (_rt) _rt.checked = true;
+  }
   // BA 177: wenn Save-Daten Frequenzabgleich-Messungen enthielten,
   // den Default-Anwendungs-Flag setzen, damit der nächste Insert
   // den gespeicherten pWarpMode nicht überschreibt.

@@ -537,6 +537,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // BA445: Bandverfahren-/Topologie-Wahl -> globale Zustaende + Ansicht neu.
+  // Nur die Ergebnis-Ansicht neu zeichnen (Tabelle + Graph). Audio-Konsumenten
+  // ziehen die neue Kombination beim naechsten Playback automatisch
+  // (FRQ_werte liest global) -- hier KEIN Player-Interna anfassen.
+  function _frqBandWahlInit(groupName, setter) {
+    var radios = document.querySelectorAll('input[name="' + groupName + '"]');
+    for (var i = 0; i < radios.length; i++) {
+      radios[i].addEventListener("change", function () {
+        if (this.checked) {
+          setter(this.value);
+          if (typeof FRQ_renderResults === "function") FRQ_renderResults();
+        }
+      });
+    }
+  }
+  _frqBandWahlInit("FRQ_bandVerfahren", function (v) { FRQ_bandVerfahrenWahl = v; });
+  _frqBandWahlInit("FRQ_bandTopologie", function (v) { FRQ_bandTopologieWahl = v; });
+  // Anfangswerte in die Radiobuttons spiegeln.
+  (function () {
+    var rv = document.querySelector('input[name="FRQ_bandVerfahren"][value="' + FRQ_bandVerfahrenWahl + '"]');
+    if (rv) rv.checked = true;
+    var rt = document.querySelector('input[name="FRQ_bandTopologie"][value="' + FRQ_bandTopologieWahl + '"]');
+    if (rt) rt.checked = true;
+  })();
+
   // Warp-UI initialisieren
   _pWarpApplyLangTexts();
   if (typeof pWarpUpdUI === "function") pWarpUpdUI();

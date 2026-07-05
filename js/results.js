@@ -572,6 +572,96 @@ function FRQ_renderResults() {
     hintEl.innerHTML = _FRQ_chartLegendHtml();
   }
 
+  _FRQ_renderBandEmpf(aktivSide);
+}
+
+// BA445: Bandgrenzen-Empfehlungs-Tabelle (Architektur Sec. 12.3/12.5).
+// Reiner Konsument von FRQ_werte -- Verfahren + Topologie = global gewaehlt
+// (Defaults in FRQ_werte). Zeilen = aktive Elektroden der angezeigten Seite.
+// Bei lueckig/ueberlappend ist die Center-Abweichung konstruktionsbedingt 0
+// (Center == gehoerte Frequenz) -> Bewertung dort immer "im Rauschen" (Sec.
+// 12.5, Variante 4a: Spalten konsistent, nicht topologie-abhaengig anders).
+var FRQ_bandEmpfSchwelleCent = 30;   // leicht<->deutlich (Startwert, Sec. 12.5)
+
+function _FRQ_renderBandEmpf(side) {
+  var head = document.getElementById("FRQ_bandEmpfTableHead");
+  var body = document.getElementById("FRQ_bandEmpfTableBody");
+  var note = document.getElementById("FRQ_bandEmpfOverlapNote");
+  if (!head || !body) return;
+
+  head.innerHTML =
+    "<th>" + t("FRQ_resultsColEl") + "</th>" +
+    "<th>" + t("FRQ_bandEmpfColTarget") + "</th>" +
+    "<th>" + t("FRQ_bandEmpfColRange") + "</th>" +
+    "<th>" + t("FRQ_bandEmpfColCenter") + "</th>" +
+    "<th>" + t("FRQ_bandEmpfColDev") + "</th>" +
+    "<th>" + t("FRQ_bandEmpfColRating") + "</th>";
+
+  var modus = FRQ_modusVonReferenzmodus(frq_referenzmodus());
+  var werte = (typeof FRQ_werte === "function")
+    ? FRQ_werte("gehoert", modus, false) : [];   // Kombination = global default
+
+  var dash = "<span style=\"color:var(--text-muted)\">&#8212;</span>";
+  var rows = "";
+  var overlapSeen = false;
+
+  var nCi = sideData[side].nEl;
+  for (var i = 0; i < nCi; i++) {
+    // Nicht aktive (elActive===false) ueberspringen -- kein Band (Sec. 9.5).
+    if (sideData[side].elActive && sideData[side].elActive[i] === false) continue;
+
+    var w = null;
+    for (var k = 0; k < werte.length; k++) { if (werte[k].elIdx === i) { w = werte[k]; break; } }
+    var ws = w ? w[side] : null;
+    var elLabel = dENPrefix(side) + dEN(i, side);
+
+    if (ws && ws.bandOverlap) overlapSeen = true;
+
+    var target = ws ? (ws.gehoertHz != null ? ws.gehoertHz : ws.nominellHz) : null;
+    var lo = ws ? ws.bandLoHz : null;
+    var hi = ws ? ws.bandHiHz : null;
+    var center = ws ? ws.bandCenterHz : null;
+    var resid = ws ? ws.residuum : null;
+
+    var targetCell = (target != null) ? fmtNum(target, "hz") + " Hz" : dash;
+    var rangeCell = (lo != null && hi != null)
+      ? fmtNum(lo, "hz") + " &#8211; " + fmtNum(hi, "hz") + " Hz" : dash;
+    var centerCell = (center != null) ? fmtNum(center, "hz") + " Hz" : dash;
+
+    var devCent = null;
+    if (center != null && target != null && center > 0 && target > 0) {
+      devCent = 1200 * Math.log2(center / target);
+    }
+    var devCell = (devCent != null)
+      ? (devCent >= 0 ? "+" : "") + fmtNum(devCent, "cent") + " ct" : dash;
+
+    var ratingCell = dash;
+    if (devCent != null && resid != null) {
+      var ueber = Math.abs(devCent) - resid;
+      var stufe, farbe;
+      if (ueber <= 0)                             { stufe = t("FRQ_bandEmpfRatingNoise");  farbe = "#16a34a"; }
+      else if (ueber <= FRQ_bandEmpfSchwelleCent) { stufe = t("FRQ_bandEmpfRatingSlight"); farbe = "#d97706"; }
+      else                                        { stufe = t("FRQ_bandEmpfRatingClear");  farbe = "#dc2626"; }
+      var ueberTxt = (ueber >= 0 ? "+" : "") + fmtNum(ueber, "cent") + " ct";
+      ratingCell = "<span style=\"color:" + farbe + ";font-weight:600\">" + stufe + "</span>"
+                 + " <span style=\"color:var(--text-muted)\">(" + ueberTxt + ")</span>";
+    }
+
+    rows += "<tr>"
+      + "<td style=\"font-weight:600\">" + elLabel + "</td>"
+      + "<td>" + targetCell + "</td>"
+      + "<td>" + rangeCell + "</td>"
+      + "<td>" + centerCell + "</td>"
+      + "<td>" + devCell + "</td>"
+      + "<td>" + ratingCell + "</td>"
+      + "</tr>";
+  }
+  body.innerHTML = rows;
+
+  if (note) {
+    if (overlapSeen) { note.style.display = ""; note.textContent = t("FRQ_bandEmpfOverlapNote"); }
+    else             { note.style.display = "none"; note.textContent = ""; }
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function() {

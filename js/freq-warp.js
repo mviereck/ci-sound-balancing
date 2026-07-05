@@ -15,6 +15,14 @@ let pWarpedBufNHSim = null;
 let pWarpOn = true;
 let pWarpSettingsOpen = false;
 let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
+// BA445: global gewaehlte Bandberechnung (Architektur Sec. 12).
+// Zwei orthogonale Achsen: Verfahren (Rechenraum, Sec. 11) und Topologie
+// (Grenzsetzung, Sec. 13). Anfangswerte greenwood/nahtlos (Nutzer-Beschluss;
+// nahtlos = bisheriges Verhalten). EINZIGE Schreibstellen: die Radiobuttons
+// (init.js) und das Datei-Laden (file.js). Gelesen NUR von FRQ_werte als
+// Default (kein Konsument direkt).
+let FRQ_bandVerfahrenWahl = "greenwood";
+let FRQ_bandTopologieWahl = "nahtlos";
 let pWarpCalcMode = "mid";     // BA375: Berechnungs-Modus. "fast"|"mid"|"best".
                                // Quelle fuer engine (r2/r3) + Streaming/Voll.
                                // Persistent (localStorage + JSON), Default "mid".

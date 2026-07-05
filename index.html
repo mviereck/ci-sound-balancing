@@ -711,6 +711,28 @@
                 <tbody id="FRQ_resultsTableBody"></tbody>
               </table>
             </div>
+            <div id="FRQ_bandEmpfBlock" style="margin-top:18px">
+              <h3 data-t="FRQ_bandEmpfTitle" style="font-size:1em;margin:0 0 10px">Bandgrenzen-Empfehlung</h3>
+              <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+                <fieldset style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandVerfahrenLegend" style="padding:0 6px">Berechnungsverfahren</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="geometrisch"> <span data-t="FRQ_bandVerfGeom">Geometrisch (Advanced Bionics)</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cochlear"> <span data-t="FRQ_bandVerfArith">Arithmetisch (Cochlear)</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="greenwood"> <span data-t="FRQ_bandVerfGreen">Greenwood (MED-EL)</span></label>
+                </fieldset>
+                <fieldset style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandTopoLegend" style="padding:0 6px">Band-Topologie</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="nahtlos"> <span data-t="FRQ_bandTopoNahtlos">Bänder lückenlos</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="ueberlappend"> <span data-t="FRQ_bandTopoUeber">Bandüberschneidung</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="lueckig"> <span data-t="FRQ_bandTopoLuecke">Bandlücken</span></label>
+                </fieldset>
+              </div>
+              <table class="results-table" id="FRQ_bandEmpfTable">
+                <thead><tr id="FRQ_bandEmpfTableHead"></tr></thead>
+                <tbody id="FRQ_bandEmpfTableBody"></tbody>
+              </table>
+              <div id="FRQ_bandEmpfOverlapNote" style="margin-top:8px;font-size:0.86em;color:#dc2626;display:none"></div>
+            </div>
             <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px">
               <button class="btn" id="FRQ_resultsClearPianoBtn" style="color:var(--danger)" data-t="FRQ_resultsClearPianoBtnLabel"></button>
               <button class="btn" id="FRQ_resultsClearAllBtn" style="color:var(--danger);display:none" data-t="FRQ_resultsClearAllBtnLabel"></button>
