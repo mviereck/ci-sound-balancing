@@ -253,6 +253,10 @@ function fmtNum(wert, format) {
   }
   return Number(wert).toFixed(spec.nk);
 }
+// Identitaets-Transformation (BA442, §13.3): fuer Verfahren im linearen
+// Rechenraum (cochlear), damit jeder Registry-Eintrag dieselbe toP/fromP-
+// Form hat (kein null-Sonderfall).
+function identityHz(x) { return x; }
 // Geometrische (logarithmische) Mitte zweier Frequenzen (BA432, §9.3).
 // Gemeinsamer Kern der Bandgrenzen fuer Empfehlung UND Warp.
 function geomMitte(a, b) {
@@ -275,79 +279,23 @@ function greenwoodHz(x) {
 function greenwoodX(hz) {
   return (1 / 2.1) * Math.log10(hz / 165.4 + 0.88);
 }
-// Bandberechnungs-Verfahren (Architektur 00-freqmatch-wertquelle-
-// architektur.md Sec. 11). Registry: Verfahrensname -> Rechen-Hooks.
-// Der gemeinsame Rahmen (FRQ_baender) bildet die Kette, prueft Monotonie
-// und setzt die Baender inkl. centerHz zusammen; das Verfahren liefert nur
-// die drei Rechenschritte. Ein neues Verfahren ist EIN Registry-Eintrag,
-// kein if-Zweig (Strukturprinzip 3).
+// Bandberechnungs-Verfahren = REINE RECHENRAUM-TRANSFORMATION (BA442,
+// §13.2/§13.3). Jeder Eintrag deklariert nur toP (Hz -> Position) und
+// fromP (Position -> Hz). Die Grenzsetzung (nahtlos) rechnet der
+// gemeinsame Rahmen FRQ_baender EINMAL in Positions-Koordinaten (§13.4);
+// dass geometrisch die geom. Mitte und cochlear die arithm. Mitte ergibt,
+// faellt automatisch aus toP/fromP. Ein neues Verfahren ist EIN
+// Registry-Eintrag (zwei Funktionen), kein if-Zweig (Strukturprinzip 3).
+//
+// toP MUSS streng monoton steigend sein (Positionsordnung = Frequenz-
+// ordnung); das gilt fuer alle drei Raeume (log/greenwood/linear).
 var FRQ_bandVerfahren = {
-  // Heute (Sec. 9.2): geometrische Mitte + gespiegelte Log-Raender.
-  geometrisch: {
-    innerEdge: function (a, b) { return geomMitte(a, b); },
-    lowEdge: function (kette) {
-      var first = kette[0].hz;
-      var inner = geomMitte(kette[0].hz, kette[1].hz);
-      return (first * first) / inner;   // Log-Abstand nach unten spiegeln
-    },
-    highEdge: function (kette) {
-      var n = kette.length;
-      var last = kette[n - 1].hz;
-      var inner = geomMitte(kette[n - 2].hz, kette[n - 1].hz);
-      return (last * last) / inner;     // Log-Abstand nach oben spiegeln
-    },
-    // Center = geometrische Mitte der zwei Bandgrenzen.
-    center: function (lo, hi) { return geomMitte(lo, hi); }
-  },
-  // Neu (Sec. 11.3, Memo Sec. 2): Greenwood-Grenzen + Greenwood-Center.
-  // Alle Mittelungen laufen im POSITIONSRAUM (linear in x), nicht im
-  // Frequenzraum -- das ist der Unterschied zu geometrisch.
-  greenwood: {
-    innerEdge: function (a, b) {
-      return greenwoodHz((greenwoodX(a) + greenwoodX(b)) / 2);
-    },
-    lowEdge: function (kette) {
-      var x0 = greenwoodX(kette[0].hz);
-      var xMid = (greenwoodX(kette[0].hz) + greenwoodX(kette[1].hz)) / 2;
-      return greenwoodHz(2 * x0 - xMid);   // Positions-Abstand am Rand spiegeln
-    },
-    highEdge: function (kette) {
-      var n = kette.length;
-      var xN = greenwoodX(kette[n - 1].hz);
-      var xMid = (greenwoodX(kette[n - 2].hz) + greenwoodX(kette[n - 1].hz)) / 2;
-      return greenwoodHz(2 * xN - xMid);
-    },
-    // Center = Greenwood-Frequenz des Positions-Mittelpunkts der Grenzen.
-    center: function (lo, hi) {
-      return greenwoodHz((greenwoodX(lo) + greenwoodX(hi)) / 2);
-    }
-  },
-  // Neu (BA440, §11.3): arithmetische Mitte + linear gespiegelte Raender.
-  // Cochlear bildet Baender im linearen d0-Raster (belegt §5.14/§5.16 in
-  // .docs/Konzept_MAESTRO_Uebertragung.md), mittelt also arithmetisch statt
-  // geometrisch -- strukturgleich zu 'geometrisch', nur im LINEAREN Raum.
-  // Aus frei gemessenen (gehoerten) Frequenzen entsteht KEIN echtes
-  // d0-Raster mehr (§5.16 Abs. 3); das Verfahren naehert nahtlose,
-  // arithmetisch-gespiegelte Baender an, es rekonstruiert die Standard-FAT
-  // nicht exakt. Raender werden gespiegelt, NICHT auf feste LFE/HFE
-  // geklemmt (§5.16: in Custom Sound frei setzbar).
-  cochlear: {
-    innerEdge: function (a, b) { return arithMitte(a, b); },
-    lowEdge: function (kette) {
-      var first = kette[0].hz;
-      var inner = arithMitte(kette[0].hz, kette[1].hz);
-      return 2 * first - inner;         // Linearen Abstand nach unten spiegeln
-    },
-    highEdge: function (kette) {
-      var n = kette.length;
-      var last = kette[n - 1].hz;
-      var inner = arithMitte(kette[n - 2].hz, kette[n - 1].hz);
-      return 2 * last - inner;          // Linearen Abstand nach oben spiegeln
-    },
-    // Center = arithmetische Mitte der zwei Bandgrenzen (Nutzer-Beschluss
-    // 2026-07-05: konsistent zum arithmetischen Cochlear-Bildungsgesetz).
-    center: function (lo, hi) { return arithMitte(lo, hi); }
-  }
+  // Log-Raum: geometrische Mitte = exp(mittel der ln) (§13.4, war §9.2).
+  geometrisch: { toP: Math.log,   fromP: Math.exp },
+  // Cochlea-Positionsraum (Greenwood): alle Mittelungen linear in x.
+  greenwood:   { toP: greenwoodX, fromP: greenwoodHz },
+  // Linearer Raum: arithmetische Mitte (Cochlear-d0-Raster, war §11.3).
+  cochlear:    { toP: identityHz, fromP: identityHz }
 };
 // Frequenzband-Berechnung (Architektur Sec. 9 + Sec. 11). Gemeinsamer
 // Rahmen: bildet die aktive Kette, prueft strenge Monotonie, behandelt
@@ -366,8 +314,10 @@ var FRQ_bandVerfahren = {
 function FRQ_baender(mitten, verfahren) {
   var vf = FRQ_bandVerfahren[verfahren || "geometrisch"];
   // Ungueltiger Verfahrensname -> Fehler (kein Fallback, Nutzer-Beschluss
-  // 2026-07-05). Notausgang-Prinzip Sec. 11.7: kein stilles Ausweichen.
-  if (!vf) return { error: "unknownVerfahren", verfahren: verfahren };
+  // 2026-07-05). Notausgang-Prinzip Sec. 11.7/§13.8: kein stilles
+  // Ausweichen. vf liefert toP/fromP (Rechenraum, §13.3).
+  if (!vf || typeof vf.toP !== "function" || typeof vf.fromP !== "function")
+    return { error: "unknownVerfahren", verfahren: verfahren };
 
   // Nur aktive Elektroden bilden die Kette (nicht aktive: Nachbarn
   // ruecken zusammen).
@@ -396,21 +346,38 @@ function FRQ_baender(mitten, verfahren) {
   // Einzelne Elektrode: kein Nachbar zum Spiegeln -> kein Band definierbar.
   if (kette.length === 1) return { bands: [] };
 
-  // Innere Grenzen (verfahrensabhaengig).
-  var inner = [];
+  // --- Nahtlose Grenzsetzung, zentral in Positions-Koordinaten (§13.4).
+  // Alle Verfahren teilen diese eine Regel; der Raum steckt nur in
+  // vf.toP/vf.fromP. In BA443 kommt hier die Topologie-Fallunterscheidung
+  // dazu; jetzt ist "nahtlos" die einzige (implizite) Topologie.
+  var toP = vf.toP, fromP = vf.fromP;
+
+  // Positionen der gehoerten Mitten im Rechenraum.
+  var P = [];
+  for (var p = 0; p < kette.length; p++) P.push(toP(kette[p].hz));
+
+  // Innere Grenzen: arithmetisches Mittel benachbarter Positionen.
+  var edgesP = [];                       // Laenge kette.length + 1
+  var innerP = [];
   for (var j = 0; j < kette.length - 1; j++) {
-    inner.push(vf.innerEdge(kette[j].hz, kette[j + 1].hz));
+    innerP.push((P[j] + P[j + 1]) / 2);
   }
-  // Aeussere Raender (verfahrensabhaengig).
-  var lowEdge  = vf.lowEdge(kette);
-  var highEdge = vf.highEdge(kette);
-  var edges = [lowEdge].concat(inner, [highEdge]);
+  // Aeussere Raender: inneren Positions-Abstand am Rand spiegeln.
+  // unten: 2*P[0] - innerP[0] ; oben: 2*P[n-1] - innerP[n-2].
+  var n = kette.length;
+  var lowP  = 2 * P[0]     - innerP[0];
+  var highP = 2 * P[n - 1] - innerP[n - 2];
+  edgesP = [lowP].concat(innerP, [highP]);
 
   var bands = [];
   for (var e = 0; e < kette.length; e++) {
-    var lo = edges[e], hi = edges[e + 1];
+    var loP = edgesP[e], hiP = edgesP[e + 1];
+    var lo = fromP(loP), hi = fromP(hiP);
+    // Ergebnis-Center = Ruecktransform des Positions-Mittelpunkts der
+    // Grenzen (§13.5, nahtlos: weicht i.A. von der gehoerten Frequenz ab).
+    var centerHz = fromP((loP + hiP) / 2);
     bands.push({ elIdx: kette[e].elIdx, loHz: lo, hiHz: hi,
-                 centerHz: vf.center(lo, hi) });
+                 centerHz: centerHz });
   }
   return { bands: bands };
 }

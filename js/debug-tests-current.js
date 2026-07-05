@@ -847,3 +847,71 @@
     return lines.join("\n");
   });
 })();
+
+/* BA442 — Bandverfahren-Faktorisierung verhaltensneutral */
+(function () {
+  if (typeof dbg === "undefined" || typeof dbg.test !== "function") return;
+  dbg.test("build/BA442/faktorisierung-neutral", {
+    tab: "results", label: "BA442: Bandverfahren toP/fromP neutral"
+  }, function () {
+    var lines = [];
+    function chk(label, ok) { lines.push((ok ? "OK" : "FAIL") + " " + label); }
+
+    // Referenz-Mitten (MED-EL Default, ungleiche Abstaende -> harter Test)
+    var hz = [120,235,384,579,836,1175,1624,2222,3019,4084,5507,7410];
+    var mitten = hz.map(function (h, i) { return { elIdx: i, hz: h, aktiv: true }; });
+
+    // Alt-Formel-Referenz je Verfahren (die frueheren innerEdge/low/high/center).
+    var ref = {
+      geometrisch: {
+        inner: function (a, b) { return Math.sqrt(a * b); },
+        low:   function (k) { var i = Math.sqrt(k[0].hz*k[1].hz); return (k[0].hz*k[0].hz)/i; },
+        high:  function (k) { var n=k.length; var i=Math.sqrt(k[n-2].hz*k[n-1].hz); return (k[n-1].hz*k[n-1].hz)/i; },
+        center:function (lo, hi) { return Math.sqrt(lo * hi); }
+      },
+      cochlear: {
+        inner: function (a, b) { return (a + b) / 2; },
+        low:   function (k) { var i=(k[0].hz+k[1].hz)/2; return 2*k[0].hz - i; },
+        high:  function (k) { var n=k.length; var i=(k[n-2].hz+k[n-1].hz)/2; return 2*k[n-1].hz - i; },
+        center:function (lo, hi) { return (lo + hi) / 2; }
+      },
+      greenwood: {
+        inner: function (a, b) { return greenwoodHz((greenwoodX(a)+greenwoodX(b))/2); },
+        low:   function (k) { var x0=greenwoodX(k[0].hz); var xm=(greenwoodX(k[0].hz)+greenwoodX(k[1].hz))/2; return greenwoodHz(2*x0 - xm); },
+        high:  function (k) { var n=k.length; var xn=greenwoodX(k[n-1].hz); var xm=(greenwoodX(k[n-2].hz)+greenwoodX(k[n-1].hz))/2; return greenwoodHz(2*xn - xm); },
+        center:function (lo, hi) { return greenwoodHz((greenwoodX(lo)+greenwoodX(hi))/2); }
+      }
+    };
+
+    var TOL = 1e-9;
+    ["geometrisch", "greenwood", "cochlear"].forEach(function (vf) {
+      var res = FRQ_baender(mitten, vf);
+      if (res.error) { chk(vf + ": kein Fehler", false); return; }
+      var r = ref[vf];
+      // Referenz-Grenzen aufbauen (Laenge n+1)
+      var innerRef = [];
+      for (var j = 0; j < mitten.length - 1; j++) innerRef.push(r.inner(mitten[j].hz, mitten[j+1].hz));
+      var edgesRef = [r.low(mitten)].concat(innerRef, [r.high(mitten)]);
+      var okLo = true, okHi = true, okCe = true;
+      for (var e = 0; e < mitten.length; e++) {
+        var b = res.bands[e];
+        var loRef = edgesRef[e], hiRef = edgesRef[e+1], ceRef = r.center(loRef, hiRef);
+        if (Math.abs(b.loHz - loRef) > TOL) okLo = false;
+        if (Math.abs(b.hiHz - hiRef) > TOL) okHi = false;
+        if (Math.abs(b.centerHz - ceRef) > TOL) okCe = false;
+      }
+      chk(vf + ": loHz == Alt-Formel (Tol 1e-9)", okLo);
+      chk(vf + ": hiHz == Alt-Formel (Tol 1e-9)", okHi);
+      chk(vf + ": centerHz == Alt-Formel (Tol 1e-9)", okCe);
+    });
+
+    // Unbekanntes Verfahren -> Fehler
+    chk("unbekanntes Verfahren -> error", FRQ_baender(mitten, "gibtsnicht").error === "unknownVerfahren");
+
+    // Ueberlauf weiterhin erkannt (Rahmen unveraendert)
+    var kaputt = [{elIdx:0,hz:200,aktiv:true},{elIdx:1,hz:150,aktiv:true}];
+    chk("Ueberlauf weiterhin erkannt", FRQ_baender(kaputt).error === "overlap");
+
+    return lines.join("\n");
+  });
+})();
