@@ -556,7 +556,12 @@ function _frq_pianoWriteResults() {
     var crossed = (lo > hi);
     var wide    = (span > FM_PIANO_MAX_SPAN);
     var pStatus = crossed ? "piano-crossed" : (wide ? "piano-wide" : "piano");
-    var pExcl   = (crossed || wide);
+    // BA437: fmExcluded von crossed/wide ENTKOPPELT. piano-crossed/-wide
+    // sind nur noch ein Hinweis (Status-Badge + Warndreieck), kein
+    // Ausschluss. Diese Messwerte sind gleichwertig und flieszen voll in
+    // Warp/Wertquelle/Anzeige ein. Feld bleibt im Format, ist nur nie
+    // mehr true.
+    var pExcl   = false;
 
     var entry = {
       elIdx:      elIdx,
