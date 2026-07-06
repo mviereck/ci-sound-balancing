@@ -688,6 +688,8 @@ Object.assign(L.en, {
     FRQ_resultsTipPianoWide: "Uncertainty very large",
     FRQ_resultsChartXLabel: "Frequency (cents relative to 1 kHz)",
     FRQ_resultsChartYLabel: "Deviation (cents)",
+    FRQ_bandChartXLabel: "Frequency (Hz)",
+    FRQ_bandChartYLabel: "Deviation (cents)",
     FRQ_resultsLblIst: "Actual",
     FRQ_resultsLblSoll: "Target",
     FRQ_resultsChartHint: "Gray (dashed) line = actual frequency, as programmed in the implant. Black line = target frequency, at which the electrode is perceived according to the measurement. The arrow shows the necessary correction; the Y-axis shows its size in cents. Unmeasured electrodes: only actual line + circle. Excluded electrodes: only actual line + ✕.",

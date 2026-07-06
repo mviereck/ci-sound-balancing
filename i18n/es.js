@@ -689,6 +689,8 @@ Object.assign(L.es, {
     FRQ_resultsTipPianoWide: "Incertidumbre muy grande",
     FRQ_resultsChartXLabel: "Frecuencia (cent respecto a 1 kHz)",
     FRQ_resultsChartYLabel: "Desviación (cent)",
+    FRQ_bandChartXLabel: "Frecuencia (Hz)",
+    FRQ_bandChartYLabel: "Desviación (cents)",
     FRQ_resultsLblIst: "Es",
     FRQ_resultsLblSoll: "Deseado",
     FRQ_resultsChartHint: "Línea gris (a trazos) = frecuencia actual, tal como está programada en el implante. Línea negra = frecuencia deseada en la que se percibe el electrodo según la medición. La flecha muestra la corrección necesaria; el eje Y muestra su tamaño en cent. Electrodos no medidos: solo línea «Es» + círculo. Electrodos excluidos: solo línea «Es» + ✕.",

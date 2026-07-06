@@ -1001,3 +1001,180 @@ function _frq_chartTooltipHandler(cv, e) {
     tip.style.display = "none";
   }
 }
+
+// BA446: Bandgrenzen-Empfehlungs-Graph (Architektur Sec. 12.4). Eigener
+// Graph, eigenes Canvas -- KEIN Umbau von drawFRQChart. Reiner Konsument
+// von FRQ_werte (Kombination = global gewaehlt, Default in FRQ_werte).
+// Cent-X-Achse wie drawFRQChart (REF_HZ 1000). Zeichnet je Topologie
+// unterschiedlich (Sec. 12.4): nahtlos -> Ziel+Center+Pfeil+Y-Abweichung;
+// lueckig/ueberlappend -> eine Linie (Ziel==Center), keine Y-Abweichung,
+// ueberlappend zusaetzlich zweizeilig.
+function drawFRQBandChart(cv, opts) {
+  opts = opts || {};
+  const ctx = cv.getContext("2d");
+  const dpr = window.devicePixelRatio || 1;
+  const w = cv.parentElement.clientWidth - 32;
+  const h = 300;
+  cv.width = w * dpr; cv.height = h * dpr;
+  cv.style.width = w + "px"; cv.style.height = h + "px";
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, w, h);
+
+  // Cent gegenueber 1 kHz -- gleiche Basis wie drawFRQChart. hzToCt ist dort
+  // lokal; hier bewusst lokal gespiegelt (Zentralisierung waere ein eigenes
+  // Aufraeum-Thema, nicht Teil dieser BA -- KEINE globale Verschiebung).
+  const REF_HZ = 1000;
+  const hzToCt = (hz) => 1200 * Math.log2(hz / REF_HZ);
+
+  const aktivSide = (typeof opts.side === "string") ? opts.side
+    : ((typeof activeSide === "string") ? activeSide : "right");
+  const modus = (typeof opts.modus === "string") ? opts.modus
+    : FRQ_modusVonReferenzmodus(frq_referenzmodus());
+  const werte = (typeof FRQ_werte === "function")
+    ? FRQ_werte("gehoert", modus, !!opts.nhSim) : [];
+
+  // Nur Elektroden mit vollstaendigem Band einsammeln.
+  const bands = [];
+  for (const wr of werte) {
+    const s = wr[aktivSide];
+    if (!s || !s.aktiv) continue;
+    if (s.bandLoHz == null || s.bandHiHz == null || s.bandCenterHz == null) continue;
+    const target = (s.gehoertHz != null) ? s.gehoertHz : s.nominellHz;
+    if (target == null) continue;
+    bands.push({
+      elIdx: wr.elIdx,
+      elNum: dEN(wr.elIdx, aktivSide),
+      loC:  hzToCt(s.bandLoHz),
+      hiC:  hzToCt(s.bandHiHz),
+      cenC: hzToCt(s.bandCenterHz),
+      tgtC: hzToCt(target),
+      // "exakt getroffen" = Center == Ziel (lueckig/ueberlappend). Toleranz
+      // gegen Float-Rauschen: < 0.5 cent.
+      exakt: Math.abs(hzToCt(s.bandCenterHz) - hzToCt(target)) < 0.5
+    });
+  }
+  bands.sort((a, b) => a.loC - b.loC);
+  if (bands.length === 0) return;
+
+  // Topologie-Zustand nur fuers LAYOUT (zweizeilig ja/nein). Die Werte-
+  // Wahrheit (exakt getroffen?) kommt aus den Daten oben.
+  const topo = (typeof FRQ_bandTopologieWahl === "string") ? FRQ_bandTopologieWahl : "nahtlos";
+  const zweizeilig = (topo === "ueberlappend");
+  // Nahtlos-Modus = kein Band trifft exakt (Pfeil + Y-Abweichung sinnvoll).
+  const nahtlosModus = bands.some(b => !b.exakt);
+
+  // --- X-Achse (Cent) skalieren ueber alle Band-Grenzen ---
+  let cMin = Infinity, cMax = -Infinity;
+  for (const b of bands) { cMin = Math.min(cMin, b.loC); cMax = Math.max(cMax, b.hiC); }
+  const cPad = (cMax - cMin) * 0.05 || 100;
+  cMin -= cPad; cMax += cPad;
+  const span = (cMax - cMin) || 1;
+
+  const pad = { top: 40, right: 30, bottom: 46, left: nahtlosModus ? 60 : 30 };
+  const pW = w - pad.left - pad.right;
+  const pH = h - pad.top - pad.bottom;
+  const tX = (c) => pad.left + ((c - cMin) / span) * pW;
+
+  // --- Band-Streifenzone (Mitte der Grafik) ---
+  // Bei zweizeilig: zwei Reihen; sonst eine. Streifenhoehe fest.
+  const bandZoneTop = pad.top + (nahtlosModus ? pH * 0.45 : pH * 0.30);
+  const rowH = 26;
+  const rowGap = zweizeilig ? 8 : 0;
+
+  const palette = ["#dbeafe", "#bfdbfe", "#c7d2fe", "#a5b4fc"]; // dezente Blautoene
+  ctx.textAlign = "center"; ctx.textBaseline = "middle";
+
+  bands.forEach((b, idx) => {
+    const xL = tX(b.loC), xR = tX(b.hiC);
+    const row = zweizeilig ? (idx % 2) : 0;
+    const yTop = bandZoneTop + row * (rowH + rowGap);
+    // Bandflaeche
+    ctx.fillStyle = palette[idx % palette.length];
+    ctx.fillRect(xL, yTop, xR - xL, rowH);
+    ctx.strokeStyle = "#94a3b8"; ctx.lineWidth = 1;
+    ctx.strokeRect(xL, yTop, xR - xL, rowH);
+    // Elektroden-Nummer mittig
+    ctx.fillStyle = "#334155"; ctx.font = "10px Segoe UI,sans-serif";
+    ctx.fillText("E" + b.elNum, (xL + xR) / 2, yTop + rowH / 2);
+
+    // --- senkrechte Linien ---
+    const xTgt = tX(b.tgtC);
+    const lineTop = pad.top, lineBot = bandZoneTop + (zweizeilig ? (rowH * 2 + rowGap) : rowH) + 6;
+    if (b.exakt) {
+      // eine Linie (Ziel == Center)
+      ctx.strokeStyle = "#16a34a"; ctx.lineWidth = 1.5;
+      ctx.setLineDash([]);
+      ctx.beginPath(); ctx.moveTo(xTgt, lineTop); ctx.lineTo(xTgt, lineBot); ctx.stroke();
+    } else {
+      // Ziel-Linie (gruen gestrichelt) + Center-Linie (blau) + roter Pfeil
+      const xCen = tX(b.cenC);
+      ctx.setLineDash([4, 3]); ctx.strokeStyle = "#16a34a"; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(xTgt, lineTop); ctx.lineTo(xTgt, lineBot); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.strokeStyle = "#2563eb"; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(xCen, lineTop); ctx.lineTo(xCen, lineBot); ctx.stroke();
+      // roter Pfeil Ziel -> Center (waagerecht, auf halber Streifenhoehe)
+      const yA = yTop + rowH / 2;
+      _frqBandArrow(ctx, xTgt, xCen, yA, "#dc2626");
+    }
+  });
+  ctx.setLineDash([]);
+
+  // --- Y-Achse Abweichung: NUR im nahtlos-Modus (Sec. 12.4) ---
+  if (nahtlosModus) {
+    // Abweichung je Band = cenC - tgtC (cent). Roter Punkt: hoeher (positiv)
+    // -> oben, tiefer -> unten. Achse ueber der Streifenzone.
+    let am = 5;
+    for (const b of bands) am = Math.max(am, Math.abs(b.cenC - b.tgtC));
+    am = Math.ceil(am * 1.1);
+    const yAxTop = pad.top, yAxBot = bandZoneTop - 10;
+    const yMid = (yAxTop + yAxBot) / 2;
+    const tY = (v) => yMid - (v / (am || 1)) * ((yAxBot - yAxTop) / 2);
+    // Nulllinie
+    ctx.strokeStyle = "#e5e7eb"; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(pad.left, tY(0)); ctx.lineTo(w - pad.right, tY(0)); ctx.stroke();
+    ctx.fillStyle = "#000"; ctx.font = "10px Segoe UI,sans-serif";
+    ctx.textAlign = "right"; ctx.textBaseline = "middle";
+    ctx.fillText("+" + am, pad.left - 6, tY(am));
+    ctx.fillText("0", pad.left - 6, tY(0));
+    ctx.fillText("-" + am, pad.left - 6, tY(-am));
+    // rote Punkte
+    for (const b of bands) {
+      const dv = b.cenC - b.tgtC;
+      ctx.fillStyle = "#dc2626";
+      ctx.beginPath(); ctx.arc(tX(b.cenC), tY(dv), 3, 0, 2 * Math.PI); ctx.fill();
+    }
+    // Y-Achsentitel
+    ctx.save(); ctx.translate(14, yMid); ctx.rotate(-Math.PI / 2);
+    ctx.textAlign = "center"; ctx.fillStyle = "#000";
+    ctx.fillText(t("FRQ_bandChartYLabel"), 0, 0); ctx.restore();
+  }
+
+  // --- X-Achse: Hz-Ticks (wie drawFRQChart) ---
+  const hzBase = [125, 250, 500, 1000, 2000, 4000, 8000];
+  ctx.strokeStyle = "#e5e7eb"; ctx.fillStyle = "#000";
+  ctx.font = "10px Segoe UI,sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "top";
+  const xAxisY = h - pad.bottom + 6;
+  for (const hz of hzBase) {
+    const c = hzToCt(hz);
+    if (c <= cMin || c >= cMax) continue;
+    const x = tX(c);
+    ctx.beginPath(); ctx.moveTo(x, pad.top); ctx.lineTo(x, h - pad.bottom); ctx.strokeStyle = "#f1f5f9"; ctx.stroke();
+    ctx.fillText(hz >= 1000 ? (hz / 1000) + "k" : "" + hz, x, xAxisY);
+  }
+  ctx.fillStyle = "#000"; ctx.textBaseline = "alphabetic";
+  ctx.fillText(t("FRQ_bandChartXLabel"), pad.left + pW / 2, h - 6);
+}
+
+// Waagerechter Pfeil von x0 nach x1 auf Hoehe y (BA446, Sec. 12.4).
+function _frqBandArrow(ctx, x0, x1, y, color) {
+  ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 1.5;
+  ctx.setLineDash([]);
+  ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x1, y); ctx.stroke();
+  const dir = (x1 >= x0) ? 1 : -1;
+  ctx.beginPath();
+  ctx.moveTo(x1, y);
+  ctx.lineTo(x1 - dir * 5, y - 3);
+  ctx.lineTo(x1 - dir * 5, y + 3);
+  ctx.closePath(); ctx.fill();
+}

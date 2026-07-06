@@ -689,6 +689,8 @@ Object.assign(L.fr, {
     FRQ_resultsTipPianoWide: "Incertitude très grande",
     FRQ_resultsChartXLabel: "Fréquence (cents par rapport à 1 kHz)",
     FRQ_resultsChartYLabel: "Écart (cents)",
+    FRQ_bandChartXLabel: "Fréquence (Hz)",
+    FRQ_bandChartYLabel: "Écart (cents)",
     FRQ_resultsLblIst: "Actuel",
     FRQ_resultsLblSoll: "Cible",
     FRQ_resultsChartHint: "Trait gris (pointillé) = fréquence actuelle, telle que programmée dans l'implant. Trait noir = fréquence cible, à laquelle l'électrode est perçue selon la mesure. La flèche montre la correction nécessaire ; l'axe Y montre son ampleur en cents. Électrodes non mesurées : seulement trait actuel + cercle. Électrodes exclues : seulement trait actuel + ✕.",

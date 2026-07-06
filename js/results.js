@@ -589,6 +589,12 @@ function _FRQ_renderBandEmpf(side) {
   var note = document.getElementById("FRQ_bandEmpfOverlapNote");
   if (!head || !body) return;
 
+  // BA446: Empfehlungs-Graph (gleiche Kombination wie die Tabelle).
+  var _bcv = document.getElementById("FRQ_bandEmpfChart");
+  if (_bcv && typeof drawFRQBandChart === "function") {
+    drawFRQBandChart(_bcv, { side: side });
+  }
+
   head.innerHTML =
     "<th>" + t("FRQ_resultsColEl") + "</th>" +
     "<th>" + t("FRQ_bandEmpfColTarget") + "</th>" +

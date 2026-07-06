@@ -749,6 +749,8 @@ Object.assign(L.de, {
     FRQ_resultsTipPianoWide: "Unsicherheit sehr groß",
     FRQ_resultsChartXLabel: "Frequenz (Cent gegenüber 1 kHz)",
     FRQ_resultsChartYLabel: "Abweichung (Cent)",
+    FRQ_bandChartXLabel: "Frequenz (Hz)",
+    FRQ_bandChartYLabel: "Abweichung (Cent)",
     FRQ_resultsLblIst: "Ist",
     FRQ_resultsLblSoll: "Soll",
     FRQ_resultsChartHint: "Grauer (gestrichelter) Strich = Ist-Frequenz, wie im Implantat einprogrammiert. Schwarzer Strich = Soll-Frequenz, an der die Elektrode laut Messung wahrgenommen wird. Der Pfeil zeigt die nötige Korrektur; die Y-Achse zeigt deren Größe in Cent. Ungemessene Elektroden: nur Ist-Strich + Kreis. Ausgeschlossene Elektroden: nur Ist-Strich + ✕.",
