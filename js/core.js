@@ -333,6 +333,20 @@ var FRQ_bandTopologie = {
   }
 };
 
+// BA447 (Sec. 14.3): Regularisierungsgewicht des Optimierers. Unkritisch
+// (0.0001..0.1 liefern praktisch identische Ergebnisse); benannt +
+// kalibrierbar, kein UI. Ohne diesen Term ist "Center treffen"
+// unterbestimmt -> alternierende/negative Baender.
+var FRQ_BAND_LAMBDA = 0.001;
+// BA447 (Sec. 14.3b): Mindest-Bandbreite 30 ct, in p-Einheiten des
+// aktuellen Rechenraums (raumabhaengig -> aus toP an einer Referenz
+// gemessen). Kalibrierbar (Startwert 30 ct).
+var FRQ_BAND_MINBREITE_CT = 30;
+function _frqDefaultMinBreiteP(toP) {
+  var refHz = 1000;
+  return Math.abs(toP(refHz * Math.pow(2, FRQ_BAND_MINBREITE_CT / 1200)) - toP(refHz));
+}
+
 // Gemeinsamer Kern von lueckig/ueberlappend (§13.4): symmetrische Baender
 // um jede Position, halbe Breite aus min bzw. max der Nachbarabstaende.
 // Randband: nur ein Nachbar -> min=max=D -> h=D/2 (kein Sonderfall).
@@ -350,6 +364,197 @@ function _bandSymmetrisch(P, pick) {
   }
   return out;
 }
+// BA447: symmetrische Baender um P aus optimierten Kanten (lueckig/
+// ueberlappend im Optimier-Fall, Sec. 14.5). Halbe Breite = halber
+// kleinerer (lueckig) bzw. groesserer (ueberlappend) OPTIMIERTER
+// Nachbarabstand. Randband: nur ein Nachbarabstand.
+function _frqPairsAusEdgesSymmetrisch(P, edges, topologie) {
+  var n = P.length, out = [];
+  var pick = (topologie === "ueberlappend") ? Math.max : Math.min;
+  for (var k = 0; k < n; k++) {
+    var dL = (k > 0)     ? (P[k] - P[k - 1]) : null;
+    var dR = (k < n - 1) ? (P[k + 1] - P[k]) : null;
+    var d;
+    if (dL != null && dR != null) d = pick(dL, dR);
+    else                          d = (dL != null) ? dL : dR;
+    var h = d / 2;
+    out.push({ loP: P[k] - h, hiP: P[k] + h });
+  }
+  return out;
+}
+
+// ============================================================
+// BA447 (Architektur Sec. 14): Bandgrenzen-OPTIMIERER.
+// Reine Funktion in Positions-Koordinaten p (Rechenraum steckt in P,
+// wie die Topologie-Registry Sec. 13.3). Sie sucht die N-1 inneren
+// Grenzen s[], so dass der Ergebnis-Center jedes Bandes (Mittelpunkt
+// seiner beiden Grenzen) moeglichst auf P[k] liegt -- RESIDUUMS-
+// GEWICHTET (Sec. 14.3): Abweichung / R[k]. Plus ein PFLICHT-
+// Regularisierungsterm lambda (Sec. 14.3): ohne ihn ist "Center
+// treffen" unterbestimmt -> alternierende/negative Baender.
+//
+//   Kosten = Sum_k w_k (center_k - P[k])^2  +  lambda Sum_j (s_j - mid_j)^2
+//   w_k = 1/R[k]^2 ,  mid_j = (P[j]+P[j+1])/2 ,  center_k=(edge_k+edge_{k+1})/2
+//   edges: edge_0 = 2 P[0] - s_0 (Rand gespiegelt) ; edge_k = s_{k-1} ;
+//          edge_N = 2 P[N-1] - s_{N-2} (Rand gespiegelt)  -- SOFERN keine
+//          Range gesetzt ist; mit Range ersetzen die Range-Kanten die
+//          gespiegelten Randkanten (Sec. 14.5, s.u.).
+//
+// ziel:
+//   "summe":   ein Loesungsdurchlauf des gewichteten linearen Systems
+//              (Normalgleichungen, exakt via Gauss). Sec. 14.3a.
+//   "minimax": IRLS um DENSELBEN Loeser (feste Iterationszahl fuer
+//              Determinismus, Sec. 14.3a) -- Gewichte der schlimmsten
+//              Baender werden hochgezogen.
+//
+// Nebenbedingung Mindestbreite (Sec. 14.3b): nach dem Loesen werden
+// Grenzen, die ein Band unter minBreite druecken oder die Monotonie
+// verletzen, per Projektion auseinandergezogen (deterministisch).
+//
+// Eingang:
+//   P        [p_0<...<p_{N-1}]  Positionen der gehoerten Frequenzen (N>=2)
+//   R        [r_0..r_{N-1}]     Residuum je El. in p-Einheiten (>0)
+//   range    { loP, hiP } | null   feste Aussenkanten der Randbaender
+//                                   (Sec. 14.5). null -> Rand spiegeln.
+//   ziel     "summe" | "minimax"
+//   minBreite  Zahl (p-Einheiten) Mindest-Bandbreite
+//   lambda   Zahl                 Regularisierungsgewicht
+// Rueckgabe: s[]  (Laenge N-1, die inneren Grenzen, streng steigend).
+// BA449: range ist ab jetzt IMMER null (Sec. 14.5-Korrektur -- eine feste
+// Hersteller-Range ueberbestimmte das System). Der range-Zweig bleibt
+// vorerst als toter Code stehen (Aufraeum-Kandidat, nicht in diesem Fix).
+function FRQ_optimiereGrenzen(P, R, range, ziel, minBreite, lambda) {
+  var N = P.length;
+  var w = R.map(function (r) { return 1 / (r * r); });
+
+  // center_k als Linearkombination der inneren Grenzen s[0..N-2]:
+  //   center_k = a_k . s + b_k
+  // Rand: edge_0 = range ? range.loP : 2 P[0] - s_0
+  //       edge_N = range ? range.hiP : 2 P[N-1] - s_{N-2}
+  // Wir bauen fuer jedes k Koeffizientenvektor a_k (Laenge N-1) + Skalar b_k.
+  function centerCoeff(k) {
+    var a = new Array(N - 1).fill(0), b = 0;
+    // Beitrag einer Kante mit Faktor f (hier immer 0.5) zu (a,b):
+    function addEdge(idx, f) {
+      if (idx === 0) {
+        if (range) { b += f * range.loP; }
+        else { a[0] += -f; b += f * 2 * P[0]; }
+      } else if (idx === N) {
+        if (range) { b += f * range.hiP; }
+        else { a[N - 2] += -f; b += f * 2 * P[N - 1]; }
+      } else {
+        a[idx - 1] += f;   // innere Kante = s_{idx-1}
+      }
+    }
+    addEdge(k, 0.5); addEdge(k + 1, 0.5);
+    return { a: a, b: b };
+  }
+
+  // Loest EIN gewichtetes System (Gewichte wv) -> s[].
+  function solveWeighted(wv) {
+    var n = N - 1;
+    var M = [], rhs = [];
+    for (var i = 0; i < n; i++) { M.push(new Array(n).fill(0)); rhs.push(0); }
+    // Datenterm: Sum_k wv_k (a_k.s + b_k - P[k])^2
+    for (var k = 0; k < N; k++) {
+      var cc = centerCoeff(k), d0 = cc.b - P[k];
+      for (var i2 = 0; i2 < n; i2++) {
+        rhs[i2] += -2 * wv[k] * cc.a[i2] * d0;
+        for (var j2 = 0; j2 < n; j2++) M[i2][j2] += 2 * wv[k] * cc.a[i2] * cc.a[j2];
+      }
+    }
+    // Regularisierung: lambda Sum_j (s_j - mid_j)^2
+    for (var kk = 0; kk < n; kk++) {
+      var mid = (P[kk] + P[kk + 1]) / 2;
+      M[kk][kk] += 2 * lambda;
+      rhs[kk] += 2 * lambda * mid;
+    }
+    return _frqGauss(M, rhs);
+  }
+
+  var wv = w.slice();
+  var s = solveWeighted(wv);
+
+  if (ziel === "minimax") {
+    // IRLS: feste Iterationszahl (Determinismus, Sec. 14.3a). Gewichte der
+    // schlimmsten (residuumsnormiert) Baender hochziehen.
+    var ITER = 40;
+    for (var pass = 0; pass < ITER; pass++) {
+      var e = _frqEdges(P, s, range);
+      var dn = [];
+      for (var k2 = 0; k2 < N; k2++) {
+        var cen = (e[k2] + e[k2 + 1]) / 2;
+        dn.push(Math.abs(cen - P[k2]) / R[k2]);
+      }
+      var mx = Math.max.apply(null, dn) || 1;
+      for (var k3 = 0; k3 < N; k3++) {
+        wv[k3] *= Math.pow(dn[k3] / mx + 1e-6, 2);
+      }
+      // normieren (Zahlenstabilitaet)
+      var mean = wv.reduce(function (x, y) { return x + y; }, 0) / N;
+      for (var k4 = 0; k4 < N; k4++) wv[k4] /= mean;
+      s = solveWeighted(wv);
+    }
+  }
+
+  // Nebenbedingung Mindestbreite + strikte Monotonie (Sec. 14.3b),
+  // deterministisch: einmal vorwaerts, einmal rueckwaerts projizieren.
+  s = _frqProjMinBreite(P, s, range, minBreite);
+  return s;
+}
+
+// Kanten aus inneren Grenzen (mit optionaler Range fuer die Raender).
+function _frqEdges(P, s, range) {
+  var N = P.length;
+  var e0 = range ? range.loP : (2 * P[0] - s[0]);
+  var eN = range ? range.hiP : (2 * P[N - 1] - s[N - 2]);
+  return [e0].concat(s, [eN]);
+}
+
+// Projektion auf Mindestbreite + Monotonie. Zwei Durchlaeufe
+// (vorwaerts schiebt untere Grenzen hoch, rueckwaerts obere runter),
+// deterministisch. minBreite in p-Einheiten.
+function _frqProjMinBreite(P, s, range, minBreite) {
+  var N = P.length;
+  var e = _frqEdges(P, s, range);           // Laenge N+1
+  // Vorwaerts: jede Kante mind. minBreite ueber der vorigen.
+  for (var k = 1; k < e.length; k++) {
+    if (e[k] < e[k - 1] + minBreite) e[k] = e[k - 1] + minBreite;
+  }
+  // Rueckwaerts: falls das die letzte Randkante verschoben hat und eine
+  // Range fest ist, nicht ueber die Range-Oberkante hinaus -- ziehe von
+  // oben nach: jede Kante mind. minBreite unter der naechsten, aber die
+  // Range-Randkanten bleiben fix.
+  var loFix = !!range, hiFix = !!range;
+  if (hiFix) e[e.length - 1] = range.hiP;
+  for (var m = e.length - 2; m >= 0; m--) {
+    if (e[m] > e[m + 1] - minBreite) e[m] = e[m + 1] - minBreite;
+  }
+  if (loFix) e[0] = range.loP;
+  // innere Grenzen zurueckgeben
+  return e.slice(1, N);
+}
+
+// Kleiner Gauss-Loeser (Teilpivotisierung). M: n x n, rhs: n. -> x[n].
+// Projektweiter Klein-Helfer -> core.js (laedt frueh). Kein Duplikat
+// vorhanden (grep "function _frqGauss" bleibt leer vor dieser BA).
+function _frqGauss(M, rhs) {
+  var n = rhs.length;
+  var A = M.map(function (row, i) { return row.concat([rhs[i]]); });
+  for (var c = 0; c < n; c++) {
+    var piv = c;
+    for (var r = c + 1; r < n; r++) if (Math.abs(A[r][c]) > Math.abs(A[piv][c])) piv = r;
+    var tmp = A[c]; A[c] = A[piv]; A[piv] = tmp;
+    for (var r2 = 0; r2 < n; r2++) {
+      if (r2 !== c) {
+        var f = A[r2][c] / A[c][c];
+        for (var cc = c; cc <= n; cc++) A[r2][cc] -= f * A[c][cc];
+      }
+    }
+  }
+  return A.map(function (row, i) { return row[n] / row[i]; });
+}
+
 // Frequenzband-Berechnung (Architektur Sec. 9 + Sec. 11). Gemeinsamer
 // Rahmen: bildet die aktive Kette, prueft strenge Monotonie, behandelt
 // den Einzel-Elektrode-Fall -- DANN ruft er das gewaehlte Verfahren
@@ -369,7 +574,7 @@ function _bandSymmetrisch(P, pick) {
 //   { bands: [ { elIdx, loHz, hiHz, centerHz }, ... ] }  (nur aktive)
 //   | { error: "overlap", elektroden: [...] }  bei Ueberholung.
 //   | { error: "unknownVerfahren" | "unknownTopologie", ... }  bei Fehler.
-function FRQ_baender(mitten, verfahren, topologie) {
+function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, opt) {
   var vf = FRQ_bandVerfahren[verfahren || "geometrisch"];
   // Ungueltiger Verfahrensname -> Fehler (kein Fallback, Nutzer-Beschluss
   // 2026-07-05). Notausgang-Prinzip Sec. 11.7/§13.8: kein stilles
@@ -417,19 +622,68 @@ function FRQ_baender(mitten, verfahren, topologie) {
   var P = [];
   for (var p = 0; p < kette.length; p++) P.push(toP(kette[p].hz));
 
-  // Topologie liefert je Band ein {loP, hiP}-Paar (Positions-Koordinaten).
-  var pairs = topo(P);
+  // --- Grenzsetzung: klassisch (Topologie-Registry) ODER optimiert. ---
+  // optimieren=true (nur Empfehlung, Sec. 14.6) rechnet die INNEREN
+  // Grenzen ueber den Optimierer; die Topologie formt daraus dann die
+  // Baender (nahtlos = Grenzen direkt; lueckig/ueberlappend =
+  // symmetrisch um P, wie bisher). optimieren=false -> bit-genau wie
+  // vor BA447.
+  var pairs;
+  if (optimieren && kette.length >= 2) {
+    // Residuen in p-Einheiten. Ungemessene bekommen ein GROSSES Residuum
+    // (weiches Ziel, Sec. 14.5); gemessene den Wert mit kleinem Boden.
+    // mitten-Eintrag traegt residuum (cent) + gemessen (bool), s. Sec. 14.4.
+    var RES_BODEN_CT = 5;        // Boden gegen 0 (E9 hat Residuum 0)
+    var RES_UNGEMESSEN_CT = 1200;  // weiches Ziel
+    var Ropt = [];
+    for (var ri = 0; ri < kette.length; ri++) {
+      var mObj = kette[ri];
+      var resCt = mObj.gemessen
+        ? Math.max(RES_BODEN_CT, (mObj.residuum != null ? mObj.residuum : RES_BODEN_CT))
+        : RES_UNGEMESSEN_CT;
+      var hzUp = kette[ri].hz * Math.pow(2, resCt / 1200);
+      var rp = Math.abs(toP(hzUp) - toP(kette[ri].hz));
+      if (!(rp > 0)) rp = 1e-6;
+      Ropt.push(rp);
+    }
+    var _minBreite = (opt && opt.minBreite != null) ? opt.minBreite
+      : _frqDefaultMinBreiteP(toP);
+    var _lambda = (opt && opt.lambda != null) ? opt.lambda : FRQ_BAND_LAMBDA;
+    // BA449: KEINE Hersteller-Range mehr (ueberbestimmte das System,
+    // Sec. 14.5-Korrektur). Raender werden gespiegelt (range=null).
+    var sOpt = FRQ_optimiereGrenzen(P, Ropt, null,
+      (ziel === "summe" ? "summe" : "minimax"), _minBreite, _lambda);
+    var edgesOpt = _frqEdges(P, sOpt, null);
+    if (topologie === "lueckig" || topologie === "ueberlappend") {
+      // Center bleibt P; nur die inneren Grenzen sind jetzt optimiert.
+      // Symmetrische Baender um P mit halber Breite aus den optimierten
+      // Nachbarabstaenden (gleiche min/max-Regel wie Sec. 13.4, aber auf
+      // den optimierten Grenzen).
+      pairs = _frqPairsAusEdgesSymmetrisch(P, edgesOpt, topologie);
+    } else {
+      // nahtlos: Grenzen direkt.
+      pairs = [];
+      for (var pe = 0; pe < kette.length; pe++)
+        pairs.push({ loP: edgesOpt[pe], hiP: edgesOpt[pe + 1] });
+    }
+  } else {
+    // Klassisch (bit-genau wie vor BA447).
+    pairs = topo(P);
+  }
 
   var bands = [];
   for (var e = 0; e < kette.length; e++) {
     var loP = pairs[e].loP, hiP = pairs[e].hiP;
     var lo = fromP(loP), hi = fromP(hiP);
-    // Ergebnis-Center = Ruecktransform des Positions-Mittelpunkts der
-    // Grenzen (§13.5). nahtlos: weicht i.A. von der gehoerten Frequenz ab;
-    // lueckig/ueberlappend: Band symmetrisch -> Center == gehoerte Frequenz.
     var centerHz = fromP((loP + hiP) / 2);
-    bands.push({ elIdx: kette[e].elIdx, loHz: lo, hiHz: hi,
-                 centerHz: centerHz });
+    var band = { elIdx: kette[e].elIdx, loHz: lo, hiHz: hi,
+                 centerHz: centerHz };
+    // Verschiebungs-Vorschlag NUR fuer ungemessene El. (Sec. 14.5):
+    // wo laege ihr Center (= Bandmitte des zugefallenen Slots).
+    if (optimieren && kette[e].gemessen === false) {
+      band.centerVorschlagHz = centerHz;
+    }
+    bands.push(band);
   }
   return { bands: bands };
 }
@@ -537,7 +791,7 @@ function FRQ_modusVonReferenzmodus(rm) {
 //   warp    :  nhSim aus -> Vorhalt/Korrektur; nhSim an -> Verzerrung.
 //   gehoert :  nhSim aus -> gehoerte/Korrektur-Richtung; nhSim an -> gespiegelt.
 //   roh     :  cent unveraendert, plus Referenzseite (nhSim ohne Wirkung).
-function FRQ_werte(form, modus, nhSim, verfahren, topologie) {
+function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel) {
   // nhSim: bool -- die Player-Einstellung "Normalhoerenden-Simulation".
   // Die gesamte Vorzeichen-/Spiegelungslogik lebt HIER, nicht im Konsumenten
   // (Nutzer-Vorgabe BA421: kein Konsument denkt ueber Vorzeichen nach).
@@ -552,6 +806,11 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie) {
     || ((typeof FRQ_bandVerfahrenWahl === "string") ? FRQ_bandVerfahrenWahl : "geometrisch");
   var _topologie = topologie
     || ((typeof FRQ_bandTopologieWahl === "string") ? FRQ_bandTopologieWahl : "nahtlos");
+  // BA447 (Sec. 14.6): Optimierung als eigene Achse. Explizites Argument
+  // gewinnt; Default hier FALSE (die globale Wahl + UI kommt in BA448).
+  // ziel Default "minimax".
+  var _optimieren = (optimieren === true);
+  var _ziel = (ziel === "summe") ? "summe" : "minimax";
 
   // Gemessene Eintraege des aktiven Verfahrens, indexiert nach elIdx.
   var measured = {};
@@ -673,9 +932,16 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie) {
           hz = (s && s.gehoertHz != null) ? s.gehoertHz : (s ? s.nominellHz : null);
         }
         // Aktivitaet JE SEITE (Nutzer-Beschluss): das seitenweise Flag.
-        return { elIdx: entry.elIdx, hz: hz, aktiv: !!(s && s.aktiv) };
+        return { elIdx: entry.elIdx, hz: hz, aktiv: !!(s && s.aktiv),
+                 residuum: (s ? s.residuum : null),
+                 gemessen: !!entry.gemessen };
       });
-      var res = FRQ_baender(mitten, _verfahren, _topologie);
+      // Sec. 14.6: Optimierung NIE fuer Warp (er summiert Bandpaesse,
+      // braucht mittelpunkt-nahtlose Baender, Sec. 13.6a). Nur 'gehoert'.
+      var _optHier = (form === "gehoert") && _optimieren;
+      // BA449: KEINE Range mehr (Sec. 14.5-Korrektur) -- Raender gespiegelt.
+      var res = FRQ_baender(mitten, _verfahren, _topologie,
+        _optHier, _ziel);
       if (res.error === "overlap") {
         out.forEach(function (entry) {
           if (entry[seite]) {
@@ -684,6 +950,7 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie) {
             entry[seite].bandLoHz = null;
             entry[seite].bandHiHz = null;
             entry[seite].bandCenterHz = null;   // Sec. 11.4
+            entry[seite].bandCenterVorschlagHz = null;   // BA447
           }
         });
       } else {
@@ -697,6 +964,8 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie) {
           entry[seite].bandLoHz = b ? b.loHz : null;
           entry[seite].bandHiHz = b ? b.hiHz : null;
           entry[seite].bandCenterHz = b ? b.centerHz : null;   // Sec. 11.4
+          entry[seite].bandCenterVorschlagHz =
+            (b && b.centerVorschlagHz != null) ? b.centerVorschlagHz : null;  // BA447 Sec.14.5
         });
       }
     });
