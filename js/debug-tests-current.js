@@ -989,3 +989,55 @@
     return lines.join("\n");
   });
 })();
+
+/* BA456 — Frequenzgraph-Engine Geruest: zeichnet drawFRQGraph mit
+ * Beispieldaten (Band-Variante) in ein temporaeres sichtbares Canvas.
+ */
+(function () {
+  if (typeof dbg === "undefined" || !dbg.test) return;
+  dbg.test("build/BA456/frqgraph-geruest",
+    { tab: "messungen", label: "BA456 Engine-Geruest zeichnen" },
+    function () {
+      if (typeof drawFRQGraph !== "function") return { ok: false, msg: "drawFRQGraph fehlt" };
+      let host = document.getElementById("ba456_host");
+      if (!host) {
+        host = document.createElement("div"); host.id = "ba456_host";
+        host.style.cssText = "width:640px;border:1px solid #ccc;margin:8px 0;";
+        document.body.appendChild(host);
+      }
+      host.innerHTML = "";
+      const cv = document.createElement("canvas");
+      host.appendChild(cv);
+      const rows = [
+        { elNum: 3, xLinksHz: 380, xRechtsHz: 400, yCent: 20, residuumCent: 30,
+          bandLoHz: 300, bandHiHz: 520, sichtbar: true, warn: false,
+          tooltip: ["<b>E3</b>", "gehoert: 380 Hz", "erreicht: 400 Hz",
+                    "Verschiebung: +20 ct · im Rauschen (±30 ct)", "Band: 300-520 Hz"] },
+        { elNum: 5, xLinksHz: 900, xRechtsHz: 1180, yCent: 120, residuumCent: 25,
+          bandLoHz: 760, bandHiHz: 1500, sichtbar: true, warn: false,
+          tooltip: ["<b>E5</b>", "gehoert: 900 Hz", "erreicht: 1180 Hz",
+                    "Verschiebung: +120 ct · deutlich (±25 ct)", "Band: 760-1500 Hz"] },
+        { elNum: 8, xLinksHz: 2200, xRechtsHz: 2150, yCent: null, residuumCent: 0,
+          bandLoHz: 1500, bandHiHz: 3000, sichtbar: true, warn: false,
+          tooltip: ["<b>E8</b>", "nicht gemessen"] }
+      ];
+      const cfg = {
+        residuumAnker: "nulllinie", xWandHz: [70, 8500], yLabel: "Abweichung",
+        fixedSize: null, verbindung: true
+      };
+      try {
+        drawFRQGraph(cv, rows, cfg);
+        if (!cv._frqg_listener) {
+          cv.addEventListener("mousemove", function (e) { _frqg_tooltipHandler(cv, e); });
+          cv.addEventListener("mouseleave", function () {
+            const t = document.getElementById("frqg_tooltip"); if (t) t.style.display = "none";
+          });
+          cv._frqg_listener = true;
+        }
+        return "gezeichnet: " + rows.length + " Zeilen, Canvas " + cv.width + "x" + cv.height +
+               " | Sichtpruefung: Bandflaechen, Striche, Punkte, Pfeile, Mouseover";
+      } catch (err) {
+        return { ok: false, msg: "FEHLER: " + err.message };
+      }
+    });
+})();
