@@ -714,13 +714,14 @@
             <div id="FRQ_bandEmpfBlock" style="margin-top:18px">
               <h3 data-t="FRQ_bandEmpfTitle" style="font-size:1em;margin:0 0 10px">Bandgrenzen-Empfehlung</h3>
               <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
-                <fieldset style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <fieldset id="FRQ_bandVerfahrenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
                   <legend data-t="FRQ_bandVerfahrenLegend" style="padding:0 6px">Berechnungsverfahren</legend>
                   <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="geometrisch"> <span data-t="FRQ_bandVerfGeom">Geometrisch (Advanced Bionics)</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cochlear"> <span data-t="FRQ_bandVerfArith">Arithmetisch (Cochlear)</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="greenwood"> <span data-t="FRQ_bandVerfGreen">Greenwood (MED-EL)</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="abf"> <span data-t="FRQ_bandVerfAbf">ABF (MED-EL, patenttreu)</span></label>
                 </fieldset>
-                <fieldset style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <fieldset id="FRQ_bandTopologieFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
                   <legend data-t="FRQ_bandTopoLegend" style="padding:0 6px">Band-Topologie</legend>
                   <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="nahtlos"> <span data-t="FRQ_bandTopoNahtlos">Bänder lückenlos</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="ueberlappend"> <span data-t="FRQ_bandTopoUeber">Bandüberschneidung</span></label>
@@ -736,7 +737,16 @@
                   <label style="display:block"><input type="radio" name="FRQ_bandZiel" value="minimax"> <span data-t="FRQ_bandZielMinimax">Kleinster Ausreißer</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandZiel" value="summe"> <span data-t="FRQ_bandZielSumme">Kleinster Gesamtfehler</span></label>
                 </fieldset>
+                <fieldset id="FRQ_bandRandausgleichFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandRandLegend" style="padding:0 6px">Randausgleich</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandausgleich" value="mit"> <span data-t="FRQ_bandRandMit">Mit Ausgleich (patenttreu)</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandausgleich" value="ohne"> <span data-t="FRQ_bandRandOhne">Ohne Ausgleich</span></label>
+                </fieldset>
               </div>
+              <label class="wv-debug-only" style="display:block;margin:0 0 10px;font-size:.86em;color:#555">
+                <input type="checkbox" id="FRQ_testDefaultFreqChk">
+                Debug: Default-Mittenfrequenzen statt Messwerte (nominelle Implantat-Frequenzen als „gehört")
+              </label>
               <div style="margin:0 0 12px">
                 <canvas id="FRQ_bandEmpfChart" width="800" height="300"></canvas>
               </div>

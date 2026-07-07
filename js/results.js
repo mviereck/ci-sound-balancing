@@ -583,6 +583,32 @@ function FRQ_renderResults() {
 // 12.5, Variante 4a: Spalten konsistent, nicht topologie-abhaengig anders).
 var FRQ_bandEmpfSchwelleCent = 30;   // leicht<->deutlich (Startwert, Sec. 12.5)
 
+// BA452: EINZIGE Empfehlungs-Wertquelle fuer Tabelle UND Graph.
+// Leitet die Band-Achsen-Wahl an EINER Stelle ab (vorher doppelt in
+// results.js + chart.js -> BA451-Divergenz). Verfahren/Topologie zieht
+// FRQ_werte selbst aus den globalen Wahlen (core.js:931-934); Optimieren/
+// Ziel/Randausgleich liest FRQ_werte NICHT selbst (core.js:938) -> hier
+// ableiten und explizit uebergeben.
+//   nhSim         bool -- Normalhoerenden-Simulation (Tabelle: false,
+//                 Graph: !!opts.nhSim). PFLICHT-Parameter, kein Default.
+//   modusOverride optional -- der Graph reicht opts.modus durch; fehlt es,
+//                 wird der Modus wie in der Tabelle aus dem Referenzmodus
+//                 abgeleitet.
+// Rueckgabe: das FRQ_werte-Array (leer, wenn FRQ_werte fehlt).
+function FRQ_empfWerte(nhSim, modusOverride) {
+  var modus = (typeof modusOverride === "string")
+    ? modusOverride
+    : FRQ_modusVonReferenzmodus(frq_referenzmodus());
+  var _opt = (typeof FRQ_bandOptimierenWahl !== "undefined")
+    && FRQ_bandOptimierenWahl === "optimiert";
+  var _ziel = (typeof FRQ_bandZielWahl !== "undefined") ? FRQ_bandZielWahl : "minimax";
+  var _rand = (typeof FRQ_bandRandausgleichWahl !== "undefined")
+    ? FRQ_bandRandausgleichWahl : "mit";
+  return (typeof FRQ_werte === "function")
+    ? FRQ_werte("gehoert", modus, !!nhSim, undefined, undefined, _opt, _ziel, _rand !== "ohne")
+    : [];
+}
+
 function _FRQ_renderBandEmpf(side) {
   var head = document.getElementById("FRQ_bandEmpfTableHead");
   var body = document.getElementById("FRQ_bandEmpfTableBody");
@@ -603,20 +629,14 @@ function _FRQ_renderBandEmpf(side) {
     "<th>" + t("FRQ_bandEmpfColDev") + "</th>" +
     "<th>" + t("FRQ_bandEmpfColRating") + "</th>";
 
-  var modus = FRQ_modusVonReferenzmodus(frq_referenzmodus());
-  // BA448: Optimierung + Ziel = global gewaehlt. optimieren als bool aus
-  // der String-Wahl (Sec. 14.6). Verfahren/Topologie zieht FRQ_werte
-  // selbst aus den globalen Wahlen (Default), die wir hier nicht
-  // ueberschreiben -> undefined durchreichen.
-  var _opt = (typeof FRQ_bandOptimierenWahl !== "undefined")
-    && FRQ_bandOptimierenWahl === "optimiert";
-  var _ziel = (typeof FRQ_bandZielWahl !== "undefined") ? FRQ_bandZielWahl : "minimax";
-  var werte = (typeof FRQ_werte === "function")
-    ? FRQ_werte("gehoert", modus, false, undefined, undefined, _opt, _ziel) : [];
+  // BA452: EINE gemeinsame Empfehlungs-Wertquelle (vorher doppelt mit dem
+  // Graphen). Tabelle: nhSim fest false, Modus aus dem Referenzmodus.
+  var werte = FRQ_empfWerte(false);
 
   var dash = "<span style=\"color:var(--text-muted)\">&#8212;</span>";
   var rows = "";
   var overlapSeen = false;
+  var abfTooSmall = false;
 
   var nCi = sideData[side].nEl;
   for (var i = 0; i < nCi; i++) {
@@ -628,7 +648,10 @@ function _FRQ_renderBandEmpf(side) {
     var ws = w ? w[side] : null;
     var elLabel = dENPrefix(side) + dEN(i, side);
 
-    if (ws && ws.bandOverlap) overlapSeen = true;
+    if (ws && ws.bandOverlap) {
+      overlapSeen = true;
+      if (ws.bandError === "abfTonoZuKlein") abfTooSmall = true;
+    }
 
     var target = ws ? (ws.gehoertHz != null ? ws.gehoertHz : ws.nominellHz) : null;
     var lo = ws ? ws.bandLoHz : null;
@@ -680,8 +703,13 @@ function _FRQ_renderBandEmpf(side) {
   body.innerHTML = rows;
 
   if (note) {
-    if (overlapSeen) { note.style.display = ""; note.textContent = t("FRQ_bandEmpfOverlapNote"); }
-    else             { note.style.display = "none"; note.textContent = ""; }
+    if (abfTooSmall) {
+      note.style.display = ""; note.textContent = t("FRQ_bandEmpfAbfTooSmall");
+    } else if (overlapSeen) {
+      note.style.display = ""; note.textContent = t("FRQ_bandEmpfOverlapNote");
+    } else {
+      note.style.display = "none"; note.textContent = "";
+    }
   }
 }
 

@@ -558,13 +558,44 @@ document.addEventListener("DOMContentLoaded", () => {
     var fs = document.getElementById("FRQ_bandZielFieldset");
     if (fs) fs.style.display = (FRQ_bandOptimierenWahl === "optimiert") ? "" : "none";
   }
-  _frqBandWahlInit("FRQ_bandVerfahren", function (v) { FRQ_bandVerfahrenWahl = v; });
+  // BA451 (Architektur §4.1/§4.3): ABF verdraengt Topologie/Optimieren/
+  // Ziel -> diese Fieldsets bei "abf" ausblenden, Randausgleich einblenden.
+  // Bei den anderen drei Verfahren umgekehrt. EINE Stelle, datengetrieben.
+  function _frqBandAchsenSichtbarkeit() {
+    var istAbf = (FRQ_bandVerfahrenWahl === "abf");
+    var aus = ["FRQ_bandTopologieFieldset", "FRQ_bandOptimierenFieldset",
+               "FRQ_bandZielFieldset"];
+    aus.forEach(function (id) {
+      var fs = document.getElementById(id);
+      if (fs) fs.style.display = istAbf ? "none" : "";
+    });
+    var rand = document.getElementById("FRQ_bandRandausgleichFieldset");
+    if (rand) rand.style.display = istAbf ? "" : "none";
+    // Bei Nicht-ABF gilt weiterhin die Optimieren-abhaengige Ziel-Sichtbarkeit.
+    if (!istAbf) _frqBandZielSichtbarkeit();
+  }
+  _frqBandWahlInit("FRQ_bandVerfahren", function (v) {
+    FRQ_bandVerfahrenWahl = v;
+    _frqBandAchsenSichtbarkeit();
+  });
   _frqBandWahlInit("FRQ_bandTopologie", function (v) { FRQ_bandTopologieWahl = v; });
   _frqBandWahlInit("FRQ_bandOptimieren", function (v) {
     FRQ_bandOptimierenWahl = v;
     _frqBandZielSichtbarkeit();   // Ziel-Fieldset ein/aus
   });
   _frqBandWahlInit("FRQ_bandZiel", function (v) { FRQ_bandZielWahl = v; });
+  _frqBandWahlInit("FRQ_bandRandausgleich", function (v) { FRQ_bandRandausgleichWahl = v; });
+  // DEBUG-Testoption (Martin): Default-Mittenfrequenzen statt Messwerte.
+  // Setzt das globale Flag (core.js, in FRQ_werte ausgewertet) und zeichnet
+  // die Empfehlungs-Ansicht neu. Nur diese eine Quell-Stelle wirkt.
+  (function () {
+    var chk = document.getElementById("FRQ_testDefaultFreqChk");
+    if (!chk) return;
+    chk.addEventListener("change", function () {
+      FRQ_testDefaultFrequenzen = this.checked;
+      if (typeof FRQ_renderResults === "function") FRQ_renderResults();
+    });
+  })();
   // Anfangswerte in die Radiobuttons spiegeln.
   (function () {
     var rv = document.querySelector('input[name="FRQ_bandVerfahren"][value="' + FRQ_bandVerfahrenWahl + '"]');
@@ -575,7 +606,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (ro) ro.checked = true;
     var rz = document.querySelector('input[name="FRQ_bandZiel"][value="' + FRQ_bandZielWahl + '"]');
     if (rz) rz.checked = true;
-    _frqBandZielSichtbarkeit();
+    var rr = document.querySelector('input[name="FRQ_bandRandausgleich"][value="' + FRQ_bandRandausgleichWahl + '"]');
+    if (rr) rr.checked = true;
+    _frqBandAchsenSichtbarkeit();   // BA451: initiale Achsen-Sichtbarkeit (ersetzt alleinigen _frqBandZielSichtbarkeit-Aufruf)
   })();
 
   // Warp-UI initialisieren

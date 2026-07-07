@@ -28,6 +28,14 @@ let FRQ_bandTopologieWahl = "nahtlos";
 // ziel: "minimax" | "summe" (nur wirksam wenn optimiert; Default minimax).
 let FRQ_bandOptimierenWahl = "optimiert";
 let FRQ_bandZielWahl = "minimax";
+// BA451 (Architektur §4.3): Randausgleich-Achse fuer ABF (mit/ohne
+// Fehler-Ausgleich in der apikalen Zone). Nur bei Verfahren "abf"
+// wirksam/sichtbar. Default patenttreu.
+let FRQ_bandRandausgleichWahl = "mit";
+// DEBUG-Testoption (Martin, nicht persistent, nicht gespeichert): bei true
+// speist FRQ_werte die nominellen Implantat-Frequenzen (cent=0) statt der
+// echten Messwerte ein -> Verhalten der Verfahren mit Default-Mittenfreqs.
+let FRQ_testDefaultFrequenzen = false;
 let pWarpCalcMode = "mid";     // BA375: Berechnungs-Modus. "fast"|"mid"|"best".
                                // Quelle fuer engine (r2/r3) + Streaming/Voll.
                                // Persistent (localStorage + JSON), Default "mid".

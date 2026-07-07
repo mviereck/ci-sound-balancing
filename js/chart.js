@@ -1028,14 +1028,9 @@ function drawFRQBandChart(cv, opts) {
 
   const aktivSide = (typeof opts.side === "string") ? opts.side
     : ((typeof activeSide === "string") ? activeSide : "right");
-  const modus = (typeof opts.modus === "string") ? opts.modus
-    : FRQ_modusVonReferenzmodus(frq_referenzmodus());
-  // BA448: gleiche optimierte Kombination wie die Tabelle (global gewaehlt).
-  const _opt = (typeof FRQ_bandOptimierenWahl !== "undefined")
-    && FRQ_bandOptimierenWahl === "optimiert";
-  const _ziel = (typeof FRQ_bandZielWahl !== "undefined") ? FRQ_bandZielWahl : "minimax";
-  const werte = (typeof FRQ_werte === "function")
-    ? FRQ_werte("gehoert", modus, !!opts.nhSim, undefined, undefined, _opt, _ziel) : [];
+  // BA452: EINE gemeinsame Empfehlungs-Wertquelle (vorher doppelt mit der
+  // Tabelle -> BA451-Divergenz). Graph reicht nhSim + Modus-Override durch.
+  const werte = FRQ_empfWerte(!!opts.nhSim, (typeof opts.modus === "string") ? opts.modus : undefined);
 
   // Nur Elektroden mit vollstaendigem Band einsammeln.
   const bands = [];

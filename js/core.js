@@ -917,7 +917,7 @@ function FRQ_modusVonReferenzmodus(rm) {
 //   warp    :  nhSim aus -> Vorhalt/Korrektur; nhSim an -> Verzerrung.
 //   gehoert :  nhSim aus -> gehoerte/Korrektur-Richtung; nhSim an -> gespiegelt.
 //   roh     :  cent unveraendert, plus Referenzseite (nhSim ohne Wirkung).
-function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel) {
+function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, mitAusgleich) {
   // nhSim: bool -- die Player-Einstellung "Normalhoerenden-Simulation".
   // Die gesamte Vorzeichen-/Spiegelungslogik lebt HIER, nicht im Konsumenten
   // (Nutzer-Vorgabe BA421: kein Konsument denkt ueber Vorzeichen nach).
@@ -949,6 +949,19 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel) {
   var nL = (typeof sideData !== "undefined" && sideData.left)  ? sideData.left.nEl  : 0;
   var nR = (typeof sideData !== "undefined" && sideData.right) ? sideData.right.nEl : 0;
   var n  = Math.min(nL, nR);
+
+  // DEBUG-Testoption (Martin): "Standardwerte als Messergebnis". Bei aktivem
+  // Flag jede Elektrode als GEMESSEN mit cent=0 behandeln -> voller Messpfad,
+  // gehoertHz = nominellHz * 2^0 = nominelle Implantat-Frequenz. Ueberschreibt
+  // echte Messwerte fuer die Dauer des Aufrufs. EINE Quell-Stelle -> wirkt auf
+  // alle Konsumenten (Graph, Tabelle, Warp, ...).
+  if ((typeof FRQ_testDefaultFrequenzen !== "undefined") && FRQ_testDefaultFrequenzen === true) {
+    measured = {};
+    for (var di = 0; di < n; di++) {
+      measured[di] = { elIdx: di, cent: 0, frqRefMode: "symmetric",
+                       fmResiduum: null, fmStatus: "piano" };
+    }
+  }
 
   var out = [];
   for (var i = 0; i < n; i++) {
@@ -1074,11 +1087,12 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel) {
       var _abfWand = (_dr && _dr.length === 2) ? { loHz: _dr[0], hiHz: _dr[1] } : null;
       // BA449: KEINE Range mehr (Sec. 14.5-Korrektur) -- Raender gespiegelt.
       var res = FRQ_baender(mitten, _verfahren, _topologie,
-        _optHier, _ziel, null, _abfWand);
+        _optHier, _ziel, null, _abfWand, { mitAusgleich: (mitAusgleich !== false) });
       if (res.error) {   // "overlap" ODER "abfTonoZuKlein" (BA450)
         out.forEach(function (entry) {
           if (entry[seite]) {
             entry[seite].bandOverlap = true;
+            entry[seite].bandError = res.error;   // BA451: Fehlerart fuer die Meldung
             entry[seite].bandOverlapEls = res.elektroden || [];
             entry[seite].bandLoHz = null;
             entry[seite].bandHiHz = null;
@@ -1093,6 +1107,7 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel) {
           if (!entry[seite]) return;
           var b = byIdx[entry.elIdx];
           entry[seite].bandOverlap = false;
+          entry[seite].bandError = null;   // BA451
           entry[seite].bandOverlapEls = [];
           entry[seite].bandLoHz = b ? b.loHz : null;
           entry[seite].bandHiHz = b ? b.hiHz : null;

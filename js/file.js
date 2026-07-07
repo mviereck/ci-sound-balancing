@@ -230,6 +230,16 @@ function resetAll() {
     var _zfs = document.getElementById("FRQ_bandZielFieldset");
     if (_zfs) _zfs.style.display = "";
   }
+  // BA451: Randausgleich-Achse zuruecksetzen.
+  if (typeof FRQ_bandRandausgleichWahl !== "undefined") {
+    FRQ_bandRandausgleichWahl = "mit";
+    var _rrR = document.querySelector('input[name="FRQ_bandRandausgleich"][value="mit"]');
+    if (_rrR) _rrR.checked = true;
+    // Verfahren steht nach Reset auf greenwood -> Randausgleich-Fieldset wird ausgeblendet.
+    // change-Event auf Verfahren-Button triggert _frqBandAchsenSichtbarkeit in init.js.
+    var _rvR = document.querySelector('input[name="FRQ_bandVerfahren"][value="greenwood"]');
+    if (_rvR) _rvR.dispatchEvent(new Event("change"));
+  }
   // --- MAPLAW-Knopf ---
   if (typeof pMaplawOn !== "undefined") pMaplawOn = false;
   if (typeof pMaplawSollC !== "undefined") pMaplawSollC = 1000;
@@ -387,6 +397,7 @@ async function saveJson() {
     bandTopologie: (typeof FRQ_bandTopologieWahl !== "undefined") ? FRQ_bandTopologieWahl : "nahtlos",
     bandOptimieren: (typeof FRQ_bandOptimierenWahl !== "undefined") ? FRQ_bandOptimierenWahl : "optimiert",
     bandZiel: (typeof FRQ_bandZielWahl !== "undefined") ? FRQ_bandZielWahl : "minimax",
+    bandRandausgleich: (typeof FRQ_bandRandausgleichWahl !== "undefined") ? FRQ_bandRandausgleichWahl : "mit",
 
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
@@ -778,9 +789,17 @@ function applyLoadedData(d) {
     var _rz = document.querySelector('input[name="FRQ_bandZiel"][value="' + FRQ_bandZielWahl + '"]');
     if (_rz) _rz.checked = true;
   }
-  // Ziel-Fieldset-Sichtbarkeit nach dem Laden korrigieren.
-  var _zfsL = document.getElementById("FRQ_bandZielFieldset");
-  if (_zfsL) _zfsL.style.display = (FRQ_bandOptimierenWahl === "optimiert") ? "" : "none";
+  // BA451: Randausgleich-Achse laden.
+  if (typeof FRQ_bandRandausgleichWahl !== "undefined" && d.bandRandausgleich !== undefined) {
+    FRQ_bandRandausgleichWahl = d.bandRandausgleich;
+    var _rr = document.querySelector('input[name="FRQ_bandRandausgleich"][value="' + FRQ_bandRandausgleichWahl + '"]');
+    if (_rr) _rr.checked = true;
+  }
+  // BA451: ABF-Achsen-Sichtbarkeit nach dem Laden neu berechnen (Verfahren kann "abf" sein).
+  // Variante (b): change-Event auf dem Verfahren-Radiobutton dispatchen -> init.js-Handler
+  // zieht die Sichtbarkeit nach, ohne dass _frqBandAchsenSichtbarkeit global sein muss.
+  var _rvLoad = document.querySelector('input[name="FRQ_bandVerfahren"][value="' + FRQ_bandVerfahrenWahl + '"]');
+  if (_rvLoad) _rvLoad.dispatchEvent(new Event("change"));
   // BA 177: wenn Save-Daten Frequenzabgleich-Messungen enthielten,
   // den Default-Anwendungs-Flag setzen, damit der nächste Insert
   // den gespeicherten pWarpMode nicht überschreibt.
