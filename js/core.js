@@ -818,11 +818,16 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
   // Die gemeinsame Invariante (Kette, Ueberlauf, Einzel-El.) laeuft
   // trotzdem -> ABF wird ERST NACH diesen Pruefungen gerufen (s.u.).
   var _istAbf = (verfahren === "abf");
-  var vf = _istAbf ? null : FRQ_bandVerfahren[verfahren || "geometrisch"];
-  if (!_istAbf && (!vf || typeof vf.toP !== "function" || typeof vf.fromP !== "function"))
+  // BA454-Fix (0.5.455.1): CBF ist wie ABF KEIN Registry-Verfahren (eigener
+  // Grenzsetzungs-Zweig, Architektur §2.2/§4.1). Ohne diese Ausnahme fiel
+  // CBF in die unknownVerfahren-Sperre und erreichte seine Weiche nie.
+  var _istCbf = (verfahren === "cbf");
+  var _keinRegistry = _istAbf || _istCbf;
+  var vf = _keinRegistry ? null : FRQ_bandVerfahren[verfahren || "geometrisch"];
+  if (!_keinRegistry && (!vf || typeof vf.toP !== "function" || typeof vf.fromP !== "function"))
     return { error: "unknownVerfahren", verfahren: verfahren };
-  var topo = _istAbf ? null : FRQ_bandTopologie[topologie || "nahtlos"];
-  if (!_istAbf && typeof topo !== "function")
+  var topo = _keinRegistry ? null : FRQ_bandTopologie[topologie || "nahtlos"];
+  if (!_keinRegistry && typeof topo !== "function")
     return { error: "unknownTopologie", topologie: topologie };
 
   // Nur aktive Elektroden bilden die Kette (nicht aktive: Nachbarn
