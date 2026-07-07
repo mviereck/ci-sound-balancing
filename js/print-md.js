@@ -1498,14 +1498,14 @@ function _audiologChartImg(side) {
   });
 }
 
-// BA424: Frequenz-Graph fuer den Ausdruck. Nutzt DENSELBEN Zeichencode wie
-// der Reiter (drawFRQChart, BA422) in fester Druckgroesse. Werte folgen der
-// Player-Einstellung (modus=pWarpMode, nhSim=plNHSim). "" wenn Warping aus
-// oder keine gemessenen Daten fuer die Seite.
+// BA424/BA459: Frequenz-Graph fuer den Ausdruck. BA459: nutzt Engine
+// drawFRQGraph + FRQ_ergebnisRows (gemeinsame Quelle mit Reiter).
+// Werte folgen der Player-Einstellung (modus=pWarpMode, nhSim=plNHSim).
+// "" wenn Warping aus oder keine gemessenen Daten fuer die Seite.
 function _audiologFreqChartImg(side) {
   if (typeof pWarpOn === "undefined" || !pWarpOn) return "";
   if (typeof plEqOn !== "undefined" && !plEqOn) return "";
-  if (typeof drawFRQChart !== "function") return "";
+  if (typeof drawFRQGraph !== "function" || typeof FRQ_ergebnisRows !== "function") return "";
   const displayData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
   if (!displayData || displayData.length === 0) return "";
   // BA425: Kein Graph, wenn diese Seite keine Aenderung != 0 hat.
@@ -1516,11 +1516,15 @@ function _audiologFreqChartImg(side) {
   const nhSim = !!(nhEl && nhEl.checked);
 
   const cv = document.createElement("canvas");
-  // Feste Druckgroesse wie der bisherige Ausdruck-Graph (700x240), scharf via dpr.
-  drawFRQChart(cv, displayData, {
-    side: side,
-    modus: modus,
-    nhSim: nhSim,
+  const _rows = FRQ_ergebnisRows(side, { modus: modus, nhSim: nhSim });
+  const _wand = (typeof mfr === "string" && MFR[mfr] && MFR[mfr].defaultRange
+    && MFR[mfr].defaultRange.length === 2) ? MFR[mfr].defaultRange : null;
+  drawFRQGraph(cv, _rows, {
+    residuumAnker: "punkt",
+    amberband: true,
+    xWandHz: _wand,
+    yLabel: t("FRQ_resultsChartYLabel"),
+    verbindung: true,
     fixedSize: { w: 700, h: 240, dpr: 2 }
   });
   const url = cv.toDataURL("image/png");

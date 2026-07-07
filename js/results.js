@@ -367,6 +367,89 @@ function _FRQ_chartLegendHtml() {
     "<table style=\"border-collapse:collapse;font-size:1em\"><tbody>" + rows + "</tbody></table>";
 }
 
+// BA459: Zeilen-Modell fuer den Ergebnis-Frequenzgraphen (gehoerte
+// Verschiebung). EINE Quelle fuer Reiter UND Ausdruck -> kein
+// doppelter Modell-Bau. side = Anzeigeseite; opts.modus/opts.nhSim
+// erlauben dem Ausdruck, Player-warpMode + NH-Sim vorzugeben.
+// Rueckgabe: rows[] fuer drawFRQGraph.
+function FRQ_ergebnisRows(side, opts) {
+  opts = opts || {};
+  var fResData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
+  var measuredByIdx = {};
+  for (var m = 0; m < fResData.length; m++) measuredByIdx[fResData[m].elIdx] = fResData[m];
+
+  var modus = (typeof opts.modus === "string") ? opts.modus
+    : FRQ_modusVonReferenzmodus(frq_referenzmodus());
+  var werte = FRQ_werte("gehoert", modus, !!opts.nhSim);
+
+  var tipT = function (k, fb) {
+    if (typeof t !== "function") return fb;
+    var v = t(k); return (v && v !== k) ? v : fb;
+  };
+  var NB = " ";  // schmales geschuetztes Leerzeichen
+
+  var rows = [];
+  for (var j = 0; j < werte.length; j++) {
+    var wr = werte[j];
+    var seite = wr[side];
+    var r = measuredByIdx[wr.elIdx];
+    var elNum = dEN(wr.elIdx, side);
+    var hzIst = seite.nominellHz;
+    var hzSoll = seite.gehoertHz;         // null wenn ungemessen
+    var dc = seite.shiftCent;             // null wenn ungemessen
+    var resid = (seite.residuum != null) ? seite.residuum : 0;
+    var isMeasured = !!r;
+    var fmStatus = r ? (r.fmStatus || "converged") : null;
+    var warn = (fmStatus === "piano-crossed" || fmStatus === "piano-wide");
+
+    // Sichtbarkeit: elActive===false -> unsichtbar (wie Bandgraph/Sec.9.5).
+    var sichtbar = !(sideData[side].elActive && sideData[side].elActive[wr.elIdx] === false);
+
+    var tooltip;
+    var marker = null;
+    if (!isMeasured) {
+      // ungemessen: Marker "ausgeschlossen" (nicht testbar) oder "offen".
+      marker = wr.deaktiviert ? "ausgeschlossen" : "offen";
+      tooltip = ["<b>E" + elNum + "</b>",
+                 Math.round(hzIst) + " Hz",
+                 tipT("notMeasured", "nicht gemessen")];
+    } else {
+      var istC = 1200 * Math.log2(hzIst / 1000);
+      var sollC = 1200 * Math.log2(hzSoll / 1000);
+      var cIstTxt = (istC >= 0 ? "+" : "") + Math.round(istC) + NB + "ct";
+      var cSollTxt = (sollC >= 0 ? "+" : "") + Math.round(sollC) + NB + "ct";
+      tooltip = ["<b>E" + elNum + "</b>",
+                 Math.round(hzIst) + NB + "Hz → " + Math.round(hzSoll) + NB + "Hz",
+                 cIstTxt + " → " + cSollTxt];
+      if (resid > 0) {
+        tooltip.push(tipT("FRQ_resultsTipResidual", "Restunsicherheit") + " ±"
+          + Math.round(resid) + NB + "ct");
+      }
+      if (fmStatus === "piano-crossed") {
+        tooltip.push("⚠️ " + tipT("FRQ_resultsTipPianoCrossed",
+          "Grenzen vertauscht – Wert unsicher"));
+      } else if (fmStatus === "piano-wide") {
+        tooltip.push("⚠️ " + tipT("FRQ_resultsTipPianoWide",
+          "Unsicherheit sehr groß"));
+      }
+    }
+
+    rows.push({
+      elNum: elNum,
+      xLinksHz: hzIst,
+      xRechtsHz: (hzSoll != null) ? hzSoll : hzIst,   // ungemessen: Fallback Ist
+      yCent: (isMeasured && dc != null) ? dc : null,
+      residuumCent: resid,
+      bandLoHz: null, bandHiHz: null,     // Ergebnisgraph hat keine Baender
+      sichtbar: sichtbar,
+      warn: warn,
+      marker: marker,                     // nur bei ungemessen gesetzt
+      tooltip: tooltip
+    });
+  }
+  return rows;
+}
+
 function FRQ_renderResults() {
   const noData = document.getElementById("FRQ_resultsNoData");
   const card = document.getElementById("FRQ_resultsCard");
@@ -552,15 +635,24 @@ function FRQ_renderResults() {
   // Chart
   const cv = document.getElementById("FRQ_resultsChart");
   if (cv) {
-    drawFRQChart(cv, displayData);
-    // Tooltip-Listener einmalig anhängen
-    if (!cv._frq_chartListenerAttached) {
-      cv.addEventListener("mousemove", (e) => _frq_chartTooltipHandler(cv, e));
+    const _rows = FRQ_ergebnisRows(aktivSide, {});
+    const _wand = (typeof mfr === "string" && MFR[mfr] && MFR[mfr].defaultRange
+      && MFR[mfr].defaultRange.length === 2) ? MFR[mfr].defaultRange : null;
+    drawFRQGraph(cv, _rows, {
+      residuumAnker: "punkt",
+      amberband: true,
+      xWandHz: _wand,
+      yLabel: t("FRQ_resultsChartYLabel"),
+      verbindung: true
+      // KEIN schwelleCent -> zweistufig gruen/rot (Ergebnisgraph)
+    });
+    if (!cv._frqg_listener) {
+      cv.addEventListener("mousemove", (e) => _frqg_tooltipHandler(cv, e));
       cv.addEventListener("mouseleave", () => {
-        const tip = document.getElementById("frq_chartTooltip");
+        const tip = document.getElementById("frqg_tooltip");
         if (tip) tip.style.display = "none";
       });
-      cv._frq_chartListenerAttached = true;
+      cv._frqg_listener = true;
     }
   }
 
