@@ -720,6 +720,7 @@
                   <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cochlear"> <span data-t="FRQ_bandVerfArith">Arithmetisch (Cochlear)</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="greenwood"> <span data-t="FRQ_bandVerfGreen">Greenwood (MED-EL)</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="abf"> <span data-t="FRQ_bandVerfAbf">ABF (MED-EL, patenttreu)</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cbf"> <span data-t="FRQ_bandVerfCbf">CBF (CImbel based fitting)</span></label>
                 </fieldset>
                 <fieldset id="FRQ_bandTopologieFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
                   <legend data-t="FRQ_bandTopoLegend" style="padding:0 6px">Band-Topologie</legend>
@@ -741,6 +742,23 @@
                   <legend data-t="FRQ_bandRandLegend" style="padding:0 6px">Randausgleich</legend>
                   <label style="display:block"><input type="radio" name="FRQ_bandRandausgleich" value="mit"> <span data-t="FRQ_bandRandMit">Mit Ausgleich (patenttreu)</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandRandausgleich" value="ohne"> <span data-t="FRQ_bandRandOhne">Ohne Ausgleich</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandCbfGewichtFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandCbfGewichtLegend" style="padding:0 6px">Gewichtung</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfGewicht" value="treffer"> <span data-t="FRQ_bandCbfGewTreffer">Zielfrequenz erreichen</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfGewicht" value="ausgewogen"> <span data-t="FRQ_bandCbfGewAusgew">Ausgewogen</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfGewicht" value="breite"> <span data-t="FRQ_bandCbfGewBreite">Bandbreite gleichmäßig</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandCbfRandverhaltenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandCbfRandvLegend" style="padding:0 6px">Randverhalten</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfRandverhalten" value="eng"> <span data-t="FRQ_bandCbfRandvEng">Nur Randelektrode</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfRandverhalten" value="mittel"> <span data-t="FRQ_bandCbfRandvMittel">Mittel</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfRandverhalten" value="weich"> <span data-t="FRQ_bandCbfRandvWeich">Weich auslaufend</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandCbfRandspektrumFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandCbfRandspLegend" style="padding:0 6px">Randspektrum</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfRandspektrum" value="frei"> <span data-t="FRQ_bandCbfRandspFrei">Randspektrum frei lassen</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfRandspektrum" value="voll"> <span data-t="FRQ_bandCbfRandspVoll">Volles Spektrum nutzen</span></label>
                 </fieldset>
               </div>
               <label class="wv-debug-only" style="display:block;margin:0 0 10px;font-size:.86em;color:#555">

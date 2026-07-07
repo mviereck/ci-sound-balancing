@@ -563,16 +563,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // Bei den anderen drei Verfahren umgekehrt. EINE Stelle, datengetrieben.
   function _frqBandAchsenSichtbarkeit() {
     var istAbf = (FRQ_bandVerfahrenWahl === "abf");
+    var istCbf = (FRQ_bandVerfahrenWahl === "cbf");
+    // BA455: Die alten Achsen (Topologie/Optimieren/Ziel) sind bei ABF UND
+    // CBF aus (beide verdraengen sie, Architektur §4.1).
     var aus = ["FRQ_bandTopologieFieldset", "FRQ_bandOptimierenFieldset",
                "FRQ_bandZielFieldset"];
     aus.forEach(function (id) {
       var fs = document.getElementById(id);
-      if (fs) fs.style.display = istAbf ? "none" : "";
+      if (fs) fs.style.display = (istAbf || istCbf) ? "none" : "";
     });
+    // Randausgleich (ABF) nur bei ABF.
     var rand = document.getElementById("FRQ_bandRandausgleichFieldset");
     if (rand) rand.style.display = istAbf ? "" : "none";
-    // Bei Nicht-ABF gilt weiterhin die Optimieren-abhaengige Ziel-Sichtbarkeit.
-    if (!istAbf) _frqBandZielSichtbarkeit();
+    // BA455: die drei CBF-Fieldsets nur bei CBF.
+    ["FRQ_bandCbfGewichtFieldset", "FRQ_bandCbfRandverhaltenFieldset",
+     "FRQ_bandCbfRandspektrumFieldset"].forEach(function (id) {
+      var fs = document.getElementById(id);
+      if (fs) fs.style.display = istCbf ? "" : "none";
+    });
+    // Bei den drei klassischen Verfahren gilt die Optimieren-abhaengige
+    // Ziel-Sichtbarkeit.
+    if (!istAbf && !istCbf) _frqBandZielSichtbarkeit();
   }
   _frqBandWahlInit("FRQ_bandVerfahren", function (v) {
     FRQ_bandVerfahrenWahl = v;
@@ -585,6 +596,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   _frqBandWahlInit("FRQ_bandZiel", function (v) { FRQ_bandZielWahl = v; });
   _frqBandWahlInit("FRQ_bandRandausgleich", function (v) { FRQ_bandRandausgleichWahl = v; });
+  // BA455: CBF-Achsen. _frqBandWahlInit ruft FRQ_renderResults nach jeder
+  // Aenderung -> Tabelle+Graph aktualisieren gemeinsam (BA452-Wertquelle).
+  _frqBandWahlInit("FRQ_bandCbfGewicht", function (v) { FRQ_bandCbfGewichtWahl = v; });
+  _frqBandWahlInit("FRQ_bandCbfRandverhalten", function (v) { FRQ_bandCbfRandverhaltenWahl = v; });
+  _frqBandWahlInit("FRQ_bandCbfRandspektrum", function (v) { FRQ_bandCbfRandspektrumWahl = v; });
   // DEBUG-Testoption (Martin): Default-Mittenfrequenzen statt Messwerte.
   // Setzt das globale Flag (core.js, in FRQ_werte ausgewertet) und zeichnet
   // die Empfehlungs-Ansicht neu. Nur diese eine Quell-Stelle wirkt.
@@ -608,6 +624,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (rz) rz.checked = true;
     var rr = document.querySelector('input[name="FRQ_bandRandausgleich"][value="' + FRQ_bandRandausgleichWahl + '"]');
     if (rr) rr.checked = true;
+    // BA455: CBF-Achsen spiegeln.
+    var rcg = document.querySelector('input[name="FRQ_bandCbfGewicht"][value="' + FRQ_bandCbfGewichtWahl + '"]');
+    if (rcg) rcg.checked = true;
+    var rcr = document.querySelector('input[name="FRQ_bandCbfRandverhalten"][value="' + FRQ_bandCbfRandverhaltenWahl + '"]');
+    if (rcr) rcr.checked = true;
+    var rcs = document.querySelector('input[name="FRQ_bandCbfRandspektrum"][value="' + FRQ_bandCbfRandspektrumWahl + '"]');
+    if (rcs) rcs.checked = true;
     _frqBandAchsenSichtbarkeit();   // BA451: initiale Achsen-Sichtbarkeit (ersetzt alleinigen _frqBandZielSichtbarkeit-Aufruf)
   })();
 

@@ -32,6 +32,11 @@ let FRQ_bandZielWahl = "minimax";
 // Fehler-Ausgleich in der apikalen Zone). Nur bei Verfahren "abf"
 // wirksam/sichtbar. Default patenttreu.
 let FRQ_bandRandausgleichWahl = "mit";
+// BA455: CBF-Achsen (Architektur 00-cbf-verfahren-architektur.md §4.4).
+// value-Strings = Vertrag mit FRQ_cbfGrenzen (BA454 §5).
+let FRQ_bandCbfGewichtWahl = "ausgewogen";
+let FRQ_bandCbfRandverhaltenWahl = "mittel";
+let FRQ_bandCbfRandspektrumWahl = "frei";
 // DEBUG-Testoption (Martin, nicht persistent, nicht gespeichert): bei true
 // speist FRQ_werte die nominellen Implantat-Frequenzen (cent=0) statt der
 // echten Messwerte ein -> Verhalten der Verfahren mit Default-Mittenfreqs.

@@ -240,6 +240,15 @@ function resetAll() {
     var _rvR = document.querySelector('input[name="FRQ_bandVerfahren"][value="greenwood"]');
     if (_rvR) _rvR.dispatchEvent(new Event("change"));
   }
+  if (typeof FRQ_bandCbfGewichtWahl !== "undefined") {
+    FRQ_bandCbfGewichtWahl = "ausgewogen";
+  }
+  if (typeof FRQ_bandCbfRandverhaltenWahl !== "undefined") {
+    FRQ_bandCbfRandverhaltenWahl = "mittel";
+  }
+  if (typeof FRQ_bandCbfRandspektrumWahl !== "undefined") {
+    FRQ_bandCbfRandspektrumWahl = "frei";
+  }
   // --- MAPLAW-Knopf ---
   if (typeof pMaplawOn !== "undefined") pMaplawOn = false;
   if (typeof pMaplawSollC !== "undefined") pMaplawSollC = 1000;
@@ -398,6 +407,9 @@ async function saveJson() {
     bandOptimieren: (typeof FRQ_bandOptimierenWahl !== "undefined") ? FRQ_bandOptimierenWahl : "optimiert",
     bandZiel: (typeof FRQ_bandZielWahl !== "undefined") ? FRQ_bandZielWahl : "minimax",
     bandRandausgleich: (typeof FRQ_bandRandausgleichWahl !== "undefined") ? FRQ_bandRandausgleichWahl : "mit",
+    bandCbfGewicht: (typeof FRQ_bandCbfGewichtWahl !== "undefined") ? FRQ_bandCbfGewichtWahl : "ausgewogen",
+    bandCbfRandverhalten: (typeof FRQ_bandCbfRandverhaltenWahl !== "undefined") ? FRQ_bandCbfRandverhaltenWahl : "mittel",
+    bandCbfRandspektrum: (typeof FRQ_bandCbfRandspektrumWahl !== "undefined") ? FRQ_bandCbfRandspektrumWahl : "frei",
 
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
@@ -794,6 +806,21 @@ function applyLoadedData(d) {
     FRQ_bandRandausgleichWahl = d.bandRandausgleich;
     var _rr = document.querySelector('input[name="FRQ_bandRandausgleich"][value="' + FRQ_bandRandausgleichWahl + '"]');
     if (_rr) _rr.checked = true;
+  }
+  if (typeof FRQ_bandCbfGewichtWahl !== "undefined" && d.bandCbfGewicht !== undefined) {
+    FRQ_bandCbfGewichtWahl = d.bandCbfGewicht;
+    var _rcg = document.querySelector('input[name="FRQ_bandCbfGewicht"][value="' + FRQ_bandCbfGewichtWahl + '"]');
+    if (_rcg) _rcg.checked = true;
+  }
+  if (typeof FRQ_bandCbfRandverhaltenWahl !== "undefined" && d.bandCbfRandverhalten !== undefined) {
+    FRQ_bandCbfRandverhaltenWahl = d.bandCbfRandverhalten;
+    var _rcr = document.querySelector('input[name="FRQ_bandCbfRandverhalten"][value="' + FRQ_bandCbfRandverhaltenWahl + '"]');
+    if (_rcr) _rcr.checked = true;
+  }
+  if (typeof FRQ_bandCbfRandspektrumWahl !== "undefined" && d.bandCbfRandspektrum !== undefined) {
+    FRQ_bandCbfRandspektrumWahl = d.bandCbfRandspektrum;
+    var _rcs = document.querySelector('input[name="FRQ_bandCbfRandspektrum"][value="' + FRQ_bandCbfRandspektrumWahl + '"]');
+    if (_rcs) _rcs.checked = true;
   }
   // BA451: ABF-Achsen-Sichtbarkeit nach dem Laden neu berechnen (Verfahren kann "abf" sein).
   // Variante (b): change-Event auf dem Verfahren-Radiobutton dispatchen -> init.js-Handler
