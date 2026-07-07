@@ -189,7 +189,7 @@ const MFR = {
     name: "Advanced Bionics",
     n: 16,
     apFirst: true,
-    defaultRange: null,
+    defaultRange: [250, 8700],  // SoundWave 2.2 FAT, HiRes/HiRes120 Extended Low (Default): E1-Low 250 Hz, E16-High 8700 Hz
     FRQ_implantat: [
       333, 455, 540, 642, 762, 906, 1076, 1278, 1518, 1803, 2142, 2544, 3022,
       3590, 4264, 6665,
@@ -1261,7 +1261,7 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
       var _optHier = (form === "gehoert") && _optimieren;
       // BA450: feste Hersteller-Wand fuer ABF, SEITENRICHTIG (Architektur
       // §4.5). mfr ist seitengebunden (state-side.js:8) -> ueber withSide
-      // lesen. Fehlt defaultRange (AB / "—": null), bleibt _abfWand null.
+      // lesen. Fehlt defaultRange ("—": null), bleibt _abfWand null.
       var _dr = withSide(seite, function () {
         return (typeof mfr === "string" && MFR[mfr]) ? MFR[mfr].defaultRange : null;
       });
