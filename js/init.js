@@ -552,14 +552,30 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
+  // BA448 (Sec. 14.6): das Optimierungsziel ist nur bei "optimiert"
+  // wirksam -> Fieldset nur dann sichtbar (Nutzer-Beschluss 2026-07-06).
+  function _frqBandZielSichtbarkeit() {
+    var fs = document.getElementById("FRQ_bandZielFieldset");
+    if (fs) fs.style.display = (FRQ_bandOptimierenWahl === "optimiert") ? "" : "none";
+  }
   _frqBandWahlInit("FRQ_bandVerfahren", function (v) { FRQ_bandVerfahrenWahl = v; });
   _frqBandWahlInit("FRQ_bandTopologie", function (v) { FRQ_bandTopologieWahl = v; });
+  _frqBandWahlInit("FRQ_bandOptimieren", function (v) {
+    FRQ_bandOptimierenWahl = v;
+    _frqBandZielSichtbarkeit();   // Ziel-Fieldset ein/aus
+  });
+  _frqBandWahlInit("FRQ_bandZiel", function (v) { FRQ_bandZielWahl = v; });
   // Anfangswerte in die Radiobuttons spiegeln.
   (function () {
     var rv = document.querySelector('input[name="FRQ_bandVerfahren"][value="' + FRQ_bandVerfahrenWahl + '"]');
     if (rv) rv.checked = true;
     var rt = document.querySelector('input[name="FRQ_bandTopologie"][value="' + FRQ_bandTopologieWahl + '"]');
     if (rt) rt.checked = true;
+    var ro = document.querySelector('input[name="FRQ_bandOptimieren"][value="' + FRQ_bandOptimierenWahl + '"]');
+    if (ro) ro.checked = true;
+    var rz = document.querySelector('input[name="FRQ_bandZiel"][value="' + FRQ_bandZielWahl + '"]');
+    if (rz) rz.checked = true;
+    _frqBandZielSichtbarkeit();
   })();
 
   // Warp-UI initialisieren

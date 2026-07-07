@@ -574,16 +574,126 @@ function _frqGauss(M, rhs) {
 //   { bands: [ { elIdx, loHz, hiHz, centerHz }, ... ] }  (nur aktive)
 //   | { error: "overlap", elektroden: [...] }  bei Ueberholung.
 //   | { error: "unknownVerfahren" | "unknownTopologie", ... }  bei Fehler.
-function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, opt) {
-  var vf = FRQ_bandVerfahren[verfahren || "geometrisch"];
-  // Ungueltiger Verfahrensname -> Fehler (kein Fallback, Nutzer-Beschluss
-  // 2026-07-05). Notausgang-Prinzip Sec. 11.7/§13.8: kein stilles
-  // Ausweichen. vf liefert toP/fromP (Rechenraum, §13.3).
-  if (!vf || typeof vf.toP !== "function" || typeof vf.fromP !== "function")
+
+// BA450 (Architektur 00-abf-verfahren-architektur.md §3): ABF-Verfahren,
+// MED-EL Anatomy-Based Fitting nachgebildet. Zonen-Schwellen auf die
+// GEHOERTE Frequenz (nicht Place-Frequenz), Patent §0061 Beispielwerte.
+// Kalibrierbar (benannte Konstanten, kein UI).
+var ABF_SCHWELLE_LO = 950;    // unter -> apikale Zone
+var ABF_SCHWELLE_HI = 3000;   // ueber -> basale Zone
+// Apikaler Start-Bezugswert (Patent §0074 "fixed value at 250 Hz"). Fest,
+// NICHT aus den Messdaten abgeleitet. Von hier aus werden die apikalen
+// Baender log-verteilt und per Fehler-Ausgleich zur unteren Wand gezogen.
+var ABF_APIKAL_START_HZ = 250;
+
+// BA450: n+1 logarithmisch gleichverteilte Kanten zwischen a und b
+// (n Segmente). a,b > 0. Kern der ABF-Randzonen (Patent §0071/§0076).
+function _logspaceEdges(a, b, n) {
+  var out = [], la = Math.log(a), lb = Math.log(b);
+  for (var k = 0; k <= n; k++) out.push(Math.exp(la + (lb - la) * k / n));
+  return out;
+}
+
+// BA450 (Architektur §3.2 / §4.2): TONOTOPE Zone. Innere Grenzen =
+// geometrische Mitte benachbarter gehoerter Frequenzen (Patent §0063,
+// 1st rule). freqs aufsteigend, laenge M>=1. Rueckgabe: nur innere
+// Grenzen (laenge M-1); End-Kanten setzt der Zusammensetzer.
+function _abfTonotop(freqs) {
+  var inner = [];
+  for (var i = 0; i < freqs.length - 1; i++) inner.push(geomMitte(freqs[i], freqs[i + 1]));
+  return inner;
+}
+
+// BA450 (Architektur §3.4 apikal): APIKALE Zone. Log-Verteilung zwischen
+// ABF_APIKAL_START_HZ und der tonotopen Unterkante, optional per linearem
+// Fehler-Ausgleich zur festen unteren Wand gezogen (Patent §0074-0076).
+//   freqs         gehoerte Frequenzen der apikalen El. (aufsteigend), M>=1
+//   wandLo        feste untere Wand (z.B. 70)
+//   tonoUnterkante untere Grenze der ersten tonotopen El. (geteilte Kante)
+//   mitAusgleich  true = Fehler-Ausgleich (§0076); false = reine Logspace
+// Rueckgabe: M+1 Kanten [aeussersteKante ... tonoUnterkante].
+function _abfApikal(freqs, wandLo, tonoUnterkante, mitAusgleich) {
+  var M = freqs.length;
+  if (!mitAusgleich) {
+    return _logspaceEdges(wandLo, tonoUnterkante, M);
+  }
+  var edges = _logspaceEdges(ABF_APIKAL_START_HZ, tonoUnterkante, M);
+  var E = ABF_APIKAL_START_HZ - wandLo;
+  var out = [];
+  for (var k = 0; k <= M; k++) {
+    out.push(edges[k] - E * (M - k) / M);
+  }
+  return out;
+}
+
+// BA450 (Architektur §3.4 basal): BASALE Zone. Reine Log-Verteilung
+// zwischen der tonotopen Oberkante und der festen oberen Wand (Patent
+// §0071, 3rd rule). Kein Fehler-Ausgleich (tonotope Oberkante IST der
+// Logspace-Start).
+//   freqs         gehoerte Frequenzen der basalen El. (aufsteigend), M>=1
+//   wandHi        feste obere Wand (z.B. 8500)
+//   tonoOberkante obere Grenze der letzten tonotopen El. (geteilte Kante)
+// Rueckgabe: M+1 Kanten [tonoOberkante ... wandHi].
+function _abfBasal(freqs, wandHi, tonoOberkante) {
+  return _logspaceEdges(tonoOberkante, wandHi, freqs.length);
+}
+
+// BA450 (Architektur §4.2): ABF-Grenzsetzung. EINZIGER Aufrufer ist
+// FRQ_baender (ueber die verfahren==="abf"-Weiche). Reine Funktion, kein
+// globaler Zustand, kein DOM.
+//   kette         Array aktiver El. in Elektroden-Reihenfolge, je { elIdx, hz }
+//                 (hz = gehoerte Mitte; aufsteigend, vom Rahmen geprueft)
+//   wand          { loHz, hiHz } feste Herstellerwaende (Architektur §4.5)
+//   mitAusgleich  bool (Randausgleich-Achse, BA451; hier durchgereicht)
+// Rueckgabe:
+//   { edges: [k0..kN] }   N+1 Bandkanten in Elektroden-Reihenfolge
+//   | { error: "abfTonoZuKlein" }   tonotope Zone < 2 (Architektur §3.6)
+function FRQ_abfGrenzen(kette, wand, mitAusgleich) {
+  var N = kette.length;
+  var freqs = kette.map(function (m) { return m.hz; });
+
+  // Zonen-Einteilung (§3.1): aeusserste IMMER Rand, dann Schwelle.
+  var apEnd = 0;
+  for (var i = 1; i < N - 1; i++) {
+    if (freqs[i] < ABF_SCHWELLE_LO) apEnd = i; else break;
+  }
+  var baStart = N - 1;
+  for (var j = N - 2; j > apEnd; j--) {
+    if (freqs[j] > ABF_SCHWELLE_HI) baStart = j; else break;
+  }
+  var apFreqs = freqs.slice(0, apEnd + 1);
+  var toFreqs = freqs.slice(apEnd + 1, baStart);
+  var baFreqs = freqs.slice(baStart);
+
+  // Verwendbarkeit (§3.6): tonotope Zone braucht >= 2.
+  if (toFreqs.length < 2) return { error: "abfTonoZuKlein" };
+
+  // Geteilte Uebergangs-Kanten (nahtlos, geom. Mitte ueber Zonengrenze).
+  var tonoUnterkante = geomMitte(apFreqs[apFreqs.length - 1], toFreqs[0]);
+  var tonoOberkante  = geomMitte(toFreqs[toFreqs.length - 1], baFreqs[0]);
+
+  var apEdges = _abfApikal(apFreqs, wand.loHz, tonoUnterkante, mitAusgleich);
+  var toInner = _abfTonotop(toFreqs);
+  var baEdges = _abfBasal(baFreqs, wand.hiHz, tonoOberkante);
+
+  // Zusammensetzen zu N+1 Kanten in Elektroden-Reihenfolge.
+  // apEdges (inkl. tonoUnterkante) + toInner + tonoOberkante + baEdges ohne erste.
+  var edges = apEdges.concat(toInner, [tonoOberkante], baEdges.slice(1));
+  return { edges: edges };
+}
+
+function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand, opt) {
+  // BA450: ABF ist KEIN Registry-Verfahren (feste Hz-Waende sind keine
+  // toP/fromP-Transformation, Architektur §2.2). Eigener Grenzsetzungs-
+  // Zweig; verdraengt Topologie/optimieren/ziel (Architektur §4.1).
+  // Die gemeinsame Invariante (Kette, Ueberlauf, Einzel-El.) laeuft
+  // trotzdem -> ABF wird ERST NACH diesen Pruefungen gerufen (s.u.).
+  var _istAbf = (verfahren === "abf");
+  var vf = _istAbf ? null : FRQ_bandVerfahren[verfahren || "geometrisch"];
+  if (!_istAbf && (!vf || typeof vf.toP !== "function" || typeof vf.fromP !== "function"))
     return { error: "unknownVerfahren", verfahren: verfahren };
-  var topo = FRQ_bandTopologie[topologie || "nahtlos"];
-  // Ungueltige Topologie -> Fehler, analog Verfahren (§13.8: kein Fallback).
-  if (typeof topo !== "function")
+  var topo = _istAbf ? null : FRQ_bandTopologie[topologie || "nahtlos"];
+  if (!_istAbf && typeof topo !== "function")
     return { error: "unknownTopologie", topologie: topologie };
 
   // Nur aktive Elektroden bilden die Kette (nicht aktive: Nachbarn
@@ -612,6 +722,22 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, opt)
 
   // Einzelne Elektrode: kein Nachbar zum Spiegeln -> kein Band definierbar.
   if (kette.length === 1) return { bands: [] };
+
+  // --- Grenzsetzung: ABF (Architektur §4.1, verdraengt Topologie) ODER
+  //     Verfahren-Registry x Topologie x optimieren (bestehend). ---
+  if (_istAbf) {
+    var _mitAusgleich = !(opt && opt.mitAusgleich === false);
+    var abfRes = FRQ_abfGrenzen(kette, wand, _mitAusgleich);
+    if (abfRes.error) return abfRes;
+    var _e = abfRes.edges;
+    var bands = [];
+    for (var ae = 0; ae < kette.length; ae++) {
+      var _lo = _e[ae], _hi = _e[ae + 1];
+      bands.push({ elIdx: kette[ae].elIdx, loHz: _lo, hiHz: _hi,
+                   centerHz: geomMitte(_lo, _hi) });
+    }
+    return { bands: bands };
+  }
 
   // --- Grenzsetzung ueber die Topologie-Registry (§13.3/§13.4).
   // Der Raum steckt in vf.toP/vf.fromP, die Topologie in topo. Beide
@@ -939,10 +1065,17 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel) {
       // Sec. 14.6: Optimierung NIE fuer Warp (er summiert Bandpaesse,
       // braucht mittelpunkt-nahtlose Baender, Sec. 13.6a). Nur 'gehoert'.
       var _optHier = (form === "gehoert") && _optimieren;
+      // BA450: feste Hersteller-Wand fuer ABF, SEITENRICHTIG (Architektur
+      // §4.5). mfr ist seitengebunden (state-side.js:8) -> ueber withSide
+      // lesen. Fehlt defaultRange (AB / "—": null), bleibt _abfWand null.
+      var _dr = withSide(seite, function () {
+        return (typeof mfr === "string" && MFR[mfr]) ? MFR[mfr].defaultRange : null;
+      });
+      var _abfWand = (_dr && _dr.length === 2) ? { loHz: _dr[0], hiHz: _dr[1] } : null;
       // BA449: KEINE Range mehr (Sec. 14.5-Korrektur) -- Raender gespiegelt.
       var res = FRQ_baender(mitten, _verfahren, _topologie,
-        _optHier, _ziel);
-      if (res.error === "overlap") {
+        _optHier, _ziel, null, _abfWand);
+      if (res.error) {   // "overlap" ODER "abfTonoZuKlein" (BA450)
         out.forEach(function (entry) {
           if (entry[seite]) {
             entry[seite].bandOverlap = true;

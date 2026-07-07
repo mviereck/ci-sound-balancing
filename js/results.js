@@ -604,8 +604,15 @@ function _FRQ_renderBandEmpf(side) {
     "<th>" + t("FRQ_bandEmpfColRating") + "</th>";
 
   var modus = FRQ_modusVonReferenzmodus(frq_referenzmodus());
+  // BA448: Optimierung + Ziel = global gewaehlt. optimieren als bool aus
+  // der String-Wahl (Sec. 14.6). Verfahren/Topologie zieht FRQ_werte
+  // selbst aus den globalen Wahlen (Default), die wir hier nicht
+  // ueberschreiben -> undefined durchreichen.
+  var _opt = (typeof FRQ_bandOptimierenWahl !== "undefined")
+    && FRQ_bandOptimierenWahl === "optimiert";
+  var _ziel = (typeof FRQ_bandZielWahl !== "undefined") ? FRQ_bandZielWahl : "minimax";
   var werte = (typeof FRQ_werte === "function")
-    ? FRQ_werte("gehoert", modus, false) : [];   // Kombination = global default
+    ? FRQ_werte("gehoert", modus, false, undefined, undefined, _opt, _ziel) : [];
 
   var dash = "<span style=\"color:var(--text-muted)\">&#8212;</span>";
   var rows = "";
@@ -651,6 +658,14 @@ function _FRQ_renderBandEmpf(side) {
       var ueberTxt = (ueber >= 0 ? "+" : "") + fmtNum(ueber, "cent") + " ct";
       ratingCell = "<span style=\"color:" + farbe + ";font-weight:600\">" + stufe + "</span>"
                  + " <span style=\"color:var(--text-muted)\">(" + ueberTxt + ")</span>";
+    } else if (ws && ws.bandCenterVorschlagHz != null && ws.nominellHz != null) {
+      // BA448 (Sec. 14.5): ungemessene El. -> Verschiebungs-Vorschlag
+      // (Frequenz + Cent gegen nominell). Nutzer-Beschluss 2026-07-06.
+      var vHz = ws.bandCenterVorschlagHz;
+      var vCent = 1200 * Math.log2(vHz / ws.nominellHz);
+      var vCentTxt = (vCent >= 0 ? "+" : "") + fmtNum(vCent, "cent") + " ct";
+      ratingCell = "<span style=\"color:var(--text-muted);font-style:italic\">"
+        + t("FRQ_bandEmpfVorschlag") + ": " + fmtNum(vHz, "hz") + " Hz (" + vCentTxt + ")</span>";
     }
 
     rows += "<tr>"

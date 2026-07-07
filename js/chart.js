@@ -1030,8 +1030,12 @@ function drawFRQBandChart(cv, opts) {
     : ((typeof activeSide === "string") ? activeSide : "right");
   const modus = (typeof opts.modus === "string") ? opts.modus
     : FRQ_modusVonReferenzmodus(frq_referenzmodus());
+  // BA448: gleiche optimierte Kombination wie die Tabelle (global gewaehlt).
+  const _opt = (typeof FRQ_bandOptimierenWahl !== "undefined")
+    && FRQ_bandOptimierenWahl === "optimiert";
+  const _ziel = (typeof FRQ_bandZielWahl !== "undefined") ? FRQ_bandZielWahl : "minimax";
   const werte = (typeof FRQ_werte === "function")
-    ? FRQ_werte("gehoert", modus, !!opts.nhSim) : [];
+    ? FRQ_werte("gehoert", modus, !!opts.nhSim, undefined, undefined, _opt, _ziel) : [];
 
   // Nur Elektroden mit vollstaendigem Band einsammeln.
   const bands = [];

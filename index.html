@@ -726,6 +726,16 @@
                   <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="ueberlappend"> <span data-t="FRQ_bandTopoUeber">Bandüberschneidung</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="lueckig"> <span data-t="FRQ_bandTopoLuecke">Bandlücken</span></label>
                 </fieldset>
+                <fieldset id="FRQ_bandOptimierenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandOptimierenLegend" style="padding:0 6px">Grenzsetzung</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandOptimieren" value="optimiert"> <span data-t="FRQ_bandOptOptimiert">Optimiert</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandOptimieren" value="klassisch"> <span data-t="FRQ_bandOptKlassisch">Klassisch</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandZielFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandZielLegend" style="padding:0 6px">Optimierungsziel</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandZiel" value="minimax"> <span data-t="FRQ_bandZielMinimax">Kleinster Ausreißer</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandZiel" value="summe"> <span data-t="FRQ_bandZielSumme">Kleinster Gesamtfehler</span></label>
+                </fieldset>
               </div>
               <div style="margin:0 0 12px">
                 <canvas id="FRQ_bandEmpfChart" width="800" height="300"></canvas>

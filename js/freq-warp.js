@@ -23,6 +23,11 @@ let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default sy
 // Default (kein Konsument direkt).
 let FRQ_bandVerfahrenWahl = "greenwood";
 let FRQ_bandTopologieWahl = "nahtlos";
+// BA448 (Sec. 14.6): zwei weitere Wahl-Achsen der Bandempfehlung.
+// optimieren: "klassisch" | "optimiert" (Default optimiert, Nutzer 2026-07-06).
+// ziel: "minimax" | "summe" (nur wirksam wenn optimiert; Default minimax).
+let FRQ_bandOptimierenWahl = "optimiert";
+let FRQ_bandZielWahl = "minimax";
 let pWarpCalcMode = "mid";     // BA375: Berechnungs-Modus. "fast"|"mid"|"best".
                                // Quelle fuer engine (r2/r3) + Streaming/Voll.
                                // Persistent (localStorage + JSON), Default "mid".

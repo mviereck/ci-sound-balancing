@@ -219,6 +219,17 @@ function resetAll() {
     var _rtr = document.querySelector('input[name="FRQ_bandTopologie"][value="nahtlos"]');
     if (_rtr) _rtr.checked = true;
   }
+  // BA448: zwei neue Wahl-Achsen zuruecksetzen.
+  if (typeof FRQ_bandOptimierenWahl !== "undefined") {
+    FRQ_bandOptimierenWahl = "optimiert";
+    FRQ_bandZielWahl = "minimax";
+    var _roR = document.querySelector('input[name="FRQ_bandOptimieren"][value="optimiert"]');
+    if (_roR) _roR.checked = true;
+    var _rzR = document.querySelector('input[name="FRQ_bandZiel"][value="minimax"]');
+    if (_rzR) _rzR.checked = true;
+    var _zfs = document.getElementById("FRQ_bandZielFieldset");
+    if (_zfs) _zfs.style.display = "";
+  }
   // --- MAPLAW-Knopf ---
   if (typeof pMaplawOn !== "undefined") pMaplawOn = false;
   if (typeof pMaplawSollC !== "undefined") pMaplawSollC = 1000;
@@ -374,6 +385,8 @@ async function saveJson() {
     playerWarpMode: (typeof pWarpCalcMode !== "undefined") ? pWarpCalcMode : "mid",
     bandVerfahren: (typeof FRQ_bandVerfahrenWahl !== "undefined") ? FRQ_bandVerfahrenWahl : "greenwood",
     bandTopologie: (typeof FRQ_bandTopologieWahl !== "undefined") ? FRQ_bandTopologieWahl : "nahtlos",
+    bandOptimieren: (typeof FRQ_bandOptimierenWahl !== "undefined") ? FRQ_bandOptimierenWahl : "optimiert",
+    bandZiel: (typeof FRQ_bandZielWahl !== "undefined") ? FRQ_bandZielWahl : "minimax",
 
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
@@ -754,6 +767,20 @@ function applyLoadedData(d) {
     var _rt = document.querySelector('input[name="FRQ_bandTopologie"][value="' + FRQ_bandTopologieWahl + '"]');
     if (_rt) _rt.checked = true;
   }
+  // BA448: neue Wahl-Achsen laden (fehlt in Alt-Dateien -> Default).
+  if (typeof FRQ_bandOptimierenWahl !== "undefined" && d.bandOptimieren !== undefined) {
+    FRQ_bandOptimierenWahl = d.bandOptimieren;
+    var _ro = document.querySelector('input[name="FRQ_bandOptimieren"][value="' + FRQ_bandOptimierenWahl + '"]');
+    if (_ro) _ro.checked = true;
+  }
+  if (typeof FRQ_bandZielWahl !== "undefined" && d.bandZiel !== undefined) {
+    FRQ_bandZielWahl = d.bandZiel;
+    var _rz = document.querySelector('input[name="FRQ_bandZiel"][value="' + FRQ_bandZielWahl + '"]');
+    if (_rz) _rz.checked = true;
+  }
+  // Ziel-Fieldset-Sichtbarkeit nach dem Laden korrigieren.
+  var _zfsL = document.getElementById("FRQ_bandZielFieldset");
+  if (_zfsL) _zfsL.style.display = (FRQ_bandOptimierenWahl === "optimiert") ? "" : "none";
   // BA 177: wenn Save-Daten Frequenzabgleich-Messungen enthielten,
   // den Default-Anwendungs-Flag setzen, damit der nächste Insert
   // den gespeicherten pWarpMode nicht überschreibt.
