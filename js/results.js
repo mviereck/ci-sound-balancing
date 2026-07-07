@@ -615,10 +615,76 @@ function _FRQ_renderBandEmpf(side) {
   var note = document.getElementById("FRQ_bandEmpfOverlapNote");
   if (!head || !body) return;
 
-  // BA446: Empfehlungs-Graph (gleiche Kombination wie die Tabelle).
+  // BA458: Empfehlungs-Graph gegen die gemeinsame Engine drawFRQGraph.
+  // rows aus derselben Wertquelle wie die Tabelle unten (FRQ_empfWerte),
+  // damit Graph und Tabelle nie divergieren (vgl. BA452).
   var _bcv = document.getElementById("FRQ_bandEmpfChart");
-  if (_bcv && typeof drawFRQBandChart === "function") {
-    drawFRQBandChart(_bcv, { side: side });
+  if (_bcv && typeof drawFRQGraph === "function") {
+    var _werte = FRQ_empfWerte(false);
+    var _rows = [];
+    var _nCi = sideData[side].nEl;
+    for (var _i = 0; _i < _nCi; _i++) {
+      // elActive===false: komplett abgeschaltet -> unsichtbar (Sec. 9.5).
+      if (sideData[side].elActive && sideData[side].elActive[_i] === false) continue;
+      var _w = null;
+      for (var _k = 0; _k < _werte.length; _k++) {
+        if (_werte[_k].elIdx === _i) { _w = _werte[_k]; break; }
+      }
+      var _ws = _w ? _w[side] : null;
+      if (!_ws) continue;
+      // Nur El. mit vollstaendigem Band erscheinen (Ueberlauf/kein Band raus).
+      if (_ws.bandLoHz == null || _ws.bandHiHz == null || _ws.bandCenterHz == null) continue;
+      var _target = (_ws.gehoertHz != null) ? _ws.gehoertHz : _ws.nominellHz;
+      if (_target == null) continue;
+      var _center = _ws.bandCenterHz;
+      var _resid = (_ws.residuum != null) ? _ws.residuum : 0;
+      // Abweichung erreicht-gehoert in Cent (wie Tabelle results.js:668-669).
+      var _dev = 1200 * Math.log2(_center / _target);
+      var _elNum = dEN(_i, side);
+      // Bewertungstext (3 Stufen wie Tabelle) fuer den Tooltip.
+      var _ueber = Math.abs(_dev) - _resid;
+      var _bew;
+      if (_ueber <= 0) _bew = t("FRQ_bandEmpfRatingNoise");
+      else if (_ueber <= FRQ_bandEmpfSchwelleCent) _bew = t("FRQ_bandEmpfRatingSlight");
+      else _bew = t("FRQ_bandEmpfRatingClear");
+      var _devTxt = (_dev >= 0 ? "+" : "") + fmtNum(_dev, "cent") + " ct";
+      _rows.push({
+        elNum: _elNum,
+        xLinksHz: _target,        // gehoerte (gewollte) Frequenz
+        xRechtsHz: _center,       // erreichte Bandmitte (Punkt sitzt hier)
+        yCent: _dev,              // Abweichung erreicht-gehoert
+        residuumCent: _resid,
+        bandLoHz: _ws.bandLoHz,
+        bandHiHz: _ws.bandHiHz,
+        sichtbar: true,
+        warn: false,              // Bandgraph: vorerst kein Warndreieck
+        tooltip: [
+          "<b>E" + _elNum + "</b>",
+          t("FRQ_bandTipHeard") + ": " + fmtNum(_target, "hz") + " Hz",
+          t("FRQ_bandTipReached") + ": " + fmtNum(_center, "hz") + " Hz",
+          t("FRQ_bandTipShift") + ": " + _devTxt + " · " + _bew,
+          t("FRQ_bandTipBand") + ": " + fmtNum(_ws.bandLoHz, "hz") + " – "
+            + fmtNum(_ws.bandHiHz, "hz") + " Hz"
+        ]
+      });
+    }
+    var _wand = (typeof mfr === "string" && MFR[mfr] && MFR[mfr].defaultRange
+      && MFR[mfr].defaultRange.length === 2) ? MFR[mfr].defaultRange : null;
+    drawFRQGraph(_bcv, _rows, {
+      residuumAnker: "nulllinie",
+      xWandHz: _wand,
+      yLabel: t("FRQ_resultsChartYLabel"),
+      schwelleCent: FRQ_bandEmpfSchwelleCent,
+      verbindung: true,
+      amberband: false
+    });
+    if (!_bcv._frqg_listener) {
+      _bcv.addEventListener("mousemove", function (e) { _frqg_tooltipHandler(_bcv, e); });
+      _bcv.addEventListener("mouseleave", function () {
+        var _t = document.getElementById("frqg_tooltip"); if (_t) _t.style.display = "none";
+      });
+      _bcv._frqg_listener = true;
+    }
   }
 
   head.innerHTML =

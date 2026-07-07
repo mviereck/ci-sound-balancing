@@ -701,6 +701,8 @@ function FRQ_applyLang() {
   if (!FRQ_els) return;
   _frq_refreshHighGainWarningVisibility();
   _frq_renderPrereqHints();
+  // BA458: Graph-Tooltips entstehen beim rows-Bau aus t(...) -- neu zeichnen.
+  if (typeof FRQ_renderResults === "function") FRQ_renderResults();
 }
 
 function _frq_evalTestEligibility() {
