@@ -547,17 +547,6 @@ function shuffle(a) {
 function randAB(p) {
   return p.map(([x, y]) => (Math.random() < 0.5 ? [x, y] : [y, x]));
 }
-function ell_gWt(i, elSt_, elExDur_) {
-  var _elSt    = elSt_    || elSt;
-  var _elExDur = elExDur_ || elExDur;
-  const s = _elSt[i];
-  if (_elExDur[i] !== null || s === "mute") return 0;
-  if (s === "almostMute") return 0.05;
-  if (s === "noisyHeavy") return 0.15;
-  if (s === "noisyMore")  return 0.4;
-  if (s === "noisyLess")  return 0.8;
-  return 1;
-}
 function ELL_compWLS(ctx) {
   ctx = ctx || {};
   var _nEl     = (ctx.nEl        != null) ? ctx.nEl        : nEl;

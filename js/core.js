@@ -912,6 +912,24 @@ function FRQ_modusVonReferenzmodus(rm) {
 // und deaktivierte Elektroden bekommen Null-Werte fuer die MESS-abgeleiteten
 // Groessen -- die nominellen Frequenzen (keine Messgroesse) bleiben erhalten.
 //
+// BA453: aus test.js hierher verschoben (war test.js:550). core.js laedt
+// vor test.js (index.html:140-141), die Aufrufer in test.js (ELL_compWLS,
+// ELL_res-Serie) sehen die Funktion weiterhin. Status -> Gewicht:
+// stumm/ausgeschlossen=0, almostMute=0.05, noisyHeavy=0.15, noisyMore=0.4,
+// noisyLess=0.8, normal=1. Startquelle fuer CBF-Statusgewicht (Architektur
+// 00-cbf-verfahren-architektur.md §4.3).
+function ell_gWt(i, elSt_, elExDur_) {
+  var _elSt    = elSt_    || elSt;
+  var _elExDur = elExDur_ || elExDur;
+  const s = _elSt[i];
+  if (_elExDur[i] !== null || s === "mute") return 0;
+  if (s === "almostMute") return 0.05;
+  if (s === "noisyHeavy") return 0.15;
+  if (s === "noisyMore")  return 0.4;
+  if (s === "noisyLess")  return 0.8;
+  return 1;
+}
+
 // Vorzeichen-Wahrheit (eingefroren, kanonisch +cent = rechtes Ohr nimmt
 // tiefer wahr): base = FRQ_seitenWerte(cent, modus) ist die WARP-Richtung.
 //   warp    :  nhSim aus -> Vorhalt/Korrektur; nhSim an -> Verzerrung.
@@ -1062,6 +1080,18 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
   // bei Ueberlauf entry[seite].bandOverlap = true (keine Grenzen).
   if (form === "gehoert" || form === "warp") {
     ["left", "right"].forEach(function (seite) {
+      // BA453: Statusgewicht je Elektrode SEITENRICHTIG vorab holen (elSt/
+      // elExDur sind seitengebunden -> withSide, gleiches Muster wie die
+      // feste Wand unten). ell_gWt liegt seit BA453 in core.js. Additiv:
+      // nur der kuenftige CBF-Kern liest statusGewicht; die anderen
+      // Verfahren ignorieren das Feld (Architektur §4.3).
+      var _statusGewichte = withSide(seite, function () {
+        var arr = [];
+        for (var gi = 0; gi < out.length; gi++) {
+          arr[out[gi].elIdx] = ell_gWt(out[gi].elIdx);
+        }
+        return arr;
+      });
       var mitten = out.map(function (entry) {
         var s = entry[seite];
         var hz;
@@ -1073,7 +1103,9 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
         // Aktivitaet JE SEITE (Nutzer-Beschluss): das seitenweise Flag.
         return { elIdx: entry.elIdx, hz: hz, aktiv: !!(s && s.aktiv),
                  residuum: (s ? s.residuum : null),
-                 gemessen: !!entry.gemessen };
+                 gemessen: !!entry.gemessen,
+                 statusGewicht: (_statusGewichte[entry.elIdx] != null)
+                   ? _statusGewichte[entry.elIdx] : 1 };
       });
       // Sec. 14.6: Optimierung NIE fuer Warp (er summiert Bandpaesse,
       // braucht mittelpunkt-nahtlose Baender, Sec. 13.6a). Nur 'gehoert'.
