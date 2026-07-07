@@ -1035,7 +1035,9 @@
           cv._frqg_listener = true;
         }
         return "gezeichnet: " + rows.length + " Zeilen, Canvas " + cv.width + "x" + cv.height +
-               " | Sichtpruefung: Bandflaechen, Striche, Punkte, Pfeile, Mouseover";
+               " | Sichtpruefung (Bandgraph-Modus, nulllinie, kein Amberband):" +
+               " KEIN waagerechtes/breites Amberband. T-Balken um die Nulllinie" +
+               " je gemessener El (E3,E5). Punkt gruen(E3)/rot(E5), E8 ohne Punkt.";
       } catch (err) {
         return { ok: false, msg: "FEHLER: " + err.message };
       }

@@ -1100,18 +1100,21 @@ function drawFRQGraph(cv, rows, cfg) {
   });
 
   // ============================================================
-  // (2) RESIDUUMSBAND — Anker nulllinie: waagerechtes Band 0 +/- res.
-  //     Anker punkt: T-Balken am Punkt (Schritt 4). Amber, hinter Grid.
+  // (2) AMBERBAND — schmales SENKRECHTES Band, Breite = Residuum in
+  //     X-Richtung (Cent, die X-Achse ist Cent-linear via tX), an der
+  //     Punkt-X-Position (_cR), volle Hoehe. NUR wenn cfg.amberband
+  //     (Ergebnisgraph). Vor dem Grid, hinter Strichen/Punkten. Der
+  //     T-Balken selbst kommt in Abschnitt (4).
   // ============================================================
   const anker = (cfg.residuumAnker === "nulllinie") ? "nulllinie" : "punkt";
-  if (anker === "nulllinie") {
-    let rMax = 0;
-    rows.forEach(function (r) { if (r.residuumCent > rMax) rMax = r.residuumCent; });
-    if (rMax > 0) {
-      const yT = tY(rMax), yB = tY(-rMax);
+  if (cfg.amberband) {
+    rows.forEach(function (r) {
+      if (!(r.residuumCent > 0)) return;
+      const xa = tX(r._cR - r.residuumCent);
+      const xb = tX(r._cR + r.residuumCent);
       ctx.fillStyle = "rgba(245, 158, 11, 0.18)";
-      ctx.fillRect(pad.left, yT, pW, yB - yT);
-    }
+      ctx.fillRect(xa, pad.top, xb - xa, pH);
+    });
   }
 
   // --- Y-Grid + Beschriftung ---
@@ -1172,13 +1175,14 @@ function drawFRQGraph(cv, rows, cfg) {
     ctx.fillStyle = farbe; ctx.fill();
     ctx.strokeStyle = "#fff"; ctx.lineWidth = 2; ctx.stroke();
     hitboxes.push({ x: xs, y: ys, r: r });
-    if (anker === "punkt" && r.residuumCent > 0) {
+    if (r.residuumCent > 0) {
       const halfH = Math.abs(tY(0) - tY(r.residuumCent));
+      const yc = (anker === "nulllinie") ? tY(0) : ys;   // Anker-Mitte
       ctx.strokeStyle = "#000"; ctx.lineWidth = 1.5; ctx.setLineDash([]);
       ctx.beginPath();
-      ctx.moveTo(xs, ys - halfH); ctx.lineTo(xs, ys + halfH);
-      ctx.moveTo(xs - 4, ys - halfH); ctx.lineTo(xs + 4, ys - halfH);
-      ctx.moveTo(xs - 4, ys + halfH); ctx.lineTo(xs + 4, ys + halfH);
+      ctx.moveTo(xs, yc - halfH); ctx.lineTo(xs, yc + halfH);
+      ctx.moveTo(xs - 4, yc - halfH); ctx.lineTo(xs + 4, yc - halfH);
+      ctx.moveTo(xs - 4, yc + halfH); ctx.lineTo(xs + 4, yc + halfH);
       ctx.stroke();
     }
   });
