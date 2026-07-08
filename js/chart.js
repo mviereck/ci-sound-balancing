@@ -472,14 +472,12 @@ function drawFRQGraph(cv, rows, cfg) {
   const yMin = -absC, yMax = absC;
   const tY = (c) => pad.top + ((yMax - c) / (yMax - yMin)) * pH;
 
-  // Punkt-/Pfeilfarbe: 2-stufig (gruen/rot) ohne cfg.schwelleCent,
-  // 3-stufig (gruen/amber/rot) mit -- wie die Empfehlungs-Tabelle.
-  const farbeFuer = function (yCent, residuumCent) {
-    const ueber = Math.abs(yCent) - residuumCent;
-    if (ueber <= 0) return "#16a34a";
-    if (typeof cfg.schwelleCent === "number" && ueber <= cfg.schwelleCent)
-      return "#d97706";
-    return "#dc2626";
+  // Farbe kommt jetzt vom Aufrufer als benannte Stufe (row.stufe):
+  // "gruen"/"amber"/"rot". Die Engine mappt nur, sie bewertet nicht.
+  // Fehlt die Stufe -> Neutralgrau (unbewertet, taeuscht keine Bewertung vor).
+  const STUFE_FARBE = { gruen: "#16a34a", amber: "#d97706", rot: "#dc2626" };
+  const farbeFuer = function (r) {
+    return STUFE_FARBE[r && r.stufe] || "#9ca3af";
   };
 
   // ============================================================
@@ -587,7 +585,7 @@ function drawFRQGraph(cv, rows, cfg) {
       return;
     }
     const xs = tX(r._cR), ys = tY(r.yCent);
-    const farbe = farbeFuer(r.yCent, r.residuumCent);
+    const farbe = farbeFuer(r);
     ctx.beginPath(); ctx.arc(xs, ys, 5.5, 0, Math.PI * 2);
     ctx.fillStyle = farbe; ctx.fill();
     ctx.strokeStyle = "#fff"; ctx.lineWidth = 2; ctx.stroke();
@@ -624,7 +622,7 @@ function drawFRQGraph(cv, rows, cfg) {
   cv._frqg_arrowPos = {};
   arrowRows.forEach(function (a, i) {
     const y = yBase - laneOf[i] * laneH;
-    const c = farbeFuer(a.r.yCent, a.r.residuumCent);
+    const c = farbeFuer(a.r);
     cv._frqg_arrowPos[a.r.elNum] = { x1: a.x1, x2: a.x2, y: y, color: c };
     if (Math.abs(a.x2 - a.x1) < 1.5) {
       ctx.beginPath(); ctx.arc(a.x1, y, 3.5, 0, Math.PI * 2);

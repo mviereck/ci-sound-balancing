@@ -765,15 +765,15 @@
                 <input type="checkbox" id="FRQ_testDefaultFreqChk">
                 Debug: Default-Mittenfrequenzen statt Messwerte (nominelle Implantat-Frequenzen als „gehört")
               </label>
-              <div style="margin:0 0 12px">
-                <canvas id="FRQ_bandEmpfChart" width="800" height="300"></canvas>
-              </div>
               <div id="FRQ_bandSkalaRow" style="margin:0 0 12px;font-size:0.9em">
                 <span data-t="FRQ_bandSkalaLabel">Skalierung (Y-Achse in cent):</span>
                 <label style="display:inline-block;margin-left:10px"><input type="radio" name="FRQ_bandSkala" value="100"> 100</label>
                 <label style="display:inline-block;margin-left:10px"><input type="radio" name="FRQ_bandSkala" value="300" checked> 300</label>
                 <label style="display:inline-block;margin-left:10px"><input type="radio" name="FRQ_bandSkala" value="600"> 600</label>
                 <label style="display:inline-block;margin-left:10px"><input type="radio" name="FRQ_bandSkala" value="auto"> <span data-t="FRQ_bandSkalaAuto">auto</span></label>
+              </div>
+              <div style="margin:0 0 12px">
+                <canvas id="FRQ_bandEmpfChart" width="800" height="300"></canvas>
               </div>
               <table class="results-table" id="FRQ_bandEmpfTable">
                 <thead><tr id="FRQ_bandEmpfTableHead"></tr></thead>

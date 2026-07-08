@@ -443,6 +443,7 @@ function FRQ_ergebnisRows(side, opts) {
       bandLoHz: null, bandHiHz: null,     // Ergebnisgraph hat keine Baender
       sichtbar: sichtbar,
       warn: warn,
+      stufe: warn ? "rot" : "gruen",   // Ergebnisgraph: gruen, rot nur bei Warnung
       marker: marker,                     // nur bei ungemessen gesetzt
       tooltip: tooltip
     });
@@ -733,12 +734,11 @@ function _FRQ_renderBandEmpf(side) {
       // Abweichung erreicht-gehoert in Cent (wie Tabelle results.js:668-669).
       var _dev = 1200 * Math.log2(_center / _target);
       var _elNum = dEN(_i, side);
-      // Bewertungstext (3 Stufen wie Tabelle) fuer den Tooltip.
-      var _ueber = Math.abs(_dev) - _resid;
-      var _bew;
-      if (_ueber <= 0) _bew = t("FRQ_bandEmpfRatingNoise");
-      else if (_ueber <= FRQ_bandEmpfSchwelleCent) _bew = t("FRQ_bandEmpfRatingSlight");
-      else _bew = t("FRQ_bandEmpfRatingClear");
+      // Bewertungsstufe zentral (core.js); Text + Graph-Farbe aus derselben Stufe.
+      var _stufe = FRQ_bewertungsStufe(_dev, _resid);
+      var _bew = (_stufe === "gruen") ? t("FRQ_bandEmpfRatingNoise")
+               : (_stufe === "amber") ? t("FRQ_bandEmpfRatingSlight")
+               : t("FRQ_bandEmpfRatingClear");
       var _devTxt = (_dev >= 0 ? "+" : "") + fmtNum(_dev, "cent") + " ct";
       _rows.push({
         elNum: _elNum,
@@ -750,6 +750,7 @@ function _FRQ_renderBandEmpf(side) {
         bandHiHz: _ws.bandHiHz,
         sichtbar: true,
         warn: false,              // Bandgraph: vorerst kein Warndreieck
+        stufe: _stufe,            // Farbe aus zentraler Bewertungsstufe
         tooltip: [
           "<b>E" + _elNum + "</b>",
           t("FRQ_bandTipHeard") + ": " + fmtNum(_target, "hz") + " Hz",
@@ -768,7 +769,6 @@ function _FRQ_renderBandEmpf(side) {
       residuumAnker: "nulllinie",
       xWandHz: _wand,
       yLabel: t("FRQ_resultsChartYLabel"),
-      schwelleCent: FRQ_bandEmpfSchwelleCent,
       verbindung: true,
       amberband: false,
       yMaxFest: _yMaxFest
@@ -835,10 +835,12 @@ function _FRQ_renderBandEmpf(side) {
     var ratingCell = dash;
     if (devCent != null && resid != null) {
       var ueber = Math.abs(devCent) - resid;
-      var stufe, farbe;
-      if (ueber <= 0)                             { stufe = t("FRQ_bandEmpfRatingNoise");  farbe = "#16a34a"; }
-      else if (ueber <= FRQ_bandEmpfSchwelleCent) { stufe = t("FRQ_bandEmpfRatingSlight"); farbe = "#d97706"; }
-      else                                        { stufe = t("FRQ_bandEmpfRatingClear");  farbe = "#dc2626"; }
+      var _bStufe = FRQ_bewertungsStufe(devCent, resid);
+      var stufe = (_bStufe === "gruen") ? t("FRQ_bandEmpfRatingNoise")
+                : (_bStufe === "amber") ? t("FRQ_bandEmpfRatingSlight")
+                : t("FRQ_bandEmpfRatingClear");
+      var farbe = (_bStufe === "gruen") ? "#16a34a"
+                : (_bStufe === "amber") ? "#d97706" : "#dc2626";
       var ueberTxt = (ueber >= 0 ? "+" : "") + fmtNum(ueber, "cent") + " ct";
       ratingCell = "<span style=\"color:" + farbe + ";font-weight:600\">" + stufe + "</span>"
                  + " <span style=\"color:var(--text-muted)\">(" + ueberTxt + ")</span>";

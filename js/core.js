@@ -811,6 +811,22 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
   return { edges: edges };
 }
 
+// Bewertungsstufe einer Frequenz-Abweichung (cent) gegen ihr Residuum.
+// Zentrale Quelle fuer Graph-Farbe UND Tabellen-Farbe -- vorher 3x
+// dupliziert (Bandgraph-Row, Bandtabelle, chart.js farbeFuer).
+// ueber = wieviel die Abweichung das Residuum ueberschreitet.
+//   ueber <= 0            -> "gruen" (im Rauschen)
+//   ueber <= Schwelle     -> "amber" (leicht)
+//   sonst                 -> "rot"   (deutlich)
+function FRQ_bewertungsStufe(devCent, resid) {
+  var r = (resid != null && resid > 0) ? resid : 0;
+  var ueber = Math.abs(devCent) - r;
+  if (ueber <= 0) return "gruen";
+  if (typeof FRQ_bandEmpfSchwelleCent === "number"
+      && ueber <= FRQ_bandEmpfSchwelleCent) return "amber";
+  return "rot";
+}
+
 function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand, opt) {
   // BA450: ABF ist KEIN Registry-Verfahren (feste Hz-Waende sind keine
   // toP/fromP-Transformation, Architektur §2.2). Eigener Grenzsetzungs-
