@@ -720,6 +720,8 @@ function _FRQ_renderBandEmpf(side) {
   // BA458: Empfehlungs-Graph gegen die gemeinsame Engine drawFRQGraph.
   // rows aus derselben Wertquelle wie die Tabelle unten (FRQ_empfWerte),
   // damit Graph und Tabelle nie divergieren (vgl. BA452).
+  var istFbf = (sideData[side].bandVerfahren === "fbf");
+
   var _bcv = document.getElementById("FRQ_bandEmpfChart");
   if (_bcv && typeof drawFRQGraph === "function") {
     var _werte = FRQ_empfWerte(false);
@@ -740,26 +742,35 @@ function _FRQ_renderBandEmpf(side) {
       if (_target == null) continue;
       var _center = _ws.bandCenterHz;
       var _resid = (_ws.residuum != null) ? _ws.residuum : 0;
-      // Abweichung erreicht-gehoert in Cent (wie Tabelle results.js:668-669).
+      // Abweichung Mitte-gehoert in Cent (immer berechnet, auch fuer Tooltip bei FBF).
       var _dev = 1200 * Math.log2(_center / _target);
       var _elNum = dEN(_i, side);
-      // Bewertungsstufe zentral (core.js); Text + Graph-Farbe aus derselben Stufe.
-      var _stufe = FRQ_bewertungsStufe(_dev, _resid);
+      // FBF: Punkt zeigt Messkonsistenz (Messung <-> Nachbar-Kurve),
+      // Striche gehoert->Kurve. Sonst: Mitten-Abweichung wie bisher (§5.1).
+      var _consist = (_ws.kurveAbwCent != null) ? _ws.kurveAbwCent : null;
+      var _yCent   = istFbf ? _consist : _dev;
+      var _xLinks  = _target;                            // gehoert
+      var _xRechts = istFbf
+        ? ((_ws.kurveHz != null) ? _ws.kurveHz : _center)
+        : _center;                                       // Kurve (FBF) bzw. Mitte
+      var _stufe = istFbf
+        ? FRQ_bewertungsStufe(_consist, _resid)
+        : FRQ_bewertungsStufe(_dev, _resid);
       var _bew = (_stufe === "gruen") ? t("FRQ_bandEmpfRatingNoise")
                : (_stufe === "amber") ? t("FRQ_bandEmpfRatingSlight")
                : t("FRQ_bandEmpfRatingClear");
       var _devTxt = (_dev >= 0 ? "+" : "") + fmtNum(_dev, "cent") + " ct";
       _rows.push({
         elNum: _elNum,
-        xLinksHz: _target,        // gehoerte (gewollte) Frequenz
-        xRechtsHz: _center,       // erreichte Bandmitte (Punkt sitzt hier)
-        yCent: _dev,              // Abweichung erreicht-gehoert
+        xLinksHz: _xLinks,
+        xRechtsHz: _xRechts,
+        yCent: _yCent,
         residuumCent: _resid,
         bandLoHz: _ws.bandLoHz,
         bandHiHz: _ws.bandHiHz,
         sichtbar: true,
-        warn: false,              // Bandgraph: vorerst kein Warndreieck
-        stufe: _stufe,            // Farbe aus zentraler Bewertungsstufe
+        warn: !!_ws.kurveVerdacht,   // §5.2: alle Verfahren (kurveVerdacht immer gerechnet)
+        stufe: _stufe,
         tooltip: [
           "<b>E" + _elNum + "</b>",
           t("FRQ_bandTipHeard") + ": " + fmtNum(_target, "hz") + " Hz",
@@ -767,7 +778,7 @@ function _FRQ_renderBandEmpf(side) {
           t("FRQ_bandTipShift") + ": " + _devTxt + " · " + _bew,
           t("FRQ_bandTipBand") + ": " + fmtNum(_ws.bandLoHz, "hz") + " – "
             + fmtNum(_ws.bandHiHz, "hz") + " Hz"
-        ]
+        ].concat(_ws.kurveVerdacht ? [t("FRQ_bandEmpfTipVerdacht")] : [])
       });
     }
     var _wand = _FRQ_bandWandFuerGraph(side);
@@ -795,7 +806,7 @@ function _FRQ_renderBandEmpf(side) {
     "<th>" + t("FRQ_bandEmpfColTarget") + "</th>" +
     "<th>" + t("FRQ_bandEmpfColRange") + "</th>" +
     "<th>" + t("FRQ_bandEmpfColCenter") + "</th>" +
-    "<th>" + t("FRQ_bandEmpfColDev") + "</th>" +
+    "<th>" + (istFbf ? t("FRQ_bandEmpfColConsist") : t("FRQ_bandEmpfColDev")) + "</th>" +
     "<th>" + t("FRQ_bandEmpfColRating") + "</th>";
 
   // BA452: EINE gemeinsame Empfehlungs-Wertquelle (vorher doppelt mit dem
@@ -806,6 +817,7 @@ function _FRQ_renderBandEmpf(side) {
   var rows = "";
   var overlapSeen = false;
   var abfTooSmall = false;
+  var verdachtEls = [];   // §5.2: Elektroden mit kurveVerdacht (Nachmessen)
 
   var nCi = sideData[side].nEl;
   for (var i = 0; i < nCi; i++) {
@@ -816,6 +828,8 @@ function _FRQ_renderBandEmpf(side) {
     for (var k = 0; k < werte.length; k++) { if (werte[k].elIdx === i) { w = werte[k]; break; } }
     var ws = w ? w[side] : null;
     var elLabel = dENPrefix(side) + dEN(i, side);
+
+    if (ws && ws.kurveVerdacht) verdachtEls.push(elLabel);
 
     if (ws && ws.bandOverlap) {
       overlapSeen = true;
@@ -837,13 +851,16 @@ function _FRQ_renderBandEmpf(side) {
     if (center != null && target != null && center > 0 && target > 0) {
       devCent = 1200 * Math.log2(center / target);
     }
-    var devCell = (devCent != null)
-      ? (devCent >= 0 ? "+" : "") + fmtNum(devCent, "cent") + " ct" : dash;
+    // FBF: Bewertung = Messkonsistenz (Messung <-> Nachbar-Kurve, §5.1).
+    // Sonst: Mitten-Abweichung wie bisher.
+    var devConsist = istFbf ? (ws ? ws.kurveAbwCent : null) : devCent;
+    var devCell = (devConsist != null)
+      ? (devConsist >= 0 ? "+" : "") + fmtNum(devConsist, "cent") + " ct" : dash;
 
     var ratingCell = dash;
-    if (devCent != null && resid != null) {
-      var ueber = Math.abs(devCent) - resid;
-      var _bStufe = FRQ_bewertungsStufe(devCent, resid);
+    if (devConsist != null && resid != null) {
+      var ueber = Math.abs(devConsist) - resid;
+      var _bStufe = FRQ_bewertungsStufe(devConsist, resid);
       var stufe = (_bStufe === "gruen") ? t("FRQ_bandEmpfRatingNoise")
                 : (_bStufe === "amber") ? t("FRQ_bandEmpfRatingSlight")
                 : t("FRQ_bandEmpfRatingClear");
@@ -878,6 +895,10 @@ function _FRQ_renderBandEmpf(side) {
       note.style.display = ""; note.textContent = t("FRQ_bandEmpfAbfTooSmall");
     } else if (overlapSeen) {
       note.style.display = ""; note.textContent = t("FRQ_bandEmpfOverlapNote");
+    } else if (verdachtEls.length > 0) {
+      note.style.display = "";
+      note.textContent = t("FRQ_bandEmpfVerdachtNote")
+        .replace("{els}", verdachtEls.join(", "));
     } else {
       note.style.display = "none"; note.textContent = "";
     }
