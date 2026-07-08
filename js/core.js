@@ -620,23 +620,46 @@ var ABF_APIKAL_START_HZ = 250;
 // BA464 (CBF-Zielfunktion v2, Besprechung 2026-07-08). Startwerte
 // EXPERIMENTELL (spaeter Slider). Benannte Konstanten, kein UI ausser
 // den Achsen-Stufen (Sprachbereich-Achse: BA465).
-var CBF_LAMBDA = { treffer: 0.1, ausgewogen: 0.5, breite: 2 };  // Gewichtung-Achse:
-                              // Gewicht der Breiten-GLATTHEIT (Nachbar-Spruenge)
+var CBF_LAMBDA = { treffer: 0.03, ausgewogen: 0.1, breite: 0.5 };  // Gewichtung-Achse:
+                              // Gewicht der Breiten-GLATTHEIT (Nachbar-Spruenge).
+                              // BA466: klein -- Treffer ist Ziel 1, Glattheit
+                              // wirkt v.a. im Gratis-Spielraum der Toleranzen.
 var CBF_RANDAUSLAUF = { eng: 1, mittel: 2, weich: 3 };  // Randverhalten-Achse (Anzahl El.)
-var CBF_RAND_STAERKE = 0.1;   // Treffer-Gewicht der AEUSSERSTEN El. BEI Wandkonflikt
-                              // (ohne Konflikt bleibt der Rand voll gewichtet)
+var CBF_RAND_STAERKE = 0.1;   // Treffer-Gewicht der AEUSSERSTEN El. -- GENERELL
+                              // (BA466, Nutzer-Regel: die aeussersten El.
+                              // duerfen viel Fehler tragen)
 var CBF_SPRACHE_FAKTOR = { ohne: 1, mittel: 2, stark: 4 };  // Sprachbereich-Achse
                               // (UI: BA465): Treffer-Faktor im tonotopen Bereich
 var CBF_RESID_BODEN_CT = 20;       // Mindest-Toleranz jeder Messung (cent)
 var CBF_RESID_UNGEMESSEN_CT = 1200; // weiches Ziel ungemessener El. (cent)
+var CBF_FEHLER_SKALA_CT = 100; // BA466: EINHEITLICHE Fehler-Einheit fuer
+                               // Toleranz-Ueberschreitungen (cent) -- gleich
+                               // teuer fuer alle El., das Residuum wirkt nur
+                               // noch als Toleranz (Deadband), nicht als Skala
 var CBF_MIN_BREITE_CT = 200;   // harte Mindest-Bandbreite nicht-stummer El. (cent)
 var CBF_STUMM_BREITE_CT = 150; // Breiten-Ziel stummer El. (cent)
 var CBF_STUMM_GEWICHT = 0.5;   // Zug-Staerke des stumm-Breiten-Ziels
-var CBF_ZENTRIERUNG = 0.05;    // schwacher Zug zur exakten Mitte INNERHALB der
+var CBF_ZENTRIERUNG = 0.02;    // schwacher Zug zur exakten Mitte INNERHALB der
                                // Toleranz (haelt Ergebnis bei freiem Spielraum
-                               // an der gehoerten Frequenz)
+                               // an der gehoerten Frequenz; Skala: FEHLER_SKALA)
 var CBF_SWEEPS = 120;          // max. Loeser-Durchlaeufe (Abbruch bei Konvergenz)
 var CBF_TERN = 48;             // ternaere Suchschritte je Kante
+
+// ============================================================
+// FBF ("fable based fitting") -- Konstanten (Architektur §6).
+// Alle experimentell; spaetere Achsen-/Slider-Etappe tauscht nur die
+// Eingaenge, nicht die Struktur.
+// ============================================================
+var FBF_GLATT = 30;               // Glattheit mu der Kurve (2. Differenzen, log)
+var FBF_TOL_BODEN_CT = 20;        // Mindest-Toleranz gemessener El. (cent)
+var FBF_TOL_UNGEMESSEN_CT = 1200; // Toleranz ungemessener Stuetzpunkte (cent)
+var FBF_VERDACHT_FAKTOR = 2.5;    // Verdacht ab Faktor x eigene Toleranz
+var FBF_EXTRAP_DECKEL_CT = 300;   // Deckel ungemessener Kurvenwerte um nominell
+// Status-Strafen als Stuetzpunkte ueber statusGewicht (linear interpoliert).
+// [statusGewicht, Strafe_ct] absteigend nach Gewicht.
+var FBF_STRAFE_STUETZ = [
+  [1.0, 0], [0.8, 75], [0.4, 150], [0.15, 300], [0.05, 1000], [0.0, 3000]
+];
 
 // BA450: n+1 logarithmisch gleichverteilte Kanten zwischen a und b
 // (n Segmente). a,b > 0. Kern der ABF-Randzonen (Patent §0071/§0076).
@@ -738,17 +761,20 @@ function FRQ_abfGrenzen(kette, wand, mitAusgleich) {
 // FRQ_baender (verfahren==="cbf"-Weiche). Reine Funktion, kein globaler
 // Zustand, kein DOM. Gewichtete Optimierung ueber die Bandkanten in
 // log-Frequenz:
-//   Treffer:  Abweichung der Bandmitte vom Ziel ist INNERHALB der
-//             Mess-Toleranz (Residuum, Boden CBF_RESID_BODEN_CT) frei;
-//             darueber quadratische Kosten in RESIDUUMS-EINHEITEN.
-//             Dazu ein schwacher Zentrier-Zug (CBF_ZENTRIERUNG) zur
-//             exakten Mitte, damit freier Spielraum genutzt wird.
-//   Breite:   GLATTHEIT (Spruenge zwischen Nachbar-Bandbreiten teuer,
-//             Gefaelle erlaubt) statt globaler Einheitsbreite; harte
-//             Mindestbreite als Schranke; stumme El. mit eigenem
+//   Treffer:  ZIEL 1 (BA466). Abweichung der Bandmitte vom Ziel ist
+//             INNERHALB der Mess-Toleranz (Residuum, Boden
+//             CBF_RESID_BODEN_CT) frei; darueber quadratische Kosten in
+//             EINHEITLICHER cent-Skala (CBF_FEHLER_SKALA_CT -- gleich
+//             teuer fuer alle El.). Dazu ein schwacher Zentrier-Zug
+//             (CBF_ZENTRIERUNG) zur exakten Mitte.
+//   Breite:   ZIEL 2 -- nur Extreme vermeiden: harte Mindestbreite als
+//             Schranke + SCHWACHE Glattheit (Spruenge zwischen Nachbar-
+//             Breiten, Gefaelle erlaubt); stumme El. mit eigenem
 //             kleinen Breiten-Ziel, von Treffer/Glattheit ausgenommen.
-//   Rand:     Treffer-Toleranz der Randelektroden NUR bei echtem
-//             Wandkonflikt (Ziel-Halbband ragt ueber die Wand).
+//   Rand:     die aeussersten El. tragen den Fehler (Nutzer-Regel
+//             2026-07-08, GENERELL): Treffer-Gewicht aussen
+//             CBF_RAND_STAERKE, ueber die Randverhalten-Reichweite
+//             nach innen auf 1 ansteigend.
 //   Sprache:  Treffer-Faktor im tonotopen Bereich (ABF_SCHWELLE_LO/HI).
 // Konvex (Summe konvexer Terme, lineare Schranken) -> eindeutiges
 // Minimum; Loeser: koordinatenweise ternaere Suche (Architektur §3.5:
@@ -783,17 +809,13 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
   var bref = (t[N - 1] - t[0]) / N;
   if (!(bref > 0)) bref = (wHi - wLo) / N;   // Absicherung (alle gleich)
 
-  // 4. Rand-Toleranz NUR bei echtem Wandkonflikt: das Ziel-Halbband der
-  //    aeussersten El. ragt ueber die Wand. Je Seite getrennt geprueft.
-  var konfliktLo = (t[0] - bref / 2) < wLo;
-  var konfliktHi = (t[N - 1] + bref / 2) > wHi;
+  // 4. Randauslauf GENERELL (BA466): die aeussersten El. duerfen viel
+  //    Fehler tragen -- Treffer-Gewicht aussen klein, ueber 'reach' El.
+  //    linear auf 1 ansteigend. Nicht mehr an einen Wandkonflikt geknuepft.
   function randFaktor(i) {
-    var f = 1, dLo = i, dHi = N - 1 - i;
-    if (konfliktLo && dLo < reach)
-      f = Math.min(f, CBF_RAND_STAERKE + (1 - CBF_RAND_STAERKE) * (dLo / reach));
-    if (konfliktHi && dHi < reach)
-      f = Math.min(f, CBF_RAND_STAERKE + (1 - CBF_RAND_STAERKE) * (dHi / reach));
-    return f;
+    var dEdge = Math.min(i, N - 1 - i);
+    if (dEdge >= reach) return 1;
+    return CBF_RAND_STAERKE + (1 - CBF_RAND_STAERKE) * (dEdge / reach);
   }
 
   // 5. Gewichte + Toleranzen je Elektrode.
@@ -829,12 +851,14 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
   // 7. Zielfunktion (konvex).
   function kosten(x) {
     var s = 0, j;
-    // Treffer: Toleranz-Huelle + Zentrier-Zug, beides in dead-Einheiten.
+    // Treffer: Toleranz-Huelle + Zentrier-Zug, beides in der EINHEIT-
+    // LICHEN Fehler-Skala (BA466) -- das Residuum ist nur noch Toleranz.
+    var SKA = CBF_FEHLER_SKALA_CT * CT;
     for (j = 0; j < N; j++) {
       var m = (x[j] + x[j + 1]) / 2;
       var d = Math.abs(m - t[j]) - dead[j];
-      if (d > 0) { d /= dead[j]; s += w[j] * d * d; }
-      var z = (m - t[j]) / dead[j];
+      if (d > 0) { d /= SKA; s += w[j] * d * d; }
+      var z = (m - t[j]) / SKA;
       s += CBF_ZENTRIERUNG * w[j] * z * z;
     }
     // Breiten-Glattheit zwischen nicht-stummen Nachbarn (auf bref normiert).
@@ -909,6 +933,153 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
   return { edges: edges };
 }
 
+// ============================================================
+// FBF Stufe 1 (Architektur §3.1): robuste, geglaettete
+// Wahrnehmungskurve ueber die Kette + Diagnose. VERFAHRENSNEUTRAL --
+// wird fuer alle Verfahren gerechnet (Konsistenz-Anzeige), nicht nur FBF.
+// Eingang: kette = [{ elIdx, hz, statusGewicht, residuum, gemessen }].
+// Rueckgabe: { y: [log-Kurvenwerte], diagnose: [...], monoEingriff }.
+//   diagnose[i] = { elIdx, abwCent (Messwert-Kurve, null wenn ungemessen),
+//                   tolCent, verdacht }.
+// ============================================================
+function FRQ_wahrnKurve(kette) {
+  var CT = Math.LN2 / 1200;
+  var N = kette.length;
+  var t = kette.map(function (k) { return Math.log(k.hz); });
+  var tol = kette.map(function (k) {
+    return k.gemessen
+      ? Math.max((k.residuum != null ? k.residuum : 0), FBF_TOL_BODEN_CT)
+      : FBF_TOL_UNGEMESSEN_CT;
+  });
+  var w0 = tol.map(function (tl) { return 1 / ((tl * CT) * (tl * CT)); });
+
+  // N x N Gauss-Elimination (Pivot). N <= 24 -> trivial.
+  function solve(A, b) {
+    var n = b.length;
+    var M = A.map(function (row, i) { return row.slice(); });
+    for (var i = 0; i < n; i++) M[i].push(b[i]);
+    for (var c = 0; c < n; c++) {
+      var p = c;
+      for (var r = c + 1; r < n; r++) {
+        if (Math.abs(M[r][c]) > Math.abs(M[p][c])) p = r;
+      }
+      var tmp = M[c]; M[c] = M[p]; M[p] = tmp;
+      for (var r2 = 0; r2 < n; r2++) {
+        if (r2 !== c && M[c][c] !== 0) {
+          var f = M[r2][c] / M[c][c];
+          for (var kk = c; kk <= n; kk++) M[r2][kk] -= f * M[c][kk];
+        }
+      }
+    }
+    var x = [];
+    for (var i2 = 0; i2 < n; i2++) x[i2] = M[i2][n] / M[i2][i2];
+    return x;
+  }
+
+  function fit(w) {
+    var A = [];
+    for (var i = 0; i < N; i++) { A[i] = []; for (var j = 0; j < N; j++) A[i][j] = 0; }
+    var b = [];
+    for (var i3 = 0; i3 < N; i3++) b[i3] = 0;
+    for (var i4 = 0; i4 < N; i4++) { A[i4][i4] += w[i4]; b[i4] += w[i4] * t[i4]; }
+    // Glattheit: 2. Differenzen (yi-1 - 2yi + yi+1)^2 -> FBF_GLATT.
+    var stencil = [[-1, 1], [0, -2], [1, 1]];  // [offset, coeff]
+    for (var i5 = 1; i5 < N - 1; i5++) {
+      for (var a = 0; a < 3; a++) {
+        for (var bI = 0; bI < 3; bI++) {
+          A[i5 + stencil[a][0]][i5 + stencil[bI][0]] +=
+            FBF_GLATT * stencil[a][1] * stencil[bI][1];
+        }
+      }
+    }
+    return solve(A, b);
+  }
+
+  var y = fit(w0);
+  // IRLS-Robustheit: 3 Runden, Ausreisser proportional herunterwichten.
+  for (var round = 0; round < 3; round++) {
+    var w = [];
+    for (var i6 = 0; i6 < N; i6++) {
+      var dev = Math.abs(y[i6] - t[i6]) / CT;
+      var klim = 2 * tol[i6];
+      w.push(w0[i6] * (dev <= klim ? 1 : klim / dev));
+    }
+    y = fit(w);
+  }
+  // Extrapolations-Deckel: NUR ungemessene, +/- FBF_EXTRAP_DECKEL_CT um nominell.
+  for (var i7 = 0; i7 < N; i7++) {
+    if (!kette[i7].gemessen) {
+      var nom = Math.log(kette[i7].hz);
+      var d = FBF_EXTRAP_DECKEL_CT * CT;
+      y[i7] = Math.max(nom - d, Math.min(nom + d, y[i7]));
+    }
+  }
+  // Monotonie-Absicherung (Glattheit macht Verletzungen praktisch unmoeglich).
+  var eps = 1e-9, monoEingriff = false;
+  for (var i8 = 1; i8 < N; i8++) {
+    if (y[i8] < y[i8 - 1] + eps) { y[i8] = y[i8 - 1] + eps; monoEingriff = true; }
+  }
+  // Diagnose.
+  var diagnose = [];
+  for (var i9 = 0; i9 < N; i9++) {
+    var abw = kette[i9].gemessen ? (t[i9] - y[i9]) / CT : null;
+    var verdacht = (abw !== null) && (Math.abs(abw) > FBF_VERDACHT_FAKTOR * tol[i9]);
+    diagnose.push({ elIdx: kette[i9].elIdx, abwCent: abw,
+                    tolCent: tol[i9], verdacht: verdacht });
+  }
+  return { y: y, diagnose: diagnose, monoEingriff: monoEingriff };
+}
+
+// FBF Status-Strafe je Elektrode: linear interpoliert ueber statusGewicht
+// (Stuetzpunkte FBF_STRAFE_STUETZ, absteigend). Rueckgabe: Strafe in cent.
+function _fbfStrafeCt(gwt) {
+  var st = FBF_STRAFE_STUETZ;
+  for (var i = 0; i < st.length - 1; i++) {
+    var g1 = st[i][0], p1 = st[i][1], g2 = st[i + 1][0], p2 = st[i + 1][1];
+    if (gwt <= g1 && gwt >= g2) {
+      return (g1 !== g2) ? p2 + (p1 - p2) * (gwt - g2) / (g1 - g2) : p1;
+    }
+  }
+  return st[st.length - 1][1];
+}
+
+// ============================================================
+// FBF Stufe 2 (Architektur §3.2): geschlossene Kanten (kein Loeser).
+// opt.kurveY = log-Kurvenwerte in Ketten-Reihenfolge (von der Wertquelle,
+// §4.2). Fehlt es -> selbst FRQ_wahrnKurve rufen (defensiv).
+// Rueckgabe: { edges: [k0..kN] in Hz } (wie ABF/CBF).
+// ============================================================
+function FRQ_fbfGrenzen(kette, wand, opt) {
+  if (!wand) return { error: "fbfKeineWand" };
+  opt = opt || {};
+  var CT = Math.LN2 / 1200;
+  var N = kette.length;
+  var y = (opt.kurveY && opt.kurveY.length === N)
+    ? opt.kurveY
+    : FRQ_wahrnKurve(kette).y;
+  var P = kette.map(function (k) {
+    var s = _fbfStrafeCt(k.statusGewicht) * CT;
+    return s * s;
+  });
+  var k = [];
+  k[0] = Math.log(wand.loHz);
+  k[N] = Math.log(wand.hiHz);
+  // Innere Kanten geschlossen (§3.2 Punkt 3).
+  for (var i = 0; i < N - 1; i++) {
+    k[i + 1] = (y[i] + y[i + 1]) / 2 + (P[i + 1] - P[i]) / (2 * (y[i + 1] - y[i]));
+  }
+  // Monotonie-Clip: zusammenfallen erlaubt (Breite-0-Band), ueberholen nicht.
+  var hiLog = Math.log(wand.hiHz);
+  for (var i2 = 1; i2 <= N; i2++) {
+    if (k[i2] < k[i2 - 1]) k[i2] = k[i2 - 1];
+    if (k[i2] > hiLog) k[i2] = hiLog;
+  }
+  for (var i3 = N - 1; i3 >= 0; i3--) {
+    if (k[i3] > k[i3 + 1]) k[i3] = k[i3 + 1];
+  }
+  return { edges: k.map(function (x) { return Math.exp(x); }) };
+}
+
 // Bewertungsstufe einer Frequenz-Abweichung (cent) gegen ihr Residuum.
 // Zentrale Quelle fuer Graph-Farbe UND Tabellen-Farbe -- vorher 3x
 // dupliziert (Bandgraph-Row, Bandtabelle, chart.js farbeFuer).
@@ -925,6 +1096,19 @@ function FRQ_bewertungsStufe(devCent, resid) {
   return "rot";
 }
 
+// Kette der aktiven, frequenz-tragenden Elektroden in Reihenfolge.
+// EINE Filter-Wahrheit fuer FRQ_baender UND den Wahrnehmungskurven-Aufruf
+// (Architektur §4.2.1). Verhaltensneutral aus FRQ_baender extrahiert.
+function _frqKette(mitten) {
+  var kette = [];
+  for (var i = 0; i < mitten.length; i++) {
+    if (mitten[i] && mitten[i].aktiv && mitten[i].hz != null) {
+      kette.push(mitten[i]);
+    }
+  }
+  return kette;
+}
+
 function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand, opt) {
   // BA450: ABF ist KEIN Registry-Verfahren (feste Hz-Waende sind keine
   // toP/fromP-Transformation, Architektur §2.2). Eigener Grenzsetzungs-
@@ -936,7 +1120,8 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
   // Grenzsetzungs-Zweig, Architektur §2.2/§4.1). Ohne diese Ausnahme fiel
   // CBF in die unknownVerfahren-Sperre und erreichte seine Weiche nie.
   var _istCbf = (verfahren === "cbf");
-  var _keinRegistry = _istAbf || _istCbf;
+  var _istFbf = (verfahren === "fbf");
+  var _keinRegistry = _istAbf || _istCbf || _istFbf;
   var vf = _keinRegistry ? null : FRQ_bandVerfahren[verfahren || "geometrisch"];
   if (!_keinRegistry && (!vf || typeof vf.toP !== "function" || typeof vf.fromP !== "function"))
     return { error: "unknownVerfahren", verfahren: verfahren };
@@ -946,12 +1131,7 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
 
   // Nur aktive Elektroden bilden die Kette (nicht aktive: Nachbarn
   // ruecken zusammen).
-  var kette = [];
-  for (var i = 0; i < mitten.length; i++) {
-    if (mitten[i] && mitten[i].aktiv && mitten[i].hz != null) {
-      kette.push(mitten[i]);
-    }
-  }
+  var kette = _frqKette(mitten);
   if (kette.length === 0) return { bands: [] };
 
   // Ueberlauf-Pruefung: streng monoton steigende Mitten. Sammelt die
@@ -984,6 +1164,21 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
                     centerHz: geomMitte(_clo, _chi) });
     }
     return { bands: cbands };
+  }
+
+  // --- Grenzsetzung: FBF (Architektur §4.1, verdraengt Topologie) ---
+  if (verfahren === "fbf") {
+    if (!wand) return { error: "fbfKeineWand" };
+    var fbfRes = FRQ_fbfGrenzen(kette, wand, opt || {});
+    if (fbfRes.error) return fbfRes;
+    var _fe = fbfRes.edges;
+    var fbands = [];
+    for (var fe = 0; fe < kette.length; fe++) {
+      var _flo = _fe[fe], _fhi = _fe[fe + 1];
+      fbands.push({ elIdx: kette[fe].elIdx, loHz: _flo, hiHz: _fhi,
+                    centerHz: geomMitte(_flo, _fhi) });
+    }
+    return { bands: fbands };
   }
 
   // --- Grenzsetzung: ABF (Architektur §4.1, verdraengt Topologie) ODER
@@ -1377,6 +1572,23 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
                  statusGewicht: (_statusGewichte[entry.elIdx] != null)
                    ? _statusGewichte[entry.elIdx] : 1 };
       });
+      // FBF/Konsistenz (Architektur §4.2): Wahrnehmungskurve je Seite EINMAL.
+      // Verfahrensneutral -- die drei Felder existieren bei jedem Verfahren.
+      var _kette = _frqKette(mitten);
+      var _wk = (_kette.length >= 2) ? FRQ_wahrnKurve(_kette) : null;
+      // log-Kurvenwerte in Ketten-Reihenfolge fuer den FBF-Zweig (opt.kurveY).
+      var _kurveY = _wk ? _wk.y : null;
+      // Diagnose nach elIdx aufschluesseln (Ketten-Index -> elIdx).
+      var _diagByEl = {};
+      if (_wk) {
+        _wk.diagnose.forEach(function (dg, di) {
+          _diagByEl[dg.elIdx] = {
+            kurveHz: Math.exp(_wk.y[di]),
+            kurveAbwCent: dg.abwCent,
+            kurveVerdacht: dg.verdacht
+          };
+        });
+      }
       // Sec. 14.6: Optimierung NIE fuer Warp (er summiert Bandpaesse,
       // braucht mittelpunkt-nahtlose Baender, Sec. 13.6a). Nur 'gehoert'.
       var _optHier = (form === "gehoert") && _optimieren;
@@ -1402,7 +1614,9 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
           cbfRandverhalten: (_sW && typeof _sW.bandCbfRandverhalten === "string") ? _sW.bandCbfRandverhalten : "mittel",
           cbfRandspektrum: (_sW && typeof _sW.bandCbfRandspektrum === "string") ? _sW.bandCbfRandspektrum : "frei",
           // BA464/465: Sprachbereich-Achse (Feld kommt mit BA465).
-          cbfSprache: (_sW && typeof _sW.bandCbfSprache === "string") ? _sW.bandCbfSprache : "mittel"
+          cbfSprache: (_sW && typeof _sW.bandCbfSprache === "string") ? _sW.bandCbfSprache : "mittel",
+          // FBF: log-Kurve der laufenden Seite (Ketten-Reihenfolge, §4.2).
+          kurveY: _kurveY,
         });
       if (res.error) {   // "overlap" ODER "abfTonoZuKlein" (BA450)
         out.forEach(function (entry) {
@@ -1432,6 +1646,15 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
             (b && b.centerVorschlagHz != null) ? b.centerVorschlagHz : null;  // BA447 Sec.14.5
         });
       }
+      // Kurven-Diagnose-Felder je Ketten-Eintrag (§4.2 Punkt 2).
+      // Nicht-Ketten-Elektroden (abgeschaltet/ungueltig): Felder null.
+      out.forEach(function (entry) {
+        if (!entry[seite]) return;
+        var dg = _diagByEl[entry.elIdx];
+        entry[seite].kurveHz       = dg ? dg.kurveHz : null;
+        entry[seite].kurveAbwCent  = dg ? dg.kurveAbwCent : null;
+        entry[seite].kurveVerdacht = dg ? dg.kurveVerdacht : false;
+      });
     });
   }
 

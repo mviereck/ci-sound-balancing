@@ -1043,3 +1043,99 @@
       }
     });
 })();
+
+/* BA466: CBF Treffer-Prioritaet -- Rechenkern-Diagnose. */
+(function () {
+  if (typeof dbg === "undefined" || typeof dbg.test !== "function") return;
+  dbg.test("build/BA466/cbf-treffer-prioritaet", { tab: "frequenzabgleich", label: "CBF Treffer-Prioritaet" }, function () {
+    var kette = [
+      { elIdx: 0, hz: 104,  statusGewicht: 1, residuum: null, gemessen: true },
+      { elIdx: 1, hz: 296,  statusGewicht: 1, residuum: null, gemessen: true },
+      { elIdx: 2, hz: 673,  statusGewicht: 1, residuum: null, gemessen: true },
+      { elIdx: 3, hz: 1211, statusGewicht: 1, residuum: null, gemessen: true },
+      { elIdx: 4, hz: 2302, statusGewicht: 1, residuum: null, gemessen: true },
+      { elIdx: 5, hz: 4153, statusGewicht: 1, residuum: null, gemessen: true },
+      { elIdx: 6, hz: 7410, statusGewicht: 0, residuum: null, gemessen: false }
+    ];
+    var wand = { loHz: 70, hiHz: 8500 };
+    var out = [], fails = [];
+    function lauf(name, opt) {
+      var r = FRQ_cbfGrenzen(kette, wand, opt);
+      var e = r.edges, mono = true, i;
+      for (i = 1; i < e.length; i++) if (!(e[i] > e[i - 1])) mono = false;
+      var waende = (e[0] >= 70 - 1e-3) && (e[e.length - 1] <= 8500 + 1e-3);
+      if (!mono) fails.push(name + ": nicht monoton");
+      if (!waende) fails.push(name + ": Wand verletzt");
+      out.push(name + ": [" + e.map(function (x) { return Math.round(x); }).join(", ") + "]");
+      return e;
+    }
+    var basis = { cbfGewicht: "ausgewogen", cbfRandverhalten: "mittel",
+                  cbfRandspektrum: "frei", cbfSprache: "mittel" };
+    var e0 = lauf("ausgewogen/frei", basis);
+    lauf("treffer/frei", { cbfGewicht: "treffer", cbfRandverhalten: "mittel", cbfRandspektrum: "frei", cbfSprache: "mittel" });
+    lauf("breite/frei", { cbfGewicht: "breite", cbfRandverhalten: "mittel", cbfRandspektrum: "frei", cbfSprache: "mittel" });
+    var eV = lauf("ausgewogen/voll", { cbfGewicht: "ausgewogen", cbfRandverhalten: "mittel", cbfRandspektrum: "voll", cbfSprache: "mittel" });
+    // INNERE El. treffen (Ziel 1; verifiziert E2-E6 <= 26ct):
+    var ziele = [104, 296, 673, 1211, 2302, 4153];
+    for (var b = 1; b < 6; b++) {
+      var abw = Math.abs(1200 * Math.log2(Math.sqrt(e0[b] * e0[b + 1]) / ziele[b]));
+      if (!(abw <= 60)) fails.push("E" + (b + 1) + " (innen) Abw " + abw.toFixed(0) + "ct > 60ct");
+    }
+    // Rand E1 traegt den Fehler, aber begrenzt (verifiziert +82ct):
+    var abw0 = Math.abs(1200 * Math.log2(Math.sqrt(e0[0] * e0[1]) / ziele[0]));
+    if (!(abw0 <= 150)) fails.push("E1 (Rand) Abw " + abw0.toFixed(0) + "ct > 150ct");
+    // Stummes Randband klein + Wand NICHT erreicht (verifiziert 150ct / ~6114 Hz):
+    var brS = 1200 * Math.log2(e0[7] / e0[6]);
+    if (!(brS <= 160)) fails.push("stummes Band " + brS.toFixed(0) + "ct > 160ct");
+    if (!(e0[7] < 7000)) fails.push("stumme Oberkante " + Math.round(e0[7]) + " erreicht die Wand");
+    // Achse "voll": letzte Kante auf der Wand.
+    if (!(Math.abs(eV[7] - 8500) < 0.5)) fails.push("voll: Oberkante " + Math.round(eV[7]) + " != 8500");
+    return { ok: fails.length === 0,
+             msg: (fails.length ? "FEHLER:\n" + fails.join("\n") + "\n" : "") + out.join("\n") };
+  });
+})();
+
+/* BA467 FBF-Rechenkern -- Kurve + Grenzen gegen Prototyp-Zahlen. */
+(function () {
+  if (typeof dbg === "undefined" || typeof dbg.test !== "function") return;
+  dbg.test("build/BA467/fbf-kern", { tab: "frequenzabgleich", label: "FBF Rechenkern" }, function () {
+    // Martins Datei (rechts), identisch zum Prototyp.
+    var NOM  = [120, 235, 384, 579, 836, 1175, 1624, 2222, 3019, 4084, 5507, 7410];
+    var CENT = [245, -399, -215, -260, -176, -52, 16, -61, 42, -29, -248, null];
+    var RES  = [15, 61.25, 42.5, 35, 8.75, 7.5, 6.25, 51.25, 0, 41.25, 67.5, null];
+    var GWT  = [1,1,1,1,1,1,1,1,1, 0.4, 0.15, 0];
+    var kette = [];
+    for (var i = 0; i < NOM.length; i++) {
+      var gem = CENT[i] !== null;
+      var hz = gem ? NOM[i] * Math.pow(2, -CENT[i] / 1200) : NOM[i];
+      kette.push({ elIdx: i, hz: hz, statusGewicht: GWT[i],
+                   residuum: RES[i], gemessen: gem });
+    }
+    var wk = FRQ_wahrnKurve(kette);
+    var abw = wk.diagnose.map(function (d) {
+      return d.abwCent === null ? null : Math.round(d.abwCent);
+    });
+    var verdacht = wk.diagnose.map(function (d) { return d.verdacht; });
+    var edges = FRQ_fbfGrenzen(kette, { loHz: 70, hiHz: 8500 }, { kurveY: wk.y }).edges;
+
+    // Erwartungen (Prototyp):
+    var e2Ok   = (abw[1] === 72);                       // E2 = +72 ct
+    var keinVerdacht = verdacht.every(function (v) { return v === false; });
+    var monoK  = !wk.monoEingriff;                      // kein Monotonie-Eingriff
+    var kMono  = true;
+    for (var m = 1; m < edges.length; m++) if (edges[m] < edges[m-1] - 1e-6) kMono = false;
+    var inWand = (edges[0] >= 70 - 1e-3) && (edges[edges.length-1] <= 8500 + 1e-3);
+    var stummBreite0 = Math.abs(edges[12] - edges[11]) < 1e-3;  // E12 stumm -> Breite 0
+
+    var ok = e2Ok && keinVerdacht && monoK && kMono && inWand && stummBreite0;
+    var msg = [
+      "abwCent   = [" + abw.join(", ") + "]",
+      "verdacht  = [" + verdacht.join(", ") + "]",
+      "monoEingriff = " + wk.monoEingriff,
+      "edges(Hz) = [" + edges.map(function (x) { return Math.round(x); }).join(", ") + "]",
+      "E2=+72:" + e2Ok + " keinVerdacht:" + keinVerdacht + " monoOk:" + monoK +
+        " kantenMono:" + kMono + " inWand:" + inWand + " E12Breite0:" + stummBreite0
+    ].join("\n");
+    return { ok: ok, msg: msg };
+  });
+})();
