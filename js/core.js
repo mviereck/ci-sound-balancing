@@ -617,14 +617,26 @@ var ABF_SCHWELLE_HI = 3000;   // ueber -> basale Zone
 // Baender log-verteilt und per Fehler-Ausgleich zur unteren Wand gezogen.
 var ABF_APIKAL_START_HZ = 250;
 
-// BA454 (CBF, Architektur 00-cbf-verfahren-architektur.md §5). Startwerte
-// fuer den Erstbau, EXPERIMENTELL (spaeter Slider). Benannte Konstanten,
-// kein UI ausser den 3 Achsen-Stufen (Folge-BA).
-var CBF_LAMBDA = { treffer: 0.2, ausgewogen: 1, breite: 5 };  // Gewichtung-Achse
-var CBF_RANDAUSLAUF = { eng: 1, mittel: 2, weich: 3 };        // Randverhalten-Achse (Anzahl El.)
-var CBF_RAND_STAERKE = 0.1;   // Treffer-Gewicht der AEUSSERSTEN El. (steigt ueber
-                              // die Auslauf-Reichweite auf 1)
-var CBF_ITER = 200;           // Loeser-Iterationen (konvex, konvergiert schnell)
+// BA464 (CBF-Zielfunktion v2, Besprechung 2026-07-08). Startwerte
+// EXPERIMENTELL (spaeter Slider). Benannte Konstanten, kein UI ausser
+// den Achsen-Stufen (Sprachbereich-Achse: BA465).
+var CBF_LAMBDA = { treffer: 0.1, ausgewogen: 0.5, breite: 2 };  // Gewichtung-Achse:
+                              // Gewicht der Breiten-GLATTHEIT (Nachbar-Spruenge)
+var CBF_RANDAUSLAUF = { eng: 1, mittel: 2, weich: 3 };  // Randverhalten-Achse (Anzahl El.)
+var CBF_RAND_STAERKE = 0.1;   // Treffer-Gewicht der AEUSSERSTEN El. BEI Wandkonflikt
+                              // (ohne Konflikt bleibt der Rand voll gewichtet)
+var CBF_SPRACHE_FAKTOR = { ohne: 1, mittel: 2, stark: 4 };  // Sprachbereich-Achse
+                              // (UI: BA465): Treffer-Faktor im tonotopen Bereich
+var CBF_RESID_BODEN_CT = 20;       // Mindest-Toleranz jeder Messung (cent)
+var CBF_RESID_UNGEMESSEN_CT = 1200; // weiches Ziel ungemessener El. (cent)
+var CBF_MIN_BREITE_CT = 200;   // harte Mindest-Bandbreite nicht-stummer El. (cent)
+var CBF_STUMM_BREITE_CT = 150; // Breiten-Ziel stummer El. (cent)
+var CBF_STUMM_GEWICHT = 0.5;   // Zug-Staerke des stumm-Breiten-Ziels
+var CBF_ZENTRIERUNG = 0.05;    // schwacher Zug zur exakten Mitte INNERHALB der
+                               // Toleranz (haelt Ergebnis bei freiem Spielraum
+                               // an der gehoerten Frequenz)
+var CBF_SWEEPS = 120;          // max. Loeser-Durchlaeufe (Abbruch bei Konvergenz)
+var CBF_TERN = 48;             // ternaere Suchschritte je Kante
 
 // BA450: n+1 logarithmisch gleichverteilte Kanten zwischen a und b
 // (n Segmente). a,b > 0. Kern der ABF-Randzonen (Patent §0071/§0076).
@@ -722,22 +734,37 @@ function FRQ_abfGrenzen(kette, wand, mitAusgleich) {
   return { edges: edges };
 }
 
-// BA454 (Architektur §4.2): CBF-Grenzsetzung. EINZIGER Aufrufer ist
+// BA464 (ersetzt BA454): CBF-Grenzsetzung v2. EINZIGER Aufrufer ist
 // FRQ_baender (verfahren==="cbf"-Weiche). Reine Funktion, kein globaler
 // Zustand, kein DOM. Gewichtete Optimierung ueber die Bandkanten in
-// log-Frequenz (§3.2): Treffer (Mitte nah an gehoerter Freq) vs. gleiche
-// Bandbreite, unter festen Wand-Schranken + Monotonie. Konvex ->
-// eindeutiges Minimum (§3.3).
-//   kette  Array aktiver El. in Reihenfolge, je { elIdx, hz, statusGewicht }
-//          (hz aufsteigend, vom Rahmen geprueft; statusGewicht aus BA453)
-//   wand   { loHz, hiHz } feste Herstellerwaende (§4.5)
-//   opt    { cbfGewicht, cbfRandverhalten, cbfRandspektrum } (Achsen, Folge-BA;
-//          hier mit Defaults abgesichert)
+// log-Frequenz:
+//   Treffer:  Abweichung der Bandmitte vom Ziel ist INNERHALB der
+//             Mess-Toleranz (Residuum, Boden CBF_RESID_BODEN_CT) frei;
+//             darueber quadratische Kosten in RESIDUUMS-EINHEITEN.
+//             Dazu ein schwacher Zentrier-Zug (CBF_ZENTRIERUNG) zur
+//             exakten Mitte, damit freier Spielraum genutzt wird.
+//   Breite:   GLATTHEIT (Spruenge zwischen Nachbar-Bandbreiten teuer,
+//             Gefaelle erlaubt) statt globaler Einheitsbreite; harte
+//             Mindestbreite als Schranke; stumme El. mit eigenem
+//             kleinen Breiten-Ziel, von Treffer/Glattheit ausgenommen.
+//   Rand:     Treffer-Toleranz der Randelektroden NUR bei echtem
+//             Wandkonflikt (Ziel-Halbband ragt ueber die Wand).
+//   Sprache:  Treffer-Faktor im tonotopen Bereich (ABF_SCHWELLE_LO/HI).
+// Konvex (Summe konvexer Terme, lineare Schranken) -> eindeutiges
+// Minimum; Loeser: koordinatenweise ternaere Suche (Architektur §3.5:
+// Loeser frei).
+//   kette  Array aktiver El. in Reihenfolge, je { elIdx, hz,
+//          statusGewicht, residuum, gemessen } (hz aufsteigend, vom
+//          Rahmen geprueft; Felder aus FRQ_werte, BA453)
+//   wand   { loHz, hiHz } gewaehlte Wand (BA462, seitengebunden)
+//   opt    { cbfGewicht, cbfRandverhalten, cbfRandspektrum, cbfSprache }
+//          (Achsen; mit Defaults abgesichert. cbfSprache-UI: BA465)
 // Rueckgabe: { edges: [k0..kN] } N+1 Bandkanten (Hz) in El.-Reihenfolge.
 function FRQ_cbfGrenzen(kette, wand, opt) {
   opt = opt || {};
   var N = kette.length;
   var ln = Math.log, ex = Math.exp;
+  var CT = Math.LN2 / 1200;   // 1 cent in log-Einheiten
 
   // 1. Log-Raum: Ziele t[i], Wand-Schranken.
   var t = kette.map(function (m) { return ln(m.hz); });
@@ -749,95 +776,135 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
   var reach = CBF_RANDAUSLAUF[opt.cbfRandverhalten] != null
           ? CBF_RANDAUSLAUF[opt.cbfRandverhalten] : CBF_RANDAUSLAUF.mittel;
   var vollSpektrum = (opt.cbfRandspektrum === "voll");
+  var sprF = CBF_SPRACHE_FAKTOR[opt.cbfSprache] != null
+          ? CBF_SPRACHE_FAKTOR[opt.cbfSprache] : CBF_SPRACHE_FAKTOR.mittel;
 
-  // 3. Gewichte je Elektrode.
-  //    g_status = statusGewicht (BA453; stumm=0, verrauscht gestuft, 1).
-  //    g_rand   = Randauslauf: aeusserste CBF_RAND_STAERKE, steigt linear
-  //               ueber 'reach' El. auf 1 (beide Seiten).
-  //    w = g_status * g_rand   (g_sprache=1 im Erstbau)
-  //    v = Breiten-Gewicht: 1, aber ~0 fuer stumme (nur erlauben, §2).
-  function randFaktor(idx) {
-    var dEdge = Math.min(idx, N - 1 - idx);   // Abstand zum naechsten Rand
-    if (dEdge >= reach) return 1;
-    // linear von CBF_RAND_STAERKE (dEdge=0) auf 1 (dEdge=reach).
-    return CBF_RAND_STAERKE + (1 - CBF_RAND_STAERKE) * (dEdge / reach);
+  // 3. Referenz-Breite (Normierung der Breiten-Terme): Zielspanne / N.
+  var bref = (t[N - 1] - t[0]) / N;
+  if (!(bref > 0)) bref = (wHi - wLo) / N;   // Absicherung (alle gleich)
+
+  // 4. Rand-Toleranz NUR bei echtem Wandkonflikt: das Ziel-Halbband der
+  //    aeussersten El. ragt ueber die Wand. Je Seite getrennt geprueft.
+  var konfliktLo = (t[0] - bref / 2) < wLo;
+  var konfliktHi = (t[N - 1] + bref / 2) > wHi;
+  function randFaktor(i) {
+    var f = 1, dLo = i, dHi = N - 1 - i;
+    if (konfliktLo && dLo < reach)
+      f = Math.min(f, CBF_RAND_STAERKE + (1 - CBF_RAND_STAERKE) * (dLo / reach));
+    if (konfliktHi && dHi < reach)
+      f = Math.min(f, CBF_RAND_STAERKE + (1 - CBF_RAND_STAERKE) * (dHi / reach));
+    return f;
   }
-  var w = [], v = [];
+
+  // 5. Gewichte + Toleranzen je Elektrode.
+  //    w = statusGewicht * randFaktor * sprachFaktor (Treffer-Gewicht).
+  //    dead = Toleranz UND Fehler-Einheit (log): gemessen ->
+  //    max(residuum, Boden); ungemessen -> sehr weich.
+  var w = [], stumm = [], dead = [];
   for (var i = 0; i < N; i++) {
     var gStat = (kette[i].statusGewicht != null) ? kette[i].statusGewicht : 1;
-    w[i] = gStat * randFaktor(i);
-    v[i] = (gStat <= 0) ? 0 : 1;   // stumm: nur erlauben, kein Breiten-Zug
+    stumm[i] = (gStat <= 0);
+    var rCt = kette[i].gemessen
+      ? Math.max((kette[i].residuum != null ? kette[i].residuum : 0), CBF_RESID_BODEN_CT)
+      : CBF_RESID_UNGEMESSEN_CT;
+    dead[i] = rCt * CT;
+    var spr = (kette[i].hz >= ABF_SCHWELLE_LO && kette[i].hz <= ABF_SCHWELLE_HI)
+      ? sprF : 1;
+    w[i] = gStat * randFaktor(i) * spr;
   }
 
-  // 4. Fester Breiten-Zielwert bbar = genutzte log-Spanne / N (§3.3,
-  //    Nutzer-Wahl). Genutzte Spanne = hoechstes - tiefstes Ziel.
-  var bbar = (t[N - 1] - t[0]) / N;
-  if (!(bbar > 0)) bbar = (wHi - wLo) / N;   // Absicherung (alle gleich)
-
-  // 5. Startkanten: log-gleichverteilt zwischen den Wand-naechsten
-  //    sinnvollen Grenzen. Aeussere je nach Randspektrum fest/frei.
-  var x = [];
-  for (var k = 0; k <= N; k++) x[k] = wLo + (wHi - wLo) * k / N;
-  // Innere naeher an die Ziele ruecken (bessere Startlage):
-  for (var s = 1; s < N; s++) x[s] = (t[s - 1] + t[s]) / 2;
-  x[0] = wLo; x[N] = wHi;
-
-  // 6. Iterativer koordinatenweiser Loeser mit Projektion (konvex).
-  //    Jede innere Kante x[j] (1..N-1) beeinflusst nur Band j-1 und Band j:
-  //      Term Treffer:  w[j-1]*(m[j-1]-t[j-1])^2 + w[j]*(m[j]-t[j])^2
-  //                     m[j-1]=(x[j-1]+x[j])/2, m[j]=(x[j]+x[j+1])/2
-  //      Term Breite:   lam*( v[j-1]*(b[j-1]-bbar)^2 + v[j]*(b[j]-bbar)^2 )
-  //                     b[j-1]=x[j]-x[j-1], b[j]=x[j+1]-x[j]
-  //    dK/dx[j] = 0 nach x[j] aufgeloest (geschlossen), dann auf
-  //    (x[j-1], x[j+1]) projizieren (Monotonie). Aeussere Kanten:
-  //    frei mit Wand-Schranke, oder fest bei vollSpektrum.
-  function solveInner(j) {
-    // Koeffizienten aus dK/dx[j]=0 (quadratisch in x[j], linear in Ableitung).
-    // Treffer: d/dx[j][ w[j-1]*((x[j-1]+x[j])/2 - t[j-1])^2 ] = w[j-1]*( (x[j-1]+x[j])/2 - t[j-1] )
-    //          d/dx[j][ w[j]  *((x[j]+x[j+1])/2 - t[j])^2 ]   = w[j]*( (x[j]+x[j+1])/2 - t[j] )
-    // Breite:  d/dx[j][ lam*v[j-1]*((x[j]-x[j-1]) - bbar)^2 ] = 2*lam*v[j-1]*((x[j]-x[j-1])-bbar)
-    //          d/dx[j][ lam*v[j]  *((x[j+1]-x[j]) - bbar)^2 ] = -2*lam*v[j]*((x[j+1]-x[j])-bbar)
-    // Summe=0 -> A*x[j] = B. Faktor 1/2 bei Treffer weggekuerzt (beidseitig *2).
-    var A = 0.5 * w[j - 1] + 0.5 * w[j] + 2 * lam * v[j - 1] + 2 * lam * v[j];
-    var B = 0.5 * w[j - 1] * (2 * t[j - 1] - x[j - 1])
-          + 0.5 * w[j]     * (2 * t[j]     - x[j + 1])
-          + 2 * lam * v[j - 1] * (x[j - 1] + bbar)
-          + 2 * lam * v[j]     * (x[j + 1] - bbar);
-    if (A <= 0) return x[j];   // keine Kraft -> unveraendert
-    var xj = B / A;
-    // Projektion Monotonie (kleiner Sicherheitsabstand eps).
-    var eps = 1e-6;
-    if (xj < x[j - 1] + eps) xj = x[j - 1] + eps;
-    if (xj > x[j + 1] - eps) xj = x[j + 1] - eps;
-    return xj;
+  // 6. Mindestbreiten (Schranken): nicht-stumm CBF_MIN_BREITE_CT, stumm 0.
+  //    Falls die Wandspanne dafuer zu eng ist: proportional deckeln.
+  var bMin = [], sumMin = 0;
+  for (i = 0; i < N; i++) {
+    bMin[i] = stumm[i] ? 0 : CBF_MIN_BREITE_CT * CT;
+    sumMin += bMin[i];
   }
-  for (var it = 0; it < CBF_ITER; it++) {
-    for (var j = 1; j < N; j++) x[j] = solveInner(j);
-    if (!vollSpektrum) {
-      // Aeussere frei, aber Wand als Schranke NICHT ueberschreiten (§3.4).
-      // x[0] minimiert Treffer(Band0)+Breite(Band0); einfache Projektion:
-      // ziehe x[0] Richtung optimaler Band-0-Lage, deckle an wLo..x[1].
-      var eps2 = 1e-6;
-      // Band 0: Mitte->t[0], Breite->bbar. Aus dK/dx[0]=0 analog:
-      var A0 = 0.5 * w[0] + 2 * lam * v[0];
-      var B0 = 0.5 * w[0] * (2 * t[0] - x[1]) - 2 * lam * v[0] * (bbar - x[1]);
-      var x0 = (A0 > 0) ? B0 / A0 : x[0];
-      if (x0 < wLo) x0 = wLo;                 // Wand nicht ueberschreiten
-      if (x0 > x[1] - eps2) x0 = x[1] - eps2; // Monotonie
-      x[0] = x0;
-      var An = 0.5 * w[N - 1] + 2 * lam * v[N - 1];
-      var Bn = 0.5 * w[N - 1] * (2 * t[N - 1] - x[N - 1])
-             + 2 * lam * v[N - 1] * (x[N - 1] + bbar);
-      var xn = (An > 0) ? Bn / An : x[N];
-      if (xn > wHi) xn = wHi;
-      if (xn < x[N - 1] + eps2) xn = x[N - 1] + eps2;
-      x[N] = xn;
-    } else {
-      x[0] = wLo; x[N] = wHi;   // volles Spektrum: aeussere fest an die Waende
+  if (sumMin > (wHi - wLo) * 0.9) {
+    var f2 = (wHi - wLo) * 0.9 / sumMin;
+    for (i = 0; i < N; i++) bMin[i] *= f2;
+  }
+  var bKlein = CBF_STUMM_BREITE_CT * CT;
+
+  // 7. Zielfunktion (konvex).
+  function kosten(x) {
+    var s = 0, j;
+    // Treffer: Toleranz-Huelle + Zentrier-Zug, beides in dead-Einheiten.
+    for (j = 0; j < N; j++) {
+      var m = (x[j] + x[j + 1]) / 2;
+      var d = Math.abs(m - t[j]) - dead[j];
+      if (d > 0) { d /= dead[j]; s += w[j] * d * d; }
+      var z = (m - t[j]) / dead[j];
+      s += CBF_ZENTRIERUNG * w[j] * z * z;
     }
+    // Breiten-Glattheit zwischen nicht-stummen Nachbarn (auf bref normiert).
+    for (j = 0; j < N - 1; j++) {
+      if (stumm[j] || stumm[j + 1]) continue;
+      var g = ((x[j + 1] - x[j]) - (x[j + 2] - x[j + 1])) / bref;
+      s += lam * g * g;
+    }
+    // Stumme El.: eigenes kleines Breiten-Ziel.
+    for (j = 0; j < N; j++) {
+      if (!stumm[j]) continue;
+      var q = ((x[j + 1] - x[j]) - bKlein) / bref;
+      s += CBF_STUMM_GEWICHT * q * q;
+    }
+    return s;
   }
 
-  // 7. Zurueck in Hz.
+  // 8. Startlage: aeussere an die Waende, innere auf die Ziel-Mitten;
+  //    dann Feasibility-Paesse (Monotonie + Mindestbreite).
+  var eps = 1e-6;
+  var x = [];
+  x[0] = wLo; x[N] = wHi;
+  for (var s0 = 1; s0 < N; s0++) x[s0] = (t[s0 - 1] + t[s0]) / 2;
+  for (var f1 = 1; f1 <= N; f1++) {
+    var lo1 = x[f1 - 1] + Math.max(bMin[f1 - 1], eps);
+    if (x[f1] < lo1) x[f1] = lo1;
+  }
+  for (var f3 = N - 1; f3 >= 0; f3--) {
+    var hi1 = x[f3 + 1] - Math.max(bMin[f3], eps);
+    if (x[f3] > hi1) x[f3] = hi1;
+  }
+  if (x[0] < wLo) x[0] = wLo;
+
+  // 9. Koordinatenweiser Loeser: ternaere Suche je Kante im zulaessigen
+  //    Intervall (Monotonie + Mindestbreite als Intervallgrenzen).
+  function tern(j, lo, hi) {
+    if (!(hi > lo)) { x[j] = (lo + hi) / 2; return; }
+    var a = lo, b = hi;
+    for (var s2 = 0; s2 < CBF_TERN; s2++) {
+      var m1 = a + (b - a) / 3, m2 = b - (b - a) / 3;
+      x[j] = m1; var k1 = kosten(x);
+      x[j] = m2; var k2 = kosten(x);
+      if (k1 < k2) b = m2; else a = m1;
+    }
+    x[j] = (a + b) / 2;
+  }
+  for (var it = 0; it < CBF_SWEEPS; it++) {
+    var maxDelta = 0, alt;
+    for (var j = 1; j < N; j++) {
+      alt = x[j];
+      tern(j, x[j - 1] + Math.max(bMin[j - 1], eps),
+              x[j + 1] - Math.max(bMin[j], eps));
+      maxDelta = Math.max(maxDelta, Math.abs(x[j] - alt));
+    }
+    if (vollSpektrum) {
+      x[0] = wLo; x[N] = wHi;   // Achse "voll": aeussere fest an die Waende
+    } else {
+      // Aeussere frei mit Wand als Schranke (nicht ueberschreiten,
+      // nicht erreichen muessen -> ungenutztes Randspektrum erlaubt).
+      alt = x[0];
+      tern(0, wLo, x[1] - Math.max(bMin[0], eps));
+      maxDelta = Math.max(maxDelta, Math.abs(x[0] - alt));
+      alt = x[N];
+      tern(N, x[N - 1] + Math.max(bMin[N - 1], eps), wHi);
+      maxDelta = Math.max(maxDelta, Math.abs(x[N] - alt));
+    }
+    if (maxDelta < 1e-7) break;
+  }
+
+  // 10. Zurueck in Hz.
   var edges = x.map(function (xi) { return ex(xi); });
   return { edges: edges };
 }
@@ -1333,7 +1400,9 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
           // BA463: CBF-Achsen pro Seite aus sideData[seite].
           cbfGewicht: (_sW && typeof _sW.bandCbfGewicht === "string") ? _sW.bandCbfGewicht : "ausgewogen",
           cbfRandverhalten: (_sW && typeof _sW.bandCbfRandverhalten === "string") ? _sW.bandCbfRandverhalten : "mittel",
-          cbfRandspektrum: (_sW && typeof _sW.bandCbfRandspektrum === "string") ? _sW.bandCbfRandspektrum : "frei"
+          cbfRandspektrum: (_sW && typeof _sW.bandCbfRandspektrum === "string") ? _sW.bandCbfRandspektrum : "frei",
+          // BA464/465: Sprachbereich-Achse (Feld kommt mit BA465).
+          cbfSprache: (_sW && typeof _sW.bandCbfSprache === "string") ? _sW.bandCbfSprache : "mittel"
         });
       if (res.error) {   // "overlap" ODER "abfTonoZuKlein" (BA450)
         out.forEach(function (entry) {
