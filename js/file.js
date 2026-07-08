@@ -210,45 +210,9 @@ function resetAll() {
     }
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();
   }
-  // BA445: Bandberechnung-Wahl zuruecksetzen.
-  if (typeof FRQ_bandVerfahrenWahl !== "undefined") {
-    FRQ_bandVerfahrenWahl = "greenwood";
-    FRQ_bandTopologieWahl = "nahtlos";
-    var _rvr = document.querySelector('input[name="FRQ_bandVerfahren"][value="greenwood"]');
-    if (_rvr) _rvr.checked = true;
-    var _rtr = document.querySelector('input[name="FRQ_bandTopologie"][value="nahtlos"]');
-    if (_rtr) _rtr.checked = true;
-  }
-  // BA448: zwei neue Wahl-Achsen zuruecksetzen.
-  if (typeof FRQ_bandOptimierenWahl !== "undefined") {
-    FRQ_bandOptimierenWahl = "optimiert";
-    FRQ_bandZielWahl = "minimax";
-    var _roR = document.querySelector('input[name="FRQ_bandOptimieren"][value="optimiert"]');
-    if (_roR) _roR.checked = true;
-    var _rzR = document.querySelector('input[name="FRQ_bandZiel"][value="minimax"]');
-    if (_rzR) _rzR.checked = true;
-    var _zfs = document.getElementById("FRQ_bandZielFieldset");
-    if (_zfs) _zfs.style.display = "";
-  }
-  // BA451: Randausgleich-Achse zuruecksetzen.
-  if (typeof FRQ_bandRandausgleichWahl !== "undefined") {
-    FRQ_bandRandausgleichWahl = "mit";
-    var _rrR = document.querySelector('input[name="FRQ_bandRandausgleich"][value="mit"]');
-    if (_rrR) _rrR.checked = true;
-    // Verfahren steht nach Reset auf greenwood -> Randausgleich-Fieldset wird ausgeblendet.
-    // change-Event auf Verfahren-Button triggert _frqBandAchsenSichtbarkeit in init.js.
-    var _rvR = document.querySelector('input[name="FRQ_bandVerfahren"][value="greenwood"]');
-    if (_rvR) _rvR.dispatchEvent(new Event("change"));
-  }
-  if (typeof FRQ_bandCbfGewichtWahl !== "undefined") {
-    FRQ_bandCbfGewichtWahl = "ausgewogen";
-  }
-  if (typeof FRQ_bandCbfRandverhaltenWahl !== "undefined") {
-    FRQ_bandCbfRandverhaltenWahl = "mittel";
-  }
-  if (typeof FRQ_bandCbfRandspektrumWahl !== "undefined") {
-    FRQ_bandCbfRandspektrumWahl = "frei";
-  }
+  // BA463: seitenweise Band-Wahlen werden durch initSideData/switchMfr
+  // zurueckgesetzt (im switchMfr-Pfad, der beim Neu-Laden gerufen wird).
+  // Kein globaler Reset mehr noetig.
   if (typeof FRQ_bandSkalaWahl !== "undefined") {
     FRQ_bandSkalaWahl = "300";
     var _rskR = document.querySelector('input[name="FRQ_bandSkala"][value="300"]');
@@ -336,6 +300,14 @@ async function saveJson() {
         implant: sideData.left.implant,
         bandWandLo: sideData.left.bandWandLo,
         bandWandHi: sideData.left.bandWandHi,
+        bandVerfahren: sideData.left.bandVerfahren,
+        bandTopologie: sideData.left.bandTopologie,
+        bandOptimieren: sideData.left.bandOptimieren,
+        bandZiel: sideData.left.bandZiel,
+        bandRandausgleich: sideData.left.bandRandausgleich,
+        bandCbfGewicht: sideData.left.bandCbfGewicht,
+        bandCbfRandverhalten: sideData.left.bandCbfRandverhalten,
+        bandCbfRandspektrum: sideData.left.bandCbfRandspektrum,
       },
       right: {
         config: sideData.right.config || "ci",
@@ -358,6 +330,14 @@ async function saveJson() {
         implant: sideData.right.implant,
         bandWandLo: sideData.right.bandWandLo,
         bandWandHi: sideData.right.bandWandHi,
+        bandVerfahren: sideData.right.bandVerfahren,
+        bandTopologie: sideData.right.bandTopologie,
+        bandOptimieren: sideData.right.bandOptimieren,
+        bandZiel: sideData.right.bandZiel,
+        bandRandausgleich: sideData.right.bandRandausgleich,
+        bandCbfGewicht: sideData.right.bandCbfGewicht,
+        bandCbfRandverhalten: sideData.right.bandCbfRandverhalten,
+        bandCbfRandspektrum: sideData.right.bandCbfRandspektrum,
       },
     },
     currentSide: activeSide,
@@ -411,14 +391,6 @@ async function saveJson() {
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
     playerWarpMode: (typeof pWarpCalcMode !== "undefined") ? pWarpCalcMode : "mid",
-    bandVerfahren: (typeof FRQ_bandVerfahrenWahl !== "undefined") ? FRQ_bandVerfahrenWahl : "greenwood",
-    bandTopologie: (typeof FRQ_bandTopologieWahl !== "undefined") ? FRQ_bandTopologieWahl : "nahtlos",
-    bandOptimieren: (typeof FRQ_bandOptimierenWahl !== "undefined") ? FRQ_bandOptimierenWahl : "optimiert",
-    bandZiel: (typeof FRQ_bandZielWahl !== "undefined") ? FRQ_bandZielWahl : "minimax",
-    bandRandausgleich: (typeof FRQ_bandRandausgleichWahl !== "undefined") ? FRQ_bandRandausgleichWahl : "mit",
-    bandCbfGewicht: (typeof FRQ_bandCbfGewichtWahl !== "undefined") ? FRQ_bandCbfGewichtWahl : "ausgewogen",
-    bandCbfRandverhalten: (typeof FRQ_bandCbfRandverhaltenWahl !== "undefined") ? FRQ_bandCbfRandverhaltenWahl : "mittel",
-    bandCbfRandspektrum: (typeof FRQ_bandCbfRandspektrumWahl !== "undefined") ? FRQ_bandCbfRandspektrumWahl : "frei",
     bandSkala: (typeof FRQ_bandSkalaWahl !== "undefined") ? FRQ_bandSkalaWahl : "300",
 
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
@@ -789,59 +761,16 @@ function applyLoadedData(d) {
   pWarpCalcMode = (d.playerWarpMode === "fast" || d.playerWarpMode === "mid" || d.playerWarpMode === "best")
     ? d.playerWarpMode : "mid";
   if (typeof _pWarpCalcModeApply === "function") _pWarpCalcModeApply();
-  // BA445: gewaehlte Bandberechnung laden (fehlt in Alt-Dateien -> Default).
-  if (typeof FRQ_bandVerfahrenWahl !== "undefined" && d.bandVerfahren !== undefined) {
-    FRQ_bandVerfahrenWahl = d.bandVerfahren;
-    var _rv = document.querySelector('input[name="FRQ_bandVerfahren"][value="' + FRQ_bandVerfahrenWahl + '"]');
-    if (_rv) _rv.checked = true;
-  }
-  if (typeof FRQ_bandTopologieWahl !== "undefined" && d.bandTopologie !== undefined) {
-    FRQ_bandTopologieWahl = d.bandTopologie;
-    var _rt = document.querySelector('input[name="FRQ_bandTopologie"][value="' + FRQ_bandTopologieWahl + '"]');
-    if (_rt) _rt.checked = true;
-  }
-  // BA448: neue Wahl-Achsen laden (fehlt in Alt-Dateien -> Default).
-  if (typeof FRQ_bandOptimierenWahl !== "undefined" && d.bandOptimieren !== undefined) {
-    FRQ_bandOptimierenWahl = d.bandOptimieren;
-    var _ro = document.querySelector('input[name="FRQ_bandOptimieren"][value="' + FRQ_bandOptimierenWahl + '"]');
-    if (_ro) _ro.checked = true;
-  }
-  if (typeof FRQ_bandZielWahl !== "undefined" && d.bandZiel !== undefined) {
-    FRQ_bandZielWahl = d.bandZiel;
-    var _rz = document.querySelector('input[name="FRQ_bandZiel"][value="' + FRQ_bandZielWahl + '"]');
-    if (_rz) _rz.checked = true;
-  }
-  // BA451: Randausgleich-Achse laden.
-  if (typeof FRQ_bandRandausgleichWahl !== "undefined" && d.bandRandausgleich !== undefined) {
-    FRQ_bandRandausgleichWahl = d.bandRandausgleich;
-    var _rr = document.querySelector('input[name="FRQ_bandRandausgleich"][value="' + FRQ_bandRandausgleichWahl + '"]');
-    if (_rr) _rr.checked = true;
-  }
-  if (typeof FRQ_bandCbfGewichtWahl !== "undefined" && d.bandCbfGewicht !== undefined) {
-    FRQ_bandCbfGewichtWahl = d.bandCbfGewicht;
-    var _rcg = document.querySelector('input[name="FRQ_bandCbfGewicht"][value="' + FRQ_bandCbfGewichtWahl + '"]');
-    if (_rcg) _rcg.checked = true;
-  }
-  if (typeof FRQ_bandCbfRandverhaltenWahl !== "undefined" && d.bandCbfRandverhalten !== undefined) {
-    FRQ_bandCbfRandverhaltenWahl = d.bandCbfRandverhalten;
-    var _rcr = document.querySelector('input[name="FRQ_bandCbfRandverhalten"][value="' + FRQ_bandCbfRandverhaltenWahl + '"]');
-    if (_rcr) _rcr.checked = true;
-  }
-  if (typeof FRQ_bandCbfRandspektrumWahl !== "undefined" && d.bandCbfRandspektrum !== undefined) {
-    FRQ_bandCbfRandspektrumWahl = d.bandCbfRandspektrum;
-    var _rcs = document.querySelector('input[name="FRQ_bandCbfRandspektrum"][value="' + FRQ_bandCbfRandspektrumWahl + '"]');
-    if (_rcs) _rcs.checked = true;
-  }
+  // BA463: Band-Wahlen kommen jetzt aus den seitenweisen sideData-Feldern
+  // (geladen via loadSideData -> state-side.js). Skala global wie bisher.
   if (typeof FRQ_bandSkalaWahl !== "undefined" && d.bandSkala !== undefined) {
     FRQ_bandSkalaWahl = d.bandSkala;
     var _rsk = document.querySelector('input[name="FRQ_bandSkala"][value="' + FRQ_bandSkalaWahl + '"]');
     if (_rsk) _rsk.checked = true;
   }
-  // BA451: ABF-Achsen-Sichtbarkeit nach dem Laden neu berechnen (Verfahren kann "abf" sein).
-  // Variante (b): change-Event auf dem Verfahren-Radiobutton dispatchen -> init.js-Handler
-  // zieht die Sichtbarkeit nach, ohne dass _frqBandAchsenSichtbarkeit global sein muss.
-  var _rvLoad = document.querySelector('input[name="FRQ_bandVerfahren"][value="' + FRQ_bandVerfahrenWahl + '"]');
-  if (_rvLoad) _rvLoad.dispatchEvent(new Event("change"));
+  // BA463: geladene Band-Wahlen der aktiven Seite in die Radios spiegeln
+  // (inkl. Achsen-Sichtbarkeit). Muss VOR FRQ_renderResults stehen.
+  if (typeof _frqBandSpiegle === "function") _frqBandSpiegle();
   // BA 177: wenn Save-Daten Frequenzabgleich-Messungen enthielten,
   // den Default-Anwendungs-Flag setzen, damit der nächste Insert
   // den gespeicherten pWarpMode nicht überschreibt.

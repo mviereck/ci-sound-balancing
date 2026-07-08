@@ -15,28 +15,21 @@ let pWarpedBufNHSim = null;
 let pWarpOn = true;
 let pWarpSettingsOpen = false;
 let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
-// BA445: global gewaehlte Bandberechnung (Architektur Sec. 12).
-// Zwei orthogonale Achsen: Verfahren (Rechenraum, Sec. 11) und Topologie
-// (Grenzsetzung, Sec. 13). Anfangswerte greenwood/nahtlos (Nutzer-Beschluss;
-// nahtlos = bisheriges Verhalten). EINZIGE Schreibstellen: die Radiobuttons
-// (init.js) und das Datei-Laden (file.js). Gelesen NUR von FRQ_werte als
-// Default (kein Konsument direkt).
-let FRQ_bandVerfahrenWahl = "greenwood";
-let FRQ_bandTopologieWahl = "nahtlos";
-// BA448 (Sec. 14.6): zwei weitere Wahl-Achsen der Bandempfehlung.
-// optimieren: "klassisch" | "optimiert" (Default optimiert, Nutzer 2026-07-06).
-// ziel: "minimax" | "summe" (nur wirksam wenn optimiert; Default minimax).
-let FRQ_bandOptimierenWahl = "optimiert";
-let FRQ_bandZielWahl = "minimax";
-// BA451 (Architektur §4.3): Randausgleich-Achse fuer ABF (mit/ohne
-// Fehler-Ausgleich in der apikalen Zone). Nur bei Verfahren "abf"
-// wirksam/sichtbar. Default patenttreu.
-let FRQ_bandRandausgleichWahl = "mit";
-// BA455: CBF-Achsen (Architektur 00-cbf-verfahren-architektur.md §4.4).
-// value-Strings = Vertrag mit FRQ_cbfGrenzen (BA454 §5).
-let FRQ_bandCbfGewichtWahl = "ausgewogen";
-let FRQ_bandCbfRandverhaltenWahl = "mittel";
-let FRQ_bandCbfRandspektrumWahl = "frei";
+// BA463: Die pro Seite gehaltenen Band-Wahlen (ALLE ausser Y-Skala). EINE
+// Quelle fuer: sideData-Feldname, Default-value, .cimbel-Schluessel.
+// key      = Feld in sideData[side] (sideData[side][key])
+// def      = Default-value (String)
+// fileKey  = Schluessel im seitenweisen .cimbel-Speicher (file.js sides.*)
+var FRQ_BAND_WAHLEN = [
+  { key: "bandVerfahren",       def: "greenwood",  fileKey: "bandVerfahren",       group: "FRQ_bandVerfahren" },
+  { key: "bandTopologie",       def: "nahtlos",    fileKey: "bandTopologie",       group: "FRQ_bandTopologie" },
+  { key: "bandOptimieren",      def: "optimiert",  fileKey: "bandOptimieren",      group: "FRQ_bandOptimieren" },
+  { key: "bandZiel",            def: "minimax",    fileKey: "bandZiel",            group: "FRQ_bandZiel" },
+  { key: "bandRandausgleich",   def: "mit",        fileKey: "bandRandausgleich",   group: "FRQ_bandRandausgleich" },
+  { key: "bandCbfGewicht",      def: "ausgewogen", fileKey: "bandCbfGewicht",      group: "FRQ_bandCbfGewicht" },
+  { key: "bandCbfRandverhalten",def: "mittel",     fileKey: "bandCbfRandverhalten",group: "FRQ_bandCbfRandverhalten" },
+  { key: "bandCbfRandspektrum", def: "frei",       fileKey: "bandCbfRandspektrum", group: "FRQ_bandCbfRandspektrum" },
+];
 // BA460: Y-Skala des Bandgraphen. "100"|"300"|"600" = feste Skala (ct,
 // symmetrisch um 0) -> cfg.yMaxFest; "auto" = selbstskalierend (kein
 // yMaxFest). Default "300". Einzige Schreibstellen: Radios (init.js) +

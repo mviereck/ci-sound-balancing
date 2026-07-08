@@ -186,6 +186,10 @@ function initSideData(side, m) {
   var _bg462 = MFR[s.manufacturer] ? MFR[s.manufacturer].bandGrenzen : null;
   s.bandWandLo = _bg462 ? _bg462.default[0] : null;
   s.bandWandHi = _bg462 ? _bg462.default[1] : null;
+  // BA463: seitenweise Band-Wahlen mit Default initialisieren.
+  if (typeof FRQ_BAND_WAHLEN !== "undefined") {
+    FRQ_BAND_WAHLEN.forEach(function (w) { s[w.key] = w.def; });
+  }
   s.fullSweepRound = null;
   s.fullSweepDonePairs = [];
   s.implant = {
@@ -258,6 +262,7 @@ function setActiveSide(side) {
   ELL_renderResults();
   // BA462: Wand-Radios auf die neue aktive Seite umbauen.
   if (typeof _frqBandWandBuild === "function") _frqBandWandBuild();
+  if (typeof _frqBandSpiegle === "function") _frqBandSpiegle();   // BA463
   // BA414-Folgefix: FRQ-Ergebnisgraph haengt seit der kanonischen Umstellung
   // an der aktiven Seite (FRQ_refHzForMode/FRQ_seitenWerte) -> bei Seiten-
   // wechsel neu rendern, sonst bleibt die Anzeige auf der alten Seite stehen.
@@ -463,6 +468,12 @@ function loadSideData(side, d) {
     var _defHi = _bg462 ? _bg462.default[1] : null;
     s.bandWandLo = (typeof d.bandWandLo === "number") ? d.bandWandLo : _defLo;
     s.bandWandHi = (typeof d.bandWandHi === "number") ? d.bandWandHi : _defHi;
+  }
+  // BA463: seitenweise Band-Wahlen laden (fehlt -> Default).
+  if (typeof FRQ_BAND_WAHLEN !== "undefined") {
+    FRQ_BAND_WAHLEN.forEach(function (w) {
+      s[w.key] = (typeof d[w.fileKey] === "string") ? d[w.fileKey] : w.def;
+    });
   }
   s.elSt = d.electrodeStatus || new Array(s.nEl).fill(null);
   s.elNt = d.electrodeNotes || new Array(s.nEl).fill("");

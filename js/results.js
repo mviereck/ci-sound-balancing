@@ -691,13 +691,11 @@ function FRQ_empfWerte(nhSim, modusOverride) {
   var modus = (typeof modusOverride === "string")
     ? modusOverride
     : FRQ_modusVonReferenzmodus(frq_referenzmodus());
-  var _opt = (typeof FRQ_bandOptimierenWahl !== "undefined")
-    && FRQ_bandOptimierenWahl === "optimiert";
-  var _ziel = (typeof FRQ_bandZielWahl !== "undefined") ? FRQ_bandZielWahl : "minimax";
-  var _rand = (typeof FRQ_bandRandausgleichWahl !== "undefined")
-    ? FRQ_bandRandausgleichWahl : "mit";
+  // BA463: Verfahren/Topologie/Optimieren/Ziel/Randausgleich liegen jetzt
+  // pro Seite in sideData -> FRQ_werte zieht sie SEITENRICHTIG selbst
+  // (undefined = kein Override). Nur modus/nhSim bleiben Aufrufer-Sache.
   return (typeof FRQ_werte === "function")
-    ? FRQ_werte("gehoert", modus, !!nhSim, undefined, undefined, _opt, _ziel, _rand !== "ohne")
+    ? FRQ_werte("gehoert", modus, !!nhSim)
     : [];
 }
 

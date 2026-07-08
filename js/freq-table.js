@@ -487,8 +487,13 @@ function switchMfr(m) {
   if (typeof depLockApply === 'function') depLockApply();
   // BA 172: Tab-Sperre L1 neu bewerten
   if (typeof tabLockApply === 'function') tabLockApply();
+  // BA463: seitenweise Band-Wahlen dieser Seite auf Default zuruecksetzen.
+  if (typeof FRQ_BAND_WAHLEN !== "undefined") {
+    FRQ_BAND_WAHLEN.forEach(function (w) { s[w.key] = w.def; });
+  }
   // BA462: Bandgrenzen-Empfehlung inkl. Wand-Radios neu aufbauen.
   if (typeof _frqBandWandBuild === "function") _frqBandWandBuild();
+  if (typeof _frqBandSpiegle === "function") _frqBandSpiegle();   // BA463
   if (typeof FRQ_renderResults === "function") FRQ_renderResults();
 }
 function frq_implantatReset() {

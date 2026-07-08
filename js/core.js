@@ -1138,19 +1138,15 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
   // Intern wird nhSim pro Form in die noetige Spiegelung uebersetzt (2b).
   var _nhSim = !!nhSim;
 
-  // BA445: Default-Achsen = global gewaehlte Zustaende (Architektur Sec.
-  // 11.5 / 13.6 Fortschreibung). Explizites Argument gewinnt (Override).
-  // typeof-Guards, falls die Zustaende (freq-warp.js) zur Aufrufzeit noch
-  // nicht existieren -> die alten festen Defaults als sicherer Fallback.
-  var _verfahren = verfahren
-    || ((typeof FRQ_bandVerfahrenWahl === "string") ? FRQ_bandVerfahrenWahl : "geometrisch");
-  var _topologie = topologie
-    || ((typeof FRQ_bandTopologieWahl === "string") ? FRQ_bandTopologieWahl : "nahtlos");
-  // BA447 (Sec. 14.6): Optimierung als eigene Achse. Explizites Argument
-  // gewinnt; Default hier FALSE (die globale Wahl + UI kommt in BA448).
-  // ziel Default "minimax".
-  var _optimieren = (optimieren === true);
-  var _ziel = (ziel === "summe") ? "summe" : "minimax";
+  // BA463: Verfahren/Topologie/Optimieren/Ziel sind jetzt PRO SEITE
+  // (sideData[seite]). Explizites Argument (Override) gewinnt weiterhin;
+  // fehlt es, wird die Wahl SEITENRICHTIG in der Schleife unten gelesen.
+  // Hier nur die expliziten Argument-Werte durchreichen (koennen undefined
+  // sein -> Default dann pro Seite).
+  var _verfahrenArg = verfahren;      // String | undefined
+  var _topologieArg = topologie;      // String | undefined
+  var _optimierenArg = optimieren;    // true | undefined/false
+  var _zielArg = ziel;                // "summe" | "minimax" | undefined
 
   // Gemessene Eintraege des aktiven Verfahrens, indexiert nach elIdx.
   var measured = {};
@@ -1276,6 +1272,17 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
   // bei Ueberlauf entry[seite].bandOverlap = true (keine Grenzen).
   if (form === "gehoert" || form === "warp") {
     ["left", "right"].forEach(function (seite) {
+      // BA463: seitenweise Band-Wahl (Default aus sideData[seite]).
+      var _sW = (typeof sideData !== "undefined") ? sideData[seite] : null;
+      var _verfahren = _verfahrenArg
+        || (_sW && typeof _sW.bandVerfahren === "string" ? _sW.bandVerfahren : "geometrisch");
+      var _topologie = _topologieArg
+        || (_sW && typeof _sW.bandTopologie === "string" ? _sW.bandTopologie : "nahtlos");
+      var _optimieren = (_optimierenArg === true)
+        || (_optimierenArg === undefined && _sW && _sW.bandOptimieren === "optimiert");
+      var _ziel = (_zielArg === "summe") ? "summe"
+        : (_zielArg === "minimax") ? "minimax"
+        : (_sW && _sW.bandZiel === "summe" ? "summe" : "minimax");
       // BA453: Statusgewicht je Elektrode SEITENRICHTIG vorab holen (elSt/
       // elExDur sind seitengebunden -> withSide, gleiches Muster wie die
       // feste Wand unten). ell_gWt liegt seit BA453 in core.js. Additiv:
@@ -1307,30 +1314,26 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
       // braucht mittelpunkt-nahtlose Baender, Sec. 13.6a). Nur 'gehoert'.
       var _optHier = (form === "gehoert") && _optimieren;
       // BA462: Bandgrenzen-Wand aus der GEWÄHLTEN, seitengebundenen Wand
-      // (sideData[seite].bandWandLo/Hi). Ersetzt die feste defaultRange-Quelle
-      // (BA450). Fehlt eine Wahl (unknown / Alt-Zustand) -> Fallback auf
-      // defaultRange, damit ABF/CBF nicht schlechter werden. mfr/sideData
-      // sind seitengebunden -> SEITENRICHTIG lesen (kein withSide nötig, da
-      // wir direkt sideData[seite] adressieren).
+      // (sideData[seite].bandWandLo/Hi). BA463: _sW bereits oben gesetzt.
       var _bandWand = null;
-      var _sSeite = (typeof sideData !== "undefined") ? sideData[seite] : null;
-      if (_sSeite && typeof _sSeite.bandWandLo === "number"
-          && typeof _sSeite.bandWandHi === "number") {
-        _bandWand = { loHz: _sSeite.bandWandLo, hiHz: _sSeite.bandWandHi };
+      if (_sW && typeof _sW.bandWandLo === "number"
+          && typeof _sW.bandWandHi === "number") {
+        _bandWand = { loHz: _sW.bandWandLo, hiHz: _sW.bandWandHi };
       } else {
-        var _dr = (_sSeite && MFR[_sSeite.manufacturer])
-          ? MFR[_sSeite.manufacturer].defaultRange : null;
+        var _dr = (_sW && MFR[_sW.manufacturer])
+          ? MFR[_sW.manufacturer].defaultRange : null;
         _bandWand = (_dr && _dr.length === 2) ? { loHz: _dr[0], hiHz: _dr[1] } : null;
       }
       // BA449: KEINE Range mehr (Sec. 14.5-Korrektur) -- Raender gespiegelt.
       var res = FRQ_baender(mitten, _verfahren, _topologie,
         _optHier, _ziel, null, _bandWand, {
-          mitAusgleich: (mitAusgleich !== false),
-          // BA454: CBF-Achsen (UI folgt). Guards, falls Zustaende fehlen ->
-          // Defaults greifen in FRQ_cbfGrenzen.
-          cbfGewicht: (typeof FRQ_bandCbfGewichtWahl === "string") ? FRQ_bandCbfGewichtWahl : "ausgewogen",
-          cbfRandverhalten: (typeof FRQ_bandCbfRandverhaltenWahl === "string") ? FRQ_bandCbfRandverhaltenWahl : "mittel",
-          cbfRandspektrum: (typeof FRQ_bandCbfRandspektrumWahl === "string") ? FRQ_bandCbfRandspektrumWahl : "frei"
+          // BA463: Randausgleich pro Seite aus sideData[seite].
+          mitAusgleich: (mitAusgleich !== undefined) ? (mitAusgleich !== false)
+            : !(_sW && _sW.bandRandausgleich === "ohne"),
+          // BA463: CBF-Achsen pro Seite aus sideData[seite].
+          cbfGewicht: (_sW && typeof _sW.bandCbfGewicht === "string") ? _sW.bandCbfGewicht : "ausgewogen",
+          cbfRandverhalten: (_sW && typeof _sW.bandCbfRandverhalten === "string") ? _sW.bandCbfRandverhalten : "mittel",
+          cbfRandspektrum: (_sW && typeof _sW.bandCbfRandspektrum === "string") ? _sW.bandCbfRandspektrum : "frei"
         });
       if (res.error) {   // "overlap" ODER "abfTonoZuKlein" (BA450)
         out.forEach(function (entry) {

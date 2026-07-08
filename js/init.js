@@ -617,14 +617,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // wirksam -> Fieldset nur dann sichtbar (Nutzer-Beschluss 2026-07-06).
   function _frqBandZielSichtbarkeit() {
     var fs = document.getElementById("FRQ_bandZielFieldset");
-    if (fs) fs.style.display = (FRQ_bandOptimierenWahl === "optimiert") ? "" : "none";
+    if (fs) fs.style.display = (sideData[activeSide].bandOptimieren === "optimiert") ? "" : "none";
   }
   // BA451 (Architektur §4.1/§4.3): ABF verdraengt Topologie/Optimieren/
   // Ziel -> diese Fieldsets bei "abf" ausblenden, Randausgleich einblenden.
   // Bei den anderen drei Verfahren umgekehrt. EINE Stelle, datengetrieben.
   function _frqBandAchsenSichtbarkeit() {
-    var istAbf = (FRQ_bandVerfahrenWahl === "abf");
-    var istCbf = (FRQ_bandVerfahrenWahl === "cbf");
+    var istAbf = (sideData[activeSide].bandVerfahren === "abf");
+    var istCbf = (sideData[activeSide].bandVerfahren === "cbf");
     // BA455: Die alten Achsen (Topologie/Optimieren/Ziel) sind bei ABF UND
     // CBF aus (beide verdraengen sie, Architektur §4.1).
     var aus = ["FRQ_bandTopologieFieldset", "FRQ_bandOptimierenFieldset",
@@ -646,22 +646,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // Ziel-Sichtbarkeit.
     if (!istAbf && !istCbf) _frqBandZielSichtbarkeit();
   }
+  // BA463: Setter schreiben in die AKTIVE Seite (sideData[activeSide]).
   _frqBandWahlInit("FRQ_bandVerfahren", function (v) {
-    FRQ_bandVerfahrenWahl = v;
+    sideData[activeSide].bandVerfahren = v;
     _frqBandAchsenSichtbarkeit();
   });
-  _frqBandWahlInit("FRQ_bandTopologie", function (v) { FRQ_bandTopologieWahl = v; });
+  _frqBandWahlInit("FRQ_bandTopologie", function (v) { sideData[activeSide].bandTopologie = v; });
   _frqBandWahlInit("FRQ_bandOptimieren", function (v) {
-    FRQ_bandOptimierenWahl = v;
-    _frqBandZielSichtbarkeit();   // Ziel-Fieldset ein/aus
+    sideData[activeSide].bandOptimieren = v;
+    _frqBandZielSichtbarkeit();
   });
-  _frqBandWahlInit("FRQ_bandZiel", function (v) { FRQ_bandZielWahl = v; });
-  _frqBandWahlInit("FRQ_bandRandausgleich", function (v) { FRQ_bandRandausgleichWahl = v; });
-  // BA455: CBF-Achsen. _frqBandWahlInit ruft FRQ_renderResults nach jeder
-  // Aenderung -> Tabelle+Graph aktualisieren gemeinsam (BA452-Wertquelle).
-  _frqBandWahlInit("FRQ_bandCbfGewicht", function (v) { FRQ_bandCbfGewichtWahl = v; });
-  _frqBandWahlInit("FRQ_bandCbfRandverhalten", function (v) { FRQ_bandCbfRandverhaltenWahl = v; });
-  _frqBandWahlInit("FRQ_bandCbfRandspektrum", function (v) { FRQ_bandCbfRandspektrumWahl = v; });
+  _frqBandWahlInit("FRQ_bandZiel", function (v) { sideData[activeSide].bandZiel = v; });
+  _frqBandWahlInit("FRQ_bandRandausgleich", function (v) { sideData[activeSide].bandRandausgleich = v; });
+  _frqBandWahlInit("FRQ_bandCbfGewicht", function (v) { sideData[activeSide].bandCbfGewicht = v; });
+  _frqBandWahlInit("FRQ_bandCbfRandverhalten", function (v) { sideData[activeSide].bandCbfRandverhalten = v; });
+  _frqBandWahlInit("FRQ_bandCbfRandspektrum", function (v) { sideData[activeSide].bandCbfRandspektrum = v; });
   _frqBandWahlInit("FRQ_bandSkala", function (v) { FRQ_bandSkalaWahl = v; });
   // DEBUG-Testoption (Martin): Default-Mittenfrequenzen statt Messwerte.
   // Setzt das globale Flag (core.js, in FRQ_werte ausgewertet) und zeichnet
@@ -674,28 +673,22 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof FRQ_renderResults === "function") FRQ_renderResults();
     });
   })();
-  // Anfangswerte in die Radiobuttons spiegeln.
-  (function () {
-    var rv = document.querySelector('input[name="FRQ_bandVerfahren"][value="' + FRQ_bandVerfahrenWahl + '"]');
-    if (rv) rv.checked = true;
-    var rt = document.querySelector('input[name="FRQ_bandTopologie"][value="' + FRQ_bandTopologieWahl + '"]');
-    if (rt) rt.checked = true;
-    var ro = document.querySelector('input[name="FRQ_bandOptimieren"][value="' + FRQ_bandOptimierenWahl + '"]');
-    if (ro) ro.checked = true;
-    var rz = document.querySelector('input[name="FRQ_bandZiel"][value="' + FRQ_bandZielWahl + '"]');
-    if (rz) rz.checked = true;
-    var rr = document.querySelector('input[name="FRQ_bandRandausgleich"][value="' + FRQ_bandRandausgleichWahl + '"]');
-    if (rr) rr.checked = true;
-    // BA455: CBF-Achsen spiegeln.
-    var rcg = document.querySelector('input[name="FRQ_bandCbfGewicht"][value="' + FRQ_bandCbfGewichtWahl + '"]');
-    if (rcg) rcg.checked = true;
-    var rcr = document.querySelector('input[name="FRQ_bandCbfRandverhalten"][value="' + FRQ_bandCbfRandverhaltenWahl + '"]');
-    if (rcr) rcr.checked = true;
-    var rcs = document.querySelector('input[name="FRQ_bandCbfRandspektrum"][value="' + FRQ_bandCbfRandspektrumWahl + '"]');
-    if (rcs) rcs.checked = true;
-    _frqBandAchsenSichtbarkeit();   // BA451: initiale Achsen-Sichtbarkeit (ersetzt alleinigen _frqBandZielSichtbarkeit-Aufruf)
-    _frqBandWandBuild();   // BA462: Wand-Radios initial aufbauen
-  })();
+  // BA463: alle seitenweisen Band-Radios auf die aktive Seite spiegeln.
+  // Aufgerufen initial, bei Seitenwechsel (setActiveSide) und Hersteller-
+  // wechsel (switchMfr). Skala bleibt global -> hier NICHT gespiegelt.
+  function _frqBandSpiegle() {
+    var s = sideData[activeSide];
+    if (!s || typeof FRQ_BAND_WAHLEN === "undefined") return;
+    FRQ_BAND_WAHLEN.forEach(function (w) {
+      var val = s[w.key];
+      var r = document.querySelector('input[name="' + w.group + '"][value="' + val + '"]');
+      if (r) r.checked = true;
+    });
+    _frqBandAchsenSichtbarkeit();
+  }
+  // Anfangswerte spiegeln + Wand-Radios aufbauen.
+  _frqBandSpiegle();
+  _frqBandWandBuild();   // BA462: Wand-Radios initial aufbauen
 
   // Warp-UI initialisieren
   _pWarpApplyLangTexts();
@@ -764,6 +757,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("ciSideSelect").value = "left";
         document.getElementById("mfrSelect").value = mfr;
       }
+      // BA462-Fix: nach dem Session-Restore steht der echte Hersteller/die
+      // aktive Seite fest -> Wand-Radios neu aufbauen. Der frühe Init-Aufruf
+      // (oben) lief noch mit "unknown" und hatte die Fieldsets ausgeblendet.
+      if (typeof _frqBandWandBuild === "function") _frqBandWandBuild();
+      if (typeof _frqBandSpiegle === "function") _frqBandSpiegle();   // BA463
       if (typeof d.playerSourceMeas === "boolean") {
         plSrcMeas = d.playerSourceMeas;
         plSrcLevels = !!d.playerSourceLevels;
