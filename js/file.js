@@ -249,6 +249,11 @@ function resetAll() {
   if (typeof FRQ_bandCbfRandspektrumWahl !== "undefined") {
     FRQ_bandCbfRandspektrumWahl = "frei";
   }
+  if (typeof FRQ_bandSkalaWahl !== "undefined") {
+    FRQ_bandSkalaWahl = "300";
+    var _rskR = document.querySelector('input[name="FRQ_bandSkala"][value="300"]');
+    if (_rskR) _rskR.checked = true;
+  }
   // --- MAPLAW-Knopf ---
   if (typeof pMaplawOn !== "undefined") pMaplawOn = false;
   if (typeof pMaplawSollC !== "undefined") pMaplawSollC = 1000;
@@ -410,6 +415,7 @@ async function saveJson() {
     bandCbfGewicht: (typeof FRQ_bandCbfGewichtWahl !== "undefined") ? FRQ_bandCbfGewichtWahl : "ausgewogen",
     bandCbfRandverhalten: (typeof FRQ_bandCbfRandverhaltenWahl !== "undefined") ? FRQ_bandCbfRandverhaltenWahl : "mittel",
     bandCbfRandspektrum: (typeof FRQ_bandCbfRandspektrumWahl !== "undefined") ? FRQ_bandCbfRandspektrumWahl : "frei",
+    bandSkala: (typeof FRQ_bandSkalaWahl !== "undefined") ? FRQ_bandSkalaWahl : "300",
 
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
@@ -821,6 +827,11 @@ function applyLoadedData(d) {
     FRQ_bandCbfRandspektrumWahl = d.bandCbfRandspektrum;
     var _rcs = document.querySelector('input[name="FRQ_bandCbfRandspektrum"][value="' + FRQ_bandCbfRandspektrumWahl + '"]');
     if (_rcs) _rcs.checked = true;
+  }
+  if (typeof FRQ_bandSkalaWahl !== "undefined" && d.bandSkala !== undefined) {
+    FRQ_bandSkalaWahl = d.bandSkala;
+    var _rsk = document.querySelector('input[name="FRQ_bandSkala"][value="' + FRQ_bandSkalaWahl + '"]');
+    if (_rsk) _rsk.checked = true;
   }
   // BA451: ABF-Achsen-Sichtbarkeit nach dem Laden neu berechnen (Verfahren kann "abf" sein).
   // Variante (b): change-Event auf dem Verfahren-Radiobutton dispatchen -> init.js-Handler

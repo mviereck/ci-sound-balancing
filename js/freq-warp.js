@@ -37,6 +37,11 @@ let FRQ_bandRandausgleichWahl = "mit";
 let FRQ_bandCbfGewichtWahl = "ausgewogen";
 let FRQ_bandCbfRandverhaltenWahl = "mittel";
 let FRQ_bandCbfRandspektrumWahl = "frei";
+// BA460: Y-Skala des Bandgraphen. "100"|"300"|"600" = feste Skala (ct,
+// symmetrisch um 0) -> cfg.yMaxFest; "auto" = selbstskalierend (kein
+// yMaxFest). Default "300". Einzige Schreibstellen: Radios (init.js) +
+// Datei-Laden (file.js). Gelesen NUR vom Bandgraph-Aufruf (results.js).
+let FRQ_bandSkalaWahl = "300";
 // DEBUG-Testoption (Martin, nicht persistent, nicht gespeichert): bei true
 // speist FRQ_werte die nominellen Implantat-Frequenzen (cent=0) statt der
 // echten Messwerte ein -> Verhalten der Verfahren mit Default-Mittenfreqs.

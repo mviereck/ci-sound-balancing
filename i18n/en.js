@@ -741,6 +741,8 @@ Object.assign(L.en, {
     FRQ_bandTipReached: "reached",
     FRQ_bandTipShift: "shift",
     FRQ_bandTipBand: "band",
+    FRQ_bandSkalaLabel: "Scale (Y axis in cents):",
+    FRQ_bandSkalaAuto: "auto",
     FRQ_bandEmpfOverlapNote: "No frequency bands can be calculated for the current measurement: two or more perceived frequencies overlap.",
     cfgLabel: "Hearing situation",
     cfgUnknown: "Not specified",

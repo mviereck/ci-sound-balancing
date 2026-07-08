@@ -814,6 +814,8 @@ Object.assign(L.de, {
     FRQ_bandTipReached: "erreicht",
     FRQ_bandTipShift: "Verschiebung",
     FRQ_bandTipBand: "Band",
+    FRQ_bandSkalaLabel: "Skalierung (Y-Achse in cent):",
+    FRQ_bandSkalaAuto: "auto",
     FRQ_bandEmpfOverlapNote: "Für die aktuelle Messlage können keine Frequenzbänder berechnet werden: Zwei oder mehr wahrgenommene Frequenzen überschneiden sich.",
     cfgLabel: "Hörsituation",
     cfgUnknown: "Keine Angabe",

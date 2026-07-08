@@ -762,13 +762,16 @@ function _FRQ_renderBandEmpf(side) {
     }
     var _wand = (typeof mfr === "string" && MFR[mfr] && MFR[mfr].defaultRange
       && MFR[mfr].defaultRange.length === 2) ? MFR[mfr].defaultRange : null;
+    var _skala = (typeof FRQ_bandSkalaWahl === "string") ? FRQ_bandSkalaWahl : "300";
+    var _yMaxFest = (_skala === "auto") ? undefined : Number(_skala);
     drawFRQGraph(_bcv, _rows, {
       residuumAnker: "nulllinie",
       xWandHz: _wand,
       yLabel: t("FRQ_resultsChartYLabel"),
       schwelleCent: FRQ_bandEmpfSchwelleCent,
       verbindung: true,
-      amberband: false
+      amberband: false,
+      yMaxFest: _yMaxFest
     });
     if (!_bcv._frqg_listener) {
       _bcv.addEventListener("mousemove", function (e) { _frqg_tooltipHandler(_bcv, e); });

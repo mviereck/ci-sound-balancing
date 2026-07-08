@@ -601,6 +601,7 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandCbfGewicht", function (v) { FRQ_bandCbfGewichtWahl = v; });
   _frqBandWahlInit("FRQ_bandCbfRandverhalten", function (v) { FRQ_bandCbfRandverhaltenWahl = v; });
   _frqBandWahlInit("FRQ_bandCbfRandspektrum", function (v) { FRQ_bandCbfRandspektrumWahl = v; });
+  _frqBandWahlInit("FRQ_bandSkala", function (v) { FRQ_bandSkalaWahl = v; });
   // DEBUG-Testoption (Martin): Default-Mittenfrequenzen statt Messwerte.
   // Setzt das globale Flag (core.js, in FRQ_werte ausgewertet) und zeichnet
   // die Empfehlungs-Ansicht neu. Nur diese eine Quell-Stelle wirkt.

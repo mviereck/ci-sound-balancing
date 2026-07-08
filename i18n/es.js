@@ -742,6 +742,8 @@ Object.assign(L.es, {
     FRQ_bandTipReached: "obtenida",
     FRQ_bandTipShift: "desplazamiento",
     FRQ_bandTipBand: "banda",
+    FRQ_bandSkalaLabel: "Escala (eje Y en cent):",
+    FRQ_bandSkalaAuto: "auto",
     FRQ_bandEmpfOverlapNote: "No se pueden calcular bandas de frecuencia para la medición actual: dos o más frecuencias percibidas se solapan.",
     cfgLabel: "Situación auditiva",
     cfgUnknown: "Sin indicar",
