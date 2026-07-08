@@ -638,7 +638,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (rand) rand.style.display = istAbf ? "" : "none";
     // BA455: die drei CBF-Fieldsets nur bei CBF.
     ["FRQ_bandCbfGewichtFieldset", "FRQ_bandCbfRandverhaltenFieldset",
-     "FRQ_bandCbfRandspektrumFieldset"].forEach(function (id) {
+     "FRQ_bandCbfRandspektrumFieldset", "FRQ_bandCbfSpracheFieldset"].forEach(function (id) {
       var fs = document.getElementById(id);
       if (fs) fs.style.display = istCbf ? "" : "none";
     });
@@ -661,6 +661,7 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandCbfGewicht", function (v) { sideData[activeSide].bandCbfGewicht = v; });
   _frqBandWahlInit("FRQ_bandCbfRandverhalten", function (v) { sideData[activeSide].bandCbfRandverhalten = v; });
   _frqBandWahlInit("FRQ_bandCbfRandspektrum", function (v) { sideData[activeSide].bandCbfRandspektrum = v; });
+  _frqBandWahlInit("FRQ_bandCbfSprache", function (v) { sideData[activeSide].bandCbfSprache = v; });
   _frqBandWahlInit("FRQ_bandSkala", function (v) { FRQ_bandSkalaWahl = v; });
   // DEBUG-Testoption (Martin): Default-Mittenfrequenzen statt Messwerte.
   // Setzt das globale Flag (core.js, in FRQ_werte ausgewertet) und zeichnet

@@ -308,6 +308,7 @@ async function saveJson() {
         bandCbfGewicht: sideData.left.bandCbfGewicht,
         bandCbfRandverhalten: sideData.left.bandCbfRandverhalten,
         bandCbfRandspektrum: sideData.left.bandCbfRandspektrum,
+        bandCbfSprache: sideData.left.bandCbfSprache,
       },
       right: {
         config: sideData.right.config || "ci",
@@ -338,6 +339,7 @@ async function saveJson() {
         bandCbfGewicht: sideData.right.bandCbfGewicht,
         bandCbfRandverhalten: sideData.right.bandCbfRandverhalten,
         bandCbfRandspektrum: sideData.right.bandCbfRandspektrum,
+        bandCbfSprache: sideData.right.bandCbfSprache,
       },
     },
     currentSide: activeSide,
