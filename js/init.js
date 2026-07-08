@@ -686,6 +686,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     _frqBandAchsenSichtbarkeit();
   }
+  // BA462.2/463-Fix: _frqBandWandBuild und _frqBandSpiegle werden aus anderen
+  // Dateien gerufen (state-side.js setActiveSide, freq-table.js switchMfr,
+  // file.js Datei-Laden). Als DOMContentLoaded-Closure-lokale Funktionen sind
+  // sie dort NICHT sichtbar (typeof === "undefined" -> Aufrufe still
+  // uebersprungen: Seiten-/Herstellerwechsel spiegelten nie). Global
+  // exponieren, wie window._pWarpApplyLangTexts (init.js:77).
+  window._frqBandWandBuild = _frqBandWandBuild;
+  window._frqBandSpiegle = _frqBandSpiegle;
   // Anfangswerte spiegeln + Wand-Radios aufbauen.
   _frqBandSpiegle();
   _frqBandWandBuild();   // BA462: Wand-Radios initial aufbauen
