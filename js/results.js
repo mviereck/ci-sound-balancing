@@ -771,6 +771,7 @@ function _FRQ_renderBandEmpf(side) {
         sichtbar: true,
         warn: !!_ws.kurveVerdacht,   // §5.2: alle Verfahren (kurveVerdacht immer gerechnet)
         stufe: _stufe,
+        konsistenzCent: (_ws.kurveAbwCent != null) ? _ws.kurveAbwCent : null,
         tooltip: [
           "<b>E" + _elNum + "</b>",
           t("FRQ_bandTipHeard") + ": " + fmtNum(_target, "hz") + " Hz",
@@ -779,6 +780,10 @@ function _FRQ_renderBandEmpf(side) {
           t("FRQ_bandTipBand") + ": " + fmtNum(_ws.bandLoHz, "hz") + " – "
             + fmtNum(_ws.bandHiHz, "hz") + " Hz"
         ].concat(_ws.kurveVerdacht ? [t("FRQ_bandEmpfTipVerdacht")] : [])
+         .concat(_ws.kurveAbwCent != null
+           ? [t("FRQ_bandTipConsist") + ": "
+              + (_ws.kurveAbwCent >= 0 ? "+" : "") + fmtNum(_ws.kurveAbwCent, "cent") + " ct"]
+           : [])
       });
     }
     var _wand = _FRQ_bandWandFuerGraph(side);
