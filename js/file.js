@@ -334,6 +334,8 @@ async function saveJson() {
         fullSweepRound: sideData.left.fullSweepRound,
         fullSweepDonePairs: sideData.left.fullSweepDonePairs,
         implant: sideData.left.implant,
+        bandWandLo: sideData.left.bandWandLo,
+        bandWandHi: sideData.left.bandWandHi,
       },
       right: {
         config: sideData.right.config || "ci",
@@ -354,6 +356,8 @@ async function saveJson() {
         fullSweepRound: sideData.right.fullSweepRound,
         fullSweepDonePairs: sideData.right.fullSweepDonePairs,
         implant: sideData.right.implant,
+        bandWandLo: sideData.right.bandWandLo,
+        bandWandHi: sideData.right.bandWandHi,
       },
     },
     currentSide: activeSide,

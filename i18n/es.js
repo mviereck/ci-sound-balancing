@@ -710,6 +710,8 @@ Object.assign(L.es, {
     FRQ_chartLegendRow7:   "Banda|gris claro/oscuro, abajo|Recomendación de ancho de banda",
     FRQ_resultsQualityPiano:           "Prueba de piano: ronda {round} de {total} completada (aproximación ±{step} centésimas).",
     FRQ_bandEmpfTitle: "Recomendación de bandas",
+    FRQ_bandWandLoLegend: "Límite inferior",
+    FRQ_bandWandHiLegend: "Límite superior",
     FRQ_bandVerfahrenLegend: "Método de cálculo",
     FRQ_bandVerfGeom: "Geométrico (Advanced Bionics)",
     FRQ_bandVerfArith: "Aritmético (Cochlear)",

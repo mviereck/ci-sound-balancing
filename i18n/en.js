@@ -709,6 +709,8 @@ Object.assign(L.en, {
     FRQ_chartLegendRow7:   "Band|light/dark grey, bottom|Bandwidth recommendation",
     FRQ_resultsQualityPiano:           "Piano test: round {round} of {total} completed (approximation ±{step} cents).",
     FRQ_bandEmpfTitle: "Band-edge recommendation",
+    FRQ_bandWandLoLegend: "Lower limit",
+    FRQ_bandWandHiLegend: "Upper limit",
     FRQ_bandVerfahrenLegend: "Calculation method",
     FRQ_bandVerfGeom: "Geometric (Advanced Bionics)",
     FRQ_bandVerfArith: "Arithmetic (Cochlear)",

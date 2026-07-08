@@ -181,6 +181,11 @@ function initSideData(side, m) {
   s.ELL_results = [];
   // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
   s.elActive = new Array(s.nEl).fill(true);
+  // BA462: gewählte Bandgrenzen-Wand (Hz) pro Seite. Default = Hersteller-
+  // Default aus bandGrenzen; unknown (bandGrenzen null) -> null (keine Wahl).
+  var _bg462 = MFR[s.manufacturer] ? MFR[s.manufacturer].bandGrenzen : null;
+  s.bandWandLo = _bg462 ? _bg462.default[0] : null;
+  s.bandWandHi = _bg462 ? _bg462.default[1] : null;
   s.fullSweepRound = null;
   s.fullSweepDonePairs = [];
   s.implant = {
@@ -251,6 +256,8 @@ function setActiveSide(side) {
   kurvenELLChartZeichnen();
   if (typeof schieberELLRebuild === "function") schieberELLRebuild();
   ELL_renderResults();
+  // BA462: Wand-Radios auf die neue aktive Seite umbauen.
+  if (typeof _frqBandWandBuild === "function") _frqBandWandBuild();
   // BA414-Folgefix: FRQ-Ergebnisgraph haengt seit der kanonischen Umstellung
   // an der aktiven Seite (FRQ_refHzForMode/FRQ_seitenWerte) -> bei Seiten-
   // wechsel neu rendern, sonst bleibt die Anzeige auf der alten Seite stehen.
@@ -448,6 +455,14 @@ function loadSideData(side, d) {
   } else {
     s.nEl = MFR[s.manufacturer].n;
     s.FRQ_implantat = [...MFR[s.manufacturer].FRQ_implantat];
+  }
+  // BA462: Wand-Wahl laden; Alt-Dateien ohne Feld -> Hersteller-Default.
+  {
+    var _bg462 = MFR[s.manufacturer] ? MFR[s.manufacturer].bandGrenzen : null;
+    var _defLo = _bg462 ? _bg462.default[0] : null;
+    var _defHi = _bg462 ? _bg462.default[1] : null;
+    s.bandWandLo = (typeof d.bandWandLo === "number") ? d.bandWandLo : _defLo;
+    s.bandWandHi = (typeof d.bandWandHi === "number") ? d.bandWandHi : _defHi;
   }
   s.elSt = d.electrodeStatus || new Array(s.nEl).fill(null);
   s.elNt = d.electrodeNotes || new Array(s.nEl).fill("");

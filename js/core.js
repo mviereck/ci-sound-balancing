@@ -176,6 +176,7 @@ const MFR = {
     n: 0,
     apFirst: true,
     defaultRange: null,
+    bandGrenzen: null,
     FRQ_implantat: [],
   },
   medel: {
@@ -183,6 +184,16 @@ const MFR = {
     n: 12,
     apFirst: true,
     defaultRange: [70, 8500],   // BA433: echte From/To (MAESTRO-Default)
+    // Mögliche Gesamt-Bandgrenzen (untere/obere Wand). Quelle:
+    // MED-EL-User-Manual-MAESTRO-11-EN §24.6, Tabelle „Parameters
+    // with defaults for the frequency band distribution and
+    // frequency range". From/To ist Input-Typ integer [Hz; Hz] und
+    // FREI editierbar (Doppelklick/Feld) — die lo-Werte sind
+    // strategieabhängige Defaults bzw. Bereichsränder, keine harte
+    // Auswahlliste: 70 (other strategies, Default), 250 (HDCIS-
+    // Default), 300 (CIS+-Default), 200 (CIS+-Range-Untergrenze).
+    // Obergrenze in allen Strategien 8500.
+    bandGrenzen: { lo: [70, 200, 250, 300], hi: [8500], default: [70, 8500] },
     FRQ_implantat: [120, 235, 384, 579, 836, 1175, 1624, 2222, 3019, 4084, 5507, 7410],
   },
   ab: {
@@ -190,6 +201,12 @@ const MFR = {
     n: 16,
     apFirst: true,
     defaultRange: [250, 8700],  // SoundWave 2.2 FAT, HiRes/HiRes120 Extended Low (Default): E1-Low 250 Hz, E16-High 8700 Hz
+    // Mögliche Gesamt-Bandgrenzen. Quelle: SoundWave 2.2 Quick
+    // Reference, Frequency Allocation Table (S. 38). Feste Filter-
+    // Varianten (kein freies Editieren belegt): E1-Low 250 (Extended
+    // Low, AB-Default) bzw. 350 (Standard Filter); E16-High in beiden
+    // 8700. Details .docs/Konzept_ABF_Frequenzabbildung.md §8.
+    bandGrenzen: { lo: [250, 350], hi: [8700], default: [250, 8700] },
     FRQ_implantat: [
       333, 455, 540, 642, 762, 906, 1076, 1278, 1518, 1803, 2142, 2544, 3022,
       3590, 4264, 6665,
@@ -200,6 +217,20 @@ const MFR = {
     n: 22,
     apFirst: false,
     defaultRange: [188, 7938],  // Standard-FAT 188–7938 Hz
+    // Mögliche Gesamt-Bandgrenzen (LFE/HFE, frei kreuzkombinierbar).
+    // Quelle: CI-Select-App-Manual, Appendix S. 22–46 (NYU Langone,
+    // Svirsky-Labor). ACHTUNG: das ist die Endnutzer-App, NICHT
+    // Cochlears Fitting-Software Custom Sound — Übertragbarkeit auf
+    // Custom Sound ungesichert (siehe .docs/Konzept_MAESTRO_
+    // Uebertragung.md §5.14). LFE (13 Optionen) 63…1813, HFE (5
+    // Optionen) 7938…18938; die oberste HFE 18938 ist nicht
+    // hardware-belegt. pre-NEXA erlaubt in Custom Sound sogar freie
+    // LF-Eingabe, NEXA (ab 07/2025) nur 27 feste FATs.
+    bandGrenzen: {
+      lo: [63, 188, 313, 438, 563, 688, 813, 938, 1063, 1188, 1313, 1563, 1813],
+      hi: [7938, 9804, 12100, 14924, 18938],
+      default: [188, 7938],
+    },
     // Standard-FAT bei LFE 188 Hz, HFE 7938 Hz, 22 aktiven
     // Kanälen. Quelle: CI Select App Manual S. 12/13 (NYU
     // Langone, Svirsky-Labor) und PMC11493529. Korrigiert in
@@ -1275,16 +1306,25 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
       // Sec. 14.6: Optimierung NIE fuer Warp (er summiert Bandpaesse,
       // braucht mittelpunkt-nahtlose Baender, Sec. 13.6a). Nur 'gehoert'.
       var _optHier = (form === "gehoert") && _optimieren;
-      // BA450: feste Hersteller-Wand fuer ABF, SEITENRICHTIG (Architektur
-      // §4.5). mfr ist seitengebunden (state-side.js:8) -> ueber withSide
-      // lesen. Fehlt defaultRange ("—": null), bleibt _abfWand null.
-      var _dr = withSide(seite, function () {
-        return (typeof mfr === "string" && MFR[mfr]) ? MFR[mfr].defaultRange : null;
-      });
-      var _abfWand = (_dr && _dr.length === 2) ? { loHz: _dr[0], hiHz: _dr[1] } : null;
+      // BA462: Bandgrenzen-Wand aus der GEWÄHLTEN, seitengebundenen Wand
+      // (sideData[seite].bandWandLo/Hi). Ersetzt die feste defaultRange-Quelle
+      // (BA450). Fehlt eine Wahl (unknown / Alt-Zustand) -> Fallback auf
+      // defaultRange, damit ABF/CBF nicht schlechter werden. mfr/sideData
+      // sind seitengebunden -> SEITENRICHTIG lesen (kein withSide nötig, da
+      // wir direkt sideData[seite] adressieren).
+      var _bandWand = null;
+      var _sSeite = (typeof sideData !== "undefined") ? sideData[seite] : null;
+      if (_sSeite && typeof _sSeite.bandWandLo === "number"
+          && typeof _sSeite.bandWandHi === "number") {
+        _bandWand = { loHz: _sSeite.bandWandLo, hiHz: _sSeite.bandWandHi };
+      } else {
+        var _dr = (_sSeite && MFR[_sSeite.manufacturer])
+          ? MFR[_sSeite.manufacturer].defaultRange : null;
+        _bandWand = (_dr && _dr.length === 2) ? { loHz: _dr[0], hiHz: _dr[1] } : null;
+      }
       // BA449: KEINE Range mehr (Sec. 14.5-Korrektur) -- Raender gespiegelt.
       var res = FRQ_baender(mitten, _verfahren, _topologie,
-        _optHier, _ziel, null, _abfWand, {
+        _optHier, _ziel, null, _bandWand, {
           mitAusgleich: (mitAusgleich !== false),
           // BA454: CBF-Achsen (UI folgt). Guards, falls Zustaende fehlen ->
           // Defaults greifen in FRQ_cbfGrenzen.

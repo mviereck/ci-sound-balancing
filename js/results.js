@@ -637,8 +637,7 @@ function FRQ_renderResults() {
   const cv = document.getElementById("FRQ_resultsChart");
   if (cv) {
     const _rows = FRQ_ergebnisRows(aktivSide, {});
-    const _wand = (typeof mfr === "string" && MFR[mfr] && MFR[mfr].defaultRange
-      && MFR[mfr].defaultRange.length === 2) ? MFR[mfr].defaultRange : null;
+    const _wand = _FRQ_bandWandFuerGraph(aktivSide);
     drawFRQGraph(cv, _rows, {
       residuumAnker: "punkt",
       amberband: true,
@@ -702,6 +701,18 @@ function FRQ_empfWerte(nhSim, modusOverride) {
     : [];
 }
 
+// BA462: gewählte Bandgrenzen-Wand [loHz, hiHz] einer Seite als xWandHz-
+// Array für die Graph-Engine. Fallback defaultRange (wie Berechnung 7a).
+// null, wenn keine Wand bekannt.
+function _FRQ_bandWandFuerGraph(side) {
+  var s = sideData[side];
+  if (!s) return null;
+  if (typeof s.bandWandLo === "number" && typeof s.bandWandHi === "number")
+    return [s.bandWandLo, s.bandWandHi];
+  var dr = (MFR[s.manufacturer]) ? MFR[s.manufacturer].defaultRange : null;
+  return (dr && dr.length === 2) ? [dr[0], dr[1]] : null;
+}
+
 function _FRQ_renderBandEmpf(side) {
   var head = document.getElementById("FRQ_bandEmpfTableHead");
   var body = document.getElementById("FRQ_bandEmpfTableBody");
@@ -761,8 +772,7 @@ function _FRQ_renderBandEmpf(side) {
         ]
       });
     }
-    var _wand = (typeof mfr === "string" && MFR[mfr] && MFR[mfr].defaultRange
-      && MFR[mfr].defaultRange.length === 2) ? MFR[mfr].defaultRange : null;
+    var _wand = _FRQ_bandWandFuerGraph(side);
     var _skala = (typeof FRQ_bandSkalaWahl === "string") ? FRQ_bandSkalaWahl : "300";
     var _yMaxFest = (_skala === "auto") ? undefined : Number(_skala);
     drawFRQGraph(_bcv, _rows, {

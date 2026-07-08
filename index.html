@@ -714,6 +714,14 @@
             <div id="FRQ_bandEmpfBlock" style="margin-top:18px">
               <h3 data-t="FRQ_bandEmpfTitle" style="font-size:1em;margin:0 0 10px">Bandgrenzen-Empfehlung</h3>
               <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+                <fieldset id="FRQ_bandWandLoFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandWandLoLegend" style="padding:0 6px">Untergrenze</legend>
+                  <div id="FRQ_bandWandLoOptions"></div>
+                </fieldset>
+                <fieldset id="FRQ_bandWandHiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandWandHiLegend" style="padding:0 6px">Obergrenze</legend>
+                  <div id="FRQ_bandWandHiOptions"></div>
+                </fieldset>
                 <fieldset id="FRQ_bandVerfahrenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
                   <legend data-t="FRQ_bandVerfahrenLegend" style="padding:0 6px">Berechnungsverfahren</legend>
                   <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="geometrisch"> <span data-t="FRQ_bandVerfGeom">Geometrisch (Advanced Bionics)</span></label>

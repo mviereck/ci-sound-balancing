@@ -770,6 +770,8 @@ Object.assign(L.de, {
     FRQ_chartLegendRow7:   "Band|hellgrau/dunkelgrau, unten|Bandbreitenempfehlung",
     FRQ_resultsQualityPiano:           "Klaviertest: Runde {round} von {total} abgeschlossen (Annäherung ±{step} Cent).",
     FRQ_bandEmpfTitle: "Bandgrenzen-Empfehlung",
+    FRQ_bandWandLoLegend: "Untergrenze",
+    FRQ_bandWandHiLegend: "Obergrenze",
     FRQ_bandVerfahrenLegend: "Berechnungsverfahren",
     FRQ_bandVerfGeom: "Geometrisch (Advanced Bionics)",
     FRQ_bandVerfArith: "Arithmetisch (Cochlear)",

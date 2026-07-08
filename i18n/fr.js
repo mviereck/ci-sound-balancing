@@ -710,6 +710,8 @@ Object.assign(L.fr, {
     FRQ_chartLegendRow7:   "Bande|gris clair/foncé, en bas|Recommandation de bande passante",
     FRQ_resultsQualityPiano:           "Test au piano : tour {round} sur {total} terminé (approximation ±{step} cents).",
     FRQ_bandEmpfTitle: "Recommandation de bandes",
+    FRQ_bandWandLoLegend: "Limite inférieure",
+    FRQ_bandWandHiLegend: "Limite supérieure",
     FRQ_bandVerfahrenLegend: "Méthode de calcul",
     FRQ_bandVerfGeom: "Géométrique (Advanced Bionics)",
     FRQ_bandVerfArith: "Arithmétique (Cochlear)",

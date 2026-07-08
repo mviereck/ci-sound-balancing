@@ -537,6 +537,67 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // BA462: Wand-Radios (Untergrenze/Obergrenze) dynamisch aus den
+  // herstellerspezifischen bandGrenzen der AKTIVEN Seite aufbauen. Wert pro
+  // Seite in sideData[side].bandWandLo/Hi. Einzige Bau-Stelle; aufgerufen
+  // initial, bei Herstellerwechsel (switchMfr) und Seitenwechsel
+  // (setActiveSide).
+  function _frqBandWandBuild() {
+    var side = (typeof activeSide === "string") ? activeSide : "right";
+    var s = sideData[side];
+    if (!s) return;
+    var bg = (MFR[s.manufacturer]) ? MFR[s.manufacturer].bandGrenzen : null;
+    var loFs = document.getElementById("FRQ_bandWandLoFieldset");
+    var hiFs = document.getElementById("FRQ_bandWandHiFieldset");
+    var loBox = document.getElementById("FRQ_bandWandLoOptions");
+    var hiBox = document.getElementById("FRQ_bandWandHiOptions");
+    if (!loFs || !hiFs || !loBox || !hiBox) return;
+    // Kein bandGrenzen (unknown) -> beide Fieldsets ausblenden, keine Radios.
+    if (!bg) {
+      loFs.style.display = "none";
+      hiFs.style.display = "none";
+      loBox.innerHTML = "";
+      hiBox.innerHTML = "";
+      return;
+    }
+    loFs.style.display = "";
+    hiFs.style.display = "";
+    _frqBandWandGroup(loBox, "FRQ_bandWandLo", bg.lo, s.bandWandLo, function (v) {
+      sideData[side].bandWandLo = v;
+    });
+    _frqBandWandGroup(hiBox, "FRQ_bandWandHi", bg.hi, s.bandWandHi, function (v) {
+      sideData[side].bandWandHi = v;
+    });
+  }
+
+  // BA462: eine Wand-Radio-Gruppe erzeugen (Label = "N Hz", value = Hz-Zahl).
+  // box: Container-Element; groupName: input-name; werte: Hz-Array;
+  // aktuell: aktuell gewählter Hz-Wert; onPick(v): schreibt den Wert.
+  function _frqBandWandGroup(box, groupName, werte, aktuell, onPick) {
+    box.innerHTML = "";
+    for (var i = 0; i < werte.length; i++) {
+      var hz = werte[i];
+      var lbl = document.createElement("label");
+      lbl.style.display = "block";
+      var inp = document.createElement("input");
+      inp.type = "radio";
+      inp.name = groupName;
+      inp.value = String(hz);
+      if (hz === aktuell) inp.checked = true;
+      (function (val) {
+        inp.addEventListener("change", function () {
+          if (this.checked) {
+            onPick(val);
+            if (typeof FRQ_renderResults === "function") FRQ_renderResults();
+          }
+        });
+      })(hz);
+      lbl.appendChild(inp);
+      lbl.appendChild(document.createTextNode(" " + hz + " Hz"));
+      box.appendChild(lbl);
+    }
+  }
+
   // BA445: Bandverfahren-/Topologie-Wahl -> globale Zustaende + Ansicht neu.
   // Nur die Ergebnis-Ansicht neu zeichnen (Tabelle + Graph). Audio-Konsumenten
   // ziehen die neue Kombination beim naechsten Playback automatisch
@@ -633,6 +694,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var rcs = document.querySelector('input[name="FRQ_bandCbfRandspektrum"][value="' + FRQ_bandCbfRandspektrumWahl + '"]');
     if (rcs) rcs.checked = true;
     _frqBandAchsenSichtbarkeit();   // BA451: initiale Achsen-Sichtbarkeit (ersetzt alleinigen _frqBandZielSichtbarkeit-Aufruf)
+    _frqBandWandBuild();   // BA462: Wand-Radios initial aufbauen
   })();
 
   // Warp-UI initialisieren

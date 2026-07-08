@@ -446,6 +446,10 @@ function switchMfr(m) {
   s.nEl = MFR[m].n;
   s.FRQ_implantat = [...MFR[m].FRQ_implantat];
   s.FRQ_implantatOwn = new Array(s.nEl).fill(null);
+  // BA462: Wand-Wahl auf den Default des neuen Herstellers setzen.
+  var _bg462 = MFR[m] ? MFR[m].bandGrenzen : null;
+  s.bandWandLo = _bg462 ? _bg462.default[0] : null;
+  s.bandWandHi = _bg462 ? _bg462.default[1] : null;
   s.elSt = new Array(s.nEl).fill(null);
   s.elNt = new Array(s.nEl).fill("");
   s.elExDur = new Array(s.nEl).fill(null);
@@ -483,6 +487,9 @@ function switchMfr(m) {
   if (typeof depLockApply === 'function') depLockApply();
   // BA 172: Tab-Sperre L1 neu bewerten
   if (typeof tabLockApply === 'function') tabLockApply();
+  // BA462: Bandgrenzen-Empfehlung inkl. Wand-Radios neu aufbauen.
+  if (typeof _frqBandWandBuild === "function") _frqBandWandBuild();
+  if (typeof FRQ_renderResults === "function") FRQ_renderResults();
 }
 function frq_implantatReset() {
   FRQ_implantat = [...MFR[mfr].FRQ_implantat];
