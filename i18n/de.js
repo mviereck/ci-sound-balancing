@@ -781,6 +781,7 @@ Object.assign(L.de, {
     FRQ_bandRandMit: "Mit Ausgleich (patenttreu)",
     FRQ_bandRandOhne: "Ohne Ausgleich",
     FRQ_bandVerfCbf: "CBF (CImbel based fitting)",
+    FRQ_bandVerfFbf: "FBF (fable based fitting)",
     FRQ_bandCbfGewichtLegend: "Gewichtung",
     FRQ_bandCbfGewTreffer: "Zielfrequenz erreichen",
     FRQ_bandCbfGewAusgew: "Ausgewogen",

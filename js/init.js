@@ -625,18 +625,19 @@ document.addEventListener("DOMContentLoaded", () => {
   function _frqBandAchsenSichtbarkeit() {
     var istAbf = (sideData[activeSide].bandVerfahren === "abf");
     var istCbf = (sideData[activeSide].bandVerfahren === "cbf");
-    // BA455: Die alten Achsen (Topologie/Optimieren/Ziel) sind bei ABF UND
-    // CBF aus (beide verdraengen sie, Architektur §4.1).
+    var istFbf = (sideData[activeSide].bandVerfahren === "fbf");
+    // Die alten Achsen (Topologie/Optimieren/Ziel) sind bei ABF, CBF UND
+    // FBF aus (alle drei verdraengen sie, Architektur §4.1/§4.4).
     var aus = ["FRQ_bandTopologieFieldset", "FRQ_bandOptimierenFieldset",
                "FRQ_bandZielFieldset"];
     aus.forEach(function (id) {
       var fs = document.getElementById(id);
-      if (fs) fs.style.display = (istAbf || istCbf) ? "none" : "";
+      if (fs) fs.style.display = (istAbf || istCbf || istFbf) ? "none" : "";
     });
     // Randausgleich (ABF) nur bei ABF.
     var rand = document.getElementById("FRQ_bandRandausgleichFieldset");
     if (rand) rand.style.display = istAbf ? "" : "none";
-    // BA455: die drei CBF-Fieldsets nur bei CBF.
+    // Die vier CBF-Fieldsets nur bei CBF (bei FBF ebenfalls aus).
     ["FRQ_bandCbfGewichtFieldset", "FRQ_bandCbfRandverhaltenFieldset",
      "FRQ_bandCbfRandspektrumFieldset", "FRQ_bandCbfSpracheFieldset"].forEach(function (id) {
       var fs = document.getElementById(id);
@@ -644,7 +645,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     // Bei den drei klassischen Verfahren gilt die Optimieren-abhaengige
     // Ziel-Sichtbarkeit.
-    if (!istAbf && !istCbf) _frqBandZielSichtbarkeit();
+    if (!istAbf && !istCbf && !istFbf) _frqBandZielSichtbarkeit();
   }
   // BA463: Setter schreiben in die AKTIVE Seite (sideData[activeSide]).
   _frqBandWahlInit("FRQ_bandVerfahren", function (v) {
