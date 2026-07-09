@@ -1233,11 +1233,18 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
     var _minBreite = (opt && opt.minBreite != null) ? opt.minBreite
       : _frqDefaultMinBreiteP(toP);
     var _lambda = (opt && opt.lambda != null) ? opt.lambda : FRQ_BAND_LAMBDA;
-    // BA449: KEINE Hersteller-Range mehr (ueberbestimmte das System,
-    // Sec. 14.5-Korrektur). Raender werden gespiegelt (range=null).
-    var sOpt = FRQ_optimiereGrenzen(P, Ropt, null,
+    // BA471: Grenzeinhaltung "einrechnen" reaktiviert den range-Mechanismus
+    // (BA449 hatte ihn mit null stillgelegt). Feste Aussenkanten = Wand in
+    // Positions-Koordinaten (toP), damit der Optimierer die inneren Grenzen
+    // hineinrechnet (Folgewirkung). "abschneiden" -> range=null wie bisher.
+    var _rangeOpt = null;
+    if (opt && opt.grenzeinhaltung === "einrechnen"
+        && wand && typeof wand.loHz === "number" && typeof wand.hiHz === "number") {
+      _rangeOpt = { loP: toP(wand.loHz), hiP: toP(wand.hiHz) };
+    }
+    var sOpt = FRQ_optimiereGrenzen(P, Ropt, _rangeOpt,
       (ziel === "summe" ? "summe" : "minimax"), _minBreite, _lambda);
-    var edgesOpt = _frqEdges(P, sOpt, null);
+    var edgesOpt = _frqEdges(P, sOpt, _rangeOpt);
     if (topologie === "lueckig" || topologie === "ueberlappend") {
       // Center bleibt P; nur die inneren Grenzen sind jetzt optimiert.
       // Symmetrische Baender um P mit halber Breite aus den optimierten
@@ -1255,10 +1262,22 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
     pairs = topo(P);
   }
 
+  // BA471: Fall A "abschneiden" (Default). Nur die AEUSSEREN Kanten der
+  // beiden Randbaender auf die Wand klemmen; innere Baender unveraendert.
+  // Bei "einrechnen" liegen die Baender schon im range (4a) -> nicht
+  // klemmen. Ohne Wand -> nichts tun. Randfall (gehoerte Freq. ausserhalb
+  // der Wand) NICHT behandelt (Notiz .docs/IDEEN.md 2026-07-08).
+  var _klemmen = wand && typeof wand.loHz === "number"
+    && typeof wand.hiHz === "number"
+    && !(opt && opt.grenzeinhaltung === "einrechnen");
   var bands = [];
   for (var e = 0; e < kette.length; e++) {
     var loP = pairs[e].loP, hiP = pairs[e].hiP;
     var lo = fromP(loP), hi = fromP(hiP);
+    if (_klemmen) {
+      if (e === 0 && lo < wand.loHz) lo = wand.loHz;                 // Unterrand
+      if (e === kette.length - 1 && hi > wand.hiHz) hi = wand.hiHz;  // Oberrand
+    }
     var centerHz = fromP((loP + hiP) / 2);
     var band = { elIdx: kette[e].elIdx, loHz: lo, hiHz: hi,
                  centerHz: centerHz };
@@ -1615,6 +1634,8 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
           cbfRandspektrum: (_sW && typeof _sW.bandCbfRandspektrum === "string") ? _sW.bandCbfRandspektrum : "frei",
           // BA464/465: Sprachbereich-Achse (Feld kommt mit BA465).
           cbfSprache: (_sW && typeof _sW.bandCbfSprache === "string") ? _sW.bandCbfSprache : "mittel",
+          // BA471: Grenzeinhaltung pro Seite (abschneiden|einrechnen).
+          grenzeinhaltung: (_sW && typeof _sW.bandGrenzeinhaltung === "string") ? _sW.bandGrenzeinhaltung : "abschneiden",
           // FBF: log-Kurve der laufenden Seite (Ketten-Reihenfolge, §4.2).
           kurveY: _kurveY,
         });
