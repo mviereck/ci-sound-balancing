@@ -624,10 +624,12 @@ var CBF_LAMBDA = { treffer: 0.03, ausgewogen: 0.1, breite: 0.5 };  // Gewichtung
                               // Gewicht der Breiten-GLATTHEIT (Nachbar-Spruenge).
                               // BA466: klein -- Treffer ist Ziel 1, Glattheit
                               // wirkt v.a. im Gratis-Spielraum der Toleranzen.
-var CBF_RANDAUSLAUF = { eng: 1, mittel: 2, weich: 3 };  // Randverhalten-Achse (Anzahl El.)
-var CBF_RAND_STAERKE = 0.1;   // Treffer-Gewicht der AEUSSERSTEN El. -- GENERELL
-                              // (BA466, Nutzer-Regel: die aeussersten El.
-                              // duerfen viel Fehler tragen)
+// BA472: apikale/basale "Freie Baender"-Achsen ersetzen die symmetrische
+// Randverhalten-Rampe. CBF_RANDAUSLAUF entfaellt. CBF_RAND_STAERKE bleibt
+// als gemeinsamer, fester Treffer-Faktor der freien El. (>0, klein).
+var CBF_RAND_STAERKE = 0.1;   // Treffer-Gewicht der FREIEN El. (apikal+basal),
+                              // flache Stufe statt Rampe (BA472).
+var CBF_FREI_MAX = 4;         // Obergrenze der Achsen "Freie Baender" (0..4).
 var CBF_SPRACHE_FAKTOR = { ohne: 1, mittel: 2, stark: 4 };  // Sprachbereich-Achse
                               // (UI: BA465): Treffer-Faktor im tonotopen Bereich
 var CBF_RESID_BODEN_CT = 20;       // Mindest-Toleranz jeder Messung (cent)
@@ -771,10 +773,11 @@ function FRQ_abfGrenzen(kette, wand, mitAusgleich) {
 //             Schranke + SCHWACHE Glattheit (Spruenge zwischen Nachbar-
 //             Breiten, Gefaelle erlaubt); stumme El. mit eigenem
 //             kleinen Breiten-Ziel, von Treffer/Glattheit ausgenommen.
-//   Rand:     die aeussersten El. tragen den Fehler (Nutzer-Regel
-//             2026-07-08, GENERELL): Treffer-Gewicht aussen
-//             CBF_RAND_STAERKE, ueber die Randverhalten-Reichweite
-//             nach innen auf 1 ansteigend.
+//   Frei:     BA472. Die untersten kApikal und obersten kBasal El.
+//             bekommen ein festes kleines Treffer-Gewicht
+//             (CBF_RAND_STAERKE) -- flache Stufe. Apikal: FS-Rate traegt
+//             die Tonhoehe, nicht der Ort (Konzept_CBF §7). Basal: Rand
+//             faengt den Wandstoss ab.
 //   Sprache:  Treffer-Faktor im tonotopen Bereich (ABF_SCHWELLE_LO/HI).
 // Konvex (Summe konvexer Terme, lineare Schranken) -> eindeutiges
 // Minimum; Loeser: koordinatenweise ternaere Suche (Architektur §3.5:
@@ -783,8 +786,9 @@ function FRQ_abfGrenzen(kette, wand, mitAusgleich) {
 //          statusGewicht, residuum, gemessen } (hz aufsteigend, vom
 //          Rahmen geprueft; Felder aus FRQ_werte, BA453)
 //   wand   { loHz, hiHz } gewaehlte Wand (BA462, seitengebunden)
-//   opt    { cbfGewicht, cbfRandverhalten, cbfRandspektrum, cbfSprache }
-//          (Achsen; mit Defaults abgesichert. cbfSprache-UI: BA465)
+//   opt    { cbfGewicht, cbfApikalFrei, cbfBasalFrei, cbfRandspektrum,
+//            cbfSprache } (Achsen; mit Defaults abgesichert.
+//            cbfApikalFrei/cbfBasalFrei 0..4, Default 1; UI: BA472)
 // Rueckgabe: { edges: [k0..kN] } N+1 Bandkanten (Hz) in El.-Reihenfolge.
 function FRQ_cbfGrenzen(kette, wand, opt) {
   opt = opt || {};
@@ -799,8 +803,16 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
   // 2. Achsen-Parameter (Defaults, falls opt-Felder fehlen).
   var lam = CBF_LAMBDA[opt.cbfGewicht] != null ? CBF_LAMBDA[opt.cbfGewicht]
           : CBF_LAMBDA.ausgewogen;
-  var reach = CBF_RANDAUSLAUF[opt.cbfRandverhalten] != null
-          ? CBF_RANDAUSLAUF[opt.cbfRandverhalten] : CBF_RANDAUSLAUF.mittel;
+  // BA472: Anzahl freier El. je Seite (0..CBF_FREI_MAX). Robust gegen
+  // Strings ("2") und fehlende Felder; Default 1 je Seite.
+  function _freiN(v) {
+    var n = parseInt(v, 10);
+    if (!(n >= 0)) n = 1;
+    if (n > CBF_FREI_MAX) n = CBF_FREI_MAX;
+    return n;
+  }
+  var kApikal = _freiN(opt.cbfApikalFrei != null ? opt.cbfApikalFrei : 1);
+  var kBasal  = _freiN(opt.cbfBasalFrei  != null ? opt.cbfBasalFrei  : 1);
   var vollSpektrum = (opt.cbfRandspektrum === "voll");
   var sprF = CBF_SPRACHE_FAKTOR[opt.cbfSprache] != null
           ? CBF_SPRACHE_FAKTOR[opt.cbfSprache] : CBF_SPRACHE_FAKTOR.mittel;
@@ -809,13 +821,17 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
   var bref = (t[N - 1] - t[0]) / N;
   if (!(bref > 0)) bref = (wHi - wLo) / N;   // Absicherung (alle gleich)
 
-  // 4. Randauslauf GENERELL (BA466): die aeussersten El. duerfen viel
-  //    Fehler tragen -- Treffer-Gewicht aussen klein, ueber 'reach' El.
-  //    linear auf 1 ansteigend. Nicht mehr an einen Wandkonflikt geknuepft.
+  // 4. Freie Baender (BA472): die untersten kApikal und obersten kBasal El.
+  //    bekommen ein festes, kleines Treffer-Gewicht (CBF_RAND_STAERKE) --
+  //    FLACHE Stufe (alle k gleich frei), dahinter volles Gewicht 1.
+  //    Zwei EINSEITIGE Achsen (kein symmetrisches Math.min mehr).
+  //    Apikal = tiefe El. (kleiner Index), basal = hohe El. (grosser Index).
+  //    Ueberlappung bei kurzer Kette: min() nimmt das kleinere Gewicht.
   function randFaktor(i) {
-    var dEdge = Math.min(i, N - 1 - i);
-    if (dEdge >= reach) return 1;
-    return CBF_RAND_STAERKE + (1 - CBF_RAND_STAERKE) * (dEdge / reach);
+    var f = 1;
+    if (i < kApikal)         f = Math.min(f, CBF_RAND_STAERKE);   // apikaler Rand
+    if (i >= N - kBasal)     f = Math.min(f, CBF_RAND_STAERKE);   // basaler Rand
+    return f;
   }
 
   // 5. Gewichte + Toleranzen je Elektrode.
@@ -1630,7 +1646,9 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
             : !(_sW && _sW.bandRandausgleich === "ohne"),
           // BA463: CBF-Achsen pro Seite aus sideData[seite].
           cbfGewicht: (_sW && typeof _sW.bandCbfGewicht === "string") ? _sW.bandCbfGewicht : "ausgewogen",
-          cbfRandverhalten: (_sW && typeof _sW.bandCbfRandverhalten === "string") ? _sW.bandCbfRandverhalten : "mittel",
+          // BA472: apikale/basale "Freie Baender"-Achsen (ersetzen Randverhalten).
+          cbfApikalFrei: (_sW && _sW.bandCbfApikalFrei != null) ? _sW.bandCbfApikalFrei : 1,
+          cbfBasalFrei:  (_sW && _sW.bandCbfBasalFrei  != null) ? _sW.bandCbfBasalFrei  : 1,
           cbfRandspektrum: (_sW && typeof _sW.bandCbfRandspektrum === "string") ? _sW.bandCbfRandspektrum : "frei",
           // BA464/465: Sprachbereich-Achse (Feld kommt mit BA465).
           cbfSprache: (_sW && typeof _sW.bandCbfSprache === "string") ? _sW.bandCbfSprache : "mittel",

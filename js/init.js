@@ -644,9 +644,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Randausgleich (ABF) nur bei ABF.
     var rand = document.getElementById("FRQ_bandRandausgleichFieldset");
     if (rand) rand.style.display = istAbf ? "" : "none";
-    // Die vier CBF-Fieldsets nur bei CBF (bei FBF ebenfalls aus).
-    ["FRQ_bandCbfGewichtFieldset", "FRQ_bandCbfRandverhaltenFieldset",
-     "FRQ_bandCbfRandspektrumFieldset", "FRQ_bandCbfSpracheFieldset"].forEach(function (id) {
+    // Die CBF-Fieldsets nur bei CBF (bei FBF ebenfalls aus). BA472:
+    // Randverhalten ersetzt durch Freie Baender (apikal/basal).
+    ["FRQ_bandCbfGewichtFieldset", "FRQ_bandCbfApikalFreiFieldset",
+     "FRQ_bandCbfBasalFreiFieldset", "FRQ_bandCbfRandspektrumFieldset",
+     "FRQ_bandCbfSpracheFieldset"].forEach(function (id) {
       var fs = document.getElementById(id);
       if (fs) fs.style.display = istCbf ? "" : "none";
     });
@@ -669,7 +671,8 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandGrenzeinhaltung", function (v) { sideData[activeSide].bandGrenzeinhaltung = v; });
   _frqBandWahlInit("FRQ_bandRandausgleich", function (v) { sideData[activeSide].bandRandausgleich = v; });
   _frqBandWahlInit("FRQ_bandCbfGewicht", function (v) { sideData[activeSide].bandCbfGewicht = v; });
-  _frqBandWahlInit("FRQ_bandCbfRandverhalten", function (v) { sideData[activeSide].bandCbfRandverhalten = v; });
+  _frqBandWahlInit("FRQ_bandCbfApikalFrei", function (v) { sideData[activeSide].bandCbfApikalFrei = v; });
+  _frqBandWahlInit("FRQ_bandCbfBasalFrei",  function (v) { sideData[activeSide].bandCbfBasalFrei  = v; });
   _frqBandWahlInit("FRQ_bandCbfRandspektrum", function (v) { sideData[activeSide].bandCbfRandspektrum = v; });
   _frqBandWahlInit("FRQ_bandCbfSprache", function (v) { sideData[activeSide].bandCbfSprache = v; });
   _frqBandWahlInit("FRQ_bandSkala", function (v) { FRQ_bandSkalaWahl = v; });

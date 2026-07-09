@@ -1069,12 +1069,13 @@
       out.push(name + ": [" + e.map(function (x) { return Math.round(x); }).join(", ") + "]");
       return e;
     }
-    var basis = { cbfGewicht: "ausgewogen", cbfRandverhalten: "mittel",
+    // BA472: cbfRandverhalten entfaellt, stattdessen cbfApikalFrei/cbfBasalFrei (Default 1).
+    var basis = { cbfGewicht: "ausgewogen", cbfApikalFrei: 1, cbfBasalFrei: 1,
                   cbfRandspektrum: "frei", cbfSprache: "mittel" };
     var e0 = lauf("ausgewogen/frei", basis);
-    lauf("treffer/frei", { cbfGewicht: "treffer", cbfRandverhalten: "mittel", cbfRandspektrum: "frei", cbfSprache: "mittel" });
-    lauf("breite/frei", { cbfGewicht: "breite", cbfRandverhalten: "mittel", cbfRandspektrum: "frei", cbfSprache: "mittel" });
-    var eV = lauf("ausgewogen/voll", { cbfGewicht: "ausgewogen", cbfRandverhalten: "mittel", cbfRandspektrum: "voll", cbfSprache: "mittel" });
+    lauf("treffer/frei", { cbfGewicht: "treffer", cbfApikalFrei: 1, cbfBasalFrei: 1, cbfRandspektrum: "frei", cbfSprache: "mittel" });
+    lauf("breite/frei", { cbfGewicht: "breite", cbfApikalFrei: 1, cbfBasalFrei: 1, cbfRandspektrum: "frei", cbfSprache: "mittel" });
+    var eV = lauf("ausgewogen/voll", { cbfGewicht: "ausgewogen", cbfApikalFrei: 1, cbfBasalFrei: 1, cbfRandspektrum: "voll", cbfSprache: "mittel" });
     // INNERE El. treffen (Ziel 1; verifiziert E2-E6 <= 26ct):
     var ziele = [104, 296, 673, 1211, 2302, 4153];
     for (var b = 1; b < 6; b++) {
