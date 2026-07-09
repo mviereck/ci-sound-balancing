@@ -497,6 +497,7 @@ Object.assign(L.es, {
       "Coloque este archivo en la carpeta config de Equalizer APO e inclúyalo desde config.txt con:",
     apoMonoHint: "Estereo mezclado a mono (para reproduccion IC).",
     tabSchieber: "Deslizadores",
+    tabFrequenzbaender: "Bandas de frecuencia",
     tabKurven: "Curvas",
     schieberELLTitle: "Deslizadores: ajuste manual individual de electrodos",
     schieberELLDesc: "Barras verticales por electrodo. Seleccione un electrodo haciendo clic para editarlo. Ajuste con las flechas ↑/↓ (±0,5 dB, Shift = ±0,1 dB). ←/→ cambia entre electrodos.",

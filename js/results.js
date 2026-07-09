@@ -663,8 +663,6 @@ function FRQ_renderResults() {
   if (hintEl) {
     hintEl.innerHTML = _FRQ_chartLegendHtml();
   }
-
-  _FRQ_renderBandEmpf(aktivSide);
 }
 
 // BA445: Bandgrenzen-Empfehlungs-Tabelle (Architektur Sec. 12.3/12.5).
@@ -709,6 +707,18 @@ function _FRQ_bandWandFuerGraph(side) {
     return [s.bandWandLo, s.bandWandHi];
   var dr = (MFR[s.manufacturer]) ? MFR[s.manufacturer].defaultRange : null;
   return (dr && dr.length === 2) ? [dr[0], dr[1]] : null;
+}
+
+// BA474: Render-Einstieg des Top-Reiters "Frequenzbaender". Ruft den
+// Bandgrenzen-Renderer UNABHAENGIG von FRQ_resultsArray (der Reiter zeigt auch
+// ohne Frequenzabgleich-Messung die Baender aus den Nominalfrequenzen --
+// FRQ_werte liefert nominellHz immer, core.js:1708). Ausserhalb der
+// DOMContentLoaded-Closure deklariert, weil switchTab (tabs-eq.js) sie
+// cross-file ruft (Leitlinien: Closure-Falle).
+function FRQ_renderBaenderTab() {
+  var aktivSide = (typeof activeSide === "string") ? activeSide
+    : (sideData.left.config === "ci" ? "left" : "right");
+  _FRQ_renderBandEmpf(aktivSide);
 }
 
 function _FRQ_renderBandEmpf(side) {

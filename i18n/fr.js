@@ -497,6 +497,7 @@ Object.assign(L.fr, {
       "Placez ce fichier dans le dossier config d'Equalizer APO et incluez-le depuis config.txt avec :",
     apoMonoHint: "Stereo mixe en mono (pour la lecture IC).",
     tabSchieber: "Curseurs",
+    tabFrequenzbaender: "Bandes de fréquence",
     tabKurven: "Courbes",
     schieberELLTitle: "Curseurs : ajustement manuel individuel d'électrodes",
     schieberELLDesc: "Barres verticales par électrode. Sélectionner une électrode en cliquant pour l'éditer. Ajustement avec les touches fléchées ↑/↓ (±0.5 dB, Maj = ±0.1 dB). ←/→ change d'électrode.",

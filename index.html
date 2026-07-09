@@ -201,6 +201,7 @@
                 style="display:none">Verlaufsanalyse</button>
         <button class="tab" data-tab="kurven" id="tabKurven"></button>
         <button class="tab" data-tab="schieber" id="tabSchieber"></button>
+        <button class="tab" data-tab="frequenzbaender" id="tabFrequenzbaender" data-t="tabFrequenzbaender"></button>
         <button class="tab" data-tab="player" id="tabPlayer"></button>
         <button class="tab" data-tab="file" id="tabFile"></button>
         <button class="tab" data-tab="unterstuetzung" id="tabUnterstuetzung" data-t="tabSupport"></button>
@@ -723,124 +724,6 @@
                 <tbody id="FRQ_resultsTableBody"></tbody>
               </table>
             </div>
-            <div id="FRQ_bandEmpfBlock" style="margin-top:18px">
-              <h3 data-t="FRQ_bandEmpfTitle" style="font-size:1em;margin:0 0 10px">Bandgrenzen-Empfehlung</h3>
-              <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
-                <fieldset id="FRQ_bandWandLoFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandWandLoLegend" style="padding:0 6px">Untergrenze</legend>
-                  <div id="FRQ_bandWandLoOptions"></div>
-                </fieldset>
-                <fieldset id="FRQ_bandWandHiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandWandHiLegend" style="padding:0 6px">Obergrenze</legend>
-                  <div id="FRQ_bandWandHiOptions"></div>
-                </fieldset>
-                <fieldset id="FRQ_bandVerfahrenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandVerfahrenLegend" style="padding:0 6px">Berechnungsverfahren</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="geometrisch"> <span data-t="FRQ_bandVerfGeom">Geometrisch (Advanced Bionics)</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cochlear"> <span data-t="FRQ_bandVerfArith">Arithmetisch (Cochlear)</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="greenwood"> <span data-t="FRQ_bandVerfGreen">Greenwood (MED-EL)</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="abf"> <span data-t="FRQ_bandVerfAbf">ABF (MED-EL, patenttreu)</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cbf"> <span data-t="FRQ_bandVerfCbf">CBF (CImbel based fitting)</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="fbf"> <span data-t="FRQ_bandVerfFbf">FBF (fable based fitting)</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandTopologieFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandTopoLegend" style="padding:0 6px">Band-Topologie</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="nahtlos"> <span data-t="FRQ_bandTopoNahtlos">Bänder lückenlos</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="ueberlappend"> <span data-t="FRQ_bandTopoUeber">Bandüberschneidung</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="lueckig"> <span data-t="FRQ_bandTopoLuecke">Bandlücken</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandOptimierenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandOptimierenLegend" style="padding:0 6px">Grenzsetzung</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandOptimieren" value="optimiert"> <span data-t="FRQ_bandOptOptimiert">Optimiert</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandOptimieren" value="klassisch"> <span data-t="FRQ_bandOptKlassisch">Klassisch</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandZielFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandZielLegend" style="padding:0 6px">Optimierungsziel</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandZiel" value="minimax"> <span data-t="FRQ_bandZielMinimax">Kleinster Ausreißer</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandZiel" value="summe"> <span data-t="FRQ_bandZielSumme">Kleinster Gesamtfehler</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandGrenzeinhaltungFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandGrenzLegend" style="padding:0 6px">Grenzeinhaltung</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandGrenzeinhaltung" value="abschneiden"> <span data-t="FRQ_bandGrenzAbschneiden">Randbänder abschneiden</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandGrenzeinhaltung" value="einrechnen"> <span data-t="FRQ_bandGrenzEinrechnen">Grenzen einrechnen</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandRandausgleichFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandRandLegend" style="padding:0 6px">Randausgleich</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandRandausgleich" value="mit"> <span data-t="FRQ_bandRandMit">Mit Ausgleich (patenttreu)</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandRandausgleich" value="ohne"> <span data-t="FRQ_bandRandOhne">Ohne Ausgleich</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandCbfGewichtFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandCbfGewichtLegend" style="padding:0 6px">Gewichtung</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfGewicht" value="treffer"> <span data-t="FRQ_bandCbfGewTreffer">Zielfrequenz erreichen</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfGewicht" value="ausgewogen"> <span data-t="FRQ_bandCbfGewAusgew">Ausgewogen</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfGewicht" value="breite"> <span data-t="FRQ_bandCbfGewBreite">Bandbreite gleichmäßig</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandCbfApikalFreiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandCbfApikalFreiLegend" style="padding:0 6px">Freie B&#228;nder (apikal)</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="0"> <span data-t="FRQ_bandCbfFrei0">0 Elektroden</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="1"> <span data-t="FRQ_bandCbfFrei1">1 Elektrode</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="2"> <span data-t="FRQ_bandCbfFrei2">2 Elektroden</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="3"> <span data-t="FRQ_bandCbfFrei3">3 Elektroden</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="4"> <span data-t="FRQ_bandCbfFrei4">4 Elektroden</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandCbfBasalFreiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandCbfBasalFreiLegend" style="padding:0 6px">Freie B&#228;nder (basal)</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="0"> <span data-t="FRQ_bandCbfFrei0">0 Elektroden</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="1"> <span data-t="FRQ_bandCbfFrei1">1 Elektrode</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="2"> <span data-t="FRQ_bandCbfFrei2">2 Elektroden</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="3"> <span data-t="FRQ_bandCbfFrei3">3 Elektroden</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="4"> <span data-t="FRQ_bandCbfFrei4">4 Elektroden</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandCbfRandspektrumFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandCbfRandspLegend" style="padding:0 6px">Randspektrum</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfRandspektrum" value="frei"> <span data-t="FRQ_bandCbfRandspFrei">Randspektrum frei lassen</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfRandspektrum" value="voll"> <span data-t="FRQ_bandCbfRandspVoll">Volles Spektrum nutzen</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandCbfSpracheFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandCbfSpracheLegend" style="padding:0 6px">Sprachbereich</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfSprache" value="ohne"> <span data-t="FRQ_bandCbfSprOhne">Keine Bevorzugung</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfSprache" value="mittel"> <span data-t="FRQ_bandCbfSprMittel">Mittel bevorzugen</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfSprache" value="stark"> <span data-t="FRQ_bandCbfSprStark">Stark bevorzugen</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandCbfBandraumFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandCbfBandraumLegend" style="padding:0 6px">Bandraum</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBandraum" value="log"> <span data-t="FRQ_bandCbfBandraumLog">Logarithmisch</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBandraum" value="anatom"> <span data-t="FRQ_bandCbfBandraumAnatom">Anatomisch (Greenwood)</span></label>
-                </fieldset>
-              </div>
-              <div class="wv-debug-only" style="margin:0 0 10px;font-size:.86em;color:#555">
-                Debug: Einspeisewerte in die Bandberechnung (experimentell):
-                <label style="display:block;margin-top:3px"><input type="radio" name="FRQ_measInput" value="roh" checked> Messung (roh)</label>
-                <label style="display:block"><input type="radio" name="FRQ_measInput" value="default"> Default-Mittenfrequenzen (nominelle Implantat-Frequenzen als „gehört")</label>
-                <label style="display:block"><input type="radio" name="FRQ_measInput" value="isoton"> Isotone Regression (monoton, gewichtet)</label>
-                <label style="display:block"><input type="radio" name="FRQ_measInput" value="lokal"> Lokale Glättung (gleitendes Mittel, gewichtet)</label>
-                <label style="display:block"><input type="radio" name="FRQ_measInput" value="kurve"> Kurvenmodell (globaler Fit, gewichtet)</label>
-                <div style="margin:4px 0 0 20px">
-                  Kurven-Grad:
-                  <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveGrad" value="1"> 1 (Gerade)</label>
-                  <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveGrad" value="2" checked> 2</label>
-                  <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveGrad" value="3"> 3</label>
-                  <br>Kurven-Achse:
-                  <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveAchse" value="log" checked> log-Frequenz</label>
-                  <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveAchse" value="greenwood"> Greenwood-Ort</label>
-                </div>
-              </div>
-              <div id="FRQ_bandSkalaRow" style="margin:0 0 12px;font-size:0.9em">
-                <span data-t="FRQ_bandSkalaLabel">Skalierung (Y-Achse in cent):</span>
-                <label style="display:inline-block;margin-left:10px"><input type="radio" name="FRQ_bandSkala" value="100"> 100</label>
-                <label style="display:inline-block;margin-left:10px"><input type="radio" name="FRQ_bandSkala" value="300" checked> 300</label>
-                <label style="display:inline-block;margin-left:10px"><input type="radio" name="FRQ_bandSkala" value="600"> 600</label>
-                <label style="display:inline-block;margin-left:10px"><input type="radio" name="FRQ_bandSkala" value="auto"> <span data-t="FRQ_bandSkalaAuto">auto</span></label>
-              </div>
-              <div style="margin:0 0 12px">
-                <canvas id="FRQ_bandEmpfChart" width="800" height="300"></canvas>
-              </div>
-              <table class="results-table" id="FRQ_bandEmpfTable">
-                <thead><tr id="FRQ_bandEmpfTableHead"></tr></thead>
-                <tbody id="FRQ_bandEmpfTableBody"></tbody>
-              </table>
-              <div id="FRQ_bandEmpfOverlapNote" style="margin-top:8px;font-size:0.86em;color:#dc2626;display:none"></div>
-            </div>
             <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px">
               <button class="btn" id="FRQ_resultsClearPianoBtn" style="color:var(--danger)" data-t="FRQ_resultsClearPianoBtnLabel"></button>
               <button class="btn" id="FRQ_resultsClearAllBtn" style="color:var(--danger);display:none" data-t="FRQ_resultsClearAllBtnLabel"></button>
@@ -1058,6 +941,130 @@
             <span data-t="kurvenELLBoth"></span
           ></label>
           <table class="kurven-ell-tbl" id="kurvenELLTbl"></table>
+        </div>
+      </div>
+
+      <!-- ===== FREQUENZBÄNDER ===== -->
+      <div id="panel-frequenzbaender" class="panel">
+        <div class="card">
+          <div id="FRQ_bandEmpfBlock" style="margin-top:18px">
+            <h3 data-t="FRQ_bandEmpfTitle" style="font-size:1em;margin:0 0 10px">Bandgrenzen-Empfehlung</h3>
+            <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+              <fieldset id="FRQ_bandWandLoFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandWandLoLegend" style="padding:0 6px">Untergrenze</legend>
+                <div id="FRQ_bandWandLoOptions"></div>
+              </fieldset>
+              <fieldset id="FRQ_bandWandHiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandWandHiLegend" style="padding:0 6px">Obergrenze</legend>
+                <div id="FRQ_bandWandHiOptions"></div>
+              </fieldset>
+              <fieldset id="FRQ_bandVerfahrenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandVerfahrenLegend" style="padding:0 6px">Berechnungsverfahren</legend>
+                <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="geometrisch"> <span data-t="FRQ_bandVerfGeom">Geometrisch (Advanced Bionics)</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cochlear"> <span data-t="FRQ_bandVerfArith">Arithmetisch (Cochlear)</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="greenwood"> <span data-t="FRQ_bandVerfGreen">Greenwood (MED-EL)</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="abf"> <span data-t="FRQ_bandVerfAbf">ABF (MED-EL, patenttreu)</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cbf"> <span data-t="FRQ_bandVerfCbf">CBF (CImbel based fitting)</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="fbf"> <span data-t="FRQ_bandVerfFbf">FBF (fable based fitting)</span></label>
+              </fieldset>
+              <fieldset id="FRQ_bandTopologieFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandTopoLegend" style="padding:0 6px">Band-Topologie</legend>
+                <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="nahtlos"> <span data-t="FRQ_bandTopoNahtlos">Bänder lückenlos</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="ueberlappend"> <span data-t="FRQ_bandTopoUeber">Bandüberschneidung</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="lueckig"> <span data-t="FRQ_bandTopoLuecke">Bandlücken</span></label>
+              </fieldset>
+              <fieldset id="FRQ_bandOptimierenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandOptimierenLegend" style="padding:0 6px">Grenzsetzung</legend>
+                <label style="display:block"><input type="radio" name="FRQ_bandOptimieren" value="optimiert"> <span data-t="FRQ_bandOptOptimiert">Optimiert</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandOptimieren" value="klassisch"> <span data-t="FRQ_bandOptKlassisch">Klassisch</span></label>
+              </fieldset>
+              <fieldset id="FRQ_bandZielFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandZielLegend" style="padding:0 6px">Optimierungsziel</legend>
+                <label style="display:block"><input type="radio" name="FRQ_bandZiel" value="minimax"> <span data-t="FRQ_bandZielMinimax">Kleinster Ausreißer</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandZiel" value="summe"> <span data-t="FRQ_bandZielSumme">Kleinster Gesamtfehler</span></label>
+              </fieldset>
+              <fieldset id="FRQ_bandGrenzeinhaltungFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandGrenzLegend" style="padding:0 6px">Grenzeinhaltung</legend>
+                <label style="display:block"><input type="radio" name="FRQ_bandGrenzeinhaltung" value="abschneiden"> <span data-t="FRQ_bandGrenzAbschneiden">Randbänder abschneiden</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandGrenzeinhaltung" value="einrechnen"> <span data-t="FRQ_bandGrenzEinrechnen">Grenzen einrechnen</span></label>
+              </fieldset>
+              <fieldset id="FRQ_bandRandausgleichFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandRandLegend" style="padding:0 6px">Randausgleich</legend>
+                <label style="display:block"><input type="radio" name="FRQ_bandRandausgleich" value="mit"> <span data-t="FRQ_bandRandMit">Mit Ausgleich (patenttreu)</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandRandausgleich" value="ohne"> <span data-t="FRQ_bandRandOhne">Ohne Ausgleich</span></label>
+              </fieldset>
+              <fieldset id="FRQ_bandCbfGewichtFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandCbfGewichtLegend" style="padding:0 6px">Gewichtung</legend>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfGewicht" value="treffer"> <span data-t="FRQ_bandCbfGewTreffer">Zielfrequenz erreichen</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfGewicht" value="ausgewogen"> <span data-t="FRQ_bandCbfGewAusgew">Ausgewogen</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfGewicht" value="breite"> <span data-t="FRQ_bandCbfGewBreite">Bandbreite gleichmäßig</span></label>
+              </fieldset>
+              <fieldset id="FRQ_bandCbfApikalFreiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandCbfApikalFreiLegend" style="padding:0 6px">Freie B&#228;nder (apikal)</legend>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="0"> <span data-t="FRQ_bandCbfFrei0">0 Elektroden</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="1"> <span data-t="FRQ_bandCbfFrei1">1 Elektrode</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="2"> <span data-t="FRQ_bandCbfFrei2">2 Elektroden</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="3"> <span data-t="FRQ_bandCbfFrei3">3 Elektroden</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="4"> <span data-t="FRQ_bandCbfFrei4">4 Elektroden</span></label>
+              </fieldset>
+              <fieldset id="FRQ_bandCbfBasalFreiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandCbfBasalFreiLegend" style="padding:0 6px">Freie B&#228;nder (basal)</legend>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="0"> <span data-t="FRQ_bandCbfFrei0">0 Elektroden</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="1"> <span data-t="FRQ_bandCbfFrei1">1 Elektrode</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="2"> <span data-t="FRQ_bandCbfFrei2">2 Elektroden</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="3"> <span data-t="FRQ_bandCbfFrei3">3 Elektroden</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="4"> <span data-t="FRQ_bandCbfFrei4">4 Elektroden</span></label>
+              </fieldset>
+              <fieldset id="FRQ_bandCbfRandspektrumFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandCbfRandspLegend" style="padding:0 6px">Randspektrum</legend>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfRandspektrum" value="frei"> <span data-t="FRQ_bandCbfRandspFrei">Randspektrum frei lassen</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfRandspektrum" value="voll"> <span data-t="FRQ_bandCbfRandspVoll">Volles Spektrum nutzen</span></label>
+              </fieldset>
+              <fieldset id="FRQ_bandCbfSpracheFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandCbfSpracheLegend" style="padding:0 6px">Sprachbereich</legend>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfSprache" value="ohne"> <span data-t="FRQ_bandCbfSprOhne">Keine Bevorzugung</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfSprache" value="mittel"> <span data-t="FRQ_bandCbfSprMittel">Mittel bevorzugen</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfSprache" value="stark"> <span data-t="FRQ_bandCbfSprStark">Stark bevorzugen</span></label>
+              </fieldset>
+              <fieldset id="FRQ_bandCbfBandraumFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandCbfBandraumLegend" style="padding:0 6px">Bandraum</legend>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfBandraum" value="log"> <span data-t="FRQ_bandCbfBandraumLog">Logarithmisch</span></label>
+                <label style="display:block"><input type="radio" name="FRQ_bandCbfBandraum" value="anatom"> <span data-t="FRQ_bandCbfBandraumAnatom">Anatomisch (Greenwood)</span></label>
+              </fieldset>
+            </div>
+            <div class="wv-debug-only" style="margin:0 0 10px;font-size:.86em;color:#555">
+              Debug: Einspeisewerte in die Bandberechnung (experimentell):
+              <label style="display:block;margin-top:3px"><input type="radio" name="FRQ_measInput" value="roh" checked> Messung (roh)</label>
+              <label style="display:block"><input type="radio" name="FRQ_measInput" value="default"> Default-Mittenfrequenzen (nominelle Implantat-Frequenzen als „gehört")</label>
+              <label style="display:block"><input type="radio" name="FRQ_measInput" value="isoton"> Isotone Regression (monoton, gewichtet)</label>
+              <label style="display:block"><input type="radio" name="FRQ_measInput" value="lokal"> Lokale Glättung (gleitendes Mittel, gewichtet)</label>
+              <label style="display:block"><input type="radio" name="FRQ_measInput" value="kurve"> Kurvenmodell (globaler Fit, gewichtet)</label>
+              <div style="margin:4px 0 0 20px">
+                Kurven-Grad:
+                <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveGrad" value="1"> 1 (Gerade)</label>
+                <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveGrad" value="2" checked> 2</label>
+                <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveGrad" value="3"> 3</label>
+                <br>Kurven-Achse:
+                <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveAchse" value="log" checked> log-Frequenz</label>
+                <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveAchse" value="greenwood"> Greenwood-Ort</label>
+              </div>
+            </div>
+            <div id="FRQ_bandSkalaRow" style="margin:0 0 12px;font-size:0.9em">
+              <span data-t="FRQ_bandSkalaLabel">Skalierung (Y-Achse in cent):</span>
+              <label style="display:inline-block;margin-left:10px"><input type="radio" name="FRQ_bandSkala" value="100"> 100</label>
+              <label style="display:inline-block;margin-left:10px"><input type="radio" name="FRQ_bandSkala" value="300" checked> 300</label>
+              <label style="display:inline-block;margin-left:10px"><input type="radio" name="FRQ_bandSkala" value="600"> 600</label>
+              <label style="display:inline-block;margin-left:10px"><input type="radio" name="FRQ_bandSkala" value="auto"> <span data-t="FRQ_bandSkalaAuto">auto</span></label>
+            </div>
+            <div style="margin:0 0 12px">
+              <canvas id="FRQ_bandEmpfChart" width="800" height="300"></canvas>
+            </div>
+            <table class="results-table" id="FRQ_bandEmpfTable">
+              <thead><tr id="FRQ_bandEmpfTableHead"></tr></thead>
+              <tbody id="FRQ_bandEmpfTableBody"></tbody>
+            </table>
+            <div id="FRQ_bandEmpfOverlapNote" style="margin-top:8px;font-size:0.86em;color:#dc2626;display:none"></div>
+          </div>
         </div>
       </div>
 

@@ -496,6 +496,7 @@ Object.assign(L.en, {
       "Put this file into the config folder of Equalizer APO and include it from config.txt with:",
     apoMonoHint: "Stereo mixed down to mono (for CI playback).",
     tabSchieber: "Sliders",
+    tabFrequenzbaender: "Frequency bands",
     tabKurven: "Curves",
     schieberELLTitle: "Sliders: manual individual adjustment of electrodes",
     schieberELLDesc: "Vertical bars per electrode. Select an electrode by clicking to edit. Adjust with arrow keys ↑/↓ (±0.5 dB, Shift = ±0.1 dB). ←/→ switches between electrodes.",

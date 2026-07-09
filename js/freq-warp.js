@@ -15,25 +15,8 @@ let pWarpedBufNHSim = null;
 let pWarpOn = true;
 let pWarpSettingsOpen = false;
 let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
-// BA463: Die pro Seite gehaltenen Band-Wahlen (ALLE ausser Y-Skala). EINE
-// Quelle fuer: sideData-Feldname, Default-value, .cimbel-Schluessel.
-// key      = Feld in sideData[side] (sideData[side][key])
-// def      = Default-value (String)
-// fileKey  = Schluessel im seitenweisen .cimbel-Speicher (file.js sides.*)
-var FRQ_BAND_WAHLEN = [
-  { key: "bandVerfahren",       def: "greenwood",  fileKey: "bandVerfahren",       group: "FRQ_bandVerfahren" },
-  { key: "bandTopologie",       def: "nahtlos",    fileKey: "bandTopologie",       group: "FRQ_bandTopologie" },
-  { key: "bandOptimieren",      def: "optimiert",  fileKey: "bandOptimieren",      group: "FRQ_bandOptimieren" },
-  { key: "bandZiel",            def: "minimax",    fileKey: "bandZiel",            group: "FRQ_bandZiel" },
-  { key: "bandRandausgleich",   def: "mit",        fileKey: "bandRandausgleich",   group: "FRQ_bandRandausgleich" },
-  { key: "bandCbfGewicht",      def: "ausgewogen", fileKey: "bandCbfGewicht",      group: "FRQ_bandCbfGewicht" },
-  { key: "bandCbfApikalFrei",   def: "1",          fileKey: "bandCbfApikalFrei",   group: "FRQ_bandCbfApikalFrei" },
-  { key: "bandCbfBasalFrei",    def: "1",          fileKey: "bandCbfBasalFrei",    group: "FRQ_bandCbfBasalFrei" },
-  { key: "bandCbfRandspektrum", def: "frei",       fileKey: "bandCbfRandspektrum", group: "FRQ_bandCbfRandspektrum" },
-  { key: "bandCbfSprache",      def: "mittel",     fileKey: "bandCbfSprache",      group: "FRQ_bandCbfSprache" },
-  { key: "bandCbfBandraum",     def: "log",        fileKey: "bandCbfBandraum",     group: "FRQ_bandCbfBandraum" },
-  { key: "bandGrenzeinhaltung", def: "abschneiden",fileKey: "bandGrenzeinhaltung", group: "FRQ_bandGrenzeinhaltung" },
-];
+// 0.5.474.1: FRQ_BAND_WAHLEN nach core.js verschoben (Modul 1, laedt vor
+// state-side.js) -- initSideData liest sie beim Top-Level-Init.
 // BA460: Y-Skala des Bandgraphen. "100"|"300"|"600" = feste Skala (ct,
 // symmetrisch um 0) -> cfg.yMaxFest; "auto" = selbstskalierend (kein
 // yMaxFest). Default "300". Einzige Schreibstellen: Radios (init.js) +

@@ -69,7 +69,7 @@ function _switchSubtabInternal(parent, subtab) {
 // Sperrt Haupt-Reiter, wenn die Implantat-Angaben unzureichend
 // sind. Sperr-Schwelle und Tab-Liste sind hier zentral.
 // ============================================================
-const LOCKED_TABS_L1 = ["messungen", "ergebnisse", "kurven", "schieber", "verlaufsanalyse"];
+const LOCKED_TABS_L1 = ["messungen", "ergebnisse", "kurven", "schieber", "frequenzbaender", "verlaufsanalyse"];
 
 // Liefert den aktuellen Sperr-Zustand:
 //   { locked: false, reason: null }                 — frei
@@ -251,6 +251,9 @@ function _switchTabInternal(n) {
   }
   if (n === "player") {
     plCheck();
+  }
+  if (n === "frequenzbaender") {
+    if (typeof FRQ_renderBaenderTab === "function") FRQ_renderBaenderTab();
   }
   if (n === "kurven") {
     kurvenELLTabelleBauen();
