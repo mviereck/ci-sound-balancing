@@ -560,22 +560,10 @@ function drawFRQGraph(cv, rows, cfg) {
   }
 
   // ============================================================
-  // (9a) KONSISTENZ-LINIE: gestrichelt, violett, durch alle Zeilen mit
-  //      konsistenzCent (Architektur-Engine §4 Punkt 9a). Entfaellt, wenn
-  //      keine Zeile das Feld traegt. Kein cfg-Flag -- Datenanwesenheit.
+  // (9a) KONSISTENZ-LINIE: ausgeblendet (Anzeige entfernt auf Wunsch).
+  //      Die Berechnung von konsistenzCent (results.js) bleibt erhalten,
+  //      nur die violette gestrichelte Linie wird nicht mehr gezeichnet.
   // ============================================================
-  var konsPts = rows.filter(function (r) { return r.konsistenzCent != null; })
-                    .sort(function (a, b) { return a._cL - b._cL; });
-  if (konsPts.length > 1) {
-    ctx.strokeStyle = "#8b5cf6"; ctx.lineWidth = 1; ctx.setLineDash([4, 3]);
-    ctx.beginPath();
-    ctx.moveTo(tX(konsPts[0]._cL), tY(konsPts[0].konsistenzCent));
-    for (var kp = 1; kp < konsPts.length; kp++) {
-      ctx.lineTo(tX(konsPts[kp]._cL), tY(konsPts[kp].konsistenzCent));
-    }
-    ctx.stroke();
-    ctx.setLineDash([]);   // Dash zuruecksetzen fuer nachfolgende Zeichnung
-  }
 
   // ============================================================
   // (4)+(6) PUNKT (gruen/rot) + Residuum-T-Balken (nur Anker=punkt).
@@ -621,23 +609,10 @@ function drawFRQGraph(cv, rows, cfg) {
   });
 
   // ============================================================
-  // (4a) KONSISTENZ-RAUTE: kleine offene Raute an X=_cL, Y=konsistenzCent,
-  //      violett (Architektur-Engine §4 Punkt 4a). Zeigt Messung <->
-  //      Nachbar-Kurve. Kein cfg-Flag -- Datenanwesenheit.
+  // (4a) KONSISTENZ-RAUTE: ausgeblendet (Anzeige entfernt auf Wunsch).
+  //      Die Berechnung von konsistenzCent (results.js) bleibt erhalten,
+  //      nur die violetten offenen Rauten werden nicht mehr gezeichnet.
   // ============================================================
-  rows.forEach(function (r) {
-    if (r.konsistenzCent == null) return;
-    var xr = tX(r._cL), yr = tY(r.konsistenzCent);
-    var s = 4;   // halbe Kantenlaenge (~4 px Raute)
-    ctx.strokeStyle = "#8b5cf6"; ctx.lineWidth = 1.25; ctx.setLineDash([]);
-    ctx.beginPath();
-    ctx.moveTo(xr, yr - s);
-    ctx.lineTo(xr + s, yr);
-    ctx.lineTo(xr, yr + s);
-    ctx.lineTo(xr - s, yr);
-    ctx.closePath();
-    ctx.stroke();   // offen (nur Kontur, kein fill)
-  });
 
   // ============================================================
   // (5) PFEIL OBEN — links->rechts. Farbe = Punktfarbe. Laenge 0:
