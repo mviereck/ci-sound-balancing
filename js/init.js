@@ -677,15 +677,31 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandCbfSprache", function (v) { sideData[activeSide].bandCbfSprache = v; });
   _frqBandWahlInit("FRQ_bandCbfBandraum", function (v) { sideData[activeSide].bandCbfBandraum = v; });
   _frqBandWahlInit("FRQ_bandSkala", function (v) { FRQ_bandSkalaWahl = v; });
-  // DEBUG-Testoption (Martin): Default-Mittenfrequenzen statt Messwerte.
-  // Setzt das globale Flag (core.js, in FRQ_werte ausgewertet) und zeichnet
-  // die Empfehlungs-Ansicht neu. Nur diese eine Quell-Stelle wirkt.
+  // DEBUG-Auswahl (Martin, experimentell): Einspeisewerte in die
+  // Bandberechnung (roh | default | isoton | lokal). Setzt die globale Wahl
+  // (core.js, in FRQ_werte ausgewertet) und zeichnet die Empfehlungs-Ansicht
+  // neu. Nur diese eine Quell-Stelle wirkt.
   (function () {
-    var chk = document.getElementById("FRQ_testDefaultFreqChk");
-    if (!chk) return;
-    chk.addEventListener("change", function () {
-      FRQ_testDefaultFrequenzen = this.checked;
-      if (typeof FRQ_renderResults === "function") FRQ_renderResults();
+    var radios = document.querySelectorAll('input[name="FRQ_measInput"]');
+    if (!radios.length) return;
+    radios.forEach(function (r) {
+      r.addEventListener("change", function () {
+        if (this.checked) FRQ_measInputWahl = this.value;
+        if (typeof FRQ_renderResults === "function") FRQ_renderResults();
+      });
+    });
+    // Kurvenmodell-Achsen (Grad + x-Achse) -> globale Konstanten in core.js.
+    document.querySelectorAll('input[name="FRQ_glaettKurveGrad"]').forEach(function (r) {
+      r.addEventListener("change", function () {
+        if (this.checked) FRQ_GLAETT_KURVE_GRAD = parseInt(this.value, 10);
+        if (typeof FRQ_renderResults === "function") FRQ_renderResults();
+      });
+    });
+    document.querySelectorAll('input[name="FRQ_glaettKurveAchse"]').forEach(function (r) {
+      r.addEventListener("change", function () {
+        if (this.checked) FRQ_GLAETT_KURVE_ACHSE = this.value;
+        if (typeof FRQ_renderResults === "function") FRQ_renderResults();
+      });
     });
   })();
   // BA463: alle seitenweisen Band-Radios auf die aktive Seite spiegeln.

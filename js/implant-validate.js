@@ -176,7 +176,7 @@ function _implMsg(w) {
 
 function _implFieldSelector(idx, field) {
   // Klassen wie in freq-table.js: .fo = Hz eigen, .it = THR, .iu = Upper
-  const cls = field === 'hz' ? 'fo' : field === 'thr' ? 'it' : field === 'upper' ? 'iu' : null;
+  const cls = field === 'hz' ? 'fo' : field === 'thr' ? 'it' : field === 'upper' ? 'iu' : field === 'fsp' ? 'ec-fsp' : null;
   if (!cls) return null;
   return '.' + cls + '[data-i="' + idx + '"]';
 }
@@ -262,6 +262,16 @@ function _implRenderBox(warnings) {
     const dot = document.createElement('span');
     dot.className = 'impl-val-dot impl-val-dot-l' + w.level;
     li.appendChild(dot);
+    // Level-gebundenes Präfixwort (Hinweis/Auffälligkeit/Achtung/Fehler),
+    // logisch am Punkt, nicht Teil der Einzelmeldung.
+    const pfxKey = 'implValidatePrefixL' + w.level;
+    const pfx = (typeof t === 'function') ? t(pfxKey) : '';
+    if (pfx && pfx !== pfxKey) {
+      const pfxEl = document.createElement('span');
+      pfxEl.className = 'impl-val-prefix impl-val-prefix-l' + w.level;
+      pfxEl.textContent = pfx + ' ';
+      li.appendChild(pfxEl);
+    }
     li.appendChild(document.createTextNode(_implMsg(w)));
     list.appendChild(li);
   });
@@ -936,14 +946,10 @@ function _implCheckInfoThr(s) {
 // Simulation im Player gebraucht. Stufe: Info (blau).
 function _implCheckInfoCValueMedel(s) {
   const warnings = [];
-  if (!s || s.manufacturer !== 'medel' || !s.implant) return warnings;
-  const v = s.implant.cValue;
-  if (v == null || isNaN(v)) {
-    warnings.push({
-      level: IMPL_VAL_LEVEL_INFO,
-      messageKey: 'implValidateInfoCValueEmpty'
-    });
-  }
+  // 0.5.473.3: c-Wert-Eingabefeld ist ausgeblendet (MAPLAW im Player aus).
+  // Solange er nicht eingetragen werden kann, keinen „leer"-Hinweis zeigen.
+  // Bei Wieder-Einblenden des Felds diese Sperre entfernen (i18n-Key
+  // implValidateInfoCValueEmpty bleibt erhalten).
   return warnings;
 }
 
@@ -965,12 +971,65 @@ function _implCheckInfoIdrAb(s) {
 
 // --- Hauptfunktion -----------------------------------------
 
+// FSP-Feinstruktur-Prüfung (nur MED-EL + FS-Strategie).
+function _implCheckFsp(s) {
+  const warnings = [];
+  if (!s || !s.nEl) return warnings;
+  if (s.manufacturer !== 'medel') return warnings;
+  const coding = (s.implant && s.implant.coding) || 'unknown';
+  const hasFsp = (typeof implCodingHasFsp === 'function') && implCodingHasFsp(coding);
+  if (!hasFsp) return warnings;
+  const fspEl = (s.implant && Array.isArray(s.implant.fspEl)) ? s.implant.fspEl : [];
+  const max = (typeof implCodingFspMax === 'function') ? implCodingFspMax(coding) : 0;
+  const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
+  const stratKey = { fsp: 'implCodingFsp', fs4: 'implCodingFs4', fs4p: 'implCodingFs4p' }[coding];
+  const strat = (stratKey && typeof t === 'function') ? t(stratKey) : coding;
+
+  const marked = [];
+  for (let i = 0; i < max; i++) if (fspEl[i] === true) marked.push(i);
+
+  // Hinweis 1 (grün): gar keine markiert.
+  if (marked.length === 0) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_INFO,
+      messageKey: 'implValidateFspNone',
+      messageParams: { strat: strat }
+    });
+    return warnings;
+  }
+  // Hinweis 2 (grün): nur E1 markiert.
+  if (marked.length === 1 && marked[0] === 0) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_INFO,
+      messageKey: 'implValidateFspOnlyE1',
+      messageParams: { strat: strat }
+    });
+  }
+  // Warnung (orange): Lücke — nicht lückenlos ab E1. Eine deaktivierte
+  // Elektrode gilt nicht als Lücke.
+  const lastMarked = marked[marked.length - 1];
+  for (let i = 0; i < lastMarked; i++) {
+    if (fspEl[i] === true) continue;
+    if (s.elActive && s.elActive[i] === false) continue;
+    warnings.push({
+      level: IMPL_VAL_LEVEL_ORANGE,
+      electrodeIdx: i,
+      field: 'fsp',
+      messageKey: 'implValidateFspGap',
+      messageParams: { gap: dENFn(i) }
+    });
+    break;
+  }
+  return warnings;
+}
+
 function validateImplantTable(side) {
   if (typeof sideData === 'undefined') return;
   const s = sideData[side];
   if (!s) return;
 
   const warnings = [];
+  warnings.push.apply(warnings, _implCheckFsp(s));
   warnings.push.apply(warnings, _implCheckHzMonotonie(s));
   warnings.push.apply(warnings, _implCheckHzRange(s));
   warnings.push.apply(warnings, _implCheckHzMagnitude(s));

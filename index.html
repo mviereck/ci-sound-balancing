@@ -349,13 +349,25 @@
               </div>
             </div>
 
-            <!-- MED-EL: c-Wert -->
+            <!-- MED-EL: Kodierungsstrategie + (ausgeblendeter) c-Wert -->
             <div
               class="controls-row"
               id="implMedelParams"
               style="display: none; margin-bottom: 6px"
             >
-              <div class="control-group">
+              <div class="control-group" id="implCodingGroup">
+                <label id="lblImplCoding" data-t="lblImplCoding"></label>
+                <select id="implCodingSelect" style="min-width: 160px">
+                  <option value="unknown" data-t="implCodingUnknown"></option>
+                  <option value="hdcis" data-t="implCodingHdcis"></option>
+                  <option value="fsp" data-t="implCodingFsp"></option>
+                  <option value="fs4" data-t="implCodingFs4"></option>
+                  <option value="fs4p" data-t="implCodingFs4p"></option>
+                </select>
+              </div>
+              <!-- c-Wert: derzeit nicht ausgewertet (MAPLAW im Player aus),
+                   daher ausgeblendet; Wert bleibt im Datenmodell erhalten. -->
+              <div class="control-group" id="implCGroup" style="display: none">
                 <label id="lblImplC"></label>
                 <input
                   type="number"
@@ -796,10 +808,23 @@
                   <label style="display:block"><input type="radio" name="FRQ_bandCbfBandraum" value="anatom"> <span data-t="FRQ_bandCbfBandraumAnatom">Anatomisch (Greenwood)</span></label>
                 </fieldset>
               </div>
-              <label class="wv-debug-only" style="display:block;margin:0 0 10px;font-size:.86em;color:#555">
-                <input type="checkbox" id="FRQ_testDefaultFreqChk">
-                Debug: Default-Mittenfrequenzen statt Messwerte (nominelle Implantat-Frequenzen als „gehört")
-              </label>
+              <div class="wv-debug-only" style="margin:0 0 10px;font-size:.86em;color:#555">
+                Debug: Einspeisewerte in die Bandberechnung (experimentell):
+                <label style="display:block;margin-top:3px"><input type="radio" name="FRQ_measInput" value="roh" checked> Messung (roh)</label>
+                <label style="display:block"><input type="radio" name="FRQ_measInput" value="default"> Default-Mittenfrequenzen (nominelle Implantat-Frequenzen als „gehört")</label>
+                <label style="display:block"><input type="radio" name="FRQ_measInput" value="isoton"> Isotone Regression (monoton, gewichtet)</label>
+                <label style="display:block"><input type="radio" name="FRQ_measInput" value="lokal"> Lokale Glättung (gleitendes Mittel, gewichtet)</label>
+                <label style="display:block"><input type="radio" name="FRQ_measInput" value="kurve"> Kurvenmodell (globaler Fit, gewichtet)</label>
+                <div style="margin:4px 0 0 20px">
+                  Kurven-Grad:
+                  <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveGrad" value="1"> 1 (Gerade)</label>
+                  <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveGrad" value="2" checked> 2</label>
+                  <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveGrad" value="3"> 3</label>
+                  <br>Kurven-Achse:
+                  <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveAchse" value="log" checked> log-Frequenz</label>
+                  <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveAchse" value="greenwood"> Greenwood-Ort</label>
+                </div>
+              </div>
               <div id="FRQ_bandSkalaRow" style="margin:0 0 12px;font-size:0.9em">
                 <span data-t="FRQ_bandSkalaLabel">Skalierung (Y-Achse in cent):</span>
                 <label style="display:inline-block;margin-left:10px"><input type="radio" name="FRQ_bandSkala" value="100"> 100</label>

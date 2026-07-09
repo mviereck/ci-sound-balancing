@@ -1451,6 +1451,191 @@ function ell_gWt(i, elSt_, elExDur_) {
   return 1;
 }
 
+// ============================================================
+// EXPERIMENTELL (2026-07-09, Direkt-Bau, kein UI ausser Debug-Auswahl):
+// Vor-Glaettung der gemessenen cent-Reihe VOR den Bandverfahren. Konzept:
+// IDEEN.md "Frequenzabgleich -- optionale Vor-Glaettung der Messwerte".
+// Rechnet auf dem kanonischen cent (referenzseiten-frei, core.js:1358) ueber
+// elIdx AUFSTEIGEND (= Frequenz aufsteigend bei jedem Hersteller,
+// core.js:197/241 -- apikal/basal-Ordnung irrelevant). Gewicht je Elektrode:
+// Status (ell_gWt) x 1/max(Residuum,BODEN)^2. Startwerte experimentell.
+var FRQ_GLAETT_RESID_BODEN_CT = 20;  // Mindest-Toleranz jeder Messung (cent)
+var FRQ_GLAETT_FENSTER = 1;          // Lokale Glaettung: +/- N Nachbarn
+var FRQ_GLAETT_KURVE_GRAD = 2;       // Kurvenmodell: Polynom-Grad (1|2|3)
+var FRQ_GLAETT_KURVE_ACHSE = "log";  // Kurvenmodell x-Achse: "log"|"greenwood"
+
+// Vertrauens-Gewicht einer Elektrode (0 = ignorieren). res = fmResiduum|null.
+function _frqGlaettGewicht(i, res) {
+  var g = (typeof ell_gWt === "function") ? ell_gWt(i) : 1;
+  if (!(g > 0)) return 0;
+  var r = (typeof res === "number" && isFinite(res)) ? res : 0;
+  r = Math.max(r, FRQ_GLAETT_RESID_BODEN_CT);
+  return g / (r * r);
+}
+
+// PAVA (Pool Adjacent Violators), monoton, gewichtet. dir=+1 steigend, -1
+// fallend. y/w gleich lang; gibt geglaettetes y zurueck.
+function _frqPava(y, w, dir) {
+  var n = y.length;
+  var s = dir < 0 ? y.map(function (v) { return -v; }) : y.slice();
+  var val = [], wt = [], idx = [];
+  for (var i = 0; i < n; i++) { val.push(s[i]); wt.push(w[i]); idx.push([i]); }
+  var k = 0;
+  while (k < val.length - 1) {
+    if (val[k] > val[k + 1] + 1e-9) {          // Verletzung -> poolen
+      var nv = (val[k] * wt[k] + val[k + 1] * wt[k + 1]) / (wt[k] + wt[k + 1]);
+      val[k] = nv; wt[k] += wt[k + 1]; idx[k] = idx[k].concat(idx[k + 1]);
+      val.splice(k + 1, 1); wt.splice(k + 1, 1); idx.splice(k + 1, 1);
+      if (k > 0) k--;
+    } else { k++; }
+  }
+  var out = new Array(n);
+  for (var b = 0; b < val.length; b++) {
+    for (var j = 0; j < idx[b].length; j++) out[idx[b][j]] = dir < 0 ? -val[b] : val[b];
+  }
+  return out;
+}
+
+// Isotone Regression auf cent-Reihe. Richtung datengetrieben: die mit dem
+// kleineren gewichteten Fehler (kein apFirst-/Referenzseiten-Wissen noetig).
+function _frqGlaettIsoton(cents, weights) {
+  var up = _frqPava(cents, weights, +1);
+  var dn = _frqPava(cents, weights, -1);
+  function err(fit) {
+    var e = 0;
+    for (var i = 0; i < cents.length; i++) { var d = cents[i] - fit[i]; e += weights[i] * d * d; }
+    return e;
+  }
+  return err(up) <= err(dn) ? up : dn;
+}
+
+// Lokale Glaettung: gewichtetes gleitendes Mittel, Fenster +/-FRQ_GLAETT_FENSTER
+// ueber die (sortierten) Positionen. Keine Richtungsannahme.
+function _frqGlaettLokal(cents, weights) {
+  var n = cents.length, out = new Array(n);
+  for (var i = 0; i < n; i++) {
+    var sw = 0, sv = 0;
+    for (var j = Math.max(0, i - FRQ_GLAETT_FENSTER); j <= Math.min(n - 1, i + FRQ_GLAETT_FENSTER); j++) {
+      sw += weights[j]; sv += weights[j] * cents[j];
+    }
+    out[i] = sw > 0 ? sv / sw : cents[i];
+  }
+  return out;
+}
+
+// Globales Kurvenmodell (Martins Leithypothese: die glatte Kurve schaetzt den
+// physischen Ortsverlauf, Abweichung = Messfehler-Verdacht). Fittet ein
+// gewichtetes Polynom Grad FRQ_GLAETT_KURVE_GRAD im Raum
+// x = achse(nominelleHz), y = log2(gehoerteHz). achse: log-Default
+// (log2) oder Greenwood-Ort (greenwoodX) -- FRQ_GLAETT_KURVE_ACHSE. Gibt neue
+// cent zurueck (cent' = 1200*(y_fit - log2(nominell)) mit Vorzeichen der
+// kanonischen Konvention). ACHTUNG: cent kanonisch = -pse; y ist die GEHOERTE
+// Frequenz, also nominell*2^(pse/1200) = nominell*2^(-cent/1200).
+//   noms   nominelle Implantat-Hz je Stuetzstelle (>0), gleiche Reihenfolge
+//   cents  kanonisches cent je Stuetzstelle
+//   weights Vertrauens-Gewicht
+// Rueckgabe: geglaettetes cent je Stuetzstelle.
+function _frqGlaettKurve(noms, cents, weights) {
+  var n = noms.length;
+  var achse = (FRQ_GLAETT_KURVE_ACHSE === "greenwood") ? greenwoodX
+            : function (hz) { return Math.log2(hz); };
+  var deg = FRQ_GLAETT_KURVE_GRAD;
+  if (deg >= n) deg = n - 1;                  // nicht ueberbestimmen
+  var x = noms.map(achse);
+  // y = log2(gehoerte Hz) = log2(nominell) + pse/1200 = log2(nom) - cent/1200
+  var y = noms.map(function (nm, i) { return Math.log2(nm) - cents[i] / 1200; });
+  // Gewichtete Polynom-Regression via Normalgleichungen (Vandermonde^T W V c
+  // = Vandermonde^T W y). Loeser: bestehender _frqGauss.
+  var m = deg + 1;
+  var M = [], rhs = [];
+  for (var a = 0; a < m; a++) { M.push(new Array(m).fill(0)); rhs.push(0); }
+  for (var i = 0; i < n; i++) {
+    var w = weights[i]; if (!(w > 0)) continue;
+    var xp = new Array(m); xp[0] = 1;
+    for (var p = 1; p < m; p++) xp[p] = xp[p - 1] * x[i];
+    for (var r = 0; r < m; r++) {
+      rhs[r] += w * xp[r] * y[i];
+      for (var c = 0; c < m; c++) M[r][c] += w * xp[r] * xp[c];
+    }
+  }
+  var coef = _frqGauss(M, rhs);
+  if (!coef) return cents.slice();            // singulaer -> unveraendert
+  var out = new Array(n);
+  for (var i2 = 0; i2 < n; i2++) {
+    var yf = 0, xk = 1;
+    for (var p2 = 0; p2 < m; p2++) { yf += coef[p2] * xk; xk *= x[i2]; }
+    // zurueck zu kanonischem cent: cent' = -pse' = -(1200*(yf - log2(nom)))
+    out[i2] = -1200 * (yf - Math.log2(noms[i2]));
+  }
+  return out;
+}
+
+// Aus der zu glaettenden Reihe auszuschliessende elIdx: die untersten
+// kApikal und obersten kBasal APIKAL/BASAL gelegenen Elektroden (Weg A,
+// 2026-07-09). Anzahl aus der CBF-Achse cbfApikalFrei/cbfBasalFrei der
+// aktiven Seite (sideData[activeSide].bandCbf*Frei, core.js:1777) -- ABER
+// nur die ZAHL wird uebernommen, nicht CBFs Daempfungs-Semantik: hier heisst
+// "frei" = KOMPLETT aus der Glaettung raus (E1 verzerrt sonst die Nachbarn;
+// apikal FS-gesteuert, Konzept IDEEN.md). Apikal/basal herstellerrichtig:
+// bei apFirst (MED-EL/AB) apikal = kleiner elIdx, bei Cochlear (!apFirst)
+// apikal = grosser elIdx (state-side.js:642-651). keys = zu glaettende elIdx
+// aufsteigend. Rueckgabe: Set (Objekt) der auszuschliessenden elIdx.
+function _frqGlaettAusschluss(keys) {
+  var out = {};
+  if (!keys.length) return out;
+  var s = (typeof sideData !== "undefined" && typeof activeSide === "string")
+    ? sideData[activeSide] : null;
+  function _freiN(v) { var n = parseInt(v, 10); if (!(n >= 0)) n = 1; if (n > CBF_FREI_MAX) n = CBF_FREI_MAX; return n; }
+  var kAp = _freiN(s && s.bandCbfApikalFrei != null ? s.bandCbfApikalFrei : 1);
+  var kBa = _freiN(s && s.bandCbfBasalFrei  != null ? s.bandCbfBasalFrei  : 1);
+  var mfrId = s ? s.manufacturer : (typeof mfr === "string" ? mfr : "medel");
+  var apFirst = (typeof MFR !== "undefined" && MFR[mfrId]) ? MFR[mfrId].apFirst !== false : true;
+  // keys aufsteigend nach elIdx. apFirst: apikal am Anfang, basal am Ende.
+  var apEnd  = apFirst ? keys.slice(0, kAp)              : keys.slice(keys.length - kAp);
+  var baEnd  = apFirst ? keys.slice(keys.length - kBa)   : keys.slice(0, kBa);
+  apEnd.concat(baEnd).forEach(function (k) { out[k] = true; });
+  return out;
+}
+
+// Wendet ein Glaettungs-Verfahren ('isoton'|'lokal') auf das measured-Objekt
+// an: sammelt gemessene Eintraege elIdx-aufsteigend, glaettet cent, schreibt
+// zurueck. Ungemessene UND ausgeschlossene (apikal/basal frei) bleiben
+// unberuehrt. Mutiert measured NICHT -- gibt eine flache Kopie mit neuen
+// cent zurueck.
+function _frqGlaetteMeasured(measured, verfahren) {
+  var allKeys = Object.keys(measured).map(Number).filter(function (k) {
+    return measured[k] && measured[k].cent != null;
+  }).sort(function (a, b) { return a - b; });
+  var ausschluss = _frqGlaettAusschluss(allKeys);
+  var keys = allKeys.filter(function (k) { return !ausschluss[k]; });
+  if (keys.length < 2) return measured;
+  var cents = keys.map(function (k) { return measured[k].cent; });
+  var weights = keys.map(function (k) { return _frqGlaettGewicht(k, measured[k].fmResiduum); });
+  var glatt;
+  if (verfahren === "isoton") {
+    glatt = _frqGlaettIsoton(cents, weights);
+  } else if (verfahren === "kurve") {
+    // Kurvenmodell braucht die nominellen Hz je Stuetzstelle (x-Achse).
+    // Seitenrichtig auf der aktiven Seite (Debug-Kontext), wie _frqGlaettAusschluss.
+    var side = (typeof activeSide === "string") ? activeSide : "right";
+    var noms = keys.map(function (k) {
+      return withSide(side, function () { return FRQ_implantatEffektiv(k); });
+    });
+    glatt = _frqGlaettKurve(noms, cents, weights);
+  } else {
+    glatt = _frqGlaettLokal(cents, weights);
+  }
+  var out = {};
+  Object.keys(measured).forEach(function (k) { out[k] = measured[k]; });
+  keys.forEach(function (k, idx) {
+    var e = {}; var src = measured[k];
+    Object.keys(src).forEach(function (f) { e[f] = src[f]; });
+    e.cent = Math.round(glatt[idx]);
+    out[k] = e;
+  });
+  return out;
+}
+
 // Vorzeichen-Wahrheit (eingefroren, kanonisch +cent = rechtes Ohr nimmt
 // tiefer wahr): base = FRQ_seitenWerte(cent, modus) ist die WARP-Richtung.
 //   warp    :  nhSim aus -> Vorhalt/Korrektur; nhSim an -> Verzerrung.
@@ -1485,17 +1670,21 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
   var nR = (typeof sideData !== "undefined" && sideData.right) ? sideData.right.nEl : 0;
   var n  = Math.min(nL, nR);
 
-  // DEBUG-Testoption (Martin): "Standardwerte als Messergebnis". Bei aktivem
-  // Flag jede Elektrode als GEMESSEN mit cent=0 behandeln -> voller Messpfad,
-  // gehoertHz = nominellHz * 2^0 = nominelle Implantat-Frequenz. Ueberschreibt
-  // echte Messwerte fuer die Dauer des Aufrufs. EINE Quell-Stelle -> wirkt auf
-  // alle Konsumenten (Graph, Tabelle, Warp, ...).
-  if ((typeof FRQ_testDefaultFrequenzen !== "undefined") && FRQ_testDefaultFrequenzen === true) {
+  // DEBUG-Auswahl (Martin, experimentell 2026-07-09): Einspeisewerte in die
+  // Bandberechnung. EINE Quell-Stelle -> wirkt auf alle Konsumenten (Graph,
+  // Tabelle, Warp, ...). Werte des Radios FRQ_measInput:
+  //   'roh'     -> echte Messwerte (Default, nichts tun)
+  //   'default' -> jede El. cent=0 (gehoertHz = nominelle Implantat-Frequenz)
+  //   'isoton'/'lokal'/'kurve' -> Vor-Glaettung der cent-Reihe (_frqGlaetteMeasured)
+  var _measInput = (typeof FRQ_measInputWahl === "string") ? FRQ_measInputWahl : "roh";
+  if (_measInput === "default") {
     measured = {};
     for (var di = 0; di < n; di++) {
       measured[di] = { elIdx: di, cent: 0, frqRefMode: "symmetric",
                        fmResiduum: null, fmStatus: "piano" };
     }
+  } else if (_measInput === "isoton" || _measInput === "lokal" || _measInput === "kurve") {
+    measured = _frqGlaetteMeasured(measured, _measInput);
   }
 
   var out = [];

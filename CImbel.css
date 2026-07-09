@@ -1807,7 +1807,13 @@ body.dbg-active .wv-debug-only { display: block; }
 .impl-val-dot-l1 { background: #dc2626; }
 .impl-val-dot-l2 { background: #f97316; }
 .impl-val-dot-l3 { background: #eab308; }
-.impl-val-dot-l4 { background: #3b82f6; }
+.impl-val-dot-l4 { background: #16a34a; } /* 0.5.473.3: INFO-Hinweise grün statt blau */
+/* 0.5.473.4: level-gebundenes Präfixwort in der Level-Farbe (fett) */
+.impl-val-prefix { font-weight: 600; }
+.impl-val-prefix-l1 { color: #dc2626; }
+.impl-val-prefix-l2 { color: #f97316; }
+.impl-val-prefix-l3 { color: #a16207; } /* dunkleres Gelb für Lesbarkeit */
+.impl-val-prefix-l4 { color: #16a34a; }
 
 /* ============================================================
    DEPENDENCY-LOCK (BA 149)

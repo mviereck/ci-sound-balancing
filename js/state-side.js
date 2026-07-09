@@ -548,13 +548,17 @@ function loadSideData(side, d) {
     cValue: di.cValue !== undefined && di.cValue !== null ? di.cValue : null,
     idr: di.idr !== undefined && di.idr !== null ? di.idr : null,
     generation: di.generation || null,
+    // FSP-Kodierung (nur MED-EL); Alt-Dateien ohne Feld -> Defaults.
+    coding: di.coding || "unknown",
+    fspEl: Array.isArray(di.fspEl) ? di.fspEl.map((v) => v === true) : new Array(s.nEl).fill(false),
     mcl: di.mcl || new Array(s.nEl).fill(null),
     thr: di.thr || new Array(s.nEl).fill(null),
     upperLevel: di.upperLevel || new Array(s.nEl).fill(null),
   };
   // Ensure arrays are correct length
-  ["mcl", "thr", "upperLevel"].forEach((k) => {
-    while (s.implant[k].length < s.nEl) s.implant[k].push(null);
+  ["mcl", "thr", "upperLevel", "fspEl"].forEach((k) => {
+    const _fill = k === "fspEl" ? false : null;
+    while (s.implant[k].length < s.nEl) s.implant[k].push(_fill);
     s.implant[k] = s.implant[k].slice(0, s.nEl);
   });
 }

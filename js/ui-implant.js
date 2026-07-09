@@ -1,6 +1,17 @@
 // ============================================================
 // UI IMPLANT CARD
 // ============================================================
+// FSP-Kodierung (nur MED-EL): Zahl der apikalen Feinstruktur-Elektroden
+// je Strategie. "unknown"/"hdcis" ohne Feinstruktur -> 0 (keine Spalte).
+const IMPL_CODING_STRATS = ["unknown", "hdcis", "fsp", "fs4", "fs4p"];
+const IMPL_CODING_FSP_MAX = { unknown: 0, hdcis: 0, fsp: 3, fs4: 4, fs4p: 4 };
+function implCodingFspMax(coding) {
+  return IMPL_CODING_FSP_MAX[coding] || 0;
+}
+function implCodingHasFsp(coding) {
+  return implCodingFspMax(coding) > 0;
+}
+
 function buildImplantCard() {
   const s = sideData[activeSide];
   if (!s.implant)
@@ -10,10 +21,16 @@ function buildImplantCard() {
       cValue: null,
       idr: null,
       generation: null,
+      coding: "unknown",
+      fspEl: new Array(s.nEl).fill(false),
       mcl: new Array(s.nEl).fill(null),
       thr: new Array(s.nEl).fill(null),
       upperLevel: new Array(s.nEl).fill(null),
     };
+  // Alt-Objekte ohne die neuen Felder nachrüsten (verlustfrei).
+  if (s.implant.coding === undefined) s.implant.coding = "unknown";
+  if (!Array.isArray(s.implant.fspEl))
+    s.implant.fspEl = new Array(s.nEl).fill(false);
   const im = s.implant;
   const m = s.manufacturer;
   const cfg = s.config || "ci";
@@ -210,6 +227,14 @@ function buildImplantCard() {
   if (m === "medel") {
     const ci = document.getElementById("implC");
     if (ci) ci.value = im.cValue !== null ? im.cValue : "";
+    // FSP-Kodierungs-Dropdown
+    const lblCod = document.getElementById("lblImplCoding");
+    if (lblCod) lblCod.textContent = t("lblImplCoding");
+    const codSel = document.getElementById("implCodingSelect");
+    if (codSel) {
+      if (IMPL_CODING_STRATS.indexOf(im.coding) === -1) im.coding = "unknown";
+      codSel.value = im.coding;
+    }
   }
   if (m === "ab") {
     const ii = document.getElementById("implIDR");
@@ -234,6 +259,27 @@ function buildImplantCard() {
         this.value !== "" ? parseFloat(this.value) : null;
       if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
       if (typeof pMaplawTrigger === "function" && pMaplawOn) pMaplawTrigger();
+      if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
+    };
+  const codSel = document.getElementById("implCodingSelect");
+  if (codSel)
+    codSel.onchange = function () {
+      const imp = sideData[activeSide].implant;
+      const prev = imp.coding;
+      const next = this.value;
+      imp.coding = next;
+      if (!Array.isArray(imp.fspEl)) imp.fspEl = new Array(sideData[activeSide].nEl).fill(false);
+      const wasFsp = implCodingHasFsp(prev);
+      const nowFsp = implCodingHasFsp(next);
+      // Erster Wechsel auf eine FS-Strategie: E1 als Vorbelegung markieren
+      // (danach frei änderbar; nicht erzwungen).
+      if (!wasFsp && nowFsp && !imp.fspEl.some((v) => v === true)) {
+        imp.fspEl[0] = true;
+      }
+      // Markierungen jenseits des neuen Limits löschen (z. B. FS4->FSP: E4 raus).
+      const max = implCodingFspMax(next);
+      for (let i = max; i < imp.fspEl.length; i++) imp.fspEl[i] = false;
+      FRQ_implantatTableBuild();
       if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
     };
   const ii = document.getElementById("implIDR");

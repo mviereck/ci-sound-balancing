@@ -39,6 +39,13 @@ function FRQ_implantatTableBuild() {
     : isCoch
       ? t("implCLvlHdr")
       : t("implMLvlHdr");
+  // FSP-Spalte (nur MED-EL + FS-Strategie): Zahl anwählbarer apikaler El.
+  const _coding = (sideData[activeSide].implant || {}).coding || "unknown";
+  const _fspMax = isMedel && typeof implCodingFspMax === "function"
+    ? implCodingFspMax(_coding) : 0;
+  const _showFsp = _fspMax > 0;
+  const _fspHdr = _showFsp
+    ? `<th style="white-space:nowrap">${t("thFsp")}</th>` : "";
   if (isAcoustic) {
     // BA 153: 8 Spalten ohne Hz-eigen, THR, Upper
     document.getElementById("FRQ_implantatTableHead").innerHTML =
@@ -48,9 +55,9 @@ function FRQ_implantatTableBuild() {
       `<th style="white-space:nowrap">${t("thExclCb")}</th>` +
       `<th>${t("thNote")}</th>`;
   } else {
-    // BA 164: neue Spalte „Aktiv" vor Status
+    // BA 164: neue Spalte „Aktiv" vor Status; FSP-Spalte direkt danach
     document.getElementById("FRQ_implantatTableHead").innerHTML =
-      `<th>${elLbl}</th><th>${t("thHzStd")}</th><th>${t("thHzOwn")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th style="white-space:nowrap">${t("thActive")}</th><th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th><th>${t("thNote")}</th>`;
+      `<th>${elLbl}</th><th>${t("thHzStd")}</th><th>${t("thHzOwn")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th style="white-space:nowrap">${t("thActive")}</th>${_fspHdr}<th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th><th>${t("thNote")}</th>`;
   }
   const tb = document.getElementById("FRQ_implantatTableBody");
   tb.innerHTML = "";
@@ -120,6 +127,16 @@ function FRQ_implantatTableBuild() {
     const _activeChecked = isDeact ? "" : " checked";
     const _activeCbHtml =
       `<input type="checkbox" class="ec-active" data-i="${i}"${_activeChecked}>`;
+    // FSP-Zelle: Checkbox nur für die ersten _fspMax (apikalen) Elektroden.
+    let _fspCell = "";
+    if (_showFsp) {
+      if (i < _fspMax) {
+        const _fspChecked = (im.fspEl && im.fspEl[i] === true) ? " checked" : "";
+        _fspCell = `<td style="text-align:center"><input type="checkbox" class="ec-fsp" data-i="${i}"${_fspChecked}></td>`;
+      } else {
+        _fspCell = `<td></td>`;
+      }
+    }
 
     tr.innerHTML =
       `<td style="font-weight:600">${elPfx}${dEN(i)}${ex}</td>` +
@@ -128,6 +145,7 @@ function FRQ_implantatTableBuild() {
       `<td><input type="number" class="it" data-i="${i}" value="${thrVal}" min="0" max="500" step="1" style="${inpStyle}" placeholder="—"></td>` +
       `<td><input type="number" class="iu" data-i="${i}" value="${upperVal}" min="0" max="1000" step="1" style="${inpStyle}" placeholder="—"></td>` +
       `<td style="text-align:center">${_activeCbHtml}</td>` +
+      _fspCell +
       `<td><select class="ss" data-i="${i}">${so_i}</select></td>` +
       `<td style="text-align:center"><input type="checkbox" class="ec" data-i="${i}"${isExcl ? " checked" : ""}></td>` +
       `<td><input type="text" class="ni" data-i="${i}" value="${elNt[i] || ""}" placeholder="${t("thNote")}"></td>`;
@@ -270,6 +288,17 @@ function FRQ_implantatTableBuild() {
       updRef();
       if (typeof depLockApply === 'function') depLockApply();
       _frq_implantatTableRefreshMeasSummaries();
+    }),
+  );
+  // FSP-Feinstruktur-Checkbox (nur MED-EL + FS-Strategie)
+  tb.querySelectorAll(".ec-fsp").forEach((cb) =>
+    cb.addEventListener("change", (e) => {
+      const idx = +e.target.dataset.i;
+      const imp = sideData[activeSide].implant;
+      if (!imp) return;
+      if (!Array.isArray(imp.fspEl)) imp.fspEl = new Array(nEl).fill(false);
+      imp.fspEl[idx] = e.target.checked;
+      if (typeof validateImplantTable === "function") validateImplantTable(activeSide);
     }),
   );
   tb.querySelectorAll(".ni").forEach((n) =>
