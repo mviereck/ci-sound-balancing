@@ -648,7 +648,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Randverhalten ersetzt durch Freie Baender (apikal/basal).
     ["FRQ_bandCbfGewichtFieldset", "FRQ_bandCbfApikalFreiFieldset",
      "FRQ_bandCbfBasalFreiFieldset", "FRQ_bandCbfRandspektrumFieldset",
-     "FRQ_bandCbfSpracheFieldset"].forEach(function (id) {
+     "FRQ_bandCbfSpracheFieldset", "FRQ_bandCbfBandraumFieldset"].forEach(function (id) {
       var fs = document.getElementById(id);
       if (fs) fs.style.display = istCbf ? "" : "none";
     });
@@ -675,6 +675,7 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandCbfBasalFrei",  function (v) { sideData[activeSide].bandCbfBasalFrei  = v; });
   _frqBandWahlInit("FRQ_bandCbfRandspektrum", function (v) { sideData[activeSide].bandCbfRandspektrum = v; });
   _frqBandWahlInit("FRQ_bandCbfSprache", function (v) { sideData[activeSide].bandCbfSprache = v; });
+  _frqBandWahlInit("FRQ_bandCbfBandraum", function (v) { sideData[activeSide].bandCbfBandraum = v; });
   _frqBandWahlInit("FRQ_bandSkala", function (v) { FRQ_bandSkalaWahl = v; });
   // DEBUG-Testoption (Martin): Default-Mittenfrequenzen statt Messwerte.
   // Setzt das globale Flag (core.js, in FRQ_werte ausgewertet) und zeichnet

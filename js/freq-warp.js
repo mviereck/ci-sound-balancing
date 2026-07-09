@@ -31,6 +31,7 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandCbfBasalFrei",    def: "1",          fileKey: "bandCbfBasalFrei",    group: "FRQ_bandCbfBasalFrei" },
   { key: "bandCbfRandspektrum", def: "frei",       fileKey: "bandCbfRandspektrum", group: "FRQ_bandCbfRandspektrum" },
   { key: "bandCbfSprache",      def: "mittel",     fileKey: "bandCbfSprache",      group: "FRQ_bandCbfSprache" },
+  { key: "bandCbfBandraum",     def: "log",        fileKey: "bandCbfBandraum",     group: "FRQ_bandCbfBandraum" },
   { key: "bandGrenzeinhaltung", def: "abschneiden",fileKey: "bandGrenzeinhaltung", group: "FRQ_bandGrenzeinhaltung" },
 ];
 // BA460: Y-Skala des Bandgraphen. "100"|"300"|"600" = feste Skala (ct,

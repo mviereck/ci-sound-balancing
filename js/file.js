@@ -311,6 +311,7 @@ async function saveJson() {
         bandCbfBasalFrei:  sideData.left.bandCbfBasalFrei,
         bandCbfRandspektrum: sideData.left.bandCbfRandspektrum,
         bandCbfSprache: sideData.left.bandCbfSprache,
+        bandCbfBandraum: sideData.left.bandCbfBandraum,
       },
       right: {
         config: sideData.right.config || "ci",
@@ -344,6 +345,7 @@ async function saveJson() {
         bandCbfBasalFrei:  sideData.right.bandCbfBasalFrei,
         bandCbfRandspektrum: sideData.right.bandCbfRandspektrum,
         bandCbfSprache: sideData.right.bandCbfSprache,
+        bandCbfBandraum: sideData.right.bandCbfBandraum,
       },
     },
     currentSide: activeSide,

@@ -373,9 +373,15 @@ var FRQ_BAND_LAMBDA = 0.001;
 // aktuellen Rechenraums (raumabhaengig -> aus toP an einer Referenz
 // gemessen). Kalibrierbar (Startwert 30 ct).
 var FRQ_BAND_MINBREITE_CT = 30;
+// Cent-Distanz an der Frequenz hz in eine Distanz im Positionsraum toP
+// umrechnen. Im log-Raum ist das ein konstanter Faktor; im Greenwood-Raum
+// frequenzabhaengig -> darum lokal an hz gemessen (BA473). Verallgemeinerung
+// von _frqDefaultMinBreiteP (feste 1000-Hz-Referenz).
+function _frqCentZuRaum(toP, hz, cent) {
+  return Math.abs(toP(hz * Math.pow(2, cent / 1200)) - toP(hz));
+}
 function _frqDefaultMinBreiteP(toP) {
-  var refHz = 1000;
-  return Math.abs(toP(refHz * Math.pow(2, FRQ_BAND_MINBREITE_CT / 1200)) - toP(refHz));
+  return _frqCentZuRaum(toP, 1000, FRQ_BAND_MINBREITE_CT);
 }
 
 // Gemeinsamer Kern von lueckig/ueberlappend (§13.4): symmetrische Baender
@@ -793,8 +799,16 @@ function FRQ_abfGrenzen(kette, wand, mitAusgleich) {
 function FRQ_cbfGrenzen(kette, wand, opt) {
   opt = opt || {};
   var N = kette.length;
-  var ln = Math.log, ex = Math.exp;
-  var CT = Math.LN2 / 1200;   // 1 cent in log-Einheiten
+  // BA473: Bandraum-Achse. "anatom" -> Greenwood-Positionsraum, sonst log.
+  // CBF bleibt Nicht-Registry-Verfahren; das Raum-Paar wird lokal benutzt,
+  // NICHT ueber FRQ_bandVerfahren gezogen.
+  var _anatom = (opt.cbfBandraum === "anatom");
+  var toP    = _anatom ? greenwoodX  : Math.log;
+  var fromP  = _anatom ? greenwoodHz : Math.exp;
+  var ln = toP, ex = fromP;   // ln/ex bleiben als lokale Kurznamen (s.u.)
+  var CT = Math.LN2 / 1200;   // 1 cent in LOG-Einheiten -- nach BA473 nur
+                              // noch fuer SKA (globaler Kosten-Massstab an
+                              // fester 1000-Hz-Ref, raumunabhaengig gewollt).
 
   // 1. Log-Raum: Ziele t[i], Wand-Schranken.
   var t = kette.map(function (m) { return ln(m.hz); });
@@ -845,7 +859,8 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
     var rCt = kette[i].gemessen
       ? Math.max((kette[i].residuum != null ? kette[i].residuum : 0), CBF_RESID_BODEN_CT)
       : CBF_RESID_UNGEMESSEN_CT;
-    dead[i] = rCt * CT;
+    // BA473: Toleranz lokal an der El.-Frequenz in den Raum (cent-treu).
+    dead[i] = _frqCentZuRaum(toP, kette[i].hz, rCt);
     var spr = (kette[i].hz >= ABF_SCHWELLE_LO && kette[i].hz <= ABF_SCHWELLE_HI)
       ? sprF : 1;
     w[i] = gStat * randFaktor(i) * spr;
@@ -855,21 +870,29 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
   //    Falls die Wandspanne dafuer zu eng ist: proportional deckeln.
   var bMin = [], sumMin = 0;
   for (i = 0; i < N; i++) {
-    bMin[i] = stumm[i] ? 0 : CBF_MIN_BREITE_CT * CT;
+    // BA473: Mindestbreite lokal an der El.-Frequenz (cent-treu).
+    bMin[i] = stumm[i] ? 0 : _frqCentZuRaum(toP, kette[i].hz, CBF_MIN_BREITE_CT);
     sumMin += bMin[i];
   }
   if (sumMin > (wHi - wLo) * 0.9) {
     var f2 = (wHi - wLo) * 0.9 / sumMin;
     for (i = 0; i < N; i++) bMin[i] *= f2;
   }
-  var bKlein = CBF_STUMM_BREITE_CT * CT;
+  // BA473: stumm-Breiten-Ziel ebenfalls lokal -- an der Wandmitte als
+  // El.-neutrale Referenz (stumme El. haben kein eigenes gehoertes hz-Ziel,
+  // das ihre Bandlage bestimmt; die Wandmitte ist der neutrale Bezug).
+  var bKlein = _frqCentZuRaum(toP, Math.sqrt(wand.loHz * wand.hiHz), CBF_STUMM_BREITE_CT);
 
   // 7. Zielfunktion (konvex).
   function kosten(x) {
     var s = 0, j;
     // Treffer: Toleranz-Huelle + Zentrier-Zug, beides in der EINHEIT-
     // LICHEN Fehler-Skala (BA466) -- das Residuum ist nur noch Toleranz.
-    var SKA = CBF_FEHLER_SKALA_CT * CT;
+    // BA473: SKA ist der EINHEITLICHE Kosten-Massstab (BA466: gleich teuer
+    // fuer alle El.). Darum NICHT lokal, sondern an fester 1000-Hz-Ref in
+    // den Raum -- so bleibt er zwischen log/anatom vergleichbar und fuer
+    // alle El. identisch.
+    var SKA = _frqCentZuRaum(toP, 1000, CBF_FEHLER_SKALA_CT);
     for (j = 0; j < N; j++) {
       var m = (x[j] + x[j + 1]) / 2;
       var d = Math.abs(m - t[j]) - dead[j];
@@ -1294,7 +1317,12 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
       if (e === 0 && lo < wand.loHz) lo = wand.loHz;                 // Unterrand
       if (e === kette.length - 1 && hi > wand.hiHz) hi = wand.hiHz;  // Oberrand
     }
-    var centerHz = fromP((loP + hiP) / 2);
+    // Bandmitte aus den (evtl. geklemmten) FINALEN Grenzen rechnen,
+    // nicht aus den ungeklemmten loP/hiP. Sonst zeigt der Randband-Mitte
+    // in Tabelle/Graph die Position VOR dem Abschneiden. Im Positions-Raum
+    // des Verfahrens gemittelt (geometrisch/greenwood/cochlear), damit die
+    // verfahrensgerechte Mitten-Definition erhalten bleibt.
+    var centerHz = fromP((toP(lo) + toP(hi)) / 2);
     var band = { elIdx: kette[e].elIdx, loHz: lo, hiHz: hi,
                  centerHz: centerHz };
     // Verschiebungs-Vorschlag NUR fuer ungemessene El. (Sec. 14.5):
@@ -1652,6 +1680,8 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
           cbfRandspektrum: (_sW && typeof _sW.bandCbfRandspektrum === "string") ? _sW.bandCbfRandspektrum : "frei",
           // BA464/465: Sprachbereich-Achse (Feld kommt mit BA465).
           cbfSprache: (_sW && typeof _sW.bandCbfSprache === "string") ? _sW.bandCbfSprache : "mittel",
+          // BA473: Bandraum-Achse pro Seite (log|anatom).
+          cbfBandraum: (_sW && typeof _sW.bandCbfBandraum === "string") ? _sW.bandCbfBandraum : "log",
           // BA471: Grenzeinhaltung pro Seite (abschneiden|einrechnen).
           grenzeinhaltung: (_sW && typeof _sW.bandGrenzeinhaltung === "string") ? _sW.bandGrenzeinhaltung : "abschneiden",
           // FBF: log-Kurve der laufenden Seite (Ketten-Reihenfolge, §4.2).
