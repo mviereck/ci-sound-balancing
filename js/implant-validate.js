@@ -969,6 +969,19 @@ function _implCheckInfoIdrAb(s) {
   return warnings;
 }
 
+function _implCheckInfoCodingMedel(s) {
+  const warnings = [];
+  if (!s || s.manufacturer !== 'medel' || !s.implant) return warnings;
+  const coding = s.implant.coding;
+  if (!coding || coding === 'unknown') {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_YELLOW,
+      messageKey: 'implValidateInfoCodingUnknown'
+    });
+  }
+  return warnings;
+}
+
 // --- Hauptfunktion -----------------------------------------
 
 // FSP-Feinstruktur-Prüfung (nur MED-EL + FS-Strategie).
@@ -1049,6 +1062,7 @@ function validateImplantTable(side) {
   warnings.push.apply(warnings, _implCheckInfoThr(s));
   warnings.push.apply(warnings, _implCheckInfoCValueMedel(s));
   warnings.push.apply(warnings, _implCheckInfoIdrAb(s));
+  warnings.push.apply(warnings, _implCheckInfoCodingMedel(s));
 
   _implClearMarkers();
   warnings.forEach(_implApplyFieldLevel);
