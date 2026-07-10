@@ -495,16 +495,33 @@ function FRQ_glaettRows(side, opts) {
   }
 
   var rows = [];
-  Object.keys(measured).map(Number).sort(function (a, b) { return a - b; }).forEach(function (elIdx) {
+  // BA477 / §9.5.1: alle AKTIVEN Elektroden der Seite, nicht nur gemessene.
+  _frqAktiveElIdx(side).forEach(function (elIdx) {
     var rohMeas = measured[elIdx];
     var elNum = dEN(elIdx, side);
-    var sichtbar = !(s.elActive && s.elActive[elIdx] === false);
+    var sichtbar = true;   // Liste enthaelt nur aktive; elActive===false ist schon raus
     var nom = withSide(side, function () { return FRQ_implantatEffektiv(elIdx); });
-    if (!rohMeas || rohMeas.cent == null) {
+    var _istGemessen = !!(rohMeas && rohMeas.cent != null);
+    if (!_istGemessen) {
+      // Nicht-gemessene aktive Elektrode: cent=0 (gehoert=nominell). Grauer
+      // und schwarzer Strich fallen auf die Nominalfrequenz zusammen, Punkt
+      // auf der Nulllinie. Kein Farb-/Residuumsurteil (keine Messung).
+      var _glattMeas0 = measuredGlatt[elIdx];
+      var _glattCent0 = (_glattMeas0 && _glattMeas0.cent != null) ? _glattMeas0.cent : 0;
+      var _glattHz0 = _hzAusCent(elIdx, _glattCent0);
+      var _glattShift0 = _shiftAusCent(elIdx, _glattCent0);
       rows.push({
-        elNum: elNum, xLinksHz: nom, xRechtsHz: nom, yCent: null,
-        residuumCent: 0, bandLoHz: null, bandHiHz: null, sichtbar: sichtbar,
-        marker: "offen", stufe: null,
+        elNum: elNum,
+        xLinksHz: nom,              // roh = nominell (cent 0)
+        xRechtsHz: _glattHz0,       // geglaettet (bei Grad "aus" == nom)
+        yCent: _glattShift0,
+        residuumCent: 0,
+        residuumMitteCent: 0,       // T-Balken-Mitte = 0 (roher Wert)
+        bandLoHz: null, bandHiHz: null,
+        sichtbar: sichtbar,
+        warn: false,
+        stufe: null,                // kein Farbpunkt: keine Messung
+        marker: "offen",
         tooltip: ["<b>E" + elNum + "</b>", t("notMeasured")]
       });
       return;

@@ -1487,6 +1487,30 @@ function ell_gWt(i, elSt_, elExDur_) {
 // core.js:197/241 -- apikal/basal-Ordnung irrelevant). Gewicht je Elektrode:
 // Status (ell_gWt) x 1/max(Residuum,BODEN)^2. Startwerte experimentell.
 var FRQ_GLAETT_RESID_BODEN_CT = 20;  // Mindest-Toleranz jeder Messung (cent)
+// BA477: Ersatzwerte fuer AKTIVE, aber NICHT gemessene Elektroden (stumm,
+// ausgeschlossen oder noch nicht gemessen). Sie nehmen mit cent=0
+// (gehoert=nominell) als Stuetzstelle an der Glaettung teil, mit sehr
+// geringem Einfluss: kleines Status-Gewicht + hohes virtuelles Residuum.
+// Gehen durch DIESELBE Formel _frqGlaettGewicht (g/r^2), kein Sonderweg.
+// ell_gWt bleibt unangetastet (ELL/CBF nutzen dort weiter stumm->0).
+var FRQ_GLAETT_UNGEMESSEN_GEWICHT = 0.05;   // Status-Gewicht g (wie almostMute)
+var FRQ_GLAETT_UNGEMESSEN_RESID_CT = 1200;  // virtuelles Residuum r (cent)
+
+// BA477 / §9.5.1: elIdx-Liste der auf `side` AKTIVEN Elektroden (elActive[i] !== false),
+// aufsteigend. Nur elActive===false faellt aus der Glaettung; stumm/ausgeschlossen/
+// ungemessen bleiben drin. Seitenrichtig ueber withSide (elActive ist seitengebunden,
+// gleiches Muster wie FRQ_werte core.js:1706-1707).
+function _frqAktiveElIdx(side) {
+  var s = (typeof sideData !== "undefined") ? sideData[side] : null;
+  var n = (s && s.nEl) ? s.nEl : 0;
+  var out = [];
+  withSide(side, function () {
+    for (var i = 0; i < n; i++) {
+      if (typeof elActive === "undefined" || elActive[i] !== false) out.push(i);
+    }
+  });
+  return out;
+}
 
 // Vertrauens-Gewicht einer Elektrode (0 = ignorieren). res = fmResiduum|null.
 function _frqGlaettGewicht(i, res) {
@@ -1622,25 +1646,45 @@ function _frqGlaettAusschluss(keys) {
 // unberuehrt. Mutiert measured NICHT -- gibt eine flache Kopie mit neuen
 // cent zurueck.
 function _frqGlaetteMeasured(measured, verfahren) {
-  var allKeys = Object.keys(measured).map(Number).filter(function (k) {
-    return measured[k] && measured[k].cent != null;
-  }).sort(function (a, b) { return a - b; });
+  var side = (typeof activeSide === "string") ? activeSide : "right";
+  // BA477 / §9.5.1: Stuetzstellen = ALLE aktiven Elektroden der Seite,
+  // nicht nur gemessene. Gemessene tragen ihr cent + Residuum + Status-
+  // Gewicht; nicht-gemessene aktive (stumm/ausgeschlossen/ungemessen)
+  // tragen cent=0, Gewicht FRQ_GLAETT_UNGEMESSEN_GEWICHT, Residuum
+  // FRQ_GLAETT_UNGEMESSEN_RESID_CT -- durch dieselbe Formel _frqGlaettGewicht.
+  var allKeys = _frqAktiveElIdx(side);          // aufsteigend, seitenrichtig
   var ausschluss = _frqGlaettAusschluss(allKeys);
   var keys = allKeys.filter(function (k) { return !ausschluss[k]; });
   if (keys.length < 2) return measured;
-  var cents = keys.map(function (k) { return measured[k].cent; });
-  var weights = keys.map(function (k) { return _frqGlaettGewicht(k, measured[k].fmResiduum); });
-  // Kurvenmodell braucht die nominellen Hz je Stuetzstelle (x-Achse).
-  // Seitenrichtig auf der aktiven Seite, wie _frqGlaettAusschluss.
-  var side = (typeof activeSide === "string") ? activeSide : "right";
+
+  function _istGemessen(k) {
+    return !!(measured[k] && measured[k].cent != null);
+  }
+  var cents = keys.map(function (k) {
+    return _istGemessen(k) ? measured[k].cent : 0;   // ungemessen: cent 0
+  });
+  var weights = keys.map(function (k) {
+    if (_istGemessen(k)) {
+      return _frqGlaettGewicht(k, measured[k].fmResiduum);
+    }
+    // Nicht-gemessene aktive: fester g / festes r, gleiche Formel g/r^2.
+    return FRQ_GLAETT_UNGEMESSEN_GEWICHT
+      / (FRQ_GLAETT_UNGEMESSEN_RESID_CT * FRQ_GLAETT_UNGEMESSEN_RESID_CT);
+  });
+  // x-Achse: nominelle Hz je Stuetzstelle, seitenrichtig.
   var noms = keys.map(function (k) {
     return withSide(side, function () { return FRQ_implantatEffektiv(k); });
   });
   var glatt = _frqGlaettKurve(noms, cents, weights);
+
+  // Ergebnis: measured flach kopieren, dann fuer JEDE Stuetzstelle das
+  // geglaettete cent schreiben -- auch fuer vorher nicht existente
+  // (ungemessene) Eintraege, damit sie als aktive Elektrode ein cent haben.
   var out = {};
   Object.keys(measured).forEach(function (k) { out[k] = measured[k]; });
   keys.forEach(function (k, idx) {
-    var e = {}; var src = measured[k];
+    var src = out[k] || {};
+    var e = {};
     Object.keys(src).forEach(function (f) { e[f] = src[f]; });
     e.cent = Math.round(glatt[idx]);
     out[k] = e;
@@ -1693,10 +1737,22 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
     measured = _frqGlaetteMeasured(measured, "kurve");
   }
 
+  // BA477: "echte Messung" glaettungs-unabhaengig bestimmen. Nach der
+  // Vor-Glaettung (§9.5.1) kann measured[i].cent auch fuer eine
+  // ungemessene aktive Elektrode gesetzt sein (cent=0 -> geglaettet).
+  // Solche Eintraege duerfen NICHT als "gemessen" gelten. Quelle der
+  // Wahrheit: die rohen Ergebnisse aus FRQ_activeResults.
+  var _echtGemessen = {};
+  for (var em = 0; em < active.length; em++) {
+    if (active[em] && active[em].elIdx != null && active[em].cent != null) {
+      _echtGemessen[active[em].elIdx] = true;
+    }
+  }
+
   var out = [];
   for (var i = 0; i < n; i++) {
     var r = measured[i];
-    var gemessen = !!(r && r.cent != null);
+    var gemessen = !!_echtGemessen[i];
     var deaktiviert = (FRQ_electrodeStatusBoth(i) !== "testable");
     // BA432 (§9.5): "aktiv" JE SEITE. Nur elActive===false (komplett
     // abgeschaltet) macht die Elektrode auf DIESER Seite nicht existent
