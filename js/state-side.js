@@ -181,6 +181,11 @@ function initSideData(side, m) {
   s.ELL_results = [];
   // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
   s.elActive = new Array(s.nEl).fill(true);
+  // BA479: Frequenzketten-Auswahl pro Elektrode (true = geht ab der Glaettung
+  // in die Frequenzkette). Default: alle. Nur elFreqChain===false nimmt die
+  // Elektrode aus der Kette (zum Deaktivieren vorgemerkt), zusaetzlich zu
+  // elActive===false (bereits deaktiviert).
+  s.elFreqChain = new Array(s.nEl).fill(true);
   // BA462: gewählte Bandgrenzen-Wand (Hz) pro Seite. Default = Hersteller-
   // Default aus bandGrenzen; unknown (bandGrenzen null) -> null (keine Wahl).
   var _bg462 = MFR[s.manufacturer] ? MFR[s.manufacturer].bandGrenzen : null;
@@ -492,6 +497,13 @@ function loadSideData(side, d) {
     : new Array(s.nEl).fill(true);
   while (s.elActive.length < s.nEl) s.elActive.push(true);
   s.elActive = s.elActive.slice(0, s.nEl);
+  // BA479: elFreqChain aus Datei lesen oder Default true (Alt-Staende ohne
+  // den Key -> alle in der Kette).
+  s.elFreqChain = Array.isArray(d.electrodeFreqChain)
+    ? d.electrodeFreqChain.map((v) => v !== false)
+    : new Array(s.nEl).fill(true);
+  while (s.elFreqChain.length < s.nEl) s.elFreqChain.push(true);
+  s.elFreqChain = s.elFreqChain.slice(0, s.nEl);
   // BA 164 Migration: alter elSt-Wert "deactivated" -> elActive=false + elSt=null.
   // elExDur wird zusätzlich gesetzt, damit alte Stände auch die alte
   // Skip-Wirkung behalten (Aktiv und Ausschluss sind ab BA 164 entkoppelt,

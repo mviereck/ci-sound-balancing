@@ -495,6 +495,8 @@ function switchMfr(m) {
   s.elNt = new Array(s.nEl).fill("");
   s.elExDur = new Array(s.nEl).fill(null);
   s.schieberELL = new Array(s.nEl).fill(0);
+  s.elActive = new Array(s.nEl).fill(true);
+  s.elFreqChain = new Array(s.nEl).fill(true);
   s.ELL_refEl = Math.floor(s.nEl / 2);
   s.ELL_results = [];
   // Reset implant arrays to new electrode count, preserve global params

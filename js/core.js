@@ -1503,12 +1503,16 @@ var FRQ_GLAETT_UNGEMESSEN_RESID_CT = 1200;  // virtuelles Residuum r (cent)
 function _frqAktiveElIdx(side) {
   var s = (typeof sideData !== "undefined") ? sideData[side] : null;
   var n = (s && s.nEl) ? s.nEl : 0;
+  var act = (s && s.elActive) ? s.elActive : null;
+  var chain = (s && s.elFreqChain) ? s.elFreqChain : null;
   var out = [];
-  withSide(side, function () {
-    for (var i = 0; i < n; i++) {
-      if (typeof elActive === "undefined" || elActive[i] !== false) out.push(i);
-    }
-  });
+  for (var i = 0; i < n; i++) {
+    // §4.1: in der Kette, wenn AKTIV (elActive!==false) UND gewaehlt
+    // (elFreqChain!==false). Fehlende Arrays -> Default drin.
+    var aktiv = !act || act[i] !== false;
+    var gewaehlt = !chain || chain[i] !== false;
+    if (aktiv && gewaehlt) out.push(i);
+  }
   return out;
 }
 
@@ -1759,8 +1763,14 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
     // (Nachbarn ruecken zusammen). Stumm/ausgeschlossen bleiben aktiv ->
     // behalten Band. Seiten getrennt (Nutzer-Beschluss): eine links
     // abgeschaltete Elektrode faellt nur aus der linken Kette.
-    var aktivL = withSide("left",  function () { return elActive[i] !== false; });
-    var aktivR = withSide("right", function () { return elActive[i] !== false; });
+    // §4.1: aktiv JE SEITE = elActive!==false UND in Frequenzauswahl
+    // (elFreqChain!==false). Beide seitengebunden aus sideData.
+    var _fcL = sideData.left  ? sideData.left.elFreqChain  : null;
+    var _fcR = sideData.right ? sideData.right.elFreqChain : null;
+    var aktivL = withSide("left",  function () { return elActive[i] !== false; })
+                 && (!_fcL || _fcL[i] !== false);
+    var aktivR = withSide("right", function () { return elActive[i] !== false; })
+                 && (!_fcR || _fcR[i] !== false);
     // Residuum (Mess-Unsicherheit in cent) aus dem fRes-Eintrag; null, wenn
     // kein Eintrag. Formabhaengig ausgegeben: roh seitenlos (entry.residuum),
     // warp/gehoert pro Seite verteilt wie die Verschiebung (s.u.).
