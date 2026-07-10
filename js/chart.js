@@ -569,15 +569,18 @@ function drawFRQGraph(cv, rows, cfg) {
     }
   }
   const _zweitFarbe = KURVENFARBE[cfg.zweitkurve] || null;
+  const ZWEIT_ALPHA = 0.35;   // Vergleichskurve blass: ermoeglicht Vergleich, dominiert nicht
   if (_zweitFarbe) {
     const pts2 = rows.filter(function (r) { return r.yCent2 != null; })
                      .sort(function (a, b) { return a._cR - b._cR; });
     if (pts2.length > 1) {
+      ctx.globalAlpha = ZWEIT_ALPHA;
       ctx.strokeStyle = _zweitFarbe; ctx.lineWidth = 1.5; ctx.setLineDash([]);
       ctx.beginPath();
       ctx.moveTo(tX(pts2[0]._cR), tY(pts2[0].yCent2));
       for (let i = 1; i < pts2.length; i++) ctx.lineTo(tX(pts2[i]._cR), tY(pts2[i].yCent2));
       ctx.stroke();
+      ctx.globalAlpha = 1;
     }
   }
 
@@ -640,6 +643,7 @@ function drawFRQGraph(cv, rows, cfg) {
   //      gesetzt ist. (§4 Punkt 4b Engine-Doku)
   // ============================================================
   if (_zweitFarbe) {
+    ctx.globalAlpha = ZWEIT_ALPHA;   // blass wie die Zweitlinie (9b)
     rows.forEach(function (r) {
       if (r.yCent2 == null) return;
       const xs2 = tX(r._cR), ys2 = tY(r.yCent2);
@@ -647,6 +651,7 @@ function drawFRQGraph(cv, rows, cfg) {
       ctx.strokeStyle = _zweitFarbe; ctx.lineWidth = 1.75; ctx.setLineDash([]);
       ctx.stroke();
     });
+    ctx.globalAlpha = 1;
   }
 
   // ============================================================
