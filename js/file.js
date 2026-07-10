@@ -213,11 +213,6 @@ function resetAll() {
   // BA463: seitenweise Band-Wahlen werden durch initSideData/switchMfr
   // zurueckgesetzt (im switchMfr-Pfad, der beim Neu-Laden gerufen wird).
   // Kein globaler Reset mehr noetig.
-  if (typeof FRQ_bandSkalaWahl !== "undefined") {
-    FRQ_bandSkalaWahl = "300";
-    var _rskR = document.querySelector('input[name="FRQ_bandSkala"][value="300"]');
-    if (_rskR) _rskR.checked = true;
-  }
   // --- MAPLAW-Knopf ---
   if (typeof pMaplawOn !== "undefined") pMaplawOn = false;
   if (typeof pMaplawSollC !== "undefined") pMaplawSollC = 1000;
@@ -401,8 +396,6 @@ async function saveJson() {
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
     playerWarpMode: (typeof pWarpCalcMode !== "undefined") ? pWarpCalcMode : "mid",
-    bandSkala: (typeof FRQ_bandSkalaWahl !== "undefined") ? FRQ_bandSkalaWahl : "300",
-
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
     playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,
@@ -771,13 +764,6 @@ function applyLoadedData(d) {
   pWarpCalcMode = (d.playerWarpMode === "fast" || d.playerWarpMode === "mid" || d.playerWarpMode === "best")
     ? d.playerWarpMode : "mid";
   if (typeof _pWarpCalcModeApply === "function") _pWarpCalcModeApply();
-  // BA463: Band-Wahlen kommen jetzt aus den seitenweisen sideData-Feldern
-  // (geladen via loadSideData -> state-side.js). Skala global wie bisher.
-  if (typeof FRQ_bandSkalaWahl !== "undefined" && d.bandSkala !== undefined) {
-    FRQ_bandSkalaWahl = d.bandSkala;
-    var _rsk = document.querySelector('input[name="FRQ_bandSkala"][value="' + FRQ_bandSkalaWahl + '"]');
-    if (_rsk) _rsk.checked = true;
-  }
   // BA463: geladene Band-Wahlen der aktiven Seite in die Radios spiegeln
   // (inkl. Achsen-Sichtbarkeit). Muss VOR FRQ_renderResults stehen.
   if (typeof _frqBandSpiegle === "function") _frqBandSpiegle();

@@ -1525,6 +1525,7 @@ function _audiologFreqChartImg(side) {
     xWandHz: _wand,
     yLabel: t("FRQ_resultsChartYLabel"),
     verbindung: true,
+    yMaxFest: FRQ_yMaxCent(),    // BA485: gemeinsame Skala aus Rohdaten
     fixedSize: { w: 700, h: 240, dpr: 2 }
   });
   const url = cv.toDataURL("image/png");

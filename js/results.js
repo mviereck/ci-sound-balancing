@@ -558,7 +558,8 @@ function FRQ_renderGlaettGraph() {
     verbindung: true,           // Punkt-zu-Punkt-Linie durch die geglaetteten (gruenen) Punkte
     linienfarbe: "gruen",       // BA484: yCent traegt hier die geglaettete Kurve
     zweitkurve: "blau",         // BA484: blaue Marker-Kurve = rohe Verschiebung
-    amberband: false
+    amberband: false,
+    yMaxFest: FRQ_yMaxCent()    // BA485: gemeinsame Skala aus Rohdaten
   });
   if (!cv._frqg_listener) {
     cv.addEventListener("mousemove", function (e) { _frqg_tooltipHandler(cv, e); });
@@ -761,7 +762,8 @@ function FRQ_renderResults() {
       amberband: true,
       xWandHz: _wand,
       yLabel: t("FRQ_resultsChartYLabel"),
-      verbindung: true
+      verbindung: true,
+      yMaxFest: FRQ_yMaxCent()    // BA485: gemeinsame Skala aus Rohdaten
       // KEIN schwelleCent -> zweistufig gruen/rot (Ergebnisgraph)
     });
     if (!cv._frqg_listener) {
@@ -922,8 +924,6 @@ function _FRQ_renderBandEmpf(side) {
       });
     }
     var _wand = _FRQ_bandWandFuerGraph(side);
-    var _skala = (typeof FRQ_bandSkalaWahl === "string") ? FRQ_bandSkalaWahl : "300";
-    var _yMaxFest = (_skala === "auto") ? undefined : Number(_skala);
     drawFRQGraph(_bcv, _rows, {
       residuumAnker: "nulllinie",
       xWandHz: _wand,
@@ -931,7 +931,7 @@ function _FRQ_renderBandEmpf(side) {
       verbindung: true,
       zweitkurve: "gruen",     // BA484: gruene Marker-Kurve = gegen geglaettet
       amberband: false,
-      yMaxFest: _yMaxFest
+      yMaxFest: FRQ_yMaxCent()    // BA485: gemeinsame Skala aus Rohdaten
     });
     if (!_bcv._frqg_listener) {
       _bcv.addEventListener("mousemove", function (e) { _frqg_tooltipHandler(_bcv, e); });

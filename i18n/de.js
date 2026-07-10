@@ -861,8 +861,7 @@ Object.assign(L.de, {
     FRQ_bandTipShift: "Verschiebung",
     FRQ_bandTipBand: "Band",
     FRQ_bandTipConsist: "Konsistenz",
-    FRQ_bandSkalaLabel: "Skalierung (Y-Achse in cent):",
-    FRQ_bandSkalaAuto: "auto",
+
     FRQ_bandEmpfOverlapNote: "Für die aktuelle Messlage können keine Frequenzbänder berechnet werden: Zwei oder mehr wahrgenommene Frequenzen überschneiden sich.",
     FRQ_bandEmpfTipVerdacht: "⚠ Messung weicht stark von den Nachbarn ab",
     FRQ_bandEmpfVerdachtNote: "Hinweis: Die Messung von {els} weicht stark von den Nachbarn ab — Nachmessen empfohlen.",

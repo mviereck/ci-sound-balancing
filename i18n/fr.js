@@ -774,8 +774,7 @@ Object.assign(L.fr, {
     FRQ_bandTipReached: "obtenue",
     FRQ_bandTipShift: "décalage",
     FRQ_bandTipBand: "bande",
-    FRQ_bandSkalaLabel: "Échelle (axe Y en cents):",
-    FRQ_bandSkalaAuto: "auto",
+
     FRQ_bandEmpfOverlapNote: "Aucune bande de fréquence ne peut être calculée pour la mesure actuelle : deux fréquences perçues ou plus se chevauchent.",
     cfgLabel: "Situation auditive",
     cfgUnknown: "Non précisé",

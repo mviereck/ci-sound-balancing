@@ -17,11 +17,6 @@ let pWarpSettingsOpen = false;
 let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
 // 0.5.474.1: FRQ_BAND_WAHLEN nach core.js verschoben (Modul 1, laedt vor
 // state-side.js) -- initSideData liest sie beim Top-Level-Init.
-// BA460: Y-Skala des Bandgraphen. "100"|"300"|"600" = feste Skala (ct,
-// symmetrisch um 0) -> cfg.yMaxFest; "auto" = selbstskalierend (kein
-// yMaxFest). Default "300". Einzige Schreibstellen: Radios (init.js) +
-// Datei-Laden (file.js). Gelesen NUR vom Bandgraph-Aufruf (results.js).
-let FRQ_bandSkalaWahl = "300";
 let pWarpCalcMode = "mid";     // BA375: Berechnungs-Modus. "fast"|"mid"|"best".
                                // Quelle fuer engine (r2/r3) + Streaming/Voll.
                                // Persistent (localStorage + JSON), Default "mid".

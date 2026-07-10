@@ -680,7 +680,6 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandCbfRandspektrum", function (v) { sideData[activeSide].bandCbfRandspektrum = v; });
   _frqBandWahlInit("FRQ_bandCbfSprache", function (v) { sideData[activeSide].bandCbfSprache = v; });
   _frqBandWahlInit("FRQ_bandCbfBandraum", function (v) { sideData[activeSide].bandCbfBandraum = v; });
-  _frqBandWahlInit("FRQ_bandSkala", function (v) { FRQ_bandSkalaWahl = v; });
   // BA475: Mess-Glaettung (seitenweise). Bei Aenderung Graph + Sichtbarkeit neu.
   _frqBandWahlInit("FRQ_glaettGrad", function (v) {
     sideData[activeSide].bandGlaettGrad = v;

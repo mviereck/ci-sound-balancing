@@ -1162,6 +1162,35 @@ function FRQ_bewertungsStufe(devCent, resid) {
   return "rot";
 }
 
+// BA485: Gemeinsame Y-Skala aller Frequenzgraphen. Basis = groesster
+// BETRAG der gemessenen gehoerten Verschiebung (shiftCent, "roh") ueber
+// BEIDE Seiten, mal 1.5. Symmetrisch um 0, auf 50er gerundet, Boden 50.
+// Argumentlos: holt die Werte selbst aus FRQ_werte("gehoert"). Ergebnis
+// wird von allen vier Graphen-Aufrufern als cfg.yMaxFest uebergeben, so
+// dass Kurven- und Seitenwechsel die Skala nicht mehr springen lassen.
+function FRQ_yMaxCent() {
+  var modus = (typeof FRQ_modusVonReferenzmodus === "function"
+               && typeof frq_referenzmodus === "function")
+    ? FRQ_modusVonReferenzmodus(frq_referenzmodus())
+    : "gehoert";
+  var werte = (typeof FRQ_werte === "function")
+    ? FRQ_werte("gehoert", modus, false) : [];
+  var maxAbs = 0;
+  for (var i = 0; i < werte.length; i++) {
+    var wr = werte[i];
+    if (!wr || !wr.gemessen) continue;   // nur gemessene Rohdaten
+    var seiten = [wr.left, wr.right];     // Maximum ueber beide Seiten
+    for (var s = 0; s < seiten.length; s++) {
+      var seite = seiten[s];
+      if (!seite || seite.shiftCent == null) continue;
+      var a = Math.abs(seite.shiftCent);
+      if (a > maxAbs) maxAbs = a;
+    }
+  }
+  // x1.5, auf 50er aufrunden, Untergrenze 50 (leerer Zustand -> 50).
+  return Math.max(Math.ceil((maxAbs * 1.5) / 50) * 50, 50);
+}
+
 // Kette der aktiven, frequenz-tragenden Elektroden in Reihenfolge.
 // EINE Filter-Wahrheit fuer FRQ_baender UND den Wahrnehmungskurven-Aufruf
 // (Architektur §4.2.1). Verhaltensneutral aus FRQ_baender extrahiert.
