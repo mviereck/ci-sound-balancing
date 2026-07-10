@@ -398,6 +398,7 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandGrenzeinhaltung", def: "abschneiden",fileKey: "bandGrenzeinhaltung", group: "FRQ_bandGrenzeinhaltung" },
   { key: "bandGlaettGrad",      def: "aus",        fileKey: "bandGlaettGrad",      group: "FRQ_glaettGrad" },
   { key: "bandGlaettAchse",     def: "log",        fileKey: "bandGlaettAchse",     group: "FRQ_glaettAchse" },
+  { key: "bandGlaettSteife",    def: "2",          fileKey: "bandGlaettSteife",    group: "FRQ_glaettSteife" },
   { key: "bandGlaettRandfrei",  def: "0",          fileKey: "bandGlaettRandfrei",  group: "FRQ_glaettRandfrei" },
 ];
 // Cent-Distanz an der Frequenz hz in eine Distanz im Positionsraum toP
@@ -1574,11 +1575,39 @@ function _frqGlaettKurve(noms, cents, weights) {
   var _achseW = (_s && _s.bandGlaettAchse) ? _s.bandGlaettAchse : "log";
   var _gradW  = (_s && _s.bandGlaettGrad && _s.bandGlaettGrad !== "aus")
     ? parseInt(_s.bandGlaettGrad, 10) : 2;
+  // Steife (Regularisierung): Ridge-Strafterm lambda auf die Diagonale der
+  // Normalgleichung, aber erst ab dem quadratischen Koeffizienten (p>=2) --
+  // Konstante + Steigung bleiben unbestraft, damit nur die KRUEMMUNG gedaempft
+  // wird (die Kurve wird zur Geraden hingezogen, nicht flach/verschoben).
+  // weich=0 (=heutiges Verhalten), mittel/steif ziehen zunehmend zur Geraden.
+  // Steife-Stufe 0..6 (Radio-Wert). lambda geometrisch gestaffelt (Regulari-
+  // sierung wirkt multiplikativ -> lineare Schritte waeren am unteren Ende
+  // unmerklich). 0="weich" (neutral), 6="steif". Die frueheren drei Werte
+  // (0/0,05/0,5) sind als Stufen 0/2/6 enthalten. Alt-Strings (weich/mittel/
+  // steif) aus vor-0.5.485.3-Dateien werden auf 0/2/6 gemappt (Load-Kompat).
+  var FRQ_GLAETT_STEIFE_LAMBDA = [0, 0.02, 0.05, 0.12, 0.25, 0.35, 0.5];
+  var _steifeRaw = (_s && _s.bandGlaettSteife != null) ? String(_s.bandGlaettSteife) : "2";
+  var _steifeIdx = (_steifeRaw === "weich") ? 0
+                 : (_steifeRaw === "mittel") ? 2
+                 : (_steifeRaw === "steif") ? 6
+                 : parseInt(_steifeRaw, 10);
+  if (!(_steifeIdx >= 0 && _steifeIdx <= 6)) _steifeIdx = 2;
+  var _lambda = FRQ_GLAETT_STEIFE_LAMBDA[_steifeIdx];
   var achse = (_achseW === "greenwood") ? greenwoodX
             : function (hz) { return Math.log2(hz); };
   var deg = _gradW;
   if (deg >= n) deg = n - 1;                  // nicht ueberbestimmen
-  var x = noms.map(achse);
+  // x zentrieren + skalieren (x' = (x-mean)/std). Ohne das haben die
+  // Vandermonde-Spalten voellig verschiedene Groessenordnungen (log2-Hz ~7..14
+  // -> x^3 ~350..2700), die Matrix ist schlecht konditioniert und ein Ridge
+  // darauf unkalibrierbar. Zentriert sind alle Spalten O(1) -> der Strafterm
+  // wirkt mild und monoton. Auswertung unten geschieht auf denselben x'-Werten,
+  // darum keine Ruecktransformation der Koeffizienten noetig.
+  var _xr = noms.map(achse);
+  var _xm = 0; for (var _k = 0; _k < n; _k++) _xm += _xr[_k]; _xm /= n;
+  var _xv = 0; for (var _k2 = 0; _k2 < n; _k2++) { var _d = _xr[_k2] - _xm; _xv += _d * _d; }
+  var _xs = Math.sqrt(_xv / n) || 1;          // std; Schutz gegen 0
+  var x = _xr.map(function (xv) { return (xv - _xm) / _xs; });
   // y = log2(gehoerte Hz) = log2(nominell) + pse/1200 = log2(nom) - cent/1200
   var y = noms.map(function (nm, i) { return Math.log2(nm) - cents[i] / 1200; });
   // Gewichtete Polynom-Regression via Normalgleichungen (Vandermonde^T W V c
@@ -1594,6 +1623,18 @@ function _frqGlaettKurve(noms, cents, weights) {
       rhs[r] += w * xp[r] * y[i];
       for (var c = 0; c < m; c++) M[r][c] += w * xp[r] * xp[c];
     }
+  }
+  // Ridge auf die Kruemmungs-Koeffizienten (p>=2): ADDITIVER Strafterm
+  // lambda*anker auf die Diagonale. Anker = M[0][0] (= Summe der Gewichte, da
+  // xp[0]==1) -- ein GEMEINSAMER Skalenmassstab der Matrix, nicht die Diagonale
+  // des jeweiligen Terms (das sprengte die Zeile: Nebendiagonalen blieben, die
+  // Gleichung wurde inkonsistent -> Kollaps zur Geraden schon bei kleinem
+  // lambda). Auf zentriertem x sind die Diagonaleintraege O(anker), darum wirkt
+  // lambda mild und monoton: 0.05 ("mittel") daempft leicht, 0.5 ("steif")
+  // deutlich; lambda=0 ("weich") = neutral.
+  if (_lambda > 0) {
+    var _anker = M[0][0] || 1;
+    for (var rr = 2; rr < m; rr++) M[rr][rr] += _lambda * _anker;
   }
   var coef = _frqGauss(M, rhs);
   if (!coef) return cents.slice();            // singulaer -> unveraendert

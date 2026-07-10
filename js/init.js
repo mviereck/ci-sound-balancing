@@ -689,6 +689,10 @@ document.addEventListener("DOMContentLoaded", () => {
     sideData[activeSide].bandGlaettAchse = v;
     _frqGlaettUpdate();
   });
+  _frqBandWahlInit("FRQ_glaettSteife", function (v) {
+    sideData[activeSide].bandGlaettSteife = v;
+    _frqGlaettUpdate();
+  });
   _frqBandWahlInit("FRQ_glaettRandfrei", function (v) {
     sideData[activeSide].bandGlaettRandfrei = v;
     _frqGlaettUpdate();

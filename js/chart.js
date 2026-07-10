@@ -484,7 +484,9 @@ function drawFRQGraph(cv, rows, cfg) {
   // (1) BANDFLAECHEN — nur Zeilen mit Bandgrenzen. Hintergrund, dezent,
   //     abwechselnd getoent, volle Hoehe. Palette aus dem Provisorium.
   // ============================================================
-  const palette = ["#dbeafe", "#bfdbfe", "#c7d2fe", "#a5b4fc"];
+  // Zwei abwechselnde Blautoene (hell/kraeftiger); Luecken (Zeilen ohne
+  // Bandgrenzen) bleiben weiss, da nur _cLo/_cHi-Zeilen eine Flaeche bekommen.
+  const palette = ["#dbeafe", "#bfdbfe"];
   const bandRows = rows.filter(function (r) { return r._cLo != null && r._cHi != null; })
                        .sort(function (a, b) { return a._cLo - b._cLo; });
   bandRows.forEach(function (r, i) {
