@@ -744,6 +744,7 @@ Object.assign(L.fr, {
     FRQ_glaettSteifeLegend: "Rigidité",
     FRQ_glaettSteifeWeich: "souple",
     FRQ_glaettSteifeSteif: "rigide",
+    FRQ_glaettKLegend: "k de Greenwood",
     FRQ_glaettRandfreiLegend: "Exclusion de bord (apical)",
     FRQ_bandEmpfTitle: "Calcul des bandes de fréquence",
     FRQ_bandWandLoLegend: "Limite inférieure",

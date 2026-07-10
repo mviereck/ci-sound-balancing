@@ -304,11 +304,13 @@ function arithMitte(a, b) {
 // x in [0,1] = relative Cochlea-Position (0 = apikal/tief, 1 = basal/hoch).
 // Grundlage des greenwood-Bandverfahrens (Architektur 00-freqmatch-
 // wertquelle-architektur.md Sec. 11, Memo_Bandempfehlung_Greenwood.md).
-function greenwoodHz(x) {
-  return 165.4 * (Math.pow(10, 2.1 * x) - 0.88);
+function greenwoodHz(x, kk) {
+  var k = (typeof kk === "number") ? kk : 0.88;
+  return 165.4 * (Math.pow(10, 2.1 * x) - k);
 }
-function greenwoodX(hz) {
-  return (1 / 2.1) * Math.log10(hz / 165.4 + 0.88);
+function greenwoodX(hz, kk) {
+  var k = (typeof kk === "number") ? kk : 0.88;
+  return (1 / 2.1) * Math.log10(hz / 165.4 + k);
 }
 // Bandberechnungs-Verfahren = REINE RECHENRAUM-TRANSFORMATION (BA442,
 // §13.2/§13.3). Jeder Eintrag deklariert nur toP (Hz -> Position) und
@@ -401,6 +403,7 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandGlaettAchse",     def: "log",        fileKey: "bandGlaettAchse",     group: "FRQ_glaettAchse" },
   { key: "bandGlaettSteife",    def: "2",          fileKey: "bandGlaettSteife",    group: "FRQ_glaettSteife" },
   { key: "bandGlaettRandfrei",  def: "0",          fileKey: "bandGlaettRandfrei",  group: "FRQ_glaettRandfrei" },
+  { key: "bandGlaettK",         def: "1.4",         fileKey: "bandGlaettK",         group: "FRQ_glaettK" },
 ];
 // Cent-Distanz an der Frequenz hz in eine Distanz im Positionsraum toP
 // umrechnen. Im log-Raum ist das ein konstanter Faktor; im Greenwood-Raum
@@ -1526,6 +1529,18 @@ var FRQ_GLAETT_RESID_BODEN_CT = 20;  // Mindest-Toleranz jeder Messung (cent)
 // ell_gWt bleibt unangetastet (ELL/CBF nutzen dort weiter stumm->0).
 var FRQ_GLAETT_UNGEMESSEN_GEWICHT = 0.05;   // Status-Gewicht g (wie almostMute)
 var FRQ_GLAETT_UNGEMESSEN_RESID_CT = 1200;  // virtuelles Residuum r (cent)
+// BA487: Greenwood-Offset k je Stufe der bandGlaettK-Achse (Ortsverfahren).
+// Werte aus der MED-EL-Default-Rekonstruktion (Konzept_Greenwood_Glaettungs_
+// Prior.md §3): klassisch 0.88 traf am schlechtesten, weggelassen.
+var FRQ_GLAETT_K_WERTE = { "1.3": 1.3, "1.4": 1.4, "1.53": 1.53 };
+var FRQ_GLAETT_K_DEFAULT = 1.4;
+function _frqGlaettK() {
+  var s = (typeof sideData !== "undefined" && typeof activeSide === "string")
+    ? sideData[activeSide] : null;
+  var v = (s && s.bandGlaettK) ? String(s.bandGlaettK) : null;
+  return (v && FRQ_GLAETT_K_WERTE[v] != null) ? FRQ_GLAETT_K_WERTE[v]
+                                              : FRQ_GLAETT_K_DEFAULT;
+}
 
 // BA477 / §9.5.1: elIdx-Liste der auf `side` AKTIVEN Elektroden (elActive[i] !== false),
 // aufsteigend. Nur elActive===false faellt aus der Glaettung; stumm/ausgeschlossen/
@@ -1649,6 +1664,78 @@ function _frqGlaettKurve(noms, cents, weights) {
   return out;
 }
 
+// BA487 (Architektur §6): Ortskurve-Verfahren. Lokalisiert jede Stuetzstelle
+// ueber die GEHOERTE Frequenz im Greenwood-Raum (x = greenwoodX(gehoert, k)),
+// glaettet die Ortsfolge ueber den Elektroden-Index mit gewichtetem Polynom
+// (Grad + Steife, gleiche Ridge-Mechanik wie _frqGlaettKurve), rechnet zurueck
+// in cent. Greenwood = Rechenraum, keine Sollkurve (Konzept §0). Signatur wie
+// _frqGlaettKurve, damit die Weiche in _frqGlaetteMeasured sie 1:1 einsetzt.
+function _frqGlaettOrtskurve(noms, cents, weights) {
+  var n = noms.length;
+  var _s = (typeof sideData !== "undefined" && typeof activeSide === "string")
+    ? sideData[activeSide] : null;
+  var _gradW = (_s && _s.bandGlaettGrad && _s.bandGlaettGrad !== "aus")
+    ? parseInt(_s.bandGlaettGrad, 10) : 2;
+  var kk = _frqGlaettK();
+
+  // gehoerte Frequenz je Stuetzstelle: gehoert = nom * 2^(-cent/1200)
+  // (Konvention core.js). Ort im Greenwood-Raum:
+  var xort = noms.map(function (nm, i) {
+    var gehoert = nm * Math.pow(2, -cents[i] / 1200);
+    return greenwoodX(gehoert, kk);
+  });
+
+  // x-Achse des Fits = Elektroden-Position (Index 0..n-1). y = Greenwood-Ort.
+  // Steife-Ridge + Zentrierung wie in _frqGlaettKurve.
+  var FRQ_GLAETT_STEIFE_LAMBDA = [0, 0.02, 0.05, 0.12, 0.25, 0.35, 0.5];
+  var _steifeRaw = (_s && _s.bandGlaettSteife != null) ? String(_s.bandGlaettSteife) : "2";
+  var _steifeIdx = (_steifeRaw === "weich") ? 0
+                 : (_steifeRaw === "mittel") ? 2
+                 : (_steifeRaw === "steif") ? 6
+                 : parseInt(_steifeRaw, 10);
+  if (!(_steifeIdx >= 0 && _steifeIdx <= 6)) _steifeIdx = 2;
+  var _lambda = FRQ_GLAETT_STEIFE_LAMBDA[_steifeIdx];
+
+  var deg = _gradW; if (deg >= n) deg = n - 1;
+  // Elektroden-Index zentriert+skaliert (wie _frqGlaettKurve x-Achse).
+  var idx = []; for (var q = 0; q < n; q++) idx.push(q);
+  var im = 0; for (var a0 = 0; a0 < n; a0++) im += idx[a0]; im /= n;
+  var iv = 0; for (var a1 = 0; a1 < n; a1++) { var dd = idx[a1] - im; iv += dd * dd; }
+  var is = Math.sqrt(iv / n) || 1;
+  var x = idx.map(function (v) { return (v - im) / is; });
+  var y = xort;   // Greenwood-Ort ist die zu glaettende Groesse
+
+  var m = deg + 1;
+  var M = [], rhs = [];
+  for (var b = 0; b < m; b++) { M.push(new Array(m).fill(0)); rhs.push(0); }
+  for (var i = 0; i < n; i++) {
+    var w = weights[i]; if (!(w > 0)) continue;
+    var xp = new Array(m); xp[0] = 1;
+    for (var p = 1; p < m; p++) xp[p] = xp[p - 1] * x[i];
+    for (var r = 0; r < m; r++) {
+      rhs[r] += w * xp[r] * y[i];
+      for (var c = 0; c < m; c++) M[r][c] += w * xp[r] * xp[c];
+    }
+  }
+  if (_lambda > 0) {
+    var anker = M[0][0] || 1;
+    for (var rr = 2; rr < m; rr++) M[rr][rr] += _lambda * anker;
+  }
+  var coef = _frqGauss(M, rhs);
+  if (!coef) return cents.slice();
+
+  // geglaettete Orte -> zurueck in Hz -> zurueck in kanonisches cent
+  var out = new Array(n);
+  for (var i2 = 0; i2 < n; i2++) {
+    var yf = 0, xk = 1;
+    for (var p2 = 0; p2 < m; p2++) { yf += coef[p2] * xk; xk *= x[i2]; }
+    var gehoertGlatt = greenwoodHz(yf, kk);
+    // cent' = -pse' = -(1200 * log2(gehoertGlatt / nom))
+    out[i2] = -1200 * Math.log2(gehoertGlatt / noms[i2]);
+  }
+  return out;
+}
+
 // BA476: Setzt den apikalen Randausschluss der Glaettung (bandGlaettRandfrei)
 // einer Seite auf die Anzahl der FSP-markierten Elektroden. FSP existiert nur
 // bei MED-EL; ohne FSP-Moeglichkeit -> "0". Danach Radio spiegeln + Glaettungs-
@@ -1754,8 +1841,10 @@ function _frqGlaetteMeasured(measured, verfahren) {
   // "ortskurve"/"ortsabstaende" fallen noch auf die Polynom-Engine zurueck
   // (eigene Engines BA487/488). "kurve" = Alt-Name, gilt als polynom.
   var glatt;
-  if (verfahren === "ortskurve" || verfahren === "ortsabstaende") {
-    glatt = _frqGlaettKurve(noms, cents, weights);   // TODO BA487/488: eigene Engine
+  if (verfahren === "ortskurve") {
+    glatt = _frqGlaettOrtskurve(noms, cents, weights);
+  } else if (verfahren === "ortsabstaende") {
+    glatt = _frqGlaettKurve(noms, cents, weights);   // TODO BA488: eigene Engine
   } else {
     glatt = _frqGlaettKurve(noms, cents, weights);   // polynom / kurve
   }

@@ -743,6 +743,7 @@ Object.assign(L.en, {
     FRQ_glaettSteifeLegend: "Stiffness",
     FRQ_glaettSteifeWeich: "soft",
     FRQ_glaettSteifeSteif: "stiff",
+    FRQ_glaettKLegend: "Greenwood k",
     FRQ_glaettRandfreiLegend: "Edge exclusion (apical)",
     FRQ_bandEmpfTitle: "Frequency-band calculation",
     FRQ_bandWandLoLegend: "Lower limit",

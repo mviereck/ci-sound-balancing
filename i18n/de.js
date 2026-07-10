@@ -804,6 +804,7 @@ Object.assign(L.de, {
     FRQ_glaettSteifeLegend: "Steifheit",
     FRQ_glaettSteifeWeich: "weich",
     FRQ_glaettSteifeSteif: "steif",
+    FRQ_glaettKLegend: "Greenwood-k",
     FRQ_glaettRandfreiLegend: "Randausschluß (apikal)",
     FRQ_bandEmpfTitle: "Berechnung der Frequenzbänder",
     FRQ_bandWandLoLegend: "Untergrenze",
