@@ -961,18 +961,24 @@
           <p data-t="FRQ_glaettIntro" style="font-size:0.88em;margin:0 0 12px;color:var(--text-muted)">Die exakten Me&#223;werte bestm&#246;glich umzusetzen kann zu unregelm&#228;&#223;iger Frequenzbandverteilung f&#252;hren. Die hier angebotenen Kurven versuchen, aus den Me&#223;daten einen plausiblen gleichm&#228;&#223;igen Verlauf zu machen. Pr&#252;fen Sie, ob eine der Kurven Ihrer Messung nahekommt. Die farbigen Punkte gr&#252;n/gelb/rot geben einen Hinweis, wie gut getroffen wurde. Die T-f&#246;rmigen Residuenbalken geben die Me&#223;ungenauigkeit an; je besser die Kurve durch die Residuen l&#228;uft, desto besser pa&#223;t sie zu Ihren Me&#223;ergebnissen. (Als problematisch markierte Elektroden, z.&#8239;B. verrauscht, d&#252;rfen stark abweichen.)</p>
           <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
             <fieldset style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettVerfahrenLegend" style="padding:0 6px">Verfahren</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="aus"> <span data-t="FRQ_glaettVerfahrenAus">aus</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="polynom"> <span data-t="FRQ_glaettVerfahrenPoly">Polynom</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="ortskurve"> <span data-t="FRQ_glaettVerfahrenOrtsk">Ortskurve</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="ortsabstaende"> <span data-t="FRQ_glaettVerfahrenOrtsa">Ortsabst&#228;nde</span></label>
+            </fieldset>
+            <fieldset id="FRQ_glaettGradFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettGradLegend" style="padding:0 6px">Gl&#228;ttungskurve</legend>
               <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettGrad" value="1"> 1</label>
               <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettGrad" value="2"> 2</label>
               <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettGrad" value="3"> 3</label>
-              <label style="display:inline-block"><input type="radio" name="FRQ_glaettGrad" value="aus"> <span data-t="FRQ_glaettGradAus">aus</span></label>
             </fieldset>
-            <fieldset style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+            <fieldset id="FRQ_glaettAchseFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettAchseLegend" style="padding:0 6px">Kurven-Achse</legend>
               <label style="display:block"><input type="radio" name="FRQ_glaettAchse" value="log"> <span data-t="FRQ_glaettAchseLog">log-Frequenz</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettAchse" value="greenwood"> <span data-t="FRQ_glaettAchseGreen">Greenwood-Ort</span></label>
             </fieldset>
-            <fieldset style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+            <fieldset id="FRQ_glaettSteifeFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettSteifeLegend" style="padding:0 6px">Steifheit</legend>
               <label style="display:inline-block;margin-right:8px"><input type="radio" name="FRQ_glaettSteife" value="0"> <span data-t="FRQ_glaettSteifeWeich">weich</span></label>
               <label style="display:inline-block;margin-right:8px"><input type="radio" name="FRQ_glaettSteife" value="1"> 1</label>
@@ -990,6 +996,7 @@
               <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettRandfrei" value="3"> 3</label>
               <label style="display:inline-block"><input type="radio" name="FRQ_glaettRandfrei" value="4"> 4</label>
             </fieldset>
+            <p id="FRQ_glaettVorbereitungHinweis" data-t="FRQ_glaettVorbereitung" style="display:none;font-size:0.85em;color:var(--text-muted);margin:6px 0 0;flex-basis:100%">Ortsverfahren rechnen derzeit wie Polynom (in Vorbereitung).</p>
           </div>
           <div style="margin:0 0 4px">
             <canvas id="FRQ_glaettChart" width="800" height="300"></canvas>

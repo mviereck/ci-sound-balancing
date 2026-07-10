@@ -396,7 +396,8 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandCbfSprache",      def: "mittel",     fileKey: "bandCbfSprache",      group: "FRQ_bandCbfSprache" },
   { key: "bandCbfBandraum",     def: "log",        fileKey: "bandCbfBandraum",     group: "FRQ_bandCbfBandraum" },
   { key: "bandGrenzeinhaltung", def: "abschneiden",fileKey: "bandGrenzeinhaltung", group: "FRQ_bandGrenzeinhaltung" },
-  { key: "bandGlaettGrad",      def: "aus",        fileKey: "bandGlaettGrad",      group: "FRQ_glaettGrad" },
+  { key: "bandGlaettVerfahren", def: "aus",         fileKey: "bandGlaettVerfahren", group: "FRQ_glaettVerfahren" },
+  { key: "bandGlaettGrad",      def: "2",           fileKey: "bandGlaettGrad",      group: "FRQ_glaettGrad" },
   { key: "bandGlaettAchse",     def: "log",        fileKey: "bandGlaettAchse",     group: "FRQ_glaettAchse" },
   { key: "bandGlaettSteife",    def: "2",          fileKey: "bandGlaettSteife",    group: "FRQ_glaettSteife" },
   { key: "bandGlaettRandfrei",  def: "0",          fileKey: "bandGlaettRandfrei",  group: "FRQ_glaettRandfrei" },
@@ -1749,7 +1750,15 @@ function _frqGlaetteMeasured(measured, verfahren) {
   var noms = keys.map(function (k) {
     return withSide(side, function () { return FRQ_implantatEffektiv(k); });
   });
-  var glatt = _frqGlaettKurve(noms, cents, weights);
+  // Verfahren-Weiche (Architektur §6). BA486: nur "polynom" implementiert;
+  // "ortskurve"/"ortsabstaende" fallen noch auf die Polynom-Engine zurueck
+  // (eigene Engines BA487/488). "kurve" = Alt-Name, gilt als polynom.
+  var glatt;
+  if (verfahren === "ortskurve" || verfahren === "ortsabstaende") {
+    glatt = _frqGlaettKurve(noms, cents, weights);   // TODO BA487/488: eigene Engine
+  } else {
+    glatt = _frqGlaettKurve(noms, cents, weights);   // polynom / kurve
+  }
 
   // Ergebnis: measured flach kopieren, dann fuer JEDE Stuetzstelle das
   // geglaettete cent schreiben -- auch fuer vorher nicht existente
@@ -1800,19 +1809,19 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
   var nR = (typeof sideData !== "undefined" && sideData.right) ? sideData.right.nEl : 0;
   var n  = Math.min(nL, nR);
 
-  // Vor-Glaettung der Messwerte (BA475): seitenweise gesteuert ueber
-  // sideData[seite].bandGlaettGrad ("aus" | "1" | "2" | "3"). Grad "aus"
-  // -> keine Glaettung. Eine Quell-Stelle -> wirkt auf alle Konsumenten
-  // (Graph, Tabelle, Warp).
+  // Vor-Glaettung der Messwerte (BA475/BA486): seitenweise gesteuert ueber
+  // sideData[seite].bandGlaettVerfahren ("aus"|"polynom"|"ortskurve"|"ortsabstaende").
+  // Eine Quell-Stelle -> wirkt auf alle Konsumenten (Graph, Tabelle, Warp).
   var _glSeite = (typeof activeSide === "string") ? activeSide : "right";
-  var _glGrad = (sideData[_glSeite] && sideData[_glSeite].bandGlaettGrad)
-    ? sideData[_glSeite].bandGlaettGrad : "aus";
+  var _glVerf = (sideData[_glSeite] && sideData[_glSeite].bandGlaettVerfahren)
+    ? sideData[_glSeite].bandGlaettVerfahren : "aus";
   // BA482 (§15.2): measured (roh) bleibt erhalten; die Glaettung liefert eine
-  // ZWEITE Reihe measuredGlatt daneben, statt measured zu ueberschreiben.
-  // Grad "aus" -> measuredGlatt == measured (roh); kein Konsument braucht
-  // einen "glaettet ja/nein"-Zweig.
-  var measuredGlatt = (_glGrad !== "aus")
-    ? _frqGlaetteMeasured(measured, "kurve")
+  // ZWEITE Reihe measuredGlatt daneben. Verfahren "aus" -> measuredGlatt ==
+  // measured (roh). Die konkrete Rechen-Engine waehlt _frqGlaetteMeasured
+  // anhand des Verfahrens (BA486: ortskurve/ortsabstaende fallen noch auf
+  // "polynom" zurueck; eigene Engines in BA487/488).
+  var measuredGlatt = (_glVerf !== "aus")
+    ? _frqGlaetteMeasured(measured, _glVerf)
     : measured;
 
   // BA477: "echte Messung" glaettungs-unabhaengig bestimmen. Nach der

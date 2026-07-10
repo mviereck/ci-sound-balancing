@@ -681,6 +681,11 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandCbfSprache", function (v) { sideData[activeSide].bandCbfSprache = v; });
   _frqBandWahlInit("FRQ_bandCbfBandraum", function (v) { sideData[activeSide].bandCbfBandraum = v; });
   // BA475: Mess-Glaettung (seitenweise). Bei Aenderung Graph + Sichtbarkeit neu.
+  _frqBandWahlInit("FRQ_glaettVerfahren", function (v) {
+    sideData[activeSide].bandGlaettVerfahren = v;
+    _frqGlaettAchsenSichtbar();
+    _frqGlaettUpdate();
+  });
   _frqBandWahlInit("FRQ_glaettGrad", function (v) {
     sideData[activeSide].bandGlaettGrad = v;
     _frqGlaettUpdate();
@@ -697,6 +702,23 @@ document.addEventListener("DOMContentLoaded", () => {
     sideData[activeSide].bandGlaettRandfrei = v;
     _frqGlaettUpdate();
   });
+  // Architektur §5: je Verfahren nur die passenden Regler sichtbar.
+  // polynom: Grad, Steife, Achse, Randfrei. ortskurve: Grad, Steife, Randfrei
+  // (+ k in BA487). ortsabstaende: Randfrei (+ Lambda, k in BA488). aus: nichts.
+  function _frqGlaettAchsenSichtbar() {
+    var s = sideData[activeSide];
+    var v = (s && s.bandGlaettVerfahren) ? s.bandGlaettVerfahren : "aus";
+    function show(id, on) {
+      var el = document.getElementById(id);
+      if (el) el.style.display = on ? "" : "none";
+    }
+    var istOrts = (v === "ortskurve" || v === "ortsabstaende");
+    show("FRQ_glaettGradFieldset",     v === "polynom" || v === "ortskurve");
+    show("FRQ_glaettSteifeFieldset",   v === "polynom" || v === "ortskurve");
+    show("FRQ_glaettAchseFieldset",    v === "polynom");
+    show("FRQ_glaettRandfreiFieldset", v !== "aus");
+    show("FRQ_glaettVorbereitungHinweis", istOrts);
+  }
   // BA463: alle seitenweisen Band-Radios auf die aktive Seite spiegeln.
   // Aufgerufen initial, bei Seitenwechsel (setActiveSide) und Hersteller-
   // wechsel (switchMfr). Skala bleibt global -> hier NICHT gespiegelt.
@@ -709,6 +731,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (r) r.checked = true;
     });
     _frqBandAchsenSichtbarkeit();
+    if (typeof _frqGlaettAchsenSichtbar === "function") _frqGlaettAchsenSichtbar();
   }
   // BA462.2/463-Fix: _frqBandWandBuild und _frqBandSpiegle werden aus anderen
   // Dateien gerufen (state-side.js setActiveSide, freq-table.js switchMfr,
