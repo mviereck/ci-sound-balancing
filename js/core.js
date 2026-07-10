@@ -404,6 +404,7 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandGlaettSteife",    def: "2",          fileKey: "bandGlaettSteife",    group: "FRQ_glaettSteife" },
   { key: "bandGlaettRandfrei",  def: "0",          fileKey: "bandGlaettRandfrei",  group: "FRQ_glaettRandfrei" },
   { key: "bandGlaettK",         def: "1.4",         fileKey: "bandGlaettK",         group: "FRQ_glaettK" },
+  { key: "bandGlaettLambda",    def: "mittel",      fileKey: "bandGlaettLambda",    group: "FRQ_glaettLambda" },
 ];
 // Cent-Distanz an der Frequenz hz in eine Distanz im Positionsraum toP
 // umrechnen. Im log-Raum ist das ein konstanter Faktor; im Greenwood-Raum
@@ -1542,6 +1543,19 @@ function _frqGlaettK() {
                                               : FRQ_GLAETT_K_DEFAULT;
 }
 
+// BA488: Abstands-Regularisierung lambda je Stufe der bandGlaettLambda-Achse.
+// lambda ab ~0.5 kaum noch differenzierend (Konzept §6c); Unterschied v.a.
+// sanft<->mittel.
+var FRQ_GLAETT_LAMBDA_WERTE = { "sanft": 0.15, "mittel": 0.5, "stark": 2.0 };
+var FRQ_GLAETT_LAMBDA_DEFAULT = 0.5;
+function _frqGlaettLambda() {
+  var s = (typeof sideData !== "undefined" && typeof activeSide === "string")
+    ? sideData[activeSide] : null;
+  var v = (s && s.bandGlaettLambda) ? String(s.bandGlaettLambda) : null;
+  return (v && FRQ_GLAETT_LAMBDA_WERTE[v] != null) ? FRQ_GLAETT_LAMBDA_WERTE[v]
+                                                   : FRQ_GLAETT_LAMBDA_DEFAULT;
+}
+
 // BA477 / §9.5.1: elIdx-Liste der auf `side` AKTIVEN Elektroden (elActive[i] !== false),
 // aufsteigend. Nur elActive===false faellt aus der Glaettung; stumm/ausgeschlossen/
 // ungemessen bleiben drin. Seitenrichtig ueber withSide (elActive ist seitengebunden,
@@ -1736,6 +1750,58 @@ function _frqGlaettOrtskurve(noms, cents, weights) {
   return out;
 }
 
+// BA488 (Architektur §6): Ortsabstaende-Verfahren. Orte aus der GEHOERTEN
+// Frequenz (x = greenwoodX(gehoert, k)); geglaettet durch Abstands-
+// Regularisierung gegen die DEFAULT-Abstaende (Nachbardifferenzen der
+// Greenwood-Orte der NOMINELLEN Frequenzen). Minimiert
+//   Sigma w(x - xmess)^2 + lambda*Sigma((x_k - x_{k-1}) - Ddefault_k)^2
+// -> tridiagonales System, geloest mit _frqGauss. Nur die ABSTAENDE werden
+// geregelt, nicht die Lage (Konzept §0). Zurueck in cent. Signatur wie
+// _frqGlaettKurve.
+function _frqGlaettOrtsabstand(noms, cents, weights) {
+  var n = noms.length;
+  if (n < 2) return cents.slice();
+  var kk = _frqGlaettK();
+  var lam = _frqGlaettLambda();
+
+  // gemessene Orte (aus gehoerter Frequenz) + Default-Orte (aus nominal).
+  var xmess = [], xdef = [];
+  for (var i = 0; i < n; i++) {
+    var gehoert = noms[i] * Math.pow(2, -cents[i] / 1200);
+    xmess.push(greenwoodX(gehoert, kk));
+    xdef.push(greenwoodX(noms[i], kk));
+  }
+  // Default-Abstaende (Nachbardifferenzen der Default-Orte).
+  var ddef = [];
+  for (var d = 1; d < n; d++) ddef.push(xdef[d] - xdef[d - 1]);
+
+  // Lineares System A x = b (n x n), tridiagonal:
+  //   Datenterm: A[k][k] += w_k ; b[k] += w_k * xmess_k
+  //   Abstandsterm je Paar (k-1,k): lam*((x_k - x_{k-1}) - ddef)^2
+  var A = [], b = [];
+  for (var r0 = 0; r0 < n; r0++) { A.push(new Array(n).fill(0)); b.push(0); }
+  for (var k0 = 0; k0 < n; k0++) {
+    var w = (weights[k0] > 0) ? weights[k0] : 0;
+    A[k0][k0] += w; b[k0] += w * xmess[k0];
+  }
+  for (var k = 1; k < n; k++) {
+    A[k][k]     += lam; A[k-1][k-1] += lam;
+    A[k][k-1]   -= lam; A[k-1][k]   -= lam;
+    b[k]        += lam * ddef[k-1];
+    b[k-1]      -= lam * ddef[k-1];
+  }
+  var xsol = _frqGauss(A, b);
+  if (!xsol) return cents.slice();
+
+  // geglaettete Orte -> Hz -> kanonisches cent.
+  var out = new Array(n);
+  for (var i2 = 0; i2 < n; i2++) {
+    var gehoertGlatt = greenwoodHz(xsol[i2], kk);
+    out[i2] = -1200 * Math.log2(gehoertGlatt / noms[i2]);
+  }
+  return out;
+}
+
 // BA476: Setzt den apikalen Randausschluss der Glaettung (bandGlaettRandfrei)
 // einer Seite auf die Anzahl der FSP-markierten Elektroden. FSP existiert nur
 // bei MED-EL; ohne FSP-Moeglichkeit -> "0". Danach Radio spiegeln + Glaettungs-
@@ -1844,7 +1910,7 @@ function _frqGlaetteMeasured(measured, verfahren) {
   if (verfahren === "ortskurve") {
     glatt = _frqGlaettOrtskurve(noms, cents, weights);
   } else if (verfahren === "ortsabstaende") {
-    glatt = _frqGlaettKurve(noms, cents, weights);   // TODO BA488: eigene Engine
+    glatt = _frqGlaettOrtsabstand(noms, cents, weights);
   } else {
     glatt = _frqGlaettKurve(noms, cents, weights);   // polynom / kurve
   }

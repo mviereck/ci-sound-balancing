@@ -706,6 +706,10 @@ document.addEventListener("DOMContentLoaded", () => {
     sideData[activeSide].bandGlaettK = v;
     _frqGlaettUpdate();
   });
+  _frqBandWahlInit("FRQ_glaettLambda", function (v) {
+    sideData[activeSide].bandGlaettLambda = v;
+    _frqGlaettUpdate();
+  });
   // Architektur §5: je Verfahren nur die passenden Regler sichtbar.
   // polynom: Grad, Steife, Achse, Randfrei. ortskurve: Grad, Steife, Randfrei
   // (+ k in BA487). ortsabstaende: Randfrei (+ Lambda, k in BA488). aus: nichts.
@@ -716,13 +720,13 @@ document.addEventListener("DOMContentLoaded", () => {
       var el = document.getElementById(id);
       if (el) el.style.display = on ? "" : "none";
     }
-    var istOrts = (v === "ortskurve" || v === "ortsabstaende");
     show("FRQ_glaettGradFieldset",     v === "polynom" || v === "ortskurve");
     show("FRQ_glaettSteifeFieldset",   v === "polynom" || v === "ortskurve");
     show("FRQ_glaettAchseFieldset",    v === "polynom");
     show("FRQ_glaettRandfreiFieldset", v !== "aus");
     show("FRQ_glaettKFieldset",        v === "ortskurve" || v === "ortsabstaende");
-    show("FRQ_glaettVorbereitungHinweis", istOrts);
+    show("FRQ_glaettLambdaFieldset",   v === "ortsabstaende");
+    show("FRQ_glaettVorbereitungHinweis", false);
   }
   // BA463: alle seitenweisen Band-Radios auf die aktive Seite spiegeln.
   // Aufgerufen initial, bei Seitenwechsel (setActiveSide) und Hersteller-
