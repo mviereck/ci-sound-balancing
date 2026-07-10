@@ -384,7 +384,7 @@ var FRQ_BAND_MINBREITE_CT = 30;
 // undefined, der typeof-Guard uebersprang still, und die seitenweisen Band-
 // Wahlen (bandVerfahren usw.) blieben im frischen Zustand ungesetzt.
 var FRQ_BAND_WAHLEN = [
-  { key: "bandVerfahren",       def: "greenwood",  fileKey: "bandVerfahren",       group: "FRQ_bandVerfahren" },
+  { key: "bandVerfahren",       def: "cbf",        fileKey: "bandVerfahren",       group: "FRQ_bandVerfahren" },
   { key: "bandTopologie",       def: "nahtlos",    fileKey: "bandTopologie",       group: "FRQ_bandTopologie" },
   { key: "bandOptimieren",      def: "optimiert",  fileKey: "bandOptimieren",      group: "FRQ_bandOptimieren" },
   { key: "bandZiel",            def: "minimax",    fileKey: "bandZiel",            group: "FRQ_bandZiel" },
