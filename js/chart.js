@@ -547,16 +547,36 @@ function drawFRQGraph(cv, rows, cfg) {
   ctx.beginPath(); ctx.moveTo(pad.left, tY(0)); ctx.lineTo(pad.left + pW, tY(0)); ctx.stroke();
 
   // ============================================================
-  // (9) VERBINDUNGSLINIE (blau) durch die Punkte — wenn cfg.verbindung.
+  // (9) VERBINDUNGSLINIE durch die yCent-Punkte — wenn cfg.verbindung.
+  //     Farbe aus cfg.linienfarbe (Default blau); im Glaettungsgraph
+  //     traegt yCent die geglaettete Kurve -> gruen. (§4/§9 Engine-Doku)
+  // (9b) ZWEITE VERBINDUNGSLINIE durch die yCent2-Marker — wenn Zeilen
+  //     yCent2 tragen. Farbe cfg.zweitkurve. So entstehen die zwei
+  //     Polygone (blau=gehoert, gruen=geglaettet). Die durchsichtige
+  //     Kurve ist zwischen den Graphen gespiegelt (Aufrufer-Sache).
   // ============================================================
+  const KURVENFARBE = { blau: "#3b82f6", gruen: "#16a34a" };
+  const _linieFarbe = KURVENFARBE[cfg.linienfarbe] || "#3b82f6";
   if (cfg.verbindung) {
     const pts = rows.filter(function (r) { return r.yCent != null; })
                     .sort(function (a, b) { return a._cR - b._cR; });
     if (pts.length > 1) {
-      ctx.strokeStyle = "#3b82f6"; ctx.lineWidth = 1.5; ctx.setLineDash([]);
+      ctx.strokeStyle = _linieFarbe; ctx.lineWidth = 1.5; ctx.setLineDash([]);
       ctx.beginPath();
       ctx.moveTo(tX(pts[0]._cR), tY(pts[0].yCent));
       for (let i = 1; i < pts.length; i++) ctx.lineTo(tX(pts[i]._cR), tY(pts[i].yCent));
+      ctx.stroke();
+    }
+  }
+  const _zweitFarbe = KURVENFARBE[cfg.zweitkurve] || null;
+  if (_zweitFarbe) {
+    const pts2 = rows.filter(function (r) { return r.yCent2 != null; })
+                     .sort(function (a, b) { return a._cR - b._cR; });
+    if (pts2.length > 1) {
+      ctx.strokeStyle = _zweitFarbe; ctx.lineWidth = 1.5; ctx.setLineDash([]);
+      ctx.beginPath();
+      ctx.moveTo(tX(pts2[0]._cR), tY(pts2[0].yCent2));
+      for (let i = 1; i < pts2.length; i++) ctx.lineTo(tX(pts2[i]._cR), tY(pts2[i].yCent2));
       ctx.stroke();
     }
   }
@@ -612,6 +632,22 @@ function drawFRQGraph(cv, rows, cfg) {
       ctx.stroke();
     }
   });
+
+  // ============================================================
+  // (4b) ZWEITKURVEN-MARKER — durchsichtiger Kreis auf _cR in Hoehe
+  //      yCent2, Rand in cfg.zweitkurve-Farbe, KEINE Fuellung, KEINE
+  //      Hitbox/Tooltip. Nur wenn Zeile yCent2 traegt und cfg.zweitkurve
+  //      gesetzt ist. (§4 Punkt 4b Engine-Doku)
+  // ============================================================
+  if (_zweitFarbe) {
+    rows.forEach(function (r) {
+      if (r.yCent2 == null) return;
+      const xs2 = tX(r._cR), ys2 = tY(r.yCent2);
+      ctx.beginPath(); ctx.arc(xs2, ys2, 5, 0, Math.PI * 2);
+      ctx.strokeStyle = _zweitFarbe; ctx.lineWidth = 1.75; ctx.setLineDash([]);
+      ctx.stroke();
+    });
+  }
 
   // ============================================================
   // (4a) KONSISTENZ-RAUTE: ausgeblendet (Anzeige entfernt auf Wunsch).

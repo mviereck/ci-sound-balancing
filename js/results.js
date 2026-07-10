@@ -462,10 +462,11 @@ function FRQ_ergebnisRows(side, opts) {
 // (Verschiebung roh->geglaettet, Residuum). T-Balken um den ROHEN Wert
 // (residuumMitteCent). Nutzt drawFRQGraph (KEINE eigene Zeichenlogik).
 //
-// Beide Reihen (roh + geglaettet) werden aus dem ROHEN measured gerechnet,
-// weil FRQ_werte intern schon glaettet (core.js:1697-1712) und daher NICHT
-// als Rohquelle taugt. Vorzeichen/Seitenverteilung ueber FRQ_seitenWerte
-// (dieselbe Quelle wie FRQ_werte-Form 'gehoert', core.js:1762-1785).
+// BA483 (§15.6): reiner Konsument von FRQ_werte('gehoert'). Beide Reihen
+// kommen direkt aus der Wertquelle -- gehoertHz (roh), gehoertHzGlatt,
+// shiftCent (roh), shiftCentGlatt, residuum, gemessen -- KEINE eigene
+// cent->Hz-Ableitung mehr (frueher _hzAusCent/_shiftAusCent, entfernt,
+// da FRQ_werte seit BA482 roh UND geglaettet nebeneinander liefert).
 function FRQ_glaettRows(side, opts) {
   opts = opts || {};
   var nhSim = !!opts.nhSim;
@@ -501,6 +502,7 @@ function FRQ_glaettRows(side, opts) {
         xLinksHz: (s.gehoertHz != null) ? s.gehoertHz : nom,   // roh
         xRechtsHz: _glHz0,                                     // geglaettet
         yCent: _glShift0,
+        yCent2: (s.shiftCent != null) ? s.shiftCent : 0,   // blaue Zweitkurve = roh
         residuumCent: 0,
         residuumMitteCent: 0,       // T-Balken-Mitte = 0 (roher Wert)
         bandLoHz: null, bandHiHz: null,
@@ -525,7 +527,8 @@ function FRQ_glaettRows(side, opts) {
       elNum: elNum,
       xLinksHz: rohHz,                 // grauer Strich (roh)
       xRechtsHz: glattHz,              // schwarzer Strich (geglaettet)
-      yCent: glattShift,               // Punkt = geglaettete Verschiebung
+      yCent: glattShift,               // Punkt = geglaettete Verschiebung (gruen, bewertet)
+      yCent2: rohShift,                // blaue Zweitkurve = rohe Verschiebung
       residuumCent: resid,
       residuumMitteCent: rohShift,     // T-Balken-Mitte = rohe Verschiebung
       bandLoHz: null, bandHiHz: null,
@@ -552,7 +555,9 @@ function FRQ_renderGlaettGraph() {
   drawFRQGraph(cv, rows, {
     residuumAnker: "rohwert",   // BA475: T-Balken um residuumMitteCent (roher Wert)
     yLabel: t("FRQ_resultsChartYLabel"),
-    verbindung: true,           // Punkt-zu-Punkt-Linie durch die geglaetteten Punkte
+    verbindung: true,           // Punkt-zu-Punkt-Linie durch die geglaetteten (gruenen) Punkte
+    linienfarbe: "gruen",       // BA484: yCent traegt hier die geglaettete Kurve
+    zweitkurve: "blau",         // BA484: blaue Marker-Kurve = rohe Verschiebung
     amberband: false
   });
   if (!cv._frqg_listener) {
@@ -867,6 +872,11 @@ function _FRQ_renderBandEmpf(side) {
       var _resid = (_ws.residuum != null) ? _ws.residuum : 0;
       // Abweichung Mitte-gehoert in Cent (immer berechnet, auch fuer Tooltip bei FBF).
       var _dev = 1200 * Math.log2(_center / _target);
+      // BA484: gruene Zweitkurve = Bandmitte gegen geglaettete Frequenz.
+      // gehoertHzGlatt liegt je aktive Elektrode vor (core.js:1877).
+      var _devGlatt = (_ws.gehoertHzGlatt != null && _ws.gehoertHzGlatt > 0)
+        ? 1200 * Math.log2(_center / _ws.gehoertHzGlatt)
+        : null;
       var _elNum = dEN(_i, side);
       // FBF: Punkt zeigt Messkonsistenz (Messung <-> Nachbar-Kurve),
       // Striche gehoert->Kurve. Sonst: Mitten-Abweichung wie bisher (§5.1).
@@ -888,7 +898,8 @@ function _FRQ_renderBandEmpf(side) {
         elNum: _elNum,
         xLinksHz: _xLinks,
         xRechtsHz: _xRechts,
-        yCent: _yCent,
+        yCent: _yCent,             // blau = Bandmitte gegen gehoert (roh), bewertet
+        yCent2: _devGlatt,         // BA484: gruene Zweitkurve = gegen geglaettet
         residuumCent: _resid,
         bandLoHz: _ws.bandLoHz,
         bandHiHz: _ws.bandHiHz,
@@ -918,6 +929,7 @@ function _FRQ_renderBandEmpf(side) {
       xWandHz: _wand,
       yLabel: t("FRQ_resultsChartYLabel"),
       verbindung: true,
+      zweitkurve: "gruen",     // BA484: gruene Marker-Kurve = gegen geglaettet
       amberband: false,
       yMaxFest: _yMaxFest
     });
