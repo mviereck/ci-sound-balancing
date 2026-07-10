@@ -725,6 +725,7 @@ Object.assign(L.en, {
     FRQ_chartLegendRow7:   "Band|light/dark grey, bottom|Bandwidth recommendation",
     FRQ_resultsQualityPiano:           "Piano test: round {round} of {total} completed (approximation ±{step} cents).",
     FRQ_glaettTitle: "Smooth measurement curve",
+    FRQ_glaettIntro: "Reproducing the exact measured values as closely as possible can lead to an uneven distribution of frequency bands. The curves offered here attempt to derive a plausible, smooth progression from the measured data. Check whether one of the curves comes close to your measurement. The coloured green/amber/red dots indicate how well it fits. The T-shaped residual bars show the measurement uncertainty; the better the curve runs through the residuals, the better it matches your measurements. (Electrodes marked as problematic, e.g. noisy, may deviate substantially.)",
     FRQ_glaettGradLegend: "Curve degree",
     FRQ_glaettGradAus: "off",
     FRQ_glaettAchseLegend: "Curve axis",

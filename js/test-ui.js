@@ -426,24 +426,12 @@ function _buildTestPanelNew(parentEl, cfg) {
     headerRefs.electrodeSelectionCfg = esCfg;
 
     function _esUpdateSummary() {
-      var sel = esCfg.getSelection();
-      var stat = esCfg.getElectrodeStatus();
-      var testable = stat.testable.length;
-      // Bug 0.4.279.3: Anzeige bleibt immer sichtbar — auch bei 0 waehlbaren
-      // Elektroden steht "0 von 0 Elektroden gewaehlt" statt leerem Text.
-      var selected;
-      if (sel == null) selected = testable;
-      else selected = sel.filter(function(i) { return stat.testable.indexOf(i) >= 0; }).length;
-      var tpl = (typeof t === 'function' && t('electrodeSelectionHeaderSummary'))
-        || '{m} von {n} Elektroden gewählt';
-      var txt = tpl.replace('{m}', selected).replace('{n}', testable);
-      if (selected < testable) txt += ' ⚠';
-      esSummary.textContent = txt;
+      esSummary.textContent = testUI.electrodeSelection.summaryText(esCfg);
     }
     headerRefs.electrodeSelectionUpdate = _esUpdateSummary;
 
     esBtn.addEventListener('click', function() {
-      _openElectrodeSelectionDialog(esCfg, _esUpdateSummary);
+      testUI.electrodeSelection.open(esCfg, _esUpdateSummary);
     });
 
     _esUpdateSummary();
@@ -1496,6 +1484,37 @@ var testUI = {
     // Cent-Wert / Frequenz eines Slots (isBlack = true fuer schwarze Taste).
     cellCent:    function (p, slot, isBlack) { return _pnCellCent(p, slot, isBlack); },
     cellFreq:    function (p, slot, isBlack) { return _pnCellFreq(p, slot, isBlack); }
+  },
+
+  // ---- electrodeSelection (BA478: aus dem Panel-Closure geloest) ----
+  // Wiederverwendbare Elektroden-Auswahl. Zwei Konsumenten (Test-Header,
+  // Reiter Frequenzbaender) nutzen denselben Vertrag cfg:
+  //   minSelected, getSelection, setSelection, getElectrodeStatus, electrodeLabel
+  // (dokumentiert bei _openElectrodeSelectionDialog). KEINE Fall-Namen im
+  // Dialog -- Varianz (z.B. stumme waehlbar) laeuft ueber cfg.getElectrodeStatus.
+  electrodeSelection: {
+    // Dialog oeffnen. onChange wird nach bestaetigter Auswahl gerufen.
+    open: function (cfg, onChange) {
+      _openElectrodeSelectionDialog(cfg, onChange);
+    },
+    // Zusammenfassungstext "{m} von {n} Elektroden gewaehlt" (+ Warnung bei
+    // Teilauswahl) fuer ein cfg berechnen. EINE Quelle fuer Header UND Box.
+    // Rueckgabe: reiner Text (der Aufrufer setzt ihn in sein Summary-Element).
+    summaryText: function (cfg) {
+      var sel = cfg.getSelection();
+      var stat = cfg.getElectrodeStatus();
+      var testable = stat.testable.length;
+      // Bug 0.4.279.3: Anzeige bleibt sichtbar -- auch bei 0 waehlbaren
+      // steht "0 von 0 Elektroden gewaehlt" statt leerem Text.
+      var selected;
+      if (sel == null) selected = testable;
+      else selected = sel.filter(function (i) { return stat.testable.indexOf(i) >= 0; }).length;
+      var tpl = (typeof t === 'function' && t('electrodeSelectionHeaderSummary'))
+        || '{m} von {n} Elektroden gewaehlt';
+      var txt = tpl.replace('{m}', selected).replace('{n}', testable);
+      if (selected < testable) txt += ' ⚠';
+      return txt;
+    }
   },
 
   // ---- clipHint (BA 285) ----

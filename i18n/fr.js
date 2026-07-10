@@ -726,6 +726,7 @@ Object.assign(L.fr, {
     FRQ_chartLegendRow7:   "Bande|gris clair/foncé, en bas|Recommandation de bande passante",
     FRQ_resultsQualityPiano:           "Test au piano : tour {round} sur {total} terminé (approximation ±{step} cents).",
     FRQ_glaettTitle: "Lisser la courbe de mesure",
+    FRQ_glaettIntro: "Reproduire au plus près les valeurs mesurées exactes peut entraîner une répartition irrégulière des bandes de fréquence. Les courbes proposées ici tentent de dégager des données de mesure une progression régulière et plausible. Vérifiez si l’une des courbes se rapproche de votre mesure. Les points colorés vert/orange/rouge indiquent la qualité de l’ajustement. Les barres de résidus en forme de T indiquent l’incertitude de mesure ; mieux la courbe passe par les résidus, mieux elle correspond à vos résultats. (Les électrodes signalées comme problématiques, p. ex. bruitées, peuvent s’écarter fortement.)",
     FRQ_glaettGradLegend: "Degré de courbe",
     FRQ_glaettGradAus: "désactivé",
     FRQ_glaettAchseLegend: "Axe de la courbe",

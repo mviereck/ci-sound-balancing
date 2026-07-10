@@ -726,6 +726,7 @@ Object.assign(L.es, {
     FRQ_chartLegendRow7:   "Banda|gris claro/oscuro, abajo|Recomendación de ancho de banda",
     FRQ_resultsQualityPiano:           "Prueba de piano: ronda {round} de {total} completada (aproximación ±{step} centésimas).",
     FRQ_glaettTitle: "Suavizar curva de medición",
+    FRQ_glaettIntro: "Reproducir los valores medidos exactos con la mayor fidelidad posible puede provocar una distribución irregular de las bandas de frecuencia. Las curvas que se ofrecen aquí intentan obtener a partir de los datos de medición una progresión uniforme y plausible. Compruebe si alguna de las curvas se aproxima a su medición. Los puntos de color verde/ámbar/rojo indican el grado de ajuste. Las barras de residuos en forma de T indican la incertidumbre de medición; cuanto mejor pase la curva por los residuos, mejor coincidirá con sus resultados. (Los electrodos marcados como problemáticos, p. ej. ruidosos, pueden desviarse notablemente.)",
     FRQ_glaettGradLegend: "Grado de curva",
     FRQ_glaettGradAus: "desactivado",
     FRQ_glaettAchseLegend: "Eje de la curva",

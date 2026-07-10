@@ -786,6 +786,7 @@ Object.assign(L.de, {
     FRQ_chartLegendRow7:   "Band|hellgrau/dunkelgrau, unten|Bandbreitenempfehlung",
     FRQ_resultsQualityPiano:           "Klaviertest: Runde {round} von {total} abgeschlossen (Annäherung ±{step} Cent).",
     FRQ_glaettTitle: "Meßwertverlaufskurve glätten",
+    FRQ_glaettIntro: "Die exakten Meßwerte bestmöglich umzusetzen kann zu unregelmäßiger Frequenzbandverteilung führen. Die hier angebotenen Kurven versuchen, aus den Meßdaten einen plausiblen gleichmäßigen Verlauf zu machen. Prüfen Sie, ob eine der Kurven Ihrer Messung nahekommt. Die farbigen Punkte grün/gelb/rot geben einen Hinweis, wie gut getroffen wurde. Die T-förmigen Residuenbalken geben die Meßungenauigkeit an; je besser die Kurve durch die Residuen läuft, desto besser paßt sie zu Ihren Meßergebnissen. (Als problematisch markierte Elektroden, z. B. verrauscht, dürfen stark abweichen.)",
     FRQ_glaettGradLegend: "Kurvengrad",
     FRQ_glaettGradAus: "aus",
     FRQ_glaettAchseLegend: "Kurven-Achse",
