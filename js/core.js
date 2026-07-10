@@ -1876,6 +1876,10 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
       // gehoertHzGlatt (geglaettet = Bandberechnung/Wiedergabe), §15.4.
       left.gehoertHzGlatt  = _glatt.left.hz;
       right.gehoertHzGlatt = _glatt.right.hz;
+      // BA483 (§15.6): geglaettete Verschiebung (cent) je Seite -- Punkt-Hoehe
+      // im Glaettungsgraph, damit FRQ_glaettRows nicht selbst rechnen muss.
+      left.shiftCentGlatt  = _glatt.left.shiftCent;
+      right.shiftCentGlatt = _glatt.right.shiftCent;
     }
     // Unbekannte form: nur die gemeinsame Basis (elIdx, Flags, nominell).
 

@@ -319,12 +319,15 @@ function FRQ_tabellenZeilen(opts) {
     const isNotPerc = (r && r.fmStatus === "not-perceivable");
     let nominellHz = null, gehoertHz = null, diffHz = null, diffCent = null;
     if (wSide && wSide.nominellHz != null) nominellHz = wSide.nominellHz;
-    if (wSide && wSide.gehoertHz != null && wSide.shiftCent != null) {
+    // BA483 (§15.5): "gemessen" aus dem Flag der Wertquelle, NICHT aus
+    // gehoertHz != null -- nach BA482 ist gehoertHz fuer ungemessene aktive
+    // Elektroden = nominell (!= null). Nur echt gemessene zeigen gehoert/Diff.
+    if (wr && wr.gemessen && wSide) {
       gehoertHz = wSide.gehoertHz;
       diffHz    = wSide.shiftHz;
       diffCent  = wSide.shiftCent;
     }
-    const residuum = (wSide && wSide.residuum != null && !isNotPerc)
+    const residuum = (wr && wr.gemessen && wSide && wSide.residuum != null && !isNotPerc)
       ? wSide.residuum : null;
     // BA433: Band-Felder aus der Wertquelle durchreichen.
     const bandLoHz  = wSide ? (wSide.bandLoHz != null ? wSide.bandLoHz : null) : null;
@@ -395,10 +398,13 @@ function FRQ_ergebnisRows(side, opts) {
     var r = measuredByIdx[wr.elIdx];
     var elNum = dEN(wr.elIdx, side);
     var hzIst = seite.nominellHz;
-    var hzSoll = seite.gehoertHz;         // null wenn ungemessen
-    var dc = seite.shiftCent;             // null wenn ungemessen
-    var resid = (seite.residuum != null) ? seite.residuum : 0;
-    var isMeasured = !!r;
+    // BA483 (§15.5): "gemessen" aus dem Wertquelle-Flag. Nach BA482 sind
+    // gehoertHz/shiftCent fuer ungemessene aktive Elektroden nicht mehr null;
+    // die "ungemessen"-Marker-Logik (Z. ~437) darf sich nicht darauf stuetzen.
+    var isMeasured = !!wr.gemessen;
+    var hzSoll = isMeasured ? seite.gehoertHz : null;   // null wenn ungemessen
+    var dc     = isMeasured ? seite.shiftCent : null;   // null wenn ungemessen
+    var resid  = (isMeasured && seite.residuum != null) ? seite.residuum : 0;
     var fmStatus = r ? (r.fmStatus || "converged") : null;
     var warn = (fmStatus === "piano-crossed" || fmStatus === "piano-wide");
 
@@ -465,60 +471,40 @@ function FRQ_glaettRows(side, opts) {
   var nhSim = !!opts.nhSim;
   var modus = (typeof opts.modus === "string") ? opts.modus
     : FRQ_modusVonReferenzmodus(frq_referenzmodus());
-  var csKey = (side === "left") ? "csL" : "csR";
-  var sgn = nhSim ? 1 : -1;                       // 'gehoert'-Richtung
-  var fac = FRQ_seitenWerte(1, modus);            // Residuum-Verteilfaktor je Seite
-  var facSeite = Math.abs(fac[csKey]);
 
-  // Rohes measured (referenzseiten-frei, cent) aus den aktiven Ergebnissen.
-  var fResData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
-  var measured = {};
-  for (var m = 0; m < fResData.length; m++) measured[fResData[m].elIdx] = fResData[m];
-
-  var s = sideData[side];
-  var grad = (s && s.bandGlaettGrad) ? s.bandGlaettGrad : "aus";
-  // Geglaettete cent-Reihe (nur wenn Grad != "aus"; sonst identisch roh).
-  var measuredGlatt = (grad !== "aus")
-    ? withSide(side, function () { return _frqGlaetteMeasured(measured, "kurve"); })
-    : measured;
-
-  // Hz-Ableitung aus kanonischem cent, seitenrichtig (wie FRQ_werte 'gehoert').
-  function _hzAusCent(elIdx, cent) {
-    var nom = withSide(side, function () { return FRQ_implantatEffektiv(elIdx); });
-    var base = FRQ_seitenWerte(cent, modus);
-    var shift = sgn * base[csKey];
-    return nom * Math.pow(2, shift / 1200);
-  }
-  function _shiftAusCent(elIdx, cent) {
-    var base = FRQ_seitenWerte(cent, modus);
-    return sgn * base[csKey];
-  }
+  // BA483 (§15.6): reiner Konsument der Wertquelle -- KEINE eigene cent->Hz-
+  // Ableitung mehr. gehoertHz (roh, grau), gehoertHzGlatt (schwarz),
+  // shiftCent (roh, T-Balken-Mitte), shiftCentGlatt (Punkt), residuum,
+  // gemessen kommen alle aus FRQ_werte("gehoert").
+  var werte = (typeof FRQ_werte === "function")
+    ? FRQ_werte("gehoert", modus, nhSim) : [];
+  var byIdx = {};
+  for (var wi = 0; wi < werte.length; wi++) byIdx[werte[wi].elIdx] = werte[wi];
 
   var rows = [];
-  // BA477 / §9.5.1: alle AKTIVEN Elektroden der Seite, nicht nur gemessene.
+  // Alle AKTIVEN Elektroden der Seite (§9.5.1), nicht nur gemessene.
   _frqAktiveElIdx(side).forEach(function (elIdx) {
-    var rohMeas = measured[elIdx];
+    var wr = byIdx[elIdx];
+    var s  = wr ? wr[side] : null;
+    if (!s) return;
     var elNum = dEN(elIdx, side);
-    var sichtbar = true;   // Liste enthaelt nur aktive; elActive===false ist schon raus
     var nom = withSide(side, function () { return FRQ_implantatEffektiv(elIdx); });
-    var _istGemessen = !!(rohMeas && rohMeas.cent != null);
-    if (!_istGemessen) {
-      // Nicht-gemessene aktive Elektrode: cent=0 (gehoert=nominell). Grauer
-      // und schwarzer Strich fallen auf die Nominalfrequenz zusammen, Punkt
-      // auf der Nulllinie. Kein Farb-/Residuumsurteil (keine Messung).
-      var _glattMeas0 = measuredGlatt[elIdx];
-      var _glattCent0 = (_glattMeas0 && _glattMeas0.cent != null) ? _glattMeas0.cent : 0;
-      var _glattHz0 = _hzAusCent(elIdx, _glattCent0);
-      var _glattShift0 = _shiftAusCent(elIdx, _glattCent0);
+
+    if (!wr.gemessen) {
+      // Nicht-gemessene aktive Elektrode: grauer Strich = roh (nominell),
+      // schwarzer Strich = geglaettet (bei Grad "aus" == nominell), Punkt =
+      // geglaettete Verschiebung, kein Farb-/Residuumsurteil (keine Messung).
+      var _glHz0 = (s.gehoertHzGlatt != null) ? s.gehoertHzGlatt : nom;
+      var _glShift0 = (s.shiftCentGlatt != null) ? s.shiftCentGlatt : 0;
       rows.push({
         elNum: elNum,
-        xLinksHz: nom,              // roh = nominell (cent 0)
-        xRechtsHz: _glattHz0,       // geglaettet (bei Grad "aus" == nom)
-        yCent: _glattShift0,
+        xLinksHz: (s.gehoertHz != null) ? s.gehoertHz : nom,   // roh
+        xRechtsHz: _glHz0,                                     // geglaettet
+        yCent: _glShift0,
         residuumCent: 0,
         residuumMitteCent: 0,       // T-Balken-Mitte = 0 (roher Wert)
         bandLoHz: null, bandHiHz: null,
-        sichtbar: sichtbar,
+        sichtbar: true,
         warn: false,
         stufe: null,                // kein Farbpunkt: keine Messung
         marker: "offen",
@@ -526,17 +512,13 @@ function FRQ_glaettRows(side, opts) {
       });
       return;
     }
-    var glattMeas = measuredGlatt[elIdx];
-    var glattCent = (glattMeas && glattMeas.cent != null) ? glattMeas.cent : rohMeas.cent;
-    var rohHz   = _hzAusCent(elIdx, rohMeas.cent);      // grau
-    var glattHz = _hzAusCent(elIdx, glattCent);         // schwarz
-    var rohShift   = _shiftAusCent(elIdx, rohMeas.cent);   // T-Balken-Mitte (roh)
-    var glattShift = _shiftAusCent(elIdx, glattCent);      // Punkt-Hoehe
-    // Residuum seitenverteilt wie in FRQ_werte (core.js:1770-1772).
-    var residRoh = (rohMeas.fmResiduum != null ? rohMeas.fmResiduum
-                   : (rohMeas.fmResidual != null ? rohMeas.fmResidual : 0));
-    var resid = facSeite * residRoh;
-    // Verschiebung roh->geglaettet in cent.
+
+    var rohHz   = s.gehoertHz;                                  // grau
+    var glattHz = (s.gehoertHzGlatt != null) ? s.gehoertHzGlatt : rohHz;  // schwarz
+    var rohShift   = (s.shiftCent != null) ? s.shiftCent : 0;   // T-Balken-Mitte (roh)
+    var glattShift = (s.shiftCentGlatt != null) ? s.shiftCentGlatt : rohShift; // Punkt
+    var resid = (s.residuum != null) ? s.residuum : 0;
+    // Verschiebung roh->geglaettet in cent (Farb-Urteil der Glaettung).
     var dev = 1200 * Math.log2(rohHz / glattHz);
     var stufe = FRQ_bewertungsStufe(dev, resid);
     rows.push({
@@ -547,7 +529,7 @@ function FRQ_glaettRows(side, opts) {
       residuumCent: resid,
       residuumMitteCent: rohShift,     // T-Balken-Mitte = rohe Verschiebung
       bandLoHz: null, bandHiHz: null,
-      sichtbar: sichtbar,
+      sichtbar: true,
       warn: false,
       stufe: stufe,
       tooltip: [
@@ -888,15 +870,16 @@ function _FRQ_renderBandEmpf(side) {
       var _elNum = dEN(_i, side);
       // FBF: Punkt zeigt Messkonsistenz (Messung <-> Nachbar-Kurve),
       // Striche gehoert->Kurve. Sonst: Mitten-Abweichung wie bisher (§5.1).
+      var _gemessen = !!(_w && _w.gemessen);   // BA483 (§15.5)
       var _consist = (_ws.kurveAbwCent != null) ? _ws.kurveAbwCent : null;
-      var _yCent   = istFbf ? _consist : _dev;
-      var _xLinks  = _target;                            // gehoert
+      var _yCent   = !_gemessen ? null : (istFbf ? _consist : _dev);
+      var _xLinks  = _target;                            // gehoert (roh)
       var _xRechts = istFbf
         ? ((_ws.kurveHz != null) ? _ws.kurveHz : _center)
         : _center;                                       // Kurve (FBF) bzw. Mitte
-      var _stufe = istFbf
-        ? FRQ_bewertungsStufe(_consist, _resid)
-        : FRQ_bewertungsStufe(_dev, _resid);
+      var _stufe = !_gemessen ? null
+        : (istFbf ? FRQ_bewertungsStufe(_consist, _resid)
+                  : FRQ_bewertungsStufe(_dev, _resid));
       var _bew = (_stufe === "gruen") ? t("FRQ_bandEmpfRatingNoise")
                : (_stufe === "amber") ? t("FRQ_bandEmpfRatingSlight")
                : t("FRQ_bandEmpfRatingClear");
@@ -1024,7 +1007,11 @@ function _FRQ_renderBandEmpf(side) {
       ? (devConsist >= 0 ? "+" : "") + fmtNum(devConsist, "cent") + " ct" : dash;
 
     var ratingCell = dash;
-    if (devConsist != null && resid != null) {
+    // BA483 (§15.5): Bewertung nur fuer echt gemessene Elektroden. Nach BA482
+    // hat eine ungemessene aktive Elektrode resid=1200 (!= null) und ein
+    // berechenbares devConsist -> ohne diese Bedingung wuerde sie faelschlich
+    // bewertet statt in den Vorschlags-Zweig (else if) zu fallen.
+    if (w && w.gemessen && devConsist != null && resid != null) {
       var ueber = Math.abs(devConsist) - resid;
       var _bStufe = FRQ_bewertungsStufe(devConsist, resid);
       var stufe = (_bStufe === "gruen") ? t("FRQ_bandEmpfRatingNoise")
