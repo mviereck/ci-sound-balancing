@@ -451,6 +451,120 @@ function FRQ_ergebnisRows(side, opts) {
   return rows;
 }
 
+// BA475: Row-Quelle fuer den Glaettungs-Graphen. Grau = gehoerte (rohe)
+// Frequenz, schwarz = geglaettete Frequenz. Farbe = FRQ_bewertungsStufe
+// (Verschiebung roh->geglaettet, Residuum). T-Balken um den ROHEN Wert
+// (residuumMitteCent). Nutzt drawFRQGraph (KEINE eigene Zeichenlogik).
+//
+// Beide Reihen (roh + geglaettet) werden aus dem ROHEN measured gerechnet,
+// weil FRQ_werte intern schon glaettet (core.js:1697-1712) und daher NICHT
+// als Rohquelle taugt. Vorzeichen/Seitenverteilung ueber FRQ_seitenWerte
+// (dieselbe Quelle wie FRQ_werte-Form 'gehoert', core.js:1762-1785).
+function FRQ_glaettRows(side, opts) {
+  opts = opts || {};
+  var nhSim = !!opts.nhSim;
+  var modus = (typeof opts.modus === "string") ? opts.modus
+    : FRQ_modusVonReferenzmodus(frq_referenzmodus());
+  var csKey = (side === "left") ? "csL" : "csR";
+  var sgn = nhSim ? 1 : -1;                       // 'gehoert'-Richtung
+  var fac = FRQ_seitenWerte(1, modus);            // Residuum-Verteilfaktor je Seite
+  var facSeite = Math.abs(fac[csKey]);
+
+  // Rohes measured (referenzseiten-frei, cent) aus den aktiven Ergebnissen.
+  var fResData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
+  var measured = {};
+  for (var m = 0; m < fResData.length; m++) measured[fResData[m].elIdx] = fResData[m];
+
+  var s = sideData[side];
+  var grad = (s && s.bandGlaettGrad) ? s.bandGlaettGrad : "aus";
+  // Geglaettete cent-Reihe (nur wenn Grad != "aus"; sonst identisch roh).
+  var measuredGlatt = (grad !== "aus")
+    ? withSide(side, function () { return _frqGlaetteMeasured(measured, "kurve"); })
+    : measured;
+
+  // Hz-Ableitung aus kanonischem cent, seitenrichtig (wie FRQ_werte 'gehoert').
+  function _hzAusCent(elIdx, cent) {
+    var nom = withSide(side, function () { return FRQ_implantatEffektiv(elIdx); });
+    var base = FRQ_seitenWerte(cent, modus);
+    var shift = sgn * base[csKey];
+    return nom * Math.pow(2, shift / 1200);
+  }
+  function _shiftAusCent(elIdx, cent) {
+    var base = FRQ_seitenWerte(cent, modus);
+    return sgn * base[csKey];
+  }
+
+  var rows = [];
+  Object.keys(measured).map(Number).sort(function (a, b) { return a - b; }).forEach(function (elIdx) {
+    var rohMeas = measured[elIdx];
+    var elNum = dEN(elIdx, side);
+    var sichtbar = !(s.elActive && s.elActive[elIdx] === false);
+    var nom = withSide(side, function () { return FRQ_implantatEffektiv(elIdx); });
+    if (!rohMeas || rohMeas.cent == null) {
+      rows.push({
+        elNum: elNum, xLinksHz: nom, xRechtsHz: nom, yCent: null,
+        residuumCent: 0, bandLoHz: null, bandHiHz: null, sichtbar: sichtbar,
+        marker: "offen", stufe: null,
+        tooltip: ["<b>E" + elNum + "</b>", t("notMeasured")]
+      });
+      return;
+    }
+    var glattMeas = measuredGlatt[elIdx];
+    var glattCent = (glattMeas && glattMeas.cent != null) ? glattMeas.cent : rohMeas.cent;
+    var rohHz   = _hzAusCent(elIdx, rohMeas.cent);      // grau
+    var glattHz = _hzAusCent(elIdx, glattCent);         // schwarz
+    var rohShift   = _shiftAusCent(elIdx, rohMeas.cent);   // T-Balken-Mitte (roh)
+    var glattShift = _shiftAusCent(elIdx, glattCent);      // Punkt-Hoehe
+    // Residuum seitenverteilt wie in FRQ_werte (core.js:1770-1772).
+    var residRoh = (rohMeas.fmResiduum != null ? rohMeas.fmResiduum
+                   : (rohMeas.fmResidual != null ? rohMeas.fmResidual : 0));
+    var resid = facSeite * residRoh;
+    // Verschiebung roh->geglaettet in cent.
+    var dev = 1200 * Math.log2(rohHz / glattHz);
+    var stufe = FRQ_bewertungsStufe(dev, resid);
+    rows.push({
+      elNum: elNum,
+      xLinksHz: rohHz,                 // grauer Strich (roh)
+      xRechtsHz: glattHz,              // schwarzer Strich (geglaettet)
+      yCent: glattShift,               // Punkt = geglaettete Verschiebung
+      residuumCent: resid,
+      residuumMitteCent: rohShift,     // T-Balken-Mitte = rohe Verschiebung
+      bandLoHz: null, bandHiHz: null,
+      sichtbar: sichtbar,
+      warn: false,
+      stufe: stufe,
+      tooltip: [
+        "<b>E" + elNum + "</b>",
+        Math.round(rohHz) + " Hz → " + Math.round(glattHz) + " Hz",
+        (dev >= 0 ? "+" : "") + Math.round(dev) + " ct · ±" + Math.round(resid) + " ct"
+      ]
+    });
+  });
+  return rows;
+}
+
+// BA475: Glaettungs-Graph rendern (aktive Seite). Nutzt drawFRQGraph.
+function FRQ_renderGlaettGraph() {
+  var cv = document.getElementById("FRQ_glaettChart");
+  if (!cv) return;
+  var side = (typeof activeSide === "string") ? activeSide
+    : (sideData.left.config === "ci" ? "left" : "right");
+  var rows = FRQ_glaettRows(side, {});
+  drawFRQGraph(cv, rows, {
+    residuumAnker: "rohwert",   // BA475: T-Balken um residuumMitteCent (roher Wert)
+    yLabel: t("FRQ_resultsChartYLabel"),
+    verbindung: true,           // Punkt-zu-Punkt-Linie durch die geglaetteten Punkte
+    amberband: false
+  });
+  if (!cv._frqg_listener) {
+    cv.addEventListener("mousemove", function (e) { _frqg_tooltipHandler(cv, e); });
+    cv.addEventListener("mouseleave", function () {
+      var tp = document.getElementById("frqg_tooltip"); if (tp) tp.style.display = "none";
+    });
+    cv._frqg_listener = true;
+  }
+}
+
 function FRQ_renderResults() {
   const noData = document.getElementById("FRQ_resultsNoData");
   const card = document.getElementById("FRQ_resultsCard");

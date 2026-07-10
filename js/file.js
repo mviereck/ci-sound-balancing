@@ -779,6 +779,7 @@ function applyLoadedData(d) {
   // BA463: geladene Band-Wahlen der aktiven Seite in die Radios spiegeln
   // (inkl. Achsen-Sichtbarkeit). Muss VOR FRQ_renderResults stehen.
   if (typeof _frqBandSpiegle === "function") _frqBandSpiegle();
+  if (typeof window._frqGlaettUpdate === "function") window._frqGlaettUpdate();
   // BA 177: wenn Save-Daten Frequenzabgleich-Messungen enthielten,
   // den Default-Anwendungs-Flag setzen, damit der nächste Insert
   // den gespeicherten pWarpMode nicht überschreibt.

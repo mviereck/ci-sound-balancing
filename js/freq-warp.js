@@ -22,12 +22,6 @@ let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default sy
 // yMaxFest). Default "300". Einzige Schreibstellen: Radios (init.js) +
 // Datei-Laden (file.js). Gelesen NUR vom Bandgraph-Aufruf (results.js).
 let FRQ_bandSkalaWahl = "300";
-// DEBUG-Testoption (Martin, nicht persistent, nicht gespeichert): bei true
-// DEBUG-Auswahl (experimentell 2026-07-09): Einspeisewerte in FRQ_werte:
-// 'roh' (echte Messung, Default) | 'default' (cent=0, nominelle Implantat-
-// Frequenzen) | 'isoton' | 'lokal' (Vor-Glaettung, s. core.js
-// _frqGlaetteMeasured; Konzept IDEEN.md "Vor-Glaettung der Messwerte").
-let FRQ_measInputWahl = "roh";
 let pWarpCalcMode = "mid";     // BA375: Berechnungs-Modus. "fast"|"mid"|"best".
                                // Quelle fuer engine (r2/r3) + Streaming/Voll.
                                // Persistent (localStorage + JSON), Default "mid".

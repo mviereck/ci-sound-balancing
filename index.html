@@ -946,6 +946,32 @@
 
       <!-- ===== FREQUENZBÄNDER ===== -->
       <div id="panel-frequenzbaender" class="panel">
+        <!-- BA475: Mess-Glaettung (dauerhaft sichtbar) -->
+        <div class="card" id="FRQ_glaettCard">
+          <h3 data-t="FRQ_glaettTitle" style="font-size:1em;margin:0 0 10px">Me&#223;wertverlaufskurve gl&#228;tten</h3>
+          <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+            <fieldset style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettGradLegend" style="padding:0 6px">Kurvengrad</legend>
+              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettGrad" value="1"> 1</label>
+              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettGrad" value="2"> 2</label>
+              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettGrad" value="3"> 3</label>
+              <label style="display:inline-block"><input type="radio" name="FRQ_glaettGrad" value="aus"> <span data-t="FRQ_glaettGradAus">aus</span></label>
+            </fieldset>
+            <fieldset style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettAchseLegend" style="padding:0 6px">Kurven-Achse</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettAchse" value="log"> <span data-t="FRQ_glaettAchseLog">log-Frequenz</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettAchse" value="greenwood"> <span data-t="FRQ_glaettAchseGreen">Greenwood-Ort</span></label>
+            </fieldset>
+            <fieldset id="FRQ_glaettRandfreiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettRandfreiLegend" style="padding:0 6px">Randausschlu&#223; (apikal)</legend>
+              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettRandfrei" value="0"> 0</label>
+              <label style="display:inline-block"><input type="radio" name="FRQ_glaettRandfrei" value="1"> 1</label>
+            </fieldset>
+          </div>
+          <div style="margin:0 0 4px">
+            <canvas id="FRQ_glaettChart" width="800" height="300"></canvas>
+          </div>
+        </div>
         <div class="card">
           <div id="FRQ_bandEmpfBlock" style="margin-top:18px">
             <h3 data-t="FRQ_bandEmpfTitle" style="font-size:1em;margin:0 0 10px">Bandgrenzen-Empfehlung</h3>
@@ -1031,23 +1057,6 @@
                 <label style="display:block"><input type="radio" name="FRQ_bandCbfBandraum" value="log"> <span data-t="FRQ_bandCbfBandraumLog">Logarithmisch</span></label>
                 <label style="display:block"><input type="radio" name="FRQ_bandCbfBandraum" value="anatom"> <span data-t="FRQ_bandCbfBandraumAnatom">Anatomisch (Greenwood)</span></label>
               </fieldset>
-            </div>
-            <div class="wv-debug-only" style="margin:0 0 10px;font-size:.86em;color:#555">
-              Debug: Einspeisewerte in die Bandberechnung (experimentell):
-              <label style="display:block;margin-top:3px"><input type="radio" name="FRQ_measInput" value="roh" checked> Messung (roh)</label>
-              <label style="display:block"><input type="radio" name="FRQ_measInput" value="default"> Default-Mittenfrequenzen (nominelle Implantat-Frequenzen als „gehört")</label>
-              <label style="display:block"><input type="radio" name="FRQ_measInput" value="isoton"> Isotone Regression (monoton, gewichtet)</label>
-              <label style="display:block"><input type="radio" name="FRQ_measInput" value="lokal"> Lokale Glättung (gleitendes Mittel, gewichtet)</label>
-              <label style="display:block"><input type="radio" name="FRQ_measInput" value="kurve"> Kurvenmodell (globaler Fit, gewichtet)</label>
-              <div style="margin:4px 0 0 20px">
-                Kurven-Grad:
-                <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveGrad" value="1"> 1 (Gerade)</label>
-                <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveGrad" value="2" checked> 2</label>
-                <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveGrad" value="3"> 3</label>
-                <br>Kurven-Achse:
-                <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveAchse" value="log" checked> log-Frequenz</label>
-                <label style="margin-left:6px"><input type="radio" name="FRQ_glaettKurveAchse" value="greenwood"> Greenwood-Ort</label>
-              </div>
             </div>
             <div id="FRQ_bandSkalaRow" style="margin:0 0 12px;font-size:0.9em">
               <span data-t="FRQ_bandSkalaLabel">Skalierung (Y-Achse in cent):</span>

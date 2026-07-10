@@ -523,6 +523,7 @@ function switchMfr(m) {
   // BA462: Bandgrenzen-Empfehlung inkl. Wand-Radios neu aufbauen.
   if (typeof _frqBandWandBuild === "function") _frqBandWandBuild();
   if (typeof _frqBandSpiegle === "function") _frqBandSpiegle();   // BA463
+  if (typeof window._frqGlaettUpdate === "function") window._frqGlaettUpdate();
   if (typeof FRQ_renderResults === "function") FRQ_renderResults();
 }
 function frq_implantatReset() {

@@ -263,6 +263,7 @@ function setActiveSide(side) {
   // BA462: Wand-Radios auf die neue aktive Seite umbauen.
   if (typeof _frqBandWandBuild === "function") _frqBandWandBuild();
   if (typeof _frqBandSpiegle === "function") _frqBandSpiegle();   // BA463
+  if (typeof window._frqGlaettUpdate === "function") window._frqGlaettUpdate();
   // BA414-Folgefix: FRQ-Ergebnisgraph haengt seit der kanonischen Umstellung
   // an der aktiven Seite (FRQ_refHzForMode/FRQ_seitenWerte) -> bei Seiten-
   // wechsel neu rendern, sonst bleibt die Anzeige auf der alten Seite stehen.

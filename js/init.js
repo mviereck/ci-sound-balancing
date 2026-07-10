@@ -608,7 +608,11 @@ document.addEventListener("DOMContentLoaded", () => {
       radios[i].addEventListener("change", function () {
         if (this.checked) {
           setter(this.value);
-          if (typeof FRQ_renderResults === "function") FRQ_renderResults();
+          // Die Band-Radios leben im Top-Reiter "Frequenzbaender" (seit BA474
+          // dorthin umgezogen). Zustaendiger Renderer ist FRQ_renderBaenderTab,
+          // NICHT FRQ_renderResults (Ergebnis-Reiter) -- sonst wird der
+          // Bandgraph bei Radio-Wechsel nie neu gezeichnet (Fix 0.5.474.3).
+          if (typeof FRQ_renderBaenderTab === "function") FRQ_renderBaenderTab();
         }
       });
     }
@@ -677,33 +681,19 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandCbfSprache", function (v) { sideData[activeSide].bandCbfSprache = v; });
   _frqBandWahlInit("FRQ_bandCbfBandraum", function (v) { sideData[activeSide].bandCbfBandraum = v; });
   _frqBandWahlInit("FRQ_bandSkala", function (v) { FRQ_bandSkalaWahl = v; });
-  // DEBUG-Auswahl (Martin, experimentell): Einspeisewerte in die
-  // Bandberechnung (roh | default | isoton | lokal). Setzt die globale Wahl
-  // (core.js, in FRQ_werte ausgewertet) und zeichnet die Empfehlungs-Ansicht
-  // neu. Nur diese eine Quell-Stelle wirkt.
-  (function () {
-    var radios = document.querySelectorAll('input[name="FRQ_measInput"]');
-    if (!radios.length) return;
-    radios.forEach(function (r) {
-      r.addEventListener("change", function () {
-        if (this.checked) FRQ_measInputWahl = this.value;
-        if (typeof FRQ_renderResults === "function") FRQ_renderResults();
-      });
-    });
-    // Kurvenmodell-Achsen (Grad + x-Achse) -> globale Konstanten in core.js.
-    document.querySelectorAll('input[name="FRQ_glaettKurveGrad"]').forEach(function (r) {
-      r.addEventListener("change", function () {
-        if (this.checked) FRQ_GLAETT_KURVE_GRAD = parseInt(this.value, 10);
-        if (typeof FRQ_renderResults === "function") FRQ_renderResults();
-      });
-    });
-    document.querySelectorAll('input[name="FRQ_glaettKurveAchse"]').forEach(function (r) {
-      r.addEventListener("change", function () {
-        if (this.checked) FRQ_GLAETT_KURVE_ACHSE = this.value;
-        if (typeof FRQ_renderResults === "function") FRQ_renderResults();
-      });
-    });
-  })();
+  // BA475: Mess-Glaettung (seitenweise). Bei Aenderung Graph + Sichtbarkeit neu.
+  _frqBandWahlInit("FRQ_glaettGrad", function (v) {
+    sideData[activeSide].bandGlaettGrad = v;
+    _frqGlaettUpdate();
+  });
+  _frqBandWahlInit("FRQ_glaettAchse", function (v) {
+    sideData[activeSide].bandGlaettAchse = v;
+    _frqGlaettUpdate();
+  });
+  _frqBandWahlInit("FRQ_glaettRandfrei", function (v) {
+    sideData[activeSide].bandGlaettRandfrei = v;
+    _frqGlaettUpdate();
+  });
   // BA463: alle seitenweisen Band-Radios auf die aktive Seite spiegeln.
   // Aufgerufen initial, bei Seitenwechsel (setActiveSide) und Hersteller-
   // wechsel (switchMfr). Skala bleibt global -> hier NICHT gespiegelt.
@@ -725,9 +715,35 @@ document.addEventListener("DOMContentLoaded", () => {
   // exponieren, wie window._pWarpApplyLangTexts (init.js:77).
   window._frqBandWandBuild = _frqBandWandBuild;
   window._frqBandSpiegle = _frqBandSpiegle;
+
+  // BA475: Randausschluss-Radio-Sichtbarkeit + Glaettungs-Graph neu zeichnen.
+  // Randausschluss-Radio zeigen, wenn: (Nicht-MED-EL) ODER (MED-EL und die
+  // apikalste El. NICHT FSP-markiert). Bei MED-EL mit apikalster El. als FSP
+  // deckt FSP den apikalen Rand schon ab -> Radio ausblenden.
+  function _frqGlaettRandfreiSichtbar() {
+    var s = sideData[activeSide];
+    var fs = document.getElementById("FRQ_glaettRandfreiFieldset");
+    if (!fs || !s) return;
+    var zeigen = true;
+    if (s.manufacturer === "medel") {
+      var apFirst = (typeof MFR !== "undefined" && MFR[s.manufacturer])
+        ? MFR[s.manufacturer].apFirst !== false : true;
+      var apIdx = apFirst ? 0 : (s.nEl - 1);
+      var fspEl = (s.implant && Array.isArray(s.implant.fspEl)) ? s.implant.fspEl : [];
+      if (fspEl[apIdx] === true) zeigen = false;
+    }
+    fs.style.display = zeigen ? "" : "none";
+  }
+  function _frqGlaettUpdate() {
+    _frqGlaettRandfreiSichtbar();
+    if (typeof FRQ_renderGlaettGraph === "function") FRQ_renderGlaettGraph();
+  }
+  window._frqGlaettUpdate = _frqGlaettUpdate;
+
   // Anfangswerte spiegeln + Wand-Radios aufbauen.
   _frqBandSpiegle();
   _frqBandWandBuild();   // BA462: Wand-Radios initial aufbauen
+  _frqGlaettUpdate();    // BA475: Glaettungs-Graph + Randausschluss-Sichtbarkeit initial
 
   // Warp-UI initialisieren
   _pWarpApplyLangTexts();
@@ -801,6 +817,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // (oben) lief noch mit "unknown" und hatte die Fieldsets ausgeblendet.
       if (typeof _frqBandWandBuild === "function") _frqBandWandBuild();
       if (typeof _frqBandSpiegle === "function") _frqBandSpiegle();   // BA463
+      if (typeof window._frqGlaettUpdate === "function") window._frqGlaettUpdate();
       if (typeof d.playerSourceMeas === "boolean") {
         plSrcMeas = d.playerSourceMeas;
         plSrcLevels = !!d.playerSourceLevels;

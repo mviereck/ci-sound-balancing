@@ -504,7 +504,9 @@ function drawFRQGraph(cv, rows, cfg) {
   //     (Ergebnisgraph). Vor dem Grid, hinter Strichen/Punkten. Der
   //     T-Balken selbst kommt in Abschnitt (4).
   // ============================================================
-  const anker = (cfg.residuumAnker === "nulllinie") ? "nulllinie" : "punkt";
+  const anker = (cfg.residuumAnker === "nulllinie") ? "nulllinie"
+              : (cfg.residuumAnker === "rohwert") ? "rohwert"
+              : "punkt";
   if (cfg.amberband) {
     rows.forEach(function (r) {
       if (!(r.residuumCent > 0)) return;
@@ -598,7 +600,10 @@ function drawFRQGraph(cv, rows, cfg) {
     hitboxes.push({ x: xs, y: ys, r: r });
     if (r.residuumCent > 0) {
       const halfH = Math.abs(tY(0) - tY(r.residuumCent));
-      const yc = (anker === "nulllinie") ? tY(0) : ys;   // Anker-Mitte
+      // Anker-Mitte: nulllinie -> 0; rohwert -> roher cent (BA475); sonst Punkt.
+      const yc = (anker === "nulllinie") ? tY(0)
+               : (anker === "rohwert" && r.residuumMitteCent != null) ? tY(r.residuumMitteCent)
+               : ys;
       ctx.strokeStyle = "#000"; ctx.lineWidth = 1.5; ctx.setLineDash([]);
       ctx.beginPath();
       ctx.moveTo(xs, yc - halfH); ctx.lineTo(xs, yc + halfH);
