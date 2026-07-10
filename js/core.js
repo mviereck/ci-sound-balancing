@@ -1550,15 +1550,40 @@ function _frqGlaettKurve(noms, cents, weights) {
   return out;
 }
 
-// Aus der Glaettung auszuschliessende elIdx (BA475). Zwei Quellen,
-// beide seitenweise auf sideData[activeSide]:
-//   (1) FSP-Kodierung (nur MED-EL): jede als Feinstruktur markierte
-//       Elektrode (s.implant.fspEl[i] === true) -- apikale El. werden bei
-//       FS-Strategien ueber die Feinstruktur gesteuert, nicht ueber die
-//       Bandmitte (Konzept IDEEN.md). Einzeln, nicht "N unterste".
-//   (2) Randausschluss (s.bandGlaettRandfrei === "1"): zusaetzlich die
-//       APIKALSTE Elektrode. Apikal hersteller-abhaengig: apFirst
-//       (MED-EL/AB) = kleinster elIdx, Cochlear = groesster elIdx.
+// BA476: Setzt den apikalen Randausschluss der Glaettung (bandGlaettRandfrei)
+// einer Seite auf die Anzahl der FSP-markierten Elektroden. FSP existiert nur
+// bei MED-EL; ohne FSP-Moeglichkeit -> "0". Danach Radio spiegeln + Glaettungs-
+// Graph neu zeichnen (Wert wird im Reiter Implantat geaendert, Radio steht im
+// Reiter Frequenzbaender). Aufgerufen an JEDER FSP-Schreibstelle. Kein "vom
+// Nutzer beruehrt"-Flag: der Randausschluss wird nur hier (bei FSP-Aenderung)
+// automatisch gesetzt; eine spaetere manuelle Radio-Aenderung bleibt bestehen,
+// bis die FSP-Markierung erneut geaendert wird.
+function FRQ_randausschlussAusFsp(side) {
+  if (typeof sideData === "undefined" || !sideData[side]) return;
+  var s = sideData[side];
+  var anzahl = 0;
+  if (s.manufacturer === "medel" && s.implant && Array.isArray(s.implant.fspEl)) {
+    s.implant.fspEl.forEach(function (v) { if (v === true) anzahl++; });
+  }
+  if (anzahl > 4) anzahl = 4;   // Radio reicht bis 4 (fs4/fs4p: max 4 FSP-El.)
+  s.bandGlaettRandfrei = String(anzahl);
+  // Nur wenn die geaenderte Seite auch die aktive ist, DOM spiegeln/neu zeichnen
+  // (die Radio-DOM traegt immer den aktiven Seiten-Zustand).
+  if (typeof activeSide === "string" && side === activeSide) {
+    if (typeof window !== "undefined" && typeof window._frqBandSpiegle === "function")
+      window._frqBandSpiegle();
+    if (typeof window !== "undefined" && typeof window._frqGlaettUpdate === "function")
+      window._frqGlaettUpdate();
+  }
+}
+
+// Aus der Glaettung auszuschliessende elIdx (BA476). Eine Quelle:
+//   Apikaler Randausschluss (s.bandGlaettRandfrei = "0".."4"): die N
+//   apikalsten gemessenen Elektroden. Apikal hersteller-abhaengig: apFirst
+//   (MED-EL/AB) = kleinster elIdx, Cochlear = groesster. Seit BA476 wird
+//   bandGlaettRandfrei aus der FSP-Markierung vorbelegt (nur MED-EL, ueber
+//   FRQ_randausschlussAusFsp) und ist danach frei am Radio aenderbar; der
+//   fruehere direkte FSP-Ausschluss entfaellt.
 // keys = zu glaettende elIdx aufsteigend. Rueckgabe: Set (Objekt) der
 // auszuschliessenden elIdx.
 function _frqGlaettAusschluss(keys) {
@@ -1567,15 +1592,18 @@ function _frqGlaettAusschluss(keys) {
   var s = (typeof sideData !== "undefined" && typeof activeSide === "string")
     ? sideData[activeSide] : null;
   if (!s) return out;
-  // (1) FSP-markierte Elektroden (nur MED-EL).
-  if (s.manufacturer === "medel" && s.implant && Array.isArray(s.implant.fspEl)) {
-    keys.forEach(function (k) { if (s.implant.fspEl[k] === true) out[k] = true; });
-  }
-  // (2) Apikaler Randausschluss.
-  if (s.bandGlaettRandfrei === "1") {
-    var mfrId = s.manufacturer;
-    var apFirst = (typeof MFR !== "undefined" && MFR[mfrId]) ? MFR[mfrId].apFirst !== false : true;
-    var apikal = apFirst ? keys[0] : keys[keys.length - 1];
+  // Apikaler Randausschluss: die N apikalsten gemessenen Elektroden aus der
+  // Glaettung ausschliessen. N aus bandGlaettRandfrei (0..4), seit BA476 aus
+  // der FSP-Markierung vorbelegt (FRQ_randausschlussAusFsp). Apikal hersteller-
+  // abhaengig: apFirst (MED-EL/AB) = kleinste elIdx, Cochlear = groesste.
+  // keys ist aufsteigend sortiert.
+  var n = parseInt(s.bandGlaettRandfrei, 10);
+  if (!(n > 0)) return out;
+  if (n > keys.length) n = keys.length;
+  var mfrId = s.manufacturer;
+  var apFirst = (typeof MFR !== "undefined" && MFR[mfrId]) ? MFR[mfrId].apFirst !== false : true;
+  for (var i = 0; i < n; i++) {
+    var apikal = apFirst ? keys[i] : keys[keys.length - 1 - i];
     out[apikal] = true;
   }
   return out;

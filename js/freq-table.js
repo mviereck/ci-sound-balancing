@@ -297,7 +297,19 @@ function FRQ_implantatTableBuild() {
       const imp = sideData[activeSide].implant;
       if (!imp) return;
       if (!Array.isArray(imp.fspEl)) imp.fspEl = new Array(nEl).fill(false);
-      imp.fspEl[idx] = e.target.checked;
+      // BA476: Praefix-Durchgaengigkeit. Markierung ist immer ein
+      // zusammenhaengender Block ab E1 (Index 0). Anhaken von idx markiert
+      // 0..idx; Abhaken von idx demarkiert idx..Ende.
+      if (e.target.checked) {
+        for (let i = 0; i <= idx; i++) imp.fspEl[i] = true;
+      } else {
+        for (let i = idx; i < imp.fspEl.length; i++) imp.fspEl[i] = false;
+      }
+      // Tabelle neu bauen, damit die dazwischenliegenden Haekchen sichtbar
+      // mitziehen (die DOM-Checkboxen spiegeln imp.fspEl nur beim Build).
+      FRQ_implantatTableBuild();
+      // BA476: Randausschluss der Glaettung an die FSP-Anzahl koppeln.
+      FRQ_randausschlussAusFsp(activeSide);
       if (typeof validateImplantTable === "function") validateImplantTable(activeSide);
     }),
   );

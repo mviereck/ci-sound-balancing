@@ -279,6 +279,10 @@ function buildImplantCard() {
       // Markierungen jenseits des neuen Limits löschen (z. B. FS4->FSP: E4 raus).
       const max = implCodingFspMax(next);
       for (let i = max; i < imp.fspEl.length; i++) imp.fspEl[i] = false;
+      // BA476: Randausschluss der Glaettung an die (evtl. gerade geaenderte)
+      // FSP-Anzahl koppeln. Deckt E1-Vorbelegung, Limit-Loeschung und Wechsel
+      // auf eine Kodierung ohne FSP (-> 0) ab.
+      FRQ_randausschlussAusFsp(activeSide);
       FRQ_implantatTableBuild();
       if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
     };

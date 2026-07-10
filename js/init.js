@@ -716,26 +716,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window._frqBandWandBuild = _frqBandWandBuild;
   window._frqBandSpiegle = _frqBandSpiegle;
 
-  // BA475: Randausschluss-Radio-Sichtbarkeit + Glaettungs-Graph neu zeichnen.
-  // Randausschluss-Radio zeigen, wenn: (Nicht-MED-EL) ODER (MED-EL und die
-  // apikalste El. NICHT FSP-markiert). Bei MED-EL mit apikalster El. als FSP
-  // deckt FSP den apikalen Rand schon ab -> Radio ausblenden.
-  function _frqGlaettRandfreiSichtbar() {
-    var s = sideData[activeSide];
-    var fs = document.getElementById("FRQ_glaettRandfreiFieldset");
-    if (!fs || !s) return;
-    var zeigen = true;
-    if (s.manufacturer === "medel") {
-      var apFirst = (typeof MFR !== "undefined" && MFR[s.manufacturer])
-        ? MFR[s.manufacturer].apFirst !== false : true;
-      var apIdx = apFirst ? 0 : (s.nEl - 1);
-      var fspEl = (s.implant && Array.isArray(s.implant.fspEl)) ? s.implant.fspEl : [];
-      if (fspEl[apIdx] === true) zeigen = false;
-    }
-    fs.style.display = zeigen ? "" : "none";
-  }
   function _frqGlaettUpdate() {
-    _frqGlaettRandfreiSichtbar();
     if (typeof FRQ_renderGlaettGraph === "function") FRQ_renderGlaettGraph();
   }
   window._frqGlaettUpdate = _frqGlaettUpdate;
