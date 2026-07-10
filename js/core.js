@@ -1802,6 +1802,54 @@ function _frqGlaettOrtsabstand(noms, cents, weights) {
   return out;
 }
 
+// BA489 (Architektur: 4. Verfahren, Konzept §6d): Ortsaffin. Rekonstruiert die
+// Elektroden-Positionen aus dem Default-Positionsmuster per gewichtetem affinen
+// Fit an die zuverlaessigen Messpunkte. xdef = greenwoodX(nominal, k) (festes
+// Muster), xmess = greenwoodX(gehoert, k). Gewichteter Fit xmess ~ a*xdef + b
+// (a = Streckung ~ Cochlea-Laenge, b = Verschiebung ~ Insertionstiefe). Dann
+// x_rekon = a*xdef + b fuer ALLE Stuetzstellen, zurueck via greenwoodHz. Alles
+// im normierten Ortsraum (keine mm-Annahme). Signatur wie _frqGlaettKurve.
+function _frqGlaettOrtsaffin(noms, cents, weights) {
+  var n = noms.length;
+  if (n < 2) return cents.slice();
+  var kk = _frqGlaettK();
+
+  var xdef = [], xmess = [];
+  for (var i = 0; i < n; i++) {
+    var gehoert = noms[i] * Math.pow(2, -cents[i] / 1200);
+    xdef.push(greenwoodX(noms[i], kk));
+    xmess.push(greenwoodX(gehoert, kk));
+  }
+
+  // Gewichteter affiner Fit xmess = a*xdef + b (Gewichte tragen sicher/unsicher).
+  var sw = 0, mx = 0, my = 0;
+  for (var j = 0; j < n; j++) {
+    var w = (weights[j] > 0) ? weights[j] : 0;
+    sw += w; mx += w * xdef[j]; my += w * xmess[j];
+  }
+  if (!(sw > 0)) return cents.slice();
+  mx /= sw; my /= sw;
+  var sxx = 0, sxy = 0;
+  for (var j2 = 0; j2 < n; j2++) {
+    var w2 = (weights[j2] > 0) ? weights[j2] : 0;
+    var dx = xdef[j2] - mx;
+    sxx += w2 * dx * dx;
+    sxy += w2 * dx * (xmess[j2] - my);
+  }
+  if (!(sxx > 0)) return cents.slice();     // alle xdef gleich -> nicht loesbar
+  var a = sxy / sxx;
+  var b = my - a * mx;
+
+  // Rekonstruierte Position fuer ALLE Stuetzstellen -> Hz -> kanonisches cent.
+  var out = new Array(n);
+  for (var i2 = 0; i2 < n; i2++) {
+    var xr = a * xdef[i2] + b;
+    var gehoertGlatt = greenwoodHz(xr, kk);
+    out[i2] = -1200 * Math.log2(gehoertGlatt / noms[i2]);
+  }
+  return out;
+}
+
 // BA476: Setzt den apikalen Randausschluss der Glaettung (bandGlaettRandfrei)
 // einer Seite auf die Anzahl der FSP-markierten Elektroden. FSP existiert nur
 // bei MED-EL; ohne FSP-Moeglichkeit -> "0". Danach Radio spiegeln + Glaettungs-
@@ -1856,14 +1904,37 @@ function _frqGlaettAusschluss(keys) {
   // der FSP-Markierung vorbelegt (FRQ_randausschlussAusFsp). Apikal hersteller-
   // abhaengig: apFirst (MED-EL/AB) = kleinste elIdx, Cochlear = groesste.
   // keys ist aufsteigend sortiert.
-  var n = parseInt(s.bandGlaettRandfrei, 10);
-  if (!(n > 0)) return out;
-  if (n > keys.length) n = keys.length;
   var mfrId = s.manufacturer;
   var apFirst = (typeof MFR !== "undefined" && MFR[mfrId]) ? MFR[mfrId].apFirst !== false : true;
-  for (var i = 0; i < n; i++) {
-    var apikal = apFirst ? keys[i] : keys[keys.length - 1 - i];
-    out[apikal] = true;
+
+  // AB-Sonderregel (2026-07-11): Bei Advanced Bionics folgen nur die MITTLEREN
+  // Elektroden dem Greenwood-Ortsmuster; die beiden Randelektroden (apikalste
+  // + basalste) sitzen ausserhalb (belegt: Konzept_Greenwood_Glaettungs_Prior.md
+  // §6f -- E2..E15 Abstands-Variation 1,0%, E1/E16 springen). Darum bei AB fuer
+  // die ORTSVERFAHREN (ortskurve/ortsabstaende/ortsaffin) immer je 1 apikal + 1
+  // basal ausschliessen, unabhaengig von der Randfrei-Achse. Fuer polynom nicht
+  // (das rechnet im log-Frequenzraum, kein Greenwood-Ortsmuster noetig).
+  var _verf = s.bandGlaettVerfahren;
+  var _istOrts = (_verf === "ortskurve" || _verf === "ortsabstaende" || _verf === "ortsaffin");
+  if (mfrId === "ab" && _istOrts && keys.length >= 2) {
+    out[keys[0]] = true;                    // apikalste (AB apFirst -> kleinster elIdx)
+    out[keys[keys.length - 1]] = true;      // basalste
+  }
+
+  // Apikaler Randausschluss (Achse): die N apikalsten Elektroden. N aus
+  // bandGlaettRandfrei (0..4), aus der FSP-Markierung vorbelegt. NUR bei MED-EL
+  // (rate-pitch/FSP-Grund); die Achse ist auch nur dort sichtbar (init.js). Bei
+  // AB gilt allein die feste Rand-Sonderregel oben, ein evtl. stehengebliebener
+  // Achsenwert wird ignoriert; bei Cochlear sind die Ortsverfahren nicht tauglich.
+  if (mfrId === "medel") {
+    var n = parseInt(s.bandGlaettRandfrei, 10);
+    if (n > 0) {
+      if (n > keys.length) n = keys.length;
+      for (var i = 0; i < n; i++) {
+        var apikal = apFirst ? keys[i] : keys[keys.length - 1 - i];
+        out[apikal] = true;
+      }
+    }
   }
   return out;
 }
@@ -1911,6 +1982,8 @@ function _frqGlaetteMeasured(measured, verfahren) {
     glatt = _frqGlaettOrtskurve(noms, cents, weights);
   } else if (verfahren === "ortsabstaende") {
     glatt = _frqGlaettOrtsabstand(noms, cents, weights);
+  } else if (verfahren === "ortsaffin") {
+    glatt = _frqGlaettOrtsaffin(noms, cents, weights);
   } else {
     glatt = _frqGlaettKurve(noms, cents, weights);   // polynom / kurve
   }

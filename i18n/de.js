@@ -795,6 +795,7 @@ Object.assign(L.de, {
     FRQ_glaettVerfahrenPoly: "Polynom",
     FRQ_glaettVerfahrenOrtsk: "Ortskurve",
     FRQ_glaettVerfahrenOrtsa: "Ortsabstände",
+    FRQ_glaettVerfahrenOrtsaf: "Ortsaffin",
     FRQ_glaettVorbereitung: "Ortsverfahren rechnen derzeit wie Polynom (in Vorbereitung).",
     FRQ_glaettGradLegend: "Glättungskurve",
     FRQ_glaettGradAus: "aus",

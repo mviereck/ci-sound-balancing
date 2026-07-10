@@ -720,11 +720,16 @@ document.addEventListener("DOMContentLoaded", () => {
       var el = document.getElementById(id);
       if (el) el.style.display = on ? "" : "none";
     }
+    // Randausschluss-Achse nur bei MED-EL: sie dient dem apikalen FSP-
+    // Ausschluss (rate-pitch statt place-pitch, MED-EL-spezifisch). Bei AB
+    // macht _frqGlaettAusschluss den Randausschluss der Ortsverfahren fix im
+    // Code (E1+E16), bei Cochlear sind die Ortsverfahren nicht tauglich.
+    var _istMedel = !!(s && s.manufacturer === "medel");
     show("FRQ_glaettGradFieldset",     v === "polynom" || v === "ortskurve");
     show("FRQ_glaettSteifeFieldset",   v === "polynom" || v === "ortskurve");
     show("FRQ_glaettAchseFieldset",    v === "polynom");
-    show("FRQ_glaettRandfreiFieldset", v !== "aus");
-    show("FRQ_glaettKFieldset",        v === "ortskurve" || v === "ortsabstaende");
+    show("FRQ_glaettRandfreiFieldset", v !== "aus" && _istMedel);
+    show("FRQ_glaettKFieldset",        v === "ortskurve" || v === "ortsabstaende" || v === "ortsaffin");
     show("FRQ_glaettLambdaFieldset",   v === "ortsabstaende");
     show("FRQ_glaettVorbereitungHinweis", false);
   }
