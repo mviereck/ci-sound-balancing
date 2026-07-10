@@ -43,7 +43,7 @@ function _kurvenFreq(i) {
   if (!w) return nom;                       // Elektrode ausserhalb der Menge
   const s = w[activeSide];
   if (!s) return nom;
-  return (s.gehoertHz != null) ? s.gehoertHz : nom;
+  return (s.gehoertHzGlatt != null) ? s.gehoertHzGlatt : nom;   // BA482: geglaettet
 }
 
 function kurvenELLBerechnen(pr) {

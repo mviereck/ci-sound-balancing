@@ -760,6 +760,8 @@ Object.assign(L.es, {
     FRQ_bandZielMinimax: "Menor valor atípico",
     FRQ_bandZielSumme: "Menor error total",
     FRQ_bandEmpfVorschlag: "no medido — sugerencia",
+    FRQ_bandEmpfAlreadyDeact: "ya desactivado",
+    FRQ_bandEmpfMarkedForDeact: "propuesto para desactivación",
     FRQ_bandEmpfColTarget: "Frecuencia objetivo (percibida)",
     FRQ_bandEmpfColRange: "Límites de banda de-a",
     FRQ_bandEmpfColCenter: "Frecuencia central obtenida",

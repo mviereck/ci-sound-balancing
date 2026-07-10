@@ -764,8 +764,8 @@ function pEqFreq(i, side, nhSim) {
   const w = _pEqFrqCache[i];
   if (!w) return nom;                         // ausserhalb der Menge
   const s = w[side];
-  if (!s || s.gehoertHz == null) return nom;  // ungemessen -> nominell
-  return s.gehoertHz;                         // NH-Sim -> gehoert
+  if (!s || s.gehoertHzGlatt == null) return nom;  // ungemessen -> nominell
+  return s.gehoertHzGlatt;                          // NH-Sim -> gehoert (geglaettet, BA482)
 }
 
 function pCompQ(i, side, nhSim) {
@@ -1233,10 +1233,10 @@ function pDrawEQ() {
     if (!w) return withSide(activeSide, function () { return FRQ_implantatEffektiv(i); });
     const s = w[activeSide];
     // Warp aus  -> nominelle Frequenz.
-    // Warp an   -> gehoerte Frequenz; ungemessen (gehoertHz == null)
-    //              faellt auf nominell zurueck (Balken bleibt stehen).
+    // Warp an   -> gehoerte Frequenz (geglaettet, BA482); ungemessen
+    //              (gehoertHzGlatt == null) faellt auf nominell zurueck.
     if (!_frqWarpAn) return s.nominellHz;
-    return (s.gehoertHz != null) ? s.gehoertHz : s.nominellHz;
+    return (s.gehoertHzGlatt != null) ? s.gehoertHzGlatt : s.nominellHz;
   });
   const bW = Math.max(5, Math.min((axis.minDx || 12) * 0.6, 22));
   const _hm = Math.ceil(bW / 2) + 2;

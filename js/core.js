@@ -1737,9 +1737,13 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
   var _glSeite = (typeof activeSide === "string") ? activeSide : "right";
   var _glGrad = (sideData[_glSeite] && sideData[_glSeite].bandGlaettGrad)
     ? sideData[_glSeite].bandGlaettGrad : "aus";
-  if (_glGrad !== "aus") {
-    measured = _frqGlaetteMeasured(measured, "kurve");
-  }
+  // BA482 (§15.2): measured (roh) bleibt erhalten; die Glaettung liefert eine
+  // ZWEITE Reihe measuredGlatt daneben, statt measured zu ueberschreiben.
+  // Grad "aus" -> measuredGlatt == measured (roh); kein Konsument braucht
+  // einen "glaettet ja/nein"-Zweig.
+  var measuredGlatt = (_glGrad !== "aus")
+    ? _frqGlaetteMeasured(measured, "kurve")
+    : measured;
 
   // BA477: "echte Messung" glaettungs-unabhaengig bestimmen. Nach der
   // Vor-Glaettung (§9.5.1) kann measured[i].cent auch fuer eine
@@ -1751,6 +1755,34 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
     if (active[em] && active[em].elIdx != null && active[em].cent != null) {
       _echtGemessen[active[em].elIdx] = true;
     }
+  }
+
+  // BA482 (§15.3/§15.6): eine cent-Reihe -> Seiten-Frequenzen der Form
+  // 'gehoert'. EINE Vorzeichen-Wahrheit (FRQ_seitenWerte), fuer roh UND
+  // glatt identisch aufgerufen. cent: kanonischer Offset dieser Reihe;
+  // resid: seitenloses Residuum (cent) oder null. nomL/nomR: nominelle
+  // Frequenz je Seite. Gibt je Seite { hz, shiftCent, shiftHz, resid }.
+  // Nur fuer form === "gehoert" verwendet (warp hat eigene bandHz-Logik).
+  function _gehoertAusCent(cent, resid, nomL, nomR) {
+    var base = FRQ_seitenWerte(cent, modus);          // Warp-Richtung {csL,csR}
+    var sgn  = _nhSim ? 1 : -1;                        // 'gehoert'-Richtung
+    var shL  = sgn * base.csL;
+    var shR  = sgn * base.csR;
+    var fac  = FRQ_seitenWerte(1, modus);             // Verteilfaktor je Seite
+    return {
+      left: {
+        hz: nomL * Math.pow(2, shL / 1200),
+        shiftCent: shL,
+        shiftHz: nomL * Math.pow(2, shL / 1200) - nomL,
+        resid: (resid != null) ? Math.abs(fac.csL) * resid : null
+      },
+      right: {
+        hz: nomR * Math.pow(2, shR / 1200),
+        shiftCent: shR,
+        shiftHz: nomR * Math.pow(2, shR / 1200) - nomR,
+        resid: (resid != null) ? Math.abs(fac.csR) * resid : null
+      }
+    };
   }
 
   var out = [];
@@ -1799,53 +1831,51 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
       entry.frqRefMode = gemessen ? r.frqRefMode : null;
       entry.residuum   = residuum;
 
-    } else if (form === "warp" || form === "gehoert") {
+    } else if (form === "warp") {
+      // WARP-Zweig unveraendert (eigene bandHz-/NH-Sim-Logik, §7.5).
       if (gemessen) {
         var base = FRQ_seitenWerte(r.cent, modus);   // Warp-Richtung { csL, csR }
-        // nhSim -> form-eigene Richtung (die EINE Vorzeichen-Wahrheit):
-        //   gehoert: nhSim aus = gehoerte/Korrektur-Richtung (sgn -1);
-        //            nhSim an  = um die nominelle Frequenz gespiegelt (sgn +1).
-        //   warp:    nhSim aus = Vorhalt/Korrektur (sgn +1);
-        //            nhSim an  = Verzerrungs-Simulation (sgn -1).
-        var sgn = (form === "warp")
-          ? (_nhSim ? -1 : 1)
-          : (_nhSim ? 1 : -1);
-        var shL = sgn * base.csL;
-        var shR = sgn * base.csR;
-        // Residuum folgt DERSELBEN Seitenverteilung wie die Verschiebung:
-        // unverschobene Seite 0, volle Seite voll, symmetrisch je zur Haelfte.
-        // Verteilungsfaktor je Seite = |Seitenanteil| (aus FRQ_seitenWerte).
-        var fac = FRQ_seitenWerte(1, modus);
-        left.residuum  = (residuum != null) ? Math.abs(fac.csL) * residuum : null;
-        right.residuum = (residuum != null) ? Math.abs(fac.csR) * residuum : null;
-        if (form === "warp") {
-          left.cs  = shL;
-          right.cs = shR;
-          // BA427: Bandmitte = Quell-Frequenz des Warps (Abgreifpunkt im
-          // Original-Audio). NH-Sim aus -> gehoerte Frequenz
-          // (nominell * 2^(-cs/1200)); NH-Sim an -> nominelle Frequenz selbst.
-          left.bandHz  = _nhSim ? nomL : nomL * Math.pow(2, -shL / 1200);
-          right.bandHz = _nhSim ? nomR : nomR * Math.pow(2, -shR / 1200);
-        } else {
-          left.shiftCent  = shL;
-          right.shiftCent = shR;
-          left.gehoertHz  = nomL * Math.pow(2, shL / 1200);
-          right.gehoertHz = nomR * Math.pow(2, shR / 1200);
-          left.shiftHz    = left.gehoertHz  - nomL;
-          right.shiftHz   = right.gehoertHz - nomR;
-        }
+        var sgnW = _nhSim ? -1 : 1;
+        var shLW = sgnW * base.csL;
+        var shRW = sgnW * base.csR;
+        var facW = FRQ_seitenWerte(1, modus);
+        left.residuum  = (residuum != null) ? Math.abs(facW.csL) * residuum : null;
+        right.residuum = (residuum != null) ? Math.abs(facW.csR) * residuum : null;
+        left.cs  = shLW;  right.cs = shRW;
+        left.bandHz  = _nhSim ? nomL : nomL * Math.pow(2, -shLW / 1200);
+        right.bandHz = _nhSim ? nomR : nomR * Math.pow(2, -shRW / 1200);
       } else {
-        // Ungemessen -> Null fuer Mess-abgeleitete Groessen (nominell bleibt).
         left.residuum = null; right.residuum = null;
-        if (form === "warp") {
-          left.cs = null; right.cs = null;
-          left.bandHz = null; right.bandHz = null;
-        } else {
-          left.shiftCent = null;  right.shiftCent = null;
-          left.gehoertHz = null;  right.gehoertHz = null;
-          left.shiftHz   = null;  right.shiftHz   = null;
-        }
+        left.cs = null; right.cs = null;
+        left.bandHz = null; right.bandHz = null;
       }
+
+    } else if (form === "gehoert") {
+      // BA482 (§15.3): ZWEI Reihen. gehoertHz (roh) aus dem gemessenen cent,
+      // sonst cent 0 (= nominell). gehoertHzGlatt aus der geglaetteten Reihe,
+      // auch fuer ungemessene aktive Elektroden. Residuum: gemessen -> echt;
+      // ungemessen aktiv -> virtuelles FRQ_GLAETT_UNGEMESSEN_RESID_CT (§15.3).
+      var _cin = (gemessen && r && r.cent != null) ? r.cent : 0;   // roh
+      var _mg  = measuredGlatt[i];
+      var _cgl = (_mg && _mg.cent != null) ? _mg.cent : _cin;      // glatt
+      var _rin = gemessen ? residuum : FRQ_GLAETT_UNGEMESSEN_RESID_CT;
+
+      var _roh   = _gehoertAusCent(_cin, _rin, nomL, nomR);
+      var _glatt = _gehoertAusCent(_cgl, _rin, nomL, nomR);
+
+      // gehoertHz (roh = Messergebnis) + Verschiebung/Residuum je Seite.
+      left.gehoertHz   = _roh.left.hz;
+      right.gehoertHz  = _roh.right.hz;
+      left.shiftCent   = _roh.left.shiftCent;
+      right.shiftCent  = _roh.right.shiftCent;
+      left.shiftHz     = _roh.left.shiftHz;
+      right.shiftHz    = _roh.right.shiftHz;
+      left.residuum    = _roh.left.resid;
+      right.residuum   = _roh.right.resid;
+
+      // gehoertHzGlatt (geglaettet = Bandberechnung/Wiedergabe), §15.4.
+      left.gehoertHzGlatt  = _glatt.left.hz;
+      right.gehoertHzGlatt = _glatt.right.hz;
     }
     // Unbekannte form: nur die gemeinsame Basis (elIdx, Flags, nominell).
 
@@ -1887,7 +1917,9 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
         if (form === "warp") {
           hz = (s && s.bandHz != null) ? s.bandHz : (s ? s.nominellHz : null);
         } else {
-          hz = (s && s.gehoertHz != null) ? s.gehoertHz : (s ? s.nominellHz : null);
+          // BA482 (§15.4): Bandmitte folgt der GEGLAETTETEN Frequenz.
+          hz = (s && s.gehoertHzGlatt != null) ? s.gehoertHzGlatt
+             : (s ? s.nominellHz : null);
         }
         // Aktivitaet JE SEITE (Nutzer-Beschluss): das seitenweise Flag.
         return { elIdx: entry.elIdx, hz: hz, aktiv: !!(s && s.aktiv),

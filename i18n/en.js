@@ -759,6 +759,8 @@ Object.assign(L.en, {
     FRQ_bandZielMinimax: "Smallest outlier",
     FRQ_bandZielSumme: "Smallest total error",
     FRQ_bandEmpfVorschlag: "unmeasured — suggestion",
+    FRQ_bandEmpfAlreadyDeact: "already deactivated",
+    FRQ_bandEmpfMarkedForDeact: "marked for deactivation",
     FRQ_bandEmpfColTarget: "Target frequency (heard)",
     FRQ_bandEmpfColRange: "Band edges from-to",
     FRQ_bandEmpfColCenter: "Resulting centre frequency",

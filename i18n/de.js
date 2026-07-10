@@ -845,6 +845,8 @@ Object.assign(L.de, {
     FRQ_bandGrenzAbschneiden: "Randbänder abschneiden",
     FRQ_bandGrenzEinrechnen: "Grenzen einrechnen",
     FRQ_bandEmpfVorschlag: "ungemessen — Vorschlag",
+    FRQ_bandEmpfAlreadyDeact: "bereits deaktiviert",
+    FRQ_bandEmpfMarkedForDeact: "Zum Deaktivieren vorgemerkt",
     FRQ_bandEmpfColTarget: "Zielfrequenz (gehört)",
     FRQ_bandEmpfColRange: "Bandgrenzen von–bis",
     FRQ_bandEmpfColCenter: "erreichte Mittenfrequenz",

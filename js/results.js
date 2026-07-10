@@ -966,14 +966,34 @@ function _FRQ_renderBandEmpf(side) {
   var verdachtEls = [];   // §5.2: Elektroden mit kurveVerdacht (Nachmessen)
 
   var nCi = sideData[side].nEl;
+  var _sd = sideData[side];
   for (var i = 0; i < nCi; i++) {
-    // Nicht aktive (elActive===false) ueberspringen -- kein Band (Sec. 9.5).
-    if (sideData[side].elActive && sideData[side].elActive[i] === false) continue;
+    var elLabel = dENPrefix(side) + dEN(i, side);
+
+    // BA481 (§3): zwei sichtbare Deaktivierungs-Zustaende statt Ueberspringen.
+    // "bereits deaktiviert" (elActive===false) hat Vorrang vor "vorgemerkt".
+    var _bereitsDeakt = !!(_sd.elActive && _sd.elActive[i] === false);
+    var _vorgemerkt   = !_bereitsDeakt
+      && !!(_sd.elFreqChain && _sd.elFreqChain[i] === false);
+    if (_bereitsDeakt || _vorgemerkt) {
+      var _statusTxt = _bereitsDeakt
+        ? t("FRQ_bandEmpfAlreadyDeact")
+        : t("FRQ_bandEmpfMarkedForDeact");
+      rows += "<tr>"
+        + "<td style=\"font-weight:600\">" + elLabel + "</td>"
+        + "<td>" + dash + "</td>"
+        + "<td>" + dash + "</td>"
+        + "<td>" + dash + "</td>"
+        + "<td>" + dash + "</td>"
+        + "<td><span style=\"color:var(--text-muted);font-style:italic\">"
+          + _statusTxt + "</span></td>"
+        + "</tr>";
+      continue;
+    }
 
     var w = null;
     for (var k = 0; k < werte.length; k++) { if (werte[k].elIdx === i) { w = werte[k]; break; } }
     var ws = w ? w[side] : null;
-    var elLabel = dENPrefix(side) + dEN(i, side);
 
     if (ws && ws.kurveVerdacht) verdachtEls.push(elLabel);
 

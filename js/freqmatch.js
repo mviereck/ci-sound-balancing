@@ -703,6 +703,8 @@ function FRQ_applyLang() {
   _frq_renderPrereqHints();
   // BA458: Graph-Tooltips entstehen beim rows-Bau aus t(...) -- neu zeichnen.
   if (typeof FRQ_renderResults === "function") FRQ_renderResults();
+  // BA481: Statustext in Bandempfehlungs-Tabelle kommt per t() -- bei Sprachwechsel neu rendern.
+  if (typeof FRQ_renderBaenderTab === "function") FRQ_renderBaenderTab();
 }
 
 function _frq_evalTestEligibility() {

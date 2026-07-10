@@ -127,8 +127,8 @@ async function wv_runWarpVerify() {
   try {
     for (const w of werte) {
       const s = w[seite];
-      if (!s || s.gehoertHz == null || !s.aktiv) continue;
-      const gehoert  = s.gehoertHz;
+      if (!s || s.gehoertHzGlatt == null || !s.aktiv) continue;
+      const gehoert  = s.gehoertHzGlatt;   // BA482: Warp prueft die gespielte (geglaettete) Frequenz
       const nominell = s.nominellHz;
 
       const src = _wv_makeToneBuffer(ctx, gehoert, 3, sr);
