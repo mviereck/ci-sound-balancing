@@ -946,6 +946,15 @@
 
       <!-- ===== FREQUENZBÄNDER ===== -->
       <div id="panel-frequenzbaender" class="panel">
+        <!-- BA480: Auswahl, welche Elektroden in die Frequenzkette gehen -->
+        <div class="card" id="FRQ_chainSelCard">
+          <h3 data-t="FRQ_chainSelTitle" style="font-size:1em;margin:0 0 10px">Elektroden f&#252;r die Frequenzberechnung</h3>
+          <p data-t="FRQ_chainSelIntro" style="font-size:0.88em;margin:0 0 12px;color:var(--text-muted)">W&#228;hlen Sie, welche aktiven Elektroden in die Frequenzberechnung (Gl&#228;ttung, B&#228;nder, Warping, Ausdruck) einbezogen werden. Abgew&#228;hlte Elektroden erscheinen in der Bandtabelle als &#8222;Zum Deaktivieren vorgemerkt&#8220; und sollten vom Audiologen deaktiviert werden.</p>
+          <div style="display:flex;align-items:center;gap:12px">
+            <button type="button" class="btn btn-small" id="FRQ_chainSelBtn" data-t="FRQ_chainSelBtn">Elektroden ausw&#228;hlen</button>
+            <span id="FRQ_chainSelSummary" style="font-size:0.9em"></span>
+          </div>
+        </div>
         <!-- BA475: Mess-Glaettung (dauerhaft sichtbar) -->
         <div class="card" id="FRQ_glaettCard">
           <h3 data-t="FRQ_glaettTitle" style="font-size:1em;margin:0 0 10px">Me&#223;wertverlaufskurve gl&#228;tten</h3>

@@ -721,10 +721,81 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window._frqGlaettUpdate = _frqGlaettUpdate;
 
+  // BA480: cfg fuer die Frequenzketten-Auswahl. Anders als der Test-Dialog:
+  // STUMME Elektroden sind waehlbar (§5) -> sie zaehlen zu 'testable', nichts
+  // ist 'muted'/'excluded' (nichts disabled). Nur elActive===false kommt gar
+  // nicht in die Liste. Auswahl-Quelle/-Ziel ist elFreqChain[activeSide].
+  function _frqChainSelStatus() {
+    var s = sideData[activeSide];
+    var n = (s && s.nEl) ? s.nEl : 0;
+    var testable = [];
+    for (var i = 0; i < n; i++) {
+      if (!s.elActive || s.elActive[i] !== false) testable.push(i);
+    }
+    // muted/excluded leer: im Frequenz-Dialog ist keine aktive El. gesperrt.
+    return { testable: testable, muted: [], excluded: [] };
+  }
+
+  var _frqChainSelCfg = {
+    minSelected: 1,
+    getElectrodeStatus: _frqChainSelStatus,
+    getSelection: function () {
+      // elIdx mit elFreqChain!==false, aber nur unter den waehlbaren.
+      var s = sideData[activeSide];
+      var stat = _frqChainSelStatus();
+      var chain = s ? s.elFreqChain : null;
+      return stat.testable.filter(function (i) {
+        return !chain || chain[i] !== false;
+      });
+    },
+    setSelection: function (sel) {
+      // sel = gewaehlte waehlbare elIdx. elFreqChain neu schreiben:
+      // waehlbare in sel -> true, waehlbare NICHT in sel -> false.
+      // Nicht-waehlbare (elActive===false) bleiben unveraendert.
+      var s = sideData[activeSide];
+      if (!s) return;
+      if (!Array.isArray(s.elFreqChain)) {
+        s.elFreqChain = new Array(s.nEl).fill(true);
+      }
+      var chosen = {};
+      sel.forEach(function (i) { chosen[i] = true; });
+      var stat = _frqChainSelStatus();
+      stat.testable.forEach(function (i) {
+        s.elFreqChain[i] = !!chosen[i];
+      });
+      // Wirkung sichtbar machen: Glaettungsgraph + Bandtabelle neu,
+      // Summary aktualisieren.
+      _frqChainSelUpdate();
+      if (typeof _frqGlaettUpdate === "function") _frqGlaettUpdate();
+      if (typeof FRQ_renderBaenderTab === "function") FRQ_renderBaenderTab();
+    },
+    electrodeLabel: function (i) {
+      // Wie im Test-Dialog: "E3 (590 Hz)", seitenrichtig.
+      var hz = withSide(activeSide, function () { return FRQ_implantatEffektiv(i); });
+      return dENPrefix(activeSide) + dEN(i, activeSide) + " (" + Math.round(hz) + " Hz)";
+    }
+  };
+
+  // BA480: Zusammenfassung "{m} von {n} ..." ueber die BA478-Sub-API.
+  function _frqChainSelUpdate() {
+    var span = document.getElementById("FRQ_chainSelSummary");
+    if (!span || typeof testUI === "undefined" || !testUI.electrodeSelection) return;
+    span.textContent = testUI.electrodeSelection.summaryText(_frqChainSelCfg);
+  }
+  window._frqChainSelUpdate = _frqChainSelUpdate;
+
+  var _frqChainSelBtn = document.getElementById("FRQ_chainSelBtn");
+  if (_frqChainSelBtn) {
+    _frqChainSelBtn.addEventListener("click", function () {
+      testUI.electrodeSelection.open(_frqChainSelCfg, _frqChainSelUpdate);
+    });
+  }
+
   // Anfangswerte spiegeln + Wand-Radios aufbauen.
   _frqBandSpiegle();
   _frqBandWandBuild();   // BA462: Wand-Radios initial aufbauen
   _frqGlaettUpdate();    // BA475: Glaettungs-Graph + Randausschluss-Sichtbarkeit initial
+  _frqChainSelUpdate();  // BA480: Ketten-Auswahl-Summary initial setzen
 
   // Warp-UI initialisieren
   _pWarpApplyLangTexts();
