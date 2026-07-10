@@ -1558,6 +1558,12 @@ function _frqGlaettKurve(noms, cents, weights) {
 // Nutzer beruehrt"-Flag: der Randausschluss wird nur hier (bei FSP-Aenderung)
 // automatisch gesetzt; eine spaetere manuelle Radio-Aenderung bleibt bestehen,
 // bis die FSP-Markierung erneut geaendert wird.
+// 0.5.476.6: koppelt zusaetzlich das CBF-Feld "Freie Baender (apikal)"
+// (bandCbfApikalFrei) an dieselbe FSP-Anzahl, aber mit Untergrenze 1 --
+// bei jeder Implantat-Aenderung mind. 1 freies Band, auch bei 0 FSP-
+// Elektroden und bei Nicht-MED-EL. Die Glaettung bleibt bei der reinen
+// Anzahl (darf 0). Selbe Aufrufstellen, selbes Spiegeln (_frqBandSpiegle
+// deckt beide Radios ueber FRQ_BAND_WAHLEN ab).
 function FRQ_randausschlussAusFsp(side) {
   if (typeof sideData === "undefined" || !sideData[side]) return;
   var s = sideData[side];
@@ -1567,6 +1573,7 @@ function FRQ_randausschlussAusFsp(side) {
   }
   if (anzahl > 4) anzahl = 4;   // Radio reicht bis 4 (fs4/fs4p: max 4 FSP-El.)
   s.bandGlaettRandfrei = String(anzahl);
+  s.bandCbfApikalFrei  = String(Math.max(anzahl, 1));   // CBF: mind. 1 freies Band
   // Nur wenn die geaenderte Seite auch die aktive ist, DOM spiegeln/neu zeichnen
   // (die Radio-DOM traegt immer den aktiven Seiten-Zustand).
   if (typeof activeSide === "string" && side === activeSide) {
