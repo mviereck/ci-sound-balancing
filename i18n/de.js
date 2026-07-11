@@ -785,6 +785,8 @@ Object.assign(L.de, {
     FRQ_chartLegendRow6:   "Residuum|schwarze Querbalken|Meßunsicherheit auf Y-Achse",
     FRQ_chartLegendRow7:   "Band|hellgrau/dunkelgrau, unten|Bandbreitenempfehlung",
     FRQ_resultsQualityPiano:           "Klaviertest: Runde {round} von {total} abgeschlossen (Annäherung ±{step} Cent).",
+    FRQ_distributionTitle: "Korrektur-Seite",
+    FRQ_distributionIntro: "Legt fest, auf welche Seite die gemessene Frequenzabweichung als Korrektur verteilt wird. Diese Wahl gilt gemeinsam für Glättung, Bandberechnung, Wiedergabe und Ausdruck.",
     FRQ_glaettTitle: "Meßwertverlaufskurve glätten",
     FRQ_chainSelTitle: "Elektroden für die Frequenzberechnung",
     FRQ_chainSelIntro: "Wählen Sie, welche aktiven Elektroden in die Frequenzberechnung (Glättung, Bänder, Warping, Ausdruck) einbezogen werden. Abgewählte Elektroden erscheinen in der Bandtabelle als „Zum Deaktivieren vorgemerkt“ und sollten vom Audiologen deaktiviert werden.",

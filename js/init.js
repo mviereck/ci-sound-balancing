@@ -76,6 +76,34 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window._pWarpApplyLangTexts = _pWarpApplyLangTexts;
 
+  // BA492: FRQ_distribution ins Dropdown spiegeln + alle Konsumenten neu zeichnen.
+  // Aufrufer: Dropdown-change, Datei-Laden (file.js/init.js), Vorbelegung
+  // (freq-warp.js pApplyWarpModeDefaultFromFm).
+  function _frqDistributionApply() {
+    var sel = document.getElementById("FRQ_distributionSelect");
+    if (sel && sel.value !== FRQ_distribution) sel.value = FRQ_distribution;
+    // Reiter Frequenzbaender (Glaettung + Baender) neu:
+    if (typeof FRQ_renderBaenderTab === "function") FRQ_renderBaenderTab();
+    if (typeof window._frqGlaettUpdate === "function") window._frqGlaettUpdate();
+    // Kurven-Reiter + Player (folgen FRQ_distribution):
+    if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
+    if (typeof pBuildEQ === "function" && typeof pPlaying !== "undefined" && !pPlaying) pBuildEQ();
+    if (typeof pDrawEQ === "function") pDrawEQ();
+    // Warp-Buffer verwerfen, damit naechste Wiedergabe neu warpt:
+    if (typeof pWarpedBuf !== "undefined") pWarpedBuf = null;
+    if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
+  }
+
+  // BA492: globale Korrektur-Seite (FRQ_distribution). EINZIGE Schreibstelle
+  // (Architektur §4.3). Setzt den Zustand und zeichnet alle Konsumenten neu.
+  var _frqDistSel = document.getElementById("FRQ_distributionSelect");
+  if (_frqDistSel) {
+    _frqDistSel.addEventListener("change", function () {
+      FRQ_distribution = this.value;
+      _frqDistributionApply();
+    });
+  }
+
   updToneHint();
   document
     .querySelectorAll(".tab")
@@ -937,6 +965,10 @@ document.addEventListener("DOMContentLoaded", () => {
           FRQ_distribution = (typeof _migrateLegacyWarpMode === "function")
             ? _migrateLegacyWarpMode(_wMode, d.fRes)
             : _wMode;
+          // BA492: Dropdown sofort spiegeln (vollstaendiger Apply laeuft spaeter
+          // im Render-Block ab Zeile 1118).
+          var _ds492 = document.getElementById("FRQ_distributionSelect");
+          if (_ds492 && _ds492.value !== FRQ_distribution) _ds492.value = FRQ_distribution;
         }
         // BA375: Berechnungs-Modus. Keine Migration von playerWarpLive
         // (alter Wert wird ignoriert). Fehlt der Wert -> Default "mid".
@@ -1346,4 +1378,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (_plLangClose && typeof plCloseContentLangModal === "function") {
     _plLangClose.addEventListener("click", function () { plCloseContentLangModal(); });
   }
+  // BA492: global verfuegbar machen (Aufrufer: file.js, freq-warp.js)
+  window._frqDistributionApply = _frqDistributionApply;
 });

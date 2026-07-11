@@ -725,6 +725,8 @@ Object.assign(L.es, {
     FRQ_chartLegendRow6:   "Residuo|barras negras|Incertidumbre de medición en el eje Y",
     FRQ_chartLegendRow7:   "Banda|gris claro/oscuro, abajo|Recomendación de ancho de banda",
     FRQ_resultsQualityPiano:           "Prueba de piano: ronda {round} de {total} completada (aproximación ±{step} centésimas).",
+    FRQ_distributionTitle: "Lado de corrección",
+    FRQ_distributionIntro: "Determina a qué lado se distribuye la desviación de frecuencia medida como corrección. Esta elección se aplica conjuntamente al suavizado, el cálculo de bandas, la reproducción y la impresión.",
     FRQ_glaettTitle: "Suavizar curva de medición",
     FRQ_chainSelTitle: "Electrodos para el cálculo de frecuencias",
     FRQ_chainSelIntro: "Elija qué electrodos activos se incluyen en el cálculo de frecuencias (suavizado, bandas, warping, impresión). Los electrodos deseleccionados aparecen en la tabla de bandas como «propuestos para desactivación» y deberían ser desactivados por el audiólogo.",

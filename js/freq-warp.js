@@ -1333,7 +1333,7 @@ function pApplyWarpModeDefaultFromFm() {
   // referenzmodus = welche Seite im Test der veraenderbare Ton war.
   // Mapping in den korrigierte-Seite-Modus jetzt zentral (BA419).
   FRQ_distribution = FRQ_modusVonReferenzmodus(rm);
-  // BA492 spiegelt den Wert in die neue Karte; hier keine Dropdown-Sync mehr.
+  if (typeof window._frqDistributionApply === "function") window._frqDistributionApply();
 }
 
 function pMarkPlayerWarpDefaultAsApplied() {

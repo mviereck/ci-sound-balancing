@@ -725,6 +725,8 @@ Object.assign(L.fr, {
     FRQ_chartLegendRow6:   "Résidu|barres noires|Incertitude de mesure sur l’axe Y",
     FRQ_chartLegendRow7:   "Bande|gris clair/foncé, en bas|Recommandation de bande passante",
     FRQ_resultsQualityPiano:           "Test au piano : tour {round} sur {total} terminé (approximation ±{step} cents).",
+    FRQ_distributionTitle: "Côté de correction",
+    FRQ_distributionIntro: "Détermine sur quel côté l'écart de fréquence mesuré est réparti comme correction. Ce choix s'applique conjointement au lissage, au calcul des bandes, à la lecture et à l'impression.",
     FRQ_glaettTitle: "Lisser la courbe de mesure",
     FRQ_chainSelTitle: "Électrodes pour le calcul des fréquences",
     FRQ_chainSelIntro: "Choisissez les électrodes actives à inclure dans le calcul des fréquences (lissage, bandes, warping, impression). Les électrodes désélectionnées apparaissent dans le tableau des bandes comme « proposées à la désactivation » et devraient être désactivées par l’audiologiste.",

@@ -724,6 +724,8 @@ Object.assign(L.en, {
     FRQ_chartLegendRow6:   "Residual|black crossbars|Measurement uncertainty on Y axis",
     FRQ_chartLegendRow7:   "Band|light/dark grey, bottom|Bandwidth recommendation",
     FRQ_resultsQualityPiano:           "Piano test: round {round} of {total} completed (approximation ±{step} cents).",
+    FRQ_distributionTitle: "Correction side",
+    FRQ_distributionIntro: "Determines which side the measured frequency deviation is distributed to as a correction. This choice applies jointly to smoothing, band calculation, playback and printout.",
     FRQ_glaettTitle: "Smooth measurement curve",
     FRQ_chainSelTitle: "Electrodes for frequency calculation",
     FRQ_chainSelIntro: "Choose which active electrodes are included in the frequency calculation (smoothing, bands, warping, printout). Deselected electrodes appear in the band table as “marked for deactivation” and should be deactivated by the audiologist.",

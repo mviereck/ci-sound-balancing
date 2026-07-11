@@ -751,6 +751,10 @@ function applyLoadedData(d) {
       FRQ_distribution = (typeof _migrateLegacyWarpMode === "function")
         ? _migrateLegacyWarpMode(d.warpMode, d.fRes)
         : d.warpMode;
+      // BA492: Dropdown sofort spiegeln (vollstaendiger Apply laeuft spaeter
+      // im Render-Block des Laders).
+      var _ds492 = document.getElementById("FRQ_distributionSelect");
+      if (_ds492 && _ds492.value !== FRQ_distribution) _ds492.value = FRQ_distribution;
     }
     pWarpedBuf = null;
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();

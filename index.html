@@ -946,6 +946,19 @@
 
       <!-- ===== FREQUENZBÄNDER ===== -->
       <div id="panel-frequenzbaender" class="panel">
+        <!-- BA492: globale Verteilung der Messergebnisse auf die Seiten (Warp-Modus) -->
+        <div class="card" id="FRQ_distributionCard">
+          <h3 data-t="FRQ_distributionTitle" style="font-size:1em;margin:0 0 10px">Korrektur-Seite</h3>
+          <p data-t="FRQ_distributionIntro" style="font-size:0.88em;margin:0 0 12px;color:var(--text-muted)">Legt fest, auf welche Seite die gemessene Frequenzabweichung als Korrektur verteilt wird. Diese Wahl gilt gemeinsam f&#252;r Gl&#228;ttung, Bandberechnung, Wiedergabe und Ausdruck.</p>
+          <label style="font-size:0.9em;display:flex;align-items:center;gap:8px">
+            <span data-t="pwMode">Korrektur-Modus</span>
+            <select id="FRQ_distributionSelect" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.9em">
+              <option value="left" data-t-opt="pwModeLeft"></option>
+              <option value="right" data-t-opt="pwModeRight"></option>
+              <option value="symmetric" data-t-opt="pwModeSym"></option>
+            </select>
+          </label>
+        </div>
         <!-- BA480: Auswahl, welche Elektroden in die Frequenzkette gehen -->
         <div class="card" id="FRQ_chainSelCard">
           <h3 data-t="FRQ_chainSelTitle" style="font-size:1em;margin:0 0 10px">Elektroden f&#252;r die Frequenzberechnung</h3>

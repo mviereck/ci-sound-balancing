@@ -838,6 +838,11 @@ function _FRQ_bandWandFuerGraph(side) {
 // DOMContentLoaded-Closure deklariert, weil switchTab (tabs-eq.js) sie
 // cross-file ruft (Leitlinien: Closure-Falle).
 function FRQ_renderBaenderTab() {
+  // BA492: Dropdown der Korrektur-Seite auf den globalen Zustand spiegeln.
+  var _ds = document.getElementById("FRQ_distributionSelect");
+  if (_ds && typeof FRQ_distribution === "string" && _ds.value !== FRQ_distribution) {
+    _ds.value = FRQ_distribution;
+  }
   var aktivSide = (typeof activeSide === "string") ? activeSide
     : (sideData.left.config === "ci" ? "left" : "right");
   _FRQ_renderBandEmpf(aktivSide);
