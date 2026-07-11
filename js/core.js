@@ -1910,13 +1910,17 @@ function _frqGlaettAusschluss(keys) {
   // AB-Sonderregel (2026-07-11): Bei Advanced Bionics folgen nur die MITTLEREN
   // Elektroden dem Greenwood-Ortsmuster; die beiden Randelektroden (apikalste
   // + basalste) sitzen ausserhalb (belegt: Konzept_Greenwood_Glaettungs_Prior.md
-  // §6f -- E2..E15 Abstands-Variation 1,0%, E1/E16 springen). Darum bei AB fuer
-  // die ORTSVERFAHREN (ortskurve/ortsabstaende/ortsaffin) immer je 1 apikal + 1
-  // basal ausschliessen, unabhaengig von der Randfrei-Achse. Fuer polynom nicht
-  // (das rechnet im log-Frequenzraum, kein Greenwood-Ortsmuster noetig).
+  // §6f -- E2..E15 Abstands-Variation 1,0%, E1/E16 springen). Bei ortskurve/
+  // ortsabstaende werden sie hier KOMPLETT ausgeschlossen (kein Modell fuer die
+  // Raender -> Rohwert). Bei ortsaffin NICHT hier: dort werden die Raender nur
+  // aus dem FIT genommen (Gewicht 0 in _frqGlaetteMeasured), aber vom affinen
+  // Modell (a*xdef+b) rekonstruiert -- der grosse Default-Rand-Abstand steckt
+  // in xdef, wird mit a skaliert (Konzept §7, Martins Arbeitshypothese; a*xdef+b
+  // ist mathematisch identisch mit "relativer Rand-Abstand an geglaettete
+  // Innen-Position anhaengen"). Fuer polynom gar nicht (log-Raum).
   var _verf = s.bandGlaettVerfahren;
-  var _istOrts = (_verf === "ortskurve" || _verf === "ortsabstaende" || _verf === "ortsaffin");
-  if (mfrId === "ab" && _istOrts && keys.length >= 2) {
+  var _istOrtsHartAus = (_verf === "ortskurve" || _verf === "ortsabstaende");
+  if (mfrId === "ab" && _istOrtsHartAus && keys.length >= 2) {
     out[keys[0]] = true;                    // apikalste (AB apFirst -> kleinster elIdx)
     out[keys[keys.length - 1]] = true;      // basalste
   }
@@ -1974,6 +1978,18 @@ function _frqGlaetteMeasured(measured, verfahren) {
   var noms = keys.map(function (k) {
     return withSide(side, function () { return FRQ_implantatEffektiv(k); });
   });
+  // AB + ortsaffin (2026-07-11, Konzept §7): die beiden Randelektroden bleiben
+  // in keys (anders als ortskurve/ortsabstaende), werden aber aus dem affinen
+  // FIT genommen -> Gewicht 0. _frqGlaettOrtsaffin fittet a,b dann nur ueber die
+  // inneren, rekonstruiert aber ALLE (auch die Raender) via a*xdef+b -> die
+  // Raender bekommen ihre modellierte Frequenz (grosser Default-Rand-Abstand in
+  // xdef, mit a skaliert). Nur ortsaffin (nur dort existiert ein globales a,b).
+  var _sd = (typeof sideData !== "undefined") ? sideData[side] : null;
+  if (_sd && _sd.manufacturer === "ab" && _sd.bandGlaettVerfahren === "ortsaffin"
+      && keys.length >= 2) {
+    weights[0] = 0;
+    weights[keys.length - 1] = 0;
+  }
   // Verfahren-Weiche (Architektur §6). BA486: nur "polynom" implementiert;
   // "ortskurve"/"ortsabstaende" fallen noch auf die Polynom-Engine zurueck
   // (eigene Engines BA487/488). "kurve" = Alt-Name, gilt als polynom.
