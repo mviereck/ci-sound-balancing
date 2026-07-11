@@ -355,7 +355,7 @@ function _collectPlayer() {
     applyLTZ: (typeof plApplyLatency !== "undefined") ? plApplyLatency : false,
     warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
 
-    warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "right",
+    warpMode:     (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "right",
     warpRbOptions: (typeof pRubberbandOptions !== "undefined")
       ? { ...pRubberbandOptions } : null,
     maplawOn:     (typeof pMaplawOn     !== "undefined") ? pMaplawOn     : false,
@@ -892,7 +892,7 @@ function _audiologSideHasFreqChange(side) {
   if (typeof pWarpOn === "undefined" || !pWarpOn) return false;
   if (typeof plEqOn !== "undefined" && !plEqOn) return false;
   if (typeof FRQ_tabellenZeilen !== "function") return false;
-  const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
+  const modus = (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "right";
   const nhEl  = document.getElementById("plNHSim");
   const nhSim = !!(nhEl && nhEl.checked);
   const zeilen = FRQ_tabellenZeilen({ side: side, modus: modus, nhSim: nhSim });
@@ -904,13 +904,13 @@ function _audiologSideHasFreqChange(side) {
 
 // BA424: Frequenz-Tabelle fuer Ausdruck UND Markdown-Export. Gleiche Zeilen-
 // Quelle wie der Reiter (FRQ_tabellenZeilen), hier als Markdown, ohne Status-
-// Spalte. Werte folgen der Player-Einstellung: modus=pWarpMode, nhSim=plNHSim.
+// Spalte. Werte folgen der Player-Einstellung: modus=FRQ_distribution, nhSim=plNHSim.
 // Rueckgabe "" wenn Warping aus oder keine Zeilen mit Daten.
 function _audiologFreqTable(side) {
   if (typeof pWarpOn === "undefined" || !pWarpOn) return "";
   if (typeof plEqOn !== "undefined" && !plEqOn) return "";
   if (typeof FRQ_tabellenZeilen !== "function") return "";
-  const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
+  const modus = (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "right";
   const nhEl  = document.getElementById("plNHSim");
   const nhSim = !!(nhEl && nhEl.checked);
   const zeilen = FRQ_tabellenZeilen({ side: side, modus: modus, nhSim: nhSim });
@@ -1008,7 +1008,7 @@ function _audiologWarnTexts() {
     // 4. Warp traegt ein akustisches (Nicht-CI) Ohr. Zusammengefasst
     // aus altem b (Warp-Seite) + c (akustisch). Feuert, sobald eine
     // Nicht-CI-Seite vom Warp getragen wird.
-    const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
+    const modus = (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "right";
     const acousticSides = [];
     for (const side of ["left", "right"]) {
       const sd = sideData[side];
@@ -1320,8 +1320,8 @@ function buildAudiologMarkdown() {
         && ((typeof _warpFResSource === "function" && _warpFResSource().length > 0)
             || (typeof FRQ_resultsArray !== "undefined" && FRQ_resultsArray.length > 0))) {
       const isSymSingle = (mainSides.length === 1
-                          && typeof pWarpMode !== "undefined"
-                          && pWarpMode === "symmetric");
+                          && typeof FRQ_distribution !== "undefined"
+                          && FRQ_distribution === "symmetric");
       const sideLbl = side === "left" ? t("sideLeft") : t("sideRight");
       const ft = _audiologFreqTable(side);
       if (isSymSingle) {
@@ -1500,7 +1500,7 @@ function _audiologChartImg(side) {
 
 // BA424/BA459: Frequenz-Graph fuer den Ausdruck. BA459: nutzt Engine
 // drawFRQGraph + FRQ_ergebnisRows (gemeinsame Quelle mit Reiter).
-// Werte folgen der Player-Einstellung (modus=pWarpMode, nhSim=plNHSim).
+// Werte folgen der Player-Einstellung (modus=FRQ_distribution, nhSim=plNHSim).
 // "" wenn Warping aus oder keine gemessenen Daten fuer die Seite.
 function _audiologFreqChartImg(side) {
   if (typeof pWarpOn === "undefined" || !pWarpOn) return "";
@@ -1511,7 +1511,7 @@ function _audiologFreqChartImg(side) {
   // BA425: Kein Graph, wenn diese Seite keine Aenderung != 0 hat.
   if (!_audiologSideHasFreqChange(side)) return "";
 
-  const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
+  const modus = (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "right";
   const nhEl  = document.getElementById("plNHSim");
   const nhSim = !!(nhEl && nhEl.checked);
 
@@ -1598,8 +1598,8 @@ function audiologPrint() {
   }
   if (eqOn && typeof pWarpOn !== "undefined" && pWarpOn) {
     const isSymSingle = (mainSides.length === 1
-                        && typeof pWarpMode !== "undefined"
-                        && pWarpMode === "symmetric");
+                        && typeof FRQ_distribution !== "undefined"
+                        && FRQ_distribution === "symmetric");
     const injectChart = (sideToDraw, marker, from) => {
       const chart = _audiologFreqChartImg(sideToDraw);
       if (!chart) return from;
@@ -1689,6 +1689,26 @@ function _archivDrawElLabel(ctx, elLabel, cx, H, padB) {
   ctx.font = "9px sans-serif";
   ctx.textAlign = "center";
   ctx.fillText(elLabel, cx, H - padB + 12);
+}
+
+// BA491: gehoerte Frequenz (ROH) der Elektrode i auf der aktiven Seite,
+// nur als X-Achsen-Position der Archiv-Charts. Ersetzt effFreqDisplay
+// (Alt-Pfad geloescht). Warp aus / kein Eintrag -> nominell.
+function _frqGehoertHzRoh(i) {
+  var side = (typeof activeSide === "string") ? activeSide : "right";
+  var warpAn = (typeof pWarpOn !== "undefined") && pWarpOn;
+  if (!warpAn || typeof FRQ_werte !== "function") {
+    return withSide(side, function () { return FRQ_implantatEffektiv(i); });
+  }
+  var werte = FRQ_werte("gehoert", FRQ_distribution, false);
+  for (var k = 0; k < werte.length; k++) {
+    if (werte[k].elIdx === i) {
+      var s = werte[k][side];
+      if (s && s.gehoertHz != null) return s.gehoertHz;
+      break;
+    }
+  }
+  return withSide(side, function () { return FRQ_implantatEffektiv(i); });
 }
 
 function _archivDrawAxis(ctx, pad, W, H, maxAbs, opts) {
@@ -1815,7 +1835,7 @@ function _archivChartKurvenELL(sideBlock) {
     const idxArr = [];
     for (let i = 0; i < n; i++) idxArr.push(i);
     const axis = buildCentAxis(idxArr, pad.l, pW, function (i) {
-      return effFreqDisplay(i);
+      return _frqGehoertHzRoh(i);
     });
     const yFor = (v) => zY - (v / maxAbs) * (pH / 2);
     const COLORS = ["#3b82f6", "#f97316", "#a855f7", "#06b6d4", "#84cc16", "#eab308", "#ec4899", "#14b8a6"];
@@ -1899,7 +1919,7 @@ function _archivChartPlayerEq(sideBlock, playerEqArr) {
     const idxArr = [];
     for (let i = 0; i < playerEqArr.length; i++) idxArr.push(i);
     const axis = buildCentAxis(idxArr, pad.l, pW, function (i) {
-      return effFreqDisplay(i);
+      return _frqGehoertHzRoh(i);
     });
     const w = Math.max(2, Math.min((axis.minDx || 12) * 0.6, 30));
     for (let j = 0; j < playerEqArr.length; j++) {

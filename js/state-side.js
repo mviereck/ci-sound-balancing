@@ -28,34 +28,6 @@ function FRQ_implantatEffektiv(i, srcData) {
   }
   return FRQ_implantatOwn && FRQ_implantatOwn[i] != null ? FRQ_implantatOwn[i] : FRQ_implantat[i];
 }
-// Effektive Anzeige-/Berechnungs-Frequenz unter Berücksichtigung des
-// aktuellen Frequenz-Warping-Zustands. Verwendet von Kurven-Tab
-// (kurvenELLChartZeichnen, kurvenELLBerechnen) und Player (pDrawEQ, pBuildEQ) für
-// die Cent-basierte x-Achse und die Frequenz-Interpolation.
-//
-// Andere Module (Tests, Audio-Pfad, Schieber-Tab, Meßergebnisse,
-// Implantat-Tabelle, MAPLAW) verwenden weiterhin FRQ_implantatEffektiv() — die
-// Elektroden bewegen sich physisch nicht, Warp ist eine
-// Anzeige-/Berechnungs-Schicht für die wahrgenommene Frequenz.
-//
-// Parameter side optional: wenn gesetzt, wird temporär die andere
-// Seite gebunden (für seitenspezifische Aufrufe wie im Druck).
-function effFreqDisplay(i, side) {
-  const baseHz = (side != null && typeof withSide === "function")
-    ? withSide(side, function () { return FRQ_implantatEffektiv(i); })
-    : FRQ_implantatEffektiv(i);
-  if (typeof pWarpOn === "undefined" || !pWarpOn) return baseHz;
-  const src = (typeof _warpFResSource === "function")
-    ? _warpFResSource()
-    : (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray) ? FRQ_resultsArray : []);
-  if (!src.length) return baseHz;
-  if (typeof buildWarpPoints !== "function" ||
-      typeof centShift !== "function") return baseHz;
-  const points = buildWarpPoints(src, pWarpMode);
-  const sideKey = side || activeSide;
-  const cs = centShift(baseHz, sideKey, points);
-  return baseHz * Math.pow(2, cs / 1200);
-}
 let ell_focus = 0;
 let defaultMfr = "unknown"; // BA 154: Erststart-Default
 let audiologUserNote = ""; // Patient-Notiz für Audiologen-Bericht (top-level, beide Seiten)
@@ -930,6 +902,13 @@ let FRQ_resultsArray = [];
 // BA416: Klaviertest-Sitzungszustand, global+seitenlos (Architektur 6a).
 // null = keine Session. Persistiert in .cimbel (global) + localStorage.
 let FRQ_pianoSession = null;
+
+// FRQ_distribution: globale Verteilung der Frequenz-Messergebnisse auf die
+// Seiten (frueher Player-pWarpMode). "left" | "right" | "symmetric".
+// EINE Wahl fuer alle Anwendungs-Konsumenten; gesetzt NUR im Reiter
+// Frequenzbaender (BA492) + Datei-Laden; gelesen von FRQ_werte als Default.
+// Architektur 00-freqmatch-wertquelle-architektur.md §4.3.
+let FRQ_distribution = "right";
 
 let plEqOn = true; // EQ toggle state
 let plApplyBalance = true; // Stereo-Balance anwenden

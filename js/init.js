@@ -506,15 +506,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!pWarpOn) return;
     pWarpTrigger();
   }
-  // Korrektur-Modus-Dropdown
-  document.getElementById("plWarpModeSelect").addEventListener("change", function () {
-    pWarpMode = this.value;
-    _pWarpParamsChanged();
-    if (!pPlaying && typeof pBuildEQ === "function") pBuildEQ();
-    if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
-    if (typeof pDrawEQ === "function") pDrawEQ();
-    if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
-  });
   // BA375: Berechnungs-Modus (Schnell/Mittel/Beste). Persistent.
   // Quelle fuer engine + Streaming-Pfad. Wechsel bei aktivem Warp ->
   // Buffer verwerfen und neu berechnen (kann Play kurz unterbrechen,
@@ -943,11 +934,9 @@ document.addEventListener("DOMContentLoaded", () => {
                          : (typeof d.pWarpMode    === "string")  ? d.pWarpMode    : undefined;
         if (typeof _wOn === "boolean") pWarpOn = _wOn;
         if (typeof _wMode === "string") {
-          pWarpMode = (typeof _migrateLegacyWarpMode === "function")
+          FRQ_distribution = (typeof _migrateLegacyWarpMode === "function")
             ? _migrateLegacyWarpMode(_wMode, d.fRes)
             : _wMode;
-          const sel = document.getElementById("plWarpModeSelect");
-          if (sel) sel.value = pWarpMode;
         }
         // BA375: Berechnungs-Modus. Keine Migration von playerWarpLive
         // (alter Wert wird ignoriert). Fehlt der Wert -> Default "mid".
@@ -1240,7 +1229,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // BA323: Player-Box-Felder werden nicht mehr im Auto-Save gespeichert.
           // BA 161: Warp-Feldnamen vereinheitlicht (gleicher Schlüssel wie in Datei-Save)
           warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
-          warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "right",
+          warpMode:     (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "right",
           playerWarpMode: (typeof pWarpCalcMode !== "undefined") ? pWarpCalcMode : "mid",
           version: (typeof APP_VERSION !== "undefined") ? APP_VERSION : "",
           userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",

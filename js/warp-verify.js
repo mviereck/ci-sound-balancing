@@ -95,9 +95,8 @@ function _wv_middleThird(buf, seite) {
 async function wv_runWarpVerify() {
   const ctx = gPC();
   const sr = ctx.sampleRate;
-  const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
   const nhSim = !!(document.getElementById("plNHSim")?.checked);
-  const werte = FRQ_werte("gehoert", modus, nhSim);
+  const werte = FRQ_werte("gehoert", FRQ_distribution, nhSim);
 
   // Status je elIdx aus FRQ_activeResults() vorindizieren (fmStatus).
   const statusByIdx = {};

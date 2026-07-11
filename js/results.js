@@ -470,8 +470,9 @@ function FRQ_ergebnisRows(side, opts) {
 function FRQ_glaettRows(side, opts) {
   opts = opts || {};
   var nhSim = !!opts.nhSim;
+  // BA491: Achse 2 -> globaler FRQ_distribution (nicht Referenzmodus).
   var modus = (typeof opts.modus === "string") ? opts.modus
-    : FRQ_modusVonReferenzmodus(frq_referenzmodus());
+    : ((typeof FRQ_distribution === "string") ? FRQ_distribution : "right");
 
   // BA483 (§15.6): reiner Konsument der Wertquelle -- KEINE eigene cent->Hz-
   // Ableitung mehr. gehoertHz (roh, grau), gehoertHzGlatt (schwarz),
@@ -762,8 +763,8 @@ function FRQ_renderResults() {
       amberband: true,
       xWandHz: _wand,
       yLabel: t("FRQ_resultsChartYLabel"),
-      verbindung: true,
-      yMaxFest: FRQ_yMaxCent()    // BA485: gemeinsame Skala aus Rohdaten
+      verbindung: true
+      // BA491: kein yMaxFest -> Auto-Skala aus Rohdaten (drawFRQGraph chart.js:462-470)
       // KEIN schwelleCent -> zweistufig gruen/rot (Ergebnisgraph)
     });
     if (!cv._frqg_listener) {
@@ -806,9 +807,10 @@ var FRQ_bandEmpfSchwelleCent = 30;   // leicht<->deutlich (Startwert, Sec. 12.5)
 //                 abgeleitet.
 // Rueckgabe: das FRQ_werte-Array (leer, wenn FRQ_werte fehlt).
 function FRQ_empfWerte(nhSim, modusOverride) {
+  // BA491: Achse 2 -> globaler FRQ_distribution (nicht Referenzmodus).
   var modus = (typeof modusOverride === "string")
     ? modusOverride
-    : FRQ_modusVonReferenzmodus(frq_referenzmodus());
+    : ((typeof FRQ_distribution === "string") ? FRQ_distribution : "right");
   // BA463: Verfahren/Topologie/Optimieren/Ziel/Randausgleich liegen jetzt
   // pro Seite in sideData -> FRQ_werte zieht sie SEITENRICHTIG selbst
   // (undefined = kein Override). Nur modus/nhSim bleiben Aufrufer-Sache.

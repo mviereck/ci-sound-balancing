@@ -3,10 +3,8 @@
 // ============================================================
 // Geladen zwischen player.js (#14) und lr-balance.js (#15).
 // Exportiert ins globale Scope:
-//   buildWarpPoints(fResData, warpMode) → points[]
-//   centShift(f, side, points) → number
 //   pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) → Promise<AudioBuffer>
-//   pWarpedBuf, pWarpMode, pWarpOn, pWarpBusy  (State)
+//   pWarpedBuf, pWarpOn, pWarpBusy  (State)
 //   pWarpTrigger()   – UI → Vorberechnung auslösen
 //   pWarpUpdUI()     – Status-Anzeige aktualisieren
 
@@ -14,7 +12,6 @@ let pWarpedBuf = null;
 let pWarpedBufNHSim = null;
 let pWarpOn = true;
 let pWarpSettingsOpen = false;
-let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
 // 0.5.474.1: FRQ_BAND_WAHLEN nach core.js verschoben (Modul 1, laedt vor
 // state-side.js) -- initSideData liest sie beim Top-Level-Init.
 let pWarpCalcMode = "mid";     // BA375: Berechnungs-Modus. "fast"|"mid"|"best".
@@ -159,37 +156,6 @@ function _warpFResStats() {
   return { total: all.length, finals, provisional, sliderEst };
 }
 
-// ---- Warp-Kurve aufbauen --------------------------------
-
-function buildWarpPoints(fResData, warpMode, invert = false) {
-  // fResData: Array { elIdx, cent, frqRefMode, method, ... }
-  // Gibt sortiertes Array { hz, csL, csR } zurück.
-  //
-  // Vorzeichen-Konvention der zurückgegebenen cs-Werte:
-  // - Ohne invert (Default): Wahrnehmungs-/Simulations-Richtung — wie die
-  //   Cochlea die Wahrnehmung gegenüber der nominellen Elektroden-Mittenfrequenz
-  //   verschiebt. `effFreqDisplay` nutzt das so, um die wahrgenommene Frequenz
-  //   für die Anzeige zu berechnen.
-  // - Mit invert=true: Vorzeichen gespiegelt; ergibt die Korrektur-/Vorhalt-
-  //   Richtung — das Audio wird so vorverarbeitet, daß nach der Cochlea-
-  //   Verzerrung beim CI-Träger die richtige Frequenz ankommt.
-  //
-  // Aufrufkonvention der Audio-Pipeline: `buildWarpPoints(..., !nhSim)`.
-  //   NH-Sim aus (Korrektur-Modus) → invert=true → Vorhalt für CI-Wiedergabe.
-  //   NH-Sim an (Simulation für Normalhörende) → invert=false → Verzerrung
-  //   wird direkt aufs Audio gelegt.
-  const pts = [];
-  for (const r of fResData) {
-    const sw = FRQ_seitenWerte(r.cent, warpMode);
-    let csL = sw.csL, csR = sw.csR;
-    if (invert) { csL = -csL; csR = -csR; }
-    // hz (X-Stuetzstelle) = Bezugsfrequenz der Elektrode auf der aktiven Seite.
-    pts.push({ hz: FRQ_refHzForMode(r.elIdx), csL, csR });
-  }
-  pts.sort((a, b) => a.hz - b.hz);
-  return pts;
-}
-
 // BA428: Warp-Stuetzpunkte aus der zentralen Wertquelle FRQ_werte
 // (Form "warp"). Ersetzt buildWarpPoints fuer die Audio-Pipeline.
 // Liefert je GEMESSENE Elektrode einen Eintrag mit SEITENWEISER Bandmitte
@@ -274,28 +240,6 @@ function _warpAffectedSidesLR(wp) {
   for (const p of wp.L) { if (Math.abs(p.cs) > 1e-9) { l = true; break; } }
   for (const p of wp.R) { if (Math.abs(p.cs) > 1e-9) { r = true; break; } }
   return { warpsLeft: l, warpsRight: r };
-}
-
-// ---- Interpolation --------------------------------------
-
-function centShift(f, side, points) {
-  if (!points || points.length === 0) return 0;
-  const key = side === "left" ? "csL" : "csR";
-  if (points.length === 1) return points[0][key];
-  const logF = Math.log2(f);
-  const logFirst = Math.log2(points[0].hz);
-  const logLast  = Math.log2(points[points.length - 1].hz);
-  if (logF <= logFirst) return points[0][key];
-  if (logF >= logLast)  return points[points.length - 1][key];
-  for (let i = 0; i < points.length - 1; i++) {
-    const f1 = Math.log2(points[i].hz);
-    const f2 = Math.log2(points[i + 1].hz);
-    if (logF >= f1 && logF <= f2) {
-      const t = (logF - f1) / (f2 - f1);
-      return points[i][key] + t * (points[i + 1][key] - points[i][key]);
-    }
-  }
-  return 0;
 }
 
 // ---- Variante E: Rubberband-WASM Offline-Vorberechnung -----
@@ -1244,7 +1188,7 @@ async function pWarpTrigger() {
       // Leeren Ziel-Buffer anlegen (volle Länge, Stereo).
       pWarpedBuf = c.createBuffer(2, srcBuf.length, srcBuf.sampleRate);
 
-      const stage = buildWarpStage(srcBuf, pWarpMode);
+      const stage = buildWarpStage(srcBuf, FRQ_distribution);
 
       // BA376: Startposition merken, bevor State zurueckgesetzt wird.
       if (typeof _streamSetStartPos === "function") _streamSetStartPos(pOff);
@@ -1292,7 +1236,7 @@ async function pWarpTrigger() {
     // ---- Voll-Vorrechnen-Pfad (unverändert) ----
     try {
       pWarpedBuf = await pComputeRubberbandWarpedBuffer(
-        pSourceBuf, pWarpMode
+        pSourceBuf, FRQ_distribution
       );
     } catch (err) {
       if (err && err.message === "__warp_cancelled__") {
@@ -1365,13 +1309,13 @@ function pWarpCancelCompute() {
 
 // ---- Default-Anwendung beim ersten Frequenzabgleich-Resultat ----
 // Wird einmal pro Session beim Übergang "0 → 1+ Messungen"
-// aufgerufen. Setzt pWarpMode auf die Zielseite (= nicht die
+// aufgerufen. Setzt FRQ_distribution auf die Zielseite (= nicht die
 // Referenzseite). Wenn der Default in dieser Session bereits
 // angewendet wurde, ist die Funktion idempotent (kein Override).
 // Beim Laden eines Saves mit vorhandenen Messungen muß
 // pMarkPlayerWarpDefaultAsApplied() einmal aufgerufen werden,
-// damit der gespeicherte pWarpMode nicht beim nächsten Insert
-// überschrieben wird.
+// damit der gespeicherte FRQ_distribution nicht beim naechsten Insert
+// ueberschrieben wird.
 let _pPlayerWarpDefaultApplied = false;
 
 // BA375: Spiegelt den persistenten pWarpCalcMode-Wert auf die Radio-Buttons.
@@ -1388,9 +1332,8 @@ function pApplyWarpModeDefaultFromFm() {
   var rm = (typeof frq_referenzmodus === "function") ? frq_referenzmodus() : "right";
   // referenzmodus = welche Seite im Test der veraenderbare Ton war.
   // Mapping in den korrigierte-Seite-Modus jetzt zentral (BA419).
-  pWarpMode = FRQ_modusVonReferenzmodus(rm);
-  var sel = document.getElementById("plWarpModeSelect");
-  if (sel) sel.value = pWarpMode;
+  FRQ_distribution = FRQ_modusVonReferenzmodus(rm);
+  // BA492 spiegelt den Wert in die neue Karte; hier keine Dropdown-Sync mehr.
 }
 
 function pMarkPlayerWarpDefaultAsApplied() {

@@ -1203,10 +1203,9 @@ function FRQ_bewertungsStufe(devCent, resid) {
 // wird von allen vier Graphen-Aufrufern als cfg.yMaxFest uebergeben, so
 // dass Kurven- und Seitenwechsel die Skala nicht mehr springen lassen.
 function FRQ_yMaxCent() {
-  var modus = (typeof FRQ_modusVonReferenzmodus === "function"
-               && typeof frq_referenzmodus === "function")
-    ? FRQ_modusVonReferenzmodus(frq_referenzmodus())
-    : "gehoert";
+  // BA491: Achse 2. Speist Glaettungs-/Band-/Ausdruck-Graphen (folgen
+  // FRQ_distribution); der reine Ergebnisgraph zieht seine Hoehe nicht mehr hier (Schritt 6).
+  var modus = (typeof FRQ_distribution === "string") ? FRQ_distribution : "right";
   var werte = (typeof FRQ_werte === "function")
     ? FRQ_werte("gehoert", modus, false) : [];
   var maxAbs = 0;
@@ -1474,8 +1473,10 @@ function FRQ_seitenWerte(cent, warpMode) {
   var c = (typeof cent === "number" && isFinite(cent)) ? cent : 0;
   if (warpMode === "left")      return { csL: -c, csR: 0 };
   if (warpMode === "symmetric") return { csL: -c / 2, csR: c / 2 };
-  // Default/'right'
-  return { csL: 0, csR: c };
+  if (warpMode === "right")     return { csL: 0, csR: c };
+  // BA491: kein stiller right-Fallback mehr. Ungueltiger Modus faellt LAUT auf.
+  console.error("FRQ_seitenWerte: ungueltiger Modus '" + warpMode + "'");
+  return { csL: 0, csR: 0 };
 }
 
 // Bezugsfrequenz (Hz) einer Elektrode fuer die Ergebnis-Graph-X-Achse:
@@ -2069,6 +2070,12 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
   // (Nutzer-Vorgabe BA421: kein Konsument denkt ueber Vorzeichen nach).
   // Intern wird nhSim pro Form in die noetige Spiegelung uebersetzt (2b).
   var _nhSim = !!nhSim;
+
+  // BA491: modus-Default aus dem globalen FRQ_distribution (Achse 2).
+  // Explizites Argument (Achse-1-Konsumenten: Referenzmodus) gewinnt weiter.
+  if (typeof modus !== "string") {
+    modus = (typeof FRQ_distribution === "string") ? FRQ_distribution : "right";
+  }
 
   // BA463: Verfahren/Topologie/Optimieren/Ziel sind jetzt PRO SEITE
   // (sideData[seite]). Explizites Argument (Override) gewinnt weiterhin;

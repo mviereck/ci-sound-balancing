@@ -16,9 +16,8 @@
 //     immer die echte gehoerte Position, keine ~141-Spiegelung. Bewusster
 //     Unterschied zum Player-Graph.
 //
-// typeof-Guards, weil freq-warp.js (pWarpMode/pWarpOn) und core.js
-// (FRQ_werte) zur Ladezeit evtl. noch nicht bereitstehen -- Aufruf erfolgt
-// aber immer erst zur Laufzeit (in den Zeichen-/Berechnungs-Funktionen).
+// typeof-Guard fuer FRQ_werte (core.js) zur Ladezeit; pWarpOn aus freq-warp.js.
+// Modus: FRQ_distribution (global, BA491). nhSim fest false (Kurven-Reiter).
 let _kurvenFrqCache = null;
 
 function _kurvenFrqRefresh() {
@@ -27,8 +26,7 @@ function _kurvenFrqRefresh() {
   // Beginn jedes Laufs neu aufgebaut (siehe kurvenELLBerechnen /
   // kurvenELLChartZeichnen).
   if (typeof FRQ_werte !== "function") { _kurvenFrqCache = null; return; }
-  const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
-  const werte = FRQ_werte("gehoert", modus, false);   // nhSim fest false
+  const werte = FRQ_werte("gehoert", FRQ_distribution, false);   // nhSim fest false
   const byIdx = {};
   for (const w of werte) byIdx[w.elIdx] = w;
   _kurvenFrqCache = byIdx;

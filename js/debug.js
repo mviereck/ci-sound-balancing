@@ -398,7 +398,7 @@
     if (typeof pWarpOn === 'boolean') {
       _autoFields['warp.on'] = pWarpOn;
       if (pWarpOn) {
-        if (typeof pWarpMode === 'string')     _autoFields['warp.mode']     = pWarpMode;
+        if (typeof FRQ_distribution === 'string') _autoFields['warp.mode'] = FRQ_distribution;
       }
     }
 

@@ -202,9 +202,7 @@ function resetAll() {
   // --- Warp-Block ---
   if (typeof pWarpOn !== "undefined") {
     pWarpOn = false;
-    pWarpMode = "right";
-    const _wmd = document.getElementById("plWarpModeSelect");
-    if (_wmd) _wmd.value = pWarpMode;
+    FRQ_distribution = "right";
     if (typeof _pPlayerWarpDefaultApplied !== "undefined") {
       _pPlayerWarpDefaultApplied = false;
     }
@@ -394,7 +392,7 @@ async function saveJson() {
     duration_implant:   (typeof duration_implant !== "undefined") ? duration_implant : TEST_DEFAULTS.implant.duration,
     pause_implant:      (typeof pause_implant    !== "undefined") ? pause_implant    : TEST_DEFAULTS.implant.pause,
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
-    warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
+    warpMode: (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "right",
     playerWarpMode: (typeof pWarpCalcMode !== "undefined") ? pWarpCalcMode : "mid",
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
@@ -750,12 +748,10 @@ function applyLoadedData(d) {
   if (typeof pWarpOn !== "undefined") {
     if (typeof d.warpOn === "boolean") pWarpOn = d.warpOn;
     if (d.warpMode !== undefined) {
-      pWarpMode = (typeof _migrateLegacyWarpMode === "function")
+      FRQ_distribution = (typeof _migrateLegacyWarpMode === "function")
         ? _migrateLegacyWarpMode(d.warpMode, d.fRes)
         : d.warpMode;
     }
-    const modeSel = document.getElementById("plWarpModeSelect");
-    if (modeSel) modeSel.value = pWarpMode;
     pWarpedBuf = null;
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();
   }
@@ -770,7 +766,7 @@ function applyLoadedData(d) {
   if (typeof window._frqGlaettUpdate === "function") window._frqGlaettUpdate();
   // BA 177: wenn Save-Daten Frequenzabgleich-Messungen enthielten,
   // den Default-Anwendungs-Flag setzen, damit der nächste Insert
-  // den gespeicherten pWarpMode nicht überschreibt.
+  // den gespeicherten FRQ_distribution nicht ueberschreibt.
   try {
     const _hasFm =
       (Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)

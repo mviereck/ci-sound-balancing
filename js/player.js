@@ -742,14 +742,13 @@ function updatePlayerForSideChange() {
 //   NH-Sim an  -> echte gehoerte Frequenz (Warp schiebt Material dorthin);
 //                 ungemessen -> Rueckfall nominell.
 //   Elektrode ohne FRQ_werte-Eintrag -> nominell.
-// modus = pWarpMode. Cache je Bau-/Update-Lauf einmal fuellen (pFrqRefresh).
-// typeof-Guards, da FRQ_werte/pWarpMode zur Laufzeit gerufen werden.
+// modus = FRQ_distribution. Cache je Bau-/Update-Lauf einmal fuellen (pFrqRefresh).
+// typeof-Guard fuer FRQ_werte, da zur Laufzeit gerufen.
 let _pEqFrqCache = null;
 
 function pFrqRefresh() {
   if (typeof FRQ_werte !== "function") { _pEqFrqCache = null; return; }
-  const modus = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
-  const werte = FRQ_werte("gehoert", modus, false);   // nhSim NICHT durchreichen
+  const werte = FRQ_werte("gehoert", FRQ_distribution, false);   // nhSim NICHT durchreichen
   const byIdx = {};
   for (const w of werte) byIdx[w.elIdx] = w;
   _pEqFrqCache = byIdx;
@@ -1221,8 +1220,7 @@ function pDrawEQ() {
   // bei Warp aus stehen die Balken auf den nominellen Frequenzen.
   const _frqNhSim = !!(document.getElementById("plNHSim")
                        && document.getElementById("plNHSim").checked);
-  const _frqWerte = FRQ_werte("gehoert",
-    (typeof pWarpMode !== "undefined") ? pWarpMode : "right", _frqNhSim);
+  const _frqWerte = FRQ_werte("gehoert", FRQ_distribution, _frqNhSim);
   const _frqByIdx = {};
   for (const _w of _frqWerte) _frqByIdx[_w.elIdx] = _w;
   const _frqWarpAn = (typeof pWarpOn !== "undefined") && pWarpOn;
