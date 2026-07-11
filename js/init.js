@@ -729,7 +729,7 @@ document.addEventListener("DOMContentLoaded", () => {
     show("FRQ_glaettSteifeFieldset",   v === "polynom" || v === "ortskurve");
     show("FRQ_glaettAchseFieldset",    v === "polynom");
     show("FRQ_glaettRandfreiFieldset", v !== "aus" && _istMedel);
-    show("FRQ_glaettKFieldset",        v === "ortskurve" || v === "ortsabstaende" || v === "ortsaffin");
+    show("FRQ_glaettKFieldset",        v === "ortskurve" || v === "ortsabstaende" || v === "ortsaffin" || v === "stakhovskaya");
     show("FRQ_glaettLambdaFieldset",   v === "ortsabstaende");
     show("FRQ_glaettVorbereitungHinweis", false);
   }

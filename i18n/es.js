@@ -736,6 +736,7 @@ Object.assign(L.es, {
     FRQ_glaettVerfahrenOrtsk: "Curva de posición",
     FRQ_glaettVerfahrenOrtsa: "Distancias de posición",
     FRQ_glaettVerfahrenOrtsaf: "Posición afín",
+    FRQ_glaettVerfahrenStakh: "Stakhovskaya",
     FRQ_glaettVorbereitung: "Los métodos de posición calculan como Polinomio (en preparación).",
     FRQ_glaettGradLegend: "Curva de suavizado",
     FRQ_glaettGradAus: "desactivado",

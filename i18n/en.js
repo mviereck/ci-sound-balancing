@@ -735,6 +735,7 @@ Object.assign(L.en, {
     FRQ_glaettVerfahrenOrtsk: "Place curve",
     FRQ_glaettVerfahrenOrtsa: "Place spacing",
     FRQ_glaettVerfahrenOrtsaf: "Place-affine",
+    FRQ_glaettVerfahrenStakh: "Stakhovskaya",
     FRQ_glaettVorbereitung: "Place methods currently compute like Polynomial (in preparation).",
     FRQ_glaettGradLegend: "Smoothing curve",
     FRQ_glaettGradAus: "off",

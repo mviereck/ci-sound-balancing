@@ -312,6 +312,34 @@ function greenwoodX(hz, kk) {
   var k = (typeof kk === "number") ? kk : 0.88;
   return (1 / 2.1) * Math.log10(hz / 165.4 + k);
 }
+// BA490 (Architektur §6a): Stakhovskaya-2007-Tonotopie fuer das Verfahren
+// "stakhovskaya". y(winkel) = A*e^(-B*winkel) + C, y = Prozent (0..100) der
+// Distanz vom ovalen Fenster. SG = Spiral Ganglion (was die Elektrode reizt),
+// OC = Organ of Corti. Parameter aus ABF-Patent (Konzept_ABF_Frequenzabbildung
+// §2.1). Rein winkelbasiert -- KEIN Greenwood, KEIN k. Nur von der Glaettungs-
+// Familie genutzt (NICHT im FRQ_bandVerfahren-Registry).
+var STAKH_SG = { A: -99.3, B: 0.004, C: 105 };
+var STAKH_OC = { A: -110,  B: 0.002, C: 115 };
+function _stakhY(winkel, p) { return p.A * Math.exp(-p.B * winkel) + p.C; }   // Winkel -> Prozent
+function _stakhYinv(y, p)   { return -Math.log((y - p.C) / p.A) / p.B; }      // Prozent -> Winkel
+
+// Stakhovskaya-Positions-Paar (SG-Ortsraum) fuer _frqGlaettOrtsaffin.
+// stakhToP:  Hz -> Greenwood/OC-x -> OC-Prozent -> Winkel -> SG-Prozent (= Ort).
+//   ym% = 100*(1 - x_greenwood) (verifiziert gegen ABF-Formel
+//   F = D*(10^(a*(1 - ym/100)) - k), Konzept §8.4).
+// stakhFromP: SG-Prozent -> Winkel -> OC-Prozent -> Greenwood-x -> Hz (exakte Umkehrung).
+function stakhToP(hz, kk) {
+  var x   = greenwoodX(hz, kk);            // Hz -> Greenwood-x         [kk]
+  var yoc = 100 * (1 - x);                 // x  -> OC-Prozent          [-]
+  var ang = _stakhYinv(yoc, STAKH_OC);     // OC-Prozent -> Winkel      [-]
+  return _stakhY(ang, STAKH_SG);           // Winkel -> SG-Prozent      [-]
+}
+function stakhFromP(ysg, kk) {
+  var ang = _stakhYinv(ysg, STAKH_SG);     // SG-Prozent -> Winkel      [-]
+  var yoc = _stakhY(ang, STAKH_OC);        // Winkel -> OC-Prozent      [-]
+  var x   = 1 - yoc / 100;                 // OC-Prozent -> Greenwood-x [-]
+  return greenwoodHz(x, kk);               // x -> Hz                   [kk]
+}
 // Bandberechnungs-Verfahren = REINE RECHENRAUM-TRANSFORMATION (BA442,
 // §13.2/§13.3). Jeder Eintrag deklariert nur toP (Hz -> Position) und
 // fromP (Position -> Hz). Die Grenzsetzung (nahtlos) rechnet der
@@ -1533,7 +1561,7 @@ var FRQ_GLAETT_UNGEMESSEN_RESID_CT = 1200;  // virtuelles Residuum r (cent)
 // BA487: Greenwood-Offset k je Stufe der bandGlaettK-Achse (Ortsverfahren).
 // Werte aus der MED-EL-Default-Rekonstruktion (Konzept_Greenwood_Glaettungs_
 // Prior.md §3): klassisch 0.88 traf am schlechtesten, weggelassen.
-var FRQ_GLAETT_K_WERTE = { "1.3": 1.3, "1.4": 1.4, "1.53": 1.53 };
+var FRQ_GLAETT_K_WERTE = { "0.88": 0.88, "1.3": 1.3, "1.4": 1.4, "1.53": 1.53 };
 var FRQ_GLAETT_K_DEFAULT = 1.4;
 function _frqGlaettK() {
   var s = (typeof sideData !== "undefined" && typeof activeSide === "string")
@@ -1809,16 +1837,24 @@ function _frqGlaettOrtsabstand(noms, cents, weights) {
 // (a = Streckung ~ Cochlea-Laenge, b = Verschiebung ~ Insertionstiefe). Dann
 // x_rekon = a*xdef + b fuer ALLE Stuetzstellen, zurueck via greenwoodHz. Alles
 // im normierten Ortsraum (keine mm-Annahme). Signatur wie _frqGlaettKurve.
-function _frqGlaettOrtsaffin(noms, cents, weights) {
+// BA489/BA490 (Architektur §6/§6a): Ortsaffin-Kern, parametrisiert auf ein
+// Positions-Paar (toP, fromP). Greenwood-Paar (Default) = Verfahren "ortsaffin"
+// (Konzept §6d); Stakhovskaya-Paar = Verfahren "stakhovskaya" (SG-Ortsraum,
+// Konzept §8.4). Der affine Fit ist verfahrensunabhaengig -- nur toP/fromP
+// wechseln. k (_frqGlaettK) wird EINMAL gelesen und an toP UND fromP gegeben
+// -> hin=zurueck garantiert.
+function _frqGlaettOrtsaffin(noms, cents, weights, toP, fromP) {
   var n = noms.length;
   if (n < 2) return cents.slice();
   var kk = _frqGlaettK();
+  if (typeof toP !== "function")   toP   = greenwoodX;   // Greenwood-Paar = ortsaffin
+  if (typeof fromP !== "function") fromP = greenwoodHz;
 
   var xdef = [], xmess = [];
   for (var i = 0; i < n; i++) {
     var gehoert = noms[i] * Math.pow(2, -cents[i] / 1200);
-    xdef.push(greenwoodX(noms[i], kk));
-    xmess.push(greenwoodX(gehoert, kk));
+    xdef.push(toP(noms[i], kk));
+    xmess.push(toP(gehoert, kk));
   }
 
   // Gewichteter affiner Fit xmess = a*xdef + b (Gewichte tragen sicher/unsicher).
@@ -1844,7 +1880,7 @@ function _frqGlaettOrtsaffin(noms, cents, weights) {
   var out = new Array(n);
   for (var i2 = 0; i2 < n; i2++) {
     var xr = a * xdef[i2] + b;
-    var gehoertGlatt = greenwoodHz(xr, kk);
+    var gehoertGlatt = fromP(xr, kk);
     out[i2] = -1200 * Math.log2(gehoertGlatt / noms[i2]);
   }
   return out;
@@ -1985,7 +2021,8 @@ function _frqGlaetteMeasured(measured, verfahren) {
   // Raender bekommen ihre modellierte Frequenz (grosser Default-Rand-Abstand in
   // xdef, mit a skaliert). Nur ortsaffin (nur dort existiert ein globales a,b).
   var _sd = (typeof sideData !== "undefined") ? sideData[side] : null;
-  if (_sd && _sd.manufacturer === "ab" && _sd.bandGlaettVerfahren === "ortsaffin"
+  if (_sd && _sd.manufacturer === "ab"
+      && (_sd.bandGlaettVerfahren === "ortsaffin" || _sd.bandGlaettVerfahren === "stakhovskaya")
       && keys.length >= 2) {
     weights[0] = 0;
     weights[keys.length - 1] = 0;
@@ -1999,7 +2036,9 @@ function _frqGlaetteMeasured(measured, verfahren) {
   } else if (verfahren === "ortsabstaende") {
     glatt = _frqGlaettOrtsabstand(noms, cents, weights);
   } else if (verfahren === "ortsaffin") {
-    glatt = _frqGlaettOrtsaffin(noms, cents, weights);
+    glatt = _frqGlaettOrtsaffin(noms, cents, weights);   // Greenwood-Paar (Default)
+  } else if (verfahren === "stakhovskaya") {
+    glatt = _frqGlaettOrtsaffin(noms, cents, weights, stakhToP, stakhFromP);  // SG-Ortsraum
   } else {
     glatt = _frqGlaettKurve(noms, cents, weights);   // polynom / kurve
   }

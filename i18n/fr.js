@@ -736,6 +736,7 @@ Object.assign(L.fr, {
     FRQ_glaettVerfahrenOrtsk: "Courbe de position",
     FRQ_glaettVerfahrenOrtsa: "Écarts de position",
     FRQ_glaettVerfahrenOrtsaf: "Position affine",
+    FRQ_glaettVerfahrenStakh: "Stakhovskaya",
     FRQ_glaettVorbereitung: "Les méthodes de position calculent comme Polynôme (en préparation).",
     FRQ_glaettGradLegend: "Courbe de lissage",
     FRQ_glaettGradAus: "désactivé",
