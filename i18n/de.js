@@ -1187,6 +1187,7 @@ Object.assign(L.de, {
     STB_meaningEqual: "Gleich",
     STB_dirLeft:  "Links ist lauter",
     STB_dirRight: "Rechts ist lauter",
+    STB_chartTitel: "Meßergebnisse Stereo-Balance",
 
     introSupportTitle: "Unterstützer für das Projekt gesucht",
     introSupportText: "Dieses Projekt ist kein fertiges Produkt, sondern in aktiver Entwicklung — manche Funktion ist erst rudimentär implementiert, und vieles wird noch verbessert oder neu hinzukommen. Es braucht Unterstützung, um diesen Weg fortzusetzen. Bitte ziehen Sie eine kleine monatliche Spende in Betracht.",

@@ -566,7 +566,8 @@ function STB_drawChart() {
   });
 
   // --- Geometrie ---
-  const pad = { top: 34, right: 20, bottom: 34, left: 96 };
+  // pad.top traegt Titel (oben) + Richtungstext (darunter).
+  const pad = { top: 52, right: 20, bottom: 34, left: 96 };
   const plotW = W - pad.left - pad.right;
   const plotH = H - pad.top - pad.bottom;
   const midX = pad.left + plotW / 2;                 // senkrechte Mittelachse
@@ -590,7 +591,11 @@ function STB_drawChart() {
   ctx.strokeStyle = "#666"; ctx.lineWidth = 1.5;
   ctx.beginPath(); ctx.moveTo(midX, pad.top); ctx.lineTo(midX, pad.top + plotH); ctx.stroke();
 
-  // --- Richtungstext oben ---
+  // --- Titel (Teil der Grafik, oben zentriert) ---
+  ctx.fillStyle = "#000"; ctx.font = "bold 13px Segoe UI,sans-serif"; ctx.textAlign = "center";
+  ctx.fillText(t("STB_chartTitel"), pad.left + plotW / 2, 16);
+
+  // --- Richtungstext oben (unter dem Titel) ---
   ctx.font = "10px Segoe UI,sans-serif"; ctx.fillStyle = "#555";
   ctx.textAlign = "right"; ctx.fillText(t("STB_dirLeft"),  midX - 8, pad.top - 12);
   ctx.textAlign = "left";  ctx.fillText(t("STB_dirRight"), midX + 8, pad.top - 12);
@@ -628,11 +633,10 @@ function STB_drawChart() {
       ctx.fillRect(x0, yTop, wBar || 2, barH);
     }
 
-    // Elektroden-Label links (E-Nr + Hz), waagerecht
+    // Elektroden-Label links, waagerecht. (Frequenzangabe entfernt --
+    // ueberlagerte sich mit der Elektrodennummer.)
     ctx.fillStyle = "#555"; ctx.font = "10px Segoe UI,sans-serif"; ctx.textAlign = "right";
-    ctx.fillText(r.label, pad.left - 8, yMid - 1);
-    ctx.fillStyle = "#999"; ctx.font = "8px Consolas,monospace";
-    ctx.fillText(Math.round(r.hz) + " Hz", pad.left - 8, yMid + 9);
+    ctx.fillText(r.label, pad.left - 8, yMid + 3);
 
     // apikal/basal oben/unten
     if (i === 0 || i === count - 1) {

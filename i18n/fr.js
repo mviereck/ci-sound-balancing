@@ -1092,6 +1092,7 @@ Object.assign(L.fr, {
     STB_meaningEqual: "Égal",
     STB_dirLeft:  "La gauche est plus forte",
     STB_dirRight: "La droite est plus forte",
+    STB_chartTitel: "Résultats de la balance stéréo",
 
     introSupportTitle: "Recherche de soutiens pour le projet",
     introSupportText: "Ce projet n'est pas un produit fini, mais en développement actif — certaines fonctions ne sont implémentées qu'à l'état rudimentaire, et beaucoup sera encore amélioré ou ajouté. Il a besoin de soutien pour poursuivre cette voie. Veuillez envisager un petit don mensuel.",

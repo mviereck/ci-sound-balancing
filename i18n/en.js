@@ -1092,6 +1092,7 @@ Object.assign(L.en, {
     STB_meaningEqual: "Equal",
     STB_dirLeft:  "Left is louder",
     STB_dirRight: "Right is louder",
+    STB_chartTitel: "Stereo balance results",
 
     introSupportTitle: "Supporters wanted for the project",
     introSupportText: "This project is not a finished product, but in active development — some functions are only rudimentarily implemented, and much will be improved or added. It needs support to continue this path. Please consider a small monthly donation.",

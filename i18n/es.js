@@ -1092,6 +1092,7 @@ Object.assign(L.es, {
     STB_meaningEqual: "Igual",
     STB_dirLeft:  "La izquierda es más fuerte",
     STB_dirRight: "La derecha es más fuerte",
+    STB_chartTitel: "Resultados del balance estéreo",
 
     introSupportTitle: "Se buscan colaboradores para el proyecto",
     introSupportText: "Este proyecto no es un producto terminado, sino que está en desarrollo activo — algunas funciones aún son rudimentarias y muchas se mejorarán o se añadirán. Necesita apoyo para continuar este camino. Por favor, considere una pequeña donación mensual.",
