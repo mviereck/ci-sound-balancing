@@ -828,6 +828,58 @@ function frqLegendData(cfg, rows) {
   return { elemente: el, bewertung: bewertung, ampelStufen: stufen };
 }
 
+// Legende-Fakten fuer den ELL-Balkengraphen (Architektur
+// 00-balkengraph-engine Sec.6). Elemente in der Zeichen-Reihenfolge der
+// Engine. Farben = SELBE Werte wie drawBarGraph (STUFE 227, T-Balken
+// #000, Zustands-Rechtecke grau). bewertung "ampel" -> dreistufiger
+// Erklaerblock (gruen/gelb/rot + grau), wie frqLegendData.
+function ellLegendData(rows) {
+  var HEX = {
+    gruengelbrot: ["#16a34a", "#facc15", "#dc2626"],
+    schwarz: ["#000000"], grau: ["#e5e7eb"]
+  };
+  var mk = function (key, farbe, achse) {
+    return { key: key, farbe: farbe, achse: achse, hex: HEX[farbe] || ["#9ca3af"] };
+  };
+  var el = [];
+  el.push(mk("balken",        "gruengelbrot", "y"));   // Ampel-Balken
+  el.push(mk("querbalken",    "schwarz",      "y"));   // Streuung/Residuum
+  el.push(mk("xRechteck",     "grau",         null));  // deaktiviert
+  el.push(mk("frageRechteck", "grau",         null));  // ungemessen
+  // Eigene Ampel-Stufen (bewertung "ellampel") -- NICHT die mit den
+  // Frequenzgraphen geteilten "ampel"-Texte (die messen Cent, ELL misst
+  // dB). KEIN grauer "ungemessen"-Eintrag: im ELL-Graphen kommt kein
+  // grauer Balken vor (ungemessen = Fragezeichen-Rechteck).
+  // ampelSymbol "eckig": der Graph zeigt Balken, keine Punkte.
+  // farbSpalte false: die Farb-Spalte ist bei diesem Graphen nicht
+  // aussagekraeftig (eine Ampel-Skala, keine Element-Farb-Kontraste).
+  var stufen = [
+    { stufe: "gruen", hex: "#16a34a" },
+    { stufe: "gelb",  hex: "#facc15" },
+    { stufe: "rot",   hex: "#dc2626" }
+  ];
+  return { elemente: el, bewertung: "ellampel", ampelStufen: stufen,
+           ampelSymbol: "eckig", farbSpalte: false };
+}
+
+// Legende-Fakten fuer den Stereo-Balance-Balkengraphen. Vorzeichenfarbe
+// (rot = rechts lauter, blau = links lauter) -- SELBE Werte wie
+// STB_drawChart (farbPaar rot #dc2626 / blau #2563eb). KEIN Ampel-
+// Erklaerblock (Stereo hat keine Guete-Bewertung).
+function stbLegendData(rows) {
+  var HEX = { rotblau: ["#dc2626", "#2563eb"], grau: ["#e5e7eb"] };
+  var mk = function (key, farbe, achse) {
+    return { key: key, farbe: farbe, achse: achse, hex: HEX[farbe] || ["#9ca3af"] };
+  };
+  var el = [];
+  el.push(mk("balken",        "rotblau", "y"));
+  el.push(mk("xRechteck",     "grau",    null));
+  el.push(mk("frageRechteck", "grau",    null));
+  // KEIN Ampel-Erklaerblock; farbSpalte false wie bei ellLegendData
+  // (die Farb-Spalte ist bei den Balkengraphen nicht aussagekraeftig).
+  return { elemente: el, bewertung: "ampel", ampelStufen: [], farbSpalte: false };
+}
+
 // Highlight aller Elemente einer Zeile (BA456).
 function _frqg_drawHighlight(cv, r) {
   const s = cv._frqg_state; if (!s || !r) return;

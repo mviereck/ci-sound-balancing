@@ -552,6 +552,8 @@ function STB_drawChart() {
     yLabel: "dB (R−L)",
     ySymmetrisch: true
   });
+  var _stbHint = document.getElementById("STB_resChartHint");
+  if (_stbHint) _stbHint.innerHTML = FRQ_legendeHtml("stbbar", stbLegendData(rows));
 }
 
 // BA 251: jRes entfaellt; Lautstaerke-Daten = ELL_results.

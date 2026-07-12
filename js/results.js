@@ -208,6 +208,8 @@ function ELL_renderResults() {
       ySymmetrisch: true,
       ctx: ELL_ctx("global")
     });
+    var _ellHint = document.getElementById("ELL_resChartHint");
+    if (_ellHint) _ellHint.innerHTML = FRQ_legendeHtml("ellbar", ellLegendData(_ellRows));
     const chE = document.getElementById("ELL_chartExpl");
     if (chE) chE.textContent = t("ELL_chartExplB");
   }
@@ -364,9 +366,13 @@ function FRQ_tabellenZeilen(opts) {
 // Graphen: Farben/Elemente/Achse kommen aus frqLegendData (chart.js),
 // die Bedeutung je Element aus i18n. Spalten: Element = Farbe =
 // Bedeutung, an den "="-Zellen ausgerichtet (wie zuvor _FRQ_chartLegendHtml).
-function FRQ_legendeHtml(graphKey, cfg, rows) {
-  var data = (typeof frqLegendData === "function")
-    ? frqLegendData(cfg, rows) : { elemente: [], bewertung: "ampel" };
+// Legende eines Graphen (Architektur 00-balkengraph-engine Sec.6 /
+// 00-frequenzgraph-engine Sec.8). EIN Bauer fuer ALLE Graphen: die
+// Fakten (data = {elemente, bewertung, ampelStufen}) liefert der
+// Aufrufer aus der graph-spezifischen Fakten-Quelle (frqLegendData /
+// ellLegendData / stbLegendData); die Bedeutung je Element aus i18n.
+function FRQ_legendeHtml(graphKey, data) {
+  data = data || { elemente: [], bewertung: "ampel" };
   var eqCell = "<td style=\"padding:0 6px;color:#374151\">=</td>";
   var T = function (k, fb) {
     var v = (typeof t === "function") ? t(k) : k;
@@ -428,6 +434,15 @@ function FRQ_legendeHtml(graphKey, cfg, rows) {
         return svg("<path d=\"M1,10 C4,3 6,3 7,7 C8,11 10,11 13,4\" fill=\"none\" stroke=\"" + c + "\" stroke-width=\"1.5\"/>");
       case "flaeche":   // gefuelltes Rechteck in Flaechenfarbe
         return svg("<rect x=\"1\" y=\"3\" width=\"12\" height=\"8\" fill=\"" + c + "\" stroke=\"" + rand + "\" stroke-width=\"1\"/>");
+      case "balken":   // senkrechter gefuellter Balken (ELL/Stereo)
+        return svg("<rect x=\"4\" y=\"2\" width=\"6\" height=\"11\" fill=\"" + c + "\"/>");
+      case "xRechteck":   // deaktiviert: graues Rechteck mit X
+        return svg("<rect x=\"1\" y=\"1\" width=\"12\" height=\"12\" fill=\"#e5e7eb\" stroke=\"#9ca3af\"/>"
+          + "<line x1=\"2\" y1=\"2\" x2=\"12\" y2=\"12\" stroke=\"#6b7280\" stroke-width=\"1.25\"/>"
+          + "<line x1=\"12\" y1=\"2\" x2=\"2\" y2=\"12\" stroke=\"#6b7280\" stroke-width=\"1.25\"/>");
+      case "frageRechteck":   // ungemessen: graues Rechteck mit ?
+        return svg("<rect x=\"1\" y=\"1\" width=\"12\" height=\"12\" fill=\"#e5e7eb\" stroke=\"#9ca3af\"/>"
+          + "<text x=\"7\" y=\"11\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#6b7280\">?</text>");
       default:
         return svg("");
     }
@@ -447,6 +462,10 @@ function FRQ_legendeHtml(graphKey, cfg, rows) {
     return T("FRQ_leg_" + graphKey + "_" + suffix, null);
   };
 
+  // Farb-Spalte (Symbol=Farbwort=Bedeutung) nur, wenn der Graph
+  // Element-Farb-Kontraste hat (Frequenzgraphen). Balkengraphen setzen
+  // data.farbSpalte=false -> schlanke Tabelle Symbol/Name/Bedeutung.
+  var mitFarbSpalte = (data.farbSpalte !== false);
   var zeilen = "";
   data.elemente.forEach(function (e) {
     var bed = bedeutung(e.key, e.farbe);
@@ -455,8 +474,10 @@ function FRQ_legendeHtml(graphKey, cfg, rows) {
       "<tr>" +
       "<td style=\"padding:1px 4px 1px 0;white-space:nowrap\">" + elementSymbol(e.key, e.hex) + "</td>" +
       "<td style=\"padding:1px 0;white-space:nowrap;font-weight:600\">" + elementName(e.key, e.achse) + "</td>" +
-      eqCell +
-      "<td style=\"padding:1px 0;white-space:nowrap\">" + farbQuadrate(e.hex) + farbWort(e.farbe) + "</td>" +
+      (mitFarbSpalte
+        ? eqCell
+          + "<td style=\"padding:1px 0;white-space:nowrap\">" + farbQuadrate(e.hex) + farbWort(e.farbe) + "</td>"
+        : "") +
       eqCell +
       "<td style=\"padding:1px 0\">" + bed + "</td>" +
       "</tr>";
@@ -468,12 +489,15 @@ function FRQ_legendeHtml(graphKey, cfg, rows) {
   // Farb-Erklaerblock (§8.4) als Tabelle: je Stufe ein farbiger Kreis
   // (wie der Graph-Punkt) + Erklaertext. Stufen + Kreisfarbe aus
   // frqLegendData.ampelStufen; Text aus FRQ_legStufe_<bewertung>_<stufe>.
+  // Symbolform des Erklaerblocks: rund (Default, Frequenzgraphen zeigen
+  // Punkte) oder eckig (Balkengraphen zeigen Balken -> data.ampelSymbol).
+  var ampelRund = (data.ampelSymbol !== "eckig");
   var ampelZeilen = "";
   (data.ampelStufen || []).forEach(function (s) {
     var txt = T("FRQ_legStufe_" + data.bewertung + "_" + s.stufe, null);
     if (txt == null) return;
     var kreis = "<span style=\"display:inline-block;width:11px;height:11px;"
-      + "background:" + s.hex + ";border-radius:50%;vertical-align:middle;"
+      + "background:" + s.hex + ";border-radius:" + (ampelRund ? "50%" : "2px") + ";vertical-align:middle;"
       + "margin-right:2px\"></span>";
     ampelZeilen +=
       "<tr>" +
@@ -684,9 +708,8 @@ function FRQ_renderGlaettGraph() {
   });
   var _glHint = document.getElementById("FRQ_glaettChartHint");
   if (_glHint) {
-    _glHint.innerHTML = FRQ_legendeHtml("glaett", {
-      linienfarbe: "gruen", zweitkurve: "blau", amberband: false, bewertung: "ampel"
-    }, rows);
+    _glHint.innerHTML = FRQ_legendeHtml("glaett",
+      frqLegendData({ linienfarbe: "gruen", zweitkurve: "blau", amberband: false, bewertung: "ampel" }, rows));
   }
   if (!cv._frqg_listener) {
     cv.addEventListener("mousemove", function (e) { _frqg_tooltipHandler(cv, e); });
@@ -904,9 +927,8 @@ function FRQ_renderResults() {
     }
     const hintEl = document.getElementById("FRQ_resultsChartHint");
     if (hintEl) {
-      hintEl.innerHTML = FRQ_legendeHtml("ergebnis", {
-        amberband: true, bewertung: "problem"
-      }, _rows);
+      hintEl.innerHTML = FRQ_legendeHtml("ergebnis",
+        frqLegendData({ amberband: true, bewertung: "problem" }, _rows));
     }
   }
 }
@@ -1071,9 +1093,8 @@ function _FRQ_renderBandEmpf(side) {
     });
     var _bHint = document.getElementById("FRQ_bandEmpfChartHint");
     if (_bHint) {
-      _bHint.innerHTML = FRQ_legendeHtml("band", {
-        zweitkurve: "gruen", amberband: false, bewertung: "ampel"
-      }, _rows);
+      _bHint.innerHTML = FRQ_legendeHtml("band",
+        frqLegendData({ zweitkurve: "gruen", amberband: false, bewertung: "ampel" }, _rows));
     }
     if (!_bcv._frqg_listener) {
       _bcv.addEventListener("mousemove", function (e) { _frqg_tooltipHandler(_bcv, e); });
