@@ -730,6 +730,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // (+ k in BA487). ortsaffin/stakhovskaya: k (+ Randfrei bei MED-EL). aus: nichts.
   function _frqGlaettAchsenSichtbar() {
     var s = sideData[activeSide];
+    // Ortsaffin-Verfahren bei Cochlear sperren: sie haengen am
+    // greenwood-verteilten Default-Frequenzmuster (xdef = greenwoodX(nominal)),
+    // das Cochlears Default-Frequenzen NICHT bilden (zweigeteilte Verteilung,
+    // .docs/Konzept_Greenwood_Glaettungs_Prior.md §6f). ortskurve ist NICHT
+    // betroffen (kein xdef, s. §6f-Praezisierung) und bleibt waehlbar.
+    var _istCochlear = !!(s && s.manufacturer === "cochlear");
+    ["ortsaffin", "stakhovskaya"].forEach(function (val) {
+      var r = document.querySelector('input[name="FRQ_glaettVerfahren"][value="' + val + '"]');
+      if (!r) return;
+      r.disabled = _istCochlear;
+      if (r.parentElement) r.parentElement.style.opacity = _istCochlear ? "0.45" : "";
+    });
+    // Fallback: steht bei Cochlear doch ein gesperrtes Verfahren aktiv (z.B.
+    // kuenftig aus geladenem Stand), auf "aus" zuruecksetzen, damit nicht ein
+    // disabled-Radio weiterrechnet.
+    if (_istCochlear && s
+        && (s.bandGlaettVerfahren === "ortsaffin" || s.bandGlaettVerfahren === "stakhovskaya")) {
+      s.bandGlaettVerfahren = "aus";
+      var _rAus = document.querySelector('input[name="FRQ_glaettVerfahren"][value="aus"]');
+      if (_rAus) _rAus.checked = true;
+    }
     var v = (s && s.bandGlaettVerfahren) ? s.bandGlaettVerfahren : "aus";
     function show(id, on) {
       var el = document.getElementById(id);
@@ -738,7 +759,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Randausschluss-Achse nur bei MED-EL: sie dient dem apikalen FSP-
     // Ausschluss (rate-pitch statt place-pitch, MED-EL-spezifisch). Bei AB
     // macht _frqGlaettAusschluss den Randausschluss der Ortsverfahren fix im
-    // Code (E1+E16), bei Cochlear sind die Ortsverfahren nicht tauglich.
+    // Code (E1+E16), bei Cochlear sind die Ortsaffin-Verfahren gesperrt (s.o.).
     var _istMedel = !!(s && s.manufacturer === "medel");
     show("FRQ_glaettGradFieldset",     v === "polynom" || v === "ortskurve");
     show("FRQ_glaettSteifeFieldset",   v === "polynom" || v === "ortskurve");
