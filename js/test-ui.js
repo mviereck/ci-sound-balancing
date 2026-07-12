@@ -1505,7 +1505,11 @@ var testUI = {
       var stat = cfg.getElectrodeStatus();
       var testable = stat.testable.length;
       // Bug 0.4.279.3: Anzeige bleibt sichtbar -- auch bei 0 waehlbaren
-      // steht "0 von 0 Elektroden gewaehlt" statt leerem Text.
+      // steht "0 von 0 Elektroden gewaehlt" statt leerem Text. Tritt v.a.
+      // transient auf, wenn ein Aufrufer summaryText VOR befuelltem sideData
+      // ruft (testable === 0). Dann leeren Text liefern; der naechste Aufruf
+      // mit echten Daten setzt die korrekte Zahl.
+      if (testable === 0) return '';
       var selected;
       if (sel == null) selected = testable;
       else selected = sel.filter(function (i) { return stat.testable.indexOf(i) >= 0; }).length;

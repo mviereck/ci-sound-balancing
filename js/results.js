@@ -994,6 +994,10 @@ function FRQ_renderBaenderTab() {
   }
   var aktivSide = (typeof activeSide === "string") ? activeSide
     : (sideData.left.config === "ci" ? "left" : "right");
+  // Ketten-Auswahl-Summary bei jedem Reiter-Eintritt neu berechnen. Der
+  // Init-Aufruf (init.js) lief evtl. vor befuelltem sideData -> stand sonst
+  // dauerhaft auf "0 von 0", bis der Auswahl-Dialog bestaetigt wurde.
+  if (typeof _frqChainSelUpdate === "function") _frqChainSelUpdate();
   _FRQ_renderBandEmpf(aktivSide);
 }
 

@@ -725,13 +725,9 @@ document.addEventListener("DOMContentLoaded", () => {
     sideData[activeSide].bandGlaettK = v;
     _frqGlaettUpdate();
   });
-  _frqBandWahlInit("FRQ_glaettLambda", function (v) {
-    sideData[activeSide].bandGlaettLambda = v;
-    _frqGlaettUpdate();
-  });
   // Architektur §5: je Verfahren nur die passenden Regler sichtbar.
   // polynom: Grad, Steife, Achse, Randfrei. ortskurve: Grad, Steife, Randfrei
-  // (+ k in BA487). ortsabstaende: Randfrei (+ Lambda, k in BA488). aus: nichts.
+  // (+ k in BA487). ortsaffin/stakhovskaya: k (+ Randfrei bei MED-EL). aus: nichts.
   function _frqGlaettAchsenSichtbar() {
     var s = sideData[activeSide];
     var v = (s && s.bandGlaettVerfahren) ? s.bandGlaettVerfahren : "aus";
@@ -748,8 +744,7 @@ document.addEventListener("DOMContentLoaded", () => {
     show("FRQ_glaettSteifeFieldset",   v === "polynom" || v === "ortskurve");
     show("FRQ_glaettAchseFieldset",    v === "polynom");
     show("FRQ_glaettRandfreiFieldset", v !== "aus" && _istMedel);
-    show("FRQ_glaettKFieldset",        v === "ortskurve" || v === "ortsabstaende" || v === "ortsaffin" || v === "stakhovskaya");
-    show("FRQ_glaettLambdaFieldset",   v === "ortsabstaende");
+    show("FRQ_glaettKFieldset",        v === "ortskurve" || v === "ortsaffin" || v === "stakhovskaya");
     show("FRQ_glaettVorbereitungHinweis", false);
   }
   // BA463: alle seitenweisen Band-Radios auf die aktive Seite spiegeln.

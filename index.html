@@ -942,7 +942,7 @@
         <!-- BA492: globale Verteilung der Messergebnisse auf die Seiten (Warp-Modus) -->
         <div class="card" id="FRQ_distributionCard">
           <h3 data-t="FRQ_distributionTitle" style="font-size:1em;margin:0 0 10px">Korrektur-Seite</h3>
-          <p data-t="FRQ_distributionIntro" style="font-size:0.88em;margin:0 0 12px;color:var(--text-muted)">Legt fest, auf welche Seite die gemessene Frequenzabweichung als Korrektur verteilt wird. Diese Wahl gilt gemeinsam f&#252;r Gl&#228;ttung, Bandberechnung, Wiedergabe und Ausdruck.</p>
+          <p data-t="FRQ_distributionIntro" style="font-size:0.88em;margin:0 0 12px;color:var(--text-muted)">Legt fest, auf welche Seite(n) die gemessene Frequenzabweichung als Korrektur verteilt wird. Das sollte die CI-Seite sein. Bei 2&#8239;CI meist symmetrisch, es sei denn, Sie wollen ein CI so lassen, wie es ist, und das andere anpassen.</p>
           <label style="font-size:0.9em;display:flex;align-items:center;gap:8px">
             <span data-t="pwMode">Korrektur-Modus</span>
             <select id="FRQ_distributionSelect" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.9em">
@@ -971,15 +971,14 @@
               <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="aus"> <span data-t="FRQ_glaettVerfahrenAus">aus</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="polynom"> <span data-t="FRQ_glaettVerfahrenPoly">Polynom</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="ortskurve"> <span data-t="FRQ_glaettVerfahrenOrtsk">Ortskurve</span></label>
-              <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="ortsabstaende"> <span data-t="FRQ_glaettVerfahrenOrtsa">Ortsabst&#228;nde</span></label>
-              <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="ortsaffin"> <span data-t="FRQ_glaettVerfahrenOrtsaf">Ortsaffin</span></label>
-              <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="stakhovskaya"> <span data-t="FRQ_glaettVerfahrenStakh">Stakhovskaya</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="ortsaffin"> <span data-t="FRQ_glaettVerfahrenOrtsaf">Ortsaffin (Greenwood)</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="stakhovskaya"> <span data-t="FRQ_glaettVerfahrenStakh">Ortsaffin (Stakhovskaya)</span></label>
             </fieldset>
             <fieldset id="FRQ_glaettGradFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettGradLegend" style="padding:0 6px">Gl&#228;ttungskurve</legend>
-              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettGrad" value="1"> 1</label>
-              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettGrad" value="2"> 2</label>
-              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettGrad" value="3"> 3</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettGrad" value="1"> 1</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettGrad" value="2"> 2</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettGrad" value="3"> 3</label>
             </fieldset>
             <fieldset id="FRQ_glaettAchseFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettAchseLegend" style="padding:0 6px">Kurven-Achse</legend>
@@ -988,34 +987,28 @@
             </fieldset>
             <fieldset id="FRQ_glaettSteifeFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettSteifeLegend" style="padding:0 6px">Steifheit</legend>
-              <label style="display:inline-block;margin-right:8px"><input type="radio" name="FRQ_glaettSteife" value="0"> <span data-t="FRQ_glaettSteifeWeich">weich</span></label>
-              <label style="display:inline-block;margin-right:8px"><input type="radio" name="FRQ_glaettSteife" value="1"> 1</label>
-              <label style="display:inline-block;margin-right:8px"><input type="radio" name="FRQ_glaettSteife" value="2"> 2</label>
-              <label style="display:inline-block;margin-right:8px"><input type="radio" name="FRQ_glaettSteife" value="3"> 3</label>
-              <label style="display:inline-block;margin-right:8px"><input type="radio" name="FRQ_glaettSteife" value="4"> 4</label>
-              <label style="display:inline-block;margin-right:8px"><input type="radio" name="FRQ_glaettSteife" value="5"> 5</label>
-              <label style="display:inline-block"><input type="radio" name="FRQ_glaettSteife" value="6"> <span data-t="FRQ_glaettSteifeSteif">steif</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="0"> <span data-t="FRQ_glaettSteifeWeich">weich</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="1"> 1</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="2"> 2</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="3"> 3</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="4"> 4</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="5"> 5</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="6"> <span data-t="FRQ_glaettSteifeSteif">steif</span></label>
             </fieldset>
             <fieldset id="FRQ_glaettKFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettKLegend" style="padding:0 6px">Greenwood-k</legend>
-              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettK" value="0.88"> 0,88</label>
-              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettK" value="1.3"> 1,3</label>
-              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettK" value="1.4"> 1,4</label>
-              <label style="display:inline-block"><input type="radio" name="FRQ_glaettK" value="1.53"> 1,53</label>
-            </fieldset>
-            <fieldset id="FRQ_glaettLambdaFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-              <legend data-t="FRQ_glaettLambdaLegend" style="padding:0 6px">Abstands-St&#228;rke</legend>
-              <label style="display:block"><input type="radio" name="FRQ_glaettLambda" value="sanft"> <span data-t="FRQ_glaettLambdaSanft">sanft</span></label>
-              <label style="display:block"><input type="radio" name="FRQ_glaettLambda" value="mittel"> <span data-t="FRQ_glaettLambdaMittel">mittel</span></label>
-              <label style="display:block"><input type="radio" name="FRQ_glaettLambda" value="stark"> <span data-t="FRQ_glaettLambdaStark">stark</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettK" value="0.88"> 0,88</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettK" value="1.3"> 1,3</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettK" value="1.4"> 1,4</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettK" value="1.53"> 1,53</label>
             </fieldset>
             <fieldset id="FRQ_glaettRandfreiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettRandfreiLegend" style="padding:0 6px">Randausschlu&#223; (apikal)</legend>
-              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettRandfrei" value="0"> 0</label>
-              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettRandfrei" value="1"> 1</label>
-              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettRandfrei" value="2"> 2</label>
-              <label style="display:inline-block;margin-right:10px"><input type="radio" name="FRQ_glaettRandfrei" value="3"> 3</label>
-              <label style="display:inline-block"><input type="radio" name="FRQ_glaettRandfrei" value="4"> 4</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="0"> 0</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="1"> 1</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="2"> 2</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="3"> 3</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="4"> 4</label>
             </fieldset>
             <p id="FRQ_glaettVorbereitungHinweis" data-t="FRQ_glaettVorbereitung" style="display:none;font-size:0.85em;color:var(--text-muted);margin:6px 0 0;flex-basis:100%">Ortsverfahren rechnen derzeit wie Polynom (in Vorbereitung).</p>
           </div>

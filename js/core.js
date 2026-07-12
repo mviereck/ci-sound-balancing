@@ -422,7 +422,7 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandCbfGewicht",      def: "ausgewogen", fileKey: "bandCbfGewicht",      group: "FRQ_bandCbfGewicht" },
   { key: "bandCbfApikalFrei",   def: "1",          fileKey: "bandCbfApikalFrei",   group: "FRQ_bandCbfApikalFrei" },
   { key: "bandCbfBasalFrei",    def: "1",          fileKey: "bandCbfBasalFrei",    group: "FRQ_bandCbfBasalFrei" },
-  { key: "bandCbfRandspektrum", def: "frei",       fileKey: "bandCbfRandspektrum", group: "FRQ_bandCbfRandspektrum" },
+  { key: "bandCbfRandspektrum", def: "voll",       fileKey: "bandCbfRandspektrum", group: "FRQ_bandCbfRandspektrum" },
   { key: "bandCbfSprache",      def: "mittel",     fileKey: "bandCbfSprache",      group: "FRQ_bandCbfSprache" },
   { key: "bandCbfBandraum",     def: "log",        fileKey: "bandCbfBandraum",     group: "FRQ_bandCbfBandraum" },
   { key: "bandGrenzeinhaltung", def: "abschneiden",fileKey: "bandGrenzeinhaltung", group: "FRQ_bandGrenzeinhaltung" },
@@ -431,8 +431,7 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandGlaettAchse",     def: "log",        fileKey: "bandGlaettAchse",     group: "FRQ_glaettAchse" },
   { key: "bandGlaettSteife",    def: "2",          fileKey: "bandGlaettSteife",    group: "FRQ_glaettSteife" },
   { key: "bandGlaettRandfrei",  def: "0",          fileKey: "bandGlaettRandfrei",  group: "FRQ_glaettRandfrei" },
-  { key: "bandGlaettK",         def: "1.4",         fileKey: "bandGlaettK",         group: "FRQ_glaettK" },
-  { key: "bandGlaettLambda",    def: "mittel",      fileKey: "bandGlaettLambda",    group: "FRQ_glaettLambda" },
+  { key: "bandGlaettK",         def: "0.88",        fileKey: "bandGlaettK",         group: "FRQ_glaettK" },
 ];
 // Cent-Distanz an der Frequenz hz in eine Distanz im Positionsraum toP
 // umrechnen. Im log-Raum ist das ein konstanter Faktor; im Greenwood-Raum
@@ -1563,26 +1562,13 @@ var FRQ_GLAETT_UNGEMESSEN_RESID_CT = 1200;  // virtuelles Residuum r (cent)
 // Werte aus der MED-EL-Default-Rekonstruktion (Konzept_Greenwood_Glaettungs_
 // Prior.md §3): klassisch 0.88 traf am schlechtesten, weggelassen.
 var FRQ_GLAETT_K_WERTE = { "0.88": 0.88, "1.3": 1.3, "1.4": 1.4, "1.53": 1.53 };
-var FRQ_GLAETT_K_DEFAULT = 1.4;
+var FRQ_GLAETT_K_DEFAULT = 0.88;
 function _frqGlaettK() {
   var s = (typeof sideData !== "undefined" && typeof activeSide === "string")
     ? sideData[activeSide] : null;
   var v = (s && s.bandGlaettK) ? String(s.bandGlaettK) : null;
   return (v && FRQ_GLAETT_K_WERTE[v] != null) ? FRQ_GLAETT_K_WERTE[v]
                                               : FRQ_GLAETT_K_DEFAULT;
-}
-
-// BA488: Abstands-Regularisierung lambda je Stufe der bandGlaettLambda-Achse.
-// lambda ab ~0.5 kaum noch differenzierend (Konzept §6c); Unterschied v.a.
-// sanft<->mittel.
-var FRQ_GLAETT_LAMBDA_WERTE = { "sanft": 0.15, "mittel": 0.5, "stark": 2.0 };
-var FRQ_GLAETT_LAMBDA_DEFAULT = 0.5;
-function _frqGlaettLambda() {
-  var s = (typeof sideData !== "undefined" && typeof activeSide === "string")
-    ? sideData[activeSide] : null;
-  var v = (s && s.bandGlaettLambda) ? String(s.bandGlaettLambda) : null;
-  return (v && FRQ_GLAETT_LAMBDA_WERTE[v] != null) ? FRQ_GLAETT_LAMBDA_WERTE[v]
-                                                   : FRQ_GLAETT_LAMBDA_DEFAULT;
 }
 
 // BA477 / §9.5.1: elIdx-Liste der auf `side` AKTIVEN Elektroden (elActive[i] !== false),
@@ -1779,58 +1765,6 @@ function _frqGlaettOrtskurve(noms, cents, weights) {
   return out;
 }
 
-// BA488 (Architektur §6): Ortsabstaende-Verfahren. Orte aus der GEHOERTEN
-// Frequenz (x = greenwoodX(gehoert, k)); geglaettet durch Abstands-
-// Regularisierung gegen die DEFAULT-Abstaende (Nachbardifferenzen der
-// Greenwood-Orte der NOMINELLEN Frequenzen). Minimiert
-//   Sigma w(x - xmess)^2 + lambda*Sigma((x_k - x_{k-1}) - Ddefault_k)^2
-// -> tridiagonales System, geloest mit _frqGauss. Nur die ABSTAENDE werden
-// geregelt, nicht die Lage (Konzept §0). Zurueck in cent. Signatur wie
-// _frqGlaettKurve.
-function _frqGlaettOrtsabstand(noms, cents, weights) {
-  var n = noms.length;
-  if (n < 2) return cents.slice();
-  var kk = _frqGlaettK();
-  var lam = _frqGlaettLambda();
-
-  // gemessene Orte (aus gehoerter Frequenz) + Default-Orte (aus nominal).
-  var xmess = [], xdef = [];
-  for (var i = 0; i < n; i++) {
-    var gehoert = noms[i] * Math.pow(2, -cents[i] / 1200);
-    xmess.push(greenwoodX(gehoert, kk));
-    xdef.push(greenwoodX(noms[i], kk));
-  }
-  // Default-Abstaende (Nachbardifferenzen der Default-Orte).
-  var ddef = [];
-  for (var d = 1; d < n; d++) ddef.push(xdef[d] - xdef[d - 1]);
-
-  // Lineares System A x = b (n x n), tridiagonal:
-  //   Datenterm: A[k][k] += w_k ; b[k] += w_k * xmess_k
-  //   Abstandsterm je Paar (k-1,k): lam*((x_k - x_{k-1}) - ddef)^2
-  var A = [], b = [];
-  for (var r0 = 0; r0 < n; r0++) { A.push(new Array(n).fill(0)); b.push(0); }
-  for (var k0 = 0; k0 < n; k0++) {
-    var w = (weights[k0] > 0) ? weights[k0] : 0;
-    A[k0][k0] += w; b[k0] += w * xmess[k0];
-  }
-  for (var k = 1; k < n; k++) {
-    A[k][k]     += lam; A[k-1][k-1] += lam;
-    A[k][k-1]   -= lam; A[k-1][k]   -= lam;
-    b[k]        += lam * ddef[k-1];
-    b[k-1]      -= lam * ddef[k-1];
-  }
-  var xsol = _frqGauss(A, b);
-  if (!xsol) return cents.slice();
-
-  // geglaettete Orte -> Hz -> kanonisches cent.
-  var out = new Array(n);
-  for (var i2 = 0; i2 < n; i2++) {
-    var gehoertGlatt = greenwoodHz(xsol[i2], kk);
-    out[i2] = -1200 * Math.log2(gehoertGlatt / noms[i2]);
-  }
-  return out;
-}
-
 // BA489 (Architektur: 4. Verfahren, Konzept §6d): Ortsaffin. Rekonstruiert die
 // Elektroden-Positionen aus dem Default-Positionsmuster per gewichtetem affinen
 // Fit an die zuverlaessigen Messpunkte. xdef = greenwoodX(nominal, k) (festes
@@ -1947,8 +1881,8 @@ function _frqGlaettAusschluss(keys) {
   // AB-Sonderregel (2026-07-11): Bei Advanced Bionics folgen nur die MITTLEREN
   // Elektroden dem Greenwood-Ortsmuster; die beiden Randelektroden (apikalste
   // + basalste) sitzen ausserhalb (belegt: Konzept_Greenwood_Glaettungs_Prior.md
-  // §6f -- E2..E15 Abstands-Variation 1,0%, E1/E16 springen). Bei ortskurve/
-  // ortsabstaende werden sie hier KOMPLETT ausgeschlossen (kein Modell fuer die
+  // §6f -- E2..E15 Abstands-Variation 1,0%, E1/E16 springen). Bei ortskurve
+  // werden sie hier KOMPLETT ausgeschlossen (kein Modell fuer die
   // Raender -> Rohwert). Bei ortsaffin NICHT hier: dort werden die Raender nur
   // aus dem FIT genommen (Gewicht 0 in _frqGlaetteMeasured), aber vom affinen
   // Modell (a*xdef+b) rekonstruiert -- der grosse Default-Rand-Abstand steckt
@@ -1956,7 +1890,7 @@ function _frqGlaettAusschluss(keys) {
   // ist mathematisch identisch mit "relativer Rand-Abstand an geglaettete
   // Innen-Position anhaengen"). Fuer polynom gar nicht (log-Raum).
   var _verf = s.bandGlaettVerfahren;
-  var _istOrtsHartAus = (_verf === "ortskurve" || _verf === "ortsabstaende");
+  var _istOrtsHartAus = (_verf === "ortskurve");
   if (mfrId === "ab" && _istOrtsHartAus && keys.length >= 2) {
     out[keys[0]] = true;                    // apikalste (AB apFirst -> kleinster elIdx)
     out[keys[keys.length - 1]] = true;      // basalste
@@ -2016,7 +1950,7 @@ function _frqGlaetteMeasured(measured, verfahren) {
     return withSide(side, function () { return FRQ_implantatEffektiv(k); });
   });
   // AB + ortsaffin (2026-07-11, Konzept §7): die beiden Randelektroden bleiben
-  // in keys (anders als ortskurve/ortsabstaende), werden aber aus dem affinen
+  // in keys (anders als ortskurve), werden aber aus dem affinen
   // FIT genommen -> Gewicht 0. _frqGlaettOrtsaffin fittet a,b dann nur ueber die
   // inneren, rekonstruiert aber ALLE (auch die Raender) via a*xdef+b -> die
   // Raender bekommen ihre modellierte Frequenz (grosser Default-Rand-Abstand in
@@ -2028,14 +1962,10 @@ function _frqGlaetteMeasured(measured, verfahren) {
     weights[0] = 0;
     weights[keys.length - 1] = 0;
   }
-  // Verfahren-Weiche (Architektur §6). BA486: nur "polynom" implementiert;
-  // "ortskurve"/"ortsabstaende" fallen noch auf die Polynom-Engine zurueck
-  // (eigene Engines BA487/488). "kurve" = Alt-Name, gilt als polynom.
+  // Verfahren-Weiche (Architektur §6). "kurve" = Alt-Name, gilt als polynom.
   var glatt;
   if (verfahren === "ortskurve") {
     glatt = _frqGlaettOrtskurve(noms, cents, weights);
-  } else if (verfahren === "ortsabstaende") {
-    glatt = _frqGlaettOrtsabstand(noms, cents, weights);
   } else if (verfahren === "ortsaffin") {
     glatt = _frqGlaettOrtsaffin(noms, cents, weights);   // Greenwood-Paar (Default)
   } else if (verfahren === "stakhovskaya") {
@@ -2100,7 +2030,7 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
   var n  = Math.min(nL, nR);
 
   // Vor-Glaettung der Messwerte (BA475/BA486): seitenweise gesteuert ueber
-  // sideData[seite].bandGlaettVerfahren ("aus"|"polynom"|"ortskurve"|"ortsabstaende").
+  // sideData[seite].bandGlaettVerfahren ("aus"|"polynom"|"ortskurve"|"ortsaffin"|"stakhovskaya").
   // Eine Quell-Stelle -> wirkt auf alle Konsumenten (Graph, Tabelle, Warp).
   var _glSeite = (typeof activeSide === "string") ? activeSide : "right";
   var _glVerf = (sideData[_glSeite] && sideData[_glSeite].bandGlaettVerfahren)
@@ -2108,8 +2038,8 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
   // BA482 (§15.2): measured (roh) bleibt erhalten; die Glaettung liefert eine
   // ZWEITE Reihe measuredGlatt daneben. Verfahren "aus" -> measuredGlatt ==
   // measured (roh). Die konkrete Rechen-Engine waehlt _frqGlaetteMeasured
-  // anhand des Verfahrens (BA486: ortskurve/ortsabstaende fallen noch auf
-  // "polynom" zurueck; eigene Engines in BA487/488).
+  // anhand des Verfahrens (ortskurve/ortsaffin/stakhovskaya haben eigene
+  // Engines; unbekannte Verfahren fallen auf "polynom" zurueck).
   var measuredGlatt = (_glVerf !== "aus")
     ? _frqGlaetteMeasured(measured, _glVerf)
     : measured;
@@ -2343,7 +2273,7 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
           // BA472: apikale/basale "Freie Baender"-Achsen (ersetzen Randverhalten).
           cbfApikalFrei: (_sW && _sW.bandCbfApikalFrei != null) ? _sW.bandCbfApikalFrei : 1,
           cbfBasalFrei:  (_sW && _sW.bandCbfBasalFrei  != null) ? _sW.bandCbfBasalFrei  : 1,
-          cbfRandspektrum: (_sW && typeof _sW.bandCbfRandspektrum === "string") ? _sW.bandCbfRandspektrum : "frei",
+          cbfRandspektrum: (_sW && typeof _sW.bandCbfRandspektrum === "string") ? _sW.bandCbfRandspektrum : "voll",
           // BA464/465: Sprachbereich-Achse (Feld kommt mit BA465).
           cbfSprache: (_sW && typeof _sW.bandCbfSprache === "string") ? _sW.bandCbfSprache : "mittel",
           // BA473: Bandraum-Achse pro Seite (log|anatom).
