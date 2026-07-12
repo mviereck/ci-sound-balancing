@@ -410,20 +410,8 @@ function stb_pause() {
 }
 
 function STB_renderMean() {
-  // Mittelwert nur über aktive (nicht deaktivierte) Elektroden
-  const activeKeys = Object.keys(STB_results).filter((k) => {
-    const i = +k;
-    const v = STB_results[i];
-    if (!isFinite(v)) return false;
-    // Eine Stereo-Messung gilt als deaktiviert, wenn die Elektrode auf
-    // BEIDEN Seiten deaktiviert oder stumm-geschaltet ist
-    const exL = sideData.left.elExDur[i]  !== null || sideData.left.elSt[i]  === 'mute';
-    const exR = sideData.right.elExDur[i] !== null || sideData.right.elSt[i] === 'mute';
-    return !(exL || exR);
-  });
-  if (!activeKeys.length) return;
-  const vals = activeKeys.map((k) => STB_results[+k]);
-  const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+  const mean = STB_meanRaw();
+  if (mean === null) return;
   // Positive stb_result = right louder = right needs to be quieter = negative balance offset
   const balOffset = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
 
@@ -654,6 +642,23 @@ function STB_drawChart() {
     });
   }
   _attachAxisTooltip(cv);
+
+  // Gestrichelter senkrechter Mean-Strich ueber die ganze Plothoehe.
+  // Nutzt STB_meanRaw() (state-side.js) -- KEINE neue Rechnung. tX invertiert
+  // das Vorzeichen automatisch (negativer Mean = rechts lauter -> rechts).
+  var _mean = (typeof STB_meanRaw === "function") ? STB_meanRaw() : null;
+  if (_mean !== null && isFinite(_mean)) {
+    var _mx = tX(_mean);
+    ctx.save();
+    ctx.strokeStyle = "#111827";
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([5, 4]);
+    ctx.beginPath();
+    ctx.moveTo(_mx, pad.top);
+    ctx.lineTo(_mx, pad.top + plotH);
+    ctx.stroke();
+    ctx.restore();
+  }
 
   // Legende
   var _stbHint = document.getElementById("STB_resChartHint");

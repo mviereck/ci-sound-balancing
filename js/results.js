@@ -419,6 +419,8 @@ function FRQ_legendeHtml(graphKey, data) {
       case "strichGrau":
       case "strichSchwarz":
         return svg("<line x1=\"7\" y1=\"1\" x2=\"7\" y2=\"13\" stroke=\"" + c + "\" stroke-width=\"1.75\"/>");
+      case "meanLinie":   // gestrichelter senkrechter Strich (Mittelwert)
+        return svg("<line x1=\"7\" y1=\"1\" x2=\"7\" y2=\"13\" stroke=\"" + c + "\" stroke-width=\"1.75\" stroke-dasharray=\"3 2\"/>");
       case "band":   // schmales senkrechtes Band
         return svg("<rect x=\"5\" y=\"1\" width=\"4\" height=\"12\" fill=\"" + c + "\"/>");
       case "querbalken":   // T-Balken (Residuum): senkrecht + zwei Endkappen

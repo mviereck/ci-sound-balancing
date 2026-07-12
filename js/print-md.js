@@ -309,7 +309,7 @@ function _collectBilateral() {
       out.stereobalance.has = true;
       const sorted = keys.slice().sort((a, b) => (+a) - (+b));
       out.stereobalance.rows = sorted.map((k) => ({ elIdx: +k, value: STB_results[k] }));
-      out.stereobalance.mean = sorted.reduce((a, k) => a + STB_results[k], 0) / sorted.length;
+      out.stereobalance.mean = STB_meanRaw();
     }
   }
   if (typeof LTZ_result !== "undefined" && LTZ_result
@@ -627,7 +627,7 @@ function _archivMdBilateral(data) {
       out.push(`| E${r.elIdx + 1} | ${_mdFmtDb(r.value, true)} |`);
     }
     out.push("");
-    out.push(`**${t("archivSTBMean")}**: ${_mdFmtDb(bil.stereobalance.mean, true)}`);
+    if (bil.stereobalance.mean !== null) out.push(`**${t("archivSTBMean")}**: ${_mdFmtDb(bil.stereobalance.mean, true)}`);
     out.push("");
   }
   if (bil.latenz.has) {
@@ -1067,8 +1067,8 @@ function _audiologSTBBlock(mainSides) {
   if (typeof STB_results === "undefined") return "";
   const keys = Object.keys(STB_results).filter((k) => isFinite(STB_results[k]));
   if (keys.length === 0) return "";
-  const mean = keys.reduce((a, k) => a + STB_results[k], 0) / keys.length;
-  if (!isFinite(mean) || mean === 0) return "";
+  const mean = STB_meanRaw();
+  if (mean === null || !isFinite(mean) || mean === 0) return "";
 
   const balActive = (typeof plApplyBalance !== "undefined") && plApplyBalance
                  && (mainSides.length === 2);

@@ -556,13 +556,30 @@ function getPlayerSide() {
   }
   return activeSide;
 }
+// Zentraler roher Mittelwert der Stereo-Balance-Messung (STB_results).
+// EINE Wahrheit fuer Anzeige, Player, Messtests und Ausdruck.
+// Filterung: nur endliche Werte UND nicht deaktivierte/stummgeschaltete
+// Elektroden (auf BEIDEN Seiten geprueft) -- deaktivierte tragen nicht mehr
+// zur Balance bei. Liefert null, wenn keine gueltige Messung uebrig bleibt.
+// STB_results liegt in lr-balance.js (spaeter geladen), daher erst zur
+// Laufzeit auswerten.
+function STB_meanRaw() {
+  if (typeof STB_results === "undefined") return null;
+  var keys = Object.keys(STB_results).filter(function (k) {
+    var i = +k;
+    if (!isFinite(STB_results[i])) return false;
+    var exL = sideData.left.elExDur[i]  !== null || sideData.left.elSt[i]  === "mute";
+    var exR = sideData.right.elExDur[i] !== null || sideData.right.elSt[i] === "mute";
+    return !(exL || exR);
+  });
+  if (!keys.length) return null;
+  var sum = keys.reduce(function (a, k) { return a + STB_results[+k]; }, 0);
+  return sum / keys.length;
+}
 function getPlayerSTB() {
   if (!plApplyBalance) return 0;
-  // Mean aus STB_results berechnen (STB_results ist global in stereobalance-balance.js)
-  if (typeof STB_results === "undefined") return 0;
-  const vals = Object.values(STB_results).filter((v) => isFinite(v));
-  if (!vals.length) return 0;
-  const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+  const mean = STB_meanRaw();
+  if (mean === null) return 0;
   // Positive mean = right louder → negative balance offset (rechts dämpfen)
   return Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
 }
@@ -589,10 +606,8 @@ function getPlayerSTBGains() {
 function STB_rawGains() {
   // Wie getPlayerSTBGains(), aber ignoriert plApplyBalance.
   // Für Meßtests (Frequenzabgleich, Latenz): Balance immer anwenden.
-  if (typeof STB_results === "undefined") return { left: 0, right: 0 };
-  const vals = Object.values(STB_results).filter((v) => isFinite(v));
-  if (!vals.length) return { left: 0, right: 0 };
-  const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+  const mean = STB_meanRaw();
+  if (mean === null) return { left: 0, right: 0 };
   // b = gemessene L↔R-Differenz; Verteilung wie getPlayerSTBGains.
   const b = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
   const mode = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";

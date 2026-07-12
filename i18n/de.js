@@ -839,6 +839,7 @@ Object.assign(L.de, {
     FRQ_legElement_balken:        "Balken",
     FRQ_legElement_xRechteck:     "Feld mit Kreuz",
     FRQ_legElement_frageRechteck: "Feld mit Fragezeichen",
+    FRQ_legElement_meanLinie:     "Gestrichelte Linie",
     FRQ_legFarbe_rotblau:         "rot/blau",
     FRQ_legIntro_ellbar:  "Graph zeigt die gemessene Lautstärke-Abweichung je Elektrode.",
     FRQ_legIntro_stbbar:  "Graph zeigt die Lautstärke-Differenz rechts/links je Elektrode.",
@@ -852,6 +853,7 @@ Object.assign(L.de, {
     FRQ_leg_stbbar_balken:        "Wahrgenommene Lautstärke-Differenz (Ausschlag zur lauteren Seite)",
     FRQ_leg_stbbar_xRechteck:     "Elektrode deaktiviert oder stummgeschaltet",
     FRQ_leg_stbbar_frageRechteck: "Elektrode aktiv, aber noch nicht gemessen",
+    FRQ_leg_stbbar_meanLinie:     "Mittelwert der Balance über alle aktiven Elektroden",
     // Graph-Titel (§9)
     FRQ_titel_ergebnis: "Meßergebnisse Frequenzabgleich",
     FRQ_titel_glaett:   "Glättung der Meßergebnisse Frequenzabgleich",

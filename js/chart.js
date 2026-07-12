@@ -867,14 +867,15 @@ function ellLegendData(rows) {
 // STB_drawChart (farbPaar rot #dc2626 / blau #2563eb). KEIN Ampel-
 // Erklaerblock (Stereo hat keine Guete-Bewertung).
 function stbLegendData(rows) {
-  var HEX = { blau: ["#2563eb"], grau: ["#e5e7eb"] };
+  var HEX = { blau: ["#2563eb"], grau: ["#e5e7eb"], schwarz: ["#111827"] };
   var mk = function (key, farbe, achse) {
     return { key: key, farbe: farbe, achse: achse, hex: HEX[farbe] || ["#9ca3af"] };
   };
   var el = [];
-  el.push(mk("balken",        "blau", null));
+  el.push(mk("balken",        "blau",    null));
   el.push(mk("xRechteck",     "grau",    null));
   el.push(mk("frageRechteck", "grau",    null));
+  el.push(mk("meanLinie",     "schwarz", null));
   return { elemente: el, bewertung: "ampel", ampelStufen: [], farbSpalte: false };
 }
 
