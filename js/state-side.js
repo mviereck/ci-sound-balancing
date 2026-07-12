@@ -105,7 +105,7 @@ function setRefEl(v) {
   if (typeof pUpdEQ === "function") pUpdEQ();
 }
 // Baut das vollständige ctx-Objekt einer Seite für die parametrisierten
-// ELL-Funktionen (ELL_compWLS, ELL_drawChart, ELL_testData). side:
+// ELL-Funktionen (ELL_compWLS, drawBarGraph, ELL_testData). side:
 // 'left' | 'right' | 'global' ('global' = aktuell gebundene Seite).
 // Liefert seitenrichtige Daten UND Closures, ohne die globalen Tool-
 // Variablen zu binden (kein withSide nötig).

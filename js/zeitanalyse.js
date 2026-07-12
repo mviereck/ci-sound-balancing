@@ -68,16 +68,6 @@
     return Object.assign({}, base, { ELL_results: pairs });
   }
 
-  function zaMakeColorFn(resArr, measuredSet) {
-    return function (i) {
-      if (!measuredSet.has(i)) return "grey";
-      var r = resArr[i] || 0.001;
-      if (r <= 1.0) return "green";
-      if (r < 3.0)  return "yellow";
-      return "red";
-    };
-  }
-
   // ---- Heatmap (BA 409) + Zeit-Trend (BA 410) ----
 
   var ZA_HM_RANGE = 10;   // dB; Werte darueber/darunter werden gekappt
@@ -363,8 +353,38 @@
     var r = ELL_compWLS(ctx);
     var measured = new Set();
     ctx.ELL_results.forEach(function (p) { measured.add(p.a); measured.add(p.b); });
-    var colorFn = zaMakeColorFn(r.ELL_res, measured);
-    ELL_drawChart(cv, r.levels, r.ELL_res, true, colorFn, ctx);
+    var _dENp = (ctx.dENPrefix || dENPrefix), _dENf = (ctx.dEN || dEN);
+    var _nEl = (ctx.nEl != null) ? ctx.nEl : nEl;
+    var _elExDur = (ctx.elExDur != null) ? ctx.elExDur : elExDur;
+    var _elSt = (ctx.elSt != null) ? ctx.elSt : elSt;
+    var _refEl = (ctx.ELL_refEl != null) ? ctx.ELL_refEl : (typeof ELL_refEl !== "undefined" ? ELL_refEl : null);
+    var _hz = ctx.hzGetter || FRQ_implantatEffektiv;
+    var _zaRows = [];
+    for (var _i = 0; _i < _nEl; _i++) {
+      var _ex = _elExDur[_i] !== null || _elSt[_i] === "mute";
+      var _res = r.ELL_res[_i] || 0.001;
+      var _stufe = !measured.has(_i) ? null : _res <= 1.0 ? "gruen" : _res < 3.0 ? "gelb" : "rot";
+      _zaRows.push({
+        elNum: _i,
+        label: _dENp() + _dENf(_i),
+        hz: _hz(_i),
+        wert: r.levels[_i] || 0,
+        zustand: _ex ? "deaktiviert" : (!measured.has(_i) ? "ungemessen" : "gemessen"),
+        residuum: r.ELL_res[_i],
+        stufe: _stufe,
+        istRef: _i === _refEl,
+        apikalBasal: _i === 0 ? "apikal" : (_i === _nEl - 1 ? "basal" : null)
+      });
+    }
+    drawBarGraph(cv, _zaRows, {
+      balkenFarbe: "ampel",
+      residuum: true,
+      spitzenPunkte: true,
+      refElLabel: true,
+      yLabel: "dB",
+      ySymmetrisch: true,
+      ctx: ctx
+    });
   }
 
   function zaOnSharpness(key) {

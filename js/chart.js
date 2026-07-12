@@ -1,7 +1,7 @@
 // Zeichnet eine deaktivierte/gemute Elektrode als hellgrauen
-// Vollbalken mit dunkler X-Diagonale. Wird von chart.js
-// (ELL_drawChart) und stereobalance-balance.js (STB_drawChart) genutzt. NICHT für
-// drawFRQChart geeignet (dort log-Hz-Achse).
+// Vollbalken mit dunkler X-Diagonale. Wird von drawBarGraph
+// und stereobalance-balance.js (STB_drawChart) genutzt. NICHT fuer
+// drawFRQGraph geeignet (dort log-Hz-Achse).
 function drawDisabledBar(ctx, x, yTop, yBot, bW) {
   ctx.fillStyle = '#e5e7eb';
   ctx.fillRect(x, yTop, bW, yBot - yTop);
@@ -15,6 +15,21 @@ function drawDisabledBar(ctx, x, yTop, yBot, bW) {
   ctx.stroke();
 }
 
+// Zeichnet eine aktive, aber noch nicht gemessene Elektrode als
+// hellgrauen Vollbalken mit einem Fragezeichen. Gegenstueck zu
+// drawDisabledBar (deaktiviert = X). Genutzt von der Balkengraph-Engine
+// (drawBarGraph) fuer ELL + Stereo.
+function drawUnmeasuredBar(ctx, x, yTop, yBot, bW) {
+  ctx.fillStyle = '#e5e7eb';
+  ctx.fillRect(x, yTop, bW, yBot - yTop);
+  ctx.fillStyle = '#6b7280';
+  ctx.font = 'bold ' + Math.min(18, Math.max(11, bW * 0.7)) + 'px Segoe UI,sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('?', x + bW / 2, (yTop + yBot) / 2);
+  ctx.textBaseline = 'alphabetic';   // Default wiederherstellen
+}
+
 function _drawRefElLabel(ctx, x, y, size) {
   ctx.save();
   ctx.fillStyle = "#000";
@@ -25,15 +40,15 @@ function _drawRefElLabel(ctx, x, y, size) {
 }
 
 // ============================================================
-// Cent-x-Achse — Hilfsfunktionen (gemeinsam für ELL_drawChart und
+// Cent-x-Achse — Hilfsfunktionen (gemeinsam für drawBarGraph und
 // kurvenELLChartZeichnen). Elektroden werden nach ihrer Cent-Position
 // (re 1000 Hz) auf der x-Achse plaziert; mindestens zwei
 // Elektroden, sonst lineare Notlösung.
 // ============================================================
 
 // Gleichmäßige x-Verteilung der Elektroden über die Plot-Breite
-// (elektrodennummern-basiert). Verwendet von ELL_drawChart (Meßergebnisse
-// Loudness) und STB_drawChart (Stereo-Balance) seit Bauanleitung 67.
+// (elektrodennummern-basiert). Verwendet von STB_drawChart (Stereo-Balance)
+// seit Bauanleitung 67; drawBarGraph nutzt die inline-tX.
 // Liefert zusätzlich hzArr (per FRQ_implantatEffektiv oder optionalem hzGetter) für
 // die Hz-Beschriftung unter der x-Achse.
 function buildLinearAxis(electrodes, padLeft, plotW, hzGetter) {
@@ -130,204 +145,162 @@ function _axisTooltipHandler(cv, e) {
   }
 }
 
-// ============================================================
-// CHART
-// ============================================================
-function ELL_drawChart(cv, vals, res, isOff, ell_color, ctx) {
-  ctx = ctx || {};
-  var _nEl      = (ctx.nEl       != null) ? ctx.nEl       : nEl;
-  var _elSt     = (ctx.elSt      != null) ? ctx.elSt      : elSt;
-  var _elExDur  = (ctx.elExDur   != null) ? ctx.elExDur   : elExDur;
-  var _refEl    = (ctx.ELL_refEl != null) ? ctx.ELL_refEl : (typeof ELL_refEl !== "undefined" ? ELL_refEl : null);
-  var _hzGetter = ctx.hzGetter || null;
-  var _dEN       = ctx.dEN       || dEN;
-  var _dENPrefix = ctx.dENPrefix || dENPrefix;
+// Balkengraph-Engine: feste Druckhoehe (Architektur-Kapitel Sec.4.3).
+var BARGRAPH_PRINT_H = 300;
 
-  var allE = [];
-  for (var _i = 0; _i < _nEl; _i++) allE.push(_i);
-  var act = allE.filter(function (i) {
-    return _elExDur[i] === null && _elSt[i] !== "mute";
-  });
+// ============================================================
+// BALKENGRAPH-ENGINE (Architektur 00-balkengraph-engine).
+// Eine Zeichenfunktion fuer ELL-Ergebnisgraph + Stereo-Balance.
+// Kennt KEINEN Graph-Typ: zeichnet je Zeile ihren Zustand; alle
+// Abweichungen kommen aus cfg. rows/cfg-Vertrag: Kapitel Sec.4/5.
+// ============================================================
+function drawBarGraph(cv, rows, cfg) {
+  cfg = cfg || {};
+  rows = rows || [];
+  var _ctx = cfg.ctx || {};
+  var _dEN       = _ctx.dEN       || dEN;
+  var _dENPrefix = _ctx.dENPrefix || dENPrefix;
 
-  const ctx2d = cv.getContext("2d"),
-    dpr = window.devicePixelRatio || 1,
-    w = cv.parentElement.clientWidth - 32,
-    h = 320;
-  cv.width = w * dpr;
-  cv.height = h * dpr;
-  cv.style.width = w + "px";
-  cv.style.height = h + "px";
-  ctx2d.scale(dpr, dpr);
-  const pad = { top: 30, right: 20, bottom: 57, left: 55 },
-    pW = w - pad.left - pad.right,
-    pH = h - pad.top - pad.bottom;
-  ctx2d.clearRect(0, 0, w, h);
-  const aV = act.map((i) => vals[i]),
-    aR = res ? act.map((i) => res[i]) : null;
-  let yMn, yMx;
-  if (isOff) {
-    let am = Math.max(Math.ceil(Math.max(...aV.map(Math.abs), 1)), 5);
-    if (aR)
-      am = Math.max(
-        am,
-        Math.ceil(Math.max(...act.map((i) => Math.abs(vals[i]) + res[i]))),
-      );
-    yMn = -am;
-    yMx = am;
+  var ctx2d = cv.getContext("2d");
+  var dpr, w, h;
+  if (cfg.druck) {
+    dpr = 2; w = cv.parentElement.clientWidth - 32; h = BARGRAPH_PRINT_H;
   } else {
-    yMn = Math.min(0, ...aV);
-    yMx = Math.max(0, ...aV);
-    const r = yMx - yMn || 1;
-    yMn -= r * 0.1;
-    yMx += r * 0.1;
+    dpr = window.devicePixelRatio || 1;
+    w = cv.parentElement.clientWidth - 32; h = 320;
   }
-  const axis = buildLinearAxis(allE, pad.left, pW, _hzGetter),
-    tX = axis.tX,
-    xS = axis.minDx,
-    tY = (v) => pad.top + (yMx - v) * (pH / (yMx - yMn || 1));
-  ctx2d.strokeStyle = "#e5e5e5";
-  ctx2d.lineWidth = 1;
-  for (let i = 0; i <= 5; i++) {
-    const v = yMn + ((yMx - yMn) * i) / 5,
-      y = tY(v);
-    ctx2d.beginPath();
-    ctx2d.moveTo(pad.left, y);
-    ctx2d.lineTo(w - pad.right, y);
-    ctx2d.stroke();
-    ctx2d.fillStyle = "#999";
-    ctx2d.font = "10px Consolas,monospace";
-    ctx2d.textAlign = "right";
-    ctx2d.fillText(v.toFixed(1), pad.left - 8, y + 4);
+  cv.width = w * dpr; cv.height = h * dpr;
+  cv.style.width = w + "px"; cv.style.height = h + "px";
+  ctx2d.setTransform(1, 0, 0, 1, 0, 0);
+  ctx2d.scale(dpr, dpr);
+  ctx2d.clearRect(0, 0, w, h);
+
+  var pad = { top: 30, right: 20, bottom: 57, left: 55 };
+  var pW = w - pad.left - pad.right;
+  var pH = h - pad.top - pad.bottom;
+  if (!rows.length) return;
+
+  // --- Y-Bereich ---
+  var vals = rows.map(function (r) { return r.wert || 0; });
+  var reals = rows.filter(function (r) { return r.zustand === "gemessen"; });
+  var yMn, yMx;
+  if (cfg.ySymmetrisch !== false) {
+    var am = Math.max(Math.ceil(Math.max.apply(null, vals.map(Math.abs).concat([1]))), 5);
+    if (cfg.residuum) {
+      reals.forEach(function (r) {
+        if (r.residuum > 0) am = Math.max(am, Math.ceil(Math.abs(r.wert) + r.residuum));
+      });
+    }
+    yMn = -am; yMx = am;
+  } else {
+    var av = reals.map(function (r) { return r.wert || 0; });
+    yMn = Math.min.apply(null, [0].concat(av));
+    yMx = Math.max.apply(null, [0].concat(av));
+    var rr = yMx - yMn || 1; yMn -= rr * 0.1; yMx += rr * 0.1;
+  }
+
+  // --- X-Achse: lineare Verteilung ueber die Zeilen (index-basiert) ---
+  var n = rows.length;
+  var tX = function (j) {
+    if (n <= 1) return pad.left + pW / 2;
+    var dx = pW / n; return pad.left + dx * (j + 0.5);
+  };
+  var xS = n <= 1 ? pW : pW / n;
+  var tY = function (v) { return pad.top + (yMx - v) * (pH / (yMx - yMn || 1)); };
+  var bW = Math.min(xS * 0.6, 34);
+
+  // --- Y-Grid ---
+  ctx2d.strokeStyle = "#e5e5e5"; ctx2d.lineWidth = 1;
+  for (var g = 0; g <= 5; g++) {
+    var gv = yMn + ((yMx - yMn) * g) / 5, gy = tY(gv);
+    ctx2d.beginPath(); ctx2d.moveTo(pad.left, gy); ctx2d.lineTo(w - pad.right, gy); ctx2d.stroke();
+    ctx2d.fillStyle = "#999"; ctx2d.font = "10px Consolas,monospace"; ctx2d.textAlign = "right";
+    ctx2d.fillText(gv.toFixed(1), pad.left - 8, gy + 4);
   }
   if (yMn < 0 && yMx > 0) {
-    ctx2d.strokeStyle = "#aaa";
-    ctx2d.lineWidth = 1.5;
-    ctx2d.setLineDash([4, 3]);
-    ctx2d.beginPath();
-    ctx2d.moveTo(pad.left, tY(0));
-    ctx2d.lineTo(w - pad.right, tY(0));
-    ctx2d.stroke();
+    ctx2d.strokeStyle = "#aaa"; ctx2d.lineWidth = 1.5; ctx2d.setLineDash([4, 3]);
+    ctx2d.beginPath(); ctx2d.moveTo(pad.left, tY(0)); ctx2d.lineTo(w - pad.right, tY(0)); ctx2d.stroke();
     ctx2d.setLineDash([]);
   }
-  const bW = Math.min(xS * 0.6, 34);
-  const colorMap = {
-    green: "#16a34a",
-    yellow: "#d97706",
-    red: "#dc2626",
-    grey: "#9ca3af",
+
+  // --- Ampel-/Vorzeichenfarbe (Kapitel Sec.5). Eine Wahrheit. ---
+  var STUFE = { gruen: "#16a34a", gelb: "#facc15", rot: "#dc2626" };
+  var farbPaar = cfg.farbPaar || { pos: "#2563eb", neg: "#dc2626", null: "#9ca3af" };
+  var schwelle = (cfg.schwelle != null) ? cfg.schwelle : 0.05;
+  var balkenFarbe = function (r) {
+    if (cfg.balkenFarbe === "ampel") return STUFE[r.stufe] || "#9ca3af";
+    var v = r.wert || 0;
+    return v > schwelle ? farbPaar.pos : v < -schwelle ? farbPaar.neg : farbPaar.null;
   };
-  if (_refEl !== null) {
-    const jRef = allE.indexOf(_refEl);
-    if (jRef >= 0) {
-      _drawRefElLabel(ctx2d, tX(jRef), pad.top - 4);
+
+  // --- Referenz-Label oben (nur cfg.refElLabel) ---
+  if (cfg.refElLabel) {
+    for (var jr = 0; jr < n; jr++) {
+      if (rows[jr].istRef) { _drawRefElLabel(ctx2d, tX(jr), pad.top - 4); break; }
     }
   }
-  for (let j = 0; j < allE.length; j++) {
-    const i = allE[j],
-      v = vals[i] || 0,
-      x = tX(j) - bW / 2,
-      yZ = tY(0),
-      yV = tY(v);
 
-    const isDisabled = _elExDur[i] !== null || _elSt[i] === "mute";
-
-    if (isDisabled) {
+  // --- Balken / Zustands-Rechtecke je Zeile ---
+  for (var j = 0; j < n; j++) {
+    var r = rows[j], x = tX(j) - bW / 2;
+    if (r.zustand === "deaktiviert") {
       drawDisabledBar(ctx2d, x, pad.top, pad.top + pH, bW);
+    } else if (r.zustand === "ungemessen") {
+      drawUnmeasuredBar(ctx2d, x, pad.top, pad.top + pH, bW);
     } else {
-      const col = ell_color
-        ? colorMap[ell_color(i) || "grey"]
-        : v > 0.05
-          ? "#2563eb"
-          : v < -0.05
-            ? "#dc2626"
-            : "#9ca3af";
-      ctx2d.fillStyle = col;
+      var v = r.wert || 0, yZ = tY(0), yV = tY(v);
+      ctx2d.fillStyle = balkenFarbe(r);
       ctx2d.fillRect(x, Math.min(yZ, yV), bW, Math.abs(yV - yZ) || 2);
-      if (res && res[i] > 0 && act.includes(i)) {
-        const r = res[i],
-          yt = tY(v + r),
-          yb = tY(v - r);
-        ctx2d.strokeStyle = "#00000044";
-        ctx2d.lineWidth = 1.5;
-        ctx2d.beginPath();
-        ctx2d.moveTo(tX(j), yt);
-        ctx2d.lineTo(tX(j), yb);
-        ctx2d.stroke();
-        ctx2d.beginPath();
-        ctx2d.moveTo(tX(j) - 4, yt);
-        ctx2d.lineTo(tX(j) + 4, yt);
-        ctx2d.stroke();
-        ctx2d.beginPath();
-        ctx2d.moveTo(tX(j) - 4, yb);
-        ctx2d.lineTo(tX(j) + 4, yb);
-        ctx2d.stroke();
+      // Residuum-T-Balken (nur cfg.residuum)
+      if (cfg.residuum && r.residuum > 0) {
+        var yt = tY(v + r.residuum), yb = tY(v - r.residuum), cx = tX(j);
+        ctx2d.strokeStyle = "#00000044"; ctx2d.lineWidth = 1.5;
+        ctx2d.beginPath(); ctx2d.moveTo(cx, yt); ctx2d.lineTo(cx, yb); ctx2d.stroke();
+        ctx2d.beginPath(); ctx2d.moveTo(cx - 4, yt); ctx2d.lineTo(cx + 4, yt); ctx2d.stroke();
+        ctx2d.beginPath(); ctx2d.moveTo(cx - 4, yb); ctx2d.lineTo(cx + 4, yb); ctx2d.stroke();
       }
     }
-
-    ctx2d.fillStyle = i === _refEl ? "#2563eb" : "#555";
-    ctx2d.font = (i === _refEl ? "bold " : "") + "10px Segoe UI,sans-serif";
+    // X-Beschriftung: Label + Hz + apikal/basal
+    ctx2d.fillStyle = r.istRef ? "#2563eb" : "#555";
+    ctx2d.font = (r.istRef ? "bold " : "") + "10px Segoe UI,sans-serif";
     ctx2d.textAlign = "center";
-    const yE = h - pad.bottom + 14,
-          yHz = h - pad.bottom + 25,
-          yAB = h - pad.bottom + 38;
-    ctx2d.fillText(_dENPrefix() + _dEN(i), tX(j), yE);
-    ctx2d.font = "8px Consolas,monospace";
-    ctx2d.fillStyle = "#999";
-    ctx2d.fillText(Math.round(axis.hzArr[j]), tX(j), yHz);
-    if (j === 0) {
+    var yE = h - pad.bottom + 14, yHz = h - pad.bottom + 25, yAB = h - pad.bottom + 38;
+    ctx2d.fillText(r.label, tX(j), yE);
+    ctx2d.font = "8px Consolas,monospace"; ctx2d.fillStyle = "#999";
+    if (r.hz != null) ctx2d.fillText(Math.round(r.hz), tX(j), yHz);
+    if (r.apikalBasal) {
       ctx2d.font = "8px Segoe UI,sans-serif";
-      ctx2d.fillText(t("apikal"), tX(j), yAB);
-    }
-    if (j === allE.length - 1) {
-      ctx2d.font = "8px Segoe UI,sans-serif";
-      ctx2d.fillText(t("basal"), tX(j), yAB);
+      ctx2d.fillText(t(r.apikalBasal), tX(j), yAB);
     }
   }
+
+  // --- Achsen-Tooltip (Hitboxes ueber ALLE Zeilen) ---
   cv._axisHits = [];
-  for (let j = 0; j < allE.length; j++) {
-    const i = allE[j];
-    const cx = tX(j);
-    const halfDx = Math.max(8, (axis.minDx || 12) / 2);
+  for (var jh = 0; jh < n; jh++) {
+    var cxh = tX(jh), halfDx = Math.max(8, (xS || 12) / 2);
     cv._axisHits.push({
-      x0: cx - halfDx, x1: cx + halfDx,
+      x0: cxh - halfDx, x1: cxh + halfDx,
       y0: h - pad.bottom + 2, y1: h - pad.bottom + 34,
-      label: _dENPrefix() + _dEN(i),
-      hz: axis.hzArr[j],
-      // cent fehlt absichtlich — Tooltip zeigt seit BA 67 nur noch Hz
+      label: rows[jh].label, hz: rows[jh].hz
     });
   }
   _attachAxisTooltip(cv);
-  ctx2d.strokeStyle = "#2563eb44";
-  ctx2d.lineWidth = 2;
-  ctx2d.beginPath();
-  let first = true;
-  for (let j = 0; j < allE.length; j++) {
-    const i = allE[j];
-    if (!act.includes(i)) continue;
-    if (first) {
-      ctx2d.moveTo(tX(j), tY(vals[i]));
-      first = false;
-    } else ctx2d.lineTo(tX(j), tY(vals[i]));
+
+  // --- Spitzenpunkte (nur cfg.spitzenPunkte) — KEINE Verbindungslinie ---
+  if (cfg.spitzenPunkte) {
+    for (var jp = 0; jp < n; jp++) {
+      if (rows[jp].zustand !== "gemessen") continue;
+      ctx2d.beginPath(); ctx2d.arc(tX(jp), tY(rows[jp].wert || 0), 3.5, 0, Math.PI * 2);
+      ctx2d.fillStyle = "#2563eb"; ctx2d.fill();
+      ctx2d.strokeStyle = "#fff"; ctx2d.lineWidth = 2; ctx2d.stroke();
+    }
   }
-  ctx2d.stroke();
-  for (let j = 0; j < allE.length; j++) {
-    const i = allE[j];
-    if (!act.includes(i)) continue;
-    ctx2d.beginPath();
-    ctx2d.arc(tX(j), tY(vals[i]), 3.5, 0, Math.PI * 2);
-    ctx2d.fillStyle = "#2563eb";
-    ctx2d.fill();
-    ctx2d.strokeStyle = "#fff";
-    ctx2d.lineWidth = 2;
-    ctx2d.stroke();
-  }
+
+  // --- Y-Achsentitel ---
   ctx2d.save();
-  ctx2d.translate(12, pad.top + pH / 2);
-  ctx2d.rotate(-Math.PI / 2);
-  ctx2d.fillStyle = "#666";
-  ctx2d.font = "10px Segoe UI,sans-serif";
-  ctx2d.textAlign = "center";
-  ctx2d.fillText("dB", 0, 0);
+  ctx2d.translate(12, pad.top + pH / 2); ctx2d.rotate(-Math.PI / 2);
+  ctx2d.fillStyle = "#666"; ctx2d.font = "10px Segoe UI,sans-serif"; ctx2d.textAlign = "center";
+  ctx2d.fillText(cfg.yLabel || "dB", 0, 0);
   ctx2d.restore();
 }
 

@@ -182,14 +182,32 @@ function ELL_renderResults() {
       tr.innerHTML = `<td style="font-weight:600">${dENPrefix()}${dEN(i)}</td><td>${Math.round(FRQ_implantatEffektiv(i))}</td><td style="color:${ex ? "#999" : v > 0.05 ? "#2563eb" : v < -0.05 ? "#dc2626" : "#1a1a1a"}">${ex ? "—" : (v >= 0 ? "+" : "") + v.toFixed(1)}</td><td>${pc[i] || "—"}</td><td style="color:${ex ? "#999" : ell_color(i) === "green" ? "#16a34a" : ell_color(i) === "yellow" ? "#d97706" : ell_color(i) === "red" ? "#dc2626" : "#999"}">${ELL_res[i] > 0 ? ELL_res[i].toFixed(1) : "—"}</td><td>${ex ? "—" : ELL_wt[i].toFixed(1)}</td><td style="font-size:.78em">${st}</td><td style="text-align:center;font-weight:700">${i === ELL_refEl ? "X" : ""}</td>`;
       tb.appendChild(tr);
     }
-    ELL_drawChart(
-      document.getElementById("ELL_resChart"),
-      levels,
-      ELL_res,
-      true,
-      ell_color,
-      ELL_ctx("global"),
-    );
+    var _ellRows = [];
+    for (var _i = 0; _i < nEl; _i++) {
+      var _ex = elExDur[_i] !== null || elSt[_i] === "mute";
+      var _zustand = _ex ? "deaktiviert" : (!pc[_i] ? "ungemessen" : "gemessen");
+      var _st = ell_color(_i);   // "green"|"yellow"|"red"|"grey"
+      _ellRows.push({
+        elNum: _i,
+        label: dENPrefix() + dEN(_i),
+        hz: FRQ_implantatEffektiv(_i),
+        wert: levels[_i] || 0,
+        zustand: _zustand,
+        residuum: ELL_res[_i],
+        stufe: _st === "green" ? "gruen" : _st === "yellow" ? "gelb" : _st === "red" ? "rot" : null,
+        istRef: _i === ELL_refEl,
+        apikalBasal: _i === 0 ? "apikal" : (_i === nEl - 1 ? "basal" : null)
+      });
+    }
+    drawBarGraph(document.getElementById("ELL_resChart"), _ellRows, {
+      balkenFarbe: "ampel",
+      residuum: true,
+      spitzenPunkte: true,
+      refElLabel: true,
+      yLabel: "dB",
+      ySymmetrisch: true,
+      ctx: ELL_ctx("global")
+    });
     const chE = document.getElementById("ELL_chartExpl");
     if (chE) chE.textContent = t("ELL_chartExplB");
   }
