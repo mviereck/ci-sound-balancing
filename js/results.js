@@ -342,32 +342,133 @@ function FRQ_tabellenZeilen(opts) {
   return rows;
 }
 
-// Nachbesserung 435.1: HTML der Graph-Legende. Einleitungssatz + dreispaltige
-// Tabelle. Jede Zeile FRQ_chartLegendRowN = "Begriff|Wert|Erklaerung".
-// Die zwei "="-Zeichen entstehen als eigene schmale Spalten, wodurch sie
-// untereinander stehen (Ausrichtung durch die Tabellenstruktur).
-function _FRQ_chartLegendHtml() {
-  const intro = t("FRQ_chartLegendIntro");
-  const eqCell = "<td style=\"padding:0 6px;color:#374151\">=</td>";
-  let rows = "";
-  for (let n = 1; n <= 7; n++) {
-    const raw = t("FRQ_chartLegendRow" + n);
-    if (!raw || raw === "FRQ_chartLegendRow" + n) continue;
-    const parts = raw.split("|");
-    const begriff = parts[0] || "";
-    const wert    = parts[1] || "";
-    const erkl    = parts[2] || "";
-    rows +=
+// Legende eines Frequenz-Graphen (Architektur §8). EIN Bauer fuer alle
+// Graphen: Farben/Elemente/Achse kommen aus frqLegendData (chart.js),
+// die Bedeutung je Element aus i18n. Spalten: Element = Farbe =
+// Bedeutung, an den "="-Zellen ausgerichtet (wie zuvor _FRQ_chartLegendHtml).
+function FRQ_legendeHtml(graphKey, cfg, rows) {
+  var data = (typeof frqLegendData === "function")
+    ? frqLegendData(cfg, rows) : { elemente: [], bewertung: "ampel" };
+  var eqCell = "<td style=\"padding:0 6px;color:#374151\">=</td>";
+  var T = function (k, fb) {
+    var v = (typeof t === "function") ? t(k) : k;
+    return (v && v !== k) ? v : (fb != null ? fb : null);
+  };
+
+  // Anzeige-Wort fuer den Farb-Schluessel (Spalte 2), i18n-faehig.
+  var farbWort = function (key) { return T("FRQ_legFarbe_" + key, key); };
+  // Farb-Quadrat(e) vor dem Wort zur Orientierung. hex = Array (Ampel hat
+  // mehrere). Helle Fuellungen (gedecktes Weiss, hellblau, hellrot)
+  // bekommen einen grauen Rahmen, sonst kaum sichtbar auf hellem Grund.
+  var hellFarbe = function (hx) {
+    var m = /^#([0-9a-f]{6})$/i.exec(hx); if (!m) return false;
+    var n = parseInt(m[1], 16);
+    var r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+    return (0.299 * r + 0.587 * g + 0.114 * b) > 220;   // sehr hell
+  };
+  var farbQuadrate = function (hexArr) {
+    if (!hexArr || !hexArr.length) return "";
+    var out = "";
+    hexArr.forEach(function (hx) {
+      var rand = hellFarbe(hx) ? "#9ca3af" : hx;
+      out += "<span style=\"display:inline-block;width:10px;height:10px;"
+        + "background:" + hx + ";border:1px solid " + rand + ";"
+        + "border-radius:2px;vertical-align:middle;margin-right:2px\"></span>";
+    });
+    return out + " ";
+  };
+  // Symbol des grafischen Elements ganz vorne (Spalte 0), 14x14 SVG.
+  // Form je Element-Schluessel; Farbe: Strich/Band/Flaeche/Kurve tragen
+  // ihre echte Farbe (informativ), die Ampel-Elemente (Pfeil, Punkt)
+  // neutralgrau (mehrere Farben -> ein neutrales Symbol; die echten
+  // Farben stehen als Quadrate in Spalte 2).
+  var NEUTRAL = "#374151";
+  var elementSymbol = function (key, hexArr) {
+    var c = (hexArr && hexArr.length) ? hexArr[0] : NEUTRAL;
+    var rand = hellFarbe(c) ? "#9ca3af" : c;
+    var svg = function (inner) {
+      return "<span style=\"display:inline-block;width:14px;height:14px;"
+        + "vertical-align:middle;margin-right:2px\">"
+        + "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\">" + inner + "</svg></span>";
+    };
+    switch (key) {
+      case "strichGrau":
+      case "strichSchwarz":
+        return svg("<line x1=\"7\" y1=\"1\" x2=\"7\" y2=\"13\" stroke=\"" + c + "\" stroke-width=\"1.75\"/>");
+      case "band":   // schmales senkrechtes Band
+        return svg("<rect x=\"5\" y=\"1\" width=\"4\" height=\"12\" fill=\"" + c + "\"/>");
+      case "querbalken":   // T-Balken (Residuum): senkrecht + zwei Endkappen
+        return svg("<line x1=\"7\" y1=\"2\" x2=\"7\" y2=\"12\" stroke=\"#000000\" stroke-width=\"1.5\"/>"
+          + "<line x1=\"4\" y1=\"2\" x2=\"10\" y2=\"2\" stroke=\"#000000\" stroke-width=\"1.5\"/>"
+          + "<line x1=\"4\" y1=\"12\" x2=\"10\" y2=\"12\" stroke=\"#000000\" stroke-width=\"1.5\"/>");
+      case "pfeil":   // waagerechter Pfeil, neutral
+        return svg("<line x1=\"1\" y1=\"7\" x2=\"11\" y2=\"7\" stroke=\"" + NEUTRAL + "\" stroke-width=\"1.5\"/>"
+          + "<polyline points=\"8,4 12,7 8,10\" fill=\"none\" stroke=\"" + NEUTRAL + "\" stroke-width=\"1.5\"/>");
+      case "punkt":   // gefuellter Kreis, neutral
+        return svg("<circle cx=\"7\" cy=\"7\" r=\"4\" fill=\"" + NEUTRAL + "\"/>");
+      case "kurve":   // Wellenlinie in Kurvenfarbe
+        return svg("<path d=\"M1,10 C4,3 6,3 7,7 C8,11 10,11 13,4\" fill=\"none\" stroke=\"" + c + "\" stroke-width=\"1.5\"/>");
+      case "flaeche":   // gefuelltes Rechteck in Flaechenfarbe
+        return svg("<rect x=\"1\" y=\"3\" width=\"12\" height=\"8\" fill=\"" + c + "\" stroke=\"" + rand + "\" stroke-width=\"1\"/>");
+      default:
+        return svg("");
+    }
+  };
+  // Element-Name (Spalte 1) + automatische Achsen-Angabe.
+  var elementName = function (key, achse) {
+    var name = T("FRQ_legElement_" + key, key);
+    if (achse === "x") name += " (X)";
+    else if (achse === "y") name += " (Y)";
+    return name;
+  };
+  // Bedeutung (Spalte 3). Kurve/Flaeche: am Farb-Schluessel; sonst am
+  // Element allein. Fehlt -> null -> Zeile weglassen.
+  var bedeutung = function (elKey, farbeKey) {
+    var suffix = (elKey === "kurve" || elKey === "flaeche")
+      ? (elKey + "_" + farbeKey) : elKey;
+    return T("FRQ_leg_" + graphKey + "_" + suffix, null);
+  };
+
+  var zeilen = "";
+  data.elemente.forEach(function (e) {
+    var bed = bedeutung(e.key, e.farbe);
+    if (bed == null) return;   // Element ohne Bedeutung in diesem Graphen -> nicht zeigen
+    zeilen +=
       "<tr>" +
-      "<td style=\"padding:1px 0;white-space:nowrap;font-weight:600\">" + begriff + "</td>" +
+      "<td style=\"padding:1px 4px 1px 0;white-space:nowrap\">" + elementSymbol(e.key, e.hex) + "</td>" +
+      "<td style=\"padding:1px 0;white-space:nowrap;font-weight:600\">" + elementName(e.key, e.achse) + "</td>" +
       eqCell +
-      "<td style=\"padding:1px 0;white-space:nowrap\">" + wert + "</td>" +
+      "<td style=\"padding:1px 0;white-space:nowrap\">" + farbQuadrate(e.hex) + farbWort(e.farbe) + "</td>" +
       eqCell +
-      "<td style=\"padding:1px 0\">" + erkl + "</td>" +
+      "<td style=\"padding:1px 0\">" + bed + "</td>" +
       "</tr>";
-  }
-  return "<p style=\"margin:0 0 6px\">" + intro + "</p>" +
-    "<table style=\"border-collapse:collapse;font-size:1em\"><tbody>" + rows + "</tbody></table>";
+  });
+
+  var intro = T("FRQ_legIntro_" + graphKey, "") || "";
+  var legendWort = T("FRQ_legLegende", "Legende:");
+
+  // Farb-Erklaerblock (§8.4) als Tabelle: je Stufe ein farbiger Kreis
+  // (wie der Graph-Punkt) + Erklaertext. Stufen + Kreisfarbe aus
+  // frqLegendData.ampelStufen; Text aus FRQ_legStufe_<bewertung>_<stufe>.
+  var ampelZeilen = "";
+  (data.ampelStufen || []).forEach(function (s) {
+    var txt = T("FRQ_legStufe_" + data.bewertung + "_" + s.stufe, null);
+    if (txt == null) return;
+    var kreis = "<span style=\"display:inline-block;width:11px;height:11px;"
+      + "background:" + s.hex + ";border-radius:50%;vertical-align:middle;"
+      + "margin-right:2px\"></span>";
+    ampelZeilen +=
+      "<tr>" +
+      "<td style=\"padding:1px 6px 1px 0;white-space:nowrap\">" + kreis + "</td>" +
+      "<td style=\"padding:1px 0\">" + txt + "</td>" +
+      "</tr>";
+  });
+
+  return "<p style=\"margin:0 0 2px;font-weight:600\">" + legendWort + "</p>" +
+    (intro ? "<p style=\"margin:0 0 6px\">" + intro + "</p>" : "") +
+    "<table style=\"border-collapse:collapse;font-size:1em\"><tbody>" + zeilen + "</tbody></table>" +
+    (ampelZeilen ? "<table style=\"border-collapse:collapse;font-size:1em;margin:6px 0 0\">"
+      + "<tbody>" + ampelZeilen + "</tbody></table>" : "");
 }
 
 // BA459: Zeilen-Modell fuer den Ergebnis-Frequenzgraphen (gehoerte
@@ -412,10 +513,10 @@ function FRQ_ergebnisRows(side, opts) {
     var sichtbar = !(sideData[side].elActive && sideData[side].elActive[wr.elIdx] === false);
 
     var tooltip;
-    var marker = null;
     if (!isMeasured) {
-      // ungemessen: Marker "ausgeschlossen" (nicht testbar) oder "offen".
-      marker = wr.deaktiviert ? "ausgeschlossen" : "offen";
+      // ungemessen (aber testbar): grauer Punkt in der Kurve wie Graph 2/3
+      // (yCent=0 -> Nulllinie, stufe=null -> grau). Deaktivierte sind
+      // unsichtbar (sichtbar=false), tauchen also gar nicht auf.
       tooltip = ["<b>E" + elNum + "</b>",
                  Math.round(hzIst) + " Hz",
                  tipT("notMeasured", "nicht gemessen")];
@@ -444,13 +545,13 @@ function FRQ_ergebnisRows(side, opts) {
       elNum: elNum,
       xLinksHz: hzIst,
       xRechtsHz: (hzSoll != null) ? hzSoll : hzIst,   // ungemessen: Fallback Ist
-      yCent: (isMeasured && dc != null) ? dc : null,
+      yCent: (isMeasured && dc != null) ? dc : 0,   // ungemessen: 0 (Nulllinie), grauer Punkt
       residuumCent: resid,
       bandLoHz: null, bandHiHz: null,     // Ergebnisgraph hat keine Baender
       sichtbar: sichtbar,
       warn: warn,
-      stufe: warn ? "rot" : "gruen",   // Ergebnisgraph: gruen, rot nur bei Warnung
-      marker: marker,                     // nur bei ungemessen gesetzt
+      // gemessen: gruen, rot nur bei Warnung. Ungemessen: null -> grauer Punkt.
+      stufe: !isMeasured ? null : (warn ? "rot" : "gruen"),
       tooltip: tooltip
     });
   }
@@ -509,8 +610,7 @@ function FRQ_glaettRows(side, opts) {
         bandLoHz: null, bandHiHz: null,
         sichtbar: true,
         warn: false,
-        stufe: null,                // kein Farbpunkt: keine Messung
-        marker: "offen",
+        stufe: null,                // ungemessen: grauer Punkt (kein Farb-Urteil)
         tooltip: ["<b>E" + elNum + "</b>", t("notMeasured")]
       });
       return;
@@ -560,8 +660,16 @@ function FRQ_renderGlaettGraph() {
     linienfarbe: "gruen",       // BA484: yCent traegt hier die geglaettete Kurve
     zweitkurve: "blau",         // BA484: blaue Marker-Kurve = rohe Verschiebung
     amberband: false,
+    titel: "FRQ_titel_glaett",
+    bewertung: "ampel",
     yMaxFest: FRQ_yMaxCent()    // BA485: gemeinsame Skala aus Rohdaten
   });
+  var _glHint = document.getElementById("FRQ_glaettChartHint");
+  if (_glHint) {
+    _glHint.innerHTML = FRQ_legendeHtml("glaett", {
+      linienfarbe: "gruen", zweitkurve: "blau", amberband: false, bewertung: "ampel"
+    }, rows);
+  }
   if (!cv._frqg_listener) {
     cv.addEventListener("mousemove", function (e) { _frqg_tooltipHandler(cv, e); });
     cv.addEventListener("mouseleave", function () {
@@ -763,9 +871,10 @@ function FRQ_renderResults() {
       amberband: true,
       xWandHz: _wand,
       yLabel: t("FRQ_resultsChartYLabel"),
+      titel: "FRQ_titel_ergebnis",
+      bewertung: "problem",
       verbindung: true
       // BA491: kein yMaxFest -> Auto-Skala aus Rohdaten (drawFRQGraph chart.js:462-470)
-      // KEIN schwelleCent -> zweistufig gruen/rot (Ergebnisgraph)
     });
     if (!cv._frqg_listener) {
       cv.addEventListener("mousemove", (e) => _frqg_tooltipHandler(cv, e));
@@ -775,14 +884,12 @@ function FRQ_renderResults() {
       });
       cv._frqg_listener = true;
     }
-  }
-
-  // Chart-Legende (Nachbesserung 435.1): Einleitungssatz + dreispaltige
-  // Tabelle (Begriff = Wert = Erklaerung, je zwei "="), an den "="-Spalten
-  // ausgerichtet. Jede Zeile aus einem i18n-Key mit "|"-getrennten Teilen.
-  const hintEl = document.getElementById("FRQ_resultsChartHint");
-  if (hintEl) {
-    hintEl.innerHTML = _FRQ_chartLegendHtml();
+    const hintEl = document.getElementById("FRQ_resultsChartHint");
+    if (hintEl) {
+      hintEl.innerHTML = FRQ_legendeHtml("ergebnis", {
+        amberband: true, bewertung: "problem"
+      }, _rows);
+    }
   }
 }
 
@@ -891,7 +998,9 @@ function _FRQ_renderBandEmpf(side) {
       // Striche gehoert->Kurve. Sonst: Mitten-Abweichung wie bisher (§5.1).
       var _gemessen = !!(_w && _w.gemessen);   // BA483 (§15.5)
       var _consist = (_ws.kurveAbwCent != null) ? _ws.kurveAbwCent : null;
-      var _yCent   = !_gemessen ? null : (istFbf ? _consist : _dev);
+      // Ungemessen: grauer Punkt (stufe=null) auf der echten Bandmitten-
+      // Abweichung _dev (FBF: kein Konsistenzwert -> ebenfalls _dev).
+      var _yCent   = !_gemessen ? _dev : (istFbf ? _consist : _dev);
       var _xLinks  = _target;                            // gehoert (roh)
       var _xRechts = istFbf
         ? ((_ws.kurveHz != null) ? _ws.kurveHz : _center)
@@ -938,8 +1047,16 @@ function _FRQ_renderBandEmpf(side) {
       verbindung: true,
       zweitkurve: "gruen",     // BA484: gruene Marker-Kurve = gegen geglaettet
       amberband: false,
+      titel: "FRQ_titel_band",
+      bewertung: "ampel",
       yMaxFest: FRQ_yMaxCent()    // BA485: gemeinsame Skala aus Rohdaten
     });
+    var _bHint = document.getElementById("FRQ_bandEmpfChartHint");
+    if (_bHint) {
+      _bHint.innerHTML = FRQ_legendeHtml("band", {
+        zweitkurve: "gruen", amberband: false, bewertung: "ampel"
+      }, _rows);
+    }
     if (!_bcv._frqg_listener) {
       _bcv.addEventListener("mousemove", function (e) { _frqg_tooltipHandler(_bcv, e); });
       _bcv.addEventListener("mouseleave", function () {

@@ -419,7 +419,8 @@ function drawFRQGraph(cv, rows, cfg) {
   ctx.scale(dpr, dpr);
   ctx.clearRect(0, 0, w, h);
 
-  const pad = { top: 80, right: 30, bottom: 54, left: 70 };
+  const titelH = cfg.titel ? 22 : 0;   // reservierter Streifen ganz oben fuer den Titel
+  const pad = { top: 80 + titelH, right: 30, bottom: 54, left: 70 };
   const pW = w - pad.left - pad.right;
   const pH = h - pad.top - pad.bottom;
 
@@ -475,7 +476,7 @@ function drawFRQGraph(cv, rows, cfg) {
   // Farbe kommt jetzt vom Aufrufer als benannte Stufe (row.stufe):
   // "gruen"/"amber"/"rot". Die Engine mappt nur, sie bewertet nicht.
   // Fehlt die Stufe -> Neutralgrau (unbewertet, taeuscht keine Bewertung vor).
-  const STUFE_FARBE = { gruen: "#16a34a", amber: "#d97706", rot: "#dc2626" };
+  const STUFE_FARBE = { gruen: "#16a34a", amber: "#facc15", rot: "#dc2626" };
   const farbeFuer = function (r) {
     return STUFE_FARBE[r && r.stufe] || "#9ca3af";
   };
@@ -506,7 +507,7 @@ function drawFRQGraph(cv, rows, cfg) {
     // Baender, die dieses Segment ueberdecken (Segmentmitte innerhalb).
     const cover = bandRows.filter(function (r) { return tX(r._cLo) <= mid && mid <= tX(r._cHi); });
     let fill;
-    if (cover.length === 0)      fill = "#ffffff";
+    if (cover.length === 0)      fill = "#f2f2f2";   // gedecktes Weiss (neutralgrau, kein Blaustich): hebt Luecke/Rand vom Canvas-Weiss ab
     else if (cover.length >= 2)  fill = BAND_ROT;
     else                         fill = BAND_BLAU[cover[0]._bandIdx % BAND_BLAU.length];
     ctx.fillStyle = fill;
@@ -620,33 +621,15 @@ function drawFRQGraph(cv, rows, cfg) {
   // (4)+(6) PUNKT (gruen/rot) + Residuum-T-Balken (nur Anker=punkt).
   //         Hitboxen fuer Mouseover.
   // ============================================================
-  const hitboxes = [];
   rows.forEach(function (r) {
-    if (r.yCent == null) {
-      // Leer-Marker auf der Nullinie an der xLinks-Position (Ist).
-      if (r.marker) {
-        const xm = tX(r._cL), ym = tY(0);
-        if (r.marker === "ausgeschlossen") {
-          ctx.strokeStyle = "#9ca3af"; ctx.lineWidth = 1.75;
-          const s = 5;
-          ctx.beginPath();
-          ctx.moveTo(xm - s, ym - s); ctx.lineTo(xm + s, ym + s);
-          ctx.moveTo(xm + s, ym - s); ctx.lineTo(xm - s, ym + s);
-          ctx.stroke();
-        } else { // "offen"
-          ctx.strokeStyle = "#9ca3af"; ctx.fillStyle = "#fff"; ctx.lineWidth = 1.25;
-          ctx.beginPath(); ctx.arc(xm, ym, 4, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-        }
-        hitboxes.push({ x: xm, y: ym, r: r });
-      }
-      return;
-    }
+    // Alle sichtbaren Zeilen tragen yCent (ungemessen: grauer Punkt bei 0
+    // bzw. Bandmitten-Abweichung, stufe=null). Kein Leer-Marker mehr.
+    if (r.yCent == null) return;
     const xs = tX(r._cR), ys = tY(r.yCent);
     const farbe = farbeFuer(r);
     ctx.beginPath(); ctx.arc(xs, ys, 5.5, 0, Math.PI * 2);
     ctx.fillStyle = farbe; ctx.fill();
     ctx.strokeStyle = "#fff"; ctx.lineWidth = 2; ctx.stroke();
-    hitboxes.push({ x: xs, y: ys, r: r });
     if (r.residuumCent > 0) {
       const halfH = Math.abs(tY(0) - tY(r.residuumCent));
       // Anker-Mitte: nulllinie -> 0; rohwert -> roher cent (BA475); sonst Punkt.
@@ -778,8 +761,98 @@ function drawFRQGraph(cv, rows, cfg) {
   ctx.fillText(cfg.yLabel || "", 0, 0);
   ctx.restore();
 
-  cv._frqg_hitboxes = hitboxes;
+  // --- Titel im Bild (oben, ueber den Nummern-Labels) ---
+  if (cfg.titel) {
+    var _titelText = (typeof t === "function") ? t(cfg.titel) : cfg.titel;
+    if (_titelText) {
+      ctx.fillStyle = "#000";
+      ctx.font = "bold 13px Segoe UI,sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(_titelText, pad.left + pW / 2, 16);
+    }
+  }
+
   cv._frqg_state = { ctx: ctx, tX: tX, tY: tY, pad: pad, pH: pH, rows: rows };
+}
+
+// Legende-Fakten fuer einen Frequenz-Graphen (Architektur §8). Zeichnet
+// NICHT -- liefert nur, WELCHE Elemente der Graph hat, ihren Farb-
+// Schluessel und ihre Achse. Die Elementauswahl folgt denselben cfg-/
+// rows-Bedingungen wie drawFRQGraph (amberband, zweitkurve, Bandgrenzen),
+// damit Legende und Bild nie divergieren. Rueckgabe:
+//   { elemente: [ { key, farbe, achse } ... ], bewertung: "ampel"|"problem" }
+// key   = stabiler Element-Schluessel (§8.5)
+// farbe = Farb-Schluessel fuer Legende-Spalte 2 (Anzeige-Wort via i18n)
+// achse = "x" | "y" | null  (Spalte-1-Zusatz "(X)"/"(Y)")
+function frqLegendData(cfg, rows) {
+  cfg = cfg || {};
+  rows = rows || [];
+  var bewertung = (cfg.bewertung === "problem") ? "problem" : "ampel";
+  // Ampel-Farbwort haengt am Paradigma: zweistufig gruen/rot, dreistufig
+  // gruen/gelb/rot -- genau die Punkt-/Pfeil-Farbstufen (STUFE_FARBE).
+  var ampelWort = (bewertung === "problem") ? "gruenrot" : "gruengelbrot";
+
+  // Hex je Farb-Schluessel fuer die Legende-Farbquadrate -- SELBE Werte
+  // wie der Zeichencode (STUFE_FARBE 479, KURVENFARBE 585, BAND_* 493-494,
+  // Strichfarben 541/543, Amberband-Grundton 542 voll deckend). Ampel-
+  // Schluessel = Array mehrerer Stufen. Eine Wahrheit: aendert sich eine
+  // Zeichenfarbe, hier mitziehen (die Legende zeigt genau das Bild).
+  var HEX = {
+    hellgrau: ["#9ca3af"], schwarz: ["#000000"], orange: ["#f59e0b"],
+    blau: ["#3b82f6"], gruen: ["#16a34a"], hellblau: ["#dbeafe"],
+    weiss: ["#f2f2f2"], hellrot: ["#fecaca"],
+    gruenrot: ["#16a34a", "#dc2626"],
+    gruengelbrot: ["#16a34a", "#facc15", "#dc2626"]
+  };
+  var mk = function (key, farbe, achse) {
+    return { key: key, farbe: farbe, achse: achse, hex: HEX[farbe] || ["#9ca3af"] };
+  };
+
+  var el = [];
+  el.push(mk("strichGrau",    "hellgrau", "x"));
+  el.push(mk("strichSchwarz", "schwarz",  "x"));
+  el.push(mk("pfeil",         ampelWort,  "x"));
+  el.push(mk("punkt",         ampelWort,  "y"));
+  if (cfg.amberband) el.push(mk("band", "orange", "x"));
+  el.push(mk("querbalken", "schwarz", "y"));
+
+  // Kurven (§8.5): blau = Messergebnisse, gruen = Glaettung, ueber alle
+  // Graphen konsistent. Erste Linie = cfg.linienfarbe (Default blau);
+  // Zweitkurve = cfg.zweitkurve, nur wenn Zeilen yCent2 tragen.
+  var hatZweit = false;
+  for (var i = 0; i < rows.length; i++) {
+    if (rows[i] && rows[i].yCent2 != null) { hatZweit = true; break; }
+  }
+  var linie1 = (cfg.linienfarbe === "gruen") ? "gruen" : "blau";
+  el.push(mk("kurve", linie1, null));
+  if (hatZweit && cfg.zweitkurve) {
+    var linie2 = (cfg.zweitkurve === "gruen") ? "gruen" : "blau";
+    if (linie2 !== linie1) el.push(mk("kurve", linie2, null));
+  }
+
+  // Flaechen (§4 Punkt 1): nur wenn Zeilen Bandgrenzen tragen. Weiss +
+  // hellrot immer mit-benennen, weil die Engine sie aktiv zeichnet.
+  var hatBaender = false;
+  for (var j = 0; j < rows.length; j++) {
+    if (rows[j] && rows[j].bandLoHz != null && rows[j].bandHiHz != null) { hatBaender = true; break; }
+  }
+  if (hatBaender) {
+    el.push(mk("flaeche", "hellblau", null));
+    el.push(mk("flaeche", "weiss",    null));
+    el.push(mk("flaeche", "hellrot",  null));
+  }
+
+  // Ampel-Stufen fuer den Farb-Erklaerblock (§8.4): je Stufe ein
+  // Schluessel (i18n-Erklaertext) + die Kreisfarbe (STUFE_FARBE, wie im
+  // Graph-Punkt). "problem" = zweistufig gruen/rot, "ampel" = dreistufig.
+  // Grauer Punkt = ungemessene (aber testbare) Elektrode, in ALLEN Graphen
+  // (stufe=null -> Neutralgrau #9ca3af, wie farbeFuer). Letzte Zeile.
+  var grau = { stufe: "ungemessen", hex: "#9ca3af" };
+  var stufen = (bewertung === "problem")
+    ? [ { stufe: "gruen", hex: "#16a34a" }, { stufe: "rot", hex: "#dc2626" }, grau ]
+    : [ { stufe: "gruen", hex: "#16a34a" }, { stufe: "gelb", hex: "#facc15" }, { stufe: "rot", hex: "#dc2626" }, grau ];
+
+  return { elemente: el, bewertung: bewertung, ampelStufen: stufen };
 }
 
 // Highlight aller Elemente einer Zeile (BA456).
@@ -812,12 +885,46 @@ function _frqg_drawHighlight(cv, r) {
   }
 }
 
+// Abstand Punkt->Strecke (fuer die senkrechten Striche + den Pfeil).
+function _frqg_distSegment(px, py, x1, y1, x2, y2) {
+  var dx = x2 - x1, dy = y2 - y1;
+  var len2 = dx * dx + dy * dy;
+  var tPar = len2 > 0 ? ((px - x1) * dx + (py - y1) * dy) / len2 : 0;
+  tPar = Math.max(0, Math.min(1, tPar));
+  var cx = x1 + tPar * dx, cy = y1 + tPar * dy;
+  return Math.hypot(px - cx, py - cy);
+}
+
+// Minimaler Abstand des Mauszeigers zu IRGENDEINEM aufleuchtenden Element
+// der Zeile r -- exakt die Elemente, die _frqg_drawHighlight zeichnet
+// (beide senkrechten Striche, Punkt/Leer-Marker, Pfeil, Labels). So sind
+// "was leuchtet" und "was ausloest" dieselbe Menge (eine Wahrheit).
+function _frqg_zeilenDistanz(cv, r) {
+  var s = cv._frqg_state; if (!s) return Infinity;
+  var tX = s.tX, tY = s.tY, pad = s.pad, pH = s.pH;
+  var d = Infinity;
+  var yTop = pad.top, yBot = pad.top + pH;
+  // Zwei senkrechte Striche (volle Feldhoehe).
+  d = Math.min(d, _frqg_distSegment(cv._frqg_mx, cv._frqg_my, tX(r._cL), yTop, tX(r._cL), yBot));
+  d = Math.min(d, _frqg_distSegment(cv._frqg_mx, cv._frqg_my, tX(r._cR), yTop, tX(r._cR), yBot));
+  // Punkt (alle sichtbaren Zeilen tragen yCent).
+  if (r.yCent != null) d = Math.min(d, Math.hypot(tX(r._cR) - cv._frqg_mx, tY(r.yCent) - cv._frqg_my));
+  // Pfeil (aus _frqg_arrowPos je elNum).
+  var ap = cv._frqg_arrowPos && cv._frqg_arrowPos[r.elNum];
+  if (ap) d = Math.min(d, _frqg_distSegment(cv._frqg_mx, cv._frqg_my, ap.x1, ap.y, ap.x2, ap.y));
+  // Nummern-Labels (je Position).
+  var lp = cv._frqg_labelPos && cv._frqg_labelPos[r.elNum];
+  if (lp) lp.forEach(function (l) { d = Math.min(d, Math.hypot(l.x - cv._frqg_mx, l.y - cv._frqg_my)); });
+  return d;
+}
+
 // Tooltip-Handler (BA456). Nutzt r.tooltip (vorformatierte Zeilen).
 function _frqg_tooltipHandler(cv, e) {
-  if (!cv._frqg_hitboxes) return;
+  if (!cv._frqg_state || !cv._frqg_state.rows) return;
   const rect = cv.getBoundingClientRect(), dpr = window.devicePixelRatio || 1,
     scaleX = (cv.width / dpr) / rect.width, scaleY = (cv.height / dpr) / rect.height,
     mx = (e.clientX - rect.left) * scaleX, my = (e.clientY - rect.top) * scaleY;
+  cv._frqg_mx = mx; cv._frqg_my = my;
   let tip = document.getElementById("frqg_tooltip");
   if (!tip) {
     tip = document.createElement("div"); tip.id = "frqg_tooltip";
@@ -826,7 +933,15 @@ function _frqg_tooltipHandler(cv, e) {
       "line-height:1.6;white-space:nowrap;";
     document.body.appendChild(tip);
   }
-  const hit = cv._frqg_hitboxes.find(function (hb) { return Math.hypot(hb.x - mx, hb.y - my) <= 12; });
+  // Naechstliegende Zeile ueber ALLE aufleuchtenden Elemente (nicht nur
+  // den Punkt). Schwelle 12 px wie zuvor.
+  var beste = null, besteD = 12;
+  cv._frqg_state.rows.forEach(function (r) {
+    if (!r || !r.sichtbar) return;
+    var dd = _frqg_zeilenDistanz(cv, r);
+    if (dd <= besteD) { besteD = dd; beste = r; }
+  });
+  const hit = beste ? { r: beste } : null;
   const newR = hit ? hit.r : null;
   if (newR !== cv._frqg_highR) {
     cv._frqg_highR = newR;
