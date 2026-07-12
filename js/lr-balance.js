@@ -520,151 +520,38 @@ function STB_renderResults() {
 function STB_drawChart() {
   const cv = document.getElementById("STB_resChart");
   if (!cv) return;
-  const wp = cv.parentElement;
-  const dpr = window.devicePixelRatio || 1;
-  const W = wp.clientWidth,
-    H = wp.clientHeight;
-  cv.width = W * dpr;
-  cv.height = H * dpr;
-  const ctx = cv.getContext("2d");
-  ctx.scale(dpr, dpr);
-  ctx.clearRect(0, 0, W, H);
-
   const count = Math.min(sideData["left"].nEl, sideData["right"].nEl);
-  if (count === 0) return;
+  if (count === 0) { cv.width = cv.width; return; }
 
-  // Status pro Index ermitteln
-  const status = [];   // 'measured' | 'unmeasured' | 'disabled'
+  const rows = [];
   for (let i = 0; i < count; i++) {
     const rightEl = i < sideData["right"].nEl ? i : sideData["right"].nEl - 1;
     const exL = sideData.left.elExDur[i]        !== null || sideData.left.elSt[i]        === 'mute';
     const exR = sideData.right.elExDur[rightEl] !== null || sideData.right.elSt[rightEl] === 'mute';
-    if (exL || exR) status[i] = 'disabled';
-    else if (STB_results[i] !== undefined) status[i] = 'measured';
-    else status[i] = 'unmeasured';
-  }
-
-  // Skala nur über gemessene aktive Werte
-  const measuredVals = [];
-  for (let i = 0; i < count; i++)
-    if (status[i] === 'measured') measuredVals.push(STB_results[i]);
-  if (!measuredVals.length && !status.includes('unmeasured')) return;
-  const absMax = measuredVals.length
-    ? Math.max(Math.ceil(Math.max(...measuredVals.map(Math.abs), 2)), 3)
-    : 3;
-
-  const pad = { top: 20, right: 16, bottom: 46, left: 52 };
-  const pW = W - pad.left - pad.right;
-  const pH = H - pad.top - pad.bottom;
-  const idxArr = [];
-  for (let i = 0; i < count; i++) idxArr.push(i);
-  const axis = buildLinearAxis(idxArr, pad.left, pW, function (i) {
-    return stb_effFRQ("left", i);
-  });
-  const tX = axis.tX;
-  const tY = (v) => pad.top + (absMax - v) * (pH / (2 * absMax));
-  const zY = tY(0);
-  const yTop = pad.top, yBot = pad.top + pH;
-  const bW = Math.min((axis.minDx || 12) * 0.6, 28);
-
-  // Grid
-  ctx.strokeStyle = "#e5e5e5";
-  ctx.lineWidth = 1;
-  for (let s = -absMax; s <= absMax; s += Math.ceil(absMax / 3)) {
-    const y = tY(s);
-    ctx.beginPath();
-    ctx.moveTo(pad.left, y);
-    ctx.lineTo(W - pad.right, y);
-    ctx.stroke();
-    ctx.fillStyle = "#999";
-    ctx.font = "9px Consolas,monospace";
-    ctx.textAlign = "right";
-    ctx.fillText((s >= 0 ? "+" : "") + s.toFixed(0), pad.left - 6, y + 3);
-  }
-  // Zero line
-  ctx.strokeStyle = "#999";
-  ctx.lineWidth = 1.5;
-  ctx.setLineDash([4, 3]);
-  ctx.beginPath();
-  ctx.moveTo(pad.left, zY);
-  ctx.lineTo(W - pad.right, zY);
-  ctx.stroke();
-  ctx.setLineDash([]);
-
-  // Balken/Marker für alle Indizes
-  for (let i = 0; i < count; i++) {
-    const x = tX(i) - bW / 2;
-    if (status[i] === 'disabled') {
-      drawDisabledBar(ctx, x, yTop, yBot, bW);
-    } else if (status[i] === 'unmeasured') {
-      ctx.strokeStyle = '#cbd5e1';
-      ctx.lineWidth = 1;
-      ctx.setLineDash([3, 3]);
-      ctx.beginPath();
-      ctx.moveTo(x + bW / 2, yTop);
-      ctx.lineTo(x + bW / 2, yBot);
-      ctx.stroke();
-      ctx.setLineDash([]);
-      // kleines Querstrich-Symbol auf der Null-Linie
-      ctx.strokeStyle = '#94a3b8';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.moveTo(x + bW * 0.25, zY);
-      ctx.lineTo(x + bW * 0.75, zY);
-      ctx.stroke();
-    } else {
-      const v = STB_results[i];
-      const yV = tY(v);
-      const col = v > 0.1 ? '#dc2626' : v < -0.1 ? '#2563eb' : '#9ca3af';
-      ctx.fillStyle = col;
-      ctx.fillRect(x, Math.min(zY, yV), bW, Math.abs(yV - zY) || 2);
-    }
-
-    // X-Achsenbeschriftung pro Elektrode (E / Hz)
-    const leftLabel = dENPrefix("left") + dEN(i, "left");
-    ctx.fillStyle = "#555";
-    ctx.font = "9px Segoe UI,sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillText(leftLabel, tX(i), H - pad.bottom + 12);
-    const hzL = axis.hzArr[i];
-    ctx.font = "7px Consolas,monospace";
-    ctx.fillStyle = "#999";
-    ctx.fillText(Math.round(hzL), tX(i), H - pad.bottom + 23);
-  }
-  cv._axisHits = [];
-  for (let i = 0; i < count; i++) {
-    const halfDx = Math.max(8, (axis.minDx || 12) / 2);
-    cv._axisHits.push({
-      x0: tX(i) - halfDx, x1: tX(i) + halfDx,
-      y0: H - pad.bottom + 2, y1: H - pad.bottom + 32,
+    let zustand;
+    if (exL || exR) zustand = "deaktiviert";
+    else if (STB_results[i] !== undefined) zustand = "gemessen";
+    else zustand = "ungemessen";
+    rows.push({
+      elNum: i,
       label: dENPrefix("left") + dEN(i, "left"),
-      hz: axis.hzArr[i],
-      // cent fehlt absichtlich — Tooltip zeigt seit BA 67 nur noch Hz
+      hz: stb_effFRQ("left", i),
+      wert: (STB_results[i] !== undefined ? STB_results[i] : 0),
+      zustand: zustand,
+      residuum: null,
+      stufe: null,
+      istRef: false,
+      apikalBasal: i === 0 ? "apikal" : (i === count - 1 ? "basal" : null)
     });
   }
-  _attachAxisTooltip(cv);
 
-  // Verbindungslinie zwischen gemessenen Punkten
-  ctx.strokeStyle = "#2563eb44";
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  let first = true;
-  for (let i = 0; i < count; i++) {
-    if (status[i] !== 'measured') continue;
-    if (first) { ctx.moveTo(tX(i), tY(STB_results[i])); first = false; }
-    else ctx.lineTo(tX(i), tY(STB_results[i]));
-  }
-  ctx.stroke();
-
-  // Axis label
-  ctx.save();
-  ctx.translate(12, pad.top + pH / 2);
-  ctx.rotate(-Math.PI / 2);
-  ctx.fillStyle = "#666";
-  ctx.font = "9px Segoe UI,sans-serif";
-  ctx.textAlign = "center";
-  ctx.fillText("dB (R−L)", 0, 0);
-  ctx.restore();
+  drawBarGraph(cv, rows, {
+    balkenFarbe: "vorzeichen",
+    farbPaar: { pos: "#dc2626", neg: "#2563eb", null: "#9ca3af" },
+    schwelle: 0.1,
+    yLabel: "dB (R−L)",
+    ySymmetrisch: true
+  });
 }
 
 // BA 251: jRes entfaellt; Lautstaerke-Daten = ELL_results.
