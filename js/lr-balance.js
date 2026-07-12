@@ -3,7 +3,7 @@
 // ============================================================
 
 // State
-let STB_results = {}; // {elIdx: offset_dB}  positive = right louder
+let STB_results = {}; // {elIdx: offset_dB}  Ausgleichs-Korrektur: negativ = rechts war lauter
 // BA 156: Schnappschuß zum Zeitpunkt der ersten LR-Messung
 let STB_snapshot = null;
 let stb_seq = []; // sequence of electrode indices to test
@@ -497,9 +497,11 @@ function STB_renderResults() {
         `<td style="color:#9ca3af">—</td>` +
         `<td style="font-size:.82em;color:#9ca3af">${t('notMeasured')}</td>`;
     } else {
+      // STB_results ist die Ausgleichs-Korrektur: NEGATIV = rechts war
+      // lauter (musste gedaempft werden), POSITIV = links war lauter.
       const meaning =
-        v > 0.1 ? t('STB_meaningRight') : v < -0.1 ? t('STB_meaningLeft') : t('STB_meaningEqual');
-      const color = v > 0.1 ? "#dc2626" : v < -0.1 ? "#2563eb" : "#1a1a1a";
+        v < -0.1 ? t('STB_meaningRight') : v > 0.1 ? t('STB_meaningLeft') : t('STB_meaningEqual');
+      const color = v < -0.1 ? "#dc2626" : v > 0.1 ? "#2563eb" : "#1a1a1a";
       tr.innerHTML =
         `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
         `<td>${Math.round(hzL)}</td><td>${Math.round(hzR)}</td>` +
@@ -517,12 +519,28 @@ function STB_renderResults() {
   }
 }
 
+// Eigener GEDREHTER Stereo-Zeichner (BA 497): senkrechte Mittelachse,
+// waagerechte Balken. Ausschlag rechts = rechts lauter (negativer
+// STB_results), links = links lauter. Loest Stereo aus drawBarGraph;
+// ELL bleibt an der Engine.
+var STB_BAR_COLOR = "#2563eb";   // Blau der Balkengraph-Familie (wie ELL)
+
 function STB_drawChart() {
   const cv = document.getElementById("STB_resChart");
   if (!cv) return;
-  const count = Math.min(sideData["left"].nEl, sideData["right"].nEl);
-  if (count === 0) { cv.width = cv.width; return; }
+  const wp = cv.parentElement;
+  const dpr = window.devicePixelRatio || 1;
+  const W = wp.clientWidth, H = wp.clientHeight;
+  cv.width = W * dpr; cv.height = H * dpr;
+  const ctx = cv.getContext("2d");
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, W, H);
 
+  const count = Math.min(sideData["left"].nEl, sideData["right"].nEl);
+  if (count === 0) return;
+
+  // Zeilen-Daten (Zustand + Wert) je Elektrode
   const rows = [];
   for (let i = 0; i < count; i++) {
     const rightEl = i < sideData["right"].nEl ? i : sideData["right"].nEl - 1;
@@ -537,21 +555,103 @@ function STB_drawChart() {
       label: dENPrefix("left") + dEN(i, "left"),
       hz: stb_effFRQ("left", i),
       wert: (STB_results[i] !== undefined ? STB_results[i] : 0),
-      zustand: zustand,
-      residuum: null,
-      stufe: null,
-      istRef: false,
-      apikalBasal: i === 0 ? "apikal" : (i === count - 1 ? "basal" : null)
+      zustand: zustand
     });
   }
 
-  drawBarGraph(cv, rows, {
-    balkenFarbe: "vorzeichen",
-    farbPaar: { pos: "#dc2626", neg: "#2563eb", null: "#9ca3af" },
-    schwelle: 0.1,
-    yLabel: "dB (R−L)",
-    ySymmetrisch: true
+  // --- Skala: symmetrische dB-Halbspanne (min 5 dB) ueber gemessene ---
+  let absMax = 5;
+  rows.forEach(function (r) {
+    if (r.zustand === "gemessen") absMax = Math.max(absMax, Math.ceil(Math.abs(r.wert)));
   });
+
+  // --- Geometrie ---
+  const pad = { top: 34, right: 20, bottom: 34, left: 96 };
+  const plotW = W - pad.left - pad.right;
+  const plotH = H - pad.top - pad.bottom;
+  const midX = pad.left + plotW / 2;                 // senkrechte Mittelachse
+  const rowH = plotH / count;
+  const barH = Math.min(rowH * 0.6, 22);
+  // Wert -> X. Ausschlag rechts = rechts lauter = NEGATIVER Messwert.
+  // Also X = midX + (-wert) * skala.
+  const tX = (v) => midX + (-v) * (plotW / 2) / absMax;
+  const tYrow = (i) => pad.top + rowH * (i + 0.5);   // Zeilen-Mitte je Elektrode
+
+  // --- dB-Grid (senkrechte Linien) + Skala unten ---
+  ctx.strokeStyle = "#e5e5e5"; ctx.lineWidth = 1;
+  ctx.fillStyle = "#999"; ctx.font = "9px Consolas,monospace"; ctx.textAlign = "center";
+  const stepDb = absMax > 20 ? 10 : absMax > 8 ? 5 : 2;
+  for (let d = -absMax; d <= absMax; d += stepDb) {
+    const x = tX(-d);   // d ist dB-Achsenwert (rechts positiv); tX invertiert intern
+    ctx.beginPath(); ctx.moveTo(x, pad.top); ctx.lineTo(x, pad.top + plotH); ctx.stroke();
+    ctx.fillText((d >= 0 ? "+" : "") + d, x, pad.top + plotH + 14);
+  }
+  // Mittelachse (Nulllinie) betont
+  ctx.strokeStyle = "#666"; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(midX, pad.top); ctx.lineTo(midX, pad.top + plotH); ctx.stroke();
+
+  // --- Richtungstext oben ---
+  ctx.font = "10px Segoe UI,sans-serif"; ctx.fillStyle = "#555";
+  ctx.textAlign = "right"; ctx.fillText(t("STB_dirLeft"),  midX - 8, pad.top - 12);
+  ctx.textAlign = "left";  ctx.fillText(t("STB_dirRight"), midX + 8, pad.top - 12);
+
+  // --- Zeilen: Balken / Zustandsfelder + Labels ---
+  cv._axisHits = [];
+  for (let i = 0; i < count; i++) {
+    const r = rows[i], yMid = tYrow(i);
+    const yTop = yMid - barH / 2, yBot = yMid + barH / 2;
+
+    // Zustandsfeld: 1/4 der Plotbreite, um die Mittelachse zentriert
+    // (nicht volle Breite -- das verzerrte das Symbol).
+    const stW = plotW / 4;
+    const stX = midX - stW / 2;
+    if (r.zustand === "deaktiviert") {
+      ctx.fillStyle = "#e5e7eb";
+      ctx.fillRect(stX, yTop, stW, barH);
+      ctx.strokeStyle = "#6b7280"; ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(stX, yTop); ctx.lineTo(stX + stW, yBot);
+      ctx.moveTo(stX + stW, yTop); ctx.lineTo(stX, yBot);
+      ctx.stroke();
+    } else if (r.zustand === "ungemessen") {
+      ctx.fillStyle = "#e5e7eb";
+      ctx.fillRect(stX, yTop, stW, barH);
+      ctx.fillStyle = "#6b7280";
+      ctx.font = "bold 14px Segoe UI,sans-serif";
+      ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText("?", midX, yMid);
+      ctx.textBaseline = "alphabetic";
+    } else {
+      const xVal = tX(r.wert);
+      ctx.fillStyle = STB_BAR_COLOR;
+      const x0 = Math.min(midX, xVal), wBar = Math.abs(xVal - midX);
+      ctx.fillRect(x0, yTop, wBar || 2, barH);
+    }
+
+    // Elektroden-Label links (E-Nr + Hz), waagerecht
+    ctx.fillStyle = "#555"; ctx.font = "10px Segoe UI,sans-serif"; ctx.textAlign = "right";
+    ctx.fillText(r.label, pad.left - 8, yMid - 1);
+    ctx.fillStyle = "#999"; ctx.font = "8px Consolas,monospace";
+    ctx.fillText(Math.round(r.hz) + " Hz", pad.left - 8, yMid + 9);
+
+    // apikal/basal oben/unten
+    if (i === 0 || i === count - 1) {
+      ctx.fillStyle = "#999"; ctx.font = "8px Segoe UI,sans-serif"; ctx.textAlign = "left";
+      ctx.fillText(t(i === 0 ? "apikal" : "basal"), pad.left - 90, yMid + (i === 0 ? -10 : 14));
+    }
+
+    // Tooltip-Hitbox je Zeile (ganze Plotbreite).
+    // db wird nicht gesetzt (null): der rohe Korrekturwert ist ohne Deutung
+    // schwer lesbar; Tooltip zeigt Elektrode + Hz.
+    cv._axisHits.push({
+      x0: pad.left, x1: pad.left + plotW, y0: yTop - 3, y1: yBot + 3,
+      label: r.label, hz: r.hz,
+      db: null
+    });
+  }
+  _attachAxisTooltip(cv);
+
+  // Legende
   var _stbHint = document.getElementById("STB_resChartHint");
   if (_stbHint) _stbHint.innerHTML = FRQ_legendeHtml("stbbar", stbLegendData(rows));
 }

@@ -849,7 +849,7 @@ Object.assign(L.de, {
     FRQ_leg_ellbar_querbalken:    "Meßunsicherheit",
     FRQ_leg_ellbar_xRechteck:     "Elektrode deaktiviert oder stummgeschaltet",
     FRQ_leg_ellbar_frageRechteck: "Elektrode aktiv, aber noch nicht gemessen",
-    FRQ_leg_stbbar_balken:        "Lautstärke-Differenz (rot = rechts lauter, blau = links lauter)",
+    FRQ_leg_stbbar_balken:        "Wahrgenommene Lautstärke-Differenz (Ausschlag zur lauteren Seite)",
     FRQ_leg_stbbar_xRechteck:     "Elektrode deaktiviert oder stummgeschaltet",
     FRQ_leg_stbbar_frageRechteck: "Elektrode aktiv, aber noch nicht gemessen",
     // Graph-Titel (§9)
@@ -1182,9 +1182,11 @@ Object.assign(L.de, {
     STB_thHz1: "Hz Links",
     STB_thHz2: "Hz Rechts",
     STB_thMeaning: "Bedeutung",
-    STB_meaningRight: "Rechts lauter",
-    STB_meaningLeft: "Links lauter",
+    STB_meaningRight: "Rechts ist lauter",
+    STB_meaningLeft: "Links ist lauter",
     STB_meaningEqual: "Gleich",
+    STB_dirLeft:  "Links ist lauter",
+    STB_dirRight: "Rechts ist lauter",
 
     introSupportTitle: "Unterstützer für das Projekt gesucht",
     introSupportText: "Dieses Projekt ist kein fertiges Produkt, sondern in aktiver Entwicklung — manche Funktion ist erst rudimentär implementiert, und vieles wird noch verbessert oder neu hinzukommen. Es braucht Unterstützung, um diesen Weg fortzusetzen. Bitte ziehen Sie eine kleine monatliche Spende in Betracht.",
