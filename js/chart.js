@@ -482,22 +482,46 @@ function drawFRQGraph(cv, rows, cfg) {
 
   // ============================================================
   // (1) BANDFLAECHEN — nur Zeilen mit Bandgrenzen. Hintergrund, dezent,
-  //     abwechselnd getoent, volle Hoehe. Palette aus dem Provisorium.
+  //     volle Hoehe. SEGMENTWEISE nach Band-Deckung gefaerbt:
+  //       0 Baender -> weiss (aktiv: Raender + Luecken gleich)
+  //       1 Band    -> Blauton, alternierend PRO BAND (ein Band = ein Ton)
+  //       >=2       -> hellrot (Ueberlappungszone)
+  //     Die ganze Zeichenflaeche (X-Wand, tX-Spanne) wird abgedeckt, damit
+  //     bandfreie Bereiche aktiv weiss erscheinen (nicht nur Canvas-Weiss).
   // ============================================================
-  // Zwei abwechselnde Blautoene (hell/kraeftiger); Luecken (Zeilen ohne
-  // Bandgrenzen) bleiben weiss, da nur _cLo/_cHi-Zeilen eine Flaeche bekommen.
-  const palette = ["#dbeafe", "#bfdbfe"];
+  const BAND_BLAU = ["#dbeafe", "#bfdbfe"];   // alterniert je Band (nicht je Segment)
+  const BAND_ROT  = "#fecaca";                // Ueberlappung >=2 Baender
   const bandRows = rows.filter(function (r) { return r._cLo != null && r._cHi != null; })
                        .sort(function (a, b) { return a._cLo - b._cLo; });
-  bandRows.forEach(function (r, i) {
+  bandRows.forEach(function (r, i) { r._bandIdx = i; });   // Blau-Alternierung je Band
+  // Kanten sammeln: X-Wand-Raender + alle Bandgrenzen -> Segmente.
+  const edges = [tX(cMin), tX(cMax)];
+  bandRows.forEach(function (r) { edges.push(tX(r._cLo), tX(r._cHi)); });
+  edges.sort(function (a, b) { return a - b; });
+  ctx.globalAlpha = 0.5;   // dezent: Striche/Punkt liegen klar darueber
+  for (let s = 0; s < edges.length - 1; s++) {
+    const xA = edges[s], xB = edges[s + 1];
+    if (xB - xA < 0.5) continue;   // Duplikat-Kanten uebergehen
+    const mid = (xA + xB) / 2;
+    // Baender, die dieses Segment ueberdecken (Segmentmitte innerhalb).
+    const cover = bandRows.filter(function (r) { return tX(r._cLo) <= mid && mid <= tX(r._cHi); });
+    let fill;
+    if (cover.length === 0)      fill = "#ffffff";
+    else if (cover.length >= 2)  fill = BAND_ROT;
+    else                         fill = BAND_BLAU[cover[0]._bandIdx % BAND_BLAU.length];
+    ctx.fillStyle = fill;
+    ctx.fillRect(xA, pad.top, xB - xA, pH);
+  }
+  ctx.globalAlpha = 1;
+  // Bandrahmen: trennt benachbarte Baender sichtbar (wie bisher, pro Band).
+  ctx.strokeStyle = "#cbd5e1"; ctx.lineWidth = 1;
+  bandRows.forEach(function (r) {
     const xL = tX(r._cLo), xR = tX(r._cHi);
-    ctx.fillStyle = palette[i % palette.length];
-    ctx.globalAlpha = 0.5;   // dezent: Striche/Punkt liegen klar darueber
-    ctx.fillRect(xL, pad.top, xR - xL, pH);
-    ctx.globalAlpha = 1;
-    ctx.strokeStyle = "#cbd5e1"; ctx.lineWidth = 1;
     ctx.strokeRect(xL, pad.top, xR - xL, pH);
   });
+  // Umlaufender Feldrahmen (alle vier Seiten gleich, wie X-Skalen-Linie:
+  // #cbd5e1, Breite 1). Ohne ihn fehlte rechts eine sichtbare Kante.
+  ctx.strokeRect(pad.left, pad.top, pW, pH);
 
   // ============================================================
   // (2) AMBERBAND — schmales SENKRECHTES Band, Breite = Residuum in
