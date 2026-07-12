@@ -796,7 +796,7 @@ Object.assign(L.fr, {
     FRQ_distributionIntro: "Détermine sur quel(s) côté(s) l'écart de fréquence mesuré est réparti comme correction. Ce devrait être le côté de l'IC. Avec deux IC, c'est généralement symétrique, sauf si vous voulez laisser un IC tel quel et ajuster l'autre.",
     FRQ_glaettTitle: "Lisser la courbe de mesure",
     FRQ_chainSelTitle: "Électrodes pour le calcul des fréquences",
-    FRQ_chainSelIntro: "Choisissez les électrodes actives à inclure dans le calcul des fréquences (lissage, bandes, warping, impression). Les électrodes désélectionnées apparaissent dans le tableau des bandes comme « proposées à la désactivation » et devraient être désactivées par l’audiologiste.",
+    FRQ_chainSelIntro: "Choisissez les électrodes à inclure dans le calcul des bandes de fréquences. Les électrodes désélectionnées n’obtiennent aucune place dans les bandes de fréquences et sont recommandées à l’audiologiste pour désactivation. Cela peut être utile, par exemple, pour des électrodes muettes ou fortement bruitées.",
     FRQ_chainSelBtn: "Sélectionner les électrodes",
     FRQ_glaettIntro: "Reproduire au plus près les valeurs mesurées exactes peut entraîner une répartition irrégulière des bandes de fréquence. Les courbes proposées ici tentent de dégager des données de mesure une progression régulière et plausible. Vérifiez si l’une des courbes se rapproche de votre mesure. Les points colorés vert/orange/rouge indiquent la qualité de l’ajustement. Les barres de résidus en forme de T indiquent l’incertitude de mesure ; mieux la courbe passe par les résidus, mieux elle correspond à vos résultats. (Les électrodes signalées comme problématiques, p. ex. bruitées, peuvent s’écarter fortement.)",
     FRQ_glaettVerfahrenLegend: "Méthode",

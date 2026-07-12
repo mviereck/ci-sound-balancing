@@ -795,7 +795,7 @@ Object.assign(L.en, {
     FRQ_distributionIntro: "Determines which side(s) the measured frequency deviation is distributed to as a correction. This should be the CI side. With two CIs it is usually symmetric, unless you want to leave one CI as it is and adjust the other.",
     FRQ_glaettTitle: "Smooth measurement curve",
     FRQ_chainSelTitle: "Electrodes for frequency calculation",
-    FRQ_chainSelIntro: "Choose which active electrodes are included in the frequency calculation (smoothing, bands, warping, printout). Deselected electrodes appear in the band table as “marked for deactivation” and should be deactivated by the audiologist.",
+    FRQ_chainSelIntro: "Choose which electrodes are included in the frequency band calculation. Deselected electrodes get no place in the frequency bands and are recommended to the audiologist for deactivation. This can be useful, for example, for silent or strongly noisy electrodes.",
     FRQ_chainSelBtn: "Select electrodes",
     FRQ_glaettIntro: "Reproducing the exact measured values as closely as possible can lead to an uneven distribution of frequency bands. The curves offered here attempt to derive a plausible, smooth progression from the measured data. Check whether one of the curves comes close to your measurement. The coloured green/amber/red dots indicate how well it fits. The T-shaped residual bars show the measurement uncertainty; the better the curve runs through the residuals, the better it matches your measurements. (Electrodes marked as problematic, e.g. noisy, may deviate substantially.)",
     FRQ_glaettVerfahrenLegend: "Method",

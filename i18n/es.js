@@ -796,7 +796,7 @@ Object.assign(L.es, {
     FRQ_distributionIntro: "Determina a qué lado(s) se distribuye la desviación de frecuencia medida como corrección. Debería ser el lado del IC. Con dos IC suele ser simétrico, salvo que quiera dejar un IC como está y ajustar el otro.",
     FRQ_glaettTitle: "Suavizar curva de medición",
     FRQ_chainSelTitle: "Electrodos para el cálculo de frecuencias",
-    FRQ_chainSelIntro: "Elija qué electrodos activos se incluyen en el cálculo de frecuencias (suavizado, bandas, warping, impresión). Los electrodos deseleccionados aparecen en la tabla de bandas como «propuestos para desactivación» y deberían ser desactivados por el audiólogo.",
+    FRQ_chainSelIntro: "Elija qué electrodos se incluyen en el cálculo de las bandas de frecuencia. Los electrodos deseleccionados no obtienen lugar en las bandas de frecuencia y se recomiendan al audiólogo para su desactivación. Esto puede ser útil, por ejemplo, para electrodos mudos o con mucho ruido.",
     FRQ_chainSelBtn: "Seleccionar electrodos",
     FRQ_glaettIntro: "Reproducir los valores medidos exactos con la mayor fidelidad posible puede provocar una distribución irregular de las bandas de frecuencia. Las curvas que se ofrecen aquí intentan obtener a partir de los datos de medición una progresión uniforme y plausible. Compruebe si alguna de las curvas se aproxima a su medición. Los puntos de color verde/ámbar/rojo indican el grado de ajuste. Las barras de residuos en forma de T indican la incertidumbre de medición; cuanto mejor pase la curva por los residuos, mejor coincidirá con sus resultados. (Los electrodos marcados como problemáticos, p. ej. ruidosos, pueden desviarse notablemente.)",
     FRQ_glaettVerfahrenLegend: "Método",

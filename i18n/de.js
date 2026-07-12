@@ -863,7 +863,7 @@ Object.assign(L.de, {
     FRQ_distributionIntro: "Legt fest, auf welche Seite(n) die gemessene Frequenzabweichung als Korrektur verteilt wird. Das sollte die CI-Seite sein. Bei 2 CI meist symmetrisch, es sei denn, Sie wollen ein CI so lassen, wie es ist, und das andere anpassen.",
     FRQ_glaettTitle: "Meßwertverlaufskurve glätten",
     FRQ_chainSelTitle: "Elektroden für die Frequenzberechnung",
-    FRQ_chainSelIntro: "Wählen Sie, welche aktiven Elektroden in die Frequenzberechnung (Glättung, Bänder, Warping, Ausdruck) einbezogen werden. Abgewählte Elektroden erscheinen in der Bandtabelle als „Zum Deaktivieren vorgemerkt“ und sollten vom Audiologen deaktiviert werden.",
+    FRQ_chainSelIntro: "Wählen Sie, welche Elektroden in die Frequenzbandberechnung einbezogen werden. Abgewählte Elektroden bekommen keinen Platz in den Frequenzbändern und werden dem Audiologen als ‚zu deaktivieren‘ empfohlen. Das kann z. B. sinnvoll sein für stumme oder stark rauschende Elektroden.",
     FRQ_chainSelBtn: "Elektroden auswählen",
     FRQ_glaettIntro: "Die exakten Meßwerte bestmöglich umzusetzen kann zu unregelmäßiger Frequenzbandverteilung führen. Die hier angebotenen Kurven versuchen, aus den Meßdaten einen plausiblen gleichmäßigen Verlauf zu machen. Prüfen Sie, ob eine der Kurven Ihrer Messung nahekommt. Die farbigen Punkte grün/gelb/rot geben einen Hinweis, wie gut getroffen wurde. Die T-förmigen Residuenbalken geben die Meßungenauigkeit an; je besser die Kurve durch die Residuen läuft, desto besser paßt sie zu Ihren Meßergebnissen. (Als problematisch markierte Elektroden, z. B. verrauscht, dürfen stark abweichen.)",
     FRQ_glaettVerfahrenLegend: "Verfahren",
