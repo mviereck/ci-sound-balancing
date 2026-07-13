@@ -725,6 +725,10 @@ document.addEventListener("DOMContentLoaded", () => {
     sideData[activeSide].bandGlaettK = v;
     _frqGlaettUpdate();
   });
+  _frqBandWahlInit("FRQ_glaettLage", function (v) {
+    sideData[activeSide].bandGlaettLage = v;
+    _frqGlaettUpdate();
+  });
   // Architektur §5: je Verfahren nur die passenden Regler sichtbar.
   // polynom: Grad, Steife, Achse, Randfrei. ortskurve: Grad, Steife, Randfrei
   // (+ k in BA487). ortsaffin: k, Lage (+ Randfrei bei MED-EL). aus: nichts.
