@@ -727,16 +727,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // Architektur §5: je Verfahren nur die passenden Regler sichtbar.
   // polynom: Grad, Steife, Achse, Randfrei. ortskurve: Grad, Steife, Randfrei
-  // (+ k in BA487). ortsaffin/stakhovskaya: k (+ Randfrei bei MED-EL). aus: nichts.
+  // (+ k in BA487). ortsaffin: k, Lage (+ Randfrei bei MED-EL). aus: nichts.
   function _frqGlaettAchsenSichtbar() {
     var s = sideData[activeSide];
-    // Ortsaffin-Verfahren bei Cochlear sperren: sie haengen am
-    // greenwood-verteilten Default-Frequenzmuster (xdef = greenwoodX(nominal)),
-    // das Cochlears Default-Frequenzen NICHT bilden (zweigeteilte Verteilung,
-    // .docs/Konzept_Greenwood_Glaettungs_Prior.md §6f). ortskurve ist NICHT
-    // betroffen (kein xdef, s. §6f-Praezisierung) und bleibt waehlbar.
+    // Ortsaffin-Verfahren bei Cochlear sperren: haengt am greenwood-verteilten
+    // Default-Frequenzmuster (xdef = greenwoodX(nominal)), das Cochlears
+    // Default-Frequenzen NICHT bilden (.docs/Konzept_Greenwood_Glaettungs_Prior.md
+    // §6f). ortskurve ist NICHT betroffen (kein xdef) und bleibt waehlbar.
     var _istCochlear = !!(s && s.manufacturer === "cochlear");
-    ["ortsaffin", "stakhovskaya"].forEach(function (val) {
+    ["ortsaffin"].forEach(function (val) {
       var r = document.querySelector('input[name="FRQ_glaettVerfahren"][value="' + val + '"]');
       if (!r) return;
       r.disabled = _istCochlear;
@@ -746,7 +745,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // kuenftig aus geladenem Stand), auf "aus" zuruecksetzen, damit nicht ein
     // disabled-Radio weiterrechnet.
     if (_istCochlear && s
-        && (s.bandGlaettVerfahren === "ortsaffin" || s.bandGlaettVerfahren === "stakhovskaya")) {
+        && s.bandGlaettVerfahren === "ortsaffin") {
       s.bandGlaettVerfahren = "aus";
       var _rAus = document.querySelector('input[name="FRQ_glaettVerfahren"][value="aus"]');
       if (_rAus) _rAus.checked = true;
@@ -765,7 +764,8 @@ document.addEventListener("DOMContentLoaded", () => {
     show("FRQ_glaettSteifeFieldset",   v === "polynom" || v === "ortskurve");
     show("FRQ_glaettAchseFieldset",    v === "polynom");
     show("FRQ_glaettRandfreiFieldset", v !== "aus" && _istMedel);
-    show("FRQ_glaettKFieldset",        v === "ortskurve" || v === "ortsaffin" || v === "stakhovskaya");
+    show("FRQ_glaettKFieldset",        v === "ortskurve" || v === "ortsaffin");
+    show("FRQ_glaettLageFieldset",     v === "ortsaffin");
     show("FRQ_glaettVorbereitungHinweis", false);
   }
   // BA463: alle seitenweisen Band-Radios auf die aktive Seite spiegeln.
