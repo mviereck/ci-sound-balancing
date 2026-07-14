@@ -1855,15 +1855,18 @@ function _frqGlaettAusschluss(keys) {
   // AB-Sonderregel (2026-07-11): Bei Advanced Bionics folgen nur die MITTLEREN
   // Elektroden dem Greenwood-Ortsmuster; die beiden Randelektroden (apikalste
   // + basalste) sitzen ausserhalb (belegt: Konzept_Greenwood_Glaettungs_Prior.md
-  // §6f -- E2..E15 Abstands-Variation 1,0%, E1/E16 springen). Dieser harte
-  // Randausschluss galt fuer das (in BA502 entfernte) Verfahren "ortskurve" --
-  // nach der Migration gibt es diesen Verfahrenswert nicht mehr, die Bedingung
-  // greift nie. Kommentar und Variable behalten als Dokumentation der Absicht.
-  // Bei ortsaffin: Raender nur aus dem Fit raushalten (Gewicht 0 in
-  // _frqGlaetteMeasured), aber vom affinen Modell (a*xdef+b) rekonstruiert.
+  // §6f -- E2..E15 Abstands-Variation 1,0%, E1/E16 springen). Der Grund gilt fuer
+  // Verfahren, die im GREENWOOD-/ORTSraum rechnen. Harter Ausschluss (Rand bleibt
+  // Rohwert): beim Polynom, WENN es im Ortsraum rechnet (bandGlaettAchse ===
+  // "ortsraum") -- deckt den aus "ortskurve" migrierten Fall (polynom+index+
+  // ortsraum) UND jedes andere polynom im Ortsraum ab (0.5.502.1, Martin
+  // 2026-07-14: nur im Ortsraum, nicht im log-Raum -- dort kein Ortsmuster-Bezug).
+  // Bei ortsaffin NICHT hier: dort bleiben die Raender in keys und werden nur aus
+  // dem Fit genommen (Gewicht 0 in _frqGlaetteMeasured), aber vom affinen Modell
+  // (a*xdef+b) rekonstruiert.
   var _verf = s.bandGlaettVerfahren;
-  var _istOrtsHartAus = (_verf === "ortskurve");   // BA502: nie mehr wahr (ortskurve entfernt)
-  if (mfrId === "ab" && _istOrtsHartAus && keys.length >= 2) {
+  var _istPolynomOrtsraum = (_verf === "polynom" && s.bandGlaettAchse === "ortsraum");
+  if (mfrId === "ab" && _istPolynomOrtsraum && keys.length >= 2) {
     out[keys[0]] = true;                    // apikalste (AB apFirst -> kleinster elIdx)
     out[keys[keys.length - 1]] = true;      // basalste
   }
