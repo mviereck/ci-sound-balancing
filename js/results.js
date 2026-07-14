@@ -362,6 +362,50 @@ function FRQ_tabellenZeilen(opts) {
   return rows;
 }
 
+// Auf/Zu-Zustand aller Legenden: EIN toolweiter Schalter, persistent in
+// localStorage ("ci-lb-legendeZu"). Alle 6 Legenden (Ergebnis, Band,
+// Glaettung, ELL, Stereo) teilen diesen Zustand, damit sie nie
+// auseinanderlaufen (Sonderfall: zwei Legenden gleichzeitig sichtbar im
+// Reiter Frequenzbaender). Default: aufgeklappt.
+var _FRQ_legendeZu = false;
+try { _FRQ_legendeZu = (localStorage.getItem("ci-lb-legendeZu") === "1"); }
+catch (e) { /* localStorage kann fehlen — Default aufgeklappt */ }
+function FRQ_legendeZu() { return _FRQ_legendeZu; }
+// Alle im DOM vorhandenen Legenden (Kopf-Dreieck + Body) auf den globalen
+// Zustand angleichen. Wird bei jedem Klick aufgerufen -> auch die gerade
+// nicht angeklickte, aber sichtbare Legende schaltet mit um, ohne
+// Neuzeichnen.
+function FRQ_legendeAngleichen() {
+  var koepfe = document.querySelectorAll("[data-frq-leg-kopf]");
+  for (var i = 0; i < koepfe.length; i++) {
+    var kopf = koepfe[i];
+    var dr = kopf.querySelector("[data-frq-leg-dreieck]");
+    if (dr) dr.textContent = _FRQ_legendeZu ? "▸" : "▾";
+    // Body ist das naechste Geschwister-Element des Kopfes.
+    var body = kopf.nextElementSibling;
+    if (body && body.hasAttribute("data-frq-leg-body")) {
+      body.style.display = _FRQ_legendeZu ? "none" : "";
+    }
+  }
+}
+// Einmalige Klick-Delegation am document: Klick auf einen Legende-Kopf
+// (oder das Dreieck darin) schaltet den globalen Zustand um, persistiert
+// und gleicht alle Legenden an.
+function FRQ_legendeToggleInit() {
+  if (document._frqLegToggle) return;
+  document._frqLegToggle = true;
+  document.addEventListener("click", function (e) {
+    var kopf = e.target && e.target.closest
+      ? e.target.closest("[data-frq-leg-kopf]") : null;
+    if (!kopf) return;
+    _FRQ_legendeZu = !_FRQ_legendeZu;
+    try { localStorage.setItem("ci-lb-legendeZu", _FRQ_legendeZu ? "1" : "0"); }
+    catch (e2) { /* localStorage kann fehlen/voll sein — ignorieren */ }
+    FRQ_legendeAngleichen();
+  });
+}
+FRQ_legendeToggleInit();
+
 // Legende eines Frequenz-Graphen (Architektur §8). EIN Bauer fuer alle
 // Graphen: Farben/Elemente/Achse kommen aus frqLegendData (chart.js),
 // die Bedeutung je Element aus i18n. Spalten: Element = Farbe =
@@ -487,6 +531,11 @@ function FRQ_legendeHtml(graphKey, data) {
 
   var intro = T("FRQ_legIntro_" + graphKey, "") || "";
   var legendWort = T("FRQ_legLegende", "Legende:");
+  // Auf/Zu-Zustand: EIN toolweiter Schalter (FRQ_legendeZu), gemerkt in
+  // localStorage. Kopf (Wort + Dreieck) klickbar; Klick-Delegation +
+  // Gleichschaltung aller Legenden in FRQ_legendeToggleInit.
+  var _zu = FRQ_legendeZu();
+  var _dreieck = _zu ? "▸" : "▾";   // ▸ zu / ▾ auf
 
   // Farb-Erklaerblock (§8.4) als Tabelle: je Stufe ein farbiger Kreis
   // (wie der Graph-Punkt) + Erklaertext. Stufen + Kreisfarbe aus
@@ -508,11 +557,19 @@ function FRQ_legendeHtml(graphKey, data) {
       "</tr>";
   });
 
-  return "<p style=\"margin:0 0 2px;font-weight:600\">" + legendWort + "</p>" +
+  // Kopf: Dreieck + Wort, zusammen eine klickbare Zeile (data-frq-leg-kopf).
+  // Body (data-frq-leg-body): Intro + Tabellen; per display gesteuert.
+  var kopf = "<p data-frq-leg-kopf=\"1\" style=\"margin:0 0 2px;font-weight:600;"
+    + "cursor:pointer;user-select:none\">"
+    + "<span data-frq-leg-dreieck=\"1\" style=\"display:inline-block;width:1em\">"
+    + _dreieck + "</span>" + legendWort + "</p>";
+  var body = "<div data-frq-leg-body=\"1\"" + (_zu ? " style=\"display:none\"" : "") + ">" +
     (intro ? "<p style=\"margin:0 0 6px\">" + intro + "</p>" : "") +
     "<table style=\"border-collapse:collapse;font-size:1em\"><tbody>" + zeilen + "</tbody></table>" +
     (ampelZeilen ? "<table style=\"border-collapse:collapse;font-size:1em;margin:6px 0 0\">"
-      + "<tbody>" + ampelZeilen + "</tbody></table>" : "");
+      + "<tbody>" + ampelZeilen + "</tbody></table>" : "") +
+    "</div>";
+  return kopf + body;
 }
 
 // BA459: Zeilen-Modell fuer den Ergebnis-Frequenzgraphen (gehoerte
