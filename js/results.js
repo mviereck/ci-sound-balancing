@@ -561,8 +561,10 @@ function FRQ_legendeHtml(graphKey, data) {
   // Body (data-frq-leg-body): Intro + Tabellen; per display gesteuert.
   var kopf = "<p data-frq-leg-kopf=\"1\" style=\"margin:0 0 2px;font-weight:600;"
     + "cursor:pointer;user-select:none\">"
-    + "<span data-frq-leg-dreieck=\"1\" style=\"display:inline-block;width:1em\">"
-    + _dreieck + "</span>" + legendWort + "</p>";
+    + legendWort
+    + "<span data-frq-leg-dreieck=\"1\" style=\"display:inline-block;"
+    + "margin-left:0.4em;font-size:1.3em;line-height:1;vertical-align:-0.1em\">"
+    + _dreieck + "</span></p>";
   var body = "<div data-frq-leg-body=\"1\"" + (_zu ? " style=\"display:none\"" : "") + ">" +
     (intro ? "<p style=\"margin:0 0 6px\">" + intro + "</p>" : "") +
     "<table style=\"border-collapse:collapse;font-size:1em\"><tbody>" + zeilen + "</tbody></table>" +
