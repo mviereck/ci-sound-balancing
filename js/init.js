@@ -736,9 +736,8 @@ document.addEventListener("DOMContentLoaded", () => {
     sideData[activeSide].bandGlaettLage = v;
     _frqGlaettUpdate();
   });
-  // Architektur §5: je Verfahren nur die passenden Regler sichtbar.
-  // polynom: Grad, Steife, Achse, Randfrei. ortskurve: Grad, Steife, Randfrei
-  // (+ k in BA487). ortsaffin: k, Lage (+ Randfrei bei MED-EL). aus: nichts.
+  // Zeile 1 (Lage, Randausschluss[nur MED-EL], k) ist IMMER sichtbar. Zeile 2:
+  // Verfahren immer; Fit/Rechenraum/Grad/Steife nur bei polynom. (BA503)
   function _frqGlaettAchsenSichtbar() {
     var s = sideData[activeSide];
     // Ortsaffin-Verfahren bei Cochlear sperren: haengt am greenwood-verteilten
@@ -772,17 +771,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Code (E1+E16), bei Cochlear sind die Ortsaffin-Verfahren gesperrt (s.o.).
     var _istMedel = !!(s && s.manufacturer === "medel");
     var _polynom = (v === "polynom");
-    var _ortsaffin = (v === "ortsaffin");
-    var _aktiv = (v !== "aus");
-    // Ortsraum aktiv? bei polynom haengt es an der Rechenraum-Achse, bei
-    // ortsaffin ist der Ortsraum immer aktiv.
-    var _ortsraum = _ortsaffin || (_polynom && s && s.bandGlaettAchse === "ortsraum");
 
-    // Global (fuer jedes aktive Verfahren):
-    show("FRQ_glaettLageFieldset",     _aktiv);
-    show("FRQ_glaettKFieldset",        _ortsraum);
-    show("FRQ_glaettRandfreiFieldset", _aktiv && _istMedel);
-    // Nur Polynom:
+    // Zeile 1 (global, IMMER sichtbar -- auch bei "aus"; Martin 2026-07-14):
+    show("FRQ_glaettLageFieldset",     true);
+    show("FRQ_glaettKFieldset",        true);
+    show("FRQ_glaettRandfreiFieldset", _istMedel);   // nur MED-EL (rate-pitch/FSP-Grund)
+    // Zeile 2 (Polynom-Regler; nur bei Verfahren "polynom"):
     show("FRQ_glaettFitXFieldset",     _polynom);
     show("FRQ_glaettAchseFieldset",    _polynom);
     show("FRQ_glaettGradFieldset",     _polynom);
