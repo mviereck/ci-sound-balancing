@@ -24,7 +24,7 @@ Auf Basis dieser selbst ermittelten Meßdaten kann im integrierten Audioplayer e
 
 Zusätzlich zum reinen Ausgleich von Lautstärke und Tonhöhe können Sie halbautomatische Anpassungen zur Verbesserung von Sprachverständnis machen, oder z.B. Bässe oder Höhen betonen. Sie können die Wirkung Ihrer Anpassungen live hören, wenn Sie gleichzeitig Musik oder ein Hörbuch im Audioplayer laufen lassen.
 
-Wenn Sie schließlich eine Anpassung gefunden haben, die Ihnen gut erscheint, können Sie die dafür nötigen Änderungen ausdrucken lassen und Ihrem Audiologen geben.
+Wenn Sie schließlich eine Anpassung gefunden haben, die Ihnen gut erscheint, können Sie die dafür nötigen Änderungen ausdrucken und Ihrem Audiologen geben.
 
 ## Einschränkung
 
@@ -58,6 +58,7 @@ Falls Rückfragen kommen, welche Werte konkret gemeint sind:
 
 >- Implantat-Modell und Audioprozessor-Modell
 >- Kodierungsstrategie und Stimulationsrate
+>- MED-EL: Welche Elektroden durch FSP oder FS4 stimuliert werden.
 >- FAT (Frequency Allocation Table): Mittenfrequenz pro Elektrode in Hz
 >- THR (T-Level) pro Elektrode
 >- MCL pro Elektrode
@@ -94,13 +95,13 @@ Vergleich der Lautstärken der Elektroden.
   - Sobald die Töne gleich laut sind, mit *Enter* bestätigen.
   - Optional: Anderen Ton zum Testen auswählen.
     - Anmerkung: Es stehen einige Töne zur Auswahl. 
-      - Sinus ist Standard, Komplex ist auch sehr gut. 
+      - Sinus ist Standard. 
       - Schmalbandrauschen kann zu erstaunlich großen Abweichungen in der Messung führen.
         Diesen Ton erst einmal nur experimentell nutzen, oder als ganz eigene Testreihe unabhängig von einer Sinustonmessung.
 - Empfohlenes Vorgehen: 
   - Erst Testverfahren *Vollständig*.
   - Dann Testverfahren *Konvergenz*, gerne mehrfach.
-  - Unter dem Slider wird eine Marke mit errechnetem Schätzwert und Ungenauigkeitbereich angezeigt. Darauf kann man sich nicht verlassen, es kann aber einen Anhaltspunkt bieten.
+  - Über dem Slider wird eine Marke mit errechnetem Schätzwert und Ungenauigkeitbereich angezeigt. Darauf kann man sich nicht verlassen, es kann aber einen Anhaltspunkt bieten.
 - Jeder Test kann jederzeit unterbrochen und später an gleicher Stelle weitergeführt werden.
 - Jeder Test kann beliebig oft wiederholt werden, um die Ergebnisse zu verfeinern.
 - Die Messungen *Stereo-Balance* und *Frequenzabgleich* zunächst auslassen.
@@ -119,7 +120,7 @@ Anzeige der errechneten Anpassung gemäß Ihrer Messungen.
 Spielen Sie eine Audiodatei ab, um die Auswirkung Ihrer Messungen zu simulieren. 
 - Der eingebaute Equalizer verändert den Ton annähernd so, wie er sich anhören würde, wenn der Audiologe Ihr CI gemäß Ihren Messungen neu einstellt.
 - Mit dem Ausgleich der Elektrodenlautstärke Ihres CI haben Sie eine wertvolle Grundlage geschaffen. Damit sollte sich bereits vieles klarer anhören als vorher.
-- Schalten Sie den Button *Messungen* mehrfach an und wieder aus, um den Unterschied zu hören.
+- Schalten Sie den Button *Elektrodenlautstärke* mehrfach an und wieder aus, um den Unterschied zu hören.
 
 #### Im Reiter *Kurven*
 
@@ -132,6 +133,13 @@ Empfehlungen:
 - Deaktivieren Sie *Sinus* und probieren Sie auch andere Kurven aus.
 - Finden Sie eine Kurve oder eine Kombination von Kurven, die Ihnen zusagt.
 - Gehen Sie in den Reiter *Player*, spielen Sie etwas ab, und schalten Sie den Button *Kurven* mehrfach an und wieder aus, um den Unterschied zu hören.
+
+#### Im Reiter *Schieber*
+Erlaubt manuelle Lautstärkeänderung einzelner Elektroden.
+- Diese Funktion werden Sie in der Regel nicht benötigen. Sie gibt Ihnen Freiheit für Experimente.
+- Es gibt einen *relativ* und einen *absolut* Modus. Der *absolut* Modus ist nur verwendbar, wenn im Reiter *Implantat* die MCL Werte eingegeben wurden.
+- Sie können die Veränderung durch *Elektrodenlautstärke* und *Kurven* mit einblenden lassen.
+- Sie können die Veränderungen live im Player hören.
 
 #### Im Reiter *Laden/Speichern*
 - Sichern Sie Ihre Meßdaten und Ihre Einstellungen.
@@ -155,7 +163,6 @@ Ausdrucke für Ihren Audiologen mit den gewünschten Änderungen.
 Wenn Sie im Tool die *MCL* Werte der Elektroden eingetragen haben, errechnet das Tool neben der Differenz in Dezibel (dB) außerdem eine Differenz in der Einheit des Audiologenprogrammes. Dies wird mit ausgedruckt. Diese errechneten Werte sind noch nicht auf Verläßlichkeit geprüft. Hinzu kommt, daß das Ohr als Organ etwas anders auf die Einstellungen reagiern könnte, als eine Berechnung vorhersagen kann.
 
 ## Weitere Messungen
-
 ### Reiter *Messungen* -> *Stereo-Balance*
 Lautstärkenvergleich links und rechts. 
 - Vor dieser Messung sollte die Messung *Elektrodenlautstärke* bereits durchgeführt worden sein.
@@ -173,24 +180,16 @@ Dieses Meßverfahren ist noch etwas rudimentär und soll in zukünftigen Version
  
 ### Reiter *Messungen* -> *Frequenzabgleich*
 Messung von Tonhöhenunterschieden links und rechts.
-- Es ist vorteilhaft, vor dieser Messung *Elektrodenlautstärke* und *Stereo-Balance* bereits durchgeführt zu haben. 
-
-Das Vorgehen ist in 2 Tests aufgeteilt. Der erste Test mit Slider dient nur dazu, gute Startwerte für den zeitintensiven zweiten test zu bekommen.
-#### Test 1: Vor-Schätzung (Slider)
-- Pro Elektrode wird der gleiche Ton links und rechts abgespielt. Korrigieren Sie mit dem Slider / mit den Pfeiltasten, bis sich die Töne links und rechts gleich hoch bzw. tief anhören.
-#### Test 2: Adaptiv
-- Es werden Tonfolgen abgespielt, und Sie geben für jede Tonfolge an, ob der zweite Ton höher oder tiefer als der erste war.
-- Sie kommen irgendwann an einen Punkt, wo Sie das kaum oder nicht mehr unterscheiden können. Antworten Sie dann intuitiv, auch wenn der Verstand keinen Unterschied mehr erkennt.
-#### Player
-- Im *Player* kann unter *Experimentell* eine Simulation veränderter Tonhöhen abgespielt werden, die Qualität der Simulation ist aber noch bescheiden. Es kann aber eine Idee davon geben, wie die Veränderung wirken könnte.
+- Es wird sehr empfohlen, vor dieser Messung *Elektrodenlautstärke* und *Stereo-Balance* bereits durchgeführt zu haben. Unterschiedliche Lautstärke kann die Tonhöhenwahrnehmung verfälschen.
 #### Hinweis zu Hörgeräten:
-- Wenn Sie auf dem anderen Ohr natürlich hören, aber schwerhörig sind, kann es helfen, sich das Hörgerät für den Test so einstellen zu lassen, daß es keine Frequenzverschiebung vornimmt, sondern nur die Lautstärke verbessert.
-- Wenn Sie auf dem anderen Ohr ein Hörgerät tragen, daß Frequenzverschiebung macht, etwa hohe Töne als tiefere Töne wiederzugeben, ist es für den Test nicht geeignet. Sie würden mit den verschobenen Frequenzen testen.
-
-### Reiter *Schieber*
-Erlaubt manuelle Lautstärkeänderung einzelner Elektroden.
-- Diese Funktion werden Sie in der Regel nicht benötigen. Sie gibt Ihnen Freiheit für Experimente.
-- Es gibt einen *relativ* und einen *absolut* Modus. Der *absolut* Modus ist nur verwendbar, wenn im Reiter *Implantat* die MCL Werte eingegeben wurden.
-- Sie können die Veränderung durch *Elektrodenlautstärke* und *Kurven* mit einblenden lassen.
-- Sie können die Veränderungen live im Player hören.
-
+- Sie sollten ohne Hörgerät testen. Hörgeräte verfälschen Tonhöhen.
+- Machen Sie auch auf dem schwerhörigen Ohr den Elektrodenlautstärke-Testn und danach den Stereo-Balance-Test. So gut es geht sollten Sie final auf beiden Seiten gleich laut hören.
+####
+- Der Test zeigt ein Klavier.
+- Sie werden aufgefordert, den nächstliegenden Ton anzuspielen, der noch gerade so höher oder tiefer klingt. Bleiben Sie immer auf der sicheren Seite, wo Sie noch klar unterscheiden können.
+- In mehreren Runden werden die Tonhöhenunterschiede immer kleiner. Wenn Sie merken, daß Sie nicht weiter verfeinern können, neenden Sie den Test.
+- Im Reiter *Meßergebnisse->Frequenzabgleich* können Sie die Meßergebnisse sehen.
+#### Player
+- Im *Player* kann mit *Frequenz-Warping* eine Simulation veränderter Tonhöhen aktiviert werden, die Qualität der Simulation ist aber etwas bescheiden, und die Berechnung dauert etwas Zeit. Es kann aber eine Idee davon geben, wie die Veränderung wirken könnte.
+#### Frequenzbänder
+Die gemessenen Frequenzen müssen noch in Frequenzbänder für die CI Einstellung umgerechnet werden. Eine entsprechende Funktion in CImbel ist noch in Arbeit.
