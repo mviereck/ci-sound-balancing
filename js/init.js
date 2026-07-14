@@ -679,6 +679,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Ziel- UND Grenzeinhaltung-Sichtbarkeit.
     if (!istAbf && !istCbf && !istFbf) { _frqBandZielSichtbarkeit(); _frqBandGrenzSichtbarkeit(); }
   }
+  // BA501: Ausgangspunkt-Wahl des Bandgraphen (global, Anzeige-only).
+  _frqBandWahlInit("FRQ_bandAusgang", function (v) { FRQ_bandAusgang = v; });
   // BA463: Setter schreiben in die AKTIVE Seite (sideData[activeSide]).
   _frqBandWahlInit("FRQ_bandVerfahren", function (v) {
     sideData[activeSide].bandVerfahren = v;

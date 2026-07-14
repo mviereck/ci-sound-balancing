@@ -1001,11 +1001,54 @@ function FRQ_renderBaenderTab() {
   _FRQ_renderBandEmpf(aktivSide);
 }
 
+// BA501: effektiver Ausgangspunkt-Wert einer Elektrodenseite fuer den
+// Bandgraphen. Loest die globale Wahl FRQ_bandAusgang + die seiten-
+// globalen Zusammenfall-Regeln (§10.3) auf EINEN Hz-Wert auf:
+//   nominell  -> nominellHz (faellt nie zurueck)
+//   gemessen  -> gehoertHz, sonst nominellHz (ungemessen)
+//   geglaettet-> gehoertHzGlatt, sonst gehoertHz, sonst nominellHz
+// ws = seite aus FRQ_empfWerte (das side-Objekt einer Elektrode).
+function _FRQ_bandAusgangHz(ws, wahl) {
+  if (!ws) return null;
+  if (wahl === "nominell") return ws.nominellHz;
+  if (wahl === "gemessen") return (ws.gehoertHz != null) ? ws.gehoertHz : ws.nominellHz;
+  // geglaettet (Default)
+  if (ws.gehoertHzGlatt != null) return ws.gehoertHzGlatt;
+  return (ws.gehoertHz != null) ? ws.gehoertHz : ws.nominellHz;
+}
+
 function _FRQ_renderBandEmpf(side) {
   var head = document.getElementById("FRQ_bandEmpfTableHead");
   var body = document.getElementById("FRQ_bandEmpfTableBody");
   var note = document.getElementById("FRQ_bandEmpfOverlapNote");
   if (!head || !body) return;
+
+  // BA501: Radios auf den globalen Ausgangspunkt spiegeln.
+  var _ar = document.querySelectorAll('input[name="FRQ_bandAusgang"]');
+  for (var _ri = 0; _ri < _ar.length; _ri++) {
+    _ar[_ri].checked = (_ar[_ri].value === FRQ_bandAusgang);
+  }
+  // Zusammenfall-Hinweise (§10.3), seiten-global. "gemessen" gilt als
+  // eigenstaendig, sobald mind. eine Elektrode gemessen ist.
+  var _hinw = document.getElementById("FRQ_bandAusgangHinweis");
+  if (_hinw) {
+    var _glattAus = (sideData[side].bandGlaettGrad === "aus");
+    var _wDbg = FRQ_empfWerte(false);
+    var _keineMessung = true;
+    for (var _wi = 0; _wi < _wDbg.length; _wi++) {
+      if (_wDbg[_wi] && _wDbg[_wi].gemessen) { _keineMessung = false; break; }
+    }
+    var _zeilen = [];
+    if (_glattAus)     _zeilen.push(t("FRQ_bandAusgangFallGlatt"));
+    if (_keineMessung) _zeilen.push(t("FRQ_bandAusgangFallGem"));
+    if (_zeilen.length) {
+      _hinw.style.display = "";
+      _hinw.innerHTML = _zeilen.join("<br>");
+    } else {
+      _hinw.style.display = "none";
+      _hinw.innerHTML = "";
+    }
+  }
 
   // BA458: Empfehlungs-Graph gegen die gemeinsame Engine drawFRQGraph.
   // rows aus derselben Wertquelle wie die Tabelle unten (FRQ_empfWerte),
@@ -1017,6 +1060,15 @@ function _FRQ_renderBandEmpf(side) {
     var _werte = FRQ_empfWerte(false);
     var _rows = [];
     var _nCi = sideData[side].nEl;
+    // Farben der zwei blassen Vergleichskurven (dieselbe Reihenfolge wie
+    // _blass im Schleifenkoerper): die zwei NICHT gewaehlten Ausgangspunkte.
+    var _blassFarben = [];
+    if (FRQ_bandAusgang !== "gemessen")   _blassFarben.push("blau");
+    if (FRQ_bandAusgang !== "geglaettet") _blassFarben.push("gruen");
+    if (FRQ_bandAusgang !== "nominell")   _blassFarben.push("schwarz");
+    // Farbe der kraeftigen (gewaehlten) Kurve:
+    var _kraeftigFarbe = (FRQ_bandAusgang === "gemessen") ? "blau"
+                       : (FRQ_bandAusgang === "nominell") ? "schwarz" : "gruen";
     for (var _i = 0; _i < _nCi; _i++) {
       // elActive===false: komplett abgeschaltet -> unsichtbar (Sec. 9.5).
       if (sideData[side].elActive && sideData[side].elActive[_i] === false) continue;
@@ -1028,17 +1080,33 @@ function _FRQ_renderBandEmpf(side) {
       if (!_ws) continue;
       // Nur El. mit vollstaendigem Band erscheinen (Ueberlauf/kein Band raus).
       if (_ws.bandLoHz == null || _ws.bandHiHz == null || _ws.bandCenterHz == null) continue;
-      var _target = (_ws.gehoertHz != null) ? _ws.gehoertHz : _ws.nominellHz;
-      if (_target == null) continue;
       var _center = _ws.bandCenterHz;
       var _resid = (_ws.residuum != null) ? _ws.residuum : 0;
-      // Abweichung Mitte-gehoert in Cent (immer berechnet, auch fuer Tooltip bei FBF).
-      var _dev = 1200 * Math.log2(_center / _target);
-      // BA484: gruene Zweitkurve = Bandmitte gegen geglaettete Frequenz.
-      // gehoertHzGlatt liegt je aktive Elektrode vor (core.js:1877).
-      var _devGlatt = (_ws.gehoertHzGlatt != null && _ws.gehoertHzGlatt > 0)
-        ? 1200 * Math.log2(_center / _ws.gehoertHzGlatt)
-        : null;
+      // Drei Ausgangspunkt-Hz je Kurve (§10). Fehlende Werte -> null-Kurve.
+      var _hzNom  = _ws.nominellHz;
+      var _hzGem  = (_ws.gehoertHz != null) ? _ws.gehoertHz : _ws.nominellHz;
+      var _hzGlat = (_ws.gehoertHzGlatt != null && _ws.gehoertHzGlatt > 0)
+        ? _ws.gehoertHzGlatt
+        : _hzGem;
+      // Abweichung Bandmitte gegen einen Ausgangspunkt in Cent.
+      var _devVon = function (hz) {
+        return (hz != null && hz > 0) ? 1200 * Math.log2(_center / hz) : null;
+      };
+      var _devNom  = _devVon(_hzNom);
+      var _devGem  = _devVon(_hzGem);
+      var _devGlat = _devVon(_hzGlat);
+      // Der GEWAEHLTE Ausgangspunkt ist die kraeftige Kurve (_target/_dev,
+      // Ampelpunkt); die anderen zwei sind blass (yCent2/yCent3).
+      var _target = _FRQ_bandAusgangHz(_ws, FRQ_bandAusgang);
+      if (_target == null) continue;
+      var _dev = _devVon(_target);
+      // Zwei blasse Kurven = die zwei NICHT gewaehlten Ausgangspunkte,
+      // in fester Farbzuordnung (blau=gemessen, gruen=geglaettet,
+      // schwarz=nominell). yCent2/yCent3-Farbe kommt aus cfg (unten).
+      var _blass = [];
+      if (FRQ_bandAusgang !== "gemessen")   _blass.push({ dev: _devGem,  farbe: "blau" });
+      if (FRQ_bandAusgang !== "geglaettet") _blass.push({ dev: _devGlat, farbe: "gruen" });
+      if (FRQ_bandAusgang !== "nominell")   _blass.push({ dev: _devNom,  farbe: "schwarz" });
       var _elNum = dEN(_i, side);
       // FBF: Punkt zeigt Messkonsistenz (Messung <-> Nachbar-Kurve),
       // Striche gehoert->Kurve. Sonst: Mitten-Abweichung wie bisher (§5.1).
@@ -1047,7 +1115,7 @@ function _FRQ_renderBandEmpf(side) {
       // Ungemessen: grauer Punkt (stufe=null) auf der echten Bandmitten-
       // Abweichung _dev (FBF: kein Konsistenzwert -> ebenfalls _dev).
       var _yCent   = !_gemessen ? _dev : (istFbf ? _consist : _dev);
-      var _xLinks  = _target;                            // gehoert (roh)
+      var _xLinks  = _target;                            // gewaehlter Ausgangspunkt
       var _xRechts = istFbf
         ? ((_ws.kurveHz != null) ? _ws.kurveHz : _center)
         : _center;                                       // Kurve (FBF) bzw. Mitte
@@ -1057,13 +1125,14 @@ function _FRQ_renderBandEmpf(side) {
       var _bew = (_stufe === "gruen") ? t("FRQ_bandEmpfRatingNoise")
                : (_stufe === "amber") ? t("FRQ_bandEmpfRatingSlight")
                : t("FRQ_bandEmpfRatingClear");
-      var _devTxt = (_dev >= 0 ? "+" : "") + fmtNum(_dev, "cent") + " ct";
+      var _devTxt = (_dev != null ? (_dev >= 0 ? "+" : "") + fmtNum(_dev, "cent") + " ct" : "-");
       _rows.push({
         elNum: _elNum,
         xLinksHz: _xLinks,
         xRechtsHz: _xRechts,
-        yCent: _yCent,             // blau = Bandmitte gegen gehoert (roh), bewertet
-        yCent2: _devGlatt,         // BA484: gruene Zweitkurve = gegen geglaettet
+        yCent: _yCent,             // kraeftige Kurve = gewaehlter Ausgangspunkt, bewertet
+        yCent2: (_blass[0] ? _blass[0].dev : null),   // erste blasse Vergleichskurve
+        yCent3: (_blass[1] ? _blass[1].dev : null),   // zweite blasse Vergleichskurve
         residuumCent: _resid,
         bandLoHz: _ws.bandLoHz,
         bandHiHz: _ws.bandHiHz,
@@ -1073,7 +1142,7 @@ function _FRQ_renderBandEmpf(side) {
         konsistenzCent: (_ws.kurveAbwCent != null) ? _ws.kurveAbwCent : null,
         tooltip: [
           "<b>E" + _elNum + "</b>",
-          t("FRQ_bandTipHeard") + ": " + fmtNum(_target, "hz") + " Hz",
+          t("FRQ_bandAusgang_" + FRQ_bandAusgang) + ": " + fmtNum(_target, "hz") + " Hz",
           t("FRQ_bandTipReached") + ": " + fmtNum(_center, "hz") + " Hz",
           t("FRQ_bandTipShift") + ": " + _devTxt + " · " + _bew,
           t("FRQ_bandTipBand") + ": " + fmtNum(_ws.bandLoHz, "hz") + " – "
@@ -1091,7 +1160,9 @@ function _FRQ_renderBandEmpf(side) {
       xWandHz: _wand,
       yLabel: t("FRQ_resultsChartYLabel"),
       verbindung: true,
-      zweitkurve: "gruen",     // BA484: gruene Marker-Kurve = gegen geglaettet
+      linienfarbe: _kraeftigFarbe,          // BA501: gewaehlter Ausgangspunkt = kraeftig
+      zweitkurve: _blassFarben[0] || null,  // erste blasse Vergleichskurve
+      drittkurve: _blassFarben[1] || null,  // zweite blasse Vergleichskurve
       amberband: false,
       titel: "FRQ_titel_band",
       bewertung: "ampel",
@@ -1100,7 +1171,8 @@ function _FRQ_renderBandEmpf(side) {
     var _bHint = document.getElementById("FRQ_bandEmpfChartHint");
     if (_bHint) {
       _bHint.innerHTML = FRQ_legendeHtml("band",
-        frqLegendData({ zweitkurve: "gruen", amberband: false, bewertung: "ampel" }, _rows));
+        frqLegendData({ linienfarbe: _kraeftigFarbe, zweitkurve: _blassFarben[0] || null,
+          drittkurve: _blassFarben[1] || null, amberband: false, bewertung: "ampel" }, _rows));
     }
     if (!_bcv._frqg_listener) {
       _bcv.addEventListener("mousemove", function (e) { _frqg_tooltipHandler(_bcv, e); });
@@ -1113,7 +1185,7 @@ function _FRQ_renderBandEmpf(side) {
 
   head.innerHTML =
     "<th>" + t("FRQ_resultsColEl") + "</th>" +
-    "<th>" + t("FRQ_bandEmpfColTarget") + "</th>" +
+    "<th>" + t("FRQ_bandEmpfColTarget") + " (" + t("FRQ_bandAusgang_" + FRQ_bandAusgang) + ")</th>" +
     "<th>" + t("FRQ_bandEmpfColRange") + "</th>" +
     "<th>" + t("FRQ_bandEmpfColCenter") + "</th>" +
     "<th>" + (istFbf ? t("FRQ_bandEmpfColConsist") : t("FRQ_bandEmpfColDev")) + "</th>" +
@@ -1166,7 +1238,7 @@ function _FRQ_renderBandEmpf(side) {
       if (ws.bandError === "abfTonoZuKlein") abfTooSmall = true;
     }
 
-    var target = ws ? (ws.gehoertHz != null ? ws.gehoertHz : ws.nominellHz) : null;
+    var target = _FRQ_bandAusgangHz(ws, FRQ_bandAusgang);
     var lo = ws ? ws.bandLoHz : null;
     var hi = ws ? ws.bandHiHz : null;
     var center = ws ? ws.bandCenterHz : null;

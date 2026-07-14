@@ -1590,6 +1590,10 @@ var FRQ_GLAETT_K_DEFAULT = 0.88;
 // aussen=OC(Greenwood), mitte=ABF-Mittel, innen=SG. Architektur 00-glaettung §6b.
 var FRQ_GLAETT_LAGE_WERTE = { "aussen": 0, "mitte": 0.5, "innen": 1 };
 var FRQ_GLAETT_LAGE_DEFAULT = 0;   // aussen = verhaltensidentisch zum alten ortsaffin
+// BA501: gewaehlter Ausgangspunkt des Frequenzbaender-Graphen (reine
+// Anzeige-Wahl, global fuer beide Seiten, keine Persistenz). Werte:
+// "gemessen" | "geglaettet" | "nominell". Default geglaettet.
+var FRQ_bandAusgang = "geglaettet";
 function _frqGlaettLage() {
   var s = (typeof sideData !== "undefined" && typeof activeSide === "string")
     ? sideData[activeSide] : null;

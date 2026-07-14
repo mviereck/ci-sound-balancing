@@ -1118,6 +1118,23 @@
               style="font-size:0.82em;color:var(--text-muted);margin:0 0 10px;line-height:1.5"
               id="FRQ_bandEmpfChartHint"
             ></div>
+            <div style="margin:0 0 10px">
+              <span style="font-weight:600" data-t="FRQ_bandAusgangLabel">Ausgangspunkt:</span>
+              <label style="margin-left:8px">
+                <input type="radio" name="FRQ_bandAusgang" value="geglaettet">
+                <span data-t="FRQ_bandAusgang_geglaettet">gegl&auml;ttet</span>
+              </label>
+              <label style="margin-left:12px">
+                <input type="radio" name="FRQ_bandAusgang" value="gemessen">
+                <span data-t="FRQ_bandAusgang_gemessen">gemessen</span>
+              </label>
+              <label style="margin-left:12px">
+                <input type="radio" name="FRQ_bandAusgang" value="nominell">
+                <span data-t="FRQ_bandAusgang_nominell">nominell</span>
+              </label>
+              <div id="FRQ_bandAusgangHinweis"
+                   style="font-size:0.82em;color:var(--text-muted);margin-top:4px;display:none"></div>
+            </div>
             <table class="results-table" id="FRQ_bandEmpfTable">
               <thead><tr id="FRQ_bandEmpfTableHead"></tr></thead>
               <tbody id="FRQ_bandEmpfTableBody"></tbody>
