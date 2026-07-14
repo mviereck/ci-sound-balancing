@@ -2019,8 +2019,8 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
   // BA482 (§15.2): measured (roh) bleibt erhalten; die Glaettung liefert eine
   // ZWEITE Reihe measuredGlatt daneben. Verfahren "aus" -> measuredGlatt ==
   // measured (roh). Die konkrete Rechen-Engine waehlt _frqGlaetteMeasured
-  // anhand des Verfahrens (ortskurve/ortsaffin haben eigene Engines;
-  // unbekannte Verfahren fallen auf "polynom" zurueck).
+  // anhand des Verfahrens (BA502: nur noch "ortsaffin" hat eine eigene Engine;
+  // "polynom" ist die vereinte Engine, auf die unbekannte Verfahren zurueckfallen).
   var measuredGlatt = (_glVerf !== "aus")
     ? _frqGlaetteMeasured(measured, _glVerf)
     : measured;
