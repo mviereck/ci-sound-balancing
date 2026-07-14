@@ -765,17 +765,33 @@ document.addEventListener("DOMContentLoaded", () => {
       var el = document.getElementById(id);
       if (el) el.style.display = on ? "" : "none";
     }
+    // 0.5.503.1: matt (ausgegraut, aber weiter BEDIENBAR -- kein disabled) fuer
+    // Zeile-1-Achsen, die gerade nichts bewirken (Muster player.js:676:
+    // opacity). Der Wert bleibt setzbar und greift, sobald er wieder wirkt.
+    function matt(id, wirksam) {
+      var el = document.getElementById(id);
+      if (el) el.style.opacity = wirksam ? "" : "0.5";
+    }
     // Randausschluss-Achse nur bei MED-EL: sie dient dem apikalen FSP-
     // Ausschluss (rate-pitch statt place-pitch, MED-EL-spezifisch). Bei AB
     // macht _frqGlaettAusschluss den Randausschluss der Ortsverfahren fix im
     // Code (E1+E16), bei Cochlear sind die Ortsaffin-Verfahren gesperrt (s.o.).
     var _istMedel = !!(s && s.manufacturer === "medel");
     var _polynom = (v === "polynom");
+    var _ortsaffin = (v === "ortsaffin");
+    var _aktiv = (v !== "aus");
+    // Ortsraum aktiv? bei polynom haengt es an der Rechenraum-Achse, bei
+    // ortsaffin ist der Ortsraum immer aktiv. Lage + k wirken NUR im Ortsraum.
+    var _ortsraum = _ortsaffin || (_polynom && s && s.bandGlaettAchse === "ortsraum");
 
-    // Zeile 1 (global, IMMER sichtbar -- auch bei "aus"; Martin 2026-07-14):
+    // Zeile 1 (global, IMMER sichtbar -- auch bei "aus"; Martin 2026-07-14).
+    // 0.5.503.1: ausgegraut (bedienbar) wenn gerade wirkungslos.
     show("FRQ_glaettLageFieldset",     true);
+    matt("FRQ_glaettLageFieldset",     _ortsraum);          // Lage wirkt nur im Ortsraum
     show("FRQ_glaettKFieldset",        true);
-    show("FRQ_glaettRandfreiFieldset", _istMedel);   // nur MED-EL (rate-pitch/FSP-Grund)
+    matt("FRQ_glaettKFieldset",        _ortsraum);          // k wirkt nur im Ortsraum
+    show("FRQ_glaettRandfreiFieldset", _istMedel);          // nur MED-EL (rate-pitch/FSP-Grund)
+    matt("FRQ_glaettRandfreiFieldset", _aktiv);             // wirkt nur wenn geglaettet wird
     // Zeile 2 (Polynom-Regler; nur bei Verfahren "polynom"):
     show("FRQ_glaettFitXFieldset",     _polynom);
     show("FRQ_glaettAchseFieldset",    _polynom);

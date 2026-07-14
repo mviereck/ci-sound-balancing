@@ -448,9 +448,9 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandGrenzeinhaltung", def: "abschneiden",fileKey: "bandGrenzeinhaltung", group: "FRQ_bandGrenzeinhaltung" },
   { key: "bandGlaettVerfahren", def: "aus",         fileKey: "bandGlaettVerfahren", group: "FRQ_glaettVerfahren" },
   { key: "bandGlaettFitX",      def: "position",    fileKey: "bandGlaettFitX",      group: "FRQ_glaettFitX" },
-  { key: "bandGlaettGrad",      def: "2",           fileKey: "bandGlaettGrad",      group: "FRQ_glaettGrad" },
-  { key: "bandGlaettAchse",     def: "log",         fileKey: "bandGlaettAchse",     group: "FRQ_glaettAchse" },
-  { key: "bandGlaettSteife",    def: "2",          fileKey: "bandGlaettSteife",    group: "FRQ_glaettSteife" },
+  { key: "bandGlaettGrad",      def: "1",           fileKey: "bandGlaettGrad",      group: "FRQ_glaettGrad" },
+  { key: "bandGlaettAchse",     def: "ortsraum",    fileKey: "bandGlaettAchse",     group: "FRQ_glaettAchse" },
+  { key: "bandGlaettSteife",    def: "3",          fileKey: "bandGlaettSteife",    group: "FRQ_glaettSteife" },
   { key: "bandGlaettRandfrei",  def: "0",          fileKey: "bandGlaettRandfrei",  group: "FRQ_glaettRandfrei" },
   { key: "bandGlaettK",         def: "0.88",        fileKey: "bandGlaettK",         group: "FRQ_glaettK" },
   { key: "bandGlaettLage",      def: "aussen",     fileKey: "bandGlaettLage",      group: "FRQ_glaettLage" },
@@ -1585,7 +1585,7 @@ var FRQ_GLAETT_UNGEMESSEN_RESID_CT = 1200;  // virtuelles Residuum r (cent)
 // BA487: Greenwood-Offset k je Stufe der bandGlaettK-Achse (Ortsverfahren).
 // Werte aus der MED-EL-Default-Rekonstruktion (Konzept_Greenwood_Glaettungs_
 // Prior.md §3): klassisch 0.88 traf am schlechtesten, weggelassen.
-var FRQ_GLAETT_K_WERTE = { "0.88": 0.88, "1.3": 1.3, "1.4": 1.4, "1.53": 1.53 };
+var FRQ_GLAETT_K_WERTE = { "0.88": 0.88, "1.1": 1.1, "1.36": 1.36, "1.53": 1.53 };
 var FRQ_GLAETT_K_DEFAULT = 0.88;
 // BA499: Elektrodenlage-Gewicht w je Stufe der bandGlaettLage-Achse.
 // aussen=OC(Greenwood), mitte=ABF-Mittel, innen=SG. Architektur 00-glaettung §6b.
