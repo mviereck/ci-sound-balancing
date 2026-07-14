@@ -1585,7 +1585,7 @@ var FRQ_GLAETT_UNGEMESSEN_RESID_CT = 1200;  // virtuelles Residuum r (cent)
 // BA487: Greenwood-Offset k je Stufe der bandGlaettK-Achse (Ortsverfahren).
 // Werte aus der MED-EL-Default-Rekonstruktion (Konzept_Greenwood_Glaettungs_
 // Prior.md §3): klassisch 0.88 traf am schlechtesten, weggelassen.
-var FRQ_GLAETT_K_WERTE = { "0.88": 0.88, "1.1": 1.1, "1.36": 1.36, "1.53": 1.53 };
+var FRQ_GLAETT_K_WERTE = { "0.88": 0.88, "1.0": 1.0, "1.36": 1.36, "1.53": 1.53 };
 var FRQ_GLAETT_K_DEFAULT = 0.88;
 // BA499: Elektrodenlage-Gewicht w je Stufe der bandGlaettLage-Achse.
 // aussen=OC(Greenwood), mitte=ABF-Mittel, innen=SG. Architektur 00-glaettung §6b.

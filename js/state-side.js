@@ -462,11 +462,13 @@ function loadSideData(side, d) {
     }
     // (b) Rechenraum-Wert "greenwood" heisst jetzt "ortsraum" (w=0 = Greenwood).
     if (s.bandGlaettAchse === "greenwood") s.bandGlaettAchse = "ortsraum";
-    // (c) 0.5.503.1: k-Stufen 1.3/1.4 durch 1.1/1.36 ersetzt. Alte Werte auf den
-    //     genaueren Nachfolger 1.36 mappen (aus MED-EL-Default-Rekonstruktion,
-    //     Konzept_Greenwood_Glaettungs_Prior.md); sonst fiele der Radio-Spiegel
-    //     leer aus und _frqGlaettK rechnete still mit dem Default 0.88.
+    // (c) k-Stufen geaendert: 1.3/1.4 (vor 0.5.503.1) -> 1.36 (genauerer
+    //     MED-EL-Default-Rekonstruktions-Wert, Konzept_Greenwood_Glaettungs_
+    //     Prior.md); 1.1 (0.5.503.1) -> 1.0 (0.5.503.3). Alte Werte mappen, sonst
+    //     fiele der Radio-Spiegel leer aus und _frqGlaettK rechnete still mit dem
+    //     Default 0.88.
     if (s.bandGlaettK === "1.3" || s.bandGlaettK === "1.4") s.bandGlaettK = "1.36";
+    if (s.bandGlaettK === "1.1") s.bandGlaettK = "1.0";
   }
   s.elSt = d.electrodeStatus || new Array(s.nEl).fill(null);
   s.elNt = d.electrodeNotes || new Array(s.nEl).fill("");

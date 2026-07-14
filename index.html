@@ -968,23 +968,23 @@
           <!-- Zeile 1: global, immer sichtbar -->
           <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
             <fieldset id="FRQ_glaettLageFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-              <legend data-t="FRQ_glaettLageLegend" style="padding:0 6px">Elektrodenlage</legend>
+              <legend data-t="FRQ_glaettLageLegend" style="padding:0 6px">Elektrodenlage in Cochlea</legend>
               <label style="display:block"><input type="radio" name="FRQ_glaettLage" value="aussen"> <span data-t="FRQ_glaettLageAussen">Au&#223;enwand (Greenwood)</span></label>
-              <label style="display:block"><input type="radio" name="FRQ_glaettLage" value="mitte"> <span data-t="FRQ_glaettLageMitte">Mitte (MED-EL/ABF)</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettLage" value="mitte"> <span data-t="FRQ_glaettLageMitte">Mitte</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettLage" value="innen"> <span data-t="FRQ_glaettLageInnen">Innenwand (Spiralganglion)</span></label>
             </fieldset>
             <fieldset id="FRQ_glaettRandfreiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettRandfreiLegend" style="padding:0 6px">Randausschlu&#223; (apikal)</legend>
-              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="0"> 0</label>
-              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="1"> 1</label>
-              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="2"> 2</label>
-              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="3"> 3</label>
-              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="4"> 4</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="0"> <span data-t="FRQ_glaettRandfrei0">0 Elektroden</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="1"> <span data-t="FRQ_glaettRandfrei1">1 Elektrode</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="2"> <span data-t="FRQ_glaettRandfrei2">2 Elektroden</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="3"> <span data-t="FRQ_glaettRandfrei3">3 Elektroden</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="4"> <span data-t="FRQ_glaettRandfrei4">4 Elektroden</span></label>
             </fieldset>
             <fieldset id="FRQ_glaettKFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettKLegend" style="padding:0 6px">Greenwood-k</legend>
               <label style="display:block"><input type="radio" name="FRQ_glaettK" value="0.88"> 0,88</label>
-              <label style="display:block"><input type="radio" name="FRQ_glaettK" value="1.1"> 1,1</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettK" value="1.0"> 1,0</label>
               <label style="display:block"><input type="radio" name="FRQ_glaettK" value="1.36"> 1,36</label>
               <label style="display:block"><input type="radio" name="FRQ_glaettK" value="1.53"> 1,53</label>
             </fieldset>
@@ -998,14 +998,14 @@
               <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="ortsaffin"> <span data-t="FRQ_glaettVerfahrenOrtsaf">Ortsaffin</span></label>
             </fieldset>
             <fieldset id="FRQ_glaettFitXFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-              <legend data-t="FRQ_glaettFitXLegend" style="padding:0 6px">Fit &#252;ber</legend>
-              <label style="display:block"><input type="radio" name="FRQ_glaettFitX" value="position"> <span data-t="FRQ_glaettFitXPos">Frequenzposition</span></label>
+              <legend data-t="FRQ_glaettFitXLegend" style="padding:0 6px">Kurve &#252;ber</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettFitX" value="position"> <span data-t="FRQ_glaettFitXPos">Elektrodenposition</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettFitX" value="index"> <span data-t="FRQ_glaettFitXIdx">Elektrodennummer</span></label>
             </fieldset>
             <fieldset id="FRQ_glaettAchseFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettAchseLegend" style="padding:0 6px">Rechenraum</legend>
-              <label style="display:block"><input type="radio" name="FRQ_glaettAchse" value="log"> <span data-t="FRQ_glaettAchseLog">log-Frequenz</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettAchse" value="ortsraum"> <span data-t="FRQ_glaettAchseOrt">Ortsraum</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettAchse" value="log"> <span data-t="FRQ_glaettAchseLog">log-Frequenz</span></label>
             </fieldset>
             <fieldset id="FRQ_glaettGradFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettGradLegend" style="padding:0 6px">Gl&#228;ttungskurve</legend>
