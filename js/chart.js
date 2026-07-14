@@ -555,7 +555,12 @@ function drawFRQGraph(cv, rows, cfg) {
   //     Polygone (blau=gehoert, gruen=geglaettet). Die durchsichtige
   //     Kurve ist zwischen den Graphen gespiegelt (Aufrufer-Sache).
   // ============================================================
-  const KURVENFARBE = { blau: "#3b82f6", gruen: "#16a34a" };
+  // Kurvenfarben (§8.5): blau = Messergebnis, gruen = Glaettung,
+  // schwarz = nominell (BA500). "schwarz" ist ein MITTELGRAU (#6b7280),
+  // NICHT reines Schwarz: die Nullinie und die rechten Striche sind
+  // bereits #000 -- eine reinschwarze Kurve wuerde damit verschwimmen.
+  // Startwert, Feinjustierung nach Sichttest (siehe Akzeptanz).
+  const KURVENFARBE = { blau: "#3b82f6", gruen: "#16a34a", schwarz: "#6b7280" };
   const _linieFarbe = KURVENFARBE[cfg.linienfarbe] || "#3b82f6";
   if (cfg.verbindung) {
     const pts = rows.filter(function (r) { return r.yCent != null; })
@@ -579,6 +584,25 @@ function drawFRQGraph(cv, rows, cfg) {
       ctx.beginPath();
       ctx.moveTo(tX(pts2[0]._cR), tY(pts2[0].yCent2));
       for (let i = 1; i < pts2.length; i++) ctx.lineTo(tX(pts2[i]._cR), tY(pts2[i].yCent2));
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  // (9c) DRITTE VERBINDUNGSLINIE durch die yCent3-Marker — wenn Zeilen
+  //     yCent3 tragen. Farbe cfg.drittkurve. Identisch zur zweiten Linie,
+  //     nur andere Y-/Farbquelle. Nur der dreikurvige Bandgraph (§10)
+  //     traegt yCent3; Ergebnis-/Glaettungsgraph setzen es nie.
+  const _drittFarbe = KURVENFARBE[cfg.drittkurve] || null;
+  if (_drittFarbe) {
+    const pts3 = rows.filter(function (r) { return r.yCent3 != null; })
+                     .sort(function (a, b) { return a._cR - b._cR; });
+    if (pts3.length > 1) {
+      ctx.globalAlpha = ZWEIT_ALPHA;
+      ctx.strokeStyle = _drittFarbe; ctx.lineWidth = 1.5; ctx.setLineDash([]);
+      ctx.beginPath();
+      ctx.moveTo(tX(pts3[0]._cR), tY(pts3[0].yCent3));
+      for (let i = 1; i < pts3.length; i++) ctx.lineTo(tX(pts3[i]._cR), tY(pts3[i].yCent3));
       ctx.stroke();
       ctx.globalAlpha = 1;
     }
@@ -631,6 +655,20 @@ function drawFRQGraph(cv, rows, cfg) {
       const xs2 = tX(r._cR), ys2 = tY(r.yCent2);
       ctx.beginPath(); ctx.arc(xs2, ys2, 5, 0, Math.PI * 2);
       ctx.strokeStyle = _zweitFarbe; ctx.lineWidth = 1.75; ctx.setLineDash([]);
+      ctx.stroke();
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  // (4c) DRITTKURVEN-MARKER — durchsichtiger Kreis auf _cR in Hoehe
+  //      yCent3, Rand in cfg.drittkurve-Farbe. Identisch zu 4b. (§4 4c)
+  if (_drittFarbe) {
+    ctx.globalAlpha = ZWEIT_ALPHA;
+    rows.forEach(function (r) {
+      if (r.yCent3 == null) return;
+      const xs3 = tX(r._cR), ys3 = tY(r.yCent3);
+      ctx.beginPath(); ctx.arc(xs3, ys3, 5, 0, Math.PI * 2);
+      ctx.strokeStyle = _drittFarbe; ctx.lineWidth = 1.75; ctx.setLineDash([]);
       ctx.stroke();
     });
     ctx.globalAlpha = 1;
@@ -774,6 +812,7 @@ function frqLegendData(cfg, rows) {
     hellgrau: ["#9ca3af"], schwarz: ["#000000"], orange: ["#f59e0b"],
     blau: ["#3b82f6"], gruen: ["#16a34a"], hellblau: ["#dbeafe"],
     weiss: ["#f2f2f2"], hellrot: ["#fecaca"],
+    grau: ["#6b7280"],   // BA500: nominell-Kurve (== KURVENFARBE.schwarz)
     gruenrot: ["#16a34a", "#dc2626"],
     gruengelbrot: ["#16a34a", "#facc15", "#dc2626"]
   };
@@ -789,19 +828,32 @@ function frqLegendData(cfg, rows) {
   if (cfg.amberband) el.push(mk("band", "orange", "x"));
   el.push(mk("querbalken", "schwarz", "y"));
 
-  // Kurven (§8.5): blau = Messergebnisse, gruen = Glaettung, ueber alle
-  // Graphen konsistent. Erste Linie = cfg.linienfarbe (Default blau);
-  // Zweitkurve = cfg.zweitkurve, nur wenn Zeilen yCent2 tragen.
-  var hatZweit = false;
+  // Kurven (§8.5): eine kraeftige (cfg.linienfarbe, immer) + bis zu zwei
+  // blasse Vergleichskurven (cfg.zweitkurve/cfg.drittkurve, nur wenn die
+  // Zeilen yCent2/yCent3 tragen). Jede Farbe hoechstens einmal in der
+  // Legende -- faellt eine Vergleichskurve mit einer schon genannten
+  // zusammen, keine Doppel-Zeile. mapFarbe: cfg-Wort -> HEX-Schluessel
+  // (schwarz -> grau, weil KURVENFARBE.schwarz ein Mittelgrau ist).
+  var hatZweit = false, hatDritt = false;
   for (var i = 0; i < rows.length; i++) {
-    if (rows[i] && rows[i].yCent2 != null) { hatZweit = true; break; }
+    if (rows[i] && rows[i].yCent2 != null) hatZweit = true;
+    if (rows[i] && rows[i].yCent3 != null) hatDritt = true;
   }
-  var linie1 = (cfg.linienfarbe === "gruen") ? "gruen" : "blau";
-  el.push(mk("kurve", linie1, null));
-  if (hatZweit && cfg.zweitkurve) {
-    var linie2 = (cfg.zweitkurve === "gruen") ? "gruen" : "blau";
-    if (linie2 !== linie1) el.push(mk("kurve", linie2, null));
-  }
+  var mapKurvenFarbe = function (wort) {
+    if (wort === "gruen")   return "gruen";
+    if (wort === "schwarz") return "grau";
+    return "blau";
+  };
+  var kurvenFarben = [];
+  kurvenFarben.push(mapKurvenFarbe(cfg.linienfarbe));
+  if (hatZweit && cfg.zweitkurve) kurvenFarben.push(mapKurvenFarbe(cfg.zweitkurve));
+  if (hatDritt && cfg.drittkurve) kurvenFarben.push(mapKurvenFarbe(cfg.drittkurve));
+  var kurvenGesehen = {};
+  kurvenFarben.forEach(function (f) {
+    if (kurvenGesehen[f]) return;
+    kurvenGesehen[f] = true;
+    el.push(mk("kurve", f, null));
+  });
 
   // Flaechen (§4 Punkt 1): nur wenn Zeilen Bandgrenzen tragen. Weiss +
   // hellrot immer mit-benennen, weil die Engine sie aktiv zeichnet.
