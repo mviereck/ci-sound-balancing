@@ -1827,7 +1827,11 @@ function _frqGlaettOrtskurve(noms, cents, weights) {
 // BA489/BA490/BA499 (Architektur §6/§6a/§6b): Ortsaffin-Kern. k (_frqGlaettK)
 // und Lage-Gewicht w (_frqGlaettLage) werden EINMAL gelesen; toP/fromP daraus
 // lokal erzeugt -> hin=zurueck garantiert.
-function _frqGlaettOrtsaffin(noms, cents, weights) {
+// defNoms (2026-07-14): reine Hersteller-Default-Frequenzen je Stuetzstelle
+// als Ortsmuster fuer xdef. Nur die VORLAGE -- xmess (gehoert) und die cent-
+// Rueckrechnung laufen weiter ueber noms (effektiv, = gemessene Elektrode).
+// Fehlt defNoms[i] (null/undefined), faellt diese Stelle auf noms[i] zurueck.
+function _frqGlaettOrtsaffin(noms, cents, weights, defNoms) {
   var n = noms.length;
   if (n < 2) return cents.slice();
   var kk = _frqGlaettK();
@@ -1838,7 +1842,9 @@ function _frqGlaettOrtsaffin(noms, cents, weights) {
   var xdef = [], xmess = [];
   for (var i = 0; i < n; i++) {
     var gehoert = noms[i] * Math.pow(2, -cents[i] / 1200);
-    xdef.push(toP(noms[i]));
+    // Vorlage = Default (defNoms), Fallback noms. gehoert bleibt auf noms.
+    var _vorlageHz = (defNoms && defNoms[i] != null) ? defNoms[i] : noms[i];
+    xdef.push(toP(_vorlageHz));
     xmess.push(toP(gehoert));
   }
 
@@ -1995,9 +2001,20 @@ function _frqGlaetteMeasured(measured, verfahren) {
     return FRQ_GLAETT_UNGEMESSEN_GEWICHT
       / (FRQ_GLAETT_UNGEMESSEN_RESID_CT * FRQ_GLAETT_UNGEMESSEN_RESID_CT);
   });
-  // x-Achse: nominelle Hz je Stuetzstelle, seitenrichtig.
+  // x-Achse: nominelle Hz je Stuetzstelle, seitenrichtig. noms = EFFEKTIVE
+  // Frequenz (own ?? default) -- das ist der Bezug der Messung + cent-Rueck-
+  // rechnung (der Nutzer hat SEINE Elektrode gemessen).
   var noms = keys.map(function (k) {
     return withSide(side, function () { return FRQ_implantatEffektiv(k); });
+  });
+  var _sd = (typeof sideData !== "undefined") ? sideData[side] : null;
+  // Ortsaffin-Vorlage (2026-07-14): das xdef-Ortsmuster MUSS die reinen
+  // Hersteller-Defaultfrequenzen sein (greenwood-verteilt, §6f) -- NICHT die
+  // nutzer-editierten (FRQ_implantatOwn zerstoert die Musterstruktur). Nur die
+  // VORLAGE auf Default, xmess/Rueckrechnung bleiben auf noms (effektiv).
+  var defNoms = keys.map(function (k) {
+    var d = (_sd && _sd.FRQ_implantat) ? _sd.FRQ_implantat[k] : null;
+    return (d != null) ? d : null;   // null -> Ortsaffin faellt je Stelle auf noms zurueck
   });
   // AB + ortsaffin (2026-07-11, Konzept §7): die beiden Randelektroden bleiben
   // in keys (anders als ortskurve), werden aber aus dem affinen
@@ -2005,7 +2022,6 @@ function _frqGlaetteMeasured(measured, verfahren) {
   // inneren, rekonstruiert aber ALLE (auch die Raender) via a*xdef+b -> die
   // Raender bekommen ihre modellierte Frequenz (grosser Default-Rand-Abstand in
   // xdef, mit a skaliert). Nur ortsaffin (nur dort existiert ein globales a,b).
-  var _sd = (typeof sideData !== "undefined") ? sideData[side] : null;
   if (_sd && _sd.manufacturer === "ab"
       && _sd.bandGlaettVerfahren === "ortsaffin"
       && keys.length >= 2) {
@@ -2017,7 +2033,7 @@ function _frqGlaetteMeasured(measured, verfahren) {
   if (verfahren === "ortskurve") {
     glatt = _frqGlaettOrtskurve(noms, cents, weights);
   } else if (verfahren === "ortsaffin") {
-    glatt = _frqGlaettOrtsaffin(noms, cents, weights);   // Lage-Achse steuert w
+    glatt = _frqGlaettOrtsaffin(noms, cents, weights, defNoms);   // defNoms = Default-Vorlage (xdef)
   } else {
     glatt = _frqGlaettKurve(noms, cents, weights);   // polynom / kurve
   }
