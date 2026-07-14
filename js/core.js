@@ -1240,8 +1240,10 @@ function FRQ_yMaxCent() {
       if (a > maxAbs) maxAbs = a;
     }
   }
-  // x1.5, auf 50er aufrunden, Untergrenze 50 (leerer Zustand -> 50).
-  return Math.max(Math.ceil((maxAbs * 1.5) / 50) * 50, 50);
+  // x1.5, auf 50er aufrunden, Untergrenze 400 (feste Orientierungs-Skala;
+  // Default-/Bandgraph zeigen sonst nur die 0-Linie, da Ticks erst bei 100
+  // beginnen -- chart.js:523).
+  return Math.max(Math.ceil((maxAbs * 1.5) / 50) * 50, 400);
 }
 
 // Kette der aktiven, frequenz-tragenden Elektroden in Reihenfolge.
@@ -1670,7 +1672,12 @@ function _frqGlaettKurve(noms, cents, weights) {
                  : parseInt(_steifeRaw, 10);
   if (!(_steifeIdx >= 0 && _steifeIdx <= 6)) _steifeIdx = 2;
   var _lambda = FRQ_GLAETT_STEIFE_LAMBDA[_steifeIdx];
-  var achse = (_achseW === "greenwood") ? greenwoodX
+  // ACHTUNG: nicht greenwoodX direkt als map-Callback verwenden -- map ruft
+  // (element, index, array), und greenwoodX(hz, kk) nimmt index als kk-Parameter
+  // -> jede Stuetzstelle bekaeme ihren Index als Greenwood-k (Alt-Bug, bei der
+  // log-Achse nie aufgefallen, weil deren Callback das 2. Arg ignoriert). Der
+  // hz-only-Wrapper kappt das (festes k=0,88 Default in greenwoodX).
+  var achse = (_achseW === "greenwood") ? function (hz) { return greenwoodX(hz); }
             : function (hz) { return Math.log2(hz); };
   var deg = _gradW;
   if (deg >= n) deg = n - 1;                  // nicht ueberbestimmen
@@ -1685,8 +1692,18 @@ function _frqGlaettKurve(noms, cents, weights) {
   var _xv = 0; for (var _k2 = 0; _k2 < n; _k2++) { var _d = _xr[_k2] - _xm; _xv += _d * _d; }
   var _xs = Math.sqrt(_xv / n) || 1;          // std; Schutz gegen 0
   var x = _xr.map(function (xv) { return (xv - _xm) / _xs; });
-  // y = log2(gehoerte Hz) = log2(nominell) + pse/1200 = log2(nom) - cent/1200
-  var y = noms.map(function (nm, i) { return Math.log2(nm) - cents[i] / 1200; });
+  // y = zu glaettende Groesse der GEHOERTEN Frequenz, IM SELBEN RAUM wie die
+  // x-Achse (Konsistenz-Fix 0.5.499.3): log -> log2(gehoert), greenwood ->
+  // greenwoodX(gehoert). Vorher war y stets log2, waehrend x bei greenwood im
+  // Ortsraum lag -> log2 ueber greenwoodX ist gekruemmt, das Polynom "glaettete"
+  // diese Kruemmung und erzeugte auch OHNE Messung einen Ausschlag. Jetzt liegt
+  // y bei greenwood im Ortsraum -> ohne Messung ist y linear in x -> flach.
+  // gehoert = nom * 2^(-cent/1200) (Konvention core.js).
+  var _greenY = (_achseW === "greenwood");
+  var y = noms.map(function (nm, i) {
+    var gehoert = nm * Math.pow(2, -cents[i] / 1200);
+    return _greenY ? greenwoodX(gehoert) : Math.log2(gehoert);
+  });
   // Gewichtete Polynom-Regression via Normalgleichungen (Vandermonde^T W V c
   // = Vandermonde^T W y). Loeser: bestehender _frqGauss.
   var m = deg + 1;
@@ -1719,8 +1736,11 @@ function _frqGlaettKurve(noms, cents, weights) {
   for (var i2 = 0; i2 < n; i2++) {
     var yf = 0, xk = 1;
     for (var p2 = 0; p2 < m; p2++) { yf += coef[p2] * xk; xk *= x[i2]; }
-    // zurueck zu kanonischem cent: cent' = -pse' = -(1200*(yf - log2(nom)))
-    out[i2] = -1200 * (yf - Math.log2(noms[i2]));
+    // yf ist der geglaettete y-Wert IM RAUM der Achse (Konsistenz-Fix
+    // 0.5.499.3). greenwood: yf = Greenwood-Ort -> zurueck ueber greenwoodHz;
+    // log: yf = log2(gehoert). Dann kanonisch cent' = -1200*log2(gehoertGlatt/nom).
+    var gehoertGlatt = _greenY ? greenwoodHz(yf) : Math.pow(2, yf);
+    out[i2] = -1200 * Math.log2(gehoertGlatt / noms[i2]);
   }
   return out;
 }
