@@ -452,6 +452,16 @@ function loadSideData(side, d) {
     FRQ_BAND_WAHLEN.forEach(function (w) {
       s[w.key] = (typeof d[w.fileKey] === "string") ? d[w.fileKey] : w.def;
     });
+    // BA502: Migration alter Glaettungs-Werte auf die vereinheitlichte Struktur.
+    // (a) Verfahren "ortskurve" ist in "polynom" aufgegangen: Fit ueber Index,
+    //     Rechenraum Ortsraum (bildet das alte Ortskurve-Verhalten nach).
+    if (s.bandGlaettVerfahren === "ortskurve") {
+      s.bandGlaettVerfahren = "polynom";
+      s.bandGlaettFitX       = "index";
+      s.bandGlaettAchse      = "ortsraum";
+    }
+    // (b) Rechenraum-Wert "greenwood" heisst jetzt "ortsraum" (w=0 = Greenwood).
+    if (s.bandGlaettAchse === "greenwood") s.bandGlaettAchse = "ortsraum";
   }
   s.elSt = d.electrodeStatus || new Array(s.nEl).fill(null);
   s.elNt = d.electrodeNotes || new Array(s.nEl).fill("");

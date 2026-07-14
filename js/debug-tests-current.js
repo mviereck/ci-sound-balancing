@@ -1140,3 +1140,202 @@
     return { ok: ok, msg: msg };
   });
 })();
+
+/* BA502 — Polynom-Vereinheitlichung: Verhaltensneutralitaet */
+(function () {
+  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
+  dbg.test('build/BA502/polynom-neutral', {
+    tab: 'frequenzbaender',
+    label: 'BA502 Polynom verhaltensneutral'
+  }, function () {
+    var lines = [], ok = true;
+    function chk(label, val, detail) {
+      var pass = !!val;
+      if (!pass) ok = false;
+      lines.push((pass ? 'ok' : 'FAIL') + ' ' + label + (detail ? ' | ' + detail : ''));
+    }
+
+    // Pruefe Voraussetzungen
+    if (typeof _frqGlaettPolynom !== 'function') {
+      return { ok: false, msg: '_frqGlaettPolynom nicht verfuegbar' };
+    }
+    if (typeof greenwoodX !== 'function' || typeof greenwoodHz !== 'function') {
+      return { ok: false, msg: 'greenwoodX/greenwoodHz nicht verfuegbar' };
+    }
+    if (typeof sideData === 'undefined' || typeof activeSide === 'undefined') {
+      return { ok: false, msg: 'sideData/activeSide nicht verfuegbar' };
+    }
+
+    // Testdaten: 5 Elektroden, nominelle Hz, kleine Abweichungen, gleiche Gewichte
+    var noms    = [500, 750, 1000, 1500, 2500];
+    var cents   = [30, -20, 50, -10, 40];
+    var weights = [1, 1, 1, 1, 1];
+
+    // Hilfsreferenz fuer altes log-Polynom (position+log):
+    // x = log2(nom), y = log2(gehoert), Ridge gleich, Grad 2.
+    function refLogPolynom(nms, cts, wts) {
+      var n = nms.length;
+      var FRQ_GLAETT_STEIFE_LAMBDA = [0, 0.02, 0.05, 0.12, 0.25, 0.35, 0.5];
+      var lambda = FRQ_GLAETT_STEIFE_LAMBDA[2]; // Stufe 2
+      var deg = 2;
+      var xr = nms.map(function (hz) { return Math.log2(hz); });
+      var xm = 0; for (var i = 0; i < n; i++) xm += xr[i]; xm /= n;
+      var xv = 0; for (var i = 0; i < n; i++) { var d = xr[i] - xm; xv += d * d; } xv /= n;
+      var xs = Math.sqrt(xv) || 1;
+      var x = xr.map(function (v) { return (v - xm) / xs; });
+      var y = nms.map(function (nm, i) {
+        return Math.log2(nm * Math.pow(2, -cts[i] / 1200));
+      });
+      var m = deg + 1;
+      var M = [], rhs = [];
+      for (var a = 0; a < m; a++) { M.push(new Array(m).fill(0)); rhs.push(0); }
+      for (var i = 0; i < n; i++) {
+        var w = wts[i]; if (!(w > 0)) continue;
+        var xp = new Array(m); xp[0] = 1;
+        for (var p = 1; p < m; p++) xp[p] = xp[p - 1] * x[i];
+        for (var r = 0; r < m; r++) {
+          rhs[r] += w * xp[r] * y[i];
+          for (var c = 0; c < m; c++) M[r][c] += w * xp[r] * xp[c];
+        }
+      }
+      var anker = M[0][0] || 1;
+      for (var rr = 2; rr < m; rr++) M[rr][rr] += lambda * anker;
+      var coef = _frqGauss(M, rhs);
+      if (!coef) return cts.slice();
+      var out = new Array(n);
+      for (var i2 = 0; i2 < n; i2++) {
+        var yf = 0, xk = 1;
+        for (var p2 = 0; p2 < m; p2++) { yf += coef[p2] * xk; xk *= x[i2]; }
+        out[i2] = -1200 * Math.log2(Math.pow(2, yf) / nms[i2]);
+      }
+      return out;
+    }
+
+    // Hilfsreferenz fuer altes greenwood-Polynom (position+greenwood, k=0.88, w=0):
+    function refGreenwoodPolynom(nms, cts, wts) {
+      var n = nms.length;
+      var FRQ_GLAETT_STEIFE_LAMBDA = [0, 0.02, 0.05, 0.12, 0.25, 0.35, 0.5];
+      var lambda = FRQ_GLAETT_STEIFE_LAMBDA[2];
+      var deg = 2;
+      var xr = nms.map(function (hz) { return greenwoodX(hz, 0.88); });
+      var xm = 0; for (var i = 0; i < n; i++) xm += xr[i]; xm /= n;
+      var xv = 0; for (var i = 0; i < n; i++) { var d = xr[i] - xm; xv += d * d; } xv /= n;
+      var xs = Math.sqrt(xv) || 1;
+      var x = xr.map(function (v) { return (v - xm) / xs; });
+      var y = nms.map(function (nm, i) {
+        return greenwoodX(nm * Math.pow(2, -cts[i] / 1200), 0.88);
+      });
+      var m = deg + 1;
+      var M = [], rhs = [];
+      for (var a = 0; a < m; a++) { M.push(new Array(m).fill(0)); rhs.push(0); }
+      for (var i = 0; i < n; i++) {
+        var w = wts[i]; if (!(w > 0)) continue;
+        var xp = new Array(m); xp[0] = 1;
+        for (var p = 1; p < m; p++) xp[p] = xp[p - 1] * x[i];
+        for (var r = 0; r < m; r++) {
+          rhs[r] += w * xp[r] * y[i];
+          for (var c = 0; c < m; c++) M[r][c] += w * xp[r] * xp[c];
+        }
+      }
+      var anker = M[0][0] || 1;
+      for (var rr = 2; rr < m; rr++) M[rr][rr] += lambda * anker;
+      var coef = _frqGauss(M, rhs);
+      if (!coef) return cts.slice();
+      var out = new Array(n);
+      for (var i2 = 0; i2 < n; i2++) {
+        var yf = 0, xk = 1;
+        for (var p2 = 0; p2 < m; p2++) { yf += coef[p2] * xk; xk *= x[i2]; }
+        out[i2] = -1200 * Math.log2(greenwoodHz(yf, 0.88) / nms[i2]);
+      }
+      return out;
+    }
+
+    // Hilfsreferenz fuer alte Ortskurve (index+greenwood, k=0.88):
+    function refOrtskurve(nms, cts, wts) {
+      var n = nms.length;
+      var FRQ_GLAETT_STEIFE_LAMBDA = [0, 0.02, 0.05, 0.12, 0.25, 0.35, 0.5];
+      var lambda = FRQ_GLAETT_STEIFE_LAMBDA[2];
+      var deg = 2;
+      var xort = nms.map(function (nm, i) {
+        return greenwoodX(nm * Math.pow(2, -cts[i] / 1200), 0.88);
+      });
+      var idx = []; for (var q = 0; q < n; q++) idx.push(q);
+      var im = 0; for (var a = 0; a < n; a++) im += idx[a]; im /= n;
+      var iv = 0; for (var a = 0; a < n; a++) { var dd = idx[a] - im; iv += dd * dd; } iv /= n;
+      var is = Math.sqrt(iv) || 1;
+      var x = idx.map(function (v) { return (v - im) / is; });
+      var y = xort;
+      var m = deg + 1;
+      var M = [], rhs = [];
+      for (var b = 0; b < m; b++) { M.push(new Array(m).fill(0)); rhs.push(0); }
+      for (var i = 0; i < n; i++) {
+        var w = wts[i]; if (!(w > 0)) continue;
+        var xp = new Array(m); xp[0] = 1;
+        for (var p = 1; p < m; p++) xp[p] = xp[p - 1] * x[i];
+        for (var r = 0; r < m; r++) {
+          rhs[r] += w * xp[r] * y[i];
+          for (var c = 0; c < m; c++) M[r][c] += w * xp[r] * xp[c];
+        }
+      }
+      var anker = M[0][0] || 1;
+      for (var rr = 2; rr < m; rr++) M[rr][rr] += lambda * anker;
+      var coef = _frqGauss(M, rhs);
+      if (!coef) return cts.slice();
+      var out = new Array(n);
+      for (var i2 = 0; i2 < n; i2++) {
+        var yf = 0, xk = 1;
+        for (var p2 = 0; p2 < m; p2++) { yf += coef[p2] * xk; xk *= x[i2]; }
+        out[i2] = -1200 * Math.log2(greenwoodHz(yf, 0.88) / nms[i2]);
+      }
+      return out;
+    }
+
+    // Hilfsfunktion: _frqGlaettPolynom mit temporaer gesetzten Achsen aufrufen.
+    // Setzt sideData[activeSide]-Felder kurz um, ruft auf, stellt wieder her.
+    function callPolynom(fitX, achse, k, lage) {
+      var s = sideData[activeSide];
+      var prev = {
+        bandGlaettFitX:  s.bandGlaettFitX,
+        bandGlaettAchse: s.bandGlaettAchse,
+        bandGlaettGrad:  s.bandGlaettGrad,
+        bandGlaettSteife: s.bandGlaettSteife,
+        bandGlaettK:     s.bandGlaettK,
+        bandGlaettLage:  s.bandGlaettLage
+      };
+      s.bandGlaettFitX  = fitX;
+      s.bandGlaettAchse = achse;
+      s.bandGlaettGrad  = "2";
+      s.bandGlaettSteife = "2";
+      s.bandGlaettK     = String(k);
+      s.bandGlaettLage  = lage;
+      var result = _frqGlaettPolynom(noms, cents, weights);
+      Object.keys(prev).forEach(function (key) { s[key] = prev[key]; });
+      return result;
+    }
+
+    var TOL = 1e-9;
+
+    // Test 1: position + log vs. Referenz-log-Polynom
+    var ref1 = refLogPolynom(noms, cents, weights);
+    var res1 = callPolynom("position", "log", 0.88, "aussen");
+    var diff1 = ref1.map(function (v, i) { return Math.abs(v - res1[i]); });
+    var maxD1 = Math.max.apply(null, diff1);
+    chk('position+log == ref-log-Polynom', maxD1 < TOL, 'maxDiff=' + maxD1.toExponential(3));
+
+    // Test 2: position + ortsraum + w=0 (aussen) + k=0.88 vs. Referenz-greenwood-Polynom
+    var ref2 = refGreenwoodPolynom(noms, cents, weights);
+    var res2 = callPolynom("position", "ortsraum", 0.88, "aussen");
+    var diff2 = ref2.map(function (v, i) { return Math.abs(v - res2[i]); });
+    var maxD2 = Math.max.apply(null, diff2);
+    chk('position+ortsraum+aussen+k0.88 == ref-greenwood-Polynom', maxD2 < TOL, 'maxDiff=' + maxD2.toExponential(3));
+
+    // Test 3: index + ortsraum + w=0 (aussen) + k=0.88 vs. Referenz-Ortskurve
+    var ref3 = refOrtskurve(noms, cents, weights);
+    var res3 = callPolynom("index", "ortsraum", 0.88, "aussen");
+    var diff3 = ref3.map(function (v, i) { return Math.abs(v - res3[i]); });
+    var maxD3 = Math.max.apply(null, diff3);
+    chk('index+ortsraum+aussen+k0.88 == ref-Ortskurve', maxD3 < TOL, 'maxDiff=' + maxD3.toExponential(3));
+
+    return { ok: ok, msg: lines.join('\n') };
+  });
+})();

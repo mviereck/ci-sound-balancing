@@ -447,8 +447,9 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandCbfBandraum",     def: "log",        fileKey: "bandCbfBandraum",     group: "FRQ_bandCbfBandraum" },
   { key: "bandGrenzeinhaltung", def: "abschneiden",fileKey: "bandGrenzeinhaltung", group: "FRQ_bandGrenzeinhaltung" },
   { key: "bandGlaettVerfahren", def: "aus",         fileKey: "bandGlaettVerfahren", group: "FRQ_glaettVerfahren" },
+  { key: "bandGlaettFitX",      def: "position",    fileKey: "bandGlaettFitX",      group: "FRQ_glaettFitX" },
   { key: "bandGlaettGrad",      def: "2",           fileKey: "bandGlaettGrad",      group: "FRQ_glaettGrad" },
-  { key: "bandGlaettAchse",     def: "log",        fileKey: "bandGlaettAchse",     group: "FRQ_glaettAchse" },
+  { key: "bandGlaettAchse",     def: "log",         fileKey: "bandGlaettAchse",     group: "FRQ_glaettAchse" },
   { key: "bandGlaettSteife",    def: "2",          fileKey: "bandGlaettSteife",    group: "FRQ_glaettSteife" },
   { key: "bandGlaettRandfrei",  def: "0",          fileKey: "bandGlaettRandfrei",  group: "FRQ_glaettRandfrei" },
   { key: "bandGlaettK",         def: "0.88",        fileKey: "bandGlaettK",         group: "FRQ_glaettK" },
@@ -1638,36 +1639,38 @@ function _frqGlaettGewicht(i, res) {
   return g / (r * r);
 }
 
-// Globales Kurvenmodell (Martins Leithypothese: die glatte Kurve schaetzt den
-// physischen Ortsverlauf, Abweichung = Messfehler-Verdacht). Fittet ein
-// gewichtetes Polynom Grad FRQ_GLAETT_KURVE_GRAD im Raum
-// x = achse(nominelleHz), y = log2(gehoerteHz). achse: log-Default
-// (log2) oder Greenwood-Ort (greenwoodX) -- FRQ_GLAETT_KURVE_ACHSE. Gibt neue
-// cent zurueck (cent' = 1200*(y_fit - log2(nominell)) mit Vorzeichen der
-// kanonischen Konvention). ACHTUNG: cent kanonisch = -pse; y ist die GEHOERTE
-// Frequenz, also nominell*2^(pse/1200) = nominell*2^(-cent/1200).
-//   noms   nominelle Implantat-Hz je Stuetzstelle (>0), gleiche Reihenfolge
-//   cents  kanonisches cent je Stuetzstelle
-//   weights Vertrauens-Gewicht
-// Rueckgabe: geglaettetes cent je Stuetzstelle.
-function _frqGlaettKurve(noms, cents, weights) {
+// BA502: Vereinte Polynom-Engine (ersetzt _frqGlaettKurve + _frqGlaettOrtskurve,
+// Architektur 00-glaettung-verfahren-architektur.md §6d). Gewichtetes Ridge-
+// Polynom, gesteuert durch zwei orthogonale Achsen:
+//   Fit-x (bandGlaettFitX):  "position" -> x = raum(nom); "index" -> x = Index 0..n-1
+//   Rechenraum (bandGlaettAchse): "log" -> raum(hz)=log2(hz), w wirkungslos;
+//                                 "ortsraum" -> raum(hz)=_lageToP(hz,k,w) (Lage-Ortsraum,
+//                                 w=0 = reiner Greenwood).
+// y = die zu glaettende Groesse der GEHOERTEN Frequenz IM Rechenraum; Rueckweg
+// raumabhaengig, dann kanonisch cent' = -1200*log2(gehoertGlatt/nom).
+// Signatur wie die abgeloesten Engines (noms, cents, weights) -> cents'.
+function _frqGlaettPolynom(noms, cents, weights) {
   var n = noms.length;
-  // BA475: Grad + Achse seitenweise aus sideData[activeSide].
   var _s = (typeof sideData !== "undefined" && typeof activeSide === "string")
     ? sideData[activeSide] : null;
-  var _achseW = (_s && _s.bandGlaettAchse) ? _s.bandGlaettAchse : "log";
-  var _gradW  = (_s && _s.bandGlaettGrad && _s.bandGlaettGrad !== "aus")
+  var _fitW  = (_s && _s.bandGlaettFitX) ? _s.bandGlaettFitX : "position";
+  var _raumW = (_s && _s.bandGlaettAchse) ? _s.bandGlaettAchse : "log";
+  var _gradW = (_s && _s.bandGlaettGrad && _s.bandGlaettGrad !== "aus")
     ? parseInt(_s.bandGlaettGrad, 10) : 2;
-  // Steife (Regularisierung): Ridge-Strafterm lambda auf die Diagonale der
-  // Normalgleichung, aber erst ab dem quadratischen Koeffizienten (p>=2) --
-  // Konstante + Steigung bleiben unbestraft, damit nur die KRUEMMUNG gedaempft
-  // wird (die Kurve wird zur Geraden hingezogen, nicht flach/verschoben).
-  // weich=0 (=heutiges Verhalten), mittel/steif ziehen zunehmend zur Geraden.
-  // Steife-Stufe 0..6 (Radio-Wert). lambda geometrisch gestaffelt (Regulari-
-  // sierung wirkt multiplikativ -> lineare Schritte waeren am unteren Ende
-  // unmerklich). 0="weich" (neutral), 6="steif". Die frueheren drei Werte
-  // (0/0,05/0,5) sind als Stufen 0/2/6 enthalten. Alt-Strings (weich/mittel/
-  // steif) aus vor-0.5.485.3-Dateien werden auf 0/2/6 gemappt (Load-Kompat).
+
+  // Rechenraum-Paar (Hz <-> Raum). "log": log2/pow2, w-frei. "ortsraum":
+  // Lage-Ortsraum ueber _lageToP/_lageFromP mit EINMAL gelesenem k und w
+  // (Muster ortsaffin core.js: _frqGlaettK()/_frqGlaettLage() -> an toP UND
+  // fromP -> hin=zurueck garantiert).
+  var _ort = (_raumW === "ortsraum");
+  var kk = _ort ? _frqGlaettK()   : 0;
+  var ww = _ort ? _frqGlaettLage() : 0;
+  function raumToP(hz)  { return _ort ? _lageToP(hz, kk, ww) : Math.log2(hz); }
+  function raumFromP(P) { return _ort ? _lageFromP(P, kk, ww) : Math.pow(2, P); }
+
+  // Steife (Ridge): geometrisch gestaffeltes lambda, ab p>=2. Stufe 0..6,
+  // Alt-Strings weich/mittel/steif -> 0/2/6 (Load-Kompat). IDENTISCH zu den
+  // abgeloesten Engines.
   var FRQ_GLAETT_STEIFE_LAMBDA = [0, 0.02, 0.05, 0.12, 0.25, 0.35, 0.5];
   var _steifeRaw = (_s && _s.bandGlaettSteife != null) ? String(_s.bandGlaettSteife) : "2";
   var _steifeIdx = (_steifeRaw === "weich") ? 0
@@ -1676,40 +1679,32 @@ function _frqGlaettKurve(noms, cents, weights) {
                  : parseInt(_steifeRaw, 10);
   if (!(_steifeIdx >= 0 && _steifeIdx <= 6)) _steifeIdx = 2;
   var _lambda = FRQ_GLAETT_STEIFE_LAMBDA[_steifeIdx];
-  // ACHTUNG: nicht greenwoodX direkt als map-Callback verwenden -- map ruft
-  // (element, index, array), und greenwoodX(hz, kk) nimmt index als kk-Parameter
-  // -> jede Stuetzstelle bekaeme ihren Index als Greenwood-k (Alt-Bug, bei der
-  // log-Achse nie aufgefallen, weil deren Callback das 2. Arg ignoriert). Der
-  // hz-only-Wrapper kappt das (festes k=0,88 Default in greenwoodX).
-  var achse = (_achseW === "greenwood") ? function (hz) { return greenwoodX(hz); }
-            : function (hz) { return Math.log2(hz); };
-  var deg = _gradW;
-  if (deg >= n) deg = n - 1;                  // nicht ueberbestimmen
-  // x zentrieren + skalieren (x' = (x-mean)/std). Ohne das haben die
-  // Vandermonde-Spalten voellig verschiedene Groessenordnungen (log2-Hz ~7..14
-  // -> x^3 ~350..2700), die Matrix ist schlecht konditioniert und ein Ridge
-  // darauf unkalibrierbar. Zentriert sind alle Spalten O(1) -> der Strafterm
-  // wirkt mild und monoton. Auswertung unten geschieht auf denselben x'-Werten,
-  // darum keine Ruecktransformation der Koeffizienten noetig.
-  var _xr = noms.map(achse);
-  var _xm = 0; for (var _k = 0; _k < n; _k++) _xm += _xr[_k]; _xm /= n;
-  var _xv = 0; for (var _k2 = 0; _k2 < n; _k2++) { var _d = _xr[_k2] - _xm; _xv += _d * _d; }
-  var _xs = Math.sqrt(_xv / n) || 1;          // std; Schutz gegen 0
+
+  var deg = _gradW; if (deg >= n) deg = n - 1;   // nicht ueberbestimmen
+
+  // --- Fit-x-Achse ---
+  // "position": x = raum(nom) (nominelle Frequenz im Rechenraum, wie altes Polynom).
+  // "index":    x = Elektroden-Index 0..n-1 (wie alte Ortskurve).
+  var _xr;
+  if (_fitW === "index") {
+    _xr = []; for (var q = 0; q < n; q++) _xr.push(q);
+  } else {
+    _xr = noms.map(function (nm) { return raumToP(nm); });
+  }
+  // x zentrieren + skalieren (Konditionierung; Auswertung auf denselben x').
+  var _xm = 0; for (var k1 = 0; k1 < n; k1++) _xm += _xr[k1]; _xm /= n;
+  var _xv = 0; for (var k2 = 0; k2 < n; k2++) { var _d = _xr[k2] - _xm; _xv += _d * _d; }
+  var _xs = Math.sqrt(_xv / n) || 1;
   var x = _xr.map(function (xv) { return (xv - _xm) / _xs; });
-  // y = zu glaettende Groesse der GEHOERTEN Frequenz, IM SELBEN RAUM wie die
-  // x-Achse (Konsistenz-Fix 0.5.499.3): log -> log2(gehoert), greenwood ->
-  // greenwoodX(gehoert). Vorher war y stets log2, waehrend x bei greenwood im
-  // Ortsraum lag -> log2 ueber greenwoodX ist gekruemmt, das Polynom "glaettete"
-  // diese Kruemmung und erzeugte auch OHNE Messung einen Ausschlag. Jetzt liegt
-  // y bei greenwood im Ortsraum -> ohne Messung ist y linear in x -> flach.
+
+  // --- y = gehoerte Frequenz IM Rechenraum ---
   // gehoert = nom * 2^(-cent/1200) (Konvention core.js).
-  var _greenY = (_achseW === "greenwood");
   var y = noms.map(function (nm, i) {
     var gehoert = nm * Math.pow(2, -cents[i] / 1200);
-    return _greenY ? greenwoodX(gehoert) : Math.log2(gehoert);
+    return raumToP(gehoert);
   });
-  // Gewichtete Polynom-Regression via Normalgleichungen (Vandermonde^T W V c
-  // = Vandermonde^T W y). Loeser: bestehender _frqGauss.
+
+  // --- Gewichtete Ridge-Regression (Normalgleichungen, _frqGauss) ---
   var m = deg + 1;
   var M = [], rhs = [];
   for (var a = 0; a < m; a++) { M.push(new Array(m).fill(0)); rhs.push(0); }
@@ -1722,100 +1717,19 @@ function _frqGlaettKurve(noms, cents, weights) {
       for (var c = 0; c < m; c++) M[r][c] += w * xp[r] * xp[c];
     }
   }
-  // Ridge auf die Kruemmungs-Koeffizienten (p>=2): ADDITIVER Strafterm
-  // lambda*anker auf die Diagonale. Anker = M[0][0] (= Summe der Gewichte, da
-  // xp[0]==1) -- ein GEMEINSAMER Skalenmassstab der Matrix, nicht die Diagonale
-  // des jeweiligen Terms (das sprengte die Zeile: Nebendiagonalen blieben, die
-  // Gleichung wurde inkonsistent -> Kollaps zur Geraden schon bei kleinem
-  // lambda). Auf zentriertem x sind die Diagonaleintraege O(anker), darum wirkt
-  // lambda mild und monoton: 0.05 ("mittel") daempft leicht, 0.5 ("steif")
-  // deutlich; lambda=0 ("weich") = neutral.
   if (_lambda > 0) {
     var _anker = M[0][0] || 1;
     for (var rr = 2; rr < m; rr++) M[rr][rr] += _lambda * _anker;
   }
   var coef = _frqGauss(M, rhs);
-  if (!coef) return cents.slice();            // singulaer -> unveraendert
+  if (!coef) return cents.slice();               // singulaer -> unveraendert
+
+  // --- Auswertung: geglaetteter y-Wert -> Hz -> kanonisches cent ---
   var out = new Array(n);
   for (var i2 = 0; i2 < n; i2++) {
     var yf = 0, xk = 1;
     for (var p2 = 0; p2 < m; p2++) { yf += coef[p2] * xk; xk *= x[i2]; }
-    // yf ist der geglaettete y-Wert IM RAUM der Achse (Konsistenz-Fix
-    // 0.5.499.3). greenwood: yf = Greenwood-Ort -> zurueck ueber greenwoodHz;
-    // log: yf = log2(gehoert). Dann kanonisch cent' = -1200*log2(gehoertGlatt/nom).
-    var gehoertGlatt = _greenY ? greenwoodHz(yf) : Math.pow(2, yf);
-    out[i2] = -1200 * Math.log2(gehoertGlatt / noms[i2]);
-  }
-  return out;
-}
-
-// BA487 (Architektur §6): Ortskurve-Verfahren. Lokalisiert jede Stuetzstelle
-// ueber die GEHOERTE Frequenz im Greenwood-Raum (x = greenwoodX(gehoert, k)),
-// glaettet die Ortsfolge ueber den Elektroden-Index mit gewichtetem Polynom
-// (Grad + Steife, gleiche Ridge-Mechanik wie _frqGlaettKurve), rechnet zurueck
-// in cent. Greenwood = Rechenraum, keine Sollkurve (Konzept §0). Signatur wie
-// _frqGlaettKurve, damit die Weiche in _frqGlaetteMeasured sie 1:1 einsetzt.
-function _frqGlaettOrtskurve(noms, cents, weights) {
-  var n = noms.length;
-  var _s = (typeof sideData !== "undefined" && typeof activeSide === "string")
-    ? sideData[activeSide] : null;
-  var _gradW = (_s && _s.bandGlaettGrad && _s.bandGlaettGrad !== "aus")
-    ? parseInt(_s.bandGlaettGrad, 10) : 2;
-  var kk = _frqGlaettK();
-
-  // gehoerte Frequenz je Stuetzstelle: gehoert = nom * 2^(-cent/1200)
-  // (Konvention core.js). Ort im Greenwood-Raum:
-  var xort = noms.map(function (nm, i) {
-    var gehoert = nm * Math.pow(2, -cents[i] / 1200);
-    return greenwoodX(gehoert, kk);
-  });
-
-  // x-Achse des Fits = Elektroden-Position (Index 0..n-1). y = Greenwood-Ort.
-  // Steife-Ridge + Zentrierung wie in _frqGlaettKurve.
-  var FRQ_GLAETT_STEIFE_LAMBDA = [0, 0.02, 0.05, 0.12, 0.25, 0.35, 0.5];
-  var _steifeRaw = (_s && _s.bandGlaettSteife != null) ? String(_s.bandGlaettSteife) : "2";
-  var _steifeIdx = (_steifeRaw === "weich") ? 0
-                 : (_steifeRaw === "mittel") ? 2
-                 : (_steifeRaw === "steif") ? 6
-                 : parseInt(_steifeRaw, 10);
-  if (!(_steifeIdx >= 0 && _steifeIdx <= 6)) _steifeIdx = 2;
-  var _lambda = FRQ_GLAETT_STEIFE_LAMBDA[_steifeIdx];
-
-  var deg = _gradW; if (deg >= n) deg = n - 1;
-  // Elektroden-Index zentriert+skaliert (wie _frqGlaettKurve x-Achse).
-  var idx = []; for (var q = 0; q < n; q++) idx.push(q);
-  var im = 0; for (var a0 = 0; a0 < n; a0++) im += idx[a0]; im /= n;
-  var iv = 0; for (var a1 = 0; a1 < n; a1++) { var dd = idx[a1] - im; iv += dd * dd; }
-  var is = Math.sqrt(iv / n) || 1;
-  var x = idx.map(function (v) { return (v - im) / is; });
-  var y = xort;   // Greenwood-Ort ist die zu glaettende Groesse
-
-  var m = deg + 1;
-  var M = [], rhs = [];
-  for (var b = 0; b < m; b++) { M.push(new Array(m).fill(0)); rhs.push(0); }
-  for (var i = 0; i < n; i++) {
-    var w = weights[i]; if (!(w > 0)) continue;
-    var xp = new Array(m); xp[0] = 1;
-    for (var p = 1; p < m; p++) xp[p] = xp[p - 1] * x[i];
-    for (var r = 0; r < m; r++) {
-      rhs[r] += w * xp[r] * y[i];
-      for (var c = 0; c < m; c++) M[r][c] += w * xp[r] * xp[c];
-    }
-  }
-  if (_lambda > 0) {
-    var anker = M[0][0] || 1;
-    for (var rr = 2; rr < m; rr++) M[rr][rr] += _lambda * anker;
-  }
-  var coef = _frqGauss(M, rhs);
-  if (!coef) return cents.slice();
-
-  // geglaettete Orte -> zurueck in Hz -> zurueck in kanonisches cent
-  var out = new Array(n);
-  for (var i2 = 0; i2 < n; i2++) {
-    var yf = 0, xk = 1;
-    for (var p2 = 0; p2 < m; p2++) { yf += coef[p2] * xk; xk *= x[i2]; }
-    var gehoertGlatt = greenwoodHz(yf, kk);
-    // cent' = -pse' = -(1200 * log2(gehoertGlatt / nom))
+    var gehoertGlatt = raumFromP(yf);
     out[i2] = -1200 * Math.log2(gehoertGlatt / noms[i2]);
   }
   return out;
@@ -1941,16 +1855,14 @@ function _frqGlaettAusschluss(keys) {
   // AB-Sonderregel (2026-07-11): Bei Advanced Bionics folgen nur die MITTLEREN
   // Elektroden dem Greenwood-Ortsmuster; die beiden Randelektroden (apikalste
   // + basalste) sitzen ausserhalb (belegt: Konzept_Greenwood_Glaettungs_Prior.md
-  // §6f -- E2..E15 Abstands-Variation 1,0%, E1/E16 springen). Bei ortskurve
-  // werden sie hier KOMPLETT ausgeschlossen (kein Modell fuer die
-  // Raender -> Rohwert). Bei ortsaffin NICHT hier: dort werden die Raender nur
-  // aus dem FIT genommen (Gewicht 0 in _frqGlaetteMeasured), aber vom affinen
-  // Modell (a*xdef+b) rekonstruiert -- der grosse Default-Rand-Abstand steckt
-  // in xdef, wird mit a skaliert (Konzept §7, Martins Arbeitshypothese; a*xdef+b
-  // ist mathematisch identisch mit "relativer Rand-Abstand an geglaettete
-  // Innen-Position anhaengen"). Fuer polynom gar nicht (log-Raum).
+  // §6f -- E2..E15 Abstands-Variation 1,0%, E1/E16 springen). Dieser harte
+  // Randausschluss galt fuer das (in BA502 entfernte) Verfahren "ortskurve" --
+  // nach der Migration gibt es diesen Verfahrenswert nicht mehr, die Bedingung
+  // greift nie. Kommentar und Variable behalten als Dokumentation der Absicht.
+  // Bei ortsaffin: Raender nur aus dem Fit raushalten (Gewicht 0 in
+  // _frqGlaetteMeasured), aber vom affinen Modell (a*xdef+b) rekonstruiert.
   var _verf = s.bandGlaettVerfahren;
-  var _istOrtsHartAus = (_verf === "ortskurve");
+  var _istOrtsHartAus = (_verf === "ortskurve");   // BA502: nie mehr wahr (ortskurve entfernt)
   if (mfrId === "ab" && _istOrtsHartAus && keys.length >= 2) {
     out[keys[0]] = true;                    // apikalste (AB apFirst -> kleinster elIdx)
     out[keys[keys.length - 1]] = true;      // basalste
@@ -2032,14 +1944,12 @@ function _frqGlaetteMeasured(measured, verfahren) {
     weights[0] = 0;
     weights[keys.length - 1] = 0;
   }
-  // Verfahren-Weiche (Architektur §6). "kurve" = Alt-Name, gilt als polynom.
+  // Verfahren-Weiche (Architektur §6). BA502: ortskurve in polynom aufgegangen.
   var glatt;
-  if (verfahren === "ortskurve") {
-    glatt = _frqGlaettOrtskurve(noms, cents, weights);
-  } else if (verfahren === "ortsaffin") {
+  if (verfahren === "ortsaffin") {
     glatt = _frqGlaettOrtsaffin(noms, cents, weights, defNoms);   // defNoms = Default-Vorlage (xdef)
   } else {
-    glatt = _frqGlaettKurve(noms, cents, weights);   // polynom / kurve
+    glatt = _frqGlaettPolynom(noms, cents, weights);   // polynom (vereint polynom+ortskurve, BA502)
   }
 
   // Ergebnis: measured flach kopieren, dann fuer JEDE Stuetzstelle das
@@ -2098,7 +2008,7 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
   var n  = Math.min(nL, nR);
 
   // Vor-Glaettung der Messwerte (BA475/BA486): seitenweise gesteuert ueber
-  // sideData[seite].bandGlaettVerfahren ("aus"|"polynom"|"ortskurve"|"ortsaffin").
+  // sideData[seite].bandGlaettVerfahren ("aus"|"polynom"|"ortsaffin"). BA502: ortskurve entfernt.
   // Eine Quell-Stelle -> wirkt auf alle Konsumenten (Graph, Tabelle, Warp).
   var _glSeite = (typeof activeSide === "string") ? activeSide : "right";
   var _glVerf = (sideData[_glSeite] && sideData[_glSeite].bandGlaettVerfahren)

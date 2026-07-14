@@ -711,8 +711,13 @@ document.addEventListener("DOMContentLoaded", () => {
     sideData[activeSide].bandGlaettGrad = v;
     _frqGlaettUpdate();
   });
+  _frqBandWahlInit("FRQ_glaettFitX", function (v) {
+    sideData[activeSide].bandGlaettFitX = v;
+    _frqGlaettUpdate();
+  });
   _frqBandWahlInit("FRQ_glaettAchse", function (v) {
     sideData[activeSide].bandGlaettAchse = v;
+    _frqGlaettAchsenSichtbar();
     _frqGlaettUpdate();
   });
   _frqBandWahlInit("FRQ_glaettSteife", function (v) {
@@ -766,12 +771,22 @@ document.addEventListener("DOMContentLoaded", () => {
     // macht _frqGlaettAusschluss den Randausschluss der Ortsverfahren fix im
     // Code (E1+E16), bei Cochlear sind die Ortsaffin-Verfahren gesperrt (s.o.).
     var _istMedel = !!(s && s.manufacturer === "medel");
-    show("FRQ_glaettGradFieldset",     v === "polynom" || v === "ortskurve");
-    show("FRQ_glaettSteifeFieldset",   v === "polynom" || v === "ortskurve");
-    show("FRQ_glaettAchseFieldset",    v === "polynom");
-    show("FRQ_glaettRandfreiFieldset", v !== "aus" && _istMedel);
-    show("FRQ_glaettKFieldset",        v === "ortskurve" || v === "ortsaffin");
-    show("FRQ_glaettLageFieldset",     v === "ortsaffin");
+    var _polynom = (v === "polynom");
+    var _ortsaffin = (v === "ortsaffin");
+    var _aktiv = (v !== "aus");
+    // Ortsraum aktiv? bei polynom haengt es an der Rechenraum-Achse, bei
+    // ortsaffin ist der Ortsraum immer aktiv.
+    var _ortsraum = _ortsaffin || (_polynom && s && s.bandGlaettAchse === "ortsraum");
+
+    // Global (fuer jedes aktive Verfahren):
+    show("FRQ_glaettLageFieldset",     _aktiv);
+    show("FRQ_glaettKFieldset",        _ortsraum);
+    show("FRQ_glaettRandfreiFieldset", _aktiv && _istMedel);
+    // Nur Polynom:
+    show("FRQ_glaettFitXFieldset",     _polynom);
+    show("FRQ_glaettAchseFieldset",    _polynom);
+    show("FRQ_glaettGradFieldset",     _polynom);
+    show("FRQ_glaettSteifeFieldset",   _polynom);
     show("FRQ_glaettVorbereitungHinweis", false);
   }
   // BA463: alle seitenweisen Band-Radios auf die aktive Seite spiegeln.
