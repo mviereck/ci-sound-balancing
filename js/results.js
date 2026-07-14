@@ -1031,8 +1031,9 @@ function _FRQ_renderBandEmpf(side) {
   // Zusammenfall-Hinweise (§10.3), seiten-global. "gemessen" gilt als
   // eigenstaendig, sobald mind. eine Elektrode gemessen ist.
   var _hinw = document.getElementById("FRQ_bandAusgangHinweis");
-  if (_hinw) {
-    var _glattAus = (sideData[side].bandGlaettGrad === "aus");
+  var _hinwRow = document.getElementById("FRQ_bandAusgangHinweisRow");
+  if (_hinw && _hinwRow) {
+    var _glattAus = (sideData[side].bandGlaettVerfahren === "aus");
     var _wDbg = FRQ_empfWerte(false);
     var _keineMessung = true;
     for (var _wi = 0; _wi < _wDbg.length; _wi++) {
@@ -1042,10 +1043,10 @@ function _FRQ_renderBandEmpf(side) {
     if (_glattAus)     _zeilen.push(t("FRQ_bandAusgangFallGlatt"));
     if (_keineMessung) _zeilen.push(t("FRQ_bandAusgangFallGem"));
     if (_zeilen.length) {
-      _hinw.style.display = "";
+      _hinwRow.style.display = "";
       _hinw.innerHTML = _zeilen.join("<br>");
     } else {
-      _hinw.style.display = "none";
+      _hinwRow.style.display = "none";
       _hinw.innerHTML = "";
     }
   }

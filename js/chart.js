@@ -633,11 +633,21 @@ function drawFRQGraph(cv, rows, cfg) {
       const yc = (anker === "nulllinie") ? tY(0)
                : (anker === "rohwert" && r.residuumMitteCent != null) ? tY(r.residuumMitteCent)
                : ys;
+      // Enden am Skalenrand (Feldbereich [pad.top, pad.top+pH]) ABSCHNEIDEN.
+      // Ragt ein Ende ueber den Rand, wird der Stamm dort gekappt und die
+      // Querkappe entfaellt (der Balken laeuft sichtbar aus dem Bild).
+      const yFeldTop = pad.top, yFeldBot = pad.top + pH;
+      const yTop0 = yc - halfH, yBot0 = yc + halfH;
+      const yTop = Math.max(yTop0, yFeldTop);   // oben (kleinerer Pixelwert)
+      const yBot = Math.min(yBot0, yFeldBot);   // unten
       ctx.strokeStyle = "#000"; ctx.lineWidth = 1.5; ctx.setLineDash([]);
       ctx.beginPath();
-      ctx.moveTo(xs, yc - halfH); ctx.lineTo(xs, yc + halfH);
-      ctx.moveTo(xs - 4, yc - halfH); ctx.lineTo(xs + 4, yc - halfH);
-      ctx.moveTo(xs - 4, yc + halfH); ctx.lineTo(xs + 4, yc + halfH);
+      if (yTop < yBot) {
+        ctx.moveTo(xs, yTop); ctx.lineTo(xs, yBot);   // Stamm (geclippt)
+        // Querkappe nur am NICHT abgeschnittenen Ende.
+        if (yTop0 >= yFeldTop) { ctx.moveTo(xs - 4, yTop); ctx.lineTo(xs + 4, yTop); }
+        if (yBot0 <= yFeldBot) { ctx.moveTo(xs - 4, yBot); ctx.lineTo(xs + 4, yBot); }
+      }
       ctx.stroke();
     }
   });
