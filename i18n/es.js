@@ -873,6 +873,10 @@ Object.assign(L.es, {
     FRQ_bandTipBand: "banda",
 
     FRQ_bandEmpfOverlapNote: "No se pueden calcular bandas de frecuencia para la medición actual: dos o más frecuencias percibidas se solapan.",
+    FRQ_glaettPianoBtn: "Reproducir tonos según el suavizado",
+    FRQ_bandPianoBtn:   "Reproducir tonos según el cálculo de bandas",
+    FRQ_glaettPianoTitle: "Tonos según el suavizado",
+    FRQ_bandPianoTitle:   "Tonos según el cálculo de bandas",
     cfgLabel: "Situación auditiva",
     cfgUnknown: "Sin indicar",
     mfrUnknown: "Sin indicar",

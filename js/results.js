@@ -1371,6 +1371,178 @@ function _FRQ_renderBandEmpf(side) {
   }
 }
 
+// BA 505: Zwei Klaviere im Frequenzbaender-Reiter. Beide spielen je
+// Elektrode die aktive und die inaktive Seite als A-B-A-B (2 Durchlaeufe).
+// Sie unterscheiden sich NUR im Frequenz-Extraktor (gehoertHzGlatt vs.
+// bandCenterHz). EIN gemeinsamer Bauer + EIN Oeffner, parametrisiert.
+
+// Geteilter State-Satz fuer beide Klaviere (Nutzer: gemeinsam).
+var FRQ_pianoVolume   = 25;     // Prozent
+var FRQ_pianoDuration = 500;    // ms je Ton
+var FRQ_pianoPause    = 250;    // ms zwischen Toenen
+// Box-Korrektor-fn (aus onTogglesReady); null bis die Box erstmals geoeffnet wird.
+var _frqPianoCorrFn   = null;
+
+// Werte-Zugriff: das FRQ_werte-Array nach elIdx, aktueller Modus.
+function _frqPianoWerteByIdx() {
+  var modus = (typeof FRQ_distribution === "string") ? FRQ_distribution : "right";
+  var werte = (typeof FRQ_werte === "function")
+    ? FRQ_werte("gehoert", modus, false) : [];
+  var byIdx = {};
+  for (var i = 0; i < werte.length; i++) byIdx[werte[i].elIdx] = werte[i];
+  return byIdx;
+}
+
+// Grundlautstaerke (quadratische Kennlinie, vgl. ui-implant.js:381).
+function _frqPianoBaseVol() {
+  return Math.pow(FRQ_pianoVolume / 100, 2);
+}
+
+// Ein Ton-Token fuer eine Seite. hz kann null sein -> null (Ton auslassen).
+// Lautstaerke ueber die Box-Korrektor-fn (Elektrodenlautstaerke + Balance);
+// taube Seite stumm.
+function _frqPianoToken(hz, side) {
+  if (hz == null || !(hz > 0)) return null;
+  var pan = (side === "left") ? -1 : 1;
+  var vol = _frqPianoBaseVol();
+  if (typeof isDeaf === "function" && isDeaf(side)) {
+    vol = 0;
+  } else if (typeof _frqPianoCorrFn === "function") {
+    vol = _frqPianoCorrFn(vol, hz, pan);
+  } else if (typeof corrVol === "function") {
+    vol = corrVol(vol, side, hz, true, true);
+  }
+  return { hz: hz, pan: pan, vol: vol, durationMs: FRQ_pianoDuration };
+}
+
+// A-B-A-B-Token-Array fuer eine Elektrode. extract(seiteObj) -> Hz|null.
+// A = aktive Seite, B = inaktive Seite. Fehlt B, wird B ausgelassen.
+// Fehlt A, ist die Taste ausgegraut -> hier nie gerufen.
+function _frqPianoSequence(elIdx, extract) {
+  var byIdx = _frqPianoWerteByIdx();
+  var wr = byIdx[elIdx];
+  if (!wr) return [];
+  var aktivSide = (typeof activeSide === "string") ? activeSide : "right";
+  var gegenSide = (aktivSide === "left") ? "right" : "left";
+  var hzA = wr[aktivSide] ? extract(wr[aktivSide]) : null;
+  var hzB = wr[gegenSide] ? extract(wr[gegenSide]) : null;
+  var tokA = _frqPianoToken(hzA, aktivSide);
+  var tokB = _frqPianoToken(hzB, gegenSide);
+  if (!tokA) return [];
+  function durchlauf(seq) {
+    seq.push(tokA);
+    if (tokB) { seq.push({ pauseMs: FRQ_pianoPause }); seq.push(tokB); }
+  }
+  var seq = [];
+  durchlauf(seq);
+  seq.push({ pauseMs: FRQ_pianoPause });
+  durchlauf(seq);
+  return seq;
+}
+
+// Ausgegraute Elektroden: aktive Seite hat keine Frequenz (extract == null).
+function _frqPianoDisabled(extract) {
+  var byIdx = _frqPianoWerteByIdx();
+  var aktivSide = (typeof activeSide === "string") ? activeSide : "right";
+  var s = sideData[aktivSide];
+  var n = (s && s.nEl) ? s.nEl : 0;
+  var dis = [];
+  for (var i = 0; i < n; i++) {
+    if (s.elActive && s.elActive[i] === false) { dis.push(i); continue; }
+    var wr = byIdx[i];
+    var hz = (wr && wr[aktivSide]) ? extract(wr[aktivSide]) : null;
+    if (hz == null || !(hz > 0)) dis.push(i);
+  }
+  return dis;
+}
+
+// Tasten-Frequenzen der aktiven Seite (Anzeige).
+function _frqPianoFreqs() {
+  var aktivSide = (typeof activeSide === "string") ? activeSide : "right";
+  var s = sideData[aktivSide];
+  var n = (s && s.nEl) ? s.nEl : 0;
+  var arr = [];
+  withSide(aktivSide, function () {
+    for (var i = 0; i < n; i++) arr.push(FRQ_implantatEffektiv(i));
+  });
+  return arr;
+}
+
+// Tasten-Labels der aktiven Seite.
+function _frqPianoLabels() {
+  var aktivSide = (typeof activeSide === "string") ? activeSide : "right";
+  var s = sideData[aktivSide];
+  var n = (s && s.nEl) ? s.nEl : 0;
+  var arr = [];
+  withSide(aktivSide, function () {
+    var prefix = (typeof dENPrefix === "function") ? dENPrefix() : "E";
+    for (var i = 0; i < n; i++) arr.push(prefix + ((typeof dEN === "function") ? dEN(i) : (i + 1)));
+  });
+  return arr;
+}
+
+// Tonart-Merker pro Modal-Instanz.
+var _frqPianoModalTone = null;
+
+// Der EINE Oeffner. titleKey = Modal-Titel, extract = Frequenz-Extraktor.
+function _frqOpenPiano(titleKey, extract) {
+  if (typeof openToneSelectionDialog !== "function") return;
+  openToneSelectionDialog({
+    getToneType:    function ()   { return _frqPianoModalTone || "sine"; },
+    setToneType:    function (tt) { _frqPianoModalTone = tt; },
+    onToneSelected: function (tt) { _frqPianoModalTone = tt; },
+    onModalClose:   function ()   { _frqPianoModalTone = null; },
+
+    titleKey: titleKey,
+
+    showVolume:   true,
+    showDuration: true,
+    showPause:    true,
+    getVolumePercent: function ()  { return FRQ_pianoVolume; },
+    setVolumePercent: function (v) { FRQ_pianoVolume = v; },
+    getDurationMs:    function ()  { return FRQ_pianoDuration; },
+    setDurationMs:    function (v) { FRQ_pianoDuration = v; },
+    getPauseMs:       function ()  { return FRQ_pianoPause; },
+    setPauseMs:       function (v) { FRQ_pianoPause = v; },
+    getVolume:        function ()  { return _frqPianoBaseVol(); },
+
+    // Korrektur-Toggles (Elektrodenlautstaerke + Balance).
+    // Die Box-Korrektor-fn wird in _frqPianoToken verwendet; so greifen
+    // die Box-Schalter automatisch ohne eigene Merker-Variablen.
+    showToggles: true,
+    onTogglesReady: function (fn) { _frqPianoCorrFn = fn; },
+
+    getPreviewSequence: function (lastHz) {
+      var hz = (typeof lastHz === "number" && lastHz > 0) ? lastHz : 1000;
+      var aktivSide = (typeof activeSide === "string") ? activeSide : "right";
+      var tok = _frqPianoToken(hz, aktivSide);
+      return tok ? [tok] : [];
+    },
+
+    keyboardMode:          true,
+    getElectrodeFreqs:     _frqPianoFreqs,
+    getElectrodeLabels:    _frqPianoLabels,
+    getDisabledElectrodes: function () { return _frqPianoDisabled(extract); },
+
+    getPressSequence: function (electrodeIdx, hz) {
+      if (electrodeIdx < 0) {
+        var aktivSide = (typeof activeSide === "string") ? activeSide : "right";
+        var tok = _frqPianoToken(hz, aktivSide);
+        return tok ? [tok] : [];
+      }
+      return _frqPianoSequence(electrodeIdx, extract);
+    }
+  });
+}
+
+// Die zwei konkreten Oeffner (nur diese zwei Zeilen sind fall-spezifisch).
+function FRQ_openGlaettPiano() {
+  _frqOpenPiano("FRQ_glaettPianoTitle", function (s) { return s.gehoertHzGlatt; });
+}
+function FRQ_openBandPiano() {
+  _frqOpenPiano("FRQ_bandPianoTitle", function (s) { return s.bandCenterHz; });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   function _frq_resultsRefreshAfterClear() {
     if (typeof depLockApply === 'function') depLockApply();

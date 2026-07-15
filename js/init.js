@@ -897,6 +897,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // BA 505: Klavier-Buttons im Frequenzbaender-Reiter.
+  var _frqGlaettPianoBtn = document.getElementById("FRQ_glaettPianoBtn");
+  if (_frqGlaettPianoBtn) {
+    _frqGlaettPianoBtn.addEventListener("click", function () {
+      if (typeof FRQ_openGlaettPiano === "function") FRQ_openGlaettPiano();
+    });
+  }
+  var _frqBandPianoBtn = document.getElementById("FRQ_bandPianoBtn");
+  if (_frqBandPianoBtn) {
+    _frqBandPianoBtn.addEventListener("click", function () {
+      if (typeof FRQ_openBandPiano === "function") FRQ_openBandPiano();
+    });
+  }
+
   // Anfangswerte spiegeln + Wand-Radios aufbauen.
   _frqBandSpiegle();
   _frqBandWandBuild();   // BA462: Wand-Radios initial aufbauen

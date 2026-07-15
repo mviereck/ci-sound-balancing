@@ -872,6 +872,10 @@ Object.assign(L.en, {
     FRQ_bandTipBand: "band",
 
     FRQ_bandEmpfOverlapNote: "No frequency bands can be calculated for the current measurement: two or more perceived frequencies overlap.",
+    FRQ_glaettPianoBtn: "Play tones as smoothed",
+    FRQ_bandPianoBtn:   "Play tones as band-calculated",
+    FRQ_glaettPianoTitle: "Tones as smoothed",
+    FRQ_bandPianoTitle:   "Tones as band-calculated",
     cfgLabel: "Hearing situation",
     cfgUnknown: "Not specified",
     mfrUnknown: "Not specified",

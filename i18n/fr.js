@@ -873,6 +873,10 @@ Object.assign(L.fr, {
     FRQ_bandTipBand: "bande",
 
     FRQ_bandEmpfOverlapNote: "Aucune bande de fréquence ne peut être calculée pour la mesure actuelle : deux fréquences perçues ou plus se chevauchent.",
+    FRQ_glaettPianoBtn: "Jouer les sons selon le lissage",
+    FRQ_bandPianoBtn:   "Jouer les sons selon le calcul des bandes",
+    FRQ_glaettPianoTitle: "Sons selon le lissage",
+    FRQ_bandPianoTitle:   "Sons selon le calcul des bandes",
     cfgLabel: "Situation auditive",
     cfgUnknown: "Non précisé",
     mfrUnknown: "Non précisé",
