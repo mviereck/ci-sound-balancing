@@ -453,7 +453,7 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandGlaettSteife",    def: "3",          fileKey: "bandGlaettSteife",    group: "FRQ_glaettSteife" },
   { key: "bandGlaettRandfrei",  def: "0",          fileKey: "bandGlaettRandfrei",  group: "FRQ_glaettRandfrei" },
   { key: "bandGlaettK",         def: "0.88",        fileKey: "bandGlaettK",         group: "FRQ_glaettK" },
-  { key: "bandGlaettLage",      def: "aussen",     fileKey: "bandGlaettLage",      group: "FRQ_glaettLage" },
+  { key: "bandGlaettLage",      def: "mitte",      fileKey: "bandGlaettLage",      group: "FRQ_glaettLage" },
 ];
 // Cent-Distanz an der Frequenz hz in eine Distanz im Positionsraum toP
 // umrechnen. Im log-Raum ist das ein konstanter Faktor; im Greenwood-Raum
@@ -1699,10 +1699,22 @@ function _frqGlaettPolynom(noms, cents, weights) {
 
   // --- y = gehoerte Frequenz IM Rechenraum ---
   // gehoert = nom * 2^(-cent/1200) (Konvention core.js).
-  var y = noms.map(function (nm, i) {
+  var yr = noms.map(function (nm, i) {
     var gehoert = nm * Math.pow(2, -cents[i] / 1200);
     return raumToP(gehoert);
   });
+  // 0.5.503.4: y ZENTRIEREN + auf Standardabweichung skalieren -- wie x oben.
+  // Der Ridge-Strafterm bestraft die absoluten coef[p>=2]; ohne y-Normierung
+  // haengt seine Wirkung von der y-SKALA des Rechenraums ab (Ortsraum-P ~0..100
+  // vs. greenwoodX ~0..1 -> Faktor ~100 -> lambda wirkt ~10000-fach zu stark).
+  // Damit war "polynom+index+ortsraum,aussen" NICHT identisch zum alten
+  // "ortslage"-Verfahren (das im greenwoodX-Raum glaettete). Mit Normierung ist
+  // der Strafterm skaleninvariant -> Aequivalenz wiederhergestellt; bei lambda=0
+  // ohnehin folgenlos (affine y-Transformation, Fit invariant).
+  var _ym = 0; for (var y0 = 0; y0 < n; y0++) _ym += yr[y0]; _ym /= n;
+  var _yv = 0; for (var y1 = 0; y1 < n; y1++) { var _yd = yr[y1] - _ym; _yv += _yd * _yd; }
+  var _ys = Math.sqrt(_yv / n) || 1;
+  var y = yr.map(function (yv) { return (yv - _ym) / _ys; });
 
   // --- Gewichtete Ridge-Regression (Normalgleichungen, _frqGauss) ---
   var m = deg + 1;
@@ -1725,11 +1737,12 @@ function _frqGlaettPolynom(noms, cents, weights) {
   if (!coef) return cents.slice();               // singulaer -> unveraendert
 
   // --- Auswertung: geglaetteter y-Wert -> Hz -> kanonisches cent ---
+  // yf ist in normierten y-Einheiten -> zurueck: yf * _ys + _ym, dann raumFromP.
   var out = new Array(n);
   for (var i2 = 0; i2 < n; i2++) {
     var yf = 0, xk = 1;
     for (var p2 = 0; p2 < m; p2++) { yf += coef[p2] * xk; xk *= x[i2]; }
-    var gehoertGlatt = raumFromP(yf);
+    var gehoertGlatt = raumFromP(yf * _ys + _ym);
     out[i2] = -1200 * Math.log2(gehoertGlatt / noms[i2]);
   }
   return out;
