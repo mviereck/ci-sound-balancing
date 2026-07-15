@@ -7,7 +7,11 @@
 // Zwischen je zwei weissen Tasten sitzt eine schwarze Zier-Taste
 // auf dem geometrischen Mittel der Nachbarfrequenzen.
 //
-// Zwei Modi, implizit aus den Callbacks abgeleitet:
+// Drei Modi, implizit aus den Callbacks abgeleitet (Vorrang: Seq > Hold > Burst):
+//
+//   Sequenz-Modus (BA 504, wenn getPressSequence vorhanden):
+//     opts.getPressSequence(idx, hz) -> Token-Array
+//     Spielt via testUI.tonePlayer.playSequential; Highlight token-synchron.
 //
 //   Burst-Modus (Default):
 //     opts.onPress(idx, hz)       -> Aufrufer spielt selbst
@@ -40,7 +44,13 @@ function renderSamplerKeyboard(container, opts) {
     ? opts.getDisabledElectrodes() : [];
   var disabledSet = new Set(Array.isArray(disabledRaw) ? disabledRaw : []);
 
-  var isHold = (typeof opts.onRelease === 'function');
+  // BA 504: Anschlag-Modus. Vorrang SEQUENZ vor HOLD vor BURST
+  // (00-klavier-anschlag-architektur.md §4.2). getPressSequence gesetzt
+  // -> feste Token-Sequenz je Anschlag ueber testUI.tonePlayer;
+  // sonst onRelease gesetzt -> Hold (Halten bestimmt Tonlaenge);
+  // sonst -> Burst (ein onPress, Aufrufer spielt selbst).
+  var isSeq  = (typeof opts.getPressSequence === 'function');
+  var isHold = !isSeq && (typeof opts.onRelease === 'function');
 
   // Aussen-Wrap
   var wrap = document.createElement('div');
@@ -252,6 +262,42 @@ function renderSamplerKeyboard(container, opts) {
 
   function _bindKey(el, idx, hz) {
     var hlEls = _keysToHighlight(el);
+
+    if (isSeq) {
+      // BA 504: SEQUENZ-Modus. Anschlag spielt eine vom Aufrufer
+      // gelieferte Token-Sequenz ueber testUI.tonePlayer.playSequential.
+      // Aufleuchten token-synchron ueber onStepStart. Ein neuer Anschlag
+      // bricht die laufende Sequenz automatisch ab (playSequential ruft
+      // intern _stop, test-ui.js:1567).
+      function pressSeq(ev) {
+        ev.preventDefault();
+        if (_smplrBlocksPress()) return;
+        var seq = opts.getPressSequence(idx, hz);
+        if (!Array.isArray(seq) || seq.length === 0) return;
+        var toneType = (typeof opts.getCurrentToneType === 'function')
+          ? opts.getCurrentToneType() : 'sine';
+        // Vorherige Restbeleuchtung dieser Taste loeschen, falls noch aktiv.
+        _highlightOff(hlEls);
+        if (!(typeof testUI !== 'undefined' && testUI.tonePlayer)) return;
+        testUI.tonePlayer.playSequential(seq, {
+          toneType: toneType,
+          onStepStart: function (index, token) {
+            // index >= 0: Ton-Token startet -> aufleuchten.
+            // index === -1 (Pause/Ende) oder -2: abdunkeln.
+            if (index >= 0) {
+              _highlightOn(hlEls);
+            } else {
+              _highlightOff(hlEls);
+            }
+          },
+          onDone: function () {
+            _highlightOff(hlEls);
+          }
+        });
+      }
+      el.addEventListener('pointerdown', pressSeq);
+      return;
+    }
 
     if (isHold) {
       var active = false;
