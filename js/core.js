@@ -2143,7 +2143,7 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
         left.bandHz = null; right.bandHz = null;
       }
 
-    } else if (form === "gehoert") {
+    } else if (form === "gehoert" || form === "klavierGlatt" || form === "klavierBand") {
       // BA482 (§15.3): ZWEI Reihen. gehoertHz (roh) aus dem gemessenen cent,
       // sonst cent 0 (= nominell). gehoertHzGlatt aus der geglaetteten Reihe,
       // auch fuer ungemessene aktive Elektroden. Residuum: gemessen -> echt;
@@ -2183,7 +2183,8 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
   // Mitte = Form-abhaengige Hz (gehoert: gehoertHz; warp: bandHz), sonst nominell.
   // Je Seite getrennt. Ergebnis in entry[seite].bandLoHz/bandHiHz;
   // bei Ueberlauf entry[seite].bandOverlap = true (keine Grenzen).
-  if (form === "gehoert" || form === "warp") {
+  if (form === "gehoert" || form === "warp"
+      || form === "klavierGlatt" || form === "klavierBand") {
     ["left", "right"].forEach(function (seite) {
       // BA463: seitenweise Band-Wahl (Default aus sideData[seite]).
       var _sW = (typeof sideData !== "undefined") ? sideData[seite] : null;
@@ -2314,6 +2315,67 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
         entry[seite].kurveAbwCent  = dg ? dg.kurveAbwCent : null;
         entry[seite].kurveVerdacht = dg ? dg.kurveVerdacht : false;
       });
+    });
+  }
+
+  // BA507 (§16): Klavier-Formen -- je Elektrode left.hz/right.hz FERTIG.
+  // EIN Koerper, quelle = "glatt" (gehoertHzGlatt) | "band" (bandCenterHz).
+  // Fallwahl ueber die CI-Zahl (FRQ_implantatGetSource), nicht ueber modus.
+  if (form === "klavierGlatt" || form === "klavierBand") {
+    var _quelleFeld = (form === "klavierGlatt") ? "gehoertHzGlatt" : "bandCenterHz";
+    var _ciSide = (typeof FRQ_implantatGetSource === "function")
+      ? FRQ_implantatGetSource() : null;   // "left"|"right"=1 CI, sonst null
+
+    out.forEach(function (entry) {
+      var L = entry.left, R = entry.right;
+      // Verarbeitete Frequenz je Seite (glatt-gehoert oder Bandmitte).
+      var procL = L ? L[_quelleFeld] : null;
+      var procR = R ? R[_quelleFeld] : null;
+      // Nominelle Frequenz je Seite (immer vorhanden).
+      var nomL = L ? L.nominellHz : null;
+      var nomR = R ? R.nominellHz : null;
+
+      var hzL = null, hzR = null;
+
+      if (_ciSide === "left" || _ciSide === "right") {
+        // EIN CI: verarbeitete CI-Frequenz aufs GESUNDE Ohr (Vertauschung),
+        // CI-Seite bekommt Nominal.
+        if (_ciSide === "right") {
+          hzR = nomR;      // CI-Seite: Nominal
+          hzL = procR;     // gesundes Ohr: verarbeitete CI-Frequenz
+        } else {           // _ciSide === "left"
+          hzL = nomL;
+          hzR = procL;
+        }
+      } else {
+        // ZWEI CI: korrigierte Eingangsfrequenz, von Nominal, modus verteilt.
+        // centQuelle = cent-Differenz der verarbeiteten Frequenz vs. nominell,
+        // je Seite; +cs-Richtung (anheben bei zu tief gehoert).
+        // Wir bilden die kanonische cent-Differenz aus der verarbeiteten
+        // Frequenz einer Seite und verteilen sie ueber FRQ_seitenWerte.
+        // Kanonisch (+cent = rechts tiefer): aus der rechten Seite ablesbar,
+        // sonst aus der linken gespiegelt.
+        var centKan = null;
+        if (procR != null && nomR != null && nomR > 0 && procR > 0) {
+          // rechts hoert procR statt nomR -> +cent, wenn procR < nomR (tiefer).
+          centKan = 1200 * Math.log(nomR / procR) / Math.log(2);
+        } else if (procL != null && nomL != null && nomL > 0 && procL > 0) {
+          // links: gespiegelt (+cent = rechts tiefer = links hoeher).
+          centKan = 1200 * Math.log(procL / nomL) / Math.log(2);
+        }
+        if (centKan != null) {
+          var cs = FRQ_seitenWerte(centKan, modus);   // { csL, csR } Warp-Richtung
+          // +cs: anheben. nom * 2^(+cs/1200).
+          hzL = (nomL != null) ? nomL * Math.pow(2, cs.csL / 1200) : null;
+          hzR = (nomR != null) ? nomR * Math.pow(2, cs.csR / 1200) : null;
+        } else {
+          // keine verarbeitete Frequenz -> Nominal (keine Verschiebung).
+          hzL = nomL; hzR = nomR;
+        }
+      }
+
+      if (L) L.hz = (hzL != null && hzL > 0) ? hzL : null;
+      if (R) R.hz = (hzR != null && hzR > 0) ? hzR : null;
     });
   }
 

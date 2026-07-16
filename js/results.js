@@ -1430,10 +1430,11 @@ var FRQ_pianoPause    = 250;    // ms zwischen Toenen
 var _frqPianoCorrFn   = null;
 
 // Werte-Zugriff: das FRQ_werte-Array nach elIdx, aktueller Modus.
-function _frqPianoWerteByIdx() {
+// BA507: form waehlbar (klavierGlatt|klavierBand); liefert left.hz/right.hz.
+function _frqPianoWerteByIdx(form) {
   var modus = (typeof FRQ_distribution === "string") ? FRQ_distribution : "right";
   var werte = (typeof FRQ_werte === "function")
-    ? FRQ_werte("gehoert", modus, false) : [];
+    ? FRQ_werte(form, modus, false) : [];
   var byIdx = {};
   for (var i = 0; i < werte.length; i++) byIdx[werte[i].elIdx] = werte[i];
   return byIdx;
@@ -1461,17 +1462,16 @@ function _frqPianoToken(hz, side) {
   return { hz: hz, pan: pan, vol: vol, durationMs: FRQ_pianoDuration };
 }
 
-// A-B-A-B-Token-Array fuer eine Elektrode. extract(seiteObj) -> Hz|null.
-// A = aktive Seite, B = inaktive Seite. Fehlt B, wird B ausgelassen.
-// Fehlt A, ist die Taste ausgegraut -> hier nie gerufen.
-function _frqPianoSequence(elIdx, extract) {
-  var byIdx = _frqPianoWerteByIdx();
+// A-B-A-B-Token-Array fuer eine Elektrode. BA507: form statt extract;
+// die Frequenzen kommen fertig als wr[side].hz aus der Klavier-Form.
+function _frqPianoSequence(elIdx, form) {
+  var byIdx = _frqPianoWerteByIdx(form);
   var wr = byIdx[elIdx];
   if (!wr) return [];
   var aktivSide = (typeof activeSide === "string") ? activeSide : "right";
   var gegenSide = (aktivSide === "left") ? "right" : "left";
-  var hzA = wr[aktivSide] ? extract(wr[aktivSide]) : null;
-  var hzB = wr[gegenSide] ? extract(wr[gegenSide]) : null;
+  var hzA = wr[aktivSide] ? wr[aktivSide].hz : null;
+  var hzB = wr[gegenSide] ? wr[gegenSide].hz : null;
   var tokA = _frqPianoToken(hzA, aktivSide);
   var tokB = _frqPianoToken(hzB, gegenSide);
   if (!tokA) return [];
@@ -1486,9 +1486,10 @@ function _frqPianoSequence(elIdx, extract) {
   return seq;
 }
 
-// Ausgegraute Elektroden: aktive Seite hat keine Frequenz (extract == null).
-function _frqPianoDisabled(extract) {
-  var byIdx = _frqPianoWerteByIdx();
+// Ausgegraute Elektroden: aktive Seite hat keine Frequenz (s.hz == null).
+// BA507: form statt extract; liest wr[aktivSide].hz aus der Klavier-Form.
+function _frqPianoDisabled(form) {
+  var byIdx = _frqPianoWerteByIdx(form);
   var aktivSide = (typeof activeSide === "string") ? activeSide : "right";
   var s = sideData[aktivSide];
   var n = (s && s.nEl) ? s.nEl : 0;
@@ -1496,7 +1497,7 @@ function _frqPianoDisabled(extract) {
   for (var i = 0; i < n; i++) {
     if (s.elActive && s.elActive[i] === false) { dis.push(i); continue; }
     var wr = byIdx[i];
-    var hz = (wr && wr[aktivSide]) ? extract(wr[aktivSide]) : null;
+    var hz = (wr && wr[aktivSide]) ? wr[aktivSide].hz : null;
     if (hz == null || !(hz > 0)) dis.push(i);
   }
   return dis;
@@ -1530,8 +1531,8 @@ function _frqPianoLabels() {
 // Tonart-Merker pro Modal-Instanz.
 var _frqPianoModalTone = null;
 
-// Der EINE Oeffner. titleKey = Modal-Titel, extract = Frequenz-Extraktor.
-function _frqOpenPiano(titleKey, extract) {
+// Der EINE Oeffner. titleKey = Modal-Titel, form = Klavier-Form (BA507).
+function _frqOpenPiano(titleKey, form) {
   if (typeof openToneSelectionDialog !== "function") return;
   openToneSelectionDialog({
     getToneType:    function ()   { return _frqPianoModalTone || "sine"; },
@@ -1568,7 +1569,7 @@ function _frqOpenPiano(titleKey, extract) {
     keyboardMode:          true,
     getElectrodeFreqs:     _frqPianoFreqs,
     getElectrodeLabels:    _frqPianoLabels,
-    getDisabledElectrodes: function () { return _frqPianoDisabled(extract); },
+    getDisabledElectrodes: function () { return _frqPianoDisabled(form); },
 
     getPressSequence: function (electrodeIdx, hz) {
       if (electrodeIdx < 0) {
@@ -1576,17 +1577,17 @@ function _frqOpenPiano(titleKey, extract) {
         var tok = _frqPianoToken(hz, aktivSide);
         return tok ? [tok] : [];
       }
-      return _frqPianoSequence(electrodeIdx, extract);
+      return _frqPianoSequence(electrodeIdx, form);
     }
   });
 }
 
-// Die zwei konkreten Oeffner (nur diese zwei Zeilen sind fall-spezifisch).
+// Die zwei konkreten Oeffner (nur die form ist fall-spezifisch).
 function FRQ_openGlaettPiano() {
-  _frqOpenPiano("FRQ_glaettPianoTitle", function (s) { return s.gehoertHzGlatt; });
+  _frqOpenPiano("FRQ_glaettPianoTitle", "klavierGlatt");
 }
 function FRQ_openBandPiano() {
-  _frqOpenPiano("FRQ_bandPianoTitle", function (s) { return s.bandCenterHz; });
+  _frqOpenPiano("FRQ_bandPianoTitle", "klavierBand");
 }
 
 document.addEventListener("DOMContentLoaded", function() {
