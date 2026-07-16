@@ -781,10 +781,56 @@ function FRQ_renderGlaettGraph() {
   }
 }
 
+// BA506: Sichtbarkeit der Frequenzbaender-Karten nach CI-Konfiguration.
+// - aktive Seite kein CI  -> alle Karten aus, nur Hinweis (Punkt 3).
+// - Korrektur-Seite-Karte -> nur bei 2 CI (Punkt 2).
+// Rueckgabe: true = aktive Seite ist CI (Reiter normal), false = leer.
+function _frqApplyCiVisibility() {
+  var aktiv = (typeof activeSide === "string") ? activeSide : "right";
+  var aktivIstCi = ((sideData[aktiv] && sideData[aktiv].config) || "ci") === "ci";
+  var lCI = ((sideData.left  && sideData.left.config)  || "ci") === "ci";
+  var rCI = ((sideData.right && sideData.right.config) || "ci") === "ci";
+
+  var panel = document.getElementById("panel-frequenzbaender");
+  var hint  = document.getElementById("FRQ_noCiHint");
+  if (!panel) return aktivIstCi;
+
+  // Alle DIREKTEN Karten des Panels ausser dem Hinweis.
+  var cards = panel.querySelectorAll(":scope > .card");
+  for (var i = 0; i < cards.length; i++) {
+    var c = cards[i];
+    if (c.id === "FRQ_noCiHint") continue;
+    c.style.display = aktivIstCi ? "" : "none";
+  }
+
+  if (hint) {
+    if (!aktivIstCi) {
+      var sideLabel = (aktiv === "left") ? t("sideLeft") : t("sideRight");
+      var p = hint.querySelector("p");
+      if (p) p.textContent = t("FRQ_noCiHint").replace("{side}", sideLabel);
+      hint.style.display = "";
+    } else {
+      hint.style.display = "none";
+    }
+  }
+
+  // Korrektur-Seite-Karte: nur bei 2 CI (nur wenn Reiter ueberhaupt sichtbar).
+  var distCard = document.getElementById("FRQ_distributionCard");
+  if (distCard && aktivIstCi) {
+    distCard.style.display = (lCI && rCI) ? "" : "none";
+  }
+
+  return aktivIstCi;
+}
+
 function FRQ_renderResults() {
   const noData = document.getElementById("FRQ_resultsNoData");
   const card = document.getElementById("FRQ_resultsCard");
   if (!noData || !card) return;
+
+  // BA506: CI-abhaengige Karten-Sichtbarkeit (Punkte 2/3).
+  const _aktivIstCi = _frqApplyCiVisibility();
+  if (!_aktivIstCi) return;   // aktive Seite kein CI -> Reiter leer, fertig.
 
   // Bezug = aktive (angezeigte) Seite.
   const aktivSide = (typeof activeSide === "string") ? activeSide

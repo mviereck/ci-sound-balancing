@@ -295,6 +295,7 @@ function _buildTestPanelNew(parentEl, cfg) {
     rowFine.appendChild(cgRef);
     if (rowFine.children.length) headerBox.appendChild(rowFine);
     headerRefs.refSelect = refSelect;
+    headerRefs.refSelectRow = cgRef;   // BA506: Container fuer setVisible
   }
 
   // --- common: volume / duration / pause ---
@@ -1708,6 +1709,22 @@ var testUI = {
         }
       }
       // Weitere Pfad-Formen können hier ergänzt werden (Schritt 2+)
+    },
+
+    /**
+     * BA506: Ein Feld ganz ein-/ausblenden (display), nicht nur sperren.
+     * els: Ergebnis von buildTestPanel (das result-Objekt)
+     * path: derzeit unterstuetzt 'header.refSelect'
+     * visible: bool
+     */
+    setVisible: function(els, path, visible) {
+      if (!els) return;
+      var parts = path.split('.');
+      if (parts[0] === 'header' && parts[1] === 'refSelect') {
+        var row = els.header && els.header.refSelectRow;
+        if (row) row.style.display = visible ? '' : 'none';
+      }
+      // Weitere Pfad-Formen koennen hier ergaenzt werden.
     }
   },
 

@@ -789,6 +789,17 @@ function _FRQ_refreshTabState() {
   }
   _frq_refreshHighGainWarningVisibility();
   _frq_renderPrereqHints();
+  _frq_refreshRefSelectVisibility();   // BA506
+}
+
+// BA506: Referenzseiten-Auswahl nur sichtbar, wenn BEIDE Seiten CI sind.
+// Die Voreinstellung (_frq_autoSetRefMode) bleibt in jedem Fall wirksam;
+// bei nicht-2-CI ist die Auswahl nur nicht mehr aenderbar (unsichtbar).
+function _frq_refreshRefSelectVisibility() {
+  if (!FRQ_els || typeof testUI === 'undefined' || !testUI.field) return;
+  var lCI = ((sideData.left  && sideData.left.config)  || 'ci') === 'ci';
+  var rCI = ((sideData.right && sideData.right.config) || 'ci') === 'ci';
+  testUI.field.setVisible(FRQ_els, 'header.refSelect', lCI && rCI);
 }
 
 // BA353: Aktives Frequenzabgleich-Verfahren.
