@@ -700,6 +700,8 @@ function openToneSelectionDialog(cfg, onChange) {
         },
         onRelease:           cfg.onRelease,
         getHighlightMs:      cfg.getHighlightMs,
+        // BA 504: Sequenz-Modus durchreichen (Anschlag -> Token-Sequenz).
+        getPressSequence:    cfg.getPressSequence,
         // BA 241: Disabled-Anzeige
         getDisabledElectrodes: cfg.getDisabledElectrodes
       });
