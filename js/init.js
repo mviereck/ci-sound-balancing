@@ -988,6 +988,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // aktive Seite fest -> Wand-Radios neu aufbauen. Der frühe Init-Aufruf
       // (oben) lief noch mit "unknown" und hatte die Fieldsets ausgeblendet.
       if (typeof _frqBandWandBuild === "function") _frqBandWandBuild();
+      // BA501: globaler Bandgraph-Ausgangspunkt (Radios spiegeln sich beim
+      // naechsten Bandgraph-Render selbst). VOR _frqBandSpiegle setzen.
+      if (typeof FRQ_bandAusgang !== "undefined" && typeof d.bandAusgang === "string") {
+        FRQ_bandAusgang = d.bandAusgang;
+      }
       if (typeof _frqBandSpiegle === "function") _frqBandSpiegle();   // BA463
       if (typeof window._frqGlaettUpdate === "function") window._frqGlaettUpdate();
       if (typeof d.playerSourceMeas === "boolean") {
@@ -1275,6 +1280,8 @@ document.addEventListener("DOMContentLoaded", () => {
               fmMode:        sideData.left.fmMode || 'adaptive',
               fmAdaptiveDur: sideData.left.fmAdaptiveDur != null ? sideData.left.fmAdaptiveDur : 200,
               fmAdaptivePau: sideData.left.fmAdaptivePau != null ? sideData.left.fmAdaptivePau : 200,
+              // Frequenzbaender-Wahlen (inkl. bandWandLo/Hi) — s. FRQ_bandSaveFelder.
+              ...FRQ_bandSaveFelder("left"),
             },
             right: {
               config: sideData.right.config || "ci",
@@ -1297,10 +1304,14 @@ document.addEventListener("DOMContentLoaded", () => {
               fmMode:        sideData.right.fmMode || 'adaptive',
               fmAdaptiveDur: sideData.right.fmAdaptiveDur != null ? sideData.right.fmAdaptiveDur : 200,
               fmAdaptivePau: sideData.right.fmAdaptivePau != null ? sideData.right.fmAdaptivePau : 200,
+              // Frequenzbaender-Wahlen (inkl. bandWandLo/Hi) — s. FRQ_bandSaveFelder.
+              ...FRQ_bandSaveFelder("right"),
             },
           },
           defaultMfr: defaultMfr,
           currentSide: activeSide,
+          // BA501: globaler Bandgraph-Ausgangspunkt (fuer beide Seiten gemeinsam).
+          bandAusgang: (typeof FRQ_bandAusgang !== "undefined") ? FRQ_bandAusgang : "geglaettet",
           lrResults: (typeof STB_results !== "undefined") ? STB_results : {},
           // BA 161
           stereobalanceSnapshot: (typeof STB_snapshot !== "undefined") ? STB_snapshot : null,

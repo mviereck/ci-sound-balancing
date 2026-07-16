@@ -292,20 +292,9 @@ async function saveJson() {
         fullSweepRound: sideData.left.fullSweepRound,
         fullSweepDonePairs: sideData.left.fullSweepDonePairs,
         implant: sideData.left.implant,
-        bandWandLo: sideData.left.bandWandLo,
-        bandWandHi: sideData.left.bandWandHi,
-        bandVerfahren: sideData.left.bandVerfahren,
-        bandTopologie: sideData.left.bandTopologie,
-        bandOptimieren: sideData.left.bandOptimieren,
-        bandZiel: sideData.left.bandZiel,
-        bandGrenzeinhaltung: sideData.left.bandGrenzeinhaltung,
-        bandRandausgleich: sideData.left.bandRandausgleich,
-        bandCbfGewicht: sideData.left.bandCbfGewicht,
-        bandCbfApikalFrei: sideData.left.bandCbfApikalFrei,
-        bandCbfBasalFrei:  sideData.left.bandCbfBasalFrei,
-        bandCbfRandspektrum: sideData.left.bandCbfRandspektrum,
-        bandCbfSprache: sideData.left.bandCbfSprache,
-        bandCbfBandraum: sideData.left.bandCbfBandraum,
+        // Frequenzbaender-Wahlen (inkl. bandWandLo/Hi) datengetrieben ueber
+        // FRQ_BAND_WAHLEN — s. FRQ_bandSaveFelder (state-side.js).
+        ...FRQ_bandSaveFelder("left"),
       },
       right: {
         config: sideData.right.config || "ci",
@@ -327,23 +316,15 @@ async function saveJson() {
         fullSweepRound: sideData.right.fullSweepRound,
         fullSweepDonePairs: sideData.right.fullSweepDonePairs,
         implant: sideData.right.implant,
-        bandWandLo: sideData.right.bandWandLo,
-        bandWandHi: sideData.right.bandWandHi,
-        bandVerfahren: sideData.right.bandVerfahren,
-        bandTopologie: sideData.right.bandTopologie,
-        bandOptimieren: sideData.right.bandOptimieren,
-        bandZiel: sideData.right.bandZiel,
-        bandGrenzeinhaltung: sideData.right.bandGrenzeinhaltung,
-        bandRandausgleich: sideData.right.bandRandausgleich,
-        bandCbfGewicht: sideData.right.bandCbfGewicht,
-        bandCbfApikalFrei: sideData.right.bandCbfApikalFrei,
-        bandCbfBasalFrei:  sideData.right.bandCbfBasalFrei,
-        bandCbfRandspektrum: sideData.right.bandCbfRandspektrum,
-        bandCbfSprache: sideData.right.bandCbfSprache,
-        bandCbfBandraum: sideData.right.bandCbfBandraum,
+        // Frequenzbaender-Wahlen (inkl. bandWandLo/Hi) datengetrieben ueber
+        // FRQ_BAND_WAHLEN — s. FRQ_bandSaveFelder (state-side.js).
+        ...FRQ_bandSaveFelder("right"),
       },
     },
     currentSide: activeSide,
+    // BA501: globaler Bandgraph-Ausgangspunkt (geglaettet/gemessen/nominell),
+    // fuer beide Seiten gemeinsam.
+    bandAusgang: (typeof FRQ_bandAusgang !== "undefined") ? FRQ_bandAusgang : "geglaettet",
     lrResults: (typeof STB_results !== "undefined") ? STB_results : {},
     stereobalanceSnapshot: (typeof STB_snapshot !== "undefined") ? STB_snapshot : null, // BA 156 (Feld-Key bleibt bis §5c)
     latencyResult: (typeof LTZ_result !== "undefined") ? LTZ_result : null,
@@ -764,6 +745,11 @@ function applyLoadedData(d) {
   pWarpCalcMode = (d.playerWarpMode === "fast" || d.playerWarpMode === "mid" || d.playerWarpMode === "best")
     ? d.playerWarpMode : "mid";
   if (typeof _pWarpCalcModeApply === "function") _pWarpCalcModeApply();
+  // BA501: globaler Bandgraph-Ausgangspunkt. Radios spiegeln sich beim
+  // naechsten Bandgraph-Render (_FRQ_renderBandEmpf) selbst.
+  if (typeof FRQ_bandAusgang !== "undefined" && typeof d.bandAusgang === "string") {
+    FRQ_bandAusgang = d.bandAusgang;
+  }
   // BA463: geladene Band-Wahlen der aktiven Seite in die Radios spiegeln
   // (inkl. Achsen-Sichtbarkeit). Muss VOR FRQ_renderResults stehen.
   if (typeof _frqBandSpiegle === "function") _frqBandSpiegle();

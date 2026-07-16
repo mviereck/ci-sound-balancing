@@ -564,6 +564,25 @@ function loadSideData(side, d) {
     s.implant[k] = s.implant[k].slice(0, s.nEl);
   });
 }
+// Gegenstueck zu loadSideData fuer die Frequenzbaender-Wahlen (Reiter
+// Frequenzbaender): liefert die persistenten Band-Felder EINER Seite als
+// Objekt {fileKey: wert, …}. EINZIGE Bau-Stelle fuer den Save-Block; von
+// Datei-Save (file.js) UND localStorage-Auto-Save (init.js) genutzt, damit
+// eine neue Wahl in FRQ_BAND_WAHLEN nicht wieder aus einem Speicherweg
+// herausfaellt. bandWandLo/Hi liegen ausserhalb von FRQ_BAND_WAHLEN (Zahlen,
+// kein Radio) -> explizit. FRQ_bandAusgang ist GLOBAL (nicht pro Seite) und
+// wird darum nicht hier, sondern global gespeichert.
+function FRQ_bandSaveFelder(side) {
+  var s = sideData[side];
+  var out = {
+    bandWandLo: s.bandWandLo,
+    bandWandHi: s.bandWandHi,
+  };
+  if (typeof FRQ_BAND_WAHLEN !== "undefined") {
+    FRQ_BAND_WAHLEN.forEach(function (w) { out[w.fileKey] = s[w.key]; });
+  }
+  return out;
+}
 function getPlayerSide() {
   const cb = document.getElementById("plBothSides");
   if (cb && cb.checked) {
