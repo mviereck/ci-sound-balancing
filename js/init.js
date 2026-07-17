@@ -1141,7 +1141,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try { sessionStorage.setItem("ci-lb-userFirstName", userFirstName); } catch (e) {}
       }
       // BA 254: Tonfolge pro Test — Migration aus altem globalSequence-Feld.
-      function _validSeq(s) { return (s === "aba" || s === "ab") ? s : null; }
+      function _validSeq(s) { return (s === "abab" || s === "aba" || s === "ab") ? s : null; }
       var _legacySeq = _validSeq(d.globalSequence) || "ab";
       if (typeof sequence_freqmatch !== "undefined") {
         sequence_freqmatch = _validSeq(d.sequence_freqmatch) || _legacySeq;

@@ -541,7 +541,7 @@ function applyLoadedData(d) {
   const dfSel = gEl("defaultMfrSelect");
   if (dfSel) dfSel.value = defaultMfr;
   // BA 254: Tonfolge pro Test — Migration aus altem globalSequence-Feld.
-  function _validSeq(s) { return (s === "aba" || s === "ab") ? s : null; }
+  function _validSeq(s) { return (s === "abab" || s === "aba" || s === "ab") ? s : null; }
   var _legacySeq = _validSeq(d.globalSequence)
                 || _validSeq(d.paradigm)
                 || TEST_DEFAULTS.elektrodenlautstaerke.sequence;

@@ -106,9 +106,6 @@ function _frq_pianoRefs() {
 function _frq_activePairIndicator() {
   return _frq_pianoPairIndicator();
 }
-function frq_isAbaSequence() {
-  return sequence_freqmatch === "aba";
-}
 
 function FRQ_correctionGain(side, hz) {
   // BA 303: dedupliziert -- die Interpolations-Logik liegt jetzt zentral
@@ -178,9 +175,9 @@ function _frq_onSelectionChanged() {
 
 // BA417: Seitenlos. Jede Seite startet bei IHRER eingetragenen
 // Mittenfrequenz; der rohe Offset wird je referenzmodus verteilt
-// (frq_verschiebung). Reihenfolge + Aufleuchten folgen frq_tonfolge.
-function frq_makeSequence(opts) {
-  opts = opts || {};
+// (frq_verschiebung). Reihenfolge folgt frq_tonfolge. Liefert
+// {first, second, pauseMs} fuer tonePlayer.playPair.
+function frq_pairTones() {
   var mode = frq_referenzmodus();
 
   var startL = withSide('left',  function () { return FRQ_implantatEffektiv(frq_currentEl); });
@@ -200,16 +197,28 @@ function frq_makeSequence(opts) {
     var corr  = FRQ_correctionGain(side, hz);
     var balDb = (side === "left") ? balG.left : balG.right;
     var v     = isDeaf(side) ? 0 : vol * corr * dB2G(balDb);
-    return { hz: hz, pan: pan, vol: v, durationMs: dur, side: side };
+    return { hz: hz, pan: pan, vol: v, durationMs: dur, box: side };
   }
 
-  var order  = frq_tonfolge(mode);   // [ersteSeite, zweiteSeite]
-  var first  = tok(order[0]);
-  var second = tok(order[1]);
-  var seq = [ first, { pauseMs: pau }, second ];
-  if (opts.aba) {
-    seq.push({ pauseMs: pau });
-    seq.push(first);
+  var order = frq_tonfolge(mode);   // [ersteSeite, zweiteSeite]
+  return {
+    first:   tok(order[0]),
+    second:  tok(order[1]),
+    pauseMs: pau
+  };
+}
+
+// Token-Array fuer das Tonart-Vorhoeren (tone-popup). Nutzt denselben
+// Paar-Bauer wie die Wiedergabe und ordnet nach sequence_freqmatch.
+function frq_makeSequence() {
+  var p = frq_pairTones();
+  var pause = { pauseMs: p.pauseMs };
+  var seq = [ p.first, pause, p.second ];
+  if (sequence_freqmatch === "aba" || sequence_freqmatch === "abab") {
+    seq.push(pause, p.first);
+  }
+  if (sequence_freqmatch === "abab") {
+    seq.push(pause, p.second);
   }
   return seq;
 }
@@ -224,19 +233,15 @@ async function frq_playCurrent() {
   }
   var _spi = _frq_activePairIndicator();
   isPlay = true;
-  testUI.tonePlayer.playSequential(
-    frq_makeSequence({ aba: frq_isAbaSequence() }),
-    {
-      toneType: toneType_freqmatch,
-      onStepStart: function (index, token) {
-        testUI.pairIndicator.setPlaying(_spi, (token && token.side) ? token.side : null);
-      },
-      onDone: function () {
-        isPlay = false;
-        testUI.pairIndicator.setPlaying(_spi, null);
-      }
-    }
-  );
+  var _frqTones = frq_pairTones();
+  testUI.tonePlayer.playPair(_frqTones.first, _frqTones.second, {
+    pairIndicator: _spi,
+    sequence:      sequence_freqmatch,
+    mode:          'sequence',
+    pauseMs:       _frqTones.pauseMs,
+    toneType:      toneType_freqmatch,
+    onDone:        function () { isPlay = false; }
+  });
 }
 
 async function frq_playSimultaneous() {
@@ -248,17 +253,13 @@ async function frq_playSimultaneous() {
   }
   var _spi = _frq_activePairIndicator();
   isPlay = true;
-  testUI.pairIndicator.setPlaying(_spi, 'both');
-  testUI.tonePlayer.playSimultaneous(
-    frq_makeSequence({ aba: false }),
-    {
-      toneType: toneType_freqmatch,
-      onDone: function () {
-        isPlay = false;
-        testUI.pairIndicator.setPlaying(_spi, null);
-      }
-    }
-  );
+  var _frqTones = frq_pairTones();
+  testUI.tonePlayer.playPair(_frqTones.first, _frqTones.second, {
+    pairIndicator: _spi,
+    mode:          'both',
+    toneType:      toneType_freqmatch,
+    onDone:        function () { isPlay = false; }
+  });
 }
 
 let _frq_timerInterval = null;
@@ -949,7 +950,7 @@ document.addEventListener("DOMContentLoaded", () => {
           getVolume:   function() { return FRQ_getVolume(); },
           getPreviewSequence: function (lastHz) {
             if (FRQ_running && frq_currentEl != null) {
-              return frq_makeSequence({ aba: frq_isAbaSequence() });
+              return frq_makeSequence();
             }
             // BA 301: jede Seite mit zentraler Korrektur (Elektrodenlautstaerke
             // + Balance); taube Seite stumm (isDeaf) wie beim Klavier.

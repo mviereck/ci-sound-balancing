@@ -395,7 +395,7 @@ function _buildTestPanelNew(parentEl, cfg) {
       var cg = _mkEl('div', 'control-group');
       var lbl2 = _mkEl('label'); _tEl(lbl2, 'sequenceLbl');
       seqSelect = _mkEl('select');
-      [['aba','ABA'],['ab','AB']].forEach(function(pair) {
+      [['abab','ABAB'],['aba','ABA'],['ab','AB']].forEach(function(pair) {
         seqSelect.appendChild(new Option(pair[1], pair[0]));
       });
       var seqVal = (id === 'elektrodenlautstaerke') ? sequence_elektrodenlautstaerke
@@ -1626,9 +1626,69 @@ var testUI = {
       }, maxDur);
     }
 
+    // Reihenfolge-Regel fuer Zwei-Ton-Vergleiche. EINE Stelle fuer
+    // ab/aba/abab. first/second sind fertige Ton-Token (jedes mit hz,
+    // pan, vol, durationMs, box), in Abspielreihenfolge uebergeben.
+    // Liefert das Token-Array inkl. Pausen-Token.
+    function _pairTokens(first, second, sequence, pauseMs) {
+      var pause = { pauseMs: pauseMs };
+      var seq = [ first, pause, second ];
+      if (sequence === 'aba' || sequence === 'abab') {
+        seq.push(pause, first);
+      }
+      if (sequence === 'abab') {
+        seq.push(pause, second);
+      }
+      return seq;
+    }
+
+    // Gemeinsame Vergleichs-Wiedergabe fuer alle Zwei-Ton-Tests.
+    // Regelt Abspielen UND Box-Aufleuchten, beide Modi.
+    // first/second: fertige Ton-Token in Abspielreihenfolge (first zuerst),
+    //   jedes mit box:'left'|'right'.
+    // opts: { pairIndicator, sequence:'ab'|'aba'|'abab', mode:'sequence'|'both',
+    //         pauseMs, toneType, onDone }
+    function _playPair(first, second, opts) {
+      opts = opts || {};
+      var pi   = opts.pairIndicator || null;
+      var mode = (opts.mode === 'both') ? 'both' : 'sequence';
+
+      function lightBox(which) {
+        if (pi && testUI && testUI.pairIndicator
+            && typeof testUI.pairIndicator.setPlaying === 'function') {
+          testUI.pairIndicator.setPlaying(pi, which);
+        }
+      }
+      function done() {
+        lightBox(null);
+        if (typeof opts.onDone === 'function') opts.onDone();
+      }
+
+      if (mode === 'both') {
+        lightBox('both');
+        _playSimultaneous([ first, second ], {
+          toneType: opts.toneType,
+          onDone:   done
+        });
+        return;
+      }
+
+      // Sequenz-Modus: Anordnung bauen, pro Ton dessen box aufleuchten.
+      var tokens = _pairTokens(first, second, opts.sequence, opts.pauseMs);
+      _playSequential(tokens, {
+        toneType: opts.toneType,
+        onStepStart: function (index, token) {
+          // index>=0: Ton startet -> Box seiner box-Angabe; sonst aus.
+          lightBox((index >= 0 && token && token.box) ? token.box : null);
+        },
+        onDone: done
+      });
+    }
+
     return {
       playSequential:   _playSequential,
       playSimultaneous: _playSimultaneous,
+      playPair:         _playPair,
       stop:             _stop,
       isPlaying:        function () { return _active; }
     };

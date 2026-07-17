@@ -134,7 +134,6 @@ function stopAll() {
   }
   isPlay = false;
   holdIdx = -1;
-  updInd(-1);
 }
 function getElectrodeBandwidth(hz) {
   if (!FRQ_implantat || FRQ_implantat.length < 2) {
@@ -1061,23 +1060,4 @@ function pairGains(vol, off) {
   return { vA: 1, vB: dB2G(off), capped: 'a' };
 }
 
-function updInd(i, w) {
-  document
-    .querySelectorAll('.frq-implantat-table .pbtn[data-a="play"]')
-    .forEach((b, j) => {
-      b.style.background = j === i ? "var(--accent-light)" : "";
-    });
-  // BA 248: Pair-Anzeige nur noch ueber neue testUI-API
-  // (ELL_testEls.verfahren[...].pairIndicator). Alte API und DOM-Fallback
-  // sind mit BA 248 weg.
-  let pL = null, pR = null;
-  if (typeof ELL_testEls !== 'undefined' && ELL_testEls
-      && ELL_testEls.verfahren && typeof _ELL_activeVerfahren !== 'undefined'
-      && ELL_testEls.verfahren[_ELL_activeVerfahren]
-      && ELL_testEls.verfahren[_ELL_activeVerfahren].pairIndicator) {
-    pL = ELL_testEls.verfahren[_ELL_activeVerfahren].pairIndicator.left;
-    pR = ELL_testEls.verfahren[_ELL_activeVerfahren].pairIndicator.right;
-  }
-  if (pL) pL.classList.toggle("playing", w === "a");
-  if (pR) pR.classList.toggle("playing", w === "b");
-}
+

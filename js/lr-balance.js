@@ -132,18 +132,14 @@ function STB_pairGains(baseL, baseR, off) {
   };
 }
 
-// BA 290: Token-Liste fuer das aktuelle Links/Rechts-Paar. Liefert
-// fertige Token { hz, pan, vol, durationMs, side } (vol inkl. Korrektur
-// und Deckelung) und Pausen { pauseMs }. 'side' ('left'|'right') dient
-// nur dem Aufleuchten (onStepStart). Reihenfolge folgt stb_flipped.
-//   opts.aba === true -> erste Seite am Ende wiederholt.
-function stb_sequence(opts) {
-  opts = opts || {};
+// Liefert die zwei Vergleichstoene in Abspielreihenfolge (first zuerst).
+// Linker Ton -> linke Box, rechter Ton -> rechte Box; Reihenfolge folgt
+// stb_flipped. Anordnung/Aufleuchten macht tonePlayer.playPair.
+function stb_pairTones() {
   var el = stb_currentEl;
   var slOff = _lrSliderVal();
   var vol = STB_gVol();
   var dur = stb_gDur();
-  var pau = stb_gPau();
   var rightNEl = sideData["right"].nEl;
   var rightEl = el < rightNEl ? el : rightNEl - 1;
   var hzL = stb_effFRQ("left", el);
@@ -151,16 +147,12 @@ function stb_sequence(opts) {
   var corrL = STB_corrGain("left", el);
   var corrR = STB_corrGain("right", rightEl);
   var g = STB_pairGains(vol * corrL, vol * corrR, slOff);
-  var tL = { hz: hzL, pan: -1, vol: g.vL, durationMs: dur, side: 'left' };
-  var tR = { hz: hzR, pan:  1, vol: g.vR, durationMs: dur, side: 'right' };
-  var first  = stb_flipped ? tR : tL;
-  var second = stb_flipped ? tL : tR;
-  var seq = [ first, { pauseMs: pau }, second ];
-  if (opts.aba) {
-    seq.push({ pauseMs: pau });
-    seq.push(first);
-  }
-  return seq;
+  var tL = { hz: hzL, pan: -1, vol: g.vL, durationMs: dur, box: 'left' };
+  var tR = { hz: hzR, pan:  1, vol: g.vR, durationMs: dur, box: 'right' };
+  return {
+    first:  stb_flipped ? tR : tL,
+    second: stb_flipped ? tL : tR
+  };
 }
 
 // Play the current LR comparison sequence
@@ -173,19 +165,15 @@ async function stb_playCurrent() {
   var _lrPI = STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance
     && STB_els.verfahren.stereobalance.pairIndicator;
   stb_isPlay = true;
-  testUI.tonePlayer.playSequential(
-    stb_sequence({ aba: sequence_stereobalance === 'aba' }),
-    {
-      toneType: toneType_stereobalance,
-      onStepStart: function (index, token) {
-        testUI.pairIndicator.setPlaying(_lrPI, (token && token.side) ? token.side : null);
-      },
-      onDone: function () {
-        stb_isPlay = false;
-        testUI.pairIndicator.setPlaying(_lrPI, null);
-      }
-    }
-  );
+  var _stbTones = stb_pairTones();
+  testUI.tonePlayer.playPair(_stbTones.first, _stbTones.second, {
+    pairIndicator: _lrPI,
+    sequence:      sequence_stereobalance,
+    mode:          'sequence',
+    pauseMs:       stb_gPau(),
+    toneType:      toneType_stereobalance,
+    onDone:        function () { stb_isPlay = false; }
+  });
 }
 
 function stb_playSimul() {
@@ -194,17 +182,13 @@ function stb_playSimul() {
   var _lrPI = STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance
     && STB_els.verfahren.stereobalance.pairIndicator;
   stb_isPlay = true;
-  testUI.pairIndicator.setPlaying(_lrPI, "both");
-  testUI.tonePlayer.playSimultaneous(
-    stb_sequence({ aba: false }),
-    {
-      toneType: toneType_stereobalance,
-      onDone: function () {
-        stb_isPlay = false;
-        testUI.pairIndicator.setPlaying(_lrPI, null);
-      }
-    }
-  );
+  var _stbTones = stb_pairTones();
+  testUI.tonePlayer.playPair(_stbTones.first, _stbTones.second, {
+    pairIndicator: _lrPI,
+    mode:          'both',
+    toneType:      toneType_stereobalance,
+    onDone:        function () { stb_isPlay = false; }
+  });
 }
 
 function stb_stopPlay() {

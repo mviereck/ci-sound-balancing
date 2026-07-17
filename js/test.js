@@ -1134,27 +1134,15 @@ function playCur() {
   isPlay = true;
   ELL_curPlayed = true;
   var vref = ELL_testEls && ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
-  // setPlaying('both') setzt die Replay-Sperre (confirm, swap). Das
-  // praezise Aufleuchten pro Ton macht jetzt der onStepStart-Hook.
-  if (vref && vref.pairIndicator) {
-    testUI.pairIndicator.setPlaying(vref.pairIndicator, 'both');
-  }
-  testUI.tonePlayer.playSequential(
-    _ell_sequence({ aba: sequence_elektrodenlautstaerke === 'aba' }),
-    {
-      toneType: toneType_elektrodenlautstaerke,
-      onStepStart: function (index, token) {
-        if (token && typeof token.eIdx === 'number') updInd(token.eIdx, token.which);
-        else updInd(-1);
-      },
-      onDone: function () {
-        isPlay = false;
-        if (vref && vref.pairIndicator) {
-          testUI.pairIndicator.setPlaying(vref.pairIndicator, null);
-        }
-      }
-    }
-  );
+  var _ellTones = _ell_pairTones();
+  testUI.tonePlayer.playPair(_ellTones.first, _ellTones.second, {
+    pairIndicator: vref && vref.pairIndicator,
+    sequence:      sequence_elektrodenlautstaerke,
+    mode:          'sequence',
+    pauseMs:       tGPau(),
+    toneType:      toneType_elektrodenlautstaerke,
+    onDone:        function () { isPlay = false; }
+  });
 }
 function ell_recBal() {
   if (!ELL_testAct || ELL_testIdx >= ELL_testPairs.length) return;
@@ -1509,36 +1497,29 @@ function ELL_refreshToneTypeLabel() {
   }
 }
 
-// BA 288: Token-Liste fuer das aktuelle Paar des Elektrodenlautstaerke-
-// Tests. Liefert fertige Token { hz, pan, vol, durationMs, eIdx, which }
-// (vol inkl. pairGains-Deckelung und Stummschaltung tauber Seite) sowie
-// Pausen-Token { pauseMs }. eIdx/which dienen nur dem Aufleuchten
-// (onStepStart-Hook), die Maschine ignoriert sie.
-//   opts.aba === true  -> dritter Ton (A wiederholt) angehaengt.
-function _ell_sequence(opts) {
-  opts = opts || {};
+// Liefert die zwei Vergleichstoene fuer das aktuelle Paar (Elektrode A
+// = linke Box, Elektrode B = rechte Box). Anordnung/Aufleuchten macht
+// tonePlayer.playPair.
+function _ell_pairTones() {
   var off  = _ell_sliderVal();
   var g    = pairGains(tGVol(), off);          // { vA, vB, capped }
   var pan  = (activeSide === 'left') ? -1 : 1;
   var mute = isDeaf(activeSide);
   var dur  = tGDur();
-  var pau  = tGPau();
-  function tone(eIdx, gain, which) {
+  function tone(eIdx, gain, box) {
     return {
       hz: FRQ_implantatEffektiv(eIdx),
       pan: pan,
       vol: mute ? 0 : gain,
       durationMs: dur,
       eIdx: eIdx,
-      which: which
+      box: box
     };
   }
-  var seq = [ tone(ELL_curA, g.vA, 'a'), { pauseMs: pau }, tone(ELL_curB, g.vB, 'b') ];
-  if (opts.aba) {
-    seq.push({ pauseMs: pau });
-    seq.push(tone(ELL_curA, g.vA, 'a'));
-  }
-  return seq;
+  return {
+    first:  tone(ELL_curA, g.vA, 'left'),
+    second: tone(ELL_curB, g.vB, 'right')
+  };
 }
 
 // BA 247/288: "beide Toene gleichzeitig". Nutzt dieselbe Token-Funktion
@@ -1550,20 +1531,12 @@ function _ell_playSimul() {
   isPlay = true;
   ELL_curPlayed = true;
   var vref = ELL_testEls && ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
-  if (vref && vref.pairIndicator) {
-    testUI.pairIndicator.setPlaying(vref.pairIndicator, 'both');
-  }
-  testUI.tonePlayer.playSimultaneous(
-    _ell_sequence({ aba: false }),
-    {
-      toneType: toneType_elektrodenlautstaerke,
-      onDone: function () {
-        isPlay = false;
-        if (vref && vref.pairIndicator) {
-          testUI.pairIndicator.setPlaying(vref.pairIndicator, null);
-        }
-      }
-    }
-  );
+  var _ellTones = _ell_pairTones();
+  testUI.tonePlayer.playPair(_ellTones.first, _ellTones.second, {
+    pairIndicator: vref && vref.pairIndicator,
+    mode:          'both',
+    toneType:      toneType_elektrodenlautstaerke,
+    onDone:        function () { isPlay = false; }
+  });
 }
 

@@ -896,9 +896,9 @@ let ELL_curA = -1,
 // Debug-Modus waehlbar.
 const TEST_DEFAULTS = {
   commonVolume: 50,                 // BA 287: gemeinsame Lautstaerke aller Tests + Implantat
-  freqmatch: { toneType: "sine", volume: 75, duration: 600, pause: 300, sequence: "ab" },
-  elektrodenlautstaerke: { toneType: "sine", volume: 50, duration: 600, pause: 300, sequence: "ab" },
-  stereobalance: { toneType: "sine", volume: 75, duration: 600, pause: 300, sequence: "ab" },
+  freqmatch: { toneType: "sine", volume: 75, duration: 600, pause: 300, sequence: "abab" },
+  elektrodenlautstaerke: { toneType: "sine", volume: 50, duration: 600, pause: 300, sequence: "abab" },
+  stereobalance: { toneType: "sine", volume: 75, duration: 600, pause: 300, sequence: "abab" },
   implant:   { toneType: "sine", volume: 75, duration: 600, pause: 300 }
 };
 const TONE_ENV_DEFAULTS = {
