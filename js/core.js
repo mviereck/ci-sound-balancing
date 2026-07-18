@@ -2250,7 +2250,12 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
         }
         // Aktivitaet JE SEITE (Nutzer-Beschluss): das seitenweise Flag.
         return { elIdx: entry.elIdx, hz: hz, aktiv: !!(s && s.aktiv),
-                 residuum: (s ? s.residuum : null),
+                 // BA513: Bandberechnung nutzt das Residuum als symmetrische
+                 // Toleranz -> Bandbreite (residDown+residUp), das gemessene
+                 // Streumass ueber den Verlauf. Ungemessene: null -> die
+                 // Bandverfahren setzen ihr Ungemessen-Residuum selbst.
+                 residuum: (s && s.residDown != null && s.residUp != null)
+                   ? (s.residDown + s.residUp) : null,
                  gemessen: !!entry.gemessen,
                  statusGewicht: (_statusGewichte[entry.elIdx] != null)
                    ? _statusGewichte[entry.elIdx] : 1 };
