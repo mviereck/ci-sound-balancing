@@ -956,9 +956,9 @@ function _audiologFreqTable(side) {
     } else if (z.nominellHz != null) {
       nomC = z.nominellHz.toFixed(2);
     }
-    if (z.restspanne != null) restsC = "&#177;" + Math.round(z.restspanne) + " ct";
+    if (z.restspanne != null) restsC = "±" + Math.round(z.restspanne) + " ct";
     if (z.residDown != null && z.residUp != null) {
-      resC = "&#8722;" + Math.round(z.residDown) + " &#8230; +" + Math.round(z.residUp) + " ct";
+      resC = "−" + Math.round(z.residDown) + " … +" + Math.round(z.residUp) + " ct";
     }
     // Status: gemessene Datenzeile hat fmStatus; ungemessene aktive Zeile
     // (kein fmStatus) -> "nicht gemessen".
