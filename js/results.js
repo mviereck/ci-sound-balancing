@@ -469,10 +469,14 @@ function FRQ_legendeHtml(graphKey, data) {
         return svg("<line x1=\"7\" y1=\"1\" x2=\"7\" y2=\"13\" stroke=\"" + c + "\" stroke-width=\"1.75\" stroke-dasharray=\"3 2\"/>");
       case "band":   // schmales senkrechtes Band
         return svg("<rect x=\"5\" y=\"1\" width=\"4\" height=\"12\" fill=\"" + c + "\"/>");
-      case "querbalken":   // T-Balken (Residuum): senkrecht + zwei Endkappen
+      case "querbalken":   // T-Balken (Residuum): senkrecht + zwei Endkappen, immer schwarz
         return svg("<line x1=\"7\" y1=\"2\" x2=\"7\" y2=\"12\" stroke=\"#000000\" stroke-width=\"1.5\"/>"
           + "<line x1=\"4\" y1=\"2\" x2=\"10\" y2=\"2\" stroke=\"#000000\" stroke-width=\"1.5\"/>"
           + "<line x1=\"4\" y1=\"12\" x2=\"10\" y2=\"12\" stroke=\"#000000\" stroke-width=\"1.5\"/>");
+      case "querbalkBlau":   // T-Balken (Restspanne): senkrecht + zwei Endkappen, Farbe aus hexArr
+        return svg("<line x1=\"7\" y1=\"2\" x2=\"7\" y2=\"12\" stroke=\"" + c + "\" stroke-width=\"1.5\"/>"
+          + "<line x1=\"4\" y1=\"2\" x2=\"10\" y2=\"2\" stroke=\"" + c + "\" stroke-width=\"1.5\"/>"
+          + "<line x1=\"4\" y1=\"12\" x2=\"10\" y2=\"12\" stroke=\"" + c + "\" stroke-width=\"1.5\"/>");
       case "pfeil":   // waagerechter Pfeil, neutral
         return svg("<line x1=\"1\" y1=\"7\" x2=\"11\" y2=\"7\" stroke=\"" + NEUTRAL + "\" stroke-width=\"1.5\"/>"
           + "<polyline points=\"8,4 12,7 8,10\" fill=\"none\" stroke=\"" + NEUTRAL + "\" stroke-width=\"1.5\"/>");
@@ -610,7 +614,9 @@ function FRQ_ergebnisRows(side, opts) {
     var isMeasured = !!wr.gemessen;
     var hzSoll = isMeasured ? seite.gehoertHz : null;   // null wenn ungemessen
     var dc     = isMeasured ? seite.shiftCent : null;   // null wenn ungemessen
-    var resid  = (isMeasured && seite.residuum != null) ? seite.residuum : 0;
+    var _rD = (isMeasured && seite.residDown  != null) ? seite.residDown  : 0;
+    var _rU = (isMeasured && seite.residUp    != null) ? seite.residUp    : 0;
+    var _rS = (isMeasured && seite.restspanne != null) ? seite.restspanne : 0;
     var fmStatus = r ? (r.fmStatus || "converged") : null;
     var warn = (fmStatus === "piano-crossed" || fmStatus === "piano-wide");
 
@@ -633,9 +639,13 @@ function FRQ_ergebnisRows(side, opts) {
       tooltip = ["<b>E" + elNum + "</b>",
                  Math.round(hzIst) + NB + "Hz → " + Math.round(hzSoll) + NB + "Hz",
                  cIstTxt + " → " + cSollTxt];
-      if (resid > 0) {
-        tooltip.push(tipT("FRQ_resultsTipResidual", "Restunsicherheit") + " ±"
-          + Math.round(resid) + NB + "ct");
+      if (_rS > 0) {
+        tooltip.push(tipT("FRQ_resultsTipRestspanne", "Restspanne") + " &#177;"
+          + Math.round(_rS) + NB + "ct");
+      }
+      if (_rD > 0 || _rU > 0) {
+        tooltip.push(tipT("FRQ_resultsTipResiduum", "Residuum") + " &#8722;"
+          + Math.round(_rD) + NB + "&#8230; +" + Math.round(_rU) + NB + "ct");
       }
       if (fmStatus === "piano-crossed") {
         tooltip.push("⚠️ " + tipT("FRQ_resultsTipPianoCrossed",
@@ -651,7 +661,7 @@ function FRQ_ergebnisRows(side, opts) {
       xLinksHz: hzIst,
       xRechtsHz: (hzSoll != null) ? hzSoll : hzIst,   // ungemessen: Fallback Ist
       yCent: (isMeasured && dc != null) ? dc : 0,   // ungemessen: 0 (Nulllinie), grauer Punkt
-      residuumCent: resid,
+      residDownCent: _rD, residUpCent: _rU, restspanneCent: _rS,
       bandLoHz: null, bandHiHz: null,     // Ergebnisgraph hat keine Baender
       sichtbar: sichtbar,
       warn: warn,
@@ -710,7 +720,7 @@ function FRQ_glaettRows(side, opts) {
         xRechtsHz: _glHz0,                                     // geglaettet
         yCent: _glShift0,
         yCent2: (s.shiftCent != null) ? s.shiftCent : 0,   // blaue Zweitkurve = roh
-        residuumCent: 0,
+        residDownCent: 0, residUpCent: 0, restspanneCent: 0,
         residuumMitteCent: 0,       // T-Balken-Mitte = 0 (roher Wert)
         bandLoHz: null, bandHiHz: null,
         sichtbar: true,
@@ -737,7 +747,7 @@ function FRQ_glaettRows(side, opts) {
       xRechtsHz: glattHz,              // schwarzer Strich (geglaettet)
       yCent: glattShift,               // Punkt = geglaettete Verschiebung (gruen, bewertet)
       yCent2: rohShift,                // blaue Zweitkurve = rohe Verschiebung
-      residuumCent: resid,
+      residDownCent: residDown, residUpCent: residUp, restspanneCent: resid,
       residuumMitteCent: rohShift,     // T-Balken-Mitte = rohe Verschiebung
       bandLoHz: null, bandHiHz: null,
       sichtbar: true,
@@ -746,7 +756,7 @@ function FRQ_glaettRows(side, opts) {
       tooltip: [
         "<b>E" + elNum + "</b>",
         Math.round(rohHz) + " Hz → " + Math.round(glattHz) + " Hz",
-        (dev >= 0 ? "+" : "") + Math.round(dev) + " ct · ±" + Math.round(resid) + " ct"
+        (dev >= 0 ? "+" : "") + Math.round(dev) + " ct · &#177;" + Math.round(resid) + " ct"
       ]
     });
   });
@@ -1258,7 +1268,7 @@ function _FRQ_renderBandEmpf(side) {
         yCent: _yCent,             // kraeftige Kurve = gewaehlter Ausgangspunkt, bewertet
         yCent2: (_blass[0] ? _blass[0].dev : null),   // erste blasse Vergleichskurve
         yCent3: (_blass[1] ? _blass[1].dev : null),   // zweite blasse Vergleichskurve
-        residuumCent: _resid,
+        residDownCent: _residDown, residUpCent: _residUp, restspanneCent: _resid,
         bandLoHz: _ws.bandLoHz,
         bandHiHz: _ws.bandHiHz,
         sichtbar: true,

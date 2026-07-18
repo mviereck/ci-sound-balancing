@@ -439,7 +439,9 @@ function drawFRQGraph(cv, rows, cfg) {
     const ext = [];
     rows.forEach(function (r) {
       if (r.yCent == null) return;
-      ext.push(Math.abs(r.yCent) + (r.residuumCent > 0 ? r.residuumCent : 0));
+      var _rmax = Math.max(r.residDownCent > 0 ? r.residDownCent : 0,
+                           r.residUpCent   > 0 ? r.residUpCent   : 0);
+      ext.push(Math.abs(r.yCent) + _rmax);
     });
     absC = Math.max(Math.ceil(Math.max.apply(null, ext.concat([50])) / 50) * 50, 50);
   }
@@ -509,9 +511,11 @@ function drawFRQGraph(cv, rows, cfg) {
               : "punkt";
   if (cfg.amberband) {
     rows.forEach(function (r) {
-      if (!(r.residuumCent > 0)) return;
-      const xa = tX(r._cR - r.residuumCent);
-      const xb = tX(r._cR + r.residuumCent);
+      var d = (r.residDownCent > 0) ? r.residDownCent : 0;
+      var u = (r.residUpCent   > 0) ? r.residUpCent   : 0;
+      if (!(d > 0) && !(u > 0)) return;
+      const xa = tX(r._cR - d);
+      const xb = tX(r._cR + u);
       ctx.fillStyle = "rgba(245, 158, 11, 0.18)";
       ctx.fillRect(xa, pad.top, xb - xa, pH);
     });
@@ -627,29 +631,31 @@ function drawFRQGraph(cv, rows, cfg) {
     ctx.beginPath(); ctx.arc(xs, ys, 5.5, 0, Math.PI * 2);
     ctx.fillStyle = farbe; ctx.fill();
     ctx.strokeStyle = "#fff"; ctx.lineWidth = 2; ctx.stroke();
-    if (r.residuumCent > 0) {
-      const halfH = Math.abs(tY(0) - tY(r.residuumCent));
-      // Anker-Mitte: nulllinie -> 0; rohwert -> roher cent (BA475); sonst Punkt.
-      const yc = (anker === "nulllinie") ? tY(0)
-               : (anker === "rohwert" && r.residuumMitteCent != null) ? tY(r.residuumMitteCent)
-               : ys;
-      // Enden am Skalenrand (Feldbereich [pad.top, pad.top+pH]) ABSCHNEIDEN.
-      // Ragt ein Ende ueber den Rand, wird der Stamm dort gekappt und die
-      // Querkappe entfaellt (der Balken laeuft sichtbar aus dem Bild).
-      const yFeldTop = pad.top, yFeldBot = pad.top + pH;
-      const yTop0 = yc - halfH, yBot0 = yc + halfH;
-      const yTop = Math.max(yTop0, yFeldTop);   // oben (kleinerer Pixelwert)
-      const yBot = Math.min(yBot0, yFeldBot);   // unten
-      ctx.strokeStyle = "#000"; ctx.lineWidth = 1.5; ctx.setLineDash([]);
+    // Anker-Mitte: nulllinie -> 0; rohwert -> roher cent; sonst Punkt (ys).
+    var ycAnker = (anker === "nulllinie") ? tY(0)
+                : (anker === "rohwert" && r.residuumMitteCent != null) ? tY(r.residuumMitteCent)
+                : ys;
+    // Ein T-Balken mit oberem/unterem cent-Abstand (asymmetrisch moeglich).
+    // yc = Anker-Pixel, up/down = cent nach oben/unten. Am Feldrand kappen.
+    function _tBalken(yc, upCent, downCent, farbe) {
+      if (!(upCent > 0) && !(downCent > 0)) return;
+      var yFeldTop = pad.top, yFeldBot = pad.top + pH;
+      var yTop0 = yc - Math.abs(tY(0) - tY(upCent));    // oben (kleinerer Pixel)
+      var yBot0 = yc + Math.abs(tY(0) - tY(downCent));  // unten
+      var yTop = Math.max(yTop0, yFeldTop);
+      var yBot = Math.min(yBot0, yFeldBot);
+      ctx.strokeStyle = farbe; ctx.lineWidth = 1.5; ctx.setLineDash([]);
       ctx.beginPath();
       if (yTop < yBot) {
-        ctx.moveTo(xs, yTop); ctx.lineTo(xs, yBot);   // Stamm (geclippt)
-        // Querkappe nur am NICHT abgeschnittenen Ende.
+        ctx.moveTo(xs, yTop); ctx.lineTo(xs, yBot);
         if (yTop0 >= yFeldTop) { ctx.moveTo(xs - 4, yTop); ctx.lineTo(xs + 4, yTop); }
         if (yBot0 <= yFeldBot) { ctx.moveTo(xs - 4, yBot); ctx.lineTo(xs + 4, yBot); }
       }
       ctx.stroke();
     }
+    // Restspanne ZUERST (blau, unten), dann Residuum (schwarz, darueber).
+    if (r.restspanneCent > 0) _tBalken(ycAnker, r.restspanneCent, r.restspanneCent, "#3b82f6");
+    if (r.residUpCent > 0 || r.residDownCent > 0) _tBalken(ycAnker, r.residUpCent, r.residDownCent, "#000");
   });
 
   // ============================================================
@@ -836,6 +842,7 @@ function frqLegendData(cfg, rows) {
   el.push(mk("pfeil",         ampelWort,  "x"));
   el.push(mk("punkt",         ampelWort,  "y"));
   if (cfg.amberband) el.push(mk("band", "orange", "x"));
+  el.push(mk("querbalkBlau", "blau", "y"));
   el.push(mk("querbalken", "schwarz", "y"));
 
   // Kurven (§8.5): eine kraeftige (cfg.linienfarbe, immer) + bis zu zwei
