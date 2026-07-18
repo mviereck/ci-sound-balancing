@@ -347,15 +347,17 @@ function FRQ_tabellenZeilen(opts) {
       diffHz    = wSide.shiftHz;
       diffCent  = wSide.shiftCent;
     }
-    const residuum = (wr && wr.gemessen && wSide && wSide.residuum != null && !isNotPerc)
-      ? wSide.residuum : null;
+    var _gm = (wr && wr.gemessen && wSide && !isNotPerc);
+    const restspanne = (_gm && wSide.restspanne != null) ? wSide.restspanne : null;
+    const residDown  = (_gm && wSide.residDown  != null) ? wSide.residDown  : null;
+    const residUp    = (_gm && wSide.residUp    != null) ? wSide.residUp    : null;
     // BA433: Band-Felder aus der Wertquelle durchreichen.
     const bandLoHz  = wSide ? (wSide.bandLoHz != null ? wSide.bandLoHz : null) : null;
     const bandHiHz  = wSide ? (wSide.bandHiHz != null ? wSide.bandHiHz : null) : null;
     const bandOverlap = !!(wSide && wSide.bandOverlap);
     const bandOverlapEls = (wSide && wSide.bandOverlapEls) ? wSide.bandOverlapEls : [];
     rows.push({ elIdx: i, elLabel, kind: "data",
-      nominellHz, gehoertHz, diffHz, diffCent, residuum,
+      nominellHz, gehoertHz, diffHz, diffCent, restspanne, residDown, residUp,
       bandLoHz, bandHiHz, bandOverlap, bandOverlapEls,
       isNotPerceivable: isNotPerc, fmStatus: (r && r.fmStatus) || null });
   }
@@ -888,6 +890,7 @@ function FRQ_renderResults() {
     "<th>" + t("FRQ_resultsColPerceivedHz") + "</th>" +
     "<th>" + t("FRQ_resultsColDiffHz") + "</th>" +
     "<th>" + t("FRQ_resultsColDiffCent") + "</th>" +
+    "<th title=\"" + t("FRQ_resultsColRestspanneTip") + "\">" + t("FRQ_resultsColRestspanne") + "</th>" +
     "<th title=\"" + t("FRQ_resultsColResiduumTip") + "\">" + t("FRQ_resultsColResiduum") + "</th>" +
     "<th>" + t("FRQ_resultsColStatus") + "</th>";
 
@@ -946,14 +949,25 @@ function FRQ_renderResults() {
       diffHzCell = (z.diffHz >= 0 ? "+" : "") + z.diffHz.toFixed(2);
       diffCtCell = (z.diffCent >= 0 ? "+" : "") + fmtNum(z.diffCent, "cent");
     }
+    // Restspanne: symmetrisch, +/-X ct (frueheres Residuum).
+    let restspanneCell;
+    if (z.restspanne == null) {
+      restspanneCell = dash;
+    } else {
+      const rs = Math.round(z.restspanne);
+      const rsColor = rs <= 25 ? "#16a34a" : rs <= 100 ? "#d97706" : "#dc2626";
+      restspanneCell = '<span style="color:' + rsColor + ';font-weight:600">&#177;' + rs + ' ct</span>';
+    }
+    // Residuum-Band: asymmetrischer Bereich -A .. +B ct.
     let residuumCell;
-    if (z.residuum == null) {
+    if (z.residDown == null || z.residUp == null) {
       residuumCell = dash;
     } else {
-      const re = Math.round(z.residuum);
-      // Nachbesserung 435.1: 0..25 ct grün, 25..100 ct orange, >100 ct rot.
-      const reColor = re <= 25 ? "#16a34a" : re <= 100 ? "#d97706" : "#dc2626";
-      residuumCell = '<span style="color:' + reColor + ';font-weight:600">±' + re + ' ct</span>';
+      const rd = Math.round(z.residDown), ru = Math.round(z.residUp);
+      const breite = rd + ru;
+      const reColor = breite <= 25 ? "#16a34a" : breite <= 100 ? "#d97706" : "#dc2626";
+      residuumCell = '<span style="color:' + reColor + ';font-weight:600">&#8722;'
+        + rd + ' &#8230; +' + ru + ' ct</span>';
     }
     tr.innerHTML =
       "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
@@ -961,6 +975,7 @@ function FRQ_renderResults() {
       "<td>" + percHzCell + "</td>" +
       "<td>" + diffHzCell + "</td>" +
       "<td>" + diffCtCell + "</td>" +
+      "<td>" + restspanneCell + "</td>" +
       "<td>" + residuumCell + "</td>" +
       "<td>" + (z.fmStatus
         ? _FRQ_statusBadgeHtml(z.fmStatus)
