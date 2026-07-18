@@ -327,7 +327,7 @@ function FRQ_tabellenZeilen(opts) {
       rows.push({ elIdx: i, elLabel, kind: "notActive",
         nominellHz: (nomDeact != null ? nomDeact : null),
         gehoertHz: null, diffHz: null, diffCent: null,
-        residuum: null, isNotPerceivable: false, fmStatus: null,
+        restspanne: null, residDown: null, residUp: null, isNotPerceivable: false, fmStatus: null,
         bandLoHz: null, bandHiHz: null, bandOverlap: false, bandOverlapEls: [] });
       continue;
     }
@@ -1377,7 +1377,6 @@ function _FRQ_renderBandEmpf(side) {
     var lo = ws ? ws.bandLoHz : null;
     var hi = ws ? ws.bandHiHz : null;
     var center = ws ? ws.bandCenterHz : null;
-    var resid = ws ? ws.residuum : null;
     var residDown = (ws && ws.residDown != null) ? ws.residDown : null;
     var residUp   = (ws && ws.residUp   != null) ? ws.residUp   : null;
 
@@ -1401,7 +1400,7 @@ function _FRQ_renderBandEmpf(side) {
     // hat eine ungemessene aktive Elektrode resid=1200 (!= null) und ein
     // berechenbares devConsist -> ohne diese Bedingung wuerde sie faelschlich
     // bewertet statt in den Vorschlags-Zweig (else if) zu fallen.
-    if (w && w.gemessen && devConsist != null && resid != null) {
+    if (w && w.gemessen && devConsist != null && (residDown != null || residUp != null)) {
       var _rDown = (residDown != null) ? residDown : 0;
       var _rUp   = (residUp   != null) ? residUp   : 0;
       var kante  = (devConsist >= 0) ? _rUp : _rDown;

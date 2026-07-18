@@ -653,9 +653,10 @@ function drawFRQGraph(cv, rows, cfg) {
       }
       ctx.stroke();
     }
-    // Restspanne ZUERST (blau, unten), dann Residuum (schwarz, darueber).
-    if (r.restspanneCent > 0) _tBalken(ycAnker, r.restspanneCent, r.restspanneCent, "#3b82f6");
+    // Residuum ZUERST (schwarz, unten), dann Restspanne (blau, darueber) —
+    // das Residuum-Band enthaelt die Restspanne, blau liegt sonst verdeckt.
     if (r.residUpCent > 0 || r.residDownCent > 0) _tBalken(ycAnker, r.residUpCent, r.residDownCent, "#000");
+    if (r.restspanneCent > 0) _tBalken(ycAnker, r.restspanneCent, r.restspanneCent, "#3b82f6");
   });
 
   // ============================================================

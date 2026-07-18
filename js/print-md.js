@@ -930,23 +930,24 @@ function _audiologFreqTable(side) {
     + " | " + t("FRQ_resultsColPerceivedHz")
     + " | " + t("FRQ_resultsColDiffHz")
     + " | " + t("FRQ_resultsColDiffCent")
+    + " | " + t("FRQ_resultsColRestspanne")
     + " | " + t("FRQ_resultsColResiduum")
     + " | " + t("FRQ_resultsColStatus") + " |");
-  lines.push("|---|---|---|---|---|---|---|");
+  lines.push("|---|---|---|---|---|---|---|---|");
   for (const z of zeilen) {
     if (z.kind === "notActive") {
       // Deaktivierte Elektrode: Nominal-Hz angezeigt, Rest "—", Status
       // "deaktiviert" (wie im Reiter).
       const nomD = (z.nominellHz != null) ? z.nominellHz.toFixed(2) : "—";
-      lines.push("| " + z.elLabel + " | " + nomD + " | — | — | — | — | "
+      lines.push("| " + z.elLabel + " | " + nomD + " | — | — | — | — | — | "
         + t("FRQ_resultsStatusNotActive") + " |");
       continue;
     }
     if (z.kind === "notMeasured") {
-      lines.push("| " + z.elLabel + " | — | — | — | — | — | " + t("notMeasured") + " |");
+      lines.push("| " + z.elLabel + " | — | — | — | — | — | — | " + t("notMeasured") + " |");
       continue;
     }
-    let nomC = dashMd, perC = dashMd, dHzC = dashMd, dCtC = dashMd, resC = dashMd;
+    let nomC = dashMd, perC = dashMd, dHzC = dashMd, dCtC = dashMd, restsC = dashMd, resC = dashMd;
     if (z.gehoertHz != null && z.diffCent != null) {
       nomC = z.nominellHz.toFixed(2);
       perC = z.gehoertHz.toFixed(2);
@@ -955,12 +956,15 @@ function _audiologFreqTable(side) {
     } else if (z.nominellHz != null) {
       nomC = z.nominellHz.toFixed(2);
     }
-    if (z.residuum != null) resC = "±" + Math.round(z.residuum) + " ct";
+    if (z.restspanne != null) restsC = "&#177;" + Math.round(z.restspanne) + " ct";
+    if (z.residDown != null && z.residUp != null) {
+      resC = "&#8722;" + Math.round(z.residDown) + " &#8230; +" + Math.round(z.residUp) + " ct";
+    }
     // Status: gemessene Datenzeile hat fmStatus; ungemessene aktive Zeile
     // (kein fmStatus) -> "nicht gemessen".
     const statC = z.fmStatus ? statusText(z.fmStatus) : t("notMeasured");
     lines.push("| " + z.elLabel + " | " + nomC + " | " + perC
-      + " | " + dHzC + " | " + dCtC + " | " + resC
+      + " | " + dHzC + " | " + dCtC + " | " + restsC + " | " + resC
       + " | " + statC + " |");
   }
 
