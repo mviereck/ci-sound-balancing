@@ -438,6 +438,7 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandTopologie",       def: "nahtlos",    fileKey: "bandTopologie",       group: "FRQ_bandTopologie" },
   { key: "bandOptimieren",      def: "optimiert",  fileKey: "bandOptimieren",      group: "FRQ_bandOptimieren" },
   { key: "bandZiel",            def: "minimax",    fileKey: "bandZiel",            group: "FRQ_bandZiel" },
+  { key: "residRichtung",       def: "symmetrisch",fileKey: "residRichtung",       group: "FRQ_residRichtung" },
   { key: "bandRandausgleich",   def: "mit",        fileKey: "bandRandausgleich",   group: "FRQ_bandRandausgleich" },
   { key: "bandCbfGewicht",      def: "ausgewogen", fileKey: "bandCbfGewicht",      group: "FRQ_bandCbfGewicht" },
   { key: "bandCbfApikalFrei",   def: "1",          fileKey: "bandCbfApikalFrei",   group: "FRQ_bandCbfApikalFrei" },
@@ -542,7 +543,7 @@ function _frqPairsAusEdgesSymmetrisch(P, edges, topologie) {
 // BA449: range ist ab jetzt IMMER null (Sec. 14.5-Korrektur -- eine feste
 // Hersteller-Range ueberbestimmte das System). Der range-Zweig bleibt
 // vorerst als toter Code stehen (Aufraeum-Kandidat, nicht in diesem Fix).
-function FRQ_optimiereGrenzen(P, R, range, ziel, minBreite, lambda) {
+function FRQ_optimiereGrenzen(P, R, range, ziel, minBreite, lambda, Rup, Rdown) {
   var N = P.length;
   var w = R.map(function (r) { return 1 / (r * r); });
 
@@ -603,7 +604,11 @@ function FRQ_optimiereGrenzen(P, R, range, ziel, minBreite, lambda) {
       var dn = [];
       for (var k2 = 0; k2 < N; k2++) {
         var cen = (e[k2] + e[k2 + 1]) / 2;
-        dn.push(Math.abs(cen - P[k2]) / R[k2]);
+        var diff = cen - P[k2];
+        // BA515: richtungsabhaengig -> obere Kante bei Abweichung nach oben,
+        // untere nach unten. Ohne Rup/Rdown (symmetrisch) wie bisher R[k2].
+        var rk = (Rup && Rdown) ? (diff >= 0 ? Rup[k2] : Rdown[k2]) : R[k2];
+        dn.push(Math.abs(diff) / rk);
       }
       var mx = Math.max.apply(null, dn) || 1;
       for (var k3 = 0; k3 < N; k3++) {
@@ -1398,8 +1403,25 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
         && wand && typeof wand.loHz === "number" && typeof wand.hiHz === "number") {
       _rangeOpt = { loP: toP(wand.loHz), hiP: toP(wand.hiHz) };
     }
+    // BA515: richtungsabhaengige R-Vektoren (nur wenn gewaehlt). Analog Ropt,
+    // aber je Kante. Ungemessene: gleicher Ungemessen-Wert wie Ropt (symm.).
+    var RoptUp = null, RoptDown = null;
+    if (opt && opt.residRichtung === "gerichtet") {
+      RoptUp = []; RoptDown = [];
+      for (var rj = 0; rj < kette.length; rj++) {
+        var mo = kette[rj];
+        var rUpCt = mo.gemessen
+          ? Math.max(RES_BODEN_CT, (mo.residUp   != null ? mo.residUp   : RES_BODEN_CT))
+          : RES_UNGEMESSEN_CT;
+        var rDnCt = mo.gemessen
+          ? Math.max(RES_BODEN_CT, (mo.residDown != null ? mo.residDown : RES_BODEN_CT))
+          : RES_UNGEMESSEN_CT;
+        RoptUp.push(Math.abs(toP(kette[rj].hz * Math.pow(2, rUpCt / 1200)) - toP(kette[rj].hz)) || 1e-6);
+        RoptDown.push(Math.abs(toP(kette[rj].hz * Math.pow(2, rDnCt / 1200)) - toP(kette[rj].hz)) || 1e-6);
+      }
+    }
     var sOpt = FRQ_optimiereGrenzen(P, Ropt, _rangeOpt,
-      (ziel === "summe" ? "summe" : "minimax"), _minBreite, _lambda);
+      (ziel === "summe" ? "summe" : "minimax"), _minBreite, _lambda, RoptUp, RoptDown);
     var edgesOpt = _frqEdges(P, sOpt, _rangeOpt);
     if (topologie === "lueckig" || topologie === "ueberlappend") {
       // Center bleibt P; nur die inneren Grenzen sind jetzt optimiert.
@@ -2226,6 +2248,7 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
       var _ziel = (_zielArg === "summe") ? "summe"
         : (_zielArg === "minimax") ? "minimax"
         : (_sW && _sW.bandZiel === "summe" ? "summe" : "minimax");
+      var _residRichtung = (_sW && _sW.residRichtung === "gerichtet") ? "gerichtet" : "symmetrisch";
       // BA453: Statusgewicht je Elektrode SEITENRICHTIG vorab holen (elSt/
       // elExDur sind seitengebunden -> withSide, gleiches Muster wie die
       // feste Wand unten). ell_gWt liegt seit BA453 in core.js. Additiv:
@@ -2256,6 +2279,9 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
                  // Bandverfahren setzen ihr Ungemessen-Residuum selbst.
                  residuum: (s && s.residDown != null && s.residUp != null)
                    ? (s.residDown + s.residUp) : null,
+                 // BA515: Einzel-Kanten fuer die richtungsabhaengige Optimierung.
+                 residDown: (s && s.residDown != null) ? s.residDown : null,
+                 residUp:   (s && s.residUp   != null) ? s.residUp   : null,
                  gemessen: !!entry.gemessen,
                  statusGewicht: (_statusGewichte[entry.elIdx] != null)
                    ? _statusGewichte[entry.elIdx] : 1 };
@@ -2311,6 +2337,8 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
           grenzeinhaltung: (_sW && typeof _sW.bandGrenzeinhaltung === "string") ? _sW.bandGrenzeinhaltung : "abschneiden",
           // FBF: log-Kurve der laufenden Seite (Ketten-Reihenfolge, §4.2).
           kurveY: _kurveY,
+          // BA515: richtungsabhaengige Residuum-Toleranz im minimax-Zweig.
+          residRichtung: _residRichtung,
         });
       if (res.error) {   // "overlap" ODER "abfTonoZuKlein" (BA450)
         out.forEach(function (entry) {

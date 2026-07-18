@@ -649,6 +649,14 @@ document.addEventListener("DOMContentLoaded", () => {
     var fs = document.getElementById("FRQ_bandGrenzeinhaltungFieldset");
     if (fs) fs.style.display = (sideData[activeSide].bandOptimieren === "optimiert") ? "" : "none";
   }
+  // BA515: Residuum-Richtung wirkt nur im Optimierer-minimax-Zweig ->
+  // Fieldset nur bei optimiert UND minimax sichtbar.
+  function _frqResidRichtungSichtbarkeit() {
+    var fs = document.getElementById("FRQ_residRichtungFieldset");
+    if (!fs) return;
+    var s = sideData[activeSide];
+    fs.style.display = (s.bandOptimieren === "optimiert" && s.bandZiel === "minimax") ? "" : "none";
+  }
   // BA451 (Architektur §4.1/§4.3): ABF verdraengt Topologie/Optimieren/
   // Ziel -> diese Fieldsets bei "abf" ausblenden, Randausgleich einblenden.
   // Bei den anderen drei Verfahren umgekehrt. EINE Stelle, datengetrieben.
@@ -659,7 +667,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Die alten Achsen (Topologie/Optimieren/Ziel) sind bei ABF, CBF UND
     // FBF aus (alle drei verdraengen sie, Architektur §4.1/§4.4).
     var aus = ["FRQ_bandTopologieFieldset", "FRQ_bandOptimierenFieldset",
-               "FRQ_bandZielFieldset", "FRQ_bandGrenzeinhaltungFieldset"];
+               "FRQ_bandZielFieldset", "FRQ_residRichtungFieldset", "FRQ_bandGrenzeinhaltungFieldset"];
     aus.forEach(function (id) {
       var fs = document.getElementById(id);
       if (fs) fs.style.display = (istAbf || istCbf || istFbf) ? "none" : "";
@@ -677,7 +685,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     // Bei den drei klassischen Verfahren gilt die Optimieren-abhaengige
     // Ziel- UND Grenzeinhaltung-Sichtbarkeit.
-    if (!istAbf && !istCbf && !istFbf) { _frqBandZielSichtbarkeit(); _frqBandGrenzSichtbarkeit(); }
+    if (!istAbf && !istCbf && !istFbf) { _frqBandZielSichtbarkeit(); _frqBandGrenzSichtbarkeit(); _frqResidRichtungSichtbarkeit(); }
   }
   // BA501: Ausgangspunkt-Wahl des Bandgraphen (global, Anzeige-only).
   _frqBandWahlInit("FRQ_bandAusgang", function (v) { FRQ_bandAusgang = v; });
@@ -691,8 +699,13 @@ document.addEventListener("DOMContentLoaded", () => {
     sideData[activeSide].bandOptimieren = v;
     _frqBandZielSichtbarkeit();
     _frqBandGrenzSichtbarkeit();
+    _frqResidRichtungSichtbarkeit();
   });
-  _frqBandWahlInit("FRQ_bandZiel", function (v) { sideData[activeSide].bandZiel = v; });
+  _frqBandWahlInit("FRQ_bandZiel", function (v) {
+    sideData[activeSide].bandZiel = v;
+    _frqResidRichtungSichtbarkeit();
+  });
+  _frqBandWahlInit("FRQ_residRichtung", function (v) { sideData[activeSide].residRichtung = v; });
   _frqBandWahlInit("FRQ_bandGrenzeinhaltung", function (v) { sideData[activeSide].bandGrenzeinhaltung = v; });
   _frqBandWahlInit("FRQ_bandRandausgleich", function (v) { sideData[activeSide].bandRandausgleich = v; });
   _frqBandWahlInit("FRQ_bandCbfGewicht", function (v) { sideData[activeSide].bandCbfGewicht = v; });
