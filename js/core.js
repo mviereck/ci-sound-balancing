@@ -1208,8 +1208,13 @@ function FRQ_fbfGrenzen(kette, wand, opt) {
 //   ueber <= 0            -> "gruen" (im Rauschen)
 //   ueber <= Schwelle     -> "amber" (leicht)
 //   sonst                 -> "rot"   (deutlich)
-function FRQ_bewertungsStufe(devCent, resid) {
-  var r = (resid != null && resid > 0) ? resid : 0;
+// BA510: richtungsabhaengiges Residuum-Band. devCent > 0 (Abweichung nach
+// oben) -> obere Kante residUp; devCent < 0 -> untere Kante residDown.
+// Aufrufer uebergeben beide Kanten; Rueckwaertskompatibel: wird nur ein
+// Wert uebergeben (residDown === residUp), verhaelt es sich wie zuvor.
+function FRQ_bewertungsStufe(devCent, residDown, residUp) {
+  var kante = (devCent >= 0) ? residUp : residDown;
+  var r = (kante != null && kante > 0) ? kante : 0;
   var ueber = Math.abs(devCent) - r;
   if (ueber <= 0) return "gruen";
   if (typeof FRQ_bandEmpfSchwelleCent === "number"
@@ -1630,7 +1635,7 @@ function _frqAktiveElIdx(side) {
   return out;
 }
 
-// Vertrauens-Gewicht einer Elektrode (0 = ignorieren). res = fmResiduum|null.
+// Vertrauens-Gewicht einer Elektrode (0 = ignorieren). res = Residuum-Bandbreite|null.
 function _frqGlaettGewicht(i, res) {
   var g = (typeof ell_gWt === "function") ? ell_gWt(i) : 1;
   if (!(g > 0)) return 0;
@@ -1927,7 +1932,12 @@ function _frqGlaetteMeasured(measured, verfahren) {
   });
   var weights = keys.map(function (k) {
     if (_istGemessen(k)) {
-      return _frqGlaettGewicht(k, measured[k].fmResiduum);
+      // BA510: Gewicht nutzt die Residuum-BANDBREITE (residDown+residUp)
+      // statt des alten Skalars. Live aus dem Rundenverlauf.
+      var _bw = (typeof _frq_pianoResiduumBand === "function")
+        ? _frq_pianoResiduumBand(k) : null;
+      var _res = _bw ? (_bw.residDown + _bw.residUp) : null;
+      return _frqGlaettGewicht(k, _res);
     }
     // Nicht-gemessene aktive: fester g / festes r, gleiche Formel g/r^2.
     return FRQ_GLAETT_UNGEMESSEN_GEWICHT

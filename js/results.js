@@ -723,10 +723,12 @@ function FRQ_glaettRows(side, opts) {
     var glattHz = (s.gehoertHzGlatt != null) ? s.gehoertHzGlatt : rohHz;  // schwarz
     var rohShift   = (s.shiftCent != null) ? s.shiftCent : 0;   // T-Balken-Mitte (roh)
     var glattShift = (s.shiftCentGlatt != null) ? s.shiftCentGlatt : rohShift; // Punkt
-    var resid = (s.residuum != null) ? s.residuum : 0;
+    var resid = (s.restspanne != null) ? s.restspanne : 0;
+    var residDown = (s.residDown != null) ? s.residDown : 0;
+    var residUp   = (s.residUp   != null) ? s.residUp   : 0;
     // Verschiebung roh->geglaettet in cent (Farb-Urteil der Glaettung).
     var dev = 1200 * Math.log2(rohHz / glattHz);
-    var stufe = FRQ_bewertungsStufe(dev, resid);
+    var stufe = FRQ_bewertungsStufe(dev, residDown, residUp);
     rows.push({
       elNum: elNum,
       xLinksHz: rohHz,                 // grauer Strich (roh)
@@ -1187,7 +1189,9 @@ function _FRQ_renderBandEmpf(side) {
       // Nur El. mit vollstaendigem Band erscheinen (Ueberlauf/kein Band raus).
       if (_ws.bandLoHz == null || _ws.bandHiHz == null || _ws.bandCenterHz == null) continue;
       var _center = _ws.bandCenterHz;
-      var _resid = (_ws.residuum != null) ? _ws.residuum : 0;
+      var _resid = (_ws.restspanne != null) ? _ws.restspanne : 0;
+      var _residDown = (_ws.residDown != null) ? _ws.residDown : 0;
+      var _residUp   = (_ws.residUp   != null) ? _ws.residUp   : 0;
       // Drei Ausgangspunkt-Hz je Kurve (§10). Fehlende Werte -> null-Kurve.
       var _hzNom  = _ws.nominellHz;
       var _hzGem  = (_ws.gehoertHz != null) ? _ws.gehoertHz : _ws.nominellHz;
@@ -1226,8 +1230,8 @@ function _FRQ_renderBandEmpf(side) {
         ? ((_ws.kurveHz != null) ? _ws.kurveHz : _center)
         : _center;                                       // Kurve (FBF) bzw. Mitte
       var _stufe = !_gemessen ? null
-        : (istFbf ? FRQ_bewertungsStufe(_consist, _resid)
-                  : FRQ_bewertungsStufe(_dev, _resid));
+        : (istFbf ? FRQ_bewertungsStufe(_consist, _residDown, _residUp)
+                  : FRQ_bewertungsStufe(_dev, _residDown, _residUp));
       var _bew = (_stufe === "gruen") ? t("FRQ_bandEmpfRatingNoise")
                : (_stufe === "amber") ? t("FRQ_bandEmpfRatingSlight")
                : t("FRQ_bandEmpfRatingClear");
@@ -1349,6 +1353,8 @@ function _FRQ_renderBandEmpf(side) {
     var hi = ws ? ws.bandHiHz : null;
     var center = ws ? ws.bandCenterHz : null;
     var resid = ws ? ws.residuum : null;
+    var residDown = (ws && ws.residDown != null) ? ws.residDown : null;
+    var residUp   = (ws && ws.residUp   != null) ? ws.residUp   : null;
 
     var targetCell = (target != null) ? fmtNum(target, "hz") + " Hz" : dash;
     var rangeCell = (lo != null && hi != null)
@@ -1371,8 +1377,11 @@ function _FRQ_renderBandEmpf(side) {
     // berechenbares devConsist -> ohne diese Bedingung wuerde sie faelschlich
     // bewertet statt in den Vorschlags-Zweig (else if) zu fallen.
     if (w && w.gemessen && devConsist != null && resid != null) {
-      var ueber = Math.abs(devConsist) - resid;
-      var _bStufe = FRQ_bewertungsStufe(devConsist, resid);
+      var _rDown = (residDown != null) ? residDown : 0;
+      var _rUp   = (residUp   != null) ? residUp   : 0;
+      var kante  = (devConsist >= 0) ? _rUp : _rDown;
+      var ueber  = Math.abs(devConsist) - kante;
+      var _bStufe = FRQ_bewertungsStufe(devConsist, _rDown, _rUp);
       var stufe = (_bStufe === "gruen") ? t("FRQ_bandEmpfRatingNoise")
                 : (_bStufe === "amber") ? t("FRQ_bandEmpfRatingSlight")
                 : t("FRQ_bandEmpfRatingClear");
