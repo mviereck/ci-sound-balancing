@@ -2056,24 +2056,29 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
   // resid: seitenloses Residuum (cent) oder null. nomL/nomR: nominelle
   // Frequenz je Seite. Gibt je Seite { hz, shiftCent, shiftHz, resid }.
   // Nur fuer form === "gehoert" verwendet (warp hat eigene bandHz-Logik).
-  function _gehoertAusCent(cent, resid, nomL, nomR) {
-    var base = FRQ_seitenWerte(cent, modus);          // Warp-Richtung {csL,csR}
-    var sgn  = _nhSim ? 1 : -1;                        // 'gehoert'-Richtung
+  function _gehoertAusCent(cent, rDown, rUp, rSpan, nomL, nomR) {
+    var base = FRQ_seitenWerte(cent, modus);
+    var sgn  = _nhSim ? 1 : -1;
     var shL  = sgn * base.csL;
     var shR  = sgn * base.csR;
-    var fac  = FRQ_seitenWerte(1, modus);             // Verteilfaktor je Seite
+    var fac  = FRQ_seitenWerte(1, modus);
+    function dist(v, f) { return (v != null) ? Math.abs(f) * v : null; }
     return {
       left: {
         hz: nomL * Math.pow(2, shL / 1200),
         shiftCent: shL,
         shiftHz: nomL * Math.pow(2, shL / 1200) - nomL,
-        resid: (resid != null) ? Math.abs(fac.csL) * resid : null
+        residDown:  dist(rDown, fac.csL),
+        residUp:    dist(rUp,   fac.csL),
+        restspanne: dist(rSpan, fac.csL)
       },
       right: {
         hz: nomR * Math.pow(2, shR / 1200),
         shiftCent: shR,
         shiftHz: nomR * Math.pow(2, shR / 1200) - nomR,
-        resid: (resid != null) ? Math.abs(fac.csR) * resid : null
+        residDown:  dist(rDown, fac.csR),
+        residUp:    dist(rUp,   fac.csR),
+        restspanne: dist(rSpan, fac.csR)
       }
     };
   }
@@ -2096,11 +2101,13 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
                  && (!_fcL || _fcL[i] !== false);
     var aktivR = withSide("right", function () { return elActive[i] !== false; })
                  && (!_fcR || _fcR[i] !== false);
-    // Residuum (Mess-Unsicherheit in cent) aus dem fRes-Eintrag; null, wenn
-    // kein Eintrag. Formabhaengig ausgegeben: roh seitenlos (entry.residuum),
-    // warp/gehoert pro Seite verteilt wie die Verschiebung (s.u.).
-    var residuum = r ? (r.fmResiduum != null ? r.fmResiduum
-                       : (r.fmResidual != null ? r.fmResidual : null)) : null;
+    // BA509: Residuum-Band + Restspanne live aus dem Rundenverlauf (kein
+    // gespeichertes fmResiduum mehr). Gemessen -> echtes Band, sonst null.
+    var _rb = (gemessen && typeof _frq_pianoResiduumBand === "function")
+      ? _frq_pianoResiduumBand(i) : null;
+    var residDown  = _rb ? _rb.residDown  : null;
+    var residUp    = _rb ? _rb.residUp    : null;
+    var restspanne = _rb ? _rb.restspanne : null;
 
     // Nominelle (eingetragene) Frequenz je Seite -- keine Messgroesse,
     // existiert immer.
@@ -2122,7 +2129,9 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
       // seitenlose interaurale Unsicherheit.
       entry.cent       = gemessen ? r.cent : null;
       entry.frqRefMode = gemessen ? r.frqRefMode : null;
-      entry.residuum   = residuum;
+      entry.residDown  = residDown;
+      entry.residUp    = residUp;
+      entry.restspanne = restspanne;
 
     } else if (form === "warp") {
       // WARP-Zweig unveraendert (eigene bandHz-/NH-Sim-Logik, §7.5).
@@ -2132,13 +2141,18 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
         var shLW = sgnW * base.csL;
         var shRW = sgnW * base.csR;
         var facW = FRQ_seitenWerte(1, modus);
-        left.residuum  = (residuum != null) ? Math.abs(facW.csL) * residuum : null;
-        right.residuum = (residuum != null) ? Math.abs(facW.csR) * residuum : null;
+        left.residDown  = (residDown  != null) ? Math.abs(facW.csL) * residDown  : null;
+        left.residUp    = (residUp    != null) ? Math.abs(facW.csL) * residUp    : null;
+        left.restspanne = (restspanne != null) ? Math.abs(facW.csL) * restspanne : null;
+        right.residDown  = (residDown  != null) ? Math.abs(facW.csR) * residDown  : null;
+        right.residUp    = (residUp    != null) ? Math.abs(facW.csR) * residUp    : null;
+        right.restspanne = (restspanne != null) ? Math.abs(facW.csR) * restspanne : null;
         left.cs  = shLW;  right.cs = shRW;
         left.bandHz  = _nhSim ? nomL : nomL * Math.pow(2, -shLW / 1200);
         right.bandHz = _nhSim ? nomR : nomR * Math.pow(2, -shRW / 1200);
       } else {
-        left.residuum = null; right.residuum = null;
+        left.residDown = null;  left.residUp = null;  left.restspanne = null;
+        right.residDown = null; right.residUp = null; right.restspanne = null;
         left.cs = null; right.cs = null;
         left.bandHz = null; right.bandHz = null;
       }
@@ -2151,10 +2165,11 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
       var _cin = (gemessen && r && r.cent != null) ? r.cent : 0;   // roh
       var _mg  = measuredGlatt[i];
       var _cgl = (_mg && _mg.cent != null) ? _mg.cent : _cin;      // glatt
-      var _rin = gemessen ? residuum : FRQ_GLAETT_UNGEMESSEN_RESID_CT;
-
-      var _roh   = _gehoertAusCent(_cin, _rin, nomL, nomR);
-      var _glatt = _gehoertAusCent(_cgl, _rin, nomL, nomR);
+      var _rD = gemessen ? residDown  : FRQ_GLAETT_UNGEMESSEN_RESID_CT;
+      var _rU = gemessen ? residUp    : FRQ_GLAETT_UNGEMESSEN_RESID_CT;
+      var _rS = gemessen ? restspanne : 0;
+      var _roh   = _gehoertAusCent(_cin, _rD, _rU, _rS, nomL, nomR);
+      var _glatt = _gehoertAusCent(_cgl, _rD, _rU, _rS, nomL, nomR);
 
       // gehoertHz (roh = Messergebnis) + Verschiebung/Residuum je Seite.
       left.gehoertHz   = _roh.left.hz;
@@ -2163,8 +2178,12 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
       right.shiftCent  = _roh.right.shiftCent;
       left.shiftHz     = _roh.left.shiftHz;
       right.shiftHz    = _roh.right.shiftHz;
-      left.residuum    = _roh.left.resid;
-      right.residuum   = _roh.right.resid;
+      left.residDown    = _roh.left.residDown;
+      left.residUp      = _roh.left.residUp;
+      left.restspanne   = _roh.left.restspanne;
+      right.residDown   = _roh.right.residDown;
+      right.residUp     = _roh.right.residUp;
+      right.restspanne  = _roh.right.restspanne;
 
       // gehoertHzGlatt (geglaettet = Bandberechnung/Wiedergabe), §15.4.
       left.gehoertHzGlatt  = _glatt.left.hz;

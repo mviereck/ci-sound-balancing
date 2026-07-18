@@ -369,6 +369,54 @@ function _frq_pianoSetBorder(elIdx, round, border, cent) {
   fp.perElectrode[elIdx].rounds[round][border] = cent;
 }
 
+// BA509: Zwei Unsicherheitsgroessen je Elektrode, live aus dem Runden-
+// verlauf (00-freqmatch-verfahren-architektur.md §7.4). Rueckgabe (cent,
+// relativ zur nominellen Frequenz): { mitte, residDown, residUp, restspanne }
+// oder null. residDown/residUp = mitten-relative Abstaende (>=0).
+function _frq_pianoResiduumBand(elIdx) {
+  var fp = _frq_pianoData();
+  var pe = fp && fp.perElectrode && fp.perElectrode[elIdx];
+  var rounds = pe && pe.rounds;
+  if (!rounds) return null;
+  var keys = Object.keys(rounds).map(function (k) { return parseInt(k, 10); })
+    .sort(function (a, b) { return a - b; });
+  if (!keys.length) return null;
+
+  // feinste Runde mit BEIDEN Grenzen -> Mitte + Restspanne
+  var best = 0, flo = null, fhi = null;
+  keys.forEach(function (k) {
+    var rr = rounds[k];
+    if (rr && typeof rr.lower === "number" && typeof rr.upper === "number" && k > best) {
+      best = k; flo = rr.lower; fhi = rr.upper;
+    }
+  });
+  if (best === 0) return null;
+  var mitte = (flo + fhi) / 2;
+  var restspanne = Math.abs(fhi - flo) / 2;
+
+  // absolute Bandkanten: Restspannen-Kanten + nach aussen verletzte Werte
+  // (gegen die strengste bisherige Grenze) + bei Ueberkreuzung die Endwerte.
+  // lower innerste = groesster Wert (sLo), upper innerste = kleinster (sHi).
+  var bandLo = Math.min(flo, fhi), bandHi = Math.max(flo, fhi);
+  var sLo = null, sHi = null;
+  keys.forEach(function (k) {
+    var rm = rounds[k];
+    var lm = (rm && typeof rm.lower === "number") ? rm.lower : null;
+    var hm = (rm && typeof rm.upper === "number") ? rm.upper : null;
+    if (lm != null) {
+      if (sLo != null && lm < sLo) bandLo = Math.min(bandLo, lm);   // lower nach unten verletzt
+      sLo = (sLo == null) ? lm : Math.max(sLo, lm);
+    }
+    if (hm != null) {
+      if (sHi != null && hm > sHi) bandHi = Math.max(bandHi, hm);   // upper nach oben verletzt
+      sHi = (sHi == null) ? hm : Math.min(sHi, hm);
+    }
+  });
+  if (flo > fhi) { bandHi = Math.max(bandHi, flo); bandLo = Math.min(bandLo, fhi); }   // Ueberkreuzung
+
+  return { mitte: mitte, residDown: mitte - bandLo, residUp: bandHi - mitte, restspanne: restspanne };
+}
+
 // Lauf anlegen oder fortsetzen (Pause/Resume innerhalb der Sitzung).
 function _frq_pianoEnsureRun() {
   var fp = _frq_pianoData();
@@ -577,7 +625,6 @@ function _frq_pianoWriteResults() {
       fmDelta:               null,
       fmConv:                null,
       fmRunSpread:           null,
-      fmResiduum:            span / 2,
       fmRunsCount:           0,
       fmStatusLast:          null
     };
