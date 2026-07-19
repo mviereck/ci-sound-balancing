@@ -799,7 +799,6 @@ Object.assign(L.en, {
     FRQ_titel_ergebnis: "Frequency matching results",
     FRQ_titel_glaett:   "Smoothing of the frequency matching results",
     FRQ_titel_band:     "Frequency band computation for CI setting",
-    FRQ_resultsQualityPiano:           "Piano test: round {round} of {total} completed (approximation ±{step} cents).",
     FRQ_distributionTitle: "Correction side",
     FRQ_distributionIntro: "Choose how the measured frequency deviation is distributed as a correction across your two CIs. If one CI should stay as it is and only the other should be adjusted, select the CI to adjust. If both should approach each other evenly, select “symmetric”.",
     FRQ_noCiHint: "You have selected the {side} side. You do not wear a CI there. Frequency settings can only be adjusted on a CI side.",

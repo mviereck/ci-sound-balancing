@@ -375,8 +375,7 @@ function _FRQ_frqRefModeFromLegacy(m) {
 // Idempotent: Sessions im neuen Format bleiben unberuehrt.
 function _FRQ_pianoNormalisieren(sess) {
   if (!sess) return;
-  var steps = (typeof FM_PIANO_STEPS !== "undefined")
-    ? FM_PIANO_STEPS : [250, 100, 50, 25, 10, 5];
+  var steps = [250, 100, 50, 25, 10, 5];   // Alt-Leiter, nur Migration
   if (sess.perElectrode) {
     Object.keys(sess.perElectrode).forEach(function (el) {
       var pe = sess.perElectrode[el];

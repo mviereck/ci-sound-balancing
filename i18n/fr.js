@@ -800,7 +800,6 @@ Object.assign(L.fr, {
     FRQ_titel_ergebnis: "Résultats de l’appariement fréquentiel",
     FRQ_titel_glaett:   "Lissage des résultats de l’appariement fréquentiel",
     FRQ_titel_band:     "Calcul des bandes de fréquence pour le réglage de l’IC",
-    FRQ_resultsQualityPiano:           "Test au piano : tour {round} sur {total} terminé (approximation ±{step} cents).",
     FRQ_distributionTitle: "Côté de correction",
     FRQ_distributionIntro: "Définissez comment l'écart de fréquence mesuré est réparti comme correction sur vos deux implants. Si un implant doit rester tel quel et que seul l'autre doit être ajusté, sélectionnez l'implant à ajuster. Si les deux doivent se rapprocher de manière égale, sélectionnez « symétrique ».",
     FRQ_noCiHint: "Vous avez sélectionné le côté {side}. Vous n’y portez pas d’implant. Les réglages de fréquence ne peuvent être effectués que du côté implanté.",

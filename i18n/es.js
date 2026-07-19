@@ -800,7 +800,6 @@ Object.assign(L.es, {
     FRQ_titel_ergebnis: "Resultados del emparejamiento de frecuencias",
     FRQ_titel_glaett:   "Suavizado de los resultados del emparejamiento de frecuencias",
     FRQ_titel_band:     "Cálculo de bandas de frecuencia para el ajuste del IC",
-    FRQ_resultsQualityPiano:           "Prueba de piano: ronda {round} de {total} completada (aproximación ±{step} centésimas).",
     FRQ_distributionTitle: "Lado de corrección",
     FRQ_distributionIntro: "Defina cómo se distribuye la desviación de frecuencia medida como corrección entre sus dos implantes. Si un implante debe quedar como está y solo se debe ajustar el otro, seleccione el implante que se va a ajustar. Si ambos deben acercarse por igual, seleccione «simétrico».",
     FRQ_noCiHint: "Ha seleccionado el lado {side}. Ahí no lleva implante. Los ajustes de frecuencia solo pueden realizarse en el lado con implante.",
