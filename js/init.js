@@ -649,13 +649,13 @@ document.addEventListener("DOMContentLoaded", () => {
     var fs = document.getElementById("FRQ_bandGrenzeinhaltungFieldset");
     if (fs) fs.style.display = (sideData[activeSide].bandOptimieren === "optimiert") ? "" : "none";
   }
-  // BA515: Residuum-Richtung wirkt nur im Optimierer-minimax-Zweig ->
-  // Fieldset nur bei optimiert UND minimax sichtbar.
+  // BA516: Residuum-Richtung wirkt bei beiden Optimierungszielen (summe+gerichtet
+  // via Vorzeichen-Solver, minimax via IRLS) -> Fieldset bei jedem optimierten Ziel.
   function _frqResidRichtungSichtbarkeit() {
     var fs = document.getElementById("FRQ_residRichtungFieldset");
     if (!fs) return;
     var s = sideData[activeSide];
-    fs.style.display = (s.bandOptimieren === "optimiert" && s.bandZiel === "minimax") ? "" : "none";
+    fs.style.display = (s.bandOptimieren === "optimiert") ? "" : "none";
   }
   // BA451 (Architektur §4.1/§4.3): ABF verdraengt Topologie/Optimieren/
   // Ziel -> diese Fieldsets bei "abf" ausblenden, Randausgleich einblenden.

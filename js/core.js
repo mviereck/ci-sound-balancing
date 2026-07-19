@@ -592,6 +592,22 @@ function FRQ_optimiereGrenzen(P, R, range, ziel, minBreite, lambda, Rup, Rdown) 
     return _frqGauss(M, rhs);
   }
 
+  // BA516: Zielfunktionswert eines Kandidaten s (fuer "bester Stand" im
+  // gerichteten summe-Solver). w_k = gewaehltes Gewicht je Elektrode.
+  function _kosten(s, wUse) {
+    var e = _frqEdges(P, s, range);
+    var c = 0;
+    for (var k = 0; k < N; k++) {
+      var cen = (e[k] + e[k + 1]) / 2;
+      c += wUse[k] * (cen - P[k]) * (cen - P[k]);
+    }
+    for (var j = 0; j < N - 1; j++) {
+      var mid = (P[j] + P[j + 1]) / 2;
+      c += lambda * (s[j] - mid) * (s[j] - mid);
+    }
+    return c;
+  }
+
   var wv = w.slice();
   var s = solveWeighted(wv);
 
@@ -619,6 +635,35 @@ function FRQ_optimiereGrenzen(P, R, range, ziel, minBreite, lambda, Rup, Rdown) 
       for (var k4 = 0; k4 < N; k4++) wv[k4] /= mean;
       s = solveWeighted(wv);
     }
+  } else if (Rup && Rdown) {
+    // BA516: summe + gerichtet. Iterativer Vorzeichen-Solver: Gewicht je
+    // Elektrode aus der Kante in Richtung der aktuellen Center-Abweichung.
+    // Feste Iterationszahl (Determinismus); "bester Stand" gegen den selten
+    // moeglichen Pendelfall (eine Grenze exakt auf P[k]).
+    var ITERB = 20;
+    // Gewicht aus Vorzeichen der Center-Abweichung von s.
+    function _wGerichtet(sCur) {
+      var e = _frqEdges(P, sCur, range);
+      var wg = [];
+      for (var k = 0; k < N; k++) {
+        var cen = (e[k] + e[k + 1]) / 2;
+        var rk = (cen - P[k] >= 0) ? Rup[k] : Rdown[k];
+        wg.push(1 / (rk * rk));
+      }
+      return wg;
+    }
+    var bestS = s.slice();
+    var bestW = _wGerichtet(s);
+    var bestC = _kosten(bestS, bestW);
+    for (var passB = 0; passB < ITERB; passB++) {
+      var wg = _wGerichtet(s);
+      s = solveWeighted(wg);
+      var cC = _kosten(s, wg);
+      // "bester Stand": kleinster Zielfunktionswert (mit dem je konsistenten
+      // Gewicht bewertet). Verhindert, dass ein Pendel-Endstand gewinnt.
+      if (cC < bestC) { bestC = cC; bestS = s.slice(); }
+    }
+    s = bestS;
   }
 
   // Nebenbedingung Mindestbreite + strikte Monotonie (Sec. 14.3b),
