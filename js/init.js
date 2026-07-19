@@ -745,6 +745,10 @@ document.addEventListener("DOMContentLoaded", () => {
     sideData[activeSide].bandGlaettK = v;
     _frqGlaettUpdate();
   });
+  _frqBandWahlInit("FRQ_glaettGrundlage", function (v) {
+    sideData[activeSide].bandGlaettGrundlage = v;
+    _frqGlaettUpdate();
+  });
   _frqBandWahlInit("FRQ_glaettLage", function (v) {
     sideData[activeSide].bandGlaettLage = v;
     _frqGlaettUpdate();
@@ -799,6 +803,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Zeile 1 (global, IMMER sichtbar -- auch bei "aus"; Martin 2026-07-14).
     // 0.5.503.1: ausgegraut (bedienbar) wenn gerade wirkungslos.
+    show("FRQ_glaettGrundlageFieldset", true);
+    matt("FRQ_glaettGrundlageFieldset", _aktiv);   // wirkt bei jeder Engine; matt nur bei "aus"
     show("FRQ_glaettLageFieldset",     true);
     matt("FRQ_glaettLageFieldset",     _ortsraum);          // Lage wirkt nur im Ortsraum
     show("FRQ_glaettKFieldset",        true);

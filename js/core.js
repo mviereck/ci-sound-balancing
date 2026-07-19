@@ -455,6 +455,7 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandGlaettRandfrei",  def: "0",          fileKey: "bandGlaettRandfrei",  group: "FRQ_glaettRandfrei" },
   { key: "bandGlaettK",         def: "0.88",        fileKey: "bandGlaettK",         group: "FRQ_glaettK" },
   { key: "bandGlaettLage",      def: "mitte",      fileKey: "bandGlaettLage",      group: "FRQ_glaettLage" },
+  { key: "bandGlaettGrundlage", def: "residuum",   fileKey: "bandGlaettGrundlage", group: "FRQ_glaettGrundlage" },
 ];
 // Cent-Distanz an der Frequenz hz in eine Distanz im Positionsraum toP
 // umrechnen. Im log-Raum ist das ein konstanter Faktor; im Greenwood-Raum
@@ -1423,8 +1424,7 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
     // Residuen in p-Einheiten. Ungemessene bekommen ein GROSSES Residuum
     // (weiches Ziel, Sec. 14.5); gemessene den Wert mit kleinem Boden.
     // mitten-Eintrag traegt residuum (cent) + gemessen (bool), s. Sec. 14.4.
-    var RES_BODEN_CT = 5;        // Boden gegen 0 (E9 hat Residuum 0)
-    var RES_UNGEMESSEN_CT = 1200;  // weiches Ziel
+
     var Ropt = [];
     for (var ri = 0; ri < kette.length; ri++) {
       var mObj = kette[ri];
@@ -1645,7 +1645,11 @@ function ell_gWt(i, elSt_, elExDur_) {
 // elIdx AUFSTEIGEND (= Frequenz aufsteigend bei jedem Hersteller,
 // core.js:197/241 -- apikal/basal-Ordnung irrelevant). Gewicht je Elektrode:
 // Status (ell_gWt) x 1/max(Residuum,BODEN)^2. Startwerte experimentell.
-var FRQ_GLAETT_RESID_BODEN_CT = 20;  // Mindest-Toleranz jeder Messung (cent)
+// Geteilte Residuum-Kalibrierung (BA517): EIN Boden + EIN Ungemessen-Wert
+// fuer Glaettungs-Gewicht (_frqGlaettGewicht) UND Bandgrenzen-Optimierer
+// (FRQ_baender) -- damit die beiden Verfahren nicht divergieren.
+var RES_BODEN_CT = 5;          // Mindest-Toleranz jeder Messung (cent)
+var RES_UNGEMESSEN_CT = 1200;  // virtuelles Residuum ungemessener aktiver El. (cent)
 // BA477: Ersatzwerte fuer AKTIVE, aber NICHT gemessene Elektroden (stumm,
 // ausgeschlossen oder noch nicht gemessen). Sie nehmen mit cent=0
 // (gehoert=nominell) als Stuetzstelle an der Glaettung teil, mit sehr
@@ -1653,7 +1657,6 @@ var FRQ_GLAETT_RESID_BODEN_CT = 20;  // Mindest-Toleranz jeder Messung (cent)
 // Gehen durch DIESELBE Formel _frqGlaettGewicht (g/r^2), kein Sonderweg.
 // ell_gWt bleibt unangetastet (ELL/CBF nutzen dort weiter stumm->0).
 var FRQ_GLAETT_UNGEMESSEN_GEWICHT = 0.05;   // Status-Gewicht g (wie almostMute)
-var FRQ_GLAETT_UNGEMESSEN_RESID_CT = 1200;  // virtuelles Residuum r (cent)
 // BA487: Greenwood-Offset k je Stufe der bandGlaettK-Achse (Ortsverfahren).
 // Werte aus der MED-EL-Default-Rekonstruktion (Konzept_Greenwood_Glaettungs_
 // Prior.md §3): klassisch 0.88 traf am schlechtesten, weggelassen.
@@ -1707,7 +1710,7 @@ function _frqGlaettGewicht(i, res) {
   var g = (typeof ell_gWt === "function") ? ell_gWt(i) : 1;
   if (!(g > 0)) return 0;
   var r = (typeof res === "number" && isFinite(res)) ? res : 0;
-  r = Math.max(r, FRQ_GLAETT_RESID_BODEN_CT);
+  r = Math.max(r, RES_BODEN_CT);
   return g / (r * r);
 }
 
@@ -1985,7 +1988,7 @@ function _frqGlaetteMeasured(measured, verfahren) {
   // nicht nur gemessene. Gemessene tragen ihr cent + Residuum + Status-
   // Gewicht; nicht-gemessene aktive (stumm/ausgeschlossen/ungemessen)
   // tragen cent=0, Gewicht FRQ_GLAETT_UNGEMESSEN_GEWICHT, Residuum
-  // FRQ_GLAETT_UNGEMESSEN_RESID_CT -- durch dieselbe Formel _frqGlaettGewicht.
+  // RES_UNGEMESSEN_CT -- durch dieselbe Formel _frqGlaettGewicht.
   var allKeys = _frqAktiveElIdx(side);          // aufsteigend, seitenrichtig
   var ausschluss = _frqGlaettAusschluss(allKeys);
   var keys = allKeys.filter(function (k) { return !ausschluss[k]; });
@@ -1999,16 +2002,24 @@ function _frqGlaetteMeasured(measured, verfahren) {
   });
   var weights = keys.map(function (k) {
     if (_istGemessen(k)) {
-      // BA510: Gewicht nutzt die Residuum-BANDBREITE (residDown+residUp)
-      // statt des alten Skalars. Live aus dem Rundenverlauf.
+      // BA517: Gewichts-Grundlage waehlbar (bandGlaettGrundlage):
+      // "residuum" = Residuum-Bandbreite (residDown+residUp),
+      // "restspanne" = Restspanne. Beide aus _frq_pianoResiduumBand.
       var _bw = (typeof _frq_pianoResiduumBand === "function")
         ? _frq_pianoResiduumBand(k) : null;
-      var _res = _bw ? (_bw.residDown + _bw.residUp) : null;
+      var _grund = (side && sideData[side] && sideData[side].bandGlaettGrundlage)
+        ? sideData[side].bandGlaettGrundlage : "residuum";
+      var _res = null;
+      if (_bw) {
+        _res = (_grund === "restspanne")
+          ? _bw.restspanne
+          : (_bw.residDown + _bw.residUp);
+      }
       return _frqGlaettGewicht(k, _res);
     }
     // Nicht-gemessene aktive: fester g / festes r, gleiche Formel g/r^2.
     return FRQ_GLAETT_UNGEMESSEN_GEWICHT
-      / (FRQ_GLAETT_UNGEMESSEN_RESID_CT * FRQ_GLAETT_UNGEMESSEN_RESID_CT);
+      / (RES_UNGEMESSEN_CT * RES_UNGEMESSEN_CT);
   });
   // x-Achse: nominelle Hz je Stuetzstelle, seitenrichtig. noms = EFFEKTIVE
   // Frequenz (own ?? default) -- das ist der Bezug der Messung + cent-Rueck-
@@ -2238,12 +2249,12 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
       // BA482 (§15.3): ZWEI Reihen. gehoertHz (roh) aus dem gemessenen cent,
       // sonst cent 0 (= nominell). gehoertHzGlatt aus der geglaetteten Reihe,
       // auch fuer ungemessene aktive Elektroden. Residuum: gemessen -> echt;
-      // ungemessen aktiv -> virtuelles FRQ_GLAETT_UNGEMESSEN_RESID_CT (§15.3).
+      // ungemessen aktiv -> virtuelles RES_UNGEMESSEN_CT (§15.3).
       var _cin = (gemessen && r && r.cent != null) ? r.cent : 0;   // roh
       var _mg  = measuredGlatt[i];
       var _cgl = (_mg && _mg.cent != null) ? _mg.cent : _cin;      // glatt
-      var _rD = gemessen ? residDown  : FRQ_GLAETT_UNGEMESSEN_RESID_CT;
-      var _rU = gemessen ? residUp    : FRQ_GLAETT_UNGEMESSEN_RESID_CT;
+      var _rD = gemessen ? residDown  : RES_UNGEMESSEN_CT;
+      var _rU = gemessen ? residUp    : RES_UNGEMESSEN_CT;
       var _rS = gemessen ? restspanne : 0;
       var _roh   = _gehoertAusCent(_cin, _rD, _rU, _rS, nomL, nomR);
       var _glatt = _gehoertAusCent(_cgl, _rD, _rU, _rS, nomL, nomR);
