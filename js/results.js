@@ -1019,9 +1019,9 @@ function FRQ_renderResults() {
         .replace('{res}', meanRes.toFixed(1));
     } else {
       var _pianoRun = (FRQ_pianoSession && FRQ_pianoSession.run) || null;
-      if (_pianoRun && _pianoRun.currentRound >= 1) {
+      if (_pianoRun && _pianoRun.durchlauf >= 1) {
         var _pTot = (typeof FM_PIANO_STEPS !== "undefined") ? FM_PIANO_STEPS.length : 6;
-        var _pRound = _pianoRun.currentRound;
+        var _pRound = _pianoRun.durchlauf;
         var _pStep  = (typeof FM_PIANO_STEPS !== "undefined")
           ? FM_PIANO_STEPS[_pRound - 1] : null;
         if (_pStep != null) {

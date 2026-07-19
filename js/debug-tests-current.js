@@ -21,6 +21,39 @@
   // (aktuell keine temporären Tests registriert)
 })();
 
+/* BA519 — Residuum-Band nach Format-Umbau */
+(function () {
+  'use strict';
+  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
+  dbg.test('build/BA519/residuum-band', { tab: 'messungen', label: 'BA519: Residuum-Band nach Format-Umbau' }, function () {
+    var lines = [];
+    function chk(label, val) { lines.push((val ? '✓' : '✗') + ' ' + label); }
+    var saved = (typeof FRQ_pianoSession !== 'undefined') ? FRQ_pianoSession : null;
+    try {
+      FRQ_pianoSession = { frqRefMode: 'right', run: null, perElectrode: { 0: { verlauf: [
+        { step: 250, lower: -100, upper: 100, durchgang: 1 },
+        { step: 100, lower: -150, upper:  50, durchgang: 1 },
+        { step:  50, lower:  -20, upper:  20, durchgang: 1 }
+      ] } } };
+      var band = _frq_pianoResiduumBand(0);
+      chk('band nicht null', band != null);
+      if (band) {
+        chk('mitte === 0',        band.mitte      === 0);
+        chk('residDown === 150',  band.residDown   === 150);
+        chk('residUp === 20',     band.residUp     === 20);
+        chk('restspanne === 20',  band.restspanne  === 20);
+      }
+      var fg = _frq_pianoFeinsteGrenzen(0, 1);
+      chk('feinste Grenzen step === 50', fg != null && fg.step === 50);
+      var ns = _frq_pianoNaechsterSchritt(0, 1);
+      chk('naechster Schritt === 25', ns === 25);
+    } finally {
+      FRQ_pianoSession = saved;
+    }
+    return lines.join('\n');
+  });
+})();
+
 /* BA116 — SHT-Infrastruktur */
 (function() {
   if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;

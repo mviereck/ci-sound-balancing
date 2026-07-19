@@ -370,6 +370,52 @@ function _FRQ_frqRefModeFromLegacy(m) {
   return (m === "right") ? "left" : "right";
 }
 
+// Normalisiert eine geladene Klavier-Session auf das Verlaufslisten-
+// Format (00-freqmatch-nachpruefung-architektur.md Sec. 6).
+// Idempotent: Sessions im neuen Format bleiben unberuehrt.
+function _FRQ_pianoNormalisieren(sess) {
+  if (!sess) return;
+  var steps = (typeof FM_PIANO_STEPS !== "undefined")
+    ? FM_PIANO_STEPS : [250, 100, 50, 25, 10, 5];
+  if (sess.perElectrode) {
+    Object.keys(sess.perElectrode).forEach(function (el) {
+      var pe = sess.perElectrode[el];
+      if (!pe) { sess.perElectrode[el] = { verlauf: [] }; return; }
+      if (Array.isArray(pe.verlauf)) return;   // schon neues Format
+      var verlauf = [];
+      var rounds = pe.rounds || {};
+      Object.keys(rounds).map(function (k) { return parseInt(k, 10); })
+        .sort(function (a, b) { return a - b; })
+        .forEach(function (n) {
+          var r = rounds[n];
+          if (!r) return;
+          var idx = Math.min(Math.max(n, 1), steps.length) - 1;
+          verlauf.push({
+            step: steps[idx],
+            lower: (typeof r.lower === "number") ? r.lower : null,
+            upper: (typeof r.upper === "number") ? r.upper : null,
+            durchgang: 1
+          });
+        });
+      sess.perElectrode[el] = { verlauf: verlauf };
+    });
+  }
+  var run = sess.run;
+  if (run && run.durchlauf == null) {
+    run.typ            = run.typ || "haupt";
+    run.durchgang      = run.durchgang || 1;
+    run.durchlauf      = run.currentRound || 1;
+    run.durchlaufOrder = run.roundOrder || [];
+    run.posInDurchlauf = run.posInRound || 0;
+    var st = steps[Math.min(run.durchlauf, steps.length) - 1];
+    run.durchlaufSteps = {};
+    (run.electrodeList || []).forEach(function (el) { run.durchlaufSteps[el] = st; });
+    delete run.currentRound;
+    delete run.roundOrder;
+    delete run.posInRound;
+  }
+}
+
 // BA416: Laedt FRQ_pianoSession aus den geladenen Daten. Migriert alte
 // pro-Seite-Behaelter (d.sides[side].freqmatchPiano) auf die globale,
 // seitenlose Session. d = das geladene JSON-Objekt.
@@ -383,6 +429,7 @@ function _FRQ_loadPianoSession(d) {
     if (FRQ_pianoSession && _FRQ_pianoSessionPreBA417(d)) {
       FRQ_pianoSession.frqRefMode = _FRQ_frqRefModeFromLegacy(FRQ_pianoSession.frqRefMode);
     }
+    _FRQ_pianoNormalisieren(FRQ_pianoSession);
     return;
   }
   // 2) Alt-Format: die EINE Seite mit freqmatchPiano-Daten finden.
@@ -426,6 +473,7 @@ function _FRQ_loadPianoSession(d) {
     run:          newRun,
     perElectrode: src.perElectrode || {}
   };
+  _FRQ_pianoNormalisieren(FRQ_pianoSession);
 }
 
 function loadSideData(side, d) {

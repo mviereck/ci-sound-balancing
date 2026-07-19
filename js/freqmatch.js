@@ -346,63 +346,116 @@ function _frq_randBorderOrder() {
   return (Math.random() < 0.5) ? ['lower', 'upper'] : ['upper', 'lower'];
 }
 
-// Bestaetigten Grenzwert lesen (cent) oder null.
-function _frq_pianoBorderVal(elIdx, round, border) {
+// Verlaufsliste einer Elektrode (immer ein Array, ggf. leer).
+function _frq_pianoVerlauf(elIdx) {
   var fp = _frq_pianoData();
   var pe = fp && fp.perElectrode && fp.perElectrode[elIdx];
-  var r  = pe && pe.rounds && pe.rounds[round];
-  return (r && typeof r[border] === 'number') ? r[border] : null;
+  return (pe && Array.isArray(pe.verlauf)) ? pe.verlauf : [];
 }
 
-// Bezugswert fuer den Runden-Start: Vorrunden-Wert derselben Grenze.
-function _frq_pianoPrevBorder(elIdx, round, border) {
-  if (round <= 1) return 0;
-  var v = _frq_pianoBorderVal(elIdx, round - 1, border);
-  return (v == null) ? 0 : v;
+// Hoechste Durchgangs-Nummer im Verlauf einer Elektrode (0 = keine Daten).
+function _frq_pianoLetzterDurchgang(elIdx) {
+  var v = _frq_pianoVerlauf(elIdx), dg = 0;
+  for (var i = 0; i < v.length; i++) {
+    if (v[i] && typeof v[i].durchgang === "number" && v[i].durchgang > dg) dg = v[i].durchgang;
+  }
+  return dg;
 }
 
-// Grenze speichern.
-function _frq_pianoSetBorder(elIdx, round, border, cent) {
+// Bestaetigten Grenzwert (cent) fuer exakt diese Schrittweite im
+// Durchgang dg lesen, oder null. (Fuer die Wiederholungs-Markierung.)
+function _frq_pianoBorderVal(elIdx, step, border, dg) {
+  var v = _frq_pianoVerlauf(elIdx), val = null;
+  for (var i = 0; i < v.length; i++) {
+    var e = v[i];
+    if (e && e.durchgang === dg && e.step === step
+        && typeof e[border] === "number") val = e[border];
+  }
+  return val;   // letzter Treffer gewinnt (chronologisch)
+}
+
+// Bezugswert fuer den Fenster-Start: chronologisch letzter bestaetigter
+// Wert derselben Grenze mit GROEBERER Schrittweite im selben Durchgang.
+function _frq_pianoPrevBorder(elIdx, step, border, dg) {
+  var v = _frq_pianoVerlauf(elIdx), val = null;
+  for (var i = 0; i < v.length; i++) {
+    var e = v[i];
+    if (e && e.durchgang === dg && e.step > step
+        && typeof e[border] === "number") val = e[border];
+  }
+  return (val == null) ? 0 : val;
+}
+
+// EINZIGE Schreibstelle. Schreibt in den Eintrag mit gleicher
+// Schrittweite im gleichen Durchgang (Wiederholung ueberschreibt,
+// wie bisher rounds[round][border]) oder legt einen neuen Eintrag an.
+function _frq_pianoSetBorder(elIdx, step, border, cent, dg) {
   var fp = _frq_pianoData();
-  if (!fp.perElectrode[elIdx]) fp.perElectrode[elIdx] = { rounds: {} };
-  if (!fp.perElectrode[elIdx].rounds[round]) fp.perElectrode[elIdx].rounds[round] = { lower: null, upper: null };
-  fp.perElectrode[elIdx].rounds[round][border] = cent;
-}
-
-// BA509: Zwei Unsicherheitsgroessen je Elektrode, live aus dem Runden-
-// verlauf (00-freqmatch-verfahren-architektur.md §7.4). Rueckgabe (cent,
-// relativ zur nominellen Frequenz): { mitte, residDown, residUp, restspanne }
-// oder null. residDown/residUp = mitten-relative Abstaende (>=0).
-function _frq_pianoResiduumBand(elIdx) {
-  var fp = _frq_pianoData();
-  var pe = fp && fp.perElectrode && fp.perElectrode[elIdx];
-  var rounds = pe && pe.rounds;
-  if (!rounds) return null;
-  var keys = Object.keys(rounds).map(function (k) { return parseInt(k, 10); })
-    .sort(function (a, b) { return a - b; });
-  if (!keys.length) return null;
-
-  // feinste Runde mit BEIDEN Grenzen -> Mitte + Restspanne
-  var best = 0, flo = null, fhi = null;
-  keys.forEach(function (k) {
-    var rr = rounds[k];
-    if (rr && typeof rr.lower === "number" && typeof rr.upper === "number" && k > best) {
-      best = k; flo = rr.lower; fhi = rr.upper;
+  if (!fp.perElectrode[elIdx]) fp.perElectrode[elIdx] = { verlauf: [] };
+  if (!Array.isArray(fp.perElectrode[elIdx].verlauf)) fp.perElectrode[elIdx].verlauf = [];
+  var v = fp.perElectrode[elIdx].verlauf;
+  for (var i = v.length - 1; i >= 0; i--) {
+    if (v[i] && v[i].durchgang === dg && v[i].step === step) {
+      v[i][border] = cent;
+      return;
     }
-  });
-  if (best === 0) return null;
+  }
+  var e = { step: step, lower: null, upper: null, durchgang: dg };
+  e[border] = cent;
+  v.push(e);
+}
+
+// Feinste Ebene eines Durchgangs: Eintrag mit der KLEINSTEN
+// Schrittweite, der BEIDE Grenzen traegt (bei Gleichstand der
+// chronologisch letzte). null wenn keiner.
+function _frq_pianoFeinsteGrenzen(elIdx, dg) {
+  var v = _frq_pianoVerlauf(elIdx), best = null;
+  for (var i = 0; i < v.length; i++) {
+    var e = v[i];
+    if (!e || e.durchgang !== dg) continue;
+    if (typeof e.lower !== "number" || typeof e.upper !== "number") continue;
+    if (!best || e.step <= best.step) best = e;
+  }
+  return best;   // { step, lower, upper, durchgang } | null
+}
+
+// Leiter-Regel (Haupttest, Architektur Sec. 2): naechste Stufe der
+// festen Leiter unterhalb der feinsten beidseitig bestaetigten
+// Schrittweite dieses Durchgangs. Ohne Verlauf: Startstufe.
+// null = Boden erreicht (Elektrode fertig).
+function _frq_pianoNaechsterSchritt(elIdx, dg) {
+  var fg = _frq_pianoFeinsteGrenzen(elIdx, dg);
+  if (!fg) return FM_PIANO_STEPS[0];
+  for (var i = 0; i < FM_PIANO_STEPS.length; i++) {
+    if (FM_PIANO_STEPS[i] < fg.step) return FM_PIANO_STEPS[i];
+  }
+  return null;
+}
+
+// BA509/519: Zwei Unsicherheitsgroessen je Elektrode, live aus dem
+// Verlauf EINES Durchgangs (00-freqmatch-nachpruefung-architektur.md
+// Sec. 3; Regeln: 00-freqmatch-verfahren-architektur.md Sec. 7.4).
+// Rueckgabe (cent, relativ zur nominellen Frequenz):
+// { mitte, residDown, residUp, restspanne } oder null.
+function _frq_pianoDurchgangBand(elIdx, dg) {
+  var fg = _frq_pianoFeinsteGrenzen(elIdx, dg);
+  if (!fg) return null;
+  var flo = fg.lower, fhi = fg.upper;
   var mitte = (flo + fhi) / 2;
   var restspanne = Math.abs(fhi - flo) / 2;
 
-  // absolute Bandkanten: Restspannen-Kanten + nach aussen verletzte Werte
-  // (gegen die strengste bisherige Grenze) + bei Ueberkreuzung die Endwerte.
-  // lower innerste = groesster Wert (sLo), upper innerste = kleinster (sHi).
+  // absolute Bandkanten: Restspannen-Kanten + nach aussen verletzte
+  // Werte (gegen die strengste bisherige Grenze) + bei Ueberkreuzung
+  // die Endwerte. lower innerste = groesster Wert (sLo), upper
+  // innerste = kleinster (sHi). Scan chronologisch.
   var bandLo = Math.min(flo, fhi), bandHi = Math.max(flo, fhi);
   var sLo = null, sHi = null;
-  keys.forEach(function (k) {
-    var rm = rounds[k];
-    var lm = (rm && typeof rm.lower === "number") ? rm.lower : null;
-    var hm = (rm && typeof rm.upper === "number") ? rm.upper : null;
+  var v = _frq_pianoVerlauf(elIdx);
+  for (var i = 0; i < v.length; i++) {
+    var e = v[i];
+    if (!e || e.durchgang !== dg) continue;
+    var lm = (typeof e.lower === "number") ? e.lower : null;
+    var hm = (typeof e.upper === "number") ? e.upper : null;
     if (lm != null) {
       if (sLo != null && lm < sLo) bandLo = Math.min(bandLo, lm);   // lower nach unten verletzt
       sLo = (sLo == null) ? lm : Math.max(sLo, lm);
@@ -411,10 +464,17 @@ function _frq_pianoResiduumBand(elIdx) {
       if (sHi != null && hm > sHi) bandHi = Math.max(bandHi, hm);   // upper nach oben verletzt
       sHi = (sHi == null) ? hm : Math.min(sHi, hm);
     }
-  });
+  }
   if (flo > fhi) { bandHi = Math.max(bandHi, flo); bandLo = Math.min(bandLo, fhi); }   // Ueberkreuzung
 
   return { mitte: mitte, residDown: mitte - bandLo, residUp: bandHi - mitte, restspanne: restspanne };
+}
+
+// Oeffentlicher Aufruf (Vertrag unveraendert): neuester Durchgang.
+function _frq_pianoResiduumBand(elIdx) {
+  var dg = _frq_pianoLetzterDurchgang(elIdx);
+  if (dg === 0) return null;
+  return _frq_pianoDurchgangBand(elIdx, dg);
 }
 
 // Lauf anlegen oder fortsetzen (Pause/Resume innerhalb der Sitzung).
@@ -430,13 +490,17 @@ function _frq_pianoEnsureRun() {
     runId:        new Date().toISOString(),
     startedAt:    Date.now(),
     lastUpdate:   Date.now(),
+    typ:          'haupt',
+    durchgang:    1,
     electrodeList: elList,
-    currentRound: 1,
-    roundOrder:   _frq_shuffle(elList),
-    posInRound:   0,
+    durchlauf:    1,
+    durchlaufOrder: _frq_shuffle(elList),
+    durchlaufSteps: {},
+    posInDurchlauf: 0,
     borderOrder:  _frq_randBorderOrder(),
     posInBorder:  0
   };
+  elList.forEach(function (el) { fp.run.durchlaufSteps[el] = FM_PIANO_STEPS[0]; });
   fp.perElectrode = {};
 }
 
@@ -452,12 +516,12 @@ function _frq_doStartPiano() {
 function _frq_pianoLoadStep() {
   var run = _frq_pianoData().run;
   if (!run) return;
-  if (run.posInRound >= run.roundOrder.length) { _frq_pianoRoundTransition(); return; }
+  if (run.posInDurchlauf >= run.durchlaufOrder.length) { _frq_pianoDurchlaufTransition(); return; }
 
-  var elIdx  = run.roundOrder[run.posInRound];
+  var elIdx  = run.durchlaufOrder[run.posInDurchlauf];
   var border = run.borderOrder[run.posInBorder];   // 'lower' | 'upper'
-  var step   = FM_PIANO_STEPS[run.currentRound - 1];
-  var center = _frq_pianoPrevBorder(elIdx, run.currentRound, border);
+  var step   = run.durchlaufSteps[elIdx];
+  var center = _frq_pianoPrevBorder(elIdx, step, border, run.durchgang);
 
   frq_currentEl  = elIdx;
   frq_centOffset = center;
@@ -466,16 +530,16 @@ function _frq_pianoLoadStep() {
   if (pr && typeof testUI !== 'undefined' && testUI.piano) {
     testUI.piano.setRound(pr, { stepCent: step, centerCent: center });
     // Bei Wiederholung (Zurueck) den zuvor bestaetigten Wert dieser Runde markieren.
-    var prevThisRound = _frq_pianoBorderVal(elIdx, run.currentRound, border);
+    var prevThisRound = _frq_pianoBorderVal(elIdx, step, border, run.durchgang);
     if (prevThisRound != null) {
       _frq_pianoMarkCent(pr, prevThisRound);
       frq_centOffset = prevThisRound;
     }
   }
-  // Zurueck-Knopf aktivieren, wenn in der Runde etwas zurueckliegt (BA356-fix).
+  // Zurueck-Knopf aktivieren, wenn im Durchlauf etwas zurueckliegt (BA356-fix).
   var _ub = FRQ_els && FRQ_els.verfahren && FRQ_els.verfahren.piano
     && FRQ_els.verfahren.piano.actions && FRQ_els.verfahren.piano.actions.undo;
-  if (_ub) _ub.disabled = !(run.posInRound > 0 || run.posInBorder > 0);
+  if (_ub) _ub.disabled = !(run.posInDurchlauf > 0 || run.posInBorder > 0);
 
   _frq_pianoUpdateBoxes(border);
   _frq_pianoUpdateProgress();
@@ -509,9 +573,9 @@ function frq_pianoConfirm() {
   var pr = _frq_pianoRefs();
   if (!pr || pr.markedAbsCent == null) return;   // noch keine Taste gespielt
 
-  var elIdx  = run.roundOrder[run.posInRound];
+  var elIdx  = run.durchlaufOrder[run.posInDurchlauf];
   var border = run.borderOrder[run.posInBorder];
-  _frq_pianoSetBorder(elIdx, run.currentRound, border, pr.markedAbsCent);
+  _frq_pianoSetBorder(elIdx, run.durchlaufSteps[elIdx], border, pr.markedAbsCent, run.durchgang);
   run.lastUpdate = Date.now();
 
   if (typeof FRQ_setActiveMethod === "function") FRQ_setActiveMethod("piano");
@@ -524,10 +588,10 @@ function frq_pianoConfirm() {
   if (run.posInBorder >= 2) {
     run.posInBorder = 0;
     run.borderOrder = _frq_randBorderOrder();
-    run.posInRound++;
+    run.posInDurchlauf++;
   }
-  if (run.posInRound >= run.roundOrder.length) _frq_pianoRoundTransition();
-  else                                          _frq_pianoLoadStep();
+  if (run.posInDurchlauf >= run.durchlaufOrder.length) _frq_pianoDurchlaufTransition();
+  else                                                  _frq_pianoLoadStep();
 }
 
 // Zurueck: in der laufenden Runde eine Elektrode zurueck (bzw. aktuelle
@@ -539,28 +603,38 @@ function frq_pianoBack() {
   if (run.posInBorder > 0) {
     run.posInBorder = 0;
     run.borderOrder = _frq_randBorderOrder();
-  } else if (run.posInRound > 0) {
-    run.posInRound--;
+  } else if (run.posInDurchlauf > 0) {
+    run.posInDurchlauf--;
     run.posInBorder = 0;
     run.borderOrder = _frq_randBorderOrder();
   } else {
-    return; // Rundenanfang: nichts
+    return; // Durchlaufanfang: nichts
   }
   _frq_pianoLoadStep();
 }
 
-// Runden-Uebergang: Modal (Runden 1..5) oder direkter Abschluss (nach Runde 6).
-function _frq_pianoRoundTransition() {
+// Durchlauf-Uebergang: Modal (weitere Durchlaeufe moeglich) oder
+// direkter Abschluss (alle Elektroden am Boden).
+function _frq_pianoDurchlaufTransition() {
   var run = _frq_pianoData().run;
   if (!run) return;
-  if (run.currentRound >= FM_PIANO_STEPS.length) { _frq_pianoFinish(); return; }
-  var curStep  = FM_PIANO_STEPS[run.currentRound - 1];
-  var nextStep = FM_PIANO_STEPS[run.currentRound];
-  _frq_pianoShowRoundModal(run.currentRound, FM_PIANO_STEPS.length, curStep, nextStep,
+  // Elektroden, die noch einen naechsten Schritt haben:
+  var offen = run.electrodeList.filter(function (el) {
+    return _frq_pianoNaechsterSchritt(el, run.durchgang) != null;
+  });
+  if (!offen.length) { _frq_pianoFinish(); return; }
+  // Stufe 1 (Haupttest, alle synchron): Anzeige-Schrittweiten aus der Leiter.
+  var curStep  = FM_PIANO_STEPS[Math.min(run.durchlauf, FM_PIANO_STEPS.length) - 1];
+  var nextStep = _frq_pianoNaechsterSchritt(offen[0], run.durchgang);
+  _frq_pianoShowRoundModal(run.durchlauf, FM_PIANO_STEPS.length, curStep, nextStep,
     function onNext() {
-      run.currentRound++;
-      run.roundOrder  = _frq_shuffle(run.electrodeList);
-      run.posInRound  = 0;
+      run.durchlauf++;
+      run.durchlaufOrder = _frq_shuffle(offen);
+      run.durchlaufSteps = {};
+      offen.forEach(function (el) {
+        run.durchlaufSteps[el] = _frq_pianoNaechsterSchritt(el, run.durchgang);
+      });
+      run.posInDurchlauf = 0;
       run.borderOrder = _frq_randBorderOrder();
       run.posInBorder = 0;
       _frq_pianoLoadStep();
@@ -589,16 +663,12 @@ function _frq_pianoWriteResults() {
   var frqRefMode = fp.frqRefMode;   // bei Testbeginn eingefroren (BA416)
 
   Object.keys(fp.perElectrode).forEach(function (elKey) {
-    var elIdx  = parseInt(elKey, 10);
-    var rounds = fp.perElectrode[elKey].rounds || {};
-    var best = 0, lo = null, hi = null;
-    Object.keys(rounds).forEach(function (rk) {
-      var rn = parseInt(rk, 10), rr = rounds[rk];
-      if (rr && typeof rr.lower === "number" && typeof rr.upper === "number" && rn > best) {
-        best = rn; lo = rr.lower; hi = rr.upper;
-      }
-    });
-    if (best === 0) return;
+    var elIdx = parseInt(elKey, 10);
+    var dg = _frq_pianoLetzterDurchgang(elIdx);
+    if (dg === 0) return;
+    var fg = _frq_pianoFeinsteGrenzen(elIdx, dg);
+    if (!fg) return;
+    var lo = fg.lower, hi = fg.upper;
     var pse  = (lo + hi) / 2;
     var span = Math.abs(hi - lo);
 
@@ -654,18 +724,19 @@ function _frq_pianoUpdateBoxes(border) {
   }
 }
 
-// Zahl der bisher bestaetigten Grenzen (ueber alle Runden/Elektroden).
+// Zahl der bisher bestaetigten Grenzen (im aktuellen Durchgang).
 function _frq_pianoCountConfirmed() {
   var fp = _frq_pianoData();
-  if (!fp || !fp.perElectrode) return 0;
-  var c = 0;
-  Object.keys(fp.perElectrode).forEach(function(el) {
-    var rounds = fp.perElectrode[el].rounds || {};
-    Object.keys(rounds).forEach(function(rk) {
-      var r = rounds[rk];
-      if (r && typeof r.lower === 'number') c++;
-      if (r && typeof r.upper === 'number') c++;
-    });
+  if (!fp || !fp.perElectrode || !fp.run) return 0;
+  var dg = fp.run.durchgang, c = 0;
+  Object.keys(fp.perElectrode).forEach(function (el) {
+    var v = _frq_pianoVerlauf(parseInt(el, 10));
+    for (var i = 0; i < v.length; i++) {
+      var e = v[i];
+      if (!e || e.durchgang !== dg) continue;
+      if (typeof e.lower === "number") c++;
+      if (typeof e.upper === "number") c++;
+    }
   });
   return c;
 }
@@ -678,14 +749,14 @@ function _frq_pianoUpdateProgress() {
   var fp = _frq_pianoData();
   var run = fp && fp.run;
   if (!run) return;
-  var m = run.roundOrder.length;
-  var n = Math.min(run.posInRound + 1, m);
+  var m = run.durchlaufOrder.length;
+  var n = Math.min(run.posInDurchlauf + 1, m);
   var total = FM_PIANO_STEPS.length * run.electrodeList.length * 2;
   var done  = _frq_pianoCountConfirmed();
   var frac  = total > 0 ? done / total : 0;
   var txt = t('FRQ_pianoProgress')
     .replace('{n}', n).replace('{m}', m)
-    .replace('{r}', run.currentRound).replace('{y}', FM_PIANO_STEPS.length);
+    .replace('{r}', run.durchlauf).replace('{y}', FM_PIANO_STEPS.length);
   testUI.progress.set(els, { fraction: frac, text: txt });
 }
 
