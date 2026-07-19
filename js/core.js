@@ -456,6 +456,9 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandGlaettK",         def: "0.88",        fileKey: "bandGlaettK",         group: "FRQ_glaettK" },
   { key: "bandGlaettLage",      def: "mitte",      fileKey: "bandGlaettLage",      group: "FRQ_glaettLage" },
   { key: "bandGlaettGrundlage", def: "residuum",   fileKey: "bandGlaettGrundlage", group: "FRQ_glaettGrundlage" },
+  { key: "bandGlaettFormel",    def: "quadrat",    fileKey: "bandGlaettFormel",    group: "FRQ_glaettFormel" },
+  { key: "bandGlaettBoden",     def: "5",          fileKey: "bandGlaettBoden",     group: "FRQ_glaettBoden" },
+  { key: "bandGlaettAnker",     def: "gekoppelt",  fileKey: "bandGlaettAnker",     group: "FRQ_glaettAnker" },
 ];
 // Cent-Distanz an der Frequenz hz in eine Distanz im Positionsraum toP
 // umrechnen. Im log-Raum ist das ein konstanter Faktor; im Greenwood-Raum
@@ -1425,11 +1428,12 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
     // (weiches Ziel, Sec. 14.5); gemessene den Wert mit kleinem Boden.
     // mitten-Eintrag traegt residuum (cent) + gemessen (bool), s. Sec. 14.4.
 
+    var _boden = (opt && opt.boden != null) ? opt.boden : RES_BODEN_CT;
     var Ropt = [];
     for (var ri = 0; ri < kette.length; ri++) {
       var mObj = kette[ri];
       var resCt = mObj.gemessen
-        ? Math.max(RES_BODEN_CT, (mObj.residuum != null ? mObj.residuum : RES_BODEN_CT))
+        ? Math.max(_boden, (mObj.residuum != null ? mObj.residuum : _boden))
         : RES_UNGEMESSEN_CT;
       var hzUp = kette[ri].hz * Math.pow(2, resCt / 1200);
       var rp = Math.abs(toP(hzUp) - toP(kette[ri].hz));
@@ -1456,10 +1460,10 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
       for (var rj = 0; rj < kette.length; rj++) {
         var mo = kette[rj];
         var rUpCt = mo.gemessen
-          ? Math.max(RES_BODEN_CT, (mo.residUp   != null ? mo.residUp   : RES_BODEN_CT))
+          ? Math.max(_boden, (mo.residUp   != null ? mo.residUp   : _boden))
           : RES_UNGEMESSEN_CT;
         var rDnCt = mo.gemessen
-          ? Math.max(RES_BODEN_CT, (mo.residDown != null ? mo.residDown : RES_BODEN_CT))
+          ? Math.max(_boden, (mo.residDown != null ? mo.residDown : _boden))
           : RES_UNGEMESSEN_CT;
         RoptUp.push(Math.abs(toP(kette[rj].hz * Math.pow(2, rUpCt / 1200)) - toP(kette[rj].hz)) || 1e-6);
         RoptDown.push(Math.abs(toP(kette[rj].hz * Math.pow(2, rDnCt / 1200)) - toP(kette[rj].hz)) || 1e-6);
@@ -1649,6 +1653,15 @@ function ell_gWt(i, elSt_, elExDur_) {
 // fuer Glaettungs-Gewicht (_frqGlaettGewicht) UND Bandgrenzen-Optimierer
 // (FRQ_baender) -- damit die beiden Verfahren nicht divergieren.
 var RES_BODEN_CT = 5;          // Mindest-Toleranz jeder Messung (cent)
+// BA518: seitengelesener Boden (Achse bandGlaettBoden). Fallback = Konstante.
+// EINE Quelle fuer Glaettungs-Gewicht UND Optimierer (geteilt, s. Architektur).
+var FRQ_GLAETT_BODEN_WERTE = { "2": 2, "5": 5, "10": 10, "20": 20 };
+function _resBodenCt(seite) {
+  var s = (typeof sideData !== "undefined" && seite) ? sideData[seite] : null;
+  var v = (s && s.bandGlaettBoden) ? String(s.bandGlaettBoden) : null;
+  return (v && FRQ_GLAETT_BODEN_WERTE[v] != null) ? FRQ_GLAETT_BODEN_WERTE[v]
+                                                  : RES_BODEN_CT;
+}
 var RES_UNGEMESSEN_CT = 1200;  // virtuelles Residuum ungemessener aktiver El. (cent)
 // BA477: Ersatzwerte fuer AKTIVE, aber NICHT gemessene Elektroden (stumm,
 // ausgeschlossen oder noch nicht gemessen). Sie nehmen mit cent=0
@@ -1709,9 +1722,14 @@ function _frqAktiveElIdx(side) {
 function _frqGlaettGewicht(i, res) {
   var g = (typeof ell_gWt === "function") ? ell_gWt(i) : 1;
   if (!(g > 0)) return 0;
+  var _s = (typeof sideData !== "undefined" && typeof activeSide === "string")
+    ? sideData[activeSide] : null;
+  var _formel = (_s && _s.bandGlaettFormel) ? _s.bandGlaettFormel : "quadrat";
+  if (_formel === "gleich") return g;             // res ignoriert; ell_gWt bleibt
   var r = (typeof res === "number" && isFinite(res)) ? res : 0;
-  r = Math.max(r, RES_BODEN_CT);
-  return g / (r * r);
+  r = Math.max(r, _resBodenCt(activeSide));
+  var exp = (_formel === "linear") ? 1 : (_formel === "quartisch") ? 4 : 2;
+  return g / Math.pow(r, exp);
 }
 
 // BA502: Vereinte Polynom-Engine (ersetzt _frqGlaettKurve + _frqGlaettOrtskurve,
@@ -1805,7 +1823,13 @@ function _frqGlaettPolynom(noms, cents, weights) {
     }
   }
   if (_lambda > 0) {
-    var _anker = M[0][0] || 1;
+    // BA518: Ridge-Anker waehlbar (bandGlaettAnker). "entkoppelt" = mittleres
+    // Gewicht (Σw/n) statt Summe → Steife bodenunabhaengig. n = Σ w>0 (Punkte
+    // mit Gewicht), nicht Array-Laenge, da Gewicht-0-Punkte nicht beitragen.
+    var _ankerRaw = M[0][0] || 1;   // = Σw
+    var _ankerMode = (_s && _s.bandGlaettAnker) ? _s.bandGlaettAnker : "gekoppelt";
+    var _nw = 0; for (var _aw = 0; _aw < n; _aw++) { if (weights[_aw] > 0) _nw++; }
+    var _anker = (_ankerMode === "entkoppelt" && _nw > 0) ? (_ankerRaw / _nw) : _ankerRaw;
     for (var rr = 2; rr < m; rr++) M[rr][rr] += _lambda * _anker;
   }
   var coef = _frqGauss(M, rhs);
@@ -2395,6 +2419,8 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
           kurveY: _kurveY,
           // BA515: richtungsabhaengige Residuum-Toleranz im minimax-Zweig.
           residRichtung: _residRichtung,
+          // BA518: geteilter Boden (Achse bandGlaettBoden), seitenrichtig.
+          boden: _resBodenCt(seite),
         });
       if (res.error) {   // "overlap" ODER "abfTonoZuKlein" (BA450)
         out.forEach(function (entry) {

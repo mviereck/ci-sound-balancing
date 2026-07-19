@@ -749,6 +749,18 @@ document.addEventListener("DOMContentLoaded", () => {
     sideData[activeSide].bandGlaettGrundlage = v;
     _frqGlaettUpdate();
   });
+  _frqBandWahlInit("FRQ_glaettFormel", function (v) {
+    sideData[activeSide].bandGlaettFormel = v;
+    _frqGlaettUpdate();
+  });
+  _frqBandWahlInit("FRQ_glaettBoden", function (v) {
+    sideData[activeSide].bandGlaettBoden = v;
+    _frqGlaettUpdate();
+  });
+  _frqBandWahlInit("FRQ_glaettAnker", function (v) {
+    sideData[activeSide].bandGlaettAnker = v;
+    _frqGlaettUpdate();
+  });
   _frqBandWahlInit("FRQ_glaettLage", function (v) {
     sideData[activeSide].bandGlaettLage = v;
     _frqGlaettUpdate();
@@ -805,6 +817,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // 0.5.503.1: ausgegraut (bedienbar) wenn gerade wirkungslos.
     show("FRQ_glaettGrundlageFieldset", true);
     matt("FRQ_glaettGrundlageFieldset", _aktiv);   // wirkt bei jeder Engine; matt nur bei "aus"
+    show("FRQ_glaettFormelFieldset", true);  matt("FRQ_glaettFormelFieldset", _aktiv);
+    show("FRQ_glaettBodenFieldset",  true);  matt("FRQ_glaettBodenFieldset",  _aktiv);
+    show("FRQ_glaettAnkerFieldset",  true);  matt("FRQ_glaettAnkerFieldset",  _aktiv);
     show("FRQ_glaettLageFieldset",     true);
     matt("FRQ_glaettLageFieldset",     _ortsraum);          // Lage wirkt nur im Ortsraum
     show("FRQ_glaettKFieldset",        true);

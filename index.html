@@ -976,6 +976,25 @@
               <label style="display:block"><input type="radio" name="FRQ_glaettGrundlage" value="residuum"> <span data-t="FRQ_glaettGrundlageResiduum">Residuum-Bereich</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettGrundlage" value="restspanne"> <span data-t="FRQ_glaettGrundlageRestspanne">Restspanne</span></label>
             </fieldset>
+            <fieldset id="FRQ_glaettFormelFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettFormelLegend" style="padding:0 6px">Gewichts-Formel</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettFormel" value="linear"> <span data-t="FRQ_glaettFormelLinear">1/r</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettFormel" value="quadrat"> <span data-t="FRQ_glaettFormelQuadrat">1/r&#178;</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettFormel" value="quartisch"> <span data-t="FRQ_glaettFormelQuartisch">1/r&#8308;</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettFormel" value="gleich"> <span data-t="FRQ_glaettFormelGleich">alle gleich</span></label>
+            </fieldset>
+            <fieldset id="FRQ_glaettBodenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettBodenLegend" style="padding:0 6px">Gewichts-Boden</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettBoden" value="2"> 2 ct</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettBoden" value="5"> 5 ct</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettBoden" value="10"> 10 ct</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettBoden" value="20"> 20 ct</label>
+            </fieldset>
+            <fieldset id="FRQ_glaettAnkerFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettAnkerLegend" style="padding:0 6px">Steife-Kopplung</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettAnker" value="gekoppelt"> <span data-t="FRQ_glaettAnkerGekoppelt">an Gewicht gekoppelt</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettAnker" value="entkoppelt"> <span data-t="FRQ_glaettAnkerEntkoppelt">entkoppelt</span></label>
+            </fieldset>
             <fieldset id="FRQ_glaettLageFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettLageLegend" style="padding:0 6px">Elektrodenlage in Cochlea</legend>
               <label style="display:block"><input type="radio" name="FRQ_glaettLage" value="aussen"> <span data-t="FRQ_glaettLageAussen">Au&#223;enwand (Greenwood)</span></label>
