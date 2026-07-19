@@ -902,6 +902,7 @@ function FRQ_renderResults() {
     "<th>" + t("FRQ_resultsColDiffCent") + "</th>" +
     "<th title=\"" + t("FRQ_resultsColRestspanneTip") + "\">" + t("FRQ_resultsColRestspanne") + "</th>" +
     "<th title=\"" + t("FRQ_resultsColResiduumTip") + "\">" + t("FRQ_resultsColResiduum") + "</th>" +
+    "<th title=\"" + t("FRQ_resultsColVorherTip") + "\">" + t("FRQ_resultsColVorher") + "</th>" +
     "<th>" + t("FRQ_resultsColStatus") + "</th>";
 
   // BA420: Seitenangabe statt Referenz-/Zielseiten-Erklärung. {side} = die
@@ -931,7 +932,7 @@ function FRQ_renderResults() {
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
         "<td>" + nomCell + "</td>" +
-        "<td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>" +
+        "<td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>" +
         "<td style=\"font-size:.82em\">" + t("FRQ_resultsStatusNotActive") + "</td>";
       tb.appendChild(tr);
       continue;
@@ -941,7 +942,7 @@ function FRQ_renderResults() {
       const note = '<span style="font-size:.82em">' + t("notMeasured") + "</span>";
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
-        "<td style=\"" + grey + "\">—</td>".repeat(6) +
+        "<td style=\"" + grey + "\">—</td>".repeat(7) +
         "<td>" + note + "</td>";
       tb.appendChild(tr);
       continue;
@@ -979,6 +980,16 @@ function FRQ_renderResults() {
       residuumCell = '<span style="color:' + reColor + ';font-weight:600">&#8722;'
         + rd + ' &#8230; +' + ru + ' ct</span>';
     }
+    // BA521: Sitzungs-Vergleich (vorige Sitzung / Differenz), kanonische cent.
+    let vorherCell = dash;
+    const vgl = (typeof _frq_pianoVergleich === "function")
+      ? _frq_pianoVergleich(z.elIdx) : null;
+    if (vgl) {
+      const vc = Math.round(vgl.vorherCent);
+      const dc = Math.round(vgl.deltaCent);
+      vorherCell = (vc >= 0 ? "+" : "") + vc + " ct / Δ "
+        + (dc >= 0 ? "+" : "") + dc + " ct";
+    }
     tr.innerHTML =
       "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
       "<td>" + nomHzCell + "</td>" +
@@ -987,6 +998,7 @@ function FRQ_renderResults() {
       "<td>" + diffCtCell + "</td>" +
       "<td>" + restspanneCell + "</td>" +
       "<td>" + residuumCell + "</td>" +
+      "<td style=\"font-size:.9em\">" + vorherCell + "</td>" +
       "<td>" + (z.fmStatus
         ? _FRQ_statusBadgeHtml(z.fmStatus)
         : '<span style="font-size:.82em">' + t("notMeasured") + "</span>")

@@ -744,6 +744,8 @@ Object.assign(L.de, {
     FRQ_resultsColRestspanneTip: "Zuletzt erreichte Auflösung: halber Abstand zwischen dem noch gerade tieferen und dem noch gerade höheren Ton der feinsten Runde.",
     FRQ_resultsColResiduum:      "Residuum (ct)",
     FRQ_resultsColResiduumTip:   "Streuung über den Messverlauf: wie weit die Grenzen zurückgenommen wurden. Bereich −unten … +oben um das Ergebnis; asymmetrisch.",
+    FRQ_resultsColVorher:    "vorher / Δ",
+    FRQ_resultsColVorherTip: "Mitte der vorigen Test-Sitzung und Differenz zur aktuellen (cent)",
     FRQ_resultsColStatus: "Status",
     FRQ_resultsStatusOk: "✓ konvergiert",
     FRQ_resultsStatusFair: "Streuung",

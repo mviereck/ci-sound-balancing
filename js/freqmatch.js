@@ -520,6 +520,25 @@ function _frq_pianoResiduumBand(elIdx) {
   return _frq_pianoDurchgangBand(elIdx, dg);
 }
 
+// Sitzungs-Vergleich (Architektur Sec. 4): Mitte der juengsten
+// Vorsitzung + Differenz der Mitten (kanonische cent, mit der
+// fRes-Vorzeichen-Drehung des eingefrorenen Referenzmodus).
+// null, wenn es keine Vorsitzung mit Daten gibt.
+function _frq_pianoVergleich(elIdx) {
+  var dg = _frq_pianoLetzterDurchgang(elIdx);
+  if (dg < 2) return null;
+  var neu = _frq_pianoDurchgangBand(elIdx, dg);
+  if (!neu) return null;
+  var alt = null;
+  for (var d = dg - 1; d >= 1 && !alt; d--) alt = _frq_pianoDurchgangBand(elIdx, d);
+  if (!alt) return null;
+  var sgn = (_frq_pianoData().frqRefMode === "left") ? -1 : 1;
+  return {
+    vorherCent: sgn * alt.mitte,
+    deltaCent:  sgn * (neu.mitte - alt.mitte)
+  };
+}
+
 // Lauf anlegen oder fortsetzen. Pause -> fortsetzen; ein BEENDETER Lauf
 // (run.beendet) -> neue Sitzung (durchgang = Maximum + 1), die
 // Verlaufsdaten aller Elektroden bleiben erhalten (Architektur Sec. 4).
