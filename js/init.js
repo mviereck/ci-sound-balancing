@@ -726,6 +726,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   _frqBandWahlInit("FRQ_residRichtung", function (v) { sideData[activeSide].residRichtung = v; });
   _frqBandWahlInit("FRQ_bandRandverhalten", function (v) { sideData[activeSide].bandRandverhalten = v; });
+  _frqBandWahlInit("FRQ_bandMinBreite", function (v) {
+    sideData[activeSide].bandMinBreite = v;
+  });
   _frqBandWahlInit("FRQ_bandRandausgleich", function (v) { sideData[activeSide].bandRandausgleich = v; });
   _frqBandWahlInit("FRQ_bandCbfGewicht", function (v) { sideData[activeSide].bandCbfGewicht = v; });
   _frqBandWahlInit("FRQ_bandCbfApikalFrei", function (v) { sideData[activeSide].bandCbfApikalFrei = v; });

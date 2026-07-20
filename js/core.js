@@ -465,6 +465,11 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandK",  def: "0.88", fileKey: "bandK",  group: "FRQ_bandK" },
   // BA526: gemeinsame Randverhalten-Achse (ersetzt bandGrenzeinhaltung + cbfRandspektrum).
   { key: "bandRandverhalten", def: "abschneiden", fileKey: "bandRandverhalten", group: "FRQ_bandRandverhalten" },
+  // BA527: gemeinsame Mindestbreiten-Achse (cent). Ersetzt FRQ_BAND_MINBREITE_CT
+  // (geom) und CBF_MIN_BREITE_CT (CBF). Default 100 ct (Mittelweg, Nutzer-
+  // Beschluss 2026-07-20): fuer geom Anhebung von 30 -> Notbremse greift
+  // etwas frueher; fuer CBF Absenkung von 200 -> Baender duerfen enger werden.
+  { key: "bandMinBreite", def: "100", fileKey: "bandMinBreite", group: "FRQ_bandMinBreite" },
   { key: "bandGlaettVerfahren", def: "aus",         fileKey: "bandGlaettVerfahren", group: "FRQ_glaettVerfahren" },
   { key: "bandGlaettFitX",      def: "position",    fileKey: "bandGlaettFitX",      group: "FRQ_glaettFitX" },
   { key: "bandGlaettGrad",      def: "1",           fileKey: "bandGlaettGrad",      group: "FRQ_glaettGrad" },
@@ -798,7 +803,7 @@ var CBF_FEHLER_SKALA_CT = 100; // BA466: EINHEITLICHE Fehler-Einheit fuer
                                // Toleranz-Ueberschreitungen (cent) -- gleich
                                // teuer fuer alle El., das Residuum wirkt nur
                                // noch als Toleranz (Deadband), nicht als Skala
-var CBF_MIN_BREITE_CT = 200;   // harte Mindest-Bandbreite nicht-stummer El. (cent)
+// CBF_MIN_BREITE_CT entfernt (BA527): Wert kommt jetzt aus der gemeinsamen Mindestbreiten-Achse.
 var CBF_STUMM_BREITE_CT = 150; // Breiten-Ziel stummer El. (cent)
 var CBF_STUMM_GEWICHT = 0.5;   // Zug-Staerke des stumm-Breiten-Ziels
 var CBF_ZENTRIERUNG = 0.02;    // schwacher Zug zur exakten Mitte INNERHALB der
@@ -1026,12 +1031,16 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
     w[i] = gStat * randFaktor(i) * spr;
   }
 
-  // 6. Mindestbreiten (Schranken): nicht-stumm CBF_MIN_BREITE_CT, stumm 0.
+  // 6. Mindestbreiten (Schranken): nicht-stumm aus cent-Achse, stumm 0.
   //    Falls die Wandspanne dafuer zu eng ist: proportional deckeln.
+  // BA527: Mindestbreite aus der gemeinsamen cent-Achse (opt.minBreiteCt),
+  // lokal an der El.-Frequenz in den Raum. Fallback 100 (Achsen-Default).
+  // (stumm behandelt BA528 -- hier noch wie bisher stumm=0.)
+  var _minBreiteCt = (opt.minBreiteCt != null) ? opt.minBreiteCt : 100;
   var bMin = [], sumMin = 0;
   for (i = 0; i < N; i++) {
     // BA473: Mindestbreite lokal an der El.-Frequenz (cent-treu).
-    bMin[i] = stumm[i] ? 0 : _frqCentZuRaum(toP, kette[i].hz, CBF_MIN_BREITE_CT);
+    bMin[i] = stumm[i] ? 0 : _frqCentZuRaum(toP, kette[i].hz, _minBreiteCt);
     sumMin += bMin[i];
   }
   if (sumMin > (wHi - wLo) * 0.9) {
@@ -1487,8 +1496,18 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
       if (!(rp > 0)) rp = 1e-6;
       Ropt.push(rp);
     }
-    var _minBreite = (opt && opt.minBreite != null) ? opt.minBreite
-      : _frqDefaultMinBreiteP(toP);
+    // BA527: Mindestbreite aus der gemeinsamen cent-Achse, hier in den
+    // aktuellen Raum umgerechnet (feste 1000-Hz-Referenz wie bisher
+    // _frqDefaultMinBreiteP). opt.minBreite (p-Einheit) bleibt als expliziter
+    // Override moeglich; sonst opt.minBreiteCt (cent) -> Raum; sonst Default.
+    var _minBreite;
+    if (opt && opt.minBreite != null) {
+      _minBreite = opt.minBreite;
+    } else if (opt && opt.minBreiteCt != null) {
+      _minBreite = _frqCentZuRaum(toP, 1000, opt.minBreiteCt);
+    } else {
+      _minBreite = _frqDefaultMinBreiteP(toP);
+    }
     var _lambda = (opt && opt.lambda != null) ? opt.lambda : FRQ_BAND_LAMBDA;
     // BA526: Randverhalten steuert die Aussenkanten.
     //   treffen     -> Wand als feste Range (Optimierer trifft sie exakt).
@@ -2479,6 +2498,11 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
           // BA526: gemeinsame Randverhalten-Achse pro Seite.
           randverhalten: (_sW && typeof _sW.bandRandverhalten === "string")
             ? _sW.bandRandverhalten : "abschneiden",
+          // BA527: gemeinsame Mindestbreite (cent) pro Seite. Als Zahl.
+          minBreiteCt: (function () {
+            var n = parseInt((_sW && _sW.bandMinBreite) ? _sW.bandMinBreite : "100", 10);
+            return (n >= 0) ? n : 100;
+          })(),
           // FBF: log-Kurve der laufenden Seite (Ketten-Reihenfolge, §4.2).
           kurveY: _kurveY,
           // BA515: richtungsabhaengige Residuum-Toleranz im minimax-Zweig.

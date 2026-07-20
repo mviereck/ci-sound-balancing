@@ -882,6 +882,7 @@ Object.assign(L.es, {
     FRQ_bandRandvAbschneiden: "recortar en la pared",
     FRQ_bandRandvTreffen: "alcanzar la pared",
     FRQ_bandRandvLuecke: "permitir hueco",
+    FRQ_bandMinBreiteLegend: "Ancho mínimo",
     FRQ_bandEmpfVorschlag: "no medido — sugerencia",
     FRQ_bandEmpfAlreadyDeact: "ya desactivado",
     FRQ_bandEmpfMarkedForDeact: "propuesto para desactivación",
