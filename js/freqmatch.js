@@ -520,19 +520,24 @@ function _frq_pianoNaechsterSchritt(elIdx, dg) {
 }
 
 // Sitzungsstart einer Elektrode ohne Runden in Sitzung dg: Schritt und
-// Fenster-Zentrum aus dem End-Streuband der juengsten Vorsitzung
-// (Architektur Sec. 4); ohne Vorgeschichte Startschritt / Zentrum 0.
+// Sitzungsstart aus dem End-Streuband der juengsten Vorsitzung
+// (Architektur Sec. 4). Fenster-Zentrum JE GRENZE die jeweilige
+// Bandkante -- die mittlere Taste bestaetigt so ueberall die bisher
+// gueltige Grenze (Konvention wie im laufenden Betrieb); ein Zentrum
+// auf der Bandmitte wuerde den Nutzer in die Residuums-Mitte lenken.
+// Ohne Vorgeschichte Startschritt / Zentren 0 (nominell).
 function _frq_pianoSitzungsStart(elIdx, dg) {
   for (var d = dg - 1; d >= 1; d--) {
     var sb = _frq_pianoStreuband(elIdx, d, null);
     if (sb) {
       return {
         step: _frq_pianoClampStep(Math.max(sb.breite / 8, sb.letzterStep / 2)),
-        center: (sb.lo + sb.hi) / 2
+        centerLower: sb.lo,
+        centerUpper: sb.hi
       };
     }
   }
-  return { step: FM_PIANO_START, center: 0 };
+  return { step: FM_PIANO_START, centerLower: 0, centerUpper: 0 };
 }
 
 // Oeffentlicher Aufruf (Vertrag unveraendert): neuester Durchgang.
@@ -617,8 +622,11 @@ function _frq_pianoLoadStep() {
   var border = run.borderOrder[run.posInBorder];   // 'lower' | 'upper'
   var step   = run.durchlaufSteps[elIdx];
   var prev   = _frq_pianoPrevBorder(elIdx, border, run.durchgang);
-  var center = (prev != null) ? prev
-    : _frq_pianoSitzungsStart(elIdx, run.durchgang).center;
+  var center = prev;
+  if (center == null) {
+    var ss = _frq_pianoSitzungsStart(elIdx, run.durchgang);
+    center = (border === 'lower') ? ss.centerLower : ss.centerUpper;
+  }
 
   frq_currentEl  = elIdx;
   frq_centOffset = center;
