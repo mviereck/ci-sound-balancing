@@ -433,25 +433,47 @@ function _frq_pianoVolleRunden(elIdx, dg) {
   });
 }
 
-// Gleitendes Streuband (Architektur Sec. 2/3): Spannweite + gemittelte
-// Mitte der letzten FM_PIANO_GLEIT_N vollstaendigen Runden der Sitzung
-// dg. bisIdx (optional, Index in der Liste der vollen Runden) begrenzt
-// die Historie -- gebraucht vom Ausgereizt-Kriterium. null = keine Daten.
+// Gleitendes Streuband (Architektur Sec. 2/3): Verletzungs-Band + nach
+// Feinheit gewichtete Mitte der letzten FM_PIANO_GLEIT_N vollstaendigen
+// Runden der Sitzung dg. bisIdx (optional, Index in der Liste der
+// vollen Runden) begrenzt die Historie -- gebraucht vom Ausgereizt-
+// Kriterium. null = keine Daten.
 function _frq_pianoStreuband(elIdx, dg, bisIdx) {
   var voll = _frq_pianoVolleRunden(elIdx, dg);
   if (bisIdx != null && bisIdx >= 0) voll = voll.slice(0, bisIdx + 1);
   if (!voll.length) return null;
   var fenster = voll.slice(-FM_PIANO_GLEIT_N);
-  var lo = Infinity, hi = -Infinity, sumLo = 0, sumHi = 0;
-  fenster.forEach(function (e) {
-    lo = Math.min(lo, e.lower, e.upper);
-    hi = Math.max(hi, e.lower, e.upper);
-    sumLo += e.lower; sumHi += e.upper;
-  });
   var letzte = voll[voll.length - 1];
+
+  // Kanten: Verletzungs-Logik NUR im Fenster. Ausgangspunkt = letzte
+  // Runde (min/max deckt auch Ueberkreuzung). Einengen zaehlt nie;
+  // nur Nach-aussen-Gehen gegen die strengste bisherige Fenster-Grenze
+  // (sLo = groesste lower, sHi = kleinste upper) schiebt die Kante auf.
+  var bandLo = Math.min(letzte.lower, letzte.upper);
+  var bandHi = Math.max(letzte.lower, letzte.upper);
+  var sLo = null, sHi = null;
+  fenster.forEach(function (e) {
+    if (sLo != null && e.lower < sLo) bandLo = Math.min(bandLo, e.lower);
+    sLo = (sLo == null) ? e.lower : Math.max(sLo, e.lower);
+    if (sHi != null && e.upper > sHi) bandHi = Math.max(bandHi, e.upper);
+    sHi = (sHi == null) ? e.upper : Math.min(sHi, e.upper);
+  });
+
+  // Mitte: 1/step^2-gewichtetes Mittel der Runden-Mitten des Fensters.
+  var wSum = 0, mSum = 0;
+  fenster.forEach(function (e) {
+    var w = 1 / (e.step * e.step);
+    wSum += w;
+    mSum += w * (e.lower + e.upper) / 2;
+  });
+  var mitte = mSum / wSum;
+  // Kanten notfalls auf die Mitte erweitern (residDown/Up >= 0).
+  if (mitte < bandLo) bandLo = mitte;
+  if (mitte > bandHi) bandHi = mitte;
+
   return {
-    lo: lo, hi: hi, breite: hi - lo,
-    mitte: (sumLo / fenster.length + sumHi / fenster.length) / 2,
+    lo: bandLo, hi: bandHi, breite: bandHi - bandLo,
+    mitte: mitte,
     restspanne: Math.abs(letzte.upper - letzte.lower) / 2,
     letzterStep: letzte.step,
     letzteCrossed: (letzte.lower > letzte.upper),

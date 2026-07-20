@@ -18,12 +18,13 @@
   'use strict';
   if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
 
-  // BA520: Streuband/Schritt/Ausgereizt
-  dbg.test('build/BA520/streuband', { tab: 'messungen', label: 'BA520: Streuband/Schritt/Ausgereizt' }, function () {
+  // BA522: Verletzungs-Kanten + gewichtete Mitte
+  dbg.test('build/BA522/streuband-kanten', { tab: 'messungen', label: 'BA522: Verletzungs-Kanten + gewichtete Mitte' }, function () {
     var backup = (typeof FRQ_pianoSession !== 'undefined') ? FRQ_pianoSession : null;
     function err(msg) { return { ok: false, msg: msg }; }
     try {
-      // Fall A: Konvergierer (Elektrode 0, Sitzung 1)
+      // Fall A: sauberer Konvergierer (Elektrode 0, Sitzung 1)
+      // Band = letzte Runde (+-30), grobe Vorrunden zaehlen nicht mehr
       FRQ_pianoSession = {
         frqRefMode: null, run: null,
         perElectrode: {
@@ -37,12 +38,12 @@
       };
       var bandA = _frq_pianoResiduumBand(0);
       if (!bandA) return err('Fall A: kein Band');
-      if (Math.abs(bandA.mitte - 0) > 0.01)       return err('Fall A: mitte erwartet 0, got ' + bandA.mitte);
-      if (Math.abs(bandA.residDown - 120) > 0.01)  return err('Fall A: residDown erwartet 120, got ' + bandA.residDown);
-      if (Math.abs(bandA.residUp   - 120) > 0.01)  return err('Fall A: residUp erwartet 120, got ' + bandA.residUp);
-      if (Math.abs(bandA.restspanne - 30) > 0.01)  return err('Fall A: restspanne erwartet 30, got ' + bandA.restspanne);
+      if (Math.abs(bandA.mitte - 0) > 0.001)      return err('Fall A: mitte erwartet 0, got ' + bandA.mitte);
+      if (Math.abs(bandA.residDown - 30) > 0.001)  return err('Fall A: residDown erwartet 30, got ' + bandA.residDown);
+      if (Math.abs(bandA.residUp   - 30) > 0.001)  return err('Fall A: residUp erwartet 30, got ' + bandA.residUp);
+      if (Math.abs(bandA.restspanne - 30) > 0.001) return err('Fall A: restspanne erwartet 30, got ' + bandA.restspanne);
       var stepA = _frq_pianoNaechsterSchritt(0, 1);
-      if (Math.abs(stepA - 30) > 0.01) return err('Fall A: step erwartet 30, got ' + stepA);
+      if (Math.abs(stepA - 15) > 0.001) return err('Fall A: step erwartet 15, got ' + stepA);
       if (_frq_pianoAusgereizt(0, 1) !== false) return err('Fall A: ausgereizt soll false sein');
 
       // Fall B: stabiler Pendler (Elektrode 1, Sitzung 1)
@@ -57,18 +58,37 @@
       if (_frq_pianoNaechsterSchritt(1, 1) !== null) return err('Fall B: naechsterSchritt soll null sein');
       var bandB = _frq_pianoResiduumBand(1);
       if (!bandB) return err('Fall B: kein Band');
-      // Fenster = Runden 3-5: lo -60, hi +90; mittlere lower=(-60-30-60)/3=-50, mittlere upper=(60+90+60)/3=70 -> mitte=10
-      if (Math.abs(bandB.mitte - 10) > 0.01)      return err('Fall B: mitte erwartet 10, got ' + bandB.mitte);
-      if (Math.abs(bandB.residDown - 70) > 0.01)  return err('Fall B: residDown erwartet 70, got ' + bandB.residDown);
-      if (Math.abs(bandB.residUp   - 80) > 0.01)  return err('Fall B: residUp erwartet 80, got ' + bandB.residUp);
-      if (Math.abs(bandB.restspanne - 60) > 0.01) return err('Fall B: restspanne erwartet 60, got ' + bandB.restspanne);
+      // Fenster = Runden 3-5 (gleiche step=60): gewichtet = ungewichtet -> mitte=10
+      if (Math.abs(bandB.mitte - 10) > 0.001)      return err('Fall B: mitte erwartet 10, got ' + bandB.mitte);
+      if (Math.abs(bandB.residDown - 70) > 0.001)  return err('Fall B: residDown erwartet 70, got ' + bandB.residDown);
+      if (Math.abs(bandB.residUp   - 80) > 0.001)  return err('Fall B: residUp erwartet 80, got ' + bandB.residUp);
+      if (Math.abs(bandB.restspanne - 60) > 0.001) return err('Fall B: restspanne erwartet 60, got ' + bandB.restspanne);
 
       // Fall C: Sitzungsstart Elektrode 1 fuer Sitzung 2
       var startC = _frq_pianoSitzungsStart(1, 2);
-      if (Math.abs(startC.step - 30) > 0.01)   return err('Fall C: step erwartet 30, got ' + startC.step);
-      if (Math.abs(startC.center - 15) > 0.01) return err('Fall C: center erwartet 15, got ' + startC.center);
+      if (Math.abs(startC.step - 30) > 0.001)   return err('Fall C: step erwartet 30, got ' + startC.step);
+      if (Math.abs(startC.center - 15) > 0.001) return err('Fall C: center erwartet 15, got ' + startC.center);
 
-      return { ok: true, msg: 'A/B/C bestanden' };
+      // Fall D: asymmetrische Konvergenz, gewichtete Mitte (Elektrode 2, Sitzung 1)
+      // Runde 1: step=60, lower=-30, upper=90 -> mitte=30; w=1/3600
+      // Runde 2: step=30, lower=-30, upper=30 -> mitte=0;  w=1/900=4/3600
+      // mitte = (30*1 + 0*4)/5 = 6
+      // Band: Ausgangspunkt (letzte Runde) [-30,+30]; Verletzungs-Logik:
+      //   e1 lower=-30 (sLo=null->-30), upper=90 (sHi=null->90)
+      //   e2 lower=-30 (nicht < sLo=-30), upper=30 (nicht > sHi_davor=90) -> keine Ausweitung
+      // bandLo=-30, bandHi=30; mitte=6 liegt darin
+      FRQ_pianoSession.perElectrode[2] = { verlauf: [
+        { step: 60, lower: -30, upper: 90, durchgang: 1 },
+        { step: 30, lower: -30, upper: 30, durchgang: 1 }
+      ]};
+      var bandD = _frq_pianoResiduumBand(2);
+      if (!bandD) return err('Fall D: kein Band');
+      if (Math.abs(bandD.mitte - 6) > 0.001)       return err('Fall D: mitte erwartet 6, got ' + bandD.mitte);
+      if (Math.abs(bandD.residDown - 36) > 0.001)   return err('Fall D: residDown erwartet 36, got ' + bandD.residDown);
+      if (Math.abs(bandD.residUp - 24) > 0.001)     return err('Fall D: residUp erwartet 24, got ' + bandD.residUp);
+      if (Math.abs(bandD.restspanne - 30) > 0.001)  return err('Fall D: restspanne erwartet 30, got ' + bandD.restspanne);
+
+      return { ok: true, msg: 'A/B/C/D bestanden' };
     } finally {
       FRQ_pianoSession = backup;
     }
