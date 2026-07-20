@@ -429,6 +429,7 @@ function _FRQ_loadPianoSession(d) {
       FRQ_pianoSession.frqRefMode = _FRQ_frqRefModeFromLegacy(FRQ_pianoSession.frqRefMode);
     }
     _FRQ_pianoNormalisieren(FRQ_pianoSession);
+    _FRQ_pianoNachLadenNeuRechnen();
     return;
   }
   // 2) Alt-Format: die EINE Seite mit freqmatchPiano-Daten finden.
@@ -473,6 +474,21 @@ function _FRQ_loadPianoSession(d) {
     perElectrode: src.perElectrode || {}
   };
   _FRQ_pianoNormalisieren(FRQ_pianoSession);
+  _FRQ_pianoNachLadenNeuRechnen();
+}
+
+// Nach dem Laden: Klavier-Ergebnisse (fRes) aus dem Verlauf neu
+// schreiben, damit sie immer der AKTUELLEN Streuband-Rechnung
+// entsprechen. Ohne diesen Schritt stuende eine mit aelterem
+// Rechenstand gespeicherte Mitte bis zur naechsten Bestaetigung neben
+// dem live gerechneten Band. Nur bei vorhandenen Verlaufsdaten —
+// _frq_pianoWriteResults loescht sonst piano-Eintraege ersatzlos.
+function _FRQ_pianoNachLadenNeuRechnen() {
+  if (FRQ_pianoSession && FRQ_pianoSession.perElectrode
+      && Object.keys(FRQ_pianoSession.perElectrode).length > 0
+      && typeof _frq_pianoWriteResults === "function") {
+    _frq_pianoWriteResults();
+  }
 }
 
 function loadSideData(side, d) {

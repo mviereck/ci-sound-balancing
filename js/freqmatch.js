@@ -753,8 +753,9 @@ function _frq_pianoWriteResults() {
     if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === "piano") FRQ_resultsArray.splice(i, 1);
   }
   var fp = _frq_pianoData();
-  var run = fp && fp.run;
-  if (!run || !fp.perElectrode) return;
+  // Kein run-Erfordernis: auch ein geladener Stand ohne Lauf-Objekt
+  // rechnet seine Ergebnisse aus dem Verlauf (Neu-Rechnen beim Laden).
+  if (!fp.perElectrode) return;
   var frqRefMode = fp.frqRefMode;   // bei Testbeginn eingefroren (BA416)
 
   Object.keys(fp.perElectrode).forEach(function (elKey) {
