@@ -360,6 +360,22 @@ function _lageFromP(P, kk, w) {
   var yoc = 0.5 * (lo + hi);
   return greenwoodHz(1 - yoc / 100, kk);
 }
+// BA524: Lage-Stufe -> Rechenraum-Paar {toP, fromP}. EINE Quelle fuer
+// alle Bandverfahren (Architektur 00-bandverfahren Paragraph 3/5).
+// "geometrisch" -> log; aussen/mitte/innen -> Greenwood-Ortsraum mit w.
+// k kommt aus der k-Achse (BA525); bis dahin Default-k (0.88).
+function _frqBandRaum(lage, k) {
+  var kk = (typeof k === "number") ? k : 0.88;
+  if (lage === "aussen" || lage === "mitte" || lage === "innen") {
+    var w = FRQ_BAND_LAGE_W[lage];
+    return {
+      toP:   function (hz) { return _lageToP(hz, kk, w); },
+      fromP: function (P)  { return _lageFromP(P, kk, w); }
+    };
+  }
+  // Default "geometrisch": reiner log-Raum.
+  return { toP: Math.log, fromP: Math.exp };
+}
 // Bandberechnungs-Verfahren = REINE RECHENRAUM-TRANSFORMATION (BA442,
 // §13.2/§13.3). Jeder Eintrag deklariert nur toP (Hz -> Position) und
 // fromP (Position -> Hz). Die Grenzsetzung (nahtlos) rechnet der
@@ -371,11 +387,9 @@ function _lageFromP(P, kk, w) {
 // toP MUSS streng monoton steigend sein (Positionsordnung = Frequenz-
 // ordnung); das gilt fuer alle drei Raeume (log/greenwood/linear).
 var FRQ_bandVerfahren = {
-  // Log-Raum: geometrische Mitte = exp(mittel der ln) (§13.4, war §9.2).
-  geometrisch: { toP: Math.log,   fromP: Math.exp },
-  // Cochlea-Positionsraum (Greenwood): alle Mittelungen linear in x.
-  greenwood:   { toP: greenwoodX, fromP: greenwoodHz },
   // Linearer Raum: arithmetische Mitte (Cochlear-d0-Raster, war §11.3).
+  // BA524: geometrisch und greenwood entfernt -- Raum kommt jetzt aus
+  // _frqBandRaum (Lage-Achse). cochlear bleibt eigener Registry-Eintrag.
   cochlear:    { toP: identityHz, fromP: identityHz }
 };
 // Band-Topologie = GRENZSETZUNG in Positions-Koordinaten (BA443, §13.3/
@@ -445,7 +459,9 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandCbfBasalFrei",    def: "1",          fileKey: "bandCbfBasalFrei",    group: "FRQ_bandCbfBasalFrei" },
   { key: "bandCbfRandspektrum", def: "voll",       fileKey: "bandCbfRandspektrum", group: "FRQ_bandCbfRandspektrum" },
   { key: "bandCbfSprache",      def: "mittel",     fileKey: "bandCbfSprache",      group: "FRQ_bandCbfSprache" },
-  { key: "bandCbfBandraum",     def: "log",        fileKey: "bandCbfBandraum",     group: "FRQ_bandCbfBandraum" },
+  // BA524: gemeinsame Rechenraum-Achse (ersetzt Verfahren "greenwood" und
+  // die CBF-Achse bandCbfBandraum).
+  { key: "bandLage",  def: "geometrisch", fileKey: "bandLage",  group: "FRQ_bandLage" },
   { key: "bandGrenzeinhaltung", def: "abschneiden",fileKey: "bandGrenzeinhaltung", group: "FRQ_bandGrenzeinhaltung" },
   { key: "bandGlaettVerfahren", def: "aus",         fileKey: "bandGlaettVerfahren", group: "FRQ_glaettVerfahren" },
   { key: "bandGlaettFitX",      def: "position",    fileKey: "bandGlaettFitX",      group: "FRQ_glaettFitX" },
@@ -935,12 +951,14 @@ function FRQ_abfGrenzen(kette, wand, mitAusgleich) {
 function FRQ_cbfGrenzen(kette, wand, opt) {
   opt = opt || {};
   var N = kette.length;
-  // BA473: Bandraum-Achse. "anatom" -> Greenwood-Positionsraum, sonst log.
-  // CBF bleibt Nicht-Registry-Verfahren; das Raum-Paar wird lokal benutzt,
-  // NICHT ueber FRQ_bandVerfahren gezogen.
-  var _anatom = (opt.cbfBandraum === "anatom");
-  var toP    = _anatom ? greenwoodX  : Math.log;
-  var fromP  = _anatom ? greenwoodHz : Math.exp;
+  // BA524: Raum aus der gemeinsamen Lage-Achse (opt.lage/opt.k), NICHT mehr
+  // aus cbfBandraum. "geometrisch" -> log; aussen/mitte/innen -> Greenwood-
+  // Ortsraum mit w. Ein Raum-Mechanismus fuer alle Verfahren (_frqBandRaum).
+  var _raum  = _frqBandRaum(
+    (typeof opt.lage === "string") ? opt.lage : "geometrisch",
+    (typeof opt.k === "number") ? opt.k : 0.88);
+  var toP    = _raum.toP;
+  var fromP  = _raum.fromP;
   var ln = toP, ex = fromP;   // ln/ex bleiben als lokale Kurznamen (s.u.)
   var CT = Math.LN2 / 1200;   // 1 cent in LOG-Einheiten -- nach BA473 nur
                               // noch fuer SKA (globaler Kosten-Massstab an
@@ -1332,7 +1350,20 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
   var _istCbf = (verfahren === "cbf");
   var _istFbf = (verfahren === "fbf");
   var _keinRegistry = _istAbf || _istCbf || _istFbf;
-  var vf = _keinRegistry ? null : FRQ_bandVerfahren[verfahren || "geometrisch"];
+  // BA524: Der Rechenraum kommt fuer die klassischen Verfahren aus der
+  // Lage-Achse (opt.lage), NICHT mehr aus einem festen Registry-Eintrag
+  // geometrisch/greenwood. cochlear (arithmetisch) bleibt Registry-Eintrag.
+  var _lage = (opt && typeof opt.lage === "string") ? opt.lage : "geometrisch";
+  var _k    = (opt && typeof opt.k === "number") ? opt.k : 0.88;
+  var vf;
+  if (_keinRegistry) {
+    vf = null;
+  } else if (verfahren === "cochlear") {
+    vf = FRQ_bandVerfahren.cochlear;   // arithmetisch: eigener linearer Raum
+  } else {
+    // geometrisch (und das abgeloeste greenwood) -> Lage-Raum.
+    vf = _frqBandRaum(_lage, _k);
+  }
   if (!_keinRegistry && (!vf || typeof vf.toP !== "function" || typeof vf.fromP !== "function"))
     return { error: "unknownVerfahren", verfahren: verfahren };
   var topo = _keinRegistry ? null : FRQ_bandTopologie[topologie || "nahtlos"];
@@ -1678,7 +1709,15 @@ var FRQ_GLAETT_K_DEFAULT = 0.88;
 // BA499: Elektrodenlage-Gewicht w je Stufe der bandGlaettLage-Achse.
 // aussen=OC(Greenwood), mitte=ABF-Mittel, innen=SG. Architektur 00-glaettung §6b.
 var FRQ_GLAETT_LAGE_WERTE = { "aussen": 0, "mitte": 0.5, "innen": 1 };
-var FRQ_GLAETT_LAGE_DEFAULT = 0;   // aussen = verhaltensidentisch zum alten ortsaffin
+var FRQ_GLAETT_LAGE_DEFAULT = 0.5; // mitte (ABF-Mittel) = Default der Lage-Achse
+                                   // (deckungsgleich mit FRQ_BAND_WAHLEN bandGlaettLage "mitte")
+// BA524: Elektrodenlage-Achse der BANDBERECHNUNG (gemeinsame Rechenraum-Achse,
+// Architektur 00-bandverfahren Paragraph 5). "geometrisch" = log-Raum (kein w);
+// aussen/mitte/innen = Greenwood-Ortsraum mit w 0/0,5/1 via _lageToP/_lageFromP.
+// Unterscheidet sich von FRQ_GLAETT_LAGE_WERTE durch die Extra-Stufe "geometrisch".
+var FRQ_BAND_LAGE_W = { "aussen": 0, "mitte": 0.5, "innen": 1 };
+// "geometrisch" ist KEINE w-Stufe -> Sonderbehandlung (log-Raum), siehe
+// _frqBandRaum unten.
 // BA501: gewaehlter Ausgangspunkt des Frequenzbaender-Graphen (reine
 // Anzeige-Wahl, global fuer beide Seiten, keine Persistenz). Werte:
 // "gemessen" | "geglaettet" | "nominell". Default geglaettet.
@@ -2411,8 +2450,9 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
           cbfRandspektrum: (_sW && typeof _sW.bandCbfRandspektrum === "string") ? _sW.bandCbfRandspektrum : "voll",
           // BA464/465: Sprachbereich-Achse (Feld kommt mit BA465).
           cbfSprache: (_sW && typeof _sW.bandCbfSprache === "string") ? _sW.bandCbfSprache : "mittel",
-          // BA473: Bandraum-Achse pro Seite (log|anatom).
-          cbfBandraum: (_sW && typeof _sW.bandCbfBandraum === "string") ? _sW.bandCbfBandraum : "log",
+          // BA524: gemeinsame Rechenraum-Achse (Lage) pro Seite.
+          lage: (_sW && typeof _sW.bandLage === "string") ? _sW.bandLage : "geometrisch",
+          // k folgt mit BA525 (k-Achse); bis dahin Default in FRQ_baender/_frqBandRaum.
           // BA471: Grenzeinhaltung pro Seite (abschneiden|einrechnen).
           grenzeinhaltung: (_sW && typeof _sW.bandGrenzeinhaltung === "string") ? _sW.bandGrenzeinhaltung : "abschneiden",
           // FBF: log-Kurve der laufenden Seite (Ketten-Reihenfolge, §4.2).

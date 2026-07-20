@@ -694,7 +694,7 @@ document.addEventListener("DOMContentLoaded", () => {
     show("FRQ_bandRandausgleichFieldset", istAbf);   // Randausgleich nur ABF
     ["FRQ_bandCbfGewichtFieldset", "FRQ_bandCbfApikalFreiFieldset",
      "FRQ_bandCbfBasalFreiFieldset", "FRQ_bandCbfRandspektrumFieldset",
-     "FRQ_bandCbfSpracheFieldset", "FRQ_bandCbfBandraumFieldset"].forEach(function (id) {
+     "FRQ_bandCbfSpracheFieldset"].forEach(function (id) {
       show(id, istCbf);   // CBF-Achsen nur bei CBF
     });
 
@@ -732,7 +732,7 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandCbfBasalFrei",  function (v) { sideData[activeSide].bandCbfBasalFrei  = v; });
   _frqBandWahlInit("FRQ_bandCbfRandspektrum", function (v) { sideData[activeSide].bandCbfRandspektrum = v; });
   _frqBandWahlInit("FRQ_bandCbfSprache", function (v) { sideData[activeSide].bandCbfSprache = v; });
-  _frqBandWahlInit("FRQ_bandCbfBandraum", function (v) { sideData[activeSide].bandCbfBandraum = v; });
+  _frqBandWahlInit("FRQ_bandLage", function (v) { sideData[activeSide].bandLage = v; });
   // BA475: Mess-Glaettung (seitenweise). Bei Aenderung Graph + Sichtbarkeit neu.
   _frqBandWahlInit("FRQ_glaettVerfahren", function (v) {
     sideData[activeSide].bandGlaettVerfahren = v;

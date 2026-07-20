@@ -1083,12 +1083,18 @@
                 <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cbf"> <span data-t="FRQ_bandVerfCbf">CBF (CImbel based fitting)</span></label>
                 <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="abf"> <span data-t="FRQ_bandVerfAbf">sABF</span></label>
                 <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="geometrisch"> <span data-t="FRQ_bandVerfGeom">Geometrisch</span></label>
-                <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="greenwood"> <span data-t="FRQ_bandVerfGreen">Greenwood</span></label>
                 <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cochlear"> <span data-t="FRQ_bandVerfArith">Arithmetisch</span></label>
               </fieldset>
 
               <!-- Zeile 1: gemeinsame Achsen (obere Zeile) -->
               <div id="FRQ_bandAchsenZeile1" style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+                <fieldset id="FRQ_bandLageFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandLageLegend" style="padding:0 6px">Elektrodenlage</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandLage" value="geometrisch"> <span data-t="FRQ_bandLageGeom">geometrisch (log)</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandLage" value="aussen"> <span data-t="FRQ_bandLageAussen">au&#223;en (Greenwood, OC)</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandLage" value="mitte"> <span data-t="FRQ_bandLageMitte">Mitte</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandLage" value="innen"> <span data-t="FRQ_bandLageInnen">innen (Stakhovskaya, SG)</span></label>
+                </fieldset>
                 <fieldset id="FRQ_bandTopologieFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
                   <legend data-t="FRQ_bandTopoLegend" style="padding:0 6px">Band-Topologie</legend>
                   <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="nahtlos"> <span data-t="FRQ_bandTopoNahtlos">Bänder lückenlos</span></label>
@@ -1156,11 +1162,6 @@
                   <label style="display:block"><input type="radio" name="FRQ_bandCbfSprache" value="ohne"> <span data-t="FRQ_bandCbfSprOhne">Keine Bevorzugung</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandCbfSprache" value="mittel"> <span data-t="FRQ_bandCbfSprMittel">Mittel bevorzugen</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandCbfSprache" value="stark"> <span data-t="FRQ_bandCbfSprStark">Stark bevorzugen</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandCbfBandraumFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandCbfBandraumLegend" style="padding:0 6px">Bandraum</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBandraum" value="log"> <span data-t="FRQ_bandCbfBandraumLog">Logarithmisch</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBandraum" value="anatom"> <span data-t="FRQ_bandCbfBandraumAnatom">Anatomisch (Greenwood)</span></label>
                 </fieldset>
               </div>
             </div>
