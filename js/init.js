@@ -657,35 +657,54 @@ document.addEventListener("DOMContentLoaded", () => {
     var s = sideData[activeSide];
     fs.style.display = (s.bandOptimieren === "optimiert") ? "" : "none";
   }
-  // BA451 (Architektur §4.1/§4.3): ABF verdraengt Topologie/Optimieren/
-  // Ziel -> diese Fieldsets bei "abf" ausblenden, Randausgleich einblenden.
-  // Bei den anderen drei Verfahren umgekehrt. EINE Stelle, datengetrieben.
+  // BA451/BA523: ABF/CBF/FBF verdraengen die klassischen Achsen. Umgestellt
+  // auf show()/matt() (Muster _frqGlaettAchsenSichtbar) fuer das
+  // Zwei-Zeilen-Modell (Architektur 00-bandverfahren Paragraph 4).
+  // Verhaltensneutral: in dieser BA werden die Fieldsets weiterhin per show()
+  // ein-/ausgeblendet wie bisher; matt() ist fuer die Folge-BAs vorbereitet
+  // und hier noch nirgends aktiv genutzt (jede aktuelle Achse ist entweder
+  // sichtbar oder ausgeblendet, nicht matt).
   function _frqBandAchsenSichtbarkeit() {
-    var istAbf = (sideData[activeSide].bandVerfahren === "abf");
-    var istCbf = (sideData[activeSide].bandVerfahren === "cbf");
-    var istFbf = (sideData[activeSide].bandVerfahren === "fbf");
-    // Die alten Achsen (Topologie/Optimieren/Ziel) sind bei ABF, CBF UND
-    // FBF aus (alle drei verdraengen sie, Architektur §4.1/§4.4).
-    var aus = ["FRQ_bandTopologieFieldset", "FRQ_bandOptimierenFieldset",
-               "FRQ_bandZielFieldset", "FRQ_residRichtungFieldset", "FRQ_bandGrenzeinhaltungFieldset"];
-    aus.forEach(function (id) {
-      var fs = document.getElementById(id);
-      if (fs) fs.style.display = (istAbf || istCbf || istFbf) ? "none" : "";
+    var v = sideData[activeSide].bandVerfahren;
+    var istAbf = (v === "abf");
+    var istCbf = (v === "cbf");
+    var istFbf = (v === "fbf");
+    var istKlassisch = !(istAbf || istCbf || istFbf);
+
+    function show(id, on) {
+      var el = document.getElementById(id);
+      if (el) el.style.display = on ? "" : "none";
+    }
+    // matt(): ausgegraut, aber bedienbar (kein disabled). In dieser BA noch
+    // ungenutzt, aber als Helfer bereitgestellt fuer die Folge-BAs.
+    function matt(id, wirksam) {
+      var el = document.getElementById(id);
+      if (el) el.style.opacity = wirksam ? "" : "0.5";
+    }
+
+    // Zeile 1 (klassische Achsen; kuenftig gemeinsame Achsen): bei
+    // abf/cbf/fbf aus.
+    ["FRQ_bandTopologieFieldset", "FRQ_bandOptimierenFieldset",
+     "FRQ_bandZielFieldset", "FRQ_residRichtungFieldset",
+     "FRQ_bandGrenzeinhaltungFieldset"].forEach(function (id) {
+      show(id, istKlassisch);
     });
-    // Randausgleich (ABF) nur bei ABF.
-    var rand = document.getElementById("FRQ_bandRandausgleichFieldset");
-    if (rand) rand.style.display = istAbf ? "" : "none";
-    // Die CBF-Fieldsets nur bei CBF (bei FBF ebenfalls aus). BA472:
-    // Randverhalten ersetzt durch Freie Baender (apikal/basal).
+
+    // Zeile 2 (verfahrensspezifisch):
+    show("FRQ_bandRandausgleichFieldset", istAbf);   // Randausgleich nur ABF
     ["FRQ_bandCbfGewichtFieldset", "FRQ_bandCbfApikalFreiFieldset",
      "FRQ_bandCbfBasalFreiFieldset", "FRQ_bandCbfRandspektrumFieldset",
      "FRQ_bandCbfSpracheFieldset", "FRQ_bandCbfBandraumFieldset"].forEach(function (id) {
-      var fs = document.getElementById(id);
-      if (fs) fs.style.display = istCbf ? "" : "none";
+      show(id, istCbf);   // CBF-Achsen nur bei CBF
     });
-    // Bei den drei klassischen Verfahren gilt die Optimieren-abhaengige
-    // Ziel- UND Grenzeinhaltung-Sichtbarkeit.
-    if (!istAbf && !istCbf && !istFbf) { _frqBandZielSichtbarkeit(); _frqBandGrenzSichtbarkeit(); _frqResidRichtungSichtbarkeit(); }
+
+    // Bei den klassischen Verfahren die Optimieren-abhaengige Ziel-,
+    // Grenzeinhaltung- und Residuum-Richtung-Sichtbarkeit anwenden (wie bisher).
+    if (istKlassisch) {
+      _frqBandZielSichtbarkeit();
+      _frqBandGrenzSichtbarkeit();
+      _frqResidRichtungSichtbarkeit();
+    }
   }
   // BA501: Ausgangspunkt-Wahl des Bandgraphen (global, Anzeige-only).
   _frqBandWahlInit("FRQ_bandAusgang", function (v) { FRQ_bandAusgang = v; });
