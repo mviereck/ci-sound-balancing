@@ -642,13 +642,6 @@ document.addEventListener("DOMContentLoaded", () => {
     var fs = document.getElementById("FRQ_bandZielFieldset");
     if (fs) fs.style.display = (sideData[activeSide].bandOptimieren === "optimiert") ? "" : "none";
   }
-  // BA516: Residuum-Richtung wirkt bei beiden Optimierungszielen (summe+gerichtet
-  // via Vorzeichen-Solver, minimax via IRLS) -> Fieldset bei jedem optimierten Ziel.
-  function _frqResidRichtungSichtbarkeit() {
-    // BA528: Residuum-Richtung ist jetzt gemeinsame Achse (Zeile 1).
-    // Sie wird von _frqBandAchsenSichtbarkeit direkt gesteuert --
-    // diese Funktion bleibt als Stub fuer die klassischen Aufrufe.
-  }
   // BA451/BA523: ABF/CBF/FBF verdraengen die klassischen Achsen. Umgestellt
   // auf show()/matt() (Muster _frqGlaettAchsenSichtbar) fuer das
   // Zwei-Zeilen-Modell (Architektur 00-bandverfahren Paragraph 4).
@@ -674,18 +667,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (el) el.style.opacity = wirksam ? "" : "0.5";
     }
 
-    // Zeile 1 (klassische Achsen; kuenftig gemeinsame Achsen): bei
-    // abf/cbf/fbf aus.
+    // Zeile 2, verfahrensspezifisch (klassische Verfahren): Topologie/
+    // Optimieren/Ziel nur bei geometrisch/arithmetisch, bei abf/cbf/fbf aus.
     ["FRQ_bandTopologieFieldset", "FRQ_bandOptimierenFieldset",
      "FRQ_bandZielFieldset"].forEach(function (id) {
       show(id, istKlassisch);
     });
-    // BA528: Residuum-Richtung ist gemeinsame Achse -- immer sichtbar,
-    // wirksam bei CBF und geometrisch-optimiert, matt bei klassisch-ohne-Opt.
-    show("FRQ_residRichtungFieldset", true);
-    var _residWirksam = istCbf || (istKlassisch && sideData[activeSide].bandOptimieren === "optimiert");
-    matt("FRQ_residRichtungFieldset", _residWirksam);
-
     // BA526: Randverhalten ist gemeinsame Achse (Zeile 1) -- immer sichtbar.
     show("FRQ_bandRandverhaltenFieldset", true);
 
@@ -704,11 +691,10 @@ document.addEventListener("DOMContentLoaded", () => {
     show("FRQ_bandKFieldset", true);
     matt("FRQ_bandKFieldset", _ortsraum);
 
-    // Bei den klassischen Verfahren die Optimieren-abhaengige Ziel- und
-    // Residuum-Richtung-Sichtbarkeit anwenden (wie bisher).
+    // Bei den klassischen Verfahren die Optimieren-abhaengige
+    // Ziel-Sichtbarkeit anwenden (wie bisher).
     if (istKlassisch) {
       _frqBandZielSichtbarkeit();
-      _frqResidRichtungSichtbarkeit();
     }
   }
   // BA501: Ausgangspunkt-Wahl des Bandgraphen (global, Anzeige-only).
@@ -722,13 +708,10 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandOptimieren", function (v) {
     sideData[activeSide].bandOptimieren = v;
     _frqBandZielSichtbarkeit();
-    _frqResidRichtungSichtbarkeit();
   });
   _frqBandWahlInit("FRQ_bandZiel", function (v) {
     sideData[activeSide].bandZiel = v;
-    _frqResidRichtungSichtbarkeit();
   });
-  _frqBandWahlInit("FRQ_residRichtung", function (v) { sideData[activeSide].residRichtung = v; });
   _frqBandWahlInit("FRQ_bandRandverhalten", function (v) { sideData[activeSide].bandRandverhalten = v; });
   _frqBandWahlInit("FRQ_bandMinBreite", function (v) {
     sideData[activeSide].bandMinBreite = v;

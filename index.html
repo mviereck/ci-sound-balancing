@@ -1077,16 +1077,7 @@
                 <legend data-t="FRQ_bandWandHiLegend" style="padding:0 6px">Obergrenze</legend>
                 <div id="FRQ_bandWandHiOptions"></div>
               </fieldset>
-              <!-- Verfahren-Wahl (eigene Zeile, immer sichtbar) -->
-              <fieldset id="FRQ_bandVerfahrenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px;margin:0 0 12px">
-                <legend data-t="FRQ_bandVerfahrenLegend" style="padding:0 6px">Berechnungsverfahren</legend>
-                <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cbf"> <span data-t="FRQ_bandVerfCbf">CBF (CImbel based fitting)</span></label>
-                <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="abf"> <span data-t="FRQ_bandVerfAbf">sABF</span></label>
-                <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="geometrisch"> <span data-t="FRQ_bandVerfGeom">Geometrisch</span></label>
-                <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cochlear"> <span data-t="FRQ_bandVerfArith">Arithmetisch</span></label>
-              </fieldset>
-
-              <!-- Zeile 1: gemeinsame Achsen (obere Zeile) -->
+              <!-- Zeile 1: gemeinsame (globale) Achsen -->
               <div id="FRQ_bandAchsenZeile1" style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
                 <fieldset id="FRQ_bandLageFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
                   <legend data-t="FRQ_bandLageLegend" style="padding:0 6px">Elektrodenlage</legend>
@@ -1101,6 +1092,30 @@
                   <label style="display:block"><input type="radio" name="FRQ_bandK" value="1.0"> 1.0</label>
                   <label style="display:block"><input type="radio" name="FRQ_bandK" value="1.36"> 1.36</label>
                   <label style="display:block"><input type="radio" name="FRQ_bandK" value="1.53"> 1.53</label>
+                </fieldset>
+                <fieldset id="FRQ_bandRandverhaltenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandRandvLegend" style="padding:0 6px">Randverhalten</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandverhalten" value="abschneiden"> <span data-t="FRQ_bandRandvAbschneiden">Rand abschneiden</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandverhalten" value="treffen"> <span data-t="FRQ_bandRandvTreffen">Wand treffen</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandverhalten" value="luecke"> <span data-t="FRQ_bandRandvLuecke">L&#252;cke erlauben</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandMinBreiteFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandMinBreiteLegend" style="padding:0 6px">Mindestbreite</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandMinBreite" value="50"> 50 ct</label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandMinBreite" value="100"> 100 ct</label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandMinBreite" value="200"> 200 ct</label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandMinBreite" value="300"> 300 ct</label>
+                </fieldset>
+              </div>
+
+              <!-- Zeile 2: Verfahren-Wahl (zuerst) + verfahrensspezifische Achsen -->
+              <div id="FRQ_bandAchsenZeile2" style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+                <fieldset id="FRQ_bandVerfahrenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandVerfahrenLegend" style="padding:0 6px">Berechnungsverfahren</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cbf"> <span data-t="FRQ_bandVerfCbf">CBF (CImbel based fitting)</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="abf"> <span data-t="FRQ_bandVerfAbf">sABF</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="geometrisch"> <span data-t="FRQ_bandVerfGeom">Geometrisch</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cochlear"> <span data-t="FRQ_bandVerfArith">Arithmetisch</span></label>
                 </fieldset>
                 <fieldset id="FRQ_bandTopologieFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
                   <legend data-t="FRQ_bandTopoLegend" style="padding:0 6px">Band-Topologie</legend>
@@ -1118,28 +1133,6 @@
                   <label style="display:block"><input type="radio" name="FRQ_bandZiel" value="minimax"> <span data-t="FRQ_bandZielMinimax">Kleinster Ausreißer</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandZiel" value="summe"> <span data-t="FRQ_bandZielSumme">Kleinster Gesamtfehler</span></label>
                 </fieldset>
-                <fieldset id="FRQ_residRichtungFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_residRichtungLegend" style="padding:0 6px">Residuum-Richtung</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_residRichtung" value="symmetrisch"> <span data-t="FRQ_residRichtungSym">symmetrisch</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_residRichtung" value="gerichtet"> <span data-t="FRQ_residRichtungGer">gerichtet (auf/ab getrennt)</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandRandverhaltenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandRandvLegend" style="padding:0 6px">Randverhalten</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandRandverhalten" value="abschneiden"> <span data-t="FRQ_bandRandvAbschneiden">Rand abschneiden</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandRandverhalten" value="treffen"> <span data-t="FRQ_bandRandvTreffen">Wand treffen</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandRandverhalten" value="luecke"> <span data-t="FRQ_bandRandvLuecke">L&#252;cke erlauben</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandMinBreiteFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandMinBreiteLegend" style="padding:0 6px">Mindestbreite</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandMinBreite" value="50"> 50 ct</label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandMinBreite" value="100"> 100 ct</label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandMinBreite" value="200"> 200 ct</label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandMinBreite" value="300"> 300 ct</label>
-                </fieldset>
-              </div>
-
-              <!-- Zeile 2: verfahrensspezifische Achsen (untere Zeile) -->
-              <div id="FRQ_bandAchsenZeile2" style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
                 <fieldset id="FRQ_bandRandausgleichFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
                   <legend data-t="FRQ_bandRandLegend" style="padding:0 6px">Randausgleich</legend>
                   <label style="display:block"><input type="radio" name="FRQ_bandRandausgleich" value="mit"> <span data-t="FRQ_bandRandMit">Mit Ausgleich (patenttreu)</span></label>

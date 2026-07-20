@@ -368,9 +368,15 @@ function _frqBandRaum(lage, k) {
   var kk = (typeof k === "number") ? k : 0.88;
   if (lage === "aussen" || lage === "mitte" || lage === "innen") {
     var w = FRQ_BAND_LAGE_W[lage];
+    // _lageToP liefert die Distanz vom ovalen Fenster (basal klein, apikal
+    // gross) -> FALLEND in der Frequenz. Der Grenzsetzer verlangt aber einen
+    // STRENG STEIGENDEN Positionsraum (Positionsordnung = Frequenzordnung,
+    // Registry-Vertrag unten). Darum negieren: -_lageToP ist streng steigend;
+    // fromP(-P) macht die Negation vor der (unveraenderten) Umkehrung rueckgaengig
+    // (Roundtrip fromP(toP(hz)) === hz).
     return {
-      toP:   function (hz) { return _lageToP(hz, kk, w); },
-      fromP: function (P)  { return _lageFromP(P, kk, w); }
+      toP:   function (hz) { return -_lageToP(hz, kk, w); },
+      fromP: function (P)  { return _lageFromP(-P, kk, w); }
     };
   }
   // Default "geometrisch": reiner log-Raum.
@@ -452,7 +458,6 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandTopologie",       def: "nahtlos",    fileKey: "bandTopologie",       group: "FRQ_bandTopologie" },
   { key: "bandOptimieren",      def: "optimiert",  fileKey: "bandOptimieren",      group: "FRQ_bandOptimieren" },
   { key: "bandZiel",            def: "minimax",    fileKey: "bandZiel",            group: "FRQ_bandZiel" },
-  { key: "residRichtung",       def: "symmetrisch",fileKey: "residRichtung",       group: "FRQ_residRichtung" },
   { key: "bandRandausgleich",   def: "mit",        fileKey: "bandRandausgleich",   group: "FRQ_bandRandausgleich" },
   { key: "bandCbfGewicht",      def: "ausgewogen", fileKey: "bandCbfGewicht",      group: "FRQ_bandCbfGewicht" },
   { key: "bandCbfApikalFrei",   def: "1",          fileKey: "bandCbfApikalFrei",   group: "FRQ_bandCbfApikalFrei" },
@@ -1019,17 +1024,17 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
   for (var i = 0; i < N; i++) {
     var gStat = (kette[i].statusGewicht != null) ? kette[i].statusGewicht : 1;
     stumm[i] = (gStat <= 0);
-    // BA528: richtungsabhaengige Toleranz (Achse residRichtung). Bei
-    // "gerichtet" getrennte cent-Werte fuer oben/unten aus residUp/residDown;
-    // bei "symmetrisch" beide gleich (bisheriges Verhalten, residuum = Summe).
-    var _gerichtet = (opt.residRichtung === "gerichtet");
+    // Richtungsabhaengige Toleranz -- IMMER getrennte cent-Werte fuer oben/
+    // unten aus residUp/residDown (die Messunsicherheit ist real richtungs-
+    // abhaengig; ein symmetrisches Zusammenfassen waere ein Fehler, keine
+    // Option). Fallback nur bei fehlenden Einzelkanten: halbe Residuum-Summe.
     var rUpCt, rDnCt;
     if (kette[i].gemessen) {
-      if (_gerichtet && kette[i].residUp != null && kette[i].residDown != null) {
+      if (kette[i].residUp != null && kette[i].residDown != null) {
         rUpCt = Math.max(kette[i].residUp,   CBF_RESID_BODEN_CT);
         rDnCt = Math.max(kette[i].residDown, CBF_RESID_BODEN_CT);
       } else {
-        var _r = Math.max((kette[i].residuum != null ? kette[i].residuum : 0), CBF_RESID_BODEN_CT);
+        var _r = Math.max((kette[i].residuum != null ? kette[i].residuum / 2 : 0), CBF_RESID_BODEN_CT);
         rUpCt = _r; rDnCt = _r;
       }
     } else {
@@ -1524,22 +1529,20 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
         && wand && typeof wand.loHz === "number" && typeof wand.hiHz === "number") {
       _rangeOpt = { loP: toP(wand.loHz), hiP: toP(wand.hiHz) };
     }
-    // BA515: richtungsabhaengige R-Vektoren (nur wenn gewaehlt). Analog Ropt,
-    // aber je Kante. Ungemessene: gleicher Ungemessen-Wert wie Ropt (symm.).
-    var RoptUp = null, RoptDown = null;
-    if (opt && opt.residRichtung === "gerichtet") {
-      RoptUp = []; RoptDown = [];
-      for (var rj = 0; rj < kette.length; rj++) {
-        var mo = kette[rj];
-        var rUpCt = mo.gemessen
-          ? Math.max(_boden, (mo.residUp   != null ? mo.residUp   : _boden))
-          : RES_UNGEMESSEN_CT;
-        var rDnCt = mo.gemessen
-          ? Math.max(_boden, (mo.residDown != null ? mo.residDown : _boden))
-          : RES_UNGEMESSEN_CT;
-        RoptUp.push(Math.abs(toP(kette[rj].hz * Math.pow(2, rUpCt / 1200)) - toP(kette[rj].hz)) || 1e-6);
-        RoptDown.push(Math.abs(toP(kette[rj].hz * Math.pow(2, rDnCt / 1200)) - toP(kette[rj].hz)) || 1e-6);
-      }
+    // Richtungsabhaengige R-Vektoren -- IMMER (die Messunsicherheit ist real
+    // richtungsabhaengig; ein symmetrisches Zusammenfassen waere ein Fehler,
+    // keine Option). Analog Ropt, aber je Kante. Ungemessene: Ungemessen-Wert.
+    var RoptUp = [], RoptDown = [];
+    for (var rj = 0; rj < kette.length; rj++) {
+      var mo = kette[rj];
+      var rUpCt = mo.gemessen
+        ? Math.max(_boden, (mo.residUp   != null ? mo.residUp   : _boden))
+        : RES_UNGEMESSEN_CT;
+      var rDnCt = mo.gemessen
+        ? Math.max(_boden, (mo.residDown != null ? mo.residDown : _boden))
+        : RES_UNGEMESSEN_CT;
+      RoptUp.push(Math.abs(toP(kette[rj].hz * Math.pow(2, rUpCt / 1200)) - toP(kette[rj].hz)) || 1e-6);
+      RoptDown.push(Math.abs(toP(kette[rj].hz * Math.pow(2, rDnCt / 1200)) - toP(kette[rj].hz)) || 1e-6);
     }
     var sOpt = FRQ_optimiereGrenzen(P, Ropt, _rangeOpt,
       (ziel === "summe" ? "summe" : "minimax"), _minBreite, _lambda, RoptUp, RoptDown);
@@ -2408,7 +2411,6 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
       var _ziel = (_zielArg === "summe") ? "summe"
         : (_zielArg === "minimax") ? "minimax"
         : (_sW && _sW.bandZiel === "summe" ? "summe" : "minimax");
-      var _residRichtung = (_sW && _sW.residRichtung === "gerichtet") ? "gerichtet" : "symmetrisch";
       // BA453: Statusgewicht je Elektrode SEITENRICHTIG vorab holen (elSt/
       // elExDur sind seitengebunden -> withSide, gleiches Muster wie die
       // feste Wand unten). ell_gWt liegt seit BA453 in core.js. Additiv:
@@ -2508,8 +2510,6 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
           })(),
           // FBF: log-Kurve der laufenden Seite (Ketten-Reihenfolge, §4.2).
           kurveY: _kurveY,
-          // BA515: richtungsabhaengige Residuum-Toleranz im minimax-Zweig.
-          residRichtung: _residRichtung,
           // BA518: geteilter Boden (Achse bandGlaettBoden), seitenrichtig.
           boden: _resBodenCt(seite),
         });
