@@ -642,13 +642,6 @@ document.addEventListener("DOMContentLoaded", () => {
     var fs = document.getElementById("FRQ_bandZielFieldset");
     if (fs) fs.style.display = (sideData[activeSide].bandOptimieren === "optimiert") ? "" : "none";
   }
-  // BA471: Grenzeinhaltung wirkt nur im Optimierer-Zweig (feste Aussenkanten
-  // brauchen den range-Mechanismus, core.js). Darum nur bei "optimiert"
-  // sichtbar -- gleiches Muster wie das Ziel-Fieldset.
-  function _frqBandGrenzSichtbarkeit() {
-    var fs = document.getElementById("FRQ_bandGrenzeinhaltungFieldset");
-    if (fs) fs.style.display = (sideData[activeSide].bandOptimieren === "optimiert") ? "" : "none";
-  }
   // BA516: Residuum-Richtung wirkt bei beiden Optimierungszielen (summe+gerichtet
   // via Vorzeichen-Solver, minimax via IRLS) -> Fieldset bei jedem optimierten Ziel.
   function _frqResidRichtungSichtbarkeit() {
@@ -685,15 +678,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Zeile 1 (klassische Achsen; kuenftig gemeinsame Achsen): bei
     // abf/cbf/fbf aus.
     ["FRQ_bandTopologieFieldset", "FRQ_bandOptimierenFieldset",
-     "FRQ_bandZielFieldset", "FRQ_residRichtungFieldset",
-     "FRQ_bandGrenzeinhaltungFieldset"].forEach(function (id) {
+     "FRQ_bandZielFieldset", "FRQ_residRichtungFieldset"].forEach(function (id) {
       show(id, istKlassisch);
     });
+
+    // BA526: Randverhalten ist gemeinsame Achse (Zeile 1) -- immer sichtbar.
+    show("FRQ_bandRandverhaltenFieldset", true);
 
     // Zeile 2 (verfahrensspezifisch):
     show("FRQ_bandRandausgleichFieldset", istAbf);   // Randausgleich nur ABF
     ["FRQ_bandCbfGewichtFieldset", "FRQ_bandCbfApikalFreiFieldset",
-     "FRQ_bandCbfBasalFreiFieldset", "FRQ_bandCbfRandspektrumFieldset",
+     "FRQ_bandCbfBasalFreiFieldset",
      "FRQ_bandCbfSpracheFieldset"].forEach(function (id) {
       show(id, istCbf);   // CBF-Achsen nur bei CBF
     });
@@ -705,11 +700,10 @@ document.addEventListener("DOMContentLoaded", () => {
     show("FRQ_bandKFieldset", true);
     matt("FRQ_bandKFieldset", _ortsraum);
 
-    // Bei den klassischen Verfahren die Optimieren-abhaengige Ziel-,
-    // Grenzeinhaltung- und Residuum-Richtung-Sichtbarkeit anwenden (wie bisher).
+    // Bei den klassischen Verfahren die Optimieren-abhaengige Ziel- und
+    // Residuum-Richtung-Sichtbarkeit anwenden (wie bisher).
     if (istKlassisch) {
       _frqBandZielSichtbarkeit();
-      _frqBandGrenzSichtbarkeit();
       _frqResidRichtungSichtbarkeit();
     }
   }
@@ -724,7 +718,6 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandOptimieren", function (v) {
     sideData[activeSide].bandOptimieren = v;
     _frqBandZielSichtbarkeit();
-    _frqBandGrenzSichtbarkeit();
     _frqResidRichtungSichtbarkeit();
   });
   _frqBandWahlInit("FRQ_bandZiel", function (v) {
@@ -732,12 +725,11 @@ document.addEventListener("DOMContentLoaded", () => {
     _frqResidRichtungSichtbarkeit();
   });
   _frqBandWahlInit("FRQ_residRichtung", function (v) { sideData[activeSide].residRichtung = v; });
-  _frqBandWahlInit("FRQ_bandGrenzeinhaltung", function (v) { sideData[activeSide].bandGrenzeinhaltung = v; });
+  _frqBandWahlInit("FRQ_bandRandverhalten", function (v) { sideData[activeSide].bandRandverhalten = v; });
   _frqBandWahlInit("FRQ_bandRandausgleich", function (v) { sideData[activeSide].bandRandausgleich = v; });
   _frqBandWahlInit("FRQ_bandCbfGewicht", function (v) { sideData[activeSide].bandCbfGewicht = v; });
   _frqBandWahlInit("FRQ_bandCbfApikalFrei", function (v) { sideData[activeSide].bandCbfApikalFrei = v; });
   _frqBandWahlInit("FRQ_bandCbfBasalFrei",  function (v) { sideData[activeSide].bandCbfBasalFrei  = v; });
-  _frqBandWahlInit("FRQ_bandCbfRandspektrum", function (v) { sideData[activeSide].bandCbfRandspektrum = v; });
   _frqBandWahlInit("FRQ_bandCbfSprache", function (v) { sideData[activeSide].bandCbfSprache = v; });
   _frqBandWahlInit("FRQ_bandLage", function (v) {
     sideData[activeSide].bandLage = v;

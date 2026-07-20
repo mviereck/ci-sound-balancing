@@ -1123,10 +1123,11 @@
                   <label style="display:block"><input type="radio" name="FRQ_residRichtung" value="symmetrisch"> <span data-t="FRQ_residRichtungSym">PLATZHALTER-symmetrisch</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_residRichtung" value="gerichtet"> <span data-t="FRQ_residRichtungGer">PLATZHALTER-gerichtet</span></label>
                 </fieldset>
-                <fieldset id="FRQ_bandGrenzeinhaltungFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandGrenzLegend" style="padding:0 6px">Grenzeinhaltung</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandGrenzeinhaltung" value="abschneiden"> <span data-t="FRQ_bandGrenzAbschneiden">Randbänder abschneiden</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandGrenzeinhaltung" value="einrechnen"> <span data-t="FRQ_bandGrenzEinrechnen">Grenzen einrechnen</span></label>
+                <fieldset id="FRQ_bandRandverhaltenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandRandvLegend" style="padding:0 6px">Randverhalten</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandverhalten" value="abschneiden"> <span data-t="FRQ_bandRandvAbschneiden">Rand abschneiden</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandverhalten" value="treffen"> <span data-t="FRQ_bandRandvTreffen">Wand treffen</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandverhalten" value="luecke"> <span data-t="FRQ_bandRandvLuecke">L&#252;cke erlauben</span></label>
                 </fieldset>
               </div>
 
@@ -1158,11 +1159,6 @@
                   <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="2"> <span data-t="FRQ_bandCbfFrei2">2 Elektroden</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="3"> <span data-t="FRQ_bandCbfFrei3">3 Elektroden</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="4"> <span data-t="FRQ_bandCbfFrei4">4 Elektroden</span></label>
-                </fieldset>
-                <fieldset id="FRQ_bandCbfRandspektrumFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
-                  <legend data-t="FRQ_bandCbfRandspLegend" style="padding:0 6px">Randspektrum</legend>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfRandspektrum" value="frei"> <span data-t="FRQ_bandCbfRandspFrei">Randspektrum frei lassen</span></label>
-                  <label style="display:block"><input type="radio" name="FRQ_bandCbfRandspektrum" value="voll"> <span data-t="FRQ_bandCbfRandspVoll">Volles Spektrum nutzen</span></label>
                 </fieldset>
                 <fieldset id="FRQ_bandCbfSpracheFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
                   <legend data-t="FRQ_bandCbfSpracheLegend" style="padding:0 6px">Sprachbereich</legend>

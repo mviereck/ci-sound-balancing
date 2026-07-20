@@ -457,14 +457,14 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandCbfGewicht",      def: "ausgewogen", fileKey: "bandCbfGewicht",      group: "FRQ_bandCbfGewicht" },
   { key: "bandCbfApikalFrei",   def: "1",          fileKey: "bandCbfApikalFrei",   group: "FRQ_bandCbfApikalFrei" },
   { key: "bandCbfBasalFrei",    def: "1",          fileKey: "bandCbfBasalFrei",    group: "FRQ_bandCbfBasalFrei" },
-  { key: "bandCbfRandspektrum", def: "voll",       fileKey: "bandCbfRandspektrum", group: "FRQ_bandCbfRandspektrum" },
   { key: "bandCbfSprache",      def: "mittel",     fileKey: "bandCbfSprache",      group: "FRQ_bandCbfSprache" },
   // BA524: gemeinsame Rechenraum-Achse (ersetzt Verfahren "greenwood" und
   // die CBF-Achse bandCbfBandraum).
   { key: "bandLage",  def: "geometrisch", fileKey: "bandLage",  group: "FRQ_bandLage" },
   // BA525: gemeinsame Greenwood-k-Achse (wirkt nur im Ortsraum).
   { key: "bandK",  def: "0.88", fileKey: "bandK",  group: "FRQ_bandK" },
-  { key: "bandGrenzeinhaltung", def: "abschneiden",fileKey: "bandGrenzeinhaltung", group: "FRQ_bandGrenzeinhaltung" },
+  // BA526: gemeinsame Randverhalten-Achse (ersetzt bandGrenzeinhaltung + cbfRandspektrum).
+  { key: "bandRandverhalten", def: "abschneiden", fileKey: "bandRandverhalten", group: "FRQ_bandRandverhalten" },
   { key: "bandGlaettVerfahren", def: "aus",         fileKey: "bandGlaettVerfahren", group: "FRQ_glaettVerfahren" },
   { key: "bandGlaettFitX",      def: "position",    fileKey: "bandGlaettFitX",      group: "FRQ_glaettFitX" },
   { key: "bandGlaettGrad",      def: "1",           fileKey: "bandGlaettGrad",      group: "FRQ_glaettGrad" },
@@ -946,7 +946,7 @@ function FRQ_abfGrenzen(kette, wand, mitAusgleich) {
 //          statusGewicht, residuum, gemessen } (hz aufsteigend, vom
 //          Rahmen geprueft; Felder aus FRQ_werte, BA453)
 //   wand   { loHz, hiHz } gewaehlte Wand (BA462, seitengebunden)
-//   opt    { cbfGewicht, cbfApikalFrei, cbfBasalFrei, cbfRandspektrum,
+//   opt    { cbfGewicht, cbfApikalFrei, cbfBasalFrei, randverhalten,
 //            cbfSprache } (Achsen; mit Defaults abgesichert.
 //            cbfApikalFrei/cbfBasalFrei 0..4, Default 1; UI: BA472)
 // Rueckgabe: { edges: [k0..kN] } N+1 Bandkanten (Hz) in El.-Reihenfolge.
@@ -983,7 +983,11 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
   }
   var kApikal = _freiN(opt.cbfApikalFrei != null ? opt.cbfApikalFrei : 1);
   var kBasal  = _freiN(opt.cbfBasalFrei  != null ? opt.cbfBasalFrei  : 1);
-  var vollSpektrum = (opt.cbfRandspektrum === "voll");
+  // BA526: gemeinsame Randverhalten-Achse.
+  //   treffen     -> aeussere Kanten fest auf die Wand.
+  //   luecke      -> aeussere Kanten frei, Wand als Schranke.
+  //   abschneiden -> aeussere Kanten frei OHNE Wandschranke, danach klemmen.
+  var _rand = (typeof opt.randverhalten === "string") ? opt.randverhalten : "treffen";
   var sprF = CBF_SPRACHE_FAKTOR[opt.cbfSprache] != null
           ? CBF_SPRACHE_FAKTOR[opt.cbfSprache] : CBF_SPRACHE_FAKTOR.mittel;
 
@@ -1108,23 +1112,33 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
               x[j + 1] - Math.max(bMin[j], eps));
       maxDelta = Math.max(maxDelta, Math.abs(x[j] - alt));
     }
-    if (vollSpektrum) {
-      x[0] = wLo; x[N] = wHi;   // Achse "voll": aeussere fest an die Waende
+    if (_rand === "treffen") {
+      x[0] = wLo; x[N] = wHi;   // aeussere fest an die Waende (= altes "voll")
     } else {
-      // Aeussere frei mit Wand als Schranke (nicht ueberschreiten,
-      // nicht erreichen muessen -> ungenutztes Randspektrum erlaubt).
+      // luecke:      Wand als Schranke (nicht ueberschreiten).
+      // abschneiden: aeussere Kante frei OHNE Wandschranke -> darf hinaus,
+      //              wird danach (Schritt 10) auf die Wand geklemmt.
+      var _weitLo = wLo - Math.abs(wHi - wLo);   // eine Bandbreite unter der Wand
+      var _weitHi = wHi + Math.abs(wHi - wLo);
+      var _loBound = (_rand === "abschneiden") ? _weitLo : wLo;
+      var _hiBound = (_rand === "abschneiden") ? _weitHi : wHi;
       alt = x[0];
-      tern(0, wLo, x[1] - Math.max(bMin[0], eps));
+      tern(0, _loBound, x[1] - Math.max(bMin[0], eps));
       maxDelta = Math.max(maxDelta, Math.abs(x[0] - alt));
       alt = x[N];
-      tern(N, x[N - 1] + Math.max(bMin[N - 1], eps), wHi);
+      tern(N, x[N - 1] + Math.max(bMin[N - 1], eps), _hiBound);
       maxDelta = Math.max(maxDelta, Math.abs(x[N] - alt));
     }
     if (maxDelta < 1e-7) break;
   }
 
-  // 10. Zurueck in Hz.
+  // 10. Zurueck in Hz. Bei "abschneiden": aeusserste Kanten auf die Wand
+  // klemmen (Variante 1 -- Band ueber die Wand hinaus wird gekappt).
   var edges = x.map(function (xi) { return ex(xi); });
+  if (_rand === "abschneiden") {
+    if (edges[0] < wand.loHz) edges[0] = wand.loHz;
+    if (edges[edges.length - 1] > wand.hiHz) edges[edges.length - 1] = wand.hiHz;
+  }
   return { edges: edges };
 }
 
@@ -1476,12 +1490,15 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
     var _minBreite = (opt && opt.minBreite != null) ? opt.minBreite
       : _frqDefaultMinBreiteP(toP);
     var _lambda = (opt && opt.lambda != null) ? opt.lambda : FRQ_BAND_LAMBDA;
-    // BA471: Grenzeinhaltung "einrechnen" reaktiviert den range-Mechanismus
-    // (BA449 hatte ihn mit null stillgelegt). Feste Aussenkanten = Wand in
-    // Positions-Koordinaten (toP), damit der Optimierer die inneren Grenzen
-    // hineinrechnet (Folgewirkung). "abschneiden" -> range=null wie bisher.
+    // BA526: Randverhalten steuert die Aussenkanten.
+    //   treffen     -> Wand als feste Range (Optimierer trifft sie exakt).
+    //   abschneiden -> keine Range; Raender gespiegelt, danach im Rahmen
+    //                  auf die Wand geklemmt (Variante 1).
+    //   luecke      -> keine Range; Raender gespiegelt, danach NICHT ueber
+    //                  die Wand hinaus (Variante 3, s. Klemm-Block unten).
+    var _rand = (opt && typeof opt.randverhalten === "string") ? opt.randverhalten : "treffen";
     var _rangeOpt = null;
-    if (opt && opt.grenzeinhaltung === "einrechnen"
+    if (_rand === "treffen"
         && wand && typeof wand.loHz === "number" && typeof wand.hiHz === "number") {
       _rangeOpt = { loP: toP(wand.loHz), hiP: toP(wand.hiHz) };
     }
@@ -1522,14 +1539,14 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
     pairs = topo(P);
   }
 
-  // BA471: Fall A "abschneiden" (Default). Nur die AEUSSEREN Kanten der
-  // beiden Randbaender auf die Wand klemmen; innere Baender unveraendert.
-  // Bei "einrechnen" liegen die Baender schon im range (4a) -> nicht
-  // klemmen. Ohne Wand -> nichts tun. Randfall (gehoerte Freq. ausserhalb
-  // der Wand) NICHT behandelt (Notiz .docs/IDEEN.md 2026-07-08).
+  // BA526: Bei "treffen" liegen die Kanten schon per Range auf der Wand
+  // -> nicht klemmen. Bei "abschneiden" UND "luecke" gespiegelte Kanten,
+  // danach klemmen: abschneiden kappt den Ueberstand auf die Wand, luecke
+  // laesst innenliegende Kanten stehen (dieselbe if(lo<wand)-Logik deckt
+  // beide ab). Ohne Wand: nichts tun.
   var _klemmen = wand && typeof wand.loHz === "number"
     && typeof wand.hiHz === "number"
-    && !(opt && opt.grenzeinhaltung === "einrechnen");
+    && !(_rand === "treffen");
   var bands = [];
   for (var e = 0; e < kette.length; e++) {
     var loP = pairs[e].loP, hiP = pairs[e].hiP;
@@ -2449,7 +2466,6 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
           // BA472: apikale/basale "Freie Baender"-Achsen (ersetzen Randverhalten).
           cbfApikalFrei: (_sW && _sW.bandCbfApikalFrei != null) ? _sW.bandCbfApikalFrei : 1,
           cbfBasalFrei:  (_sW && _sW.bandCbfBasalFrei  != null) ? _sW.bandCbfBasalFrei  : 1,
-          cbfRandspektrum: (_sW && typeof _sW.bandCbfRandspektrum === "string") ? _sW.bandCbfRandspektrum : "voll",
           // BA464/465: Sprachbereich-Achse (Feld kommt mit BA465).
           cbfSprache: (_sW && typeof _sW.bandCbfSprache === "string") ? _sW.bandCbfSprache : "mittel",
           // BA524: gemeinsame Rechenraum-Achse (Lage) pro Seite.
@@ -2460,8 +2476,9 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
             return (v && FRQ_GLAETT_K_WERTE[v] != null) ? FRQ_GLAETT_K_WERTE[v]
                                                         : FRQ_GLAETT_K_DEFAULT;
           })(),
-          // BA471: Grenzeinhaltung pro Seite (abschneiden|einrechnen).
-          grenzeinhaltung: (_sW && typeof _sW.bandGrenzeinhaltung === "string") ? _sW.bandGrenzeinhaltung : "abschneiden",
+          // BA526: gemeinsame Randverhalten-Achse pro Seite.
+          randverhalten: (_sW && typeof _sW.bandRandverhalten === "string")
+            ? _sW.bandRandverhalten : "abschneiden",
           // FBF: log-Kurve der laufenden Seite (Ketten-Reihenfolge, §4.2).
           kurveY: _kurveY,
           // BA515: richtungsabhaengige Residuum-Toleranz im minimax-Zweig.
