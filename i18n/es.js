@@ -855,6 +855,7 @@ Object.assign(L.es, {
     FRQ_bandVerfGeom: "Geométrico",
     FRQ_bandVerfArith: "Aritmético",
     FRQ_bandLageLegend: "Posición del electrodo",
+    FRQ_bandKLegend: "k de Greenwood",
     FRQ_bandLageGeom:   "geométrico (log)",
     FRQ_bandLageAussen: "pared externa (Greenwood, OC)",
     FRQ_bandLageMitte:  "medio",

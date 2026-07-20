@@ -924,6 +924,7 @@ Object.assign(L.de, {
     FRQ_bandVerfGeom: "Geometrisch",
     FRQ_bandVerfArith: "Arithmetisch",
     FRQ_bandLageLegend: "Elektrodenlage",
+    FRQ_bandKLegend: "Greenwood-k",
     FRQ_bandLageGeom:   "geometrisch (log)",
     FRQ_bandLageAussen: "außen (Greenwood, OC)",
     FRQ_bandLageMitte:  "Mitte",

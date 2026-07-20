@@ -698,6 +698,13 @@ document.addEventListener("DOMContentLoaded", () => {
       show(id, istCbf);   // CBF-Achsen nur bei CBF
     });
 
+    // BA525: k wirkt nur im Ortsraum (Lage aussen/mitte/innen), nicht bei
+    // Lage "geometrisch" -> dort matt.
+    var _lage = sideData[activeSide].bandLage;
+    var _ortsraum = (_lage === "aussen" || _lage === "mitte" || _lage === "innen");
+    show("FRQ_bandKFieldset", true);
+    matt("FRQ_bandKFieldset", _ortsraum);
+
     // Bei den klassischen Verfahren die Optimieren-abhaengige Ziel-,
     // Grenzeinhaltung- und Residuum-Richtung-Sichtbarkeit anwenden (wie bisher).
     if (istKlassisch) {
@@ -732,7 +739,14 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandCbfBasalFrei",  function (v) { sideData[activeSide].bandCbfBasalFrei  = v; });
   _frqBandWahlInit("FRQ_bandCbfRandspektrum", function (v) { sideData[activeSide].bandCbfRandspektrum = v; });
   _frqBandWahlInit("FRQ_bandCbfSprache", function (v) { sideData[activeSide].bandCbfSprache = v; });
-  _frqBandWahlInit("FRQ_bandLage", function (v) { sideData[activeSide].bandLage = v; });
+  _frqBandWahlInit("FRQ_bandLage", function (v) {
+    sideData[activeSide].bandLage = v;
+    _frqBandAchsenSichtbarkeit();
+  });
+  // BA525: Greenwood-k-Achse (wirkt nur im Ortsraum).
+  _frqBandWahlInit("FRQ_bandK", function (v) {
+    sideData[activeSide].bandK = v;
+  });
   // BA475: Mess-Glaettung (seitenweise). Bei Aenderung Graph + Sichtbarkeit neu.
   _frqBandWahlInit("FRQ_glaettVerfahren", function (v) {
     sideData[activeSide].bandGlaettVerfahren = v;

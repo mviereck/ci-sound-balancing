@@ -854,6 +854,7 @@ Object.assign(L.en, {
     FRQ_bandVerfGeom: "Geometric",
     FRQ_bandVerfArith: "Arithmetic",
     FRQ_bandLageLegend: "Electrode position",
+    FRQ_bandKLegend: "Greenwood k",
     FRQ_bandLageGeom:   "geometric (log)",
     FRQ_bandLageAussen: "outer wall (Greenwood, OC)",
     FRQ_bandLageMitte:  "middle",

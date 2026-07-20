@@ -462,6 +462,8 @@ var FRQ_BAND_WAHLEN = [
   // BA524: gemeinsame Rechenraum-Achse (ersetzt Verfahren "greenwood" und
   // die CBF-Achse bandCbfBandraum).
   { key: "bandLage",  def: "geometrisch", fileKey: "bandLage",  group: "FRQ_bandLage" },
+  // BA525: gemeinsame Greenwood-k-Achse (wirkt nur im Ortsraum).
+  { key: "bandK",  def: "0.88", fileKey: "bandK",  group: "FRQ_bandK" },
   { key: "bandGrenzeinhaltung", def: "abschneiden",fileKey: "bandGrenzeinhaltung", group: "FRQ_bandGrenzeinhaltung" },
   { key: "bandGlaettVerfahren", def: "aus",         fileKey: "bandGlaettVerfahren", group: "FRQ_glaettVerfahren" },
   { key: "bandGlaettFitX",      def: "position",    fileKey: "bandGlaettFitX",      group: "FRQ_glaettFitX" },
@@ -2452,7 +2454,12 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
           cbfSprache: (_sW && typeof _sW.bandCbfSprache === "string") ? _sW.bandCbfSprache : "mittel",
           // BA524: gemeinsame Rechenraum-Achse (Lage) pro Seite.
           lage: (_sW && typeof _sW.bandLage === "string") ? _sW.bandLage : "geometrisch",
-          // k folgt mit BA525 (k-Achse); bis dahin Default in FRQ_baender/_frqBandRaum.
+          // BA525: Greenwood-k pro Seite. Als Zahl (Wertetabelle-Lookup).
+          k: (function () {
+            var v = (_sW && _sW.bandK) ? String(_sW.bandK) : null;
+            return (v && FRQ_GLAETT_K_WERTE[v] != null) ? FRQ_GLAETT_K_WERTE[v]
+                                                        : FRQ_GLAETT_K_DEFAULT;
+          })(),
           // BA471: Grenzeinhaltung pro Seite (abschneiden|einrechnen).
           grenzeinhaltung: (_sW && typeof _sW.bandGrenzeinhaltung === "string") ? _sW.bandGrenzeinhaltung : "abschneiden",
           // FBF: log-Kurve der laufenden Seite (Ketten-Reihenfolge, §4.2).
