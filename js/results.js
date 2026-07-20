@@ -1428,6 +1428,13 @@ function _FRQ_renderBandEmpf(side) {
         + t("FRQ_bandEmpfVorschlag") + ": " + fmtNum(vHz, "hz") + " Hz (" + vCentTxt + ")</span>";
     }
 
+    // BA528: Stumme Elektrode -> Hinweis in der Rating-Spalte anhaengen.
+    if (_sd.elSt && _sd.elSt[i] === "mute") {
+      var _stummHinweis = "<span style=\"color:var(--text-muted);font-style:italic;display:block\">"
+        + t("FRQ_bandStumm") + "</span>";
+      ratingCell = (ratingCell !== dash ? ratingCell : "") + _stummHinweis;
+    }
+
     rows += "<tr>"
       + "<td style=\"font-weight:600\">" + elLabel + "</td>"
       + "<td>" + targetCell + "</td>"

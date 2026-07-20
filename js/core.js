@@ -804,8 +804,6 @@ var CBF_FEHLER_SKALA_CT = 100; // BA466: EINHEITLICHE Fehler-Einheit fuer
                                // teuer fuer alle El., das Residuum wirkt nur
                                // noch als Toleranz (Deadband), nicht als Skala
 // CBF_MIN_BREITE_CT entfernt (BA527): Wert kommt jetzt aus der gemeinsamen Mindestbreiten-Achse.
-var CBF_STUMM_BREITE_CT = 150; // Breiten-Ziel stummer El. (cent)
-var CBF_STUMM_GEWICHT = 0.5;   // Zug-Staerke des stumm-Breiten-Ziels
 var CBF_ZENTRIERUNG = 0.02;    // schwacher Zug zur exakten Mitte INNERHALB der
                                // Toleranz (haelt Ergebnis bei freiem Spielraum
                                // an der gehoerten Frequenz; Skala: FEHLER_SKALA)
@@ -1017,41 +1015,47 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
   //    w = statusGewicht * randFaktor * sprachFaktor (Treffer-Gewicht).
   //    dead = Toleranz UND Fehler-Einheit (log): gemessen ->
   //    max(residuum, Boden); ungemessen -> sehr weich.
-  var w = [], stumm = [], dead = [];
+  var w = [], stumm = [], deadUp = [], deadDn = [];
   for (var i = 0; i < N; i++) {
     var gStat = (kette[i].statusGewicht != null) ? kette[i].statusGewicht : 1;
     stumm[i] = (gStat <= 0);
-    var rCt = kette[i].gemessen
-      ? Math.max((kette[i].residuum != null ? kette[i].residuum : 0), CBF_RESID_BODEN_CT)
-      : CBF_RESID_UNGEMESSEN_CT;
-    // BA473: Toleranz lokal an der El.-Frequenz in den Raum (cent-treu).
-    dead[i] = _frqCentZuRaum(toP, kette[i].hz, rCt);
+    // BA528: richtungsabhaengige Toleranz (Achse residRichtung). Bei
+    // "gerichtet" getrennte cent-Werte fuer oben/unten aus residUp/residDown;
+    // bei "symmetrisch" beide gleich (bisheriges Verhalten, residuum = Summe).
+    var _gerichtet = (opt.residRichtung === "gerichtet");
+    var rUpCt, rDnCt;
+    if (kette[i].gemessen) {
+      if (_gerichtet && kette[i].residUp != null && kette[i].residDown != null) {
+        rUpCt = Math.max(kette[i].residUp,   CBF_RESID_BODEN_CT);
+        rDnCt = Math.max(kette[i].residDown, CBF_RESID_BODEN_CT);
+      } else {
+        var _r = Math.max((kette[i].residuum != null ? kette[i].residuum : 0), CBF_RESID_BODEN_CT);
+        rUpCt = _r; rDnCt = _r;
+      }
+    } else {
+      rUpCt = CBF_RESID_UNGEMESSEN_CT; rDnCt = CBF_RESID_UNGEMESSEN_CT;
+    }
+    // Zwei Toleranz-Huellen (in den Raum, cent-treu an der El.-Frequenz).
+    deadUp[i] = _frqCentZuRaum(toP, kette[i].hz, rUpCt);
+    deadDn[i] = _frqCentZuRaum(toP, kette[i].hz, rDnCt);
     var spr = (kette[i].hz >= ABF_SCHWELLE_LO && kette[i].hz <= ABF_SCHWELLE_HI)
       ? sprF : 1;
     w[i] = gStat * randFaktor(i) * spr;
   }
 
-  // 6. Mindestbreiten (Schranken): nicht-stumm aus cent-Achse, stumm 0.
-  //    Falls die Wandspanne dafuer zu eng ist: proportional deckeln.
-  // BA527: Mindestbreite aus der gemeinsamen cent-Achse (opt.minBreiteCt),
-  // lokal an der El.-Frequenz in den Raum. Fallback 100 (Achsen-Default).
-  // (stumm behandelt BA528 -- hier noch wie bisher stumm=0.)
+  // 6. Mindestbreiten (Schranken): aus der gemeinsamen cent-Achse (opt.minBreiteCt),
+  //    lokal an der El.-Frequenz in den Raum. Fallback 100 (Achsen-Default).
+  //    BA528: stumme El. folgen der Mindestbreite wie normale (kein Sonderwert 0).
   var _minBreiteCt = (opt.minBreiteCt != null) ? opt.minBreiteCt : 100;
   var bMin = [], sumMin = 0;
   for (i = 0; i < N; i++) {
-    // BA473: Mindestbreite lokal an der El.-Frequenz (cent-treu).
-    bMin[i] = stumm[i] ? 0 : _frqCentZuRaum(toP, kette[i].hz, _minBreiteCt);
+    bMin[i] = _frqCentZuRaum(toP, kette[i].hz, _minBreiteCt);
     sumMin += bMin[i];
   }
   if (sumMin > (wHi - wLo) * 0.9) {
     var f2 = (wHi - wLo) * 0.9 / sumMin;
     for (i = 0; i < N; i++) bMin[i] *= f2;
   }
-  // BA473: stumm-Breiten-Ziel ebenfalls lokal -- an der Wandmitte als
-  // El.-neutrale Referenz (stumme El. haben kein eigenes gehoertes hz-Ziel,
-  // das ihre Bandlage bestimmt; die Wandmitte ist der neutrale Bezug).
-  var bKlein = _frqCentZuRaum(toP, Math.sqrt(wand.loHz * wand.hiHz), CBF_STUMM_BREITE_CT);
-
   // 7. Zielfunktion (konvex).
   function kosten(x) {
     var s = 0, j;
@@ -1064,22 +1068,21 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
     var SKA = _frqCentZuRaum(toP, 1000, CBF_FEHLER_SKALA_CT);
     for (j = 0; j < N; j++) {
       var m = (x[j] + x[j + 1]) / 2;
-      var d = Math.abs(m - t[j]) - dead[j];
+      var diff = m - t[j];
+      // BA528: Huelle richtungsabhaengig -- Center ueber Ziel -> deadUp,
+      // darunter -> deadDn.
+      var dead_j = (diff >= 0) ? deadUp[j] : deadDn[j];
+      var d = Math.abs(diff) - dead_j;
       if (d > 0) { d /= SKA; s += w[j] * d * d; }
-      var z = (m - t[j]) / SKA;
+      var z = diff / SKA;
       s += CBF_ZENTRIERUNG * w[j] * z * z;
     }
-    // Breiten-Glattheit zwischen nicht-stummen Nachbarn (auf bref normiert).
+    // BA528: stumme El. in die Breiten-Glattheit EINBEZIEHEN (kein continue
+    // mehr) -- ihre Breite koppelt so an die Nachbarn und bleibt bestimmt,
+    // ohne eigenes Breiten-Ziel.
     for (j = 0; j < N - 1; j++) {
-      if (stumm[j] || stumm[j + 1]) continue;
       var g = ((x[j + 1] - x[j]) - (x[j + 2] - x[j + 1])) / bref;
       s += lam * g * g;
-    }
-    // Stumme El.: eigenes kleines Breiten-Ziel.
-    for (j = 0; j < N; j++) {
-      if (!stumm[j]) continue;
-      var q = ((x[j + 1] - x[j]) - bKlein) / bref;
-      s += CBF_STUMM_GEWICHT * q * q;
     }
     return s;
   }

@@ -645,10 +645,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // BA516: Residuum-Richtung wirkt bei beiden Optimierungszielen (summe+gerichtet
   // via Vorzeichen-Solver, minimax via IRLS) -> Fieldset bei jedem optimierten Ziel.
   function _frqResidRichtungSichtbarkeit() {
-    var fs = document.getElementById("FRQ_residRichtungFieldset");
-    if (!fs) return;
-    var s = sideData[activeSide];
-    fs.style.display = (s.bandOptimieren === "optimiert") ? "" : "none";
+    // BA528: Residuum-Richtung ist jetzt gemeinsame Achse (Zeile 1).
+    // Sie wird von _frqBandAchsenSichtbarkeit direkt gesteuert --
+    // diese Funktion bleibt als Stub fuer die klassischen Aufrufe.
   }
   // BA451/BA523: ABF/CBF/FBF verdraengen die klassischen Achsen. Umgestellt
   // auf show()/matt() (Muster _frqGlaettAchsenSichtbar) fuer das
@@ -678,9 +677,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Zeile 1 (klassische Achsen; kuenftig gemeinsame Achsen): bei
     // abf/cbf/fbf aus.
     ["FRQ_bandTopologieFieldset", "FRQ_bandOptimierenFieldset",
-     "FRQ_bandZielFieldset", "FRQ_residRichtungFieldset"].forEach(function (id) {
+     "FRQ_bandZielFieldset"].forEach(function (id) {
       show(id, istKlassisch);
     });
+    // BA528: Residuum-Richtung ist gemeinsame Achse -- immer sichtbar,
+    // wirksam bei CBF und geometrisch-optimiert, matt bei klassisch-ohne-Opt.
+    show("FRQ_residRichtungFieldset", true);
+    var _residWirksam = istCbf || (istKlassisch && sideData[activeSide].bandOptimieren === "optimiert");
+    matt("FRQ_residRichtungFieldset", _residWirksam);
 
     // BA526: Randverhalten ist gemeinsame Achse (Zeile 1) -- immer sichtbar.
     show("FRQ_bandRandverhaltenFieldset", true);
