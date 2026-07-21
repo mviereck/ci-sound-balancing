@@ -1172,6 +1172,26 @@
             <div style="margin:0 0 12px">
               <canvas id="FRQ_bandEmpfChart" width="800" height="300"></canvas>
             </div>
+            <fieldset id="FRQ_bandAusgangFieldset"
+                      style="border:1px solid var(--border);border-radius:6px;padding:8px 12px;margin:0 0 12px;font-size:0.9em">
+              <legend data-t="FRQ_bandAusgangLabel" style="padding:0 6px;font-weight:600">Bandmitten vergleichen mit:</legend>
+              <label>
+                <input type="radio" name="FRQ_bandAusgang" value="geglaettet">
+                <span data-t="FRQ_bandAusgang_geglaettet">gegl&auml;ttet</span>
+              </label>
+              <label style="margin-left:12px">
+                <input type="radio" name="FRQ_bandAusgang" value="gemessen">
+                <span data-t="FRQ_bandAusgang_gemessen">gemessen</span>
+              </label>
+              <label style="margin-left:12px">
+                <input type="radio" name="FRQ_bandAusgang" value="nominell">
+                <span data-t="FRQ_bandAusgang_nominell">nominell</span>
+              </label>
+              <div id="FRQ_bandAusgangHinweisRow" style="display:none">
+                <div id="FRQ_bandAusgangHinweis"
+                     style="color:var(--text-muted);padding:4px 0 0"></div>
+              </div>
+            </fieldset>
             <div
               style="font-size:0.82em;color:var(--text-muted);margin:0 0 10px;line-height:1.5"
               id="FRQ_bandEmpfChartHint"
@@ -1180,32 +1200,6 @@
               <button type="button" class="btn btn-small" id="FRQ_bandPianoBtn"
                       data-t="FRQ_bandPianoBtn">T&#246;ne gem&#228;&#223; Bandberechnung abspielen</button>
             </div>
-            <table style="margin:0 0 10px;border-collapse:collapse">
-              <tr>
-                <td style="vertical-align:middle;padding:0">
-                  <span style="font-weight:600" data-t="FRQ_bandAusgangLabel">Ausgangspunkt:</span>
-                </td>
-                <td style="vertical-align:middle;padding:0 0 0 8px">
-                  <label>
-                    <input type="radio" name="FRQ_bandAusgang" value="geglaettet">
-                    <span data-t="FRQ_bandAusgang_geglaettet">gegl&auml;ttet</span>
-                  </label>
-                  <label style="margin-left:12px">
-                    <input type="radio" name="FRQ_bandAusgang" value="gemessen">
-                    <span data-t="FRQ_bandAusgang_gemessen">gemessen</span>
-                  </label>
-                  <label style="margin-left:12px">
-                    <input type="radio" name="FRQ_bandAusgang" value="nominell">
-                    <span data-t="FRQ_bandAusgang_nominell">nominell</span>
-                  </label>
-                </td>
-              </tr>
-              <tr id="FRQ_bandAusgangHinweisRow" style="display:none">
-                <td></td>
-                <td id="FRQ_bandAusgangHinweis"
-                    style="color:var(--text-muted);padding:2px 0 0 8px"></td>
-              </tr>
-            </table>
             <table class="results-table" id="FRQ_bandEmpfTable">
               <thead><tr id="FRQ_bandEmpfTableHead"></tr></thead>
               <tbody id="FRQ_bandEmpfTableBody"></tbody>

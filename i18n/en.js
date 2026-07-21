@@ -888,7 +888,7 @@ Object.assign(L.en, {
     FRQ_bandEmpfColCenter: "Resulting centre frequency",
     FRQ_bandEmpfColDev: "Deviation",
     FRQ_bandEmpfColRating: "Rating",
-    FRQ_bandAusgangLabel: "Reference:",
+    FRQ_bandAusgangLabel: "Compare band centers with:",
     FRQ_bandAusgang_gemessen: "measured",
     FRQ_bandAusgang_geglaettet: "smoothed",
     FRQ_bandAusgang_nominell: "nominal",

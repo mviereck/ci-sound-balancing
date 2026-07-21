@@ -889,7 +889,7 @@ Object.assign(L.fr, {
     FRQ_bandEmpfColCenter: "Fréquence centrale obtenue",
     FRQ_bandEmpfColDev: "Écart",
     FRQ_bandEmpfColRating: "Évaluation",
-    FRQ_bandAusgangLabel: "Point de référence :",
+    FRQ_bandAusgangLabel: "Comparer les centres de bande avec :",
     FRQ_bandAusgang_gemessen: "mesurée",
     FRQ_bandAusgang_geglaettet: "lissée",
     FRQ_bandAusgang_nominell: "nominale",

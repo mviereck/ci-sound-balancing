@@ -976,7 +976,7 @@ Object.assign(L.de, {
     FRQ_bandEmpfColDev: "Abweichung",
     FRQ_bandEmpfColConsist: "Messung ↔ Nachbar-Kurve",
     FRQ_bandEmpfColRating: "Bewertung",
-    FRQ_bandAusgangLabel: "Ausgangspunkt:",
+    FRQ_bandAusgangLabel: "Bandmitten vergleichen mit:",
     FRQ_bandAusgang_gemessen: "gemessen",
     FRQ_bandAusgang_geglaettet: "geglättet",
     FRQ_bandAusgang_nominell: "nominell",
