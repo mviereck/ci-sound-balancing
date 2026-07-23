@@ -1766,6 +1766,14 @@ var FRQ_BAND_LAGE_W = { "aussen": 0, "mitte": 0.5, "innen": 1 };
 // Anzeige-Wahl, global fuer beide Seiten, keine Persistenz). Werte:
 // "gemessen" | "geglaettet" | "nominell". Default geglaettet.
 var FRQ_bandAusgang = "geglaettet";
+// Kurven-Farbschluessel -> Hex. EINE Wahrheit fuer Zeichencode (chart.js),
+// Legende (FRQ_legendeHtml) und Ausgangspunkt-Auswahl (init.js). "schwarz"
+// ist bewusst ein Mittelgrau (nominell-Kurve).
+var KURVENFARBE = { blau: "#3b82f6", gruen: "#16a34a", schwarz: "#6b7280" };
+// Ausgangspunkt des Bandgraphen -> Kurven-Farbschluessel. Verankert die
+// Zuordnung geglaettet/gemessen/nominell an genau einer Stelle (Kurvenfarbe
+// in results.js, Symbol vor dem Auswahl-Radio in init.js).
+var FRQ_AUSGANG_FARBE = { geglaettet: "gruen", gemessen: "blau", nominell: "schwarz" };
 function _frqGlaettLage() {
   var s = (typeof sideData !== "undefined" && typeof activeSide === "string")
     ? sideData[activeSide] : null;

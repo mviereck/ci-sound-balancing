@@ -699,6 +699,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // BA501: Ausgangspunkt-Wahl des Bandgraphen (global, Anzeige-only).
   _frqBandWahlInit("FRQ_bandAusgang", function (v) { FRQ_bandAusgang = v; });
+  // Kurvensymbol in der jeweiligen Kurvenfarbe vor jedes Ausgangspunkt-
+  // Label (geglaettet=gruen, gemessen=blau, nominell=schwarz). Farbe und
+  // Symbol aus den globalen Quellen (core.js / FRQ_elementSymbol) --
+  // datengetrieben ueber value, keine feste Zuordnung im Markup.
+  (function () {
+    var _ar = document.querySelectorAll('input[name="FRQ_bandAusgang"]');
+    for (var _i = 0; _i < _ar.length; _i++) {
+      var _farbe = FRQ_AUSGANG_FARBE[_ar[_i].value];
+      var _hex = _farbe && KURVENFARBE[_farbe];
+      if (!_hex) continue;
+      var _sym = document.createElement("span");
+      _sym.innerHTML = FRQ_elementSymbol("kurve", [_hex]);
+      _sym.style.marginRight = "2px";
+      _ar[_i].insertAdjacentElement("afterend", _sym);
+    }
+  })();
   // BA463: Setter schreiben in die AKTIVE Seite (sideData[activeSide]).
   _frqBandWahlInit("FRQ_bandVerfahren", function (v) {
     sideData[activeSide].bandVerfahren = v;

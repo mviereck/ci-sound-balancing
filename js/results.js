@@ -417,6 +417,71 @@ FRQ_legendeToggleInit();
 // Fakten (data = {elemente, bewertung, ampelStufen}) liefert der
 // Aufrufer aus der graph-spezifischen Fakten-Quelle (frqLegendData /
 // ellLegendData / stbLegendData); die Bedeutung je Element aus i18n.
+// Globale Symbol-Engine (Architektur §8): 14x14-SVG je grafischem
+// Element-Schluessel, eingefaerbt nach hexArr[0]. EIN Erzeuger fuer die
+// Legende (FRQ_legendeHtml) UND fuer Symbole ausserhalb (Ausgangspunkt-
+// Auswahl, spaeter Hilfetexte). Formen/Farblogik = das Bild im Graphen.
+var FRQ_SYMBOL_NEUTRAL = "#374151";
+// Helle Fuellungen (gedecktes Weiss, hellblau, hellrot) bekommen einen
+// grauen Rahmen, sonst kaum sichtbar auf hellem Grund.
+function FRQ_symbolHell(hx) {
+  var m = /^#([0-9a-f]{6})$/i.exec(hx); if (!m) return false;
+  var n = parseInt(m[1], 16);
+  var r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+  return (0.299 * r + 0.587 * g + 0.114 * b) > 220;   // sehr hell
+}
+// Symbol des grafischen Elements (Spalte 0 der Legende), 14x14 SVG. Form
+// je Element-Schluessel; Farbe: Strich/Band/Flaeche/Kurve tragen ihre
+// echte Farbe (informativ), die Ampel-Elemente (Pfeil, Punkt) neutralgrau
+// (mehrere Farben -> ein neutrales Symbol; die echten Farben stehen als
+// Quadrate in Spalte 2 der Legende).
+function FRQ_elementSymbol(key, hexArr) {
+  var NEUTRAL = FRQ_SYMBOL_NEUTRAL;
+  var c = (hexArr && hexArr.length) ? hexArr[0] : NEUTRAL;
+  var rand = FRQ_symbolHell(c) ? "#9ca3af" : c;
+  var svg = function (inner) {
+    return "<span style=\"display:inline-block;width:14px;height:14px;"
+      + "vertical-align:middle;margin-right:2px\">"
+      + "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\">" + inner + "</svg></span>";
+  };
+  switch (key) {
+    case "strichGrau":
+    case "strichSchwarz":
+      return svg("<line x1=\"7\" y1=\"1\" x2=\"7\" y2=\"13\" stroke=\"" + c + "\" stroke-width=\"1.75\"/>");
+    case "meanLinie":   // gestrichelter senkrechter Strich (Mittelwert)
+      return svg("<line x1=\"7\" y1=\"1\" x2=\"7\" y2=\"13\" stroke=\"" + c + "\" stroke-width=\"1.75\" stroke-dasharray=\"3 2\"/>");
+    case "band":   // schmales senkrechtes Band
+      return svg("<rect x=\"5\" y=\"1\" width=\"4\" height=\"12\" fill=\"" + c + "\"/>");
+    case "querbalken":   // T-Balken (Residuum): senkrecht + zwei Endkappen, immer schwarz
+      return svg("<line x1=\"7\" y1=\"2\" x2=\"7\" y2=\"12\" stroke=\"#000000\" stroke-width=\"1.5\"/>"
+        + "<line x1=\"4\" y1=\"2\" x2=\"10\" y2=\"2\" stroke=\"#000000\" stroke-width=\"1.5\"/>"
+        + "<line x1=\"4\" y1=\"12\" x2=\"10\" y2=\"12\" stroke=\"#000000\" stroke-width=\"1.5\"/>");
+    case "querbalkBlau":   // T-Balken (Restspanne): senkrecht + zwei Endkappen, Farbe aus hexArr
+      return svg("<line x1=\"7\" y1=\"2\" x2=\"7\" y2=\"12\" stroke=\"" + c + "\" stroke-width=\"1.5\"/>"
+        + "<line x1=\"4\" y1=\"2\" x2=\"10\" y2=\"2\" stroke=\"" + c + "\" stroke-width=\"1.5\"/>"
+        + "<line x1=\"4\" y1=\"12\" x2=\"10\" y2=\"12\" stroke=\"" + c + "\" stroke-width=\"1.5\"/>");
+    case "pfeil":   // waagerechter Pfeil, neutral
+      return svg("<line x1=\"1\" y1=\"7\" x2=\"11\" y2=\"7\" stroke=\"" + NEUTRAL + "\" stroke-width=\"1.5\"/>"
+        + "<polyline points=\"8,4 12,7 8,10\" fill=\"none\" stroke=\"" + NEUTRAL + "\" stroke-width=\"1.5\"/>");
+    case "punkt":   // gefuellter Kreis, neutral
+      return svg("<circle cx=\"7\" cy=\"7\" r=\"4\" fill=\"" + NEUTRAL + "\"/>");
+    case "kurve":   // Wellenlinie in Kurvenfarbe
+      return svg("<path d=\"M1,10 C4,3 6,3 7,7 C8,11 10,11 13,4\" fill=\"none\" stroke=\"" + c + "\" stroke-width=\"1.5\"/>");
+    case "flaeche":   // gefuelltes Rechteck in Flaechenfarbe
+      return svg("<rect x=\"1\" y=\"3\" width=\"12\" height=\"8\" fill=\"" + c + "\" stroke=\"" + rand + "\" stroke-width=\"1\"/>");
+    case "balken":   // senkrechter gefuellter Balken (ELL/Stereo)
+      return svg("<rect x=\"4\" y=\"2\" width=\"6\" height=\"11\" fill=\"" + c + "\"/>");
+    case "xRechteck":   // deaktiviert: graues Rechteck mit X
+      return svg("<rect x=\"1\" y=\"1\" width=\"12\" height=\"12\" fill=\"#e5e7eb\" stroke=\"#9ca3af\"/>"
+        + "<line x1=\"2\" y1=\"2\" x2=\"12\" y2=\"12\" stroke=\"#6b7280\" stroke-width=\"1.25\"/>"
+        + "<line x1=\"12\" y1=\"2\" x2=\"2\" y2=\"12\" stroke=\"#6b7280\" stroke-width=\"1.25\"/>");
+    case "frageRechteck":   // ungemessen: graues Rechteck mit ?
+      return svg("<rect x=\"1\" y=\"1\" width=\"12\" height=\"12\" fill=\"#e5e7eb\" stroke=\"#9ca3af\"/>"
+        + "<text x=\"7\" y=\"11\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#6b7280\">?</text>");
+    default:
+      return svg("");
+  }
+}
 function FRQ_legendeHtml(graphKey, data) {
   data = data || { elemente: [], bewertung: "ampel" };
   var eqCell = "<td style=\"padding:0 6px;color:#374151\">=</td>";
@@ -428,77 +493,20 @@ function FRQ_legendeHtml(graphKey, data) {
   // Anzeige-Wort fuer den Farb-Schluessel (Spalte 2), i18n-faehig.
   var farbWort = function (key) { return T("FRQ_legFarbe_" + key, key); };
   // Farb-Quadrat(e) vor dem Wort zur Orientierung. hex = Array (Ampel hat
-  // mehrere). Helle Fuellungen (gedecktes Weiss, hellblau, hellrot)
-  // bekommen einen grauen Rahmen, sonst kaum sichtbar auf hellem Grund.
-  var hellFarbe = function (hx) {
-    var m = /^#([0-9a-f]{6})$/i.exec(hx); if (!m) return false;
-    var n = parseInt(m[1], 16);
-    var r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
-    return (0.299 * r + 0.587 * g + 0.114 * b) > 220;   // sehr hell
-  };
+  // mehrere). Helle Fuellungen bekommen einen grauen Rahmen (FRQ_symbolHell).
   var farbQuadrate = function (hexArr) {
     if (!hexArr || !hexArr.length) return "";
     var out = "";
     hexArr.forEach(function (hx) {
-      var rand = hellFarbe(hx) ? "#9ca3af" : hx;
+      var rand = FRQ_symbolHell(hx) ? "#9ca3af" : hx;
       out += "<span style=\"display:inline-block;width:10px;height:10px;"
         + "background:" + hx + ";border:1px solid " + rand + ";"
         + "border-radius:2px;vertical-align:middle;margin-right:2px\"></span>";
     });
     return out + " ";
   };
-  // Symbol des grafischen Elements ganz vorne (Spalte 0), 14x14 SVG.
-  // Form je Element-Schluessel; Farbe: Strich/Band/Flaeche/Kurve tragen
-  // ihre echte Farbe (informativ), die Ampel-Elemente (Pfeil, Punkt)
-  // neutralgrau (mehrere Farben -> ein neutrales Symbol; die echten
-  // Farben stehen als Quadrate in Spalte 2).
-  var NEUTRAL = "#374151";
-  var elementSymbol = function (key, hexArr) {
-    var c = (hexArr && hexArr.length) ? hexArr[0] : NEUTRAL;
-    var rand = hellFarbe(c) ? "#9ca3af" : c;
-    var svg = function (inner) {
-      return "<span style=\"display:inline-block;width:14px;height:14px;"
-        + "vertical-align:middle;margin-right:2px\">"
-        + "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\">" + inner + "</svg></span>";
-    };
-    switch (key) {
-      case "strichGrau":
-      case "strichSchwarz":
-        return svg("<line x1=\"7\" y1=\"1\" x2=\"7\" y2=\"13\" stroke=\"" + c + "\" stroke-width=\"1.75\"/>");
-      case "meanLinie":   // gestrichelter senkrechter Strich (Mittelwert)
-        return svg("<line x1=\"7\" y1=\"1\" x2=\"7\" y2=\"13\" stroke=\"" + c + "\" stroke-width=\"1.75\" stroke-dasharray=\"3 2\"/>");
-      case "band":   // schmales senkrechtes Band
-        return svg("<rect x=\"5\" y=\"1\" width=\"4\" height=\"12\" fill=\"" + c + "\"/>");
-      case "querbalken":   // T-Balken (Residuum): senkrecht + zwei Endkappen, immer schwarz
-        return svg("<line x1=\"7\" y1=\"2\" x2=\"7\" y2=\"12\" stroke=\"#000000\" stroke-width=\"1.5\"/>"
-          + "<line x1=\"4\" y1=\"2\" x2=\"10\" y2=\"2\" stroke=\"#000000\" stroke-width=\"1.5\"/>"
-          + "<line x1=\"4\" y1=\"12\" x2=\"10\" y2=\"12\" stroke=\"#000000\" stroke-width=\"1.5\"/>");
-      case "querbalkBlau":   // T-Balken (Restspanne): senkrecht + zwei Endkappen, Farbe aus hexArr
-        return svg("<line x1=\"7\" y1=\"2\" x2=\"7\" y2=\"12\" stroke=\"" + c + "\" stroke-width=\"1.5\"/>"
-          + "<line x1=\"4\" y1=\"2\" x2=\"10\" y2=\"2\" stroke=\"" + c + "\" stroke-width=\"1.5\"/>"
-          + "<line x1=\"4\" y1=\"12\" x2=\"10\" y2=\"12\" stroke=\"" + c + "\" stroke-width=\"1.5\"/>");
-      case "pfeil":   // waagerechter Pfeil, neutral
-        return svg("<line x1=\"1\" y1=\"7\" x2=\"11\" y2=\"7\" stroke=\"" + NEUTRAL + "\" stroke-width=\"1.5\"/>"
-          + "<polyline points=\"8,4 12,7 8,10\" fill=\"none\" stroke=\"" + NEUTRAL + "\" stroke-width=\"1.5\"/>");
-      case "punkt":   // gefuellter Kreis, neutral
-        return svg("<circle cx=\"7\" cy=\"7\" r=\"4\" fill=\"" + NEUTRAL + "\"/>");
-      case "kurve":   // Wellenlinie in Kurvenfarbe
-        return svg("<path d=\"M1,10 C4,3 6,3 7,7 C8,11 10,11 13,4\" fill=\"none\" stroke=\"" + c + "\" stroke-width=\"1.5\"/>");
-      case "flaeche":   // gefuelltes Rechteck in Flaechenfarbe
-        return svg("<rect x=\"1\" y=\"3\" width=\"12\" height=\"8\" fill=\"" + c + "\" stroke=\"" + rand + "\" stroke-width=\"1\"/>");
-      case "balken":   // senkrechter gefuellter Balken (ELL/Stereo)
-        return svg("<rect x=\"4\" y=\"2\" width=\"6\" height=\"11\" fill=\"" + c + "\"/>");
-      case "xRechteck":   // deaktiviert: graues Rechteck mit X
-        return svg("<rect x=\"1\" y=\"1\" width=\"12\" height=\"12\" fill=\"#e5e7eb\" stroke=\"#9ca3af\"/>"
-          + "<line x1=\"2\" y1=\"2\" x2=\"12\" y2=\"12\" stroke=\"#6b7280\" stroke-width=\"1.25\"/>"
-          + "<line x1=\"12\" y1=\"2\" x2=\"2\" y2=\"12\" stroke=\"#6b7280\" stroke-width=\"1.25\"/>");
-      case "frageRechteck":   // ungemessen: graues Rechteck mit ?
-        return svg("<rect x=\"1\" y=\"1\" width=\"12\" height=\"12\" fill=\"#e5e7eb\" stroke=\"#9ca3af\"/>"
-          + "<text x=\"7\" y=\"11\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#6b7280\">?</text>");
-      default:
-        return svg("");
-    }
-  };
+  // Symbol des grafischen Elements ganz vorne (Spalte 0): globale Engine.
+  var elementSymbol = FRQ_elementSymbol;
   // Element-Name (Spalte 1) + automatische Achsen-Angabe.
   var elementName = function (key, achse) {
     var name = T("FRQ_legElement_" + key, key);

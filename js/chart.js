@@ -564,7 +564,8 @@ function drawFRQGraph(cv, rows, cfg) {
   // NICHT reines Schwarz: die Nullinie und die rechten Striche sind
   // bereits #000 -- eine reinschwarze Kurve wuerde damit verschwimmen.
   // Startwert, Feinjustierung nach Sichttest (siehe Akzeptanz).
-  const KURVENFARBE = { blau: "#3b82f6", gruen: "#16a34a", schwarz: "#6b7280" };
+  // KURVENFARBE ist global (core.js) -- EINE Wahrheit fuer Zeichencode,
+  // Legende und Ausgangspunkt-Auswahl.
   const _linieFarbe = KURVENFARBE[cfg.linienfarbe] || "#3b82f6";
   if (cfg.verbindung) {
     const pts = rows.filter(function (r) { return r.yCent != null; })
