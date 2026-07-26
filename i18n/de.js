@@ -963,6 +963,7 @@ Object.assign(L.de, {
     FRQ_bandRandvAbschneiden: "Rand abschneiden",
     FRQ_bandRandvTreffen: "Wand treffen",
     FRQ_bandRandvLuecke: "Lücke erlauben",
+    FRQ_bandRandvFrei: "Grenzen frei setzen",
     FRQ_bandMinBreiteLegend: "Mindestbreite",
     FRQ_bandEmpfVorschlag: "ungemessen — Vorschlag",
     FRQ_bandEmpfAlreadyDeact: "bereits deaktiviert",

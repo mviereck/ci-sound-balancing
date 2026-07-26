@@ -878,6 +878,7 @@ Object.assign(L.fr, {
     FRQ_bandRandvAbschneiden: "couper au mur",
     FRQ_bandRandvTreffen: "atteindre le mur",
     FRQ_bandRandvLuecke: "autoriser un écart",
+    FRQ_bandRandvFrei: "définir librement",
     FRQ_bandMinBreiteLegend: "Largeur minimale",
     FRQ_bandEmpfVorschlag: "non mesuré — suggestion",
     FRQ_bandEmpfAlreadyDeact: "déjà désactivée",

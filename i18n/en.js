@@ -877,6 +877,7 @@ Object.assign(L.en, {
     FRQ_bandRandvAbschneiden: "clip at wall",
     FRQ_bandRandvTreffen: "meet the wall",
     FRQ_bandRandvLuecke: "allow gap",
+    FRQ_bandRandvFrei: "set freely",
     FRQ_bandMinBreiteLegend: "Minimum width",
     FRQ_bandEmpfVorschlag: "unmeasured — suggestion",
     FRQ_bandEmpfAlreadyDeact: "already deactivated",

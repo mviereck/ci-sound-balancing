@@ -692,6 +692,18 @@ document.addEventListener("DOMContentLoaded", () => {
     show("FRQ_bandKFieldset", true);
     matt("FRQ_bandKFieldset", _ortsraum);
 
+    // Randverhalten "frei": keine feste Wand -> Wand-Auswahl (Unter-/
+    // Obergrenze) matt (bedienbar, ohne Wirkung). Bei geometrisch zwingt
+    // "frei" den optimierten Modus -> Optimieren-Achse matt.
+    var _randVerh = sideData[activeSide].bandRandverhalten;
+    var _istFrei = (_randVerh === "frei");
+    matt("FRQ_bandWandLoFieldset", !_istFrei);
+    matt("FRQ_bandWandHiFieldset", !_istFrei);
+    // Optimieren-Achse (nur bei geometrisch/klassisch sichtbar, untere
+    // Zeile) bei "frei" matt -- der Wert wird dann zwingend als
+    // "optimiert" gerechnet (core.js _optimieren-Ableitung).
+    matt("FRQ_bandOptimierenFieldset", !(istKlassisch && _istFrei));
+
     // Bei den klassischen Verfahren die Optimieren-abhaengige
     // Ziel-Sichtbarkeit anwenden (wie bisher).
     if (istKlassisch) {
@@ -729,7 +741,12 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandZiel", function (v) {
     sideData[activeSide].bandZiel = v;
   });
-  _frqBandWahlInit("FRQ_bandRandverhalten", function (v) { sideData[activeSide].bandRandverhalten = v; });
+  _frqBandWahlInit("FRQ_bandRandverhalten", function (v) {
+    sideData[activeSide].bandRandverhalten = v;
+    // Matt-Zustaende (Wand-Auswahl, Optimieren-Achse) haengen am
+    // Randverhalten -> Sichtbarkeit sofort neu berechnen.
+    _frqBandAchsenSichtbarkeit();
+  });
   _frqBandWahlInit("FRQ_bandMinBreite", function (v) {
     sideData[activeSide].bandMinBreite = v;
   });

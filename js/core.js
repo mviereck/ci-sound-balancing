@@ -1103,8 +1103,11 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
       //              wird danach (Schritt 10) auf die Wand geklemmt.
       var _weitLo = wLo - Math.abs(wHi - wLo);   // eine Bandbreite unter der Wand
       var _weitHi = wHi + Math.abs(wHi - wLo);
-      var _loBound = (_rand === "abschneiden") ? _weitLo : wLo;
-      var _hiBound = (_rand === "abschneiden") ? _weitHi : wHi;
+      // "frei" nutzt denselben weiten Suchraum wie "abschneiden"
+      // (keine Wandschranke); Schritt 10 klemmt bei "frei" NICHT.
+      var _freiOderAbschn = (_rand === "abschneiden" || _rand === "frei");
+      var _loBound = _freiOderAbschn ? _weitLo : wLo;
+      var _hiBound = _freiOderAbschn ? _weitHi : wHi;
       alt = x[0];
       tern(0, _loBound, x[1] - Math.max(bMin[0], eps));
       maxDelta = Math.max(maxDelta, Math.abs(x[0] - alt));
@@ -1371,7 +1374,8 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
   // beide ab). Ohne Wand: nichts tun.
   var _klemmen = wand && typeof wand.loHz === "number"
     && typeof wand.hiHz === "number"
-    && !(_rand === "treffen");
+    && !(_rand === "treffen")
+    && !(_rand === "frei");
   var bands = [];
   for (var e = 0; e < kette.length; e++) {
     var loP = pairs[e].loP, hiP = pairs[e].hiP;
@@ -2214,8 +2218,14 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
         || (_sW && typeof _sW.bandVerfahren === "string" ? _sW.bandVerfahren : "geometrisch");
       var _topologie = _topologieArg
         || (_sW && typeof _sW.bandTopologie === "string" ? _sW.bandTopologie : "nahtlos");
+      // Randverhalten "frei" erzwingt den optimierten Modus (freie
+      // Randbestimmung gibt es nur im Optimierer). Der Feldwert
+      // bandOptimieren bleibt unberuehrt -- die UI zeigt den Zwang matt.
+      var _randVerh = (_sW && typeof _sW.bandRandverhalten === "string")
+        ? _sW.bandRandverhalten : "abschneiden";
       var _optimieren = (_optimierenArg === true)
-        || (_optimierenArg === undefined && _sW && _sW.bandOptimieren === "optimiert");
+        || (_optimierenArg === undefined && _sW && _sW.bandOptimieren === "optimiert")
+        || (_randVerh === "frei");
       var _ziel = (_zielArg === "summe") ? "summe"
         : (_zielArg === "minimax") ? "minimax"
         : (_sW && _sW.bandZiel === "summe" ? "summe" : "minimax");
@@ -2262,7 +2272,26 @@ function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, m
       // BA462: Bandgrenzen-Wand aus der GEWÄHLTEN, seitengebundenen Wand
       // (sideData[seite].bandWandLo/Hi). BA463: _sW bereits oben gesetzt.
       var _bandWand = null;
-      if (_sW && typeof _sW.bandWandLo === "number"
+      if (_randVerh === "frei") {
+        // Randverhalten "frei": KEINE feste Wand. Als Suchraum fuer den
+        // Optimierer die aeusserste GEHOERTE Frequenz +-1200 cent (eine
+        // Oktave Puffer). Weiter Suchraum engt nie ein (Architektur §5);
+        // der Klemm-/Schranken-Schritt wird bei "frei" uebersprungen
+        // (Schritt 6/7), daher wirkt die Suchraum-Wand nicht als Grenze.
+        var _aktHz = [];
+        for (var _mi = 0; _mi < mitten.length; _mi++) {
+          if (mitten[_mi] && mitten[_mi].aktiv && mitten[_mi].hz > 0)
+            _aktHz.push(mitten[_mi].hz);
+        }
+        if (_aktHz.length >= 1) {
+          var _minHz = Math.min.apply(null, _aktHz);
+          var _maxHz = Math.max.apply(null, _aktHz);
+          _bandWand = {
+            loHz: _minHz * Math.pow(2, -1200 / 1200),   // eine Oktave tiefer
+            hiHz: _maxHz * Math.pow(2,  1200 / 1200)     // eine Oktave hoeher
+          };
+        }
+      } else if (_sW && typeof _sW.bandWandLo === "number"
           && typeof _sW.bandWandHi === "number") {
         _bandWand = { loHz: _sW.bandWandLo, hiHz: _sW.bandWandHi };
       } else {
