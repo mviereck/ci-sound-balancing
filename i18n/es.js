@@ -908,6 +908,8 @@ Object.assign(L.es, {
     FRQ_bandPianoBtn:   "Reproducir tonos según el cálculo de bandas",
     FRQ_glaettPianoTitle: "Tonos según el suavizado",
     FRQ_bandPianoTitle:   "Tonos según el cálculo de bandas",
+    FRQ_bandGesamtbereich: "Rango de frecuencias total",
+    FRQ_bandBis: "a",
     cfgLabel: "Situación auditiva",
     cfgUnknown: "Sin indicar",
     mfrUnknown: "Sin indicar",

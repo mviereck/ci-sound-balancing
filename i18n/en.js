@@ -907,6 +907,8 @@ Object.assign(L.en, {
     FRQ_bandPianoBtn:   "Play tones as band-calculated",
     FRQ_glaettPianoTitle: "Tones as smoothed",
     FRQ_bandPianoTitle:   "Tones as band-calculated",
+    FRQ_bandGesamtbereich: "Total frequency range",
+    FRQ_bandBis: "to",
     cfgLabel: "Hearing situation",
     cfgUnknown: "Not specified",
     mfrUnknown: "Not specified",

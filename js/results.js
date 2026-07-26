@@ -1119,6 +1119,9 @@ function FRQ_empfWerte(nhSim, modusOverride) {
 function _FRQ_bandWandFuerGraph(side) {
   var s = sideData[side];
   if (!s) return null;
+  // Randverhalten "frei": keine feste Wand -> null, damit die Graph-
+  // X-Achse aus den berechneten Bandkanten spannt (Architektur §6a).
+  if (s.bandRandverhalten === "frei") return null;
   if (typeof s.bandWandLo === "number" && typeof s.bandWandHi === "number")
     return [s.bandWandLo, s.bandWandHi];
   var dr = (MFR[s.manufacturer]) ? MFR[s.manufacturer].defaultRange : null;
@@ -1445,6 +1448,31 @@ function _FRQ_renderBandEmpf(side) {
       note.style.display = ""; note.textContent = t("FRQ_bandEmpfOverlapNote");
     } else {
       note.style.display = "none"; note.textContent = "";
+    }
+  }
+
+  // Gesamtfrequenzbereich (aktive Seite): unterste bis oberste
+  // berechnete Bandkante ueber alle aktiven Elektroden mit gueltigem
+  // Band. Gleiche Wertquelle wie Graph/Tabelle (FRQ_empfWerte) ->
+  // keine Divergenz.
+  var _bereichEl = document.getElementById("FRQ_bandGesamtbereich");
+  if (_bereichEl) {
+    var _wB = FRQ_empfWerte(false);
+    var _loMin = Infinity, _hiMax = -Infinity;
+    for (var _bi = 0; _bi < _wB.length; _bi++) {
+      var _wbs = _wB[_bi] ? _wB[_bi][side] : null;
+      if (!_wbs || _wbs.bandLoHz == null || _wbs.bandHiHz == null) continue;
+      if (_wbs.bandLoHz < _loMin) _loMin = _wbs.bandLoHz;
+      if (_wbs.bandHiHz > _hiMax) _hiMax = _wbs.bandHiHz;
+    }
+    if (isFinite(_loMin) && isFinite(_hiMax)) {
+      _bereichEl.style.display = "";
+      _bereichEl.textContent = t("FRQ_bandGesamtbereich") + ": "
+        + fmtNum(_loMin, "hz") + " Hz " + t("FRQ_bandBis") + " "
+        + fmtNum(_hiMax, "hz") + " Hz";
+    } else {
+      _bereichEl.style.display = "none";
+      _bereichEl.textContent = "";
     }
   }
 }

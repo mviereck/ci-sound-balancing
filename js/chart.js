@@ -781,6 +781,17 @@ function drawFRQGraph(cv, rows, cfg) {
     ctx.fillText((tk.c >= 0 ? "+" : "") + Math.round(tk.c) + " ct", x, yScaleTop + 25);
   });
 
+  // Endpunkt-Beschriftung: Hz-Wert an den beiden Achsenenden (cMin/cMax).
+  // Das sind die tatsaechlichen X-Achsen-Grenzen -- bei Randverhalten
+  // "frei" die berechneten Bandgrenzen, sonst die feste Wand. REF_HZ ist
+  // im Funktions-Scope (oben definiert).
+  ctx.font = "9px Segoe UI,sans-serif"; ctx.fillStyle = "#000";
+  ctx.textAlign = "left";
+  ctx.fillText(Math.round(centToHz(cMin)) + " Hz", pad.left, yScaleTop + 14);
+  ctx.textAlign = "right";
+  ctx.fillText(Math.round(centToHz(cMax)) + " Hz", pad.left + pW, yScaleTop + 14);
+  ctx.textAlign = "center";   // Default fuer nachfolgenden Code wiederherstellen
+
   // --- Achsentitel (Y) ---
   ctx.fillStyle = "#000"; ctx.font = "10px Segoe UI,sans-serif"; ctx.textAlign = "center";
   ctx.save();

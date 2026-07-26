@@ -992,6 +992,8 @@ Object.assign(L.de, {
     FRQ_bandPianoBtn:   "Töne gemäß Bandberechnung abspielen",
     FRQ_glaettPianoTitle: "Töne gemäß Glättung",
     FRQ_bandPianoTitle:   "Töne gemäß Bandberechnung",
+    FRQ_bandGesamtbereich: "Gesamtfrequenzbereich",
+    FRQ_bandBis: "bis",
     cfgLabel: "Hörsituation",
     cfgUnknown: "Keine Angabe",
     mfrUnknown: "Keine Angabe",
