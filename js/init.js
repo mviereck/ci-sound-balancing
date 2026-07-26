@@ -672,8 +672,10 @@ document.addEventListener("DOMContentLoaded", () => {
      "FRQ_bandZielFieldset"].forEach(function (id) {
       show(id, istKlassisch);
     });
-    // BA526: Randverhalten ist gemeinsame Achse (Zeile 1) -- immer sichtbar.
+    // Randverhalten ist gemeinsame Achse (Zeile 1) -- immer sichtbar,
+    // aber bei sABF wirkungslos (eigene Rand-Logik) -> matt.
     show("FRQ_bandRandverhaltenFieldset", true);
+    matt("FRQ_bandRandverhaltenFieldset", !istAbf);
 
     // Zeile 2 (verfahrensspezifisch):
     show("FRQ_bandRandausgleichFieldset", istAbf);   // Randausgleich nur ABF
@@ -874,6 +876,11 @@ document.addEventListener("DOMContentLoaded", () => {
       var r = document.querySelector('input[name="' + w.group + '"][value="' + val + '"]');
       if (r) r.checked = true;
     });
+    // Wand-Radios (Unter-/Obergrenze) bei JEDEM Spiegel-/Render-Pfad neu
+    // aufbauen -- sonst bleiben sie verborgen, wenn der Hersteller ueber
+    // einen Pfad gesetzt wird, der _frqBandWandBuild nicht separat ruft
+    // (z.B. Datei-Restore). Idempotent.
+    _frqBandWandBuild();
     _frqBandAchsenSichtbarkeit();
     if (typeof _frqGlaettAchsenSichtbar === "function") _frqGlaettAchsenSichtbar();
   }
