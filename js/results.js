@@ -785,6 +785,7 @@ function FRQ_renderGlaettGraph() {
     linienfarbe: "gruen",       // BA484: yCent traegt hier die geglaettete Kurve
     zweitkurve: "blau",         // BA484: blaue Marker-Kurve = rohe Verschiebung
     amberband: false,
+    restspanne: false,          // Frequenzbaender-Reiter: keine Restspanne (nur Residuum)
     titel: "FRQ_titel_glaett",
     bewertung: "ampel",
     yMaxFest: FRQ_yMaxCent()    // BA485: gemeinsame Skala aus Rohdaten
@@ -792,7 +793,7 @@ function FRQ_renderGlaettGraph() {
   var _glHint = document.getElementById("FRQ_glaettChartHint");
   if (_glHint) {
     _glHint.innerHTML = FRQ_legendeHtml("glaett",
-      frqLegendData({ linienfarbe: "gruen", zweitkurve: "blau", amberband: false, bewertung: "ampel" }, rows));
+      frqLegendData({ linienfarbe: "gruen", zweitkurve: "blau", amberband: false, restspanne: false, bewertung: "ampel" }, rows));
   }
   if (!cv._frqg_listener) {
     cv.addEventListener("mousemove", function (e) { _frqg_tooltipHandler(cv, e); });
@@ -1311,6 +1312,7 @@ function _FRQ_renderBandEmpf(side) {
       zweitkurve: _blassFarben[0] || null,  // erste blasse Vergleichskurve
       drittkurve: _blassFarben[1] || null,  // zweite blasse Vergleichskurve
       amberband: false,
+      restspanne: false,          // Frequenzbaender-Reiter: keine Restspanne (nur Residuum)
       titel: "FRQ_titel_band",
       bewertung: "ampel",
       yMaxFest: FRQ_yMaxCent()    // BA485: gemeinsame Skala aus Rohdaten
@@ -1319,7 +1321,7 @@ function _FRQ_renderBandEmpf(side) {
     if (_bHint) {
       _bHint.innerHTML = FRQ_legendeHtml("band",
         frqLegendData({ linienfarbe: _kraeftigFarbe, zweitkurve: _blassFarben[0] || null,
-          drittkurve: _blassFarben[1] || null, amberband: false, bewertung: "ampel" }, _rows));
+          drittkurve: _blassFarben[1] || null, amberband: false, restspanne: false, bewertung: "ampel" }, _rows));
     }
     if (!_bcv._frqg_listener) {
       _bcv.addEventListener("mousemove", function (e) { _frqg_tooltipHandler(_bcv, e); });

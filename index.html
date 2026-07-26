@@ -971,26 +971,26 @@
           <div data-t="FRQ_glaettIntro" style="font-size:0.88em;margin:0 0 12px;color:var(--text-muted)"><p style="margin:0 0 8px">Die exakten Me&#223;werte bestm&#246;glich umzusetzen kann zu unregelm&#228;&#223;iger Frequenzbandverteilung f&#252;hren. Die Me&#223;wertkurve zu gl&#228;tten kann zu gleichm&#228;&#223;igerer Bandverteilung f&#252;hren.</p><ul style="margin:0 0 8px;padding-left:1.4em"><li>Die farbigen Punkte gr&#252;n/gelb/rot geben einen Hinweis, wie gut die Kurve Ihre Messung trifft.</li><li>Das Verfahren &#8222;Ortsaffin&#8220; und die Voreinstellung von &#8222;Polynom&#8220; bilden eine Ann&#228;herung an die Elektrodenpositionen und k&#246;nnen trotz Me&#223;wertabweichungen eventuell gut passen.</li><li>Die T-f&#246;rmigen Residuenbalken geben die Me&#223;ungenauigkeit an; je besser die Kurve durch die Residuen l&#228;uft, desto besser pa&#223;t sie zu Ihren Me&#223;ergebnissen.</li><li>Als problematisch markierte Elektroden (z.&#8239;B. verrauscht) d&#252;rfen sich in der Kurve stark ver&#228;ndern.</li><li>Nur MED-EL: Pr&#252;fen Sie, ob FSP-gesteuerte Elektroden richtig markiert sind &#8212; oder nehmen Sie &#252;ber die Achse &#8222;Randausschlu&#223;&#8220; apikale Randelektroden aus der Gl&#228;ttung heraus.</li></ul></div>
           <!-- Zeile 1: global, immer sichtbar -->
           <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
-            <fieldset id="FRQ_glaettGrundlageFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+            <fieldset id="FRQ_glaettGrundlageFieldset" class="dbg-only-block" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettGrundlageLegend" style="padding:0 6px">Gl&#228;ttungs-Grundlage</legend>
               <label style="display:block"><input type="radio" name="FRQ_glaettGrundlage" value="residuum"> <span data-t="FRQ_glaettGrundlageResiduum">Residuum-Bereich</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettGrundlage" value="restspanne"> <span data-t="FRQ_glaettGrundlageRestspanne">Restspanne</span></label>
             </fieldset>
-            <fieldset id="FRQ_glaettFormelFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+            <fieldset id="FRQ_glaettFormelFieldset" class="dbg-only-block" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettFormelLegend" style="padding:0 6px">Gewichts-Formel</legend>
               <label style="display:block"><input type="radio" name="FRQ_glaettFormel" value="linear"> <span data-t="FRQ_glaettFormelLinear">1/r</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettFormel" value="quadrat"> <span data-t="FRQ_glaettFormelQuadrat">1/r&#178;</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettFormel" value="quartisch"> <span data-t="FRQ_glaettFormelQuartisch">1/r&#8308;</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettFormel" value="gleich"> <span data-t="FRQ_glaettFormelGleich">alle gleich</span></label>
             </fieldset>
-            <fieldset id="FRQ_glaettBodenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+            <fieldset id="FRQ_glaettBodenFieldset" class="dbg-only-block" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettBodenLegend" style="padding:0 6px">Gewichts-Boden</legend>
               <label style="display:block"><input type="radio" name="FRQ_glaettBoden" value="2"> 2 ct</label>
               <label style="display:block"><input type="radio" name="FRQ_glaettBoden" value="5"> 5 ct</label>
               <label style="display:block"><input type="radio" name="FRQ_glaettBoden" value="10"> 10 ct</label>
               <label style="display:block"><input type="radio" name="FRQ_glaettBoden" value="20"> 20 ct</label>
             </fieldset>
-            <fieldset id="FRQ_glaettAnkerFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+            <fieldset id="FRQ_glaettAnkerFieldset" class="dbg-only-block" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettAnkerLegend" style="padding:0 6px">Steife-Kopplung</legend>
               <label style="display:block"><input type="radio" name="FRQ_glaettAnker" value="gekoppelt"> <span data-t="FRQ_glaettAnkerGekoppelt">an Gewicht gekoppelt</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettAnker" value="entkoppelt"> <span data-t="FRQ_glaettAnkerEntkoppelt">entkoppelt</span></label>
@@ -1009,7 +1009,7 @@
               <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="3"> <span data-t="FRQ_glaettRandfrei3">3 Elektroden</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="4"> <span data-t="FRQ_glaettRandfrei4">4 Elektroden</span></label>
             </fieldset>
-            <fieldset id="FRQ_glaettKFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+            <fieldset id="FRQ_glaettKFieldset" class="dbg-only-block" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettKLegend" style="padding:0 6px">Greenwood-k</legend>
               <label style="display:block"><input type="radio" name="FRQ_glaettK" value="0.88"> 0,88</label>
               <label style="display:block"><input type="radio" name="FRQ_glaettK" value="1.0"> 1,0</label>
@@ -1086,7 +1086,7 @@
                   <label style="display:block"><input type="radio" name="FRQ_bandLage" value="mitte"> <span data-t="FRQ_bandLageMitte">Mitte</span></label>
                   <label style="display:block"><input type="radio" name="FRQ_bandLage" value="innen"> <span data-t="FRQ_bandLageInnen">innen (Stakhovskaya, SG)</span></label>
                 </fieldset>
-                <fieldset id="FRQ_bandKFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <fieldset id="FRQ_bandKFieldset" class="dbg-only-block" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
                   <legend data-t="FRQ_bandKLegend" style="padding:0 6px">Greenwood-k</legend>
                   <label style="display:block"><input type="radio" name="FRQ_bandK" value="0.88"> 0.88</label>
                   <label style="display:block"><input type="radio" name="FRQ_bandK" value="1.0"> 1.0</label>

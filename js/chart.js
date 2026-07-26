@@ -657,7 +657,9 @@ function drawFRQGraph(cv, rows, cfg) {
     // Residuum ZUERST (schwarz, unten), dann Restspanne (blau, darueber) —
     // das Residuum-Band enthaelt die Restspanne, blau liegt sonst verdeckt.
     if (r.residUpCent > 0 || r.residDownCent > 0) _tBalken(ycAnker, r.residUpCent, r.residDownCent, "#000");
-    if (r.restspanneCent > 0) _tBalken(ycAnker, r.restspanneCent, r.restspanneCent, "#3b82f6");
+    // Restspanne (blau) nur zeichnen, wenn cfg.restspanne nicht explizit aus
+    // (Frequenzbaender-Reiter blendet sie aus; Meszergebnis-Graph behaelt sie).
+    if (cfg.restspanne !== false && r.restspanneCent > 0) _tBalken(ycAnker, r.restspanneCent, r.restspanneCent, "#3b82f6");
   });
 
   // ============================================================
@@ -844,7 +846,9 @@ function frqLegendData(cfg, rows) {
   el.push(mk("pfeil",         ampelWort,  "x"));
   el.push(mk("punkt",         ampelWort,  "y"));
   if (cfg.amberband) el.push(mk("band", "orange", "x"));
-  el.push(mk("querbalkBlau", "blau", "y"));
+  // Restspanne (blau) nur listen, wenn cfg.restspanne nicht explizit aus --
+  // parallel zur Zeichnung in drawFRQGraph (Legende zeigt genau das Bild).
+  if (cfg.restspanne !== false) el.push(mk("querbalkBlau", "blau", "y"));
   el.push(mk("querbalken", "schwarz", "y"));
 
   // Kurven (§8.5): eine kraeftige (cfg.linienfarbe, immer) + bis zu zwei

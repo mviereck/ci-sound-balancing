@@ -1446,6 +1446,11 @@ body.dbg-active .dbg-only { display: inline-block; }
 .wv-debug-only { display: none; }
 body.dbg-active .wv-debug-only { display: block; }
 
+/* Block-Elemente (z.B. Fieldsets) nur im Debug-Modus sichtbar. revert stellt
+ * im aktiven Zustand das urspruengliche Layout wieder her (auch Flex-Items). */
+.dbg-only-block { display: none; }
+body.dbg-active .dbg-only-block { display: revert; }
+
 .dbg-panel {
   position: fixed;
   top: 0;
