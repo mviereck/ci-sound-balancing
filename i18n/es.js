@@ -853,7 +853,6 @@ Object.assign(L.es, {
     FRQ_bandVerfahrenLegend: "Método de cálculo",
     FRQ_bandVerfCbf: "CBF (CImbel based fitting)",
     FRQ_bandVerfGeom: "Geométrico",
-    FRQ_bandVerfArith: "Aritmético",
     FRQ_bandLageLegend: "Posición del electrodo",
     FRQ_bandKLegend: "k de Greenwood",
     FRQ_bandLageGeom:   "geométrico (log)",

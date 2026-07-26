@@ -653,8 +653,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var v = sideData[activeSide].bandVerfahren;
     var istAbf = (v === "abf");
     var istCbf = (v === "cbf");
-    var istFbf = (v === "fbf");
-    var istKlassisch = !(istAbf || istCbf || istFbf);
+    var istKlassisch = !(istAbf || istCbf);
 
     function show(id, on) {
       var el = document.getElementById(id);
@@ -668,7 +667,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Zeile 2, verfahrensspezifisch (klassische Verfahren): Topologie/
-    // Optimieren/Ziel nur bei geometrisch/arithmetisch, bei abf/cbf/fbf aus.
+    // Optimieren/Ziel nur bei geometrisch, bei abf/cbf aus.
     ["FRQ_bandTopologieFieldset", "FRQ_bandOptimierenFieldset",
      "FRQ_bandZielFieldset"].forEach(function (id) {
       show(id, istKlassisch);

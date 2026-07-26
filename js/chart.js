@@ -614,9 +614,7 @@ function drawFRQGraph(cv, rows, cfg) {
   }
 
   // ============================================================
-  // (9a) KONSISTENZ-LINIE: ausgeblendet (Anzeige entfernt auf Wunsch).
-  //      Die Berechnung von konsistenzCent (results.js) bleibt erhalten,
-  //      nur die violette gestrichelte Linie wird nicht mehr gezeichnet.
+  // (9a) KONSISTENZ-LINIE: entfernt (FBF-Verfahren entfernt, BA529).
   // ============================================================
 
   // ============================================================
@@ -695,9 +693,7 @@ function drawFRQGraph(cv, rows, cfg) {
   }
 
   // ============================================================
-  // (4a) KONSISTENZ-RAUTE: ausgeblendet (Anzeige entfernt auf Wunsch).
-  //      Die Berechnung von konsistenzCent (results.js) bleibt erhalten,
-  //      nur die violetten offenen Rauten werden nicht mehr gezeichnet.
+  // (4a) KONSISTENZ-RAUTE: entfernt (FBF-Verfahren entfernt, BA529).
   // ============================================================
 
   // ============================================================
