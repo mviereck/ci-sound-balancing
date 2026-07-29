@@ -625,16 +625,10 @@ Object.assign(L.fr, {
     cfgHintBothAcoustic:
       "<b>Outil non prévu pour un appareillage purement acoustique.</b> Ce Sound Balancing Tool s'adresse aux porteurs d'implant cochléaire et nécessite au moins un côté IC. Si vous êtes appareillé acoustiquement des deux côtés, la mesure, les curseurs et le Player ne sont pas applicables ici. (Une future version du programme pourrait prendre en charge des mesures pour un appareillage acoustique bilatéral.)",
     FRQ_title: "Appariement fréquentiel Gauche/Droite",
-    FRQ_maturityHint:
-      "Le test au piano actuellement implémenté devrait bien fonctionner et fournir des résultats fiables. Il n'a toutefois encore été que peu éprouvé en pratique." +
-      "<ul>" +
-      "<li>Pour les porteurs de deux IC, il devrait déjà bien fonctionner.</li>" +
-      "<li>Pour les porteurs d'un seul IC, la perception très différente des sons est particulièrement problématique : elle rend la comparabilité difficile et peut fausser les résultats de mesure.</li>" +
-      "</ul>",
-    FRQ_hintWarn:
-      "Veillez à choisir le bon côté de référence : celui avec une audition naturelle.",
-    FRQ_hintWarnBothCI:
-      "Veillez à choisir « symétrique » comme côté de référence. Les fréquences dans les deux IC sont alors modifiées de la même manière pendant le test, afin de minimiser la stimulation involontaire des électrodes voisines.",
+    FRQ_maturityHint: "Ce test est déjà bien abouti et produit des résultats reproductibles.",
+    FRQ_bandExperimentalHint:
+      "Le calcul des bandes de fréquence est encore expérimental et en cours de développement.<br>" +
+      "Pour l'instant, l'impression destinée à l'audiologiste ne montre que les résultats de mesure de l'appariement fréquentiel.",
     FRQ_groupBothCi:     "IC bilatéral",
     FRQ_groupCiAcoustic: "IC avec audition acoustique controlatérale",
     FRQ_hintMethod:
@@ -646,7 +640,6 @@ Object.assign(L.fr, {
     FRQ_hintMethodCiNatural:
       "Ce test compare les hauteurs tonales gauche et droite.<br>" +
       "• Le but du test est de déterminer la fréquence réellement stimulée des électrodes IC.<br>" +
-      "• Réglez l'oreille avec laquelle vous entendez naturellement comme oreille de référence. Cela vaut aussi bien pour les malentendants que pour les normo-entendants.<br>" +
       "• Sur la base du résultat du test, les fréquences centrales des électrodes dans l'IC peuvent être réajustées, de sorte que les hauteurs tonales correspondent à une audition naturelle.",
     FRQ_hintMethodBothCI:
       "Ce test compare les hauteurs tonales gauche et droite.<br>" +

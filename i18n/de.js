@@ -674,16 +674,10 @@ Object.assign(L.de, {
     cfgHintBothAcoustic:
       "<b>Tool nicht für rein akustische Versorgung vorgesehen.</b> Dieses Sound Balancing Tool richtet sich an Cochlea-Implantat-Träger und benötigt mindestens eine CI-Seite. Wenn Sie beide Seiten akustisch versorgt haben, sind Messung, Schieber und Player hier nicht anwendbar. (Eine spätere Programmversion könnte Messungen für beidseitig akustische Versorgung unterstützen.)",
     FRQ_title: "Frequenzabgleich Links/Rechts",
-    FRQ_maturityHint:
-      "Der aktuell implementierte Klaviertest sollte gut funktionieren und zuverlässige Ergebnisse liefern. Er ist jedoch erst wenig in der Praxis erprobt." +
-      "<ul>" +
-      "<li>Für Träger von 2 CI sollte er bereits gut funktionieren.</li>" +
-      "<li>Für Träger mit nur 1 CI ist insbesondere die sehr unterschiedliche Wahrnehmung von Tönen problematisch, die Vergleichbarkeit schwierig macht und die Meßergebnisse verfälschen kann.</li>" +
-      "</ul>",
-    FRQ_hintWarn:
-      "Achten Sie darauf, die richtige Referenzseite auszuwählen: die mit natürlichem Gehör.",
-    FRQ_hintWarnBothCI:
-      "Achten Sie darauf, als Referenzseite 'symmetrisch' auszuwählen. Dabei werden die Frequenzen in beiden CI beim Test gleichermaßen verändert, um das ungewollte Ansprechen von Nachbarelektroden zu minimieren.",
+    FRQ_maturityHint: "Dieser Test ist bereits gut ausgereift und erzeugt reproduzierbare Ergebnisse.",
+    FRQ_bandExperimentalHint:
+      "Das Berechnen von Frequenzbändern ist noch experimentell und in Entwicklung.<br>" +
+      "Im Ausdruck für den Audiologen erscheinen vorerst nur die Meßergebnisse vom Frequenzabgleich.",
     FRQ_groupBothCi:     "Bei beidseitigem CI",
     FRQ_groupCiAcoustic: "Bei CI mit akustisch hörender Gegenseite",
     FRQ_hintMethod:
@@ -695,7 +689,6 @@ Object.assign(L.de, {
     FRQ_hintMethodCiNatural:
       "Dieser Test vergleicht die Tonhöhen links und rechts.<br>" +
       "• Ziel des Testes ist es, die tatsächlich stimulierte Frequenz der CI-Elektroden festzustellen.<br>" +
-      "• Stellen Sie das Ohr, auf dem Sie natürlich hören, als Referenzohr ein. Das gilt für schwerhörig ebenso wie für normalhörend.<br>" +
       "• Auf Basis des Testergebnisses können die Mittenfrequenzen der Elektroden im CI neu eingestellt werden, so daß die Tonhöhen natürlichem Hören entsprechen.",
     FRQ_hintMethodBothCI:
       "Dieser Test vergleicht die Tonhöhen links und rechts.<br>" +

@@ -58,11 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof LTZ_updateIntervalHint === "function") LTZ_updateIntervalHint();
     // Warp-UI-Texte
     _pWarpApplyLangTexts();
-    // Druck-Knöpfe Kurven- und Schieber-Tab
+    // Druck-Knöpfe Kurven-, Schieber- und Frequenzbänder-Tab
     const _pkb = document.getElementById("printKurvenELLBtn");
     if (_pkb) _pkb.title = t("printBtn");
     const _psb = document.getElementById("printSchieberELLBtn");
     if (_psb) _psb.title = t("printBtn");
+    const _pfb = document.getElementById("printFrequenzbaenderBtn");
+    if (_pfb) _pfb.title = t("printBtn");
   };
 
   // ---- Warp i18n Hilfsfunktion (Modus-Dropdown) ----
@@ -212,6 +214,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (printSchieberELLBtn) {
     printSchieberELLBtn.title = t("printBtn");
     printSchieberELLBtn.addEventListener("click", printSchieberELLTab);
+  }
+  const printFrequenzbaenderBtn = document.getElementById("printFrequenzbaenderBtn");
+  if (printFrequenzbaenderBtn) {
+    printFrequenzbaenderBtn.title = t("printBtn");
+    printFrequenzbaenderBtn.addEventListener("click", printFrequenzbaenderTab);
   }
   document.getElementById("fPrintBtn").addEventListener("click", () => {
     const data = collectArchivData();

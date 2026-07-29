@@ -253,6 +253,11 @@ function _switchTabInternal(n) {
     plCheck();
   }
   if (n === "frequenzbaender") {
+    // Oberen Glaettungsgraphen beim Reiter-Eintritt neu zeichnen: der
+    // Init-Render (init.js) lief bei verstecktem Reiter -> clientWidth ~0
+    // -> gestaucht, bis der Tooltip-Handler ihn spaeter neu zeichnet.
+    // Jetzt ist der Reiter sichtbar; Breite stimmt (auch fuer den Druck).
+    if (typeof _frqGlaettUpdate === "function") _frqGlaettUpdate();
     if (typeof FRQ_renderBaenderTab === "function") FRQ_renderBaenderTab();
   }
   if (n === "kurven") {

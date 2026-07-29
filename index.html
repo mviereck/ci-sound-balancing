@@ -939,6 +939,14 @@
 
       <!-- ===== FREQUENZBÄNDER ===== -->
       <div id="panel-frequenzbaender" class="panel">
+        <div style="display:flex;justify-content:flex-end;margin-bottom:4px;">
+          <button class="btn" id="printFrequenzbaenderBtn"
+                  style="padding:4px 10px;font-size:0.9em;">
+            🖨 <span data-t="printBtn"></span>
+          </button>
+        </div>
+        <!-- Experimentell-Hinweis, dauerhaft ganz oben -->
+        <p class="explain explain-error" data-t="FRQ_bandExperimentalHint" style="margin-top:0"></p>
         <!-- BA506: Hinweis, wenn aktive Seite kein CI ist (alle Karten aus) -->
         <div class="card" id="FRQ_noCiHint" style="display:none">
           <p data-t="FRQ_noCiHint" style="margin:0"></p>

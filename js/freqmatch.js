@@ -1110,7 +1110,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Schwere-Sortierung gemischt zu werden.
       preserveOrder: true,
       paragraphs: [
-        { key: 'FRQ_maturityHint',         kind: 'caution' },
+        { key: 'FRQ_maturityHint',         kind: 'info' },
 
         // Warn-Absaetze, deren Sichtbarkeit dynamisch umgeschaltet wird
         // (Initial hidden=true; testUI.explain.setVisible blendet bei Bedarf ein).
@@ -1125,12 +1125,10 @@ document.addEventListener("DOMContentLoaded", () => {
         // Gruppe 1: beidseitiges CI.
         { key: 'FRQ_groupBothCi',          kind: 'heading' },
         { key: 'FRQ_hintMethodBothCI',     kind: 'plain' },
-        { key: 'FRQ_hintWarnBothCI',       kind: 'caution' },
 
         // Gruppe 2: CI + akustische Gegenseite.
         { key: 'FRQ_groupCiAcoustic',      kind: 'heading' },
         { key: 'FRQ_hintMethodCiNatural',  kind: 'plain' },
-        { key: 'FRQ_hintWarn',             kind: 'caution' },
 
         // BA364: Vor-Schaetzung/Adaptiv-Workflow im Klavier-only-Betrieb aus.
         { key: 'FRQ_hintWorkflow',         kind: 'plain', id: 'FRQ_hintWorkflowPara',

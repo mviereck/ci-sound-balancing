@@ -156,6 +156,19 @@ function _printCloneSafe(rootSelector) {
   if (!root) return "";
   const clone = root.cloneNode(true);
 
+  // Im Original unsichtbare Elemente (display:none) aus dem Klon
+  // entfernen — sonst landen ausgeblendete Hinweise/Karten im Druck.
+  // Klon und Original haben dieselbe Knotenreihenfolge, daher paarweise.
+  const origAll  = root.querySelectorAll("*");
+  const cloneAll = clone.querySelectorAll("*");
+  for (let i = 0; i < origAll.length && i < cloneAll.length; i++) {
+    if (origAll[i].offsetParent === null &&
+        getComputedStyle(origAll[i]).display === "none" &&
+        cloneAll[i].parentNode) {
+      cloneAll[i].remove();
+    }
+  }
+
   // Inputs/Selects: aktuellen Wert als Text-Span einsetzen, dann
   // entfernen. So bleibt die gedruckte Tabelle vollständig.
   const origInputs = root.querySelectorAll("input, select");
@@ -266,6 +279,12 @@ function printKurvenELLTab() {
   const presetHtml = _buildPresetCardPrint();
   const body = chartCard + '<div style="margin-top:16px;"></div>' + presetHtml;
   openPrintWindow(t("tabKurven") || "Kurven", body);
+}
+
+// --- Frequenzbänder-Tab ---
+function printFrequenzbaenderTab() {
+  const body = _printCloneSafe('#panel-frequenzbaender');
+  openPrintWindow(t("tabFrequenzbaender") || "Frequenzbänder", body);
 }
 
 // --- Schieber-Tab ---

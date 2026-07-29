@@ -625,16 +625,10 @@ Object.assign(L.es, {
     cfgHintBothAcoustic:
       "<b>Herramienta no prevista para provisión puramente acústica.</b> Este Sound Balancing Tool está dirigido a portadores de implante coclear y necesita al menos un lado con IC. Si tiene ambos lados con provisión acústica, las funciones de medición, deslizadores y reproductor no son aplicables aquí. (Una versión futura del programa podría admitir mediciones para provisión acústica bilateral.)",
     FRQ_title: "Ajuste de frecuencia Izquierda/Derecha",
-    FRQ_maturityHint:
-      "La prueba de piano actualmente implementada debería funcionar bien y ofrecer resultados fiables. No obstante, todavía se ha probado poco en la práctica." +
-      "<ul>" +
-      "<li>Para portadores de dos IC ya debería funcionar bien.</li>" +
-      "<li>Para portadores de un solo IC resulta especialmente problemática la percepción muy distinta de los tonos, lo que dificulta la comparabilidad y puede falsear los resultados de medición.</li>" +
-      "</ul>",
-    FRQ_hintWarn:
-      "Asegúrese de elegir el lado de referencia correcto: el de audición natural.",
-    FRQ_hintWarnBothCI:
-      "Asegúrese de seleccionar como lado de referencia «simétrico». Así las frecuencias se modifican por igual en ambos IC durante la prueba, para minimizar la activación no deseada de electrodos vecinos.",
+    FRQ_maturityHint: "Esta prueba ya está bien desarrollada y produce resultados reproducibles.",
+    FRQ_bandExperimentalHint:
+      "El cálculo de bandas de frecuencia todavía es experimental y está en desarrollo.<br>" +
+      "Por ahora, la impresión para el audiólogo muestra solo los resultados de medición del ajuste de frecuencia.",
     FRQ_groupBothCi:     "IC bilateral",
     FRQ_groupCiAcoustic: "IC con audición acústica contralateral",
     FRQ_hintMethod:
@@ -646,7 +640,6 @@ Object.assign(L.es, {
     FRQ_hintMethodCiNatural:
       "Esta prueba compara las alturas tonales de izquierda y derecha.<br>" +
       "• El objetivo de la prueba es determinar la frecuencia realmente estimulada de los electrodos del IC.<br>" +
-      "• Establezca como oído de referencia el oído en el que oye de forma natural. Esto vale tanto para hipoacusia como para audición normal.<br>" +
       "• A partir del resultado de la prueba se pueden reajustar las frecuencias centrales de los electrodos en el IC, de modo que las alturas tonales correspondan a la audición natural.",
     FRQ_hintMethodBothCI:
       "Esta prueba compara las alturas tonales de izquierda y derecha.<br>" +

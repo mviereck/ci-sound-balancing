@@ -624,16 +624,10 @@ Object.assign(L.en, {
     cfgHintBothAcoustic:
       "<b>Tool not intended for purely acoustic provision.</b> This Sound Balancing Tool is aimed at cochlear implant users and requires at least one CI side. If both sides are acoustically supplied, the measurement, sliders and player are not applicable here. (A future program version could support measurements for bilaterally acoustic provision.)",
     FRQ_title: "Frequency matching left/right",
-    FRQ_maturityHint:
-      "The currently implemented piano test should work well and provide reliable results. However, it has only been tried out to a limited extent in practice." +
-      "<ul>" +
-      "<li>For bilateral CI users (two CIs), it should already work well.</li>" +
-      "<li>For users with only one CI, the very different perception of tones is particularly problematic, making comparability difficult and potentially distorting the measurement results.</li>" +
-      "</ul>",
-    FRQ_hintWarn:
-      "Make sure to select the correct reference side: the one with natural hearing.",
-    FRQ_hintWarnBothCI:
-      "Make sure to select ‘symmetrical’ as the reference side. The frequencies in both CIs are then changed equally during the test to minimize the unwanted response of neighboring electrodes.",
+    FRQ_maturityHint: "This test is already well developed and produces reproducible results.",
+    FRQ_bandExperimentalHint:
+      "Calculating frequency bands is still experimental and under development.<br>" +
+      "For now, the printout for the audiologist shows only the frequency-matching measurement results.",
     FRQ_groupBothCi:     "Bilateral CI",
     FRQ_groupCiAcoustic: "CI paired with acoustic hearing",
     FRQ_hintMethod:
@@ -645,7 +639,6 @@ Object.assign(L.en, {
     FRQ_hintMethodCiNatural:
       "This test compares the pitches on the left and right.<br>" +
       "• The goal of the test is to determine the actual stimulated frequency of the CI electrodes.<br>" +
-      "• Set the ear on which you hear naturally as the reference ear. This applies to both hard of hearing and normal hearing.<br>" +
       "• Based on the test result, the center frequencies of the electrodes in the CI can be readjusted so that the pitches correspond to natural hearing.",
     FRQ_hintMethodBothCI:
       "This test compares the pitches on the left and right.<br>" +
