@@ -32,7 +32,7 @@ function _mdFmtDb(v, withSign) {
 
 function _mdFmtHz(v) {
   if (v == null || !isFinite(v)) return "—";
-  return `${Math.round(v)} Hz`;
+  return `${fmtNum(v, "hz")} Hz`;
 }
 
 function _mdBilateralLabel() {
@@ -602,7 +602,7 @@ function _archivMdFRQ(sd) {
   out.push("|---|---|");
   let hasProv = false;
   for (const r of sd.freqmatch.rows) {
-    const centStr = `${r.cent >= 0 ? "+" : ""}${Math.round(r.cent)} ¢`;
+    const centStr = `${r.cent >= 0 ? "+" : ""}${fmtNum(r.cent, "cent")} ¢`;
     const lbl = r.provisional ? `${r.elLabel} *` : r.elLabel;
     if (r.provisional) hasProv = true;
     out.push(`| ${lbl} | ${centStr} |`);
@@ -803,7 +803,7 @@ function _audUnitAbs(v, unit) {
 function _audCent(varHz, refHz) {
   if (!isFinite(varHz) || !isFinite(refHz) || varHz <= 0 || refHz <= 0) return "—";
   const c = 1200 * Math.log2(refHz / varHz);
-  return `${c >= 0 ? "+" : ""}${Math.round(c)} cent`;
+  return `${c >= 0 ? "+" : ""}${fmtNum(c, "cent")} cent`;
 }
 
 function _audStatusText(side, i) {
@@ -938,7 +938,7 @@ function _audiologFreqTable(side) {
     if (z.kind === "notActive") {
       // Deaktivierte Elektrode: Nominal-Hz angezeigt, Rest "—", Status
       // "deaktiviert" (wie im Reiter).
-      const nomD = (z.nominellHz != null) ? z.nominellHz.toFixed(2) : "—";
+      const nomD = (z.nominellHz != null) ? fmtNum(z.nominellHz, "hz") : "—";
       lines.push("| " + z.elLabel + " | " + nomD + " | — | — | — | — | — | "
         + t("FRQ_resultsStatusNotActive") + " |");
       continue;
@@ -949,12 +949,12 @@ function _audiologFreqTable(side) {
     }
     let nomC = dashMd, perC = dashMd, dHzC = dashMd, dCtC = dashMd, restsC = dashMd, resC = dashMd;
     if (z.gehoertHz != null && z.diffCent != null) {
-      nomC = z.nominellHz.toFixed(2);
-      perC = z.gehoertHz.toFixed(2);
-      dHzC = (z.diffHz >= 0 ? "+" : "") + z.diffHz.toFixed(2);
+      nomC = fmtNum(z.nominellHz, "hz");
+      perC = fmtNum(z.gehoertHz, "hz");
+      dHzC = (z.diffHz >= 0 ? "+" : "") + fmtNum(z.diffHz, "hz");
       dCtC = (z.diffCent >= 0 ? "+" : "") + fmtNum(z.diffCent, "cent");
     } else if (z.nominellHz != null) {
-      nomC = z.nominellHz.toFixed(2);
+      nomC = fmtNum(z.nominellHz, "hz");
     }
     if (z.restspanne != null) restsC = "±" + Math.round(z.restspanne) + " ct";
     if (z.residDown != null && z.residUp != null) {

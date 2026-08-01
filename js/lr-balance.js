@@ -26,7 +26,7 @@ function _lrSliderVal() {
   if (!STB_els) return 0;
   var sl = STB_els.verfahren && STB_els.verfahren.stereobalance
     && STB_els.verfahren.stereobalance.slider && STB_els.verfahren.stereobalance.slider.input;
-  return sl ? parseFloat(sl.value) : 0;
+  return sl ? parseNum(sl.value) : 0;
 }
 
 function _lrUpdCumulative(v) {
@@ -1002,7 +1002,7 @@ document.addEventListener("DOMContentLoaded", function() {
     && STB_els.verfahren.stereobalance.slider && STB_els.verfahren.stereobalance.slider.input;
   if (slInput) {
     slInput.addEventListener('input', function() {
-      _lrUpdCumulative(parseFloat(this.value));
+      _lrUpdCumulative(parseNum(this.value));
     });
   }
 

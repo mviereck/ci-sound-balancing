@@ -936,7 +936,7 @@ function FRQ_renderResults() {
       // anderen Spalten "—", Status "deaktiviert". (Zeile nicht mehr
       // pauschal transparent — nur die Nominal-Zelle ist grau.)
       const nomCell = (z.nominellHz != null)
-        ? "<span style=\"" + grey + "\">" + z.nominellHz.toFixed(2) + "</span>"
+        ? "<span style=\"" + grey + "\">" + fmtNum(z.nominellHz, "hz") + "</span>"
         : "—";
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
@@ -959,14 +959,14 @@ function FRQ_renderResults() {
     // kind === "data"
     let nomHzCell, percHzCell, diffHzCell, diffCtCell;
     if (z.gehoertHz == null || z.diffCent == null) {
-      nomHzCell  = (z.nominellHz != null) ? z.nominellHz.toFixed(2) : dash;
+      nomHzCell  = (z.nominellHz != null) ? fmtNum(z.nominellHz, "hz") : dash;
       percHzCell = dash; diffHzCell = dash; diffCtCell = dash;
     } else {
       // Nachbesserung 435.1: Diff-Spalten schwarz, keine +/-Farbunterscheidung
       // mehr. Vorzeichen bleibt erhalten (schwarze Tabellenschrift).
-      nomHzCell  = z.nominellHz.toFixed(2);
-      percHzCell = z.gehoertHz.toFixed(2);
-      diffHzCell = (z.diffHz >= 0 ? "+" : "") + z.diffHz.toFixed(2);
+      nomHzCell  = fmtNum(z.nominellHz, "hz");
+      percHzCell = fmtNum(z.gehoertHz, "hz");
+      diffHzCell = (z.diffHz >= 0 ? "+" : "") + fmtNum(z.diffHz, "hz");
       diffCtCell = (z.diffCent >= 0 ? "+" : "") + fmtNum(z.diffCent, "cent");
     }
     // Restspanne: symmetrisch, +/-X ct (frueheres Residuum).

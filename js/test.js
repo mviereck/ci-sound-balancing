@@ -835,7 +835,7 @@ var _ell_tpModalTone  = null;
 function _ell_sliderVal() {
   var vref = ELL_testEls && ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
   return (vref && vref.slider && vref.slider.input)
-    ? parseFloat(vref.slider.input.value) : 0;
+    ? parseNum(vref.slider.input.value) : 0;
 }
 
 

@@ -256,7 +256,7 @@ function buildImplantCard() {
   if (ci)
     ci.onchange = function () {
       sideData[activeSide].implant.cValue =
-        this.value !== "" ? parseFloat(this.value) : null;
+        this.value !== "" ? parseNum(this.value) : null;
       if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
       if (typeof pMaplawTrigger === "function" && pMaplawOn) pMaplawTrigger();
       if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
@@ -290,7 +290,7 @@ function buildImplantCard() {
   if (ii)
     ii.onchange = function () {
       sideData[activeSide].implant.idr =
-        this.value !== "" ? parseFloat(this.value) : null;
+        this.value !== "" ? parseNum(this.value) : null;
       if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
     };
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();

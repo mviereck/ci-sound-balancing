@@ -100,8 +100,8 @@ function FRQ_implantatTableBuild() {
     const isExcl  = elExDur[i] !== null;
     // BA 164: Aktivitäts-Status aus globaler elActive
     const isDeact = (elActive && elActive[i] === false);
-    const stdHz   = Math.round(FRQ_implantat[i]);
-    const ownVal  = FRQ_implantatOwn[i] != null ? Math.round(FRQ_implantatOwn[i]) : "";
+    const stdHz   = fmtNum(FRQ_implantat[i], "hz");
+    const ownVal  = FRQ_implantatOwn[i] != null ? fmtNum(FRQ_implantatOwn[i], "hz") : "";
     const thrVal  =
       im.thr && im.thr[i] !== null && im.thr[i] !== undefined ? im.thr[i] : "";
     const upperVal = isMedel
@@ -156,14 +156,14 @@ function FRQ_implantatTableBuild() {
   tb.querySelectorAll(".fo").forEach((inp) =>
     inp.addEventListener("change", (e) => {
       const i = +e.target.dataset.i,
-        v = parseFloat(e.target.value);
+        v = parseNum(e.target.value);
       if (e.target.value === "" || isNaN(v)) {
         FRQ_implantatOwn[i] = null;
         e.target.value = "";
       } else if (v >= 20 && v <= 20000) {
         FRQ_implantatOwn[i] = v;
       } else {
-        e.target.value = FRQ_implantatOwn[i] != null ? Math.round(FRQ_implantatOwn[i]) : "";
+        e.target.value = FRQ_implantatOwn[i] != null ? fmtNum(FRQ_implantatOwn[i], "hz") : "";
         return; // ungültiger Wert: keine Updates
       }
       // BA 169: schmale Hinweise-Aktualisierung statt voller Rebuild.
@@ -211,7 +211,7 @@ function FRQ_implantatTableBuild() {
   tb.querySelectorAll(".it").forEach((inp) =>
     inp.addEventListener("change", (e) => {
       const idx = +e.target.dataset.i;
-      const v = e.target.value !== "" ? parseFloat(e.target.value) : null;
+      const v = e.target.value !== "" ? parseNum(e.target.value) : null;
       if (!sideData[activeSide].implant) return;
       sideData[activeSide].implant.thr[idx] = v;
       if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
@@ -221,7 +221,7 @@ function FRQ_implantatTableBuild() {
   tb.querySelectorAll(".iu").forEach((inp) =>
     inp.addEventListener("change", (e) => {
       const idx = +e.target.dataset.i;
-      const v = e.target.value !== "" ? parseFloat(e.target.value) : null;
+      const v = e.target.value !== "" ? parseNum(e.target.value) : null;
       const im2 = sideData[activeSide].implant;
       if (!im2) return;
       if (mfr === "medel") im2.mcl[idx] = v;

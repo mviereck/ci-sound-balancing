@@ -303,7 +303,7 @@ let ltz_volume = 75;         // 0..100, eigener Lautstärkewert (Test-lokal)
 function _ltz_getVolumeFactor() {
   // 0..1, fallback 0.5
   const v = (LTZ_els && LTZ_els.header && LTZ_els.header.volInput)
-    ? parseFloat(LTZ_els.header.volInput.value) : ltz_volume;
+    ? parseNum(LTZ_els.header.volInput.value) : ltz_volume;
   if (!isFinite(v)) return 0.5;
   return Math.max(0, Math.min(100, v)) / 100;
 }
@@ -567,7 +567,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if (LTZ_els.header && LTZ_els.header.volInput) {
     LTZ_els.header.volInput.value = String(ltz_volume);
     LTZ_els.header.volInput.addEventListener('change', function() {
-      ltz_volume = parseFloat(LTZ_els.header.volInput.value) || 50;
+      ltz_volume = parseNum(LTZ_els.header.volInput.value) || 50;
       // Wenn der Test läuft: Gains live nachziehen
       if (LTZ_active && ltz_balGainL && ltz_balGainR) {
         const balG = (typeof STB_rawGains === "function")

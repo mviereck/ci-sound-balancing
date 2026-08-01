@@ -304,7 +304,7 @@ function kurvenELLTabelleBauen() {
     inp.addEventListener("change", function () {
       const pi = +this.dataset.pi;
       const oldVal = kurvenELL[pi].strength;
-      const newVal = Math.max(-20, Math.min(20, parseFloat(this.value) || 0));
+      const newVal = Math.max(-20, Math.min(20, parseNum(this.value) || 0));
       const delta = newVal - oldVal;
       kurvenELL[pi].strength = newVal;
       this.value = newVal.toFixed(1);
@@ -339,7 +339,7 @@ function kurvenELLTabelleBauen() {
   tbl.querySelectorAll(".kurven-ell-ctr").forEach((inp) =>
     inp.addEventListener("change", function () {
       const pi = +this.dataset.pi;
-      let v = parseFloat(this.value);
+      let v = parseNum(this.value);
       if (!isFinite(v) || v < 50) v = 50;
       if (v > 20000) v = 20000;
       kurvenELL[pi].center = v;
@@ -357,7 +357,7 @@ function kurvenELLTabelleBauen() {
   tbl.querySelectorAll(".kurven-ell-wid").forEach((inp) =>
     inp.addEventListener("change", function () {
       const pi = +this.dataset.pi;
-      let v = parseFloat(this.value);
+      let v = parseNum(this.value);
       if (!isFinite(v) || v < 50) v = 50;
       if (v > 4800) v = 4800;
       kurvenELL[pi].width = v;

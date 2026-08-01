@@ -169,11 +169,11 @@ function _wv_renderTable(rows, modus, nhSim) {
   body.innerHTML = rows.map(function (r) {
     return "<tr>" +
       "<td>E" + r.el + "</td>" +
-      "<td>" + r.gehoert.toFixed(1) + "</td>" +
-      "<td>" + r.nominell.toFixed(1) + "</td>" +
-      "<td>" + r.gemessen.toFixed(1) + "</td>" +
+      "<td>" + fmtNum(r.gehoert, "hz") + "</td>" +
+      "<td>" + fmtNum(r.nominell, "hz") + "</td>" +
+      "<td>" + fmtNum(r.gemessen, "hz") + "</td>" +
       "<td style='color:" + (r.ok ? "#16a34a" : "#dc2626") + "'>" +
-        (r.dCent >= 0 ? "+" : "") + r.dCent.toFixed(1) + "</td>" +
+        (r.dCent >= 0 ? "+" : "") + fmtNum(r.dCent, "cent") + "</td>" +
       "<td style='text-align:center'>" + (r.ok ? "✓" : "✗") + "</td>" +
       "<td style='font-size:.82em'>" + (r.status || "—") + "</td>" +
       "</tr>";

@@ -260,12 +260,16 @@ function centToHz(c) {
   return CENT_REF_HZ * Math.pow(2, c / 1200);
 }
 // ============================================================
-// ZENTRALER ZAHLEN-AUSGABE-HELFER (BA432, §10)
-// EINE Stelle, ueber die alle Zahlenausgaben des Tools formatiert
-// werden. Kategoriengetrieben: benannte Formate, kein Sonderfall-Wust.
-// Start: die zwei Frequenz-Formate. Weitere (dB, %, qu/CL/CU, Zeit)
-// docken spaeter als Eintrag in FMT_SPECS an. Dezimaltrennzeichen
-// durchgehend Punkt (JS-toFixed liefert das ohnehin).
+// ZENTRALER ZAHLEN-HELFER (BA432 §10, erweitert BA533)
+// EINE Stelle, ueber die alle Zahlen-AUSGABEN des Tools formatiert
+// werden (fmtNum), plus das Eingabe-Gegenstueck parseNum (weiter unten).
+// Kategoriengetrieben: benannte Formate, kein Sonderfall-Wust.
+// Regel: Hz immer 2 feste Nachkommastellen, Cent immer 1 feste
+// Nachkommastelle; Dezimaltrennzeichen durchgehend Punkt (toFixed
+// liefert das ohnehin). Feste Stellenzahl (kein Weglassen von Nullen),
+// damit Tabellenspalten buendig ausrichten.
+// AUSNAHME: Diagrammachsen-Beschriftungen bleiben gerundet/kompakt
+// (z.B. "1.0k") und laufen bewusst NICHT ueber fmtNum.
 // Intern wird NIE gerundet (in cent gerechnet); Rundung nur hier, am
 // Darstellungsrand.
 const FMT_SPECS = {
@@ -283,6 +287,16 @@ function fmtNum(wert, format) {
     return String(wert);
   }
   return Number(wert).toFixed(spec.nk);
+}
+// Eingabe-Gegenstueck zu fmtNum (BA533): parst eine Nutzereingabe zu
+// einer Zahl und akzeptiert Komma UND Punkt als Dezimaltrennzeichen.
+// Drop-in-Ersatz fuer parseFloat auf Nutzereingaben: gleiche Semantik
+// (liefert NaN bei leer/ungueltig), nur Komma wird zusaetzlich toleriert.
+// Nicht-String-Eingaben (bereits Number) werden unveraendert durch
+// parseFloat gereicht.
+function parseNum(str) {
+  if (typeof str === "string") str = str.replace(",", ".");
+  return parseFloat(str);
 }
 // Identitaets-Transformation (BA442, §13.3): fuer Verfahren im linearen
 // Rechenraum (cochlear), damit jeder Registry-Eintrag dieselbe toP/fromP-

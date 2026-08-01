@@ -56,7 +56,7 @@ function buildSliderTouchCtrl(slider, opts) {
   function applyDelta(dir) {
     var min = parseFloat(slider.min);
     var max = parseFloat(slider.max);
-    var cur = parseFloat(slider.value) || 0;
+    var cur = parseNum(slider.value) || 0;
     var s   = fineMode ? fineStep : step;
     var nv  = Math.max(min, Math.min(max, +(cur + dir * s).toFixed(4)));
     slider.value = nv;

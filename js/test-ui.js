@@ -129,7 +129,7 @@ function _toneTypeKey(tt) {
 
 function _maybeExtendSlider(slRef) {
   if (!slRef || !slRef.initialRange) return;
-  var val = parseFloat(slRef.input.value) || 0;
+  var val = parseNum(slRef.input.value) || 0;
   var curMax = parseFloat(slRef.input.max);
   if (Math.abs(val) < curMax) return;
   if (curMax >= slRef.maxRange) return;
@@ -763,7 +763,7 @@ function _buildTestPanelNew(parentEl, cfg) {
       // Slider verdrahten mit Hook
       if (vCfg.hooks && vCfg.hooks.onSlide) {
         slInput.addEventListener('input', function() {
-          vCfg.hooks.onSlide(parseFloat(slInput.value));
+          vCfg.hooks.onSlide(parseNum(slInput.value));
         });
       }
       slInput.addEventListener('mouseup', function() { _maybeExtendSlider(refs.slider); slInput.blur(); });
@@ -784,8 +784,8 @@ function _buildTestPanelNew(parentEl, cfg) {
       // Auto-Update nur wenn kein onSlide-Hook vorhanden (der Hook setzt detailliertere Anzeige)
       if (refs.slider && !(vCfg.hooks && vCfg.hooks.onSlide)) {
         refs.slider.input.addEventListener('input', function() {
-          var v = parseFloat(refs.slider.input.value);
-          if (svUnit === 'cent') svEl.textContent = v.toFixed(0) + ' Cent';
+          var v = parseNum(refs.slider.input.value);
+          if (svUnit === 'cent') svEl.textContent = fmtNum(v, "cent") + ' Cent';
           else if (svUnit === 'ms') svEl.textContent = v.toFixed(1) + ' ms';
           else svEl.textContent = v.toFixed(1) + ' dB';
         });
@@ -1211,7 +1211,7 @@ function _buildTestPanelNew(parentEl, cfg) {
             coarseStep = 0.5; fineStep = 0.1;
           }
           var step = e.shiftKey ? fineStep : coarseStep;
-          var curVal = parseFloat(slRef.input.value) || 0;
+          var curVal = parseNum(slRef.input.value) || 0;
           var rangeMax = parseFloat(slRef.input.max) || 20;
           var newVal = Math.max(-rangeMax, Math.min(rangeMax, curVal + dir * step));
           // Auf step-Genauigkeit runden
@@ -1220,7 +1220,7 @@ function _buildTestPanelNew(parentEl, cfg) {
           slRef.input.value = String(newVal);
           // sliderValue aktualisieren
           if (vRefs.sliderValue) {
-            if (slUnit === 'cent') vRefs.sliderValue.textContent = newVal.toFixed(0) + ' Cent';
+            if (slUnit === 'cent') vRefs.sliderValue.textContent = fmtNum(newVal, "cent") + ' Cent';
             else if (slUnit === 'ms') vRefs.sliderValue.textContent = newVal.toFixed(1) + ' ms';
             else vRefs.sliderValue.textContent = newVal.toFixed(1) + ' dB';
           }
