@@ -629,6 +629,11 @@ Object.assign(L.de, {
       "Kurven im Tab „Kurven“ prüfen und ggf. nachjustieren.",
     loadNotCimbel:
       "Diese Datei ist kein CImbel-Speicherstand und kann nicht geladen werden.",
+    loadVersionIncompatible:
+      "Diese Datei stammt aus einer anderen CImbel-Version. Ab Version 0.6 " +
+      "wird mit anderen Frequenzen gemessen; Messdaten aus Version 0.5 und " +
+      "aus Version 0.6 sind untereinander nicht verwertbar und lassen sich " +
+      "nicht laden. Bitte die zur Datei passende CImbel-Version verwenden.",
     loadEasyeffectsHint:
       "Sie sieht nach einer EasyEffects-Konfiguration aus.",
     plSrcMeas: "Elektrodenlautstärke",

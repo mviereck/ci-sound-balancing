@@ -579,6 +579,12 @@ Object.assign(L.es, {
       "curvas en la pestaña «Curvas» y reajústelas si es necesario.",
     loadNotCimbel:
       "Este archivo no es un estado guardado de CImbel y no se puede cargar.",
+    loadVersionIncompatible:
+      "Este archivo procede de otra versión de CImbel. A partir de la " +
+      "versión 0.6, las mediciones utilizan otras frecuencias; los datos de " +
+      "medición de la versión 0.5 y de la versión 0.6 no son compatibles " +
+      "entre sí y no se pueden cargar. Por favor, utilice la versión de " +
+      "CImbel que corresponda al archivo.",
     loadEasyeffectsHint:
       "Parece una configuración de EasyEffects.",
     plSrcMeas: "Volumen de electrodos",

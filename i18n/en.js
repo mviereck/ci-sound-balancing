@@ -578,6 +578,12 @@ Object.assign(L.en, {
       "curves in the “Curves” tab and adjust them if necessary.",
     loadNotCimbel:
       "This file is not a CImbel save and cannot be loaded.",
+    loadVersionIncompatible:
+      "This file comes from a different CImbel version. From version 0.6 " +
+      "onwards, measurements use different frequencies; measurement data " +
+      "from version 0.5 and from version 0.6 are not compatible with each " +
+      "other and cannot be loaded. Please use the CImbel version that " +
+      "matches the file.",
     loadEasyeffectsHint:
       "It looks like an EasyEffects configuration.",
     plSrcMeas: "Electrode loudness",

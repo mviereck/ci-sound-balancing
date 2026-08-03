@@ -446,13 +446,49 @@ function _looksLikeEasyEffects(d) {
   );
 }
 
+// Grundlagen-Bruch bei 0.6: ab dieser Version wird mit anderen
+// Messfrequenzen gemessen, alte Messdaten sind unverwertbar und lassen
+// sich nicht migrieren. Die 0.5.x-Altversion (v0.5-Backup) und die
+// 0.6+-Version lehnen einander Speicherstaende ab: jede laedt nur, was
+// auf ihrer Seite der 0.6-Grenze liegt.
+const CIMBEL_BREAK_MINOR = 6; // Major.Minor-Bruchstelle (0.6)
+
+// Major.Minor eines version-Strings ("0.5.534-beta") als Zahl in
+// Zehntel-Aufloesung: 0.5 -> 5, 0.6 -> 6, 1.0 -> 10. null, wenn nicht
+// bestimmbar (fehlendes/kaputtes Feld) -> Aufrufer behandelt als "alt".
+function _cimbelVersionMinor(ver) {
+  if (typeof ver !== "string") return null;
+  const m = ver.match(/^(\d+)\.(\d+)/);
+  if (!m) return null;
+  return parseInt(m[1], 10) * 10 + parseInt(m[2], 10);
+}
+
+// true, wenn die geladene Datei d wegen des 0.6-Grundlagen-Bruchs
+// inkompatibel zur laufenden Version ist. Feste Grenze 0.6, in beide
+// Richtungen: 0.5-Version lehnt >=0.6 ab, 0.6-Version lehnt <0.6 ab.
+// Fehlt d.version (sehr alte Datei), gilt sie als <0.6 (Variante a).
+function _cimbelVersionIncompatible(d) {
+  const own = _cimbelVersionMinor(APP_VERSION);
+  if (own === null) return false; // eigene Version unlesbar -> nicht sperren
+  const file = _cimbelVersionMinor(d && d.version);
+  const fileMinor = file === null ? CIMBEL_BREAK_MINOR - 1 : file; // fehlend = alt
+  const ownPre = own < CIMBEL_BREAK_MINOR;
+  const filePre = fileMinor < CIMBEL_BREAK_MINOR;
+  return ownPre !== filePre; // verschiedene Seiten der Grenze -> inkompatibel
+}
+
 function loadJson(file) {
   const r = new FileReader();
   r.onload = (e) => {
     try {
       const d = JSON.parse(e.target.result);
 
-      if (_isCimbelSave(d)) {
+      if (_isCimbelSave(d) && _cimbelVersionIncompatible(d)) {
+        // Grundlagen-Bruch bei 0.6 (andere Messfrequenzen): Datei der
+        // jeweils anderen Aera laesst sich nicht sinnvoll laden.
+        alert(t("loadVersionIncompatible"));
+        document.getElementById("fInput").value = "";
+      } else if (_isCimbelSave(d)) {
         loadSideData("left", d.sides.left);
         loadSideData("right", d.sides.right);
         activeSide = SIDES.includes(d.currentSide) ? d.currentSide : "left";
