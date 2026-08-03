@@ -512,55 +512,9 @@ function loadJson(file) {
   r.readAsText(file);
 }
 
-function _migratePresetsFromIndexToFreq(rawPresets, fileFreqs, fileElFreqOwn) {
-  const effF = (i) =>
-    fileElFreqOwn && fileElFreqOwn[i] != null ? fileElFreqOwn[i] : fileFreqs[i];
-  const meanStep = meanCentStepOfFreqs(fileFreqs.map((_, i) => effF(i)));
-  return rawPresets.map((pr) => {
-    const np = { ...pr };
-    if (!np.strength) {
-      np.center = CENT_REF_HZ;
-      np.width = 1200;
-    } else {
-      if (np.center != null) {
-        const idx = np.center;
-        const lo = Math.max(0, Math.min(fileFreqs.length - 1, Math.floor(idx)));
-        const hi = Math.max(0, Math.min(fileFreqs.length - 1, Math.ceil(idx)));
-        const t = idx - lo;
-        const f = lo === hi ? effF(lo) : logInterpHz(effF(lo), effF(hi), t);
-        np.center = +f.toFixed(1);
-      } else {
-        np.center = CENT_REF_HZ;
-      }
-      if (np.width != null) {
-        const newW = np.width * meanStep;
-        np.width = Math.max(50, Math.min(4800, Math.round(newW)));
-      } else {
-        np.width = 1200;
-      }
-    }
-    return np;
-  });
-}
-
 function applyLoadedData(d) {
   // defaultMfr laden
   if (d.defaultMfr && MFR[d.defaultMfr]) defaultMfr = d.defaultMfr;
-
-  // Preset-Migration für neue Dateien im alten Index-Format
-  if (d.sides && d.presetFormat !== "freq-v3") {
-    for (const side of SIDES) {
-      const s = sideData[side];
-      if (s.kurvenELL && Array.isArray(s.kurvenELL)) {
-        s.kurvenELL = _migratePresetsFromIndexToFreq(
-          s.kurvenELL,
-          [...s.FRQ_implantat],
-          s.FRQ_implantatOwn,
-        );
-        s._presetsMigrated = true;
-      }
-    }
-  }
 
   bindActiveSide();
   const gEl = (id) => document.getElementById(id);
@@ -741,17 +695,11 @@ function applyLoadedData(d) {
   if (typeof LTZ_renderResults === "function") LTZ_renderResults();
   if (typeof FRQ_resultsArray !== "undefined") {
     if (Array.isArray(d.fRes)) {
-      // BA 106: KEIN fmStatus-Filter mehr — alle Einträge übernehmen.
-      // _FRQ_cleanupLegacyResults() entfernt Alt-Adaptive-Schema-Einträge
-      // (mit fmConvUp etc.).
       FRQ_resultsArray.splice(0, FRQ_resultsArray.length, ...d.fRes);
     } else {
       FRQ_resultsArray.splice(0, FRQ_resultsArray.length); // keine FRQ_resultsArray im JSON → zurücksetzen
     }
-    if (typeof _FRQ_cleanupLegacyResults === "function") _FRQ_cleanupLegacyResults();
-    if (typeof _FRQ_migrateResultsFormat === "function") _FRQ_migrateResultsFormat(d);
-    // BA417: Adaptiv->Piano-Bruecke entfernt (war faktisch tot, s. BA417).
-    // BA416: Klaviertest-Session laden/migrieren.
+    // Klaviertest-Session laden.
     if (typeof _FRQ_loadPianoSession === "function") _FRQ_loadPianoSession(d);
   }
   // BA 207: Auswahl der Testelektroden für FreqMatch.
@@ -765,9 +713,7 @@ function applyLoadedData(d) {
   if (typeof pWarpOn !== "undefined") {
     if (typeof d.warpOn === "boolean") pWarpOn = d.warpOn;
     if (d.warpMode !== undefined) {
-      FRQ_distribution = (typeof _migrateLegacyWarpMode === "function")
-        ? _migrateLegacyWarpMode(d.warpMode, d.fRes)
-        : d.warpMode;
+      FRQ_distribution = d.warpMode;
       // BA492: Dropdown sofort spiegeln (vollstaendiger Apply laeuft spaeter
       // im Render-Block des Laders).
       var _ds492 = document.getElementById("FRQ_distributionSelect");
@@ -873,17 +819,6 @@ function applyLoadedData(d) {
   const fi = gEl("fInput");
   if (fi) fi.value = "";
   // BA323: d.localCollections wird ignoriert — Box ist zustandslos.
-  const MIGR_TYPES = ["tilt", "scurve", "pivot", "gauss"];
-  const sideHasMeaningfulMigration = (side) =>
-    sideData[side]._presetsMigrated === true &&
-    (sideData[side].kurvenELL || []).some(
-      (p) => MIGR_TYPES.includes(p.type) && p.strength !== 0,
-    );
-  if (SIDES.some(sideHasMeaningfulMigration)) {
-    alert(t("loadMigratedCurves"));
-  }
-  sideData.left._presetsMigrated = false;
-  sideData.right._presetsMigrated = false;
   if (typeof tabLockApply === "function") tabLockApply();
   if (typeof depLockApply === "function") depLockApply();
 }

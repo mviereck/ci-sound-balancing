@@ -1123,9 +1123,7 @@ document.addEventListener("DOMContentLoaded", () => {
                          : (typeof d.pWarpMode    === "string")  ? d.pWarpMode    : undefined;
         if (typeof _wOn === "boolean") pWarpOn = _wOn;
         if (typeof _wMode === "string") {
-          FRQ_distribution = (typeof _migrateLegacyWarpMode === "function")
-            ? _migrateLegacyWarpMode(_wMode, d.fRes)
-            : _wMode;
+          FRQ_distribution = _wMode;
           // BA492: Dropdown sofort spiegeln (vollstaendiger Apply laeuft spaeter
           // im Render-Block ab Zeile 1118).
           var _ds492 = document.getElementById("FRQ_distributionSelect");
@@ -1172,10 +1170,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
       if (typeof LTZ_renderResults === "function") LTZ_renderResults();
       if (Array.isArray(d.fRes) && typeof FRQ_resultsArray !== "undefined") {
-        // BA 106: KEIN Filter, dieselbe Migrations-Sequenz wie in file.js.
         FRQ_resultsArray.splice(0, FRQ_resultsArray.length, ...d.fRes);
-        if (typeof _FRQ_cleanupLegacyResults === "function") _FRQ_cleanupLegacyResults();
-        if (typeof _FRQ_migrateResultsFormat === "function") _FRQ_migrateResultsFormat(d);
       }
       // BA416: Klaviertest-Session laden/migrieren.
       if (typeof _FRQ_loadPianoSession === "function") _FRQ_loadPianoSession(d);

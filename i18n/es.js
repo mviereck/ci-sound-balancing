@@ -571,12 +571,6 @@ Object.assign(L.es, {
     kurvenELLUnitCent: "¢",
     kurvenELLPhon: "Nivel",
     kurvenELLUnitPhon: "fonios",
-    loadMigratedCurves:
-      "El cálculo de las curvas se ha precisado matemáticamente " +
-      "(basado en frecuencias en lugar de basado en electrodos). Tus antiguos " +
-      "ajustes de curvas se han convertido lo mejor posible, pero el " +
-      "sonido familiar puede cambiar ligeramente. Por favor, revise las " +
-      "curvas en la pestaña «Curvas» y reajústelas si es necesario.",
     loadNotCimbel:
       "Este archivo no es un estado guardado de CImbel y no se puede cargar.",
     loadVersionIncompatible:

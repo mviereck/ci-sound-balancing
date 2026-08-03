@@ -571,12 +571,6 @@ Object.assign(L.fr, {
     kurvenELLUnitCent: "¢",
     kurvenELLPhon: "Niveau",
     kurvenELLUnitPhon: "phones",
-    loadMigratedCurves:
-      "Le calcul des courbes a été mathématiquement affiné " +
-      "(basé sur la fréquence au lieu des électrodes). Vos anciens " +
-      "réglages de courbes ont été convertis au mieux, mais le " +
-      "son familier peut légèrement changer. Veuillez vérifier " +
-      "les courbes dans l'onglet « Courbes » et les ajuster si nécessaire.",
     loadNotCimbel:
       "Ce fichier n'est pas une sauvegarde CImbel et ne peut pas être chargé.",
     loadVersionIncompatible:

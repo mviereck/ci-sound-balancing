@@ -570,12 +570,6 @@ Object.assign(L.en, {
     kurvenELLUnitCent: "¢",
     kurvenELLPhon: "Level",
     kurvenELLUnitPhon: "phon",
-    loadMigratedCurves:
-      "The curve calculation has been mathematically refined " +
-      "(frequency-based instead of electrode-based). Your old " +
-      "curve settings have been converted as best as possible, but " +
-      "the familiar sound may change slightly. Please check the " +
-      "curves in the “Curves” tab and adjust them if necessary.",
     loadNotCimbel:
       "This file is not a CImbel save and cannot be loaded.",
     loadVersionIncompatible:

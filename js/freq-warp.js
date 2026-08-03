@@ -200,29 +200,6 @@ function buildWarpPointsFromWerte(warpMode, nhSim) {
   return { L: L, R: R, overlap: overlap };
 }
 
-// ---- Migrations-Helfer für Alt-Werte ref_side/var_side ----
-// Übersetzt Alt-Werte in absolute Seiten anhand der Referenzseite,
-// die in den gespeicherten FRQ_resultsArray-Einträgen steht. Wenn keine
-// FRQ_resultsArray-Daten vorhanden sind, fallback auf Default-Seite.
-function _migrateLegacyWarpMode(savedMode, savedFRes) {
-  if (savedMode !== "ref_side" && savedMode !== "var_side") {
-    return savedMode;
-  }
-  let refSide = "left";
-  if (Array.isArray(savedFRes) && savedFRes.length > 0) {
-    const first = savedFRes[0];
-    if (first && typeof first.refSide === "string") {
-      refSide = first.refSide;
-    }
-  }
-  if (refSide === "symmetric") return "symmetric";
-  if (savedMode === "ref_side") {
-    return refSide === "left" ? "left" : "right";
-  }
-  // var_side
-  return refSide === "left" ? "right" : "left";
-}
-
 // ---- Hilfsfunktion: betroffene Seiten ermitteln ---------
 
 function _warpAffectedSides(points) {

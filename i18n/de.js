@@ -621,12 +621,6 @@ Object.assign(L.de, {
     kurvenELLUnitCent: "¢",
     kurvenELLPhon: "Pegel",
     kurvenELLUnitPhon: "phon",
-    loadMigratedCurves:
-      "Die Kurvenberechnung wurde mathematisch präzisiert " +
-      "(Frequenz-basiert statt elektroden-basiert). Deine alten " +
-      "Kurven-Einstellungen wurden bestmöglich umgerechnet, der " +
-      "vertraute Klang kann sich aber leicht ändern. Bitte die " +
-      "Kurven im Tab „Kurven“ prüfen und ggf. nachjustieren.",
     loadNotCimbel:
       "Diese Datei ist kein CImbel-Speicherstand und kann nicht geladen werden.",
     loadVersionIncompatible:
