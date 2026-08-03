@@ -247,9 +247,9 @@ function kurvenELLTabelleBauen() {
     let params = '<div class="kurven-ell-param">';
     params += `<label>${t("kurvenELLStrLabel")}</label><input type="number" class="kurven-ell-str" data-pi="${pi}" value="${pr.strength.toFixed(1)}" min="-20" max="20" step="0.5">`;
     if (KURVEN_ELL_HAS_CENTER[pr.type])
-      params += ` <label>${t("kurvenELLCenter")}</label><input type="number" class="kurven-ell-ctr" data-pi="${pi}" min="50" max="20000" step="50" style="width:80px"> ${t("kurvenELLUnitHz")}`;
+      params += ` <label>${t("kurvenELLCenter")}</label><input type="number" class="kurven-ell-ctr" data-pi="${pi}" min="50" max="20000" step="any" style="width:80px"> ${t("kurvenELLUnitHz")}`;
     if (KURVEN_ELL_HAS_WIDTH[pr.type])
-      params += ` <label>${t("kurvenELLWidth")}</label><input type="number" class="kurven-ell-wid" data-pi="${pi}" min="50" max="4800" step="50" style="width:80px"> ${t("kurvenELLUnitCent")}`;
+      params += ` <label>${t("kurvenELLWidth")}</label><input type="number" class="kurven-ell-wid" data-pi="${pi}" min="50" max="4800" step="any" style="width:80px"> ${t("kurvenELLUnitCent")}`;
     if (KURVEN_ELL_HAS_CUTOFF[pr.type])
       params += ` <label>${t("kurvenELLCutoff")}</label><select class="kurven-ell-cut" data-pi="${pi}">${elOpts}</select>`;
     if (pr.type === "iso226") {
@@ -263,11 +263,9 @@ function kurvenELLTabelleBauen() {
     tbl.appendChild(tr);
     const ctrInp = tr.querySelector(".kurven-ell-ctr");
     if (ctrInp)
-      ctrInp.value = Math.round(
-        pr.center !== undefined ? pr.center : CENT_REF_HZ,
-      );
+      ctrInp.value = (pr.center !== undefined ? pr.center : CENT_REF_HZ);
     const widInp = tr.querySelector(".kurven-ell-wid");
-    if (widInp) widInp.value = Math.round(pr.width != null ? pr.width : 1200);
+    if (widInp) widInp.value = (pr.width != null ? pr.width : 1200);
     const cutSel = tr.querySelector(".kurven-ell-cut");
     if (cutSel) cutSel.value = pr.cutoff;
     const phonSel = tr.querySelector(".kurven-ell-phon");
@@ -343,7 +341,7 @@ function kurvenELLTabelleBauen() {
       if (!isFinite(v) || v < 50) v = 50;
       if (v > 20000) v = 20000;
       kurvenELL[pi].center = v;
-      this.value = Math.round(v);
+      this.value = v;
       if (document.getElementById("kurvenELLBothSides")?.checked) {
         const otherSide = activeSide === "left" ? "right" : "left";
         const op = sideData[otherSide].kurvenELL;
@@ -361,7 +359,7 @@ function kurvenELLTabelleBauen() {
       if (!isFinite(v) || v < 50) v = 50;
       if (v > 4800) v = 4800;
       kurvenELL[pi].width = v;
-      this.value = Math.round(v);
+      this.value = v;
       if (document.getElementById("kurvenELLBothSides")?.checked) {
         const otherSide = activeSide === "left" ? "right" : "left";
         const op = sideData[otherSide].kurvenELL;
@@ -492,12 +490,12 @@ function kurvenELLChartZeichnen() {
     ctx.fillStyle = "#999";
     const elsF = axis.hzArr[j];
     ctx.fillText(
-      elsF >= 1000 ? (elsF / 1000).toFixed(1) + "k" : Math.round(elsF),
+      fmtNum(elsF, "hz"),
       tX(j),
       yHz,
     );
     if (j % axis.step === 0 || j === 0 || j === act.length - 1) {
-      const c = Math.round(axis.centArr[j]);
+      const c = fmtNum(axis.centArr[j], "cent");
       ctx.fillText((c >= 0 ? "+" : "") + c + " ¢", tX(j), yCent);
     }
     const halfDx = Math.max(8, (axis.minDx || 12) / 2);

@@ -323,8 +323,8 @@ function _implCheckHzMonotonie(s) {
         messageParams: {
           eI: dENFn(i),
           eJ: dENFn(i + 1),
-          hzI: Math.round(hzI),
-          hzJ: Math.round(hzJ)
+          hzI: fmtNum(hzI, "hz"),
+          hzJ: fmtNum(hzJ, "hz")
         }
       });
     }
@@ -354,7 +354,7 @@ function _implCheckHzRange(s) {
         messageKey: 'implValidateHzRange',
         messageParams: {
           e: dENFn(i),
-          hz: Math.round(hz),
+          hz: fmtNum(hz, "hz"),
           min: range.min,
           max: range.max
         }

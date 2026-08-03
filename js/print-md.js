@@ -956,9 +956,9 @@ function _audiologFreqTable(side) {
     } else if (z.nominellHz != null) {
       nomC = fmtNum(z.nominellHz, "hz");
     }
-    if (z.restspanne != null) restsC = "±" + Math.round(z.restspanne) + " ct";
+    if (z.restspanne != null) restsC = "±" + fmtNum(z.restspanne, "cent") + " ct";
     if (z.residDown != null && z.residUp != null) {
-      resC = "−" + Math.round(z.residDown) + " … +" + Math.round(z.residUp) + " ct";
+      resC = "−" + fmtNum(z.residDown, "cent") + " … +" + fmtNum(z.residUp, "cent") + " ct";
     }
     // Status: gemessene Datenzeile hat fmStatus; ungemessene aktive Zeile
     // (kein fmStatus) -> "nicht gemessen".
@@ -1661,12 +1661,12 @@ function _archivDrawElCentLabel(ctx, elLabel, cx, H, padB, axis, j) {
   ctx.textAlign = "center";
   ctx.fillText(elLabel, cx, H - padB + 12);
   const hz = axis.hzArr[j];
-  const fTxt = hz >= 1000 ? (hz / 1000).toFixed(1) + "k" : Math.round(hz);
+  const fTxt = fmtNum(hz, "hz");
   ctx.fillStyle = "#888";
   ctx.font = "8px sans-serif";
   ctx.fillText(fTxt, cx, H - padB + 23);
   if (j % axis.step === 0 || j === 0 || j === axis.hzArr.length - 1) {
-    const c = Math.round(axis.centArr[j]);
+    const c = fmtNum(axis.centArr[j], "cent");
     ctx.fillText((c >= 0 ? "+" : "") + c + " ¢", cx, H - padB + 34);
   }
 }
@@ -1680,7 +1680,7 @@ function _archivDrawElHzLabel(ctx, elLabel, cx, H, padB, axis, j) {
   ctx.textAlign = "center";
   ctx.fillText(elLabel, cx, H - padB + 12);
   const hz = axis.hzArr[j];
-  const fTxt = hz >= 1000 ? (hz / 1000).toFixed(1) + "k" : Math.round(hz);
+  const fTxt = fmtNum(hz, "hz");
   ctx.fillStyle = "#888";
   ctx.font = "8px sans-serif";
   ctx.fillText(fTxt, cx, H - padB + 23);

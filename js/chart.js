@@ -128,13 +128,13 @@ function _axisTooltipHandler(cv, e) {
     const elLbl = (typeof t === "function" ? t("schieberELLElLabel") : "Elektrode");
     let html = "<b>" + elLbl + " " + hit.label + "</b>";
     if (hit.hz != null && isFinite(hit.hz)) {
-      const hzTxt = hit.hzDec ? hit.hz.toFixed(hit.hzDec) : Math.round(hit.hz);
+      const hzTxt = fmtNum(hit.hz, "hz");
       html += "<br>" + hzTxt + " Hz";
     }
     if (hit.db != null && isFinite(hit.db)) {
       html += "<br>" + (hit.db >= 0 ? "+" : "") + hit.db.toFixed(1) + " dB";
     } else if (hit.cent != null && isFinite(hit.cent)) {
-      html += "<br>" + (hit.cent >= 0 ? "+" : "") + Math.round(hit.cent) + " ¢";
+      html += "<br>" + (hit.cent >= 0 ? "+" : "") + fmtNum(hit.cent, "cent") + " ¢";
     }
     tip.innerHTML = html;
     tip.style.display = "block";
@@ -267,7 +267,7 @@ function drawBarGraph(cv, rows, cfg) {
     var yE = h - pad.bottom + 14, yHz = h - pad.bottom + 25, yAB = h - pad.bottom + 38;
     ctx2d.fillText(r.label, tX(j), yE);
     ctx2d.font = "8px Consolas,monospace"; ctx2d.fillStyle = "#999";
-    if (r.hz != null) ctx2d.fillText(Math.round(r.hz), tX(j), yHz);
+    if (r.hz != null) ctx2d.fillText(fmtNum(r.hz, "hz"), tX(j), yHz);
     if (r.apikalBasal) {
       ctx2d.font = "8px Segoe UI,sans-serif";
       ctx2d.fillText(t(r.apikalBasal), tX(j), yAB);
@@ -778,7 +778,7 @@ function drawFRQGraph(cv, rows, cfg) {
     ctx.beginPath(); ctx.moveTo(x, yScaleTop); ctx.lineTo(x, yScaleTop + 4); ctx.stroke();
     ctx.font = "9px Segoe UI,sans-serif"; ctx.fillStyle = "#000";
     ctx.fillText(tk.hz + " Hz", x, yScaleTop + 14);
-    ctx.fillText((tk.c >= 0 ? "+" : "") + Math.round(tk.c) + " ct", x, yScaleTop + 25);
+    ctx.fillText((tk.c >= 0 ? "+" : "") + fmtNum(tk.c, "cent") + " ct", x, yScaleTop + 25);
   });
 
   // Endpunkt-Beschriftung: Hz-Wert an den beiden Achsenenden (cMin/cMax).
@@ -787,9 +787,9 @@ function drawFRQGraph(cv, rows, cfg) {
   // im Funktions-Scope (oben definiert).
   ctx.font = "9px Segoe UI,sans-serif"; ctx.fillStyle = "#000";
   ctx.textAlign = "left";
-  ctx.fillText(Math.round(centToHz(cMin)) + " Hz", pad.left, yScaleTop + 14);
+  ctx.fillText(fmtNum(centToHz(cMin), "hz") + " Hz", pad.left, yScaleTop + 14);
   ctx.textAlign = "right";
-  ctx.fillText(Math.round(centToHz(cMax)) + " Hz", pad.left + pW, yScaleTop + 14);
+  ctx.fillText(fmtNum(centToHz(cMax), "hz") + " Hz", pad.left + pW, yScaleTop + 14);
   ctx.textAlign = "center";   // Default fuer nachfolgenden Code wiederherstellen
 
   // --- Achsentitel (Y) ---

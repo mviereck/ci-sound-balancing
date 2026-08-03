@@ -91,8 +91,8 @@ function printImplantTab() {
     const elNum = dEN(i);
     const apexBasal =
       i === 0 ? " (apikal)" : i === s.nEl - 1 ? " (basal)" : "";
-    const hzStd = s.FRQ_implantat[i] != null ? Math.round(s.FRQ_implantat[i]) : "—";
-    const hzOwn = s.FRQ_implantatOwn[i] != null ? Math.round(s.FRQ_implantatOwn[i]) : "";
+    const hzStd = s.FRQ_implantat[i] != null ? fmtNum(s.FRQ_implantat[i], "hz") : "—";
+    const hzOwn = s.FRQ_implantatOwn[i] != null ? fmtNum(s.FRQ_implantatOwn[i], "hz") : "";
     const thr = im.thr && im.thr[i] != null ? im.thr[i] : "";
     const upper = isCi
       ? (m === "medel"
@@ -368,9 +368,9 @@ function _buildPresetCardPrint() {
   for (const pr of active) {
     let params = `${t("kurvenELLStrLabel")}: <b>${pr.strength.toFixed(1)} dB</b>`;
     if (KURVEN_ELL_HAS_CENTER[pr.type])
-      params += ` &nbsp; ${t("kurvenELLCenter")}: ${Math.round(pr.center != null ? pr.center : CENT_REF_HZ)} ${t("kurvenELLUnitHz")}`;
+      params += ` &nbsp; ${t("kurvenELLCenter")}: ${fmtNum(pr.center != null ? pr.center : CENT_REF_HZ, "hz")} ${t("kurvenELLUnitHz")}`;
     if (KURVEN_ELL_HAS_WIDTH[pr.type])
-      params += ` &nbsp; ${t("kurvenELLWidth")}: ${Math.round(pr.width != null ? pr.width : 1200)} ${t("kurvenELLUnitCent")}`;
+      params += ` &nbsp; ${t("kurvenELLWidth")}: ${fmtNum(pr.width != null ? pr.width : 1200, "cent")} ${t("kurvenELLUnitCent")}`;
     if (KURVEN_ELL_HAS_CUTOFF[pr.type])
       params += ` &nbsp; ${t("kurvenELLCutoff")}: ${pfx}${dEN(pr.cutoff)}`;
     rows += `<tr>

@@ -973,7 +973,7 @@ document.addEventListener("DOMContentLoaded", () => {
     electrodeLabel: function (i) {
       // Wie im Test-Dialog: "E3 (590 Hz)", seitenrichtig.
       var hz = withSide(activeSide, function () { return FRQ_implantatEffektiv(i); });
-      return dENPrefix(activeSide) + dEN(i, activeSide) + " (" + Math.round(hz) + " Hz)";
+      return dENPrefix(activeSide) + dEN(i, activeSide) + " (" + fmtNum(hz, "hz") + " Hz)";
     }
   };
 

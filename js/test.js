@@ -858,8 +858,8 @@ function _ell_swap() {
     testUI.pairIndicator.setLabels(vref.pairIndicator, {
       leftText:  dENPrefix() + dEN(ELL_curA),
       rightText: dENPrefix() + dEN(ELL_curB),
-      leftHz:    Math.round(FRQ_implantatEffektiv(ELL_curA)),
-      rightHz:   Math.round(FRQ_implantatEffektiv(ELL_curB))
+      leftHz:    FRQ_implantatEffektiv(ELL_curA),
+      rightHz:   FRQ_implantatEffektiv(ELL_curB)
     });
   }
   _ell_updateRangeHint();
@@ -1003,8 +1003,8 @@ function ell_showCurPair() {
     testUI.pairIndicator.setLabels(vref.pairIndicator, {
       leftText:  dENPrefix() + dEN(ELL_curA),
       rightText: dENPrefix() + dEN(ELL_curB),
-      leftHz:    Math.round(FRQ_implantatEffektiv(ELL_curA)),
-      rightHz:   Math.round(FRQ_implantatEffektiv(ELL_curB))
+      leftHz:    FRQ_implantatEffektiv(ELL_curA),
+      rightHz:   FRQ_implantatEffektiv(ELL_curB)
     });
   }
 
@@ -1428,7 +1428,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return { testable: testable, muted: muted, excluded: excluded };
           },
           electrodeLabel: function(i) {
-            return dENPrefix() + dEN(i) + " (" + Math.round(FRQ_implantatEffektiv(i)) + " Hz)";
+            return dENPrefix() + dEN(i) + " (" + fmtNum(FRQ_implantatEffektiv(i), "hz") + " Hz)";
           }
         }
       },

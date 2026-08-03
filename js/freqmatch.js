@@ -786,7 +786,7 @@ function _frq_pianoWriteResults() {
 
     var entry = {
       elIdx:      elIdx,
-      cent:       Math.round((frqRefMode === 'left') ? -pse : pse),
+      cent:       (frqRefMode === 'left') ? -pse : pse,
       frqRefMode: frqRefMode,
       timestamp: Date.now(),
       method:    "piano",

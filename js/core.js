@@ -1998,7 +1998,7 @@ function _frqGlaetteMeasured(measured, verfahren) {
     var src = out[k] || {};
     var e = {};
     Object.keys(src).forEach(function (f) { e[f] = src[f]; });
-    e.cent = Math.round(glatt[idx]);
+    e.cent = glatt[idx];
     out[k] = e;
   });
   return out;

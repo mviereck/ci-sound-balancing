@@ -309,8 +309,8 @@ function stb_showPair() {
     testUI.pairIndicator.setLabels(piRef, {
       leftText:  "L: " + leftLabel,
       rightText: "R: " + rightLabel,
-      leftHz:    Math.round(hzL),
-      rightHz:   Math.round(hzR)
+      leftHz:    hzL,
+      rightHz:   hzR
     });
   }
 
@@ -459,13 +459,13 @@ function STB_renderResults() {
       tr.style.opacity = "0.4";
       tr.innerHTML =
         `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
-        `<td>${Math.round(hzL)}</td><td>${Math.round(hzR)}</td>` +
+        `<td>${fmtNum(hzL, "hz")}</td><td>${fmtNum(hzR, "hz")}</td>` +
         `<td>—</td>` +
         `<td style="font-size:.82em">${t('excludedSkipped')}</td>`;
     } else if (v === undefined) {
       tr.innerHTML =
         `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
-        `<td>${Math.round(hzL)}</td><td>${Math.round(hzR)}</td>` +
+        `<td>${fmtNum(hzL, "hz")}</td><td>${fmtNum(hzR, "hz")}</td>` +
         `<td style="color:#9ca3af">—</td>` +
         `<td style="font-size:.82em;color:#9ca3af">${t('notMeasured')}</td>`;
     } else {
@@ -476,7 +476,7 @@ function STB_renderResults() {
       const color = v < -0.1 ? "#dc2626" : v > 0.1 ? "#2563eb" : "#1a1a1a";
       tr.innerHTML =
         `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
-        `<td>${Math.round(hzL)}</td><td>${Math.round(hzR)}</td>` +
+        `<td>${fmtNum(hzL, "hz")}</td><td>${fmtNum(hzR, "hz")}</td>` +
         `<td style="color:${color}">${v >= 0 ? "+" : ""}${v.toFixed(1)}</td>` +
         `<td style="font-size:.82em;color:${color}">${meaning}</td>`;
     }
@@ -953,7 +953,7 @@ document.addEventListener("DOMContentLoaded", function() {
           electrodeLabel: function(i) {
             var leftLabel = dENPrefix("left") + dEN(i, "left");
             var hzL = stb_effFRQ("left", i);
-            return leftLabel + " (" + Math.round(hzL) + " Hz)";
+            return leftLabel + " (" + fmtNum(hzL, "hz") + " Hz)";
           }
         }
       },

@@ -333,7 +333,7 @@ function _FRQ_migrateResultsFormat(d) {
 
     // 3) cent kanonisch aus der FESTEN (var-)Seite -- Vorzeichen unabhaengig
     //    von der BA417-Kennzeichen-Semantik.
-    r.cent = Math.round(FRQ_varRefOffsetToCanonical(varMode, rawOffset));
+    r.cent = FRQ_varRefOffsetToCanonical(varMode, rawOffset);
     // 4) Kennzeichen: var/ref-Eintraege sind stets alte (feste-Seiten-)Semantik
     //    -> auf die BA417-Bedeutung (bewegte Seite = Gegenseite) drehen.
     r.frqRefMode = _FRQ_frqRefModeFromLegacy(varMode);

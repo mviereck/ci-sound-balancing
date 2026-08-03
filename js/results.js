@@ -179,7 +179,7 @@ function ELL_renderResults() {
       if (ex) {
         tr.style.opacity = "0.4";
       }
-      tr.innerHTML = `<td style="font-weight:600">${dENPrefix()}${dEN(i)}</td><td>${Math.round(FRQ_implantatEffektiv(i))}</td><td style="color:${ex ? "#999" : v > 0.05 ? "#2563eb" : v < -0.05 ? "#dc2626" : "#1a1a1a"}">${ex ? "—" : (v >= 0 ? "+" : "") + v.toFixed(1)}</td><td>${pc[i] || "—"}</td><td style="color:${ex ? "#999" : ell_color(i) === "green" ? "#16a34a" : ell_color(i) === "yellow" ? "#d97706" : ell_color(i) === "red" ? "#dc2626" : "#999"}">${ELL_res[i] > 0 ? ELL_res[i].toFixed(1) : "—"}</td><td>${ex ? "—" : ELL_wt[i].toFixed(1)}</td><td style="font-size:.78em">${st}</td><td style="text-align:center;font-weight:700">${i === ELL_refEl ? "X" : ""}</td>`;
+      tr.innerHTML = `<td style="font-weight:600">${dENPrefix()}${dEN(i)}</td><td>${fmtNum(FRQ_implantatEffektiv(i), "hz")}</td><td style="color:${ex ? "#999" : v > 0.05 ? "#2563eb" : v < -0.05 ? "#dc2626" : "#1a1a1a"}">${ex ? "—" : (v >= 0 ? "+" : "") + v.toFixed(1)}</td><td>${pc[i] || "—"}</td><td style="color:${ex ? "#999" : ell_color(i) === "green" ? "#16a34a" : ell_color(i) === "yellow" ? "#d97706" : ell_color(i) === "red" ? "#dc2626" : "#999"}">${ELL_res[i] > 0 ? ELL_res[i].toFixed(1) : "—"}</td><td>${ex ? "—" : ELL_wt[i].toFixed(1)}</td><td style="font-size:.78em">${st}</td><td style="text-align:center;font-weight:700">${i === ELL_refEl ? "X" : ""}</td>`;
       tb.appendChild(tr);
     }
     var _ellRows = [];
@@ -637,23 +637,23 @@ function FRQ_ergebnisRows(side, opts) {
       // (yCent=0 -> Nulllinie, stufe=null -> grau). Deaktivierte sind
       // unsichtbar (sichtbar=false), tauchen also gar nicht auf.
       tooltip = ["<b>E" + elNum + "</b>",
-                 Math.round(hzIst) + " Hz",
+                 fmtNum(hzIst, "hz") + " Hz",
                  tipT("notMeasured", "nicht gemessen")];
     } else {
       var istC = 1200 * Math.log2(hzIst / 1000);
       var sollC = 1200 * Math.log2(hzSoll / 1000);
-      var cIstTxt = (istC >= 0 ? "+" : "") + Math.round(istC) + NB + "ct";
-      var cSollTxt = (sollC >= 0 ? "+" : "") + Math.round(sollC) + NB + "ct";
+      var cIstTxt = (istC >= 0 ? "+" : "") + fmtNum(istC, "cent") + NB + "ct";
+      var cSollTxt = (sollC >= 0 ? "+" : "") + fmtNum(sollC, "cent") + NB + "ct";
       tooltip = ["<b>E" + elNum + "</b>",
-                 Math.round(hzIst) + NB + "Hz → " + Math.round(hzSoll) + NB + "Hz",
+                 fmtNum(hzIst, "hz") + NB + "Hz → " + fmtNum(hzSoll, "hz") + NB + "Hz",
                  cIstTxt + " → " + cSollTxt];
       if (_rS > 0) {
         tooltip.push(tipT("FRQ_resultsTipRestspanne", "Restspanne") + " &#177;"
-          + Math.round(_rS) + NB + "ct");
+          + fmtNum(_rS, "cent") + NB + "ct");
       }
       if (_rD > 0 || _rU > 0) {
         tooltip.push(tipT("FRQ_resultsTipResiduum", "Residuum") + " &#8722;"
-          + Math.round(_rD) + NB + "&#8230; +" + Math.round(_rU) + NB + "ct");
+          + fmtNum(_rD, "cent") + NB + "&#8230; +" + fmtNum(_rU, "cent") + NB + "ct");
       }
       if (fmStatus === "piano-crossed") {
         tooltip.push("⚠️ " + tipT("FRQ_resultsTipPianoCrossed",
@@ -763,8 +763,8 @@ function FRQ_glaettRows(side, opts) {
       stufe: stufe,
       tooltip: [
         "<b>E" + elNum + "</b>",
-        Math.round(rohHz) + " Hz → " + Math.round(glattHz) + " Hz",
-        (dev >= 0 ? "+" : "") + Math.round(dev) + " ct · &#177;" + Math.round(resid) + " ct"
+        fmtNum(rohHz, "hz") + " Hz → " + fmtNum(glattHz, "hz") + " Hz",
+        (dev >= 0 ? "+" : "") + fmtNum(dev, "cent") + " ct · &#177;" + fmtNum(resid, "cent") + " ct"
       ]
     });
   });
@@ -974,30 +974,27 @@ function FRQ_renderResults() {
     if (z.restspanne == null) {
       restspanneCell = dash;
     } else {
-      const rs = Math.round(z.restspanne);
-      const rsColor = rs <= 25 ? "#16a34a" : rs <= 100 ? "#d97706" : "#dc2626";
-      restspanneCell = '<span style="color:' + rsColor + ';font-weight:600">&#177;' + rs + ' ct</span>';
+      const rsColor = z.restspanne <= 25 ? "#16a34a" : z.restspanne <= 100 ? "#d97706" : "#dc2626";
+      restspanneCell = '<span style="color:' + rsColor + ';font-weight:600">&#177;' + fmtNum(z.restspanne, "cent") + ' ct</span>';
     }
     // Residuum-Band: asymmetrischer Bereich -A .. +B ct.
     let residuumCell;
     if (z.residDown == null || z.residUp == null) {
       residuumCell = dash;
     } else {
-      const rd = Math.round(z.residDown), ru = Math.round(z.residUp);
-      const breite = rd + ru;
+      const breite = z.residDown + z.residUp;
       const reColor = breite <= 25 ? "#16a34a" : breite <= 100 ? "#d97706" : "#dc2626";
       residuumCell = '<span style="color:' + reColor + ';font-weight:600">&#8722;'
-        + rd + ' &#8230; +' + ru + ' ct</span>';
+        + fmtNum(z.residDown, "cent") + ' &#8230; +' + fmtNum(z.residUp, "cent") + ' ct</span>';
     }
     // BA521: Sitzungs-Vergleich (vorige Sitzung / Differenz), kanonische cent.
     let vorherCell = dash;
     const vgl = (typeof _frq_pianoVergleich === "function")
       ? _frq_pianoVergleich(z.elIdx) : null;
     if (vgl) {
-      const vc = Math.round(vgl.vorherCent);
-      const dc = Math.round(vgl.deltaCent);
-      vorherCell = (vc >= 0 ? "+" : "") + vc + " ct / Δ "
-        + (dc >= 0 ? "+" : "") + dc + " ct";
+      const vc = vgl.vorherCent, dc = vgl.deltaCent;
+      vorherCell = (vc >= 0 ? "+" : "") + fmtNum(vc, "cent") + " ct / Δ "
+        + (dc >= 0 ? "+" : "") + fmtNum(dc, "cent") + " ct";
     }
     tr.innerHTML =
       "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
