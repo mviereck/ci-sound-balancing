@@ -1,0 +1,2487 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CImbel — CI sound balancing</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script>
+      document.write('<script src="js/version.js?t=' + Date.now() + '"><\/script>');
+    </script>
+    <script>
+    /* Konsolen-Fehler-Collector — läuft vor dem Loader, fängt alles ab */
+    (function () {
+      'use strict';
+      window._dbgErrors = [];
+
+      function _isOwnFile(filename) {
+        if (!filename) return false;
+        var origin = (window.location.origin !== 'null') ? window.location.origin : '';
+        return filename.indexOf('/js/') !== -1 ||
+               filename.indexOf('index.html') !== -1 ||
+               (origin && filename.indexOf(origin) !== -1);
+      }
+
+      var _bannerPending = null;
+
+      function _showBanner(msg) {
+        var insert = function () {
+          var existing = document.getElementById('dbgErrorBanner');
+          if (existing) {
+            var countEl = existing.querySelector('.dbg-err-count');
+            if (countEl) {
+              var n = (parseInt(countEl.dataset.n || '1', 10) + 1);
+              countEl.dataset.n = n;
+              countEl.textContent = ' (+' + (n - 1) + ' weitere)';
+              countEl.style.display = '';
+            }
+            return;
+          }
+          var banner = document.createElement('div');
+          banner.id = 'dbgErrorBanner';
+          banner.title = 'Debug-Panel öffnen';
+          var msgEl = document.createElement('span');
+          msgEl.className = 'dbg-err-msg';
+          msgEl.textContent = msg.length > 140 ? msg.slice(0, 140) + '…' : msg;
+          var countEl = document.createElement('span');
+          countEl.className = 'dbg-err-count';
+          countEl.dataset.n = '1';
+          countEl.style.display = 'none';
+          var closeBtn = document.createElement('button');
+          closeBtn.className = 'dbg-err-close';
+          closeBtn.textContent = '×';
+          closeBtn.title = 'Warnung schließen';
+          closeBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            banner.remove();
+          });
+          banner.appendChild(msgEl);
+          banner.appendChild(countEl);
+          banner.appendChild(closeBtn);
+          banner.addEventListener('click', function () {
+            if (window.dbg && typeof window.dbg.activate === 'function') {
+              window.dbg.activate();
+            }
+          });
+          var tabs = document.querySelector('.tabs');
+          if (tabs && tabs.parentNode) {
+            tabs.parentNode.insertBefore(banner, tabs);
+          } else {
+            document.body.appendChild(banner);
+          }
+        };
+        if (document.readyState === 'loading') {
+          if (!_bannerPending) {
+            _bannerPending = msg;
+            document.addEventListener('DOMContentLoaded', function () { insert(); });
+          }
+        } else {
+          insert();
+        }
+      }
+
+      function _dbgLog(type, msg) {
+        window._dbgErrors.push({ type: type, msg: msg, ts: Date.now() });
+        if (window.dbg && typeof window.dbg.log === 'function') {
+          window.dbg.log('[' + type + '] ' + msg, 'error');
+        }
+      }
+
+      window.addEventListener('load', function () {
+        if (!window._dbgErrors.length) return;
+        if (!window.dbg || typeof window.dbg.log !== 'function') return;
+        window._dbgErrors.forEach(function (e) {
+          window.dbg.log('[' + e.type + '] ' + e.msg, 'error');
+        });
+      });
+
+      var _origError = console.error;
+      console.error = function () {
+        _origError.apply(console, arguments);
+        var msg = Array.prototype.slice.call(arguments).map(function (a) {
+          return (a instanceof Error) ? (a.message || String(a)) : String(a);
+        }).join(' ');
+        _dbgLog('console.error', msg);
+        _showBanner(msg);
+      };
+
+      window.addEventListener('error', function (e) {
+        if (!_isOwnFile(e.filename)) return;
+        var loc = e.filename ? ' (' + e.filename.replace(/^.*\/js\//, 'js/') + ':' + e.lineno + ')' : '';
+        var msg = (e.message || 'Unbekannter Fehler') + loc;
+        _dbgLog('error', msg);
+        _showBanner(msg);
+      });
+
+      window.addEventListener('unhandledrejection', function (e) {
+        var reason = e.reason;
+        var msg = 'Promise-Fehler: ' + ((reason && reason.message) ? reason.message : String(reason));
+        var stack = (reason && reason.stack) ? reason.stack : '';
+        if (stack && stack.indexOf('/js/') === -1 && stack.indexOf('index.html') === -1) return;
+        window._dbgErrors.push({ type: 'unhandledrejection', msg: msg, ts: Date.now() });
+        _showBanner(msg);
+      });
+    })();
+    </script>
+    <script>
+    (function () {
+      var v = (typeof APP_VERSION === "string") ? APP_VERSION : String(Date.now());
+
+      document.write('<link rel="stylesheet" href="CImbel.css?v=' + v + '">');
+
+      var scripts = [
+        'js/debug.js',
+        'js/mobile.js', 'js/touch-ctrl.js', 'js/i18n.js',
+        'i18n/de.js', 'i18n/en.js', 'i18n/fr.js', 'i18n/es.js',
+        'js/dependency-lock.js',
+        'js/core.js', 'js/state-side.js', 'js/audio-source.js', 'assets/audio-embed/noises.js', 'js/richtone-profiles.js', 'js/citest-profiles.js', 'js/audio.js',
+        'js/ui-implant.js', 'js/freq-table.js', 'js/data/cochlear-fats.js', 'js/implant-validate.js', 'js/tone-popup.js', 'js/sampler-keyboard.js', 'js/test-ui.js', 'js/test.js', 'js/freqmatch.js',
+        'js/results.js', 'js/chart.js', 'js/file.js', 'js/print.js', 'js/print-md.js', 'js/tab-print.js', 'js/tabs-eq.js', 'js/levels.js',
+        'vendors/rubberband-wasm/dist/index.umd.min.js',
+        'js/rubberband-loader.js',
+        'js/smplr-loader.js',
+        'js/levels-tab.js', 'js/player.js', 'js/freq-warp.js', 'js/warp-verify.js', 'js/maplaw.js', 'js/lr-balance.js', 'js/latency.js', 'js/sentences.js', 'js/zeitanalyse.js', 'js/init.js', 'js/legal.js',
+        'js/finanzen.js', 'js/unterstuetzung.js', 'js/unterstuetzung-graph.js', 'js/update-check.js',
+        'js/debug-tests.js', 'js/debug-tests-current.js'
+      ];
+      scripts.forEach(function (src) {
+        document.write('<script defer src="' + src + '?v=' + v + '"><\/script>');
+      });
+    })();
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-row">
+        <h1>CImbel — CI sound balancing <span id="versionLabel" class="version-tag"></span></h1>
+        <div style="display: flex; align-items: center; gap: 8px">
+          <select class="lang-select" id="langSelect">
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="es">🇪🇸 Español</option>
+          </select>
+        </div>
+      </div>
+      <div class="brand-row">
+        <img class="brand-logo" src="assets/images/CImbel_logo.png" width="150" height="150" alt="">
+        <div class="side-switch">
+          <button
+            id="sideLeftBtn"
+            class="side-btn"
+            data-t="sideLeft"
+            onclick="setActiveSide('left')"
+          >
+            LINKS
+          </button>
+          <button
+            id="sideRightBtn"
+            class="side-btn"
+            data-t="sideRight"
+            onclick="setActiveSide('right')"
+          >
+            RECHTS
+          </button>
+        </div>
+      </div>
+      <!-- hidden select kept for JS compatibility -->
+      <select id="ciSideSelect" style="display: none">
+        <option value="left">Links</option>
+        <option value="right">Rechts</option>
+      </select>
+      <div class="tabs">
+        <button class="tab active" data-tab="intro" id="tabIntro"></button>
+        <button class="tab" data-tab="setup" id="tabSetup"></button>
+        <button class="tab" data-tab="messungen" id="tabTest">Messungen</button>
+        <button class="tab" data-tab="ergebnisse" id="tabResults">Meßergebnisse</button>
+        <button class="tab" data-tab="verlaufsanalyse" id="tabVerlaufsanalyse"
+                style="display:none">Verlaufsanalyse</button>
+        <button class="tab" data-tab="kurven" id="tabKurven"></button>
+        <button class="tab" data-tab="schieber" id="tabSchieber"></button>
+        <button class="tab" data-tab="frequenzbaender" id="tabFrequenzbaender" data-t="tabFrequenzbaender"></button>
+        <button class="tab" data-tab="player" id="tabPlayer"></button>
+        <button class="tab" data-tab="file" id="tabFile"></button>
+        <button class="tab" data-tab="unterstuetzung" id="tabUnterstuetzung" data-t="tabSupport"></button>
+        <button class="tab" data-tab="links" id="tabLinks" data-t="tabLinks"></button>
+      </div>
+
+      <!-- ===== INTRO ===== -->
+      <div id="panel-intro" class="panel active">
+        <div class="card">
+          <h2 data-t="introTitle"></h2>
+          <p
+            style="
+              font-size: 0.88em;
+              color: var(--text-muted);
+              margin-bottom: 14px;
+            "
+            data-t="introDesc"
+          ></p>
+          <p style="margin-bottom: 14px">
+            <a
+              id="introManualLink"
+              href="https://github.com/mviereck/ci-sound-balancing/blob/main/README_de.md"
+              target="_blank"
+              rel="noopener"
+            ></a>
+          </p>
+          <h3 data-t="introWhat"></h3>
+          <div
+            style="
+              font-size: 0.86em;
+              color: var(--text-muted);
+              margin-bottom: 14px;
+            "
+            data-t="introFlowDesc"
+          ></div>
+          <div class="explain explain-warn" data-t="introWarn"></div>
+          <h3 style="margin-top: 14px" data-t="introAudio"></h3>
+          <p
+            style="font-size: 0.86em; color: var(--text-muted)"
+            data-t="introAudioDesc"
+          ></p>
+        </div>
+
+        <div class="card support-card-call card-support-hint">
+          <h3 class="intro-support-title" data-t="introSupportTitle"></h3>
+          <p data-t="introSupportText"></p>
+          <p>
+            <span data-t="introSupportLinkIntro"></span>
+            <button type="button" class="link-btn" onclick="switchTab('unterstuetzung'); window.scrollTo(0,0);" data-t="introSupportLinkBtn"></button>
+          </p>
+        </div>
+
+        <div class="card card-feedback-hint">
+          <h3 data-t="introFeedbackTitle"></h3>
+          <p>
+            <span data-t="introFeedbackText"></span>
+            <button type="button" class="link-btn" onclick="switchTab('unterstuetzung'); window.scrollTo(0,0);" data-t="introSupportLinkBtn"></button>
+          </p>
+        </div>
+      </div>
+
+      <!-- ===== SETUP ===== -->
+      <div id="panel-setup" class="panel">
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <h2 id="FRQ_implantatTitle" style="margin:0;"></h2>
+            <button class="btn" id="printImplantBtn"
+                    title=""
+                    style="padding:4px 10px;font-size:0.9em;">
+              🖨 <span data-t="printBtn"></span>
+            </button>
+          </div>
+
+          <!-- Bilateral-Hinweis (oben, sichtbar solange ≥1 Seite „Keine Angabe") -->
+          <div
+            class="explain explain-warn"
+            id="implBilateralHintEl"
+            style="margin-top: 8px; margin-bottom: 12px; display: none"
+          ></div>
+
+          <!-- Hörsituation (Konfiguration pro Seite) -->
+          <div class="controls-row" style="margin-bottom: 8px">
+            <div class="control-group">
+              <label id="lblCfg"></label>
+              <select id="cfgSelect">
+                <option value="unknown" id="cfgOptUnknown"></option>
+                <option value="ci" id="cfgOptCI"></option>
+                <option value="hg" id="cfgOptHG"></option>
+                <option value="normal" id="cfgOptNormal"></option>
+                <option value="shoh" id="cfgOptSchwerh"></option>
+                <option value="deaf" id="cfgOptTaub"></option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Konfig-Hinweise (bedingt) -->
+          <div id="cfgHintUnknownEl" class="explain"
+               style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"></div>
+          <div id="cfgHintAcousticEl" class="explain"
+               style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"></div>
+          <div id="cfgHintDeafEl" class="explain explain-warn"
+               style="display:none;margin-bottom:8px"></div>
+          <div id="cfgHintBothAcousticEl" class="explain explain-warn"
+               style="display:none;margin-bottom:8px"></div>
+
+          <!-- CI-spezifischer Block: Hersteller + Prozessor + Modell + Params -->
+          <div id="implMfrBlock">
+
+            <!-- Hersteller -->
+            <div class="controls-row" style="margin-bottom: 6px">
+              <div class="control-group">
+                <label id="lblMfr"></label>
+                <select id="mfrSelect">
+                  <option value="unknown" id="mfrOptUnknown">—</option>
+                  <option value="medel">MED-EL (12)</option>
+                  <option value="ab">Advanced Bionics (16)</option>
+                  <option value="cochlear">Cochlear (22)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Hersteller-Hinweis (wenn unknown) -->
+            <div id="mfrHintUnknownEl" class="explain"
+                 style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"></div>
+
+            <!-- Audioprozessor -->
+            <div class="controls-row" id="implProcRow" style="margin-bottom: 6px">
+              <div class="control-group">
+                <label id="lblImplProc"></label>
+                <select id="implProcSelect" style="min-width: 240px"></select>
+              </div>
+            </div>
+
+            <!-- Implantat-Modell + Generation (Cochlear) -->
+            <div class="controls-row" id="implModelRow" style="margin-bottom: 6px">
+              <div class="control-group">
+                <label id="lblImplModel"></label>
+                <select id="implModelSelect" style="min-width: 220px"></select>
+              </div>
+              <div class="control-group" id="implGenGroup" style="display: none">
+                <label id="lblImplGen"></label>
+                <span
+                  id="implGenDisplay"
+                  style="font-family: var(--mono); font-size: 0.88em"
+                ></span>
+              </div>
+            </div>
+
+            <!-- MED-EL: Kodierungsstrategie + (ausgeblendeter) c-Wert -->
+            <div
+              class="controls-row"
+              id="implMedelParams"
+              style="display: none; margin-bottom: 6px"
+            >
+              <div class="control-group" id="implCodingGroup">
+                <label id="lblImplCoding" data-t="lblImplCoding"></label>
+                <select id="implCodingSelect" style="min-width: 160px">
+                  <option value="unknown" data-t="implCodingUnknown"></option>
+                  <option value="hdcis" data-t="implCodingHdcis"></option>
+                  <option value="fsp" data-t="implCodingFsp"></option>
+                  <option value="fs4" data-t="implCodingFs4"></option>
+                  <option value="fs4p" data-t="implCodingFs4p"></option>
+                </select>
+              </div>
+              <!-- c-Wert: derzeit nicht ausgewertet (MAPLAW im Player aus),
+                   daher ausgeblendet; Wert bleibt im Datenmodell erhalten. -->
+              <div class="control-group" id="implCGroup" style="display: none">
+                <label id="lblImplC"></label>
+                <input
+                  type="number"
+                  id="implC"
+                  min="0"
+                  max="8000"
+                  step="1"
+                  style="width: 80px"
+                />
+              </div>
+            </div>
+
+            <!-- AB: IDR -->
+            <div
+              class="controls-row"
+              id="implAbParams"
+              style="display: none; margin-bottom: 6px"
+            >
+              <div class="control-group">
+                <label id="lblImplIDR"></label>
+                <input
+                  type="number"
+                  id="implIDR"
+                  min="20"
+                  max="80"
+                  step="1"
+                  style="width: 80px"
+                />
+                dB
+              </div>
+            </div>
+
+          </div><!-- /implMfrBlock -->
+
+          <!-- Tabellen-Intro (zwei Sätze: Pflicht / Optional) -->
+          <p
+            style="
+              font-size: 0.86em;
+              color: var(--text);
+              margin-top: 14px;
+              margin-bottom: 6px;
+            "
+            id="implTableIntroEl"
+          ></p>
+
+          <!-- Tabellen-Hinweis 1 — Aktiv-Spalte / deaktivierte Elektroden -->
+          <div
+            id="FRQ_implantatDeactHintEl"
+            class="explain explain-warn"
+            style="margin-bottom: 8px; display: none"
+          ></div>
+
+          <!-- Tabellen-Hinweis 2 — ABF / FAT -->
+          <div
+            id="FRQ_implantatAbfHintEl"
+            class="explain explain-warn"
+            style="margin-bottom: 8px; display: none"
+          ></div>
+
+          <!-- Tabellen-Hinweis 3 — Ausschließen-Spalte -->
+          <div
+            id="FRQ_implantatExclHintEl"
+            class="explain explain-warn"
+            style="margin-bottom: 12px; display: none"
+          ></div>
+
+          <div style="overflow-x: auto">
+            <table class="frq-implantat-table" id="FRQ_implantatTable">
+              <thead>
+                <tr id="FRQ_implantatTableHead"></tr>
+              </thead>
+              <tbody id="FRQ_implantatTableBody"></tbody>
+            </table>
+          </div>
+          <div
+            id="implTonePopupRow"
+            style="margin-top: 12px; display: none;"
+          >
+            <button class="btn" id="implTonePopupBtn"></button>
+          </div>
+          <details id="implValidateBox" open>
+            <summary id="implValidateTitle"></summary>
+            <ul id="implValidateList"></ul>
+          </details>
+        </div>
+
+      </div>
+
+      <!-- ===== TEST ===== -->
+      <!-- ===== MESSUNGEN ===== -->
+      <div id="panel-messungen" class="panel">
+        <div>
+        <div class="subtabs">
+          <button class="subtab active" data-subtab="elektrodenlautstaerke" data-parent="messungen" data-t="tabElektrodenlautstaerke"></button>
+          <button class="subtab" data-subtab="stereobalance" data-parent="messungen" data-t="tabSTB"></button>
+          <button class="subtab" data-subtab="latenz" data-parent="messungen" id="LTZ_subtabBtn" data-t="tabLTZ"></button>
+          <button class="subtab" data-subtab="freqmatch" data-parent="messungen" id="FRQ_subtabBtn" data-t="subTabFRQ"></button>
+        </div>
+        <div id="subpanel-messungen-elektrodenlautstaerke" class="subpanel active">
+          <!-- Inhalt wird von test-ui.js / test.js erzeugt -->
+        </div>
+        <div id="subpanel-messungen-stereobalance" class="subpanel"></div>
+
+      <!-- ===== FREQUENZABGLEICH ===== -->
+      <div id="subpanel-messungen-freqmatch" class="subpanel"></div>
+
+      <!-- ===== LATENZ ===== -->
+      <div id="subpanel-messungen-latenz" class="subpanel">
+        <div id="snapHint_LTZ"></div><!-- BA 156 -->
+        <!-- Inhalt wird von latency.js / test-ui.js erzeugt -->
+      </div>
+
+        </div><!-- /panel-messungen-wrapper -->
+      </div><!-- /panel-messungen -->
+
+      <!-- ===== RESULTS ===== -->
+      <!-- ===== ERGEBNISSE ===== -->
+      <div id="panel-ergebnisse" class="panel">
+        <div class="subtabs">
+          <button class="subtab active" data-subtab="elektrodenlautstaerke" data-parent="ergebnisse" id="tabElektrodenlautstaerkeBtn"></button>
+          <button class="subtab" data-subtab="stereobalance" data-parent="ergebnisse" data-t="tabSTB"></button>
+          <button class="subtab" data-subtab="latenz" data-parent="ergebnisse" id="subTabLTZBtn" data-t="tabLTZ">Latenz</button>
+          <button class="subtab" data-subtab="freqmatch" data-parent="ergebnisse" id="subTabFRQBtn"></button>
+          <button class="btn" id="printErgebnisseBtn"
+                  style="margin-left:auto;padding:4px 10px;font-size:0.9em;">
+            🖨 <span data-t="printBtn"></span>
+          </button>
+        </div>
+        <div id="subpanel-ergebnisse-elektrodenlautstaerke" class="subpanel active">
+      <div id="panel-results-inner">
+        <div class="card">
+          <h2 id="ELL_resTitle"></h2>
+          <div id="ELL_noRes">
+            <p style="color: var(--text-muted)" data-t="ELL_noRes"></p>
+          </div>
+          <div id="ELL_resC" style="display: none">
+            <div id="ELL_resNotDoneBox" style="display:none;margin-bottom:14px;padding:12px 16px;background:#fef3c7;border-radius:8px;border-left:3px solid #d97706;font-size:0.88em;line-height:1.6">
+              <strong id="ELL_resNotDoneTitle"></strong>
+              <div id="ELL_resNotDoneDetail" style="margin-top:4px"></div>
+            </div>
+            <div
+              id="ELL_reliabilityText"
+              style="
+                margin-bottom: 14px;
+                padding: 12px 16px;
+                background: var(--accent-light);
+                border-radius: 8px;
+                border-left: 3px solid var(--accent);
+                font-size: 0.88em;
+                line-height: 1.6;
+              "
+            ></div>
+            <p
+              style="
+                font-size: 0.84em;
+                color: var(--text-muted);
+                margin-bottom: 10px;
+              "
+              id="ELL_resMeta"
+            ></p>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:0.88em">
+              <label for="ELL_refEl" data-t="lblRef" style="white-space:nowrap"></label>
+              <select id="ELL_refEl" style="font-family:var(--mono);padding:4px 8px"></select>
+            </div>
+            <div class="chart-container">
+              <canvas id="ELL_resChart" width="800" height="320"></canvas>
+              <p
+                id="ELL_chartExpl"
+                style="
+                  font-size: 0.82em;
+                  color: var(--text-muted);
+                  margin-top: 10px;
+                  line-height: 1.5;
+                "
+              ></p>
+              <div id="ELL_resChartHint" style="font-size:0.82em;margin-top:6px"></div>
+            </div>
+            <div style="overflow-x: auto; margin-top: 14px">
+              <table class="results-table" id="ELL_resT">
+                <thead>
+                  <tr id="ELL_resTH"></tr>
+                </thead>
+                <tbody id="ELL_resTB"></tbody>
+              </table>
+            </div>
+            <div style="margin-top: 16px">
+              <button class="btn" id="fClearBtn" style="color: var(--danger)">
+                &#128465; <span data-t="fClear"></span>
+              </button>
+            </div>
+            <div
+              style="
+                margin-top: 24px;
+                padding: 16px;
+                background: var(--bg);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+              "
+            >
+              <h3
+                id="ELL_glossTitleEl"
+                style="
+                  font-size: 0.95em;
+                  font-weight: 600;
+                  margin-bottom: 12px;
+                  color: var(--text-muted);
+                "
+              ></h3>
+              <div
+                style="
+                  font-size: 0.84em;
+                  line-height: 1.7;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 8px;
+                "
+              >
+                <div id="ELL_glossResiduumEl"></div>
+                <div id="ELL_glossErrBarEl"></div>
+                <div id="ELL_glossAnpassungEl"></div>
+                <div id="ELL_glossFarbeEl"></div>
+                <div id="ELL_glossRefEl"></div>
+                <div id="ELL_glossLSEl"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div id="subpanel-ergebnisse-stereobalance" class="subpanel">
+        <div id="STB_noResults" class="card">
+          <p style="color: var(--text-muted)" data-t="STB_noResultsMsg"></p>
+        </div>
+        <div class="card" id="STB_resultsCard" style="display: none">
+          <h2 id="STB_resTitle" data-t="STB_resTitle"></h2>
+          <div
+            id="STB_medianDisplay"
+            style="
+              text-align: center;
+              margin: 12px 0 16px;
+              padding: 14px;
+              background: var(--accent-light);
+              border-radius: 8px;
+              border: 2px solid var(--accent);
+            "
+          >
+            <div
+              style="
+                font-size: 0.8em;
+                color: var(--text-muted);
+                margin-bottom: 4px;
+              "
+              id="STB_medianLabel"
+              data-t="STB_medianLabel"
+            ></div>
+            <div
+              id="STB_medianValue"
+              style="
+                font-size: 2.2em;
+                font-weight: 700;
+                font-family: var(--mono);
+                color: var(--accent);
+              "
+            >
+              0.0 dB
+            </div>
+            <div
+              id="STB_medianHint"
+              style="
+                font-size: 0.8em;
+                color: var(--text-muted);
+                margin-top: 4px;
+              "
+            ></div>
+          </div>
+          <div
+            id="STB_resChartWrap"
+            style="
+              position: relative;
+              width: 100%;
+              height: 240px;
+              background: var(--bg);
+              border-radius: 8px;
+              overflow: hidden;
+              margin-bottom: 12px;
+            "
+          >
+            <canvas
+              id="STB_resChart"
+              style="width: 100%; height: 100%; display: block"
+            ></canvas>
+          </div>
+          <div id="STB_resChartHint" style="font-size:0.82em;margin:6px 0"></div>
+          <div style="overflow-x: auto">
+            <table class="results-table" id="STB_resTable">
+              <thead>
+                <tr id="STB_resTH"></tr>
+              </thead>
+              <tbody id="STB_resTB"></tbody>
+            </table>
+          </div>
+          <div style="margin-top: 12px">
+            <button
+              class="btn btn-sm"
+              id="STB_clearBtn"
+              style="color: var(--danger)"
+              data-t="STB_clearBtnLabel"
+            ></button>
+          </div>
+          <div class="explain" style="margin-top: 12px" id="STB_resNote" data-t="STB_resNote"></div>
+        </div>
+        </div>
+
+        <div id="subpanel-ergebnisse-freqmatch" class="subpanel">
+          <div id="FRQ_resultsNoData" class="card">
+            <p style="color: var(--text-muted)" id="FRQ_resultsNoDataText"></p>
+          </div>
+          <div class="card" id="FRQ_resultsCard" style="display:none">
+            <h2 id="FRQ_resultsTitle"></h2>
+            <p style="font-size:0.84em;color:var(--text-muted);margin-bottom:10px" id="FRQ_resultsMeta"></p>
+            <div id="FRQ_resultsProgressBox" style="display:none;margin:10px 0;">
+              <div style="display:flex;justify-content:space-between;font-size:.85em;color:#555;margin-bottom:4px;">
+                <span data-t="FRQ_resultsProgressLabel">Fortschritt laufende Messung</span>
+                <span id="FRQ_resultsProgressText">—</span>
+              </div>
+              <div style="background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div id="FRQ_resultsProgressFill" style="background:#3b82f6;height:100%;width:0%;transition:width .3s ease;"></div>
+              </div>
+            </div>
+            <div id="FRQ_resultsQualityText" data-t="" style="margin:10px 0;padding:8px 10px;background:#f9fafb;border-left:3px solid #cbd5e1;font-size:.9em;color:#374151;border-radius:0 4px 4px 0;display:none;"></div>
+            <div
+              style="margin-bottom:14px;padding:12px 16px;background:var(--accent-light);border-radius:8px;border-left:3px solid var(--accent);font-size:0.86em;line-height:1.6"
+              id="FRQ_resultsMethodNote"
+            ></div>
+            <div id="FRQ_resultsSidesDescription" style="margin-bottom:8px;font-size:0.86em;line-height:1.6;color:#374151"></div>
+            <div class="chart-container" style="margin-bottom:16px">
+              <canvas id="FRQ_resultsChart" width="800" height="360"></canvas>
+              <div
+                style="font-size:0.82em;color:var(--text-muted);margin-top:10px;line-height:1.5"
+                id="FRQ_resultsChartHint"
+              ></div>
+            </div>
+            <div style="overflow-x:auto">
+              <table class="results-table" id="FRQ_resultsTable">
+                <thead><tr id="FRQ_resultsTableHead"></tr></thead>
+                <tbody id="FRQ_resultsTableBody"></tbody>
+              </table>
+            </div>
+            <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px">
+              <button class="btn" id="FRQ_resultsClearPianoBtn" style="color:var(--danger)" data-t="FRQ_resultsClearPianoBtnLabel"></button>
+              <button class="btn" id="FRQ_resultsClearAllBtn" style="color:var(--danger);display:none" data-t="FRQ_resultsClearAllBtnLabel"></button>
+            </div>
+          </div>
+
+          <div id="wvBox" class="wv-debug-only card" style="margin-top:16px">
+            <h3 style="margin-top:0">Warp-Verifikation (Debug)</h3>
+            <p style="font-size:.9em;color:#555">
+              Erzeugt pro Elektrode einen Sinuston bei der gehörten Frequenz,
+              warpt ihn einzeln durch die Player-Pipeline und misst, ob er auf
+              der nominellen Zielfrequenz landet. Toleranz ±20 Cent.
+            </p>
+            <button id="wvRunBtn" class="btn">Warp prüfen</button>
+            <div id="wvResultHead" style="margin-top:10px;font-size:.85em;color:#555"></div>
+            <table id="wvResultTable" style="margin-top:8px;border-collapse:collapse;width:100%">
+              <thead>
+                <tr>
+                  <th style="text-align:left">Elektrode</th>
+                  <th style="text-align:left">gehört (Hz)</th>
+                  <th style="text-align:left">Ziel nominell (Hz)</th>
+                  <th style="text-align:left">gemessen (Hz)</th>
+                  <th style="text-align:left">Δ Cent</th>
+                  <th>ok</th>
+                  <th style="text-align:left">Status</th>
+                </tr>
+              </thead>
+              <tbody id="wvResultBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ===== ERGEBNIS LATENZ ===== -->
+        <div id="subpanel-ergebnisse-latenz" class="subpanel">
+          <div class="card">
+            <h2 data-t="LTZ_resTitle">Latenz</h2>
+            <div id="LTZ_resNone" style="color:var(--text-muted);">
+              <p data-t="LTZ_resNoneText">Noch keine Latenz gemessen. Im Reiter „Messungen" → „Latenz" durchführen.</p>
+            </div>
+            <div id="LTZ_resContent" hidden>
+              <div style="text-align:center;margin:12px 0 16px;padding:14px;background:var(--accent-light);border-radius:8px;border:2px solid var(--accent);">
+                <div style="font-size:0.8em;color:var(--text-muted);margin-bottom:4px;" data-t="LTZ_resLabel">Gemessener Zeitversatz</div>
+                <div id="LTZ_resValueBig" style="font-size:2.2em;font-weight:700;font-family:var(--mono);color:var(--accent);">—</div>
+                <div id="LTZ_resText" style="font-size:0.85em;color:var(--text-muted);margin-top:4px;"></div>
+              </div>
+              <div id="LTZ_resContext" style="color:var(--text-muted);font-size:0.85em;margin:8px 0;text-align:center;"></div>
+            </div>
+            <div style="margin-top:16px">
+              <button class="btn" id="LTZ_clearBtn" style="color:var(--danger)" data-t="LTZ_clearBtnLabel"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SCHIEBER (zukünftig „Levels") ===== -->
+      <div id="panel-schieber" class="panel">
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <h2 data-t="schieberELLTitle" style="margin:0;"></h2>
+            <button class="btn" id="printSchieberELLBtn"
+                    style="padding:4px 10px;font-size:0.9em;">
+              🖨 <span data-t="printBtn"></span>
+            </button>
+          </div>
+          <p style="font-size:.84em;color:var(--text-muted);margin-bottom:10px;margin-top:6px;" data-t="schieberELLDesc"></p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:6px;font-size:.86em">
+            <!-- Hauptmodus -->
+            <span style="font-weight:600" data-t="schieberELLModeLabel"></span>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <input type="radio" name="schieberELLMode" id="schieberELLModeRel" value="rel" checked>
+              <span data-t="schieberELLModeRelative"></span>
+            </label>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <input type="radio" name="schieberELLMode" id="schieberELLModeAbs" value="abs">
+              <span data-t="schieberELLModeAbsolute"></span>
+            </label>
+            <span style="color:var(--text-muted)">|</span>
+            <!-- Variante -->
+            <span style="font-weight:600" data-t="schieberELLVariantLabel"></span>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <input type="radio" name="schieberELLVariant" id="schieberELLVarSum" value="sum">
+              <span data-t="schieberELLVarSum"></span>
+            </label>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <input type="radio" name="schieberELLVariant" id="schieberELLVarStack" value="stack" checked>
+              <span data-t="schieberELLVarStack"></span>
+            </label>
+            <label style="display:none;align-items:center;gap:4px;cursor:pointer">
+              <input type="radio" name="schieberELLVariant" id="schieberELLVarLines" value="lines">
+              <span data-t="schieberELLVarLines"></span>
+            </label>
+          </div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:6px;font-size:.86em">
+            <!-- Quellen-Toggles (eigene Zeile) -->
+            <span style="font-weight:600" data-t="schieberELLShowLabel"></span>
+            <label style="display:flex;align-items:center;gap:4px">
+              <span style="display:inline-block;width:12px;height:12px;background:#16a34a;border-radius:2px"></span>
+              <span data-t="schieberELLSrcSlider"></span>
+            </label>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <input type="checkbox" id="schieberELLChkMeas">
+              <span style="display:inline-block;width:12px;height:12px;background:#2563eb;border-radius:2px"></span>
+              <span data-t="schieberELLSrcMeas"></span>
+            </label>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <input type="checkbox" id="schieberELLChkCurves">
+              <span style="display:inline-block;width:12px;height:12px;background:#d97706;border-radius:2px"></span>
+              <span data-t="schieberELLSrcCurves"></span>
+            </label>
+          </div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:10px;font-size:.86em">
+            <!-- Reset-Button (eigene Zeile unter Anzeigen:) -->
+            <button class="btn btn-sm" id="schieberELLResetBtn" data-t="schieberELLReset"></button>
+          </div>
+          <div style="position:relative;width:100%;height:620px;background:var(--bg);border-radius:8px;overflow:hidden">
+            <canvas id="schieberELLCv" tabindex="0" style="width:100%;height:100%;display:block;outline:none"></canvas>
+          </div>
+          <div
+            id="schieberELLWarpHint"
+            data-t="schieberELLWarpHint"
+            style="margin-top:6px;font-size:0.78em;color:#888;display:none;"
+          ></div>
+          <p style="font-size:.78em;color:var(--text-muted);margin-top:8px" data-t="schieberELLKeyHint"></p>
+        </div>
+      </div>
+
+      <!-- ===== LEVELS ===== -->
+      <div id="panel-kurven" class="panel">
+        <div class="card">
+          <h2 data-t="kurvenELLIntroTitle"></h2>
+          <div class="explain-plain" data-t="kurvenELLIntroDesc"></div>
+        </div>
+        <div class="card kurven-ell-chart-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <h2 data-t="kurvenELLChartTitle" style="margin:0;"></h2>
+            <button class="btn" id="printKurvenELLBtn"
+                    style="padding:4px 10px;font-size:0.9em;">
+              🖨 <span data-t="printBtn"></span>
+            </button>
+          </div>
+          <div
+            style="
+              margin-bottom: 8px;
+              display: flex;
+              gap: 12px;
+              flex-wrap: wrap;
+              font-size: 0.84em;
+            "
+          >
+            <label
+              style="
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                cursor: pointer;
+              "
+              ><input type="checkbox" id="kurvenELLChkMeas" />
+              <span style="color: #2563eb">&#9632;</span>
+              <span data-t="plSrcMeas"></span
+            ></label>
+            <label
+              style="
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                cursor: pointer;
+              "
+              ><input type="checkbox" id="kurvenELLChkMan" />
+              <span style="color: #16a34a">&#9632;</span>
+              <span data-t="kurvenELLChartMan"></span
+            ></label>
+            <label
+              style="
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                cursor: pointer;
+              "
+              ><input type="checkbox" id="kurvenELLChkPre" checked />
+              <span style="color: #d97706">&#9632;</span>
+              <span data-t="kurvenELLChartLineLabel"></span
+            ></label>
+            <span style="color: var(--text-muted)">|</span>
+            <span style="font-weight: 600"
+              >&#9644; <span data-t="kurvenELLChartSum"></span
+            ></span>
+          </div>
+          <div class="kurven-ell-chart-wrap">
+            <canvas id="kurvenELLChartCv"></canvas>
+          </div>
+          <div
+            id="kurvenELLChartWarpHint"
+            data-t="kurvenELLChartWarpHint"
+            style="margin-top: 6px; font-size: 0.82em; color: #888;"
+          ></div>
+        </div>
+        <div class="card">
+          <h2 data-t="kurvenELLTitle"></h2>
+          <div
+            class="explain-plain"
+            style="margin-bottom: 10px"
+            data-t="kurvenELLDesc"
+          ></div>
+          <label
+            style="
+              font-size: 0.85em;
+              color: var(--text-muted);
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              cursor: pointer;
+              margin-bottom: 10px;
+            "
+            ><input type="checkbox" id="kurvenELLBothSides" checked />
+            <span data-t="kurvenELLBoth"></span
+          ></label>
+          <table class="kurven-ell-tbl" id="kurvenELLTbl"></table>
+        </div>
+      </div>
+
+      <!-- ===== FREQUENZBÄNDER ===== -->
+      <div id="panel-frequenzbaender" class="panel">
+        <div style="display:flex;justify-content:flex-end;margin-bottom:4px;">
+          <button class="btn" id="printFrequenzbaenderBtn"
+                  style="padding:4px 10px;font-size:0.9em;">
+            🖨 <span data-t="printBtn"></span>
+          </button>
+        </div>
+        <!-- Experimentell-Hinweis, dauerhaft ganz oben -->
+        <p class="explain explain-error" data-t="FRQ_bandExperimentalHint" style="margin-top:0"></p>
+        <!-- BA506: Hinweis, wenn aktive Seite kein CI ist (alle Karten aus) -->
+        <div class="card" id="FRQ_noCiHint" style="display:none">
+          <p data-t="FRQ_noCiHint" style="margin:0"></p>
+        </div>
+        <!-- BA492: globale Verteilung der Messergebnisse auf die Seiten (Warp-Modus) -->
+        <div class="card" id="FRQ_distributionCard">
+          <h3 data-t="FRQ_distributionTitle" style="font-size:1em;margin:0 0 10px">Korrektur-Seite</h3>
+          <p data-t="FRQ_distributionIntro" style="font-size:0.88em;margin:0 0 12px;color:var(--text-muted)">Legt fest, auf welche Seite(n) die gemessene Frequenzabweichung als Korrektur verteilt wird. Das sollte die CI-Seite sein. Bei 2&#8239;CI meist symmetrisch, es sei denn, Sie wollen ein CI so lassen, wie es ist, und das andere anpassen.</p>
+          <label style="font-size:0.9em;display:flex;align-items:center;gap:8px">
+            <span data-t="pwMode">Korrektur-Modus</span>
+            <select id="FRQ_distributionSelect" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.9em">
+              <option value="left" data-t-opt="pwModeLeft"></option>
+              <option value="right" data-t-opt="pwModeRight"></option>
+              <option value="symmetric" data-t-opt="pwModeSym"></option>
+            </select>
+          </label>
+        </div>
+        <!-- BA480: Auswahl, welche Elektroden in die Frequenzkette gehen -->
+        <div class="card" id="FRQ_chainSelCard">
+          <h3 data-t="FRQ_chainSelTitle" style="font-size:1em;margin:0 0 10px">Elektroden f&#252;r die Frequenzberechnung</h3>
+          <p data-t="FRQ_chainSelIntro" style="font-size:0.88em;margin:0 0 12px;color:var(--text-muted)">W&#228;hlen Sie, welche Elektroden in die Frequenzbandberechnung einbezogen werden. Abgew&#228;hlte Elektroden bekommen keinen Platz in den Frequenzb&#228;ndern und werden dem Audiologen als &#8218;zu deaktivieren&#8216; empfohlen. Das kann z.&#8239;B. sinnvoll sein f&#252;r stumme oder stark rauschende Elektroden.</p>
+          <div style="display:flex;align-items:center;gap:12px">
+            <button type="button" class="btn btn-small" id="FRQ_chainSelBtn" data-t="FRQ_chainSelBtn">Elektroden ausw&#228;hlen</button>
+            <span id="FRQ_chainSelSummary" style="font-size:0.9em"></span>
+          </div>
+        </div>
+        <!-- BA475: Mess-Glaettung (dauerhaft sichtbar) -->
+        <div class="card" id="FRQ_glaettCard">
+          <h3 data-t="FRQ_glaettTitle" style="font-size:1em;margin:0 0 10px">Me&#223;wertverlaufskurve gl&#228;tten</h3>
+          <div data-t="FRQ_glaettIntro" style="font-size:0.88em;margin:0 0 12px;color:var(--text-muted)"><p style="margin:0 0 8px">Die exakten Me&#223;werte bestm&#246;glich umzusetzen kann zu unregelm&#228;&#223;iger Frequenzbandverteilung f&#252;hren. Die Me&#223;wertkurve zu gl&#228;tten kann zu gleichm&#228;&#223;igerer Bandverteilung f&#252;hren.</p><ul style="margin:0 0 8px;padding-left:1.4em"><li>Die farbigen Punkte gr&#252;n/gelb/rot geben einen Hinweis, wie gut die Kurve Ihre Messung trifft.</li><li>Das Verfahren &#8222;Ortsaffin&#8220; und die Voreinstellung von &#8222;Polynom&#8220; bilden eine Ann&#228;herung an die Elektrodenpositionen und k&#246;nnen trotz Me&#223;wertabweichungen eventuell gut passen.</li><li>Die T-f&#246;rmigen Residuenbalken geben die Me&#223;ungenauigkeit an; je besser die Kurve durch die Residuen l&#228;uft, desto besser pa&#223;t sie zu Ihren Me&#223;ergebnissen.</li><li>Als problematisch markierte Elektroden (z.&#8239;B. verrauscht) d&#252;rfen sich in der Kurve stark ver&#228;ndern.</li><li>Nur MED-EL: Pr&#252;fen Sie, ob FSP-gesteuerte Elektroden richtig markiert sind &#8212; oder nehmen Sie &#252;ber die Achse &#8222;Randausschlu&#223;&#8220; apikale Randelektroden aus der Gl&#228;ttung heraus.</li></ul></div>
+          <!-- Zeile 1: global, immer sichtbar -->
+          <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+            <fieldset id="FRQ_glaettGrundlageFieldset" class="dbg-only-block" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettGrundlageLegend" style="padding:0 6px">Gl&#228;ttungs-Grundlage</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettGrundlage" value="residuum"> <span data-t="FRQ_glaettGrundlageResiduum">Residuum-Bereich</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettGrundlage" value="restspanne"> <span data-t="FRQ_glaettGrundlageRestspanne">Restspanne</span></label>
+            </fieldset>
+            <fieldset id="FRQ_glaettFormelFieldset" class="dbg-only-block" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettFormelLegend" style="padding:0 6px">Gewichts-Formel</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettFormel" value="linear"> <span data-t="FRQ_glaettFormelLinear">1/r</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettFormel" value="quadrat"> <span data-t="FRQ_glaettFormelQuadrat">1/r&#178;</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettFormel" value="quartisch"> <span data-t="FRQ_glaettFormelQuartisch">1/r&#8308;</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettFormel" value="gleich"> <span data-t="FRQ_glaettFormelGleich">alle gleich</span></label>
+            </fieldset>
+            <fieldset id="FRQ_glaettBodenFieldset" class="dbg-only-block" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettBodenLegend" style="padding:0 6px">Gewichts-Boden</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettBoden" value="2"> 2 ct</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettBoden" value="5"> 5 ct</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettBoden" value="10"> 10 ct</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettBoden" value="20"> 20 ct</label>
+            </fieldset>
+            <fieldset id="FRQ_glaettAnkerFieldset" class="dbg-only-block" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettAnkerLegend" style="padding:0 6px">Steife-Kopplung</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettAnker" value="gekoppelt"> <span data-t="FRQ_glaettAnkerGekoppelt">an Gewicht gekoppelt</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettAnker" value="entkoppelt"> <span data-t="FRQ_glaettAnkerEntkoppelt">entkoppelt</span></label>
+            </fieldset>
+            <fieldset id="FRQ_glaettLageFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettLageLegend" style="padding:0 6px">Elektrodenlage in Cochlea</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettLage" value="aussen"> <span data-t="FRQ_glaettLageAussen">Au&#223;enwand (Greenwood)</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettLage" value="mitte"> <span data-t="FRQ_glaettLageMitte">Mitte</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettLage" value="innen"> <span data-t="FRQ_glaettLageInnen">Innenwand (Spiralganglion)</span></label>
+            </fieldset>
+            <fieldset id="FRQ_glaettRandfreiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettRandfreiLegend" style="padding:0 6px">Randausschlu&#223; (apikal)</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="0"> <span data-t="FRQ_glaettRandfrei0">0 Elektroden</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="1"> <span data-t="FRQ_glaettRandfrei1">1 Elektrode</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="2"> <span data-t="FRQ_glaettRandfrei2">2 Elektroden</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="3"> <span data-t="FRQ_glaettRandfrei3">3 Elektroden</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettRandfrei" value="4"> <span data-t="FRQ_glaettRandfrei4">4 Elektroden</span></label>
+            </fieldset>
+            <fieldset id="FRQ_glaettKFieldset" class="dbg-only-block" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettKLegend" style="padding:0 6px">Greenwood-k</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettK" value="0.88"> 0,88</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettK" value="1.0"> 1,0</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettK" value="1.36"> 1,36</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettK" value="1.53"> 1,53</label>
+            </fieldset>
+          </div>
+          <!-- Zeile 2: Verfahren + Polynom-Regler -->
+          <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+            <fieldset style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettVerfahrenLegend" style="padding:0 6px">Verfahren</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="aus"> <span data-t="FRQ_glaettVerfahrenAus">aus</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="polynom"> <span data-t="FRQ_glaettVerfahrenPoly">Polynom</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="ortsaffin"> <span data-t="FRQ_glaettVerfahrenOrtsaf">Ortsaffin</span></label>
+            </fieldset>
+            <fieldset id="FRQ_glaettFitXFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettFitXLegend" style="padding:0 6px">Kurve &#252;ber</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettFitX" value="position"> <span data-t="FRQ_glaettFitXPos">Elektrodenposition</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettFitX" value="index"> <span data-t="FRQ_glaettFitXIdx">Elektrodennummer</span></label>
+            </fieldset>
+            <fieldset id="FRQ_glaettAchseFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettAchseLegend" style="padding:0 6px">Rechenraum</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettAchse" value="ortsraum"> <span data-t="FRQ_glaettAchseOrt">Ortsraum</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettAchse" value="log"> <span data-t="FRQ_glaettAchseLog">log-Frequenz</span></label>
+            </fieldset>
+            <fieldset id="FRQ_glaettGradFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettGradLegend" style="padding:0 6px">Gl&#228;ttungskurve</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettGrad" value="1"> 1</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettGrad" value="2"> 2</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettGrad" value="3"> 3</label>
+            </fieldset>
+            <fieldset id="FRQ_glaettSteifeFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+              <legend data-t="FRQ_glaettSteifeLegend" style="padding:0 6px">Steifheit</legend>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="0"> <span data-t="FRQ_glaettSteifeWeich">weich</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="1"> 1</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="2"> 2</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="3"> 3</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="4"> 4</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="5"> 5</label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettSteife" value="6"> <span data-t="FRQ_glaettSteifeSteif">steif</span></label>
+            </fieldset>
+            <p id="FRQ_glaettVorbereitungHinweis" data-t="FRQ_glaettVorbereitung" style="display:none;font-size:0.85em;color:var(--text-muted);margin:6px 0 0;flex-basis:100%">Ortsverfahren rechnen derzeit wie Polynom (in Vorbereitung).</p>
+          </div>
+          <div style="margin:0 0 4px">
+            <canvas id="FRQ_glaettChart" width="800" height="300"></canvas>
+          </div>
+          <div
+            style="font-size:0.82em;color:var(--text-muted);margin:0 0 8px;line-height:1.5"
+            id="FRQ_glaettChartHint"
+          ></div>
+          <div style="margin:4px 0 0">
+            <button type="button" class="btn btn-small" id="FRQ_glaettPianoBtn"
+                    data-t="FRQ_glaettPianoBtn">T&#246;ne gem&#228;&#223; Gl&#228;ttung abspielen</button>
+          </div>
+        </div>
+        <div class="card">
+          <div id="FRQ_bandEmpfBlock" style="margin-top:18px">
+            <h3 data-t="FRQ_bandEmpfTitle" style="font-size:1em;margin:0 0 10px">Bandgrenzen-Empfehlung</h3>
+            <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+              <fieldset id="FRQ_bandWandLoFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandWandLoLegend" style="padding:0 6px">Untergrenze</legend>
+                <div id="FRQ_bandWandLoOptions"></div>
+              </fieldset>
+              <fieldset id="FRQ_bandWandHiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                <legend data-t="FRQ_bandWandHiLegend" style="padding:0 6px">Obergrenze</legend>
+                <div id="FRQ_bandWandHiOptions"></div>
+              </fieldset>
+              <!-- Zeile 1: gemeinsame (globale) Achsen -->
+              <div id="FRQ_bandAchsenZeile1" style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+                <fieldset id="FRQ_bandLageFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandLageLegend" style="padding:0 6px">Elektrodenlage</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandLage" value="geometrisch"> <span data-t="FRQ_bandLageGeom">geometrisch (log)</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandLage" value="aussen"> <span data-t="FRQ_bandLageAussen">au&#223;en (Greenwood, OC)</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandLage" value="mitte"> <span data-t="FRQ_bandLageMitte">Mitte</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandLage" value="innen"> <span data-t="FRQ_bandLageInnen">innen (Stakhovskaya, SG)</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandKFieldset" class="dbg-only-block" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandKLegend" style="padding:0 6px">Greenwood-k</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandK" value="0.88"> 0.88</label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandK" value="1.0"> 1.0</label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandK" value="1.36"> 1.36</label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandK" value="1.53"> 1.53</label>
+                </fieldset>
+                <fieldset id="FRQ_bandRandverhaltenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandRandvLegend" style="padding:0 6px">Randverhalten</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandverhalten" value="abschneiden"> <span data-t="FRQ_bandRandvAbschneiden">Rand abschneiden</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandverhalten" value="treffen"> <span data-t="FRQ_bandRandvTreffen">Wand treffen</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandverhalten" value="luecke"> <span data-t="FRQ_bandRandvLuecke">L&#252;cke erlauben</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandverhalten" value="frei"> <span data-t="FRQ_bandRandvFrei">Grenzen frei setzen</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandMinBreiteFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandMinBreiteLegend" style="padding:0 6px">Mindestbreite</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandMinBreite" value="50"> 50 ct</label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandMinBreite" value="100"> 100 ct</label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandMinBreite" value="200"> 200 ct</label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandMinBreite" value="300"> 300 ct</label>
+                </fieldset>
+              </div>
+
+              <!-- Zeile 2: Verfahren-Wahl (zuerst) + verfahrensspezifische Achsen -->
+              <div id="FRQ_bandAchsenZeile2" style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+                <fieldset id="FRQ_bandVerfahrenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandVerfahrenLegend" style="padding:0 6px">Berechnungsverfahren</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cbf"> <span data-t="FRQ_bandVerfCbf">CBF (CImbel based fitting)</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="abf"> <span data-t="FRQ_bandVerfAbf">sABF</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="geometrisch"> <span data-t="FRQ_bandVerfGeom">Geometrisch</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandTopologieFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandTopoLegend" style="padding:0 6px">Band-Topologie</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="nahtlos"> <span data-t="FRQ_bandTopoNahtlos">Bänder lückenlos</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="ueberlappend"> <span data-t="FRQ_bandTopoUeber">Bandüberschneidung</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandTopologie" value="lueckig"> <span data-t="FRQ_bandTopoLuecke">Bandlücken</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandOptimierenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandOptimierenLegend" style="padding:0 6px">Grenzsetzung</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandOptimieren" value="optimiert"> <span data-t="FRQ_bandOptOptimiert">Optimiert</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandOptimieren" value="klassisch"> <span data-t="FRQ_bandOptKlassisch">Klassisch</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandZielFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandZielLegend" style="padding:0 6px">Optimierungsziel</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandZiel" value="minimax"> <span data-t="FRQ_bandZielMinimax">Kleinster Ausreißer</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandZiel" value="summe"> <span data-t="FRQ_bandZielSumme">Kleinster Gesamtfehler</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandRandausgleichFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandRandLegend" style="padding:0 6px">Randausgleich</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandausgleich" value="mit"> <span data-t="FRQ_bandRandMit">Mit Ausgleich (patenttreu)</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandRandausgleich" value="ohne"> <span data-t="FRQ_bandRandOhne">Ohne Ausgleich</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandCbfGewichtFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandCbfGewichtLegend" style="padding:0 6px">Gewichtung</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfGewicht" value="treffer"> <span data-t="FRQ_bandCbfGewTreffer">Zielfrequenz erreichen</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfGewicht" value="ausgewogen"> <span data-t="FRQ_bandCbfGewAusgew">Ausgewogen</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfGewicht" value="breite"> <span data-t="FRQ_bandCbfGewBreite">Bandbreite gleichmäßig</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandCbfApikalFreiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandCbfApikalFreiLegend" style="padding:0 6px">Freie B&#228;nder (apikal)</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="0"> <span data-t="FRQ_bandCbfFrei0">0 Elektroden</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="1"> <span data-t="FRQ_bandCbfFrei1">1 Elektrode</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="2"> <span data-t="FRQ_bandCbfFrei2">2 Elektroden</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="3"> <span data-t="FRQ_bandCbfFrei3">3 Elektroden</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfApikalFrei" value="4"> <span data-t="FRQ_bandCbfFrei4">4 Elektroden</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandCbfBasalFreiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandCbfBasalFreiLegend" style="padding:0 6px">Freie B&#228;nder (basal)</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="0"> <span data-t="FRQ_bandCbfFrei0">0 Elektroden</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="1"> <span data-t="FRQ_bandCbfFrei1">1 Elektrode</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="2"> <span data-t="FRQ_bandCbfFrei2">2 Elektroden</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="3"> <span data-t="FRQ_bandCbfFrei3">3 Elektroden</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfBasalFrei" value="4"> <span data-t="FRQ_bandCbfFrei4">4 Elektroden</span></label>
+                </fieldset>
+                <fieldset id="FRQ_bandCbfSpracheFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
+                  <legend data-t="FRQ_bandCbfSpracheLegend" style="padding:0 6px">Sprachbereich</legend>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfSprache" value="ohne"> <span data-t="FRQ_bandCbfSprOhne">Keine Bevorzugung</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfSprache" value="mittel"> <span data-t="FRQ_bandCbfSprMittel">Mittel bevorzugen</span></label>
+                  <label style="display:block"><input type="radio" name="FRQ_bandCbfSprache" value="stark"> <span data-t="FRQ_bandCbfSprStark">Stark bevorzugen</span></label>
+                </fieldset>
+              </div>
+            </div>
+
+            <div style="margin:0 0 12px">
+              <canvas id="FRQ_bandEmpfChart" width="800" height="300"></canvas>
+            </div>
+            <fieldset id="FRQ_bandAusgangFieldset"
+                      style="border:1px solid var(--border);border-radius:6px;padding:8px 12px;margin:0 0 12px;font-size:0.9em">
+              <legend data-t="FRQ_bandAusgangLabel" style="padding:0 6px;font-weight:600">Bandmitten vergleichen mit:</legend>
+              <label>
+                <input type="radio" name="FRQ_bandAusgang" value="geglaettet">
+                <span data-t="FRQ_bandAusgang_geglaettet">gegl&auml;ttet</span>
+              </label>
+              <label style="margin-left:12px">
+                <input type="radio" name="FRQ_bandAusgang" value="gemessen">
+                <span data-t="FRQ_bandAusgang_gemessen">gemessen</span>
+              </label>
+              <label style="margin-left:12px">
+                <input type="radio" name="FRQ_bandAusgang" value="nominell">
+                <span data-t="FRQ_bandAusgang_nominell">nominell</span>
+              </label>
+              <div id="FRQ_bandAusgangHinweisRow" style="display:none">
+                <div id="FRQ_bandAusgangHinweis"
+                     style="color:var(--text-muted);padding:4px 0 0"></div>
+              </div>
+            </fieldset>
+            <div
+              style="font-size:0.82em;color:var(--text-muted);margin:0 0 10px;line-height:1.5"
+              id="FRQ_bandEmpfChartHint"
+            ></div>
+            <div style="margin:0 0 12px">
+              <button type="button" class="btn btn-small" id="FRQ_bandPianoBtn"
+                      data-t="FRQ_bandPianoBtn">T&#246;ne gem&#228;&#223; Bandberechnung abspielen</button>
+            </div>
+            <div id="FRQ_bandGesamtbereich" style="font-size:0.9em;font-weight:600;margin:0 0 8px"></div>
+            <table class="results-table" id="FRQ_bandEmpfTable">
+              <thead><tr id="FRQ_bandEmpfTableHead"></tr></thead>
+              <tbody id="FRQ_bandEmpfTableBody"></tbody>
+            </table>
+            <div id="FRQ_bandEmpfOverlapNote" style="margin-top:8px;font-size:0.86em;color:#dc2626;display:none"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PLAYER ===== -->
+      <div id="panel-player" class="panel">
+        <!-- 1. Reine Textbox: Titel + Beschreibung -->
+        <div class="card">
+          <h2 data-t="plTitle"></h2>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin: 0;
+            "
+            data-t="plDesc"
+          ></p>
+        </div>
+
+        <!-- 2. Equalizer-Graph -->
+        <div id="plEqViz" class="card">
+          <h2 data-t="plEqTitle"></h2>
+          <div
+            style="
+              position: relative;
+              width: 100%;
+              height: 400px;
+              background: var(--bg);
+              border-radius: 8px;
+              overflow: hidden;
+            "
+          >
+            <canvas
+              id="plEqCv"
+              style="width: 100%; height: 100%; display: block"
+            ></canvas>
+          </div>
+        </div>
+
+        <!-- 3. Einstellungen -->
+        <div class="card">
+          <h2 data-t="plSettingsTitle"></h2>
+          <!-- Zeile 1: EQ an/aus (Haupt-Schalter: zentriert, schmaler, groesser) -->
+          <div class="controls-row">
+            <button
+              class="btn"
+              id="plEqToggle"
+              style="font-weight: 700; width: 200px; border-radius: 6px; text-align: center; padding: 10px 12px; font-size: 1.05em; white-space: nowrap"
+            ></button>
+          </div>
+          <!-- Zeile 2: EQ-Quelle -->
+          <div class="controls-row pl-master-row" style="margin-top: 8px">
+            <div class="control-group" style="flex-direction: column; align-items: flex-start; gap: 6px">
+              <!-- KEIN data-t: Text wird dynamisch von styleToggleBtn
+                   (✓ Name AN / Name AUS) gebaut. Ein data-t wuerde von
+                   applyLang ueberschrieben -> Haekchen/AN gingen beim
+                   Laden/Sprachwechsel verloren. Sprachwechsel ruft daher
+                   updPlSrcButtons (siehe applyLang-Patch in init.js). -->
+              <button
+                id="plSrcMeasBtn"
+                class="btn btn-sm"
+                style="font-weight: 600; width: 240px; border-radius: 6px; text-align: left"
+              ></button>
+              <button
+                id="plSrcCurvesBtn"
+                class="btn btn-sm pl-src-child"
+                style="font-weight: 600; width: 240px; border-radius: 6px; text-align: left; margin-left: 24px"
+              ></button>
+              <button
+                id="plSrcLevelsBtn"
+                class="btn btn-sm pl-src-child pl-src-child-last"
+                style="font-weight: 600; width: 240px; border-radius: 6px; text-align: left; margin-left: 24px"
+              ></button>
+            </div>
+            <!-- hidden select for compatibility -->
+            <select id="plSrc" style="display: none">
+              <option value="measured"></option>
+              <option value="levels"></option>
+              <option value="both" selected></option>
+            </select>
+            <!-- hidden plSide kept for JS compat, value managed by checkbox -->
+            <select id="plSide" style="display: none">
+              <option value="left">left</option>
+              <option value="right">right</option>
+              <option value="both">both</option>
+            </select>
+          </div>
+          <!-- Zeile 3a: Latenzausgleich -->
+          <div class="controls-row pl-master-row" style="margin-top: 8px">
+            <div class="control-group">
+              <button
+                id="plLatApplyBtn"
+                class="btn btn-sm"
+                style="font-weight: 600; width: 240px; border-radius: 6px; text-align: left"
+              ></button>
+              <span id="plLockHintLat" style="display:none;font-size:0.82em;color:var(--warning);margin-left:8px"></span>
+            </div>
+          </div>
+          <!-- Zeile 3b: Stereo-Balance + Dropdown -->
+          <div class="controls-row pl-master-row" style="margin-top: 8px">
+            <div class="control-group">
+              <button
+                id="plBalApplyBtn"
+                class="btn btn-sm"
+                style="font-weight: 600; width: 240px; border-radius: 6px; text-align: left"
+              ></button>
+            </div>
+            <div class="control-group" id="plBalModeRow">
+              <label
+                for="plBalModeSelect"
+                style="font-size: 0.9em; color: var(--text-muted)"
+                data-t="plBalModeLabel"
+              ></label>
+              <select
+                id="plBalModeSelect"
+                class="btn btn-sm"
+                style="min-width: 130px"
+              >
+                <option value="sym" data-t-opt="plBalModeSym"></option>
+                <option value="left" data-t-opt="plBalModeLeft"></option>
+                <option value="right" data-t-opt="plBalModeRight"></option>
+              </select>
+            </div>
+            <span id="plLockHintBal" style="display:none;font-size:0.82em;color:var(--warning);margin-left:8px"></span>
+          </div>
+          <!-- Zeile 3c: Frequenz-Warping -->
+          <div class="controls-row pl-master-row" style="margin-top: 8px">
+            <div class="control-group" style="gap: 8px">
+              <button
+                class="btn btn-sm"
+                id="plWarpOn"
+                style="font-weight: 600; width: 240px; border-radius: 6px; text-align: left"
+              ></button>
+              <span style="display:inline-flex;align-items:center;gap:10px">
+                <label style="font-size:0.85em;display:flex;align-items:center;gap:4px;cursor:pointer">
+                  <input type="radio" name="plWarpMode" value="fast" />
+                  <span data-t="pwModeFast"></span>
+                </label>
+                <label style="font-size:0.85em;display:flex;align-items:center;gap:4px;cursor:pointer">
+                  <input type="radio" name="plWarpMode" value="mid" checked />
+                  <span data-t="pwModeMid"></span>
+                </label>
+                <label style="font-size:0.85em;display:flex;align-items:center;gap:4px;cursor:pointer">
+                  <input type="radio" name="plWarpMode" value="best" />
+                  <span data-t="pwModeBest"></span>
+                </label>
+              </span>
+              <span id="plLockHintWarp" style="display:none;font-size:0.82em;color:var(--warning);margin-left:8px"></span>
+              <span id="plWarpOverlapHint" style="display:none;font-size:0.85em;color:var(--danger);margin-left:8px;font-weight:600"></span>
+            </div>
+          </div>
+          <!-- Zeile 4: MAPLAW (nur bei MED-EL) -->
+          <div class="controls-row" id="plMaplawRow" style="margin-top:8px;display:none">
+            <div class="control-group" style="gap:8px">
+              <button class="btn btn-sm" id="plMaplawOn" style="font-weight:600;min-width:180px;border-radius:6px"></button>
+              <span data-t="plMaplawExpNote" style="font-size:0.82em;color:var(--text-muted)"></span>
+            </div>
+          </div>
+          <div id="plMaplawSettingsBox" style="display:none;margin-top:4px;margin-left:15px;padding:10px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px">
+            <div style="margin-bottom:6px;font-size:.9em;color:var(--text-muted)">
+              <span data-t="plMaplawIstLabel"></span>:
+              <strong id="plMaplawIstVal" style="font-family:var(--mono);color:var(--text)">—</strong>
+              &nbsp;—&nbsp;
+              <span data-t="plMaplawSollDisplayLabel"></span>:
+              <strong id="plMaplawSollDisplayVal" style="font-family:var(--mono);color:var(--text)">—</strong>
+            </div>
+            <div style="margin-bottom:6px;font-size:.9em;font-weight:600">
+              <span data-t="plMaplawSollLabel"></span>:
+            </div>
+            <div style="display:flex;gap:4px;flex-wrap:wrap;align-items:center">
+              <button class="btn btn-sm" data-maplaw-quick="100" type="button">100</button>
+              <button class="btn btn-sm" data-maplaw-quick="250" type="button">250</button>
+              <button class="btn btn-sm" data-maplaw-quick="500" type="button">500</button>
+              <button class="btn btn-sm" data-maplaw-quick="1000" type="button">1000</button>
+              <button class="btn btn-sm" data-maplaw-quick="1500" type="button">1500</button>
+              <button class="btn btn-sm" data-maplaw-quick="2000" type="button">2000</button>
+              <button class="btn btn-sm" data-maplaw-quick="3000" type="button">3000</button>
+              <button class="btn btn-sm" data-maplaw-quick="4000" type="button">4000</button>
+              <button class="btn btn-sm" data-maplaw-quick="6000" type="button">6000</button>
+              <button class="btn btn-sm" data-maplaw-quick="8000" type="button">8000</button>
+              <input type="number" id="plMaplawSollInput"
+                     min="0" max="8000" step="50"
+                     style="width:90px;padding:4px 8px;margin-left:8px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono)" />
+            </div>
+          </div>
+          <!-- Zeile 5c: Elektrodenlautstärke absenken (Clipping-Schutz) -->
+          <div class="controls-row pl-master-row" style="margin-top: 8px">
+            <div class="control-group">
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+                  cursor: pointer;
+                "
+                ><input type="checkbox" id="plEqHeadroom" checked />
+                <span data-t="plEqHeadroomLabel"></span
+              ></label>
+            </div>
+          </div>
+          <div
+            id="plEqHeadroomInfo"
+            class="explain pl-master-row"
+            data-t="plEqHeadroomExpl"
+          ></div>
+          <!-- Zeile 5d: Beide Seiten berücksichtigen (Unterpunkt von Übersteuern vermeiden) -->
+          <div class="controls-row pl-master-row" style="margin-top: 4px">
+            <div class="control-group" style="margin-left: 22px">
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+                  cursor: pointer;
+                "
+                ><input type="checkbox" id="plEqHeadroomBoth" checked />
+                <span data-t="plEqHeadroomBothLabel"></span
+              ></label>
+            </div>
+          </div>
+          <div
+            id="plEqHeadroomBothInfo"
+            class="explain pl-master-row"
+            style="margin-left: 22px"
+            data-t="plEqHeadroomBothExpl"
+          ></div>
+          <!-- Zeile 6: Normalhörende -->
+          <div class="controls-row pl-master-row" style="margin-top: 8px">
+            <div class="control-group">
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+                  cursor: pointer;
+                "
+                ><input type="checkbox" id="plNHSim" />
+                <span data-t="plNHLabel"></span
+              ></label>
+            </div>
+          </div>
+          <div
+            id="plNHInfo"
+            class="explain explain-warn hidden pl-master-row"
+            data-t="plNHExpl"
+          ></div>
+          <!-- BA385: Vom Master unabhaengiger Block, ans Box-Ende verschoben -->
+          <div class="pl-indep-sep" style="border-top:1px solid var(--border);margin-top:14px;padding-top:12px"></div>
+          <!-- Beide Seiten -->
+          <div class="controls-row">
+            <div class="control-group">
+              <label style="display: flex; align-items: center; gap: 5px; cursor: pointer">
+                <input type="checkbox" id="plBothSides" />
+                <span data-t="plBothLabel"></span>
+              </label>
+            </div>
+          </div>
+          <!-- Stereo zu Mono (Unterpunkt von Beide Seiten) -->
+          <div class="controls-row" style="margin-top: 4px">
+            <div class="control-group" style="margin-left: 22px">
+              <label style="display: flex; align-items: center; gap: 5px; cursor: pointer">
+                <input type="checkbox" id="plMonoEQ" />
+                <span data-t="plMonoLabel"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Wiedergabe (vereinheitlicht: Musik / Sätze / Hörbücher) -->
+        <div class="card" id="plPlayCard">
+          <h3 data-t="plPlayTitle" style="margin-bottom: 8px"></h3>
+
+          <!-- Top-Toggle: Quelle -->
+          <div class="controls-row" style="margin-bottom: 10px">
+            <div class="control-group" style="flex-wrap: wrap; gap: 6px">
+              <label data-t="plSourceLabel" style="align-self: center"></label>
+              <button id="plSrcMusicBtn" class="btn btn-sm"
+                      style="font-weight: 600; min-width: 140px; border-radius: 6px"
+                      data-t="plSrcMusic"></button>
+              <button id="plSrcSentencesBtn" class="btn btn-sm"
+                      style="font-weight: 600; min-width: 140px; border-radius: 6px"
+                      data-t="plSrcSentences"></button>
+              <button id="plSrcNoiseBtn" class="btn btn-sm"
+                      style="font-weight: 600; min-width: 140px; border-radius: 6px"
+                      data-t="plSrcNoise"></button>
+              <button id="plSrcAudiobookBtn" class="btn btn-sm"
+                      style="font-weight: 600; min-width: 140px; border-radius: 6px"
+                      data-t="plSrcAudiobook"></button>
+            </div>
+          </div>
+
+          <!-- BA337: Inhalts-Sprache (immer sichtbar) -->
+          <div class="controls-row" style="margin-bottom: 10px">
+            <div class="control-group" style="gap: 6px; align-items: center">
+              <label data-t="plContentLangLabel" style="align-self: center"></label>
+              <button id="plContentLangBtn" class="btn btn-sm"
+                      style="font-weight: 600; border-radius: 6px; min-width: 160px; text-align: left"></button>
+            </div>
+          </div>
+
+          <!-- Sub-Block: Musik -->
+          <div id="plSubMusic" class="pl-subblock" style="margin-bottom: 12px">
+            <div id="plDeafHintEl" class="explain explain-warn"
+                 style="display:none;margin-bottom:8px"></div>
+
+            <!-- BA349: einheitliche Upload-Box (Engine rendert Inhalt) -->
+            <div class="pl-upload-box" id="plMusicUpload"></div>
+
+            <!-- Suchfeld -->
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px;align-items:center">
+              <label data-t="plMusicSearchLabel" style="font-size:0.88em;margin-right:6px"></label>
+              <input type="search" id="plMusicSearchInput" placeholder=""
+                     data-t-placeholder="plMusicSearchPlaceholder"
+                     style="flex:1;min-width:180px;padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em" />
+            </div>
+
+            <!-- Sortier-Achse + Kategorie -->
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px">
+              <div class="control-group">
+                <label data-t="plMusicSortLabel" style="margin-right:6px"></label>
+                <select id="plMusicSortSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
+                </select>
+              </div>
+              <div class="control-group" style="flex:1; min-width:180px">
+                <label data-t="plMusicCatLabel" style="margin-right:6px"></label>
+                <select id="plMusicCatSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:160px">
+                </select>
+              </div>
+            </div>
+
+            <!-- Stück-Dropdown -->
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px">
+              <div class="control-group" style="flex:1; min-width:240px">
+                <label data-t="plMusicItemLabel" style="margin-right:6px"></label>
+                <select id="plMusicItemSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:240px">
+                </select>
+              </div>
+            </div>
+
+            <div id="plMusicEmpty" class="explain"
+                 style="display:none;font-size:0.85em;color:var(--text-muted)"
+                 data-t="plMusicEmpty"></div>
+          </div>
+
+          <!-- Sub-Block: Saetze -->
+          <div id="plSubSentences" class="pl-subblock" style="margin-bottom: 12px; display: none">
+            <div id="plSentNoMaterial" class="explain explain-warn"
+                 style="display:none;font-size:0.85em" data-t="sentNoMaterial"></div>
+            <div id="plSentNotReady" class="explain"
+                 style="display:none;font-size:0.85em;color:var(--text-muted)" data-t="sentNotReady"></div>
+
+            <div id="plSentControls" style="display:none">
+              <!-- BA351: einheitliche Upload-Box (Engine rendert Inhalt) -->
+              <div class="pl-upload-box" id="plSentUpload"></div>
+
+              <div class="controls-row">
+                <div class="control-group">
+                  <label data-t="sentSpeaker" style="margin-right:6px"></label>
+                  <select id="plSentSpeaker"
+                          style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- BA194: Hintergrund-Geraeusch fuer Saetze -->
+            <div id="plSentBgBlock"
+                 style="margin-top:10px;padding:8px;background:var(--bg);border:1px solid var(--border);border-radius:4px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+                <strong style="font-size:0.92em" data-t="plSentBgTitle"></strong>
+                <button id="plSentBgToggleBtn" class="btn btn-sm" type="button"
+                        style="min-width:90px; border-radius:6px; font-weight:600">
+                  <span data-t="plSentBgOff"></span>
+                </button>
+              </div>
+              <div id="plSentBgControls" style="display:flex;flex-direction:column;gap:6px;opacity:0.5">
+                <div class="control-group" style="flex-wrap:wrap;gap:6px">
+                  <label data-t="plSentBgSelLabel" style="margin-right:6px"></label>
+                  <select id="plSentBgSel"
+                          style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:200px">
+                  </select>
+                </div>
+                <div class="control-group" style="flex-wrap:wrap;gap:4px">
+                  <label data-t="plSentBgSnrLabel" style="margin-right:6px"></label>
+                  <div id="plSentBgSnrBtns" style="display:flex;gap:3px;flex-wrap:wrap">
+                    <button class="btn pl-snr-btn" type="button" data-snr="-10">-10</button>
+                    <button class="btn pl-snr-btn" type="button" data-snr="-5">-5</button>
+                    <button class="btn pl-snr-btn" type="button" data-snr="0">0</button>
+                    <button class="btn pl-snr-btn" type="button" data-snr="5">+5</button>
+                    <button class="btn pl-snr-btn" type="button" data-snr="10">+10</button>
+                  </div>
+                  <span style="font-size:0.85em;color:var(--text-muted)">dB</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sub-Block: Geraeusche -->
+          <div id="plSubNoise" class="pl-subblock" style="margin-bottom: 12px; display: none">
+
+            <!-- BA350: einheitliche Upload-Box (Engine rendert Inhalt) -->
+            <div class="pl-upload-box" id="plNoiseUpload"></div>
+
+            <!-- BA262: Suchfeld -->
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px;align-items:center">
+              <label data-t="plNoiseSearchLabel" style="font-size:0.88em;margin-right:6px"></label>
+              <input type="search" id="plNoiseSearchInput" placeholder=""
+                     data-t-placeholder="plNoiseSearchPlaceholder"
+                     style="flex:1;min-width:160px;padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em" />
+            </div>
+
+            <!-- Sortier-Achse + Kategorie -->
+            <div class="controls-row" style="gap:8px; flex-wrap:wrap; margin-bottom:6px">
+              <div class="control-group">
+                <label data-t="plNoiseSortLabel" style="margin-right:6px"></label>
+                <select id="plNoiseSortSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
+                </select>
+              </div>
+              <div class="control-group" style="flex:1; min-width:180px">
+                <label data-t="plNoiseCatLabel" style="margin-right:6px"></label>
+                <select id="plNoiseCatSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:160px">
+                </select>
+              </div>
+            </div>
+
+            <!-- Stück-Dropdown -->
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px">
+              <div class="control-group" style="flex:1; min-width:240px">
+                <label data-t="plNoiseItemLabel" style="margin-right:6px"></label>
+                <select id="plNoiseItemSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:200px">
+                </select>
+              </div>
+            </div>
+
+            <div id="plNoiseEmpty" class="explain"
+                 style="display:none;font-size:0.85em;color:var(--text-muted)"
+                 data-t="plNoiseEmpty"></div>
+          </div>
+
+          <!-- Sub-Block: Hoerbuecher (BA195) -->
+          <div id="plSubAudiobook" class="pl-subblock" style="margin-bottom:12px; display:none">
+            <!-- BA350: einheitliche Upload-Box (Engine rendert Inhalt) -->
+            <div class="pl-upload-box" id="plBookUploadBox"></div>
+
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px">
+              <div class="control-group">
+                <label data-t="plBookSortLabel" style="margin-right:6px"></label>
+                <select id="plBookSortSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
+                </select>
+              </div>
+            </div>
+
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px">
+              <div class="control-group" style="flex:1; min-width:240px">
+                <label data-t="plBookSelLabel" style="margin-right:6px"></label>
+                <select id="plBookSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:240px">
+                </select>
+              </div>
+            </div>
+
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px">
+              <div class="control-group" style="flex:1; min-width:240px">
+                <label data-t="plBookChapterLabel" style="margin-right:6px"></label>
+                <select id="plBookChSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:240px">
+                </select>
+              </div>
+            </div>
+
+            <div id="plBookEmpty" class="explain"
+                 style="display:none;font-size:0.85em;color:var(--text-muted)"
+                 data-t="plBookEmpty"></div>
+          </div>
+
+          <!-- Transport-Leiste -->
+          <div id="plTransport" class="controls-row"
+               style="align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap">
+            <button class="btn pl-trans-btn" id="plPrev" type="button"
+                    title="" data-tip="plTipPrev"
+                    style="width:40px;height:40px;border-radius:50%;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0">
+              &#9198;
+            </button>
+            <span id="plPlayWrap"
+                  style="position:relative;display:inline-flex;align-items:center;gap:8px">
+              <button class="btn pl-trans-btn" id="plPlay" type="button"
+                      title="" data-tip="plTipPlay"
+                      style="width:44px;height:44px;border-radius:50%;font-size:1.1em;display:flex;align-items:center;justify-content:center;padding:0">
+                &#9654;
+              </button>
+              <span id="plPlayBusyIcon"
+                    style="display:none;font-size:1.4em;line-height:1"
+                    aria-hidden="true">&#9203;</span>
+              <div id="plPlayBusyTip"
+                   style="display:none;position:absolute;bottom:100%;left:0;margin-bottom:8px;padding:6px 10px;background:#333;color:#fff;border-radius:4px;font-size:0.82em;white-space:nowrap;z-index:1000;pointer-events:none;"></div>
+            </span>
+            <button class="btn pl-trans-btn" id="plStop" type="button"
+                    title="" data-tip="plTipStop"
+                    style="width:40px;height:40px;border-radius:50%;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0">
+              &#9632;
+            </button>
+            <button class="btn pl-trans-btn" id="plNext" type="button"
+                    title="" data-tip="plTipNext"
+                    style="width:40px;height:40px;border-radius:50%;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0">
+              &#9197;
+            </button>
+            <button class="btn pl-trans-btn" id="plLoopBtn" type="button"
+                    title="" data-tip="plTipLoop"
+                    style="height:40px;border-radius:6px;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0 10px;gap:5px">
+              &#128257; Loop
+            </button>
+            <button class="btn pl-trans-btn" id="plShuffleBtn" type="button"
+                    title="" data-tip="plTipShuffle"
+                    style="height:40px;border-radius:6px;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0 10px;gap:5px">
+              &#127922; Zufall
+            </button>
+            <button class="btn pl-trans-btn" id="plAutoAdvBtn" type="button"
+                    title="" data-tip="plTipAutoAdv"
+                    style="height:40px;min-width:140px;font-weight:600;border-radius:6px">
+              <span data-t="plAutoAdvLabel"></span>
+            </button>
+
+            <div style="flex:1; display:flex; flex-direction:column; gap:3px; min-width:160px">
+              <input type="range" id="plTL" min="0" max="1000" value="0" step="1" style="width:100%" />
+              <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:0.78em; color:var(--text-muted)">
+                <span id="plCur">0:00</span><span id="plTot">0:00</span>
+              </div>
+            </div>
+
+            <span style="font-family:var(--mono); font-size:0.72em; color:var(--text-muted); background:var(--bg); padding:2px 6px; border-radius:4px">Mono</span>
+          </div>
+
+          <!-- Warp-Fortschrittsbalken (nur während Berechnung sichtbar) -->
+          <div id="plWarpProgressRow"
+               style="display:none; align-items:center; gap:8px; margin-bottom:6px; flex-wrap:wrap">
+            <span style="font-size:0.82em; color:var(--text-muted)" data-t="pwProgressLabel"></span>
+            <div style="flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden">
+              <div id="plWarpProgressBar"
+                   style="height:100%; width:0%; background:var(--success); transition:width 0.25s ease"></div>
+            </div>
+            <span id="plWarpProgressPct"
+                  style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
+            <button type="button" class="btn btn-sm" id="plWarpStopBtn"
+                    data-t="plWarpStopBtn"
+                    style="background:#c00;color:#fff;border-color:#900;font-size:0.82em"></button>
+          </div>
+
+          <!-- Anzeige-Block -->
+          <div id="plDisplayBox"
+               style="padding:10px 12px; background:var(--bg); border:1px solid var(--border); border-radius:4px; font-size:0.9em; line-height:1.45; margin-bottom:10px">
+            <div id="plDispTitle" style="font-weight:600; margin-bottom:4px">
+              <span data-t="plDispEmpty"></span>
+            </div>
+            <label id="plSentTextToggleWrap"
+                   style="display:none; align-items:center; gap:6px; cursor:pointer; margin:4px 0">
+              <input type="checkbox" id="plSentShowText" />
+              <span data-t="sentShowText"></span>
+            </label>
+            <div id="plSentTextBox"
+                 style="display:none; padding:6px 8px; background:var(--card-bg, #fff); border:1px solid var(--border); border-radius:4px; font-size:0.95em; line-height:1.4; min-height:2.4em; margin:4px 0">
+              <span id="plSentText"></span>
+            </div>
+            <div id="plDispMeta"
+                 style="font-size:0.82em; color:var(--text-muted); margin-top:4px"></div>
+            <div id="plDispDetail"
+                 style="display:none; font-size:0.82em; color:var(--text-muted); margin-top:2px"></div>
+          </div>
+
+          <!-- Eigene Zeile: Pause-Buttons -->
+          <div id="plAutoAdvanceRow" class="controls-row"
+               style="align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap">
+            <div class="control-group" style="flex-wrap:wrap; gap:4px">
+              <label data-t="plPauseLabel" style="margin-right:4px"></label>
+              <div id="plPauseBtns" style="display:flex; gap:3px; flex-wrap:wrap">
+                <button class="btn pl-pause-btn" type="button" data-ms="0">0</button>
+                <button class="btn pl-pause-btn" type="button" data-ms="500">500</button>
+                <button class="btn pl-pause-btn" type="button" data-ms="750">750</button>
+                <button class="btn pl-pause-btn" type="button" data-ms="1000">1000</button>
+                <button class="btn pl-pause-btn" type="button" data-ms="2000">2000</button>
+                <button class="btn pl-pause-btn" type="button" data-ms="4000">4000</button>
+                <button class="btn pl-pause-btn" type="button" data-ms="8000">8000</button>
+              </div>
+              <span style="font-size:0.85em; color:var(--text-muted)">ms</span>
+            </div>
+          </div>
+
+          <!-- Eigene Zeile: Lautstärke -->
+          <div class="controls-row"
+               style="align-items:center; gap:8px; margin-bottom:10px; flex-wrap:wrap">
+            <div class="control-group" style="flex-wrap:wrap; gap:4px">
+              <label data-t="lblVol"></label>
+              <input type="number" id="plVol" value="80" min="0" max="100" step="1"
+                     style="width:55px; padding:3px 5px; border:1px solid var(--border); border-radius:4px; text-align:center; font-family:var(--mono); font-size:0.88em" />%
+              <div id="plVolBtns" style="display:flex; gap:3px; flex-wrap:wrap; margin-left:6px">
+                <button class="btn pl-vol-btn" type="button" data-v="25">25</button>
+                <button class="btn pl-vol-btn" type="button" data-v="50">50</button>
+                <button class="btn pl-vol-btn" type="button" data-v="75">75</button>
+                <button class="btn pl-vol-btn" type="button" data-v="100">100</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- experimentelle Optionen (ausgeblendet, wird vielleicht später genutzt) -->
+        <div class="card" id="plExperimentalToggleCard" style="display:none">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
+            <input type="checkbox" id="plShowExperimental" />
+            <span data-t="plShowExpLabel"></span>
+          </label>
+          <div id="plExperimentalHint" class="explain" style="display:none;margin-top:8px;font-size:0.85em;color:var(--text-muted)" data-t="plExpHint"></div>
+        </div>
+
+      </div>
+
+      <!-- ===== FILE ===== -->
+      <div id="panel-file" class="panel">
+        <!-- Globale Dateinamen-Ergänzung -->
+        <div class="card" id="cardFileSuffix">
+          <!-- BA 268: Patientenname (Nachname, Vorname) für Dateinamen und Druck-Seitentitel -->
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:10px">
+            <label for="userLastName"
+                   style="font-weight:600"
+                   data-t="userLastNameLabel">Nachname:</label>
+            <input type="text"
+                   id="userLastName"
+                   maxlength="64"
+                   style="padding:6px 8px;border:1px solid var(--border);border-radius:4px;min-width:140px;font-family:var(--mono)" />
+            <label for="userFirstName"
+                   style="font-weight:600"
+                   data-t="userFirstNameLabel">Vorname:</label>
+            <input type="text"
+                   id="userFirstName"
+                   maxlength="64"
+                   style="padding:6px 8px;border:1px solid var(--border);border-radius:4px;min-width:140px;font-family:var(--mono)" />
+          </div>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px">
+            <label for="userFileSuffix"
+                   style="font-weight:600"
+                   data-t="userFileSuffixLabel">Dateinamen ergänzen um eigenes Wort:</label>
+            <div style="position:relative;display:inline-flex">
+              <input type="text"
+                     id="userFileSuffix"
+                     maxlength="64"
+                     style="padding:6px 8px;border:1px solid var(--border);border-radius:4px 0 0 4px;min-width:120px;font-family:var(--mono)" />
+              <button id="userFileSuffixBtn" type="button"
+                      style="padding:6px 10px;border:1px solid var(--border);border-left:none;border-radius:0 4px 4px 0;background:var(--surface);cursor:pointer;font-size:0.8em;color:var(--text-muted)">▼</button>
+              <div id="userFileSuffixDrop"
+                   style="display:none;position:absolute;top:100%;left:0;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.18);min-width:100%;margin-top:2px">
+                <div data-suf="MAP1" style="padding:6px 12px;cursor:pointer;font-family:var(--mono)">MAP1</div>
+                <div data-suf="MAP2" style="padding:6px 12px;cursor:pointer;font-family:var(--mono)">MAP2</div>
+                <div data-suf="MAP3" style="padding:6px 12px;cursor:pointer;font-family:var(--mono)">MAP3</div>
+                <div data-suf="MAP4" style="padding:6px 12px;cursor:pointer;font-family:var(--mono)">MAP4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" id="cardArchiv">
+          <h2 data-t="archivTitle"></h2>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 14px;
+            "
+            data-t="archivDesc"
+          ></p>
+          <div class="btn-group" style="margin-bottom: 16px">
+            <button class="btn" id="fLoadBtn">
+              &#128194; <span data-t="fLoad"></span>
+            </button>
+            <button class="btn" id="fSaveBtn">
+              &#128190; <span data-t="fSave"></span>
+            </button>
+            <button class="btn" id="fPrintBtn">
+              &#128424; <span data-t="archivPrint"></span>
+            </button>
+            <button class="btn" id="fArchivMdBtn">
+              &#11015; <span data-t="archivDownloadMd"></span>
+            </button>
+          </div>
+          <input type="file" id="fInput" accept=".cimbel,.json" class="hidden" />
+        </div>
+        <div class="card" id="cardAudiolog">
+          <h2 data-t="audiologTitle"></h2>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 8px;
+            "
+            data-t="audiologDesc"
+          ></p>
+          <!-- Notiz-Eingabefeld -->
+          <label for="audiologNoteInput"
+                 style="display:block;font-size:0.84em;color:var(--text-muted);
+                        margin-top:10px;margin-bottom:4px;"
+                 data-t="audiologNoteLabel"></label>
+          <textarea id="audiologNoteInput" rows="3"
+                    style="width:100%;box-sizing:border-box;font-size:0.9em;
+                           padding:6px;border:1px solid var(--border);
+                           border-radius:4px;background:var(--surface);
+                           color:var(--text);resize:vertical;"
+                    data-t-placeholder="audiologNotePlaceholder"></textarea>
+
+          <ul
+            style="
+              font-size: 0.82em;
+              color: var(--text-muted);
+              margin: 10px 0 14px 18px;
+              padding: 0;
+            "
+          >
+            <li data-t="audiologHintSide"></li>
+            <li data-t="audiologHintWarp"></li>
+            <li data-t="audiologHintNote"></li>
+          </ul>
+          <div
+            id="audiologEqWarn"
+            class="explain explain-warn hidden"
+          ></div>
+          <div class="btn-group">
+            <button class="btn" id="fAudiologPrintBtn">
+              &#128424; <span data-t="audiologPrint"></span>
+            </button>
+            <button class="btn" id="fAudiologMdBtn">
+              &#11015; <span data-t="audiologDownloadMd"></span>
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <h2 data-t="sysEqTitle"></h2>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 8px;
+            "
+            data-t="sysEqDesc"
+          ></p>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 10px;
+            "
+            data-t="sysEqSideHint"
+          ></p>
+          <div
+            class="explain explain-warn"
+            style="margin-bottom: 16px"
+            data-t="sysEqWarn"
+          ></div>
+
+          <h3 style="margin: 0 0 8px" data-t="eeHead"></h3>
+          <button class="btn" id="eeExportBtn">
+            &#128190; <span data-t="eeExport"></span>
+          </button>
+          <div
+            class="explain"
+            style="margin: 10px 0 16px"
+            data-t="eeHowTo"
+          ></div>
+
+          <h3 style="margin: 0 0 8px" data-t="apoHead"></h3>
+          <button class="btn" id="apoExportBtn">
+            &#128190; <span data-t="apoExport"></span>
+          </button>
+          <div class="explain" style="margin-top: 10px" data-t="apoHowTo"></div>
+        </div>
+        <div class="card" id="cardReset">
+          <h2 data-t="cardResetTitle"></h2>
+          <button
+            class="btn"
+            id="fResetBtn"
+            style="color: var(--danger)"
+          >
+            🔄 <span data-t="fResetAll"></span>
+          </button>
+        </div>
+      </div>
+
+
+      <!-- ===== UNTERSTÜTZUNG ===== -->
+      <div id="panel-unterstuetzung" class="panel">
+
+        <div class="card support-card-call">
+          <h2 data-t="supportTitle"></h2>
+          <p data-t="supportIntro1"></p>
+          <p data-t="supportIntro2"></p>
+          <p data-t="supportIntro3"></p>
+          <p data-t="supportIntro4"></p>
+          <div class="support-cta-row">
+            <button type="button" class="btn btn-primary" id="untShowIbanBtn" data-t="supportShowIban"></button>
+            <button type="button" class="btn" id="untShowMailBtn" data-t="supportShowMail"></button>
+          </div>
+          <p class="support-zweck" data-t="supportZweckHint"></p>
+        </div>
+
+        <div class="card support-card-finance">
+          <h2 data-t="supportFinanceTitle"></h2>
+          <p data-t="supportFinanceIntro"></p>
+
+          <table class="support-finance-table">
+            <thead>
+              <tr>
+                <th data-t="supportTableHeadPosten"></th>
+                <th class="num" data-t="supportTableHeadFull"></th>
+                <th class="num" data-t="supportTableHeadCurrent"></th>
+              </tr>
+            </thead>
+            <tbody id="untFinanzBody"><!-- befüllt durch unterstuetzung.js --></tbody>
+            <tfoot id="untFinanzFoot"><!-- befüllt durch unterstuetzung.js --></tfoot>
+          </table>
+
+          <div id="untEinmalBlock" class="support-onetime-block"><!-- befüllt durch unterstuetzung.js --></div>
+
+          <div id="untGapHints" class="support-gap-hints"><!-- befüllt durch unterstuetzung.js --></div>
+
+          <div class="support-card-graph">
+            <h3 data-t="supportGraphTitle"></h3>
+            <div class="support-graph-wrap">
+              <canvas id="untGraphCanvas" class="support-graph-canvas"></canvas>
+            </div>
+            <div class="support-graph-legend">
+              <span class="lg-item"><span class="lg-swatch lg-dauer"></span><span data-t="supportGraphLegendDauer"></span></span>
+              <span class="lg-item"><span class="lg-swatch lg-puffer"></span><span data-t="supportGraphLegendPuffer"></span></span>
+              <span class="lg-item"><span class="lg-swatch lg-luecke"></span><span data-t="supportGraphLegendLuecke"></span></span>
+              <span class="lg-item"><span class="lg-swatch lg-erweiterung"></span><span data-t="supportGraphLegendErweiterung"></span></span>
+            </div>
+            <p class="support-graph-hinweis" data-t="supportGraphHinweis"></p>
+          </div>
+
+          <p data-t="supportExplainKi"></p>
+          <p class="support-ki-history" data-t="supportKiAbHinweis"></p>
+        </div>
+
+        <div class="card support-card-future">
+          <h2 data-t="supportFutureTitle"></h2>
+          <ul>
+            <li data-t="supportFuturePlan1"></li>
+            <li data-t="supportFuturePlan2"></li>
+          </ul>
+          <h3 class="support-section-title" data-t="supportPlannedTitle"></h3>
+          <ul>
+            <li data-t="supportPlannedItem1"></li>
+            <li data-t="supportPlannedItem2"></li>
+            <li data-t="supportPlannedItem3"></li>
+            <li data-t="supportPlannedItem4"></li>
+            <li data-t="supportPlannedItem5"></li>
+          </ul>
+          <br>
+          <p data-t="supportGithubHint"></p>
+        </div>
+
+      </div>
+
+      <!-- ===== VERLAUFSANALYSE (debug-only) ===== -->
+      <div id="panel-verlaufsanalyse" class="panel">
+        <div style="max-width:1100px;margin:0 auto;padding:16px">
+          <h2 style="margin-top:0">Verlaufsanalyse (experimentell)</h2>
+          <p style="color:#666;font-size:.9em">
+            Zeitübergreifende Auswertung gespeicherter Messungen. Nur im
+            Debug-Modus sichtbar. Dieser erste Stand liest Dateien ein und zeigt
+            eine Bilanz; Auswertung und Diagramme folgen.
+          </p>
+          <div style="margin:16px 0">
+            <input type="file" id="zaFileInput" accept=".cimbel,.json" multiple
+                   style="display:none">
+            <button id="zaPickBtn" class="btn">Dateien wählen ...</button>
+            <span id="zaPickHint" style="margin-left:10px;color:#666"></span>
+          </div>
+          <div id="zaBilanz" style="margin:16px 0"></div>
+          <div id="zaSessionList" style="margin:16px 0"></div>
+          <div id="zaSharpRow" style="margin:16px 0">
+            <span style="margin-right:8px;color:#555">Gewichtungs-Schärfe:</span>
+            <button id="zaSharp_mild"   class="btn">mild</button>
+            <button id="zaSharp_mittel" class="btn" style="font-weight:700">mittel</button>
+            <button id="zaSharp_scharf" class="btn">scharf</button>
+            <span style="margin-left:10px;color:#888;font-size:.85em">
+              je schärfer, desto stärker zählen sorgfältige Messungen (kleines Residuum)
+            </span>
+          </div>
+          <div style="margin:8px 0">
+            <canvas id="zaCurveChart"></canvas>
+            <div id="zaCurveHint" style="color:#888;font-size:.85em"></div>
+          </div>
+          <h3 style="margin:20px 0 6px">Verlauf (Heatmap)</h3>
+          <div style="margin:4px 0">
+            <canvas id="zaHeatmap"></canvas>
+            <div id="zaHeatmapHint" style="color:#888;font-size:.85em"></div>
+          </div>
+          <h3 style="margin:20px 0 6px">Zeit-Verlauf einer Elektrode</h3>
+          <div style="margin:4px 0">
+            <canvas id="zaTrend"></canvas>
+            <div id="zaTrendHint" style="color:#888;font-size:.85em"></div>
+          </div>
+          <div style="margin:20px 0">
+            <button id="zaTransferBtn" class="btn">Als Mess-Ergebnis uebernehmen</button>
+            <span id="zaTransferHint" style="margin-left:10px;color:#16a34a;font-size:.9em"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== LINKS ===== -->
+      <div id="panel-links" class="panel">
+
+        <!-- Kopf-Karte: Seitentitel + Einleitung -->
+        <div class="card">
+          <h2 data-t="linksTitle"></h2>
+          <p data-t="linksIntro"></p>
+        </div>
+
+        <!-- Karte 1: Streaming an Hörgeräte -->
+        <div class="card">
+          <h2 data-t="linksStreamingTitle"></h2>
+
+          <article class="link-entry">
+            <h3>eira</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://eira-cast.org/" target="_blank" rel="noopener noreferrer">eira-cast.org</a>
+            </p>
+            <p data-t="linksEiraDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>Pico-ASHA</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://shermp.github.io/Pico-ASHA/" target="_blank" rel="noopener noreferrer">shermp.github.io/Pico-ASHA</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksProjectLabel"></span>:
+              <a href="https://github.com/shermp/Pico-ASHA" target="_blank" rel="noopener noreferrer">github.com/shermp/Pico-ASHA</a>
+            </p>
+            <p data-t="linksPicoAshaDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>asha_pipewire_sink</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksProjectLabel"></span>:
+              <a href="https://github.com/thewierdnut/asha_pipewire_sink" target="_blank" rel="noopener noreferrer">github.com/thewierdnut/asha_pipewire_sink</a>
+            </p>
+            <p data-t="linksAshaPwDesc"></p>
+          </article>
+        </div>
+
+        <!-- Karte 2: CI-Anpassung & Testtöne -->
+        <div class="card">
+          <h2 data-t="linksFittingTitle"></h2>
+
+          <article class="link-entry">
+            <h3>Binaural CI Alignment</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://cito.github.io/bicial/" target="_blank" rel="noopener noreferrer">cito.github.io/bicial</a>
+            </p>
+            <p data-t="linksBicialDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>Online Tone Generator</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://onlinetonegenerator.com/" target="_blank" rel="noopener noreferrer">onlinetonegenerator.com</a>
+            </p>
+            <p data-t="linksToneGenDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>HearWell</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://hearwell.life/" target="_blank" rel="noopener noreferrer">hearwell.life</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksProjectLabel"></span>:
+              <a href="https://github.com/rebelias/Hearwell" target="_blank" rel="noopener noreferrer">github.com/rebelias/Hearwell</a>
+            </p>
+            <p data-t="linksHearwellDesc"></p>
+          </article>
+        </div>
+
+        <!-- Karte 4: Hörtraining -->
+        <div class="card">
+          <h2 data-t="linksTrainingTitle"></h2>
+
+          <article class="link-entry">
+            <h3>MUSIC REHAB</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://cochlearimplantbasics.com/music-rehab/" target="_blank" rel="noopener noreferrer">cochlearimplantbasics.com/music-rehab</a>
+            </p>
+            <p data-t="linksMusicRehabDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>Schallquelle</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://schallquelle.app/" target="_blank" rel="noopener noreferrer">schallquelle.app</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksPlayLabel"></span>:
+              <a href="https://play.google.com/store/apps/details?id=florianbiedermann.de.schallquelle" target="_blank" rel="noopener noreferrer">play.google.com</a>
+            </p>
+            <p data-t="linksSchallquelleDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>ReDi</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksArticleLabel"></span>:
+              <a href="https://blog.medel.com/de/tipps-tricks/hoertrainings-app-redi-ihr-trainingspartner-fuer-besseren-hoererfolg-mit-cochlea-implantaten/" target="_blank" rel="noopener noreferrer">blog.medel.com</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksPlayLabel"></span>:
+              <a href="https://play.google.com/store/apps/details?id=com.medel.ai.redi" target="_blank" rel="noopener noreferrer">play.google.com</a>
+            </p>
+            <p data-t="linksRediDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>Meludia</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://meludia.com/de/" target="_blank" rel="noopener noreferrer">meludia.com</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksArticleLabel"></span>:
+              <a href="https://blog.medel.com/de/technologie/neues-online-gehoertraining-fuer-mehr-musikgenuss-mit-hoerimplantat/" target="_blank" rel="noopener noreferrer">blog.medel.com</a>
+            </p>
+            <p data-t="linksMeludiaDesc"></p>
+          </article>
+        </div>
+
+        <!-- Karte 5: Wissen & Lesestoff -->
+        <div class="card">
+          <h2 data-t="linksKnowledgeTitle"></h2>
+
+          <article class="link-entry">
+            <h3>Hör-Wiki</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksWebsiteLabel"></span>:
+              <a href="https://hoer-wiki.tech/wiki/Startseite" target="_blank" rel="noopener noreferrer">hoer-wiki.tech</a>
+            </p>
+            <p data-t="linksHoerwikiDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>Project Gutenberg</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://www.gutenberg.org/about/" target="_blank" rel="noopener noreferrer">gutenberg.org</a>
+            </p>
+            <p data-t="linksGutenbergDesc"></p>
+          </article>
+        </div>
+
+        <!-- Karte 6: Quellen für verwendete Audiodateien -->
+        <div class="card">
+          <h2 data-t="linksAudioTitle"></h2>
+          <p data-t="linksAudioIntro"></p>
+
+          <article class="link-entry">
+            <h3>Thorsten-Voice</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://www.thorsten-voice.de/" target="_blank" rel="noopener noreferrer">thorsten-voice.de</a>
+            </p>
+            <p data-t="linksThorstenDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>Common Voice</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksWebsiteLabel"></span>:
+              <a href="https://commonvoice.mozilla.org/" target="_blank" rel="noopener noreferrer">commonvoice.mozilla.org</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksMirrorLabel"></span>:
+              <a href="https://huggingface.co/datasets/fsicoli/common_voice_17_0" target="_blank" rel="noopener noreferrer">huggingface.co/datasets/fsicoli/common_voice_17_0</a>
+            </p>
+            <p data-t="linksCommonVoiceDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>OpenSLR</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksWebsiteLabel"></span>:
+              <a href="https://www.openslr.org/" target="_blank" rel="noopener noreferrer">openslr.org</a>
+            </p>
+            <p data-t="linksOpenSlrDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>Freesound</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksWebsiteLabel"></span>:
+              <a href="https://freesound.org/" target="_blank" rel="noopener noreferrer">freesound.org</a>
+            </p>
+            <p data-t="linksFreesoundDesc"></p>
+            <p class="link-entry-urls">
+              <span data-t="linksFreesoundUsedLabel"></span>:
+              <a href="https://freesound.org/people/mokasza/sounds/810330/" target="_blank" rel="noopener noreferrer">Triumphant Success — mokasza</a>
+              &nbsp;·&nbsp;
+              <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>
+            </p>
+          </article>
+        </div>
+
+        <!-- Karte 7: Von CImbel genutzte und unterstützte Software -->
+        <div class="card">
+          <h2 data-t="linksSoftwareTitle"></h2>
+          <p data-t="linksSoftwareIntro"></p>
+
+          <article class="link-entry">
+            <h3>RubberBand</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://breakfastquay.com/rubberband/" target="_blank" rel="noopener noreferrer">breakfastquay.com/rubberband</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksSourceLabel"></span>:
+              <a href="https://github.com/breakfastquay/rubberband" target="_blank" rel="noopener noreferrer">github.com/breakfastquay/rubberband</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksWasmLabel"></span>:
+              <a href="https://github.com/Daninet/rubberband-wasm" target="_blank" rel="noopener noreferrer">github.com/Daninet/rubberband-wasm</a>
+            </p>
+            <p data-t="linksRubberbandDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>smplr</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://danigb.github.io/smplr/" target="_blank" rel="noopener noreferrer">danigb.github.io/smplr</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksSourceLabel"></span>:
+              <a href="https://github.com/danigb/smplr" target="_blank" rel="noopener noreferrer">github.com/danigb/smplr</a>
+            </p>
+            <p data-t="linksSmplrDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>EasyEffects</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksSourceLabel"></span>:
+              <a href="https://github.com/wwmm/easyeffects" target="_blank" rel="noopener noreferrer">github.com/wwmm/easyeffects</a>
+            </p>
+            <p data-t="linksEasyeffectsDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>Equalizer APO</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://equalizerapo.com/" target="_blank" rel="noopener noreferrer">equalizerapo.com</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksSourceLabel"></span>:
+              <a href="https://sourceforge.net/projects/equalizerapo/" target="_blank" rel="noopener noreferrer">sourceforge.net/projects/equalizerapo</a>
+            </p>
+            <p data-t="linksEqapoDesc"></p>
+          </article>
+        </div>
+
+      </div>
+
+      <!-- ===== PRINT-ONLY SECTION ===== -->
+      <div id="printSection" class="print-section" style="display: none">
+        <div class="card">
+          <h2 data-t="printPlayerTitle"></h2>
+          <div id="printPlayerInfo"></div>
+        </div>
+      </div>
+
+      <div class="card support-card-slogan">
+        <p class="support-slogan" data-t="supportSlogan"></p>
+      </div>
+
+      <footer class="app-footer">
+        <span class="footer-version" id="footerVersion"></span>
+        <span class="footer-sep">·</span>
+        <a href="#" id="footerImprintLink" data-t="footerImprint"></a>
+        <span class="footer-sep">·</span>
+        <a href="#" id="footerLicenseLink" data-t="footerLicense"></a>
+        <span class="footer-sep">·</span>
+        <a href="https://github.com/mviereck/ci-sound-balancing"
+           target="_blank" rel="noopener noreferrer">GitHub</a>
+      </footer>
+
+      <dialog id="imprintDialog" class="legal-dialog">
+        <div class="legal-dialog-inner">
+          <div class="legal-dialog-head">
+            <h2 data-t="footerImprint"></h2>
+            <button type="button" class="legal-close" data-close="imprintDialog" data-t="legalClose"></button>
+          </div>
+          <div class="legal-dialog-body" id="imprintBody">
+            <!-- Wird in legal.js befüllt -->
+          </div>
+        </div>
+      </dialog>
+
+      <dialog id="licenseDialog" class="legal-dialog">
+        <div class="legal-dialog-inner">
+          <div class="legal-dialog-head">
+            <h2 data-t="footerLicense"></h2>
+            <button type="button" class="legal-close" data-close="licenseDialog" data-t="legalClose"></button>
+          </div>
+          <div class="legal-dialog-body" id="licenseBody">
+            <p data-t="legalLoading"></p>
+          </div>
+        </div>
+      </dialog>
+
+      <dialog id="untIbanDialog" class="legal-dialog">
+        <div class="legal-dialog-inner">
+          <div class="legal-dialog-head">
+            <h2 data-t="supportIbanTitle"></h2>
+            <button type="button" class="legal-close" data-close-support="untIbanDialog" data-t="legalClose"></button>
+          </div>
+          <div class="legal-dialog-body" id="untIbanBody">
+            <!-- Wird in unterstuetzung.js befüllt -->
+          </div>
+        </div>
+      </dialog>
+
+      <dialog id="untMailDialog" class="legal-dialog">
+        <div class="legal-dialog-inner">
+          <div class="legal-dialog-head">
+            <h2 data-t="supportMailTitle"></h2>
+            <button type="button" class="legal-close" data-close-support="untMailDialog" data-t="legalClose"></button>
+          </div>
+          <div class="legal-dialog-body" id="untMailBody">
+            <!-- Wird in unterstuetzung.js befüllt -->
+          </div>
+        </div>
+      </dialog>
+    </div>
+
+    <div id="depLockPopup" hidden></div>
+
+    <!-- BA337: Flaggen-Modalbox Inhalts-Sprache -->
+    <div id="plContentLangModal" class="modal-overlay" role="dialog" aria-modal="true">
+      <div class="modal-box" style="max-width: 420px; text-align: left; padding: 20px">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px">
+          <h2 data-t="plContentLangTitle" style="margin: 0; font-size: 1.05em; font-weight: 600"></h2>
+          <button id="plContentLangClose" class="btn" style="padding: 2px 8px; font-size: 1.1em; line-height: 1">✕</button>
+        </div>
+        <input type="search" id="plContentLangSearch"
+               data-t-placeholder="plContentLangSearch"
+               style="width: 100%; box-sizing: border-box; padding: 5px 8px; margin-bottom: 10px;
+                      border: 1px solid var(--border); border-radius: 4px; font-size: 0.9em" />
+        <div id="plContentLangList"
+             style="display: flex; flex-wrap: wrap; gap: 6px; max-height: 300px; overflow-y: auto"></div>
+      </div>
+    </div>
+
+    <!-- BA 172: Modal-Overlay für Tab-Sperre L1 -->
+    <div id="tabLockModal" class="modal-overlay" role="dialog" aria-modal="true">
+      <div class="modal-box" style="text-align:left;max-width:520px">
+        <h2 class="tab-lock-title" style="text-align:center"></h2>
+        <div class="tab-lock-body" style="font-size:0.95em;line-height:1.5;margin-top:10px"></div>
+        <div style="margin-top:18px;text-align:center">
+          <button class="btn" id="tabLockCloseBtn" data-t="tabLockClose"></button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

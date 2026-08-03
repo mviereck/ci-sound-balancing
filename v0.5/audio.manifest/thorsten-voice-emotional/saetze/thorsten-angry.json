@@ -1,0 +1,1818 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Thorsten — angry",
+  "lang": "de",
+  "license": "CC0-1.0",
+  "credit": "Thorsten Müller — Thorsten-Voice Emotional v0.2 (CC0)",
+  "url": "https://github.com/thorstenMueller/Thorsten-Voice",
+  "tags": {
+    "speaker_id": "thorsten",
+    "gender": "m",
+    "style": "emotional",
+    "emotion": "angry"
+  },
+  "items": [
+    {
+      "id": "00f0a2d8",
+      "text": "Und dabei bringt es auch nichts, sich den Mund fusselig zu reden.",
+      "audio": "thorsten-emotional_v02/angry/00f0a2d86d55a19e08c1676a16307cbd.opus",
+      "duration": 4.22
+    },
+    {
+      "id": "01427ad0",
+      "text": "Lass uns lieber einmal richtig lüften, statt die ganze Zeit das Fenster zu kippen!",
+      "audio": "thorsten-emotional_v02/angry/01427ad0db65c1bf9a47636f1114d1b1.opus",
+      "duration": 5.83
+    },
+    {
+      "id": "027a0f6d",
+      "text": "Nun sei nicht so ein Dickkopf!",
+      "audio": "thorsten-emotional_v02/angry/027a0f6d1d1345f0c56beb19c0508907.opus",
+      "duration": 2.06
+    },
+    {
+      "id": "02e002e2",
+      "text": "Das hat zum Beispiel dazu geführt, dass Deutschland heute in Mali auch engagiert ist, um Frankreich zu entlasten.",
+      "audio": "thorsten-emotional_v02/angry/02e002e2a51a601e99c4b0ff85dac351.opus",
+      "duration": 7.5
+    },
+    {
+      "id": "02eeb871",
+      "text": "Aus der Ferne lässt sich nichts seriös diagnostizieren.",
+      "audio": "thorsten-emotional_v02/angry/02eeb8713b9abb865bb32484cc8a0415.opus",
+      "duration": 4.16
+    },
+    {
+      "id": "032e7861",
+      "text": "Also, Sie leben ja und wir alle leben in einer Zeit, in der sich in ganz kurzer Zeit unglaublich viel verändert.",
+      "audio": "thorsten-emotional_v02/angry/032e786180fb5657a237062d218c9080.opus",
+      "duration": 7.65
+    },
+    {
+      "id": "03a1f652",
+      "text": "Rund um den Marienplatz wurde jetzt die Verkehrsführung geändert.",
+      "audio": "thorsten-emotional_v02/angry/03a1f652a37576530e287b64c281c0c9.opus",
+      "duration": 3.76
+    },
+    {
+      "id": "03b9c88c",
+      "text": "Beide Faktoren scheinen symbiotisch zusammenzuarbeiten.",
+      "audio": "thorsten-emotional_v02/angry/03b9c88c85fbdebe89f523426214435e.opus",
+      "duration": 3.46
+    },
+    {
+      "id": "03f5eea4",
+      "text": "Beginnen Sie Ihren persönlichen Rachefeldzug noch heute!",
+      "audio": "thorsten-emotional_v02/angry/03f5eea4317f51989cf09c5e9414dad1.opus",
+      "duration": 3.26
+    },
+    {
+      "id": "057856e4",
+      "text": "Jetzt weiß ich es wieder.",
+      "audio": "thorsten-emotional_v02/angry/057856e43693f84ee95bc8bd1c438e35.opus",
+      "duration": 1.72
+    },
+    {
+      "id": "058c1a5c",
+      "text": "Ohne Rücksicht auf Verluste will er seine Dominanz demonstrieren.",
+      "audio": "thorsten-emotional_v02/angry/058c1a5cce561cd0af5e62e07ca8de40.opus",
+      "duration": 3.31
+    },
+    {
+      "id": "05cda718",
+      "text": "Gehen Sie lieber arbeiten und verdienen Sie meine Rente!",
+      "audio": "thorsten-emotional_v02/angry/05cda7183037c7fce301e80c0c664eab.opus",
+      "duration": 3.03
+    },
+    {
+      "id": "05d94286",
+      "text": "Dort wird Ihnen geholfen.",
+      "audio": "thorsten-emotional_v02/angry/05d94286a41ff5df520d01206d0e317e.opus",
+      "duration": 1.59
+    },
+    {
+      "id": "06616ab4",
+      "text": "Ich muss mich mal kurz setzen.",
+      "audio": "thorsten-emotional_v02/angry/06616ab4a22a9cd2f593e9a7624bd7f9.opus",
+      "duration": 2.0
+    },
+    {
+      "id": "0713e7bb",
+      "text": "Das werden sehr interessante und auch sehr spannende und sicherlich auch keine ganz einfachen Verhandlungen werden.",
+      "audio": "thorsten-emotional_v02/angry/0713e7bbc2f8815f238e9ad44cf30eb8.opus",
+      "duration": 6.73
+    },
+    {
+      "id": "08c010e2",
+      "text": "Ich gebe dir gleich Serotonin.",
+      "audio": "thorsten-emotional_v02/angry/08c010e26b1b2cbb80933bf2c373028b.opus",
+      "duration": 1.98
+    },
+    {
+      "id": "099a43d5",
+      "text": "Ein Spruch, den man in jeder Lebenslage gebrauchen kann!",
+      "audio": "thorsten-emotional_v02/angry/099a43d59b1539b8aa0d6dc74db5772e.opus",
+      "duration": 3.32
+    },
+    {
+      "id": "0aaf116f",
+      "text": "Gestern lief es echt gut.",
+      "audio": "thorsten-emotional_v02/angry/0aaf116f8774a140909231e0b610dc98.opus",
+      "duration": 1.71
+    },
+    {
+      "id": "0bbb1366",
+      "text": "Aber wenn man Unternehmen fragt und Bürger fragt, würden sie wahrscheinlich sagen: Es gibt immer noch viel zu tun.",
+      "audio": "thorsten-emotional_v02/angry/0bbb1366f2928815d0cf64cda0fb4971.opus",
+      "duration": 7.88
+    },
+    {
+      "id": "0cdc6161",
+      "text": "Die fährt mit Ihrem Tussenpanzer zum nächsten Briefkasten, und erzählt anderen etwas von Umweltschutz.",
+      "audio": "thorsten-emotional_v02/angry/0cdc6161b0ae7935120ca8c0a3e5de86.opus",
+      "duration": 5.52
+    },
+    {
+      "id": "0cf91be5",
+      "text": "Also ein weiter existierendes Problem, denn wir sehen, in anderen Teilen der Welt wird sehr viel schneller gebaut.",
+      "audio": "thorsten-emotional_v02/angry/0cf91be5ce94ff566520aa47a5b573c8.opus",
+      "duration": 7.74
+    },
+    {
+      "id": "0dab10b1",
+      "text": "Tragen Sie die Adressen Ihrer Straße bitte in OpenStreetMap ein!",
+      "audio": "thorsten-emotional_v02/angry/0dab10b16c7b606c059abe21d1eb2900.opus",
+      "duration": 3.97
+    },
+    {
+      "id": "0dba8172",
+      "text": "Das ist er nämlich nicht.",
+      "audio": "thorsten-emotional_v02/angry/0dba81726269f43de26ecd0dd2f2f18a.opus",
+      "duration": 1.88
+    },
+    {
+      "id": "0e8d9d5e",
+      "text": "Russland ist derzeit die einzige Nation, die Raumfahrer zur Internationalen Raumstation bringen kann.",
+      "audio": "thorsten-emotional_v02/angry/0e8d9d5e2e11c7c08abc9f0b82fb7821.opus",
+      "duration": 5.15
+    },
+    {
+      "id": "0ea85f28",
+      "text": "Um mich dafür zu begeistern, mangelt es mir an Lokalpatriotismus.",
+      "audio": "thorsten-emotional_v02/angry/0ea85f286e4dfdd7ac47b9e96800220d.opus",
+      "duration": 4.45
+    },
+    {
+      "id": "0ed873f6",
+      "text": "Wie viel kommt zusammen an einem Tag des Pfandflaschensammelns?",
+      "audio": "thorsten-emotional_v02/angry/0ed873f60f8b85126279fee940830e17.opus",
+      "duration": 4.95
+    },
+    {
+      "id": "106d5a7b",
+      "text": "Okay, ich warte im Wagen.",
+      "audio": "thorsten-emotional_v02/angry/106d5a7b05735126bbe67be9fa2ca981.opus",
+      "duration": 1.76
+    },
+    {
+      "id": "118d9ce1",
+      "text": "Ja, weiß ich jetzt auch nicht.",
+      "audio": "thorsten-emotional_v02/angry/118d9ce1f1b4e74669d95ff40282cf8a.opus",
+      "duration": 2.12
+    },
+    {
+      "id": "11c308da",
+      "text": "Das liegt auch daran, dass nur die Reisekosten des jeweils günstigsten Verkehrsmittels erstattet werden.",
+      "audio": "thorsten-emotional_v02/angry/11c308da3284dbdcc2fb9da447a9c16a.opus",
+      "duration": 6.29
+    },
+    {
+      "id": "120da424",
+      "text": "Und könnten wir einen Exploit entwickeln, um daraus auszubrechen?",
+      "audio": "thorsten-emotional_v02/angry/120da424e5f603bf3d6d27a945d00bd3.opus",
+      "duration": 3.86
+    },
+    {
+      "id": "14d35408",
+      "text": "Es fehlt nicht mehr viel.",
+      "audio": "thorsten-emotional_v02/angry/14d3540813a9eb6d2f90dbf966ac1c7a.opus",
+      "duration": 1.89
+    },
+    {
+      "id": "14d55dae",
+      "text": "Darüber wird im Augenblick mit der Europäischen Kommission geredet: Wie können wir es transparenter machen?",
+      "audio": "thorsten-emotional_v02/angry/14d55daebab8273328b0123a77047885.opus",
+      "duration": 6.82
+    },
+    {
+      "id": "14db0988",
+      "text": "Auf der einen Seite unterstützen wir UN-Blauhelmmissionen auch für Einsätze, an denen wir nicht direkt teilnehmen.",
+      "audio": "thorsten-emotional_v02/angry/14db098823e3b5deeb1792aa173b2227.opus",
+      "duration": 8.27
+    },
+    {
+      "id": "15d7473d",
+      "text": "Ich glaube also, dass nach längeren Anlaufschwierigkeiten jetzt die Projekte Schritt für Schritt in Gang kommen.",
+      "audio": "thorsten-emotional_v02/angry/15d7473df8964ce92d7e3d2b533c17d6.opus",
+      "duration": 6.12
+    },
+    {
+      "id": "17a5a816",
+      "text": "Einheit Bravo an Zentrale: Wir sind auf Code vier. Over!",
+      "audio": "thorsten-emotional_v02/angry/17a5a8163ef7fdc9272d621282b636b8.opus",
+      "duration": 3.92
+    },
+    {
+      "id": "17aec872",
+      "text": "Manche finden, dass Wissenschaft und Religion sich widersprechen.",
+      "audio": "thorsten-emotional_v02/angry/17aec872be76c8cd896f42bee0517a8e.opus",
+      "duration": 4.44
+    },
+    {
+      "id": "17bfe7cf",
+      "text": "Mike hat solche Oberarme.",
+      "audio": "thorsten-emotional_v02/angry/17bfe7cf9fabf128df295534dee137e6.opus",
+      "duration": 2.17
+    },
+    {
+      "id": "1910c7ff",
+      "text": "Dümmer geht's nicht mehr.",
+      "audio": "thorsten-emotional_v02/angry/1910c7ff4e2def4080401802af5b6575.opus",
+      "duration": 1.32
+    },
+    {
+      "id": "19530ce4",
+      "text": "Es bereichert, es erweitert den eigenen Horizont und seit Kindheitstagen lese ich persönlich sehr gerne.",
+      "audio": "thorsten-emotional_v02/angry/19530ce4aa44bd69b299f21b8e50e325.opus",
+      "duration": 6.49
+    },
+    {
+      "id": "1ac4c356",
+      "text": "Sollten Sie Probleme mit Mitgefangenen haben, wenden Sie sich an den Justizvollzugsbeamten Ihres Vertrauens!",
+      "audio": "thorsten-emotional_v02/angry/1ac4c35691cc5a59f08688dc773ce882.opus",
+      "duration": 7.47
+    },
+    {
+      "id": "1b75915e",
+      "text": "Heute ist der vierte November.",
+      "audio": "thorsten-emotional_v02/angry/1b75915ecea7d6d7e3b6b47c02a22545.opus",
+      "duration": 1.75
+    },
+    {
+      "id": "1be85221",
+      "text": "Weshalb schmerzen meine Zähne?",
+      "audio": "thorsten-emotional_v02/angry/1be85221a1111711cbc189629c1c56f2.opus",
+      "duration": 2.21
+    },
+    {
+      "id": "1cdba12b",
+      "text": "Sie haben ein Auge verloren, aber Sie haben ja noch ein zweites!",
+      "audio": "thorsten-emotional_v02/angry/1cdba12b2f8998174ee54c52040d1c2e.opus",
+      "duration": 3.71
+    },
+    {
+      "id": "1e299469",
+      "text": "Schauen Sie im Freibad auf die Kinder, nicht auf das Smartphone!",
+      "audio": "thorsten-emotional_v02/angry/1e29946989a5748bcb94f17aa0695795.opus",
+      "duration": 3.49
+    },
+    {
+      "id": "1eee197f",
+      "text": "Es ist in unserem Interesse, für unsere Arbeitsplätze wichtig, dass wir dieses Abkommen auch abschließen.",
+      "audio": "thorsten-emotional_v02/angry/1eee197f84f4cc61c43b19b720d582c1.opus",
+      "duration": 6.9
+    },
+    {
+      "id": "1f1ca791",
+      "text": "Bielefeld gibt es gar nicht, diese \"Tatsache\" wurde durch die Bielefeld Verschwörung aufgeckt!",
+      "audio": "thorsten-emotional_v02/angry/1f1ca7913abac16ba5bcddcd86bb15ae.opus",
+      "duration": 6.62
+    },
+    {
+      "id": "1fbb6dee",
+      "text": "Was hat sich seitdem geändert?",
+      "audio": "thorsten-emotional_v02/angry/1fbb6deed8c810f60175af82389486b0.opus",
+      "duration": 2.28
+    },
+    {
+      "id": "204fc132",
+      "text": "Mist, wieder nichts geschafft!",
+      "audio": "thorsten-emotional_v02/angry/204fc132a141bfa382f9ac91a2b95147.opus",
+      "duration": 1.99
+    },
+    {
+      "id": "22db8146",
+      "text": "Ich fühle mich wie neugeboren.",
+      "audio": "thorsten-emotional_v02/angry/22db8146e5f96d035a116261a26835e0.opus",
+      "duration": 2.12
+    },
+    {
+      "id": "23d5ac48",
+      "text": "Wer den Zusammenhang zwischen Kassette und Bleistift versteht, stammt wahrscheinlich aus dem letzten Jahrtausend.",
+      "audio": "thorsten-emotional_v02/angry/23d5ac48340871011cac14de0980b51c.opus",
+      "duration": 6.66
+    },
+    {
+      "id": "264679e6",
+      "text": "Ausflugsdampfer versenkt!",
+      "audio": "thorsten-emotional_v02/angry/264679e68600689491d4da21a721d6c6.opus",
+      "duration": 1.85
+    },
+    {
+      "id": "2804f7aa",
+      "text": "Sie dachte, eine solche Gelegenheit bietet sich kein zweites Mal.",
+      "audio": "thorsten-emotional_v02/angry/2804f7aa3e95ad05024fc0084be4ab94.opus",
+      "duration": 4.49
+    },
+    {
+      "id": "284784d9",
+      "text": "Okay, man kann nicht sagen, dass sie damals am Hungertuch nagten.",
+      "audio": "thorsten-emotional_v02/angry/284784d92dc43015703748e2ba188033.opus",
+      "duration": 3.73
+    },
+    {
+      "id": "284c098d",
+      "text": "Muss ich vor dem Wochenende noch irgendetwas einkaufen?",
+      "audio": "thorsten-emotional_v02/angry/284c098d92ee08bceff780a72ec24fcf.opus",
+      "duration": 4.16
+    },
+    {
+      "id": "28fc28ad",
+      "text": "Lass uns erst später losgehen.",
+      "audio": "thorsten-emotional_v02/angry/28fc28adf5db817b9e17f0c6992993b3.opus",
+      "duration": 2.03
+    },
+    {
+      "id": "29df5088",
+      "text": "Wir haben es geschafft, dass jedes Jahr an und um diesen Projekttag herum Hunderte von Veranstaltungen stattfinden.",
+      "audio": "thorsten-emotional_v02/angry/29df50889144d8e39a5d2f6c62e41060.opus",
+      "duration": 8.36
+    },
+    {
+      "id": "2c78f767",
+      "text": "Können die Medien bitte mal aufhören, ständig Plastikverzicht mit Klimaschutz zu verwechseln?",
+      "audio": "thorsten-emotional_v02/angry/2c78f767a5f7e037e403730f2a2b909b.opus",
+      "duration": 6.7
+    },
+    {
+      "id": "2cc2cc4a",
+      "text": "Herr Kapitän, ich stehe Ihnen mit all meinen Kräften zu Diensten!",
+      "audio": "thorsten-emotional_v02/angry/2cc2cc4a34b961ef1657cc82dbd18875.opus",
+      "duration": 4.55
+    },
+    {
+      "id": "2cc90eb1",
+      "text": "Es ist bemerkenswert, wie ablehnend Demokratie in hundertfünfzig Jahre alten Lexika beschrieben wird.",
+      "audio": "thorsten-emotional_v02/angry/2cc90eb146f6d574cb75553bb7956a42.opus",
+      "duration": 5.68
+    },
+    {
+      "id": "2e096c77",
+      "text": "Ziehen Sie sich einmal zurück!",
+      "audio": "thorsten-emotional_v02/angry/2e096c779c7dd366096beb9df71a0436.opus",
+      "duration": 2.16
+    },
+    {
+      "id": "2e549180",
+      "text": "Da ist ja alles verklebt.",
+      "audio": "thorsten-emotional_v02/angry/2e549180a9d7591a11d08112bf67f422.opus",
+      "duration": 1.99
+    },
+    {
+      "id": "2ed2f64e",
+      "text": "Sie können das unternehmerische Risiko doch nicht einfach auf den Kunden abwälzen!",
+      "audio": "thorsten-emotional_v02/angry/2ed2f64ecc72449fcd71dd9798e53e19.opus",
+      "duration": 5.36
+    },
+    {
+      "id": "2f2956cc",
+      "text": "Wenn man sich auf der Welt umguckt, gibt es gar nicht so viele Gebiete, in denen das so unumstritten ist.",
+      "audio": "thorsten-emotional_v02/angry/2f2956cc9c87c507133ab38ae6763cb4.opus",
+      "duration": 6.55
+    },
+    {
+      "id": "2face71a",
+      "text": "Lernt lieber etwas Sinnvolles!",
+      "audio": "thorsten-emotional_v02/angry/2face71ad5da55177d8495b8c8d3e430.opus",
+      "duration": 2.21
+    },
+    {
+      "id": "30e288ee",
+      "text": "Sobald man sich von diesen Altlasten unabhängig macht, werden sie in der Bedeutungslosigkeit verschwinden.",
+      "audio": "thorsten-emotional_v02/angry/30e288ee4fd9902f9088d56e8748b855.opus",
+      "duration": 6.56
+    },
+    {
+      "id": "31952592",
+      "text": "Endlich wieder Nachschub!",
+      "audio": "thorsten-emotional_v02/angry/31952592964b2a3e715f1bea81bdc3cf.opus",
+      "duration": 1.71
+    },
+    {
+      "id": "33e05292",
+      "text": "Hier steht alles unter Wasser.",
+      "audio": "thorsten-emotional_v02/angry/33e052928ee74694d8336a09d4f1f894.opus",
+      "duration": 1.82
+    },
+    {
+      "id": "356144b7",
+      "text": "Was gibt es an Beweismaterial?",
+      "audio": "thorsten-emotional_v02/angry/356144b7594561bd43dc3fbe2ae81f44.opus",
+      "duration": 2.74
+    },
+    {
+      "id": "3610f692",
+      "text": "Nein, das war kein Kompliment.",
+      "audio": "thorsten-emotional_v02/angry/3610f6924ae384c8fbcfd8b8c14c7197.opus",
+      "duration": 2.16
+    },
+    {
+      "id": "364e8f66",
+      "text": "Ballonstarts in der Einflugschneise sind ungefähr so sinnvoll wie ein Zebrastreifen auf der Autobahn.",
+      "audio": "thorsten-emotional_v02/angry/364e8f663b55dab4eaa495d0f591913c.opus",
+      "duration": 6.26
+    },
+    {
+      "id": "365c586f",
+      "text": "Das ist genau mein Humor.",
+      "audio": "thorsten-emotional_v02/angry/365c586ff1f2a591b0c0424a12dd5036.opus",
+      "duration": 1.92
+    },
+    {
+      "id": "369233d8",
+      "text": "Brauchen wir die EU und den Euro denn wirklich, oder wäre auch ein Deutschland ohne EU und Euro möglich?",
+      "audio": "thorsten-emotional_v02/angry/369233d876453eb5615708b69f54e84b.opus",
+      "duration": 8.76
+    },
+    {
+      "id": "37773d61",
+      "text": "Betäubungsgewehr geladen!",
+      "audio": "thorsten-emotional_v02/angry/37773d61d5c91c12d49e55e2b041c0cd.opus",
+      "duration": 1.7
+    },
+    {
+      "id": "381fa424",
+      "text": "Irgendetwas zu verzollen?",
+      "audio": "thorsten-emotional_v02/angry/381fa424ffde5cd456287fb5324d22fb.opus",
+      "duration": 1.7
+    },
+    {
+      "id": "3874ca9f",
+      "text": "Hauptsache, Sie erklären.",
+      "audio": "thorsten-emotional_v02/angry/3874ca9fedca443688d55d6f7fb9180c.opus",
+      "duration": 1.66
+    },
+    {
+      "id": "3905e846",
+      "text": "Kommen Sie heraus, aber dalli!",
+      "audio": "thorsten-emotional_v02/angry/3905e846c9c7e1954cc713b9642120a0.opus",
+      "duration": 1.82
+    },
+    {
+      "id": "3b68e324",
+      "text": "Die in der zweiten Reihe.",
+      "audio": "thorsten-emotional_v02/angry/3b68e32486a1e5953da45cdde6eb2e01.opus",
+      "duration": 1.69
+    },
+    {
+      "id": "3d9fd059",
+      "text": "Notfalls wirf eine Münze.",
+      "audio": "thorsten-emotional_v02/angry/3d9fd059941aa764cfc886dca675033f.opus",
+      "duration": 2.08
+    },
+    {
+      "id": "3da24b61",
+      "text": "Es gibt ein Präventionsgesetz, wo all diese Dinge geregelt sind, wo wirklich Menschen informiert werden.",
+      "audio": "thorsten-emotional_v02/angry/3da24b61836ab54f31166159df72cfae.opus",
+      "duration": 6.4
+    },
+    {
+      "id": "403c27f9",
+      "text": "Also nicht missverstehen!",
+      "audio": "thorsten-emotional_v02/angry/403c27f9fd44d6715cf55265a0029d60.opus",
+      "duration": 1.65
+    },
+    {
+      "id": "4076d6c2",
+      "text": "Wir müssen uns die Profile erarbeiten: Was sind die Fähigkeiten, auch für den Arbeitsmarkt, der Flüchtlinge?",
+      "audio": "thorsten-emotional_v02/angry/4076d6c2517df24b383ef8075e00f8fe.opus",
+      "duration": 7.43
+    },
+    {
+      "id": "419076de",
+      "text": "Wir wissen, dass schlechte Lebenssituationen in Afrika oder Lateinamerika zu Flüchtlingsbewegungen führen können.",
+      "audio": "thorsten-emotional_v02/angry/419076de46aa8fd5f91508a68c56ced5.opus",
+      "duration": 7.01
+    },
+    {
+      "id": "4350c81d",
+      "text": "Im vergangen Jahr hat die Bunderegierung den Aktionsplan für Menschen mit Behinderungen verabschiedet.",
+      "audio": "thorsten-emotional_v02/angry/4350c81daac6f3fd87c0e3e9baf96179.opus",
+      "duration": 5.41
+    },
+    {
+      "id": "45be6dff",
+      "text": "Ja, wir haben mit sehr vielen Experten lange daran gearbeitet, einen neuen Pflegebegriff zu definieren.",
+      "audio": "thorsten-emotional_v02/angry/45be6dff01d191a4c222527dc6355c3c.opus",
+      "duration": 5.29
+    },
+    {
+      "id": "46989ba4",
+      "text": "Dank Frankreichs Kolonialvergangenheit sind Teile der Europäischen Union auf der ganzen Welt verteilt.",
+      "audio": "thorsten-emotional_v02/angry/46989ba4804a228a32b418b3d7c9c862.opus",
+      "duration": 5.58
+    },
+    {
+      "id": "488d199b",
+      "text": "Es kann doch einfach jeder glauben, was er will, oder etwa nicht?",
+      "audio": "thorsten-emotional_v02/angry/488d199bee78154414a799e1c4363429.opus",
+      "duration": 4.55
+    },
+    {
+      "id": "499795f4",
+      "text": "Auf dieser Karte sind alle Sammelobjekte eingezeichnet.",
+      "audio": "thorsten-emotional_v02/angry/499795f4054ad25e839283b8e3893a81.opus",
+      "duration": 4.03
+    },
+    {
+      "id": "49bb4341",
+      "text": "Dass man so skrupellos unbedarfte Alte abzockt, ist eine Schweinerei!",
+      "audio": "thorsten-emotional_v02/angry/49bb434142232d730a679e9fe018ec80.opus",
+      "duration": 5.47
+    },
+    {
+      "id": "4abd7cf4",
+      "text": "Okay, dann bist du die Zeugin.",
+      "audio": "thorsten-emotional_v02/angry/4abd7cf4f7e10b5d91570fdb4b9e8138.opus",
+      "duration": 2.0
+    },
+    {
+      "id": "4cf7ee9a",
+      "text": "Aber wir sind ein Rechtsstaat, und deshalb halten wir uns natürlich auch an die Bestimmungen des Rechts.",
+      "audio": "thorsten-emotional_v02/angry/4cf7ee9ab2e611309c5553ad0a7ac091.opus",
+      "duration": 6.26
+    },
+    {
+      "id": "4e45f677",
+      "text": "Das könnte dir so passen.",
+      "audio": "thorsten-emotional_v02/angry/4e45f6770d146bc20452d8337a8b2954.opus",
+      "duration": 1.47
+    },
+    {
+      "id": "51b84cb1",
+      "text": "Wie bügelt man so einen Stoff?",
+      "audio": "thorsten-emotional_v02/angry/51b84cb1fbfcd099f85d752bbacf9419.opus",
+      "duration": 2.22
+    },
+    {
+      "id": "523e01af",
+      "text": "Dazu brauchen wir klare Grundsätze: Der Staat ist der Hüter der wirtschaftlichen und sozialen Ordnung.",
+      "audio": "thorsten-emotional_v02/angry/523e01af06ae9f7de26164b04070151b.opus",
+      "duration": 5.84
+    },
+    {
+      "id": "562f68a8",
+      "text": "Es hängt nicht mehr davon ab, dass ein Mensch hinter einem Steuerrad sitzt, um ein Gefährt als Auto zu bezeichnen.",
+      "audio": "thorsten-emotional_v02/angry/562f68a850d519763399ea954e31ac83.opus",
+      "duration": 7.16
+    },
+    {
+      "id": "57278766",
+      "text": "Nur Hotels und Flughäfen.",
+      "audio": "thorsten-emotional_v02/angry/57278766564f4c59c138643adc21aaac.opus",
+      "duration": 2.17
+    },
+    {
+      "id": "584760ce",
+      "text": "Reißt das Ding doch gleich ab!",
+      "audio": "thorsten-emotional_v02/angry/584760ce7a02b570d6f9d7dfb887fe0d.opus",
+      "duration": 2.17
+    },
+    {
+      "id": "5ad48e03",
+      "text": "Nie würde ich mir anmaßen, das besser zu können als Herr Bartels.",
+      "audio": "thorsten-emotional_v02/angry/5ad48e036ac0c155adf72acbee6dcca1.opus",
+      "duration": 4.23
+    },
+    {
+      "id": "5b2910ad",
+      "text": "Ja, nein oder vielleicht?",
+      "audio": "thorsten-emotional_v02/angry/5b2910adaabe0702b4e0089128b3841e.opus",
+      "duration": 2.43
+    },
+    {
+      "id": "5bbf7f15",
+      "text": "In guten wie in schlechten Zeiten, hast du versprochen!",
+      "audio": "thorsten-emotional_v02/angry/5bbf7f15ccaf379be3dad6a2fc8996bc.opus",
+      "duration": 3.44
+    },
+    {
+      "id": "5cffc11a",
+      "text": "Unseren Mitarbeitern gewähren wir eine Reihe von teuren Vorzügen.",
+      "audio": "thorsten-emotional_v02/angry/5cffc11acde5c30380a26ad30d6c94d1.opus",
+      "duration": 4.45
+    },
+    {
+      "id": "5d5326ab",
+      "text": "Nimmst du mich Huckepack?",
+      "audio": "thorsten-emotional_v02/angry/5d5326ab40422ebfd47367faa93b6364.opus",
+      "duration": 1.59
+    },
+    {
+      "id": "5d800827",
+      "text": "Er tut, wie ihm geheißen.",
+      "audio": "thorsten-emotional_v02/angry/5d80082764fa6bd8b588c697cb910477.opus",
+      "duration": 2.06
+    },
+    {
+      "id": "5db3ae7a",
+      "text": "Zweitens geht es natürlich auch darum, zu überlegen: Welche Auswirkungen hat das Ganze auf die Arbeitswelt?",
+      "audio": "thorsten-emotional_v02/angry/5db3ae7a98e2a799d6d126b036aec95f.opus",
+      "duration": 8.06
+    },
+    {
+      "id": "5e200b1c",
+      "text": "Wer benutzt welche Zahnbürste?",
+      "audio": "thorsten-emotional_v02/angry/5e200b1cce097daca482c5f9721d2c48.opus",
+      "duration": 2.46
+    },
+    {
+      "id": "5ea8176d",
+      "text": "Der Nachbarsjunge hat es draußen beim Spielen gefunden.",
+      "audio": "thorsten-emotional_v02/angry/5ea8176d00be54145e493f680e861258.opus",
+      "duration": 3.23
+    },
+    {
+      "id": "5ec27c72",
+      "text": "Da kennt sich jemand aus.",
+      "audio": "thorsten-emotional_v02/angry/5ec27c723e8d1a807791823d63078625.opus",
+      "duration": 1.55
+    },
+    {
+      "id": "5f1ee1e4",
+      "text": "Was waren seine letzten Worte?",
+      "audio": "thorsten-emotional_v02/angry/5f1ee1e40c87aa7aa5f9b4b813dc48ad.opus",
+      "duration": 2.26
+    },
+    {
+      "id": "5fa81401",
+      "text": "Na gut, dann machen wir es so.",
+      "audio": "thorsten-emotional_v02/angry/5fa814017c58bded3a204ca5f4f0e7c1.opus",
+      "duration": 1.98
+    },
+    {
+      "id": "5feeeb07",
+      "text": "Joachim Löw ist der Bundestrainer, und die Strategie bespricht er mit seinen Spielern und seinen Trainerkollegen.",
+      "audio": "thorsten-emotional_v02/angry/5feeeb07ccb4f20dcd94feb817c06135.opus",
+      "duration": 7.01
+    },
+    {
+      "id": "63633ef3",
+      "text": "Ene mene Holzverbrennung, fertig ist die Spracherkennung. Hex, hex!",
+      "audio": "thorsten-emotional_v02/angry/63633ef35b3176388d58b7a8285648ca.opus",
+      "duration": 5.29
+    },
+    {
+      "id": "645607a5",
+      "text": "Aber ich glaube, es ist auch eine Aufforderung an alle, wobei ich diese pauschale Verurteilung völlig falsch finde.",
+      "audio": "thorsten-emotional_v02/angry/645607a5efbc0dbc96f62a9000feb393.opus",
+      "duration": 8.02
+    },
+    {
+      "id": "6521fa8d",
+      "text": "Ihr sollt lieb und artig sein.",
+      "audio": "thorsten-emotional_v02/angry/6521fa8dbb919c30b3a10420f759ec67.opus",
+      "duration": 2.38
+    },
+    {
+      "id": "67c0a47e",
+      "text": "Bei dem Wort Rehabilitation wurde Herr Krupp hellhörig.",
+      "audio": "thorsten-emotional_v02/angry/67c0a47e5fa153544fd6181cda833d48.opus",
+      "duration": 4.51
+    },
+    {
+      "id": "682fc2d6",
+      "text": "Wir haben hier eine Situation.",
+      "audio": "thorsten-emotional_v02/angry/682fc2d61b33e6c6190d42206a08748c.opus",
+      "duration": 2.32
+    },
+    {
+      "id": "6a1827ab",
+      "text": "Wie spricht man den Handyhersteller Huawei korrekt aus?",
+      "audio": "thorsten-emotional_v02/angry/6a1827ab062a2b2d76984f0969a4ad5e.opus",
+      "duration": 4.07
+    },
+    {
+      "id": "6a42d772",
+      "text": "Für cholerische Autofahrer bietet der Hersteller nun Lenkräder in verschiedenen Geschmacksrichtungen an.",
+      "audio": "thorsten-emotional_v02/angry/6a42d772e9e9718791d94b63af55c1d1.opus",
+      "duration": 5.42
+    },
+    {
+      "id": "6b4f9110",
+      "text": "Mir fällt nichts Besseres ein.",
+      "audio": "thorsten-emotional_v02/angry/6b4f91105ef25dcf46a19923c2b01cf0.opus",
+      "duration": 1.98
+    },
+    {
+      "id": "6b9bef4d",
+      "text": "Den akzeptiere ich nicht!",
+      "audio": "thorsten-emotional_v02/angry/6b9bef4d92d7d7a97a32cbc02876354f.opus",
+      "duration": 1.91
+    },
+    {
+      "id": "6bdbdc53",
+      "text": "Luft ist nicht nur notwendig zum Atmen, sondern auch zum Fliegen!",
+      "audio": "thorsten-emotional_v02/angry/6bdbdc53adc9db53e62a8e3388c0edae.opus",
+      "duration": 4.31
+    },
+    {
+      "id": "6d0886f1",
+      "text": "Wahrscheinlich tritt er dann wieder diesem Kegelclub bei oder so.",
+      "audio": "thorsten-emotional_v02/angry/6d0886f1bcbaa6fcfdbfeb501d5c683c.opus",
+      "duration": 3.81
+    },
+    {
+      "id": "6ead2a87",
+      "text": "Eine sehr schöne Kommode aus Erlenholz, muss ich sagen!",
+      "audio": "thorsten-emotional_v02/angry/6ead2a87707ff5148eb01609b5fe4303.opus",
+      "duration": 3.91
+    },
+    {
+      "id": "6f8664b0",
+      "text": "Einerseits ist die Situation vorerst bereinigt, andererseits bleibt die Möglichkeit des Gegenangriffs aus.",
+      "audio": "thorsten-emotional_v02/angry/6f8664b0e7ddf6765e06729c11e70be4.opus",
+      "duration": 6.81
+    },
+    {
+      "id": "71a85182",
+      "text": "Die Operation ist sinnlos, schmerzhaft und unumkehrbar.",
+      "audio": "thorsten-emotional_v02/angry/71a85182e107d4356a9c8e438529a88f.opus",
+      "duration": 4.39
+    },
+    {
+      "id": "72d1dfaa",
+      "text": "Seinen Prinzipien ist er treu geblieben, das muss man anerkennen.",
+      "audio": "thorsten-emotional_v02/angry/72d1dfaa1a2a4a97efe210c64efd2c6c.opus",
+      "duration": 3.75
+    },
+    {
+      "id": "7335b89d",
+      "text": "Okay, dann lassen wir das weg.",
+      "audio": "thorsten-emotional_v02/angry/7335b89d01ace51a27612027b7ab974e.opus",
+      "duration": 1.82
+    },
+    {
+      "id": "7433f653",
+      "text": "Nun kommt eine Frage, die nur Experten beantworten können werden.",
+      "audio": "thorsten-emotional_v02/angry/7433f6531fa5204a3944cbe4cd3df399.opus",
+      "duration": 4.64
+    },
+    {
+      "id": "74be69c7",
+      "text": "Nichts hat sich geändert.",
+      "audio": "thorsten-emotional_v02/angry/74be69c7641b81ecb5e97470afaeed3a.opus",
+      "duration": 1.66
+    },
+    {
+      "id": "760ed4fe",
+      "text": "Je mehr Berufserfahrung Pädagogen sammeln, desto mehr verwandelt sich ihr Lehrerblick in einen Todesblick.",
+      "audio": "thorsten-emotional_v02/angry/760ed4feb3b965abd72f36976efd17fb.opus",
+      "duration": 6.75
+    },
+    {
+      "id": "769e2ada",
+      "text": "Der Abbrecher richtete den Blick deprimiert nach unten.",
+      "audio": "thorsten-emotional_v02/angry/769e2adae624ca24619b9ceb649f5d98.opus",
+      "duration": 3.39
+    },
+    {
+      "id": "78dc680c",
+      "text": "Gönn mir doch mal ein paar Eskapaden vom tristen Alltag!",
+      "audio": "thorsten-emotional_v02/angry/78dc680c0b89e46a746ade1e69999193.opus",
+      "duration": 3.79
+    },
+    {
+      "id": "79a13ef2",
+      "text": "Die Feuerwehr geht dort hinein, wo andere hinauslaufen.",
+      "audio": "thorsten-emotional_v02/angry/79a13ef2c77be70ffde9ce56a0704a1a.opus",
+      "duration": 3.42
+    },
+    {
+      "id": "7a0eb299",
+      "text": "Jemand erkläre mir dieses psychologische Massenphänomen!",
+      "audio": "thorsten-emotional_v02/angry/7a0eb299d70e417fa9f6231f67af85c4.opus",
+      "duration": 3.53
+    },
+    {
+      "id": "7a774396",
+      "text": "Wer stellt bei so feuchtem Wetter die Waschmaschine an?",
+      "audio": "thorsten-emotional_v02/angry/7a774396ec5358d19e6176861d6574a4.opus",
+      "duration": 3.69
+    },
+    {
+      "id": "7adb0480",
+      "text": "Unter der Plane wächst nichts.",
+      "audio": "thorsten-emotional_v02/angry/7adb04805605f282ae3417bfd2e39efa.opus",
+      "duration": 2.1
+    },
+    {
+      "id": "7aef3103",
+      "text": "Wer denkt, ich hätte mir das alles nur ausgedacht, liegt richtig.",
+      "audio": "thorsten-emotional_v02/angry/7aef3103366cbad3c98da73e50480c18.opus",
+      "duration": 4.38
+    },
+    {
+      "id": "7c2099e3",
+      "text": "Auch ein ungewolltes Kind ist ein wunderbares Geschenk.",
+      "audio": "thorsten-emotional_v02/angry/7c2099e30e26633af1f08bad32364a9f.opus",
+      "duration": 3.74
+    },
+    {
+      "id": "7cc2e3a1",
+      "text": "Angeblich wird der neue Parkour ziemlich anspruchsvoll.",
+      "audio": "thorsten-emotional_v02/angry/7cc2e3a17f8e1e10ae30dc9f8bffa807.opus",
+      "duration": 3.36
+    },
+    {
+      "id": "7eb5168d",
+      "text": "Die Erfindung der Schutzimpfung ist der vielleicht bedeutendste Fortschritt der medizinischen Geschichte.",
+      "audio": "thorsten-emotional_v02/angry/7eb5168df5f4345cec9096b59d7249e0.opus",
+      "duration": 5.8
+    },
+    {
+      "id": "7fe9c8a4",
+      "text": "Was sind denn das für Gesetze?",
+      "audio": "thorsten-emotional_v02/angry/7fe9c8a498fade9a04586ec0ccd588dc.opus",
+      "duration": 2.06
+    },
+    {
+      "id": "8166c65b",
+      "text": "Für Geld mache ich alles.",
+      "audio": "thorsten-emotional_v02/angry/8166c65ba0eae361ec99ad0f488469ac.opus",
+      "duration": 1.92
+    },
+    {
+      "id": "824a3574",
+      "text": "Als ich Bundeskanzlerin wurde, haben nur etwas mehr als ein Drittel eines Jahrgangs ein Hochschulstudium begonnen.",
+      "audio": "thorsten-emotional_v02/angry/824a3574614d527ccba1d4e47e5b8ffd.opus",
+      "duration": 7.42
+    },
+    {
+      "id": "83296325",
+      "text": "Die Zukunft ist stets ungewiss: Volles Haar oder doch nur Spliss?",
+      "audio": "thorsten-emotional_v02/angry/83296325795153295b22d7353bac11b3.opus",
+      "duration": 5.12
+    },
+    {
+      "id": "846fc470",
+      "text": "Lasst uns was Verrücktes wagen und wahllos Weltkonzerne verklagen!",
+      "audio": "thorsten-emotional_v02/angry/846fc470d54176226e3120ac56dd7ad0.opus",
+      "duration": 4.48
+    },
+    {
+      "id": "848137d0",
+      "text": "Selbst der große Chipgigant aus Kalifornien kam dabei ins Wanken.",
+      "audio": "thorsten-emotional_v02/angry/848137d02e97288ecc69087b1b80ca50.opus",
+      "duration": 4.14
+    },
+    {
+      "id": "856d844e",
+      "text": "Man einigte sich im Vergleich.",
+      "audio": "thorsten-emotional_v02/angry/856d844e78c54f7f4e711a5eb300eb1b.opus",
+      "duration": 2.03
+    },
+    {
+      "id": "86d8d7dd",
+      "text": "Das ist die sauberste Männer-Wohngruppe, die ich je gesehen habe!",
+      "audio": "thorsten-emotional_v02/angry/86d8d7dddf5ef0e777349c85c1da7545.opus",
+      "duration": 4.49
+    },
+    {
+      "id": "87003027",
+      "text": "Dazu zoome ich mal heran.",
+      "audio": "thorsten-emotional_v02/angry/870030279a1d17158715424adf218fa6.opus",
+      "duration": 1.86
+    },
+    {
+      "id": "873b2757",
+      "text": "Also, wenn man alte Gewohnheiten durchbricht, ist es sowohl national als auch europäisch nicht immer ganz einfach.",
+      "audio": "thorsten-emotional_v02/angry/873b275711628f5ebdf009cc4672ea61.opus",
+      "duration": 8.74
+    },
+    {
+      "id": "876bcba3",
+      "text": "Besonders betrifft das natürlich Bereiche, in denen es um das Bauen, das Wohnen und auch den Verkehr geht.",
+      "audio": "thorsten-emotional_v02/angry/876bcba332038d8a336e765cf03a774c.opus",
+      "duration": 6.42
+    },
+    {
+      "id": "879a17ff",
+      "text": "Einfach durchgehen und so tun, als wäre nichts gewesen!",
+      "audio": "thorsten-emotional_v02/angry/879a17ff5992d582cae301099bc09ffa.opus",
+      "duration": 3.67
+    },
+    {
+      "id": "881573f4",
+      "text": "Die verfluchte Katze hat schon wieder den Holzstapel umgeworfen!",
+      "audio": "thorsten-emotional_v02/angry/881573f41479190900144279dacb32fb.opus",
+      "duration": 4.09
+    },
+    {
+      "id": "8816762b",
+      "text": "Wer hat schon Lust, je zwei zueinander passende Strümpfe aus dem Wäscheberg herauszusuchen?",
+      "audio": "thorsten-emotional_v02/angry/8816762bdc96b60275462c3084587beb.opus",
+      "duration": 6.34
+    },
+    {
+      "id": "8873a388",
+      "text": "Was hat Nero wirklich mit der Brandstiftung in Rom zu tun gehabt?",
+      "audio": "thorsten-emotional_v02/angry/8873a38876c84195a74b7713844c3eb0.opus",
+      "duration": 4.46
+    },
+    {
+      "id": "8890116c",
+      "text": "Daraufhin wurde Hermine in ein künstliches Koma gelegt.",
+      "audio": "thorsten-emotional_v02/angry/8890116c6a8963098edc2f7937028453.opus",
+      "duration": 3.54
+    },
+    {
+      "id": "8904843a",
+      "text": "Das Gehirn ist wie ein Muskel, den man trainieren muss.",
+      "audio": "thorsten-emotional_v02/angry/8904843a2650d79eec5e079c670341a3.opus",
+      "duration": 3.19
+    },
+    {
+      "id": "895210e9",
+      "text": "Schau dir diesen Faulenzer an!",
+      "audio": "thorsten-emotional_v02/angry/895210e9b8f516bd11624e9e1e62afca.opus",
+      "duration": 2.12
+    },
+    {
+      "id": "895f1b97",
+      "text": "Verlassen Sie sich nicht auf irgendwelche Aussagen von Passanten!",
+      "audio": "thorsten-emotional_v02/angry/895f1b97a52cc11e248ed4c8dd2fb658.opus",
+      "duration": 4.0
+    },
+    {
+      "id": "89cdaffc",
+      "text": "Du weißt ja, wie das ist.",
+      "audio": "thorsten-emotional_v02/angry/89cdaffc8abd64800146baf3ed70b7cd.opus",
+      "duration": 1.94
+    },
+    {
+      "id": "8c20f475",
+      "text": "Warum können Telefone mit Android sich nicht als ganz normale Massenspeichermedien ausweisen?",
+      "audio": "thorsten-emotional_v02/angry/8c20f475dbb2dcc5939f749a76221c84.opus",
+      "duration": 7.82
+    },
+    {
+      "id": "8cb5ca30",
+      "text": "Gute Radwege sind asphaltiert.",
+      "audio": "thorsten-emotional_v02/angry/8cb5ca30892a24d625ad6503f856c4f5.opus",
+      "duration": 2.41
+    },
+    {
+      "id": "8d52965e",
+      "text": "Zum anderen tut sich aber auch in vielen Ländern etwas, was wir vielleicht auch noch nicht ausreichend aufnehmen.",
+      "audio": "thorsten-emotional_v02/angry/8d52965e9327ef3fb6be286d7a513290.opus",
+      "duration": 8.13
+    },
+    {
+      "id": "8f83f363",
+      "text": "Auch andere Faktoren fließen in die Überlegung mit ein.",
+      "audio": "thorsten-emotional_v02/angry/8f83f36376896ee713899715c89522e1.opus",
+      "duration": 4.16
+    },
+    {
+      "id": "8fcd69c4",
+      "text": "Es sieht nach Unsinn aus.",
+      "audio": "thorsten-emotional_v02/angry/8fcd69c42d6773cf7992127362a63d68.opus",
+      "duration": 2.17
+    },
+    {
+      "id": "90403705",
+      "text": "Auch Kreuzfahrten schneiden im Vergleich schlechter ab.",
+      "audio": "thorsten-emotional_v02/angry/9040370553f76e40013806914d442ea0.opus",
+      "duration": 3.44
+    },
+    {
+      "id": "91672c17",
+      "text": "Er begann seine wissenschaftliche Laufbahn an der Rheinisch-Westfälischen Technischen Hochschule Aachen.",
+      "audio": "thorsten-emotional_v02/angry/91672c17b212888eb37fdeb75071cd3a.opus",
+      "duration": 4.91
+    },
+    {
+      "id": "92e5abb1",
+      "text": "Mithilfe ihrer Fantasie können Kinder einfachen Gegenständen wie Steinen oder Stöcken Leben einhauchen.",
+      "audio": "thorsten-emotional_v02/angry/92e5abb137370360adee29ecc9b5e3dc.opus",
+      "duration": 6.19
+    },
+    {
+      "id": "93273e9a",
+      "text": "Welches ist dein Hauptproblem?",
+      "audio": "thorsten-emotional_v02/angry/93273e9a87a757ba333ce08fafcbd512.opus",
+      "duration": 2.39
+    },
+    {
+      "id": "94f9d939",
+      "text": "Und mit der Gesellschaft erst!",
+      "audio": "thorsten-emotional_v02/angry/94f9d93990bfbfff3da2a95ebfa9b277.opus",
+      "duration": 2.03
+    },
+    {
+      "id": "95e536e1",
+      "text": "Oh Gott, ist das kompliziert mit den vermögenswirksamen Leistungen!",
+      "audio": "thorsten-emotional_v02/angry/95e536e1aab4ff006d26a88264f10aa4.opus",
+      "duration": 4.55
+    },
+    {
+      "id": "969bc9cc",
+      "text": "Wer ist der bedeutendste Komponist von Filmmusik der Gegenwart?",
+      "audio": "thorsten-emotional_v02/angry/969bc9ccd8102b7e21aea07a00e45a43.opus",
+      "duration": 4.05
+    },
+    {
+      "id": "97c060da",
+      "text": "Bob jongliert mit zwei Motorsägen und einem Bügeleisen.",
+      "audio": "thorsten-emotional_v02/angry/97c060dad2b4bac26836d91bf8e5130d.opus",
+      "duration": 3.78
+    },
+    {
+      "id": "98d66ee6",
+      "text": "Dennoch will ich sagen, es ist eine sehr, sehr große Aufgabe, an der wir intensiv weiter arbeiten müssen.",
+      "audio": "thorsten-emotional_v02/angry/98d66ee6bbf4285ac07061cddb38dbb8.opus",
+      "duration": 6.79
+    },
+    {
+      "id": "996ed69d",
+      "text": "Wieso meint heute eigentlich jeder zweite Zehntklässler, ein Auslandsaufenthalt im Lebenslauf sei Pflicht?",
+      "audio": "thorsten-emotional_v02/angry/996ed69d01448907d81f0268d58628b6.opus",
+      "duration": 7.33
+    },
+    {
+      "id": "9ab71e50",
+      "text": "Ich vermisse ihn seit gestern.",
+      "audio": "thorsten-emotional_v02/angry/9ab71e50cfefd71f27d1c2b7bb57d17c.opus",
+      "duration": 1.71
+    },
+    {
+      "id": "9c330d91",
+      "text": "Können diese Augen lügen?",
+      "audio": "thorsten-emotional_v02/angry/9c330d91d84c3893c5d9649cb9819ea8.opus",
+      "duration": 2.04
+    },
+    {
+      "id": "9cf56ebd",
+      "text": "Wie kriegt man die Leute schnell von der Tanzfläche an die Bar?",
+      "audio": "thorsten-emotional_v02/angry/9cf56ebdfb08362be4a28fe2ef14ffa9.opus",
+      "duration": 4.44
+    },
+    {
+      "id": "9d636fff",
+      "text": "Dann ist leider auch der Geruch nicht mehr so intensiv.",
+      "audio": "thorsten-emotional_v02/angry/9d636fff44555969c599265c12d2b9d0.opus",
+      "duration": 3.42
+    },
+    {
+      "id": "9ed0caef",
+      "text": "Verzweifelt sucht die Band nach einem geeigneten Raum zum Proben.",
+      "audio": "thorsten-emotional_v02/angry/9ed0caef1a3e64ce35a62da20b4d965e.opus",
+      "duration": 4.1
+    },
+    {
+      "id": "9f1941cc",
+      "text": "Wie viel muss man monatlich für eine Parzelle bezahlen?",
+      "audio": "thorsten-emotional_v02/angry/9f1941cc99b024678bec6729d822a44c.opus",
+      "duration": 3.91
+    },
+    {
+      "id": "a00b8b7a",
+      "text": "Ist das noch ein merkwürdiger Akzent oder schon ein Sprachfehler?",
+      "audio": "thorsten-emotional_v02/angry/a00b8b7a854e70751e9f8a232b23ab4e.opus",
+      "duration": 4.48
+    },
+    {
+      "id": "a13b2459",
+      "text": "Aber ich habe mich nicht als sehr begabt herausgestellt, und irgendwann ist das dann eingestellt worden.",
+      "audio": "thorsten-emotional_v02/angry/a13b24594ce9fa72f9ea8ac72fb8ea99.opus",
+      "duration": 5.72
+    },
+    {
+      "id": "a20c363b",
+      "text": "Damit ist die energetische Sanierung vorerst vom Tisch.",
+      "audio": "thorsten-emotional_v02/angry/a20c363bc6e6f256f7ab93fe0ab37e31.opus",
+      "duration": 3.57
+    },
+    {
+      "id": "a2b097e9",
+      "text": "Wie schätzen Sie die Chancen ein, so einen Prozess zu gewinnen?",
+      "audio": "thorsten-emotional_v02/angry/a2b097e9376cb5f49536614fefd752eb.opus",
+      "duration": 3.98
+    },
+    {
+      "id": "a2e1a61d",
+      "text": "Spielst du in einer Band?",
+      "audio": "thorsten-emotional_v02/angry/a2e1a61d2f7164d010cc3e1d8c208305.opus",
+      "duration": 2.07
+    },
+    {
+      "id": "a3d25378",
+      "text": "Da lache ich doch drüber!",
+      "audio": "thorsten-emotional_v02/angry/a3d25378c05cc26183138edf1fdc3ab2.opus",
+      "duration": 1.65
+    },
+    {
+      "id": "a606192e",
+      "text": "In sicherheitsrelevanten Anwendungen sollte man eine selbstsichernde Mutter kein zweites Mal verwenden.",
+      "audio": "thorsten-emotional_v02/angry/a606192efbdbec79a21567e64cc2f384.opus",
+      "duration": 5.56
+    },
+    {
+      "id": "a621b934",
+      "text": "Okay, ich trage den schweren Rucksack, aber dafür trägst du mich.",
+      "audio": "thorsten-emotional_v02/angry/a621b934b5ae24b3ca86cd61a367b314.opus",
+      "duration": 4.52
+    },
+    {
+      "id": "a637674f",
+      "text": "Fahrradhelm ja oder nein?",
+      "audio": "thorsten-emotional_v02/angry/a637674f2d11226c24f75ee73cd888e6.opus",
+      "duration": 2.57
+    },
+    {
+      "id": "a67efdee",
+      "text": "Aber innerhalb dieser Grenzen kann man für Anliegen von Großbritannien Lösungen finden, davon bin ich überzeugt.",
+      "audio": "thorsten-emotional_v02/angry/a67efdeedc091237cbcfb907e02dbb33.opus",
+      "duration": 6.23
+    },
+    {
+      "id": "a88b7e0a",
+      "text": "Nach dem Zusammenstoß ließ der Fahrer sein Moped genau so stehen.",
+      "audio": "thorsten-emotional_v02/angry/a88b7e0afbdb5b34d64689c9f6aa9e4e.opus",
+      "duration": 4.86
+    },
+    {
+      "id": "a9f0d2b7",
+      "text": "Dann ist er bei Adriane genau an der richtigen Adresse.",
+      "audio": "thorsten-emotional_v02/angry/a9f0d2b712d71b40495396372a408762.opus",
+      "duration": 3.2
+    },
+    {
+      "id": "aa3f5247",
+      "text": "Bei körperlicher Zuwendung wird Oxytocin ausgeschüttet.",
+      "audio": "thorsten-emotional_v02/angry/aa3f5247efada0122cff713bcfa5cbf1.opus",
+      "duration": 3.4
+    },
+    {
+      "id": "aaa0f0b9",
+      "text": "Hier muss man noch sehr viel tiefer arbeiten, als wir das am Anfang bei den Informationspflichten gemacht haben.",
+      "audio": "thorsten-emotional_v02/angry/aaa0f0b9beb82ea3bb7f88616c0ea35e.opus",
+      "duration": 6.39
+    },
+    {
+      "id": "aad7b24a",
+      "text": "Auch der Linksaußen macht hier eine unglückliche Figur.",
+      "audio": "thorsten-emotional_v02/angry/aad7b24aabcbdc93c6943220d46a7a36.opus",
+      "duration": 3.73
+    },
+    {
+      "id": "ac216344",
+      "text": "Man muss aufpassen, dass das Experimentiergerät dann auch immer repariert bleibt, erneuert wird, nicht kaputt geht.",
+      "audio": "thorsten-emotional_v02/angry/ac2163448f76b9dc391ad7061f262a41.opus",
+      "duration": 8.91
+    },
+    {
+      "id": "ae511dbe",
+      "text": "Was darf man alles in ein Arbeitszeugnis schreiben und was nicht?",
+      "audio": "thorsten-emotional_v02/angry/ae511dbe76b568d1b68c0b8e3af5237e.opus",
+      "duration": 3.92
+    },
+    {
+      "id": "ae6a45b1",
+      "text": "Kann man da wirklich noch von einem Geheimnis sprechen?",
+      "audio": "thorsten-emotional_v02/angry/ae6a45b1650db40b03ef0e051b6b6e8a.opus",
+      "duration": 3.21
+    },
+    {
+      "id": "ae8fa662",
+      "text": "Ist sie nicht hinreißend?",
+      "audio": "thorsten-emotional_v02/angry/ae8fa6622df5a85d3470c635f27da7a0.opus",
+      "duration": 1.82
+    },
+    {
+      "id": "af3e7691",
+      "text": "Wie war euer Jahrgangstreffen?",
+      "audio": "thorsten-emotional_v02/angry/af3e76915f7039690b2ac29b236c6807.opus",
+      "duration": 1.9
+    },
+    {
+      "id": "af543323",
+      "text": "Und deshalb war der Wunsch vieler Beteiligter an diesem Bürgerdialog, ein Forum für globales Lernen einzurichten.",
+      "audio": "thorsten-emotional_v02/angry/af54332394ebde78def58fae7ae28c55.opus",
+      "duration": 7.85
+    },
+    {
+      "id": "aff5db40",
+      "text": "Wie berechnet man die optimale konvexe Hülle beliebiger Körper?",
+      "audio": "thorsten-emotional_v02/angry/aff5db4056eb7a6273f41537f3b9798c.opus",
+      "duration": 4.87
+    },
+    {
+      "id": "b025d052",
+      "text": "Wissen Sie, wie ein Polizeiausweis in Ihrem Bundesland aussieht?",
+      "audio": "thorsten-emotional_v02/angry/b025d052836eee29001b244b66c1f5bf.opus",
+      "duration": 4.55
+    },
+    {
+      "id": "b0e0bf7e",
+      "text": "Der Verunglückte hinterlässt eine Frau und zwei Kinder.",
+      "audio": "thorsten-emotional_v02/angry/b0e0bf7e44be6dcbc688cbe6bb1a5418.opus",
+      "duration": 3.37
+    },
+    {
+      "id": "b1d2068e",
+      "text": "Zimtzicken und Muttersöhnchen.",
+      "audio": "thorsten-emotional_v02/angry/b1d2068e3ea7cf5e97e70c05331fbd86.opus",
+      "duration": 2.21
+    },
+    {
+      "id": "b1d25edd",
+      "text": "Der Verfasser des Manuskripts ist wahrhaftig ein Genie.",
+      "audio": "thorsten-emotional_v02/angry/b1d25edd12709b5883dc7037b1a17c25.opus",
+      "duration": 3.36
+    },
+    {
+      "id": "b1e38571",
+      "text": "Der Wein muss noch atmen.",
+      "audio": "thorsten-emotional_v02/angry/b1e38571d7edc9095395372f188feac7.opus",
+      "duration": 2.18
+    },
+    {
+      "id": "b2c0ed12",
+      "text": "Hier kommen die jungen Wilden!",
+      "audio": "thorsten-emotional_v02/angry/b2c0ed1207bad4a2eca77321830af5a1.opus",
+      "duration": 1.82
+    },
+    {
+      "id": "b3b6aa66",
+      "text": "Heute ist das Internet schuld.",
+      "audio": "thorsten-emotional_v02/angry/b3b6aa662474269e822d82b9a0b65f41.opus",
+      "duration": 1.99
+    },
+    {
+      "id": "b53a7acf",
+      "text": "Einer muss da jetzt rein.",
+      "audio": "thorsten-emotional_v02/angry/b53a7acf0d73c5ad24da7af7782263b2.opus",
+      "duration": 1.71
+    },
+    {
+      "id": "b73bbbff",
+      "text": "Hoffentlich kommt gleich ein Kunde, an dem ich mich abreagieren kann!",
+      "audio": "thorsten-emotional_v02/angry/b73bbbff77fac106ed28f8f15795c3bb.opus",
+      "duration": 3.74
+    },
+    {
+      "id": "b82cf589",
+      "text": "Natürlich trägt dazu einerseits die gute wirtschaftliche Lage bei, andererseits aber auch das niedrige Zinsniveau.",
+      "audio": "thorsten-emotional_v02/angry/b82cf5896227b423cb4ef77b788d54ac.opus",
+      "duration": 7.6
+    },
+    {
+      "id": "b85796d3",
+      "text": "Das klappt einfach nicht!",
+      "audio": "thorsten-emotional_v02/angry/b85796d30b6476b19dd0e5240593c366.opus",
+      "duration": 1.69
+    },
+    {
+      "id": "b8bd8e9f",
+      "text": "Gesundheit ist das Wichtigste.",
+      "audio": "thorsten-emotional_v02/angry/b8bd8e9f93b68b30a0061317fa0e2109.opus",
+      "duration": 2.0
+    },
+    {
+      "id": "b93fa58f",
+      "text": "Wollen wir heute tanzen gehen?",
+      "audio": "thorsten-emotional_v02/angry/b93fa58f1736cd5ac476342c599ab803.opus",
+      "duration": 2.22
+    },
+    {
+      "id": "bb9f8558",
+      "text": "Nein, ich gehe hier nicht weg!",
+      "audio": "thorsten-emotional_v02/angry/bb9f85586a2700cad15c61ac262035a8.opus",
+      "duration": 2.14
+    },
+    {
+      "id": "bcbd8472",
+      "text": "Ja, vielleicht zwei Bemerkungen dazu: Auf der einen Seite habe ich die Deutsche Einheit damals in Berlin gefeiert.",
+      "audio": "thorsten-emotional_v02/angry/bcbd84726a882f3d8354a5dfe66dec9b.opus",
+      "duration": 7.64
+    },
+    {
+      "id": "bd18cc1a",
+      "text": "Hotel oder Ferienwohnung?",
+      "audio": "thorsten-emotional_v02/angry/bd18cc1ae49835537897751dfbddccc0.opus",
+      "duration": 2.21
+    },
+    {
+      "id": "bd322332",
+      "text": "Handelt es sich um Punktsymmetrie oder Achsensymmetrie?",
+      "audio": "thorsten-emotional_v02/angry/bd322332d5fccf9c4a52a0f99a35a272.opus",
+      "duration": 3.21
+    },
+    {
+      "id": "bdcb80ac",
+      "text": "War nett, mit dir zu plaudern.",
+      "audio": "thorsten-emotional_v02/angry/bdcb80ac3fb3cea03000ba0c0851a8a4.opus",
+      "duration": 1.85
+    },
+    {
+      "id": "bdf199ae",
+      "text": "Des Herstellers Produktpalette ist mittlerweile riesig.",
+      "audio": "thorsten-emotional_v02/angry/bdf199ae7985ae4ced4edbe9d86220ba.opus",
+      "duration": 3.45
+    },
+    {
+      "id": "bed560d0",
+      "text": "Solch ein Akt der Anerkennung wird dankbar zur Kenntnis genommen.",
+      "audio": "thorsten-emotional_v02/angry/bed560d0bfebf54fe2769c9153ebaf86.opus",
+      "duration": 3.7
+    },
+    {
+      "id": "beecf953",
+      "text": "Ich hätte nichts sagen sollen.",
+      "audio": "thorsten-emotional_v02/angry/beecf95389ece96bbbaac05432f360a5.opus",
+      "duration": 1.86
+    },
+    {
+      "id": "c10ae95d",
+      "text": "Bilde doch ein Trio mit Frau Gerloff und Herrn Schnuppe!",
+      "audio": "thorsten-emotional_v02/angry/c10ae95db19b1972f850546883a574ac.opus",
+      "duration": 3.34
+    },
+    {
+      "id": "c17e076f",
+      "text": "Nun hängt sie vor ihrer Wohnung und kriegt die Haustür nicht auf.",
+      "audio": "thorsten-emotional_v02/angry/c17e076fb1484b0b6086a40151b5727b.opus",
+      "duration": 3.78
+    },
+    {
+      "id": "c24d7bf2",
+      "text": "Die Jungs werden sowieso vor uns unten angekommen sein.",
+      "audio": "thorsten-emotional_v02/angry/c24d7bf28aba21b86f4e7d3ba36776fb.opus",
+      "duration": 3.72
+    },
+    {
+      "id": "c2c32794",
+      "text": "Durch die drastisch verringerte Schwerkraft könnte man mit mehr Gegenständen gleichzeitig jonglieren.",
+      "audio": "thorsten-emotional_v02/angry/c2c32794431883f9a9d6058254e998c0.opus",
+      "duration": 5.01
+    },
+    {
+      "id": "c38ec23a",
+      "text": "Herr, schmeiß Hirn vom Himmel.",
+      "audio": "thorsten-emotional_v02/angry/c38ec23a61d998c5d217e163c3fe1393.opus",
+      "duration": 2.17
+    },
+    {
+      "id": "c3c87125",
+      "text": "Anderenfalls würde die Fahrt in einem Schweißbad enden.",
+      "audio": "thorsten-emotional_v02/angry/c3c8712535bb1021da92a531a88766c6.opus",
+      "duration": 3.95
+    },
+    {
+      "id": "c4541119",
+      "text": "Was Sie im Grundstudium verpasst haben, können Sie nun nachholen.",
+      "audio": "thorsten-emotional_v02/angry/c45411193d0af84a9d51f462bf7417fc.opus",
+      "duration": 4.05
+    },
+    {
+      "id": "c510be37",
+      "text": "Aber wir müssen dafür arbeiten, dass es nicht zur Alltäglichkeit wird, ohne dass man fragt: Was steckt dahinter?",
+      "audio": "thorsten-emotional_v02/angry/c510be376e2d4d8034fa283f9f20f1a9.opus",
+      "duration": 8.15
+    },
+    {
+      "id": "c55992d5",
+      "text": "Pascal Küchler pflegte schon immer eine gefährliche Arbeitsweise.",
+      "audio": "thorsten-emotional_v02/angry/c55992d59d3a8e7e7617782ff6ae5a53.opus",
+      "duration": 4.05
+    },
+    {
+      "id": "c80199cc",
+      "text": "Ist das eine Anspielung auf die Titelstory von gestern?",
+      "audio": "thorsten-emotional_v02/angry/c80199cce515533b23fc8e6df74e1143.opus",
+      "duration": 3.91
+    },
+    {
+      "id": "c8a74986",
+      "text": "Mutti stand unter Schock.",
+      "audio": "thorsten-emotional_v02/angry/c8a74986aa0a0f0725ae3812b925a176.opus",
+      "duration": 1.4
+    },
+    {
+      "id": "c928caac",
+      "text": "Wie zum Teufel kommen wir auf eine jährliche Durchschnittsmenge von hundertdreißig Litern alkoholischer Getränke?",
+      "audio": "thorsten-emotional_v02/angry/c928caac864a9d484bfd62b85b31b056.opus",
+      "duration": 7.61
+    },
+    {
+      "id": "c9740def",
+      "text": "Und hier haben wir uns ja seitens des Bundes dafür eingesetzt, gemeinsam mit den Ländern Bildungsketten zu bilden.",
+      "audio": "thorsten-emotional_v02/angry/c9740def0a1f37c5590baac7e1181db9.opus",
+      "duration": 7.5
+    },
+    {
+      "id": "ca4109dc",
+      "text": "Muss denn immer alles erst auf den letzten Drücker fertig werden?",
+      "audio": "thorsten-emotional_v02/angry/ca4109dcd1edffdfd5be1c567b6ac417.opus",
+      "duration": 3.96
+    },
+    {
+      "id": "cafd435e",
+      "text": "Wir haben einiges nachzuholen.",
+      "audio": "thorsten-emotional_v02/angry/cafd435e393351bf7b65cf440e6f5720.opus",
+      "duration": 2.05
+    },
+    {
+      "id": "cb16034e",
+      "text": "Hundert Gigabyte, wer soll jemals so viel Speicherplatz brauchen?",
+      "audio": "thorsten-emotional_v02/angry/cb16034e9b0e2fbe623b70356e7b160f.opus",
+      "duration": 4.83
+    },
+    {
+      "id": "ccf819b4",
+      "text": "Schon wieder so ein komisches Gewinde, das nicht standardisiert ist!",
+      "audio": "thorsten-emotional_v02/angry/ccf819b47c1b7a1f0974b38c21662949.opus",
+      "duration": 4.91
+    },
+    {
+      "id": "cd57694d",
+      "text": "Bei dieser Sorte Apfelsinen juckt mir immer der Gaumen.",
+      "audio": "thorsten-emotional_v02/angry/cd57694dbe20439724f4fcf13acee69f.opus",
+      "duration": 3.73
+    },
+    {
+      "id": "cdccec8c",
+      "text": "Mariechen sprach zu Mariechen: Lass mich mal riechen, Mariechen!",
+      "audio": "thorsten-emotional_v02/angry/cdccec8cf1cbd21e4cbccb1259e2a2af.opus",
+      "duration": 4.49
+    },
+    {
+      "id": "ce18ee6b",
+      "text": "Die Mietwagenfirma wollte den Personalausweis kopieren.",
+      "audio": "thorsten-emotional_v02/angry/ce18ee6b3e1f09e3c6e7337485941a98.opus",
+      "duration": 3.82
+    },
+    {
+      "id": "cfee3879",
+      "text": "Wenn man mich vor zwei drei Jahren gefragt hätte: Wird Serbien diesen Weg auch im Blick auf das Kosovo so gehen?",
+      "audio": "thorsten-emotional_v02/angry/cfee3879ec13e369be4d19e149be9be0.opus",
+      "duration": 8.15
+    },
+    {
+      "id": "d1415e5d",
+      "text": "Würdest du das eher als hell oder als dunkel einstufen?",
+      "audio": "thorsten-emotional_v02/angry/d1415e5d98ef7a68559a8ff3a1c63cca.opus",
+      "duration": 4.39
+    },
+    {
+      "id": "d20ae36c",
+      "text": "Wieso waren in den Achtzigern so viele Menschen drogenabhängig?",
+      "audio": "thorsten-emotional_v02/angry/d20ae36c54d44620f9efb9ac5123e814.opus",
+      "duration": 4.34
+    },
+    {
+      "id": "d235e35a",
+      "text": "Die Erträge der Auktion waren dieses Jahr überschaubar.",
+      "audio": "thorsten-emotional_v02/angry/d235e35af4d337a5a39dc1fa4ef2b218.opus",
+      "duration": 3.38
+    },
+    {
+      "id": "d2ad7a26",
+      "text": "Hör nicht auf diese Schwätzer!",
+      "audio": "thorsten-emotional_v02/angry/d2ad7a26c70b327fb81f9def8686c7d1.opus",
+      "duration": 1.89
+    },
+    {
+      "id": "d340de9b",
+      "text": "Die Leute plappern einfach nur nach, ohne zu verstehen.",
+      "audio": "thorsten-emotional_v02/angry/d340de9b711d7b64d8ecfa439e857be3.opus",
+      "duration": 3.76
+    },
+    {
+      "id": "d3ca93ef",
+      "text": "An schlechten Tagen spricht Cedric mit starkem Dialekt.",
+      "audio": "thorsten-emotional_v02/angry/d3ca93ef620ed46361678aeec621daa8.opus",
+      "duration": 3.68
+    },
+    {
+      "id": "d703e674",
+      "text": "Ene mene Pfefferstreuer, hier brennt jetzt ein Höllenfeuer. Hex, hex!",
+      "audio": "thorsten-emotional_v02/angry/d703e674c8156089799132aaa150328b.opus",
+      "duration": 5.74
+    },
+    {
+      "id": "d8166e12",
+      "text": "Warum kann man heutzutage kaum noch Handys in Normalgröße kaufen?",
+      "audio": "thorsten-emotional_v02/angry/d8166e129cd492914eda12a2973794a1.opus",
+      "duration": 4.15
+    },
+    {
+      "id": "d9224fa2",
+      "text": "So ein herrisches Frauenzimmer ist mir noch nicht untergekommen!",
+      "audio": "thorsten-emotional_v02/angry/d9224fa20bd51ebd67c586e02cd41872.opus",
+      "duration": 3.42
+    },
+    {
+      "id": "d9b274a1",
+      "text": "Jedenfalls, wenn es eskaliert.",
+      "audio": "thorsten-emotional_v02/angry/d9b274a1d0d9370ff47b48e1c4d7e81f.opus",
+      "duration": 1.89
+    },
+    {
+      "id": "da250a22",
+      "text": "Anlagen zur Meerwasserentsalzung ließen sich wunderbar nutzen, um Spitzen im Stromnetz auszugleichen.",
+      "audio": "thorsten-emotional_v02/angry/da250a2258a0bff597a794ef05a17c71.opus",
+      "duration": 6.33
+    },
+    {
+      "id": "de1ba192",
+      "text": "Was du meinst, sind Kibibytes.",
+      "audio": "thorsten-emotional_v02/angry/de1ba192b59a6846405f59baf5f783ac.opus",
+      "duration": 2.6
+    },
+    {
+      "id": "de4ca38e",
+      "text": "Notfalls per Home-Office.",
+      "audio": "thorsten-emotional_v02/angry/de4ca38e4441f69b14d64890148a6fa3.opus",
+      "duration": 2.0
+    },
+    {
+      "id": "de7c4d36",
+      "text": "Man muss Kompromisse eingehen.",
+      "audio": "thorsten-emotional_v02/angry/de7c4d360e6cd85a245bd820a375fbfa.opus",
+      "duration": 1.98
+    },
+    {
+      "id": "df2813ab",
+      "text": "Wenn die Soße dicker werden soll, gibt man etwas mehr Mehl hinzu.",
+      "audio": "thorsten-emotional_v02/angry/df2813abf27b8d400e7cf74cf6f61843.opus",
+      "duration": 4.43
+    },
+    {
+      "id": "df4bc633",
+      "text": "Sie sind zum Teil kleiner, aber zum Teil haben sie auch eine erhebliche Zahl von Mitarbeiterinnen und Mitarbeitern.",
+      "audio": "thorsten-emotional_v02/angry/df4bc633bc08c3190b1fb1112487776e.opus",
+      "duration": 8.07
+    },
+    {
+      "id": "df91542a",
+      "text": "Ich habe Sie nicht verstanden.",
+      "audio": "thorsten-emotional_v02/angry/df91542a9832323e2ccba7853af6db19.opus",
+      "duration": 2.12
+    },
+    {
+      "id": "e0e54acd",
+      "text": "Man versteht den Text kaum, weil die Instrumente so laut spielen.",
+      "audio": "thorsten-emotional_v02/angry/e0e54acd5d2f59e8a692c716dc2a47dc.opus",
+      "duration": 5.3
+    },
+    {
+      "id": "e1c3131b",
+      "text": "Wie lange ist der Urknall her?",
+      "audio": "thorsten-emotional_v02/angry/e1c3131b7f183036ce88fbc11c4add4c.opus",
+      "duration": 2.41
+    },
+    {
+      "id": "e3213ea3",
+      "text": "Man könnte also sagen, die Atmosphäre überholt die Erdoberfläche.",
+      "audio": "thorsten-emotional_v02/angry/e3213ea3e5365cd5371b718acee45c65.opus",
+      "duration": 4.6
+    },
+    {
+      "id": "e36645ad",
+      "text": "Ja, wo ist die Kokosnuss?",
+      "audio": "thorsten-emotional_v02/angry/e36645ad1d11bc496ae87c1a223119ad.opus",
+      "duration": 2.33
+    },
+    {
+      "id": "e3a48ca5",
+      "text": "Wir sollten unser Augenmerk darauf richten, wie wir möglichst schnell einen vorzeigbaren Prototypen bauen.",
+      "audio": "thorsten-emotional_v02/angry/e3a48ca59babd6ce1594d2ca4466414b.opus",
+      "duration": 5.73
+    },
+    {
+      "id": "e3dd9246",
+      "text": "Es kann doch nicht so schwer sein, einen Ring ins Feuer zu werfen!",
+      "audio": "thorsten-emotional_v02/angry/e3dd92463f69ec9d0a10a3ef97341515.opus",
+      "duration": 4.53
+    },
+    {
+      "id": "e48bf1e4",
+      "text": "Wir sind inzwischen so weit, dass die erneuerbaren Energien die stärkste Säule in unserer Energieversorgung sind.",
+      "audio": "thorsten-emotional_v02/angry/e48bf1e4e9c20347938fa0727f5b1d91.opus",
+      "duration": 7.41
+    },
+    {
+      "id": "e54788f9",
+      "text": "Posaunen Sie bloß nicht herum, dass Sie in Besitz des Erbguts sind!",
+      "audio": "thorsten-emotional_v02/angry/e54788f9263438d2d399a790dcbf1c77.opus",
+      "duration": 4.71
+    },
+    {
+      "id": "e79126f2",
+      "text": "Kannst du es nicht mit diesen Gewichten ausbalancieren?",
+      "audio": "thorsten-emotional_v02/angry/e79126f29978969db333208213411ed1.opus",
+      "duration": 3.19
+    },
+    {
+      "id": "e8a86f3d",
+      "text": "Denn wir haben jetzt eine sehr gute Kleinkindbetreuung, wir haben einen Rechtsanspruch auf einen Kindergartenplatz.",
+      "audio": "thorsten-emotional_v02/angry/e8a86f3d3faf98b990b54005f391036f.opus",
+      "duration": 8.03
+    },
+    {
+      "id": "e9016e15",
+      "text": "Na ja, wenn die Schublade längere Zeit offen steht, zum Beispiel.",
+      "audio": "thorsten-emotional_v02/angry/e9016e15d0eb17a2a5cbd69d51216445.opus",
+      "duration": 4.23
+    },
+    {
+      "id": "e91a4753",
+      "text": "Wie stark verringert sich die Geschwindigkeit durch den Dynamo?",
+      "audio": "thorsten-emotional_v02/angry/e91a475330d576a6bc2fb82f8be4586d.opus",
+      "duration": 3.99
+    },
+    {
+      "id": "ea8ffe25",
+      "text": "Jeder nimmt sich einen Gummiknüppel und dann ab in die Menge damit!",
+      "audio": "thorsten-emotional_v02/angry/ea8ffe25c6c16e96bfb2615170db2064.opus",
+      "duration": 3.8
+    },
+    {
+      "id": "eb201839",
+      "text": "Haben wir nicht, kriegen wir nicht, kriegen wir auch nicht wieder rein: so nicht!",
+      "audio": "thorsten-emotional_v02/angry/eb201839a6688c18cb7f58b58f3edd5a.opus",
+      "duration": 5.48
+    },
+    {
+      "id": "ee12daf6",
+      "text": "Die Bedeutung für die pharmazeutische Produktion wird in der Fachliteratur unterschiedlich eingeschätzt.",
+      "audio": "thorsten-emotional_v02/angry/ee12daf613390b645676fd5f14262885.opus",
+      "duration": 5.35
+    },
+    {
+      "id": "eeb7558b",
+      "text": "Deshalb steht für mich auch im kommenden Jahr an erster Stelle, Arbeitsplätze zu erhalten und zu schaffen.",
+      "audio": "thorsten-emotional_v02/angry/eeb7558b90c6c160afcdff23abddc315.opus",
+      "duration": 6.17
+    },
+    {
+      "id": "eec9fb56",
+      "text": "Was nun die Klägerin bestreitet, das habe er auch nie verbreitet.",
+      "audio": "thorsten-emotional_v02/angry/eec9fb56bcf2c0ac7e108af965af928e.opus",
+      "duration": 5.07
+    },
+    {
+      "id": "ef9147f8",
+      "text": "Deshalb ist die nachhaltige Frage des Wirtschaftens und der Energiepolitik ein Schwerpunkt unserer HightechAgenda.",
+      "audio": "thorsten-emotional_v02/angry/ef9147f83ace2585d5930ec6b20294a9.opus",
+      "duration": 8.17
+    },
+    {
+      "id": "efc45636",
+      "text": "Bei dem Lied braucht man nicht viel zu denken. Einfach mitklatschen!",
+      "audio": "thorsten-emotional_v02/angry/efc456360d30f5c3b4d4392b87ee0967.opus",
+      "duration": 4.91
+    },
+    {
+      "id": "f07edaa0",
+      "text": "Mitten in der Nacht wurde er von ohrenbetäubendem Getöse geweckt.",
+      "audio": "thorsten-emotional_v02/angry/f07edaa0fe802e83452221f2e6afe2da.opus",
+      "duration": 3.59
+    },
+    {
+      "id": "f15da1d7",
+      "text": "Wenn ihr euch schon nicht versöhnen könnt, dann geht euch wenigstens aus dem Weg!",
+      "audio": "thorsten-emotional_v02/angry/f15da1d7f03b87ca4c2b7ba92976cc28.opus",
+      "duration": 5.26
+    },
+    {
+      "id": "f163672f",
+      "text": "Nennen Sie ihren Zielort.",
+      "audio": "thorsten-emotional_v02/angry/f163672ff831b1954cf7e7b55f6a7791.opus",
+      "duration": 1.69
+    },
+    {
+      "id": "f2b06aa1",
+      "text": "Bisher kein einziges Mal.",
+      "audio": "thorsten-emotional_v02/angry/f2b06aa1103c26d530cc919c5b423224.opus",
+      "duration": 1.93
+    },
+    {
+      "id": "f2bd23a0",
+      "text": "Was bringt es, sich über diese Chaoten zu echauffieren?",
+      "audio": "thorsten-emotional_v02/angry/f2bd23a052a4035706d6e1ab72e418ea.opus",
+      "duration": 4.04
+    },
+    {
+      "id": "f546beaa",
+      "text": "Dann nichts wie weg hier!",
+      "audio": "thorsten-emotional_v02/angry/f546beaa37626e587c1990ea40731f26.opus",
+      "duration": 1.72
+    },
+    {
+      "id": "f6329fe0",
+      "text": "Und das schon seit Ewigkeiten.",
+      "audio": "thorsten-emotional_v02/angry/f6329fe025cd02238fe3ec9c3e1ece46.opus",
+      "duration": 2.26
+    },
+    {
+      "id": "f64b86e0",
+      "text": "Da kann man praktisch Nachverdichtungen in bestimmten Gebieten durchführen, das heißt, noch weiter Wohnungen bauen.",
+      "audio": "thorsten-emotional_v02/angry/f64b86e0c3ff6561d5c5968bd8135a34.opus",
+      "duration": 8.07
+    },
+    {
+      "id": "f65b9582",
+      "text": "Die Schneide leuchtet Blau, wenn Orks in der Nähe sind.",
+      "audio": "thorsten-emotional_v02/angry/f65b9582999eeb9674ea9a50505b4940.opus",
+      "duration": 3.56
+    },
+    {
+      "id": "f7545687",
+      "text": "Wenn ich nur an die Ausbildung durch unsere Soldaten, durch die Bundeswehr für malische Soldaten denke.",
+      "audio": "thorsten-emotional_v02/angry/f7545687313dacdc04311b708a8db72e.opus",
+      "duration": 5.73
+    },
+    {
+      "id": "f7b2f1e2",
+      "text": "Welche Farbe der olympischen Ringe steht für welchen Kontinent?",
+      "audio": "thorsten-emotional_v02/angry/f7b2f1e2d6edff30c2faf504f1ed6ada.opus",
+      "duration": 4.48
+    },
+    {
+      "id": "f8aae86f",
+      "text": "Ich rufe Sie dann zurück.",
+      "audio": "thorsten-emotional_v02/angry/f8aae86fc4bf2747879f12a2082ae9cb.opus",
+      "duration": 1.58
+    },
+    {
+      "id": "f8de0126",
+      "text": "Ich erwarte von Seiten der Wirtschaft, dass sie nicht einfach sagt: Wir brauchen jetzt nur ausländische Fachkräfte.",
+      "audio": "thorsten-emotional_v02/angry/f8de0126841bb0196a2e2f075c22870e.opus",
+      "duration": 7.19
+    },
+    {
+      "id": "f9316a73",
+      "text": "Sie müssen mich entschuldigen.",
+      "audio": "thorsten-emotional_v02/angry/f9316a73aff9c5b998891654eff38793.opus",
+      "duration": 1.55
+    },
+    {
+      "id": "f96235b5",
+      "text": "Blöde Extra-Verifikation!",
+      "audio": "thorsten-emotional_v02/angry/f96235b52798540316d95e3d09324dba.opus",
+      "duration": 1.89
+    },
+    {
+      "id": "fa1b5111",
+      "text": "Darf man am Steuer trinken, wenn der Motor nicht läuft?",
+      "audio": "thorsten-emotional_v02/angry/fa1b51114942dfbb180da4a9373d5e30.opus",
+      "duration": 3.33
+    },
+    {
+      "id": "fa377fb0",
+      "text": "Wieso werden Investitionen in die Infrastruktur immer von irgendwelchen Sportevents abhängig gemacht?",
+      "audio": "thorsten-emotional_v02/angry/fa377fb02742e5bdc95c25ef6d5faec6.opus",
+      "duration": 7.57
+    },
+    {
+      "id": "fa9ebce0",
+      "text": "Um die Ausfallzeiten zu verkürzen, wird Tag und Nacht gearbeitet.",
+      "audio": "thorsten-emotional_v02/angry/fa9ebce043df577b3bc6072bf86ae8cf.opus",
+      "duration": 4.48
+    },
+    {
+      "id": "faf85f24",
+      "text": "Wir haben hier im Bundeskanzleramt kann ich sagen doch sehr gute Erfahrungen gemacht, auch in anderen Ministerien.",
+      "audio": "thorsten-emotional_v02/angry/faf85f24172060bdc009aca65b79a1ae.opus",
+      "duration": 7.81
+    },
+    {
+      "id": "fb5a42c7",
+      "text": "Pflichtbewusst schrieb sie alle etwaigen Begleiterkrankungen auf.",
+      "audio": "thorsten-emotional_v02/angry/fb5a42c7ce12b7342cb89e32018f2bc7.opus",
+      "duration": 3.9
+    },
+    {
+      "id": "fe3c06d9",
+      "text": "Man sollte eher fragen, wie viele das Geheimnis verstanden haben.",
+      "audio": "thorsten-emotional_v02/angry/fe3c06d9dfd30e585df4d20e593bfc8e.opus",
+      "duration": 4.63
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "key": "test-noise",
+  "name": "THCHS30 Test-Noise",
+  "url": "https://www.openslr.org/18/",
+  "license": "CC-BY-4.0",
+  "credit": "THCHS30 / OpenSLR 18 — drei kuratierte Geräusche",
+  "base": "test-noise/",
+  "categories": [
+    "geraeusche"
+  ],
+  "manifests": {
+    "geraeusche": [
+      "geraeusche/test-noise.json"
+    ]
+  }
+}

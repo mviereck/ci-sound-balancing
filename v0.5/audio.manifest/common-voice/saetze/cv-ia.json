@@ -1,0 +1,161 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ia",
+  "lang": "ia",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "crowdsourced",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "20103420",
+      "text": "Como es amar reguardar le felicitate tra le oculos del alteres.",
+      "audio": "ia/unknown/ia_u_20103420.mp3",
+      "tags": {
+        "source_item_id": "20103420",
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
+      },
+      "duration": 5.64
+    },
+    {
+      "id": "24431644",
+      "text": "China es vinti vices plus grande que Japon.",
+      "audio": "ia/unknown/ia_u_24431644.mp3",
+      "tags": {
+        "source_item_id": "24431644",
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
+      },
+      "duration": 5.62
+    },
+    {
+      "id": "24713665",
+      "text": "Mi the es troppo dulce.",
+      "audio": "ia/unknown/ia_u_24713665.mp3",
+      "tags": {
+        "source_item_id": "24713665",
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
+      },
+      "duration": 3.89
+    },
+    {
+      "id": "20905908",
+      "text": "Mi casa es como le vostre.",
+      "audio": "ia/unknown/ia_u_20905908.mp3",
+      "tags": {
+        "source_item_id": "20905908",
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
+      },
+      "duration": 2.86
+    },
+    {
+      "id": "20151449",
+      "text": "Non ir presso le can.",
+      "audio": "ia/unknown/ia_u_20151449.mp3",
+      "tags": {
+        "source_item_id": "20151449",
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
+      },
+      "duration": 2.35
+    },
+    {
+      "id": "24685199",
+      "text": "Nostalgia non es plus illo de olim.",
+      "audio": "ia/unknown/ia_u_24685199.mp3",
+      "tags": {
+        "source_item_id": "24685199",
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
+      },
+      "duration": 4.18
+    },
+    {
+      "id": "24469043",
+      "text": "Io prendeva Peter al hospital.",
+      "audio": "ia/unknown/ia_u_24469043.mp3",
+      "tags": {
+        "source_item_id": "24469043",
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
+      },
+      "duration": 4.25
+    },
+    {
+      "id": "24564867",
+      "text": "Le television pote render te imbecille, ma illo pote alsi ser bon education.",
+      "audio": "ia/unknown/ia_u_24564867.mp3",
+      "tags": {
+        "source_item_id": "24564867",
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
+      },
+      "duration": 6.84
+    },
+    {
+      "id": "24490641",
+      "text": "Tu pote succeder.",
+      "audio": "ia/unknown/ia_u_24490641.mp3",
+      "tags": {
+        "source_item_id": "24490641",
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
+      },
+      "duration": 3.89
+    },
+    {
+      "id": "20164597",
+      "text": "Il non me place le casa.",
+      "audio": "ia/unknown/ia_u_20164597.mp3",
+      "tags": {
+        "source_item_id": "20164597",
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
+      },
+      "duration": 2.81
+    },
+    {
+      "id": "20313188",
+      "text": "Non lo facer de novo.",
+      "audio": "ia/unknown/ia_u_20313188.mp3",
+      "tags": {
+        "source_item_id": "20313188",
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
+      },
+      "duration": 2.59
+    },
+    {
+      "id": "20926507",
+      "text": "Iste nove cantator es vermente superbe.",
+      "audio": "ia/unknown/ia_u_20926507.mp3",
+      "tags": {
+        "source_item_id": "20926507",
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
+      },
+      "duration": 3.74
+    }
+  ]
+}

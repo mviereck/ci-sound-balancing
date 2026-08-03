@@ -1,0 +1,711 @@
+{
+  "lang": "fr",
+  "source": "fsicoli/common_voice_17_0",
+  "license": "CC0-1.0",
+  "n_speakers": 100,
+  "gender_distribution": {
+    "u": 100
+  },
+  "items": [
+    {
+      "id": "001",
+      "text": "Elle va permettre de favoriser durablement une filière riche en emplois non délocalisables.",
+      "gender": "u",
+      "client_hash": "2e1b5b74",
+      "audio": "001.mp3"
+    },
+    {
+      "id": "002",
+      "text": "Je mets aux voix l’amendement numéro un.",
+      "gender": "u",
+      "client_hash": "3505f27d",
+      "audio": "002.mp3"
+    },
+    {
+      "id": "003",
+      "text": "Heureusement que c’est un amendement d’appel",
+      "gender": "u",
+      "client_hash": "1c302187",
+      "audio": "003.mp3"
+    },
+    {
+      "id": "004",
+      "text": "Je remercie tout d’abord les personnes qui m’ont accompagnée pendant la rédaction de rapport.",
+      "gender": "u",
+      "client_hash": "0bb4a654",
+      "audio": "004.mp3"
+    },
+    {
+      "id": "005",
+      "text": "La parole est à Monsieur Gérald Darmanin.",
+      "gender": "u",
+      "client_hash": "069e7c8e",
+      "audio": "005.mp3"
+    },
+    {
+      "id": "006",
+      "text": "J’avoue donc être un petit peu perdu.",
+      "gender": "u",
+      "client_hash": "de89d13b",
+      "audio": "006.mp3"
+    },
+    {
+      "id": "007",
+      "text": "Je citerai, d’abord, l’investissement productif et la croissance durable.",
+      "gender": "u",
+      "client_hash": "1cb2cbe7",
+      "audio": "007.mp3"
+    },
+    {
+      "id": "008",
+      "text": "Il y a là une forme d’inégalité.",
+      "gender": "u",
+      "client_hash": "496a9160",
+      "audio": "008.mp3"
+    },
+    {
+      "id": "009",
+      "text": "Non, c’est le fond qui compte.",
+      "gender": "u",
+      "client_hash": "776364fa",
+      "audio": "009.mp3"
+    },
+    {
+      "id": "010",
+      "text": "La croissance et l’emploi sont au cœur du projet de loi que nous examinons.",
+      "gender": "u",
+      "client_hash": "99b12821",
+      "audio": "010.mp3"
+    },
+    {
+      "id": "011",
+      "text": "La droite, c’est moins d’impôts.",
+      "gender": "u",
+      "client_hash": "66b2e3eb",
+      "audio": "011.mp3"
+    },
+    {
+      "id": "012",
+      "text": "La parole est à Monsieur Stéphane Peu, pour soutenir l’amendement numéro trois cent soixante-seize.",
+      "gender": "u",
+      "client_hash": "e1f28931",
+      "audio": "012.mp3"
+    },
+    {
+      "id": "013",
+      "text": "Nous avons terminé les questions au Gouvernement.",
+      "gender": "u",
+      "client_hash": "8702f973",
+      "audio": "013.mp3"
+    },
+    {
+      "id": "014",
+      "text": "Tu pourrais offrir un cadeau à ta soeur pour son anniversaire quand même.",
+      "gender": "u",
+      "client_hash": "b924d89f",
+      "audio": "014.mp3"
+    },
+    {
+      "id": "015",
+      "text": "Monsieur Paul a raison, il faut que cela serve d’exemple",
+      "gender": "u",
+      "client_hash": "a9919e0e",
+      "audio": "015.mp3"
+    },
+    {
+      "id": "016",
+      "text": "En contrepartie, certains secteurs non prioritaires ont vu leur budget diminuer.",
+      "gender": "u",
+      "client_hash": "78db93cc",
+      "audio": "016.mp3"
+    },
+    {
+      "id": "017",
+      "text": "Cette année, vous avez sorti l’idée consistant à prendre en compte l’excédent brut d’exploitation.",
+      "gender": "u",
+      "client_hash": "0c8a65ea",
+      "audio": "017.mp3"
+    },
+    {
+      "id": "018",
+      "text": "Nous en reparlerons dans les prochains jours.",
+      "gender": "u",
+      "client_hash": "e33126a5",
+      "audio": "018.mp3"
+    },
+    {
+      "id": "019",
+      "text": "Ou alors, vous simplifiez à la socialiste",
+      "gender": "u",
+      "client_hash": "c1f55bd5",
+      "audio": "019.mp3"
+    },
+    {
+      "id": "020",
+      "text": "Effectivement, elle rapportera, à terme, quatre cent cinquante millions d’euros à la CNAV.",
+      "gender": "u",
+      "client_hash": "81770543",
+      "audio": "020.mp3"
+    },
+    {
+      "id": "021",
+      "text": "C’est un atout considérable dans une Europe qui vieillit.",
+      "gender": "u",
+      "client_hash": "8bab92ff",
+      "audio": "021.mp3"
+    },
+    {
+      "id": "022",
+      "text": "Nous voulions donc un peu plus de lisibilité.",
+      "gender": "u",
+      "client_hash": "663fa664",
+      "audio": "022.mp3"
+    },
+    {
+      "id": "023",
+      "text": "Il y a là une vraie différence.",
+      "gender": "u",
+      "client_hash": "483d9dc7",
+      "audio": "023.mp3"
+    },
+    {
+      "id": "024",
+      "text": "N’oubliez pas Monsieur le ministre du budget",
+      "gender": "u",
+      "client_hash": "52b0acf4",
+      "audio": "024.mp3"
+    },
+    {
+      "id": "025",
+      "text": "Revenons donc aux choses sérieuses.",
+      "gender": "u",
+      "client_hash": "238884b3",
+      "audio": "025.mp3"
+    },
+    {
+      "id": "026",
+      "text": "Le monde change, les technologies changent, la demande de services va changer.",
+      "gender": "u",
+      "client_hash": "eac556f8",
+      "audio": "026.mp3"
+    },
+    {
+      "id": "027",
+      "text": "de votre intervention et pour la qualité des questions que vous avez posées.",
+      "gender": "u",
+      "client_hash": "d8cd34e7",
+      "audio": "027.mp3"
+    },
+    {
+      "id": "028",
+      "text": "La première, c’est le respect de la parole de la France.",
+      "gender": "u",
+      "client_hash": "fdcebc6c",
+      "audio": "028.mp3"
+    },
+    {
+      "id": "029",
+      "text": "Ils trouveraient juste que les missions des collectivités territoriales soient rationalisées.",
+      "gender": "u",
+      "client_hash": "df55b6dd",
+      "audio": "029.mp3"
+    },
+    {
+      "id": "030",
+      "text": "Ensuite durant un mois et demi nous avons pu profiter de notre permission",
+      "gender": "u",
+      "client_hash": "3b02b3ce",
+      "audio": "030.mp3"
+    },
+    {
+      "id": "031",
+      "text": "C’est pourquoi je voulais inscrire l’expression dans la loi.",
+      "gender": "u",
+      "client_hash": "b5ef03e8",
+      "audio": "031.mp3"
+    },
+    {
+      "id": "032",
+      "text": "Il est compatible avec les autres outils d'assurance qualité comme PHPUnit ou PHP CodeSniffer",
+      "gender": "u",
+      "client_hash": "d0765403",
+      "audio": "032.mp3"
+    },
+    {
+      "id": "033",
+      "text": "Aujourd’hui, la moitié des cotisantes sont couvertes par l’assurance vieillesse des parents au foyer.",
+      "gender": "u",
+      "client_hash": "1940c8af",
+      "audio": "033.mp3"
+    },
+    {
+      "id": "034",
+      "text": "Je mets aux voix l’amendement numéro mille trente-neuf rectifié.",
+      "gender": "u",
+      "client_hash": "c4667816",
+      "audio": "034.mp3"
+    },
+    {
+      "id": "035",
+      "text": "Je ne partage donc pas les inquiétudes de Monsieur Ollier et de Monsieur Laurent.",
+      "gender": "u",
+      "client_hash": "9a5ba34f",
+      "audio": "035.mp3"
+    },
+    {
+      "id": "036",
+      "text": "Il faut du sérieux et de la simplification.",
+      "gender": "u",
+      "client_hash": "a549f2b7",
+      "audio": "036.mp3"
+    },
+    {
+      "id": "037",
+      "text": "Et, le matin d'Athis, Napoleon m'a demande une prise de tabac.",
+      "gender": "u",
+      "client_hash": "ddd8aece",
+      "audio": "037.mp3"
+    },
+    {
+      "id": "038",
+      "text": "Mes collègues de l’UMP et de l’UDI et moi-même leur avons tendu la main.",
+      "gender": "u",
+      "client_hash": "c241dfa0",
+      "audio": "038.mp3"
+    },
+    {
+      "id": "039",
+      "text": "Vous avez deux minutes, monsieur le député.",
+      "gender": "u",
+      "client_hash": "6e782273",
+      "audio": "039.mp3"
+    },
+    {
+      "id": "040",
+      "text": "Vous créez une hydre à deux têtes",
+      "gender": "u",
+      "client_hash": "0226a323",
+      "audio": "040.mp3"
+    },
+    {
+      "id": "041",
+      "text": "Il y a une grande différence, chers collègues.",
+      "gender": "u",
+      "client_hash": "e2f0e852",
+      "audio": "041.mp3"
+    },
+    {
+      "id": "042",
+      "text": "Hier soir, les deux ministres ont fait un travail pédagogique important.",
+      "gender": "u",
+      "client_hash": "65508893",
+      "audio": "042.mp3"
+    },
+    {
+      "id": "043",
+      "text": "Vous ne serez pas étonnés que nous approuvions cette mesure.",
+      "gender": "u",
+      "client_hash": "2a9b754e",
+      "audio": "043.mp3"
+    },
+    {
+      "id": "044",
+      "text": "et que le sujet est réel.",
+      "gender": "u",
+      "client_hash": "fba68017",
+      "audio": "044.mp3"
+    },
+    {
+      "id": "045",
+      "text": "Vous voulez mettre les communes à votre botte.",
+      "gender": "u",
+      "client_hash": "c8520a12",
+      "audio": "045.mp3"
+    },
+    {
+      "id": "046",
+      "text": "Cette modification ne contribue pas à la clarté de nos débats.",
+      "gender": "u",
+      "client_hash": "d22bdf0b",
+      "audio": "046.mp3"
+    },
+    {
+      "id": "047",
+      "text": "Voilà pourquoi nous demandons ce rapport.",
+      "gender": "u",
+      "client_hash": "185db6be",
+      "audio": "047.mp3"
+    },
+    {
+      "id": "048",
+      "text": "Mais ceux-ci vont évidemment s’engager dès qu’elle sera votée.",
+      "gender": "u",
+      "client_hash": "b80fe938",
+      "audio": "048.mp3"
+    },
+    {
+      "id": "049",
+      "text": "La parole est à Monsieur Stéphane Peu, pour soutenir l’amendement numéro trois cent quatre-vingt-seize.",
+      "gender": "u",
+      "client_hash": "60e1f3a5",
+      "audio": "049.mp3"
+    },
+    {
+      "id": "050",
+      "text": "Ma question s’adresse au Ministre de l’écologie, du développement durable et de l’énergie.",
+      "gender": "u",
+      "client_hash": "110cb6ab",
+      "audio": "050.mp3"
+    },
+    {
+      "id": "051",
+      "text": "Depuis que Monsieur Hollande est aux responsabilités, tous les indicateurs sont au rouge.",
+      "gender": "u",
+      "client_hash": "cc48832c",
+      "audio": "051.mp3"
+    },
+    {
+      "id": "052",
+      "text": "Tel est l’enjeu de la surcotation des cinquante-deux premiers hectares",
+      "gender": "u",
+      "client_hash": "686838a1",
+      "audio": "052.mp3"
+    },
+    {
+      "id": "053",
+      "text": "couper les carottes en julienne et émincer l’oignon.",
+      "gender": "u",
+      "client_hash": "100a5947",
+      "audio": "053.mp3"
+    },
+    {
+      "id": "054",
+      "text": "et dans les domaines prévus par la loi",
+      "gender": "u",
+      "client_hash": "15b5f23f",
+      "audio": "054.mp3"
+    },
+    {
+      "id": "055",
+      "text": "Le coût des emplois précaires a été augmenté.",
+      "gender": "u",
+      "client_hash": "06c7719e",
+      "audio": "055.mp3"
+    },
+    {
+      "id": "056",
+      "text": "sur les bancs du groupe UMP, d’avoir une croissance forte.",
+      "gender": "u",
+      "client_hash": "eb8fb3c2",
+      "audio": "056.mp3"
+    },
+    {
+      "id": "057",
+      "text": "Tout cela est incohérent, quand le même gouvernement affirme entendre les entreprises.",
+      "gender": "u",
+      "client_hash": "c85f0513",
+      "audio": "057.mp3"
+    },
+    {
+      "id": "058",
+      "text": "L’universalité comprend aussi New York",
+      "gender": "u",
+      "client_hash": "feba8ce4",
+      "audio": "058.mp3"
+    },
+    {
+      "id": "059",
+      "text": "Je me flattais d'avoir fait la une découverte assez importante.",
+      "gender": "u",
+      "client_hash": "4105a2ed",
+      "audio": "059.mp3"
+    },
+    {
+      "id": "060",
+      "text": "La parole est à Monsieur Bruno Nestor Azerot.",
+      "gender": "u",
+      "client_hash": "649bf8c9",
+      "audio": "060.mp3"
+    },
+    {
+      "id": "061",
+      "text": "La parole est à Madame Véronique Massonneau, pour soutenir l’amendement numéro trois mille quarante-six.",
+      "gender": "u",
+      "client_hash": "d3a122b6",
+      "audio": "061.mp3"
+    },
+    {
+      "id": "062",
+      "text": "C’est bien le Parlement qui le précisera.",
+      "gender": "u",
+      "client_hash": "f2d6c7a1",
+      "audio": "062.mp3"
+    },
+    {
+      "id": "063",
+      "text": "Si l’on touche aux allocations, ils seront forcément affectés dans leurs conditions de vie",
+      "gender": "u",
+      "client_hash": "b6e12aef",
+      "audio": "063.mp3"
+    },
+    {
+      "id": "064",
+      "text": "Patience, votre supplice est bientôt terminé",
+      "gender": "u",
+      "client_hash": "e53e496b",
+      "audio": "064.mp3"
+    },
+    {
+      "id": "065",
+      "text": "J’y vois une raison supplémentaire de supprimer cet article.",
+      "gender": "u",
+      "client_hash": "532b0940",
+      "audio": "065.mp3"
+    },
+    {
+      "id": "066",
+      "text": "La parole est à Monsieur Sylvain Berrios, pour soutenir l’amendement numéro six cent trente-six.",
+      "gender": "u",
+      "client_hash": "1892fddd",
+      "audio": "066.mp3"
+    },
+    {
+      "id": "067",
+      "text": "Nous allons par ailleurs, madame Dufour-Tonini, lancer des concertations sur vos propositions.",
+      "gender": "u",
+      "client_hash": "8efc1a94",
+      "audio": "067.mp3"
+    },
+    {
+      "id": "068",
+      "text": "Je vais maintenant reprendre les quelques éléments évoqués par Monsieur Mariton.",
+      "gender": "u",
+      "client_hash": "b3e3a06f",
+      "audio": "068.mp3"
+    },
+    {
+      "id": "069",
+      "text": "Nous ne laisserons tomber personne, c’est l’engagement que je prends.",
+      "gender": "u",
+      "client_hash": "a834d6bd",
+      "audio": "069.mp3"
+    },
+    {
+      "id": "070",
+      "text": "Je prendrai un exemple pour montrer comment cela se passe dans les faits.",
+      "gender": "u",
+      "client_hash": "1146e5d4",
+      "audio": "070.mp3"
+    },
+    {
+      "id": "071",
+      "text": "La machine à café est tombée en panne ce matin",
+      "gender": "u",
+      "client_hash": "fa2d76f0",
+      "audio": "071.mp3"
+    },
+    {
+      "id": "072",
+      "text": "Vous défendez donc désormais ce que vous appelez un régime par points.",
+      "gender": "u",
+      "client_hash": "08666401",
+      "audio": "072.mp3"
+    },
+    {
+      "id": "073",
+      "text": "Ce qui était notre politique, vous l’avez faite vôtre.",
+      "gender": "u",
+      "client_hash": "0e27a1f8",
+      "audio": "073.mp3"
+    },
+    {
+      "id": "074",
+      "text": "Je lui propose par conséquent de retirer son amendement.",
+      "gender": "u",
+      "client_hash": "1a6b78b6",
+      "audio": "074.mp3"
+    },
+    {
+      "id": "075",
+      "text": "Mais arrêtons-nous pour l’instant à cette possibilité, nous reviendrons à ce sujet plus tard.",
+      "gender": "u",
+      "client_hash": "0bf1c619",
+      "audio": "075.mp3"
+    },
+    {
+      "id": "076",
+      "text": "Avec la technologie tout devient de plus en plus sans fil",
+      "gender": "u",
+      "client_hash": "42222fc3",
+      "audio": "076.mp3"
+    },
+    {
+      "id": "077",
+      "text": "Ce faisant, vous organisez le chaos",
+      "gender": "u",
+      "client_hash": "25616e20",
+      "audio": "077.mp3"
+    },
+    {
+      "id": "078",
+      "text": "Vous avez manqué l’occasion d’afficher une ambition élevée et d’entreprendre des réformes exigeantes.",
+      "gender": "u",
+      "client_hash": "a51c0beb",
+      "audio": "078.mp3"
+    },
+    {
+      "id": "079",
+      "text": "En conclusion, ce budget poursuit le redressement de nos finances publiques.",
+      "gender": "u",
+      "client_hash": "7c4cd8d5",
+      "audio": "079.mp3"
+    },
+    {
+      "id": "080",
+      "text": "Vous avez commis une triple faute, à la fois sociale, économique, et morale.",
+      "gender": "u",
+      "client_hash": "db72f492",
+      "audio": "080.mp3"
+    },
+    {
+      "id": "081",
+      "text": "Aujourd’hui, le CICE est particulièrement mal parti, ce qu’on peut regretter.",
+      "gender": "u",
+      "client_hash": "73b7a87d",
+      "audio": "081.mp3"
+    },
+    {
+      "id": "082",
+      "text": "Voici une clarification sur ce qu’un rapporteur peut faire ou non.",
+      "gender": "u",
+      "client_hash": "6032a8ff",
+      "audio": "082.mp3"
+    },
+    {
+      "id": "083",
+      "text": "Mon imagination commence à s'assécher",
+      "gender": "u",
+      "client_hash": "1875027d",
+      "audio": "083.mp3"
+    },
+    {
+      "id": "084",
+      "text": "La parole est à Madame Jacqueline Fraysse, première oratrice inscrite sur l’article.",
+      "gender": "u",
+      "client_hash": "ef8235e6",
+      "audio": "084.mp3"
+    },
+    {
+      "id": "085",
+      "text": "Vous le savez, rien n’a été fait pour protéger la population.",
+      "gender": "u",
+      "client_hash": "fe542e10",
+      "audio": "085.mp3"
+    },
+    {
+      "id": "086",
+      "text": "Mais il ne faudrait pas surestimer cette différence de traitement.",
+      "gender": "u",
+      "client_hash": "56c11f02",
+      "audio": "086.mp3"
+    },
+    {
+      "id": "087",
+      "text": "Il n’y a qu’en France que l’on pense que les taux d’intérêt resteront bas.",
+      "gender": "u",
+      "client_hash": "04c8437a",
+      "audio": "087.mp3"
+    },
+    {
+      "id": "088",
+      "text": "C’est encore mieux de l’écrire",
+      "gender": "u",
+      "client_hash": "a1265fbf",
+      "audio": "088.mp3"
+    },
+    {
+      "id": "089",
+      "text": "Tout est très fluide, même avec des applications complexes comme un Drupal par exemple",
+      "gender": "u",
+      "client_hash": "030254b9",
+      "audio": "089.mp3"
+    },
+    {
+      "id": "090",
+      "text": "La parole est à Monsieur Patrick Mignola, pour soutenir l’amendement numéro quatre cent quatorze.",
+      "gender": "u",
+      "client_hash": "7edce28d",
+      "audio": "090.mp3"
+    },
+    {
+      "id": "091",
+      "text": "Sur le fond de votre amendement, je souhaite entendre le Gouvernement.",
+      "gender": "u",
+      "client_hash": "f2190143",
+      "audio": "091.mp3"
+    },
+    {
+      "id": "092",
+      "text": "Et j’ai déjà eu la réponse à ces arguments.",
+      "gender": "u",
+      "client_hash": "b0800ab4",
+      "audio": "092.mp3"
+    },
+    {
+      "id": "093",
+      "text": "Elles sont donc l’un des principaux moteurs de l’économie.",
+      "gender": "u",
+      "client_hash": "f11e6b87",
+      "audio": "093.mp3"
+    },
+    {
+      "id": "094",
+      "text": "Aujourd’hui, plus d’une centaine de ces organismes sont implantés sur le territoire américain.",
+      "gender": "u",
+      "client_hash": "29d1ad09",
+      "audio": "094.mp3"
+    },
+    {
+      "id": "095",
+      "text": "Comme l’Europe, notre pays connaît depuis six ans une croissance nulle.",
+      "gender": "u",
+      "client_hash": "f4e5d5c7",
+      "audio": "095.mp3"
+    },
+    {
+      "id": "096",
+      "text": "Il suffit alors de sélectionner le projet souhaité pour lancer l’analyse",
+      "gender": "u",
+      "client_hash": "47f803e3",
+      "audio": "096.mp3"
+    },
+    {
+      "id": "097",
+      "text": "La parole est à Monsieur Patrice Martin-Lalande.",
+      "gender": "u",
+      "client_hash": "cad0ed1c",
+      "audio": "097.mp3"
+    },
+    {
+      "id": "098",
+      "text": "C’est un décret en Conseil d’État qui fixera les modalités de désignation.",
+      "gender": "u",
+      "client_hash": "7673e61e",
+      "audio": "098.mp3"
+    },
+    {
+      "id": "099",
+      "text": "C’est tout le débat sur le plafonnement de l’ISF.",
+      "gender": "u",
+      "client_hash": "76c50efc",
+      "audio": "099.mp3"
+    },
+    {
+      "id": "100",
+      "text": "Ce constat, nous pouvons assurément tous ensemble le dresser à propos de ce texte.",
+      "gender": "u",
+      "client_hash": "9e850bed",
+      "audio": "100.mp3"
+    }
+  ]
+}

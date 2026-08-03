@@ -1,0 +1,786 @@
+// js/zeitanalyse.js  (NEU)
+// Zeitübergreifende Mess-Analyse — debug-only. Architektur:
+// .docs/spec/00-zeitanalyse-architektur.md
+// BA 405: Reiter-Gerüst, Einlesen, Aussortieren, Bilanz. Noch keine Rechnung.
+(function () {
+  "use strict";
+
+  // Normalisiert ein Status-Array auf Laenge n; fehlende Eintraege erhalten fill.
+  // Verhindert, dass leere Arrays in ELL_compWLS-Filtern als "undefined" gelten
+  // und Paare faelschlich ausschliessen (BA 406).
+  function normStatus(arr, n, fill) {
+    var out = new Array(n);
+    for (var i = 0; i < n; i++) out[i] = (Array.isArray(arr) && arr[i] != null) ? arr[i] : fill;
+    return out;
+  }
+
+  // true = aktiv; nur explizites false macht inaktiv (BA 407).
+  function normActive(arr, n) {
+    var out = new Array(n);
+    for (var i = 0; i < n; i++) out[i] = !(Array.isArray(arr) && arr[i] === false);
+    return out;
+  }
+
+  // ---- Schärfe-Konstanten + Zustand (BA 408) ----
+  var ZA_EPS      = 0.01;
+  var ZA_SHARPNESS = { mild: 1.0, mittel: 1.5, scharf: 2.0 };
+  var zaSharpKey  = "mittel";
+
+  function zaWeight(session) {
+    var res = (typeof session.meanResidual === "number" && session.meanResidual >= 0)
+              ? session.meanResidual : null;
+    if (res === null) return 0;
+    var p = ZA_SHARPNESS[zaSharpKey] || 1.5;
+    return 1 / (Math.pow(res, p) + ZA_EPS);
+  }
+
+  // Konsens-Paarliste der Sitzungen einer Seite. side = 'left'|'right'.
+  // Ergebnis: [{a, b, offset, timestamp}] — EIN Eintrag pro Paar
+  // (Format = ELL_results; spaeter auch fuer den Uebertrag §7).
+  function zaConsensusPairs(side) {
+    var acc = {};
+    zaSessions.forEach(function (s) {
+      if (s.side !== side) return;
+      var q = zaWeight(s);
+      if (!(q > 0)) return;
+      (s.raw || []).forEach(function (r) {
+        if (typeof r.a !== "number" || typeof r.b !== "number") return;
+        var a = r.a, b = r.b, off = r.offset;
+        if (a > b) { a = r.b; b = r.a; off = -off; }
+        var k = a + "-" + b;
+        if (!acc[k]) acc[k] = { a: a, b: b, sw: 0, wt: 0, ts: 0 };
+        acc[k].sw += off * q;
+        acc[k].wt += q;
+        if (typeof r.timestamp === "number" && r.timestamp > acc[k].ts) acc[k].ts = r.timestamp;
+      });
+    });
+    var out = [];
+    Object.keys(acc).forEach(function (k) {
+      var e = acc[k];
+      if (e.wt > 0) out.push({ a: e.a, b: e.b, offset: e.sw / e.wt, timestamp: e.ts });
+    });
+    return out;
+  }
+
+  function zaConsolidatedCtx(side) {
+    var base = ELL_ctx(side === "left" || side === "right" ? side : "global");
+    var pairs = zaConsensusPairs(side);
+    return Object.assign({}, base, { ELL_results: pairs });
+  }
+
+  // ---- Heatmap (BA 409) + Zeit-Trend (BA 410) ----
+
+  var ZA_HM_RANGE = 10;   // dB; Werte darueber/darunter werden gekappt
+  var ZA_HM_MIN_COL_W = 14;   // px Mindestbreite je Spalte
+  var ZA_HM_PAD_T = 12;   // Oberer Abstand der Heatmap (Schritt 2 BA 410)
+  var ZA_HM_ROW_H = 18;   // Zeilenhoehe der Heatmap (Schritt 2 BA 410)
+
+  // Gewaehlte Elektrode fuer den Zeit-Trend (Index oder null)
+  var zaTrendEl = null;
+
+  // Liefert die Heatmap-Daten der aktuellen Seite:
+  //   { sessions: [{ ts, corr:[..], active:[..], res:[..] }], elCount, tMin, tMax }
+  // corr[i]   = levels[i] (Ist-Pegel, positiv=zu laut/blau, negativ=zu leise/rot)
+  // active[i] = war Elektrode i in DIESER Sitzung aktiv (historischer Status)?
+  // res[i]    = Pro-Elektrode-Residuum dieser Sitzung (gemeinsame Quelle fuer Heatmap+Trend)
+  // ts        = juengster Mess-Stempel der Sitzung (Kalenderzeit)
+  function zaHeatmapData(side) {
+    var out = [];
+    var elCount = 0;
+    zaSessions.forEach(function (s) {
+      if (s.side !== side) return;
+      var ts = zaYoungestTs(s);
+      if (ts === null) return;                 // ohne Stempel keine Zeitposition
+      var ctx = zaToCtx(s);                    // historischer Status der DATEI (§6f)
+      var r = ELL_compWLS(ctx);                // {levels, ELL_res, ...}
+      elCount = Math.max(elCount, s.nEl);
+      var corr = [], active = [], res = [];
+      for (var i = 0; i < s.nEl; i++) {
+        // aktiv = nicht ausgeschlossen, nicht stumm, nicht abgewaehlt (§6d-Definition)
+        var act = (s.elExDur[i] == null) && (s.elSt[i] !== "mute")
+                  && (s.elActive[i] !== false);
+        active[i] = act;
+        corr[i] = act ? r.levels[i] : null;    // levels (Ist): zu laut=positiv, zu leise=negativ -- wie Meszergebnis-Tabelle/Kurve. inaktiv -> null (grau)
+        res[i]  = act ? (r.ELL_res[i] || 0) : null;   // Pro-Elektrode-Residuum (BA 410)
+      }
+      out.push({ ts: ts, corr: corr, active: active, res: res });
+    });
+    out.sort(function (a, b) { return a.ts - b.ts; });   // chronologisch
+    var tMin = out.length ? out[0].ts : 0;
+    var tMax = out.length ? out[out.length - 1].ts : 0;
+    return { sessions: out, elCount: elCount, tMin: tMin, tMax: tMax };
+  }
+
+  function zaHeatColor(dB) {
+    if (dB === null || typeof dB !== "number" || !isFinite(dB)) return "#e5e5e5"; // grau = inaktiv/kein Wert
+    // dB = levels (Ist): zu laut = positiv -> BLAU, zu leise = negativ -> ROT
+    // (Konvention wie Meszergebnis-Tabelle). Dazu t = -dB/RANGE: positiv dB
+    // ergibt t<0 (blau-Seite), negativ dB ergibt t>0 (rot-Seite).
+    var t = Math.max(-1, Math.min(1, -dB / ZA_HM_RANGE));   // -1..+1 (gekappt)
+    // t=-1 blau (59,130,246) ... 0 weiss (255,255,255) ... t=+1 rot (220,38,38)
+    var r, g, b;
+    if (t < 0) {            // blau-Seite
+      var u = t + 1;        // 0..1 (0=blau, 1=weiss)
+      r = Math.round(59  + (255 - 59)  * u);
+      g = Math.round(130 + (255 - 130) * u);
+      b = Math.round(246 + (255 - 246) * u);
+    } else {                // rot-Seite
+      var v = 1 - t;        // 0..1 (1=weiss, 0=rot)
+      r = Math.round(220 + (255 - 220) * v);
+      g = Math.round(38  + (255 - 38)  * v);
+      b = Math.round(38  + (255 - 38)  * v);
+    }
+    return "rgb(" + r + "," + g + "," + b + ")";
+  }
+
+  // Gekappte Werte markieren (kleiner Punkt), damit ±>10 erkennbar bleibt:
+  function zaHeatClipped(dB) {
+    return (typeof dB === "number" && isFinite(dB) && Math.abs(dB) > ZA_HM_RANGE);
+  }
+
+  function zaDrawHeatmap() {
+    var cv = document.getElementById("zaHeatmap");
+    if (!cv) return;
+    var side = activeSide;
+    var data = zaHeatmapData(side);
+    var hint = document.getElementById("zaHeatmapHint");
+    if (!data.sessions.length || !data.elCount) {
+      if (hint) hint.textContent = "Keine auswertbaren Sitzungen fuer diese Seite.";
+      var c0 = cv.getContext("2d"); c0.clearRect(0, 0, cv.width, cv.height);
+      return;
+    }
+    if (hint) hint.textContent = "";
+
+    var dpr = window.devicePixelRatio || 1;
+    var w = cv.parentElement.clientWidth - 32;
+    var padL = 46, padR = 12, padB = 40;
+    var plotW = w - padL - padR;
+    var h = ZA_HM_PAD_T + padB + data.elCount * ZA_HM_ROW_H;
+    cv.width = w * dpr; cv.height = h * dpr;
+    cv.style.width = w + "px"; cv.style.height = h + "px";
+    var g = cv.getContext("2d"); g.scale(dpr, dpr);
+    g.clearRect(0, 0, w, h);
+
+    // X-Position einer Sitzung: echte Zeit, aber Spaltenbreite >= Mindestbreite.
+    var n = data.sessions.length;
+    function tX(ts) {
+      if (data.tMax === data.tMin) return padL + plotW / 2;
+      return padL + (ts - data.tMin) / (data.tMax - data.tMin) * plotW;
+    }
+    // Spaltenbreiten vorab bestimmen (Mindestbreite, sonst halbe Nachbar-Distanz)
+    var cols = data.sessions.map(function (s, i) {
+      var x = tX(s.ts);
+      var left  = (i > 0)     ? (x + tX(data.sessions[i-1].ts)) / 2 : x - ZA_HM_MIN_COL_W;
+      var right = (i < n - 1) ? (x + tX(data.sessions[i+1].ts)) / 2 : x + ZA_HM_MIN_COL_W;
+      var cw = Math.max(ZA_HM_MIN_COL_W, right - left);
+      return { x: x, cw: cw, s: s };
+    });
+
+    // Zellen zeichnen
+    cols.forEach(function (col) {
+      var cx = col.x - col.cw / 2;
+      for (var i = 0; i < data.elCount; i++) {
+        var dB = (i < col.s.corr.length) ? col.s.corr[i] : null;
+        var y = ZA_HM_PAD_T + i * ZA_HM_ROW_H;
+        g.fillStyle = zaHeatColor(dB);
+        g.fillRect(cx, y, col.cw - 1, ZA_HM_ROW_H - 1);
+        if (zaHeatClipped(dB)) {   // gekappt-Markierung
+          g.fillStyle = "#000";
+          g.beginPath(); g.arc(cx + col.cw / 2, y + ZA_HM_ROW_H / 2, 1.6, 0, Math.PI * 2); g.fill();
+        }
+      }
+    });
+
+    // Markierung der gewaehlten Zeile fuer den Zeit-Trend
+    if (zaTrendEl !== null && zaTrendEl < data.elCount) {
+      g.strokeStyle = "#111"; g.lineWidth = 2;
+      g.strokeRect(padL, ZA_HM_PAD_T + zaTrendEl * ZA_HM_ROW_H - 0.5,
+                   plotW, ZA_HM_ROW_H);
+    }
+
+    // Y-Achse: Elektroden-Labels (dEN der aktuellen Seite via ELL_ctx)
+    var ctxLbl = ELL_ctx(side === "left" || side === "right" ? side : "global");
+    var dENfn  = ctxLbl.dEN || dEN;
+    var pfxFn  = ctxLbl.dENPrefix || dENPrefix;
+    g.fillStyle = "#555"; g.font = "10px Segoe UI,sans-serif"; g.textAlign = "right";
+    for (var i = 0; i < data.elCount; i++) {
+      g.fillText(pfxFn() + dENfn(i), padL - 6, ZA_HM_PAD_T + i * ZA_HM_ROW_H + ZA_HM_ROW_H / 2 + 3);
+    }
+
+    // X-Achse: ein paar Datums-Labels (erste, letzte, ggf. mittlere)
+    g.textAlign = "center"; g.fillStyle = "#888"; g.font = "9px Segoe UI,sans-serif";
+    function dateLbl(ts) {
+      var d = new Date(ts);
+      return d.getDate() + "." + (d.getMonth() + 1) + ".";
+    }
+    cols.forEach(function (col, i) {
+      // nur jede Spalte beschriften, wenn Platz; sonst erste/letzte
+      if (n <= 8 || i === 0 || i === n - 1) {
+        g.fillText(dateLbl(col.s.ts), col.x, h - padB + 14);
+      }
+    });
+
+    // Legende (kurz, unter der X-Achse)
+    g.textAlign = "left"; g.fillStyle = "#888";
+    g.fillText("blau = zu laut gemessen   rot = zu leise gemessen   grau = inaktiv", padL, h - 6);
+  }
+
+  // ---- Zeit-Trend (BA 410) ----
+
+  // Klick-Handler auf dem Heatmap-Canvas: Elektrode aus Y-Position ableiten.
+  function zaOnHeatmapClick(ev) {
+    var cv = document.getElementById("zaHeatmap");
+    if (!cv) return;
+    var rect = cv.getBoundingClientRect();
+    var y = ev.clientY - rect.top;
+    var i = Math.floor((y - ZA_HM_PAD_T) / ZA_HM_ROW_H);
+    var data = zaHeatmapData(activeSide);
+    if (i < 0 || i >= data.elCount) return;
+    zaTrendEl = i;
+    zaDrawHeatmap();
+    zaDrawTrend();
+  }
+
+  // Trend-Datenbasis fuer eine Elektrode (eine Datenquelle zaHeatmapData).
+  function zaTrendData(side, elIdx) {
+    var hm = zaHeatmapData(side);
+    var pts = [];
+    hm.sessions.forEach(function (s) {
+      var c = (elIdx < s.corr.length) ? s.corr[elIdx] : null;
+      if (c === null) return;
+      var r = (s.res && elIdx < s.res.length) ? (s.res[elIdx] || 0) : 0;
+      pts.push({ ts: s.ts, corr: c, res: r });
+    });
+    return { points: pts, tMin: hm.tMin, tMax: hm.tMax };
+  }
+
+  function zaDrawTrend() {
+    var cv = document.getElementById("zaTrend");
+    if (!cv) return;
+    var hint = document.getElementById("zaTrendHint");
+    var g = cv.getContext("2d");
+    if (zaTrendEl === null) {
+      if (hint) hint.textContent = "Elektrode in der Heatmap anklicken, um ihren Verlauf zu sehen.";
+      cv.width = cv.width;
+      return;
+    }
+    var side = activeSide;
+    var td = zaTrendData(side, zaTrendEl);
+    if (!td.points.length) {
+      if (hint) hint.textContent = "Keine Messwerte fuer diese Elektrode.";
+      cv.width = cv.width;
+      return;
+    }
+    if (hint) hint.textContent = "";
+
+    var dpr = window.devicePixelRatio || 1;
+    var w = cv.parentElement.clientWidth - 32;
+    var h = 220;
+    var padL = 46, padR = 12, padT = 16, padB = 34;
+    var plotW = w - padL - padR, plotH = h - padT - padB;
+    cv.width = w * dpr; cv.height = h * dpr;
+    cv.style.width = w + "px"; cv.style.height = h + "px";
+    g.scale(dpr, dpr); g.clearRect(0, 0, w, h);
+
+    // Y-Bereich: symmetrisch um 0, deckt corr+-res ab (min 4 dB Halbspanne)
+    var amax = 4;
+    td.points.forEach(function (p) { amax = Math.max(amax, Math.abs(p.corr) + p.res); });
+    amax = Math.ceil(amax);
+    function tY(v) { return padT + (amax - v) / (2 * amax) * plotH; }
+    function tX(ts) {
+      if (td.tMax === td.tMin) return padL + plotW / 2;
+      return padL + (ts - td.tMin) / (td.tMax - td.tMin) * plotW;
+    }
+
+    // Gitter + Nulllinie + Y-Ticks
+    [-amax, -amax/2, 0, amax/2, amax].forEach(function (v) {
+      var y = tY(v);
+      g.strokeStyle = (v === 0) ? "#aaa" : "#eee"; g.lineWidth = (v === 0) ? 1.5 : 1;
+      g.beginPath(); g.moveTo(padL, y); g.lineTo(w - padR, y); g.stroke();
+      g.fillStyle = "#999"; g.font = "9px Consolas,monospace"; g.textAlign = "right";
+      g.fillText(v.toFixed(0), padL - 6, y + 3);
+    });
+
+    // Trendlinie (Punkte verbunden)
+    g.strokeStyle = "#2563eb"; g.lineWidth = 2; g.beginPath();
+    td.points.forEach(function (p, i) {
+      var x = tX(p.ts), y = tY(p.corr);
+      if (i === 0) g.moveTo(x, y); else g.lineTo(x, y);
+    });
+    g.stroke();
+
+    // Fehlerbalken + Punkte
+    td.points.forEach(function (p) {
+      var x = tX(p.ts);
+      if (p.res > 0) {
+        g.strokeStyle = "#00000044"; g.lineWidth = 1.5;
+        g.beginPath(); g.moveTo(x, tY(p.corr + p.res)); g.lineTo(x, tY(p.corr - p.res)); g.stroke();
+        g.beginPath(); g.moveTo(x - 3, tY(p.corr + p.res)); g.lineTo(x + 3, tY(p.corr + p.res)); g.stroke();
+        g.beginPath(); g.moveTo(x - 3, tY(p.corr - p.res)); g.lineTo(x + 3, tY(p.corr - p.res)); g.stroke();
+      }
+      g.beginPath(); g.arc(x, tY(p.corr), 3.5, 0, Math.PI * 2);
+      g.fillStyle = "#2563eb"; g.fill();
+      g.strokeStyle = "#fff"; g.lineWidth = 2; g.stroke();
+    });
+
+    // X-Achse: erste/letzte Datums-Labels
+    g.fillStyle = "#888"; g.font = "9px Segoe UI,sans-serif"; g.textAlign = "center";
+    function dateLbl(ts) { var d = new Date(ts); return d.getDate() + "." + (d.getMonth()+1) + "."; }
+    if (td.points.length) {
+      g.fillText(dateLbl(td.points[0].ts), tX(td.points[0].ts), h - padB + 16);
+      if (td.points.length > 1) {
+        g.fillText(dateLbl(td.points[td.points.length-1].ts), tX(td.points[td.points.length-1].ts), h - padB + 16);
+      }
+    }
+
+    // Titel: welche Elektrode
+    var ctxLbl = ELL_ctx(side === "left" || side === "right" ? side : "global");
+    var label = (ctxLbl.dENPrefix || dENPrefix)() + (ctxLbl.dEN || dEN)(zaTrendEl);
+    g.fillStyle = "#333"; g.font = "11px Segoe UI,sans-serif"; g.textAlign = "left";
+    g.fillText("Verlauf " + label + " (gemessene Abweichung dB, Balken = Residuum)", padL, 11);
+  }
+
+  function zaDrawCurve() {
+    var cv = document.getElementById("zaCurveChart");
+    if (!cv) return;
+    var side = activeSide;
+    var ctx  = zaConsolidatedCtx(side);
+    if (!ctx.ELL_results || !ctx.ELL_results.length) {
+      var hint = document.getElementById("zaCurveHint");
+      if (hint) hint.textContent = "Keine auswertbaren Sitzungen fuer diese Seite.";
+      return;
+    }
+    var r = ELL_compWLS(ctx);
+    var measured = new Set();
+    ctx.ELL_results.forEach(function (p) { measured.add(p.a); measured.add(p.b); });
+    var _dENp = (ctx.dENPrefix || dENPrefix), _dENf = (ctx.dEN || dEN);
+    var _nEl = (ctx.nEl != null) ? ctx.nEl : nEl;
+    var _elExDur = (ctx.elExDur != null) ? ctx.elExDur : elExDur;
+    var _elSt = (ctx.elSt != null) ? ctx.elSt : elSt;
+    var _refEl = (ctx.ELL_refEl != null) ? ctx.ELL_refEl : (typeof ELL_refEl !== "undefined" ? ELL_refEl : null);
+    var _hz = ctx.hzGetter || FRQ_implantatEffektiv;
+    var _zaRows = [];
+    for (var _i = 0; _i < _nEl; _i++) {
+      var _ex = _elExDur[_i] !== null || _elSt[_i] === "mute";
+      var _res = r.ELL_res[_i] || 0.001;
+      var _stufe = !measured.has(_i) ? null : _res <= 1.0 ? "gruen" : _res < 3.0 ? "gelb" : "rot";
+      _zaRows.push({
+        elNum: _i,
+        label: _dENp() + _dENf(_i),
+        hz: _hz(_i),
+        wert: r.levels[_i] || 0,
+        zustand: _ex ? "deaktiviert" : (!measured.has(_i) ? "ungemessen" : "gemessen"),
+        residuum: r.ELL_res[_i],
+        stufe: _stufe,
+        istRef: _i === _refEl,
+        apikalBasal: _i === 0 ? "apikal" : (_i === _nEl - 1 ? "basal" : null)
+      });
+    }
+    drawBarGraph(cv, _zaRows, {
+      balkenFarbe: "ampel",
+      residuum: true,
+      spitzenPunkte: true,
+      refElLabel: true,
+      yLabel: "dB",
+      ySymmetrisch: true,
+      ctx: ctx
+    });
+  }
+
+  function zaOnSharpness(key) {
+    if (!ZA_SHARPNESS[key]) return;
+    zaSharpKey = key;
+    ["mild", "mittel", "scharf"].forEach(function (k) {
+      var b = document.getElementById("zaSharp_" + k);
+      if (b) b.style.fontWeight = (k === key) ? "700" : "400";
+    });
+    zaDrawCurve();
+  }
+
+  // ---- Dedup-Konstanten (BA 407) ----
+  var ZA_DEDUP_MAX_H      = 24;    // Stunden: max. Abstand der juengsten Mess-Stempel
+  var ZA_DEDUP_MIN_SIM    = 0.90;  // Anteil identischer Paare
+  var ZA_DEDUP_OFFSET_EPS = 0.1;   // dB: Offset-Differenz, ab der ein Paar als verschieden gilt
+
+  // Juengster Mess-Stempel einer Sitzung (interner Stempel in raw[].timestamp).
+  function zaYoungestTs(session) {
+    var ts = null;
+    (session.raw || []).forEach(function (r) {
+      if (typeof r.timestamp === "number" && (ts === null || r.timestamp > ts)) ts = r.timestamp;
+    });
+    return ts;   // ms oder null (alte Datei ohne Stempel)
+  }
+
+  // Paar-Map einer Sitzung (Schluessel = sortiertes Paar, Wert = offset).
+  function zaPairMap(session) {
+    var m = {};
+    (session.raw || []).forEach(function (r) {
+      if (typeof r.a !== "number" || typeof r.b !== "number") return;
+      var k = Math.min(r.a, r.b) + "-" + Math.max(r.a, r.b);
+      m[k] = r.offset;
+    });
+    return m;
+  }
+
+  // true, wenn zwei Sitzungen zeitnah und inhaltlich aehnlich genug sind.
+  function zaSameSession(a, b) {
+    var ta = zaYoungestTs(a), tb = zaYoungestTs(b);
+    if (ta === null || tb === null) return false;
+    if (Math.abs(ta - tb) >= ZA_DEDUP_MAX_H * 3600 * 1000) return false;
+    var pa = zaPairMap(a), pb = zaPairMap(b);
+    var keysA = Object.keys(pa), keysB = Object.keys(pb);
+    var common = keysA.filter(function (k) { return k in pb; });
+    if (!common.length) return false;
+    var same = common.filter(function (k) { return Math.abs(pa[k] - pb[k]) < ZA_DEDUP_OFFSET_EPS; }).length;
+    var sim = same / Math.max(keysA.length, keysB.length);
+    return sim >= ZA_DEDUP_MIN_SIM;
+  }
+
+  // Gruppiert Sitzungen; behaelt je Gruppe den juengsten Repraesentanten.
+  // Vergleicht nur Sitzungen gleicher Seite.
+  function zaDedup(sessions) {
+    var used = new Array(sessions.length).fill(false);
+    var kept = [];
+    var merged = 0;
+    for (var i = 0; i < sessions.length; i++) {
+      if (used[i]) continue;
+      var group = [i];
+      used[i] = true;
+      for (var j = i + 1; j < sessions.length; j++) {
+        if (used[j]) continue;
+        if (sessions[i].side !== sessions[j].side) continue;
+        var match = group.some(function (k) { return zaSameSession(sessions[k], sessions[j]); });
+        if (match) { group.push(j); used[j] = true; }
+      }
+      var rep = group.reduce(function (best, k) {
+        var tb = zaYoungestTs(sessions[best]) || 0, tk = zaYoungestTs(sessions[k]) || 0;
+        return tk > tb ? k : best;
+      }, group[0]);
+      kept.push(sessions[rep]);
+      merged += (group.length - 1);
+    }
+    return { kept: kept, mergedCount: merged };
+  }
+
+  // ---- Vollstaendigkeitsfilter (BA 407) ----
+
+  // aktiv = nicht ausgeschlossen UND nicht stumm UND nicht abgewaehlt
+  function zaIsActive(session, i) {
+    return (session.elExDur[i] == null)
+        && (session.elSt[i] !== "mute")
+        && (session.elActive[i] !== false);
+  }
+
+  function zaIsComplete(session) {
+    var measured = {};
+    (session.raw || []).forEach(function (r) {
+      if (typeof r.a === "number") measured[r.a] = true;
+      if (typeof r.b === "number") measured[r.b] = true;
+    });
+    for (var i = 0; i < session.nEl; i++) {
+      if (zaIsActive(session, i) && !measured[i]) return false;
+    }
+    return true;
+  }
+
+  // Modul-Zustand (überlebt Reiterwechsel, NICHT Neuladen — Architektur §8)
+  var zaSessions = [];   // [{file, side, manufacturer, nEl, count, raw, elSt, elExDur, refEl, meanResidual}]
+  var zaBilanz   = { eingelesen: 0, fremd: 0, herstellerKonflikt: 0,
+                     ohneSeite: 0, sitzungen: 0 };
+
+  function zaUpdateTabVisibility() {
+    var on = !!(window.dbg && typeof window.dbg.isActive === "function"
+                && window.dbg.isActive());
+    var b = document.getElementById("tabVerlaufsanalyse");
+    if (b) b.style.display = on ? "" : "none";
+    // Wenn Debug ausgeschaltet wird, während der Reiter aktiv ist:
+    // auf einen sicheren Reiter zurückschalten.
+    if (!on) {
+      var active = document.querySelector(".tab.active");
+      if (active && active.dataset.tab === "verlaufsanalyse"
+          && typeof switchTab === "function") {
+        switchTab("setup");
+      }
+    }
+  }
+
+  // ---- Datei-Auswahl ----
+  function zaOnPick(ev) {
+    var files = Array.prototype.slice.call(ev.target.files || []);
+    if (!files.length) return;
+    zaReadFiles(files);
+    ev.target.value = "";  // erneutes Wählen derselben Datei erlauben
+  }
+
+  function zaReadFiles(files) {
+    // Maßstab für Hersteller-/Elektrodenzahl-Prüfung = AKTUELL eingestellte
+    // Seite (Architektur §6e). Pro Seite getrennt geprüft.
+    var pending = files.length;
+    var parsed = [];   // {name, obj} oder {name, fremd:true}
+    files.forEach(function (f) {
+      var r = new FileReader();
+      r.onload = function (e) {
+        try {
+          var d = JSON.parse(e.target.result);
+          parsed.push({ name: f.name, obj: d });
+        } catch (_) {
+          parsed.push({ name: f.name, fremd: true });
+        }
+        if (--pending === 0) zaProcess(parsed);
+      };
+      r.onerror = function () {
+        parsed.push({ name: f.name, fremd: true });
+        if (--pending === 0) zaProcess(parsed);
+      };
+      r.readAsText(f);
+    });
+  }
+
+  // ---- Verarbeitung: aussortieren, Konflikt prüfen, Sitzungen sammeln ----
+  function zaProcess(parsed) {
+    zaSessions = [];
+    zaBilanz = { eingelesen: parsed.length, fremd: 0, herstellerKonflikt: 0,
+                 ohneSeite: 0, zusammengefasst: 0, unvollstaendig: 0, sitzungen: 0 };
+
+    // 1) Fremdinhalt raus (vorhandene Helfer aus file.js)
+    var cimbel = [];
+    parsed.forEach(function (p) {
+      if (p.fremd || !_isCimbelSave(p.obj)) { zaBilanz.fremd++; return; }
+      cimbel.push(p);
+    });
+
+    // 2) Pro Datei je Seite die ELL-Daten ziehen (nur Seiten MIT
+    //    balanceResults). Hersteller/nEl gegen aktuelle Seite prüfen.
+    var conflicts = [];          // {name, side, hat, erwartet}
+    var candidates = [];         // {file, side, manufacturer, nEl, count, raw}
+    cimbel.forEach(function (p) {
+      var sides = (p.obj && p.obj.sides) || {};
+      ["left", "right"].forEach(function (sd) {
+        var s = sides[sd];
+        if (!s) return;
+        var br = s.balanceResults;
+        if (!Array.isArray(br) || !br.length) return;     // keine ELL-Daten
+        var nEl = Array.isArray(s.frequencies) ? s.frequencies.length : null;
+        var mfr = s.manufacturer || null;
+        var exp = zaExpectedFor(sd);                       // {mfr, nEl} | null
+        if (exp && (mfr !== exp.mfr || nEl !== exp.nEl)) {
+          conflicts.push({ name: p.name, side: sd,
+                           hat: mfr + " " + nEl, erwartet: exp.mfr + " " + exp.nEl });
+          return;
+        }
+        candidates.push({ file: p.name, side: sd, manufacturer: mfr,
+                          nEl: nEl, count: br.length, raw: br,
+                          // NEU (fuer die Pro-Datei-Rechnung, BA 406):
+                          elSt:    normStatus(s.electrodeStatus,         nEl, null),
+                          elExDur: normStatus(s.electrodeExcludedDuring, nEl, null),
+                          refEl:   (typeof s.referenceElectrode === "number") ? s.referenceElectrode : 0,
+                          elActive: normActive(s.electrodeActive, nEl) });
+      });
+    });
+
+    // 3) Konflikt-Dialog (einziger interaktiver Filter, Architektur §6e)
+    if (conflicts.length) {
+      var liste = conflicts.map(function (c) {
+        return "* " + c.name + " (" + (c.side === "left" ? "links" : "rechts")
+             + "): " + c.hat + ", erwartet " + c.erwartet;
+      }).join("\n");
+      var ignore = confirm(
+        "Folgende Dateien passen nicht zum aktuell eingestellten Implantat "
+        + "und sind nicht auswertbar:\n\n" + liste
+        + "\n\nOK = diese Dateien ignorieren und den Rest auswerten."
+        + "\nAbbrechen = Auswertung abbrechen.");
+      if (!ignore) {            // Abbruch
+        zaRenderBilanz("abgebrochen");
+        return;
+      }
+      zaBilanz.herstellerKonflikt = conflicts.length;
+    }
+
+    // 1) Dedup (Architektur §6c)
+    var dd = zaDedup(candidates);
+    var deduped = dd.kept;
+    zaBilanz.zusammengefasst = dd.mergedCount;
+
+    // 2) Vollstaendigkeit (Architektur §6d) — auf den deduplizierten Repraesentanten
+    var vollstaendig = [];
+    var unvollstaendig = 0;
+    deduped.forEach(function (s) {
+      if (zaIsComplete(s)) vollstaendig.push(s);
+      else unvollstaendig++;
+    });
+    zaBilanz.unvollstaendig = unvollstaendig;
+
+    // 3) Pro-Datei-Rechnung (BA 406) nur auf vollstaendigen Sitzungen
+    zaSessions = vollstaendig;
+    zaSessions.forEach(function (s) { s.meanResidual = zaMeanResidual(s); });
+    zaBilanz.sitzungen = zaSessions.length;
+
+    zaRenderBilanz();
+    zaRenderSessionList();
+    zaDrawCurve();
+    zaDrawHeatmap();
+    zaDrawTrend();
+  }
+
+  // Baut das ELL_compWLS-ctx aus einer eingelesenen Sitzung (tool-fremde Datei).
+  // Architektur-Kapitel 00-zeitanalyse §3 (Datensatz-Vertrag, ELL-Variante).
+  function zaToCtx(session) {
+    return {
+      nEl:         session.nEl,
+      ELL_results: session.raw,
+      elSt:        session.elSt,
+      elExDur:     session.elExDur,
+      ELL_refEl:   session.refEl,
+    };
+  }
+
+  // Mittleres Residuum (dB) einer Sitzung: ELL_compWLS ueber ihr ctx,
+  // dann Mittel von ELL_res ueber die aktiven Elektroden der Sitzung.
+  function zaMeanResidual(session) {
+    if (typeof ELL_compWLS !== "function") return null;
+    var ctx = zaToCtx(session);
+    var r = ELL_compWLS(ctx);
+    if (!r || !r.ELL_res) return null;
+    var sum = 0, cnt = 0;
+    for (var i = 0; i < session.nEl; i++) {
+      var aktiv = (ctx.elExDur[i] == null) && (ctx.elSt[i] !== "mute");
+      if (!aktiv) continue;
+      sum += r.ELL_res[i];
+      cnt++;
+    }
+    return cnt ? (sum / cnt) : null;
+  }
+
+  // Erwarteter Hersteller/nEl der Seite aus dem aktuellen Tool-Zustand.
+  // sideData/MFR sind global (state-side.js). Gibt null, wenn Seite
+  // nicht sinnvoll konfiguriert.
+  function zaExpectedFor(side) {
+    try {
+      if (typeof sideData === "undefined" || !sideData[side]) return null;
+      var s = sideData[side];
+      if (!s.manufacturer || !s.nEl) return null;
+      return { mfr: s.manufacturer, nEl: s.nEl };
+    } catch (_) { return null; }
+  }
+
+  // ---- Anzeige ----
+  function zaRenderBilanz(state) {
+    var el = document.getElementById("zaBilanz");
+    if (!el) return;
+    var b = zaBilanz;
+    if (state === "abgebrochen") {
+      el.innerHTML = '<div style="color:#b45309">Auswertung abgebrochen. '
+        + 'Bitte Auswahl bereinigen und erneut wählen.</div>';
+      return;
+    }
+    var hauptzeile = "<b>" + b.sitzungen + "</b> Sitzung(en) ausgewertet";
+    if (b.zusammengefasst > 0) {
+      hauptzeile += " (aus " + (b.sitzungen + b.zusammengefasst) + " Dateien zusammengefasst)";
+    }
+    var raus = [];
+    if (b.fremd) raus.push(b.fremd + "× Fremdinhalt");
+    if (b.herstellerKonflikt) raus.push(b.herstellerKonflikt + "× Hersteller-Konflikt");
+    if (b.unvollstaendig) raus.push(b.unvollstaendig + "× unvollständig");
+    var aus = raus.length ? " — ausgelassen: " + raus.join(", ") : "";
+    el.innerHTML = '<div style="background:#f3f4f6;border-radius:6px;padding:10px">'
+      + hauptzeile + aus
+      + '</div>';
+  }
+
+  function zaRenderSessionList() {
+    var el = document.getElementById("zaSessionList");
+    if (!el) return;
+    if (!zaSessions.length) { el.innerHTML = ""; return; }
+    var rows = zaSessions.map(function (s) {
+      return "<tr><td style='padding:2px 10px'>" + s.file
+        + "</td><td style='padding:2px 10px'>" + (s.side === "left" ? "links" : "rechts")
+        + "</td><td style='padding:2px 10px'>" + (s.manufacturer || "?")
+        + "</td><td style='padding:2px 10px'>" + (s.nEl || "?")
+        + "</td><td style='padding:2px 10px;text-align:right'>" + s.count
+        + "</td><td style='padding:2px 10px;text-align:right'>"
+        + (typeof s.meanResidual === "number" ? s.meanResidual.toFixed(2) + " dB" : "—")
+        + "</td></tr>";
+    }).join("");
+    el.innerHTML = "<table style='border-collapse:collapse;font-size:.9em'>"
+      + "<tr style='font-weight:600;border-bottom:1px solid #ccc'>"
+      + "<td style='padding:2px 10px'>Datei</td><td style='padding:2px 10px'>Seite</td>"
+      + "<td style='padding:2px 10px'>Hersteller</td><td style='padding:2px 10px'>Elektroden</td>"
+      + "<td style='padding:2px 10px'>Vergleiche</td>"
+      + "<td style='padding:2px 10px'>mittl. Residuum</td></tr>" + rows + "</table>";
+  }
+
+  // ---- Init ----
+  function zaTransferToTool() {
+    var side = activeSide;
+    var pairs = zaConsensusPairs(side);
+    if (!pairs.length) {
+      alert("Keine konsolidierten Daten fuer diese Seite — nichts zu uebernehmen.");
+      return;
+    }
+    var sideLbl = (side === "left") ? "LINKS" : "RECHTS";
+    var ok = confirm(
+      "Die konsolidierten Werte werden als Mess-Ergebnis der Seite " + sideLbl
+      + " uebernommen.\n\nDer aktuelle Elektrodenlautstaerke-Stand dieser Seite "
+      + "(inkl. eines evtl. laufenden Round-Robin) wird dabei ERSETZT.\n\n"
+      + "Fortfahren?");
+    if (!ok) return;
+
+    var s = sideData[side];
+    if (!s) return;
+    s.ELL_results        = pairs;
+    s.fullSweepRound     = null;
+    s.fullSweepDonePairs = [];
+    undoSt               = [];
+
+    if (typeof bindActiveSide === "function") bindActiveSide();
+    if (typeof ELL_renderResults === "function") ELL_renderResults();
+
+    var hint = document.getElementById("zaTransferHint");
+    if (hint) hint.textContent = "Uebernommen — siehe Reiter Messergebnisse, Elektrodenlautstaerke ("
+                               + sideLbl + ").";
+  }
+
+  function zaInit() {
+    var btn = document.getElementById("zaPickBtn");
+    var inp = document.getElementById("zaFileInput");
+    if (btn && inp) {
+      btn.addEventListener("click", function () { inp.click(); });
+      inp.addEventListener("change", zaOnPick);
+    }
+    ["mild", "mittel", "scharf"].forEach(function (k) {
+      var b = document.getElementById("zaSharp_" + k);
+      if (b) b.addEventListener("click", function () { zaOnSharpness(k); });
+    });
+    var hm = document.getElementById("zaHeatmap");
+    if (hm) {
+      hm.addEventListener("click", zaOnHeatmapClick);
+      hm.style.cursor = "pointer";
+    }
+    zaUpdateTabVisibility();
+    var tb = document.getElementById("zaTransferBtn");
+    if (tb) tb.addEventListener("click", zaTransferToTool);
+  }
+
+  // Export für debug.js-Hook
+  window.zaUpdateTabVisibility = zaUpdateTabVisibility;
+  // Debug-Hook fuer Diagnose-Tests (zaToCtx/zaMeanResidual BA406; Dedup/isComplete BA407; BA408; BA410)
+  window.zaDebug = {
+    toCtx:          zaToCtx,
+    meanResidual:   zaMeanResidual,
+    sameSession:    zaSameSession,
+    dedup:          zaDedup,
+    isComplete:     zaIsComplete,
+    consensusPairs: zaConsensusPairs,
+    weight:         zaWeight,
+    consolidatedCtx: zaConsolidatedCtx,
+    heatmapData:    zaHeatmapData,
+    heatColor:      zaHeatColor,
+    trendData:      zaTrendData,
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", zaInit);
+  } else {
+    zaInit();
+  }
+})();

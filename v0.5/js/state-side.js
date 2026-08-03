@@ -1,0 +1,1069 @@
+// ============================================================
+// STATE & SIDE MANAGEMENT
+// ============================================================
+
+// --- Global state variables ---
+let activeSide = "left";
+const sideData = { left: {}, right: {} };
+let mfr,
+  nEl,
+  FRQ_implantat,
+  FRQ_implantatOwn,
+  elSt,
+  elNt,
+  elExDur,
+  schieberELL,
+  ELL_refEl,
+  ELL_results,
+  config;
+// FRQ_implantatEffektiv[i] = FRQ_implantatOwn[i] ?? FRQ_implantat[i] (MFR default)
+// Optionales srcData: ohne = globale Seite (58 Bestandsaufrufer), mit = explizites Seiten-Objekt
+// (ersetzt _implEffFreqOf; 0-Fallback nur im srcData-Zweig)
+function FRQ_implantatEffektiv(i, srcData) {
+  if (srcData) {
+    var own = srcData.FRQ_implantatOwn;
+    if (own && own[i] != null) return own[i];
+    var def = srcData.FRQ_implantat;
+    return def ? def[i] : 0;          // 0-Fallback wie _implEffFreqOf
+  }
+  return FRQ_implantatOwn && FRQ_implantatOwn[i] != null ? FRQ_implantatOwn[i] : FRQ_implantat[i];
+}
+let ell_focus = 0;
+let defaultMfr = "unknown"; // BA 154: Erststart-Default
+let audiologUserNote = ""; // Patient-Notiz für Audiologen-Bericht (top-level, beide Seiten)
+let userFileSuffix = ""; // globaler Dateinamen-Suffix für alle Exporte
+let userLastName  = ""; // Nachname für Dateinamen und Druck-Seitentitel (BA 268)
+let userFirstName = ""; // Vorname für Dateinamen und Druck-Seitentitel (BA 268)
+
+let kurvenELL = [];
+let elActive = [];  // BA 164: Aktivitäts-Flag pro Elektrode der aktiven Seite
+let fullSweepRound = null,
+  fullSweepDonePairs = [];
+function initElektrodenlautstaerkeKurven() {
+  kurvenELL = KURVEN_ELL_TYPES.map((tp) => ({
+    type: tp,
+    on: false,
+    strength: 0,
+    center: CENT_REF_HZ,
+    width: 1200,
+    phon: 70,
+    cutoff:
+      tp === "bassboost" ? Math.floor(nEl / 3) : Math.floor((nEl * 2) / 3),
+  }));
+}
+function bindActiveSide() {
+  const s = sideData[activeSide];
+  mfr = s.manufacturer;
+  nEl = s.nEl;
+  FRQ_implantat = s.FRQ_implantat;
+  FRQ_implantatOwn = s.FRQ_implantatOwn;
+  elSt = s.elSt;
+  elNt = s.elNt;
+  elExDur = s.elExDur;
+  schieberELL = s.schieberELL;
+  kurvenELL = s.kurvenELL;
+  ELL_refEl = s.ELL_refEl;
+  ELL_results = s.ELL_results;
+  elActive = s.elActive || (s.elActive = new Array(s.nEl).fill(true));
+  config = s.config || "ci";
+  fullSweepRound = s.fullSweepRound !== undefined ? s.fullSweepRound : null;
+  fullSweepDonePairs = s.fullSweepDonePairs || [];
+  // BA 149
+  if (typeof depLockApply === 'function') depLockApply();
+}
+// Seitenspezifische Default-Referenzelektrode: rechnerische Mitte der
+// Elektrodenzahl, von dort nach aussen die naechste nutzbare (nicht
+// deaktiviert, nicht stumm) Elektrode; bei Gleichstand die tiefere
+// Index-Nummer.
+function pickDefaultRefEl(side) {
+  const s = sideData[side];
+  if (!s) return 0;
+  const n = s.nEl;
+  const mid = Math.floor(n / 2);
+  const usable = (i) =>
+    i >= 0 && i < n &&
+    (!s.elExDur || s.elExDur[i] == null) &&
+    (!s.elSt || s.elSt[i] !== "mute");
+  if (usable(mid)) return mid;
+  for (let d = 1; d < n; d++) {
+    if (usable(mid - d)) return mid - d;
+    if (usable(mid + d)) return mid + d;
+  }
+  return mid;
+}
+// Einziger Schreibweg fuer die Referenzelektrode. Die Wahrheit liegt
+// seitenspezifisch in sideData[activeSide].ELL_refEl; die gespiegelte
+// globale Ansicht wird synchron gehalten, damit der Wert beim
+// Seiten-Umschalten (bindActiveSide/withSide) nicht verlorengeht.
+// Zieht die abhaengigen Anzeigen nach (Ergebnis-Tabelle, Pegel-Graph,
+// Player-EQ).
+function setRefEl(v) {
+  ELL_refEl = v;
+  if (sideData[activeSide]) sideData[activeSide].ELL_refEl = v;
+  if (typeof ELL_renderResults === "function") ELL_renderResults();
+  if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
+  if (typeof pUpdEQ === "function") pUpdEQ();
+}
+// Baut das vollständige ctx-Objekt einer Seite für die parametrisierten
+// ELL-Funktionen (ELL_compWLS, drawBarGraph, ELL_testData). side:
+// 'left' | 'right' | 'global' ('global' = aktuell gebundene Seite).
+// Liefert seitenrichtige Daten UND Closures, ohne die globalen Tool-
+// Variablen zu binden (kein withSide nötig).
+function ELL_ctx(side) {
+  var key = (side === "left" || side === "right") ? side : activeSide;
+  var s = sideData[key];
+  if (!s) return {};                 // defensiv: keine Seite -> leeres ctx
+  var _nEl = s.nEl;
+  var _frq    = s.FRQ_implantat;
+  var _frqOwn = s.FRQ_implantatOwn;
+  var _cfg    = s.config || "ci";
+  return {
+    // Datenfelder (compWLS + drawChart)
+    nEl:         _nEl,
+    ELL_results: s.ELL_results,
+    elSt:        s.elSt,
+    elExDur:     s.elExDur,
+    ELL_refEl:   s.ELL_refEl,
+    // Funktions-Closures (drawChart) — seitenrichtig, lesen NICHT die Globalen
+    hzGetter: function (i) {
+      return (_frqOwn && _frqOwn[i] != null) ? _frqOwn[i] : _frq[i];
+    },
+    dEN: function (i) {
+      return dEN(i, key);
+    },
+    dENPrefix: function () {
+      return _cfg === "ci" ? t("cfgLblEnCI") : t("cfgLblEnAcoustic");
+    },
+  };
+}
+
+function initSideData(side, m) {
+  const s = sideData[side];
+  // BA 154: Default jetzt „Keine Angabe" statt „ci"/„medel"
+  s.config = s.config || "unknown";
+  s.manufacturer = m || "unknown";
+  s.nEl = MFR[s.manufacturer].n;
+  s.FRQ_implantat = [...MFR[s.manufacturer].FRQ_implantat];
+  s.elSt = new Array(s.nEl).fill(null);
+  s.elNt = new Array(s.nEl).fill("");
+  s.elExDur = new Array(s.nEl).fill(null);
+  s.FRQ_implantatOwn = new Array(s.nEl).fill(null);
+  s.schieberELL = new Array(s.nEl).fill(0);
+  s.ELL_refEl = Math.floor(s.nEl / 2);
+  s.ELL_results = [];
+  // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
+  s.elActive = new Array(s.nEl).fill(true);
+  // BA479: Frequenzketten-Auswahl pro Elektrode (true = geht ab der Glaettung
+  // in die Frequenzkette). Default: alle. Nur elFreqChain===false nimmt die
+  // Elektrode aus der Kette (zum Deaktivieren vorgemerkt), zusaetzlich zu
+  // elActive===false (bereits deaktiviert).
+  s.elFreqChain = new Array(s.nEl).fill(true);
+  // BA462: gewählte Bandgrenzen-Wand (Hz) pro Seite. Default = Hersteller-
+  // Default aus bandGrenzen; unknown (bandGrenzen null) -> null (keine Wahl).
+  var _bg462 = MFR[s.manufacturer] ? MFR[s.manufacturer].bandGrenzen : null;
+  s.bandWandLo = _bg462 ? _bg462.default[0] : null;
+  s.bandWandHi = _bg462 ? _bg462.default[1] : null;
+  // BA463: seitenweise Band-Wahlen mit Default initialisieren.
+  if (typeof FRQ_BAND_WAHLEN !== "undefined") {
+    FRQ_BAND_WAHLEN.forEach(function (w) { s[w.key] = w.def; });
+  }
+  s.fullSweepRound = null;
+  s.fullSweepDonePairs = [];
+  s.implant = {
+    model: "",
+    processor: "",
+    cValue: null,
+    idr: null,
+    generation: null,
+    mcl: new Array(s.nEl).fill(null),
+    thr: new Array(s.nEl).fill(null),
+    upperLevel: new Array(s.nEl).fill(null),
+  };
+  activeSide = side;
+  bindActiveSide();
+  initElektrodenlautstaerkeKurven();
+  s.kurvenELL = kurvenELL;
+}
+function updSideButtons() {
+  const L = document.getElementById("sideLeftBtn"),
+    R = document.getElementById("sideRightBtn");
+  if (!L || !R) return;
+  const activeStyle =
+    "background:var(--success);color:#fff;border-color:var(--success)";
+  const inactiveStyle =
+    "background:var(--surface);color:var(--text);border-color:var(--border)";
+  L.style.cssText = L.style.cssText.replace(
+    /background:[^;]+;color:[^;]+;border-color:[^;]+/,
+    "",
+  );
+  R.style.cssText = R.style.cssText.replace(
+    /background:[^;]+;color:[^;]+;border-color:[^;]+/,
+    "",
+  );
+  if (activeSide === "left") {
+    L.style.background = "var(--success)";
+    L.style.color = "#fff";
+    L.style.borderColor = "var(--success)";
+    R.style.background = "";
+    R.style.color = "";
+    R.style.borderColor = "";
+  } else {
+    R.style.background = "var(--success)";
+    R.style.color = "#fff";
+    R.style.borderColor = "var(--success)";
+    L.style.background = "";
+    L.style.color = "";
+    L.style.borderColor = "";
+  }
+}
+function ELL_updFClearBtn() {
+  const btn = document.getElementById("fClearBtn");
+  if (!btn) return;
+  const sideLabel = activeSide === "left" ? "LINKS" : "RECHTS";
+  btn.innerHTML = "&#128465; Messergebnisse " + sideLabel + " löschen";
+}
+
+function setActiveSide(side) {
+  if (!SIDES.includes(side)) return;
+  activeSide = side;
+  bindActiveSide();
+  document.getElementById("ciSideSelect").value = side;
+  document.getElementById("mfrSelect").value = mfr;
+  const cfgSel = document.getElementById("cfgSelect");
+  if (cfgSel) cfgSel.value = config;
+
+  FRQ_implantatTableBuild();
+  kurvenELLTabelleBauen();
+  kurvenELLChartZeichnen();
+  if (typeof schieberELLRebuild === "function") schieberELLRebuild();
+  ELL_renderResults();
+  // BA462: Wand-Radios auf die neue aktive Seite umbauen.
+  if (typeof _frqBandWandBuild === "function") _frqBandWandBuild();
+  if (typeof _frqBandSpiegle === "function") _frqBandSpiegle();   // BA463
+  if (typeof window._frqGlaettUpdate === "function") window._frqGlaettUpdate();
+  // BA414-Folgefix: FRQ-Ergebnisgraph haengt seit der kanonischen Umstellung
+  // an der aktiven Seite (FRQ_refHzForMode/FRQ_seitenWerte) -> bei Seiten-
+  // wechsel neu rendern, sonst bleibt die Anzeige auf der alten Seite stehen.
+  if (typeof FRQ_renderResults === "function") FRQ_renderResults();
+  buildImplantCard();
+  updSideButtons();
+  ELL_updFClearBtn();
+  updPlSrcButtons();
+  if (pBuf) updatePlayerForSideChange();
+  else plCheck();
+  if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
+}
+// Alt-Daten verwerfen: das neue Schema (1 Track je Elektrode je Lauf) ist nicht
+// kompatibel mit den älteren Speicherständen (2-Track-Schema mit ':up'/':down'
+// Keys, oder noch älterem lauf1Result-Format). Statt einer riskanten Migration
+// werden alte Frequenzabgleichs-Daten beim Laden verworfen; alle übrigen
+// Mess-Datentypen (Slider, Vergleich, …) bleiben erhalten.
+//
+// Korrespondierend dazu räumt _FRQ_cleanupLegacyResults() Einträge aus FRQ_resultsArray weg,
+// die noch die alten Detail-Felder tragen (sie stammen sicher aus dem alten
+// 2-Track-Schema und sind mit der neuen Auswertung nicht vereinbar). Wird in
+// file.js und init.js nach dem FRQ_resultsArray-Load aufgerufen.
+function _FRQ_cleanupLegacyResults() {
+  if (typeof FRQ_resultsArray === 'undefined' || !Array.isArray(FRQ_resultsArray)) return;
+  for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
+    const r = FRQ_resultsArray[i];
+    if (!r) continue;
+    if (r.fmConvUp != null || r.fmConvDown != null || r.fmTrackDiff != null
+        || r.fmStatusUpLast != null || r.fmStatusDownLast != null) {
+      FRQ_resultsArray.splice(i, 1);
+    }
+  }
+}
+// BA415: Hebt alte Frequenzabgleich-Eintraege auf das kanonische Format
+// (cent kanonisch + frqRefMode). Laeuft stets direkt nach splice(...d.fRes)
+// auf ROHEN Datei-Eintraegen -> arbeitet nie auf bereits Migriertem (idempotent
+// ueber Lade-Zyklen).
+// BA416: testmode -> frqRefMode (Feld-Umbenennung); alte BA414/415-Eintraege
+// mit 'testmode' werden auf 'frqRefMode' gehoben.
+// BA417.x (2026-07-01): pre-BA417-Dateien tragen im Kennzeichen
+// (frqRefMode/testmode/varSide) die alte FESTE-Seiten-Semantik -> das Kennzeichen
+// auf die BA417-Bedeutung (bewegte/steuerbare Seite = Gegenseite) drehen. Das
+// cent-VORZEICHEN bleibt UNANGETASTET: es wird aus den gemessenen Frequenzen +
+// der festen (var-)Seite berechnet, die die BA417-Umbenennung nicht beruehrt.
+// (An zwei realen E1-Messungen verifiziert: alt +245/right -> +245/left deckt
+// sich mit frisch +240/left; ein Mitdrehen des Vorzeichens ergaebe faelschlich
+// -245. S. Konzept_Frequenzabgleich_Anwendung.md §12.)
+// cent-Konvention (s. core.js FRQ_varRefOffsetToCanonical): +cent = rechtes
+// Ohr nimmt tiefer wahr als linkes (Wahrnehmung; die Korrektur-Richtung folgt
+// daraus nicht pauschal, s. core.js-Kommentar bei FRQ_seitenWerte).
+function _FRQ_migrateResultsFormat(d) {
+  if (typeof FRQ_resultsArray === 'undefined' || !Array.isArray(FRQ_resultsArray)) return;
+  var preBA417 = _FRQ_pianoSessionPreBA417(d);   // Versions-Stempel der Datei
+  for (var i = 0; i < FRQ_resultsArray.length; i++) {
+    var r = FRQ_resultsArray[i];
+    if (!r) continue;
+    // Schon auf frqRefMode umgestellt: bei pre-BA417 nur das Kennzeichen drehen
+    // (cent bleibt), sonst nichts tun.
+    if (typeof r.frqRefMode === 'string') {
+      if (preBA417) r.frqRefMode = _FRQ_frqRefModeFromLegacy(r.frqRefMode);
+      continue;
+    }
+    // BA414/415-Eintrag mit altem Feld 'testmode': umbenennen (+ pre-BA417 drehen).
+    if (typeof r.testmode === 'string') {
+      r.frqRefMode = preBA417 ? _FRQ_frqRefModeFromLegacy(r.testmode) : r.testmode;
+      delete r.testmode;
+      continue;
+    }
+
+    // 1) FESTE (var-)Seite aus Alt-Feldern ableiten -- sie orientiert das cent.
+    var varMode;
+    if (r.refSide === 'symmetric')      varMode = 'symmetric';
+    else if (r.varSide === 'right')     varMode = 'right';
+    else                                varMode = 'left';   // Default/legacy
+
+    // 2) Rohen Offset (pse-Konvention: refHz = varHz * 2^(pse/1200)) rekonstruieren.
+    //    - asym Altdaten: Offset steckt in refFreq/varFreq.
+    //    - sym Altdaten:  altes r.cent IST der rohe pse (= Offset gegen Mitte).
+    var rawOffset = null;
+    if (typeof r.refFreq === 'number' && typeof r.varFreq === 'number'
+        && r.refFreq > 0 && r.varFreq > 0) {
+      rawOffset = 1200 * Math.log2(r.refFreq / r.varFreq);
+    } else if (typeof r.cent === 'number' && isFinite(r.cent)) {
+      rawOffset = r.cent;   // sym-Altfall: altes cent war roher pse
+    }
+    if (rawOffset == null) {
+      r._frqUnmigratable = true;
+      continue;
+    }
+
+    // 3) cent kanonisch aus der FESTEN (var-)Seite -- Vorzeichen unabhaengig
+    //    von der BA417-Kennzeichen-Semantik.
+    r.cent = FRQ_varRefOffsetToCanonical(varMode, rawOffset);
+    // 4) Kennzeichen: var/ref-Eintraege sind stets alte (feste-Seiten-)Semantik
+    //    -> auf die BA417-Bedeutung (bewegte Seite = Gegenseite) drehen.
+    r.frqRefMode = _FRQ_frqRefModeFromLegacy(varMode);
+
+    // 5) Alte Felder entfernen.
+    delete r.varSide;
+    delete r.refSide;
+    delete r.varFreq;
+    delete r.refFreq;
+  }
+  // Nicht migrierbare Eintraege entfernen.
+  for (var j = FRQ_resultsArray.length - 1; j >= 0; j--) {
+    if (FRQ_resultsArray[j] && FRQ_resultsArray[j]._frqUnmigratable) {
+      FRQ_resultsArray.splice(j, 1);
+    }
+  }
+}
+
+// BA417.1: Wurde die Datei/localStorage VOR BA417 gespeichert? Dann trug
+// frqRefMode (und run.varSide im Alt-Format) die alte var-Seiten-Semantik
+// (= FESTE Seite). version-Feld fehlt oder dritte Stelle < 417 => alt.
+function _FRQ_pianoSessionPreBA417(d) {
+  var v = d && d.version;
+  if (typeof v !== "string") return true;
+  var m = v.match(/^\d+\.\d+\.(\d+)/);
+  return m ? (parseInt(m[1], 10) < 417) : true;
+}
+
+// BA417.1: Dreht einen frqRefMode aus der alten var-Seiten-Semantik
+// (gespeichert = feste Seite) in die BA417-referenzmodus-Semantik
+// (= steuerbare Seite = Gegenseite). 'symmetric' bleibt.
+function _FRQ_frqRefModeFromLegacy(m) {
+  if (m === "symmetric") return "symmetric";
+  return (m === "right") ? "left" : "right";
+}
+
+// Normalisiert eine geladene Klavier-Session auf das Verlaufslisten-
+// Format (00-freqmatch-nachpruefung-architektur.md Sec. 6).
+// Idempotent: Sessions im neuen Format bleiben unberuehrt.
+function _FRQ_pianoNormalisieren(sess) {
+  if (!sess) return;
+  var steps = [250, 100, 50, 25, 10, 5];   // Alt-Leiter, nur Migration
+  if (sess.perElectrode) {
+    Object.keys(sess.perElectrode).forEach(function (el) {
+      var pe = sess.perElectrode[el];
+      if (!pe) { sess.perElectrode[el] = { verlauf: [] }; return; }
+      if (Array.isArray(pe.verlauf)) return;   // schon neues Format
+      var verlauf = [];
+      var rounds = pe.rounds || {};
+      Object.keys(rounds).map(function (k) { return parseInt(k, 10); })
+        .sort(function (a, b) { return a - b; })
+        .forEach(function (n) {
+          var r = rounds[n];
+          if (!r) return;
+          var idx = Math.min(Math.max(n, 1), steps.length) - 1;
+          verlauf.push({
+            step: steps[idx],
+            lower: (typeof r.lower === "number") ? r.lower : null,
+            upper: (typeof r.upper === "number") ? r.upper : null,
+            durchgang: 1
+          });
+        });
+      sess.perElectrode[el] = { verlauf: verlauf };
+    });
+  }
+  var run = sess.run;
+  if (run && run.durchlauf == null) {
+    run.typ            = run.typ || "haupt";
+    run.durchgang      = run.durchgang || 1;
+    run.durchlauf      = run.currentRound || 1;
+    run.durchlaufOrder = run.roundOrder || [];
+    run.posInDurchlauf = run.posInRound || 0;
+    var st = steps[Math.min(run.durchlauf, steps.length) - 1];
+    run.durchlaufSteps = {};
+    (run.electrodeList || []).forEach(function (el) { run.durchlaufSteps[el] = st; });
+    delete run.currentRound;
+    delete run.roundOrder;
+    delete run.posInRound;
+  }
+}
+
+// BA416: Laedt FRQ_pianoSession aus den geladenen Daten. Migriert alte
+// pro-Seite-Behaelter (d.sides[side].freqmatchPiano) auf die globale,
+// seitenlose Session. d = das geladene JSON-Objekt.
+function _FRQ_loadPianoSession(d) {
+  // 1) Neues Format: globale Session direkt.
+  if (d && d.pianoSession) {
+    FRQ_pianoSession = d.pianoSession;
+    // BA417.1: vor BA417 trug frqRefMode die alte var-Seiten-Semantik
+    // (Gegenseite der Referenz). Ungedreht steuert der fortgesetzte Test
+    // die falsche Seite UND schreibt das Vorzeichen invertiert -> drehen.
+    if (FRQ_pianoSession && _FRQ_pianoSessionPreBA417(d)) {
+      FRQ_pianoSession.frqRefMode = _FRQ_frqRefModeFromLegacy(FRQ_pianoSession.frqRefMode);
+    }
+    _FRQ_pianoNormalisieren(FRQ_pianoSession);
+    _FRQ_pianoNachLadenNeuRechnen();
+    return;
+  }
+  // 2) Alt-Format: die EINE Seite mit freqmatchPiano-Daten finden.
+  FRQ_pianoSession = null;
+  if (!d || !d.sides) return;
+  var srcSide = null, src = null;
+  ['left', 'right'].forEach(function (side) {
+    var fp = d.sides[side] && d.sides[side].freqmatchPiano;
+    if (!srcSide && fp && fp.perElectrode
+        && Object.keys(fp.perElectrode).length > 0) {
+      srcSide = side; src = fp;
+    }
+  });
+  // (Falls BEIDE Seiten Daten tragen: die erste gefundene -- Beschluss.)
+  if (!src) return;
+  // run aus Alt-Format: varSide/refSide/symmetric -> frqRefMode ableiten.
+  // BA417.1: oldRun.varSide ist die alte FESTE Seite -> die neue steuerbare
+  // Seite (referenzmodus) ist die Gegenseite.
+  var oldRun = src.run || null;
+  var frqRefMode = 'right';
+  if (oldRun) {
+    frqRefMode = oldRun.symmetric ? 'symmetric'
+               : _FRQ_frqRefModeFromLegacy(oldRun.varSide);
+  }
+  var newRun = null;
+  if (oldRun) {
+    newRun = {
+      runId:        oldRun.runId || new Date().toISOString(),
+      startedAt:    oldRun.startedAt || Date.now(),
+      lastUpdate:   oldRun.lastUpdate || Date.now(),
+      electrodeList: oldRun.electrodeList || [],
+      currentRound: oldRun.currentRound || 1,
+      roundOrder:   oldRun.roundOrder || [],
+      posInRound:   oldRun.posInRound || 0,
+      borderOrder:  oldRun.borderOrder || ['lower', 'upper'],
+      posInBorder:  oldRun.posInBorder || 0
+    };
+  }
+  FRQ_pianoSession = {
+    frqRefMode:   frqRefMode,
+    run:          newRun,
+    perElectrode: src.perElectrode || {}
+  };
+  _FRQ_pianoNormalisieren(FRQ_pianoSession);
+  _FRQ_pianoNachLadenNeuRechnen();
+}
+
+// Nach dem Laden: Klavier-Ergebnisse (fRes) aus dem Verlauf neu
+// schreiben, damit sie immer der AKTUELLEN Streuband-Rechnung
+// entsprechen. Ohne diesen Schritt stuende eine mit aelterem
+// Rechenstand gespeicherte Mitte bis zur naechsten Bestaetigung neben
+// dem live gerechneten Band. Nur bei vorhandenen Verlaufsdaten —
+// _frq_pianoWriteResults loescht sonst piano-Eintraege ersatzlos.
+function _FRQ_pianoNachLadenNeuRechnen() {
+  if (FRQ_pianoSession && FRQ_pianoSession.perElectrode
+      && Object.keys(FRQ_pianoSession.perElectrode).length > 0
+      && typeof _frq_pianoWriteResults === "function") {
+    _frq_pianoWriteResults();
+  }
+}
+
+function loadSideData(side, d) {
+  const s = sideData[side];
+  s.config = d.config || "ci";
+  if (d.manufacturer && MFR[d.manufacturer]) {
+    s.manufacturer = d.manufacturer;
+    s.nEl = MFR[s.manufacturer].n;
+    s.FRQ_implantat = d.frequencies || [...MFR[s.manufacturer].FRQ_implantat];
+  } else {
+    s.nEl = MFR[s.manufacturer].n;
+    s.FRQ_implantat = [...MFR[s.manufacturer].FRQ_implantat];
+  }
+  // BA462: Wand-Wahl laden; Alt-Dateien ohne Feld -> Hersteller-Default.
+  {
+    var _bg462 = MFR[s.manufacturer] ? MFR[s.manufacturer].bandGrenzen : null;
+    var _defLo = _bg462 ? _bg462.default[0] : null;
+    var _defHi = _bg462 ? _bg462.default[1] : null;
+    s.bandWandLo = (typeof d.bandWandLo === "number") ? d.bandWandLo : _defLo;
+    s.bandWandHi = (typeof d.bandWandHi === "number") ? d.bandWandHi : _defHi;
+  }
+  // BA463: seitenweise Band-Wahlen laden (fehlt -> Default).
+  if (typeof FRQ_BAND_WAHLEN !== "undefined") {
+    FRQ_BAND_WAHLEN.forEach(function (w) {
+      s[w.key] = (typeof d[w.fileKey] === "string") ? d[w.fileKey] : w.def;
+    });
+    // BA502: Migration alter Glaettungs-Werte auf die vereinheitlichte Struktur.
+    // (a) Verfahren "ortskurve" ist in "polynom" aufgegangen: Fit ueber Index,
+    //     Rechenraum Ortsraum (bildet das alte Ortskurve-Verhalten nach).
+    if (s.bandGlaettVerfahren === "ortskurve") {
+      s.bandGlaettVerfahren = "polynom";
+      s.bandGlaettFitX       = "index";
+      s.bandGlaettAchse      = "ortsraum";
+    }
+    // (b) Rechenraum-Wert "greenwood" heisst jetzt "ortsraum" (w=0 = Greenwood).
+    if (s.bandGlaettAchse === "greenwood") s.bandGlaettAchse = "ortsraum";
+    // (c) k-Stufen geaendert: 1.3/1.4 (vor 0.5.503.1) -> 1.36 (genauerer
+    //     MED-EL-Default-Rekonstruktions-Wert, Konzept_Greenwood_Glaettungs_
+    //     Prior.md); 1.1 (0.5.503.1) -> 1.0 (0.5.503.3). Alte Werte mappen, sonst
+    //     fiele der Radio-Spiegel leer aus und _frqGlaettK rechnete still mit dem
+    //     Default 0.88.
+    if (s.bandGlaettK === "1.3" || s.bandGlaettK === "1.4") s.bandGlaettK = "1.36";
+    if (s.bandGlaettK === "1.1") s.bandGlaettK = "1.0";
+  }
+  s.elSt = d.electrodeStatus || new Array(s.nEl).fill(null);
+  s.elNt = d.electrodeNotes || new Array(s.nEl).fill("");
+  s.elExDur = d.electrodeExcludedDuring || new Array(s.nEl).fill(null);
+  // Migrate old 'excluded' from elSt to elExDur
+  for (let _i = 0; _i < s.elSt.length; _i++) {
+    if (s.elSt[_i] === "excluded") {
+      s.elExDur[_i] = s.elExDur[_i] || Date.now();
+      s.elSt[_i] = null;
+    }
+  }
+  // BA 164: elActive aus Datei lesen oder Default true.
+  s.elActive = Array.isArray(d.electrodeActive)
+    ? d.electrodeActive.map((v) => v !== false)
+    : new Array(s.nEl).fill(true);
+  while (s.elActive.length < s.nEl) s.elActive.push(true);
+  s.elActive = s.elActive.slice(0, s.nEl);
+  // BA479: elFreqChain aus Datei lesen oder Default true (Alt-Staende ohne
+  // den Key -> alle in der Kette).
+  s.elFreqChain = Array.isArray(d.electrodeFreqChain)
+    ? d.electrodeFreqChain.map((v) => v !== false)
+    : new Array(s.nEl).fill(true);
+  while (s.elFreqChain.length < s.nEl) s.elFreqChain.push(true);
+  s.elFreqChain = s.elFreqChain.slice(0, s.nEl);
+  // BA 164 Migration: alter elSt-Wert "deactivated" -> elActive=false + elSt=null.
+  // elExDur wird zusätzlich gesetzt, damit alte Stände auch die alte
+  // Skip-Wirkung behalten (Aktiv und Ausschluss sind ab BA 164 entkoppelt,
+  // aber alte Daten brauchen den Spiegel-Effekt fürs nahtlose Weiterarbeiten).
+  for (let _i = 0; _i < s.elSt.length; _i++) {
+    if (s.elSt[_i] === "deactivated") {
+      s.elActive[_i] = false;
+      s.elSt[_i] = null;
+      s.elExDur[_i] = s.elExDur[_i] || Date.now();
+    }
+  }
+  // Referenzelektrode seitenspezifisch; bei fehlender, ungueltiger oder
+  // auf eine deaktivierte/stumme Elektrode zeigender Angabe -> Default.
+  {
+    const r = d.referenceElectrode;
+    const valid =
+      typeof r === "number" && r >= 0 && r < s.nEl &&
+      s.elExDur[r] == null && s.elSt[r] !== "mute";
+    s.ELL_refEl = valid ? r : pickDefaultRefEl(side);
+  }
+  // BA 251: judgmentResults aus alten Dateien werden stillschweigend ignoriert.
+  s.ELL_results = d.balanceResults || [];
+  s.schieberELL = d.manualLevels || new Array(s.nEl).fill(0);
+  if (d.presets && Array.isArray(d.presets)) {
+    s.kurvenELL = KURVEN_ELL_TYPES.map((tp) => {
+      const found = d.presets.find((p) => p.type === tp);
+      if (found) {
+        if (found.phon == null) found.phon = 70;
+        return found;
+      }
+      return {
+        type: tp, on: false, strength: 0, center: CENT_REF_HZ, width: 1200,
+        phon: 70,
+        cutoff: tp === "bassboost" ? Math.floor(s.nEl / 3) : Math.floor((s.nEl * 2) / 3),
+      };
+    });
+  }
+  s.fullSweepRound = d.fullSweepRound !== undefined ? d.fullSweepRound : null;
+  s.fullSweepDonePairs =
+    d.fullSweepDonePairs !== undefined ? d.fullSweepDonePairs : [];
+  // Load FRQ_implantatOwn: if present use it; else split loaded FRQ_implantat vs defaults
+  if (d.electrodeFreqOwn) {
+    s.FRQ_implantatOwn = [...d.electrodeFreqOwn];
+  } else {
+    const defF = MFR[s.manufacturer].FRQ_implantat;
+    s.FRQ_implantatOwn = s.FRQ_implantat.map((f, i) =>
+      Math.round(f) === Math.round(defF[i]) ? null : f,
+    );
+  }
+  // Load implant data (v2.6+)
+  const di = d.implant || {};
+  s.implant = {
+    model: di.model || "",
+    processor: di.processor || "",
+    cValue: di.cValue !== undefined && di.cValue !== null ? di.cValue : null,
+    idr: di.idr !== undefined && di.idr !== null ? di.idr : null,
+    generation: di.generation || null,
+    // FSP-Kodierung (nur MED-EL); Alt-Dateien ohne Feld -> Defaults.
+    coding: di.coding || "unknown",
+    fspEl: Array.isArray(di.fspEl) ? di.fspEl.map((v) => v === true) : new Array(s.nEl).fill(false),
+    mcl: di.mcl || new Array(s.nEl).fill(null),
+    thr: di.thr || new Array(s.nEl).fill(null),
+    upperLevel: di.upperLevel || new Array(s.nEl).fill(null),
+  };
+  // Ensure arrays are correct length
+  ["mcl", "thr", "upperLevel", "fspEl"].forEach((k) => {
+    const _fill = k === "fspEl" ? false : null;
+    while (s.implant[k].length < s.nEl) s.implant[k].push(_fill);
+    s.implant[k] = s.implant[k].slice(0, s.nEl);
+  });
+}
+// Gegenstueck zu loadSideData fuer die Frequenzbaender-Wahlen (Reiter
+// Frequenzbaender): liefert die persistenten Band-Felder EINER Seite als
+// Objekt {fileKey: wert, …}. EINZIGE Bau-Stelle fuer den Save-Block; von
+// Datei-Save (file.js) UND localStorage-Auto-Save (init.js) genutzt, damit
+// eine neue Wahl in FRQ_BAND_WAHLEN nicht wieder aus einem Speicherweg
+// herausfaellt. bandWandLo/Hi liegen ausserhalb von FRQ_BAND_WAHLEN (Zahlen,
+// kein Radio) -> explizit. FRQ_bandAusgang ist GLOBAL (nicht pro Seite) und
+// wird darum nicht hier, sondern global gespeichert.
+function FRQ_bandSaveFelder(side) {
+  var s = sideData[side];
+  var out = {
+    bandWandLo: s.bandWandLo,
+    bandWandHi: s.bandWandHi,
+  };
+  if (typeof FRQ_BAND_WAHLEN !== "undefined") {
+    FRQ_BAND_WAHLEN.forEach(function (w) { out[w.fileKey] = s[w.key]; });
+  }
+  return out;
+}
+function getPlayerSide() {
+  const cb = document.getElementById("plBothSides");
+  if (cb && cb.checked) {
+    const mono = document.getElementById("plMonoEQ");
+    if (mono && mono.checked) return "mono";
+    return "both";
+  }
+  return activeSide;
+}
+// Zentraler roher Mittelwert der Stereo-Balance-Messung (STB_results).
+// EINE Wahrheit fuer Anzeige, Player, Messtests und Ausdruck.
+// Filterung: nur endliche Werte UND nicht deaktivierte/stummgeschaltete
+// Elektroden (auf BEIDEN Seiten geprueft) -- deaktivierte tragen nicht mehr
+// zur Balance bei. Liefert null, wenn keine gueltige Messung uebrig bleibt.
+// STB_results liegt in lr-balance.js (spaeter geladen), daher erst zur
+// Laufzeit auswerten.
+function STB_meanRaw() {
+  if (typeof STB_results === "undefined") return null;
+  var keys = Object.keys(STB_results).filter(function (k) {
+    var i = +k;
+    if (!isFinite(STB_results[i])) return false;
+    var exL = sideData.left.elExDur[i]  !== null || sideData.left.elSt[i]  === "mute";
+    var exR = sideData.right.elExDur[i] !== null || sideData.right.elSt[i] === "mute";
+    return !(exL || exR);
+  });
+  if (!keys.length) return null;
+  var sum = keys.reduce(function (a, k) { return a + STB_results[+k]; }, 0);
+  return sum / keys.length;
+}
+function getPlayerSTB() {
+  if (!plApplyBalance) return 0;
+  const mean = STB_meanRaw();
+  if (mean === null) return 0;
+  // Positive mean = right louder → negative balance offset (rechts dämpfen)
+  return Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
+}
+function getPlayerSTBGains() {
+  // Liefert {left, right} dB-Werte für die beiden Channel-Gains
+  // im "both"-Modus. Berücksichtigt plBalanceMode.
+  // b ist die gemessene L↔R-Differenz in dB (= -mean der STB_results).
+  // Der akustische Unterschied muss in ALLEN Modi genau b betragen,
+  // wie beim Test eingestellt (STB_pairGains verteilt off als ±off/2).
+  // "sym" (Default): symmetrisch, jede Seite trägt die Hälfte (±b/2).
+  // "left":  voller Ausgleich b ausschließlich auf der linken Seite.
+  // "right": voller Ausgleich b ausschließlich auf der rechten Seite.
+  const b = getPlayerSTB();
+  const mode = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
+  const clamp = (v) => Math.max(-60, Math.min(60, v));
+  if (mode === "left") {
+    return { left: clamp(b), right: 0 };
+  }
+  if (mode === "right") {
+    return { left: 0, right: clamp(-b) };
+  }
+  return { left: b / 2, right: -b / 2 };
+}
+function STB_rawGains() {
+  // Wie getPlayerSTBGains(), aber ignoriert plApplyBalance.
+  // Für Meßtests (Frequenzabgleich, Latenz): Balance immer anwenden.
+  const mean = STB_meanRaw();
+  if (mean === null) return { left: 0, right: 0 };
+  // b = gemessene L↔R-Differenz; Verteilung wie getPlayerSTBGains.
+  const b = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
+  const mode = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
+  const clamp = (v) => Math.max(-60, Math.min(60, v));
+  if (mode === "left") {
+    return { left: clamp(b), right: 0 };
+  }
+  if (mode === "right") {
+    return { left: 0, right: clamp(-b) };
+  }
+  return { left: b / 2, right: -b / 2 };
+}
+function withSide(side, fn) {
+  const prevSide = activeSide;
+  const prev = {
+    mfr,
+    nEl,
+    FRQ_implantat,
+    elSt,
+    elNt,
+    elExDur,
+    schieberELL,
+    kurvenELL,
+    ELL_refEl,
+    ELL_results,
+  };
+  activeSide = side;
+  bindActiveSide();
+  try {
+    return fn();
+  } finally {
+    activeSide = prevSide;
+    bindActiveSide();
+  }
+}
+function dEN(i, side) {
+  if (side === "left" || side === "right") {
+    var s = sideData[side];
+    if (s) {
+      var me = MFR[s.manufacturer];
+      var ap = me ? me.apFirst : true;
+      return ap ? i + 1 : s.nEl - i;
+    }
+  }
+  return MFR[mfr].apFirst ? i + 1 : nEl - i;
+}
+// Liefert das Präfix ("E" oder "B") für die aktive Seite
+function dENPrefix(side) {
+  const cfg = side ? (sideData[side].config || "ci") : (config || "ci");
+  return cfg === "ci" ? t("cfgLblEnCI") : t("cfgLblEnAcoustic");
+}
+// Liefert Seite, die als Frequenzraster-Quelle dient,
+// oder null wenn beide CI (unabhängig) oder beide nicht-CI (Default)
+function FRQ_implantatGetSource() {
+  const lCfg = sideData.left.config || "ci";
+  const rCfg = sideData.right.config || "ci";
+  if (lCfg === "ci" && rCfg !== "ci") return "left";
+  if (rCfg === "ci" && lCfg !== "ci") return "right";
+  return null; // beide CI (unabhängig) oder beide nicht-CI (Default)
+}
+function isSideUsable(side) {
+  const s = sideData[side];
+  if (!s) return false;
+  const cfg = s.config || "unknown";
+  if (cfg === "unknown") return false;
+  if (cfg === "ci" && (!s.manufacturer || s.manufacturer === "unknown")) return false;
+  return true;
+}
+
+// BA 156: Snapshot der für Tests relevanten Implantat-Felder
+function implantSnapshot() {
+  function _sideSnap(side) {
+    const s = sideData[side];
+    if (!s) return null;
+    // BA 164: Quelle ist jetzt elActive[]
+    const deact = [];
+    const arr = s.elActive || [];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === false) deact.push(i);
+    }
+    return {
+      config: s.config || "unknown",
+      manufacturer: s.manufacturer || "unknown",
+      nEl: s.nEl || 0,
+      deactivatedIdx: deact,
+    };
+  }
+  return {
+    left:  _sideSnap("left"),
+    right: _sideSnap("right"),
+  };
+}
+
+function implantSnapshotsDiffer(a, b) {
+  if (!a || !b) return false;
+  function _eqSide(x, y) {
+    if (!x || !y) return false;
+    if (x.config !== y.config) return false;
+    if (x.manufacturer !== y.manufacturer) return false;
+    if (x.nEl !== y.nEl) return false;
+    const xD = x.deactivatedIdx || [], yD = y.deactivatedIdx || [];
+    if (xD.length !== yD.length) return false;
+    for (let i = 0; i < xD.length; i++) if (xD[i] !== yD[i]) return false;
+    return true;
+  }
+  return !(_eqSide(a.left, b.left) && _eqSide(a.right, b.right));
+}
+
+// BA 156: Hinweis-Banner-Helper. testKey ∈ {'stereobalance', 'latenz'}.
+function renderSnapshotHint(testKey, containerEl) {
+  if (!containerEl) return;
+  let oldSnap = null;
+  if (testKey === 'stereobalance') {
+    oldSnap = (typeof STB_snapshot !== 'undefined') ? STB_snapshot : null;
+  } else if (testKey === 'latenz') {
+    oldSnap = (typeof LTZ_result !== 'undefined' && LTZ_result)
+            ? LTZ_result.implantSnapshot : null;
+  }
+  if (!oldSnap) { containerEl.innerHTML = ''; return; }
+  const curSnap = implantSnapshot();
+  if (!implantSnapshotsDiffer(oldSnap, curSnap)) {
+    containerEl.innerHTML = '';
+    return;
+  }
+  containerEl.innerHTML =
+    '<div class="snapshot-hint">' + t('snapshotHintChanged') + '</div>';
+}
+let _syncInProgress = false;
+function FRQ_implantatSyncToAcoustic() {
+  if (_syncInProgress) return;
+  _syncInProgress = true;
+  try {
+    const src = FRQ_implantatGetSource();
+    if (src) {
+      // Eine CI-Seite ist Quelle: andere Seite(n) spiegeln
+      const other = src === "left" ? "right" : "left";
+      // BA 154: nur akustische Konfigurationen spiegeln, nicht „unknown" oder „deaf"
+      const otherCfg = sideData[other].config || "unknown";
+      if (["hg", "normal", "shoh"].includes(otherCfg)) {
+        const srcData = sideData[src];
+        const otherData = sideData[other];
+        otherData.nEl = srcData.nEl;
+        otherData.FRQ_implantat = [...srcData.FRQ_implantat];
+        otherData.manufacturer = srcData.manufacturer;
+        // FRQ_implantatOwn auf neue Länge anpassen, nicht überschreiben
+        if (!otherData.FRQ_implantatOwn || otherData.FRQ_implantatOwn.length !== otherData.nEl) {
+          otherData.FRQ_implantatOwn = new Array(otherData.nEl).fill(null);
+        }
+        // Arrays auf neue Elektrodenzahl anpassen
+        ["elSt","elNt","elExDur","schieberELL"].forEach(k => {
+          if (!otherData[k] || otherData[k].length !== otherData.nEl) {
+            const def = k === "elSt" || k === "elExDur" ? null : (k === "elNt" ? "" : 0);
+            otherData[k] = new Array(otherData.nEl).fill(def);
+          }
+        });
+        if (!otherData.implant || !otherData.implant.mcl ||
+            otherData.implant.mcl.length !== otherData.nEl) {
+          otherData.implant = {
+            model: otherData.implant ? otherData.implant.model || "" : "",
+            processor: otherData.implant ? otherData.implant.processor || "" : "",
+            cValue: null, idr: null, generation: null,
+            mcl: new Array(otherData.nEl).fill(null),
+            thr: new Array(otherData.nEl).fill(null),
+            upperLevel: new Array(otherData.nEl).fill(null),
+          };
+        }
+      }
+    } else {
+      // Beide nicht-CI: Default-Raster setzen
+      const lCfg = sideData.left.config || "ci";
+      const rCfg = sideData.right.config || "ci";
+      if (lCfg !== "ci" && rCfg !== "ci") {
+        ["left","right"].forEach(side => {
+          const s = sideData[side];
+          if (s.config !== "ci") {
+            const defN = MFR[defaultMfr].n;
+            s.nEl = defN;
+            s.FRQ_implantat = [...MFR[defaultMfr].FRQ_implantat];
+            s.manufacturer = defaultMfr;
+            s.FRQ_implantatOwn = new Array(defN).fill(null);
+            ["elSt","elNt","elExDur","schieberELL"].forEach(k => {
+              if (!s[k] || s[k].length !== defN) {
+                const def = k === "elSt" || k === "elExDur" ? null : (k === "elNt" ? "" : 0);
+                s[k] = new Array(defN).fill(def);
+              }
+            });
+          }
+        });
+      }
+    }
+    // Aktive Seite neu binden
+    bindActiveSide();
+  } finally {
+    _syncInProgress = false;
+  }
+}
+// Konfiguration einer Seite setzen und Sync auslösen
+function setSideConfig(side, cfg) {
+  sideData[side].config = cfg;
+  if (cfg === "ci") {
+    // Wenn zurück zu CI: unabhängig werden — Frequenzen auf Default,
+    // Hersteller-Fallback weiterhin „unknown" (BA 154).
+    const s = sideData[side];
+    s.manufacturer = s.manufacturer || "unknown";
+    s.nEl = (MFR[s.manufacturer] && MFR[s.manufacturer].n) || 0;
+    s.FRQ_implantat = (MFR[s.manufacturer] && [...MFR[s.manufacturer].FRQ_implantat]) || [];
+    FRQ_implantatSyncToAcoustic();
+  } else {
+    // unknown / hg / normal / shoh / deaf: keine eigenen Frequenzen,
+    // ggf. Spiegel von der anderen CI-Seite.
+    FRQ_implantatSyncToAcoustic();
+  }
+  bindActiveSide();
+  // BA 149
+  if (typeof depLockApply === 'function') depLockApply();
+  // BA 172: Tab-Sperre L1 neu bewerten
+  if (typeof tabLockApply === 'function') tabLockApply();
+}
+initSideData("left", "unknown");
+initSideData("right", "unknown");
+activeSide = "left";
+bindActiveSide();
+updateMfrSelectLabels();
+
+let audioCtx = null,
+  runningSources = [],
+  playTO = null,
+  isPlay = false,
+  holdIdx = -1;
+let ELL_testAct = false,
+  ELL_testPairs = [],
+  ELL_testIdx = 0,
+  ELL_curPlayed = false,
+  ELL_curBase = 0,
+  slExt = false;
+let ELL_curA = -1,
+  ELL_curB = -1,
+  undoSt = [],
+  convRnd = 0;
+
+// ============================================================
+// BA 280: Zentrale Default-Werte (Single Source of Truth).
+// Alle Erststart-Werte, resetAll-Rucksetzwerte, Speicher-/Lade-
+// Fallbacks und Druck-Anzeige-Fallbacks fur Test-Parameter und
+// Ton-Hullkurve greifen ausschliesslich auf diese zwei Objekte zu.
+// Wer einen Default andern will, andert ihn NUR hier.
+// ------------------------------------------------------------
+// BA 296: Default-Ton fuer alle Verfahren auf "sine" (Sinus). Die
+// Tonart-Auswahl ist im Normalbetrieb ausgeblendet und nur im
+// Debug-Modus waehlbar.
+const TEST_DEFAULTS = {
+  commonVolume: 50,                 // BA 287: gemeinsame Lautstaerke aller Tests + Implantat
+  freqmatch: { toneType: "sine", volume: 75, duration: 600, pause: 300, sequence: "abab" },
+  elektrodenlautstaerke: { toneType: "sine", volume: 50, duration: 600, pause: 300, sequence: "abab" },
+  stereobalance: { toneType: "sine", volume: 75, duration: 600, pause: 300, sequence: "abab" },
+  implant:   { toneType: "sine", volume: 75, duration: 600, pause: 300 }
+};
+const TONE_ENV_DEFAULTS = {
+  attackForm: "dblin",  // Anstiegsform: dB-linear
+  attackMs:   90,       // Anschwingzeit ms
+  dbFloor:    -20,      // Startpegel dB (nur bei dblin wirksam)
+  release:    "short"   // Ausklang: kurz
+};
+// BA 209: Tonart speziell fur Frequenzabgleich.
+// Default 'richCiHF' (CI-Test flach).
+let toneType_freqmatch = TEST_DEFAULTS.freqmatch.toneType;
+// BA 246: Tonart speziell fuer Elektrodenlautstaerke. Eigene Persistenz
+// statt globalToneType, damit Tonart-Popup-Dialog (analog freqmatch)
+// pro Test funktioniert. Wird in BA 247 erstmals aus dem testUI-Header
+// gelesen/geschrieben.
+let toneType_elektrodenlautstaerke = TEST_DEFAULTS.elektrodenlautstaerke.toneType;
+// BA 240: Vol/Dur/Pau leben jetzt als State-Variablen statt im testUI-Header.
+// Vol als int 0..100 (UI-Wert); FRQ_getVolume macht die quadratische Audio-Konversion.
+let duration_freqmatch = TEST_DEFAULTS.freqmatch.duration;
+let pause_freqmatch    = TEST_DEFAULTS.freqmatch.pause;
+// BA 250: Vol/Dur/Pau fuer Elektrodenlautstaerke. Analog zu freqmatch
+// als State-Variablen statt im testUI-Header. Vol als int 0..100;
+// tGVol macht die quadratische Audio-Konversion.
+// BA 287: gemeinsame Lautstaerke fuer alle drei Mess-Tests UND den
+// Implantat-Reiter. Ersetzt die frueheren volume_test/volume_balance/
+// volume_freqmatch/volume_implant. Vol als int 0..100; die Getter
+// (tGVol/STB_gVol/FRQ_getVolume/...) machen die quadratische Audio-Konversion.
+let volume_global = TEST_DEFAULTS.commonVolume;
+let duration_elektrodenlautstaerke = TEST_DEFAULTS.elektrodenlautstaerke.duration;
+let pause_elektrodenlautstaerke    = TEST_DEFAULTS.elektrodenlautstaerke.pause;
+// BA 253: Tonart, Lautstaerke, Tondauer, Tonpause speziell fuer
+// Stereo-Balance. Ueber die Tonauswahl-Modalbox eingestellt; getrennt
+// vom Frequenzabgleich- und Elektrodenlautstaerke-Test.
+let toneType_stereobalance = TEST_DEFAULTS.stereobalance.toneType;
+let duration_stereobalance = TEST_DEFAULTS.stereobalance.duration;
+let pause_stereobalance    = TEST_DEFAULTS.stereobalance.pause;
+// BA 254: Tonfolge (AB/ABA) speziell pro Test. Ersetzt globalSequence.
+let sequence_freqmatch = TEST_DEFAULTS.freqmatch.sequence;
+let sequence_elektrodenlautstaerke      = TEST_DEFAULTS.elektrodenlautstaerke.sequence;
+let sequence_stereobalance   = TEST_DEFAULTS.stereobalance.sequence;
+// BA 242: Implantat-Tab-Tonauswahl. Vol/Dur/Pau analog freqmatch.
+// Default-Tonart Sinus, weil im Implantat-Tab problematische Elektroden
+// per Sinus am besten zu erkennen sind (Rauschen, Aussetzer).
+let toneType_implant = TEST_DEFAULTS.implant.toneType;
+let duration_implant = TEST_DEFAULTS.implant.duration;
+let pause_implant    = TEST_DEFAULTS.implant.pause;
+
+// Frequenzabgleich-Ergebnisse (global, nicht pro Seite)
+// { varSide, refSide, elIdx, varFreq, refFreq, timestamp }
+let FRQ_resultsArray = [];
+
+// BA416: Klaviertest-Sitzungszustand, global+seitenlos (Architektur 6a).
+// null = keine Session. Persistiert in .cimbel (global) + localStorage.
+let FRQ_pianoSession = null;
+
+// FRQ_distribution: globale Verteilung der Frequenz-Messergebnisse auf die
+// Seiten (frueher Player-pWarpMode). "left" | "right" | "symmetric".
+// EINE Wahl fuer alle Anwendungs-Konsumenten; gesetzt NUR im Reiter
+// Frequenzbaender (BA492) + Datei-Laden; gelesen von FRQ_werte als Default.
+// Architektur 00-freqmatch-wertquelle-architektur.md §4.3.
+let FRQ_distribution = "right";
+
+let plEqOn = true; // EQ toggle state
+let plApplyBalance = true; // Stereo-Balance anwenden
+let plBalanceMode = "sym"; // "sym" | "left" | "right" — wie Stereo-Balance angewandt wird
+let plEqHeadroom = true; // BA 316: Elektrodenlautstaerke gemeinsam absenken (Clipping-/Uebersteuern-Schutz)
+let plEqHeadroomBoth = true; // BA 319: Absenk-Betrag ueber beide Seiten (an) vs. pro Seite (aus)
+let plSrcMeas = true,
+  plSrcLevels = true,
+  plSrcCurves = true; // EQ source toggles
+let plShowExperimental = false; // Toggle für experimentelle Optionen (MAPLAW + Frequenz-Warping); Default aus
+
+let plActiveSource = "musik";   // "musik" | "saetze" | "geraeusche" | "hoerbuecher"
+let plAutoAdvance  = false;     // Auto-Advance-Toggle, Default aus
+let plLoop         = false;     // Endlos-Toggle (aktuelles Stueck wiederholen), Default aus
+let plShuffle      = false;     // BA258: Zufall-Modus global, Default aus
+let plPauseMs      = 2000;      // Pause zwischen Stuecken (ms), Default 2000
+let plSentShowText = false;     // Satz-Text einblenden (Persistenz neu)
+let plNoiseSelectedId = "gen:pink";   // Default-Geraeusch beim ersten Start
+let plNoiseSortAxis   = "kind";       // Default-Sortierachse
+let plNoiseCategory   = "_all";   // BA262: Kategorie-Filter, "(alle)" als Default
+let plNoiseSearchQuery = "";       // BA262: Suchfeld-Inhalt
+let plSentBgEnabled = false;          // BA194: Hintergrund-Geraeusch Master-Toggle
+let plSentBgItemId  = "gen:pink";     // BA194: gewaehltes Hintergrund-Geraeusch
+let plSentBgSnrDb   = 0;             // BA194: SNR in dB
+let plSentSpeakerSel = "any";         // BA332: gewaehlter Sprecher im Saetze-Dropdown ("any" = alle)
+let plContentLang = "de";             // BA336: Inhalts-Sprache (entkoppelt von Tool-Sprache lang); Default wird in init.js auf Tool-Sprache gesetzt
+let pNoiseBuf         = null;         // dekodierter / generierter Geraeusch-Buffer
+let plBookSelectedId = null;          // Collection-ID des aktuellen Buchs
+let plBookChapterIdx = 0;             // Index des aktuellen Kapitels
+let plBookSortAxis   = "author";      // Sortierachse
+let plBookPositions  = {};            // { <bookId>: { chapterIdx, posSeconds } }
+
+// BA260: Musik-Bibliothek
+let plMusicSelectedId   = null;     // welches Stueck aktiv ist
+let plMusicSortAxis     = "title";  // Default-Sortier-Achse
+let plMusicCategory     = "_all";   // "(alle)" als Default
+let plMusicSearchQuery  = "";       // Such-String (persistiert)
+let pBookBuf         = null;          // dekodierter Kapitel-Buffer (Laufzeit, nicht persistiert)
+
+let schieberELLShowMeas = false;
+let schieberELLShowCurves = false;
+let schieberELLMode = "rel";    // "rel" = relativ (±dB), "abs" = absolut (qu/CL/CU)
+let schieberELLVariant = "stack"; // "stack" = gestapelt, "sum" = nur Summe, "lines" = Summe + Vergleichslinien
+

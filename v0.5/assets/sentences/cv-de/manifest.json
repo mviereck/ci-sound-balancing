@@ -1,0 +1,711 @@
+{
+  "lang": "de",
+  "source": "fsicoli/common_voice_17_0",
+  "license": "CC0-1.0",
+  "n_speakers": 100,
+  "gender_distribution": {
+    "u": 100
+  },
+  "items": [
+    {
+      "id": "001",
+      "text": "Der See ist die ideale Location für ein Picknick.",
+      "gender": "u",
+      "client_hash": "4daa7529",
+      "audio": "001.mp3"
+    },
+    {
+      "id": "002",
+      "text": "Parallelität ließe sich auch ohne Multiprozess-Architektur erreichen.",
+      "gender": "u",
+      "client_hash": "a1ec27e8",
+      "audio": "002.mp3"
+    },
+    {
+      "id": "003",
+      "text": "An der Wand hängen Porträts aller ehemaligen Bonzen des Hauses.",
+      "gender": "u",
+      "client_hash": "2d86755b",
+      "audio": "003.mp3"
+    },
+    {
+      "id": "004",
+      "text": "Valerie wohnt in einem alten Plattenbau aus DDR-Zeiten.",
+      "gender": "u",
+      "client_hash": "204dd892",
+      "audio": "004.mp3"
+    },
+    {
+      "id": "005",
+      "text": "Heute Mittag bin ich mit meinen Kollegen zum Döner um die Ecke gegangen.",
+      "gender": "u",
+      "client_hash": "0ddc1a51",
+      "audio": "005.mp3"
+    },
+    {
+      "id": "006",
+      "text": "Wenn ich mich recht erinnere, war die erste Programmiersprache, die ich gelernt habe, Pascal.",
+      "gender": "u",
+      "client_hash": "2aaf3c94",
+      "audio": "006.mp3"
+    },
+    {
+      "id": "007",
+      "text": "Beate denkt inzwischen ernsthaft über eine Scheidung nach.",
+      "gender": "u",
+      "client_hash": "e9885f06",
+      "audio": "007.mp3"
+    },
+    {
+      "id": "008",
+      "text": "Jemand hat mir mein Portmonee geklaut.",
+      "gender": "u",
+      "client_hash": "3b1c78ac",
+      "audio": "008.mp3"
+    },
+    {
+      "id": "009",
+      "text": "Schwarzfahren kostet sechzig Euro und wird in jedem Fall zur Anzeige gebracht.",
+      "gender": "u",
+      "client_hash": "a9cfa700",
+      "audio": "009.mp3"
+    },
+    {
+      "id": "010",
+      "text": "Jetzt habe ich den Faden verloren.",
+      "gender": "u",
+      "client_hash": "eaa0e974",
+      "audio": "010.mp3"
+    },
+    {
+      "id": "011",
+      "text": "Lukas kommt langsam in den Stimmbruch.",
+      "gender": "u",
+      "client_hash": "f77100e9",
+      "audio": "011.mp3"
+    },
+    {
+      "id": "012",
+      "text": "Sein dunkles Haar war etwa schulterlang und er hatte Sommersprossen im Gesicht.",
+      "gender": "u",
+      "client_hash": "c1c7f4c7",
+      "audio": "012.mp3"
+    },
+    {
+      "id": "013",
+      "text": "In Schritt zwei extrahieren wir die wichtigsten Features.",
+      "gender": "u",
+      "client_hash": "c7bbe73e",
+      "audio": "013.mp3"
+    },
+    {
+      "id": "014",
+      "text": "Leider hast du nicht genau das gesagt, was da stand.",
+      "gender": "u",
+      "client_hash": "a54446b8",
+      "audio": "014.mp3"
+    },
+    {
+      "id": "015",
+      "text": "Sag Bescheid, wenn du fertig bist.",
+      "gender": "u",
+      "client_hash": "aaf902d0",
+      "audio": "015.mp3"
+    },
+    {
+      "id": "016",
+      "text": "Jetzt fängt es doch tatsächlich an zu hageln.",
+      "gender": "u",
+      "client_hash": "494d13d2",
+      "audio": "016.mp3"
+    },
+    {
+      "id": "017",
+      "text": "Das ist eine typische Ausrede von Analphabeten.",
+      "gender": "u",
+      "client_hash": "85c5a452",
+      "audio": "017.mp3"
+    },
+    {
+      "id": "018",
+      "text": "Regina hat ihre Flip-Flops aus Versehen kaputt gemacht.",
+      "gender": "u",
+      "client_hash": "a52c0abd",
+      "audio": "018.mp3"
+    },
+    {
+      "id": "019",
+      "text": "Suche Züge nach München, die morgen um zwölf Uhr abfahren.",
+      "gender": "u",
+      "client_hash": "8a570944",
+      "audio": "019.mp3"
+    },
+    {
+      "id": "020",
+      "text": "Bastian geht zum Amboss und hämmert auf ein Metallteil ein.",
+      "gender": "u",
+      "client_hash": "bf107aa9",
+      "audio": "020.mp3"
+    },
+    {
+      "id": "021",
+      "text": "Mit einem Stück Alufolie überbrückte der Elektriker die Sicherung.",
+      "gender": "u",
+      "client_hash": "ba662ed0",
+      "audio": "021.mp3"
+    },
+    {
+      "id": "022",
+      "text": "Gerhard lebt seit siebzehn Jahren im Exil in Südamerika.",
+      "gender": "u",
+      "client_hash": "9465d336",
+      "audio": "022.mp3"
+    },
+    {
+      "id": "023",
+      "text": "Dora sucht noch eine Mitfahrgelegenheit nach Kiel.",
+      "gender": "u",
+      "client_hash": "38b78649",
+      "audio": "023.mp3"
+    },
+    {
+      "id": "024",
+      "text": "Zumindest nicht die ganze Wahrheit.",
+      "gender": "u",
+      "client_hash": "d4ea0c28",
+      "audio": "024.mp3"
+    },
+    {
+      "id": "025",
+      "text": "Die letzte Interaktion war erfolgreich.",
+      "gender": "u",
+      "client_hash": "cda12ede",
+      "audio": "025.mp3"
+    },
+    {
+      "id": "026",
+      "text": "Er ging nie zur Vorsorgeuntersuchung, auch dann nicht, wenn die Krankenkasse die Kosten übernommen hätte.",
+      "gender": "u",
+      "client_hash": "f149e083",
+      "audio": "026.mp3"
+    },
+    {
+      "id": "027",
+      "text": "Und wir haben noch Spielsachen für eure Kinder gefunden.",
+      "gender": "u",
+      "client_hash": "79bcfcac",
+      "audio": "027.mp3"
+    },
+    {
+      "id": "028",
+      "text": "Es kommt nicht nur auf die Größe an.",
+      "gender": "u",
+      "client_hash": "5c3ef9a0",
+      "audio": "028.mp3"
+    },
+    {
+      "id": "029",
+      "text": "Erwin möchte von Freitag auf Samstag bei Peer übernachten.",
+      "gender": "u",
+      "client_hash": "27f74e94",
+      "audio": "029.mp3"
+    },
+    {
+      "id": "030",
+      "text": "Beim Soundcheck kümmert sich Adrian um die Tontechnik.",
+      "gender": "u",
+      "client_hash": "dd2ad39d",
+      "audio": "030.mp3"
+    },
+    {
+      "id": "031",
+      "text": "Tabea setzte zum Endspurt an.",
+      "gender": "u",
+      "client_hash": "4f16e463",
+      "audio": "031.mp3"
+    },
+    {
+      "id": "032",
+      "text": "Wer am dichtesten dran ist, darf beginnen.",
+      "gender": "u",
+      "client_hash": "c1660541",
+      "audio": "032.mp3"
+    },
+    {
+      "id": "033",
+      "text": "Ich wusste gar nicht, dass du aus Castrop-Rauxel kommst",
+      "gender": "u",
+      "client_hash": "23ae8467",
+      "audio": "033.mp3"
+    },
+    {
+      "id": "034",
+      "text": "Die Ofenform sollte zunächst eingefettet werden.",
+      "gender": "u",
+      "client_hash": "91544087",
+      "audio": "034.mp3"
+    },
+    {
+      "id": "035",
+      "text": "Der Anblick auf die schneebedeckte Landschaft war märchenhaft.",
+      "gender": "u",
+      "client_hash": "b6cad39b",
+      "audio": "035.mp3"
+    },
+    {
+      "id": "036",
+      "text": "Frustriert knallt der Verwalter seinem Vorgesetzten den Stapel Akten auf den Schreibtisch.",
+      "gender": "u",
+      "client_hash": "9e875106",
+      "audio": "036.mp3"
+    },
+    {
+      "id": "037",
+      "text": "Ingrid hat so ein Wärmekissen gegen Halsschmerzen.",
+      "gender": "u",
+      "client_hash": "7d859e6f",
+      "audio": "037.mp3"
+    },
+    {
+      "id": "038",
+      "text": "Die Havarie wird ein juristisches Nachspiel haben.",
+      "gender": "u",
+      "client_hash": "3c21f178",
+      "audio": "038.mp3"
+    },
+    {
+      "id": "039",
+      "text": "In dieser Disziplin kann der Neuling durchaus Paroli bieten.",
+      "gender": "u",
+      "client_hash": "bd44aef2",
+      "audio": "039.mp3"
+    },
+    {
+      "id": "040",
+      "text": "Egal, es ist echt lecker.",
+      "gender": "u",
+      "client_hash": "3545717c",
+      "audio": "040.mp3"
+    },
+    {
+      "id": "041",
+      "text": "Ein Mann mittleren Alters schob einen Kinderwagen in den Supermarkt.",
+      "gender": "u",
+      "client_hash": "3710319b",
+      "audio": "041.mp3"
+    },
+    {
+      "id": "042",
+      "text": "Doch sei gewarnt, das Pendel wird eines Tages mit voller Wucht zurückschwingen",
+      "gender": "u",
+      "client_hash": "b420ac2c",
+      "audio": "042.mp3"
+    },
+    {
+      "id": "043",
+      "text": "Die Holztür des Gartenhauses hatte sich von der Kälte verzogen und war deshalb kaum aufzubekommen.",
+      "gender": "u",
+      "client_hash": "a8463fd3",
+      "audio": "043.mp3"
+    },
+    {
+      "id": "044",
+      "text": "Seit Franziska kein Semesterticket mehr hat, kauft sie sich regelmäßig eine Monatskarte.",
+      "gender": "u",
+      "client_hash": "2ab02fe0",
+      "audio": "044.mp3"
+    },
+    {
+      "id": "045",
+      "text": "Göttingen ist eine klassische Studentenstadt.",
+      "gender": "u",
+      "client_hash": "a3a703ed",
+      "audio": "045.mp3"
+    },
+    {
+      "id": "046",
+      "text": "Der Zug nach Wetzlar fährt heute am Bahnsteig drei",
+      "gender": "u",
+      "client_hash": "cb135548",
+      "audio": "046.mp3"
+    },
+    {
+      "id": "047",
+      "text": "Alle standen auf und legten im Chor den vereinbarten Schwur ab.",
+      "gender": "u",
+      "client_hash": "cc548516",
+      "audio": "047.mp3"
+    },
+    {
+      "id": "048",
+      "text": "MetaGer ist die wohl bekannteste deutsche Meta-Suchmaschine.",
+      "gender": "u",
+      "client_hash": "89d505ce",
+      "audio": "048.mp3"
+    },
+    {
+      "id": "049",
+      "text": "Holger hatte eine unbeschwerte Kindheit.",
+      "gender": "u",
+      "client_hash": "b0146aac",
+      "audio": "049.mp3"
+    },
+    {
+      "id": "050",
+      "text": "Du hast eine Zecke am Rücken.",
+      "gender": "u",
+      "client_hash": "08360e1d",
+      "audio": "050.mp3"
+    },
+    {
+      "id": "051",
+      "text": "Es ist schwierig, ohne Hilfe aus der Abwärtsspirale auszubrechen.",
+      "gender": "u",
+      "client_hash": "f28e3ce6",
+      "audio": "051.mp3"
+    },
+    {
+      "id": "052",
+      "text": "Mir platzt gleich der Kragen.",
+      "gender": "u",
+      "client_hash": "8a019f2d",
+      "audio": "052.mp3"
+    },
+    {
+      "id": "053",
+      "text": "Die Notaufnahmen von Krankenhäusern sind häufig überlastet.",
+      "gender": "u",
+      "client_hash": "b0c1e7c7",
+      "audio": "053.mp3"
+    },
+    {
+      "id": "054",
+      "text": "Nach der Einführung des Alkoholverbots gingen Reinigungskosten und Vandalismusschäden signifikant zurück.",
+      "gender": "u",
+      "client_hash": "1199038c",
+      "audio": "054.mp3"
+    },
+    {
+      "id": "055",
+      "text": "Dein Kleinwagen bietet im Prinzip alles, was man braucht, ist aber etwas schwach auf der Brust.",
+      "gender": "u",
+      "client_hash": "b9a7563b",
+      "audio": "055.mp3"
+    },
+    {
+      "id": "056",
+      "text": "Sei Epsilon kleiner als Null.",
+      "gender": "u",
+      "client_hash": "8539a739",
+      "audio": "056.mp3"
+    },
+    {
+      "id": "057",
+      "text": "Und einmal haben sie mich schon erwischt mit zwei Promille.",
+      "gender": "u",
+      "client_hash": "b5cb89d6",
+      "audio": "057.mp3"
+    },
+    {
+      "id": "058",
+      "text": "Ich dachte, da lernt man nur Saufen.",
+      "gender": "u",
+      "client_hash": "9b549284",
+      "audio": "058.mp3"
+    },
+    {
+      "id": "059",
+      "text": "Er bekleckert sich vielleicht mit Rum, aber bestimmt nicht mit Ruhm.",
+      "gender": "u",
+      "client_hash": "f042f6b0",
+      "audio": "059.mp3"
+    },
+    {
+      "id": "060",
+      "text": "Wenn man sich die Muschel ans Ohr hält, hört man Meeresrauschen.",
+      "gender": "u",
+      "client_hash": "4dac37be",
+      "audio": "060.mp3"
+    },
+    {
+      "id": "061",
+      "text": "Bea braucht mal wieder eine halbe Stunde, um sich zu schminken.",
+      "gender": "u",
+      "client_hash": "7aaeecab",
+      "audio": "061.mp3"
+    },
+    {
+      "id": "062",
+      "text": "Weil die Tischklammer die Decke nicht halten konnte, ersetzte Andreas sie durch eine Schraubzwinge aus dem Werkkeller.",
+      "gender": "u",
+      "client_hash": "01943dae",
+      "audio": "062.mp3"
+    },
+    {
+      "id": "063",
+      "text": "Man sollte den Länderfinanzausgleich durch einen Bundesliga-Soli ersetzen.",
+      "gender": "u",
+      "client_hash": "6942d819",
+      "audio": "063.mp3"
+    },
+    {
+      "id": "064",
+      "text": "Kein Problem für einen Physiker, der experimentelle Erfahrung mit Doppelspalten hat.",
+      "gender": "u",
+      "client_hash": "55a0d65d",
+      "audio": "064.mp3"
+    },
+    {
+      "id": "065",
+      "text": "Wäre doch schade, wenn Sie eines Tages nicht mehr erreichbar wäre.",
+      "gender": "u",
+      "client_hash": "1e32ca7b",
+      "audio": "065.mp3"
+    },
+    {
+      "id": "066",
+      "text": "Diese Kurve ist eigentlich eine Gerade.",
+      "gender": "u",
+      "client_hash": "3784188d",
+      "audio": "066.mp3"
+    },
+    {
+      "id": "067",
+      "text": "Was für ein Kaiserwetter, schwärmte der Österreicher.",
+      "gender": "u",
+      "client_hash": "96881a74",
+      "audio": "067.mp3"
+    },
+    {
+      "id": "068",
+      "text": "Da müsste er schon beide Augen zudrücken.",
+      "gender": "u",
+      "client_hash": "e8f6e2b5",
+      "audio": "068.mp3"
+    },
+    {
+      "id": "069",
+      "text": "Viele Kliniken haben mit multiresistenten Keimen zu kämpfen.",
+      "gender": "u",
+      "client_hash": "4a2c144c",
+      "audio": "069.mp3"
+    },
+    {
+      "id": "070",
+      "text": "Ich hätte nicht gedacht, dass er so skrupellos ist.",
+      "gender": "u",
+      "client_hash": "4cfd6612",
+      "audio": "070.mp3"
+    },
+    {
+      "id": "071",
+      "text": "Wer glaubt, dass der Verfassungsschutz die Verfassung schützt, glaubt auch dass Babybrei aus Babys gemacht wird.",
+      "gender": "u",
+      "client_hash": "3afc9c92",
+      "audio": "071.mp3"
+    },
+    {
+      "id": "072",
+      "text": "Der nächste Zug nach Görlitz geht um zwölf Uhr dreißig",
+      "gender": "u",
+      "client_hash": "9eb6ad42",
+      "audio": "072.mp3"
+    },
+    {
+      "id": "073",
+      "text": "Viele plattformspezifische Apps ließen sich auch ganz einfach als portable Webanwendung realisieren.",
+      "gender": "u",
+      "client_hash": "b59078ae",
+      "audio": "073.mp3"
+    },
+    {
+      "id": "074",
+      "text": "Unsere wirtschaftliche Situation ist derzeit wirklich schwierig, wissen Sie.",
+      "gender": "u",
+      "client_hash": "41158d39",
+      "audio": "074.mp3"
+    },
+    {
+      "id": "075",
+      "text": "Wir lassen niemanden allein zurück.",
+      "gender": "u",
+      "client_hash": "088c219b",
+      "audio": "075.mp3"
+    },
+    {
+      "id": "076",
+      "text": "Als Rainer den Posten übernahm, musste er erst einmal für Zucht und Ordnung sorgen.",
+      "gender": "u",
+      "client_hash": "2ed35e3e",
+      "audio": "076.mp3"
+    },
+    {
+      "id": "077",
+      "text": "Auf seinem Server betreibt Nikolai ein Debian-Derivat.",
+      "gender": "u",
+      "client_hash": "cdc8e537",
+      "audio": "077.mp3"
+    },
+    {
+      "id": "078",
+      "text": "Julian findet das Ergebnis nicht befriedigend.",
+      "gender": "u",
+      "client_hash": "004a9a18",
+      "audio": "078.mp3"
+    },
+    {
+      "id": "079",
+      "text": "Der Kronleuchter ging krachend zu Boden.",
+      "gender": "u",
+      "client_hash": "52d726e9",
+      "audio": "079.mp3"
+    },
+    {
+      "id": "080",
+      "text": "Ich kann die Einstellung nirgendwo finden.",
+      "gender": "u",
+      "client_hash": "59d24e18",
+      "audio": "080.mp3"
+    },
+    {
+      "id": "081",
+      "text": "Hier gilt rechts vor links.",
+      "gender": "u",
+      "client_hash": "951f4583",
+      "audio": "081.mp3"
+    },
+    {
+      "id": "082",
+      "text": "Die Fahrt nach Reutlingen konnte er sich nicht leisten",
+      "gender": "u",
+      "client_hash": "55d1e62e",
+      "audio": "082.mp3"
+    },
+    {
+      "id": "083",
+      "text": "Wenn Sauerstoff ionisiert wird, bleibt nach dem Abkühlen meist Ozon über.",
+      "gender": "u",
+      "client_hash": "1b833a2f",
+      "audio": "083.mp3"
+    },
+    {
+      "id": "084",
+      "text": "Heute haben wir Windstärke fünf mit teils orkanartigen Böen.",
+      "gender": "u",
+      "client_hash": "723b2f58",
+      "audio": "084.mp3"
+    },
+    {
+      "id": "085",
+      "text": "Im Allgäu fällt bereits erster Schnee.",
+      "gender": "u",
+      "client_hash": "220d75d0",
+      "audio": "085.mp3"
+    },
+    {
+      "id": "086",
+      "text": "Sprengstoff macht den größten Teil der Masse eines Torpedos aus.",
+      "gender": "u",
+      "client_hash": "c6b31f81",
+      "audio": "086.mp3"
+    },
+    {
+      "id": "087",
+      "text": "Es war mir eine Freude.",
+      "gender": "u",
+      "client_hash": "2be172ed",
+      "audio": "087.mp3"
+    },
+    {
+      "id": "088",
+      "text": "Es wird nach defekten Sektoren gesucht.",
+      "gender": "u",
+      "client_hash": "8a3bcd3b",
+      "audio": "088.mp3"
+    },
+    {
+      "id": "089",
+      "text": "Vielleicht ist es in die Ritze gerutscht.",
+      "gender": "u",
+      "client_hash": "bdef3b8e",
+      "audio": "089.mp3"
+    },
+    {
+      "id": "090",
+      "text": "Mit der Mitgliedskarte erhalten Sie exklusiven Zugang zu unserem Webportal.",
+      "gender": "u",
+      "client_hash": "1ee5fee9",
+      "audio": "090.mp3"
+    },
+    {
+      "id": "091",
+      "text": "Gegen Mittag muss der Frachter mit einer Nussschale kollidiert sein.",
+      "gender": "u",
+      "client_hash": "d58eeecb",
+      "audio": "091.mp3"
+    },
+    {
+      "id": "092",
+      "text": "Nach dem Schlaganfall fällt es ihr schwer sich zu artikulieren.",
+      "gender": "u",
+      "client_hash": "75581287",
+      "audio": "092.mp3"
+    },
+    {
+      "id": "093",
+      "text": "Wie töricht kann man sein, wenn man getrunken hat zu viel Wein",
+      "gender": "u",
+      "client_hash": "f9c218fd",
+      "audio": "093.mp3"
+    },
+    {
+      "id": "094",
+      "text": "Wie wir hier sehen können, hat diese Landkarte einen Maßstab von eins zu einhunderttausend.",
+      "gender": "u",
+      "client_hash": "92a4e1fd",
+      "audio": "094.mp3"
+    },
+    {
+      "id": "095",
+      "text": "Fast ein Fünftel der Bevölkerung ist offline-süchtig.",
+      "gender": "u",
+      "client_hash": "26abda95",
+      "audio": "095.mp3"
+    },
+    {
+      "id": "096",
+      "text": "Beim diesjährigen Krippenspiel mussten Maria und Joseph improvisieren, weil sie den Text nicht gelernt hatten.",
+      "gender": "u",
+      "client_hash": "e5dd8abc",
+      "audio": "096.mp3"
+    },
+    {
+      "id": "097",
+      "text": "Diesen perfekten Fall gibt es in der Realität nicht.",
+      "gender": "u",
+      "client_hash": "8cb4fc88",
+      "audio": "097.mp3"
+    },
+    {
+      "id": "098",
+      "text": "Die zwei Jahre im Ausland haben dich sehr verändert.",
+      "gender": "u",
+      "client_hash": "e166c92e",
+      "audio": "098.mp3"
+    },
+    {
+      "id": "099",
+      "text": "Jedes Jahr unternimmt die Biolehrerin mit den Schülern eine Exkursion ins Moor.",
+      "gender": "u",
+      "client_hash": "46ad8d87",
+      "audio": "099.mp3"
+    },
+    {
+      "id": "100",
+      "text": "Es war schrecklich, immer Recht zu behalten.",
+      "gender": "u",
+      "client_hash": "e9ab0c3c",
+      "audio": "100.mp3"
+    }
+  ]
+}
