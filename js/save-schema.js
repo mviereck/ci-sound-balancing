@@ -241,6 +241,31 @@ var SAVE_SCHEMA_GLOBAL = [
     default: "", valid: { type: "string" } },
 ];
 
+// Normalisiert einen geladenen Bandsatz:
+//  - Laenge auf nEl (fehlende hinten mit Fallback fuellen, ueberzaehlige
+//    abschneiden);
+//  - jeder Eintrag ein gueltiges {lo,hi} mit 0<lo<hi, sonst Fallback.
+// fillDefault=true (Default-Snapshot): fehlende/ungueltige -> Hersteller-Default
+//   der Elektrode (implantDefaultBaender(mfr)[i]).
+// fillDefault=false (Own-Overrides): fehlende/ungueltige -> null (Default gilt).
+function _saveNormBaender(arr, nEl, mfr, fillDefault) {
+  var defs = fillDefault ? implantDefaultBaender(mfr) : null;
+  var out = [];
+  for (var i = 0; i < nEl; i++) {
+    var b = arr[i];
+    var ok = b && typeof b === "object"
+      && isFinite(b.lo) && isFinite(b.hi) && b.lo > 0 && b.hi > b.lo;
+    if (ok) {
+      out.push({ lo: b.lo, hi: b.hi });
+    } else if (fillDefault) {
+      out.push(defs[i] ? { lo: defs[i].lo, hi: defs[i].hi } : null);
+    } else {
+      out.push(null);
+    }
+  }
+  return out;
+}
+
 // -----------------------------------------------------------------------
 // Feld-Tabelle SEITENWEISE
 // -----------------------------------------------------------------------
@@ -262,37 +287,35 @@ var SAVE_SCHEMA_SIDE = [
     },
     default: "unknown", valid: { type: "string" } },
 
-  { key: "FRQ_implantat", scope: "side",
-    get: function (s) { return sideData[s].FRQ_implantat; },
+  { key: "FRQ_implantatBaenderDefault", scope: "side",
+    get: function (s) { return sideData[s].FRQ_implantatBaenderDefault; },
     set: function (v, s) {
+      var nEl = sideData[s].nEl;
       var mfr = sideData[s].manufacturer;
-      sideData[s].FRQ_implantat = Array.isArray(v) ? v : (MFR[mfr] ? [...MFR[mfr].FRQ_implantat] : []);
-    },
-    default: function () { return []; }, valid: { type: "array" } },
-  { key: "FRQ_implantatOwn", scope: "side",
-    get: function (s) { return sideData[s].FRQ_implantatOwn; },
-    set: function (v, s) {
+      // Aus der Datei uebernehmen (self-contained); nur bei fehlend/ungueltig
+      // auf den aktuellen Hersteller-Default zurueckfallen.
       if (Array.isArray(v)) {
-        sideData[s].FRQ_implantatOwn = [...v];
+        sideData[s].FRQ_implantatBaenderDefault = _saveNormBaender(v, nEl, mfr, true);
       } else {
-        var mfr = sideData[s].manufacturer;
-        var defF = MFR[mfr] ? MFR[mfr].FRQ_implantat : [];
-        sideData[s].FRQ_implantatOwn = sideData[s].FRQ_implantat.map(function (f, i) {
-          return Math.round(f) === Math.round(defF[i]) ? null : f;
-        });
+        sideData[s].FRQ_implantatBaenderDefault = implantDefaultBaender(mfr);
       }
     },
-    default: null },
+    default: function () { return []; }, valid: { type: "array" } },
+  { key: "FRQ_implantatBaenderOwn", scope: "side",
+    get: function (s) { return sideData[s].FRQ_implantatBaenderOwn; },
+    set: function (v, s) {
+      var nEl = sideData[s].nEl;
+      if (Array.isArray(v)) {
+        sideData[s].FRQ_implantatBaenderOwn = _saveNormBaender(v, nEl, null, false);
+      } else {
+        sideData[s].FRQ_implantatBaenderOwn = new Array(nEl).fill(null);
+      }
+    },
+    default: function () { return []; }, valid: { type: "array" } },
   { key: "elSt", scope: "side",
     get: function (s) { return sideData[s].elSt; },
     set: function (v, s) {
       sideData[s].elSt = Array.isArray(v) ? v : new Array(sideData[s].nEl).fill(null);
-    },
-    default: function () { return []; }, valid: { type: "array" } },
-  { key: "elNt", scope: "side",
-    get: function (s) { return sideData[s].elNt; },
-    set: function (v, s) {
-      sideData[s].elNt = Array.isArray(v) ? v : new Array(sideData[s].nEl).fill("");
     },
     default: function () { return []; }, valid: { type: "array" } },
   { key: "elExDur", scope: "side",
