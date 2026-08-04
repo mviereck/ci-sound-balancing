@@ -497,6 +497,7 @@ function applyState(d) {
 // -----------------------------------------------------------------------
 function refreshAll() {
   // Reihenfolge-kritisch zuerst:
+  if (typeof _frqBandWandBuild === "function") _frqBandWandBuild();      // VOR _frqBandSpiegle
   if (typeof _frqBandSpiegle === "function") _frqBandSpiegle();          // VOR renderResults
   if (typeof window._frqGlaettUpdate === "function") window._frqGlaettUpdate();
   // Aufbau / Tabellen:
