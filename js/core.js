@@ -307,6 +307,37 @@ function identityHz(x) { return x; }
 function geomMitte(a, b) {
   return Math.sqrt(a * b);
 }
+// Frische, tiefe Kopie des Default-Bandsatzes eines Herstellers.
+function implantDefaultBaender(m) {
+  var src = (typeof IMPLANT_BAENDER !== "undefined" && IMPLANT_BAENDER[m]) || [];
+  return src.map(function (b) { return { lo: b.lo, hi: b.hi }; });
+}
+// Effektives Band der Elektrode i einer Seite: eigenes Band (Override),
+// sonst Default-Band. srcData optional = explizites Seiten-Objekt
+// (analog FRQ_implantatEffektiv); ohne = global gebundene Seite.
+function FRQ_implantatBand(i, srcData) {
+  var own = srcData ? srcData.FRQ_implantatBaenderOwn : FRQ_implantatBaenderOwn;
+  var def = srcData ? srcData.FRQ_implantatBaenderDefault : FRQ_implantatBaenderDefault;
+  if (own && own[i] != null) return own[i];
+  return def ? def[i] : null;
+}
+// Arithmetische Mitte des effektiven Bandes (Anzeige-/Vergleichswert).
+function FRQ_implantatMitteArith(i, srcData) {
+  var b = FRQ_implantatBand(i, srcData);
+  return b ? (b.lo + b.hi) / 2 : null;
+}
+// Arithmetische Mitte des DEFAULT-Bandes (reines Herstellermuster, ohne
+// Override) -- z.B. fuer die Glaettungs-Ortsvorlage.
+function FRQ_implantatMitteDefaultArith(i, srcData) {
+  var def = srcData ? srcData.FRQ_implantatBaenderDefault : FRQ_implantatBaenderDefault;
+  var b = def ? def[i] : null;
+  return b ? (b.lo + b.hi) / 2 : null;
+}
+// Hat die Elektrode i ein eigenes (Override-)Band?
+function FRQ_implantatHatOwn(i, srcData) {
+  var own = srcData ? srcData.FRQ_implantatBaenderOwn : FRQ_implantatBaenderOwn;
+  return !!(own && own[i] != null);
+}
 // Greenwood-Funktion (Cochlea-Position <-> Frequenz), klassische Parameter.
 // x in [0,1] = relative Cochlea-Position (0 = apikal/tief, 1 = basal/hoch).
 // Grundlage des greenwood-Bandverfahrens (Architektur 00-freqmatch-
@@ -1948,7 +1979,7 @@ function _frqGlaetteMeasured(measured, verfahren) {
   // nutzer-editierten (FRQ_implantatOwn zerstoert die Musterstruktur). Nur die
   // VORLAGE auf Default, xmess/Rueckrechnung bleiben auf noms (effektiv).
   var defNoms = keys.map(function (k) {
-    var d = (_sd && _sd.FRQ_implantat) ? _sd.FRQ_implantat[k] : null;
+    var d = FRQ_implantatMitteDefaultArith(k, _sd);
     return (d != null) ? d : null;   // null -> Ortsaffin faellt je Stelle auf noms zurueck
   });
   // AB + ortsaffin (2026-07-11, Konzept §7): die beiden Randelektroden bleiben

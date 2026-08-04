@@ -100,8 +100,8 @@ function FRQ_implantatTableBuild() {
     const isExcl  = elExDur[i] !== null;
     // BA 164: Aktivitäts-Status aus globaler elActive
     const isDeact = (elActive && elActive[i] === false);
-    const stdHz   = fmtNum(FRQ_implantat[i], "hz");
-    const ownVal  = FRQ_implantatOwn[i] != null ? fmtNum(FRQ_implantatOwn[i], "hz") : "";
+    const stdHz   = fmtNum(FRQ_implantatEffektiv(i), "hz");
+    const ownVal  = "";
     const thrVal  =
       im.thr && im.thr[i] !== null && im.thr[i] !== undefined ? im.thr[i] : "";
     const upperVal = isMedel
@@ -141,7 +141,7 @@ function FRQ_implantatTableBuild() {
     tr.innerHTML =
       `<td style="font-weight:600">${elPfx}${dEN(i)}${ex}</td>` +
       `<td style="font-family:var(--mono);font-size:.86em;padding:4px 6px">${stdHz}</td>` +
-      `<td><input type="number" class="fo" data-i="${i}" value="${ownVal}" min="20" max="20000" step="any" style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em"></td>` +
+      `<td><input type="number" class="fo" data-i="${i}" value="${ownVal}" min="20" max="20000" step="any" readonly style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em;opacity:0.5"></td>` +
       `<td><input type="number" class="it" data-i="${i}" value="${thrVal}" min="0" max="500" step="1" style="${inpStyle}" placeholder="—"></td>` +
       `<td><input type="number" class="iu" data-i="${i}" value="${upperVal}" min="0" max="1000" step="1" style="${inpStyle}" placeholder="—"></td>` +
       `<td style="text-align:center">${_activeCbHtml}</td>` +
@@ -152,27 +152,9 @@ function FRQ_implantatTableBuild() {
     tb.appendChild(tr);
     tr.querySelector(".ss").value = elSt[i] || "";
   }
-  // Hz own inputs — BA 169: kein FRQ_implantatTableBuild() mehr, damit Tab-Fokus erhalten bleibt
+  // Hz own inputs — BA540: Band-Eingabe ersetzt dieses Feld; bis dahin readonly (No-Op).
   tb.querySelectorAll(".fo").forEach((inp) =>
-    inp.addEventListener("change", (e) => {
-      const i = +e.target.dataset.i,
-        v = parseNum(e.target.value);
-      if (e.target.value === "" || isNaN(v)) {
-        FRQ_implantatOwn[i] = null;
-        e.target.value = "";
-      } else if (v >= 20 && v <= 20000) {
-        FRQ_implantatOwn[i] = v;
-      } else {
-        e.target.value = FRQ_implantatOwn[i] != null ? fmtNum(FRQ_implantatOwn[i], "hz") : "";
-        return; // ungültiger Wert: keine Updates
-      }
-      // BA 169: schmale Hinweise-Aktualisierung statt voller Rebuild.
-      // depLockApply wird intern in frq_implantatTableUpdateHints aufgerufen.
-      frq_implantatTableUpdateHints();
-      // Plausibilitätsprüfung neu laufen lassen (wie bei THR/Upper).
-      // Ging beim BA-169-Umbau vom vollen FRQ_implantatTableBuild() verloren.
-      if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
-    }),
+    inp.addEventListener("change", function () {})
   );
   // Vertikale Tab-Navigation: .fo → .it → .iu (Shift+Tab rückwärts)
   [
@@ -321,10 +303,10 @@ function FRQ_implantatTableBuild() {
   // BA 164/165: Hinweis & Warnung aus elActive[] + Sichtbarkeit nach „eigene Hz vollständig"
   const hintEl = document.getElementById("FRQ_implantatDeactHintEl");
   const hasDeact = (elActive || []).some((a) => a === false);
-  // BA 165: „vollständig eigene Hz" = jede aktive Elektrode hat FRQ_implantatOwn[i] != null
+  // BA 165: „vollständig eigene Hz" = jede aktive Elektrode hat ein Override-Band
   const ownHzComplete = [...Array(nEl).keys()]
     .filter((i) => elActive[i] !== false)
-    .every((i) => FRQ_implantatOwn[i] != null);
+    .every((i) => FRQ_implantatHatOwn(i));
   if (hintEl) {
     hintEl.innerHTML = t("FRQ_implantatDeactHint");
     // isAcoustic: Hinweise gelten nur für CI-Tabelle mit Aktiv-Spalte
@@ -347,7 +329,7 @@ function FRQ_implantatTableBuild() {
   let wb = document.getElementById("deactWarnBar");
   const activeHasDefault = [...Array(nEl).keys()]
     .filter((i) => elActive[i] !== false)
-    .some((i) => FRQ_implantatOwn[i] == null);
+    .some((i) => !FRQ_implantatHatOwn(i));
   if (hasDeact && activeHasDefault) {
     if (!wb) {
       wb = document.createElement("div");
@@ -397,10 +379,10 @@ function frq_implantatTableUpdateHints() {
     if (wbOff) wbOff.remove();
     return;
   }
-  // „vollständig eigene Hz" = jede aktive Elektrode hat FRQ_implantatOwn[i] != null
+  // „vollständig eigene Hz" = jede aktive Elektrode hat ein Override-Band
   const ownHzComplete = [...Array(nEl).keys()]
     .filter((i) => elActive[i] !== false)
-    .every((i) => FRQ_implantatOwn[i] != null);
+    .every((i) => FRQ_implantatHatOwn(i));
   const hintEl = document.getElementById("FRQ_implantatDeactHintEl");
   if (hintEl) {
     hintEl.style.display = (isAcoustic || ownHzComplete) ? "none" : "";
@@ -413,7 +395,7 @@ function frq_implantatTableUpdateHints() {
   const hasDeact = (elActive || []).some((a) => a === false);
   const activeHasDefault = [...Array(nEl).keys()]
     .filter((i) => elActive[i] !== false)
-    .some((i) => FRQ_implantatOwn[i] == null);
+    .some((i) => !FRQ_implantatHatOwn(i));
   let wb = document.getElementById("deactWarnBar");
   if (hasDeact && activeHasDefault) {
     if (!wb) {
@@ -485,8 +467,8 @@ function switchMfr(m) {
   // Erreicht der Code diesen Punkt, ist das Feld nicht gesperrt — Wechsel frei.
   s.manufacturer = m;
   s.nEl = MFR[m].n;
-  s.FRQ_implantat = [...MFR[m].FRQ_implantat];
-  s.FRQ_implantatOwn = new Array(s.nEl).fill(null);
+  s.FRQ_implantatBaenderDefault = implantDefaultBaender(m);
+  s.FRQ_implantatBaenderOwn = new Array(s.nEl).fill(null);
   // BA462: Wand-Wahl auf den Default des neuen Herstellers setzen.
   var _bg462 = MFR[m] ? MFR[m].bandGrenzen : null;
   s.bandWandLo = _bg462 ? _bg462.default[0] : null;
@@ -541,8 +523,7 @@ function switchMfr(m) {
   if (typeof FRQ_renderResults === "function") FRQ_renderResults();
 }
 function frq_implantatReset() {
-  FRQ_implantat = [...MFR[mfr].FRQ_implantat];
-  FRQ_implantatOwn.fill(null);
+  FRQ_implantatBaenderOwn.fill(null);
   FRQ_implantatTableBuild();
 }
 

@@ -154,8 +154,8 @@ function _collectSideData(side) {
       electrodes.push({
         idx: i,
         label: `${dENPrefix()}${dEN(i)}`,
-        hzStandard: (sd.FRQ_implantat && sd.FRQ_implantat[i]) || null,
-        hzOwn:      (sd.FRQ_implantatOwn && sd.FRQ_implantatOwn[i] != null) ? sd.FRQ_implantatOwn[i] : null,
+        hzStandard: FRQ_implantatMitteDefaultArith(i, sd),
+        hzOwn:      FRQ_implantatHatOwn(i, sd) ? FRQ_implantatMitteArith(i, sd) : null,
         thr: (impl.thr && impl.thr[i] != null) ? impl.thr[i] : null,
         upper: _pickUpperLevel(impl, i, mfr),
         unit,
@@ -1137,7 +1137,7 @@ function _audiologMissingImplantData(mainSides) {
     if (!mclSet) missing.push(t("audMissMcl"));
     const thrSet = (impl.thr || []).some((v) => v != null && isFinite(v));
     if (!thrSet) missing.push(t("audMissThr"));
-    const freqOwnSet = (sd && sd.FRQ_implantatOwn || []).some((v) => v != null && isFinite(v));
+    let freqOwnSet = false; for (let i = 0; i < (sd ? sd.nEl : 0); i++) { if (FRQ_implantatHatOwn(i, sd)) { freqOwnSet = true; break; } }
     if (!freqOwnSet) missing.push(t("audMissFreqOwn"));
     if (sd && sd.manufacturer === "medel" && !impl.cValue) missing.push(t("audMissCValue"));
     if (sd && sd.manufacturer === "ab" && !impl.idr) missing.push(t("audMissIdr"));

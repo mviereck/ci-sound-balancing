@@ -110,11 +110,11 @@ function resetAll() {
     sideData[s].config = "unknown";
     sideData[s].manufacturer = "unknown";
     sideData[s].nEl = MFR["unknown"].n;
-    sideData[s].FRQ_implantat = [...MFR["unknown"].FRQ_implantat];
+    sideData[s].FRQ_implantatBaenderDefault = implantDefaultBaender("unknown");
+    sideData[s].FRQ_implantatBaenderOwn = new Array(sideData[s].nEl).fill(null);
     sideData[s].elSt = new Array(sideData[s].nEl).fill(null);
     sideData[s].elNt = new Array(sideData[s].nEl).fill("");
     sideData[s].elExDur = new Array(sideData[s].nEl).fill(null);
-    sideData[s].FRQ_implantatOwn = new Array(sideData[s].nEl).fill(null);
     sideData[s].schieberELL = new Array(sideData[s].nEl).fill(0);
     sideData[s].ELL_refEl = Math.floor(sideData[s].nEl / 2);
     sideData[s].ELL_results = [];

@@ -91,8 +91,8 @@ function printImplantTab() {
     const elNum = dEN(i);
     const apexBasal =
       i === 0 ? " (apikal)" : i === s.nEl - 1 ? " (basal)" : "";
-    const hzStd = s.FRQ_implantat[i] != null ? fmtNum(s.FRQ_implantat[i], "hz") : "—";
-    const hzOwn = s.FRQ_implantatOwn[i] != null ? fmtNum(s.FRQ_implantatOwn[i], "hz") : "";
+    const _mStd = FRQ_implantatMitteDefaultArith(i, s); const hzStd = _mStd != null ? fmtNum(_mStd, "hz") : "—";
+    const hzOwn = FRQ_implantatHatOwn(i, s) ? fmtNum(FRQ_implantatMitteArith(i, s), "hz") : "";
     const thr = im.thr && im.thr[i] != null ? im.thr[i] : "";
     const upper = isCi
       ? (m === "medel"

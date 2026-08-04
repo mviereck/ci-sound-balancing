@@ -343,9 +343,9 @@ function _implCheckHzRange(s) {
   for (let i = 0; i < s.nEl; i++) {
     // BA 164
     if (s.elActive && s.elActive[i] === false) continue;
-    if (!s.FRQ_implantatOwn || s.FRQ_implantatOwn[i] == null) continue;
+    if (!FRQ_implantatHatOwn(i, s)) continue;
 
-    const hz = s.FRQ_implantatOwn[i];
+    const hz = FRQ_implantatMitteArith(i, s);
     if (hz < range.min || hz > range.max) {
       warnings.push({
         level: IMPL_VAL_LEVEL_RED,
@@ -366,17 +366,17 @@ function _implCheckHzRange(s) {
 
 function _implCheckHzMagnitude(s) {
   const warnings = [];
-  if (!s || !s.nEl || !s.FRQ_implantat) return warnings;
+  if (!s || !s.nEl) return warnings;
   const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
   const fac = IMPL_VAL_HZ_MAGNITUDE_FACTOR;
 
   for (let i = 0; i < s.nEl; i++) {
     // BA 164
     if (s.elActive && s.elActive[i] === false) continue;
-    if (!s.FRQ_implantatOwn || s.FRQ_implantatOwn[i] == null) continue;
+    if (!FRQ_implantatHatOwn(i, s)) continue;
 
-    const eigen = s.FRQ_implantatOwn[i];
-    const def = s.FRQ_implantat[i];
+    const eigen = FRQ_implantatMitteArith(i, s);
+    const def = FRQ_implantatMitteDefaultArith(i, s);
     if (!def || def <= 0) continue;
 
     const ratio = eigen / def;
@@ -424,9 +424,9 @@ function _implCheckHzCochlearLookup(s) {
     // BA 164
     if (s.elActive && s.elActive[i] === false) continue;
     // Nur User-Override prüfen.
-    if (!s.FRQ_implantatOwn || s.FRQ_implantatOwn[i] == null) continue;
+    if (!FRQ_implantatHatOwn(i, s)) continue;
 
-    const eigen = s.FRQ_implantatOwn[i];
+    const eigen = FRQ_implantatMitteArith(i, s);
     const expected = fat[i];
     if (!expected || expected <= 0 || eigen <= 0) continue;
 
@@ -458,7 +458,7 @@ function _implCheckHzCochlearLookup(s) {
 
 function _implCheckHzTrendMedelAb(s) {
   const warnings = [];
-  if (!s || !s.nEl || !s.FRQ_implantat) return warnings;
+  if (!s || !s.nEl) return warnings;
   if (s.manufacturer !== 'medel' && s.manufacturer !== 'ab') return warnings;
   const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
 
@@ -469,9 +469,9 @@ function _implCheckHzTrendMedelAb(s) {
   for (let i = 0; i < s.nEl; i++) {
     // BA 164
     if (s.elActive && s.elActive[i] === false) continue;
-    if (!s.FRQ_implantatOwn || s.FRQ_implantatOwn[i] == null) continue;
-    const eigen = s.FRQ_implantatOwn[i];
-    const def = s.FRQ_implantat[i];
+    if (!FRQ_implantatHatOwn(i, s)) continue;
+    const eigen = FRQ_implantatMitteArith(i, s);
+    const def = FRQ_implantatMitteDefaultArith(i, s);
     if (!eigen || !def || eigen <= 0 || def <= 0) continue;
     versatz[i] = 1200 * Math.log2(eigen / def);
   }
@@ -513,7 +513,7 @@ function _implCheckHzTrendMedelAb(s) {
 
 function _implCheckHzJumpMedelAb(s) {
   const warnings = [];
-  if (!s || !s.nEl || !s.FRQ_implantat) return warnings;
+  if (!s || !s.nEl) return warnings;
   if (s.manufacturer !== 'medel' && s.manufacturer !== 'ab') return warnings;
   const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
 
@@ -526,17 +526,18 @@ function _implCheckHzJumpMedelAb(s) {
     // Sprung-Prüfung nur, wenn mindestens eine der beiden
     // Elektroden einen User-Override hat — sonst sind die Werte
     // = Default und die Schrittweite stimmt per Konstruktion.
-    const hasOverride = (s.FRQ_implantatOwn && s.FRQ_implantatOwn[i] != null)
-                     || (s.FRQ_implantatOwn && s.FRQ_implantatOwn[i + 1] != null);
+    const hasOverride = FRQ_implantatHatOwn(i, s) || FRQ_implantatHatOwn(i + 1, s);
     if (!hasOverride) continue;
 
     const hzI = FRQ_implantatEffektiv(i, s);
     const hzJ = FRQ_implantatEffektiv(i + 1, s);
     if (!hzI || !hzJ || hzI <= 0 || hzJ <= 0) continue;
-    if (!s.FRQ_implantat[i] || !s.FRQ_implantat[i + 1]) continue;
+    const defI = FRQ_implantatMitteDefaultArith(i, s);
+    const defJ = FRQ_implantatMitteDefaultArith(i + 1, s);
+    if (!defI || !defJ) continue;
 
     const stepUser  = 1200 * Math.log2(hzJ / hzI);
-    const stepDef   = 1200 * Math.log2(s.FRQ_implantat[i + 1] / s.FRQ_implantat[i]);
+    const stepDef   = 1200 * Math.log2(defJ / defI);
     const dev = Math.abs(stepUser - stepDef);
 
     let level = null;
@@ -746,7 +747,7 @@ function _implCheckFatOnDeactivation(s) {
   //   Alle aktiven Elektroden haben einen Hz-eigen-Override.
   //   Deutet auf vollständige globale Umverteilung der FAT.
   const allActiveOverridden = activeIdxs.every(function (i) {
-    return s.FRQ_implantatOwn && s.FRQ_implantatOwn[i] != null;
+    return FRQ_implantatHatOwn(i, s);
   });
   if (allActiveOverridden) return warnings; // global-Test bestanden
 
@@ -761,7 +762,7 @@ function _implCheckFatOnDeactivation(s) {
     return neighbors.some(function (n) {
       // BA 164
       if (s.elActive && s.elActive[n] === false) return false;
-      return s.FRQ_implantatOwn && s.FRQ_implantatOwn[n] != null;
+      return FRQ_implantatHatOwn(n, s);
     });
   });
   if (localTestPassed) return warnings; // lokal-Test bestanden
@@ -847,7 +848,7 @@ function _implCheckInfoFreqOwn(s) {
   for (let i = 0; i < s.nEl; i++) {
     if (s.elActive && s.elActive[i] === false) continue;
     totalActive++;
-    if (s.FRQ_implantatOwn && s.FRQ_implantatOwn[i] != null) ownCount++;
+    if (FRQ_implantatHatOwn(i, s)) ownCount++;
   }
   if (totalActive === 0) return warnings;
 

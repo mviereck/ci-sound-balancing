@@ -7,8 +7,8 @@ let activeSide = "left";
 const sideData = { left: {}, right: {} };
 let mfr,
   nEl,
-  FRQ_implantat,
-  FRQ_implantatOwn,
+  FRQ_implantatBaenderDefault,
+  FRQ_implantatBaenderOwn,
   elSt,
   elNt,
   elExDur,
@@ -16,17 +16,12 @@ let mfr,
   ELL_refEl,
   ELL_results,
   config;
-// FRQ_implantatEffektiv[i] = FRQ_implantatOwn[i] ?? FRQ_implantat[i] (MFR default)
-// Optionales srcData: ohne = globale Seite (58 Bestandsaufrufer), mit = explizites Seiten-Objekt
-// (ersetzt _implEffFreqOf; 0-Fallback nur im srcData-Zweig)
+// Einzige Frequenzquelle aller Messungen/Wiedergaben: geometrische
+// Mitte des effektiven Bandes (Own[i] ?? Default[i]) der Elektrode i.
+// Architektur: 00-implantat-frequenzbaender-architektur.md Sec. 3.
 function FRQ_implantatEffektiv(i, srcData) {
-  if (srcData) {
-    var own = srcData.FRQ_implantatOwn;
-    if (own && own[i] != null) return own[i];
-    var def = srcData.FRQ_implantat;
-    return def ? def[i] : 0;          // 0-Fallback wie _implEffFreqOf
-  }
-  return FRQ_implantatOwn && FRQ_implantatOwn[i] != null ? FRQ_implantatOwn[i] : FRQ_implantat[i];
+  var band = FRQ_implantatBand(i, srcData);
+  return band ? geomMitte(band.lo, band.hi) : 0;
 }
 let ell_focus = 0;
 let defaultMfr = "unknown"; // BA 154: Erststart-Default
@@ -55,8 +50,8 @@ function bindActiveSide() {
   const s = sideData[activeSide];
   mfr = s.manufacturer;
   nEl = s.nEl;
-  FRQ_implantat = s.FRQ_implantat;
-  FRQ_implantatOwn = s.FRQ_implantatOwn;
+  FRQ_implantatBaenderDefault = s.FRQ_implantatBaenderDefault;
+  FRQ_implantatBaenderOwn = s.FRQ_implantatBaenderOwn;
   elSt = s.elSt;
   elNt = s.elNt;
   elExDur = s.elExDur;
@@ -114,8 +109,6 @@ function ELL_ctx(side) {
   var s = sideData[key];
   if (!s) return {};                 // defensiv: keine Seite -> leeres ctx
   var _nEl = s.nEl;
-  var _frq    = s.FRQ_implantat;
-  var _frqOwn = s.FRQ_implantatOwn;
   var _cfg    = s.config || "ci";
   return {
     // Datenfelder (compWLS + drawChart)
@@ -126,7 +119,7 @@ function ELL_ctx(side) {
     ELL_refEl:   s.ELL_refEl,
     // Funktions-Closures (drawChart) — seitenrichtig, lesen NICHT die Globalen
     hzGetter: function (i) {
-      return (_frqOwn && _frqOwn[i] != null) ? _frqOwn[i] : _frq[i];
+      return FRQ_implantatEffektiv(i, s);
     },
     dEN: function (i) {
       return dEN(i, key);
@@ -143,11 +136,11 @@ function initSideData(side, m) {
   s.config = s.config || "unknown";
   s.manufacturer = m || "unknown";
   s.nEl = MFR[s.manufacturer].n;
-  s.FRQ_implantat = [...MFR[s.manufacturer].FRQ_implantat];
+  s.FRQ_implantatBaenderDefault = implantDefaultBaender(s.manufacturer);
+  s.FRQ_implantatBaenderOwn = new Array(s.nEl).fill(null);
   s.elSt = new Array(s.nEl).fill(null);
   s.elNt = new Array(s.nEl).fill("");
   s.elExDur = new Array(s.nEl).fill(null);
-  s.FRQ_implantatOwn = new Array(s.nEl).fill(null);
   s.schieberELL = new Array(s.nEl).fill(0);
   s.ELL_refEl = Math.floor(s.nEl / 2);
   s.ELL_results = [];
@@ -353,7 +346,8 @@ function withSide(side, fn) {
   const prev = {
     mfr,
     nEl,
-    FRQ_implantat,
+    FRQ_implantatBaenderDefault,
+    FRQ_implantatBaenderOwn,
     elSt,
     elNt,
     elExDur,
@@ -478,12 +472,9 @@ function FRQ_implantatSyncToAcoustic() {
         const srcData = sideData[src];
         const otherData = sideData[other];
         otherData.nEl = srcData.nEl;
-        otherData.FRQ_implantat = [...srcData.FRQ_implantat];
+        otherData.FRQ_implantatBaenderDefault = (srcData.FRQ_implantatBaenderDefault || []).map(function (b) { return b ? { lo: b.lo, hi: b.hi } : null; });
+        otherData.FRQ_implantatBaenderOwn = (srcData.FRQ_implantatBaenderOwn || []).map(function (b) { return b ? { lo: b.lo, hi: b.hi } : null; });
         otherData.manufacturer = srcData.manufacturer;
-        // FRQ_implantatOwn auf neue Länge anpassen, nicht überschreiben
-        if (!otherData.FRQ_implantatOwn || otherData.FRQ_implantatOwn.length !== otherData.nEl) {
-          otherData.FRQ_implantatOwn = new Array(otherData.nEl).fill(null);
-        }
         // Arrays auf neue Elektrodenzahl anpassen
         ["elSt","elNt","elExDur","schieberELL"].forEach(k => {
           if (!otherData[k] || otherData[k].length !== otherData.nEl) {
@@ -513,9 +504,9 @@ function FRQ_implantatSyncToAcoustic() {
           if (s.config !== "ci") {
             const defN = MFR[defaultMfr].n;
             s.nEl = defN;
-            s.FRQ_implantat = [...MFR[defaultMfr].FRQ_implantat];
+            s.FRQ_implantatBaenderDefault = implantDefaultBaender(defaultMfr);
+            s.FRQ_implantatBaenderOwn = new Array(defN).fill(null);
             s.manufacturer = defaultMfr;
-            s.FRQ_implantatOwn = new Array(defN).fill(null);
             ["elSt","elNt","elExDur","schieberELL"].forEach(k => {
               if (!s[k] || s[k].length !== defN) {
                 const def = k === "elSt" || k === "elExDur" ? null : (k === "elNt" ? "" : 0);
@@ -541,7 +532,8 @@ function setSideConfig(side, cfg) {
     const s = sideData[side];
     s.manufacturer = s.manufacturer || "unknown";
     s.nEl = (MFR[s.manufacturer] && MFR[s.manufacturer].n) || 0;
-    s.FRQ_implantat = (MFR[s.manufacturer] && [...MFR[s.manufacturer].FRQ_implantat]) || [];
+    s.FRQ_implantatBaenderDefault = implantDefaultBaender(s.manufacturer);
+    s.FRQ_implantatBaenderOwn = new Array(s.nEl).fill(null);
     FRQ_implantatSyncToAcoustic();
   } else {
     // unknown / hg / normal / shoh / deaf: keine eigenen Frequenzen,
