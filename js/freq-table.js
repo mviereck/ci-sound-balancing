@@ -52,12 +52,11 @@ function FRQ_implantatTableBuild() {
       `<th>${elLbl}</th>` +
       `<th>${t("thHzCi")}</th>` +
       `<th>${t("thSt")}</th>` +
-      `<th style="white-space:nowrap">${t("thExclCb")}</th>` +
-      `<th>${t("thNote")}</th>`;
+      `<th style="white-space:nowrap">${t("thExclCb")}</th>`;
   } else {
     // BA 164: neue Spalte „Aktiv" vor Status; FSP-Spalte direkt danach
     document.getElementById("FRQ_implantatTableHead").innerHTML =
-      `<th>${elLbl}</th><th>${t("thHzStd")}</th><th>${t("thHzOwn")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th style="white-space:nowrap">${t("thActive")}</th>${_fspHdr}<th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th><th>${t("thNote")}</th>`;
+      `<th>${elLbl}</th><th>${t("thBandLo")}</th><th>${t("thBandHi")}</th><th title="${t("implBandMitteTip")}">${t("thBandMitte")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th style="white-space:nowrap">${t("thActive")}</th>${_fspHdr}<th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th>`;
   }
   const tb = document.getElementById("FRQ_implantatTableBody");
   tb.innerHTML = "";
@@ -87,8 +86,7 @@ function FRQ_implantatTableBuild() {
         `<td style="font-weight:600">${elPfx}${dEN(i)}${ex}</td>` +
         `<td style="font-family:var(--mono);font-size:.86em;padding:4px 6px">${ciEffHz}</td>` +
         `<td><select class="ss" data-i="${i}">${so_ac}</select></td>` +
-        `<td style="text-align:center"><input type="checkbox" class="ec" data-i="${i}"${ownExcl ? " checked" : ""}></td>` +
-        `<td><input type="text" class="ni" data-i="${i}" value="${elNt[i] || ""}" placeholder="${t("thNote")}"></td>`;
+        `<td style="text-align:center"><input type="checkbox" class="ec" data-i="${i}"${ownExcl ? " checked" : ""}></td>`;
       tb.appendChild(tr);
       tr.querySelector(".ss").value = elSt[i] || "";
       continue;
@@ -100,8 +98,19 @@ function FRQ_implantatTableBuild() {
     const isExcl  = elExDur[i] !== null;
     // BA 164: Aktivitäts-Status aus globaler elActive
     const isDeact = (elActive && elActive[i] === false);
-    const stdHz   = fmtNum(FRQ_implantatEffektiv(i), "hz");
-    const ownVal  = "";
+    // Band-Werte der Elektrode i (Architektur §4).
+    const _band    = FRQ_implantatBand(i);                 // effektives Band {lo,hi}
+    const _defBand = (FRQ_implantatBaenderDefault && FRQ_implantatBaenderDefault[i]) || null;
+    const _hasOwn  = FRQ_implantatHatOwn(i);
+    // Platzhalter = Default-Grenze (grau); Value = eigene Grenze (schwarz) nur bei Override.
+    const _loPh  = _defBand ? fmtNum(_defBand.lo, "hz") : "";
+    const _hiPh  = _defBand ? fmtNum(_defBand.hi, "hz") : "";
+    const _loVal = _hasOwn && _band ? fmtNum(_band.lo, "hz") : "";
+    const _hiVal = _hasOwn && _band ? fmtNum(_band.hi, "hz") : "";
+    // Mitte "geom (arith)" — reine Anzeige.
+    const _geom  = _band ? fmtNum(geomMitte(_band.lo, _band.hi), "hz") : "";
+    const _arith = _band ? fmtNum((_band.lo + _band.hi) / 2, "hz") : "";
+    const _mitteTxt = _geom ? `${_geom} (${_arith})` : "";
     const thrVal  =
       im.thr && im.thr[i] !== null && im.thr[i] !== undefined ? im.thr[i] : "";
     const upperVal = isMedel
@@ -140,27 +149,55 @@ function FRQ_implantatTableBuild() {
 
     tr.innerHTML =
       `<td style="font-weight:600">${elPfx}${dEN(i)}${ex}</td>` +
-      `<td style="font-family:var(--mono);font-size:.86em;padding:4px 6px">${stdHz}</td>` +
-      `<td><input type="number" class="fo" data-i="${i}" value="${ownVal}" min="20" max="20000" step="any" readonly style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em;opacity:0.5"></td>` +
+      `<td><input type="number" class="blo" data-i="${i}" value="${_loVal}" placeholder="${_loPh}" min="20" max="20000" step="any" style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em"></td>` +
+      `<td><input type="number" class="bhi" data-i="${i}" value="${_hiVal}" placeholder="${_hiPh}" min="20" max="20000" step="any" style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em"></td>` +
+      `<td style="font-family:var(--mono);font-size:.86em;padding:4px 6px" title="${t("implBandMitteTip")}">${_mitteTxt}</td>` +
       `<td><input type="number" class="it" data-i="${i}" value="${thrVal}" min="0" max="500" step="1" style="${inpStyle}" placeholder="—"></td>` +
       `<td><input type="number" class="iu" data-i="${i}" value="${upperVal}" min="0" max="1000" step="1" style="${inpStyle}" placeholder="—"></td>` +
       `<td style="text-align:center">${_activeCbHtml}</td>` +
       _fspCell +
       `<td><select class="ss" data-i="${i}">${so_i}</select></td>` +
-      `<td style="text-align:center"><input type="checkbox" class="ec" data-i="${i}"${isExcl ? " checked" : ""}></td>` +
-      `<td><input type="text" class="ni" data-i="${i}" value="${elNt[i] || ""}" placeholder="${t("thNote")}"></td>`;
+      `<td style="text-align:center"><input type="checkbox" class="ec" data-i="${i}"${isExcl ? " checked" : ""}></td>`;
     tb.appendChild(tr);
     tr.querySelector(".ss").value = elSt[i] || "";
   }
-  // Hz own inputs — BA540: Band-Eingabe ersetzt dieses Feld; bis dahin readonly (No-Op).
-  tb.querySelectorAll(".fo").forEach((inp) =>
-    inp.addEventListener("change", function () {})
+  // Band-Eingabe: liest BEIDE Grenz-Felder der Zeile und setzt daraus
+  // FRQ_implantatBaenderOwn[i]. Eine leere Grenze wird aus dem Default-Band
+  // gefuellt; beide leer -> Own[i]=null (ganz Default).
+  function _bandInputHandler(e) {
+    const i = +e.target.dataset.i;
+    const tr = e.target.closest("tr");
+    const loRaw = tr.querySelector(".blo").value;
+    const hiRaw = tr.querySelector(".bhi").value;
+    const def = (FRQ_implantatBaenderDefault && FRQ_implantatBaenderDefault[i]) || null;
+    const loIn = loRaw === "" ? null : parseNum(loRaw);
+    const hiIn = hiRaw === "" ? null : parseNum(hiRaw);
+    // effektive Grenzen: Eingabe, sonst Default (fuer die Validierung + Fuellung)
+    const lo = loIn != null ? loIn : (def ? def.lo : null);
+    const hi = hiIn != null ? hiIn : (def ? def.hi : null);
+    const okNum = (x) => x != null && isFinite(x) && x >= 20 && x <= 20000;
+    if (!okNum(lo) || !okNum(hi) || lo >= hi) {
+      FRQ_implantatTableBuild();   // ungueltig: zuruecksetzen, nichts schreiben
+      return;
+    }
+    if (loIn == null && hiIn == null) {
+      FRQ_implantatBaenderOwn[i] = null;          // beide leer -> ganz Default
+    } else {
+      FRQ_implantatBaenderOwn[i] = { lo: lo, hi: hi };
+    }
+    FRQ_implantatTableBuild();
+    updRef();
+    if (typeof validateImplantTable === "function") validateImplantTable(activeSide);
+  }
+  tb.querySelectorAll(".blo, .bhi").forEach((inp) =>
+    inp.addEventListener("change", _bandInputHandler)
   );
-  // Vertikale Tab-Navigation: .fo → .it → .iu (Shift+Tab rückwärts)
+  // Vertikale Tab-Navigation: .blo → .bhi → .it → .iu
   [
-    { cls: ".fo", next: ".it", prev: null },
-    { cls: ".it", next: ".iu", prev: ".fo" },
-    { cls: ".iu", next: null,  prev: ".it" },
+    { cls: ".blo", next: ".bhi", prev: null },
+    { cls: ".bhi", next: ".it",  prev: ".blo" },
+    { cls: ".it",  next: ".iu",  prev: ".bhi" },
+    { cls: ".iu",  next: null,   prev: ".it" },
   ].forEach(({ cls, next, prev }) => {
     const inputs = Array.from(tb.querySelectorAll(cls));
     inputs.forEach((inp, idx) => {
@@ -174,7 +211,6 @@ function FRQ_implantatTableBuild() {
             const firstNext = tb.querySelector(next);
             if (firstNext) { e.preventDefault(); firstNext.focus(); }
           }
-          // letzte .iu + Tab: Browser-Standard
         } else {
           if (idx > 0) {
             e.preventDefault();
@@ -184,7 +220,6 @@ function FRQ_implantatTableBuild() {
             const lastPrev = prevInputs[prevInputs.length - 1];
             if (lastPrev) { e.preventDefault(); lastPrev.focus(); }
           }
-          // erste .fo + Shift+Tab: Browser-Standard
         }
       });
     });
@@ -295,11 +330,6 @@ function FRQ_implantatTableBuild() {
       if (typeof validateImplantTable === "function") validateImplantTable(activeSide);
     }),
   );
-  tb.querySelectorAll(".ni").forEach((n) =>
-    n.addEventListener("change", (e) => {
-      elNt[+e.target.dataset.i] = e.target.value;
-    }),
-  );
   // BA 164/165: Hinweis & Warnung aus elActive[] + Sichtbarkeit nach „eigene Hz vollständig"
   const hintEl = document.getElementById("FRQ_implantatDeactHintEl");
   const hasDeact = (elActive || []).some((a) => a === false);
@@ -346,6 +376,16 @@ function FRQ_implantatTableBuild() {
     wb.innerHTML = t("warnDeactivated");
   } else if (wb) {
     wb.remove();
+  }
+  // Standard-Band-Warnung: sichtbar, solange nicht alle aktiven Elektroden
+  // ein eigenes Band haben. (Ausblenden, wenn "voll".)
+  const _bandWarnEl = document.getElementById("implBandWarnEl");
+  if (_bandWarnEl) {
+    const _allOwn = [...Array(nEl).keys()]
+      .filter((i) => elActive[i] !== false)
+      .every((i) => FRQ_implantatHatOwn(i));
+    _bandWarnEl.innerHTML = t("implBandWarn");
+    _bandWarnEl.style.display = (isAcoustic || _allOwn) ? "none" : "";
   }
   updRef();
   updManSel();

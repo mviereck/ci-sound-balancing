@@ -69,13 +69,15 @@ Object.assign(L.de, {
     FRQ_implantatDeactHint:
       "<b>Wichtig – deaktivierte Elektroden:</b> Wenn in Ihrem CI Elektroden deaktiviert sind, verteilt das Implantat den Frequenzbereich auf die verbleibenden aktiven Elektroden. Die Mittenfrequenzen aller anderen Elektroden verschieben sich dadurch — die hier voreingestellten Standardwerte gelten dann nicht mehr.<br>Haken Sie deaktivierte Elektroden in der Spalte „Aktiv” ab und tragen Sie die aktuellen Mittenfrequenzen aus Ihrer Anpassung ein. Ohne korrekte Frequenzen sind Messung und Player-Equalizer nicht aussagekräftig.",
     thEl: "El.",
-    thHzStd: "Hz Standard",
-    thHzOwn: "Hz eigene",
+    thBandLo: "untere Grenze",
+    thBandHi: "obere Grenze",
+    thBandMitte: "Mitte (Hz)",
+    implBandMitteTip: "Gemessen wird die geometrische Bandmitte √(lo·hi). In Klammern die arithmetische Mitte (lo+hi)/2 — der Wert, den Ihr Fitting-Bericht üblicherweise nennt.",
+    implBandWarn: "Die Frequenzbänder sind eine unsichere Standardannahme des Herstellers. Sie stimmen wahrscheinlich nicht mit Ihrer persönlichen Anpassung überein. Fragen Sie Ihren Audiologen nach Ihren tatsächlichen Frequenzbändern und tragen Sie diese hier ein.",
 
     thActive:         "Aktiv",
     thFsp:            "FSP",
     thSt: "Status",
-    thNote: "Notiz",
     thExclCb: "Ausschließen",
     stDeactivated: "Deaktiviert im CI",
     warnDeactivated:
