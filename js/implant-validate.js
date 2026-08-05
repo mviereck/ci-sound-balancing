@@ -175,8 +175,10 @@ function _implMsg(w) {
 }
 
 function _implFieldSelector(idx, field) {
-  // Klassen wie in freq-table.js: .fo = Hz eigen, .it = THR, .iu = Upper
-  const cls = field === 'hz' ? 'fo' : field === 'thr' ? 'it' : field === 'upper' ? 'iu' : field === 'fsp' ? 'ec-fsp' : null;
+  // Klassen wie in freq-table.js: .blo/.bhi = Bandgrenzen, .it = THR, .iu = Upper
+  const cls = field === 'lo' ? 'blo' : field === 'hi' ? 'bhi'
+    : field === 'thr' ? 'it' : field === 'upper' ? 'iu'
+    : field === 'fsp' ? 'ec-fsp' : null;
   if (!cls) return null;
   return '.' + cls + '[data-i="' + idx + '"]';
 }
@@ -318,7 +320,7 @@ function _implCheckHzMonotonie(s) {
       warnings.push({
         level: IMPL_VAL_LEVEL_RED,
         electrodeIdx: i + 1,
-        field: 'hz',
+        field: ['lo', 'hi'],
         messageKey: 'implValidateHzMonotonie',
         messageParams: {
           eI: dENFn(i),
@@ -350,7 +352,7 @@ function _implCheckHzRange(s) {
       warnings.push({
         level: IMPL_VAL_LEVEL_RED,
         electrodeIdx: i,
-        field: 'hz',
+        field: ['lo', 'hi'],
         messageKey: 'implValidateHzRange',
         messageParams: {
           e: dENFn(i),
@@ -384,7 +386,7 @@ function _implCheckHzMagnitude(s) {
       warnings.push({
         level: IMPL_VAL_LEVEL_ORANGE,
         electrodeIdx: i,
-        field: 'hz',
+        field: ['lo', 'hi'],
         messageKey: 'implValidateHzMagnitude',
         messageParams: {
           e: dENFn(i),
@@ -443,7 +445,7 @@ function _implCheckHzCochlearLookup(s) {
     warnings.push({
       level: level,
       electrodeIdx: i,
-      field: 'hz',
+      field: ['lo', 'hi'],
       messageKey: 'implValidateHzCochlearLookup',
       messageParams: {
         e: dENFn(i),
@@ -499,7 +501,7 @@ function _implCheckHzTrendMedelAb(s) {
     warnings.push({
       level: level,
       electrodeIdx: i,
-      field: 'hz',
+      field: ['lo', 'hi'],
       messageKey: 'implValidateHzTrend',
       messageParams: {
         e: dENFn(i),
@@ -554,7 +556,7 @@ function _implCheckHzJumpMedelAb(s) {
     warnings.push({
       level: level,
       electrodeIdx: i + 1,
-      field: 'hz',
+      field: ['lo', 'hi'],
       messageKey: 'implValidateHzJump',
       messageParams: {
         eI:       dENFn(i),
@@ -562,6 +564,65 @@ function _implCheckHzJumpMedelAb(s) {
         stepUser: Math.round(stepUser),
         stepDef:  Math.round(stepDef),
         dev:      Math.round(dev)
+      }
+    });
+  }
+  return warnings;
+}
+
+// Nahtlosigkeit: benachbarte Baender sollen aneinanderstossen (hi[i]==lo[i+1]).
+// Abweichung bis einschliesslich 1 Hz gilt als nahtlos (Rundung). Darueber:
+// gelber Hinweis. Absolute Schwelle, keine Prozentpruefung.
+const IMPL_VAL_NAHT_TOLERANZ_HZ = 1;
+
+// Nahtlosigkeit benachbarter Baender (§5). Baender liegen in Frequenz-
+// reihenfolge (Pos 0 = niedrigste Hz), daher ist hi des Bandes i mit lo des
+// Bandes i+1 zu vergleichen -- richtungsunabhaengig von apFirst. apFirst
+// bestimmt nur die angezeigte Elektrodennummer (dEN).
+function _implCheckBandNahtlos(s) {
+  const warnings = [];
+  if (!s || !s.nEl) return warnings;
+  const n = s.nEl;
+  const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
+
+  for (let i = 0; i < n - 1; i++) {
+    if (s.elActive && s.elActive[i] === false) continue;
+    if (s.elActive && s.elActive[i + 1] === false) continue;
+
+    const bI = FRQ_implantatBand(i, s);
+    const bJ = FRQ_implantatBand(i + 1, s);
+    if (!bI || !bJ) continue;
+    const hiI = bI.hi;
+    const loJ = bJ.lo;
+    if (!isFinite(hiI) || !isFinite(loJ)) continue;
+
+    const diff = hiI - loJ;                 // >0 Ueberschneidung, <0 Luecke
+    if (Math.abs(diff) <= IMPL_VAL_NAHT_TOLERANZ_HZ) continue;   // nahtlos
+
+    const isLuecke = diff < 0;
+    warnings.push({
+      level: IMPL_VAL_LEVEL_YELLOW,
+      electrodeIdx: i,
+      field: ['hi'],                        // obere Grenze von i
+      messageKey: isLuecke ? 'implValidateBandLuecke' : 'implValidateBandUeberschneidung',
+      messageParams: {
+        eI:  dENFn(i),
+        eJ:  dENFn(i + 1),
+        hi:  fmtNum(hiI, "hz"),
+        lo:  fmtNum(loJ, "hz")
+      }
+    });
+    // zusaetzlich die untere Grenze der Nachbarelektrode markieren
+    warnings.push({
+      level: IMPL_VAL_LEVEL_YELLOW,
+      electrodeIdx: i + 1,
+      field: ['lo'],                        // untere Grenze von i+1
+      messageKey: isLuecke ? 'implValidateBandLuecke' : 'implValidateBandUeberschneidung',
+      messageParams: {
+        eI:  dENFn(i),
+        eJ:  dENFn(i + 1),
+        hi:  fmtNum(hiI, "hz"),
+        lo:  fmtNum(loJ, "hz")
       }
     });
   }
@@ -1050,6 +1111,7 @@ function validateImplantTable(side) {
   warnings.push.apply(warnings, _implCheckHzCochlearLookup(s));
   warnings.push.apply(warnings, _implCheckHzTrendMedelAb(s));
   warnings.push.apply(warnings, _implCheckHzJumpMedelAb(s));
+  warnings.push.apply(warnings, _implCheckBandNahtlos(s));
   warnings.push.apply(warnings, _implCheckThrUpperRange(s));
   warnings.push.apply(warnings, _implCheckThrUpperConflict(s));
   warnings.push.apply(warnings, _implCheckThrUpperMagnitude(s));

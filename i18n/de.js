@@ -94,6 +94,8 @@ Object.assign(L.de, {
     implValidateHzCochlearLookup: "E{e}: eigener Wert {hz} Hz weicht {cents} Cent vom Cochlear-Standard ({expected} Hz) ab",
     implValidateHzTrend: "E{e}: Cent-Versatz vom Standard weicht {dev} Cent vom Nachbar-Trend ({trend} Cent) ab — könnte ein Eingabefehler sein",
     implValidateHzJump: "Sprung E{eI}→E{eJ}: {stepUser} Cent (Standard wäre {stepDef} Cent, Abweichung {dev} Cent)",
+    implValidateBandLuecke: "Lücke zwischen E{eI} und E{eJ}: obere Grenze {hi} Hz liegt unter der unteren Grenze {lo} Hz der Nachbarelektrode. Zulässig, aber ungewöhnlich — bitte prüfen.",
+    implValidateBandUeberschneidung: "Überschneidung zwischen E{eI} und E{eJ}: obere Grenze {hi} Hz liegt über der unteren Grenze {lo} Hz der Nachbarelektrode. Zulässig, aber ungewöhnlich — bitte prüfen.",
     implValidateThrRange: "E{e}: THR ({val}) liegt außerhalb des erlaubten Bereichs ({min}–{max})",
     implValidateUpperRange: "E{e}: Upper Level ({val}) liegt außerhalb des erlaubten Bereichs ({min}–{max})",
     implValidateThrUpperConflict: "E{e}: THR ({thr}) liegt über Upper Level ({upper}) — Spalten vermutlich vertauscht",
