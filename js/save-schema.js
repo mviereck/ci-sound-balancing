@@ -251,16 +251,24 @@ var SAVE_SCHEMA_GLOBAL = [
 function _saveNormBaender(arr, nEl, mfr, fillDefault) {
   var defs = fillDefault ? implantDefaultBaender(mfr) : null;
   var out = [];
+  // Eine Grenze ist gueltig, wenn null (Default) ODER finite im Bereich.
+  var okG = function (x) { return x == null || (isFinite(x) && x >= 20 && x <= 20000); };
   for (var i = 0; i < nEl; i++) {
     var b = arr[i];
-    var ok = b && typeof b === "object"
-      && isFinite(b.lo) && isFinite(b.hi) && b.lo > 0 && b.hi > b.lo;
-    if (ok) {
-      out.push({ lo: b.lo, hi: b.hi });
-    } else if (fillDefault) {
-      out.push(defs[i] ? { lo: defs[i].lo, hi: defs[i].hi } : null);
+    if (fillDefault) {
+      // Default-Snapshot: beide Grenzen muessen echte Zahlen sein.
+      var okD = b && typeof b === "object"
+        && isFinite(b.lo) && isFinite(b.hi) && b.lo > 0 && b.hi > b.lo;
+      out.push(okD ? { lo: b.lo, hi: b.hi }
+                   : (defs[i] ? { lo: defs[i].lo, hi: defs[i].hi } : null));
     } else {
-      out.push(null);
+      // Own-Overrides: grenzweise; jede Grenze Zahl-oder-null. Wenn beide null
+      // -> null (kein Override). Wenn beide gesetzt, muss lo<hi gelten.
+      if (!b || typeof b !== "object") { out.push(null); continue; }
+      var lo = okG(b.lo) ? (b.lo == null ? null : b.lo) : null;
+      var hi = okG(b.hi) ? (b.hi == null ? null : b.hi) : null;
+      if (lo != null && hi != null && lo >= hi) { lo = null; hi = null; }
+      out.push((lo == null && hi == null) ? null : { lo: lo, hi: hi });
     }
   }
   return out;

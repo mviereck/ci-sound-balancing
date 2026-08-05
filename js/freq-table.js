@@ -101,12 +101,12 @@ function FRQ_implantatTableBuild() {
     // Band-Werte der Elektrode i (Architektur §4).
     const _band    = FRQ_implantatBand(i);                 // effektives Band {lo,hi}
     const _defBand = (FRQ_implantatBaenderDefault && FRQ_implantatBaenderDefault[i]) || null;
-    const _hasOwn  = FRQ_implantatHatOwn(i);
-    // Platzhalter = Default-Grenze (grau); Value = eigene Grenze (schwarz) nur bei Override.
+    // Platzhalter = Default-Grenze (grau). Value = eigene Grenze (schwarz)
+    // NUR fuer die tatsaechlich manuell eingegebene Grenze (grenzweise Herkunft).
     const _loPh  = _defBand ? fmtNum(_defBand.lo, "hz") : "";
     const _hiPh  = _defBand ? fmtNum(_defBand.hi, "hz") : "";
-    const _loVal = _hasOwn && _band ? fmtNum(_band.lo, "hz") : "";
-    const _hiVal = _hasOwn && _band ? fmtNum(_band.hi, "hz") : "";
+    const _loVal = FRQ_implantatHatOwnGrenze(i, "lo") && _band ? fmtNum(_band.lo, "hz") : "";
+    const _hiVal = FRQ_implantatHatOwnGrenze(i, "hi") && _band ? fmtNum(_band.hi, "hz") : "";
     // Mitte "geom (arith)" — reine Anzeige.
     const _geom  = _band ? fmtNum(geomMitte(_band.lo, _band.hi), "hz") : "";
     const _arith = _band ? fmtNum((_band.lo + _band.hi) / 2, "hz") : "";
@@ -172,20 +172,27 @@ function FRQ_implantatTableBuild() {
     const def = (FRQ_implantatBaenderDefault && FRQ_implantatBaenderDefault[i]) || null;
     const loIn = loRaw === "" ? null : parseNum(loRaw);
     const hiIn = hiRaw === "" ? null : parseNum(hiRaw);
-    // effektive Grenzen: Eingabe, sonst Default (fuer die Validierung + Fuellung)
-    const lo = loIn != null ? loIn : (def ? def.lo : null);
-    const hi = hiIn != null ? hiIn : (def ? def.hi : null);
+    // Effektive Grenzen NUR zur Validierung (eigene Eingabe, sonst Default).
+    const loEff = loIn != null ? loIn : (def ? def.lo : null);
+    const hiEff = hiIn != null ? hiIn : (def ? def.hi : null);
     const okNum = (x) => x != null && isFinite(x) && x >= 20 && x <= 20000;
-    if (!okNum(lo) || !okNum(hi) || lo >= hi) {
+    // Einzelne eingegebene Grenzen muessen im Bereich sein; sind BEIDE (effektiv)
+    // bekannt, muss lo < hi gelten.
+    var bad = (loIn != null && !okNum(loIn)) || (hiIn != null && !okNum(hiIn))
+           || (loEff != null && hiEff != null && loEff >= hiEff);
+    if (bad) {
       FRQ_implantatTableBuild();   // ungueltig: zuruecksetzen, nichts schreiben
       return;
     }
     if (loIn == null && hiIn == null) {
       FRQ_implantatBaenderOwn[i] = null;          // beide leer -> ganz Default
     } else {
-      FRQ_implantatBaenderOwn[i] = { lo: lo, hi: hi };
+      // GRENZWEISE speichern: nicht eingegebene Grenze bleibt null (Default gilt).
+      FRQ_implantatBaenderOwn[i] = { lo: loIn, hi: hiIn };
     }
-    FRQ_implantatTableBuild();
+    // KEIN voller FRQ_implantatTableBuild hier (zerstoert Fokus/Navigation) --
+    // nur die betroffene Zeile und abhaengige Anzeigen aktualisieren.
+    _frqBandRefreshRow(i);
     updRef();
     if (typeof validateImplantTable === "function") validateImplantTable(activeSide);
   }
@@ -377,22 +384,54 @@ function FRQ_implantatTableBuild() {
   } else if (wb) {
     wb.remove();
   }
-  // Standard-Band-Warnung: sichtbar, solange nicht alle aktiven Elektroden
-  // ein eigenes Band haben. (Ausblenden, wenn "voll".)
-  const _bandWarnEl = document.getElementById("implBandWarnEl");
-  if (_bandWarnEl) {
-    const _allOwn = [...Array(nEl).keys()]
-      .filter((i) => elActive[i] !== false)
-      .every((i) => FRQ_implantatHatOwn(i));
-    _bandWarnEl.innerHTML = t("implBandWarn");
-    _bandWarnEl.style.display = (isAcoustic || _allOwn) ? "none" : "";
-  }
+  _frqBandWarnRefresh();
   updRef();
   updManSel();
   applyMobileReadonly(tb);
   if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
   // BA 164: Aktiv-Checkbox-Sperren live anwenden
   if (typeof depLockApply === 'function') depLockApply();
+}
+// Standard-Band-Warnung aktualisieren: sichtbar, solange nicht alle aktiven
+// Elektroden ein eigenes Band haben. Wird aus FRQ_implantatTableBuild und
+// _frqBandRefreshRow aufgerufen (schmaler Refresh benoetigt dieselbe Logik).
+function _frqBandWarnRefresh() {
+  const _bandWarnEl = document.getElementById("implBandWarnEl");
+  if (!_bandWarnEl) return;
+  const cfg = (sideData && sideData[activeSide]) ? (sideData[activeSide].config || "ci") : "ci";
+  const isAcoustic = ["hg", "normal", "shoh"].includes(cfg);
+  const n = typeof nEl !== "undefined" ? nEl : 0;
+  const active = typeof elActive !== "undefined" ? elActive : [];
+  const _allOwn = [...Array(n).keys()]
+    .filter((i) => active[i] !== false)
+    .every((i) => FRQ_implantatHatOwn(i));
+  _bandWarnEl.innerHTML = (typeof t === "function") ? t("implBandWarn") : "";
+  _bandWarnEl.style.display = (isAcoustic || _allOwn) ? "none" : "";
+}
+// Aktualisiert nur die Optik der Band-Zellen einer Zeile (Value/Placeholder
+// grenzweise + Mitte), ohne die Tabelle neu zu bauen -> Fokus/Tab-Navigation
+// bleiben erhalten. Der change-Handler hat den State bereits gesetzt.
+function _frqBandRefreshRow(i) {
+  const tb = document.getElementById("FRQ_implantatTableBody");
+  if (!tb) return;
+  const loEl = tb.querySelector('.blo[data-i="' + i + '"]');
+  const hiEl = tb.querySelector('.bhi[data-i="' + i + '"]');
+  const band = FRQ_implantatBand(i);
+  // Value grenzweise: nur die manuell eingegebene Grenze zeigt einen value.
+  if (loEl) loEl.value = FRQ_implantatHatOwnGrenze(i, "lo") && band ? fmtNum(band.lo, "hz") : "";
+  if (hiEl) hiEl.value = FRQ_implantatHatOwnGrenze(i, "hi") && band ? fmtNum(band.hi, "hz") : "";
+  // Mitten-Zelle (4. Zelle der Zeile: El | lo | hi | Mitte | ...) aktualisieren.
+  const tr = loEl ? loEl.closest("tr") : null;
+  if (tr && band) {
+    const mitteCell = tr.children[3];
+    if (mitteCell) {
+      const g = fmtNum(geomMitte(band.lo, band.hi), "hz");
+      const a = fmtNum((band.lo + band.hi) / 2, "hz");
+      mitteCell.textContent = g + " (" + a + ")";
+    }
+  }
+  // Standard-Band-Warnung ggf. neu bewerten (koennte sich geaendert haben).
+  _frqBandWarnRefresh();
 }
 // BA 169: Aktualisiert nur die Hz-abhängigen Hinweise und den Warnbalken,
 // ohne die Tabelle neu zu rendern. Wird vom .fo-change-Handler aufgerufen,

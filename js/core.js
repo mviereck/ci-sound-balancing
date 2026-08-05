@@ -318,8 +318,13 @@ function implantDefaultBaender(m) {
 function FRQ_implantatBand(i, srcData) {
   var own = srcData ? srcData.FRQ_implantatBaenderOwn : FRQ_implantatBaenderOwn;
   var def = srcData ? srcData.FRQ_implantatBaenderDefault : FRQ_implantatBaenderDefault;
-  if (own && own[i] != null) return own[i];
-  return def ? def[i] : null;
+  var o = (own && own[i] != null) ? own[i] : null;
+  var d = def ? def[i] : null;
+  // Grenzweise Mischung: eigene Grenze wenn gesetzt, sonst Default-Grenze.
+  var lo = (o && o.lo != null) ? o.lo : (d ? d.lo : null);
+  var hi = (o && o.hi != null) ? o.hi : (d ? d.hi : null);
+  if (lo == null || hi == null) return null;
+  return { lo: lo, hi: hi };
 }
 // Arithmetische Mitte des effektiven Bandes (Anzeige-/Vergleichswert).
 function FRQ_implantatMitteArith(i, srcData) {
@@ -337,6 +342,12 @@ function FRQ_implantatMitteDefaultArith(i, srcData) {
 function FRQ_implantatHatOwn(i, srcData) {
   var own = srcData ? srcData.FRQ_implantatBaenderOwn : FRQ_implantatBaenderOwn;
   return !!(own && own[i] != null);
+}
+// Hat die Elektrode i fuer die angegebene Grenze ('lo'|'hi') einen eigenen Wert?
+function FRQ_implantatHatOwnGrenze(i, grenze, srcData) {
+  var own = srcData ? srcData.FRQ_implantatBaenderOwn : FRQ_implantatBaenderOwn;
+  var o = (own && own[i] != null) ? own[i] : null;
+  return !!(o && o[grenze] != null);
 }
 // Greenwood-Funktion (Cochlea-Position <-> Frequenz), klassische Parameter.
 // x in [0,1] = relative Cochlea-Position (0 = apikal/tief, 1 = basal/hoch).
