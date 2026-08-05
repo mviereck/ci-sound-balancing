@@ -105,8 +105,18 @@ function FRQ_implantatTableBuild() {
     // NUR fuer die tatsaechlich manuell eingegebene Grenze (grenzweise Herkunft).
     const _loPh  = _defBand ? fmtNum(_defBand.lo, "hz") : "";
     const _hiPh  = _defBand ? fmtNum(_defBand.hi, "hz") : "";
-    const _loVal = FRQ_implantatHatOwnGrenze(i, "lo") && _band ? fmtNum(_band.lo, "hz") : "";
-    const _hiVal = FRQ_implantatHatOwnGrenze(i, "hi") && _band ? fmtNum(_band.hi, "hz") : "";
+    // Anzeige-Value grenzweise: eigener Wert (Zahl formatiert ODER Roh-String),
+    // sonst leer (Default-Placeholder grau).
+    const _ownObj = (FRQ_implantatBaenderOwn && FRQ_implantatBaenderOwn[i] != null) ? FRQ_implantatBaenderOwn[i] : null;
+    const _rawLo  = _ownObj ? _ownObj.lo : null;
+    const _rawHi  = _ownObj ? _ownObj.hi : null;
+    const _fmtGrenze = (raw) => {
+      if (raw == null) return "";
+      const n = _bandGrenzeNum(raw);
+      return n != null ? fmtNum(n, "hz") : String(raw);   // Roh-String unveraendert
+    };
+    const _loVal = _fmtGrenze(_rawLo);
+    const _hiVal = _fmtGrenze(_rawHi);
     // Mitte "geom (arith)" — reine Anzeige.
     const _geom  = _band ? fmtNum(geomMitte(_band.lo, _band.hi), "hz") : "";
     const _arith = _band ? fmtNum((_band.lo + _band.hi) / 2, "hz") : "";
@@ -149,8 +159,8 @@ function FRQ_implantatTableBuild() {
 
     tr.innerHTML =
       `<td style="font-weight:600">${elPfx}${dEN(i)}${ex}</td>` +
-      `<td><input type="number" class="blo" data-i="${i}" value="${_loVal}" placeholder="${_loPh}" min="20" max="20000" step="any" style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em"></td>` +
-      `<td><input type="number" class="bhi" data-i="${i}" value="${_hiVal}" placeholder="${_hiPh}" min="20" max="20000" step="any" style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em"></td>` +
+      `<td><input type="text" inputmode="decimal" autocomplete="off" class="blo" data-i="${i}" value="${_loVal}" placeholder="${_loPh}" style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em"></td>` +
+      `<td><input type="text" inputmode="decimal" autocomplete="off" class="bhi" data-i="${i}" value="${_hiVal}" placeholder="${_hiPh}" style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em"></td>` +
       `<td style="font-family:var(--mono);font-size:.86em;padding:4px 6px" title="${t("implBandMitteTip")}">${_mitteTxt}</td>` +
       `<td><input type="number" class="it" data-i="${i}" value="${thrVal}" min="0" max="500" step="1" style="${inpStyle}" placeholder="—"></td>` +
       `<td><input type="number" class="iu" data-i="${i}" value="${upperVal}" min="0" max="1000" step="1" style="${inpStyle}" placeholder="—"></td>` +
@@ -162,36 +172,29 @@ function FRQ_implantatTableBuild() {
     tr.querySelector(".ss").value = elSt[i] || "";
   }
   // Band-Eingabe: liest BEIDE Grenz-Felder der Zeile und setzt daraus
-  // FRQ_implantatBaenderOwn[i]. Eine leere Grenze wird aus dem Default-Band
-  // gefuellt; beide leer -> Own[i]=null (ganz Default).
+  // FRQ_implantatBaenderOwn[i]. Keine Feld-Validierung; Plausibilitaet prueft.
   function _bandInputHandler(e) {
     const i = +e.target.dataset.i;
     const tr = e.target.closest("tr");
-    const loRaw = tr.querySelector(".blo").value;
-    const hiRaw = tr.querySelector(".bhi").value;
-    const def = (FRQ_implantatBaenderDefault && FRQ_implantatBaenderDefault[i]) || null;
-    const loIn = loRaw === "" ? null : parseNum(loRaw);
-    const hiIn = hiRaw === "" ? null : parseNum(hiRaw);
-    // Effektive Grenzen NUR zur Validierung (eigene Eingabe, sonst Default).
-    const loEff = loIn != null ? loIn : (def ? def.lo : null);
-    const hiEff = hiIn != null ? hiIn : (def ? def.hi : null);
-    const okNum = (x) => x != null && isFinite(x) && x >= 20 && x <= 20000;
-    // Einzelne eingegebene Grenzen muessen im Bereich sein; sind BEIDE (effektiv)
-    // bekannt, muss lo < hi gelten.
-    var bad = (loIn != null && !okNum(loIn)) || (hiIn != null && !okNum(hiIn))
-           || (loEff != null && hiEff != null && loEff >= hiEff);
-    if (bad) {
-      FRQ_implantatTableBuild();   // ungueltig: zuruecksetzen, nichts schreiben
-      return;
-    }
-    if (loIn == null && hiIn == null) {
-      FRQ_implantatBaenderOwn[i] = null;          // beide leer -> ganz Default
+    const loRaw = tr.querySelector(".blo").value.trim();
+    const hiRaw = tr.querySelector(".bhi").value.trim();
+    // Rohwert grenzweise speichern: leer -> null; sonst die Zahl (wenn parsbar)
+    // ODER der Roh-String (bleibt fuer Anzeige + Plausibilitaet erhalten).
+    const _store = (raw) => {
+      if (raw === "") return null;
+      const n = _bandGrenzeNum(raw);
+      return n != null ? n : raw;          // parsbar -> Zahl, sonst Roh-String
+    };
+    const lo = _store(loRaw);
+    const hi = _store(hiRaw);
+    if (lo == null && hi == null) {
+      FRQ_implantatBaenderOwn[i] = null;   // beide Default
     } else {
-      // GRENZWEISE speichern: nicht eingegebene Grenze bleibt null (Default gilt).
-      FRQ_implantatBaenderOwn[i] = { lo: loIn, hi: hiIn };
+      FRQ_implantatBaenderOwn[i] = { lo: lo, hi: hi };
     }
-    // KEIN voller FRQ_implantatTableBuild hier (zerstoert Fokus/Navigation) --
-    // nur die betroffene Zeile und abhaengige Anzeigen aktualisieren.
+    // KEINE Feld-Validierung. Kein Zuruecksetzen. Anzeige/Mitte/Warnung schmal
+    // aktualisieren (ohne Feld-value zu ueberschreiben -> Fokus bleibt), dann
+    // Plausibilitaet laufen lassen (die bewertet die Werte).
     _frqBandRefreshRow(i);
     updRef();
     if (typeof validateImplantTable === "function") validateImplantTable(activeSide);
@@ -199,12 +202,33 @@ function FRQ_implantatTableBuild() {
   tb.querySelectorAll(".blo, .bhi").forEach((inp) =>
     inp.addEventListener("change", _bandInputHandler)
   );
-  // Vertikale Tab-Navigation: .blo → .bhi → .it → .iu
+  // Tab/Enter-Navigation der Band-Eingabe: zeilenweise lo -> hi -> naechste
+  // Zeile lo. (.it/.iu THR/Upper behalten ihre eigene Navigation unten.)
+  const _bandInputs = [];
+  tb.querySelectorAll("tr").forEach(function (row) {
+    const lo = row.querySelector(".blo");
+    const hi = row.querySelector(".bhi");
+    if (lo) _bandInputs.push(lo);
+    if (hi) _bandInputs.push(hi);
+  });
+  _bandInputs.forEach(function (inp, idx) {
+    inp.addEventListener("keydown", function (e) {
+      const fwd  = (e.key === "Tab" && !e.shiftKey) || e.key === "Enter";
+      const back = (e.key === "Tab" && e.shiftKey);
+      if (fwd) {
+        const nxt = _bandInputs[idx + 1];
+        if (nxt) { e.preventDefault(); nxt.focus(); }
+        else if (e.key === "Enter") { e.preventDefault(); }   // letztes: kein Submit
+      } else if (back) {
+        const prv = _bandInputs[idx - 1];
+        if (prv) { e.preventDefault(); prv.focus(); }
+      }
+    });
+  });
+  // Tab-Navigation THR/Upper: .it -> .iu (vertikal, unabhaengig von Bandfeldern)
   [
-    { cls: ".blo", next: ".bhi", prev: null },
-    { cls: ".bhi", next: ".it",  prev: ".blo" },
-    { cls: ".it",  next: ".iu",  prev: ".bhi" },
-    { cls: ".iu",  next: null,   prev: ".it" },
+    { cls: ".it", next: ".iu", prev: null },
+    { cls: ".iu", next: null,  prev: ".it" },
   ].forEach(({ cls, next, prev }) => {
     const inputs = Array.from(tb.querySelectorAll(cls));
     inputs.forEach((inp, idx) => {
@@ -417,9 +441,10 @@ function _frqBandRefreshRow(i) {
   const loEl = tb.querySelector('.blo[data-i="' + i + '"]');
   const hiEl = tb.querySelector('.bhi[data-i="' + i + '"]');
   const band = FRQ_implantatBand(i);
-  // Value grenzweise: nur die manuell eingegebene Grenze zeigt einen value.
-  if (loEl) loEl.value = FRQ_implantatHatOwnGrenze(i, "lo") && band ? fmtNum(band.lo, "hz") : "";
-  if (hiEl) hiEl.value = FRQ_implantatHatOwnGrenze(i, "hi") && band ? fmtNum(band.hi, "hz") : "";
+  // Feld-value NICHT ueberschreiben (Fokus/Tippen bleibt erhalten). Nur Farbe:
+  // schwarz wenn eigene Grenze (Zahl ODER Roh-String), sonst geerbt (grau).
+  if (loEl) loEl.style.color = FRQ_implantatHatOwnGrenze(i, "lo") ? "var(--text)" : "";
+  if (hiEl) hiEl.style.color = FRQ_implantatHatOwnGrenze(i, "hi") ? "var(--text)" : "";
   // Mitten-Zelle (4. Zelle der Zeile: El | lo | hi | Mitte | ...) aktualisieren.
   const tr = loEl ? loEl.closest("tr") : null;
   if (tr && band) {

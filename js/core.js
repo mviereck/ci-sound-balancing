@@ -312,6 +312,14 @@ function implantDefaultBaender(m) {
   var src = (typeof IMPLANT_BAENDER !== "undefined" && IMPLANT_BAENDER[m]) || [];
   return src.map(function (b) { return { lo: b.lo, hi: b.hi }; });
 }
+// Liefert die numerische Grenze, falls sie eine endliche Zahl ist (auch als
+// Zahl-String), sonst null. Roh-Strings (Buchstaben o.ae.) -> null.
+function _bandGrenzeNum(x) {
+  if (x == null) return null;
+  if (typeof x === "number") return isFinite(x) ? x : null;
+  var n = parseNum(x);                 // parseNum: Komma und Punkt als Trenner
+  return isFinite(n) ? n : null;
+}
 // Effektives Band der Elektrode i einer Seite: eigenes Band (Override),
 // sonst Default-Band. srcData optional = explizites Seiten-Objekt
 // (analog FRQ_implantatEffektiv); ohne = global gebundene Seite.
@@ -320,9 +328,12 @@ function FRQ_implantatBand(i, srcData) {
   var def = srcData ? srcData.FRQ_implantatBaenderDefault : FRQ_implantatBaenderDefault;
   var o = (own && own[i] != null) ? own[i] : null;
   var d = def ? def[i] : null;
-  // Grenzweise Mischung: eigene Grenze wenn gesetzt, sonst Default-Grenze.
-  var lo = (o && o.lo != null) ? o.lo : (d ? d.lo : null);
-  var hi = (o && o.hi != null) ? o.hi : (d ? d.hi : null);
+  // Grenzweise Mischung: nur eine numerisch gueltige eigene Grenze zaehlt,
+  // sonst Default-Grenze (auch bei ungueltigem Roh-String).
+  var oLo = o ? _bandGrenzeNum(o.lo) : null;
+  var oHi = o ? _bandGrenzeNum(o.hi) : null;
+  var lo = (oLo != null) ? oLo : (d ? d.lo : null);
+  var hi = (oHi != null) ? oHi : (d ? d.hi : null);
   if (lo == null || hi == null) return null;
   return { lo: lo, hi: hi };
 }
@@ -348,6 +359,16 @@ function FRQ_implantatHatOwnGrenze(i, grenze, srcData) {
   var own = srcData ? srcData.FRQ_implantatBaenderOwn : FRQ_implantatBaenderOwn;
   var o = (own && own[i] != null) ? own[i] : null;
   return !!(o && o[grenze] != null);
+}
+// True, wenn Elektrode i fuer die Grenze ('lo'|'hi') einen EIGENEN Wert hat,
+// der KEINE gueltige Zahl ist (nicht parsbar).
+function FRQ_implantatGrenzeUngueltig(i, grenze, srcData) {
+  var own = srcData ? srcData.FRQ_implantatBaenderOwn : FRQ_implantatBaenderOwn;
+  var o = (own && own[i] != null) ? own[i] : null;
+  if (!o) return false;
+  var v = o[grenze];
+  if (v == null) return false;                 // keine eigene Eingabe
+  return _bandGrenzeNum(v) == null;            // eigen, aber nicht parsbar
 }
 // Greenwood-Funktion (Cochlea-Position <-> Frequenz), klassische Parameter.
 // x in [0,1] = relative Cochlea-Position (0 = apikal/tief, 1 = basal/hoch).

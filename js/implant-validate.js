@@ -219,6 +219,10 @@ function _implApplyFieldLevel(w) {
     if (!el) return;
     _implApplyLevelToElement(el, w);
   });
+  if (w.extraMark && w.extraMark.field != null && w.extraMark.electrodeIdx != null) {
+    const sel2 = _implFieldSelector(w.extraMark.electrodeIdx, w.extraMark.field);
+    if (sel2) { const el2 = document.querySelector(sel2); if (el2) _implApplyLevelToElement(el2, w); }
+  }
 }
 
 // Setzt die strengste Stufe auf ein einzelnes Eingabefeld.
@@ -579,6 +583,27 @@ const IMPL_VAL_NAHT_TOLERANZ_HZ = 1;
 // reihenfolge (Pos 0 = niedrigste Hz), daher ist hi des Bandes i mit lo des
 // Bandes i+1 zu vergleichen -- richtungsunabhaengig von apFirst. apFirst
 // bestimmt nur die angezeigte Elektrodennummer (dEN).
+function _implCheckBandGrenzeRoh(s) {
+  const warnings = [];
+  if (!s || !s.nEl) return warnings;
+  const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
+  for (let i = 0; i < s.nEl; i++) {
+    if (s.elActive && s.elActive[i] === false) continue;
+    ['lo', 'hi'].forEach(function (g) {
+      if (FRQ_implantatGrenzeUngueltig(i, g, s)) {
+        const own = s.FRQ_implantatBaenderOwn[i];
+        warnings.push({
+          level: IMPL_VAL_LEVEL_RED,
+          electrodeIdx: i,
+          field: [g],
+          messageKey: 'implValidateBandRoh',
+          messageParams: { e: dENFn(i), wert: String(own[g]) }
+        });
+      }
+    });
+  }
+  return warnings;
+}
 function _implCheckBandNahtlos(s) {
   const warnings = [];
   if (!s || !s.nEl) return warnings;
@@ -604,19 +629,7 @@ function _implCheckBandNahtlos(s) {
       level: IMPL_VAL_LEVEL_YELLOW,
       electrodeIdx: i,
       field: ['hi'],                        // obere Grenze von i
-      messageKey: isLuecke ? 'implValidateBandLuecke' : 'implValidateBandUeberschneidung',
-      messageParams: {
-        eI:  dENFn(i),
-        eJ:  dENFn(i + 1),
-        hi:  fmtNum(hiI, "hz"),
-        lo:  fmtNum(loJ, "hz")
-      }
-    });
-    // zusaetzlich die untere Grenze der Nachbarelektrode markieren
-    warnings.push({
-      level: IMPL_VAL_LEVEL_YELLOW,
-      electrodeIdx: i + 1,
-      field: ['lo'],                        // untere Grenze von i+1
+      extraMark: { electrodeIdx: i + 1, field: 'lo' },
       messageKey: isLuecke ? 'implValidateBandLuecke' : 'implValidateBandUeberschneidung',
       messageParams: {
         eI:  dENFn(i),
@@ -1111,6 +1124,7 @@ function validateImplantTable(side) {
   warnings.push.apply(warnings, _implCheckHzCochlearLookup(s));
   warnings.push.apply(warnings, _implCheckHzTrendMedelAb(s));
   warnings.push.apply(warnings, _implCheckHzJumpMedelAb(s));
+  warnings.push.apply(warnings, _implCheckBandGrenzeRoh(s));
   warnings.push.apply(warnings, _implCheckBandNahtlos(s));
   warnings.push.apply(warnings, _implCheckThrUpperRange(s));
   warnings.push.apply(warnings, _implCheckThrUpperConflict(s));

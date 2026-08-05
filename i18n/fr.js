@@ -97,6 +97,7 @@ Object.assign(L.fr, {
     implValidateHzJump: "Saut E{eI}→E{eJ} : {stepUser} cents (le standard serait {stepDef} cents, écart {dev} cents)",
     implValidateBandLuecke: "Écart entre E{eI} et E{eJ} : la limite supérieure {hi} Hz est inférieure à la limite inférieure {lo} Hz de l'électrode voisine. Autorisé mais inhabituel — à vérifier.",
     implValidateBandUeberschneidung: "Chevauchement entre E{eI} et E{eJ} : la limite supérieure {hi} Hz est supérieure à la limite inférieure {lo} Hz de l'électrode voisine. Autorisé mais inhabituel — à vérifier.",
+    implValidateBandRoh: "E{e} : « {wert} » n'est pas un nombre valide — veuillez saisir une fréquence en Hz. La valeur par défaut est utilisée pour la mesure.",
     implValidateThrRange: "E{e} : THR ({val}) est en dehors de la plage autorisée ({min}–{max})",
     implValidateUpperRange: "E{e} : Upper Level ({val}) est en dehors de la plage autorisée ({min}–{max})",
     implValidateThrUpperConflict: "E{e} : THR ({thr}) est au-dessus du Upper Level ({upper}) — colonnes probablement inversées",

@@ -252,7 +252,6 @@ function _saveNormBaender(arr, nEl, mfr, fillDefault) {
   var defs = fillDefault ? implantDefaultBaender(mfr) : null;
   var out = [];
   // Eine Grenze ist gueltig, wenn null (Default) ODER finite im Bereich.
-  var okG = function (x) { return x == null || (isFinite(x) && x >= 20 && x <= 20000); };
   for (var i = 0; i < nEl; i++) {
     var b = arr[i];
     if (fillDefault) {
@@ -262,12 +261,18 @@ function _saveNormBaender(arr, nEl, mfr, fillDefault) {
       out.push(okD ? { lo: b.lo, hi: b.hi }
                    : (defs[i] ? { lo: defs[i].lo, hi: defs[i].hi } : null));
     } else {
-      // Own-Overrides: grenzweise; jede Grenze Zahl-oder-null. Wenn beide null
-      // -> null (kein Override). Wenn beide gesetzt, muss lo<hi gelten.
+      // Own-Overrides: grenzweise durchreichen: null bleibt null; Zahl bleibt
+      // Zahl (auch unplausibel); nicht-leerer String bleibt String (Roh-Eingabe).
+      // Keine Bereichs- oder lo<hi-Pruefung -- das macht die Plausibilitaet.
       if (!b || typeof b !== "object") { out.push(null); continue; }
-      var lo = okG(b.lo) ? (b.lo == null ? null : b.lo) : null;
-      var hi = okG(b.hi) ? (b.hi == null ? null : b.hi) : null;
-      if (lo != null && hi != null && lo >= hi) { lo = null; hi = null; }
+      var norm = function (x) {
+        if (x == null) return null;
+        if (typeof x === "number") return isFinite(x) ? x : null;
+        var str = String(x);
+        return str.trim() === "" ? null : str;   // leerer String -> null
+      };
+      var lo = norm(b.lo);
+      var hi = norm(b.hi);
       out.push((lo == null && hi == null) ? null : { lo: lo, hi: hi });
     }
   }
