@@ -78,21 +78,23 @@ function printImplantTab() {
   // Frequenz-/Elektrodentabelle
   const headers = [
     "Nr.",
-    "Hz",
-    "Hz*",
+    t("thBandLo"),
+    t("thBandHi"),
+    t("thBandMitte"),
     t("implThHdr"),
     _upperHdr(m),
-    t("thActive"), // BA 164
+    t("thActive"),
     "Status",
-    "Notiz",
   ];
   const rows = [];
   for (let i = 0; i < s.nEl; i++) {
     const elNum = dEN(i);
     const apexBasal =
       i === 0 ? " (apikal)" : i === s.nEl - 1 ? " (basal)" : "";
-    const _mStd = FRQ_implantatMitteDefaultArith(i, s); const hzStd = _mStd != null ? fmtNum(_mStd, "hz") : "—";
-    const hzOwn = FRQ_implantatHatOwn(i, s) ? fmtNum(FRQ_implantatMitteArith(i, s), "hz") : "";
+    const _b = FRQ_implantatBand(i, s);
+    const bandLo = _b ? fmtNum(_b.lo, "hz") : "—";
+    const bandHi = _b ? fmtNum(_b.hi, "hz") : "—";
+    const mitte  = FRQ_implantatMitteGeomArithStr(i, s) || "—";
     const thr = im.thr && im.thr[i] != null ? im.thr[i] : "";
     const upper = isCi
       ? (m === "medel"
@@ -101,20 +103,19 @@ function printImplantTab() {
       : "";
     const stKey = s.elSt[i];
     const stText = stKey ? t(_stI18nKey(stKey)) : "";
-    const note = s.elNt[i] || "";
     // BA 164: Aktiv-Zelle
     const isActive = (s.elActive && s.elActive[i] !== false);
     const activeStr = isActive ? "✓" : "—";
     rows.push(
       `<tr>
         <td style="border:1px solid #ccc;padding:3px 6px;">E${elNum}${_tpEsc(apexBasal)}</td>
-        <td style="border:1px solid #ccc;padding:3px 6px;text-align:right;">${_tpEsc(hzStd)}</td>
-        <td style="border:1px solid #ccc;padding:3px 6px;text-align:right;">${_tpEsc(hzOwn)}</td>
+        <td style="border:1px solid #ccc;padding:3px 6px;text-align:right;">${_tpEsc(bandLo)}</td>
+        <td style="border:1px solid #ccc;padding:3px 6px;text-align:right;">${_tpEsc(bandHi)}</td>
+        <td style="border:1px solid #ccc;padding:3px 6px;text-align:right;">${_tpEsc(mitte)}</td>
         <td style="border:1px solid #ccc;padding:3px 6px;text-align:right;">${_tpEsc(thr)}</td>
         <td style="border:1px solid #ccc;padding:3px 6px;text-align:right;">${_tpEsc(upper)}</td>
         <td style="border:1px solid #ccc;padding:3px 6px;text-align:center;">${activeStr}</td>
         <td style="border:1px solid #ccc;padding:3px 6px;">${_tpEsc(stText)}</td>
-        <td style="border:1px solid #ccc;padding:3px 6px;">${_tpEsc(note)}</td>
       </tr>`,
     );
   }

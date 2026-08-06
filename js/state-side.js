@@ -10,7 +10,6 @@ let mfr,
   FRQ_implantatBaenderDefault,
   FRQ_implantatBaenderOwn,
   elSt,
-  elNt,
   elExDur,
   schieberELL,
   ELL_refEl,
@@ -53,7 +52,6 @@ function bindActiveSide() {
   FRQ_implantatBaenderDefault = s.FRQ_implantatBaenderDefault;
   FRQ_implantatBaenderOwn = s.FRQ_implantatBaenderOwn;
   elSt = s.elSt;
-  elNt = s.elNt;
   elExDur = s.elExDur;
   schieberELL = s.schieberELL;
   kurvenELL = s.kurvenELL;
@@ -139,7 +137,6 @@ function initSideData(side, m) {
   s.FRQ_implantatBaenderDefault = implantDefaultBaender(s.manufacturer);
   s.FRQ_implantatBaenderOwn = new Array(s.nEl).fill(null);
   s.elSt = new Array(s.nEl).fill(null);
-  s.elNt = new Array(s.nEl).fill("");
   s.elExDur = new Array(s.nEl).fill(null);
   s.schieberELL = new Array(s.nEl).fill(0);
   s.ELL_refEl = Math.floor(s.nEl / 2);
@@ -349,7 +346,6 @@ function withSide(side, fn) {
     FRQ_implantatBaenderDefault,
     FRQ_implantatBaenderOwn,
     elSt,
-    elNt,
     elExDur,
     schieberELL,
     kurvenELL,
@@ -476,9 +472,9 @@ function FRQ_implantatSyncToAcoustic() {
         otherData.FRQ_implantatBaenderOwn = (srcData.FRQ_implantatBaenderOwn || []).map(function (b) { return b ? { lo: b.lo, hi: b.hi } : null; });
         otherData.manufacturer = srcData.manufacturer;
         // Arrays auf neue Elektrodenzahl anpassen
-        ["elSt","elNt","elExDur","schieberELL"].forEach(k => {
+        ["elSt","elExDur","schieberELL"].forEach(k => {
           if (!otherData[k] || otherData[k].length !== otherData.nEl) {
-            const def = k === "elSt" || k === "elExDur" ? null : (k === "elNt" ? "" : 0);
+            const def = k === "elSt" || k === "elExDur" ? null : 0;
             otherData[k] = new Array(otherData.nEl).fill(def);
           }
         });
@@ -507,9 +503,9 @@ function FRQ_implantatSyncToAcoustic() {
             s.FRQ_implantatBaenderDefault = implantDefaultBaender(defaultMfr);
             s.FRQ_implantatBaenderOwn = new Array(defN).fill(null);
             s.manufacturer = defaultMfr;
-            ["elSt","elNt","elExDur","schieberELL"].forEach(k => {
+            ["elSt","elExDur","schieberELL"].forEach(k => {
               if (!s[k] || s[k].length !== defN) {
-                const def = k === "elSt" || k === "elExDur" ? null : (k === "elNt" ? "" : 0);
+                const def = k === "elSt" || k === "elExDur" ? null : 0;
                 s[k] = new Array(defN).fill(def);
               }
             });

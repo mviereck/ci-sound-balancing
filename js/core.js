@@ -342,6 +342,13 @@ function FRQ_implantatMitteArith(i, srcData) {
   var b = FRQ_implantatBand(i, srcData);
   return b ? (b.lo + b.hi) / 2 : null;
 }
+// "geom (arith)" als String fuer Anzeige/Ausdruck, oder "" wenn kein Band.
+// srcData optional (seitenrichtig).
+function FRQ_implantatMitteGeomArithStr(i, srcData) {
+  var b = FRQ_implantatBand(i, srcData);
+  if (!b) return "";
+  return fmtNum(geomMitte(b.lo, b.hi), "hz") + " (" + fmtNum((b.lo + b.hi) / 2, "hz") + ")";
+}
 // Arithmetische Mitte des DEFAULT-Bandes (reines Herstellermuster, ohne
 // Override) -- z.B. fuer die Glaettungs-Ortsvorlage.
 function FRQ_implantatMitteDefaultArith(i, srcData) {

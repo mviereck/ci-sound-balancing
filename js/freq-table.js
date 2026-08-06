@@ -578,7 +578,6 @@ function switchMfr(m) {
   s.bandWandLo = _bg462 ? _bg462.default[0] : null;
   s.bandWandHi = _bg462 ? _bg462.default[1] : null;
   s.elSt = new Array(s.nEl).fill(null);
-  s.elNt = new Array(s.nEl).fill("");
   s.elExDur = new Array(s.nEl).fill(null);
   s.schieberELL = new Array(s.nEl).fill(0);
   s.elActive = new Array(s.nEl).fill(true);

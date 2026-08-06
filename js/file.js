@@ -113,7 +113,6 @@ function resetAll() {
     sideData[s].FRQ_implantatBaenderDefault = implantDefaultBaender("unknown");
     sideData[s].FRQ_implantatBaenderOwn = new Array(sideData[s].nEl).fill(null);
     sideData[s].elSt = new Array(sideData[s].nEl).fill(null);
-    sideData[s].elNt = new Array(sideData[s].nEl).fill("");
     sideData[s].elExDur = new Array(sideData[s].nEl).fill(null);
     sideData[s].schieberELL = new Array(sideData[s].nEl).fill(0);
     sideData[s].ELL_refEl = Math.floor(sideData[s].nEl / 2);

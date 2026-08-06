@@ -175,7 +175,6 @@ function ELL_renderResults() {
         };
         st = lb[elSt[i]] || "";
       }
-      if (elNt[i]) st += (st ? " · " : "") + elNt[i];
       if (ex) {
         tr.style.opacity = "0.4";
       }
@@ -928,6 +927,12 @@ function FRQ_renderResults() {
   const zeilen = FRQ_tabellenZeilen({ side: aktivSide });
   const grey = "color:#9ca3af";
   const dash = '<span style="' + grey + '">—</span>';
+  // "geom (arith)" fuer die Nominal-Zelle (geom = z.nominellHz, arith aus Band).
+  const _nomGeomArith = (z) => {
+    if (z.nominellHz == null) return null;
+    const a = (z.elIdx != null) ? FRQ_implantatMitteArith(z.elIdx, sideData[aktivSide]) : null;
+    return fmtNum(z.nominellHz, "hz") + (a != null ? " (" + fmtNum(a, "hz") + ")" : "");
+  };
   tb.innerHTML = "";
   for (const z of zeilen) {
     const tr = document.createElement("tr");
@@ -935,8 +940,9 @@ function FRQ_renderResults() {
       // Nachbesserung 435.1: Nominalfrequenz ausgegraut anzeigen, alle
       // anderen Spalten "—", Status "deaktiviert". (Zeile nicht mehr
       // pauschal transparent — nur die Nominal-Zelle ist grau.)
-      const nomCell = (z.nominellHz != null)
-        ? "<span style=\"" + grey + "\">" + fmtNum(z.nominellHz, "hz") + "</span>"
+      const _nga = _nomGeomArith(z);
+      const nomCell = _nga
+        ? "<span style=\"" + grey + "\">" + _nga + "</span>"
         : "—";
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
@@ -959,12 +965,12 @@ function FRQ_renderResults() {
     // kind === "data"
     let nomHzCell, percHzCell, diffHzCell, diffCtCell;
     if (z.gehoertHz == null || z.diffCent == null) {
-      nomHzCell  = (z.nominellHz != null) ? fmtNum(z.nominellHz, "hz") : dash;
+      nomHzCell  = _nomGeomArith(z) || dash;
       percHzCell = dash; diffHzCell = dash; diffCtCell = dash;
     } else {
       // Nachbesserung 435.1: Diff-Spalten schwarz, keine +/-Farbunterscheidung
       // mehr. Vorzeichen bleibt erhalten (schwarze Tabellenschrift).
-      nomHzCell  = fmtNum(z.nominellHz, "hz");
+      nomHzCell  = _nomGeomArith(z);
       percHzCell = fmtNum(z.gehoertHz, "hz");
       diffHzCell = (z.diffHz >= 0 ? "+" : "") + fmtNum(z.diffHz, "hz");
       diffCtCell = (z.diffCent >= 0 ? "+" : "") + fmtNum(z.diffCent, "cent");
@@ -1010,6 +1016,14 @@ function FRQ_renderResults() {
         : '<span style="font-size:.82em">' + t("notMeasured") + "</span>")
         + "</td>";
     tb.appendChild(tr);
+  }
+
+  // Erklärtext unter der Tabelle (nur wenn Zeilen mit Daten vorhanden)
+  const geomNoteEl = document.getElementById("FRQ_resultsGeomNote");
+  if (geomNoteEl) {
+    const hasData = zeilen.some(function(z) { return z.kind !== "notMeasured"; });
+    geomNoteEl.textContent = hasData ? t("audiologFreqGeomNote") : "";
+    geomNoteEl.style.display = hasData ? "" : "none";
   }
 
   // Qualitätstext

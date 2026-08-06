@@ -154,14 +154,13 @@ function _collectSideData(side) {
       electrodes.push({
         idx: i,
         label: `${dENPrefix()}${dEN(i)}`,
-        hzStandard: FRQ_implantatMitteDefaultArith(i, sd),
-        hzOwn:      FRQ_implantatHatOwn(i, sd) ? FRQ_implantatMitteArith(i, sd) : null,
+        band:       FRQ_implantatBand(i, sd),
+        mitteStr:   FRQ_implantatMitteGeomArithStr(i, sd),
         thr: (impl.thr && impl.thr[i] != null) ? impl.thr[i] : null,
         upper: _pickUpperLevel(impl, i, mfr),
         unit,
         // BA 164: inaktive Elektrode → "deactivated" für Archiv-Rendering
         status: (elActive && elActive[i] === false) ? "deactivated" : (elSt[i] || null),
-        note: elNt[i] || "",
         excluded: elExDur[i] !== null && elExDur[i] !== undefined,
       });
     }
@@ -184,7 +183,6 @@ function _collectSideData(side) {
           residualDb: inMeas ? ELL_res[i]  : null,
           // BA 164: inaktive Elektrode → "deactivated" für Archiv-Rendering
           status: (elActive && elActive[i] === false) ? "deactivated" : (elSt[i] || null),
-          note: elNt[i] || "",
         });
       }
       if (sd.fullSweepRound != null) {
@@ -440,19 +438,21 @@ function _archivMdImplantTables(data) {
     out.push(`### ${sd.label} (${sd.manufacturerLabel})`);
     out.push("");
     const unit = sd.implant.unit || "qu";
-    out.push(`| ${t("thEl")} | ${t("archivImplHzStd")} | ${t("archivImplHzOwn")} | ${t("archivImplThr")} (${unit}) | ${t("archivImplUpper")} (${unit}) | ${t("archivImplStatus")} | ${t("archivImplExcl")} | ${t("archivImplNote")} |`);
+    out.push(`| ${t("thEl")} | ${t("thBandLo")} | ${t("thBandHi")} | ${t("thBandMitte")} | ${t("archivImplThr")} (${unit}) | ${t("archivImplUpper")} (${unit}) | ${t("archivImplStatus")} | ${t("archivImplExcl")} |`);
     out.push("|---|---|---|---|---|---|---|---|");
     for (const e of sd.implant.electrodes) {
-      const hzStd  = _mdFmtHz(e.hzStandard);
-      const hzOwn  = (e.hzOwn != null) ? _mdFmtHz(e.hzOwn) : "";
+      const bandLo = e.band ? _mdFmtHz(e.band.lo) : "—";
+      const bandHi = e.band ? _mdFmtHz(e.band.hi) : "—";
+      const mitte  = e.mitteStr || "—";
       const thrTxt = (e.thr   != null) ? e.thr   : "";
       const upTxt  = (e.upper != null) ? e.upper : "";
       const _ST_KEY = { noisyLess: "stNoisyLess", noisyMore: "stNoisyMore", noisyHeavy: "stNoisyHeavy", almostMute: "stAlmMute", mute: "stMute", deactivated: "stDeactivated" }; // BA 164: Quelle ist jetzt elActive (via _collectSideData)
       const stTxt  = e.status ? (t(_ST_KEY[e.status] || "") || e.status) : "";
       const exclTxt = e.excluded ? "**X**" : "";
-      const note = _mdEsc(e.note || "");
-      out.push(`| ${e.label} | ${hzStd} | ${hzOwn} | ${thrTxt} | ${upTxt} | ${stTxt} | ${exclTxt} | ${note} |`);
+      out.push(`| ${e.label} | ${bandLo} | ${bandHi} | ${mitte} | ${thrTxt} | ${upTxt} | ${stTxt} | ${exclTxt} |`);
     }
+    out.push("");
+    out.push(`_${t("audiologFreqGeomNote")}_`);
     out.push("");
   }
   return out.join("\n");
@@ -549,9 +549,8 @@ function _archivMdELL(sd) {
     const resTxt = (r.residualDb != null) ? _mdFmtDb(r.residualDb, false) : "—";
     const _ST_KEY2 = { noisyLess: "stNoisyLess", noisyMore: "stNoisyMore", noisyHeavy: "stNoisyHeavy", almostMute: "stAlmMute", mute: "stMute", deactivated: "stDeactivated" }; // BA 164: Quelle ist jetzt elActive (via _collectSideData)
     const stTxt  = r.status ? (t(_ST_KEY2[r.status] || "") || r.status) : "";
-    const noteTxt = r.note ? ` (${_mdEsc(r.note)})` : "";
     const refMark = (sd.ell.ELL_refEl != null && r.idx === sd.ell.ELL_refEl) ? "**X**" : "";
-    out.push(`| ${r.label} | ${_mdFmtHz(r.hz)} | ${offTxt} | ${resTxt} | ${stTxt}${noteTxt} | ${refMark} |`);
+    out.push(`| ${r.label} | ${_mdFmtHz(r.hz)} | ${offTxt} | ${resTxt} | ${stTxt} | ${refMark} |`);
   }
   return out.join("\n") + "\n";
 }
@@ -863,7 +862,7 @@ function _audiologELLTable(side) {
     const resArr = _audiologELLResForSide(side);
     const unit = ELL_unitLabelFor(mfr);
     const lines = [];
-    lines.push(`| ${t("thEl")} | ${t("audColDb")} | ${t("audColRes")} | ${t("audColMcl")} (${unit}) | ${t("audColMclDelta")} (${unit}) | ${t("audColMclNew")} (${unit}) | ${t("audColStatus")} | ${t("archivImplExcl")} | ${t("audColNote")} | ${t("thRefEl")} |`);
+    lines.push(`| ${t("thEl")} | ${t("thBandMitte")} | ${t("audColDb")} | ${t("audColRes")} | ${t("audColMcl")} (${unit}) | ${t("audColMclDelta")} (${unit}) | ${t("audColMclNew")} (${unit}) | ${t("audColStatus")} | ${t("archivImplExcl")} | ${t("thRefEl")} |`);
     lines.push("|---|---|---|---|---|---|---|---|---|---|");
     for (let i = 0; i < nEl; i++) {
       const dB = dBs[i] || 0;
@@ -871,10 +870,10 @@ function _audiologELLTable(side) {
       const abs = _audiologAbsDelta(side, i, dB);
       const status = _audStatusText(side, i);
       const excl = (elExDur[i] !== null && elExDur[i] !== undefined) ? "**X**" : "";
-      const note = (elNt && elNt[i]) ? elNt[i] : "";
+      const mitte = FRQ_implantatMitteGeomArithStr(i);
       const refMark = (typeof ELL_refEl !== "undefined" && ELL_refEl != null && i === ELL_refEl) ? "**X**" : "";
       lines.push(
-        `| ${dENPrefix()}${dEN(i)} | **${_audDb(dB)}** | ${r > 0 ? r.toFixed(1) + " dB" : ""} | ${_audUnitAbs(abs.mcl, abs.unit)} | ${_audUnit(abs.delta, abs.unit)} | ${_audUnitAbs(abs.newVal, abs.unit)} | ${status} | ${excl} | ${note} | ${refMark} |`
+        `| ${dENPrefix()}${dEN(i)} | ${mitte} | **${_audDb(dB)}** | ${r > 0 ? r.toFixed(1) + " dB" : ""} | ${_audUnitAbs(abs.mcl, abs.unit)} | ${_audUnit(abs.delta, abs.unit)} | ${_audUnitAbs(abs.newVal, abs.unit)} | ${status} | ${excl} | ${refMark} |`
       );
     }
     return lines.join("\n");
@@ -938,7 +937,10 @@ function _audiologFreqTable(side) {
     if (z.kind === "notActive") {
       // Deaktivierte Elektrode: Nominal-Hz angezeigt, Rest "—", Status
       // "deaktiviert" (wie im Reiter).
-      const nomD = (z.nominellHz != null) ? fmtNum(z.nominellHz, "hz") : "—";
+      const _arithD = (z.elIdx != null) ? FRQ_implantatMitteArith(z.elIdx, sideData[side]) : null;
+      const nomD = (z.nominellHz != null)
+        ? (fmtNum(z.nominellHz, "hz") + (_arithD != null ? " (" + fmtNum(_arithD, "hz") + ")" : ""))
+        : "—";
       lines.push("| " + z.elLabel + " | " + nomD + " | — | — | — | — | — | "
         + t("FRQ_resultsStatusNotActive") + " |");
       continue;
@@ -947,14 +949,20 @@ function _audiologFreqTable(side) {
       lines.push("| " + z.elLabel + " | — | — | — | — | — | — | " + t("notMeasured") + " |");
       continue;
     }
+    // "geom (arith)": geom = z.nominellHz (bereits geometrisch), arith aus dem Band.
+    const _arithC = (z.elIdx != null)
+      ? FRQ_implantatMitteArith(z.elIdx, sideData[side]) : null;
+    const _nomGeomArith = (z.nominellHz != null)
+      ? (fmtNum(z.nominellHz, "hz") + (_arithC != null ? " (" + fmtNum(_arithC, "hz") + ")" : ""))
+      : "—";
     let nomC = dashMd, perC = dashMd, dHzC = dashMd, dCtC = dashMd, restsC = dashMd, resC = dashMd;
     if (z.gehoertHz != null && z.diffCent != null) {
-      nomC = fmtNum(z.nominellHz, "hz");
+      nomC = _nomGeomArith;
       perC = fmtNum(z.gehoertHz, "hz");
       dHzC = (z.diffHz >= 0 ? "+" : "") + fmtNum(z.diffHz, "hz");
       dCtC = (z.diffCent >= 0 ? "+" : "") + fmtNum(z.diffCent, "cent");
     } else if (z.nominellHz != null) {
-      nomC = fmtNum(z.nominellHz, "hz");
+      nomC = _nomGeomArith;
     }
     if (z.restspanne != null) restsC = "±" + fmtNum(z.restspanne, "cent") + " ct";
     if (z.residDown != null && z.residUp != null) {
@@ -1286,6 +1294,8 @@ function buildAudiologMarkdown() {
     parts.push("");
     parts.push(`_${t("audiologLoudnessLegend")}_`);
     parts.push("");
+    parts.push(`_${t("audiologELLGeomNote")}_`);
+    parts.push("");
 
     // BA 320: Absenk-Hinweis fuer DIESE Seite. Drei Faelle:
     //  - Beide-Seiten an, einseitiger Auftrag, durch andere Seite mit-
@@ -1328,6 +1338,7 @@ function buildAudiologMarkdown() {
                           && FRQ_distribution === "symmetric");
       const sideLbl = side === "left" ? t("sideLeft") : t("sideRight");
       const ft = _audiologFreqTable(side);
+      var _freqShown = false;
       if (isSymSingle) {
         const otherSidePre = side === "left" ? "right" : "left";
         const anyFt = ft || _audiologFreqTable(otherSidePre);
@@ -1339,6 +1350,7 @@ function buildAudiologMarkdown() {
           parts.push(`### ${t("audiologSecFreq")} — ${sideLbl}`);
           parts.push("");
           parts.push(ft);
+          _freqShown = true;
         }
         const otherSide = side === "left" ? "right" : "left";
         const otherLbl  = otherSide === "left" ? t("sideLeft") : t("sideRight");
@@ -1347,11 +1359,17 @@ function buildAudiologMarkdown() {
           parts.push(`### ${t("audiologSecFreq")} — ${otherLbl}`);
           parts.push("");
           parts.push(ftOther);
+          _freqShown = true;
         }
       } else if (ft) {
         parts.push(`### ${t("audiologSecFreq")}`);
         parts.push("");
         parts.push(ft);
+        _freqShown = true;
+      }
+      if (_freqShown) {
+        parts.push(`_${t("audiologFreqGeomNote")}_`);
+        parts.push("");
       }
     }
   }
