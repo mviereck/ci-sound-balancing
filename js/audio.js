@@ -136,27 +136,22 @@ function stopAll() {
   holdIdx = -1;
 }
 function getElectrodeBandwidth(hz) {
-  if (!nEl || nEl < 2) {
-    return hz * 0.232;
+  if (!nEl || nEl < 1) {
+    return hz * 0.232;                 // kein Bandmodell -> alter Fallback
   }
+  // Elektrode mit der naechstgelegenen geometrischen Mitte suchen.
   let idx = 0;
   let minDiff = Math.abs(FRQ_implantatEffektiv(0) - hz);
   for (let i = 1; i < nEl; i++) {
     const d = Math.abs(FRQ_implantatEffektiv(i) - hz);
     if (d < minDiff) { minDiff = d; idx = i; }
   }
-  let bwLow, bwHigh;
-  if (idx === 0) {
-    bwHigh = (FRQ_implantatEffektiv(1) - FRQ_implantatEffektiv(0)) / 2;
-    bwLow = bwHigh;
-  } else if (idx === nEl - 1) {
-    bwLow = (FRQ_implantatEffektiv(idx) - FRQ_implantatEffektiv(idx-1)) / 2;
-    bwHigh = bwLow;
-  } else {
-    bwLow = (FRQ_implantatEffektiv(idx) - FRQ_implantatEffektiv(idx-1)) / 2;
-    bwHigh = (FRQ_implantatEffektiv(idx+1) - FRQ_implantatEffektiv(idx)) / 2;
+  // Echte Bandbreite = hi - lo des effektiven Bandes dieser Elektrode.
+  const band = (typeof FRQ_implantatBand === "function") ? FRQ_implantatBand(idx) : null;
+  if (band && isFinite(band.hi) && isFinite(band.lo) && band.hi > band.lo) {
+    return band.hi - band.lo;
   }
-  return bwLow + bwHigh;
+  return hz * 0.232;                   // defensiver Fallback, falls kein Band
 }
 
 // BA 270: Globale Ton-Huellkurve.
