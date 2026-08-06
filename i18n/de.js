@@ -412,7 +412,6 @@ Object.assign(L.de, {
     archivKurvenELLStrength: "Stärke",
     archivKurvenELLCenter: "Center",
     archivKurvenELLWidth: "Breite",
-    archivKurvenELLCutoff: "Cutoff",
     archivSTBOffset: "Offset (dB)",
     archivSTBMean: "Mittelwert",
     archivLTZValue: "Wert",
@@ -578,8 +577,6 @@ Object.assign(L.de, {
     kurvenELLVolume: "Lautstärke",
     kurvenELLScurve: "S-Kurve",
     kurvenELLGauss: "Gauß",
-    kurvenELLBass: "Bass Boost",
-    kurvenELLHigh: "High Boost",
     kurvenELLIso226: "Gehörrichtig (ISO 226)",
     kurvenELLStrLabel: "Stärke:",
     kurvenELLExplTilt:
@@ -590,10 +587,6 @@ Object.assign(L.de, {
       "Wie Tilt, aber mit weicherem Übergang in der Mitte. Links der Mitte abgesenkt, rechts angehoben (oder umgekehrt).",
     kurvenELLExplGauss:
       "Glockenkurve um eine gewählte Elektrode. Breite bestimmt, wie viele Nachbarelektroden betroffen sind.",
-    kurvenELLExplBass:
-      "Tiefe Frequenzen anheben (positiv) oder absenken (negativ). Grenzpunkt bestimmt, bis zu welcher Elektrode der Effekt wirkt.",
-    kurvenELLExplHigh:
-      "Hohe Frequenzen anheben (positiv) oder absenken (negativ). Grenzpunkt bestimmt, ab welcher Elektrode der Effekt wirkt.",
     kurvenELLExplSpeech:
       "Gewichtung nach Sprachverständlichkeit (ANSI S3.5 Band Importance Function). Positive Werte heben sprachrelevante Frequenzen (ca. 800–4000 Hz) an, negative senken sie ab.",
     kurvenELLExplVolume:
@@ -616,7 +609,6 @@ Object.assign(L.de, {
       "pro Elektrode etwas.",
     kurvenELLCenter: "Mitte",
     kurvenELLWidth: "Breite",
-    kurvenELLCutoff: "Grenzpunkt:",
     kurvenELLUnitHz: "Hz",
     kurvenELLUnitCent: "¢",
     kurvenELLPhon: "Pegel",

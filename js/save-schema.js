@@ -390,9 +390,9 @@ var SAVE_SCHEMA_SIDE = [
             return found;
           }
           return {
-            type: tp, on: false, strength: 0, center: CENT_REF_HZ, width: 1200,
+            type: tp, on: false, strength: tp === "iso226" ? 1 : 0,
+            center: CENT_REF_HZ, width: 1200,
             phon: 70,
-            cutoff: tp === "bassboost" ? Math.floor(nEl / 3) : Math.floor((nEl * 2) / 3),
           };
         });
       }

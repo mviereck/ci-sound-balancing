@@ -224,7 +224,6 @@ function _collectSideData(side) {
       strength: p.strength,
       center: (p.center !== undefined) ? p.center : null,
       width:  (p.width  !== undefined) ? p.width  : null,
-      cutoff: (p.cutoff !== undefined) ? p.cutoff : null,
     }));
 
     // Frequenzabgleich — Archiv-Format: kanonisches cent, seitenneutral (eine
@@ -589,7 +588,6 @@ function _archivMdKurvenELL(sd) {
     parts.push(`${t("archivKurvenELLStrength")}: ${(p.strength >= 0 ? "+" : "") + p.strength} dB`);
     if (p.center !== null) parts.push(`${t("archivKurvenELLCenter")}: ${(sd.implant.electrodes[Math.round(p.center)] || {}).label || ("E" + p.center)}`);
     if (p.width  !== null) parts.push(`${t("archivKurvenELLWidth")}: ${p.width}`);
-    if (p.cutoff !== null) parts.push(`${t("archivKurvenELLCutoff")}: ${(sd.implant.electrodes[p.cutoff] || {}).label || ("E" + p.cutoff)}`);
     out.push(`- **${name}** — ${parts.join(", ")}`);
   }
   return out.join("\n") + "\n";

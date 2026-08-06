@@ -372,8 +372,6 @@ function _buildPresetCardPrint() {
       params += ` &nbsp; ${t("kurvenELLCenter")}: ${fmtNum(pr.center != null ? pr.center : CENT_REF_HZ, "hz")} ${t("kurvenELLUnitHz")}`;
     if (KURVEN_ELL_HAS_WIDTH[pr.type])
       params += ` &nbsp; ${t("kurvenELLWidth")}: ${fmtNum(pr.width != null ? pr.width : 1200, "cent")} ${t("kurvenELLUnitCent")}`;
-    if (KURVEN_ELL_HAS_CUTOFF[pr.type])
-      params += ` &nbsp; ${t("kurvenELLCutoff")}: ${pfx}${dEN(pr.cutoff)}`;
     rows += `<tr>
       <td class="kurven-ell-name" style="font-weight:bold;padding-right:12px;vertical-align:top">${t(KURVEN_ELL_NAMES[pr.type])}</td>
       <td style="font-size:.9em;vertical-align:top">${params}</td>

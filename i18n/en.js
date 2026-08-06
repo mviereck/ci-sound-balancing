@@ -362,7 +362,6 @@ Object.assign(L.en, {
     archivKurvenELLStrength: "Strength",
     archivKurvenELLCenter: "Center",
     archivKurvenELLWidth: "Width",
-    archivKurvenELLCutoff: "Cutoff",
     archivSTBOffset: "Offset (dB)",
     archivSTBMean: "Mean",
     archivLTZValue: "Value",
@@ -527,8 +526,6 @@ Object.assign(L.en, {
     kurvenELLVolume: "Volume",
     kurvenELLScurve: "S-curve",
     kurvenELLGauss: "Gaussian",
-    kurvenELLBass: "Bass boost",
-    kurvenELLHigh: "High boost",
     kurvenELLIso226: "Equal-loudness (ISO 226)",
     kurvenELLStrLabel: "Strength:",
     kurvenELLExplTilt:
@@ -539,10 +536,6 @@ Object.assign(L.en, {
       "Like Tilt, but with a softer transition in the middle. Lowered to the left of the middle, raised to the right (or vice versa).",
     kurvenELLExplGauss:
       "Bell curve around a chosen electrode. The width determines how many neighboring electrodes are affected.",
-    kurvenELLExplBass:
-      "Boost (positive) or attenuate (negative) low frequencies. The cutoff point determines up to which electrode the effect acts.",
-    kurvenELLExplHigh:
-      "Boost (positive) or attenuate (negative) high frequencies. The cutoff point determines from which electrode the effect acts.",
     kurvenELLExplSpeech:
       "Weighting according to speech intelligibility (ANSI S3.5 Band Importance Function). Positive values raise speech-relevant frequencies (approx. 800–4000 Hz), negative values lower them.",
     kurvenELLExplVolume:
@@ -565,7 +558,6 @@ Object.assign(L.en, {
       "shifts slightly per electrode.",
     kurvenELLCenter: "Center",
     kurvenELLWidth: "Width",
-    kurvenELLCutoff: "Cutoff:",
     kurvenELLUnitHz: "Hz",
     kurvenELLUnitCent: "¢",
     kurvenELLPhon: "Level",

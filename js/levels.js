@@ -99,28 +99,6 @@ function kurvenELLBerechnen(pr) {
     for (const i of act) c[i] /= mx2;
     return c;
   }
-  if (pr.type === "bassboost") {
-    const cut = pr.cutoff != null ? pr.cutoff : Math.floor(nEl / 3);
-    for (const i of act) {
-      if (i <= cut) c[i] = 1;
-      else {
-        const d = (i - cut) / (mx - cut || 1);
-        c[i] = Math.max(0, 1 - d * 2);
-      }
-    }
-    return c;
-  }
-  if (pr.type === "highboost") {
-    const cut = pr.cutoff != null ? pr.cutoff : Math.floor((nEl * 2) / 3);
-    for (const i of act) {
-      if (i >= cut) c[i] = 1;
-      else {
-        const d = (cut - i) / (cut - mn || 1);
-        c[i] = Math.max(0, 1 - d * 2);
-      }
-    }
-    return c;
-  }
   if (pr.type === "speech") {
     const effF = Array.from({ length: n }, (_, i) => _kurvenFreq(i));
     const w = siiWeightsForFreqs(effF);
@@ -136,7 +114,10 @@ function kurvenELLBerechnen(pr) {
     const w = iso226WeightsForFreqs(effF, LN);
     // w ist bereits relativ zu 1000 Hz in echten dB; keine weitere
     // Normierung. Stärke-Faktor wird in kurvenELLSumme angewandt.
-    for (let i = 0; i < n; i++) c[i] = w[i];
+    // Vorzeichen invertiert: positive Eingabe senkt Bass/Höhen ab
+    // (entspricht der Praxis-Beobachtung, daß die Absenkung den
+    // „alles gleich laut"-Überschuß der Messung korrigiert).
+    for (let i = 0; i < n; i++) c[i] = -w[i];
     return c;
   }
   if (pr.type === "volume") {
@@ -182,7 +163,6 @@ function kurvenELLDeltaAndereSeite(pi, delta, currentPr) {
   if (op[pi].type === currentPr.type) {
     if (currentPr.center !== undefined) op[pi].center = currentPr.center;
     if (currentPr.width !== undefined) op[pi].width = currentPr.width;
-    if (currentPr.cutoff !== undefined) op[pi].cutoff = currentPr.cutoff;
   }
 }
 function _kurvenELLStrTouchCtrl(inp, pi) {
@@ -234,10 +214,6 @@ function kurvenELLTabelleBauen() {
   const tbl = document.getElementById("kurvenELLTbl");
   tbl.innerHTML = "";
   const act = allEl();
-  const pfx = dENPrefix();
-  const elOpts = act
-    .map((i) => `<option value="${i}">${pfx}${dEN(i)}</option>`)
-    .join("");
   // Mittelpunkt: Number-Input in Hz (50–20000, Schritt 50).
   // Breite (Gauß): Number-Input in Cent (50–4800, Schritt 50).
   for (let pi = 0; pi < kurvenELL.length; pi++) {
@@ -250,8 +226,6 @@ function kurvenELLTabelleBauen() {
       params += ` <label>${t("kurvenELLCenter")}</label><input type="number" class="kurven-ell-ctr" data-pi="${pi}" min="50" max="20000" step="any" style="width:80px"> ${t("kurvenELLUnitHz")}`;
     if (KURVEN_ELL_HAS_WIDTH[pr.type])
       params += ` <label>${t("kurvenELLWidth")}</label><input type="number" class="kurven-ell-wid" data-pi="${pi}" min="50" max="4800" step="any" style="width:80px"> ${t("kurvenELLUnitCent")}`;
-    if (KURVEN_ELL_HAS_CUTOFF[pr.type])
-      params += ` <label>${t("kurvenELLCutoff")}</label><select class="kurven-ell-cut" data-pi="${pi}">${elOpts}</select>`;
     if (pr.type === "iso226") {
       const phonOpts = [20, 40, 60, 70, 80]
         .map((p) => `<option value="${p}">${p}</option>`)
@@ -266,8 +240,6 @@ function kurvenELLTabelleBauen() {
       ctrInp.value = (pr.center !== undefined ? pr.center : CENT_REF_HZ);
     const widInp = tr.querySelector(".kurven-ell-wid");
     if (widInp) widInp.value = (pr.width != null ? pr.width : 1200);
-    const cutSel = tr.querySelector(".kurven-ell-cut");
-    if (cutSel) cutSel.value = pr.cutoff;
     const phonSel = tr.querySelector(".kurven-ell-phon");
     if (phonSel) phonSel.value = pr.phon != null ? pr.phon : 70;
     const tr2 = document.createElement("tr");
@@ -367,12 +339,6 @@ function kurvenELLTabelleBauen() {
           op[pi].width = v;
         }
       }
-      kurvenELLOnChange();
-    }),
-  );
-  tbl.querySelectorAll(".kurven-ell-cut").forEach((sel) =>
-    sel.addEventListener("change", function () {
-      kurvenELL[+this.dataset.pi].cutoff = +this.value;
       kurvenELLOnChange();
     }),
   );

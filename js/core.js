@@ -2501,8 +2501,6 @@ const KURVEN_ELL_TYPES = [
   "scurve",
   "pivot",
   "gauss",
-  "bassboost",
-  "highboost",
 ];
 const KURVEN_ELL_NAMES = {
   speech: "kurvenELLSpeech",
@@ -2511,8 +2509,6 @@ const KURVEN_ELL_NAMES = {
   scurve: "kurvenELLScurve",
   pivot: "kurvenELLPivot",
   gauss: "kurvenELLGauss",
-  bassboost: "kurvenELLBass",
-  highboost: "kurvenELLHigh",
   iso226: "kurvenELLIso226",
 };
 const KURVEN_ELL_EXPL = {
@@ -2522,8 +2518,6 @@ const KURVEN_ELL_EXPL = {
   scurve: "kurvenELLExplScurve",
   pivot: "kurvenELLExplPivot",
   gauss: "kurvenELLExplGauss",
-  bassboost: "kurvenELLExplBass",
-  highboost: "kurvenELLExplHigh",
   iso226: "kurvenELLExplIso226",
 };
 const KURVEN_ELL_HAS_CENTER = {
@@ -2531,14 +2525,11 @@ const KURVEN_ELL_HAS_CENTER = {
   scurve: true,
   pivot: true,
   gauss: true,
-  bassboost: false,
-  highboost: false,
   speech: false,
   volume: false,
   iso226: false,
 };
 const KURVEN_ELL_HAS_WIDTH = { gauss: true };
-const KURVEN_ELL_HAS_CUTOFF = { bassboost: true, highboost: true };
 
 
 // SII Band Importance Function (ANSI S3.5-1997)

@@ -37,12 +37,10 @@ function initElektrodenlautstaerkeKurven() {
   kurvenELL = KURVEN_ELL_TYPES.map((tp) => ({
     type: tp,
     on: false,
-    strength: 0,
+    strength: tp === "iso226" ? 1 : 0,
     center: CENT_REF_HZ,
     width: 1200,
     phon: 70,
-    cutoff:
-      tp === "bassboost" ? Math.floor(nEl / 3) : Math.floor((nEl * 2) / 3),
   }));
 }
 function bindActiveSide() {

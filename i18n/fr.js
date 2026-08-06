@@ -363,7 +363,6 @@ Object.assign(L.fr, {
     archivKurvenELLStrength: "Force",
     archivKurvenELLCenter: "Centre",
     archivKurvenELLWidth: "Largeur",
-    archivKurvenELLCutoff: "Cutoff",
     archivSTBOffset: "Offset (dB)",
     archivSTBMean: "Moyenne",
     archivLTZValue: "Valeur",
@@ -528,8 +527,6 @@ Object.assign(L.fr, {
     kurvenELLVolume: "Volume",
     kurvenELLScurve: "Courbe en S",
     kurvenELLGauss: "Gauss",
-    kurvenELLBass: "Bass Boost",
-    kurvenELLHigh: "High Boost",
     kurvenELLIso226: "Isosonique (ISO 226)",
     kurvenELLStrLabel: "Force :",
     kurvenELLExplTilt:
@@ -540,10 +537,6 @@ Object.assign(L.fr, {
       "Comme Tilt, mais avec une transition plus douce au milieu. À gauche du milieu abaissé, à droite relevé (ou inversement).",
     kurvenELLExplGauss:
       "Courbe en cloche autour d'une électrode choisie. La largeur détermine combien d'électrodes voisines sont affectées.",
-    kurvenELLExplBass:
-      "Augmenter (positif) ou abaisser (négatif) les basses fréquences. Le point limite détermine jusqu'à quelle électrode l'effet agit.",
-    kurvenELLExplHigh:
-      "Augmenter (positif) ou abaisser (négatif) les hautes fréquences. Le point limite détermine à partir de quelle électrode l'effet agit.",
     kurvenELLExplSpeech:
       "Pondération selon l'intelligibilité de la parole (ANSI S3.5 Band Importance Function). Valeurs positives augmentent les fréquences pertinentes pour la parole (env. 800–4000 Hz), négatives les abaissent.",
     kurvenELLExplVolume:
@@ -566,7 +559,6 @@ Object.assign(L.fr, {
       "légèrement par électrode.",
     kurvenELLCenter: "Milieu",
     kurvenELLWidth: "Largeur",
-    kurvenELLCutoff: "Point limite :",
     kurvenELLUnitHz: "Hz",
     kurvenELLUnitCent: "¢",
     kurvenELLPhon: "Niveau",

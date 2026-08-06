@@ -363,7 +363,6 @@ Object.assign(L.es, {
     archivKurvenELLStrength: "Intensidad",
     archivKurvenELLCenter: "Centro",
     archivKurvenELLWidth: "Anchura",
-    archivKurvenELLCutoff: "Corte",
     archivSTBOffset: "Offset (dB)",
     archivSTBMean: "Media",
     archivLTZValue: "Valor",
@@ -528,8 +527,6 @@ Object.assign(L.es, {
     kurvenELLVolume: "Volumen",
     kurvenELLScurve: "Curva S",
     kurvenELLGauss: "Gauss",
-    kurvenELLBass: "Bass Boost",
-    kurvenELLHigh: "High Boost",
     kurvenELLIso226: "Isofónica (ISO 226)",
     kurvenELLStrLabel: "Intensidad:",
     kurvenELLExplTilt:
@@ -540,10 +537,6 @@ Object.assign(L.es, {
       "Como Tilt, pero con una transición más suave en el centro. A la izquierda del centro atenuado, a la derecha realzado (o viceversa).",
     kurvenELLExplGauss:
       "Curva en forma de campana alrededor de un electrodo elegido. La anchura determina cuántos electrodos vecinos se ven afectados.",
-    kurvenELLExplBass:
-      "Realzar (positivo) o atenuar (negativo) las frecuencias bajas. El punto de corte determina hasta qué electrodo actúa el efecto.",
-    kurvenELLExplHigh:
-      "Realzar (positivo) o atenuar (negativo) las frecuencias altas. El punto de corte determina a partir de qué electrodo actúa el efecto.",
     kurvenELLExplSpeech:
       "Ponderación según inteligibilidad del habla (ANSI S3.5 Band Importance Function). Valores positivos realzan las frecuencias relevantes para el habla (aprox. 800–4000 Hz), negativos las atenúan.",
     kurvenELLExplVolume:
@@ -566,7 +559,6 @@ Object.assign(L.es, {
       "ligeramente por electrodo.",
     kurvenELLCenter: "Centro",
     kurvenELLWidth: "Anchura",
-    kurvenELLCutoff: "Punto de corte:",
     kurvenELLUnitHz: "Hz",
     kurvenELLUnitCent: "¢",
     kurvenELLPhon: "Nivel",
