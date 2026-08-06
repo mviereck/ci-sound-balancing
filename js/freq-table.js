@@ -22,7 +22,7 @@ function FRQ_implantatTableBuild() {
   const _hideTableArea = () => {
     document.getElementById("FRQ_implantatTableHead").innerHTML = "";
     document.getElementById("FRQ_implantatTableBody").innerHTML = "";
-    const ids = ["FRQ_implantatDeactHintEl","FRQ_implantatAbfHintEl","FRQ_implantatExclHintEl","implTonePopupRow"];
+    const ids = ["implTonePopupRow"];
     ids.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = "none"; });
   };
   if (isUnknownCfg || isUnknownMfr) { _hideTableArea(); return; }
@@ -361,28 +361,8 @@ function FRQ_implantatTableBuild() {
       if (typeof validateImplantTable === "function") validateImplantTable(activeSide);
     }),
   );
-  // BA 164/165: Hinweis & Warnung aus elActive[] + Sichtbarkeit nach „eigene Hz vollständig"
-  const hintEl = document.getElementById("FRQ_implantatDeactHintEl");
+  // BA 164/165: Warnbalken „deaktivierte Elektroden mit Standard-Frequenzen"
   const hasDeact = (elActive || []).some((a) => a === false);
-  // BA 165: „vollständig eigene Hz" = jede aktive Elektrode hat ein Override-Band
-  const ownHzComplete = [...Array(nEl).keys()]
-    .filter((i) => elActive[i] !== false)
-    .every((i) => FRQ_implantatHatOwn(i));
-  if (hintEl) {
-    hintEl.innerHTML = t("FRQ_implantatDeactHint");
-    // isAcoustic: Hinweise gelten nur für CI-Tabelle mit Aktiv-Spalte
-    hintEl.style.display = (isAcoustic || ownHzComplete) ? "none" : "";
-  }
-  const abfHintEl = document.getElementById("FRQ_implantatAbfHintEl");
-  if (abfHintEl) {
-    abfHintEl.innerHTML = t("FRQ_implantatAbfHint");
-    abfHintEl.style.display = (isAcoustic || ownHzComplete) ? "none" : "";
-  }
-  const exclHintEl = document.getElementById("FRQ_implantatExclHintEl");
-  if (exclHintEl) {
-    exclHintEl.innerHTML = t("FRQ_implantatExclHint");
-    exclHintEl.style.display = isAcoustic ? "none" : "";
-  }
   if (typeof _implTonePopupUpdLabel === "function") _implTonePopupUpdLabel();
   const implTpRow = document.getElementById("implTonePopupRow");
   if (implTpRow) implTpRow.style.display = "";
@@ -408,29 +388,12 @@ function FRQ_implantatTableBuild() {
   } else if (wb) {
     wb.remove();
   }
-  _frqBandWarnRefresh();
   updRef();
   updManSel();
   applyMobileReadonly(tb);
   if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
   // BA 164: Aktiv-Checkbox-Sperren live anwenden
   if (typeof depLockApply === 'function') depLockApply();
-}
-// Standard-Band-Warnung aktualisieren: sichtbar, solange nicht alle aktiven
-// Elektroden ein eigenes Band haben. Wird aus FRQ_implantatTableBuild und
-// _frqBandRefreshRow aufgerufen (schmaler Refresh benoetigt dieselbe Logik).
-function _frqBandWarnRefresh() {
-  const _bandWarnEl = document.getElementById("implBandWarnEl");
-  if (!_bandWarnEl) return;
-  const cfg = (sideData && sideData[activeSide]) ? (sideData[activeSide].config || "ci") : "ci";
-  const isAcoustic = ["hg", "normal", "shoh"].includes(cfg);
-  const n = typeof nEl !== "undefined" ? nEl : 0;
-  const active = typeof elActive !== "undefined" ? elActive : [];
-  const _allOwn = [...Array(n).keys()]
-    .filter((i) => active[i] !== false)
-    .every((i) => FRQ_implantatHatOwn(i));
-  _bandWarnEl.innerHTML = (typeof t === "function") ? t("implBandWarn") : "";
-  _bandWarnEl.style.display = (isAcoustic || _allOwn) ? "none" : "";
 }
 // Aktualisiert nur die Optik der Band-Zellen einer Zeile (Value/Placeholder
 // grenzweise + Mitte), ohne die Tabelle neu zu bauen -> Fokus/Tab-Navigation
@@ -455,8 +418,6 @@ function _frqBandRefreshRow(i) {
       mitteCell.textContent = g + " (" + a + ")";
     }
   }
-  // Standard-Band-Warnung ggf. neu bewerten (koennte sich geaendert haben).
-  _frqBandWarnRefresh();
 }
 // BA 169: Aktualisiert nur die Hz-abhängigen Hinweise und den Warnbalken,
 // ohne die Tabelle neu zu rendern. Wird vom .fo-change-Handler aufgerufen,
@@ -472,28 +433,12 @@ function frq_implantatTableUpdateHints() {
   const rightCfg2 = sideData.right.config || "unknown";
   const _isAc = function(c) { return c === "hg" || c === "normal" || c === "shoh"; };
   const bothAcoustic = _isAc(leftCfg2) && _isAc(rightCfg2);
-  // Wenn die Tabelle gar nicht gerendert würde: Hinweise und Warnbalken aus.
+  // Wenn die Tabelle gar nicht gerendert würde: Warnbalken aus.
   // (Sollte beim .fo-change normalerweise nicht eintreten — Sicherheitsnetz.)
   if (isUnknownCfg || isUnknownMfr || bothAcoustic) {
-    ["FRQ_implantatDeactHintEl","FRQ_implantatAbfHintEl"].forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) el.style.display = "none";
-    });
     const wbOff = document.getElementById("deactWarnBar");
     if (wbOff) wbOff.remove();
     return;
-  }
-  // „vollständig eigene Hz" = jede aktive Elektrode hat ein Override-Band
-  const ownHzComplete = [...Array(nEl).keys()]
-    .filter((i) => elActive[i] !== false)
-    .every((i) => FRQ_implantatHatOwn(i));
-  const hintEl = document.getElementById("FRQ_implantatDeactHintEl");
-  if (hintEl) {
-    hintEl.style.display = (isAcoustic || ownHzComplete) ? "none" : "";
-  }
-  const abfHintEl = document.getElementById("FRQ_implantatAbfHintEl");
-  if (abfHintEl) {
-    abfHintEl.style.display = (isAcoustic || ownHzComplete) ? "none" : "";
   }
   // Warnbalken: nur wenn deaktivierte Elektroden noch Standard-Frequenzen haben
   const hasDeact = (elActive || []).some((a) => a === false);

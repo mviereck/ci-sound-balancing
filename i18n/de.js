@@ -66,14 +66,11 @@ Object.assign(L.de, {
       "Die Ergebnisse können ausgedruckt werden. Der Ausdruck enthält die Meßergebnisse, Ihre gewünschten Korrekturen und die resultierenden Equalizer-Werte.",
     FRQ_implantatTitle: "Implantat & Elektroden",
     lblMfr: "Hersteller:",
-    FRQ_implantatDeactHint:
-      "<b>Wichtig – deaktivierte Elektroden:</b> Wenn in Ihrem CI Elektroden deaktiviert sind, verteilt das Implantat den Frequenzbereich auf die verbleibenden aktiven Elektroden. Die Mittenfrequenzen aller anderen Elektroden verschieben sich dadurch — die hier voreingestellten Standardwerte gelten dann nicht mehr.<br>Haken Sie deaktivierte Elektroden in der Spalte „Aktiv” ab und tragen Sie die aktuellen Mittenfrequenzen aus Ihrer Anpassung ein. Ohne korrekte Frequenzen sind Messung und Player-Equalizer nicht aussagekräftig.",
     thEl: "El.",
     thBandLo: "untere Grenze",
     thBandHi: "obere Grenze",
     thBandMitte: "Mitte (Hz)",
     implBandMitteTip: "Gemessen wird die geometrische Bandmitte √(lo·hi). In Klammern die arithmetische Mitte (lo+hi)/2 — der Wert, den Ihr Fitting-Bericht üblicherweise nennt.",
-    implBandWarn: "Die Frequenzbänder sind eine unsichere Standardannahme des Herstellers. Sie stimmen wahrscheinlich nicht mit Ihrer persönlichen Anpassung überein. Fragen Sie Ihren Audiologen nach Ihren tatsächlichen Frequenzbändern und tragen Sie diese hier ein.",
 
     thActive:         "Aktiv",
     thFsp:            "FSP",
@@ -638,16 +635,20 @@ Object.assign(L.de, {
     plSrcCurves: "Kurven",
     plBothLabel: "Beide Seiten mit ihren jeweiligen Anpassungen abspielen",
     plMonoLabel: "Stereo zu Mono zusammenmischen",
-    FRQ_implantatAbfHint:
-      "<b>Wichtig – Anatomy Based Fitting (ABF) und FAT:</b> Auch bei Anatomy Based Fitting (ABF) gelten andere Mittenfrequenzen für die Elektroden. Generell: Fragen Sie Ihren Audiologen nach der FAT (Frequency Allocation Table) Ihres CI, um alle den Elektroden zugeordneten Frequenzen zu erfahren.",
-    FRQ_implantatExclHint:
-      "Bitte überprüfen Sie die Klangqualität jeder Elektrode mit dem Button <b>Elektroden über Töne anspielen</b>.<ul><li>Geben Sie im Dropdown <b>Status</b> die Qualität der Elektroden an.</li><li>Sie können schlecht hörbare Elektroden in der Spalte <b>Ausschließen</b> von Tests ausschließen. Deaktivierte Elektroden sind automatisch von Tests ausgeschlossen.</li></ul>",
     printPlayerTitle: "Player-Einstellungen",
     implTitle: "Implantat-Daten",
     implBilateralHint:
       "<b>Beide Seiten konfigurieren.</b> Geben Sie für links und rechts die Hörsituation an (Normalhörend, Schwerhörig, Hörgerät, Cochlea-Implantat, Taub). Bei CI-Seiten kommen Hersteller und ggf. Implantat- und Elektrodendaten dazu. Wechseln Sie oben rechts zwischen LINKS und RECHTS.",
     implTableIntro:
-      "<b>Was Sie eintragen sollten:</b> Tragen Sie für jede Elektrode die Mittenfrequenz (FAT) aus Ihrer CI-Anpassung ein, falls vom Audiologen bekannt. Die eingetragenen Default-Werte passen für viele CI-Träger, können aber individuell leicht bis erheblich abweichen.<br><b>Optional, verbessert den Ausdruck:</b> THR und MCL (MED-EL) bzw. T-Level/C-Level (Cochlear) bzw. T-Level/M-Level (Advanced Bionics) — diese Werte aus der Anpaß-Software Ihres Audiologen verbessern die im Ausdruck berechneten Korrekturwerte.",
+      "<b>Was Sie in der Tabelle eintragen sollten:</b>"
+      + "<ol style=\"margin:6px 0 0 0;padding-left:1.4em\">"
+      + "<li>Tragen Sie für jede Elektrode die Frequenzbänder mit Untergrenze und Obergrenze aus Ihrer CI-Anpassung ein; fragen Sie Ihren Audiologen danach. Die eingetragenen Default-Werte passen für viele CI-Träger, können aber individuell leicht bis erheblich abweichen.</li>"
+      + "<li>Wenn bei Ihnen Elektroden deaktiviert/abgeschaltet sind, entfernen Sie das Häkchen bei ‚Aktiv‘.</li>"
+      + "<li>Spielen Sie jede Elektrode einzeln in ‚Elektroden über Töne anspielen‘ an. Wenn eine Elektrode seltsam ist, etwa zu leise oder stark rauschend, markieren Sie das bitte unter ‚Status‘.</li>"
+      + "<li>Optional: Tragen Sie THR und MCL ein. Der MCL-Wert erlaubt eine Umrechnung von Dezibel in direkte Einstellungswerte für Ihren Audiologen.</li>"
+      + "</ol>",
+    implTableDefaultsHint:
+      "<b>Hinweis:</b> Wenn Sie die Einstellungen Ihres CI nicht kennen, können Sie auch mit den vorgegebenen Defaultwerten arbeiten. Auch wenn diese Werte nicht ganz zu Ihrer tatsächlichen Einstellung passen, können Sie so doch bereits näherungsweise Messungen machen und einen Eindruck von den Möglichkeiten einer korrigierten Anpassung bekommen. Für präzise Messungen ist jedoch eine korrekte Eintragung der Frequenzbänder (Untere Grenze, Obere Grenze) je Elektrode unverzichtbar.",
     lblImplModel: "Implantat-Modell:",
     lblImplProc: "Audioprozessor:",
     lblImplC: "c-Wert (MAPLAW):",

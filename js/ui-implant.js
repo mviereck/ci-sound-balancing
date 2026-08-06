@@ -89,11 +89,17 @@ function buildImplantCard() {
   if (mfrSelEl) mfrSelEl.value = s.manufacturer || "unknown";
 
   // BA 165: Tabellen-Intro — nur sichtbar, wenn die Tabelle gerendert wird
+  const showTable = isCiCfg && !isUnknownMfr;
   const tableIntroEl = document.getElementById("implTableIntroEl");
   if (tableIntroEl) {
-    const showTable = isCiCfg && !isUnknownMfr;
     tableIntroEl.innerHTML = t("implTableIntro");
     tableIntroEl.style.display = showTable ? "block" : "none";
+  }
+  // Gelbe Hinweisbox zu den Defaultwerten — Sichtbarkeit wie das Intro
+  const defaultsHintEl = document.getElementById("implTableDefaultsHintEl");
+  if (defaultsHintEl) {
+    defaultsHintEl.innerHTML = t("implTableDefaultsHint");
+    defaultsHintEl.style.display = showTable ? "" : "none";
   }
 
   // Hörtechnik-Hinweis

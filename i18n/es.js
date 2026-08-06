@@ -66,14 +66,11 @@ Object.assign(L.es, {
       "Los resultados pueden imprimirse. La impresión contiene los resultados de medición, las correcciones deseadas y los valores resultantes del ecualizador.",
     FRQ_implantatTitle: "Implante y electrodos",
     lblMfr: "Fabricante:",
-    FRQ_implantatDeactHint:
-      "<b>Importante – electrodos desactivados:</b> si en su IC hay electrodos desactivados, el implante redistribuye el rango de frecuencias entre los electrodos activos restantes. Las frecuencias centrales de los demás electrodos se desplazan en consecuencia — los valores estándar preconfigurados ya no son válidos.<br>Marque los electrodos desactivados en la columna «Activo» y registre las frecuencias centrales actuales de su programación. Sin frecuencias correctas, la medición y el ecualizador del reproductor no son significativos.",
     thEl: "El.",
     thBandLo: "límite inf.",
     thBandHi: "límite sup.",
     thBandMitte: "centro (Hz)",
     implBandMitteTip: "Para la medición se usa el centro geométrico de banda √(lo·hi). Entre paréntesis el centro aritmético (lo+hi)/2 — el valor que suele indicar su informe de adaptación.",
-    implBandWarn: "Las bandas de frecuencia son un valor predeterminado incierto del fabricante. Probablemente no coinciden con su adaptación personal. Pregunte a su audiólogo sus bandas de frecuencia reales e introdúzcalas aquí.",
     thPlay: "▶",
     thHold: "◼",
     thActive:         "Activo",
@@ -589,16 +586,20 @@ Object.assign(L.es, {
     plSrcCurves: "Curvas",
     plBothLabel: "Reproducir ambos lados con sus respectivos ajustes",
     plMonoLabel: "Mezclar el estéreo a mono",
-    FRQ_implantatAbfHint:
-      "<b>Importante – Anatomy Based Fitting (ABF) y FAT:</b> también con Anatomy Based Fitting (ABF) se aplican otras frecuencias centrales para los electrodos. En general: pregunte a su audiólogo por la FAT (Frequency Allocation Table) de su IC, para conocer todas las frecuencias asignadas a los electrodos.",
-    FRQ_implantatExclHint:
-      "Por favor, compruebe la calidad sonora de cada electrodo con el botón <b>Escuchar electrodos mediante tonos</b>.<ul><li>Indique la calidad de cada electrodo en el desplegable <b>Estado</b>.</li><li>Puede excluir de las pruebas los electrodos poco audibles en la columna <b>Excluir</b>. Los electrodos desactivados se excluyen automáticamente de las pruebas.</li></ul>",
     printPlayerTitle: "Ajustes del reproductor",
     implTitle: "Datos del implante",
     implBilateralHint:
       "<b>Configurar ambos lados.</b> Indique para izquierda y derecha la situación auditiva (audición normal, hipoacúsico, audífono, implante coclear, sordo). En lados con IC se añaden fabricante y, en su caso, datos del implante y de los electrodos. Cambie arriba a la derecha entre IZQUIERDA y DERECHA.",
     implTableIntro:
-      "<b>Qué debería introducir:</b> para cada electrodo, la frecuencia central (FAT) de su programación del IC, si la conoce por el audiólogo. Los valores por defecto introducidos se ajustan a muchos portadores de IC, pero pueden desviarse de forma individual entre poco y notablemente.<br><b>Opcional, mejora la impresión:</b> THR y MCL (MED-EL) o T-Level/C-Level (Cochlear) o T-Level/M-Level (Advanced Bionics) — estos valores procedentes del software de ajuste de su audiólogo mejoran los valores de corrección calculados en la impresión.",
+      "<b>Qué introducir en la tabla:</b>"
+      + "<ol style=\"margin:6px 0 0 0;padding-left:1.4em\">"
+      + "<li>Introduzca para cada electrodo las bandas de frecuencia con límite inferior y límite superior de su programación del IC; pídaselas a su audiólogo. Los valores por defecto introducidos se ajustan a muchos portadores de IC, pero pueden desviarse de forma individual entre poco y notablemente.</li>"
+      + "<li>Si en su caso hay electrodos desactivados/apagados, desmarque la casilla «Activo».</li>"
+      + "<li>Escuche cada electrodo individualmente en «Escuchar electrodos mediante tonos». Si un electrodo resulta extraño, p. ej. demasiado bajo o con mucho ruido, márquelo en «Estado».</li>"
+      + "<li>Opcional: introduzca THR y MCL. El valor MCL permite convertir decibelios en valores de ajuste directos para su audiólogo.</li>"
+      + "</ol>",
+    implTableDefaultsHint:
+      "<b>Nota:</b> Si no conoce los ajustes de su IC, también puede trabajar con los valores por defecto preestablecidos. Aunque estos valores no coincidan exactamente con su ajuste real, ya puede realizar mediciones aproximadas y hacerse una idea de las posibilidades de una adaptación corregida. Para mediciones precisas, no obstante, es indispensable una introducción correcta de las bandas de frecuencia (límite inferior, límite superior) para cada electrodo.",
     lblImplModel: "Modelo de implante:",
     lblImplProc: "Procesador de audio:",
     lblImplC: "Valor c (MAPLAW):",

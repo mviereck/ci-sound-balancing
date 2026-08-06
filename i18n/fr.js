@@ -66,14 +66,11 @@ Object.assign(L.fr, {
       "Les résultats peuvent être imprimés. L'impression contient les résultats de mesure, les corrections souhaitées et les valeurs d'égaliseur en résultant.",
     FRQ_implantatTitle: "Implant & électrodes",
     lblMfr: "Fabricant :",
-    FRQ_implantatDeactHint:
-      "<b>Important — électrodes désactivées :</b> si des électrodes sont désactivées dans votre IC, l'implant répartit la plage de fréquences sur les électrodes actives restantes. Les fréquences centrales de toutes les autres électrodes se déplacent en conséquence — les valeurs par défaut préréglées ici ne sont alors plus valables.<br>Décochez les électrodes désactivées dans la colonne « Actif » et indiquez les fréquences centrales actuelles issues de votre réglage. Sans fréquences correctes, la mesure et l'égaliseur du Player ne sont pas significatifs.",
     thEl: "Él.",
     thBandLo: "limite inf.",
     thBandHi: "limite sup.",
     thBandMitte: "centre (Hz)",
     implBandMitteTip: "La mesure utilise le centre géométrique de bande √(lo·hi). Entre parenthèses le centre arithmétique (lo+hi)/2 — la valeur généralement indiquée par votre rapport de réglage.",
-    implBandWarn: "Les bandes de fréquences sont une valeur par défaut incertaine du fabricant. Elles ne correspondent probablement pas à votre réglage personnel. Demandez à votre audiologiste vos bandes de fréquences réelles et saisissez-les ici.",
     thPlay: "▶",
     thHold: "◼",
     thActive:         "Actif",
@@ -589,16 +586,20 @@ Object.assign(L.fr, {
     plSrcCurves: "Courbes",
     plBothLabel: "Lire les deux côtés avec leurs ajustements respectifs",
     plMonoLabel: "Fusionner la stéréo en mono",
-    FRQ_implantatAbfHint:
-      "<b>Important — Anatomy Based Fitting (ABF) et FAT :</b> même avec Anatomy Based Fitting (ABF), d'autres fréquences centrales s'appliquent aux électrodes. En général : demandez à votre audiologiste la FAT (Frequency Allocation Table) de votre IC afin de connaître toutes les fréquences attribuées aux électrodes.",
-    FRQ_implantatExclHint:
-      "Veuillez vérifier la qualité sonore de chaque électrode à l'aide du bouton <b>Écouter les électrodes via des tons</b>.<ul><li>Indiquez la qualité de chaque électrode dans le menu déroulant <b>Statut</b>.</li><li>Vous pouvez exclure des tests les électrodes peu audibles dans la colonne <b>Exclure</b>. Les électrodes désactivées sont automatiquement exclues des tests.</li></ul>",
     printPlayerTitle: "Réglages du Player",
     implTitle: "Données d'implant",
     implBilateralHint:
       "<b>Configurer les deux côtés.</b> Indiquez pour la gauche et la droite la situation auditive (Normo-entendant, Malentendant, Appareil auditif, Implant cochléaire, Sourd). Pour les côtés IC, s'ajoutent le fabricant et éventuellement les données d'implant et d'électrodes. Changez en haut à droite entre GAUCHE et DROITE.",
     implTableIntro:
-      "<b>Ce que vous devriez saisir :</b> saisissez pour chaque électrode la fréquence centrale (FAT) issue de votre réglage d'IC, si elle vous est connue par l'audiologiste. Les valeurs par défaut indiquées conviennent à beaucoup de porteurs d'IC, mais peuvent diverger individuellement de manière légère à importante.<br><b>Facultatif, améliore l'impression :</b> THR et MCL (MED-EL) ou T-Level/C-Level (Cochlear) ou T-Level/M-Level (Advanced Bionics) — ces valeurs issues du logiciel de réglage de votre audiologiste améliorent les valeurs de correction calculées dans l'impression.",
+      "<b>Ce que vous devez saisir dans le tableau :</b>"
+      + "<ol style=\"margin:6px 0 0 0;padding-left:1.4em\">"
+      + "<li>Saisissez pour chaque électrode les bandes de fréquences avec limite inférieure et limite supérieure issues de votre réglage d'IC ; demandez-les à votre audiologiste. Les valeurs par défaut indiquées conviennent à beaucoup de porteurs d'IC, mais peuvent diverger individuellement de manière légère à importante.</li>"
+      + "<li>Si des électrodes sont désactivées/coupées chez vous, décochez la case « Actif ».</li>"
+      + "<li>Écoutez chaque électrode individuellement dans « Écouter les électrodes via des tons ». Si une électrode paraît étrange, p. ex. trop faible ou très bruitée, veuillez la marquer sous « Statut ».</li>"
+      + "<li>Facultatif : saisissez THR et MCL. La valeur MCL permet de convertir les décibels en valeurs de réglage directes pour votre audiologiste.</li>"
+      + "</ol>",
+    implTableDefaultsHint:
+      "<b>Remarque :</b> Si vous ne connaissez pas les réglages de votre IC, vous pouvez aussi travailler avec les valeurs par défaut prédéfinies. Même si ces valeurs ne correspondent pas exactement à votre réglage réel, vous pouvez déjà effectuer des mesures approximatives et vous faire une idée des possibilités d'un réglage corrigé. Pour des mesures précises, une saisie correcte des bandes de fréquences (limite inférieure, limite supérieure) pour chaque électrode est toutefois indispensable.",
     lblImplModel: "Modèle d'implant :",
     lblImplProc: "Processeur audio :",
     lblImplC: "Valeur c (MAPLAW) :",

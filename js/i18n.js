@@ -78,10 +78,6 @@ function applyLang() {
   s("FRQ_implantatTitle", "FRQ_implantatTitle");
   s("lblMfr", "lblMfr");
 
-  const abfEl = document.getElementById("FRQ_implantatAbfHintEl");
-  if (abfEl) abfEl.innerHTML = t("FRQ_implantatAbfHint");
-  const exclEl = document.getElementById("FRQ_implantatExclHintEl");
-  if (exclEl) exclEl.innerHTML = t("FRQ_implantatExclHint");
   s("sweepBtn", "sweep");
   s("stopBtn", "stop");
   s("lblVol", "lblVol");

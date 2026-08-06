@@ -66,14 +66,11 @@ Object.assign(L.en, {
       "The results can be printed. The printout contains the measurement results, your desired corrections, and the resulting equalizer values.",
     FRQ_implantatTitle: "Implant & electrodes",
     lblMfr: "Manufacturer:",
-    FRQ_implantatDeactHint:
-      "<b>Important – deactivated electrodes:</b> If electrodes in your CI are deactivated, the implant distributes the frequency range across the remaining active electrodes. The center frequencies of all other electrodes shift accordingly — the default values pre-configured here no longer apply.<br>Uncheck deactivated electrodes in the “Active” column and enter the current center frequencies from your fitting. Without correct frequencies, the measurement and the player equalizer are not meaningful.",
     thEl: "El.",
     thBandLo: "lower bound",
     thBandHi: "upper bound",
     thBandMitte: "center (Hz)",
     implBandMitteTip: "The geometric band center √(lo·hi) is used for measurement. In parentheses the arithmetic center (lo+hi)/2 — the value your fitting report usually shows.",
-    implBandWarn: "The frequency bands are an uncertain manufacturer default. They probably do not match your personal fitting. Ask your audiologist for your actual frequency bands and enter them here.",
     thPlay: "▶",
     thHold: "◼",
     thActive:         "Active",
@@ -588,16 +585,20 @@ Object.assign(L.en, {
     plSrcCurves: "Curves",
     plBothLabel: "Play both sides with their respective adjustments",
     plMonoLabel: "Mix stereo down to mono",
-    FRQ_implantatAbfHint:
-      "<b>Important – Anatomy Based Fitting (ABF) and FAT:</b> Even with Anatomy Based Fitting (ABF), different center frequencies apply to the electrodes. In general: ask your audiologist for the FAT (Frequency Allocation Table) of your CI to learn all the frequencies assigned to the electrodes.",
-    FRQ_implantatExclHint:
-      "Please check the sound quality of each electrode using the <b>Play electrodes via tones</b> button.<ul><li>Use the <b>Status</b> dropdown to indicate the quality of each electrode.</li><li>You can exclude poorly audible electrodes from tests in the <b>Exclude</b> column. Deactivated electrodes are automatically excluded from tests.</li></ul>",
     printPlayerTitle: "Player settings",
     implTitle: "Implant data",
     implBilateralHint:
       "<b>Configure both sides.</b> For left and right, specify the hearing situation (normal hearing, hard of hearing, hearing aid, cochlear implant, deaf). For CI sides, the manufacturer and possibly implant and electrode data are added. Switch between LEFT and RIGHT at the top right.",
     implTableIntro:
-      "<b>What you should enter:</b> For each electrode, enter the center frequency (FAT) from your CI fitting, if known from the audiologist. The default values entered fit many CI users, but can deviate slightly to substantially in individual cases.<br><b>Optional, improves the printout:</b> THR and MCL (MED-EL) or T-Level/C-Level (Cochlear) or T-Level/M-Level (Advanced Bionics) — these values from your audiologist’s fitting software improve the correction values calculated in the printout.",
+      "<b>What to enter in the table:</b>"
+      + "<ol style=\"margin:6px 0 0 0;padding-left:1.4em\">"
+      + "<li>For each electrode, enter the frequency bands with lower and upper bound from your CI fitting; ask your audiologist for them. The default values entered fit many CI users, but can deviate slightly to substantially in individual cases.</li>"
+      + "<li>If any electrodes are deactivated/switched off for you, uncheck the ‘Active’ box.</li>"
+      + "<li>Play each electrode individually in ‘Play electrodes via tones’. If an electrode seems odd, e.g. too quiet or strongly noisy, please mark it under ‘Status’.</li>"
+      + "<li>Optional: enter THR and MCL. The MCL value allows a conversion from decibels into direct fitting values for your audiologist.</li>"
+      + "</ol>",
+    implTableDefaultsHint:
+      "<b>Note:</b> If you do not know your CI settings, you can also work with the preset default values. Even if these values do not exactly match your actual settings, you can already take approximate measurements and get an impression of the possibilities of a corrected fitting. For precise measurements, however, a correct entry of the frequency bands (lower bound, upper bound) for each electrode is indispensable.",
     lblImplModel: "Implant model:",
     lblImplProc: "Audio processor:",
     lblImplC: "c-value (MAPLAW):",
