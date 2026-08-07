@@ -570,6 +570,7 @@ Object.assign(L.de, {
     schieberELLVarStack: "gestapelt",
     schieberELLVarLines: "Vergleichslinien",
     schieberELLAbsNotAvailable: "Absolutmodus erfordert MCL-Werte. Im Reiter Implantat eintragen.",
+    schieberELLFineLabel: "Fein",
     kurvenELLChartLineLabel: "Kurven:",
     kurvenELLTilt: "Tilt (Höhen/Tiefen)",
     kurvenELLPivot: "Pivot (Mitte betonen)",

@@ -520,6 +520,7 @@ Object.assign(L.es, {
     schieberELLVarStack: "apilado",
     schieberELLVarLines: "líneas de comparación",
     schieberELLAbsNotAvailable: "El modo absoluto requiere valores MCL. Introdúzcalos en la pestaña Implante.",
+    schieberELLFineLabel: "Fino",
     kurvenELLChartLineLabel: "Curvas:",
     kurvenELLTilt: "Tilt (agudos/graves)",
     kurvenELLPivot: "Pivot (resaltar centro)",

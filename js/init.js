@@ -1047,7 +1047,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (schieberELLMode === "abs") {
         schieberELLStepAbsolute(schieberELLFocus, dir, e.shiftKey);
       } else {
-        const st = e.shiftKey ? 0.1 : 0.5;
+        const st = e.shiftKey ? SCHIEBER_STEP_REL_FINE : SCHIEBER_STEP_REL;
         const cur = schieberELL[schieberELLFocus] || 0;
         schieberELLOnChange(schieberELLFocus, cur + dir * st);
       }

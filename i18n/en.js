@@ -519,6 +519,7 @@ Object.assign(L.en, {
     schieberELLVarStack: "stacked",
     schieberELLVarLines: "comparison lines",
     schieberELLAbsNotAvailable: "Absolute mode requires MCL values. Enter them in the Implant tab.",
+    schieberELLFineLabel: "Fine",
     kurvenELLChartLineLabel: "Curves:",
     kurvenELLTilt: "Tilt (treble/bass)",
     kurvenELLPivot: "Pivot (emphasize middle)",

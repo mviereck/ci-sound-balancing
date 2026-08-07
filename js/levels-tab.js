@@ -14,6 +14,8 @@ let schieberELLFocus = 0;
 let schieberELLHasFocus = false;
 
 const ELEKTRODENLAUTSTAERKE_SCHIEBER_RANGE = 60; // ±60 dB Anzeigebereich (nur Relativmodus)
+const SCHIEBER_STEP_REL      = 0.5;  // Relativmodus grob (dB)
+const SCHIEBER_STEP_REL_FINE = 0.1;  // Relativmodus fein (dB)
 
 // Hat die Elektrode i einen MCL-Wert eingetragen?
 function schieberELLElHasMcl(i) {
@@ -536,7 +538,7 @@ function schieberELLUpdateModeAvailability() {
 
 // ---------- Pfeiltasten: Schritt im Absolutmodus ----------
 
-function schieberELLStepAbsolute(i, dir, shift) {
+function schieberELLStepAbsolute(i, dir, fine) {
   const im = sideData[activeSide].implant || {};
   const isMedel = mfr === "medel";
   const isCoch = mfr === "cochlear";
@@ -544,7 +546,7 @@ function schieberELLStepAbsolute(i, dir, shift) {
   const mclAudi = isMedel ? im.mcl?.[i] : im.upperLevel?.[i];
   if (mclAudi == null) return;
 
-  const step = shift ? 5 : 1;
+  const step = fine ? 1 : 5;   // fein = 1 Einheit (klein), grob = 5
   const curDb = schieberELL[i] || 0;
   let curAbs;
   if (isMedel) curAbs = calcMedel(curDb, mclAudi).absolute;
@@ -650,6 +652,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  function _schieberWertAdapter() {
+    return {
+      get: function () { return schieberELL[schieberELLFocus] || 0; },
+      set: function (raw) {
+        schieberELLOnChange(schieberELLFocus, +raw);
+      },
+      step: function (dir, fine) {
+        if (schieberELLMode === 'abs') {
+          schieberELLStepAbsolute(schieberELLFocus, dir, fine);
+        } else {
+          var st = fine ? SCHIEBER_STEP_REL_FINE : SCHIEBER_STEP_REL;
+          var cur = schieberELL[schieberELLFocus] || 0;
+          schieberELLOnChange(schieberELLFocus, cur + dir * st);
+        }
+      }
+    };
+  }
+
   // Touch-Bedienleisten: Elektrode wechseln + dB ändern
   (function () {
     var cv = document.getElementById('schieberELLCv');
@@ -677,21 +697,8 @@ document.addEventListener("DOMContentLoaded", () => {
     lblV.textContent = (typeof t === 'function' ? t('schieberELLVlLabel') : 'Wert') + ':';
     lblV.style.cssText = 'align-self:center;font-weight:600;';
 
-    var fineMode = false;
-    var bFine = document.createElement('button');
-    bFine.type = 'button';
-    bFine.className = 'touch-btn';
-    bFine.innerHTML = 'Fein';
-    bFine.addEventListener('click', function () {
-      fineMode = !fineMode;
-      bFine.classList.toggle('fine-active', fineMode);
-    });
-
-    var stepV = buildStepperPair({
-      labelDec: '▼',
-      labelInc: '▲',
-      onDec: function () { _schieberTouchVal(-1, fineMode); },
-      onInc: function () { _schieberTouchVal(+1, fineMode); }
+    var valCtrl = buildValueTouchCtrl(_schieberWertAdapter(), {
+      labelFine: (typeof t === 'function' ? t('schieberELLFineLabel') : 'Fein')
     });
 
     var groupE = document.createElement('div');
@@ -700,7 +707,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var groupV = document.createElement('div');
     groupV.style.cssText = 'display:flex;gap:6px;align-items:center;';
-    groupV.append(lblV, stepV.box, bFine);
+    groupV.append(lblV, valCtrl.box);
 
     ctrlRow.append(groupE, groupV);
     // Direkt unter dem Canvas-Wrapper einfügen, vor dem schieberELLKeyHint-<p>.
@@ -718,13 +725,5 @@ document.addEventListener("DOMContentLoaded", () => {
     schieberELLDraw();
   }
 
-  function _schieberTouchVal(dir, fine) {
-    if (schieberELLMode === 'abs') {
-      schieberELLStepAbsolute(schieberELLFocus, dir, fine);
-    } else {
-      var st = fine ? 0.1 : 0.5;
-      var cur = schieberELL[schieberELLFocus] || 0;
-      schieberELLOnChange(schieberELLFocus, cur + dir * st);
-    }
-  }
 });
+

@@ -520,6 +520,7 @@ Object.assign(L.fr, {
     schieberELLVarStack: "empilé",
     schieberELLVarLines: "lignes de comparaison",
     schieberELLAbsNotAvailable: "Le mode absolu nécessite des valeurs MCL. Saisir dans l'onglet Implant.",
+    schieberELLFineLabel: "Fin",
     kurvenELLChartLineLabel: "Courbes :",
     kurvenELLTilt: "Tilt (aigus/graves)",
     kurvenELLPivot: "Pivot (accentuer le milieu)",
