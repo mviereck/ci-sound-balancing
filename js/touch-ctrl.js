@@ -27,6 +27,20 @@ function attachLongPress(btn, onStep) {
   btn.addEventListener('pointercancel', clear);
 }
 
+// Fuehrt einen Schritt am Adapter aus. dir = +1|-1, fine = bool.
+// step als Zahl: linear via set(get()±step) bzw. fineStep. step als
+// Funktion: der Adapter macht es selbst (nicht-lineare Schritte).
+function _tcApplyStep(adapter, dir, fine) {
+  if (typeof adapter.step === 'function') {
+    adapter.step(dir, fine);
+    return;
+  }
+  var s = fine ? adapter.fineStep : adapter.step;
+  var cur = adapter.get();
+  if (typeof cur !== 'number' || !isFinite(cur)) cur = 0;
+  adapter.set(+(cur + dir * s).toFixed(4));
+}
+
 function buildValueTouchCtrl(adapter, opts) {
   // adapter: { get, set, step, fineStep }
   // opts: { labelMinus, labelPlus, labelFine, replay (Funktion|null),
@@ -39,10 +53,6 @@ function buildValueTouchCtrl(adapter, opts) {
   // (z.B. Gehoerrichtig/ISO 226). Der Fein-Button wird dann als aktiv
   // dargestellt und nicht umschaltbar.
   var fineForced = !!opts.fineForced;
-
-  function activeStep() {
-    return (fineForced || fineMode) ? adapter.fineStep : adapter.step;
-  }
 
   var box = document.createElement('div');
   box.className = 'touch-ctrl';
@@ -65,9 +75,7 @@ function buildValueTouchCtrl(adapter, opts) {
   }
 
   function applyDelta(dir) {
-    var cur = adapter.get();
-    if (typeof cur !== 'number' || !isFinite(cur)) cur = 0;
-    adapter.set(+(cur + dir * activeStep()).toFixed(4));
+    _tcApplyStep(adapter, dir, (fineForced || fineMode));
   }
 
   attachLongPress(btnMinus, function () { applyDelta(-1); });
@@ -211,9 +219,6 @@ function bindKeyAdjust(getAdapter, opts) {
 
     e.preventDefault();
     var fine = e.shiftKey || fineForced(adapter);
-    var s = fine ? adapter.fineStep : adapter.step;
-    var cur = adapter.get();
-    if (typeof cur !== 'number' || !isFinite(cur)) cur = 0;
-    adapter.set(+(cur + dir * s).toFixed(4));
+    _tcApplyStep(adapter, dir, fine);
   };
 }
