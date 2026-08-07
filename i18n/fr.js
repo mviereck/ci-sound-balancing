@@ -1511,7 +1511,8 @@ Object.assign(L.fr, {
     btnEndTest:    "■ Terminer le test",
     btnCancelTest: "■ Annuler le test",
     LTZ_instruction: "Déplacez le curseur jusqu'à ce que les clics à gauche et à droite apparaissent en même temps.",
-    sliderHintMs:   "1 ms",
+    sliderHintMs:   "±1 ms",
+    sliderHintMsFine: "±0,1 ms",
     LTZ_verfahrenLabel: "Latence",
     LTZ_vortestSTBMissing:  "Remarque : le pré-test « Balance stéréo » n'a pas encore été effectué. La mesure fonctionne quand même, mais elle est plus précise si la balance a été ajustée auparavant.",
 });

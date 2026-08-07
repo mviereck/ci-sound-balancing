@@ -1511,7 +1511,8 @@ Object.assign(L.en, {
     btnEndTest:    "■ End test",
     btnCancelTest: "■ Cancel test",
     LTZ_instruction: "Move the slider until the clicks on the left and right appear at the same time.",
-    sliderHintMs:   "1 ms",
+    sliderHintMs:   "±1 ms",
+    sliderHintMsFine: "±0.1 ms",
     LTZ_verfahrenLabel: "Latency",
     LTZ_vortestSTBMissing:  "Note: pre-test \"Stereo balance\" has not been carried out yet. The measurement still works, but is more accurate if the balance has been levelled beforehand.",
 });

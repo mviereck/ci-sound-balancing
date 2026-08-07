@@ -1604,7 +1604,8 @@ Object.assign(L.de, {
     btnEndTest:    "■ Test beenden",
     btnCancelTest: "■ Test abbrechen",
     LTZ_instruction: "Schiebe den Schieber, bis die Klicks links und rechts gleichzeitig erscheinen.",
-    sliderHintMs:   "1 ms",
+    sliderHintMs:   "±1 ms",
+    sliderHintMsFine: "±0,1 ms",
     LTZ_verfahrenLabel: "Latenz",
     LTZ_vortestSTBMissing:  "Hinweis: Vortest „Stereo-Balance“ wurde noch nicht durchgeführt. Die Messung läuft trotzdem, ist aber genauer, wenn die Balance vorab gleichgezogen ist.",
 });

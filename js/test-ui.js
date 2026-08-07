@@ -611,12 +611,17 @@ function _buildTestPanelNew(parentEl, cfg) {
       var khStrong = _mkEl('strong'); _tEl(khStrong, 'sliderControl');
       var khLeft = _mkEl('span', 'kbd'); khLeft.innerHTML = '&larr;';
       var khRight = _mkEl('span', 'kbd'); khRight.innerHTML = '&rarr;';
-      var isCent = body.keyHint.unitKey === 'sliderHintCent';
-      var khStep = _mkEl('span'); _tEl(khStep, isCent ? 'sliderHintCent' : 'sliderStep');
+      // Grob-/Fein-Text nach Einheit: cent, ms oder dB (Default).
+      var _khUnit = body.keyHint.unitKey;
+      var _khStepKey, _khFineKey;
+      if (_khUnit === 'sliderHintCent') { _khStepKey = 'sliderHintCent'; _khFineKey = 'sliderHintCentFine'; }
+      else if (_khUnit === 'sliderHintMs') { _khStepKey = 'sliderHintMs'; _khFineKey = 'sliderHintMsFine'; }
+      else { _khStepKey = 'sliderStep'; _khFineKey = 'sliderStepFine'; }
+      var khStep = _mkEl('span'); _tEl(khStep, _khStepKey);
       var khDot = document.createTextNode(' · ');
       var khHold = _mkEl('span'); _tEl(khHold, 'sliderHold');
       var khShift = _mkEl('span', 'kbd'); khShift.textContent = 'Shift';
-      var khFine = _mkEl('span'); _tEl(khFine, isCent ? 'sliderHintCentFine' : 'sliderStepFine');
+      var khFine = _mkEl('span'); _tEl(khFine, _khFineKey);
       khBox.append(
         khStrong, document.createTextNode(' '),
         khLeft, document.createTextNode(' '), khRight, document.createTextNode(' '),
@@ -723,8 +728,10 @@ function _buildTestPanelNew(parentEl, cfg) {
       slInput.type = 'range';
       slInput.className = 'big-slider';
       slInput.min = -slInitialRange; slInput.max = slInitialRange;
-      // Schrittweite: cent → 1, ms → 1, dB → 0.1
-      slInput.step = (slUnit === 'cent' || slUnit === 'ms') ? '1' : '0.1';
+      // Schrittweite (HTML-Raster): cent → 1, ms → 0.1, dB → 0.1.
+      // ms muss 0.1 rasten, damit der 0.1-ms-Feinschritt (touchFineStep)
+      // greift; sonst rundet der Range-Input ihn auf ganze ms zurueck.
+      slInput.step = (slUnit === 'cent') ? '1' : '0.1';
       slInput.value = '0';
       slInput.style.setProperty('--sl-range-step', '0');
       slWrap.append(slInput);
@@ -1178,19 +1185,19 @@ function _buildTestPanelNew(parentEl, cfg) {
 
   // ===== Pfeiltasten-Routing =====
 
-  function _sliderSteps(slUnit) {
-    if (slUnit === 'cent') return { step: 5, fineStep: 1 };
-    if (slUnit === 'ms')   return { step: 1, fineStep: 0.1 };
-    return { step: 0.5, fineStep: 0.1 }; // dB (Default)
-  }
-
   function _activeSliderAdapter() {
     var vCfg2 = _getActiveVerfahrenCfg();
     if (!vCfg2 || !vCfg2.body || !vCfg2.body.slider) return null;
     var vRefs = _verfahrenRefs[vCfg2.id];
     if (!vRefs || !vRefs.slider) return null;
     var slRef = vRefs.slider;
-    var steps = _sliderSteps(slRef.unit || 'dB');
+    // Schrittweiten aus derselben Config wie die −/Fein/+-Buttons
+    // (buildSliderTouchCtrl, Defaults 5 / 1). Eine Wahrheit je Slider.
+    var slCfg = vCfg2.body.slider;
+    var steps = {
+      step:     slCfg.touchStep     != null ? slCfg.touchStep     : 5,
+      fineStep: slCfg.touchFineStep != null ? slCfg.touchFineStep : 1
+    };
     return {
       get: function () { return parseNum(slRef.input.value) || 0; },
       set: function (raw) {

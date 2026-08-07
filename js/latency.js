@@ -489,6 +489,12 @@ function ltz_hookOnStop() {
 
 function ltz_hookOnSlide(ms) {
   ltz_setSliderMs(ms);
+  // Anzeige selbst setzen (analog _ell_onSlide / stb_hookOnSlide) — der
+  // Latenz-Hook ist der einzige, der es sonst vergaesse; ohne dies bleibt
+  // die "x ms"-Anzeige beim Schieben stehen.
+  var slRef = LTZ_els && LTZ_els.verfahren && LTZ_els.verfahren.latenz
+    ? LTZ_els.verfahren.latenz.slider : null;
+  if (slRef) testUI.slider.setValueDisplay(slRef, ms.toFixed(1) + " ms");
 }
 
 function ltz_hookOnApply() {
@@ -548,7 +554,7 @@ document.addEventListener("DOMContentLoaded", function() {
       body: {
         instruction:  { key: 'LTZ_instruction' },
         keyHint:      { unitKey: 'sliderHintMs' },
-        slider:       { unit: 'ms', initialRange: 50, maxRange: 2000, touchStep: 5, touchFineStep: 1 },
+        slider:       { unit: 'ms', initialRange: 50, maxRange: 2000, touchStep: 1, touchFineStep: 0.1 },
         sliderValue:  { show: true },
         applyButton:  { key: 'btnConfirmOffset' }
       },

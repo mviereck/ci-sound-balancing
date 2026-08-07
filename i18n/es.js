@@ -1511,7 +1511,8 @@ Object.assign(L.es, {
     btnEndTest:    "■ Finalizar prueba",
     btnCancelTest: "■ Cancelar prueba",
     LTZ_instruction: "Mueve el deslizador hasta que los clics de la izquierda y la derecha aparezcan al mismo tiempo.",
-    sliderHintMs:   "1 ms",
+    sliderHintMs:   "±1 ms",
+    sliderHintMsFine: "±0,1 ms",
     LTZ_verfahrenLabel: "Latencia",
     LTZ_vortestSTBMissing:  "Aviso: la prueba previa «Balance estéreo» aún no se ha realizado. La medición funciona igualmente, pero es más precisa si el balance se ha igualado antes.",
 });
