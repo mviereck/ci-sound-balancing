@@ -1178,10 +1178,46 @@ function _buildTestPanelNew(parentEl, cfg) {
 
   // ===== Pfeiltasten-Routing =====
 
+  function _sliderSteps(slUnit) {
+    if (slUnit === 'cent') return { step: 5, fineStep: 1 };
+    if (slUnit === 'ms')   return { step: 1, fineStep: 0.1 };
+    return { step: 0.5, fineStep: 0.1 }; // dB (Default)
+  }
+
+  function _activeSliderAdapter() {
+    var vCfg2 = _getActiveVerfahrenCfg();
+    if (!vCfg2 || !vCfg2.body || !vCfg2.body.slider) return null;
+    var vRefs = _verfahrenRefs[vCfg2.id];
+    if (!vRefs || !vRefs.slider) return null;
+    var slRef = vRefs.slider;
+    var steps = _sliderSteps(slRef.unit || 'dB');
+    return {
+      get: function () { return parseNum(slRef.input.value) || 0; },
+      set: function (raw) {
+        var min = parseFloat(slRef.input.min);
+        var max = parseFloat(slRef.input.max);
+        var nv = raw;
+        if (isFinite(min)) nv = Math.max(min, nv);
+        if (isFinite(max)) nv = Math.min(max, nv);
+        slRef.input.value = String(nv);
+        // Engpass: input-Event loest onSlide bzw. sliderValue-Update aus.
+        slRef.input.dispatchEvent(new Event('input', { bubbles: true }));
+        // Bereichserweiterung am Anschlag (haengt nicht am input-Event).
+        _maybeExtendSlider(slRef);
+      },
+      step: steps.step,
+      fineStep: steps.fineStep
+    };
+  }
+
   function _installKeyListener(vCfg2) {
     _removeKeyListener(); // Sicherheitshalber erst entfernen
     var body = vCfg2.body || {};
     var vRefs = _verfahrenRefs[vCfg2.id];
+
+    // Wert-Justage des aktiven Sliders ueber die zentrale Engine.
+    // ←/− kleiner, →/+ groesser, Shift = fein (Numpad ebenso).
+    var _sliderKeyAdjust = bindKeyAdjust(_activeSliderAdapter);
 
     _keyListener = function(e) {
       // Nur aktiv wenn testBox sichtbar
@@ -1194,41 +1230,11 @@ function _buildTestPanelNew(parentEl, cfg) {
             tag === 'SELECT' || tag === 'TEXTAREA') return;
       }
 
-      // ← / → : Slider
-      if (body.slider && vRefs && vRefs.slider) {
-        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-          e.preventDefault();
-          var slRef = vRefs.slider;
-          var slUnit = slRef.unit || 'dB';
-          var dir = (e.key === 'ArrowRight') ? 1 : -1;
-          // Schrittweiten: cent → 5 coarse / 1 fine; dB → 0.5 coarse / 0.1 fine; ms → 1 coarse / 0.1 fine
-          var coarseStep, fineStep;
-          if (slUnit === 'cent') {
-            coarseStep = 5; fineStep = 1;
-          } else if (slUnit === 'ms') {
-            coarseStep = 1; fineStep = 0.1;
-          } else {
-            coarseStep = 0.5; fineStep = 0.1;
-          }
-          var step = e.shiftKey ? fineStep : coarseStep;
-          var curVal = parseNum(slRef.input.value) || 0;
-          var rangeMax = parseFloat(slRef.input.max) || 20;
-          var newVal = Math.max(-rangeMax, Math.min(rangeMax, curVal + dir * step));
-          // Auf step-Genauigkeit runden
-          var factor = 1 / step;
-          newVal = Math.round(newVal * factor) / factor;
-          slRef.input.value = String(newVal);
-          // sliderValue aktualisieren
-          if (vRefs.sliderValue) {
-            if (slUnit === 'cent') vRefs.sliderValue.textContent = fmtNum(newVal, "cent") + ' Cent';
-            else if (slUnit === 'ms') vRefs.sliderValue.textContent = newVal.toFixed(1) + ' ms';
-            else vRefs.sliderValue.textContent = newVal.toFixed(1) + ' dB';
-          }
-          // Hook
-          if (vCfg2.hooks && vCfg2.hooks.onSlide) vCfg2.hooks.onSlide(newVal);
-          _maybeExtendSlider(slRef);
-          return;
-        }
+      // Slider-Wert-Justage (←/→, +/−) ueber die Engine.
+      // Klavier belegt ←/→ selbst — dort NICHT die Slider-Justage nehmen.
+      if (body.slider && !body.piano) {
+        _sliderKeyAdjust(e);
+        if (e.defaultPrevented) return;
       }
 
       // Klavier: Buchstaben-Tasten (physische Position via e.code) + Bereichs-Pfeile
