@@ -165,54 +165,64 @@ function kurvenELLDeltaAndereSeite(pi, delta, currentPr) {
     if (currentPr.width !== undefined) op[pi].width = currentPr.width;
   }
 }
-function _kurvenELLStrTouchCtrl(inp, pi) {
-  if (!inp) return null;
-  var box = document.createElement('div');
-  box.className = 'touch-ctrl kurven-ell-str-touch';
-  box.style.cssText = 'display:inline-flex;gap:4px;margin-left:6px;vertical-align:middle;';
+// Touch-Ctrl-Instanzen je Kurvenzeile (pi -> buildValueTouchCtrl-Rueckgabe).
+// Wird bei jedem Tabellenbau neu gefuellt; die Tastatur (init.js) liest hier
+// den Fein-Zustand der aktiven Zeile ab, damit der Fein-Toggle auch fuer
+// Tastatureingaben (+/-, Pfeile) wirkt.
+var kurvenELLCtrls = {};
 
-  var fineMode = false;
-
-  function step(dir) {
-    var st = fineMode ? 0.1 : 0.5;
-    var oldVal = kurvenELL[pi].strength;
-    var newVal = Math.max(-20, Math.min(20, +(oldVal + dir * st).toFixed(1)));
-    kurvenELL[pi].strength = newVal;
-    inp.value = newVal.toFixed(1);
-    kurvenELLDeltaAndereSeite(pi, newVal - oldVal, kurvenELL[pi]);
-    kurvenELLOnChange();
-  }
-
-  function mkBtn(label, cls) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'touch-btn touch-btn-sm' + (cls ? ' ' + cls : '');
-    b.innerHTML = label;
-    return b;
-  }
-
-  var bMin  = mkBtn('−');
-  var bFine = mkBtn('Fein');
-  var bPlus = mkBtn('+');
-
-  attachLongPress(bMin,  function () { step(-1); });
-  attachLongPress(bPlus, function () { step(+1); });
-  bFine.addEventListener('click', function () {
-    fineMode = !fineMode;
-    bFine.classList.toggle('fine-active', fineMode);
-  });
-
-  box.append(bMin, bFine, bPlus);
-
-  if (inp.parentNode) {
-    if (inp.nextSibling) inp.parentNode.insertBefore(box, inp.nextSibling);
-    else inp.parentNode.appendChild(box);
-  }
-  return box;
+// Fein-Zustand der aktiven Zeile (fuer bindKeyAdjust in init.js).
+function kurvenELLActiveIsFine() {
+  var c = kurvenELLCtrls[kurvenELLActivePi];
+  return !!(c && c.isFine && c.isFine());
 }
+
+// Wert-Adapter einer Kurvenzeile fuer die Bedien-Engine (BA 545).
+// Kapselt Clamp (+-20) und Folgewirkung (andere Seite + Redraw).
+function _kurvenELLAdapter(pi) {
+  return {
+    get: function () { return kurvenELL[pi] ? kurvenELL[pi].strength : 0; },
+    set: function (raw) {
+      if (!kurvenELL[pi]) return;
+      var oldVal = kurvenELL[pi].strength;
+      var newVal = Math.max(-20, Math.min(20, +(+raw).toFixed(1)));
+      kurvenELL[pi].strength = newVal;
+      kurvenELLDeltaAndereSeite(pi, newVal - oldVal, kurvenELL[pi]);
+      // Feldanzeige der Zeile nachziehen, falls im DOM.
+      var inp = document.querySelector('.kurven-ell-str[data-pi="' + pi + '"]');
+      if (inp) inp.value = newVal.toFixed(1);
+      kurvenELLOnChange();
+    },
+    step: 0.5,
+    fineStep: 0.1
+  };
+}
+
+// Aktive Kurvenzeile setzen + Markierung auffrischen.
+function kurvenELLSetActive(pi) {
+  kurvenELLActivePi = pi;
+  _kurvenELLMarkActive();
+}
+
+// Markierung (Zeilen-Hintergrund) an der aktiven Zeile setzen.
+function _kurvenELLMarkActive() {
+  var tbl = document.getElementById('kurvenELLTbl');
+  if (!tbl) return;
+  tbl.querySelectorAll('tr.kurven-ell-row-active').forEach(function (tr) {
+    tr.classList.remove('kurven-ell-row-active');
+  });
+  if (kurvenELLActivePi < 0) return;
+  var cb = tbl.querySelector('.kurven-ell-on[data-pi="' + kurvenELLActivePi + '"]');
+  if (cb) {
+    var tr = cb.closest('tr');
+    if (tr) tr.classList.add('kurven-ell-row-active');
+  }
+}
+
 function kurvenELLTabelleBauen() {
   const tbl = document.getElementById("kurvenELLTbl");
   tbl.innerHTML = "";
+  kurvenELLCtrls = {};   // Ctrl-Instanzen des vorigen Aufbaus verwerfen
   const act = allEl();
   // Mittelpunkt: Number-Input in Hz (50–20000, Schritt 50).
   // Breite (Gauß): Number-Input in Cent (50–4800, Schritt 50).
@@ -221,7 +231,7 @@ function kurvenELLTabelleBauen() {
     const tr = document.createElement("tr");
     tr.className = pr.on ? "" : "kurven-ell-row-off";
     let params = '<div class="kurven-ell-param">';
-    params += `<label>${t("kurvenELLStrLabel")}</label><input type="number" class="kurven-ell-str" data-pi="${pi}" value="${pr.strength.toFixed(1)}" min="-20" max="20" step="0.5">`;
+    params += `<label>${t("kurvenELLStrLabel")}</label><input type="number" class="kurven-ell-str no-spin" data-pi="${pi}" value="${pr.strength.toFixed(1)}" min="-20" max="20" step="0.5">`;
     if (KURVEN_ELL_HAS_CENTER[pr.type])
       params += ` <label>${t("kurvenELLCenter")}</label><input type="number" class="kurven-ell-ctr" data-pi="${pi}" min="50" max="20000" step="any" style="width:80px"> ${t("kurvenELLUnitHz")}`;
     if (KURVEN_ELL_HAS_WIDTH[pr.type])
@@ -247,64 +257,41 @@ function kurvenELLTabelleBauen() {
     tr2.innerHTML = `<td></td><td colspan="2" style="font-size:.78em;color:var(--text-muted);padding-top:0">${t(KURVEN_ELL_EXPL[pr.type])}</td>`;
     tbl.appendChild(tr2);
   }
-  tbl.querySelectorAll(".kurven-ell-on").forEach((cb) =>
+  tbl.querySelectorAll(".kurven-ell-on").forEach(function (cb) {
     cb.addEventListener("change", function () {
       const pi = +this.dataset.pi;
-      const wasOn = kurvenELL[pi].on;
       kurvenELL[pi].on = this.checked;
-      // Mirror on/off to other side if checkbox active
       if (document.getElementById("kurvenELLBothSides")?.checked) {
         const otherSide = activeSide === "left" ? "right" : "left";
         const op = sideData[otherSide].kurvenELL;
-        if (op && op[pi]) {
-          op[pi].on = this.checked;
-        }
+        if (op && op[pi]) op[pi].on = this.checked;
       }
-      kurvenELLTabelleBauen();
+      // Anhaken -> Zeile aktiv. Maus-Abhaken -> Auswahl entfernen.
+      if (this.checked) kurvenELLActivePi = pi;
+      else if (kurvenELLActivePi === pi) kurvenELLActivePi = -1;
+      kurvenELLTabelleBauen();   // baut neu; _kurvenELLMarkActive laeuft am Ende
       kurvenELLOnChange();
-      if (this.checked) {
-        const strInp = tbl.querySelector(
-          `.kurven-ell-str[data-pi="${this.dataset.pi}"]`,
-        );
-        if (strInp) safeFocus(strInp);
-      }
-    }),
-  );
+    });
+  });
   tbl.querySelectorAll(".kurven-ell-str").forEach((inp) => {
     inp.addEventListener("change", function () {
       const pi = +this.dataset.pi;
-      const oldVal = kurvenELL[pi].strength;
-      const newVal = Math.max(-20, Math.min(20, parseNum(this.value) || 0));
-      const delta = newVal - oldVal;
-      kurvenELL[pi].strength = newVal;
-      this.value = newVal.toFixed(1);
-      kurvenELLDeltaAndereSeite(pi, delta, kurvenELL[pi]);
-      kurvenELLOnChange();
+      _kurvenELLAdapter(pi).set(parseNum(this.value) || 0);
     });
-    inp.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowUp" || e.key === "ArrowDown") {
-        e.preventDefault();
-        e.stopPropagation();
-        const pi = +this.dataset.pi,
-          st = 0.1;
-        const oldVal = kurvenELL[pi].strength;
-        if (e.key === "ArrowUp")
-          kurvenELL[pi].strength = Math.min(
-            20,
-            +(kurvenELL[pi].strength + st).toFixed(1),
-          );
-        if (e.key === "ArrowDown")
-          kurvenELL[pi].strength = Math.max(
-            -20,
-            +(kurvenELL[pi].strength - st).toFixed(1),
-          );
-        const delta = kurvenELL[pi].strength - oldVal;
-        this.value = kurvenELL[pi].strength.toFixed(1);
-        kurvenELLDeltaAndereSeite(pi, delta, kurvenELL[pi]);
-        kurvenELLOnChange();
-      }
+    // −/Fein/+ ueber die zentrale Engine (BA 545).
+    var _pi = +inp.dataset.pi;
+    var _ctrl = buildValueTouchCtrl(_kurvenELLAdapter(_pi), {
+      labelFine: t("kurvenELLFineLabel")
     });
-    _kurvenELLStrTouchCtrl(inp, +inp.dataset.pi);
+    _ctrl.box.classList.add('kurven-ell-str-touch');
+    // Gehoerrichtig (ISO 226): Fein per Default an (abschaltbar).
+    if (kurvenELL[_pi] && kurvenELL[_pi].type === "iso226") _ctrl.setFine(true);
+    // Instanz merken, damit die Tastatur (init.js) den Fein-Zustand liest.
+    kurvenELLCtrls[_pi] = _ctrl;
+    if (inp.parentNode) {
+      if (inp.nextSibling) inp.parentNode.insertBefore(_ctrl.box, inp.nextSibling);
+      else inp.parentNode.appendChild(_ctrl.box);
+    }
   });
   tbl.querySelectorAll(".kurven-ell-ctr").forEach((inp) =>
     inp.addEventListener("change", function () {
@@ -356,6 +343,18 @@ function kurvenELLTabelleBauen() {
       kurvenELLOnChange();
     }),
   );
+  // Klick in eine Parameter-Zeile macht sie aktiv.
+  tbl.querySelectorAll('.kurven-ell-on').forEach(function (cb) {
+    var tr = cb.closest('tr');
+    if (!tr) return;
+    tr.addEventListener('click', function (ev) {
+      // Klick auf die Checkbox selbst wird vom change-Handler behandelt.
+      if (ev.target && ev.target.classList.contains('kurven-ell-on')) return;
+      kurvenELLSetActive(+cb.dataset.pi);
+    });
+  });
+  // Markierung nach jedem Neuaufbau wiederherstellen.
+  _kurvenELLMarkActive();
   applyMobileReadonly(tbl);
 }
 function kurvenELLChartZeichnen() {

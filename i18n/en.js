@@ -528,6 +528,7 @@ Object.assign(L.en, {
     kurvenELLGauss: "Gaussian",
     kurvenELLIso226: "Equal-loudness (ISO 226)",
     kurvenELLStrLabel: "Strength:",
+    kurvenELLFineLabel: "Fine",
     kurvenELLExplTilt:
       "Linear increase from apical to basal. Positive values emphasize treble, negative values bass. Equivalent to the MAESTRO Tilt tool.",
     kurvenELLExplPivot:

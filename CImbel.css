@@ -683,6 +683,17 @@ select:disabled {
 .kurven-ell-row-off {
   opacity: 0.45;
 }
+.kurven-ell-row-active > td {
+  background: rgba(80,140,255,0.14);
+}
+.kurven-ell-str.no-spin {
+  -moz-appearance: textfield;
+}
+.kurven-ell-str.no-spin::-webkit-outer-spin-button,
+.kurven-ell-str.no-spin::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .subtabs {
   display: flex;
   gap: 2px;

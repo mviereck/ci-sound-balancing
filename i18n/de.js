@@ -579,6 +579,7 @@ Object.assign(L.de, {
     kurvenELLGauss: "Gauß",
     kurvenELLIso226: "Gehörrichtig (ISO 226)",
     kurvenELLStrLabel: "Stärke:",
+    kurvenELLFineLabel: "Fein",
     kurvenELLExplTilt:
       "Linearer Anstieg von apikal nach basal. Positive Werte betonen Höhen, negative Tiefen. Entspricht dem MAESTRO Tilt-Werkzeug.",
     kurvenELLExplPivot:

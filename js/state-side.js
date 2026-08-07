@@ -30,6 +30,7 @@ let userLastName  = ""; // Nachname für Dateinamen und Druck-Seitentitel (BA 26
 let userFirstName = ""; // Vorname für Dateinamen und Druck-Seitentitel (BA 268)
 
 let kurvenELL = [];
+let kurvenELLActivePi = -1;   // aktive Kurvenzeile (-1 = keine)
 let elActive = [];  // BA 164: Aktivitäts-Flag pro Elektrode der aktiven Seite
 let fullSweepRound = null,
   fullSweepDonePairs = [];

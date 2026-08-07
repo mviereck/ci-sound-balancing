@@ -1054,6 +1054,62 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Kurven-Reiter: Tastatursteuerung der aktiven Zeile.
+  // ←/− kleiner, →/+ groesser (Wert, Shift=fein) via Engine;
+  // ↑/↓ Zeilenwechsel; Leertaste Checkbox an/aus.
+  var _kurvenKeyAdjust = bindKeyAdjust(function () {
+    return (kurvenELLActivePi >= 0) ? _kurvenELLAdapter(kurvenELLActivePi) : null;
+  }, {
+    // Fein gilt fuer die Tastatur, wenn der Fein-Toggle der aktiven Zeile
+    // an ist (dann auch ohne Shift) — sonst nur bei gehaltenem Shift.
+    fineForced: function () { return kurvenELLActiveIsFine(); }
+  });
+  document.addEventListener("keydown", function (e) {
+    const pan = document.getElementById("panel-kurven");
+    if (!pan || !pan.classList.contains("active")) return;
+    // Nicht feuern, wenn in Text-Eingabe/Select (Range erlaubt). Buttons
+    // NICHT blocken: nach Klick auf −/Fein/+ hat der Button den Fokus, und
+    // die Justage per ←/→/+/− soll weiter wirken.
+    var ae = document.activeElement;
+    var _onButton = !!(ae && ae.tagName === "BUTTON");
+    if (ae && ae !== document.body) {
+      var tag = ae.tagName;
+      if ((tag === "INPUT" && ae.type !== "range") ||
+          tag === "SELECT" || tag === "TEXTAREA") return;
+    }
+    // Wert justieren (←/→, +/−).
+    _kurvenKeyAdjust(e);
+    if (e.defaultPrevented) return;
+    // Zeilenwechsel ↑/↓ ueber ALLE Kurvenzeilen.
+    if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+      e.preventDefault();
+      var n = kurvenELL.length;
+      if (!n) return;
+      var ci = kurvenELLActivePi;
+      if (ci < 0) ci = (e.key === "ArrowUp") ? 0 : -1;
+      if (e.key === "ArrowUp")   ci = (ci <= 0) ? 0 : ci - 1;
+      else                        ci = (ci >= n - 1) ? n - 1 : ci + 1;
+      kurvenELLSetActive(ci);
+      return;
+    }
+    // Leertaste: Checkbox der aktiven Zeile an/aus. Bei Fokus auf einem
+    // Button NICHT kapern (dort ist Leertaste der native Button-Klick).
+    if (e.key === " ") {
+      if (_onButton) return;
+      e.preventDefault();
+      if (kurvenELLActivePi < 0) return;
+      var cb = document.querySelector('.kurven-ell-on[data-pi="' + kurvenELLActivePi + '"]');
+      if (!cb) return;
+      var keep = kurvenELLActivePi;   // per Tastatur aktiv behalten
+      cb.checked = !cb.checked;
+      cb.dispatchEvent(new Event("change", { bubbles: true }));
+      // change baut die Tabelle neu; Abhaken per Tastatur soll die Zeile
+      // NICHT verlieren (anders als Maus-Abhaken).
+      kurvenELLSetActive(keep);
+      return;
+    }
+  });
+
   // BA 163: Load from sessionStorage (pro Browser-Tab)
   try {
     const sv = sessionStorage.getItem("ci-lb-v4");

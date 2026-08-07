@@ -529,6 +529,7 @@ Object.assign(L.fr, {
     kurvenELLGauss: "Gauss",
     kurvenELLIso226: "Isosonique (ISO 226)",
     kurvenELLStrLabel: "Force :",
+    kurvenELLFineLabel: "Fin",
     kurvenELLExplTilt:
       "Augmentation linéaire de l'apical au basal. Valeurs positives accentuent les aigus, négatives les graves. Correspond à l'outil Tilt de MAESTRO.",
     kurvenELLExplPivot:
