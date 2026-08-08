@@ -71,6 +71,7 @@ Object.assign(L.de, {
     thBandHi: "obere Grenze",
     thBandMitte: "Mitte (Hz)",
     implBandMitteTip: "Gemessen wird die geometrische Bandmitte √(lo·hi). In Klammern die arithmetische Mitte (lo+hi)/2 — der Wert, den Ihr Fitting-Bericht üblicherweise nennt.",
+    infoIconAria: "Info",
 
     thActive:         "Aktiv",
     thFsp:            "FSP",

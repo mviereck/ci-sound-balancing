@@ -56,7 +56,7 @@ function FRQ_implantatTableBuild() {
   } else {
     // BA 164: neue Spalte „Aktiv" vor Status; FSP-Spalte direkt danach
     document.getElementById("FRQ_implantatTableHead").innerHTML =
-      `<th>${elLbl}</th><th>${t("thBandLo")}</th><th>${t("thBandHi")}</th><th title="${t("implBandMitteTip")}">${t("thBandMitte")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th style="white-space:nowrap">${t("thActive")}</th>${_fspHdr}<th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th>`;
+      `<th>${elLbl}</th><th>${t("thBandLo")}</th><th>${t("thBandHi")}</th><th>${t("thBandMitte")}${infoIconHtml("implBandMitteTip")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th style="white-space:nowrap">${t("thActive")}</th>${_fspHdr}<th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th>`;
   }
   const tb = document.getElementById("FRQ_implantatTableBody");
   tb.innerHTML = "";
@@ -162,8 +162,8 @@ function FRQ_implantatTableBuild() {
       `<td><input type="text" inputmode="decimal" autocomplete="off" class="blo" data-i="${i}" value="${_loVal}" placeholder="${_loPh}" style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em"></td>` +
       `<td><input type="text" inputmode="decimal" autocomplete="off" class="bhi" data-i="${i}" value="${_hiVal}" placeholder="${_hiPh}" style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em"></td>` +
       `<td style="font-family:var(--mono);font-size:.86em;padding:4px 6px" title="${t("implBandMitteTip")}">${_mitteTxt}</td>` +
-      `<td><input type="number" class="it" data-i="${i}" value="${thrVal}" min="0" max="500" step="1" style="${inpStyle}" placeholder="—"></td>` +
-      `<td><input type="number" class="iu" data-i="${i}" value="${upperVal}" min="0" max="1000" step="1" style="${inpStyle}" placeholder="—"></td>` +
+      `<td><input type="text" inputmode="decimal" autocomplete="off" class="it" data-i="${i}" value="${thrVal}" style="${inpStyle}" placeholder="—"></td>` +
+      `<td><input type="text" inputmode="decimal" autocomplete="off" class="iu" data-i="${i}" value="${upperVal}" style="${inpStyle}" placeholder="—"></td>` +
       `<td style="text-align:center">${_activeCbHtml}</td>` +
       _fspCell +
       `<td><select class="ss" data-i="${i}">${so_i}</select></td>` +

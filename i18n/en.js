@@ -71,6 +71,7 @@ Object.assign(L.en, {
     thBandHi: "upper bound",
     thBandMitte: "center (Hz)",
     implBandMitteTip: "The geometric band center √(lo·hi) is used for measurement. In parentheses the arithmetic center (lo+hi)/2 — the value your fitting report usually shows.",
+    infoIconAria: "Info",
     thPlay: "▶",
     thHold: "◼",
     thActive:         "Active",

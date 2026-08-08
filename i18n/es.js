@@ -71,6 +71,7 @@ Object.assign(L.es, {
     thBandHi: "límite sup.",
     thBandMitte: "centro (Hz)",
     implBandMitteTip: "Para la medición se usa el centro geométrico de banda √(lo·hi). Entre paréntesis el centro aritmético (lo+hi)/2 — el valor que suele indicar su informe de adaptación.",
+    infoIconAria: "Info",
     thPlay: "▶",
     thHold: "◼",
     thActive:         "Activo",

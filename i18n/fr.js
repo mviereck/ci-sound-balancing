@@ -71,6 +71,7 @@ Object.assign(L.fr, {
     thBandHi: "limite sup.",
     thBandMitte: "centre (Hz)",
     implBandMitteTip: "La mesure utilise le centre géométrique de bande √(lo·hi). Entre parenthèses le centre arithmétique (lo+hi)/2 — la valeur généralement indiquée par votre rapport de réglage.",
+    infoIconAria: "Info",
     thPlay: "▶",
     thHold: "◼",
     thActive:         "Actif",
