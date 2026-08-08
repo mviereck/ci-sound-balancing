@@ -52,7 +52,7 @@ Im Reiter Implantat können Sie zahlreiche technische Werte zu Ihrem CI eintrage
 
 Folgender Satz hilft:
 
->„Bitte drucken Sie mir einen Fitting-Report (alle Map-Parameter) meiner aktuellen MAP aus. Ich brauche die Werte für eine Lautheits-Messung zu Hause mit dem CI-Sound-Balancing-Tool."
+>„Bitte drucken Sie mir einen Fitting-Report (alle Map-Parameter) meiner aktuellen MAP aus. Ich brauche die Werte für eine Lautheits-Messung zu Hause mit dem CI-Sound-Balancing-Tool. Insbesondere die Frequenzbänder mit Untergrenze und Obergrenze je Elektrode sind sehr wichtig."
 
 Falls Rückfragen kommen, welche Werte konkret gemeint sind:
 
@@ -60,6 +60,7 @@ Falls Rückfragen kommen, welche Werte konkret gemeint sind:
 >- Kodierungsstrategie und Stimulationsrate
 >- MED-EL: Welche Elektroden durch FSP oder FS4 stimuliert werden.
 >- FAT (Frequency Allocation Table): Mittenfrequenz pro Elektrode in Hz
+   UND die Untergrenzen / Obergrenzen in Hz für jedes Frequenzband.
 >- THR (T-Level) pro Elektrode
 >- MCL pro Elektrode
 >- MED-EL: MCL in qu
@@ -80,7 +81,7 @@ Grundsätzliche technische Angaben zu Ihrem CI.
 - Tragen Sie mindestens Ihren CI Hersteller ein, sofern bekannt, auch Modell usw.
 - Markieren Sie deaktivierte Elektroden unter *AKTIV* als *DEAKTIVIERT* (Häkchen entfernen).
 - Testen Sie den Ton für jede Elektrode. Auffällige Elektroden, z. B. mit starkem Rauschen, in *STATUS* markieren.
-- Idealerweise tragen Sie alle weiteren Ihnen bekannten Angaben und Werte ein, sofern bekannt. Sie können die Werte bei Ihrem Audiologen erfragen. Sie können das Tool aber auch ohne diese Werte nutzen.
+- Idealerweise tragen Sie alle weiteren Ihnen bekannten Angaben und Werte ein, sofern bekannt. Sie können die Werte bei Ihrem Audiologen erfragen. Sie können das Tool aber auch ohne diese Werte nutzen; für präzise Messung sollten Sie aber die Frequenzbänder je Elektrode erfragen.
 - Machen Sie alle Angaben auch für das andere Ohr. Auch *normalhörend* oder *schwerhörig* oder *taub* gegebenenfalls eintragen, wenn sie dort kein CI tragen.
 
 #### Im Reiter *Messungen* -> *Elektrodenlautstärke*
@@ -183,13 +184,13 @@ Messung von Tonhöhenunterschieden links und rechts.
 - Es wird sehr empfohlen, vor dieser Messung *Elektrodenlautstärke* und *Stereo-Balance* bereits durchgeführt zu haben. Unterschiedliche Lautstärke kann die Tonhöhenwahrnehmung verfälschen.
 #### Hinweis zu Hörgeräten:
 - Sie sollten ohne Hörgerät testen. Hörgeräte verfälschen Tonhöhen.
-- Machen Sie auch auf dem schwerhörigen Ohr den Elektrodenlautstärke-Testn und danach den Stereo-Balance-Test. So gut es geht sollten Sie final auf beiden Seiten gleich laut hören.
+- Machen Sie auch auf dem schwerhörigen Ohr den Elektrodenlautstärke-Test und danach den Stereo-Balance-Test. So gut es geht sollten Sie final auf beiden Seiten gleich laut hören.
 ####
 - Der Test zeigt ein Klavier.
 - Sie werden aufgefordert, den nächstliegenden Ton anzuspielen, der noch gerade so höher oder tiefer klingt. Bleiben Sie immer auf der sicheren Seite, wo Sie noch klar unterscheiden können.
-- In mehreren Runden werden die Tonhöhenunterschiede immer kleiner. Wenn Sie merken, daß Sie nicht weiter verfeinern können, neenden Sie den Test.
+- In mehreren Runden werden die Tonhöhenunterschiede immer kleiner. Wenn Sie merken, daß Sie nicht weiter verfeinern können, beenden Sie den Test.
 - Im Reiter *Meßergebnisse->Frequenzabgleich* können Sie die Meßergebnisse sehen.
 #### Player
 - Im *Player* kann mit *Frequenz-Warping* eine Simulation veränderter Tonhöhen aktiviert werden, die Qualität der Simulation ist aber etwas bescheiden, und die Berechnung dauert etwas Zeit. Es kann aber eine Idee davon geben, wie die Veränderung wirken könnte.
 #### Frequenzbänder
-Die gemessenen Frequenzen müssen noch in Frequenzbänder für die CI Einstellung umgerechnet werden. Eine entsprechende Funktion in CImbel ist noch in Arbeit.
+Die gemessenen Frequenzen müssen noch in Frequenzbänder für die CI Einstellung umgerechnet werden. Eine entsprechende Funktion in CImbel ist noch in Arbeit, die Vorabversion finden Sie im Reiter Frequenzbänder.
