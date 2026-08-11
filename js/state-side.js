@@ -14,6 +14,7 @@ let mfr,
   schieberELL,
   ELL_refEl,
   ELL_results,
+  ELL_distWeightMode,
   config;
 // Einzige Frequenzquelle aller Messungen/Wiedergaben: geometrische
 // Mitte des effektiven Bandes (Own[i] ?? Default[i]) der Elektrode i.
@@ -56,6 +57,7 @@ function bindActiveSide() {
   kurvenELL = s.kurvenELL;
   ELL_refEl = s.ELL_refEl;
   ELL_results = s.ELL_results;
+  ELL_distWeightMode = s.ELL_distWeightMode || "voll";
   elActive = s.elActive || (s.elActive = new Array(s.nEl).fill(true));
   config = s.config || "ci";
   fullSweepRound = s.fullSweepRound !== undefined ? s.fullSweepRound : null;
@@ -140,6 +142,7 @@ function initSideData(side, m) {
   s.schieberELL = new Array(s.nEl).fill(0);
   s.ELL_refEl = Math.floor(s.nEl / 2);
   s.ELL_results = [];
+  s.ELL_distWeightMode = "voll";
   // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
   s.elActive = new Array(s.nEl).fill(true);
   // BA479: Frequenzketten-Auswahl pro Elektrode (true = geht ab der Glaettung

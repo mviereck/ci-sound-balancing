@@ -68,6 +68,20 @@ function ELL_renderResults() {
     if (el) el.innerHTML = t(k);
   });
   if (hB) {
+    // Radiobuttons Paargewicht verdrahten
+    ["voll", "mittel", "gering"].forEach(function(v) {
+      var _id = "ELL_dw" + v.charAt(0).toUpperCase() + v.slice(1);
+      var rb = document.getElementById(_id);
+      if (!rb) return;
+      rb.checked = (ELL_distWeightMode === v);
+      rb.onchange = function() {
+        if (this.checked) {
+          sideData[activeSide].ELL_distWeightMode = v;
+          ELL_distWeightMode = v;
+          ELL_renderResults();
+        }
+      };
+    });
     const { raw: levels, residual: ELL_res, weight: ELL_wt } = ELL_testData({ ctx: ELL_ctx("global") });
     const pc = new Array(nEl).fill(0);
     const valid = ELL_results.filter(

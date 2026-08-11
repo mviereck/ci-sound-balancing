@@ -368,6 +368,12 @@ var SAVE_SCHEMA_SIDE = [
       sideData[s].ELL_refEl = valid ? v : pickDefaultRefEl(s);
     },
     default: function () { return 0; } },
+  { key: "ELL_distWeightMode", scope: "side",
+    get: function (s) { return sideData[s].ELL_distWeightMode || "voll"; },
+    set: function (v, s) {
+      sideData[s].ELL_distWeightMode = (v === "mittel" || v === "gering") ? v : "voll";
+    },
+    default: "voll", valid: { type: "string" } },
   { key: "ELL_results", scope: "side",
     get: function (s) { return sideData[s].ELL_results; },
     set: function (v, s) { sideData[s].ELL_results = Array.isArray(v) ? v : []; },
