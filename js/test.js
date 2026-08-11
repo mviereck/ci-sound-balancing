@@ -575,11 +575,21 @@ function ELL_compWLS(ctx) {
       ELL_res: new Array(n).fill(0),
       ELL_wt: new Array(n).fill(1),
     };
+  const _wFernMap = { voll: 1.0, mittel: 0.5, gering: 0.25 };
+  const _wFern = (typeof ELL_distWeightMode !== "undefined")
+                 ? (_wFernMap[ELL_distWeightMode] != null ? _wFernMap[ELL_distWeightMode] : 1.0) : 1.0;
+  const _frqImpl = (MFR[mfr] && MFR[mfr].FRQ_implantat) ? MFR[mfr].FRQ_implantat : [];
+  const _dMax = (_frqImpl.length > 1 && _frqImpl[_frqImpl.length - 1] > 0 && _frqImpl[0] > 0)
+                ? Math.log2(_frqImpl[_frqImpl.length - 1] / _frqImpl[0]) : 1;
   for (let it = 0; it < 80; it++) {
     const su = new Array(n).fill(0),
       wt = new Array(n).fill(0);
     for (const r of valid) {
-      const w = Math.min(ell_gWt(r.a, _elSt, _elExDur), ell_gWt(r.b, _elSt, _elExDur));
+      const _dOkt = (_frqImpl[r.b] > 0 && _frqImpl[r.a] > 0)
+                    ? Math.log2(_frqImpl[r.b] / _frqImpl[r.a]) : 0;
+      const _wDist = (_dMax > 0)
+                     ? _wFern + (1 - _wFern) * (1 - _dOkt / _dMax) : 1;
+      const w = Math.min(ell_gWt(r.a, _elSt, _elExDur), ell_gWt(r.b, _elSt, _elExDur)) * _wDist;
       su[r.b] += (lv[r.a] - r.offset) * w;
       wt[r.b] += w;
       su[r.a] += (lv[r.b] + r.offset) * w;

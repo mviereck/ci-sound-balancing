@@ -519,6 +519,22 @@
               <label for="ELL_refEl" data-t="lblRef" style="white-space:nowrap"></label>
               <select id="ELL_refEl" style="font-family:var(--mono);padding:4px 8px"></select>
             </div>
+            <div id="ELL_distWeightRow"
+                 style="display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:0.88em">
+              <span data-t="ELL_distWeightLabel" style="white-space:nowrap"></span>
+              <label style="display:flex;align-items:center;gap:4px">
+                <input type="radio" name="ELL_distWeight" value="voll" id="ELL_dwVoll">
+                <span data-t="ELL_dwVoll"></span>
+              </label>
+              <label style="display:flex;align-items:center;gap:4px">
+                <input type="radio" name="ELL_distWeight" value="mittel" id="ELL_dwMittel">
+                <span data-t="ELL_dwMittel"></span>
+              </label>
+              <label style="display:flex;align-items:center;gap:4px">
+                <input type="radio" name="ELL_distWeight" value="gering" id="ELL_dwGering">
+                <span data-t="ELL_dwGering"></span>
+              </label>
+            </div>
             <div class="chart-container">
               <canvas id="ELL_resChart" width="800" height="320"></canvas>
               <p

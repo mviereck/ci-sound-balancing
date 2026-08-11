@@ -46,9 +46,9 @@ Folgenden Satz können Sie dazu nutzen (Begriffe gelten für MED-EL/MAESTRO; bei
 >
 >Compression Ratio und sonstige Map-Parameter bitte unverändert lassen. Diese MAP brauche ich nur für eine Lautheits-Messung zu Hause."
 
-### Zusätzlich: Daten Ihrer MAP beim Audiologen erfragen
+### Außerdem wichtig: Daten Ihrer MAP beim Audiologen erfragen
 
-Im Reiter Implantat können Sie zahlreiche technische Werte zu Ihrem CI eintragen. Das Tool funktioniert auch ohne diese Werte; mit ihnen werden die Ergebnisse und Empfehlungen für den Audiologen aber präziser. Sie finden diese Werte nicht selbst, sondern müssen sie beim Audiologen erfragen.
+Im Reiter Implantat können Sie zahlreiche technische Werte zu Ihrem CI eintragen. Das Tool funktioniert annähernd auch ohne diese Werte; mit ihnen werden die Ergebnisse und Empfehlungen für den Audiologen aber präziser. Sie finden diese Werte nicht selbst, sondern müssen sie beim Audiologen erfragen.
 
 Folgender Satz hilft:
 
@@ -57,20 +57,19 @@ Folgender Satz hilft:
 Falls Rückfragen kommen, welche Werte konkret gemeint sind:
 
 >- Implantat-Modell und Audioprozessor-Modell
+>- (!) FAT (Frequency Allocation Table): Die Untergrenzen und Obergrenzen in Hertz (Hz) für jedes Frequenzband. (Mittenfrequenzen allein reichen nicht.)
+>- (!) Status jeder Elektrode (aktiv / deaktiviert)
+>- (!) MCL pro Elektrode
+>   - MED-EL: MCL in qu
+>   - Cochlear: C-Level in CL
+>   - Advanced Bionics: M-Level in CU
 >- Kodierungsstrategie und Stimulationsrate
->- MED-EL: Welche Elektroden durch FSP oder FS4 stimuliert werden.
->- FAT (Frequency Allocation Table): Mittenfrequenz pro Elektrode in Hz
-   UND die Untergrenzen / Obergrenzen in Hz für jedes Frequenzband.
->- THR (T-Level) pro Elektrode
->- MCL pro Elektrode
->- MED-EL: MCL in qu
->- Cochlear: C-Level in CL
->- Advanced Bionics: M-Level in CU
->- Status jeder Elektrode (aktiv / deaktiviert)
->- MED-EL zusätzlich: MAPLAW c-Wert
 >- Cochlear zusätzlich: IIDR (Instantaneous Input Dynamic Range, in dB)
 >- Advanced Bionics zusätzlich: IDR (Input Dynamic Range, in dB)
+>- MED-EL: Welche Elektroden durch FSP oder FS4 stimuliert werden.
+>- MED-EL zusätzlich: MAPLAW c-Wert
 
+Prüfen Sie vor Ort noch nach, ob Sie aus den Daten wirklich die Frequenzbänder je Elektrode ablesen können! Lassen Sie es sich vom Audiologen zeigen.
 
 ## Vorgehensweise:
 ### Lautstärke ausgleichen
