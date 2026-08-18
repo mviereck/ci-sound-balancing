@@ -10,26 +10,16 @@ function _untRenderFinanzTable() {
 
   var r = finBerechne();
 
-  // Zeilen für die aktuell laufenden Posten. Mehrere Einträge mit
-  // demselben key (z. B. zwei KI-Abos) werden zu einer Zeile
-  // zusammengefaßt; ausgesetzte/beendete Posten fallen weg.
-  var heute = finMonatHeute();
-  var summen = {};
-  var reihenfolge = [];
-  for (var i = 0; i < FINANZEN_POSTEN.length; i++) {
-    var p = FINANZEN_POSTEN[i];
-    if (finMonatCmp(p.start, heute) > 0) continue;
-    if (p.end !== null && finMonatCmp(heute, p.end) > 0) continue;
-    if (!(p.key in summen)) { summen[p.key] = 0; reihenfolge.push(p.key); }
-    summen[p.key] += p.monthly;
-  }
+  // Zeilen für die geplanten Fixkosten (Kat. 1) — konstant, ein
+  // Eintrag je Posten. Monatliche Schwankungen (reale Kosten) stehen
+  // nur im Graphen.
   var html = "";
-  for (var k = 0; k < reihenfolge.length; k++) {
-    var key = reihenfolge[k];
+  for (var i = 0; i < FINANZEN_FIXKOSTEN.length; i++) {
+    var p = FINANZEN_FIXKOSTEN[i];
     html +=
       '<tr>' +
-        '<td data-t="supportPosten_' + key + '"></td>' +
-        '<td class="num">' + finFmtEuro(summen[key]) + '</td>' +
+        '<td data-t="supportPosten_' + p.key + '"></td>' +
+        '<td class="num">' + finFmtEuro(p.monthly) + '</td>' +
       '</tr>';
   }
   tbody.innerHTML = html;

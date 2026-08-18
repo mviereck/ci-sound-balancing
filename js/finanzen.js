@@ -9,7 +9,20 @@
 // Beginn der Erfassung. Linke Kante des Graphen.
 var FINANZEN_BEGIN = "2026-05";
 
-// Monatliche Posten — ein Eintrag pro laufende Position.
+// (1) Geplante Fixkosten — der reguläre Monatsbedarf, konstant.
+// Speist die Kostentabelle im Unterstützung-Tab. Weicht bewußt von
+// den realen Monatskosten (FINANZEN_POSTEN) ab: hier steht der Plan,
+// dort das tatsächliche Auf und Ab.
+//   key:     Label-Schlüssel (i18n supportPosten_<key>)
+//   monthly: Euro/Monat (geplant)
+var FINANZEN_FIXKOSTEN = [
+  { key: "kiPro",   monthly: 44.00 },  // zwei KI-Abos à 22 €
+  { key: "hosting", monthly:  5.00 }
+];
+
+// (2) Reale Kosten — die tatsächlich anfallenden Monatskosten, ein
+// Eintrag pro laufende Position. Speist den Graphen (monatliche
+// Zeitreihe) und weicht in Einzelmonaten von den Fixkosten ab.
 //   key:     Label-Schlüssel (i18n supportPosten_<key>)
 //   monthly: Euro/Monat
 //   start:   "YYYY-MM"  (erster Monat, in dem der Posten anfällt)
@@ -108,15 +121,19 @@ function finEinmalSummeBis(monat) {
   return s;
 }
 
-// Aktuelle Bilanz für die Tabelle.
+// Bilanz für die Kostentabelle: geplante Fixkosten (Kat. 1) gegen
+// die aktuell laufenden Dauerspenden. Die Kostenseite ist konstant
+// (Plan), die Spendenseite wird berechnet (schwankt).
 function finBerechne() {
-  var heute      = finMonatHeute();
-  var sumCurrent = finPostenAktivIn(heute);
-  var donations  = finDauerAktivIn(heute);
+  var sumFix = 0;
+  for (var i = 0; i < FINANZEN_FIXKOSTEN.length; i++) {
+    sumFix += FINANZEN_FIXKOSTEN[i].monthly;
+  }
+  var donations = finDauerAktivIn(finMonatHeute());
   return {
-    sumCurrent: sumCurrent,
+    sumCurrent: sumFix,
     donations:  donations,
-    selfShare:  Math.max(0, sumCurrent - donations)
+    selfShare:  Math.max(0, sumFix - donations)
   };
 }
 
@@ -169,6 +186,17 @@ function finValidate() {
 
   if (typeof FINANZEN_BEGIN !== "string" || !monatRe.test(FINANZEN_BEGIN)) {
     errors.push("FINANZEN_BEGIN: Format \"YYYY-MM\" erwartet.");
+  }
+  if (!Array.isArray(FINANZEN_FIXKOSTEN)) {
+    errors.push("FINANZEN_FIXKOSTEN: Array erwartet.");
+  } else {
+    for (var f = 0; f < FINANZEN_FIXKOSTEN.length; f++) {
+      var fk = FINANZEN_FIXKOSTEN[f];
+      if (!fk || typeof fk.key !== "string"
+          || typeof fk.monthly !== "number" || fk.monthly <= 0) {
+        errors.push("FINANZEN_FIXKOSTEN[" + f + "]: key/monthly fehlt oder Typ falsch.");
+      }
+    }
   }
   if (!Array.isArray(FINANZEN_POSTEN)) {
     errors.push("FINANZEN_POSTEN: Array erwartet.");
