@@ -1164,7 +1164,7 @@ Object.assign(L.fr, {
 
     supportTableHeadPosten: "Poste",
     supportTableHeadCurrent: "État actuel",
-    supportPosten_kiPro: "IA Claude (assistance au développement)",
+    supportPosten_kiPro: "IA Claude (assistance au développement), 2 abonnements de 22,- chacun",
     supportPosten_hosting: "Pack d'hébergement",
     supportSumLabel: "Besoin mensuel total",
     supportDonationsLabel: "Couvert mensuellement par des dons",
@@ -1194,7 +1194,7 @@ Object.assign(L.fr, {
     supportGraphLegendPuffer: "couvert par dons ponctuels",
     supportGraphLegendLuecke: "Manque",
     supportGraphCostCurrent: "coûts actuels",
-    supportGraphHinweis: "Le calcul suppose des coûts inchangés et des dons récurrents constants à l'avenir.",
+    supportGraphHinweis: "Le calcul suppose des coûts inchangés et des dons récurrents constants à l'avenir. Les mois où le travail est réduit, un seul des 2 abonnements IA est utilisé et payé.",
     supportGraphToday: "aujourd'hui",
 
     supportSlogan: "Veuillez utiliser cet outil pour rendre le monde meilleur pour toutes les personnes.",

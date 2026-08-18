@@ -1246,7 +1246,7 @@ Object.assign(L.de, {
 
     supportTableHeadPosten: "Posten",
     supportTableHeadCurrent: "Aktueller Stand",
-    supportPosten_kiPro: "KI Claude (Entwicklungs-Assistenz)",
+    supportPosten_kiPro: "KI Claude (Entwicklungs-Assistenz), 2 Abos zu je 22,-",
     supportPosten_hosting: "Hostingpaket",
     supportSumLabel: "Monatlicher Bedarf gesamt",
     supportDonationsLabel: "Monatlich durch Spenden gedeckt",
@@ -1276,7 +1276,7 @@ Object.assign(L.de, {
     supportGraphLegendPuffer: "aus Einmalspenden gedeckt",
     supportGraphLegendLuecke: "Lücke",
     supportGraphCostCurrent: "aktuelle Kosten",
-    supportGraphHinweis: "Berechnung unterstellt unveränderte Kosten und gleichbleibende Dauerspenden in der Zukunft.",
+    supportGraphHinweis: "Berechnung unterstellt unveränderte Kosten und gleichbleibende Dauerspenden in der Zukunft. In Monaten mit verringertem Arbeitseinsatz wird nur 1 von 2 KI-Abos genutzt und bezahlt.",
     supportGraphToday: "heute",
 
     supportSlogan: "Bitte nutzen Sie dieses Tool, um die Welt zu einem besseren Ort für alle Menschen zu machen.",

@@ -1164,7 +1164,7 @@ Object.assign(L.en, {
 
     supportTableHeadPosten: "Item",
     supportTableHeadCurrent: "Current status",
-    supportPosten_kiPro: "AI Claude (development assistance)",
+    supportPosten_kiPro: "AI Claude (development assistance), 2 subscriptions of 22,- each",
     supportPosten_hosting: "Hosting package",
     supportSumLabel: "Total monthly requirement",
     supportDonationsLabel: "Monthly covered by donations",
@@ -1194,7 +1194,7 @@ Object.assign(L.en, {
     supportGraphLegendPuffer: "covered by one-time donations",
     supportGraphLegendLuecke: "Gap",
     supportGraphCostCurrent: "current costs",
-    supportGraphHinweis: "The calculation assumes unchanged costs and constant recurring donations in the future.",
+    supportGraphHinweis: "The calculation assumes unchanged costs and constant recurring donations in the future. In months with reduced work, only 1 of 2 AI subscriptions is used and paid for.",
     supportGraphToday: "today",
 
     supportSlogan: "Please use this tool to make the world a better place for all people.",

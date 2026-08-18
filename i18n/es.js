@@ -1164,7 +1164,7 @@ Object.assign(L.es, {
 
     supportTableHeadPosten: "Partida",
     supportTableHeadCurrent: "Estado actual",
-    supportPosten_kiPro: "IA Claude (asistencia al desarrollo)",
+    supportPosten_kiPro: "IA Claude (asistencia al desarrollo), 2 suscripciones de 22,- cada una",
     supportPosten_hosting: "Paquete de hosting",
     supportSumLabel: "Necesidad mensual total",
     supportDonationsLabel: "Cubierto mensualmente por donaciones",
@@ -1194,7 +1194,7 @@ Object.assign(L.es, {
     supportGraphLegendPuffer: "cubierto por donaciones puntuales",
     supportGraphLegendLuecke: "Déficit",
     supportGraphCostCurrent: "costes actuales",
-    supportGraphHinweis: "El cálculo asume costes invariables y donaciones recurrentes constantes en el futuro.",
+    supportGraphHinweis: "El cálculo asume costes invariables y donaciones recurrentes constantes en el futuro. En los meses con menor carga de trabajo solo se usa y se paga 1 de las 2 suscripciones de IA.",
     supportGraphToday: "hoy",
 
     supportSlogan: "Por favor, use esta herramienta para hacer del mundo un lugar mejor para todas las personas.",
