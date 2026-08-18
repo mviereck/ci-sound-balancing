@@ -47,15 +47,19 @@ function _ugRenderGraph() {
   var plotW = cssW - padL - padR;
   var plotH = cssH - padT - padB;
 
-  // Y-Skala: max ≈ höchste Monatskosten × 1.1, geordnet auf
-  // 10er/50er Schritte. Kosten variieren über die Monate (aus- und
-  // einsetzende Posten), daher das Maximum über die ganze Reihe.
-  var kostenMax = 0;
+  // Y-Skala: max ≈ höchster Monatswert × 1.1, geordnet auf
+  // 10er/50er Schritte. Sowohl Kosten als auch Balkenhöhe (Spenden +
+  // Puffer + Lücke) variieren über die Monate; die Skala muß den
+  // höheren von beiden fassen, damit ein Spenden-Überschuß nicht über
+  // den oberen Rand hinausragt.
+  var wertMax = 0;
   for (var ki = 0; ki < reihe.length; ki++) {
-    if (reihe[ki].kostenCurrent > kostenMax) kostenMax = reihe[ki].kostenCurrent;
+    var rk = reihe[ki];
+    var balken = rk.dauer + rk.pufferEingesetzt + rk.luecke;
+    if (rk.kostenCurrent > wertMax) wertMax = rk.kostenCurrent;
+    if (balken           > wertMax) wertMax = balken;
   }
-  var kostenCurrent = reihe[reihe.length - 1].kostenCurrent;
-  var maxY = Math.max(kostenMax * 1.1, 1);
+  var maxY = Math.max(wertMax * 1.1, 1);
   var step = 20;
   while (maxY / step > 8) step += step < 50 ? 10 : 50;
   var maxYRounded = Math.ceil(maxY / step) * step;
@@ -83,49 +87,41 @@ function _ugRenderGraph() {
     ctx.fillText(v + " €", padL - 6, y);
   }
 
-  // Stacked Bars
+  // Stacked Bars. Das Dauerspenden-Segment wird an der Kostenhöhe
+  // geteilt: bis zu den Kosten kräftiges Grün (deckt Kosten), der
+  // Teil darüber Teal (Überschuß = Dauerspende über Bedarf). So ist
+  // die tatsächliche Kostenhöhe auch dann sichtbar, wenn die Spenden
+  // darüber liegen. Puffer (aus Einmalspenden) und Lücke treten nur
+  // auf, wenn Kosten > Dauerspenden — schließen den Überschuß also
+  // gegenseitig aus.
   for (var i = 0; i < n; i++) {
     var r = reihe[i];
     var x = xMonat(i);
     var yBase      = yEuro(0);
-    var yDauerTop  = yEuro(r.dauer);
-    var yPufferTop = yEuro(r.dauer + r.pufferEingesetzt);
-    var yLueckeTop = yEuro(r.dauer + r.pufferEingesetzt + r.luecke);
+    var dauerGedeckt = Math.min(r.dauer, r.kostenCurrent);
+    var dauerUeber   = Math.max(0, r.dauer - r.kostenCurrent);
+    var yGedecktTop  = yEuro(dauerGedeckt);
+    var yUeberTop    = yEuro(dauerGedeckt + dauerUeber);
+    var yPufferTop   = yEuro(r.dauer + r.pufferEingesetzt);
+    var yLueckeTop   = yEuro(r.dauer + r.pufferEingesetzt + r.luecke);
 
-    if (r.dauer > 0) {
+    if (dauerGedeckt > 0) {
       ctx.fillStyle = "#4a9d4a";
-      ctx.fillRect(x, yDauerTop, barW, yBase - yDauerTop);
+      ctx.fillRect(x, yGedecktTop, barW, yBase - yGedecktTop);
+    }
+    if (dauerUeber > 0) {
+      ctx.fillStyle = "#2f9c8f";
+      ctx.fillRect(x, yUeberTop, barW, yGedecktTop - yUeberTop);
     }
     if (r.pufferEingesetzt > 0) {
       ctx.fillStyle = "#a8d5a8";
-      ctx.fillRect(x, yPufferTop, barW, yDauerTop - yPufferTop);
+      ctx.fillRect(x, yPufferTop, barW, yUeberTop - yPufferTop);
     }
     if (r.luecke > 0) {
       ctx.fillStyle = "#d94a4a";
       ctx.fillRect(x, yLueckeTop, barW, yPufferTop - yLueckeTop);
     }
   }
-
-  // Linie "aktuelle Kosten" — horizontale Bezugslinie, gestrichelt
-  ctx.strokeStyle = "#777";
-  ctx.lineWidth   = 1.2;
-  ctx.setLineDash([5, 4]);
-  ctx.beginPath();
-  ctx.moveTo(padL,         yEuro(kostenCurrent));
-  ctx.lineTo(padL + plotW, yEuro(kostenCurrent));
-  ctx.stroke();
-  ctx.setLineDash([]);
-  // Markierungsstrich + Label links außerhalb des Plots
-  ctx.beginPath();
-  ctx.moveTo(padL - 28, yEuro(kostenCurrent));
-  ctx.lineTo(padL,      yEuro(kostenCurrent));
-  ctx.stroke();
-  ctx.fillStyle    = "#555";
-  ctx.font         = "10.5px Segoe UI, sans-serif";
-  ctx.textAlign    = "right";
-  ctx.textBaseline = "middle";
-  ctx.fillText(_ugT("supportGraphCostCurrent", "aktuelle Kosten"),
-               padL - 32, yEuro(kostenCurrent));
 
   // "Heute"-Marker
   var heuteIdx = -1;

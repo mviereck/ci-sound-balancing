@@ -1272,6 +1272,7 @@ Object.assign(L.de, {
 
     supportGraphTitle: "Spenden-Verlauf",
     supportGraphLegendDauer: "Dauerspenden",
+    supportGraphLegendUeberschuss: "Überschuss",
     supportGraphLegendPuffer: "aus Einmalspenden gedeckt",
     supportGraphLegendLuecke: "Lücke",
     supportGraphCostCurrent: "aktuelle Kosten",

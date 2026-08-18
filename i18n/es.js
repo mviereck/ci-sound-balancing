@@ -1190,6 +1190,7 @@ Object.assign(L.es, {
 
     supportGraphTitle: "Evolución de las donaciones",
     supportGraphLegendDauer: "Donaciones recurrentes",
+    supportGraphLegendUeberschuss: "Excedente",
     supportGraphLegendPuffer: "cubierto por donaciones puntuales",
     supportGraphLegendLuecke: "Déficit",
     supportGraphCostCurrent: "costes actuales",

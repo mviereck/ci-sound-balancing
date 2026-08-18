@@ -1190,6 +1190,7 @@ Object.assign(L.en, {
 
     supportGraphTitle: "Donation timeline",
     supportGraphLegendDauer: "Recurring donations",
+    supportGraphLegendUeberschuss: "Surplus",
     supportGraphLegendPuffer: "covered by one-time donations",
     supportGraphLegendLuecke: "Gap",
     supportGraphCostCurrent: "current costs",
