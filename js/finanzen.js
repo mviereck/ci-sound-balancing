@@ -30,11 +30,11 @@ var FINANZEN_FIXKOSTEN = [
 // Ein aussetzendes/befristetes Abo wird als zwei Einträge über
 // getrennte Zeiträume abgebildet (Lücke = ausgesetzte Monate).
 var FINANZEN_POSTEN = [
-  // Zwei KI-Abos à 22 €. Das zweite war im Juli 2026 ausgesetzt,
-  // daher als zwei Zeiträume (Mai–Juni, ab August).
+  // Zwei KI-Abos à 22 €. Das zweite war Juli–August 2026 ausgesetzt,
+  // daher als zwei Zeiträume (Mai–Juni, ab September).
   { key: "kiPro",   monthly: 22.00, start: "2026-05", end: null      },
   { key: "kiPro",   monthly: 22.00, start: "2026-05", end: "2026-06" },
-  { key: "kiPro",   monthly: 22.00, start: "2026-08", end: null      },
+  { key: "kiPro",   monthly: 22.00, start: "2026-09", end: null      },
   { key: "hosting", monthly:  5.00, start: "2026-05", end: null      }
 ];
 
