@@ -1181,6 +1181,7 @@ Object.assign(L.en, {
     supportFuturePlan2: "Support from me when problems arise.",
     supportPlannedTitle: "Planned developments, examples:",
     supportPlannedItem1: "Optimization of the test procedures",
+    supportPlannedItem1b: "Calculation of frequency band recommendations based on the frequency matching test.",
     supportPlannedItem2: "Better audio simulation of frequency fitting",
     supportPlannedItem3: "Expansion of the audio collection: sentences, music, audiobooks",
     supportPlannedItem4: "Possibly an area for hearing training",

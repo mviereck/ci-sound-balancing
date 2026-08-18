@@ -1181,6 +1181,7 @@ Object.assign(L.fr, {
     supportFuturePlan2: "Support de ma part en cas de problèmes.",
     supportPlannedTitle: "Développements prévus, exemples :",
     supportPlannedItem1: "Optimisation des procédures de test",
+    supportPlannedItem1b: "Calcul de recommandations de bandes de fréquences à partir du test d'accord fréquentiel.",
     supportPlannedItem2: "Meilleure simulation audio de l'ajustement fréquentiel",
     supportPlannedItem3: "Extension de la collection audio : phrases, musique, livres audio",
     supportPlannedItem4: "Éventuellement un espace pour l'entraînement auditif",

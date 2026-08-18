@@ -1263,6 +1263,7 @@ Object.assign(L.de, {
     supportFuturePlan2: "Support durch mich bei Problemen.",
     supportPlannedTitle: "Geplante Weiterentwicklung, Beispiele:",
     supportPlannedItem1: "Optimierung der Testverfahren",
+    supportPlannedItem1b: "Berechnung von Frequenzbandempfehlungen auf Basis des Frequenzabgleichtests.",
     supportPlannedItem2: "Bessere Audio-Simulation von Frequenzanpassung",
     supportPlannedItem3: "Ausbau der Audiosammlung, Sätze, Musik, Hörbücher",
     supportPlannedItem4: "Eventuell ein Bereich für Hörtraining",

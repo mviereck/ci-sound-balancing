@@ -1181,6 +1181,7 @@ Object.assign(L.es, {
     supportFuturePlan2: "Soporte por mi parte ante problemas.",
     supportPlannedTitle: "Desarrollos previstos, ejemplos:",
     supportPlannedItem1: "Optimización de los procedimientos de prueba",
+    supportPlannedItem1b: "Cálculo de recomendaciones de bandas de frecuencia a partir de la prueba de ajuste de frecuencia.",
     supportPlannedItem2: "Mejor simulación de audio de la adaptación frecuencial",
     supportPlannedItem3: "Ampliación de la colección de audio: frases, música, audiolibros",
     supportPlannedItem4: "Posiblemente un área para entrenamiento auditivo",
