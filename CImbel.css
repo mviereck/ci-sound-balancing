@@ -1185,28 +1185,6 @@ select:disabled {
   font-weight: 600;
 }
 
-.support-gap-hints {
-  margin: 12px 0 18px;
-  padding: 10px 14px;
-  background: var(--surface-alt, rgba(0,0,0,0.04));
-  border-left: 4px solid var(--accent, #d97700);
-  border-radius: 0 4px 4px 0;
-}
-.support-gap-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  font-size: 0.95em;
-}
-.support-gap-emph {
-  margin-top: 4px;
-  font-size: 1.05em;
-  font-weight: 700;
-}
-.support-gap-row strong {
-  font-variant-numeric: tabular-nums;
-}
-
 .support-onetime-block {
   margin: 12px 0 16px;
   padding: 8px 14px;
@@ -1264,7 +1242,6 @@ select:disabled {
 .support-graph-legend .lg-dauer  { background: #4a9d4a; }
 .support-graph-legend .lg-puffer { background: #a8d5a8; }
 .support-graph-legend .lg-luecke { background: #d94a4a; }
-.support-graph-legend .lg-erweiterung { background: rgba(217, 74, 74, 0.35); }
 .support-graph-hinweis {
   font-size: 0.85em;
   opacity: 0.7;

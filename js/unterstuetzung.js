@@ -10,57 +10,48 @@ function _untRenderFinanzTable() {
 
   var r = finBerechne();
 
-  // Zeilen für die vier Einzelposten.
-  var html = "";
+  // Zeilen für die aktuell laufenden Posten. Mehrere Einträge mit
+  // demselben key (z. B. zwei KI-Abos) werden zu einer Zeile
+  // zusammengefaßt; ausgesetzte/beendete Posten fallen weg.
+  var heute = finMonatHeute();
+  var summen = {};
+  var reihenfolge = [];
   for (var i = 0; i < FINANZEN_POSTEN.length; i++) {
     var p = FINANZEN_POSTEN[i];
-    var labelKey = "supportPosten_" + p.key;
-    var fullCell    = p.full    > 0 ? finFmtEuro(p.full)    : "–";
-    var currentCell = p.current > 0 ? finFmtEuro(p.current) : "–";
+    if (finMonatCmp(p.start, heute) > 0) continue;
+    if (p.end !== null && finMonatCmp(heute, p.end) > 0) continue;
+    if (!(p.key in summen)) { summen[p.key] = 0; reihenfolge.push(p.key); }
+    summen[p.key] += p.monthly;
+  }
+  var html = "";
+  for (var k = 0; k < reihenfolge.length; k++) {
+    var key = reihenfolge[k];
     html +=
       '<tr>' +
-        '<td data-t="' + labelKey + '"></td>' +
-        '<td class="num">' + fullCell    + '</td>' +
-        '<td class="num">' + currentCell + '</td>' +
+        '<td data-t="supportPosten_' + key + '"></td>' +
+        '<td class="num">' + finFmtEuro(summen[key]) + '</td>' +
       '</tr>';
   }
   tbody.innerHTML = html;
 
-  // Footer-Zeilen: Summen, Spenden, Eigenanteil.
+  // Footer-Zeilen: Summe, Spenden, Eigenanteil.
   foot.innerHTML =
     '<tr class="sum">' +
       '<td data-t="supportSumLabel"></td>' +
-      '<td class="num">' + finFmtEuro(r.sumFull)    + '</td>' +
       '<td class="num">' + finFmtEuro(r.sumCurrent) + '</td>' +
     '</tr>' +
     '<tr>' +
       '<td data-t="supportDonationsLabel"></td>' +
-      '<td class="num">–</td>' +
       '<td class="num">' + finFmtEuro(r.donations) + '</td>' +
     '</tr>' +
     '<tr>' +
       '<td data-t="supportSelfLabel"></td>' +
-      '<td class="num">–</td>' +
       '<td class="num support-self-amount">' + finFmtEuro(r.selfShare) + '</td>' +
     '</tr>';
 
   // i18n nachziehen, damit die data-t-Labels gefüllt werden.
   if (typeof applyLang === "function") applyLang();
 
-  // Hervorgehobene Differenz-Zeilen unterhalb der Tabelle.
-  var gap = document.getElementById("untGapHints");
-  if (gap) {
-    gap.innerHTML =
-      '<div class="support-gap-row">' +
-        '<span data-t="supportGapCurrent"></span> ' +
-        '<strong>' + finFmtEuro(r.fullVsCurrent) + '</strong>' +
-      '</div>' +
-      '<div class="support-gap-row support-gap-emph">' +
-        '<span data-t="supportGapToFull"></span> ' +
-        '<strong class="support-self-amount">' + finFmtEuro(r.gapToFull) + '</strong>' +
-      '</div>';
-    if (typeof applyLang === "function") applyLang();
-  }
   _untRenderEinmalBlock();
 }
 

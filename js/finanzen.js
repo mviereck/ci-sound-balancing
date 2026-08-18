@@ -9,14 +9,20 @@
 // Beginn der Erfassung. Linke Kante des Graphen.
 var FINANZEN_BEGIN = "2026-05";
 
-// Monatliche Posten. full = Vollausbau-Bedarf, current = aktueller
-// Stand. Wert 0 bei current heißt „derzeit nicht im Setup enthalten".
+// Monatliche Posten — ein Eintrag pro laufende Position.
+//   key:     Label-Schlüssel (i18n supportPosten_<key>)
+//   monthly: Euro/Monat
+//   start:   "YYYY-MM"  (erster Monat, in dem der Posten anfällt)
+//   end:     "YYYY-MM" oder null (unbefristet)
+// Ein aussetzendes/befristetes Abo wird als zwei Einträge über
+// getrennte Zeiträume abgebildet (Lücke = ausgesetzte Monate).
 var FINANZEN_POSTEN = [
-  { key: "kiPro",   full:  44.00, current: 44.00 },
-  { key: "hosting", full:   0,    current:  5.00 },
-  { key: "vps",     full:   5.34, current:  0    },
-  { key: "space",   full:   3.81, current:  0    },
-  { key: "domain",  full:   1.78, current:  0    }
+  // Zwei KI-Abos à 22 €. Das zweite war im Juli 2026 ausgesetzt,
+  // daher als zwei Zeiträume (Mai–Juni, ab August).
+  { key: "kiPro",   monthly: 22.00, start: "2026-05", end: null      },
+  { key: "kiPro",   monthly: 22.00, start: "2026-05", end: "2026-06" },
+  { key: "kiPro",   monthly: 22.00, start: "2026-08", end: null      },
+  { key: "hosting", monthly:  5.00, start: "2026-05", end: null      }
 ];
 
 // Dauerspenden — ein Eintrag pro Spender.
@@ -26,7 +32,7 @@ var FINANZEN_POSTEN = [
 var FINANZEN_DAUER = [
   { monthly: 10.00, start: "2026-05", end: null      },
   { monthly: 10.00, start: "2026-05", end: null      },
-  { monthly:  5.00, start: "2026-05", end: null      },
+  { monthly:  5.00, start: "2026-06", end: null      },
   { monthly: 10.00, start: "2026-05", end: "2027-04" }
 ];
 
@@ -67,16 +73,28 @@ function finMonatCmp(a, b) {
   return a < b ? -1 : (a > b ? 1 : 0);
 }
 
-// Summe der heute (oder zum gegebenen Monat) aktiven Dauerspenden.
-function finDauerAktivIn(monat) {
+// Summe der im gegebenen Monat aktiven monthly-Einträge einer
+// Liste mit start/end-Feldern (Dauerspenden wie Kostenposten teilen
+// dasselbe Zeitraum-Schema).
+function finMonthlyAktivIn(liste, monat) {
   var s = 0;
-  for (var i = 0; i < FINANZEN_DAUER.length; i++) {
-    var d = FINANZEN_DAUER[i];
-    if (finMonatCmp(d.start, monat) > 0) continue;
-    if (d.end !== null && finMonatCmp(monat, d.end) > 0) continue;
-    s += d.monthly;
+  for (var i = 0; i < liste.length; i++) {
+    var e = liste[i];
+    if (finMonatCmp(e.start, monat) > 0) continue;
+    if (e.end !== null && finMonatCmp(monat, e.end) > 0) continue;
+    s += e.monthly;
   }
   return s;
+}
+
+// Summe der heute (oder zum gegebenen Monat) aktiven Dauerspenden.
+function finDauerAktivIn(monat) {
+  return finMonthlyAktivIn(FINANZEN_DAUER, monat);
+}
+
+// Summe der im gegebenen Monat aktiven Kostenposten.
+function finPostenAktivIn(monat) {
+  return finMonthlyAktivIn(FINANZEN_POSTEN, monat);
 }
 
 // Summe aller Einmalspenden bis einschließlich Monat M.
@@ -90,21 +108,15 @@ function finEinmalSummeBis(monat) {
   return s;
 }
 
-// Aktuelle Bilanz für die Tabelle. API wie bisher.
+// Aktuelle Bilanz für die Tabelle.
 function finBerechne() {
-  var sumFull = 0, sumCurrent = 0;
-  for (var i = 0; i < FINANZEN_POSTEN.length; i++) {
-    sumFull    += FINANZEN_POSTEN[i].full;
-    sumCurrent += FINANZEN_POSTEN[i].current;
-  }
-  var donations = finDauerAktivIn(finMonatHeute());
+  var heute      = finMonatHeute();
+  var sumCurrent = finPostenAktivIn(heute);
+  var donations  = finDauerAktivIn(heute);
   return {
-    sumFull:       sumFull,
-    sumCurrent:    sumCurrent,
-    donations:     donations,
-    selfShare:     Math.max(0, sumCurrent - donations),
-    gapToFull:     Math.max(0, sumFull    - donations),
-    fullVsCurrent: Math.max(0, sumFull    - sumCurrent)
+    sumCurrent: sumCurrent,
+    donations:  donations,
+    selfShare:  Math.max(0, sumCurrent - donations)
   };
 }
 
@@ -112,15 +124,9 @@ function finBerechne() {
 // Einmalspenden werden FIFO (nach Datum sortiert) in den Puffer
 // gelegt; bei einer Restlücke im Monat wird daraus gedeckt.
 // Liefert Array:
-//   [{ monat, kostenCurrent, kostenFull, dauer,
+//   [{ monat, kostenCurrent, dauer,
 //      pufferEingesetzt, luecke, pufferStand }, ...]
 function finBerechneZeitreihe(monatVon, monatBis) {
-  var kostenCurrent = 0, kostenFull = 0;
-  for (var i = 0; i < FINANZEN_POSTEN.length; i++) {
-    kostenCurrent += FINANZEN_POSTEN[i].current;
-    kostenFull    += FINANZEN_POSTEN[i].full;
-  }
-
   // FIFO-Queue der Einmalspenden, nach Datum sortiert.
   var queue = FINANZEN_EINMAL.slice().sort(function (a, b) {
     return finMonatCmp(a.date, b.date);
@@ -137,6 +143,7 @@ function finBerechneZeitreihe(monatVon, monatBis) {
       puffer += queue[qi].amount;
       qi++;
     }
+    var kostenCurrent = finPostenAktivIn(m);
     var dauer = finDauerAktivIn(m);
     var rohluecke = Math.max(0, kostenCurrent - dauer);
     var pufferUse = Math.min(rohluecke, puffer);
@@ -144,7 +151,6 @@ function finBerechneZeitreihe(monatVon, monatBis) {
     out.push({
       monat:            m,
       kostenCurrent:    kostenCurrent,
-      kostenFull:       kostenFull,
       dauer:            dauer,
       pufferEingesetzt: pufferUse,
       luecke:           rohluecke - pufferUse,
@@ -170,8 +176,19 @@ function finValidate() {
     for (var i = 0; i < FINANZEN_POSTEN.length; i++) {
       var p = FINANZEN_POSTEN[i];
       if (!p || typeof p.key !== "string"
-          || typeof p.full !== "number" || typeof p.current !== "number") {
-        errors.push("FINANZEN_POSTEN[" + i + "]: key/full/current fehlt oder Typ falsch.");
+          || typeof p.monthly !== "number" || p.monthly <= 0) {
+        errors.push("FINANZEN_POSTEN[" + i + "]: key/monthly fehlt oder Typ falsch.");
+        continue;
+      }
+      if (typeof p.start !== "string" || !monatRe.test(p.start)) {
+        errors.push("FINANZEN_POSTEN[" + i + "]: start \"YYYY-MM\" erwartet.");
+      }
+      if (p.end !== null && (typeof p.end !== "string" || !monatRe.test(p.end))) {
+        errors.push("FINANZEN_POSTEN[" + i + "]: end null oder \"YYYY-MM\" erwartet.");
+      }
+      if (p.end !== null && typeof p.end === "string"
+          && finMonatCmp(p.end, p.start) < 0) {
+        errors.push("FINANZEN_POSTEN[" + i + "]: end vor start.");
       }
     }
   }
