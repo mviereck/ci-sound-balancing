@@ -2061,7 +2061,83 @@ function _frqGlaetteMeasured(measured, verfahren) {
 //   warp    :  nhSim aus -> Vorhalt/Korrektur; nhSim an -> Verzerrung.
 //   gehoert :  nhSim aus -> gehoerte/Korrektur-Richtung; nhSim an -> gespiegelt.
 //   roh     :  cent unveraendert, plus Referenzseite (nhSim ohne Wirkung).
+// ============================================================
+// FRQ_werte — Cache (Architektur 00-freqmatch-wertquelle §4.7)
+// ============================================================
+//
+// FRQ_werte ist die meistgerufene Frequenz-Ableitungsstelle des Tools;
+// ein einziger Benutzer-Schritt (Schieber/Kurve) loest sie mehrfach mit
+// IDENTISCHEN Eingaben aus. Der Cache gibt bei unveraenderter Eingabelage
+// das zuletzt berechnete Ergebnis zurueck, statt neu zu rechnen.
+//
+// EIN Mechanismus, keine zweite Alterung (keine Zeit-/Tick-Grenze): Die
+// GESAMTE Korrektheit traegt der Schluessel. Ist er gleich, SIND die
+// Eingaben gleich -> altes Ergebnis ist per Definition richtig.
+//
+// +++ ZUVERLAESSIGKEITS-INVARIANTE (bindend, §4.7) +++
+// Der Schluessel MUSS JEDE Eingabe erfassen, aus der _FRQ_werteBerechne
+// (samt aller von ihr gerufenen inneren Funktionen: _frqGlaetteMeasured,
+// FRQ_baender, ell_gWt, _resBodenCt, FRQ_seitenWerte, _frq_pianoResiduumBand
+// ...) liest. Erfasst sind die drei Container + Modus-Schalter + Argumente:
+//   - sideData         (beide Seiten: alle band*-Achsen, elActive,
+//                       elFreqChain, elSt, elExDur, implant, kurvenELL,
+//                       nominelle Frequenzen, manufacturer)
+//   - FRQ_resultsArray  (die Frequenzabgleich-Messergebnisse)
+//   - FRQ_pianoSession  (Klaviertest-Verlauf -> Residuum-Baender +
+//                        Glaettungs-Gewichte; EIGENE globale Struktur,
+//                        NICHT Teil von sideData!)
+//   - FRQ_distribution, activeSide (globale Modus-/Seiten-Schalter)
+//   - die Aufruf-Argumente (form, modus, nhSim, verfahren, topologie,
+//                           optimieren, ziel, mitAusgleich)
+//
+// WER _FRQ_werteBerechne (oder eine ihrer inneren Funktionen) um eine NEUE
+// Datenquelle erweitert, die AUSSERHALB dieser Container/Schalter liegt,
+// MUSS sie hier in den Schluessel aufnehmen. Sonst liefert der Cache STILL
+// veraltete Werte (falsche Frequenzen, ohne Fehlermeldung). FRQ_pianoSession
+// ist der Beleg, dass diese Gefahr real ist: bei einem naiven "sideData-Hash"
+// waere es uebersehen worden.
+//
+// Die Serialisierung ist bewusst GROB (JSON.stringify ueber die Container),
+// nicht feld-selektiv: mehr Rechenzeit, aber wartungssicher -- eine neue
+// band*-Achse landet automatisch im Schluessel, weil sie Teil des Containers
+// ist. Niemand muss daran denken, sie "auch aufzunehmen".
+var _FRQ_werteCacheKey = null;
+var _FRQ_werteCacheVal = null;
+
+function _FRQ_werteCacheSchluessel(args) {
+  // typeof-Guards: einige Container koennen zur fruehen Ladezeit fehlen.
+  var sd   = (typeof sideData !== "undefined") ? sideData : null;
+  var res  = (typeof FRQ_resultsArray !== "undefined") ? FRQ_resultsArray : null;
+  var ps   = (typeof FRQ_pianoSession !== "undefined") ? FRQ_pianoSession : null;
+  var dist = (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : null;
+  var side = (typeof activeSide !== "undefined") ? activeSide : null;
+  try {
+    return JSON.stringify({
+      sd: sd, res: res, ps: ps, dist: dist, side: side,
+      args: args
+    });
+  } catch (e) {
+    // Serialisierung fehlgeschlagen (unerwartete zirkulaere Referenz o.ae.):
+    // NIE einen falschen Cache-Treffer riskieren -> eindeutiger Wegwerf-
+    // Schluessel erzwingt Neuberechnung.
+    return "__nocache__" + Math.random();
+  }
+}
+
 function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, mitAusgleich) {
+  var key = _FRQ_werteCacheSchluessel(
+    [form, modus, nhSim, verfahren, topologie, optimieren, ziel, mitAusgleich]);
+  if (key === _FRQ_werteCacheKey && _FRQ_werteCacheVal !== null) {
+    return _FRQ_werteCacheVal;
+  }
+  var val = _FRQ_werteBerechne(
+    form, modus, nhSim, verfahren, topologie, optimieren, ziel, mitAusgleich);
+  _FRQ_werteCacheKey = key;
+  _FRQ_werteCacheVal = val;
+  return val;
+}
+
+function _FRQ_werteBerechne(form, modus, nhSim, verfahren, topologie, optimieren, ziel, mitAusgleich) {
   // nhSim: bool -- die Player-Einstellung "Normalhoerenden-Simulation".
   // Die gesamte Vorzeichen-/Spiegelungslogik lebt HIER, nicht im Konsumenten
   // (Nutzer-Vorgabe BA421: kein Konsument denkt ueber Vorzeichen nach).

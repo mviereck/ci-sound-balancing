@@ -94,3 +94,43 @@
     }
   });
 })();
+
+/* BA552 — FRQ_werte-Cache: Treffer bei gleichen Eingaben, Miss nach
+ * Aenderung. Prueft die Zuverlaessigkeits-Invariante an einer im Schluessel
+ * erfassten Quelle (activeSide). */
+(function () {
+  if (typeof dbg === "undefined" || !dbg.test) return;
+  dbg.test("build/BA552/frqwerte-cache", { label: "FRQ_werte-Cache" }, function () {
+    if (typeof FRQ_werte !== "function") return { ok: false, msg: "FRQ_werte fehlt" };
+    var dist = (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "right";
+
+    // 1) Zwei Aufrufe mit identischen Eingaben -> identische Array-Referenz
+    //    (Cache-Treffer gibt dieselbe Referenz zurueck).
+    var a = FRQ_werte("gehoert", dist, false);
+    var b = FRQ_werte("gehoert", dist, false);
+    if (a !== b) return { ok: false, msg: "Zweiter gleicher Aufruf war KEIN Cache-Treffer (verschiedene Referenz)" };
+
+    // 2) Anderes Argument (form) -> Miss -> andere Referenz.
+    var c = FRQ_werte("warp", dist, false);
+    if (c === a) return { ok: false, msg: "Anderes Argument haette Neuberechnung ausloesen muessen" };
+
+    // 3) Nach Aenderung einer erfassten Eingabe (activeSide) -> Miss.
+    //    activeSide sicher zuruecksetzen im finally.
+    var savedSide = activeSide;
+    var missNachSideWechsel = false;
+    try {
+      var vorher = FRQ_werte("gehoert", "right", false);
+      activeSide = (activeSide === "left") ? "right" : "left";
+      var nachher = FRQ_werte("gehoert", "right", false);
+      missNachSideWechsel = (vorher !== nachher);
+    } finally {
+      activeSide = savedSide;
+      if (typeof bindActiveSide === "function") bindActiveSide();
+    }
+    if (!missNachSideWechsel) {
+      return { ok: false, msg: "activeSide-Wechsel loeste keinen Cache-Miss aus (Schluessel unvollstaendig!)" };
+    }
+
+    return { ok: true, msg: "Treffer bei gleichen Eingaben, Miss bei Argument- und activeSide-Aenderung" };
+  });
+})();
