@@ -340,16 +340,20 @@
     g.fillText("Verlauf " + label + " (gemessene Abweichung dB, Balken = Residuum)", padL, 11);
   }
 
-  function zaDrawCurve() {
-    var cv = document.getElementById("zaCurveChart");
+  // Gemeinsamer Balkengraph-Koerper: ctx -> ELL_compWLS -> Rows -> drawBarGraph.
+  // Von der konsolidierten Kurve (zaDrawCurve) UND dem Einzelmessungs-Graph
+  // (zaDrawSingle) genutzt — EIN Koerper, zwei ctx-Quellen (konsolidiert vs.
+  // eine Sitzung). leerHint = Text, wenn keine auswertbaren Daten vorliegen.
+  function zaDrawBarFromCtx(canvasId, hintId, ctx, leerHint) {
+    var cv = document.getElementById(canvasId);
     if (!cv) return;
-    var side = activeSide;
-    var ctx  = zaConsolidatedCtx(side);
-    if (!ctx.ELL_results || !ctx.ELL_results.length) {
-      var hint = document.getElementById("zaCurveHint");
-      if (hint) hint.textContent = "Keine auswertbaren Sitzungen fuer diese Seite.";
+    var hint = hintId ? document.getElementById(hintId) : null;
+    if (!ctx || !ctx.ELL_results || !ctx.ELL_results.length) {
+      if (hint) hint.textContent = leerHint || "";
+      cv.width = cv.width;   // leeren
       return;
     }
+    if (hint) hint.textContent = "";
     var r = ELL_compWLS(ctx);
     var measured = new Set();
     ctx.ELL_results.forEach(function (p) { measured.add(p.a); measured.add(p.b); });
@@ -385,6 +389,30 @@
       ySymmetrisch: true,
       ctx: ctx
     });
+  }
+
+  function zaDrawCurve() {
+    zaDrawBarFromCtx("zaCurveChart", "zaCurveHint", zaConsolidatedCtx(activeSide),
+                     "Keine auswertbaren Sitzungen fuer diese Seite.");
+  }
+
+  // Gewaehlte Einzel-Sitzung (Index in zaSessions) oder null.
+  var zaSingleIdx = null;
+
+  // Einzelmessungs-Graph: der Balkengraph EINER Sitzung (nicht konsolidiert),
+  // damit sichtbar wird, wie eine einzelne Datei fuer sich aussieht.
+  function zaDrawSingle() {
+    var titleEl = document.getElementById("zaSingleTitle");
+    if (zaSingleIdx === null || !zaSessions[zaSingleIdx]) {
+      if (titleEl) titleEl.textContent = "";
+      zaDrawBarFromCtx("zaSingleChart", "zaSingleHint", null,
+                       "Eine Datei in der Liste anklicken, um ihre Einzelmessung zu sehen.");
+      return;
+    }
+    var s = zaSessions[zaSingleIdx];
+    if (titleEl) titleEl.textContent = s.file + " (" + (s.side === "left" ? "links" : "rechts") + ")";
+    zaDrawBarFromCtx("zaSingleChart", "zaSingleHint", zaToCtx(s),
+                     "Keine auswertbaren Werte in dieser Datei.");
   }
 
   function zaOnSharpness(key) {
@@ -627,10 +655,12 @@
     zaSessions = vollstaendig;
     zaSessions.forEach(function (s) { s.meanResidual = zaMeanResidual(s); });
     zaBilanz.sitzungen = zaSessions.length;
+    zaSingleIdx = null;   // neue Dateimenge -> Einzelauswahl ungueltig
 
     zaRenderBilanz();
     zaRenderSessionList();
     zaDrawCurve();
+    zaDrawSingle();
     zaDrawHeatmap();
     zaDrawTrend();
   }
@@ -713,8 +743,11 @@
     var el = document.getElementById("zaSessionList");
     if (!el) return;
     if (!zaSessions.length) { el.innerHTML = ""; return; }
-    var rows = zaSessions.map(function (s) {
-      return "<tr><td style='padding:2px 10px'>" + s.file
+    var rows = zaSessions.map(function (s, i) {
+      var sel = (i === zaSingleIdx);
+      var bg = sel ? "background:#dbeafe;" : "";
+      return "<tr data-za-idx='" + i + "' style='cursor:pointer;" + bg + "'>"
+        + "<td style='padding:2px 10px'>" + s.file
         + "</td><td style='padding:2px 10px'>" + (s.side === "left" ? "links" : "rechts")
         + "</td><td style='padding:2px 10px'>" + (s.manufacturer || "?")
         + "</td><td style='padding:2px 10px'>" + (s.nEl || "?")
@@ -778,6 +811,8 @@
       hm.addEventListener("click", zaOnHeatmapClick);
       hm.style.cursor = "pointer";
     }
+    var sl = document.getElementById("zaSessionList");
+    if (sl) sl.addEventListener("click", zaOnSessionClick);
     zaUpdateTabVisibility();
     var tb = document.getElementById("zaTransferBtn");
     if (tb) tb.addEventListener("click", zaTransferToTool);
@@ -792,8 +827,20 @@
   // Leerfall ab).
   function zaRedraw() {
     zaDrawCurve();
+    zaDrawSingle();
     zaDrawHeatmap();
     zaDrawTrend();
+  }
+
+  // Klick auf eine Zeile der Sitzungsliste -> Einzelmessung dieser Datei.
+  function zaOnSessionClick(ev) {
+    var tr = ev.target.closest ? ev.target.closest("tr[data-za-idx]") : null;
+    if (!tr) return;
+    var idx = parseInt(tr.getAttribute("data-za-idx"), 10);
+    if (isNaN(idx) || !zaSessions[idx]) return;
+    zaSingleIdx = (zaSingleIdx === idx) ? null : idx;   // erneuter Klick = ab
+    zaRenderSessionList();   // Hervorhebung nachziehen
+    zaDrawSingle();
   }
 
   // Export für debug.js-Hook
