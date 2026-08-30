@@ -26,10 +26,9 @@
   var ZA_SHARPNESS = { mild: 1.0, mittel: 1.5, scharf: 2.0 };
   var zaSharpKey  = "mittel";
 
-  function zaWeight(session) {
-    var res = (typeof session.meanResidual === "number" && session.meanResidual >= 0)
-              ? session.meanResidual : null;
-    if (res === null) return 0;
+  function zaWeight(rec, side) {
+    var res = zaMeanResidual(rec, side);
+    if (res === null || !(res >= 0)) return 0;
     var p = ZA_SHARPNESS[zaSharpKey] || 1.5;
     return 1 / (Math.pow(res, p) + ZA_EPS);
   }
@@ -37,13 +36,21 @@
   // Konsens-Paarliste der Sitzungen einer Seite. side = 'left'|'right'.
   // Ergebnis: [{a, b, offset, timestamp}] — EIN Eintrag pro Paar
   // (Format = ELL_results; spaeter auch fuer den Uebertrag §7).
+  // Seiten-Datensatz einer Datei-Sitzung fuer die gewuenschte Seite
+  // (oder null, wenn diese Seite in der Datei keine Daten hat).
+  function zaRec(session, side) {
+    if (!session || !session.perSide) return null;
+    return session.perSide[side] || null;
+  }
+
   function zaConsensusPairs(side) {
     var acc = {};
     zaSessions.forEach(function (s) {
-      if (s.side !== side) return;
-      var q = zaWeight(s);
+      var rec = zaRec(s, side);
+      if (!rec) return;
+      var q = zaWeight(rec, side);
       if (!(q > 0)) return;
-      (s.raw || []).forEach(function (r) {
+      (rec.raw || []).forEach(function (r) {
         if (typeof r.a !== "number" || typeof r.b !== "number") return;
         var a = r.a, b = r.b, off = r.offset;
         if (a > b) { a = r.b; b = r.a; off = -off; }
@@ -92,17 +99,18 @@
     var out = [];
     var elCount = 0;
     zaSessions.forEach(function (s) {
-      if (s.side !== side) return;
-      var ts = zaYoungestTs(s);
+      var rec = zaRec(s, side);
+      if (!rec) return;                        // Seite in dieser Datei leer
+      var ts = zaYoungestTs(rec);
       if (ts === null) return;                 // ohne Stempel keine Zeitposition
-      var ctx = zaToCtx(s);                    // historischer Status der DATEI (§6f)
+      var ctx = zaToCtx(rec, side);
       var r = ELL_compWLS(ctx);                // {levels, ELL_res, ...}
-      elCount = Math.max(elCount, s.nEl);
+      elCount = Math.max(elCount, rec.nEl);
       var corr = [], active = [], res = [];
-      for (var i = 0; i < s.nEl; i++) {
+      for (var i = 0; i < rec.nEl; i++) {
         // aktiv = nicht ausgeschlossen, nicht stumm, nicht abgewaehlt (§6d-Definition)
-        var act = (s.elExDur[i] == null) && (s.elSt[i] !== "mute")
-                  && (s.elActive[i] !== false);
+        var act = (rec.elExDur[i] == null) && (rec.elSt[i] !== "mute")
+                  && (rec.elActive[i] !== false);
         active[i] = act;
         corr[i] = act ? r.levels[i] : null;    // levels (Ist): zu laut=positiv, zu leise=negativ -- wie Meszergebnis-Tabelle/Kurve. inaktiv -> null (grau)
         res[i]  = act ? (r.ELL_res[i] || 0) : null;   // Pro-Elektrode-Residuum (BA 410)
@@ -403,22 +411,33 @@
                      "Keine auswertbaren Sitzungen fuer diese Seite.");
   }
 
-  // Gewaehlte Einzel-Sitzung (Index in zaSessions) oder null.
-  var zaSingleIdx = null;
+  // Gewaehlte Einzel-Datei (Dateiname) oder null.
+  var zaSingleFile = null;
 
-  // Einzelmessungs-Graph: der Balkengraph EINER Sitzung (nicht konsolidiert),
+  // Einzelmessungs-Graph: der Balkengraph EINER Datei (nicht konsolidiert),
   // damit sichtbar wird, wie eine einzelne Datei fuer sich aussieht.
   function zaDrawSingle() {
     var titleEl = document.getElementById("zaSingleTitle");
-    if (zaSingleIdx === null || !zaSessions[zaSingleIdx]) {
+    var session = zaSingleFile
+      ? zaSessions.find(function (s) { return s.file === zaSingleFile; })
+      : null;
+    if (!session) {
       if (titleEl) titleEl.textContent = "";
       zaDrawBarFromCtx("zaSingleChart", "zaSingleHint", null,
                        "Eine Datei in der Liste anklicken, um ihre Einzelmessung zu sehen.");
       return;
     }
-    var s = zaSessions[zaSingleIdx];
-    if (titleEl) titleEl.textContent = s.file + " (" + (s.side === "left" ? "links" : "rechts") + ")";
-    zaDrawBarFromCtx("zaSingleChart", "zaSingleHint", zaToCtx(s),
+    var side = activeSide;
+    var seitLbl = (side === "left" ? "links" : "rechts");
+    if (titleEl) titleEl.textContent = session.file + " (" + seitLbl + ")";
+    var rec = zaRec(session, side);
+    if (!rec) {
+      // Fall a: Datei hat auf dieser Seite keine Messung -> leerer Graph
+      zaDrawBarFromCtx("zaSingleChart", "zaSingleHint", null,
+                       "Diese Datei hat auf der Seite " + seitLbl + " keine Messung.");
+      return;
+    }
+    zaDrawBarFromCtx("zaSingleChart", "zaSingleHint", zaToCtx(rec, side),
                      "Keine auswertbaren Werte in dieser Datei.");
   }
 
@@ -437,19 +456,19 @@
   var ZA_DEDUP_MIN_SIM    = 0.90;  // Anteil identischer Paare
   var ZA_DEDUP_OFFSET_EPS = 0.1;   // dB: Offset-Differenz, ab der ein Paar als verschieden gilt
 
-  // Juengster Mess-Stempel einer Sitzung (interner Stempel in raw[].timestamp).
-  function zaYoungestTs(session) {
+  // Juengster Mess-Stempel eines Records (interner Stempel in raw[].timestamp).
+  function zaYoungestTs(rec) {
     var ts = null;
-    (session.raw || []).forEach(function (r) {
+    (rec.raw || []).forEach(function (r) {
       if (typeof r.timestamp === "number" && (ts === null || r.timestamp > ts)) ts = r.timestamp;
     });
     return ts;   // ms oder null (alte Datei ohne Stempel)
   }
 
-  // Paar-Map einer Sitzung (Schluessel = sortiertes Paar, Wert = offset).
-  function zaPairMap(session) {
+  // Paar-Map eines Records (Schluessel = sortiertes Paar, Wert = offset).
+  function zaPairMap(rec) {
     var m = {};
-    (session.raw || []).forEach(function (r) {
+    (rec.raw || []).forEach(function (r) {
       if (typeof r.a !== "number" || typeof r.b !== "number") return;
       var k = Math.min(r.a, r.b) + "-" + Math.max(r.a, r.b);
       m[k] = r.offset;
@@ -457,7 +476,7 @@
     return m;
   }
 
-  // true, wenn zwei Sitzungen zeitnah und inhaltlich aehnlich genug sind.
+  // true, wenn zwei Records zeitnah und inhaltlich aehnlich genug sind.
   function zaSameSession(a, b) {
     var ta = zaYoungestTs(a), tb = zaYoungestTs(b);
     if (ta === null || tb === null) return false;
@@ -471,27 +490,25 @@
     return sim >= ZA_DEDUP_MIN_SIM;
   }
 
-  // Gruppiert Sitzungen; behaelt je Gruppe den juengsten Repraesentanten.
-  // Vergleicht nur Sitzungen gleicher Seite.
-  function zaDedup(sessions) {
-    var used = new Array(sessions.length).fill(false);
+  // Gruppiert Records; behaelt je Gruppe den juengsten Repraesentanten.
+  function zaDedup(recs) {
+    var used = new Array(recs.length).fill(false);
     var kept = [];
     var merged = 0;
-    for (var i = 0; i < sessions.length; i++) {
+    for (var i = 0; i < recs.length; i++) {
       if (used[i]) continue;
       var group = [i];
       used[i] = true;
-      for (var j = i + 1; j < sessions.length; j++) {
+      for (var j = i + 1; j < recs.length; j++) {
         if (used[j]) continue;
-        if (sessions[i].side !== sessions[j].side) continue;
-        var match = group.some(function (k) { return zaSameSession(sessions[k], sessions[j]); });
+        var match = group.some(function (k) { return zaSameSession(recs[k], recs[j]); });
         if (match) { group.push(j); used[j] = true; }
       }
       var rep = group.reduce(function (best, k) {
-        var tb = zaYoungestTs(sessions[best]) || 0, tk = zaYoungestTs(sessions[k]) || 0;
+        var tb = zaYoungestTs(recs[best]) || 0, tk = zaYoungestTs(recs[k]) || 0;
         return tk > tb ? k : best;
       }, group[0]);
-      kept.push(sessions[rep]);
+      kept.push(recs[rep]);
       merged += (group.length - 1);
     }
     return { kept: kept, mergedCount: merged };
@@ -500,26 +517,26 @@
   // ---- Vollstaendigkeitsfilter (BA 407) ----
 
   // aktiv = nicht ausgeschlossen UND nicht stumm UND nicht abgewaehlt
-  function zaIsActive(session, i) {
-    return (session.elExDur[i] == null)
-        && (session.elSt[i] !== "mute")
-        && (session.elActive[i] !== false);
+  function zaIsActive(rec, i) {
+    return (rec.elExDur[i] == null)
+        && (rec.elSt[i] !== "mute")
+        && (rec.elActive[i] !== false);
   }
 
-  function zaIsComplete(session) {
+  function zaIsComplete(rec) {
     var measured = {};
-    (session.raw || []).forEach(function (r) {
+    (rec.raw || []).forEach(function (r) {
       if (typeof r.a === "number") measured[r.a] = true;
       if (typeof r.b === "number") measured[r.b] = true;
     });
-    for (var i = 0; i < session.nEl; i++) {
-      if (zaIsActive(session, i) && !measured[i]) return false;
+    for (var i = 0; i < rec.nEl; i++) {
+      if (zaIsActive(rec, i) && !measured[i]) return false;
     }
     return true;
   }
 
-  // Modul-Zustand (überlebt Reiterwechsel, NICHT Neuladen — Architektur §8)
-  var zaSessions = [];   // [{file, side, manufacturer, nEl, count, raw, elSt, elExDur, elActive, meanResidual}]
+  // Modul-Zustand (ueberlebt Reiterwechsel, NICHT Neuladen — Architektur §8)
+  var zaSessions = [];   // [{file, perSide:{left,right}}] — Sitzung = Datei
   var zaBilanz   = { eingelesen: 0, fremd: 0, herstellerKonflikt: 0,
                      ohneSeite: 0, sitzungen: 0 };
 
@@ -584,46 +601,55 @@
       cimbel.push(p);
     });
 
-    // 2) Pro Datei je Seite die ELL-Daten ziehen (nur Seiten MIT
-    //    balanceResults). Hersteller/nEl gegen aktuelle Seite prüfen.
+    // 2) Pro Datei EINEN Kandidaten bilden, der beide Seiten traegt
+    //    (perSide). Seiten ohne Mess-Paare -> null (Fall a). Datei kommt
+    //    nur rein, wenn mindestens eine Seite Paare hat.
     var conflicts = [];          // {name, side, hat, erwartet}
-    var candidates = [];         // {file, side, manufacturer, nEl, count, raw}
+    var candidates = [];         // {file, perSide:{left,right}}
+
+    // Baut den Seiten-Datensatz einer Datei-Seite ODER null (keine Paare).
+    // Setzt bei Hersteller/nEl-Konflikt einen conflicts-Eintrag und liefert
+    // undefined (Datei-Seite verwerfen, aber Datei ggf. ueber andere Seite
+    // behalten).
+    function zaSideRecord(name, s, sd) {
+      if (!s) return null;
+      // Feld-Umbenennung durch die .cimbel-Umstrukturierung (0.6): neue
+      // Namen bevorzugen, alte als Fallback fuer Altdateien.
+      var br = Array.isArray(s.ELL_results) ? s.ELL_results : s.balanceResults;
+      if (!Array.isArray(br) || !br.length) return null;   // Fall a: keine Paare
+      var elStRaw    = (s.elSt      != null) ? s.elSt      : s.electrodeStatus;
+      var elExDurRaw = (s.elExDur   != null) ? s.elExDur   : s.electrodeExcludedDuring;
+      var elActRaw   = (s.elActive  != null) ? s.elActive  : s.electrodeActive;
+      var nEl = Array.isArray(s.frequencies) ? s.frequencies.length
+              : Array.isArray(elStRaw)   ? elStRaw.length
+              : Array.isArray(elActRaw)  ? elActRaw.length
+              : null;
+      var mfr = s.manufacturer || null;
+      var exp = zaExpectedFor(sd);                         // {mfr, nEl} | null
+      if (exp && (mfr !== exp.mfr || nEl !== exp.nEl)) {
+        conflicts.push({ name: name, side: sd,
+                         hat: mfr + " " + nEl, erwartet: exp.mfr + " " + exp.nEl });
+        return undefined;   // Konflikt: diese Seite verwerfen
+      }
+      return {
+        manufacturer: mfr, nEl: nEl, count: br.length, raw: br,
+        elSt:    normStatus(elStRaw,    nEl, null),
+        elExDur: normStatus(elExDurRaw, nEl, null),
+        // Referenzelektrode NICHT aus der Datei: zaToCtx nutzt die aktuell
+        // fuer die Seite gewaehlte (einheitlich fuer alle Sitzungen).
+        elActive: normActive(elActRaw, nEl)
+      };
+    }
+
     cimbel.forEach(function (p) {
       var sides = (p.obj && p.obj.sides) || {};
-      ["left", "right"].forEach(function (sd) {
-        var s = sides[sd];
-        if (!s) return;
-        // Feld-Umbenennung durch die .cimbel-Umstrukturierung (0.6): neue
-        // Namen bevorzugen, alte als Fallback fuer Altdateien. Sonst faellt
-        // eine ganze Datei-Generation stumm raus (br === undefined -> return).
-        var br = Array.isArray(s.ELL_results) ? s.ELL_results : s.balanceResults;
-        if (!Array.isArray(br) || !br.length) return;     // keine ELL-Daten
-        var elStRaw    = (s.elSt      != null) ? s.elSt      : s.electrodeStatus;
-        var elExDurRaw = (s.elExDur   != null) ? s.elExDur   : s.electrodeExcludedDuring;
-        var elActRaw   = (s.elActive  != null) ? s.elActive  : s.electrodeActive;
-        // Elektrodenzahl: altes frequencies-Array, sonst Laenge eines der
-        // Status-Arrays (neue Generation hat kein frequencies).
-        var nEl = Array.isArray(s.frequencies) ? s.frequencies.length
-                : Array.isArray(elStRaw)   ? elStRaw.length
-                : Array.isArray(elActRaw)  ? elActRaw.length
-                : null;
-        var mfr = s.manufacturer || null;
-        var exp = zaExpectedFor(sd);                       // {mfr, nEl} | null
-        if (exp && (mfr !== exp.mfr || nEl !== exp.nEl)) {
-          conflicts.push({ name: p.name, side: sd,
-                           hat: mfr + " " + nEl, erwartet: exp.mfr + " " + exp.nEl });
-          return;
-        }
-        candidates.push({ file: p.name, side: sd, manufacturer: mfr,
-                          nEl: nEl, count: br.length, raw: br,
-                          // NEU (fuer die Pro-Datei-Rechnung, BA 406):
-                          elSt:    normStatus(elStRaw,    nEl, null),
-                          elExDur: normStatus(elExDurRaw, nEl, null),
-                          // Referenzelektrode NICHT aus der Datei uebernehmen:
-                          // zaToCtx nutzt die aktuell fuer die Seite gewaehlte,
-                          // damit alle Sitzungen dieselbe Referenz haben (§6g).
-                          elActive: normActive(elActRaw, nEl) });
-      });
+      var left  = zaSideRecord(p.name, sides.left,  "left");
+      var right = zaSideRecord(p.name, sides.right, "right");
+      // undefined (Konflikt) wie null behandeln -> Seite fehlt
+      if (left  === undefined) left  = null;
+      if (right === undefined) right = null;
+      if (!left && !right) return;   // Datei hat auf keiner Seite Paare
+      candidates.push({ file: p.name, perSide: { left: left, right: right } });
     });
 
     // 3) Konflikt-Dialog (einziger interaktiver Filter, Architektur §6e)
@@ -644,25 +670,47 @@
       zaBilanz.herstellerKonflikt = conflicts.length;
     }
 
-    // 1) Dedup (Architektur §6c)
-    var dd = zaDedup(candidates);
-    var deduped = dd.kept;
-    zaBilanz.zusammengefasst = dd.mergedCount;
+    // Pro Seite: Seiten-Datensaetze aller Kandidaten sammeln, deduplizieren,
+    // Vollstaendigkeit pruefen. Ergebnis wieder in die Datei-Sitzung
+    // zurueckschreiben (nur der deduplizierte, vollstaendige Repraesentant
+    // ueberlebt je Seite; sonst null).
+    // WICHTIG (Doppelgewichtung): Dedup auf Seiten-Datensatz-Ebene fasst
+    // identische Seiten-Daten aus VERSCHIEDENEN Dateien zusammen.
+    var mergedTotal = 0, unvollTotal = 0;
 
-    // 2) Vollstaendigkeit (Architektur §6d) — auf den deduplizierten Repraesentanten
-    var vollstaendig = [];
-    var unvollstaendig = 0;
-    deduped.forEach(function (s) {
-      if (zaIsComplete(s)) vollstaendig.push(s);
-      else unvollstaendig++;
+    ["left", "right"].forEach(function (sd) {
+      // (a) Seiten-Datensaetze + Herkunftsdatei einsammeln
+      var recs = [];
+      candidates.forEach(function (c) {
+        var rec = c.perSide[sd];
+        if (rec) recs.push({ rec: rec, file: c.file });
+      });
+      if (!recs.length) return;
+
+      // (b) Dedup auf den Datensaetzen (zaDedup vergleicht rec-Objekte).
+      var dd = zaDedup(recs.map(function (x) { return x.rec; }));
+      mergedTotal += dd.mergedCount;
+
+      // (c) Vollstaendigkeit + Zuordnung zurueck zur Datei.
+      //     Behalt-Set der deduplizierten Records (Identitaet per Referenz).
+      var keptSet = new Set(dd.kept);
+      candidates.forEach(function (c) {
+        var rec = c.perSide[sd];
+        if (!rec) return;
+        if (!keptSet.has(rec)) { c.perSide[sd] = null; return; }   // dedupliziert weg
+        if (!zaIsComplete(rec)) { c.perSide[sd] = null; unvollTotal++; }  // unvollstaendig
+      });
     });
-    zaBilanz.unvollstaendig = unvollstaendig;
 
-    // 3) Pro-Datei-Rechnung (BA 406) nur auf vollstaendigen Sitzungen
-    zaSessions = vollstaendig;
-    zaSessions.forEach(function (s) { s.meanResidual = zaMeanResidual(s); });
+    // Dateien, die nach Dedup/Vollstaendigkeit auf KEINER Seite mehr Daten
+    // haben, fallen ganz raus.
+    zaSessions = candidates.filter(function (c) {
+      return c.perSide.left || c.perSide.right;
+    });
+    zaBilanz.zusammengefasst = mergedTotal;
+    zaBilanz.unvollstaendig  = unvollTotal;
     zaBilanz.sitzungen = zaSessions.length;
-    zaSingleIdx = null;   // neue Dateimenge -> Einzelauswahl ungueltig
+    zaSingleFile = null;   // neue Dateimenge -> Einzelauswahl ungueltig
 
     zaRenderBilanz();
     zaRenderSessionList();
@@ -672,36 +720,30 @@
     zaDrawTrend();
   }
 
-  // Baut das ELL_compWLS-ctx aus einer eingelesenen Sitzung (tool-fremde Datei).
-  // Architektur-Kapitel 00-zeitanalyse §3 (Datensatz-Vertrag, ELL-Variante).
-  // Referenzelektrode: NICHT die je Datei gespeicherte, sondern die aktuell
-  // fuer die Seite gewaehlte (ELL_ctx(side).ELL_refEl, §6g). Sonst haengt jede
-  // Sitzung ihre Levels an einer eigenen Referenz auf -> die absoluten Pegel
-  // sind zwischen Sitzungen nicht vergleichbar (Spruenge in Heatmap/Trend).
-  // Da alle Werte relativ sind, ist die Referenzwahl fuer eine Einzelmessung
-  // egal; fuer den Zeitvergleich MUSS sie fuer alle dieselbe sein.
-  function zaToCtx(session) {
+  // Baut das ELL_compWLS-ctx aus einem Seiten-Datensatz (rec) einer
+  // eingelesenen Datei. Referenzelektrode aus ELL_ctx(side) (einheitlich).
+  function zaToCtx(rec, side) {
     var refEl = (typeof ELL_ctx === "function")
-                ? ELL_ctx(session.side).ELL_refEl
-                : session.refEl;
+                ? ELL_ctx(side).ELL_refEl
+                : (rec && rec.refEl);
     return {
-      nEl:         session.nEl,
-      ELL_results: session.raw,
-      elSt:        session.elSt,
-      elExDur:     session.elExDur,
-      ELL_refEl:   refEl,
+      nEl:         rec.nEl,
+      ELL_results: rec.raw,
+      elSt:        rec.elSt,
+      elExDur:     rec.elExDur,
+      ELL_refEl:   refEl
     };
   }
 
-  // Mittleres Residuum (dB) einer Sitzung: ELL_compWLS ueber ihr ctx,
-  // dann Mittel von ELL_res ueber die aktiven Elektroden der Sitzung.
-  function zaMeanResidual(session) {
-    if (typeof ELL_compWLS !== "function") return null;
-    var ctx = zaToCtx(session);
+  // Mittleres Residuum (dB) eines Records: ELL_compWLS ueber sein ctx,
+  // dann Mittel von ELL_res ueber die aktiven Elektroden.
+  function zaMeanResidual(rec, side) {
+    if (typeof ELL_compWLS !== "function" || !rec) return null;
+    var ctx = zaToCtx(rec, side);
     var r = ELL_compWLS(ctx);
     if (!r || !r.ELL_res) return null;
     var sum = 0, cnt = 0;
-    for (var i = 0; i < session.nEl; i++) {
+    for (var i = 0; i < rec.nEl; i++) {
       var aktiv = (ctx.elExDur[i] == null) && (ctx.elSt[i] !== "mute");
       if (!aktiv) continue;
       sum += r.ELL_res[i];
@@ -750,22 +792,29 @@
     var el = document.getElementById("zaSessionList");
     if (!el) return;
     if (!zaSessions.length) { el.innerHTML = ""; return; }
-    var rows = zaSessions.map(function (s, i) {
-      var sel = (i === zaSingleIdx);
+    var side = activeSide;
+    var rows = zaSessions.map(function (s) {
+      var rec = zaRec(s, side);
+      var sel = (s.file === zaSingleFile);
       var bg = sel ? "background:#dbeafe;" : "";
-      return "<tr data-za-idx='" + i + "' style='cursor:pointer;" + bg + "'>"
+      var mfr = rec ? (rec.manufacturer || "?")
+              : ((s.perSide.left && s.perSide.left.manufacturer)
+                 || (s.perSide.right && s.perSide.right.manufacturer) || "?");
+      var nEl  = rec ? (rec.nEl || "?") : "—";
+      var cnt  = rec ? rec.count : "—";
+      var mres = rec ? zaMeanResidual(rec, side) : null;
+      var mresTxt = (typeof mres === "number") ? mres.toFixed(2) + " dB" : "—";
+      return "<tr data-za-file='" + s.file + "' style='cursor:pointer;" + bg + "'>"
         + "<td style='padding:2px 10px'>" + s.file
-        + "</td><td style='padding:2px 10px'>" + (s.side === "left" ? "links" : "rechts")
-        + "</td><td style='padding:2px 10px'>" + (s.manufacturer || "?")
-        + "</td><td style='padding:2px 10px'>" + (s.nEl || "?")
-        + "</td><td style='padding:2px 10px;text-align:right'>" + s.count
-        + "</td><td style='padding:2px 10px;text-align:right'>"
-        + (typeof s.meanResidual === "number" ? s.meanResidual.toFixed(2) + " dB" : "—")
+        + "</td><td style='padding:2px 10px'>" + mfr
+        + "</td><td style='padding:2px 10px'>" + nEl
+        + "</td><td style='padding:2px 10px;text-align:right'>" + cnt
+        + "</td><td style='padding:2px 10px;text-align:right'>" + mresTxt
         + "</td></tr>";
     }).join("");
     el.innerHTML = "<table style='border-collapse:collapse;font-size:.9em'>"
       + "<tr style='font-weight:600;border-bottom:1px solid #ccc'>"
-      + "<td style='padding:2px 10px'>Datei</td><td style='padding:2px 10px'>Seite</td>"
+      + "<td style='padding:2px 10px'>Datei</td>"
       + "<td style='padding:2px 10px'>Hersteller</td><td style='padding:2px 10px'>Elektroden</td>"
       + "<td style='padding:2px 10px'>Vergleiche</td>"
       + "<td style='padding:2px 10px'>mittl. Residuum</td></tr>" + rows + "</table>";
@@ -833,6 +882,7 @@
   // §10) — ihre Gueltigkeit ergibt sich aus den Daten (zaDrawTrend faengt den
   // Leerfall ab).
   function zaRedraw() {
+    zaRenderSessionList();
     zaDrawCurve();
     zaDrawSingle();
     zaDrawHeatmap();
@@ -841,12 +891,12 @@
 
   // Klick auf eine Zeile der Sitzungsliste -> Einzelmessung dieser Datei.
   function zaOnSessionClick(ev) {
-    var tr = ev.target.closest ? ev.target.closest("tr[data-za-idx]") : null;
+    var tr = ev.target.closest ? ev.target.closest("tr[data-za-file]") : null;
     if (!tr) return;
-    var idx = parseInt(tr.getAttribute("data-za-idx"), 10);
-    if (isNaN(idx) || !zaSessions[idx]) return;
-    zaSingleIdx = (zaSingleIdx === idx) ? null : idx;   // erneuter Klick = ab
-    zaRenderSessionList();   // Hervorhebung nachziehen
+    var file = tr.getAttribute("data-za-file");
+    if (!file) return;
+    zaSingleFile = (zaSingleFile === file) ? null : file;   // erneuter Klick = ab
+    zaRenderSessionList();
     zaDrawSingle();
   }
 
