@@ -484,7 +484,7 @@
   }
 
   // Modul-Zustand (überlebt Reiterwechsel, NICHT Neuladen — Architektur §8)
-  var zaSessions = [];   // [{file, side, manufacturer, nEl, count, raw, elSt, elExDur, refEl, meanResidual}]
+  var zaSessions = [];   // [{file, side, manufacturer, nEl, count, raw, elSt, elExDur, elActive, meanResidual}]
   var zaBilanz   = { eingelesen: 0, fremd: 0, herstellerKonflikt: 0,
                      ohneSeite: 0, sitzungen: 0 };
 
@@ -573,7 +573,9 @@
                           // NEU (fuer die Pro-Datei-Rechnung, BA 406):
                           elSt:    normStatus(s.electrodeStatus,         nEl, null),
                           elExDur: normStatus(s.electrodeExcludedDuring, nEl, null),
-                          refEl:   (typeof s.referenceElectrode === "number") ? s.referenceElectrode : 0,
+                          // Referenzelektrode NICHT aus der Datei uebernehmen:
+                          // zaToCtx nutzt die aktuell fuer die Seite gewaehlte,
+                          // damit alle Sitzungen dieselbe Referenz haben (§6g).
                           elActive: normActive(s.electrodeActive, nEl) });
       });
     });
@@ -624,13 +626,22 @@
 
   // Baut das ELL_compWLS-ctx aus einer eingelesenen Sitzung (tool-fremde Datei).
   // Architektur-Kapitel 00-zeitanalyse §3 (Datensatz-Vertrag, ELL-Variante).
+  // Referenzelektrode: NICHT die je Datei gespeicherte, sondern die aktuell
+  // fuer die Seite gewaehlte (ELL_ctx(side).ELL_refEl, §6g). Sonst haengt jede
+  // Sitzung ihre Levels an einer eigenen Referenz auf -> die absoluten Pegel
+  // sind zwischen Sitzungen nicht vergleichbar (Spruenge in Heatmap/Trend).
+  // Da alle Werte relativ sind, ist die Referenzwahl fuer eine Einzelmessung
+  // egal; fuer den Zeitvergleich MUSS sie fuer alle dieselbe sein.
   function zaToCtx(session) {
+    var refEl = (typeof ELL_ctx === "function")
+                ? ELL_ctx(session.side).ELL_refEl
+                : session.refEl;
     return {
       nEl:         session.nEl,
       ELL_results: session.raw,
       elSt:        session.elSt,
       elExDur:     session.elExDur,
-      ELL_refEl:   session.refEl,
+      ELL_refEl:   refEl,
     };
   }
 
