@@ -40,10 +40,12 @@ function FRQ_implantatTableBuild() {
       ? t("implCLvlHdr")
       : t("implMLvlHdr");
   // FSP-Spalte (nur MED-EL + FS-Strategie): Zahl anwählbarer apikaler El.
+  // 2026-08-30: Spalte dauerhaft ausgeblendet (FSP-Steuerung aus dem UI genommen).
+  // Daten/Logik (fspEl, Validierung) bleiben erhalten, nur nicht sichtbar.
   const _coding = (sideData[activeSide].implant || {}).coding || "unknown";
   const _fspMax = isMedel && typeof implCodingFspMax === "function"
     ? implCodingFspMax(_coding) : 0;
-  const _showFsp = _fspMax > 0;
+  const _showFsp = false;
   const _fspHdr = _showFsp
     ? `<th style="white-space:nowrap">${t("thFsp")}</th>` : "";
   if (isAcoustic) {

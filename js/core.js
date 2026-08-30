@@ -1893,13 +1893,12 @@ function _frqGlaettOrtsaffin(noms, cents, weights, defNoms) {
 function FRQ_randausschlussAusFsp(side) {
   if (typeof sideData === "undefined" || !sideData[side]) return;
   var s = sideData[side];
-  var anzahl = 0;
-  if (s.manufacturer === "medel" && s.implant && Array.isArray(s.implant.fspEl)) {
-    s.implant.fspEl.forEach(function (v) { if (v === true) anzahl++; });
-  }
-  if (anzahl > 4) anzahl = 4;   // Radio reicht bis 4 (fs4/fs4p: max 4 FSP-El.)
-  s.bandGlaettRandfrei = String(anzahl);
-  s.bandCbfApikalFrei  = String(Math.max(anzahl, 1));   // CBF: mind. 1 freies Band
+  // 2026-08-30: FSP-Kopplung entkoppelt. Die FSP-Steuerung wurde aus dem UI
+  // genommen (Spalte + Randausschluss-Box ausgeblendet); der apikale
+  // Randausschluss der Glaettung wird nicht mehr aus der FSP-Markierung
+  // gespeist. bandGlaettRandfrei bleibt fest "0" (kein Ausschluss);
+  // bandCbfApikalFrei bleibt manuell und wird hier nicht mehr ueberschrieben.
+  s.bandGlaettRandfrei = "0";
   // Nur wenn die geaenderte Seite auch die aktive ist, DOM spiegeln/neu zeichnen
   // (die Radio-DOM traegt immer den aktiven Seiten-Zustand).
   if (typeof activeSide === "string" && side === activeSide) {
@@ -1952,21 +1951,13 @@ function _frqGlaettAusschluss(keys) {
     out[keys[keys.length - 1]] = true;      // basalste
   }
 
-  // Apikaler Randausschluss (Achse): die N apikalsten Elektroden. N aus
-  // bandGlaettRandfrei (0..4), aus der FSP-Markierung vorbelegt. NUR bei MED-EL
-  // (rate-pitch/FSP-Grund); die Achse ist auch nur dort sichtbar (init.js). Bei
-  // AB gilt allein die feste Rand-Sonderregel oben, ein evtl. stehengebliebener
-  // Achsenwert wird ignoriert; bei Cochlear sind die Ortsverfahren nicht tauglich.
-  if (mfrId === "medel") {
-    var n = parseInt(s.bandGlaettRandfrei, 10);
-    if (n > 0) {
-      if (n > keys.length) n = keys.length;
-      for (var i = 0; i < n; i++) {
-        var apikal = apFirst ? keys[i] : keys[keys.length - 1 - i];
-        out[apikal] = true;
-      }
-    }
-  }
+  // Apikaler Randausschluss (Achse, NUR MED-EL, rate-pitch/FSP-Grund):
+  // 2026-08-30 stillgelegt. Die FSP-Steuerung und die Randausschluss-Box
+  // wurden aus dem UI genommen; bandGlaettRandfrei wird fest "0" gehalten
+  // (FRQ_randausschlussAusFsp) -> kein apikaler Ausschluss mehr. Ein evtl. aus
+  // einem alten Stand geladener bandGlaettRandfrei > 0 wird hier bewusst
+  // ignoriert, damit kein unsichtbarer Ausschluss wirkt. Radio-Gruppe +
+  // Logik bleiben im Code erhalten (reaktivierbar).
   return out;
 }
 

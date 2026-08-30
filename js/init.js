@@ -880,7 +880,11 @@ document.addEventListener("DOMContentLoaded", () => {
     matt("FRQ_glaettLageFieldset",     _ortsraum);          // Lage wirkt nur im Ortsraum
     show("FRQ_glaettKFieldset",        true);
     matt("FRQ_glaettKFieldset",        _ortsraum);          // k wirkt nur im Ortsraum
-    show("FRQ_glaettRandfreiFieldset", _istMedel);          // nur MED-EL (rate-pitch/FSP-Grund)
+    // 2026-08-30: Randausschluss-Achse dauerhaft ausgeblendet (war an die
+    // aus dem UI genommene FSP-Steuerung gekoppelt). bandGlaettRandfrei wird
+    // fest auf "0" gehalten (kein apikaler Ausschluss); die Radio-Gruppe und
+    // ihre Logik (_frqGlaettAusschluss) bleiben im Code erhalten.
+    show("FRQ_glaettRandfreiFieldset", false);
     matt("FRQ_glaettRandfreiFieldset", _aktiv);             // wirkt nur wenn geglaettet wird
     // Zeile 2 (Polynom-Regler; nur bei Verfahren "polynom"):
     show("FRQ_glaettFitXFieldset",     _polynom);

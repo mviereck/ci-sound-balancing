@@ -174,19 +174,24 @@ function buildImplantCard() {
     if (mdRow) mdRow.style.display = "none";
     return;
   }
-  // Prozessor- und Modell-Zeile einblenden (falls zuvor bei unknown versteckt)
+  // 2026-08-30: Audioprozessor-, Implantat-Modell- und Kodierungsstrategie-
+  // Auswahl dauerhaft ausgeblendet (aus dem UI genommen). Die Dropdowns und
+  // ihre Datenfelder (processor/model/coding/generation) bleiben im Code
+  // erhalten, werden nur nicht mehr angezeigt.
   const prRow = document.getElementById("implProcRow");
-  if (prRow) prRow.style.display = "";
+  if (prRow) prRow.style.display = "none";
   const mdRow = document.getElementById("implModelRow");
-  if (mdRow) mdRow.style.display = "";
+  if (mdRow) mdRow.style.display = "none";
 
   // Show/hide manufacturer-specific params
-  document.getElementById("implMedelParams").style.display =
-    m === "medel" ? "" : "none";
+  // 2026-08-30: implMedelParams (Kodierungsstrategie + ausgeblendeter c-Wert)
+  // und implGenGroup (Cochlear-Generation) dauerhaft ausgeblendet — beide
+  // enthalten nur noch UI-verborgene Felder. AB-IDR (implAbParams) bleibt.
+  document.getElementById("implMedelParams").style.display = "none";
   document.getElementById("implAbParams").style.display =
     (IMPL_HERSTELLERWERTE && m === "ab") ? "" : "none";
   const genGrp = document.getElementById("implGenGroup");
-  if (genGrp) genGrp.style.display = m === "cochlear" ? "" : "none";
+  if (genGrp) genGrp.style.display = "none";
 
   // Fill model dropdown
   const mdSel = document.getElementById("implModelSelect");
