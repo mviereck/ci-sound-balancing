@@ -558,9 +558,20 @@
       ["left", "right"].forEach(function (sd) {
         var s = sides[sd];
         if (!s) return;
-        var br = s.balanceResults;
+        // Feld-Umbenennung durch die .cimbel-Umstrukturierung (0.6): neue
+        // Namen bevorzugen, alte als Fallback fuer Altdateien. Sonst faellt
+        // eine ganze Datei-Generation stumm raus (br === undefined -> return).
+        var br = Array.isArray(s.ELL_results) ? s.ELL_results : s.balanceResults;
         if (!Array.isArray(br) || !br.length) return;     // keine ELL-Daten
-        var nEl = Array.isArray(s.frequencies) ? s.frequencies.length : null;
+        var elStRaw    = (s.elSt      != null) ? s.elSt      : s.electrodeStatus;
+        var elExDurRaw = (s.elExDur   != null) ? s.elExDur   : s.electrodeExcludedDuring;
+        var elActRaw   = (s.elActive  != null) ? s.elActive  : s.electrodeActive;
+        // Elektrodenzahl: altes frequencies-Array, sonst Laenge eines der
+        // Status-Arrays (neue Generation hat kein frequencies).
+        var nEl = Array.isArray(s.frequencies) ? s.frequencies.length
+                : Array.isArray(elStRaw)   ? elStRaw.length
+                : Array.isArray(elActRaw)  ? elActRaw.length
+                : null;
         var mfr = s.manufacturer || null;
         var exp = zaExpectedFor(sd);                       // {mfr, nEl} | null
         if (exp && (mfr !== exp.mfr || nEl !== exp.nEl)) {
@@ -571,12 +582,12 @@
         candidates.push({ file: p.name, side: sd, manufacturer: mfr,
                           nEl: nEl, count: br.length, raw: br,
                           // NEU (fuer die Pro-Datei-Rechnung, BA 406):
-                          elSt:    normStatus(s.electrodeStatus,         nEl, null),
-                          elExDur: normStatus(s.electrodeExcludedDuring, nEl, null),
+                          elSt:    normStatus(elStRaw,    nEl, null),
+                          elExDur: normStatus(elExDurRaw, nEl, null),
                           // Referenzelektrode NICHT aus der Datei uebernehmen:
                           // zaToCtx nutzt die aktuell fuer die Seite gewaehlte,
                           // damit alle Sitzungen dieselbe Referenz haben (§6g).
-                          elActive: normActive(s.electrodeActive, nEl) });
+                          elActive: normActive(elActRaw, nEl) });
       });
     });
 
