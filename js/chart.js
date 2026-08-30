@@ -184,7 +184,12 @@ function drawBarGraph(cv, rows, cfg) {
   var vals = rows.map(function (r) { return r.wert || 0; });
   var reals = rows.filter(function (r) { return r.zustand === "gemessen"; });
   var yMn, yMx;
-  if (cfg.ySymmetrisch !== false) {
+  // cfg.yFix (Zahl): fester symmetrischer Bereich [-yFix, +yFix] statt Auto-
+  // Skala. Damit sind mehrere Graphen direkt vergleichbar; Werte darueber
+  // werden geklemmt (tY unten) und als gekappt markiert.
+  if (typeof cfg.yFix === "number" && cfg.yFix > 0) {
+    yMn = -cfg.yFix; yMx = cfg.yFix;
+  } else if (cfg.ySymmetrisch !== false) {
     var am = Math.max(Math.ceil(Math.max.apply(null, vals.map(Math.abs).concat([1]))), 5);
     if (cfg.residuum) {
       reals.forEach(function (r) {
@@ -206,7 +211,15 @@ function drawBarGraph(cv, rows, cfg) {
     var dx = pW / n; return pad.left + dx * (j + 0.5);
   };
   var xS = n <= 1 ? pW : pW / n;
-  var tY = function (v) { return pad.top + (yMx - v) * (pH / (yMx - yMn || 1)); };
+  // Bei festem Bereich (yFix) Werte auf [yMn,yMx] klemmen, damit gekappte
+  // Balken/Punkte nicht ueber den Plot hinausragen. isClipped(v) meldet, ob
+  // v ausserhalb lag (fuer die Kapp-Markierung).
+  var _yFixed = (typeof cfg.yFix === "number" && cfg.yFix > 0);
+  var isClipped = function (v) { return _yFixed && (v > yMx || v < yMn); };
+  var tY = function (v) {
+    var vv = _yFixed ? Math.max(yMn, Math.min(yMx, v)) : v;
+    return pad.top + (yMx - vv) * (pH / (yMx - yMn || 1));
+  };
   var bW = Math.min(xS * 0.6, 34);
 
   // --- Y-Grid ---
@@ -251,6 +264,17 @@ function drawBarGraph(cv, rows, cfg) {
       var v = r.wert || 0, yZ = tY(0), yV = tY(v);
       ctx2d.fillStyle = balkenFarbe(r);
       ctx2d.fillRect(x, Math.min(yZ, yV), bW, Math.abs(yV - yZ) || 2);
+      // Kapp-Markierung: kleines Dreieck am Plotrand, wenn v ausserhalb yFix.
+      if (isClipped(v)) {
+        var yEdge = v > yMx ? pad.top : (pad.top + pH);
+        var dir = v > yMx ? 1 : -1;   // Spitze nach oben/unten
+        ctx2d.fillStyle = "#111";
+        ctx2d.beginPath();
+        ctx2d.moveTo(x + bW / 2, yEdge - dir * 6);
+        ctx2d.lineTo(x + bW / 2 - 4, yEdge);
+        ctx2d.lineTo(x + bW / 2 + 4, yEdge);
+        ctx2d.closePath(); ctx2d.fill();
+      }
       // Residuum-T-Balken (nur cfg.residuum)
       if (cfg.residuum && r.residuum > 0) {
         var yt = tY(v + r.residuum), yb = tY(v - r.residuum), cx = tX(j);

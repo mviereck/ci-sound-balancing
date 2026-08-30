@@ -71,6 +71,10 @@
   // ---- Heatmap (BA 409) + Zeit-Trend (BA 410) ----
 
   var ZA_HM_RANGE = 10;   // dB; Werte darueber/darunter werden gekappt
+  // Fester Y-Bereich (dB, symmetrisch) fuer die Balken-/Linien-Graphen
+  // (Einzelmessung, konsolidierte Kurve, Zeit-Trend): gleiche Skala ueber alle
+  // Sitzungen -> vergleichbar. Werte darueber werden gekappt + markiert.
+  var ZA_Y_RANGE  = 15;
   var ZA_HM_MIN_COL_W = 14;   // px Mindestbreite je Spalte
   var ZA_HM_PAD_T = 12;   // Oberer Abstand der Heatmap (Schritt 2 BA 410)
   var ZA_HM_ROW_H = 18;   // Zeilenhoehe der Heatmap (Schritt 2 BA 410)
@@ -282,11 +286,13 @@
     cv.style.width = w + "px"; cv.style.height = h + "px";
     g.scale(dpr, dpr); g.clearRect(0, 0, w, h);
 
-    // Y-Bereich: symmetrisch um 0, deckt corr+-res ab (min 4 dB Halbspanne)
-    var amax = 4;
-    td.points.forEach(function (p) { amax = Math.max(amax, Math.abs(p.corr) + p.res); });
-    amax = Math.ceil(amax);
-    function tY(v) { return padT + (amax - v) / (2 * amax) * plotH; }
+    // Y-Bereich: FEST (ZA_Y_RANGE), damit verschiedene Elektroden dieselbe
+    // Skala haben und vergleichbar sind. Werte darueber werden geklemmt.
+    var amax = ZA_Y_RANGE;
+    function tY(v) {
+      var vv = Math.max(-amax, Math.min(amax, v));
+      return padT + (amax - vv) / (2 * amax) * plotH;
+    }
     function tX(ts) {
       if (td.tMax === td.tMin) return padL + plotW / 2;
       return padL + (ts - td.tMin) / (td.tMax - td.tMin) * plotW;
@@ -387,6 +393,7 @@
       refElLabel: true,
       yLabel: "dB",
       ySymmetrisch: true,
+      yFix: ZA_Y_RANGE,   // feste Skala -> Sitzungen vergleichbar
       ctx: ctx
     });
   }
