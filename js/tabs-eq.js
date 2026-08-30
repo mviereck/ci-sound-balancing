@@ -267,6 +267,12 @@ function _switchTabInternal(n) {
   if (n === "schieber") {
     if (typeof schieberELLRebuild === "function") schieberELLRebuild();
   }
+  if (n === "verlaufsanalyse") {
+    // Reiter-Eintritt: bei verstecktem Panel war clientWidth ~0 -> Heatmap/
+    // Trend/Kurve gestaucht. Jetzt sichtbar, Breite stimmt -> neu zeichnen
+    // (gleiche Falle wie frequenzbaender oben).
+    if (typeof window.zaRedraw === "function") window.zaRedraw();
+  }
   // BA 163: pro Browser-Tab
   try { sessionStorage.setItem("ci-lb-activeTab", n); } catch (e) {}
   if (!_suppressHashPush) history.pushState(null, "", "#" + n);

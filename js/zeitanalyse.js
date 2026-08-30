@@ -773,12 +773,13 @@
   }
 
   // Alle Verlaufsanalyse-Grafiken auf die aktuelle Seite (activeSide) neu
-  // zeichnen. Von setActiveSide gerufen, damit ein globaler Seitenwechsel die
-  // Ansicht mitzieht (sonst bleibt sie auf der alten Seite stehen). Die im
-  // Zeit-Trend gewaehlte Elektrode wird zurueckgesetzt, da ihr Index auf der
-  // anderen Seite nicht sinnvoll fortgilt.
+  // zeichnen. Gerufen von setActiveSide (globaler Seitenwechsel -> Ansicht
+  // mitziehen) und beim Reiter-Eintritt (versteckter Reiter hatte clientWidth
+  // ~0 -> Grafik gestaucht; jetzt sichtbar, Breite stimmt). Die im Zeit-Trend
+  // gewaehlte Elektrode (zaTrendEl) wird bewusst NICHT genullt (Architektur
+  // §10) — ihre Gueltigkeit ergibt sich aus den Daten (zaDrawTrend faengt den
+  // Leerfall ab).
   function zaRedraw() {
-    zaTrendEl = null;
     zaDrawCurve();
     zaDrawHeatmap();
     zaDrawTrend();
