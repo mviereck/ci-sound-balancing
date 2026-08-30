@@ -442,7 +442,7 @@ Object.assign(L.fr, {
     audStatMute: "muet",
     audiologELLGeomNote: "Le volume a été mesuré au centre géométrique de la bande de fréquences de chaque électrode, afin de réduire au minimum l'influence des électrodes voisines. Pour orientation, le centre arithmétique, moins précis, est aussi indiqué entre parenthèses, tel qu'affiché par exemple dans Maestro/MED-EL.",
     audiologFreqGeomNote: "Les fréquences ont été mesurées à partir du centre géométrique des bandes de fréquences, afin d'atteindre l'électrode le plus précisément possible et de co-activer le moins possible les électrodes voisines. Le centre géométrique diffère du centre arithmétique, moins précis, tel qu'indiqué par exemple par Maestro/MED-EL. Le centre arithmétique est indiqué en plus entre parenthèses, pour orientation. Les écarts indiqués se réfèrent au centre géométrique.",
-    audiologLoudnessLegend: "Δ dB = écart d'intensité mesuré par le patient par rapport à la moyenne (positif = augmenter MCL). Résidu = dispersion résiduelle moyenne des comparaisons sous-jacentes ; valeurs plus basses = mesure plus cohérente.",
+    audiologLoudnessLegend: "Δ dB = écart d'intensité mesuré par le patient par rapport à la moyenne (positif = perçu comme trop faible). Résidu = dispersion résiduelle moyenne des comparaisons sous-jacentes ; valeurs plus basses = mesure plus cohérente.",
     audiologFreqSymHint: "Le warping fréquentiel agit symétriquement sur les deux côtés. Comme un seul côté est imprimé, l'autre côté est listé comme section distincte (diagramme et tableau).",
     audiologBalDiff: "Différence entre les côtés",
     audiologBalImpact: "{louder} est perçu comme plus fort, {quieter} comme plus faible.",
@@ -454,7 +454,7 @@ Object.assign(L.fr, {
     audiologAdvice1: "Les valeurs de correction indiquées sont des approximations issues de mesures d'intensité acoustiques avec comparaison par paires psychoacoustique. Elles ne remplacent pas un ajustement direct basé sur la stimulation.",
     audiologAdvice2: "Les valeurs qu/CL/CU éventuellement calculées sont une conversion des valeurs en décibels selon des formules issues de recherches. Veuillez vérifier la plausibilité.",
     audiologAdvice3: "Procédure recommandée : utiliser les valeurs comme point de départ · vérifier avec la fonction d'équilibrage par rapport aux électrodes voisines · le patient confirme l'égalité subjective.",
-    audiologAdvice4: "Signes : les valeurs Δ positives signifient que MCL/C-/M-Level doit être augmenté (l'électrode a été mesurée comme trop faible). Valeurs négatives = abaisser.",
+    audiologAdvice4: "Signes : les valeurs Δ positives signifient que l'électrode a été mesurée comme trop faible (augmenter le niveau). Valeurs négatives = abaisser.",
     audiologAdvice5: "Veuillez remettre à votre client en fin de séance un protocole d'ajustement complet avec toutes les données de toutes les MAP.",
     audMissImplantModel: "Modèle d'implant",
     audMissProcessor: "Modèle de processeur audio",
@@ -595,7 +595,6 @@ Object.assign(L.fr, {
       + "<li>Saisissez pour chaque électrode les bandes de fréquences avec limite inférieure et limite supérieure issues de votre réglage d'IC ; demandez-les à votre audiologiste. Les valeurs par défaut indiquées conviennent à beaucoup de porteurs d'IC, mais peuvent diverger individuellement de manière légère à importante.</li>"
       + "<li>Si des électrodes sont désactivées/coupées chez vous, décochez la case « Actif ».</li>"
       + "<li>Écoutez chaque électrode individuellement dans « Écouter les électrodes via des tons ». Si une électrode paraît étrange, p. ex. trop faible ou très bruitée, veuillez la marquer sous « Statut ».</li>"
-      + "<li>Facultatif : saisissez THR et MCL. La valeur MCL permet de convertir les décibels en valeurs de réglage directes pour votre audiologiste.</li>"
       + "</ol>",
     implTableDefaultsHint:
       "<b>Remarque :</b> Si vous ne connaissez pas les réglages de votre IC, vous pouvez aussi travailler avec les valeurs par défaut prédéfinies. Même si ces valeurs ne correspondent pas exactement à votre réglage réel, vous pouvez déjà effectuer des mesures approximatives et vous faire une idée des possibilités d'un réglage corrigé. Pour des mesures précises, une saisie correcte des bandes de fréquences (limite inférieure, limite supérieure) pour chaque électrode est toutefois indispensable.",

@@ -184,7 +184,7 @@ function buildImplantCard() {
   document.getElementById("implMedelParams").style.display =
     m === "medel" ? "" : "none";
   document.getElementById("implAbParams").style.display =
-    m === "ab" ? "" : "none";
+    (IMPL_HERSTELLERWERTE && m === "ab") ? "" : "none";
   const genGrp = document.getElementById("implGenGroup");
   if (genGrp) genGrp.style.display = m === "cochlear" ? "" : "none";
 

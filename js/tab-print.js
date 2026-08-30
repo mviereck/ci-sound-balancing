@@ -353,8 +353,7 @@ function printSchieberELLTab() {
 
   const info = `
     <p style="font-size:0.9em;margin:8px 0 12px 0;color:#444;">
-      <strong>${_tpEsc(t("schieberELLModeLabel") || "Modus")}:</strong> ${_tpEsc(modeLabel)}
-      &nbsp;·&nbsp;
+      ${IMPL_HERSTELLERWERTE ? `<strong>${_tpEsc(t("schieberELLModeLabel") || "Modus")}:</strong> ${_tpEsc(modeLabel)} &nbsp;·&nbsp;` : ""}
       <strong>${_tpEsc(t("schieberELLVariantLabel") || "Variante")}:</strong> ${_tpEsc(variantLbl)}
     </p>
   `;

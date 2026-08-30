@@ -1135,6 +1135,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // if (_FRQ_sliBtn) _FRQ_sliBtn.addEventListener("click", function () { FRQ_setActiveMethod("slider"); });
   // if (_FRQ_piaBtn) _FRQ_piaBtn.addEventListener("click", function () { FRQ_setActiveMethod("piano"); });
 
+  // BA554: Absolutmodus-Umschalter ausblenden, solange die
+  // Hersteller-Umrechnungswerte aus sind.
+  if (!IMPL_HERSTELLERWERTE) {
+    const _modeSwitch = document.getElementById("schieberELLModeSwitch");
+    if (_modeSwitch) _modeSwitch.style.display = "none";
+  }
+
   // Modus-Toggle relativ/absolut
   document.querySelectorAll('input[name="schieberELLMode"]').forEach((r) => {
     r.addEventListener("change", function () {

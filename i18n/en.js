@@ -441,7 +441,7 @@ Object.assign(L.en, {
     audStatMute: "mute",
     audiologELLGeomNote: "Loudness was measured at the geometric center of each electrode's frequency band, to keep the influence of neighbouring electrodes as small as possible. For orientation, the less precise arithmetic center of the band is also given in parentheses, as shown for example in Maestro/MED-EL.",
     audiologFreqGeomNote: "The frequencies were measured starting from the geometric center of the frequency bands, to hit the electrode as precisely as possible and to co-activate neighbouring electrodes as little as possible. The geometric center differs from the less precise arithmetic center as given for example by Maestro/MED-EL. The arithmetic center is additionally shown in parentheses for orientation. The deviations shown refer to the geometric center.",
-    audiologLoudnessLegend: "Δ dB = loudness deviation measured by the patient compared to the mean (positive = raise MCL). Residual = mean residual dispersion of the underlying comparisons; lower values = more consistent measurement.",
+    audiologLoudnessLegend: "Δ dB = loudness deviation measured by the patient compared to the mean (positive = perceived as too quiet). Residual = mean residual dispersion of the underlying comparisons; lower values = more consistent measurement.",
     audiologFreqSymHint: "Frequency warping acts symmetrically on both sides. Since only one side is printed, the other side is included as its own section (diagram and table).",
     audiologBalDiff: "Difference between the sides",
     audiologBalImpact: "{louder} is perceived as louder, {quieter} as quieter.",
@@ -453,7 +453,7 @@ Object.assign(L.en, {
     audiologAdvice1: "The correction values shown are approximations from acoustic loudness measurements with psychoacoustic pair comparison. They do not replace a direct stimulation-based fitting.",
     audiologAdvice2: "Any calculated qu / CL / CU values are a conversion of decibel values according to researched formulas. Please check for plausibility.",
     audiologAdvice3: "Recommended procedure: Use values as a starting point · check against neighboring electrodes with the balancing function · patient confirms subjective equality.",
-    audiologAdvice4: "Sign convention: Positive Δ values mean that MCL / C / M level should be raised (electrode was measured as too quiet). Negative values = lower.",
+    audiologAdvice4: "Sign convention: Positive Δ values mean the electrode was measured as too quiet (raise level). Negative values = lower.",
     audiologAdvice5: "After the session, please provide your client with a complete fitting protocol including all data of all MAPs.",
     audMissImplantModel: "Implant model",
     audMissProcessor: "Audio processor model",
@@ -594,7 +594,6 @@ Object.assign(L.en, {
       + "<li>For each electrode, enter the frequency bands with lower and upper bound from your CI fitting; ask your audiologist for them. The default values entered fit many CI users, but can deviate slightly to substantially in individual cases.</li>"
       + "<li>If any electrodes are deactivated/switched off for you, uncheck the ‘Active’ box.</li>"
       + "<li>Play each electrode individually in ‘Play electrodes via tones’. If an electrode seems odd, e.g. too quiet or strongly noisy, please mark it under ‘Status’.</li>"
-      + "<li>Optional: enter THR and MCL. The MCL value allows a conversion from decibels into direct fitting values for your audiologist.</li>"
       + "</ol>",
     implTableDefaultsHint:
       "<b>Note:</b> If you do not know your CI settings, you can also work with the preset default values. Even if these values do not exactly match your actual settings, you can already take approximate measurements and get an impression of the possibilities of a corrected fitting. For precise measurements, however, a correct entry of the frequency bands (lower bound, upper bound) for each electrode is indispensable.",

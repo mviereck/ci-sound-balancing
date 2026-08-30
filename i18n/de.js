@@ -492,7 +492,7 @@ Object.assign(L.de, {
     audStatMute: "stumm",
     audiologELLGeomNote: "Die Lautstärke wurde auf der geometrischen Mitte des Frequenzbandes jeder Elektrode gemessen, um den Einfluß der Nachbarelektroden so klein wie möglich zu halten. Zur Orientierung ist in Klammern zusätzlich die weniger genaue arithmetische Mitte des Frequenzbandes angegeben, wie sie z. B. in Maestro/MED-EL angezeigt wird.",
     audiologFreqGeomNote: "Die Frequenzen wurden ausgehend von der geometrischen Mitte der Frequenzbänder gemessen, um die Elektrode möglichst genau zu treffen und die Nachbarelektroden so wenig wie möglich mit zu aktivieren. Die geometrische Mitte weicht ab von der weniger genauen arithmetischen Mitte, wie sie z. B. von Maestro/MED-EL angegeben wird. In Klammern ist die arithmetische Mitte zusätzlich als Orientierungshilfe angegeben. Die angegebenen Abweichungen beziehen sich auf die geometrische Mitte.",
-    audiologLoudnessLegend: "Δ dB = vom Patienten gemessene Lautstärken-Abweichung gegenüber dem Mittel (positiv = MCL anheben). Residuum = mittlere Reststreuung der zugrundeliegenden Vergleiche; niedrigere Werte = konsistentere Messung.",
+    audiologLoudnessLegend: "Δ dB = vom Patienten gemessene Lautstärken-Abweichung gegenüber dem Mittel (positiv = zu leise wahrgenommen). Residuum = mittlere Reststreuung der zugrundeliegenden Vergleiche; niedrigere Werte = konsistentere Messung.",
     audiologFreqSymHint: "Frequenz-Warping wirkt symmetrisch auf beide Seiten. Da nur eine Seite gedruckt wird, ist die andere Seite als eigener Abschnitt (Diagramm und Tabelle) mit aufgeführt.",
     audiologBalDiff: "Differenz zwischen den Seiten",
     audiologBalImpact: "{louder} wird lauter wahrgenommen, {quieter} leiser.",
@@ -504,7 +504,7 @@ Object.assign(L.de, {
     audiologAdvice1: "Die gezeigten Korrekturwerte sind Approximationen aus akustischen Lautstärkemessungen mit psychoakustischem Paarvergleich. Sie ersetzen keine direkte stimulationsbasierte Anpassung.",
     audiologAdvice2: "Ggf. errechnete qu-/CL-/CU-Werte sind eine Umrechnung von Dezibel-Werten gemäß recherchierter Formeln. Bitte auf Plausibilität prüfen.",
     audiologAdvice3: "Empfohlene Vorgehensweise: Werte als Startpunkt verwenden · mit Balancing-Funktion gegen Nachbarelektroden prüfen · Patient bestätigt subjektive Gleichheit.",
-    audiologAdvice4: "Vorzeichen: Positive Δ-Werte bedeuten, daß MCL/C-/M-Level angehoben werden soll (Elektrode wurde als zu leise gemessen). Negative Werte = absenken.",
+    audiologAdvice4: "Vorzeichen: Positive Δ-Werte bedeuten, daß die Elektrode als zu leise gemessen wurde (Pegel anheben). Negative Werte = absenken.",
     audiologAdvice5: "Bitte geben Sie Ihrem Klienten nach Ende der Sitzung ein vollständiges Anpassungsprotokoll mit allen Daten aller MAPs mit.",
     audMissImplantModel: "Implantat-Modell",
     audMissProcessor: "Audioprozessor-Modell",
@@ -644,7 +644,6 @@ Object.assign(L.de, {
       + "<li>Tragen Sie für jede Elektrode die Frequenzbänder mit Untergrenze und Obergrenze aus Ihrer CI-Anpassung ein; fragen Sie Ihren Audiologen danach. Die eingetragenen Default-Werte passen für viele CI-Träger, können aber individuell leicht bis erheblich abweichen.</li>"
       + "<li>Wenn bei Ihnen Elektroden deaktiviert/abgeschaltet sind, entfernen Sie das Häkchen bei ‚Aktiv‘.</li>"
       + "<li>Spielen Sie jede Elektrode einzeln in ‚Elektroden über Töne anspielen‘ an. Wenn eine Elektrode seltsam ist, etwa zu leise oder stark rauschend, markieren Sie das bitte unter ‚Status‘.</li>"
-      + "<li>Optional: Tragen Sie THR und MCL ein. Der MCL-Wert erlaubt eine Umrechnung von Dezibel in direkte Einstellungswerte für Ihren Audiologen.</li>"
       + "</ol>",
     implTableDefaultsHint:
       "<b>Hinweis:</b> Wenn Sie die Einstellungen Ihres CI nicht kennen, können Sie auch mit den vorgegebenen Defaultwerten arbeiten. Auch wenn diese Werte nicht ganz zu Ihrer tatsächlichen Einstellung passen, können Sie so doch bereits näherungsweise Messungen machen und einen Eindruck von den Möglichkeiten einer korrigierten Anpassung bekommen. Für präzise Messungen ist jedoch eine korrekte Eintragung der Frequenzbänder (Untere Grenze, Obere Grenze) je Elektrode unverzichtbar.",

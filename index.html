@@ -786,17 +786,19 @@
           </div>
           <p style="font-size:.84em;color:var(--text-muted);margin-bottom:10px;margin-top:6px;" data-t="schieberELLDesc"></p>
           <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:6px;font-size:.86em">
-            <!-- Hauptmodus -->
-            <span style="font-weight:600" data-t="schieberELLModeLabel"></span>
-            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
-              <input type="radio" name="schieberELLMode" id="schieberELLModeRel" value="rel" checked>
-              <span data-t="schieberELLModeRelative"></span>
-            </label>
-            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
-              <input type="radio" name="schieberELLMode" id="schieberELLModeAbs" value="abs">
-              <span data-t="schieberELLModeAbsolute"></span>
-            </label>
-            <span style="color:var(--text-muted)">|</span>
+            <!-- Hauptmodus (per IMPL_HERSTELLERWERTE ausgeblendet, s. init.js) -->
+            <span id="schieberELLModeSwitch" style="display:contents">
+              <span style="font-weight:600" data-t="schieberELLModeLabel"></span>
+              <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+                <input type="radio" name="schieberELLMode" id="schieberELLModeRel" value="rel" checked>
+                <span data-t="schieberELLModeRelative"></span>
+              </label>
+              <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+                <input type="radio" name="schieberELLMode" id="schieberELLModeAbs" value="abs">
+                <span data-t="schieberELLModeAbsolute"></span>
+              </label>
+              <span style="color:var(--text-muted)">|</span>
+            </span>
             <!-- Variante -->
             <span style="font-weight:600" data-t="schieberELLVariantLabel"></span>
             <label style="display:flex;align-items:center;gap:4px;cursor:pointer">

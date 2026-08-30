@@ -442,7 +442,7 @@ Object.assign(L.es, {
     audStatMute: "mudo",
     audiologELLGeomNote: "El volumen se midió en el centro geométrico de la banda de frecuencias de cada electrodo, para mantener lo más pequeña posible la influencia de los electrodos vecinos. Para orientación, entre paréntesis se indica además el centro aritmético, menos preciso, tal como se muestra por ejemplo en Maestro/MED-EL.",
     audiologFreqGeomNote: "Las frecuencias se midieron partiendo del centro geométrico de las bandas de frecuencia, para acertar en el electrodo con la mayor precisión posible y coactivar lo menos posible los electrodos vecinos. El centro geométrico difiere del centro aritmético, menos preciso, tal como lo indica por ejemplo Maestro/MED-EL. El centro aritmético se indica además entre paréntesis, para orientación. Las desviaciones indicadas se refieren al centro geométrico.",
-    audiologLoudnessLegend: "Δ dB = desviación de volumen medida por el paciente respecto a la media (positivo = subir MCL). Residuo = dispersión residual media de las comparaciones subyacentes; valores menores = medición más consistente.",
+    audiologLoudnessLegend: "Δ dB = desviación de volumen medida por el paciente respecto a la media (positivo = percibido como demasiado débil). Residuo = dispersión residual media de las comparaciones subyacentes; valores menores = medición más consistente.",
     audiologFreqSymHint: "El warping de frecuencia actúa simétricamente sobre ambos lados. Como solo se imprime un lado, el otro lado se incluye en una sección propia (diagrama y tabla).",
     audiologBalDiff: "Diferencia entre lados",
     audiologBalImpact: "{louder} se percibe más fuerte, {quieter} más débil.",
@@ -454,7 +454,7 @@ Object.assign(L.es, {
     audiologAdvice1: "Los valores de corrección mostrados son aproximaciones obtenidas a partir de mediciones acústicas de volumen con comparación psicoacústica por pares. No sustituyen a un ajuste basado directamente en estimulación.",
     audiologAdvice2: "Los valores qu/CL/CU calculados (si los hay) son una conversión de valores en decibelios según fórmulas documentadas. Por favor, compruebe su plausibilidad.",
     audiologAdvice3: "Procedimiento recomendado: usar los valores como punto de partida · comprobar con la función de balanceo frente a electrodos vecinos · paciente confirma igualdad subjetiva.",
-    audiologAdvice4: "Signo: valores Δ positivos significan que el nivel MCL/C/M debe subirse (el electrodo se midió como demasiado débil). Valores negativos = bajar.",
+    audiologAdvice4: "Signo: valores Δ positivos significan que el electrodo se midió como demasiado débil (subir el nivel). Valores negativos = bajar.",
     audiologAdvice5: "Al finalizar la sesión, por favor entregue a su cliente un protocolo de ajuste completo con todos los datos de todos los MAPs.",
     audMissImplantModel: "Modelo de implante",
     audMissProcessor: "Modelo de procesador de audio",
@@ -595,7 +595,6 @@ Object.assign(L.es, {
       + "<li>Introduzca para cada electrodo las bandas de frecuencia con límite inferior y límite superior de su programación del IC; pídaselas a su audiólogo. Los valores por defecto introducidos se ajustan a muchos portadores de IC, pero pueden desviarse de forma individual entre poco y notablemente.</li>"
       + "<li>Si en su caso hay electrodos desactivados/apagados, desmarque la casilla «Activo».</li>"
       + "<li>Escuche cada electrodo individualmente en «Escuchar electrodos mediante tonos». Si un electrodo resulta extraño, p. ej. demasiado bajo o con mucho ruido, márquelo en «Estado».</li>"
-      + "<li>Opcional: introduzca THR y MCL. El valor MCL permite convertir decibelios en valores de ajuste directos para su audiólogo.</li>"
       + "</ol>",
     implTableDefaultsHint:
       "<b>Nota:</b> Si no conoce los ajustes de su IC, también puede trabajar con los valores por defecto preestablecidos. Aunque estos valores no coincidan exactamente con su ajuste real, ya puede realizar mediciones aproximadas y hacerse una idea de las posibilidades de una adaptación corregida. Para mediciones precisas, no obstante, es indispensable una introducción correcta de las bandas de frecuencia (límite inferior, límite superior) para cada electrodo.",

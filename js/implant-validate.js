@@ -1126,19 +1126,23 @@ function validateImplantTable(side) {
   warnings.push.apply(warnings, _implCheckHzJumpMedelAb(s));
   warnings.push.apply(warnings, _implCheckBandGrenzeRoh(s));
   warnings.push.apply(warnings, _implCheckBandNahtlos(s));
-  warnings.push.apply(warnings, _implCheckThrUpperRange(s));
-  warnings.push.apply(warnings, _implCheckThrUpperConflict(s));
-  warnings.push.apply(warnings, _implCheckThrUpperMagnitude(s));
-  warnings.push.apply(warnings, _implCheckThrUpperMAD(s));
+  if (IMPL_HERSTELLERWERTE) {
+    warnings.push.apply(warnings, _implCheckThrUpperRange(s));
+    warnings.push.apply(warnings, _implCheckThrUpperConflict(s));
+    warnings.push.apply(warnings, _implCheckThrUpperMagnitude(s));
+    warnings.push.apply(warnings, _implCheckThrUpperMAD(s));
+    warnings.push.apply(warnings, _implCheckGlobalCWert(s));
+    warnings.push.apply(warnings, _implCheckGlobalIDR(s));
+  }
   warnings.push.apply(warnings, _implCheckFatOnDeactivation(s));
-  warnings.push.apply(warnings, _implCheckGlobalCWert(s));
-  warnings.push.apply(warnings, _implCheckGlobalIDR(s));
   warnings.push.apply(warnings, _implCheckInfoFreqOwn(s));
   warnings.push.apply(warnings, _implCheckInfoAllActive(s));
-  warnings.push.apply(warnings, _implCheckInfoUpperLevel(s));
-  warnings.push.apply(warnings, _implCheckInfoThr(s));
-  warnings.push.apply(warnings, _implCheckInfoCValueMedel(s));
-  warnings.push.apply(warnings, _implCheckInfoIdrAb(s));
+  if (IMPL_HERSTELLERWERTE) {
+    warnings.push.apply(warnings, _implCheckInfoUpperLevel(s));
+    warnings.push.apply(warnings, _implCheckInfoThr(s));
+    warnings.push.apply(warnings, _implCheckInfoCValueMedel(s));
+    warnings.push.apply(warnings, _implCheckInfoIdrAb(s));
+  }
   warnings.push.apply(warnings, _implCheckInfoCodingMedel(s));
 
   _implClearMarkers();

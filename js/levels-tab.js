@@ -507,6 +507,7 @@ function _schieberDrawCompareLinesAbsolute(ctx, baseY, yPerUnit, cols) {
 // ---------- Verfügbarkeit Absolutmodus ----------
 
 function schieberELLAbsoluteAvailable() {
+  if (!IMPL_HERSTELLERWERTE) return false;
   const im = sideData[activeSide].implant || {};
   const act = actEl();
   const isMedel = mfr === "medel";

@@ -437,8 +437,13 @@ function _archivMdImplantTables(data) {
     out.push(`### ${sd.label} (${sd.manufacturerLabel})`);
     out.push("");
     const unit = sd.implant.unit || "qu";
-    out.push(`| ${t("thEl")} | ${t("thBandLo")} | ${t("thBandHi")} | ${t("thBandMitte")} | ${t("archivImplThr")} (${unit}) | ${t("archivImplUpper")} (${unit}) | ${t("archivImplStatus")} | ${t("archivImplExcl")} |`);
-    out.push("|---|---|---|---|---|---|---|---|");
+    if (IMPL_HERSTELLERWERTE) {
+      out.push(`| ${t("thEl")} | ${t("thBandLo")} | ${t("thBandHi")} | ${t("thBandMitte")} | ${t("archivImplThr")} (${unit}) | ${t("archivImplUpper")} (${unit}) | ${t("archivImplStatus")} | ${t("archivImplExcl")} |`);
+      out.push("|---|---|---|---|---|---|---|---|");
+    } else {
+      out.push(`| ${t("thEl")} | ${t("thBandLo")} | ${t("thBandHi")} | ${t("thBandMitte")} | ${t("archivImplStatus")} | ${t("archivImplExcl")} |`);
+      out.push("|---|---|---|---|---|---|");
+    }
     for (const e of sd.implant.electrodes) {
       const bandLo = e.band ? _mdFmtHz(e.band.lo) : "—";
       const bandHi = e.band ? _mdFmtHz(e.band.hi) : "—";
@@ -448,7 +453,11 @@ function _archivMdImplantTables(data) {
       const _ST_KEY = { noisyLess: "stNoisyLess", noisyMore: "stNoisyMore", noisyHeavy: "stNoisyHeavy", almostMute: "stAlmMute", mute: "stMute", deactivated: "stDeactivated" }; // BA 164: Quelle ist jetzt elActive (via _collectSideData)
       const stTxt  = e.status ? (t(_ST_KEY[e.status] || "") || e.status) : "";
       const exclTxt = e.excluded ? "**X**" : "";
-      out.push(`| ${e.label} | ${bandLo} | ${bandHi} | ${mitte} | ${thrTxt} | ${upTxt} | ${stTxt} | ${exclTxt} |`);
+      if (IMPL_HERSTELLERWERTE) {
+        out.push(`| ${e.label} | ${bandLo} | ${bandHi} | ${mitte} | ${thrTxt} | ${upTxt} | ${stTxt} | ${exclTxt} |`);
+      } else {
+        out.push(`| ${e.label} | ${bandLo} | ${bandHi} | ${mitte} | ${stTxt} | ${exclTxt} |`);
+      }
     }
     out.push("");
     out.push(`_${t("audiologFreqGeomNote")}_`);
@@ -557,7 +566,7 @@ function _archivMdELL(sd) {
 function _archivMdSchieberELL(sd) {
   const out = [];
   const modeLabel = (sd.schieberELL.mode === "abs") ? t("schieberELLModeAbsolute") : t("schieberELLModeRelative");
-  out.push(`### ${t("archivSecSchieberELL")} (${modeLabel})`);
+  out.push(`### ${t("archivSecSchieberELL")}${IMPL_HERSTELLERWERTE ? " (" + modeLabel + ")" : ""}`);
   out.push("");
   const showAbs = sd.schieberELL.mode === "abs" && sd.schieberELL.rows.some((r) => r.absDelta != null);
   if (showAbs) {
@@ -692,7 +701,9 @@ function _archivMdPlayer(data) {
 function _archivMdMisc(data) {
   const out = [`\n## ${t("archivSecMisc")}\n`];
   out.push(`- ${t("archivCfgDefMfr")}: ${(MFR[data.defaultMfr] && MFR[data.defaultMfr].name) || data.defaultMfr}`);
-  out.push(`- ${t("archivSchieberELLMode")}: ${data.schieberELL.mode === "abs" ? t("schieberELLModeAbsolute") : t("schieberELLModeRelative")}`);
+  if (IMPL_HERSTELLERWERTE) {
+    out.push(`- ${t("archivSchieberELLMode")}: ${data.schieberELL.mode === "abs" ? t("schieberELLModeAbsolute") : t("schieberELLModeRelative")}`);
+  }
   out.push(`- ${t("archivSchieberELLVariant")}: ${data.schieberELL.variant}`);
   out.push(`- ${t("archivSchieberELLShowMeas")}: ${data.schieberELL.showMeas ? t("on") : t("off")}`);
   out.push(`- ${t("archivSchieberELLShowCurves")}: ${data.schieberELL.showCurves ? t("on") : t("off")}`);
@@ -860,8 +871,13 @@ function _audiologELLTable(side) {
     const resArr = _audiologELLResForSide(side);
     const unit = ELL_unitLabelFor(mfr);
     const lines = [];
-    lines.push(`| ${t("thEl")} | ${t("thBandMitte")} | ${t("audColDb")} | ${t("audColRes")} | ${t("audColMcl")} (${unit}) | ${t("audColMclDelta")} (${unit}) | ${t("audColMclNew")} (${unit}) | ${t("audColStatus")} | ${t("archivImplExcl")} | ${t("thRefEl")} |`);
-    lines.push("|---|---|---|---|---|---|---|---|---|---|");
+    if (IMPL_HERSTELLERWERTE) {
+      lines.push(`| ${t("thEl")} | ${t("thBandMitte")} | ${t("audColDb")} | ${t("audColRes")} | ${t("audColMcl")} (${unit}) | ${t("audColMclDelta")} (${unit}) | ${t("audColMclNew")} (${unit}) | ${t("audColStatus")} | ${t("archivImplExcl")} | ${t("thRefEl")} |`);
+      lines.push("|---|---|---|---|---|---|---|---|---|---|");
+    } else {
+      lines.push(`| ${t("thEl")} | ${t("thBandMitte")} | ${t("audColDb")} | ${t("audColRes")} | ${t("audColStatus")} | ${t("archivImplExcl")} | ${t("thRefEl")} |`);
+      lines.push("|---|---|---|---|---|---|---|");
+    }
     for (let i = 0; i < nEl; i++) {
       const dB = dBs[i] || 0;
       const r  = resArr[i] || 0;
@@ -870,9 +886,15 @@ function _audiologELLTable(side) {
       const excl = (elExDur[i] !== null && elExDur[i] !== undefined) ? "**X**" : "";
       const mitte = FRQ_implantatMitteGeomArithStr(i);
       const refMark = (typeof ELL_refEl !== "undefined" && ELL_refEl != null && i === ELL_refEl) ? "**X**" : "";
-      lines.push(
-        `| ${dENPrefix()}${dEN(i)} | ${mitte} | **${_audDb(dB)}** | ${r > 0 ? r.toFixed(1) + " dB" : ""} | ${_audUnitAbs(abs.mcl, abs.unit)} | ${_audUnit(abs.delta, abs.unit)} | ${_audUnitAbs(abs.newVal, abs.unit)} | ${status} | ${excl} | ${refMark} |`
-      );
+      if (IMPL_HERSTELLERWERTE) {
+        lines.push(
+          `| ${dENPrefix()}${dEN(i)} | ${mitte} | **${_audDb(dB)}** | ${r > 0 ? r.toFixed(1) + " dB" : ""} | ${_audUnitAbs(abs.mcl, abs.unit)} | ${_audUnit(abs.delta, abs.unit)} | ${_audUnitAbs(abs.newVal, abs.unit)} | ${status} | ${excl} | ${refMark} |`
+        );
+      } else {
+        lines.push(
+          `| ${dENPrefix()}${dEN(i)} | ${mitte} | **${_audDb(dB)}** | ${r > 0 ? r.toFixed(1) + " dB" : ""} | ${status} | ${excl} | ${refMark} |`
+        );
+      }
     }
     return lines.join("\n");
   });
@@ -1139,10 +1161,12 @@ function _audiologMissingImplantData(mainSides) {
     const missing = [];
     if (!impl.model)     missing.push(t("audMissImplantModel"));
     if (!impl.processor) missing.push(t("audMissProcessor"));
-    const mclSet = (impl.mcl || []).some((v) => v != null && isFinite(v));
-    if (!mclSet) missing.push(t("audMissMcl"));
-    const thrSet = (impl.thr || []).some((v) => v != null && isFinite(v));
-    if (!thrSet) missing.push(t("audMissThr"));
+    if (IMPL_HERSTELLERWERTE) {
+      const mclSet = (impl.mcl || []).some((v) => v != null && isFinite(v));
+      if (!mclSet) missing.push(t("audMissMcl"));
+      const thrSet = (impl.thr || []).some((v) => v != null && isFinite(v));
+      if (!thrSet) missing.push(t("audMissThr"));
+    }
     let freqOwnSet = false; for (let i = 0; i < (sd ? sd.nEl : 0); i++) { if (FRQ_implantatHatOwn(i, sd)) { freqOwnSet = true; break; } }
     if (!freqOwnSet) missing.push(t("audMissFreqOwn"));
     if (sd && sd.manufacturer === "medel" && !impl.cValue) missing.push(t("audMissCValue"));

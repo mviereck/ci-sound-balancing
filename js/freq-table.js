@@ -55,8 +55,11 @@ function FRQ_implantatTableBuild() {
       `<th style="white-space:nowrap">${t("thExclCb")}</th>`;
   } else {
     // BA 164: neue Spalte „Aktiv" vor Status; FSP-Spalte direkt danach
+    const _hwHdr = IMPL_HERSTELLERWERTE
+      ? `<th>${t("implThHdr")}</th><th>${upperHdr}</th>`
+      : "";
     document.getElementById("FRQ_implantatTableHead").innerHTML =
-      `<th>${elLbl}</th><th>${t("thBandLo")}</th><th>${t("thBandHi")}</th><th>${t("thBandMitte")}${infoIconHtml("implBandMitteTip")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th style="white-space:nowrap">${t("thActive")}</th>${_fspHdr}<th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th>`;
+      `<th>${elLbl}</th><th>${t("thBandLo")}</th><th>${t("thBandHi")}</th><th>${t("thBandMitte")}${infoIconHtml("implBandMitteTip")}</th>${_hwHdr}<th style="white-space:nowrap">${t("thActive")}</th>${_fspHdr}<th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th>`;
   }
   const tb = document.getElementById("FRQ_implantatTableBody");
   tb.innerHTML = "";
@@ -162,8 +165,10 @@ function FRQ_implantatTableBuild() {
       `<td><input type="text" inputmode="decimal" autocomplete="off" class="blo" data-i="${i}" value="${_loVal}" placeholder="${_loPh}" style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em"></td>` +
       `<td><input type="text" inputmode="decimal" autocomplete="off" class="bhi" data-i="${i}" value="${_hiVal}" placeholder="${_hiPh}" style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em"></td>` +
       `<td style="font-family:var(--mono);font-size:.86em;padding:4px 6px" title="${t("implBandMitteTip")}">${_mitteTxt}</td>` +
-      `<td><input type="text" inputmode="decimal" autocomplete="off" class="it" data-i="${i}" value="${thrVal}" style="${inpStyle}" placeholder="—"></td>` +
-      `<td><input type="text" inputmode="decimal" autocomplete="off" class="iu" data-i="${i}" value="${upperVal}" style="${inpStyle}" placeholder="—"></td>` +
+      (IMPL_HERSTELLERWERTE
+        ? `<td><input type="text" inputmode="decimal" autocomplete="off" class="it" data-i="${i}" value="${thrVal}" style="${inpStyle}" placeholder="—"></td>` +
+          `<td><input type="text" inputmode="decimal" autocomplete="off" class="iu" data-i="${i}" value="${upperVal}" style="${inpStyle}" placeholder="—"></td>`
+        : "") +
       `<td style="text-align:center">${_activeCbHtml}</td>` +
       _fspCell +
       `<td><select class="ss" data-i="${i}">${so_i}</select></td>` +
@@ -225,58 +230,60 @@ function FRQ_implantatTableBuild() {
       }
     });
   });
-  // Tab-Navigation THR/Upper: .it -> .iu (vertikal, unabhaengig von Bandfeldern)
-  [
-    { cls: ".it", next: ".iu", prev: null },
-    { cls: ".iu", next: null,  prev: ".it" },
-  ].forEach(({ cls, next, prev }) => {
-    const inputs = Array.from(tb.querySelectorAll(cls));
-    inputs.forEach((inp, idx) => {
-      inp.addEventListener("keydown", (e) => {
-        if (e.key !== "Tab") return;
-        if (!e.shiftKey) {
-          if (idx < inputs.length - 1) {
-            e.preventDefault();
-            inputs[idx + 1].focus();
-          } else if (next) {
-            const firstNext = tb.querySelector(next);
-            if (firstNext) { e.preventDefault(); firstNext.focus(); }
+  if (IMPL_HERSTELLERWERTE) {
+    // Tab-Navigation THR/Upper: .it -> .iu (vertikal, unabhaengig von Bandfeldern)
+    [
+      { cls: ".it", next: ".iu", prev: null },
+      { cls: ".iu", next: null,  prev: ".it" },
+    ].forEach(({ cls, next, prev }) => {
+      const inputs = Array.from(tb.querySelectorAll(cls));
+      inputs.forEach((inp, idx) => {
+        inp.addEventListener("keydown", (e) => {
+          if (e.key !== "Tab") return;
+          if (!e.shiftKey) {
+            if (idx < inputs.length - 1) {
+              e.preventDefault();
+              inputs[idx + 1].focus();
+            } else if (next) {
+              const firstNext = tb.querySelector(next);
+              if (firstNext) { e.preventDefault(); firstNext.focus(); }
+            }
+          } else {
+            if (idx > 0) {
+              e.preventDefault();
+              inputs[idx - 1].focus();
+            } else if (prev) {
+              const prevInputs = Array.from(tb.querySelectorAll(prev));
+              const lastPrev = prevInputs[prevInputs.length - 1];
+              if (lastPrev) { e.preventDefault(); lastPrev.focus(); }
+            }
           }
-        } else {
-          if (idx > 0) {
-            e.preventDefault();
-            inputs[idx - 1].focus();
-          } else if (prev) {
-            const prevInputs = Array.from(tb.querySelectorAll(prev));
-            const lastPrev = prevInputs[prevInputs.length - 1];
-            if (lastPrev) { e.preventDefault(); lastPrev.focus(); }
-          }
-        }
+        });
       });
     });
-  });
-  // THR inputs
-  tb.querySelectorAll(".it").forEach((inp) =>
-    inp.addEventListener("change", (e) => {
-      const idx = +e.target.dataset.i;
-      const v = e.target.value !== "" ? parseNum(e.target.value) : null;
-      if (!sideData[activeSide].implant) return;
-      sideData[activeSide].implant.thr[idx] = v;
-      if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
-    }),
-  );
-  // Upper (MCL/C/M) inputs
-  tb.querySelectorAll(".iu").forEach((inp) =>
-    inp.addEventListener("change", (e) => {
-      const idx = +e.target.dataset.i;
-      const v = e.target.value !== "" ? parseNum(e.target.value) : null;
-      const im2 = sideData[activeSide].implant;
-      if (!im2) return;
-      if (mfr === "medel") im2.mcl[idx] = v;
-      else im2.upperLevel[idx] = v;
-      if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
-    }),
-  );
+    // THR inputs
+    tb.querySelectorAll(".it").forEach((inp) =>
+      inp.addEventListener("change", (e) => {
+        const idx = +e.target.dataset.i;
+        const v = e.target.value !== "" ? parseNum(e.target.value) : null;
+        if (!sideData[activeSide].implant) return;
+        sideData[activeSide].implant.thr[idx] = v;
+        if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
+      }),
+    );
+    // Upper (MCL/C/M) inputs
+    tb.querySelectorAll(".iu").forEach((inp) =>
+      inp.addEventListener("change", (e) => {
+        const idx = +e.target.dataset.i;
+        const v = e.target.value !== "" ? parseNum(e.target.value) : null;
+        const im2 = sideData[activeSide].implant;
+        if (!im2) return;
+        if (mfr === "medel") im2.mcl[idx] = v;
+        else im2.upperLevel[idx] = v;
+        if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
+      }),
+    );
+  }
   tb.querySelectorAll(".ss").forEach((s) =>
     s.addEventListener("change", (e) => {
       const idx = +e.target.dataset.i,

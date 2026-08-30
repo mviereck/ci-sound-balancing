@@ -80,6 +80,14 @@ const PROCESSORS = {
   ],
 };
 
+// Hersteller-Umrechnungswerte (MCL/THR, C-Wert, IDR) und die
+// dB->qu/CL/CU-Umrechnung sind in der Oberflaeche ausgeblendet: die
+// Umrechnungsformeln sind nicht ausreichend belegt. Datenfelder und
+// Rechencode bleiben erhalten; dieser Schalter blendet nur die UI aus.
+// Auf true setzen, um MCL/THR-Spalten, Absolutmodus, Umrechnungs-
+// Ausdruck und die zugehoerigen Plausibilitaetspruefungen zurueckzuholen.
+const IMPL_HERSTELLERWERTE = false;
+
 // ============================================================
 // CALCULATION FUNCTIONS (dB → manufacturer unit)
 // ============================================================
