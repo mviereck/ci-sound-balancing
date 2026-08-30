@@ -772,8 +772,21 @@
     if (tb) tb.addEventListener("click", zaTransferToTool);
   }
 
+  // Alle Verlaufsanalyse-Grafiken auf die aktuelle Seite (activeSide) neu
+  // zeichnen. Von setActiveSide gerufen, damit ein globaler Seitenwechsel die
+  // Ansicht mitzieht (sonst bleibt sie auf der alten Seite stehen). Die im
+  // Zeit-Trend gewaehlte Elektrode wird zurueckgesetzt, da ihr Index auf der
+  // anderen Seite nicht sinnvoll fortgilt.
+  function zaRedraw() {
+    zaTrendEl = null;
+    zaDrawCurve();
+    zaDrawHeatmap();
+    zaDrawTrend();
+  }
+
   // Export für debug.js-Hook
   window.zaUpdateTabVisibility = zaUpdateTabVisibility;
+  window.zaRedraw = zaRedraw;
   // Debug-Hook fuer Diagnose-Tests (zaToCtx/zaMeanResidual BA406; Dedup/isComplete BA407; BA408; BA410)
   window.zaDebug = {
     toCtx:          zaToCtx,

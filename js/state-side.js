@@ -237,6 +237,9 @@ function setActiveSide(side) {
   // an der aktiven Seite (FRQ_refHzForMode/FRQ_seitenWerte) -> bei Seiten-
   // wechsel neu rendern, sonst bleibt die Anzeige auf der alten Seite stehen.
   if (typeof FRQ_renderResults === "function") FRQ_renderResults();
+  // Verlaufsanalyse (debug-only) haengt ebenfalls an activeSide -> mitziehen,
+  // sonst bleibt Heatmap/Trend/Kurve auf der alten Seite stehen.
+  if (typeof window.zaRedraw === "function") window.zaRedraw();
   buildImplantCard();
   updSideButtons();
   ELL_updFClearBtn();
