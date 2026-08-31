@@ -1,4 +1,13 @@
 // ============================================================
+// ANZEIGE-KONSTANTEN
+// ============================================================
+// Fester symmetrischer dB-Anzeigebereich [-GRAPH_DB_RANGE, +GRAPH_DB_RANGE]
+// fuer alle Abweichungs-Graphen (ELL-Ergebnisgraph, Verlaufsanalyse-Balken/
+// Trend, Verlaufsanalyse-Heatmap). Werte darueber werden gekappt + markiert.
+// EINE Wahrheit: hier aendern wirkt auf alle gekoppelten Graphen.
+const GRAPH_DB_RANGE = 10;
+
+// ============================================================
 // IMPLANT & PROCESSOR LISTS
 // ============================================================
 const IMPLANTS = {

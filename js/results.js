@@ -219,7 +219,7 @@ function ELL_renderResults() {
       refElLabel: true,
       yLabel: "dB",
       ySymmetrisch: true,
-      yFix: 10,           // feste Skala ±10 dB; groessere Werte gekappt + markiert
+      yFix: GRAPH_DB_RANGE,   // feste Skala; groessere Werte gekappt + markiert
       ctx: ELL_ctx("global")
     });
     var _ellHint = document.getElementById("ELL_resChartHint");

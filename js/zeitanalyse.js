@@ -77,11 +77,12 @@
 
   // ---- Heatmap (BA 409) + Zeit-Trend (BA 410) ----
 
-  var ZA_HM_RANGE = 10;   // dB; Werte darueber/darunter werden gekappt
-  // Fester Y-Bereich (dB, symmetrisch) fuer die Balken-/Linien-Graphen
-  // (Einzelmessung, konsolidierte Kurve, Zeit-Trend): gleiche Skala ueber alle
-  // Sitzungen -> vergleichbar. Werte darueber werden gekappt + markiert.
-  var ZA_Y_RANGE  = 10;
+  // Beide Anzeigebereiche an die zentrale Konstante gekoppelt (core.js,
+  // GRAPH_DB_RANGE) — EINE Wahrheit fuer alle Abweichungs-Graphen.
+  var ZA_HM_RANGE = GRAPH_DB_RANGE;   // Heatmap: Werte darueber/darunter gekappt
+  // Fester Y-Bereich fuer die Balken-/Linien-Graphen (Einzelmessung,
+  // konsolidierte Kurve, Zeit-Trend): gleiche Skala -> vergleichbar.
+  var ZA_Y_RANGE  = GRAPH_DB_RANGE;
   var ZA_HM_MIN_COL_W = 14;   // px Mindestbreite je Spalte
   var ZA_HM_PAD_T = 12;   // Oberer Abstand der Heatmap (Schritt 2 BA 410)
   var ZA_HM_ROW_H = 18;   // Zeilenhoehe der Heatmap (Schritt 2 BA 410)
