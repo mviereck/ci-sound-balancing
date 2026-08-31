@@ -956,18 +956,38 @@
     return out;
   }
 
+  // Paare aus der PEGELWEISEN Konsolidierung (00-zeitanalyse §7): die
+  // q-gewichtete Pegelkurve (zaPegelKonsol, Schaerfe wirkt) wird in
+  // widerspruchsfreie Paar-Differenzen umgerechnet (offset = pegel[a]-pegel[b]
+  // fuer alle gemessenen Paare). Der Reiter zeigt danach exakt diese Kurve;
+  // das Residuum ist 0 (die Paare fuegen sich perfekt), bis nachgemessen wird.
+  function zaTransferPairsPegel(side) {
+    var d = zaPegelKonsol(side);
+    var els = [];
+    for (var i = 0; i < d.nEl; i++) if (d.measured.has(i)) els.push(i);
+    var out = [];
+    for (var x = 0; x < els.length; x++) {
+      for (var y = x + 1; y < els.length; y++) {
+        var a = els[x], b = els[y];
+        out.push({ a: a, b: b, offset: d.levels[a] - d.levels[b] });
+      }
+    }
+    return out;
+  }
+
   // ---- Init ----
-  function zaTransferToTool() {
+  // Gemeinsamer Uebernahme-Kern: schreibt eine Paarliste als Mess-Ergebnis der
+  // Seite. modusLbl nur fuer den Bestaetigungs-/Hinweistext.
+  function zaTransferMit(pairs, modusLbl) {
     var side = activeSide;
-    var pairs = zaTransferPairs(side);
     if (!pairs.length) {
       alert("Keine konsolidierten Daten fuer diese Seite — nichts zu uebernehmen.");
       return;
     }
     var sideLbl = (side === "left") ? "LINKS" : "RECHTS";
     var ok = confirm(
-      "Die konsolidierten Werte werden als Mess-Ergebnis der Seite " + sideLbl
-      + " uebernommen.\n\nDer aktuelle Elektrodenlautstaerke-Stand dieser Seite "
+      "Die konsolidierten Werte (" + modusLbl + ") werden als Mess-Ergebnis der Seite "
+      + sideLbl + " uebernommen.\n\nDer aktuelle Elektrodenlautstaerke-Stand dieser Seite "
       + "(inkl. eines evtl. laufenden Round-Robin) wird dabei ERSETZT.\n\n"
       + "Fortfahren?");
     if (!ok) return;
@@ -983,8 +1003,15 @@
     if (typeof ELL_renderResults === "function") ELL_renderResults();
 
     var hint = document.getElementById("zaTransferHint");
-    if (hint) hint.textContent = "Uebernommen — siehe Reiter Messergebnisse, Elektrodenlautstaerke ("
-                               + sideLbl + ").";
+    if (hint) hint.textContent = "Uebernommen (" + modusLbl + ") — siehe Reiter Messergebnisse, "
+                               + "Elektrodenlautstaerke (" + sideLbl + ").";
+  }
+
+  function zaTransferPaarweise() {
+    zaTransferMit(zaTransferPairs(activeSide), "paarweise");
+  }
+  function zaTransferPegelweise() {
+    zaTransferMit(zaTransferPairsPegel(activeSide), "pegelweise");
   }
 
   function zaInit() {
@@ -1010,8 +1037,10 @@
     var sl = document.getElementById("zaSessionList");
     if (sl) sl.addEventListener("click", zaOnSessionClick);
     zaUpdateTabVisibility();
-    var tb = document.getElementById("zaTransferBtn");
-    if (tb) tb.addEventListener("click", zaTransferToTool);
+    var tbP = document.getElementById("zaTransferBtnPaar");
+    if (tbP) tbP.addEventListener("click", zaTransferPaarweise);
+    var tbG = document.getElementById("zaTransferBtnPegel");
+    if (tbG) tbG.addEventListener("click", zaTransferPegelweise);
   }
 
   // Alle Verlaufsanalyse-Grafiken auf die aktuelle Seite (activeSide) neu
