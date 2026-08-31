@@ -81,7 +81,7 @@
   // Fester Y-Bereich (dB, symmetrisch) fuer die Balken-/Linien-Graphen
   // (Einzelmessung, konsolidierte Kurve, Zeit-Trend): gleiche Skala ueber alle
   // Sitzungen -> vergleichbar. Werte darueber werden gekappt + markiert.
-  var ZA_Y_RANGE  = 15;
+  var ZA_Y_RANGE  = 10;
   var ZA_HM_MIN_COL_W = 14;   // px Mindestbreite je Spalte
   var ZA_HM_PAD_T = 12;   // Oberer Abstand der Heatmap (Schritt 2 BA 410)
   var ZA_HM_ROW_H = 18;   // Zeilenhoehe der Heatmap (Schritt 2 BA 410)

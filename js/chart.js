@@ -264,7 +264,8 @@ function drawBarGraph(cv, rows, cfg) {
       var v = r.wert || 0, yZ = tY(0), yV = tY(v);
       ctx2d.fillStyle = balkenFarbe(r);
       ctx2d.fillRect(x, Math.min(yZ, yV), bW, Math.abs(yV - yZ) || 2);
-      // Kapp-Markierung: kleines Dreieck am Plotrand, wenn v ausserhalb yFix.
+      // Kapp-Markierung: kleines Dreieck am Plotrand + echter dB-Wert, wenn v
+      // ausserhalb yFix liegt (zeigt, wie weit der Wert gekappt wurde).
       if (isClipped(v)) {
         var yEdge = v > yMx ? pad.top : (pad.top + pH);
         var dir = v > yMx ? 1 : -1;   // Spitze nach oben/unten
@@ -274,6 +275,13 @@ function drawBarGraph(cv, rows, cfg) {
         ctx2d.lineTo(x + bW / 2 - 4, yEdge);
         ctx2d.lineTo(x + bW / 2 + 4, yEdge);
         ctx2d.closePath(); ctx2d.fill();
+        // Echter Wert, innen neben dem Dreieck (bleibt im Plot).
+        ctx2d.font = "bold 9px Consolas,monospace";
+        ctx2d.textAlign = "center";
+        ctx2d.textBaseline = (dir > 0) ? "top" : "bottom";
+        ctx2d.fillText((v >= 0 ? "+" : "") + v.toFixed(1),
+                       x + bW / 2, yEdge + dir * 8);
+        ctx2d.textBaseline = "alphabetic";
       }
       // Residuum-T-Balken (nur cfg.residuum)
       if (cfg.residuum && r.residuum > 0) {
