@@ -542,6 +542,11 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandOptimieren",      def: "optimiert",  fileKey: "bandOptimieren",      group: "FRQ_bandOptimieren" },
   { key: "bandZiel",            def: "minimax",    fileKey: "bandZiel",            group: "FRQ_bandZiel" },
   { key: "bandRandausgleich",   def: "mit",        fileKey: "bandRandausgleich",   group: "FRQ_bandRandausgleich" },
+  // BA555: sABF-Zonen-Schwelle apikal/basal (nur bei verfahren "abf"). Werte als
+  // String: Hz-Zahl ("950") oder Sonderwert "aussen" (= nur aeusserste El. Rand).
+  // Default = patenttreu (950/3000). Wird via opt an FRQ_abfGrenzen durchgereicht.
+  { key: "bandAbfSchwelleApikal", def: "950",  fileKey: "bandAbfSchwelleApikal", group: "FRQ_bandAbfSchwelleApikal" },
+  { key: "bandAbfSchwelleBasal",  def: "3000", fileKey: "bandAbfSchwelleBasal",  group: "FRQ_bandAbfSchwelleBasal" },
   { key: "bandCbfGewicht",      def: "ausgewogen", fileKey: "bandCbfGewicht",      group: "FRQ_bandCbfGewicht" },
   { key: "bandCbfApikalFrei",   def: "1",          fileKey: "bandCbfApikalFrei",   group: "FRQ_bandCbfApikalFrei" },
   { key: "bandCbfBasalFrei",    def: "1",          fileKey: "bandCbfBasalFrei",    group: "FRQ_bandCbfBasalFrei" },
@@ -960,18 +965,36 @@ function _abfBasal(freqs, wandHi, tonoOberkante) {
 // Rueckgabe:
 //   { edges: [k0..kN] }   N+1 Bandkanten in Elektroden-Reihenfolge
 //   | { error: "abfTonoZuKlein" }   tonotope Zone < 2 (Architektur §3.6)
-function FRQ_abfGrenzen(kette, wand, mitAusgleich) {
+// BA555: schwellen = { apikal, basal } (Strings: Hz-Zahl oder "aussen").
+//   apikal  = "aussen" -> nur die aeusserste (Index 0) apikal; sonst Hz-Vergleich.
+//   basal   = "aussen" -> nur die aeusserste (Index N-1) basal; sonst Hz-Vergleich.
+// Fehlt schwellen (oder ein Feld), gilt der patenttreue Default (Konstanten).
+function FRQ_abfGrenzen(kette, wand, mitAusgleich, schwellen) {
   var N = kette.length;
   var freqs = kette.map(function (m) { return m.hz; });
 
+  // BA555: Schwellen aufloesen. "aussen" = Sonderwert (nur aeusserste Rand);
+  // Hz-String -> Zahl; alles andere -> patenttreuer Default (Konstante).
+  var _sA = (schwellen && schwellen.apikal != null) ? String(schwellen.apikal) : "950";
+  var _sB = (schwellen && schwellen.basal  != null) ? String(schwellen.basal)  : "3000";
+  var _apAussen = (_sA === "aussen");
+  var _baAussen = (_sB === "aussen");
+  var _loHz = _apAussen ? null : (parseFloat(_sA) || ABF_SCHWELLE_LO);
+  var _hiHz = _baAussen ? null : (parseFloat(_sB) || ABF_SCHWELLE_HI);
+
   // Zonen-Einteilung (§3.1): aeusserste IMMER Rand, dann Schwelle.
+  // "aussen" -> Schleife laeuft nicht -> nur Index 0 bzw. N-1 bleibt Rand.
   var apEnd = 0;
-  for (var i = 1; i < N - 1; i++) {
-    if (freqs[i] < ABF_SCHWELLE_LO) apEnd = i; else break;
+  if (!_apAussen) {
+    for (var i = 1; i < N - 1; i++) {
+      if (freqs[i] < _loHz) apEnd = i; else break;
+    }
   }
   var baStart = N - 1;
-  for (var j = N - 2; j > apEnd; j--) {
-    if (freqs[j] > ABF_SCHWELLE_HI) baStart = j; else break;
+  if (!_baAussen) {
+    for (var j = N - 2; j > apEnd; j--) {
+      if (freqs[j] > _hiHz) baStart = j; else break;
+    }
   }
   var apFreqs = freqs.slice(0, apEnd + 1);
   var toFreqs = freqs.slice(apEnd + 1, baStart);
@@ -1363,7 +1386,12 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
   //     Verfahren-Registry x Topologie x optimieren (bestehend). ---
   if (_istAbf) {
     var _mitAusgleich = !(opt && opt.mitAusgleich === false);
-    var abfRes = FRQ_abfGrenzen(kette, wand, _mitAusgleich);
+    // BA555: Zonen-Schwellen aus opt (Strings; Default patenttreu in FRQ_abfGrenzen).
+    var _abfSchwellen = {
+      apikal: (opt && opt.abfSchwelleApikal != null) ? opt.abfSchwelleApikal : "950",
+      basal:  (opt && opt.abfSchwelleBasal  != null) ? opt.abfSchwelleBasal  : "3000"
+    };
+    var abfRes = FRQ_abfGrenzen(kette, wand, _mitAusgleich, _abfSchwellen);
     if (abfRes.error) return abfRes;
     var _e = abfRes.edges;
     var bands = [];
@@ -2478,6 +2506,9 @@ function _FRQ_werteBerechne(form, modus, nhSim, verfahren, topologie, optimieren
           // BA463: Randausgleich pro Seite aus sideData[seite].
           mitAusgleich: (mitAusgleich !== undefined) ? (mitAusgleich !== false)
             : !(_sW && _sW.bandRandausgleich === "ohne"),
+          // BA555: sABF-Zonen-Schwellen pro Seite aus sideData[seite] (Strings).
+          abfSchwelleApikal: (_sW && typeof _sW.bandAbfSchwelleApikal === "string") ? _sW.bandAbfSchwelleApikal : "950",
+          abfSchwelleBasal:  (_sW && typeof _sW.bandAbfSchwelleBasal  === "string") ? _sW.bandAbfSchwelleBasal  : "3000",
           // BA463: CBF-Achsen pro Seite aus sideData[seite].
           cbfGewicht: (_sW && typeof _sW.bandCbfGewicht === "string") ? _sW.bandCbfGewicht : "ausgewogen",
           // BA472: apikale/basale "Freie Baender"-Achsen (ersetzen Randverhalten).

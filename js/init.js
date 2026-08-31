@@ -686,6 +686,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Zeile 2 (verfahrensspezifisch):
     show("FRQ_bandRandausgleichFieldset", istAbf);   // Randausgleich nur ABF
+    // BA555: sABF-Zonen-Schwellen nur bei ABF.
+    show("FRQ_bandAbfSchwelleApikalFieldset", istAbf);
+    show("FRQ_bandAbfSchwelleBasalFieldset",  istAbf);
     ["FRQ_bandCbfGewichtFieldset", "FRQ_bandCbfApikalFreiFieldset",
      "FRQ_bandCbfBasalFreiFieldset",
      "FRQ_bandCbfSpracheFieldset"].forEach(function (id) {
@@ -758,6 +761,9 @@ document.addEventListener("DOMContentLoaded", () => {
     sideData[activeSide].bandMinBreite = v;
   });
   _frqBandWahlInit("FRQ_bandRandausgleich", function (v) { sideData[activeSide].bandRandausgleich = v; });
+  // BA555: sABF-Zonen-Schwellen (seitenweise, wie bandRandausgleich).
+  _frqBandWahlInit("FRQ_bandAbfSchwelleApikal", function (v) { sideData[activeSide].bandAbfSchwelleApikal = v; });
+  _frqBandWahlInit("FRQ_bandAbfSchwelleBasal",  function (v) { sideData[activeSide].bandAbfSchwelleBasal  = v; });
   _frqBandWahlInit("FRQ_bandCbfGewicht", function (v) { sideData[activeSide].bandCbfGewicht = v; });
   _frqBandWahlInit("FRQ_bandCbfApikalFrei", function (v) { sideData[activeSide].bandCbfApikalFrei = v; });
   _frqBandWahlInit("FRQ_bandCbfBasalFrei",  function (v) { sideData[activeSide].bandCbfBasalFrei  = v; });
