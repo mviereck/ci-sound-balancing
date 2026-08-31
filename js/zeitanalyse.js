@@ -91,10 +91,15 @@
     return out;
   }
 
+  // Paarweise Konsolidierung (00-zeitanalyse §4): Ausgleich ueber ALLE
+  // verankerten Einzel-Paare aller Sitzungen (zaTransferPairs) — dieselbe
+  // Paarliste, die der Uebertrag (§7) schreibt. Das Residuum des Graphen ist
+  // damit das echte sitzungsuebergreifende Residuum und konsistent mit dem
+  // Ergebnisreiter nach Uebertrag. (Frueher: gemittelte Konsens-Paare -> ein
+  // Wert pro Paar -> kuenstlich winziges Residuum, inkonsistent zum Uebertrag.)
   function zaConsolidatedCtx(side) {
     var base = ELL_ctx(side === "left" || side === "right" ? side : "global");
-    var pairs = zaConsensusPairs(side);
-    return Object.assign({}, base, { ELL_results: pairs });
+    return Object.assign({}, base, { ELL_results: zaTransferPairs(side) });
   }
 
   // ---- Heatmap (BA 409) + Zeit-Trend (BA 410) ----
