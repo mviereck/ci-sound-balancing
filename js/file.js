@@ -434,11 +434,19 @@ function collectSysEqCorrection() {
     hasGain(leftArr) || hasGain(rightArr) || plEqOn || hasLat || hasBal
     || monoSum;
 
+  // Frequenz + Q spiegeln den Player (pEqFreq/pCompQ, seitenrichtig und
+  // nhSim-abhaengig). Bei getrennten Kanaelen (both/mono) traegt jede Seite
+  // ihre eigenen Werte; sonst liefert die aktive/gewaehlte Seite (mode) beide.
+  const nhSim = document.getElementById("plNHSim").checked;
+  const sideL = splitChannels ? "left"  : mode;   // mode = "left"|"right"
+  const sideR = splitChannels ? "right" : mode;
   const bands = [];
   for (let i = 0; i < nEl; i++) {
     bands.push({
-      freq: FRQ_implantatEffektiv(i),
-      q: pCompQ(i),
+      freqL: pEqFreq(i, sideL, nhSim),
+      freqR: pEqFreq(i, sideR, nhSim),
+      qL: pCompQ(i, sideL, nhSim),
+      qR: pCompQ(i, sideR, nhSim),
       gainL: leftArr[i] || 0,
       gainR: rightArr[i] || 0,
     });
@@ -478,8 +486,8 @@ function exportEasyEffects() {
   const left = {},
     right = {};
   corr.bands.forEach((b, i) => {
-    left["band" + i] = makeBand(b.freq, b.gainL, b.q);
-    right["band" + i] = makeBand(b.freq, b.gainR, b.q);
+    left["band" + i] = makeBand(b.freqL, b.gainL, b.qL);
+    right["band" + i] = makeBand(b.freqR, b.gainR, b.qR);
   });
   const preset = {
     output: {
@@ -595,9 +603,11 @@ function exportEqualizerAPO() {
     L.push("Channel: " + ch);
     corr.bands.forEach((b, i) => {
       const gain = side === "R" ? b.gainR : b.gainL;
+      const freq = side === "R" ? b.freqR : b.freqL;
+      const qv   = side === "R" ? b.qR    : b.qL;
       L.push(
-        "Filter " + (i + 1) + ": ON PK Fc " + fc(b.freq) +
-        " Hz Gain " + g(gain) + " dB Q " + q(b.q),
+        "Filter " + (i + 1) + ": ON PK Fc " + fc(freq) +
+        " Hz Gain " + g(gain) + " dB Q " + q(qv),
       );
     });
   };
