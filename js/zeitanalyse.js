@@ -26,6 +26,28 @@
   var ZA_SHARPNESS = { mild: 1.0, mittel: 1.5, scharf: 2.0 };
   var zaSharpKey  = "mittel";
 
+  // Konsolidierungsverfahren (00-zeitanalyse §4): "paarweise" | "pegelweise".
+  var zaConsolMode = "paarweise";
+
+  // Höhen-Verankerung (00-zeitanalyse §4a): verschiebt eine Sitzungs-Pegelkurve
+  // so, dass der MEDIAN der stabilen Elektroden (ell_gWt==1) auf 0 liegt.
+  // Stabile Elektroden tragen zum Anker bei, unsichere werden nur mitverschoben.
+  // Pro Sitzung aufgerufen -> gemeinsame referenzfreie Nulllinie fuer alle
+  // Ausgaben. Gibt eine NEUE Pegel-Liste zurueck (null-Eintraege bleiben null).
+  function zaAnchor(levels, elSt_, elExDur_) {
+    if (!levels || !levels.length) return levels;
+    var ankerVals = [];
+    for (var i = 0; i < levels.length; i++) {
+      var v = levels[i];
+      if (v == null || typeof v !== "number" || !isFinite(v)) continue;
+      if (ell_gWt(i, elSt_, elExDur_) === 1) ankerVals.push(v);
+    }
+    var off = (ankerVals.length ? median(ankerVals) : 0) || 0;
+    return levels.map(function (v) {
+      return (v == null || typeof v !== "number") ? v : v - off;
+    });
+  }
+
   function zaWeight(rec, side) {
     var res = zaMeanResidual(rec, side);
     if (res === null || !(res >= 0)) return 0;
@@ -106,6 +128,8 @@
       if (ts === null) return;                 // ohne Stempel keine Zeitposition
       var ctx = zaToCtx(rec, side);
       var r = ELL_compWLS(ctx);                // {levels, ELL_res, ...}
+      // Hoehen-Verankerung (§4a): referenzfreie Nulllinie, pro Sitzung.
+      var lvA = zaAnchor(r.levels, rec.elSt, rec.elExDur);
       elCount = Math.max(elCount, rec.nEl);
       var corr = [], active = [], res = [];
       for (var i = 0; i < rec.nEl; i++) {
@@ -113,7 +137,7 @@
         var act = (rec.elExDur[i] == null) && (rec.elSt[i] !== "mute")
                   && (rec.elActive[i] !== false);
         active[i] = act;
-        corr[i] = act ? r.levels[i] : null;    // levels (Ist): zu laut=positiv, zu leise=negativ -- wie Meszergebnis-Tabelle/Kurve. inaktiv -> null (grau)
+        corr[i] = act ? lvA[i] : null;    // verankerte levels (Ist): zu laut=positiv, zu leise=negativ. inaktiv -> null (grau)
         res[i]  = act ? (r.ELL_res[i] || 0) : null;   // Pro-Elektrode-Residuum (BA 410)
       }
       out.push({ ts: ts, corr: corr, active: active, res: res });
@@ -355,23 +379,12 @@
     g.fillText("Verlauf " + label + " (gemessene Abweichung dB, Balken = Residuum)", padL, 11);
   }
 
-  // Gemeinsamer Balkengraph-Koerper: ctx -> ELL_compWLS -> Rows -> drawBarGraph.
-  // Von der konsolidierten Kurve (zaDrawCurve) UND dem Einzelmessungs-Graph
-  // (zaDrawSingle) genutzt — EIN Koerper, zwei ctx-Quellen (konsolidiert vs.
-  // eine Sitzung). leerHint = Text, wenn keine auswertbaren Daten vorliegen.
-  function zaDrawBarFromCtx(canvasId, hintId, ctx, leerHint) {
-    var cv = document.getElementById(canvasId);
-    if (!cv) return;
-    var hint = hintId ? document.getElementById(hintId) : null;
-    if (!ctx || !ctx.ELL_results || !ctx.ELL_results.length) {
-      if (hint) hint.textContent = leerHint || "";
-      cv.width = cv.width;   // leeren
-      return;
-    }
-    if (hint) hint.textContent = "";
-    var r = ELL_compWLS(ctx);
-    var measured = new Set();
-    ctx.ELL_results.forEach(function (p) { measured.add(p.a); measured.add(p.b); });
+  // Gemeinsamer Balkengraph-Koerper: baut Rows aus (verankerten) levels + res +
+  // measured und zeichnet. EINE Zeichenstelle fuer alle drei Balken-Quellen
+  // (ctx-basiert paarweise/Einzelmessung via zaDrawBarFromCtx, pegelweise via
+  // zaDrawBarPrecomputed). nEl/elSt/elExDur/refEl/hz/dEN aus ctx oder global.
+  function zaDrawBarRows(cv, levels, res, measured, ctx) {
+    ctx = ctx || {};
     var _dENp = (ctx.dENPrefix || dENPrefix), _dENf = (ctx.dEN || dEN);
     var _nEl = (ctx.nEl != null) ? ctx.nEl : nEl;
     var _elExDur = (ctx.elExDur != null) ? ctx.elExDur : elExDur;
@@ -381,15 +394,15 @@
     var _zaRows = [];
     for (var _i = 0; _i < _nEl; _i++) {
       var _ex = _elExDur[_i] !== null || _elSt[_i] === "mute";
-      var _res = r.ELL_res[_i] || 0.001;
+      var _res = res[_i] || 0.001;
       var _stufe = !measured.has(_i) ? null : _res <= 1.0 ? "gruen" : _res < 3.0 ? "gelb" : "rot";
       _zaRows.push({
         elNum: _i,
         label: _dENp() + _dENf(_i),
         hz: _hz(_i),
-        wert: r.levels[_i] || 0,
+        wert: levels[_i] || 0,
         zustand: _ex ? "deaktiviert" : (!measured.has(_i) ? "ungemessen" : "gemessen"),
-        residuum: r.ELL_res[_i],
+        residuum: res[_i],
         stufe: _stufe,
         istRef: _i === _refEl,
         apikalBasal: _i === 0 ? "apikal" : (_i === _nEl - 1 ? "basal" : null)
@@ -407,9 +420,92 @@
     });
   }
 
+  // Einstieg ctx-basiert (paarweise Konsolidierung + Einzelmessung):
+  // ELL_compWLS -> verankern (§4a) -> zaDrawBarRows.
+  function zaDrawBarFromCtx(canvasId, hintId, ctx, leerHint) {
+    var cv = document.getElementById(canvasId);
+    if (!cv) return;
+    var hint = hintId ? document.getElementById(hintId) : null;
+    if (!ctx || !ctx.ELL_results || !ctx.ELL_results.length) {
+      if (hint) hint.textContent = leerHint || "";
+      cv.width = cv.width;   // leeren
+      return;
+    }
+    if (hint) hint.textContent = "";
+    var r = ELL_compWLS(ctx);
+    var _elSt = (ctx.elSt != null) ? ctx.elSt : elSt;
+    var _elExDur = (ctx.elExDur != null) ? ctx.elExDur : elExDur;
+    var levels = zaAnchor(r.levels, _elSt, _elExDur);   // §4a
+    var measured = new Set();
+    ctx.ELL_results.forEach(function (p) { measured.add(p.a); measured.add(p.b); });
+    zaDrawBarRows(cv, levels, r.ELL_res, measured, ctx);
+  }
+
+  // Einstieg precomputed (pegelweise Konsolidierung): levels/res/measured schon
+  // gerechnet (zaPegelKonsol) -> zaDrawBarRows. ctx nur fuer Label/refEl/nEl.
+  function zaDrawBarPrecomputed(canvasId, hintId, data, leerHint) {
+    var cv = document.getElementById(canvasId);
+    if (!cv) return;
+    var hint = hintId ? document.getElementById(hintId) : null;
+    if (!data || !data.measured || !data.measured.size) {
+      if (hint) hint.textContent = leerHint || "";
+      cv.width = cv.width;
+      return;
+    }
+    if (hint) hint.textContent = "";
+    var base = ELL_ctx(activeSide === "left" || activeSide === "right" ? activeSide : "global");
+    zaDrawBarRows(cv, data.levels, data.res, data.measured,
+                  Object.assign({}, base, { nEl: data.nEl }));
+  }
+
+  // Pegelweise Konsolidierung (00-zeitanalyse §4): jede Sitzung einzeln zur
+  // verankerten Pegelkurve rechnen, dann je Elektrode q-gewichtet mitteln.
+  // Streuung = gewichtete SD der verankerten Einzelpegel (§4c). Liefert
+  // { levels, res, measured:Set, nEl } im selben Format wie ELL_compWLS-Nutzung.
+  function zaPegelKonsol(side) {
+    var per = [];      // je El: [{v, w}]
+    var nEl = 0;
+    zaSessions.forEach(function (s) {
+      var rec = zaRec(s, side);
+      if (!rec) return;
+      var q = zaWeight(rec, side);
+      if (!(q > 0)) return;
+      var r = ELL_compWLS(zaToCtx(rec, side));
+      var lvA = zaAnchor(r.levels, rec.elSt, rec.elExDur);
+      nEl = Math.max(nEl, rec.nEl);
+      for (var i = 0; i < rec.nEl; i++) {
+        var aktiv = (rec.elExDur[i] == null) && (rec.elSt[i] !== "mute")
+                    && (rec.elActive[i] !== false);
+        if (!aktiv) continue;
+        var v = lvA[i];
+        if (v == null || typeof v !== "number" || !isFinite(v)) continue;
+        (per[i] || (per[i] = [])).push({ v: v, w: q });
+      }
+    });
+    var levels = new Array(nEl).fill(0);
+    var res    = new Array(nEl).fill(0);
+    var measured = new Set();
+    for (var i = 0; i < nEl; i++) {
+      var arr = per[i];
+      if (!arr || !arr.length) continue;
+      measured.add(i);
+      var W = 0, sw = 0;
+      arr.forEach(function (e) { W += e.w; sw += e.v * e.w; });
+      levels[i] = W > 0 ? sw / W : 0;
+      res[i] = weightedStd(arr.map(function (e) { return e.v; }),
+                           arr.map(function (e) { return e.w; }));
+    }
+    return { levels: levels, res: res, measured: measured, nEl: nEl };
+  }
+
   function zaDrawCurve() {
-    zaDrawBarFromCtx("zaCurveChart", "zaCurveHint", zaConsolidatedCtx(activeSide),
-                     "Keine auswertbaren Sitzungen fuer diese Seite.");
+    if (zaConsolMode === "pegelweise") {
+      zaDrawBarPrecomputed("zaCurveChart", "zaCurveHint", zaPegelKonsol(activeSide),
+                           "Keine auswertbaren Sitzungen fuer diese Seite.");
+    } else {
+      zaDrawBarFromCtx("zaCurveChart", "zaCurveHint", zaConsolidatedCtx(activeSide),
+                       "Keine auswertbaren Sitzungen fuer diese Seite.");
+    }
   }
 
   // Gewaehlte Einzel-Datei (Dateiname) oder null.
@@ -448,6 +544,17 @@
     ["mild", "mittel", "scharf"].forEach(function (k) {
       var b = document.getElementById("zaSharp_" + k);
       if (b) b.style.fontWeight = (k === key) ? "700" : "400";
+    });
+    zaDrawCurve();
+  }
+
+  // Verfahrens-Schalter (00-zeitanalyse §4): paarweise | pegelweise.
+  function zaOnConsolMode(mode) {
+    if (mode !== "paarweise" && mode !== "pegelweise") return;
+    zaConsolMode = mode;
+    ["paarweise", "pegelweise"].forEach(function (m) {
+      var b = document.getElementById("zaConsol_" + m);
+      if (b) b.style.fontWeight = (m === mode) ? "700" : "400";
     });
     zaDrawCurve();
   }
@@ -821,10 +928,33 @@
       + "<td style='padding:2px 10px'>mittl. Residuum</td></tr>" + rows + "</table>";
   }
 
+  // Alle verankerten Einzel-Paare aller Sitzungen (00-zeitanalyse §7): je Sitzung
+  // ein Offset pro Paar, aus den VERANKERTEN Sitzungspegeln (Verankerung ist fuer
+  // Paar-Differenzen invariant, macht den Uebertrag aber referenzfrei). q im
+  // Eintrag mitgefuehrt (weight-Feld) — ELL_compWLS nutzt ell_gWt, das q wirkt
+  // ueber die Mehrfach-Vorkommen. So traegt der Zielreiter das echte Residuum.
+  function zaTransferPairs(side) {
+    var out = [];
+    zaSessions.forEach(function (s) {
+      var rec = zaRec(s, side);
+      if (!rec || !rec.raw) return;
+      if (!(zaWeight(rec, side) > 0)) return;
+      var r = ELL_compWLS(zaToCtx(rec, side));
+      var lvA = zaAnchor(r.levels, rec.elSt, rec.elExDur);
+      (rec.raw || []).forEach(function (p) {
+        if (typeof p.a !== "number" || typeof p.b !== "number") return;
+        var va = lvA[p.a], vb = lvA[p.b];
+        if (va == null || vb == null) return;
+        out.push({ a: p.a, b: p.b, offset: va - vb });
+      });
+    });
+    return out;
+  }
+
   // ---- Init ----
   function zaTransferToTool() {
     var side = activeSide;
-    var pairs = zaConsensusPairs(side);
+    var pairs = zaTransferPairs(side);
     if (!pairs.length) {
       alert("Keine konsolidierten Daten fuer diese Seite — nichts zu uebernehmen.");
       return;
@@ -862,6 +992,10 @@
     ["mild", "mittel", "scharf"].forEach(function (k) {
       var b = document.getElementById("zaSharp_" + k);
       if (b) b.addEventListener("click", function () { zaOnSharpness(k); });
+    });
+    ["paarweise", "pegelweise"].forEach(function (m) {
+      var b = document.getElementById("zaConsol_" + m);
+      if (b) b.addEventListener("click", function () { zaOnConsolMode(m); });
     });
     var hm = document.getElementById("zaHeatmap");
     if (hm) {

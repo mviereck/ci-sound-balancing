@@ -1591,6 +1591,29 @@ function FRQ_modusVonReferenzmodus(rm) {
 // stumm/ausgeschlossen=0, almostMute=0.05, noisyHeavy=0.15, noisyMore=0.4,
 // noisyLess=0.8, normal=1. Startquelle fuer CBF-Statusgewicht (Architektur
 // 00-cbf-verfahren-architektur.md §4.3).
+// Projektweiter Median-Helfer (core.js -> fuer alle Module sichtbar).
+// null/leer -> null. Ignoriert null/NaN-Eintraege nicht selbst: Aufrufer
+// filtert. (implant-validate.js hat ein lokales _implMedian; bei Gelegenheit
+// darauf umstellen.)
+function median(arr) {
+  if (!arr || arr.length === 0) return null;
+  var s = arr.slice().sort(function (a, b) { return a - b; });
+  var m = Math.floor(s.length / 2);
+  return (s.length % 2 === 0) ? (s[m - 1] + s[m]) / 2 : s[m];
+}
+
+// Gewichtete Standardabweichung eines Wertesatzes (values[k], weights[k]).
+// Fuer die pegelweise Konsolidierung (00-zeitanalyse §4c). <2 Werte -> 0.
+function weightedStd(values, weights) {
+  if (!values || values.length < 2) return 0;
+  var W = 0, sw = 0;
+  for (var k = 0; k < values.length; k++) { W += weights[k]; sw += values[k] * weights[k]; }
+  if (!(W > 0)) return 0;
+  var mean = sw / W, sv = 0;
+  for (var j = 0; j < values.length; j++) sv += weights[j] * (values[j] - mean) * (values[j] - mean);
+  return Math.sqrt(sv / W);
+}
+
 function ell_gWt(i, elSt_, elExDur_) {
   var _elSt    = elSt_    || elSt;
   var _elExDur = elExDur_ || elExDur;
