@@ -264,27 +264,38 @@ function drawBarGraph(cv, rows, cfg) {
       var v = r.wert || 0, yZ = tY(0), yV = tY(v);
       ctx2d.fillStyle = balkenFarbe(r);
       ctx2d.fillRect(x, Math.min(yZ, yV), bW, Math.abs(yV - yZ) || 2);
-      // Kapp-Markierung: kleines Dreieck am Plotrand + echter dB-Wert, wenn v
-      // ausserhalb yFix liegt (zeigt, wie weit der Wert gekappt wurde).
+      // Kapp-Markierung: deutliches Dreieck knapp INNERHALB der Plotkante
+      // (mit weisser Kontur, damit es auf dem farbigen Balken sichtbar bleibt)
+      // + echter dB-Wert. dir: 1 = nach oben gekappt, -1 = nach unten.
       if (isClipped(v)) {
-        var yEdge = v > yMx ? pad.top : (pad.top + pH);
-        var dir = v > yMx ? 1 : -1;   // Spitze nach oben/unten
-        ctx2d.fillStyle = "#111";
+        var clipUp = (v > yMx);
+        var edge = clipUp ? pad.top : (pad.top + pH);   // Plotkante
+        var dir  = clipUp ? 1 : -1;
+        var cxk  = x + bW / 2;
+        // Spitze zeigt nach aussen (Richtung des echten Werts), Basis innen.
+        var tip  = edge + dir * 2;        // knapp an der Kante
+        var base = edge + dir * 12;       // 10 px ins Plotinnere
         ctx2d.beginPath();
-        ctx2d.moveTo(x + bW / 2, yEdge - dir * 6);
-        ctx2d.lineTo(x + bW / 2 - 4, yEdge);
-        ctx2d.lineTo(x + bW / 2 + 4, yEdge);
-        ctx2d.closePath(); ctx2d.fill();
-        // Echter Wert, innen neben dem Dreieck (bleibt im Plot).
+        ctx2d.moveTo(cxk,     tip);
+        ctx2d.lineTo(cxk - 6, base);
+        ctx2d.lineTo(cxk + 6, base);
+        ctx2d.closePath();
+        ctx2d.fillStyle = "#111";
+        ctx2d.fill();
+        ctx2d.strokeStyle = "#fff"; ctx2d.lineWidth = 1.5; ctx2d.stroke();
+        // Echter Wert, unter der Dreieck-Basis (bleibt im Plot).
         ctx2d.font = "bold 9px Consolas,monospace";
         ctx2d.textAlign = "center";
-        ctx2d.textBaseline = (dir > 0) ? "top" : "bottom";
+        ctx2d.textBaseline = clipUp ? "top" : "bottom";
+        ctx2d.fillStyle = "#111";
         ctx2d.fillText((v >= 0 ? "+" : "") + v.toFixed(1),
-                       x + bW / 2, yEdge + dir * 8);
+                       cxk, base + dir * 3);
         ctx2d.textBaseline = "alphabetic";
       }
-      // Residuum-T-Balken (nur cfg.residuum)
-      if (cfg.residuum && r.residuum > 0) {
+      // Residuum-T-Balken (nur cfg.residuum). Bei gekapptem Wert weglassen:
+      // ein an den Rand geklemmter Fehlerbalken taeuscht eine falsche
+      // Position/Streuung vor (Standardpraxis bei out-of-range).
+      if (cfg.residuum && r.residuum > 0 && !isClipped(v)) {
         var yt = tY(v + r.residuum), yb = tY(v - r.residuum), cx = tX(j);
         ctx2d.strokeStyle = "#00000044"; ctx2d.lineWidth = 1.5;
         ctx2d.beginPath(); ctx2d.moveTo(cx, yt); ctx2d.lineTo(cx, yb); ctx2d.stroke();
@@ -319,9 +330,12 @@ function drawBarGraph(cv, rows, cfg) {
   _attachAxisTooltip(cv);
 
   // --- Spitzenpunkte (nur cfg.spitzenPunkte) — KEINE Verbindungslinie ---
+  // Bei gekapptem Wert weglassen: ein an den Rand geklemmter Punkt taeuscht
+  // eine falsche Position vor (die Kapp-Markierung + Zahl steht dafuer).
   if (cfg.spitzenPunkte) {
     for (var jp = 0; jp < n; jp++) {
       if (rows[jp].zustand !== "gemessen") continue;
+      if (isClipped(rows[jp].wert || 0)) continue;
       ctx2d.beginPath(); ctx2d.arc(tX(jp), tY(rows[jp].wert || 0), 3.5, 0, Math.PI * 2);
       ctx2d.fillStyle = "#2563eb"; ctx2d.fill();
       ctx2d.strokeStyle = "#fff"; ctx2d.lineWidth = 2; ctx2d.stroke();
