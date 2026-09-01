@@ -24,6 +24,11 @@ CLAUDE.md
 # Fremde PDFs/Papers (Hersteller-Handbuecher etc.) — Urheberrecht
 .manuals/
 
+# Fachliteratur: Studien, Patente, Manuals, PubMed-Dumps, Recherche-
+# Werkzeuge + eigener Positionspapier-Beitrag — Urheberrecht/privat,
+# NIE ins oeffentliche Repo (Ordner ohne fuehrenden Punkt -> explizit)
+.fachliteratur/
+
 # Claude-Code-eigene Settings, Hooks und temporaere Worktrees
 .claude/
 
