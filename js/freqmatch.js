@@ -337,6 +337,7 @@ var FM_PIANO_BODEN        = 7.5;   // ct: kleinste Schrittweite (eff. 3,75 ct)
 var FM_PIANO_GLEIT_N      = 3;     // Runden im gleitenden Streuband
 var FM_PIANO_STAGNATION_K = 3;     // Runden ohne Verringerung -> ausgereizt
 var FM_PIANO_MAX_SPAN     = 1200;  // ct: breiteres Streuband -> Status piano-wide
+var FM_PIANO_TEILER       = 6;     // untere Schranke pro Runde: Schritt darf hoechstens auf letzterStep/N verengt werden
 
 // BA416: seitenloser Zugriff auf die globale Klaviertest-Session.
 function _frq_pianoData() {
@@ -516,7 +517,7 @@ function _frq_pianoNaechsterSchritt(elIdx, dg) {
   var sb = _frq_pianoStreuband(elIdx, dg, null);
   if (!sb) return _frq_pianoSitzungsStart(elIdx, dg).step;
   if (_frq_pianoAusgereizt(elIdx, dg)) return null;
-  return _frq_pianoClampStep(Math.max(sb.breite / 8, sb.letzterStep / 2));
+  return _frq_pianoClampStep(Math.max(sb.breite / 8, sb.letzterStep / FM_PIANO_TEILER));
 }
 
 // Sitzungsstart einer Elektrode ohne Runden in Sitzung dg: Schritt und
@@ -531,7 +532,7 @@ function _frq_pianoSitzungsStart(elIdx, dg) {
     var sb = _frq_pianoStreuband(elIdx, d, null);
     if (sb) {
       return {
-        step: _frq_pianoClampStep(Math.max(sb.breite / 8, sb.letzterStep / 2)),
+        step: _frq_pianoClampStep(Math.max(sb.breite / 8, sb.letzterStep / FM_PIANO_TEILER)),
         centerLower: sb.lo,
         centerUpper: sb.hi
       };
