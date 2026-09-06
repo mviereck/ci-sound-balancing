@@ -10,2206 +10,2059 @@
   "items": [
     {
       "id": "music-rfm-0058",
-      "title": "Kevin MacLeod",
+      "title": "Hustle",
       "audio": "music/rfm/music-rfm-0058.opus",
       "tags": {
         "genres": [
           "blues"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 120.54
     },
     {
       "id": "music-rfm-0144",
-      "title": "Kevin MacLeod",
+      "title": "Whiskey on the Mississippi",
       "audio": "music/rfm/music-rfm-0144.opus",
       "tags": {
         "genres": [
           "blues"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 195.37
     },
     {
       "id": "music-rfm-0089",
-      "title": "Kevin MacLeod",
+      "title": "Nile's Blues",
       "audio": "music/rfm/music-rfm-0089.opus",
       "tags": {
         "genres": [
           "blues"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 153.45
     },
     {
       "id": "music-rfm-0120",
-      "title": "Kevin MacLeod",
+      "title": "Slow Burn",
       "audio": "music/rfm/music-rfm-0120.opus",
       "tags": {
         "genres": [
           "blues"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 228.76
     },
     {
       "id": "music-rfm-0035",
-      "title": "Kevin MacLeod",
+      "title": "Dirt Rhodes",
       "audio": "music/rfm/music-rfm-0035.opus",
       "tags": {
         "genres": [
           "blues"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 120.04
     },
     {
       "id": "music-rfm-0032",
-      "title": "Kevin MacLeod",
+      "title": "DD Groove",
       "audio": "music/rfm/music-rfm-0032.opus",
       "tags": {
         "genres": [
           "blues"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 221.29
     },
     {
       "id": "music-rfm-0078",
-      "title": "Kevin MacLeod",
+      "title": "Matt's Blues",
       "audio": "music/rfm/music-rfm-0078.opus",
       "tags": {
         "genres": [
           "blues"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 166.72
     },
     {
       "id": "music-rfm-0099",
-      "title": "Kevin MacLeod",
+      "title": "Porch Blues",
       "audio": "music/rfm/music-rfm-0099.opus",
       "tags": {
         "genres": [
           "blues"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 115.6
     },
     {
       "id": "music-rfm-0001",
-      "title": "Kevin MacLeod",
+      "title": "Airport Lounge",
       "audio": "music/rfm/music-rfm-0001.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 307.65
     },
     {
       "id": "music-rfm-0004",
-      "title": "Kevin MacLeod",
+      "title": "As I Figure",
       "audio": "music/rfm/music-rfm-0004.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 216.82
     },
     {
       "id": "music-rfm-0006",
-      "title": "Kevin MacLeod",
+      "title": "Backed Vibes",
       "audio": "music/rfm/music-rfm-0006.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 228.4
     },
     {
       "id": "music-rfm-0008",
-      "title": "Kevin MacLeod",
+      "title": "Bass Vibes",
       "audio": "music/rfm/music-rfm-0008.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 169.1
     },
     {
       "id": "music-rfm-0009",
-      "title": "Kevin MacLeod",
+      "title": "Bass Walker",
       "audio": "music/rfm/music-rfm-0009.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 161.53
     },
     {
       "id": "music-rfm-0022",
-      "title": "Kevin MacLeod",
+      "title": "Cool Blast",
       "audio": "music/rfm/music-rfm-0022.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 76.6
     },
     {
       "id": "music-rfm-0024",
-      "title": "Kevin MacLeod",
+      "title": "Cool Vibes",
       "audio": "music/rfm/music-rfm-0024.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 218.36
     },
     {
       "id": "music-rfm-0025",
-      "title": "Kevin MacLeod",
+      "title": "Corncob",
       "audio": "music/rfm/music-rfm-0025.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 53.92
     },
     {
       "id": "music-rfm-0026",
-      "title": "Kevin MacLeod",
+      "title": "Covert Affair",
       "audio": "music/rfm/music-rfm-0026.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 194.17
     },
     {
       "id": "music-rfm-0031",
-      "title": "Kevin MacLeod",
+      "title": "Dances and Dames",
       "audio": "music/rfm/music-rfm-0031.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 146.81
     },
     {
       "id": "music-rfm-0036",
-      "title": "Kevin MacLeod",
+      "title": "Dispersion Relation",
       "audio": "music/rfm/music-rfm-0036.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 244.16
     },
     {
       "id": "music-rfm-0045",
-      "title": "Kevin MacLeod",
+      "title": "Faster Does It",
       "audio": "music/rfm/music-rfm-0045.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 181.82
     },
     {
       "id": "music-rfm-0049",
-      "title": "Kevin MacLeod",
+      "title": "George Street Shuffle",
       "audio": "music/rfm/music-rfm-0049.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 268.28
     },
     {
       "id": "music-rfm-0051",
-      "title": "Kevin MacLeod",
+      "title": "Groove Grove",
       "audio": "music/rfm/music-rfm-0051.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 205.75
     },
     {
       "id": "music-rfm-0054",
-      "title": "Kevin MacLeod",
+      "title": "Hep Cats",
       "audio": "music/rfm/music-rfm-0054.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 250.7
     },
     {
       "id": "music-rfm-0056",
-      "title": "Kevin MacLeod",
+      "title": "Hot Swing",
       "audio": "music/rfm/music-rfm-0056.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 50.05
     },
     {
       "id": "music-rfm-0062",
-      "title": "Kevin MacLeod",
+      "title": "I Knew a Guy",
       "audio": "music/rfm/music-rfm-0062.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 166.96
     },
     {
       "id": "music-rfm-0069",
-      "title": "Kevin MacLeod",
+      "title": "Kool Kats",
       "audio": "music/rfm/music-rfm-0069.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 200.76
     },
     {
       "id": "music-rfm-0074",
-      "title": "Kevin MacLeod",
+      "title": "Local Forecast",
       "audio": "music/rfm/music-rfm-0074.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 165.2
     },
     {
       "id": "music-rfm-0075",
-      "title": "Kevin MacLeod",
+      "title": "Long Stroll",
       "audio": "music/rfm/music-rfm-0075.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 254.7
     },
     {
       "id": "music-rfm-0080",
-      "title": "Kevin MacLeod",
+      "title": "Mining by Moonlight",
       "audio": "music/rfm/music-rfm-0080.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 203.65
     },
     {
       "id": "music-rfm-0090",
-      "title": "Kevin MacLeod",
+      "title": "No Good Layabout",
       "audio": "music/rfm/music-rfm-0090.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 186.34
     },
     {
       "id": "music-rfm-0092",
-      "title": "Kevin MacLeod",
+      "title": "On the Ground",
       "audio": "music/rfm/music-rfm-0092.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 159.09
     },
     {
       "id": "music-rfm-0093",
-      "title": "Kevin MacLeod",
+      "title": "Opportunity Walks",
       "audio": "music/rfm/music-rfm-0093.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 161.6
     },
     {
       "id": "music-rfm-0112",
-      "title": "Kevin MacLeod",
+      "title": "Rollin at 5",
       "audio": "music/rfm/music-rfm-0112.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 130.75
     },
     {
       "id": "music-rfm-0118",
-      "title": "Kevin MacLeod",
+      "title": "Sidewalk Shade",
       "audio": "music/rfm/music-rfm-0118.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 157.58
     },
     {
       "id": "music-rfm-0128",
-      "title": "Kevin MacLeod",
+      "title": "Sweeter Vermouth",
       "audio": "music/rfm/music-rfm-0128.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 24.65
     },
     {
       "id": "music-rfm-0137",
-      "title": "Kevin MacLeod",
+      "title": "Ultralounge",
       "audio": "music/rfm/music-rfm-0137.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 316.85
     },
     {
       "id": "music-rfm-0139",
-      "title": "Kevin MacLeod",
+      "title": "Vegas Glitz",
       "audio": "music/rfm/music-rfm-0139.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 51.89
     },
     {
       "id": "music-rfm-0140",
-      "title": "Kevin MacLeod",
+      "title": "Vibe Ace",
       "audio": "music/rfm/music-rfm-0140.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 61.42
     },
     {
       "id": "music-rfm-0000",
-      "title": "Kevin MacLeod",
+      "title": "8bit Dungeon Boss",
       "audio": "music/rfm/music-rfm-0000.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 171.99
     },
     {
       "id": "music-rfm-0003",
-      "title": "Kevin MacLeod",
+      "title": "Ambler",
       "audio": "music/rfm/music-rfm-0003.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 46.32
     },
     {
       "id": "music-rfm-0005",
-      "title": "Kevin MacLeod",
+      "title": "Babylon",
       "audio": "music/rfm/music-rfm-0005.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 255.28
     },
     {
       "id": "music-rfm-0007",
-      "title": "Kevin MacLeod",
+      "title": "Basement Floor",
       "audio": "music/rfm/music-rfm-0007.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 106.14
     },
     {
       "id": "music-rfm-0013",
-      "title": "Kevin MacLeod",
+      "title": "Blipotron",
       "audio": "music/rfm/music-rfm-0013.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 149.09
     },
     {
       "id": "music-rfm-0014",
-      "title": "Kevin MacLeod",
+      "title": "Blue Scorpion",
       "audio": "music/rfm/music-rfm-0014.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 197.57
     },
     {
       "id": "music-rfm-0017",
-      "title": "Kevin MacLeod",
+      "title": "Cephalopod",
       "audio": "music/rfm/music-rfm-0017.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 247.78
     },
     {
       "id": "music-rfm-0018",
-      "title": "Kevin MacLeod",
+      "title": "Chipper Doodle",
       "audio": "music/rfm/music-rfm-0018.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 188.61
     },
     {
       "id": "music-rfm-0019",
-      "title": "Kevin MacLeod",
+      "title": "Cipher2",
       "audio": "music/rfm/music-rfm-0019.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 231.24
     },
     {
       "id": "music-rfm-0020",
-      "title": "Kevin MacLeod",
+      "title": "Club Diver",
       "audio": "music/rfm/music-rfm-0020.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 145.67
     },
     {
       "id": "music-rfm-0029",
-      "title": "Kevin MacLeod",
+      "title": "Cut Trance",
       "audio": "music/rfm/music-rfm-0029.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 220.4
     },
     {
       "id": "music-rfm-0027",
-      "title": "Kevin MacLeod",
+      "title": "Cut and Dry",
       "audio": "music/rfm/music-rfm-0027.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 222.33
     },
     {
       "id": "music-rfm-0028",
-      "title": "Kevin MacLeod",
+      "title": "Cut and Run",
       "audio": "music/rfm/music-rfm-0028.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 214.81
     },
     {
       "id": "music-rfm-0030",
-      "title": "Kevin MacLeod",
+      "title": "Dance Monster",
       "audio": "music/rfm/music-rfm-0030.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 200.08
     },
     {
       "id": "music-rfm-0034",
-      "title": "Kevin MacLeod",
+      "title": "Deliberate Thought",
       "audio": "music/rfm/music-rfm-0034.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 177.44
     },
     {
       "id": "music-rfm-0037",
-      "title": "Kevin MacLeod",
+      "title": "Double O",
       "audio": "music/rfm/music-rfm-0037.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 234.9
     },
     {
       "id": "music-rfm-0038",
-      "title": "Kevin MacLeod",
+      "title": "EDM Detection Mode",
       "audio": "music/rfm/music-rfm-0038.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 365.67
     },
     {
       "id": "music-rfm-0041",
-      "title": "Kevin MacLeod",
+      "title": "Electro Sketch",
       "audio": "music/rfm/music-rfm-0041.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 187.2
     },
     {
       "id": "music-rfm-0040",
-      "title": "Kevin MacLeod",
+      "title": "Electrodoodle",
       "audio": "music/rfm/music-rfm-0040.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 166.04
     },
     {
       "id": "music-rfm-0044",
-      "title": "Kevin MacLeod",
+      "title": "Exit the Premises",
       "audio": "music/rfm/music-rfm-0044.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 210.06
     },
     {
       "id": "music-rfm-0047",
-      "title": "Kevin MacLeod",
+      "title": "Future Cha Cha",
       "audio": "music/rfm/music-rfm-0047.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 277.77
     },
     {
       "id": "music-rfm-0050",
-      "title": "Kevin MacLeod",
+      "title": "Go Cart",
       "audio": "music/rfm/music-rfm-0050.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 212.9
     },
     {
       "id": "music-rfm-0052",
-      "title": "Kevin MacLeod",
+      "title": "Half Bit",
       "audio": "music/rfm/music-rfm-0052.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 142.45
     },
     {
       "id": "music-rfm-0057",
-      "title": "Kevin MacLeod",
+      "title": "How it Begins",
       "audio": "music/rfm/music-rfm-0057.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 190.05
     },
     {
       "id": "music-rfm-0059",
-      "title": "Kevin MacLeod",
+      "title": "Hypnothis",
       "audio": "music/rfm/music-rfm-0059.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 283.46
     },
     {
       "id": "music-rfm-0060",
-      "title": "Kevin MacLeod",
+      "title": "Ice Flow",
       "audio": "music/rfm/music-rfm-0060.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 142.33
     },
     {
       "id": "music-rfm-0064",
-      "title": "Kevin MacLeod",
+      "title": "Itty Bitty 8 Bit",
       "audio": "music/rfm/music-rfm-0064.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 193.81
     },
     {
       "id": "music-rfm-0065",
-      "title": "Kevin MacLeod",
+      "title": "Jaunty Gumption",
       "audio": "music/rfm/music-rfm-0065.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 118.39
     },
     {
       "id": "music-rfm-0066",
-      "title": "Kevin MacLeod",
+      "title": "Kick Shock",
       "audio": "music/rfm/music-rfm-0066.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 62.65
     },
     {
       "id": "music-rfm-0067",
-      "title": "Kevin MacLeod",
+      "title": "Killing Time",
       "audio": "music/rfm/music-rfm-0067.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 204.05
     },
     {
       "id": "music-rfm-0068",
-      "title": "Kevin MacLeod",
+      "title": "Klockworx",
       "audio": "music/rfm/music-rfm-0068.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 241.9
     },
     {
       "id": "music-rfm-0071",
-      "title": "Kevin MacLeod",
+      "title": "Latin Industries",
       "audio": "music/rfm/music-rfm-0071.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 200.71
     },
     {
       "id": "music-rfm-0072",
-      "title": "Kevin MacLeod",
+      "title": "Level Up",
       "audio": "music/rfm/music-rfm-0072.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 218.99
     },
     {
       "id": "music-rfm-0073",
-      "title": "Kevin MacLeod",
+      "title": "Lightless Dawn",
       "audio": "music/rfm/music-rfm-0073.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 379.83
     },
     {
       "id": "music-rfm-0076",
-      "title": "Kevin MacLeod",
+      "title": "Long Time Coming",
       "audio": "music/rfm/music-rfm-0076.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 274.34
     },
     {
       "id": "music-rfm-0085",
-      "title": "Kevin MacLeod",
+      "title": "MTA",
       "audio": "music/rfm/music-rfm-0085.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 176.88
     },
     {
       "id": "music-rfm-0079",
-      "title": "Kevin MacLeod",
+      "title": "Mellowtron",
       "audio": "music/rfm/music-rfm-0079.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 53.37
     },
     {
       "id": "music-rfm-0081",
-      "title": "Kevin MacLeod",
+      "title": "Misuse",
       "audio": "music/rfm/music-rfm-0081.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 410.55
     },
     {
       "id": "music-rfm-0084",
-      "title": "Kevin MacLeod",
+      "title": "Move Forward",
       "audio": "music/rfm/music-rfm-0084.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 69.23
     },
     {
       "id": "music-rfm-0088",
-      "title": "Kevin MacLeod",
+      "title": "New Friendly",
       "audio": "music/rfm/music-rfm-0088.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 169.09
     },
     {
       "id": "music-rfm-0091",
-      "title": "Kevin MacLeod",
+      "title": "One Sly Move",
       "audio": "music/rfm/music-rfm-0091.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 161.73
     },
     {
       "id": "music-rfm-0094",
-      "title": "Kevin MacLeod",
+      "title": "Ouroboros",
       "audio": "music/rfm/music-rfm-0094.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 161.55
     },
     {
       "id": "music-rfm-0095",
-      "title": "Kevin MacLeod",
+      "title": "Pamgaea",
       "audio": "music/rfm/music-rfm-0095.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 168.55
     },
     {
       "id": "music-rfm-0096",
-      "title": "Kevin MacLeod",
+      "title": "Phat Sketch",
       "audio": "music/rfm/music-rfm-0096.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 65.05
     },
     {
       "id": "music-rfm-0098",
-      "title": "Kevin MacLeod",
+      "title": "Pinball Spring",
       "audio": "music/rfm/music-rfm-0098.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 235.92
     },
     {
       "id": "music-rfm-0100",
-      "title": "Kevin MacLeod",
+      "title": "Presenterator",
       "audio": "music/rfm/music-rfm-0100.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 255.64
     },
     {
       "id": "music-rfm-0102",
-      "title": "Kevin MacLeod",
+      "title": "Pure Attitude",
       "audio": "music/rfm/music-rfm-0102.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 200.86
     },
     {
       "id": "music-rfm-0105",
-      "title": "Kevin MacLeod",
+      "title": "Reformat",
       "audio": "music/rfm/music-rfm-0105.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 219.46
     },
     {
       "id": "music-rfm-0107",
-      "title": "Kevin MacLeod",
+      "title": "Rhinoceros",
       "audio": "music/rfm/music-rfm-0107.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 203.87
     },
     {
       "id": "music-rfm-0109",
-      "title": "Kevin MacLeod",
+      "title": "Rocket",
       "audio": "music/rfm/music-rfm-0109.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 146.95
     },
     {
       "id": "music-rfm-0114",
-      "title": "Kevin MacLeod",
+      "title": "Secrets of the Schoolyard",
       "audio": "music/rfm/music-rfm-0114.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 177.64
     },
     {
       "id": "music-rfm-0115",
-      "title": "Kevin MacLeod",
+      "title": "Severe Tire Damage",
       "audio": "music/rfm/music-rfm-0115.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 411.93
     },
     {
       "id": "music-rfm-0116",
-      "title": "Kevin MacLeod",
+      "title": "Shiny Tech2",
       "audio": "music/rfm/music-rfm-0116.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 222.65
     },
     {
       "id": "music-rfm-0117",
-      "title": "Kevin MacLeod",
+      "title": "Show Your Moves",
       "audio": "music/rfm/music-rfm-0117.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 215.33
     },
     {
       "id": "music-rfm-0119",
-      "title": "Kevin MacLeod",
+      "title": "Silly Fun",
       "audio": "music/rfm/music-rfm-0119.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 74.53
     },
     {
       "id": "music-rfm-0122",
-      "title": "Kevin MacLeod",
+      "title": "Space Fighter Loop",
       "audio": "music/rfm/music-rfm-0122.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 101.1
     },
     {
       "id": "music-rfm-0123",
-      "title": "Kevin MacLeod",
+      "title": "Spacial Harvest",
       "audio": "music/rfm/music-rfm-0123.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 654.03
     },
     {
       "id": "music-rfm-0125",
-      "title": "Kevin MacLeod",
+      "title": "Sunflower Dance Party",
       "audio": "music/rfm/music-rfm-0125.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 344.48
     },
     {
       "id": "music-rfm-0126",
-      "title": "Kevin MacLeod",
+      "title": "Super Friendly",
       "audio": "music/rfm/music-rfm-0126.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 134.35
     },
     {
       "id": "music-rfm-0132",
-      "title": "Kevin MacLeod",
+      "title": "The Way Out",
       "audio": "music/rfm/music-rfm-0132.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 172.55
     },
     {
       "id": "music-rfm-0131",
-      "title": "Kevin MacLeod",
+      "title": "Theme for Harold var 3",
       "audio": "music/rfm/music-rfm-0131.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 76.41
     },
     {
       "id": "music-rfm-0133",
-      "title": "Kevin MacLeod",
+      "title": "Thinking Out Loud",
       "audio": "music/rfm/music-rfm-0133.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 284.56
     },
     {
       "id": "music-rfm-0134",
-      "title": "Kevin MacLeod",
+      "title": "Tranquility",
       "audio": "music/rfm/music-rfm-0134.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 987.04
     },
     {
       "id": "music-rfm-0135",
-      "title": "Kevin MacLeod",
+      "title": "Trips It",
       "audio": "music/rfm/music-rfm-0135.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 260.19
     },
     {
       "id": "music-rfm-0138",
-      "title": "Kevin MacLeod",
+      "title": "Unwritten Return",
       "audio": "music/rfm/music-rfm-0138.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 309.04
     },
     {
       "id": "music-rfm-0141",
-      "title": "Kevin MacLeod",
+      "title": "Video Dungeon Crawl",
       "audio": "music/rfm/music-rfm-0141.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 213.37
     },
     {
       "id": "music-rfm-0145",
-      "title": "Kevin MacLeod",
+      "title": "Winter Reflections",
       "audio": "music/rfm/music-rfm-0145.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 142.03
     },
     {
       "id": "music-rfm-0002",
-      "title": "Kevin MacLeod",
+      "title": "Aitech",
       "audio": "music/rfm/music-rfm-0002.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 150.89
     },
     {
       "id": "music-rfm-0010",
-      "title": "Kevin MacLeod",
+      "title": "Beach Bum",
       "audio": "music/rfm/music-rfm-0010.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 52.33
     },
     {
       "id": "music-rfm-0011",
-      "title": "Kevin MacLeod",
+      "title": "Bet You Can ver 2",
       "audio": "music/rfm/music-rfm-0011.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 156.06
     },
     {
       "id": "music-rfm-0012",
-      "title": "Kevin MacLeod",
+      "title": "Big Rock",
       "audio": "music/rfm/music-rfm-0012.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 230.93
     },
     {
       "id": "music-rfm-0015",
-      "title": "Kevin MacLeod",
+      "title": "Breakdown",
       "audio": "music/rfm/music-rfm-0015.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 204.05
     },
     {
       "id": "music-rfm-0016",
-      "title": "Kevin MacLeod",
+      "title": "Broken Reality",
       "audio": "music/rfm/music-rfm-0016.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 218.23
     },
     {
       "id": "music-rfm-0021",
-      "title": "Kevin MacLeod",
+      "title": "Cold Funk",
       "audio": "music/rfm/music-rfm-0021.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 288.29
     },
     {
       "id": "music-rfm-0023",
-      "title": "Kevin MacLeod",
+      "title": "Cool Hard Facts",
       "audio": "music/rfm/music-rfm-0023.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 136.6
     },
     {
       "id": "music-rfm-0033",
-      "title": "Kevin MacLeod",
+      "title": "Dead Drop",
       "audio": "music/rfm/music-rfm-0033.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 142.71
     },
     {
       "id": "music-rfm-0039",
-      "title": "Kevin MacLeod",
+      "title": "Eighties Action",
       "audio": "music/rfm/music-rfm-0039.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 170.95
     },
     {
       "id": "music-rfm-0042",
-      "title": "Kevin MacLeod",
+      "title": "El Magicia",
       "audio": "music/rfm/music-rfm-0042.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 245.53
     },
     {
       "id": "music-rfm-0043",
-      "title": "Kevin MacLeod",
+      "title": "Exhilarate",
       "audio": "music/rfm/music-rfm-0043.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 145.46
     },
     {
       "id": "music-rfm-0046",
-      "title": "Kevin MacLeod",
+      "title": "Feelin Good",
       "audio": "music/rfm/music-rfm-0046.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 225.39
     },
     {
       "id": "music-rfm-0048",
-      "title": "Kevin MacLeod",
+      "title": "Gearhead",
       "audio": "music/rfm/music-rfm-0048.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 139.45
     },
     {
       "id": "music-rfm-0053",
-      "title": "Kevin MacLeod",
+      "title": "Happy Bee",
       "audio": "music/rfm/music-rfm-0053.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 301.98
     },
     {
       "id": "music-rfm-0055",
-      "title": "Kevin MacLeod",
+      "title": "Highlight Reel",
       "audio": "music/rfm/music-rfm-0055.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 175.94
     },
     {
       "id": "music-rfm-0061",
-      "title": "Kevin MacLeod",
+      "title": "I Feel You",
       "audio": "music/rfm/music-rfm-0061.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 188.04
     },
     {
       "id": "music-rfm-0063",
-      "title": "Kevin MacLeod",
+      "title": "Iron Bacon",
       "audio": "music/rfm/music-rfm-0063.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 55.05
     },
     {
       "id": "music-rfm-0070",
-      "title": "Kevin MacLeod",
+      "title": "Last Kiss Goodnight",
       "audio": "music/rfm/music-rfm-0070.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 186.16
     },
     {
       "id": "music-rfm-0077",
-      "title": "Kevin MacLeod",
+      "title": "Malt Shop Bop",
       "audio": "music/rfm/music-rfm-0077.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 166.07
     },
     {
       "id": "music-rfm-0082",
-      "title": "Kevin MacLeod",
+      "title": "Motherlode",
       "audio": "music/rfm/music-rfm-0082.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 237.38
     },
     {
       "id": "music-rfm-0083",
-      "title": "Kevin MacLeod",
+      "title": "Motivator",
       "audio": "music/rfm/music-rfm-0083.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 237.8
     },
     {
       "id": "music-rfm-0087",
-      "title": "Kevin MacLeod",
+      "title": "Neo Western",
       "audio": "music/rfm/music-rfm-0087.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 145.77
     },
     {
       "id": "music-rfm-0086",
-      "title": "Kevin MacLeod",
+      "title": "Neolith",
       "audio": "music/rfm/music-rfm-0086.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 167.21
     },
     {
       "id": "music-rfm-0097",
-      "title": "Kevin MacLeod",
+      "title": "Pilot Error",
       "audio": "music/rfm/music-rfm-0097.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 155.62
     },
     {
       "id": "music-rfm-0101",
-      "title": "Kevin MacLeod",
+      "title": "Pump Sting",
       "audio": "music/rfm/music-rfm-0101.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 13.3
     },
     {
       "id": "music-rfm-0103",
-      "title": "Kevin MacLeod",
+      "title": "Raw",
       "audio": "music/rfm/music-rfm-0103.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 117.66
     },
     {
       "id": "music-rfm-0104",
-      "title": "Kevin MacLeod",
+      "title": "Ready Aim Fire",
       "audio": "music/rfm/music-rfm-0104.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 216.93
     },
     {
       "id": "music-rfm-0106",
-      "title": "Kevin MacLeod",
+      "title": "RetroFuture Clean",
       "audio": "music/rfm/music-rfm-0106.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 206.19
     },
     {
       "id": "music-rfm-0108",
-      "title": "Kevin MacLeod",
+      "title": "Riptide",
       "audio": "music/rfm/music-rfm-0108.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 333.32
     },
     {
       "id": "music-rfm-0111",
-      "title": "Kevin MacLeod",
+      "title": "Rock Over London",
       "audio": "music/rfm/music-rfm-0111.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 139.45
     },
     {
       "id": "music-rfm-0110",
-      "title": "Kevin MacLeod",
+      "title": "Rock on Chicago",
       "audio": "music/rfm/music-rfm-0110.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 99.35
     },
     {
       "id": "music-rfm-0113",
-      "title": "Kevin MacLeod",
+      "title": "Sax Rock and Roll",
       "audio": "music/rfm/music-rfm-0113.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 204.7
     },
     {
       "id": "music-rfm-0121",
-      "title": "Kevin MacLeod",
+      "title": "Sock Hop",
       "audio": "music/rfm/music-rfm-0121.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 166.48
     },
     {
       "id": "music-rfm-0124",
-      "title": "Kevin MacLeod",
+      "title": "Summon the Rawk",
       "audio": "music/rfm/music-rfm-0124.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 208.1
     },
     {
       "id": "music-rfm-0127",
-      "title": "Kevin MacLeod",
+      "title": "Surf Inspector",
       "audio": "music/rfm/music-rfm-0127.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 200.05
     },
     {
       "id": "music-rfm-0129",
-      "title": "Kevin MacLeod",
+      "title": "Take the Lead",
       "audio": "music/rfm/music-rfm-0129.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 224.62
     },
     {
       "id": "music-rfm-0130",
-      "title": "Kevin MacLeod",
+      "title": "Tech Talk",
       "audio": "music/rfm/music-rfm-0130.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 241.97
     },
     {
       "id": "music-rfm-0136",
-      "title": "Kevin MacLeod",
+      "title": "Twisted",
       "audio": "music/rfm/music-rfm-0136.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 187.17
     },
     {
       "id": "music-rfm-0142",
-      "title": "Kevin MacLeod",
+      "title": "Wah Game Loop",
       "audio": "music/rfm/music-rfm-0142.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 80.28
     },
     {
       "id": "music-rfm-0143",
-      "title": "Kevin MacLeod",
+      "title": "Welcome to the Show",
       "audio": "music/rfm/music-rfm-0143.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 282.7
     },
     {
       "id": "music-rfm-0146",
-      "title": "Kevin MacLeod",
+      "title": "Zap Beat",
       "audio": "music/rfm/music-rfm-0146.opus",
       "tags": {
         "genres": [
           "rock"
         ],
-        "artist": null,
-        "album": "Kevin MacLeod",
         "vocal": "n",
-        "license": "CC-BY-3.0"
+        "license": "CC-BY-3.0",
+        "artist": "Kevin MacLeod"
       },
       "duration": 117.58
     }

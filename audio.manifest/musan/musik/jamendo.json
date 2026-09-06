@@ -10,109 +10,115 @@
   "items": [
     {
       "id": "music-jamendo-0018",
-      "title": "Angelo",
+      "title": "Adoro Te",
       "audio": "music/jamendo/music-jamendo-0018.opus",
       "tags": {
         "genres": [
           "pop",
           "gospel"
         ],
-        "artist": null,
-        "album": "Angelo",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "album": "Adoro Te",
+        "artist": "Angelo Mele",
+        "album_url": "https://www.jamendo.com/en/list/a140511/adoro-te",
         "license_url": "https://www.jamendo.com/en/list/a140511/adoro-te"
       },
       "duration": 339.6
     },
     {
       "id": "music-jamendo-0019",
-      "title": "Angelo",
+      "title": "Alleluia",
       "audio": "music/jamendo/music-jamendo-0019.opus",
       "tags": {
         "genres": [
           "pop",
           "gospel"
         ],
-        "artist": null,
-        "album": "Angelo",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "album": "Adoro Te",
+        "artist": "Angelo Mele",
+        "album_url": "https://www.jamendo.com/en/list/a140511/adoro-te",
         "license_url": "https://www.jamendo.com/en/list/a140511/adoro-te"
       },
       "duration": 460.18
     },
     {
       "id": "music-jamendo-0020",
-      "title": "Angelo",
+      "title": "Non temere (Isaia 43-1)",
       "audio": "music/jamendo/music-jamendo-0020.opus",
       "tags": {
         "genres": [
           "pop",
           "gospel"
         ],
-        "artist": null,
-        "album": "Angelo",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "album": "Adoro Te",
+        "artist": "Angelo Mele",
+        "album_url": "https://www.jamendo.com/en/list/a140511/adoro-te",
         "license_url": "https://www.jamendo.com/en/list/a140511/adoro-te"
       },
       "duration": 360.16
     },
     {
       "id": "music-jamendo-0021",
-      "title": "Angelo",
+      "title": "Dio Onnipotente",
       "audio": "music/jamendo/music-jamendo-0021.opus",
       "tags": {
         "genres": [
           "pop",
           "gospel"
         ],
-        "artist": null,
-        "album": "Angelo",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "album": "Adoro Te",
+        "artist": "Angelo Mele",
+        "album_url": "https://www.jamendo.com/en/list/a140511/adoro-te",
         "license_url": "https://www.jamendo.com/en/list/a140511/adoro-te"
       },
       "duration": 248.51
     },
     {
       "id": "music-jamendo-0022",
-      "title": "Angelo",
+      "title": "Santo",
       "audio": "music/jamendo/music-jamendo-0022.opus",
       "tags": {
         "genres": [
           "pop",
           "gospel"
         ],
-        "artist": null,
-        "album": "Angelo",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "album": "Adoro Te",
+        "artist": "Angelo Mele",
+        "album_url": "https://www.jamendo.com/en/list/a140511/adoro-te",
         "license_url": "https://www.jamendo.com/en/list/a140511/adoro-te"
       },
       "duration": 350.1
     },
     {
       "id": "music-jamendo-0023",
-      "title": "Angelo",
+      "title": "Un cuore puro",
       "audio": "music/jamendo/music-jamendo-0023.opus",
       "tags": {
         "genres": [
           "pop",
           "gospel"
         ],
-        "artist": null,
-        "album": "Angelo",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "album": "Adoro Te",
+        "artist": "Angelo Mele",
+        "album_url": "https://www.jamendo.com/en/list/a140511/adoro-te",
         "license_url": "https://www.jamendo.com/en/list/a140511/adoro-te"
       },
       "duration": 301.12
     },
     {
       "id": "music-jamendo-0070",
-      "title": "FOURTEENO",
+      "title": "amordipietra",
       "audio": "music/jamendo/music-jamendo-0070.opus",
       "tags": {
         "genres": [
@@ -120,17 +126,17 @@
           "hiphop",
           "rock"
         ],
-        "artist": null,
-        "album": "FOURTEENO",
         "vocal": "n",
         "license": "CC-BY-SA-4.0",
+        "artist": "ANTONELLO FORTINO",
+        "album_url": "https://www.jamendo.com/en/list/a139630/solo-strumentale",
         "license_url": "https://www.jamendo.com/en/list/a139630/solo-strumentale"
       },
       "duration": 318.7
     },
     {
       "id": "music-jamendo-0071",
-      "title": "FOURTEENO",
+      "title": "polvere",
       "audio": "music/jamendo/music-jamendo-0071.opus",
       "tags": {
         "genres": [
@@ -138,17 +144,17 @@
           "hiphop",
           "rock"
         ],
-        "artist": null,
-        "album": "FOURTEENO",
         "vocal": "n",
         "license": "CC-BY-SA-4.0",
+        "artist": "ANTONELLO FORTINO",
+        "album_url": "https://www.jamendo.com/en/list/a139630/solo-strumentale",
         "license_url": "https://www.jamendo.com/en/list/a139630/solo-strumentale"
       },
       "duration": 213.32
     },
     {
       "id": "music-jamendo-0072",
-      "title": "FOURTEENO",
+      "title": "tiportovia",
       "audio": "music/jamendo/music-jamendo-0072.opus",
       "tags": {
         "genres": [
@@ -156,490 +162,490 @@
           "hiphop",
           "rock"
         ],
-        "artist": null,
-        "album": "FOURTEENO",
         "vocal": "n",
         "license": "CC-BY-SA-4.0",
+        "artist": "ANTONELLO FORTINO",
+        "album_url": "https://www.jamendo.com/en/list/a139630/solo-strumentale",
         "license_url": "https://www.jamendo.com/en/list/a139630/solo-strumentale"
       },
       "duration": 256.55
     },
     {
       "id": "music-jamendo-0101",
-      "title": "Jos Carillo",
+      "title": "DIRECTO AL SOL",
       "audio": "music/jamendo/music-jamendo-0101.opus",
       "tags": {
         "genres": [
           "pop",
           "folk"
         ],
-        "artist": null,
-        "album": "Jos Carillo",
         "vocal": "y",
         "license": "CC-BY-3.0",
+        "artist": "Jos Carillo",
+        "album_url": "https://www.jamendo.com/en/list/a137608/directo-al-sol",
         "license_url": "https://www.jamendo.com/en/list/a137608/directo-al-sol"
       },
       "duration": 64.84
     },
     {
       "id": "music-jamendo-0103",
-      "title": "Jos Carillo",
+      "title": "EN SILENCO",
       "audio": "music/jamendo/music-jamendo-0103.opus",
       "tags": {
         "genres": [
           "pop",
           "folk"
         ],
-        "artist": null,
-        "album": "Jos Carillo",
         "vocal": "y",
         "license": "CC-BY-3.0",
+        "artist": "Jos Carillo",
+        "album_url": "https://www.jamendo.com/en/list/a137608/directo-al-sol",
         "license_url": "https://www.jamendo.com/en/list/a137608/directo-al-sol"
       },
       "duration": 169.28
     },
     {
       "id": "music-jamendo-0105",
-      "title": "Jos Carillo",
+      "title": "MACANUDO",
       "audio": "music/jamendo/music-jamendo-0105.opus",
       "tags": {
         "genres": [
           "pop",
           "folk"
         ],
-        "artist": null,
-        "album": "Jos Carillo",
         "vocal": "y",
         "license": "CC-BY-3.0",
+        "artist": "Jos Carillo",
+        "album_url": "https://www.jamendo.com/en/list/a137608/directo-al-sol",
         "license_url": "https://www.jamendo.com/en/list/a137608/directo-al-sol"
       },
       "duration": 122.39
     },
     {
       "id": "music-jamendo-0102",
-      "title": "Jos Carillo",
+      "title": "EL HOMBRE FELIZ",
       "audio": "music/jamendo/music-jamendo-0102.opus",
       "tags": {
         "genres": [
           "pop",
           "folk"
         ],
-        "artist": null,
-        "album": "Jos Carillo",
         "vocal": "y",
         "license": "CC-BY-3.0",
+        "artist": "Jos Carillo",
+        "album_url": "https://www.jamendo.com/en/list/a137608/directo-al-sol",
         "license_url": "https://www.jamendo.com/en/list/a137608/directo-al-sol"
       },
       "duration": 214.11
     },
     {
       "id": "music-jamendo-0104",
-      "title": "Jos Carillo",
+      "title": "ESPERAR",
       "audio": "music/jamendo/music-jamendo-0104.opus",
       "tags": {
         "genres": [
           "pop",
           "folk"
         ],
-        "artist": null,
-        "album": "Jos Carillo",
         "vocal": "y",
         "license": "CC-BY-3.0",
+        "artist": "Jos Carillo",
+        "album_url": "https://www.jamendo.com/en/list/a137608/directo-al-sol",
         "license_url": "https://www.jamendo.com/en/list/a137608/directo-al-sol"
       },
       "duration": 191.9
     },
     {
       "id": "music-jamendo-0106",
-      "title": "Jos Carillo",
+      "title": "COMO UN ARBOL VIEJO",
       "audio": "music/jamendo/music-jamendo-0106.opus",
       "tags": {
         "genres": [
           "pop",
           "folk"
         ],
-        "artist": null,
-        "album": "Jos Carillo",
         "vocal": "y",
         "license": "CC-BY-3.0",
+        "artist": "Jos Carillo",
+        "album_url": "https://www.jamendo.com/en/list/a137608/directo-al-sol",
         "license_url": "https://www.jamendo.com/en/list/a137608/directo-al-sol"
       },
       "duration": 230.59
     },
     {
       "id": "music-jamendo-0135",
-      "title": "Mau",
+      "title": "Un secondo",
       "audio": "music/jamendo/music-jamendo-0135.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Mau",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Mau",
+        "album_url": "https://www.jamendo.com/en/track/1134737/un-secondo",
         "license_url": "https://www.jamendo.com/en/track/1205089/truth-and-illusion"
       },
       "duration": 263.95
     },
     {
       "id": "music-jamendo-0134",
-      "title": "Mau",
+      "title": "truth and illusion",
       "audio": "music/jamendo/music-jamendo-0134.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Mau",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Mau",
+        "album_url": "https://www.jamendo.com/en/track/1134737/un-secondo",
         "license_url": "https://www.jamendo.com/en/track/1205089/truth-and-illusion"
       },
       "duration": 317.97
     },
     {
       "id": "music-jamendo-0061",
-      "title": "Carnal",
+      "title": "Ara x ara",
       "audio": "music/jamendo/music-jamendo-0061.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Carnal",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Carnal",
+        "album_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer",
         "license_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer"
       },
       "duration": 252.01
     },
     {
       "id": "music-jamendo-0063",
-      "title": "Carnal",
+      "title": "Interludi",
       "audio": "music/jamendo/music-jamendo-0063.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Carnal",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Carnal",
+        "album_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer",
         "license_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer"
       },
       "duration": 81.87
     },
     {
       "id": "music-jamendo-0064",
-      "title": "Carnal",
+      "title": "la brisa y las estrellas",
       "audio": "music/jamendo/music-jamendo-0064.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Carnal",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Carnal",
+        "album_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer",
         "license_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer"
       },
       "duration": 205.43
     },
     {
       "id": "music-jamendo-0067",
-      "title": "Carnal",
+      "title": "pocs cops",
       "audio": "music/jamendo/music-jamendo-0067.opus",
       "tags": {
         "genres": [
           "pop",
           "jazz"
         ],
-        "artist": null,
-        "album": "Carnal",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Carnal",
+        "album_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer",
         "license_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer"
       },
       "duration": 239.08
     },
     {
       "id": "music-jamendo-0069",
-      "title": "Carnal",
+      "title": "Siento q si te",
       "audio": "music/jamendo/music-jamendo-0069.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Carnal",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Carnal",
+        "album_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer",
         "license_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer"
       },
       "duration": 274.24
     },
     {
       "id": "music-jamendo-0062",
-      "title": "Carnal",
+      "title": "that aroma",
       "audio": "music/jamendo/music-jamendo-0062.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Carnal",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Carnal",
+        "album_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer",
         "license_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer"
       },
       "duration": 147.99
     },
     {
       "id": "music-jamendo-0066",
-      "title": "Carnal",
+      "title": "l'artista",
       "audio": "music/jamendo/music-jamendo-0066.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Carnal",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Carnal",
+        "album_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer",
         "license_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer"
       },
       "duration": 209.3
     },
     {
       "id": "music-jamendo-0065",
-      "title": "Carnal",
+      "title": "la cuca",
       "audio": "music/jamendo/music-jamendo-0065.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Carnal",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Carnal",
+        "album_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer",
         "license_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer"
       },
       "duration": 217.66
     },
     {
       "id": "music-jamendo-0068",
-      "title": "Carnal",
+      "title": "Rèquiem per un amor",
       "audio": "music/jamendo/music-jamendo-0068.opus",
       "tags": {
         "genres": [
           "pop",
           "jazz"
         ],
-        "artist": null,
-        "album": "Carnal",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Carnal",
+        "album_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer",
         "license_url": "https://www.jamendo.com/en/list/a50533/que-hem-de-fer"
       },
       "duration": 239.08
     },
     {
       "id": "music-jamendo-0031",
-      "title": "Backnbloom",
+      "title": "Empty Spaces",
       "audio": "music/jamendo/music-jamendo-0031.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Backnbloom",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Backnbloom",
+        "album_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey",
         "license_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey"
       },
       "duration": 286.8
     },
     {
       "id": "music-jamendo-0033",
-      "title": "Backnbloom",
+      "title": "Flicker",
       "audio": "music/jamendo/music-jamendo-0033.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Backnbloom",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Backnbloom",
+        "album_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey",
         "license_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey"
       },
       "duration": 248.01
     },
     {
       "id": "music-jamendo-0035",
-      "title": "Backnbloom",
+      "title": "King of the Radio",
       "audio": "music/jamendo/music-jamendo-0035.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Backnbloom",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Backnbloom",
+        "album_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey",
         "license_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey"
       },
       "duration": 236.36
     },
     {
       "id": "music-jamendo-0037",
-      "title": "Backnbloom",
+      "title": "Start Again",
       "audio": "music/jamendo/music-jamendo-0037.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Backnbloom",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Backnbloom",
+        "album_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey",
         "license_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey"
       },
       "duration": 206.01
     },
     {
       "id": "music-jamendo-0032",
-      "title": "Backnbloom",
+      "title": "The Feel",
       "audio": "music/jamendo/music-jamendo-0032.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Backnbloom",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Backnbloom",
+        "album_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey",
         "license_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey"
       },
       "duration": 191.3
     },
     {
       "id": "music-jamendo-0034",
-      "title": "Backnbloom",
+      "title": "Heed The Flashes",
       "audio": "music/jamendo/music-jamendo-0034.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Backnbloom",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Backnbloom",
+        "album_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey",
         "license_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey"
       },
       "duration": 264.68
     },
     {
       "id": "music-jamendo-0036",
-      "title": "Backnbloom",
+      "title": "Slip Away",
       "audio": "music/jamendo/music-jamendo-0036.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Backnbloom",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Backnbloom",
+        "album_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey",
         "license_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey"
       },
       "duration": 228.84
     },
     {
       "id": "music-jamendo-0038",
-      "title": "Backnbloom",
+      "title": "Venice",
       "audio": "music/jamendo/music-jamendo-0038.opus",
       "tags": {
         "genres": [
           "pop",
           "electronica"
         ],
-        "artist": null,
-        "album": "Backnbloom",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Backnbloom",
+        "album_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey",
         "license_url": "https://www.jamendo.com/en/list/a126867/music-for-the-modern-monkey"
       },
       "duration": 173.85
     },
     {
       "id": "music-jamendo-0180",
-      "title": "s and y",
+      "title": "audelad'unregard",
       "audio": "music/jamendo/music-jamendo-0180.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "s and y",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "s-and-y",
+        "album_url": "https://www.jamendo.com/en/list/a49698/completement-soul",
         "license_url": "https://www.jamendo.com/en/list/a49698/completement-soul"
       },
       "duration": 209.22
     },
     {
       "id": "music-jamendo-0182",
-      "title": "s and y",
+      "title": "lamourenterre",
       "audio": "music/jamendo/music-jamendo-0182.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "s and y",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "s-and-y",
+        "album_url": "https://www.jamendo.com/en/list/a49698/completement-soul",
         "license_url": "https://www.jamendo.com/en/list/a49698/completement-soul"
       },
       "duration": 271.13
     },
     {
       "id": "music-jamendo-0184",
-      "title": "s and y",
+      "title": "prometsmoi",
       "audio": "music/jamendo/music-jamendo-0184.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "s and y",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "s-and-y",
+        "album_url": "https://www.jamendo.com/en/list/a49698/completement-soul",
         "license_url": "https://www.jamendo.com/en/list/a49698/completement-soul"
       },
       "duration": 248.95
     },
     {
       "id": "music-jamendo-0186",
-      "title": "s and y",
+      "title": "tumavaisdit",
       "audio": "music/jamendo/music-jamendo-0186.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "s and y",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "s-and-y",
+        "album_url": "https://www.jamendo.com/en/list/a49698/completement-soul",
         "license_url": "https://www.jamendo.com/en/list/a49698/completement-soul"
       },
       "duration": 255.98
     },
     {
       "id": "music-jamendo-0181",
-      "title": "s and y",
+      "title": "gourmandise",
       "audio": "music/jamendo/music-jamendo-0181.opus",
       "tags": {
         "genres": [
@@ -647,34 +653,34 @@
           "soul",
           "rnb"
         ],
-        "artist": null,
-        "album": "s and y",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "s-and-y",
+        "album_url": "https://www.jamendo.com/en/list/a49698/completement-soul",
         "license_url": "https://www.jamendo.com/en/list/a49698/completement-soul"
       },
       "duration": 251.88
     },
     {
       "id": "music-jamendo-0183",
-      "title": "s and y",
+      "title": "nuitsblanches",
       "audio": "music/jamendo/music-jamendo-0183.opus",
       "tags": {
         "genres": [
           "pop",
           "folk"
         ],
-        "artist": null,
-        "album": "s and y",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "s-and-y",
+        "album_url": "https://www.jamendo.com/en/list/a49698/completement-soul",
         "license_url": "https://www.jamendo.com/en/list/a49698/completement-soul"
       },
       "duration": 249.79
     },
     {
       "id": "music-jamendo-0185",
-      "title": "s and y",
+      "title": "completementsoulfinal",
       "audio": "music/jamendo/music-jamendo-0185.opus",
       "tags": {
         "genres": [
@@ -682,33 +688,33 @@
           "soul",
           "rnb"
         ],
-        "artist": null,
-        "album": "s and y",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "s-and-y",
+        "album_url": "https://www.jamendo.com/en/list/a49698/completement-soul",
         "license_url": "https://www.jamendo.com/en/list/a49698/completement-soul"
       },
       "duration": 233.33
     },
     {
       "id": "music-jamendo-0187",
-      "title": "s and y",
+      "title": "uncridanstavie",
       "audio": "music/jamendo/music-jamendo-0187.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "s and y",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "s-and-y",
+        "album_url": "https://www.jamendo.com/en/list/a49698/completement-soul",
         "license_url": "https://www.jamendo.com/en/list/a49698/completement-soul"
       },
       "duration": 341.56
     },
     {
       "id": "music-jamendo-0119",
-      "title": "Latasha Lee",
+      "title": "LatashanLee",
       "audio": "music/jamendo/music-jamendo-0119.opus",
       "tags": {
         "genres": [
@@ -716,224 +722,220 @@
           "rock",
           "soul"
         ],
-        "artist": null,
-        "album": "Latasha Lee",
         "vocal": "y",
         "license": "CC-BY-3.0",
+        "artist": "Latasha Lee",
+        "album_url": "https://www.jamendo.com/en/list/a77214/latashanlee",
         "license_url": "https://www.jamendo.com/en/list/a77214/latashanlee"
       },
       "duration": 186.99
     },
     {
       "id": "music-jamendo-0042",
-      "title": "Bod",
+      "title": "infradrums",
       "audio": "music/jamendo/music-jamendo-0042.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Bod",
         "vocal": "n",
         "license": "CC-BY-3.0",
+        "artist": "Bod",
+        "album_url": "https://www.jamendo.com/en/list/a85814/male-magnetics",
         "license_url": "https://www.jamendo.com/en/list/a85814/male-magnetics"
       },
       "duration": 306.55
     },
     {
       "id": "music-jamendo-0043",
-      "title": "Bod",
+      "title": "komodovegan",
       "audio": "music/jamendo/music-jamendo-0043.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Bod",
         "vocal": "n",
         "license": "CC-BY-3.0",
+        "artist": "Bod",
+        "album_url": "https://www.jamendo.com/en/list/a85814/male-magnetics",
         "license_url": "https://www.jamendo.com/en/list/a85814/male-magnetics"
       },
       "duration": 304.7
     },
     {
       "id": "music-jamendo-0044",
-      "title": "Bod",
+      "title": "lensflares",
       "audio": "music/jamendo/music-jamendo-0044.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Bod",
         "vocal": "n",
         "license": "CC-BY-3.0",
+        "artist": "Bod",
+        "album_url": "https://www.jamendo.com/en/list/a85814/male-magnetics",
         "license_url": "https://www.jamendo.com/en/list/a85814/male-magnetics"
       },
       "duration": 238.03
     },
     {
       "id": "music-jamendo-0045",
-      "title": "Bod",
+      "title": "morphium drill",
       "audio": "music/jamendo/music-jamendo-0045.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Bod",
         "vocal": "n",
         "license": "CC-BY-3.0",
+        "artist": "Bod",
+        "album_url": "https://www.jamendo.com/en/list/a85814/male-magnetics",
         "license_url": "https://www.jamendo.com/en/list/a85814/male-magnetics"
       },
       "duration": 263.29
     },
     {
       "id": "music-jamendo-0046",
-      "title": "Bod",
+      "title": "optical spasm",
       "audio": "music/jamendo/music-jamendo-0046.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Bod",
         "vocal": "n",
         "license": "CC-BY-3.0",
+        "artist": "Bod",
+        "album_url": "https://www.jamendo.com/en/list/a85814/male-magnetics",
         "license_url": "https://www.jamendo.com/en/list/a85814/male-magnetics"
       },
       "duration": 288.82
     },
     {
       "id": "music-jamendo-0130",
-      "title": "MattMigma",
+      "title": "Flash Back",
       "audio": "music/jamendo/music-jamendo-0130.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "MattMigma",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "MattMigma",
+        "album_url": "https://www.jamendo.com/en/artist/351545/mattmigma",
         "license_url": "https://www.jamendo.com/en/artist/351545/mattmigma"
       },
       "duration": 218.08
     },
     {
       "id": "music-jamendo-0132",
-      "title": "MattMigma",
+      "title": "Good Day With My Friend",
       "audio": "music/jamendo/music-jamendo-0132.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "MattMigma",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "MattMigma",
+        "album_url": "https://www.jamendo.com/en/artist/351545/mattmigma",
         "license_url": "https://www.jamendo.com/en/artist/351545/mattmigma"
       },
       "duration": 132.05
     },
     {
       "id": "music-jamendo-0131",
-      "title": "MattMigma",
+      "title": "For You",
       "audio": "music/jamendo/music-jamendo-0131.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "MattMigma",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "MattMigma",
+        "album_url": "https://www.jamendo.com/en/artist/351545/mattmigma",
         "license_url": "https://www.jamendo.com/en/artist/351545/mattmigma"
       },
       "duration": 208.07
     },
     {
       "id": "music-jamendo-0133",
-      "title": "MattMigma",
+      "title": "Wake-Up The City",
       "audio": "music/jamendo/music-jamendo-0133.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "MattMigma",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "MattMigma",
+        "album_url": "https://www.jamendo.com/en/artist/351545/mattmigma",
         "license_url": "https://www.jamendo.com/en/artist/351545/mattmigma"
       },
       "duration": 244.09
     },
     {
       "id": "music-jamendo-0199",
-      "title": "Starfish",
+      "title": "Flowing with the Waves 1",
       "audio": "music/jamendo/music-jamendo-0199.opus",
       "tags": {
         "genres": [
           "indierock",
           "rock"
         ],
-        "artist": null,
-        "album": "Starfish",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "artist": "Starfish"
       },
       "duration": 188.06
     },
     {
       "id": "music-jamendo-0201",
-      "title": "Starfish",
+      "title": "Sea Anemone 2",
       "audio": "music/jamendo/music-jamendo-0201.opus",
       "tags": {
         "genres": [
           "indierock"
         ],
-        "artist": null,
-        "album": "Starfish",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "artist": "Starfish"
       },
       "duration": 273.12
     },
     {
       "id": "music-jamendo-0200",
-      "title": "Starfish",
+      "title": "Into the Deep 1",
       "audio": "music/jamendo/music-jamendo-0200.opus",
       "tags": {
         "genres": [
           "indierock",
           "pop"
         ],
-        "artist": null,
-        "album": "Starfish",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "artist": "Starfish"
       },
       "duration": 208.41
     },
     {
       "id": "music-jamendo-0202",
-      "title": "Starfish",
+      "title": "Starfish 1",
       "audio": "music/jamendo/music-jamendo-0202.opus",
       "tags": {
         "genres": [
           "indierock",
           "pop"
         ],
-        "artist": null,
-        "album": "Starfish",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "artist": "Starfish"
       },
       "duration": 209.22
     },
     {
       "id": "music-jamendo-0136",
-      "title": "Melanie Ungar",
+      "title": "Deeper For You",
       "audio": "music/jamendo/music-jamendo-0136.opus",
       "tags": {
         "genres": [
@@ -941,102 +943,102 @@
           "pop",
           "folk"
         ],
-        "artist": null,
-        "album": "Melanie Ungar",
         "vocal": "y",
         "license": "CC-BY-3.0",
+        "artist": "Melanie Ungar",
+        "album_url": "https://www.jamendo.com/en/list/a144705/what-is-love",
         "license_url": "https://www.jamendo.com/en/list/a144705/what-is-love"
       },
       "duration": 229.99
     },
     {
       "id": "music-jamendo-0137",
-      "title": "Melanie Ungar",
+      "title": "Lets Start Again",
       "audio": "music/jamendo/music-jamendo-0137.opus",
       "tags": {
         "genres": [
           "country",
           "pop"
         ],
-        "artist": null,
-        "album": "Melanie Ungar",
         "vocal": "y",
         "license": "CC-BY-3.0",
+        "artist": "Melanie Ungar",
+        "album_url": "https://www.jamendo.com/en/list/a144705/what-is-love",
         "license_url": "https://www.jamendo.com/en/list/a144705/what-is-love"
       },
       "duration": 230.33
     },
     {
       "id": "music-jamendo-0139",
-      "title": "Melanie Ungar",
+      "title": "One Day",
       "audio": "music/jamendo/music-jamendo-0139.opus",
       "tags": {
         "genres": [
           "country",
           "pop"
         ],
-        "artist": null,
-        "album": "Melanie Ungar",
         "vocal": "y",
         "license": "CC-BY-3.0",
+        "artist": "Melanie Ungar",
+        "album_url": "https://www.jamendo.com/en/list/a144705/what-is-love",
         "license_url": "https://www.jamendo.com/en/list/a144705/what-is-love"
       },
       "duration": 232.47
     },
     {
       "id": "music-jamendo-0141",
-      "title": "Melanie Ungar",
+      "title": "What Is Love",
       "audio": "music/jamendo/music-jamendo-0141.opus",
       "tags": {
         "genres": [
           "country",
           "pop"
         ],
-        "artist": null,
-        "album": "Melanie Ungar",
         "vocal": "y",
         "license": "CC-BY-3.0",
+        "artist": "Melanie Ungar",
+        "album_url": "https://www.jamendo.com/en/list/a144705/what-is-love",
         "license_url": "https://www.jamendo.com/en/list/a144705/what-is-love"
       },
       "duration": 212.07
     },
     {
       "id": "music-jamendo-0138",
-      "title": "Melanie Ungar",
+      "title": "Madly, Deeply",
       "audio": "music/jamendo/music-jamendo-0138.opus",
       "tags": {
         "genres": [
           "country",
           "pop"
         ],
-        "artist": null,
-        "album": "Melanie Ungar",
         "vocal": "y",
         "license": "CC-BY-3.0",
+        "artist": "Melanie Ungar",
+        "album_url": "https://www.jamendo.com/en/list/a144705/what-is-love",
         "license_url": "https://www.jamendo.com/en/list/a144705/what-is-love"
       },
       "duration": 250.39
     },
     {
       "id": "music-jamendo-0140",
-      "title": "Melanie Ungar",
+      "title": "Open",
       "audio": "music/jamendo/music-jamendo-0140.opus",
       "tags": {
         "genres": [
           "country",
           "pop"
         ],
-        "artist": null,
-        "album": "Melanie Ungar",
         "vocal": "y",
         "license": "CC-BY-3.0",
+        "artist": "Melanie Ungar",
+        "album_url": "https://www.jamendo.com/en/list/a144705/what-is-love",
         "license_url": "https://www.jamendo.com/en/list/a144705/what-is-love"
       },
       "duration": 243.47
     },
     {
       "id": "music-jamendo-0128",
-      "title": "Marc Reeves",
+      "title": "I want out",
       "audio": "music/jamendo/music-jamendo-0128.opus",
       "tags": {
         "genres": [
@@ -1044,146 +1046,146 @@
           "rock",
           "folk"
         ],
-        "artist": null,
-        "album": "Marc Reeves",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Marc Reeves",
+        "album_url": "https://www.jamendo.com/en/list/a87796/the-kala-sessions-folk-pop-uk-male-singer-songwriter-acoustic",
         "license_url": "https://www.jamendo.com/en/list/a87796/the-kala-sessions-folk-pop-uk-male-singer-songwriter-acoustic"
       },
       "duration": 205.67
     },
     {
       "id": "music-jamendo-0129",
-      "title": "Marc Reeves",
+      "title": "Waiting for you",
       "audio": "music/jamendo/music-jamendo-0129.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Marc Reeves",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Marc Reeves",
+        "album_url": "https://www.jamendo.com/en/list/a87796/the-kala-sessions-folk-pop-uk-male-singer-songwriter-acoustic",
         "license_url": "https://www.jamendo.com/en/list/a87796/the-kala-sessions-folk-pop-uk-male-singer-songwriter-acoustic"
       },
       "duration": 106.93
     },
     {
       "id": "music-jamendo-0056",
-      "title": "Cantus",
+      "title": "Chitananda Jay",
       "audio": "music/jamendo/music-jamendo-0056.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Cantus",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Cantus",
+        "album_url": "https://www.jamendo.com/en/list/a119765/cantus",
         "license_url": "https://www.jamendo.com/en/list/a119765/cantus"
       },
       "duration": 411.09
     },
     {
       "id": "music-jamendo-0057",
-      "title": "Cantus",
+      "title": "Mountain High",
       "audio": "music/jamendo/music-jamendo-0057.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Cantus",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Cantus",
+        "album_url": "https://www.jamendo.com/en/list/a119765/cantus",
         "license_url": "https://www.jamendo.com/en/list/a119765/cantus"
       },
       "duration": 239.42
     },
     {
       "id": "music-jamendo-0058",
-      "title": "Cantus",
+      "title": "Otthon",
       "audio": "music/jamendo/music-jamendo-0058.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Cantus",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Cantus",
+        "album_url": "https://www.jamendo.com/en/list/a119765/cantus",
         "license_url": "https://www.jamendo.com/en/list/a119765/cantus"
       },
       "duration": 200.65
     },
     {
       "id": "music-jamendo-0059",
-      "title": "Cantus",
+      "title": "Rain",
       "audio": "music/jamendo/music-jamendo-0059.opus",
       "tags": {
         "genres": [
           "adventure"
         ],
-        "artist": null,
-        "album": "Cantus",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Cantus",
+        "album_url": "https://www.jamendo.com/en/list/a119765/cantus",
         "license_url": "https://www.jamendo.com/en/list/a119765/cantus"
       },
       "duration": 236.65
     },
     {
       "id": "music-jamendo-0060",
-      "title": "Cantus",
+      "title": "Winter",
       "audio": "music/jamendo/music-jamendo-0060.opus",
       "tags": {
         "genres": [
           "adventure"
         ],
-        "artist": null,
-        "album": "Cantus",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Cantus",
+        "album_url": "https://www.jamendo.com/en/list/a119765/cantus",
         "license_url": "https://www.jamendo.com/en/list/a119765/cantus"
       },
       "duration": 367.97
     },
     {
       "id": "music-jamendo-0124",
-      "title": "Lollita",
+      "title": "Don't you go away (featuring Dr Llynx)",
       "audio": "music/jamendo/music-jamendo-0124.opus",
       "tags": {
         "genres": [
           "pop",
           "electronica"
         ],
-        "artist": null,
-        "album": "Lollita",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Lollita",
+        "album_url": "https://www.jamendo.com/en/list/a119554/lollita",
         "license_url": "https://www.jamendo.com/en/list/a119554/lollita"
       },
       "duration": 220.61
     },
     {
       "id": "music-jamendo-0125",
-      "title": "Lollita",
+      "title": "I want you (pop rock remix)",
       "audio": "music/jamendo/music-jamendo-0125.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Lollita",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Lollita",
+        "album_url": "https://www.jamendo.com/en/list/a119554/lollita",
         "license_url": "https://www.jamendo.com/en/list/a119554/lollita"
       },
       "duration": 204.1
     },
     {
       "id": "music-jamendo-0126",
-      "title": "Lollita",
+      "title": "Oh baby (featuring Blunty)",
       "audio": "music/jamendo/music-jamendo-0126.opus",
       "tags": {
         "genres": [
@@ -1191,150 +1193,150 @@
           "electronica",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Lollita",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Lollita",
+        "album_url": "https://www.jamendo.com/en/list/a119554/lollita",
         "license_url": "https://www.jamendo.com/en/list/a119554/lollita"
       },
       "duration": 220.53
     },
     {
       "id": "music-jamendo-0127",
-      "title": "Lollita",
+      "title": "Sexy jouet",
       "audio": "music/jamendo/music-jamendo-0127.opus",
       "tags": {
         "genres": [
           "pop",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Lollita",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Lollita",
+        "album_url": "https://www.jamendo.com/en/list/a119554/lollita",
         "license_url": "https://www.jamendo.com/en/list/a119554/lollita"
       },
       "duration": 204.99
     },
     {
       "id": "music-jamendo-0142",
-      "title": "Mirva",
+      "title": "Bring Me Closer",
       "audio": "music/jamendo/music-jamendo-0142.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Mirva",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Mirva",
+        "album_url": "https://www.jamendo.com/en/list/a138739/one",
         "license_url": "https://www.jamendo.com/en/list/a138739/one"
       },
       "duration": 170.51
     },
     {
       "id": "music-jamendo-0143",
-      "title": "Mirva",
+      "title": "One",
       "audio": "music/jamendo/music-jamendo-0143.opus",
       "tags": {
         "genres": [
           "pop",
           "rock"
         ],
-        "artist": null,
-        "album": "Mirva",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Mirva",
+        "album_url": "https://www.jamendo.com/en/list/a138739/one",
         "license_url": "https://www.jamendo.com/en/list/a138739/one"
       },
       "duration": 248.4
     },
     {
       "id": "music-jamendo-0144",
-      "title": "Mirva",
+      "title": "Parachute",
       "audio": "music/jamendo/music-jamendo-0144.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Mirva",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Mirva",
+        "album_url": "https://www.jamendo.com/en/list/a138739/one",
         "license_url": "https://www.jamendo.com/en/list/a138739/one"
       },
       "duration": 174.14
     },
     {
       "id": "music-jamendo-0145",
-      "title": "Mirva",
+      "title": "I Am The Sun",
       "audio": "music/jamendo/music-jamendo-0145.opus",
       "tags": {
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "Mirva",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Mirva",
+        "album_url": "https://www.jamendo.com/en/list/a138739/one",
         "license_url": "https://www.jamendo.com/en/list/a138739/one"
       },
       "duration": 209.82
     },
     {
       "id": "music-jamendo-0146",
-      "title": "Mirva",
+      "title": "This Is How We Stand",
       "audio": "music/jamendo/music-jamendo-0146.opus",
       "tags": {
         "genres": [
           "pop",
           "rock"
         ],
-        "artist": null,
-        "album": "Mirva",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Mirva",
+        "album_url": "https://www.jamendo.com/en/list/a138739/one",
         "license_url": "https://www.jamendo.com/en/list/a138739/one"
       },
       "duration": 168.68
     },
     {
       "id": "music-jamendo-0109",
-      "title": "JPMOUNIER",
+      "title": "SMOOTHY",
       "audio": "music/jamendo/music-jamendo-0109.opus",
       "tags": {
         "genres": [
           "jazz",
           "adventure"
         ],
-        "artist": null,
-        "album": "JPMOUNIER",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "JPMOUNIER",
+        "album_url": "https://www.jamendo.com/en/list/a76685/jpmounier-smooth",
         "license_url": "https://www.jamendo.com/en/list/a76685/jpmounier-smooth"
       },
       "duration": 363.03
     },
     {
       "id": "music-jamendo-0108",
-      "title": "JPMOUNIER",
+      "title": "GALEJADE !!!!!!!!!!!",
       "audio": "music/jamendo/music-jamendo-0108.opus",
       "tags": {
         "genres": [
           "funk",
           "electronica"
         ],
-        "artist": null,
-        "album": "JPMOUNIER",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "JPMOUNIER",
+        "album_url": "https://www.jamendo.com/en/list/a76685/jpmounier-smooth",
         "license_url": "https://www.jamendo.com/en/list/a76685/jpmounier-smooth"
       },
       "duration": 340.02
     },
     {
       "id": "music-jamendo-0039",
-      "title": "Bellanger",
+      "title": "bossa nova -reverie",
       "audio": "music/jamendo/music-jamendo-0039.opus",
       "tags": {
         "genres": [
@@ -1342,17 +1344,17 @@
           "pop",
           "soul"
         ],
-        "artist": null,
-        "album": "Bellanger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Bellanger",
+        "album_url": "https://www.jamendo.com/en/list/a49438/reverie-musicale",
         "license_url": "https://www.jamendo.com/en/list/a49438/reverie-musicale"
       },
       "duration": 320.06
     },
     {
       "id": "music-jamendo-0041",
-      "title": "Bellanger",
+      "title": "saxo feel jazzFUNK",
       "audio": "music/jamendo/music-jamendo-0041.opus",
       "tags": {
         "genres": [
@@ -1360,17 +1362,17 @@
           "soul",
           "electronica"
         ],
-        "artist": null,
-        "album": "Bellanger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Bellanger",
+        "album_url": "https://www.jamendo.com/en/list/a49438/reverie-musicale",
         "license_url": "https://www.jamendo.com/en/list/a49438/reverie-musicale"
       },
       "duration": 199.09
     },
     {
       "id": "music-jamendo-0040",
-      "title": "Bellanger",
+      "title": "Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)",
       "audio": "music/jamendo/music-jamendo-0040.opus",
       "tags": {
         "genres": [
@@ -1378,275 +1380,268 @@
           "pop",
           "funk"
         ],
-        "artist": null,
-        "album": "Bellanger",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "artist": "Bellanger"
       },
       "duration": 289.86
     },
     {
       "id": "music-jamendo-0154",
-      "title": "mounier",
+      "title": "09",
       "audio": "music/jamendo/music-jamendo-0154.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "mounier",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "artist": "mounier"
       },
       "duration": 232.08
     },
     {
       "id": "music-jamendo-0155",
-      "title": "mounier",
+      "title": "BLUES MACHINE",
       "audio": "music/jamendo/music-jamendo-0155.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "mounier",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "artist": "mounier"
       },
       "duration": 270.06
     },
     {
       "id": "music-jamendo-0156",
-      "title": "mounier",
+      "title": "GET UP",
       "audio": "music/jamendo/music-jamendo-0156.opus",
       "tags": {
         "genres": [
           "jazz",
           "electronica"
         ],
-        "artist": null,
-        "album": "mounier",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "artist": "mounier"
       },
       "duration": 364.88
     },
     {
       "id": "music-jamendo-0157",
-      "title": "mounier",
+      "title": "LATIN GROOVE",
       "audio": "music/jamendo/music-jamendo-0157.opus",
       "tags": {
         "genres": [
           "latin"
         ],
-        "artist": null,
-        "album": "mounier",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "artist": "mounier"
       },
       "duration": 275.55
     },
     {
       "id": "music-jamendo-0158",
-      "title": "mounier",
+      "title": "RELAXING",
       "audio": "music/jamendo/music-jamendo-0158.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "mounier",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "artist": "mounier"
       },
       "duration": 293.73
     },
     {
       "id": "music-jamendo-0159",
-      "title": "mounier",
+      "title": "SONG FOR MILA",
       "audio": "music/jamendo/music-jamendo-0159.opus",
       "tags": {
         "genres": [
           "blues",
           "electronica"
         ],
-        "artist": null,
-        "album": "mounier",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "artist": "mounier"
       },
       "duration": 316.64
     },
     {
       "id": "music-jamendo-0000",
-      "title": "AFTER WORK",
+      "title": "Dear Simo",
       "audio": "music/jamendo/music-jamendo-0000.opus",
       "tags": {
         "genres": [
           "jazz",
           "adventure"
         ],
-        "artist": null,
-        "album": "AFTER WORK",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "AFTER WORK",
+        "album_url": "https://www.jamendo.com/en/list/a66506/after-work",
         "license_url": "https://www.jamendo.com/en/list/a66506/after-work"
       },
       "duration": 471.86
     },
     {
       "id": "music-jamendo-0002",
-      "title": "AFTER WORK",
+      "title": "Giù",
       "audio": "music/jamendo/music-jamendo-0002.opus",
       "tags": {
         "genres": [
           "jazz",
           "adventure"
         ],
-        "artist": null,
-        "album": "AFTER WORK",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "AFTER WORK",
+        "album_url": "https://www.jamendo.com/en/list/a66506/after-work",
         "license_url": "https://www.jamendo.com/en/list/a66506/after-work"
       },
       "duration": 354.57
     },
     {
       "id": "music-jamendo-0004",
-      "title": "AFTER WORK",
+      "title": "Mack The Knife",
       "audio": "music/jamendo/music-jamendo-0004.opus",
       "tags": {
         "genres": [
           "jazz",
           "adventure"
         ],
-        "artist": null,
-        "album": "AFTER WORK",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "AFTER WORK",
+        "album_url": "https://www.jamendo.com/en/list/a66506/after-work",
         "license_url": "https://www.jamendo.com/en/list/a66506/after-work"
       },
       "duration": 376.82
     },
     {
       "id": "music-jamendo-0006",
-      "title": "AFTER WORK",
+      "title": "Minor Major",
       "audio": "music/jamendo/music-jamendo-0006.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "AFTER WORK",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "AFTER WORK",
+        "album_url": "https://www.jamendo.com/en/list/a66506/after-work",
         "license_url": "https://www.jamendo.com/en/list/a66506/after-work"
       },
       "duration": 422.38
     },
     {
       "id": "music-jamendo-0008",
-      "title": "AFTER WORK",
+      "title": "Turn Over",
       "audio": "music/jamendo/music-jamendo-0008.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "AFTER WORK",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "AFTER WORK",
+        "album_url": "https://www.jamendo.com/en/list/a66506/after-work",
         "license_url": "https://www.jamendo.com/en/list/a66506/after-work"
       },
       "duration": 409.58
     },
     {
       "id": "music-jamendo-0001",
-      "title": "AFTER WORK",
+      "title": "Cerniology",
       "audio": "music/jamendo/music-jamendo-0001.opus",
       "tags": {
         "genres": [
           "jazz",
           "adventure"
         ],
-        "artist": null,
-        "album": "AFTER WORK",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "AFTER WORK",
+        "album_url": "https://www.jamendo.com/en/list/a66506/after-work",
         "license_url": "https://www.jamendo.com/en/list/a66506/after-work"
       },
       "duration": 307.18
     },
     {
       "id": "music-jamendo-0003",
-      "title": "AFTER WORK",
+      "title": "Intro",
       "audio": "music/jamendo/music-jamendo-0003.opus",
       "tags": {
         "genres": [
           "jazz"
         ],
-        "artist": null,
-        "album": "AFTER WORK",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "AFTER WORK",
+        "album_url": "https://www.jamendo.com/en/list/a66506/after-work",
         "license_url": "https://www.jamendo.com/en/list/a66506/after-work"
       },
       "duration": 165.18
     },
     {
       "id": "music-jamendo-0005",
-      "title": "AFTER WORK",
+      "title": "Men at Work",
       "audio": "music/jamendo/music-jamendo-0005.opus",
       "tags": {
         "genres": [
           "jazz",
           "adventure"
         ],
-        "artist": null,
-        "album": "AFTER WORK",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "AFTER WORK",
+        "album_url": "https://www.jamendo.com/en/list/a66506/after-work",
         "license_url": "https://www.jamendo.com/en/list/a66506/after-work"
       },
       "duration": 294.61
     },
     {
       "id": "music-jamendo-0007",
-      "title": "AFTER WORK",
+      "title": "Notturno",
       "audio": "music/jamendo/music-jamendo-0007.opus",
       "tags": {
         "genres": [
           "jazz",
           "adventure"
         ],
-        "artist": null,
-        "album": "AFTER WORK",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "AFTER WORK",
+        "album_url": "https://www.jamendo.com/en/list/a66506/after-work",
         "license_url": "https://www.jamendo.com/en/list/a66506/after-work"
       },
       "duration": 371.7
     },
     {
       "id": "music-jamendo-0160",
-      "title": "noam bonatti",
+      "title": "Angel Of My Night - Noam Bonatti",
       "audio": "music/jamendo/music-jamendo-0160.opus",
       "tags": {
         "genres": [
           "blues",
           "funk"
         ],
-        "artist": null,
-        "album": "noam bonatti",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "noam bonatti",
+        "album_url": "https://www.jamendo.com/en/list/a138799/last-glance-at-the-past",
         "license_url": "https://www.jamendo.com/en/list/a138799/last-glance-at-the-past"
       },
       "duration": 260.97
     },
     {
       "id": "music-jamendo-0161",
-      "title": "noam bonatti",
+      "title": "Love Me In The Rain - Noam Bonatti",
       "audio": "music/jamendo/music-jamendo-0161.opus",
       "tags": {
         "genres": [
@@ -1654,43 +1649,43 @@
           "blues",
           "jazz"
         ],
-        "artist": null,
-        "album": "noam bonatti",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "noam bonatti",
+        "album_url": "https://www.jamendo.com/en/list/a138799/last-glance-at-the-past",
         "license_url": "https://www.jamendo.com/en/list/a138799/last-glance-at-the-past"
       },
       "duration": 215.07
     },
     {
       "id": "music-jamendo-0162",
-      "title": "noam bonatti",
+      "title": "Troubles - Noam Bonatti",
       "audio": "music/jamendo/music-jamendo-0162.opus",
       "tags": {
         "genres": [
           "blues"
         ],
-        "artist": null,
-        "album": "noam bonatti",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "noam bonatti",
+        "album_url": "https://www.jamendo.com/en/list/a138799/last-glance-at-the-past",
         "license_url": "https://www.jamendo.com/en/list/a138799/last-glance-at-the-past"
       },
       "duration": 228.84
     },
     {
       "id": "music-jamendo-0163",
-      "title": "noam bonatti",
+      "title": "Without A Reason - Noam Bonatti",
       "audio": "music/jamendo/music-jamendo-0163.opus",
       "tags": {
         "genres": [
           "pop",
           "blues"
         ],
-        "artist": null,
-        "album": "noam bonatti",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "noam bonatti",
+        "album_url": "https://www.jamendo.com/en/list/a138799/last-glance-at-the-past",
         "license_url": "https://www.jamendo.com/en/list/a138799/last-glance-at-the-past"
       },
       "duration": 266.64
@@ -1703,17 +1698,17 @@
         "genres": [
           "pop"
         ],
-        "artist": null,
-        "album": "noam bonatti",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "noam bonatti",
+        "album_url": "https://www.jamendo.com/en/list/a138799/last-glance-at-the-past",
         "license_url": "https://www.jamendo.com/en/list/a138799/last-glance-at-the-past"
       },
       "duration": 229.91
     },
     {
       "id": "music-jamendo-0192",
-      "title": "Sim Band",
+      "title": "C-Moll",
       "audio": "music/jamendo/music-jamendo-0192.opus",
       "tags": {
         "genres": [
@@ -1721,17 +1716,17 @@
           "rock",
           "jazz"
         ],
-        "artist": null,
-        "album": "Sim Band",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Sim Band",
+        "album_url": "https://www.jamendo.com/en/list/a73905/4-weeks-at-home",
         "license_url": "https://www.jamendo.com/en/list/a73905/4-weeks-at-home"
       },
       "duration": 634.0
     },
     {
       "id": "music-jamendo-0188",
-      "title": "Sim Band",
+      "title": "A-Blues",
       "audio": "music/jamendo/music-jamendo-0188.opus",
       "tags": {
         "genres": [
@@ -1739,17 +1734,17 @@
           "rock",
           "jazz"
         ],
-        "artist": null,
-        "album": "Sim Band",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Sim Band",
+        "album_url": "https://www.jamendo.com/en/list/a73905/4-weeks-at-home",
         "license_url": "https://www.jamendo.com/en/list/a73905/4-weeks-at-home"
       },
       "duration": 319.72
     },
     {
       "id": "music-jamendo-0190",
-      "title": "Sim Band",
+      "title": "Capo",
       "audio": "music/jamendo/music-jamendo-0190.opus",
       "tags": {
         "genres": [
@@ -1757,17 +1752,17 @@
           "rock",
           "jazz"
         ],
-        "artist": null,
-        "album": "Sim Band",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Sim Band",
+        "album_url": "https://www.jamendo.com/en/list/a73905/4-weeks-at-home",
         "license_url": "https://www.jamendo.com/en/list/a73905/4-weeks-at-home"
       },
       "duration": 320.01
     },
     {
       "id": "music-jamendo-0191",
-      "title": "Sim Band",
+      "title": "C-Blues",
       "audio": "music/jamendo/music-jamendo-0191.opus",
       "tags": {
         "genres": [
@@ -1775,17 +1770,17 @@
           "rock",
           "jazz"
         ],
-        "artist": null,
-        "album": "Sim Band",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Sim Band",
+        "album_url": "https://www.jamendo.com/en/list/a73905/4-weeks-at-home",
         "license_url": "https://www.jamendo.com/en/list/a73905/4-weeks-at-home"
       },
       "duration": 155.2
     },
     {
       "id": "music-jamendo-0189",
-      "title": "Sim Band",
+      "title": "A-Moll",
       "audio": "music/jamendo/music-jamendo-0189.opus",
       "tags": {
         "genres": [
@@ -1793,34 +1788,34 @@
           "rock",
           "jazz"
         ],
-        "artist": null,
-        "album": "Sim Band",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Sim Band",
+        "album_url": "https://www.jamendo.com/en/list/a73905/4-weeks-at-home",
         "license_url": "https://www.jamendo.com/en/list/a73905/4-weeks-at-home"
       },
       "duration": 347.85
     },
     {
       "id": "music-jamendo-0120",
-      "title": "Lobo Loco",
+      "title": "Canadian Spring",
       "audio": "music/jamendo/music-jamendo-0120.opus",
       "tags": {
         "genres": [
           "pop",
           "folk"
         ],
-        "artist": null,
-        "album": "Lobo Loco",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Lobo Loco",
+        "album_url": "https://www.jamendo.com/en/list/a47977/blackbox",
         "license_url": "https://www.jamendo.com/en/list/a47977/blackbox"
       },
       "duration": 284.71
     },
     {
       "id": "music-jamendo-0121",
-      "title": "Lobo Loco",
+      "title": "Eiskrokodil Blues",
       "audio": "music/jamendo/music-jamendo-0121.opus",
       "tags": {
         "genres": [
@@ -1828,34 +1823,34 @@
           "jazz",
           "adventure"
         ],
-        "artist": null,
-        "album": "Lobo Loco",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Lobo Loco",
+        "album_url": "https://www.jamendo.com/en/list/a47977/blackbox",
         "license_url": "https://www.jamendo.com/en/list/a47977/blackbox"
       },
       "duration": 295.42
     },
     {
       "id": "music-jamendo-0122",
-      "title": "Lobo Loco",
+      "title": "Evolution",
       "audio": "music/jamendo/music-jamendo-0122.opus",
       "tags": {
         "genres": [
           "pop",
           "folk"
         ],
-        "artist": null,
-        "album": "Lobo Loco",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Lobo Loco",
+        "album_url": "https://www.jamendo.com/en/list/a47977/blackbox",
         "license_url": "https://www.jamendo.com/en/list/a47977/blackbox"
       },
       "duration": 219.98
     },
     {
       "id": "music-jamendo-0123",
-      "title": "Lobo Loco",
+      "title": "Viagem no Brasil",
       "audio": "music/jamendo/music-jamendo-0123.opus",
       "tags": {
         "genres": [
@@ -1863,17 +1858,17 @@
           "jazz",
           "latin"
         ],
-        "artist": null,
-        "album": "Lobo Loco",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Lobo Loco",
+        "album_url": "https://www.jamendo.com/en/list/a47977/blackbox",
         "license_url": "https://www.jamendo.com/en/list/a47977/blackbox"
       },
       "duration": 208.02
     },
     {
       "id": "music-jamendo-0073",
-      "title": "Freeky Cleen",
+      "title": "FEELS LIKE RAIN",
       "audio": "music/jamendo/music-jamendo-0073.opus",
       "tags": {
         "genres": [
@@ -1881,51 +1876,51 @@
           "blues",
           "rock"
         ],
-        "artist": null,
-        "album": "Freeky Cleen",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Freeky Cleen",
+        "album_url": "https://www.jamendo.com/en/list/a92288/double-feature",
         "license_url": "https://www.jamendo.com/en/list/a92288/double-feature"
       },
       "duration": 195.17
     },
     {
       "id": "music-jamendo-0076",
-      "title": "Freeky Cleen",
+      "title": "IN THE MOOD",
       "audio": "music/jamendo/music-jamendo-0076.opus",
       "tags": {
         "genres": [
           "blues",
           "indierock"
         ],
-        "artist": null,
-        "album": "Freeky Cleen",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Freeky Cleen",
+        "album_url": "https://www.jamendo.com/en/list/a92288/double-feature",
         "license_url": "https://www.jamendo.com/en/list/a92288/double-feature"
       },
       "duration": 244.07
     },
     {
       "id": "music-jamendo-0079",
-      "title": "Freeky Cleen",
+      "title": "ONCE",
       "audio": "music/jamendo/music-jamendo-0079.opus",
       "tags": {
         "genres": [
           "blues",
           "rock"
         ],
-        "artist": null,
-        "album": "Freeky Cleen",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Freeky Cleen",
+        "album_url": "https://www.jamendo.com/en/list/a92288/double-feature",
         "license_url": "https://www.jamendo.com/en/list/a92288/double-feature"
       },
       "duration": 181.43
     },
     {
       "id": "music-jamendo-0074",
-      "title": "Freeky Cleen",
+      "title": "GAMBLING WOMAN",
       "audio": "music/jamendo/music-jamendo-0074.opus",
       "tags": {
         "genres": [
@@ -1933,17 +1928,17 @@
           "rock",
           "pop"
         ],
-        "artist": null,
-        "album": "Freeky Cleen",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Freeky Cleen",
+        "album_url": "https://www.jamendo.com/en/list/a92288/double-feature",
         "license_url": "https://www.jamendo.com/en/list/a92288/double-feature"
       },
       "duration": 204.05
     },
     {
       "id": "music-jamendo-0077",
-      "title": "Freeky Cleen",
+      "title": "JELLYROLL LOVING",
       "audio": "music/jamendo/music-jamendo-0077.opus",
       "tags": {
         "genres": [
@@ -1951,17 +1946,17 @@
           "rock",
           "country"
         ],
-        "artist": null,
-        "album": "Freeky Cleen",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Freeky Cleen",
+        "album_url": "https://www.jamendo.com/en/list/a92288/double-feature",
         "license_url": "https://www.jamendo.com/en/list/a92288/double-feature"
       },
       "duration": 231.45
     },
     {
       "id": "music-jamendo-0075",
-      "title": "Freeky Cleen",
+      "title": "GONE TRAIN BLUES",
       "audio": "music/jamendo/music-jamendo-0075.opus",
       "tags": {
         "genres": [
@@ -1969,17 +1964,17 @@
           "rock",
           "rnb"
         ],
-        "artist": null,
-        "album": "Freeky Cleen",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Freeky Cleen",
+        "album_url": "https://www.jamendo.com/en/list/a92288/double-feature",
         "license_url": "https://www.jamendo.com/en/list/a92288/double-feature"
       },
       "duration": 169.72
     },
     {
       "id": "music-jamendo-0078",
-      "title": "Freeky Cleen",
+      "title": "MONKEY CAGE",
       "audio": "music/jamendo/music-jamendo-0078.opus",
       "tags": {
         "genres": [
@@ -1987,17 +1982,17 @@
           "funk",
           "country"
         ],
-        "artist": null,
-        "album": "Freeky Cleen",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Freeky Cleen",
+        "album_url": "https://www.jamendo.com/en/list/a92288/double-feature",
         "license_url": "https://www.jamendo.com/en/list/a92288/double-feature"
       },
       "duration": 210.58
     },
     {
       "id": "music-jamendo-0203",
-      "title": "The Down and Outs",
+      "title": "Blues 4 Diana",
       "audio": "music/jamendo/music-jamendo-0203.opus",
       "tags": {
         "genres": [
@@ -2005,17 +2000,17 @@
           "pop",
           "folk"
         ],
-        "artist": null,
-        "album": "The Down and Outs",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "The Down and Outs",
+        "album_url": "https://www.jamendo.com/en/list/a43269/market-music",
         "license_url": "https://www.jamendo.com/en/list/a43269/market-music"
       },
       "duration": 309.77
     },
     {
       "id": "music-jamendo-0206",
-      "title": "The Down and Outs",
+      "title": "In America",
       "audio": "music/jamendo/music-jamendo-0206.opus",
       "tags": {
         "genres": [
@@ -2023,17 +2018,17 @@
           "rnb",
           "electronica"
         ],
-        "artist": null,
-        "album": "The Down and Outs",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "The Down and Outs",
+        "album_url": "https://www.jamendo.com/en/list/a43269/market-music",
         "license_url": "https://www.jamendo.com/en/list/a43269/market-music"
       },
       "duration": 148.07
     },
     {
       "id": "music-jamendo-0209",
-      "title": "The Down and Outs",
+      "title": "X Istenstial Cowboy",
       "audio": "music/jamendo/music-jamendo-0209.opus",
       "tags": {
         "genres": [
@@ -2041,33 +2036,33 @@
           "pop",
           "funk"
         ],
-        "artist": null,
-        "album": "The Down and Outs",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "The Down and Outs",
+        "album_url": "https://www.jamendo.com/en/list/a43269/market-music",
         "license_url": "https://www.jamendo.com/en/list/a43269/market-music"
       },
       "duration": 229.94
     },
     {
       "id": "music-jamendo-0204",
-      "title": "The Down and Outs",
+      "title": "Headin 4 Armegedon",
       "audio": "music/jamendo/music-jamendo-0204.opus",
       "tags": {
         "genres": [
           "adventure"
         ],
-        "artist": null,
-        "album": "The Down and Outs",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "The Down and Outs",
+        "album_url": "https://www.jamendo.com/en/list/a43269/market-music",
         "license_url": "https://www.jamendo.com/en/list/a43269/market-music"
       },
       "duration": 315.96
     },
     {
       "id": "music-jamendo-0207",
-      "title": "The Down and Outs",
+      "title": "Mombasa Memory",
       "audio": "music/jamendo/music-jamendo-0207.opus",
       "tags": {
         "genres": [
@@ -2075,17 +2070,17 @@
           "funk",
           "adventure"
         ],
-        "artist": null,
-        "album": "The Down and Outs",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "The Down and Outs",
+        "album_url": "https://www.jamendo.com/en/list/a43269/market-music",
         "license_url": "https://www.jamendo.com/en/list/a43269/market-music"
       },
       "duration": 310.0
     },
     {
       "id": "music-jamendo-0205",
-      "title": "The Down and Outs",
+      "title": "Heard of Ellephants",
       "audio": "music/jamendo/music-jamendo-0205.opus",
       "tags": {
         "genres": [
@@ -2093,264 +2088,264 @@
           "rnb",
           "adventure"
         ],
-        "artist": null,
-        "album": "The Down and Outs",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "The Down and Outs",
+        "album_url": "https://www.jamendo.com/en/list/a43269/market-music",
         "license_url": "https://www.jamendo.com/en/list/a43269/market-music"
       },
       "duration": 365.9
     },
     {
       "id": "music-jamendo-0208",
-      "title": "The Down and Outs",
+      "title": "The Infidel",
       "audio": "music/jamendo/music-jamendo-0208.opus",
       "tags": {
         "genres": [
           "adventure"
         ],
-        "artist": null,
-        "album": "The Down and Outs",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "The Down and Outs",
+        "album_url": "https://www.jamendo.com/en/list/a43269/market-music",
         "license_url": "https://www.jamendo.com/en/list/a43269/market-music"
       },
       "duration": 357.65
     },
     {
       "id": "music-jamendo-0165",
-      "title": "N OR",
+      "title": "La France Sur Ecoute",
       "audio": "music/jamendo/music-jamendo-0165.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "N OR",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "N OR",
+        "album_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute",
         "license_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute"
       },
       "duration": 222.75
     },
     {
       "id": "music-jamendo-0167",
-      "title": "N OR",
+      "title": "Ma Vile, Ma Vie",
       "audio": "music/jamendo/music-jamendo-0167.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "N OR",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "N OR",
+        "album_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute",
         "license_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute"
       },
       "duration": 267.5
     },
     {
       "id": "music-jamendo-0169",
-      "title": "N OR",
+      "title": "Mon Bled",
       "audio": "music/jamendo/music-jamendo-0169.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "N OR",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "N OR",
+        "album_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute",
         "license_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute"
       },
       "duration": 266.95
     },
     {
       "id": "music-jamendo-0171",
-      "title": "N OR",
+      "title": "Avoue",
       "audio": "music/jamendo/music-jamendo-0171.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "N OR",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "N OR",
+        "album_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute",
         "license_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute"
       },
       "duration": 231.79
     },
     {
       "id": "music-jamendo-0166",
-      "title": "N OR",
+      "title": "La Menace",
       "audio": "music/jamendo/music-jamendo-0166.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "N OR",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "N OR",
+        "album_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute",
         "license_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute"
       },
       "duration": 249.66
     },
     {
       "id": "music-jamendo-0168",
-      "title": "N OR",
+      "title": "Faites Bouger Ca",
       "audio": "music/jamendo/music-jamendo-0168.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "N OR",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "N OR",
+        "album_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute",
         "license_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute"
       },
       "duration": 244.46
     },
     {
       "id": "music-jamendo-0170",
-      "title": "N OR",
+      "title": "Leves Toi Du Milieu",
       "audio": "music/jamendo/music-jamendo-0170.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "N OR",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "N OR",
+        "album_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute",
         "license_url": "https://www.jamendo.com/en/list/a10059/la-france-sur-ecoute"
       },
       "duration": 212.67
     },
     {
       "id": "music-jamendo-0081",
-      "title": "Good kit",
+      "title": "RAP1",
       "audio": "music/jamendo/music-jamendo-0081.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Good kit",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Good kit",
+        "album_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life",
         "license_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life"
       },
       "duration": 218.81
     },
     {
       "id": "music-jamendo-0083",
-      "title": "Good kit",
+      "title": "RAP3",
       "audio": "music/jamendo/music-jamendo-0083.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Good kit",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Good kit",
+        "album_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life",
         "license_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life"
       },
       "duration": 209.53
     },
     {
       "id": "music-jamendo-0085",
-      "title": "Good kit",
+      "title": "RAP5",
       "audio": "music/jamendo/music-jamendo-0085.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Good kit",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Good kit",
+        "album_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life",
         "license_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life"
       },
       "duration": 184.22
     },
     {
       "id": "music-jamendo-0080",
-      "title": "Good kit",
+      "title": "energia hermos",
       "audio": "music/jamendo/music-jamendo-0080.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Good kit",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Good kit",
+        "album_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life",
         "license_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life"
       },
       "duration": 209.64
     },
     {
       "id": "music-jamendo-0082",
-      "title": "Good kit",
+      "title": "RAP2",
       "audio": "music/jamendo/music-jamendo-0082.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Good kit",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Good kit",
+        "album_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life",
         "license_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life"
       },
       "duration": 198.67
     },
     {
       "id": "music-jamendo-0084",
-      "title": "Good kit",
+      "title": "RAP4",
       "audio": "music/jamendo/music-jamendo-0084.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Good kit",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Good kit",
+        "album_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life",
         "license_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life"
       },
       "duration": 115.26
     },
     {
       "id": "music-jamendo-0086",
-      "title": "Good kit",
+      "title": "RAP7",
       "audio": "music/jamendo/music-jamendo-0086.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Good kit",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Good kit",
+        "album_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life",
         "license_url": "https://www.jamendo.com/en/list/a125551/the-rap-is-my-life"
       },
       "duration": 87.59
@@ -2366,17 +2361,17 @@
           "rock",
           "electronica"
         ],
-        "artist": null,
-        "album": "Moe2Smoke",
         "vocal": "n",
         "license": "CC-BY-ND-3.0",
+        "artist": "Moe2Smoke",
+        "album_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release",
         "license_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release"
       },
       "duration": 74.59
     },
     {
       "id": "music-jamendo-0149",
-      "title": "Moe2Smoke",
+      "title": "Interlude",
       "audio": "music/jamendo/music-jamendo-0149.opus",
       "tags": {
         "genres": [
@@ -2385,17 +2380,17 @@
           "rock",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Moe2Smoke",
         "vocal": "n",
         "license": "CC-BY-ND-3.0",
+        "artist": "Moe2Smoke",
+        "album_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release",
         "license_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release"
       },
       "duration": 80.99
     },
     {
       "id": "music-jamendo-0151",
-      "title": "Moe2Smoke",
+      "title": "Outro",
       "audio": "music/jamendo/music-jamendo-0151.opus",
       "tags": {
         "genres": [
@@ -2404,17 +2399,17 @@
           "rock",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Moe2Smoke",
         "vocal": "n",
         "license": "CC-BY-ND-3.0",
+        "artist": "Moe2Smoke",
+        "album_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release",
         "license_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release"
       },
       "duration": 41.02
     },
     {
       "id": "music-jamendo-0153",
-      "title": "Moe2Smoke",
+      "title": "Two Sides Of Me",
       "audio": "music/jamendo/music-jamendo-0153.opus",
       "tags": {
         "genres": [
@@ -2423,17 +2418,17 @@
           "rock",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Moe2Smoke",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "Moe2Smoke",
+        "album_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release",
         "license_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release"
       },
       "duration": 230.59
     },
     {
       "id": "music-jamendo-0148",
-      "title": "Moe2Smoke",
+      "title": "All About Race",
       "audio": "music/jamendo/music-jamendo-0148.opus",
       "tags": {
         "genres": [
@@ -2442,17 +2437,17 @@
           "rock",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Moe2Smoke",
         "vocal": "n",
         "license": "CC-BY-ND-3.0",
+        "artist": "Moe2Smoke",
+        "album_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release",
         "license_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release"
       },
       "duration": 124.04
     },
     {
       "id": "music-jamendo-0150",
-      "title": "Moe2Smoke",
+      "title": "Lookin 4 Trouble",
       "audio": "music/jamendo/music-jamendo-0150.opus",
       "tags": {
         "genres": [
@@ -2461,17 +2456,17 @@
           "rock",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Moe2Smoke",
         "vocal": "n",
         "license": "CC-BY-ND-3.0",
+        "artist": "Moe2Smoke",
+        "album_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release",
         "license_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release"
       },
       "duration": 202.04
     },
     {
       "id": "music-jamendo-0152",
-      "title": "Moe2Smoke",
+      "title": "So Sorry",
       "audio": "music/jamendo/music-jamendo-0152.opus",
       "tags": {
         "genres": [
@@ -2480,544 +2475,544 @@
           "rock",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Moe2Smoke",
         "vocal": "n",
         "license": "CC-BY-ND-3.0",
+        "artist": "Moe2Smoke",
+        "album_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release",
         "license_url": "https://www.jamendo.com/en/list/a6604/genuine-special-release"
       },
       "duration": 282.31
     },
     {
       "id": "music-jamendo-0111",
-      "title": "Katrina",
+      "title": "Karina- Wskazówki- Intro (prod. Mic-E)",
       "audio": "music/jamendo/music-jamendo-0111.opus",
       "tags": {
         "genres": [
           "hiphop",
           "rap"
         ],
-        "artist": null,
-        "album": "Katrina",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Katrina",
+        "album_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna",
         "license_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna"
       },
       "duration": 229.1
     },
     {
       "id": "music-jamendo-0112",
-      "title": "Katrina",
+      "title": "Karina- Bierz Dawaj Uważaj",
       "audio": "music/jamendo/music-jamendo-0112.opus",
       "tags": {
         "genres": [
           "hiphop",
           "rap"
         ],
-        "artist": null,
-        "album": "Katrina",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Katrina",
+        "album_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna",
         "license_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna"
       },
       "duration": 140.88
     },
     {
       "id": "music-jamendo-0113",
-      "title": "Katrina",
+      "title": "Karina- Za marzeniem feat. Nalef",
       "audio": "music/jamendo/music-jamendo-0113.opus",
       "tags": {
         "genres": [
           "hiphop",
           "rap"
         ],
-        "artist": null,
-        "album": "Katrina",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Katrina",
+        "album_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna",
         "license_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna"
       },
       "duration": 252.22
     },
     {
       "id": "music-jamendo-0114",
-      "title": "Katrina",
+      "title": "Karina- Pozornie Niepozorna",
       "audio": "music/jamendo/music-jamendo-0114.opus",
       "tags": {
         "genres": [
           "hiphop",
           "rap"
         ],
-        "artist": null,
-        "album": "Katrina",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Katrina",
+        "album_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna",
         "license_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna"
       },
       "duration": 173.54
     },
     {
       "id": "music-jamendo-0115",
-      "title": "Katrina",
+      "title": "Karina- Znowu wracam",
       "audio": "music/jamendo/music-jamendo-0115.opus",
       "tags": {
         "genres": [
           "hiphop",
           "rap"
         ],
-        "artist": null,
-        "album": "Katrina",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Katrina",
+        "album_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna",
         "license_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna"
       },
       "duration": 213.48
     },
     {
       "id": "music-jamendo-0116",
-      "title": "Katrina",
+      "title": "Karina- Domówka feat. Were, Kozi, Zając",
       "audio": "music/jamendo/music-jamendo-0116.opus",
       "tags": {
         "genres": [
           "hiphop",
           "rap"
         ],
-        "artist": null,
-        "album": "Katrina",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Katrina",
+        "album_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna",
         "license_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna"
       },
       "duration": 245.17
     },
     {
       "id": "music-jamendo-0117",
-      "title": "Katrina",
+      "title": "Karina- Walcz feat. Dudziak (prod. Pneum.)",
       "audio": "music/jamendo/music-jamendo-0117.opus",
       "tags": {
         "genres": [
           "hiphop",
           "rap"
         ],
-        "artist": null,
-        "album": "Katrina",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Katrina",
+        "album_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna",
         "license_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna"
       },
       "duration": 267.92
     },
     {
       "id": "music-jamendo-0118",
-      "title": "Katrina",
+      "title": "Karina- I jakoś to będzie- Outro (Pan Tadeu.)",
       "audio": "music/jamendo/music-jamendo-0118.opus",
       "tags": {
         "genres": [
           "hiphop",
           "rap"
         ],
-        "artist": null,
-        "album": "Katrina",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Katrina",
+        "album_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna",
         "license_url": "https://www.jamendo.com/en/list/a144804/karina-pozornie-niepozorna"
       },
       "duration": 126.26
     },
     {
       "id": "music-jamendo-0193",
-      "title": "SRA",
+      "title": "avec le coeur",
       "audio": "music/jamendo/music-jamendo-0193.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "SRA",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "SRA",
+        "album_url": "https://www.jamendo.com/en/list/a121748/avec-le-coeur",
         "license_url": "https://www.jamendo.com/en/list/a121748/avec-le-coeur"
       },
       "duration": 168.73
     },
     {
       "id": "music-jamendo-0195",
-      "title": "SRA",
+      "title": "le regard des autres",
       "audio": "music/jamendo/music-jamendo-0195.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "SRA",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "SRA",
+        "album_url": "https://www.jamendo.com/en/list/a121748/avec-le-coeur",
         "license_url": "https://www.jamendo.com/en/list/a121748/avec-le-coeur"
       },
       "duration": 183.91
     },
     {
       "id": "music-jamendo-0194",
-      "title": "SRA",
+      "title": "conviction rapologique SRA & MESSAOUD & K",
       "audio": "music/jamendo/music-jamendo-0194.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "SRA",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "SRA",
+        "album_url": "https://www.jamendo.com/en/list/a121748/avec-le-coeur",
         "license_url": "https://www.jamendo.com/en/list/a121748/avec-le-coeur"
       },
       "duration": 240.18
     },
     {
       "id": "music-jamendo-0197",
-      "title": "SRA",
+      "title": "leur kiffe nous manipuler",
       "audio": "music/jamendo/music-jamendo-0197.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "SRA",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "SRA",
+        "album_url": "https://www.jamendo.com/en/list/a121748/avec-le-coeur",
         "license_url": "https://www.jamendo.com/en/list/a121748/avec-le-coeur"
       },
       "duration": 206.74
     },
     {
       "id": "music-jamendo-0196",
-      "title": "SRA",
+      "title": "l'espoir SRA & DEEWAI",
       "audio": "music/jamendo/music-jamendo-0196.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "SRA",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "SRA",
+        "album_url": "https://www.jamendo.com/en/list/a121748/avec-le-coeur",
         "license_url": "https://www.jamendo.com/en/list/a121748/avec-le-coeur"
       },
       "duration": 240.12
     },
     {
       "id": "music-jamendo-0198",
-      "title": "SRA",
+      "title": "p'tit geek SRA & TREZ",
       "audio": "music/jamendo/music-jamendo-0198.opus",
       "tags": {
         "genres": [
           "rap",
           "hiphop"
         ],
-        "artist": null,
-        "album": "SRA",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "SRA",
+        "album_url": "https://www.jamendo.com/en/list/a121748/avec-le-coeur",
         "license_url": "https://www.jamendo.com/en/list/a121748/avec-le-coeur"
       },
       "duration": 225.36
     },
     {
       "id": "music-jamendo-0024",
-      "title": "A Tragedy",
+      "title": "Beginnings",
       "audio": "music/jamendo/music-jamendo-0024.opus",
       "tags": {
         "genres": [
           "metal",
           "rap"
         ],
-        "artist": null,
-        "album": "A Tragedy",
         "vocal": "n",
         "license": "CC-BY-ND-3.0",
+        "artist": "A Tragedy",
+        "album_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it",
         "license_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it"
       },
       "duration": 48.05
     },
     {
       "id": "music-jamendo-0027",
-      "title": "A Tragedy",
+      "title": "Just Another Sadistic",
       "audio": "music/jamendo/music-jamendo-0027.opus",
       "tags": {
         "genres": [
           "metal",
           "rap"
         ],
-        "artist": null,
-        "album": "A Tragedy",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "A Tragedy",
+        "album_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it",
         "license_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it"
       },
       "duration": 201.25
     },
     {
       "id": "music-jamendo-0030",
-      "title": "A Tragedy",
+      "title": "Wendy Drop The Fucking Bat",
       "audio": "music/jamendo/music-jamendo-0030.opus",
       "tags": {
         "genres": [
           "metal",
           "rap"
         ],
-        "artist": null,
-        "album": "A Tragedy",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "A Tragedy",
+        "album_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it",
         "license_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it"
       },
       "duration": 150.65
     },
     {
       "id": "music-jamendo-0025",
-      "title": "A Tragedy",
+      "title": "Everflow",
       "audio": "music/jamendo/music-jamendo-0025.opus",
       "tags": {
         "genres": [
           "metal",
           "rap"
         ],
-        "artist": null,
-        "album": "A Tragedy",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "A Tragedy",
+        "album_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it",
         "license_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it"
       },
       "duration": 230.75
     },
     {
       "id": "music-jamendo-0028",
-      "title": "A Tragedy",
+      "title": "Samhain",
       "audio": "music/jamendo/music-jamendo-0028.opus",
       "tags": {
         "genres": [
           "metal",
           "rock"
         ],
-        "artist": null,
-        "album": "A Tragedy",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "A Tragedy",
+        "album_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it",
         "license_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it"
       },
       "duration": 279.1
     },
     {
       "id": "music-jamendo-0026",
-      "title": "A Tragedy",
+      "title": "Goodluck, You'll Need It",
       "audio": "music/jamendo/music-jamendo-0026.opus",
       "tags": {
         "genres": [
           "metal",
           "rap"
         ],
-        "artist": null,
-        "album": "A Tragedy",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "A Tragedy",
+        "album_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it",
         "license_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it"
       },
       "duration": 204.7
     },
     {
       "id": "music-jamendo-0029",
-      "title": "A Tragedy",
+      "title": "Santa Muerta",
       "audio": "music/jamendo/music-jamendo-0029.opus",
       "tags": {
         "genres": [
           "metal",
           "rock"
         ],
-        "artist": null,
-        "album": "A Tragedy",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "A Tragedy",
+        "album_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it",
         "license_url": "https://www.jamendo.com/en/list/a146910/good-luck-you-ll-need-it"
       },
       "duration": 190.67
     },
     {
       "id": "music-jamendo-0009",
-      "title": "Airoinsidia",
+      "title": "Il Bello Che Scorre In Me",
       "audio": "music/jamendo/music-jamendo-0009.opus",
       "tags": {
         "genres": [
           "rap",
           "metal"
         ],
-        "artist": null,
-        "album": "Airoinsidia",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "Airoinsidia",
+        "album_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all",
         "license_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all"
       },
       "duration": 178.5
     },
     {
       "id": "music-jamendo-0011",
-      "title": "Airoinsidia",
+      "title": "Fuck 'Em All",
       "audio": "music/jamendo/music-jamendo-0011.opus",
       "tags": {
         "genres": [
           "rap",
           "metal"
         ],
-        "artist": null,
-        "album": "Airoinsidia",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "Airoinsidia",
+        "album_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all",
         "license_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all"
       },
       "duration": 191.61
     },
     {
       "id": "music-jamendo-0013",
-      "title": "Airoinsidia",
+      "title": "Linea",
       "audio": "music/jamendo/music-jamendo-0013.opus",
       "tags": {
         "genres": [
           "rap",
           "metal"
         ],
-        "artist": null,
-        "album": "Airoinsidia",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "Airoinsidia",
+        "album_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all",
         "license_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all"
       },
       "duration": 204.7
     },
     {
       "id": "music-jamendo-0015",
-      "title": "Airoinsidia",
+      "title": "Alle Spalle (Moonspell Cover)",
       "audio": "music/jamendo/music-jamendo-0015.opus",
       "tags": {
         "genres": [
           "rap",
           "metal"
         ],
-        "artist": null,
-        "album": "Airoinsidia",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "Airoinsidia",
+        "album_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all",
         "license_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all"
       },
       "duration": 174.66
     },
     {
       "id": "music-jamendo-0017",
-      "title": "Airoinsidia",
+      "title": "Ti Riesci A Ritrovare?",
       "audio": "music/jamendo/music-jamendo-0017.opus",
       "tags": {
         "genres": [
           "rap",
           "metal"
         ],
-        "artist": null,
-        "album": "Airoinsidia",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "Airoinsidia",
+        "album_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all",
         "license_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all"
       },
       "duration": 168.91
     },
     {
       "id": "music-jamendo-0010",
-      "title": "Airoinsidia",
+      "title": "Il Rischio Di Farsi Male",
       "audio": "music/jamendo/music-jamendo-0010.opus",
       "tags": {
         "genres": [
           "rap",
           "metal"
         ],
-        "artist": null,
-        "album": "Airoinsidia",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "Airoinsidia",
+        "album_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all",
         "license_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all"
       },
       "duration": 176.8
     },
     {
       "id": "music-jamendo-0012",
-      "title": "Airoinsidia",
+      "title": "Grazie",
       "audio": "music/jamendo/music-jamendo-0012.opus",
       "tags": {
         "genres": [
           "rap",
           "metal"
         ],
-        "artist": null,
-        "album": "Airoinsidia",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "Airoinsidia",
+        "album_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all",
         "license_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all"
       },
       "duration": 177.61
     },
     {
       "id": "music-jamendo-0014",
-      "title": "Airoinsidia",
+      "title": "Lontano",
       "audio": "music/jamendo/music-jamendo-0014.opus",
       "tags": {
         "genres": [
           "rap",
           "metal"
         ],
-        "artist": null,
-        "album": "Airoinsidia",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "Airoinsidia",
+        "album_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all",
         "license_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all"
       },
       "duration": 197.2
     },
     {
       "id": "music-jamendo-0016",
-      "title": "Airoinsidia",
+      "title": "Io Resto Vivo",
       "audio": "music/jamendo/music-jamendo-0016.opus",
       "tags": {
         "genres": [
           "rap",
           "metal"
         ],
-        "artist": null,
-        "album": "Airoinsidia",
         "vocal": "y",
         "license": "CC-BY-ND-3.0",
+        "artist": "Airoinsidia",
+        "album_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all",
         "license_url": "https://www.jamendo.com/en/list/a145508/airoinsidia-fuck-em-all"
       },
       "duration": 200.44
     },
     {
       "id": "music-jamendo-0096",
-      "title": "Ice",
+      "title": "Ice&Vedova nera - Innocence",
       "audio": "music/jamendo/music-jamendo-0096.opus",
       "tags": {
         "genres": [
           "rap",
           "metal"
         ],
-        "artist": null,
-        "album": "Ice",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Ice & Vedova Nera",
+        "album_url": "https://www.jamendo.com/en/artist/464127/ice-vedova-nera",
         "license_url": "https://www.jamendo.com/en/artist/464127/ice-vedova-nera"
       },
       "duration": 222.33
     },
     {
       "id": "music-jamendo-0100",
-      "title": "Ice",
+      "title": "Ice & Vedova nera - Take me with you",
       "audio": "music/jamendo/music-jamendo-0100.opus",
       "tags": {
         "genres": [
@@ -3025,17 +3020,17 @@
           "metal",
           "electronica"
         ],
-        "artist": null,
-        "album": "Ice",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Ice & Vedova Nera",
+        "album_url": "https://www.jamendo.com/en/artist/464127/ice-vedova-nera",
         "license_url": "https://www.jamendo.com/en/artist/464127/ice-vedova-nera"
       },
       "duration": 259.87
     },
     {
       "id": "music-jamendo-0097",
-      "title": "Ice",
+      "title": "Ice&Vedova nera - La sesta porta",
       "audio": "music/jamendo/music-jamendo-0097.opus",
       "tags": {
         "genres": [
@@ -3043,17 +3038,17 @@
           "metal",
           "electronica"
         ],
-        "artist": null,
-        "album": "Ice",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Ice & Vedova Nera",
+        "album_url": "https://www.jamendo.com/en/artist/464127/ice-vedova-nera",
         "license_url": "https://www.jamendo.com/en/artist/464127/ice-vedova-nera"
       },
       "duration": 235.76
     },
     {
       "id": "music-jamendo-0095",
-      "title": "Ice",
+      "title": "Ice & Vedova nera - Demon inside",
       "audio": "music/jamendo/music-jamendo-0095.opus",
       "tags": {
         "genres": [
@@ -3061,34 +3056,34 @@
           "metal",
           "electronica"
         ],
-        "artist": null,
-        "album": "Ice",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Ice & Vedova Nera",
+        "album_url": "https://www.jamendo.com/en/artist/464127/ice-vedova-nera",
         "license_url": "https://www.jamendo.com/en/artist/464127/ice-vedova-nera"
       },
       "duration": 176.07
     },
     {
       "id": "music-jamendo-0098",
-      "title": "Ice",
+      "title": "Ice & Vedova nera -Marilyn Manson (prod Ice.)",
       "audio": "music/jamendo/music-jamendo-0098.opus",
       "tags": {
         "genres": [
           "rap",
           "metal"
         ],
-        "artist": null,
-        "album": "Ice",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Ice & Vedova Nera",
+        "album_url": "https://www.jamendo.com/en/artist/464127/ice-vedova-nera",
         "license_url": "https://www.jamendo.com/en/artist/464127/ice-vedova-nera"
       },
       "duration": 212.12
     },
     {
       "id": "music-jamendo-0099",
-      "title": "Ice",
+      "title": "Ice & Vedova nera Personal Jesus (prod Ice)",
       "audio": "music/jamendo/music-jamendo-0099.opus",
       "tags": {
         "genres": [
@@ -3096,417 +3091,417 @@
           "metal",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Ice",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Ice & Vedova Nera",
+        "album_url": "https://www.jamendo.com/en/artist/464127/ice-vedova-nera",
         "license_url": "https://www.jamendo.com/en/artist/464127/ice-vedova-nera"
       },
       "duration": 114.08
     },
     {
       "id": "music-jamendo-0087",
-      "title": "Hasenchat",
+      "title": "Coming Home",
       "audio": "music/jamendo/music-jamendo-0087.opus",
       "tags": {
         "genres": [
           "dance"
         ],
-        "artist": null,
-        "album": "Hasenchat",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Hasenchat",
+        "album_url": "https://www.jamendo.com/en/list/a119829/angie-brown",
         "license_url": "https://www.jamendo.com/en/list/a119829/angie-brown"
       },
       "duration": 293.96
     },
     {
       "id": "music-jamendo-0089",
-      "title": "Hasenchat",
+      "title": "Let it Move",
       "audio": "music/jamendo/music-jamendo-0089.opus",
       "tags": {
         "genres": [
           "dance"
         ],
-        "artist": null,
-        "album": "Hasenchat",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Hasenchat",
+        "album_url": "https://www.jamendo.com/en/list/a119829/angie-brown",
         "license_url": "https://www.jamendo.com/en/list/a119829/angie-brown"
       },
       "duration": 260.05
     },
     {
       "id": "music-jamendo-0091",
-      "title": "Hasenchat",
+      "title": "Nothing",
       "audio": "music/jamendo/music-jamendo-0091.opus",
       "tags": {
         "genres": [
           "dance"
         ],
-        "artist": null,
-        "album": "Hasenchat",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Hasenchat",
+        "album_url": "https://www.jamendo.com/en/list/a119829/angie-brown",
         "license_url": "https://www.jamendo.com/en/list/a119829/angie-brown"
       },
       "duration": 334.19
     },
     {
       "id": "music-jamendo-0093",
-      "title": "Hasenchat",
+      "title": "Release Yourself",
       "audio": "music/jamendo/music-jamendo-0093.opus",
       "tags": {
         "genres": [
           "dance"
         ],
-        "artist": null,
-        "album": "Hasenchat",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Hasenchat",
+        "album_url": "https://www.jamendo.com/en/list/a119829/angie-brown",
         "license_url": "https://www.jamendo.com/en/list/a119829/angie-brown"
       },
       "duration": 300.05
     },
     {
       "id": "music-jamendo-0088",
-      "title": "Hasenchat",
+      "title": "Jump to Blues Tonight",
       "audio": "music/jamendo/music-jamendo-0088.opus",
       "tags": {
         "genres": [
           "dance"
         ],
-        "artist": null,
-        "album": "Hasenchat",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Hasenchat",
+        "album_url": "https://www.jamendo.com/en/list/a119829/angie-brown",
         "license_url": "https://www.jamendo.com/en/list/a119829/angie-brown"
       },
       "duration": 200.03
     },
     {
       "id": "music-jamendo-0090",
-      "title": "Hasenchat",
+      "title": "Move your Feet",
       "audio": "music/jamendo/music-jamendo-0090.opus",
       "tags": {
         "genres": [
           "dance"
         ],
-        "artist": null,
-        "album": "Hasenchat",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Hasenchat",
+        "album_url": "https://www.jamendo.com/en/list/a119829/angie-brown",
         "license_url": "https://www.jamendo.com/en/list/a119829/angie-brown"
       },
       "duration": 309.9
     },
     {
       "id": "music-jamendo-0092",
-      "title": "Hasenchat",
+      "title": "Put your Hands Up",
       "audio": "music/jamendo/music-jamendo-0092.opus",
       "tags": {
         "genres": [
           "dance"
         ],
-        "artist": null,
-        "album": "Hasenchat",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Hasenchat",
+        "album_url": "https://www.jamendo.com/en/list/a119829/angie-brown",
         "license_url": "https://www.jamendo.com/en/list/a119829/angie-brown"
       },
       "duration": 189.92
     },
     {
       "id": "music-jamendo-0094",
-      "title": "Hasenchat",
+      "title": "Soul Fever",
       "audio": "music/jamendo/music-jamendo-0094.opus",
       "tags": {
         "genres": [
           "dance"
         ],
-        "artist": null,
-        "album": "Hasenchat",
         "vocal": "y",
         "license": "CC-BY-SA-3.0",
+        "artist": "Hasenchat",
+        "album_url": "https://www.jamendo.com/en/list/a119829/angie-brown",
         "license_url": "https://www.jamendo.com/en/list/a119829/angie-brown"
       },
       "duration": 300.05
     },
     {
       "id": "music-jamendo-0047",
-      "title": "BS",
+      "title": "Air [ BS - Remix ]",
       "audio": "music/jamendo/music-jamendo-0047.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "BS",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "BS",
+        "album_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix",
         "license_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix"
       },
       "duration": 284.48
     },
     {
       "id": "music-jamendo-0050",
-      "title": "BS",
+      "title": "Haze [ Exclu ]",
       "audio": "music/jamendo/music-jamendo-0050.opus",
       "tags": {
         "genres": [
           "electronica",
           "dance"
         ],
-        "artist": null,
-        "album": "BS",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "BS",
+        "album_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix",
         "license_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix"
       },
       "duration": 341.37
     },
     {
       "id": "music-jamendo-0053",
-      "title": "BS",
+      "title": "Night fly",
       "audio": "music/jamendo/music-jamendo-0053.opus",
       "tags": {
         "genres": [
           "electronica",
           "adventure"
         ],
-        "artist": null,
-        "album": "BS",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "BS",
+        "album_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix",
         "license_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix"
       },
       "duration": 270.27
     },
     {
       "id": "music-jamendo-0048",
-      "title": "BS",
+      "title": "Elastique [ Exclu ]",
       "audio": "music/jamendo/music-jamendo-0048.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "BS",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "BS",
+        "album_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix",
         "license_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix"
       },
       "duration": 312.93
     },
     {
       "id": "music-jamendo-0051",
-      "title": "BS",
+      "title": "Interference",
       "audio": "music/jamendo/music-jamendo-0051.opus",
       "tags": {
         "genres": [
           "electronica",
           "dance"
         ],
-        "artist": null,
-        "album": "BS",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "BS",
+        "album_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix",
         "license_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix"
       },
       "duration": 256.03
     },
     {
       "id": "music-jamendo-0054",
-      "title": "BS",
+      "title": "Sciences [ Exclu ]",
       "audio": "music/jamendo/music-jamendo-0054.opus",
       "tags": {
         "genres": [
           "electronica",
           "dance"
         ],
-        "artist": null,
-        "album": "BS",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "BS",
+        "album_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix",
         "license_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix"
       },
       "duration": 341.37
     },
     {
       "id": "music-jamendo-0049",
-      "title": "BS",
+      "title": "Give me the peace",
       "audio": "music/jamendo/music-jamendo-0049.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "BS",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "BS",
+        "album_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix",
         "license_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix"
       },
       "duration": 312.93
     },
     {
       "id": "music-jamendo-0052",
-      "title": "BS",
+      "title": "Landscape",
       "audio": "music/jamendo/music-jamendo-0052.opus",
       "tags": {
         "genres": [
           "electronica",
           "dance"
         ],
-        "artist": null,
-        "album": "BS",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "BS",
+        "album_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix",
         "license_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix"
       },
       "duration": 227.61
     },
     {
       "id": "music-jamendo-0055",
-      "title": "BS",
+      "title": "The dark side of the light",
       "audio": "music/jamendo/music-jamendo-0055.opus",
       "tags": {
         "genres": [
           "electronica",
           "dance"
         ],
-        "artist": null,
-        "album": "BS",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "BS",
+        "album_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix",
         "license_url": "https://www.jamendo.com/en/list/a73592/zero-gravity-2010-mix"
       },
       "duration": 312.93
     },
     {
       "id": "music-jamendo-0172",
-      "title": "Outsider",
+      "title": "Chill",
       "audio": "music/jamendo/music-jamendo-0172.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Outsider",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Outsider",
+        "album_url": "https://www.jamendo.com/en/list/a17613/3",
         "license_url": "https://www.jamendo.com/en/list/a17613/3"
       },
       "duration": 258.23
     },
     {
       "id": "music-jamendo-0175",
-      "title": "Outsider",
+      "title": "Lets go back to the rock",
       "audio": "music/jamendo/music-jamendo-0175.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Outsider",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Outsider",
+        "album_url": "https://www.jamendo.com/en/list/a17613/3",
         "license_url": "https://www.jamendo.com/en/list/a17613/3"
       },
       "duration": 256.5
     },
     {
       "id": "music-jamendo-0178",
-      "title": "Outsider",
+      "title": "Something like this",
       "audio": "music/jamendo/music-jamendo-0178.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Outsider",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Outsider",
+        "album_url": "https://www.jamendo.com/en/list/a17613/3",
         "license_url": "https://www.jamendo.com/en/list/a17613/3"
       },
       "duration": 203.0
     },
     {
       "id": "music-jamendo-0173",
-      "title": "Outsider",
+      "title": "Dizor",
       "audio": "music/jamendo/music-jamendo-0173.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Outsider",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Outsider",
+        "album_url": "https://www.jamendo.com/en/list/a17613/3",
         "license_url": "https://www.jamendo.com/en/list/a17613/3"
       },
       "duration": 224.53
     },
     {
       "id": "music-jamendo-0176",
-      "title": "Outsider",
+      "title": "Now",
       "audio": "music/jamendo/music-jamendo-0176.opus",
       "tags": {
         "genres": [
           "electronica",
           "hiphop"
         ],
-        "artist": null,
-        "album": "Outsider",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Outsider",
+        "album_url": "https://www.jamendo.com/en/list/a17613/3",
         "license_url": "https://www.jamendo.com/en/list/a17613/3"
       },
       "duration": 229.99
     },
     {
       "id": "music-jamendo-0179",
-      "title": "Outsider",
+      "title": "Together",
       "audio": "music/jamendo/music-jamendo-0179.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Outsider",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Outsider",
+        "album_url": "https://www.jamendo.com/en/list/a17613/3",
         "license_url": "https://www.jamendo.com/en/list/a17613/3"
       },
       "duration": 240.07
     },
     {
       "id": "music-jamendo-0174",
-      "title": "Outsider",
+      "title": "Free",
       "audio": "music/jamendo/music-jamendo-0174.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Outsider",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Outsider",
+        "album_url": "https://www.jamendo.com/en/list/a17613/3",
         "license_url": "https://www.jamendo.com/en/list/a17613/3"
       },
       "duration": 316.95
     },
     {
       "id": "music-jamendo-0177",
-      "title": "Outsider",
+      "title": "Run",
       "audio": "music/jamendo/music-jamendo-0177.opus",
       "tags": {
         "genres": [
           "electronica"
         ],
-        "artist": null,
-        "album": "Outsider",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "artist": "Outsider",
+        "album_url": "https://www.jamendo.com/en/list/a17613/3",
         "license_url": "https://www.jamendo.com/en/list/a17613/3"
       },
       "duration": 206.37

@@ -10,976 +10,1034 @@
   "items": [
     {
       "id": "music-hd-0039",
-      "title": "Kevin MacLoad",
+      "title": "Gymnopedie No. 1",
       "audio": "music/hd-classical/music-hd-0039.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Erik Satie",
-        "album": "Kevin MacLoad",
         "vocal": "n",
         "license": "CC-BY-3.0",
+        "album": "Kevin MacLoad",
+        "composer": "Erik Satie",
+        "performer": "Kevin MacLoad",
         "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=512"
       },
       "duration": 187.07
     },
     {
       "id": "music-hd-0037",
-      "title": "John Harrison",
+      "title": "Autumn, The Four Seasons - Vivaldi",
       "audio": "music/hd-classical/music-hd-0037.opus",
       "tags": {
         "genres": [
           "westernart",
           "baroque"
         ],
-        "artist": "Vivaldi",
-        "album": "John Harrison",
         "vocal": "n",
         "license": "CC-BY-SA-1.0",
+        "album": "John Harrison",
+        "composer": "Antonio Vivaldi",
+        "performer": "John Harrison, Robert Turizziani, WSU Chamber Players",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=143"
       },
       "duration": 658.0
     },
     {
       "id": "music-hd-0035",
-      "title": "John Harrison",
+      "title": "Spring, The Four Seasons - Vivaldi",
       "audio": "music/hd-classical/music-hd-0035.opus",
       "tags": {
         "genres": [
           "westernart",
           "baroque"
         ],
-        "artist": "Vivaldi",
-        "album": "John Harrison",
         "vocal": "n",
         "license": "CC-BY-SA-1.0",
+        "album": "John Harrison",
+        "composer": "Antonio Vivaldi",
+        "performer": "John Harrison, Robert Turizziani, WSU Chamber Players",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=143"
       },
       "duration": 630.94
     },
     {
       "id": "music-hd-0036",
-      "title": "John Harrison",
+      "title": "Summer, The Four Seasons - Vivaldi",
       "audio": "music/hd-classical/music-hd-0036.opus",
       "tags": {
         "genres": [
           "westernart",
           "baroque"
         ],
-        "artist": "Vivaldi",
-        "album": "John Harrison",
         "vocal": "n",
         "license": "CC-BY-SA-1.0",
+        "album": "John Harrison",
+        "composer": "Antonio Vivaldi",
+        "performer": "John Harrison, Robert Turizziani, WSU Chamber Players",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=143"
       },
       "duration": 568.48
     },
     {
       "id": "music-hd-0038",
-      "title": "John Harrison",
+      "title": "Winter, The Four Seasons - Vivaldi",
       "audio": "music/hd-classical/music-hd-0038.opus",
       "tags": {
         "genres": [
           "westernart",
           "baroque"
         ],
-        "artist": "Vivaldi",
-        "album": "John Harrison",
         "vocal": "n",
         "license": "CC-BY-SA-1.0",
+        "album": "John Harrison",
+        "composer": "Antonio Vivaldi",
+        "performer": "John Harrison, Robert Turizziani, WSU Chamber Players",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=143"
       },
       "duration": 534.0
     },
     {
       "id": "music-hd-0033",
-      "title": "Steven Dunlop",
+      "title": "Pathétique, Piano Sonata No. 8 in C minor by Ludwig van Beethoven [1st&2nd movements]",
       "audio": "music/hd-classical/music-hd-0033.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Beethoven",
-        "album": "Steven Dunlop",
         "vocal": "n",
         "license": "CC-BY-SA-2.5",
+        "album": "Steven Dunlop",
+        "composer": "Ludwig van Beethoven",
+        "performer": "Steven Dunlop",
         "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=1"
       },
       "duration": 803.72
     },
     {
       "id": "music-hd-0059",
-      "title": "Bernd Krueger",
+      "title": "Aragon, Suite española, Op. 47 - HD - Isaac Albéniz",
       "audio": "music/hd-classical/music-hd-0059.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Albeniz",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Isaac Albéniz",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 243.52
     },
     {
       "id": "music-hd-0060",
-      "title": "Bernd Krueger",
+      "title": "Asturias, Suite española, Op. 47 - HD - Isaac Albéniz (beautiful piano)",
       "audio": "music/hd-classical/music-hd-0060.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Albeniz",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Isaac Albéniz",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 305.38
     },
     {
       "id": "music-hd-0061",
-      "title": "Bernd Krueger",
+      "title": "Cádiz, Suite española, Op. 47 - HD - Isaac Albéniz (beautiful piano)",
       "audio": "music/hd-classical/music-hd-0061.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Albeniz",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Isaac Albéniz",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 221.11
     },
     {
       "id": "music-hd-0055",
-      "title": "Bernd Krueger",
+      "title": "Capricho Catalan, España, Op. 165. - HD - Isaac Albéniz (wonderful song)",
       "audio": "music/hd-classical/music-hd-0055.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Albeniz",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Isaac Albéniz",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 124.51
     },
     {
       "id": "music-hd-0056",
-      "title": "Bernd Krueger",
+      "title": "Malagueña, España, Op. 165. - HD - Isaac Albéniz",
       "audio": "music/hd-classical/music-hd-0056.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Albeniz",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Isaac Albéniz",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 176.05
     },
     {
       "id": "music-hd-0057",
-      "title": "Bernd Krueger",
+      "title": "Prelude, España, Op. 165. - HD - Isaac Albéniz",
       "audio": "music/hd-classical/music-hd-0057.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Albeniz",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Isaac Albéniz",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 93.58
     },
     {
       "id": "music-hd-0058",
-      "title": "Bernd Krueger",
+      "title": "Serenata, España, Op. 165. - HD - Isaac Albéniz",
       "audio": "music/hd-classical/music-hd-0058.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Albeniz",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Isaac Albéniz",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 195.43
     },
     {
       "id": "music-hd-0062",
-      "title": "Bernd Krueger",
+      "title": "Castilla, Suite española, Op. 47 - HD - Isaac Albéniz (beautiful piano)",
       "audio": "music/hd-classical/music-hd-0062.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Albeniz",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Isaac Albéniz",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 156.4
     },
     {
       "id": "music-hd-0063",
-      "title": "Bernd Krueger",
+      "title": "Cuba, Suite española, Op. 47 - HD - Isaac Albéniz (beautiful piano)",
       "audio": "music/hd-classical/music-hd-0063.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Albeniz",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Isaac Albéniz",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 272.23
     },
     {
       "id": "music-hd-0064",
-      "title": "Bernd Krueger",
+      "title": "Sevilla, Suite española, Op. 47 - HD - Isaac Albéniz",
       "audio": "music/hd-classical/music-hd-0064.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Albeniz",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Isaac Albéniz",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 251.88
     },
     {
       "id": "music-hd-0003",
-      "title": "Bernd Krueger",
+      "title": "Berceuse, Lyric Pieces for piano, Op. 38 - HD - Edward Grieg",
       "audio": "music/hd-classical/music-hd-0003.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Grieg",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Edvard Grieg",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 160.03
     },
     {
       "id": "music-hd-0004",
-      "title": "Bernd Krueger",
+      "title": "Butterfly \"Sommerfugl\", Lyric Pieces for piano, Op. 43 - HD - Edward Grieg (superb timeless melody!)",
       "audio": "music/hd-classical/music-hd-0004.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Grieg",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Edvard Grieg",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 99.69
     },
     {
       "id": "music-hd-0005",
-      "title": "Bernd Krueger",
+      "title": "Little Bird, Lyric Pieces for piano - HD - Edward Grieg (mellow tune)",
       "audio": "music/hd-classical/music-hd-0005.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Grieg",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Edvard Grieg",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 96.4
     },
     {
       "id": "music-hd-0006",
-      "title": "Bernd Krueger",
+      "title": "March of the Dwarfs, Lyric Pieces for piano - HD - Edward Grieg",
       "audio": "music/hd-classical/music-hd-0006.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Grieg",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Edvard Grieg",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 157.21
     },
     {
       "id": "music-hd-0007",
-      "title": "Bernd Krueger",
+      "title": "Puck, Lyric Pieces for piano - HD - Edward Grieg",
       "audio": "music/hd-classical/music-hd-0007.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Grieg",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Edvard Grieg",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 86.24
     },
     {
       "id": "music-hd-0008",
-      "title": "Bernd Krueger",
+      "title": "Solitary Traveller, Lyric Pieces for piano",
       "audio": "music/hd-classical/music-hd-0008.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Grieg",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Edvard Grieg",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 102.72
     },
     {
       "id": "music-hd-0000",
-      "title": "Bernd Krueger",
+      "title": "Danzas espanolas no. 2, Orientale (1890) - HD - Enrique Granados Campiña (marvelous melody)",
       "audio": "music/hd-classical/music-hd-0000.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Granados",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Enrique Granados Campiña",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 207.97
     },
     {
       "id": "music-hd-0001",
-      "title": "Bernd Krueger",
+      "title": "Danzas espanolas no. 4, Villanesca (1890) - HD - Enrique Granados Campiña (happy and joyful)",
       "audio": "music/hd-classical/music-hd-0001.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Granados",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Enrique Granados Campiña",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 190.05
     },
     {
       "id": "music-hd-0002",
-      "title": "Bernd Krueger",
+      "title": "Danzas espanolas no. 3, Fandango (1890) - HD - Enrique Granados Campiña",
       "audio": "music/hd-classical/music-hd-0002.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Granados",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Enrique Granados Campiña",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 284.53
     },
     {
       "id": "music-hd-0071",
-      "title": "Bernd Krueger",
+      "title": "Etude in A minor 'Winter Wind' , Op. 25 No. 11 - HD - Frédéric Chopin (intricately beautiful etude)",
       "audio": "music/hd-classical/music-hd-0071.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Chopin",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Frédéri",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 192.76
     },
     {
       "id": "music-hd-0072",
-      "title": "Bernd Krueger",
+      "title": "Etude in C minor 'Ocean', Op. 25 No. 12 - HD - Frédéric Chopin (intricately beautiful etude)",
       "audio": "music/hd-classical/music-hd-0072.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Chopin",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Frédéri",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 139.66
     },
     {
       "id": "music-hd-0069",
-      "title": "Bernd Krueger",
+      "title": "Etude in C minor 'Revolutionary', Op. 10, No. 12 - HD - Frédéric Chopin (Virtuoso Etude)",
       "audio": "music/hd-classical/music-hd-0069.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Chopin",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Frédéri",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 143.31
     },
     {
       "id": "music-hd-0070",
-      "title": "Bernd Krueger",
+      "title": "Etude in F minor, Op. 25, No. 2 - HD - Frédéric Chopin (virtuoso etude)",
       "audio": "music/hd-classical/music-hd-0070.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Chopin",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Frédéri",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 90.23
     },
     {
       "id": "music-hd-0073",
-      "title": "Bernd Krueger",
+      "title": "Mazurka in D major, Opus 33 No. 2 - HD - Frédéric Chopin",
       "audio": "music/hd-classical/music-hd-0073.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Chopin",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Frédéri",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 144.67
     },
     {
       "id": "music-hd-0074",
-      "title": "Bernd Krueger",
+      "title": "Polonaise in A-flat major, 'Heroic', Op. 53 - HD - Frédéric Chopin",
       "audio": "music/hd-classical/music-hd-0074.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Chopin",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Frédéri",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 357.91
     },
     {
       "id": "music-hd-0009",
-      "title": "Bernd Krueger",
+      "title": "Hungarian Rhapsody No. 2 - HD - Franz Liszt",
       "audio": "music/hd-classical/music-hd-0009.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Liszt",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Franz Liszt",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 353.03
     },
     {
       "id": "music-hd-0010",
-      "title": "Bernd Krueger",
+      "title": "Grandes Etudes de Paganini No.3 - HD - Franz Liszt \"La Campanella\"",
       "audio": "music/hd-classical/music-hd-0010.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Liszt",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Franz Liszt",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 251.75
     },
     {
       "id": "music-hd-0011",
-      "title": "Bernd Krueger",
+      "title": "Grandes Etudes de Paganini No.6 - HD - Franz Liszt (\"Theme and Variations\")",
       "audio": "music/hd-classical/music-hd-0011.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Liszt",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Franz Liszt",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 330.93
     },
     {
       "id": "music-hd-0012",
-      "title": "Bernd Krueger",
+      "title": "Love dream \"Liebesträume\" No. 3 - HD - Franz Liszt",
       "audio": "music/hd-classical/music-hd-0012.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Liszt",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Franz Liszt",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 250.21
     },
     {
       "id": "music-hd-0048",
-      "title": "MIT",
+      "title": "Les Adieux, 1st Mvt. (Das Lebewohl, Les Adieux, The Farewell) [HD] - Beethoven's mature sonata",
       "audio": "music/hd-classical/music-hd-0048.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Beethoven",
-        "album": "MIT",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "MIT",
+        "composer": "Beethoven",
+        "performer": "MIT Concert Choir",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=6"
       },
       "duration": 345.19
     },
     {
       "id": "music-hd-0049",
-      "title": "Bernd Krueger",
+      "title": "Les Adieux, 2nd Mvt. (Abwesenheit, L'Absence, The Absence) [HD] - Beethoven's mature sonata",
       "audio": "music/hd-classical/music-hd-0049.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Beethoven",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Ludwig van Beethoven",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 176.25
     },
     {
       "id": "music-hd-0050",
-      "title": "Bernd Krueger",
+      "title": "Les Adieux, 3rd Mvt. (Das Wiedersehen, Le Retour, The Return) [HD] - Beethoven's mature sonata",
       "audio": "music/hd-classical/music-hd-0050.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Beethoven",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Ludwig van Beethoven",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 304.28
     },
     {
       "id": "music-hd-0051",
-      "title": "Bernd Krueger",
+      "title": "Moonlight Sonata, 1st Mvt. (adagio sostenuto)",
       "audio": "music/hd-classical/music-hd-0051.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Beethoven",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Ludwig van Beethoven",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 368.18
     },
     {
       "id": "music-hd-0053",
-      "title": "Bernd Krueger",
+      "title": "Moonlight Sonata, 2nd Mvt. (allegretto",
       "audio": "music/hd-classical/music-hd-0053.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Beethoven",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Ludwig van Beethoven",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 126.18
     },
     {
       "id": "music-hd-0054",
-      "title": "Bernd Krueger",
+      "title": "Moonlight Sonata, 3rd Mvt. (presto agitato",
       "audio": "music/hd-classical/music-hd-0054.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Beethoven",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Ludwig van Beethoven",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 414.28
     },
     {
       "id": "music-hd-0013",
-      "title": "Bernd Krueger",
+      "title": "Piano sonata No. 9, KV 311, 1st movement",
       "audio": "music/hd-classical/music-hd-0013.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Mozart",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Wolfgang Amadeus Mozart",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 261.73
     },
     {
       "id": "music-hd-0014",
-      "title": "Bernd Krueger",
+      "title": "Piano sonata No. 9, KV 311, 2nd movement",
       "audio": "music/hd-classical/music-hd-0014.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Mozart",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Wolfgang Amadeus Mozart",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 281.42
     },
     {
       "id": "music-hd-0015",
-      "title": "Bernd Krueger",
+      "title": "Piano sonata No. 9, KV 311, 3rd movement",
       "audio": "music/hd-classical/music-hd-0015.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Mozart",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Wolfgang Amadeus Mozart",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 369.3
     },
     {
       "id": "music-hd-0031",
-      "title": "Bernd Krueger",
+      "title": "Pictures at an Exhibition, \"Il vecchio castello\"",
       "audio": "music/hd-classical/music-hd-0031.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Mussorgsky",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Modest Mussorgsky",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 296.0
     },
     {
       "id": "music-hd-0032",
-      "title": "Bernd Krueger",
+      "title": "Pictures at an Exhibition, Promenade and \"Limoges\"",
       "audio": "music/hd-classical/music-hd-0032.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Mussorgsky",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Modest Mussorgsky",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 363.76
     },
     {
       "id": "music-hd-0016",
-      "title": "Bernd Krueger",
+      "title": "Schubert's Impromptus [HD]: Op. 90, No. 1 in C Minor",
       "audio": "music/hd-classical/music-hd-0016.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Schubert",
-        "album": "Bernd Krueger",
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Franz Schubert",
+        "performer": "Bernd Krueger",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
       },
       "duration": 465.93
     },
     {
       "id": "music-hd-0065",
-      "title": "Bernd Krueger",
+      "title": "The pearls, Op. 109 - HD - Johann Friedrich Franz Burgmüller",
       "audio": "music/hd-classical/music-hd-0065.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Burgmuller",
-        "album": "Bernd Krueger",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Johann Friedrich Franz Burgmüller",
+        "performer": "Bernd Krueger"
       },
       "duration": 86.71
     },
     {
       "id": "music-hd-0066",
-      "title": "Bernd Krueger",
+      "title": "Spinning Song - HD - Johann Friedrich Franz Burgmüller",
       "audio": "music/hd-classical/music-hd-0066.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Burgmuller",
-        "album": "Bernd Krueger",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Johann Friedrich Franz Burgmüller",
+        "performer": "Bernd Krueger"
       },
       "duration": 105.62
     },
     {
       "id": "music-hd-0067",
-      "title": "Bernd Krueger",
+      "title": "The sylphs - HD - Johann Friedrich Franz Burgmüller",
       "audio": "music/hd-classical/music-hd-0067.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Burgmuller",
-        "album": "Bernd Krueger",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Johann Friedrich Franz Burgmüller",
+        "performer": "Bernd Krueger"
       },
       "duration": 89.79
     },
     {
       "id": "music-hd-0068",
-      "title": "Bernd Krueger",
+      "title": "Thunderstorm - HD - Johann Friedrich Franz Burgmüller",
       "audio": "music/hd-classical/music-hd-0068.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Burgmuller",
-        "album": "Bernd Krueger",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Johann Friedrich Franz Burgmüller",
+        "performer": "Bernd Krueger"
       },
       "duration": 79.5
     },
     {
       "id": "music-hd-0018",
-      "title": "Bernd Krueger",
+      "title": "Tchaikovsky's Seasons [HD quality]: April, Snowdrop",
       "audio": "music/hd-classical/music-hd-0018.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Tchaikovsky",
-        "album": "Bernd Krueger",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Pyotr Ilyich Tchaikovsky",
+        "performer": "Bernd Krueger"
       },
       "duration": 129.0
     },
     {
       "id": "music-hd-0019",
-      "title": "Bernd Krueger",
+      "title": "Tchaikovsky's Seasons [HD quality]: February, Carnival",
       "audio": "music/hd-classical/music-hd-0019.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Tchaikovsky",
-        "album": "Bernd Krueger",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Pyotr Ilyich Tchaikovsky",
+        "performer": "Bernd Krueger"
       },
       "duration": 163.59
     },
     {
       "id": "music-hd-0020",
-      "title": "Bernd Krueger",
+      "title": "Tchaikovsky's Seasons [HD quality]: January",
       "audio": "music/hd-classical/music-hd-0020.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Tchaikovsky",
-        "album": "Bernd Krueger",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Pyotr Ilyich Tchaikovsky",
+        "performer": "Bernd Krueger"
       },
       "duration": 280.82
     },
     {
       "id": "music-hd-0017",
-      "title": "Bernd Krueger",
+      "title": "Tchaikovsky's Seasons [HD quality]: March, Song of the Lark",
       "audio": "music/hd-classical/music-hd-0017.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Tchaikovsky",
-        "album": "Bernd Krueger",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Pyotr Ilyich Tchaikovsky",
+        "performer": "Bernd Krueger"
       },
       "duration": 134.88
     },
     {
       "id": "music-hd-0021",
-      "title": "Bernd Krueger",
+      "title": "Tchaikovsky's Seasons [HD quality]: May, Starlight Nights",
       "audio": "music/hd-classical/music-hd-0021.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Tchaikovsky",
-        "album": "Bernd Krueger",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Pyotr Ilyich Tchaikovsky",
+        "performer": "Bernd Krueger"
       },
       "duration": 193.78
     },
     {
       "id": "music-hd-0022",
-      "title": "Bernd Krueger",
+      "title": "Tchaikovsky's Seasons [HD quality]: September, The Hunt",
       "audio": "music/hd-classical/music-hd-0022.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Tchaikovsky",
-        "album": "Bernd Krueger",
         "vocal": "n",
-        "license": "CC-BY-SA-3.0"
+        "license": "CC-BY-SA-3.0",
+        "album": "Bernd Krueger",
+        "composer": "Pyotr Ilyich Tchaikovsky",
+        "performer": "Bernd Krueger"
       },
       "duration": 166.46
     },
     {
       "id": "music-hd-0041",
-      "title": "Jon Sayles",
+      "title": "Browning - Elway Bevin",
       "audio": "music/hd-classical/music-hd-0041.opus",
       "tags": {
         "genres": [
           "westernart",
           "baroque"
         ],
-        "artist": "Bevin",
-        "album": "Jon Sayles",
         "vocal": "n",
         "license": "PD",
+        "album": "Jon Sayles",
+        "composer": "Elway Bevin",
+        "performer": "Jon Sayles",
         "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=570"
       },
       "duration": 181.4
@@ -993,282 +1051,299 @@
           "westernart",
           "baroque"
         ],
-        "artist": "Philips",
-        "album": "Jon Sayles",
         "vocal": "n",
         "license": "PD",
+        "album": "Jon Sayles",
+        "composer": "Peter Philips",
+        "performer": "Jon Sayles",
         "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=578"
       },
       "duration": 159.14
     },
     {
       "id": "music-hd-0045",
-      "title": "Jon Sayles",
+      "title": "What If I Never Speed - John Dowland",
       "audio": "music/hd-classical/music-hd-0045.opus",
       "tags": {
         "genres": [
           "westernart",
           "baroque"
         ],
-        "artist": "Dowland",
-        "album": "Jon Sayles",
         "vocal": "n",
         "license": "PD",
+        "album": "Jon Sayles",
+        "composer": "John Dowland",
+        "performer": "Jon Sayles",
         "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=586"
       },
       "duration": 68.16
     },
     {
       "id": "music-hd-0043",
-      "title": "Jon Sayles",
+      "title": "O' Rosetta - Claudio Monteverdi",
       "audio": "music/hd-classical/music-hd-0043.opus",
       "tags": {
         "genres": [
           "westernart",
           "baroque"
         ],
-        "artist": "Monteverdi",
-        "album": "Jon Sayles",
         "vocal": "n",
         "license": "PD",
+        "album": "Jon Sayles",
+        "composer": "Claudio Monteverdi",
+        "performer": "Jon Sayles",
         "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=577"
       },
       "duration": 86.79
     },
     {
       "id": "music-hd-0052",
-      "title": "Shelley Katz",
+      "title": "Aria Da Capo, Goldberg Variations, BWV 988",
       "audio": "music/hd-classical/music-hd-0052.opus",
       "tags": {
         "genres": [
           "westernart",
           "baroque"
         ],
-        "artist": "Bach",
-        "album": "Shelley Katz",
         "vocal": "n",
         "license": "PD",
+        "album": "Shelley Katz",
+        "composer": "Johann Sebastian Bach",
+        "performer": "Shelley Katz",
         "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=6"
       },
       "duration": 339.96
     },
     {
       "id": "music-hd-0047",
-      "title": "Jon Sayles",
+      "title": "Blute nur, St. Matthew Passion - Bach (Guitar)",
       "audio": "music/hd-classical/music-hd-0047.opus",
       "tags": {
         "genres": [
           "westernart",
           "baroque"
         ],
-        "artist": "Bach",
-        "album": "Jon Sayles",
         "vocal": "n",
         "license": "PD",
+        "album": "Jon Sayles",
+        "composer": "Johann Sebastian Bach",
+        "performer": "Jon Sayles",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=149"
       },
       "duration": 262.51
     },
     {
       "id": "music-hd-0046",
-      "title": "Jon Sayles",
+      "title": "Ich will dir mein herze, St Matthew Passion - Bach (Guitar)",
       "audio": "music/hd-classical/music-hd-0046.opus",
       "tags": {
         "genres": [
           "westernart",
           "baroque"
         ],
-        "artist": "Bach",
-        "album": "Jon Sayles",
         "vocal": "n",
         "license": "PD",
+        "album": "Jon Sayles",
+        "composer": "Johann Sebastian Bach",
+        "performer": "Jon Sayles",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=149"
       },
       "duration": 218.65
     },
     {
       "id": "music-hd-0040",
-      "title": "Jon Sayles",
+      "title": "Aufzug - Entry Dance from \"The Fairy Queen\" (Henry Purcell)",
       "audio": "music/hd-classical/music-hd-0040.opus",
       "tags": {
         "genres": [
           "westernart",
           "baroque"
         ],
-        "artist": "Purcell",
-        "album": "Jon Sayles",
         "vocal": "n",
         "license": "PD",
+        "album": "Jon Sayles",
+        "composer": "Henry Purcell",
+        "performer": "Jon Sayles",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=149"
       },
       "duration": 117.9
     },
     {
       "id": "music-hd-0042",
-      "title": "Jon Sayles",
+      "title": "Hornpipe from the Faerie Queene - Purcell",
       "audio": "music/hd-classical/music-hd-0042.opus",
       "tags": {
         "genres": [
           "westernart",
           "baroque"
         ],
-        "artist": "Purcell",
-        "album": "Jon Sayles",
         "vocal": "n",
         "license": "PD",
+        "album": "Jon Sayles",
+        "composer": "Henry Purcell",
+        "performer": "Jon Sayles",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=149"
       },
       "duration": 70.38
     },
     {
       "id": "music-hd-0027",
-      "title": "Czech Natl Symphony",
+      "title": "Brahms' Last Symphony: Symphony No. 4 in E Minor, Op. 98, 1st",
       "audio": "music/hd-classical/music-hd-0027.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Brahms",
-        "album": "Czech Natl Symphony",
         "vocal": "n",
         "license": "PD",
+        "album": "Czech Natl Symphony",
+        "composer": "Johannes Brahms",
+        "performer": "Czech National Symphony Orchestra",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=3"
       },
       "duration": 760.64
     },
     {
       "id": "music-hd-0028",
-      "title": "Czech Natl Symphony",
+      "title": "Brahms' Last Symphony: Symphony No. 4 in E Minor, Op. 98, 2nd Mvt",
       "audio": "music/hd-classical/music-hd-0028.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Brahms",
-        "album": "Czech Natl Symphony",
         "vocal": "n",
         "license": "PD",
+        "album": "Czech Natl Symphony",
+        "composer": "Johannes Brahms",
+        "performer": "Czech National Symphony Orchestra",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=3"
       },
       "duration": 674.12
     },
     {
       "id": "music-hd-0029",
-      "title": "Czech Natl Symphony",
+      "title": "Brahms' Last Symphony: Symphony No. 4 in E Minor, Op. 98, 3rd Mvt",
       "audio": "music/hd-classical/music-hd-0029.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Brahms",
-        "album": "Czech Natl Symphony",
         "vocal": "n",
         "license": "PD",
+        "album": "Czech Natl Symphony",
+        "composer": "Johannes Brahms",
+        "performer": "Czech National Symphony Orchestra",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=3"
       },
       "duration": 379.17
     },
     {
       "id": "music-hd-0030",
-      "title": "Czech Natl Symphony",
+      "title": "Brahms' Last Symphony: Symphony No. 4 in E Minor, Op. 98, 4th Mvt",
       "audio": "music/hd-classical/music-hd-0030.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Brahms",
-        "album": "Czech Natl Symphony",
         "vocal": "n",
         "license": "PD",
+        "album": "Czech Natl Symphony",
+        "composer": "Johannes Brahms",
+        "performer": "Czech National Symphony Orchestra",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=3"
       },
       "duration": 667.67
     },
     {
       "id": "music-hd-0023",
-      "title": "Museopen",
+      "title": "Slavonic, String Quartet No. 10, 1st Mvt. - classic Antonín Dvořák",
       "audio": "music/hd-classical/music-hd-0023.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Dvorak",
-        "album": "Museopen",
         "vocal": "n",
         "license": "PD",
+        "album": "Museopen",
+        "composer": "Antonín Dvořák",
+        "performer": "Musopen String Quartet",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=5"
       },
       "duration": 674.96
     },
     {
       "id": "music-hd-0024",
-      "title": "Museopen",
+      "title": "Slavonic, String Quartet No. 10, 2nd Mvt. - elegant, sublime, Dvořák",
       "audio": "music/hd-classical/music-hd-0024.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Dvorak",
-        "album": "Museopen",
         "vocal": "n",
         "license": "PD",
+        "album": "Museopen",
+        "composer": "Antonín Dvořák",
+        "performer": "Musopen String Quartet",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=5"
       },
       "duration": 465.74
     },
     {
       "id": "music-hd-0025",
-      "title": "Museopen",
+      "title": "Slavonic, String Quartet No. 10, 3rd Mvt. - passionate, emotional",
       "audio": "music/hd-classical/music-hd-0025.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Dvorak",
-        "album": "Museopen",
         "vocal": "n",
         "license": "PD",
+        "album": "Museopen",
+        "composer": "Antonín Dvořák",
+        "performer": "Musopen String Quartet",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=5"
       },
       "duration": 465.74
     },
     {
       "id": "music-hd-0026",
-      "title": "Museopen",
+      "title": "Slavonic, String Quartet No. 10, 4th Mvt. (Finale) - Antonín Dvořák",
       "audio": "music/hd-classical/music-hd-0026.opus",
       "tags": {
         "genres": [
           "westernart",
           "romantic"
         ],
-        "artist": "Dvorak",
-        "album": "Museopen",
         "vocal": "n",
         "license": "PD",
+        "album": "Museopen",
+        "composer": "Antonín Dvořák",
+        "performer": "Musopen String Quartet",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=5"
       },
       "duration": 434.24
     },
     {
       "id": "music-hd-0034",
-      "title": "Museopen",
+      "title": "String Quartet In D, Op. 645, H 363, Lark - Joseph Haydn",
       "audio": "music/hd-classical/music-hd-0034.opus",
       "tags": {
         "genres": [
           "westernart",
           "classical"
         ],
-        "artist": "Hayden",
-        "album": "Museopen",
         "vocal": "n",
         "license": "PD",
+        "album": "Museopen",
+        "composer": "Joseph Haydn",
+        "performer": "Musopen String Quartet",
         "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=5"
       },
       "duration": 981.66
