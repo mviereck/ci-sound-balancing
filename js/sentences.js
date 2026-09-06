@@ -99,19 +99,22 @@ function sSpeakersForLang(langCode) {
     .filter((k) => sCorpus.speakers[k].lang === langCode);
 }
 
-function sBuildRecordingPool(spkSel) {
+// BA558: Satz-Pool nach paralleler Achsen-Auswahl. Basis = sortierte
+// Gesamt-Sequenz der aktuellen Sprache (sBuildSequencePool), dann durch
+// die Achsen-Tabelle gefiltert (amItemMatchesAxes). Kein Sprecher-
+// Sonderfall mehr.
+function sBuildRecordingPool() {
   const curLang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
-  // BA348: Stempel-Cache (analog amCollectItems) - die Pool-Bildung lief pro
-  // Bedien-Klick 2-10x (via plUpdTransportUI -> hasNext/hasPrev -> cat.list);
-  // jetzt sitzungsweit gecacht, Neuaufbau nur bei Stempel-Aenderung.
-  return _amCacheGet("recpool:" + curLang + ":" + spkSel, function () {
-    const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
-    return all.filter(function (it) {
-      // BA351: lang_any-Items (Dateiupload) immer im Pool
-      if (!it.tags || (it.tags.lang !== curLang && it.tags.lang_any !== "y")) return false;
-      if (spkSel === "any") return true;
-      return it.tags.speaker_id === spkSel;
-    });
+  const sel = (typeof plSentAxisSel !== "undefined") ? plSentAxisSel : {};
+  // Stempel-Cache-Key aus Sprache + serialisierter Achsen-Auswahl.
+  const selKey = Object.keys(sel).sort().map(function (k) { return k + "=" + sel[k]; }).join("&");
+  return _amCacheGet("recpool:" + curLang + ":" + selKey, function () {
+    const base = sBuildSequencePool();   // schon sprach-gefiltert + sortiert
+    const axes = (typeof amSortAxesFor === "function") ? amSortAxesFor("saetze") : [];
+    // Nur die parallelen Achsen (ohne lang) fuer den Match.
+    const parAxes = axes.filter(function (a) { return a.key !== "lang"; });
+    if (typeof amItemMatchesAxes !== "function") return base;
+    return base.filter(function (it) { return amItemMatchesAxes(parAxes, sel, it); });
   });
 }
 
@@ -262,10 +265,11 @@ function sStop() {
   if (typeof plUpdDisplay === "function") plUpdDisplay();
 }
 
-// BA332: Befüllt das Sprecher-Dropdown via gemeinsamer Mechanik (speaker-sel-Stage).
-// speakerMap-Logik liegt jetzt in plBuildFilterChain (PL_FILTER_DECL.saetze).
+// BA558: Ersetzt den alten Sprecher-Dropdown-Refresh. Baut die
+// Saetze-Filterkette neu (parallel-axes-Engine rendert die Boxen).
 function sRefreshSpeakerDropdown() {
-  if (typeof plBuildFilterChain === "function" && typeof PL_FILTER_DECL !== "undefined" && PL_FILTER_DECL.saetze) {
+  if (typeof PL_FILTER_DECL !== "undefined" && PL_FILTER_DECL.saetze
+      && typeof plBuildFilterChain === "function") {
     plBuildFilterChain(PL_FILTER_DECL.saetze);
   }
 }
@@ -304,11 +308,8 @@ function sUpdateUI() {
   // Falls Sätze laufen und der gewählte Sprecher in dieser Sprache nicht
   // existiert: stoppen (Dropdown ist eh schon umgesprungen auf "any").
   if (plActiveSource === "saetze" && sCurRec) {
-    const curSpk = sCurRec.tags && sCurRec.tags.speaker_id;
-    if (curSpk) {
-      const pool = sBuildRecordingPool(curSpk);
-      if (pool.length === 0) sStop();
-    }
+    const pool = sBuildRecordingPool();
+    if (pool.length === 0) sStop();
   }
   sUpdateButtons();
   sUpdateTextBox();

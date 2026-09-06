@@ -1619,9 +1619,7 @@ const plCategories = {
     // --- Vertrag --- (Liste = Satz-Pool; bei gewaehltem Sprecher dessen Pool,
     // sonst die sortierte Gesamt-Sequenz; Zeiger = sCurRec)
     list: function () {
-      const spkSel = (typeof plSentSpeakerSel !== "undefined") ? plSentSpeakerSel : "any";
-      if (spkSel && spkSel !== "any") return sBuildRecordingPool(spkSel);
-      return sBuildSequencePool();
+      return sBuildRecordingPool();
     },
     current: function () { return (typeof sCurRec !== "undefined") ? sCurRec : null; },
     select: function (item) { if (item) sCurRec = item; },
@@ -2325,7 +2323,6 @@ document.querySelectorAll(".pl-vol-btn").forEach(function (b) {
 
 // PL_FILTER_DECL[cat]: Deklaration der Filter-Stages je Kategorie.
 // Stages werden von plBuildFilterChain generisch gebaut/verdrahtet.
-// collection-sel / chapter-sel / speaker-sel kommen in BA331/332.
 var PL_FILTER_DECL = {};
 
 // Generische Mechanik: baut/befuellt/verdrahtet die existierenden DOM-Elemente
@@ -2495,48 +2492,21 @@ function plBuildFilterChain(catDecl) {
         domEl.value = String(chIdx);
       }
 
-    } else if (stage.kind === "speaker-sel") {
-      // Sprecher-Dropdown (Saetze): speakerMap aus amCollectItems gefiltert nach Inhalts-Sprache
-      var spkAll = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
-      var spkLang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
-      var spkInLang = spkAll.filter(function (it) {
-        // BA351: lang_any-Items (Dateiupload) immer sichtbar
-        return it.tags && (it.tags.lang === spkLang || it.tags.lang_any === "y");
-      });
-      // speakerMap aufbauen (Reihenfolge stabil: nach erstem Auftreten)
-      var speakerMap = new Map();
-      for (var spki = 0; spki < spkInLang.length; spki++) {
-        var spkit = spkInLang[spki];
-        var spkid = spkit.tags.speaker_id || "unbekannt";
-        if (!speakerMap.has(spkid)) {
-          speakerMap.set(spkid, {
-            label: spkit.title || spkid,
-            sourceTitle: spkit.sourceTitle || ""
-          });
-        }
-      }
+    } else if (stage.kind === "lang-sel") {
+      // Sprach-Sonderbox: kein "_all", immer sichtbar, Pflicht-Wahl.
+      // plContentLangAvailable() liefert ein Array von Sprachcodes (strings).
+      var langs = (typeof plContentLangAvailable === "function") ? plContentLangAvailable() : [];
       while (domEl.firstChild) domEl.removeChild(domEl.firstChild);
-      var optAny = document.createElement("option");
-      optAny.value = "any";
-      optAny.textContent = (typeof t === "function") ? t("sentSpkAll") : "Alle";
-      domEl.appendChild(optAny);
-      speakerMap.forEach(function (meta, sid) {
-        var sopt = document.createElement("option");
-        sopt.value = sid;
-        sopt.textContent = (meta.sourceTitle && meta.sourceTitle !== meta.label)
-          ? (meta.label + " — " + meta.sourceTitle)
-          : meta.label;
-        domEl.appendChild(sopt);
-      });
-      // Auswahl wiederherstellen: State-Wert, falls noch gueltig
-      var prevSpk = catDecl.stateRef.getSpeakerSel();
-      var spkKeys = Array.from(speakerMap.keys());
-      if (spkKeys.indexOf(prevSpk) >= 0 || prevSpk === "any") {
-        domEl.value = prevSpk;
-      } else {
-        domEl.value = "any";
-        catDecl.stateRef.setSpeakerSel("any");
+      var curLang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
+      for (var li = 0; li < langs.length; li++) {
+        var lopt = document.createElement("option");
+        lopt.value = langs[li];
+        lopt.textContent = (typeof plLangFlag === "function" ? plLangFlag(langs[li]) + " " : "")
+          + (typeof plLangName === "function" ? plLangName(langs[li]) : langs[li]);
+        domEl.appendChild(lopt);
       }
+      domEl.value = curLang;
+
     } else if (stage.kind === "parallel-axes") {
       // Container leeren und Achsen-Boxen dynamisch neu aufbauen.
       // Jede sichtbare Achse = eine Zeile (control-group: label + select).
@@ -2745,12 +2715,14 @@ function plBuildFilterChain(catDecl) {
           if (wstage.onChapterSelect) wstage.onChapterSelect(idx);
         });
 
-      } else if (wstage.kind === "speaker-sel") {
+      } else if (wstage.kind === "lang-sel") {
         wel.addEventListener("change", function () {
-          _plNavApplyFilterChange(catDecl, function () {
-            catDecl.stateRef.setSpeakerSel(wel.value);
-          });
-          if (wstage.onSpeakerSelect) wstage.onSpeakerSelect(wel.value);
+          if (typeof plSetContentLang === "function") plSetContentLang(wel.value);
+          // Achsen-Auswahl zuruecksetzen (andere Sprache -> andere Werte)
+          if (typeof plSentAxisSel !== "undefined") {
+            for (var k in plSentAxisSel) { if (plSentAxisSel.hasOwnProperty(k)) plSentAxisSel[k] = "_all"; }
+          }
+          _plNavApplyFilterChange(catDecl, function () {});
         });
       }
     })(stages[wi]);
@@ -2768,7 +2740,6 @@ function plSetContentLang(code) {
   try { localStorage.setItem("ci-lb-content-lang", code); } catch (e) {}
   if (typeof sUpdateUI === "function") sUpdateUI();
   if (typeof plBookRefreshUI === "function") plBookRefreshUI();
-  plUpdContentLangBtn();
 }
 
 function plGetContentLang() {
@@ -2906,74 +2877,6 @@ function plContentLangAvailable() {
   return out;
 }
 
-// Aktualisiert den Beschriftungs-Knopf mit aktueller Sprache.
-function plUpdContentLangBtn() {
-  var btn = document.getElementById("plContentLangBtn");
-  if (!btn) return;
-  var code = plGetContentLang();
-  btn.textContent = plLangFlag(code) + " " + plLangName(code) + " ▾";
-}
-
-// Oeffnet die Flaggen-Modalbox.
-function plOpenContentLangModal() {
-  var modal = document.getElementById("plContentLangModal");
-  if (!modal) return;
-  var listEl = document.getElementById("plContentLangList");
-  var searchEl = document.getElementById("plContentLangSearch");
-  if (searchEl) searchEl.value = "";
-  // Liste aufbauen
-  if (listEl) {
-    listEl.innerHTML = "";
-    var langs = plContentLangAvailable();
-    var currentCode = plGetContentLang();
-    if (langs.length === 0) {
-      var emptyEl = document.createElement("div");
-      emptyEl.style.cssText = "padding:10px;color:var(--text-muted);text-align:center;font-size:0.9em";
-      emptyEl.setAttribute("data-t", "plContentLangEmpty");
-      emptyEl.textContent = (typeof t === "function") ? t("plContentLangEmpty") : "—";
-      listEl.appendChild(emptyEl);
-    } else {
-      for (var i = 0; i < langs.length; i++) {
-        (function (code) {
-          var btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "btn btn-sm pl-lang-btn";
-          btn.dataset.langCode = code;
-          btn.textContent = plLangFlag(code) + " " + plLangName(code) +
-            (LANG_TO_FLAG[code] || LANG_TO_FLAG[code.split("-")[0]] ? "" : " (" + code + ")");
-          if (code === currentCode) {
-            btn.style.cssText = "border-color:var(--accent);color:var(--accent);font-weight:600";
-          }
-          btn.addEventListener("click", function () {
-            plSetContentLang(code);
-            plCloseContentLangModal();
-          });
-          listEl.appendChild(btn);
-        })(langs[i]);
-      }
-    }
-    // Suchfeld-Filter verdrahten
-    if (searchEl) {
-      searchEl.oninput = function () {
-        var q = searchEl.value.trim().toLowerCase();
-        var btns = listEl.querySelectorAll(".pl-lang-btn");
-        for (var k = 0; k < btns.length; k++) {
-          var code2 = btns[k].dataset.langCode || "";
-          var name2 = plLangName(code2).toLowerCase();
-          var match = !q || name2.indexOf(q) >= 0 || code2.toLowerCase().indexOf(q) >= 0;
-          btns[k].style.display = match ? "" : "none";
-        }
-      };
-    }
-  }
-  modal.classList.add("active");
-}
-
-// Schliesst die Flaggen-Modalbox.
-function plCloseContentLangModal() {
-  var modal = document.getElementById("plContentLangModal");
-  if (modal) modal.classList.remove("active");
-}
 
 // BA334: gemeinsamer Upload-Block-Verdrahter
 // ============================================================
@@ -3633,7 +3536,6 @@ function plSyncUI(opts) {
   if (typeof plUpdDisplay       === "function") plUpdDisplay();
   if (typeof plRefreshTooltips  === "function") plRefreshTooltips();
   if (typeof plUpdVolBtns       === "function") plUpdVolBtns();
-  if (typeof plUpdContentLangBtn === "function") plUpdContentLangBtn();
 
   // E. Bibliotheks-Listen
   if (typeof plSyncLibraries === "function") plSyncLibraries();
@@ -3718,8 +3620,8 @@ function plBookSavePosition() {
 // BA331: Sort/Sel/Ch-Event-Handler durch plBuildFilterChain-Mechanik (PL_FILTER_DECL.hoerbuecher) ersetzt.
 // BA350: Upload (Ordner + Einzeldatei) ist eine `upload`-Stage in PL_FILTER_DECL.hoerbuecher; ruft plBookHandleUpload.
 
-// Deklaration: Saetze (BA332)
-// Nur eine Stage speaker-sel; kein item-sel (Pool entsteht zur Laufzeit via sBuildRecordingPool).
+// Deklaration: Saetze (BA558)
+// Stages: upload, lang-sel, parallel-axes; Pool via sBuildRecordingPool.
 PL_FILTER_DECL.saetze = {
   category: "saetze",
   languageSensitive: true,
@@ -3733,8 +3635,22 @@ PL_FILTER_DECL.saetze = {
     { key: "text",    labelKey: "plDispFieldText",     getValue: function (ctx) { return ctx.text    || ""; }, role: "text",    inFilter: false, inDisplay: true,  visibility: "reveal" }
   ],
   stateRef: {
-    getSpeakerSel: function () { return plSentSpeakerSel; },
-    setSpeakerSel: function (v) { plSentSpeakerSel = v; }
+    getAxisSel: function (axisKey) {
+      var v = plSentAxisSel[axisKey];
+      return (v === undefined) ? "_all" : v;
+    },
+    setAxisSel: function (axisKey, value) {
+      plSentAxisSel[axisKey] = value;
+    }
+  },
+  // Basismenge der Achsen-Boxen: nach Inhalts-Sprache vorgefiltert
+  // (die Sprach-Box bedient plContentLang; die parallelen Achsen sehen
+  // nur Items der aktuellen Sprache). lang_any-Items (Upload) immer dabei.
+  axesBaseItems: function (items) {
+    var lang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
+    return items.filter(function (it) {
+      return it.tags && (it.tags.lang === lang || it.tags.lang_any === "y");
+    });
   },
   stages: [
     {
@@ -3745,24 +3661,23 @@ PL_FILTER_DECL.saetze = {
       accept: ".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*",
       onFile: async function (file) {
         if (typeof sAddLocalFile === "function") sAddLocalFile(file);
-        if (typeof sRefreshSpeakerDropdown === "function") sRefreshSpeakerDropdown();
         if (typeof sUpdateUI === "function") sUpdateUI();
       },
       onFolder: async function (fileList) {
         if (typeof sIngestLocalFolder === "function") await sIngestLocalFolder(fileList);
-        if (typeof sRefreshSpeakerDropdown === "function") sRefreshSpeakerDropdown();
         if (typeof sUpdateUI === "function") sUpdateUI();
       }
     },
     {
-      id: "speaker", kind: "speaker-sel", domId: "plSentSpeaker",
-      onSpeakerSelect: function () {
-        if (typeof sUpdateUI === "function") sUpdateUI();
-      }
+      id: "lang", kind: "lang-sel", domId: "plSentLang"
+    },
+    {
+      id: "axes", kind: "parallel-axes", domId: "plSentAxes",
+      parallelAxes: ["source", "gender", "speaker", "style", "test_set", "accent", "emotion"]
     }
   ]
 };
-// BA332: sRefreshSpeakerDropdown delegiert an plBuildFilterChain(PL_FILTER_DECL.saetze).
+// BA558: sRefreshSpeakerDropdown delegiert an plBuildFilterChain(PL_FILTER_DECL.saetze).
 
 // BA390: Player-Warmlauf -- Audiograph beim Seitenaufruf still aufbauen,
 // damit pGain und die Latenz-Kette bereitstehen, bevor der Latenz-Test sie

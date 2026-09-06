@@ -125,31 +125,56 @@ const AM_SORT_AXES = {
       getter: function (it) { return it.sourceTitle || it._providerId || "zzz-unbekannt"; }
     }
   ],
-  // BA197: Sätze-Sortier-Achsen
+  // BA558: Saetze-Achsen (vollstaendig, Konzept-Reihenfolge).
+  // valueOf = Filterwert (kann von Sortier-getter abweichen).
+  // bucketLabel = i18n-Anzeige eines Werts (Default Rohwert).
   saetze: [
     {
-      key: "lang",
-      labelKey: "amSortLang",
-      labelDefault: "nach Sprache",
+      key: "lang", labelKey: "plAxisLang", labelDefault: "Sprache",
       getter: function (it) { return (it.tags && it.tags.lang) || "zzz-unbekannt"; }
     },
     {
-      key: "speaker",
-      labelKey: "amSortSpeaker",
-      labelDefault: "nach Sprecher",
-      getter: function (it) { return (it.tags && it.tags.speaker_id) || "zzz-unbekannt"; }
+      key: "source", labelKey: "plAxisSource", labelDefault: "Quelle",
+      getter: function (it) { return it.sourceTitle || it._providerId || "zzz-unbekannt"; },
+      valueOf: function (it) { return it.sourceTitle || ""; }
     },
     {
-      key: "source",
-      labelKey: "amSortSource",
-      labelDefault: "nach Quelle",
-      getter: function (it) { return it.sourceTitle || it._providerId || "zzz-unbekannt"; }
+      key: "gender", labelKey: "plAxisGender", labelDefault: "Geschlecht",
+      getter: function (it) { return (it.tags && it.tags.gender) || "zzz-unbekannt"; },
+      valueOf: function (it) { return (it.tags && it.tags.gender) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plAxisGender_" + v) : v; }
     },
     {
-      key: "style",
-      labelKey: "amSortStyle",
-      labelDefault: "nach Stil",
-      getter: function (it) { return (it.tags && it.tags.style) || "zzz-unbekannt"; }
+      key: "speaker", labelKey: "plAxisSpeaker", labelDefault: "Sprecher",
+      getter: function (it) { return (it.tags && it.tags.speaker_id) || "zzz-unbekannt"; },
+      // Sprecher-Fallback: speaker_id ODER book_title (MLS-Vorlesungen).
+      valueOf: function (it) {
+        return (it.tags && (it.tags.speaker_id || it.tags.book_title)) || "";
+      },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plSpeaker_" + v) : v; }
+    },
+    {
+      key: "style", labelKey: "plAxisStyle", labelDefault: "Aufnahme-Art",
+      getter: function (it) { return (it.tags && it.tags.style) || "zzz-unbekannt"; },
+      valueOf: function (it) { return (it.tags && it.tags.style) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plAxisStyle_" + v) : v; }
+    },
+    {
+      key: "test_set", labelKey: "plAxisTestSet", labelDefault: "Testsatz-Sammlung",
+      getter: function (it) { return (it.tags && it.tags.test_set) || "zzz-unbekannt"; },
+      valueOf: function (it) { return (it.tags && it.tags.test_set) || ""; }
+    },
+    {
+      key: "accent", labelKey: "plAxisAccent", labelDefault: "Akzent",
+      getter: function (it) { return (it.tags && it.tags.accent) || "zzz-unbekannt"; },
+      valueOf: function (it) { return (it.tags && it.tags.accent) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plAxisAccent_" + v) : v; }
+    },
+    {
+      key: "emotion", labelKey: "plAxisEmotion", labelDefault: "Emotion",
+      getter: function (it) { return (it.tags && it.tags.emotion) || "zzz-unbekannt"; },
+      valueOf: function (it) { return (it.tags && it.tags.emotion) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plAxisEmotion_" + v) : v; }
     }
   ],
   // BA260: Musik-Sortier-Achsen
