@@ -1015,6 +1015,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof FRQ_openBandPiano === "function") FRQ_openBandPiano();
     });
   }
+  var _frqElPianoBtn = document.getElementById("FRQ_elektrodenPianoBtn");
+  if (_frqElPianoBtn) {
+    _frqElPianoBtn.addEventListener("click", function () {
+      if (typeof FRQ_openElektrodenPiano === "function") FRQ_openElektrodenPiano();
+    });
+  }
 
   // Anfangswerte spiegeln + Wand-Radios aufbauen.
   _frqBandSpiegle();

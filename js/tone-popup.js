@@ -604,6 +604,33 @@ function openToneSelectionDialog(cfg, onChange) {
     dlg.appendChild(togRow);
   }
 
+  // BA556: Optionaler reiterspezifischer Zusatz-Toggle (z. B.
+  // "Frequenzabgleich aktivieren" im Elektrodenklavier der Ergebnisseite).
+  // Nur gerendert, wenn cfg.extraToggle gesetzt ist -> andere Aufrufer
+  // unberuehrt. Stil identisch zu den Korrektur-Toggles oben.
+  if (cfg.extraToggle && typeof cfg.extraToggle.onChange === 'function') {
+    var _etState = (typeof cfg.extraToggle.getInitial === 'function')
+      ? !!cfg.extraToggle.getInitial() : true;
+
+    var etRow = document.createElement('div');
+    etRow.style.cssText = 'display:flex;gap:8px;margin:0 0 14px 0;flex-wrap:wrap;';
+
+    var etBtn = document.createElement('button');
+    etBtn.type = 'button';
+    etBtn.className = 'btn btn-sm';
+    if (cfg.extraToggle.labelKey) etBtn.dataset.t = cfg.extraToggle.labelKey;
+    etBtn.style.cssText = 'font-weight:600;border-radius:6px;';
+    etBtn.addEventListener('click', function () {
+      _etState = !_etState;
+      _tpUpdToggleStyle(etBtn, _etState);
+      cfg.extraToggle.onChange(_etState);
+    });
+    _tpUpdToggleStyle(etBtn, _etState);
+
+    etRow.appendChild(etBtn);
+    dlg.appendChild(etRow);
+  }
+
   // BA 240: Vol/Dur/Pau-Eingabefelder. Pro Feld via cfg.showXxx aktivierbar.
   // Werte werden live ueber cfg-Setter zurueckgeschrieben (kein OK-Bestaetigen).
   var anyVdpField = cfg.showVolume || cfg.showDuration || cfg.showPause;

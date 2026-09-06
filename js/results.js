@@ -1676,6 +1676,136 @@ function FRQ_openBandPiano() {
   _frqOpenPiano("FRQ_bandPianoTitle", "klavierBand");
 }
 
+// ===== BA556: Elektrodenklavier auf der Frequenzabgleich-Ergebnisseite =====
+// Zweck: akustisch pruefen, ob die MESSUNG stimmig ist. Je Elektrode wird
+// das CI nominell gespielt (Elektrode korrekt getroffen, Referenz), das
+// Vergleichsohr bekommt die gemessene ROHE Wahrnehmungsfrequenz. Stimmt die
+// Messung, klingen beide Seiten gleich hoch.
+//
+// Die Seiten-/Vertauschungslogik (welche Seite nominell, welche die gemessene
+// Frequenz) lebt vollstaendig in FRQ_werte (Form "klavierRoh"): CI nominell +
+// natuerliches Ohr = Wahrnehmung (1 CI); Referenz-CI nominell + Korrektur-CI
+// gewarpt (2 CI). KEIN Vertauschen hier im Konsumenten (Architektur-Regel).
+// Umschalter "Frequenzabgleich aktivieren": AN = klavierRoh-Frequenzen,
+// AUS = beide Seiten nominell (unkorrigierter Ist-Unterschied).
+
+// Toggle-Zustand der laufenden Modal-Instanz. true = korrigiert (Messung an).
+var _frqElPianoKorrigiert = true;
+
+// Werte je elIdx: AN aus der Klavier-Form "klavierRoh" (fertige left.hz/
+// right.hz), AUS nominell je Seite. Kein nachtraegliches Vertauschen.
+function _frqElPianoWerteByIdx() {
+  return _frqPianoWerteByIdx(_frqElPianoKorrigiert ? "klavierRoh" : "warp");
+}
+
+// Frequenz einer Seite je nach Toggle. AN: die fertige .hz der Form
+// "klavierRoh" (Seitenlogik steckt dort). AUS: nominell (beide Seiten gleich).
+function _frqElPianoSideHz(sideObj) {
+  if (!sideObj) return null;
+  if (_frqElPianoKorrigiert) {
+    return (sideObj.hz != null) ? sideObj.hz : sideObj.nominellHz;
+  }
+  return sideObj.nominellHz;
+}
+
+// A-B-A-B-Token-Array fuer eine Elektrode (aktive Seite, Gegenseite, x2).
+// Struktur wie _frqPianoSequence (results.js:1553), Frequenz je nach Toggle.
+function _frqElPianoSequence(elIdx) {
+  var byIdx = _frqElPianoWerteByIdx();
+  var wr = byIdx[elIdx];
+  if (!wr) return [];
+  var aktivSide = (typeof activeSide === "string") ? activeSide : "right";
+  var gegenSide = (aktivSide === "left") ? "right" : "left";
+  var hzA = _frqElPianoSideHz(wr[aktivSide]);
+  var hzB = _frqElPianoSideHz(wr[gegenSide]);
+  var tokA = _frqPianoToken(hzA, aktivSide);
+  var tokB = _frqPianoToken(hzB, gegenSide);
+  if (!tokA) return [];
+  function durchlauf(seq) {
+    seq.push(tokA);
+    if (tokB) { seq.push({ pauseMs: FRQ_pianoPause }); seq.push(tokB); }
+  }
+  var seq = [];
+  durchlauf(seq);
+  seq.push({ pauseMs: FRQ_pianoPause });
+  durchlauf(seq);
+  return seq;
+}
+
+// Ausgegraute Elektroden: aktive Seite hat keine spielbare Frequenz.
+function _frqElPianoDisabled() {
+  var byIdx = _frqElPianoWerteByIdx();
+  var aktivSide = (typeof activeSide === "string") ? activeSide : "right";
+  var s = sideData[aktivSide];
+  var n = (s && s.nEl) ? s.nEl : 0;
+  var dis = [];
+  for (var i = 0; i < n; i++) {
+    if (s.elActive && s.elActive[i] === false) { dis.push(i); continue; }
+    var wr = byIdx[i];
+    var hz = wr ? _frqElPianoSideHz(wr[aktivSide]) : null;
+    if (hz == null || !(hz > 0)) dis.push(i);
+  }
+  return dis;
+}
+
+// Der Oeffner (analog _frqOpenPiano, aber mit eigener Frequenzwahl + Toggle).
+function FRQ_openElektrodenPiano() {
+  if (typeof openToneSelectionDialog !== "function") return;
+  _frqElPianoKorrigiert = true;   // Default: korrigiert
+  openToneSelectionDialog({
+    getToneType:    function ()   { return _frqPianoModalTone || "sine"; },
+    setToneType:    function (tt) { _frqPianoModalTone = tt; },
+    onToneSelected: function (tt) { _frqPianoModalTone = tt; },
+    onModalClose:   function ()   { _frqPianoModalTone = null; },
+
+    titleKey: "FRQ_elektrodenPianoTitle",
+
+    showVolume:   true,
+    showDuration: true,
+    showPause:    true,
+    getVolumePercent: function ()  { return FRQ_pianoVolume; },
+    setVolumePercent: function (v) { FRQ_pianoVolume = v; },
+    getDurationMs:    function ()  { return FRQ_pianoDuration; },
+    setDurationMs:    function (v) { FRQ_pianoDuration = v; },
+    getPauseMs:       function ()  { return FRQ_pianoPause; },
+    setPauseMs:       function (v) { FRQ_pianoPause = v; },
+    getVolume:        function ()  { return _frqPianoBaseVol(); },
+
+    // Lautstaerke-Korrektur (Elektrodenlautstaerke + Balance) wie die
+    // anderen Ergebnisklaviere.
+    showToggles: true,
+    onTogglesReady: function (fn) { _frqPianoCorrFn = fn; },
+
+    // BA556: Zusatz-Toggle "Frequenzabgleich aktivieren".
+    extraToggle: {
+      labelKey:   "FRQ_elektrodenPianoApply",
+      getInitial: function ()  { return _frqElPianoKorrigiert; },
+      onChange:   function (v) { _frqElPianoKorrigiert = !!v; }
+    },
+
+    getPreviewSequence: function (lastHz) {
+      var hz = (typeof lastHz === "number" && lastHz > 0) ? lastHz : 1000;
+      var aktivSide = (typeof activeSide === "string") ? activeSide : "right";
+      var tok = _frqPianoToken(hz, aktivSide);
+      return tok ? [tok] : [];
+    },
+
+    keyboardMode:          true,
+    getElectrodeFreqs:     _frqPianoFreqs,
+    getElectrodeLabels:    _frqPianoLabels,
+    getDisabledElectrodes: _frqElPianoDisabled,
+
+    getPressSequence: function (electrodeIdx, hz) {
+      if (electrodeIdx < 0) {
+        var aktivSide = (typeof activeSide === "string") ? activeSide : "right";
+        var tok = _frqPianoToken(hz, aktivSide);
+        return tok ? [tok] : [];
+      }
+      return _frqElPianoSequence(electrodeIdx);
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   function _frq_resultsRefreshAfterClear() {
     if (typeof depLockApply === 'function') depLockApply();

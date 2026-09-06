@@ -2365,7 +2365,7 @@ function _FRQ_werteBerechne(form, modus, nhSim, verfahren, topologie, optimieren
         left.bandHz = null; right.bandHz = null;
       }
 
-    } else if (form === "gehoert" || form === "klavierGlatt" || form === "klavierBand") {
+    } else if (form === "gehoert" || form === "klavierGlatt" || form === "klavierBand" || form === "klavierRoh") {
       // BA482 (§15.3): ZWEI Reihen. gehoertHz (roh) aus dem gemessenen cent,
       // sonst cent 0 (= nominell). gehoertHzGlatt aus der geglaetteten Reihe,
       // auch fuer ungemessene aktive Elektroden. Residuum: gemessen -> echt;
@@ -2411,7 +2411,7 @@ function _FRQ_werteBerechne(form, modus, nhSim, verfahren, topologie, optimieren
   // Je Seite getrennt. Ergebnis in entry[seite].bandLoHz/bandHiHz;
   // bei Ueberlauf entry[seite].bandOverlap = true (keine Grenzen).
   if (form === "gehoert" || form === "warp"
-      || form === "klavierGlatt" || form === "klavierBand") {
+      || form === "klavierGlatt" || form === "klavierBand" || form === "klavierRoh") {
     ["left", "right"].forEach(function (seite) {
       // BA463: seitenweise Band-Wahl (Default aus sideData[seite]).
       var _sW = (typeof sideData !== "undefined") ? sideData[seite] : null;
@@ -2569,8 +2569,10 @@ function _FRQ_werteBerechne(form, modus, nhSim, verfahren, topologie, optimieren
   // BA507 (§16): Klavier-Formen -- je Elektrode left.hz/right.hz FERTIG.
   // EIN Koerper, quelle = "glatt" (gehoertHzGlatt) | "band" (bandCenterHz).
   // Fallwahl ueber die CI-Zahl (FRQ_implantatGetSource), nicht ueber modus.
-  if (form === "klavierGlatt" || form === "klavierBand") {
-    var _quelleFeld = (form === "klavierGlatt") ? "gehoertHzGlatt" : "bandCenterHz";
+  if (form === "klavierGlatt" || form === "klavierBand" || form === "klavierRoh") {
+    var _quelleFeld = (form === "klavierGlatt") ? "gehoertHzGlatt"
+                    : (form === "klavierRoh")   ? "gehoertHz"
+                    : "bandCenterHz";
     var _ciSide = (typeof FRQ_implantatGetSource === "function")
       ? FRQ_implantatGetSource() : null;   // "left"|"right"=1 CI, sonst null
 
