@@ -204,6 +204,22 @@ function amSortAxesFor(category) {
   return AM_SORT_AXES[category] || [];
 }
 
+// Filter-/Gruppierungswert einer Achse fuer ein Item.
+// valueOf hat Vorrang; sonst getter (Rueckwaertskompatibilitaet der
+// einachsigen Kategorien). Leerwert (""/null/undefined) bedeutet
+// "tag-frei" -> zaehlt zur "ohne"-Teilmenge.
+function amAxisValueOf(axis, item) {
+  var raw;
+  if (Object.prototype.hasOwnProperty.call(axis, "valueOf") && typeof axis.valueOf === "function") raw = axis.valueOf(item);
+  else raw = axis.getter(item);
+  if (raw === null || raw === undefined) return "";
+  raw = String(raw);
+  // Die einachsigen getter liefern Platzhalter fuer Leerwerte; diese
+  // gelten im Mehrachsen-Modell ebenfalls als tag-frei.
+  if (raw === "zzz-unbekannt" || raw === "zzzz") return "";
+  return raw;
+}
+
 function amSortItems(items, category, axisKey) {
   const axes = amSortAxesFor(category);
   const axis = axes.find(function (a) { return a.key === axisKey; }) || axes[0];
@@ -257,6 +273,59 @@ function amItemMatchesCategory(category, axisKey, cat, item) {
   const axis = axes.find(function (a) { return a.key === axisKey; });
   if (!axis) return true;
   return String(axis.getter(item)) === String(cat);
+}
+
+// Sonderwerte der Auswahl-Tabelle.
+var AM_SEL_ALL = "_all";
+var AM_SEL_NONE = "_none";
+
+// Mehrachsen-Match: Item passt, wenn es fuer JEDE Achse in axes zur
+// Auswahl in selTable passt. selTable: { axisKey: gewaehlterWert }.
+// Fehlt ein Key in selTable, gilt "_all" (kein Filter).
+// Optionaler Parameter exceptKey: diese eine Achse beim Test auslassen
+// (fuer die Box-Befuellung: "alle anderen Achsen ausser mir").
+function amItemMatchesAxes(axes, selTable, item, exceptKey) {
+  for (var i = 0; i < axes.length; i++) {
+    var axis = axes[i];
+    if (exceptKey && axis.key === exceptKey) continue;
+    var sel = selTable[axis.key];
+    if (sel === undefined || sel === AM_SEL_ALL) continue;   // kein Filter
+    var v = amAxisValueOf(axis, item);
+    if (sel === AM_SEL_NONE) {
+      if (v !== "") return false;                            // nur tag-frei
+    } else {
+      if (v !== sel) return false;                           // konkreter Wert
+    }
+  }
+  return true;
+}
+
+// Werteliste einer Achse aus einer bereits (durch die anderen Achsen)
+// gefilterten Item-Menge. Liefert { values: [...sortiert], hasNone: bool,
+// hasSome: bool }. hasSome = es gibt Items MIT Wert; hasNone = es gibt
+// Items OHNE Wert (tag-frei). "_none" wird nur angeboten, wenn beides.
+function amBucketsForAxisValues(axis, items) {
+  var set = new Set();
+  var hasNone = false;
+  var hasSome = false;
+  for (var i = 0; i < items.length; i++) {
+    var v = amAxisValueOf(axis, items[i]);
+    if (v === "") { hasNone = true; }
+    else { hasSome = true; set.add(v); }
+  }
+  var values = Array.from(set).sort(function (a, b) { return a.localeCompare(b); });
+  return { values: values, hasNone: hasNone, hasSome: hasSome };
+}
+
+// Anzeigetext eines Achsenwerts. bucketLabel hat Vorrang (i18n-Lookup
+// im Tool), sonst Rohwert. Fuer die Sonderwerte liefert der Aufrufer
+// eigene Labels ("alle"/"ohne"), nicht diese Funktion.
+function amAxisBucketLabel(axis, value) {
+  if (typeof axis.bucketLabel === "function") {
+    var l = axis.bucketLabel(value);
+    if (l) return l;
+  }
+  return value;
 }
 
 // --- Provider 1: generierte Standardrauscher ---

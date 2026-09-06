@@ -2537,6 +2537,115 @@ function plBuildFilterChain(catDecl) {
         domEl.value = "any";
         catDecl.stateRef.setSpeakerSel("any");
       }
+    } else if (stage.kind === "parallel-axes") {
+      // Container leeren und Achsen-Boxen dynamisch neu aufbauen.
+      // Jede sichtbare Achse = eine Zeile (control-group: label + select).
+      var axesAll = (typeof amSortAxesFor === "function") ? amSortAxesFor(catDecl.category) : [];
+      var order = stage.parallelAxes || [];
+      // Achsen in Deklarations-Reihenfolge (order) aufloesen.
+      var axList = [];
+      for (var pai = 0; pai < order.length; pai++) {
+        var axFound = axesAll.find(function (a) { return a.key === order[pai]; });
+        if (axFound) axList.push(axFound);
+      }
+      // Aktuelle Auswahl-Tabelle aus dem stateRef lesen.
+      var selTable = {};
+      for (var st1 = 0; st1 < axList.length; st1++) {
+        selTable[axList[st1].key] = catDecl.stateRef.getAxisSel(axList[st1].key);
+      }
+      // Basismenge (alle Items der Kategorie).
+      var baseItems = (typeof amCollectItems === "function") ? amCollectItems(catDecl.category) : [];
+      if (typeof catDecl.axesBaseItems === "function") {
+        // Optionaler Hook: Kategorie kann die Basismenge vorfiltern
+        // (Saetze: nach Inhalts-Sprache). Default = volle Kategorie.
+        baseItems = catDecl.axesBaseItems(baseItems);
+      }
+
+      // Container leeren.
+      while (domEl.firstChild) domEl.removeChild(domEl.firstChild);
+
+      // Fuer jede Achse: Werte aus der durch die ANDEREN Achsen
+      // gefilterten Menge ziehen, Sichtbarkeitsregel (>1 Zustand)
+      // pruefen, Box nur bei >1 anzeigen.
+      for (var ax2 = 0; ax2 < axList.length; ax2++) {
+        var axis = axList[ax2];
+        // Menge, gefiltert durch alle Achsen AUSSER dieser.
+        var filteredForBox = baseItems.filter(function (it) {
+          return amItemMatchesAxes(axList, selTable, it, axis.key);
+        });
+        var b = amBucketsForAxisValues(axis, filteredForBox);
+        // Zahl waehlbarer Zustaende: Werte + (hasNone?1:0). "_all" zaehlt
+        // NICHT als eigener Zustand (es ist die Nicht-Filter-Option).
+        var stateCount = b.values.length + ((b.hasNone && b.hasSome) ? 1 : 0);
+        if (stateCount <= 1) {
+          // Box faellt weg (Sichtbarkeitsregel). Aktuelle Auswahl auf
+          // "_all" zuruecksetzen, damit sie nicht unsichtbar weiterfiltert.
+          if (selTable[axis.key] !== AM_SEL_ALL) {
+            catDecl.stateRef.setAxisSel(axis.key, AM_SEL_ALL);
+            selTable[axis.key] = AM_SEL_ALL;
+          }
+          continue;
+        }
+        // Zeile bauen: control-group > label + select.
+        var row = document.createElement("div");
+        row.className = "control-group";
+        row.style.marginBottom = "6px";
+        var lab = document.createElement("label");
+        lab.textContent = (typeof t === "function") ? t(axis.labelKey) : axis.labelDefault;
+        lab.style.marginRight = "6px";
+        lab.style.minWidth = "110px";
+        var sel = document.createElement("select");
+        sel.setAttribute("data-axis", axis.key);
+        sel.style.padding = "3px 6px";
+        sel.style.border = "1px solid var(--border)";
+        sel.style.borderRadius = "4px";
+        sel.style.fontSize = "0.88em";
+        sel.style.minWidth = "160px";
+        // Option "alle"
+        var oAll = document.createElement("option");
+        oAll.value = AM_SEL_ALL;
+        oAll.textContent = (typeof t === "function") ? t("plAxisAll") : "(alle)";
+        sel.appendChild(oAll);
+        // konkrete Werte
+        for (var vi = 0; vi < b.values.length; vi++) {
+          var o = document.createElement("option");
+          o.value = b.values[vi];
+          o.textContent = amAxisBucketLabel(axis, b.values[vi]);
+          sel.appendChild(o);
+        }
+        // Option "ohne" (nur wenn mit UND ohne vorkommt)
+        if (b.hasNone && b.hasSome) {
+          var oNone = document.createElement("option");
+          oNone.value = AM_SEL_NONE;
+          oNone.textContent = (typeof t === "function") ? t("plAxisNone") : "(ohne)";
+          sel.appendChild(oNone);
+        }
+        // Auswahl-Erhalt: aktueller Wert, falls in der neuen Liste
+        // vorhanden; sonst zurueck auf "_all".
+        var cur = selTable[axis.key];
+        var exists = (cur === AM_SEL_ALL)
+          || (cur === AM_SEL_NONE && b.hasNone && b.hasSome)
+          || (b.values.indexOf(cur) >= 0);
+        if (!exists) {
+          cur = AM_SEL_ALL;
+          catDecl.stateRef.setAxisSel(axis.key, AM_SEL_ALL);
+          selTable[axis.key] = AM_SEL_ALL;
+        }
+        sel.value = cur;
+        // Change-Handler: Auswahl schreiben + ganze Kette neu bauen
+        // (andere Boxen ziehen mit). _plNavApplyFilterChange kuemmert
+        // sich um den Zeiger der aktiven Kategorie.
+        (function (axisKey, selEl) {
+          selEl.addEventListener("change", function () {
+            _plNavApplyFilterChange(catDecl, function () {
+              catDecl.stateRef.setAxisSel(axisKey, selEl.value);
+            });
+          });
+        })(axis.key, sel);
+        row.appendChild(lab);
+        row.appendChild(sel);
+        domEl.appendChild(row);
+      }
     } else if (stage.kind === "upload") {
       // BA349: Upload-Box generisch rendern + verdrahten (einmalig).
       if (domEl.childElementCount === 0) {

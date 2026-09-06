@@ -134,3 +134,36 @@
     return { ok: true, msg: "Treffer bei gleichen Eingaben, Miss bei Argument- und activeSide-Aenderung" };
   });
 })();
+
+/* BA557 -- parallel-axes Engine-Kern: prueft die reine Filterlogik
+ * (amItemMatchesAxes, amBucketsForAxisValues) an synthetischen Items,
+ * ohne DOM. */
+(function () {
+  if (typeof dbg === "undefined" || !dbg.test) return;
+  dbg.test("build/BA557/parallel-axes-logik", { tab: "player", label: "BA557 Parallel-Achsen-Logik" }, function () {
+    if (typeof amItemMatchesAxes !== "function" || typeof amBucketsForAxisValues !== "function") {
+      return { ok: false, msg: "Engine-Funktionen fehlen" };
+    }
+    // Synthetische Achsen (getter liest tags.X).
+    var axSource = { key: "source", getter: function (it) { return (it.tags && it.tags.source) || ""; } };
+    var axGender = { key: "gender", getter: function (it) { return (it.tags && it.tags.gender) || ""; } };
+    var axes = [axSource, axGender];
+    var items = [
+      { tags: { source: "A", gender: "m" } },
+      { tags: { source: "A", gender: "w" } },
+      { tags: { source: "B", gender: "m" } },
+      { tags: { source: "B" } }                 // gender tag-frei
+    ];
+    // 1) "_all" ueberall -> alle 4 passen.
+    var c1 = items.filter(function (it) { return amItemMatchesAxes(axes, {}, it); }).length;
+    // 2) source=A -> 2 passen.
+    var c2 = items.filter(function (it) { return amItemMatchesAxes(axes, { source: "A" }, it); }).length;
+    // 3) source=B, gender=_none -> 1 passt (das tag-freie).
+    var c3 = items.filter(function (it) { return amItemMatchesAxes(axes, { source: "B", gender: "_none" }, it); }).length;
+    // 4) Bucket-Werte fuer gender ueber alle: values [m,w], hasNone true.
+    var b = amBucketsForAxisValues(axGender, items);
+    var okB = (b.values.length === 2 && b.values[0] === "m" && b.values[1] === "w" && b.hasNone === true && b.hasSome === true);
+    var ok = (c1 === 4 && c2 === 2 && c3 === 1 && okB);
+    return { ok: ok, msg: "all=" + c1 + " srcA=" + c2 + " Bnone=" + c3 + " genderBuckets=[" + b.values.join(",") + "] hasNone=" + b.hasNone };
+  });
+})();

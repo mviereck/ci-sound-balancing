@@ -308,6 +308,8 @@ Object.assign(L.de, {
     plMusicCatLabel: "Kategorie:",
     plMusicItemLabel: "Stück:",
     plMusicCatAll: "(alle)",
+    plAxisAll: "(alle)",
+    plAxisNone: "(ohne)",
     plMusicEmpty: "Keine Musik verfügbar.",
     plMusicLocalRemove: "Entfernen",
     plMusicLocalNoAudio: "Keine Audiodateien in diesem Ordner gefunden.",

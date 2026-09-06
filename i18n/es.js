@@ -1460,6 +1460,8 @@ Object.assign(L.es, {
     plMusicSortLabel: "Ordenar por:",
     plMusicCatLabel: "Categoría:",
     plMusicCatAll: "(todas)",
+    plAxisAll: "(todos)",
+    plAxisNone: "(ninguno)",
     plMusicItemLabel: "Pieza:",
     plMusicEmpty: "No hay música disponible.",
     plMusicLocalNoAudio: "No se encontraron archivos de audio en esta carpeta.",

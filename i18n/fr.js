@@ -1460,6 +1460,8 @@ Object.assign(L.fr, {
     plMusicSortLabel: "Trier par :",
     plMusicCatLabel: "Catégorie :",
     plMusicCatAll: "(toutes)",
+    plAxisAll: "(tous)",
+    plAxisNone: "(aucun)",
     plMusicItemLabel: "Morceau :",
     plMusicEmpty: "Aucune musique disponible.",
     plMusicLocalNoAudio: "Aucun fichier audio trouvé dans ce dossier.",
