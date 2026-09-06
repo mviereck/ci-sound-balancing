@@ -336,67 +336,8 @@ function sUpdateTextBox() {
 }
 
 // ============================================================
-// LOKALE SAMMLUNGEN — HEURISTIK
+// LOKALE SAMMLUNGEN
 // ============================================================
-
-function sDetectFreiburger(audioFiles) {
-  let mono = [], poly = [];
-  for (const f of audioFiles) {
-    const parts = f.webkitRelativePath.split("/");
-    if (parts.length < 4) continue;
-    const sub = parts[1];
-    const listDir = parts[2];
-    const name = parts[parts.length - 1];
-    if (!/^Testliste_\d+$/i.test(listDir)) continue;
-    if (!/^L\d+_W\d+_/i.test(name)) continue;
-    if (/Einsilbig/i.test(sub)) mono.push(f);
-    else if (/Mehrsilbig/i.test(sub)) poly.push(f);
-  }
-  if (mono.length === 0 && poly.length === 0) return null;
-  return { mono, poly };
-}
-
-function sDetectOldenburger(audioFiles) {
-  const matched = [];
-  let femaleCount = 0, maleCount = 0;
-  for (const f of audioFiles) {
-    const name = f.name;
-    const m = /_OLSA(female|male)?_TTS\.wav$/i.exec(name);
-    if (!m) continue;
-    matched.push(f);
-    if (m[1] && m[1].toLowerCase() === "female") femaleCount++;
-    else if (m[1] && m[1].toLowerCase() === "male") maleCount++;
-  }
-  if (matched.length === 0) return null;
-  let variant = "generic";
-  if (femaleCount > 0 && maleCount === 0) variant = "female";
-  else if (maleCount > 0 && femaleCount === 0) variant = "male";
-  return { variant, files: matched };
-}
-
-async function sLoadOldenburgerManifest(allFiles) {
-  for (const f of allFiles) {
-    if (/sentences_OLSA.*\.txt$/i.test(f.name)) {
-      const txt = await f.text();
-      return sParseOldenburgerManifest(txt);
-    }
-  }
-  return new Map();
-}
-
-function sParseOldenburgerManifest(text) {
-  const map = new Map();
-  for (const raw of text.split(/\r?\n/)) {
-    const line = raw.trim().replace(/^﻿/, "");
-    if (!line) continue;
-    const idx = line.indexOf(":");
-    if (idx < 0) continue;
-    const filename = line.substring(0, idx).trim();
-    const sentence = line.substring(idx + 1).trim();
-    if (filename && sentence) map.set(filename, sentence);
-  }
-  return map;
-}
 
 function sParseGenericManifest(text, audioFilenames) {
   const audioSet = new Set(audioFilenames.map((n) => n.toLowerCase()));
@@ -442,36 +383,6 @@ async function sLoadGenericManifest(allFiles, audioFilenames) {
 // BA323: IndexedDB-Subsystem (S_IDB_*, sIdbOpen/Put/Get/Del) entfernt.
 // Lokale Sammlungen werden nicht mehr sitzungsübergreifend gespeichert.
 
-function sBuildFreiburgerRecordings(files, cid) {
-  const out = [];
-  let n = 0;
-  for (const f of files) {
-    const base = f.name.replace(/\.[^.]+$/, "");
-    const parts = base.split("_");
-    const text = parts.length >= 3 ? parts.slice(2).join(" ") : base;
-    out.push({
-      id: "fb-" + (++n),
-      text: text,
-      audio: "local:" + cid + ":" + f.webkitRelativePath,
-    });
-  }
-  return out;
-}
-
-function sBuildOldenburgerRecordings(files, textMap, cid) {
-  const out = [];
-  let n = 0;
-  for (const f of files) {
-    const text = textMap.get(f.name) || "";
-    out.push({
-      id: "olsa-" + (++n),
-      text: text,
-      audio: "local:" + cid + ":" + f.webkitRelativePath,
-    });
-  }
-  return out;
-}
-
 function sBuildGenericRecordings(files, textMap, cid) {
   const out = [];
   let n = 0;
@@ -486,6 +397,11 @@ function sBuildGenericRecordings(files, textMap, cid) {
   return out;
 }
 
+// BA559: Ordner-Upload tag-arm. Ein Ordner -> eine Quelle
+// "Upload: <Ordnername>", alle Audio-Dateien als Pool-Items. Keine
+// datensatz-spezifische Formaterkennung mehr (nach .archiv/ ausgelagert).
+// Optionales generisches Text-Manifest (Dateiname->Satztext) wird noch
+// gelesen, wenn vorhanden; fehlt es, bleiben die Items text-los.
 async function sIngestLocalFolder(fileList) {
   const all = Array.from(fileList);
   if (all.length === 0) return;
@@ -493,81 +409,28 @@ async function sIngestLocalFolder(fileList) {
   const firstRel = all[0].webkitRelativePath || all[0].name;
   const folderName = firstRel.split("/")[0] || "Ordner";
 
-  const audioFiles = all.filter((f) =>
-    /\.(wav|mp3|ogg|flac|m4a)$/i.test(f.name)
-  );
+  const audioFiles = all.filter((f) => /\.(wav|mp3|ogg|flac|m4a)$/i.test(f.name));
   if (audioFiles.length === 0) {
     alert(t("sentLocalNoAudio"));
     return;
   }
 
-  const fb = sDetectFreiburger(audioFiles);
-  const old = sDetectOldenburger(audioFiles);
-
-  const created = [];
   const filesMap = new Map();
   for (const f of audioFiles) filesMap.set(f.webkitRelativePath, f);
 
-  if (fb) {
-    if (fb.mono.length > 0) {
-      const cid = sNewCollectionId();
-      const recs = sBuildFreiburgerRecordings(fb.mono, cid);
-      const fmap = new Map();
-      for (const f of fb.mono) fmap.set(f.webkitRelativePath, f);
-      created.push({
-        id: cid, label: t("sentLocalSpkFreiburgerMono"),
-        lang: "de", kind: "freiburger-mono",
-        folderName, files: fmap, recordings: recs,
-      });
-    }
-    if (fb.poly.length > 0) {
-      const cid = sNewCollectionId();
-      const recs = sBuildFreiburgerRecordings(fb.poly, cid);
-      const fmap = new Map();
-      for (const f of fb.poly) fmap.set(f.webkitRelativePath, f);
-      created.push({
-        id: cid, label: t("sentLocalSpkFreiburgerPoly"),
-        lang: "de", kind: "freiburger-poly",
-        folderName, files: fmap, recordings: recs,
-      });
-    }
-  } else if (old) {
-    const textMap = await sLoadOldenburgerManifest(all);
-    const cid = sNewCollectionId();
-    const recs = sBuildOldenburgerRecordings(old.files, textMap, cid);
-    const fmap = new Map();
-    for (const f of old.files) fmap.set(f.webkitRelativePath, f);
-    const label =
-      old.variant === "female" ? t("sentLocalSpkOldenburgerFemale")
-      : old.variant === "male"  ? t("sentLocalSpkOldenburgerMale")
-      : t("sentLocalSpkOldenburger");
-    created.push({
-      id: cid, label, lang: "de",
-      kind: "oldenburger-" + old.variant,
-      folderName, files: fmap, recordings: recs,
-    });
-  } else {
-    const audioNames = audioFiles.map((f) => f.name);
-    const textMap = await sLoadGenericManifest(all, audioNames);
-    if (textMap.size === 0) {
-      console.log("[sentences/local] kein Manifest gefunden —", t("sentLocalUnknownFormat"));
-    }
-    const cid = sNewCollectionId();
-    const recs = sBuildGenericRecordings(audioFiles, textMap, cid);
-    const langCode = (typeof lang !== "undefined") ? lang : "de";
-    created.push({
-      id: cid, label: t("sentLocalSpkGenericPrefix") + ": " + folderName,
-      lang: langCode, kind: "generic",
-      folderName, files: filesMap, recordings: recs,
-    });
-  }
+  // Optionales generisches Text-Manifest (unveraendert, tag-arm).
+  const audioNames = audioFiles.map((f) => f.name);
+  const textMap = await sLoadGenericManifest(all, audioNames);
 
-  for (const c of created) {
-    // BA351: nur noch sLocalCollections — der sentences-local-Provider liefert
-    // sie. Kein Spiegeln nach sCorpus.speakers mehr (sonst Doppel-Sprecher ueber
-    // den Legacy-Provider).
-    sLocalCollections.set(c.id, c);
-  }
+  const cid = sNewCollectionId();
+  const recs = sBuildGenericRecordings(audioFiles, textMap, cid);
+  sLocalCollections.set(cid, {
+    id: cid,
+    label: "Upload: " + folderName,   // NICHT uebersetzt (Ordnername ist Nutzer-Text)
+    lang_any: "y",                    // in allen Sprachen sichtbar (Architektur SS6.2)
+    kind: "generic",
+    folderName, files: filesMap, recordings: recs
+  });
 
   sUpdateUI();
 }
