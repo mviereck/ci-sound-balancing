@@ -127,6 +127,22 @@ function _amSpeakerLabel(v) {
   return v;   // Fallback: Rohwert
 }
 
+// Basissprache eines BCP-47-artigen Codes: alles vor dem ersten "-".
+// "de" -> "de", "zh-CN" -> "zh", "rm-sursilv" -> "rm". Leer -> "".
+function _amBaseLang(code) {
+  if (!code) return "";
+  return String(code).split("-")[0];
+}
+
+// Sprachvariante (Subtag) eines BCP-47-artigen Codes: alles NACH dem
+// ersten "-". "de" -> "", "zh-TW" -> "TW", "rm-sursilv" -> "sursilv".
+function _amLangVariant(code) {
+  if (!code) return "";
+  var s = String(code);
+  var i = s.indexOf("-");
+  return i < 0 ? "" : s.substring(i + 1);
+}
+
 // --- Sortier-Achsen ---
 // Pro Kategorie eine Liste. Ein Eintrag = eine Achse.
 const AM_SORT_AXES = {
@@ -157,6 +173,12 @@ const AM_SORT_AXES = {
     {
       key: "lang", labelKey: "plAxisLang", labelDefault: "Sprache",
       getter: function (it) { return (it.tags && it.tags.lang) || "zzz-unbekannt"; }
+    },
+    {
+      key: "variant", labelKey: "plAxisVariant", labelDefault: "Sprachvariante",
+      getter: function (it) { return _amLangVariant((it.tags && it.tags.lang) || "") || "zzz-unbekannt"; },
+      valueOf: function (it) { return _amLangVariant((it.tags && it.tags.lang) || ""); },
+      bucketLabel: function (v) { return (typeof t === "function") ? (t("plVariant_" + v) || v) : v; }
     },
     {
       key: "source", labelKey: "plAxisSource", labelDefault: "Quelle",

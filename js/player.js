@@ -2872,14 +2872,14 @@ function plContentLangAvailable() {
     var items = amCollectItems("saetze");
     for (var i = 0; i < items.length; i++) {
       var it = items[i];
-      if (it && it.tags && it.tags.lang) add(it.tags.lang);
+      if (it && it.tags && it.tags.lang) add(_amBaseLang(it.tags.lang));
     }
   }
   if (typeof amCollectCollections === "function") {
     var cols = amCollectCollections("hoerbuecher");
     for (var j = 0; j < cols.length; j++) {
       var c = cols[j];
-      if (c && c.lang) add(c.lang);
+      if (c && c.lang) add(_amBaseLang(c.lang));
     }
   }
   out.sort(function (a, b) {
@@ -3703,8 +3703,9 @@ PL_FILTER_DECL.saetze = {
   // nur Items der aktuellen Sprache). lang_any-Items (Upload) immer dabei.
   axesBaseItems: function (items) {
     var lang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
+    var base = _amBaseLang(lang);
     return items.filter(function (it) {
-      return it.tags && (it.tags.lang === lang || it.tags.lang_any === "y");
+      return it.tags && (_amBaseLang(it.tags.lang) === base || it.tags.lang_any === "y");
     });
   },
   stages: [
@@ -3728,7 +3729,7 @@ PL_FILTER_DECL.saetze = {
     },
     {
       id: "axes", kind: "parallel-axes", domId: "plSentAxes",
-      parallelAxes: ["source", "gender", "speaker", "style", "test_set", "accent", "emotion"]
+      parallelAxes: ["variant", "source", "gender", "speaker", "style", "test_set", "accent", "emotion"]
     }
   ]
 };
