@@ -1582,13 +1582,14 @@ const plCategories = {
       const it = (typeof plMusicCurrentItem === "function") ? plMusicCurrentItem() : null;
       if (!it) return null;
       return {
-        title:   it.title  || it.id || "",
-        artist:  (it.tags && it.tags.artist) || "",
-        album:   (it.tags && it.tags.album)  || "",
-        genre:   (it.tags && Array.isArray(it.tags.genres) && it.tags.genres.length) ? it.tags.genres.join(", ") : "",
-        year:    (it.tags && it.tags.year)   ? String(it.tags.year) : "",
-        source:  it.sourceTitle || "",
-        license: it.license     || ""
+        title:    it.title  || it.id || "",
+        artist:   (it.tags && it.tags.artist) || "",
+        composer: (it.tags && it.tags.composer) || "",
+        album:    (it.tags && it.tags.album)  || "",
+        genre:    (it.tags && Array.isArray(it.tags.genres) && it.tags.genres.length) ? it.tags.genres.join(", ") : "",
+        year:     (it.tags && it.tags.year)   ? String(it.tags.year) : "",
+        source:   it.sourceTitle || "",
+        license:  it.license     || ""
       };
     },
     title: function (ctx) {
@@ -2935,6 +2936,7 @@ PL_FILTER_DECL.musik = {
   fieldDecl: [
     { key: "title",   labelKey: "plDispFieldTitle",   getValue: function (ctx) { return ctx.title   || ""; }, role: "title",   inFilter: false, inDisplay: true,  visibility: "always" },
     { key: "artist",  labelKey: "plDispFieldArtist",  getValue: function (ctx) { return ctx.artist  || ""; }, role: "creator", inFilter: false, inDisplay: true,  visibility: "always" },
+    { key: "composer", labelKey: "plDispFieldComposer", getValue: function (ctx) { return ctx.composer || ""; }, role: "detail",  inFilter: false, inDisplay: true,  visibility: "always" },
     { key: "album",   labelKey: "plDispFieldAlbum",   getValue: function (ctx) { return ctx.album   || ""; }, role: "detail",  inFilter: false, inDisplay: true,  visibility: "always" },
     { key: "genre",   labelKey: "plDispFieldGenre",   getValue: function (ctx) { return ctx.genre   || ""; }, role: "detail",  inFilter: false, inDisplay: true,  visibility: "always" },
     { key: "year",    labelKey: "plDispFieldYear",    getValue: function (ctx) { return ctx.year    || ""; }, role: "detail",  inFilter: false, inDisplay: true,  visibility: "always" },
@@ -2983,7 +2985,7 @@ PL_FILTER_DECL.musik = {
     },
     {
       id: "axes", kind: "parallel-axes", domId: "plMusicAxes",
-      parallelAxes: ["source", "genre", "vocal", "artist", "album"]
+      parallelAxes: ["source", "genre", "vocal", "artist", "composer", "album"]
     },
     {
       id: "search", kind: "search", domId: "plMusicSearchInput"
@@ -3176,8 +3178,15 @@ function plMusicVisibleItems() {
     if (!amItemMatchesAxes(axes, plMusicAxisSel, it)) return false;
     return _plMusicSearchMatch(it, plMusicSearchQuery);
   });
-  // Stueckliste alphabetisch nach Titel (stabil).
+  // Stueckliste alphabetisch nach Kuenstler (Anzeige "Kuenstler - Titel"),
+  // Titel als stabiler Sekundaerschluessel. Stuecke ohne Kuenstler ans Ende.
   filtered.sort(function (a, b) {
+    var aa = ((a.tags && a.tags.artist) || "").toLowerCase();
+    var ab = ((b.tags && b.tags.artist) || "").toLowerCase();
+    if (aa === "" && ab !== "") return 1;
+    if (aa !== "" && ab === "") return -1;
+    if (aa < ab) return -1;
+    if (aa > ab) return 1;
     var ta = (a.title || a.id || "").toLowerCase();
     var tb = (b.title || b.id || "").toLowerCase();
     return ta < tb ? -1 : (ta > tb ? 1 : 0);

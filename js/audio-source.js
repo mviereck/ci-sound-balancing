@@ -102,6 +102,31 @@ function amCollectItems(category) {
   });
 }
 
+// Anzeige-Label eines Sprecher-Rohwerts (speaker_id) ueber Muster statt
+// Einzel-Keys. Praefix -> uebersetzbarer Wortbaustein (t()) + Roh-ID-Zahl.
+// Unbekannt -> Rohwert (Fallback). Architektur §10.
+function _amSpeakerLabel(v) {
+  if (!v) return v;
+  var tr = function (k, d) { return (typeof t === "function") ? t(k) || d : d; };
+  // Feste Einzelwerte zuerst.
+  if (v === "thorsten")        return tr("plSpeaker_thorsten", "Thorsten");
+  if (v === "crowdsourced")    return tr("plSpeaker_crowdsourced", "Crowdsourced");
+  if (v === "freiburger-mono") return tr("plSpeaker_freiburgerMono", "Freiburger einsilbig");
+  if (v === "freiburger-poly") return tr("plSpeaker_freiburgerPoly", "Freiburger mehrsilbig");
+  if (v === "olsa-female")     return tr("plSpeaker_olsaFemale", "OLSA (weiblich)");
+  // Muster mit Nummer aus der Roh-ID.
+  var m;
+  m = v.match(/^aru-id0*(\d+)$/);
+  if (m) return tr("plSpeaker_aru", "ARU-Sprecher") + " " + m[1];
+  m = v.match(/^mls-fr-(\d+)$/);
+  if (m) return tr("plSpeaker_mlsFr", "Frz. Vorleser") + " " + m[1];
+  m = v.match(/^mls-es-(\d+)$/);
+  if (m) return tr("plSpeaker_mlsEs", "Span. Vorleser") + " " + m[1];
+  m = v.match(/^mls-pl-(\d+)$/);
+  if (m) return tr("plSpeaker_mlsPl", "Poln. Vorleser") + " " + m[1];
+  return v;   // Fallback: Rohwert
+}
+
 // --- Sortier-Achsen ---
 // Pro Kategorie eine Liste. Ein Eintrag = eine Achse.
 const AM_SORT_AXES = {
@@ -151,7 +176,7 @@ const AM_SORT_AXES = {
       valueOf: function (it) {
         return (it.tags && (it.tags.speaker_id || it.tags.book_title)) || "";
       },
-      bucketLabel: function (v) { return (typeof t === "function") ? t("plSpeaker_" + v) : v; }
+      bucketLabel: function (v) { return _amSpeakerLabel(v); }
     },
     {
       key: "style", labelKey: "plAxisStyle", labelDefault: "Aufnahme-Art",
@@ -210,6 +235,11 @@ const AM_SORT_AXES = {
       key: "artist", labelKey: "plMusicAxisArtist", labelDefault: "Kuenstler",
       getter: function (it) { return ((it.tags && it.tags.artist) || "zzz-unbekannt").toLowerCase(); },
       valueOf: function (it) { return (it.tags && it.tags.artist) || ""; }
+    },
+    {
+      key: "composer", labelKey: "plMusicAxisComposer", labelDefault: "Komponist",
+      getter: function (it) { return ((it.tags && it.tags.composer) || "zzz-unbekannt").toLowerCase(); },
+      valueOf: function (it) { return (it.tags && it.tags.composer) || ""; }
     },
     {
       key: "album", labelKey: "plMusicAxisAlbum", labelDefault: "Album",
@@ -366,7 +396,13 @@ function amBucketsForAxisValues(axis, items) {
       for (var j = 0; j < vals.length; j++) set.add(vals[j]);
     }
   }
-  var values = Array.from(set).sort(function (a, b) { return a.localeCompare(b); });
+  // Nach ANGEZEIGTEM Label sortieren (nicht nach Rohwert), damit die
+  // sichtbare Reihenfolge alphabetisch ist (z.B. "Klassik" bei K statt
+  // "westernart" am Ende). Ohne bucketLabel faellt das Label auf den
+  // Rohwert zurueck -> Verhalten unveraendert.
+  var values = Array.from(set).sort(function (a, b) {
+    return amAxisBucketLabel(axis, a).localeCompare(amAxisBucketLabel(axis, b));
+  });
   return { values: values, hasNone: hasNone, hasSome: hasSome };
 }
 
@@ -788,6 +824,17 @@ function amManifestRoot() {
   return "audio.manifest/";
 }
 
+// Manifest-URL mit Cache-Buster. Die JSON-Manifeste haengen sonst am
+// Browser-Cache und veralten nach einem Daten-Update, bis der Nutzer hart
+// neu laedt (bei aenderungslosem HTTP-Cache klassisch). Der APP_VERSION-
+// Anhang zwingt bei jedem Versionsbump frische Manifeste -- ein Ort fuer
+// alle drei Manifest-Fetches (index/source/collection). NICHT fuer Audio-
+// Dateien (item.audio) -- die aendern sich nicht bei Manifest-Updates.
+function amManifestUrl(path) {
+  var v = (typeof APP_VERSION !== "undefined") ? APP_VERSION : "0";
+  return amManifestRoot() + path + (path.indexOf("?") >= 0 ? "&" : "?") + "v=" + encodeURIComponent(v);
+}
+
 // Konfigurierbar ueber window.CI_SB_WEBSPACE_ROOT vor Lade-Beginn.
 const AM_WEBSPACE_ROOT_DEFAULT = "https://honigburg.de/opus/";
 
@@ -808,7 +855,7 @@ const _amWebspace = {
 
 async function amWebspaceLoadIndex() {
   if (_amWebspace.indexLoaded || _amWebspace.failed) return;
-  const url = amManifestRoot() + "index.json";
+  const url = amManifestUrl("index.json");
   try {
     const r = await fetch(url, { mode: "cors" });
     if (!r.ok) throw new Error("HTTP " + r.status);
@@ -831,7 +878,7 @@ async function amWebspaceLoadSource(srcKey) {
   const root = amWebspaceRoot();
   let source = null;
   try {
-    const srcUrl = amManifestRoot() + meta.source;
+    const srcUrl = amManifestUrl(meta.source);
     const r = await fetch(srcUrl, { mode: "cors" });
     if (!r.ok) throw new Error("HTTP " + r.status);
     source = await r.json();
@@ -846,7 +893,7 @@ async function amWebspaceLoadSource(srcKey) {
     manifests[cat] = [];
     const list = Array.isArray(cats[cat]) ? cats[cat] : [];
     for (const mfPath of list) {
-      const mfUrl = amManifestRoot() + srcKey + "/" + mfPath;
+      const mfUrl = amManifestUrl(srcKey + "/" + mfPath);
       try {
         const mr = await fetch(mfUrl, { mode: "cors" });
         if (!mr.ok) throw new Error("HTTP " + mr.status);
