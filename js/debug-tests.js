@@ -50,22 +50,13 @@
   });
 
   // -------- global/sentence --------
-  dbg.test('global/sentence', { tab: 'global', label: 'Sätze-Korpus' }, function () {
-    if (typeof sCorpus === 'undefined') {
-      return { ok: true, msg: 'sentences.js noch nicht initialisiert' };
+  dbg.test('global/sentence', { tab: 'global', label: 'Sätze-Pool' }, function () {
+    if (typeof amCollectItems !== 'function') {
+      return { ok: true, msg: 'audio-source.js noch nicht geladen' };
     }
-    if (!sCorpus || !sCorpus.speakers) {
-      const off = (typeof sOfflineMode !== 'undefined' && sOfflineMode);
-      return { ok: true, msg: 'Korpus noch nicht geladen' + (off ? ' (offline-Modus)' : '') };
-    }
-    const spkKeys = Object.keys(sCorpus.speakers);
-    if (!spkKeys.length) return { ok: false, msg: 'Korpus geladen, aber keine Sprecher' };
-    let recCount = 0;
-    spkKeys.forEach(function (k) {
-      const s = sCorpus.speakers[k];
-      if (s && s.recordings) recCount += s.recordings.length;
-    });
-    return { ok: true, msg: spkKeys.length + ' Sprecher, ' + recCount + ' Aufnahmen' };
+    const items = amCollectItems('saetze');
+    if (!items.length) return { ok: true, msg: 'Kein Saetze-Material im Pool (kein Webspace oder offline)' };
+    return { ok: true, msg: items.length + ' Items im Saetze-Pool' };
   });
 
 })();

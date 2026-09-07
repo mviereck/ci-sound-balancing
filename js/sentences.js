@@ -9,14 +9,9 @@
 // Bei Sprecher-Wahl "any" werden recordings aller verfügbaren
 // Sprecher flach gemischt und gleichverteilt zufällig gezogen.
 
-let sCorpus = null;
-let sLoaded = false;
-let sLoading = false;
 let sCurRec = null;     // aktuell laufendes Item (flaches amProvider-Schema)
 let sShownText = "";
 let sSentenceBuf = null;        // dekodierter aktueller Satz, getrennt von pFileBuf
-let sOfflineMode = false;      // true = fetch hat versagt, nutze Embed
-let sEmbedLoading = new Set(); // Sprachen, deren Embed gerade lädt
 
 // ============================================================
 // LOKALE SAMMLUNGEN
@@ -26,77 +21,13 @@ let sEmbedLoading = new Set(); // Sprachen, deren Embed gerade lädt
 //     "oldenburger-female"|"oldenburger-male"|"oldenburger"|"generic"),
 //   folderName (Wurzel-Ordnername, für UI),
 //   files: Map<relPath, File>,            // lazy ArrayBuffer-Quelle
-//   recordings: Array<{id, text, audioRel}>  // wird in sCorpus gespiegelt
+//   recordings: Array<{id, text, audioRel}>
 // }
 let sLocalCollections = new Map();
 let sLocalNextId = 1;
 
 function sNewCollectionId() {
   return "local-" + (sLocalNextId++);
-}
-
-async function sLoadIfNeeded() {
-  if (sLoaded || sLoading) return;
-  sLoading = true;
-  try {
-    const res = await fetch("assets/sentences/sentences.json", { cache: "no-cache" });
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    sCorpus = await res.json();
-    sLoaded = true;
-    sOfflineMode = false;
-  } catch (err) {
-    console.warn("[sentences] online fetch fehlgeschlagen, wechsle in Embed-Modus:", err);
-    sOfflineMode = true;
-    sCorpus = { speakers: {} };
-    sLoaded = true;
-    // Aktuelle Sprache als Embed nachladen
-    if (typeof lang !== "undefined") {
-      await sEnsureEmbedForLang(lang);
-    }
-  } finally {
-    sLoading = false;
-    sUpdateUI();
-  }
-}
-
-// Lädt assets/sentences/embed/<lang>.js per <script>-Tag (file://-kompatibel),
-// merged die Sprecher in sCorpus. No-op wenn online oder schon geladen.
-async function sEnsureEmbedForLang(langCode) {
-  if (!sOfflineMode) return;
-  if (!langCode) return;
-  if (sEmbedLoading.has(langCode)) return;
-  // Schon geladen? Wenn irgendein Sprecher in der Sprache existiert: ja.
-  for (const k in sCorpus.speakers) {
-    if (sCorpus.speakers[k].lang === langCode) return;
-  }
-  sEmbedLoading.add(langCode);
-  try {
-    await new Promise((resolve, reject) => {
-      const s = document.createElement("script");
-      s.src = "assets/sentences/embed/" + langCode + ".js";
-      s.onload = () => resolve();
-      s.onerror = () => reject(new Error("embed " + langCode + " nicht ladbar"));
-      document.head.appendChild(s);
-    });
-    const data = window.SENTENCES_EMBED && window.SENTENCES_EMBED[langCode];
-    if (data && data.speakers) {
-      for (const k in data.speakers) {
-        sCorpus.speakers[k] = data.speakers[k];
-      }
-    }
-  } catch (err) {
-    console.warn("[sentences] kein Embed für", langCode, ":", err.message);
-  } finally {
-    sEmbedLoading.delete(langCode);
-    sUpdateUI();
-  }
-}
-
-// Alle Sprecher-Keys für eine Sprache (z.B. "de" -> ["thorsten", "cv-de"]).
-function sSpeakersForLang(langCode) {
-  if (!sCorpus || !sCorpus.speakers) return [];
-  return Object.keys(sCorpus.speakers)
-    .filter((k) => sCorpus.speakers[k].lang === langCode);
 }
 
 // BA558: Satz-Pool nach paralleler Achsen-Auswahl. Basis = sortierte
@@ -169,17 +100,6 @@ function sBuildSequencePool() {
 }
 
 
-function sDataUrlToArrayBuffer(url) {
-  // "data:audio/mp3;base64,XXXX" -> ArrayBuffer
-  const comma = url.indexOf(",");
-  const b64 = url.substring(comma + 1);
-  const bin = atob(b64);
-  const len = bin.length;
-  const bytes = new Uint8Array(len);
-  for (let i = 0; i < len; i++) bytes[i] = bin.charCodeAt(i);
-  return bytes.buffer;
-}
-
 // BA327: Laedt den aktuellen Satz, normalisiert den Vordergrund per RMS,
 // mischt ggf. Hintergrund ein, schreibt sSentenceBuf und ruft
 // pSetPlaybackMode("saetze"). Ruft KEIN pPlay — Aufrufer macht das.
@@ -189,11 +109,11 @@ async function sLoadAndPlayCurrent() {
   const audioRef = sCurRec.audio;
   if (!audioRef) { sStop(); throw new Error("kein audio-Ref"); }
 
-  let arrayBuf;
-  if (audioRef.indexOf("data:") === 0) {
-    arrayBuf = sDataUrlToArrayBuffer(audioRef);
-  } else if (audioRef.indexOf("local:") === 0) {
-    // Form: "local:<cid>:<relPath>"
+  const c = gPC();
+  let decoded;
+  if (typeof audioRef === "string" && audioRef.indexOf("local:") === 0) {
+    // Saetze-Upload: "local:<cid>:<relPath>" — von amGetItemBuffer nicht
+    // aufloesbar, daher hier direkt aus der Sammlung dekodieren.
     const second = audioRef.indexOf(":", 6);
     const cid = audioRef.substring(6, second);
     const rel = audioRef.substring(second + 1);
@@ -201,20 +121,12 @@ async function sLoadAndPlayCurrent() {
     if (!coll) throw new Error("Lokale Sammlung " + cid + " nicht (mehr) verfuegbar");
     const file = coll.files.get(rel);
     if (!file) throw new Error("Datei " + rel + " nicht in Sammlung " + cid);
-    arrayBuf = await file.arrayBuffer();
-  } else if (/^(https?:|blob:)/i.test(audioRef)) {
-    const res = await fetch(audioRef, { mode: "cors" });
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    arrayBuf = await res.arrayBuffer();
+    decoded = await c.decodeAudioData(await file.arrayBuffer());
   } else {
-    // Relativ — Alt-Verhalten: unter assets/sentences/ suchen.
-    const res = await fetch("assets/sentences/" + audioRef);
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    arrayBuf = await res.arrayBuffer();
+    // data:/http(s)/blob -> gemeinsamer Weg (cached, dekodiert).
+    decoded = await amGetItemBuffer(c, sCurRec);
+    if (!decoded) { sStop(); throw new Error("Audio nicht ladbar: " + audioRef); }
   }
-
-  const c = gPC();
-  const decoded = await c.decodeAudioData(arrayBuf);
   if (plActiveSource !== "saetze") return;
 
   // BA327: Vordergrund immer RMS-normalisieren (kein Schalter).
@@ -284,26 +196,10 @@ function sUpdateUI() {
   const card = document.getElementById("plSubSentences");
   if (!card) return;
 
-  // Im Offline-Mode bei Sprachwechsel ggf. Embed nachladen.
-  // (fire-and-forget; sUpdateUI wird beim Embed-Load-Ende erneut gerufen.)
-  if (sOfflineMode && sLoaded) {
-    sEnsureEmbedForLang((typeof plContentLang !== "undefined") ? plContentLang : "de");
-  }
-
   const ctrls = document.getElementById("plSentControls");
   const noMat = document.getElementById("plSentNoMaterial");
   const notReady = document.getElementById("plSentNotReady");
-  if (!sLoaded) {
-    if (notReady) notReady.style.display = "";
-    if (noMat) noMat.style.display = "none";
-    if (ctrls) ctrls.style.display = "none";
-    return;
-  }
   if (notReady) notReady.style.display = "none";
-  // Material-Pruefung ueber den ECHTEN Pool (alle Provider: Manifest +
-  // Legacy + Upload), nicht ueber sSpeakersForLang (nur Legacy-sCorpus).
-  // Sonst gelten Manifest-Sprachen (it, viele CV-Sprachen) faelschlich als
-  // leer, obwohl das Manifest Saetze liefert (BA564-Folgebug).
   const hasMaterial = sBuildSequencePool().length > 0;
   const axesEl = document.getElementById("plSentAxes");
   if (!hasMaterial) {
@@ -491,54 +387,7 @@ function sAddLocalFile(file) {
 document.addEventListener("DOMContentLoaded", function () {
   // BA351: Sätze-Upload läuft über die zentrale upload-Stage
   // (PL_FILTER_DECL.saetze) — keine eigene Verdrahtung, kein FSAA-Picker mehr.
-  sLoadIfNeeded();
 });
-
-// ============================================================
-// BA197: amProvider — sCorpus als Sätze-Quelle exponieren
-// ============================================================
-
-if (typeof amRegisterProvider === "function") {
-  amRegisterProvider({
-    id: "sentences-legacy",
-    listItems: function (category) {
-      if (category !== "saetze") return [];
-      if (!sLoaded || !sCorpus || !sCorpus.speakers) return [];
-      const out = [];
-      const speakers = sCorpus.speakers;
-      for (const spkKey in speakers) {
-        const spk = speakers[spkKey];
-        if (!spk || !Array.isArray(spk.recordings)) continue;
-        const speakerLabel = spk.label || spkKey;
-        const lang_       = spk.lang  || null;
-        const sourceTitle = spk.source || spk.label || "Eingebaut";
-        const license     = spk.license || null;
-        const credit      = spk.credit  || null;
-        for (let i = 0; i < spk.recordings.length; i++) {
-          const r = spk.recordings[i];
-          if (!r || !r.audio) continue;
-          out.push({
-            id: "sentences-legacy:" + spkKey + ":" + (r.id || String(i)),
-            title: speakerLabel,
-            text: r.text || "",
-            audio: r.audio,
-            duration: r.duration,
-            sourceTitle: sourceTitle,
-            license: license,
-            credit:  credit,
-            tags: {
-              lang: lang_,
-              speaker_id: spkKey,
-              gender: spk.gender || "u",
-              style: spk.style || null
-            }
-          });
-        }
-      }
-      return out;
-    }
-  });
-}
 
 // ============================================================
 // BA197: amProvider — lokale User-Sammlungen als Sätze-Quelle

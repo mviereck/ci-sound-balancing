@@ -42,9 +42,8 @@ function amRegisterProvider(p) {
 //    fuer Stueck. Deren Map-`.size` aendert sich dabei nicht -> der Stempel
 //    nutzt _amLocalFileCount (Summe der Dateien ueber alle Sammlungen) statt
 //    `.size`, sonst bliebe die zweite hochgeladene Datei unsichtbar.
-//  - sLoaded/sLocalCollections leben in sentences.js (laedt nach
-//    audio-source.js) -> typeof-Guard, da _amDataStamp evtl. vor dem ersten
-//    Saetze-Load aufgerufen werden koennte.
+//  - sLocalCollections lebt in sentences.js (laedt nach audio-source.js)
+//    -> typeof-Guard, da _amDataStamp evtl. vor sentences.js aufgerufen wird.
 //  - embed (CI_SB_EMBED) und generated (AM_GEN_NOISES) sind statisch beim
 //    Seitenladen -> bewusst NICHT im Stempel.
 let _amCache = new Map();   // key -> { stamp, value }
@@ -65,7 +64,6 @@ function _amDataStamp() {
     _amLocalFileCount(_amMusicLocalFolders),
     _amLocalFileCount(_amNoiseLocalFolders),
     _amLocalBookCollections.length,
-    (typeof sLoaded !== "undefined" && sLoaded) ? 1 : 0,
     (typeof sLocalCollections !== "undefined" && sLocalCollections) ? _amLocalFileCount(sLocalCollections) : 0
   ].join("|");
 }
@@ -539,23 +537,20 @@ amRegisterProvider({
     for (const key in root.sources) {
       const col = root.sources[key];
       if (!col || col.category !== category) continue;
-      const colTags = col.tags || {};
       const colTitle = col.title || key;
-      const colLicense = col.license || null;
-      const colCredit  = col.credit  || null;
       const items = Array.isArray(col.items) ? col.items : [];
       for (const it of items) {
-        const merged = {
+        out.push({
           id: key + ":" + (it.id || ""),
           title: it.title || it.id || "(unbenannt)",
+          text: it.text || "",
           audio: it.audio,
           duration: it.duration,
           sourceTitle: colTitle,
-          license: it.license || colLicense,
-          credit:  it.credit  || colCredit,
-          tags: Object.assign({}, colTags, it.tags || {})
-        };
-        out.push(merged);
+          license: it.license || col.license || null,
+          credit:  it.credit  || col.credit  || null,
+          tags: _amBuildItemTags(it, col, null)
+        });
       }
     }
     return out;

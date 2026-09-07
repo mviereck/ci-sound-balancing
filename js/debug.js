@@ -404,7 +404,6 @@
 
     if (typeof sActive === 'boolean')      _autoFields['sentence.active']  = sActive;
     if (typeof sEndless === 'boolean')     _autoFields['sentence.endless'] = sEndless;
-    if (typeof sOfflineMode === 'boolean') _autoFields['sentence.corpus']  = sOfflineMode ? 'embed (offline)' : 'fetch (online)';
     const curRec = _safe(function () { return sCurRec; });
     if (curRec && curRec.rec) {
       if (curRec.speakerKey) _autoFields['sentence.speaker'] = curRec.speakerKey;
