@@ -2326,6 +2326,14 @@ document.querySelectorAll(".pl-vol-btn").forEach(function (b) {
 // Stages werden von plBuildFilterChain generisch gebaut/verdrahtet.
 var PL_FILTER_DECL = {};
 
+// Label einer generischen Achsen-Option ("(nur mit X)"/"(ohne X)").
+// key = i18n-Template mit Platzhalter {axis}; def = Default-Template;
+// axisName = uebersetzter Achsenname. Fehlt der i18n-Key, greift def.
+function _plAxisOptLabel(key, def, axisName) {
+  var tmpl = (typeof t === "function" && t(key) !== key) ? t(key) : def;
+  return tmpl.replace("{axis}", axisName);
+}
+
 // Generische Mechanik: baut/befuellt/verdrahtet die existierenden DOM-Elemente
 // gemaess catDecl. Event-Wiring nur einmalig (Flag catDecl._wired).
 function plBuildFilterChain(catDecl) {
@@ -2572,11 +2580,25 @@ function plBuildFilterChain(catDecl) {
         sel.style.borderRadius = "4px";
         sel.style.fontSize = "0.88em";
         sel.style.minWidth = "160px";
-        // Option "alle"
+        // Achsenname fuer die generischen "(nur mit X)"/"(ohne X)"-Labels.
+        var axisName = (typeof t === "function") ? t(axis.labelKey) : axis.labelDefault;
+        // Generische Optionen oben gebuendelt: (beliebig) / (nur mit X) / (ohne X)
+        // Option "(beliebig)" -- filtert nicht.
         var oAll = document.createElement("option");
         oAll.value = AM_SEL_ALL;
-        oAll.textContent = (typeof t === "function") ? t("plAxisAll") : "(alle)";
+        oAll.textContent = (typeof t === "function") ? t("plAxisAll") : "(beliebig)";
         sel.appendChild(oAll);
+        // "(nur mit X)" und "(ohne X)" nur, wenn es Items MIT und OHNE Wert gibt.
+        if (b.hasNone && b.hasSome) {
+          var oAny = document.createElement("option");
+          oAny.value = AM_SEL_ANY;
+          oAny.textContent = _plAxisOptLabel("plAxisAny", "(nur mit {axis})", axisName);
+          sel.appendChild(oAny);
+          var oNone = document.createElement("option");
+          oNone.value = AM_SEL_NONE;
+          oNone.textContent = _plAxisOptLabel("plAxisNone", "(ohne {axis})", axisName);
+          sel.appendChild(oNone);
+        }
         // konkrete Werte
         for (var vi = 0; vi < b.values.length; vi++) {
           var o = document.createElement("option");
@@ -2584,17 +2606,11 @@ function plBuildFilterChain(catDecl) {
           o.textContent = amAxisBucketLabel(axis, b.values[vi]);
           sel.appendChild(o);
         }
-        // Option "ohne" (nur wenn mit UND ohne vorkommt)
-        if (b.hasNone && b.hasSome) {
-          var oNone = document.createElement("option");
-          oNone.value = AM_SEL_NONE;
-          oNone.textContent = (typeof t === "function") ? t("plAxisNone") : "(ohne)";
-          sel.appendChild(oNone);
-        }
         // Auswahl-Erhalt: aktueller Wert, falls in der neuen Liste
         // vorhanden; sonst zurueck auf "_all".
         var cur = selTable[axis.key];
         var exists = (cur === AM_SEL_ALL)
+          || (cur === AM_SEL_ANY && b.hasNone && b.hasSome)
           || (cur === AM_SEL_NONE && b.hasNone && b.hasSome)
           || (b.values.indexOf(cur) >= 0);
         if (!exists) {

@@ -357,6 +357,7 @@ function amItemMatchesCategory(category, axisKey, cat, item) {
 
 // Sonderwerte der Auswahl-Tabelle.
 var AM_SEL_ALL = "_all";
+var AM_SEL_ANY = "_any";     // nur Items MIT einem Wert dieser Achse
 var AM_SEL_NONE = "_none";
 
 // Mehrachsen-Match: Item passt, wenn es fuer JEDE Achse in axes zur
@@ -371,7 +372,9 @@ function amItemMatchesAxes(axes, selTable, item, exceptKey) {
     var sel = selTable[axis.key];
     if (sel === undefined || sel === AM_SEL_ALL) continue;   // kein Filter
     var vals = amAxisValues(axis, item);                     // Liste (einwertig 0/1, multi 0..n)
-    if (sel === AM_SEL_NONE) {
+    if (sel === AM_SEL_ANY) {
+      if (vals.length === 0) return false;                   // nur Items MIT Wert
+    } else if (sel === AM_SEL_NONE) {
       if (vals.length !== 0) return false;                   // nur tag-frei
     } else {
       if (vals.indexOf(sel) < 0) return false;               // Wert muss enthalten sein
