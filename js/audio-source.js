@@ -177,50 +177,44 @@ const AM_SORT_AXES = {
       bucketLabel: function (v) { return (typeof t === "function") ? t("plAxisEmotion_" + v) : v; }
     }
   ],
-  // BA260: Musik-Sortier-Achsen
+  // Musik-Filterachsen (parallele Kette, Architektur §9.1).
+  // valueOf = Filterwert; getter bleibt fuer stabile Sekundaer-Sortierung.
+  // Reihenfolge = Box-Reihenfolge (parallelAxes in PL_FILTER_DECL.musik).
   musik: [
     {
-      key: "title",
-      labelKey: "amSortTitle",
-      labelDefault: "nach Titel",
-      getter: function (it) { return (it.title || "").toLowerCase(); }
+      key: "source", labelKey: "plMusicAxisSource", labelDefault: "Quelle",
+      getter: function (it) { return it.sourceTitle || it._providerId || "zzz-unbekannt"; },
+      valueOf: function (it) { return it.sourceTitle || ""; },
+      // "(lokal)"-Markierung fuer hochgeladene Quellen (source_local="y").
+      // Einzeldatei-Sammlung -> eigener Text; Ordner -> "<Name> (lokal)".
+      bucketLabel: function (v) { return _plMusicSourceLabel(v); }
     },
     {
-      key: "artist",
-      labelKey: "amSortArtist",
-      labelDefault: "nach Artist",
-      getter: function (it) { return ((it.tags && it.tags.artist) || "zzz-unbekannt").toLowerCase(); }
-    },
-    {
-      key: "album",
-      labelKey: "amSortAlbum",
-      labelDefault: "nach Album",
-      getter: function (it) { return ((it.tags && it.tags.album) || "zzz-unbekannt").toLowerCase(); }
-    },
-    {
-      key: "genre",
-      labelKey: "amSortGenre",
-      labelDefault: "nach Genre",
+      key: "genre", labelKey: "plMusicAxisGenre", labelDefault: "Genre",
+      multi: true,
       getter: function (it) {
-        const g = it.tags && it.tags.genres;
+        var g = it.tags && it.tags.genres;
         if (Array.isArray(g) && g.length) return g[0];
         return "zzz-unbekannt";
-      }
+      },
+      valueOf: function (it) { return (it.tags && it.tags.genres) || []; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plMusicGenre_" + v) : v; }
     },
     {
-      key: "year",
-      labelKey: "amSortYear",
-      labelDefault: "nach Jahr",
-      getter: function (it) {
-        const y = it.tags && it.tags.year;
-        return (typeof y === "number") ? String(y) : "zzzz";
-      }
+      key: "vocal", labelKey: "plMusicAxisVocal", labelDefault: "Gesang",
+      getter: function (it) { return (it.tags && it.tags.vocal) || "zzz-unbekannt"; },
+      valueOf: function (it) { return (it.tags && it.tags.vocal) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plMusicVocal_" + v) : v; }
     },
     {
-      key: "source",
-      labelKey: "amSortSource",
-      labelDefault: "nach Quelle",
-      getter: function (it) { return it.sourceTitle || it._providerId || "zzz-unbekannt"; }
+      key: "artist", labelKey: "plMusicAxisArtist", labelDefault: "Kuenstler",
+      getter: function (it) { return ((it.tags && it.tags.artist) || "zzz-unbekannt").toLowerCase(); },
+      valueOf: function (it) { return (it.tags && it.tags.artist) || ""; }
+    },
+    {
+      key: "album", labelKey: "plMusicAxisAlbum", labelDefault: "Album",
+      getter: function (it) { return ((it.tags && it.tags.album) || "zzz-unbekannt").toLowerCase(); },
+      valueOf: function (it) { return (it.tags && it.tags.album) || ""; }
     }
   ]
 };

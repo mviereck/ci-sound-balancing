@@ -1542,28 +1542,15 @@
             <!-- BA349: einheitliche Upload-Box (Engine rendert Inhalt) -->
             <div class="pl-upload-box" id="plMusicUpload"></div>
 
+            <!-- BA561: parallele Achsen-Boxen (Engine befuellt) -->
+            <div id="plMusicAxes"></div>
+
             <!-- Suchfeld -->
             <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px;align-items:center">
               <label data-t="plMusicSearchLabel" style="font-size:0.88em;margin-right:6px"></label>
               <input type="search" id="plMusicSearchInput" placeholder=""
                      data-t-placeholder="plMusicSearchPlaceholder"
                      style="flex:1;min-width:180px;padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em" />
-            </div>
-
-            <!-- Sortier-Achse + Kategorie -->
-            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px">
-              <div class="control-group">
-                <label data-t="plMusicSortLabel" style="margin-right:6px"></label>
-                <select id="plMusicSortSel"
-                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
-                </select>
-              </div>
-              <div class="control-group" style="flex:1; min-width:180px">
-                <label data-t="plMusicCatLabel" style="margin-right:6px"></label>
-                <select id="plMusicCatSel"
-                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:160px">
-                </select>
-              </div>
             </div>
 
             <!-- Stück-Dropdown -->

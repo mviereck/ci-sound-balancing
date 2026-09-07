@@ -681,9 +681,12 @@ let plBookPositions  = {};            // { <bookId>: { chapterIdx, posSeconds } 
 
 // BA260: Musik-Bibliothek
 let plMusicSelectedId   = null;     // welches Stueck aktiv ist
-let plMusicSortAxis     = "title";  // Default-Sortier-Achse
-let plMusicCategory     = "_all";   // "(alle)" als Default
+let plMusicSortAxis     = "title";  // Default-Sortier-Achse (noch genutzt? -> grep vor Entfernen)
+let plMusicCategory     = "_all";   // "(alle)" als Default (noch genutzt? -> grep vor Entfernen)
 let plMusicSearchQuery  = "";       // Such-String (persistiert)
+// BA561: Auswahl-Tabelle der parallelen Musik-Achsen: { axisKey: wert }.
+// Wert "_all" (Default) = kein Filter, sonst konkret.
+let plMusicAxisSel = {};
 let pBookBuf         = null;          // dekodierter Kapitel-Buffer (Laufzeit, nicht persistiert)
 
 let schieberELLShowMeas = false;

@@ -2942,10 +2942,13 @@ PL_FILTER_DECL.musik = {
     { key: "license", labelKey: "plDispFieldLicense", getValue: function (ctx) { return ctx.license || ""; }, role: "license", inFilter: false, inDisplay: true,  visibility: "always" }
   ],
   stateRef: {
-    getSortAxis:    function () { return plMusicSortAxis; },
-    setSortAxis:    function (v) { plMusicSortAxis = v; },
-    getCategory:    function () { return plMusicCategory; },
-    setCategory:    function (v) { plMusicCategory = v; },
+    getAxisSel: function (axisKey) {
+      var v = plMusicAxisSel[axisKey];
+      return (v === undefined) ? "_all" : v;
+    },
+    setAxisSel: function (axisKey, value) {
+      plMusicAxisSel[axisKey] = value;
+    },
     getSearchQuery: function () { return plMusicSearchQuery; },
     setSearchQuery: function (v) { plMusicSearchQuery = v; },
     getSelectedId:  function () { return plMusicSelectedId; },
@@ -2979,11 +2982,8 @@ PL_FILTER_DECL.musik = {
       }
     },
     {
-      id: "sort", kind: "axis-sel", domId: "plMusicSortSel"
-    },
-    {
-      id: "cat", kind: "bucket-sel", domId: "plMusicCatSel",
-      allLabelKey: "plMusicCatAll"
+      id: "axes", kind: "parallel-axes", domId: "plMusicAxes",
+      parallelAxes: ["source", "genre", "vocal", "artist", "album"]
     },
     {
       id: "search", kind: "search", domId: "plMusicSearchInput"
@@ -3170,17 +3170,47 @@ function _plMusicSearchMatch(it, q) {
 
 // Liefert die gefilterte und sortierte Track-Liste fuer die aktuelle UI-Sicht.
 function plMusicVisibleItems() {
-  const all = plMusicAllItems();
-  const filtered = all.filter(function (it) {
-    if (!amItemMatchesCategory("musik", plMusicSortAxis, plMusicCategory, it)) return false;
+  var all = plMusicAllItems();
+  var axes = (typeof amSortAxesFor === "function") ? amSortAxesFor("musik") : [];
+  var filtered = all.filter(function (it) {
+    if (!amItemMatchesAxes(axes, plMusicAxisSel, it)) return false;
     return _plMusicSearchMatch(it, plMusicSearchQuery);
   });
-  return amSortItems(filtered, "musik", plMusicSortAxis);
+  // Stueckliste alphabetisch nach Titel (stabil).
+  filtered.sort(function (a, b) {
+    var ta = (a.title || a.id || "").toLowerCase();
+    var tb = (b.title || b.id || "").toLowerCase();
+    return ta < tb ? -1 : (ta > tb ? 1 : 0);
+  });
+  return filtered;
 }
 
 function plMusicCurrentItem() {
   if (!plMusicSelectedId) return null;
   return plMusicAllItems().find(function (it) { return it.id === plMusicSelectedId; }) || null;
+}
+
+// Anzeige-Label eines Quelle-Achsenwerts. Lokale Upload-Quellen
+// (source_local="y") werden markiert: Einzeldatei-Sammlung -> fester
+// Text "Einzelstuecke (lokal)"; Ordner -> "<Ordnername> (lokal)".
+// MUSAN-/Webspace-Quellen: Rohwert unveraendert. (Architektur §9.3)
+function _plMusicSourceLabel(sourceTitle) {
+  if (!sourceTitle) return sourceTitle;
+  var items = plMusicAllItems();
+  // Titel der Einzeldatei-Sammlung (i18n; Fallback wie im Provider).
+  var fileColTitle = (typeof t === "function") ? t("plUploadSourceFile") : "Dateiupload";
+  // Ist dieser sourceTitle eine lokale Quelle? (mind. ein Item mit
+  // source_local="y" traegt genau diesen sourceTitle)
+  var isLocal = items.some(function (it) {
+    return it.sourceTitle === sourceTitle && it.tags && it.tags.source_local === "y";
+  });
+  if (!isLocal) return sourceTitle;
+  var suffix = (typeof t === "function") ? t("plMusicSourceLocalSuffix") : "(lokal)";
+  if (sourceTitle === fileColTitle) {
+    var single = (typeof t === "function") ? t("plMusicSourceLocalFiles") : "Einzelstuecke";
+    return single + " " + suffix;                 // "Einzelstuecke (lokal)"
+  }
+  return sourceTitle + " " + suffix;              // "<Ordnername> (lokal)"
 }
 
 function _plMusicTrackLabel(it) {
