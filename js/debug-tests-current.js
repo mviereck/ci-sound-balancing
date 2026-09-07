@@ -167,3 +167,54 @@
     return { ok: ok, msg: "all=" + c1 + " srcA=" + c2 + " Bnone=" + c3 + " genderBuckets=[" + b.values.join(",") + "] hasNone=" + b.hasNone };
   });
 })();
+
+/* BA560 — multi-Achsen in der Filterkette-Engine.
+ * Prueft amAxisValues / amItemMatchesAxes / amBucketsForAxisValues
+ * an einer synthetischen multi-Achse + einer einwertigen Achse.
+ */
+(function () {
+  if (typeof dbg === "undefined" || !dbg.test) return;
+  dbg.test("build/BA560/multi-achsen", { label: "BA560 multi-Achsen" }, function () {
+    var genreAxis  = { key: "g", multi: true,  getter: function (it) { return (it.tags && it.tags.genres) || []; } };
+    var vocalAxis  = { key: "v", getter: function (it) { return (it.tags && it.tags.vocal) || "zzz-unbekannt"; } };
+    var items = [
+      { id: "a", tags: { genres: ["pop", "rock"], vocal: "y" } },
+      { id: "b", tags: { genres: ["pop"],         vocal: "n" } },
+      { id: "c", tags: { genres: [],              vocal: "n" } }
+    ];
+
+    // amAxisValues: multi liefert Liste, leeres Array = tag-frei.
+    var va = amAxisValues(genreAxis, items[0]);
+    if (!(va.length === 2 && va.indexOf("pop") >= 0 && va.indexOf("rock") >= 0))
+      return { ok: false, msg: "amAxisValues multi falsch: " + JSON.stringify(va) };
+    if (amAxisValues(genreAxis, items[2]).length !== 0)
+      return { ok: false, msg: "leeres genres-Array muss tag-frei sein" };
+    // einwertig ueber Liste
+    var vv = amAxisValues(vocalAxis, items[0]);
+    if (!(vv.length === 1 && vv[0] === "y"))
+      return { ok: false, msg: "amAxisValues einwertig falsch: " + JSON.stringify(vv) };
+
+    // Match: Auswahl genre=pop trifft a UND b (beide enthalten pop), nicht c.
+    var axes = [genreAxis, vocalAxis];
+    var mPop = items.filter(function (it) { return amItemMatchesAxes(axes, { g: "pop" }, it); });
+    if (!(mPop.length === 2 && mPop[0].id === "a" && mPop[1].id === "b"))
+      return { ok: false, msg: "Match genre=pop falsch: " + mPop.map(function (x){return x.id;}).join(",") };
+    // Match: genre=rock trifft nur a.
+    var mRock = items.filter(function (it) { return amItemMatchesAxes(axes, { g: "rock" }, it); });
+    if (!(mRock.length === 1 && mRock[0].id === "a"))
+      return { ok: false, msg: "Match genre=rock falsch" };
+    // Match: genre=_none trifft nur c.
+    var mNone = items.filter(function (it) { return amItemMatchesAxes(axes, { g: "_none" }, it); });
+    if (!(mNone.length === 1 && mNone[0].id === "c"))
+      return { ok: false, msg: "Match genre=_none falsch" };
+
+    // Buckets: Vereinigung pop,rock; hasNone (c) UND hasSome.
+    var b = amBucketsForAxisValues(genreAxis, items);
+    if (!(b.values.length === 2 && b.values[0] === "pop" && b.values[1] === "rock"))
+      return { ok: false, msg: "Buckets values falsch: " + JSON.stringify(b.values) };
+    if (!(b.hasNone === true && b.hasSome === true))
+      return { ok: false, msg: "Buckets hasNone/hasSome falsch" };
+
+    return { ok: true, msg: "multi-Achsen ok (Werte/Match/Buckets)" };
+  });
+})();

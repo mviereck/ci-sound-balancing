@@ -229,20 +229,51 @@ function amSortAxesFor(category) {
   return AM_SORT_AXES[category] || [];
 }
 
-// Filter-/Gruppierungswert einer Achse fuer ein Item.
-// valueOf hat Vorrang; sonst getter (Rueckwaertskompatibilitaet der
-// einachsigen Kategorien). Leerwert (""/null/undefined) bedeutet
-// "tag-frei" -> zaehlt zur "ohne"-Teilmenge.
+// Filter-/Gruppierungswert einer Achse fuer ein Item (EINZELWERT-Zugang).
+// valueOf hat Vorrang; sonst getter. Leerwert -> "" (tag-frei).
+// Fuer multi-Achsen den Listen-Zugang amAxisValues nutzen, nicht diese.
 function amAxisValueOf(axis, item) {
   var raw;
   if (Object.prototype.hasOwnProperty.call(axis, "valueOf") && typeof axis.valueOf === "function") raw = axis.valueOf(item);
   else raw = axis.getter(item);
+  return _amNormAxisValue(raw);
+}
+
+// Werteliste einer Achse fuer ein Item -> IMMER ein Array von
+// Nicht-Leerwerten (Strings). Einwertige Achse: 0 oder 1 Element.
+// multi-Achse (axis.multi === true): 0..n Elemente (Vereinigung aller
+// Array-Eintraege). Leeres Array = tag-frei ("ohne"). Dies ist der
+// einzige Ort, der einwertig/multi unterscheidet; Match, Box-Befuellung
+// und Sichtbarkeit gehen ueber diese Liste (Architektur §3.4).
+function amAxisValues(axis, item) {
+  var raw;
+  if (Object.prototype.hasOwnProperty.call(axis, "valueOf") && typeof axis.valueOf === "function") raw = axis.valueOf(item);
+  else raw = axis.getter(item);
+
+  if (axis.multi === true) {
+    // multi: raw soll ein Array sein; jeder Eintrag wird normalisiert,
+    // Leerwerte/Platzhalter fallen raus.
+    if (!Array.isArray(raw)) raw = (raw === null || raw === undefined || raw === "") ? [] : [raw];
+    var out = [];
+    for (var i = 0; i < raw.length; i++) {
+      var s = _amNormAxisValue(raw[i]);
+      if (s !== "") out.push(s);
+    }
+    return out;
+  }
+
+  // einwertig: ein normalisierter Wert oder leer.
+  var v = _amNormAxisValue(raw);
+  return v === "" ? [] : [v];
+}
+
+// Normalisiert einen Rohwert auf String; Leerwerte und die einachsigen
+// Sortier-Platzhalter ("zzz-unbekannt"/"zzzz") gelten als tag-frei ("").
+function _amNormAxisValue(raw) {
   if (raw === null || raw === undefined) return "";
-  raw = String(raw);
-  // Die einachsigen getter liefern Platzhalter fuer Leerwerte; diese
-  // gelten im Mehrachsen-Modell ebenfalls als tag-frei.
-  if (raw === "zzz-unbekannt" || raw === "zzzz") return "";
-  return raw;
+  var s = String(raw);
+  if (s === "zzz-unbekannt" || s === "zzzz") return "";
+  return s;
 }
 
 function amSortItems(items, category, axisKey) {
@@ -315,11 +346,11 @@ function amItemMatchesAxes(axes, selTable, item, exceptKey) {
     if (exceptKey && axis.key === exceptKey) continue;
     var sel = selTable[axis.key];
     if (sel === undefined || sel === AM_SEL_ALL) continue;   // kein Filter
-    var v = amAxisValueOf(axis, item);
+    var vals = amAxisValues(axis, item);                     // Liste (einwertig 0/1, multi 0..n)
     if (sel === AM_SEL_NONE) {
-      if (v !== "") return false;                            // nur tag-frei
+      if (vals.length !== 0) return false;                   // nur tag-frei
     } else {
-      if (v !== sel) return false;                           // konkreter Wert
+      if (vals.indexOf(sel) < 0) return false;               // Wert muss enthalten sein
     }
   }
   return true;
@@ -334,9 +365,12 @@ function amBucketsForAxisValues(axis, items) {
   var hasNone = false;
   var hasSome = false;
   for (var i = 0; i < items.length; i++) {
-    var v = amAxisValueOf(axis, items[i]);
-    if (v === "") { hasNone = true; }
-    else { hasSome = true; set.add(v); }
+    var vals = amAxisValues(axis, items[i]);   // Liste (einwertig 0/1, multi 0..n)
+    if (vals.length === 0) { hasNone = true; }
+    else {
+      hasSome = true;
+      for (var j = 0; j < vals.length; j++) set.add(vals[j]);
+    }
   }
   var values = Array.from(set).sort(function (a, b) { return a.localeCompare(b); });
   return { values: values, hasNone: hasNone, hasSome: hasSome };
