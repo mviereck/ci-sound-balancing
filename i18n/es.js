@@ -1499,7 +1499,10 @@ Object.assign(L.es, {
     plContentLangSearch: "Buscar idioma …",
     // BA 352-Fix: fehlende Wiedergabe-Box-Uebersetzungen nachgezogen
     plPlayTitle: "Reproducción",
-    plSourceLabel: "Fuente:",
+    plSourceLabel: "Categoría:",
+    plNetSourceLabel: "Fuente:",
+    plNetOnline: "en línea",
+    plNetOffline: "sin conexión",
     plSrcMusic: "♪ Música",
     plSrcSentences: "💬 Frases",
     plSrcNoise: "🔊 Sonidos",

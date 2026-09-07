@@ -58,8 +58,63 @@ function _amLocalFileCount(map) {
   return n;
 }
 
+// Materialquelle: "online" (Webspace) | "offline" (eingebetteter Bestand).
+// Default online; NICHT persistiert (Reload -> online).
+var amSourceMode = "online";
+
+function amGetSourceMode() { return amSourceMode; }
+
+// Nachgeladene Embed-Bundles (Lazy). Der Zaehler geht in _amDataStamp,
+// damit amCollectItems nach einem Nachladen neu baut.
+var _amEmbedLoaded = new Set();   // Basissprachen, deren Bundle geladen ist
+var _amEmbedLoading = new Set();  // gerade ladend (verhindert Doppel-Load)
+
+function amEnsureEmbedBundle(lang) {
+  var base = (typeof _amBaseLang === "function") ? _amBaseLang(lang) : String(lang || "").split("-")[0];
+  if (!base) return;
+  if (_amEmbedLoaded.has(base) || _amEmbedLoading.has(base)) return;
+  _amEmbedLoading.add(base);
+  var s = document.createElement("script");
+  s.src = "assets/audio-embed/" + base + ".js";
+  s.onload = function () {
+    _amEmbedLoading.delete(base);
+    _amEmbedLoaded.add(base);
+    amAfterSourceChange();   // Stempel hat sich geaendert -> Listen neu
+  };
+  s.onerror = function () {
+    _amEmbedLoading.delete(base);
+    // Kein Bundle fuer diese Sprache: kein Fehler, offline bleibt leer.
+    console.warn("[audio-source] kein Embed-Bundle fuer", base);
+  };
+  document.head.appendChild(s);
+}
+
+// UI/Cache nach einer Quellen-/Bundle-Aenderung auffrischen.
+function amAfterSourceChange() {
+  if (typeof sUpdateUI === "function") sUpdateUI();
+  if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
+  if (typeof plNoiseRefreshUI === "function") plNoiseRefreshUI();
+  if (typeof plBookRefreshUI === "function") plBookRefreshUI();
+}
+
+// Zentraler Setter. Aendert den Modus, laedt im Offline-Modus das Bundle
+// der aktuellen Inhalts-Sprache lazy nach (§3), und loest den
+// UI-Refresh der Kategorien aus. Kein anderer Ort schreibt amSourceMode.
+function amSetSourceMode(mode) {
+  if (mode !== "online" && mode !== "offline") return;
+  if (mode === amSourceMode) return;
+  amSourceMode = mode;
+  if (mode === "offline") {
+    var lang = (typeof plGetContentLang === "function") ? plGetContentLang() : "de";
+    amEnsureEmbedBundle(lang);   // async; refresht selbst nach dem Laden
+  }
+  amAfterSourceChange();
+}
+
 function _amDataStamp() {
   return [
+    amSourceMode,
+    _amEmbedLoaded.size,
     _amWebspace.loaded.size,
     _amLocalFileCount(_amMusicLocalFolders),
     _amLocalFileCount(_amNoiseLocalFolders),
@@ -80,7 +135,12 @@ function _amCacheGet(key, build) {
 function amCollectItems(category) {
   return _amCacheGet("items:" + category, function () {
   const out = [];
+  const mode = amSourceMode;   // "online" | "offline"
   for (const p of AM_PROVIDERS) {
+    // Quellen-Modus: online blendet embed aus, offline blendet webspace aus.
+    // Uploads/generierte Provider sind in beiden Modi sichtbar.
+    if (mode === "online"  && p.id === "embed")    continue;
+    if (mode === "offline" && p.id === "webspace") continue;
     try {
       const items = p.listItems(category);
       if (Array.isArray(items)) {

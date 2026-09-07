@@ -2093,6 +2093,14 @@ const PL_SOURCE_TABS = [
   { key: "hoerbuecher", btnId: "plSrcAudiobookBtn", subId: "plSubAudiobook" }
 ];
 
+function plUpdNetSourceUI() {
+  var mode = (typeof amGetSourceMode === "function") ? amGetSourceMode() : "online";
+  var on  = document.getElementById("plNetOnlineBtn");
+  var off = document.getElementById("plNetOfflineBtn");
+  if (on)  on.classList.toggle("active", mode === "online");
+  if (off) off.classList.toggle("active", mode === "offline");
+}
+
 function plUpdSourceUI() {
   PL_SOURCE_TABS.forEach(function (tab) {
     const on = (plActiveSource === tab.key);
@@ -2259,6 +2267,12 @@ function _plAutoAdvCancel() {
 document.addEventListener("click",      _plNoteInteraction, true);
 document.addEventListener("keydown",    _plNoteInteraction, true);
 document.addEventListener("touchstart", _plNoteInteraction, true);
+
+// BA569: Online/Offline-Schalter
+document.getElementById("plNetOnlineBtn").addEventListener("click",
+  function () { amSetSourceMode("online"); plUpdNetSourceUI(); });
+document.getElementById("plNetOfflineBtn").addEventListener("click",
+  function () { amSetSourceMode("offline"); plUpdNetSourceUI(); });
 
 // BA192: Quellen-Top-Toggle
 document.getElementById("plSrcMusicBtn").addEventListener("click",
@@ -2755,6 +2769,11 @@ function plBuildFilterChain(catDecl) {
 function plSetContentLang(code) {
   if (typeof plContentLang !== "undefined") plContentLang = code;
   try { localStorage.setItem("ci-lb-content-lang", code); } catch (e) {}
+  // Offline: Bundle der neuen Sprache lazy nachladen (async, refresht selbst).
+  if (typeof amGetSourceMode === "function" && amGetSourceMode() === "offline"
+      && typeof amEnsureEmbedBundle === "function") {
+    amEnsureEmbedBundle(code);
+  }
   if (typeof sUpdateUI === "function") sUpdateUI();
   if (typeof plBookRefreshUI === "function") plBookRefreshUI();
 }
@@ -3298,6 +3317,7 @@ function plMusicSetSelected(id) {
 plMusicRefreshUI();
 
 // Erstaufbau
+plUpdNetSourceUI();
 plUpdSourceUI();
 plUpdTransportUI();
 plUpdDisplay();
