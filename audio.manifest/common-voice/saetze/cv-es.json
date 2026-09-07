@@ -22,8 +22,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 4.01
+      }
     },
     {
       "id": "18311272",
@@ -34,8 +33,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 5.66
+      }
     },
     {
       "id": "18311404",
@@ -46,8 +44,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 4.7
+      }
     },
     {
       "id": "18311447",
@@ -59,8 +56,7 @@
         "accent": "España: Sur peninsular (Andalucia, Extremadura, Murcia)",
         "up_votes": 3,
         "down_votes": 1
-      },
-      "duration": 5.5
+      }
     },
     {
       "id": "18311715",
@@ -71,8 +67,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 3.79
+      }
     },
     {
       "id": "18312006",
@@ -83,8 +78,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 5.26
+      }
     },
     {
       "id": "18313965",
@@ -96,8 +90,7 @@
         "accent": "España: Islas Canarias",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.08
+      }
     },
     {
       "id": "18317307",
@@ -108,8 +101,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 5.02
+      }
     },
     {
       "id": "18319376",
@@ -120,8 +112,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 4.42
+      }
     },
     {
       "id": "18320021",
@@ -132,8 +123,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 4.85
+      }
     }
   ]
 }

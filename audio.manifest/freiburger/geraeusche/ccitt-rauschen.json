@@ -17,8 +17,7 @@
         "stationary": "y",
         "loop_safe": "y",
         "spectrum": "bandpass"
-      },
-      "duration": 29.93
+      }
     }
   ]
 }

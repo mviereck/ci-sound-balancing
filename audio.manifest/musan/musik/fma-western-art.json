@@ -25,8 +25,7 @@
         "track_no": 1,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/"
-      },
-      "duration": 297.25
+      }
     },
     {
       "id": "music-fma-wa-0006",
@@ -45,8 +44,7 @@
         "track_no": 2,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/"
-      },
-      "duration": 157.42
+      }
     },
     {
       "id": "music-fma-wa-0009",
@@ -65,8 +63,7 @@
         "track_no": 3,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/"
-      },
-      "duration": 238.64
+      }
     },
     {
       "id": "music-fma-wa-0012",
@@ -85,8 +82,7 @@
         "track_no": 4,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/"
-      },
-      "duration": 200.55
+      }
     },
     {
       "id": "music-fma-wa-0015",
@@ -105,8 +101,7 @@
         "track_no": 5,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/"
-      },
-      "duration": 343.41
+      }
     },
     {
       "id": "music-fma-wa-0004",
@@ -125,8 +120,7 @@
         "track_no": 1,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
-      },
-      "duration": 273.64
+      }
     },
     {
       "id": "music-fma-wa-0008",
@@ -145,8 +139,7 @@
         "track_no": 2,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
-      },
-      "duration": 334.79
+      }
     },
     {
       "id": "music-fma-wa-0011",
@@ -155,7 +148,7 @@
       "tags": {
         "genres": [
           "westernart",
-          "mondernist"
+          "modernist"
         ],
         "vocal": "n",
         "license": "CC-BY-SA-3.0",
@@ -165,8 +158,7 @@
         "track_no": 3,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
-      },
-      "duration": 127.28
+      }
     },
     {
       "id": "music-fma-wa-0013",
@@ -185,8 +177,7 @@
         "track_no": 4,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
-      },
-      "duration": 355.43
+      }
     },
     {
       "id": "music-fma-wa-0016",
@@ -205,8 +196,7 @@
         "track_no": 5,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
-      },
-      "duration": 481.05
+      }
     },
     {
       "id": "music-fma-wa-0017",
@@ -225,8 +215,7 @@
         "track_no": 6,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
-      },
-      "duration": 172.78
+      }
     },
     {
       "id": "music-fma-wa-0019",
@@ -245,8 +234,7 @@
         "track_no": 7,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
-      },
-      "duration": 146.16
+      }
     },
     {
       "id": "music-fma-wa-0021",
@@ -265,8 +253,7 @@
         "track_no": 8,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
-      },
-      "duration": 203.11
+      }
     },
     {
       "id": "music-fma-wa-0023",
@@ -285,8 +272,7 @@
         "track_no": 9,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
-      },
-      "duration": 205.12
+      }
     },
     {
       "id": "music-fma-wa-0005",
@@ -305,8 +291,7 @@
         "track_no": 1,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
-      },
-      "duration": 202.93
+      }
     },
     {
       "id": "music-fma-wa-0007",
@@ -325,8 +310,7 @@
         "track_no": 2,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
-      },
-      "duration": 411.7
+      }
     },
     {
       "id": "music-fma-wa-0010",
@@ -345,8 +329,7 @@
         "track_no": 3,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
-      },
-      "duration": 319.2
+      }
     },
     {
       "id": "music-fma-wa-0014",
@@ -365,8 +348,7 @@
         "track_no": 4,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
-      },
-      "duration": 135.37
+      }
     },
     {
       "id": "music-fma-wa-0018",
@@ -385,8 +367,7 @@
         "track_no": 5,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
-      },
-      "duration": 153.19
+      }
     },
     {
       "id": "music-fma-wa-0020",
@@ -405,8 +386,7 @@
         "track_no": 6,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
-      },
-      "duration": 271.44
+      }
     },
     {
       "id": "music-fma-wa-0022",
@@ -425,8 +405,7 @@
         "track_no": 7,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
-      },
-      "duration": 446.78
+      }
     },
     {
       "id": "music-fma-wa-0024",
@@ -445,8 +424,7 @@
         "track_no": 8,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
-      },
-      "duration": 174.01
+      }
     },
     {
       "id": "music-fma-wa-0025",
@@ -465,8 +443,7 @@
         "track_no": 9,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
-      },
-      "duration": 242.37
+      }
     },
     {
       "id": "music-fma-wa-0026",
@@ -485,8 +462,7 @@
         "track_no": 10,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
-      },
-      "duration": 136.03
+      }
     },
     {
       "id": "music-fma-wa-0027",
@@ -505,8 +481,7 @@
         "track_no": 11,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
-      },
-      "duration": 102.41
+      }
     },
     {
       "id": "music-fma-wa-0028",
@@ -525,8 +500,7 @@
         "track_no": 12,
         "album_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/",
         "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
-      },
-      "duration": 134.96
+      }
     },
     {
       "id": "music-fma-wa-0047",
@@ -544,8 +518,7 @@
         "performer": "John Harrison with the Wichita State University Chamber Players",
         "track_no": 1,
         "album_url": "http://freemusicarchive.org/music/John_Harrison_with_the_Wichita_State_University_Chamber_Players/The_Four_Seasons_Vivaldi/"
-      },
-      "duration": 215.33
+      }
     },
     {
       "id": "music-fma-wa-0048",
@@ -563,8 +536,7 @@
         "performer": "John Harrison with the Wichita State University Chamber Players",
         "track_no": 2,
         "album_url": "http://freemusicarchive.org/music/John_Harrison_with_the_Wichita_State_University_Chamber_Players/The_Four_Seasons_Vivaldi/"
-      },
-      "duration": 254.17
+      }
     },
     {
       "id": "music-fma-wa-0049",
@@ -582,8 +554,7 @@
         "performer": "John Harrison with the Wichita State University Chamber Players",
         "track_no": 3,
         "album_url": "http://freemusicarchive.org/music/John_Harrison_with_the_Wichita_State_University_Chamber_Players/The_Four_Seasons_Vivaldi/"
-      },
-      "duration": 107.77
+      }
     },
     {
       "id": "music-fma-wa-0050",
@@ -601,8 +572,7 @@
         "performer": "John Harrison with the Wichita State University Chamber Players",
         "track_no": 4,
         "album_url": "http://freemusicarchive.org/music/John_Harrison_with_the_Wichita_State_University_Chamber_Players/The_Four_Seasons_Vivaldi/"
-      },
-      "duration": 159.01
+      }
     },
     {
       "id": "music-fma-wa-0051",
@@ -620,8 +590,7 @@
         "performer": "John Harrison with the Wichita State University Chamber Players",
         "track_no": 5,
         "album_url": "http://freemusicarchive.org/music/John_Harrison_with_the_Wichita_State_University_Chamber_Players/The_Four_Seasons_Vivaldi/"
-      },
-      "duration": 152.77
+      }
     },
     {
       "id": "music-fma-wa-0052",
@@ -639,8 +608,7 @@
         "performer": "John Harrison with the Wichita State University Chamber Players",
         "track_no": 6,
         "album_url": "http://freemusicarchive.org/music/John_Harrison_with_the_Wichita_State_University_Chamber_Players/The_Four_Seasons_Vivaldi/"
-      },
-      "duration": 208.9
+      }
     },
     {
       "id": "music-fma-wa-0053",
@@ -658,8 +626,7 @@
         "performer": "John Harrison with the Wichita State University Chamber Players",
         "track_no": 7,
         "album_url": "http://freemusicarchive.org/music/John_Harrison_with_the_Wichita_State_University_Chamber_Players/The_Four_Seasons_Vivaldi/"
-      },
-      "duration": 132.39
+      }
     },
     {
       "id": "music-fma-wa-0054",
@@ -677,8 +644,7 @@
         "performer": "John Harrison with the Wichita State University Chamber Players",
         "track_no": 8,
         "album_url": "http://freemusicarchive.org/music/John_Harrison_with_the_Wichita_State_University_Chamber_Players/The_Four_Seasons_Vivaldi/"
-      },
-      "duration": 208.04
+      }
     },
     {
       "id": "music-fma-wa-0071",
@@ -693,8 +659,7 @@
         "license": "PD",
         "album": "Skidmore",
         "composer": "Mussorgsky"
-      },
-      "duration": 101.65
+      }
     },
     {
       "id": "music-fma-wa-0072",
@@ -713,8 +678,7 @@
         "track_no": 1,
         "album_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/",
         "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
-      },
-      "duration": 163.66
+      }
     },
     {
       "id": "music-fma-wa-0073",
@@ -733,8 +697,7 @@
         "track_no": 2,
         "album_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/",
         "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
-      },
-      "duration": 58.21
+      }
     },
     {
       "id": "music-fma-wa-0074",
@@ -753,8 +716,7 @@
         "track_no": 3,
         "album_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/",
         "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
-      },
-      "duration": 63.68
+      }
     },
     {
       "id": "music-fma-wa-0075",
@@ -773,8 +735,7 @@
         "track_no": 4,
         "album_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/",
         "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
-      },
-      "duration": 140.67
+      }
     },
     {
       "id": "music-fma-wa-0076",
@@ -793,8 +754,7 @@
         "track_no": 5,
         "album_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/",
         "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
-      },
-      "duration": 42.77
+      }
     },
     {
       "id": "music-fma-wa-0077",
@@ -813,8 +773,7 @@
         "track_no": 6,
         "album_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/",
         "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
-      },
-      "duration": 80.07
+      }
     },
     {
       "id": "music-fma-wa-0078",
@@ -833,8 +792,7 @@
         "track_no": 7,
         "album_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/",
         "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
-      },
-      "duration": 130.25
+      }
     },
     {
       "id": "music-fma-wa-0079",
@@ -853,8 +811,7 @@
         "track_no": 8,
         "album_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/",
         "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
-      },
-      "duration": 100.18
+      }
     },
     {
       "id": "music-fma-wa-0080",
@@ -873,8 +830,7 @@
         "track_no": 9,
         "album_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/",
         "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
-      },
-      "duration": 113.24
+      }
     },
     {
       "id": "music-fma-wa-0081",
@@ -893,8 +849,7 @@
         "track_no": 10,
         "album_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/",
         "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
-      },
-      "duration": 212.86
+      }
     },
     {
       "id": "music-fma-wa-0082",
@@ -913,8 +868,7 @@
         "track_no": 11,
         "album_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/",
         "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
-      },
-      "duration": 329.43
+      }
     },
     {
       "id": "music-fma-wa-0044",
@@ -933,8 +887,7 @@
         "track_no": 1,
         "album_url": "http://freemusicarchive.org/music/Jason_Weinberger__the_WCFSO/Jason_Weinberger__the_Waterloo-Cedar_Falls_Symphony_Orchestra/",
         "license_url": "http://freemusicarchive.org/music/Jason_Weinberger__the_WCFSO/Jason_Weinberger__the_Waterloo-Cedar_Falls_Symphony_Orchestra/"
-      },
-      "duration": 720.05
+      }
     },
     {
       "id": "music-fma-wa-0045",
@@ -953,8 +906,7 @@
         "track_no": 2,
         "album_url": "http://freemusicarchive.org/music/Jason_Weinberger__the_WCFSO/Jason_Weinberger__the_Waterloo-Cedar_Falls_Symphony_Orchestra/",
         "license_url": "http://freemusicarchive.org/music/Jason_Weinberger__the_WCFSO/Jason_Weinberger__the_Waterloo-Cedar_Falls_Symphony_Orchestra/"
-      },
-      "duration": 366.19
+      }
     },
     {
       "id": "music-fma-wa-0046",
@@ -973,8 +925,7 @@
         "track_no": 3,
         "album_url": "http://freemusicarchive.org/music/Jason_Weinberger__the_WCFSO/Jason_Weinberger__the_Waterloo-Cedar_Falls_Symphony_Orchestra/",
         "license_url": "http://freemusicarchive.org/music/Jason_Weinberger__the_WCFSO/Jason_Weinberger__the_Waterloo-Cedar_Falls_Symphony_Orchestra/"
-      },
-      "duration": 426.3
+      }
     },
     {
       "id": "music-fma-wa-0056",
@@ -993,8 +944,7 @@
         "track_no": 1,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 406.18
+      }
     },
     {
       "id": "music-fma-wa-0063",
@@ -1013,8 +963,7 @@
         "track_no": 2,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 178.68
+      }
     },
     {
       "id": "music-fma-wa-0055",
@@ -1033,8 +982,7 @@
         "track_no": 3,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 21.53
+      }
     },
     {
       "id": "music-fma-wa-0064",
@@ -1053,8 +1001,7 @@
         "track_no": 4,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 237.54
+      }
     },
     {
       "id": "music-fma-wa-0057",
@@ -1073,8 +1020,7 @@
         "track_no": 5,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 355.69
+      }
     },
     {
       "id": "music-fma-wa-0065",
@@ -1093,8 +1039,7 @@
         "track_no": 6,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 521.1
+      }
     },
     {
       "id": "music-fma-wa-0058",
@@ -1113,8 +1058,7 @@
         "track_no": 7,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 84.99
+      }
     },
     {
       "id": "music-fma-wa-0066",
@@ -1133,8 +1077,7 @@
         "track_no": 8,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 128.37
+      }
     },
     {
       "id": "music-fma-wa-0059",
@@ -1153,8 +1096,7 @@
         "track_no": 9,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 152.74
+      }
     },
     {
       "id": "music-fma-wa-0067",
@@ -1173,8 +1115,7 @@
         "track_no": 10,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 119.88
+      }
     },
     {
       "id": "music-fma-wa-0060",
@@ -1193,8 +1134,7 @@
         "track_no": 11,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 437.61
+      }
     },
     {
       "id": "music-fma-wa-0068",
@@ -1213,8 +1153,7 @@
         "track_no": 12,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 86.05
+      }
     },
     {
       "id": "music-fma-wa-0061",
@@ -1233,8 +1172,7 @@
         "track_no": 13,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 128.89
+      }
     },
     {
       "id": "music-fma-wa-0070",
@@ -1253,8 +1191,7 @@
         "track_no": 14,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 139.04
+      }
     },
     {
       "id": "music-fma-wa-0062",
@@ -1273,8 +1210,7 @@
         "track_no": 15,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 353.6
+      }
     },
     {
       "id": "music-fma-wa-0069",
@@ -1293,8 +1229,7 @@
         "track_no": 16,
         "album_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler",
         "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
-      },
-      "duration": 102.41
+      }
     },
     {
       "id": "music-fma-wa-0033",
@@ -1313,8 +1248,7 @@
         "track_no": 1,
         "album_url": "http://freemusicarchive.org/music/Daniel_Veesey/",
         "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
-      },
-      "duration": 321.89
+      }
     },
     {
       "id": "music-fma-wa-0035",
@@ -1333,8 +1267,7 @@
         "track_no": 2,
         "album_url": "http://freemusicarchive.org/music/Daniel_Veesey/",
         "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
-      },
-      "duration": 340.38
+      }
     },
     {
       "id": "music-fma-wa-0037",
@@ -1353,8 +1286,7 @@
         "track_no": 3,
         "album_url": "http://freemusicarchive.org/music/Daniel_Veesey/",
         "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
-      },
-      "duration": 181.64
+      }
     },
     {
       "id": "music-fma-wa-0039",
@@ -1373,8 +1305,7 @@
         "track_no": 4,
         "album_url": "http://freemusicarchive.org/music/Daniel_Veesey/",
         "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
-      },
-      "duration": 446.6
+      }
     },
     {
       "id": "music-fma-wa-0032",
@@ -1393,8 +1324,7 @@
         "track_no": 5,
         "album_url": "http://freemusicarchive.org/music/Daniel_Veesey/",
         "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
-      },
-      "duration": 450.96
+      }
     },
     {
       "id": "music-fma-wa-0034",
@@ -1413,8 +1343,7 @@
         "track_no": 6,
         "album_url": "http://freemusicarchive.org/music/Daniel_Veesey/",
         "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
-      },
-      "duration": 646.15
+      }
     },
     {
       "id": "music-fma-wa-0036",
@@ -1433,8 +1362,7 @@
         "track_no": 7,
         "album_url": "http://freemusicarchive.org/music/Daniel_Veesey/",
         "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
-      },
-      "duration": 198.72
+      }
     },
     {
       "id": "music-fma-wa-0038",
@@ -1453,8 +1381,7 @@
         "track_no": 8,
         "album_url": "http://freemusicarchive.org/music/Daniel_Veesey/",
         "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
-      },
-      "duration": 402.63
+      }
     },
     {
       "id": "music-fma-wa-0042",
@@ -1473,8 +1400,7 @@
         "track_no": 9,
         "album_url": "http://freemusicarchive.org/music/Daniel_Veesey/",
         "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
-      },
-      "duration": 208.91
+      }
     },
     {
       "id": "music-fma-wa-0041",
@@ -1493,8 +1419,7 @@
         "track_no": 10,
         "album_url": "http://freemusicarchive.org/music/Daniel_Veesey/",
         "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
-      },
-      "duration": 134.96
+      }
     },
     {
       "id": "music-fma-wa-0043",
@@ -1514,8 +1439,7 @@
         "track_no": 11,
         "album_url": "http://freemusicarchive.org/music/Daniel_Veesey/",
         "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
-      },
-      "duration": 341.24
+      }
     },
     {
       "id": "music-fma-wa-0040",
@@ -1535,8 +1459,7 @@
         "track_no": 12,
         "album_url": "http://freemusicarchive.org/music/Daniel_Veesey/",
         "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
-      },
-      "duration": 360.34
+      }
     },
     {
       "id": "music-fma-wa-0002",
@@ -1555,8 +1478,7 @@
         "track_no": 1,
         "album_url": "http://freemusicarchive.org/music/Aaron_Dunn/Muzio_Clementis_Sonatina_No_1_in_C_Major",
         "license_url": "http://freemusicarchive.org/music/Aaron_Dunn/Muzio_Clementis_Sonatina_No_1_in_C_Major"
-      },
-      "duration": 73.91
+      }
     },
     {
       "id": "music-fma-wa-0000",
@@ -1575,8 +1497,7 @@
         "track_no": 2,
         "album_url": "http://freemusicarchive.org/music/Aaron_Dunn/Muzio_Clementis_Sonatina_No_1_in_C_Major",
         "license_url": "http://freemusicarchive.org/music/Aaron_Dunn/Muzio_Clementis_Sonatina_No_1_in_C_Major"
-      },
-      "duration": 96.63
+      }
     },
     {
       "id": "music-fma-wa-0001",
@@ -1595,8 +1516,7 @@
         "track_no": 3,
         "album_url": "http://freemusicarchive.org/music/Aaron_Dunn/Muzio_Clementis_Sonatina_No_1_in_C_Major",
         "license_url": "http://freemusicarchive.org/music/Aaron_Dunn/Muzio_Clementis_Sonatina_No_1_in_C_Major"
-      },
-      "duration": 97.23
+      }
     },
     {
       "id": "music-fma-wa-0029",
@@ -1615,8 +1535,7 @@
         "track_no": 1,
         "album_url": "http://freemusicarchive.org/music/Brendan_Kinsella/Mozarts_Sonata_No_13_in_B-flat_Major/",
         "license_url": "http://freemusicarchive.org/music/Brendan_Kinsella/Mozarts_Piano_Sonata_in_B-flat_Major/"
-      },
-      "duration": 397.64
+      }
     },
     {
       "id": "music-fma-wa-0031",
@@ -1635,8 +1554,7 @@
         "track_no": 2,
         "album_url": "http://freemusicarchive.org/music/Brendan_Kinsella/Mozarts_Sonata_No_13_in_B-flat_Major/",
         "license_url": "http://freemusicarchive.org/music/Brendan_Kinsella/Mozarts_Piano_Sonata_in_B-flat_Major/"
-      },
-      "duration": 375.88
+      }
     },
     {
       "id": "music-fma-wa-0030",
@@ -1655,8 +1573,7 @@
         "track_no": 3,
         "album_url": "http://freemusicarchive.org/music/Brendan_Kinsella/Mozarts_Sonata_No_13_in_B-flat_Major/",
         "license_url": "http://freemusicarchive.org/music/Brendan_Kinsella/Mozarts_Piano_Sonata_in_B-flat_Major/"
-      },
-      "duration": 333.07
+      }
     },
     {
       "id": "music-fma-wa-0083",
@@ -1675,8 +1592,7 @@
         "track_no": 1,
         "album_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti",
         "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
-      },
-      "duration": 160.27
+      }
     },
     {
       "id": "music-fma-wa-0088",
@@ -1695,8 +1611,7 @@
         "track_no": 2,
         "album_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti",
         "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
-      },
-      "duration": 59.02
+      }
     },
     {
       "id": "music-fma-wa-0084",
@@ -1715,8 +1630,7 @@
         "track_no": 3,
         "album_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti",
         "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
-      },
-      "duration": 223.9
+      }
     },
     {
       "id": "music-fma-wa-0089",
@@ -1735,8 +1649,7 @@
         "track_no": 4,
         "album_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti",
         "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
-      },
-      "duration": 138.53
+      }
     },
     {
       "id": "music-fma-wa-0085",
@@ -1755,8 +1668,7 @@
         "track_no": 5,
         "album_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti",
         "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
-      },
-      "duration": 153.48
+      }
     },
     {
       "id": "music-fma-wa-0090",
@@ -1775,8 +1687,7 @@
         "track_no": 6,
         "album_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti",
         "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
-      },
-      "duration": 169.28
+      }
     },
     {
       "id": "music-fma-wa-0086",
@@ -1795,8 +1706,7 @@
         "track_no": 7,
         "album_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti",
         "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
-      },
-      "duration": 99.38
+      }
     },
     {
       "id": "music-fma-wa-0091",
@@ -1815,8 +1725,7 @@
         "track_no": 8,
         "album_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti",
         "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
-      },
-      "duration": 129.76
+      }
     },
     {
       "id": "music-fma-wa-0087",
@@ -1835,8 +1744,7 @@
         "track_no": 9,
         "album_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti",
         "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
-      },
-      "duration": 161.99
+      }
     },
     {
       "id": "music-fma-wa-0092",
@@ -1855,8 +1763,7 @@
         "track_no": 10,
         "album_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti",
         "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
-      },
-      "duration": 154.26
+      }
     }
   ]
 }

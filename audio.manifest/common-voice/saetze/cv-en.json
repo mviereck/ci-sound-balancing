@@ -22,8 +22,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 3.14
+      }
     },
     {
       "id": "103631",
@@ -34,8 +33,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 6.26
+      }
     },
     {
       "id": "104927",
@@ -46,8 +44,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 3.6
+      }
     },
     {
       "id": "104986",
@@ -58,8 +55,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 2.86
+      }
     },
     {
       "id": "106341",
@@ -70,8 +66,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 7.54
+      }
     },
     {
       "id": "106959",
@@ -82,8 +77,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 6.6
+      }
     },
     {
       "id": "10998",
@@ -94,8 +88,7 @@
         "gender": "u",
         "up_votes": 4,
         "down_votes": 0
-      },
-      "duration": 3.86
+      }
     },
     {
       "id": "110708",
@@ -106,8 +99,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 3.41
+      }
     },
     {
       "id": "110778",
@@ -119,8 +111,7 @@
         "accent": "United States English",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 4.01
+      }
     },
     {
       "id": "1108",
@@ -131,8 +122,7 @@
         "gender": "u",
         "up_votes": 5,
         "down_votes": 0
-      },
-      "duration": 9.02
+      }
     }
   ]
 }

@@ -26,8 +26,7 @@
         "original_start_s": 71.49,
         "original_end_s": 83.4,
         "chapter_no": 6
-      },
-      "duration": 11.92
+      }
     },
     {
       "id": "2154_2567_000001",
@@ -41,8 +40,7 @@
         "original_start_s": 14.11,
         "original_end_s": 29.4,
         "chapter_no": 6
-      },
-      "duration": 15.3
+      }
     },
     {
       "id": "2154_2567_000002",
@@ -56,8 +54,7 @@
         "original_start_s": 29.4,
         "original_end_s": 44.89,
         "chapter_no": 6
-      },
-      "duration": 15.5
+      }
     },
     {
       "id": "2154_2567_000003",
@@ -71,8 +68,7 @@
         "original_start_s": 83.4,
         "original_end_s": 100.01,
         "chapter_no": 6
-      },
-      "duration": 16.62
+      }
     },
     {
       "id": "2154_2567_000004",
@@ -86,8 +82,7 @@
         "original_start_s": 64.87,
         "original_end_s": 78.88,
         "chapter_no": 6
-      },
-      "duration": 14.02
+      }
     },
     {
       "id": "2154_2567_000005",
@@ -101,8 +96,7 @@
         "original_start_s": 14.26,
         "original_end_s": 24.44,
         "chapter_no": 6
-      },
-      "duration": 10.19
+      }
     },
     {
       "id": "2154_2567_000006",
@@ -116,8 +110,7 @@
         "original_start_s": 54.01,
         "original_end_s": 71.49,
         "chapter_no": 6
-      },
-      "duration": 17.49
+      }
     },
     {
       "id": "2154_2567_000007",
@@ -131,8 +124,7 @@
         "original_start_s": 44.89,
         "original_end_s": 64.87,
         "chapter_no": 6
-      },
-      "duration": 19.99
+      }
     },
     {
       "id": "2154_2567_000008",
@@ -146,8 +138,7 @@
         "original_start_s": 36.32,
         "original_end_s": 54.01,
         "chapter_no": 6
-      },
-      "duration": 17.7
+      }
     },
     {
       "id": "2154_2567_000009",
@@ -161,8 +152,7 @@
         "original_start_s": 100.01,
         "original_end_s": 118.36,
         "chapter_no": 6
-      },
-      "duration": 18.36
+      }
     }
   ]
 }

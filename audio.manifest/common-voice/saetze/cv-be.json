@@ -22,8 +22,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 7.74
+      }
     },
     {
       "id": "26762418",
@@ -34,8 +33,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 7.85
+      }
     },
     {
       "id": "26765765",
@@ -46,8 +44,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 5.51
+      }
     },
     {
       "id": "26765872",
@@ -58,8 +55,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 7.13
+      }
     },
     {
       "id": "26766016",
@@ -70,8 +66,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 8.28
+      }
     },
     {
       "id": "26766083",
@@ -82,8 +77,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 6.23
+      }
     },
     {
       "id": "26766261",
@@ -94,8 +88,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.61
+      }
     },
     {
       "id": "26766302",
@@ -106,8 +99,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 5.8
+      }
     },
     {
       "id": "26766547",
@@ -118,8 +110,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 5.62
+      }
     },
     {
       "id": "26766622",
@@ -130,8 +121,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 8.28
+      }
     }
   ]
 }

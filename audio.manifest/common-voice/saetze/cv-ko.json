@@ -22,8 +22,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 9.9
+      }
     },
     {
       "id": "36880045",
@@ -35,8 +34,7 @@
         "accent": "서울",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 7.06
+      }
     },
     {
       "id": "36880067",
@@ -48,8 +46,7 @@
         "accent": "서울",
         "up_votes": 4,
         "down_votes": 0
-      },
-      "duration": 7.78
+      }
     },
     {
       "id": "35844225",
@@ -60,8 +57,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 9.58
+      }
     },
     {
       "id": "36880207",
@@ -73,8 +69,7 @@
         "accent": "서울",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 9.29
+      }
     },
     {
       "id": "36880408",
@@ -86,8 +81,7 @@
         "accent": "서울",
         "up_votes": 4,
         "down_votes": 0
-      },
-      "duration": 5.87
+      }
     },
     {
       "id": "35891712",
@@ -98,8 +92,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 8.78
+      }
     },
     {
       "id": "35890848",
@@ -110,8 +103,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 8.21
+      }
     },
     {
       "id": "36880081",
@@ -123,8 +115,7 @@
         "accent": "서울",
         "up_votes": 4,
         "down_votes": 0
-      },
-      "duration": 3.6
+      }
     },
     {
       "id": "36880358",
@@ -136,8 +127,7 @@
         "accent": "서울",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.79
+      }
     },
     {
       "id": "35845211",
@@ -148,8 +138,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 6.16
+      }
     },
     {
       "id": "35971984",
@@ -160,8 +149,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 6.05
+      }
     },
     {
       "id": "36985085",
@@ -172,8 +160,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 7.38
+      }
     }
   ]
 }

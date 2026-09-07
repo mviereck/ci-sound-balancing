@@ -2,8 +2,8 @@
   "schema": "ci-sb-corpus/2",
   "kind": "collection",
   "category": "saetze",
-  "title": "Common Voice — nan-tw",
-  "lang": "nan-tw",
+  "title": "Common Voice — nan-TW",
+  "lang": "nan-TW",
   "license": "CC0-1.0",
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
@@ -22,8 +22,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 2.88
+      }
     },
     {
       "id": "32167632",
@@ -35,8 +34,7 @@
         "accent": "偏漳腔,桃園",
         "up_votes": 6,
         "down_votes": 0
-      },
-      "duration": 2.74
+      }
     },
     {
       "id": "32332804",
@@ -48,8 +46,7 @@
         "accent": "漳州腔",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 3.78
+      }
     },
     {
       "id": "38073544",
@@ -61,8 +58,7 @@
         "accent": "台北腔",
         "up_votes": 4,
         "down_votes": 0
-      },
-      "duration": 2.38
+      }
     },
     {
       "id": "32136332",
@@ -74,8 +70,7 @@
         "accent": "偏漳腔,桃園",
         "up_votes": 6,
         "down_votes": 0
-      },
-      "duration": 2.38
+      }
     },
     {
       "id": "32146726",
@@ -87,8 +82,7 @@
         "accent": "偏漳腔,桃園",
         "up_votes": 6,
         "down_votes": 0
-      },
-      "duration": 3.1
+      }
     },
     {
       "id": "32354655",
@@ -100,8 +94,7 @@
         "accent": "漳州腔",
         "up_votes": 4,
         "down_votes": 0
-      },
-      "duration": 1.91
+      }
     },
     {
       "id": "32332810",
@@ -113,8 +106,7 @@
         "accent": "漳州腔",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 2.52
+      }
     },
     {
       "id": "32136184",
@@ -126,8 +118,7 @@
         "accent": "偏漳腔,桃園",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 1.98
+      }
     },
     {
       "id": "30911700",
@@ -138,8 +129,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 2.16
+      }
     }
   ]
 }

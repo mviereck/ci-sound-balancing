@@ -22,8 +22,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 4.94
+      }
     },
     {
       "id": "17301876",
@@ -34,8 +33,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 3.14
+      }
     },
     {
       "id": "17301909",
@@ -46,8 +44,7 @@
         "gender": "u",
         "up_votes": 4,
         "down_votes": 0
-      },
-      "duration": 5.47
+      }
     },
     {
       "id": "17302240",
@@ -58,8 +55,7 @@
         "gender": "u",
         "up_votes": 4,
         "down_votes": 0
-      },
-      "duration": 5.33
+      }
     },
     {
       "id": "17303225",
@@ -70,8 +66,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 1
-      },
-      "duration": 3.7
+      }
     },
     {
       "id": "17303270",
@@ -82,8 +77,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 3.96
+      }
     },
     {
       "id": "17303636",
@@ -94,8 +88,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 4.99
+      }
     },
     {
       "id": "17303641",
@@ -107,8 +100,7 @@
         "accent": "Français de France",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 4.61
+      }
     },
     {
       "id": "17304146",
@@ -120,8 +112,7 @@
         "accent": "Français de France",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 3.0
+      }
     },
     {
       "id": "17304740",
@@ -133,8 +124,7 @@
         "accent": "Français de France",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 3.89
+      }
     }
   ]
 }

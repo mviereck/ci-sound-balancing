@@ -26,8 +26,7 @@
         "original_start_s": 40.02,
         "original_end_s": 52.85,
         "chapter_no": 73
-      },
-      "duration": 12.84
+      }
     },
     {
       "id": "11266_9358_000001",
@@ -41,8 +40,7 @@
         "original_start_s": 94.06,
         "original_end_s": 111.95,
         "chapter_no": 75
-      },
-      "duration": 17.9
+      }
     },
     {
       "id": "11266_9358_000002",
@@ -56,8 +54,7 @@
         "original_start_s": 13.88,
         "original_end_s": 25.7,
         "chapter_no": 75
-      },
-      "duration": 11.83
+      }
     },
     {
       "id": "11266_9358_000003",
@@ -71,8 +68,7 @@
         "original_start_s": 52.85,
         "original_end_s": 62.95,
         "chapter_no": 73
-      },
-      "duration": 10.11
+      }
     },
     {
       "id": "11266_9358_000004",
@@ -86,8 +82,7 @@
         "original_start_s": 26.39,
         "original_end_s": 40.02,
         "chapter_no": 73
-      },
-      "duration": 13.64
+      }
     },
     {
       "id": "11266_9358_000005",
@@ -101,8 +96,7 @@
         "original_start_s": 51.33,
         "original_end_s": 64.38,
         "chapter_no": 75
-      },
-      "duration": 13.06
+      }
     },
     {
       "id": "11266_9358_000006",
@@ -116,8 +110,7 @@
         "original_start_s": 62.95,
         "original_end_s": 80.22,
         "chapter_no": 73
-      },
-      "duration": 17.28
+      }
     },
     {
       "id": "11266_9358_000007",
@@ -131,8 +124,7 @@
         "original_start_s": 39.99,
         "original_end_s": 51.33,
         "chapter_no": 75
-      },
-      "duration": 11.35
+      }
     },
     {
       "id": "11266_9358_000008",
@@ -146,8 +138,7 @@
         "original_start_s": 64.38,
         "original_end_s": 81.37,
         "chapter_no": 75
-      },
-      "duration": 17.0
+      }
     },
     {
       "id": "11266_9358_000009",
@@ -161,8 +152,7 @@
         "original_start_s": 25.7,
         "original_end_s": 39.99,
         "chapter_no": 75
-      },
-      "duration": 14.3
+      }
     },
     {
       "id": "11266_9358_000010",
@@ -176,8 +166,7 @@
         "original_start_s": 14.05,
         "original_end_s": 26.39,
         "chapter_no": 73
-      },
-      "duration": 12.35
+      }
     }
   ]
 }

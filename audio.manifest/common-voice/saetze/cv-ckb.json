@@ -22,8 +22,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 5.33
+      }
     },
     {
       "id": "29310353",
@@ -34,8 +33,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 5.22
+      }
     },
     {
       "id": "29316846",
@@ -46,8 +44,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 4.46
+      }
     },
     {
       "id": "29317526",
@@ -58,8 +55,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 7.74
+      }
     },
     {
       "id": "29321873",
@@ -70,8 +66,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 7.06
+      }
     },
     {
       "id": "29333232",
@@ -82,8 +77,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.79
+      }
     },
     {
       "id": "29343838",
@@ -94,8 +88,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 5.51
+      }
     },
     {
       "id": "29350665",
@@ -106,8 +99,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.32
+      }
     },
     {
       "id": "29353742",
@@ -119,8 +111,7 @@
         "accent": "Hawleri,Iraqi Kurdistan",
         "up_votes": 6,
         "down_votes": 0
-      },
-      "duration": 3.06
+      }
     },
     {
       "id": "29357429",
@@ -131,8 +122,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.14
+      }
     }
   ]
 }

@@ -17,8 +17,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 17.66
+      }
     },
     {
       "id": "noise-free-sound-0001",
@@ -29,8 +28,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 40.54
+      }
     },
     {
       "id": "noise-free-sound-0002",
@@ -41,8 +39,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 71.22
+      }
     },
     {
       "id": "noise-free-sound-0003",
@@ -53,8 +50,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 14.24
+      }
     },
     {
       "id": "noise-free-sound-0004",
@@ -65,8 +61,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.99
+      }
     },
     {
       "id": "noise-free-sound-0005",
@@ -77,8 +72,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 21.19
+      }
     },
     {
       "id": "noise-free-sound-0006",
@@ -89,8 +83,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 7.77
+      }
     },
     {
       "id": "noise-free-sound-0007",
@@ -101,8 +94,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 16.61
+      }
     },
     {
       "id": "noise-free-sound-0008",
@@ -113,8 +105,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 20.81
+      }
     },
     {
       "id": "noise-free-sound-0009",
@@ -125,8 +116,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.39
+      }
     },
     {
       "id": "noise-free-sound-0010",
@@ -137,8 +127,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 8.24
+      }
     },
     {
       "id": "noise-free-sound-0011",
@@ -149,8 +138,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 34.85
+      }
     },
     {
       "id": "noise-free-sound-0012",
@@ -161,8 +149,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 32.16
+      }
     },
     {
       "id": "noise-free-sound-0013",
@@ -173,8 +160,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.54
+      }
     },
     {
       "id": "noise-free-sound-0014",
@@ -185,8 +171,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 3.42
+      }
     },
     {
       "id": "noise-free-sound-0015",
@@ -197,8 +182,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 91.24
+      }
     },
     {
       "id": "noise-free-sound-0016",
@@ -209,8 +193,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.0
+      }
     },
     {
       "id": "noise-free-sound-0017",
@@ -221,8 +204,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 7.88
+      }
     },
     {
       "id": "noise-free-sound-0018",
@@ -233,8 +215,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 14.58
+      }
     },
     {
       "id": "noise-free-sound-0019",
@@ -245,8 +226,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 11.56
+      }
     },
     {
       "id": "noise-free-sound-0020",
@@ -257,8 +237,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 60.19
+      }
     },
     {
       "id": "noise-free-sound-0021",
@@ -269,8 +248,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 18.05
+      }
     },
     {
       "id": "noise-free-sound-0022",
@@ -281,8 +259,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 24.83
+      }
     },
     {
       "id": "noise-free-sound-0023",
@@ -293,8 +270,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 11.24
+      }
     },
     {
       "id": "noise-free-sound-0024",
@@ -305,8 +281,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 19.78
+      }
     },
     {
       "id": "noise-free-sound-0025",
@@ -317,8 +292,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.35
+      }
     },
     {
       "id": "noise-free-sound-0026",
@@ -329,8 +303,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 3.8
+      }
     },
     {
       "id": "noise-free-sound-0027",
@@ -341,8 +314,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 23.04
+      }
     },
     {
       "id": "noise-free-sound-0028",
@@ -353,8 +325,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 19.62
+      }
     },
     {
       "id": "noise-free-sound-0029",
@@ -365,8 +336,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.91
+      }
     },
     {
       "id": "noise-free-sound-0030",
@@ -377,8 +347,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 73.01
+      }
     },
     {
       "id": "noise-free-sound-0031",
@@ -389,8 +358,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 35.47
+      }
     },
     {
       "id": "noise-free-sound-0032",
@@ -401,8 +369,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 61.42
+      }
     },
     {
       "id": "noise-free-sound-0033",
@@ -413,8 +380,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.53
+      }
     },
     {
       "id": "noise-free-sound-0034",
@@ -425,8 +391,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 20.69
+      }
     },
     {
       "id": "noise-free-sound-0035",
@@ -437,8 +402,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 31.93
+      }
     },
     {
       "id": "noise-free-sound-0036",
@@ -449,8 +413,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.57
+      }
     },
     {
       "id": "noise-free-sound-0037",
@@ -461,8 +424,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.94
+      }
     },
     {
       "id": "noise-free-sound-0038",
@@ -473,8 +435,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.91
+      }
     },
     {
       "id": "noise-free-sound-0039",
@@ -485,8 +446,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 3.45
+      }
     },
     {
       "id": "noise-free-sound-0040",
@@ -497,8 +457,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 16.73
+      }
     },
     {
       "id": "noise-free-sound-0041",
@@ -509,8 +468,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 57.78
+      }
     },
     {
       "id": "noise-free-sound-0042",
@@ -521,8 +479,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 319.56
+      }
     },
     {
       "id": "noise-free-sound-0043",
@@ -533,8 +490,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.53
+      }
     },
     {
       "id": "noise-free-sound-0044",
@@ -545,8 +501,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.6
+      }
     },
     {
       "id": "noise-free-sound-0045",
@@ -557,8 +512,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.64
+      }
     },
     {
       "id": "noise-free-sound-0046",
@@ -569,8 +523,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.62
+      }
     },
     {
       "id": "noise-free-sound-0047",
@@ -581,8 +534,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 5.3
+      }
     },
     {
       "id": "noise-free-sound-0048",
@@ -593,8 +545,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 494.66
+      }
     },
     {
       "id": "noise-free-sound-0049",
@@ -605,8 +556,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 3.47
+      }
     },
     {
       "id": "noise-free-sound-0050",
@@ -617,8 +567,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.13
+      }
     },
     {
       "id": "noise-free-sound-0051",
@@ -629,8 +578,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 6.52
+      }
     },
     {
       "id": "noise-free-sound-0052",
@@ -641,8 +589,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.66
+      }
     },
     {
       "id": "noise-free-sound-0053",
@@ -653,8 +600,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.27
+      }
     },
     {
       "id": "noise-free-sound-0054",
@@ -665,8 +611,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 10.05
+      }
     },
     {
       "id": "noise-free-sound-0055",
@@ -677,8 +622,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 40.1
+      }
     },
     {
       "id": "noise-free-sound-0056",
@@ -689,8 +633,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.74
+      }
     },
     {
       "id": "noise-free-sound-0057",
@@ -701,8 +644,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 8.13
+      }
     },
     {
       "id": "noise-free-sound-0058",
@@ -713,8 +655,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.0
+      }
     },
     {
       "id": "noise-free-sound-0059",
@@ -725,8 +666,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 30.44
+      }
     },
     {
       "id": "noise-free-sound-0060",
@@ -737,8 +677,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.04
+      }
     },
     {
       "id": "noise-free-sound-0061",
@@ -749,8 +688,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 11.05
+      }
     },
     {
       "id": "noise-free-sound-0062",
@@ -761,8 +699,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 6.07
+      }
     },
     {
       "id": "noise-free-sound-0063",
@@ -773,8 +710,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.27
+      }
     },
     {
       "id": "noise-free-sound-0064",
@@ -785,8 +721,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 100.13
+      }
     },
     {
       "id": "noise-free-sound-0065",
@@ -797,8 +732,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.98
+      }
     },
     {
       "id": "noise-free-sound-0066",
@@ -809,8 +743,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 60.94
+      }
     },
     {
       "id": "noise-free-sound-0067",
@@ -821,8 +754,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 39.89
+      }
     },
     {
       "id": "noise-free-sound-0068",
@@ -833,8 +765,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 20.07
+      }
     },
     {
       "id": "noise-free-sound-0069",
@@ -845,8 +776,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.57
+      }
     },
     {
       "id": "noise-free-sound-0070",
@@ -857,8 +787,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 17.98
+      }
     },
     {
       "id": "noise-free-sound-0071",
@@ -869,8 +798,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 9.39
+      }
     },
     {
       "id": "noise-free-sound-0072",
@@ -881,8 +809,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 26.62
+      }
     },
     {
       "id": "noise-free-sound-0073",
@@ -893,8 +820,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 124.57
+      }
     },
     {
       "id": "noise-free-sound-0074",
@@ -905,8 +831,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 17.24
+      }
     },
     {
       "id": "noise-free-sound-0075",
@@ -917,8 +842,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 20.31
+      }
     },
     {
       "id": "noise-free-sound-0076",
@@ -929,8 +853,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 80.0
+      }
     },
     {
       "id": "noise-free-sound-0077",
@@ -941,8 +864,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 11.72
+      }
     },
     {
       "id": "noise-free-sound-0078",
@@ -953,8 +875,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 10.37
+      }
     },
     {
       "id": "noise-free-sound-0079",
@@ -965,8 +886,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 6.0
+      }
     },
     {
       "id": "noise-free-sound-0080",
@@ -977,8 +897,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 30.37
+      }
     },
     {
       "id": "noise-free-sound-0081",
@@ -989,8 +908,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 21.58
+      }
     },
     {
       "id": "noise-free-sound-0082",
@@ -1001,8 +919,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 20.2
+      }
     },
     {
       "id": "noise-free-sound-0083",
@@ -1013,8 +930,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.59
+      }
     },
     {
       "id": "noise-free-sound-0084",
@@ -1025,8 +941,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 19.42
+      }
     },
     {
       "id": "noise-free-sound-0085",
@@ -1037,8 +952,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.67
+      }
     },
     {
       "id": "noise-free-sound-0086",
@@ -1049,8 +963,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 51.69
+      }
     },
     {
       "id": "noise-free-sound-0087",
@@ -1061,8 +974,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.8
+      }
     },
     {
       "id": "noise-free-sound-0088",
@@ -1073,8 +985,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 44.87
+      }
     },
     {
       "id": "noise-free-sound-0089",
@@ -1085,8 +996,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 13.87
+      }
     },
     {
       "id": "noise-free-sound-0090",
@@ -1097,8 +1007,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.84
+      }
     },
     {
       "id": "noise-free-sound-0091",
@@ -1109,8 +1018,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 5.06
+      }
     },
     {
       "id": "noise-free-sound-0092",
@@ -1121,8 +1029,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 15.08
+      }
     },
     {
       "id": "noise-free-sound-0093",
@@ -1133,8 +1040,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.32
+      }
     },
     {
       "id": "noise-free-sound-0094",
@@ -1145,8 +1051,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.59
+      }
     },
     {
       "id": "noise-free-sound-0095",
@@ -1157,8 +1062,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 4.07
+      }
     },
     {
       "id": "noise-free-sound-0096",
@@ -1169,8 +1073,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 7.78
+      }
     },
     {
       "id": "noise-free-sound-0097",
@@ -1181,8 +1084,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 2.74
+      }
     },
     {
       "id": "noise-free-sound-0098",
@@ -1193,8 +1095,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 2.77
+      }
     },
     {
       "id": "noise-free-sound-0099",
@@ -1205,8 +1106,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 7.49
+      }
     },
     {
       "id": "noise-free-sound-0100",
@@ -1217,8 +1117,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 7.32
+      }
     },
     {
       "id": "noise-free-sound-0101",
@@ -1229,8 +1128,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 112.9
+      }
     },
     {
       "id": "noise-free-sound-0102",
@@ -1241,8 +1139,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 143.62
+      }
     },
     {
       "id": "noise-free-sound-0103",
@@ -1253,8 +1150,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.24
+      }
     },
     {
       "id": "noise-free-sound-0104",
@@ -1265,8 +1161,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 15.89
+      }
     },
     {
       "id": "noise-free-sound-0105",
@@ -1277,8 +1172,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 306.42
+      }
     },
     {
       "id": "noise-free-sound-0106",
@@ -1289,8 +1183,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 153.95
+      }
     },
     {
       "id": "noise-free-sound-0107",
@@ -1301,8 +1194,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 11.77
+      }
     },
     {
       "id": "noise-free-sound-0108",
@@ -1313,8 +1205,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 19.4
+      }
     },
     {
       "id": "noise-free-sound-0109",
@@ -1325,8 +1216,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 37.1
+      }
     },
     {
       "id": "noise-free-sound-0110",
@@ -1337,8 +1227,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 40.89
+      }
     },
     {
       "id": "noise-free-sound-0111",
@@ -1349,8 +1238,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 16.45
+      }
     },
     {
       "id": "noise-free-sound-0112",
@@ -1361,8 +1249,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.01
+      }
     },
     {
       "id": "noise-free-sound-0113",
@@ -1373,8 +1260,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.85
+      }
     },
     {
       "id": "noise-free-sound-0114",
@@ -1385,8 +1271,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 99.93
+      }
     },
     {
       "id": "noise-free-sound-0115",
@@ -1397,8 +1282,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.58
+      }
     },
     {
       "id": "noise-free-sound-0116",
@@ -1409,8 +1293,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.82
+      }
     },
     {
       "id": "noise-free-sound-0117",
@@ -1421,8 +1304,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 33.66
+      }
     },
     {
       "id": "noise-free-sound-0118",
@@ -1433,8 +1315,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 17.41
+      }
     },
     {
       "id": "noise-free-sound-0119",
@@ -1445,8 +1326,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 70.73
+      }
     },
     {
       "id": "noise-free-sound-0120",
@@ -1457,8 +1337,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 18.43
+      }
     },
     {
       "id": "noise-free-sound-0121",
@@ -1469,8 +1348,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 44.0
+      }
     },
     {
       "id": "noise-free-sound-0122",
@@ -1481,8 +1359,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.0
+      }
     },
     {
       "id": "noise-free-sound-0123",
@@ -1493,8 +1370,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 7.5
+      }
     },
     {
       "id": "noise-free-sound-0124",
@@ -1505,8 +1381,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 5.0
+      }
     },
     {
       "id": "noise-free-sound-0125",
@@ -1517,8 +1392,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.12
+      }
     },
     {
       "id": "noise-free-sound-0126",
@@ -1529,8 +1403,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 19.78
+      }
     },
     {
       "id": "noise-free-sound-0127",
@@ -1541,8 +1414,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.45
+      }
     },
     {
       "id": "noise-free-sound-0128",
@@ -1553,8 +1425,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.06
+      }
     },
     {
       "id": "noise-free-sound-0129",
@@ -1565,8 +1436,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 8.29
+      }
     },
     {
       "id": "noise-free-sound-0130",
@@ -1577,8 +1447,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 38.87
+      }
     },
     {
       "id": "noise-free-sound-0131",
@@ -1589,8 +1458,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 55.6
+      }
     },
     {
       "id": "noise-free-sound-0132",
@@ -1601,8 +1469,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.72
+      }
     },
     {
       "id": "noise-free-sound-0133",
@@ -1613,8 +1480,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 0.52
+      }
     },
     {
       "id": "noise-free-sound-0134",
@@ -1625,8 +1491,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.51
+      }
     },
     {
       "id": "noise-free-sound-0135",
@@ -1637,8 +1502,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 3.0
+      }
     },
     {
       "id": "noise-free-sound-0136",
@@ -1649,8 +1513,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.62
+      }
     },
     {
       "id": "noise-free-sound-0137",
@@ -1661,8 +1524,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 113.25
+      }
     },
     {
       "id": "noise-free-sound-0138",
@@ -1673,8 +1535,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 3.25
+      }
     },
     {
       "id": "noise-free-sound-0139",
@@ -1685,8 +1546,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 15.51
+      }
     },
     {
       "id": "noise-free-sound-0140",
@@ -1697,8 +1557,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 24.77
+      }
     },
     {
       "id": "noise-free-sound-0141",
@@ -1709,8 +1568,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 135.07
+      }
     },
     {
       "id": "noise-free-sound-0142",
@@ -1721,8 +1579,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 39.0
+      }
     },
     {
       "id": "noise-free-sound-0143",
@@ -1733,8 +1590,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 13.04
+      }
     },
     {
       "id": "noise-free-sound-0144",
@@ -1745,8 +1601,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 25.55
+      }
     },
     {
       "id": "noise-free-sound-0145",
@@ -1757,8 +1612,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.91
+      }
     },
     {
       "id": "noise-free-sound-0146",
@@ -1769,8 +1623,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.08
+      }
     },
     {
       "id": "noise-free-sound-0147",
@@ -1781,8 +1634,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 8.63
+      }
     },
     {
       "id": "noise-free-sound-0148",
@@ -1793,8 +1645,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.21
+      }
     },
     {
       "id": "noise-free-sound-0149",
@@ -1805,8 +1656,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.76
+      }
     },
     {
       "id": "noise-free-sound-0150",
@@ -1817,8 +1667,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.45
+      }
     },
     {
       "id": "noise-free-sound-0151",
@@ -1829,8 +1678,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 53.76
+      }
     },
     {
       "id": "noise-free-sound-0152",
@@ -1841,8 +1689,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 97.16
+      }
     },
     {
       "id": "noise-free-sound-0153",
@@ -1853,8 +1700,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 72.15
+      }
     },
     {
       "id": "noise-free-sound-0154",
@@ -1865,8 +1711,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 62.46
+      }
     },
     {
       "id": "noise-free-sound-0155",
@@ -1877,8 +1722,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 72.66
+      }
     },
     {
       "id": "noise-free-sound-0156",
@@ -1889,8 +1733,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 90.2
+      }
     },
     {
       "id": "noise-free-sound-0157",
@@ -1901,8 +1744,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 3.09
+      }
     },
     {
       "id": "noise-free-sound-0158",
@@ -1913,8 +1755,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 64.88
+      }
     },
     {
       "id": "noise-free-sound-0159",
@@ -1925,8 +1766,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.22
+      }
     },
     {
       "id": "noise-free-sound-0160",
@@ -1937,8 +1777,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 34.33
+      }
     },
     {
       "id": "noise-free-sound-0161",
@@ -1949,8 +1788,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 76.48
+      }
     },
     {
       "id": "noise-free-sound-0162",
@@ -1961,8 +1799,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 14.93
+      }
     },
     {
       "id": "noise-free-sound-0163",
@@ -1973,8 +1810,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.36
+      }
     },
     {
       "id": "noise-free-sound-0164",
@@ -1985,8 +1821,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 24.96
+      }
     },
     {
       "id": "noise-free-sound-0165",
@@ -1997,8 +1832,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 33.84
+      }
     },
     {
       "id": "noise-free-sound-0166",
@@ -2009,8 +1843,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.77
+      }
     },
     {
       "id": "noise-free-sound-0167",
@@ -2021,8 +1854,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.01
+      }
     },
     {
       "id": "noise-free-sound-0168",
@@ -2033,8 +1865,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.34
+      }
     },
     {
       "id": "noise-free-sound-0169",
@@ -2045,8 +1876,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 2.3
+      }
     },
     {
       "id": "noise-free-sound-0170",
@@ -2057,8 +1887,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.29
+      }
     },
     {
       "id": "noise-free-sound-0171",
@@ -2069,8 +1898,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.63
+      }
     },
     {
       "id": "noise-free-sound-0172",
@@ -2081,8 +1909,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 49.55
+      }
     },
     {
       "id": "noise-free-sound-0173",
@@ -2093,8 +1920,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 106.8
+      }
     },
     {
       "id": "noise-free-sound-0174",
@@ -2105,8 +1931,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 9.11
+      }
     },
     {
       "id": "noise-free-sound-0175",
@@ -2117,8 +1942,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.72
+      }
     },
     {
       "id": "noise-free-sound-0176",
@@ -2129,8 +1953,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.98
+      }
     },
     {
       "id": "noise-free-sound-0177",
@@ -2141,8 +1964,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 106.74
+      }
     },
     {
       "id": "noise-free-sound-0178",
@@ -2153,8 +1975,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 4.88
+      }
     },
     {
       "id": "noise-free-sound-0179",
@@ -2165,8 +1986,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.81
+      }
     },
     {
       "id": "noise-free-sound-0180",
@@ -2177,8 +1997,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 15.52
+      }
     },
     {
       "id": "noise-free-sound-0181",
@@ -2189,8 +2008,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.8
+      }
     },
     {
       "id": "noise-free-sound-0182",
@@ -2201,8 +2019,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.25
+      }
     },
     {
       "id": "noise-free-sound-0183",
@@ -2213,8 +2030,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.09
+      }
     },
     {
       "id": "noise-free-sound-0184",
@@ -2225,8 +2041,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 32.41
+      }
     },
     {
       "id": "noise-free-sound-0185",
@@ -2237,8 +2052,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.67
+      }
     },
     {
       "id": "noise-free-sound-0186",
@@ -2249,8 +2063,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.84
+      }
     },
     {
       "id": "noise-free-sound-0187",
@@ -2261,8 +2074,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 6.42
+      }
     },
     {
       "id": "noise-free-sound-0188",
@@ -2273,8 +2085,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.55
+      }
     },
     {
       "id": "noise-free-sound-0189",
@@ -2285,8 +2096,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.84
+      }
     },
     {
       "id": "noise-free-sound-0190",
@@ -2297,8 +2107,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.13
+      }
     },
     {
       "id": "noise-free-sound-0191",
@@ -2309,8 +2118,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 3.96
+      }
     },
     {
       "id": "noise-free-sound-0192",
@@ -2321,8 +2129,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.67
+      }
     },
     {
       "id": "noise-free-sound-0193",
@@ -2333,8 +2140,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.0
+      }
     },
     {
       "id": "noise-free-sound-0194",
@@ -2345,8 +2151,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 7.88
+      }
     },
     {
       "id": "noise-free-sound-0195",
@@ -2357,8 +2162,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.3
+      }
     },
     {
       "id": "noise-free-sound-0196",
@@ -2369,8 +2173,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 3.63
+      }
     },
     {
       "id": "noise-free-sound-0197",
@@ -2381,8 +2184,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 10.59
+      }
     },
     {
       "id": "noise-free-sound-0198",
@@ -2393,8 +2195,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.13
+      }
     },
     {
       "id": "noise-free-sound-0199",
@@ -2405,8 +2206,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.26
+      }
     },
     {
       "id": "noise-free-sound-0200",
@@ -2417,8 +2217,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.76
+      }
     },
     {
       "id": "noise-free-sound-0201",
@@ -2429,8 +2228,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 7.05
+      }
     },
     {
       "id": "noise-free-sound-0202",
@@ -2441,8 +2239,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 10.55
+      }
     },
     {
       "id": "noise-free-sound-0203",
@@ -2453,8 +2250,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 11.09
+      }
     },
     {
       "id": "noise-free-sound-0204",
@@ -2465,8 +2261,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.38
+      }
     },
     {
       "id": "noise-free-sound-0205",
@@ -2477,8 +2272,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 14.39
+      }
     },
     {
       "id": "noise-free-sound-0206",
@@ -2489,8 +2283,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.34
+      }
     },
     {
       "id": "noise-free-sound-0207",
@@ -2501,8 +2294,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 7.09
+      }
     },
     {
       "id": "noise-free-sound-0208",
@@ -2513,8 +2305,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.46
+      }
     },
     {
       "id": "noise-free-sound-0209",
@@ -2525,8 +2316,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.68
+      }
     },
     {
       "id": "noise-free-sound-0210",
@@ -2537,8 +2327,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.67
+      }
     },
     {
       "id": "noise-free-sound-0211",
@@ -2549,8 +2338,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 6.21
+      }
     },
     {
       "id": "noise-free-sound-0212",
@@ -2561,8 +2349,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 9.55
+      }
     },
     {
       "id": "noise-free-sound-0213",
@@ -2573,8 +2360,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.71
+      }
     },
     {
       "id": "noise-free-sound-0214",
@@ -2585,8 +2371,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.26
+      }
     },
     {
       "id": "noise-free-sound-0215",
@@ -2597,8 +2382,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 6.44
+      }
     },
     {
       "id": "noise-free-sound-0216",
@@ -2609,8 +2393,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 38.46
+      }
     },
     {
       "id": "noise-free-sound-0217",
@@ -2621,8 +2404,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.84
+      }
     },
     {
       "id": "noise-free-sound-0218",
@@ -2633,8 +2415,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.13
+      }
     },
     {
       "id": "noise-free-sound-0219",
@@ -2645,8 +2426,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.59
+      }
     },
     {
       "id": "noise-free-sound-0220",
@@ -2657,8 +2437,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.47
+      }
     },
     {
       "id": "noise-free-sound-0221",
@@ -2669,8 +2448,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 10.93
+      }
     },
     {
       "id": "noise-free-sound-0222",
@@ -2681,8 +2459,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.21
+      }
     },
     {
       "id": "noise-free-sound-0223",
@@ -2693,8 +2470,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 3.59
+      }
     },
     {
       "id": "noise-free-sound-0224",
@@ -2705,8 +2481,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 12.8
+      }
     },
     {
       "id": "noise-free-sound-0225",
@@ -2717,8 +2492,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 12.45
+      }
     },
     {
       "id": "noise-free-sound-0226",
@@ -2729,8 +2503,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 26.2
+      }
     },
     {
       "id": "noise-free-sound-0227",
@@ -2741,8 +2514,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 31.17
+      }
     },
     {
       "id": "noise-free-sound-0228",
@@ -2753,8 +2525,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 16.65
+      }
     },
     {
       "id": "noise-free-sound-0229",
@@ -2765,8 +2536,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.33
+      }
     },
     {
       "id": "noise-free-sound-0230",
@@ -2777,8 +2547,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 41.59
+      }
     },
     {
       "id": "noise-free-sound-0231",
@@ -2789,8 +2558,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 22.33
+      }
     },
     {
       "id": "noise-free-sound-0232",
@@ -2801,8 +2569,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 44.29
+      }
     },
     {
       "id": "noise-free-sound-0233",
@@ -2813,8 +2580,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 44.35
+      }
     },
     {
       "id": "noise-free-sound-0234",
@@ -2825,8 +2591,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 75.02
+      }
     },
     {
       "id": "noise-free-sound-0235",
@@ -2837,8 +2602,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 200.78
+      }
     },
     {
       "id": "noise-free-sound-0236",
@@ -2849,8 +2613,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.56
+      }
     },
     {
       "id": "noise-free-sound-0237",
@@ -2861,8 +2624,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 5.3
+      }
     },
     {
       "id": "noise-free-sound-0238",
@@ -2873,8 +2635,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 13.94
+      }
     },
     {
       "id": "noise-free-sound-0239",
@@ -2885,8 +2646,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 37.51
+      }
     },
     {
       "id": "noise-free-sound-0240",
@@ -2897,8 +2657,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 26.23
+      }
     },
     {
       "id": "noise-free-sound-0241",
@@ -2909,8 +2668,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 52.62
+      }
     },
     {
       "id": "noise-free-sound-0242",
@@ -2921,8 +2679,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 23.0
+      }
     },
     {
       "id": "noise-free-sound-0243",
@@ -2933,8 +2690,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 90.0
+      }
     },
     {
       "id": "noise-free-sound-0244",
@@ -2945,8 +2701,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 118.84
+      }
     },
     {
       "id": "noise-free-sound-0245",
@@ -2957,8 +2712,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 29.56
+      }
     },
     {
       "id": "noise-free-sound-0246",
@@ -2969,8 +2723,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 24.72
+      }
     },
     {
       "id": "noise-free-sound-0247",
@@ -2981,8 +2734,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 77.73
+      }
     },
     {
       "id": "noise-free-sound-0248",
@@ -2993,8 +2745,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 60.3
+      }
     },
     {
       "id": "noise-free-sound-0249",
@@ -3005,8 +2756,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 40.68
+      }
     },
     {
       "id": "noise-free-sound-0250",
@@ -3017,8 +2767,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 8.62
+      }
     },
     {
       "id": "noise-free-sound-0251",
@@ -3029,8 +2778,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 31.97
+      }
     },
     {
       "id": "noise-free-sound-0252",
@@ -3041,8 +2789,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 20.95
+      }
     },
     {
       "id": "noise-free-sound-0253",
@@ -3053,8 +2800,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.98
+      }
     },
     {
       "id": "noise-free-sound-0254",
@@ -3065,8 +2811,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 64.14
+      }
     },
     {
       "id": "noise-free-sound-0255",
@@ -3077,8 +2822,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.54
+      }
     },
     {
       "id": "noise-free-sound-0256",
@@ -3089,8 +2833,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 37.51
+      }
     },
     {
       "id": "noise-free-sound-0257",
@@ -3102,8 +2845,7 @@
         "license": "PD",
         "spectrum": "tonal",
         "dominant_freq_hz": 440
-      },
-      "duration": 5.0
+      }
     },
     {
       "id": "noise-free-sound-0258",
@@ -3115,8 +2857,7 @@
         "license": "PD",
         "spectrum": "tonal",
         "dominant_freq_hz": 440
-      },
-      "duration": 25.76
+      }
     },
     {
       "id": "noise-free-sound-0259",
@@ -3127,8 +2868,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 14.71
+      }
     },
     {
       "id": "noise-free-sound-0260",
@@ -3139,8 +2879,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 14.4
+      }
     },
     {
       "id": "noise-free-sound-0261",
@@ -3151,8 +2890,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 88.0
+      }
     },
     {
       "id": "noise-free-sound-0262",
@@ -3163,8 +2901,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 35.03
+      }
     },
     {
       "id": "noise-free-sound-0263",
@@ -3175,8 +2912,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.9
+      }
     },
     {
       "id": "noise-free-sound-0264",
@@ -3187,8 +2923,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 29.63
+      }
     },
     {
       "id": "noise-free-sound-0265",
@@ -3199,8 +2934,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.33
+      }
     },
     {
       "id": "noise-free-sound-0266",
@@ -3211,8 +2945,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 34.67
+      }
     },
     {
       "id": "noise-free-sound-0267",
@@ -3223,8 +2956,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 36.14
+      }
     },
     {
       "id": "noise-free-sound-0268",
@@ -3235,8 +2967,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 22.71
+      }
     },
     {
       "id": "noise-free-sound-0269",
@@ -3247,8 +2978,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 49.13
+      }
     },
     {
       "id": "noise-free-sound-0270",
@@ -3259,8 +2989,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 398.06
+      }
     },
     {
       "id": "noise-free-sound-0271",
@@ -3271,8 +3000,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 29.7
+      }
     },
     {
       "id": "noise-free-sound-0272",
@@ -3283,8 +3011,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 41.06
+      }
     },
     {
       "id": "noise-free-sound-0273",
@@ -3295,8 +3022,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 10.64
+      }
     },
     {
       "id": "noise-free-sound-0274",
@@ -3307,8 +3033,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 3.97
+      }
     },
     {
       "id": "noise-free-sound-0275",
@@ -3319,8 +3044,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 12.1
+      }
     },
     {
       "id": "noise-free-sound-0276",
@@ -3331,8 +3055,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.87
+      }
     },
     {
       "id": "noise-free-sound-0277",
@@ -3343,8 +3066,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.71
+      }
     },
     {
       "id": "noise-free-sound-0278",
@@ -3355,8 +3077,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 37.6
+      }
     },
     {
       "id": "noise-free-sound-0279",
@@ -3367,8 +3088,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 17.33
+      }
     },
     {
       "id": "noise-free-sound-0280",
@@ -3379,8 +3099,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 62.1
+      }
     },
     {
       "id": "noise-free-sound-0281",
@@ -3390,8 +3109,7 @@
         "stationary": null,
         "loop_safe": null,
         "license": "PD"
-      },
-      "duration": 0.1
+      }
     },
     {
       "id": "noise-free-sound-0282",
@@ -3402,8 +3120,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 37.73
+      }
     },
     {
       "id": "noise-free-sound-0283",
@@ -3414,8 +3131,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 22.96
+      }
     },
     {
       "id": "noise-free-sound-0284",
@@ -3426,8 +3142,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.79
+      }
     },
     {
       "id": "noise-free-sound-0285",
@@ -3438,8 +3153,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.09
+      }
     },
     {
       "id": "noise-free-sound-0286",
@@ -3450,8 +3164,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.56
+      }
     },
     {
       "id": "noise-free-sound-0287",
@@ -3462,8 +3175,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 60.66
+      }
     },
     {
       "id": "noise-free-sound-0288",
@@ -3474,8 +3186,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 59.69
+      }
     },
     {
       "id": "noise-free-sound-0289",
@@ -3486,8 +3197,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 22.28
+      }
     },
     {
       "id": "noise-free-sound-0290",
@@ -3498,8 +3208,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 44.3
+      }
     },
     {
       "id": "noise-free-sound-0291",
@@ -3510,8 +3219,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 9.09
+      }
     },
     {
       "id": "noise-free-sound-0292",
@@ -3522,8 +3230,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 17.97
+      }
     },
     {
       "id": "noise-free-sound-0293",
@@ -3534,8 +3241,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 43.04
+      }
     },
     {
       "id": "noise-free-sound-0294",
@@ -3546,8 +3252,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.59
+      }
     },
     {
       "id": "noise-free-sound-0295",
@@ -3558,8 +3263,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 6.9
+      }
     },
     {
       "id": "noise-free-sound-0296",
@@ -3570,8 +3274,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.86
+      }
     },
     {
       "id": "noise-free-sound-0297",
@@ -3582,8 +3285,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.8
+      }
     },
     {
       "id": "noise-free-sound-0298",
@@ -3594,8 +3296,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 32.0
+      }
     },
     {
       "id": "noise-free-sound-0299",
@@ -3605,8 +3306,7 @@
         "stationary": null,
         "loop_safe": null,
         "license": "PD"
-      },
-      "duration": 0.21
+      }
     },
     {
       "id": "noise-free-sound-0300",
@@ -3617,8 +3317,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 6.11
+      }
     },
     {
       "id": "noise-free-sound-0301",
@@ -3629,8 +3328,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 180.95
+      }
     },
     {
       "id": "noise-free-sound-0302",
@@ -3641,8 +3339,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 17.91
+      }
     },
     {
       "id": "noise-free-sound-0303",
@@ -3653,8 +3350,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.2
+      }
     },
     {
       "id": "noise-free-sound-0304",
@@ -3665,8 +3361,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 62.04
+      }
     },
     {
       "id": "noise-free-sound-0305",
@@ -3677,8 +3372,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 29.5
+      }
     },
     {
       "id": "noise-free-sound-0306",
@@ -3689,8 +3383,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 24.5
+      }
     },
     {
       "id": "noise-free-sound-0307",
@@ -3701,8 +3394,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 10.7
+      }
     },
     {
       "id": "noise-free-sound-0308",
@@ -3713,8 +3405,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 58.28
+      }
     },
     {
       "id": "noise-free-sound-0309",
@@ -3725,8 +3416,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 3.37
+      }
     },
     {
       "id": "noise-free-sound-0310",
@@ -3737,8 +3427,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 22.04
+      }
     },
     {
       "id": "noise-free-sound-0311",
@@ -3749,8 +3438,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 13.75
+      }
     },
     {
       "id": "noise-free-sound-0312",
@@ -3761,8 +3449,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.51
+      }
     },
     {
       "id": "noise-free-sound-0313",
@@ -3773,8 +3460,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.79
+      }
     },
     {
       "id": "noise-free-sound-0314",
@@ -3785,8 +3471,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.61
+      }
     },
     {
       "id": "noise-free-sound-0315",
@@ -3797,8 +3482,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.78
+      }
     },
     {
       "id": "noise-free-sound-0316",
@@ -3809,8 +3493,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 11.15
+      }
     },
     {
       "id": "noise-free-sound-0317",
@@ -3821,8 +3504,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 7.26
+      }
     },
     {
       "id": "noise-free-sound-0318",
@@ -3833,8 +3515,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.41
+      }
     },
     {
       "id": "noise-free-sound-0319",
@@ -3845,8 +3526,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.52
+      }
     },
     {
       "id": "noise-free-sound-0320",
@@ -3857,8 +3537,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.74
+      }
     },
     {
       "id": "noise-free-sound-0321",
@@ -3869,8 +3548,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 113.0
+      }
     },
     {
       "id": "noise-free-sound-0322",
@@ -3881,8 +3559,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 31.03
+      }
     },
     {
       "id": "noise-free-sound-0323",
@@ -3893,8 +3570,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 10.73
+      }
     },
     {
       "id": "noise-free-sound-0324",
@@ -3905,8 +3581,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 36.21
+      }
     },
     {
       "id": "noise-free-sound-0325",
@@ -3917,8 +3592,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.65
+      }
     },
     {
       "id": "noise-free-sound-0326",
@@ -3929,8 +3603,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 16.08
+      }
     },
     {
       "id": "noise-free-sound-0327",
@@ -3941,8 +3614,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 5.16
+      }
     },
     {
       "id": "noise-free-sound-0328",
@@ -3953,8 +3625,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.72
+      }
     },
     {
       "id": "noise-free-sound-0329",
@@ -3965,8 +3636,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 9.69
+      }
     },
     {
       "id": "noise-free-sound-0330",
@@ -3977,8 +3647,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.43
+      }
     },
     {
       "id": "noise-free-sound-0331",
@@ -3989,8 +3658,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 6.38
+      }
     },
     {
       "id": "noise-free-sound-0332",
@@ -4001,8 +3669,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 3.62
+      }
     },
     {
       "id": "noise-free-sound-0333",
@@ -4013,8 +3680,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 15.67
+      }
     },
     {
       "id": "noise-free-sound-0334",
@@ -4025,8 +3691,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 178.15
+      }
     },
     {
       "id": "noise-free-sound-0335",
@@ -4037,8 +3702,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 34.04
+      }
     },
     {
       "id": "noise-free-sound-0336",
@@ -4049,8 +3713,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 48.08
+      }
     },
     {
       "id": "noise-free-sound-0337",
@@ -4061,8 +3724,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 1.43
+      }
     },
     {
       "id": "noise-free-sound-0338",
@@ -4073,8 +3735,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.24
+      }
     },
     {
       "id": "noise-free-sound-0339",
@@ -4085,8 +3746,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 20.33
+      }
     },
     {
       "id": "noise-free-sound-0340",
@@ -4097,8 +3757,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 33.67
+      }
     },
     {
       "id": "noise-free-sound-0341",
@@ -4109,8 +3768,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 23.07
+      }
     },
     {
       "id": "noise-free-sound-0342",
@@ -4121,8 +3779,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 13.81
+      }
     },
     {
       "id": "noise-free-sound-0343",
@@ -4133,8 +3790,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.81
+      }
     },
     {
       "id": "noise-free-sound-0344",
@@ -4145,8 +3801,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 20.54
+      }
     },
     {
       "id": "noise-free-sound-0345",
@@ -4157,8 +3812,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.9
+      }
     },
     {
       "id": "noise-free-sound-0346",
@@ -4169,8 +3823,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 18.55
+      }
     },
     {
       "id": "noise-free-sound-0347",
@@ -4181,8 +3834,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 13.78
+      }
     },
     {
       "id": "noise-free-sound-0348",
@@ -4193,8 +3845,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 50.11
+      }
     },
     {
       "id": "noise-free-sound-0349",
@@ -4205,8 +3856,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.0
+      }
     },
     {
       "id": "noise-free-sound-0350",
@@ -4217,8 +3867,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 9.0
+      }
     },
     {
       "id": "noise-free-sound-0351",
@@ -4229,8 +3878,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.97
+      }
     },
     {
       "id": "noise-free-sound-0352",
@@ -4241,8 +3889,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 10.0
+      }
     },
     {
       "id": "noise-free-sound-0353",
@@ -4253,8 +3900,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 26.1
+      }
     },
     {
       "id": "noise-free-sound-0354",
@@ -4265,8 +3911,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.0
+      }
     },
     {
       "id": "noise-free-sound-0355",
@@ -4277,8 +3922,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 14.66
+      }
     },
     {
       "id": "noise-free-sound-0356",
@@ -4289,8 +3933,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 24.96
+      }
     },
     {
       "id": "noise-free-sound-0357",
@@ -4301,8 +3944,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.18
+      }
     },
     {
       "id": "noise-free-sound-0358",
@@ -4313,8 +3955,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 21.25
+      }
     },
     {
       "id": "noise-free-sound-0359",
@@ -4325,8 +3966,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 18.31
+      }
     },
     {
       "id": "noise-free-sound-0360",
@@ -4337,8 +3977,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 13.89
+      }
     },
     {
       "id": "noise-free-sound-0361",
@@ -4349,8 +3988,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 7.74
+      }
     },
     {
       "id": "noise-free-sound-0362",
@@ -4361,8 +3999,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 12.88
+      }
     },
     {
       "id": "noise-free-sound-0363",
@@ -4373,8 +4010,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.72
+      }
     },
     {
       "id": "noise-free-sound-0364",
@@ -4385,8 +4021,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 11.84
+      }
     },
     {
       "id": "noise-free-sound-0365",
@@ -4397,8 +4032,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 10.06
+      }
     },
     {
       "id": "noise-free-sound-0366",
@@ -4409,8 +4043,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 4.05
+      }
     },
     {
       "id": "noise-free-sound-0367",
@@ -4421,8 +4054,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.04
+      }
     },
     {
       "id": "noise-free-sound-0368",
@@ -4433,8 +4065,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 1.65
+      }
     },
     {
       "id": "noise-free-sound-0369",
@@ -4445,8 +4076,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 4.05
+      }
     },
     {
       "id": "noise-free-sound-0370",
@@ -4457,8 +4087,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 72.25
+      }
     },
     {
       "id": "noise-free-sound-0371",
@@ -4469,8 +4098,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 21.28
+      }
     },
     {
       "id": "noise-free-sound-0372",
@@ -4481,8 +4109,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 22.89
+      }
     },
     {
       "id": "noise-free-sound-0373",
@@ -4493,8 +4120,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 3.23
+      }
     },
     {
       "id": "noise-free-sound-0374",
@@ -4505,8 +4131,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 0.74
+      }
     },
     {
       "id": "noise-free-sound-0375",
@@ -4517,8 +4142,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.75
+      }
     },
     {
       "id": "noise-free-sound-0376",
@@ -4529,8 +4153,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.09
+      }
     },
     {
       "id": "noise-free-sound-0377",
@@ -4541,8 +4164,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 8.99
+      }
     },
     {
       "id": "noise-free-sound-0378",
@@ -4553,8 +4175,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 22.28
+      }
     },
     {
       "id": "noise-free-sound-0379",
@@ -4565,8 +4186,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 6.99
+      }
     },
     {
       "id": "noise-free-sound-0380",
@@ -4576,8 +4196,7 @@
         "stationary": null,
         "loop_safe": null,
         "license": "PD"
-      },
-      "duration": 0.14
+      }
     },
     {
       "id": "noise-free-sound-0381",
@@ -4588,8 +4207,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 44.28
+      }
     },
     {
       "id": "noise-free-sound-0382",
@@ -4600,8 +4218,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 60.55
+      }
     },
     {
       "id": "noise-free-sound-0383",
@@ -4612,8 +4229,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 32.9
+      }
     },
     {
       "id": "noise-free-sound-0384",
@@ -4624,8 +4240,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 178.21
+      }
     },
     {
       "id": "noise-free-sound-0385",
@@ -4636,8 +4251,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 8.41
+      }
     },
     {
       "id": "noise-free-sound-0386",
@@ -4648,8 +4262,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 26.74
+      }
     },
     {
       "id": "noise-free-sound-0387",
@@ -4660,8 +4273,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.96
+      }
     },
     {
       "id": "noise-free-sound-0388",
@@ -4672,8 +4284,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.38
+      }
     },
     {
       "id": "noise-free-sound-0389",
@@ -4684,8 +4295,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 13.73
+      }
     },
     {
       "id": "noise-free-sound-0390",
@@ -4696,8 +4306,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 15.76
+      }
     },
     {
       "id": "noise-free-sound-0391",
@@ -4708,8 +4317,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 23.39
+      }
     },
     {
       "id": "noise-free-sound-0392",
@@ -4720,8 +4328,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 13.22
+      }
     },
     {
       "id": "noise-free-sound-0393",
@@ -4732,8 +4339,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.54
+      }
     },
     {
       "id": "noise-free-sound-0394",
@@ -4744,8 +4350,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 23.72
+      }
     },
     {
       "id": "noise-free-sound-0395",
@@ -4756,8 +4361,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 7.73
+      }
     },
     {
       "id": "noise-free-sound-0396",
@@ -4768,8 +4372,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 9.8
+      }
     },
     {
       "id": "noise-free-sound-0397",
@@ -4780,8 +4383,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 45.33
+      }
     },
     {
       "id": "noise-free-sound-0398",
@@ -4792,8 +4394,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 44.88
+      }
     },
     {
       "id": "noise-free-sound-0399",
@@ -4804,8 +4405,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 16.9
+      }
     },
     {
       "id": "noise-free-sound-0400",
@@ -4816,8 +4416,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 14.86
+      }
     },
     {
       "id": "noise-free-sound-0401",
@@ -4828,8 +4427,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 10.35
+      }
     },
     {
       "id": "noise-free-sound-0402",
@@ -4840,8 +4438,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 29.67
+      }
     },
     {
       "id": "noise-free-sound-0403",
@@ -4852,8 +4449,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 13.01
+      }
     },
     {
       "id": "noise-free-sound-0404",
@@ -4864,8 +4460,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 19.04
+      }
     },
     {
       "id": "noise-free-sound-0405",
@@ -4876,8 +4471,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.31
+      }
     },
     {
       "id": "noise-free-sound-0406",
@@ -4888,8 +4482,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 19.83
+      }
     },
     {
       "id": "noise-free-sound-0407",
@@ -4900,8 +4493,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.96
+      }
     },
     {
       "id": "noise-free-sound-0408",
@@ -4912,8 +4504,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 15.0
+      }
     },
     {
       "id": "noise-free-sound-0409",
@@ -4924,8 +4515,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 8.62
+      }
     },
     {
       "id": "noise-free-sound-0410",
@@ -4936,8 +4526,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.18
+      }
     },
     {
       "id": "noise-free-sound-0411",
@@ -4948,8 +4537,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.36
+      }
     },
     {
       "id": "noise-free-sound-0412",
@@ -4960,8 +4548,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.62
+      }
     },
     {
       "id": "noise-free-sound-0413",
@@ -4972,8 +4559,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 22.0
+      }
     },
     {
       "id": "noise-free-sound-0414",
@@ -4984,8 +4570,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 28.38
+      }
     },
     {
       "id": "noise-free-sound-0415",
@@ -4996,8 +4581,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 6.62
+      }
     },
     {
       "id": "noise-free-sound-0416",
@@ -5008,8 +4592,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 14.97
+      }
     },
     {
       "id": "noise-free-sound-0417",
@@ -5020,8 +4603,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 10.15
+      }
     },
     {
       "id": "noise-free-sound-0418",
@@ -5032,8 +4614,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 41.0
+      }
     },
     {
       "id": "noise-free-sound-0419",
@@ -5044,8 +4625,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 11.99
+      }
     },
     {
       "id": "noise-free-sound-0420",
@@ -5056,8 +4636,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.82
+      }
     },
     {
       "id": "noise-free-sound-0421",
@@ -5068,8 +4647,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 3.37
+      }
     },
     {
       "id": "noise-free-sound-0422",
@@ -5080,8 +4658,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 9.16
+      }
     },
     {
       "id": "noise-free-sound-0423",
@@ -5092,8 +4669,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 12.25
+      }
     },
     {
       "id": "noise-free-sound-0424",
@@ -5104,8 +4680,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 16.67
+      }
     },
     {
       "id": "noise-free-sound-0425",
@@ -5116,8 +4691,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.41
+      }
     },
     {
       "id": "noise-free-sound-0426",
@@ -5128,8 +4702,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 3.89
+      }
     },
     {
       "id": "noise-free-sound-0427",
@@ -5140,8 +4713,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 22.0
+      }
     },
     {
       "id": "noise-free-sound-0428",
@@ -5152,8 +4724,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 18.62
+      }
     },
     {
       "id": "noise-free-sound-0429",
@@ -5164,8 +4735,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 24.0
+      }
     },
     {
       "id": "noise-free-sound-0430",
@@ -5176,8 +4746,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 67.2
+      }
     },
     {
       "id": "noise-free-sound-0431",
@@ -5188,8 +4757,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 22.94
+      }
     },
     {
       "id": "noise-free-sound-0432",
@@ -5200,8 +4768,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 22.25
+      }
     },
     {
       "id": "noise-free-sound-0433",
@@ -5212,8 +4779,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 42.24
+      }
     },
     {
       "id": "noise-free-sound-0434",
@@ -5224,8 +4790,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 21.53
+      }
     },
     {
       "id": "noise-free-sound-0435",
@@ -5236,8 +4801,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.28
+      }
     },
     {
       "id": "noise-free-sound-0436",
@@ -5248,8 +4812,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 51.21
+      }
     },
     {
       "id": "noise-free-sound-0437",
@@ -5261,8 +4824,7 @@
         "license": "PD",
         "spectrum": "tonal",
         "dominant_freq_hz": 1000
-      },
-      "duration": 1.19
+      }
     },
     {
       "id": "noise-free-sound-0438",
@@ -5273,8 +4835,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 7.52
+      }
     },
     {
       "id": "noise-free-sound-0439",
@@ -5285,8 +4846,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 30.79
+      }
     },
     {
       "id": "noise-free-sound-0440",
@@ -5297,8 +4857,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.19
+      }
     },
     {
       "id": "noise-free-sound-0441",
@@ -5309,8 +4868,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 45.57
+      }
     },
     {
       "id": "noise-free-sound-0442",
@@ -5321,8 +4879,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 76.07
+      }
     },
     {
       "id": "noise-free-sound-0443",
@@ -5333,8 +4890,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 42.24
+      }
     },
     {
       "id": "noise-free-sound-0444",
@@ -5345,8 +4901,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 20.25
+      }
     },
     {
       "id": "noise-free-sound-0445",
@@ -5357,8 +4912,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 18.39
+      }
     },
     {
       "id": "noise-free-sound-0446",
@@ -5369,8 +4923,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 31.42
+      }
     },
     {
       "id": "noise-free-sound-0447",
@@ -5381,8 +4934,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 28.58
+      }
     },
     {
       "id": "noise-free-sound-0448",
@@ -5393,8 +4945,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.57
+      }
     },
     {
       "id": "noise-free-sound-0449",
@@ -5405,8 +4956,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.74
+      }
     },
     {
       "id": "noise-free-sound-0450",
@@ -5417,8 +4967,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 16.17
+      }
     },
     {
       "id": "noise-free-sound-0451",
@@ -5429,8 +4978,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 44.04
+      }
     },
     {
       "id": "noise-free-sound-0452",
@@ -5441,8 +4989,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 17.84
+      }
     },
     {
       "id": "noise-free-sound-0453",
@@ -5453,8 +5000,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.94
+      }
     },
     {
       "id": "noise-free-sound-0454",
@@ -5465,8 +5011,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 41.88
+      }
     },
     {
       "id": "noise-free-sound-0455",
@@ -5477,8 +5022,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 168.27
+      }
     },
     {
       "id": "noise-free-sound-0456",
@@ -5489,8 +5033,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 28.96
+      }
     },
     {
       "id": "noise-free-sound-0457",
@@ -5501,8 +5044,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 44.37
+      }
     },
     {
       "id": "noise-free-sound-0458",
@@ -5513,8 +5055,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 20.71
+      }
     },
     {
       "id": "noise-free-sound-0459",
@@ -5525,8 +5066,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 40.31
+      }
     },
     {
       "id": "noise-free-sound-0460",
@@ -5537,8 +5077,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 13.1
+      }
     },
     {
       "id": "noise-free-sound-0461",
@@ -5549,8 +5088,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 53.34
+      }
     },
     {
       "id": "noise-free-sound-0462",
@@ -5561,8 +5099,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 18.76
+      }
     },
     {
       "id": "noise-free-sound-0463",
@@ -5573,8 +5110,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 15.11
+      }
     },
     {
       "id": "noise-free-sound-0464",
@@ -5585,8 +5121,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 8.08
+      }
     },
     {
       "id": "noise-free-sound-0465",
@@ -5597,8 +5132,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 9.01
+      }
     },
     {
       "id": "noise-free-sound-0466",
@@ -5609,8 +5143,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 13.95
+      }
     },
     {
       "id": "noise-free-sound-0467",
@@ -5621,8 +5154,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 14.17
+      }
     },
     {
       "id": "noise-free-sound-0468",
@@ -5633,8 +5165,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 23.12
+      }
     },
     {
       "id": "noise-free-sound-0469",
@@ -5645,8 +5176,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 10.78
+      }
     },
     {
       "id": "noise-free-sound-0470",
@@ -5657,8 +5187,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.76
+      }
     },
     {
       "id": "noise-free-sound-0471",
@@ -5669,8 +5198,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 7.92
+      }
     },
     {
       "id": "noise-free-sound-0472",
@@ -5681,8 +5209,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 94.0
+      }
     },
     {
       "id": "noise-free-sound-0473",
@@ -5693,8 +5220,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.12
+      }
     },
     {
       "id": "noise-free-sound-0474",
@@ -5705,8 +5231,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 35.94
+      }
     },
     {
       "id": "noise-free-sound-0475",
@@ -5717,8 +5242,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 36.36
+      }
     },
     {
       "id": "noise-free-sound-0476",
@@ -5729,8 +5253,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 9.56
+      }
     },
     {
       "id": "noise-free-sound-0477",
@@ -5741,8 +5264,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 15.12
+      }
     },
     {
       "id": "noise-free-sound-0478",
@@ -5753,8 +5275,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 8.52
+      }
     },
     {
       "id": "noise-free-sound-0479",
@@ -5765,8 +5286,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 3.72
+      }
     },
     {
       "id": "noise-free-sound-0480",
@@ -5777,8 +5297,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 35.29
+      }
     },
     {
       "id": "noise-free-sound-0481",
@@ -5789,8 +5308,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 7.91
+      }
     },
     {
       "id": "noise-free-sound-0482",
@@ -5801,8 +5319,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 13.53
+      }
     },
     {
       "id": "noise-free-sound-0483",
@@ -5813,8 +5330,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 22.6
+      }
     },
     {
       "id": "noise-free-sound-0484",
@@ -5825,8 +5341,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 10.63
+      }
     },
     {
       "id": "noise-free-sound-0485",
@@ -5837,8 +5352,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 10.89
+      }
     },
     {
       "id": "noise-free-sound-0486",
@@ -5849,8 +5363,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.41
+      }
     },
     {
       "id": "noise-free-sound-0487",
@@ -5861,8 +5374,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 1.93
+      }
     },
     {
       "id": "noise-free-sound-0488",
@@ -5873,8 +5385,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.66
+      }
     },
     {
       "id": "noise-free-sound-0489",
@@ -5885,8 +5396,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 62.86
+      }
     },
     {
       "id": "noise-free-sound-0490",
@@ -5897,8 +5407,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 12.98
+      }
     },
     {
       "id": "noise-free-sound-0491",
@@ -5909,8 +5418,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 1.54
+      }
     },
     {
       "id": "noise-free-sound-0492",
@@ -5921,8 +5429,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 20.0
+      }
     },
     {
       "id": "noise-free-sound-0493",
@@ -5933,8 +5440,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 14.03
+      }
     },
     {
       "id": "noise-free-sound-0494",
@@ -5945,8 +5451,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 56.06
+      }
     },
     {
       "id": "noise-free-sound-0495",
@@ -5957,8 +5462,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 18.21
+      }
     },
     {
       "id": "noise-free-sound-0496",
@@ -5969,8 +5473,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.97
+      }
     },
     {
       "id": "noise-free-sound-0497",
@@ -5981,8 +5484,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 302.0
+      }
     },
     {
       "id": "noise-free-sound-0498",
@@ -5993,8 +5495,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.0
+      }
     },
     {
       "id": "noise-free-sound-0499",
@@ -6005,8 +5506,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 7.89
+      }
     },
     {
       "id": "noise-free-sound-0500",
@@ -6017,8 +5517,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 34.37
+      }
     },
     {
       "id": "noise-free-sound-0501",
@@ -6029,8 +5528,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 12.01
+      }
     },
     {
       "id": "noise-free-sound-0502",
@@ -6041,8 +5539,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 73.2
+      }
     },
     {
       "id": "noise-free-sound-0503",
@@ -6053,8 +5550,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.06
+      }
     },
     {
       "id": "noise-free-sound-0504",
@@ -6065,8 +5561,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 58.0
+      }
     },
     {
       "id": "noise-free-sound-0505",
@@ -6077,8 +5572,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.37
+      }
     },
     {
       "id": "noise-free-sound-0506",
@@ -6089,8 +5583,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 24.58
+      }
     },
     {
       "id": "noise-free-sound-0507",
@@ -6101,8 +5594,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 1.12
+      }
     },
     {
       "id": "noise-free-sound-0508",
@@ -6113,8 +5605,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 7.32
+      }
     },
     {
       "id": "noise-free-sound-0509",
@@ -6125,8 +5616,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 10.8
+      }
     },
     {
       "id": "noise-free-sound-0510",
@@ -6137,8 +5627,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 19.85
+      }
     },
     {
       "id": "noise-free-sound-0511",
@@ -6149,8 +5638,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.0
+      }
     },
     {
       "id": "noise-free-sound-0512",
@@ -6161,8 +5649,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 3.79
+      }
     },
     {
       "id": "noise-free-sound-0513",
@@ -6173,8 +5660,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 10.79
+      }
     },
     {
       "id": "noise-free-sound-0514",
@@ -6185,8 +5671,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 5.33
+      }
     },
     {
       "id": "noise-free-sound-0515",
@@ -6197,8 +5682,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 4.08
+      }
     },
     {
       "id": "noise-free-sound-0516",
@@ -6209,8 +5693,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.1
+      }
     },
     {
       "id": "noise-free-sound-0517",
@@ -6221,8 +5704,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.96
+      }
     },
     {
       "id": "noise-free-sound-0518",
@@ -6233,8 +5715,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 18.78
+      }
     },
     {
       "id": "noise-free-sound-0519",
@@ -6245,8 +5726,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 33.59
+      }
     },
     {
       "id": "noise-free-sound-0520",
@@ -6257,8 +5737,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 12.5
+      }
     },
     {
       "id": "noise-free-sound-0521",
@@ -6269,8 +5748,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 7.0
+      }
     },
     {
       "id": "noise-free-sound-0522",
@@ -6281,8 +5759,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 79.29
+      }
     },
     {
       "id": "noise-free-sound-0523",
@@ -6293,8 +5770,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.42
+      }
     },
     {
       "id": "noise-free-sound-0524",
@@ -6305,8 +5781,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 22.65
+      }
     },
     {
       "id": "noise-free-sound-0525",
@@ -6317,8 +5792,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.96
+      }
     },
     {
       "id": "noise-free-sound-0526",
@@ -6329,8 +5803,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 1.42
+      }
     },
     {
       "id": "noise-free-sound-0527",
@@ -6341,8 +5814,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 9.31
+      }
     },
     {
       "id": "noise-free-sound-0528",
@@ -6353,8 +5825,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 3.07
+      }
     },
     {
       "id": "noise-free-sound-0529",
@@ -6365,8 +5836,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.86
+      }
     },
     {
       "id": "noise-free-sound-0530",
@@ -6377,8 +5847,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 7.76
+      }
     },
     {
       "id": "noise-free-sound-0531",
@@ -6389,8 +5858,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 46.74
+      }
     },
     {
       "id": "noise-free-sound-0532",
@@ -6401,8 +5869,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.0
+      }
     },
     {
       "id": "noise-free-sound-0533",
@@ -6413,8 +5880,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 37.92
+      }
     },
     {
       "id": "noise-free-sound-0534",
@@ -6425,8 +5891,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 17.48
+      }
     },
     {
       "id": "noise-free-sound-0535",
@@ -6437,8 +5902,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 18.14
+      }
     },
     {
       "id": "noise-free-sound-0536",
@@ -6449,8 +5913,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.69
+      }
     },
     {
       "id": "noise-free-sound-0537",
@@ -6461,8 +5924,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 12.17
+      }
     },
     {
       "id": "noise-free-sound-0538",
@@ -6473,8 +5935,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 0.57
+      }
     },
     {
       "id": "noise-free-sound-0539",
@@ -6485,8 +5946,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.52
+      }
     },
     {
       "id": "noise-free-sound-0540",
@@ -6497,8 +5957,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 3.0
+      }
     },
     {
       "id": "noise-free-sound-0541",
@@ -6509,8 +5968,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 16.38
+      }
     },
     {
       "id": "noise-free-sound-0542",
@@ -6521,8 +5979,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 8.22
+      }
     },
     {
       "id": "noise-free-sound-0543",
@@ -6533,8 +5990,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.36
+      }
     },
     {
       "id": "noise-free-sound-0544",
@@ -6545,8 +6001,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 107.06
+      }
     },
     {
       "id": "noise-free-sound-0545",
@@ -6557,8 +6012,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 31.07
+      }
     },
     {
       "id": "noise-free-sound-0546",
@@ -6569,8 +6023,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 117.62
+      }
     },
     {
       "id": "noise-free-sound-0547",
@@ -6581,8 +6034,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.85
+      }
     },
     {
       "id": "noise-free-sound-0548",
@@ -6593,8 +6045,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.2
+      }
     },
     {
       "id": "noise-free-sound-0549",
@@ -6605,8 +6056,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.83
+      }
     },
     {
       "id": "noise-free-sound-0550",
@@ -6617,8 +6067,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.37
+      }
     },
     {
       "id": "noise-free-sound-0551",
@@ -6629,8 +6078,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 33.19
+      }
     },
     {
       "id": "noise-free-sound-0552",
@@ -6641,8 +6089,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 77.74
+      }
     },
     {
       "id": "noise-free-sound-0553",
@@ -6653,8 +6100,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 16.43
+      }
     },
     {
       "id": "noise-free-sound-0554",
@@ -6665,8 +6111,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.78
+      }
     },
     {
       "id": "noise-free-sound-0555",
@@ -6677,8 +6122,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 21.58
+      }
     },
     {
       "id": "noise-free-sound-0556",
@@ -6689,8 +6133,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 19.91
+      }
     },
     {
       "id": "noise-free-sound-0557",
@@ -6701,8 +6144,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 9.12
+      }
     },
     {
       "id": "noise-free-sound-0558",
@@ -6713,8 +6155,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 8.39
+      }
     },
     {
       "id": "noise-free-sound-0559",
@@ -6725,8 +6166,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 14.2
+      }
     },
     {
       "id": "noise-free-sound-0560",
@@ -6737,8 +6177,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 269.54
+      }
     },
     {
       "id": "noise-free-sound-0561",
@@ -6749,8 +6188,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.18
+      }
     },
     {
       "id": "noise-free-sound-0562",
@@ -6761,8 +6199,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 9.06
+      }
     },
     {
       "id": "noise-free-sound-0563",
@@ -6773,8 +6210,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 24.33
+      }
     },
     {
       "id": "noise-free-sound-0564",
@@ -6784,8 +6220,7 @@
         "stationary": null,
         "loop_safe": null,
         "license": "PD"
-      },
-      "duration": 0.1
+      }
     },
     {
       "id": "noise-free-sound-0565",
@@ -6796,8 +6231,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 7.43
+      }
     },
     {
       "id": "noise-free-sound-0566",
@@ -6808,8 +6242,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 6.19
+      }
     },
     {
       "id": "noise-free-sound-0567",
@@ -6820,8 +6253,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 98.88
+      }
     },
     {
       "id": "noise-free-sound-0568",
@@ -6832,8 +6264,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 113.64
+      }
     },
     {
       "id": "noise-free-sound-0569",
@@ -6844,8 +6275,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 3.84
+      }
     },
     {
       "id": "noise-free-sound-0570",
@@ -6856,8 +6286,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 6.37
+      }
     },
     {
       "id": "noise-free-sound-0571",
@@ -6868,8 +6297,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 7.13
+      }
     },
     {
       "id": "noise-free-sound-0572",
@@ -6880,8 +6308,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 123.43
+      }
     },
     {
       "id": "noise-free-sound-0573",
@@ -6892,8 +6319,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.39
+      }
     },
     {
       "id": "noise-free-sound-0574",
@@ -6904,8 +6330,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 20.85
+      }
     },
     {
       "id": "noise-free-sound-0575",
@@ -6916,8 +6341,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.64
+      }
     },
     {
       "id": "noise-free-sound-0576",
@@ -6928,8 +6352,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 3.73
+      }
     },
     {
       "id": "noise-free-sound-0577",
@@ -6940,8 +6363,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 13.45
+      }
     },
     {
       "id": "noise-free-sound-0578",
@@ -6952,8 +6374,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 19.36
+      }
     },
     {
       "id": "noise-free-sound-0579",
@@ -6964,8 +6385,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 17.27
+      }
     },
     {
       "id": "noise-free-sound-0580",
@@ -6976,8 +6396,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 135.68
+      }
     },
     {
       "id": "noise-free-sound-0581",
@@ -6988,8 +6407,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 51.49
+      }
     },
     {
       "id": "noise-free-sound-0582",
@@ -7000,8 +6418,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 1.47
+      }
     },
     {
       "id": "noise-free-sound-0583",
@@ -7012,8 +6429,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 2.04
+      }
     },
     {
       "id": "noise-free-sound-0584",
@@ -7024,8 +6440,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 15.77
+      }
     },
     {
       "id": "noise-free-sound-0585",
@@ -7036,8 +6451,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.93
+      }
     },
     {
       "id": "noise-free-sound-0586",
@@ -7048,8 +6462,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 10.83
+      }
     },
     {
       "id": "noise-free-sound-0587",
@@ -7060,8 +6473,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.12
+      }
     },
     {
       "id": "noise-free-sound-0588",
@@ -7072,8 +6484,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.8
+      }
     },
     {
       "id": "noise-free-sound-0589",
@@ -7084,8 +6495,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.25
+      }
     },
     {
       "id": "noise-free-sound-0590",
@@ -7096,8 +6506,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 3.79
+      }
     },
     {
       "id": "noise-free-sound-0591",
@@ -7108,8 +6517,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 12.26
+      }
     },
     {
       "id": "noise-free-sound-0592",
@@ -7120,8 +6528,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 32.88
+      }
     },
     {
       "id": "noise-free-sound-0593",
@@ -7132,8 +6539,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 61.65
+      }
     },
     {
       "id": "noise-free-sound-0594",
@@ -7144,8 +6550,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 141.18
+      }
     },
     {
       "id": "noise-free-sound-0595",
@@ -7156,8 +6561,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 26.9
+      }
     },
     {
       "id": "noise-free-sound-0596",
@@ -7168,8 +6572,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 13.34
+      }
     },
     {
       "id": "noise-free-sound-0597",
@@ -7180,8 +6583,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.24
+      }
     },
     {
       "id": "noise-free-sound-0598",
@@ -7192,8 +6594,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 57.92
+      }
     },
     {
       "id": "noise-free-sound-0599",
@@ -7204,8 +6605,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 3.84
+      }
     },
     {
       "id": "noise-free-sound-0600",
@@ -7216,8 +6616,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 45.4
+      }
     },
     {
       "id": "noise-free-sound-0601",
@@ -7228,8 +6627,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 4.24
+      }
     },
     {
       "id": "noise-free-sound-0602",
@@ -7240,8 +6638,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.12
+      }
     },
     {
       "id": "noise-free-sound-0603",
@@ -7252,8 +6649,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 7.37
+      }
     },
     {
       "id": "noise-free-sound-0604",
@@ -7264,8 +6660,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 7.36
+      }
     },
     {
       "id": "noise-free-sound-0605",
@@ -7276,8 +6671,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 32.0
+      }
     },
     {
       "id": "noise-free-sound-0606",
@@ -7288,8 +6682,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 88.84
+      }
     },
     {
       "id": "noise-free-sound-0607",
@@ -7300,8 +6693,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 20.01
+      }
     },
     {
       "id": "noise-free-sound-0608",
@@ -7312,8 +6704,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 3.53
+      }
     },
     {
       "id": "noise-free-sound-0609",
@@ -7324,8 +6715,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 10.16
+      }
     },
     {
       "id": "noise-free-sound-0610",
@@ -7336,8 +6726,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 11.18
+      }
     },
     {
       "id": "noise-free-sound-0611",
@@ -7347,8 +6736,7 @@
         "stationary": null,
         "loop_safe": null,
         "license": "PD"
-      },
-      "duration": 0.13
+      }
     },
     {
       "id": "noise-free-sound-0612",
@@ -7359,8 +6747,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 11.05
+      }
     },
     {
       "id": "noise-free-sound-0613",
@@ -7371,8 +6758,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 28.55
+      }
     },
     {
       "id": "noise-free-sound-0614",
@@ -7383,8 +6769,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 30.0
+      }
     },
     {
       "id": "noise-free-sound-0615",
@@ -7395,8 +6780,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 10.08
+      }
     },
     {
       "id": "noise-free-sound-0616",
@@ -7407,8 +6791,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 22.65
+      }
     },
     {
       "id": "noise-free-sound-0617",
@@ -7419,8 +6802,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 8.2
+      }
     },
     {
       "id": "noise-free-sound-0618",
@@ -7431,8 +6813,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 3.02
+      }
     },
     {
       "id": "noise-free-sound-0619",
@@ -7443,8 +6824,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.55
+      }
     },
     {
       "id": "noise-free-sound-0620",
@@ -7455,8 +6835,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 11.57
+      }
     },
     {
       "id": "noise-free-sound-0621",
@@ -7467,8 +6846,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.72
+      }
     },
     {
       "id": "noise-free-sound-0622",
@@ -7479,8 +6857,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 11.99
+      }
     },
     {
       "id": "noise-free-sound-0623",
@@ -7491,8 +6868,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 34.95
+      }
     },
     {
       "id": "noise-free-sound-0624",
@@ -7502,8 +6878,7 @@
         "stationary": null,
         "loop_safe": null,
         "license": "PD"
-      },
-      "duration": 0.1
+      }
     },
     {
       "id": "noise-free-sound-0625",
@@ -7514,8 +6889,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 20.82
+      }
     },
     {
       "id": "noise-free-sound-0626",
@@ -7526,8 +6900,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.32
+      }
     },
     {
       "id": "noise-free-sound-0627",
@@ -7538,8 +6911,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 0.31
+      }
     },
     {
       "id": "noise-free-sound-0628",
@@ -7550,8 +6922,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 29.02
+      }
     },
     {
       "id": "noise-free-sound-0629",
@@ -7562,8 +6933,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 3.5
+      }
     },
     {
       "id": "noise-free-sound-0630",
@@ -7574,8 +6944,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 3.11
+      }
     },
     {
       "id": "noise-free-sound-0631",
@@ -7586,8 +6955,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.6
+      }
     },
     {
       "id": "noise-free-sound-0632",
@@ -7598,8 +6966,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.57
+      }
     },
     {
       "id": "noise-free-sound-0633",
@@ -7610,8 +6977,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 18.27
+      }
     },
     {
       "id": "noise-free-sound-0634",
@@ -7622,8 +6988,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 64.0
+      }
     },
     {
       "id": "noise-free-sound-0635",
@@ -7634,8 +6999,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 16.88
+      }
     },
     {
       "id": "noise-free-sound-0636",
@@ -7646,8 +7010,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 31.4
+      }
     },
     {
       "id": "noise-free-sound-0637",
@@ -7658,8 +7021,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 14.68
+      }
     },
     {
       "id": "noise-free-sound-0638",
@@ -7670,8 +7032,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.59
+      }
     },
     {
       "id": "noise-free-sound-0639",
@@ -7682,8 +7043,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.2
+      }
     },
     {
       "id": "noise-free-sound-0640",
@@ -7694,8 +7054,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 32.78
+      }
     },
     {
       "id": "noise-free-sound-0641",
@@ -7706,8 +7065,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 35.13
+      }
     },
     {
       "id": "noise-free-sound-0642",
@@ -7718,8 +7076,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.49
+      }
     },
     {
       "id": "noise-free-sound-0643",
@@ -7730,8 +7087,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.78
+      }
     },
     {
       "id": "noise-free-sound-0644",
@@ -7742,8 +7098,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 94.6
+      }
     },
     {
       "id": "noise-free-sound-0645",
@@ -7754,8 +7109,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.72
+      }
     },
     {
       "id": "noise-free-sound-0646",
@@ -7766,8 +7120,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 35.81
+      }
     },
     {
       "id": "noise-free-sound-0647",
@@ -7778,8 +7131,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 60.1
+      }
     },
     {
       "id": "noise-free-sound-0648",
@@ -7790,8 +7142,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 12.29
+      }
     },
     {
       "id": "noise-free-sound-0649",
@@ -7802,8 +7153,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 50.43
+      }
     },
     {
       "id": "noise-free-sound-0650",
@@ -7814,8 +7164,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 16.24
+      }
     },
     {
       "id": "noise-free-sound-0651",
@@ -7826,8 +7175,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 65.21
+      }
     },
     {
       "id": "noise-free-sound-0652",
@@ -7838,8 +7186,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.7
+      }
     },
     {
       "id": "noise-free-sound-0653",
@@ -7850,8 +7197,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 29.12
+      }
     },
     {
       "id": "noise-free-sound-0654",
@@ -7862,8 +7208,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.98
+      }
     },
     {
       "id": "noise-free-sound-0655",
@@ -7874,8 +7219,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 21.34
+      }
     },
     {
       "id": "noise-free-sound-0656",
@@ -7886,8 +7230,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.88
+      }
     },
     {
       "id": "noise-free-sound-0657",
@@ -7898,8 +7241,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.67
+      }
     },
     {
       "id": "noise-free-sound-0658",
@@ -7910,8 +7252,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 19.0
+      }
     },
     {
       "id": "noise-free-sound-0659",
@@ -7922,8 +7263,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 11.12
+      }
     },
     {
       "id": "noise-free-sound-0660",
@@ -7934,8 +7274,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 41.84
+      }
     },
     {
       "id": "noise-free-sound-0661",
@@ -7946,8 +7285,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 35.52
+      }
     },
     {
       "id": "noise-free-sound-0662",
@@ -7958,8 +7296,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.41
+      }
     },
     {
       "id": "noise-free-sound-0663",
@@ -7970,8 +7307,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 29.35
+      }
     },
     {
       "id": "noise-free-sound-0664",
@@ -7982,8 +7318,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 15.65
+      }
     },
     {
       "id": "noise-free-sound-0665",
@@ -7994,8 +7329,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 17.27
+      }
     },
     {
       "id": "noise-free-sound-0666",
@@ -8006,8 +7340,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 13.69
+      }
     },
     {
       "id": "noise-free-sound-0667",
@@ -8018,8 +7351,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 13.76
+      }
     },
     {
       "id": "noise-free-sound-0668",
@@ -8030,8 +7362,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.02
+      }
     },
     {
       "id": "noise-free-sound-0669",
@@ -8042,8 +7373,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.02
+      }
     },
     {
       "id": "noise-free-sound-0670",
@@ -8054,8 +7384,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.76
+      }
     },
     {
       "id": "noise-free-sound-0671",
@@ -8066,8 +7395,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 70.19
+      }
     },
     {
       "id": "noise-free-sound-0672",
@@ -8078,8 +7406,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.3
+      }
     },
     {
       "id": "noise-free-sound-0673",
@@ -8090,8 +7417,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 3.83
+      }
     },
     {
       "id": "noise-free-sound-0674",
@@ -8102,8 +7428,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 31.13
+      }
     },
     {
       "id": "noise-free-sound-0675",
@@ -8114,8 +7439,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 8.77
+      }
     },
     {
       "id": "noise-free-sound-0676",
@@ -8126,8 +7450,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.16
+      }
     },
     {
       "id": "noise-free-sound-0677",
@@ -8138,8 +7461,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 107.76
+      }
     },
     {
       "id": "noise-free-sound-0678",
@@ -8150,8 +7472,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.06
+      }
     },
     {
       "id": "noise-free-sound-0679",
@@ -8162,8 +7483,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 22.0
+      }
     },
     {
       "id": "noise-free-sound-0680",
@@ -8174,8 +7494,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 14.57
+      }
     },
     {
       "id": "noise-free-sound-0681",
@@ -8186,8 +7505,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 96.71
+      }
     },
     {
       "id": "noise-free-sound-0682",
@@ -8198,8 +7516,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 18.18
+      }
     },
     {
       "id": "noise-free-sound-0683",
@@ -8210,8 +7527,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 27.62
+      }
     },
     {
       "id": "noise-free-sound-0684",
@@ -8222,8 +7538,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 139.01
+      }
     },
     {
       "id": "noise-free-sound-0685",
@@ -8234,8 +7549,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 43.88
+      }
     },
     {
       "id": "noise-free-sound-0686",
@@ -8246,8 +7560,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 15.6
+      }
     },
     {
       "id": "noise-free-sound-0687",
@@ -8258,8 +7571,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 20.8
+      }
     },
     {
       "id": "noise-free-sound-0688",
@@ -8270,8 +7582,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 19.25
+      }
     },
     {
       "id": "noise-free-sound-0689",
@@ -8282,8 +7593,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.05
+      }
     },
     {
       "id": "noise-free-sound-0690",
@@ -8294,8 +7604,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 5.21
+      }
     },
     {
       "id": "noise-free-sound-0691",
@@ -8306,8 +7615,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 10.07
+      }
     },
     {
       "id": "noise-free-sound-0692",
@@ -8318,8 +7626,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.93
+      }
     },
     {
       "id": "noise-free-sound-0693",
@@ -8330,8 +7637,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.41
+      }
     },
     {
       "id": "noise-free-sound-0694",
@@ -8342,8 +7648,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 19.85
+      }
     },
     {
       "id": "noise-free-sound-0695",
@@ -8354,8 +7659,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.42
+      }
     },
     {
       "id": "noise-free-sound-0696",
@@ -8366,8 +7670,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 29.57
+      }
     },
     {
       "id": "noise-free-sound-0697",
@@ -8378,8 +7681,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.11
+      }
     },
     {
       "id": "noise-free-sound-0698",
@@ -8390,8 +7692,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 76.17
+      }
     },
     {
       "id": "noise-free-sound-0699",
@@ -8402,8 +7703,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 119.51
+      }
     },
     {
       "id": "noise-free-sound-0700",
@@ -8414,8 +7714,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 41.04
+      }
     },
     {
       "id": "noise-free-sound-0701",
@@ -8426,8 +7725,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.06
+      }
     },
     {
       "id": "noise-free-sound-0702",
@@ -8438,8 +7736,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 21.81
+      }
     },
     {
       "id": "noise-free-sound-0703",
@@ -8450,8 +7747,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 8.19
+      }
     },
     {
       "id": "noise-free-sound-0704",
@@ -8462,8 +7758,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 20.16
+      }
     },
     {
       "id": "noise-free-sound-0705",
@@ -8474,8 +7769,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 11.33
+      }
     },
     {
       "id": "noise-free-sound-0706",
@@ -8486,8 +7780,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 28.29
+      }
     },
     {
       "id": "noise-free-sound-0707",
@@ -8498,8 +7791,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 40.07
+      }
     },
     {
       "id": "noise-free-sound-0708",
@@ -8510,8 +7802,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 63.06
+      }
     },
     {
       "id": "noise-free-sound-0709",
@@ -8522,8 +7813,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 31.86
+      }
     },
     {
       "id": "noise-free-sound-0710",
@@ -8534,8 +7824,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 45.74
+      }
     },
     {
       "id": "noise-free-sound-0711",
@@ -8546,8 +7835,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.39
+      }
     },
     {
       "id": "noise-free-sound-0712",
@@ -8558,8 +7846,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 2.85
+      }
     },
     {
       "id": "noise-free-sound-0713",
@@ -8570,8 +7857,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.7
+      }
     },
     {
       "id": "noise-free-sound-0714",
@@ -8582,8 +7868,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.12
+      }
     },
     {
       "id": "noise-free-sound-0715",
@@ -8594,8 +7879,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 60.06
+      }
     },
     {
       "id": "noise-free-sound-0716",
@@ -8606,8 +7890,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.62
+      }
     },
     {
       "id": "noise-free-sound-0717",
@@ -8618,8 +7901,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.98
+      }
     },
     {
       "id": "noise-free-sound-0718",
@@ -8630,8 +7912,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 13.04
+      }
     },
     {
       "id": "noise-free-sound-0719",
@@ -8642,8 +7923,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 7.0
+      }
     },
     {
       "id": "noise-free-sound-0720",
@@ -8654,8 +7934,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 10.74
+      }
     },
     {
       "id": "noise-free-sound-0721",
@@ -8666,8 +7945,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 9.03
+      }
     },
     {
       "id": "noise-free-sound-0722",
@@ -8678,8 +7956,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 7.77
+      }
     },
     {
       "id": "noise-free-sound-0723",
@@ -8690,8 +7967,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 89.72
+      }
     },
     {
       "id": "noise-free-sound-0724",
@@ -8702,8 +7978,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.91
+      }
     },
     {
       "id": "noise-free-sound-0725",
@@ -8714,8 +7989,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 33.23
+      }
     },
     {
       "id": "noise-free-sound-0726",
@@ -8726,8 +8000,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 120.01
+      }
     },
     {
       "id": "noise-free-sound-0727",
@@ -8738,8 +8011,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 29.02
+      }
     },
     {
       "id": "noise-free-sound-0728",
@@ -8750,8 +8022,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 123.84
+      }
     },
     {
       "id": "noise-free-sound-0729",
@@ -8762,8 +8033,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 187.14
+      }
     },
     {
       "id": "noise-free-sound-0730",
@@ -8774,8 +8044,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 1.49
+      }
     },
     {
       "id": "noise-free-sound-0731",
@@ -8786,8 +8055,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 1.44
+      }
     },
     {
       "id": "noise-free-sound-0732",
@@ -8798,8 +8066,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 31.74
+      }
     },
     {
       "id": "noise-free-sound-0733",
@@ -8810,8 +8077,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 31.95
+      }
     },
     {
       "id": "noise-free-sound-0734",
@@ -8822,8 +8088,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 21.16
+      }
     },
     {
       "id": "noise-free-sound-0735",
@@ -8834,8 +8099,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 21.81
+      }
     },
     {
       "id": "noise-free-sound-0736",
@@ -8846,8 +8110,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.92
+      }
     },
     {
       "id": "noise-free-sound-0737",
@@ -8858,8 +8121,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.85
+      }
     },
     {
       "id": "noise-free-sound-0738",
@@ -8870,8 +8132,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 27.9
+      }
     },
     {
       "id": "noise-free-sound-0739",
@@ -8882,8 +8143,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 19.22
+      }
     },
     {
       "id": "noise-free-sound-0740",
@@ -8894,8 +8154,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 64.07
+      }
     },
     {
       "id": "noise-free-sound-0741",
@@ -8906,8 +8165,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 18.7
+      }
     },
     {
       "id": "noise-free-sound-0742",
@@ -8918,8 +8176,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 22.54
+      }
     },
     {
       "id": "noise-free-sound-0743",
@@ -8930,8 +8187,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 43.96
+      }
     },
     {
       "id": "noise-free-sound-0744",
@@ -8942,8 +8198,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.04
+      }
     },
     {
       "id": "noise-free-sound-0745",
@@ -8954,8 +8209,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.73
+      }
     },
     {
       "id": "noise-free-sound-0746",
@@ -8965,8 +8219,7 @@
         "stationary": null,
         "loop_safe": null,
         "license": "PD"
-      },
-      "duration": 0.23
+      }
     },
     {
       "id": "noise-free-sound-0747",
@@ -8977,8 +8230,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 17.42
+      }
     },
     {
       "id": "noise-free-sound-0748",
@@ -8989,8 +8241,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.64
+      }
     },
     {
       "id": "noise-free-sound-0749",
@@ -9001,8 +8252,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 1.0
+      }
     },
     {
       "id": "noise-free-sound-0750",
@@ -9013,8 +8263,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.46
+      }
     },
     {
       "id": "noise-free-sound-0751",
@@ -9025,8 +8274,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.45
+      }
     },
     {
       "id": "noise-free-sound-0752",
@@ -9037,8 +8285,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 33.61
+      }
     },
     {
       "id": "noise-free-sound-0753",
@@ -9049,8 +8296,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 24.7
+      }
     },
     {
       "id": "noise-free-sound-0754",
@@ -9061,8 +8307,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 80.72
+      }
     },
     {
       "id": "noise-free-sound-0755",
@@ -9073,8 +8318,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 14.42
+      }
     },
     {
       "id": "noise-free-sound-0756",
@@ -9085,8 +8329,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.16
+      }
     },
     {
       "id": "noise-free-sound-0757",
@@ -9097,8 +8340,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 13.77
+      }
     },
     {
       "id": "noise-free-sound-0758",
@@ -9109,8 +8351,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 12.64
+      }
     },
     {
       "id": "noise-free-sound-0759",
@@ -9121,8 +8362,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.73
+      }
     },
     {
       "id": "noise-free-sound-0760",
@@ -9133,8 +8373,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.62
+      }
     },
     {
       "id": "noise-free-sound-0761",
@@ -9145,8 +8384,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 32.4
+      }
     },
     {
       "id": "noise-free-sound-0762",
@@ -9157,8 +8395,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 12.8
+      }
     },
     {
       "id": "noise-free-sound-0763",
@@ -9169,8 +8406,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 20.49
+      }
     },
     {
       "id": "noise-free-sound-0764",
@@ -9180,8 +8416,7 @@
         "stationary": null,
         "loop_safe": null,
         "license": "PD"
-      },
-      "duration": 0.06
+      }
     },
     {
       "id": "noise-free-sound-0765",
@@ -9191,8 +8426,7 @@
         "stationary": null,
         "loop_safe": null,
         "license": "PD"
-      },
-      "duration": 0.2
+      }
     },
     {
       "id": "noise-free-sound-0766",
@@ -9202,8 +8436,7 @@
         "stationary": null,
         "loop_safe": null,
         "license": "PD"
-      },
-      "duration": 0.03
+      }
     },
     {
       "id": "noise-free-sound-0767",
@@ -9214,8 +8447,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 29.64
+      }
     },
     {
       "id": "noise-free-sound-0768",
@@ -9226,8 +8458,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.42
+      }
     },
     {
       "id": "noise-free-sound-0769",
@@ -9238,8 +8469,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 25.76
+      }
     },
     {
       "id": "noise-free-sound-0770",
@@ -9250,8 +8480,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 55.56
+      }
     },
     {
       "id": "noise-free-sound-0771",
@@ -9262,8 +8491,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 3.16
+      }
     },
     {
       "id": "noise-free-sound-0772",
@@ -9274,8 +8502,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.65
+      }
     },
     {
       "id": "noise-free-sound-0773",
@@ -9286,8 +8513,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.05
+      }
     },
     {
       "id": "noise-free-sound-0774",
@@ -9298,8 +8524,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 3.15
+      }
     },
     {
       "id": "noise-free-sound-0775",
@@ -9310,8 +8535,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 29.51
+      }
     },
     {
       "id": "noise-free-sound-0776",
@@ -9322,8 +8546,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 15.66
+      }
     },
     {
       "id": "noise-free-sound-0777",
@@ -9334,8 +8557,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 6.92
+      }
     },
     {
       "id": "noise-free-sound-0778",
@@ -9346,8 +8568,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 18.26
+      }
     },
     {
       "id": "noise-free-sound-0779",
@@ -9358,8 +8579,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 12.51
+      }
     },
     {
       "id": "noise-free-sound-0780",
@@ -9370,8 +8590,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 30.28
+      }
     },
     {
       "id": "noise-free-sound-0781",
@@ -9382,8 +8601,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 60.72
+      }
     },
     {
       "id": "noise-free-sound-0782",
@@ -9394,8 +8612,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.9
+      }
     },
     {
       "id": "noise-free-sound-0783",
@@ -9406,8 +8623,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 8.61
+      }
     },
     {
       "id": "noise-free-sound-0784",
@@ -9418,8 +8634,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 35.8
+      }
     },
     {
       "id": "noise-free-sound-0785",
@@ -9430,8 +8645,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 26.92
+      }
     },
     {
       "id": "noise-free-sound-0786",
@@ -9442,8 +8656,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 19.8
+      }
     },
     {
       "id": "noise-free-sound-0787",
@@ -9454,8 +8667,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 34.99
+      }
     },
     {
       "id": "noise-free-sound-0788",
@@ -9466,8 +8678,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 34.87
+      }
     },
     {
       "id": "noise-free-sound-0789",
@@ -9478,8 +8689,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 8.85
+      }
     },
     {
       "id": "noise-free-sound-0790",
@@ -9490,8 +8700,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 16.14
+      }
     },
     {
       "id": "noise-free-sound-0791",
@@ -9502,8 +8711,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 9.0
+      }
     },
     {
       "id": "noise-free-sound-0792",
@@ -9514,8 +8722,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 41.59
+      }
     },
     {
       "id": "noise-free-sound-0793",
@@ -9526,8 +8733,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 9.43
+      }
     },
     {
       "id": "noise-free-sound-0794",
@@ -9538,8 +8744,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.43
+      }
     },
     {
       "id": "noise-free-sound-0795",
@@ -9550,8 +8755,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 45.81
+      }
     },
     {
       "id": "noise-free-sound-0796",
@@ -9562,8 +8766,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 10.24
+      }
     },
     {
       "id": "noise-free-sound-0797",
@@ -9574,8 +8777,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 16.38
+      }
     },
     {
       "id": "noise-free-sound-0798",
@@ -9586,8 +8788,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 12.97
+      }
     },
     {
       "id": "noise-free-sound-0799",
@@ -9598,8 +8799,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 5.63
+      }
     },
     {
       "id": "noise-free-sound-0800",
@@ -9610,8 +8810,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 9.6
+      }
     },
     {
       "id": "noise-free-sound-0801",
@@ -9622,8 +8821,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.01
+      }
     },
     {
       "id": "noise-free-sound-0802",
@@ -9634,8 +8832,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 5.12
+      }
     },
     {
       "id": "noise-free-sound-0803",
@@ -9646,8 +8843,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 14.03
+      }
     },
     {
       "id": "noise-free-sound-0804",
@@ -9658,8 +8854,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 59.7
+      }
     },
     {
       "id": "noise-free-sound-0805",
@@ -9670,8 +8865,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 15.16
+      }
     },
     {
       "id": "noise-free-sound-0806",
@@ -9682,8 +8876,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 11.78
+      }
     },
     {
       "id": "noise-free-sound-0807",
@@ -9694,8 +8887,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.1
+      }
     },
     {
       "id": "noise-free-sound-0808",
@@ -9706,8 +8898,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.7
+      }
     },
     {
       "id": "noise-free-sound-0809",
@@ -9718,8 +8909,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 25.13
+      }
     },
     {
       "id": "noise-free-sound-0810",
@@ -9730,8 +8920,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 4.01
+      }
     },
     {
       "id": "noise-free-sound-0811",
@@ -9742,8 +8931,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 7.98
+      }
     },
     {
       "id": "noise-free-sound-0812",
@@ -9754,8 +8942,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 12.2
+      }
     },
     {
       "id": "noise-free-sound-0813",
@@ -9766,8 +8953,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 78.8
+      }
     },
     {
       "id": "noise-free-sound-0814",
@@ -9778,8 +8964,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 15.66
+      }
     },
     {
       "id": "noise-free-sound-0815",
@@ -9790,8 +8975,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.47
+      }
     },
     {
       "id": "noise-free-sound-0816",
@@ -9802,8 +8986,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.32
+      }
     },
     {
       "id": "noise-free-sound-0817",
@@ -9814,8 +8997,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 1.61
+      }
     },
     {
       "id": "noise-free-sound-0818",
@@ -9826,8 +9008,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 57.68
+      }
     },
     {
       "id": "noise-free-sound-0819",
@@ -9838,8 +9019,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 109.9
+      }
     },
     {
       "id": "noise-free-sound-0820",
@@ -9850,8 +9030,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 18.45
+      }
     },
     {
       "id": "noise-free-sound-0821",
@@ -9862,8 +9041,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 3.34
+      }
     },
     {
       "id": "noise-free-sound-0822",
@@ -9874,8 +9052,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 4.99
+      }
     },
     {
       "id": "noise-free-sound-0823",
@@ -9886,8 +9063,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.75
+      }
     },
     {
       "id": "noise-free-sound-0824",
@@ -9898,8 +9074,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 33.12
+      }
     },
     {
       "id": "noise-free-sound-0825",
@@ -9910,8 +9085,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 2.67
+      }
     },
     {
       "id": "noise-free-sound-0826",
@@ -9922,8 +9096,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 11.18
+      }
     },
     {
       "id": "noise-free-sound-0827",
@@ -9934,8 +9107,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 0.55
+      }
     },
     {
       "id": "noise-free-sound-0828",
@@ -9946,8 +9118,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 60.08
+      }
     },
     {
       "id": "noise-free-sound-0829",
@@ -9958,8 +9129,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 6.75
+      }
     },
     {
       "id": "noise-free-sound-0830",
@@ -9970,8 +9140,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 0.96
+      }
     },
     {
       "id": "noise-free-sound-0831",
@@ -9982,8 +9151,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 11.44
+      }
     },
     {
       "id": "noise-free-sound-0832",
@@ -9994,8 +9162,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 14.94
+      }
     },
     {
       "id": "noise-free-sound-0833",
@@ -10006,8 +9173,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "lowpass"
-      },
-      "duration": 4.97
+      }
     },
     {
       "id": "noise-free-sound-0834",
@@ -10018,8 +9184,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 17.07
+      }
     },
     {
       "id": "noise-free-sound-0835",
@@ -10030,8 +9195,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "highpass"
-      },
-      "duration": 5.05
+      }
     },
     {
       "id": "noise-free-sound-0836",
@@ -10042,8 +9206,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 64.9
+      }
     },
     {
       "id": "noise-free-sound-0837",
@@ -10054,8 +9217,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "bandpass"
-      },
-      "duration": 13.65
+      }
     },
     {
       "id": "noise-free-sound-0838",
@@ -10066,8 +9228,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 1.0
+      }
     },
     {
       "id": "noise-free-sound-0839",
@@ -10078,8 +9239,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 2.14
+      }
     },
     {
       "id": "noise-free-sound-0840",
@@ -10090,8 +9250,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 70.19
+      }
     },
     {
       "id": "noise-free-sound-0841",
@@ -10102,8 +9261,7 @@
         "loop_safe": "n",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 90.0
+      }
     },
     {
       "id": "noise-free-sound-0842",
@@ -10114,8 +9272,7 @@
         "loop_safe": "y",
         "license": "PD",
         "spectrum": "broadband"
-      },
-      "duration": 300.0
+      }
     }
   ]
 }

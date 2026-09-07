@@ -22,8 +22,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 2.86
+      }
     },
     {
       "id": "18737942",
@@ -35,8 +34,7 @@
         "accent": "Rikssvenska,Sveamål,Stockholmska,Skelleftemål",
         "up_votes": 10,
         "down_votes": 0
-      },
-      "duration": 3.38
+      }
     },
     {
       "id": "18747822",
@@ -47,8 +45,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.06
+      }
     },
     {
       "id": "18844791",
@@ -59,8 +56,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 2.98
+      }
     },
     {
       "id": "18847619",
@@ -71,8 +67,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 2.26
+      }
     },
     {
       "id": "18848640",
@@ -83,8 +78,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 4.03
+      }
     },
     {
       "id": "19101551",
@@ -95,8 +89,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 3.29
+      }
     },
     {
       "id": "19518501",
@@ -107,8 +100,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 3.34
+      }
     },
     {
       "id": "20020962",
@@ -119,8 +111,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 3.72
+      }
     },
     {
       "id": "20171301",
@@ -131,8 +122,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0
-      },
-      "duration": 3.0
+      }
     }
   ]
 }

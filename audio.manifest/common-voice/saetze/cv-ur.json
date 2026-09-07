@@ -22,8 +22,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 6.52
+      }
     },
     {
       "id": "26657544",
@@ -34,8 +33,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 3.96
+      }
     },
     {
       "id": "26701461",
@@ -47,8 +45,7 @@
         "accent": "Punjabi",
         "up_votes": 4,
         "down_votes": 0
-      },
-      "duration": 2.74
+      }
     },
     {
       "id": "27745883",
@@ -59,8 +56,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 9.9
+      }
     },
     {
       "id": "29186220",
@@ -71,8 +67,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 3.17
+      }
     },
     {
       "id": "30644821",
@@ -83,8 +78,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 6.66
+      }
     },
     {
       "id": "31771683",
@@ -95,8 +89,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 6.52
+      }
     },
     {
       "id": "31772079",
@@ -108,8 +101,7 @@
         "accent": "Islamabadi,Karachi",
         "up_votes": 6,
         "down_votes": 0
-      },
-      "duration": 3.56
+      }
     },
     {
       "id": "31775378",
@@ -120,8 +112,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.0
+      }
     },
     {
       "id": "31780055",
@@ -132,8 +123,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 1
-      },
-      "duration": 4.72
+      }
     }
   ]
 }

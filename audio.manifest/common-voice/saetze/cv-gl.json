@@ -22,8 +22,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.54
+      }
     },
     {
       "id": "25385524",
@@ -34,8 +33,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 6.7
+      }
     },
     {
       "id": "25387783",
@@ -47,8 +45,7 @@
         "accent": "Normativo (estándar)",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.46
+      }
     },
     {
       "id": "25400234",
@@ -59,8 +56,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 6.01
+      }
     },
     {
       "id": "25508403",
@@ -71,8 +67,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 9.22
+      }
     },
     {
       "id": "25998188",
@@ -83,8 +78,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 7.2
+      }
     },
     {
       "id": "26185302",
@@ -96,8 +90,7 @@
         "accent": "Neofalante",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.61
+      }
     },
     {
       "id": "26186911",
@@ -109,8 +102,7 @@
         "accent": "Neofalante",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 5.69
+      }
     },
     {
       "id": "26195061",
@@ -122,8 +114,7 @@
         "accent": "Central (gheada)",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.75
+      }
     },
     {
       "id": "26285229",
@@ -135,8 +126,7 @@
         "accent": "Neofalante",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 9.25
+      }
     }
   ]
 }

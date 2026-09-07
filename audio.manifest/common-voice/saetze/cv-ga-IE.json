@@ -22,8 +22,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 2.5
+      }
     },
     {
       "id": "17395673",
@@ -35,8 +34,7 @@
         "accent": "Gaeilge na Mumhan",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 7.3
+      }
     },
     {
       "id": "17401286",
@@ -47,8 +45,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.06
+      }
     },
     {
       "id": "17410229",
@@ -59,8 +56,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 4.9
+      }
     },
     {
       "id": "17571342",
@@ -71,8 +67,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 2.57
+      }
     },
     {
       "id": "17582208",
@@ -84,8 +79,7 @@
         "accent": "Gaeilge Chonnacht",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.22
+      }
     },
     {
       "id": "17687632",
@@ -97,8 +91,7 @@
         "accent": "Gaeilge Uladh",
         "up_votes": 2,
         "down_votes": 1
-      },
-      "duration": 3.82
+      }
     },
     {
       "id": "18181607",
@@ -109,8 +102,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 5.02
+      }
     },
     {
       "id": "18182023",
@@ -121,8 +113,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.82
+      }
     },
     {
       "id": "18183349",
@@ -134,8 +125,7 @@
         "accent": "Gaeilge na Mumhan",
         "up_votes": 2,
         "down_votes": 0
-      },
-      "duration": 4.46
+      }
     }
   ]
 }
