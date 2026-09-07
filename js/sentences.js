@@ -129,9 +129,14 @@ function sBuildSequencePool() {
   // nur bei Stempel-Aenderung.
   return _amCacheGet("seqpool:" + curLang, function () {
     const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
+    const baseLang = (typeof _amBaseLang === "function") ? _amBaseLang(curLang) : curLang;
     const filtered = all.filter(function (it) {
-      // BA351: lang_any-Items (Dateiupload) immer im Sequenz-Pool
-      return it && it.tags && (it.tags.lang === curLang || it.tags.lang_any === "y");
+      // BA351: lang_any-Items (Dateiupload) immer im Sequenz-Pool.
+      // Basissprach-Vergleich (BA564): "de" schliesst de-* ein, "zh" alle zh-*.
+      return it && it.tags && (
+        ((typeof _amBaseLang === "function") ? _amBaseLang(it.tags.lang) : it.tags.lang) === baseLang
+        || it.tags.lang_any === "y"
+      );
     });
 
     // Sprecher-Reihenfolge gem. sRefreshSpeakerDropdown-Logik:
@@ -295,15 +300,25 @@ function sUpdateUI() {
     return;
   }
   if (notReady) notReady.style.display = "none";
-  const speakers = sSpeakersForLang((typeof plContentLang !== "undefined") ? plContentLang : "de");
-  if (speakers.length === 0) {
+  // Material-Pruefung ueber den ECHTEN Pool (alle Provider: Manifest +
+  // Legacy + Upload), nicht ueber sSpeakersForLang (nur Legacy-sCorpus).
+  // Sonst gelten Manifest-Sprachen (it, viele CV-Sprachen) faelschlich als
+  // leer, obwohl das Manifest Saetze liefert (BA564-Folgebug).
+  const hasMaterial = sBuildSequencePool().length > 0;
+  const axesEl = document.getElementById("plSentAxes");
+  if (!hasMaterial) {
     if (noMat) noMat.style.display = "";
-    if (ctrls) ctrls.style.display = "none";
+    // Controls sichtbar LASSEN, damit die Sprach-Box erreichbar bleibt
+    // (sonst kaeme man aus einer leeren Sprache nicht mehr zurueck).
+    // Nur die parallelen Achsen ausblenden -- sie haben kein Material.
+    if (ctrls) ctrls.style.display = "";
+    if (axesEl) axesEl.style.display = "none";
     if (plActiveSource === "saetze") sStop();
     return;
   }
   if (noMat) noMat.style.display = "none";
   if (ctrls) ctrls.style.display = "";
+  if (axesEl) axesEl.style.display = "";
   sRefreshSpeakerDropdown();
   // Falls Sätze laufen und der gewählte Sprecher in dieser Sprache nicht
   // existiert: stoppen (Dropdown ist eh schon umgesprungen auf "any").
