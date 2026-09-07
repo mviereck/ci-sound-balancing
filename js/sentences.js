@@ -1,13 +1,16 @@
 // ============================================================
-// SENTENCES (Sätze-Wiedergabe im Player, Etappe 2: Pools)
+// SENTENCES (Sätze-Wiedergabe im Player)
 // ============================================================
 //
-// Lädt sentences.json mit sprecher-zentriertem Schema:
-//   speakers.<key>.recordings = [{id, text, audio, ...}, ...]
+// Sätze sind generische Audio-Items aus amCollectItems("saetze")
+// (Provider "webspace" online, "embed" offline, "sentences-local" für
+// Uploads). Kein eigener Datencontainer, kein eigener Ladeweg.
 //
-// Wiedergabe nutzt denselben Audiograph wie Musikdateien.
-// Bei Sprecher-Wahl "any" werden recordings aller verfügbaren
-// Sprecher flach gemischt und gleichverteilt zufällig gezogen.
+// Diese Datei hält: die Satz-Pools (sBuildSequencePool/
+// sBuildRecordingPool), die Wiedergabe (sLoadAndPlayCurrent: laden über
+// amGetItemBuffer, RMS-Normalisierung + optionaler Hintergrund-Mix),
+// die Sätze-UI (sUpdateUI) und den Upload-Weg (local:-Refs,
+// sLocalCollections).
 
 let sCurRec = null;     // aktuell laufendes Item (flaches amProvider-Schema)
 let sShownText = "";
