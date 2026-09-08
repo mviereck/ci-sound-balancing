@@ -647,6 +647,26 @@ amRegisterProvider({
 // Item-Buffer-Cache + RMS-Normalisierung (BA194)
 // ============================================================
 
+// BA573: Ladeschritt-Generation. Jeder neue Ladeauftrag erhöht den Zähler; ein
+// zurückkehrender fetch/decode einer überholten Generation verwirft sein
+// Ergebnis (Muster wie pWarpGen in freq-warp.js). Der AbortController bricht den
+// laufenden fetch aktiv ab, statt ihn nur zu ignorieren.
+let _amLoadGen = 0;
+let _amLoadAbort = null;   // AbortController des laufenden fetch (oder null)
+
+// Von einem neuen Ladeauftrag (Kategorie-/Stück-Wechsel) gerufen: bricht den
+// laufenden Download ab, macht offene decode/fetch zur überholten Generation
+// und stößt den Abbruch einer laufenden Warp-Berechnung an (sofort beim Auftrag,
+// nicht erst nach dem Dekodieren des neuen Buffers).
+function amCancelLoad() {
+  _amLoadGen++;
+  if (_amLoadAbort) {
+    try { _amLoadAbort.abort(); } catch (e) {}
+    _amLoadAbort = null;
+  }
+  if (typeof pWarpCancelCompute === "function") pWarpCancelCompute();
+}
+
 const _amItemBufCache = new Map(); // itemId -> AudioBuffer
 
 const AM_REF_RMS = 0.1;
@@ -680,6 +700,8 @@ async function amGetItemBuffer(ctx, item) {
   const cached = _amItemBufCache.get(item.id);
   if (cached) return cached;
 
+  const myGen = ++_amLoadGen;
+
   let abuf = null;
   if (item.id.indexOf("gen:") === 0) {
     abuf = amGenerateNoiseBuffer(ctx, item.id);
@@ -689,13 +711,34 @@ async function amGetItemBuffer(ctx, item) {
       ? amNoiseResolveLocalFile(item.audio) : null;
     if (f) {
       const ab = await f.arrayBuffer();
+      if (myGen !== _amLoadGen) return null;   // überholt
+      abuf = await ctx.decodeAudioData(ab);
+    }
+  } else if (typeof item.audio === "string" && item.audio.indexOf("local-music-folder:") === 0) {
+    // BA573: lokaler Musik-Ordner (bisher in plMusicLoadSelected)
+    const f = (typeof amMusicResolveLocalFile === "function")
+      ? amMusicResolveLocalFile(item.audio) : null;
+    if (f) {
+      const ab = await f.arrayBuffer();
+      if (myGen !== _amLoadGen) return null;   // überholt
       abuf = await ctx.decodeAudioData(ab);
     }
   } else if (item.audio) {
-    const r = await fetch(item.audio);
-    const ab = await r.arrayBuffer();
+    _amLoadAbort = new AbortController();
+    let ab;
+    try {
+      const r = await fetch(item.audio, { signal: _amLoadAbort.signal });
+      ab = await r.arrayBuffer();
+    } catch (e) {
+      if (myGen !== _amLoadGen) return null;   // abgebrochen/überholt: still
+      throw e;
+    } finally {
+      if (myGen === _amLoadGen) _amLoadAbort = null;
+    }
+    if (myGen !== _amLoadGen) return null;      // überholt
     abuf = await ctx.decodeAudioData(ab);
   }
+  if (myGen !== _amLoadGen) return null;        // überholt (auch gen:/decode)
   if (!abuf) return null;
 
   _amItemBufCache.set(item.id, abuf);
