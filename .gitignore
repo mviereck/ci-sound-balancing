@@ -8,6 +8,7 @@
 # Backups und lokales Arbeitsmaterial
 .backup/
 .archive/
+.archiv/
 
 # Bauanleitungen fuer Sonnet (internes Arbeitsmaterial)
 .bauanleitungen/
