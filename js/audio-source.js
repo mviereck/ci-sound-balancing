@@ -204,24 +204,37 @@ function _amLangVariant(code) {
 // --- Sortier-Achsen ---
 // Pro Kategorie eine Liste. Ein Eintrag = eine Achse.
 const AM_SORT_AXES = {
+  // Geraeusche-Filterachsen (parallele Kette). valueOf = Filterwert;
+  // Reihenfolge = Box-Reihenfolge (parallelAxes in PL_FILTER_DECL.geraeusche).
   geraeusche: [
     {
-      key: "kind",
-      labelKey: "amSortKind",
-      labelDefault: "nach Art",
-      getter: function (it) { return (it.tags && it.tags.kind) || "zzz-unbekannt"; }
+      key: "source", labelKey: "plNoiseAxisSource", labelDefault: "Quelle",
+      getter: function (it) { return it.sourceTitle || it._providerId || "zzz-unbekannt"; },
+      valueOf: function (it) { return it.sourceTitle || ""; }
     },
     {
-      key: "spectrum",
-      labelKey: "amSortSpectrum",
-      labelDefault: "nach Spektrum",
-      getter: function (it) { return (it.tags && it.tags.spectrum) || "zzz-unbekannt"; }
+      key: "kind", labelKey: "plNoiseAxisKind", labelDefault: "Art",
+      getter: function (it) { return (it.tags && it.tags.kind) || "zzz-unbekannt"; },
+      valueOf: function (it) { return (it.tags && it.tags.kind) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plNoiseKind_" + v) : v; }
     },
     {
-      key: "source",
-      labelKey: "amSortSource",
-      labelDefault: "nach Quelle",
-      getter: function (it) { return it.sourceTitle || it._providerId || "zzz-unbekannt"; }
+      key: "spectrum", labelKey: "plNoiseAxisSpectrum", labelDefault: "Spektrum",
+      getter: function (it) { return (it.tags && it.tags.spectrum) || "zzz-unbekannt"; },
+      valueOf: function (it) { return (it.tags && it.tags.spectrum) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plNoiseSpectrum_" + v) : v; }
+    },
+    {
+      key: "stationary", labelKey: "plNoiseAxisStationary", labelDefault: "Zeitverlauf",
+      getter: function (it) { return (it.tags && it.tags.stationary) || "zzz-unbekannt"; },
+      valueOf: function (it) { return (it.tags && it.tags.stationary) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plNoiseStationary_" + v) : v; }
+    },
+    {
+      key: "loop_safe", labelKey: "plNoiseAxisLoopSafe", labelDefault: "Loopbar",
+      getter: function (it) { return (it.tags && it.tags.loop_safe) || "zzz-unbekannt"; },
+      valueOf: function (it) { return (it.tags && it.tags.loop_safe) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plNoiseLoopSafe_" + v) : v; }
     }
   ],
   // BA558: Saetze-Achsen (vollstaendig, Konzept-Reihenfolge).

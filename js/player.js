@@ -2097,8 +2097,15 @@ function plUpdNetSourceUI() {
   var mode = (typeof amGetSourceMode === "function") ? amGetSourceMode() : "online";
   var on  = document.getElementById("plNetOnlineBtn");
   var off = document.getElementById("plNetOfflineBtn");
-  if (on)  on.classList.toggle("active", mode === "online");
-  if (off) off.classList.toggle("active", mode === "offline");
+  // Aktiver Quellen-Knopf gruen hinterlegt (bewusst abweichend von der
+  // blauen Kategorie-Markierung daneben).
+  [ [on, mode === "online"], [off, mode === "offline"] ].forEach(function (pair) {
+    var btn = pair[0], active = pair[1];
+    if (!btn) return;
+    btn.classList.toggle("active", active);
+    btn.style.background = active ? "#2e7d32" : "";
+    btn.style.color      = active ? "#fff"    : "";
+  });
 }
 
 function plUpdSourceUI() {
@@ -3055,10 +3062,13 @@ PL_FILTER_DECL.geraeusche = {
     { key: "license",  labelKey: "plDispFieldLicense",   getValue: function (ctx) { return ctx.license || ""; }, role: "license", inFilter: false, inDisplay: true,  visibility: "always" }
   ],
   stateRef: {
-    getSortAxis:    function () { return plNoiseSortAxis; },
-    setSortAxis:    function (v) { plNoiseSortAxis = v; },
-    getCategory:    function () { return plNoiseCategory; },
-    setCategory:    function (v) { plNoiseCategory = v; },
+    getAxisSel: function (axisKey) {
+      var v = plNoiseAxisSel[axisKey];
+      return (v === undefined) ? "_all" : v;
+    },
+    setAxisSel: function (axisKey, value) {
+      plNoiseAxisSel[axisKey] = value;
+    },
     getSearchQuery: function () { return plNoiseSearchQuery; },
     setSearchQuery: function (v) { plNoiseSearchQuery = v; },
     getSelectedId:  function () { return plNoiseSelectedId; },
@@ -3093,11 +3103,8 @@ PL_FILTER_DECL.geraeusche = {
       }
     },
     {
-      id: "sort", kind: "axis-sel", domId: "plNoiseSortSel"
-    },
-    {
-      id: "cat", kind: "bucket-sel", domId: "plNoiseCatSel",
-      allLabelKey: "plNoiseCatAll"
+      id: "axes", kind: "parallel-axes", domId: "plNoiseAxes",
+      parallelAxes: ["source", "kind", "spectrum", "stationary", "loop_safe"]
     },
     {
       id: "search", kind: "search", domId: "plNoiseSearchInput"
@@ -3148,12 +3155,18 @@ function plNoiseAllItems() {
 }
 
 function plNoiseVisibleItems() {
-  const all = plNoiseAllItems();
-  const filtered = all.filter(function (it) {
-    if (!amItemMatchesCategory("geraeusche", plNoiseSortAxis, plNoiseCategory, it)) return false;
+  var all = plNoiseAllItems();
+  var axes = (typeof amSortAxesFor === "function") ? amSortAxesFor("geraeusche") : [];
+  var filtered = all.filter(function (it) {
+    if (!amItemMatchesAxes(axes, plNoiseAxisSel, it)) return false;
     return _plNoiseSearchMatch(it, plNoiseSearchQuery);
   });
-  return amSortItems(filtered, "geraeusche", plNoiseSortAxis);
+  filtered.sort(function (a, b) {
+    var ta = (a.title || a.id || "").toLowerCase();
+    var tb = (b.title || b.id || "").toLowerCase();
+    return ta < tb ? -1 : (ta > tb ? 1 : 0);
+  });
+  return filtered;
 }
 
 function plNoiseRefreshUI() {
