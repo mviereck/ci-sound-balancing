@@ -34,7 +34,7 @@ CLAUDE.md
 .claude/
 
 # API-Tokens fuer Online-Adapter (Freesound etc.) — NIE committen
-.key/
+.keys/
 .env
 .env.local
 secrets/

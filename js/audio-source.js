@@ -941,6 +941,16 @@ function amManifestUrl(path) {
   return amManifestRoot() + path + (path.indexOf("?") >= 0 ? "&" : "?") + "v=" + encodeURIComponent(v);
 }
 
+// Verzeichnis eines source.json-Pfads aus index.json, mit abschliessendem
+// "/". "online/freesound/source.json" -> "online/freesound/";
+// "musan/source.json" -> "musan/". Basis fuer die Collection-Manifest-URLs
+// derselben Quelle (Manifeste liegen relativ zur source.json).
+function _amSourceDir(sourcePath) {
+  if (!sourcePath) return "";
+  var i = sourcePath.lastIndexOf("/");
+  return i < 0 ? "" : sourcePath.substring(0, i + 1);
+}
+
 // Konfigurierbar ueber window.CI_SB_WEBSPACE_ROOT vor Lade-Beginn.
 const AM_WEBSPACE_ROOT_DEFAULT = "https://honigburg.de/opus/";
 
@@ -999,7 +1009,7 @@ async function amWebspaceLoadSource(srcKey) {
     manifests[cat] = [];
     const list = Array.isArray(cats[cat]) ? cats[cat] : [];
     for (const mfPath of list) {
-      const mfUrl = amManifestUrl(srcKey + "/" + mfPath);
+      const mfUrl = amManifestUrl(_amSourceDir(meta.source) + mfPath);
       try {
         const mr = await fetch(mfUrl, { mode: "cors" });
         if (!mr.ok) throw new Error("HTTP " + mr.status);
