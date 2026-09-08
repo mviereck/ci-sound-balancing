@@ -185,6 +185,19 @@ function _amSpeakerLabel(v) {
   return v;   // Fallback: Rohwert
 }
 
+// Anzeige-Titel eines Geraeusch-Items in der aktuellen UI-Sprache.
+// Format B: it.title ist das Original (meist EN); Uebersetzungen liegen
+// in it.tags.title_<lang> (de/fr/es). Fehlt die Uebersetzung (oder ist
+// die UI-Sprache EN), faellt die Anzeige auf das Original zurueck, dann
+// auf die Id. it.title selbst bleibt unangetastet (Suche/Sortierung
+// nutzen weiter das Original bzw. beides).
+function _amNoiseTitleLabel(it) {
+  if (!it) return "";
+  var uiLang = (typeof lang !== "undefined") ? lang : "de";
+  var tr = it.tags && it.tags["title_" + uiLang];
+  return tr || it.title || it.id || "";
+}
+
 // Basissprache eines BCP-47-artigen Codes: alles vor dem ersten "-".
 // "de" -> "de", "zh-CN" -> "zh", "rm-sursilv" -> "rm". Leer -> "".
 function _amBaseLang(code) {

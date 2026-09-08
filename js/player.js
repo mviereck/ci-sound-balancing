@@ -1690,7 +1690,7 @@ const plCategories = {
       if (!it) return { index: indexStr, name: "", kind: "", spectrum: "", source: "", license: "" };
       return {
         index:    indexStr,
-        name:     it.title || it.id || "",
+        name:     _amNoiseTitleLabel(it),
         kind:     (it.tags && it.tags.kind)     || "",
         spectrum: (it.tags && it.tags.spectrum)  || "",
         source:   it.sourceTitle || "",
@@ -3112,7 +3112,7 @@ PL_FILTER_DECL.geraeusche = {
     {
       id: "item", kind: "item-sel", domId: "plNoiseItemSel",
       emptyDomId: "plNoiseEmpty",
-      getItemLabel: function (it) { return it.title || it.id; },
+      getItemLabel: function (it) { return _amNoiseTitleLabel(it); },
       onItemSelect: function (id) {
         if (plActiveSource !== "geraeusche") { plNoiseSelectedId = id; return; }
         var item = (typeof plNoiseVisibleItems === "function")
@@ -3139,7 +3139,8 @@ function _plNoiseSearchMatch(it, q) {
   if (!q) return true;
   const s = q.toLowerCase();
   const fields = [
-    it.title || "",
+    _amNoiseTitleLabel(it),                   // angezeigter (uebersetzter) Titel
+    it.title || "",                           // EN-Original (auch bei dt. Anzeige findbar)
     (it.tags && it.tags.kind) || "",
     (it.tags && it.tags.spectrum) || "",
     it.sourceTitle || ""
@@ -3162,9 +3163,9 @@ function plNoiseVisibleItems() {
     return _plNoiseSearchMatch(it, plNoiseSearchQuery);
   });
   filtered.sort(function (a, b) {
-    var ta = (a.title || a.id || "").toLowerCase();
-    var tb = (b.title || b.id || "").toLowerCase();
-    return ta < tb ? -1 : (ta > tb ? 1 : 0);
+    var ta = _amNoiseTitleLabel(a).toLowerCase();
+    var tb = _amNoiseTitleLabel(b).toLowerCase();
+    return ta.localeCompare(tb);
   });
   return filtered;
 }
@@ -3365,7 +3366,7 @@ function plSentBgRefreshUI() {
   for (const it of all) {
     const opt = document.createElement("option");
     opt.value = it.id;
-    opt.textContent = it.title || it.id;
+    opt.textContent = _amNoiseTitleLabel(it);
     sel.appendChild(opt);
   }
   if (all.find(function (it) { return it.id === prev; })) {
