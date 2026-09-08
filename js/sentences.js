@@ -7,7 +7,7 @@
 // Uploads). Kein eigener Datencontainer, kein eigener Ladeweg.
 //
 // Diese Datei hält: die Satz-Pools (sBuildSequencePool/
-// sBuildRecordingPool), die Wiedergabe (sLoadAndPlayCurrent: laden über
+// sBuildRecordingPool), die Wiedergabe (sLoadCurrent: laden über
 // amGetItemBuffer, RMS-Normalisierung + optionaler Hintergrund-Mix),
 // die Sätze-UI (sUpdateUI) und den Upload-Weg (local:-Refs,
 // sLocalCollections).
@@ -107,7 +107,7 @@ function sBuildSequencePool() {
 // mischt ggf. Hintergrund ein, schreibt sSentenceBuf und ruft
 // pSetPlaybackMode("saetze"). Ruft KEIN pPlay — Aufrufer macht das.
 // Gibt Promise zurueck; wirft bei Ladefehler.
-async function sLoadAndPlayCurrent() {
+async function sLoadCurrent() {
   if (!sCurRec) return;
   const audioRef = sCurRec.audio;
   if (!audioRef) { sStop(); throw new Error("kein audio-Ref"); }
@@ -132,29 +132,10 @@ async function sLoadAndPlayCurrent() {
   }
   if (plActiveSource !== "saetze") return;
 
-  // BA327: Vordergrund immer RMS-normalisieren (kein Schalter).
-  const normItem = sCurRec;  // unveraendert: item mit .id fuer Cache-Key
-  let finalBuf = amGetNormalizedSentenceBuffer(c, normItem, decoded);
-
-  // BA194: Hintergrund-Geraeusch ggf. einmischen (auf normalisierten Vordergrund).
-  if (typeof plSentBgEnabled !== "undefined" && plSentBgEnabled
-      && typeof plSentBgItemId !== "undefined" && plSentBgItemId
-      && typeof amCollectItems === "function") {
-    try {
-      const allBg = amCollectItems("geraeusche");
-      const bgItem = allBg.find(function (it) { return it.id === plSentBgItemId; });
-      if (bgItem) {
-        const bgBuf = await amGetNormalizedNoiseBuffer(c, bgItem);
-        if (bgBuf) {
-          finalBuf = amMixForeground(c, audioRef, finalBuf, bgItem, bgBuf, plSentBgSnrDb);
-        }
-      }
-    } catch (mixErr) {
-      console.warn("[sentences] Hintergrund-Mix fehlgeschlagen:", mixErr);
-      // finalBuf bleibt normalisierter Vordergrund
-    }
-    if (plActiveSource !== "saetze") return;
-  }
+  // BA327: Vordergrund immer RMS-normalisieren (kein Schalter). Einziger
+  // postDecode-Schritt der Kategorie Saetze.
+  const normItem = sCurRec;
+  const finalBuf = amGetNormalizedSentenceBuffer(c, normItem, decoded);
 
   sSentenceBuf = finalBuf;
   pSetPlaybackMode("saetze");

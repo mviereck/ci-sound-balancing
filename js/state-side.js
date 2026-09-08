@@ -666,9 +666,6 @@ let plNoiseSelectedId = "gen:pink";   // Default-Geraeusch beim ersten Start
 let plNoiseSearchQuery = "";          // BA262: Suchfeld-Inhalt
 // BA570: parallele Achsen-Auswahl { axisKey: gewaehlterWert } (flüchtig, pro Sitzung)
 let plNoiseAxisSel = {};
-let plSentBgEnabled = false;          // BA194: Hintergrund-Geraeusch Master-Toggle
-let plSentBgItemId  = "gen:pink";     // BA194: gewaehltes Hintergrund-Geraeusch
-let plSentBgSnrDb   = 0;             // BA194: SNR in dB
 // BA558: Auswahl-Tabelle der parallelen Saetze-Achsen: { axisKey: wert }.
 // Wert "_all" (Default) = kein Filter, "_none" = tag-frei, sonst konkret.
 let plSentAxisSel = {};

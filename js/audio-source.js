@@ -745,27 +745,8 @@ async function amGetItemBuffer(ctx, item) {
   return abuf;
 }
 
-async function amGetNormalizedNoiseBuffer(ctx, item) {
-  if (!item || !item.id) return null;
-  const normKey = "norm:" + item.id;
-  const cached = _amItemBufCache.get(normKey);
-  if (cached) return cached;
-
-  const orig = await amGetItemBuffer(ctx, item);
-  if (!orig) return null;
-
-  const copy = ctx.createBuffer(orig.numberOfChannels, orig.length, orig.sampleRate);
-  for (let ch = 0; ch < orig.numberOfChannels; ch++) {
-    copy.copyToChannel(orig.getChannelData(ch), ch);
-  }
-  _amNormalizeBufferRms(copy, AM_REF_RMS);
-  _amItemBufCache.set(normKey, copy);
-  return copy;
-}
-
 // RMS-Normalisierung fuer Satz-Vordergrund (BA327).
-// Cached unter "sent-norm:<item.id>" in _amItemBufCache — getrennt von
-// _amMixCache, damit amMixCacheClear() den Normalisierungs-Cache nicht loescht.
+// Cached unter "sent-norm:<item.id>" in _amItemBufCache.
 // decodedBuffer ist der bereits dekodierte AudioBuffer (kein erneuter Fetch).
 function amGetNormalizedSentenceBuffer(ctx, item, decodedBuffer) {
   if (!item || !item.id || !decodedBuffer) return decodedBuffer;
@@ -781,70 +762,6 @@ function amGetNormalizedSentenceBuffer(ctx, item, decodedBuffer) {
   _amNormalizeBufferRms(copy, AM_REF_RMS);
   _amItemBufCache.set(cacheKey, copy);
   return copy;
-}
-
-// ============================================================
-// Pre-Mix mit Hintergrund-Geraeusch (BA194)
-// ============================================================
-
-const _amMixCache = new Map(); // key -> { buffer, lastUsed }
-const AM_MIX_CACHE_MAX = 8;
-
-function _amMixCacheKey(fgKey, bgId, snrDb) {
-  return fgKey + "|" + bgId + "|" + snrDb;
-}
-
-function _amMixCacheTouch(key) {
-  const hit = _amMixCache.get(key);
-  if (hit) hit.lastUsed = Date.now();
-  return hit ? hit.buffer : null;
-}
-
-function _amMixCachePut(key, buffer) {
-  _amMixCache.set(key, { buffer: buffer, lastUsed: Date.now() });
-  while (_amMixCache.size > AM_MIX_CACHE_MAX) {
-    let oldestKey = null, oldestTime = Infinity;
-    for (const [k, v] of _amMixCache) {
-      if (v.lastUsed < oldestTime) { oldestTime = v.lastUsed; oldestKey = k; }
-    }
-    if (oldestKey) _amMixCache.delete(oldestKey);
-    else break;
-  }
-}
-
-function amMixForeground(ctx, fgKey, fgBuf, bgItem, bgBuf, snrDb) {
-  if (!fgBuf) return null;
-  if (!bgBuf || !bgItem) return fgBuf;
-  const key = _amMixCacheKey(fgKey, bgItem.id, snrDb);
-  const cached = _amMixCacheTouch(key);
-  if (cached) return cached;
-
-  const sr = fgBuf.sampleRate;
-  const len = fgBuf.length;
-  const nCh = Math.max(1, fgBuf.numberOfChannels);
-  const out = ctx.createBuffer(nCh, len, sr);
-
-  const bgFactor = Math.pow(10, -snrDb / 20);
-  const bgLen = bgBuf.length;
-  const bgNCh = bgBuf.numberOfChannels;
-
-  for (let ch = 0; ch < nCh; ch++) {
-    const fgD = fgBuf.getChannelData(ch);
-    const bgD = bgBuf.getChannelData(ch < bgNCh ? ch : 0);
-    const outD = out.getChannelData(ch);
-    for (let i = 0; i < len; i++) {
-      let s = fgD[i] + bgD[i % bgLen] * bgFactor;
-      if (s >  1.0) s =  1.0;
-      else if (s < -1.0) s = -1.0;
-      outD[i] = s;
-    }
-  }
-  _amMixCachePut(key, out);
-  return out;
-}
-
-function amMixCacheClear() {
-  _amMixCache.clear();
 }
 
 // ============================================================
@@ -1441,7 +1358,6 @@ function amWebspaceBootstrap() {
         for (const cat of cats) {
           if (cat === "geraeusche") {
             if (typeof plNoiseRefreshUI    === "function") plNoiseRefreshUI();
-            if (typeof plSentBgRefreshUI   === "function") plSentBgRefreshUI();
           } else if (cat === "hoerbuecher") {
             if (typeof plBookRefreshUI     === "function") plBookRefreshUI();
           } else if (cat === "saetze") {

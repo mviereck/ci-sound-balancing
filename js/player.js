@@ -1624,7 +1624,7 @@ const plCategories = {
     },
     current: function () { return (typeof sCurRec !== "undefined") ? sCurRec : null; },
     select: function (item) { if (item) sCurRec = item; },
-    load: function () { return sLoadAndPlayCurrent(); },
+    load: function () { return sLoadCurrent(); },
     // --- Anzeige (unveraendert) ---
     currentItem: function () {
       if (typeof sCurRec === "undefined" || !sCurRec) return null;
@@ -1659,7 +1659,7 @@ const plCategories = {
       plNavEnsureCursor();
       if (typeof sUpdateUI === "function") sUpdateUI();
       if (typeof sCurRec !== "undefined" && sCurRec) {
-        Promise.resolve(sLoadAndPlayCurrent()).then(function () {
+        Promise.resolve(sLoadCurrent()).then(function () {
           plNavRestorePos();
         }).catch(function (err) { console.error("[sentences] onActivate load:", err); });
       }
@@ -1877,6 +1877,7 @@ function _plNavGoTo(item, opts) {
   const keepPlaying = !!(opts && opts.keepPlaying);
   const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
 
+  if (typeof amCancelLoad === "function") amCancelLoad();   // BA574: alten Download + Warp stoppen
   cat.select(item);
   if (wasPlaying && typeof pPause === "function") pPause();
   // BA386: pPause loescht den Wunsch NICHT (BA382), pSetPlaybackMode ab jetzt
@@ -3122,9 +3123,6 @@ PL_FILTER_DECL.geraeusche = {
       }
     }
   ],
-  afterRefresh: function () {
-    if (typeof plSentBgRefreshUI === "function") plSentBgRefreshUI();
-  },
   extraWiring: function () {
     plNoiseRefreshUI();
   }
@@ -3281,42 +3279,22 @@ function plMusicRefreshUI() {
   plBuildFilterChain(PL_FILTER_DECL.musik);
 }
 
-// Laedt das aktuell ausgewaehlte Musik-Item in pFileBuf und ruft pBuildEQ.
-// Lokaler Upload (audio === "local-music-folder:...", inkl. Sammlung "upload"
-// fuer Einzeldateien) nutzt das File-Objekt; sonstige Items (Webspace) per fetch.
+// Laedt das aktuell ausgewaehlte Musik-Item in pFileBuf ueber die zentrale Ladestelle.
 async function plMusicLoadSelected() {
   const it = plMusicCurrentItem();
   if (!it) return;
   const c = gPC();
-  try {
-    let arrayBuf;
-    if (typeof it.audio === "string" && it.audio.indexOf("local-music-folder:") === 0) {
-      // BA261: Folder-Ref
-      const f = (typeof amMusicResolveLocalFile === "function")
-        ? amMusicResolveLocalFile(it.audio) : null;
-      if (!f) {
-        console.warn("[player/musik] Ordner-Datei nicht mehr verfuegbar:", it.audio);
-        return;
-      }
-      arrayBuf = await f.arrayBuffer();
-    } else if (/^(data:|https?:|blob:)/i.test(it.audio)) {
-      const r = await fetch(it.audio, { mode: "cors" });
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      arrayBuf = await r.arrayBuffer();
-    } else {
-      throw new Error("Unbekanntes Audio-Format fuer Musik-Item: " + it.audio);
-    }
-    pFileBuf = await c.decodeAudioData(arrayBuf);
-    pSetPlaybackMode("musik");
-    pOff = 0;
-    pBuildEQ();
-    pDrawEQ();
-    document.getElementById("plEqViz").style.display = "";
-    if (typeof plUpdDisplay     === "function") plUpdDisplay();
-    if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-  } catch (err) {
-    console.error("[player/musik] Laden fehlgeschlagen:", err);
-  }
+  const abuf = await amGetItemBuffer(c, it);
+  if (!abuf) return;   // ueberholt oder nicht ladbar
+
+  pFileBuf = abuf;
+  pSetPlaybackMode("musik");
+  pOff = 0;
+  pBuildEQ();
+  pDrawEQ();
+  document.getElementById("plEqViz").style.display = "";
+  if (typeof plUpdDisplay     === "function") plUpdDisplay();
+  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
 }
 
 // Wahl im Item-Dropdown -> ueber die zentrale Engine (select/load/Play).
@@ -3337,88 +3315,6 @@ plUpdTransportUI();
 plUpdDisplay();
 plRefreshTooltips();
 plUpdVolBtns();
-
-// ============================================================
-// BA194: Hintergrund-Geraeusch fuer Saetze
-// ============================================================
-
-function plSentBgRefreshUI() {
-  const block  = document.getElementById("plSentBgBlock");
-  const toggle = document.getElementById("plSentBgToggleBtn");
-  const ctrls  = document.getElementById("plSentBgControls");
-  const sel    = document.getElementById("plSentBgSel");
-  if (!block || !toggle || !ctrls || !sel) return;
-
-  const onLabel  = (typeof t === "function") ? t("plSentBgOn")  : "An";
-  const offLabel = (typeof t === "function") ? t("plSentBgOff") : "Aus";
-  const span = toggle.querySelector("[data-t]");
-  if (span) span.textContent = plSentBgEnabled ? onLabel : offLabel;
-  toggle.classList.toggle("active", !!plSentBgEnabled);
-  toggle.style.background = plSentBgEnabled ? "var(--accent, #6aa84f)" : "";
-  toggle.style.color      = plSentBgEnabled ? "#fff" : "";
-
-  ctrls.style.opacity      = plSentBgEnabled ? "1" : "0.5";
-  ctrls.style.pointerEvents = plSentBgEnabled ? "" : "none";
-
-  const all  = (typeof amCollectItems === "function") ? amCollectItems("geraeusche") : [];
-  const prev = sel.value || plSentBgItemId;
-  while (sel.firstChild) sel.removeChild(sel.firstChild);
-  for (const it of all) {
-    const opt = document.createElement("option");
-    opt.value = it.id;
-    opt.textContent = _amNoiseTitleLabel(it);
-    sel.appendChild(opt);
-  }
-  if (all.find(function (it) { return it.id === prev; })) {
-    sel.value = prev;
-  } else if (all.length > 0) {
-    sel.value = all[0].id;
-    plSentBgItemId = all[0].id;
-  }
-
-  document.querySelectorAll(".pl-snr-btn").forEach(function (b) {
-    const v = parseInt(b.dataset.snr, 10);
-    const active = (v === plSentBgSnrDb);
-    b.classList.toggle("active", active);
-    b.style.background = active ? "var(--accent, #6aa84f)" : "";
-    b.style.color      = active ? "#fff" : "";
-  });
-}
-
-function plSentBgToggle() {
-  plSentBgEnabled = !plSentBgEnabled;
-  if (typeof amMixCacheClear === "function") amMixCacheClear();
-  plSentBgRefreshUI();
-}
-
-function plSentBgSetItem(id) {
-  if (!id) return;
-  plSentBgItemId = id;
-  if (typeof amMixCacheClear === "function") amMixCacheClear();
-  plSentBgRefreshUI();
-}
-
-function plSentBgSetSnr(db) {
-  const v = parseInt(db, 10);
-  if (!Number.isFinite(v)) return;
-  plSentBgSnrDb = v;
-  if (typeof amMixCacheClear === "function") amMixCacheClear();
-  plSentBgRefreshUI();
-}
-
-const _plSBgToggle = document.getElementById("plSentBgToggleBtn");
-if (_plSBgToggle) _plSBgToggle.addEventListener("click", plSentBgToggle);
-
-const _plSBgSel = document.getElementById("plSentBgSel");
-if (_plSBgSel) _plSBgSel.addEventListener("change", function () {
-  plSentBgSetItem(_plSBgSel.value);
-});
-
-document.querySelectorAll(".pl-snr-btn").forEach(function (b) {
-  b.addEventListener("click", function () {
-    plSentBgSetSnr(b.dataset.snr);
-  });
-});
 
 // ============================================================
 // BA195: Hoerbuch-Quelle (lokal)
@@ -3575,7 +3471,6 @@ PL_FILTER_DECL.hoerbuecher = {
 function plSyncLibraries() {
   if (typeof plMusicRefreshUI  === "function") plMusicRefreshUI();
   if (typeof plNoiseRefreshUI  === "function") plNoiseRefreshUI();
-  if (typeof plSentBgRefreshUI === "function") plSentBgRefreshUI();
   if (typeof plBookRefreshUI   === "function") plBookRefreshUI();
 }
 
@@ -3659,17 +3554,8 @@ async function plBookLoadSelected() {
   const ch = plBookCurrentChapter();
   if (!ch) return;
   const ctx = gPC();
-  let abuf = null;
-  try {
-    const r = await fetch(ch.audio);
-    const ab = await r.arrayBuffer();
-    abuf = await ctx.decodeAudioData(ab);
-  } catch (e) {
-    console.error("[book] Kapitel-Lade-Fehler:", e);
-    alert("Kapitel konnte nicht geladen werden: " + e.message);
-    return;
-  }
-  if (!abuf) return;
+  const abuf = await amGetItemBuffer(ctx, ch);
+  if (!abuf) return;   // ueberholt oder nicht ladbar
 
   pBookBuf = abuf;
   pSetPlaybackMode("hoerbuecher");
