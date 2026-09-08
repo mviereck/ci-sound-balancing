@@ -20,7 +20,7 @@ Dieser Ausgleich von Elektrodenlautstärke (je CI) und Tonhöhen (links/rechts) 
 
 Audiologen haben gewöhnlich nicht genug Zeit, um diese Messungen in der gebotenen Gründlichkeit durchzuführen. Da hilft dieses Tool: Sie können die Messungen allein zu Hause durchführen, ohne jeden Zeitdruck.
 
-Auf Basis dieser selbst ermittelten Meßdaten kann im integrierten Audioplayer eine simulierte Anpassung abgespielt werden. So können Sie vorab einschätzen, was für Sie am Besten klingt.
+Auf Basis dieser selbst ermittelten Meßdaten kann im integrierten Audioplayer eine simulierte Anpassung abgespielt werden. So können Sie vorab einschätzen, ob Ihre Selbstmessung zu einer hörbaren Verbesserung führt.
 
 Zusätzlich zum reinen Ausgleich von Lautstärke und Tonhöhe können Sie halbautomatische Anpassungen zur Verbesserung von Sprachverständnis machen, oder z.B. Bässe oder Höhen betonen. Sie können die Wirkung Ihrer Anpassungen live hören, wenn Sie gleichzeitig Musik oder ein Hörbuch im Audioplayer laufen lassen.
 
@@ -49,10 +49,11 @@ Folgenden Satz können Sie dazu nutzen (Begriffe gelten für MED-EL/MAESTRO; bei
 ### Außerdem wichtig: Daten Ihrer MAP beim Audiologen erfragen
 
 Im Reiter Implantat können Sie zahlreiche technische Werte zu Ihrem CI eintragen. Das Tool funktioniert annähernd auch ohne diese Werte; mit ihnen werden die Ergebnisse und Empfehlungen für den Audiologen aber präziser. Sie finden diese Werte nicht selbst, sondern müssen sie beim Audiologen erfragen.
+Sie haben hierfür ein Auskunftsrecht.(Gesetzlich verankert in §630g BGB, Einsichtnahme in die Behandlungsakte)
 
 Folgender Satz hilft:
 
->„Bitte drucken Sie mir einen Fitting-Report (alle Map-Parameter) meiner aktuellen MAP aus. Ich brauche die Werte für eine Lautheits-Messung zu Hause mit dem CI-Sound-Balancing-Tool. Insbesondere die Frequenzbänder mit Untergrenze und Obergrenze je Elektrode sind sehr wichtig."
+>„Bitte drucken Sie mir einen Fitting-Report (alle Map-Parameter) meiner aktuellen MAP aus. Ich brauche die Werte für eine Lautheits-Messung zu Hause mit dem CI-Sound-Balancing-Tool. **Insbesondere die Frequenzbänder mit Untergrenze und Obergrenze je Elektrode sind sehr wichtig**. Außerdem, welche Elektroden eventuell deaktiviert sind"
 
 Falls Rückfragen kommen, welche Werte konkret gemeint sind:
 
@@ -71,6 +72,11 @@ Falls Rückfragen kommen, welche Werte konkret gemeint sind:
 
 Prüfen Sie vor Ort noch nach, ob Sie aus den Daten wirklich die Frequenzbänder je Elektrode ablesen können! Lassen Sie es sich vom Audiologen zeigen.
 
+Aktuell werden nicht alle hier abgefragten Werte von CImbel genutzt; es ist dennoch informativ, sie zu kennen, und manche davon werden später vielleicht doch noch gebraucht.
+
+### Mikrofonabdeckung
+Mikrofonabdeckungen haben Filter, die sich mit der Zeit zusetzen und den Klang dumpfer und undeutlich machen. Für bestmögliche Messungen verwenden Sie frische Mikrofonabdeckungen.
+
 ## Vorgehensweise:
 ### Lautstärke ausgleichen
 #### Im Reiter *Implantat*: 
@@ -79,15 +85,17 @@ Grundsätzliche technische Angaben zu Ihrem CI.
 - Wählen Sie oben die Seite *LINKS/RECHTS* aus, auf der Sie das CI tragen.
 - Tragen Sie mindestens Ihren CI Hersteller ein, sofern bekannt, auch Modell usw.
 - Markieren Sie deaktivierte Elektroden unter *AKTIV* als *DEAKTIVIERT* (Häkchen entfernen).
-- Testen Sie den Ton für jede Elektrode. Auffällige Elektroden, z. B. mit starkem Rauschen, in *STATUS* markieren.
-- Idealerweise tragen Sie alle weiteren Ihnen bekannten Angaben und Werte ein, sofern bekannt. Sie können die Werte bei Ihrem Audiologen erfragen. Sie können das Tool aber auch ohne diese Werte nutzen; für präzise Messung sollten Sie aber die Frequenzbänder je Elektrode erfragen.
+- Tragen Sie die erfragten Frequenzbänder je Elektrode ein. Voreingestellt sind Standardwerte, die aber bei Ihnen anders sein können. 
+- Testen Sie den Ton für jede Elektrode (Button unten auf der Seite, *Elektroden über Töne anspielen*). Auffällige Elektroden, z. B. mit starkem Rauschen, in *STATUS* markieren.
 - Machen Sie alle Angaben auch für das andere Ohr. Auch *normalhörend* oder *schwerhörig* oder *taub* gegebenenfalls eintragen, wenn sie dort kein CI tragen.
+
+Sie können die Messungen auch ohne selbst eingetragene Frequenzbänder durchführen, CImbel verwendet dann Standardwerte je Hersteller. Für möglichst präzise Messung und damit sichere Ergebnisse sollten Sie die Werte aber prüfen und korrigieren.
 
 #### Im Reiter *Messungen* -> *Elektrodenlautstärke*
 Vergleich der Lautstärken der Elektroden.
 - Für die Seite(n) mit CI machen Sie zunächst nur die Messung *Elektrodenlautstärke*.
 - In dieser Messung werden alle Elektroden paarweise miteinander verglichen, und Sie justieren die Lautstärke, bis sich beide Elektroden gleich laut anhören.
-- Nutzen Sie möglichst Bluetooth zum Streamen.
+- Nutzen Sie möglichst Bluetooth zum Streamen für sauberen Klang.
 - Stellen Sie die Lautstärke ihres Computers (oder Smartphones) auf gefühlt 3/4 ein, nicht leise, aber auch noch nicht unangenehm laut.
 - Steuerung der Tests:
   - Justieren Sie mit den *Pfeiltasten* die Lautstärke.
@@ -95,12 +103,11 @@ Vergleich der Lautstärken der Elektroden.
   - Sobald die Töne gleich laut sind, mit *Enter* bestätigen.
   - Optional: Anderen Ton zum Testen auswählen.
     - Anmerkung: Es stehen einige Töne zur Auswahl. 
-      - Sinus ist Standard. 
-      - Schmalbandrauschen kann zu erstaunlich großen Abweichungen in der Messung führen.
-        Diesen Ton erst einmal nur experimentell nutzen, oder als ganz eigene Testreihe unabhängig von einer Sinustonmessung.
+      - Sinuston ist Standard. 
+      - Schmalbandrauschen kann zu erstaunlich großen Abweichungen in der Messung führen. Diesen Ton erst einmal nur experimentell nutzen, oder als ganz eigene Testreihe unabhängig von einer Sinustonmessung.
 - Empfohlenes Vorgehen: 
-  - Erst Testverfahren *Vollständig*.
-  - Dann Testverfahren *Konvergenz*, gerne mehrfach.
+  - Erst Testverfahren *Vollständig*. Der Test ist in Runden aufgeteilt, die zunemend schwieriger werden. Machen Sie ihn so weit wie möglich. Mindestens 3 oder 4 Runden (von insgesamt 6) sollten Sie machen.
+  - Dann Testverfahren *Konvergenz*, gerne mehrfach. Es erkennt die größten Ausreißer in der bisherigen Messung und bietet sie erneut zum Vergleich an.
   - Über dem Slider wird eine Marke mit errechnetem Schätzwert und Ungenauigkeitbereich angezeigt. Darauf kann man sich nicht verlassen, es kann aber einen Anhaltspunkt bieten.
 - Jeder Test kann jederzeit unterbrochen und später an gleicher Stelle weitergeführt werden.
 - Jeder Test kann beliebig oft wiederholt werden, um die Ergebnisse zu verfeinern.
@@ -117,7 +124,7 @@ Anzeige der errechneten Anpassung gemäß Ihrer Messungen.
 - Der Wert *Residuum* zeigt die Verläßlichkeit der Messung als mathematischen Wert. Ein *Residuum* <1 ist sehr gut und wird *grün* angezeigt. Das heißt, die Abweichung der Messungen liegt bei unter 1 Dezibel.
  
 #### Im Reiter *Player*
-Spielen Sie eine Audiodatei ab, um die Auswirkung Ihrer Messungen zu simulieren. 
+Spielen Sie eine Audiodatei ab, um die Auswirkung Ihrer Messungen zu simulieren. Es stehen Musik, Sätze und Geräusche zur Auswahl. Sie können auch eigene Audiodateien abspielen.
 - Der eingebaute Equalizer verändert den Ton annähernd so, wie er sich anhören würde, wenn der Audiologe Ihr CI gemäß Ihren Messungen neu einstellt.
 - Mit dem Ausgleich der Elektrodenlautstärke Ihres CI haben Sie eine wertvolle Grundlage geschaffen. Damit sollte sich bereits vieles klarer anhören als vorher.
 - Schalten Sie den Button *Elektrodenlautstärke* mehrfach an und wieder aus, um den Unterschied zu hören.
@@ -127,7 +134,7 @@ Spielen Sie eine Audiodatei ab, um die Auswirkung Ihrer Messungen zu simulieren.
 Im Reiter *Kurven* können Sie die Lautstärke aller Elektroden gemeinsam einer Kurve folgend verändern. Dafür stehen verschiedene Kurvenberechnungen zur Verfügung.
 
 Empfehlungen:
-- Lassen Sie eine Audiodatei im *Player* laufen. Nehmen Sie ein Hörbuch.
+- Lassen Sie eine Audiodatei im *Player* laufen. Nehmen Sie ein Hörbuch, oder lassen Sie Sätze in Endlosfolge abspielen.
 - Aktivieren Sie *Sprache*. Ändern Sie die Einstellung mit den *Pfeiltasten hoch/runter* und hören Sie live, wie sich die Veränderung auf Ihr Sprachverstehen auswirkt.
 - Deaktivieren Sie *Sprache* und aktivieren Sie *Sinus*. Lassen Sie Musik im *Player* laufen. Verändern Sie mit den *Pfeiltasten hoch/runter* den Wert und hören Sie live, wie sich Höhen und Bässe verändern.
 - Deaktivieren Sie *Sinus* und probieren Sie auch andere Kurven aus.
@@ -137,7 +144,6 @@ Empfehlungen:
 #### Im Reiter *Schieber*
 Erlaubt manuelle Lautstärkeänderung einzelner Elektroden.
 - Diese Funktion werden Sie in der Regel nicht benötigen. Sie gibt Ihnen Freiheit für Experimente.
-- Es gibt einen *relativ* und einen *absolut* Modus. Der *absolut* Modus ist nur verwendbar, wenn im Reiter *Implantat* die MCL Werte eingegeben wurden.
 - Sie können die Veränderung durch *Elektrodenlautstärke* und *Kurven* mit einblenden lassen.
 - Sie können die Veränderungen live im Player hören.
 
@@ -157,10 +163,7 @@ Ausdrucke für Ihren Audiologen mit den gewünschten Änderungen.
 - Behalten Sie unverändert das Programm, das Sie bisher gut gewohnt sind und im Alltag benutzen.
 - Belegen Sie einen Programmplatz als Testprogramm mit exakt gleich lauten Elektroden ohne Filter. Das wird Ihre Basis für zukünftige Messungen und Experimente.
   - Dieses Testprogramm könnte auch ein Lieblingsprogramm für Musik oder Naturgeräusche für Sie werden.
-- Belegen Sie ein oder zwei Programmplätze mit Wunscheinstellungen, die Sie mit Hilfe des Tools ermittelt haben.
-
-### Einschränkung
-Wenn Sie im Tool die *MCL* Werte der Elektroden eingetragen haben, errechnet das Tool neben der Differenz in Dezibel (dB) außerdem eine Differenz in der Einheit des Audiologenprogrammes. Dies wird mit ausgedruckt. Diese errechneten Werte sind noch nicht auf Verläßlichkeit geprüft. Hinzu kommt, daß das Ohr als Organ etwas anders auf die Einstellungen reagiern könnte, als eine Berechnung vorhersagen kann.
+- Belegen Sie ein oder zwei Programmplätze mit Wunscheinstellungen, die Sie mit Hilfe des Tools ermittelt haben, beispielsweise mit der Sprachkurve.
 
 ## Weitere Messungen
 ### Reiter *Messungen* -> *Stereo-Balance*
@@ -181,15 +184,18 @@ Dieses Meßverfahren ist noch etwas rudimentär und soll in zukünftigen Version
 ### Reiter *Messungen* -> *Frequenzabgleich*
 Messung von Tonhöhenunterschieden links und rechts.
 - Es wird sehr empfohlen, vor dieser Messung *Elektrodenlautstärke* und *Stereo-Balance* bereits durchgeführt zu haben. Unterschiedliche Lautstärke kann die Tonhöhenwahrnehmung verfälschen.
+#### Kopfhörer
+- Für diesen Test ist ein Kopfhörer sinnvoller als eine Bluetoothverbindung; es sei denn, Sie tragen 2 CI und können auf beide zugleich streamen.
+- Wenn Sie mit Kopfhörer messen, verwenden Sie vorzugsweise einen **Studiokopfhörer mit gleichmäßigem Frequenzgang**. Ich selbst verwende den "AKG K702". Normale HiFi-Kopfhörer, auch hochwertige, haben oft veränderte Frequenzen für schöneres Klangerleben; diese Veränderungen könnten aber eventuell die Messung verfälschen.
 #### Hinweis zu Hörgeräten:
-- Sie sollten ohne Hörgerät testen. Hörgeräte verfälschen Tonhöhen.
+- Sie sollten Frequenzen ohne Hörgerät testen. Hörgeräte verfälschen Tonhöhen.
 - Machen Sie auch auf dem schwerhörigen Ohr den Elektrodenlautstärke-Test und danach den Stereo-Balance-Test. So gut es geht sollten Sie final auf beiden Seiten gleich laut hören.
-####
+#### Testablauf
 - Der Test zeigt ein Klavier.
 - Sie werden aufgefordert, den nächstliegenden Ton anzuspielen, der noch gerade so höher oder tiefer klingt. Bleiben Sie immer auf der sicheren Seite, wo Sie noch klar unterscheiden können.
 - In mehreren Runden werden die Tonhöhenunterschiede immer kleiner. Wenn Sie merken, daß Sie nicht weiter verfeinern können, beenden Sie den Test.
 - Im Reiter *Meßergebnisse->Frequenzabgleich* können Sie die Meßergebnisse sehen.
 #### Player
-- Im *Player* kann mit *Frequenz-Warping* eine Simulation veränderter Tonhöhen aktiviert werden, die Qualität der Simulation ist aber etwas bescheiden, und die Berechnung dauert etwas Zeit. Es kann aber eine Idee davon geben, wie die Veränderung wirken könnte.
+- Im *Player* kann mit *Frequenz-Warping* eine Simulation veränderter Tonhöhen aktiviert werden. Die Qualität der Simulation ist aber leider sehr bescheiden, und die Berechnung dauert etwas Zeit. Es kann aber eine Idee davon geben, wie die Veränderung wirken könnte.
 #### Frequenzbänder
 Die gemessenen Frequenzen müssen noch in Frequenzbänder für die CI Einstellung umgerechnet werden. Eine entsprechende Funktion in CImbel ist noch in Arbeit, die Vorabversion finden Sie im Reiter Frequenzbänder.
