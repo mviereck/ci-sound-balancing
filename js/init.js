@@ -614,7 +614,11 @@ document.addEventListener("DOMContentLoaded", () => {
         inp.addEventListener("change", function () {
           if (this.checked) {
             onPick(val);
-            if (typeof FRQ_renderResults === "function") FRQ_renderResults();
+            // Die Wand-Radios leben im Top-Reiter "Frequenzbaender" -> Bandgraph
+            // + Tabelle ueber FRQ_renderBaenderTab neu zeichnen, NICHT ueber
+            // FRQ_renderResults (Ergebnis-Reiter, bricht ohne Messdaten ab).
+            // Gleicher Fix wie bei den uebrigen Band-Radios (0.5.474.3).
+            if (typeof FRQ_renderBaenderTab === "function") FRQ_renderBaenderTab();
           }
         });
       })(hz);
