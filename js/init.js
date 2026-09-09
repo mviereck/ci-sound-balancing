@@ -803,6 +803,10 @@ document.addEventListener("DOMContentLoaded", () => {
     sideData[activeSide].bandGlaettRandfrei = v;
     _frqGlaettUpdate();
   });
+  _frqBandWahlInit("FRQ_glaettRandfreiBasal", function (v) {
+    sideData[activeSide].bandGlaettRandfreiBasal = v;
+    _frqGlaettUpdate();
+  });
   _frqBandWahlInit("FRQ_glaettK", function (v) {
     sideData[activeSide].bandGlaettK = v;
     _frqGlaettUpdate();
@@ -886,12 +890,34 @@ document.addEventListener("DOMContentLoaded", () => {
     matt("FRQ_glaettLageFieldset",     _ortsraum);          // Lage wirkt nur im Ortsraum
     show("FRQ_glaettKFieldset",        true);
     matt("FRQ_glaettKFieldset",        _ortsraum);          // k wirkt nur im Ortsraum
-    // 2026-08-30: Randausschluss-Achse dauerhaft ausgeblendet (war an die
-    // aus dem UI genommene FSP-Steuerung gekoppelt). bandGlaettRandfrei wird
-    // fest auf "0" gehalten (kein apikaler Ausschluss); die Radio-Gruppe und
-    // ihre Logik (_frqGlaettAusschluss) bleiben im Code erhalten.
-    show("FRQ_glaettRandfreiFieldset", false);
-    matt("FRQ_glaettRandfreiFieldset", _aktiv);             // wirkt nur wenn geglaettet wird
+    // BA578: Randausschluss apikal + basal -- herstellerunabhaengig sichtbar,
+    // matt (bedienbar) wenn gerade nicht geglaettet wird. Bei AB ist in beiden
+    // Richtungen mind. 1 Ausschluss Pflicht (Randelektroden ausserhalb Greenwood)
+    // -> "0"-Radio deaktivieren; steht der Wert noch auf "0", auf "1" heben.
+    show("FRQ_glaettRandfreiFieldset",      true);
+    matt("FRQ_glaettRandfreiFieldset",      _aktiv);
+    show("FRQ_glaettRandfreiBasalFieldset", true);
+    matt("FRQ_glaettRandfreiBasalFieldset", _aktiv);
+    var _istAb = !!(s && s.manufacturer === "ab");
+    ["FRQ_glaettRandfrei", "FRQ_glaettRandfreiBasal"].forEach(function (grp) {
+      var r0 = document.querySelector('input[name="' + grp + '"][value="0"]');
+      if (r0) {
+        r0.disabled = _istAb;
+        if (r0.parentElement) r0.parentElement.style.opacity = _istAb ? "0.45" : "";
+      }
+    });
+    // AB + Wert steht auf "0": auf "1" heben (State + Radio spiegeln), damit
+    // kein deaktivierter "0"-Radio aktiv bleibt.
+    if (_istAb && s) {
+      [["FRQ_glaettRandfrei", "bandGlaettRandfrei"],
+       ["FRQ_glaettRandfreiBasal", "bandGlaettRandfreiBasal"]].forEach(function (pair) {
+        if (s[pair[1]] === "0" || s[pair[1]] == null) {
+          s[pair[1]] = "1";
+          var r1 = document.querySelector('input[name="' + pair[0] + '"][value="1"]');
+          if (r1) r1.checked = true;
+        }
+      });
+    }
     // Zeile 2 (Polynom-Regler; nur bei Verfahren "polynom"):
     show("FRQ_glaettFitXFieldset",     _polynom);
     show("FRQ_glaettAchseFieldset",    _polynom);

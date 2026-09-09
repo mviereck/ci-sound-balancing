@@ -569,6 +569,7 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandGlaettAchse",     def: "ortsraum",    fileKey: "bandGlaettAchse",     group: "FRQ_glaettAchse" },
   { key: "bandGlaettSteife",    def: "3",          fileKey: "bandGlaettSteife",    group: "FRQ_glaettSteife" },
   { key: "bandGlaettRandfrei",  def: "0",          fileKey: "bandGlaettRandfrei",  group: "FRQ_glaettRandfrei" },
+  { key: "bandGlaettRandfreiBasal", def: "0",      fileKey: "bandGlaettRandfreiBasal", group: "FRQ_glaettRandfreiBasal" },
   { key: "bandGlaettK",         def: "0.88",        fileKey: "bandGlaettK",         group: "FRQ_glaettK" },
   { key: "bandGlaettLage",      def: "mitte",      fileKey: "bandGlaettLage",      group: "FRQ_glaettLage" },
   { key: "bandGlaettGrundlage", def: "residuum",   fileKey: "bandGlaettGrundlage", group: "FRQ_glaettGrundlage" },
@@ -1936,29 +1937,12 @@ function _frqGlaettOrtsaffin(noms, cents, weights, defNoms) {
   return out;
 }
 
-// BA476: Setzt den apikalen Randausschluss der Glaettung (bandGlaettRandfrei)
-// einer Seite auf die Anzahl der FSP-markierten Elektroden. FSP existiert nur
-// bei MED-EL; ohne FSP-Moeglichkeit -> "0". Danach Radio spiegeln + Glaettungs-
-// Graph neu zeichnen (Wert wird im Reiter Implantat geaendert, Radio steht im
-// Reiter Frequenzbaender). Aufgerufen an JEDER FSP-Schreibstelle. Kein "vom
-// Nutzer beruehrt"-Flag: der Randausschluss wird nur hier (bei FSP-Aenderung)
-// automatisch gesetzt; eine spaetere manuelle Radio-Aenderung bleibt bestehen,
-// bis die FSP-Markierung erneut geaendert wird.
-// 0.5.476.6: koppelt zusaetzlich das CBF-Feld "Freie Baender (apikal)"
-// (bandCbfApikalFrei) an dieselbe FSP-Anzahl, aber mit Untergrenze 1 --
-// bei jeder Implantat-Aenderung mind. 1 freies Band, auch bei 0 FSP-
-// Elektroden und bei Nicht-MED-EL. Die Glaettung bleibt bei der reinen
-// Anzahl (darf 0). Selbe Aufrufstellen, selbes Spiegeln (_frqBandSpiegle
-// deckt beide Radios ueber FRQ_BAND_WAHLEN ab).
+// Nach einer FSP-/Implantat-Aenderung die Band-Radios der aktiven Seite neu
+// spiegeln und den Glaettungs-Graph neu zeichnen. (BA578: die fruehere apikale
+// Randausschluss-Kopplung an FSP ist entfallen -- der Randausschluss ist jetzt
+// eine freie, herstellerunabhaengige Radio-Wahl, siehe _frqGlaettAusschluss.)
 function FRQ_randausschlussAusFsp(side) {
   if (typeof sideData === "undefined" || !sideData[side]) return;
-  var s = sideData[side];
-  // 2026-08-30: FSP-Kopplung entkoppelt. Die FSP-Steuerung wurde aus dem UI
-  // genommen (Spalte + Randausschluss-Box ausgeblendet); der apikale
-  // Randausschluss der Glaettung wird nicht mehr aus der FSP-Markierung
-  // gespeist. bandGlaettRandfrei bleibt fest "0" (kein Ausschluss);
-  // bandCbfApikalFrei bleibt manuell und wird hier nicht mehr ueberschrieben.
-  s.bandGlaettRandfrei = "0";
   // Nur wenn die geaenderte Seite auch die aktive ist, DOM spiegeln/neu zeichnen
   // (die Radio-DOM traegt immer den aktiven Seiten-Zustand).
   if (typeof activeSide === "string" && side === activeSide) {
@@ -1969,13 +1953,13 @@ function FRQ_randausschlussAusFsp(side) {
   }
 }
 
-// Aus der Glaettung auszuschliessende elIdx (BA476). Eine Quelle:
-//   Apikaler Randausschluss (s.bandGlaettRandfrei = "0".."4"): die N
-//   apikalsten gemessenen Elektroden. Apikal hersteller-abhaengig: apFirst
-//   (MED-EL/AB) = kleinster elIdx, Cochlear = groesster. Seit BA476 wird
-//   bandGlaettRandfrei aus der FSP-Markierung vorbelegt (nur MED-EL, ueber
-//   FRQ_randausschlussAusFsp) und ist danach frei am Radio aenderbar; der
-//   fruehere direkte FSP-Ausschluss entfaellt.
+// Aus der Glaettung auszuschliessende elIdx (BA578). Quellen:
+//   bandGlaettRandfrei      = N apikalste Elektroden ausschliessen (0..4).
+//   bandGlaettRandfreiBasal = N basalste Elektroden ausschliessen (0..4).
+//   Apikal/basal hersteller-abhaengig: apFirst (MED-EL/AB) = kleinster elIdx,
+//   Cochlear = groesster elIdx. keys ist aufsteigend sortiert.
+//   AB-Mindestregel: in beiden Richtungen mind. 1 (Randelektroden ausserhalb
+//   des Greenwood-Ortsmusters -- ersetzt die fruehe harte AB-Sonderregel).
 // keys = zu glaettende elIdx aufsteigend. Rueckgabe: Set (Objekt) der
 // auszuschliessenden elIdx.
 function _frqGlaettAusschluss(keys) {
@@ -1984,40 +1968,32 @@ function _frqGlaettAusschluss(keys) {
   var s = (typeof sideData !== "undefined" && typeof activeSide === "string")
     ? sideData[activeSide] : null;
   if (!s) return out;
-  // Apikaler Randausschluss: die N apikalsten gemessenen Elektroden aus der
-  // Glaettung ausschliessen. N aus bandGlaettRandfrei (0..4), seit BA476 aus
-  // der FSP-Markierung vorbelegt (FRQ_randausschlussAusFsp). Apikal hersteller-
-  // abhaengig: apFirst (MED-EL/AB) = kleinste elIdx, Cochlear = groesste.
-  // keys ist aufsteigend sortiert.
   var mfrId = s.manufacturer;
   var apFirst = (typeof MFR !== "undefined" && MFR[mfrId]) ? MFR[mfrId].apFirst !== false : true;
 
-  // AB-Sonderregel (2026-07-11): Bei Advanced Bionics folgen nur die MITTLEREN
-  // Elektroden dem Greenwood-Ortsmuster; die beiden Randelektroden (apikalste
-  // + basalste) sitzen ausserhalb (belegt: Konzept_Greenwood_Glaettungs_Prior.md
-  // §6f -- E2..E15 Abstands-Variation 1,0%, E1/E16 springen). Der Grund gilt fuer
-  // Verfahren, die im GREENWOOD-/ORTSraum rechnen. Harter Ausschluss (Rand bleibt
-  // Rohwert): beim Polynom, WENN es im Ortsraum rechnet (bandGlaettAchse ===
-  // "ortsraum") -- deckt den aus "ortskurve" migrierten Fall (polynom+index+
-  // ortsraum) UND jedes andere polynom im Ortsraum ab (0.5.502.1, Martin
-  // 2026-07-14: nur im Ortsraum, nicht im log-Raum -- dort kein Ortsmuster-Bezug).
-  // Bei ortsaffin NICHT hier: dort bleiben die Raender in keys und werden nur aus
-  // dem Fit genommen (Gewicht 0 in _frqGlaetteMeasured), aber vom affinen Modell
-  // (a*xdef+b) rekonstruiert.
-  var _verf = s.bandGlaettVerfahren;
-  var _istPolynomOrtsraum = (_verf === "polynom" && s.bandGlaettAchse === "ortsraum");
-  if (mfrId === "ab" && _istPolynomOrtsraum && keys.length >= 2) {
-    out[keys[0]] = true;                    // apikalste (AB apFirst -> kleinster elIdx)
-    out[keys[keys.length - 1]] = true;      // basalste
+  // BA578: Manueller Randausschluss (herstellerunabhaengig, ohne FSP-Bezug).
+  // bandGlaettRandfrei      = Anzahl apikalster Elektroden, die aus der
+  //                           Glaettung fallen (Rohwert bleibt).
+  // bandGlaettRandfreiBasal = dito fuer die basalsten Elektroden.
+  // Apikal/basal ist herstellerabhaengig: apFirst (MED-EL/AB) -> apikal =
+  // kleinster elIdx (keys[0..]); Cochlear -> apikal = groesster elIdx
+  // (keys[..length-1]). keys ist aufsteigend sortiert.
+  var nApikal = parseInt(s.bandGlaettRandfrei, 10) || 0;
+  var nBasal  = parseInt(s.bandGlaettRandfreiBasal, 10) || 0;
+  // AB: in beiden Richtungen mindestens 1 (Randelektroden sitzen ausserhalb
+  // des Greenwood-Ortsmusters -- ersetzt die fruehe harte AB-Regel).
+  if (mfrId === "ab") {
+    if (nApikal < 1) nApikal = 1;
+    if (nBasal  < 1) nBasal  = 1;
   }
-
-  // Apikaler Randausschluss (Achse, NUR MED-EL, rate-pitch/FSP-Grund):
-  // 2026-08-30 stillgelegt. Die FSP-Steuerung und die Randausschluss-Box
-  // wurden aus dem UI genommen; bandGlaettRandfrei wird fest "0" gehalten
-  // (FRQ_randausschlussAusFsp) -> kein apikaler Ausschluss mehr. Ein evtl. aus
-  // einem alten Stand geladener bandGlaettRandfrei > 0 wird hier bewusst
-  // ignoriert, damit kein unsichtbarer Ausschluss wirkt. Radio-Gruppe +
-  // Logik bleiben im Code erhalten (reaktivierbar).
+  for (var _a = 0; _a < nApikal; _a++) {
+    var _idxA = apFirst ? _a : (keys.length - 1 - _a);
+    if (_idxA >= 0 && _idxA < keys.length) out[keys[_idxA]] = true;
+  }
+  for (var _b = 0; _b < nBasal; _b++) {
+    var _idxB = apFirst ? (keys.length - 1 - _b) : _b;
+    if (_idxB >= 0 && _idxB < keys.length) out[keys[_idxB]] = true;
+  }
   return out;
 }
 
