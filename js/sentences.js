@@ -103,9 +103,10 @@ function sBuildSequencePool() {
 }
 
 
-// BA327: Laedt den aktuellen Satz, normalisiert den Vordergrund per RMS,
-// mischt ggf. Hintergrund ein, schreibt sSentenceBuf und ruft
-// pSetPlaybackMode("saetze"). Ruft KEIN pPlay — Aufrufer macht das.
+// Laedt den aktuellen Satz, normalisiert den Vordergrund per RMS,
+// schreibt sSentenceBuf und ruft pSetPlaybackMode("saetze"). Der
+// Hintergrundmix ist herausgeloest (siehe 00-player-engine-architektur.md).
+// Ruft KEIN pPlay — Aufrufer macht das.
 // Gibt Promise zurueck; wirft bei Ladefehler.
 async function sLoadCurrent() {
   if (!sCurRec) return;
