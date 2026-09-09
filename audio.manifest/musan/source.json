@@ -19,7 +19,6 @@
       "musik/rfm.json"
     ],
     "geraeusche": [
-      "geraeusche/free-sound.json",
       "geraeusche/sound-bible.json"
     ]
   },

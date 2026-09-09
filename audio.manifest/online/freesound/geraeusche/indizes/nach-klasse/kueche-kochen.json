@@ -1,0 +1,10 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "index",
+  "title": "Freesound — kueche-kochen",
+  "items": [
+    {
+      "ref": "../../pakete/kueche-kochen.json"
+    }
+  ]
+}

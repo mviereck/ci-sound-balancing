@@ -1,0 +1,10 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "index",
+  "title": "Freesound — verkehr-strasse",
+  "items": [
+    {
+      "ref": "../../pakete/verkehr-strasse.json"
+    }
+  ]
+}

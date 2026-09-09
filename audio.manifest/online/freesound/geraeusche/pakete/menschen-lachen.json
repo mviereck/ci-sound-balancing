@@ -1,0 +1,155 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "geraeusche",
+  "title": "Freesound — menschen-lachen",
+  "lang": null,
+  "license": "mixed",
+  "credit": "Freesound (Lizenz pro Aufnahme im Item)",
+  "url": "https://freesound.org",
+  "tags": {
+    "kind": "babble",
+    "use": "erkennungsuebung",
+    "indoor": null,
+    "stationary": "n",
+    "loop_safe": "n"
+  },
+  "items": [
+    {
+      "id": "fs-15294",
+      "title": "SMALL GROUP LAUGHTER.wav",
+      "audio": "https://cdn.freesound.org/previews/15/15294_33253-hq.mp3",
+      "duration": 6,
+      "tags": {
+        "source_item_id": "15294",
+        "license": "CC-BY-3.0",
+        "license_url": "http://creativecommons.org/licenses/by/3.0/",
+        "recorder": "Ch0cchi",
+        "rating": 4.2,
+        "downloads": 23666,
+        "channels": 1,
+        "format_orig": "wav",
+        "recorded_year": 2006,
+        "geotag": null,
+        "fs_tags": [
+          "field-recording",
+          "group",
+          "laugh",
+          "laughter"
+        ],
+        "url": "https://freesound.org/people/Ch0cchi/sounds/15294/"
+      }
+    },
+    {
+      "id": "fs-324894",
+      "title": "Crowd laugh.wav",
+      "audio": "https://cdn.freesound.org/previews/324/324894_2104797-hq.mp3",
+      "duration": 3,
+      "tags": {
+        "source_item_id": "324894",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "deleted_user_2104797",
+        "rating": 4.6,
+        "downloads": 14642,
+        "channels": 1,
+        "format_orig": "wav",
+        "recorded_year": 2015,
+        "geotag": null,
+        "fs_tags": [
+          "adr",
+          "audience",
+          "chatter",
+          "crowd",
+          "group",
+          "laugh",
+          "laughing",
+          "laughter",
+          "people",
+          "walla"
+        ],
+        "url": "https://freesound.org/people/deleted_user_2104797/sounds/324894/"
+      }
+    },
+    {
+      "id": "fs-403058",
+      "title": "laughs",
+      "audio": "https://cdn.freesound.org/previews/403/403058_6094808-hq.mp3",
+      "duration": 6,
+      "tags": {
+        "source_item_id": "403058",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "wrc4all",
+        "rating": 4.6,
+        "downloads": 7610,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2017,
+        "geotag": null,
+        "fs_tags": [
+          "crowd",
+          "fun",
+          "laugh",
+          "laughing",
+          "laughs",
+          "laughter",
+          "radio-effects",
+          "smile"
+        ],
+        "url": "https://freesound.org/people/wrc4all/sounds/403058/"
+      }
+    },
+    {
+      "id": "fs-99635",
+      "title": "small crowd laughing and clapping.wav",
+      "audio": "https://cdn.freesound.org/previews/99/99635_1163166-hq.mp3",
+      "duration": 13,
+      "tags": {
+        "source_item_id": "99635",
+        "license": "CC-BY-3.0",
+        "license_url": "http://creativecommons.org/licenses/by/3.0/",
+        "recorder": "Tomlija",
+        "rating": 4.2,
+        "downloads": 5569,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2010,
+        "geotag": null,
+        "fs_tags": [
+          "ambience",
+          "applaud",
+          "applauding",
+          "applause",
+          "atmosphere",
+          "audience",
+          "cheer",
+          "cheering",
+          "clap",
+          "clapping",
+          "crowd",
+          "foley",
+          "gather",
+          "gathering",
+          "group",
+          "h4n",
+          "laugh",
+          "laughing",
+          "laughter",
+          "medium",
+          "people",
+          "positive",
+          "reaction",
+          "sfx",
+          "shout",
+          "shouting",
+          "small",
+          "street",
+          "tomlija",
+          "zoom"
+        ],
+        "url": "https://freesound.org/people/Tomlija/sounds/99635/"
+      }
+    }
+  ]
+}

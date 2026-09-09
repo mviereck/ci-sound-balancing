@@ -1,0 +1,10 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "index",
+  "title": "Freesound — natur-donner",
+  "items": [
+    {
+      "ref": "../../pakete/natur-donner.json"
+    }
+  ]
+}

@@ -1127,8 +1127,19 @@ async function pWarpTrigger() {
   const myGen = ++pWarpGen;
   pWarpedBuf = null;
 
-  if (!pWarpOn) { pWarpUpdUI(); return; }
-  if (_warpFResSource().length === 0) { pWarpUpdUI(); return; }
+  // Frühe Ausstiege = es wird NICHT gewarpt (Warp aus, kein Warp-Content, kein
+  // Quell-Buffer). Der ungewarpte pBuf ist dann sofort spielbar -> liegt ein
+  // Play-Wunsch vor (Play-Klick vor/während des Ladens), hier einlösen. Dies ist
+  // der EINE Wunsch-Konsum für den Nicht-Rechen-Fall; der Rechen-Fall löst ihn
+  // am Ende der Funktion ein (Streaming/Beste). pSetPlaybackMode hat keine
+  // eigene Kante mehr.
+  const _consumeWish = function () {
+    if (typeof pPlayWish !== "undefined" && pPlayWish
+        && typeof pBuf !== "undefined" && pBuf
+        && typeof pPlay === "function" && !pPlaying) pPlay();
+  };
+  if (!pWarpOn) { pWarpUpdUI(); _consumeWish(); return; }
+  if (_warpFResSource().length === 0) { pWarpUpdUI(); _consumeWish(); return; }
   if (!pSourceBuf) { pWarpUpdUI(); return; }
 
   // Falls eine vorherige Berechnung noch läuft (anderer Buffer): abbrechen

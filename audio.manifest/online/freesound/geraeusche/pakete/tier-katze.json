@@ -1,0 +1,99 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "geraeusche",
+  "title": "Freesound — tier-katze",
+  "lang": null,
+  "license": "mixed",
+  "credit": "Freesound (Lizenz pro Aufnahme im Item)",
+  "url": "https://freesound.org",
+  "tags": {
+    "kind": "tier",
+    "use": "erkennungsuebung",
+    "indoor": null,
+    "stationary": "n",
+    "loop_safe": "n"
+  },
+  "items": [
+    {
+      "id": "fs-213889",
+      "title": "The cat's meow",
+      "audio": "https://cdn.freesound.org/previews/213/213889_2287873-hq.mp3",
+      "duration": 15,
+      "tags": {
+        "source_item_id": "213889",
+        "license": "CC-BY-3.0",
+        "license_url": "http://creativecommons.org/licenses/by/3.0/",
+        "recorder": "Counter-gamer",
+        "rating": 3.7,
+        "downloads": 22832,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2014,
+        "geotag": null,
+        "fs_tags": [
+          "Cat",
+          "Meow",
+          "cat",
+          "kitten",
+          "kitty",
+          "mew",
+          "s",
+          "sound"
+        ],
+        "url": "https://freesound.org/people/Counter-gamer/sounds/213889/"
+      }
+    },
+    {
+      "id": "fs-412016",
+      "title": "cat purring and meow",
+      "audio": "https://cdn.freesound.org/previews/412/412016_3652520-hq.mp3",
+      "duration": 3,
+      "tags": {
+        "source_item_id": "412016",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "skymary",
+        "rating": 4.5,
+        "downloads": 13739,
+        "channels": 1,
+        "format_orig": "wav",
+        "recorded_year": 2017,
+        "geotag": null,
+        "fs_tags": [
+          "cat",
+          "kitten",
+          "meow",
+          "purr"
+        ],
+        "url": "https://freesound.org/people/skymary/sounds/412016/"
+      }
+    },
+    {
+      "id": "fs-274989",
+      "title": "Cat Meowing",
+      "audio": "https://cdn.freesound.org/previews/274/274989_8335-hq.mp3",
+      "duration": 10,
+      "tags": {
+        "source_item_id": "274989",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "theshaggyfreak",
+        "rating": 4.3,
+        "downloads": 12706,
+        "channels": 2,
+        "format_orig": "mp3",
+        "recorded_year": 2015,
+        "geotag": null,
+        "fs_tags": [
+          "animal",
+          "cat",
+          "feline",
+          "meow",
+          "pet"
+        ],
+        "url": "https://freesound.org/people/theshaggyfreak/sounds/274989/"
+      }
+    }
+  ]
+}

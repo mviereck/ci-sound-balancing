@@ -1,0 +1,246 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "geraeusche",
+  "title": "Freesound — wetter-wind",
+  "lang": null,
+  "license": "mixed",
+  "credit": "Freesound (Lizenz pro Aufnahme im Item)",
+  "url": "https://freesound.org",
+  "tags": {
+    "kind": "wetter",
+    "use": "hintergrund",
+    "indoor": "n",
+    "stationary": "y",
+    "loop_safe": "y"
+  },
+  "items": [
+    {
+      "id": "fs-17727",
+      "title": "ELEMENTS_WIND_01_Outdoor-Windy-Ambience.wav",
+      "audio": "https://cdn.freesound.org/previews/17/17727_308-hq.mp3",
+      "duration": 63,
+      "tags": {
+        "source_item_id": "17727",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "suonho",
+        "rating": 4.2,
+        "downloads": 10869,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2006,
+        "geotag": null,
+        "fs_tags": [
+          "ambient",
+          "drone",
+          "feedback",
+          "fx",
+          "noise",
+          "soundeffect",
+          "synth-noise",
+          "texture",
+          "wind"
+        ],
+        "url": "https://freesound.org/people/suonho/sounds/17727/"
+      }
+    },
+    {
+      "id": "fs-65813",
+      "title": "CountrySideWinterEvening02.wav",
+      "audio": "https://cdn.freesound.org/previews/65/65813_97826-hq.mp3",
+      "duration": 166,
+      "tags": {
+        "source_item_id": "65813",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "pcaeldries",
+        "rating": 4.5,
+        "downloads": 10839,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2009,
+        "geotag": null,
+        "fs_tags": [
+          "atmosphere",
+          "birds",
+          "birdsong",
+          "field-recording",
+          "nature",
+          "outdoor",
+          "weather",
+          "winter"
+        ],
+        "url": "https://freesound.org/people/pcaeldries/sounds/65813/"
+      }
+    },
+    {
+      "id": "fs-288899",
+      "title": "Rocky Mountain Outdoors:  wind and birds",
+      "audio": "https://cdn.freesound.org/previews/288/288899_2367139-hq.mp3",
+      "duration": 90,
+      "tags": {
+        "source_item_id": "288899",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "petebuchwald",
+        "rating": 4.7,
+        "downloads": 8105,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2015,
+        "geotag": null,
+        "fs_tags": [
+          "ambiance",
+          "ambience",
+          "ambient",
+          "bird",
+          "birds",
+          "birdsong",
+          "field-recording",
+          "forest",
+          "general-noise",
+          "hummingbird",
+          "morning",
+          "mountain",
+          "nature",
+          "rocky",
+          "spring",
+          "summer",
+          "wind"
+        ],
+        "url": "https://freesound.org/people/petebuchwald/sounds/288899/"
+      }
+    },
+    {
+      "id": "fs-269782",
+      "title": "outdoor ambience",
+      "audio": "https://cdn.freesound.org/previews/269/269782_3366749-hq.mp3",
+      "duration": 39,
+      "tags": {
+        "source_item_id": "269782",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "seth-m",
+        "rating": 4.7,
+        "downloads": 6969,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2015,
+        "geotag": null,
+        "fs_tags": [
+          "ambiance",
+          "ambience",
+          "ambient",
+          "bird",
+          "birds",
+          "chimes",
+          "chirp",
+          "field-recording",
+          "nature",
+          "outdoor",
+          "outside",
+          "spring",
+          "tweet",
+          "wind",
+          "wind-chimes"
+        ],
+        "url": "https://freesound.org/people/seth-m/sounds/269782/"
+      }
+    },
+    {
+      "id": "fs-196712",
+      "title": "Wind Chimes",
+      "audio": "https://cdn.freesound.org/previews/196/196712_652446-hq.mp3",
+      "duration": 236,
+      "tags": {
+        "source_item_id": "196712",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "Littleboot",
+        "rating": 4.9,
+        "downloads": 5826,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2013,
+        "geotag": null,
+        "fs_tags": [
+          "Beach",
+          "Chime",
+          "Chimes",
+          "High",
+          "Quality",
+          "Sound",
+          "Sounds",
+          "Studio-Recording",
+          "Wind"
+        ],
+        "url": "https://freesound.org/people/Littleboot/sounds/196712/"
+      }
+    },
+    {
+      "id": "fs-70196",
+      "title": "Flag Flapping and Birds 2.wav",
+      "audio": "https://cdn.freesound.org/previews/70/70196_1022651-hq.mp3",
+      "duration": 43,
+      "tags": {
+        "source_item_id": "70196",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "JustinBW",
+        "rating": 3.8,
+        "downloads": 3789,
+        "channels": 1,
+        "format_orig": "wav",
+        "recorded_year": 2009,
+        "geotag": "40.1352092102 -74.5566424727",
+        "fs_tags": [
+          "bird",
+          "blow",
+          "cloth",
+          "flag",
+          "flap",
+          "movement",
+          "outdoor",
+          "wind"
+        ],
+        "url": "https://freesound.org/people/JustinBW/sounds/70196/"
+      }
+    },
+    {
+      "id": "fs-398904",
+      "title": "Ambience of a playground in the park.WAV",
+      "audio": "https://cdn.freesound.org/previews/398/398904_4325245-hq.mp3",
+      "duration": 242,
+      "tags": {
+        "source_item_id": "398904",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "lionROAR0905",
+        "rating": 4.9,
+        "downloads": 3447,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2017,
+        "geotag": "4.89925337974 114.934748411",
+        "fs_tags": [
+          "ambient",
+          "brunei",
+          "children",
+          "evening",
+          "field-recording",
+          "kids",
+          "outdoor",
+          "parents",
+          "park",
+          "play",
+          "playground",
+          "playing",
+          "traffic",
+          "youth"
+        ],
+        "url": "https://freesound.org/people/lionROAR0905/sounds/398904/"
+      }
+    }
+  ]
+}

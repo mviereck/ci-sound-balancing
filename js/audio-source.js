@@ -647,19 +647,18 @@ amRegisterProvider({
 // Item-Buffer-Cache + RMS-Normalisierung (BA194)
 // ============================================================
 
-// BA573: Ladeschritt-Generation. Jeder neue Ladeauftrag erhöht den Zähler; ein
-// zurückkehrender fetch/decode einer überholten Generation verwirft sein
-// Ergebnis (Muster wie pWarpGen in freq-warp.js). Der AbortController bricht den
-// laufenden fetch aktiv ab, statt ihn nur zu ignorieren.
-let _amLoadGen = 0;
-let _amLoadAbort = null;   // AbortController des laufenden fetch (oder null)
+// Grundsatz: es gibt immer nur EIN Audio. Wird gewechselt, wird das alte
+// vollständig verworfen — kein Aussortieren mehrerer paralleler Aufträge, kein
+// Generationszähler. amCancelLoad bricht den laufenden Download ab; der
+// abgebrochene fetch wirft AbortError und seine Promise-Kette stirbt von selbst,
+// bevor sie pSetPlaybackMode erreicht. Nur EIN Ladevorgang läuft je Zeit.
+// _amLoadAbort: AbortController des aktuell laufenden fetch (oder null).
+let _amLoadAbort = null;
 
-// Von einem neuen Ladeauftrag (Kategorie-/Stück-Wechsel) gerufen: bricht den
-// laufenden Download ab, macht offene decode/fetch zur überholten Generation
-// und stößt den Abbruch einer laufenden Warp-Berechnung an (sofort beim Auftrag,
-// nicht erst nach dem Dekodieren des neuen Buffers).
+// Von einem Wechsel (neues Stück / Kategorie / Stopp) gerufen: verwirft den
+// laufenden Ladevorgang — bricht den Download ab und stößt den Abbruch einer
+// laufenden Warp-Berechnung an.
 function amCancelLoad() {
-  _amLoadGen++;
   if (_amLoadAbort) {
     try { _amLoadAbort.abort(); } catch (e) {}
     _amLoadAbort = null;
@@ -700,8 +699,6 @@ async function amGetItemBuffer(ctx, item) {
   const cached = _amItemBufCache.get(item.id);
   if (cached) return cached;
 
-  const myGen = ++_amLoadGen;
-
   let abuf = null;
   if (item.id.indexOf("gen:") === 0) {
     abuf = amGenerateNoiseBuffer(ctx, item.id);
@@ -711,7 +708,6 @@ async function amGetItemBuffer(ctx, item) {
       ? amNoiseResolveLocalFile(item.audio) : null;
     if (f) {
       const ab = await f.arrayBuffer();
-      if (myGen !== _amLoadGen) return null;   // überholt
       abuf = await ctx.decodeAudioData(ab);
     }
   } else if (typeof item.audio === "string" && item.audio.indexOf("local-music-folder:") === 0) {
@@ -720,25 +716,26 @@ async function amGetItemBuffer(ctx, item) {
       ? amMusicResolveLocalFile(item.audio) : null;
     if (f) {
       const ab = await f.arrayBuffer();
-      if (myGen !== _amLoadGen) return null;   // überholt
       abuf = await ctx.decodeAudioData(ab);
     }
   } else if (item.audio) {
+    // Abbrechbarer Download. Ein Wechsel ruft amCancelLoad() -> abort(). Der
+    // abgebrochene fetch wirft AbortError; wir fangen ihn hier und geben null
+    // zurück ("abgebrochen = kein Buffer" = wie "nichts geladen"). So braucht
+    // KEIN Aufrufer AbortError-Wissen — alle prüfen schon auf leeren Buffer.
+    // Kein Generationszähler nötig: es läuft nur EIN Load.
     _amLoadAbort = new AbortController();
-    let ab;
     try {
       const r = await fetch(item.audio, { signal: _amLoadAbort.signal });
-      ab = await r.arrayBuffer();
+      const ab = await r.arrayBuffer();
+      abuf = await ctx.decodeAudioData(ab);
     } catch (e) {
-      if (myGen !== _amLoadGen) return null;   // abgebrochen/überholt: still
-      throw e;
+      if (e && e.name === "AbortError") return null;   // Wechsel während Laden
+      throw e;                                          // echter Netz-/Decode-Fehler
     } finally {
-      if (myGen === _amLoadGen) _amLoadAbort = null;
+      _amLoadAbort = null;
     }
-    if (myGen !== _amLoadGen) return null;      // überholt
-    abuf = await ctx.decodeAudioData(ab);
   }
-  if (myGen !== _amLoadGen) return null;        // überholt (auch gen:/decode)
   if (!abuf) return null;
 
   _amItemBufCache.set(item.id, abuf);

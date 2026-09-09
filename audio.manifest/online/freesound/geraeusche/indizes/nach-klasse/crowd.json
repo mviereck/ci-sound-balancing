@@ -1,0 +1,10 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "index",
+  "title": "Freesound — crowd",
+  "items": [
+    {
+      "ref": "../../pakete/crowd.json"
+    }
+  ]
+}

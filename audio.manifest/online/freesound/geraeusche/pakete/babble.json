@@ -1,0 +1,102 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "geraeusche",
+  "title": "Freesound — babble",
+  "lang": null,
+  "license": "mixed",
+  "credit": "Freesound (Lizenz pro Aufnahme im Item)",
+  "url": "https://freesound.org",
+  "tags": {
+    "kind": "babble",
+    "stationary": "y",
+    "loop_safe": "y"
+  },
+  "items": [
+    {
+      "id": "fs-33392",
+      "title": "Resturant Ambience Tandoori.mp3",
+      "audio": "https://cdn.freesound.org/previews/33/33392_29541-hq.mp3",
+      "duration": 213,
+      "tags": {
+        "source_item_id": "33392",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "digifishmusic",
+        "tags": [
+          "babble",
+          "chatting",
+          "crowd",
+          "cutlery",
+          "dining",
+          "eating",
+          "field-recording",
+          "food",
+          "glasses",
+          "people",
+          "plates",
+          "restaurant"
+        ],
+        "url": "https://freesound.org/people/digifishmusic/sounds/33392/"
+      }
+    },
+    {
+      "id": "fs-57554",
+      "title": "Choc Dee Thai Restaurant.mp3",
+      "audio": "https://cdn.freesound.org/previews/57/57554_29541-hq.mp3",
+      "duration": 92,
+      "tags": {
+        "source_item_id": "57554",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "digifishmusic",
+        "tags": [
+          "babble",
+          "busy",
+          "cafe",
+          "chatter",
+          "chatting",
+          "crowd",
+          "cutlery",
+          "dining",
+          "eating",
+          "field-recording",
+          "food",
+          "glasses",
+          "people",
+          "plates",
+          "public-space",
+          "talking",
+          "thai-restaurant"
+        ],
+        "url": "https://freesound.org/people/digifishmusic/sounds/57554/"
+      }
+    },
+    {
+      "id": "fs-766655",
+      "title": "murmuring café",
+      "audio": "https://cdn.freesound.org/previews/766/766655_3324065-hq.mp3",
+      "duration": 75,
+      "tags": {
+        "source_item_id": "766655",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "blaastaal",
+        "tags": [
+          "babbling",
+          "bar",
+          "cafe",
+          "chatter",
+          "crowd",
+          "field-recording",
+          "people",
+          "pub",
+          "restaurant",
+          "talking",
+          "voices"
+        ],
+        "url": "https://freesound.org/people/blaastaal/sounds/766655/"
+      }
+    }
+  ]
+}

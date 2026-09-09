@@ -1,0 +1,10 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "index",
+  "title": "Freesound — tier-katze",
+  "items": [
+    {
+      "ref": "../../pakete/tier-katze.json"
+    }
+  ]
+}

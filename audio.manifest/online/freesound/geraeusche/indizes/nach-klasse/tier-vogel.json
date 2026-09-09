@@ -1,0 +1,10 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "index",
+  "title": "Freesound — tier-vogel",
+  "items": [
+    {
+      "ref": "../../pakete/tier-vogel.json"
+    }
+  ]
+}

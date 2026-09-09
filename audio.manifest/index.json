@@ -113,6 +113,15 @@
       ],
       "license": "CC0-1.0",
       "source": "thorsten-voice-hessisch/source.json"
+    },
+    {
+      "key": "freesound",
+      "name": "Freesound",
+      "categories": [
+        "geraeusche"
+      ],
+      "license": "mixed",
+      "source": "online/freesound/source.json"
     }
   ]
 }

@@ -1,0 +1,129 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "geraeusche",
+  "title": "Freesound — industrie-baustelle",
+  "lang": null,
+  "license": "mixed",
+  "credit": "Freesound (Lizenz pro Aufnahme im Item)",
+  "url": "https://freesound.org",
+  "tags": {
+    "kind": "industrie",
+    "use": "erkennungsuebung",
+    "indoor": "n",
+    "stationary": "n",
+    "loop_safe": "n"
+  },
+  "items": [
+    {
+      "id": "fs-400991",
+      "title": "Construction, Jackhammer Excavator, A.wav",
+      "audio": "https://cdn.freesound.org/previews/400/400991_5121236-hq.mp3",
+      "duration": 17,
+      "tags": {
+        "source_item_id": "400991",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "InspectorJ",
+        "rating": 4.2,
+        "downloads": 17116,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2017,
+        "geotag": null,
+        "fs_tags": [
+          "Construction",
+          "Dig",
+          "Digger",
+          "Digging",
+          "Drill",
+          "Drilling",
+          "Excavator",
+          "Hammer",
+          "Jack",
+          "Jack-hammer",
+          "Jackhammer",
+          "construction",
+          "dig",
+          "digger",
+          "digging",
+          "drill",
+          "drilling",
+          "excavator",
+          "hammer",
+          "jack",
+          "jack-hammer",
+          "jackhammer"
+        ],
+        "url": "https://freesound.org/people/InspectorJ/sounds/400991/"
+      }
+    },
+    {
+      "id": "fs-110621",
+      "title": "industrial_tools_jackhammer_operating_001.wav",
+      "audio": "https://cdn.freesound.org/previews/110/110621_1930766-hq.mp3",
+      "duration": 10,
+      "tags": {
+        "source_item_id": "110621",
+        "license": "CC-BY-3.0",
+        "license_url": "http://creativecommons.org/licenses/by/3.0/",
+        "recorder": "soundscalpel.com",
+        "rating": 4.4,
+        "downloads": 1435,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2010,
+        "geotag": null,
+        "fs_tags": [
+          "building",
+          "construction",
+          "drill",
+          "drilling",
+          "drills",
+          "hammer",
+          "jack",
+          "pneumatic",
+          "site"
+        ],
+        "url": "https://freesound.org/people/soundscalpel.com/sounds/110621/"
+      }
+    },
+    {
+      "id": "fs-317361",
+      "title": "Jackhammer",
+      "audio": "https://cdn.freesound.org/previews/317/317361_2843367-hq.mp3",
+      "duration": 13,
+      "tags": {
+        "source_item_id": "317361",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "MrAuralization",
+        "rating": 4.8,
+        "downloads": 1404,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2015,
+        "geotag": null,
+        "fs_tags": [
+          "building",
+          "chisel",
+          "concrete",
+          "constructing",
+          "construction",
+          "construction-site",
+          "demolish",
+          "drill",
+          "drilling",
+          "hammer",
+          "jack-hammer",
+          "jackhammer",
+          "machinery",
+          "site",
+          "tool",
+          "tools"
+        ],
+        "url": "https://freesound.org/people/MrAuralization/sounds/317361/"
+      }
+    }
+  ]
+}

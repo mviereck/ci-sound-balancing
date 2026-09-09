@@ -34,6 +34,13 @@ let pPlayWish = false;   // SW (BA378): gemerkter Play-Wunsch. true = Nutzer
                          // will spielen, Wiedergabe startet sobald Gate offen.
                          // Einzige Schreibstellen: _pSetPlayWish().
 
+let _plLoadPending = null;   // Token (Objekt) des laufenden Ladevorgangs, sonst
+                             // null. Truthy solange geladen wird. Play-Klick
+                             // während des Ladens startet dann KEINEN zweiten
+                             // load(), sondern setzt nur den Play-Wunsch; der
+                             // laufende Vorgang erfüllt ihn beim Fertigwerden
+                             // (pWarpTrigger konsumiert den Wunsch).
+
 // SW (BA378): einzige Schreibstelle fuer pPlayWish. wish=true -> Play
 // angefordert; wish=false -> Wunsch zurueckgenommen (kein Auto-Start).
 // Aktualisiert die Button-Optik (amber im Warten) zentral mit.
@@ -517,6 +524,11 @@ function pSetPlaybackMode(mode) {
   if (pSourceBuf) {
     pBuf = getPlaybackBuffer();
     pBuildEQ();
+    // Der Buffer steht jetzt. Den Play-Wunsch (Play-Klick vor/während des Ladens)
+    // konsumiert IMMER pWarpTrigger — es ist die einzige Instanz, die weiß, ob
+    // tatsächlich gewarpt wird (Streaming, dann startet es über das Gate) oder
+    // nicht (kein Warp-Content / Warp aus -> ungewarpter Buffer ist sofort
+    // spielbar). So gibt es EINEN Auslöser, keine zweite Kante hier.
     if (typeof pWarpTrigger === "function") {
       const p = pWarpTrigger();
       pWarpComputingPromise = p;
@@ -1536,7 +1548,13 @@ function plPlayPauseToggle() {
     if (typeof pPlay === "function") pPlay();
     return;
   }
-  // Kein Puffer -> aktuellen Zeiger sicherstellen, laden, abspielen.
+  // Läuft bereits ein Ladeauftrag (Auswahl/Weiterschalten): KEINEN zweiten
+  // load() starten. Der Wunsch ist oben gesetzt; pSetPlaybackMode spielt ihn ab,
+  // sobald das ladende Stück fertig ist (Warp aus) bzw. pWarpTrigger (Warp an).
+  if (_plLoadPending) return;
+  // Kein Puffer, kein laufender Auftrag -> Zeiger sicherstellen und laden.
+  // Das Abspielen bei vorliegendem Wunsch übernimmt pSetPlaybackMode (kein
+  // eigener Play-Anstoß hier -> ein Auslöser, keine Sonderwege).
   const cat = plCurrentCategory();
   if (!cat) { if (typeof _pSetPlayWish === "function") _pSetPlayWish(false); return; }
   if (typeof plNavEnsureCursor === "function") plNavEnsureCursor();
@@ -1544,14 +1562,17 @@ function plPlayPauseToggle() {
     if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);
     return;
   }
-  Promise.resolve(cat.load()).then(function () {
-    if (typeof pPlay === "function") pPlay();
-  }).catch(function (err) { console.error("[player] Play-Laden:", err); });
+  _plLoadCurrent();
 }
 
 function plStopAll() {
   const cat = plCurrentCategory();
   if (cat && typeof cat.onStop === "function") cat.onStop();
+  // Echter Stopp / Kategoriewechsel verwirft auch einen laufenden Ladeauftrag
+  // (Download + Warp), sonst liefe der Download der alten Kategorie weiter und
+  // sein Callback könnte nachträglich abspielen.
+  if (typeof amCancelLoad === "function") amCancelLoad();
+  _plLoadPending = null;
   if (typeof pStopReset === "function") pStopReset();
   _plAutoAdvCancel();
 }
@@ -1862,36 +1883,69 @@ function plNavHasPrev() {
   return plNavIndex() > 0;
 }
 
-// Zeiger auf item setzen, laden, von vorn abspielen (Vor/Zurueck loesen
-// immer Play aus). select setzt NUR den Zeiger; load laedt; pOff=0 = von vorn.
-// Zeiger auf item setzen, laden, danach abspielen NUR wenn vorher
-// gespielt wurde (Auswahl wie Vor/Zurueck folgen demselben Verhalten).
-// Die Abspiel-Position (0 s bzw. Hoerbuch-Sekunde) bestimmt cat.load(),
-// NICHT diese Funktion -- darum kein pOff hier.
-// SW (BA379): opts.keepPlaying = true  -> wenn vorher gespielt wurde, spielt das
-//   neue Stueck automatisch weiter (Weiter/Zurueck = Playlist-Skip).
-//   keepPlaying = false/weggelassen -> neues Stueck bleibt still (Dropdown-Wahl).
+// Gemeinsamer Lade-Wechsel für ALLE Wechsel-Pfade (Item-/Prev/Next-Wahl,
+// Filter-Neuwahl, Auto-Weiter). Grundsatz: es gibt immer nur EIN Audio; ein
+// Wechsel verwirft das alte vollständig:
+//   1. amCancelLoad() — laufenden Download + Warp abbrechen. Der abgebrochene
+//      fetch wirft AbortError und stirbt, bevor er pSetPlaybackMode erreicht —
+//      kein Generationszähler, kein Aussortieren paralleler Aufträge nötig.
+//   2. pBuf = null — bis das neue Stück geladen ist, gibt es KEIN abspielbares
+//      Audio. Sonst startet ein Play-Klick während des Ladens das ALTE Stück.
+//   3. cat.load() — laden. Das ABSPIELEN übernimmt NICHT diese Funktion, sondern
+//      pWarpTrigger am Ende von load() (bei Warp-Content: nach Berechnung; sonst:
+//      sofort über den ungewarpten Buffer) — dort wird der Play-Wunsch konsumiert.
+// afterLoad: optionaler Callback (z.B. pOff=0 + UI), läuft nach erfolgreichem Laden.
+// Die Abspiel-Position (0 s bzw. Hörbuch-Sekunde) bestimmt cat.load() selbst.
+function _plLoadCurrent(afterLoad) {
+  const cat = plCurrentCategory();
+  if (!cat) return;
+
+  // Alten Ladevorgang verwerfen (Download + Warp abbrechen) und den alten Buffer
+  // fallenlassen: bis das neue Stück geladen ist, gibt es KEIN abspielbares Audio.
+  if (typeof amCancelLoad === "function") amCancelLoad();
+  pBuf = null;
+
+  // _plLoadPending ist ein Token (Objekt-Referenz), nicht nur ein Flag: es
+  // identifiziert DIESEN Ladevorgang. Nur der jeweils aktuelle Vorgang darf den
+  // Pending-Zustand räumen. Ein abgebrochener Vorgang (dessen load() später mit
+  // null zurückkehrt) findet ein neueres Token vor und räumt NICHTS — sonst
+  // würde sein spätes .then das Pending des laufenden neuen Vorgangs löschen.
+  const myLoad = {};
+  _plLoadPending = myLoad;
+  // true = DIESER Vorgang ist noch der aktuelle (nicht von einem neueren Wechsel
+  // überholt). Räumt dann den Pending-Zustand.
+  const stillCurrent = function () {
+    if (_plLoadPending !== myLoad) return false;
+    _plLoadPending = null;
+    return true;
+  };
+
+  Promise.resolve(cat.load()).then(function () {
+    if (stillCurrent() && typeof afterLoad === "function") afterLoad();
+  }).catch(function (err) {
+    stillCurrent();
+    console.error("[player] Laden fehlgeschlagen:", err);
+  });
+}
+
+// Zeiger auf item setzen, laden, danach abspielen NUR wenn vorher gespielt wurde
+// (Dropdown-Wahl bleibt still; Weiter/Zurueck = Playlist-Skip spielt weiter).
+// SW (BA379): opts.keepPlaying = true -> wenn vorher gespielt, spielt das neue
+//   Stueck automatisch weiter. keepPlaying = false/weg -> bleibt still.
 function _plNavGoTo(item, opts) {
   const cat = plCurrentCategory();
   if (!cat || !item) return;
   const keepPlaying = !!(opts && opts.keepPlaying);
   const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
 
-  if (typeof amCancelLoad === "function") amCancelLoad();   // BA574: alten Download + Warp stoppen
   cat.select(item);
   if (wasPlaying && typeof pPause === "function") pPause();
-  // BA386: pPause loescht den Wunsch NICHT (BA382), pSetPlaybackMode ab jetzt
-  // auch nicht. Nur beim Playlist-Skip mit vorher laufender Wiedergabe wird
-  // der Wunsch fuer das neue Stueck gesetzt -> Gate startet (kurz amber, dann
-  // Ton). Sonst bleibt still (kein Wunsch -> kein Auto-Start).
+  // Nur beim Playlist-Skip mit vorher laufender Wiedergabe den Wunsch fürs neue
+  // Stück setzen; sonst still (kein Wunsch -> kein Auto-Start).
   const resume = keepPlaying && wasPlaying;
   if (resume && typeof _pSetPlayWish === "function") _pSetPlayWish(true);
 
-  Promise.resolve(cat.load()).then(function () {
-    // Voll-Pfad braucht den expliziten pPlay-Anstosz; im Streaming startet
-    // _streamOnSegmentReady ueber den gesetzten Wunsch + Vorlauf selbst.
-    if (resume && typeof pPlay === "function") pPlay();
-  });
+  _plLoadCurrent();
   if (typeof plUpdDisplay     === "function") plUpdDisplay();
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
 }
@@ -1966,11 +2020,13 @@ function plNavAfterFilterChange(before) {
     if (typeof pPlaying !== "undefined" && pPlaying && typeof pPause === "function") pPause();
     pOff = 0;
     if (cat.current && cat.current()) {
-      Promise.resolve(cat.load()).then(function () {
+      // Altes Stück fiel aus dem Filter: neues laden, aber pausiert bereitstellen
+      // (Wunsch oben gelöscht -> pSetPlaybackMode spielt nicht).
+      _plLoadCurrent(function () {
         pOff = 0;
         if (typeof plUpdDisplay     === "function") plUpdDisplay();
         if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-      }).catch(function (e) { console.error("[plNav] Filter-Neuwahl laden:", e); });
+      });
       return;
     }
   }
@@ -2012,14 +2068,11 @@ function plNavAutoAdvance() {
     if (typeof plShuffle !== "undefined" && plShuffle) _plNavPrevItem = cur;
     cat.select(next);
     if (typeof plUpdDisplay === "function") plUpdDisplay();
-    Promise.resolve(cat.load()).then(function () {
-      pOff = 0;
-      // SW (BA379): Auto-Advance spielt automatisch -> Play-Wunsch setzen,
-      // damit auch der Streaming-Pfad ueber das Gate startet (kurz amber,
-      // dann Ton). Voll-Pfad startet ueber pPlay() (wartet bis Buffer fertig).
-      if (typeof _pSetPlayWish === "function") _pSetPlayWish(true);
-      if (typeof pPlay === "function") pPlay();
-    });
+    // SW (BA379): Auto-Advance spielt automatisch -> Play-Wunsch setzen, damit
+    // auch der Streaming-Pfad über das Gate startet. Die gemeinsame Lade-Stelle
+    // verwirft den alten Auftrag und spielt bei Wunsch.
+    if (typeof _pSetPlayWish === "function") _pSetPlayWish(true);
+    _plLoadCurrent(function () { pOff = 0; });
   }, ms);
 }
 

@@ -1,0 +1,261 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "geraeusche",
+  "title": "Freesound — tier-grille",
+  "lang": null,
+  "license": "mixed",
+  "credit": "Freesound (Lizenz pro Aufnahme im Item)",
+  "url": "https://freesound.org",
+  "tags": {
+    "kind": "tier",
+    "use": "erkennungsuebung",
+    "indoor": "n",
+    "stationary": "y",
+    "loop_safe": "y"
+  },
+  "items": [
+    {
+      "id": "fs-129678",
+      "title": "crickets",
+      "audio": "https://cdn.freesound.org/previews/129/129678_2362707-hq.mp3",
+      "duration": 16,
+      "tags": {
+        "source_item_id": "129678",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "FreethinkerAnon",
+        "rating": 4.3,
+        "downloads": 20398,
+        "channels": 2,
+        "format_orig": "mp3",
+        "recorded_year": 2011,
+        "geotag": null,
+        "fs_tags": [
+          "chirping",
+          "crickets",
+          "night"
+        ],
+        "url": "https://freesound.org/people/FreethinkerAnon/sounds/129678/"
+      }
+    },
+    {
+      "id": "fs-530477",
+      "title": "Cricket chirping",
+      "audio": "https://cdn.freesound.org/previews/530/530477_2579656-hq.mp3",
+      "duration": 63,
+      "tags": {
+        "source_item_id": "530477",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "GB01",
+        "rating": 4.3,
+        "downloads": 7514,
+        "channels": 2,
+        "format_orig": "m4a",
+        "recorded_year": 2020,
+        "geotag": null,
+        "fs_tags": [
+          "Cricket",
+          "bug",
+          "bugs",
+          "chirp",
+          "chirping",
+          "cricket",
+          "crickets",
+          "evening",
+          "field-recording",
+          "insect",
+          "insects",
+          "loud",
+          "nature",
+          "night",
+          "noise",
+          "summer"
+        ],
+        "url": "https://freesound.org/people/GB01/sounds/530477/"
+      }
+    },
+    {
+      "id": "fs-175020",
+      "title": "AMBIENCE NIGHT FIELD CRICKET 01.wav",
+      "audio": "https://cdn.freesound.org/previews/175/175020_2979997-hq.mp3",
+      "duration": 60,
+      "tags": {
+        "source_item_id": "175020",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "sengjinn",
+        "rating": 4.8,
+        "downloads": 7359,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2013,
+        "geotag": null,
+        "fs_tags": [
+          "ambience",
+          "chirp",
+          "cricket",
+          "field-recording",
+          "forest",
+          "insects",
+          "jungle",
+          "nature",
+          "night"
+        ],
+        "url": "https://freesound.org/people/sengjinn/sounds/175020/"
+      }
+    },
+    {
+      "id": "fs-393389",
+      "title": "cricket",
+      "audio": "https://cdn.freesound.org/previews/393/393389_3261030-hq.mp3",
+      "duration": 67,
+      "tags": {
+        "source_item_id": "393389",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "FunkApache",
+        "rating": 4.8,
+        "downloads": 5900,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2017,
+        "geotag": "46.25695028534962 14.38585102558136",
+        "fs_tags": [
+          "ambience",
+          "bug",
+          "bugs",
+          "chirp",
+          "cricket",
+          "crickets",
+          "eve",
+          "evening",
+          "field-recording",
+          "insect",
+          "insects",
+          "nature",
+          "night",
+          "samsung",
+          "summer"
+        ],
+        "url": "https://freesound.org/people/FunkApache/sounds/393389/"
+      }
+    },
+    {
+      "id": "fs-97788",
+      "title": "Cricket chirping.wav",
+      "audio": "https://cdn.freesound.org/previews/97/97788_1386366-hq.mp3",
+      "duration": 30,
+      "tags": {
+        "source_item_id": "97788",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "CGEffex",
+        "rating": 4.3,
+        "downloads": 5032,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2010,
+        "geotag": null,
+        "fs_tags": [
+          "chirp",
+          "cricket",
+          "night",
+          "night-time"
+        ],
+        "url": "https://freesound.org/people/CGEffex/sounds/97788/"
+      }
+    },
+    {
+      "id": "fs-383275",
+      "title": "Crickets Chirping At Night Free High Quality Sound FX",
+      "audio": "https://cdn.freesound.org/previews/383/383275_7146007-hq.mp3",
+      "duration": 43,
+      "tags": {
+        "source_item_id": "383275",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "deleted_user_7146007",
+        "rating": 4.6,
+        "downloads": 2851,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2017,
+        "geotag": null,
+        "fs_tags": [
+          "At",
+          "Chirping",
+          "Crickets",
+          "FX",
+          "Free",
+          "High",
+          "Night",
+          "Quality",
+          "Sound"
+        ],
+        "url": "https://freesound.org/people/deleted_user_7146007/sounds/383275/"
+      }
+    },
+    {
+      "id": "fs-704381",
+      "title": "Northern California Crickets",
+      "audio": "https://cdn.freesound.org/previews/704/704381_8525021-hq.mp3",
+      "duration": 116,
+      "tags": {
+        "source_item_id": "704381",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "ellie.vanderlip",
+        "rating": 4.7,
+        "downloads": 2820,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2023,
+        "geotag": "37.35688238111834 -122.13869650000004",
+        "fs_tags": [
+          "Crickets",
+          "SFO",
+          "airplane",
+          "backyard",
+          "california",
+          "field-recording",
+          "summer",
+          "surburbia"
+        ],
+        "url": "https://freesound.org/people/ellie.vanderlip/sounds/704381/"
+      }
+    },
+    {
+      "id": "fs-147264",
+      "title": "Desert Night Air With Bird Call",
+      "audio": "https://cdn.freesound.org/previews/147/147264_1728127-hq.mp3",
+      "duration": 64,
+      "tags": {
+        "source_item_id": "147264",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "kangaroovindaloo",
+        "rating": 4.7,
+        "downloads": 2304,
+        "channels": 2,
+        "format_orig": "aiff",
+        "recorded_year": 2012,
+        "geotag": "-18.3419795931433 130.6043529510498",
+        "fs_tags": [
+          "Desert",
+          "atmos",
+          "atmosphere",
+          "australia",
+          "birds",
+          "crickets",
+          "evening",
+          "feild-recording",
+          "insects",
+          "night"
+        ],
+        "url": "https://freesound.org/people/kangaroovindaloo/sounds/147264/"
+      }
+    }
+  ]
+}

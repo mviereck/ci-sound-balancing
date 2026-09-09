@@ -1,0 +1,233 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "geraeusche",
+  "title": "Freesound — kueche-kochen",
+  "lang": null,
+  "license": "mixed",
+  "credit": "Freesound (Lizenz pro Aufnahme im Item)",
+  "url": "https://freesound.org",
+  "tags": {
+    "kind": "haushalt",
+    "use": "erkennungsuebung",
+    "indoor": "y",
+    "stationary": "y",
+    "loop_safe": "n"
+  },
+  "items": [
+    {
+      "id": "fs-140453",
+      "title": "cooking_02.wav",
+      "audio": "https://cdn.freesound.org/previews/140/140453_52655-hq.mp3",
+      "duration": 46,
+      "tags": {
+        "source_item_id": "140453",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "aesqe",
+        "rating": 4.6,
+        "downloads": 23877,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2012,
+        "geotag": null,
+        "fs_tags": [
+          "cooking",
+          "food",
+          "frying",
+          "kitchen",
+          "lunch",
+          "pan",
+          "sizzling",
+          "wok"
+        ],
+        "url": "https://freesound.org/people/aesqe/sounds/140453/"
+      }
+    },
+    {
+      "id": "fs-364903",
+      "title": "Cooking, boiling",
+      "audio": "https://cdn.freesound.org/previews/364/364903_1511977-hq.mp3",
+      "duration": 18,
+      "tags": {
+        "source_item_id": "364903",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "TiesWijnen",
+        "rating": 4.4,
+        "downloads": 6252,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2016,
+        "geotag": null,
+        "fs_tags": [
+          "boiling",
+          "cook",
+          "cooking",
+          "food",
+          "fry",
+          "frying",
+          "kitchen",
+          "oil",
+          "pan",
+          "pot",
+          "sizzle",
+          "sizzling",
+          "stove"
+        ],
+        "url": "https://freesound.org/people/TiesWijnen/sounds/364903/"
+      }
+    },
+    {
+      "id": "fs-353124",
+      "title": "Frying Pan Sizzle",
+      "audio": "https://cdn.freesound.org/previews/353/353124_1196020-hq.mp3",
+      "duration": 25,
+      "tags": {
+        "source_item_id": "353124",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "BenjaminNelan",
+        "rating": 4.5,
+        "downloads": 3820,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2016,
+        "geotag": null,
+        "fs_tags": [
+          "cooking",
+          "food",
+          "oil",
+          "pan",
+          "sizzling"
+        ],
+        "url": "https://freesound.org/people/BenjaminNelan/sounds/353124/"
+      }
+    },
+    {
+      "id": "fs-468911",
+      "title": "Bacon Sizzling",
+      "audio": "https://cdn.freesound.org/previews/468/468911_288104-hq.mp3",
+      "duration": 31,
+      "tags": {
+        "source_item_id": "468911",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "timothyd4y",
+        "rating": 4.6,
+        "downloads": 3490,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2019,
+        "geotag": null,
+        "fs_tags": [
+          "bacon",
+          "cook",
+          "cooking",
+          "food",
+          "fry",
+          "frying",
+          "kitchen",
+          "oil",
+          "pan",
+          "sizzle",
+          "sizzling"
+        ],
+        "url": "https://freesound.org/people/timothyd4y/sounds/468911/"
+      }
+    },
+    {
+      "id": "fs-382709",
+      "title": "Butter Sizzling.wav",
+      "audio": "https://cdn.freesound.org/previews/382/382709_7042661-hq.mp3",
+      "duration": 24,
+      "tags": {
+        "source_item_id": "382709",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "hmoosher",
+        "rating": 4.6,
+        "downloads": 3482,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2017,
+        "geotag": null,
+        "fs_tags": [
+          "Cooking",
+          "Field-recording",
+          "Sizzle"
+        ],
+        "url": "https://freesound.org/people/hmoosher/sounds/382709/"
+      }
+    },
+    {
+      "id": "fs-235537",
+      "title": "frying steak.wav",
+      "audio": "https://cdn.freesound.org/previews/235/235537_4258636-hq.mp3",
+      "duration": 15,
+      "tags": {
+        "source_item_id": "235537",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "simosco",
+        "rating": 4.7,
+        "downloads": 3212,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2014,
+        "geotag": null,
+        "fs_tags": [
+          "cook",
+          "cooking",
+          "food",
+          "fry",
+          "frying",
+          "oil",
+          "pan",
+          "sizzle",
+          "sizzling",
+          "skillet",
+          "steak"
+        ],
+        "url": "https://freesound.org/people/simosco/sounds/235537/"
+      }
+    },
+    {
+      "id": "fs-233976",
+      "title": "BACON",
+      "audio": "https://cdn.freesound.org/previews/233/233976_177850-hq.mp3",
+      "duration": 34,
+      "tags": {
+        "source_item_id": "233976",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "stomachache",
+        "rating": 4.5,
+        "downloads": 2858,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2014,
+        "geotag": null,
+        "fs_tags": [
+          "24bit",
+          "bacon",
+          "cholesterol",
+          "cooking",
+          "food",
+          "freesound-cooks",
+          "frying",
+          "grease",
+          "griddle",
+          "kitchen",
+          "oil",
+          "pan",
+          "sausage",
+          "sizzle",
+          "sizzling",
+          "stove"
+        ],
+        "url": "https://freesound.org/people/stomachache/sounds/233976/"
+      }
+    }
+  ]
+}

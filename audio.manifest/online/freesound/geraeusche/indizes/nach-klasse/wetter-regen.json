@@ -1,0 +1,10 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "index",
+  "title": "Freesound — wetter-regen",
+  "items": [
+    {
+      "ref": "../../pakete/wetter-regen.json"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "index",
+  "title": "Freesound — natur-bach",
+  "items": [
+    {
+      "ref": "../../pakete/natur-bach.json"
+    }
+  ]
+}

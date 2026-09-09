@@ -1,0 +1,10 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "index",
+  "title": "Freesound — industrie-sirene",
+  "items": [
+    {
+      "ref": "../../pakete/industrie-sirene.json"
+    }
+  ]
+}

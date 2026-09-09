@@ -1,0 +1,198 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "geraeusche",
+  "title": "Freesound — haushalt-telefon",
+  "lang": null,
+  "license": "mixed",
+  "credit": "Freesound (Lizenz pro Aufnahme im Item)",
+  "url": "https://freesound.org",
+  "tags": {
+    "kind": "haushalt",
+    "use": "erkennungsuebung",
+    "indoor": "y",
+    "stationary": "n",
+    "loop_safe": "n"
+  },
+  "items": [
+    {
+      "id": "fs-50646",
+      "title": "Cordless phone ring.wav",
+      "audio": "https://cdn.freesound.org/previews/50/50646_103482-hq.mp3",
+      "duration": 20,
+      "tags": {
+        "source_item_id": "50646",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "cbakos",
+        "rating": 4.3,
+        "downloads": 37453,
+        "channels": 1,
+        "format_orig": "wav",
+        "recorded_year": 2008,
+        "geotag": null,
+        "fs_tags": [
+          "90s",
+          "beep",
+          "cheap",
+          "cordless",
+          "phone",
+          "ring"
+        ],
+        "url": "https://freesound.org/people/cbakos/sounds/50646/"
+      }
+    },
+    {
+      "id": "fs-29621",
+      "title": "phone.wav",
+      "audio": "https://cdn.freesound.org/previews/29/29621_98464-hq.mp3",
+      "duration": 3,
+      "tags": {
+        "source_item_id": "29621",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "infobandit",
+        "rating": 4.2,
+        "downloads": 28122,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2007,
+        "geotag": null,
+        "fs_tags": [
+          "call",
+          "cellphone",
+          "environmental-sounds-research",
+          "office",
+          "phone",
+          "ringing",
+          "ringtone",
+          "telephone"
+        ],
+        "url": "https://freesound.org/people/infobandit/sounds/29621/"
+      }
+    },
+    {
+      "id": "fs-329781",
+      "title": "Office Phone Ring",
+      "audio": "https://cdn.freesound.org/previews/329/329781_2293373-hq.mp3",
+      "duration": 3,
+      "tags": {
+        "source_item_id": "329781",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "visualasylum",
+        "rating": 4.7,
+        "downloads": 19163,
+        "channels": 2,
+        "format_orig": "mp3",
+        "recorded_year": 2015,
+        "geotag": null,
+        "fs_tags": [
+          "office",
+          "phone",
+          "ring",
+          "ringer",
+          "telephone"
+        ],
+        "url": "https://freesound.org/people/visualasylum/sounds/329781/"
+      }
+    },
+    {
+      "id": "fs-344365",
+      "title": "Cellphone ringing",
+      "audio": "https://cdn.freesound.org/previews/344/344365_6201031-hq.mp3",
+      "duration": 5,
+      "tags": {
+        "source_item_id": "344365",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "jourblue",
+        "rating": 4.2,
+        "downloads": 18229,
+        "channels": 1,
+        "format_orig": "wav",
+        "recorded_year": 2016,
+        "geotag": null,
+        "fs_tags": [
+          "Phone",
+          "Phone-ringing",
+          "ring",
+          "ringing",
+          "telephone"
+        ],
+        "url": "https://freesound.org/people/jourblue/sounds/344365/"
+      }
+    },
+    {
+      "id": "fs-178137",
+      "title": "ring-ring.mp3",
+      "audio": "https://cdn.freesound.org/previews/178/178137_3307516-hq.mp3",
+      "duration": 26,
+      "tags": {
+        "source_item_id": "178137",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "keybit2",
+        "rating": 3.7,
+        "downloads": 12849,
+        "channels": 2,
+        "format_orig": "mp3",
+        "recorded_year": 2013,
+        "geotag": null,
+        "fs_tags": [
+          "british",
+          "field-recording",
+          "loud",
+          "phone",
+          "ring",
+          "ringing",
+          "ringtone",
+          "telephone",
+          "uk"
+        ],
+        "url": "https://freesound.org/people/keybit2/sounds/178137/"
+      }
+    },
+    {
+      "id": "fs-60755",
+      "title": "telephone.mp3",
+      "audio": "https://cdn.freesound.org/previews/60/60755_27178-hq.mp3",
+      "duration": 29,
+      "tags": {
+        "source_item_id": "60755",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "morgantj",
+        "rating": 4.3,
+        "downloads": 11813,
+        "channels": 2,
+        "format_orig": "mp3",
+        "recorded_year": 2008,
+        "geotag": null,
+        "fs_tags": [
+          "answer",
+          "dial-tone",
+          "dialtone",
+          "drop",
+          "hang",
+          "hello",
+          "hook",
+          "no",
+          "off",
+          "phone",
+          "pick-up",
+          "ring",
+          "ringer",
+          "ringing",
+          "ringtone",
+          "speaker",
+          "speakerphone",
+          "telephone",
+          "tone",
+          "up"
+        ],
+        "url": "https://freesound.org/people/morgantj/sounds/60755/"
+      }
+    }
+  ]
+}

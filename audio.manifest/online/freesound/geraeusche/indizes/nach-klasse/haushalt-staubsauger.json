@@ -1,0 +1,10 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "index",
+  "title": "Freesound — haushalt-staubsauger",
+  "items": [
+    {
+      "ref": "../../pakete/haushalt-staubsauger.json"
+    }
+  ]
+}

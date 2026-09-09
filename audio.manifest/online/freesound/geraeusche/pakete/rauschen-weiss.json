@@ -1,0 +1,118 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "geraeusche",
+  "title": "Freesound — rauschen-weiss",
+  "lang": null,
+  "license": "mixed",
+  "credit": "Freesound (Lizenz pro Aufnahme im Item)",
+  "url": "https://freesound.org",
+  "tags": {
+    "kind": "rauschen-weiss",
+    "use": "hintergrund",
+    "indoor": null,
+    "stationary": "y",
+    "loop_safe": "y"
+  },
+  "items": [
+    {
+      "id": "fs-382688",
+      "title": "wind around car empty 170223_1092.wav",
+      "audio": "https://cdn.freesound.org/previews/382/382688_1648170-hq.mp3",
+      "duration": 219,
+      "tags": {
+        "source_item_id": "382688",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "klankbeeld",
+        "rating": 4.6,
+        "downloads": 2082,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2017,
+        "geotag": null,
+        "fs_tags": [
+          "ambience",
+          "ambient",
+          "atmosphere",
+          "autumn",
+          "background-sound",
+          "blow",
+          "blowing",
+          "breeze",
+          "car",
+          "cold",
+          "empty",
+          "field-recording",
+          "freezing",
+          "fresh-gale",
+          "general-noise",
+          "house",
+          "indoors",
+          "inside",
+          "noise",
+          "stationary",
+          "storm",
+          "stormy",
+          "strong",
+          "weather",
+          "white-noise",
+          "wind",
+          "windy",
+          "winter"
+        ],
+        "url": "https://freesound.org/people/klankbeeld/sounds/382688/"
+      }
+    },
+    {
+      "id": "fs-61208",
+      "title": "whiteNoise.wav",
+      "audio": "https://cdn.freesound.org/previews/61/61208_796868-hq.mp3",
+      "duration": 30,
+      "tags": {
+        "source_item_id": "61208",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recorder": "KarlFaktor",
+        "rating": 4.6,
+        "downloads": 1973,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2008,
+        "geotag": null,
+        "fs_tags": [
+          "noise",
+          "stationary",
+          "stereo",
+          "white"
+        ],
+        "url": "https://freesound.org/people/KarlFaktor/sounds/61208/"
+      }
+    },
+    {
+      "id": "fs-842063",
+      "title": "Yamabiko Arrival at Mizusawa-Esashi",
+      "audio": "https://cdn.freesound.org/previews/842/842063_17756109-hq.mp3",
+      "duration": 31,
+      "tags": {
+        "source_item_id": "842063",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "hoshisato",
+        "rating": 4.0,
+        "downloads": 28,
+        "channels": 1,
+        "format_orig": "flac",
+        "recorded_year": 2026,
+        "geotag": null,
+        "fs_tags": [
+          "announcement",
+          "japan",
+          "shinkansen",
+          "train"
+        ],
+        "url": "https://freesound.org/people/hoshisato/sounds/842063/"
+      }
+    }
+  ]
+}

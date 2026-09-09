@@ -1,0 +1,112 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "geraeusche",
+  "title": "Freesound — tier-voegel-wald",
+  "lang": null,
+  "license": "mixed",
+  "credit": "Freesound (Lizenz pro Aufnahme im Item)",
+  "url": "https://freesound.org",
+  "tags": {
+    "kind": "tier",
+    "use": "erkennungsuebung",
+    "indoor": "n",
+    "stationary": "y",
+    "loop_safe": "y"
+  },
+  "items": [
+    {
+      "id": "fs-522058",
+      "title": "morning bird trio.mp3",
+      "audio": "https://cdn.freesound.org/previews/522/522058_10265490-hq.mp3",
+      "duration": 54,
+      "tags": {
+        "source_item_id": "522058",
+        "license": "CC-BY-3.0",
+        "license_url": "http://creativecommons.org/licenses/by/3.0/",
+        "recorder": "dedindi",
+        "rating": 4.8,
+        "downloads": 499,
+        "channels": 2,
+        "format_orig": "mp3",
+        "recorded_year": 2020,
+        "geotag": "49.1847026423 37.0795097795",
+        "fs_tags": [
+          "bird",
+          "birds",
+          "birdsong",
+          "field-recording",
+          "forest",
+          "insects",
+          "morning",
+          "nature",
+          "spring"
+        ],
+        "url": "https://freesound.org/people/dedindi/sounds/522058/"
+      }
+    },
+    {
+      "id": "fs-644989",
+      "title": "Jungle / Forest Ambience",
+      "audio": "https://cdn.freesound.org/previews/644/644989_3288322-hq.mp3",
+      "duration": 40,
+      "tags": {
+        "source_item_id": "644989",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "seventhsamurai",
+        "rating": 4.8,
+        "downloads": 495,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2022,
+        "geotag": "11.952342 76.227951",
+        "fs_tags": [
+          "Ambience",
+          "birds",
+          "chirping",
+          "dawn",
+          "exterior",
+          "field-recording",
+          "forest",
+          "india",
+          "jungle",
+          "morning"
+        ],
+        "url": "https://freesound.org/people/seventhsamurai/sounds/644989/"
+      }
+    },
+    {
+      "id": "fs-679109",
+      "title": "Morning in the forest.wav",
+      "audio": "https://cdn.freesound.org/previews/679/679109_12704565-hq.mp3",
+      "duration": 91,
+      "tags": {
+        "source_item_id": "679109",
+        "license": "CC0-1.0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "recorder": "IlMotografo",
+        "rating": 5.0,
+        "downloads": 233,
+        "channels": 2,
+        "format_orig": "wav",
+        "recorded_year": 2023,
+        "geotag": "46.3874961299293 12.175670500000024",
+        "fs_tags": [
+          "bird",
+          "birds",
+          "birdsong",
+          "breeze",
+          "dawn",
+          "dolomites",
+          "dolomiti",
+          "field-recording",
+          "forest",
+          "morning",
+          "nature"
+        ],
+        "url": "https://freesound.org/people/IlMotografo/sounds/679109/"
+      }
+    }
+  ]
+}

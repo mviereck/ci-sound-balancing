@@ -1,0 +1,10 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "index",
+  "title": "Freesound — wetter-wind",
+  "items": [
+    {
+      "ref": "../../pakete/wetter-wind.json"
+    }
+  ]
+}
