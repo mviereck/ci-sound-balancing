@@ -114,23 +114,10 @@ async function sLoadCurrent() {
   if (!audioRef) { sStop(); throw new Error("kein audio-Ref"); }
 
   const c = gPC();
-  let decoded;
-  if (typeof audioRef === "string" && audioRef.indexOf("local:") === 0) {
-    // Saetze-Upload: "local:<cid>:<relPath>" — von amGetItemBuffer nicht
-    // aufloesbar, daher hier direkt aus der Sammlung dekodieren.
-    const second = audioRef.indexOf(":", 6);
-    const cid = audioRef.substring(6, second);
-    const rel = audioRef.substring(second + 1);
-    const coll = sLocalCollections.get(cid);
-    if (!coll) throw new Error("Lokale Sammlung " + cid + " nicht (mehr) verfuegbar");
-    const file = coll.files.get(rel);
-    if (!file) throw new Error("Datei " + rel + " nicht in Sammlung " + cid);
-    decoded = await c.decodeAudioData(await file.arrayBuffer());
-  } else {
-    // data:/http(s)/blob -> gemeinsamer Weg (cached, dekodiert).
-    decoded = await amGetItemBuffer(c, sCurRec);
-    if (!decoded) { sStop(); throw new Error("Audio nicht ladbar: " + audioRef); }
-  }
+  // Ein Ladeweg fuer alle: die zentrale Ladestelle. Lokale Upload-Dateien
+  // erkennt sie am item._file (vom Provider gesetzt), Web-Refs per fetch.
+  const decoded = await amGetItemBuffer(c, sCurRec);
+  if (!decoded) { sStop(); throw new Error("Audio nicht ladbar: " + audioRef); }
   if (plActiveSource !== "saetze") return;
 
   // BA327: Vordergrund immer RMS-normalisieren (kein Schalter). Einziger
@@ -389,11 +376,21 @@ if (typeof amRegisterProvider === "function") {
         const recs = Array.isArray(coll.recordings) ? coll.recordings : [];
         for (const r of recs) {
           if (!r || !r.audio) continue;
+          // Generischer lokaler Ladeweg: File aus der Sammlung ans Item haengen.
+          // r.audio hat die Form "local:<cid>:<relPath>"; relPath ist der Teil
+          // nach dem zweiten ":". coll.files ist Map<relPath, File>.
+          let localFile = null;
+          if (typeof r.audio === "string" && r.audio.indexOf("local:") === 0) {
+            const second = r.audio.indexOf(":", 6);
+            const rel = (second >= 0) ? r.audio.substring(second + 1) : null;
+            if (rel && coll.files) localFile = coll.files.get(rel) || null;
+          }
           out.push({
             id: "sentences-local:" + cid + ":" + (r.id || ""),
             title: coll.label || cid,
             text: r.text || "",
             audio: r.audio,
+            _file: localFile,
             sourceTitle: coll.label || cid,
             license: coll.license || null,
             credit:  coll.credit  || null,

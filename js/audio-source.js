@@ -702,6 +702,15 @@ async function amGetItemBuffer(ctx, item) {
   let abuf = null;
   if (item.id.indexOf("gen:") === 0) {
     abuf = amGenerateNoiseBuffer(ctx, item.id);
+  } else if (item._file instanceof File) {
+    // Generischer lokaler Ladeweg: das Item traegt sein File-Objekt direkt.
+    // Gilt fuer jeden Upload jeder Kategorie -- kein kategorie-spezifisches
+    // Praefix, kein blob:-Umweg. Die kategorie-eigenen Sammlungen bleiben
+    // Besitzer der Files; die Ladestelle kennt sie nicht.
+    // (Die alten local-*-folder:-Praefix-Zweige unten entfallen in BA 577,
+    //  sobald Musik/Geraeusche/Hoerbuch ebenfalls item._file setzen.)
+    const ab = await item._file.arrayBuffer();
+    abuf = await ctx.decodeAudioData(ab);
   } else if (typeof item.audio === "string" && item.audio.indexOf("local-noise-folder:") === 0) {
     // BA334: lokaler Geraeusche-Ordner
     const f = (typeof amNoiseResolveLocalFile === "function")
