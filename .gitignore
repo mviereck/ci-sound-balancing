@@ -5,6 +5,12 @@
 # klar ist, was warum lokal bleibt.
 # ============================================================
 
+# Generische Umsetzung der Grundregel: alles mit fuehrendem "." wird
+# ignoriert, einzige Ausnahme ist .gitignore selbst. Die folgenden
+# Eintraege bleiben zur Dokumentation stehen (was warum lokal bleibt).
+.*
+!.gitignore
+
 # Backups und lokales Arbeitsmaterial
 .backup/
 .archive/
