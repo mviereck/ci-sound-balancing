@@ -707,26 +707,8 @@ async function amGetItemBuffer(ctx, item) {
     // Gilt fuer jeden Upload jeder Kategorie -- kein kategorie-spezifisches
     // Praefix, kein blob:-Umweg. Die kategorie-eigenen Sammlungen bleiben
     // Besitzer der Files; die Ladestelle kennt sie nicht.
-    // (Die alten local-*-folder:-Praefix-Zweige unten entfallen in BA 577,
-    //  sobald Musik/Geraeusche/Hoerbuch ebenfalls item._file setzen.)
     const ab = await item._file.arrayBuffer();
     abuf = await ctx.decodeAudioData(ab);
-  } else if (typeof item.audio === "string" && item.audio.indexOf("local-noise-folder:") === 0) {
-    // BA334: lokaler Geraeusche-Ordner
-    const f = (typeof amNoiseResolveLocalFile === "function")
-      ? amNoiseResolveLocalFile(item.audio) : null;
-    if (f) {
-      const ab = await f.arrayBuffer();
-      abuf = await ctx.decodeAudioData(ab);
-    }
-  } else if (typeof item.audio === "string" && item.audio.indexOf("local-music-folder:") === 0) {
-    // BA573: lokaler Musik-Ordner (bisher in plMusicLoadSelected)
-    const f = (typeof amMusicResolveLocalFile === "function")
-      ? amMusicResolveLocalFile(item.audio) : null;
-    if (f) {
-      const ab = await f.arrayBuffer();
-      abuf = await ctx.decodeAudioData(ab);
-    }
   } else if (item.audio) {
     // Abbrechbarer Download. Ein Wechsel ruft amCancelLoad() -> abort(). Der
     // abgebrochene fetch wirft AbortError; wir fangen ihn hier und geben null
@@ -1123,6 +1105,7 @@ function amMusicAddLocalFile(file) {
     id: "music-folder:" + cid + ":file-" + (coll.items.length + 1),
     title: baseName,
     audio: "local-music-folder:" + cid + ":" + rel,
+    _file: file,
     sourceTitle: coll.label,
     license: null,
     credit: null,
@@ -1156,6 +1139,7 @@ function _amMusicBuildFolderItems(files, cid, folderName) {
       id: "music-folder:" + cid + ":" + (++n),
       title: baseName,
       audio: "local-music-folder:" + cid + ":" + f.webkitRelativePath,
+      _file: f,
       sourceTitle: folderName,
       license: null,
       credit: null,
@@ -1204,19 +1188,6 @@ function amMusicListLocalFolders() {
 
 // BA323: amMusicRemoveLocalFolder entfernt — Entfernen-Knopf entfällt (Box zustandslos).
 
-// Liefert das File-Objekt zu einem Audio-Ref der Form
-// "local-music-folder:<cid>:<relPath>" — null wenn nicht gefunden.
-function amMusicResolveLocalFile(audioRef) {
-  if (!audioRef || audioRef.indexOf("local-music-folder:") !== 0) return null;
-  const second = audioRef.indexOf(":", 19);
-  if (second < 0) return null;
-  const cid = audioRef.substring(19, second);
-  const rel = audioRef.substring(second + 1);
-  const coll = _amMusicLocalFolders.get(cid);
-  if (!coll) return null;
-  return coll.files.get(rel) || null;
-}
-
 amRegisterProvider({
   id: "music-local-folder",
   listItems: function (category) {
@@ -1259,6 +1230,7 @@ function amNoiseAddLocalFile(file) {
     id: "noise-folder:" + cid + ":file-" + (coll.items.length + 1),
     title: baseName,
     audio: "local-noise-folder:" + cid + ":" + rel,
+    _file: file,
     sourceTitle: coll.label,
     license: null,
     credit: null,
@@ -1288,6 +1260,7 @@ function _amNoiseBuildFolderItems(files, cid, folderName) {
       id: "noise-folder:" + cid + ":" + (++n),
       title: baseName,
       audio: "local-noise-folder:" + cid + ":" + f.webkitRelativePath,
+      _file: f,
       sourceTitle: folderName,
       license: null,
       credit: null,
@@ -1326,19 +1299,6 @@ async function amNoiseIngestLocalFolder(fileList) {
 
 function amNoiseListLocalFolders() {
   return Array.from(_amNoiseLocalFolders.values());
-}
-
-// Liefert das File-Objekt zu einem Audio-Ref der Form
-// "local-noise-folder:<cid>:<relPath>" — null wenn nicht gefunden.
-function amNoiseResolveLocalFile(audioRef) {
-  if (!audioRef || audioRef.indexOf("local-noise-folder:") !== 0) return null;
-  const second = audioRef.indexOf(":", 19);
-  if (second < 0) return null;
-  const cid = audioRef.substring(19, second);
-  const rel = audioRef.substring(second + 1);
-  const coll = _amNoiseLocalFolders.get(cid);
-  if (!coll) return null;
-  return coll.files.get(rel) || null;
 }
 
 amRegisterProvider({

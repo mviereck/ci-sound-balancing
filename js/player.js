@@ -3406,7 +3406,8 @@ async function plBookHandleUpload(fileList) {
     return {
       id: bookId + "#ch" + String(i + 1).padStart(3, "0"),
       title: f.name.replace(/\.[^.]+$/, ""),
-      audio: URL.createObjectURL(f),
+      audio: "local-book:" + folderName + ":" + (i + 1),
+      _file: f,
       duration: null,
       tags: { chapter_no: i + 1 }
     };
