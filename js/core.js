@@ -558,6 +558,7 @@ var FRQ_BAND_WAHLEN = [
   { key: "bandCbfApikalFrei",   def: "1",          fileKey: "bandCbfApikalFrei",   group: "FRQ_bandCbfApikalFrei" },
   { key: "bandCbfBasalFrei",    def: "1",          fileKey: "bandCbfBasalFrei",    group: "FRQ_bandCbfBasalFrei" },
   { key: "bandCbfSprache",      def: "mittel",     fileKey: "bandCbfSprache",      group: "FRQ_bandCbfSprache" },
+  { key: "bandCbfMitteZug",     def: "leicht",     fileKey: "bandCbfMitteZug",     group: "FRQ_bandCbfMitteZug" },
   // BA524: gemeinsame Rechenraum-Achse (ersetzt Verfahren "greenwood" und
   // die CBF-Achse bandCbfBandraum).
   { key: "bandLage",  def: "geometrisch", fileKey: "bandLage",  group: "FRQ_bandLage" },
@@ -908,6 +909,10 @@ var CBF_FEHLER_SKALA_CT = 100; // BA466: EINHEITLICHE Fehler-Einheit fuer
 var CBF_ZENTRIERUNG = 0.02;    // schwacher Zug zur exakten Mitte INNERHALB der
                                // Toleranz (haelt Ergebnis bei freiem Spielraum
                                // an der gehoerten Frequenz; Skala: FEHLER_SKALA)
+// BA580: Zug zur Ziel-Mitte INNERHALB der Toleranzhuelle (nur gemessene
+// El.). Stufen -> mu. Werte > ~0.4 kippen die Optimierung (Zug ueberstimmt
+// den Treffer-Term ausserhalb der Huelle) -> Stufen bleiben <= 0.4.
+var CBF_MITTEZUG = { aus: 0, leicht: 0.1, mittel: 0.2, stark: 0.4 };
 var CBF_SWEEPS = 120;          // max. Loeser-Durchlaeufe (Abbruch bei Konvergenz)
 var CBF_TERN = 48;             // ternaere Suchschritte je Kante
 
@@ -1096,6 +1101,9 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
   var _rand = (typeof opt.randverhalten === "string") ? opt.randverhalten : "treffen";
   var sprF = CBF_SPRACHE_FAKTOR[opt.cbfSprache] != null
           ? CBF_SPRACHE_FAKTOR[opt.cbfSprache] : CBF_SPRACHE_FAKTOR.mittel;
+  // BA580: Mitte-des-Residuums-Zug (mu). Default "leicht".
+  var _mitteMu = CBF_MITTEZUG[opt.cbfMitteZug] != null
+    ? CBF_MITTEZUG[opt.cbfMitteZug] : CBF_MITTEZUG.leicht;
 
   // 3. Referenz-Breite (Normierung der Breiten-Terme): Zielspanne / N.
   var bref = (t[N - 1] - t[0]) / N;
@@ -1192,6 +1200,13 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
       if (d > 0) { d /= SKA; s += w[j] * d * d; }
       var z = diff / SKA;
       s += CBF_ZENTRIERUNG * w[j] * z * z;
+      // BA580: zusaetzlicher Zug zur Ziel-Mitte INNERHALB der Huelle, fest
+      // auf SKA normiert (nicht auf dead_j -> unsichere Messung nicht
+      // staerker gezogen), NUR bei gemessenen El. (bei ungemessenen ist die
+      // Huelle der 1200-ct-Platzhalter -> Zug wuerde die Lage zerren).
+      if (_mitteMu > 0 && Math.abs(diff) <= dead_j && kette[j].gemessen) {
+        s += _mitteMu * w[j] * z * z;
+      }
     }
     // BA528: stumme El. in die Breiten-Glattheit EINBEZIEHEN (kein continue
     // mehr) -- ihre Breite koppelt so an die Nachbarn und bleibt bestimmt,
@@ -2521,6 +2536,8 @@ function _FRQ_werteBerechne(form, modus, nhSim, verfahren, topologie, optimieren
           cbfBasalFrei:  (_sW && _sW.bandCbfBasalFrei  != null) ? _sW.bandCbfBasalFrei  : 1,
           // BA464/465: Sprachbereich-Achse (Feld kommt mit BA465).
           cbfSprache: (_sW && typeof _sW.bandCbfSprache === "string") ? _sW.bandCbfSprache : "mittel",
+          // BA580: Mitte-des-Residuums-Zug pro Seite (Stufe -> mu im Kern).
+          cbfMitteZug: (_sW && typeof _sW.bandCbfMitteZug === "string") ? _sW.bandCbfMitteZug : "leicht",
           // BA579: modellfeste Bandbreiten-Abweichungsliste (1-basierte
           // El.-Nummern) aus MFR -> CBF lockert dort den Glattheits-Term.
           abweichBreite: (_sW && MFR[_sW.manufacturer] && Array.isArray(MFR[_sW.manufacturer].abweichBreite))

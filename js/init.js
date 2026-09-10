@@ -695,7 +695,7 @@ document.addEventListener("DOMContentLoaded", () => {
     show("FRQ_bandAbfSchwelleBasalFieldset",  istAbf);
     ["FRQ_bandCbfGewichtFieldset", "FRQ_bandCbfApikalFreiFieldset",
      "FRQ_bandCbfBasalFreiFieldset",
-     "FRQ_bandCbfSpracheFieldset"].forEach(function (id) {
+     "FRQ_bandCbfSpracheFieldset", "FRQ_bandCbfMitteZugFieldset"].forEach(function (id) {
       show(id, istCbf);   // CBF-Achsen nur bei CBF
     });
 
@@ -772,6 +772,7 @@ document.addEventListener("DOMContentLoaded", () => {
   _frqBandWahlInit("FRQ_bandCbfApikalFrei", function (v) { sideData[activeSide].bandCbfApikalFrei = v; });
   _frqBandWahlInit("FRQ_bandCbfBasalFrei",  function (v) { sideData[activeSide].bandCbfBasalFrei  = v; });
   _frqBandWahlInit("FRQ_bandCbfSprache", function (v) { sideData[activeSide].bandCbfSprache = v; });
+  _frqBandWahlInit("FRQ_bandCbfMitteZug", function (v) { sideData[activeSide].bandCbfMitteZug = v; });
   _frqBandWahlInit("FRQ_bandLage", function (v) {
     sideData[activeSide].bandLage = v;
     _frqBandAchsenSichtbarkeit();
