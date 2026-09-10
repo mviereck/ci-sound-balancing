@@ -195,6 +195,7 @@ const MFR = {
     defaultRange: null,
     bandGrenzen: null,
     FRQ_implantat: [],
+    abweichBreite: [],
   },
   medel: {
     name: "MED-EL",
@@ -212,6 +213,10 @@ const MFR = {
     // Obergrenze in allen Strategien 8500.
     bandGrenzen: { lo: [70, 200, 250, 300], hi: [8500], default: [70, 8500] },
     FRQ_implantat: [120, 235, 384, 579, 836, 1175, 1624, 2222, 3019, 4084, 5507, 7410],
+    // BA579: Rand-Elektroden, deren Bandbreite von der Gleichmaessigkeits-
+    // Regel ausgenommen ist (1-basierte Nummern). CBF lockert an den
+    // Uebergaengen dieser Elektroden den Glattheits-Term.
+    abweichBreite: [1, 2],
   },
   ab: {
     name: "Advanced Bionics",
@@ -228,6 +233,7 @@ const MFR = {
       333, 455, 540, 642, 762, 906, 1076, 1278, 1518, 1803, 2142, 2544, 3022,
       3590, 4264, 6665,
     ],
+    abweichBreite: [1, 16],
   },
   cochlear: {
     name: "Cochlear",
@@ -259,6 +265,7 @@ const MFR = {
       250, 375, 500, 625, 750, 875, 1000, 1125, 1250, 1438, 1688, 1938, 2188,
       2500, 2875, 3313, 3813, 4375, 5000, 5688, 6500, 7438,
     ],
+    abweichBreite: [],
   },
 };
 // ============================================================
@@ -1152,6 +1159,19 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
     var f2 = (wHi - wLo) * 0.9 / sumMin;
     for (i = 0; i < N; i++) bMin[i] *= f2;
   }
+  // BA579: Uebergaenge, an denen der Breiten-Glattheits-Term gelockert wird
+  // (modellfeste Bandbreiten-Abweichung, Architektur CBF-Kapitel §5).
+  // opt.abweichBreite = 1-basierte El.-NUMMERN -> ueber kette[i].elIdx
+  // auf Ketten-Indizes abbilden, dann die beiden anliegenden Uebergaenge.
+  // f = 0: an diesen Uebergaengen KEINE Breiten-Gleichmaessigkeit.
+  var _abwBreite = Array.isArray(opt.abweichBreite) ? opt.abweichBreite : [];
+  var _lockerUeberg = {};   // { uebergangsIndex j : true }
+  for (var _ai = 0; _ai < N; _ai++) {
+    if (_abwBreite.indexOf(kette[_ai].elIdx + 1) < 0) continue;
+    if (_ai - 1 >= 0 && _ai - 1 <= N - 2) _lockerUeberg[_ai - 1] = true;
+    if (_ai >= 0     && _ai     <= N - 2) _lockerUeberg[_ai]     = true;
+  }
+
   // 7. Zielfunktion (konvex).
   function kosten(x) {
     var s = 0, j;
@@ -1176,9 +1196,12 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
     // BA528: stumme El. in die Breiten-Glattheit EINBEZIEHEN (kein continue
     // mehr) -- ihre Breite koppelt so an die Nachbarn und bleibt bestimmt,
     // ohne eigenes Breiten-Ziel.
+    // BA579: an gelockerten Uebergaengen (modellfeste Bandbreiten-Abweichung)
+    // faellt der Glattheits-Term weg (Faktor 0).
     for (j = 0; j < N - 1; j++) {
       var g = ((x[j + 1] - x[j]) - (x[j + 2] - x[j + 1])) / bref;
-      s += lam * g * g;
+      var _lam_j = _lockerUeberg[j] ? 0 : lam;
+      s += _lam_j * g * g;
     }
     return s;
   }
@@ -2498,6 +2521,10 @@ function _FRQ_werteBerechne(form, modus, nhSim, verfahren, topologie, optimieren
           cbfBasalFrei:  (_sW && _sW.bandCbfBasalFrei  != null) ? _sW.bandCbfBasalFrei  : 1,
           // BA464/465: Sprachbereich-Achse (Feld kommt mit BA465).
           cbfSprache: (_sW && typeof _sW.bandCbfSprache === "string") ? _sW.bandCbfSprache : "mittel",
+          // BA579: modellfeste Bandbreiten-Abweichungsliste (1-basierte
+          // El.-Nummern) aus MFR -> CBF lockert dort den Glattheits-Term.
+          abweichBreite: (_sW && MFR[_sW.manufacturer] && Array.isArray(MFR[_sW.manufacturer].abweichBreite))
+            ? MFR[_sW.manufacturer].abweichBreite : [],
           // BA524: gemeinsame Rechenraum-Achse (Lage) pro Seite.
           lage: (_sW && typeof _sW.bandLage === "string") ? _sW.bandLage : "geometrisch",
           // BA525: Greenwood-k pro Seite. Als Zahl (Wertetabelle-Lookup).
