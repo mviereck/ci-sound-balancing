@@ -1319,6 +1319,8 @@ function _FRQ_renderBandEmpf(side) {
       });
     }
     var _wand = _FRQ_bandWandFuerGraph(side);
+    // PROBEWEISE: X-Achse fest auf 35-10000 Hz, unabhaengig von Randverhalten/Wand.
+    _wand = [35, 10000];
     drawFRQGraph(_bcv, _rows, {
       residuumAnker: "nulllinie",
       xWandHz: _wand,
