@@ -2449,7 +2449,13 @@ function _FRQ_werteBerechne(form, modus, nhSim, verfahren, topologie, optimieren
       // BA462: Bandgrenzen-Wand aus der GEWÄHLTEN, seitengebundenen Wand
       // (sideData[seite].bandWandLo/Hi). BA463: _sW bereits oben gesetzt.
       var _bandWand = null;
-      if (_randVerh === "frei") {
+      // sABF ignoriert das Randverhalten vollstaendig (UI zeigt die Box matt,
+      // init.js). Patent US20230347148A1 §0033/§0034/§0049: die aeusseren
+      // Grenzen sind FESTE, place-frequenz-UNABHAENGIGE Hardware-Werte
+      // ("Wand treffen"). Die "frei"-Wandableitung (gehoerte Hz +-1 Oktave)
+      // waere place-abhaengig -> fuer abf uebersprungen, damit die gewaehlte
+      // bzw. Default-Wand (else-Zweig) greift.
+      if (_randVerh === "frei" && _verfahren !== "abf") {
         // Randverhalten "frei": KEINE feste Wand. Als Suchraum fuer den
         // Optimierer die aeusserste GEHOERTE Frequenz +-1200 cent (eine
         // Oktave Puffer). Weiter Suchraum engt nie ein (Architektur §5);
