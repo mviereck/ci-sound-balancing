@@ -1057,7 +1057,7 @@ Object.assign(L.de, {
     FRQ_bandCbfSprOhne: "Keine Bevorzugung",
     FRQ_bandCbfSprMittel: "Mittel bevorzugen",
     FRQ_bandCbfSprStark: "Stark bevorzugen",
-    FRQ_bandCbfMitteZugLegend: "Mitte des Residuums anstreben",
+    FRQ_bandCbfMitteZugLegend: "Meßwert innerhalb Residuum anstreben",
     FRQ_bandCbfMitteZugAus: "Aus",
     FRQ_bandCbfMitteZugLeicht: "Leicht",
     FRQ_bandCbfMitteZugMittel: "Mittel",

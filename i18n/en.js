@@ -991,7 +991,7 @@ Object.assign(L.en, {
     FRQ_elektrodenPianoBtn:   "Play electrodes as tones",
     FRQ_elektrodenPianoTitle: "Play electrodes as tones",
     FRQ_elektrodenPianoApply: "Apply frequency correction",
-    FRQ_bandCbfMitteZugLegend: "Aim for centre of residual",
+    FRQ_bandCbfMitteZugLegend: "Aim for measured value within residual",
     FRQ_bandCbfMitteZugAus: "Off",
     FRQ_bandCbfMitteZugLeicht: "Slight",
     FRQ_bandCbfMitteZugMittel: "Medium",

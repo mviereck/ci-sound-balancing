@@ -992,7 +992,7 @@ Object.assign(L.es, {
     FRQ_elektrodenPianoBtn:   "Reproducir electrodos como tonos",
     FRQ_elektrodenPianoTitle: "Reproducir electrodos como tonos",
     FRQ_elektrodenPianoApply: "Activar la corrección de frecuencia",
-    FRQ_bandCbfMitteZugLegend: "Apuntar al centro del residuo",
+    FRQ_bandCbfMitteZugLegend: "Apuntar al valor medido dentro del residuo",
     FRQ_bandCbfMitteZugAus: "Desactivado",
     FRQ_bandCbfMitteZugLeicht: "Ligero",
     FRQ_bandCbfMitteZugMittel: "Medio",

@@ -992,7 +992,7 @@ Object.assign(L.fr, {
     FRQ_elektrodenPianoBtn:   "Jouer les électrodes en sons",
     FRQ_elektrodenPianoTitle: "Jouer les électrodes en sons",
     FRQ_elektrodenPianoApply: "Activer la correction de fréquence",
-    FRQ_bandCbfMitteZugLegend: "Viser le centre du résidu",
+    FRQ_bandCbfMitteZugLegend: "Viser la valeur mesurée dans le résidu",
     FRQ_bandCbfMitteZugAus: "Désactivé",
     FRQ_bandCbfMitteZugLeicht: "Léger",
     FRQ_bandCbfMitteZugMittel: "Moyen",
