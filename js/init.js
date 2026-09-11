@@ -699,12 +699,15 @@ document.addEventListener("DOMContentLoaded", () => {
       show(id, istCbf);   // CBF-Achsen nur bei CBF
     });
 
-    // BA525: k wirkt nur im Ortsraum (Lage aussen/mitte/innen), nicht bei
-    // Lage "geometrisch" -> dort matt.
-    var _lage = sideData[activeSide].bandLage;
-    var _ortsraum = (_lage === "aussen" || _lage === "mitte" || _lage === "innen");
-    show("FRQ_bandKFieldset", true);
-    matt("FRQ_bandKFieldset", _ortsraum);
+    // Elektrodenlage + Greenwood-k sind aus der Bandberechnung
+    // ausgeblendet: die Bandgrenzsetzung rechnet fuer ALLE Verfahren im
+    // log-Raum ("geometrisch"). Der Lage-/Ortsraum-Effekt steckt bereits in
+    // der gemessenen gehoerten Frequenz (Klaviertest) und darf hier nicht ein
+    // zweites Mal ueber einen Ortsraum wirken (Doppelzaehlung -> extreme
+    // Rand-Baender). Die Elektrodenlage bleibt allein in der Mess-Glaettung
+    // wirksam (FRQ_glaettLage). Konzept_Elektrodenlage_OC_SG.md §5/§6.
+    show("FRQ_bandLageFieldset", false);
+    show("FRQ_bandKFieldset", false);
 
     // Randverhalten "frei": keine feste Wand -> Wand-Auswahl (Unter-/
     // Obergrenze) matt (bedienbar, ohne Wirkung). Bei geometrisch zwingt

@@ -897,6 +897,14 @@ var CBF_LAMBDA = { treffer: 0.03, ausgewogen: 0.1, breite: 0.5 };  // Gewichtung
 var CBF_RAND_STAERKE = 0.1;   // Treffer-Gewicht der FREIEN El. (apikal+basal),
                               // flache Stufe statt Rampe (BA472).
 var CBF_FREI_MAX = 4;         // Obergrenze der Achsen "Freie Baender" (0..4).
+// Rest-Faktor des Breiten-Glattheits-Terms an den per abweichBreite (BA579)
+// gelockerten Uebergaengen: lam*Faktor statt ganz 0. Aktuell 0 = voll
+// gelockert (wie BA579 urspruenglich). Hebel bleibt, weil das Zusammenspiel
+// mit der Elektrodenlage im Ortsraum noch in Besprechung ist: ein kleiner
+// Rest-Faktor band zwar die freie Aussenkante der aeussersten El. bei "frei"
+// + Ortsraum staerker an die Kette, verschlechterte aber den (bei
+// "geometrisch" guten) Fall und ueberzeugte bei anderen Lagen nicht.
+var CBF_ABWEICH_LAM_FAKTOR = 0;
 var CBF_SPRACHE_FAKTOR = { ohne: 1, mittel: 2, stark: 4 };  // Sprachbereich-Achse
                               // (UI: BA465): Treffer-Faktor im tonotopen Bereich
 var CBF_RESID_BODEN_CT = 20;       // Mindest-Toleranz jeder Messung (cent)
@@ -1195,16 +1203,20 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
   // 7. Zielfunktion (konvex).
   function kosten(x) {
     var s = 0, j;
-    // Treffer: Toleranz-Huelle + Zentrier-Zug, beides in der EINHEIT-
-    // LICHEN Fehler-Skala (BA466) -- das Residuum ist nur noch Toleranz.
-    // BA473: SKA ist der EINHEITLICHE Kosten-Massstab (BA466: gleich teuer
-    // fuer alle El.). Darum NICHT lokal, sondern an fester 1000-Hz-Ref in
-    // den Raum -- so bleibt er zwischen log/anatom vergleichbar und fuer
-    // alle El. identisch.
-    var SKA = _frqCentZuRaum(toP, 1000, CBF_FEHLER_SKALA_CT);
+    // Treffer: Toleranz-Huelle + Zentrier-Zug, beides in der Fehler-Skala
+    // SKA (BA466: CBF_FEHLER_SKALA_CT cent) -- das Residuum ist nur noch
+    // Toleranz. SKA wird LOKAL an der jeweiligen El.-Frequenz in den Raum
+    // gerechnet (wie dead_j und bMin, _frqCentZuRaum an kette[j].hz). Fruehere
+    // feste 1000-Hz-Referenz (BA466/BA473) war im log-Raum unkritisch
+    // (konstanter cent->Raum-Faktor), brach aber im Ortsraum: dort ist der
+    // Faktor frequenzabhaengig, wodurch SKA (fix) und dead_j/diff (lokal)
+    // auseinanderliefen und die Trefferkosten an den Raendern falsch skaliert
+    // wurden (Center verfehlte die Zielfrequenz stark). Lokal = konsistent mit
+    // allen anderen cent-Groessen der Kostenfunktion.
     for (j = 0; j < N; j++) {
       var m = (x[j] + x[j + 1]) / 2;
       var diff = m - t[j];
+      var SKA = _frqCentZuRaum(toP, kette[j].hz, CBF_FEHLER_SKALA_CT);
       // BA528: Huelle richtungsabhaengig -- Center ueber Ziel -> deadUp,
       // darunter -> deadDn.
       var dead_j = (diff >= 0) ? deadUp[j] : deadDn[j];
@@ -1227,7 +1239,7 @@ function FRQ_cbfGrenzen(kette, wand, opt) {
     // faellt der Glattheits-Term weg (Faktor 0).
     for (j = 0; j < N - 1; j++) {
       var g = ((x[j + 1] - x[j]) - (x[j + 2] - x[j + 1])) / bref;
-      var _lam_j = _lockerUeberg[j] ? 0 : lam;
+      var _lam_j = _lockerUeberg[j] ? (lam * CBF_ABWEICH_LAM_FAKTOR) : lam;
       s += _lam_j * g * g;
     }
     return s;
@@ -2558,8 +2570,14 @@ function _FRQ_werteBerechne(form, modus, nhSim, verfahren, topologie, optimieren
           // El.-Nummern) aus MFR -> CBF lockert dort den Glattheits-Term.
           abweichBreite: (_sW && MFR[_sW.manufacturer] && Array.isArray(MFR[_sW.manufacturer].abweichBreite))
             ? MFR[_sW.manufacturer].abweichBreite : [],
-          // BA524: gemeinsame Rechenraum-Achse (Lage) pro Seite.
-          lage: (_sW && typeof _sW.bandLage === "string") ? _sW.bandLage : "geometrisch",
+          // Bandgrenzsetzung rechnet fuer ALLE Verfahren hart im log-Raum:
+          // der Elektrodenlage-/Ortsraum-Effekt steckt bereits in der
+          // gemessenen gehoerten Frequenz (Klaviertest) und darf hier nicht
+          // ein zweites Mal wirken (Doppelzaehlung -> extreme Rand-Baender).
+          // Die Lage wirkt allein in der Mess-Glaettung. Ein gespeicherter
+          // Ortsraum-Wert in _sW.bandLage wird hier bewusst ignoriert.
+          // Konzept_Elektrodenlage_OC_SG.md §5/§6.
+          lage: "geometrisch",
           // BA525: Greenwood-k pro Seite. Als Zahl (Wertetabelle-Lookup).
           k: (function () {
             var v = (_sW && _sW.bandK) ? String(_sW.bandK) : null;
