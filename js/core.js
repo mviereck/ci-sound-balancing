@@ -924,13 +924,17 @@ function _logspaceEdges(a, b, n) {
   return out;
 }
 
-// BA450 (Architektur §3.2 / §4.2): TONOTOPE Zone. Innere Grenzen =
-// geometrische Mitte benachbarter gehoerter Frequenzen (Patent §0063,
-// 1st rule). freqs aufsteigend, laenge M>=1. Rueckgabe: nur innere
-// Grenzen (laenge M-1); End-Kanten setzt der Zusammensetzer.
-function _abfTonotop(freqs) {
+// BA450/BA581 (Architektur §3.2 / §4.2): TONOTOPE Zone. Innere Grenzen =
+// Mittelpunkt benachbarter gehoerter Frequenzen im ELEKTRODENLAGE-
+// Rechenraum (Patent §0063, 1st rule; §0046 erlaubt ort-/kartenabhaengige
+// Mittel). toP/fromP aus _frqBandRaum(lage,k). Bei Lage "geometrisch" ist
+// toP/fromP = Math.log/Math.exp -> Mittelpunkt = geomMitte (bit-genau alt).
+// freqs aufsteigend, laenge M>=1. Rueckgabe: nur innere Grenzen (laenge
+// M-1); End-Kanten setzt der Zusammensetzer.
+function _abfTonotop(freqs, toP, fromP) {
   var inner = [];
-  for (var i = 0; i < freqs.length - 1; i++) inner.push(geomMitte(freqs[i], freqs[i + 1]));
+  for (var i = 0; i < freqs.length - 1; i++)
+    inner.push(fromP((toP(freqs[i]) + toP(freqs[i + 1])) / 2));
   return inner;
 }
 
@@ -982,9 +986,15 @@ function _abfBasal(freqs, wandHi, tonoOberkante) {
 //   apikal  = "aussen" -> nur die aeusserste (Index 0) apikal; sonst Hz-Vergleich.
 //   basal   = "aussen" -> nur die aeusserste (Index N-1) basal; sonst Hz-Vergleich.
 // Fehlt schwellen (oder ein Feld), gilt der patenttreue Default (Konstanten).
-function FRQ_abfGrenzen(kette, wand, mitAusgleich, schwellen) {
+function FRQ_abfGrenzen(kette, wand, mitAusgleich, schwellen, lage, k) {
   var N = kette.length;
   var freqs = kette.map(function (m) { return m.hz; });
+  // BA581: Elektrodenlage-Rechenraum (nur tonotope Zone + Uebergangskanten).
+  // Default "geometrisch" -> Math.log/Math.exp -> bit-genau bisheriges sABF.
+  var _raum = _frqBandRaum(
+    (typeof lage === "string") ? lage : "geometrisch",
+    (typeof k === "number") ? k : 0.88);
+  var _toP = _raum.toP, _fromP = _raum.fromP;
 
   // BA555: Schwellen aufloesen. "aussen" = Sonderwert (nur aeusserste Rand);
   // Hz-String -> Zahl; alles andere -> patenttreuer Default (Konstante).
@@ -1016,12 +1026,14 @@ function FRQ_abfGrenzen(kette, wand, mitAusgleich, schwellen) {
   // Verwendbarkeit (§3.6): tonotope Zone braucht >= 2.
   if (toFreqs.length < 2) return { error: "abfTonoZuKlein" };
 
-  // Geteilte Uebergangs-Kanten (nahtlos, geom. Mitte ueber Zonengrenze).
-  var tonoUnterkante = geomMitte(apFreqs[apFreqs.length - 1], toFreqs[0]);
-  var tonoOberkante  = geomMitte(toFreqs[toFreqs.length - 1], baFreqs[0]);
+  // Geteilte Uebergangs-Kanten (nahtlos). BA581: im Lage-Raum gemittelt
+  // (gehoeren zur tonotopen Seite, §3.2 Wirkbereich). Bei "geometrisch"
+  // = geom. Mitte (bit-genau alt).
+  var tonoUnterkante = _fromP((_toP(apFreqs[apFreqs.length - 1]) + _toP(toFreqs[0])) / 2);
+  var tonoOberkante  = _fromP((_toP(toFreqs[toFreqs.length - 1]) + _toP(baFreqs[0])) / 2);
 
   var apEdges = _abfApikal(apFreqs, wand.loHz, tonoUnterkante, mitAusgleich);
-  var toInner = _abfTonotop(toFreqs);
+  var toInner = _abfTonotop(toFreqs, _toP, _fromP);   // BA581: Lage-Raum
   var baEdges = _abfBasal(baFreqs, wand.hiHz, tonoOberkante);
 
   // Zusammensetzen zu N+1 Kanten in Elektroden-Reihenfolge.
@@ -1430,14 +1442,18 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
       apikal: (opt && opt.abfSchwelleApikal != null) ? opt.abfSchwelleApikal : "950",
       basal:  (opt && opt.abfSchwelleBasal  != null) ? opt.abfSchwelleBasal  : "3000"
     };
-    var abfRes = FRQ_abfGrenzen(kette, wand, _mitAusgleich, _abfSchwellen);
+    // BA581: Lage/k durchreichen -> tonotope Zone im Elektrodenlage-Raum.
+    var abfRes = FRQ_abfGrenzen(kette, wand, _mitAusgleich, _abfSchwellen, _lage, _k);
     if (abfRes.error) return abfRes;
     var _e = abfRes.edges;
+    // BA581: Center verfahrensgerecht im Lage-Raum mitteln (bei
+    // "geometrisch" = geom. Mitte). Gleicher Raum wie die Grenzsetzung.
+    var _abfRaum = _frqBandRaum(_lage, _k);
     var bands = [];
     for (var ae = 0; ae < kette.length; ae++) {
       var _lo = _e[ae], _hi = _e[ae + 1];
       bands.push({ elIdx: kette[ae].elIdx, loHz: _lo, hiHz: _hi,
-                   centerHz: geomMitte(_lo, _hi) });
+                   centerHz: _abfRaum.fromP((_abfRaum.toP(_lo) + _abfRaum.toP(_hi)) / 2) });
     }
     return { bands: bands };
   }
