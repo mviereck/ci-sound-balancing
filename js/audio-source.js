@@ -1127,13 +1127,19 @@ amRegisterProvider({
     for (const [srcKey, entry] of _amWebspace.loaded) {
       const cols = entry.manifests["hoerbuecher"] || [];
       for (const col of cols) {
-        // Eindeutige id bevorzugen (Manifest liefert z.B. "librivox:148");
-        // Fallback auf titelbasiert nur, wenn die Collection keine id traegt
-        // (aeltere/lokale Manifeste). Titelbasiert kann bei Gleichnamigkeit
-        // kollidieren, daher nicht als Default.
-        const id = col.id
-          ? ("webspace-book:" + srcKey + ":" + col.id)
-          : ("webspace-book:" + srcKey + ":" + (col.title || ""));
+        // Eindeutige id bevorzugen (Manifest liefert z.B. "librivox:148").
+        // Traegt col.id bereits den srcKey als Praefix (LibriVox:
+        // "librivox:148"), NICHT doppeln. Fallback auf titelbasiert nur, wenn
+        // die Collection keine id traegt (aeltere/lokale Manifeste);
+        // titelbasiert kann bei Gleichnamigkeit kollidieren, daher kein Default.
+        var _rawId = col.id
+          || ((col.title || "") /* Fallback */);
+        if (col.id && col.id.indexOf(srcKey + ":") === 0) {
+          _rawId = col.id;   // schon quellen-praefixiert
+        } else {
+          _rawId = srcKey + ":" + _rawId;
+        }
+        const id = "webspace-book:" + _rawId;
         out.push({
           schema: col.schema,
           kind: "collection",
