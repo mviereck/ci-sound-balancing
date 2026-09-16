@@ -1107,6 +1107,7 @@ function pUpdTL() {
     cl = Math.min(c, pBuf.duration);
   document.getElementById("plCur").textContent = pFmt(cl);
   if (!pSeeking) document.getElementById("plTL").value = (cl / pBuf.duration) * 1000;
+  if (typeof plReadRender === "function") plReadRender();
 }
 
 function pUpdBtn() {
@@ -2292,6 +2293,9 @@ function plUpdDisplay() {
     const tx = document.getElementById("plSentText");
     if (cat && typeof cat.fillReveal === "function") cat.fillReveal(tx, ctx, revealFields);
   }
+
+  // Hörbuch-Mitlesen: Text zum aktuell gewählten Buch sicherstellen.
+  if (typeof plReadEnsureText === "function") plReadEnsureText();
 }
 
 function plRefreshTooltips() {
@@ -3810,3 +3814,113 @@ document.addEventListener("DOMContentLoaded", function() {
     console.warn("BA390 Player-Warmlauf uebersprungen:", e);
   }
 });
+
+// === Hörbuch-Mitlesen (Prototyp, ganzes Buch linear) ==================
+// Zeigt aus der Abspielzeit eine geschätzte Textstelle (±10 Zeilen).
+// Nur für .txt.gz-Texte mit Gutenberg-Standardmarke; sonst Block versteckt.
+
+var _plReadLines = null;     // Zeilen-Array des reinen Werktextes, oder null
+var _plReadBookId = null;    // Buch-ID, zu der _plReadLines gehört
+var _plReadLastLine = -1;    // zuletzt gerenderte Mittelzeile (Zeilenwechsel-Throttle)
+var _plReadLoading = false;  // verhindert Doppel-Laden
+
+var PL_READ_WINDOW = 10;     // Zeilen ober-/unterhalb der geschätzten Stelle
+
+// Schneidet den reinen Werktext zwischen den Gutenberg-Standardmarken heraus.
+// Fehlt eine Marke, gibt null zurück (kein Mitlesen).
+function _plReadExtract(raw) {
+  var lines = raw.split(/\r?\n/);
+  var start = -1, end = -1;
+  for (var i = 0; i < lines.length; i++) {
+    if (start < 0 && /\*\*\*\s*START OF (THE|THIS) PROJECT GUTENBERG/.test(lines[i])) {
+      start = i + 1;              // Werktext beginnt NACH der Marke
+    } else if (start >= 0 && /\*\*\*\s*END OF (THE|THIS) PROJECT GUTENBERG/.test(lines[i])) {
+      end = i;                    // Werktext endet VOR der Marke
+      break;
+    }
+  }
+  if (start < 0 || end < 0 || end <= start) return null;
+  return lines.slice(start, end);
+}
+
+// Lädt (falls nötig) den Text zum aktuell gewählten Buch. Idempotent:
+// gleiches Buch → kein Neuladen. Kein Text/keine Marke → _plReadLines=null.
+async function plReadEnsureText() {
+  var col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+  var id  = col ? col.id : null;
+  var url = col ? col.textUrl : null;
+
+  // Buch unverändert und schon geladen (oder als leer bekannt) → nichts tun.
+  if (id === _plReadBookId) return;
+
+  _plReadBookId = id;
+  _plReadLines = null;
+  _plReadLastLine = -1;
+
+  // Nur .txt.gz kommt für den Prototyp in Frage.
+  if (!url || !/\.txt\.gz$/i.test(url)) { plReadRender(); return; }
+  if (_plReadLoading) return;
+
+  _plReadLoading = true;
+  var wantId = id;
+  try {
+    // textUrl ist assets-relativ (z. B. "hoerbuch-texte/de/…-172.txt.gz").
+    var raw = await gzFetchText("assets/" + url);
+    if (wantId !== _plReadBookId) return;   // inzwischen Buch gewechselt
+    _plReadLines = _plReadExtract(raw);      // null, wenn keine Marke
+  } catch (e) {
+    _plReadLines = null;
+  } finally {
+    _plReadLoading = false;
+    plReadRender();
+  }
+}
+
+// Kumulierte Abspielsekunden über das ganze Buch (Kapitel davor + laufendes).
+function _plReadElapsedSeconds(col) {
+  if (!col || !Array.isArray(col.items)) return 0;
+  var idx = (typeof plBookChapterIdx === "number") ? plBookChapterIdx : 0;
+  var before = 0;
+  for (var i = 0; i < idx && i < col.items.length; i++) {
+    before += (+col.items[i].duration || 0);
+  }
+  var inCh = 0;
+  if (typeof pBuf !== "undefined" && pBuf) {
+    var c = (typeof pPlaying !== "undefined" && pPlaying && typeof pCtx !== "undefined" && pCtx)
+      ? (pCtx.currentTime - pT0) : (typeof pOff !== "undefined" ? pOff : 0);
+    inCh = Math.max(0, Math.min(c, pBuf.duration));
+  }
+  return before + inCh;
+}
+
+// Berechnet die geschätzte Mittelzeile und rendert das Fenster, aber nur
+// bei Zeilenwechsel. Vom Tick (pUpdTL) und nach dem Laden aufgerufen.
+function plReadRender() {
+  var box = document.getElementById("plReadAlong");
+  if (!box) return;
+
+  if (!_plReadLines || plActiveSource !== "hoerbuecher") {
+    box.style.display = "none";
+    _plReadLastLine = -1;
+    return;
+  }
+
+  var col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+  var total = 0;
+  if (col && Array.isArray(col.items)) {
+    for (var i = 0; i < col.items.length; i++) total += (+col.items[i].duration || 0);
+  }
+  if (total <= 0) { box.style.display = "none"; return; }
+
+  var frac = _plReadElapsedSeconds(col) / total;
+  if (frac < 0) frac = 0; if (frac > 1) frac = 1;
+  var mid = Math.round(frac * (_plReadLines.length - 1));
+  if (mid === _plReadLastLine) { box.style.display = ""; return; }  // kein Zeilenwechsel
+  _plReadLastLine = mid;
+
+  var from = Math.max(0, mid - PL_READ_WINDOW);
+  var to   = Math.min(_plReadLines.length - 1, mid + PL_READ_WINDOW);
+  var body = document.getElementById("plReadBody");
+  if (body) body.textContent = _plReadLines.slice(from, to + 1).join("\n");
+  box.style.display = "";
+}

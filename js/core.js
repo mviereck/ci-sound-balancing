@@ -2855,3 +2855,14 @@ function _verCmp(a, b) {
   return 0;
 }
 
+// Lädt eine gzip-komprimierte Textdatei und entpackt sie im Browser.
+// Kein Server mit Content-Encoding nötig — DecompressionStream("gzip").
+// Rückgabe: Text-String. Wirft bei Netz-/Entpackfehler.
+async function gzFetchText(url) {
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error("gzFetchText HTTP " + resp.status + " " + url);
+  const ds = new DecompressionStream("gzip");
+  const stream = resp.body.pipeThrough(ds);
+  const buf = await new Response(stream).arrayBuffer();
+  return new TextDecoder("utf-8").decode(buf);
+}

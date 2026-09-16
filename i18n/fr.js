@@ -358,6 +358,7 @@ Object.assign(L.fr, {
     plDispFieldLicense:   "Licence",
     plDispFieldCredit:    "Crédit",
     plDispFieldText:      "Texte",
+    plReadAlongTitle: "Lire en même temps (position estimée) :",
     plDispFieldChapter:   "Chapitre",
     plDispFieldWork:      "Œuvre",
     plDispFieldAuthor:    "Auteur",
