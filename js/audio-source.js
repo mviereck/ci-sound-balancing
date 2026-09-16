@@ -733,7 +733,16 @@ function amCancelLoad() {
   if (typeof pWarpCancelCompute === "function") pWarpCancelCompute();
 }
 
-const _amItemBufCache = new Map(); // itemId -> AudioBuffer
+const _amItemBufCache = new Map(); // cacheKey -> AudioBuffer
+
+// Eindeutiger Cache-Schlüssel je Audio-Quelle. item.id allein genügt NICHT:
+// Hörbuch-Kapitel heißen pro Buch "ch001", "ch002" … und kollidieren über
+// Bücher hinweg (falsches Audio aus dem Cache). Die Audio-URL ist global
+// eindeutig; nur generierte (gen:) und lokale Uploads (kein .audio) fallen
+// auf item.id zurück (dort ist die id eindeutig bzw. sitzungsweit stabil).
+function _amBufKey(item) {
+  return (item && item.audio) ? item.audio : (item && item.id) || "";
+}
 
 const AM_REF_RMS = 0.1;
 
@@ -763,7 +772,8 @@ function _amNormalizeBufferRms(buf, refRms) {
 
 async function amGetItemBuffer(ctx, item) {
   if (!item || !item.id) return null;
-  const cached = _amItemBufCache.get(item.id);
+  const bufKey = _amBufKey(item);
+  const cached = _amItemBufCache.get(bufKey);
   if (cached) return cached;
 
   let abuf = null;
@@ -796,16 +806,16 @@ async function amGetItemBuffer(ctx, item) {
   }
   if (!abuf) return null;
 
-  _amItemBufCache.set(item.id, abuf);
+  _amItemBufCache.set(bufKey, abuf);
   return abuf;
 }
 
 // RMS-Normalisierung fuer Satz-Vordergrund (BA327).
-// Cached unter "sent-norm:<item.id>" in _amItemBufCache.
+// Cached unter "sent-norm:<bufKey>" in _amItemBufCache.
 // decodedBuffer ist der bereits dekodierte AudioBuffer (kein erneuter Fetch).
 function amGetNormalizedSentenceBuffer(ctx, item, decodedBuffer) {
   if (!item || !item.id || !decodedBuffer) return decodedBuffer;
-  const cacheKey = "sent-norm:" + item.id;
+  const cacheKey = "sent-norm:" + _amBufKey(item);
   const cached = _amItemBufCache.get(cacheKey);
   if (cached) return cached;
 
