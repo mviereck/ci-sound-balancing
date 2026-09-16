@@ -963,7 +963,21 @@ async function amWebspaceLoadSource(srcKey) {
         if (!mr.ok) throw new Error("HTTP " + mr.status);
         const mf = await mr.json();
         // Indizes (Pointer) hier ignorieren — BA196 unterstuetzt nur collections direkt.
-        if (mf.kind === "collection") manifests[cat].push(mf);
+        // Ein "collection-set" buendelt mehrere Buecher in EINER Datei (LibriVox:
+        // ein Manifest pro Sprache, haelt den Ladeweg klein). Wird in seine
+        // einzelnen Collections aufgeloest; Datei-Top-Level lang/license/credit
+        // vererbt sich als Default auf jede Collection, die es nicht selbst setzt.
+        if (mf.kind === "collection") {
+          manifests[cat].push(mf);
+        } else if (mf.kind === "collection-set" && Array.isArray(mf.collections)) {
+          for (const col of mf.collections) {
+            if (!col || typeof col !== "object") continue;
+            if (col.lang == null && mf.lang != null) col.lang = mf.lang;
+            if (col.license == null && mf.license != null) col.license = mf.license;
+            if (col.credit == null && mf.credit != null) col.credit = mf.credit;
+            manifests[cat].push(col);
+          }
+        }
       } catch (e) {
         console.warn("[audio-source/webspace] Manifest " + mfPath + " fehlgeschlagen:", e.message);
       }
