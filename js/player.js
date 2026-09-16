@@ -3824,7 +3824,7 @@ var _plReadBookId = null;    // Buch-ID, zu der _plReadLines gehört
 var _plReadLastLine = -1;    // zuletzt gerenderte Mittelzeile (Zeilenwechsel-Throttle)
 var _plReadLoading = false;  // verhindert Doppel-Laden
 
-var PL_READ_WINDOW = 10;     // Zeilen ober-/unterhalb der geschätzten Stelle
+var PL_READ_WINDOW = 40;     // Zeilen ober-/unterhalb der geschätzten Stelle
 
 // Schneidet den reinen Werktext zwischen den Gutenberg-Standardmarken heraus.
 // Fehlt eine Marke, gibt null zurück (kein Mitlesen).
