@@ -2531,7 +2531,32 @@ function plBuildFilterChain(catDecl) {
       // BA336: Vor-Filter nach Inhalts-Sprache fuer sprach-sensible Kategorien
       if (catDecl.languageSensitive) {
         var _cLang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
-        allCols = allCols.filter(function (c) { return !c.lang || c.lang === _cLang; });
+        var _cBase = (typeof _amBaseLang === "function") ? _amBaseLang(_cLang) : _cLang;
+        allCols = allCols.filter(function (c) {
+          return !c.lang || ((typeof _amBaseLang === "function")
+            ? _amBaseLang(c.lang) === _cBase : c.lang === _cLang);
+        });
+      }
+      // Parallele Achsen-Auswahl (plBookAxisSel) auf die Buchliste anwenden:
+      // dieselbe generische Engine wie bei Items, nur auf Collections. So
+      // grenzen die Achsen-Boxen die Buch-Auswahl ein (nie die Kapitel).
+      if (typeof catDecl.stateRef.getAxisSel === "function"
+          && typeof amSortAxesFor === "function"
+          && typeof amItemMatchesAxes === "function") {
+        var _axDecl = (catDecl.stages || []).find(function (s) { return s.kind === "parallel-axes"; });
+        if (_axDecl) {
+          var _axAll = amSortAxesFor(catDecl.category);
+          var _axList = [];
+          (_axDecl.parallelAxes || []).forEach(function (k) {
+            var a = _axAll.find(function (x) { return x.key === k; });
+            if (a) _axList.push(a);
+          });
+          var _selT = {};
+          _axList.forEach(function (a) { _selT[a.key] = catDecl.stateRef.getAxisSel(a.key); });
+          allCols = allCols.filter(function (c) {
+            return amItemMatchesAxes(_axList, _selT, c);
+          });
+        }
       }
       var sortedCols = (typeof amSortCollections === "function")
         ? amSortCollections(allCols, catDecl.category, catDecl.stateRef.getSortAxis())
@@ -2578,8 +2603,10 @@ function plBuildFilterChain(catDecl) {
 
     } else if (stage.kind === "lang-sel") {
       // Sprach-Sonderbox: kein "_all", immer sichtbar, Pflicht-Wahl.
-      // plContentLangAvailable() liefert ein Array von Sprachcodes (strings).
-      var langs = (typeof plContentLangAvailable === "function") ? plContentLangAvailable() : [];
+      // plContentLangAvailable(category) liefert die Sprachcodes DIESER
+      // Kategorie (Saetze-Box: Satz-Sprachen; Hoerbuch-Box: Buch-Sprachen).
+      var langs = (typeof plContentLangAvailable === "function")
+        ? plContentLangAvailable(catDecl.category) : [];
       while (domEl.firstChild) domEl.removeChild(domEl.firstChild);
       var curLang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
       for (var li = 0; li < langs.length; li++) {
@@ -2607,11 +2634,23 @@ function plBuildFilterChain(catDecl) {
       for (var st1 = 0; st1 < axList.length; st1++) {
         selTable[axList[st1].key] = catDecl.stateRef.getAxisSel(axList[st1].key);
       }
-      // Basismenge (alle Items der Kategorie).
-      var baseItems = (typeof amCollectItems === "function") ? amCollectItems(catDecl.category) : [];
+      // Basismenge. Default = alle Items der Kategorie. Mit
+      // stage.basis === "collections" (Hoerbuecher) sind es stattdessen
+      // die Sammlungen (Buecher): dieselbe generische Achsen-Engine
+      // filtert dann Buecher statt Items -- ein Buch traegt seine Tags
+      // wie ein Item. Die parallelen Achsen filtern so nur Buecher,
+      // nie Kapitel.
+      var baseItems;
+      if (stage.basis === "collections") {
+        baseItems = (typeof amCollectCollections === "function")
+          ? amCollectCollections(catDecl.category) : [];
+      } else {
+        baseItems = (typeof amCollectItems === "function")
+          ? amCollectItems(catDecl.category) : [];
+      }
       if (typeof catDecl.axesBaseItems === "function") {
         // Optionaler Hook: Kategorie kann die Basismenge vorfiltern
-        // (Saetze: nach Inhalts-Sprache). Default = volle Kategorie.
+        // (Saetze/Hoerbuecher: nach Inhalts-Sprache). Default = volle Kategorie.
         baseItems = catDecl.axesBaseItems(baseItems);
       }
 
@@ -2939,8 +2978,11 @@ function plLangName(code) {
 }
 
 // Gibt ein Array der verfuegbaren Inhalts-Sprachen zurueck (Codes, dedupliziert).
-// Quellen: tags.lang aus saetze-Items + col.lang aus hoerbuecher-Collections.
-function plContentLangAvailable() {
+// Pro Kategorie GETRENNT: category "saetze" -> tags.lang aus saetze-Items;
+// "hoerbuecher" -> col.lang aus hoerbuecher-Collections. Ohne Argument
+// (Rueckwaertskompatibilitaet) die Vereinigung beider Toepfe. So zeigt die
+// Saetze-Sprachbox nur Satz-Sprachen, die Hoerbuch-Box nur Hoerbuch-Sprachen.
+function plContentLangAvailable(category) {
   var seen = {};
   var out = [];
   function add(code) {
@@ -2948,14 +2990,16 @@ function plContentLangAvailable() {
     seen[code] = true;
     out.push(code);
   }
-  if (typeof amCollectItems === "function") {
+  var wantSaetze = (category === undefined || category === "saetze");
+  var wantBuecher = (category === undefined || category === "hoerbuecher");
+  if (wantSaetze && typeof amCollectItems === "function") {
     var items = amCollectItems("saetze");
     for (var i = 0; i < items.length; i++) {
       var it = items[i];
       if (it && it.tags && it.tags.lang) add(_amBaseLang(it.tags.lang));
     }
   }
-  if (typeof amCollectCollections === "function") {
+  if (wantBuecher && typeof amCollectCollections === "function") {
     var cols = amCollectCollections("hoerbuecher");
     for (var j = 0; j < cols.length; j++) {
       var c = cols[j];
@@ -3466,7 +3510,25 @@ PL_FILTER_DECL.hoerbuecher = {
     getSelectedId: function () { return plBookSelectedId; },
     setSelectedId: function (v) { plBookSelectedId = v; },
     getChapterIdx: function () { return plBookChapterIdx; },
-    setChapterIdx: function (v) { plBookChapterIdx = v; }
+    setChapterIdx: function (v) { plBookChapterIdx = v; },
+    getAxisSel: function (axisKey) {
+      var v = plBookAxisSel[axisKey];
+      return (v === undefined) ? "_all" : v;
+    },
+    setAxisSel: function (axisKey, value) {
+      plBookAxisSel[axisKey] = value;
+    }
+  },
+  // Basismenge der parallelen Achsen: die Buch-Sammlungen, nach
+  // Inhalts-Sprache vorgefiltert (die lang-sel-Box bedient plContentLang;
+  // die Achsen sehen nur Buecher der aktuellen Sprache). Analog zu Saetzen,
+  // nur auf Collections. lang-lose Uploads immer dabei.
+  axesBaseItems: function (cols) {
+    var lang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
+    var base = _amBaseLang(lang);
+    return cols.filter(function (c) {
+      return !c.lang || _amBaseLang(c.lang) === base;
+    });
   },
   stages: [
     {
@@ -3481,6 +3543,14 @@ PL_FILTER_DECL.hoerbuecher = {
       onFolder: async function (fileList) {
         await plBookHandleUpload(fileList);
       }
+    },
+    {
+      id: "lang", kind: "lang-sel", domId: "plBookLang"
+    },
+    {
+      id: "axes", kind: "parallel-axes", domId: "plBookAxes",
+      basis: "collections",
+      parallelAxes: ["genre", "author", "reader", "epoch", "length", "multi_chapter", "has_text"]
     },
     {
       id: "sort", kind: "axis-sel", domId: "plBookSortSel",

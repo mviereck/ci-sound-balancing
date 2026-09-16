@@ -352,6 +352,56 @@ const AM_SORT_AXES = {
       getter: function (it) { return ((it.tags && it.tags.album) || "zzz-unbekannt").toLowerCase(); },
       valueOf: function (it) { return (it.tags && it.tags.album) || ""; }
     }
+  ],
+  // Hoerbuch-Filterachsen (parallele Kette auf COLLECTIONS, nicht Items;
+  // die parallel-axes-Stage laeuft mit basis:"collections"). Die Werte
+  // stehen als vorberechnete Tags im Manifest (length_band/epoch vom
+  // Builder), damit der Code nichts rechnen muss.
+  hoerbuecher: [
+    {
+      key: "genre", labelKey: "plBookAxisGenre", labelDefault: "Genre",
+      multi: true,
+      getter: function (c) {
+        var g = c.tags && c.tags.genres;
+        if (Array.isArray(g) && g.length) return g[0];
+        return "zzz-unbekannt";
+      },
+      valueOf: function (c) { return (c.tags && c.tags.genres) || []; }
+    },
+    {
+      key: "author", labelKey: "plBookAxisAuthor", labelDefault: "Autor",
+      getter: function (c) { return (c.tags && c.tags.work_author) || "zzz-unbekannt"; },
+      valueOf: function (c) { return (c.tags && c.tags.work_author) || ""; }
+    },
+    {
+      key: "reader", labelKey: "plBookAxisReader", labelDefault: "Sprecher",
+      getter: function (c) { return (c.tags && c.tags.reader) || "zzz-unbekannt"; },
+      valueOf: function (c) { return (c.tags && c.tags.reader) || ""; }
+    },
+    {
+      key: "epoch", labelKey: "plBookAxisEpoch", labelDefault: "Epoche",
+      getter: function (c) { return (c.tags && c.tags.epoch) || "zzz-unbekannt"; },
+      valueOf: function (c) { return (c.tags && c.tags.epoch) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plBookEpoch_" + v) : v; }
+    },
+    {
+      key: "length", labelKey: "plBookAxisLength", labelDefault: "Länge",
+      getter: function (c) { return (c.tags && c.tags.length_band) || "zzz-unbekannt"; },
+      valueOf: function (c) { return (c.tags && c.tags.length_band) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plBookLength_" + v) : v; }
+    },
+    {
+      key: "multi_chapter", labelKey: "plBookAxisChapters", labelDefault: "Kapitel",
+      getter: function (c) { return (c.tags && c.tags.multi_chapter) || "zzz-unbekannt"; },
+      valueOf: function (c) { return (c.tags && c.tags.multi_chapter) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plBookChapters_" + v) : v; }
+    },
+    {
+      key: "has_text", labelKey: "plBookAxisText", labelDefault: "Text",
+      getter: function (c) { return (c.tags && c.tags.has_text) ? "y" : "n"; },
+      valueOf: function (c) { return (c.tags && c.tags.has_text) ? "y" : "n"; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plBookText_" + v) : v; }
+    }
   ]
 };
 
@@ -1060,7 +1110,13 @@ amRegisterProvider({
     for (const [srcKey, entry] of _amWebspace.loaded) {
       const cols = entry.manifests["hoerbuecher"] || [];
       for (const col of cols) {
-        const id = "webspace-book:" + srcKey + ":" + (col.title || "");
+        // Eindeutige id bevorzugen (Manifest liefert z.B. "librivox:148");
+        // Fallback auf titelbasiert nur, wenn die Collection keine id traegt
+        // (aeltere/lokale Manifeste). Titelbasiert kann bei Gleichnamigkeit
+        // kollidieren, daher nicht als Default.
+        const id = col.id
+          ? ("webspace-book:" + srcKey + ":" + col.id)
+          : ("webspace-book:" + srcKey + ":" + (col.title || ""));
         out.push({
           schema: col.schema,
           kind: "collection",
@@ -1072,6 +1128,7 @@ amRegisterProvider({
           license: entry.source.license || entry.meta.license,
           credit:  entry.source.credit,
           pdfUrl:  col.pdfUrl || null,
+          textUrl: col.textUrl || null,
           items: (col.items || []).map(function (it, i) {
             return {
               id: id + "#" + (it.id || ("ch" + (i+1))),

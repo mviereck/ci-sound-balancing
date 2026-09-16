@@ -674,6 +674,7 @@ let pNoiseBuf         = null;         // dekodierter / generierter Geraeusch-Buf
 let plBookSelectedId = null;          // Collection-ID des aktuellen Buchs
 let plBookChapterIdx = 0;             // Index des aktuellen Kapitels
 let plBookSortAxis   = "author";      // Sortierachse
+let plBookAxisSel    = {};            // Auswahl-Tabelle der parallelen Hoerbuch-Achsen: { axisKey: wert }
 let plBookPositions  = {};            // { <bookId>: { chapterIdx, posSeconds } }
 
 // BA260: Musik-Bibliothek

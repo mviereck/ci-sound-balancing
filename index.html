@@ -1658,6 +1658,17 @@
             <!-- BA350: einheitliche Upload-Box (Engine rendert Inhalt) -->
             <div class="pl-upload-box" id="plBookUploadBox"></div>
 
+            <!-- Sprach-Box (lang-sel) + parallele Achsen-Boxen (Engine befuellt) -->
+            <div class="controls-row" style="margin-bottom:6px">
+              <div class="control-group">
+                <label data-t="plAxisLang" style="margin-right:6px;min-width:110px"></label>
+                <select id="plBookLang"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em;min-width:160px">
+                </select>
+              </div>
+            </div>
+            <div id="plBookAxes"></div>
+
             <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px">
               <div class="control-group">
                 <label data-t="plBookSortLabel" style="margin-right:6px"></label>
