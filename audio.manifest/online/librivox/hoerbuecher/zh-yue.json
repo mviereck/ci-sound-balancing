@@ -1,0 +1,983 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "LibriVox — Cantonese Chinese",
+  "lang": "zh-yue",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:14212",
+      "title": "English and Cantonese Dictionary",
+      "displayName": "Chalmers, John; Dealy, Thomas – English and Cantonese Dictionary",
+      "lang": "zh-yue",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 14212)",
+      "url": "https://librivox.org/english-and-cantonese-dictionary-by-john-chalmers/",
+      "textUrl": "hoerbuch-texte/zh-yue/chalmers-john_-_english-and-cantonese-dictionary-14212.html.gz",
+      "tags": {
+        "work_author": "Chalmers, John; Dealy, Thomas",
+        "reader": "DavidReader",
+        "readers": [
+          "DavidReader"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Reference",
+          "Language learning"
+        ],
+        "fiction": "y",
+        "book_year": 1907,
+        "epoch": "c20",
+        "total_seconds": 127364,
+        "length_band": "very_long",
+        "num_sections": 104,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Cantonese Chinese",
+        "url_iarchive": "https://archive.org/details/english_and_cantonese_dictionary_2005_librivox",
+        "url_text_source": "https://archive.org/details/en00glishcantonesechalrich",
+        "source_item_id": "14212"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Preface to the 7th Edition, Notes to the 4th & 5th Editions, Rules for Pronouncing the Chinese, Directions for Using the Dictionary",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_000_chalmers_64kb.mp3",
+          "duration": 1671,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch001",
+          "title": "A - Ambitious",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_001_chalmers_64kb.mp3",
+          "duration": 1315,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Ambush - Back",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_002_chalmers_64kb.mp3",
+          "duration": 1353,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Back-bite - Blade",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_003_chalmers_64kb.mp3",
+          "duration": 1331,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Bladed Knife, three - Butler",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_004_chalmers_64kb.mp3",
+          "duration": 1205,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Butt - Chasm",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_005_chalmers_64kb.mp3",
+          "duration": 1258,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Chaste - Complete",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_006_chalmers_64kb.mp3",
+          "duration": 1256,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Competent - Courtesy",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_007_chalmers_64kb.mp3",
+          "duration": 1178,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Cousin - Deep",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_008_chalmers_64kb.mp3",
+          "duration": 1328,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Deer - Discretionary",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_009_chalmers_64kb.mp3",
+          "duration": 1283,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Discriminate - Dyspepsia",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_010_chalmers_64kb.mp3",
+          "duration": 1249,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Dysury - Err",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_011_chalmers_64kb.mp3",
+          "duration": 1248,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Error - Feces",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_012_chalmers_64kb.mp3",
+          "duration": 1261,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "Fee - Foundation",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_013_chalmers_64kb.mp3",
+          "duration": 1217,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "Foundling - Glauber-salts",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_014_chalmers_64kb.mp3",
+          "duration": 1228,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "Glazed - Hale",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_015_chalmers_64kb.mp3",
+          "duration": 1168,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "Half - Hound",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_016_chalmers_64kb.mp3",
+          "duration": 1214,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "Hour - Independent",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_017_chalmers_64kb.mp3",
+          "duration": 1107,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "Index - Intestines",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_018_chalmers_64kb.mp3",
+          "duration": 1131,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "Intimate - Knell",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_019_chalmers_64kb.mp3",
+          "duration": 1180,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "Knife - Lift",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_020_chalmers_64kb.mp3",
+          "duration": 1234,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "Light - Mahogany",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_021_chalmers_64kb.mp3",
+          "duration": 1216,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch022",
+          "title": "Mahommedanism - Merciful",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_022_chalmers_64kb.mp3",
+          "duration": 1215,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch023",
+          "title": "Merciless - Mountain",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_023_chalmers_64kb.mp3",
+          "duration": 1238,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch024",
+          "title": "Mourn - Night-dress",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_024_chalmers_64kb.mp3",
+          "duration": 1203,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch025",
+          "title": "Nimble - Office",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_025_chalmers_64kb.mp3",
+          "duration": 1208,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch026",
+          "title": "Officer - Over-night",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_026_chalmers_64kb.mp3",
+          "duration": 1191,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch027",
+          "title": "Overpass - Part",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_027_chalmers_64kb.mp3",
+          "duration": 1107,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch028",
+          "title": "Partake - Pelvis",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_028_chalmers_64kb.mp3",
+          "duration": 1146,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch029",
+          "title": "Pen,Pencil - Philosopher",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_029_chalmers_64kb.mp3",
+          "duration": 1180,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch030",
+          "title": "Phlegm - Plain",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_030_chalmers_64kb.mp3",
+          "duration": 1221,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch031",
+          "title": "Plaintiff - Polyhedron",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_031_chalmers_64kb.mp3",
+          "duration": 1206,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch032",
+          "title": "Polypod - Pox",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_032_chalmers_64kb.mp3",
+          "duration": 1084,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch033",
+          "title": "Practicable - Pretty",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_033_chalmers_64kb.mp3",
+          "duration": 1108,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch034",
+          "title": "Prevail - Prolapse",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_034_chalmers_64kb.mp3",
+          "duration": 1027,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch035",
+          "title": "Prolegomena - Pulverize",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_035_chalmers_64kb.mp3",
+          "duration": 1079,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch036",
+          "title": "Pumice - Quinquennial",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_036_chalmers_64kb.mp3",
+          "duration": 1136,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch037",
+          "title": "Quinsy - Rations",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_037_chalmers_64kb.mp3",
+          "duration": 1114,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch038",
+          "title": "Rattan - Red-hot",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_038_chalmers_64kb.mp3",
+          "duration": 1050,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch039",
+          "title": "Redeem - Remain",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_039_chalmers_64kb.mp3",
+          "duration": 1117,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch040",
+          "title": "Remainder - Respect",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_040_chalmers_64kb.mp3",
+          "duration": 1033,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch041",
+          "title": "Respectable - Rhyme",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_041_chalmers_64kb.mp3",
+          "duration": 1125,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch042",
+          "title": "Rib - Roast",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_042_chalmers_64kb.mp3",
+          "duration": 1097,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch043",
+          "title": "Rob - Run",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_043_chalmers_64kb.mp3",
+          "duration": 1249,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch044",
+          "title": "Runner - Sample",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_044_chalmers_64kb.mp3",
+          "duration": 1033,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch045",
+          "title": "Sanctify - Scissors",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_045_chalmers_64kb.mp3",
+          "duration": 1174,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch046",
+          "title": "Scoff - Secretary",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_046_chalmers_64kb.mp3",
+          "duration": 1200,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch047",
+          "title": "Secretion - Serious",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_047_chalmers_64kb.mp3",
+          "duration": 1139,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch048",
+          "title": "Sermon - Sharp",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_048_chalmers_64kb.mp3",
+          "duration": 1174,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch049",
+          "title": "Sharpen - Shot",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_049_chalmers_64kb.mp3",
+          "duration": 1100,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch050",
+          "title": "Should - Silk",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_050_chalmers_64kb.mp3",
+          "duration": 1146,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch051",
+          "title": "Silk-worm - Sky",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_051_chalmers_64kb.mp3",
+          "duration": 1199,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch052",
+          "title": "Sky-blue - Slough",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_052_chalmers_64kb.mp3",
+          "duration": 1180,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch053",
+          "title": "Slovenly - Snub-nosed",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_053_chalmers_64kb.mp3",
+          "duration": 1171,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch054",
+          "title": "Snuff - Son",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_054_chalmers_64kb.mp3",
+          "duration": 1224,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch055",
+          "title": "Son-in-law - Special",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_055_chalmers_64kb.mp3",
+          "duration": 1212,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch056",
+          "title": "Specially - Spoil",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_056_chalmers_64kb.mp3",
+          "duration": 1286,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch057",
+          "title": "Spoil,to - Stabling",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_057_chalmers_64kb.mp3",
+          "duration": 1268,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch058",
+          "title": "Stack - Statement",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_058_chalmers_64kb.mp3",
+          "duration": 1269,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch059",
+          "title": "State-paper - Sting",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_059_chalmers_64kb.mp3",
+          "duration": 1294,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch060",
+          "title": "Stingily - Straightway",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_060_chalmers_64kb.mp3",
+          "duration": 1227,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch061",
+          "title": "Strain - Strive",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_061_chalmers_64kb.mp3",
+          "duration": 1238,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch062",
+          "title": "Stroke - Submissive",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_062_chalmers_64kb.mp3",
+          "duration": 1247,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch063",
+          "title": "Submissively - Sulphate",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_063_chalmers_64kb.mp3",
+          "duration": 1285,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch064",
+          "title": "Sulphur - Suppose",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_064_chalmers_64kb.mp3",
+          "duration": 1272,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch065",
+          "title": "Supposing - Swarthiness",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_065_chalmers_64kb.mp3",
+          "duration": 1287,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch066",
+          "title": "Swath - Synagogue",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_066_chalmers_64kb.mp3",
+          "duration": 1267,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch067",
+          "title": "Synchronize - Talisman",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_067_chalmers_64kb.mp3",
+          "duration": 1246,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch068",
+          "title": "Talk - Tea-tray",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_068_chalmers_64kb.mp3",
+          "duration": 1333,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch069",
+          "title": "Teach - Ten",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_069_chalmers_64kb.mp3",
+          "duration": 1200,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch070",
+          "title": "Tenable - Thank",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_070_chalmers_64kb.mp3",
+          "duration": 1228,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch071",
+          "title": "Thankful - Third",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_071_chalmers_64kb.mp3",
+          "duration": 1268,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch072",
+          "title": "Thirst - Throw",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_072_chalmers_64kb.mp3",
+          "duration": 1362,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch073",
+          "title": "Throwster - Tightly",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_073_chalmers_64kb.mp3",
+          "duration": 1143,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch074",
+          "title": "Tile - To",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_074_chalmers_64kb.mp3",
+          "duration": 1322,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch075",
+          "title": "Toad - Tooth-ache",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_075_chalmers_64kb.mp3",
+          "duration": 1200,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch076",
+          "title": "Tooth-brush - Train",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_076_chalmers_64kb.mp3",
+          "duration": 1294,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch077",
+          "title": "(to)Train - Tread",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_077_chalmers_64kb.mp3",
+          "duration": 1280,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch078",
+          "title": "Treason - Trill",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_078_chalmers_64kb.mp3",
+          "duration": 1240,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch079",
+          "title": "Trigger - Trustee",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_079_chalmers_64kb.mp3",
+          "duration": 1271,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch080",
+          "title": "Trustful - Twelve",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_080_chalmers_64kb.mp3",
+          "duration": 1289,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch081",
+          "title": "Twentieth - Unassisted",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_081_chalmers_64kb.mp3",
+          "duration": 1313,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch082",
+          "title": "Unassuaged - Undercurrent",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_082_chalmers_64kb.mp3",
+          "duration": 1275,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch083",
+          "title": "Underdo - Unison",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_083_chalmers_64kb.mp3",
+          "duration": 1335,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch084",
+          "title": "Unit - Unreserved",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_084_chalmers_64kb.mp3",
+          "duration": 1254,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch085",
+          "title": "Unreservedly - Unwell",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_085_chalmers_64kb.mp3",
+          "duration": 1320,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch086",
+          "title": "Unwholesome - Use",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_086_chalmers_64kb.mp3",
+          "duration": 1321,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch087",
+          "title": "Useful - Vapouring",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_087_chalmers_64kb.mp3",
+          "duration": 1289,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch088",
+          "title": "Vaporize - Vernacular",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_088_chalmers_64kb.mp3",
+          "duration": 1352,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch089",
+          "title": "Vernal - Vileness",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_089_chalmers_64kb.mp3",
+          "duration": 1330,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch090",
+          "title": "Vilify - Vituperate",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_090_chalmers_64kb.mp3",
+          "duration": 1215,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch091",
+          "title": "Vituperative - Wake",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_091_chalmers_64kb.mp3",
+          "duration": 1319,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch092",
+          "title": "Wakeful - Warp",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_092_chalmers_64kb.mp3",
+          "duration": 1229,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch093",
+          "title": "Warped - Wax",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_093_chalmers_64kb.mp3",
+          "duration": 1262,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch094",
+          "title": "Wax-candle - Weigh",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_094_chalmers_64kb.mp3",
+          "duration": 1205,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch095",
+          "title": "Weighing-machine - Whereas",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_095_chalmers_64kb.mp3",
+          "duration": 1147,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch096",
+          "title": "Whereat - Wholly",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_096_chalmers_64kb.mp3",
+          "duration": 1207,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch097",
+          "title": "Whore - Wily",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_097_chalmers_64kb.mp3",
+          "duration": 1301,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch098",
+          "title": "Win - With",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_098_chalmers_64kb.mp3",
+          "duration": 1413,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch099",
+          "title": "Withal - Wood",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_099_chalmers_64kb.mp3",
+          "duration": 1079,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch100",
+          "title": "Woodbine - Worry",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_100_chalmers_64kb.mp3",
+          "duration": 1187,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch101",
+          "title": "Worse - Wrongfully",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_101_chalmers_64kb.mp3",
+          "duration": 1278,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch102",
+          "title": "Wrongly - You",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_102_chalmers_64kb.mp3",
+          "duration": 1449,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        },
+        {
+          "id": "ch103",
+          "title": "Young - Zymotic",
+          "audio": "https://archive.org/download/english_and_cantonese_dictionary_2005_librivox/englishcantonesedictionary_103_chalmers_64kb.mp3",
+          "duration": 951,
+          "tags": {
+            "reader": "DavidReader"
+          }
+        }
+      ]
+    }
+  ]
+}

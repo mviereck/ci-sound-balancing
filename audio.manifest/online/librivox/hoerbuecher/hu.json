@@ -1,0 +1,975 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "LibriVox — Hungarian",
+  "lang": "hu",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:3567",
+      "title": "János vitéz",
+      "displayName": "Petőfi, Sándor – János vitéz",
+      "lang": "hu",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 3567)",
+      "url": "https://librivox.org/janos-vitez-by-sandor-petofi/",
+      "textUrl": "hoerbuch-texte/hu/pet-fi-sandor_-_janos-vitez-3567.html.gz",
+      "tags": {
+        "work_author": "Petőfi, Sándor",
+        "reader": "Diana Majlinger",
+        "readers": [
+          "Diana Majlinger"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Poetry"
+        ],
+        "fiction": "y",
+        "book_year": 1849,
+        "epoch": "c19",
+        "total_seconds": 4723,
+        "length_band": "short",
+        "num_sections": 7,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Hungarian",
+        "url_iarchive": "https://www.archive.org/details/janos_vitez_dii_librivox",
+        "url_text_source": "https://mek.oszk.hu/01000/01010/01010.htm",
+        "source_item_id": "3567"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "1-4. fejezet",
+          "audio": "https://archive.org/download/janos_vitez_dii_librivox/janosvitez_1_petofi_64kb.mp3",
+          "duration": 639,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "5-7. fejezet",
+          "audio": "https://archive.org/download/janos_vitez_dii_librivox/janosvitez_2_petofi_64kb.mp3",
+          "duration": 696,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "8-12. fejezet",
+          "audio": "https://archive.org/download/janos_vitez_dii_librivox/janosvitez_3_petofi_64kb.mp3",
+          "duration": 701,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "13-15. fejezet",
+          "audio": "https://archive.org/download/janos_vitez_dii_librivox/janosvitez_4_petofi_64kb.mp3",
+          "duration": 616,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "16-19. fejezet",
+          "audio": "https://archive.org/download/janos_vitez_dii_librivox/janosvitez_5_petofi_64kb.mp3",
+          "duration": 815,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "20-22. fejezet",
+          "audio": "https://archive.org/download/janos_vitez_dii_librivox/janosvitez_6_petofi_64kb.mp3",
+          "duration": 660,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "23-27. fejezet",
+          "audio": "https://archive.org/download/janos_vitez_dii_librivox/janosvitez_7_petofi_64kb.mp3",
+          "duration": 596,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:3688",
+      "title": "Egri csillagok",
+      "displayName": "Gárdonyi, Géza – Egri csillagok",
+      "lang": "hu",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 3688)",
+      "url": "https://librivox.org/egri-csillagok-by-geza-gardonyi/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Gárdonyi, Géza",
+        "reader": "Diana Majlinger",
+        "readers": [
+          "Diana Majlinger"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "General Fiction",
+          "Historical Fiction"
+        ],
+        "fiction": "y",
+        "book_year": 1899,
+        "epoch": "c19",
+        "total_seconds": 62886,
+        "length_band": "long",
+        "num_sections": 92,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Hungarian",
+        "url_iarchive": "https://www.archive.org/details/egri_csillagok_1101_librivox",
+        "url_text_source": "https://mek.oszk.hu/00600/00656/index.phtml",
+        "source_item_id": "3688"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "01 - Hol terem a magyar vitéz? - 1. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_01_gardonyi_64kb.mp3",
+          "duration": 828,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "02 - Hol terem a magyar vitéz? - 2. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_02_gardonyi_64kb.mp3",
+          "duration": 1159,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "03 - Hol terem a magyar vitéz? - 3. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_03_gardonyi_64kb.mp3",
+          "duration": 565,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "04 - Hol terem a magyar vitéz? - 4. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_04_gardonyi_64kb.mp3",
+          "duration": 711,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "05 - Hol terem a magyar vitéz? - 5. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_05_gardonyi_64kb.mp3",
+          "duration": 618,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "06 - Hol terem a magyar vitéz? - 6. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_06_gardonyi_64kb.mp3",
+          "duration": 243,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "07 - Hol terem a magyar vitéz? - 7. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_07_gardonyi_64kb.mp3",
+          "duration": 315,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "08 - Hol terem a magyar vitéz? - 8. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_08_gardonyi_64kb.mp3",
+          "duration": 487,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "09 - Hol terem a magyar vitéz? - 9. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_09_gardonyi_64kb.mp3",
+          "duration": 238,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "10 - Hol terem a magyar vitéz? - 10. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_10_gardonyi_64kb.mp3",
+          "duration": 699,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "11 - Hol terem a magyar vitéz? - 11. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_11_gardonyi_64kb.mp3",
+          "duration": 218,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "12 - Hol terem a magyar vitéz? - 12. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_12_gardonyi_64kb.mp3",
+          "duration": 367,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "13 - Hol terem a magyar vitéz? - 13. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_13_gardonyi_64kb.mp3",
+          "duration": 196,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "14 - Hol terem a magyar vitéz? - 14. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_14_gardonyi_64kb.mp3",
+          "duration": 350,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "15 - Hol terem a magyar vitéz? - 15. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_15_gardonyi_64kb.mp3",
+          "duration": 214,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "16 - Hol terem a magyar vitéz? - 16. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_16_gardonyi_64kb.mp3",
+          "duration": 339,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "17 - Hol terem a magyar vitéz? - 17. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_17_gardonyi_64kb.mp3",
+          "duration": 909,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "18 - Oda Buda! - 1. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_18_gardonyi_64kb.mp3",
+          "duration": 361,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "19 - Oda Buda! - 2. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_19_gardonyi_64kb.mp3",
+          "duration": 589,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "20 - Oda Buda! - 3. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_20_gardonyi_64kb.mp3",
+          "duration": 575,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "21 - Oda Buda! - 4. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_21_gardonyi_64kb.mp3",
+          "duration": 1149,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch022",
+          "title": "22 - Oda Buda! - 5. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_22_gardonyi_64kb.mp3",
+          "duration": 323,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch023",
+          "title": "23 - Oda Buda! - 6. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_23_gardonyi_64kb.mp3",
+          "duration": 254,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch024",
+          "title": "24 - Oda Buda! - 7. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_24_gardonyi_64kb.mp3",
+          "duration": 554,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch025",
+          "title": "25 - Oda Buda! - 8. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_25_gardonyi_64kb.mp3",
+          "duration": 870,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch026",
+          "title": "26 - Oda Buda! - 9. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_26_gardonyi_64kb.mp3",
+          "duration": 958,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch027",
+          "title": "27 - Oda Buda! - 10. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_27_gardonyi_64kb.mp3",
+          "duration": 232,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch028",
+          "title": "28 - Oda Buda! - 11. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_28_gardonyi_64kb.mp3",
+          "duration": 792,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch029",
+          "title": "29 - Oda Buda! - 12. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_29_gardonyi_64kb.mp3",
+          "duration": 423,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch030",
+          "title": "30 - Oda Buda! - 13. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_30_gardonyi_64kb.mp3",
+          "duration": 433,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch031",
+          "title": "31 - Oda Buda! - 14. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_31_gardonyi_64kb.mp3",
+          "duration": 340,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch032",
+          "title": "32 - Oda Buda! - 15. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_32_gardonyi_64kb.mp3",
+          "duration": 715,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch033",
+          "title": "33 - Oda Buda! - 16. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_33_gardonyi_64kb.mp3",
+          "duration": 1025,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch034",
+          "title": "34 - Oda Buda! - 17. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_34_gardonyi_64kb.mp3",
+          "duration": 264,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch035",
+          "title": "35 - Oda Buda! - 18. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_35_gardonyi_64kb.mp3",
+          "duration": 399,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch036",
+          "title": "36 - Oda Buda! - 19. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_36_gardonyi_64kb.mp3",
+          "duration": 498,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch037",
+          "title": "37 - Oda Buda! - 20. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_37_gardonyi_64kb.mp3",
+          "duration": 278,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch038",
+          "title": "38 - Oda Buda! - 21. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_38_gardonyi_64kb.mp3",
+          "duration": 868,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch039",
+          "title": "39 - Oda Buda! - 22-24. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_39_gardonyi_64kb.mp3",
+          "duration": 390,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch040",
+          "title": "40 - A rab oroszlán - 1. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_40_gardonyi_64kb.mp3",
+          "duration": 769,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch041",
+          "title": "41 - A rab oroszlán - 2. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_41_gardonyi_64kb.mp3",
+          "duration": 655,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch042",
+          "title": "42 - A rab oroszlán - 3. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_42_gardonyi_64kb.mp3",
+          "duration": 1090,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch043",
+          "title": "43 - A rab oroszlán - 4. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_43_gardonyi_64kb.mp3",
+          "duration": 1639,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch044",
+          "title": "44 - A rab oroszlán - 5. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_44_gardonyi_64kb.mp3",
+          "duration": 1289,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch045",
+          "title": "45 - A rab oroszlán - 6. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_45_gardonyi_64kb.mp3",
+          "duration": 872,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch046",
+          "title": "46 - A rab oroszlán - 7. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_46_gardonyi_64kb.mp3",
+          "duration": 1295,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch047",
+          "title": "47 - A rab oroszlán - 8. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_47_gardonyi_64kb.mp3",
+          "duration": 1178,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch048",
+          "title": "48 - A rab oroszlán - 9. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_48_gardonyi_64kb.mp3",
+          "duration": 275,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch049",
+          "title": "49 - A rab oroszlán - 10. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_49_gardonyi_64kb.mp3",
+          "duration": 909,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch050",
+          "title": "50 - A rab oroszlán - 11. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_50_gardonyi_64kb.mp3",
+          "duration": 582,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch051",
+          "title": "51 - A rab oroszlán - 12. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_51_gardonyi_64kb.mp3",
+          "duration": 1206,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch052",
+          "title": "52 - A rab oroszlán - 13. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_52_gardonyi_64kb.mp3",
+          "duration": 442,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch053",
+          "title": "53 - Eger veszedelme - 1. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_53_gardonyi_64kb.mp3",
+          "duration": 1105,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch054",
+          "title": "54 - Eger veszedelme - 2. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_54_gardonyi_64kb.mp3",
+          "duration": 1872,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch055",
+          "title": "55 - Eger veszedelme - 3. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_55_gardonyi_64kb.mp3",
+          "duration": 816,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch056",
+          "title": "56 - Eger veszedelme - 4. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_56_gardonyi_64kb.mp3",
+          "duration": 1345,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch057",
+          "title": "57 - Eger veszedelme - 5. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_57_gardonyi_64kb.mp3",
+          "duration": 1027,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch058",
+          "title": "58 - Eger veszedelme - 6. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_58_gardonyi_64kb.mp3",
+          "duration": 990,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch059",
+          "title": "59 - Eger veszedelme - 7. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_59_gardonyi_64kb.mp3",
+          "duration": 536,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch060",
+          "title": "60 - Eger veszedelme - 8. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_60_gardonyi_64kb.mp3",
+          "duration": 215,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch061",
+          "title": "61 - Eger veszedelme - 9. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_61_gardonyi_64kb.mp3",
+          "duration": 689,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch062",
+          "title": "62 - Eger veszedelme - 10. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_62_gardonyi_64kb.mp3",
+          "duration": 338,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch063",
+          "title": "63 - Eger veszedelme - 11. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_63_gardonyi_64kb.mp3",
+          "duration": 378,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch064",
+          "title": "64 - Eger veszedelme - 12. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_64_gardonyi_64kb.mp3",
+          "duration": 1943,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch065",
+          "title": "65 - Eger veszedelme - 13. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_65_gardonyi_64kb.mp3",
+          "duration": 927,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch066",
+          "title": "66 - Eger veszedelme - 14. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_66_gardonyi_64kb.mp3",
+          "duration": 239,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch067",
+          "title": "67 - Eger veszedelme - 15. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_67_gardonyi_64kb.mp3",
+          "duration": 352,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch068",
+          "title": "68 - Eger veszedelme - 16. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_68_gardonyi_64kb.mp3",
+          "duration": 682,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch069",
+          "title": "69 - Eger veszedelme - 17. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_69_gardonyi_64kb.mp3",
+          "duration": 1409,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch070",
+          "title": "70 - Holdfogyatkozás - 1. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_70_gardonyi_64kb.mp3",
+          "duration": 1028,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch071",
+          "title": "71 - Holdfogyatkozás - 2. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_71_gardonyi_64kb.mp3",
+          "duration": 684,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch072",
+          "title": "72 - Holdfogyatkozás - 3. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_72_gardonyi_64kb.mp3",
+          "duration": 962,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch073",
+          "title": "73 - Holdfogyatkozás - 4. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_73_gardonyi_64kb.mp3",
+          "duration": 362,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch074",
+          "title": "74 - Holdfogyatkozás - 5. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_74_gardonyi_64kb.mp3",
+          "duration": 495,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch075",
+          "title": "75 - Holdfogyatkozás - 6. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_75_gardonyi_64kb.mp3",
+          "duration": 889,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch076",
+          "title": "76 - Holdfogyatkozás - 7. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_76_gardonyi_64kb.mp3",
+          "duration": 636,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch077",
+          "title": "77 - Holdfogyatkozás - 8. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_77_gardonyi_64kb.mp3",
+          "duration": 795,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch078",
+          "title": "78 - Holdfogyatkozás - 9. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_78_gardonyi_64kb.mp3",
+          "duration": 690,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch079",
+          "title": "79 - Holdfogyatkozás - 10. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_79_gardonyi_64kb.mp3",
+          "duration": 506,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch080",
+          "title": "80 - Holdfogyatkozás - 11. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_80_gardonyi_64kb.mp3",
+          "duration": 340,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch081",
+          "title": "81 - Holdfogyatkozás - 12. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_81_gardonyi_64kb.mp3",
+          "duration": 1006,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch082",
+          "title": "82 - Holdfogyatkozás - 13. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_82_gardonyi_64kb.mp3",
+          "duration": 355,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch083",
+          "title": "83 - Holdfogyatkozás - 14. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_83_gardonyi_64kb.mp3",
+          "duration": 311,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch084",
+          "title": "84 - Holdfogyatkozás - 15. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_84_gardonyi_64kb.mp3",
+          "duration": 269,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch085",
+          "title": "85 - Holdfogyatkozás - 16. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_85_gardonyi_64kb.mp3",
+          "duration": 549,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch086",
+          "title": "86 - Holdfogyatkozás - 17. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_86_gardonyi_64kb.mp3",
+          "duration": 512,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch087",
+          "title": "87 - Holdfogyatkozás - 18. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_87_gardonyi_64kb.mp3",
+          "duration": 933,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch088",
+          "title": "88 - Holdfogyatkozás - 19. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_88_gardonyi_64kb.mp3",
+          "duration": 1726,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch089",
+          "title": "89 - Holdfogyatkozás - 20. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_89_gardonyi_64kb.mp3",
+          "duration": 1012,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch090",
+          "title": "90 - Holdfogyatkozás - 21. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_90_gardonyi_64kb.mp3",
+          "duration": 288,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch091",
+          "title": "91 - Holdfogyatkozás - 22. fejezet",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_91_gardonyi_64kb.mp3",
+          "duration": 437,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        },
+        {
+          "id": "ch092",
+          "title": "92 - Holdfogyatkozás - 23. fejezet és Befejezés",
+          "audio": "https://archive.org/download/egri_csillagok_1101_librivox/egricsillagok_92_gardonyi_64kb.mp3",
+          "duration": 291,
+          "tags": {
+            "reader": "Diana Majlinger"
+          }
+        }
+      ]
+    }
+  ]
+}

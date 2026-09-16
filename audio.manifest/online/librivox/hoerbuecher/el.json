@@ -1,0 +1,5622 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "LibriVox — Greek",
+  "lang": "el",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:2307",
+      "title": "Bible (STE) NT 21-22: Επιστολαις Πέτρου Α'-Β' (1-2 Peter)",
+      "displayName": "Stephanos 1550 – Bible (STE) NT 21-22: Επιστολαις Πέτρου Α'-Β' (1-2 Peter)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 2307)",
+      "url": "https://librivox.org/epistolais-petrou-a-b-from-ste/",
+      "textUrl": "hoerbuch-texte/el/stephanos-1550_-_bible-ste-nt-21-22-1-2-peter-2307.html.gz",
+      "tags": {
+        "work_author": "Stephanos 1550",
+        "reader": "peaceuntoyou",
+        "readers": [
+          "peaceuntoyou"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Bibles"
+        ],
+        "fiction": "y",
+        "book_year": 1550,
+        "epoch": "c16",
+        "total_seconds": 2587,
+        "length_band": "very_short",
+        "num_sections": 3,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://www.archive.org/details/kd21-22_petrou_ste_puy_0810_librivox",
+        "url_text_source": "https://www.ccel.org/ccel/bible/gntste.html",
+        "source_item_id": "2307"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "01 - Πέτρου Α' 1-2",
+          "audio": "https://archive.org/download/kd21-22_petrou_ste_puy_0810_librivox/kd21-22_petrou_1_ste_64kb.mp3",
+          "duration": 738,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "02 - Πέτρου Α' 3-5",
+          "audio": "https://archive.org/download/kd21-22_petrou_ste_puy_0810_librivox/kd21-22_petrou_2_ste_64kb.mp3",
+          "duration": 824,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "03 - Πέτρου B'",
+          "audio": "https://archive.org/download/kd21-22_petrou_ste_puy_0810_librivox/kd21-22_petrou_3_ste_64kb.mp3",
+          "duration": 1025,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:2889",
+      "title": "Bible (PE) NT 01: Κατά Ματθαίον (Matthew)",
+      "displayName": "Patriarchiki Ekdosi – Bible (PE) NT 01: Κατά Ματθαίον (Matthew)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 2889)",
+      "url": "https://librivox.org/to-euaggelio-tou-matthaiou-pe-puy-1003/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Patriarchiki Ekdosi",
+        "reader": "peaceuntoyou",
+        "readers": [
+          "peaceuntoyou"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Bibles"
+        ],
+        "fiction": "y",
+        "book_year": 1904,
+        "epoch": "c20",
+        "total_seconds": 15284,
+        "length_band": "medium",
+        "num_sections": 28,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://www.archive.org/details/biblia_pe_kd01_matthaiou_puy_1003_librivox",
+        "url_text_source": "https://www.myriobiblos.gr/bible/nt2/matthew/default.asp",
+        "source_item_id": "2889"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Kephalaio 01",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_01_pe_64kb.mp3",
+          "duration": 413,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Kephalaio 02",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_02_pe_64kb.mp3",
+          "duration": 422,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Kephalaio 03",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_03_pe_64kb.mp3",
+          "duration": 293,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Kephalaio 04",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_04_pe_64kb.mp3",
+          "duration": 426,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Kephalaio 05",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_05_pe_64kb.mp3",
+          "duration": 763,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Kephalaio 06",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_06_pe_64kb.mp3",
+          "duration": 665,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Kephalaio 07",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_07_pe_64kb.mp3",
+          "duration": 438,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Kephalaio 08",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_08_pe_64kb.mp3",
+          "duration": 515,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Kephalaio 09",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_09_pe_64kb.mp3",
+          "duration": 603,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Kephalaio 10",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_10_pe_64kb.mp3",
+          "duration": 612,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Kephalaio 11",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_11_pe_64kb.mp3",
+          "duration": 457,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Kephalaio 12",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_12_pe_64kb.mp3",
+          "duration": 716,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "Kephalaio 13",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_13_pe_64kb.mp3",
+          "duration": 857,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "Kephalaio 14",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_14_pe_64kb.mp3",
+          "duration": 460,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "Kephalaio 15",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_15_pe_64kb.mp3",
+          "duration": 491,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "Kephalaio 16",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_16_pe_64kb.mp3",
+          "duration": 450,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "Kephalaio 17",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_17_pe_64kb.mp3",
+          "duration": 402,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "Kephalaio 18",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_18_pe_64kb.mp3",
+          "duration": 536,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "Kephalaio 19",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_19_pe_64kb.mp3",
+          "duration": 442,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "Kephalaio 20",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_20_pe_64kb.mp3",
+          "duration": 490,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "Kephalaio 21",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_21_pe_64kb.mp3",
+          "duration": 692,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch022",
+          "title": "Kephalaio 22",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_22_pe_64kb.mp3",
+          "duration": 491,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch023",
+          "title": "Kephalaio 23",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_23_pe_64kb.mp3",
+          "duration": 511,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch024",
+          "title": "Kephalaio 24",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_24_pe_64kb.mp3",
+          "duration": 571,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch025",
+          "title": "Kephalaio 25",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_25_pe_64kb.mp3",
+          "duration": 584,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch026",
+          "title": "Kephalaio 26",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_26_pe_64kb.mp3",
+          "duration": 945,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch027",
+          "title": "Kephalaio 27",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_27_pe_64kb.mp3",
+          "duration": 758,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch028",
+          "title": "Kephalaio 28",
+          "audio": "https://archive.org/download/biblia_pe_kd01_matthaiou_puy_1003_librivox/kd01_matthaiou_28_pe_64kb.mp3",
+          "duration": 281,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:4115",
+      "title": "Bible (PE) NT 12: Προς Κολοσσαεις (Colossians)",
+      "displayName": "Patriarchiki Ekdosi – Bible (PE) NT 12: Προς Κολοσσαεις (Colossians)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 4115)",
+      "url": "https://librivox.org/epistole-pros-collosaes-by-patriarchike-ekdosi/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Patriarchiki Ekdosi",
+        "reader": "peaceuntoyou",
+        "readers": [
+          "peaceuntoyou"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Bibles"
+        ],
+        "fiction": "y",
+        "book_year": 1904,
+        "epoch": "c20",
+        "total_seconds": 1357,
+        "length_band": "very_short",
+        "num_sections": 4,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://www.archive.org/details/epistole_pros_collosaes_1005_librivox",
+        "url_text_source": "https://www.myriobiblos.gr/bible/nt2/colossians/default.asp",
+        "source_item_id": "4115"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "01 - Kephalaio 01",
+          "audio": "https://archive.org/download/epistole_pros_collosaes_1005_librivox/colossaes_01_pe_64kb.mp3",
+          "duration": 466,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "02 - Kephalaio 02",
+          "audio": "https://archive.org/download/epistole_pros_collosaes_1005_librivox/colossaes_02_pe_64kb.mp3",
+          "duration": 324,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "03 - Kephalaio 03",
+          "audio": "https://archive.org/download/epistole_pros_collosaes_1005_librivox/colossaes_03_pe_64kb.mp3",
+          "duration": 316,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "04 -  Kephalaio 04",
+          "audio": "https://archive.org/download/epistole_pros_collosaes_1005_librivox/colossaes_04_pe_64kb.mp3",
+          "duration": 251,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:4222",
+      "title": "Bible (PE) NT 04: Κατά Ιωάννην (John)",
+      "displayName": "Patriarchiki Ekdosi – Bible (PE) NT 04: Κατά Ιωάννην (John)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 4222)",
+      "url": "https://librivox.org/kata-ioanne-euaggelio-apo-ten-nea-diatheke-tes-hagias-graphes-by-anonimos/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Patriarchiki Ekdosi",
+        "reader": "peaceuntoyou",
+        "readers": [
+          "peaceuntoyou"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Religion"
+        ],
+        "fiction": "n",
+        "book_year": 0,
+        "epoch": "antike",
+        "total_seconds": 10341,
+        "length_band": "short",
+        "num_sections": 21,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/kata_ioanne_euaggelio_1204_librivox",
+        "url_text_source": "https://www.myriobiblos.gr/bible/nt2/john/default.asp",
+        "source_item_id": "4222"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Kephalaio 01",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_01_pe_64kb.mp3",
+          "duration": 620,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Kephalaio 02",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_02_pe_64kb.mp3",
+          "duration": 321,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Kephalaio 03",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_03_pe_64kb.mp3",
+          "duration": 447,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Kephalaio 04",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_04_pe_64kb.mp3",
+          "duration": 607,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Kephalaio 05",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_05_pe_64kb.mp3",
+          "duration": 494,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Kephalaio 06",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_06_pe_64kb.mp3",
+          "duration": 783,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Kephalaio 07",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_07_pe_64kb.mp3",
+          "duration": 563,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Kephalaio 08",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_08_pe_64kb.mp3",
+          "duration": 706,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Kephalaio 09",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_09_pe_64kb.mp3",
+          "duration": 482,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Kephalaio 10",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_10_pe_64kb.mp3",
+          "duration": 457,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Kephalaio 11",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_11_pe_64kb.mp3",
+          "duration": 589,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Kephalaio 12",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_12_pe_64kb.mp3",
+          "duration": 637,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "Kephalaio 13",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_13_pe_64kb.mp3",
+          "duration": 478,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "Kephalaio 14",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_14_pe_64kb.mp3",
+          "duration": 373,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "Kephalaio 15",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_15_pe_64kb.mp3",
+          "duration": 306,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "Kephalaio 16",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_16_pe_64kb.mp3",
+          "duration": 386,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "Kephalaio 17",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_17_pe_64kb.mp3",
+          "duration": 309,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "Kephalaio 18",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_18_pe_64kb.mp3",
+          "duration": 488,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "Kephalaio 19",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_19_pe_64kb.mp3",
+          "duration": 543,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "Kephalaio 20",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_20_pe_64kb.mp3",
+          "duration": 390,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "Kephalaio 21",
+          "audio": "https://archive.org/download/kata_ioanne_euaggelio_1204_librivox/kd04_ioanneeuaggelio_21_pe_64kb.mp3",
+          "duration": 362,
+          "tags": {
+            "reader": "peaceuntoyou"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:7208",
+      "title": "Παραμύθι χωρίς όνομα (Tale Without Name)",
+      "displayName": "Delta, Penelope – Παραμύθι χωρίς όνομα (Tale Without Name)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 7208)",
+      "url": "https://librivox.org/paramythi-horis-onoma-by-penelope-delta/",
+      "textUrl": "hoerbuch-texte/el/delta-penelope_-_tale-without-name-7208.txt.gz",
+      "tags": {
+        "work_author": "Delta, Penelope",
+        "reader": "Rapunzelina",
+        "readers": [
+          "Rapunzelina"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Children's Fiction",
+          "Action & Adventure Fiction"
+        ],
+        "fiction": "y",
+        "book_year": 1910,
+        "epoch": "c20",
+        "total_seconds": 15165,
+        "length_band": "medium",
+        "num_sections": 20,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/Paramythi_horis_onoma_1303_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/42962",
+        "source_item_id": "7208"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "01 - Το Δάσος",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_01_delta_64kb.mp3",
+          "duration": 517,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "02 - Παλάτι και Παλατιανοί",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_02_delta_64kb.mp3",
+          "duration": 663,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "03 - Στο φτωχικό της κυρα-Φρόνησης",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_03_delta_64kb.mp3",
+          "duration": 912,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "04 - Στο Γυρισμό",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_04_delta_64kb.mp3",
+          "duration": 1283,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "05 - Το Δώρο του θείου Βασιλιά",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_05_delta_64kb.mp3",
+          "duration": 949,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "06 - Στρατός και Στόλος, παρών!",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_06_delta_64kb.mp3",
+          "duration": 1526,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "07 - Καινούριες Αποκαλύψεις",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_07_delta_64kb.mp3",
+          "duration": 1435,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "08 - Η Κορώνα του Βασιλιά",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_08_delta_64kb.mp3",
+          "duration": 533,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "09 - \"Στη θέση όπου μας έβαλε η μοίρα\"",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_09_delta_64kb.mp3",
+          "duration": 527,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "10 - Στην Ταβέρνα",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_10_delta_64kb.mp3",
+          "duration": 692,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "11 - \"Χωροφύλακας, ή Ξυλοκόπος;\"",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_11_delta_64kb.mp3",
+          "duration": 743,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "12 - Πανικός",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_12_delta_64kb.mp3",
+          "duration": 463,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "13 - Πολύδωρος και Μονοχέρης",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_13_delta_64kb.mp3",
+          "duration": 682,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "14 - Η Μάχη",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_14_delta_64kb.mp3",
+          "duration": 762,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "15 - Δικαιοσύνη",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_15_delta_64kb.mp3",
+          "duration": 373,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "16 - Η Ζώνη του Πολύδωρου",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_16_delta_64kb.mp3",
+          "duration": 557,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "17 - Δουλειά",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_17_delta_64kb.mp3",
+          "duration": 938,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "18 - Ο εξάδελφος Βασιλιάς",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_18_delta_64kb.mp3",
+          "duration": 740,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "19 - Ο θείος Βασιλιάς",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_19_delta_64kb.mp3",
+          "duration": 458,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "20 - Συνετός Β'",
+          "audio": "https://archive.org/download/Paramythi_horis_onoma_1303_librivox/paramythihorisonoma_20_delta_64kb.mp3",
+          "duration": 412,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:11476",
+      "title": "Ἀθηναίων πολιτεία (The Constitution of the Athenians)",
+      "displayName": "Aristotle – Ἀθηναίων πολιτεία (The Constitution of the Athenians)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 11476)",
+      "url": "https://librivox.org/the-constitution-of-the-athenians-by-aristotle/",
+      "textUrl": "hoerbuch-texte/el/aristotle_-_the-constitution-of-the-athenians-11476.txt.gz",
+      "tags": {
+        "work_author": "Aristotle",
+        "reader": "karampas1968",
+        "readers": [
+          "karampas1968"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Political Science"
+        ],
+        "fiction": "y",
+        "book_year": 1911,
+        "epoch": "c20",
+        "total_seconds": 13365,
+        "length_band": "medium",
+        "num_sections": 29,
+        "has_text": true,
+        "translators": [
+          "Ioannes Zervos"
+        ],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/constitutionofathenians_1704_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/39963",
+        "source_item_id": "11476"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "ΒΙΟΣ ΚΑΙ ΕΡΓΑ ΑΡΙΣΤΟΤΕΛΟΥΣ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_01_aristotle_64kb.mp3",
+          "duration": 1355,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "ΕΙΣΑΓΩΓΗ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_02_aristotle_64kb.mp3",
+          "duration": 1205,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "ΑΠΟΣΠΑΣΜΑΤΑ ΕΚ ΤΟΥ ΕΛΛΕΙΠΟΝΤΟΣ ΚΕΙΜΕΝΟΥ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_03_aristotle_64kb.mp3",
+          "duration": 466,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "ΚΕΦΑΛΑΙΟΝ Α",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_04_aristotle_64kb.mp3",
+          "duration": 168,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "ΚΕΦΑΛΑΙΟΝ Β",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_05_aristotle_64kb.mp3",
+          "duration": 469,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "ΚΕΦΑΛΑΙΟΝ Γ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_06_aristotle_64kb.mp3",
+          "duration": 1067,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "ΚΕΦΑΛΑΙΟΝ Δ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_07_aristotle_64kb.mp3",
+          "duration": 175,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "ΚΕΦΑΛΑΙΟΝ Ε",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_08_aristotle_64kb.mp3",
+          "duration": 563,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΣΤ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_09_aristotle_64kb.mp3",
+          "duration": 556,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "ΚΕΦΑΛΑΙΟΝ Ζ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_10_aristotle_64kb.mp3",
+          "duration": 295,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "ΚΕΦΑΛΑΙΟΝ Η",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_11_aristotle_64kb.mp3",
+          "duration": 260,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "ΚΕΦΑΛΑΙΟΝ Θ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_12_aristotle_64kb.mp3",
+          "duration": 261,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "ΚΕΦΑΛΑΙΟΝ Ι",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_13_aristotle_64kb.mp3",
+          "duration": 442,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΙΑ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_14_aristotle_64kb.mp3",
+          "duration": 221,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΙΒ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_15_aristotle_64kb.mp3",
+          "duration": 599,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΙΓ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_16_aristotle_64kb.mp3",
+          "duration": 277,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΙΔ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_17_aristotle_64kb.mp3",
+          "duration": 339,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΙΕ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_18_aristotle_64kb.mp3",
+          "duration": 499,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΙΣΤ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_19_aristotle_64kb.mp3",
+          "duration": 172,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΙΖ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_20_aristotle_64kb.mp3",
+          "duration": 232,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΙΗ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_21_aristotle_64kb.mp3",
+          "duration": 309,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch022",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΙΘ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_22_aristotle_64kb.mp3",
+          "duration": 693,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch023",
+          "title": "ΚΕΦΑΛΑΙΟΝ Κ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_23_aristotle_64kb.mp3",
+          "duration": 654,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch024",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΚΑ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_24_aristotle_64kb.mp3",
+          "duration": 826,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch025",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΚΒ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_25_aristotle_64kb.mp3",
+          "duration": 134,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch026",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΚΓ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_26_aristotle_64kb.mp3",
+          "duration": 173,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch027",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΚΔ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_27_aristotle_64kb.mp3",
+          "duration": 133,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch028",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΚΕ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_28_aristotle_64kb.mp3",
+          "duration": 500,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch029",
+          "title": "ΚΕΦΑΛΑΙΟΝ ΚΣΤ",
+          "audio": "https://archive.org/download/constitutionofathenians_1704_librivox/constitutionofathenians_29_aristotle_64kb.mp3",
+          "duration": 322,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:11926",
+      "title": "Ύμνος εις την Αθηνά",
+      "displayName": "Palamas, Kostis – Ύμνος εις την Αθηνά",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 11926)",
+      "url": "https://librivox.org/by-kostis-palamas/",
+      "textUrl": "hoerbuch-texte/el/palamas-kostis_-_x-11926.txt.gz",
+      "tags": {
+        "work_author": "Palamas, Kostis",
+        "reader": "karampas1968",
+        "readers": [
+          "karampas1968"
+        ],
+        "reader_mode": "solo",
+        "genres": [],
+        "fiction": "y",
+        "book_year": 1889,
+        "epoch": "c19",
+        "total_seconds": 2208,
+        "length_band": "very_short",
+        "num_sections": 11,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/hymntoathena_1705_librivox",
+        "url_text_source": "Https://www.gutenberg.org/ebooks/42516",
+        "source_item_id": "11926"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Α",
+          "audio": "https://archive.org/download/hymntoathena_1705_librivox/hymntoathena_01_palamas_64kb.mp3",
+          "duration": 257,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Β",
+          "audio": "https://archive.org/download/hymntoathena_1705_librivox/hymntoathena_02_palamas_64kb.mp3",
+          "duration": 258,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Γ",
+          "audio": "https://archive.org/download/hymntoathena_1705_librivox/hymntoathena_03_palamas_64kb.mp3",
+          "duration": 105,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Δ",
+          "audio": "https://archive.org/download/hymntoathena_1705_librivox/hymntoathena_04_palamas_64kb.mp3",
+          "duration": 187,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Ε",
+          "audio": "https://archive.org/download/hymntoathena_1705_librivox/hymntoathena_05_palamas_64kb.mp3",
+          "duration": 165,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "ΣΤ",
+          "audio": "https://archive.org/download/hymntoathena_1705_librivox/hymntoathena_06_palamas_64kb.mp3",
+          "duration": 202,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Ζ",
+          "audio": "https://archive.org/download/hymntoathena_1705_librivox/hymntoathena_07_palamas_64kb.mp3",
+          "duration": 167,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Η",
+          "audio": "https://archive.org/download/hymntoathena_1705_librivox/hymntoathena_08_palamas_64kb.mp3",
+          "duration": 331,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Θ",
+          "audio": "https://archive.org/download/hymntoathena_1705_librivox/hymntoathena_09_palamas_64kb.mp3",
+          "duration": 215,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Ι",
+          "audio": "https://archive.org/download/hymntoathena_1705_librivox/hymntoathena_10_palamas_64kb.mp3",
+          "duration": 157,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "ΙΑ",
+          "audio": "https://archive.org/download/hymntoathena_1705_librivox/hymntoathena_11_palamas_64kb.mp3",
+          "duration": 164,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:11974",
+      "title": "Μενέξενος",
+      "displayName": "Plato (Πλάτων) – Μενέξενος",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 11974)",
+      "url": "https://librivox.org/menexenus-by-plato-2/",
+      "textUrl": "hoerbuch-texte/el/plato_-_x-11974.txt.gz",
+      "tags": {
+        "work_author": "Plato (Πλάτων)",
+        "reader": "karampas1968",
+        "readers": [
+          "karampas1968"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Classics (Greek & Latin Antiquity)"
+        ],
+        "fiction": "y",
+        "book_year": 0,
+        "epoch": "antike",
+        "total_seconds": 3220,
+        "length_band": "very_short",
+        "num_sections": 5,
+        "has_text": true,
+        "translators": [
+          "Ioannes Zervos"
+        ],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/menexenus_1706_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/39633",
+        "source_item_id": "11974"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Εισαγωγή",
+          "audio": "https://archive.org/download/menexenus_1706_librivox/menexenus_00_plato_64kb.mp3",
+          "duration": 436,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch001",
+          "title": "Μέρος 1ο",
+          "audio": "https://archive.org/download/menexenus_1706_librivox/menexenus_01_plato_64kb.mp3",
+          "duration": 533,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Μέρος 2ο",
+          "audio": "https://archive.org/download/menexenus_1706_librivox/menexenus_02_plato_64kb.mp3",
+          "duration": 449,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Μέρος 3ο",
+          "audio": "https://archive.org/download/menexenus_1706_librivox/menexenus_03_plato_64kb.mp3",
+          "duration": 573,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Μέρος 4ο",
+          "audio": "https://archive.org/download/menexenus_1706_librivox/menexenus_04_plato_64kb.mp3",
+          "duration": 1229,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:12114",
+      "title": "Ecclesiazusae",
+      "displayName": "Aristophanes – Ecclesiazusae",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 12114)",
+      "url": "https://librivox.org/ecclesiazusae-by-aristophanes/",
+      "textUrl": "hoerbuch-texte/el/aristophanes_-_ecclesiazusae-12114.txt.gz",
+      "tags": {
+        "work_author": "Aristophanes",
+        "reader": "karampas1968",
+        "readers": [
+          "karampas1968"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Satire"
+        ],
+        "fiction": "y",
+        "book_year": 1910,
+        "epoch": "c20",
+        "total_seconds": 4875,
+        "length_band": "short",
+        "num_sections": 5,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/ecclesiazusae_1709_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/27429",
+        "source_item_id": "12114"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Μέρος Πρώτο",
+          "audio": "https://archive.org/download/ecclesiazusae_1709_librivox/ecclesiazusae_01_aristophanes_64kb.mp3",
+          "duration": 1207,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Μέρος Δεύτερο",
+          "audio": "https://archive.org/download/ecclesiazusae_1709_librivox/ecclesiazusae_02_aristophanes_64kb.mp3",
+          "duration": 774,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Μέρος Τρίτο",
+          "audio": "https://archive.org/download/ecclesiazusae_1709_librivox/ecclesiazusae_03_aristophanes_64kb.mp3",
+          "duration": 906,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Μέρος Τέταρτο",
+          "audio": "https://archive.org/download/ecclesiazusae_1709_librivox/ecclesiazusae_04_aristophanes_64kb.mp3",
+          "duration": 688,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Μέρος Πέμπτο",
+          "audio": "https://archive.org/download/ecclesiazusae_1709_librivox/ecclesiazusae_05_aristophanes_64kb.mp3",
+          "duration": 1300,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:12350",
+      "title": "Phaedon",
+      "displayName": "Plato (Πλάτων) – Phaedon",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 12350)",
+      "url": "https://librivox.org/phaedon-by-plato/",
+      "textUrl": "hoerbuch-texte/el/plato_-_phaedon-12350.txt.gz",
+      "tags": {
+        "work_author": "Plato (Πλάτων)",
+        "reader": "karampas1968",
+        "readers": [
+          "karampas1968"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Philosophy"
+        ],
+        "fiction": "y",
+        "book_year": 1910,
+        "epoch": "c20",
+        "total_seconds": 11927,
+        "length_band": "medium",
+        "num_sections": 23,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/phaedon_1810_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/34874",
+        "source_item_id": "12350"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Πρόλογος",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_01_plato_64kb.mp3",
+          "duration": 197,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Πρώτο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_02_plato_64kb.mp3",
+          "duration": 548,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Δεύτερο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_03_plato_64kb.mp3",
+          "duration": 470,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Τρίτο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_04_plato_64kb.mp3",
+          "duration": 400,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Τέταρτο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_05_plato_64kb.mp3",
+          "duration": 497,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Πέμπτο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_06_plato_64kb.mp3",
+          "duration": 983,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Έκτο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_07_plato_64kb.mp3",
+          "duration": 729,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Έβδομο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_08_plato_64kb.mp3",
+          "duration": 241,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Όγδοο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_09_plato_64kb.mp3",
+          "duration": 693,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Ένατο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_10_plato_64kb.mp3",
+          "duration": 768,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Δέκατο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_11_plato_64kb.mp3",
+          "duration": 949,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Ενδέκατο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_12_plato_64kb.mp3",
+          "duration": 397,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "Δωδέκατο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_13_plato_64kb.mp3",
+          "duration": 261,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "Δέκατο τρίτο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_14_plato_64kb.mp3",
+          "duration": 327,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "Δέκατο τέταρτο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_15_plato_64kb.mp3",
+          "duration": 222,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "Δέκατο πέμπτο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_16_plato_64kb.mp3",
+          "duration": 301,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "Δέκατο έκτο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_17_plato_64kb.mp3",
+          "duration": 251,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "Δέκατο έβδομο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_18_plato_64kb.mp3",
+          "duration": 255,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "Δέκατο όγδοο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_19_plato_64kb.mp3",
+          "duration": 416,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "Δέκατο ένατο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_20_plato_64kb.mp3",
+          "duration": 570,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "Εικοστό Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_21_plato_64kb.mp3",
+          "duration": 339,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch022",
+          "title": "Εικοστό πρώτο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_22_plato_64kb.mp3",
+          "duration": 863,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch023",
+          "title": "Εικοστό δεύτερο Κεφάλαιο",
+          "audio": "https://archive.org/download/phaedon_1810_librivox/phaedon_23_plato_64kb.mp3",
+          "duration": 1250,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:12434",
+      "title": "Πολιτεια του Πλατωνα (τομος δευτερος)",
+      "displayName": "Plato (Πλάτων) – Πολιτεια του Πλατωνα (τομος δευτερος)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 12434)",
+      "url": "https://librivox.org/politia-2-by-plato/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Plato (Πλάτων)",
+        "reader": "karampas1968",
+        "readers": [
+          "karampas1968"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Classics (Greek & Latin Antiquity)"
+        ],
+        "fiction": "y",
+        "book_year": 1911,
+        "epoch": "c20",
+        "total_seconds": 15224,
+        "length_band": "medium",
+        "num_sections": 27,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/politia_2_2305_librivox",
+        "url_text_source": "",
+        "source_item_id": "12434"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Βιβλίον Γ.1",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_01_plato_64kb.mp3",
+          "duration": 419,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Βιβλίον Γ.2",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_02_plato_64kb.mp3",
+          "duration": 434,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Βιβλίον Γ.3",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_03_plato_64kb.mp3",
+          "duration": 460,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Βιβλίον Γ.4",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_04_plato_64kb.mp3",
+          "duration": 496,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Βιβλίον Γ.5",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_05_plato_64kb.mp3",
+          "duration": 509,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Βιβλίον Γ.6",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_06_plato_64kb.mp3",
+          "duration": 683,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Βιβλίον Γ.7",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_07_plato_64kb.mp3",
+          "duration": 685,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Βιβλίον Γ.8",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_08_plato_64kb.mp3",
+          "duration": 327,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Βιβλίον Γ.9",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_09_plato_64kb.mp3",
+          "duration": 551,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Βιβλίον Γ.10",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_10_plato_64kb.mp3",
+          "duration": 155,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Βιβλίον Γ.11",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_11_plato_64kb.mp3",
+          "duration": 487,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Βιβλίον Δ.1",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_12_plato_64kb.mp3",
+          "duration": 615,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "Βιβλιόν Δ.2",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_13_plato_64kb.mp3",
+          "duration": 398,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "Βιβλίον Δ.3",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_14_plato_64kb.mp3",
+          "duration": 262,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "Βιβλίον Δ.4",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_15_plato_64kb.mp3",
+          "duration": 794,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "Βιβλίον Δ.5",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_16_plato_64kb.mp3",
+          "duration": 832,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "Βιβλίον Δ.6",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_17_plato_64kb.mp3",
+          "duration": 840,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "Βιβλίον Δ.7",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_18_plato_64kb.mp3",
+          "duration": 756,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "Βιβλίον Ε.1",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_19_plato_64kb.mp3",
+          "duration": 596,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "Βιβλίον Ε.2",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_20_plato_64kb.mp3",
+          "duration": 342,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "Βιβλίον Ε.3",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_21_plato_64kb.mp3",
+          "duration": 519,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch022",
+          "title": "Βιβλίον Ε.4",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_22_plato_64kb.mp3",
+          "duration": 631,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch023",
+          "title": "Βιβλίον Ε.5",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_23_plato_64kb.mp3",
+          "duration": 617,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch024",
+          "title": "Βιβλίον Ε.6",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_24_plato_64kb.mp3",
+          "duration": 514,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch025",
+          "title": "Βιβλίον Ε.7",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_25_plato_64kb.mp3",
+          "duration": 772,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch026",
+          "title": "Βιβλίον Ε.8",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_26_plato_64kb.mp3",
+          "duration": 612,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch027",
+          "title": "Βιβλίον Ε.9",
+          "audio": "https://archive.org/download/politia_2_2305_librivox/politia2_27_plato_64kb.mp3",
+          "duration": 918,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:13409",
+      "title": "Πολιτεια του Πλατωνα (τομος πρωτος)",
+      "displayName": "Plato (Πλάτων) – Πολιτεια του Πλατωνα (τομος πρωτος)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 13409)",
+      "url": "https://librivox.org/politia-1-by-plato/",
+      "textUrl": "hoerbuch-texte/el/plato_-_x-13409.txt.gz",
+      "tags": {
+        "work_author": "Plato (Πλάτων)",
+        "reader": "karampas1968",
+        "readers": [
+          "karampas1968"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Classics (Greek & Latin Antiquity)"
+        ],
+        "fiction": "y",
+        "book_year": 1911,
+        "epoch": "c20",
+        "total_seconds": 9099,
+        "length_band": "short",
+        "num_sections": 12,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/politia1_1903_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/39476",
+        "source_item_id": "13409"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Βιβλίον Α - Κεφάλαιο 1",
+          "audio": "https://archive.org/download/politia1_1903_librivox/politia1_01_plato_64kb.mp3",
+          "duration": 1139,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Βιβλίον Α - Κεφάλαιο 2",
+          "audio": "https://archive.org/download/politia1_1903_librivox/politia1_02_plato_64kb.mp3",
+          "duration": 505,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Βιβλίον Α - Κεφάλαιο 3",
+          "audio": "https://archive.org/download/politia1_1903_librivox/politia1_03_plato_64kb.mp3",
+          "duration": 1315,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Βιβλίον Α - Κεφάλαιο 4",
+          "audio": "https://archive.org/download/politia1_1903_librivox/politia1_04_plato_64kb.mp3",
+          "duration": 415,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Βιβλίον Α - Κεφάλαιο 5",
+          "audio": "https://archive.org/download/politia1_1903_librivox/politia1_05_plato_64kb.mp3",
+          "duration": 752,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Βιβλίον Α - Κεφάλαιο 6",
+          "audio": "https://archive.org/download/politia1_1903_librivox/politia1_06_plato_64kb.mp3",
+          "duration": 546,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Βιβλίον Β - Κεφάλαιο 1",
+          "audio": "https://archive.org/download/politia1_1903_librivox/politia1_07_plato_64kb.mp3",
+          "duration": 958,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Βιβλίον Β - Κεφάλαιο 2",
+          "audio": "https://archive.org/download/politia1_1903_librivox/politia1_08_plato_64kb.mp3",
+          "duration": 572,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Βιβλίον Β - Κεφάλαιο 3",
+          "audio": "https://archive.org/download/politia1_1903_librivox/politia1_09_plato_64kb.mp3",
+          "duration": 747,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Βιβλίον Β - Κεφάλαιο 4",
+          "audio": "https://archive.org/download/politia1_1903_librivox/politia1_10_plato_64kb.mp3",
+          "duration": 651,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Βιβλίον Β - Κεφάλαιο 5",
+          "audio": "https://archive.org/download/politia1_1903_librivox/politia1_11_plato_64kb.mp3",
+          "duration": 607,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Βιβλίον Β - Κεφάλαιο 6",
+          "audio": "https://archive.org/download/politia1_1903_librivox/politia1_12_plato_64kb.mp3",
+          "duration": 892,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:15132",
+      "title": "Ο γάμος της Λίτσας (Litsa's Marriage)",
+      "displayName": "Xenopoulos, Gregorios – Ο γάμος της Λίτσας (Litsa's Marriage)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 15132)",
+      "url": "https://librivox.org/litsas-marriage-by-gregorios-xenopoulos/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Xenopoulos, Gregorios",
+        "reader": "Rapunzelina",
+        "readers": [
+          "Rapunzelina"
+        ],
+        "reader_mode": "solo",
+        "genres": [],
+        "fiction": "y",
+        "book_year": 1929,
+        "epoch": "c20",
+        "total_seconds": 6350,
+        "length_band": "short",
+        "num_sections": 9,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/litsasmarriage_2504_librivox",
+        "url_text_source": "https://anemi.lib.uoc.gr/metadata/b/a/f/metadata-1715766918-888978-24276.tkl",
+        "source_item_id": "15132"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Α'",
+          "audio": "https://archive.org/download/litsasmarriage_2504_librivox/gamoslitsas_01_xenopoulos_64kb.mp3",
+          "duration": 541,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Β'",
+          "audio": "https://archive.org/download/litsasmarriage_2504_librivox/gamoslitsas_02_xenopoulos_64kb.mp3",
+          "duration": 672,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Γ'",
+          "audio": "https://archive.org/download/litsasmarriage_2504_librivox/gamoslitsas_03_xenopoulos_64kb.mp3",
+          "duration": 530,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Δ'",
+          "audio": "https://archive.org/download/litsasmarriage_2504_librivox/gamoslitsas_04_xenopoulos_64kb.mp3",
+          "duration": 655,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Ε'",
+          "audio": "https://archive.org/download/litsasmarriage_2504_librivox/gamoslitsas_05_xenopoulos_64kb.mp3",
+          "duration": 639,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "ΣΤ'",
+          "audio": "https://archive.org/download/litsasmarriage_2504_librivox/gamoslitsas_06_xenopoulos_64kb.mp3",
+          "duration": 700,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Ζ'",
+          "audio": "https://archive.org/download/litsasmarriage_2504_librivox/gamoslitsas_07_xenopoulos_64kb.mp3",
+          "duration": 525,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Η'",
+          "audio": "https://archive.org/download/litsasmarriage_2504_librivox/gamoslitsas_08_xenopoulos_64kb.mp3",
+          "duration": 694,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Θ'",
+          "audio": "https://archive.org/download/litsasmarriage_2504_librivox/gamoslitsas_09_xenopoulos_64kb.mp3",
+          "duration": 1394,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:15911",
+      "title": "Μνημόσυνα: Άσματα",
+      "displayName": "Valaoritis, Aristotelis – Μνημόσυνα: Άσματα",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 15911)",
+      "url": "https://librivox.org/mnemosina-by-aristotelis-valaoritis/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Valaoritis, Aristotelis",
+        "reader": "Rapunzelina",
+        "readers": [
+          "Rapunzelina"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Poetry"
+        ],
+        "fiction": "y",
+        "book_year": 1861,
+        "epoch": "c19",
+        "total_seconds": 5956,
+        "length_band": "short",
+        "num_sections": 19,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/mnemosina_2101_librivox",
+        "url_text_source": "https://anemi.lib.uoc.gr/metadata/0/7/0/metadata-70-0000020.tkl",
+        "source_item_id": "15911"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Αιμιλίω τω Τοπάλδω",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_01_valaoritis_64kb.mp3",
+          "duration": 416,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Νεκρική Ωδή",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_02_valaoritis_64kb.mp3",
+          "duration": 187,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Η σκλάβα",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_03_valaoritis_64kb.mp3",
+          "duration": 211,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Νάνι-νάνι",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_04_valaoritis_64kb.mp3",
+          "duration": 209,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Θανάσης Βάγιας (intro)",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_05_valaoritis_64kb.mp3",
+          "duration": 213,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Θανάσης Βάγιας (poem)",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_06_valaoritis_64kb.mp3",
+          "duration": 493,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Ο Δήμος και το Καρυοφύλλι του (intro)",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_07_valaoritis_64kb.mp3",
+          "duration": 129,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Ο Δήμος και το Καρυοφύλλι του (poem)",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_08_valaoritis_64kb.mp3",
+          "duration": 181,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Ο Κίτζος και το Γεράκι",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_09_valaoritis_64kb.mp3",
+          "duration": 223,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Ο Σαμουήλ (intro)",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_10_valaoritis_64kb.mp3",
+          "duration": 303,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Ο Σαμουήλ (poem)",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_11_valaoritis_64kb.mp3",
+          "duration": 478,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Το Ψυχοσάββατο",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_12_valaoritis_64kb.mp3",
+          "duration": 318,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "Ο Κατζαντώνης (intro)",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_13_valaoritis_64kb.mp3",
+          "duration": 324,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "Ο Κατζαντώνης (poem)",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_14_valaoritis_64kb.mp3",
+          "duration": 272,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "Η Φυγή (intro)",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_15_valaoritis_64kb.mp3",
+          "duration": 98,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "Η Φυγή (poem)",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_16_valaoritis_64kb.mp3",
+          "duration": 348,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "Ευθύμιος Βλαχάβας (intro)",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_17_valaoritis_64kb.mp3",
+          "duration": 190,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "Ευθύμιος Βλαχάβας (poem)",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_18_valaoritis_64kb.mp3",
+          "duration": 964,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "Η Δάφνη και το Αηδόνι",
+          "audio": "https://archive.org/download/mnemosina_2101_librivox/mnemosina_19_valaoritis_64kb.mp3",
+          "duration": 399,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:16012",
+      "title": "Χριστουγεννιάτικα Διηγήματα (Christmas Short Stories)",
+      "displayName": "Papadiamantis, Alexandros – Χριστουγεννιάτικα Διηγήματα (Christmas Short Stories)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 16012)",
+      "url": "https://librivox.org/christmas-short-stories-by-alexandros-papadiamantis/",
+      "textUrl": "hoerbuch-texte/el/papadiamantis-alexandros_-_christmas-short-stories-16012.txt.gz",
+      "tags": {
+        "work_author": "Papadiamantis, Alexandros",
+        "reader": "Penelope",
+        "readers": [
+          "Penelope"
+        ],
+        "reader_mode": "solo",
+        "genres": [],
+        "fiction": "y",
+        "book_year": 0,
+        "epoch": "antike",
+        "total_seconds": 14425,
+        "length_band": "medium",
+        "num_sections": 8,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/christmasstories_2102_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/36845",
+        "source_item_id": "16012"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Η ΣΤΑΧΟΜΑΖΩΧΤΡΑ",
+          "audio": "https://archive.org/download/christmasstories_2102_librivox/christmasstories_01_papadiamantis_64kb.mp3",
+          "duration": 1811,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "ΤΗΣ ΚΟΚΚΟΝΑΣ ΤΟ ΣΠΙΤΙ",
+          "audio": "https://archive.org/download/christmasstories_2102_librivox/christmasstories_02_papadiamantis_64kb.mp3",
+          "duration": 1480,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "ΥΠΗΡΕΤΡΑ",
+          "audio": "https://archive.org/download/christmasstories_2102_librivox/christmasstories_03_papadiamantis_64kb.mp3",
+          "duration": 1091,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Η ΓΛΥΚΟΦΙΛΟΥΣΑ",
+          "audio": "https://archive.org/download/christmasstories_2102_librivox/christmasstories_04_papadiamantis_64kb.mp3",
+          "duration": 2905,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Η ΤΥΧΗ ΑΠ' ΤΗΝ ΑΜΕΡΙΚΑ",
+          "audio": "https://archive.org/download/christmasstories_2102_librivox/christmasstories_05_papadiamantis_64kb.mp3",
+          "duration": 3485,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "ΟΙ ΝΑΥΑΓΟΣΩΣΤΑΙ",
+          "audio": "https://archive.org/download/christmasstories_2102_librivox/christmasstories_06_papadiamantis_64kb.mp3",
+          "duration": 1015,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Ο ΠΑΝΤΑΡΩΤΑΣ",
+          "audio": "https://archive.org/download/christmasstories_2102_librivox/christmasstories_07_papadiamantis_64kb.mp3",
+          "duration": 1379,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Η ΠΕΠΟΙΚΙΛΜΕΝΗ",
+          "audio": "https://archive.org/download/christmasstories_2102_librivox/christmasstories_08_papadiamantis_64kb.mp3",
+          "duration": 1259,
+          "tags": {
+            "reader": "Penelope"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:16383",
+      "title": "Παραμύθια Δανικά, εκ των του Ανδερσεν",
+      "displayName": "Andersen, Hans Christian – Παραμύθια Δανικά, εκ των του Ανδερσεν",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 16383)",
+      "url": "https://librivox.org/danish-tales-by-hans-christian-andersen/",
+      "textUrl": "hoerbuch-texte/el/andersen-hans-christian_-_x-16383.txt.gz",
+      "tags": {
+        "work_author": "Andersen, Hans Christian",
+        "reader": "Penelope",
+        "readers": [
+          "Penelope"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Myths, Legends & Fairy Tales"
+        ],
+        "fiction": "y",
+        "book_year": 0,
+        "epoch": "antike",
+        "total_seconds": 7364,
+        "length_band": "short",
+        "num_sections": 9,
+        "has_text": true,
+        "translators": [
+          "Demetrios Vikelas"
+        ],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/danishtales_2103_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/31450",
+        "source_item_id": "16383"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "ΤΑ ΦΟΡΕΜΑΤΑ ΤΟΥ ΒΑΣΙΛΕΩΣ",
+          "audio": "https://archive.org/download/danishtales_2103_librivox/danishtales_01_andersen_64kb.mp3",
+          "duration": 847,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "ΤΟ ΑΣΧΗΜΟΠΑΠΟΝ",
+          "audio": "https://archive.org/download/danishtales_2103_librivox/danishtales_02_andersen_64kb.mp3",
+          "duration": 1383,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "ΤΟ ΧΑΜΟΜΗΛΟΝ",
+          "audio": "https://archive.org/download/danishtales_2103_librivox/danishtales_03_andersen_64kb.mp3",
+          "duration": 585,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "ΕΙΝΑΙ ΑΛΗΘΕΣΤΑΤΟΝ",
+          "audio": "https://archive.org/download/danishtales_2103_librivox/danishtales_04_andersen_64kb.mp3",
+          "duration": 468,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Η ΒΑΣΙΛΟΠΟΥΛΑ ΚΑΙ ΤΟ ΡΕΒΙΘΙ",
+          "audio": "https://archive.org/download/danishtales_2103_librivox/danishtales_05_andersen_64kb.mp3",
+          "duration": 218,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Ο ΣΤΑΘΕΡΟΣ ΣΤΡΑΤΙΩΤΗΣ",
+          "audio": "https://archive.org/download/danishtales_2103_librivox/danishtales_06_andersen_64kb.mp3",
+          "duration": 853,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "ΙΣΤΟΡΙΑ ΜΙΑΣ ΔΡΑΧΜΗΣ",
+          "audio": "https://archive.org/download/danishtales_2103_librivox/danishtales_07_andersen_64kb.mp3",
+          "duration": 593,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Η ΣΑΚΟΡΑΦΑ",
+          "audio": "https://archive.org/download/danishtales_2103_librivox/danishtales_08_andersen_64kb.mp3",
+          "duration": 609,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "ΟΙ ΔΥΟ ΚΛΩΣΟΙ",
+          "audio": "https://archive.org/download/danishtales_2103_librivox/danishtales_09_andersen_64kb.mp3",
+          "duration": 1808,
+          "tags": {
+            "reader": "Penelope"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:16460",
+      "title": "Συριανά Διηγήματα (Short Stories from Syros)",
+      "displayName": "Rhoides, Emmanuel – Συριανά Διηγήματα (Short Stories from Syros)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 16460)",
+      "url": "https://librivox.org/syriana-by-emmanuel-rhoides/",
+      "textUrl": "hoerbuch-texte/el/rhoides-emmanuel_-_short-stories-from-syros-16460.txt.gz",
+      "tags": {
+        "work_author": "Rhoides, Emmanuel",
+        "reader": "Penelope",
+        "readers": [
+          "Penelope"
+        ],
+        "reader_mode": "solo",
+        "genres": [],
+        "fiction": "y",
+        "book_year": 1917,
+        "epoch": "c20",
+        "total_seconds": 11945,
+        "length_band": "medium",
+        "num_sections": 6,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/syriana_2104_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/27301",
+        "source_item_id": "16460"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "ΨΥΧΟΛΟΓΙΑ ΣΥΡΙΑΝΟΥ ΣΥΖΥΓΟΥ",
+          "audio": "https://archive.org/download/syriana_2104_librivox/syriana_01_rhoides_64kb.mp3",
+          "duration": 3598,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "ΙΣΤΟΡΙΑ ΕΝΟΣ ΣΚΥΛΟΥ",
+          "audio": "https://archive.org/download/syriana_2104_librivox/syriana_02_rhoides_64kb.mp3",
+          "duration": 1343,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "ΙΣΤΟΡΙΑ ΜΙΑΣ ΓΑΤΑΣ",
+          "audio": "https://archive.org/download/syriana_2104_librivox/syriana_03_rhoides_64kb.mp3",
+          "duration": 2434,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "ΤΟ ΞΕΣΤΟΥΠΩΜΑ",
+          "audio": "https://archive.org/download/syriana_2104_librivox/syriana_04_rhoides_64kb.mp3",
+          "duration": 483,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "ΤΟ ΠΑΡΑΠΟΝΟ ΤΟΥ ΝΕΚΡΟΘΑΠΤΟΥ",
+          "audio": "https://archive.org/download/syriana_2104_librivox/syriana_05_rhoides_64kb.mp3",
+          "duration": 3317,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "ΙΣΤΟΡΙΑ ΟΡΝΙΘΩΝΟΣ",
+          "audio": "https://archive.org/download/syriana_2104_librivox/syriana_06_rhoides_64kb.mp3",
+          "duration": 770,
+          "tags": {
+            "reader": "Penelope"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:16605",
+      "title": "Ψηλά Βουνά",
+      "displayName": "Papantoniou, Zacharias – Ψηλά Βουνά",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 16605)",
+      "url": "https://librivox.org/ta-psila-vouna-by-zacharias-papantoniou/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Papantoniou, Zacharias",
+        "reader": "Penelope",
+        "readers": [
+          "Penelope"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Children's Fiction"
+        ],
+        "fiction": "y",
+        "book_year": 1918,
+        "epoch": "c20",
+        "total_seconds": 15327,
+        "length_band": "medium",
+        "num_sections": 79,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/psilavouna_2105_librivox",
+        "url_text_source": "https://el.wikisource.org/wiki/Τα_ψηλά_βουνά",
+        "source_item_id": "16605"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Οἱ τρεῖς φωτιές",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_01_papantoniou_64kb.mp3",
+          "duration": 205,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Τὸ γράμμα τοῦ Ἀντρέα",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_02_papantoniou_64kb.mp3",
+          "duration": 277,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Τὸ ξεκίνημα",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_03_papantoniou_64kb.mp3",
+          "duration": 283,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Οἱ μικροὶ ταξιδιῶτες ἀνεβαίνουν τὸ βουνὸ",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_04_papantoniou_64kb.mp3",
+          "duration": 96,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Τὸ τραγούδι τοῦ Μπαρμπαφώτη",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_05_papantoniou_64kb.mp3",
+          "duration": 113,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Τὰ παιδιὰ κοιτάζουν τὸ νερὸ τῆς Ρούμελης",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_06_papantoniou_64kb.mp3",
+          "duration": 148,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Καταστροφὴ στὰ κουλούρια τοῦ Φουντούλη",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_07_papantoniou_64kb.mp3",
+          "duration": 128,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Τὰ μουλάρια ξέρουν ποῦ θὰ φᾶνε οἱ ταξιδιῶτες",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_08_papantoniou_64kb.mp3",
+          "duration": 75,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Ἡ βρύση",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_09_papantoniou_64kb.mp3",
+          "duration": 201,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Ἡ πρώτη βραδιὰ στὸ δάσος",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_10_papantoniou_64kb.mp3",
+          "duration": 240,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Ἄστρα, γρῦλοι καὶ κουδούνια",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_11_papantoniou_64kb.mp3",
+          "duration": 219,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Τὰ παιδιὰ σχηματίζουν κοινότητα",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_12_papantoniou_64kb.mp3",
+          "duration": 239,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "Πόλεμος μ’ ἕνα μαντρόσκυλο",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_13_papantoniou_64kb.mp3",
+          "duration": 152,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "Ἕνα βλαχόπουλο ποὺ δὲ λέει πολλὰ λόγια",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_14_papantoniou_64kb.mp3",
+          "duration": 172,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "Ἡ βλαχοπούλα μιλεῖ στὰ παιδιὰ",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_15_papantoniou_64kb.mp3",
+          "duration": 265,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "Τὸ πρῶτο συσσίτιο",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_16_papantoniou_64kb.mp3",
+          "duration": 174,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "Οἱ ἐπιγραφές τοῦ Καλογιάννη",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_17_papantoniou_64kb.mp3",
+          "duration": 93,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "Συγκοινωνία μὲ κατοικημένους τόπους",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_18_papantoniou_64kb.mp3",
+          "duration": 203,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "Προμηθεύονται ἐργαλεῖα γιὰ τοὺς δρόμους",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_19_papantoniou_64kb.mp3",
+          "duration": 168,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "Τὰ παιδιὰ φτιάνουν δρόμους",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_20_papantoniou_64kb.mp3",
+          "duration": 256,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "Ἔρχεται ἡ ἀλεποὺ",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_21_papantoniou_64kb.mp3",
+          "duration": 142,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch022",
+          "title": "Τὰ ἑφτὰ μικρὰ στὸ κυνήγι τῆς κότας",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_22_papantoniou_64kb.mp3",
+          "duration": 297,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch023",
+          "title": "Οἱ νοικοκυραῖοι παίρνουν εἴδηση",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_23_papantoniou_64kb.mp3",
+          "duration": 226,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch024",
+          "title": "Οἱ Ζαβοπαναγῆδες",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_24_papantoniou_64kb.mp3",
+          "duration": 149,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch025",
+          "title": "Ἡ γριὰ Χάρμαινα",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_25_papantoniou_64kb.mp3",
+          "duration": 364,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch026",
+          "title": "Ὁ Λάμπρος ὁδηγεῖ τὸ κοπάδι",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_26_papantoniou_64kb.mp3",
+          "duration": 181,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch027",
+          "title": "Ἕνα σχολεῖο ἐκεῖ ποὺ δὲν τὸ περίμενε κανένας",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_27_papantoniou_64kb.mp3",
+          "duration": 277,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch028",
+          "title": "Τί εἶδε ὁ Λάμπρος ὅταν τελείωσε τὸ μάθημα",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_28_papantoniou_64kb.mp3",
+          "duration": 87,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch029",
+          "title": "Ἕνας δάσκαλος στὴν κοινότητα",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_29_papantoniou_64kb.mp3",
+          "duration": 86,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch030",
+          "title": "Στοὺς ἴσκιους τῶν δέντρων",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_30_papantoniou_64kb.mp3",
+          "duration": 103,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch031",
+          "title": "Ὁ Γεροθανάσης",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_31_papantoniou_64kb.mp3",
+          "duration": 173,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch032",
+          "title": "Ἕνας ἐθελοντὴς χωροφύλακας γιὰ τὴν ἀλεποὺ",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_32_papantoniou_64kb.mp3",
+          "duration": 171,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch033",
+          "title": "Ἕνα ξαφνικὸ ἐπεισόδιο",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_33_papantoniou_64kb.mp3",
+          "duration": 226,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch034",
+          "title": "Ὁ ἄνθρωπος ποὺ τρώει τὸ δάσος",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_34_papantoniou_64kb.mp3",
+          "duration": 91,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch035",
+          "title": "Τὰ παιδιὰ εἰδοποιοῦν τοὺς χωροφύλακες",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_35_papantoniou_64kb.mp3",
+          "duration": 145,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch036",
+          "title": "Τὸ πληγωμένο πεῦκο",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_36_papantoniou_64kb.mp3",
+          "duration": 119,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch037",
+          "title": "Τὰ παιδιὰ γίνονται δασοφύλακες",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_37_papantoniou_64kb.mp3",
+          "duration": 133,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch038",
+          "title": "Δασοφύλακες, γρηγορεῖτε!",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_38_papantoniou_64kb.mp3",
+          "duration": 61,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch039",
+          "title": "Οἱ δεντροκόποι δὲν πέρασαν καλὰ",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_39_papantoniou_64kb.mp3",
+          "duration": 158,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch040",
+          "title": "Τὸ μαῦρο τραγάκι",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_40_papantoniou_64kb.mp3",
+          "duration": 180,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch041",
+          "title": "Τὸ τραγούδι τῆς Ἀφρόδως",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_41_papantoniou_64kb.mp3",
+          "duration": 130,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch042",
+          "title": "Ἡ ἱστορία τοῦ Γιάννη ἀπὸ τὸ Πουρνάρι",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_42_papantoniou_64kb.mp3",
+          "duration": 188,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch043",
+          "title": "Ἡ κατάρα τοῦ πεύκου",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_43_papantoniou_64kb.mp3",
+          "duration": 206,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch044",
+          "title": "Τὸ λουτρὸ",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_44_papantoniou_64kb.mp3",
+          "duration": 328,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch045",
+          "title": "Ὁ μεθυσμένος μυλωνὰς",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_45_papantoniou_64kb.mp3",
+          "duration": 161,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch046",
+          "title": "Στὸν ἔλατο",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_46_papantoniou_64kb.mp3",
+          "duration": 260,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch047",
+          "title": "Γιὰ τὸν ἥλιο ποὺ βασιλεύει",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_47_papantoniou_64kb.mp3",
+          "duration": 340,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch048",
+          "title": "Ὁ Φάνης ὁλομόναχος",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_48_papantoniou_64kb.mp3",
+          "duration": 228,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch049",
+          "title": "Μεγάλη ἀνησυχία στὶς καλύβες",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_49_papantoniou_64kb.mp3",
+          "duration": 180,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch050",
+          "title": "Περπατοῦν γιὰ τὸ Φάνη",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_50_papantoniou_64kb.mp3",
+          "duration": 250,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch051",
+          "title": "Τὰ δῶρα τῆς ἡμέρας",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_51_papantoniou_64kb.mp3",
+          "duration": 286,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch052",
+          "title": "Ὁ Ἀραπόβραχος",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_52_papantoniou_64kb.mp3",
+          "duration": 344,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch053",
+          "title": "Καλὴ νύχτα, γερο- Ἀράπη!",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_53_papantoniou_64kb.mp3",
+          "duration": 172,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch054",
+          "title": "Ἀκόμη κι ὁ Γκέκας εἶναι γελαστὸς",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_54_papantoniou_64kb.mp3",
+          "duration": 119,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch055",
+          "title": "Ὁ Θύμιος ὁ κουδουνάς ἀπὸ τὰ Σάλωνα",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_55_papantoniou_64kb.mp3",
+          "duration": 175,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch056",
+          "title": "Ὁ Φουντούλης ἄρρωστος",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_56_papantoniou_64kb.mp3",
+          "duration": 168,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch057",
+          "title": "Ὁ Κωστάκης μ’ ἕνα παπούτσι",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_57_papantoniou_64kb.mp3",
+          "duration": 284,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch058",
+          "title": "Ὁ λύκος",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_58_papantoniou_64kb.mp3",
+          "duration": 468,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch059",
+          "title": "Μιὰ μικρὴ τελετὴ στὸ δάσος",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_59_papantoniou_64kb.mp3",
+          "duration": 171,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch060",
+          "title": "Ὁ χείμαρρος",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_60_papantoniou_64kb.mp3",
+          "duration": 257,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch061",
+          "title": "Ἀπὸ ποῦ ἔρχεται τὸ νερό.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_61_papantoniou_64kb.mp3",
+          "duration": 114,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch062",
+          "title": "Καὶ τὰ δέντρα πονοῦν.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_62_papantoniou_64kb.mp3",
+          "duration": 67,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch063",
+          "title": "Τ’ ὄνειρο τοῦ χωριάτη.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_63_papantoniou_64kb.mp3",
+          "duration": 354,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch064",
+          "title": "Τὰ πεθαμένα δέντρα.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_64_papantoniou_64kb.mp3",
+          "duration": 232,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch065",
+          "title": "Στὸ νεροπρίονο.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_65_papantoniou_64kb.mp3",
+          "duration": 248,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch066",
+          "title": "Τὸ τραγούδι στὸ νέο καράβι.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_66_papantoniou_64kb.mp3",
+          "duration": 129,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch067",
+          "title": "Ὁ Σπύρος βρίσκει κάτι χρήσιμο.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_67_papantoniou_64kb.mp3",
+          "duration": 109,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch068",
+          "title": "Ἡ θύελλα.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_68_papantoniou_64kb.mp3",
+          "duration": 215,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch069",
+          "title": "Ἡ θύελλα στὶς καλύβες τῶν παιδιῶν.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_69_papantoniou_64kb.mp3",
+          "duration": 197,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch070",
+          "title": "Ἕνα μήνυμα.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_70_papantoniou_64kb.mp3",
+          "duration": 178,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch071",
+          "title": "Στὸ μοναστήρι.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_71_papantoniou_64kb.mp3",
+          "duration": 165,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch072",
+          "title": "Ὁ ἑσπερινός.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_72_papantoniou_64kb.mp3",
+          "duration": 180,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch073",
+          "title": "Ἀπόδειπνο.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_73_papantoniou_64kb.mp3",
+          "duration": 84,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch074",
+          "title": "Ἡ λειτουργία.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_74_papantoniou_64kb.mp3",
+          "duration": 114,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch075",
+          "title": "Ὁ γάμος τῆς Ἀφρόδως.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_75_papantoniou_64kb.mp3",
+          "duration": 339,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch076",
+          "title": "Ὁ Γκέκας ἔκαμε ὅ τι ἔπρεπε.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_76_papantoniou_64kb.mp3",
+          "duration": 302,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch077",
+          "title": "Ὁ Γεροθανάσης φοβᾶται μὴ δακρύση.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_77_papantoniou_64kb.mp3",
+          "duration": 230,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch078",
+          "title": "Ὁ γυρισμός.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_78_papantoniou_64kb.mp3",
+          "duration": 174,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch079",
+          "title": "Ἔπειτα ἀπὸ χρόνια.",
+          "audio": "https://archive.org/download/psilavouna_2105_librivox/psilavouna_79_papantoniou_64kb.mp3",
+          "duration": 105,
+          "tags": {
+            "reader": "Penelope"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:16798",
+      "title": "Γύροι της Ανέμης, Παραμύθια",
+      "displayName": "Vlachogiannis, Giannis – Γύροι της Ανέμης, Παραμύθια",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 16798)",
+      "url": "https://librivox.org/guroi-tis-anemis-by-vlachogiannis/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Vlachogiannis, Giannis",
+        "reader": "Penelope",
+        "readers": [
+          "Penelope"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Children's Fiction"
+        ],
+        "fiction": "y",
+        "book_year": 1923,
+        "epoch": "c20",
+        "total_seconds": 18731,
+        "length_band": "medium",
+        "num_sections": 12,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/guroitisanemis_2108_librivox",
+        "url_text_source": "https://anemi.lib.uoc.gr/metadata/0/6/e/metadata-1515398115-254434-18288.tkl",
+        "source_item_id": "16798"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "ΑΡΧΗ ΤΟΥ ΠΑΡΑΜΥΘΙΟΥ",
+          "audio": "https://archive.org/download/guroitisanemis_2108_librivox/guroitisanemis_01_vlachogiannis_64kb.mp3",
+          "duration": 1719,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "ΒΑΣΙΛΙΣΣΑ ΧΩΡΙΑΤΙΣΣΑ",
+          "audio": "https://archive.org/download/guroitisanemis_2108_librivox/guroitisanemis_02_vlachogiannis_64kb.mp3",
+          "duration": 710,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Ο ΠΕΤΕΙΝΟΣ Κ΄ Η ΟΡΝΙΘΑ",
+          "audio": "https://archive.org/download/guroitisanemis_2108_librivox/guroitisanemis_03_vlachogiannis_64kb.mp3",
+          "duration": 1016,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "ΑΥΤΟ ΘΕΛΩ Κ' ΕΓΩ",
+          "audio": "https://archive.org/download/guroitisanemis_2108_librivox/guroitisanemis_04_vlachogiannis_64kb.mp3",
+          "duration": 1229,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "ΤΟ ΜΑΥΡΟΦΑΣΟΥΛΟ",
+          "audio": "https://archive.org/download/guroitisanemis_2108_librivox/guroitisanemis_05_vlachogiannis_64kb.mp3",
+          "duration": 1175,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "ΓΕΙΤΟΝΑΣ ΚΑΙ ΓΕΙΤΟΝΑΣ",
+          "audio": "https://archive.org/download/guroitisanemis_2108_librivox/guroitisanemis_06_vlachogiannis_64kb.mp3",
+          "duration": 567,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Η ΚΑΤΑΡΑ ΤΟΥ ΠΑΤΕΡΑ",
+          "audio": "https://archive.org/download/guroitisanemis_2108_librivox/guroitisanemis_07_vlachogiannis_64kb.mp3",
+          "duration": 879,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "ΑΠΟ ΠΟΥ ΒΓΗΚΑΝ ΟΙ ΣΠΑΝΟΙ",
+          "audio": "https://archive.org/download/guroitisanemis_2108_librivox/guroitisanemis_08_vlachogiannis_64kb.mp3",
+          "duration": 918,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "ΤΟ ΠΑΡΑΜΥΘΙ ΤΟΥ ΒΟΣΚΟΥ ΚΑΙ ΤΟΥ ΛΥΚΟΥ",
+          "audio": "https://archive.org/download/guroitisanemis_2108_librivox/guroitisanemis_09_vlachogiannis_64kb.mp3",
+          "duration": 1599,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "ΝΥΦΗ ΠΕΤΑΛΟΥΔΑ",
+          "audio": "https://archive.org/download/guroitisanemis_2108_librivox/guroitisanemis_10_vlachogiannis_64kb.mp3",
+          "duration": 3263,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Ο ΒΑΣΙΛΙΑΣ Ο ΤΥΧΕΡΟΣ",
+          "audio": "https://archive.org/download/guroitisanemis_2108_librivox/guroitisanemis_11_vlachogiannis_64kb.mp3",
+          "duration": 1322,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Ο ΠΑΛΙΟΣ Ο ΒΑΣΙΛΙΑΣ ΚΙ' Ο ΚΑΙΝΟΥΡΙΟΣ ΒΑΣΙΛΙΑΣ",
+          "audio": "https://archive.org/download/guroitisanemis_2108_librivox/guroitisanemis_12_vlachogiannis_64kb.mp3",
+          "duration": 4334,
+          "tags": {
+            "reader": "Penelope"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:17025",
+      "title": "Για την Πατρίδα",
+      "displayName": "Delta, Penelope – Για την Πατρίδα",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 17025)",
+      "url": "https://librivox.org/gia-tin-patrida-by-penelope-delta/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Delta, Penelope",
+        "reader": "Penelope",
+        "readers": [
+          "Penelope"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Action & Adventure"
+        ],
+        "fiction": "y",
+        "book_year": 1909,
+        "epoch": "c20",
+        "total_seconds": 13414,
+        "length_band": "medium",
+        "num_sections": 17,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/giatinpatrida_2109_librivox",
+        "url_text_source": "https://anemi.lib.uoc.gr/metadata/9/5/3/metadata-1537349883-660317-18179.tkl",
+        "source_item_id": "17025"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Έλληνες και Βούλγαροι",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_01_delta_64kb.mp3",
+          "duration": 515,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Σκλαβιά",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_02_delta_64kb.mp3",
+          "duration": 505,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Το νικημένο Θηρίο",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_03_delta_64kb.mp3",
+          "duration": 906,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Ο Όρκος",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_04_delta_64kb.mp3",
+          "duration": 733,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Στο Παλάτι",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_05_delta_64kb.mp3",
+          "duration": 852,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Ο γάμος",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_06_delta_64kb.mp3",
+          "duration": 1022,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Πραματευτής και παραγιός",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_07_delta_64kb.mp3",
+          "duration": 801,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Ο Καλόγερος",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_08_delta_64kb.mp3",
+          "duration": 828,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Οι λύκοι",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_09_delta_64kb.mp3",
+          "duration": 585,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Ο Πάτερ Παφνούτιος",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_10_delta_64kb.mp3",
+          "duration": 1375,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Ο Κατάσκοπος",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_11_delta_64kb.mp3",
+          "duration": 1076,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Θέκλα",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_12_delta_64kb.mp3",
+          "duration": 772,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "Για την Πατρίδα",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_13_delta_64kb.mp3",
+          "duration": 1115,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "Ο Τάφος του Παλληκαριού",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_14_delta_64kb.mp3",
+          "duration": 468,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "Στο Δυρράχιο",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_15_delta_64kb.mp3",
+          "duration": 414,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "Το Δαχτυλίδι του Χρυσήλιου",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_16_delta_64kb.mp3",
+          "duration": 860,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "Τι στοιχίζει το καθήκον",
+          "audio": "https://archive.org/download/giatinpatrida_2109_librivox/giatinpatrida_17_delta_64kb.mp3",
+          "duration": 587,
+          "tags": {
+            "reader": "Penelope"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:17123",
+      "title": "Καρδιά της Βασιλοπούλας",
+      "displayName": "Delta, Penelope – Καρδιά της Βασιλοπούλας",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 17123)",
+      "url": "https://librivox.org/ikardiatisbasilopulas-by-penelope-delta/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Delta, Penelope",
+        "reader": "Penelope",
+        "readers": [
+          "Penelope"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Children's Fiction"
+        ],
+        "fiction": "y",
+        "book_year": 1909,
+        "epoch": "c20",
+        "total_seconds": 4975,
+        "length_band": "short",
+        "num_sections": 3,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/ikardiatisbasilopulas_2109_librivox",
+        "url_text_source": "https://anemi.lib.uoc.gr/metadata/9/5/3/metadata-1537349883-660317-18179.tkl",
+        "source_item_id": "17123"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Η βασιλοπούλα χάνει την καρδιά της",
+          "audio": "https://archive.org/download/ikardiatisbasilopulas_2109_librivox/ikardiatisbasilopulas_01_delta_64kb.mp3",
+          "duration": 1308,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Η βασιλοπούλα ψάχνει για την καρδιά της",
+          "audio": "https://archive.org/download/ikardiatisbasilopulas_2109_librivox/ikardiatisbasilopulas_02_delta_64kb.mp3",
+          "duration": 659,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Η βασιλοπούλα βρίσκει την καρδιά της",
+          "audio": "https://archive.org/download/ikardiatisbasilopulas_2109_librivox/ikardiatisbasilopulas_03_delta_64kb.mp3",
+          "duration": 3008,
+          "tags": {
+            "reader": "Penelope"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:17467",
+      "title": "κακός δρόμος, κι άλλα καινούρια διηγήματα (1908-1911)",
+      "displayName": "Xenopoulos, Gregorios – κακός δρόμος, κι άλλα καινούρια διηγήματα (1908-1911)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 17467)",
+      "url": "https://librivox.org/o-kakos-dromos-by-gregorios-xenopoulos/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Xenopoulos, Gregorios",
+        "reader": "Penelope",
+        "readers": [
+          "Penelope",
+          "Rapunzelina"
+        ],
+        "reader_mode": "mixed",
+        "genres": [],
+        "fiction": "y",
+        "book_year": 191,
+        "epoch": "antike",
+        "total_seconds": 17409,
+        "length_band": "medium",
+        "num_sections": 11,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/kakosdromos_2201_librivox",
+        "url_text_source": "https://anemi.lib.uoc.gr/metadata/e/2/c/metadata-443-0000000.tkl",
+        "source_item_id": "17467"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Ο ΚΑΚΟΣ ΔΡΟΜΟΣ Α΄",
+          "audio": "https://archive.org/download/kakosdromos_2201_librivox/kakosdromos_01_xenopoulos_64kb.mp3",
+          "duration": 1682,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Ο ΚΑΚΟΣ ΔΡΟΜΟΣ Β΄",
+          "audio": "https://archive.org/download/kakosdromos_2201_librivox/kakosdromos_02_xenopoulos_64kb.mp3",
+          "duration": 1528,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Ο ΚΑΚΟΣ ΔΡΟΜΟΣ Γ΄",
+          "audio": "https://archive.org/download/kakosdromos_2201_librivox/kakosdromos_03_xenopoulos_64kb.mp3",
+          "duration": 1577,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Ο ΚΑΚΟΣ ΔΡΟΜΟΣ Δ΄",
+          "audio": "https://archive.org/download/kakosdromos_2201_librivox/kakosdromos_04_xenopoulos_64kb.mp3",
+          "duration": 1361,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Ο ΚΑΚΟΣ ΔΡΟΜΟΣ Ε΄",
+          "audio": "https://archive.org/download/kakosdromos_2201_librivox/kakosdromos_05_xenopoulos_64kb.mp3",
+          "duration": 1637,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Η ΜΕΛΟΘΑΝΑΤΗ",
+          "audio": "https://archive.org/download/kakosdromos_2201_librivox/kakosdromos_06_xenopoulos_64kb.mp3",
+          "duration": 2882,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "ΚΕΛΑΪΔΙΣΜΟΙ",
+          "audio": "https://archive.org/download/kakosdromos_2201_librivox/kakosdromos_07_xenopoulos_64kb.mp3",
+          "duration": 985,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Ο ΜΑΓΚΑΛΟΣ",
+          "audio": "https://archive.org/download/kakosdromos_2201_librivox/kakosdromos_08_xenopoulos_64kb.mp3",
+          "duration": 2516,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Η ΦΑΤΝΗ",
+          "audio": "https://archive.org/download/kakosdromos_2201_librivox/kakosdromos_09_xenopoulos_64kb.mp3",
+          "duration": 904,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "ΤΑ ΔΥΟ ΑΔΕΡΦΙΑ",
+          "audio": "https://archive.org/download/kakosdromos_2201_librivox/kakosdromos_10_xenopoulos_64kb.mp3",
+          "duration": 754,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "ΓΙΑ ΤΗΝ ΑΓΑΠΗ ΤΗΣ ΠΑΤΡΙΔΑΣ",
+          "audio": "https://archive.org/download/kakosdromos_2201_librivox/kakosdromos_11_xenopoulos_64kb.mp3",
+          "duration": 1582,
+          "tags": {
+            "reader": "Penelope"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:17746",
+      "title": "Ποίος ήτον ο φονεύς του αδελφού μου",
+      "displayName": "Vizyinos, Georgios – Ποίος ήτον ο φονεύς του αδελφού μου",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 17746)",
+      "url": "https://librivox.org/poios-iton-o-foneus-to-adelfou-mou-by-georgios-vizyinos/",
+      "textUrl": "hoerbuch-texte/el/vizyinos-georgios_-_x-17746.txt.gz",
+      "tags": {
+        "work_author": "Vizyinos, Georgios",
+        "reader": "Penelope",
+        "readers": [
+          "Penelope"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Crime & Mystery Fiction"
+        ],
+        "fiction": "y",
+        "book_year": 0,
+        "epoch": "antike",
+        "total_seconds": 8388,
+        "length_band": "short",
+        "num_sections": 3,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/poiositonofoneus_2204_librivox",
+        "url_text_source": " https://www.gutenberg.org/ebooks/34133",
+        "source_item_id": "17746"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Ποίος ήτον ο φονεύς του αδελφού μου",
+          "audio": "https://archive.org/download/poiositonofoneus_2204_librivox/poiositonofoneus_01_vizyinos_64kb.mp3",
+          "duration": 2238,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Ποίος ήτον ο φονεύς του αδελφού μου 2",
+          "audio": "https://archive.org/download/poiositonofoneus_2204_librivox/poiositonofoneus_02_vizyinos_64kb.mp3",
+          "duration": 1737,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Ποίος ήτον ο φονεύς του αδελφού μου 3",
+          "audio": "https://archive.org/download/poiositonofoneus_2204_librivox/poiositonofoneus_03_vizyinos_64kb.mp3",
+          "duration": 4413,
+          "tags": {
+            "reader": "Penelope"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:17824",
+      "title": "Πασχαλινά διηγήματα (Easter Short Stories)",
+      "displayName": "Papadiamantis, Alexandros – Πασχαλινά διηγήματα (Easter Short Stories)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 17824)",
+      "url": "https://librivox.org/pasxalina-diigimata-by-alexandros-papadiamantis/",
+      "textUrl": "hoerbuch-texte/el/papadiamantis-alexandros_-_easter-short-stories-17824.txt.gz",
+      "tags": {
+        "work_author": "Papadiamantis, Alexandros",
+        "reader": "Penelope",
+        "readers": [
+          "Penelope"
+        ],
+        "reader_mode": "solo",
+        "genres": [],
+        "fiction": "y",
+        "book_year": null,
+        "epoch": null,
+        "total_seconds": 10419,
+        "length_band": "short",
+        "num_sections": 4,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/pasxalina_2204_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/31653",
+        "source_item_id": "17824"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "ΕΞΟΧΙΚΗ ΛΑΜΠΡΗ",
+          "audio": "https://archive.org/download/pasxalina_2204_librivox/pasxalina_01_papadiamantis_64kb.mp3",
+          "duration": 1480,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Η ΤΕΛΕΥΤΑΙΑ ΒΑΠΤΙΣΤΙΚΗ",
+          "audio": "https://archive.org/download/pasxalina_2204_librivox/pasxalina_02_papadiamantis_64kb.mp3",
+          "duration": 1011,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "ΣΤΗΝ ΑΓ'ΑΝΑΣΤΑΣΑ",
+          "audio": "https://archive.org/download/pasxalina_2204_librivox/pasxalina_03_papadiamantis_64kb.mp3",
+          "duration": 3450,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "ΛΑΜΠΡΙΑΤΙΚΟΣ ΨΑΛΤΗΣ",
+          "audio": "https://archive.org/download/pasxalina_2204_librivox/pasxalina_04_papadiamantis_64kb.mp3",
+          "duration": 4478,
+          "tags": {
+            "reader": "Penelope"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:17883",
+      "title": "μόνον της ζωής του ταξείδιον",
+      "displayName": "Vizyinos, Georgios – μόνον της ζωής του ταξείδιον",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 17883)",
+      "url": "https://librivox.org/monon-tis-zois-tou-taxidion-by-georgios-vizyinos/",
+      "textUrl": "hoerbuch-texte/el/vizyinos-georgios_-_x-17883.html.gz",
+      "tags": {
+        "work_author": "Vizyinos, Georgios",
+        "reader": "Penelope",
+        "readers": [
+          "Penelope"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Literary Fiction"
+        ],
+        "fiction": "y",
+        "book_year": 0,
+        "epoch": "antike",
+        "total_seconds": 6254,
+        "length_band": "short",
+        "num_sections": 3,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/monontiszoistoutaxidion_2205_librivox",
+        "url_text_source": "https://lekythos.library.ucy.ac.cy/handle/10797/23314",
+        "source_item_id": "17883"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Μέρος πρώτο",
+          "audio": "https://archive.org/download/monontiszoistoutaxidion_2205_librivox/monontiszoistoutaxidion_01_vizyinos_64kb.mp3",
+          "duration": 2566,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Μέρος δεύτερο",
+          "audio": "https://archive.org/download/monontiszoistoutaxidion_2205_librivox/monontiszoistoutaxidion_02_vizyinos_64kb.mp3",
+          "duration": 1827,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Μέρος τρίτο",
+          "audio": "https://archive.org/download/monontiszoistoutaxidion_2205_librivox/monontiszoistoutaxidion_03_vizyinos_64kb.mp3",
+          "duration": 1861,
+          "tags": {
+            "reader": "Penelope"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:19289",
+      "title": "Πολιτεια του Πλατωνα (τομος τρίτος)",
+      "displayName": "Plato (Πλάτων) – Πολιτεια του Πλατωνα (τομος τρίτος)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 19289)",
+      "url": "https://librivox.org/politia-3-by-plato/",
+      "textUrl": "hoerbuch-texte/el/plato_-_x-19289.txt.gz",
+      "tags": {
+        "work_author": "Plato (Πλάτων)",
+        "reader": "karampas1968",
+        "readers": [
+          "karampas1968"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Classics (Greek & Latin Antiquity)"
+        ],
+        "fiction": "y",
+        "book_year": 1911,
+        "epoch": "c20",
+        "total_seconds": 10192,
+        "length_band": "short",
+        "num_sections": 12,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/politia3_2306_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/39524",
+        "source_item_id": "19289"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Βιβλίον ΣΤ.1",
+          "audio": "https://archive.org/download/politia3_2306_librivox/politia3_01_plato_64kb.mp3",
+          "duration": 420,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Βιβλίον ΣΤ.2",
+          "audio": "https://archive.org/download/politia3_2306_librivox/politia3_02_plato_64kb.mp3",
+          "duration": 816,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Βιβλίον ΣΤ.3",
+          "audio": "https://archive.org/download/politia3_2306_librivox/politia3_03_plato_64kb.mp3",
+          "duration": 411,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Βιβλίον ΣΤ.4",
+          "audio": "https://archive.org/download/politia3_2306_librivox/politia3_04_plato_64kb.mp3",
+          "duration": 623,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Βιβλίον ΣΤ.5",
+          "audio": "https://archive.org/download/politia3_2306_librivox/politia3_05_plato_64kb.mp3",
+          "duration": 427,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Βιβλίον ΣΤ.6",
+          "audio": "https://archive.org/download/politia3_2306_librivox/politia3_06_plato_64kb.mp3",
+          "duration": 488,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Βιβλίον ΣΤ.7",
+          "audio": "https://archive.org/download/politia3_2306_librivox/politia3_07_plato_64kb.mp3",
+          "duration": 1200,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Βιβλίον ΣΤ.8",
+          "audio": "https://archive.org/download/politia3_2306_librivox/politia3_08_plato_64kb.mp3",
+          "duration": 853,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Βιβλίον Ζ.1",
+          "audio": "https://archive.org/download/politia3_2306_librivox/politia3_09_plato_64kb.mp3",
+          "duration": 616,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Βιβλίον Ζ.2",
+          "audio": "https://archive.org/download/politia3_2306_librivox/politia3_10_plato_64kb.mp3",
+          "duration": 783,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Βιβλίον Ζ.3",
+          "audio": "https://archive.org/download/politia3_2306_librivox/politia3_11_plato_64kb.mp3",
+          "duration": 1493,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Βιβλίον Ζ.4",
+          "audio": "https://archive.org/download/politia3_2306_librivox/politia3_12_plato_64kb.mp3",
+          "duration": 2062,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:19427",
+      "title": "Πολιτεια του Πλατωνα (τομος τέταρτος)",
+      "displayName": "Plato (Πλάτων) – Πολιτεια του Πλατωνα (τομος τέταρτος)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 19427)",
+      "url": "https://librivox.org/politia-4-by-plato/",
+      "textUrl": "hoerbuch-texte/el/plato_-_x-19427.txt.gz",
+      "tags": {
+        "work_author": "Plato (Πλάτων)",
+        "reader": "karampas1968",
+        "readers": [
+          "karampas1968"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Classics (Greek & Latin Antiquity)"
+        ],
+        "fiction": "y",
+        "book_year": 1911,
+        "epoch": "c20",
+        "total_seconds": 13737,
+        "length_band": "medium",
+        "num_sections": 15,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/politia4_2404_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/39530",
+        "source_item_id": "19427"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Βιβλίον Η.1",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_01_plato_64kb.mp3",
+          "duration": 1284,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Βιβλίον Η.2",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_02_plato_64kb.mp3",
+          "duration": 711,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Βιβλίον Η.3",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_03_plato_64kb.mp3",
+          "duration": 488,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Βιβλίον Η.4",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_04_plato_64kb.mp3",
+          "duration": 629,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Βιβλίον Η.5",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_05_plato_64kb.mp3",
+          "duration": 490,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Βιβλίον Η.6",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_06_plato_64kb.mp3",
+          "duration": 952,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Βιβλίον Η.7",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_07_plato_64kb.mp3",
+          "duration": 174,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Βιβλίον Θ.1",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_08_plato_64kb.mp3",
+          "duration": 639,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Βιβλίον Θ.2",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_09_plato_64kb.mp3",
+          "duration": 777,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Βιβλίον Θ.3",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_10_plato_64kb.mp3",
+          "duration": 1103,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Βιβλίον Θ.4",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_11_plato_64kb.mp3",
+          "duration": 1435,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Βιβλίον Ι.1",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_12_plato_64kb.mp3",
+          "duration": 636,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "Βιβλίον Ι.2",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_13_plato_64kb.mp3",
+          "duration": 1700,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "Βιβλίον Ι.3",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_14_plato_64kb.mp3",
+          "duration": 793,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "Βιβλίον Ι.4",
+          "audio": "https://archive.org/download/politia4_2404_librivox/politia4_15_plato_64kb.mp3",
+          "duration": 1926,
+          "tags": {
+            "reader": "karampas1968"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:19932",
+      "title": "Λόγια της Πλώρης: Θαλασσινά Διηγήματα",
+      "displayName": "Karkavitsas, Andreas – Λόγια της Πλώρης: Θαλασσινά Διηγήματα",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 19932)",
+      "url": "https://librivox.org/logiatisploris-by-andreas-karkavitsas/",
+      "textUrl": "hoerbuch-texte/el/karkavitsas-andreas_-_x-19932.txt.gz",
+      "tags": {
+        "work_author": "Karkavitsas, Andreas",
+        "reader": "Penelope",
+        "readers": [
+          "Penelope"
+        ],
+        "reader_mode": "solo",
+        "genres": [],
+        "fiction": "y",
+        "book_year": 1899,
+        "epoch": "c19",
+        "total_seconds": 33018,
+        "length_band": "long",
+        "num_sections": 21,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/logiatisploris_2401_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/31865",
+        "source_item_id": "19932"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "ΘΑΛΑΣΣΑ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_01_karkavitsas_64kb.mp3",
+          "duration": 3190,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "ΟΙ ΦΡΕΓΑΔΕΣ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_02_karkavitsas_64kb.mp3",
+          "duration": 1195,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Η ΔΙΚΑΙΟΣΥΝΗ ΤΗΣ, Α ΜΕΡΟΣ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_03_karkavitsas_64kb.mp3",
+          "duration": 2580,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Η ΔΙΚΑΙΟΣΥΝΗ ΤΗΣ, Β ΜΕΡΟΣ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_04_karkavitsas_64kb.mp3",
+          "duration": 1941,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "ΤΟ ΒΑΣΙΛΟΠΟΥΛΟ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_05_karkavitsas_64kb.mp3",
+          "duration": 859,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "ΒΙΟΠΑΛΑΙΣΤΗΣ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_06_karkavitsas_64kb.mp3",
+          "duration": 1336,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Ο ΕΚΔΙΚΗΤΗΣ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_07_karkavitsas_64kb.mp3",
+          "duration": 673,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "ΟΙ ΣΦΟΥΓΓΑΡΑΔΕΣ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_08_karkavitsas_64kb.mp3",
+          "duration": 2519,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "ΚΑΒΟΜΑΛΙΑΣ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_09_karkavitsas_64kb.mp3",
+          "duration": 1300,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Η ΚΑΠΕΤΑΝΙΣΑ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_10_karkavitsas_64kb.mp3",
+          "duration": 1708,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "ΘΕΙΟΝ ΟΡΑΜΑ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_11_karkavitsas_64kb.mp3",
+          "duration": 1399,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "ΚΑΚΟΤΥΧΟΣ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_12_karkavitsas_64kb.mp3",
+          "duration": 2248,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "ΚΑΤΩ ΚΟΣΜΟΣ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_13_karkavitsas_64kb.mp3",
+          "duration": 1156,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "ΠΕΙΡΑΓΜΑΤΑ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_14_karkavitsas_64kb.mp3",
+          "duration": 1678,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "ΓΕΡΑΚΑΣ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_15_karkavitsas_64kb.mp3",
+          "duration": 1017,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "ΚΑΚΟΣΗΜΑΔΙΑ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_16_karkavitsas_64kb.mp3",
+          "duration": 2523,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "Η ΓΟΡΓΟΝΑ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_17_karkavitsas_64kb.mp3",
+          "duration": 926,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "ΝΑΥΑΓΙΑ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_18_karkavitsas_64kb.mp3",
+          "duration": 796,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "ΟΙ ΚΟΥΡΣΑΡΟΙ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_19_karkavitsas_64kb.mp3",
+          "duration": 1005,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "ΤΕΛΩΝΙΑ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_20_karkavitsas_64kb.mp3",
+          "duration": 1237,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "ΓΙΟΥΣΟΥΡΙ",
+          "audio": "https://archive.org/download/logiatisploris_2401_librivox/logiatisploris_21_karkavitsas_64kb.mp3",
+          "duration": 1732,
+          "tags": {
+            "reader": "Penelope"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:19976",
+      "title": "ΕΙΡΗΝΙΚΑ",
+      "displayName": "Polemis, Ioannes – ΕΙΡΗΝΙΚΑ",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 19976)",
+      "url": "https://librivox.org/eirenika-by-ioannes-polemis/",
+      "textUrl": "hoerbuch-texte/el/polemis-ioannes_-_x-19976.txt.gz",
+      "tags": {
+        "work_author": "Polemis, Ioannes",
+        "reader": "Christine Rottger",
+        "readers": [
+          "Christine Rottger"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Poetry"
+        ],
+        "fiction": "y",
+        "book_year": null,
+        "epoch": null,
+        "total_seconds": 1969,
+        "length_band": "very_short",
+        "num_sections": 8,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/eirenika_2409_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/39224",
+        "source_item_id": "19976"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Παράθεση από ΗΣΑΪΑΣ Κεφ. Β'",
+          "audio": "https://archive.org/download/eirenika_2409_librivox/eirenika_00_polemes_64kb.mp3",
+          "duration": 73,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch001",
+          "title": "Ένα έως Τρία",
+          "audio": "https://archive.org/download/eirenika_2409_librivox/eirenika_01_polemes_64kb.mp3",
+          "duration": 228,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Τέσσερα έως Εξι",
+          "audio": "https://archive.org/download/eirenika_2409_librivox/eirenika_02_polemes_64kb.mp3",
+          "duration": 193,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Επτά εώς Εννέα",
+          "audio": "https://archive.org/download/eirenika_2409_librivox/eirenika_03_polemes_64kb.mp3",
+          "duration": 329,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Δέκα εώς Δεκατρείς",
+          "audio": "https://archive.org/download/eirenika_2409_librivox/eirenika_04_polemes_64kb.mp3",
+          "duration": 365,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Δεκατέσσερα εώς Δεκαέξι",
+          "audio": "https://archive.org/download/eirenika_2409_librivox/eirenika_05_polemes_64kb.mp3",
+          "duration": 200,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Δεκαεπτά  εώς Δεκαεννιά",
+          "audio": "https://archive.org/download/eirenika_2409_librivox/eirenika_06_polemes_64kb.mp3",
+          "duration": 267,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Είκοσι εώς Είκοσι τρία",
+          "audio": "https://archive.org/download/eirenika_2409_librivox/eirenika_07_polemes_64kb.mp3",
+          "duration": 314,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:20516",
+      "title": "ΕΚΛΟΓΑΙ ΑΠΟ ΤΑ ΤΡΑΓΟΥΔΙΑ ΤΟΥ ΕΛΛΗΝΙΚΟΥ ΛΑΟΥ",
+      "displayName": "Politis, Nikolaos – ΕΚΛΟΓΑΙ ΑΠΟ ΤΑ ΤΡΑΓΟΥΔΙΑ ΤΟΥ ΕΛΛΗΝΙΚΟΥ ΛΑΟΥ",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 20516)",
+      "url": "https://librivox.org/greek-songs-by-nikolaos-politis/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Politis, Nikolaos",
+        "reader": "Penelope",
+        "readers": [
+          "Penelope"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Poetry"
+        ],
+        "fiction": "y",
+        "book_year": 1914,
+        "epoch": "c20",
+        "total_seconds": 33132,
+        "length_band": "long",
+        "num_sections": 14,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/greeksongs_2409_librivox",
+        "url_text_source": "http://editions.academyofathens.gr/epetirides/xmlui/handle/20.500.11855/512",
+        "source_item_id": "20516"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "ΕΙΣΑΓΩΓΗ - ΤΡΑΓΟΥΔΙΑ 1 - 11",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_01_politis_64kb.mp3",
+          "duration": 2677,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "ΙΣΤΟΡΙΚΑ  12 - 19/ΚΛΕΦΤΙΚΑ 20 - 29",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_02_politis_64kb.mp3",
+          "duration": 2746,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "ΚΛΕΦΤΙΚΑ ΤΡΑΓΟΥΔΙΑ 30 - 53",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_03_politis_64kb.mp3",
+          "duration": 2702,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "ΚΛΕΦΤΙΚΑ ΤΡΑΓΟΥΔΙΑ 54 - 68",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_04_politis_64kb.mp3",
+          "duration": 2771,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "ΑΚΡΙΤΙΚΑ ΤΡΑΓΟΥΔΙΑ 69 -73",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_05_politis_64kb.mp3",
+          "duration": 1333,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "ΑΚΡΙΤΙΚΑ ΤΡΑΓΟΥΔΙΑ 74 - 78",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_06_politis_64kb.mp3",
+          "duration": 2721,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "ΠΑΡΑΛΟΓΑΙΣ ΤΡΑΓΟΥΔΙΑ 79 - 86",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_07_politis_64kb.mp3",
+          "duration": 2695,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "ΠΑΡΑΛΟΓΑΙΣ ΤΡΑΓΟΥΔΙΑ 87 - 92",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_08_politis_64kb.mp3",
+          "duration": 2472,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "ΤΡΑΓΟΥΔΙΑ ΤΗΣ ΑΓΑΠΗΣ 93 - 126",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_09_politis_64kb.mp3",
+          "duration": 1815,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "ΤΡΑΓΟΥΔΙΑ ΤΗΣ ΑΓΑΠΗΣ 127 - 135 ΛΙΑΝΟΤΡΑΓΟΥΔΑ",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_10_politis_64kb.mp3",
+          "duration": 1578,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "ΝΥΦΙΑΤΙΚΑ-ΝΑΝΑΡΙΣΜΑΤΑ-ΚΑΛΑΝΔΑ ΒΑΙΤΙΚΑ-ΤΗΣ ΞΕΝΙΤΙΑΣ-136-172",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_11_politis_64kb.mp3",
+          "duration": 2334,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "ΜΟΙΡΟΛΟΓΙΑ-ΜΟΙΡΟΛΟΓΙΑ ΤΟΥ ΚΑΤΩ ΚΟΣΜΟΥ ΚΑΙ ΤΟΥ ΧΑΡΟΥ 173-222",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_12_politis_64kb.mp3",
+          "duration": 2543,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "ΓΝΩΜΙΚΑ - ΛΙΑΝΟΤΡΑΓΟΥΔΑ - ΠΕΡΙΓΕΛΑΣΤΙΚΑ - ΔΗΜΩΔΗ ΑΣΜΑΤΑΜΕΣΩΝ ΧΡΟΝΩΝ",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_13_politis_64kb.mp3",
+          "duration": 1915,
+          "tags": {
+            "reader": "Penelope"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "ΤΡΑΓΟΥΔΙΑ ΕΙΣ ΕΛΛΗΝΙΚΑΣ ΔΙΑΛΕΚΤΟΥΣ",
+          "audio": "https://archive.org/download/greeksongs_2409_librivox/tragoudia_14_politis_64kb.mp3",
+          "duration": 2830,
+          "tags": {
+            "reader": "Penelope"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:20759",
+      "title": "Λίμνη (Le Lac)",
+      "displayName": "Lamartine, Alphonse de – Λίμνη (Le Lac)",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 20759)",
+      "url": "https://librivox.org/le-lac-by-alphonse-de-lamartine/",
+      "textUrl": "hoerbuch-texte/el/lamartine-alphonse-de_-_le-lac-20759.html.gz",
+      "tags": {
+        "work_author": "Lamartine, Alphonse de",
+        "reader": "Christiane Jehanne",
+        "readers": [
+          "Christiane Jehanne",
+          "Rapunzelina"
+        ],
+        "reader_mode": "mixed",
+        "genres": [
+          "Poetry"
+        ],
+        "fiction": "y",
+        "book_year": 1878,
+        "epoch": "c19",
+        "total_seconds": 1299,
+        "length_band": "very_short",
+        "num_sections": 5,
+        "has_text": true,
+        "translators": [
+          "Various"
+        ],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/limni_2506_librivox",
+        "url_text_source": "https://archive.org/details/le_lac_lamartine",
+        "source_item_id": "20759"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Le Lac par Lamartine",
+          "audio": "https://archive.org/download/limni_2506_librivox/limni_01_lamartine_64kb.mp3",
+          "duration": 258,
+          "tags": {
+            "reader": "Christiane Jehanne"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Μετάφρασις Αγγέλου Βλαχου (1864)",
+          "audio": "https://archive.org/download/limni_2506_librivox/limni_02_lamartine_64kb.mp3",
+          "duration": 272,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Μετάφρασις Σπυρίδωνος Ν. Βασιλειάδη (1870)",
+          "audio": "https://archive.org/download/limni_2506_librivox/limni_03_lamartine_64kb.mp3",
+          "duration": 265,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Μετάφρασις Ιωάννου Καρασούσα (1872)",
+          "audio": "https://archive.org/download/limni_2506_librivox/limni_04_lamartine_64kb.mp3",
+          "duration": 242,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Παράφρασις Αριστοτέλους Βαλαωρίτου (1878)",
+          "audio": "https://archive.org/download/limni_2506_librivox/limni_05_lamartine_64kb.mp3",
+          "duration": 262,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:20952",
+      "title": "ΜΥΘΟΙ",
+      "displayName": "Vilaras, Ioannis – ΜΥΘΟΙ",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 20952)",
+      "url": "https://librivox.org/myths-by-ioannis-vilaras/",
+      "textUrl": "hoerbuch-texte/el/vilaras-ioannis_-_x-20952.txt.gz",
+      "tags": {
+        "work_author": "Vilaras, Ioannis",
+        "reader": "Christine Rottger",
+        "readers": [
+          "Christine Rottger"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Poetry"
+        ],
+        "fiction": "y",
+        "book_year": 1865,
+        "epoch": "c19",
+        "total_seconds": 5952,
+        "length_band": "short",
+        "num_sections": 12,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/vilarasmyths_2601_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/31404",
+        "source_item_id": "20952"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Βιογραφικό Συγγραφέα και Πρόλογος Συγγραφέα",
+          "audio": "https://archive.org/download/vilarasmyths_2601_librivox/mythoi_00_vilaras_64kb.mp3",
+          "duration": 946,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch001",
+          "title": "Πρόλογος",
+          "audio": "https://archive.org/download/vilarasmyths_2601_librivox/mythoi_01_vilaras_64kb.mp3",
+          "duration": 690,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Μυθος Α΄ και Μυθος Β΄",
+          "audio": "https://archive.org/download/vilarasmyths_2601_librivox/mythoi_02_vilaras_64kb.mp3",
+          "duration": 395,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Μυθος Γ, Μυθος Δ και Μυθος Ε'",
+          "audio": "https://archive.org/download/vilarasmyths_2601_librivox/mythoi_03_vilaras_64kb.mp3",
+          "duration": 471,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Μυθος ς΄ και Μυθος Ζ΄",
+          "audio": "https://archive.org/download/vilarasmyths_2601_librivox/mythoi_04_vilaras_64kb.mp3",
+          "duration": 554,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Μυθος Η΄ και Μυθος Θ΄",
+          "audio": "https://archive.org/download/vilarasmyths_2601_librivox/mythoi_05_vilaras_64kb.mp3",
+          "duration": 337,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Μυθος Ι΄ και Μυθος ΙΑ΄",
+          "audio": "https://archive.org/download/vilarasmyths_2601_librivox/mythoi_06_vilaras_64kb.mp3",
+          "duration": 517,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Μυθος ΙΒ΄ και Μυθος ΙΓ΄",
+          "audio": "https://archive.org/download/vilarasmyths_2601_librivox/mythoi_07_vilaras_64kb.mp3",
+          "duration": 414,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Μυθος ΙΔ΄ και Μυθος ΙΕ΄",
+          "audio": "https://archive.org/download/vilarasmyths_2601_librivox/mythoi_08_vilaras_64kb.mp3",
+          "duration": 321,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Μυθος  ις΄ και Μυθος ΙΖ΄",
+          "audio": "https://archive.org/download/vilarasmyths_2601_librivox/mythoi_09_vilaras_64kb.mp3",
+          "duration": 487,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Μυθος ΙΗ΄ και Μυθος  ΙΘ΄",
+          "audio": "https://archive.org/download/vilarasmyths_2601_librivox/mythoi_10_vilaras_64kb.mp3",
+          "duration": 252,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Μυθος  Κ΄και Μυθος Α΄ και Β΄ (έκδοση 2)",
+          "audio": "https://archive.org/download/vilarasmyths_2601_librivox/mythoi_11_vilaras_64kb.mp3",
+          "duration": 568,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:22256",
+      "title": "Η βοσκοπούλα με τα μαργαριτάρια και άλλες μικρές ιστορίες",
+      "displayName": "Nirvanas, Pavlos – Η βοσκοπούλα με τα μαργαριτάρια και άλλες μικρές ιστορίες",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 22256)",
+      "url": "https://librivox.org/voskopoula-by-pavlos-nirvanas/",
+      "textUrl": "hoerbuch-texte/el/nirvanas-pavlos_-_x-22256.txt.gz",
+      "tags": {
+        "work_author": "Nirvanas, Pavlos",
+        "reader": "Rapunzelina",
+        "readers": [
+          "Rapunzelina",
+          "Παναγιώτα Απέργη",
+          "Christine Rottger",
+          "Alex",
+          "Elena Neophytou"
+        ],
+        "reader_mode": "mixed",
+        "genres": [],
+        "fiction": "y",
+        "book_year": 1914,
+        "epoch": "c20",
+        "total_seconds": 10432,
+        "length_band": "short",
+        "num_sections": 21,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/voskopoula_2607_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/32179",
+        "source_item_id": "22256"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Η βοσκοπούλα με τα μαργαριτάρια",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_01_nirvanas_64kb.mp3",
+          "duration": 1414,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Το βασιλόπουλο που χαμογελούσε",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_02_nirvanas_64kb.mp3",
+          "duration": 430,
+          "tags": {
+            "reader": "Παναγιώτα Απέργη"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Το αγαπημένο αντρόγυνο",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_03_nirvanas_64kb.mp3",
+          "duration": 244,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Ο γάμος της πεντάμορφης",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_04_nirvanas_64kb.mp3",
+          "duration": 196,
+          "tags": {
+            "reader": "Παναγιώτα Απέργη"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Η εκδίκηση του καμπούρη",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_05_nirvanas_64kb.mp3",
+          "duration": 361,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Ψεύτρα αγάπη",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_06_nirvanas_64kb.mp3",
+          "duration": 457,
+          "tags": {
+            "reader": "Παναγιώτα Απέργη"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Η Πολιτεία της σιωπής",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_07_nirvanas_64kb.mp3",
+          "duration": 568,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Η στερνή αγάπη της Δροσούλας",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_08_nirvanas_64kb.mp3",
+          "duration": 487,
+          "tags": {
+            "reader": "Alex"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Η καρδιά της κούκλας",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_09_nirvanas_64kb.mp3",
+          "duration": 836,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Ο Καμπούρης",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_10_nirvanas_64kb.mp3",
+          "duration": 333,
+          "tags": {
+            "reader": "Alex"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Η αγάπη του σκιάχτρου",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_11_nirvanas_64kb.mp3",
+          "duration": 340,
+          "tags": {
+            "reader": "Παναγιώτα Απέργη"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Ο ανθρώπινος πόνος",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_12_nirvanas_64kb.mp3",
+          "duration": 428,
+          "tags": {
+            "reader": "Elena Neophytou"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "Ο προφήτης",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_13_nirvanas_64kb.mp3",
+          "duration": 407,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "Οι μενεξέδες",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_14_nirvanas_64kb.mp3",
+          "duration": 247,
+          "tags": {
+            "reader": "Elena Neophytou"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "Το δρομαλάκι της ευτυχίας",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_15_nirvanas_64kb.mp3",
+          "duration": 639,
+          "tags": {
+            "reader": "Alex"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "Τα μάτια του τυφλού",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_16_nirvanas_64kb.mp3",
+          "duration": 619,
+          "tags": {
+            "reader": "Alex"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "Όμορφος κόσμος",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_17_nirvanas_64kb.mp3",
+          "duration": 184,
+          "tags": {
+            "reader": "Alex"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "Το φιλί",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_18_nirvanas_64kb.mp3",
+          "duration": 413,
+          "tags": {
+            "reader": "Alex"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "Το ατέλειωτο παραμύθι",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_19_nirvanas_64kb.mp3",
+          "duration": 1241,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "Ο πλούσιος, ο φτωχός και ο φιλόσοφος",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_20_nirvanas_64kb.mp3",
+          "duration": 188,
+          "tags": {
+            "reader": "Alex"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "Στις όχθες του ποταμού",
+          "audio": "https://archive.org/download/voskopoula_2607_librivox/voskopoula_21_nirvanas_64kb.mp3",
+          "duration": 400,
+          "tags": {
+            "reader": "Elena Neophytou"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:22396",
+      "title": "Οι χαιρετισμοί της Ηλιογέννητης",
+      "displayName": "Palamas, Kostis – Οι χαιρετισμοί της Ηλιογέννητης",
+      "lang": "el",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 22396)",
+      "url": "https://librivox.org/oichairetismoi-by-kostes-palamas/",
+      "textUrl": "hoerbuch-texte/el/palamas-kostis_-_x-22396.txt.gz",
+      "tags": {
+        "work_author": "Palamas, Kostis",
+        "reader": "Christine Rottger",
+        "readers": [
+          "Christine Rottger"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Poetry"
+        ],
+        "fiction": "y",
+        "book_year": 1900,
+        "epoch": "c20",
+        "total_seconds": 2296,
+        "length_band": "very_short",
+        "num_sections": 5,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Greek",
+        "url_iarchive": "https://archive.org/details/oichairetismoi_2606_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/42511",
+        "source_item_id": "22396"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Μέρος πρώτο",
+          "audio": "https://archive.org/download/oichairetismoi_2606_librivox/oichairetismoi_01_palamas_64kb.mp3",
+          "duration": 273,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Μέρος δεύτερο έως τέταρτο",
+          "audio": "https://archive.org/download/oichairetismoi_2606_librivox/oichairetismoi_02_palamas_64kb.mp3",
+          "duration": 480,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Μέρος πέντε έως έβδομο",
+          "audio": "https://archive.org/download/oichairetismoi_2606_librivox/oichairetismoi_03_palamas_64kb.mp3",
+          "duration": 669,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Μέρος οκτώ έως δέκα",
+          "audio": "https://archive.org/download/oichairetismoi_2606_librivox/oichairetismoi_04_palamas_64kb.mp3",
+          "duration": 385,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Μέρος έντεκα έως δώδεκα",
+          "audio": "https://archive.org/download/oichairetismoi_2606_librivox/oichairetismoi_05_palamas_64kb.mp3",
+          "duration": 489,
+          "tags": {
+            "reader": "Christine Rottger"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,703 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "LibriVox — Middle English",
+  "lang": "enm",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:1265",
+      "title": "Prologue to the Canterbury Tales",
+      "displayName": "Chaucer, Geoffrey – Prologue to the Canterbury Tales",
+      "lang": "enm",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 1265)",
+      "url": "https://librivox.org/prologue-to-the-canterbury-tales-lines-1-18-by-geoffrey-chaucer/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Chaucer, Geoffrey",
+        "reader": "Alan Clare",
+        "readers": [
+          "Alan Clare",
+          "Arouet",
+          "Kara Shallenberg (1969-2023)",
+          "Kristin Hughes (1974-2021)",
+          "Karen Savage",
+          "Val Grimm"
+        ],
+        "reader_mode": "mixed",
+        "genres": [
+          "Poetry",
+          "Multi-version (Weekly and Fortnightly poetry)"
+        ],
+        "fiction": "y",
+        "book_year": 1400,
+        "epoch": "mittelalter",
+        "total_seconds": 439,
+        "length_band": "very_short",
+        "num_sections": 6,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Middle English",
+        "url_iarchive": "https://www.archive.org/details/canterbury_prologue_librivox",
+        "url_text_source": "https://www.bartleby.com/40/0101.html",
+        "source_item_id": "1265"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Prologue to the Canterbury Tales - Read by ACC",
+          "audio": "https://archive.org/download/canterbury_prologue_librivox/canterbury_prologue_chaucer_acc_64kb.mp3",
+          "duration": 82,
+          "tags": {
+            "reader": "Alan Clare"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Prologue to the Canterbury Tales - Read by IWM",
+          "audio": "https://archive.org/download/canterbury_prologue_librivox/canterbury_prologue_chaucer_iwm_64kb.mp3",
+          "duration": 65,
+          "tags": {
+            "reader": "Arouet"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Prologue to the Canterbury Tales - Read by KS",
+          "audio": "https://archive.org/download/canterbury_prologue_librivox/canterbury_prologue_chaucer_kara_64kb.mp3",
+          "duration": 77,
+          "tags": {
+            "reader": "Kara Shallenberg (1969-2023)"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Prologue to the Canterbury Tales - Read by KLH",
+          "audio": "https://archive.org/download/canterbury_prologue_librivox/canterbury_prologue_chaucer_klh_64kb.mp3",
+          "duration": 79,
+          "tags": {
+            "reader": "Kristin Hughes (1974-2021)"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Prologue to the Canterbury Tales - Read by KRS",
+          "audio": "https://archive.org/download/canterbury_prologue_librivox/canterbury_prologue_chaucer_krs_64kb.mp3",
+          "duration": 64,
+          "tags": {
+            "reader": "Karen Savage"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Prologue to the Canterbury Tales - Read by VG",
+          "audio": "https://archive.org/download/canterbury_prologue_librivox/canterbury_prologue_chaucer_vg_64kb.mp3",
+          "duration": 72,
+          "tags": {
+            "reader": "Val Grimm"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:6783",
+      "title": "Troilus and Criseyde",
+      "displayName": "Chaucer, Geoffrey – Troilus and Criseyde",
+      "lang": "enm",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 6783)",
+      "url": "https://librivox.org/troilus-and-criseyde-by-geoffrey-chaucer/",
+      "textUrl": "hoerbuch-texte/enm/chaucer-geoffrey_-_troilus-and-criseyde-6783.txt.gz",
+      "tags": {
+        "work_author": "Chaucer, Geoffrey",
+        "reader": "Kevin Johnson",
+        "readers": [
+          "Kevin Johnson"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Poetry"
+        ],
+        "fiction": "y",
+        "book_year": 1385,
+        "epoch": "mittelalter",
+        "total_seconds": 28043,
+        "length_band": "medium",
+        "num_sections": 9,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Middle English",
+        "url_iarchive": "https://archive.org/details/troilus_criseyde_1208_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/257",
+        "source_item_id": "6783"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "1 - Book 1",
+          "audio": "https://archive.org/download/troilus_criseyde_1208_librivox/troilus_criseyde_1_chaucer_64kb.mp3",
+          "duration": 3926,
+          "tags": {
+            "reader": "Kevin Johnson"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "2 - Book 2 Part1",
+          "audio": "https://archive.org/download/troilus_criseyde_1208_librivox/troilus_criseyde_2_1_chaucer_64kb.mp3",
+          "duration": 3227,
+          "tags": {
+            "reader": "Kevin Johnson"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "3 - Book 2 Part2",
+          "audio": "https://archive.org/download/troilus_criseyde_1208_librivox/troilus_criseyde_2_2_chaucer_64kb.mp3",
+          "duration": 2768,
+          "tags": {
+            "reader": "Kevin Johnson"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "4 - Book 3 Part 1",
+          "audio": "https://archive.org/download/troilus_criseyde_1208_librivox/troilus_criseyde_3_1_chaucer_64kb.mp3",
+          "duration": 3118,
+          "tags": {
+            "reader": "Kevin Johnson"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "5 - Book 3 Part 2",
+          "audio": "https://archive.org/download/troilus_criseyde_1208_librivox/troilus_criseyde_3_2_chaucer_64kb.mp3",
+          "duration": 2798,
+          "tags": {
+            "reader": "Kevin Johnson"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "6 - Book 4 Part 1",
+          "audio": "https://archive.org/download/troilus_criseyde_1208_librivox/troilus_criseyde_4_1_chaucer_64kb.mp3",
+          "duration": 2751,
+          "tags": {
+            "reader": "Kevin Johnson"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "7 - Book 4 Part 2",
+          "audio": "https://archive.org/download/troilus_criseyde_1208_librivox/troilus_criseyde_4_2_chaucer_64kb.mp3",
+          "duration": 3088,
+          "tags": {
+            "reader": "Kevin Johnson"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "8 - Book 5 Part 1",
+          "audio": "https://archive.org/download/troilus_criseyde_1208_librivox/troilus_criseyde_5_1_chaucer_64kb.mp3",
+          "duration": 3105,
+          "tags": {
+            "reader": "Kevin Johnson"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "9 - Book 5 Part 2",
+          "audio": "https://archive.org/download/troilus_criseyde_1208_librivox/troilus_criseyde_5_2_chaucer_64kb.mp3",
+          "duration": 3262,
+          "tags": {
+            "reader": "Kevin Johnson"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:12609",
+      "title": "Canterbury Tales (Middle English)",
+      "displayName": "Chaucer, Geoffrey – Canterbury Tales (Middle English)",
+      "lang": "enm",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 12609)",
+      "url": "https://librivox.org/canterbury-tales-mid-eng-geoffrey-chaucer/",
+      "textUrl": "hoerbuch-texte/enm/chaucer-geoffrey_-_canterbury-tales-middle-english-12609.txt.gz",
+      "tags": {
+        "work_author": "Chaucer, Geoffrey",
+        "reader": "Tony Addison",
+        "readers": [
+          "Tony Addison",
+          "Jim Locke"
+        ],
+        "reader_mode": "mixed",
+        "genres": [
+          "Literary Fiction"
+        ],
+        "fiction": "y",
+        "book_year": null,
+        "epoch": null,
+        "total_seconds": 87537,
+        "length_band": "very_long",
+        "num_sections": 49,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Middle English",
+        "url_iarchive": "https://archive.org/details/canterbury_tales_mid_eng_2203_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/22120",
+        "source_item_id": "12609"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "The Prologue",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_01_chaucer_64kb.mp3",
+          "duration": 3435,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "The Knight's Tale - Part One",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_02_chaucer_64kb.mp3",
+          "duration": 2659,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "The Knight's Tale - Part Two",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_03_chaucer_64kb.mp3",
+          "duration": 2215,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "The Knight's Tale - Part Three",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_04_chaucer_64kb.mp3",
+          "duration": 2579,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "The Knight's Tale - Part Four",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_05_chaucer_64kb.mp3",
+          "duration": 2760,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "The Miller's Tale",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_06_chaucer_64kb.mp3",
+          "duration": 3203,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "The Reeve's Tale",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_07_chaucer_64kb.mp3",
+          "duration": 1969,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "The Cook's Tale",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_08_chaucer_64kb.mp3",
+          "duration": 516,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "The Man of Law's Prologue",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_09_chaucer_64kb.mp3",
+          "duration": 739,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "The Man of Law's Tale - Part One",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_10_chaucer_64kb.mp3",
+          "duration": 1203,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "The Man of Law's Tale - Part Two",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_11_chaucer_64kb.mp3",
+          "duration": 2354,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "The Man of Law's Tale - Part Three",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_12_chaucer_64kb.mp3",
+          "duration": 1295,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "The Shipman's Tale",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_13_chaucer_64kb.mp3",
+          "duration": 2079,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "The Prioress's Tale",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_14_chaucer_64kb.mp3",
+          "duration": 1239,
+          "tags": {
+            "reader": "Tony Addison"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "Chaucer's Tale of Thopas",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_15_chaucer_64kb.mp3",
+          "duration": 758,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "The Tale of Melibeus - Part One",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_16_chaucer_64kb.mp3",
+          "duration": 2015,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "The Tale of Melibeus - Part Two",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_17_chaucer_64kb.mp3",
+          "duration": 1832,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "The Tale of Melibeus - Part Three",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_18_chaucer_64kb.mp3",
+          "duration": 1776,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "The Tale of Melibeus - Part Four",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_19_chaucer_64kb.mp3",
+          "duration": 1907,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "The Monk's Tale - Part One",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_20_chaucer_64kb.mp3",
+          "duration": 1861,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "The Monk's Tale - Part Two",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_21_chaucer_64kb.mp3",
+          "duration": 1419,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch022",
+          "title": "The Nonne Prestes Tale - Part One",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_22_chaucer_64kb.mp3",
+          "duration": 1628,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch023",
+          "title": "The Nonne Prestes Tale - Part Two",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_23_chaucer_64kb.mp3",
+          "duration": 1015,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch024",
+          "title": "The Phisician's Tale and Words of the Host",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_24_chaucer_64kb.mp3",
+          "duration": 1115,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch025",
+          "title": "The Pardoner's Prologue and Tale",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_25_chaucer_64kb.mp3",
+          "duration": 2089,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch026",
+          "title": "The Wife of Bath's Prologue - Part One",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_26_chaucer_64kb.mp3",
+          "duration": 1698,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch027",
+          "title": "The Wife of Bath's Prologue - Part Two",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_27_chaucer_64kb.mp3",
+          "duration": 1224,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch028",
+          "title": "The Tale of the Wife of Bath",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_28_chaucer_64kb.mp3",
+          "duration": 1347,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch029",
+          "title": "The Friar's Prologue and Tale",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_29_chaucer_64kb.mp3",
+          "duration": 1365,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch030",
+          "title": "The Summoner's Prologue and Tale",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_30_chaucer_64kb.mp3",
+          "duration": 1924,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch031",
+          "title": "The Clerk's Prologue and Tale - Parts One, Two, and Three",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_31_chaucer_64kb.mp3",
+          "duration": 2055,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch032",
+          "title": "The Clerk's Tale - Parts Four, Five, and Six and Lenvoy de Chaucer",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_32_chaucer_64kb.mp3",
+          "duration": 1937,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch033",
+          "title": "The Marchante's Prologue and Tale - Part One",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_33_chaucer_64kb.mp3",
+          "duration": 1962,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch034",
+          "title": "The Marchante's Tale - Part Two - and Epilogue",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_34_chaucer_64kb.mp3",
+          "duration": 1675,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch035",
+          "title": "The Squier's Prologue and Tale and Words of the Frankelin",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_35_chaucer_64kb.mp3",
+          "duration": 2113,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch036",
+          "title": "The Frankelin's Prologue and Tale - Part 1",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_36_chaucer_64kb.mp3",
+          "duration": 1514,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch037",
+          "title": "The Frankeleyn's Tale - Part 2",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_37_chaucer_64kb.mp3",
+          "duration": 1463,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch038",
+          "title": "The Seconde Nonnes Prologue and Tale",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_38_chaucer_64kb.mp3",
+          "duration": 1845,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch039",
+          "title": "The Canon Yeoman's Prologue and Tale - Part 1",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_39_chaucer_64kb.mp3",
+          "duration": 1460,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch040",
+          "title": "The Chanouns Yemannes Tale - Part 2",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_40_chaucer_64kb.mp3",
+          "duration": 1542,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch041",
+          "title": "The Ma(u)nciple's Prologue and Tale",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_41_chaucer_64kb.mp3",
+          "duration": 1197,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch042",
+          "title": "The Parson's (Persones) Prologue and Tale - Part 1",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_42_chaucer_64kb.mp3",
+          "duration": 2342,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch043",
+          "title": "The Parson's Tale - Part 2",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_43_chaucer_64kb.mp3",
+          "duration": 2262,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch044",
+          "title": "The Parson's Tale - Part 3",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_44_chaucer_64kb.mp3",
+          "duration": 2280,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch045",
+          "title": "The Parson's Tale - Part 4",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_45_chaucer_64kb.mp3",
+          "duration": 2219,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch046",
+          "title": "The Parson's Tale - Part 5",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_46_chaucer_64kb.mp3",
+          "duration": 1597,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch047",
+          "title": "The Parson's Tale - Part 6",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_47_chaucer_64kb.mp3",
+          "duration": 1616,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch048",
+          "title": "Appendix to Group A - The Tale of Gamelyn - Part 1",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_48_chaucer_64kb.mp3",
+          "duration": 1982,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        },
+        {
+          "id": "ch049",
+          "title": "The Tale of Gamelyn - Part 2",
+          "audio": "https://archive.org/download/canterbury_tales_mid_eng_2203_librivox/canterburytales_49_chaucer_64kb.mp3",
+          "duration": 1258,
+          "tags": {
+            "reader": "Jim Locke"
+          }
+        }
+      ]
+    }
+  ]
+}

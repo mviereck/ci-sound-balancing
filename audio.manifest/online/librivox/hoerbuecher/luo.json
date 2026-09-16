@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "LibriVox — Dholuo/Luo",
+  "lang": "luo",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:3874",
+      "title": "Handbook of the Kavirondo Language - Part III - Dholuo Phrase Book",
+      "displayName": "Fathers of St. Joseph's Society – Handbook of the Kavirondo Language - Part III - Dholuo Phrase Book",
+      "lang": "luo",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 3874)",
+      "url": "https://librivox.org/a-handbook-of-the-kavirondo-language-part-iii-dholuo-phrase-book-by-fathers-of-st-josephs-society/",
+      "textUrl": "hoerbuch-texte/luo/fathers-of-st-joseph-s-society_-_handbook-of-the-kavirondo-language-part-iii-dholuo-phrase-book-3874.html.gz",
+      "tags": {
+        "work_author": "Fathers of St. Joseph's Society",
+        "reader": "Nicholas James Bridgewater",
+        "readers": [
+          "Nicholas James Bridgewater",
+          "Grace Odeny Bridgewater"
+        ],
+        "reader_mode": "mixed",
+        "genres": [
+          "Language learning"
+        ],
+        "fiction": "y",
+        "book_year": 1920,
+        "epoch": "c20",
+        "total_seconds": 3685,
+        "length_band": "short",
+        "num_sections": 5,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Dholuo/Luo",
+        "url_iarchive": "https://www.archive.org/details/handbook_kavirondo3_1203",
+        "url_text_source": "https://www.archive.org/details/AHandbookOfTheKavirondoLanguage-Part3",
+        "source_item_id": "3874"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "01 - Usual.",
+          "audio": "https://archive.org/download/handbook_kavirondo3_1203/dholuophrasebook_01_fathersstjosephsociety_64kb.mp3",
+          "duration": 664,
+          "tags": {
+            "reader": [
+              "Nicholas James Bridgewater",
+              "Grace Odeny Bridgewater"
+            ]
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "02 - Servants, Meals, etc.",
+          "audio": "https://archive.org/download/handbook_kavirondo3_1203/dholuophrasebook_02_fathersstjosephsociety_64kb.mp3",
+          "duration": 1191,
+          "tags": {
+            "reader": [
+              "Nicholas James Bridgewater",
+              "Grace Odeny Bridgewater"
+            ]
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "03 - Working.",
+          "audio": "https://archive.org/download/handbook_kavirondo3_1203/dholuophrasebook_03_fathersstjosephsociety_64kb.mp3",
+          "duration": 493,
+          "tags": {
+            "reader": [
+              "Nicholas James Bridgewater",
+              "Grace Odeny Bridgewater"
+            ]
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "04 - In Caravan.",
+          "audio": "https://archive.org/download/handbook_kavirondo3_1203/dholuophrasebook_04_fathersstjosephsociety_64kb.mp3",
+          "duration": 266,
+          "tags": {
+            "reader": [
+              "Nicholas James Bridgewater",
+              "Grace Odeny Bridgewater"
+            ]
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "05 - A Visit to a Village.",
+          "audio": "https://archive.org/download/handbook_kavirondo3_1203/dholuophrasebook_05_fathersstjosephsociety_64kb.mp3",
+          "duration": 1071,
+          "tags": {
+            "reader": [
+              "Nicholas James Bridgewater",
+              "Grace Odeny Bridgewater"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -122,6 +122,15 @@
       ],
       "license": "mixed",
       "source": "online/freesound/source.json"
+    },
+    {
+      "key": "librivox",
+      "name": "LibriVox",
+      "categories": [
+        "hoerbuecher"
+      ],
+      "license": "PD",
+      "source": "online/librivox/source.json"
     }
   ]
 }

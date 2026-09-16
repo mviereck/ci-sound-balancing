@@ -1,0 +1,613 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "LibriVox — Bulgarian",
+  "lang": "bg",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:2071",
+      "title": "Жетварят (The Reaper)",
+      "displayName": "Yovkov, Yordan – Жетварят (The Reaper)",
+      "lang": "bg",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 2071)",
+      "url": "https://librivox.org/zhetvariat-by-yordan-yovkov/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Yovkov, Yordan",
+        "reader": "Euthymius",
+        "readers": [
+          "Euthymius"
+        ],
+        "reader_mode": "solo",
+        "genres": [],
+        "fiction": "y",
+        "book_year": 1920,
+        "epoch": "c20",
+        "total_seconds": 21449,
+        "length_band": "medium",
+        "num_sections": 25,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Bulgarian",
+        "url_iarchive": "https://www.archive.org/details/reaper_0806_librivox",
+        "url_text_source": "https://slovo.bg/showwork.php3?AuID=95&WorkID=9610&Level=1",
+        "source_item_id": "2071"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Глава първа",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_01_yovkov_64kb.mp3",
+          "duration": 908,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Глава втора",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_02_yovkov_64kb.mp3",
+          "duration": 1161,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Глава трета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_03_yovkov_64kb.mp3",
+          "duration": 737,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Глава четвърта",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_04_yovkov_64kb.mp3",
+          "duration": 837,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Глава пета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_05_yovkov_64kb.mp3",
+          "duration": 589,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Глава шеста",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_06_yovkov_64kb.mp3",
+          "duration": 861,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Глава седма",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_07_yovkov_64kb.mp3",
+          "duration": 608,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Глава осма",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_08_yovkov_64kb.mp3",
+          "duration": 945,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Глава девета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_09_yovkov_64kb.mp3",
+          "duration": 1161,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Глава десета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_10_yovkov_64kb.mp3",
+          "duration": 973,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Глава единайсета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_11_yovkov_64kb.mp3",
+          "duration": 836,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Глава дванайсета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_12_yovkov_64kb.mp3",
+          "duration": 986,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "Глава тринайсета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_13_yovkov_64kb.mp3",
+          "duration": 1441,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "Глава четиринайсета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_14_yovkov_64kb.mp3",
+          "duration": 1037,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "Глава петнайсета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_15_yovkov_64kb.mp3",
+          "duration": 800,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "Глава шестнайсета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_16_yovkov_64kb.mp3",
+          "duration": 1484,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "Глава седемнайсета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_17_yovkov_64kb.mp3",
+          "duration": 1202,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "Глава осемнайсета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_18_yovkov_64kb.mp3",
+          "duration": 859,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "Глава деветнайсета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_19_yovkov_64kb.mp3",
+          "duration": 844,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "Глава двайсета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_20_yovkov_64kb.mp3",
+          "duration": 647,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "Глава двайсет и първа",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_21_yovkov_64kb.mp3",
+          "duration": 791,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch022",
+          "title": "Глава двайсет и втора",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_22_yovkov_64kb.mp3",
+          "duration": 612,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch023",
+          "title": "Глава двайсет и трета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_23_yovkov_64kb.mp3",
+          "duration": 510,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch024",
+          "title": "Глава двайсет и четвърта",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_24_yovkov_64kb.mp3",
+          "duration": 506,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch025",
+          "title": "Глава двайсет и пета",
+          "audio": "https://archive.org/download/reaper_0806_librivox/zhetvariat_25_yovkov_64kb.mp3",
+          "duration": 114,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:2580",
+      "title": "Стихотворения (Stihotvorenia)",
+      "displayName": "Belcheva, Mara – Стихотворения (Stihotvorenia)",
+      "lang": "bg",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 2580)",
+      "url": "https://librivox.org/stihotvorenia-by-mara-belcheva/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Belcheva, Mara",
+        "reader": "Euthymius",
+        "readers": [
+          "Euthymius"
+        ],
+        "reader_mode": "solo",
+        "genres": [],
+        "fiction": "y",
+        "book_year": 1918,
+        "epoch": "c20",
+        "total_seconds": 163,
+        "length_band": "very_short",
+        "num_sections": 4,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Bulgarian",
+        "url_iarchive": "https://www.archive.org/details/stihotvorenia_eu_0810_librivox",
+        "url_text_source": "https://www.slovo.bg/showauthor.php3?ID=32&LangID=1",
+        "source_item_id": "2580"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "1 - Свърши се играта...",
+          "audio": "https://archive.org/download/stihotvorenia_eu_0810_librivox/stihotvorenia_1_belcheva_64kb.mp3",
+          "duration": 47,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "2 - В душата ми градина...",
+          "audio": "https://archive.org/download/stihotvorenia_eu_0810_librivox/stihotvorenia_2_belcheva_64kb.mp3",
+          "duration": 43,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "3 - Отплува лекий челн...",
+          "audio": "https://archive.org/download/stihotvorenia_eu_0810_librivox/stihotvorenia_3_belcheva_64kb.mp3",
+          "duration": 34,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "4 - Родих се да живея в бури...",
+          "audio": "https://archive.org/download/stihotvorenia_eu_0810_librivox/stihotvorenia_4_belcheva_64kb.mp3",
+          "duration": 39,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:2607",
+      "title": "Старопланински легенди (Staroplaninski legendi)",
+      "displayName": "Yovkov, Yordan; Йовков, Йордан – Старопланински легенди (Staroplaninski legendi)",
+      "lang": "bg",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 2607)",
+      "url": "https://librivox.org/staroplaninski-legendi-by-yordan-yovkov-0812/",
+      "textUrl": null,
+      "tags": {
+        "work_author": "Yovkov, Yordan; Йовков, Йордан",
+        "reader": "Euthymius",
+        "readers": [
+          "Euthymius"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Myths, Legends & Fairy Tales"
+        ],
+        "fiction": "y",
+        "book_year": 1927,
+        "epoch": "c20",
+        "total_seconds": 15968,
+        "length_band": "medium",
+        "num_sections": 10,
+        "has_text": false,
+        "translators": [],
+        "language_name": "Bulgarian",
+        "url_iarchive": "https://www.archive.org/details/staroplaninski_legendi_eu_0812_librivox-1",
+        "url_text_source": "https://slovo.bg/showwork.php3?AuID=95&WorkID=2290&Level=1",
+        "source_item_id": "2607"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Shibil / Шибил",
+          "audio": "https://archive.org/download/staroplaninski_legendi_eu_0812_librivox-1/staroplaninskilegendi_01_yovkov_64kb.mp3",
+          "duration": 1235,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Koshuta / Кошута",
+          "audio": "https://archive.org/download/staroplaninski_legendi_eu_0812_librivox-1/staroplaninskilegendi_02_yovkov_64kb.mp3",
+          "duration": 1040,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Nai-viarnata strazha / Най-вярната стража",
+          "audio": "https://archive.org/download/staroplaninski_legendi_eu_0812_librivox-1/staroplaninskilegendi_03_yovkov_64kb.mp3",
+          "duration": 2303,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Bozhura / Божура",
+          "audio": "https://archive.org/download/staroplaninski_legendi_eu_0812_librivox-1/staroplaninskilegendi_04_yovkov_64kb.mp3",
+          "duration": 1516,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Yunashki glavi / Юнашки глави",
+          "audio": "https://archive.org/download/staroplaninski_legendi_eu_0812_librivox-1/staroplaninskilegendi_05_yovkov_64kb.mp3",
+          "duration": 1613,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Postolovi vodenitsi / Постолови воденици",
+          "audio": "https://archive.org/download/staroplaninski_legendi_eu_0812_librivox-1/staroplaninskilegendi_06_yovkov_64kb.mp3",
+          "duration": 1874,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Indzhe / Индже",
+          "audio": "https://archive.org/download/staroplaninski_legendi_eu_0812_librivox-1/staroplaninskilegendi_07_yovkov_64kb.mp3",
+          "duration": 3171,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Ovcharova zhalba / Овчарова жалба",
+          "audio": "https://archive.org/download/staroplaninski_legendi_eu_0812_librivox-1/staroplaninskilegendi_08_yovkov_64kb.mp3",
+          "duration": 782,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Prez chumavoto / През чумавото",
+          "audio": "https://archive.org/download/staroplaninski_legendi_eu_0812_librivox-1/staroplaninskilegendi_09_yovkov_64kb.mp3",
+          "duration": 1216,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Na Iglikina poliana / На игликина поляна",
+          "audio": "https://archive.org/download/staroplaninski_legendi_eu_0812_librivox-1/staroplaninskilegendi_10_yovkov_64kb.mp3",
+          "duration": 1218,
+          "tags": {
+            "reader": "Euthymius"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:6870",
+      "title": "Епопея на Забравените (Epopeya na zabravenite)",
+      "displayName": "Vazov, Ivan – Епопея на Забравените (Epopeya na zabravenite)",
+      "lang": "bg",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 6870)",
+      "url": "https://librivox.org/epopeya-na-zabravenite-by-ivan-vazov/",
+      "textUrl": "hoerbuch-texte/bg/vazov-ivan_-_epopeya-na-zabravenite-6870.txt.gz",
+      "tags": {
+        "work_author": "Vazov, Ivan",
+        "reader": "Georgi Stoychev",
+        "readers": [
+          "Georgi Stoychev",
+          "Rapunzelina"
+        ],
+        "reader_mode": "mixed",
+        "genres": [
+          "Epics"
+        ],
+        "fiction": "y",
+        "book_year": 1884,
+        "epoch": "c19",
+        "total_seconds": 3885,
+        "length_band": "short",
+        "num_sections": 12,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Bulgarian",
+        "url_iarchive": "https://archive.org/details/epopeyanazabravenite_1608_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/2890",
+        "source_item_id": "6870"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Левски (Levski)",
+          "audio": "https://archive.org/download/epopeyanazabravenite_1608_librivox/epopeyanazabravenite_01_vazov_64kb.mp3",
+          "duration": 494,
+          "tags": {
+            "reader": "Georgi Stoychev"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Бенковски (Benkovski)",
+          "audio": "https://archive.org/download/epopeyanazabravenite_1608_librivox/epopeyanazabravenite_02_vazov_64kb.mp3",
+          "duration": 268,
+          "tags": {
+            "reader": "Georgi Stoychev"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Кочо (Kocho)",
+          "audio": "https://archive.org/download/epopeyanazabravenite_1608_librivox/epopeyanazabravenite_03_vazov_64kb.mp3",
+          "duration": 424,
+          "tags": {
+            "reader": "Georgi Stoychev"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Братя Жекови (Bratya Zhekovi)",
+          "audio": "https://archive.org/download/epopeyanazabravenite_1608_librivox/epopeyanazabravenite_04_vazov_64kb.mp3",
+          "duration": 178,
+          "tags": {
+            "reader": "Georgi Stoychev"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Каблешков (Kableshkov)",
+          "audio": "https://archive.org/download/epopeyanazabravenite_1608_librivox/epopeyanazabravenite_05_vazov_64kb.mp3",
+          "duration": 412,
+          "tags": {
+            "reader": "Georgi Stoychev"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Паисий (Paisiy)",
+          "audio": "https://archive.org/download/epopeyanazabravenite_1608_librivox/epopeyanazabravenite_06_vazov_64kb.mp3",
+          "duration": 331,
+          "tags": {
+            "reader": "Georgi Stoychev"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Братя Миладинови (Bratya Miladinovi)",
+          "audio": "https://archive.org/download/epopeyanazabravenite_1608_librivox/epopeyanazabravenite_07_vazov_64kb.mp3",
+          "duration": 452,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Раковски (Rakovski)",
+          "audio": "https://archive.org/download/epopeyanazabravenite_1608_librivox/epopeyanazabravenite_08_vazov_64kb.mp3",
+          "duration": 192,
+          "tags": {
+            "reader": "Georgi Stoychev"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Караджата (Karadzhata)",
+          "audio": "https://archive.org/download/epopeyanazabravenite_1608_librivox/epopeyanazabravenite_09_vazov_64kb.mp3",
+          "duration": 520,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "1876",
+          "audio": "https://archive.org/download/epopeyanazabravenite_1608_librivox/epopeyanazabravenite_10_vazov_64kb.mp3",
+          "duration": 156,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Волов (Volov)",
+          "audio": "https://archive.org/download/epopeyanazabravenite_1608_librivox/epopeyanazabravenite_11_vazov_64kb.mp3",
+          "duration": 51,
+          "tags": {
+            "reader": "Georgi Stoychev"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Опълченците на Шипка (Opalchentsite na Shipka)",
+          "audio": "https://archive.org/download/epopeyanazabravenite_1608_librivox/epopeyanazabravenite_12_vazov_64kb.mp3",
+          "duration": 407,
+          "tags": {
+            "reader": "Rapunzelina"
+          }
+        }
+      ]
+    }
+  ]
+}

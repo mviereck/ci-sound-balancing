@@ -1,0 +1,1864 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "LibriVox — Esperanto",
+  "lang": "eo",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:1252",
+      "title": "Dr. Esperanto’s International Language, Introduction and Complete Grammar",
+      "displayName": "Zamenhof, L. L. – Dr. Esperanto’s International Language, Introduction and Complete Grammar",
+      "lang": "eo",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 1252)",
+      "url": "https://librivox.org/dr-esperantos-international-language-introduction-and-complete-grammar-by-ll-zamenhof/",
+      "textUrl": "hoerbuch-texte/eo/zamenhof-l-l_-_dr-esperanto-s-international-language-introduction-and-complete-grammar-1252.html.gz",
+      "tags": {
+        "work_author": "Zamenhof, L. L.",
+        "reader": "Nicholas James Bridgewater",
+        "readers": [
+          "Nicholas James Bridgewater"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Language learning"
+        ],
+        "fiction": "y",
+        "book_year": 1889,
+        "epoch": "c19",
+        "total_seconds": 8233,
+        "length_band": "short",
+        "num_sections": 12,
+        "has_text": true,
+        "translators": [
+          "Richard Geoghegan"
+        ],
+        "language_name": "Esperanto",
+        "url_iarchive": "https://www.archive.org/details/esperanto_njb_librivox",
+        "url_text_source": "https://www.genekeyes.com/Dr_Esperanto.html",
+        "source_item_id": "1252"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Section 00",
+          "audio": "https://archive.org/download/esperanto_njb_librivox/esperanto_language_00_zamenhof_64kb.mp3",
+          "duration": 652,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch001",
+          "title": "Section 01",
+          "audio": "https://archive.org/download/esperanto_njb_librivox/esperanto_language_01_zamenhof_64kb.mp3",
+          "duration": 302,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Section 02",
+          "audio": "https://archive.org/download/esperanto_njb_librivox/esperanto_language_02_zamenhof_64kb.mp3",
+          "duration": 848,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Section 03",
+          "audio": "https://archive.org/download/esperanto_njb_librivox/esperanto_language_03_zamenhof_64kb.mp3",
+          "duration": 511,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Section 04",
+          "audio": "https://archive.org/download/esperanto_njb_librivox/esperanto_language_04_zamenhof_64kb.mp3",
+          "duration": 747,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Section 05",
+          "audio": "https://archive.org/download/esperanto_njb_librivox/esperanto_language_05_zamenhof_64kb.mp3",
+          "duration": 249,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Section 06",
+          "audio": "https://archive.org/download/esperanto_njb_librivox/esperanto_language_06_zamenhof_64kb.mp3",
+          "duration": 540,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Section 07",
+          "audio": "https://archive.org/download/esperanto_njb_librivox/esperanto_language_07_zamenhof_64kb.mp3",
+          "duration": 255,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Section 08",
+          "audio": "https://archive.org/download/esperanto_njb_librivox/esperanto_language_08_zamenhof_64kb.mp3",
+          "duration": 1337,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Section 09",
+          "audio": "https://archive.org/download/esperanto_njb_librivox/esperanto_language_09_zamenhof_64kb.mp3",
+          "duration": 562,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Section 10",
+          "audio": "https://archive.org/download/esperanto_njb_librivox/esperanto_language_10_zamenhof_64kb.mp3",
+          "duration": 1417,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Section 11",
+          "audio": "https://archive.org/download/esperanto_njb_librivox/esperanto_language_11_zamenhof_64kb.mp3",
+          "duration": 813,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:2381",
+      "title": "Aventuroj de Alicio en Mirlando",
+      "displayName": "Carroll, Lewis – Aventuroj de Alicio en Mirlando",
+      "lang": "eo",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 2381)",
+      "url": "https://librivox.org/la-aventuroj-de-alicio-en-mirlando-by-lewis-carroll/",
+      "textUrl": "hoerbuch-texte/eo/carroll-lewis_-_aventuroj-de-alicio-en-mirlando-2381.txt.gz",
+      "tags": {
+        "work_author": "Carroll, Lewis",
+        "reader": "Nicholas James Bridgewater",
+        "readers": [
+          "Nicholas James Bridgewater"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Action & Adventure"
+        ],
+        "fiction": "y",
+        "book_year": 1910,
+        "epoch": "c20",
+        "total_seconds": 15723,
+        "length_band": "medium",
+        "num_sections": 13,
+        "has_text": true,
+        "translators": [
+          "E. L. Kearney"
+        ],
+        "language_name": "Esperanto",
+        "url_iarchive": "https://www.archive.org/details/laaventuro_de_alicio0912_librivox",
+        "url_text_source": "https://www.gutenberg.org/etext/17482",
+        "source_item_id": "2381"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Titolo, Antaŭparolo de l’ Tradukinto, Antaŭparolo de la Aŭtoro.",
+          "audio": "https://archive.org/download/laaventuro_de_alicio0912_librivox/alicio_en_mirlando_00_caroll_64kb.mp3",
+          "duration": 375,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch001",
+          "title": "Mirinda falego!",
+          "audio": "https://archive.org/download/laaventuro_de_alicio0912_librivox/alicio_en_mirlando_01_caroll_64kb.mp3",
+          "duration": 1222,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Lageto farita el larmoj",
+          "audio": "https://archive.org/download/laaventuro_de_alicio0912_librivox/alicio_en_mirlando_02_caroll_64kb.mp3",
+          "duration": 1080,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Post stranga vetkuro sekvas stranga mus-tejlo",
+          "audio": "https://archive.org/download/laaventuro_de_alicio0912_librivox/alicio_en_mirlando_03_caroll_64kb.mp3",
+          "duration": 955,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Ĉefe pri unu lacerto nomata Bil",
+          "audio": "https://archive.org/download/laaventuro_de_alicio0912_librivox/alicio_en_mirlando_04_caroll_64kb.mp3",
+          "duration": 1231,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Alicio ricevas admonon de la raŭpo",
+          "audio": "https://archive.org/download/laaventuro_de_alicio0912_librivox/alicio_en_mirlando_05_caroll_64kb.mp3",
+          "duration": 1151,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Pri la porkinfano",
+          "audio": "https://archive.org/download/laaventuro_de_alicio0912_librivox/alicio_en_mirlando_06_caroll_64kb.mp3",
+          "duration": 1397,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Tetrinkado ĉe frenezuloj",
+          "audio": "https://archive.org/download/laaventuro_de_alicio0912_librivox/alicio_en_mirlando_07_caroll_64kb.mp3",
+          "duration": 1456,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Kroketludo ĉe la kera damo",
+          "audio": "https://archive.org/download/laaventuro_de_alicio0912_librivox/alicio_en_mirlando_08_caroll_64kb.mp3",
+          "duration": 1554,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Viv-historio de la falsa kelonio",
+          "audio": "https://archive.org/download/laaventuro_de_alicio0912_librivox/alicio_en_mirlando_09_caroll_64kb.mp3",
+          "duration": 1506,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "La omara kvadrilo",
+          "audio": "https://archive.org/download/laaventuro_de_alicio0912_librivox/alicio_en_mirlando_10_caroll_64kb.mp3",
+          "duration": 1491,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Kiu forŝtelis la tortojn?",
+          "audio": "https://archive.org/download/laaventuro_de_alicio0912_librivox/alicio_en_mirlando_11_caroll_64kb.mp3",
+          "duration": 1169,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Alicio atestanto",
+          "audio": "https://archive.org/download/laaventuro_de_alicio0912_librivox/alicio_en_mirlando_12_caroll_64kb.mp3",
+          "duration": 1136,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:3934",
+      "title": "Esperanto Self-Taught with Phonetic Pronunciation, Volume 1",
+      "displayName": "Mann, William W. – Esperanto Self-Taught with Phonetic Pronunciation, Volume 1",
+      "lang": "eo",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 3934)",
+      "url": "https://librivox.org/esperanto-self-taught-with-phonetic-pronunciation-volume-1-by-mann-william-w",
+      "textUrl": "hoerbuch-texte/eo/mann-william-w_-_esperanto-self-taught-with-phonetic-pronunciation-volume-1-3934.txt.gz",
+      "tags": {
+        "work_author": "Mann, William W.",
+        "reader": "Nicholas James Bridgewater",
+        "readers": [
+          "Nicholas James Bridgewater"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Language learning"
+        ],
+        "fiction": "y",
+        "book_year": 1908,
+        "epoch": "c20",
+        "total_seconds": 26869,
+        "length_band": "medium",
+        "num_sections": 22,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Esperanto",
+        "url_iarchive": "https://www.archive.org/details/esperanto_selftaught_1005_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/23984",
+        "source_item_id": "3934"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "00 – Preface",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_00_mann_64kb.mp3",
+          "duration": 256,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch001",
+          "title": "01 – The Esperanto Alphabet (with Phonetic Pronunciation)",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_01_mann_64kb.mp3",
+          "duration": 599,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "02 – Preliminary Notes, Letter from Dr. Zamenhof (Founder of Esperanto.)",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_02_mann_64kb.mp3",
+          "duration": 427,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "03 – [Vocabularies]: 1. The World & its Elements; 2. Land and Water.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_03_mann_64kb.mp3",
+          "duration": 704,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "04 – [Vocabularies]: 3. Minerals & Metals, 4. Animals, Birds & Fishes.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_04_mann_64kb.mp3",
+          "duration": 1150,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "05 – [Vocabularies]: 5. Reptiles & Insects. 6. Fruits, Trees, Flowers & Vegetables.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_05_mann_64kb.mp3",
+          "duration": 1046,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "06 - [Vocabularies]: 7. Colours; 8. Times & Seasons; 9. Town, Country & Agriculture.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_06_mann_64kb.mp3",
+          "duration": 1766,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "07 – [Vocabularies]: 10. Mankind: Relations; 11. The Human Body.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_07_mann_64kb.mp3",
+          "duration": 938,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "08 – [Vocabularies]: 12. Physical & Mental Powers, Qualities, etc.; 13. Health.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_08_mann_64kb.mp3",
+          "duration": 1201,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "09 – [Vocabularies]: 14. Food & Drink; 15. Cooking & Table Utensils.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_09_mann_64kb.mp3",
+          "duration": 1188,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "10 – [Vocabularies]: 16. Dress & the Toilet; 17. Washing List.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_10_mann_64kb.mp3",
+          "duration": 1221,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "11 – [Vocabularies]: 18. The House and Furniture; 19. Travelling: By Road & Rail.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_11_mann_64kb.mp3",
+          "duration": 1928,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "12 – [Vocabularies]: 20. Travelling by Ship; 21. Countries & Nations.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_12_mann_64kb.mp3",
+          "duration": 953,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "13 – [Vocabularies]: 22. Recreation & Amusement; 23. Cycling.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_13_mann_64kb.mp3",
+          "duration": 2134,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "14 – [Vocabularies]: 24. Motoring; 25. Photography.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_14_mann_64kb.mp3",
+          "duration": 1258,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "15 – [Vocabularies]: 26. Religion; 27. Professions & Trades.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_15_mann_64kb.mp3",
+          "duration": 1184,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "16 – [Vocabularies]: 28. Legal Terms; 29. Commercial Terms.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_16_mann_64kb.mp3",
+          "duration": 2582,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "17 – [Vocabularies]: 30. Post, Telegraph and Telephone; 31. Correspondence.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_17_mann_64kb.mp3",
+          "duration": 702,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "18 – [Vocabularies]: 32. The Cardinal Numbers; 33. Ordinal Numerals; 34. Collective and Fractional Numbers.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_18_mann_64kb.mp3",
+          "duration": 1187,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "19 – [Vocabularies]: 35. Adjectives.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_19_mann_64kb.mp3",
+          "duration": 1293,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "20 – [Vocabularies]: 36. Verbs.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_20_mann_64kb.mp3",
+          "duration": 1470,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "21 – [Vocabularies]: 37. Adverbs, Conjunctions & Prepositions.",
+          "audio": "https://archive.org/download/esperanto_selftaught_1005_librivox/esperantoselftaughtvol1_21_mann_64kb.mp3",
+          "duration": 1682,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:4319",
+      "title": "Esperanto Self-Taught with Phonetic Pronunciation, Volume 2",
+      "displayName": "Mann, William W. – Esperanto Self-Taught with Phonetic Pronunciation, Volume 2",
+      "lang": "eo",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 4319)",
+      "url": "https://librivox.org/esperanto-self-taught-with-phonetic-pronunciation-volume-2-by-william-w-mann/",
+      "textUrl": "hoerbuch-texte/eo/mann-william-w_-_esperanto-self-taught-with-phonetic-pronunciation-volume-2-4319.txt.gz",
+      "tags": {
+        "work_author": "Mann, William W.",
+        "reader": "Nicholas James Bridgewater",
+        "readers": [
+          "Nicholas James Bridgewater"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Language learning"
+        ],
+        "fiction": "y",
+        "book_year": 1908,
+        "epoch": "c20",
+        "total_seconds": 5156,
+        "length_band": "short",
+        "num_sections": 6,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Esperanto",
+        "url_iarchive": "https://www.archive.org/details/esperanto_selftaught_vol2_2009_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/23984",
+        "source_item_id": "4319"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "01 – [Elementary Grammar]: The Article; The Noun; The Adjective; Degrees of Comparison; Cardinal Numbers; Ordinal Numbers; Fractions; Multiples, Collectives, and Distributives.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol2_2009_librivox/esperantoselftaughtvol2_01_mann_64kb.mp3",
+          "duration": 694,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "02 – [Elementary Grammar]: The Pronoun; Possessive Adjectives or Pronouns; Demonstrative Adjective or Pronoun; Interrogative Pronouns; Relative Pronouns; Indefinite Pronouns.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol2_2009_librivox/esperantoselftaughtvol2_02_mann_64kb.mp3",
+          "duration": 1061,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "03 – [Elementary Grammar]: The Verb.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol2_2009_librivox/esperantoselftaughtvol2_03_mann_64kb.mp3",
+          "duration": 788,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "04 – [Elementary Grammar]: The Adverb; The Preposition; The Conjunction; Interjections.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol2_2009_librivox/esperantoselftaughtvol2_04_mann_64kb.mp3",
+          "duration": 674,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "05 – [Elementary Grammar]: Formation of Words; Prefixes; Suffixes; Compound Words.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol2_2009_librivox/esperantoselftaughtvol2_05_mann_64kb.mp3",
+          "duration": 1514,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "06 – [Elementary Grammar]: Correlative Words.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol2_2009_librivox/esperantoselftaughtvol2_06_mann_64kb.mp3",
+          "duration": 425,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:4709",
+      "title": "Esperanto Self-Taught with Phonetic Pronunciation, Volume 3",
+      "displayName": "Mann, William W. – Esperanto Self-Taught with Phonetic Pronunciation, Volume 3",
+      "lang": "eo",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 4709)",
+      "url": "https://librivox.org/esperanto-self-taught-with-phonetic-pronunciation-volume-3-by-william-w-mann/",
+      "textUrl": "hoerbuch-texte/eo/mann-william-w_-_esperanto-self-taught-with-phonetic-pronunciation-volume-3-4709.txt.gz",
+      "tags": {
+        "work_author": "Mann, William W.",
+        "reader": "Nicholas James Bridgewater",
+        "readers": [
+          "Nicholas James Bridgewater"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Language learning"
+        ],
+        "fiction": "y",
+        "book_year": 1908,
+        "epoch": "c20",
+        "total_seconds": 15196,
+        "length_band": "medium",
+        "num_sections": 32,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Esperanto",
+        "url_iarchive": "https://www.archive.org/details/esperanto_selftaught_vol3_njb_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/23984",
+        "source_item_id": "4709"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "01 – [Conversational Phrases and Sentences]:  Useful and Necessary Expressions.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_01_mann_64kb.mp3",
+          "duration": 1493,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "02 – [Conversational Phrases and Sentences]:  Expressions of Emotion, etc.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_02_mann_64kb.mp3",
+          "duration": 392,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "03 – [Conversational Phrases and Sentences]:  Enquiries.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_03_mann_64kb.mp3",
+          "duration": 293,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "04 – [Conversational Phrases and Sentences]:  Public Notices.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_04_mann_64kb.mp3",
+          "duration": 314,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "05 – [Conversational Phrases and Sentences]:  Travelling: By Railway.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_05_mann_64kb.mp3",
+          "duration": 805,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "06 – [Conversational Phrases and Sentences]:  Travelling: By Steamer.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_06_mann_64kb.mp3",
+          "duration": 376,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "07 – [Conversational Phrases and Sentences]:  At the Custom House.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_07_mann_64kb.mp3",
+          "duration": 270,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "08 – [Conversational Phrases and Sentences]:  Arrival.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_08_mann_64kb.mp3",
+          "duration": 229,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "09 – [Conversational Phrases and Sentences]:  Bus and Tram.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_09_mann_64kb.mp3",
+          "duration": 255,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "10 – [Conversational Phrases and Sentences]:  Hotel and Rooms.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_10_mann_64kb.mp3",
+          "duration": 523,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "11 – [Conversational Phrases and Sentences]:  Breakfast.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_11_mann_64kb.mp3",
+          "duration": 397,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "12 – [Conversational Phrases and Sentences]:  Dinner.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_12_mann_64kb.mp3",
+          "duration": 521,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "13 – [Conversational Phrases and Sentences]:  Tea.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_13_mann_64kb.mp3",
+          "duration": 252,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "14 – [Conversational Phrases and Sentences]:  Health.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_14_mann_64kb.mp3",
+          "duration": 418,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "15 – [Conversational Phrases and Sentences]:  In Town.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_15_mann_64kb.mp3",
+          "duration": 673,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "16 – [Conversational Phrases and Sentences]:  Shopping.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_16_mann_64kb.mp3",
+          "duration": 645,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "17 – [Conversational Phrases and Sentences]:  The Dressmaker.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_17_mann_64kb.mp3",
+          "duration": 345,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "18 – [Conversational Phrases and Sentences]:  The Shoemaker.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_18_mann_64kb.mp3",
+          "duration": 315,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "19 – [Conversational Phrases and Sentences]:  The Laundress.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_19_mann_64kb.mp3",
+          "duration": 339,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "20 – [Conversational Phrases and Sentences]:  Amusements.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_20_mann_64kb.mp3",
+          "duration": 579,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "21 – [Conversational Phrases and Sentences]:  Cycling.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_21_mann_64kb.mp3",
+          "duration": 651,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch022",
+          "title": "22 – [Conversational Phrases and Sentences]:  Motoring.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_22_mann_64kb.mp3",
+          "duration": 432,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch023",
+          "title": "23 – [Conversational Phrases and Sentences]:  Photography.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_23_mann_64kb.mp3",
+          "duration": 436,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch024",
+          "title": "24 – [Conversational Phrases and Sentences]:  Religion.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_24_mann_64kb.mp3",
+          "duration": 289,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch025",
+          "title": "25 – [Conversational Phrases and Sentences]:  The Time of Day.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_25_mann_64kb.mp3",
+          "duration": 306,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch026",
+          "title": "26 – [Conversational Phrases and Sentences]:  Times, Seasons and Weather.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_26_mann_64kb.mp3",
+          "duration": 677,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch027",
+          "title": "27 – [Conversational Phrases and Sentences]:  Post and Telegraph.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_27_mann_64kb.mp3",
+          "duration": 544,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch028",
+          "title": "28 – [Conversational Phrases and Sentences]:  Correspondence.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_28_mann_64kb.mp3",
+          "duration": 352,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch029",
+          "title": "29 – [Conversational Phrases and Sentences]:  Legal and Judicial.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_29_mann_64kb.mp3",
+          "duration": 541,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch030",
+          "title": "30 – [Conversational Phrases and Sentences]:  Commercial and Trading.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_30_mann_64kb.mp3",
+          "duration": 538,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch031",
+          "title": "31 – [Conversational Phrases and Sentences]:  Changing Money.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_31_mann_64kb.mp3",
+          "duration": 214,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        },
+        {
+          "id": "ch032",
+          "title": "32 – [Conversational Phrases and Sentences]:  Money, Weights & Measures; Postage.",
+          "audio": "https://archive.org/download/esperanto_selftaught_vol3_njb_librivox/esperantoselftaughtvol3_32_mann_64kb.mp3",
+          "duration": 782,
+          "tags": {
+            "reader": "Nicholas James Bridgewater"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:9070",
+      "title": "Fabeloj",
+      "displayName": "Andersen, Hans Christian – Fabeloj",
+      "lang": "eo",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 9070)",
+      "url": "https://librivox.org/fabeloj-by-hans-christian-andersen/",
+      "textUrl": "hoerbuch-texte/eo/andersen-hans-christian_-_fabeloj-9070.txt.gz",
+      "tags": {
+        "work_author": "Andersen, Hans Christian",
+        "reader": "Rosslyn Carlyle",
+        "readers": [
+          "Rosslyn Carlyle"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Myths, Legends & Fairy Tales"
+        ],
+        "fiction": "y",
+        "book_year": 1909,
+        "epoch": "c20",
+        "total_seconds": 5841,
+        "length_band": "short",
+        "num_sections": 6,
+        "has_text": true,
+        "translators": [
+          "Frederik Skeel-Giørling"
+        ],
+        "language_name": "Esperanto",
+        "url_iarchive": "https://archive.org/details/fabeloj_andersen_1505_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/27915",
+        "source_item_id": "9070"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Introduction",
+          "audio": "https://archive.org/download/fabeloj_andersen_1505_librivox/fabeloj_0_andersen_64kb.mp3",
+          "duration": 320,
+          "tags": {
+            "reader": "Rosslyn Carlyle"
+          }
+        },
+        {
+          "id": "ch001",
+          "title": "La brava stansoldato",
+          "audio": "https://archive.org/download/fabeloj_andersen_1505_librivox/fabeloj_1_andersen_64kb.mp3",
+          "duration": 1129,
+          "tags": {
+            "reader": "Rosslyn Carlyle"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Rakonto pri patrino",
+          "audio": "https://archive.org/download/fabeloj_andersen_1505_librivox/fabeloj_2_andersen_64kb.mp3",
+          "duration": 1427,
+          "tags": {
+            "reader": "Rosslyn Carlyle"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "La fajroŝtalo",
+          "audio": "https://archive.org/download/fabeloj_andersen_1505_librivox/fabeloj_3_andersen_64kb.mp3",
+          "duration": 1865,
+          "tags": {
+            "reader": "Rosslyn Carlyle"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "La princino sur pizo",
+          "audio": "https://archive.org/download/fabeloj_andersen_1505_librivox/fabeloj_4_andersen_64kb.mp3",
+          "duration": 330,
+          "tags": {
+            "reader": "Rosslyn Carlyle"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "La knabineto kun la alumetoj",
+          "audio": "https://archive.org/download/fabeloj_andersen_1505_librivox/fabeloj_5_andersen_64kb.mp3",
+          "duration": 770,
+          "tags": {
+            "reader": "Rosslyn Carlyle"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:10062",
+      "title": "Vivo de Zamenhof",
+      "displayName": "Privat, Edmond – Vivo de Zamenhof",
+      "lang": "eo",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 10062)",
+      "url": "https://librivox.org/vivo-de-zamenhof-by-edmond-privat/",
+      "textUrl": "hoerbuch-texte/eo/privat-edmond_-_vivo-de-zamenhof-10062.txt.gz",
+      "tags": {
+        "work_author": "Privat, Edmond",
+        "reader": "Nightflush",
+        "readers": [
+          "Nightflush",
+          "J. D. Zero"
+        ],
+        "reader_mode": "mixed",
+        "genres": [
+          "Biography & Autobiography"
+        ],
+        "fiction": "y",
+        "book_year": 1920,
+        "epoch": "c20",
+        "total_seconds": 14377,
+        "length_band": "medium",
+        "num_sections": 13,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Esperanto",
+        "url_iarchive": "https://archive.org/details/vivo_de_zamenhof_2207_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/26359",
+        "source_item_id": "10062"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Antaŭparolo, Averto de l’ Aŭtoro",
+          "audio": "https://archive.org/download/vivo_de_zamenhof_2207_librivox/vivodezamenhof_00_privat_64kb.mp3",
+          "duration": 255,
+          "tags": {
+            "reader": "Nightflush"
+          }
+        },
+        {
+          "id": "ch001",
+          "title": "Ĉapitro I. La Gentoj en Litva lando",
+          "audio": "https://archive.org/download/vivo_de_zamenhof_2207_librivox/vivodezamenhof_01_privat_64kb.mp3",
+          "duration": 706,
+          "tags": {
+            "reader": "Nightflush"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Ĉapitro II. Infano en Bjalistok",
+          "audio": "https://archive.org/download/vivo_de_zamenhof_2207_librivox/vivodezamenhof_02_privat_64kb.mp3",
+          "duration": 704,
+          "tags": {
+            "reader": "Nightflush"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Ĉapitro III. Gimnaziano en Varsovio",
+          "audio": "https://archive.org/download/vivo_de_zamenhof_2207_librivox/vivodezamenhof_03_privat_64kb.mp3",
+          "duration": 1146,
+          "tags": {
+            "reader": "Nightflush"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Ĉapitro IV. Studentaj jaroj.",
+          "audio": "https://archive.org/download/vivo_de_zamenhof_2207_librivox/vivodezamenhof_04_privat_64kb.mp3",
+          "duration": 1032,
+          "tags": {
+            "reader": "Nightflush"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Ĉapitro V. Doktoro Esperanto",
+          "audio": "https://archive.org/download/vivo_de_zamenhof_2207_librivox/vivodezamenhof_05_privat_64kb.mp3",
+          "duration": 1237,
+          "tags": {
+            "reader": "Nightflush"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Ĉapitro VI. Idealista profeto",
+          "audio": "https://archive.org/download/vivo_de_zamenhof_2207_librivox/vivodezamenhof_06_privat_64kb.mp3",
+          "duration": 1664,
+          "tags": {
+            "reader": "Nightflush"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Ĉapitro VII. Homarano",
+          "audio": "https://archive.org/download/vivo_de_zamenhof_2207_librivox/vivodezamenhof_07_privat_64kb.mp3",
+          "duration": 1205,
+          "tags": {
+            "reader": "Nightflush"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Ĉapitro VIII. Kongresaj Paroladoj",
+          "audio": "https://archive.org/download/vivo_de_zamenhof_2207_librivox/vivodezamenhof_08_privat_64kb.mp3",
+          "duration": 1416,
+          "tags": {
+            "reader": "Nightflush"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Ĉapitro IX. Lingvisto",
+          "audio": "https://archive.org/download/vivo_de_zamenhof_2207_librivox/vivodezamenhof_09_privat_64kb.mp3",
+          "duration": 1039,
+          "tags": {
+            "reader": "Nightflush"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Ĉapitro X. Verkisto",
+          "audio": "https://archive.org/download/vivo_de_zamenhof_2207_librivox/vivodezamenhof_10_privat_64kb.mp3",
+          "duration": 874,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Ĉapitro XI. Etika Pensulo",
+          "audio": "https://archive.org/download/vivo_de_zamenhof_2207_librivox/vivodezamenhof_11_privat_64kb.mp3",
+          "duration": 1438,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Ĉapitro XII. Homo ĉe Morto",
+          "audio": "https://archive.org/download/vivo_de_zamenhof_2207_librivox/vivodezamenhof_12_privat_64kb.mp3",
+          "duration": 1661,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:18108",
+      "title": "Karlo",
+      "displayName": "Privat, Edmond – Karlo",
+      "lang": "eo",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 18108)",
+      "url": "https://librivox.org/karlo-by-edmond-privat/",
+      "textUrl": "hoerbuch-texte/eo/privat-edmond_-_karlo-18108.txt.gz",
+      "tags": {
+        "work_author": "Privat, Edmond",
+        "reader": "J. D. Zero",
+        "readers": [
+          "J. D. Zero"
+        ],
+        "reader_mode": "solo",
+        "genres": [],
+        "fiction": "y",
+        "book_year": 1909,
+        "epoch": "c20",
+        "total_seconds": 7225,
+        "length_band": "short",
+        "num_sections": 21,
+        "has_text": true,
+        "translators": [],
+        "language_name": "Esperanto",
+        "url_iarchive": "https://archive.org/details/karlo_2207_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/24525",
+        "source_item_id": "18108"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Antaŭparolo de l'verkinto",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_00_privat_64kb.mp3",
+          "duration": 162,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch001",
+          "title": "La familio",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_01_privat_64kb.mp3",
+          "duration": 352,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "La hejmo",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_02_privat_64kb.mp3",
+          "duration": 428,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "La servistino",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_03_privat_64kb.mp3",
+          "duration": 431,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Dimanĉo",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_04_privat_64kb.mp3",
+          "duration": 367,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Lernado",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_05_privat_64kb.mp3",
+          "duration": 365,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "La ideoj de Karlo",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_06_privat_64kb.mp3",
+          "duration": 320,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "La sonĝo de Karlo",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_07_privat_64kb.mp3",
+          "duration": 328,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "La liceo",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_08_privat_64kb.mp3",
+          "duration": 321,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Ekzameno",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_09_privat_64kb.mp3",
+          "duration": 323,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Liceano",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_10_privat_64kb.mp3",
+          "duration": 339,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Latina leciono",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_11_privat_64kb.mp3",
+          "duration": 337,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "La amiko",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_12_privat_64kb.mp3",
+          "duration": 400,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "Sur la rivero",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_13_privat_64kb.mp3",
+          "duration": 332,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "La profesoro de historio",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_14_privat_64kb.mp3",
+          "duration": 356,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "La sekreto de Karlo",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_15_privat_64kb.mp3",
+          "duration": 330,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "Ĉagrenoj",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_16_privat_64kb.mp3",
+          "duration": 346,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "Studento kaj poeto",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_17_privat_64kb.mp3",
+          "duration": 343,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "Alico",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_18_privat_64kb.mp3",
+          "duration": 344,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "Kuracisto",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_19_privat_64kb.mp3",
+          "duration": 341,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "En Italujo",
+          "audio": "https://archive.org/download/karlo_2207_librivox/karlo_20_privat_64kb.mp3",
+          "duration": 360,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:19077",
+      "title": "Mirinda Sorĉisto de Oz",
+      "displayName": "Baum, L. Frank – Mirinda Sorĉisto de Oz",
+      "lang": "eo",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 19077)",
+      "url": "https://librivox.org/la-mirinda-sorcisto-de-oz-by-l-frank-baum/",
+      "textUrl": "hoerbuch-texte/eo/baum-l-frank_-_mirinda-sor-isto-de-oz-19077.txt.gz",
+      "tags": {
+        "work_author": "Baum, L. Frank",
+        "reader": "J. D. Zero",
+        "readers": [
+          "J. D. Zero"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Myths, Legends & Fairy Tales"
+        ],
+        "fiction": "y",
+        "book_year": 1996,
+        "epoch": "c20",
+        "total_seconds": 17661,
+        "length_band": "medium",
+        "num_sections": 25,
+        "has_text": true,
+        "translators": [
+          "Donald Broadribb"
+        ],
+        "language_name": "Esperanto",
+        "url_iarchive": "https://archive.org/details/mirinda_sorcisto_de_oz_jdz_2304_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/31348",
+        "source_item_id": "19077"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Enkonduko",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_00_baum_64kb.mp3",
+          "duration": 144,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch001",
+          "title": "La Ciklono",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_01_baum_64kb.mp3",
+          "duration": 553,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Konsiliĝo de la Manĝtuloj",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_02_baum_64kb.mp3",
+          "duration": 843,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Kiel Doroteo savis la Birdotimigilon",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_03_baum_64kb.mp3",
+          "duration": 838,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "La Vojo tra la Arbaro",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_04_baum_64kb.mp3",
+          "duration": 672,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Ili savas la Stanan Lingohakiston",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_05_baum_64kb.mp3",
+          "duration": 966,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "La Malkuraĝa Leono",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_06_baum_64kb.mp3",
+          "duration": 694,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "La vojo al la Granda Oz",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_07_baum_64kb.mp3",
+          "duration": 834,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "La mortiga papavokampo",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_08_baum_64kb.mp3",
+          "duration": 876,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "La Reĝino de la kampomusoj",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_09_baum_64kb.mp3",
+          "duration": 622,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "La Pordogardisto",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_10_baum_64kb.mp3",
+          "duration": 871,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "La Mirinda Smeralda Urbo de Oz",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_11_baum_64kb.mp3",
+          "duration": 1602,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Serĉante la Fian Sorĉistinon",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_12_baum_64kb.mp3",
+          "duration": 1584,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "La savo",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_13_baum_64kb.mp3",
+          "duration": 540,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "La Flugantaj Simioj",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_14_baum_64kb.mp3",
+          "duration": 789,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch015",
+          "title": "Ili malmaskas Ozon la Teruran",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_15_baum_64kb.mp3",
+          "duration": 1178,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch016",
+          "title": "La magia arto de la Granda Ĉarlatano",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_16_baum_64kb.mp3",
+          "duration": 430,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch017",
+          "title": "Kiel la balono estis lanĉita",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_17_baum_64kb.mp3",
+          "duration": 489,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch018",
+          "title": "For al la sudo",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_18_baum_64kb.mp3",
+          "duration": 527,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch019",
+          "title": "Atakataj de la batalantaj arboj",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_19_baum_64kb.mp3",
+          "duration": 456,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch020",
+          "title": "La delikata Porcelana Lando",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_20_baum_64kb.mp3",
+          "duration": 679,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch021",
+          "title": "La Leono fariĝas la Reĝo de la Bestoj",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_21_baum_64kb.mp3",
+          "duration": 412,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch022",
+          "title": "La Lando de la Kveluloj",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_22_baum_64kb.mp3",
+          "duration": 433,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch023",
+          "title": "La Bona Sorĉistino plenumas la deziron de Doroteo",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_23_baum_64kb.mp3",
+          "duration": 553,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        },
+        {
+          "id": "ch024",
+          "title": "Denove hejme",
+          "audio": "https://archive.org/download/mirinda_sorcisto_de_oz_jdz_2304_librivox/mirindasorcistodeoz_24_baum_64kb.mp3",
+          "duration": 76,
+          "tags": {
+            "reader": "J. D. Zero"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "librivox:19628",
+      "title": "Vojaĝo interne de mia ĉambro",
+      "displayName": "Maistre, Xavier de – Vojaĝo interne de mia ĉambro",
+      "lang": "eo",
+      "license": "PD",
+      "credit": "Public Domain — LibriVox (Buch 19628)",
+      "url": "https://librivox.org/vojago-interne-de-mia-cambro-by-xavier-de-maistre/",
+      "textUrl": "hoerbuch-texte/eo/maistre-xavier-de_-_voja-o-interne-de-mia-ambro-19628.txt.gz",
+      "tags": {
+        "work_author": "Maistre, Xavier de",
+        "reader": "VerdaVocxo",
+        "readers": [
+          "VerdaVocxo"
+        ],
+        "reader_mode": "solo",
+        "genres": [
+          "Memoirs"
+        ],
+        "fiction": "y",
+        "book_year": 1907,
+        "epoch": "c20",
+        "total_seconds": 9759,
+        "length_band": "short",
+        "num_sections": 14,
+        "has_text": true,
+        "translators": [
+          "Samuel Meyer"
+        ],
+        "language_name": "Esperanto",
+        "url_iarchive": "https://archive.org/details/vojagointernedemiacambro_2409_librivox",
+        "url_text_source": "https://www.gutenberg.org/ebooks/25539",
+        "source_item_id": "19628"
+      },
+      "items": [
+        {
+          "id": "ch001",
+          "title": "Ĉapitroj 1-3",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_01_demaistre_64kb.mp3",
+          "duration": 577,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        },
+        {
+          "id": "ch002",
+          "title": "Ĉapitroj 4-6",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_02_demaistre_64kb.mp3",
+          "duration": 652,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        },
+        {
+          "id": "ch003",
+          "title": "Ĉapitroj 7-9",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_03_demaistre_64kb.mp3",
+          "duration": 525,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        },
+        {
+          "id": "ch004",
+          "title": "Ĉapitroj 10-13",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_04_demaistre_64kb.mp3",
+          "duration": 565,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        },
+        {
+          "id": "ch005",
+          "title": "Ĉapitroj 14-16",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_05_demaistre_64kb.mp3",
+          "duration": 737,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        },
+        {
+          "id": "ch006",
+          "title": "Ĉapitroj 17-20",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_06_demaistre_64kb.mp3",
+          "duration": 628,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        },
+        {
+          "id": "ch007",
+          "title": "Ĉapitroj 21-23",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_07_demaistre_64kb.mp3",
+          "duration": 628,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        },
+        {
+          "id": "ch008",
+          "title": "Ĉapitroj 24-27",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_08_demaistre_64kb.mp3",
+          "duration": 891,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        },
+        {
+          "id": "ch009",
+          "title": "Ĉapitroj 28-31",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_09_demaistre_64kb.mp3",
+          "duration": 680,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        },
+        {
+          "id": "ch010",
+          "title": "Ĉapitroj 32-34",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_10_demaistre_64kb.mp3",
+          "duration": 508,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        },
+        {
+          "id": "ch011",
+          "title": "Ĉapitroj 35-37",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_11_demaistre_64kb.mp3",
+          "duration": 959,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        },
+        {
+          "id": "ch012",
+          "title": "Ĉapitroj 38-39",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_12_demaistre_64kb.mp3",
+          "duration": 786,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        },
+        {
+          "id": "ch013",
+          "title": "Ĉapitroj 40-41",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_13_demaistre_64kb.mp3",
+          "duration": 516,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        },
+        {
+          "id": "ch014",
+          "title": "Ĉapitro 42",
+          "audio": "https://archive.org/download/vojagointernedemiacambro_2409_librivox/vojagointernedemiacambro_14_demaistre_64kb.mp3",
+          "duration": 1107,
+          "tags": {
+            "reader": "VerdaVocxo"
+          }
+        }
+      ]
+    }
+  ]
+}
