@@ -2558,6 +2558,19 @@ function plBuildFilterChain(catDecl) {
           });
         }
       }
+      // Stichwortsuche (falls die Kategorie ein Suchfeld hat): filtert die
+      // Buchliste nach Titel/Autor/Anzeige-Name. Analog zur Musik-/Geraeusch-
+      // Suche, nur auf Collections.
+      if (typeof catDecl.stateRef.getSearchQuery === "function") {
+        var _q = (catDecl.stateRef.getSearchQuery() || "").trim().toLowerCase();
+        if (_q) {
+          allCols = allCols.filter(function (c) {
+            var hay = ((c.displayName || "") + " " + (c.title || "") + " "
+              + ((c.tags && c.tags.work_author) || "")).toLowerCase();
+            return hay.indexOf(_q) >= 0;
+          });
+        }
+      }
       var sortedCols = (typeof amSortCollections === "function")
         ? amSortCollections(allCols, catDecl.category, catDecl.stateRef.getSortAxis())
         : allCols;
@@ -2566,7 +2579,9 @@ function plBuildFilterChain(catDecl) {
         var coll = sortedCols[ci];
         var copt = document.createElement("option");
         copt.value = coll.id;
-        copt.textContent = coll.title || coll.id;
+        // Anzeige "Nachname, Vorname – Titel" (displayName aus Manifest);
+        // Fallback auf Titel (lokale Uploads ohne displayName).
+        copt.textContent = coll.displayName || coll.title || coll.id;
         domEl.appendChild(copt);
       }
       if (sortedCols.length === 0) {
@@ -3505,8 +3520,9 @@ PL_FILTER_DECL.hoerbuecher = {
     { key: "pdfUrl",  labelKey: "plDispFieldPdf",      getValue: function (ctx) { return ctx.pdfUrl   || ""; }, role: "pdf",     inFilter: false, inDisplay: false, visibility: "never"  }
   ],
   stateRef: {
-    getSortAxis:   function () { return plBookSortAxis; },
-    setSortAxis:   function (v) { plBookSortAxis = v; },
+    // Sortierung fest alphabetisch nach Autor (keine Sortier-Box mehr).
+    getSortAxis:   function () { return "author"; },
+    setSortAxis:   function () {},
     getSelectedId: function () { return plBookSelectedId; },
     setSelectedId: function (v) { plBookSelectedId = v; },
     getChapterIdx: function () { return plBookChapterIdx; },
@@ -3517,7 +3533,9 @@ PL_FILTER_DECL.hoerbuecher = {
     },
     setAxisSel: function (axisKey, value) {
       plBookAxisSel[axisKey] = value;
-    }
+    },
+    getSearchQuery: function () { return plBookSearchQuery; },
+    setSearchQuery: function (v) { plBookSearchQuery = v; }
   },
   // Basismenge der parallelen Achsen: die Buch-Sammlungen, nach
   // Inhalts-Sprache vorgefiltert (die lang-sel-Box bedient plContentLang;
@@ -3550,11 +3568,10 @@ PL_FILTER_DECL.hoerbuecher = {
     {
       id: "axes", kind: "parallel-axes", domId: "plBookAxes",
       basis: "collections",
-      parallelAxes: ["genre", "author", "reader", "epoch", "length", "multi_chapter", "has_text"]
+      parallelAxes: ["genre", "fiction", "author", "reader", "epoch", "length", "has_text"]
     },
     {
-      id: "sort", kind: "axis-sel", domId: "plBookSortSel",
-      axesSource: (typeof amCollectionSortAxesFor === "function") ? amCollectionSortAxesFor : null
+      id: "search", kind: "search", domId: "plBookSearchInput"
     },
     {
       id: "collection", kind: "collection-sel", domId: "plBookSel",

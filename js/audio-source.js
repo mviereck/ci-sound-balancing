@@ -366,7 +366,22 @@ const AM_SORT_AXES = {
         if (Array.isArray(g) && g.length) return g[0];
         return "zzz-unbekannt";
       },
-      valueOf: function (c) { return (c.tags && c.tags.genres) || []; }
+      valueOf: function (c) { return (c.tags && c.tags.genres) || []; },
+      // Genre-Rohwerte (englische LibriVox-Namen, Freitext mit Leerzeichen/&)
+      // via i18n uebersetzen. Der Key wird aus dem Rohwert geslugt
+      // (_amGenreKey), damit er ein gueltiger JS-Property-Name ist. Fehlender
+      // Key -> englischer Rohwert (t() faellt auf den Default zurueck).
+      bucketLabel: function (v) {
+        if (typeof t !== "function") return v;
+        var tr = t("plBookGenre_" + _amGenreKey(v));
+        return (tr && tr.indexOf("plBookGenre_") !== 0) ? tr : v;
+      }
+    },
+    {
+      key: "fiction", labelKey: "plBookAxisFiction", labelDefault: "Art",
+      getter: function (c) { return (c.tags && c.tags.fiction) || "zzz-unbekannt"; },
+      valueOf: function (c) { return (c.tags && c.tags.fiction) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plBookFiction_" + v) : v; }
     },
     {
       key: "author", labelKey: "plBookAxisAuthor", labelDefault: "Autor",
@@ -391,12 +406,6 @@ const AM_SORT_AXES = {
       bucketLabel: function (v) { return (typeof t === "function") ? t("plBookLength_" + v) : v; }
     },
     {
-      key: "multi_chapter", labelKey: "plBookAxisChapters", labelDefault: "Kapitel",
-      getter: function (c) { return (c.tags && c.tags.multi_chapter) || "zzz-unbekannt"; },
-      valueOf: function (c) { return (c.tags && c.tags.multi_chapter) || ""; },
-      bucketLabel: function (v) { return (typeof t === "function") ? t("plBookChapters_" + v) : v; }
-    },
-    {
       key: "has_text", labelKey: "plBookAxisText", labelDefault: "Text",
       getter: function (c) { return (c.tags && c.tags.has_text) ? "y" : "n"; },
       valueOf: function (c) { return (c.tags && c.tags.has_text) ? "y" : "n"; },
@@ -404,6 +413,14 @@ const AM_SORT_AXES = {
     }
   ]
 };
+
+// Slug eines Genre-Rohwerts fuer den i18n-Key: lowercase, jede Folge von
+// Nicht-Alphanumerik -> "_". "Action & Adventure Fiction" ->
+// "action_adventure_fiction". Muss mit der Key-Erzeugung in i18n/*.js
+// uebereinstimmen (build der plBookGenre_-Keys).
+function _amGenreKey(raw) {
+  return String(raw || "").toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+}
 
 function amSortAxesFor(category) {
   return AM_SORT_AXES[category] || [];
@@ -1123,6 +1140,7 @@ amRegisterProvider({
           category: "hoerbuecher",
           id: id,
           title: col.title || srcKey,
+          displayName: col.displayName || null,
           lang: col.lang || null,
           tags: col.tags || {},
           license: entry.source.license || entry.meta.license,
