@@ -3896,10 +3896,26 @@ var _plReadLines = null;     // Zeilen-Array des reinen Werktextes, oder null
 var _plReadBookId = null;    // Buch-ID, zu der _plReadLines gehört
 var _plReadLoading = false;  // verhindert Doppel-Laden
 
-// Schneidet den reinen Werktext zwischen den Gutenberg-Standardmarken heraus.
-// Fehlt eine Marke, gibt null zurück (kein Mitlesen).
-function _plReadExtract(raw) {
+// Zerlegt den Rohtext in Zeilen und schneidet den reinen Werktext heraus.
+// Reihenfolge: (1) Manifest-Grenzen textRange {start, ende} (1-basiert,
+// inklusiv), sonst (2) Gutenberg-Standardmarken als Fallback, sonst
+// (3) der GANZE Text. Gibt immer ein Zeilen-Array zurueck (nie null),
+// solange ueberhaupt Text da ist.
+function _plReadExtract(raw, textRange) {
   var lines = raw.split(/\r?\n/);
+
+  // (1) Manifest-Grenzen: 1-basiert inklusiv -> slice(start-1, ende).
+  if (textRange && typeof textRange.start === "number"
+                && typeof textRange.ende  === "number") {
+    var s = textRange.start - 1;          // 1-basiert -> 0-basiert
+    var e = textRange.ende;               // inklusiv -> slice-Ende (exklusiv) = ende
+    if (s < 0) s = 0;
+    if (e > lines.length) e = lines.length;
+    if (e > s) return lines.slice(s, e);
+    // ungueltige Grenzen -> auf Fallback durchfallen
+  }
+
+  // (2) Fallback: Gutenberg-Standardmarken.
   var start = -1, end = -1;
   for (var i = 0; i < lines.length; i++) {
     if (start < 0 && /\*\*\*\s*START OF (THE|THIS) PROJECT GUTENBERG/.test(lines[i])) {
@@ -3909,8 +3925,10 @@ function _plReadExtract(raw) {
       break;
     }
   }
-  if (start < 0 || end < 0 || end <= start) return null;
-  return lines.slice(start, end);
+  if (start >= 0 && end >= 0 && end > start) return lines.slice(start, end);
+
+  // (3) Kein Range, keine Marke -> ganzen Text zeigen.
+  return lines;
 }
 
 var _plReadAutoLastT = null;   // letzter Zeitstempel (s) fuer die Delta-Rechnung
@@ -3979,7 +3997,8 @@ async function plReadEnsureText() {
     // textUrl ist assets-relativ (z. B. "hoerbuch-texte/de/…-172.txt.gz").
     var raw = await gzFetchText("assets/" + url);
     if (wantId !== _plReadBookId) return;   // inzwischen Buch gewechselt
-    _plReadLines = _plReadExtract(raw);      // null, wenn keine Marke
+    var _range = col ? col.textRange : null;
+    _plReadLines = _plReadExtract(raw, _range);  // textRange -> Marken -> ganzer Text
   } catch (e) {
     _plReadLines = null;
   } finally {
