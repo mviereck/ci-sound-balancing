@@ -1075,6 +1075,8 @@ function pPause() {
     if (pOff > pBuf.duration) pOff = 0;
   }
   pPlaying = false;
+  // Autoscroll-Zeitstempel loeschen, damit nach Fortsetzen kein dt-Sprung entsteht.
+  if (typeof _plReadAutoLastT !== "undefined") _plReadAutoLastT = null;
   // SW (BA382): pPause loescht den Play-Wunsch NICHT mehr. "Pause" wird auch
   // intern zum kurzen Anhalten (Neuberechnen/Pfadwechsel) genutzt; dort muss
   // der Wunsch erhalten bleiben. Nur die echten Nutzer-/Stopp-/Stueck-/Kategorie-
@@ -2190,6 +2192,7 @@ function plTextBoxRender(opts) {
       if (cb) {
         cb.addEventListener("change", function () {
           if (opts.reveal.toggleCbId === "plSentShowText") plSentShowText = !!cb.checked;
+          if (opts.reveal.toggleCbId === "plReadShowText") plReadShowText = !!cb.checked;
           plUpdDisplay();
         });
       }
@@ -3792,9 +3795,11 @@ function plBookSavePosition() {
   const cur = (typeof pCtx !== "undefined" && pCtx && pPlaying)
     ? (pCtx.currentTime - pT0)
     : pOff;
+  var _rb = document.getElementById("plReadBody");
   plBookPositions[plBookSelectedId] = {
     chapterIdx: plBookChapterIdx,
-    posSeconds: Math.max(0, cur)
+    posSeconds: Math.max(0, cur),
+    readTop: _rb ? _rb.scrollTop : 0
   };
 }
 
@@ -3883,10 +3888,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 var _plReadLines = null;     // Zeilen-Array des reinen Werktextes, oder null
 var _plReadBookId = null;    // Buch-ID, zu der _plReadLines gehört
-var _plReadLastLine = -1;    // zuletzt gerenderte Mittelzeile (Zeilenwechsel-Throttle)
 var _plReadLoading = false;  // verhindert Doppel-Laden
-
-var PL_READ_WINDOW = 40;     // Zeilen ober-/unterhalb der geschätzten Stelle
 
 // Schneidet den reinen Werktext zwischen den Gutenberg-Standardmarken heraus.
 // Fehlt eine Marke, gibt null zurück (kein Mitlesen).
@@ -3905,6 +3907,41 @@ function _plReadExtract(raw) {
   return lines.slice(start, end);
 }
 
+var _plReadAutoLastT = null;   // letzter Zeitstempel (s) fuer die Delta-Rechnung
+
+// Scrollt einen zeitbasierten Pixel-Schritt (Pixel/s aus Buch-Mittel).
+function plReadAutoscrollStep() {
+  var body = document.getElementById("plReadBody");
+  if (!body) return;
+  var col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+  var total = 0;
+  if (col && Array.isArray(col.items)) for (var i = 0; i < col.items.length; i++) total += (+col.items[i].duration || 0);
+  if (total <= 0) { _plReadAutoLastT = null; return; }
+
+  var now = (typeof pCtx !== "undefined" && pCtx) ? pCtx.currentTime : (performance.now() / 1000);
+  if (_plReadAutoLastT === null) { _plReadAutoLastT = now; return; }
+  var dt = now - _plReadAutoLastT;
+  _plReadAutoLastT = now;
+  if (dt <= 0) return;
+
+  // Rate = ganze Scrollhoehe / Gesamt-Audiodauer des Buchs (Pixel/s).
+  var ratePxPerSec = (body.scrollHeight - body.clientHeight) / total;
+  body.scrollTop += ratePxPerSec * dt;
+}
+
+// Springt einmalig zur geschaetzten Textstelle (Bruchrechnung Pixel).
+function plReadFindPos() {
+  var body = document.getElementById("plReadBody");
+  if (!body || !_plReadLines) return;
+  var col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+  var total = 0;
+  if (col && Array.isArray(col.items)) for (var i = 0; i < col.items.length; i++) total += (+col.items[i].duration || 0);
+  if (total <= 0) return;
+  var frac = _plReadElapsedSeconds(col) / total;
+  frac = Math.max(0, Math.min(1, frac));
+  body.scrollTop = frac * (body.scrollHeight - body.clientHeight);
+}
+
 // Lädt (falls nötig) den Text zum aktuell gewählten Buch. Idempotent:
 // gleiches Buch → kein Neuladen. Kein Text/keine Marke → _plReadLines=null.
 async function plReadEnsureText() {
@@ -3917,7 +3954,6 @@ async function plReadEnsureText() {
 
   _plReadBookId = id;
   _plReadLines = null;
-  _plReadLastLine = -1;
 
   // Nur .txt.gz kommt für den Prototyp in Frage.
   if (!url || !/\.txt\.gz$/i.test(url)) { plReadRender(); return; }
@@ -3935,6 +3971,16 @@ async function plReadEnsureText() {
   } finally {
     _plReadLoading = false;
     plReadRender();
+    // Leseposition wiederherstellen: gespeicherter readTop, sonst Stelle-Finden.
+    var _body = document.getElementById("plReadBody");
+    if (_body && _plReadLines) {
+      var _pos = (plBookPositions && plBookSelectedId) ? plBookPositions[plBookSelectedId] : null;
+      if (_pos && typeof _pos.readTop === "number" && _pos.readTop > 0) {
+        _body.scrollTop = _pos.readTop;
+      } else {
+        plReadFindPos();
+      }
+    }
   }
 }
 
@@ -3955,34 +4001,38 @@ function _plReadElapsedSeconds(col) {
   return before + inCh;
 }
 
-// Berechnet die geschätzte Mittelzeile und rendert das Fenster, aber nur
-// bei Zeilenwechsel. Vom Tick (pUpdTL) und nach dem Laden aufgerufen.
+// Rendert die Hoerbuch-Textbox (Ganztext, einmal gesetzt; danach nur Scroll).
+// Vom Tick (pUpdTL) und nach dem Laden aufgerufen.
+var _plReadWired = false;   // einmaliges Event-Wiring fuer Find/Autoscroll-Toggle
 function plReadRender() {
-  var box = document.getElementById("plReadAlong");
-  if (!box) return;
-
-  if (!_plReadLines || plActiveSource !== "hoerbuecher") {
-    box.style.display = "none";
-    _plReadLastLine = -1;
-    return;
+  // Einmalig: Find-Knopf + Autoscroll-Toggle verdrahten.
+  if (!_plReadWired) {
+    var fb = document.getElementById("plReadFindBtn");
+    if (fb) { fb.addEventListener("click", function () { plReadFindPos(); }); _plReadWired = true; }
+    var asc = document.getElementById("plReadAutoscroll");
+    if (asc) {
+      asc.addEventListener("change", function () {
+        plReadAutoscroll = !!asc.checked;
+        if (!plReadAutoscroll) _plReadAutoLastT = null;
+      });
+    }
   }
-
-  var col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-  var total = 0;
-  if (col && Array.isArray(col.items)) {
-    for (var i = 0; i < col.items.length; i++) total += (+col.items[i].duration || 0);
-  }
-  if (total <= 0) { box.style.display = "none"; return; }
-
-  var frac = _plReadElapsedSeconds(col) / total;
-  if (frac < 0) frac = 0; if (frac > 1) frac = 1;
-  var mid = Math.round(frac * (_plReadLines.length - 1));
-  if (mid === _plReadLastLine) { box.style.display = ""; return; }  // kein Zeilenwechsel
-  _plReadLastLine = mid;
-
-  var from = Math.max(0, mid - PL_READ_WINDOW);
-  var to   = Math.min(_plReadLines.length - 1, mid + PL_READ_WINDOW);
-  var body = document.getElementById("plReadBody");
-  if (body) body.textContent = _plReadLines.slice(from, to + 1).join("\n");
-  box.style.display = "";
+  var visible = _plReadLines && plActiveSource === "hoerbuecher";
+  plTextBoxRender({
+    wrapId: "plReadAlong", headLeftId: "plReadHeadL", headRightId: "plReadHeadR",
+    bodyId: "plReadBody",
+    visible: !!visible,
+    reveal: { on: !!plReadShowText, toggleCbId: "plReadShowText" },
+    stepperIds: { fontMinus: "plReadFontMinus", fontPlus: "plReadFontPlus",
+                  lineMinus: "plReadLineMinus", linePlus: "plReadLinePlus" },
+    fillBody: function (bodyEl) {
+      // Ganztext nur einmal setzen (Werkwechsel setzt _plReadBookId zurueck).
+      if (bodyEl._renderedBookId !== _plReadBookId) {
+        bodyEl.textContent = _plReadLines.join("\n");
+        bodyEl._renderedBookId = _plReadBookId;
+      }
+    }
+  });
+  // Autoscroll-Schritt nur waehrend Wiedergabe
+  if (visible && plReadAutoscroll && pPlaying) plReadAutoscrollStep();
 }

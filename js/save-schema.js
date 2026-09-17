@@ -219,6 +219,10 @@ var SAVE_SCHEMA_GLOBAL = [
     get: function () { return (typeof plTextLineStep !== "undefined" ? plTextLineStep : 1); },
     set: function (v) { if (typeof plTextLineStep !== "undefined" && typeof v === "number") plTextLineStep = v; },
     default: 1, valid: { type: "number", min: 0, max: 3 } },
+  { key: "plReadAutoscroll", scope: "global",
+    get: function () { return (typeof plReadAutoscroll !== "undefined" ? plReadAutoscroll : false); },
+    set: function (v) { if (typeof plReadAutoscroll !== "undefined") plReadAutoscroll = !!v; },
+    default: false, valid: { type: "bool" } },
 
   // --- Hoerbuch-Positionen / Inhalts-Sprache ---
   { key: "plBookPositions", scope: "global",
