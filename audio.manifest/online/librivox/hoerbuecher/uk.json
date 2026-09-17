@@ -1025,7 +1025,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15995)",
       "url": "https://librivox.org/maskarad-by-elena-pchilka",
-      "textUrl": "hoerbuch-texte/uk/pchilka-olena_-_maskarad-dramatic-reading-15995.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Pchilka, Olena",
         "reader": "Mark Chulsky",
@@ -1050,7 +1050,7 @@
         "total_seconds": 5059,
         "length_band": "short",
         "num_sections": 7,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Ukrainian",
         "url_iarchive": "https://archive.org/details/maskarad_2110_librivox",
@@ -1173,7 +1173,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16059)",
       "url": "https://librivox.org/2-evenings-on-a-farm-near-dikanka-christmas-eve-by-nikolai-vasilievich-gogol/",
-      "textUrl": "hoerbuch-texte/uk/gogol-nikolai-vasilievich_-_2-evenings-on-a-farm-near-dikanka-christmas-eve-16059.html.gz",
+      "textUrl": "hoerbuch-texte/uk/gogol-nikolai-vasilievich_-_2-evenings-on-a-farm-near-dikanka-christmas-eve-16059.txt.gz",
       "tags": {
         "work_author": "Gogol, Nikolai Vasilievich",
         "reader": "T.Honcharyk",

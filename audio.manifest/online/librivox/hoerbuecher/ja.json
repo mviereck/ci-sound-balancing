@@ -97,7 +97,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 224)",
       "url": "https://librivox.org/ogura-hyakunin-isshu-by-fujiwara-no-teika/",
-      "textUrl": "hoerbuch-texte/ja/fujiwara-teika-no_-_ogura-hyakunin-isshu-224.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Fujiwara, Teika no",
         "reader": "kaseumin",
@@ -114,7 +114,7 @@
         "total_seconds": 1967,
         "length_band": "very_short",
         "num_sections": 10,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://www.archive.org/details/hyakunin_isshu_librivox",
@@ -224,7 +224,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6465)",
       "url": "https://librivox.org/wasuregusaniyosu-by-michizou-tachihara/",
-      "textUrl": "hoerbuch-texte/ja/tachihara-michizou_-_wasuregusaniyosu-6465.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Tachihara, Michizou",
         "reader": "ekzemplaro",
@@ -241,7 +241,7 @@
         "total_seconds": 797,
         "length_band": "very_short",
         "num_sections": 10,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://www.archive.org/details/wasuregusaniyosu_1203_librivox",
@@ -351,7 +351,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6505)",
       "url": "https://librivox.org/junjyoshokyokusyu-by-sakutaro-hagiwara/",
-      "textUrl": "hoerbuch-texte/ja/hagiwara-sakutar_-_junjyoshokyokusyu-6505.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Hagiwara, Sakutarō",
         "reader": "ekzemplaro",
@@ -369,7 +369,7 @@
         "total_seconds": 1471,
         "length_band": "very_short",
         "num_sections": 28,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/junjyoshokyokusyu_ez_librivox",
@@ -641,7 +641,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6553)",
       "url": "https://librivox.org/gongitsune-by-nankichi-niimi/",
-      "textUrl": "hoerbuch-texte/ja/niimi-nankichi_-_gon-gitsune-6553.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Niimi, Nankichi",
         "reader": "ekzemplaro",
@@ -658,7 +658,7 @@
         "total_seconds": 942,
         "length_band": "very_short",
         "num_sections": 6,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/gongitsune_um_librivox",
@@ -725,88 +725,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "librivox:6579",
-      "title": "赤いろうそくと人魚 (Akai Rosoku to Ningyo)",
-      "displayName": "Ogawa, Mimei – 赤いろうそくと人魚 (Akai Rosoku to Ningyo)",
-      "lang": "ja",
-      "license": "PD",
-      "credit": "Public Domain — LibriVox (Buch 6579)",
-      "url": "https://librivox.org/akai-rosoku-to-ningyo-by-mimei-ogawa/",
-      "textUrl": "hoerbuch-texte/ja/ogawa-mimei_-_akai-rosoku-to-ningyo-6579.html.gz",
-      "tags": {
-        "work_author": "Ogawa, Mimei",
-        "reader": "ekzemplaro",
-        "readers": [
-          "ekzemplaro"
-        ],
-        "reader_mode": "solo",
-        "genres": [
-          "Children's Fiction"
-        ],
-        "fiction": "y",
-        "book_year": 1921,
-        "epoch": "c20",
-        "total_seconds": 1233,
-        "length_band": "very_short",
-        "num_sections": 5,
-        "has_text": true,
-        "translators": [],
-        "language_name": "Japanese",
-        "url_iarchive": "https://archive.org/details/akai_rosoku_um_librivox",
-        "url_text_source": "https://www.aozora.gr.jp/cards/001475/files/51005_46224.html",
-        "source_item_id": "6579"
-      },
-      "items": [
-        {
-          "id": "ch001",
-          "title": "一",
-          "audio": "https://archive.org/download/akai_rosoku_um_librivox/akairosokutoningyo_01_ogawa_64kb.mp3",
-          "duration": 258,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch002",
-          "title": "二",
-          "audio": "https://archive.org/download/akai_rosoku_um_librivox/akairosokutoningyo_02_ogawa_64kb.mp3",
-          "duration": 244,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch003",
-          "title": "三",
-          "audio": "https://archive.org/download/akai_rosoku_um_librivox/akairosokutoningyo_03_ogawa_64kb.mp3",
-          "duration": 237,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch004",
-          "title": "四",
-          "audio": "https://archive.org/download/akai_rosoku_um_librivox/akairosokutoningyo_04_ogawa_64kb.mp3",
-          "duration": 234,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch005",
-          "title": "五",
-          "audio": "https://archive.org/download/akai_rosoku_um_librivox/akairosokutoningyo_05_ogawa_64kb.mp3",
-          "duration": 260,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "librivox:6612",
       "title": "コーカサスの禿鷹 (Caucasus no Hagetaka)",
       "displayName": "Toyoshima, Yoshio – コーカサスの禿鷹 (Caucasus no Hagetaka)",
@@ -814,7 +732,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6612)",
       "url": "https://librivox.org/caucasus-no-hagetaka-by-yoshio-toyoshima/",
-      "textUrl": "hoerbuch-texte/ja/toyoshima-yoshio_-_caucasus-no-hagetaka-6612.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Toyoshima, Yoshio",
         "reader": "ekzemplaro",
@@ -831,7 +749,7 @@
         "total_seconds": 784,
         "length_band": "very_short",
         "num_sections": 5,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/caucasus_no_hagetaka_um_librivox",
@@ -1158,7 +1076,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6716)",
       "url": "https://librivox.org/good-bye-by-osamu-dazai/",
-      "textUrl": "hoerbuch-texte/ja/dazai-osamu_-_good-bye-6716.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Dazai, Osamu",
         "reader": "ekzemplaro",
@@ -1175,7 +1093,7 @@
         "total_seconds": 2535,
         "length_band": "very_short",
         "num_sections": 13,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/good-bye_um_librivox",
@@ -1312,7 +1230,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6770)",
       "url": "https://librivox.org/toshisyun-by-ryunosuke-akutagawa/",
-      "textUrl": "hoerbuch-texte/ja/akutagawa-ry-nosuke_-_toshisyun-6770.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Akutagawa, Ryūnosuke",
         "reader": "ekzemplaro",
@@ -1329,7 +1247,7 @@
         "total_seconds": 1647,
         "length_band": "very_short",
         "num_sections": 6,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/toshisyun_um_librivox",
@@ -1403,7 +1321,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6904)",
       "url": "https://librivox.org/garasudono-uchi-by-natsume-soseki/",
-      "textUrl": "hoerbuch-texte/ja/natsume-s-seki_-_garasudono-uchi-6904.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -1420,7 +1338,7 @@
         "total_seconds": 9593,
         "length_band": "short",
         "num_sections": 39,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/garasudonouchi_1208_librivox",
@@ -1791,7 +1709,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7012)",
       "url": "https://librivox.org/eijitsu-syohin-by-soseki-natsume/",
-      "textUrl": "hoerbuch-texte/ja/natsume-s-seki_-_eijitsu-syohin-7012.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -1808,7 +1726,7 @@
         "total_seconds": 9234,
         "length_band": "short",
         "num_sections": 25,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/eijitsu_syohin_um_librivox",
@@ -2053,7 +1971,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7130)",
       "url": "https://librivox.org/nihyakutouka-by-natsume-soseki/",
-      "textUrl": "hoerbuch-texte/ja/natsume-s-seki_-_nihyakutouka-7130.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -2070,7 +1988,7 @@
         "total_seconds": 5106,
         "length_band": "short",
         "num_sections": 5,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/nihyakutouka_ez_librivox",
@@ -2135,7 +2053,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7159)",
       "url": "https://librivox.org/nowaki-by-soseki-natsume/",
-      "textUrl": "hoerbuch-texte/ja/natsume-s-seki_-_nowaki-7159.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -2152,7 +2070,7 @@
         "total_seconds": 16849,
         "length_band": "medium",
         "num_sections": 12,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/nowaki_um_librivox",
@@ -2280,7 +2198,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7245)",
       "url": "https://librivox.org/roman-dourou-by-osamu-dazai/",
-      "textUrl": "hoerbuch-texte/ja/dazai-osamu_-_roman-dourou-7245.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Dazai, Osamu",
         "reader": "ekzemplaro",
@@ -2297,7 +2215,7 @@
         "total_seconds": 6731,
         "length_band": "short",
         "num_sections": 6,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/romandourou_1212_librivox",
@@ -2371,7 +2289,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7299)",
       "url": "https://librivox.org/kaze-tachinu-by-hori-tatsuo/",
-      "textUrl": "hoerbuch-texte/ja/hori-tatsuo_-_kaze-tachinu-7299.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Hori, Tatsuo",
         "reader": "ekzemplaro",
@@ -2388,7 +2306,7 @@
         "total_seconds": 9604,
         "length_band": "short",
         "num_sections": 5,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/kazetachinu_ek_librivox",
@@ -2453,7 +2371,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7404)",
       "url": "https://librivox.org/umareizuru-nayami-by-takeo-arishima/",
-      "textUrl": "hoerbuch-texte/ja/arishima-takeo_-_umareizuru-nayami-7404.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Arishima, Takeo",
         "reader": "ekzemplaro",
@@ -2470,7 +2388,7 @@
         "total_seconds": 9792,
         "length_band": "short",
         "num_sections": 9,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/umareizuru_nayami_ez_1302",
@@ -2571,7 +2489,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7489)",
       "url": "https://librivox.org/futon-by-katai-tayama/",
-      "textUrl": "hoerbuch-texte/ja/tayama-katai_-_futon-7489.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Tayama, Katai",
         "reader": "ekzemplaro",
@@ -2588,7 +2506,7 @@
         "total_seconds": 8938,
         "length_band": "short",
         "num_sections": 11,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/futon_ek_1303_librivox",
@@ -2707,7 +2625,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7552)",
       "url": "https://librivox.org/onsyuu-no-kanatani-by-kikuchi-kan/",
-      "textUrl": "hoerbuch-texte/ja/kikuchi-kan_-_onsyuu-no-kanata-ni-7552.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Kikuchi, Kan",
         "reader": "ekzemplaro",
@@ -2724,7 +2642,7 @@
         "total_seconds": 4745,
         "length_band": "short",
         "num_sections": 4,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/onsyuu_no_kanatani_1303_librivox",
@@ -2780,7 +2698,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7600)",
       "url": "https://librivox.org/kouyahijiri-by-kyoka-izumi/",
-      "textUrl": "hoerbuch-texte/ja/izumi-ky-ka_-_kouyahijiri-7600.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Izumi, Kyōka",
         "reader": "ekzemplaro",
@@ -2795,7 +2713,7 @@
         "total_seconds": 7583,
         "length_band": "short",
         "num_sections": 26,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/kouyahijiri_1303_librivox",
@@ -3049,7 +2967,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7687)",
       "url": "https://librivox.org/tonari-no-yome-by-ito-sachio/",
-      "textUrl": "hoerbuch-texte/ja/it-sachio_-_tonari-no-yome-7687.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Itō, Sachio",
         "reader": "ekzemplaro",
@@ -3066,7 +2984,7 @@
         "total_seconds": 4810,
         "length_band": "short",
         "num_sections": 5,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/tonari_no_yome_sachio_1305_lv",
@@ -3131,7 +3049,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7757)",
       "url": "https://librivox.org/warerano-ichidan-to-kare-by-takuboku-ishikawa/",
-      "textUrl": "hoerbuch-texte/ja/ishikawa-takuboku_-_warerano-ichidan-to-kare-7757.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Ishikawa, Takuboku",
         "reader": "ekzemplaro",
@@ -3146,7 +3064,7 @@
         "total_seconds": 7212,
         "length_band": "short",
         "num_sections": 6,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/warerano_ichidan_to_kare_1305_librivox",
@@ -3220,7 +3138,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7833)",
       "url": "https://librivox.org/haru-no-ushio-by-sachio-ito/",
-      "textUrl": "hoerbuch-texte/ja/it-sachio_-_haru-no-ushio-7833.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Itō, Sachio",
         "reader": "ekzemplaro",
@@ -3237,7 +3155,7 @@
         "total_seconds": 7518,
         "length_band": "short",
         "num_sections": 13,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/haru_no_ushio_1305_librivox",
@@ -3374,7 +3292,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7933)",
       "url": "https://librivox.org/rojyoo-by-ryunosuke-akutagawa/",
-      "textUrl": "hoerbuch-texte/ja/akutagawa-ry-nosuke_-_rojyoo-7933.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Akutagawa, Ryūnosuke",
         "reader": "ekzemplaro",
@@ -3391,7 +3309,7 @@
         "total_seconds": 8883,
         "length_band": "short",
         "num_sections": 36,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/rojyoo_1306_librivox",
@@ -3735,7 +3653,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7991)",
       "url": "https://librivox.org/furusato-by-toson-shimazaki/",
-      "textUrl": "hoerbuch-texte/ja/shimazaki-t-son_-_furusato-7991.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Shimazaki, Tōson",
         "reader": "ekzemplaro",
@@ -3752,7 +3670,7 @@
         "total_seconds": 9351,
         "length_band": "short",
         "num_sections": 72,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/furusato_1308_librivox",
@@ -4413,142 +4331,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "librivox:8035",
-      "title": "幼年時代 (Yonenjidai)",
-      "displayName": "Saisei, Murō – 幼年時代 (Yonenjidai)",
-      "lang": "ja",
-      "license": "PD",
-      "credit": "Public Domain — LibriVox (Buch 8035)",
-      "url": "https://librivox.org/yonenjidai-by-murou-saisei",
-      "textUrl": "hoerbuch-texte/ja/saisei-mur_-_yonenjidai-8035.html.gz",
-      "tags": {
-        "work_author": "Saisei, Murō",
-        "reader": "ekzemplaro",
-        "readers": [
-          "ekzemplaro"
-        ],
-        "reader_mode": "solo",
-        "genres": [
-          "General"
-        ],
-        "fiction": "y",
-        "book_year": 1919,
-        "epoch": "c20",
-        "total_seconds": 5849,
-        "length_band": "short",
-        "num_sections": 11,
-        "has_text": true,
-        "translators": [],
-        "language_name": "Japanese",
-        "url_iarchive": "https://archive.org/details/yonenjidai_1307_librivox",
-        "url_text_source": "https://www.aozora.gr.jp/cards/001579/files/53013_49685.html",
-        "source_item_id": "8035"
-      },
-      "items": [
-        {
-          "id": "ch001",
-          "title": "一",
-          "audio": "https://archive.org/download/yonenjidai_1307_librivox/yonenjidai_01_murou_64kb.mp3",
-          "duration": 496,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch002",
-          "title": "二",
-          "audio": "https://archive.org/download/yonenjidai_1307_librivox/yonenjidai_02_murou_64kb.mp3",
-          "duration": 650,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch003",
-          "title": "三",
-          "audio": "https://archive.org/download/yonenjidai_1307_librivox/yonenjidai_03_murou_64kb.mp3",
-          "duration": 352,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch004",
-          "title": "四",
-          "audio": "https://archive.org/download/yonenjidai_1307_librivox/yonenjidai_04_murou_64kb.mp3",
-          "duration": 798,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch005",
-          "title": "五",
-          "audio": "https://archive.org/download/yonenjidai_1307_librivox/yonenjidai_05_murou_64kb.mp3",
-          "duration": 655,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch006",
-          "title": "六",
-          "audio": "https://archive.org/download/yonenjidai_1307_librivox/yonenjidai_06_murou_64kb.mp3",
-          "duration": 516,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch007",
-          "title": "七",
-          "audio": "https://archive.org/download/yonenjidai_1307_librivox/yonenjidai_07_murou_64kb.mp3",
-          "duration": 494,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch008",
-          "title": "八",
-          "audio": "https://archive.org/download/yonenjidai_1307_librivox/yonenjidai_08_murou_64kb.mp3",
-          "duration": 377,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch009",
-          "title": "九",
-          "audio": "https://archive.org/download/yonenjidai_1307_librivox/yonenjidai_09_murou_64kb.mp3",
-          "duration": 613,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch010",
-          "title": "十",
-          "audio": "https://archive.org/download/yonenjidai_1307_librivox/yonenjidai_10_murou_64kb.mp3",
-          "duration": 400,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch011",
-          "title": "十一",
-          "audio": "https://archive.org/download/yonenjidai_1307_librivox/yonenjidai_11_murou_64kb.mp3",
-          "duration": 492,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "librivox:8046",
       "title": "田舎教師 (Inaka Kyoshi)",
       "displayName": "Tayama, Katai – 田舎教師 (Inaka Kyoshi)",
@@ -4556,7 +4338,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 8046)",
       "url": "https://librivox.org/inakakyoshi-by-katai-tayama/",
-      "textUrl": "hoerbuch-texte/ja/tayama-katai_-_inaka-kyoshi-8046.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Tayama, Katai",
         "reader": "ekzemplaro",
@@ -4573,7 +4355,7 @@
         "total_seconds": 29606,
         "length_band": "long",
         "num_sections": 64,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/inakakyoshi_1311_librivox",
@@ -5169,7 +4951,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 8157)",
       "url": "https://librivox.org/botchan-by-soseki-natsume-2/",
-      "textUrl": "hoerbuch-texte/ja/natsume-s-seki_-_botchan-8157.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -5184,7 +4966,7 @@
         "total_seconds": 15987,
         "length_band": "medium",
         "num_sections": 11,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/botchan_1310_librivox",
@@ -5303,7 +5085,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 8207)",
       "url": "https://librivox.org/kusamakura-by-soseki-natsume/",
-      "textUrl": "hoerbuch-texte/ja/natsume-s-seki_-_kusamakura-8207.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -5320,7 +5102,7 @@
         "total_seconds": 16055,
         "length_band": "medium",
         "num_sections": 13,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/kusamakura_1311_librivox",
@@ -5457,7 +5239,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 8303)",
       "url": "https://librivox.org/gan-by-ogai-mori/",
-      "textUrl": "hoerbuch-texte/ja/mori-gai_-_gan-8303.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Mori, Ōgai",
         "reader": "ekzemplaro",
@@ -5474,7 +5256,7 @@
         "total_seconds": 13291,
         "length_band": "medium",
         "num_sections": 24,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/gan_1311_librivox",
@@ -5710,7 +5492,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 8412)",
       "url": "https://librivox.org/kokoro-by-soseki-natsume/",
-      "textUrl": "hoerbuch-texte/ja/natsume-s-seki_-_kokoro-8412.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -5728,7 +5510,7 @@
         "total_seconds": 31601,
         "length_band": "long",
         "num_sections": 110,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/kokoro_natsume_um_librivox",
@@ -6738,7 +6520,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 8563)",
       "url": "https://librivox.org/meian-by-soseki-natsume/",
-      "textUrl": "hoerbuch-texte/ja/natsume-s-seki_-_meian-8563.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -6755,7 +6537,7 @@
         "total_seconds": 59969,
         "length_band": "long",
         "num_sections": 188,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/meian_1403_librivox",
@@ -8460,167 +8242,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "librivox:8777",
-      "title": "何處へ (Doko e)",
-      "displayName": "Masamune, Hakuchō – 何處へ (Doko e)",
-      "lang": "ja",
-      "license": "PD",
-      "credit": "Public Domain — LibriVox (Buch 8777)",
-      "url": "https://librivox.org/doko-e-by-hakucho-masamune/",
-      "textUrl": "hoerbuch-texte/ja/masamune-hakuch_-_doko-e-8777.txt.gz",
-      "tags": {
-        "work_author": "Masamune, Hakuchō",
-        "reader": "ekzemplaro",
-        "readers": [
-          "ekzemplaro"
-        ],
-        "reader_mode": "solo",
-        "genres": [],
-        "fiction": "y",
-        "book_year": 0,
-        "epoch": "antike",
-        "total_seconds": 8890,
-        "length_band": "short",
-        "num_sections": 14,
-        "has_text": true,
-        "translators": [],
-        "language_name": "Japanese",
-        "url_iarchive": "https://archive.org/details/doko_e_1404_librivox",
-        "url_text_source": "https://www.gutenberg.org/ebooks/32941",
-        "source_item_id": "8777"
-      },
-      "items": [
-        {
-          "id": "ch001",
-          "title": "Ichi",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_01_masamune_64kb.mp3",
-          "duration": 982,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch002",
-          "title": "Ni",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_02_masamune_64kb.mp3",
-          "duration": 597,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch003",
-          "title": "San",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_03_masamune_64kb.mp3",
-          "duration": 750,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch004",
-          "title": "Shi",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_04_masamune_64kb.mp3",
-          "duration": 318,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch005",
-          "title": "Go",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_05_masamune_64kb.mp3",
-          "duration": 446,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch006",
-          "title": "Roku",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_06_masamune_64kb.mp3",
-          "duration": 840,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch007",
-          "title": "Shichi",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_07_masamune_64kb.mp3",
-          "duration": 614,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch008",
-          "title": "Hachi",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_08_masamune_64kb.mp3",
-          "duration": 324,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch009",
-          "title": "Ku",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_09_masamune_64kb.mp3",
-          "duration": 720,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch010",
-          "title": "Jyu",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_10_masamune_64kb.mp3",
-          "duration": 612,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch011",
-          "title": "Jyuichi",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_11_masamune_64kb.mp3",
-          "duration": 614,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch012",
-          "title": "Jyuni",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_12_masamune_64kb.mp3",
-          "duration": 96,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch013",
-          "title": "Jyusan",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_13_masamune_64kb.mp3",
-          "duration": 1501,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        },
-        {
-          "id": "ch014",
-          "title": "Jyushi",
-          "audio": "https://archive.org/download/doko_e_1404_librivox/dokoe_14_masamune_64kb.mp3",
-          "duration": 476,
-          "tags": {
-            "reader": "ekzemplaro"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "librivox:8835",
       "title": "歌行灯 (Utaandon)",
       "displayName": "Izumi, Kyōka – 歌行灯 (Utaandon)",
@@ -8628,7 +8249,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 8835)",
       "url": "https://librivox.org/utaandon-by-kyoka-izumi/",
-      "textUrl": "hoerbuch-texte/ja/izumi-ky-ka_-_utaandon-8835.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Izumi, Kyōka",
         "reader": "ekzemplaro",
@@ -8643,7 +8264,7 @@
         "total_seconds": 6692,
         "length_band": "short",
         "num_sections": 23,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/utaandon_1405_librivox",
@@ -8870,7 +8491,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 8917)",
       "url": "https://librivox.org/imado-shinjyuu-by-ryuro-hirotsu/",
-      "textUrl": "hoerbuch-texte/ja/hirotsu-ry-r_-_imado-shinjyuu-8917.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Hirotsu, Ryūrō",
         "reader": "ekzemplaro",
@@ -8885,7 +8506,7 @@
         "total_seconds": 6477,
         "length_band": "short",
         "num_sections": 11,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/imado_shinjyuu_1406_librivox",
@@ -9004,7 +8625,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 8965)",
       "url": "https://librivox.org/megane-by-toson-shimazaki/",
-      "textUrl": "hoerbuch-texte/ja/shimazaki-t-son_-_megane-8965.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Shimazaki, Tōson",
         "reader": "ekzemplaro",
@@ -9019,7 +8640,7 @@
         "total_seconds": 5839,
         "length_band": "short",
         "num_sections": 28,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/megane_1407_librivox",
@@ -9291,7 +8912,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 9052)",
       "url": "https://librivox.org/meguriai-by-shuusei-tokuda/",
-      "textUrl": "hoerbuch-texte/ja/tokuda-shuusei_-_meguriai-9052.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Tokuda, Shuusei",
         "reader": "ekzemplaro",
@@ -9308,7 +8929,7 @@
         "total_seconds": 5876,
         "length_band": "short",
         "num_sections": 16,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Japanese",
         "url_iarchive": "https://archive.org/details/meguriai_1409_librivox",

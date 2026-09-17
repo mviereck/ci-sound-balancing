@@ -4891,7 +4891,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 2537)",
       "url": "https://librivox.org/the-jumping-frog-by-mark-twain/",
-      "textUrl": "hoerbuch-texte/mul/twain-mark_-_jumping-frog-2537.html.gz",
+      "textUrl": "hoerbuch-texte/mul/twain-mark_-_jumping-frog-2537.txt.gz",
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "Ruth Golding",
@@ -6958,7 +6958,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 3559)",
       "url": "https://librivox.org/french-self-taught-by-franz-j-l-thimm/",
-      "textUrl": "hoerbuch-texte/mul/thimm-franz-j-l_-_french-self-taught-3559.html.gz",
+      "textUrl": "hoerbuch-texte/mul/thimm-franz-j-l_-_french-self-taught-3559.txt.gz",
       "tags": {
         "work_author": "Thimm, Franz J. L.",
         "reader": "Michaël Cadilhac",
@@ -9031,7 +9031,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 4449)",
       "url": "https://librivox.org/the-nobel-prize-in-1904-by-various/",
-      "textUrl": "hoerbuch-texte/mul/various_-_nobel-prize-in-1904-4449.html.gz",
+      "textUrl": "hoerbuch-texte/mul/various_-_nobel-prize-in-1904-4449.txt.gz",
       "tags": {
         "work_author": "Various",
         "reader": "Nadine Eckert-Boulet",
@@ -11608,100 +11608,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "librivox:5574",
-      "title": "עולה (Injustice), with excerpt from The Escaping Club",
-      "displayName": "Brenner, יוסף חיים ברנר Yosef Haim; Evans, A. J. – עולה (Injustice), with excerpt from The Escaping Club",
-      "lang": "mul",
-      "license": "PD",
-      "credit": "Public Domain — LibriVox (Buch 5574)",
-      "url": "https://librivox.org/injustice-and-escaping-club-by-yosef-haim-brenner-and-a-j-evans/",
-      "textUrl": "hoerbuch-texte/mul/brenner-yosef-haim_-_injustice-with-excerpt-from-the-escaping-club-5574.html.gz",
-      "tags": {
-        "work_author": "Brenner, יוסף חיים ברנר Yosef Haim; Evans, A. J.",
-        "reader": "Omri Lernau",
-        "readers": [
-          "Omri Lernau"
-        ],
-        "reader_mode": "solo",
-        "genres": [
-          "Action & Adventure Fiction",
-          "Short Stories",
-          "War & Military Fiction",
-          "Biography & Autobiography"
-        ],
-        "fiction": "n",
-        "book_year": 1922,
-        "epoch": "c20",
-        "total_seconds": 4678,
-        "length_band": "short",
-        "num_sections": 6,
-        "has_text": true,
-        "translators": [],
-        "language_name": "Multilingual",
-        "url_iarchive": "https://www.archive.org/details/injustice_1108_librivox",
-        "url_text_source": "https://benyehuda.org/brenner/avla.html",
-        "source_item_id": "5574"
-      },
-      "items": [
-        {
-          "id": "ch001",
-          "title": "Injustice",
-          "audio": "https://archive.org/download/injustice_1108_librivox/injustice_01_brenner-evans_64kb.mp3",
-          "duration": 996,
-          "tags": {
-            "reader": "Omri Lernau"
-          }
-        },
-        {
-          "id": "ch002",
-          "title": "The escaping club, chapter II, part 1",
-          "audio": "https://archive.org/download/injustice_1108_librivox/injustice_02_brenner-evans_64kb.mp3",
-          "duration": 524,
-          "tags": {
-            "reader": "Omri Lernau"
-          }
-        },
-        {
-          "id": "ch003",
-          "title": "The escaping club, chapter II, part 2",
-          "audio": "https://archive.org/download/injustice_1108_librivox/injustice_03_brenner-evans_64kb.mp3",
-          "duration": 865,
-          "tags": {
-            "reader": "Omri Lernau"
-          }
-        },
-        {
-          "id": "ch004",
-          "title": "The escaping club, chapter II, part 3",
-          "audio": "https://archive.org/download/injustice_1108_librivox/injustice_04_brenner-evans_64kb.mp3",
-          "duration": 807,
-          "tags": {
-            "reader": "Omri Lernau"
-          }
-        },
-        {
-          "id": "ch005",
-          "title": "The escaping club, chapter II, part 4",
-          "audio": "https://archive.org/download/injustice_1108_librivox/injustice_05_brenner-evans_64kb.mp3",
-          "duration": 872,
-          "tags": {
-            "reader": "Omri Lernau"
-          }
-        },
-        {
-          "id": "ch006",
-          "title": "The escaping club, chapter II, part 5",
-          "audio": "https://archive.org/download/injustice_1108_librivox/injustice_06_brenner-evans_64kb.mp3",
-          "duration": 614,
-          "tags": {
-            "reader": "Omri Lernau"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "librivox:5593",
       "title": "Shakespeare Monologues Collection vol. 10 (Multilingual)",
       "displayName": "Shakespeare, William – Shakespeare Monologues Collection vol. 10 (Multilingual)",
@@ -12828,7 +12734,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 5865)",
       "url": "https://librivox.org/the-nobel-prize-in-1908-by-various/",
-      "textUrl": "hoerbuch-texte/mul/various_-_nobel-prize-in-1908-5865.html.gz",
+      "textUrl": "hoerbuch-texte/mul/various_-_nobel-prize-in-1908-5865.txt.gz",
       "tags": {
         "work_author": "Various",
         "reader": "Nadine Eckert-Boulet",
@@ -19581,7 +19487,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 8001)",
       "url": "https://librivox.org/al-adjrumiieh-by-abdillah-muhammad-ibn-ajurrum-al-sinhaji/",
-      "textUrl": "hoerbuch-texte/mul/al-sinhaji-abdillah-muhammad-ibn-ajurrum_-_al-adjrumiieh-the-arabic-text-with-the-vowels-and-an-english-translation-8001.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Al-Sinhaji, Abdillah Muhammad Ibn Ajurrum",
         "reader": "Nicholas James Bridgewater",
@@ -19598,7 +19504,7 @@
         "total_seconds": 4027,
         "length_band": "short",
         "num_sections": 7,
-        "has_text": true,
+        "has_text": false,
         "translators": [
           "J. J. S. Perowne"
         ],
@@ -25454,7 +25360,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 9599)",
       "url": "https://librivox.org/basho-the-chief-poet-of-japan-by-matsuo-basho/",
-      "textUrl": "hoerbuch-texte/mul/bash-matsuo_-_basho-the-chief-poet-of-japan-and-the-hokku-or-epigram-verses-9599.html.gz",
+      "textUrl": "hoerbuch-texte/mul/bash-matsuo_-_basho-the-chief-poet-of-japan-and-the-hokku-or-epigram-verses-9599.txt.gz",
       "tags": {
         "work_author": "Bashō, Matsuo",
         "reader": "Rob Marland",
@@ -28655,7 +28561,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 10578)",
       "url": "https://librivox.org/shakespeare-monologues-collection-vol-11-by-william-shakespeare/",
-      "textUrl": "hoerbuch-texte/mul/shakespeare-william_-_shakespeare-monologues-collection-vol-11-multilingual-10578.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Shakespeare, William",
         "reader": "Tony Addison",
@@ -28681,7 +28587,7 @@
         "total_seconds": 4206,
         "length_band": "short",
         "num_sections": 25,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Multilingual",
         "url_iarchive": "https://archive.org/details/shakespeare_monologues_11_1602_librivox",
@@ -28926,7 +28832,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 10616)",
       "url": "https://librivox.org/shakespeare-monologues-collection-vol-12-by-william-shakespeare/",
-      "textUrl": "hoerbuch-texte/mul/shakespeare-william_-_shakespeare-monologues-collection-vol-12-multilingual-10616.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Shakespeare, William",
         "reader": "Sonia",
@@ -28956,7 +28862,7 @@
         "total_seconds": 3848,
         "length_band": "short",
         "num_sections": 25,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Multilingual",
         "url_iarchive": "https://archive.org/details/smc12_multilingual_1604_librivox",
@@ -32767,269 +32673,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "librivox:13328",
-      "title": "Poems",
-      "displayName": "Eliot, T. S. – Poems",
-      "lang": "mul",
-      "license": "PD",
-      "credit": "Public Domain — LibriVox (Buch 13328)",
-      "url": "https://librivox.org/poems-by-t-s-eliot/",
-      "textUrl": "hoerbuch-texte/mul/eliot-t-s_-_poems-13328.txt.gz",
-      "tags": {
-        "work_author": "Eliot, T. S.",
-        "reader": "Larry Wilson",
-        "readers": [
-          "Larry Wilson",
-          "Matthew M. Benzing",
-          "Eva Davis (d. 2025)",
-          "Linda Olsen Fitak",
-          "Farnood",
-          "Nemo",
-          "Michael Fassio"
-        ],
-        "reader_mode": "mixed",
-        "genres": [
-          "Free Verse",
-          "Narratives"
-        ],
-        "fiction": "y",
-        "book_year": 1920,
-        "epoch": "c20",
-        "total_seconds": 3460,
-        "length_band": "very_short",
-        "num_sections": 24,
-        "has_text": true,
-        "translators": [],
-        "language_name": "Multilingual",
-        "url_iarchive": "https://archive.org/details/poems_eliot_1811_librivox",
-        "url_text_source": "https://www.gutenberg.org/ebooks/1567",
-        "source_item_id": "13328"
-      },
-      "items": [
-        {
-          "id": "ch001",
-          "title": "Gerontion",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_01_eliot_64kb.mp3",
-          "duration": 286,
-          "tags": {
-            "reader": "Larry Wilson"
-          }
-        },
-        {
-          "id": "ch002",
-          "title": "Burbank with a Baedeker: Bleistein with a Cigar",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_02_eliot_64kb.mp3",
-          "duration": 151,
-          "tags": {
-            "reader": "Matthew M. Benzing"
-          }
-        },
-        {
-          "id": "ch003",
-          "title": "Sweeney Erect",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_03_eliot_64kb.mp3",
-          "duration": 165,
-          "tags": {
-            "reader": "Matthew M. Benzing"
-          }
-        },
-        {
-          "id": "ch004",
-          "title": "A Cooking Egg",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_04_eliot_64kb.mp3",
-          "duration": 122,
-          "tags": {
-            "reader": "Eva Davis (d. 2025)"
-          }
-        },
-        {
-          "id": "ch005",
-          "title": "Le Directeur",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_05_eliot_64kb.mp3",
-          "duration": 56,
-          "tags": {
-            "reader": "Linda Olsen Fitak"
-          }
-        },
-        {
-          "id": "ch006",
-          "title": "Mélange adultère de tout",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_06_eliot_64kb.mp3",
-          "duration": 77,
-          "tags": {
-            "reader": "Linda Olsen Fitak"
-          }
-        },
-        {
-          "id": "ch007",
-          "title": "Lune de Miel",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_07_eliot_64kb.mp3",
-          "duration": 82,
-          "tags": {
-            "reader": "Linda Olsen Fitak"
-          }
-        },
-        {
-          "id": "ch008",
-          "title": "The Hippopotamus",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_08_eliot_64kb.mp3",
-          "duration": 161,
-          "tags": {
-            "reader": "Matthew M. Benzing"
-          }
-        },
-        {
-          "id": "ch009",
-          "title": "Dans le Restaurant",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_09_eliot_64kb.mp3",
-          "duration": 139,
-          "tags": {
-            "reader": "Linda Olsen Fitak"
-          }
-        },
-        {
-          "id": "ch010",
-          "title": "Whispers of Immortality",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_10_eliot_64kb.mp3",
-          "duration": 109,
-          "tags": {
-            "reader": "Farnood"
-          }
-        },
-        {
-          "id": "ch011",
-          "title": "Mr. Eliot's Sunday Morning Service",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_11_eliot_64kb.mp3",
-          "duration": 95,
-          "tags": {
-            "reader": "Larry Wilson"
-          }
-        },
-        {
-          "id": "ch012",
-          "title": "Sweeney Among the Nightingales",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_12_eliot_64kb.mp3",
-          "duration": 124,
-          "tags": {
-            "reader": "Farnood"
-          }
-        },
-        {
-          "id": "ch013",
-          "title": "The Love Song of J. Alfred Prufrock",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_13_eliot_64kb.mp3",
-          "duration": 498,
-          "tags": {
-            "reader": "Eva Davis (d. 2025)"
-          }
-        },
-        {
-          "id": "ch014",
-          "title": "Portrait of a Lady",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_14_eliot_64kb.mp3",
-          "duration": 405,
-          "tags": {
-            "reader": "Larry Wilson"
-          }
-        },
-        {
-          "id": "ch015",
-          "title": "Preludes",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_15_eliot_64kb.mp3",
-          "duration": 173,
-          "tags": {
-            "reader": "Nemo"
-          }
-        },
-        {
-          "id": "ch016",
-          "title": "Rhapsody on a Windy Night",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_16_eliot_64kb.mp3",
-          "duration": 241,
-          "tags": {
-            "reader": "Nemo"
-          }
-        },
-        {
-          "id": "ch017",
-          "title": "Morning at the Window",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_17_eliot_64kb.mp3",
-          "duration": 52,
-          "tags": {
-            "reader": "Nemo"
-          }
-        },
-        {
-          "id": "ch018",
-          "title": "The Boston Evening Transcript",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_18_eliot_64kb.mp3",
-          "duration": 47,
-          "tags": {
-            "reader": "Larry Wilson"
-          }
-        },
-        {
-          "id": "ch019",
-          "title": "Aunt Helen",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_19_eliot_64kb.mp3",
-          "duration": 65,
-          "tags": {
-            "reader": "Farnood"
-          }
-        },
-        {
-          "id": "ch020",
-          "title": "Cousin Nancy",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_20_eliot_64kb.mp3",
-          "duration": 45,
-          "tags": {
-            "reader": "Farnood"
-          }
-        },
-        {
-          "id": "ch021",
-          "title": "Mr. Apollinax",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_21_eliot_64kb.mp3",
-          "duration": 99,
-          "tags": {
-            "reader": "Michael Fassio"
-          }
-        },
-        {
-          "id": "ch022",
-          "title": "Hysteria",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_22_eliot_64kb.mp3",
-          "duration": 85,
-          "tags": {
-            "reader": "Nemo"
-          }
-        },
-        {
-          "id": "ch023",
-          "title": "Conversation Galante",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_23_eliot_64kb.mp3",
-          "duration": 75,
-          "tags": {
-            "reader": "Farnood"
-          }
-        },
-        {
-          "id": "ch024",
-          "title": "La Figlia Che Piange",
-          "audio": "https://archive.org/download/poems_eliot_1811_librivox/poems_24_eliot_64kb.mp3",
-          "duration": 108,
-          "tags": {
-            "reader": [
-              "Eva Davis (d. 2025)",
-              "Nemo"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "librivox:13428",
       "title": "Multilingual Short Works Collection 021 - Poetry & Prose",
       "displayName": "Various – Multilingual Short Works Collection 021 - Poetry & Prose",
@@ -34045,7 +33688,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13535)",
       "url": "https://librivox.org/shakespeare-monologues-collection-vol-14-by-william-shakespeare/",
-      "textUrl": "hoerbuch-texte/mul/shakespeare-william_-_shakespeare-monologues-collection-vol-14-13535.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Shakespeare, William",
         "reader": "Nemo",
@@ -34073,7 +33716,7 @@
         "total_seconds": 4704,
         "length_band": "short",
         "num_sections": 29,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Multilingual",
         "url_iarchive": "https://archive.org/details/shakespeare_monologues_14_1901_librivox",
@@ -36387,7 +36030,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15137)",
       "url": "https://librivox.org/shakespeare-monologues-collection-vol-15-multilingual-by-william-shakespeare/",
-      "textUrl": "hoerbuch-texte/mul/shakespeare-william_-_shakespeare-monologues-collection-vol-15-multilingual-15137.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Shakespeare, William",
         "reader": "Alan Mapstone",
@@ -36419,7 +36062,7 @@
         "total_seconds": 4446,
         "length_band": "short",
         "num_sections": 30,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Multilingual",
         "url_iarchive": "https://archive.org/details/shakespearemonologuescollection_15_multilingual_2012_librivox",
@@ -37739,7 +37382,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15516)",
       "url": "https://librivox.org/selected-poems-from-michelangelo-buonarroti-italian-and-english/",
-      "textUrl": "hoerbuch-texte/mul/buonarroti-michelangelo_-_selected-poems-from-michelangelo-buonarroti-italian-and-english-15516.html.gz",
+      "textUrl": "hoerbuch-texte/mul/buonarroti-michelangelo_-_selected-poems-from-michelangelo-buonarroti-italian-and-english-15516.txt.gz",
       "tags": {
         "work_author": "Buonarroti, Michelangelo",
         "reader": "KevinS",
@@ -42218,7 +41861,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17404)",
       "url": "https://librivox.org/sonnets-and-odes-by-francesco-petrarca/",
-      "textUrl": "hoerbuch-texte/mul/petrarca-francesco_-_sonnets-and-odes-17404.html.gz",
+      "textUrl": "hoerbuch-texte/mul/petrarca-francesco_-_sonnets-and-odes-17404.txt.gz",
       "tags": {
         "work_author": "Petrarca, Francesco",
         "reader": "Algy Pug",
@@ -44535,7 +44178,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17847)",
       "url": "https://librivox.org/an-invitation-to-a-journey-by-charles-baudelaire/",
-      "textUrl": "hoerbuch-texte/mul/baudelaire-charles_-_invitation-to-a-journey-17847.html.gz",
+      "textUrl": "hoerbuch-texte/mul/baudelaire-charles_-_invitation-to-a-journey-17847.txt.gz",
       "tags": {
         "work_author": "Baudelaire, Charles",
         "reader": "Isad",
@@ -44708,7 +44351,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 18003)",
       "url": "https://librivox.org/musica-do-parnasso-by-manuel-botelho-de-oliveira/",
-      "textUrl": "hoerbuch-texte/mul/botelho-de-oliveira-manuel_-_musica-do-parnasso-18003.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Botelho de Oliveira, Manuel",
         "reader": "Leni",
@@ -44725,7 +44368,7 @@
         "total_seconds": 21788,
         "length_band": "medium",
         "num_sections": 196,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Multilingual",
         "url_iarchive": "https://archive.org/details/musicadoparnasso_2601_librivox",
@@ -46509,7 +46152,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 18057)",
       "url": "https://librivox.org/the-testament-by-taras-shevchenko/",
-      "textUrl": "hoerbuch-texte/mul/shevchenko-taras_-_testament-18057.html.gz",
+      "textUrl": "hoerbuch-texte/mul/shevchenko-taras_-_testament-18057.txt.gz",
       "tags": {
         "work_author": "Shevchenko, Taras",
         "reader": "Anastasiia Solokha",
@@ -47221,7 +46864,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 18371)",
       "url": "https://librivox.org/hast-thou-been-working-by-ada-negri/",
-      "textUrl": "hoerbuch-texte/mul/negri-ada_-_hast-thou-been-working-18371.html.gz",
+      "textUrl": "hoerbuch-texte/mul/negri-ada_-_hast-thou-been-working-18371.txt.gz",
       "tags": {
         "work_author": "Negri, Ada",
         "reader": "Emanuela",

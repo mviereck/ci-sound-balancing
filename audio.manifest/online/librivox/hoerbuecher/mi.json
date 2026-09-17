@@ -15,7 +15,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 8758)",
       "url": "https://librivox.org/ko-te-rongo-pai-a-matiu-upoko-1-to-9/",
-      "textUrl": "hoerbuch-texte/mi/king-james-version-kjv_-_ko-te-rongo-pai-a-matiu-upoko-1-to-9-8758.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "King James Version (KJV)",
         "reader": "Travis Hamon",
@@ -32,7 +32,7 @@
         "total_seconds": 4638,
         "length_band": "short",
         "num_sections": 9,
-        "has_text": true,
+        "has_text": false,
         "translators": [
           "Elizabeth Fairburn Colenso"
         ],

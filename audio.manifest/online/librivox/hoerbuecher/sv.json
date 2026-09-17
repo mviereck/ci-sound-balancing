@@ -530,7 +530,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 2911)",
       "url": "https://librivox.org/ja-och-nej-by-helena-nyblom/",
-      "textUrl": "hoerbuch-texte/sv/nyblom-helena_-_ja-och-nej-2911.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Nyblom, Helena",
         "reader": "Lars Rolander (1942-2016)",
@@ -547,7 +547,7 @@
         "total_seconds": 14971,
         "length_band": "medium",
         "num_sections": 8,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Swedish",
         "url_iarchive": "https://www.archive.org/details/ja_och_nej_0903_librivox",
@@ -1148,7 +1148,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6353)",
       "url": "https://librivox.org/en-nyckfull-kvinna-del-3-hustrun-by-emilie-flygare-carlen/",
-      "textUrl": "hoerbuch-texte/sv/flygare-carlen-emilie_-_nyckfull-kvinna-del-3-hustrun-6353.html.gz",
+      "textUrl": "hoerbuch-texte/sv/flygare-carlen-emilie_-_nyckfull-kvinna-del-3-hustrun-6353.txt.gz",
       "tags": {
         "work_author": "Flygare-Carlén, Emilie",
         "reader": "Lars Rolander (1942-2016)",
@@ -1503,7 +1503,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6719)",
       "url": "https://librivox.org/jordens-inre-by-otto-witt/",
-      "textUrl": "hoerbuch-texte/sv/witt-otto_-_jordens-inre-6719.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Witt, Otto",
         "reader": "Petra",
@@ -1521,7 +1521,7 @@
         "total_seconds": 6788,
         "length_band": "short",
         "num_sections": 14,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Swedish",
         "url_iarchive": "https://archive.org/details/jordens_inre_p_librivox",
@@ -1667,7 +1667,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7026)",
       "url": "https://librivox.org/en-nyckfull-kvinna-del-4-modern-by-emilie-flygare-carlen/",
-      "textUrl": "hoerbuch-texte/sv/flygare-carlen-emilie_-_nyckfull-kvinna-del-4-modern-7026.html.gz",
+      "textUrl": "hoerbuch-texte/sv/flygare-carlen-emilie_-_nyckfull-kvinna-del-4-modern-7026.txt.gz",
       "tags": {
         "work_author": "Flygare-Carlén, Emilie",
         "reader": "Lars Rolander (1942-2016)",

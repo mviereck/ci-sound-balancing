@@ -15,7 +15,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15329)",
       "url": "https://librivox.org/prairieblummen-by-nicolas-gonner/",
-      "textUrl": "hoerbuch-texte/lb/becker-nicolas-edouard_-_prairieblummen-15329.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Becker, Nicolas-Edouard; Gonner, Nicolas; Nau, Jean-Baptiste",
         "reader": "cathar maiden",
@@ -36,7 +36,7 @@
         "total_seconds": 11118,
         "length_band": "medium",
         "num_sections": 64,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Luxembourgish",
         "url_iarchive": "https://archive.org/details/prairieblummen_2103_librivox",

@@ -627,7 +627,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16948)",
       "url": "https://librivox.org/alguns-dels-poemes-dausias-march-by-ausias-march/",
-      "textUrl": "hoerbuch-texte/ca/march-ausias_-_alguns-dels-poemes-d-ausias-march-16948.html.gz",
+      "textUrl": "hoerbuch-texte/ca/march-ausias_-_alguns-dels-poemes-d-ausias-march-16948.txt.gz",
       "tags": {
         "work_author": "March, Ausiàs",
         "reader": "Maria Josep Altadill",
@@ -727,7 +727,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17011)",
       "url": "https://librivox.org/lo-catalanisme-by-valenti-almirall-i-llozer/",
-      "textUrl": "hoerbuch-texte/ca/almirall-i-llozer-valenti_-_catalanisme-17011.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Almirall i Llozer, Valentí",
         "reader": "Josep Maria Camps Collet",
@@ -744,7 +744,7 @@
         "total_seconds": 35337,
         "length_band": "long",
         "num_sections": 22,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Catalan",
         "url_iarchive": "https://archive.org/details/locatalanisme_2110_librivox",
@@ -1296,7 +1296,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17994)",
       "url": "https://librivox.org/josafat-by-prudenci-bertrana/",
-      "textUrl": "hoerbuch-texte/ca/bertrana-prudenci_-_josafat-17994.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Bertrana, Prudenci",
         "reader": "Cristina Cobos",
@@ -1320,7 +1320,7 @@
         "total_seconds": 8785,
         "length_band": "short",
         "num_sections": 9,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Catalan",
         "url_iarchive": "https://archive.org/details/josafat_2209_librivox",
@@ -1611,7 +1611,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 18876)",
       "url": "https://librivox.org/l-atlantida-by-jacint-verdaguer-i-santalo/",
-      "textUrl": "hoerbuch-texte/ca/verdaguer-i-santalo-jacint_-_atlantida-18876.html.gz",
+      "textUrl": "hoerbuch-texte/ca/verdaguer-i-santalo-jacint_-_atlantida-18876.txt.gz",
       "tags": {
         "work_author": "Verdaguer i Santaló, Jacint",
         "reader": "Corda Jungfrau",

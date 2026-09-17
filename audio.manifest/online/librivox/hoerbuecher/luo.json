@@ -15,7 +15,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 3874)",
       "url": "https://librivox.org/a-handbook-of-the-kavirondo-language-part-iii-dholuo-phrase-book-by-fathers-of-st-josephs-society/",
-      "textUrl": "hoerbuch-texte/luo/fathers-of-st-joseph-s-society_-_handbook-of-the-kavirondo-language-part-iii-dholuo-phrase-book-3874.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Fathers of St. Joseph's Society",
         "reader": "Nicholas James Bridgewater",
@@ -33,7 +33,7 @@
         "total_seconds": 3685,
         "length_band": "short",
         "num_sections": 5,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Dholuo/Luo",
         "url_iarchive": "https://www.archive.org/details/handbook_kavirondo3_1203",

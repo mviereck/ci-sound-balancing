@@ -15,7 +15,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 3567)",
       "url": "https://librivox.org/janos-vitez-by-sandor-petofi/",
-      "textUrl": "hoerbuch-texte/hu/pet-fi-sandor_-_janos-vitez-3567.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Petőfi, Sándor",
         "reader": "Diana Majlinger",
@@ -32,7 +32,7 @@
         "total_seconds": 4723,
         "length_band": "short",
         "num_sections": 7,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Hungarian",
         "url_iarchive": "https://www.archive.org/details/janos_vitez_dii_librivox",

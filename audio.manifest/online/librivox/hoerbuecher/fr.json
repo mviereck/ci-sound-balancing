@@ -1587,7 +1587,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 972)",
       "url": "https://librivox.org/fables-de-la-fontaine-03-by-jean-de-la-fontaine/",
-      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-03-972.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-03-972.txt.gz",
       "tags": {
         "work_author": "Fontaine, Jean de La",
         "reader": "Claire Dyard",
@@ -3748,7 +3748,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 1167)",
       "url": "https://librivox.org/fables-de-la-fontaine-04-by-jean-de-la-fontaine-0712/",
-      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-04-ver-2-1167.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-04-ver-2-1167.txt.gz",
       "tags": {
         "work_author": "Fontaine, Jean de La",
         "reader": "Cicorée",
@@ -4005,7 +4005,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 1232)",
       "url": "https://librivox.org/fables-de-la-fontaine-livre-04-1/",
-      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-04-1232.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-04-1232.txt.gz",
       "tags": {
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
@@ -4241,7 +4241,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 1259)",
       "url": "https://librivox.org/le-comte-de-monte-cristo-by-alexandre-dumas/",
-      "textUrl": "hoerbuch-texte/fr/dumas-alexandre_-_comte-de-monte-cristo-1259.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Dumas, Alexandre",
         "reader": "Jc Guan",
@@ -4260,7 +4260,7 @@
         "total_seconds": 185195,
         "length_band": "very_long",
         "num_sections": 122,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://www.archive.org/details/comte_monte_cristo_jg_librivox",
@@ -6702,7 +6702,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 1478)",
       "url": "https://librivox.org/fables-de-jean-la-fontaine-livre-07-jl/",
-      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-07-1478.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-07-1478.txt.gz",
       "tags": {
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
@@ -6911,7 +6911,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 1558)",
       "url": "https://librivox.org/la-femme-de-trente-ans-by-honore-de-balzac/",
-      "textUrl": "hoerbuch-texte/fr/balzac-honore-de_-_comedie-humaine-la-femme-de-trente-ans-1558.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Balzac, Honoré de",
         "reader": "Ezwa",
@@ -6928,7 +6928,7 @@
         "total_seconds": 21846,
         "length_band": "medium",
         "num_sections": 15,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://www.archive.org/details/la_femme_de_trente_ans_ezwa_librivox",
@@ -7083,7 +7083,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 1565)",
       "url": "https://librivox.org/les-mille-et-une-nuits-tome-deuxieme-by-anonymous/",
-      "textUrl": "hoerbuch-texte/fr/anonymous_-_mille-et-une-nuits-tome-2-1565.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Anonymous",
         "reader": "Ezwa",
@@ -7107,7 +7107,7 @@
         "total_seconds": 75171,
         "length_band": "very_long",
         "num_sections": 106,
-        "has_text": true,
+        "has_text": false,
         "translators": [
           "Antoine Galland"
         ],
@@ -8083,7 +8083,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 1593)",
       "url": "https://librivox.org/fables-de-jean-la-fontaine-livre-08-jl/",
-      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-08-1593.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-08-1593.txt.gz",
       "tags": {
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
@@ -8451,7 +8451,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 1702)",
       "url": "https://librivox.org/illuminations-by-arthur-rimbaud/",
-      "textUrl": "hoerbuch-texte/fr/rimbaud-arthur_-_illuminations-1702.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Rimbaud, Arthur",
         "reader": "Jc Guan",
@@ -8468,7 +8468,7 @@
         "total_seconds": 5106,
         "length_band": "short",
         "num_sections": 47,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://www.archive.org/details/illuminations_jc_librivox",
@@ -9501,7 +9501,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 1751)",
       "url": "https://librivox.org/fables-de-jean-la-fontaine-livre-09-jl/",
-      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-09-1751.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-09-1751.txt.gz",
       "tags": {
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
@@ -12107,7 +12107,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 1943)",
       "url": "https://librivox.org/lapologie-de-socrate-par-platon/",
-      "textUrl": "hoerbuch-texte/fr/plato_-_apologie-de-socrate-1943.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "leyla",
@@ -12125,7 +12125,7 @@
         "total_seconds": 4544,
         "length_band": "short",
         "num_sections": 7,
-        "has_text": true,
+        "has_text": false,
         "translators": [
           "Victor Cousin"
         ],
@@ -12210,7 +12210,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 2058)",
       "url": "https://librivox.org/fables-de-jean-la-fontaine-livre-10-jl/",
-      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-10-2058.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-10-2058.txt.gz",
       "tags": {
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
@@ -12483,205 +12483,6 @@
           "title": "Chapter 1",
           "audio": "https://archive.org/download/lascensiondumontventoux_a_librivox/ascensionmontventoux_petrarque_64kb.mp3",
           "duration": 1341,
-          "tags": {
-            "reader": "Aldor"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "librivox:2093",
-      "title": "Messieurs les ronds-de-cuir",
-      "displayName": "Courteline, Georges – Messieurs les ronds-de-cuir",
-      "lang": "fr",
-      "license": "PD",
-      "credit": "Public Domain — LibriVox (Buch 2093)",
-      "url": "https://librivox.org/messieurs-les-ronds-de-cuir-by-georges-courteline/",
-      "textUrl": "hoerbuch-texte/fr/courteline-georges_-_messieurs-les-ronds-de-cuir-2093.html.gz",
-      "tags": {
-        "work_author": "Courteline, Georges",
-        "reader": "Aldor",
-        "readers": [
-          "Aldor"
-        ],
-        "reader_mode": "solo",
-        "genres": [
-          "Humorous Fiction"
-        ],
-        "fiction": "y",
-        "book_year": 1893,
-        "epoch": "c19",
-        "total_seconds": 15297,
-        "length_band": "medium",
-        "num_sections": 18,
-        "has_text": true,
-        "translators": [],
-        "language_name": "French",
-        "url_iarchive": "https://www.archive.org/details/messieurs_les_ronds_de_cuir_al_0806_librivox",
-        "url_text_source": "https://fr.wikisource.org/wiki/Messieurs_les_ronds-de-cuir",
-        "source_item_id": "2093"
-      },
-      "items": [
-        {
-          "id": "ch001",
-          "title": "Premier Tableau, Chap 1",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_01_courteline_64kb.mp3",
-          "duration": 531,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch002",
-          "title": "Premier Tableau, Chap 2",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_02_courteline_64kb.mp3",
-          "duration": 828,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch003",
-          "title": "Premier Tableau, Chap 3",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_03_courteline_64kb.mp3",
-          "duration": 852,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch004",
-          "title": "Deuxième Tableau, <br></br>Chap 1",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_04_courteline_64kb.mp3",
-          "duration": 701,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch005",
-          "title": "Deuxième Tableau,<br></br>Chapitre 2",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_05_courteline_64kb.mp3",
-          "duration": 769,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch006",
-          "title": "Deuxième Tableau,<br></br>Chapitre 3",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_06_courteline_64kb.mp3",
-          "duration": 678,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch007",
-          "title": "Troisième tableau,<br></br>Chapitre premier",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_07_courteline_64kb.mp3",
-          "duration": 923,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch008",
-          "title": "Troisième tableau,<br></br>Chapitre deux",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_08_courteline_64kb.mp3",
-          "duration": 459,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch009",
-          "title": "Troisième tableau, <br></br>Chapitre trois",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_09_courteline_64kb.mp3",
-          "duration": 722,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch010",
-          "title": "Quatrième tableau, <br></br>Chapitre premier",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_10_courteline_64kb.mp3",
-          "duration": 743,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch011",
-          "title": "Quatrième tableau,<br></br>Chapitre deux",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_11_courteline_64kb.mp3",
-          "duration": 1090,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch012",
-          "title": "Quatrième tableau,<br></br>Chapitre trois",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_12_courteline_64kb.mp3",
-          "duration": 702,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch013",
-          "title": "Cinquième tableau, <br></br>Chapitre premier",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_13_courteline_64kb.mp3",
-          "duration": 861,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch014",
-          "title": "Cinquième tableau,<br></br> Chapitre deux",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_14_courteline_64kb.mp3",
-          "duration": 537,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch015",
-          "title": "Cinquième tableau,<br></br>Chapitre 3",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_15_courteline_64kb.mp3",
-          "duration": 1693,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch016",
-          "title": "Sixième tableau,<br></br>Chapitre premier",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_16_courteline_64kb.mp3",
-          "duration": 836,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch017",
-          "title": "Sixième tableau,<br></br>Chapitre deux",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_17_courteline_64kb.mp3",
-          "duration": 1520,
-          "tags": {
-            "reader": "Aldor"
-          }
-        },
-        {
-          "id": "ch018",
-          "title": "Sixième tableau,<br></br>Chapitre trois",
-          "audio": "https://archive.org/download/messieurs_les_ronds_de_cuir_al_0806_librivox/rondsdecuir_18_courteline_64kb.mp3",
-          "duration": 852,
           "tags": {
             "reader": "Aldor"
           }
@@ -13760,7 +13561,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 2232)",
       "url": "https://librivox.org/fables-de-jean-la-fontaine-livre-11-jl/",
-      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-11-2232.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-11-2232.txt.gz",
       "tags": {
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
@@ -14162,7 +13963,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 2292)",
       "url": "https://librivox.org/fables-de-jean-la-fontaine-livre-01-jl/",
-      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-01-ver-2-2292.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-01-ver-2-2292.txt.gz",
       "tags": {
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
@@ -15975,7 +15776,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 2506)",
       "url": "https://librivox.org/fables-de-jean-la-fontaine-livre-02-jl/",
-      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-02-ver-2-2506.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-02-ver-2-2506.txt.gz",
       "tags": {
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
@@ -17496,7 +17297,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 2602)",
       "url": "https://librivox.org/le-nez-dun-notaire-by-edmond-about/",
-      "textUrl": "hoerbuch-texte/fr/about-edmond_-_nez-d-un-notaire-2602.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "About, Edmond",
         "reader": "Didier",
@@ -17511,7 +17312,7 @@
         "total_seconds": 10006,
         "length_band": "short",
         "num_sections": 6,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://www.archive.org/details/le_nez_d_un_notaire_dd_0811_librivox",
@@ -17585,7 +17386,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 2606)",
       "url": "https://librivox.org/fables-de-jean-la-fontaine-livre-03-jl/",
-      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-03-ver-2-2606.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-03-ver-2-2606.txt.gz",
       "tags": {
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
@@ -19279,7 +19080,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 2629)",
       "url": "https://librivox.org/lettres-de-mon-moulin-by-alphonse-daudet-0901/",
-      "textUrl": "hoerbuch-texte/fr/daudet-alphonse_-_lettres-de-mon-moulin-2629.html.gz",
+      "textUrl": "hoerbuch-texte/fr/daudet-alphonse_-_lettres-de-mon-moulin-2629.txt.gz",
       "tags": {
         "work_author": "Daudet, Alphonse",
         "reader": "Naf",
@@ -20087,7 +19888,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 2644)",
       "url": "https://librivox.org/discours-sur-les-sciences-et-les-arts-by-jean-jacques-rousseau-0812/",
-      "textUrl": "hoerbuch-texte/fr/rousseau-jean-jacques_-_discours-sur-les-sciences-et-les-arts-2644.html.gz",
+      "textUrl": "hoerbuch-texte/fr/rousseau-jean-jacques_-_discours-sur-les-sciences-et-les-arts-2644.txt.gz",
       "tags": {
         "work_author": "Rousseau, Jean-Jacques",
         "reader": "Aldor",
@@ -20816,7 +20617,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 2724)",
       "url": "https://librivox.org/fables-de-jean-la-fontaine-livre-12-jl/",
-      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-12-2724.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-12-2724.txt.gz",
       "tags": {
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
@@ -23676,7 +23477,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 2839)",
       "url": "https://librivox.org/contes-du-magasin-des-enfants-by-jeanne-marie-leprince-de-beaumont-1002/",
-      "textUrl": "hoerbuch-texte/fr/leprince-de-beaumont-jeanne-marie_-_contes-du-magasin-des-enfants-2839.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Leprince de Beaumont, Jeanne-Marie",
         "reader": "Ezwa",
@@ -23695,7 +23496,7 @@
         "total_seconds": 15926,
         "length_band": "medium",
         "num_sections": 15,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://www.archive.org/details/contesdumagasindesenfants_1002_librivox",
@@ -25417,7 +25218,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 3050)",
       "url": "https://librivox.org/tresor-des-feves-et-fleur-des-pois-by-charles-nodier-0904/",
-      "textUrl": "hoerbuch-texte/fr/nodier-charles_-_tresor-des-feves-et-fleur-des-pois-3050.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Nodier, Charles",
         "reader": "Ezwa",
@@ -25434,7 +25235,7 @@
         "total_seconds": 3321,
         "length_band": "very_short",
         "num_sections": 2,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://www.archive.org/details/tresordesfevesetfleurdespois_ezwa_0904_librivox",
@@ -25472,7 +25273,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 3078)",
       "url": "https://librivox.org/contes-cruels-by-auguste-de-villiers-de-lisle-adam-1012/",
-      "textUrl": "hoerbuch-texte/fr/villiers-de-l-isle-adam-auguste_-_contes-cruels-3078.html.gz",
+      "textUrl": "hoerbuch-texte/fr/villiers-de-l-isle-adam-auguste_-_contes-cruels-3078.txt.gz",
       "tags": {
         "work_author": "Villiers de l'Isle-Adam, Auguste",
         "reader": "Nadine Eckert-Boulet",
@@ -31696,7 +31497,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 3731)",
       "url": "https://librivox.org/fables-de-la-fontaine-livre-08-by-jean-de-la-fontaine-1004/",
-      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-08-ver-2-3731.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-08-ver-2-3731.txt.gz",
       "tags": {
         "work_author": "Fontaine, Jean de La",
         "reader": "Jason Justice",
@@ -31988,7 +31789,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 3930)",
       "url": "https://librivox.org/le-cid-by-corneille-pierre-1209/",
-      "textUrl": "hoerbuch-texte/fr/corneille-pierre_-_cid-3930.html.gz",
+      "textUrl": "hoerbuch-texte/fr/corneille-pierre_-_cid-3930.txt.gz",
       "tags": {
         "work_author": "Corneille, Pierre",
         "reader": "Ezwa",
@@ -33671,7 +33472,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 4588)",
       "url": "https://librivox.org/heidi-by-johanna-spyri-201101-cs/",
-      "textUrl": "hoerbuch-texte/fr/spyri-johanna_-_heidi-une-histoire-pour-les-enfants-et-pour-ceux-qui-les-aiment-4588.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Spyri, Johanna",
         "reader": "Caroline Sophie",
@@ -33688,7 +33489,7 @@
         "total_seconds": 21270,
         "length_band": "medium",
         "num_sections": 14,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://www.archive.org/details/heidi_cs_201101_librivox",
@@ -33979,7 +33780,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 4624)",
       "url": "https://librivox.org/les-miserables-pour-rire-by-a-vemar-1008/",
-      "textUrl": "hoerbuch-texte/fr/vemar-a_-_miserables-pour-rire-4624.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Vémar, A.",
         "reader": "Ezwa",
@@ -33996,7 +33797,7 @@
         "total_seconds": 2688,
         "length_band": "very_short",
         "num_sections": 8,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://www.archive.org/details/miserablespourrire_ezwa_1008_librivox",
@@ -34354,7 +34155,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 4695)",
       "url": "https://librivox.org/fables-de-florian-by-jean-pierre-claris-de-florian-1201/",
-      "textUrl": "hoerbuch-texte/fr/florian-jean-pierre-claris-de_-_fables-de-florian-4695.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Florian, Jean-Pierre Claris de",
         "reader": "Ezwa",
@@ -34372,7 +34173,7 @@
         "total_seconds": 15534,
         "length_band": "medium",
         "num_sections": 112,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://www.archive.org/details/fablesflorian_ezwa_1201_librivox",
@@ -38044,7 +37845,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 4889)",
       "url": "https://librivox.org/bible-dby-at-01-05-pentateuque-genese-exode-levitique-nombres-et-deuteronome-by-darby-bible/",
-      "textUrl": "hoerbuch-texte/fr/darby-bible_-_bible-dby-at-01-05-pentateuque-genese-exode-levitique-nombres-et-deuteronome-4889.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Darby Bible",
         "reader": "Ezwa",
@@ -38061,7 +37862,7 @@
         "total_seconds": 55381,
         "length_band": "long",
         "num_sections": 66,
-        "has_text": true,
+        "has_text": false,
         "translators": [
           "John Nelson Darby"
         ],
@@ -39613,7 +39414,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 4991)",
       "url": "https://librivox.org/les-lettres-persanes-tome-premier-by-charles-louis-de-secondat-baron-de-la-brede-et-de-montesquieu/",
-      "textUrl": "hoerbuch-texte/fr/montesquieu-charles-louis-de-secondat-baron-de-la-brede-et-de_-_lettres-persanes-tome-premier-4991.html.gz",
+      "textUrl": "hoerbuch-texte/fr/montesquieu-charles-louis-de-secondat-baron-de-la-brede-et-de_-_lettres-persanes-tome-premier-4991.txt.gz",
       "tags": {
         "work_author": "Montesquieu, Charles-Louis de Secondat, baron de La Brède et de",
         "reader": "Caroline Sophie",
@@ -40470,7 +40271,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 5024)",
       "url": "https://librivox.org/fiez-vous-y-by-charlez-dorleans/",
-      "textUrl": "hoerbuch-texte/fr/orleans-charles-d_-_poeme-du-mois-002-fiez-vous-y-5024.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Orléans, Charles d'",
         "reader": "Kaviraf",
@@ -40493,7 +40294,7 @@
         "total_seconds": 233,
         "length_band": "very_short",
         "num_sections": 6,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://www.archive.org/details/poeme_du_mois_1102_librivox.poem",
@@ -41254,7 +41055,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 5471)",
       "url": "https://librivox.org/poeme-du-mois-006-perles-de-reve-by-jean-courdil/",
-      "textUrl": "hoerbuch-texte/fr/courdil-jean_-_poeme-du-mois-006-perles-de-reve-5471.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Courdil, Jean",
         "reader": "Cebes",
@@ -41276,7 +41077,7 @@
         "total_seconds": 236,
         "length_band": "very_short",
         "num_sections": 5,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://www.archive.org/details/poeme_du_mois_1105.poem_librivox",
@@ -41341,7 +41142,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 5477)",
       "url": "https://librivox.org/le-roman-de-la-momie-by-theophile-gautier/",
-      "textUrl": "hoerbuch-texte/fr/gautier-theophile_-_roman-de-la-momie-5477.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Gautier, Théophile",
         "reader": "Nadine Eckert-Boulet",
@@ -41359,7 +41160,7 @@
         "total_seconds": 23549,
         "length_band": "medium",
         "num_sections": 21,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://www.archive.org/details/roman_momie_neb_librivox",
@@ -44199,7 +44000,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6248)",
       "url": "https://librivox.org/introduction-a-la-vie-devote-by-saint-francis-de-sales/",
-      "textUrl": "hoerbuch-texte/fr/de-sales-saint-francis_-_introduction-a-la-vie-devote-6248.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "de Sales, Saint Francis",
         "reader": "Grégory",
@@ -44221,7 +44022,7 @@
         "total_seconds": 41211,
         "length_band": "long",
         "num_sections": 125,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/introduction_a_la_vie_devote_2306_librivox",
@@ -49106,7 +48907,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7269)",
       "url": "https://librivox.org/le-vingtieme-siecle-by-albert-robida/",
-      "textUrl": "hoerbuch-texte/fr/robida-albert_-_vingtieme-siecle-7269.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Robida, Albert",
         "reader": "Nadine Eckert-Boulet",
@@ -49124,7 +48925,7 @@
         "total_seconds": 42168,
         "length_band": "long",
         "num_sections": 36,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/vingtieme_siecle_neb_librivox",
@@ -50669,7 +50470,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7678)",
       "url": "https://librivox.org/la-fille-aux-yeux-dor-by-honore-de-balzac/",
-      "textUrl": "hoerbuch-texte/fr/balzac-honore-de_-_fille-aux-yeux-d-or-7678.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Balzac, Honoré de",
         "reader": "Graigolin",
@@ -50687,7 +50488,7 @@
         "total_seconds": 11423,
         "length_band": "medium",
         "num_sections": 15,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/fille_aux_yeux_dor_1503_librivox",
@@ -51024,7 +50825,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7727)",
       "url": "https://librivox.org/alcools-by-guillaume-apollinaire/",
-      "textUrl": "hoerbuch-texte/fr/apollinaire-guillaume_-_alcools-7727.html.gz",
+      "textUrl": "hoerbuch-texte/fr/apollinaire-guillaume_-_alcools-7727.txt.gz",
       "tags": {
         "work_author": "Apollinaire, Guillaume",
         "reader": "Malone (1945 - 2023)",
@@ -51529,7 +51330,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 8072)",
       "url": "https://librivox.org/la-tulipe-noire-by-alexandre-dumas/",
-      "textUrl": "hoerbuch-texte/fr/dumas-alexandre_-_tulipe-noire-8072.html.gz",
+      "textUrl": "hoerbuch-texte/fr/dumas-alexandre_-_tulipe-noire-8072.txt.gz",
       "tags": {
         "work_author": "Dumas, Alexandre",
         "reader": "Ezwa",
@@ -53359,319 +53160,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "librivox:8878",
-      "title": "Histoire curieuse et pittoresque des sorciers",
-      "displayName": "de Giraldo, Mathias – Histoire curieuse et pittoresque des sorciers",
-      "lang": "fr",
-      "license": "PD",
-      "credit": "Public Domain — LibriVox (Buch 8878)",
-      "url": "https://librivox.org/histoire-curieuse-et-pittoresque-by-mathias-de-giraldo/",
-      "textUrl": "hoerbuch-texte/fr/de-giraldo-mathias_-_histoire-curieuse-et-pittoresque-des-sorciers-8878.html.gz",
-      "tags": {
-        "work_author": "de Giraldo, Mathias",
-        "reader": "Mosiah",
-        "readers": [
-          "Mosiah",
-          "Frédéric Surget",
-          "Martine",
-          "YasmineHaggag",
-          "Margot"
-        ],
-        "reader_mode": "mixed",
-        "genres": [
-          "Culture & Heritage Fiction"
-        ],
-        "fiction": "y",
-        "book_year": 1846,
-        "epoch": "c19",
-        "total_seconds": 56561,
-        "length_band": "long",
-        "num_sections": 30,
-        "has_text": true,
-        "translators": [
-          "M. Fornari"
-        ],
-        "language_name": "French",
-        "url_iarchive": "https://archive.org/details/histoire_curieuse_et_pittoresque_1912_librivox",
-        "url_text_source": "https://archive.org/details/histoirecurieus00forngoog",
-        "source_item_id": "8878"
-      },
-      "items": [
-        {
-          "id": "ch001",
-          "title": "Chapitre 1 (sous-chapitres 1 à 8)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_01_degiraldo_64kb.mp3",
-          "duration": 2148,
-          "tags": {
-            "reader": "Mosiah"
-          }
-        },
-        {
-          "id": "ch002",
-          "title": "Chapitre 1 (sous-chapitres 9 à 17)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_02_degiraldo_64kb.mp3",
-          "duration": 1614,
-          "tags": {
-            "reader": "Mosiah"
-          }
-        },
-        {
-          "id": "ch003",
-          "title": "Chapitre 1 (sous-chapitres 18 à 20)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_03_degiraldo_64kb.mp3",
-          "duration": 1940,
-          "tags": {
-            "reader": "Mosiah"
-          }
-        },
-        {
-          "id": "ch004",
-          "title": "Chapitre 1 (sous-chapitres 21 à 22)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_04_degiraldo_64kb.mp3",
-          "duration": 1659,
-          "tags": {
-            "reader": "Mosiah"
-          }
-        },
-        {
-          "id": "ch005",
-          "title": "Chapitre 1 (sous-chapitres 23 à 32)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_05_degiraldo_64kb.mp3",
-          "duration": 1800,
-          "tags": {
-            "reader": "Mosiah"
-          }
-        },
-        {
-          "id": "ch006",
-          "title": "Chapitre 1 (sous-chapitres 33 à 40)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_06_degiraldo_64kb.mp3",
-          "duration": 1526,
-          "tags": {
-            "reader": "Mosiah"
-          }
-        },
-        {
-          "id": "ch007",
-          "title": "Chapitre 1 (sous-chapitres 41 à 43)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_07_degiraldo_64kb.mp3",
-          "duration": 1970,
-          "tags": {
-            "reader": "Mosiah"
-          }
-        },
-        {
-          "id": "ch008",
-          "title": "Chapitre 1 (sous-chapitre 44 )",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_08_degiraldo_64kb.mp3",
-          "duration": 2471,
-          "tags": {
-            "reader": "Mosiah"
-          }
-        },
-        {
-          "id": "ch009",
-          "title": "Chapitre 1 (sous-chapitres 45 à 52)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_09_degiraldo_64kb.mp3",
-          "duration": 1455,
-          "tags": {
-            "reader": "Frédéric Surget"
-          }
-        },
-        {
-          "id": "ch010",
-          "title": "Chapitre 1 (sous-chapitres 53 à 57)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_10_degiraldo_64kb.mp3",
-          "duration": 2897,
-          "tags": {
-            "reader": "Frédéric Surget"
-          }
-        },
-        {
-          "id": "ch011",
-          "title": "Chapitre 2 (sous-chapitre 1 )",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_11_degiraldo_64kb.mp3",
-          "duration": 2079,
-          "tags": {
-            "reader": "Martine"
-          }
-        },
-        {
-          "id": "ch012",
-          "title": "Chapitre 2 (sous-chapitres 2 à 6)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_12_degiraldo_64kb.mp3",
-          "duration": 1741,
-          "tags": {
-            "reader": "Martine"
-          }
-        },
-        {
-          "id": "ch013",
-          "title": "Chapitre 2 (sous-chapitres 7 à 8)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_13_degiraldo_64kb.mp3",
-          "duration": 1981,
-          "tags": {
-            "reader": "Martine"
-          }
-        },
-        {
-          "id": "ch014",
-          "title": "Chapitre 2 (sous-chapitres 9 à 10)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_14_degiraldo_64kb.mp3",
-          "duration": 2068,
-          "tags": {
-            "reader": "YasmineHaggag"
-          }
-        },
-        {
-          "id": "ch015",
-          "title": "Chapitre 2 (sous-chapitre 11 )",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_15_degiraldo_64kb.mp3",
-          "duration": 1291,
-          "tags": {
-            "reader": "Martine"
-          }
-        },
-        {
-          "id": "ch016",
-          "title": "Chapitre 2 (sous-chapitre 12)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_16_degiraldo_64kb.mp3",
-          "duration": 1280,
-          "tags": {
-            "reader": "Margot"
-          }
-        },
-        {
-          "id": "ch017",
-          "title": "Chapitre 2 (sous-chapitre 13)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_17_degiraldo_64kb.mp3",
-          "duration": 2757,
-          "tags": {
-            "reader": "Margot"
-          }
-        },
-        {
-          "id": "ch018",
-          "title": "Chapitre 2 (sous-chapitre 14 - partie 1)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_18_degiraldo_64kb.mp3",
-          "duration": 1995,
-          "tags": {
-            "reader": "Martine"
-          }
-        },
-        {
-          "id": "ch019",
-          "title": "Chapitre 2 (sous-chapitre 14 - partie 2)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_19_degiraldo_64kb.mp3",
-          "duration": 2563,
-          "tags": {
-            "reader": "Margot"
-          }
-        },
-        {
-          "id": "ch020",
-          "title": "Chapitre 2 (sous-chapitre 14 - partie 3)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_20_degiraldo_64kb.mp3",
-          "duration": 2090,
-          "tags": {
-            "reader": "Martine"
-          }
-        },
-        {
-          "id": "ch021",
-          "title": "Chapitre 2 (sous-chapitres 15 à 19)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_21_degiraldo_64kb.mp3",
-          "duration": 1488,
-          "tags": {
-            "reader": "Margot"
-          }
-        },
-        {
-          "id": "ch022",
-          "title": "Chapitre 2 (sous-chapitres 20 à 23)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_22_degiraldo_64kb.mp3",
-          "duration": 1975,
-          "tags": {
-            "reader": "Margot"
-          }
-        },
-        {
-          "id": "ch023",
-          "title": "Chapitre 2 (sous-chapitres 24 à 26)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_23_degiraldo_64kb.mp3",
-          "duration": 1172,
-          "tags": {
-            "reader": "YasmineHaggag"
-          }
-        },
-        {
-          "id": "ch024",
-          "title": "Chapitre 2 (sous-chapitres 27 à 33)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_24_degiraldo_64kb.mp3",
-          "duration": 3025,
-          "tags": {
-            "reader": "Martine"
-          }
-        },
-        {
-          "id": "ch025",
-          "title": "Chapitre 3 (sous-chapitres 1 à 15)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_25_degiraldo_64kb.mp3",
-          "duration": 1908,
-          "tags": {
-            "reader": "Frédéric Surget"
-          }
-        },
-        {
-          "id": "ch026",
-          "title": "Chapitre 3 (sous-chapitre 16)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_26_degiraldo_64kb.mp3",
-          "duration": 1778,
-          "tags": {
-            "reader": "Martine"
-          }
-        },
-        {
-          "id": "ch027",
-          "title": "Chapitre 3 (sous-chapitre 17)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_27_degiraldo_64kb.mp3",
-          "duration": 1226,
-          "tags": {
-            "reader": "Margot"
-          }
-        },
-        {
-          "id": "ch028",
-          "title": "Chapitre 3 (sous-chapitres 18 à 26)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_28_degiraldo_64kb.mp3",
-          "duration": 1419,
-          "tags": {
-            "reader": "Margot"
-          }
-        },
-        {
-          "id": "ch029",
-          "title": "Chapitre 3 (sous-chapitres 27 à 32)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_29_degiraldo_64kb.mp3",
-          "duration": 1279,
-          "tags": {
-            "reader": "YasmineHaggag"
-          }
-        },
-        {
-          "id": "ch030",
-          "title": "Chapitre 3 (sous-chapitres 33 à 34 + conclusion)",
-          "audio": "https://archive.org/download/histoire_curieuse_et_pittoresque_1912_librivox/histoirecurieuse_30_degiraldo_64kb.mp3",
-          "duration": 1966,
-          "tags": {
-            "reader": "YasmineHaggag"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "librivox:8978",
       "title": "L'île mystérieuse",
       "displayName": "Verne, Jules – L'île mystérieuse",
@@ -55078,7 +54566,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 9321)",
       "url": "https://librivox.org/la-royale-maison-de-savoie-by-gregoire-hudry-menos/",
-      "textUrl": "hoerbuch-texte/fr/hudry-menos-gregoire_-_royale-maison-de-savoie-9321.html.gz",
+      "textUrl": "hoerbuch-texte/fr/hudry-menos-gregoire_-_royale-maison-de-savoie-9321.txt.gz",
       "tags": {
         "work_author": "Hudry-Menos, Grégoire",
         "reader": "BeniaminoMassimo",
@@ -55165,7 +54653,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 9587)",
       "url": "https://librivox.org/contes-humoristiques-by-theophile-gautier/",
-      "textUrl": "hoerbuch-texte/fr/gautier-theophile_-_contes-humoristiques-9587.html.gz",
+      "textUrl": "hoerbuch-texte/fr/gautier-theophile_-_contes-humoristiques-9587.txt.gz",
       "tags": {
         "work_author": "Gautier, Théophile",
         "reader": "Zeckou",
@@ -55608,7 +55096,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 10039)",
       "url": "https://librivox.org/le-saint-evangile-selon-saint-marc/",
-      "textUrl": "hoerbuch-texte/fr/saint-vangile-selon-saint-marc-10039.html.gz",
+      "textUrl": "hoerbuch-texte/fr/saint-vangile-selon-saint-marc-10039.txt.gz",
       "tags": {
         "work_author": "",
         "reader": "pejuga",
@@ -56541,7 +56029,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 10545)",
       "url": "https://librivox.org/biblefillion-livredetobie-louis-claude-fillion/",
-      "textUrl": "hoerbuch-texte/fr/fillion-bible_-_bible-fillion-apocrypha-deuterocanon-livre-de-tobie-10545.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fillion-bible_-_bible-fillion-apocrypha-deuterocanon-livre-de-tobie-10545.txt.gz",
       "tags": {
         "work_author": "Fillion Bible",
         "reader": "pejuga",
@@ -56715,7 +56203,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 10612)",
       "url": "https://librivox.org/biblefillion-livredejudith-louis-claude-fillion",
-      "textUrl": "hoerbuch-texte/fr/fillion-bible_-_bible-fillion-apocrypha-deuterocanon-livre-de-judith-10612.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fillion-bible_-_bible-fillion-apocrypha-deuterocanon-livre-de-judith-10612.txt.gz",
       "tags": {
         "work_author": "Fillion Bible",
         "reader": "pejuga",
@@ -56907,7 +56395,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 10625)",
       "url": "https://librivox.org/emma-by-jane-austen-3/",
-      "textUrl": "hoerbuch-texte/fr/austen-jane_-_emma-french-version-10625.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Austen, Jane",
         "reader": "Laurette",
@@ -56934,7 +56422,7 @@
         "total_seconds": 49649,
         "length_band": "long",
         "num_sections": 54,
-        "has_text": true,
+        "has_text": false,
         "translators": [
           "Pierre de Puliga"
         ],
@@ -57442,7 +56930,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 10699)",
       "url": "https://librivox.org/biblefillion-livredesther-louis-claude-fillion/",
-      "textUrl": "hoerbuch-texte/fr/fillion-bible_-_bible-fillion-deuterocanon-livre-d-esther-10699.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fillion-bible_-_bible-fillion-deuterocanon-livre-d-esther-10699.txt.gz",
       "tags": {
         "work_author": "Fillion Bible",
         "reader": "pejuga",
@@ -57634,7 +57122,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 10849)",
       "url": "https://librivox.org/la-bible-fillion-18-livre-de-job-by-louis-claude-fillion-bible/",
-      "textUrl": "hoerbuch-texte/fr/fillion-bible_-_bible-fillion-18-livre-de-job-chapitres-selectionnes-10849.html.gz",
+      "textUrl": "hoerbuch-texte/fr/fillion-bible_-_bible-fillion-18-livre-de-job-chapitres-selectionnes-10849.txt.gz",
       "tags": {
         "work_author": "Fillion Bible",
         "reader": "pejuga",
@@ -58006,7 +57494,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 11031)",
       "url": "https://librivox.org/le-paradis-perdu-by-john-milton/",
-      "textUrl": "hoerbuch-texte/fr/milton-john_-_paradis-perdu-11031.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Milton, John",
         "reader": "Thomas A. Copeland",
@@ -58023,7 +57511,7 @@
         "total_seconds": 52659,
         "length_band": "long",
         "num_sections": 19,
-        "has_text": true,
+        "has_text": false,
         "translators": [
           "François-René de Chateaubriand"
         ],
@@ -59747,7 +59235,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 12174)",
       "url": "https://librivox.org/aventures-dalice-au-pays-des-merveilles-by-lewis-carroll/",
-      "textUrl": "hoerbuch-texte/fr/carroll-lewis_-_aventures-d-alice-au-pays-des-merveilles-12174.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Carroll, Lewis",
         "reader": "Linda Olsen Fitak",
@@ -59769,7 +59257,7 @@
         "total_seconds": 12126,
         "length_band": "medium",
         "num_sections": 13,
-        "has_text": true,
+        "has_text": false,
         "translators": [
           "Henri Bué"
         ],
@@ -60174,7 +59662,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 12317)",
       "url": "https://librivox.org/le-portrait-de-dorian-gray-by-oscar-wilde/",
-      "textUrl": "hoerbuch-texte/fr/wilde-oscar_-_portrait-de-dorian-gray-12317.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Wilde, Oscar",
         "reader": "Linda Olsen Fitak",
@@ -60198,7 +59686,7 @@
         "total_seconds": 31861,
         "length_band": "long",
         "num_sections": 21,
-        "has_text": true,
+        "has_text": false,
         "translators": [
           "Eugène Tardieu"
         ],
@@ -60680,7 +60168,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13275)",
       "url": "https://librivox.org/les-destinees-de-la-poesie-by-alphonse-de-lamartine/",
-      "textUrl": "hoerbuch-texte/fr/lamartine-alphonse-de_-_destinees-de-la-poesie-13275.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Lamartine, Alphonse de",
         "reader": "Christiane Jehanne",
@@ -60697,7 +60185,7 @@
         "total_seconds": 4902,
         "length_band": "short",
         "num_sections": 4,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/destineesdepoesie_1809_librivox",
@@ -60753,7 +60241,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13346)",
       "url": "https://librivox.org/traite-de-la-vie-elegante-suivi-de-la-theorie-de-la-demarche-by-honore-de-balzac/",
-      "textUrl": "hoerbuch-texte/fr/balzac-honore-de_-_traite-de-la-vie-elegante-suivi-de-la-theorie-de-la-demarche-13346.html.gz",
+      "textUrl": "hoerbuch-texte/fr/balzac-honore-de_-_traite-de-la-vie-elegante-suivi-de-la-theorie-de-la-demarche-13346.txt.gz",
       "tags": {
         "work_author": "Balzac, Honoré de",
         "reader": "Christiane Jehanne",
@@ -61157,7 +60645,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13528)",
       "url": "https://librivox.org/le-pedagogue-naime-pas-les-enfants-by-henri-roorda/",
-      "textUrl": "hoerbuch-texte/fr/roorda-henri_-_pedagogue-n-aime-pas-les-enfants-13528.html.gz",
+      "textUrl": "hoerbuch-texte/fr/roorda-henri_-_pedagogue-n-aime-pas-les-enfants-13528.txt.gz",
       "tags": {
         "work_author": "Roorda, Henri",
         "reader": "Pauline Latournerie",
@@ -61566,7 +61054,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13548)",
       "url": "https://librivox.org/elevegilles-by-andre-lafon/",
-      "textUrl": "hoerbuch-texte/fr/lafon-andre_-_leve-gilles-13548.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Lafon, André",
         "reader": "Christiane Jehanne",
@@ -61583,7 +61071,7 @@
         "total_seconds": 14320,
         "length_band": "medium",
         "num_sections": 10,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/elevegilles_1902_librivox",
@@ -61961,7 +61449,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13603)",
       "url": "https://librivox.org/memoiresducdeberry-by-chateaubriand/",
-      "textUrl": "hoerbuch-texte/fr/chateaubriand-francois-rene-de_-_memoires-lettres-et-pieces-authentiques-touchant-la-vie-et-la-mort-de-s-a-r-mons-13603.html.gz",
+      "textUrl": "hoerbuch-texte/fr/chateaubriand-francois-rene-de_-_memoires-lettres-et-pieces-authentiques-touchant-la-vie-et-la-mort-de-s-a-r-mons-13603.txt.gz",
       "tags": {
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
@@ -62061,7 +61549,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13638)",
       "url": "https://librivox.org/la-garconne-by-victor-margueritte/",
-      "textUrl": "hoerbuch-texte/fr/margueritte-victor_-_garconne-13638.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Margueritte, Victor",
         "reader": "Pauline Latournerie",
@@ -62078,7 +61566,7 @@
         "total_seconds": 29494,
         "length_band": "long",
         "num_sections": 19,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/garconne_1905_librivox",
@@ -62269,7 +61757,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13640)",
       "url": "https://librivox.org/la-maison-du-peche-by-marcelle-tinayre/",
-      "textUrl": "hoerbuch-texte/fr/tinayre-marcelle_-_maison-du-peche-13640.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Tinayre, Marcelle",
         "reader": "Christiane Jehanne",
@@ -62287,7 +61775,7 @@
         "total_seconds": 37847,
         "length_band": "long",
         "num_sections": 33,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/maison_du_peche_1902_librivox",
@@ -62604,7 +62092,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13651)",
       "url": "https://librivox.org/lart-de-lire-by-emile-faguet/",
-      "textUrl": "hoerbuch-texte/fr/faguet-emile_-_l-art-de-lire-13651.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Faguet, Emile",
         "reader": "Christiane Jehanne",
@@ -62622,7 +62110,7 @@
         "total_seconds": 19990,
         "length_band": "medium",
         "num_sections": 13,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/lart_de_lire_1903_librivox",
@@ -62759,7 +62247,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13698)",
       "url": "https://librivox.org/compilation-de-contes-by-madame-d-aulnoy/",
-      "textUrl": "hoerbuch-texte/fr/aulnoy-madame-d_-_compilation-de-contes-13698.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Aulnoy, Madame d'",
         "reader": "Christiane Jehanne",
@@ -62776,7 +62264,7 @@
         "total_seconds": 21977,
         "length_band": "medium",
         "num_sections": 9,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/compilation_de_contes_1904_librivox",
@@ -62877,7 +62365,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13781)",
       "url": "https://librivox.org/de-lallemagne-by-madame-germaine-de-stael/",
-      "textUrl": "hoerbuch-texte/fr/stael-madame-germaine-de_-_de-l-allemagne-13781.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Staël, Madame Germaine de",
         "reader": "Christiane Jehanne",
@@ -62894,7 +62382,7 @@
         "total_seconds": 86184,
         "length_band": "very_long",
         "num_sections": 87,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/de_lallemagne_1906_librivox",
@@ -64027,7 +63515,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13856)",
       "url": "https://librivox.org/laura-voyages-et-impressions-by-george-sand/",
-      "textUrl": "hoerbuch-texte/fr/sand-george_-_laura-voyages-et-impressions-13856.html.gz",
+      "textUrl": "hoerbuch-texte/fr/sand-george_-_laura-voyages-et-impressions-13856.txt.gz",
       "tags": {
         "work_author": "Sand, George",
         "reader": "YasmineHaggag",
@@ -64373,7 +63861,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14082)",
       "url": "https://librivox.org/la-branche-de-lilas-by-ouida/",
-      "textUrl": "hoerbuch-texte/fr/ouida_-_branche-de-lilas-14082.html.gz",
+      "textUrl": "hoerbuch-texte/fr/ouida_-_branche-de-lilas-14082.txt.gz",
       "tags": {
         "work_author": "Ouida",
         "reader": "Christiane Jehanne",
@@ -64446,7 +63934,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14095)",
       "url": "https://librivox.org/la-science-et-lamour-by-leontine-zanta/",
-      "textUrl": "hoerbuch-texte/fr/zanta-leontine_-_science-et-l-amour-14095.html.gz",
+      "textUrl": "hoerbuch-texte/fr/zanta-leontine_-_science-et-l-amour-14095.txt.gz",
       "tags": {
         "work_author": "Zanta, Léontine",
         "reader": "Pauline Latournerie",
@@ -64618,7 +64106,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14178)",
       "url": "https://librivox.org/paques-dislande-by-anatole-le-braz/",
-      "textUrl": "hoerbuch-texte/fr/le-braz-anatole_-_paques-d-islande-14178.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Le Braz, Anatole",
         "reader": "Christiane Jehanne",
@@ -64635,7 +64123,7 @@
         "total_seconds": 19132,
         "length_band": "medium",
         "num_sections": 11,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/paques_dislande_1907_librivox",
@@ -64754,7 +64242,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14185)",
       "url": "https://librivox.org/a-travers-les-regions-de-france-by-georges-francois-renard/",
-      "textUrl": "hoerbuch-texte/fr/renard-georges-francois_-_travers-les-regions-de-france-14185.html.gz",
+      "textUrl": "hoerbuch-texte/fr/renard-georges-francois_-_travers-les-regions-de-france-14185.txt.gz",
       "tags": {
         "work_author": "Renard, Georges François",
         "reader": "Cocotte",
@@ -65167,7 +64655,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14238)",
       "url": "https://librivox.org/contes-du-jour-et-de-la-nuit-by-guy-de-maupassant/",
-      "textUrl": "hoerbuch-texte/fr/maupassant-guy-de_-_contes-du-jour-et-de-la-nuit-14238.html.gz",
+      "textUrl": "hoerbuch-texte/fr/maupassant-guy-de_-_contes-du-jour-et-de-la-nuit-14238.txt.gz",
       "tags": {
         "work_author": "Maupassant, Guy de",
         "reader": "Frédéric Surget",
@@ -65456,7 +64944,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14327)",
       "url": "https://librivox.org/les-fleurs-du-mal-by-charles-baudelaire/",
-      "textUrl": "hoerbuch-texte/fr/baudelaire-charles_-_fleurs-du-mal-14327.html.gz",
+      "textUrl": "hoerbuch-texte/fr/baudelaire-charles_-_fleurs-du-mal-14327.txt.gz",
       "tags": {
         "work_author": "Baudelaire, Charles",
         "reader": "Christiane Jehanne",
@@ -67592,7 +67080,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14564)",
       "url": "https://librivox.org/george-dandin-by-moliere/",
-      "textUrl": "hoerbuch-texte/fr/moliere_-_george-dandin-ou-le-mari-confondu-14564.html.gz",
+      "textUrl": "hoerbuch-texte/fr/moliere_-_george-dandin-ou-le-mari-confondu-14564.txt.gz",
       "tags": {
         "work_author": "Molière",
         "reader": "Sonia",
@@ -67692,7 +67180,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14588)",
       "url": "https://librivox.org/arbre-de-noel-by-xavier-marmier/",
-      "textUrl": "hoerbuch-texte/fr/marmier-xavier_-_arbre-de-noel-contes-et-legendes-14588.html.gz",
+      "textUrl": "hoerbuch-texte/fr/marmier-xavier_-_arbre-de-noel-contes-et-legendes-14588.txt.gz",
       "tags": {
         "work_author": "Marmier, Xavier",
         "reader": "Christiane Jehanne",
@@ -68167,7 +67655,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14690)",
       "url": "https://librivox.org/la-vie-des-abeilles-by-maurice-maeterlinck/",
-      "textUrl": "hoerbuch-texte/fr/maeterlinck-maurice_-_vie-des-abeilles-14690.html.gz",
+      "textUrl": "hoerbuch-texte/fr/maeterlinck-maurice_-_vie-des-abeilles-14690.txt.gz",
       "tags": {
         "work_author": "Maeterlinck, Maurice",
         "reader": "Christiane Jehanne",
@@ -68286,7 +67774,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14715)",
       "url": "https://librivox.org/histoires-extraordinaires-by-edgar-allan-poe/",
-      "textUrl": "hoerbuch-texte/fr/poe-edgar-allan_-_histoires-extraordinaires-14715.html.gz",
+      "textUrl": "hoerbuch-texte/fr/poe-edgar-allan_-_histoires-extraordinaires-14715.txt.gz",
       "tags": {
         "work_author": "Poe, Edgar Allan",
         "reader": "Irene Alvarez Domenech",
@@ -68515,7 +68003,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14792)",
       "url": "https://librivox.org/legendes-rustiques-by-george-sand/",
-      "textUrl": "hoerbuch-texte/fr/sand-george_-_legendes-rustiques-14792.html.gz",
+      "textUrl": "hoerbuch-texte/fr/sand-george_-_legendes-rustiques-14792.txt.gz",
       "tags": {
         "work_author": "Sand, George",
         "reader": "Christiane Jehanne",
@@ -68767,7 +68255,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14814)",
       "url": "https://librivox.org/sesame-et-les-lys-by-john-ruskin/",
-      "textUrl": "hoerbuch-texte/fr/ruskin-john_-_sesame-et-les-lys-14814.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Ruskin, John",
         "reader": "Christiane Jehanne",
@@ -68784,7 +68272,7 @@
         "total_seconds": 16298,
         "length_band": "medium",
         "num_sections": 9,
-        "has_text": true,
+        "has_text": false,
         "translators": [
           "Marcel Proust"
         ],
@@ -68887,7 +68375,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14847)",
       "url": "https://librivox.org/mer-by-jules-michelet/",
-      "textUrl": "hoerbuch-texte/fr/michelet-jules_-_mer-14847.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Michelet, Jules",
         "reader": "Christiane Jehanne",
@@ -68904,7 +68392,7 @@
         "total_seconds": 30332,
         "length_band": "long",
         "num_sections": 34,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/mer_2003_librivox",
@@ -69230,7 +68718,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14855)",
       "url": "https://librivox.org/dernieres-nouvelles-by-prosper-merimee/",
-      "textUrl": "hoerbuch-texte/fr/merimee-prosper_-_dernieres-nouvelles-14855.html.gz",
+      "textUrl": "hoerbuch-texte/fr/merimee-prosper_-_dernieres-nouvelles-14855.txt.gz",
       "tags": {
         "work_author": "Mérimée, Prosper",
         "reader": "Stéphanie",
@@ -69455,7 +68943,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14891)",
       "url": "https://librivox.org/nouvelles-histoires-extraordinaires-by-edgar-allan-poe/",
-      "textUrl": "hoerbuch-texte/fr/poe-edgar-allan_-_nouvelles-histoires-extraordinaires-14891.html.gz",
+      "textUrl": "hoerbuch-texte/fr/poe-edgar-allan_-_nouvelles-histoires-extraordinaires-14891.txt.gz",
       "tags": {
         "work_author": "Poe, Edgar Allan",
         "reader": "Stéphanie",
@@ -70333,7 +69821,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14985)",
       "url": "https://librivox.org/un-enfant-gate-by-zenaide-fleuriot/",
-      "textUrl": "hoerbuch-texte/fr/fleuriot-zenaide_-_enfant-gate-14985.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Fleuriot, Zénaïde",
         "reader": "Christiane Jehanne",
@@ -70350,7 +69838,7 @@
         "total_seconds": 11545,
         "length_band": "medium",
         "num_sections": 7,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/un_enfant_gate_2004_librivox",
@@ -70433,7 +69921,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15055)",
       "url": "https://librivox.org/veillees-du-chauffeur-by-tristan-bernard/",
-      "textUrl": "hoerbuch-texte/fr/bernard-tristan_-_veillees-du-chauffeur-contes-essais-recits-de-voyages-15055.html.gz",
+      "textUrl": "hoerbuch-texte/fr/bernard-tristan_-_veillees-du-chauffeur-contes-essais-recits-de-voyages-15055.txt.gz",
       "tags": {
         "work_author": "Bernard, Tristan",
         "reader": "Kamisole",
@@ -70965,7 +70453,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15077)",
       "url": "https://librivox.org/eve-future-by-auguste-villiers-de-lisle-adam/",
-      "textUrl": "hoerbuch-texte/fr/villiers-de-l-isle-adam-auguste_-_eve-future-15077.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Villiers de l'Isle-Adam, Auguste",
         "reader": "Isad",
@@ -70982,7 +70470,7 @@
         "total_seconds": 38391,
         "length_band": "long",
         "num_sections": 13,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/eve_future_2005_librivox",
@@ -71119,7 +70607,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15168)",
       "url": "https://librivox.org/poemes-by-emile-verhaeren/",
-      "textUrl": "hoerbuch-texte/fr/verhaeren-emile_-_poemes-15168.html.gz",
+      "textUrl": "hoerbuch-texte/fr/verhaeren-emile_-_poemes-15168.txt.gz",
       "tags": {
         "work_author": "Verhaeren, Emile",
         "reader": "Stéphanie",
@@ -72063,7 +71551,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15273)",
       "url": "https://librivox.org/les-natchez-by-francois-rene-de-chateaubriand/",
-      "textUrl": "hoerbuch-texte/fr/chateaubriand-francois-rene-de_-_natchez-15273.html.gz",
+      "textUrl": "hoerbuch-texte/fr/chateaubriand-francois-rene-de_-_natchez-15273.txt.gz",
       "tags": {
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
@@ -72298,7 +71786,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15278)",
       "url": "https://librivox.org/quarante-fauteuils-academie-francaise-by-charles-barthelemy/",
-      "textUrl": "hoerbuch-texte/fr/barthelemy-charles_-_quarante-fauteuils-de-l-academie-francaise-1634-1886-15278.html.gz",
+      "textUrl": "hoerbuch-texte/fr/barthelemy-charles_-_quarante-fauteuils-de-l-academie-francaise-1634-1886-15278.txt.gz",
       "tags": {
         "work_author": "Barthelémy, Charles",
         "reader": "Isad",
@@ -72911,7 +72399,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15621)",
       "url": "https://librivox.org/contes-recits-et-scenes-en-vers-by-gustave-nadaud/",
-      "textUrl": "hoerbuch-texte/fr/nadaud-gustave_-_contes-recits-et-scenes-en-vers-15621.html.gz",
+      "textUrl": "hoerbuch-texte/fr/nadaud-gustave_-_contes-recits-et-scenes-en-vers-15621.txt.gz",
       "tags": {
         "work_author": "Nadaud, Gustave",
         "reader": "Stéphanie",
@@ -73417,7 +72905,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15660)",
       "url": "https://librivox.org/famille-sans-nom-by-jules-verne/",
-      "textUrl": "hoerbuch-texte/fr/verne-jules_-_famille-sans-nom-15660.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Verne, Jules",
         "reader": "Gagnon Courchesne",
@@ -73435,7 +72923,7 @@
         "total_seconds": 39534,
         "length_band": "long",
         "num_sections": 27,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/famille-sans-nom_2305_librivox",
@@ -73698,7 +73186,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15729)",
       "url": "https://librivox.org/romans-et-contes-by-theophile-gautier/",
-      "textUrl": "hoerbuch-texte/fr/gautier-theophile_-_romans-et-contes-15729.html.gz",
+      "textUrl": "hoerbuch-texte/fr/gautier-theophile_-_romans-et-contes-15729.txt.gz",
       "tags": {
         "work_author": "Gautier, Théophile",
         "reader": "Stéphanie",
@@ -74156,7 +73644,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15767)",
       "url": "https://librivox.org/dix-mille-lieues-sans-le-vouloir-by-jules-lermina/",
-      "textUrl": "hoerbuch-texte/fr/lermina-jules_-_dix-mille-lieues-sans-le-vouloir-15767.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Lermina, Jules",
         "reader": "Ezwa",
@@ -74173,7 +73661,7 @@
         "total_seconds": 15014,
         "length_band": "medium",
         "num_sections": 10,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/10000lieuessansvouloir_2102_librivox",
@@ -74283,7 +73771,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15841)",
       "url": "https://librivox.org/cent-recits-dhistoire-contemporaine-by-gustave-ducoudray/",
-      "textUrl": "hoerbuch-texte/fr/ducoudray-gustave_-_cent-recits-d-histoire-contemporaine-15841.html.gz",
+      "textUrl": "hoerbuch-texte/fr/ducoudray-gustave_-_cent-recits-d-histoire-contemporaine-15841.txt.gz",
       "tags": {
         "work_author": "Ducoudray, Gustave",
         "reader": "Christiane Jehanne",
@@ -75500,7 +74988,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15942)",
       "url": "https://librivox.org/poesie-tome1-by-francois-coppee/",
-      "textUrl": "hoerbuch-texte/fr/coppee-francois_-_poesie-tome-1-15942.html.gz",
+      "textUrl": "hoerbuch-texte/fr/coppee-francois_-_poesie-tome-1-15942.txt.gz",
       "tags": {
         "work_author": "Coppée, François",
         "reader": "Christiane Jehanne",
@@ -76561,7 +76049,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16110)",
       "url": "https://librivox.org/recueil-de-contes-populaires-slaves-by-louis-leger/",
-      "textUrl": "hoerbuch-texte/fr/leger-louis_-_recueil-de-contes-populaires-slaves-16110.html.gz",
+      "textUrl": "hoerbuch-texte/fr/leger-louis_-_recueil-de-contes-populaires-slaves-16110.txt.gz",
       "tags": {
         "work_author": "Léger, Louis",
         "reader": "Stéphanie",
@@ -76905,7 +76393,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16130)",
       "url": "https://librivox.org/poemes-nouvelle-serie-by-emile-verhaeren/",
-      "textUrl": "hoerbuch-texte/fr/verhaeren-emile_-_poemes-nouvelle-serie-16130.html.gz",
+      "textUrl": "hoerbuch-texte/fr/verhaeren-emile_-_poemes-nouvelle-serie-16130.txt.gz",
       "tags": {
         "work_author": "Verhaeren, Emile",
         "reader": "Milinbreizh",
@@ -77486,7 +76974,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16192)",
       "url": "https://librivox.org/chateau-des-carpathes-by-jules-verne/",
-      "textUrl": "hoerbuch-texte/fr/verne-jules_-_chateau-des-carpathes-16192.html.gz",
+      "textUrl": "hoerbuch-texte/fr/verne-jules_-_chateau-des-carpathes-16192.txt.gz",
       "tags": {
         "work_author": "Verne, Jules",
         "reader": "Christiane Jehanne",
@@ -77693,7 +77181,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16199)",
       "url": "https://librivox.org/lecture-01-by-various/",
-      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-1-16199.html.gz",
+      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-1-16199.txt.gz",
       "tags": {
         "work_author": "Various",
         "reader": "Rémi",
@@ -78719,7 +78207,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16214)",
       "url": "https://librivox.org/histoire-generale-01-lavisse-rambaud/",
-      "textUrl": "hoerbuch-texte/fr/lavisse-ernest_-_histoire-generale-du-ive-siecle-a-nos-jours-tome-01-les-origines-395-1095-16214.html.gz",
+      "textUrl": "hoerbuch-texte/fr/lavisse-ernest_-_histoire-generale-du-ive-siecle-a-nos-jours-tome-01-les-origines-395-1095-16214.txt.gz",
       "tags": {
         "work_author": "Lavisse, Ernest; Rambaud, Alfred Nicolas",
         "reader": "Christiane Jehanne",
@@ -79419,7 +78907,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16241)",
       "url": "https://librivox.org/petite-histoire-de-belgique-depuis-les-premiers-temps-jusqua-nos-jours-by-edward-le-glay/",
-      "textUrl": "hoerbuch-texte/fr/le-glay-edward_-_petite-histoire-de-belgique-depuis-les-premiers-temps-jusqu-a-nos-jours-16241.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Le Glay, Edward",
         "reader": "Ezwa",
@@ -79437,7 +78925,7 @@
         "total_seconds": 18420,
         "length_band": "medium",
         "num_sections": 14,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/petitehistoiredebelgiquedepuis1erstempsjusquanosjours_librivox",
@@ -79583,7 +79071,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16275)",
       "url": "https://librivox.org/mon-histoire-sainte-by-henriette-suzanne-bres/",
-      "textUrl": "hoerbuch-texte/fr/bres-henriette-suzanne_-_mon-histoire-sainte-16275.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Brés, Henriette-Suzanne",
         "reader": "Ezwa",
@@ -79602,7 +79090,7 @@
         "total_seconds": 7443,
         "length_band": "short",
         "num_sections": 35,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/monhistoiresainte_2103_librivox",
@@ -80068,7 +79556,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16316)",
       "url": "https://librivox.org/conspirationmilliardaires-by-gustave-guitton-gustave-lerouge/",
-      "textUrl": "hoerbuch-texte/fr/guitton-gustave_-_conspiration-des-milliardaires-16316.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Guitton, Gustave; Le Rouge, Gustave",
         "reader": "Isad",
@@ -80085,7 +79573,7 @@
         "total_seconds": 30516,
         "length_band": "long",
         "num_sections": 23,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/conspirationmilliardaires_2103_librivox",
@@ -80312,7 +79800,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16338)",
       "url": "https://librivox.org/l-imitation-de-jesus-christ-by-thomas-a-kempis/",
-      "textUrl": "hoerbuch-texte/fr/kempis-thomas-a_-_imitation-de-jesus-christ-16338.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Kempis, Thomas à",
         "reader": "Christiane Jehanne",
@@ -80329,7 +79817,7 @@
         "total_seconds": 37109,
         "length_band": "long",
         "num_sections": 14,
-        "has_text": true,
+        "has_text": false,
         "translators": [
           "Frederic Robert de  Lamennais"
         ],
@@ -80477,7 +79965,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16384)",
       "url": "https://librivox.org/grammairemllelili-by-mace/",
-      "textUrl": "hoerbuch-texte/fr/mace-jean_-_grammaire-de-mademoiselle-lili-16384.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Macé, Jean",
         "reader": "Ezwa",
@@ -80497,7 +79985,7 @@
         "total_seconds": 2396,
         "length_band": "very_short",
         "num_sections": 22,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/grammairemllelili_2103_librivox",
@@ -81211,7 +80699,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16553)",
       "url": "https://librivox.org/nouvelles-by-leonid-nikolayevich-andreyev/",
-      "textUrl": "hoerbuch-texte/fr/andreyev-leonid-nikolayevich_-_nouvelles-16553.html.gz",
+      "textUrl": "hoerbuch-texte/fr/andreyev-leonid-nikolayevich_-_nouvelles-16553.txt.gz",
       "tags": {
         "work_author": "Andreyev, Leonid Nikolayevich",
         "reader": "Stéphanie",
@@ -81472,7 +80960,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16609)",
       "url": "https://librivox.org/nounlegoshommequilitdanscerveau-by-raoul-bigot/",
-      "textUrl": "hoerbuch-texte/fr/bigot-raoul_-_nounlegos-l-homme-qui-lit-dans-le-cerveau-16609.html.gz",
+      "textUrl": "hoerbuch-texte/fr/bigot-raoul_-_nounlegos-l-homme-qui-lit-dans-le-cerveau-16609.txt.gz",
       "tags": {
         "work_author": "Bigot, Raoul",
         "reader": "Isad",
@@ -81590,7 +81078,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16639)",
       "url": "https://librivox.org/lecture-02-by-various/",
-      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-2-16639.html.gz",
+      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-2-16639.txt.gz",
       "tags": {
         "work_author": "Various",
         "reader": "Milinbreizh",
@@ -83686,7 +83174,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 16919)",
       "url": "https://librivox.org/tresor-epistolaire-de-la-france-1-by-eugene-crepet/",
-      "textUrl": "hoerbuch-texte/fr/crepet-eugene_-_tresor-epistolaire-de-la-france-1ere-serie-du-16e-au-18e-siecle-16919.html.gz",
+      "textUrl": "hoerbuch-texte/fr/crepet-eugene_-_tresor-epistolaire-de-la-france-1ere-serie-du-16e-au-18e-siecle-16919.txt.gz",
       "tags": {
         "work_author": "Crépet, Eugène",
         "reader": "Stéphanie",
@@ -85652,7 +85140,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17006)",
       "url": "https://librivox.org/kamouraska-de-francois-magloire-derome/",
-      "textUrl": "hoerbuch-texte/fr/derome-francois-magloire_-_reminiscences-et-portraits-kamouraska-17006.html.gz",
+      "textUrl": "hoerbuch-texte/fr/derome-francois-magloire_-_reminiscences-et-portraits-kamouraska-17006.txt.gz",
       "tags": {
         "work_author": "Derome, François Magloire",
         "reader": "czandra",
@@ -85761,7 +85249,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17113)",
       "url": "https://librivox.org/813-by-maurice-leblanc-2/",
-      "textUrl": "hoerbuch-texte/fr/leblanc-maurice_-_813-17113.html.gz",
+      "textUrl": "hoerbuch-texte/fr/leblanc-maurice_-_813-17113.txt.gz",
       "tags": {
         "work_author": "Leblanc, Maurice",
         "reader": "Bidou",
@@ -85969,7 +85457,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17224)",
       "url": "https://librivox.org/histoire-generale-02-lavisse-rambaud/",
-      "textUrl": "hoerbuch-texte/fr/lavisse-ernest_-_histoire-generale-du-ive-siecle-a-nos-jours-tome-02-l-europe-feodale-les-croisad-17224.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Lavisse, Ernest; Rambaud, Alfred Nicolas",
         "reader": "Christiane Jehanne",
@@ -85992,7 +85480,7 @@
         "total_seconds": 149833,
         "length_band": "very_long",
         "num_sections": 88,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/histoiregenerale2_2207_librivox",
@@ -86804,7 +86292,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17358)",
       "url": "https://librivox.org/les-anciens-canadiens-by-philippe-aubert-de-gaspe/",
-      "textUrl": "hoerbuch-texte/fr/gaspe-philippe-aubert-de_-_anciens-canadiens-17358.html.gz",
+      "textUrl": "hoerbuch-texte/fr/gaspe-philippe-aubert-de_-_anciens-canadiens-17358.txt.gz",
       "tags": {
         "work_author": "Gaspé, Philippe Aubert de",
         "reader": "czandra",
@@ -87070,7 +86558,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17460)",
       "url": "https://librivox.org/la-symphonie-pastorale-by-andre-gide/",
-      "textUrl": "hoerbuch-texte/fr/gide-andre_-_symphonie-pastorale-17460.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Gide, André",
         "reader": "Christiane Jehanne",
@@ -87087,7 +86575,7 @@
         "total_seconds": 7116,
         "length_band": "short",
         "num_sections": 5,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/symphoniepastorale_2201_librivox",
@@ -87252,7 +86740,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17600)",
       "url": "https://librivox.org/lecture-03-by-various/",
-      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-3-17600.html.gz",
+      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-3-17600.txt.gz",
       "tags": {
         "work_author": "Various",
         "reader": "Margot",
@@ -88197,7 +87685,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17773)",
       "url": "https://librivox.org/quatrevingt-treize-by-victor-hugo/",
-      "textUrl": "hoerbuch-texte/fr/hugo-victor_-_quatrevingt-treize-17773.html.gz",
+      "textUrl": "hoerbuch-texte/fr/hugo-victor_-_quatrevingt-treize-17773.txt.gz",
       "tags": {
         "work_author": "Hugo, Victor",
         "reader": "Bidou",
@@ -88704,7 +88192,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17836)",
       "url": "https://librivox.org/contes-noirs-by-jacques-collin-de-plancy/",
-      "textUrl": "hoerbuch-texte/fr/collin-de-plancy-jacques_-_contes-noirs-17836.html.gz",
+      "textUrl": "hoerbuch-texte/fr/collin-de-plancy-jacques_-_contes-noirs-17836.txt.gz",
       "tags": {
         "work_author": "Collin de Plancy, Jacques",
         "reader": "Rémi",
@@ -89263,7 +88751,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17924)",
       "url": "https://librivox.org/caracteres-by-jean-de-la-bruyere/",
-      "textUrl": "hoerbuch-texte/fr/la-bruyere-jean-de_-_caracteres-17924.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "La Bruyère, Jean de",
         "reader": "Christiane Jehanne",
@@ -89283,7 +88771,7 @@
         "total_seconds": 44034,
         "length_band": "long",
         "num_sections": 18,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/caracteres_2208_librivox",
@@ -90051,7 +89539,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 17990)",
       "url": "https://librivox.org/lecture-04-by-various/",
-      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-4-17990.html.gz",
+      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-4-17990.txt.gz",
       "tags": {
         "work_author": "Various",
         "reader": "Margot",
@@ -91420,7 +90908,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 18116)",
       "url": "https://librivox.org/histoire-generale-03-lavisse-rambaud/",
-      "textUrl": "hoerbuch-texte/fr/lavisse-ernest_-_histoire-generale-du-ive-siecle-a-nos-jours-tome-03-formation-des-grands-etats-1-18116.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Lavisse, Ernest; Rambaud, Alfred Nicolas",
         "reader": "Christiane Jehanne",
@@ -91444,7 +90932,7 @@
         "total_seconds": 145984,
         "length_band": "very_long",
         "num_sections": 84,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/histoiregenerale3_2303_librivox",
@@ -92220,7 +91708,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 18203)",
       "url": "https://librivox.org/la-fortune-des-rougon-by-emile-zola/",
-      "textUrl": "hoerbuch-texte/fr/zola-mile_-_fortune-des-rougon-18203.html.gz",
+      "textUrl": "hoerbuch-texte/fr/zola-mile_-_fortune-des-rougon-18203.txt.gz",
       "tags": {
         "work_author": "Zola, Émile",
         "reader": "Bidou",
@@ -92708,7 +92196,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 18400)",
       "url": "https://librivox.org/bete-du-gevaudan-by-elie-berthet/",
-      "textUrl": "hoerbuch-texte/fr/berthet-lie_-_bete-du-gevaudan-18400.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Berthet, Élie",
         "reader": "Christiane Jehanne",
@@ -92733,7 +92221,7 @@
         "total_seconds": 47171,
         "length_band": "long",
         "num_sections": 26,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/bete_du_gevaudan_2212_librivox",
@@ -93187,7 +92675,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 18588)",
       "url": "https://librivox.org/lecture-05-by-various/",
-      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-5-18588.html.gz",
+      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-5-18588.txt.gz",
       "tags": {
         "work_author": "Various",
         "reader": "Cocotte",
@@ -94417,7 +93905,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 18672)",
       "url": "https://librivox.org/deux-petits-sabots-by-ouida/",
-      "textUrl": "hoerbuch-texte/fr/ouida_-_deux-petits-sabots-18672.html.gz",
+      "textUrl": "hoerbuch-texte/fr/ouida_-_deux-petits-sabots-18672.txt.gz",
       "tags": {
         "work_author": "Ouida",
         "reader": "Christiane Jehanne",
@@ -95212,7 +94700,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 18847)",
       "url": "https://librivox.org/michel-strogoff-by-jules-verne/",
-      "textUrl": "hoerbuch-texte/fr/verne-jules_-_michel-strogoff-18847.html.gz",
+      "textUrl": "hoerbuch-texte/fr/verne-jules_-_michel-strogoff-18847.txt.gz",
       "tags": {
         "work_author": "Verne, Jules",
         "reader": "Thomas Bouissaguet",
@@ -97035,7 +96523,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 19141)",
       "url": "https://librivox.org/histoire-generale-04-lavisse-rambaud/",
-      "textUrl": "hoerbuch-texte/fr/lavisse-ernest_-_histoire-generale-du-ive-siecle-a-nos-jours-tome-04-renaissance-et-reforme-les-n-19141.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Lavisse, Ernest; Rambaud, Alfred Nicolas",
         "reader": "Christiane Jehanne",
@@ -97057,7 +96545,7 @@
         "total_seconds": 146825,
         "length_band": "very_long",
         "num_sections": 84,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/histoiregeneralequatre_2411_librivox",
@@ -98216,7 +97704,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 19268)",
       "url": "https://librivox.org/le-loup-blanc-by-paul-feval-pere/",
-      "textUrl": "hoerbuch-texte/fr/feval-pere-paul_-_loup-blanc-19268.html.gz",
+      "textUrl": "hoerbuch-texte/fr/feval-pere-paul_-_loup-blanc-19268.txt.gz",
       "tags": {
         "work_author": "Féval, père, Paul",
         "reader": "Christiane Jehanne",
@@ -99132,7 +98620,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 19577)",
       "url": "https://librivox.org/voyage-en-italie-by-francois-rene-de-chateaubriand/",
-      "textUrl": "hoerbuch-texte/fr/chateaubriand-francois-rene-de_-_voyage-en-italie-19577.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
@@ -99149,7 +98637,7 @@
         "total_seconds": 7155,
         "length_band": "short",
         "num_sections": 12,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "French",
         "url_iarchive": "https://archive.org/details/voyageenitalie_2309_librivox",
@@ -99277,7 +98765,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 19668)",
       "url": "https://librivox.org/lecture06-by-various/",
-      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-6-19668.html.gz",
+      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-6-19668.txt.gz",
       "tags": {
         "work_author": "Various",
         "reader": "Marie-Anne Vidal",
@@ -101223,7 +100711,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 20456)",
       "url": "https://librivox.org/les-dents-du-tigre-by-maurice-leblanc/",
-      "textUrl": "hoerbuch-texte/fr/leblanc-maurice_-_dents-du-tigre-20456.html.gz",
+      "textUrl": "hoerbuch-texte/fr/leblanc-maurice_-_dents-du-tigre-20456.txt.gz",
       "tags": {
         "work_author": "Leblanc, Maurice",
         "reader": "Bidou",
@@ -101440,7 +100928,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 20893)",
       "url": "https://librivox.org/lecture07-by-various/",
-      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-7-20893.html.gz",
+      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-7-20893.txt.gz",
       "tags": {
         "work_author": "Various",
         "reader": "SophieFrance",
@@ -102515,7 +102003,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 20943)",
       "url": "https://librivox.org/triangle-dor-by-maurice-leblanc/",
-      "textUrl": "hoerbuch-texte/fr/leblanc-maurice_-_triangle-d-or-20943.html.gz",
+      "textUrl": "hoerbuch-texte/fr/leblanc-maurice_-_triangle-d-or-20943.txt.gz",
       "tags": {
         "work_author": "Leblanc, Maurice",
         "reader": "Bidou",
@@ -102732,7 +102220,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 21086)",
       "url": "https://librivox.org/poesies-allemandes-by-various/",
-      "textUrl": "hoerbuch-texte/fr/various_-_poesies-allemandes-21086.html.gz",
+      "textUrl": "hoerbuch-texte/fr/various_-_poesies-allemandes-21086.txt.gz",
       "tags": {
         "work_author": "Various",
         "reader": "Christiane Jehanne",
@@ -103106,7 +102594,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 21299)",
       "url": "https://librivox.org/rues-de-paris-by-bathild-bouniol/",
-      "textUrl": "hoerbuch-texte/fr/bouniol-bathild_-_rues-de-paris-biographies-portraits-recits-et-legendes-21299.html.gz",
+      "textUrl": "hoerbuch-texte/fr/bouniol-bathild_-_rues-de-paris-biographies-portraits-recits-et-legendes-21299.txt.gz",
       "tags": {
         "work_author": "Bouniol, Bathild",
         "reader": "Christiane Jehanne",
@@ -104836,7 +104324,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 21782)",
       "url": "https://librivox.org/monsieur-de-bougrelon-by-paul-duval/",
-      "textUrl": "hoerbuch-texte/fr/duval-paul_-_monsieur-de-bougrelon-21782.html.gz",
+      "textUrl": "hoerbuch-texte/fr/duval-paul_-_monsieur-de-bougrelon-21782.txt.gz",
       "tags": {
         "work_author": "Duval, Paul",
         "reader": "markleuning",
@@ -104918,7 +104406,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 22117)",
       "url": "https://librivox.org/lecture8-by-various/",
-      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-8-22117.html.gz",
+      "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-8-22117.txt.gz",
       "tags": {
         "work_author": "Various",
         "reader": "Christiane Jehanne",
@@ -105841,7 +105329,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 22298)",
       "url": "https://librivox.org/contes-anecdotes-et-recits-canadiens-by-aristide-filiatreault/",
-      "textUrl": "hoerbuch-texte/fr/filiatreault-aristide_-_contes-anecdotes-et-recits-canadiens-22298.html.gz",
+      "textUrl": "hoerbuch-texte/fr/filiatreault-aristide_-_contes-anecdotes-et-recits-canadiens-22298.txt.gz",
       "tags": {
         "work_author": "Filiatreault, Aristide",
         "reader": "czandra",
@@ -106311,7 +105799,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 22639)",
       "url": "https://librivox.org/recueil-de-contes-populaires-grecs-by-emile-legrand/",
-      "textUrl": "hoerbuch-texte/fr/legrand-mile_-_recueil-de-contes-populaires-grecs-22639.html.gz",
+      "textUrl": "hoerbuch-texte/fr/legrand-mile_-_recueil-de-contes-populaires-grecs-22639.txt.gz",
       "tags": {
         "work_author": "Legrand, Émile",
         "reader": "Rapunzelina",

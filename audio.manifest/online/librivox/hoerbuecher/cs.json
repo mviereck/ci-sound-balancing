@@ -15,7 +15,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15080)",
       "url": "https://librivox.org/krysar-by-viktor-dyk/",
-      "textUrl": "hoerbuch-texte/cs/dyk-viktor_-_krysa-15080.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Dyk, Viktor",
         "reader": "Kudrna",
@@ -32,7 +32,7 @@
         "total_seconds": 8319,
         "length_band": "short",
         "num_sections": 26,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Czech",
         "url_iarchive": "https://archive.org/details/krysar_2007_librivox",

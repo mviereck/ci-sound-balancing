@@ -15,7 +15,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 3860)",
       "url": "https://librivox.org/tiruppavai-by-andal/",
-      "textUrl": "hoerbuch-texte/ta/andal_-_tiruppavai-3860.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Andal",
         "reader": "Neeru Iyer",
@@ -33,7 +33,7 @@
         "total_seconds": 964,
         "length_band": "very_short",
         "num_sections": 6,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Tamil",
         "url_iarchive": "https://www.archive.org/details/tiruppavai_nr_librivox",
@@ -107,7 +107,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13085)",
       "url": "https://librivox.org/the-sacred-kurral-of-tiruvalluva-nayanar-by-thiruvalluvar/",
-      "textUrl": "hoerbuch-texte/ta/thiruvalluvar_-_sacred-kurral-of-tiruvalluva-nayanar-13085.html.gz",
+      "textUrl": "hoerbuch-texte/ta/thiruvalluvar_-_sacred-kurral-of-tiruvalluva-nayanar-13085.txt.gz",
       "tags": {
         "work_author": "Thiruvalluvar",
         "reader": "Jothi Tharavant",

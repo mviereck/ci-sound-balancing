@@ -15,7 +15,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 2242)",
       "url": "https://librivox.org/iakobou-ste/",
-      "textUrl": "hoerbuch-texte/grc/stephanos-1550_-_bible-ste-nt-20-james-2242.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Stephanos 1550",
         "reader": "peaceuntoyou",
@@ -32,7 +32,7 @@
         "total_seconds": 1730,
         "length_band": "very_short",
         "num_sections": 5,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Ancient Greek",
         "url_iarchive": "https://www.archive.org/details/kd20_iakobou_ste_puy_0809_librivox-0",
@@ -97,7 +97,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 3370)",
       "url": "https://librivox.org/apology-of-socrates-by-plato/",
-      "textUrl": "hoerbuch-texte/grc/plato_-_the-apology-of-socrates-in-ancient-greek-3370.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "zaaf",
@@ -115,7 +115,7 @@
         "total_seconds": 5452,
         "length_band": "short",
         "num_sections": 6,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Ancient Greek",
         "url_iarchive": "https://www.archive.org/details/apology_of_socrates_plato_0908_librivox1",
@@ -189,7 +189,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 3938)",
       "url": "https://librivox.org/the-odyssey-book-6-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_odyssey-book-6-3938.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Homer",
         "reader": "Zoe Dickinson",
@@ -210,7 +210,7 @@
         "total_seconds": 2032,
         "length_band": "very_short",
         "num_sections": 6,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Ancient Greek",
         "url_iarchive": "https://www.archive.org/details/odyssey_bk6_1012_librivox",
@@ -284,7 +284,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6611)",
       "url": "https://librivox.org/histories-book-1-by-thucydides/",
-      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-1-book-1-6611.html.gz",
+      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-1-book-1-6611.txt.gz",
       "tags": {
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
@@ -421,7 +421,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6637)",
       "url": "https://librivox.org/histories-book-2-by-thucydides/",
-      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-2-book-2-6637.html.gz",
+      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-2-book-2-6637.txt.gz",
       "tags": {
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
@@ -522,7 +522,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6649)",
       "url": "https://librivox.org/histories-book-3-by-thucydides/",
-      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-3-book-3-6649.html.gz",
+      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-3-book-3-6649.txt.gz",
       "tags": {
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
@@ -623,7 +623,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6680)",
       "url": "https://librivox.org/histories-4-by-thucydides/",
-      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-4-book-4-6680.html.gz",
+      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-4-book-4-6680.txt.gz",
       "tags": {
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
@@ -795,7 +795,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6822)",
       "url": "https://librivox.org/histories-book-5-by-thucydides/",
-      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-5-book-5-6822.html.gz",
+      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-5-book-5-6822.txt.gz",
       "tags": {
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
@@ -932,7 +932,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 6827)",
       "url": "https://librivox.org/dialogues-by-plato/",
-      "textUrl": "hoerbuch-texte/grc/plato_-_dialogues-6827.html.gz",
+      "textUrl": "hoerbuch-texte/grc/plato_-_dialogues-6827.txt.gz",
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "Rapunzelina",
@@ -1031,7 +1031,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7001)",
       "url": "https://librivox.org/histories-v-6-book-6-by-thucydides/",
-      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-6-book-6-7001.html.gz",
+      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-6-book-6-7001.txt.gz",
       "tags": {
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
@@ -1221,7 +1221,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 9995)",
       "url": "https://librivox.org/histories-7-book-7-by-thucydides/",
-      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-7-book-7-9995.html.gz",
+      "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-7-book-7-9995.txt.gz",
       "tags": {
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
@@ -1348,7 +1348,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 11481)",
       "url": "https://librivox.org/homeric-hymns-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_homeric-hymns-11481.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_homeric-hymns-11481.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -1683,7 +1683,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 11611)",
       "url": "https://librivox.org/platos-definitions-and-epigrams-by-plato/",
-      "textUrl": "hoerbuch-texte/grc/plato_-_plato-s-definitions-and-epigrams-11611.html.gz",
+      "textUrl": "hoerbuch-texte/grc/plato_-_plato-s-definitions-and-epigrams-11611.txt.gz",
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "Maria Sozopoulou",
@@ -2019,7 +2019,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 12070)",
       "url": "https://librivox.org/seven-sages-and-delphic-maxims/",
-      "textUrl": "hoerbuch-texte/grc/stobaeus-joannes_-_seven-sages-and-delphic-maxims-12070.html.gz",
+      "textUrl": "hoerbuch-texte/grc/stobaeus-joannes_-_seven-sages-and-delphic-maxims-12070.txt.gz",
       "tags": {
         "work_author": "Stobaeus, Joannes",
         "reader": "Maria Sozopoulou",
@@ -2129,7 +2129,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 12152)",
       "url": "https://librivox.org/orphic-hymns/",
-      "textUrl": "hoerbuch-texte/grc/unknown_-_orphic-hymns-12152.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Unknown",
         "reader": "Ἑλένη Κεμικτσή",
@@ -2146,7 +2146,7 @@
         "total_seconds": 10237,
         "length_band": "short",
         "num_sections": 24,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Ancient Greek",
         "url_iarchive": "https://archive.org/details/orphichymns_1709_librivox",
@@ -2382,7 +2382,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 12391)",
       "url": "https://librivox.org/book-1-of-the-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_01-the-odyssey-book-01-12391.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_01-the-odyssey-book-01-12391.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -2429,7 +2429,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 12518)",
       "url": "https://librivox.org/book-2-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_02-the-odyssey-book-02-12518.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_02-the-odyssey-book-02-12518.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -2476,7 +2476,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 12634)",
       "url": "https://librivox.org/book-3-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_03-the-odyssey-book-03-12634.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_03-the-odyssey-book-03-12634.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -2523,7 +2523,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 12734)",
       "url": "https://librivox.org/book-4-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_04-the-odyssey-ook-04-12734.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_04-the-odyssey-ook-04-12734.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -2579,7 +2579,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 12884)",
       "url": "https://librivox.org/book-5-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_05-the-odyssey-book-05-12884.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_05-the-odyssey-book-05-12884.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -2626,7 +2626,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13000)",
       "url": "https://librivox.org/book-6-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_06-the-odyssey-book-06-13000.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_06-the-odyssey-book-06-13000.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -2673,7 +2673,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13080)",
       "url": "https://librivox.org/ook-7-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_07-the-odyssey-book-07-13080.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_07-the-odyssey-book-07-13080.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -2720,7 +2720,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13185)",
       "url": "https://librivox.org/book-8-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_08-the-odyssey-book-08-13185.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_08-the-odyssey-book-08-13185.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -2767,7 +2767,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13233)",
       "url": "https://librivox.org/anabasis-by-xenophon/",
-      "textUrl": "hoerbuch-texte/grc/xenophon_-_anabasis-13233.html.gz",
+      "textUrl": "hoerbuch-texte/grc/xenophon_-_anabasis-13233.txt.gz",
       "tags": {
         "work_author": "Xenophon",
         "reader": "bedwere",
@@ -3038,7 +3038,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13276)",
       "url": "https://librivox.org/book-9-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_09-the-odyssey-book-09-13276.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_09-the-odyssey-book-09-13276.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3085,7 +3085,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13354)",
       "url": "https://librivox.org/book-10-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_10-the-odyssey-book-10-13354.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_10-the-odyssey-book-10-13354.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3132,7 +3132,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13456)",
       "url": "https://librivox.org/book-11-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_11-the-odyssey-book-11-13456.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_11-the-odyssey-book-11-13456.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3179,7 +3179,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13539)",
       "url": "https://librivox.org/book-12-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_12-the-odyssey-book-12-13539.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_12-the-odyssey-book-12-13539.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3226,7 +3226,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13627)",
       "url": "https://librivox.org/book-13-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_13-the-odyssey-book-13-13627.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_13-the-odyssey-book-13-13627.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3273,7 +3273,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13667)",
       "url": "https://librivox.org/book-14-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_14-the-odyssey-book-14-13667.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_14-the-odyssey-book-14-13667.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3320,7 +3320,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13761)",
       "url": "https://librivox.org/book-15-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_15-the-odyssey-book-15-13761.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_15-the-odyssey-book-15-13761.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3367,7 +3367,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13822)",
       "url": "https://librivox.org/book-16-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_16-the-odyssey-book-16-13822.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_16-the-odyssey-book-16-13822.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3414,7 +3414,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13895)",
       "url": "https://librivox.org/book-17-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_17-the-odyssey-book-17-13895.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_17-the-odyssey-book-17-13895.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3461,7 +3461,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 13950)",
       "url": "https://librivox.org/book-18-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_18-the-odyssey-book-18-13950.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_18-the-odyssey-book-18-13950.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3508,7 +3508,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14014)",
       "url": "https://librivox.org/book-19-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_19-the-odyssey-book-19-14014.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_19-the-odyssey-book-19-14014.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3555,7 +3555,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14090)",
       "url": "https://librivox.org/book-20-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_20-the-odyssey-book-20-14090.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_20-the-odyssey-book-20-14090.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3602,7 +3602,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14169)",
       "url": "https://librivox.org/odyssey-book-21-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_21-the-odyssey-book-21-14169.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_21-the-odyssey-book-21-14169.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3649,7 +3649,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14244)",
       "url": "https://librivox.org/odyssey-book-22-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_22-the-odyssey-book-22-14244.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_22-the-odyssey-book-22-14244.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3696,7 +3696,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14314)",
       "url": "https://librivox.org/book-23-of-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_23-the-odyssey-book-23-14314.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_23-the-odyssey-book-23-14314.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -3743,7 +3743,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14354)",
       "url": "https://librivox.org/cyro-paedia-by-xenophon/",
-      "textUrl": "hoerbuch-texte/grc/xenophon_-_x-14354.html.gz",
+      "textUrl": "hoerbuch-texte/grc/xenophon_-_x-14354.txt.gz",
       "tags": {
         "work_author": "Xenophon",
         "reader": "bedwere",
@@ -3997,7 +3997,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 14395)",
       "url": "https://librivox.org/book-24-of-the-odyssey-by-homer/",
-      "textUrl": "hoerbuch-texte/grc/homer_-_24-the-odyssey-ook-24-14395.html.gz",
+      "textUrl": "hoerbuch-texte/grc/homer_-_24-the-odyssey-ook-24-14395.txt.gz",
       "tags": {
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
@@ -4044,7 +4044,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 15821)",
       "url": "https://librivox.org/apologia-by-plato/",
-      "textUrl": "hoerbuch-texte/grc/plato_-_the-apology-of-socrates-in-ancient-greek-version-2-15821.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "Ἑλένη Κεμικτσή",
@@ -4061,7 +4061,7 @@
         "total_seconds": 6416,
         "length_band": "short",
         "num_sections": 2,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Ancient Greek",
         "url_iarchive": "https://archive.org/details/apologia_2012_librivox",
@@ -4085,126 +4085,6 @@
           "duration": 2660,
           "tags": {
             "reader": "Ἑλένη Κεμικτσή"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "librivox:17649",
-      "title": "Greek War of Independence (1821-1827)",
-      "displayName": "Chambers, Charles D. – Greek War of Independence (1821-1827)",
-      "lang": "grc",
-      "license": "PD",
-      "credit": "Public Domain — LibriVox (Buch 17649)",
-      "url": "https://librivox.org/the-greek-war-of-independence-by-charles-d-chambers/",
-      "textUrl": "hoerbuch-texte/grc/chambers-charles-d_-_greek-war-of-independence-1821-1827-17649.html.gz",
-      "tags": {
-        "work_author": "Chambers, Charles D.",
-        "reader": "Ariphron",
-        "readers": [
-          "Ariphron"
-        ],
-        "reader_mode": "solo",
-        "genres": [
-          "War & Military",
-          "Writing & Linguistics",
-          "Language learning"
-        ],
-        "fiction": "y",
-        "book_year": 1906,
-        "epoch": "c20",
-        "total_seconds": 16045,
-        "length_band": "medium",
-        "num_sections": 9,
-        "has_text": true,
-        "translators": [],
-        "language_name": "Ancient Greek",
-        "url_iarchive": "https://archive.org/details/greekwar_independence_2212_librivox",
-        "url_text_source": "https://archive.org/details/in.ernet.dli.2015.13619",
-        "source_item_id": "17649"
-      },
-      "items": [
-        {
-          "id": "ch001",
-          "title": "Preface",
-          "audio": "https://archive.org/download/greekwar_independence_2212_librivox/greekwarofindependence_00_chambers_64kb.mp3",
-          "duration": 431,
-          "tags": {
-            "reader": "Ariphron"
-          }
-        },
-        {
-          "id": "ch001",
-          "title": "Part I. The Campaign in the Trans-Danubian Principalities under Prince Alexander Hypsilantes",
-          "audio": "https://archive.org/download/greekwar_independence_2212_librivox/greekwarofindependence_01_chambers_64kb.mp3",
-          "duration": 1997,
-          "tags": {
-            "reader": "Ariphron"
-          }
-        },
-        {
-          "id": "ch002",
-          "title": "Part II. The First Year of the War in Greece, 1821",
-          "audio": "https://archive.org/download/greekwar_independence_2212_librivox/greekwarofindependence_02_chambers_64kb.mp3",
-          "duration": 1957,
-          "tags": {
-            "reader": "Ariphron"
-          }
-        },
-        {
-          "id": "ch003",
-          "title": "Part III. The Campaigns of 1822 and 1823",
-          "audio": "https://archive.org/download/greekwar_independence_2212_librivox/greekwarofindependence_03_chambers_64kb.mp3",
-          "duration": 2476,
-          "tags": {
-            "reader": "Ariphron"
-          }
-        },
-        {
-          "id": "ch004",
-          "title": "Part IV. Events in Greece From the Arrival of Lord Byron to the Battle of Navarino, 1823-1827",
-          "audio": "https://archive.org/download/greekwar_independence_2212_librivox/greekwarofindependence_04_chambers_64kb.mp3",
-          "duration": 2305,
-          "tags": {
-            "reader": "Ariphron"
-          }
-        },
-        {
-          "id": "ch005",
-          "title": "Notes to Part I",
-          "audio": "https://archive.org/download/greekwar_independence_2212_librivox/greekwarofindependence_05_chambers_64kb.mp3",
-          "duration": 2462,
-          "tags": {
-            "reader": "Ariphron"
-          }
-        },
-        {
-          "id": "ch006",
-          "title": "Notes to Part II",
-          "audio": "https://archive.org/download/greekwar_independence_2212_librivox/greekwarofindependence_06_chambers_64kb.mp3",
-          "duration": 1478,
-          "tags": {
-            "reader": "Ariphron"
-          }
-        },
-        {
-          "id": "ch007",
-          "title": "Notes to Part III",
-          "audio": "https://archive.org/download/greekwar_independence_2212_librivox/greekwarofindependence_07_chambers_64kb.mp3",
-          "duration": 1505,
-          "tags": {
-            "reader": "Ariphron"
-          }
-        },
-        {
-          "id": "ch008",
-          "title": "Notes to Part IV",
-          "audio": "https://archive.org/download/greekwar_independence_2212_librivox/greekwarofindependence_08_chambers_64kb.mp3",
-          "duration": 1434,
-          "tags": {
-            "reader": "Ariphron"
           }
         }
       ]
@@ -4275,7 +4155,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 22288)",
       "url": "https://librivox.org/aspisherakleous-by-hesiod/",
-      "textUrl": "hoerbuch-texte/grc/hesiod_-_x-22288.html.gz",
+      "textUrl": "hoerbuch-texte/grc/hesiod_-_x-22288.txt.gz",
       "tags": {
         "work_author": "Hesiod",
         "reader": "Ἑλένη Κεμικτσή",

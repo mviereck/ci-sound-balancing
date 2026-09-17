@@ -190,7 +190,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 153)",
       "url": "https://librivox.org/biblia-sacra-vulgata-psalmi-xxii/",
-      "textUrl": "hoerbuch-texte/la/biblia-sacra-vulgata_-_bible-biblia-sacra-vulgata-19-psalmi-xxii-153.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Biblia Sacra Vulgata",
         "reader": "Jim Cadwell",
@@ -207,7 +207,7 @@
         "total_seconds": 81,
         "length_band": "very_short",
         "num_sections": 1,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Latin",
         "url_iarchive": "https://www.archive.org/details/psalmi_22_vulgata_librivox",
@@ -236,7 +236,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 3327)",
       "url": "https://librivox.org/historia-apollonii-regis-tyri-by-anonymous/",
-      "textUrl": "hoerbuch-texte/la/anonymous_-_historia-apollonii-regis-tyri-3327.html.gz",
+      "textUrl": "hoerbuch-texte/la/anonymous_-_historia-apollonii-regis-tyri-3327.txt.gz",
       "tags": {
         "work_author": "Anonymous",
         "reader": "zaaf",
@@ -300,7 +300,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 4227)",
       "url": "https://librivox.org/versio-latina-homeri-odyssea-liber-vi-by-homer/",
-      "textUrl": "hoerbuch-texte/la/homer_-_versio-latina-homeri-odyssea-liber-vi-4227.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Homer",
         "reader": "hefyd",
@@ -318,7 +318,7 @@
         "total_seconds": 1755,
         "length_band": "very_short",
         "num_sections": 1,
-        "has_text": true,
+        "has_text": false,
         "translators": [
           "Andreas Divus"
         ],
@@ -349,7 +349,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 4718)",
       "url": "https://librivox.org/de-bello-gallico-libri-septem-by-gaius-julius-caesar/",
-      "textUrl": "hoerbuch-texte/la/caesar-gaius-julius_-_de-bello-gallico-libri-septem-4718.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Caesar, Gaius Julius",
         "reader": "Marilianus",
@@ -375,7 +375,7 @@
         "total_seconds": 35771,
         "length_band": "long",
         "num_sections": 25,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Latin",
         "url_iarchive": "https://archive.org/details/bellum_gallicum_1210_librivox",
@@ -620,7 +620,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7041)",
       "url": "https://librivox.org/aeneidis-libri-xii-by-publius-vergilius-maro/",
-      "textUrl": "hoerbuch-texte/la/virgil_-_aeneidis-libri-xii-7041.html.gz",
+      "textUrl": "hoerbuch-texte/la/virgil_-_aeneidis-libri-xii-7041.txt.gz",
       "tags": {
         "work_author": "Virgil",
         "reader": "Malone (1945 - 2023)",
@@ -874,7 +874,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7053)",
       "url": "https://librivox.org/de-rerum-natura-by-titus-lucretius-carus/",
-      "textUrl": "hoerbuch-texte/la/carus-titus-lucretius_-_de-rerum-natura-7053.html.gz",
+      "textUrl": "hoerbuch-texte/la/carus-titus-lucretius_-_de-rerum-natura-7053.txt.gz",
       "tags": {
         "work_author": "Carus, Titus Lucretius",
         "reader": "Malone (1945 - 2023)",
@@ -1076,7 +1076,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7221)",
       "url": "https://librivox.org/georgica-by-publius-vergilius-maro/",
-      "textUrl": "hoerbuch-texte/la/virgil_-_georgica-7221.html.gz",
+      "textUrl": "hoerbuch-texte/la/virgil_-_georgica-7221.txt.gz",
       "tags": {
         "work_author": "Virgil",
         "reader": "Malone (1945 - 2023)",
@@ -1187,7 +1187,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7230)",
       "url": "https://librivox.org/epistulae-morales-selectae-by-lucius-annaeus-seneca/",
-      "textUrl": "hoerbuch-texte/la/seneca-lucius-annaeus_-_epistulae-morales-selectae-7230.html.gz",
+      "textUrl": "hoerbuch-texte/la/seneca-lucius-annaeus_-_epistulae-morales-selectae-7230.txt.gz",
       "tags": {
         "work_author": "Seneca, Lucius Annaeus",
         "reader": "Malone (1945 - 2023)",
@@ -1333,7 +1333,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 7521)",
       "url": "https://librivox.org/de-agricultura-by-marcus-porcius-cato/",
-      "textUrl": "hoerbuch-texte/la/cato-marcus-porcius_-_de-agricultura-7521.html.gz",
+      "textUrl": "hoerbuch-texte/la/cato-marcus-porcius_-_de-agricultura-7521.txt.gz",
       "tags": {
         "work_author": "Cato, Marcus Porcius",
         "reader": "Malone (1945 - 2023)",
@@ -1768,7 +1768,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 9624)",
       "url": "https://librivox.org/de-imitatione-christi-by-thomas-a-kempis/",
-      "textUrl": "hoerbuch-texte/la/kempis-thomas-a_-_imitatione-christi-9624.html.gz",
+      "textUrl": "hoerbuch-texte/la/kempis-thomas-a_-_imitatione-christi-9624.txt.gz",
       "tags": {
         "work_author": "Kempis, Thomas à",
         "reader": "bedwere",
@@ -1949,7 +1949,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 10254)",
       "url": "https://librivox.org/regula-sancti-benedicti-by-saint-benedict-of-nursia/",
-      "textUrl": "hoerbuch-texte/la/benedict-of-nursia-saint_-_regula-sancti-benedicti-10254.html.gz",
+      "textUrl": "hoerbuch-texte/la/benedict-of-nursia-saint_-_regula-sancti-benedicti-10254.txt.gz",
       "tags": {
         "work_author": "Benedict of Nursia, Saint",
         "reader": "bedwere",
@@ -2076,7 +2076,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 10603)",
       "url": "https://librivox.org/de-consolatione-philosophiae-by-anicius-manlius-severinus-boethius/",
-      "textUrl": "hoerbuch-texte/la/boethius-anicius-manlius-severinus_-_consolatione-philosophiae-10603.html.gz",
+      "textUrl": "hoerbuch-texte/la/boethius-anicius-manlius-severinus_-_consolatione-philosophiae-10603.txt.gz",
       "tags": {
         "work_author": "Boethius, Anicius Manlius Severinus",
         "reader": "bedwere",
@@ -2212,7 +2212,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 11614)",
       "url": "https://librivox.org/de-civitate-dei-libri-xxii-by-saint-augustine-of-hippo/",
-      "textUrl": "hoerbuch-texte/la/augustine-of-hippo-saint_-_civitate-dei-libri-xxii-11614.html.gz",
+      "textUrl": "hoerbuch-texte/la/augustine-of-hippo-saint_-_civitate-dei-libri-xxii-11614.txt.gz",
       "tags": {
         "work_author": "Augustine of Hippo, Saint",
         "reader": "bedwere",
@@ -3122,7 +3122,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 19647)",
       "url": "https://librivox.org/selectae-fabulae-aesopi-or-select-fables-of-aesop-by-h-clarke/",
-      "textUrl": "hoerbuch-texte/la/clarke-h_-_selectae-fabulae-aesopi-or-select-fables-of-aesop-19647.html.gz",
+      "textUrl": "hoerbuch-texte/la/clarke-h_-_selectae-fabulae-aesopi-or-select-fables-of-aesop-19647.txt.gz",
       "tags": {
         "work_author": "Clarke, H.",
         "reader": "laurakgibbs",

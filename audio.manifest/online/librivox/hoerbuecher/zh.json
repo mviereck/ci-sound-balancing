@@ -2052,7 +2052,7 @@
       "license": "PD",
       "credit": "Public Domain — LibriVox (Buch 871)",
       "url": "https://librivox.org/lun-yu-or-analects-of-confucius-read-in-chinese/",
-      "textUrl": "hoerbuch-texte/zh/confucius_-_lun-yu-analects-of-confucius-871.html.gz",
+      "textUrl": null,
       "tags": {
         "work_author": "Confucius 孔子",
         "reader": "Huang Hsin-Yu",
@@ -2073,7 +2073,7 @@
         "total_seconds": 8873,
         "length_band": "short",
         "num_sections": 20,
-        "has_text": true,
+        "has_text": false,
         "translators": [],
         "language_name": "Chinese",
         "url_iarchive": "https://www.archive.org/details/lun_yu_0801_librivox",
@@ -6209,73 +6209,6 @@
           "duration": 53,
           "tags": {
             "reader": "o331128"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "librivox:2070",
-      "title": "弟子规 Di Zi Gui",
-      "displayName": "Li, Yuexiu – 弟子规 Di Zi Gui",
-      "lang": "zh",
-      "license": "PD",
-      "credit": "Public Domain — LibriVox (Buch 2070)",
-      "url": "https://librivox.org/di-zi-gui-by-li-yuexiu/",
-      "textUrl": "hoerbuch-texte/zh/li-yuexiu_-_di-zi-gui-2070.txt.gz",
-      "tags": {
-        "work_author": "Li, Yuexiu",
-        "reader": "YunYun",
-        "readers": [
-          "YunYun",
-          "Jacky SS",
-          "HC"
-        ],
-        "reader_mode": "mixed",
-        "genres": [
-          "Philosophy",
-          "Self-Help"
-        ],
-        "fiction": "n",
-        "book_year": 1722,
-        "epoch": "c18",
-        "total_seconds": 1753,
-        "length_band": "very_short",
-        "num_sections": 3,
-        "has_text": true,
-        "translators": [],
-        "language_name": "Chinese",
-        "url_iarchive": "https://www.archive.org/details/di_zi_gui_0805_librivox",
-        "url_text_source": "https://www.amtb.tw/pdf/dzg_word.pdf",
-        "source_item_id": "2070"
-      },
-      "items": [
-        {
-          "id": "ch001",
-          "title": "弟子规 – 广州话录音 – Cantonese",
-          "audio": "https://archive.org/download/di_zi_gui_0805_librivox/dizigui_cantonese_liyuexiu_64kb.mp3",
-          "duration": 558,
-          "tags": {
-            "reader": "YunYun"
-          }
-        },
-        {
-          "id": "ch002",
-          "title": "弟子规 – 客家话录音 – Hakka",
-          "audio": "https://archive.org/download/di_zi_gui_0805_librivox/dizigui_hakka_liyuexiu_64kb.mp3",
-          "duration": 593,
-          "tags": {
-            "reader": "Jacky SS"
-          }
-        },
-        {
-          "id": "ch003",
-          "title": "弟子规 – 国语录音 – Mandarin",
-          "audio": "https://archive.org/download/di_zi_gui_0805_librivox/dizigui_mandarin_liyuexiu_64kb.mp3",
-          "duration": 602,
-          "tags": {
-            "reader": "HC"
           }
         }
       ]
