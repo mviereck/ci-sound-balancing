@@ -2078,5 +2078,16 @@ input.ec-active.dep-locked {
   min-height: 2.4em;
   max-height: 40vh;
   overflow-y: auto;
-  white-space: pre-line;
+}
+.pl-read-para {
+  margin: 0 0 0.7em 0;
+}
+.pl-read-para:last-child {
+  margin-bottom: 0;
+}
+.pl-read-sep {
+  text-align: center;
+  margin: 1em 0;
+  opacity: 0.7;
+  white-space: pre-wrap;
 }

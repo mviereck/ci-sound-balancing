@@ -4015,6 +4015,120 @@ function _plReadElapsedSeconds(col) {
   return before + inCh;
 }
 
+// === Absatz-Klassifizierer fuer die Hoerbuch-Textbox =================
+// Blocksatz-ASCII-Text (feste Zeilenbreite pro Buch) flexibel anzeigen:
+// Prosa-Absaetze fliessen (harte Umbrueche -> Leerzeichen, dynamischer
+// Umbruch mit der Fensterbreite); Verse/Listen/Ueberschriften/Trenner
+// behalten ihre Zeilenstruktur. Konservativ: im Zweifel Struktur behalten.
+
+// Prosa-Absatz gilt als "fliesst", wenn seine Zeilen (ausser der
+// letzten) im Schnitt mindestens diesen Anteil der Buch-Satzbreite
+// erreichen. 0.80 = konservativ; Verse (deutlich kuerzer) fallen drunter.
+var PL_READ_PROSE_RATIO = 0.80;
+
+// Ganzzeilen-Trenner: die GANZE Zeile besteht nur aus Sternchen/
+// Strichen/Unterstrichen (und Leerzeichen), mindestens 3 Symbole.
+// Voll-Zeilen-Match ist Pflicht -- eine Prosazeile, die mit "* * * *"
+// BEGINNT, ist kein Trenner.
+// Dash-Zeichen als Unicode-Escapes: – = En-Dash, — = Em-Dash.
+// So bleibt das Regex-Literal reines ASCII (kein Verfaelschungsrisiko
+// beim Edit); En/Em-Dash-Trenner kommen real vor (z. B. Thoreau Walden).
+var PL_READ_SEP_RE = /^[\s*_.\u2013\u2014-]*[*_\u2013\u2014-][\s*_.\u2013\u2014-]*$/;
+function _plReadIsSeparator(line) {
+  var t = line.trim();
+  if (t.length < 3) return false;                 // "--" ist kein Trenner
+  if (!PL_READ_SEP_RE.test(line)) return false;
+  // mindestens 3 echte Trenn-Symbole (nicht nur Punkte/Spaces)
+  var syms = (t.match(/[*_\u2013\u2014-]/g) || []).length;
+  return syms >= 3;
+}
+
+// Misst die "Satzbreite" des Buchs: hohes Perzentil (90.) der Laengen
+// aller nicht-leeren Zeilen. Blocksatz fuellt die Breite fast aus, die
+// laengsten Zeilen markieren also die eingestellte Spaltenbreite.
+function _plReadColumnWidth(lines) {
+  var lens = [];
+  for (var i = 0; i < lines.length; i++) {
+    var L = lines[i].replace(/\s+$/, "").length;   // trailing spaces raus
+    if (L > 0) lens.push(L);
+  }
+  if (!lens.length) return 0;
+  lens.sort(function (a, b) { return a - b; });
+  var idx = Math.floor(lens.length * 0.90);
+  if (idx >= lens.length) idx = lens.length - 1;
+  return lens[idx];
+}
+
+// Entscheidet fuer einen Absatz (Array von Nicht-Leerzeilen), ob er als
+// Prosa fliesst. Konservativ:
+//   - Einzeiler (Laenge 1) -> nie zusammenziehen (Ueberschrift/Kurzdialog)
+//   - eingerueckte Zeile im Absatz -> nie (Liste/Vers/Titel)
+//   - sonst: Zeilen AUSSER der letzten muessen im Schnitt >= RATIO * Breite
+//     sein (die letzte Absatzzeile ist bei Prosa normal kurz und wird
+//     ausgenommen)
+function _plReadIsProse(paraLines, colWidth) {
+  if (colWidth <= 0) return false;
+  if (paraLines.length < 2) return false;          // Einzeiler stehen lassen
+  for (var i = 0; i < paraLines.length; i++) {
+    if (/^\s+\S/.test(paraLines[i])) return false; // eingerueckt -> behalten
+  }
+  var sum = 0, n = 0;
+  for (var j = 0; j < paraLines.length - 1; j++) { // letzte Zeile ausnehmen
+    sum += paraLines[j].trim().length;
+    n++;
+  }
+  if (n === 0) return false;
+  var avg = sum / n;
+  return avg >= PL_READ_PROSE_RATIO * colWidth;
+}
+
+// Baut die formatierte Textbox neu auf: leert bodyEl und fuellt sie mit
+// Block-<div>s. Prosa-Bloecke fliessen (white-space:normal), alle
+// anderen behalten ihre Zeilen (white-space:pre-wrap).
+function _plReadRenderFormatted(bodyEl, lines) {
+  bodyEl.textContent = "";                          // vorhandenen Inhalt leeren
+  if (!lines || !lines.length) return;
+  var colWidth = _plReadColumnWidth(lines);
+
+  var i = 0;
+  while (i < lines.length) {
+    // Leerzeilen ueberspringen (trennen Absaetze, erzeugen keinen Block)
+    if (lines[i].trim() === "") { i++; continue; }
+
+    // Ganzzeilen-Trenner: eigener zentrierter Block
+    if (_plReadIsSeparator(lines[i])) {
+      var sep = document.createElement("div");
+      sep.className = "pl-read-sep";
+      sep.textContent = lines[i].trim();
+      bodyEl.appendChild(sep);
+      i++;
+      continue;
+    }
+
+    // Absatz sammeln: bis zur naechsten Leerzeile ODER Trennerzeile
+    var para = [];
+    while (i < lines.length && lines[i].trim() !== "" &&
+           !_plReadIsSeparator(lines[i])) {
+      para.push(lines[i]);
+      i++;
+    }
+
+    var div = document.createElement("div");
+    div.className = "pl-read-para";
+    if (_plReadIsProse(para, colWidth)) {
+      // Prosa: harte Umbrueche zu Leerzeichen, dynamischer Fluss
+      div.style.whiteSpace = "normal";
+      div.textContent = para.join(" ").replace(/\s+/g, " ").trim();
+    } else {
+      // Vers/Liste/Ueberschrift: Zeilen behalten, aber lange Zeilen
+      // duerfen umbrechen (pre-wrap statt pre-line)
+      div.style.whiteSpace = "pre-wrap";
+      div.textContent = para.join("\n");
+    }
+    bodyEl.appendChild(div);
+  }
+}
+
 // Rendert die Hoerbuch-Textbox (Ganztext, einmal gesetzt; danach nur Scroll).
 // Vom Tick (pUpdTL) und nach dem Laden aufgerufen.
 var _plReadFindWired = false;   // Wiring-Guard Find-Knopf
@@ -4047,9 +4161,11 @@ function plReadRender() {
     stepperIds: { fontMinus: "plReadFontMinus", fontPlus: "plReadFontPlus",
                   lineMinus: "plReadLineMinus", linePlus: "plReadLinePlus" },
     fillBody: function (bodyEl) {
-      // Ganztext nur einmal setzen (Werkwechsel setzt _plReadBookId zurueck).
+      // Ganztext nur einmal formatieren (Werkwechsel setzt _plReadBookId
+      // zurueck). Der Absatz-Klassifizierer ist teurer als ein join()
+      // und darf nicht pro Tick laufen -- der Einmal-Guard schuetzt das.
       if (bodyEl._renderedBookId !== _plReadBookId) {
-        bodyEl.textContent = _plReadLines.join("\n");
+        _plReadRenderFormatted(bodyEl, _plReadLines);
         bodyEl._renderedBookId = _plReadBookId;
       }
     }
