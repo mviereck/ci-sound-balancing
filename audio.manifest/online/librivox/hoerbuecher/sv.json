@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 742)",
       "url": "https://librivox.org/en-nyckfull-kvinna-del-1-den-obundna-flickan-by-emilie-flygare-carlen/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Flygare-Carlén, Emilie",
         "reader": "Cecilia",
@@ -214,6 +215,7 @@
       "credit": "Public Domain — LibriVox (Buch 1114)",
       "url": "https://librivox.org/walthers-aftventyr-by-zacharias-topelius/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Topelius, Zacharias",
         "reader": "Måns Broo",
@@ -323,6 +325,7 @@
       "credit": "Public Domain — LibriVox (Buch 1270)",
       "url": "https://librivox.org/fran-barnaar-till-silfverhar-forsta-afdelningen-by-anders-ramsay/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Ramsay, Anders",
         "reader": "Måns Broo",
@@ -531,6 +534,7 @@
       "credit": "Public Domain — LibriVox (Buch 2911)",
       "url": "https://librivox.org/ja-och-nej-by-helena-nyblom/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Nyblom, Helena",
         "reader": "Lars Rolander (1942-2016)",
@@ -640,6 +644,10 @@
       "credit": "Public Domain — LibriVox (Buch 3086)",
       "url": "https://librivox.org/de-vandrende-djaeknarne-by-victor-rydberg/",
       "textUrl": "hoerbuch-texte/sv/rydberg-viktor_-_de-vandrande-djaeknarne-3086.txt.gz",
+      "textRange": {
+        "start": 37,
+        "ende": 4228
+      },
       "tags": {
         "work_author": "Rydberg, Viktor",
         "reader": "Lars Rolander (1942-2016)",
@@ -786,6 +794,10 @@
       "credit": "Public Domain — LibriVox (Buch 4327)",
       "url": "https://librivox.org/goteborgsflickor-by-sigge-stromberg/",
       "textUrl": "hoerbuch-texte/sv/stroemberg-sigge_-_goeteborgsflickor-4327.txt.gz",
+      "textRange": {
+        "start": 88,
+        "ende": 3154
+      },
       "tags": {
         "work_author": "Strömberg, Sigge",
         "reader": "Lars Rolander (1942-2016)",
@@ -995,6 +1007,7 @@
       "credit": "Public Domain — LibriVox (Buch 6119)",
       "url": "https://librivox.org/en-nyckfull-kvinna-del-2-fastmon-by-emilie-flygare-carlen/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Flygare-Carlén, Emilie",
         "reader": "Lars Rolander (1942-2016)",
@@ -1149,6 +1162,10 @@
       "credit": "Public Domain — LibriVox (Buch 6353)",
       "url": "https://librivox.org/en-nyckfull-kvinna-del-3-hustrun-by-emilie-flygare-carlen/",
       "textUrl": "hoerbuch-texte/sv/flygare-carlen-emilie_-_nyckfull-kvinna-del-3-hustrun-6353.txt.gz",
+      "textRange": {
+        "start": 107,
+        "ende": 22748
+      },
       "tags": {
         "work_author": "Flygare-Carlén, Emilie",
         "reader": "Lars Rolander (1942-2016)",
@@ -1402,6 +1419,10 @@
       "credit": "Public Domain — LibriVox (Buch 6542)",
       "url": "https://librivox.org/sockerpullor-och-pepparkorn-sma-bilder-ur-skanska-folklifvet-forr-och-nu-by-henrik-wraner/",
       "textUrl": "hoerbuch-texte/sv/wraner-henrik_-_sockerpullor-och-pepparkorn-sma-bilder-ur-skanska-folklifvet-foerr-och-nu-6542.txt.gz",
+      "textRange": {
+        "start": 35,
+        "ende": 2498
+      },
       "tags": {
         "work_author": "Wranér, Henrik",
         "reader": "Petra",
@@ -1504,6 +1525,7 @@
       "credit": "Public Domain — LibriVox (Buch 6719)",
       "url": "https://librivox.org/jordens-inre-by-otto-witt/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Witt, Otto",
         "reader": "Petra",
@@ -1668,6 +1690,10 @@
       "credit": "Public Domain — LibriVox (Buch 7026)",
       "url": "https://librivox.org/en-nyckfull-kvinna-del-4-modern-by-emilie-flygare-carlen/",
       "textUrl": "hoerbuch-texte/sv/flygare-carlen-emilie_-_nyckfull-kvinna-del-4-modern-7026.txt.gz",
+      "textRange": {
+        "start": 107,
+        "ende": 22748
+      },
       "tags": {
         "work_author": "Flygare-Carlén, Emilie",
         "reader": "Lars Rolander (1942-2016)",
@@ -1885,6 +1911,10 @@
       "credit": "Public Domain — LibriVox (Buch 7655)",
       "url": "https://librivox.org/baron-olson-och-andra-historier-by-sigge-stroemberg/",
       "textUrl": "hoerbuch-texte/sv/stroemberg-sigge_-_baron-olson-och-andra-historier-7655.txt.gz",
+      "textRange": {
+        "start": 81,
+        "ende": 4742
+      },
       "tags": {
         "work_author": "Strömberg, Sigge",
         "reader": "Lars Rolander (1942-2016)",
@@ -2084,6 +2114,10 @@
       "credit": "Public Domain — LibriVox (Buch 17645)",
       "url": "https://librivox.org/valda-beraettelser-by-selma-lagerloef/",
       "textUrl": "hoerbuch-texte/sv/lagerloef-selma_-_valda-beraettelser-17645.txt.gz",
+      "textRange": {
+        "start": 60,
+        "ende": 8722
+      },
       "tags": {
         "work_author": "Lagerlöf, Selma; Mauritzon, Jules",
         "reader": "Anna Sofia Andersson",

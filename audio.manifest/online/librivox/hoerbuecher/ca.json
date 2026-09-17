@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 14063)",
       "url": "https://librivox.org/la-punyalada-novela-montanyenca-by-marian-vayreda/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Vayreda, Marian",
         "reader": "jpujolar",
@@ -297,6 +298,7 @@
       "credit": "Public Domain — LibriVox (Buch 16662)",
       "url": "https://librivox.org/la-papallona-by-narcis-oller/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Oller, Narcís",
         "reader": "jpujolar",
@@ -515,6 +517,7 @@
       "credit": "Public Domain — LibriVox (Buch 16947)",
       "url": "https://librivox.org/llegendes-catalanes-i-altres-narracions/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Various",
         "reader": "Lis Balcells",
@@ -628,6 +631,7 @@
       "credit": "Public Domain — LibriVox (Buch 16948)",
       "url": "https://librivox.org/alguns-dels-poemes-dausias-march-by-ausias-march/",
       "textUrl": "hoerbuch-texte/ca/march-ausias_-_alguns-dels-poemes-d-ausias-march-16948.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "March, Ausiàs",
         "reader": "Maria Josep Altadill",
@@ -728,6 +732,7 @@
       "credit": "Public Domain — LibriVox (Buch 17011)",
       "url": "https://librivox.org/lo-catalanisme-by-valenti-almirall-i-llozer/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Almirall i Llozer, Valentí",
         "reader": "Josep Maria Camps Collet",
@@ -963,6 +968,7 @@
       "credit": "Public Domain — LibriVox (Buch 17274)",
       "url": "https://librivox.org/els-sots-ferestecs-by-raimon-casellas/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Casellas, Raimon",
         "reader": "Enric",
@@ -1180,6 +1186,7 @@
       "credit": "Public Domain — LibriVox (Buch 17465)",
       "url": "https://librivox.org/recull-de-contes-by-prudenci-bertrana/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Bertrana, Prudenci",
         "reader": "jrufi",
@@ -1297,6 +1304,7 @@
       "credit": "Public Domain — LibriVox (Buch 17994)",
       "url": "https://librivox.org/josafat-by-prudenci-bertrana/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Bertrana, Prudenci",
         "reader": "Cristina Cobos",
@@ -1422,6 +1430,7 @@
       "credit": "Public Domain — LibriVox (Buch 18638)",
       "url": "https://librivox.org/la-fabricanta-by-dolors-monserda/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Monserdà, Dolors",
         "reader": "Marina Tomás",
@@ -1612,6 +1621,10 @@
       "credit": "Public Domain — LibriVox (Buch 18876)",
       "url": "https://librivox.org/l-atlantida-by-jacint-verdaguer-i-santalo/",
       "textUrl": "hoerbuch-texte/ca/verdaguer-i-santalo-jacint_-_atlantida-18876.txt.gz",
+      "textRange": {
+        "start": 112,
+        "ende": 12085
+      },
       "tags": {
         "work_author": "Verdaguer i Santaló, Jacint",
         "reader": "Corda Jungfrau",
@@ -1757,6 +1770,7 @@
       "credit": "Public Domain — LibriVox (Buch 20317)",
       "url": "https://librivox.org/la-xava-by-juli-vallmitjana/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Vallmitjana, Juli",
         "reader": "Rafael Ferran i Peralta",

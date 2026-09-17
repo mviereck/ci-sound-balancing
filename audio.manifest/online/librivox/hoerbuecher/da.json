@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 1030)",
       "url": "https://librivox.org/guld-og-aere-by-otto-martin-moller/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Moller, Otto Martin",
         "reader": "Kristoffer Hunsdahl",
@@ -242,6 +243,7 @@
       "credit": "Public Domain — LibriVox (Buch 1061)",
       "url": "https://librivox.org/noveller-fra-det-moderne-gennembrud/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Various",
         "reader": "Kristoffer Hunsdahl",
@@ -369,6 +371,7 @@
       "credit": "Public Domain — LibriVox (Buch 1062)",
       "url": "https://librivox.org/klassiske-eventyr/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Various",
         "reader": "Kristoffer Hunsdahl",
@@ -442,6 +445,7 @@
       "credit": "Public Domain — LibriVox (Buch 1104)",
       "url": "https://librivox.org/fem-uger-i-ballon-by-jules-verne/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Verne, Jules",
         "reader": "Kristoffer Hunsdahl",
@@ -769,6 +773,7 @@
       "credit": "Public Domain — LibriVox (Buch 1205)",
       "url": "https://librivox.org/udvalgte-danske-eventyr-001/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Andersen, Hans Christian",
         "reader": "Hedvig",
@@ -915,6 +920,7 @@
       "credit": "Public Domain — LibriVox (Buch 1260)",
       "url": "https://librivox.org/millionaerens-pilegrimfaerd-by-otto-moller/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Moller, Otto Martin",
         "reader": "Kristoffer Hunsdahl",
@@ -1114,6 +1120,7 @@
       "credit": "Public Domain — LibriVox (Buch 1914)",
       "url": "https://librivox.org/edgar-allan-poe-i-udvalg-by-edgar-allan-poe/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Poe, Edgar Allan",
         "reader": "Kristoffer Hunsdahl",
@@ -1198,6 +1205,7 @@
       "credit": "Public Domain — LibriVox (Buch 2913)",
       "url": "https://librivox.org/grimms-eventyr-i-udvalg-by-jacob-wilhelm-grimm/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Grimm, Jacob & Wilhelm",
         "reader": "Kristoffer Hunsdahl",
@@ -1343,6 +1351,7 @@
       "credit": "Public Domain — LibriVox (Buch 6944)",
       "url": "https://librivox.org/bornene-i-nyskoven-by-frederick-marryat/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Marryat, Frederick",
         "reader": "Lulularsen",
@@ -1625,6 +1634,7 @@
       "credit": "Public Domain — LibriVox (Buch 7395)",
       "url": "https://librivox.org/gullivers-rejser-by-jonathan-swift/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Swift, Jonathan",
         "reader": "Lulularsen",

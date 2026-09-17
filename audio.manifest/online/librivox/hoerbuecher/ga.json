@@ -16,6 +16,10 @@
       "credit": "Public Domain — LibriVox (Buch 17452)",
       "url": "https://librivox.org/an-sgealuidhe-gaedhealach-by-douglas-hyde/",
       "textUrl": "hoerbuch-texte/ga/hyde-douglas_-_sgealuidhe-gaedhealach-17452.txt.gz",
+      "textRange": {
+        "start": 49,
+        "ende": 26257
+      },
       "tags": {
         "work_author": "Hyde, Douglas",
         "reader": "Brian Ó Broin",

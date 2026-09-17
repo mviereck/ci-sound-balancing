@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 148)",
       "url": "https://librivox.org/auf-der-galerie-by-franz-kafka/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Kafka, Franz",
         "reader": "Thorsten Herbold",
@@ -60,6 +61,7 @@
       "credit": "Public Domain — LibriVox (Buch 172)",
       "url": "https://librivox.org/der-kleine-haewelmann-by-theodor-storm/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Storm, Theodor",
         "reader": "Franziska Nelson",
@@ -107,6 +109,7 @@
       "credit": "Public Domain — LibriVox (Buch 173)",
       "url": "https://librivox.org/der-schimmelreiter-by-theodor-storm/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Storm, Theodor",
         "reader": "Felix",
@@ -207,6 +210,7 @@
       "credit": "Public Domain — LibriVox (Buch 176)",
       "url": "https://librivox.org/der-struwwelpeter-by-heinrich-hofmann-german2/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hoffmann, Heinrich",
         "reader": "Roman Buettner",
@@ -253,6 +257,7 @@
       "credit": "Public Domain — LibriVox (Buch 180)",
       "url": "https://librivox.org/der-struwwelpeter-von-heinrich-hoffman/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hoffmann, Heinrich",
         "reader": "Kara Shallenberg (1969-2023)",
@@ -299,6 +304,7 @@
       "credit": "Public Domain — LibriVox (Buch 181)",
       "url": "https://librivox.org/der-tolle-mensch-by-friedrich-nietzsche/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Nietzsche, Friedrich",
         "reader": "Rainer",
@@ -345,6 +351,10 @@
       "credit": "Public Domain — LibriVox (Buch 182)",
       "url": "https://librivox.org/die-leiden-des-jungen-werthers-by-johann-wolfgang-von-goethe/",
       "textUrl": "hoerbuch-texte/de/goethe-johann-wolfgang-von_-_leiden-des-jungen-werther-182.txt.gz",
+      "textRange": {
+        "start": 305,
+        "ende": 2204
+      },
       "tags": {
         "work_author": "Goethe, Johann Wolfgang von",
         "reader": "Rainer",
@@ -482,6 +492,7 @@
       "credit": "Public Domain — LibriVox (Buch 183)",
       "url": "https://librivox.org/die-schwarze-galeere-von-wilhelm-raabe/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Raabe, Wilhelm",
         "reader": "Felix",
@@ -574,6 +585,7 @@
       "credit": "Public Domain — LibriVox (Buch 454)",
       "url": "https://librivox.org/ueber-die-weiber-by-arthur-schopenhauer/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Schopenhauer, Arthur",
         "reader": "Gesine",
@@ -620,6 +632,7 @@
       "credit": "Public Domain — LibriVox (Buch 537)",
       "url": "https://librivox.org/manifest-der-kommunistischen-partei-von-karl-marx-und-friedrich-engels/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Engels, Friedrich; Marx, Karl",
         "reader": "Rainer",
@@ -693,6 +706,10 @@
       "credit": "Public Domain — LibriVox (Buch 538)",
       "url": "https://librivox.org/max-und-moritz-by-wilhelm-busch/",
       "textUrl": "hoerbuch-texte/de/busch-wilhelm_-_max-und-moritz-538.txt.gz",
+      "textRange": {
+        "start": 38,
+        "ende": 827
+      },
       "tags": {
         "work_author": "Busch, Wilhelm",
         "reader": "Mikki Starzmann-Kassi",
@@ -739,6 +756,10 @@
       "credit": "Public Domain — LibriVox (Buch 539)",
       "url": "https://librivox.org/max-und-moritz-by-wilhelm-busch-version-2/",
       "textUrl": "hoerbuch-texte/de/busch-wilhelm_-_max-und-moritz-version-2-539.txt.gz",
+      "textRange": {
+        "start": 38,
+        "ende": 827
+      },
       "tags": {
         "work_author": "Busch, Wilhelm",
         "reader": "Roman Buettner",
@@ -785,6 +806,7 @@
       "credit": "Public Domain — LibriVox (Buch 616)",
       "url": "https://librivox.org/peterchens-mondfahrt-by-gerdt-von-bassewitz/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Bassewitz, Gerdt von",
         "reader": "Franziska Nelson",
@@ -948,6 +970,10 @@
       "credit": "Public Domain — LibriVox (Buch 698)",
       "url": "https://librivox.org/woyzeck_by_georg_buechner/",
       "textUrl": "hoerbuch-texte/de/buechner-georg_-_woyzeck-698.txt.gz",
+      "textRange": {
+        "start": 44,
+        "ende": 1216
+      },
       "tags": {
         "work_author": "Büchner, Georg",
         "reader": "Thomas Rappel",
@@ -1201,6 +1227,10 @@
       "credit": "Public Domain — LibriVox (Buch 739)",
       "url": "https://librivox.org/gotzendammerung-by-friedrich-nietzsche/",
       "textUrl": "hoerbuch-texte/de/nietzsche-friedrich_-_goetzendaemmerung-739.txt.gz",
+      "textRange": {
+        "start": 59,
+        "ende": 3300
+      },
       "tags": {
         "work_author": "Nietzsche, Friedrich",
         "reader": "Rainer",
@@ -1374,6 +1404,7 @@
       "credit": "Public Domain — LibriVox (Buch 1060)",
       "url": "https://librivox.org/der-selbstmordverein-by-franziska-grafin-zu-reventlow/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Reventlow, Franziska Gräfin zu",
         "reader": "Stephanie König",
@@ -1526,6 +1557,7 @@
       "credit": "Public Domain — LibriVox (Buch 1552)",
       "url": "https://librivox.org/die-nachtwachen-des-bonaventura-by-bonaventura/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Bonaventura",
         "reader": "Rainer",
@@ -1705,6 +1737,7 @@
       "credit": "Public Domain — LibriVox (Buch 1639)",
       "url": "https://librivox.org/hymnen-an-die-nacht-by-novalis/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Novalis",
         "reader": "ekyale",
@@ -1794,6 +1827,10 @@
       "credit": "Public Domain — LibriVox (Buch 1692)",
       "url": "https://librivox.org/heidi-kann-brauchen-was-es-gelernt-hat-by-johanna-spyri/",
       "textUrl": "hoerbuch-texte/de/spyri-johanna_-_heidi-kann-brauchen-was-es-gelernt-hat-1692.txt.gz",
+      "textRange": {
+        "start": 88,
+        "ende": 4398
+      },
       "tags": {
         "work_author": "Spyri, Johanna",
         "reader": "Stephanie König",
@@ -1912,6 +1949,7 @@
       "credit": "Public Domain — LibriVox (Buch 1709)",
       "url": "https://librivox.org/michael-kohlhaas-by-heinrich-von-kleist/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Kleist, Heinrich von",
         "reader": "platatoe",
@@ -2183,6 +2221,10 @@
       "credit": "Public Domain — LibriVox (Buch 1882)",
       "url": "https://librivox.org/bulemanns-haus-by-theodor-storm/",
       "textUrl": "hoerbuch-texte/de/storm-theodor_-_bulemanns-haus-1882.txt.gz",
+      "textRange": {
+        "start": 74,
+        "ende": 832
+      },
       "tags": {
         "work_author": "Storm, Theodor",
         "reader": "Hokuspokus",
@@ -2229,6 +2271,7 @@
       "credit": "Public Domain — LibriVox (Buch 1981)",
       "url": "https://librivox.org/ideen-grenzen-staats-by-wilhelm-von-humboldt/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Humboldt, Wilhelm von",
         "reader": "redaer",
@@ -2411,6 +2454,10 @@
       "credit": "Public Domain — LibriVox (Buch 2081)",
       "url": "https://librivox.org/das-maerchen-von-dem-myrtenfraeulein-by-clemens-brentano/",
       "textUrl": "hoerbuch-texte/de/brentano-clemens_-_maerchen-von-dem-myrtenfraeulein-2081.txt.gz",
+      "textRange": {
+        "start": 291,
+        "ende": 739
+      },
       "tags": {
         "work_author": "Brentano, Clemens",
         "reader": "Dirk Weber",
@@ -2493,6 +2540,7 @@
       "credit": "Public Domain — LibriVox (Buch 2103)",
       "url": "https://librivox.org/eine-mont-blanc-besteigung-by-paul-verne/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Verne, Paul",
         "reader": "Dirk Weber",
@@ -2568,6 +2616,7 @@
       "credit": "Public Domain — LibriVox (Buch 2111)",
       "url": "https://librivox.org/das-warme-polarland-by-ernst-constantin/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Constantin, Ernst",
         "reader": "Dirk Weber",
@@ -2948,6 +2997,7 @@
       "credit": "Public Domain — LibriVox (Buch 2134)",
       "url": "https://librivox.org/dubrowskij-by-alexander-sergejewitsch-puschkin/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Pushkin, Alexander",
         "reader": "Herr_Klugbeisser",
@@ -3158,6 +3208,10 @@
       "credit": "Public Domain — LibriVox (Buch 2158)",
       "url": "https://librivox.org/romische-geschichte-buch-1-by-theodor-mommsen/",
       "textUrl": "hoerbuch-texte/de/mommsen-theodor_-_roemische-geschichte-buch-1-2158.txt.gz",
+      "textRange": {
+        "start": 290,
+        "ende": 9229
+      },
       "tags": {
         "work_author": "Mommsen, Theodor",
         "reader": "redaer",
@@ -3465,6 +3519,7 @@
       "credit": "Public Domain — LibriVox (Buch 2171)",
       "url": "https://librivox.org/die-schlacht-bei-stellau-1201-by-detlev-von-liliencron/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Liliencron, Detlev von",
         "reader": "Dirk Weber",
@@ -3538,6 +3593,7 @@
       "credit": "Public Domain — LibriVox (Buch 2186)",
       "url": "https://librivox.org/eine-idee-des-doctor-ox-by-jules-verne/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Verne, Jules",
         "reader": "Dirk Weber",
@@ -3728,6 +3784,10 @@
       "credit": "Public Domain — LibriVox (Buch 2188)",
       "url": "https://librivox.org/nachtstuecke-by-eta-hoffmann/",
       "textUrl": "hoerbuch-texte/de/hoffmann-e-t-a_-_nachtstuecke-2188.txt.gz",
+      "textRange": {
+        "start": 82,
+        "ende": 10842
+      },
       "tags": {
         "work_author": "Hoffmann, E. T. A.",
         "reader": "Rainer",
@@ -4089,6 +4149,10 @@
       "credit": "Public Domain — LibriVox (Buch 2200)",
       "url": "https://librivox.org/romische-geschichte-buch-2-by-theodor-mommsen/",
       "textUrl": "hoerbuch-texte/de/mommsen-theodor_-_roemische-geschichte-buch-2-2200.txt.gz",
+      "textRange": {
+        "start": 291,
+        "ende": 9393
+      },
       "tags": {
         "work_author": "Mommsen, Theodor",
         "reader": "redaer",
@@ -4405,6 +4469,10 @@
       "credit": "Public Domain — LibriVox (Buch 2246)",
       "url": "https://librivox.org/romische-geschichte-buch-3-von-theodor-mommsen/",
       "textUrl": "hoerbuch-texte/de/mommsen-theodor_-_roemische-geschichte-buch-3-2246.txt.gz",
+      "textRange": {
+        "start": 290,
+        "ende": 17748
+      },
       "tags": {
         "work_author": "Mommsen, Theodor",
         "reader": "redaer",
@@ -5009,6 +5077,7 @@
       "credit": "Public Domain — LibriVox (Buch 2250)",
       "url": "https://librivox.org/im-herzen-von-afrika-by-georg-schweinfurth/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Schweinfurth, Georg",
         "reader": "Dirk Weber",
@@ -5298,6 +5367,10 @@
       "credit": "Public Domain — LibriVox (Buch 2273)",
       "url": "https://librivox.org/romische-geschichte-buch-4-by-theodor-mommsen/",
       "textUrl": "hoerbuch-texte/de/mommsen-theodor_-_roemische-geschichte-buch-4-2273.txt.gz",
+      "textRange": {
+        "start": 295,
+        "ende": 17921
+      },
       "tags": {
         "work_author": "Mommsen, Theodor",
         "reader": "redaer",
@@ -5911,6 +5984,7 @@
       "credit": "Public Domain — LibriVox (Buch 2321)",
       "url": "https://librivox.org/historische-ubersichten-by-friedrich-von-schiller/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Schiller, Friedrich",
         "reader": "redaer",
@@ -5993,6 +6067,10 @@
       "credit": "Public Domain — LibriVox (Buch 2340)",
       "url": "https://librivox.org/romische-geschichte-buch-5-by-theodor-mommsen/",
       "textUrl": "hoerbuch-texte/de/mommsen-theodor_-_roemische-geschichte-buch-5-2340.txt.gz",
+      "textRange": {
+        "start": 302,
+        "ende": 23376
+      },
       "tags": {
         "work_author": "Mommsen, Theodor",
         "reader": "redaer",
@@ -6750,6 +6828,7 @@
       "credit": "Public Domain — LibriVox (Buch 2426)",
       "url": "https://librivox.org/die-silberne-axt-von-ernst-constantin/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Constantin, Ernst",
         "reader": "Dirk Weber",
@@ -6832,6 +6911,7 @@
       "credit": "Public Domain — LibriVox (Buch 2430)",
       "url": "https://librivox.org/ilias-by-homer/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Homer",
         "reader": "redaer",
@@ -7178,6 +7258,7 @@
       "credit": "Public Domain — LibriVox (Buch 2540)",
       "url": "https://librivox.org/odyssee-by-homer/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Homer",
         "reader": "redaer",
@@ -7443,6 +7524,10 @@
       "credit": "Public Domain — LibriVox (Buch 2570)",
       "url": "https://librivox.org/in-der-strafkolonie-by-franz-kafka/",
       "textUrl": "hoerbuch-texte/de/kafka-franz_-_in-der-strafkolonie-2570.txt.gz",
+      "textRange": {
+        "start": 54,
+        "ende": 1075
+      },
       "tags": {
         "work_author": "Kafka, Franz",
         "reader": "Markus Wachenheim",
@@ -7487,6 +7572,10 @@
       "credit": "Public Domain — LibriVox (Buch 2622)",
       "url": "https://librivox.org/roemische-geschichte-buch-8-by-theodor-mommsen/",
       "textUrl": "hoerbuch-texte/de/mommsen-theodor_-_roemische-geschichte-buch-8-2622.txt.gz",
+      "textRange": {
+        "start": 373,
+        "ende": 23216
+      },
       "tags": {
         "work_author": "Mommsen, Theodor",
         "reader": "redaer",
@@ -8368,6 +8457,7 @@
       "credit": "Public Domain — LibriVox (Buch 2675)",
       "url": "https://librivox.org/geschichte-des-abfalls-der-vereinigten-niederlande-von-der-spanischen-regierung-by-friedrich-von-schiller/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Schiller, Friedrich",
         "reader": "redaer",
@@ -8756,6 +8846,10 @@
       "credit": "Public Domain — LibriVox (Buch 2720)",
       "url": "https://librivox.org/reineke-fuchs-by-johann-wolfgang-von-goethe/",
       "textUrl": "hoerbuch-texte/de/goethe-johann-wolfgang-von_-_reineke-fuchs-2720.txt.gz",
+      "textRange": {
+        "start": 86,
+        "ende": 4759
+      },
       "tags": {
         "work_author": "Goethe, Johann Wolfgang von",
         "reader": "redaer",
@@ -8902,6 +8996,7 @@
       "credit": "Public Domain — LibriVox (Buch 2746)",
       "url": "https://librivox.org/die-pique-dame-by-alexander-puschkin/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Pushkin, Alexander",
         "reader": "Herr_Klugbeisser",
@@ -8993,6 +9088,10 @@
       "credit": "Public Domain — LibriVox (Buch 2820)",
       "url": "https://librivox.org/auswahl-aus-die-leute-von-seldwyla-by-gottfried-keller/",
       "textUrl": "hoerbuch-texte/de/keller-gottfried_-_auswahl-aus-die-leute-von-seldwyla-2820.txt.gz",
+      "textRange": {
+        "start": 74,
+        "ende": 8807
+      },
       "tags": {
         "work_author": "Keller, Gottfried",
         "reader": "Markus Wachenheim",
@@ -9165,6 +9264,7 @@
       "credit": "Public Domain — LibriVox (Buch 2851)",
       "url": "https://librivox.org/der-schuss-by-alexander-sergejewitsch-puschkin/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Pushkin, Alexander",
         "reader": "Herr_Klugbeisser",
@@ -9222,6 +9322,10 @@
       "credit": "Public Domain — LibriVox (Buch 2866)",
       "url": "https://librivox.org/menschen-im-krieg-by-andreas-latzko/",
       "textUrl": "hoerbuch-texte/de/latzko-andreas_-_menschen-im-krieg-2866.txt.gz",
+      "textRange": {
+        "start": 94,
+        "ende": 4053
+      },
       "tags": {
         "work_author": "Latzko, Andreas",
         "reader": "Julia Niedermaier",
@@ -9322,6 +9426,10 @@
       "credit": "Public Domain — LibriVox (Buch 2872)",
       "url": "https://librivox.org/aquis-submersus-by-theodor-storm/",
       "textUrl": "hoerbuch-texte/de/storm-theodor_-_aquis-submersus-2872.txt.gz",
+      "textRange": {
+        "start": 38,
+        "ende": 2822
+      },
       "tags": {
         "work_author": "Storm, Theodor",
         "reader": "Christian Al-Kadi",
@@ -9423,6 +9531,7 @@
       "credit": "Public Domain — LibriVox (Buch 2909)",
       "url": "https://librivox.org/bible-lu1912-17-esther/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Lutherbibel",
         "reader": "Anne",
@@ -9487,6 +9596,7 @@
       "credit": "Public Domain — LibriVox (Buch 2971)",
       "url": "https://librivox.org/marquise-von-o-by-heinrich-von-kleist/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Kleist, Heinrich von",
         "reader": "Rainer",
@@ -9585,6 +9695,10 @@
       "credit": "Public Domain — LibriVox (Buch 2975)",
       "url": "https://librivox.org/novelle-by-johann-wolfgang-von-goethe/",
       "textUrl": "hoerbuch-texte/de/goethe-johann-wolfgang-von_-_novelle-2975.txt.gz",
+      "textRange": {
+        "start": 299,
+        "ende": 1316
+      },
       "tags": {
         "work_author": "Goethe, Johann Wolfgang von",
         "reader": "Gesine",
@@ -9685,6 +9799,7 @@
       "credit": "Public Domain — LibriVox (Buch 3048)",
       "url": "https://librivox.org/geschichte-der-abderiten-by-martin-wieland/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Wieland, Christoph Martin",
         "reader": "redaer",
@@ -10244,6 +10359,7 @@
       "credit": "Public Domain — LibriVox (Buch 3053)",
       "url": "https://librivox.org/der-horla-by-guy-de-maupassant/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Maupassant, Guy de",
         "reader": "Hokuspokus",
@@ -10319,6 +10435,7 @@
       "credit": "Public Domain — LibriVox (Buch 3059)",
       "url": "https://librivox.org/handorakel-und-kunst-der-weltklugheit-by-b-gracian/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Gracián, Baltasar",
         "reader": "redaer",
@@ -10448,6 +10565,10 @@
       "credit": "Public Domain — LibriVox (Buch 3107)",
       "url": "https://librivox.org/menschen-der-ehe-by-john-henry-mackay/",
       "textUrl": "hoerbuch-texte/de/mackay-john-henry_-_menschen-der-ehe-3107.txt.gz",
+      "textRange": {
+        "start": 17,
+        "ende": 2266
+      },
       "tags": {
         "work_author": "Mackay, John Henry",
         "reader": "Ragnar",
@@ -10521,6 +10642,7 @@
       "credit": "Public Domain — LibriVox (Buch 3125)",
       "url": "https://librivox.org/das-bildnis-des-dorian-gray-by-oscar-wilde/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Wilde, Oscar",
         "reader": "Christian Al-Kadi",
@@ -10740,6 +10862,7 @@
       "credit": "Public Domain — LibriVox (Buch 3134)",
       "url": "https://librivox.org/die-anarchisten-by-john-henry-mackay/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Mackay, John Henry",
         "reader": "Ragnar",
@@ -10957,6 +11080,7 @@
       "credit": "Public Domain — LibriVox (Buch 3196)",
       "url": "https://librivox.org/der-kleine-lord-by-frances-hodgson-burnett/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Burnett, Frances Hodgson",
         "reader": "Elli",
@@ -11131,6 +11255,7 @@
       "credit": "Public Domain — LibriVox (Buch 3260)",
       "url": "https://librivox.org/daodejing-by-laozi/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Tzu, Lao",
         "reader": "redaer",
@@ -11215,6 +11340,7 @@
       "credit": "Public Domain — LibriVox (Buch 3375)",
       "url": "https://librivox.org/die-gesetzgebung-des-lykurgus-und-solon-von-friedrich-schiller/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Schiller, Friedrich",
         "reader": "redaer",
@@ -11297,6 +11423,10 @@
       "credit": "Public Domain — LibriVox (Buch 3431)",
       "url": "https://librivox.org/briefe-aus-dem-gefangnis-by-rosa-luxemburg/",
       "textUrl": "hoerbuch-texte/de/luxemburg-rosa_-_briefe-aus-dem-gefaengnis-3431.txt.gz",
+      "textRange": {
+        "start": 96,
+        "ende": 1631
+      },
       "tags": {
         "work_author": "Luxemburg, Rosa",
         "reader": "Hokuspokus",
@@ -11379,6 +11509,7 @@
       "credit": "Public Domain — LibriVox (Buch 3521)",
       "url": "https://librivox.org/walpurgisnacht-by-gustav-meyrink/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Meyrink, Gustav",
         "reader": "Hokuspokus",
@@ -11551,6 +11682,10 @@
       "credit": "Public Domain — LibriVox (Buch 3580)",
       "url": "https://librivox.org/deutschland-ein-wintermaerchen-by-heinrich-heine/",
       "textUrl": "hoerbuch-texte/de/heine-heinrich_-_deutschland-ein-wintermaerchen-3580.txt.gz",
+      "textRange": {
+        "start": 63,
+        "ende": 2821
+      },
       "tags": {
         "work_author": "Heine, Heinrich",
         "reader": "Sonja",
@@ -11643,6 +11778,7 @@
       "credit": "Public Domain — LibriVox (Buch 3684)",
       "url": "https://librivox.org/satiren-by-quintus-horatius-flaccus-horaz/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Horatius Flaccus, Quintus",
         "reader": "redaer",
@@ -11846,6 +11982,7 @@
       "credit": "Public Domain — LibriVox (Buch 3714)",
       "url": "https://librivox.org/nachlas-des-diogenes-von-sinope-by-christoph-martin-wieland/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Wieland, Christoph Martin",
         "reader": "redaer",
@@ -12109,6 +12246,7 @@
       "credit": "Public Domain — LibriVox (Buch 3729)",
       "url": "https://librivox.org/briefe-epistolae-by-quintus-horatius-flaccus-horaz/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Horatius Flaccus, Quintus",
         "reader": "redaer",
@@ -12320,6 +12458,10 @@
       "credit": "Public Domain — LibriVox (Buch 3732)",
       "url": "https://librivox.org/hermann-und-dorothea-by-johann-wolfgang-von-goethe/",
       "textUrl": "hoerbuch-texte/de/goethe-johann-wolfgang-von_-_hermann-und-dorothea-3732.txt.gz",
+      "textRange": {
+        "start": 60,
+        "ende": 2273
+      },
       "tags": {
         "work_author": "Goethe, Johann Wolfgang von",
         "reader": "redaer",
@@ -12438,6 +12580,7 @@
       "credit": "Public Domain — LibriVox (Buch 3792)",
       "url": "https://librivox.org/die-leute-auf-hemso-by-august-strindberg/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Strindberg, August",
         "reader": "Claudia",
@@ -12567,6 +12710,7 @@
       "credit": "Public Domain — LibriVox (Buch 3943)",
       "url": "https://librivox.org/schnee-by-alexander-lange-kielland/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Kielland, Alexander Lange",
         "reader": "Jessi",
@@ -12705,6 +12849,7 @@
       "credit": "Public Domain — LibriVox (Buch 4169)",
       "url": "https://librivox.org/der-grosinquisitor-by-fyodor-dostoyevsky/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Dostoyevsky, Fyodor",
         "reader": "Christian Al-Kadi",
@@ -12763,6 +12908,7 @@
       "credit": "Public Domain — LibriVox (Buch 4200)",
       "url": "https://librivox.org/die-schwarze-spinne-by-jeremias-gotthelf/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Gotthelf, Jeremias",
         "reader": "Hans Hafen",
@@ -12834,6 +12980,7 @@
       "credit": "Public Domain — LibriVox (Buch 4536)",
       "url": "https://librivox.org/othello-by-wilhelm-hauff/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hauff, Wilhelm",
         "reader": "Hokuspokus",
@@ -12917,6 +13064,10 @@
       "credit": "Public Domain — LibriVox (Buch 4821)",
       "url": "https://librivox.org/der-weihnachtsabend-eine-geistergeschichte-by-charles-dickens/",
       "textUrl": "hoerbuch-texte/de/dickens-charles_-_weihnachtsabend-eine-geistergeschichte-4821.txt.gz",
+      "textRange": {
+        "start": 79,
+        "ende": 3559
+      },
       "tags": {
         "work_author": "Dickens, Charles",
         "reader": "Elli",
@@ -13044,6 +13195,7 @@
       "credit": "Public Domain — LibriVox (Buch 4952)",
       "url": "https://librivox.org/die-entfuhrung-by-joseph-von-eichendorff/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Eichendorff, Joseph von",
         "reader": "Hokuspokus",
@@ -13126,6 +13278,10 @@
       "credit": "Public Domain — LibriVox (Buch 5102)",
       "url": "https://librivox.org/der-mann-im-nebel-by-gustav-falke/",
       "textUrl": "hoerbuch-texte/de/falke-gustav_-_mann-im-nebel-5102.txt.gz",
+      "textRange": {
+        "start": 36,
+        "ende": 6646
+      },
       "tags": {
         "work_author": "Falke, Gustav",
         "reader": "Jessi",
@@ -13325,6 +13481,7 @@
       "credit": "Public Domain — LibriVox (Buch 5149)",
       "url": "https://librivox.org/jolanthes-hochzeit-by-hermann-sudermann/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Sudermann, Hermann",
         "reader": "Karlsson",
@@ -13425,6 +13582,7 @@
       "credit": "Public Domain — LibriVox (Buch 5217)",
       "url": "https://librivox.org/der-tote-gast-by-heinrich-zschokke/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Zschokke, Heinrich",
         "reader": "Hokuspokus",
@@ -13651,6 +13809,10 @@
       "credit": "Public Domain — LibriVox (Buch 5256)",
       "url": "https://librivox.org/unterm-birnbaum-by-theodor-fontane/",
       "textUrl": "hoerbuch-texte/de/fontane-theodor_-_unterm-birnbaum-5256.txt.gz",
+      "textRange": {
+        "start": 58,
+        "ende": 4411
+      },
       "tags": {
         "work_author": "Fontane, Theodor",
         "reader": "Karlsson",
@@ -13868,6 +14030,7 @@
       "credit": "Public Domain — LibriVox (Buch 5357)",
       "url": "https://librivox.org/ladultera-by-theodor-fontane/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Fontane, Theodor",
         "reader": "Hans Hafen",
@@ -13977,6 +14140,7 @@
       "credit": "Public Domain — LibriVox (Buch 5483)",
       "url": "https://librivox.org/die-schatzgraber-by-karl-wilhelm-salice-contessa/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Salice-Contessa, Karl Wilhelm",
         "reader": "Hokuspokus",
@@ -14086,6 +14250,10 @@
       "credit": "Public Domain — LibriVox (Buch 5725)",
       "url": "https://librivox.org/der-schuss-von-der-kanzel-by-conrad-ferdinand-meyer/",
       "textUrl": "hoerbuch-texte/de/meyer-conrad-ferdinand_-_schuss-von-der-kanzel-5725.txt.gz",
+      "textRange": {
+        "start": 53,
+        "ende": 2018
+      },
       "tags": {
         "work_author": "Meyer, Conrad Ferdinand",
         "reader": "Hans Hafen",
@@ -14148,6 +14316,10 @@
       "credit": "Public Domain — LibriVox (Buch 5756)",
       "url": "https://librivox.org/die-abenteuer-tom-sawyers-by-mark-twain/",
       "textUrl": "hoerbuch-texte/de/twain-mark_-_abenteuer-tom-sawyers-5756.txt.gz",
+      "textRange": {
+        "start": 25,
+        "ende": 8438
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "Ramona Deininger-Schnabel",
@@ -14341,6 +14513,10 @@
       "credit": "Public Domain — LibriVox (Buch 5915)",
       "url": "https://librivox.org/aladdin-und-die-wunderlampe-by-ludwig-fulda/",
       "textUrl": "hoerbuch-texte/de/fulda-ludwig_-_aladdin-und-die-wunderlampe-5915.txt.gz",
+      "textRange": {
+        "start": 88,
+        "ende": 3568
+      },
       "tags": {
         "work_author": "Fulda, Ludwig",
         "reader": "Elli",
@@ -14514,6 +14690,10 @@
       "credit": "Public Domain — LibriVox (Buch 6062)",
       "url": "https://librivox.org/bhagavadgita-des-erhabenen-sang-by-schroeder-leopold-von/",
       "textUrl": "hoerbuch-texte/de/unknown_-_bhagavadgita-des-erhabenen-sang-6062.txt.gz",
+      "textRange": {
+        "start": 112,
+        "ende": 3271
+      },
       "tags": {
         "work_author": "Unknown",
         "reader": "Christian Al-Kadi",
@@ -14726,6 +14906,7 @@
       "credit": "Public Domain — LibriVox (Buch 6180)",
       "url": "https://librivox.org/verteidigung-des-unsinns-der-demut-des-schundromans-und-anderer-missachteter-dinge-by-g-k-chesterton/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Chesterton, G. K.",
         "reader": "Bernd Ungerer",
@@ -14917,6 +15098,7 @@
       "credit": "Public Domain — LibriVox (Buch 6309)",
       "url": "https://librivox.org/der-konigsgaukler-by-manfred-kyber/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Kyber, Manfred",
         "reader": "Karlsson",
@@ -15017,6 +15199,7 @@
       "credit": "Public Domain — LibriVox (Buch 6427)",
       "url": "https://librivox.org/das-wachsfigurenkabinett-by-oskar-panizza/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Panizza, Oskar",
         "reader": "Karlsson",
@@ -15083,6 +15266,10 @@
       "credit": "Public Domain — LibriVox (Buch 6535)",
       "url": "https://librivox.org/der-arme-spielmann-by-franz-grillparzer/",
       "textUrl": "hoerbuch-texte/de/grillparzer-franz_-_arme-spielmann-6535.txt.gz",
+      "textRange": {
+        "start": 68,
+        "ende": 1572
+      },
       "tags": {
         "work_author": "Grillparzer, Franz",
         "reader": "Availle",
@@ -15154,6 +15341,7 @@
       "credit": "Public Domain — LibriVox (Buch 6766)",
       "url": "https://librivox.org/die-reise-nach-tilsit-by-hermann-sudermann/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Sudermann, Hermann",
         "reader": "Karlsson",
@@ -15227,6 +15415,7 @@
       "credit": "Public Domain — LibriVox (Buch 6847)",
       "url": "https://librivox.org/die-walpurgisnacht-by-heinrich-zschokke/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Zschokke, Heinrich",
         "reader": "Hokuspokus",
@@ -15309,6 +15498,10 @@
       "credit": "Public Domain — LibriVox (Buch 6849)",
       "url": "https://librivox.org/kasperle-auf-reisen-by-josephine-siebe/",
       "textUrl": "hoerbuch-texte/de/siebe-josephine_-_kasperle-auf-reisen-6849.txt.gz",
+      "textRange": {
+        "start": 88,
+        "ende": 4692
+      },
       "tags": {
         "work_author": "Siebe, Josephine",
         "reader": "bettine",
@@ -15482,6 +15675,10 @@
       "credit": "Public Domain — LibriVox (Buch 6932)",
       "url": "https://librivox.org/caspar-hauser-oder-die-traegheit-des-herzens-by-jakob-wassermann/",
       "textUrl": "hoerbuch-texte/de/wassermann-jakob_-_caspar-hauser-oder-die-traegheit-des-herzens-6932.txt.gz",
+      "textRange": {
+        "start": 54,
+        "ende": 15573
+      },
       "tags": {
         "work_author": "Wassermann, Jakob",
         "reader": "Ramona Deininger-Schnabel",
@@ -15814,6 +16011,7 @@
       "credit": "Public Domain — LibriVox (Buch 6938)",
       "url": "https://librivox.org/sterben-by-arthur-schnitzler/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Schnitzler, Arthur",
         "reader": "Ramona Deininger-Schnabel",
@@ -15921,6 +16119,10 @@
       "credit": "Public Domain — LibriVox (Buch 6942)",
       "url": "https://librivox.org/das-madchen-vom-moorhof-by-selma-lagerlof/",
       "textUrl": "hoerbuch-texte/de/lagerloef-selma_-_maedchen-vom-moorhof-6942.txt.gz",
+      "textRange": {
+        "start": 72,
+        "ende": 8838
+      },
       "tags": {
         "work_author": "Lagerlöf, Selma",
         "reader": "Karlsson",
@@ -16032,6 +16234,7 @@
       "credit": "Public Domain — LibriVox (Buch 7110)",
       "url": "https://librivox.org/der-geldkomplex-by-franziska-grafin-zu-reventlow/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Reventlow, Franziska Gräfin zu",
         "reader": "Jessi",
@@ -16159,6 +16362,7 @@
       "credit": "Public Domain — LibriVox (Buch 7134)",
       "url": "https://librivox.org/das-wrack-by-friedrich-gerstaecker/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Gerstäcker, Friedrich",
         "reader": "Karlsson",
@@ -16261,6 +16465,7 @@
       "credit": "Public Domain — LibriVox (Buch 7177)",
       "url": "https://librivox.org/frankenstein-oder-der-moderne-prometheus-by-mary-wollstonecraft-shelley/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Shelley, Mary Wollstonecraft",
         "reader": "Ramona Deininger-Schnabel",
@@ -16553,6 +16758,10 @@
       "credit": "Public Domain — LibriVox (Buch 7255)",
       "url": "https://librivox.org/leben-und-schicksale-des-katers-rosaurus-by-amalie-winter/",
       "textUrl": "hoerbuch-texte/de/winter-amalie_-_leben-und-schicksale-des-katers-rosaurus-7255.txt.gz",
+      "textRange": {
+        "start": 74,
+        "ende": 2605
+      },
       "tags": {
         "work_author": "Winter, Amalie",
         "reader": "Ramona Deininger-Schnabel",
@@ -16663,6 +16872,7 @@
       "credit": "Public Domain — LibriVox (Buch 7467)",
       "url": "https://librivox.org/sarrasine-by-honore-de-balzac-2/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Balzac, Honoré de",
         "reader": "Hokuspokus",
@@ -16745,6 +16955,7 @@
       "credit": "Public Domain — LibriVox (Buch 7740)",
       "url": "https://librivox.org/herrn-arnes-schatz-by-selma-lagerloef/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Lagerlöf, Selma",
         "reader": "Karlsson",
@@ -16874,6 +17085,10 @@
       "credit": "Public Domain — LibriVox (Buch 7809)",
       "url": "https://librivox.org/effi-briest-version-2-by-theodor-fontane/",
       "textUrl": "hoerbuch-texte/de/fontane-theodor_-_effi-briest-version-2-7809.txt.gz",
+      "textRange": {
+        "start": 45,
+        "ende": 11470
+      },
       "tags": {
         "work_author": "Fontane, Theodor",
         "reader": "Hans Hafen",
@@ -17233,6 +17448,7 @@
       "credit": "Public Domain — LibriVox (Buch 7962)",
       "url": "https://librivox.org/das-gruene-gesicht-by-gustav-meyrink/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Meyrink, Gustav",
         "reader": "Ramona Deininger-Schnabel",
@@ -17414,6 +17630,7 @@
       "credit": "Public Domain — LibriVox (Buch 8087)",
       "url": "https://librivox.org/die-gruene-nachtigall-und-andere-novellen-by-mikhail-kuzmin/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Kuzmin, Mikhail",
         "reader": "Friedrich",
@@ -17541,6 +17758,7 @@
       "credit": "Public Domain — LibriVox (Buch 8114)",
       "url": "https://librivox.org/maerchen_by_oscar_wilde",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Wilde, Oscar",
         "reader": "Rebecca Braunert-Plunkett",
@@ -17698,6 +17916,7 @@
       "credit": "Public Domain — LibriVox (Buch 8143)",
       "url": "https://librivox.org/der-sandmann-by-e-t-a-hoffmann/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hoffmann, E. T. A.",
         "reader": "Karlsson",
@@ -17772,6 +17991,10 @@
       "credit": "Public Domain — LibriVox (Buch 8192)",
       "url": "https://librivox.org/ferien-vom-ich-by-paul-keller/",
       "textUrl": "hoerbuch-texte/de/keller-paul_-_ferien-vom-ich-8192.txt.gz",
+      "textRange": {
+        "start": 113,
+        "ende": 10800
+      },
       "tags": {
         "work_author": "Keller, Paul",
         "reader": "Rebecca Braunert-Plunkett",
@@ -17953,6 +18176,10 @@
       "credit": "Public Domain — LibriVox (Buch 8289)",
       "url": "https://librivox.org/die-acht-gesichter-am-biwasee-by-max-dauthendey/",
       "textUrl": "hoerbuch-texte/de/dauthendey-max_-_acht-gesichter-am-biwasee-8289.txt.gz",
+      "textRange": {
+        "start": 5,
+        "ende": 5119
+      },
       "tags": {
         "work_author": "Dauthendey, Max",
         "reader": "Hokuspokus",
@@ -18099,6 +18326,7 @@
       "credit": "Public Domain — LibriVox (Buch 8305)",
       "url": "https://librivox.org/spuk-by-klabund/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Klabund",
         "reader": "Karlsson",
@@ -18262,6 +18490,10 @@
       "credit": "Public Domain — LibriVox (Buch 8321)",
       "url": "https://librivox.org/mein-weg-als-deutscher-und-jude-by-jakob-wassermann/",
       "textUrl": "hoerbuch-texte/de/wassermann-jakob_-_mein-weg-als-deutscher-und-jude-8321.txt.gz",
+      "textRange": {
+        "start": 68,
+        "ende": 4032
+      },
       "tags": {
         "work_author": "Wassermann, Jakob",
         "reader": "Rebecca Braunert-Plunkett",
@@ -18362,6 +18594,10 @@
       "credit": "Public Domain — LibriVox (Buch 8359)",
       "url": "https://librivox.org/brennendes-geheimnis-by-stefan-zweig/",
       "textUrl": "hoerbuch-texte/de/zweig-stefan_-_brennendes-geheimnis-8359.txt.gz",
+      "textRange": {
+        "start": 58,
+        "ende": 2572
+      },
       "tags": {
         "work_author": "Zweig, Stefan",
         "reader": "Julia Niedermaier",
@@ -18534,6 +18770,7 @@
       "credit": "Public Domain — LibriVox (Buch 8428)",
       "url": "https://librivox.org/odysseus-by-karl-friedrich-becker/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Becker, Karl Friedrich",
         "reader": "Karlsson",
@@ -18743,6 +18980,7 @@
       "credit": "Public Domain — LibriVox (Buch 8451)",
       "url": "https://librivox.org/die-wiedergeburt-des-melchior-dronte-by-paul-busson/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Busson, Paul",
         "reader": "Ramona Deininger-Schnabel",
@@ -19014,6 +19252,7 @@
       "credit": "Public Domain — LibriVox (Buch 8460)",
       "url": "https://librivox.org/das-letzte-maerchen-by-paul-keller/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Keller, Paul",
         "reader": "Rebecca Braunert-Plunkett",
@@ -19169,6 +19408,7 @@
       "credit": "Public Domain — LibriVox (Buch 8467)",
       "url": "https://librivox.org/jonathan-frock-by-heinrich-zschokke/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Zschokke, Heinrich",
         "reader": "Ramona Deininger-Schnabel",
@@ -19270,6 +19510,7 @@
       "credit": "Public Domain — LibriVox (Buch 8497)",
       "url": "https://librivox.org/ein-alter-afrikaner-by-johannes-dose/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Dose, Johannes",
         "reader": "Ramona Deininger-Schnabel",
@@ -19568,6 +19809,7 @@
       "credit": "Public Domain — LibriVox (Buch 8824)",
       "url": "https://librivox.org/menschenhasser-by-dietrich-theden/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Theden, Dietrich",
         "reader": "Ramona Deininger-Schnabel",
@@ -19767,6 +20009,7 @@
       "credit": "Public Domain — LibriVox (Buch 8838)",
       "url": "https://librivox.org/die-weissagung-by-arthur-schnitzler/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Schnitzler, Arthur",
         "reader": "Hokuspokus",
@@ -19831,6 +20074,10 @@
       "credit": "Public Domain — LibriVox (Buch 8857)",
       "url": "https://librivox.org/herr-und-knecht-by-leo-tolstoy/",
       "textUrl": "hoerbuch-texte/de/tolstoy-leo_-_herr-und-knecht-8857.txt.gz",
+      "textRange": {
+        "start": 67,
+        "ende": 2466
+      },
       "tags": {
         "work_author": "Tolstoy, Leo",
         "reader": "Karlsson",
@@ -19960,6 +20207,7 @@
       "credit": "Public Domain — LibriVox (Buch 8922)",
       "url": "https://librivox.org/furchtbare-rache-by-nikolai-vasilievich-gogol/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Gogol, Nikolai Vasilievich",
         "reader": "Friedrich",
@@ -20033,6 +20281,7 @@
       "credit": "Public Domain — LibriVox (Buch 9016)",
       "url": "https://librivox.org/ein-verbrechen-by-maxim-gorky/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Gorky, Maxim",
         "reader": "Friedrich",
@@ -20090,6 +20339,7 @@
       "credit": "Public Domain — LibriVox (Buch 9042)",
       "url": "https://librivox.org/judith-trachtenberg-by-karl-emil-franzos/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Franzos, Karl Emil",
         "reader": "Friedrich",
@@ -20233,6 +20483,10 @@
       "credit": "Public Domain — LibriVox (Buch 9082)",
       "url": "https://librivox.org/kloster-sendomir-by-franz-grillparzer/",
       "textUrl": "hoerbuch-texte/de/grillparzer-franz_-_kloster-bei-sendomir-9082.txt.gz",
+      "textRange": {
+        "start": 78,
+        "ende": 1083
+      },
       "tags": {
         "work_author": "Grillparzer, Franz",
         "reader": "Availle",
@@ -20304,6 +20558,7 @@
       "credit": "Public Domain — LibriVox (Buch 9130)",
       "url": "https://librivox.org/leutnant-gustl-by-arthur-schnitzler/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Schnitzler, Arthur",
         "reader": "Availle",
@@ -20366,6 +20621,10 @@
       "credit": "Public Domain — LibriVox (Buch 9199)",
       "url": "https://librivox.org/die-stadt-ohne-juden-by-hugo-bettauer/",
       "textUrl": "hoerbuch-texte/de/bettauer-hugo_-_stadt-ohne-juden-9199.txt.gz",
+      "textRange": {
+        "start": 77,
+        "ende": 3847
+      },
       "tags": {
         "work_author": "Bettauer, Hugo",
         "reader": "Availle",
@@ -20484,6 +20743,7 @@
       "credit": "Public Domain — LibriVox (Buch 9248)",
       "url": "https://librivox.org/der-schwarze-see-by-karl-wilhelm-salice-contessa/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Salice-Contessa, Karl Wilhelm",
         "reader": "Hokuspokus",
@@ -20548,6 +20808,10 @@
       "credit": "Public Domain — LibriVox (Buch 9318)",
       "url": "https://librivox.org/das-lob-der-narrheit-by-desiderius-erasmus/",
       "textUrl": "hoerbuch-texte/de/erasmus-desiderius_-_lob-der-narrheit-9318.txt.gz",
+      "textRange": {
+        "start": 87,
+        "ende": 3846
+      },
       "tags": {
         "work_author": "Erasmus, Desiderius",
         "reader": "Julia Niedermaier",
@@ -20739,6 +21003,10 @@
       "credit": "Public Domain — LibriVox (Buch 9327)",
       "url": "https://librivox.org/der-weihnachtsabend-eine-geistergeschichte-version-2-by-charles-dickens/",
       "textUrl": "hoerbuch-texte/de/dickens-charles_-_weihnachtsabend-eine-geistergeschichte-version-2-9327.txt.gz",
+      "textRange": {
+        "start": 79,
+        "ende": 3559
+      },
       "tags": {
         "work_author": "Dickens, Charles",
         "reader": "Ramona Deininger-Schnabel",
@@ -20851,6 +21119,7 @@
       "credit": "Public Domain — LibriVox (Buch 9331)",
       "url": "https://librivox.org/knaben-und-moerder-by-hermann-ungar/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Ungar, Hermann",
         "reader": "Bernd Ungerer",
@@ -20978,6 +21247,7 @@
       "credit": "Public Domain — LibriVox (Buch 9333)",
       "url": "https://librivox.org/das-bombardement-von-abo-by-carl-spitteler/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Spitteler, Carl",
         "reader": "Crln Yldz Ksr",
@@ -21096,6 +21366,7 @@
       "credit": "Public Domain — LibriVox (Buch 9360)",
       "url": "https://librivox.org/falsches-geld-by-arthur-zapp/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Zapp, Arthur",
         "reader": "Friedrich",
@@ -21286,6 +21557,7 @@
       "credit": "Public Domain — LibriVox (Buch 9362)",
       "url": "https://librivox.org/der-pascha-von-buda-by-heinrich-zschokke/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Zschokke, Heinrich",
         "reader": "Ramona Deininger-Schnabel",
@@ -21359,6 +21631,7 @@
       "credit": "Public Domain — LibriVox (Buch 9372)",
       "url": "https://librivox.org/lausbubengeschichten-by-ludwig-thoma/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Thoma, Ludwig",
         "reader": "Klaus Neubauer",
@@ -21504,6 +21777,7 @@
       "credit": "Public Domain — LibriVox (Buch 9472)",
       "url": "https://librivox.org/die-totenhochzeit-by-nathaniel-hawthorne/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hawthorne, Nathaniel",
         "reader": "Bernd Ungerer",
@@ -21589,6 +21863,7 @@
       "credit": "Public Domain — LibriVox (Buch 9516)",
       "url": "https://librivox.org/aus-allen-winkeln-erzaehlungen-by-hermann-heiberg/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Heiberg, Hermann",
         "reader": "Friedrich",
@@ -21777,6 +22052,7 @@
       "credit": "Public Domain — LibriVox (Buch 9532)",
       "url": "https://librivox.org/weisse-naechte-by-fyodor-dostoyevsky/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Dostoyevsky, Fyodor",
         "reader": "Willi Rabe",
@@ -21870,6 +22146,7 @@
       "credit": "Public Domain — LibriVox (Buch 9537)",
       "url": "https://librivox.org/tausend-und-eine-nacht-band-1-by-unknown/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Unknown",
         "reader": "Bernd Ungerer",
@@ -22414,6 +22691,7 @@
       "credit": "Public Domain — LibriVox (Buch 9563)",
       "url": "https://librivox.org/tante-frieda-by-ludwig-thoma/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Thoma, Ludwig",
         "reader": "Klaus Neubauer",
@@ -22505,6 +22783,10 @@
       "credit": "Public Domain — LibriVox (Buch 9598)",
       "url": "https://librivox.org/backfischchens-leiden-und-freuden-by-clementine-helm/",
       "textUrl": "hoerbuch-texte/de/helm-clementine_-_backfischchen-s-leiden-und-freuden-9598.txt.gz",
+      "textRange": {
+        "start": 33,
+        "ende": 7442
+      },
       "tags": {
         "work_author": "Helm, Clementine",
         "reader": "Claudia Salto",
@@ -22740,6 +23022,7 @@
       "credit": "Public Domain — LibriVox (Buch 9696)",
       "url": "https://librivox.org/der-antichrist-by-friedrich-nietzsche/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Nietzsche, Friedrich",
         "reader": "Ramona Deininger-Schnabel",
@@ -22841,6 +23124,7 @@
       "credit": "Public Domain — LibriVox (Buch 9698)",
       "url": "https://librivox.org/das-grab-des-herrn-schafbeck-by-josef-ruederer/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Ruederer, Josef",
         "reader": "Ramona Deininger-Schnabel",
@@ -22905,6 +23189,7 @@
       "credit": "Public Domain — LibriVox (Buch 9721)",
       "url": "https://librivox.org/homo-sapiens-romantrilogie-by-stanislaw-przybyszewski/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Przybyszewski, Stanisław",
         "reader": "Friedrich",
@@ -23120,6 +23405,7 @@
       "credit": "Public Domain — LibriVox (Buch 9769)",
       "url": "https://librivox.org/tschun-by-elisabeth-von-heyking/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Heyking, Elisabeth von",
         "reader": "Ramona Deininger-Schnabel",
@@ -23346,6 +23632,7 @@
       "credit": "Public Domain — LibriVox (Buch 9808)",
       "url": "https://librivox.org/tausend-und-eine-nacht-band-2-by-unknown/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Unknown",
         "reader": "Bernd Ungerer",
@@ -23881,6 +24168,7 @@
       "credit": "Public Domain — LibriVox (Buch 10069)",
       "url": "https://librivox.org/das-gruene-haus-by-paula-dehmel/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Dehmel, Paula",
         "reader": "Eva K.",
@@ -24089,6 +24377,7 @@
       "credit": "Public Domain — LibriVox (Buch 10417)",
       "url": "https://librivox.org/von-teufeln-geistern-und-daemonen-auswahl-by-gustavo-adolfo-becquer/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Bécquer, Gustavo Adolfo",
         "reader": "Hokuspokus",
@@ -24290,6 +24579,7 @@
       "credit": "Public Domain — LibriVox (Buch 10506)",
       "url": "https://librivox.org/tausend-und-eine-nacht-band-3-by-unknown/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Unknown",
         "reader": "Bernd Ungerer",
@@ -24681,6 +24971,10 @@
       "credit": "Public Domain — LibriVox (Buch 10524)",
       "url": "https://librivox.org/frau-bovary-by-gustave-flaubert/",
       "textUrl": "hoerbuch-texte/de/flaubert-gustave_-_frau-bovary-10524.txt.gz",
+      "textRange": {
+        "start": 50,
+        "ende": 16001
+      },
       "tags": {
         "work_author": "Flaubert, Gustave",
         "reader": "Boris",
@@ -25044,6 +25338,10 @@
       "credit": "Public Domain — LibriVox (Buch 10972)",
       "url": "https://librivox.org/die-verwirrungen-des-zoeglings-toerless-by-robert-musil/",
       "textUrl": "hoerbuch-texte/de/musil-robert_-_verwirrungen-des-zoeglings-toerless-10972.txt.gz",
+      "textRange": {
+        "start": 61,
+        "ende": 6804
+      },
       "tags": {
         "work_author": "Musil, Robert",
         "reader": "Boris",
@@ -25171,6 +25469,7 @@
       "credit": "Public Domain — LibriVox (Buch 10977)",
       "url": "https://librivox.org/die-weisse-rose-by-karl-wilhelm-salice-contessa/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Salice-Contessa, Karl Wilhelm",
         "reader": "Crln Yldz Ksr",
@@ -25226,6 +25525,7 @@
       "credit": "Public Domain — LibriVox (Buch 11072)",
       "url": "https://librivox.org/der-freiwerber-by-otto-roquette/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Roquette, Otto",
         "reader": "Crln Yldz Ksr",
@@ -25290,6 +25590,7 @@
       "credit": "Public Domain — LibriVox (Buch 11073)",
       "url": "https://librivox.org/der-maigraf-by-otto-roquette/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Roquette, Otto",
         "reader": "Crln Yldz Ksr",
@@ -25417,6 +25718,7 @@
       "credit": "Public Domain — LibriVox (Buch 11191)",
       "url": "https://librivox.org/196-tage-auf-treibender-eisscholle-by-emil-bessels/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Bessels, Emil",
         "reader": "Availle",
@@ -25500,6 +25802,7 @@
       "credit": "Public Domain — LibriVox (Buch 11193)",
       "url": "https://librivox.org/johann-by-otto-roquette/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Roquette, Otto",
         "reader": "Crln Yldz Ksr",
@@ -25564,6 +25867,7 @@
       "credit": "Public Domain — LibriVox (Buch 11442)",
       "url": "https://librivox.org/die-toten-seelen-by-nikolai-vasilievich-gogol/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Gogol, Nikolai Vasilievich",
         "reader": "Eva K.",
@@ -25919,6 +26223,7 @@
       "credit": "Public Domain — LibriVox (Buch 11672)",
       "url": "https://librivox.org/der-vierzehnte-dezember-by-dmitry-merezhkovsky/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Merezhkovsky, Dmitry",
         "reader": "Friedrich",
@@ -26318,6 +26623,7 @@
       "credit": "Public Domain — LibriVox (Buch 11805)",
       "url": "https://librivox.org/werde-die-du-bist-by-hedwig-dohm/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Dohm, Hedwig",
         "reader": "Eva K.",
@@ -26427,6 +26733,7 @@
       "credit": "Public Domain — LibriVox (Buch 12169)",
       "url": "https://librivox.org/bei-tische-eine-gastrosophische-novelle-by-otto-roquette/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Roquette, Otto",
         "reader": "Crln Yldz Ksr",
@@ -26500,6 +26807,7 @@
       "credit": "Public Domain — LibriVox (Buch 12195)",
       "url": "https://librivox.org/das-haus-des-schwarzen-magiers-by-edward-bulwer-lytton/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Bulwer-Lytton, Edward",
         "reader": "ClaudiaSterngucker",
@@ -26591,6 +26899,7 @@
       "credit": "Public Domain — LibriVox (Buch 12231)",
       "url": "https://librivox.org/der-kleine-lord-by-frances-hodgson-burnett-2/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Burnett, Frances Hodgson",
         "reader": "Eva K.",
@@ -26756,6 +27065,10 @@
       "credit": "Public Domain — LibriVox (Buch 12234)",
       "url": "https://librivox.org/nicht-der-moerder-der-ermordete-ist-schuldig-by-franz-werfel/",
       "textUrl": "hoerbuch-texte/de/werfel-franz_-_nicht-der-moerder-der-ermordete-ist-schuldig-12234.txt.gz",
+      "textRange": {
+        "start": 10,
+        "ende": 5445
+      },
       "tags": {
         "work_author": "Werfel, Franz",
         "reader": "Boris",
@@ -26883,6 +27196,10 @@
       "credit": "Public Domain — LibriVox (Buch 12510)",
       "url": "https://librivox.org/benno-stehkragen-by-karl-ettlinger/",
       "textUrl": "hoerbuch-texte/de/ettlinger-karl_-_benno-stehkragen-12510.txt.gz",
+      "textRange": {
+        "start": 45,
+        "ende": 5129
+      },
       "tags": {
         "work_author": "Ettlinger, Karl",
         "reader": "schrm",
@@ -27074,6 +27391,7 @@
       "credit": "Public Domain — LibriVox (Buch 13024)",
       "url": "https://librivox.org/tausend-und-eine-nacht-band-4-by-unknown/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Unknown",
         "reader": "Bernd Ungerer",
@@ -27474,6 +27792,7 @@
       "credit": "Public Domain — LibriVox (Buch 13516)",
       "url": "https://librivox.org/fabeln-by-magnus-gottfried-lichtwer/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Lichtwer, Magnus Gottfried",
         "reader": "marham63",
@@ -28510,6 +28829,7 @@
       "credit": "Public Domain — LibriVox (Buch 14613)",
       "url": "https://librivox.org/gedichte-neue-sammlung-by-robert-eduard-prutz/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Prutz, Robert Eduard",
         "reader": "seito",
@@ -28925,6 +29245,7 @@
       "credit": "Public Domain — LibriVox (Buch 16259)",
       "url": "https://librivox.org/der-untertan-by-heinrich-mann/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Mann, Heinrich",
         "reader": "Eva K.",
@@ -29116,6 +29437,7 @@
       "credit": "Public Domain — LibriVox (Buch 16780)",
       "url": "https://librivox.org/der-schatz-im-silbersee-by-karl-may/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "May, Karl",
         "reader": "Katharina21",
@@ -29451,6 +29773,7 @@
       "credit": "Public Domain — LibriVox (Buch 17085)",
       "url": "https://librivox.org/winnetou-ii-by-karl-may/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "May, Karl",
         "reader": "Katharina21",
@@ -29731,6 +30054,7 @@
       "credit": "Public Domain — LibriVox (Buch 17092)",
       "url": "https://librivox.org/leben-auf-dem-mississippi-nach-dem-fernen-westen-by-mark-twain/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "Katharina21",
@@ -30137,6 +30461,7 @@
       "credit": "Public Domain — LibriVox (Buch 17218)",
       "url": "https://librivox.org/portugiesische-sonette-by-elizabeth-barrett-browning/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Browning, Elizabeth Barrett",
         "reader": "lorda",
@@ -30581,6 +30906,7 @@
       "credit": "Public Domain — LibriVox (Buch 17403)",
       "url": "https://librivox.org/ein-buechlein-vom-warten-by-margarethe-von-sydow/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Sydow, Margarethe von",
         "reader": "lorda",
@@ -30717,6 +31043,7 @@
       "credit": "Public Domain — LibriVox (Buch 17715)",
       "url": "https://librivox.org/winnetou-iii-by-karl-may/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "May, Karl",
         "reader": "Katharina21",
@@ -31024,6 +31351,10 @@
       "credit": "Public Domain — LibriVox (Buch 17771)",
       "url": "https://librivox.org/taras-bulba-by-nikolai-vasilievich-gogol-2/",
       "textUrl": "hoerbuch-texte/de/gogol-nikolai-vasilievich_-_taras-bulba-17771.txt.gz",
+      "textRange": {
+        "start": 42,
+        "ende": 11489
+      },
       "tags": {
         "work_author": "Gogol, Nikolai Vasilievich",
         "reader": "Friedrich",
@@ -31171,6 +31502,10 @@
       "credit": "Public Domain — LibriVox (Buch 17932)",
       "url": "https://librivox.org/taten-des-grossen-alexander-by-michail-alexejewitsch-kusmin/",
       "textUrl": "hoerbuch-texte/de/kusmin-michail-alexejewitsch_-_taten-des-grossen-alexander-17932.txt.gz",
+      "textRange": {
+        "start": 29,
+        "ende": 1623
+      },
       "tags": {
         "work_author": "Kusmin, Michail Alexejewitsch",
         "reader": "Friedrich",
@@ -31256,6 +31591,7 @@
       "credit": "Public Domain — LibriVox (Buch 17967)",
       "url": "https://librivox.org/walden-oder-leben-in-den-waeldern-by-henry-david-thoreau/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Thoreau, Henry David",
         "reader": "Marcus Christopher",
@@ -31503,6 +31839,7 @@
       "credit": "Public Domain — LibriVox (Buch 17987)",
       "url": "https://librivox.org/der-schrei-by-stanislaw-przybyszewski/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Przybyszewski, Stanisław",
         "reader": "Friedrich",
@@ -31628,6 +31965,10 @@
       "credit": "Public Domain — LibriVox (Buch 18065)",
       "url": "https://librivox.org/querkopf-wilson-by-mark-twain/",
       "textUrl": "hoerbuch-texte/de/twain-mark_-_querkopf-wilson-18065.txt.gz",
+      "textRange": {
+        "start": 6,
+        "ende": 6611
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "Katharina21",
@@ -31872,6 +32213,10 @@
       "credit": "Public Domain — LibriVox (Buch 18114)",
       "url": "https://librivox.org/der-rote-stern-by-alexander-aleksandrovich-bogdanov/",
       "textUrl": "hoerbuch-texte/de/bogdanov-alexander-aleksandrovich_-_rote-stern-18114.txt.gz",
+      "textRange": {
+        "start": 26,
+        "ende": 6167
+      },
       "tags": {
         "work_author": "Bogdanov, Alexander Aleksandrovich",
         "reader": "Friedrich",
@@ -32218,6 +32563,7 @@
       "credit": "Public Domain — LibriVox (Buch 18125)",
       "url": "https://librivox.org/eva-lilith-by-bruno-ertler/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Ertler, Bruno",
         "reader": "lorda",
@@ -32813,6 +33159,10 @@
       "credit": "Public Domain — LibriVox (Buch 18424)",
       "url": "https://librivox.org/meine-reise-um-die-welt-erste-abteilung-by-mark-twain/",
       "textUrl": "hoerbuch-texte/de/twain-mark_-_meine-reise-um-die-welt-erste-abteilung-18424.txt.gz",
+      "textRange": {
+        "start": 63,
+        "ende": 8051
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "Katharina21",
@@ -33148,6 +33498,7 @@
       "credit": "Public Domain — LibriVox (Buch 18781)",
       "url": "https://librivox.org/die-blumen-des-boesen-by-nathaniel-hawthorne/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hawthorne, Nathaniel",
         "reader": "Hokuspokus",
@@ -33223,6 +33574,10 @@
       "credit": "Public Domain — LibriVox (Buch 19205)",
       "url": "https://librivox.org/meine-reise-um-die-welt-zweite-abteilung-by-mark-twain/",
       "textUrl": "hoerbuch-texte/de/twain-mark_-_meine-reise-um-die-welt-zweite-abteilung-19205.txt.gz",
+      "textRange": {
+        "start": 63,
+        "ende": 6890
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "Katharina21",
@@ -33476,6 +33831,10 @@
       "credit": "Public Domain — LibriVox (Buch 19207)",
       "url": "https://librivox.org/der-fall-des-generalstabschefs-redl-by-egon-erwin-kisch/",
       "textUrl": "hoerbuch-texte/de/kisch-egon-erwin_-_fall-des-generalstabschefs-redl-19207.txt.gz",
+      "textRange": {
+        "start": 81,
+        "ende": 1960
+      },
       "tags": {
         "work_author": "Kisch, Egon Erwin",
         "reader": "Claus Misfeldt",
@@ -33603,6 +33962,10 @@
       "credit": "Public Domain — LibriVox (Buch 19571)",
       "url": "https://librivox.org/haarmann-die-geschichte-eines-werwolfs-by-theodor-lessing/",
       "textUrl": "hoerbuch-texte/de/lessing-theodor_-_haarmann-die-geschichte-eines-werwolfs-19571.txt.gz",
+      "textRange": {
+        "start": 76,
+        "ende": 5533
+      },
       "tags": {
         "work_author": "Lessing, Theodor",
         "reader": "Claus Misfeldt",
@@ -33991,6 +34354,7 @@
       "credit": "Public Domain — LibriVox (Buch 19799)",
       "url": "https://librivox.org/tarzan-bei-den-affen-by-edgar-rice-burroughs/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Burroughs, Edgar Rice",
         "reader": "Katharina21",
@@ -34282,6 +34646,7 @@
       "credit": "Public Domain — LibriVox (Buch 19802)",
       "url": "https://librivox.org/der-laerm-eine-kampfschrift-gegen-die-geraeusche-unseres-lebens-by-theodor-lessing/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Lessing, Theodor",
         "reader": "Claus Misfeldt",
@@ -34519,6 +34884,7 @@
       "credit": "Public Domain — LibriVox (Buch 20086)",
       "url": "https://librivox.org/satan-und-ischariot-ii-by-karl-may/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "May, Karl",
         "reader": "Katharina21",
@@ -34817,6 +35183,10 @@
       "credit": "Public Domain — LibriVox (Buch 20110)",
       "url": "https://librivox.org/von-wundern-und-tieren-by-wilhelm-boelsche/",
       "textUrl": "hoerbuch-texte/de/boelsche-wilhelm_-_von-wundern-und-tieren-20110.txt.gz",
+      "textRange": {
+        "start": 125,
+        "ende": 7391
+      },
       "tags": {
         "work_author": "Bölsche, Wilhelm",
         "reader": "Claus Misfeldt",
@@ -35107,6 +35477,7 @@
       "credit": "Public Domain — LibriVox (Buch 20195)",
       "url": "https://librivox.org/das-gespenst-von-canterville-by-oscar-wilde/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Wilde, Oscar",
         "reader": "Hokuspokus",
@@ -35180,6 +35551,7 @@
       "credit": "Public Domain — LibriVox (Buch 20196)",
       "url": "https://librivox.org/das-tier-im-walde-by-therese-rie/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Rie, Therese",
         "reader": "Hokuspokus",
@@ -35271,6 +35643,10 @@
       "credit": "Public Domain — LibriVox (Buch 20230)",
       "url": "https://librivox.org/das-leben-der-bienen-by-maurice-maeterlinck/",
       "textUrl": "hoerbuch-texte/de/maeterlinck-maurice_-_leben-der-bienen-20230.txt.gz",
+      "textRange": {
+        "start": 37,
+        "ende": 6059
+      },
       "tags": {
         "work_author": "Maeterlinck, Maurice",
         "reader": "Friedrich",
@@ -35482,6 +35858,10 @@
       "credit": "Public Domain — LibriVox (Buch 20293)",
       "url": "https://librivox.org/berlins-drittes-geschlecht-by-magnus-hirschfeld/",
       "textUrl": "hoerbuch-texte/de/hirschfeld-magnus_-_berlins-drittes-geschlecht-20293.txt.gz",
+      "textRange": {
+        "start": 24,
+        "ende": 2481
+      },
       "tags": {
         "work_author": "Hirschfeld, Magnus",
         "reader": "AliceStein",
@@ -35699,6 +36079,7 @@
       "credit": "Public Domain — LibriVox (Buch 20319)",
       "url": "https://librivox.org/die-typhusmarie-by-hanns-heinz-ewers/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Ewers, Hanns Heinz",
         "reader": "Ramona Deininger-Schnabel",
@@ -35763,6 +36144,7 @@
       "credit": "Public Domain — LibriVox (Buch 20321)",
       "url": "https://librivox.org/fraeulein-else-by-arthur-schnitzler/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Schnitzler, Arthur",
         "reader": "Ramona Deininger-Schnabel",
@@ -35863,6 +36245,7 @@
       "credit": "Public Domain — LibriVox (Buch 20326)",
       "url": "https://librivox.org/die-letzten-tage-von-pompeji-by-edward-bulwer-lytton/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Bulwer-Lytton, Edward",
         "reader": "Ramona Deininger-Schnabel",
@@ -36190,6 +36573,7 @@
       "credit": "Public Domain — LibriVox (Buch 20335)",
       "url": "https://librivox.org/pinocchio-die-geschichte-vom-hoelzernen-bengele-by-carlo-collodi/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Collodi, Carlo",
         "reader": "Ramona Deininger-Schnabel",
@@ -36355,6 +36739,7 @@
       "credit": "Public Domain — LibriVox (Buch 20419)",
       "url": "https://librivox.org/der-schuedderump-band-1-by-wilhelm-raabe/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Raabe, Wilhelm",
         "reader": "josvanaken",
@@ -36473,6 +36858,7 @@
       "credit": "Public Domain — LibriVox (Buch 20451)",
       "url": "https://librivox.org/tarzans-rueckkehr-in-den-urwald-by-edgar-rice-burroughs/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Burroughs, Edgar Rice",
         "reader": "Katharina21",
@@ -36746,6 +37132,10 @@
       "credit": "Public Domain — LibriVox (Buch 20482)",
       "url": "https://librivox.org/herrn-mahlhubers-reiseabenteuer-by-friedrich-gerstaecker/",
       "textUrl": "hoerbuch-texte/de/gerstaecker-friedrich_-_herrn-mahlhubers-reiseabenteuer-20482.txt.gz",
+      "textRange": {
+        "start": 69,
+        "ende": 4682
+      },
       "tags": {
         "work_author": "Gerstäcker, Friedrich",
         "reader": "Claus Misfeldt",
@@ -36973,6 +37363,10 @@
       "credit": "Public Domain — LibriVox (Buch 20517)",
       "url": "https://librivox.org/zum-wilden-mann-novelle-von-wilhelm-raabe-1830-1910-loa-by-wilhelm-raabe/",
       "textUrl": "hoerbuch-texte/de/raabe-wilhelm_-_zum-wilden-mann-20517.txt.gz",
+      "textRange": {
+        "start": 52,
+        "ende": 3459
+      },
       "tags": {
         "work_author": "Raabe, Wilhelm",
         "reader": "josvanaken",
@@ -37100,6 +37494,7 @@
       "credit": "Public Domain — LibriVox (Buch 21110)",
       "url": "https://librivox.org/tarzans-tiere-by-edgar-rice-burroughs/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Burroughs, Edgar Rice",
         "reader": "Katharina21",
@@ -37328,6 +37723,10 @@
       "credit": "Public Domain — LibriVox (Buch 21113)",
       "url": "https://librivox.org/reise-durch-den-stillen-ozean-by-max-buchner/",
       "textUrl": "hoerbuch-texte/de/buchner-max_-_reise-durch-den-stillen-ozean-21113.txt.gz",
+      "textRange": {
+        "start": 35,
+        "ende": 17501
+      },
       "tags": {
         "work_author": "Buchner, Max",
         "reader": "Claus Misfeldt",
@@ -38077,6 +38476,7 @@
       "credit": "Public Domain — LibriVox (Buch 21223)",
       "url": "https://librivox.org/satan-und-ischariot-iii-by-karl-may/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "May, Karl",
         "reader": "Katharina21",
@@ -38393,6 +38793,7 @@
       "credit": "Public Domain — LibriVox (Buch 21465)",
       "url": "https://librivox.org/david-schlaegt-die-harfe-by-richard-o-frankfurter/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Frankfurter, Richard O.",
         "reader": "AliceStein",
@@ -38727,6 +39128,7 @@
       "credit": "Public Domain — LibriVox (Buch 21501)",
       "url": "https://librivox.org/tarzans-sohn-by-edgar-rice-burroughs/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Burroughs, Edgar Rice",
         "reader": "Katharina21",
@@ -39009,6 +39411,7 @@
       "credit": "Public Domain — LibriVox (Buch 21722)",
       "url": "https://librivox.org/leben-und-abenteuer-des-weltbekannten-seeraeubers-bob-singleton-by-daniel-defoe/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Defoe, Daniel",
         "reader": "Katharina21",
@@ -39181,6 +39584,7 @@
       "credit": "Public Domain — LibriVox (Buch 21785)",
       "url": "https://librivox.org/soldat-im-prager-korps-by-egon-erwin-kisch/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Kisch, Egon Erwin",
         "reader": "Claus Misfeldt",
@@ -39615,6 +40019,7 @@
       "credit": "Public Domain — LibriVox (Buch 21799)",
       "url": "https://librivox.org/old-surehand-i-by-karl-may/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "May, Karl",
         "reader": "Katharina21",
@@ -39904,6 +40309,7 @@
       "credit": "Public Domain — LibriVox (Buch 21828)",
       "url": "https://librivox.org/die-goettliche-komoedie-by-dante-alighieri/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Alighieri, Dante; Zoozmann, Richard",
         "reader": "Yessy",
@@ -40841,6 +41247,10 @@
       "credit": "Public Domain — LibriVox (Buch 22145)",
       "url": "https://librivox.org/deutsche-nordseekueste-friesische-inseln-und-hegoland-by-hippolyt-haas/",
       "textUrl": "hoerbuch-texte/de/haas-hippolyt_-_deutsche-nordseekueste-friesische-inseln-und-helgoland-22145.txt.gz",
+      "textRange": {
+        "start": 104,
+        "ende": 8804
+      },
       "tags": {
         "work_author": "Haas, Hippolyt",
         "reader": "Claus Misfeldt",
@@ -41177,6 +41587,10 @@
       "credit": "Public Domain — LibriVox (Buch 22353)",
       "url": "https://librivox.org/das-wandernde-licht-by-ernst-von-wildenbruch/",
       "textUrl": "hoerbuch-texte/de/wildenbruch-ernst-von_-_wandernde-licht-22353.txt.gz",
+      "textRange": {
+        "start": 46,
+        "ende": 5702
+      },
       "tags": {
         "work_author": "Wildenbruch, Ernst von",
         "reader": "Anke_Fanti",
@@ -41322,6 +41736,7 @@
       "credit": "Public Domain — LibriVox (Buch 22441)",
       "url": "https://librivox.org/die-insel-der-pinguine-by-anatole-france/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "France, Anatole",
         "reader": "Claus Misfeldt",
@@ -41838,6 +42253,10 @@
       "credit": "Public Domain — LibriVox (Buch 22843)",
       "url": "https://librivox.org/aus-den-tiefen-des-weltmeeres-by-carl-chun/",
       "textUrl": "hoerbuch-texte/de/chun-carl_-_aus-den-tiefen-des-weltmeeres-22843.txt.gz",
+      "textRange": {
+        "start": 6,
+        "ende": 2467
+      },
       "tags": {
         "work_author": "Chun, Carl",
         "reader": "Claus Misfeldt",

@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 2483)",
       "url": "https://librivox.org/sermoes-by-padre-antonio-vieira/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Vieira, Padre Antonio",
         "reader": "Leni",
@@ -161,6 +162,7 @@
       "credit": "Public Domain — LibriVox (Buch 2941)",
       "url": "https://librivox.org/poesias-infantis-by-olavo-bilac/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Bilac, Olavo",
         "reader": "Ariane Ribeiro",
@@ -595,6 +597,7 @@
       "credit": "Public Domain — LibriVox (Buch 3058)",
       "url": "https://librivox.org/o-alienista-by-machado-de-assis/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Leni",
@@ -713,6 +716,7 @@
       "credit": "Public Domain — LibriVox (Buch 3118)",
       "url": "https://librivox.org/senhora-by-jose-de-alencar/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Alencar, José de",
         "reader": "Leni",
@@ -1119,6 +1123,10 @@
       "credit": "Public Domain — LibriVox (Buch 3313)",
       "url": "https://librivox.org/os-lusiadas-by-luis-vaz-de-camoes/",
       "textUrl": "hoerbuch-texte/pt/camoes-luis-vaz-de_-_lusiadas-3313.txt.gz",
+      "textRange": {
+        "start": 275,
+        "ende": 11056
+      },
       "tags": {
         "work_author": "Camões, Luís Vaz de",
         "reader": "zaaf",
@@ -1246,6 +1254,10 @@
       "credit": "Public Domain — LibriVox (Buch 3680)",
       "url": "https://librivox.org/saudades-historia-de-menina-e-moca-by-bernardim-ribeiro/",
       "textUrl": "hoerbuch-texte/pt/ribeiro-bernardim_-_saudades-historia-de-menina-e-moca-3680.txt.gz",
+      "textRange": {
+        "start": 183,
+        "ende": 3296
+      },
       "tags": {
         "work_author": "Ribeiro, Bernardim",
         "reader": "Leni",
@@ -1563,6 +1575,7 @@
       "credit": "Public Domain — LibriVox (Buch 3765)",
       "url": "https://librivox.org/os-escravos-by-antonio-frederico-de-castro-alves/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Castro Alves, Antônio Frederico de",
         "reader": "Leni",
@@ -1906,6 +1919,7 @@
       "credit": "Public Domain — LibriVox (Buch 3799)",
       "url": "https://librivox.org/cinco-minutos-by-jose-de-alencar/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Alencar, José de",
         "reader": "Vicente Costa Filho",
@@ -2034,6 +2048,7 @@
       "credit": "Public Domain — LibriVox (Buch 3848)",
       "url": "https://librivox.org/contos-by-lima-barreto/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Barreto, Lima",
         "reader": "Vicente Costa Filho",
@@ -2251,6 +2266,7 @@
       "credit": "Public Domain — LibriVox (Buch 3899)",
       "url": "https://librivox.org/os-sertoes-by-euclides-da-cunha/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Cunha, Euclides da",
         "reader": "Leni",
@@ -2730,6 +2746,7 @@
       "credit": "Public Domain — LibriVox (Buch 4205)",
       "url": "https://librivox.org/biblia-alm-01-genesis-by-joao-ferreira-de-almeida-trad/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Almeida Version",
         "reader": "Leni",
@@ -2859,6 +2876,7 @@
       "credit": "Public Domain — LibriVox (Buch 4629)",
       "url": "https://librivox.org/eu-e-outras-poesias-by-augusto-dos-anjos/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Anjos, Augusto dos",
         "reader": "Leni",
@@ -4768,6 +4786,7 @@
       "credit": "Public Domain — LibriVox (Buch 4807)",
       "url": "https://librivox.org/triste-fim-de-policarpo-quaresma-by-lima-barreto/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Barreto, Lima",
         "reader": "Miramontes",
@@ -4938,6 +4957,7 @@
       "credit": "Public Domain — LibriVox (Buch 6141)",
       "url": "https://librivox.org/amor-de-perdicao-by-camilo-castelo-branco/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Castelo Branco, Camilo",
         "reader": "Sandra Luna",
@@ -5173,6 +5193,7 @@
       "credit": "Public Domain — LibriVox (Buch 6187)",
       "url": "https://librivox.org/a-viuvinha-by-jose-de-alencar/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Alencar, José de",
         "reader": "Leni",
@@ -5355,6 +5376,10 @@
       "credit": "Public Domain — LibriVox (Buch 7642)",
       "url": "https://librivox.org/a-reliquia-by-jose-maria-de-eca-de-queiros/",
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_reliquia-7642.txt.gz",
+      "textRange": {
+        "start": 46,
+        "ende": 9589
+      },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "Leni",
@@ -5626,6 +5651,7 @@
       "credit": "Public Domain — LibriVox (Buch 8363)",
       "url": "https://librivox.org/diva-by-jose-de-alencar/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Alencar, José de",
         "reader": "Leni",
@@ -5852,6 +5878,7 @@
       "credit": "Public Domain — LibriVox (Buch 8380)",
       "url": "https://librivox.org/a-mao-e-a-luva-by-joaquim-maria-machado-de-assis/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Leni",
@@ -6069,6 +6096,7 @@
       "credit": "Public Domain — LibriVox (Buch 8729)",
       "url": "https://librivox.org/a-margem-da-historia-by-euclides-da-cunha/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Cunha, Euclides da",
         "reader": "Leni",
@@ -6241,6 +6269,7 @@
       "credit": "Public Domain — LibriVox (Buch 9018)",
       "url": "https://librivox.org/helena-by-joaquim-maria-machado-de-assis/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Felipe Vale da Silva",
@@ -6530,6 +6559,7 @@
       "credit": "Public Domain — LibriVox (Buch 9163)",
       "url": "https://librivox.org/casa-velha-by-joaquim-maria-machado-de-assis/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Felipe Vale da Silva",
@@ -6640,6 +6670,7 @@
       "credit": "Public Domain — LibriVox (Buch 9280)",
       "url": "https://librivox.org/esau-e-jaco-by-joaquim-maria-machado-de-assis/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Felipe Vale da Silva",
@@ -6992,6 +7023,7 @@
       "credit": "Public Domain — LibriVox (Buch 11436)",
       "url": "https://librivox.org/iracema-by-jose-de-alencar/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Alencar, José de",
         "reader": "RogerioM",
@@ -7111,6 +7143,7 @@
       "credit": "Public Domain — LibriVox (Buch 12266)",
       "url": "https://librivox.org/demonios-by-aluisio-azevedo/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Azevedo, Aluísio",
         "reader": "RogerioM",
@@ -7185,6 +7218,7 @@
       "credit": "Public Domain — LibriVox (Buch 12563)",
       "url": "https://librivox.org/paginas-recolhidas-by-joaquim-maria-machado-de-assis/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "RogerioM",
@@ -7373,6 +7407,7 @@
       "credit": "Public Domain — LibriVox (Buch 12765)",
       "url": "https://librivox.org/o-mulato-by-aluisio-azevedo/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Azevedo, Aluísio",
         "reader": "Adriana Sacciotto",
@@ -7563,6 +7598,7 @@
       "credit": "Public Domain — LibriVox (Buch 12879)",
       "url": "https://librivox.org/o-cortico-by-aluisio-azevedo/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Azevedo, Aluísio",
         "reader": "Adriana Sacciotto",
@@ -7807,6 +7843,10 @@
       "credit": "Public Domain — LibriVox (Buch 13488)",
       "url": "https://librivox.org/memorias-postumas-de-bras-cubas-by-joaquim-maria-machado-de-assis/",
       "textUrl": "hoerbuch-texte/pt/assis-joaquim-maria-machado-de_-_memorias-postumas-de-bras-cubas-13488.txt.gz",
+      "textRange": {
+        "start": 93,
+        "ende": 8449
+      },
       "tags": {
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Leni",
@@ -8133,6 +8173,10 @@
       "credit": "Public Domain — LibriVox (Buch 13842)",
       "url": "https://librivox.org/como-e-porque-sou-romancista-by-jose-de-alencar/",
       "textUrl": "hoerbuch-texte/pt/alencar-jose-de_-_como-e-porque-sou-romancista-13842.txt.gz",
+      "textRange": {
+        "start": 64,
+        "ende": 1258
+      },
       "tags": {
         "work_author": "Alencar, José de",
         "reader": "Leni",
@@ -8197,6 +8241,7 @@
       "credit": "Public Domain — LibriVox (Buch 13899)",
       "url": "https://librivox.org/era-uma-vez-by-julia-lopes-de-almeida/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Lopes de Almeida, Júlia",
         "reader": "Rachel Moraes",
@@ -8271,6 +8316,7 @@
       "credit": "Public Domain — LibriVox (Buch 13987)",
       "url": "https://librivox.org/variacoes-sobre-o-flirt-pequeno-ensaio-de-psychologia-urbana-by-joao-do-rio/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Rio, João do",
         "reader": "Leni",
@@ -8336,6 +8382,10 @@
       "credit": "Public Domain — LibriVox (Buch 14431)",
       "url": "https://librivox.org/o-defunto-by-jose-maria-de-eca-de-queiros/",
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_defunto-14431.txt.gz",
+      "textRange": {
+        "start": 100,
+        "ende": 7653
+      },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "Leni",
@@ -8411,6 +8461,7 @@
       "credit": "Public Domain — LibriVox (Buch 15000)",
       "url": "https://librivox.org/vida-vertiginosa-by-joao-do-rio/",
       "textUrl": "hoerbuch-texte/pt/rio-joao-do_-_vida-vertiginosa-15000.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Rio, João do",
         "reader": "Leni",
@@ -8674,6 +8725,10 @@
       "credit": "Public Domain — LibriVox (Buch 15049)",
       "url": "https://librivox.org/uma-familia-ingleza-by-julio-dinis/",
       "textUrl": "hoerbuch-texte/pt/dinis-julio_-_familia-ingleza-scenas-da-vida-do-porto-15049.txt.gz",
+      "textRange": {
+        "start": 79,
+        "ende": 18677
+      },
       "tags": {
         "work_author": "Dinis, Júlio",
         "reader": "L.S.B.Seabra",
@@ -9063,6 +9118,7 @@
       "credit": "Public Domain — LibriVox (Buch 15094)",
       "url": "https://librivox.org/a-viuva-simoes-by-julia-lopes-de-almeida/",
       "textUrl": "hoerbuch-texte/pt/lopes-de-almeida-julia_-_viuva-simoes-15094.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Lopes de Almeida, Júlia",
         "reader": "Rachel Moraes",
@@ -9272,6 +9328,7 @@
       "credit": "Public Domain — LibriVox (Buch 15439)",
       "url": "https://librivox.org/memorias-de-martha-by-julia-lopes-de-almeida/",
       "textUrl": "hoerbuch-texte/pt/lopes-de-almeida-julia_-_memorias-de-martha-15439.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Lopes de Almeida, Júlia",
         "reader": "Rachel Moraes",
@@ -9418,6 +9475,7 @@
       "credit": "Public Domain — LibriVox (Buch 15483)",
       "url": "https://librivox.org/o-abolicionismo-by-joaquim-nabuco/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Nabuco, Joaquim",
         "reader": "Rachel Moraes",
@@ -9617,6 +9675,7 @@
       "credit": "Public Domain — LibriVox (Buch 15763)",
       "url": "https://librivox.org/ressurreicao-by-joaquim-maria-machado-de-assis/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Rachel Moraes",
@@ -9880,6 +9939,10 @@
       "credit": "Public Domain — LibriVox (Buch 16112)",
       "url": "https://librivox.org/os-fidalgos-da-casa-mourisca-by-julio-dinis/",
       "textUrl": "hoerbuch-texte/pt/dinis-julio_-_fidalgos-da-casa-mourisca-16112.txt.gz",
+      "textRange": {
+        "start": 75,
+        "ende": 19650
+      },
       "tags": {
         "work_author": "Dinis, Júlio",
         "reader": "L.S.B.Seabra",
@@ -10260,6 +10323,10 @@
       "credit": "Public Domain — LibriVox (Buch 16284)",
       "url": "https://librivox.org/infelizes-historias-vividas-by-ana-de-castro-osorio/",
       "textUrl": "hoerbuch-texte/pt/castro-osorio-ana-de_-_infelizes-historias-vividas-16284.txt.gz",
+      "textRange": {
+        "start": 67,
+        "ende": 2409
+      },
       "tags": {
         "work_author": "Castro Osório, Ana de",
         "reader": "MarinaFikota",
@@ -10421,6 +10488,7 @@
       "credit": "Public Domain — LibriVox (Buch 16416)",
       "url": "https://librivox.org/ursula-by-maria-firmina-dos-reis/",
       "textUrl": "hoerbuch-texte/pt/dos-reis-maria-firmina_-_rsula-16416.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "dos Reis, Maria Firmina",
         "reader": "MarinaFikota",
@@ -10647,6 +10715,7 @@
       "credit": "Public Domain — LibriVox (Buch 16558)",
       "url": "https://librivox.org/joanna-eyre-by-charlotte-bronte/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Brontë, Charlotte",
         "reader": "Rachel Moraes",
@@ -11029,6 +11098,7 @@
       "credit": "Public Domain — LibriVox (Buch 16567)",
       "url": "https://librivox.org/paulicea-desvairada-by-mario-de-andrade/",
       "textUrl": "hoerbuch-texte/pt/andrade-mario-de_-_paulicea-desvairada-16567.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Andrade, Mário de",
         "reader": "Rachel Moraes",
@@ -11121,6 +11191,7 @@
       "credit": "Public Domain — LibriVox (Buch 17120)",
       "url": "https://librivox.org/luciola-by-jose-de-alencar/",
       "textUrl": "hoerbuch-texte/pt/alencar-jose-de_-_luciola-17120.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Alencar, José de",
         "reader": "Leni",
@@ -11356,6 +11427,10 @@
       "credit": "Public Domain — LibriVox (Buch 17298)",
       "url": "https://librivox.org/o-mysterio-da-estrada-de-cintra-by-jose-maria-de-eca-de-queiros/",
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_mysterio-da-estrada-de-cintra-17298.txt.gz",
+      "textRange": {
+        "start": 78,
+        "ende": 8806
+      },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "L.S.B.Seabra",
@@ -11825,6 +11900,10 @@
       "credit": "Public Domain — LibriVox (Buch 17520)",
       "url": "https://librivox.org/biblia-almeida-21-ecclesiastes",
       "textUrl": "hoerbuch-texte/pt/almeida-version_-_biblia-almeida-21-ecclesiastes-17520.txt.gz",
+      "textRange": {
+        "start": 36,
+        "ende": 156166
+      },
       "tags": {
         "work_author": "Almeida Version",
         "reader": "Dyefferson Azevedo",
@@ -11972,6 +12051,7 @@
       "credit": "Public Domain — LibriVox (Buch 17703)",
       "url": "https://librivox.org/contos-selectos-das-mil-e-uma-noites/",
       "textUrl": "hoerbuch-texte/pt/jansen-carl_-_contos-selectos-das-mil-e-uma-noites-17703.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Jansen, Carl",
         "reader": "Dyefferson Azevedo",
@@ -12145,6 +12225,7 @@
       "credit": "Public Domain — LibriVox (Buch 17898)",
       "url": "https://librivox.org/a-freira-no-subterraneo/",
       "textUrl": "hoerbuch-texte/pt/anonymous_-_freira-no-subterraneo-17898.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Anonymous",
         "reader": "Cristina Luiz",
@@ -12347,6 +12428,10 @@
       "credit": "Public Domain — LibriVox (Buch 18348)",
       "url": "https://librivox.org/o-mandarim-by-jose-maria-de-eca-de-queiros/",
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_mandarim-18348.txt.gz",
+      "textRange": {
+        "start": 62,
+        "ende": 2490
+      },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "L.S.B.Seabra",
@@ -12463,6 +12548,10 @@
       "credit": "Public Domain — LibriVox (Buch 18959)",
       "url": "https://librivox.org/primo-bazilio-by-jose-maria-de-eca-de-queiros/",
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_primo-bazilio-18959.txt.gz",
+      "textRange": {
+        "start": 71,
+        "ende": 18647
+      },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "L.S.B.Seabra",
@@ -12671,6 +12760,10 @@
       "credit": "Public Domain — LibriVox (Buch 20129)",
       "url": "https://librivox.org/a-cidade-e-as-serras-by-jose-maria-de-eca-de-queiros/",
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_cidade-e-as-serras-20129.txt.gz",
+      "textRange": {
+        "start": 65,
+        "ende": 8405
+      },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "L.S.B.Seabra",
@@ -12861,6 +12954,10 @@
       "credit": "Public Domain — LibriVox (Buch 21262)",
       "url": "https://librivox.org/a-reliquia-by-jose-maria-de-eca-de-queiros-2/",
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_reliquia-versao-2-21262.txt.gz",
+      "textRange": {
+        "start": 46,
+        "ende": 9589
+      },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "L.S.B.Seabra",
@@ -13132,6 +13229,10 @@
       "credit": "Public Domain — LibriVox (Buch 22299)",
       "url": "https://librivox.org/crime-do-padre-amaro-by-jose-maria-de-eca-de-queiros/",
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_crime-do-padre-amaro-22299.txt.gz",
+      "textRange": {
+        "start": 58,
+        "ende": 18809
+      },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "Pindom",

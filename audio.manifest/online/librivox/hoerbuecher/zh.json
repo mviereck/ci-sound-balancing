@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 441)",
       "url": "https://librivox.org/three-hundred-tang-poems-volume-1-by-various/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Various",
         "reader": "David Barnes",
@@ -1007,6 +1008,7 @@
       "credit": "Public Domain — LibriVox (Buch 584)",
       "url": "https://librivox.org/three-hundred-tang-poems-volume-2-by-various/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Various",
         "reader": "Jin Yilin",
@@ -2053,6 +2055,7 @@
       "credit": "Public Domain — LibriVox (Buch 871)",
       "url": "https://librivox.org/lun-yu-or-analects-of-confucius-read-in-chinese/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Confucius 孔子",
         "reader": "Huang Hsin-Yu",
@@ -2274,6 +2277,7 @@
       "credit": "Public Domain — LibriVox (Buch 1266)",
       "url": "https://librivox.org/three-hundred-tang-poems-volume-3-by-various/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Various",
         "reader": "Jc Guan",
@@ -4656,6 +4660,10 @@
       "credit": "Public Domain — LibriVox (Buch 1800)",
       "url": "https://librivox.org/lao-can-you-ji-by-liu-o/",
       "textUrl": "hoerbuch-texte/zh/liu-e_-_lao-can-you-ji-mr-derelict-1800.txt.gz",
+      "textRange": {
+        "start": 30,
+        "ende": 1145
+      },
       "tags": {
         "work_author": "Liu 刘鹗, E",
         "reader": "HC",
@@ -4882,6 +4890,7 @@
       "credit": "Public Domain — LibriVox (Buch 1952)",
       "url": "https://librivox.org/liaozhai-zhiyi-by-pu-songling-0906/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Pu, Songling",
         "reader": "Jc Guan",
@@ -5104,6 +5113,7 @@
       "credit": "Public Domain — LibriVox (Buch 2018)",
       "url": "https://librivox.org/three-hundred-tang-poems-volume-4-by-various/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Various",
         "reader": "Jc Guan",
@@ -6224,6 +6234,7 @@
       "credit": "Public Domain — LibriVox (Buch 2135)",
       "url": "https://librivox.org/bible-cuv-nt-01-mandarin/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Chinese Union Version",
         "reader": "HC",
@@ -6373,6 +6384,7 @@
       "credit": "Public Domain — LibriVox (Buch 2291)",
       "url": "https://librivox.org/three-classic-chinese-texts/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Various",
         "reader": "Jc Guan",
@@ -6438,6 +6450,7 @@
       "credit": "Public Domain — LibriVox (Buch 5140)",
       "url": "https://librivox.org/bible-cuv-nt-02-mark-by-chinese-union-version/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Chinese Union Version",
         "reader": "yuli",
@@ -6619,6 +6632,7 @@
       "credit": "Public Domain — LibriVox (Buch 5613)",
       "url": "https://librivox.org/bible-cuv-nt-06-mandarin/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Chinese Union Version",
         "reader": "yuli",
@@ -6728,6 +6742,7 @@
       "credit": "Public Domain — LibriVox (Buch 5659)",
       "url": "https://librivox.org/bible-cuv-nt-03-luke-by-chinese-union-version/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Chinese Union Version",
         "reader": "yuli",
@@ -6981,6 +6996,7 @@
       "credit": "Public Domain — LibriVox (Buch 6026)",
       "url": "https://librivox.org/chao-hua-si-she-by-lu-xun/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Lu, Xun",
         "reader": "Jing Li",
@@ -7126,6 +7142,7 @@
       "credit": "Public Domain — LibriVox (Buch 6044)",
       "url": "https://librivox.org/acts-by-chinese-union-version/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Chinese Union Version",
         "reader": "yuli",
@@ -7289,6 +7306,7 @@
       "credit": "Public Domain — LibriVox (Buch 6123)",
       "url": "https://librivox.org/call-to-arms-by-xun-lu/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Lu, Xun",
         "reader": "Jing Li",
@@ -7470,6 +7488,7 @@
       "credit": "Public Domain — LibriVox (Buch 6224)",
       "url": "https://librivox.org/hot-wind-by-lu-xun/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Lu, Xun",
         "reader": "Jing Li",
@@ -7885,6 +7904,7 @@
       "credit": "Public Domain — LibriVox (Buch 6886)",
       "url": "https://librivox.org/three-hundred-tang-poems-volume-5-by-various/",
       "textUrl": "hoerbuch-texte/zh/various_-_three-hundred-tang-poems-volume-5-6886.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Various",
         "reader": "Nora",
@@ -8801,6 +8821,10 @@
       "credit": "Public Domain — LibriVox (Buch 6940)",
       "url": "https://librivox.org/the-art-of-war-chinese-by-sun-tzu/",
       "textUrl": "hoerbuch-texte/zh/sun-tzu_-_the-art-of-war-6940.txt.gz",
+      "textRange": {
+        "start": 29,
+        "ende": 131
+      },
       "tags": {
         "work_author": "Sun Tzu 孙武",
         "reader": "Emerald.W.",
@@ -8958,6 +8982,10 @@
       "credit": "Public Domain — LibriVox (Buch 9414)",
       "url": "https://librivox.org/the-true-story-of-ah-q-by-xun-lu/",
       "textUrl": "hoerbuch-texte/zh/lu-xun_-_q-the-true-story-of-ah-q-9414.txt.gz",
+      "textRange": {
+        "start": 32,
+        "ende": 711
+      },
       "tags": {
         "work_author": "Lu, Xun",
         "reader": "Vivienne Wong",
@@ -9074,6 +9102,7 @@
       "credit": "Public Domain — LibriVox (Buch 13410)",
       "url": "https://librivox.org/the-gospel-of-john-chinese-union-version/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Chinese Union Version",
         "reader": "aleithia",
@@ -9300,6 +9329,7 @@
       "credit": "Public Domain — LibriVox (Buch 13982)",
       "url": "https://librivox.org/the-book-of-psalms-chinese-union-version/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Chinese Union Version",
         "reader": "aleithia",
@@ -9418,6 +9448,10 @@
       "credit": "Public Domain — LibriVox (Buch 14135)",
       "url": "https://librivox.org/wandering-by-xun-lu/",
       "textUrl": "hoerbuch-texte/zh/lu-xun_-_wandering-or-pang-huang-14135.txt.gz",
+      "textRange": {
+        "start": 29,
+        "ende": 3057
+      },
       "tags": {
         "work_author": "Lu, Xun",
         "reader": "Tina Ding",
@@ -9527,6 +9561,10 @@
       "credit": "Public Domain — LibriVox (Buch 15343)",
       "url": "https://librivox.org/cowherd-and-weaver-girl-by-mingshi-zhu/",
       "textUrl": "hoerbuch-texte/zh/zhu-mingshi_-_cowherd-and-weaver-girl-15343.txt.gz",
+      "textRange": {
+        "start": 31,
+        "ende": 844
+      },
       "tags": {
         "work_author": "Zhu 名世朱, Mingshi",
         "reader": "Guomin Do",
@@ -9673,6 +9711,10 @@
       "credit": "Public Domain — LibriVox (Buch 15726)",
       "url": "https://librivox.org/di-gong-an-celebrated-cases-of-judge-dee-by-anonymous/",
       "textUrl": "hoerbuch-texte/zh/anonymous_-_di-gong-an-celebrated-cases-of-judge-dee-15726.txt.gz",
+      "textRange": {
+        "start": 30,
+        "ende": 6674
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Vivienne Wong",
@@ -10287,6 +10329,10 @@
       "credit": "Public Domain — LibriVox (Buch 20249)",
       "url": "https://librivox.org/the-palace-of-eternal-life-by-sheng-hong/",
       "textUrl": "hoerbuch-texte/zh/hong-sheng_-_the-palace-of-eternal-life-20249.txt.gz",
+      "textRange": {
+        "start": 8,
+        "ende": 903
+      },
       "tags": {
         "work_author": "Hong 洪, Sheng 昇",
         "reader": "Let’s Classics",

@@ -16,6 +16,10 @@
       "credit": "Public Domain — LibriVox (Buch 14017)",
       "url": "https://librivox.org/poezii-by-mihai-eminescu/",
       "textUrl": "hoerbuch-texte/ro/eminescu-mihai_-_poezii-14017.txt.gz",
+      "textRange": {
+        "start": 31,
+        "ende": 24588
+      },
       "tags": {
         "work_author": "Eminescu, Mihai",
         "reader": "Cornel Nemes",
@@ -2310,6 +2314,7 @@
       "credit": "Public Domain — LibriVox (Buch 14235)",
       "url": "https://librivox.org/balade-si-idile-by-george-cosbuc/",
       "textUrl": "hoerbuch-texte/ro/co-buc-george_-_balade-si-idile-14235.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Coșbuc, George",
         "reader": "Cornel Nemes",
@@ -2867,6 +2872,7 @@
       "credit": "Public Domain — LibriVox (Buch 16535)",
       "url": "https://librivox.org/cartea-de-aur-by-alexandru-macedonski/",
       "textUrl": "hoerbuch-texte/ro/macedonski-alexandru_-_cartea-de-aur-16535.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Macedonski, Alexandru",
         "reader": "Gabriela Oprea",

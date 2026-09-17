@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 206)",
       "url": "https://librivox.org/oku-no-hosomichi-by-matsuo-basho/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Bashō, Matsuo",
         "reader": "kaseumin",
@@ -98,6 +99,7 @@
       "credit": "Public Domain — LibriVox (Buch 224)",
       "url": "https://librivox.org/ogura-hyakunin-isshu-by-fujiwara-no-teika/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Fujiwara, Teika no",
         "reader": "kaseumin",
@@ -225,6 +227,7 @@
       "credit": "Public Domain — LibriVox (Buch 6465)",
       "url": "https://librivox.org/wasuregusaniyosu-by-michizou-tachihara/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Tachihara, Michizou",
         "reader": "ekzemplaro",
@@ -352,6 +355,7 @@
       "credit": "Public Domain — LibriVox (Buch 6505)",
       "url": "https://librivox.org/junjyoshokyokusyu-by-sakutaro-hagiwara/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hagiwara, Sakutarō",
         "reader": "ekzemplaro",
@@ -642,6 +646,7 @@
       "credit": "Public Domain — LibriVox (Buch 6553)",
       "url": "https://librivox.org/gongitsune-by-nankichi-niimi/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Niimi, Nankichi",
         "reader": "ekzemplaro",
@@ -733,6 +738,7 @@
       "credit": "Public Domain — LibriVox (Buch 6612)",
       "url": "https://librivox.org/caucasus-no-hagetaka-by-yoshio-toyoshima/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Toyoshima, Yoshio",
         "reader": "ekzemplaro",
@@ -815,6 +821,7 @@
       "credit": "Public Domain — LibriVox (Buch 6653)",
       "url": "https://librivox.org/yonen-dowa-by-nankichi-niimi/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Niimi, Nankichi",
         "reader": "ekzemplaro",
@@ -1077,6 +1084,7 @@
       "credit": "Public Domain — LibriVox (Buch 6716)",
       "url": "https://librivox.org/good-bye-by-osamu-dazai/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Dazai, Osamu",
         "reader": "ekzemplaro",
@@ -1231,6 +1239,7 @@
       "credit": "Public Domain — LibriVox (Buch 6770)",
       "url": "https://librivox.org/toshisyun-by-ryunosuke-akutagawa/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Akutagawa, Ryūnosuke",
         "reader": "ekzemplaro",
@@ -1322,6 +1331,7 @@
       "credit": "Public Domain — LibriVox (Buch 6904)",
       "url": "https://librivox.org/garasudono-uchi-by-natsume-soseki/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -1710,6 +1720,7 @@
       "credit": "Public Domain — LibriVox (Buch 7012)",
       "url": "https://librivox.org/eijitsu-syohin-by-soseki-natsume/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -1972,6 +1983,7 @@
       "credit": "Public Domain — LibriVox (Buch 7130)",
       "url": "https://librivox.org/nihyakutouka-by-natsume-soseki/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -2054,6 +2066,7 @@
       "credit": "Public Domain — LibriVox (Buch 7159)",
       "url": "https://librivox.org/nowaki-by-soseki-natsume/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -2199,6 +2212,7 @@
       "credit": "Public Domain — LibriVox (Buch 7245)",
       "url": "https://librivox.org/roman-dourou-by-osamu-dazai/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Dazai, Osamu",
         "reader": "ekzemplaro",
@@ -2290,6 +2304,7 @@
       "credit": "Public Domain — LibriVox (Buch 7299)",
       "url": "https://librivox.org/kaze-tachinu-by-hori-tatsuo/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hori, Tatsuo",
         "reader": "ekzemplaro",
@@ -2372,6 +2387,7 @@
       "credit": "Public Domain — LibriVox (Buch 7404)",
       "url": "https://librivox.org/umareizuru-nayami-by-takeo-arishima/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Arishima, Takeo",
         "reader": "ekzemplaro",
@@ -2490,6 +2506,7 @@
       "credit": "Public Domain — LibriVox (Buch 7489)",
       "url": "https://librivox.org/futon-by-katai-tayama/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Tayama, Katai",
         "reader": "ekzemplaro",
@@ -2626,6 +2643,7 @@
       "credit": "Public Domain — LibriVox (Buch 7552)",
       "url": "https://librivox.org/onsyuu-no-kanatani-by-kikuchi-kan/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Kikuchi, Kan",
         "reader": "ekzemplaro",
@@ -2699,6 +2717,7 @@
       "credit": "Public Domain — LibriVox (Buch 7600)",
       "url": "https://librivox.org/kouyahijiri-by-kyoka-izumi/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Izumi, Kyōka",
         "reader": "ekzemplaro",
@@ -2968,6 +2987,7 @@
       "credit": "Public Domain — LibriVox (Buch 7687)",
       "url": "https://librivox.org/tonari-no-yome-by-ito-sachio/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Itō, Sachio",
         "reader": "ekzemplaro",
@@ -3050,6 +3070,7 @@
       "credit": "Public Domain — LibriVox (Buch 7757)",
       "url": "https://librivox.org/warerano-ichidan-to-kare-by-takuboku-ishikawa/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Ishikawa, Takuboku",
         "reader": "ekzemplaro",
@@ -3139,6 +3160,7 @@
       "credit": "Public Domain — LibriVox (Buch 7833)",
       "url": "https://librivox.org/haru-no-ushio-by-sachio-ito/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Itō, Sachio",
         "reader": "ekzemplaro",
@@ -3293,6 +3315,7 @@
       "credit": "Public Domain — LibriVox (Buch 7933)",
       "url": "https://librivox.org/rojyoo-by-ryunosuke-akutagawa/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Akutagawa, Ryūnosuke",
         "reader": "ekzemplaro",
@@ -3654,6 +3677,7 @@
       "credit": "Public Domain — LibriVox (Buch 7991)",
       "url": "https://librivox.org/furusato-by-toson-shimazaki/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Shimazaki, Tōson",
         "reader": "ekzemplaro",
@@ -4339,6 +4363,7 @@
       "credit": "Public Domain — LibriVox (Buch 8046)",
       "url": "https://librivox.org/inakakyoshi-by-katai-tayama/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Tayama, Katai",
         "reader": "ekzemplaro",
@@ -4952,6 +4977,7 @@
       "credit": "Public Domain — LibriVox (Buch 8157)",
       "url": "https://librivox.org/botchan-by-soseki-natsume-2/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -5086,6 +5112,7 @@
       "credit": "Public Domain — LibriVox (Buch 8207)",
       "url": "https://librivox.org/kusamakura-by-soseki-natsume/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -5240,6 +5267,7 @@
       "credit": "Public Domain — LibriVox (Buch 8303)",
       "url": "https://librivox.org/gan-by-ogai-mori/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Mori, Ōgai",
         "reader": "ekzemplaro",
@@ -5493,6 +5521,7 @@
       "credit": "Public Domain — LibriVox (Buch 8412)",
       "url": "https://librivox.org/kokoro-by-soseki-natsume/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -6521,6 +6550,7 @@
       "credit": "Public Domain — LibriVox (Buch 8563)",
       "url": "https://librivox.org/meian-by-soseki-natsume/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
@@ -8250,6 +8280,7 @@
       "credit": "Public Domain — LibriVox (Buch 8835)",
       "url": "https://librivox.org/utaandon-by-kyoka-izumi/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Izumi, Kyōka",
         "reader": "ekzemplaro",
@@ -8492,6 +8523,7 @@
       "credit": "Public Domain — LibriVox (Buch 8917)",
       "url": "https://librivox.org/imado-shinjyuu-by-ryuro-hirotsu/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hirotsu, Ryūrō",
         "reader": "ekzemplaro",
@@ -8626,6 +8658,7 @@
       "credit": "Public Domain — LibriVox (Buch 8965)",
       "url": "https://librivox.org/megane-by-toson-shimazaki/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Shimazaki, Tōson",
         "reader": "ekzemplaro",
@@ -8913,6 +8946,7 @@
       "credit": "Public Domain — LibriVox (Buch 9052)",
       "url": "https://librivox.org/meguriai-by-shuusei-tokuda/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Tokuda, Shuusei",
         "reader": "ekzemplaro",

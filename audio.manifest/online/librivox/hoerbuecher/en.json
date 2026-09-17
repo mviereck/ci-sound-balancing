@@ -16,6 +16,10 @@
       "credit": "Public Domain — LibriVox (Buch 389)",
       "url": "https://librivox.org/the-gettysburg-address-by-abraham-lincoln/",
       "textUrl": "hoerbuch-texte/en/lincoln-abraham_-_gettysburg-address-389.txt.gz",
+      "textRange": {
+        "start": 5,
+        "ende": 44
+      },
       "tags": {
         "work_author": "Lincoln, Abraham",
         "reader": "Shurtagal",
@@ -62,6 +66,10 @@
       "credit": "Public Domain — LibriVox (Buch 177)",
       "url": "https://librivox.org/a-modest-proposal-by-jonathan-swift/",
       "textUrl": "hoerbuch-texte/en/swift-jonathan_-_modest-proposal-177.txt.gz",
+      "textRange": {
+        "start": 5,
+        "ende": 340
+      },
       "tags": {
         "work_author": "Swift, Jonathan",
         "reader": "John Gonzalez",
@@ -108,6 +116,10 @@
       "credit": "Public Domain — LibriVox (Buch 2023)",
       "url": "https://librivox.org/worldwide-effects-of-nuclear-war-some-perspectives-by-united-states-arms-control-and-disarmament-agency/",
       "textUrl": "hoerbuch-texte/en/united-states-arms-control-and-disarmament-agency_-_worldwide-effects-of-nuclear-war-some-perspectives-2023.txt.gz",
+      "textRange": {
+        "start": 53,
+        "ende": 867
+      },
       "tags": {
         "work_author": "United States Arms Control and Disarmament Agency",
         "reader": "Allyson Hester",
@@ -173,6 +185,10 @@
       "credit": "Public Domain — LibriVox (Buch 2598)",
       "url": "https://librivox.org/popular-hist-of-ireland-bk-7-by-mcgee/",
       "textUrl": "hoerbuch-texte/en/mcgee-thomas-d-arcy_-_popular-history-of-ireland-book-07-2598.txt.gz",
+      "textRange": {
+        "start": 164,
+        "ende": 28734
+      },
       "tags": {
         "work_author": "McGee, Thomas D'Arcy",
         "reader": "Sibella Denton",
@@ -247,6 +263,10 @@
       "credit": "Public Domain — LibriVox (Buch 9114)",
       "url": "https://librivox.org/sunshine-factory-by-pansy/",
       "textUrl": "hoerbuch-texte/en/pansy_-_sunshine-factory-9114.txt.gz",
+      "textRange": {
+        "start": 67,
+        "ende": 721
+      },
       "tags": {
         "work_author": "Pansy",
         "reader": "fiddlesticks",
@@ -349,6 +369,10 @@
       "credit": "Public Domain — LibriVox (Buch 400)",
       "url": "https://librivox.org/the-rime-of-the-ancient-mariner-by-samuel-taylor-coleridge/",
       "textUrl": "hoerbuch-texte/en/coleridge-samuel-taylor_-_rime-of-the-ancient-mariner-400.txt.gz",
+      "textRange": {
+        "start": 139,
+        "ende": 857
+      },
       "tags": {
         "work_author": "Coleridge, Samuel Taylor",
         "reader": "Kristin LeMoine",
@@ -396,6 +420,10 @@
       "credit": "Public Domain — LibriVox (Buch 1171)",
       "url": "https://librivox.org/ion-by-plato/",
       "textUrl": "hoerbuch-texte/en/plato_-_ion-1171.txt.gz",
+      "textRange": {
+        "start": 43,
+        "ende": 835
+      },
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "Simon-Peter Zak",
@@ -454,6 +482,10 @@
       "credit": "Public Domain — LibriVox (Buch 497)",
       "url": "https://librivox.org/how-to-tell-the-birds-from-the-flowers-by-robert-williams-wood/",
       "textUrl": "hoerbuch-texte/en/wood-robert-williams_-_how-to-tell-the-birds-from-the-flowers-497.txt.gz",
+      "textRange": {
+        "start": 71,
+        "ende": 539
+      },
       "tags": {
         "work_author": "Wood, Robert Williams",
         "reader": "Andrea L",
@@ -501,6 +533,10 @@
       "credit": "Public Domain — LibriVox (Buch 2082)",
       "url": "https://librivox.org/the-keepsake-by-anonymous/",
       "textUrl": "hoerbuch-texte/en/anonymous_-_keepsake-2082.txt.gz",
+      "textRange": {
+        "start": 387,
+        "ende": 1046
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Sam Stinson",
@@ -557,6 +593,10 @@
       "credit": "Public Domain — LibriVox (Buch 8743)",
       "url": "https://librivox.org/how-to-tell-a-story-and-other-essays-by-mark-twain/",
       "textUrl": "hoerbuch-texte/en/twain-mark_-_how-to-tell-a-story-and-other-essays-8743.txt.gz",
+      "textRange": {
+        "start": 56,
+        "ende": 808
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "Claudia Salto",
@@ -622,6 +662,10 @@
       "credit": "Public Domain — LibriVox (Buch 5754)",
       "url": "https://librivox.org/a-cathedral-courtship-by-kate-douglas-wiggin/",
       "textUrl": "hoerbuch-texte/en/wiggin-kate-douglas_-_cathedral-courtship-5754.txt.gz",
+      "textRange": {
+        "start": 111,
+        "ende": 2023
+      },
       "tags": {
         "work_author": "Wiggin, Kate Douglas",
         "reader": "Ric F",
@@ -741,6 +785,10 @@
       "credit": "Public Domain — LibriVox (Buch 15538)",
       "url": "https://librivox.org/the-confessions-of-nat-turner-the-leader-of-the-late-insurrection-in-southampton-va-by-thomas-r-gray/",
       "textUrl": "hoerbuch-texte/en/gray-thomas-r_-_confessions-of-nat-turner-the-leader-of-the-late-insurrection-in-southampton-va-15538.txt.gz",
+      "textRange": {
+        "start": 47,
+        "ende": 852
+      },
       "tags": {
         "work_author": "Gray, Thomas R.",
         "reader": "Joel Kindrick",
@@ -816,6 +864,10 @@
       "credit": "Public Domain — LibriVox (Buch 12492)",
       "url": "https://librivox.org/the-raven-and-the-philosophy-of-composition-by-edgar-allan-poe/",
       "textUrl": "hoerbuch-texte/en/poe-edgar-allan_-_raven-and-the-philosophy-of-composition-12492.txt.gz",
+      "textRange": {
+        "start": 45,
+        "ende": 778
+      },
       "tags": {
         "work_author": "Poe, Edgar Allan",
         "reader": "David Wales",
@@ -883,6 +935,10 @@
       "credit": "Public Domain — LibriVox (Buch 14406)",
       "url": "https://librivox.org/form-and-ornament-in-ceramic-art/",
       "textUrl": "hoerbuch-texte/en/holmes-william-henry_-_form-and-ornament-in-ceramic-art-14406.txt.gz",
+      "textRange": {
+        "start": 116,
+        "ende": 1076
+      },
       "tags": {
         "work_author": "Holmes, William Henry",
         "reader": "Lynne T",
@@ -965,6 +1021,10 @@
       "credit": "Public Domain — LibriVox (Buch 208)",
       "url": "https://librivox.org/on-the-antiseptic-principle-of-the-practice-of-surgery-by-joseph-lister/",
       "textUrl": "hoerbuch-texte/en/lister-joseph_-_on-the-antiseptic-principle-of-the-practice-of-surgery-208.txt.gz",
+      "textRange": {
+        "start": 67,
+        "ende": 16983
+      },
       "tags": {
         "work_author": "Lister, Joseph",
         "reader": "Martin Clifton",
@@ -1011,6 +1071,10 @@
       "credit": "Public Domain — LibriVox (Buch 2638)",
       "url": "https://librivox.org/childs-new-story-book/",
       "textUrl": "hoerbuch-texte/en/anonymous_-_child-s-new-story-book-2638.txt.gz",
+      "textRange": {
+        "start": 58,
+        "ende": 263
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Sibella Denton",
@@ -1102,6 +1166,10 @@
       "credit": "Public Domain — LibriVox (Buch 2508)",
       "url": "https://librivox.org/stickeen-by-john-muir/",
       "textUrl": "hoerbuch-texte/en/muir-john_-_stickeen-2508.txt.gz",
+      "textRange": {
+        "start": 67,
+        "ende": 739
+      },
       "tags": {
         "work_author": "Muir, John",
         "reader": "Sue Anderson",
@@ -1166,6 +1234,10 @@
       "credit": "Public Domain — LibriVox (Buch 11228)",
       "url": "https://librivox.org/hieroglyphic-tales-by-horace-walpole/",
       "textUrl": "hoerbuch-texte/en/walpole-horace_-_hieroglyphic-tales-11228.txt.gz",
+      "textRange": {
+        "start": 23,
+        "ende": 1083
+      },
       "tags": {
         "work_author": "Walpole, Horace",
         "reader": "Barbara Baker",
@@ -1276,6 +1348,10 @@
       "credit": "Public Domain — LibriVox (Buch 7306)",
       "url": "https://librivox.org/critias-by-plato/",
       "textUrl": "hoerbuch-texte/en/plato_-_critias-7306.txt.gz",
+      "textRange": {
+        "start": 45,
+        "ende": 884
+      },
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "Kevin Johnson",
@@ -1334,6 +1410,10 @@
       "credit": "Public Domain — LibriVox (Buch 6855)",
       "url": "https://librivox.org/philippians-king-james-version/",
       "textUrl": "hoerbuch-texte/en/king-james-version-kjv_-_bible-kjv-nt-11-phillippians-6855.txt.gz",
+      "textRange": {
+        "start": 55,
+        "ende": 399
+      },
       "tags": {
         "work_author": "King James Version (KJV)",
         "reader": "Victoria Martin",
@@ -1408,6 +1488,10 @@
       "credit": "Public Domain — LibriVox (Buch 5438)",
       "url": "https://librivox.org/goldsmiths-friend-abroad-again-by-mark-twain/",
       "textUrl": "hoerbuch-texte/en/twain-mark_-_goldsmith-s-friend-abroad-again-5438.txt.gz",
+      "textRange": {
+        "start": 53,
+        "ende": 275
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "John Greenman",
@@ -1483,6 +1567,10 @@
       "credit": "Public Domain — LibriVox (Buch 12916)",
       "url": "https://librivox.org/san-francisco-before-and-after-the-earthquake-by-william-henry-irwin/",
       "textUrl": "hoerbuch-texte/en/irwin-will_-_san-francisco-before-and-after-the-earthquake-12916.txt.gz",
+      "textRange": {
+        "start": 357,
+        "ende": 623
+      },
       "tags": {
         "work_author": "Irwin, Will",
         "reader": "David Wales",
@@ -1549,6 +1637,10 @@
       "credit": "Public Domain — LibriVox (Buch 401)",
       "url": "https://librivox.org/the-riot-act-by-british-parliament/",
       "textUrl": "hoerbuch-texte/en/parliament-of-the-united-kingdom-of-great-britain_-_riot-act-401.txt.gz",
+      "textRange": {
+        "start": 40,
+        "ende": 313
+      },
       "tags": {
         "work_author": "Parliament of the United Kingdom of Great Britain",
         "reader": "David Barnes",
@@ -1595,6 +1687,10 @@
       "credit": "Public Domain — LibriVox (Buch 22215)",
       "url": "https://librivox.org/pop-corn-recipes-by-mary-hamilton-talbott/",
       "textUrl": "hoerbuch-texte/en/talbott-mary-hamilton_-_pop-corn-recipes-22215.txt.gz",
+      "textRange": {
+        "start": 32,
+        "ende": 455
+      },
       "tags": {
         "work_author": "Talbott, Mary Hamilton",
         "reader": "Alexia H.",
@@ -1740,6 +1836,10 @@
       "credit": "Public Domain — LibriVox (Buch 19780)",
       "url": "https://librivox.org/the-new-science-of-controlled-breathing-vol-1-and-2-by-edward-lankow/",
       "textUrl": "hoerbuch-texte/en/lankow-edward_-_new-science-of-controlled-breathing-vol-1-and-2-19780.txt.gz",
+      "textRange": {
+        "start": 41,
+        "ende": 418
+      },
       "tags": {
         "work_author": "Lankow, Edward",
         "reader": "Martha Heaton",
@@ -1804,6 +1904,10 @@
       "credit": "Public Domain — LibriVox (Buch 16981)",
       "url": "https://librivox.org/titan-of-chasms-by-charles-f-lummis/",
       "textUrl": "hoerbuch-texte/en/higgins-charles-a_-_titan-of-chasms-the-grand-canyon-of-arizona-16981.txt.gz",
+      "textRange": {
+        "start": 349,
+        "ende": 1457
+      },
       "tags": {
         "work_author": "Higgins, Charles A.; Lummis, Charles F.; Powell, John Wesley",
         "reader": "David Wales",
@@ -1879,6 +1983,10 @@
       "credit": "Public Domain — LibriVox (Buch 2224)",
       "url": "https://librivox.org/additions-to-esther-by-douay-rheims-version/",
       "textUrl": "hoerbuch-texte/en/douay-rheims-version-drv_-_bible-drv-apocrypha-deuterocanon-additions-to-esther-2224.txt.gz",
+      "textRange": {
+        "start": 82,
+        "ende": 1271
+      },
       "tags": {
         "work_author": "Douay-Rheims Version (DRV)",
         "reader": "Sam Stinson",
@@ -1925,6 +2033,10 @@
       "credit": "Public Domain — LibriVox (Buch 12243)",
       "url": "https://librivox.org/concerning-genealogies-by-frank-allaben/",
       "textUrl": "hoerbuch-texte/en/allaben-frank_-_concerning-genealogies-12243.txt.gz",
+      "textRange": {
+        "start": 29,
+        "ende": 1643
+      },
       "tags": {
         "work_author": "Allaben, Frank",
         "reader": "Roger Melin",
@@ -2036,6 +2148,10 @@
       "credit": "Public Domain — LibriVox (Buch 5547)",
       "url": "https://librivox.org/the-awful-german-language-by-mark-twain-v-3/",
       "textUrl": "hoerbuch-texte/en/twain-mark_-_awful-german-language-version-2-5547.txt.gz",
+      "textRange": {
+        "start": 100,
+        "ende": 4217
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "Kirsten Wever",
@@ -2146,6 +2262,10 @@
       "credit": "Public Domain — LibriVox (Buch 9101)",
       "url": "https://librivox.org/association-football-and-how-to-play-it-by-john-cameron/",
       "textUrl": "hoerbuch-texte/en/cameron-john_-_association-football-and-how-to-play-it-9101.txt.gz",
+      "textRange": {
+        "start": 124,
+        "ende": 2468
+      },
       "tags": {
         "work_author": "Cameron, John",
         "reader": "Ben Adams",
@@ -2246,6 +2366,10 @@
       "credit": "Public Domain — LibriVox (Buch 15985)",
       "url": "https://librivox.org/the-new-joan-and-other-poems-by-katherine-hale/",
       "textUrl": "hoerbuch-texte/en/hale-katherine_-_new-joan-and-other-poems-15985.txt.gz",
+      "textRange": {
+        "start": 59,
+        "ende": 503
+      },
       "tags": {
         "work_author": "Hale, Katherine",
         "reader": "Larry Wilson",
@@ -2337,6 +2461,10 @@
       "credit": "Public Domain — LibriVox (Buch 10080)",
       "url": "https://librivox.org/prometheus-bound-by-aeschylus-2/",
       "textUrl": "hoerbuch-texte/en/aeschylus_-_prometheus-bound-thoreau-translation-10080.txt.gz",
+      "textRange": {
+        "start": 330,
+        "ende": 13259
+      },
       "tags": {
         "work_author": "Aeschylus",
         "reader": "Expatriate",
@@ -2404,6 +2532,10 @@
       "credit": "Public Domain — LibriVox (Buch 19823)",
       "url": "https://librivox.org/the-principles-of-secularism-by-george-j-holyoake/",
       "textUrl": "hoerbuch-texte/en/holyoake-george-j_-_principles-of-secularism-19823.txt.gz",
+      "textRange": {
+        "start": 46,
+        "ende": 1729
+      },
       "tags": {
         "work_author": "Holyoake, George J.",
         "reader": "Availle",
@@ -2540,6 +2672,10 @@
       "credit": "Public Domain — LibriVox (Buch 14948)",
       "url": "https://librivox.org/colossians-weymouth-new-testament/",
       "textUrl": "hoerbuch-texte/en/weymouth-new-testament_-_bible-wnt-nt-12-colossians-14948.txt.gz",
+      "textRange": {
+        "start": 49,
+        "ende": 405
+      },
       "tags": {
         "work_author": "Weymouth New Testament",
         "reader": "Mark Penfold",
@@ -2589,6 +2725,10 @@
       "credit": "Public Domain — LibriVox (Buch 139)",
       "url": "https://librivox.org/a-calendar-of-sonnets-by-helen-hunt-jackson/",
       "textUrl": "hoerbuch-texte/en/jackson-helen-hunt_-_calendar-of-sonnets-139.txt.gz",
+      "textRange": {
+        "start": 52,
+        "ende": 307
+      },
       "tags": {
         "work_author": "Jackson, Helen Hunt",
         "reader": "Fox in the Stars",
@@ -2734,6 +2874,10 @@
       "credit": "Public Domain — LibriVox (Buch 13289)",
       "url": "https://librivox.org/games-for-hallow-een-by-mary-e-blain/",
       "textUrl": "hoerbuch-texte/en/blain-mary-e_-_games-for-hallow-e-en-13289.txt.gz",
+      "textRange": {
+        "start": 65,
+        "ende": 1568
+      },
       "tags": {
         "work_author": "Blain, Mary E.",
         "reader": "Nan Dodge",
@@ -2809,6 +2953,10 @@
       "credit": "Public Domain — LibriVox (Buch 9053)",
       "url": "https://librivox.org/collected-articles-of-frederick-douglass-by-frederick-douglass/",
       "textUrl": "hoerbuch-texte/en/douglass-frederick_-_collected-articles-of-frederick-douglass-9053.txt.gz",
+      "textRange": {
+        "start": 43,
+        "ende": 770
+      },
       "tags": {
         "work_author": "Douglass, Frederick",
         "reader": "Lee Smalley",
@@ -2864,6 +3012,10 @@
       "credit": "Public Domain — LibriVox (Buch 9610)",
       "url": "https://librivox.org/the-saga-of-gunnlaug-the-worm-tongue-and-raven-the-skald-by-anonymous/",
       "textUrl": "hoerbuch-texte/en/anonymous_-_saga-of-gunnlaug-the-worm-tongue-and-raven-the-skald-9610.txt.gz",
+      "textRange": {
+        "start": 49,
+        "ende": 1703
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Phil Schempf",
@@ -2967,6 +3119,10 @@
       "credit": "Public Domain — LibriVox (Buch 1032)",
       "url": "https://librivox.org/book-of-philemon-web/",
       "textUrl": "hoerbuch-texte/en/world-english-bible_-_bible-web-nt-18-philemon-1032.txt.gz",
+      "textRange": {
+        "start": 45,
+        "ende": 91
+      },
       "tags": {
         "work_author": "World English Bible",
         "reader": "Leon Mire",
@@ -3013,6 +3169,10 @@
       "credit": "Public Domain — LibriVox (Buch 10299)",
       "url": "https://librivox.org/the-hunting-of-the-snark-by-lewis-carroll-3/",
       "textUrl": "hoerbuch-texte/en/carroll-lewis_-_hunting-of-the-snark-version-3-10299.txt.gz",
+      "textRange": {
+        "start": 45,
+        "ende": 881
+      },
       "tags": {
         "work_author": "Carroll, Lewis",
         "reader": "Phil Chenevert",
@@ -3060,6 +3220,10 @@
       "credit": "Public Domain — LibriVox (Buch 5092)",
       "url": "https://librivox.org/the-story-of-the-pony-express-by-glenn-d-bradley/",
       "textUrl": "hoerbuch-texte/en/bradley-glenn-d_-_story-of-the-pony-express-5092.txt.gz",
+      "textRange": {
+        "start": 58,
+        "ende": 2738
+      },
       "tags": {
         "work_author": "Bradley, Glenn D.",
         "reader": "Roger Melin",
@@ -3179,6 +3343,10 @@
       "credit": "Public Domain — LibriVox (Buch 22612)",
       "url": "https://librivox.org/nuts-in-family-meals/",
       "textUrl": "hoerbuch-texte/en/united-states-department-of-agriculture_-_nuts-in-family-meals-a-guide-for-consumers-version-2-22612.txt.gz",
+      "textRange": {
+        "start": 21,
+        "ende": 1242
+      },
       "tags": {
         "work_author": "United States Department of Agriculture",
         "reader": "favorezeanuna",
@@ -3370,6 +3538,10 @@
       "credit": "Public Domain — LibriVox (Buch 7324)",
       "url": "https://librivox.org/hero-and-leander-by-christopher-marlowe/",
       "textUrl": "hoerbuch-texte/en/marlowe-christopher_-_hero-and-leander-version-2-7324.txt.gz",
+      "textRange": {
+        "start": 45,
+        "ende": 879
+      },
       "tags": {
         "work_author": "Marlowe, Christopher",
         "reader": "Thomas A. Copeland",
@@ -3426,6 +3598,10 @@
       "credit": "Public Domain — LibriVox (Buch 18009)",
       "url": "https://librivox.org/chemical-constituents-of-ava-root-by-alice-a-ball/",
       "textUrl": "hoerbuch-texte/en/ball-alice-a_-_chemical-constituents-of-the-active-principle-of-the-ava-root-18009.txt.gz",
+      "textRange": {
+        "start": 5,
+        "ende": 1058
+      },
       "tags": {
         "work_author": "Ball, Alice A.",
         "reader": "J. M. Smallheer",
@@ -3526,6 +3702,10 @@
       "credit": "Public Domain — LibriVox (Buch 4154)",
       "url": "https://librivox.org/a-dialogue-concerning-oratory-or-the-causes-of-corrupt-eloquence-by-publius-cornelius-tacitus/",
       "textUrl": "hoerbuch-texte/en/tacitus-publius-cornelius_-_dialogue-concerning-oratory-or-the-causes-of-corrupt-eloquence-4154.txt.gz",
+      "textRange": {
+        "start": 92,
+        "ende": 7806
+      },
       "tags": {
         "work_author": "Tacitus, Publius Cornelius",
         "reader": "Leni",
@@ -3630,6 +3810,10 @@
       "credit": "Public Domain — LibriVox (Buch 8993)",
       "url": "https://librivox.org/the-pirates-of-penzance-or-the-slave-of-duty-version-2-by-w-s-gilbert/",
       "textUrl": "hoerbuch-texte/en/gilbert-w-s_-_pirates-of-penzance-or-the-slave-of-duty-version-2-8993.txt.gz",
+      "textRange": {
+        "start": 21,
+        "ende": 31266
+      },
       "tags": {
         "work_author": "Gilbert, W. S.",
         "reader": "David Wales",
@@ -3685,6 +3869,10 @@
       "credit": "Public Domain — LibriVox (Buch 17658)",
       "url": "https://librivox.org/the-black-riders-and-other-lines-version-2-by-stephen-crane/",
       "textUrl": "hoerbuch-texte/en/crane-stephen_-_black-riders-and-other-lines-version-2-17658.txt.gz",
+      "textRange": {
+        "start": 92,
+        "ende": 1184
+      },
       "tags": {
         "work_author": "Crane, Stephen",
         "reader": "Chuck Williamson",
@@ -3758,6 +3946,10 @@
       "credit": "Public Domain — LibriVox (Buch 2628)",
       "url": "https://librivox.org/the-praise-of-folly-by-erasmus/",
       "textUrl": "hoerbuch-texte/en/erasmus-desiderius_-_praise-of-folly-2628.txt.gz",
+      "textRange": {
+        "start": 57,
+        "ende": 3084
+      },
       "tags": {
         "work_author": "Erasmus, Desiderius",
         "reader": "Anna Simon",
@@ -3897,6 +4089,10 @@
       "credit": "Public Domain — LibriVox (Buch 6777)",
       "url": "https://librivox.org/erotica-romana-by-johann-wolfgang-von-goethe/",
       "textUrl": "hoerbuch-texte/en/goethe-johann-wolfgang-von_-_erotica-romana-6777.txt.gz",
+      "textRange": {
+        "start": 1342,
+        "ende": 1380
+      },
       "tags": {
         "work_author": "Goethe, Johann Wolfgang von",
         "reader": "A. E. Maroney",
@@ -4151,6 +4347,10 @@
       "credit": "Public Domain — LibriVox (Buch 22429)",
       "url": "https://librivox.org/monthly-supplement-of-the-penny-magazine-of-the-society-for-the-diffusion-of-useful-knowledge-issue-37-by-charles-knight/",
       "textUrl": "hoerbuch-texte/en/knight-charles_-_monthly-supplement-of-the-penny-magazine-of-the-society-for-the-diffusion-of-use-22429.txt.gz",
+      "textRange": {
+        "start": 27,
+        "ende": 1023
+      },
       "tags": {
         "work_author": "Knight, Charles",
         "reader": "Beeswaxcandle",
@@ -4199,6 +4399,7 @@
       "credit": "Public Domain — LibriVox (Buch 238)",
       "url": "https://librivox.org/philosophy-and-fun-of-algebra-by-mary-everest-boole/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Boole, Mary Everest",
         "reader": "Patricia Oakley",
@@ -4399,6 +4600,10 @@
       "credit": "Public Domain — LibriVox (Buch 6476)",
       "url": "https://librivox.org/don-juan-in-hell-by-george-bernard-shaw/",
       "textUrl": "hoerbuch-texte/en/shaw-george-bernard_-_don-juan-in-hell-6476.txt.gz",
+      "textRange": {
+        "start": 304,
+        "ende": 8178
+      },
       "tags": {
         "work_author": "Shaw, George Bernard",
         "reader": "Bob Neufeld",
@@ -4455,6 +4660,10 @@
       "credit": "Public Domain — LibriVox (Buch 513)",
       "url": "https://librivox.org/the-awful-german-language-by-mark-twain/",
       "textUrl": "hoerbuch-texte/en/twain-mark_-_awful-german-language-513.txt.gz",
+      "textRange": {
+        "start": 100,
+        "ende": 4217
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "Rainer",
@@ -4520,6 +4729,10 @@
       "credit": "Public Domain — LibriVox (Buch 1429)",
       "url": "https://librivox.org/floor-games/",
       "textUrl": "hoerbuch-texte/en/wells-h-g_-_floor-games-1429.txt.gz",
+      "textRange": {
+        "start": 62,
+        "ende": 686
+      },
       "tags": {
         "work_author": "Wells, H. G.",
         "reader": "Mark F. Smith",
@@ -4566,6 +4779,10 @@
       "credit": "Public Domain — LibriVox (Buch 6177)",
       "url": "https://librivox.org/mornings-at-bow-street-by-john-wight/",
       "textUrl": "hoerbuch-texte/en/wight-john_-_mornings-at-bow-street-6177.txt.gz",
+      "textRange": {
+        "start": 382,
+        "ende": 6736
+      },
       "tags": {
         "work_author": "Wight, John",
         "reader": "Chris Caron",
@@ -4802,6 +5019,10 @@
       "credit": "Public Domain — LibriVox (Buch 10024)",
       "url": "https://librivox.org/diary-of-a-suicide-by-wallace-e-baker/",
       "textUrl": "hoerbuch-texte/en/baker-wallace-e_-_diary-of-a-suicide-10024.txt.gz",
+      "textRange": {
+        "start": 64,
+        "ende": 2202
+      },
       "tags": {
         "work_author": "Baker, Wallace E.",
         "reader": "Lee Smalley",
@@ -4912,6 +5133,10 @@
       "credit": "Public Domain — LibriVox (Buch 9998)",
       "url": "https://librivox.org/the-clouds-by-aristophanes/",
       "textUrl": "hoerbuch-texte/en/aristophanes_-_clouds-9998.txt.gz",
+      "textRange": {
+        "start": 74,
+        "ende": 12830
+      },
       "tags": {
         "work_author": "Aristophanes",
         "reader": "Expatriate",
@@ -4979,6 +5204,10 @@
       "credit": "Public Domain — LibriVox (Buch 1958)",
       "url": "https://librivox.org/the-book-of-art-for-young-people-by-agnes-ethel-conway-and-sir-martin-conway/",
       "textUrl": "hoerbuch-texte/en/conway-agnes-ethel_-_book-of-art-for-young-people-1958.txt.gz",
+      "textRange": {
+        "start": 180,
+        "ende": 4570
+      },
       "tags": {
         "work_author": "Conway, Agnes Ethel",
         "reader": "Kara Shallenberg (1969-2023)",
@@ -5151,6 +5380,10 @@
       "credit": "Public Domain — LibriVox (Buch 9403)",
       "url": "https://librivox.org/selections-from-gems-of-poetry-for-girls-and-boys-by-unknown/",
       "textUrl": "hoerbuch-texte/en/unknown_-_selections-from-gems-of-poetry-for-girls-and-boys-9403.txt.gz",
+      "textRange": {
+        "start": 260,
+        "ende": 543
+      },
       "tags": {
         "work_author": "Unknown; Woodworth, Samuel",
         "reader": "Willy",
@@ -5242,6 +5475,10 @@
       "credit": "Public Domain — LibriVox (Buch 1293)",
       "url": "https://librivox.org/the-gettysburg-address-by-abraham-lincoln-3/",
       "textUrl": "hoerbuch-texte/en/lincoln-abraham_-_gettysburg-address-version-4-1293.txt.gz",
+      "textRange": {
+        "start": 5,
+        "ende": 44
+      },
       "tags": {
         "work_author": "Lincoln, Abraham",
         "reader": "Jim Cadwell",
@@ -5288,6 +5525,10 @@
       "credit": "Public Domain — LibriVox (Buch 21584)",
       "url": "https://librivox.org/the-tables-of-the-law-and-the-adoration-of-the-magi-by-william-butler-yeats/",
       "textUrl": "hoerbuch-texte/en/yeats-william-butler_-_tables-of-the-law-and-the-adoration-of-the-magi-21584.txt.gz",
+      "textRange": {
+        "start": 38,
+        "ende": 706
+      },
       "tags": {
         "work_author": "Yeats, William Butler",
         "reader": "Thomas A. Copeland",
@@ -5336,6 +5577,10 @@
       "credit": "Public Domain — LibriVox (Buch 3198)",
       "url": "https://librivox.org/lord-kitchener-by-chesterton/",
       "textUrl": "hoerbuch-texte/en/chesterton-g-k_-_lord-kitchener-3198.txt.gz",
+      "textRange": {
+        "start": 58,
+        "ende": 807
+      },
       "tags": {
         "work_author": "Chesterton, G. K.",
         "reader": "Ray Clare",
@@ -5410,6 +5655,10 @@
       "credit": "Public Domain — LibriVox (Buch 6198)",
       "url": "https://librivox.org/padre-ignacio-or-the-song-of-temptation-by-owen-wister/",
       "textUrl": "hoerbuch-texte/en/wister-owen_-_padre-ignacio-or-the-song-of-temptation-6198.txt.gz",
+      "textRange": {
+        "start": 15,
+        "ende": 1050
+      },
       "tags": {
         "work_author": "Wister, Owen",
         "reader": "David Wales",
@@ -5484,6 +5733,10 @@
       "credit": "Public Domain — LibriVox (Buch 2220)",
       "url": "https://librivox.org/a-dogs-tale-by-mark-twain/",
       "textUrl": "hoerbuch-texte/en/twain-mark_-_dog-s-tale-2220.txt.gz",
+      "textRange": {
+        "start": 37,
+        "ende": 411
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "Aaron Elliott",
@@ -5549,6 +5802,10 @@
       "credit": "Public Domain — LibriVox (Buch 21483)",
       "url": "https://librivox.org/slave-narratives-volume-vi-kansas-narratives-by-united-states-work-projects-administration/",
       "textUrl": "hoerbuch-texte/en/united-states-work-projects-administration_-_slave-narratives-a-folk-history-of-slavery-in-the-united-states-from-interviews-21483.txt.gz",
+      "textRange": {
+        "start": 61,
+        "ende": 521
+      },
       "tags": {
         "work_author": "United States Work Projects Administration",
         "reader": "Donald Warren",
@@ -5615,6 +5872,10 @@
       "credit": "Public Domain — LibriVox (Buch 9138)",
       "url": "https://librivox.org/gods-of-the-north-by-robert-e-howard/",
       "textUrl": "hoerbuch-texte/en/howard-robert-e_-_gods-of-the-north-9138.txt.gz",
+      "textRange": {
+        "start": 10,
+        "ende": 366
+      },
       "tags": {
         "work_author": "Howard, Robert E.",
         "reader": "Phil Chenevert",
@@ -5670,6 +5931,10 @@
       "credit": "Public Domain — LibriVox (Buch 682)",
       "url": "https://librivox.org/fenimore-coopers-literary-offenses-by-mark-twain/",
       "textUrl": "hoerbuch-texte/en/twain-mark_-_fenimore-cooper-s-literary-offences-682.txt.gz",
+      "textRange": {
+        "start": 38,
+        "ende": 550
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "Gesine",
@@ -5717,6 +5982,10 @@
       "credit": "Public Domain — LibriVox (Buch 17094)",
       "url": "https://librivox.org/sunshine-factory-by-pansy-2/",
       "textUrl": "hoerbuch-texte/en/pansy_-_sunshine-factory-version-2-17094.txt.gz",
+      "textRange": {
+        "start": 67,
+        "ende": 721
+      },
       "tags": {
         "work_author": "Pansy",
         "reader": "DariaAM",
@@ -5818,6 +6087,10 @@
       "credit": "Public Domain — LibriVox (Buch 11096)",
       "url": "https://librivox.org/somewhere-in-france-by-richard-harding-davis/",
       "textUrl": "hoerbuch-texte/en/davis-richard-harding_-_somewhere-in-france-11096.txt.gz",
+      "textRange": {
+        "start": 73,
+        "ende": 5063
+      },
       "tags": {
         "work_author": "Davis, Richard Harding",
         "reader": "Crln Yldz Ksr",
@@ -5882,6 +6155,10 @@
       "credit": "Public Domain — LibriVox (Buch 6341)",
       "url": "https://librivox.org/civil-disobedience-by-henry-david-thoreau/",
       "textUrl": "hoerbuch-texte/en/thoreau-henry-david_-_on-the-duty-of-civil-disobedience-version-2-6341.txt.gz",
+      "textRange": {
+        "start": 38,
+        "ende": 861
+      },
       "tags": {
         "work_author": "Thoreau, Henry David",
         "reader": "Bob Neufeld",
@@ -5939,6 +6216,10 @@
       "credit": "Public Domain — LibriVox (Buch 5596)",
       "url": "https://librivox.org/history-of-farming-in-ontario-by-c-c-james/",
       "textUrl": "hoerbuch-texte/en/james-c-c_-_history-of-farming-in-ontario-5596.txt.gz",
+      "textRange": {
+        "start": 80,
+        "ende": 1260
+      },
       "tags": {
         "work_author": "James, C. C.",
         "reader": "Esther",
@@ -6004,6 +6285,10 @@
       "credit": "Public Domain — LibriVox (Buch 8991)",
       "url": "https://librivox.org/lifes-enthusiasms-by-david-starr-jordan/",
       "textUrl": "hoerbuch-texte/en/jordan-david-starr_-_life-s-enthusiasms-8991.txt.gz",
+      "textRange": {
+        "start": 23,
+        "ende": 686
+      },
       "tags": {
         "work_author": "Jordan, David Starr",
         "reader": "Bill Boerst",
@@ -6069,6 +6354,10 @@
       "credit": "Public Domain — LibriVox (Buch 4136)",
       "url": "https://librivox.org/mark-twains-burlesque-autobiography-and-first-romance-by-twain-mark/",
       "textUrl": "hoerbuch-texte/en/twain-mark_-_mark-twain-s-burlesque-autobiography-and-first-romance-4136.txt.gz",
+      "textRange": {
+        "start": 51,
+        "ende": 616
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "John Greenman",
@@ -6143,6 +6432,10 @@
       "credit": "Public Domain — LibriVox (Buch 8514)",
       "url": "https://librivox.org/the-first-christmas-tree-by-henry-van-dyke/",
       "textUrl": "hoerbuch-texte/en/van-dyke-henry_-_first-christmas-tree-8514.txt.gz",
+      "textRange": {
+        "start": 91,
+        "ende": 969
+      },
       "tags": {
         "work_author": "van Dyke, Henry",
         "reader": "PennyAnn",
@@ -6216,6 +6509,10 @@
       "credit": "Public Domain — LibriVox (Buch 17806)",
       "url": "https://librivox.org/on-the-ruin-of-britain-by-gildas/",
       "textUrl": "hoerbuch-texte/en/gildas_-_on-the-ruin-of-britain-17806.txt.gz",
+      "textRange": {
+        "start": 53,
+        "ende": 779
+      },
       "tags": {
         "work_author": "Gildas",
         "reader": "Carol Pelster",
@@ -6283,6 +6580,10 @@
       "credit": "Public Domain — LibriVox (Buch 1968)",
       "url": "https://librivox.org/as-a-man-thinketh-by-james-allen/",
       "textUrl": "hoerbuch-texte/en/allen-james_-_as-a-man-thinketh-1968.txt.gz",
+      "textRange": {
+        "start": 88,
+        "ende": 970
+      },
       "tags": {
         "work_author": "Allen, James",
         "reader": "Mark Cawley",
@@ -6393,6 +6694,10 @@
       "credit": "Public Domain — LibriVox (Buch 18274)",
       "url": "https://librivox.org/maws-vacation-by-emerson-hough/",
       "textUrl": "hoerbuch-texte/en/hough-emerson_-_maw-s-vacation-18274.txt.gz",
+      "textRange": {
+        "start": 6,
+        "ende": 1101
+      },
       "tags": {
         "work_author": "Hough, Emerson",
         "reader": "Laurie Banza",
@@ -6530,6 +6835,10 @@
       "credit": "Public Domain — LibriVox (Buch 4520)",
       "url": "https://librivox.org/philemon-kjv-by-king-james-version/",
       "textUrl": "hoerbuch-texte/en/king-james-version-kjv_-_bible-kjv-nt-18-philemon-4520.txt.gz",
+      "textRange": {
+        "start": 34,
+        "ende": 109865
+      },
       "tags": {
         "work_author": "King James Version (KJV)",
         "reader": "David Lawrence",
@@ -6576,6 +6885,10 @@
       "credit": "Public Domain — LibriVox (Buch 14754)",
       "url": "https://librivox.org/songs-of-innocence-and-experience-by-william-blake-3/",
       "textUrl": "hoerbuch-texte/en/blake-william_-_songs-of-innocence-and-experience-version-3-14754.txt.gz",
+      "textRange": {
+        "start": 53,
+        "ende": 1505
+      },
       "tags": {
         "work_author": "Blake, William",
         "reader": "Thomas A. Copeland",
@@ -6631,6 +6944,10 @@
       "credit": "Public Domain — LibriVox (Buch 7433)",
       "url": "https://librivox.org/the-city-of-the-sun-by-tommaso-campanella/",
       "textUrl": "hoerbuch-texte/en/campanella-tommaso_-_city-of-the-sun-7433.txt.gz",
+      "textRange": {
+        "start": 45,
+        "ende": 1567
+      },
       "tags": {
         "work_author": "Campanella, Tommaso",
         "reader": "Rapunzelina",
@@ -6734,6 +7051,10 @@
       "credit": "Public Domain — LibriVox (Buch 11798)",
       "url": "https://librivox.org/celebrated-crimes-vol-4-part-3-nisida-by-alexandre-dumas/",
       "textUrl": "hoerbuch-texte/en/dumas-alexandre_-_celebrated-crimes-vol-4-part-3-nisida-11798.txt.gz",
+      "textRange": {
+        "start": 23,
+        "ende": 62580
+      },
       "tags": {
         "work_author": "Dumas, Alexandre",
         "reader": "John Van Stan",
@@ -6801,6 +7122,10 @@
       "credit": "Public Domain — LibriVox (Buch 8452)",
       "url": "https://librivox.org/as-a-man-thinketh-by-james-allen-3/",
       "textUrl": "hoerbuch-texte/en/allen-james_-_as-a-man-thinketh-version-3-8452.txt.gz",
+      "textRange": {
+        "start": 88,
+        "ende": 970
+      },
       "tags": {
         "work_author": "Allen, James",
         "reader": "Algy Pug",
@@ -6910,6 +7235,10 @@
       "credit": "Public Domain — LibriVox (Buch 4072)",
       "url": "https://librivox.org/fenimore-coopers-literary-offences-by-mark-twain/",
       "textUrl": "hoerbuch-texte/en/twain-mark_-_fenimore-cooper-s-literary-offences-version-2-4072.txt.gz",
+      "textRange": {
+        "start": 38,
+        "ende": 550
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "John Greenman",
@@ -6957,6 +7286,10 @@
       "credit": "Public Domain — LibriVox (Buch 12031)",
       "url": "https://librivox.org/a-short-discourse-concerning-pestilential-contagion-and-the-methods-to-be-used-to-prevent-it-by-richard-mead/",
       "textUrl": "hoerbuch-texte/en/mead-richard_-_short-discourse-concerning-pestilential-contagion-and-the-methods-to-be-used-to-12031.txt.gz",
+      "textRange": {
+        "start": 82,
+        "ende": 919
+      },
       "tags": {
         "work_author": "Mead, Richard",
         "reader": "Paul Mazumdar",
@@ -7022,6 +7355,10 @@
       "credit": "Public Domain — LibriVox (Buch 2639)",
       "url": "https://librivox.org/tiny-story-book/",
       "textUrl": "hoerbuch-texte/en/anonymous_-_tiny-story-book-2639.txt.gz",
+      "textRange": {
+        "start": 61,
+        "ende": 390
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Sibella Denton",
@@ -7185,6 +7522,10 @@
       "credit": "Public Domain — LibriVox (Buch 13390)",
       "url": "https://librivox.org/our-lady-of-the-pillar-by-jose-maria-de-eca-de-queiros/",
       "textUrl": "hoerbuch-texte/en/eca-de-queiros-jose-maria-de_-_our-lady-of-the-pillar-13390.txt.gz",
+      "textRange": {
+        "start": 96,
+        "ende": 1152
+      },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "Leni",
@@ -7262,6 +7603,10 @@
       "credit": "Public Domain — LibriVox (Buch 10142)",
       "url": "https://librivox.org/a-story-of-one-short-life-1783-to-1818-by-elisabeth-g-stryker/",
       "textUrl": "hoerbuch-texte/en/stryker-elisabeth-g_-_story-of-one-short-life-1783-to-1818-10142.txt.gz",
+      "textRange": {
+        "start": 74,
+        "ende": 1107
+      },
       "tags": {
         "work_author": "Stryker, Elisabeth G.",
         "reader": "Larry Wilson",
@@ -7399,6 +7744,10 @@
       "credit": "Public Domain — LibriVox (Buch 11122)",
       "url": "https://librivox.org/mendelssohn-and-certain-masterworks-by-herbert-francis-peyser/",
       "textUrl": "hoerbuch-texte/en/peyser-herbert-francis_-_mendelssohn-and-certain-masterworks-11122.txt.gz",
+      "textRange": {
+        "start": 34,
+        "ende": 1462
+      },
       "tags": {
         "work_author": "Peyser, Herbert Francis",
         "reader": "David Wales",
@@ -7473,6 +7822,10 @@
       "credit": "Public Domain — LibriVox (Buch 20808)",
       "url": "https://librivox.org/the-enchiridion-by-epictetus-2/",
       "textUrl": "hoerbuch-texte/en/epictetus_-_enchiridion-higginson-translation-20808.txt.gz",
+      "textRange": {
+        "start": 50,
+        "ende": 1374
+      },
       "tags": {
         "work_author": "Epictetus",
         "reader": "Brian Mumford",
@@ -7584,6 +7937,10 @@
       "credit": "Public Domain — LibriVox (Buch 6826)",
       "url": "https://librivox.org/gabriel-and-the-hour-book-by-evaleen-stein/",
       "textUrl": "hoerbuch-texte/en/stein-evaleen_-_gabriel-and-the-hour-book-6826.txt.gz",
+      "textRange": {
+        "start": 184,
+        "ende": 2223
+      },
       "tags": {
         "work_author": "Stein, Evaleen",
         "reader": "Laura Victoria",
@@ -7720,6 +8077,10 @@
       "credit": "Public Domain — LibriVox (Buch 3611)",
       "url": "https://librivox.org/a-short-and-easy-method-of-prayer-by-madame-guyon/",
       "textUrl": "hoerbuch-texte/en/guyon-jeanne-marie-bouvier-de-la-motte_-_short-and-easy-method-of-prayer-3611.txt.gz",
+      "textRange": {
+        "start": 305,
+        "ende": 1855
+      },
       "tags": {
         "work_author": "Guyon, Jeanne Marie Bouvier de la Motte",
         "reader": "Jordan",
@@ -7804,6 +8165,10 @@
       "credit": "Public Domain — LibriVox (Buch 4537)",
       "url": "https://librivox.org/ruth-kjv-by-king-james-version/",
       "textUrl": "hoerbuch-texte/en/king-james-version-kjv_-_bible-kjv-08-ruth-4537.txt.gz",
+      "textRange": {
+        "start": 54,
+        "ende": 394
+      },
       "tags": {
         "work_author": "King James Version (KJV)",
         "reader": "TriciaG",
@@ -7851,6 +8216,10 @@
       "credit": "Public Domain — LibriVox (Buch 16030)",
       "url": "https://librivox.org/brain-and-voice-in-speech-and-song-by-frederick-walker-mott/",
       "textUrl": "hoerbuch-texte/en/mott-frederick-walker_-_brain-and-the-voice-in-speech-and-song-16030.txt.gz",
+      "textRange": {
+        "start": 14,
+        "ende": 2451
+      },
       "tags": {
         "work_author": "Mott, Frederick Walker",
         "reader": "Marya James",
@@ -7960,6 +8329,10 @@
       "credit": "Public Domain — LibriVox (Buch 14246)",
       "url": "https://librivox.org/capital-and-interest-by-frederic-bastiat/",
       "textUrl": "hoerbuch-texte/en/bastiat-frederic_-_capital-and-interest-14246.txt.gz",
+      "textRange": {
+        "start": 76,
+        "ende": 10761
+      },
       "tags": {
         "work_author": "Bastiat, Frédéric",
         "reader": "Michele Fry",
@@ -8060,6 +8433,10 @@
       "credit": "Public Domain — LibriVox (Buch 15419)",
       "url": "https://librivox.org/above-the-french-lines-by-stuart-walcott/",
       "textUrl": "hoerbuch-texte/en/walcott-stuart_-_above-the-french-lines-15419.txt.gz",
+      "textRange": {
+        "start": 92,
+        "ende": 1863
+      },
       "tags": {
         "work_author": "Walcott, Stuart",
         "reader": "KevinS",
@@ -8152,6 +8529,10 @@
       "credit": "Public Domain — LibriVox (Buch 2422)",
       "url": "https://librivox.org/popular-history-of-ireland-vol5-by-thomas-darcy-mcgee/",
       "textUrl": "hoerbuch-texte/en/mcgee-thomas-d-arcy_-_popular-history-of-ireland-book-05-2422.txt.gz",
+      "textRange": {
+        "start": 164,
+        "ende": 28734
+      },
       "tags": {
         "work_author": "McGee, Thomas D'Arcy",
         "reader": "Sibella Denton",
@@ -8225,6 +8606,10 @@
       "credit": "Public Domain — LibriVox (Buch 8085)",
       "url": "https://librivox.org/a-treatise-on-staff-making-and-pivoting-by-eugene-edward-hall/",
       "textUrl": "hoerbuch-texte/en/hall-eugene-edward_-_treatise-on-staff-making-and-pivoting-8085.txt.gz",
+      "textRange": {
+        "start": 74,
+        "ende": 1038
+      },
       "tags": {
         "work_author": "Hall, Eugene Edward",
         "reader": "Bev J Stevens",
@@ -8325,6 +8710,10 @@
       "credit": "Public Domain — LibriVox (Buch 465)",
       "url": "https://librivox.org/the-constitution-of-the-united-states-of-america-1787/",
       "textUrl": "hoerbuch-texte/en/united-states-government_-_constitution-of-the-united-states-of-america-1787-465.txt.gz",
+      "textRange": {
+        "start": 5,
+        "ende": 626
+      },
       "tags": {
         "work_author": "United States Government",
         "reader": "Kristen McQuillin",
@@ -8426,6 +8815,10 @@
       "credit": "Public Domain — LibriVox (Buch 17584)",
       "url": "https://librivox.org/kitchen-tested-recipes-from-canned-foods-by-american-can-company/",
       "textUrl": "hoerbuch-texte/en/american-can-company_-_kitchen-tested-recipes-from-canned-foods-17584.txt.gz",
+      "textRange": {
+        "start": 12,
+        "ende": 735
+      },
       "tags": {
         "work_author": "American Can Company",
         "reader": "BettyB",
@@ -8499,6 +8892,10 @@
       "credit": "Public Domain — LibriVox (Buch 3474)",
       "url": "https://librivox.org/simple-sabotage-field-manual-by-united-states-office-of-strategic-services/",
       "textUrl": "hoerbuch-texte/en/united-states-office-of-strategic-services_-_simple-sabotage-field-manual-3474.txt.gz",
+      "textRange": {
+        "start": 73,
+        "ende": 1285
+      },
       "tags": {
         "work_author": "United States Office of Strategic Services",
         "reader": "James Christopher",
@@ -8555,6 +8952,10 @@
       "credit": "Public Domain — LibriVox (Buch 13204)",
       "url": "https://librivox.org/the-fun-of-getting-thin-by-samuel-g-blythe/",
       "textUrl": "hoerbuch-texte/en/blythe-samuel-g_-_fun-of-getting-thin-13204.txt.gz",
+      "textRange": {
+        "start": 40,
+        "ende": 646
+      },
       "tags": {
         "work_author": "Blythe, Samuel G.",
         "reader": "Christine Lehman",
@@ -8619,6 +9020,10 @@
       "credit": "Public Domain — LibriVox (Buch 2225)",
       "url": "https://librivox.org/additions-to-daniel-by-douay-rheims-version/",
       "textUrl": "hoerbuch-texte/en/douay-rheims-version-drv_-_bible-drv-apocrypha-deuterocanon-additions-to-daniel-2225.txt.gz",
+      "textRange": {
+        "start": 32,
+        "ende": 2365
+      },
       "tags": {
         "work_author": "Douay-Rheims Version (DRV)",
         "reader": "Sam Stinson",
@@ -8683,6 +9088,10 @@
       "credit": "Public Domain — LibriVox (Buch 13681)",
       "url": "https://librivox.org/boys-and-girls-pliny-1-by-pliny-the-elder/",
       "textUrl": "hoerbuch-texte/en/pliny-the-elder_-_boys-and-girls-pliny-vol-1-13681.txt.gz",
+      "textRange": {
+        "start": 284,
+        "ende": 11578
+      },
       "tags": {
         "work_author": "Pliny the Elder; White, John S.",
         "reader": "Foon",
@@ -8856,6 +9265,10 @@
       "credit": "Public Domain — LibriVox (Buch 6503)",
       "url": "https://librivox.org/george-washington-by-calista-mccabe-courtenay/",
       "textUrl": "hoerbuch-texte/en/courtenay-calista-mccabe_-_george-washington-6503.txt.gz",
+      "textRange": {
+        "start": 68,
+        "ende": 2266
+      },
       "tags": {
         "work_author": "Courtenay, Calista McCabe",
         "reader": "Bill Boerst",
@@ -8965,6 +9378,10 @@
       "credit": "Public Domain — LibriVox (Buch 8790)",
       "url": "https://librivox.org/right-off-the-bat-by-william-f-kirk/",
       "textUrl": "hoerbuch-texte/en/kirk-william-f_-_right-off-the-bat-8790.txt.gz",
+      "textRange": {
+        "start": 160,
+        "ende": 1606
+      },
       "tags": {
         "work_author": "Kirk, William F.",
         "reader": "ACBowgus",
@@ -9039,6 +9456,10 @@
       "credit": "Public Domain — LibriVox (Buch 379)",
       "url": "https://librivox.org/fishing-with-a-worm-by-bliss-perry/",
       "textUrl": "hoerbuch-texte/en/perry-bliss_-_fishing-with-a-worm-379.txt.gz",
+      "textRange": {
+        "start": 66,
+        "ende": 473
+      },
       "tags": {
         "work_author": "Perry, Bliss",
         "reader": "Betsie Bush",
@@ -9085,6 +9506,10 @@
       "credit": "Public Domain — LibriVox (Buch 4435)",
       "url": "https://librivox.org/english-as-she-is-wrote-by-anonymous/",
       "textUrl": "hoerbuch-texte/en/anonymous_-_english-as-she-is-wrote-4435.txt.gz",
+      "textRange": {
+        "start": 64,
+        "ende": 1965
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "TriciaG",
@@ -9160,6 +9585,10 @@
       "credit": "Public Domain — LibriVox (Buch 9542)",
       "url": "https://librivox.org/sohrab-and-rustum-by-matthew-arnold/",
       "textUrl": "hoerbuch-texte/en/arnold-matthew_-_sohrab-and-rustum-an-episode-9542.txt.gz",
+      "textRange": {
+        "start": 32,
+        "ende": 8888
+      },
       "tags": {
         "work_author": "Arnold, Matthew",
         "reader": "Thomas A. Copeland",
@@ -9207,6 +9636,10 @@
       "credit": "Public Domain — LibriVox (Buch 11900)",
       "url": "https://librivox.org/how-to-camp-out-by-john-mead-gould/",
       "textUrl": "hoerbuch-texte/en/gould-john-mead_-_how-to-camp-out-11900.txt.gz",
+      "textRange": {
+        "start": 98,
+        "ende": 3777
+      },
       "tags": {
         "work_author": "Gould, John Mead",
         "reader": "Sarah Jennings",
@@ -9370,6 +9803,10 @@
       "credit": "Public Domain — LibriVox (Buch 19595)",
       "url": "https://librivox.org/poems-of-pilgrimage-by-thomas-hardy/",
       "textUrl": "hoerbuch-texte/en/hardy-thomas_-_poems-of-pilgrimage-19595.txt.gz",
+      "textRange": {
+        "start": 200,
+        "ende": 4409
+      },
       "tags": {
         "work_author": "Hardy, Thomas",
         "reader": "Alan Mapstone",
@@ -9515,6 +9952,10 @@
       "credit": "Public Domain — LibriVox (Buch 10076)",
       "url": "https://librivox.org/the-persians-by-aeschylus-2/",
       "textUrl": "hoerbuch-texte/en/aeschylus_-_persians-version-2-10076.txt.gz",
+      "textRange": {
+        "start": 49,
+        "ende": 6703
+      },
       "tags": {
         "work_author": "Aeschylus",
         "reader": "Expatriate",
@@ -9582,6 +10023,10 @@
       "credit": "Public Domain — LibriVox (Buch 8348)",
       "url": "https://librivox.org/mistakes-of-moses-by-robert-g-ingersoll/",
       "textUrl": "hoerbuch-texte/en/ingersoll-robert-g_-_mistakes-of-moses-8348.txt.gz",
+      "textRange": {
+        "start": 56,
+        "ende": 5165
+      },
       "tags": {
         "work_author": "Ingersoll, Robert G.",
         "reader": "Margaret Espaillat",
@@ -9737,6 +10182,10 @@
       "credit": "Public Domain — LibriVox (Buch 13103)",
       "url": "https://librivox.org/philippians-weymouth-new-testament/",
       "textUrl": "hoerbuch-texte/en/weymouth-new-testament_-_bible-wnt-nt-11-philippians-13103.txt.gz",
+      "textRange": {
+        "start": 48,
+        "ende": 433
+      },
       "tags": {
         "work_author": "Weymouth New Testament",
         "reader": "Mark Penfold",
@@ -9783,6 +10232,10 @@
       "credit": "Public Domain — LibriVox (Buch 4199)",
       "url": "https://librivox.org/sonnets-from-the-portuguese-by-elizabeth-barrett-browning/",
       "textUrl": "hoerbuch-texte/en/browning-elizabeth-barrett_-_sonnets-from-the-portuguese-version-2-4199.txt.gz",
+      "textRange": {
+        "start": 35,
+        "ende": 1002
+      },
       "tags": {
         "work_author": "Browning, Elizabeth Barrett",
         "reader": "Sam Stinson",
@@ -9856,6 +10309,10 @@
       "credit": "Public Domain — LibriVox (Buch 14963)",
       "url": "https://librivox.org/diggers-in-the-earth-by-eva-march-tappan/",
       "textUrl": "hoerbuch-texte/en/tappan-eva-march_-_diggers-in-the-earth-14963.txt.gz",
+      "textRange": {
+        "start": 91,
+        "ende": 2649
+      },
       "tags": {
         "work_author": "Tappan, Eva March",
         "reader": "April6090",
@@ -9992,6 +10449,10 @@
       "credit": "Public Domain — LibriVox (Buch 3815)",
       "url": "https://librivox.org/a-guide-to-men-by-helen-rowland/",
       "textUrl": "hoerbuch-texte/en/rowland-helen_-_guide-to-men-3815.txt.gz",
+      "textRange": {
+        "start": 180,
+        "ende": 2363
+      },
       "tags": {
         "work_author": "Rowland, Helen",
         "reader": "Cori Samuel",
@@ -10138,6 +10599,10 @@
       "credit": "Public Domain — LibriVox (Buch 22597)",
       "url": "https://librivox.org/introduction-to-einstein-by-william-f-hudgings/",
       "textUrl": "hoerbuch-texte/en/hudgings-william-f_-_introduction-to-einstein-22597.txt.gz",
+      "textRange": {
+        "start": 30,
+        "ende": 1543
+      },
       "tags": {
         "work_author": "Hudgings, William F.",
         "reader": "James R. Hedrick",
@@ -10391,6 +10856,10 @@
       "credit": "Public Domain — LibriVox (Buch 521)",
       "url": "https://librivox.org/the-book-of-jonah/",
       "textUrl": "hoerbuch-texte/en/world-english-bible_-_bible-web-32-jonah-521.txt.gz",
+      "textRange": {
+        "start": 45,
+        "ende": 168
+      },
       "tags": {
         "work_author": "World English Bible",
         "reader": "Fox in the Stars",
@@ -10437,6 +10906,10 @@
       "credit": "Public Domain — LibriVox (Buch 16081)",
       "url": "https://librivox.org/first-trans-continental-railroad-by-william-francis-bailey/",
       "textUrl": "hoerbuch-texte/en/bailey-william-francis_-_story-of-the-first-trans-continental-railroad-16081.txt.gz",
+      "textRange": {
+        "start": 129,
+        "ende": 4233
+      },
       "tags": {
         "work_author": "Bailey, William Francis",
         "reader": "Paul Harvey",
@@ -10610,6 +11083,10 @@
       "credit": "Public Domain — LibriVox (Buch 4439)",
       "url": "https://librivox.org/making-a-rock-garden-by-h-s-adams/",
       "textUrl": "hoerbuch-texte/en/adams-henry-sherman_-_making-a-rock-garden-4439.txt.gz",
+      "textRange": {
+        "start": 149,
+        "ende": 862
+      },
       "tags": {
         "work_author": "Adams, Henry Sherman",
         "reader": "Peter Yearsley",
@@ -10656,6 +11133,10 @@
       "credit": "Public Domain — LibriVox (Buch 21859)",
       "url": "https://librivox.org/the-tale-of-the-spinning-wheel-by-elizabeth-cynthia-barney-buel/",
       "textUrl": "hoerbuch-texte/en/buel-elizabeth-c-barney_-_tale-of-the-spinning-wheel-21859.txt.gz",
+      "textRange": {
+        "start": 44,
+        "ende": 1201
+      },
       "tags": {
         "work_author": "Buel, Elizabeth C. Barney",
         "reader": "Amelia Chesley",
@@ -10739,6 +11220,10 @@
       "credit": "Public Domain — LibriVox (Buch 6362)",
       "url": "https://librivox.org/1601-conversation-as-it-was-by-the-social-fireside-in-the-time-of-the-tudors-version-2-by-mark-twain/",
       "textUrl": "hoerbuch-texte/en/twain-mark_-_1601-conversation-as-it-was-by-the-social-fireside-in-the-time-of-the-tudors-ver-6362.txt.gz",
+      "textRange": {
+        "start": 40,
+        "ende": 1352
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "John Greenman",
@@ -10806,6 +11291,10 @@
       "credit": "Public Domain — LibriVox (Buch 10303)",
       "url": "https://librivox.org/how-to-do-chemical-tricks-by-a-anderson/",
       "textUrl": "hoerbuch-texte/en/anderson-a-t_-_how-to-do-chemical-tricks-10303.txt.gz",
+      "textRange": {
+        "start": 5,
+        "ende": 2685
+      },
       "tags": {
         "work_author": "Anderson, A. T.",
         "reader": "Kyle Van DeGlast",
@@ -11428,6 +11917,10 @@
       "credit": "Public Domain — LibriVox (Buch 13476)",
       "url": "https://librivox.org/biographical-notice-of-nicolo-paganini-with-an-analysis-of-his-compositions-and-a-sketch-of-the-history-of-the-violin-by-francois-joseph-fetis/",
       "textUrl": "hoerbuch-texte/en/fetis-francois-joseph_-_biographical-notice-of-nicolo-paganini-with-an-analysis-of-his-compositions-and-13476.txt.gz",
+      "textRange": {
+        "start": 96,
+        "ende": 3267
+      },
       "tags": {
         "work_author": "Fetis, Francois-Joseph",
         "reader": "David Wales",
@@ -11521,6 +12014,10 @@
       "credit": "Public Domain — LibriVox (Buch 5001)",
       "url": "https://librivox.org/lysistrata-by-aristophanes/",
       "textUrl": "hoerbuch-texte/en/aristophanes_-_lysistrata-5001.txt.gz",
+      "textRange": {
+        "start": 47,
+        "ende": 3538
+      },
       "tags": {
         "work_author": "Aristophanes",
         "reader": "a volunteer",
@@ -11577,6 +12074,10 @@
       "credit": "Public Domain — LibriVox (Buch 11289)",
       "url": "https://librivox.org/studies-in-the-art-of-rat-catching-by-henry-c-barkley/",
       "textUrl": "hoerbuch-texte/en/barkley-henry-c_-_studies-in-the-art-of-rat-catching-11289.txt.gz",
+      "textRange": {
+        "start": 34,
+        "ende": 2727
+      },
       "tags": {
         "work_author": "Barkley, Henry C.",
         "reader": "Clive Catterall",
@@ -11714,6 +12215,10 @@
       "credit": "Public Domain — LibriVox (Buch 993)",
       "url": "https://librivox.org/utopia-by-thomas-more/",
       "textUrl": "hoerbuch-texte/en/more-thomas_-_utopia-burnet-translation-993.txt.gz",
+      "textRange": {
+        "start": 38,
+        "ende": 3685
+      },
       "tags": {
         "work_author": "More, Thomas",
         "reader": "Jenilee",
@@ -11861,6 +12366,10 @@
       "credit": "Public Domain — LibriVox (Buch 1977)",
       "url": "https://librivox.org/snow-bound-a-winter-idyl-by-john-greenleaf-whittier/",
       "textUrl": "hoerbuch-texte/en/whittier-john-greenleaf_-_snow-bound-a-winter-idyl-1977.txt.gz",
+      "textRange": {
+        "start": 105,
+        "ende": 1920
+      },
       "tags": {
         "work_author": "Whittier, John Greenleaf",
         "reader": "Paul Henry Tremblay",
@@ -11925,6 +12434,10 @@
       "credit": "Public Domain — LibriVox (Buch 3554)",
       "url": "https://librivox.org/a-tangled-tale-by-lewis-carroll/",
       "textUrl": "hoerbuch-texte/en/carroll-lewis_-_tangled-tale-3554.txt.gz",
+      "textRange": {
+        "start": 107,
+        "ende": 3726
+      },
       "tags": {
         "work_author": "Carroll, Lewis",
         "reader": "Availle",
@@ -12144,6 +12657,10 @@
       "credit": "Public Domain — LibriVox (Buch 8424)",
       "url": "https://librivox.org/lady-windermeres-fan-by-oscar-wilde-2/",
       "textUrl": "hoerbuch-texte/en/wilde-oscar_-_lady-windermere-s-fan-version-2-8424.txt.gz",
+      "textRange": {
+        "start": 123,
+        "ende": 2940
+      },
       "tags": {
         "work_author": "Wilde, Oscar",
         "reader": "Phil Chenevert",
@@ -12218,6 +12735,10 @@
       "credit": "Public Domain — LibriVox (Buch 15906)",
       "url": "https://librivox.org/lessons-in-the-shanghai-dialect-by-francis-lister-hawks-pott/",
       "textUrl": "hoerbuch-texte/en/pott-francis-lister-hawks_-_lessons-in-the-shanghai-dialect-15906.txt.gz",
+      "textRange": {
+        "start": 97,
+        "ende": 12205
+      },
       "tags": {
         "work_author": "Pott, Francis Lister Hawks",
         "reader": "Xiaoyan Arrowsmith",
@@ -12651,6 +13172,10 @@
       "credit": "Public Domain — LibriVox (Buch 914)",
       "url": "https://librivox.org/little-wars-by-hg-wells/",
       "textUrl": "hoerbuch-texte/en/wells-h-g_-_little-wars-914.txt.gz",
+      "textRange": {
+        "start": 48,
+        "ende": 1591
+      },
       "tags": {
         "work_author": "Wells, H. G.",
         "reader": "Mark F. Smith",
@@ -12734,6 +13259,10 @@
       "credit": "Public Domain — LibriVox (Buch 1991)",
       "url": "https://librivox.org/all-things-considered-by-g-k-chesterton/",
       "textUrl": "hoerbuch-texte/en/chesterton-g-k_-_all-things-considered-1991.txt.gz",
+      "textRange": {
+        "start": 69,
+        "ende": 5427
+      },
       "tags": {
         "work_author": "Chesterton, G. K.",
         "reader": "Ray Clare",
@@ -12879,6 +13408,10 @@
       "credit": "Public Domain — LibriVox (Buch 2546)",
       "url": "https://librivox.org/the-military-journals-of-two-private-soldiers-1758-1775-by-abraham-tomlinson/",
       "textUrl": "hoerbuch-texte/en/tomlinson-abraham_-_military-journals-of-two-private-soldiers-1758-1775-2546.txt.gz",
+      "textRange": {
+        "start": 82,
+        "ende": 4327
+      },
       "tags": {
         "work_author": "Tomlinson, Abraham",
         "reader": "FNH",
@@ -13124,6 +13657,10 @@
       "credit": "Public Domain — LibriVox (Buch 10035)",
       "url": "https://librivox.org/iphigenia-in-tauris-murray-translation-by-euripides/",
       "textUrl": "hoerbuch-texte/en/euripides_-_iphigenia-in-tauris-murray-translation-10035.txt.gz",
+      "textRange": {
+        "start": 61,
+        "ende": 3374
+      },
       "tags": {
         "work_author": "Euripides",
         "reader": "Expatriate",
@@ -13200,6 +13737,10 @@
       "credit": "Public Domain — LibriVox (Buch 22789)",
       "url": "https://librivox.org/chamber-music-by-james-joyce-2/",
       "textUrl": "hoerbuch-texte/en/joyce-james_-_chamber-music-version-2-22789.txt.gz",
+      "textRange": {
+        "start": 147,
+        "ende": 781
+      },
       "tags": {
         "work_author": "Joyce, James",
         "reader": "Patty H",
@@ -13562,6 +14103,10 @@
       "credit": "Public Domain — LibriVox (Buch 391)",
       "url": "https://librivox.org/the-gift-of-the-magi-by-o-henry/",
       "textUrl": "hoerbuch-texte/en/henry-o_-_gift-of-the-magi-391.txt.gz",
+      "textRange": {
+        "start": 34,
+        "ende": 254
+      },
       "tags": {
         "work_author": "Henry, O.",
         "reader": "Betsie Bush",
@@ -13608,6 +14153,10 @@
       "credit": "Public Domain — LibriVox (Buch 384)",
       "url": "https://librivox.org/give-me-liberty-by-patrick-henry/",
       "textUrl": "hoerbuch-texte/en/henry-patrick_-_give-me-liberty-384.txt.gz",
+      "textRange": {
+        "start": 10,
+        "ende": 102
+      },
       "tags": {
         "work_author": "Henry, Patrick",
         "reader": "Mark F. Smith",
@@ -13655,6 +14204,10 @@
       "credit": "Public Domain — LibriVox (Buch 8040)",
       "url": "https://librivox.org/the-life-and-adventures-of-venture-by-venture-smith/",
       "textUrl": "hoerbuch-texte/en/smith-venture_-_life-and-adventures-of-venture-8040.txt.gz",
+      "textRange": {
+        "start": 25,
+        "ende": 909
+      },
       "tags": {
         "work_author": "Smith, Venture",
         "reader": "Bill Boerst",
@@ -13728,6 +14281,10 @@
       "credit": "Public Domain — LibriVox (Buch 16451)",
       "url": "https://librivox.org/st-clairs-defeat-1791-by-anonymous/",
       "textUrl": "hoerbuch-texte/en/anonymous_-_st-clair-s-defeat-1791-16451.txt.gz",
+      "textRange": {
+        "start": 42,
+        "ende": 983
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Phil Schempf",
@@ -13811,6 +14368,10 @@
       "credit": "Public Domain — LibriVox (Buch 462)",
       "url": "https://librivox.org/the-congo-by-vachel-lindsay/",
       "textUrl": "hoerbuch-texte/en/lindsay-vachel_-_congo-462.txt.gz",
+      "textRange": {
+        "start": 235,
+        "ende": 3721
+      },
       "tags": {
         "work_author": "Lindsay, Vachel",
         "reader": "Fox in the Stars",
@@ -13857,6 +14418,10 @@
       "credit": "Public Domain — LibriVox (Buch 542)",
       "url": "https://librivox.org/johnny-crows-party-by-l-leslie-brooke/",
       "textUrl": "hoerbuch-texte/en/brooke-l-leslie_-_johnny-crow-s-party-542.txt.gz",
+      "textRange": {
+        "start": 31,
+        "ende": 194
+      },
       "tags": {
         "work_author": "Brooke, L. Leslie",
         "reader": "Kara Shallenberg (1969-2023)",
@@ -13903,6 +14468,10 @@
       "credit": "Public Domain — LibriVox (Buch 11782)",
       "url": "https://librivox.org/three-days-on-the-ohio-river-by-william-a-alcott/",
       "textUrl": "hoerbuch-texte/en/alcott-william-a_-_three-days-on-the-ohio-river-11782.txt.gz",
+      "textRange": {
+        "start": 75,
+        "ende": 1007
+      },
       "tags": {
         "work_author": "Alcott, William A.",
         "reader": "David Wales",
@@ -13958,6 +14527,10 @@
       "credit": "Public Domain — LibriVox (Buch 390)",
       "url": "https://librivox.org/the-gettysburg-address-by-abraham-lincoln-version-2/",
       "textUrl": "hoerbuch-texte/en/lincoln-abraham_-_gettysburg-address-version-2-390.txt.gz",
+      "textRange": {
+        "start": 5,
+        "ende": 44
+      },
       "tags": {
         "work_author": "Lincoln, Abraham",
         "reader": "John Greenman",
@@ -14004,6 +14577,10 @@
       "credit": "Public Domain — LibriVox (Buch 6019)",
       "url": "https://librivox.org/the-gray-mills-of-farley-by-sarah-orne-jewett/",
       "textUrl": "hoerbuch-texte/en/jewett-sarah-orne_-_gray-mills-of-farley-6019.txt.gz",
+      "textRange": {
+        "start": 106,
+        "ende": 13649
+      },
       "tags": {
         "work_author": "Jewett, Sarah Orne",
         "reader": "Bellona Times",
@@ -14097,6 +14674,10 @@
       "credit": "Public Domain — LibriVox (Buch 18830)",
       "url": "https://librivox.org/the-dread-apache-that-early-day-scourge-of-the-southwest-by-merrill-pingree-freeman/",
       "textUrl": "hoerbuch-texte/en/freeman-merrill-pingree_-_dread-apache-that-early-day-scourge-of-the-southwest-18830.txt.gz",
+      "textRange": {
+        "start": 22,
+        "ende": 784
+      },
       "tags": {
         "work_author": "Freeman, Merrill Pingree",
         "reader": "Laurie Banza",
@@ -14216,6 +14797,10 @@
       "credit": "Public Domain — LibriVox (Buch 13706)",
       "url": "https://librivox.org/the-silent-rifleman-a-tale-of-the-texan-prairies-by-henry-william-herbert/",
       "textUrl": "hoerbuch-texte/en/herbert-henry-william_-_silent-rifleman-a-tale-of-the-texan-prairies-13706.txt.gz",
+      "textRange": {
+        "start": 31,
+        "ende": 2626
+      },
       "tags": {
         "work_author": "Herbert, Henry William",
         "reader": "EJWiley",
@@ -14334,6 +14919,10 @@
       "credit": "Public Domain — LibriVox (Buch 3586)",
       "url": "https://librivox.org/the-spirit-of-christmas-version-2-by-henry-van-dyke/",
       "textUrl": "hoerbuch-texte/en/van-dyke-henry_-_spirit-of-christmas-version-2-3586.txt.gz",
+      "textRange": {
+        "start": 66,
+        "ende": 734
+      },
       "tags": {
         "work_author": "van Dyke, Henry",
         "reader": "David Leeson",
@@ -14407,6 +14996,10 @@
       "credit": "Public Domain — LibriVox (Buch 1122)",
       "url": "https://librivox.org/alices-adventures-in-wonderland-by-lewis-carroll-2/",
       "textUrl": "hoerbuch-texte/en/carroll-lewis_-_alice-s-adventures-in-wonderland-abridged-1122.txt.gz",
+      "textRange": {
+        "start": 16,
+        "ende": 3382
+      },
       "tags": {
         "work_author": "Carroll, Lewis",
         "reader": "Kirsten Ferreri",
@@ -14535,6 +15128,10 @@
       "credit": "Public Domain — LibriVox (Buch 14445)",
       "url": "https://librivox.org/the-colored-people-of-chicago-by-louise-dekoven-bowen/",
       "textUrl": "hoerbuch-texte/en/bowen-louise-dekoven_-_colored-people-of-chicago-14445.txt.gz",
+      "textRange": {
+        "start": 32,
+        "ende": 1153
+      },
       "tags": {
         "work_author": "Bowen, Louise DeKoven",
         "reader": "KevinS",
@@ -14600,6 +15197,10 @@
       "credit": "Public Domain — LibriVox (Buch 6693)",
       "url": "https://librivox.org/the-story-of-peter-pan-by-j-m-barrie/",
       "textUrl": "hoerbuch-texte/en/barrie-j-m_-_story-of-peter-pan-6693.txt.gz",
+      "textRange": {
+        "start": 66,
+        "ende": 1149
+      },
       "tags": {
         "work_author": "Barrie, J. M.; O'Connor, Daniel",
         "reader": "Phil Chenevert",
@@ -14692,6 +15293,10 @@
       "credit": "Public Domain — LibriVox (Buch 8953)",
       "url": "https://librivox.org/hms-pinafore-or-the-lass-that-loved-a-sailor-by-w-s-gilbert/",
       "textUrl": "hoerbuch-texte/en/gilbert-w-s_-_h-m-s-pinafore-or-the-lass-that-loved-a-sailor-8953.txt.gz",
+      "textRange": {
+        "start": 21,
+        "ende": 31266
+      },
       "tags": {
         "work_author": "Gilbert, W. S.",
         "reader": "David Wales",
@@ -14747,6 +15352,10 @@
       "credit": "Public Domain — LibriVox (Buch 9380)",
       "url": "https://librivox.org/little-folded-hands-by-anonymous/",
       "textUrl": "hoerbuch-texte/en/anonymous_-_little-folded-hands-9380.txt.gz",
+      "textRange": {
+        "start": 236,
+        "ende": 1254
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "JP4KJV",
@@ -14892,6 +15501,10 @@
       "credit": "Public Domain — LibriVox (Buch 5262)",
       "url": "https://librivox.org/industrial-conspiracies-by-clarence-darrow/",
       "textUrl": "hoerbuch-texte/en/darrow-clarence_-_industrial-conspiracies-5262.txt.gz",
+      "textRange": {
+        "start": 37,
+        "ende": 1115
+      },
       "tags": {
         "work_author": "Darrow, Clarence",
         "reader": "Richard Kilmer (1942-2022)",
@@ -14948,6 +15561,10 @@
       "credit": "Public Domain — LibriVox (Buch 405)",
       "url": "https://librivox.org/the-romance-of-rubber-by-the-united-states-rubber-company/",
       "textUrl": "hoerbuch-texte/en/united-states-rubber-company_-_romance-of-rubber-405.txt.gz",
+      "textRange": {
+        "start": 84,
+        "ende": 954
+      },
       "tags": {
         "work_author": "United States Rubber Company",
         "reader": "Judy Bieber",
@@ -14994,6 +15611,10 @@
       "credit": "Public Domain — LibriVox (Buch 1223)",
       "url": "https://librivox.org/the-birthday-party-a-story-for-little-folks-by-oliver-optic/",
       "textUrl": "hoerbuch-texte/en/optic-oliver_-_birthday-party-a-story-for-little-folks-1223.txt.gz",
+      "textRange": {
+        "start": 62,
+        "ende": 919
+      },
       "tags": {
         "work_author": "Optic, Oliver",
         "reader": "Lucy Burgoyne (1950-2014)",
@@ -15067,6 +15688,10 @@
       "credit": "Public Domain — LibriVox (Buch 9597)",
       "url": "https://librivox.org/coming-to-the-king-by-frances-ridley-havergal/",
       "textUrl": "hoerbuch-texte/en/havergal-frances-ridley_-_coming-to-the-king-9597.txt.gz",
+      "textRange": {
+        "start": 56,
+        "ende": 524
+      },
       "tags": {
         "work_author": "Havergal, Frances Ridley",
         "reader": "Esther ben Simonides",
@@ -15231,6 +15856,10 @@
       "credit": "Public Domain — LibriVox (Buch 4089)",
       "url": "https://librivox.org/eves-diary-by-mark-twain-2/",
       "textUrl": "hoerbuch-texte/en/twain-mark_-_eve-s-diary-version-2-4089.txt.gz",
+      "textRange": {
+        "start": 46,
+        "ende": 700
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "John Greenman",
@@ -15279,6 +15908,10 @@
       "credit": "Public Domain — LibriVox (Buch 2578)",
       "url": "https://librivox.org/the-story-of-the-other-wise-man-by-henry-van-dyke/",
       "textUrl": "hoerbuch-texte/en/van-dyke-henry_-_story-of-the-other-wise-man-2578.txt.gz",
+      "textRange": {
+        "start": 22,
+        "ende": 979
+      },
       "tags": {
         "work_author": "van Dyke, Henry",
         "reader": "David Leeson",
@@ -15334,6 +15967,10 @@
       "credit": "Public Domain — LibriVox (Buch 638)",
       "url": "https://librivox.org/the-saga-of-eirik-the-red-by-anonymous/",
       "textUrl": "hoerbuch-texte/en/anonymous_-_eirik-the-red-s-saga-638.txt.gz",
+      "textRange": {
+        "start": 98,
+        "ende": 980
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Julian Jamison",
@@ -15429,6 +16066,10 @@
       "credit": "Public Domain — LibriVox (Buch 11492)",
       "url": "https://librivox.org/the-martyrdom-of-belgium-by-george-cooreman/",
       "textUrl": "hoerbuch-texte/en/cooreman-gerard_-_martyrdom-of-belgium-official-report-of-massacres-of-peaceable-citizens-women-an-11492.txt.gz",
+      "textRange": {
+        "start": 29,
+        "ende": 1001
+      },
       "tags": {
         "work_author": "Cooreman, Gérard",
         "reader": "David Wales",
@@ -15539,6 +16180,10 @@
       "credit": "Public Domain — LibriVox (Buch 7396)",
       "url": "https://librivox.org/lesser-hippias-by-plato/",
       "textUrl": "hoerbuch-texte/en/plato_-_lesser-hippias-7396.txt.gz",
+      "textRange": {
+        "start": 272,
+        "ende": 1194
+      },
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "Kevin Johnson",
@@ -15597,6 +16242,10 @@
       "credit": "Public Domain — LibriVox (Buch 15894)",
       "url": "https://librivox.org/putting-the-most-into-life-by-booker-t-washington/",
       "textUrl": "hoerbuch-texte/en/washington-booker-t_-_putting-the-most-into-life-15894.txt.gz",
+      "textRange": {
+        "start": 41,
+        "ende": 784
+      },
       "tags": {
         "work_author": "Washington, Booker T.",
         "reader": "Andrew Kennedy",
@@ -15688,6 +16337,10 @@
       "credit": "Public Domain — LibriVox (Buch 18625)",
       "url": "https://librivox.org/this-giddy-globe-by-oliver-herford-2/",
       "textUrl": "hoerbuch-texte/en/herford-oliver_-_this-giddy-globe-version-2-18625.txt.gz",
+      "textRange": {
+        "start": 85,
+        "ende": 2364
+      },
       "tags": {
         "work_author": "Herford, Oliver",
         "reader": "SKVeld",
@@ -15753,6 +16406,10 @@
       "credit": "Public Domain — LibriVox (Buch 1256)",
       "url": "https://librivox.org/the-prayer-of-manasses-kjv/",
       "textUrl": "hoerbuch-texte/en/king-james-version-kjv_-_bible-kjv-apocrypha-deuterocanon-prayer-of-manasses-1256.txt.gz",
+      "textRange": {
+        "start": 57,
+        "ende": 19926
+      },
       "tags": {
         "work_author": "King James Version (KJV)",
         "reader": "David Shamp",
@@ -15799,6 +16456,10 @@
       "credit": "Public Domain — LibriVox (Buch 7774)",
       "url": "https://librivox.org/kashtanka-by-anton-chekhov/",
       "textUrl": "hoerbuch-texte/en/chekhov-anton_-_kashtanka-7774.txt.gz",
+      "textRange": {
+        "start": 52,
+        "ende": 7359
+      },
       "tags": {
         "work_author": "Chekhov, Anton",
         "reader": "Grant Hurlock",
@@ -15867,6 +16528,10 @@
       "credit": "Public Domain — LibriVox (Buch 11735)",
       "url": "https://librivox.org/more-selected-classics-of-washington-irving-by-washington-irving/",
       "textUrl": "hoerbuch-texte/en/irving-washington_-_more-selected-classics-of-washington-irving-11735.txt.gz",
+      "textRange": {
+        "start": 16,
+        "ende": 12766
+      },
       "tags": {
         "work_author": "Irving, Washington",
         "reader": "Greg Giordano",
@@ -15959,6 +16624,10 @@
       "credit": "Public Domain — LibriVox (Buch 245)",
       "url": "https://librivox.org/sara-crewe-by-frances-hodgson-burnett/",
       "textUrl": "hoerbuch-texte/en/burnett-frances-hodgson_-_sara-crewe-or-what-happened-at-miss-minchin-s-boarding-school-245.txt.gz",
+      "textRange": {
+        "start": 14,
+        "ende": 1838
+      },
       "tags": {
         "work_author": "Burnett, Frances Hodgson",
         "reader": "Patricia Oakley",
@@ -16059,6 +16728,10 @@
       "credit": "Public Domain — LibriVox (Buch 12554)",
       "url": "https://librivox.org/celebrated-crimes-vol-7-part-3-murat-by-alexandre-dumas/",
       "textUrl": "hoerbuch-texte/en/dumas-alexandre_-_celebrated-crimes-vol-7-part-3-murat-12554.txt.gz",
+      "textRange": {
+        "start": 23,
+        "ende": 62580
+      },
       "tags": {
         "work_author": "Dumas, Alexandre",
         "reader": "John Van Stan",
@@ -16125,6 +16798,10 @@
       "credit": "Public Domain — LibriVox (Buch 8837)",
       "url": "https://librivox.org/the-discovery-of-the-future-by-h-g-wells/",
       "textUrl": "hoerbuch-texte/en/wells-h-g_-_discovery-of-the-future-8837.txt.gz",
+      "textRange": {
+        "start": 44,
+        "ende": 956
+      },
       "tags": {
         "work_author": "Wells, H. G.",
         "reader": "David Wales",
@@ -16189,6 +16866,10 @@
       "credit": "Public Domain — LibriVox (Buch 9910)",
       "url": "https://librivox.org/an-essay-on-criticism-version-2-by-alexander-pope/",
       "textUrl": "hoerbuch-texte/en/pope-alexander_-_essay-on-criticism-version-2-9910.txt.gz",
+      "textRange": {
+        "start": 139,
+        "ende": 1287
+      },
       "tags": {
         "work_author": "Pope, Alexander",
         "reader": "cwanki",
@@ -16255,6 +16936,10 @@
       "credit": "Public Domain — LibriVox (Buch 8009)",
       "url": "https://librivox.org/van-dyck-by-percy-m-turner/",
       "textUrl": "hoerbuch-texte/en/turner-percy-m_-_van-dyck-8009.txt.gz",
+      "textRange": {
+        "start": 112,
+        "ende": 1203
+      },
       "tags": {
         "work_author": "Turner, Percy M.",
         "reader": "Susan Morin",
@@ -16338,6 +17023,10 @@
       "credit": "Public Domain — LibriVox (Buch 18272)",
       "url": "https://librivox.org/an-inaugural-dissertation-on-pulmonary-consumption-by-edward-delafield/",
       "textUrl": "hoerbuch-texte/en/delafield-edward_-_inaugural-dissertation-on-pulmonary-consumption-18272.txt.gz",
+      "textRange": {
+        "start": 49,
+        "ende": 1706
+      },
       "tags": {
         "work_author": "Delafield, Edward",
         "reader": "Inkell",
@@ -16421,6 +17110,10 @@
       "credit": "Public Domain — LibriVox (Buch 2268)",
       "url": "https://librivox.org/aunt-friendlys-picture-book/",
       "textUrl": "hoerbuch-texte/en/baker-sarah-s_-_aunt-friendly-s-picture-book-2268.txt.gz",
+      "textRange": {
+        "start": 71,
+        "ende": 615
+      },
       "tags": {
         "work_author": "Baker, Sarah S.",
         "reader": "Sam Stinson",
@@ -16468,6 +17161,10 @@
       "credit": "Public Domain — LibriVox (Buch 10333)",
       "url": "https://librivox.org/the-dunwich-horror-by-h-p-lovecraft/",
       "textUrl": "hoerbuch-texte/en/lovecraft-h-p_-_dunwich-horror-10333.txt.gz",
+      "textRange": {
+        "start": 15,
+        "ende": 1722
+      },
       "tags": {
         "work_author": "Lovecraft, H. P.",
         "reader": "Mark Nelson",
@@ -16534,6 +17231,10 @@
       "credit": "Public Domain — LibriVox (Buch 8561)",
       "url": "https://librivox.org/three-essays-by-james-freeman-clarke-by-james-freeman-clarke/",
       "textUrl": "hoerbuch-texte/en/clarke-james-freeman_-_three-essays-by-james-freeman-clarke-8561.txt.gz",
+      "textRange": {
+        "start": 80,
+        "ende": 8538
+      },
       "tags": {
         "work_author": "Clarke, James Freeman",
         "reader": "David Wales",
@@ -16599,6 +17300,10 @@
       "credit": "Public Domain — LibriVox (Buch 9966)",
       "url": "https://librivox.org/schubert-and-his-works-by-herbert-francis-peyser/",
       "textUrl": "hoerbuch-texte/en/peyser-herbert-francis_-_schubert-and-his-works-9966.txt.gz",
+      "textRange": {
+        "start": 28,
+        "ende": 1486
+      },
       "tags": {
         "work_author": "Peyser, Herbert Francis",
         "reader": "David Wales",
@@ -16682,6 +17387,10 @@
       "credit": "Public Domain — LibriVox (Buch 6230)",
       "url": "https://librivox.org/the-giaour-by-lord-byron/",
       "textUrl": "hoerbuch-texte/en/byron-george-gordon-lord_-_giaour-6230.txt.gz",
+      "textRange": {
+        "start": 40,
+        "ende": 20934
+      },
       "tags": {
         "work_author": "Byron, George Gordon, Lord",
         "reader": "Grant Hurlock",
@@ -16729,6 +17438,10 @@
       "credit": "Public Domain — LibriVox (Buch 9448)",
       "url": "https://librivox.org/apology-version-2-by-plato/",
       "textUrl": "hoerbuch-texte/en/plato_-_apology-of-socrates-version-2-9448.txt.gz",
+      "textRange": {
+        "start": 43,
+        "ende": 1450
+      },
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "Phil Chenevert",
@@ -16787,6 +17500,10 @@
       "credit": "Public Domain — LibriVox (Buch 12081)",
       "url": "https://librivox.org/tor-a-street-boy-of-jerusalem-by-florence-morse-kingsley/",
       "textUrl": "hoerbuch-texte/en/kingsley-florence-morse_-_tor-a-street-boy-of-jerusalem-12081.txt.gz",
+      "textRange": {
+        "start": 104,
+        "ende": 2761
+      },
       "tags": {
         "work_author": "Kingsley, Florence Morse",
         "reader": "Patrick Saville",
@@ -16932,6 +17649,10 @@
       "credit": "Public Domain — LibriVox (Buch 14852)",
       "url": "https://librivox.org/observations-upon-the-apocalypse-by-isaac-newton/",
       "textUrl": "hoerbuch-texte/en/newton-sir-isaac_-_observations-upon-the-apocalypse-of-st-john-14852.txt.gz",
+      "textRange": {
+        "start": 99,
+        "ende": 6752
+      },
       "tags": {
         "work_author": "Newton, Sir Isaac",
         "reader": "Adam Bielka",
@@ -17005,6 +17726,10 @@
       "credit": "Public Domain — LibriVox (Buch 4347)",
       "url": "https://librivox.org/ephesians-kjv-by-king-james-version/",
       "textUrl": "hoerbuch-texte/en/king-james-version-kjv_-_bible-kjv-nt-10-ephesians-4347.txt.gz",
+      "textRange": {
+        "start": 55,
+        "ende": 549
+      },
       "tags": {
         "work_author": "King James Version (KJV)",
         "reader": "Ned Troxel",
@@ -17052,6 +17777,10 @@
       "credit": "Public Domain — LibriVox (Buch 9622)",
       "url": "https://librivox.org/aristotles-masterpiece-by-pseudo-aristotle/",
       "textUrl": "hoerbuch-texte/en/pseudo-aristotle_-_aristotle-s-masterpiece-9622.txt.gz",
+      "textRange": {
+        "start": 89,
+        "ende": 11370
+      },
       "tags": {
         "work_author": "Pseudo-Aristotle",
         "reader": "Rob Marland",
@@ -17243,6 +17972,10 @@
       "credit": "Public Domain — LibriVox (Buch 9814)",
       "url": "https://librivox.org/how-to-live-on-24-hours-a-day-version-2-by-arnold-bennett/",
       "textUrl": "hoerbuch-texte/en/bennett-arnold_-_how-to-live-on-24-hours-a-day-version-2-9814.txt.gz",
+      "textRange": {
+        "start": 193,
+        "ende": 1387
+      },
       "tags": {
         "work_author": "Bennett, Arnold",
         "reader": "Phil Chenevert",
@@ -17398,6 +18131,10 @@
       "credit": "Public Domain — LibriVox (Buch 13721)",
       "url": "https://librivox.org/glimpses-of-bengal-by-rabindranath-tagore/",
       "textUrl": "hoerbuch-texte/en/tagore-rabindranath_-_glimpses-of-bengal-13721.txt.gz",
+      "textRange": {
+        "start": 48,
+        "ende": 3085
+      },
       "tags": {
         "work_author": "Tagore, Rabindranath",
         "reader": "Bhavya",
@@ -17770,6 +18507,10 @@
       "credit": "Public Domain — LibriVox (Buch 2039)",
       "url": "https://librivox.org/alfred-the-great-by-asser/",
       "textUrl": "hoerbuch-texte/en/asser-bishop-of-sherbourne_-_life-of-alfred-the-great-2039.txt.gz",
+      "textRange": {
+        "start": 83,
+        "ende": 27861
+      },
       "tags": {
         "work_author": "Asser, Bishop of Sherbourne",
         "reader": "R. S. Steinberg",
@@ -17873,6 +18614,10 @@
       "credit": "Public Domain — LibriVox (Buch 8619)",
       "url": "https://librivox.org/and-thus-he-came-by-cyrus-townsend-brady/",
       "textUrl": "hoerbuch-texte/en/brady-cyrus-townsend_-_and-thus-he-came-8619.txt.gz",
+      "textRange": {
+        "start": 96,
+        "ende": 1404
+      },
       "tags": {
         "work_author": "Brady, Cyrus Townsend",
         "reader": "David Wales",
@@ -18009,6 +18754,10 @@
       "credit": "Public Domain — LibriVox (Buch 6495)",
       "url": "https://librivox.org/penelopes-english-experiences-by-kate-douglas-wiggin/",
       "textUrl": "hoerbuch-texte/en/wiggin-kate-douglas_-_penelope-s-english-experiences-6495.txt.gz",
+      "textRange": {
+        "start": 58,
+        "ende": 3365
+      },
       "tags": {
         "work_author": "Wiggin, Kate Douglas",
         "reader": "Maria Therese",
@@ -18272,6 +19021,10 @@
       "credit": "Public Domain — LibriVox (Buch 4071)",
       "url": "https://librivox.org/the-early-history-of-the-airplane-by-wright-orville-and-wilbur/",
       "textUrl": "hoerbuch-texte/en/wright-orville_-_early-history-of-the-airplane-4071.txt.gz",
+      "textRange": {
+        "start": 54,
+        "ende": 1381
+      },
       "tags": {
         "work_author": "Wright, Orville; Wright, Wilbur",
         "reader": "Availle",
@@ -18338,6 +19091,10 @@
       "credit": "Public Domain — LibriVox (Buch 536)",
       "url": "https://librivox.org/magna-carta/",
       "textUrl": "hoerbuch-texte/en/unknown_-_magna-carta-536.txt.gz",
+      "textRange": {
+        "start": 19,
+        "ende": 1489
+      },
       "tags": {
         "work_author": "Unknown",
         "reader": "Jim Mowatt",
@@ -18385,6 +19142,10 @@
       "credit": "Public Domain — LibriVox (Buch 4039)",
       "url": "https://librivox.org/joe-tildens-recipes-for-epicures-by-joe-tilden/",
       "textUrl": "hoerbuch-texte/en/tilden-joe_-_joe-tilden-s-recipes-for-epicures-4039.txt.gz",
+      "textRange": {
+        "start": 16,
+        "ende": 1834
+      },
       "tags": {
         "work_author": "Tilden, Joe",
         "reader": "Clarica",
@@ -18512,6 +19273,10 @@
       "credit": "Public Domain — LibriVox (Buch 17750)",
       "url": "https://librivox.org/moral-principles-in-education-by-john-dewey/",
       "textUrl": "hoerbuch-texte/en/dewey-john_-_moral-principles-in-education-17750.txt.gz",
+      "textRange": {
+        "start": 79,
+        "ende": 1236
+      },
       "tags": {
         "work_author": "Dewey, John",
         "reader": "Sanya",
@@ -18603,6 +19368,10 @@
       "credit": "Public Domain — LibriVox (Buch 20187)",
       "url": "https://librivox.org/tea-and-the-effects-of-tea-drinking-by-william-scott-tebb/",
       "textUrl": "hoerbuch-texte/en/tebb-william-scott_-_tea-and-the-effects-of-tea-drinking-20187.txt.gz",
+      "textRange": {
+        "start": 24,
+        "ende": 1200
+      },
       "tags": {
         "work_author": "Tebb, William Scott",
         "reader": "VO Gal",
@@ -18696,6 +19465,10 @@
       "credit": "Public Domain — LibriVox (Buch 12248)",
       "url": "https://librivox.org/the-training-of-a-forester-by-gifford-pinchot/",
       "textUrl": "hoerbuch-texte/en/pinchot-gifford_-_training-of-a-forester-12248.txt.gz",
+      "textRange": {
+        "start": 99,
+        "ende": 2324
+      },
       "tags": {
         "work_author": "Pinchot, Gifford",
         "reader": "KHand",
@@ -18878,6 +19651,10 @@
       "credit": "Public Domain — LibriVox (Buch 2226)",
       "url": "https://librivox.org/book-of-baruch-by-douay-rheims-version/",
       "textUrl": "hoerbuch-texte/en/douay-rheims-version-drv_-_bible-drv-apocrypha-deuterocanon-baruch-2226.txt.gz",
+      "textRange": {
+        "start": 82,
+        "ende": 872
+      },
       "tags": {
         "work_author": "Douay-Rheims Version (DRV)",
         "reader": "Sam Stinson",
@@ -18933,6 +19710,10 @@
       "credit": "Public Domain — LibriVox (Buch 1029)",
       "url": "https://librivox.org/plan-and-preface-to-a-dictionary-of-english-by-samuel-johnson/",
       "textUrl": "hoerbuch-texte/en/johnson-samuel_-_plan-and-preface-to-a-dictionary-of-the-english-language-1029.txt.gz",
+      "textRange": {
+        "start": 198,
+        "ende": 1077
+      },
       "tags": {
         "work_author": "Johnson, Samuel",
         "reader": "Denny Sayers (d. 2015)",
@@ -19006,6 +19787,10 @@
       "credit": "Public Domain — LibriVox (Buch 2802)",
       "url": "https://librivox.org/discoverers-and-explorers-by-edward-r-shaw/",
       "textUrl": "hoerbuch-texte/en/shaw-edward-r_-_discoverers-and-explorers-2802.txt.gz",
+      "textRange": {
+        "start": 54,
+        "ende": 2460
+      },
       "tags": {
         "work_author": "Shaw, Edward R.",
         "reader": "Laura Caldwell",
@@ -19197,6 +19982,10 @@
       "credit": "Public Domain — LibriVox (Buch 5710)",
       "url": "https://librivox.org/the-game-by-jack-london/",
       "textUrl": "hoerbuch-texte/en/london-jack_-_game-5710.txt.gz",
+      "textRange": {
+        "start": 42,
+        "ende": 1594
+      },
       "tags": {
         "work_author": "London, Jack",
         "reader": "Tom Crawford",
@@ -19289,6 +20078,10 @@
       "credit": "Public Domain — LibriVox (Buch 3516)",
       "url": "https://librivox.org/mental-efficiency-and-other-hints-to-men-and-women-by-arnold-bennett/",
       "textUrl": "hoerbuch-texte/en/bennett-arnold_-_mental-efficiency-3516.txt.gz",
+      "textRange": {
+        "start": 122,
+        "ende": 2345
+      },
       "tags": {
         "work_author": "Bennett, Arnold",
         "reader": "Ruth Golding",
@@ -19409,6 +20202,10 @@
       "credit": "Public Domain — LibriVox (Buch 1076)",
       "url": "https://librivox.org/the-philosophy-of-style-by-herbert-spencer/",
       "textUrl": "hoerbuch-texte/en/spencer-herbert_-_philosophy-of-style-1076.txt.gz",
+      "textRange": {
+        "start": 39,
+        "ende": 1274
+      },
       "tags": {
         "work_author": "Spencer, Herbert",
         "reader": "Gary Gilberd",
@@ -19473,6 +20270,10 @@
       "credit": "Public Domain — LibriVox (Buch 13151)",
       "url": "https://librivox.org/peter-bell-a-tale-by-william-wordsworth/",
       "textUrl": "hoerbuch-texte/en/wordsworth-william_-_peter-bell-a-tale-13151.txt.gz",
+      "textRange": {
+        "start": 71,
+        "ende": 26212
+      },
       "tags": {
         "work_author": "Wordsworth, William",
         "reader": "FunkyPhD",
@@ -19546,6 +20347,10 @@
       "credit": "Public Domain — LibriVox (Buch 16788)",
       "url": "https://librivox.org/greek-athletics-by-frederick-adam-wright/",
       "textUrl": "hoerbuch-texte/en/wright-frederick-adam_-_greek-athletics-16788.txt.gz",
+      "textRange": {
+        "start": 68,
+        "ende": 2612
+      },
       "tags": {
         "work_author": "Wright, Frederick Adam",
         "reader": "Heather Eney",
@@ -19646,6 +20451,10 @@
       "credit": "Public Domain — LibriVox (Buch 22069)",
       "url": "https://librivox.org/the-lotos-eaters-and-other-poems-by-alfred-lord-tennyson/",
       "textUrl": "hoerbuch-texte/en/tennyson-alfred-lord_-_lotos-eaters-and-other-poems-22069.txt.gz",
+      "textRange": {
+        "start": 42,
+        "ende": 3790
+      },
       "tags": {
         "work_author": "Tennyson, Alfred, Lord",
         "reader": "Alan Mapstone",
@@ -19818,6 +20627,10 @@
       "credit": "Public Domain — LibriVox (Buch 10016)",
       "url": "https://librivox.org/prometheus-bound-browning-translation-by-aeschylus/",
       "textUrl": "hoerbuch-texte/en/aeschylus_-_prometheus-bound-browning-translation-10016.txt.gz",
+      "textRange": {
+        "start": 205,
+        "ende": 8712
+      },
       "tags": {
         "work_author": "Aeschylus",
         "reader": "Expatriate",
@@ -19877,6 +20690,10 @@
       "credit": "Public Domain — LibriVox (Buch 14210)",
       "url": "https://librivox.org/theism-or-atheism-the-great-alternative-by-chapman-cohen/",
       "textUrl": "hoerbuch-texte/en/cohen-chapman_-_theism-or-atheism-the-great-alternative-14210.txt.gz",
+      "textRange": {
+        "start": 96,
+        "ende": 5449
+      },
       "tags": {
         "work_author": "Cohen, Chapman",
         "reader": "J. M. Smallheer",
@@ -20058,6 +20875,10 @@
       "credit": "Public Domain — LibriVox (Buch 13070)",
       "url": "https://librivox.org/bible-wnt-nt-10-ephesians-by-weymouth-new-testament/",
       "textUrl": "hoerbuch-texte/en/weymouth-new-testament_-_bible-wnt-nt-10-ephesians-13070.txt.gz",
+      "textRange": {
+        "start": 48,
+        "ende": 584
+      },
       "tags": {
         "work_author": "Weymouth New Testament",
         "reader": "Mark Penfold",
@@ -20104,6 +20925,10 @@
       "credit": "Public Domain — LibriVox (Buch 1115)",
       "url": "https://librivox.org/sonnets-from-the-portugese-by-elizabeth-barrett-browning/",
       "textUrl": "hoerbuch-texte/en/browning-elizabeth-barrett_-_sonnets-from-the-portuguese-1115.txt.gz",
+      "textRange": {
+        "start": 35,
+        "ende": 1002
+      },
       "tags": {
         "work_author": "Browning, Elizabeth Barrett",
         "reader": "Kirsten Ferreri",
@@ -20538,6 +21363,10 @@
       "credit": "Public Domain — LibriVox (Buch 5627)",
       "url": "https://librivox.org/the-autobiography-of-an-electron-by-charles-r-gibson/",
       "textUrl": "hoerbuch-texte/en/gibson-charles-r_-_autobiography-of-an-electron-5627.txt.gz",
+      "textRange": {
+        "start": 97,
+        "ende": 3453
+      },
       "tags": {
         "work_author": "Gibson, Charles R.",
         "reader": "Laura Victoria",
@@ -20774,6 +21603,10 @@
       "credit": "Public Domain — LibriVox (Buch 10073)",
       "url": "https://librivox.org/nature-version-2-by-ralph-waldo-emerson/",
       "textUrl": "hoerbuch-texte/en/emerson-ralph-waldo_-_nature-version-2-10073.txt.gz",
+      "textRange": {
+        "start": 78,
+        "ende": 1600
+      },
       "tags": {
         "work_author": "Emerson, Ralph Waldo",
         "reader": "Jesse Zuba",
@@ -20892,6 +21725,10 @@
       "credit": "Public Domain — LibriVox (Buch 12565)",
       "url": "https://librivox.org/bringing-up-the-boy-by-carl-werner/",
       "textUrl": "hoerbuch-texte/en/werner-carl_-_bringing-up-the-boy-12565.txt.gz",
+      "textRange": {
+        "start": 111,
+        "ende": 1873
+      },
       "tags": {
         "work_author": "Werner, Carl",
         "reader": "Donald Cummings",
@@ -21010,6 +21847,10 @@
       "credit": "Public Domain — LibriVox (Buch 2400)",
       "url": "https://librivox.org/the-atomic-bombings-of-hiroshima-and-nagasaki-by-us-army-corps-of-engineers/",
       "textUrl": "hoerbuch-texte/en/united-states-army-corps-of-engineers_-_atomic-bombings-of-hiroshima-nagasaki-2400.txt.gz",
+      "textRange": {
+        "start": 54,
+        "ende": 2719
+      },
       "tags": {
         "work_author": "United States Army Corps of Engineers",
         "reader": "Denny Sayers (d. 2015)",
@@ -21121,6 +21962,10 @@
       "credit": "Public Domain — LibriVox (Buch 4382)",
       "url": "https://librivox.org/the-mabinogion-volume-1/",
       "textUrl": "hoerbuch-texte/en/anonymous_-_mabinogion-volume-1-4382.txt.gz",
+      "textRange": {
+        "start": 51,
+        "ende": 3008
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Martin Geeson",
@@ -21296,6 +22141,10 @@
       "credit": "Public Domain — LibriVox (Buch 11896)",
       "url": "https://librivox.org/bible-web-nt-11-philippians-by-world-english-bible/",
       "textUrl": "hoerbuch-texte/en/world-english-bible_-_bible-web-nt-11-philippians-11896.txt.gz",
+      "textRange": {
+        "start": 45,
+        "ende": 79123
+      },
       "tags": {
         "work_author": "World English Bible",
         "reader": "Beth Thomas (1974-2020)",
@@ -21342,6 +22191,10 @@
       "credit": "Public Domain — LibriVox (Buch 2112)",
       "url": "https://librivox.org/more-bab-ballads-by-w-s-gilbert/",
       "textUrl": "hoerbuch-texte/en/gilbert-w-s_-_more-bab-ballads-2112.txt.gz",
+      "textRange": {
+        "start": 90,
+        "ende": 4491
+      },
       "tags": {
         "work_author": "Gilbert, W. S.",
         "reader": "Graham Redman",
@@ -21487,6 +22340,10 @@
       "credit": "Public Domain — LibriVox (Buch 9396)",
       "url": "https://librivox.org/abc-of-vegetable-gardening-by-eben-eugene-rexford/",
       "textUrl": "hoerbuch-texte/en/rexford-eben-eugene_-_abc-of-vegetable-gardening-9396.txt.gz",
+      "textRange": {
+        "start": 105,
+        "ende": 2618
+      },
       "tags": {
         "work_author": "Rexford, Eben Eugene",
         "reader": "Bill Boerst",
@@ -21623,6 +22480,10 @@
       "credit": "Public Domain — LibriVox (Buch 8361)",
       "url": "https://librivox.org/lucinda-by-friedrich-von-schlegel/",
       "textUrl": "hoerbuch-texte/en/schlegel-friedrich-von_-_lucinda-8361.txt.gz",
+      "textRange": {
+        "start": 154,
+        "ende": 20296
+      },
       "tags": {
         "work_author": "Schlegel, Friedrich von",
         "reader": "Craig Campbell",
@@ -21781,6 +22642,10 @@
       "credit": "Public Domain — LibriVox (Buch 11525)",
       "url": "https://librivox.org/the-chemistry-properties-and-tests-of-precious-stones-by-john-mastin/",
       "textUrl": "hoerbuch-texte/en/mastin-john_-_chemistry-properties-and-tests-of-precious-stones-11525.txt.gz",
+      "textRange": {
+        "start": 161,
+        "ende": 3567
+      },
       "tags": {
         "work_author": "Mastin, John",
         "reader": "Kevin Green",
@@ -21963,6 +22828,10 @@
       "credit": "Public Domain — LibriVox (Buch 20463)",
       "url": "https://librivox.org/charles-dickens-and-music-by-james-t-lightwood/",
       "textUrl": "hoerbuch-texte/en/lightwood-james-t_-_charles-dickens-and-music-20463.txt.gz",
+      "textRange": {
+        "start": 55,
+        "ende": 6311
+      },
       "tags": {
         "work_author": "Lightwood, James T.",
         "reader": "Warren Bergmann",
@@ -22092,6 +22961,10 @@
       "credit": "Public Domain — LibriVox (Buch 13311)",
       "url": "https://librivox.org/lysistrata-version-3-by-aristophanes/",
       "textUrl": "hoerbuch-texte/en/aristophanes_-_lysistrata-version-3-13311.txt.gz",
+      "textRange": {
+        "start": 47,
+        "ende": 3538
+      },
       "tags": {
         "work_author": "Aristophanes",
         "reader": "Phil Chenevert",
@@ -22159,6 +23032,10 @@
       "credit": "Public Domain — LibriVox (Buch 13702)",
       "url": "https://librivox.org/the-prophet-by-kahlil-gibran/",
       "textUrl": "hoerbuch-texte/en/gibran-kahlil_-_prophet-13702.txt.gz",
+      "textRange": {
+        "start": 93,
+        "ende": 3096
+      },
       "tags": {
         "work_author": "Gibran, Kahlil",
         "reader": "Mark F. Smith",
@@ -22261,6 +23138,10 @@
       "credit": "Public Domain — LibriVox (Buch 9314)",
       "url": "https://librivox.org/quilts-by-marie-d-webster/",
       "textUrl": "hoerbuch-texte/en/webster-marie-d_-_quilts-their-story-and-how-to-make-them-9314.txt.gz",
+      "textRange": {
+        "start": 340,
+        "ende": 4977
+      },
       "tags": {
         "work_author": "Webster, Marie D.",
         "reader": "MaryAnn",
@@ -22379,6 +23260,10 @@
       "credit": "Public Domain — LibriVox (Buch 7027)",
       "url": "https://librivox.org/pearl-by-the-gawain-poet/",
       "textUrl": "hoerbuch-texte/en/the-gawain-poet_-_pearl-jewett-translation-7027.txt.gz",
+      "textRange": {
+        "start": 44,
+        "ende": 1681
+      },
       "tags": {
         "work_author": "The Gawain Poet",
         "reader": "Jordan",
@@ -22454,6 +23339,7 @@
       "credit": "Public Domain — LibriVox (Buch 14839)",
       "url": "https://librivox.org/foundations-of-geometry-by-david-hilbert/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hilbert, David",
         "reader": "Jim Wrenholt",
@@ -22871,6 +23757,10 @@
       "credit": "Public Domain — LibriVox (Buch 243)",
       "url": "https://librivox.org/romeo-and-juliet-by-william-shakespeare/",
       "textUrl": "hoerbuch-texte/en/shakespeare-william_-_romeo-and-juliet-243.txt.gz",
+      "textRange": {
+        "start": 304,
+        "ende": 3971
+      },
       "tags": {
         "work_author": "Shakespeare, William",
         "reader": "Becky Miller",
@@ -22954,6 +23844,10 @@
       "credit": "Public Domain — LibriVox (Buch 1728)",
       "url": "https://librivox.org/philippics-by-cicero/",
       "textUrl": "hoerbuch-texte/en/cicero-marcus-tullius_-_philippics-1728.txt.gz",
+      "textRange": {
+        "start": 70,
+        "ende": 20705
+      },
       "tags": {
         "work_author": "Cicero, Marcus Tullius",
         "reader": "ontheroad",
@@ -23130,6 +24024,10 @@
       "credit": "Public Domain — LibriVox (Buch 19266)",
       "url": "https://librivox.org/speeches-literary-and-social-by-charles-dickens/",
       "textUrl": "hoerbuch-texte/en/dickens-charles_-_speeches-literary-and-social-19266.txt.gz",
+      "textRange": {
+        "start": 63,
+        "ende": 9514
+      },
       "tags": {
         "work_author": "Dickens, Charles",
         "reader": "Bryn Roberts",
@@ -23717,6 +24615,10 @@
       "credit": "Public Domain — LibriVox (Buch 18842)",
       "url": "https://librivox.org/hedda-gabler-by-henrik-ibsen-3/",
       "textUrl": "hoerbuch-texte/en/ibsen-henrik_-_hedda-gabler-version-3-18842.txt.gz",
+      "textRange": {
+        "start": 49,
+        "ende": 9832
+      },
       "tags": {
         "work_author": "Ibsen, Henrik",
         "reader": "pintri",
@@ -23802,6 +24704,10 @@
       "credit": "Public Domain — LibriVox (Buch 8003)",
       "url": "https://librivox.org/the-little-gray-lady-by-francis-hopkinson-smith/",
       "textUrl": "hoerbuch-texte/en/smith-francis-hopkinson_-_little-gray-lady-8003.txt.gz",
+      "textRange": {
+        "start": 43,
+        "ende": 607
+      },
       "tags": {
         "work_author": "Smith, Francis Hopkinson",
         "reader": "Crln Yldz Ksr",
@@ -23876,6 +24782,10 @@
       "credit": "Public Domain — LibriVox (Buch 15024)",
       "url": "https://librivox.org/ingersoll-on-humboldt-from-the-works-of-robert-g-ingersoll-volume-1-lecture-2-by-robert-g-ingersoll/",
       "textUrl": "hoerbuch-texte/en/ingersoll-robert-g_-_ingersoll-on-humboldt-from-the-works-of-robert-g-ingersoll-volume-1-lecture-2-15024.txt.gz",
+      "textRange": {
+        "start": 293,
+        "ende": 3040
+      },
       "tags": {
         "work_author": "Ingersoll, Robert G.",
         "reader": "Brian Levine",
@@ -23922,6 +24832,10 @@
       "credit": "Public Domain — LibriVox (Buch 409)",
       "url": "https://librivox.org/the-slant-book-by-peter-newell/",
       "textUrl": "hoerbuch-texte/en/newell-peter_-_slant-book-409.txt.gz",
+      "textRange": {
+        "start": 31,
+        "ende": 330
+      },
       "tags": {
         "work_author": "Newell, Peter",
         "reader": "Denny Sayers (d. 2015)",
@@ -23968,6 +24882,10 @@
       "credit": "Public Domain — LibriVox (Buch 170)",
       "url": "https://librivox.org/declaration-of-independence-by-the-united-states-of-america/",
       "textUrl": "hoerbuch-texte/en/jefferson-thomas_-_declaration-of-independence-of-the-united-states-of-america-170.txt.gz",
+      "textRange": {
+        "start": 6,
+        "ende": 225
+      },
       "tags": {
         "work_author": "Jefferson, Thomas",
         "reader": "Jim Cadwell",
@@ -24014,6 +24932,10 @@
       "credit": "Public Domain — LibriVox (Buch 3191)",
       "url": "https://librivox.org/adrift-on-an-ice-pan-by-sir-wilfred-grenfell/",
       "textUrl": "hoerbuch-texte/en/grenfell-sir-wilfred_-_adrift-on-an-ice-pan-3191.txt.gz",
+      "textRange": {
+        "start": 133,
+        "ende": 1186
+      },
       "tags": {
         "work_author": "Grenfell, Sir Wilfred",
         "reader": "Sean Michael Hogan",
@@ -24078,6 +25000,10 @@
       "credit": "Public Domain — LibriVox (Buch 12228)",
       "url": "https://librivox.org/night-operations-for-infantry-compiled-for-the-use-of-company-officers-1916-by-charles-tyrwhitt-dawkins/",
       "textUrl": "hoerbuch-texte/en/dawkins-charles-tyrwhitt_-_night-operations-for-infantry-compiled-for-the-use-of-company-officers-1916-12228.txt.gz",
+      "textRange": {
+        "start": 49,
+        "ende": 1287
+      },
       "tags": {
         "work_author": "Dawkins, Charles Tyrwhitt",
         "reader": "David Wales",
@@ -24151,6 +25077,10 @@
       "credit": "Public Domain — LibriVox (Buch 976)",
       "url": "https://librivox.org/ring-o-roses-by-anonymous-illustrated-by-l-leslie-brooke",
       "textUrl": "hoerbuch-texte/en/brooke-l-leslie_-_ring-o-roses-a-nursery-rhyme-picture-book-976.txt.gz",
+      "textRange": {
+        "start": 177,
+        "ende": 419
+      },
       "tags": {
         "work_author": "Brooke, L. Leslie",
         "reader": "Larysa Jaworski",
@@ -24216,6 +25146,10 @@
       "credit": "Public Domain — LibriVox (Buch 9105)",
       "url": "https://librivox.org/the-man-who-found-out-a-nightmare-by-algernon-blackwood/",
       "textUrl": "hoerbuch-texte/en/blackwood-algernon_-_man-who-found-out-a-nightmare-9105.txt.gz",
+      "textRange": {
+        "start": 53,
+        "ende": 5847
+      },
       "tags": {
         "work_author": "Blackwood, Algernon",
         "reader": "Phil Chenevert",
@@ -24307,6 +25241,10 @@
       "credit": "Public Domain — LibriVox (Buch 192)",
       "url": "https://librivox.org/johnny-crows-garden-by-l-leslie-brooke/",
       "textUrl": "hoerbuch-texte/en/brooke-l-leslie_-_johnny-crow-s-garden-192.txt.gz",
+      "textRange": {
+        "start": 45,
+        "ende": 202
+      },
       "tags": {
         "work_author": "Brooke, L. Leslie",
         "reader": "Kara Shallenberg (1969-2023)",
@@ -24353,6 +25291,10 @@
       "credit": "Public Domain — LibriVox (Buch 13123)",
       "url": "https://librivox.org/the-frozen-north-by-richard-mayde/",
       "textUrl": "hoerbuch-texte/en/mayde-richard_-_frozen-north-13123.txt.gz",
+      "textRange": {
+        "start": 152,
+        "ende": 1073
+      },
       "tags": {
         "work_author": "Mayde, Richard",
         "reader": "Jim Locke",
@@ -24427,6 +25369,10 @@
       "credit": "Public Domain — LibriVox (Buch 1157)",
       "url": "https://librivox.org/the-gettysburg-address-by-abraham-lincoln-2/",
       "textUrl": "hoerbuch-texte/en/lincoln-abraham_-_gettysburg-address-version-3-1157.txt.gz",
+      "textRange": {
+        "start": 5,
+        "ende": 44
+      },
       "tags": {
         "work_author": "Lincoln, Abraham",
         "reader": "Mark F. Smith",
@@ -24473,6 +25419,10 @@
       "credit": "Public Domain — LibriVox (Buch 17198)",
       "url": "https://librivox.org/yellow-butterflies-by-mary-raymond-shipman-andrews/",
       "textUrl": "hoerbuch-texte/en/andrews-mary-raymond-shipman_-_yellow-butterflies-17198.txt.gz",
+      "textRange": {
+        "start": 86,
+        "ende": 1050
+      },
       "tags": {
         "work_author": "Andrews, Mary Raymond Shipman",
         "reader": "Lee Smalley",
@@ -24538,6 +25488,10 @@
       "credit": "Public Domain — LibriVox (Buch 14056)",
       "url": "https://librivox.org/the-monitor-and-the-merrimac-both-sides-of-the-story-by-john-worden/",
       "textUrl": "hoerbuch-texte/en/greene-samuel_-_monitor-and-the-merrimac-both-sides-of-the-story-14056.txt.gz",
+      "textRange": {
+        "start": 103,
+        "ende": 1082
+      },
       "tags": {
         "work_author": "Greene, Samuel; Ramsay, H. Ashton; Watson, Eugene Winslow; Worden, John",
         "reader": "Jeffery",
@@ -24612,6 +25566,10 @@
       "credit": "Public Domain — LibriVox (Buch 18323)",
       "url": "https://librivox.org/rustlers-beware-by-arthur-chapman/",
       "textUrl": "hoerbuch-texte/en/chapman-arthur_-_rustlers-beware-18323.txt.gz",
+      "textRange": {
+        "start": 12,
+        "ende": 2604
+      },
       "tags": {
         "work_author": "Chapman, Arthur",
         "reader": "Roger Melin",
@@ -24740,6 +25698,10 @@
       "credit": "Public Domain — LibriVox (Buch 21833)",
       "url": "https://librivox.org/the-chateau-of-prince-polignac-by-anthony-trollope/",
       "textUrl": "hoerbuch-texte/en/trollope-anthony_-_chateau-of-prince-polignac-21833.txt.gz",
+      "textRange": {
+        "start": 43,
+        "ende": 965
+      },
       "tags": {
         "work_author": "Trollope, Anthony",
         "reader": "Anthony Ogus (1945-2026)",
@@ -24833,6 +25795,10 @@
       "credit": "Public Domain — LibriVox (Buch 6898)",
       "url": "https://librivox.org/alices-adventures-in-wonderland-by-lewis-carroll-6/",
       "textUrl": "hoerbuch-texte/en/carroll-lewis_-_alice-s-adventures-in-wonderland-abridged-version-2-6898.txt.gz",
+      "textRange": {
+        "start": 42,
+        "ende": 1300
+      },
       "tags": {
         "work_author": "Carroll, Lewis",
         "reader": "ashleighjane",
@@ -24961,6 +25927,10 @@
       "credit": "Public Domain — LibriVox (Buch 12633)",
       "url": "https://librivox.org/cupids-cyclopedia-by-oliver-herford/",
       "textUrl": "hoerbuch-texte/en/clay-john-cecil_-_cupid-s-cyclopedia-12633.txt.gz",
+      "textRange": {
+        "start": 50,
+        "ende": 1569
+      },
       "tags": {
         "work_author": "Clay, John Cecil; Herford, Oliver",
         "reader": "David Wales",
@@ -25026,6 +25996,10 @@
       "credit": "Public Domain — LibriVox (Buch 13643)",
       "url": "https://librivox.org/bulbs-and-blossoms-by-amy-le-feuvre/",
       "textUrl": "hoerbuch-texte/en/le-feuvre-amy_-_bulbs-and-blossoms-13643.txt.gz",
+      "textRange": {
+        "start": 80,
+        "ende": 1092
+      },
       "tags": {
         "work_author": "Le Feuvre, Amy",
         "reader": "Emily Isabella",
@@ -25101,6 +26075,10 @@
       "credit": "Public Domain — LibriVox (Buch 12872)",
       "url": "https://librivox.org/pierrot-dog-of-belgium-by-walter-alden-dyer/",
       "textUrl": "hoerbuch-texte/en/dyer-walter-alden_-_pierrot-dog-of-belgium-12872.txt.gz",
+      "textRange": {
+        "start": 103,
+        "ende": 2043
+      },
       "tags": {
         "work_author": "Dyer, Walter Alden",
         "reader": "David Wales",
@@ -25212,6 +26190,10 @@
       "credit": "Public Domain — LibriVox (Buch 10188)",
       "url": "https://librivox.org/on-the-duty-of-civil-disobedience-by-henry-david-thoreau-2/",
       "textUrl": "hoerbuch-texte/en/thoreau-henry-david_-_on-the-duty-of-civil-disobedience-version-3-10188.txt.gz",
+      "textRange": {
+        "start": 38,
+        "ende": 861
+      },
       "tags": {
         "work_author": "Thoreau, Henry David",
         "reader": "Phil Chenevert",
@@ -25267,6 +26249,10 @@
       "credit": "Public Domain — LibriVox (Buch 3360)",
       "url": "https://librivox.org/the-babys-songbook-by-walter-crane/",
       "textUrl": "hoerbuch-texte/en/crane-walter_-_baby-s-songbook-3360.txt.gz",
+      "textRange": {
+        "start": 50,
+        "ende": 1205
+      },
       "tags": {
         "work_author": "Crane, Walter",
         "reader": "Carol Stripling",
@@ -25431,6 +26417,10 @@
       "credit": "Public Domain — LibriVox (Buch 17216)",
       "url": "https://librivox.org/the-indians-in-wisconsins-history-by-john-m-douglass/",
       "textUrl": "hoerbuch-texte/en/douglass-john-m_-_indians-in-wisconsin-s-history-17216.txt.gz",
+      "textRange": {
+        "start": 15,
+        "ende": 1728
+      },
       "tags": {
         "work_author": "Douglass, John M.",
         "reader": "Verla Viera",
@@ -25525,6 +26515,10 @@
       "credit": "Public Domain — LibriVox (Buch 16538)",
       "url": "https://librivox.org/grand-canon-of-the-colorado-by-john-muir/",
       "textUrl": "hoerbuch-texte/en/muir-john_-_grand-canon-of-the-colorado-16538.txt.gz",
+      "textRange": {
+        "start": 12,
+        "ende": 724
+      },
       "tags": {
         "work_author": "Muir, John",
         "reader": "Rebecca Eden Walker",
@@ -25598,6 +26592,10 @@
       "credit": "Public Domain — LibriVox (Buch 1483)",
       "url": "https://librivox.org/the-spirit-of-christmas-by-henry-van-dyke/",
       "textUrl": "hoerbuch-texte/en/van-dyke-henry_-_spirit-of-christmas-1483.txt.gz",
+      "textRange": {
+        "start": 66,
+        "ende": 734
+      },
       "tags": {
         "work_author": "van Dyke, Henry",
         "reader": "Jan MacGillivray",
@@ -25673,6 +26671,10 @@
       "credit": "Public Domain — LibriVox (Buch 2664)",
       "url": "https://librivox.org/the-majesty-of-calmness-by-william-george-jordan/",
       "textUrl": "hoerbuch-texte/en/jordan-william-george_-_majesty-of-calmness-2664.txt.gz",
+      "textRange": {
+        "start": 74,
+        "ende": 1214
+      },
       "tags": {
         "work_author": "Jordan, William George",
         "reader": "Audio Andrea",
@@ -25775,6 +26777,10 @@
       "credit": "Public Domain — LibriVox (Buch 13487)",
       "url": "https://librivox.org/days-with-sir-roger-de-coverley-by-joseph-addison/",
       "textUrl": "hoerbuch-texte/en/addison-joseph_-_days-with-sir-roger-de-coverley-13487.txt.gz",
+      "textRange": {
+        "start": 66,
+        "ende": 1070
+      },
       "tags": {
         "work_author": "Addison, Joseph; Steele, Richard",
         "reader": "Elijah Fisher",
@@ -25884,6 +26890,10 @@
       "credit": "Public Domain — LibriVox (Buch 11527)",
       "url": "https://librivox.org/the-white-cowl-by-james-lane-allen/",
       "textUrl": "hoerbuch-texte/en/allen-james-lane_-_white-cowl-11527.txt.gz",
+      "textRange": {
+        "start": 42,
+        "ende": 8613
+      },
       "tags": {
         "work_author": "Allen, James Lane",
         "reader": "David Wales",
@@ -25948,6 +26958,10 @@
       "credit": "Public Domain — LibriVox (Buch 9929)",
       "url": "https://librivox.org/saved-at-sea-by-mrs-o-f-walton/",
       "textUrl": "hoerbuch-texte/en/walton-mrs-o-f_-_saved-at-sea-9929.txt.gz",
+      "textRange": {
+        "start": 47,
+        "ende": 1861
+      },
       "tags": {
         "work_author": "Walton, Mrs. O. F.",
         "reader": "Rachel",
@@ -26094,6 +27108,10 @@
       "credit": "Public Domain — LibriVox (Buch 10496)",
       "url": "https://librivox.org/trachiniai-campbell-translation-by-sophocles/",
       "textUrl": "hoerbuch-texte/en/sophocles_-_trachiniai-campbell-translation-10496.txt.gz",
+      "textRange": {
+        "start": 74,
+        "ende": 15036
+      },
       "tags": {
         "work_author": "Sophocles",
         "reader": "Expatriate",
@@ -26152,6 +27170,10 @@
       "credit": "Public Domain — LibriVox (Buch 5041)",
       "url": "https://librivox.org/sidelights-on-relativity-by-albert-einstein/",
       "textUrl": "hoerbuch-texte/en/einstein-albert_-_sidelights-on-relativity-5041.txt.gz",
+      "textRange": {
+        "start": 65,
+        "ende": 953
+      },
       "tags": {
         "work_author": "Einstein, Albert",
         "reader": "Paul Adams",
@@ -26208,6 +27230,10 @@
       "credit": "Public Domain — LibriVox (Buch 13774)",
       "url": "https://librivox.org/canoeing-in-the-wilderness-by-henry-david-thoreau/",
       "textUrl": "hoerbuch-texte/en/thoreau-henry-david_-_canoeing-in-the-wilderness-13774.txt.gz",
+      "textRange": {
+        "start": 108,
+        "ende": 3490
+      },
       "tags": {
         "work_author": "Thoreau, Henry David",
         "reader": "Melissa Green",
@@ -26345,6 +27371,10 @@
       "credit": "Public Domain — LibriVox (Buch 4694)",
       "url": "https://librivox.org/the-curtezan-unmasked-by-anonymous/",
       "textUrl": "hoerbuch-texte/en/anonymous_-_curtezan-unmasked-4694.txt.gz",
+      "textRange": {
+        "start": 72,
+        "ende": 757
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Denny Sayers (d. 2015)",
@@ -26401,6 +27431,10 @@
       "credit": "Public Domain — LibriVox (Buch 11410)",
       "url": "https://librivox.org/never-a-handbook-by-nathan-dane-urner/",
       "textUrl": "hoerbuch-texte/en/urner-nathan-dane_-_never-a-handbook-for-the-uninitiated-and-inexperienced-aspirants-to-refined-soci-11410.txt.gz",
+      "textRange": {
+        "start": 83,
+        "ende": 1378
+      },
       "tags": {
         "work_author": "Urner, Nathan Dane",
         "reader": "David Wales",
@@ -26519,6 +27553,10 @@
       "credit": "Public Domain — LibriVox (Buch 325)",
       "url": "https://librivox.org/book-of-jude-kjv-2/",
       "textUrl": "hoerbuch-texte/en/king-james-version-kjv_-_bible-kjv-nt-26-jude-325.txt.gz",
+      "textRange": {
+        "start": 55,
+        "ende": 148
+      },
       "tags": {
         "work_author": "King James Version (KJV)",
         "reader": "Susan Denney",
@@ -26565,6 +27603,10 @@
       "credit": "Public Domain — LibriVox (Buch 13695)",
       "url": "https://librivox.org/the-characters-of-theophrastus-by-theophrastus/",
       "textUrl": "hoerbuch-texte/en/theophrastus_-_characters-of-theophrastus-13695.txt.gz",
+      "textRange": {
+        "start": 93,
+        "ende": 1851
+      },
       "tags": {
         "work_author": "Theophrastus",
         "reader": "David Wales",
@@ -26642,6 +27684,10 @@
       "credit": "Public Domain — LibriVox (Buch 13745)",
       "url": "https://librivox.org/the-complete-works-of-artemus-ward-part-4-to-california-and-return-by-artemus-ward/",
       "textUrl": "hoerbuch-texte/en/ward-artemus_-_complete-works-of-artemus-ward-part-4-to-california-and-return-13745.txt.gz",
+      "textRange": {
+        "start": 386,
+        "ende": 2529
+      },
       "tags": {
         "work_author": "Ward, Artemus",
         "reader": "Delmar H Dolbier",
@@ -26725,6 +27771,10 @@
       "credit": "Public Domain — LibriVox (Buch 16429)",
       "url": "https://librivox.org/whispering-tongues-by-homer-greene/",
       "textUrl": "hoerbuch-texte/en/greene-homer_-_whispering-tongues-16429.txt.gz",
+      "textRange": {
+        "start": 92,
+        "ende": 2712
+      },
       "tags": {
         "work_author": "Greene, Homer",
         "reader": "Donald Cummings",
@@ -26826,6 +27876,10 @@
       "credit": "Public Domain — LibriVox (Buch 12238)",
       "url": "https://librivox.org/celebrated-crimes-vol-6-part-2-the-man-in-the-iron-mask-by-alexandre-dumas/",
       "textUrl": "hoerbuch-texte/en/dumas-alexandre_-_celebrated-crimes-vol-6-part-2-the-man-in-the-iron-mask-12238.txt.gz",
+      "textRange": {
+        "start": 23,
+        "ende": 62580
+      },
       "tags": {
         "work_author": "Dumas, Alexandre",
         "reader": "John Van Stan",
@@ -26911,6 +27965,10 @@
       "credit": "Public Domain — LibriVox (Buch 19050)",
       "url": "https://librivox.org/the-prophet-version-5-by-kahlil-gibran/",
       "textUrl": "hoerbuch-texte/en/gibran-kahlil_-_prophet-version-5-19050.txt.gz",
+      "textRange": {
+        "start": 93,
+        "ende": 3096
+      },
       "tags": {
         "work_author": "Gibran, Kahlil",
         "reader": "Ruth Golding",
@@ -26967,6 +28025,10 @@
       "credit": "Public Domain — LibriVox (Buch 3222)",
       "url": "https://librivox.org/essay-on-criticism-by-alexander-pope/",
       "textUrl": "hoerbuch-texte/en/pope-alexander_-_essay-on-criticism-3222.txt.gz",
+      "textRange": {
+        "start": 139,
+        "ende": 1287
+      },
       "tags": {
         "work_author": "Pope, Alexander",
         "reader": "Aringguth",
@@ -27015,6 +28077,10 @@
       "credit": "Public Domain — LibriVox (Buch 20280)",
       "url": "https://librivox.org/how-to-paint-permanent-pictures-by-maximilian-toch/",
       "textUrl": "hoerbuch-texte/en/toch-maximilian_-_how-to-paint-permanent-pictures-20280.txt.gz",
+      "textRange": {
+        "start": 93,
+        "ende": 1638
+      },
       "tags": {
         "work_author": "Toch, Maximilian",
         "reader": "Bryn Roberts",
@@ -27286,6 +28352,10 @@
       "credit": "Public Domain — LibriVox (Buch 14933)",
       "url": "https://librivox.org/the-flu-a-brief-history-of-influenza-by-a-mouritz/",
       "textUrl": "hoerbuch-texte/en/mouritz-a_-_the-flu-a-brief-history-of-influenza-in-u-s-america-europe-hawaii-14933.txt.gz",
+      "textRange": {
+        "start": 48,
+        "ende": 1805
+      },
       "tags": {
         "work_author": "Mouritz, A.",
         "reader": "Grace Buchanan",
@@ -27370,6 +28440,10 @@
       "credit": "Public Domain — LibriVox (Buch 18164)",
       "url": "https://librivox.org/dolly-and-i-story-for-little-folks-by-oliver-optic/",
       "textUrl": "hoerbuch-texte/en/optic-oliver_-_dolly-and-i-story-for-little-folks-18164.txt.gz",
+      "textRange": {
+        "start": 58,
+        "ende": 753
+      },
       "tags": {
         "work_author": "Optic, Oliver",
         "reader": "Victoria Alice Bell",
@@ -27443,6 +28517,10 @@
       "credit": "Public Domain — LibriVox (Buch 13017)",
       "url": "https://librivox.org/great-testimony-against-scientific-cruelty-by-stephen-coleridge/",
       "textUrl": "hoerbuch-texte/en/coleridge-stephen_-_great-testimony-against-scientific-cruelty-13017.txt.gz",
+      "textRange": {
+        "start": 58,
+        "ende": 1472
+      },
       "tags": {
         "work_author": "Coleridge, Stephen",
         "reader": "Jeffery",
@@ -27608,6 +28686,10 @@
       "credit": "Public Domain — LibriVox (Buch 10312)",
       "url": "https://librivox.org/the-tower-of-dago-by-mor-jokai/",
       "textUrl": "hoerbuch-texte/en/jokai-mor_-_tower-of-dago-10312.txt.gz",
+      "textRange": {
+        "start": 76,
+        "ende": 1900
+      },
       "tags": {
         "work_author": "Jókai, Mór",
         "reader": "Crln Yldz Ksr",
@@ -27753,6 +28835,10 @@
       "credit": "Public Domain — LibriVox (Buch 22667)",
       "url": "https://librivox.org/john-g-paton-missionary-part3-by-john-paton/",
       "textUrl": "hoerbuch-texte/en/paton-john_-_john-g-paton-missionary-to-the-new-hebrides-an-autobiography-third-part-22667.txt.gz",
+      "textRange": {
+        "start": 95,
+        "ende": 2938
+      },
       "tags": {
         "work_author": "Paton, John",
         "reader": "AletheiaCharis",
@@ -27837,6 +28923,10 @@
       "credit": "Public Domain — LibriVox (Buch 4618)",
       "url": "https://librivox.org/the-soul-of-the-indian-by-charles-alexander-eastman-ohiyesa/",
       "textUrl": "hoerbuch-texte/en/eastman-charles-alexander_-_soul-of-the-indian-4618.txt.gz",
+      "textRange": {
+        "start": 85,
+        "ende": 1788
+      },
       "tags": {
         "work_author": "Eastman, Charles Alexander",
         "reader": "David Mix",
@@ -27938,6 +29028,10 @@
       "credit": "Public Domain — LibriVox (Buch 11123)",
       "url": "https://librivox.org/richard-strauss-by-herbert-francis-peyser/",
       "textUrl": "hoerbuch-texte/en/peyser-herbert-francis_-_richard-strauss-11123.txt.gz",
+      "textRange": {
+        "start": 28,
+        "ende": 1592
+      },
       "tags": {
         "work_author": "Peyser, Herbert Francis",
         "reader": "David Wales",
@@ -28012,6 +29106,10 @@
       "credit": "Public Domain — LibriVox (Buch 598)",
       "url": "https://librivox.org/don-juan-canto-i-by-george-gordon-byron-6th-baron-byron/",
       "textUrl": "hoerbuch-texte/en/byron-george-gordon-lord_-_don-juan-canto-1-598.txt.gz",
+      "textRange": {
+        "start": 43,
+        "ende": 18245
+      },
       "tags": {
         "work_author": "Byron, George Gordon, Lord",
         "reader": "Peter Gallagher",
@@ -28113,6 +29211,10 @@
       "credit": "Public Domain — LibriVox (Buch 6055)",
       "url": "https://librivox.org/apology-by-plato/",
       "textUrl": "hoerbuch-texte/en/plato_-_apology-of-socrates-6055.txt.gz",
+      "textRange": {
+        "start": 43,
+        "ende": 1450
+      },
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "Bob Neufeld",
@@ -28171,6 +29273,10 @@
       "credit": "Public Domain — LibriVox (Buch 15429)",
       "url": "https://librivox.org/the-scotch-twins-by-lucy-fitch-perkins/",
       "textUrl": "hoerbuch-texte/en/perkins-lucy-fitch_-_scotch-twins-15429.txt.gz",
+      "textRange": {
+        "start": 123,
+        "ende": 3743
+      },
       "tags": {
         "work_author": "Perkins, Lucy Fitch",
         "reader": "Hannah Mary",
@@ -28343,6 +29449,10 @@
       "credit": "Public Domain — LibriVox (Buch 16523)",
       "url": "https://librivox.org/stories-of-the-wars-of-the-jews-by-charlotte-maria-tucker/",
       "textUrl": "hoerbuch-texte/en/tucker-a-l-o-e-charlotte-maria_-_stories-of-the-wars-of-the-jews-16523.txt.gz",
+      "textRange": {
+        "start": 41,
+        "ende": 3413
+      },
       "tags": {
         "work_author": "Tucker (A. L. O. E.), Charlotte Maria",
         "reader": "Cliff Stone",
@@ -28560,6 +29670,10 @@
       "credit": "Public Domain — LibriVox (Buch 14822)",
       "url": "https://librivox.org/poems-of-the-great-war-by-various/",
       "textUrl": "hoerbuch-texte/en/various_-_poems-of-the-great-war-14822.txt.gz",
+      "textRange": {
+        "start": 246,
+        "ende": 919
+      },
       "tags": {
         "work_author": "Various",
         "reader": "Bruce Kachuk",
@@ -28759,6 +29873,10 @@
       "credit": "Public Domain — LibriVox (Buch 11665)",
       "url": "https://librivox.org/bible-wnt-nt-09-galatians-by-richard-francis-weymouth/",
       "textUrl": "hoerbuch-texte/en/weymouth-new-testament_-_bible-wnt-nt-09-galatians-11665.txt.gz",
+      "textRange": {
+        "start": 48,
+        "ende": 581
+      },
       "tags": {
         "work_author": "Weymouth New Testament",
         "reader": "Mark Penfold",
@@ -28805,6 +29923,10 @@
       "credit": "Public Domain — LibriVox (Buch 5295)",
       "url": "https://librivox.org/the-art-of-money-getting-by-p-t-barnum/",
       "textUrl": "hoerbuch-texte/en/barnum-p-t_-_art-of-money-getting-5295.txt.gz",
+      "textRange": {
+        "start": 45,
+        "ende": 1402
+      },
       "tags": {
         "work_author": "Barnum, P. T.",
         "reader": "Jill Preston",
@@ -29032,6 +30154,10 @@
       "credit": "Public Domain — LibriVox (Buch 1733)",
       "url": "https://librivox.org/hospital-sketches-by-louisa-may-alcott/",
       "textUrl": "hoerbuch-texte/en/alcott-louisa-may_-_hospital-sketches-1733.txt.gz",
+      "textRange": {
+        "start": 84,
+        "ende": 3048
+      },
       "tags": {
         "work_author": "Alcott, Louisa May",
         "reader": "Aaron Elliott",
@@ -29124,6 +30250,10 @@
       "credit": "Public Domain — LibriVox (Buch 5182)",
       "url": "https://librivox.org/the-dawn-of-a-to-morrow-by-frances-hodgson-burnett/",
       "textUrl": "hoerbuch-texte/en/burnett-frances-hodgson_-_dawn-of-a-to-morrow-5182.txt.gz",
+      "textRange": {
+        "start": 59,
+        "ende": 2160
+      },
       "tags": {
         "work_author": "Burnett, Frances Hodgson",
         "reader": "Linda Andrus",
@@ -29225,6 +30355,10 @@
       "credit": "Public Domain — LibriVox (Buch 2547)",
       "url": "https://librivox.org/trips-to-the-moon-by-lucian-of-samosata/",
       "textUrl": "hoerbuch-texte/en/lucian-of-samosata_-_trips-to-the-moon-2547.txt.gz",
+      "textRange": {
+        "start": 51,
+        "ende": 3846
+      },
       "tags": {
         "work_author": "Lucian of Samosata",
         "reader": "Ralph Snelson",
@@ -29320,6 +30454,10 @@
       "credit": "Public Domain — LibriVox (Buch 21639)",
       "url": "https://librivox.org/the-magic-lantern-and-its-management-by-t-c-hepworth/",
       "textUrl": "hoerbuch-texte/en/hepworth-t-c_-_magic-lantern-and-its-management-21639.txt.gz",
+      "textRange": {
+        "start": 42,
+        "ende": 1665
+      },
       "tags": {
         "work_author": "Hepworth, T. C.",
         "reader": "James R. Hedrick",
@@ -29466,6 +30604,10 @@
       "credit": "Public Domain — LibriVox (Buch 576)",
       "url": "https://librivox.org/the-copyright-question/",
       "textUrl": "hoerbuch-texte/en/morang-george_-_copyright-question-576.txt.gz",
+      "textRange": {
+        "start": 40,
+        "ende": 678
+      },
       "tags": {
         "work_author": "Morang, George",
         "reader": "Esther",
@@ -29512,6 +30654,10 @@
       "credit": "Public Domain — LibriVox (Buch 4635)",
       "url": "https://librivox.org/american-cookery-by-amelia-simmons/",
       "textUrl": "hoerbuch-texte/en/simmons-amelia_-_american-cookery-4635.txt.gz",
+      "textRange": {
+        "start": 36,
+        "ende": 1972
+      },
       "tags": {
         "work_author": "Simmons, Amelia",
         "reader": "Betsie Bush",
@@ -29603,6 +30749,10 @@
       "credit": "Public Domain — LibriVox (Buch 20076)",
       "url": "https://librivox.org/on-reading-the-bible-by-sir-arthur-thomas-quiller-couch/",
       "textUrl": "hoerbuch-texte/en/quiller-couch-sir-arthur-thomas_-_on-reading-the-bible-20076.txt.gz",
+      "textRange": {
+        "start": 72,
+        "ende": 8169
+      },
       "tags": {
         "work_author": "Quiller-Couch, Sir Arthur Thomas",
         "reader": "David Wales",
@@ -29671,6 +30821,10 @@
       "credit": "Public Domain — LibriVox (Buch 18738)",
       "url": "https://librivox.org/how-to-eat-a-cure-for-nerves-by-thomas-clark-hinkle/",
       "textUrl": "hoerbuch-texte/en/hinkle-thomas-clark_-_how-to-eat-a-cure-for-nerves-18738.txt.gz",
+      "textRange": {
+        "start": 38,
+        "ende": 1864
+      },
       "tags": {
         "work_author": "Hinkle, Thomas Clark",
         "reader": "Rapunzelina",
@@ -29762,6 +30916,10 @@
       "credit": "Public Domain — LibriVox (Buch 11733)",
       "url": "https://librivox.org/practical-forestry-in-the-pacific-northwest-by-edward-tyson-allen/",
       "textUrl": "hoerbuch-texte/en/allen-edward-tyson_-_practical-forestry-in-the-pacific-northwest-11733.txt.gz",
+      "textRange": {
+        "start": 65,
+        "ende": 4814
+      },
       "tags": {
         "work_author": "Allen, Edward Tyson",
         "reader": "KHand",
@@ -29890,6 +31048,10 @@
       "credit": "Public Domain — LibriVox (Buch 2190)",
       "url": "https://librivox.org/book-of-tobit-tobias-douay-rheims-version/",
       "textUrl": "hoerbuch-texte/en/douay-rheims-version-drv_-_bible-drv-apocrypha-deuterocanon-book-of-tobit-tobias-2190.txt.gz",
+      "textRange": {
+        "start": 148,
+        "ende": 138101
+      },
       "tags": {
         "work_author": "Douay-Rheims Version (DRV)",
         "reader": "Sam Stinson",
@@ -29954,6 +31116,10 @@
       "credit": "Public Domain — LibriVox (Buch 5299)",
       "url": "https://librivox.org/makers-of-many-things-by-eva-march-tappan/",
       "textUrl": "hoerbuch-texte/en/tappan-eva-march_-_makers-of-many-things-5299.txt.gz",
+      "textRange": {
+        "start": 77,
+        "ende": 2317
+      },
       "tags": {
         "work_author": "Tappan, Eva March",
         "reader": "Kara Shallenberg (1969-2023)",
@@ -30090,6 +31256,10 @@
       "credit": "Public Domain — LibriVox (Buch 8259)",
       "url": "https://librivox.org/the-life-of-george-washington-in-words-of-one-syllable-by-josephine-pollard/",
       "textUrl": "hoerbuch-texte/en/pollard-josephine_-_life-of-george-washington-in-words-of-one-syllable-8259.txt.gz",
+      "textRange": {
+        "start": 57,
+        "ende": 4264
+      },
       "tags": {
         "work_author": "Pollard, Josephine",
         "reader": "ACBowgus",
@@ -30262,6 +31432,10 @@
       "credit": "Public Domain — LibriVox (Buch 13958)",
       "url": "https://librivox.org/the-abysmal-brute-by-jack-london/",
       "textUrl": "hoerbuch-texte/en/london-jack_-_abysmal-brute-13958.txt.gz",
+      "textRange": {
+        "start": 30,
+        "ende": 2719
+      },
       "tags": {
         "work_author": "London, Jack",
         "reader": "Warren Kati",
@@ -30345,6 +31519,10 @@
       "credit": "Public Domain — LibriVox (Buch 19552)",
       "url": "https://librivox.org/animals-rights-considered-in-relation-to-social-progress-by-henry-salt-2/",
       "textUrl": "hoerbuch-texte/en/salt-henry_-_animals-rights-considered-in-relation-to-social-progress-version-2-19552.txt.gz",
+      "textRange": {
+        "start": 32,
+        "ende": 3682
+      },
       "tags": {
         "work_author": "Salt, Henry",
         "reader": "Jeffrey Allen Stumpf",
@@ -30481,6 +31659,10 @@
       "credit": "Public Domain — LibriVox (Buch 13415)",
       "url": "https://librivox.org/enemies-of-books-by-william-blades/",
       "textUrl": "hoerbuch-texte/en/blades-william_-_enemies-of-books-13415.txt.gz",
+      "textRange": {
+        "start": 32,
+        "ende": 2736
+      },
       "tags": {
         "work_author": "Blades, William",
         "reader": "Maria Kasper",
@@ -30608,6 +31790,10 @@
       "credit": "Public Domain — LibriVox (Buch 15041)",
       "url": "https://librivox.org/venus-and-adonis-by-william-shakespeare-2/",
       "textUrl": "hoerbuch-texte/en/shakespeare-william_-_venus-and-adonis-version-2-15041.txt.gz",
+      "textRange": {
+        "start": 20,
+        "ende": 1436
+      },
       "tags": {
         "work_author": "Shakespeare, William",
         "reader": "Thomas A. Copeland",
@@ -30655,6 +31841,10 @@
       "credit": "Public Domain — LibriVox (Buch 10763)",
       "url": "https://librivox.org/the-ascent-of-denali-by-hudson-stuck/",
       "textUrl": "hoerbuch-texte/en/stuck-hudson_-_ascent-of-denali-10763.txt.gz",
+      "textRange": {
+        "start": 136,
+        "ende": 4508
+      },
       "tags": {
         "work_author": "Stuck, Hudson",
         "reader": "Phil Schempf",
@@ -30784,6 +31974,10 @@
       "credit": "Public Domain — LibriVox (Buch 22026)",
       "url": "https://librivox.org/odes-songs-and-lyrical-pieces-by-john-dryden/",
       "textUrl": "hoerbuch-texte/en/dryden-john_-_odes-songs-and-lyrical-pieces-22026.txt.gz",
+      "textRange": {
+        "start": 96,
+        "ende": 15812
+      },
       "tags": {
         "work_author": "Dryden, John",
         "reader": "Alan Mapstone",
@@ -30938,6 +32132,10 @@
       "credit": "Public Domain — LibriVox (Buch 11137)",
       "url": "https://librivox.org/the-bacchae-by-euripides-2/",
       "textUrl": "hoerbuch-texte/en/euripides_-_bacchae-solo-version-11137.txt.gz",
+      "textRange": {
+        "start": 55,
+        "ende": 3398
+      },
       "tags": {
         "work_author": "Euripides",
         "reader": "Tony Addison",
@@ -31004,6 +32202,10 @@
       "credit": "Public Domain — LibriVox (Buch 4241)",
       "url": "https://librivox.org/good-sense-by-baron-paul-henri-thiry-dholbach/",
       "textUrl": "hoerbuch-texte/en/thiry-baron-d-holbach-paul-henri_-_good-sense-4241.txt.gz",
+      "textRange": {
+        "start": 496,
+        "ende": 7114
+      },
       "tags": {
         "work_author": "Thiry, Baron d'Holbach, Paul Henri",
         "reader": "Roger Melin",
@@ -31230,6 +32432,10 @@
       "credit": "Public Domain — LibriVox (Buch 5658)",
       "url": "https://librivox.org/1-corinthians-from-weymouth-new-testament/",
       "textUrl": "hoerbuch-texte/en/weymouth-new-testament_-_bible-wnt-nt-07-1-corinthians-5658.txt.gz",
+      "textRange": {
+        "start": 49,
+        "ende": 1610
+      },
       "tags": {
         "work_author": "Weymouth New Testament",
         "reader": "Mark Penfold",
@@ -31296,6 +32502,10 @@
       "credit": "Public Domain — LibriVox (Buch 1997)",
       "url": "https://librivox.org/shakespeares-sonnets-ver3-by-william-shakespeare/",
       "textUrl": "hoerbuch-texte/en/shakespeare-william_-_shakespeare-s-sonnets-version-3-1997.txt.gz",
+      "textRange": {
+        "start": 11,
+        "ende": 2626
+      },
       "tags": {
         "work_author": "Shakespeare, William",
         "reader": "Sam Stinson",
@@ -31388,6 +32598,10 @@
       "credit": "Public Domain — LibriVox (Buch 15643)",
       "url": "https://librivox.org/they-who-knock-at-our-gates-by-mary-antin-2/",
       "textUrl": "hoerbuch-texte/en/antin-mary_-_they-who-knock-at-our-gates-a-complete-gospel-of-immigration-version-2-15643.txt.gz",
+      "textRange": {
+        "start": 130,
+        "ende": 2210
+      },
       "tags": {
         "work_author": "Antin, Mary",
         "reader": "Zachary Katz-Stein",
@@ -31470,6 +32684,10 @@
       "credit": "Public Domain — LibriVox (Buch 8112)",
       "url": "https://librivox.org/what-the-mother-of-a-deaf-child-ought-to-know-by-john-dutton-wright/",
       "textUrl": "hoerbuch-texte/en/wright-john-dutton_-_what-the-mother-of-a-deaf-child-ought-to-know-8112.txt.gz",
+      "textRange": {
+        "start": 140,
+        "ende": 2090
+      },
       "tags": {
         "work_author": "Wright, John Dutton",
         "reader": "Rapunzelina",
@@ -31580,6 +32798,10 @@
       "credit": "Public Domain — LibriVox (Buch 7124)",
       "url": "https://librivox.org/treatise-on-light-by-christiaan-huygens/",
       "textUrl": "hoerbuch-texte/en/huygens-christiaan_-_treatise-on-light-7124.txt.gz",
+      "textRange": {
+        "start": 40,
+        "ende": 3781
+      },
       "tags": {
         "work_author": "Huygens, Christiaan",
         "reader": "Availle",
@@ -31737,6 +32959,10 @@
       "credit": "Public Domain — LibriVox (Buch 11187)",
       "url": "https://librivox.org/miss-betsy-thoughtless-volume-4-by-eliza-haywood/",
       "textUrl": "hoerbuch-texte/en/haywood-eliza_-_history-of-miss-betsy-thoughtless-vol-4-11187.txt.gz",
+      "textRange": {
+        "start": 22,
+        "ende": 22728
+      },
       "tags": {
         "work_author": "Haywood, Eliza",
         "reader": "Michele Eaton",
@@ -31992,6 +33218,10 @@
       "credit": "Public Domain — LibriVox (Buch 1089)",
       "url": "https://librivox.org/ephesians-web/",
       "textUrl": "hoerbuch-texte/en/world-english-bible_-_bible-web-nt-10-ephesians-1089.txt.gz",
+      "textRange": {
+        "start": 45,
+        "ende": 374
+      },
       "tags": {
         "work_author": "World English Bible",
         "reader": "Leon Mire",
@@ -32038,6 +33268,10 @@
       "credit": "Public Domain — LibriVox (Buch 5381)",
       "url": "https://librivox.org/the-ballad-of-the-white-horse-version-2-by-g-k-chesterton/",
       "textUrl": "hoerbuch-texte/en/chesterton-g-k_-_ballad-of-the-white-horse-version-2-5381.txt.gz",
+      "textRange": {
+        "start": 220,
+        "ende": 3371
+      },
       "tags": {
         "work_author": "Chesterton, G. K.",
         "reader": "Gayle Cato",
@@ -32156,6 +33390,10 @@
       "credit": "Public Domain — LibriVox (Buch 1530)",
       "url": "https://librivox.org/the-sinking-of-the-titanic-and-great-sea-disasters-by-marshall-logan/",
       "textUrl": "hoerbuch-texte/en/marshall-logan_-_sinking-of-the-titanic-and-great-sea-disasters-1530.txt.gz",
+      "textRange": {
+        "start": 188,
+        "ende": 9597
+      },
       "tags": {
         "work_author": "Marshall, Logan",
         "reader": "Allyson Hester",
@@ -32365,6 +33603,10 @@
       "credit": "Public Domain — LibriVox (Buch 1868)",
       "url": "https://librivox.org/mathilda-by-mary-shelley/",
       "textUrl": "hoerbuch-texte/en/shelley-mary-wollstonecraft_-_mathilda-1868.txt.gz",
+      "textRange": {
+        "start": 46,
+        "ende": 4637
+      },
       "tags": {
         "work_author": "Shelley, Mary Wollstonecraft",
         "reader": "Cori Samuel",
@@ -32510,6 +33752,10 @@
       "credit": "Public Domain — LibriVox (Buch 2995)",
       "url": "https://librivox.org/the-story-of-alchemy-by-m-m-pattison-muir/",
       "textUrl": "hoerbuch-texte/en/muir-m-m-pattison_-_story-of-alchemy-and-the-beginnings-of-chemistry-2995.txt.gz",
+      "textRange": {
+        "start": 129,
+        "ende": 5532
+      },
       "tags": {
         "work_author": "Muir, M. M. Pattison",
         "reader": "Peter Yearsley",
@@ -32674,6 +33920,10 @@
       "credit": "Public Domain — LibriVox (Buch 18608)",
       "url": "https://librivox.org/the-unmasking-of-robert-houdin-by-harry-houdini/",
       "textUrl": "hoerbuch-texte/en/houdini-harry_-_unmasking-of-robert-houdin-18608.txt.gz",
+      "textRange": {
+        "start": 118,
+        "ende": 6034
+      },
       "tags": {
         "work_author": "Houdini, Harry",
         "reader": "Cavaet",
@@ -32820,6 +34070,10 @@
       "credit": "Public Domain — LibriVox (Buch 17475)",
       "url": "https://librivox.org/peace-by-aristophanes/",
       "textUrl": "hoerbuch-texte/en/aristophanes_-_peace-17475.txt.gz",
+      "textRange": {
+        "start": 49,
+        "ende": 2369
+      },
       "tags": {
         "work_author": "Aristophanes",
         "reader": "Phil Chenevert",
@@ -32894,6 +34148,10 @@
       "credit": "Public Domain — LibriVox (Buch 10751)",
       "url": "https://librivox.org/the-london-and-country-brewer-by-anonymous/",
       "textUrl": "hoerbuch-texte/en/anonymous_-_london-and-country-brewer-10751.txt.gz",
+      "textRange": {
+        "start": 166,
+        "ende": 2898
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Steve C",
@@ -33131,6 +34389,10 @@
       "credit": "Public Domain — LibriVox (Buch 9617)",
       "url": "https://librivox.org/summa-theologica-09-pars-prima-secundae-treatise-on-law-and-grace-by-saint-thomas-aquinas/",
       "textUrl": "hoerbuch-texte/en/aquinas-saint-thomas_-_summa-theologica-09-pars-prima-secundae-treatise-on-law-and-grace-9617.txt.gz",
+      "textRange": {
+        "start": 262,
+        "ende": 54286
+      },
       "tags": {
         "work_author": "Aquinas, Saint Thomas",
         "reader": "M.S.C. Lambert, LC",
@@ -33468,6 +34730,10 @@
       "credit": "Public Domain — LibriVox (Buch 10216)",
       "url": "https://librivox.org/the-anniversary-poems-by-john-donne/",
       "textUrl": "hoerbuch-texte/en/donne-john_-_anniversary-poems-10216.txt.gz",
+      "textRange": {
+        "start": 36,
+        "ende": 26866
+      },
       "tags": {
         "work_author": "Donne, John",
         "reader": "Thomas A. Copeland",
@@ -33523,6 +34789,10 @@
       "credit": "Public Domain — LibriVox (Buch 15811)",
       "url": "https://librivox.org/introduction-to-history-of-science-by-walter-libby/",
       "textUrl": "hoerbuch-texte/en/libby-walter_-_introduction-to-the-history-of-science-15811.txt.gz",
+      "textRange": {
+        "start": 79,
+        "ende": 8790
+      },
       "tags": {
         "work_author": "Libby, Walter",
         "reader": "Steven Seitel",
@@ -33750,6 +35020,10 @@
       "credit": "Public Domain — LibriVox (Buch 20771)",
       "url": "https://librivox.org/beautiful-stories-from-shakespeare-version-2-by-e-nesbit/",
       "textUrl": "hoerbuch-texte/en/nesbit-e_-_beautiful-stories-from-shakespeare-version-2-20771.txt.gz",
+      "textRange": {
+        "start": 20,
+        "ende": 7026
+      },
       "tags": {
         "work_author": "Nesbit, E.; Shakespeare, William",
         "reader": "ShrimpPhish",
@@ -33995,6 +35269,10 @@
       "credit": "Public Domain — LibriVox (Buch 7118)",
       "url": "https://librivox.org/my-buried-treasure-by-richard-harding-davis/",
       "textUrl": "hoerbuch-texte/en/davis-richard-harding_-_my-buried-treasure-7118.txt.gz",
+      "textRange": {
+        "start": 34,
+        "ende": 789
+      },
       "tags": {
         "work_author": "Davis, Richard Harding",
         "reader": "Crln Yldz Ksr",
@@ -34053,6 +35331,10 @@
       "credit": "Public Domain — LibriVox (Buch 11218)",
       "url": "https://librivox.org/an-unfinished-story-by-richard-harding-davis/",
       "textUrl": "hoerbuch-texte/en/davis-richard-harding_-_unfinished-story-11218.txt.gz",
+      "textRange": {
+        "start": 51,
+        "ende": 5225
+      },
       "tags": {
         "work_author": "Davis, Richard Harding",
         "reader": "Crln Yldz Ksr",
@@ -34108,6 +35390,10 @@
       "credit": "Public Domain — LibriVox (Buch 9585)",
       "url": "https://librivox.org/clara-a-swain-md-by-mrs-robert-hoskins/",
       "textUrl": "hoerbuch-texte/en/hoskins-mrs-robert_-_clara-a-swain-m-d-9585.txt.gz",
+      "textRange": {
+        "start": 19,
+        "ende": 707
+      },
       "tags": {
         "work_author": "Hoskins, Mrs. Robert",
         "reader": "Larry Wilson",
@@ -34163,6 +35449,10 @@
       "credit": "Public Domain — LibriVox (Buch 11310)",
       "url": "https://librivox.org/la-grande-breteche-by-honore-de-balzac/",
       "textUrl": "hoerbuch-texte/en/balzac-honore-de_-_grande-breteche-11310.txt.gz",
+      "textRange": {
+        "start": 50,
+        "ende": 883
+      },
       "tags": {
         "work_author": "Balzac, Honoré de",
         "reader": "Nicholas Clifford (1930-2019)",

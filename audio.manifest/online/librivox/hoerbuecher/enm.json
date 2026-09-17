@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 1265)",
       "url": "https://librivox.org/prologue-to-the-canterbury-tales-lines-1-18-by-geoffrey-chaucer/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Chaucer, Geoffrey",
         "reader": "Alan Clare",
@@ -113,6 +114,10 @@
       "credit": "Public Domain — LibriVox (Buch 6783)",
       "url": "https://librivox.org/troilus-and-criseyde-by-geoffrey-chaucer/",
       "textUrl": "hoerbuch-texte/enm/chaucer-geoffrey_-_troilus-and-criseyde-6783.txt.gz",
+      "textRange": {
+        "start": 46,
+        "ende": 9526
+      },
       "tags": {
         "work_author": "Chaucer, Geoffrey",
         "reader": "Kevin Johnson",
@@ -231,6 +236,10 @@
       "credit": "Public Domain — LibriVox (Buch 12609)",
       "url": "https://librivox.org/canterbury-tales-mid-eng-geoffrey-chaucer/",
       "textUrl": "hoerbuch-texte/enm/chaucer-geoffrey_-_canterbury-tales-middle-english-12609.txt.gz",
+      "textRange": {
+        "start": 169,
+        "ende": 30790
+      },
       "tags": {
         "work_author": "Chaucer, Geoffrey",
         "reader": "Tony Addison",

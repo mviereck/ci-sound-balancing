@@ -16,6 +16,10 @@
       "credit": "Public Domain — LibriVox (Buch 6583)",
       "url": "https://librivox.org/unang-sugilanon-gikan-sa-librong-by-vicente-rama/",
       "textUrl": "hoerbuch-texte/ceb/rama-vicente_-_unang-sugilanon-gikan-sa-librong-larawan-si-amboy-ang-palahubog-6583.txt.gz",
+      "textRange": {
+        "start": 72,
+        "ende": 2498
+      },
       "tags": {
         "work_author": "Rama, Vicente",
         "reader": "April Gonzales",

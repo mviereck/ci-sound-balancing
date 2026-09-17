@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 3860)",
       "url": "https://librivox.org/tiruppavai-by-andal/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Andal",
         "reader": "Neeru Iyer",
@@ -108,6 +109,7 @@
       "credit": "Public Domain — LibriVox (Buch 13085)",
       "url": "https://librivox.org/the-sacred-kurral-of-tiruvalluva-nayanar-by-thiruvalluvar/",
       "textUrl": "hoerbuch-texte/ta/thiruvalluvar_-_sacred-kurral-of-tiruvalluva-nayanar-13085.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Thiruvalluvar",
         "reader": "Jothi Tharavant",

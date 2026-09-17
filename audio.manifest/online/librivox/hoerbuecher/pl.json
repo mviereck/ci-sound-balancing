@@ -16,6 +16,10 @@
       "credit": "Public Domain — LibriVox (Buch 1447)",
       "url": "https://librivox.org/sklepy-cynamonowe-by-bruno-schulz/",
       "textUrl": "hoerbuch-texte/pl/schulz-bruno_-_sklepy-cynamonowe-1447.txt.gz",
+      "textRange": {
+        "start": 77,
+        "ende": 5131
+      },
       "tags": {
         "work_author": "Schulz, Bruno",
         "reader": "iapetus",
@@ -213,6 +217,7 @@
       "credit": "Public Domain — LibriVox (Buch 2857)",
       "url": "https://librivox.org/moralnosc-pani-dulskiej-by-gabriela-zapolska/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Zapolska, Gabriela",
         "reader": "Violet B Czaykowska",
@@ -277,6 +282,10 @@
       "credit": "Public Domain — LibriVox (Buch 5541)",
       "url": "https://librivox.org/tajemnica-baskervilleow-by-arthur-conan-doyle/",
       "textUrl": "hoerbuch-texte/pl/doyle-sir-arthur-conan_-_tajemnica-baskerville-ow-5541.txt.gz",
+      "textRange": {
+        "start": 37,
+        "ende": 6334
+      },
       "tags": {
         "work_author": "Doyle, Sir Arthur Conan",
         "reader": "Andrzej S. Zaliwski",
@@ -451,6 +460,7 @@
       "credit": "Public Domain — LibriVox (Buch 6161)",
       "url": "https://librivox.org/na-wzgorzu-roz-by-stefan-grabinski/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Grabiński, Stefan",
         "reader": "Piotr Nater",
@@ -544,6 +554,7 @@
       "credit": "Public Domain — LibriVox (Buch 6205)",
       "url": "https://librivox.org/wampir-by-wladyslaw-reymont/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Reymont, Wladyslaw",
         "reader": "Piotr Nater",
@@ -663,6 +674,7 @@
       "credit": "Public Domain — LibriVox (Buch 6254)",
       "url": "https://librivox.org/wigilja-bozego-narodzenia-by-charles-dickens-2/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Dickens, Charles",
         "reader": "Nina Brown",
@@ -756,6 +768,7 @@
       "credit": "Public Domain — LibriVox (Buch 6288)",
       "url": "https://librivox.org/siedem-wybranych-opowiadan-by-wladyslaw-orkan/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Orkan, Władysław",
         "reader": "Nina Brown",
@@ -863,6 +876,7 @@
       "credit": "Public Domain — LibriVox (Buch 6473)",
       "url": "https://librivox.org/na-srebrnym-globie-by-jerzy-zulawski/",
       "textUrl": "hoerbuch-texte/pl/u-awski-jerzy_-_na-srebrnym-globie-6473.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Żuławski, Jerzy",
         "reader": "Jarek Celuch",
@@ -1090,6 +1104,7 @@
       "credit": "Public Domain — LibriVox (Buch 6745)",
       "url": "https://librivox.org/monachomachia-czyli-wojna-mnichow-by-ignacy-krasicki/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Krasicki, Ignacy",
         "reader": "Piotr Nater",
@@ -1183,6 +1198,7 @@
       "credit": "Public Domain — LibriVox (Buch 6779)",
       "url": "https://librivox.org/antymonachomachia-by-ignacy-krasicki/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Krasicki, Ignacy",
         "reader": "Piotr Nater",
@@ -1276,6 +1292,7 @@
       "credit": "Public Domain — LibriVox (Buch 6834)",
       "url": "https://librivox.org/rekopis-znaleziony-w-saragossie-by-jan-potocki/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Potocki, Jan",
         "reader": "Nina Brown",
@@ -1936,6 +1953,7 @@
       "credit": "Public Domain — LibriVox (Buch 8338)",
       "url": "https://librivox.org/doktor-mucholapski-fantastyczne-przygody-w-swiecie-owadow-by-erazm-majewski/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Majewski, Erazm",
         "reader": "Piotr Nater",
@@ -2291,6 +2309,7 @@
       "credit": "Public Domain — LibriVox (Buch 8660)",
       "url": "https://librivox.org/wybrane-opowiadania-by-stefan-grabinski/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Grabiński, Stefan",
         "reader": "Piotr Nater",
@@ -2401,6 +2420,7 @@
       "credit": "Public Domain — LibriVox (Buch 8764)",
       "url": "https://librivox.org/lalka-vol-1-by-boleslaw-prus/",
       "textUrl": "hoerbuch-texte/pl/prus-boles-aw_-_lalka-tom-1-8764.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Prus, Bolesław",
         "reader": "Piotr Nater",
@@ -2645,6 +2665,7 @@
       "credit": "Public Domain — LibriVox (Buch 8912)",
       "url": "https://librivox.org/lalka-tom-2-by-boleslaw-prus/",
       "textUrl": "hoerbuch-texte/pl/prus-boles-aw_-_lalka-tom-2-8912.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Prus, Bolesław",
         "reader": "Piotr Nater",
@@ -2934,6 +2955,7 @@
       "credit": "Public Domain — LibriVox (Buch 9500)",
       "url": "https://librivox.org/lalka-tom-3-by-boleslaw-prus/",
       "textUrl": "hoerbuch-texte/pl/prus-boles-aw_-_lalka-tom-3-9500.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Prus, Bolesław",
         "reader": "Piotr Nater",
@@ -3178,6 +3200,7 @@
       "credit": "Public Domain — LibriVox (Buch 10350)",
       "url": "https://librivox.org/myszeis-by-ignacy-krasicki/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Krasicki, Ignacy",
         "reader": "Piotr Nater",
@@ -3306,6 +3329,7 @@
       "credit": "Public Domain — LibriVox (Buch 10462)",
       "url": "https://librivox.org/zwierciadlana-zagadka-by-deotyma/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Deotyma",
         "reader": "Piotr Nater",
@@ -3433,6 +3457,7 @@
       "credit": "Public Domain — LibriVox (Buch 10615)",
       "url": "https://librivox.org/faraon-tom-1-by-boleslaw-prus/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Prus, Bolesław",
         "reader": "Piotr Nater",
@@ -3705,6 +3730,7 @@
       "credit": "Public Domain — LibriVox (Buch 10674)",
       "url": "https://librivox.org/faraon-tom-2-by-boleslaw-prus/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Prus, Bolesław",
         "reader": "Piotr Nater",
@@ -3959,6 +3985,7 @@
       "credit": "Public Domain — LibriVox (Buch 10920)",
       "url": "https://librivox.org/faraon-tom-3-by-boleslaw-prus/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Prus, Bolesław",
         "reader": "Piotr Nater",
@@ -4204,6 +4231,7 @@
       "credit": "Public Domain — LibriVox (Buch 11059)",
       "url": "https://librivox.org/ballady-i-romanse-by-adam-mickiewicz/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Mickiewicz, Adam",
         "reader": "Gosia Leksandrówna",
@@ -4376,6 +4404,7 @@
       "credit": "Public Domain — LibriVox (Buch 13157)",
       "url": "https://librivox.org/listy-z-podrozy-po-ameryce-by-henryk-sienkiewicz/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Sienkiewicz, Henryk",
         "reader": "Piotr Nater",
@@ -4620,6 +4649,7 @@
       "credit": "Public Domain — LibriVox (Buch 13555)",
       "url": "https://librivox.org/wilk-psy-i-ludzie-by-adolf-dygasinski/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Dygasiński, Adolf",
         "reader": "Piotr Nater",
@@ -4711,6 +4741,7 @@
       "credit": "Public Domain — LibriVox (Buch 15606)",
       "url": "https://librivox.org/za-chlebem-by-henryk-sienkiewicz/",
       "textUrl": "hoerbuch-texte/pl/sienkiewicz-henryk_-_za-chlebem-15606.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Sienkiewicz, Henryk",
         "reader": "Piotr Nater",
@@ -4802,6 +4833,7 @@
       "credit": "Public Domain — LibriVox (Buch 15691)",
       "url": "https://librivox.org/potop-tom-1-by-henryk-sienkiewicz/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Sienkiewicz, Henryk",
         "reader": "Jagoda",
@@ -4983,6 +5015,7 @@
       "credit": "Public Domain — LibriVox (Buch 15696)",
       "url": "https://librivox.org/balladyna-by-juliusz-slowacki/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Słowacki, Juliusz",
         "reader": "Nela Reinfuss",
@@ -5083,6 +5116,7 @@
       "credit": "Public Domain — LibriVox (Buch 15757)",
       "url": "https://librivox.org/manifest-komunistyczny-by-marx-and-engels/",
       "textUrl": "hoerbuch-texte/pl/engels-friedrich_-_manifest-komunistyczny-15757.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Engels, Friedrich; Marx, Karl",
         "reader": "blazeiro",
@@ -5167,6 +5201,7 @@
       "credit": "Public Domain — LibriVox (Buch 18377)",
       "url": "https://librivox.org/pan-balcer-w-brazylji-by-maria-konopnicka/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Konopnicka, Maria",
         "reader": "Piotr Nater",
@@ -5485,6 +5520,7 @@
       "credit": "Public Domain — LibriVox (Buch 22017)",
       "url": "https://librivox.org/moj-stosunek-do-kosciola-by-jan-baudouin-de-courtenay/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Baudouin de Courtenay, Jan",
         "reader": "Piotr Nater",
@@ -5577,6 +5613,7 @@
       "credit": "Public Domain — LibriVox (Buch 22564)",
       "url": "https://librivox.org/w-nieznane-swiaty-by-wladyslaw-uminski/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Umiński, Władysław",
         "reader": "Glys",

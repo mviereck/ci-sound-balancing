@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 4667)",
       "url": "https://librivox.org/kitab-adab-al-dunya-wal-din-the-ethics-of-religion-and-of-this-world-by-abu-al-hasan-ali-ibn-muhammad-ibn-habib-al-mawardi/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "al-Mawardi, Abu al-Hasan Ali Ibn Muhammad Ibn Habib",
         "reader": "Youssef Safiljil (Dr. Fighter)",
@@ -243,6 +244,7 @@
       "credit": "Public Domain — LibriVox (Buch 8959)",
       "url": "https://librivox.org/tabai-al-istibdad-wa-masari-al-istibad-by-abd-al-rahman-al-kawakibi/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "al-Kawakibi, Abd al-Rahman",
         "reader": "Khaled_Fouad",
@@ -384,6 +386,7 @@
       "credit": "Public Domain — LibriVox (Buch 15090)",
       "url": "https://librivox.org/kalila-wa-dimna-by-abdullah-ibn-al-muqaffa/",
       "textUrl": "hoerbuch-texte/ar/ibn-al-muqaffa-abdullah_-_kalila-wa-dimna-15090.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Ibn al-Muqaffaʿ, Abdullah",
         "reader": "Aida Boumaza",

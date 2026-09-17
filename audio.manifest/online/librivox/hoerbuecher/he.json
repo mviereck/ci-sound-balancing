@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 519)",
       "url": "https://librivox.org/the-bible-the-book-of-genesis/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hebrew Bible",
         "reader": "Israel Radvinsky (1948-2007)",
@@ -503,6 +504,7 @@
       "credit": "Public Domain — LibriVox (Buch 1213)",
       "url": "https://librivox.org/out-of-a-gloomy-valley-by-yosef-haim-brenner/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Brenner, יוסף חיים ברנר Yosef Haim",
         "reader": "Omri Lernau",
@@ -610,6 +612,7 @@
       "credit": "Public Domain — LibriVox (Buch 1315)",
       "url": "https://librivox.org/in-winter-by-yosef-hayim-brenner/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Brenner, יוסף חיים ברנר Yosef Haim",
         "reader": "Omri Lernau",
@@ -708,6 +711,7 @@
       "credit": "Public Domain — LibriVox (Buch 1464)",
       "url": "https://librivox.org/from-here-and-there-by-yosef-haim-brenner/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Brenner, יוסף חיים ברנר Yosef Haim",
         "reader": "Omri Lernau",
@@ -916,6 +920,7 @@
       "credit": "Public Domain — LibriVox (Buch 1723)",
       "url": "https://librivox.org/the-wanderings-of-benjamin-iii-by-mendele-mocher-sforim/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Mendele Mocher Sforim, מנדלה מוכר ספרים",
         "reader": "Omri Lernau",
@@ -1059,6 +1064,7 @@
       "credit": "Public Domain — LibriVox (Buch 1858)",
       "url": "https://librivox.org/fishke-the-lame-by-mendele-mocher-sforim/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Mendele Mocher Sforim, מנדלה מוכר ספרים",
         "reader": "Omri Lernau",
@@ -1346,6 +1352,7 @@
       "credit": "Public Domain — LibriVox (Buch 2394)",
       "url": "https://librivox.org/the-jewish-state-by-theodor-binyamin-zeev-herzl/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Herzl, Theodor",
         "reader": "Omri Lernau",
@@ -1503,6 +1510,7 @@
       "credit": "Public Domain — LibriVox (Buch 2600)",
       "url": "https://librivox.org/at-the-crossroads-selected-essays-by-ahad-haam/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Ha'am, אחד העם Ahad",
         "reader": "Omri Lernau",
@@ -1757,6 +1765,7 @@
       "credit": "Public Domain — LibriVox (Buch 2964)",
       "url": "https://librivox.org/selection-of-essays-and-articles-by-eliezer-ben-yehuda/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Ben-Yehuda, אליעזר בן־יהודה Eliezer",
         "reader": "Omri Lernau",
@@ -1965,6 +1974,7 @@
       "credit": "Public Domain — LibriVox (Buch 3366)",
       "url": "https://librivox.org/the-wishing-ring-by-mendele-mokher-sfarim/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Mendele Mocher Sforim, מנדלה מוכר ספרים",
         "reader": "Omri Lernau",
@@ -2560,6 +2570,7 @@
       "credit": "Public Domain — LibriVox (Buch 4785)",
       "url": "https://librivox.org/love-of-zion-by-abraham-mapu/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Mapu, אברהם מאפו Abraham",
         "reader": "Omri Lernau",
@@ -2868,6 +2879,7 @@
       "credit": "Public Domain — LibriVox (Buch 5265)",
       "url": "https://librivox.org/bible-hebrew-02-the-book-of-exodus-by-hebrew-bible/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hebrew Bible",
         "reader": "J.S. Kenney",
@@ -3069,6 +3081,7 @@
       "credit": "Public Domain — LibriVox (Buch 5860)",
       "url": "https://librivox.org/in-the-gardens-by-uri-nissan-gnessin/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Gnessin, אורי ניסן גנסין Uri Nissan",
         "reader": "Omri Lernau",
@@ -3133,6 +3146,7 @@
       "credit": "Public Domain — LibriVox (Buch 5941)",
       "url": "https://librivox.org/etsel-by-gnessin-uri-nissan/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Gnessin, אורי ניסן גנסין Uri Nissan",
         "reader": "Omri Lernau",
@@ -3359,6 +3373,7 @@
       "credit": "Public Domain — LibriVox (Buch 6485)",
       "url": "https://librivox.org/miriam-by-micha-josef-berdichevsky/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Berdyczewski, מיכה יוסף ברדיצ'בסקי Micha Josef",
         "reader": "Omri Lernau",
@@ -3594,6 +3609,7 @@
       "credit": "Public Domain — LibriVox (Buch 7150)",
       "url": "https://librivox.org/short-stories-by-sholem-aleichem/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Sholem Aleichem, שלום עליכם",
         "reader": "Omri Lernau",
@@ -3831,6 +3847,7 @@
       "credit": "Public Domain — LibriVox (Buch 7712)",
       "url": "https://librivox.org/breakdown-and-bereavement-by-yosef-haim-brenner/",
       "textUrl": "hoerbuch-texte/he/brenner-yosef-haim_-_breakdown-and-bereavement-7712.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Brenner, יוסף חיים ברנר Yosef Haim",
         "reader": "Omri Lernau",
@@ -4372,6 +4389,7 @@
       "credit": "Public Domain — LibriVox (Buch 9352)",
       "url": "https://librivox.org/whither-by-mordecai-zeev-feierberg/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Feierberg, מרדכי זאב פיארברג Mordecai Ze'ev",
         "reader": "Omri Lernau",
@@ -4517,6 +4535,7 @@
       "credit": "Public Domain — LibriVox (Buch 9746)",
       "url": "https://librivox.org/stories-by-yosef-haim-brenner/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Brenner, יוסף חיים ברנר Yosef Haim",
         "reader": "Omri Lernau",
@@ -4849,6 +4868,7 @@
       "credit": "Public Domain — LibriVox (Buch 11425)",
       "url": "https://librivox.org/stories-by-micha-josef-berdyczewski/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Berdyczewski, מיכה יוסף ברדיצ'בסקי Micha Josef",
         "reader": "Omri Lernau",
@@ -4965,6 +4985,7 @@
       "credit": "Public Domain — LibriVox (Buch 12155)",
       "url": "https://librivox.org/the-point-on-top-of-the-yodh-by-judah-leib-gordon/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Gordon, יהודה לייב גורדון Judah Leib",
         "reader": "Omri Lernau",
@@ -5054,6 +5075,7 @@
       "credit": "Public Domain — LibriVox (Buch 12487)",
       "url": "https://librivox.org/two-days-and-one-night-in-a-hotel-by-judah-leib-gordon/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Gordon, יהודה לייב גורדון Judah Leib",
         "reader": "Omri Lernau",
@@ -5172,6 +5194,7 @@
       "credit": "Public Domain — LibriVox (Buch 13075)",
       "url": "https://librivox.org/arye-baal-guf-by-hayyim-nachman-bialik/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Bialik, חיים נחמן ביאליק Hayyim Nahman",
         "reader": "Omri Lernau",
@@ -5308,6 +5331,7 @@
       "credit": "Public Domain — LibriVox (Buch 16366)",
       "url": "https://librivox.org/the-blind-by-jacob-steinberg/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Steinberg, יעקב שטיינברג Jacob",
         "reader": "Guy Lederfein",

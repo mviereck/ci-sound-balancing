@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 20838)",
       "url": "https://librivox.org/panchatantra-hindi-by-vishnu-sharma/",
       "textUrl": "hoerbuch-texte/hi/sharma-vishnu_-_panchatantra-20838.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Sharma, Vishnu",
         "reader": "dc",
@@ -724,6 +725,7 @@
       "credit": "Public Domain — LibriVox (Buch 21866)",
       "url": "https://librivox.org/do-sakhiyan-by-premchand/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Premchand",
         "reader": "Sonali Ekka",

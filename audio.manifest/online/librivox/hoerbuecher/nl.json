@@ -16,6 +16,10 @@
       "credit": "Public Domain — LibriVox (Buch 1297)",
       "url": "https://librivox.org/majoor-frans/",
       "textUrl": "hoerbuch-texte/nl/bosboom-toussaint-a-l-g_-_majoor-frans-1297.txt.gz",
+      "textRange": {
+        "start": 70,
+        "ende": 15031
+      },
       "tags": {
         "work_author": "Bosboom-Toussaint, A. L. G.",
         "reader": "Anna Simon",
@@ -296,6 +300,10 @@
       "credit": "Public Domain — LibriVox (Buch 1362)",
       "url": "https://librivox.org/max-havelaar-of-de-koffij-veilingen-der-nederlandsche-handel-maatschappij/",
       "textUrl": "hoerbuch-texte/nl/multatuli_-_max-havelaar-1362.txt.gz",
+      "textRange": {
+        "start": 41,
+        "ende": 14358
+      },
       "tags": {
         "work_author": "Multatuli",
         "reader": "Anna Simon",
@@ -540,6 +548,10 @@
       "credit": "Public Domain — LibriVox (Buch 1601)",
       "url": "https://librivox.org/de-lotgevallen-van-ferdinand-huyck/",
       "textUrl": "hoerbuch-texte/nl/lennep-jacob-van_-_lotgevallen-van-ferdinand-huyck-1601.txt.gz",
+      "textRange": {
+        "start": 44,
+        "ende": 23726
+      },
       "tags": {
         "work_author": "Lennep, Jacob van",
         "reader": "Anna Simon",
@@ -937,6 +949,10 @@
       "credit": "Public Domain — LibriVox (Buch 1841)",
       "url": "https://librivox.org/eline-vere-een-haagsche-roman/",
       "textUrl": "hoerbuch-texte/nl/couperus-louis_-_eline-vere-1841.txt.gz",
+      "textRange": {
+        "start": 61,
+        "ende": 23302
+      },
       "tags": {
         "work_author": "Couperus, Louis",
         "reader": "Carola Janssen",
@@ -1361,6 +1377,10 @@
       "credit": "Public Domain — LibriVox (Buch 1878)",
       "url": "https://librivox.org/de-leeuw-van-vlaenderen-of-de-slag-der-gulden-sporen-door-hendrik-conscience/",
       "textUrl": "hoerbuch-texte/nl/conscience-hendrik_-_leeuw-van-vlaenderen-of-de-slag-der-gulden-sporen-1878.txt.gz",
+      "textRange": {
+        "start": 58,
+        "ende": 15953
+      },
       "tags": {
         "work_author": "Conscience, Hendrik",
         "reader": "Anna Simon",
@@ -1641,6 +1661,10 @@
       "credit": "Public Domain — LibriVox (Buch 2259)",
       "url": "https://librivox.org/fulco-de-minstreel-door-cornelis-johannes-kieviet/",
       "textUrl": "hoerbuch-texte/nl/kieviet-cornelis-johannes_-_fulco-de-minstreel-2259.txt.gz",
+      "textRange": {
+        "start": 55,
+        "ende": 6618
+      },
       "tags": {
         "work_author": "Kieviet, Cornelis Johannes",
         "reader": "Anna Simon",
@@ -1778,6 +1802,10 @@
       "credit": "Public Domain — LibriVox (Buch 2937)",
       "url": "https://librivox.org/de-reis-om-de-wereld-in-80-dagen-door-jules-verne/",
       "textUrl": "hoerbuch-texte/nl/verne-jules_-_reis-om-de-wereld-in-80-dagen-2937.txt.gz",
+      "textRange": {
+        "start": 29,
+        "ende": 9393
+      },
       "tags": {
         "work_author": "Verne, Jules",
         "reader": "Bart de Leeuw",
@@ -1926,6 +1954,10 @@
       "credit": "Public Domain — LibriVox (Buch 3181)",
       "url": "https://librivox.org/naar-het-middelpunt-der-aarde-van-jules-verne/",
       "textUrl": "hoerbuch-texte/nl/verne-jules_-_naar-het-middelpunt-der-aarde-3181.txt.gz",
+      "textRange": {
+        "start": 22,
+        "ende": 10301
+      },
       "tags": {
         "work_author": "Verne, Jules",
         "reader": "Bart de Leeuw",
@@ -2368,6 +2400,10 @@
       "credit": "Public Domain — LibriVox (Buch 3330)",
       "url": "https://librivox.org/niels-holgerssons-wonderbare-reis-by-selma-lagerlof/",
       "textUrl": "hoerbuch-texte/nl/lagerloef-selma_-_niels-holgersson-s-wonderbare-reis-3330.txt.gz",
+      "textRange": {
+        "start": 77,
+        "ende": 19439
+      },
       "tags": {
         "work_author": "Lagerlöf, Selma",
         "reader": "Marcel Coenders",
@@ -2777,6 +2813,10 @@
       "credit": "Public Domain — LibriVox (Buch 3351)",
       "url": "https://librivox.org/de-zoon-van-dik-trom-door-cornelis-johannes-kieviet/",
       "textUrl": "hoerbuch-texte/nl/kieviet-cornelis-johannes_-_zoon-van-dik-trom-3351.txt.gz",
+      "textRange": {
+        "start": 25,
+        "ende": 6499
+      },
       "tags": {
         "work_author": "Kieviet, Cornelis Johannes",
         "reader": "Bart de Leeuw",
@@ -2940,6 +2980,10 @@
       "credit": "Public Domain — LibriVox (Buch 3545)",
       "url": "https://librivox.org/de-negerhut-by-harriet-beecher-stowe/",
       "textUrl": "hoerbuch-texte/nl/stowe-harriet-beecher_-_negerhut-3545.txt.gz",
+      "textRange": {
+        "start": 86,
+        "ende": 22716
+      },
       "tags": {
         "work_author": "Stowe, Harriet Beecher",
         "reader": "Marcel Coenders",
@@ -3402,6 +3446,10 @@
       "credit": "Public Domain — LibriVox (Buch 3719)",
       "url": "https://librivox.org/een-kerstlied-in-proza-by-charles-dickens/",
       "textUrl": "hoerbuch-texte/nl/dickens-charles_-_kerstlied-in-proza-a-christmas-carol-3719.txt.gz",
+      "textRange": {
+        "start": 59,
+        "ende": 3825
+      },
       "tags": {
         "work_author": "Dickens, Charles",
         "reader": "Bart de Leeuw",
@@ -3495,6 +3543,10 @@
       "credit": "Public Domain — LibriVox (Buch 3784)",
       "url": "https://librivox.org/don-quichot-van-la-mancha-by-miguel-de-cervantes-saavedra/",
       "textUrl": "hoerbuch-texte/nl/cervantes-saavedra-miguel-de_-_don-quichot-van-la-mancha-3784.txt.gz",
+      "textRange": {
+        "start": 79,
+        "ende": 9077
+      },
       "tags": {
         "work_author": "Cervantes Saavedra, Miguel de",
         "reader": "Bart de Leeuw",
@@ -3751,6 +3803,10 @@
       "credit": "Public Domain — LibriVox (Buch 3846)",
       "url": "https://librivox.org/alleen-op-de-wereld-door-hector-malot/",
       "textUrl": "hoerbuch-texte/nl/malot-hector_-_alleen-op-de-wereld-3846.txt.gz",
+      "textRange": {
+        "start": 61,
+        "ende": 24197
+      },
       "tags": {
         "work_author": "Malot, Hector",
         "reader": "Marcel Coenders",
@@ -4240,6 +4296,10 @@
       "credit": "Public Domain — LibriVox (Buch 3991)",
       "url": "https://librivox.org/de-agra-schat-by-sir-arthur-conan-doyle/",
       "textUrl": "hoerbuch-texte/nl/doyle-sir-arthur-conan_-_agra-schat-3991.txt.gz",
+      "textRange": {
+        "start": 31,
+        "ende": 5062
+      },
       "tags": {
         "work_author": "Doyle, Sir Arthur Conan",
         "reader": "Peter Zinn",
@@ -4385,6 +4445,10 @@
       "credit": "Public Domain — LibriVox (Buch 4137)",
       "url": "https://librivox.org/de-lotgevallen-van-tom-sawyer-by-mark-twain/",
       "textUrl": "hoerbuch-texte/nl/twain-mark_-_lotgevallen-van-tom-sawyer-4137.txt.gz",
+      "textRange": {
+        "start": 78,
+        "ende": 9397
+      },
       "tags": {
         "work_author": "Twain, Mark",
         "reader": "Bart de Leeuw",
@@ -4747,6 +4811,10 @@
       "credit": "Public Domain — LibriVox (Buch 4267)",
       "url": "https://librivox.org/gevleugelde-daden-by-herman-heijermans-jr-samuel-falkland/",
       "textUrl": "hoerbuch-texte/nl/heijermans-jr-herman_-_gevleugelde-daden-4267.txt.gz",
+      "textRange": {
+        "start": 73,
+        "ende": 5309
+      },
       "tags": {
         "work_author": "Heijermans, Jr., Herman",
         "reader": "Bart de Leeuw",
@@ -4874,6 +4942,10 @@
       "credit": "Public Domain — LibriVox (Buch 4461)",
       "url": "https://librivox.org/anna-karenina-by-leo-tolstoy/",
       "textUrl": "hoerbuch-texte/nl/tolstoy-leo_-_anna-karenina-4461.txt.gz",
+      "textRange": {
+        "start": 23,
+        "ende": 27421
+      },
       "tags": {
         "work_author": "Tolstoy, Leo",
         "reader": "Marcel Coenders",
@@ -6477,6 +6549,10 @@
       "credit": "Public Domain — LibriVox (Buch 5036)",
       "url": "https://librivox.org/de-vliegende-hollander-by-p-visser/",
       "textUrl": "hoerbuch-texte/nl/visser-piet_-_vliegende-hollander-5036.txt.gz",
+      "textRange": {
+        "start": 143,
+        "ende": 4600
+      },
       "tags": {
         "work_author": "Visser, Piet",
         "reader": "Bart de Leeuw",
@@ -6605,6 +6681,10 @@
       "credit": "Public Domain — LibriVox (Buch 5460)",
       "url": "https://librivox.org/aljaska-en-de-canada-spoorweg-by-anoniem/",
       "textUrl": "hoerbuch-texte/nl/anonymous_-_aljaska-alaska-en-de-canada-spoorweg-5460.txt.gz",
+      "textRange": {
+        "start": 6,
+        "ende": 1912
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Edith van der Have-Raats",
@@ -6678,6 +6758,10 @@
       "credit": "Public Domain — LibriVox (Buch 6053)",
       "url": "https://librivox.org/gullivers-reizen-by-jonathan-swift/",
       "textUrl": "hoerbuch-texte/nl/swift-jonathan_-_gulliver-s-reizen-6053.txt.gz",
+      "textRange": {
+        "start": 68,
+        "ende": 4919
+      },
       "tags": {
         "work_author": "Swift, Jonathan",
         "reader": "Bart de Leeuw",
@@ -6861,6 +6945,10 @@
       "credit": "Public Domain — LibriVox (Buch 6330)",
       "url": "https://librivox.org/ivanhoe-nl-by-sir-walter-scott/",
       "textUrl": "hoerbuch-texte/nl/scott-sir-walter_-_ivanhoe-nl-6330.txt.gz",
+      "textRange": {
+        "start": 69,
+        "ende": 20868
+      },
       "tags": {
         "work_author": "Scott, Sir Walter",
         "reader": "Bart de Leeuw",
@@ -7308,6 +7396,10 @@
       "credit": "Public Domain — LibriVox (Buch 6760)",
       "url": "https://librivox.org/de-schat-in-het-zilvermeer-by-karl-may/",
       "textUrl": "hoerbuch-texte/nl/may-karl_-_schat-in-het-zilvermeer-6760.txt.gz",
+      "textRange": {
+        "start": 67,
+        "ende": 26048
+      },
       "tags": {
         "work_author": "May, Karl",
         "reader": "Bart de Leeuw",
@@ -7798,6 +7890,10 @@
       "credit": "Public Domain — LibriVox (Buch 7057)",
       "url": "https://librivox.org/elsje-by-ac-kuiper/",
       "textUrl": "hoerbuch-texte/nl/kuiper-a-c_-_elsje-7057.txt.gz",
+      "textRange": {
+        "start": 29,
+        "ende": 8809
+      },
       "tags": {
         "work_author": "Kuiper, A. C.",
         "reader": "Hanny Gunnink",
@@ -7970,6 +8066,10 @@
       "credit": "Public Domain — LibriVox (Buch 7370)",
       "url": "https://librivox.org/van-aardappel-mes-tot-officiersdegen-by-melis-stoke/",
       "textUrl": "hoerbuch-texte/nl/stoke-melis_-_van-aardappel-mes-tot-officiersdegen-7370.txt.gz",
+      "textRange": {
+        "start": 35,
+        "ende": 5406
+      },
       "tags": {
         "work_author": "Stoke, Melis",
         "reader": "Bart de Leeuw",
@@ -8116,6 +8216,10 @@
       "credit": "Public Domain — LibriVox (Buch 7454)",
       "url": "https://librivox.org/het-zwevende-schaakbord-by-louis-couperus/",
       "textUrl": "hoerbuch-texte/nl/couperus-louis_-_zwevende-schaakbord-7454.txt.gz",
+      "textRange": {
+        "start": 54,
+        "ende": 8443
+      },
       "tags": {
         "work_author": "Couperus, Louis",
         "reader": "Bart de Leeuw",
@@ -8478,6 +8582,10 @@
       "credit": "Public Domain — LibriVox (Buch 7575)",
       "url": "https://librivox.org/de-geschiedenis-van-woutertje-pieterse-by-multatuli/",
       "textUrl": "hoerbuch-texte/nl/multatuli_-_geschiedenis-van-woutertje-pieterse-7575.txt.gz",
+      "textRange": {
+        "start": 77,
+        "ende": 14096
+      },
       "tags": {
         "work_author": "Multatuli",
         "reader": "Carola Janssen",
@@ -8795,6 +8903,10 @@
       "credit": "Public Domain — LibriVox (Buch 7849)",
       "url": "https://librivox.org/jeanne-darc-de-maagd-van-orleans-by-henri-emile-koopmans-van-boekeren/",
       "textUrl": "hoerbuch-texte/nl/koopmans-van-boekeren-henri-emile_-_jeanne-d-arc-de-maagd-van-orleans-7849.txt.gz",
+      "textRange": {
+        "start": 32,
+        "ende": 6617
+      },
       "tags": {
         "work_author": "Koopmans van Boekeren, Henri Emile",
         "reader": "Bart de Leeuw",
@@ -8985,6 +9097,10 @@
       "credit": "Public Domain — LibriVox (Buch 8229)",
       "url": "https://librivox.org/noodlot-by-louis-couperus/",
       "textUrl": "hoerbuch-texte/nl/couperus-louis_-_noodlot-8229.txt.gz",
+      "textRange": {
+        "start": 72,
+        "ende": 5418
+      },
       "tags": {
         "work_author": "Couperus, Louis",
         "reader": "Marcel Coenders",
@@ -9167,6 +9283,10 @@
       "credit": "Public Domain — LibriVox (Buch 8749)",
       "url": "https://librivox.org/ellendigen-deel-1-fantine-by-victor-hugo/",
       "textUrl": "hoerbuch-texte/nl/hugo-victor_-_ellendigen-deel-1-fantine-8749.txt.gz",
+      "textRange": {
+        "start": 60,
+        "ende": 14623
+      },
       "tags": {
         "work_author": "Hugo, Victor",
         "reader": "Marcel Coenders",
@@ -9493,6 +9613,10 @@
       "credit": "Public Domain — LibriVox (Buch 8886)",
       "url": "https://librivox.org/ellendigen-deel-2-cosette-by-victor-hugo/",
       "textUrl": "hoerbuch-texte/nl/hugo-victor_-_ellendigen-deel-2-cosette-8886.txt.gz",
+      "textRange": {
+        "start": 66,
+        "ende": 12865
+      },
       "tags": {
         "work_author": "Hugo, Victor",
         "reader": "Marcel Coenders",
@@ -9820,6 +9944,10 @@
       "credit": "Public Domain — LibriVox (Buch 8971)",
       "url": "https://librivox.org/een-strijd-om-de-schatten-van-alva-of-de-watergeuzen-in-1572-by-louise-zaalberg/",
       "textUrl": "hoerbuch-texte/nl/zaalberg-louise_-_strijd-om-de-schatten-van-alva-of-de-watergeuzen-in-1572-8971.txt.gz",
+      "textRange": {
+        "start": 83,
+        "ende": 12723
+      },
       "tags": {
         "work_author": "Zaalberg, Louise",
         "reader": "Bart de Leeuw",
@@ -10064,6 +10192,10 @@
       "credit": "Public Domain — LibriVox (Buch 8979)",
       "url": "https://librivox.org/de-ellendigen-deel-3-marius-by-victor-hugo/",
       "textUrl": "hoerbuch-texte/nl/hugo-victor_-_ellendigen-deel-3-marius-8979.txt.gz",
+      "textRange": {
+        "start": 69,
+        "ende": 11630
+      },
       "tags": {
         "work_author": "Hugo, Victor",
         "reader": "Marcel Coenders",
@@ -10355,6 +10487,10 @@
       "credit": "Public Domain — LibriVox (Buch 9038)",
       "url": "https://librivox.org/de-ellendigen-deel-4-st-denis-by-victor-hugo/",
       "textUrl": "hoerbuch-texte/nl/hugo-victor_-_ellendigen-deel-4-st-denis-9038.txt.gz",
+      "textRange": {
+        "start": 66,
+        "ende": 15674
+      },
       "tags": {
         "work_author": "Hugo, Victor",
         "reader": "Marcel Coenders",
@@ -10681,6 +10817,10 @@
       "credit": "Public Domain — LibriVox (Buch 9065)",
       "url": "https://librivox.org/anno-2070-een-blik-in-de-toekomst-by-dr-dioscorides/",
       "textUrl": "hoerbuch-texte/nl/harting-pieter_-_anno-2070-een-blik-in-de-toekomst-9065.txt.gz",
+      "textRange": {
+        "start": 22,
+        "ende": 2263
+      },
       "tags": {
         "work_author": "Harting, Pieter",
         "reader": "Marcel Coenders",
@@ -10773,6 +10913,10 @@
       "credit": "Public Domain — LibriVox (Buch 9081)",
       "url": "https://librivox.org/duizend-en-een-nacht-deel-een-by-anoniem/",
       "textUrl": "hoerbuch-texte/nl/anonymous_-_duizend-en-een-nacht-eerste-deel-9081.txt.gz",
+      "textRange": {
+        "start": 3,
+        "ende": 7018
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Marcel Coenders",
@@ -10972,6 +11116,10 @@
       "credit": "Public Domain — LibriVox (Buch 9162)",
       "url": "https://librivox.org/de-ellendigen-deel-5-jean-valjean-by-victor-hugo/",
       "textUrl": "hoerbuch-texte/nl/hugo-victor_-_ellendigen-deel-5-jean-valjean-9162.txt.gz",
+      "textRange": {
+        "start": 67,
+        "ende": 13531
+      },
       "tags": {
         "work_author": "Hugo, Victor",
         "reader": "Marcel Coenders",
@@ -11262,6 +11410,10 @@
       "credit": "Public Domain — LibriVox (Buch 9207)",
       "url": "https://librivox.org/duizend-en-een-nacht-tweede-deel-by-anoniem/",
       "textUrl": "hoerbuch-texte/nl/anonymous_-_duizend-en-een-nacht-tweede-deel-9207.txt.gz",
+      "textRange": {
+        "start": 3,
+        "ende": 5800
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Marcel Coenders",
@@ -11443,6 +11595,10 @@
       "credit": "Public Domain — LibriVox (Buch 9234)",
       "url": "https://librivox.org/duizend-en-een-nacht-derde-deel-by-anoniem/",
       "textUrl": "hoerbuch-texte/nl/anonymous_-_duizend-en-een-nacht-derde-deel-9234.txt.gz",
+      "textRange": {
+        "start": 3,
+        "ende": 7529
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Marcel Coenders",
@@ -11651,6 +11807,10 @@
       "credit": "Public Domain — LibriVox (Buch 9278)",
       "url": "https://librivox.org/duizend-en-een-nacht-vierde-deel-by-anoniem/",
       "textUrl": "hoerbuch-texte/nl/anonymous_-_duizend-en-een-nacht-vierde-deel-9278.txt.gz",
+      "textRange": {
+        "start": 3,
+        "ende": 7423
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Marcel Coenders",
@@ -11859,6 +12019,10 @@
       "credit": "Public Domain — LibriVox (Buch 9298)",
       "url": "https://librivox.org/aladdin-en-de-wonderlamp-by-anoniem/",
       "textUrl": "hoerbuch-texte/nl/anonymous_-_aladdin-en-de-wonderlamp-9298.txt.gz",
+      "textRange": {
+        "start": 30,
+        "ende": 4633
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Marcel Coenders",
@@ -12006,6 +12170,10 @@
       "credit": "Public Domain — LibriVox (Buch 9332)",
       "url": "https://librivox.org/ali-baba-en-de-veertig-roovers-by-anoniem/",
       "textUrl": "hoerbuch-texte/nl/anonymous_-_ali-baba-en-de-veertig-roovers-9332.txt.gz",
+      "textRange": {
+        "start": 32,
+        "ende": 1617
+      },
       "tags": {
         "work_author": "Anonymous",
         "reader": "Marcel Coenders",
@@ -12081,6 +12249,10 @@
       "credit": "Public Domain — LibriVox (Buch 9336)",
       "url": "https://librivox.org/willem-tell-by-pieter-louwerse/",
       "textUrl": "hoerbuch-texte/nl/louwerse-pieter_-_willem-tell-9336.txt.gz",
+      "textRange": {
+        "start": 5,
+        "ende": 7232
+      },
       "tags": {
         "work_author": "Louwerse, Pieter",
         "reader": "Marcel Coenders",
@@ -12244,6 +12416,10 @@
       "credit": "Public Domain — LibriVox (Buch 9375)",
       "url": "https://librivox.org/de-schippersjongen-by-pieter-louwerse/",
       "textUrl": "hoerbuch-texte/nl/louwerse-pieter_-_schippersjongen-9375.txt.gz",
+      "textRange": {
+        "start": 23,
+        "ende": 9332
+      },
       "tags": {
         "work_author": "Louwerse, Pieter",
         "reader": "Marcel Coenders",
@@ -12497,6 +12673,10 @@
       "credit": "Public Domain — LibriVox (Buch 9433)",
       "url": "https://librivox.org/krates-by-justus-van-maurik/",
       "textUrl": "hoerbuch-texte/nl/maurik-justus-van_-_krates-9433.txt.gz",
+      "textRange": {
+        "start": 69,
+        "ende": 9763
+      },
       "tags": {
         "work_author": "Maurik, Justus van",
         "reader": "Marcel Coenders",
@@ -12687,6 +12867,10 @@
       "credit": "Public Domain — LibriVox (Buch 9752)",
       "url": "https://librivox.org/de-roos-van-dekama-by-jacob-van-lennep/",
       "textUrl": "hoerbuch-texte/nl/lennep-jacob-van_-_roos-van-dekama-9752.txt.gz",
+      "textRange": {
+        "start": 58,
+        "ende": 23209
+      },
       "tags": {
         "work_author": "Lennep, Jacob van",
         "reader": "Marcel Coenders",
@@ -13057,6 +13241,10 @@
       "credit": "Public Domain — LibriVox (Buch 10256)",
       "url": "https://librivox.org/de-reis-naar-de-maan-in-28-dagen-en-12-uren-by-jules-verne/",
       "textUrl": "hoerbuch-texte/nl/verne-jules_-_reis-naar-de-maan-in-28-dagen-en-12-uren-10256.txt.gz",
+      "textRange": {
+        "start": 70,
+        "ende": 9164
+      },
       "tags": {
         "work_author": "Verne, Jules",
         "reader": "Bart de Leeuw",
@@ -13528,6 +13716,10 @@
       "credit": "Public Domain — LibriVox (Buch 17478)",
       "url": "https://librivox.org/uit-de-schooljaren-van-hans-doncker-by-fred-berens/",
       "textUrl": "hoerbuch-texte/nl/berens-fred_-_uit-de-schooljaren-van-hans-doncker-17478.txt.gz",
+      "textRange": {
+        "start": 33,
+        "ende": 3157
+      },
       "tags": {
         "work_author": "Berens, Fred.",
         "reader": "Bart de Leeuw",
@@ -13610,6 +13802,10 @@
       "credit": "Public Domain — LibriVox (Buch 22889)",
       "url": "https://librivox.org/kabouters-in-het-bosch-by-kees-valkenstein/",
       "textUrl": "hoerbuch-texte/nl/valkenstein-kees_-_kabouters-in-het-bosch-22889.txt.gz",
+      "textRange": {
+        "start": 73,
+        "ende": 1864
+      },
       "tags": {
         "work_author": "Valkenstein, Kees",
         "reader": "Wiggert Loonstra",

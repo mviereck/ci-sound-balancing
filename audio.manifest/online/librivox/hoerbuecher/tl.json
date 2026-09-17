@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 5155)",
       "url": "https://librivox.org/tagalog-short-works-vol-1-by-various/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Various",
         "reader": "Andrea L",
@@ -91,6 +92,10 @@
       "credit": "Public Domain — LibriVox (Buch 6609)",
       "url": "https://librivox.org/ang-singsing-nang-dalagang-marmol-by-isabelo-de-los-reyes/",
       "textUrl": "hoerbuch-texte/tl/reyes-isabelo-de-los_-_singsing-nang-dalagang-marmol-6609.txt.gz",
+      "textRange": {
+        "start": 73,
+        "ende": 1445
+      },
       "tags": {
         "work_author": "Reyes, Isabelo de los",
         "reader": "April Gonzales",
@@ -211,6 +216,10 @@
       "credit": "Public Domain — LibriVox (Buch 9429)",
       "url": "https://librivox.org/nang-bata-pa-kami-by-pura-l-medrano/",
       "textUrl": "hoerbuch-texte/tl/medrano-pura-l_-_nang-bata-pa-kami-9429.txt.gz",
+      "textRange": {
+        "start": 99,
+        "ende": 1425
+      },
       "tags": {
         "work_author": "Medrano, Pura L.",
         "reader": "mlcui",

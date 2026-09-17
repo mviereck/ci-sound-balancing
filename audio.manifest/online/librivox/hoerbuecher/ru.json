@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 210)",
       "url": "https://librivox.org/childhood-russian-by-leo-tolstoy/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Tolstoy, Leo",
         "reader": "Yakovlev Valery",
@@ -305,6 +306,7 @@
       "credit": "Public Domain — LibriVox (Buch 251)",
       "url": "https://librivox.org/poezdka-v-polesye-by-ivan-turgenev/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Turgenev, Ivan",
         "reader": "Yakovlev Valery",
@@ -369,6 +371,10 @@
       "credit": "Public Domain — LibriVox (Buch 546)",
       "url": "https://librivox.org/krasavitse-by-alexander-pushkin/",
       "textUrl": "hoerbuch-texte/ru/pushkin-alexander_-_krasavitse-546.txt.gz",
+      "textRange": {
+        "start": 65,
+        "ende": 100
+      },
       "tags": {
         "work_author": "Pushkin, Alexander",
         "reader": "Yakovlev Valery",
@@ -415,6 +421,7 @@
       "credit": "Public Domain — LibriVox (Buch 557)",
       "url": "https://librivox.org/white-nights-by-fyodor-dostoevsky/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Dostoyevsky, Fyodor",
         "reader": "Yakovlev Valery",
@@ -513,6 +520,7 @@
       "credit": "Public Domain — LibriVox (Buch 559)",
       "url": "https://librivox.org/zapiski-iz-podpolya-by-fyodor_dostoevsky/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Dostoyevsky, Fyodor",
         "reader": "Yakovlev Valery",
@@ -712,6 +720,7 @@
       "credit": "Public Domain — LibriVox (Buch 5767)",
       "url": "https://librivox.org/woe-from-wit-by-alexander-sergeyevich-griboedov/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Griboedov, Alexander Sergeyevich; Грибое́дов, Алекса́ндр Серге́евич",
         "reader": "Irina Grinberg",
@@ -839,6 +848,7 @@
       "credit": "Public Domain — LibriVox (Buch 6467)",
       "url": "https://librivox.org/teachings-of-christ-rus-by-leo-tolstoy/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Tolstoy, Leo",
         "reader": "Vladimir Anyanov",
@@ -958,6 +968,7 @@
       "credit": "Public Domain — LibriVox (Buch 7531)",
       "url": "https://librivox.org/jews-and-russia-by-vladimir-jabotinsky/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Jabotinsky, Ze'ev",
         "reader": "Mark Chulsky",
@@ -1175,6 +1186,7 @@
       "credit": "Public Domain — LibriVox (Buch 7771)",
       "url": "https://librivox.org/early-short-stories-by-zeev-jabotinsky/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Jabotinsky, Ze'ev",
         "reader": "Mark Chulsky",
@@ -1507,6 +1519,7 @@
       "credit": "Public Domain — LibriVox (Buch 8096)",
       "url": "https://librivox.org/zapiski-ohotnika-by-ivan-turgenev/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Turgenev, Ivan",
         "reader": "tovarisch",
@@ -1767,6 +1780,7 @@
       "credit": "Public Domain — LibriVox (Buch 8641)",
       "url": "https://librivox.org/belkin-tales-by-alexander-pushkin/",
       "textUrl": "hoerbuch-texte/ru/pushkin-alexander_-_x-8641.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Pushkin, Alexander",
         "reader": "Xenium5",
@@ -1856,6 +1870,7 @@
       "credit": "Public Domain — LibriVox (Buch 8829)",
       "url": "https://librivox.org/yaponskie-narodnye-skazki-by-aleksandr-fyodorov-davydov/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Fyodorov-Davydov, Aleksandr",
         "reader": "Anastasiia Solokha",
@@ -1983,6 +1998,7 @@
       "credit": "Public Domain — LibriVox (Buch 8982)",
       "url": "https://librivox.org/dubrovsky-by-alexander-pushkin/",
       "textUrl": "hoerbuch-texte/ru/pushkin-alexander_-_dubrovsky-8982.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Pushkin, Alexander",
         "reader": "Xenium5",
@@ -2074,6 +2090,7 @@
       "credit": "Public Domain — LibriVox (Buch 9480)",
       "url": "https://librivox.org/kamen-by-osip-mandelstam/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Mandelstam, Osip",
         "reader": "Mark Chulsky",
@@ -2156,6 +2173,7 @@
       "credit": "Public Domain — LibriVox (Buch 9970)",
       "url": "https://librivox.org/yuletide-stories-by-nikolai-leskov/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Leskov, Nikolai",
         "reader": "Mark Chulsky",
@@ -2328,6 +2346,7 @@
       "credit": "Public Domain — LibriVox (Buch 9989)",
       "url": "https://librivox.org/poems-and-ballads-by-vasily-andreyevich-zhukovsky/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Zhukovsky, Vasily Andreyevich",
         "reader": "Mark Chulsky",
@@ -2453,6 +2472,7 @@
       "credit": "Public Domain — LibriVox (Buch 10422)",
       "url": "https://librivox.org/by-ivan-turgenev/",
       "textUrl": "hoerbuch-texte/ru/turgenev-ivan_-_veshnie-vody-10422.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Turgenev, Ivan",
         "reader": "tovarisch",
@@ -2652,6 +2672,7 @@
       "credit": "Public Domain — LibriVox (Buch 10587)",
       "url": "https://librivox.org/konek-gorbunok-by-pyotr-pavlovich-yershov/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Yershov, Pyotr Pavlovich",
         "reader": "Mark Chulsky",
@@ -2734,6 +2755,7 @@
       "credit": "Public Domain — LibriVox (Buch 11018)",
       "url": "https://librivox.org/eugene-onegin-by-alexander-pushkin/",
       "textUrl": "hoerbuch-texte/ru/pushkin-alexander_-_eugene-onegin-11018.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Pushkin, Alexander",
         "reader": "Xenium5",
@@ -2845,6 +2867,7 @@
       "credit": "Public Domain — LibriVox (Buch 11365)",
       "url": "https://librivox.org/p-short-stories-for-children-and-adults-by-vsevolod-garshin/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Garshin, Vsevolod",
         "reader": "Mark Chulsky",
@@ -3080,6 +3103,7 @@
       "credit": "Public Domain — LibriVox (Buch 12256)",
       "url": "https://librivox.org/dvoryanskoegnezdo-by-ivan-turgenev/",
       "textUrl": "hoerbuch-texte/ru/turgenev-ivan_-_dvoryanskoe-gnezdo-12256.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Turgenev, Ivan",
         "reader": "tovarisch",
@@ -3343,6 +3367,7 @@
       "credit": "Public Domain — LibriVox (Buch 13240)",
       "url": "https://librivox.org/obryv-by-ivan-goncharov/",
       "textUrl": "hoerbuch-texte/ru/goncharov-ivan_-_x-13240.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Goncharov, Ivan",
         "reader": "tovarisch",
@@ -4296,6 +4321,7 @@
       "credit": "Public Domain — LibriVox (Buch 13577)",
       "url": "https://librivox.org/the-conch-by-georgy-shengeli/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Shengeli, Georgy Arkadyevich",
         "reader": "Mark Chulsky",
@@ -4385,6 +4411,7 @@
       "credit": "Public Domain — LibriVox (Buch 13744)",
       "url": "https://librivox.org/on-the-edge-of-the-world-by-nikolai-leskov/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Leskov, Nikolai",
         "reader": "Mark Chulsky",
@@ -4540,6 +4567,7 @@
       "credit": "Public Domain — LibriVox (Buch 13866)",
       "url": "https://librivox.org/bluestar-by-nikolay-gumilyov/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Gumilyov, Nikolay",
         "reader": "Mark Chulsky",
@@ -4602,6 +4630,7 @@
       "credit": "Public Domain — LibriVox (Buch 13881)",
       "url": "https://librivox.org/yuletide-stories-2-by-nikolai-leskov/",
       "textUrl": "hoerbuch-texte/ru/leskov-nikolai_-_2-13881.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Leskov, Nikolai",
         "reader": "Mark Chulsky",
@@ -4802,6 +4831,7 @@
       "credit": "Public Domain — LibriVox (Buch 14105)",
       "url": "https://librivox.org/obyknovennaya-istorya-by-ivan-goncharov/",
       "textUrl": "hoerbuch-texte/ru/goncharov-ivan_-_x-14105.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Goncharov, Ivan",
         "reader": "tovarisch",
@@ -4956,6 +4986,7 @@
       "credit": "Public Domain — LibriVox (Buch 14567)",
       "url": "https://librivox.org/silhouettes-russian-writers-by-yuly-aykhenvald/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Aykhenvald, Yuly",
         "reader": "Mark Chulsky",
@@ -5198,6 +5229,7 @@
       "credit": "Public Domain — LibriVox (Buch 14954)",
       "url": "https://librivox.org/poets-of-our-days-anthology-by-various/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Various",
         "reader": "Mark Chulsky",
@@ -5326,6 +5358,7 @@
       "credit": "Public Domain — LibriVox (Buch 15088)",
       "url": "https://librivox.org/silhouettes-russian-writers-issue-3-by-yuly-aykhenvald/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Aykhenvald, Yuly",
         "reader": "Mark Chulsky",
@@ -5687,6 +5720,7 @@
       "credit": "Public Domain — LibriVox (Buch 15098)",
       "url": "https://librivox.org/pineapples-in-champagne-by-igor-severyanin/",
       "textUrl": "hoerbuch-texte/ru/severyanin-igor_-_x-15098.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Severyanin, Igor",
         "reader": "Mark Chulsky",
@@ -5785,6 +5819,7 @@
       "credit": "Public Domain — LibriVox (Buch 15182)",
       "url": "https://librivox.org/before-the-sunset-by-mirra-lokhvitskaya/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Lokhvitskaya, Mirra",
         "reader": "Mark Chulsky",
@@ -5865,6 +5900,7 @@
       "credit": "Public Domain — LibriVox (Buch 15222)",
       "url": "https://librivox.org/paul-verlaine-poems-translated-by-valery-bryusov-by-paul-marie-verlaine/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Verlaine, Paul-Marie",
         "reader": "Mark Chulsky",
@@ -6019,6 +6055,7 @@
       "credit": "Public Domain — LibriVox (Buch 15349)",
       "url": "https://librivox.org/vekhi-by-various/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Berdyaev, Nikolai; Bulgakov, Sergei; Frank, Semyon; Gershenzon, Mikhail; Kistyakovski, Bogdan; Lande, Aron; Struve, Peter",
         "reader": "Kazbek",
@@ -6192,6 +6229,7 @@
       "credit": "Public Domain — LibriVox (Buch 15469)",
       "url": "https://librivox.org/otherwhere-nights-by-mikhail-kuzmin/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Kuzmin, Mikhail",
         "reader": "Mark Chulsky",
@@ -6299,6 +6337,7 @@
       "credit": "Public Domain — LibriVox (Buch 16834)",
       "url": "https://librivox.org/russojewish-literature-by-vasily-lvov-rogachevsky/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Lvov-Rogachevsky, Vasily",
         "reader": "Mark Chulsky",
@@ -6507,6 +6546,7 @@
       "credit": "Public Domain — LibriVox (Buch 17122)",
       "url": "https://librivox.org/transparency-by-vyacheslav-ivanov/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Ivanov, Vyacheslav",
         "reader": "Mark Chulsky",
@@ -6758,6 +6798,7 @@
       "credit": "Public Domain — LibriVox (Buch 17147)",
       "url": "https://librivox.org/avanturisty-by-vetlugin/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Vetlugin, A.",
         "reader": "Mark Chulsky",
@@ -6939,6 +6980,7 @@
       "credit": "Public Domain — LibriVox (Buch 17203)",
       "url": "https://librivox.org/stepnyia-skazki-by-grigory-danilevsky/",
       "textUrl": "hoerbuch-texte/ru/danilevsky-grigory_-_stepnyia-skazki-17203.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Danilevsky, Grigory",
         "reader": "Anastasiia Solokha",
@@ -7058,6 +7100,7 @@
       "credit": "Public Domain — LibriVox (Buch 17392)",
       "url": "https://librivox.org/song-of-hiawatha-pesnogajavate-by-henry-wadsworth-longfellow/",
       "textUrl": "hoerbuch-texte/ru/longfellow-henry-wadsworth_-_song-of-hiawatha-17392.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Longfellow, Henry Wadsworth",
         "reader": "Mark Chulsky",
@@ -7311,6 +7354,7 @@
       "credit": "Public Domain — LibriVox (Buch 17425)",
       "url": "https://librivox.org/izbrannye-by-sholem-aleichem/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Sholem Aleichem, שלום עליכם",
         "reader": "Hanna Ponomarenko",
@@ -7456,6 +7500,7 @@
       "credit": "Public Domain — LibriVox (Buch 18540)",
       "url": "https://librivox.org/juniper-coffret-by-innokenty-annensky/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Annensky, Innokenty",
         "reader": "Mark Chulsky",
@@ -7563,6 +7608,7 @@
       "credit": "Public Domain — LibriVox (Buch 18568)",
       "url": "https://librivox.org/selected-stories-by-evgeny-chirikov/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Chirikov, Evgeny",
         "reader": "Mark Chulsky",
@@ -7652,6 +7698,7 @@
       "credit": "Public Domain — LibriVox (Buch 19789)",
       "url": "https://librivox.org/short-stories-by-octave-mirbeau/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Mirbeau, Octave",
         "reader": "Mark Chulsky",
@@ -7817,6 +7864,7 @@
       "credit": "Public Domain — LibriVox (Buch 20288)",
       "url": "https://librivox.org/carousel-by-nadezhda-teffi/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Teffi, Nadezhda",
         "reader": "Mark Chulsky",

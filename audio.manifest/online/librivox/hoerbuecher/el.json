@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 2307)",
       "url": "https://librivox.org/epistolais-petrou-a-b-from-ste/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Stephanos 1550",
         "reader": "peaceuntoyou",
@@ -80,6 +81,7 @@
       "credit": "Public Domain — LibriVox (Buch 2889)",
       "url": "https://librivox.org/to-euaggelio-tou-matthaiou-pe-puy-1003/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Patriarchiki Ekdosi",
         "reader": "peaceuntoyou",
@@ -369,6 +371,7 @@
       "credit": "Public Domain — LibriVox (Buch 4115)",
       "url": "https://librivox.org/epistole-pros-collosaes-by-patriarchike-ekdosi/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Patriarchiki Ekdosi",
         "reader": "peaceuntoyou",
@@ -442,6 +445,7 @@
       "credit": "Public Domain — LibriVox (Buch 4222)",
       "url": "https://librivox.org/kata-ioanne-euaggelio-apo-ten-nea-diatheke-tes-hagias-graphes-by-anonimos/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Patriarchiki Ekdosi",
         "reader": "peaceuntoyou",
@@ -668,6 +672,10 @@
       "credit": "Public Domain — LibriVox (Buch 7208)",
       "url": "https://librivox.org/paramythi-horis-onoma-by-penelope-delta/",
       "textUrl": "hoerbuch-texte/el/delta-penelope_-_tale-without-name-7208.txt.gz",
+      "textRange": {
+        "start": 11,
+        "ende": 6938
+      },
       "tags": {
         "work_author": "Delta, Penelope",
         "reader": "Rapunzelina",
@@ -886,6 +894,10 @@
       "credit": "Public Domain — LibriVox (Buch 11476)",
       "url": "https://librivox.org/the-constitution-of-the-athenians-by-aristotle/",
       "textUrl": "hoerbuch-texte/el/aristotle_-_the-constitution-of-the-athenians-11476.txt.gz",
+      "textRange": {
+        "start": 36,
+        "ende": 5221
+      },
       "tags": {
         "work_author": "Aristotle",
         "reader": "karampas1968",
@@ -1186,6 +1198,10 @@
       "credit": "Public Domain — LibriVox (Buch 11926)",
       "url": "https://librivox.org/by-kostis-palamas/",
       "textUrl": "hoerbuch-texte/el/palamas-kostis_-_x-11926.txt.gz",
+      "textRange": {
+        "start": 7,
+        "ende": 766
+      },
       "tags": {
         "work_author": "Palamas, Kostis",
         "reader": "karampas1968",
@@ -1320,6 +1336,10 @@
       "credit": "Public Domain — LibriVox (Buch 11974)",
       "url": "https://librivox.org/menexenus-by-plato-2/",
       "textUrl": "hoerbuch-texte/el/plato_-_x-11974.txt.gz",
+      "textRange": {
+        "start": 38,
+        "ende": 1103
+      },
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "karampas1968",
@@ -1404,6 +1424,10 @@
       "credit": "Public Domain — LibriVox (Buch 12114)",
       "url": "https://librivox.org/ecclesiazusae-by-aristophanes/",
       "textUrl": "hoerbuch-texte/el/aristophanes_-_ecclesiazusae-12114.txt.gz",
+      "textRange": {
+        "start": 58,
+        "ende": 3218
+      },
       "tags": {
         "work_author": "Aristophanes",
         "reader": "karampas1968",
@@ -1486,6 +1510,10 @@
       "credit": "Public Domain — LibriVox (Buch 12350)",
       "url": "https://librivox.org/phaedon-by-plato/",
       "textUrl": "hoerbuch-texte/el/plato_-_phaedon-12350.txt.gz",
+      "textRange": {
+        "start": 38,
+        "ende": 4182
+      },
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "karampas1968",
@@ -1730,6 +1758,7 @@
       "credit": "Public Domain — LibriVox (Buch 12434)",
       "url": "https://librivox.org/politia-2-by-plato/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "karampas1968",
@@ -2010,6 +2039,10 @@
       "credit": "Public Domain — LibriVox (Buch 13409)",
       "url": "https://librivox.org/politia-1-by-plato/",
       "textUrl": "hoerbuch-texte/el/plato_-_x-13409.txt.gz",
+      "textRange": {
+        "start": 39,
+        "ende": 3131
+      },
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "karampas1968",
@@ -2155,6 +2188,7 @@
       "credit": "Public Domain — LibriVox (Buch 15132)",
       "url": "https://librivox.org/litsas-marriage-by-gregorios-xenopoulos/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Xenopoulos, Gregorios",
         "reader": "Rapunzelina",
@@ -2271,6 +2305,7 @@
       "credit": "Public Domain — LibriVox (Buch 15911)",
       "url": "https://librivox.org/mnemosina-by-aristotelis-valaoritis/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Valaoritis, Aristotelis",
         "reader": "Rapunzelina",
@@ -2479,6 +2514,10 @@
       "credit": "Public Domain — LibriVox (Buch 16012)",
       "url": "https://librivox.org/christmas-short-stories-by-alexandros-papadiamantis/",
       "textUrl": "hoerbuch-texte/el/papadiamantis-alexandros_-_christmas-short-stories-16012.txt.gz",
+      "textRange": {
+        "start": 36,
+        "ende": 3858
+      },
       "tags": {
         "work_author": "Papadiamantis, Alexandros",
         "reader": "Penelope",
@@ -2586,6 +2625,10 @@
       "credit": "Public Domain — LibriVox (Buch 16383)",
       "url": "https://librivox.org/danish-tales-by-hans-christian-andersen/",
       "textUrl": "hoerbuch-texte/el/andersen-hans-christian_-_x-16383.txt.gz",
+      "textRange": {
+        "start": 33,
+        "ende": 1854
+      },
       "tags": {
         "work_author": "Andersen, Hans Christian",
         "reader": "Penelope",
@@ -2706,6 +2749,10 @@
       "credit": "Public Domain — LibriVox (Buch 16460)",
       "url": "https://librivox.org/syriana-by-emmanuel-rhoides/",
       "textUrl": "hoerbuch-texte/el/rhoides-emmanuel_-_short-stories-from-syros-16460.txt.gz",
+      "textRange": {
+        "start": 38,
+        "ende": 5740
+      },
       "tags": {
         "work_author": "Rhoides, Emmanuel",
         "reader": "Penelope",
@@ -2795,6 +2842,7 @@
       "credit": "Public Domain — LibriVox (Buch 16605)",
       "url": "https://librivox.org/ta-psila-vouna-by-zacharias-papantoniou/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Papantoniou, Zacharias",
         "reader": "Penelope",
@@ -3543,6 +3591,7 @@
       "credit": "Public Domain — LibriVox (Buch 16798)",
       "url": "https://librivox.org/guroi-tis-anemis-by-vlachogiannis/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Vlachogiannis, Giannis",
         "reader": "Penelope",
@@ -3688,6 +3737,7 @@
       "credit": "Public Domain — LibriVox (Buch 17025)",
       "url": "https://librivox.org/gia-tin-patrida-by-penelope-delta/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Delta, Penelope",
         "reader": "Penelope",
@@ -3878,6 +3928,7 @@
       "credit": "Public Domain — LibriVox (Buch 17123)",
       "url": "https://librivox.org/ikardiatisbasilopulas-by-penelope-delta/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Delta, Penelope",
         "reader": "Penelope",
@@ -3942,6 +3993,7 @@
       "credit": "Public Domain — LibriVox (Buch 17467)",
       "url": "https://librivox.org/o-kakos-dromos-by-gregorios-xenopoulos/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Xenopoulos, Gregorios",
         "reader": "Penelope",
@@ -4077,6 +4129,10 @@
       "credit": "Public Domain — LibriVox (Buch 17746)",
       "url": "https://librivox.org/poios-iton-o-foneus-to-adelfou-mou-by-georgios-vizyinos/",
       "textUrl": "hoerbuch-texte/el/vizyinos-georgios_-_x-17746.txt.gz",
+      "textRange": {
+        "start": 36,
+        "ende": 3671
+      },
       "tags": {
         "work_author": "Vizyinos, Georgios",
         "reader": "Penelope",
@@ -4141,6 +4197,10 @@
       "credit": "Public Domain — LibriVox (Buch 17824)",
       "url": "https://librivox.org/pasxalina-diigimata-by-alexandros-papadiamantis/",
       "textUrl": "hoerbuch-texte/el/papadiamantis-alexandros_-_easter-short-stories-17824.txt.gz",
+      "textRange": {
+        "start": 40,
+        "ende": 2791
+      },
       "tags": {
         "work_author": "Papadiamantis, Alexandros",
         "reader": "Penelope",
@@ -4212,6 +4272,7 @@
       "credit": "Public Domain — LibriVox (Buch 17883)",
       "url": "https://librivox.org/monon-tis-zois-tou-taxidion-by-georgios-vizyinos/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Vizyinos, Georgios",
         "reader": "Penelope",
@@ -4276,6 +4337,10 @@
       "credit": "Public Domain — LibriVox (Buch 19289)",
       "url": "https://librivox.org/politia-3-by-plato/",
       "textUrl": "hoerbuch-texte/el/plato_-_x-19289.txt.gz",
+      "textRange": {
+        "start": 96,
+        "ende": 2813
+      },
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "karampas1968",
@@ -4421,6 +4486,10 @@
       "credit": "Public Domain — LibriVox (Buch 19427)",
       "url": "https://librivox.org/politia-4-by-plato/",
       "textUrl": "hoerbuch-texte/el/plato_-_x-19427.txt.gz",
+      "textRange": {
+        "start": 96,
+        "ende": 3529
+      },
       "tags": {
         "work_author": "Plato (Πλάτων)",
         "reader": "karampas1968",
@@ -4593,6 +4662,10 @@
       "credit": "Public Domain — LibriVox (Buch 19932)",
       "url": "https://librivox.org/logiatisploris-by-andreas-karkavitsas/",
       "textUrl": "hoerbuch-texte/el/karkavitsas-andreas_-_x-19932.txt.gz",
+      "textRange": {
+        "start": 34,
+        "ende": 7586
+      },
       "tags": {
         "work_author": "Karkavitsas, Andreas",
         "reader": "Penelope",
@@ -4817,6 +4890,10 @@
       "credit": "Public Domain — LibriVox (Buch 19976)",
       "url": "https://librivox.org/eirenika-by-ioannes-polemis/",
       "textUrl": "hoerbuch-texte/el/polemis-ioannes_-_x-19976.txt.gz",
+      "textRange": {
+        "start": 29,
+        "ende": 751
+      },
       "tags": {
         "work_author": "Polemis, Ioannes",
         "reader": "Christine Rottger",
@@ -4926,6 +5003,7 @@
       "credit": "Public Domain — LibriVox (Buch 20516)",
       "url": "https://librivox.org/greek-songs-by-nikolaos-politis/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Politis, Nikolaos",
         "reader": "Penelope",
@@ -5089,6 +5167,7 @@
       "credit": "Public Domain — LibriVox (Buch 20759)",
       "url": "https://librivox.org/le-lac-by-alphonse-de-lamartine/",
       "textUrl": "hoerbuch-texte/el/lamartine-alphonse-de_-_le-lac-20759.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Lamartine, Alphonse de",
         "reader": "Christiane Jehanne",
@@ -5174,6 +5253,10 @@
       "credit": "Public Domain — LibriVox (Buch 20952)",
       "url": "https://librivox.org/myths-by-ioannis-vilaras/",
       "textUrl": "hoerbuch-texte/el/vilaras-ioannis_-_x-20952.txt.gz",
+      "textRange": {
+        "start": 35,
+        "ende": 2012
+      },
       "tags": {
         "work_author": "Vilaras, Ioannis",
         "reader": "Christine Rottger",
@@ -5319,6 +5402,10 @@
       "credit": "Public Domain — LibriVox (Buch 22256)",
       "url": "https://librivox.org/voskopoula-by-pavlos-nirvanas/",
       "textUrl": "hoerbuch-texte/el/nirvanas-pavlos_-_x-22256.txt.gz",
+      "textRange": {
+        "start": 35,
+        "ende": 3293
+      },
       "tags": {
         "work_author": "Nirvanas, Pavlos",
         "reader": "Rapunzelina",
@@ -5547,6 +5634,10 @@
       "credit": "Public Domain — LibriVox (Buch 22396)",
       "url": "https://librivox.org/oichairetismoi-by-kostes-palamas/",
       "textUrl": "hoerbuch-texte/el/palamas-kostis_-_x-22396.txt.gz",
+      "textRange": {
+        "start": 3,
+        "ende": 869
+      },
       "tags": {
         "work_author": "Palamas, Kostis",
         "reader": "Christine Rottger",

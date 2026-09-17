@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 6690)",
       "url": "https://librivox.org/fables-by-glibov/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hlibov, Leonid",
         "reader": "radar",
@@ -1026,6 +1027,7 @@
       "credit": "Public Domain — LibriVox (Buch 15995)",
       "url": "https://librivox.org/maskarad-by-elena-pchilka",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Pchilka, Olena",
         "reader": "Mark Chulsky",
@@ -1174,6 +1176,7 @@
       "credit": "Public Domain — LibriVox (Buch 16059)",
       "url": "https://librivox.org/2-evenings-on-a-farm-near-dikanka-christmas-eve-by-nikolai-vasilievich-gogol/",
       "textUrl": "hoerbuch-texte/uk/gogol-nikolai-vasilievich_-_2-evenings-on-a-farm-near-dikanka-christmas-eve-16059.txt.gz",
+      "textRange": null,
       "tags": {
         "work_author": "Gogol, Nikolai Vasilievich",
         "reader": "T.Honcharyk",
@@ -1285,6 +1288,7 @@
       "credit": "Public Domain — LibriVox (Buch 16175)",
       "url": "https://librivox.org/ukrainian-folk-tales-by-various/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Hnatyuk, Volodymyr Mykhailovych; Rudchenko, Ivan",
         "reader": "T.Honcharyk",

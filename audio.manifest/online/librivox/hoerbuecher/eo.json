@@ -16,6 +16,7 @@
       "credit": "Public Domain — LibriVox (Buch 1252)",
       "url": "https://librivox.org/dr-esperantos-international-language-introduction-and-complete-grammar-by-ll-zamenhof/",
       "textUrl": null,
+      "textRange": null,
       "tags": {
         "work_author": "Zamenhof, L. L.",
         "reader": "Nicholas James Bridgewater",
@@ -163,6 +164,10 @@
       "credit": "Public Domain — LibriVox (Buch 2381)",
       "url": "https://librivox.org/la-aventuroj-de-alicio-en-mirlando-by-lewis-carroll/",
       "textUrl": "hoerbuch-texte/eo/carroll-lewis_-_aventuroj-de-alicio-en-mirlando-2381.txt.gz",
+      "textRange": {
+        "start": 49,
+        "ende": 3990
+      },
       "tags": {
         "work_author": "Carroll, Lewis",
         "reader": "Nicholas James Bridgewater",
@@ -319,6 +324,10 @@
       "credit": "Public Domain — LibriVox (Buch 3934)",
       "url": "https://librivox.org/esperanto-self-taught-with-phonetic-pronunciation-volume-1-by-mann-william-w",
       "textUrl": "hoerbuch-texte/eo/mann-william-w_-_esperanto-self-taught-with-phonetic-pronunciation-volume-1-3934.txt.gz",
+      "textRange": {
+        "start": 51,
+        "ende": 6584
+      },
       "tags": {
         "work_author": "Mann, William W.",
         "reader": "Nicholas James Bridgewater",
@@ -554,6 +563,10 @@
       "credit": "Public Domain — LibriVox (Buch 4319)",
       "url": "https://librivox.org/esperanto-self-taught-with-phonetic-pronunciation-volume-2-by-william-w-mann/",
       "textUrl": "hoerbuch-texte/eo/mann-william-w_-_esperanto-self-taught-with-phonetic-pronunciation-volume-2-4319.txt.gz",
+      "textRange": {
+        "start": 51,
+        "ende": 6584
+      },
       "tags": {
         "work_author": "Mann, William W.",
         "reader": "Nicholas James Bridgewater",
@@ -645,6 +658,10 @@
       "credit": "Public Domain — LibriVox (Buch 4709)",
       "url": "https://librivox.org/esperanto-self-taught-with-phonetic-pronunciation-volume-3-by-william-w-mann/",
       "textUrl": "hoerbuch-texte/eo/mann-william-w_-_esperanto-self-taught-with-phonetic-pronunciation-volume-3-4709.txt.gz",
+      "textRange": {
+        "start": 51,
+        "ende": 6584
+      },
       "tags": {
         "work_author": "Mann, William W.",
         "reader": "Nicholas James Bridgewater",
@@ -970,6 +987,10 @@
       "credit": "Public Domain — LibriVox (Buch 9070)",
       "url": "https://librivox.org/fabeloj-by-hans-christian-andersen/",
       "textUrl": "hoerbuch-texte/eo/andersen-hans-christian_-_fabeloj-9070.txt.gz",
+      "textRange": {
+        "start": 43,
+        "ende": 1266
+      },
       "tags": {
         "work_author": "Andersen, Hans Christian",
         "reader": "Rosslyn Carlyle",
@@ -1063,6 +1084,10 @@
       "credit": "Public Domain — LibriVox (Buch 19077)",
       "url": "https://librivox.org/la-mirinda-sorcisto-de-oz-by-l-frank-baum/",
       "textUrl": "hoerbuch-texte/eo/baum-l-frank_-_mirinda-sor-isto-de-oz-19077.txt.gz",
+      "textRange": {
+        "start": 54,
+        "ende": 4678
+      },
       "tags": {
         "work_author": "Baum, L. Frank",
         "reader": "J. D. Zero",
@@ -1327,6 +1352,10 @@
       "credit": "Public Domain — LibriVox (Buch 19628)",
       "url": "https://librivox.org/vojago-interne-de-mia-cambro-by-xavier-de-maistre/",
       "textUrl": "hoerbuch-texte/eo/maistre-xavier-de_-_voja-o-interne-de-mia-ambro-19628.txt.gz",
+      "textRange": {
+        "start": 59,
+        "ende": 2182
+      },
       "tags": {
         "work_author": "Maistre, Xavier de",
         "reader": "VerdaVocxo",
