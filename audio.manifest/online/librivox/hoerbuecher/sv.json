@@ -646,7 +646,8 @@
       "textUrl": "hoerbuch-texte/sv/rydberg-viktor_-_de-vandrande-djaeknarne-3086.txt.gz",
       "textRange": {
         "start": 37,
-        "ende": 4228
+        "ende": 4228,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Rydberg, Viktor",
@@ -796,7 +797,8 @@
       "textUrl": "hoerbuch-texte/sv/stroemberg-sigge_-_goeteborgsflickor-4327.txt.gz",
       "textRange": {
         "start": 88,
-        "ende": 3154
+        "ende": 3154,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Strömberg, Sigge",
@@ -1164,7 +1166,8 @@
       "textUrl": "hoerbuch-texte/sv/flygare-carlen-emilie_-_nyckfull-kvinna-del-3-hustrun-6353.txt.gz",
       "textRange": {
         "start": 107,
-        "ende": 22748
+        "ende": 22748,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Flygare-Carlén, Emilie",
@@ -1421,7 +1424,8 @@
       "textUrl": "hoerbuch-texte/sv/wraner-henrik_-_sockerpullor-och-pepparkorn-sma-bilder-ur-skanska-folklifvet-foerr-och-nu-6542.txt.gz",
       "textRange": {
         "start": 35,
-        "ende": 2498
+        "ende": 2498,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wranér, Henrik",
@@ -1692,7 +1696,8 @@
       "textUrl": "hoerbuch-texte/sv/flygare-carlen-emilie_-_nyckfull-kvinna-del-4-modern-7026.txt.gz",
       "textRange": {
         "start": 107,
-        "ende": 22748
+        "ende": 22748,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Flygare-Carlén, Emilie",
@@ -1913,7 +1918,8 @@
       "textUrl": "hoerbuch-texte/sv/stroemberg-sigge_-_baron-olson-och-andra-historier-7655.txt.gz",
       "textRange": {
         "start": 81,
-        "ende": 4742
+        "ende": 4742,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Strömberg, Sigge",
@@ -2116,7 +2122,8 @@
       "textUrl": "hoerbuch-texte/sv/lagerloef-selma_-_valda-beraettelser-17645.txt.gz",
       "textRange": {
         "start": 60,
-        "ende": 8722
+        "ende": 8722,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lagerlöf, Selma; Mauritzon, Jules",

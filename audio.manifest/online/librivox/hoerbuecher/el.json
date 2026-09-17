@@ -674,7 +674,8 @@
       "textUrl": "hoerbuch-texte/el/delta-penelope_-_tale-without-name-7208.txt.gz",
       "textRange": {
         "start": 11,
-        "ende": 6938
+        "ende": 6938,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Delta, Penelope",
@@ -896,7 +897,8 @@
       "textUrl": "hoerbuch-texte/el/aristotle_-_the-constitution-of-the-athenians-11476.txt.gz",
       "textRange": {
         "start": 36,
-        "ende": 5221
+        "ende": 5221,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Aristotle",
@@ -1200,7 +1202,8 @@
       "textUrl": "hoerbuch-texte/el/palamas-kostis_-_x-11926.txt.gz",
       "textRange": {
         "start": 7,
-        "ende": 766
+        "ende": 766,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Palamas, Kostis",
@@ -1338,7 +1341,8 @@
       "textUrl": "hoerbuch-texte/el/plato_-_x-11974.txt.gz",
       "textRange": {
         "start": 38,
-        "ende": 1103
+        "ende": 1103,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Plato (Πλάτων)",
@@ -1426,7 +1430,8 @@
       "textUrl": "hoerbuch-texte/el/aristophanes_-_ecclesiazusae-12114.txt.gz",
       "textRange": {
         "start": 58,
-        "ende": 3218
+        "ende": 3218,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Aristophanes",
@@ -1512,7 +1517,8 @@
       "textUrl": "hoerbuch-texte/el/plato_-_phaedon-12350.txt.gz",
       "textRange": {
         "start": 38,
-        "ende": 4182
+        "ende": 4182,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Plato (Πλάτων)",
@@ -2041,7 +2047,8 @@
       "textUrl": "hoerbuch-texte/el/plato_-_x-13409.txt.gz",
       "textRange": {
         "start": 39,
-        "ende": 3131
+        "ende": 3131,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Plato (Πλάτων)",
@@ -2516,7 +2523,8 @@
       "textUrl": "hoerbuch-texte/el/papadiamantis-alexandros_-_christmas-short-stories-16012.txt.gz",
       "textRange": {
         "start": 36,
-        "ende": 3858
+        "ende": 3858,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Papadiamantis, Alexandros",
@@ -2627,7 +2635,8 @@
       "textUrl": "hoerbuch-texte/el/andersen-hans-christian_-_x-16383.txt.gz",
       "textRange": {
         "start": 33,
-        "ende": 1854
+        "ende": 1854,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Andersen, Hans Christian",
@@ -2751,7 +2760,8 @@
       "textUrl": "hoerbuch-texte/el/rhoides-emmanuel_-_short-stories-from-syros-16460.txt.gz",
       "textRange": {
         "start": 38,
-        "ende": 5740
+        "ende": 5740,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Rhoides, Emmanuel",
@@ -4131,7 +4141,8 @@
       "textUrl": "hoerbuch-texte/el/vizyinos-georgios_-_x-17746.txt.gz",
       "textRange": {
         "start": 36,
-        "ende": 3671
+        "ende": 3671,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Vizyinos, Georgios",
@@ -4199,7 +4210,8 @@
       "textUrl": "hoerbuch-texte/el/papadiamantis-alexandros_-_easter-short-stories-17824.txt.gz",
       "textRange": {
         "start": 40,
-        "ende": 2791
+        "ende": 2791,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Papadiamantis, Alexandros",
@@ -4339,7 +4351,8 @@
       "textUrl": "hoerbuch-texte/el/plato_-_x-19289.txt.gz",
       "textRange": {
         "start": 96,
-        "ende": 2813
+        "ende": 2813,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Plato (Πλάτων)",
@@ -4488,7 +4501,8 @@
       "textUrl": "hoerbuch-texte/el/plato_-_x-19427.txt.gz",
       "textRange": {
         "start": 96,
-        "ende": 3529
+        "ende": 3529,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Plato (Πλάτων)",
@@ -4664,7 +4678,8 @@
       "textUrl": "hoerbuch-texte/el/karkavitsas-andreas_-_x-19932.txt.gz",
       "textRange": {
         "start": 34,
-        "ende": 7586
+        "ende": 7586,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Karkavitsas, Andreas",
@@ -4892,7 +4907,8 @@
       "textUrl": "hoerbuch-texte/el/polemis-ioannes_-_x-19976.txt.gz",
       "textRange": {
         "start": 29,
-        "ende": 751
+        "ende": 751,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Polemis, Ioannes",
@@ -5255,7 +5271,8 @@
       "textUrl": "hoerbuch-texte/el/vilaras-ioannis_-_x-20952.txt.gz",
       "textRange": {
         "start": 35,
-        "ende": 2012
+        "ende": 2012,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Vilaras, Ioannis",
@@ -5404,7 +5421,8 @@
       "textUrl": "hoerbuch-texte/el/nirvanas-pavlos_-_x-22256.txt.gz",
       "textRange": {
         "start": 35,
-        "ende": 3293
+        "ende": 3293,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Nirvanas, Pavlos",
@@ -5636,7 +5654,8 @@
       "textUrl": "hoerbuch-texte/el/palamas-kostis_-_x-22396.txt.gz",
       "textRange": {
         "start": 3,
-        "ende": 869
+        "ende": 869,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Palamas, Kostis",

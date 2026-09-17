@@ -18,7 +18,8 @@
       "textUrl": "hoerbuch-texte/ro/eminescu-mihai_-_poezii-14017.txt.gz",
       "textRange": {
         "start": 31,
-        "ende": 24588
+        "ende": 24588,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Eminescu, Mihai",

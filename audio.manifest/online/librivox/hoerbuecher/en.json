@@ -18,7 +18,8 @@
       "textUrl": "hoerbuch-texte/en/lincoln-abraham_-_gettysburg-address-389.txt.gz",
       "textRange": {
         "start": 5,
-        "ende": 44
+        "ende": 44,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lincoln, Abraham",
@@ -68,7 +69,8 @@
       "textUrl": "hoerbuch-texte/en/swift-jonathan_-_modest-proposal-177.txt.gz",
       "textRange": {
         "start": 5,
-        "ende": 340
+        "ende": 340,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Swift, Jonathan",
@@ -118,7 +120,8 @@
       "textUrl": "hoerbuch-texte/en/united-states-arms-control-and-disarmament-agency_-_worldwide-effects-of-nuclear-war-some-perspectives-2023.txt.gz",
       "textRange": {
         "start": 53,
-        "ende": 867
+        "ende": 867,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "United States Arms Control and Disarmament Agency",
@@ -187,7 +190,8 @@
       "textUrl": "hoerbuch-texte/en/mcgee-thomas-d-arcy_-_popular-history-of-ireland-book-07-2598.txt.gz",
       "textRange": {
         "start": 164,
-        "ende": 28734
+        "ende": 28734,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "McGee, Thomas D'Arcy",
@@ -265,7 +269,8 @@
       "textUrl": "hoerbuch-texte/en/pansy_-_sunshine-factory-9114.txt.gz",
       "textRange": {
         "start": 67,
-        "ende": 721
+        "ende": 721,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pansy",
@@ -371,7 +376,8 @@
       "textUrl": "hoerbuch-texte/en/coleridge-samuel-taylor_-_rime-of-the-ancient-mariner-400.txt.gz",
       "textRange": {
         "start": 139,
-        "ende": 857
+        "ende": 857,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Coleridge, Samuel Taylor",
@@ -422,7 +428,8 @@
       "textUrl": "hoerbuch-texte/en/plato_-_ion-1171.txt.gz",
       "textRange": {
         "start": 43,
-        "ende": 835
+        "ende": 835,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Plato (Πλάτων)",
@@ -484,7 +491,8 @@
       "textUrl": "hoerbuch-texte/en/wood-robert-williams_-_how-to-tell-the-birds-from-the-flowers-497.txt.gz",
       "textRange": {
         "start": 71,
-        "ende": 539
+        "ende": 539,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wood, Robert Williams",
@@ -535,7 +543,8 @@
       "textUrl": "hoerbuch-texte/en/anonymous_-_keepsake-2082.txt.gz",
       "textRange": {
         "start": 387,
-        "ende": 1046
+        "ende": 1046,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -595,7 +604,8 @@
       "textUrl": "hoerbuch-texte/en/twain-mark_-_how-to-tell-a-story-and-other-essays-8743.txt.gz",
       "textRange": {
         "start": 56,
-        "ende": 808
+        "ende": 808,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -664,7 +674,8 @@
       "textUrl": "hoerbuch-texte/en/wiggin-kate-douglas_-_cathedral-courtship-5754.txt.gz",
       "textRange": {
         "start": 111,
-        "ende": 2023
+        "ende": 2023,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wiggin, Kate Douglas",
@@ -787,7 +798,8 @@
       "textUrl": "hoerbuch-texte/en/gray-thomas-r_-_confessions-of-nat-turner-the-leader-of-the-late-insurrection-in-southampton-va-15538.txt.gz",
       "textRange": {
         "start": 47,
-        "ende": 852
+        "ende": 852,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Gray, Thomas R.",
@@ -866,7 +878,8 @@
       "textUrl": "hoerbuch-texte/en/poe-edgar-allan_-_raven-and-the-philosophy-of-composition-12492.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 778
+        "ende": 778,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Poe, Edgar Allan",
@@ -937,7 +950,8 @@
       "textUrl": "hoerbuch-texte/en/holmes-william-henry_-_form-and-ornament-in-ceramic-art-14406.txt.gz",
       "textRange": {
         "start": 116,
-        "ende": 1076
+        "ende": 1076,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Holmes, William Henry",
@@ -1023,7 +1037,8 @@
       "textUrl": "hoerbuch-texte/en/lister-joseph_-_on-the-antiseptic-principle-of-the-practice-of-surgery-208.txt.gz",
       "textRange": {
         "start": 67,
-        "ende": 16983
+        "ende": 16983,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lister, Joseph",
@@ -1073,7 +1088,8 @@
       "textUrl": "hoerbuch-texte/en/anonymous_-_child-s-new-story-book-2638.txt.gz",
       "textRange": {
         "start": 58,
-        "ende": 263
+        "ende": 263,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -1168,7 +1184,8 @@
       "textUrl": "hoerbuch-texte/en/muir-john_-_stickeen-2508.txt.gz",
       "textRange": {
         "start": 67,
-        "ende": 739
+        "ende": 739,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Muir, John",
@@ -1236,7 +1253,8 @@
       "textUrl": "hoerbuch-texte/en/walpole-horace_-_hieroglyphic-tales-11228.txt.gz",
       "textRange": {
         "start": 23,
-        "ende": 1083
+        "ende": 1083,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Walpole, Horace",
@@ -1350,7 +1368,8 @@
       "textUrl": "hoerbuch-texte/en/plato_-_critias-7306.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 884
+        "ende": 884,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Plato (Πλάτων)",
@@ -1412,7 +1431,8 @@
       "textUrl": "hoerbuch-texte/en/king-james-version-kjv_-_bible-kjv-nt-11-phillippians-6855.txt.gz",
       "textRange": {
         "start": 55,
-        "ende": 399
+        "ende": 399,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "King James Version (KJV)",
@@ -1490,7 +1510,8 @@
       "textUrl": "hoerbuch-texte/en/twain-mark_-_goldsmith-s-friend-abroad-again-5438.txt.gz",
       "textRange": {
         "start": 53,
-        "ende": 275
+        "ende": 275,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -1569,7 +1590,8 @@
       "textUrl": "hoerbuch-texte/en/irwin-will_-_san-francisco-before-and-after-the-earthquake-12916.txt.gz",
       "textRange": {
         "start": 357,
-        "ende": 623
+        "ende": 623,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Irwin, Will",
@@ -1639,7 +1661,8 @@
       "textUrl": "hoerbuch-texte/en/parliament-of-the-united-kingdom-of-great-britain_-_riot-act-401.txt.gz",
       "textRange": {
         "start": 40,
-        "ende": 313
+        "ende": 313,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Parliament of the United Kingdom of Great Britain",
@@ -1689,7 +1712,8 @@
       "textUrl": "hoerbuch-texte/en/talbott-mary-hamilton_-_pop-corn-recipes-22215.txt.gz",
       "textRange": {
         "start": 32,
-        "ende": 455
+        "ende": 455,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Talbott, Mary Hamilton",
@@ -1838,7 +1862,8 @@
       "textUrl": "hoerbuch-texte/en/lankow-edward_-_new-science-of-controlled-breathing-vol-1-and-2-19780.txt.gz",
       "textRange": {
         "start": 41,
-        "ende": 418
+        "ende": 418,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Lankow, Edward",
@@ -1906,7 +1931,8 @@
       "textUrl": "hoerbuch-texte/en/higgins-charles-a_-_titan-of-chasms-the-grand-canyon-of-arizona-16981.txt.gz",
       "textRange": {
         "start": 349,
-        "ende": 1457
+        "ende": 1457,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Higgins, Charles A.; Lummis, Charles F.; Powell, John Wesley",
@@ -1985,7 +2011,8 @@
       "textUrl": "hoerbuch-texte/en/douay-rheims-version-drv_-_bible-drv-apocrypha-deuterocanon-additions-to-esther-2224.txt.gz",
       "textRange": {
         "start": 82,
-        "ende": 1271
+        "ende": 1271,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Douay-Rheims Version (DRV)",
@@ -2035,7 +2062,8 @@
       "textUrl": "hoerbuch-texte/en/allaben-frank_-_concerning-genealogies-12243.txt.gz",
       "textRange": {
         "start": 29,
-        "ende": 1643
+        "ende": 1643,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Allaben, Frank",
@@ -2150,7 +2178,8 @@
       "textUrl": "hoerbuch-texte/en/twain-mark_-_awful-german-language-version-2-5547.txt.gz",
       "textRange": {
         "start": 100,
-        "ende": 4217
+        "ende": 4217,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -2264,7 +2293,8 @@
       "textUrl": "hoerbuch-texte/en/cameron-john_-_association-football-and-how-to-play-it-9101.txt.gz",
       "textRange": {
         "start": 124,
-        "ende": 2468
+        "ende": 2468,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Cameron, John",
@@ -2368,7 +2398,8 @@
       "textUrl": "hoerbuch-texte/en/hale-katherine_-_new-joan-and-other-poems-15985.txt.gz",
       "textRange": {
         "start": 59,
-        "ende": 503
+        "ende": 503,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hale, Katherine",
@@ -2463,7 +2494,8 @@
       "textUrl": "hoerbuch-texte/en/aeschylus_-_prometheus-bound-thoreau-translation-10080.txt.gz",
       "textRange": {
         "start": 330,
-        "ende": 13259
+        "ende": 13259,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Aeschylus",
@@ -2534,7 +2566,8 @@
       "textUrl": "hoerbuch-texte/en/holyoake-george-j_-_principles-of-secularism-19823.txt.gz",
       "textRange": {
         "start": 46,
-        "ende": 1729
+        "ende": 1729,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Holyoake, George J.",
@@ -2674,7 +2707,8 @@
       "textUrl": "hoerbuch-texte/en/weymouth-new-testament_-_bible-wnt-nt-12-colossians-14948.txt.gz",
       "textRange": {
         "start": 49,
-        "ende": 405
+        "ende": 405,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Weymouth New Testament",
@@ -2727,7 +2761,8 @@
       "textUrl": "hoerbuch-texte/en/jackson-helen-hunt_-_calendar-of-sonnets-139.txt.gz",
       "textRange": {
         "start": 52,
-        "ende": 307
+        "ende": 307,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Jackson, Helen Hunt",
@@ -2876,7 +2911,8 @@
       "textUrl": "hoerbuch-texte/en/blain-mary-e_-_games-for-hallow-e-en-13289.txt.gz",
       "textRange": {
         "start": 65,
-        "ende": 1568
+        "ende": 1568,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Blain, Mary E.",
@@ -2955,7 +2991,8 @@
       "textUrl": "hoerbuch-texte/en/douglass-frederick_-_collected-articles-of-frederick-douglass-9053.txt.gz",
       "textRange": {
         "start": 43,
-        "ende": 770
+        "ende": 770,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Douglass, Frederick",
@@ -3014,7 +3051,8 @@
       "textUrl": "hoerbuch-texte/en/anonymous_-_saga-of-gunnlaug-the-worm-tongue-and-raven-the-skald-9610.txt.gz",
       "textRange": {
         "start": 49,
-        "ende": 1703
+        "ende": 1703,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -3121,7 +3159,8 @@
       "textUrl": "hoerbuch-texte/en/world-english-bible_-_bible-web-nt-18-philemon-1032.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 91
+        "ende": 91,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "World English Bible",
@@ -3171,7 +3210,8 @@
       "textUrl": "hoerbuch-texte/en/carroll-lewis_-_hunting-of-the-snark-version-3-10299.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 881
+        "ende": 881,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Carroll, Lewis",
@@ -3222,7 +3262,8 @@
       "textUrl": "hoerbuch-texte/en/bradley-glenn-d_-_story-of-the-pony-express-5092.txt.gz",
       "textRange": {
         "start": 58,
-        "ende": 2738
+        "ende": 2738,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Bradley, Glenn D.",
@@ -3345,7 +3386,8 @@
       "textUrl": "hoerbuch-texte/en/united-states-department-of-agriculture_-_nuts-in-family-meals-a-guide-for-consumers-version-2-22612.txt.gz",
       "textRange": {
         "start": 21,
-        "ende": 1242
+        "ende": 1242,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "United States Department of Agriculture",
@@ -3540,7 +3582,8 @@
       "textUrl": "hoerbuch-texte/en/marlowe-christopher_-_hero-and-leander-version-2-7324.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 879
+        "ende": 879,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Marlowe, Christopher",
@@ -3600,7 +3643,8 @@
       "textUrl": "hoerbuch-texte/en/ball-alice-a_-_chemical-constituents-of-the-active-principle-of-the-ava-root-18009.txt.gz",
       "textRange": {
         "start": 5,
-        "ende": 1058
+        "ende": 1058,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Ball, Alice A.",
@@ -3704,7 +3748,8 @@
       "textUrl": "hoerbuch-texte/en/tacitus-publius-cornelius_-_dialogue-concerning-oratory-or-the-causes-of-corrupt-eloquence-4154.txt.gz",
       "textRange": {
         "start": 92,
-        "ende": 7806
+        "ende": 7806,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Tacitus, Publius Cornelius",
@@ -3812,7 +3857,8 @@
       "textUrl": "hoerbuch-texte/en/gilbert-w-s_-_pirates-of-penzance-or-the-slave-of-duty-version-2-8993.txt.gz",
       "textRange": {
         "start": 21,
-        "ende": 31266
+        "ende": 31266,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Gilbert, W. S.",
@@ -3871,7 +3917,8 @@
       "textUrl": "hoerbuch-texte/en/crane-stephen_-_black-riders-and-other-lines-version-2-17658.txt.gz",
       "textRange": {
         "start": 92,
-        "ende": 1184
+        "ende": 1184,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Crane, Stephen",
@@ -3948,7 +3995,8 @@
       "textUrl": "hoerbuch-texte/en/erasmus-desiderius_-_praise-of-folly-2628.txt.gz",
       "textRange": {
         "start": 57,
-        "ende": 3084
+        "ende": 3084,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Erasmus, Desiderius",
@@ -4091,7 +4139,8 @@
       "textUrl": "hoerbuch-texte/en/goethe-johann-wolfgang-von_-_erotica-romana-6777.txt.gz",
       "textRange": {
         "start": 1342,
-        "ende": 1380
+        "ende": 1380,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Goethe, Johann Wolfgang von",
@@ -4349,7 +4398,9 @@
       "textUrl": "hoerbuch-texte/en/knight-charles_-_monthly-supplement-of-the-penny-magazine-of-the-society-for-the-diffusion-of-use-22429.txt.gz",
       "textRange": {
         "start": 27,
-        "ende": 1023
+        "ende": 1023,
+        "confidence": "low",
+        "pruef": true
       },
       "tags": {
         "work_author": "Knight, Charles",
@@ -4602,7 +4653,8 @@
       "textUrl": "hoerbuch-texte/en/shaw-george-bernard_-_don-juan-in-hell-6476.txt.gz",
       "textRange": {
         "start": 304,
-        "ende": 8178
+        "ende": 8178,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Shaw, George Bernard",
@@ -4662,7 +4714,8 @@
       "textUrl": "hoerbuch-texte/en/twain-mark_-_awful-german-language-513.txt.gz",
       "textRange": {
         "start": 100,
-        "ende": 4217
+        "ende": 4217,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -4731,7 +4784,8 @@
       "textUrl": "hoerbuch-texte/en/wells-h-g_-_floor-games-1429.txt.gz",
       "textRange": {
         "start": 62,
-        "ende": 686
+        "ende": 686,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wells, H. G.",
@@ -4781,7 +4835,8 @@
       "textUrl": "hoerbuch-texte/en/wight-john_-_mornings-at-bow-street-6177.txt.gz",
       "textRange": {
         "start": 382,
-        "ende": 6736
+        "ende": 6736,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wight, John",
@@ -5021,7 +5076,8 @@
       "textUrl": "hoerbuch-texte/en/baker-wallace-e_-_diary-of-a-suicide-10024.txt.gz",
       "textRange": {
         "start": 64,
-        "ende": 2202
+        "ende": 2202,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Baker, Wallace E.",
@@ -5135,7 +5191,8 @@
       "textUrl": "hoerbuch-texte/en/aristophanes_-_clouds-9998.txt.gz",
       "textRange": {
         "start": 74,
-        "ende": 12830
+        "ende": 12830,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Aristophanes",
@@ -5206,7 +5263,8 @@
       "textUrl": "hoerbuch-texte/en/conway-agnes-ethel_-_book-of-art-for-young-people-1958.txt.gz",
       "textRange": {
         "start": 180,
-        "ende": 4570
+        "ende": 4570,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Conway, Agnes Ethel",
@@ -5382,7 +5440,8 @@
       "textUrl": "hoerbuch-texte/en/unknown_-_selections-from-gems-of-poetry-for-girls-and-boys-9403.txt.gz",
       "textRange": {
         "start": 260,
-        "ende": 543
+        "ende": 543,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Unknown; Woodworth, Samuel",
@@ -5477,7 +5536,8 @@
       "textUrl": "hoerbuch-texte/en/lincoln-abraham_-_gettysburg-address-version-4-1293.txt.gz",
       "textRange": {
         "start": 5,
-        "ende": 44
+        "ende": 44,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lincoln, Abraham",
@@ -5527,7 +5587,8 @@
       "textUrl": "hoerbuch-texte/en/yeats-william-butler_-_tables-of-the-law-and-the-adoration-of-the-magi-21584.txt.gz",
       "textRange": {
         "start": 38,
-        "ende": 706
+        "ende": 706,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Yeats, William Butler",
@@ -5579,7 +5640,8 @@
       "textUrl": "hoerbuch-texte/en/chesterton-g-k_-_lord-kitchener-3198.txt.gz",
       "textRange": {
         "start": 58,
-        "ende": 807
+        "ende": 807,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Chesterton, G. K.",
@@ -5657,7 +5719,8 @@
       "textUrl": "hoerbuch-texte/en/wister-owen_-_padre-ignacio-or-the-song-of-temptation-6198.txt.gz",
       "textRange": {
         "start": 15,
-        "ende": 1050
+        "ende": 1050,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wister, Owen",
@@ -5735,7 +5798,8 @@
       "textUrl": "hoerbuch-texte/en/twain-mark_-_dog-s-tale-2220.txt.gz",
       "textRange": {
         "start": 37,
-        "ende": 411
+        "ende": 411,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -5804,7 +5868,8 @@
       "textUrl": "hoerbuch-texte/en/united-states-work-projects-administration_-_slave-narratives-a-folk-history-of-slavery-in-the-united-states-from-interviews-21483.txt.gz",
       "textRange": {
         "start": 61,
-        "ende": 521
+        "ende": 521,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "United States Work Projects Administration",
@@ -5874,7 +5939,8 @@
       "textUrl": "hoerbuch-texte/en/howard-robert-e_-_gods-of-the-north-9138.txt.gz",
       "textRange": {
         "start": 10,
-        "ende": 366
+        "ende": 366,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Howard, Robert E.",
@@ -5933,7 +5999,8 @@
       "textUrl": "hoerbuch-texte/en/twain-mark_-_fenimore-cooper-s-literary-offences-682.txt.gz",
       "textRange": {
         "start": 38,
-        "ende": 550
+        "ende": 550,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -5984,7 +6051,8 @@
       "textUrl": "hoerbuch-texte/en/pansy_-_sunshine-factory-version-2-17094.txt.gz",
       "textRange": {
         "start": 67,
-        "ende": 721
+        "ende": 721,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pansy",
@@ -6089,7 +6157,8 @@
       "textUrl": "hoerbuch-texte/en/davis-richard-harding_-_somewhere-in-france-11096.txt.gz",
       "textRange": {
         "start": 73,
-        "ende": 5063
+        "ende": 5063,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Davis, Richard Harding",
@@ -6157,7 +6226,8 @@
       "textUrl": "hoerbuch-texte/en/thoreau-henry-david_-_on-the-duty-of-civil-disobedience-version-2-6341.txt.gz",
       "textRange": {
         "start": 38,
-        "ende": 861
+        "ende": 861,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Thoreau, Henry David",
@@ -6218,7 +6288,8 @@
       "textUrl": "hoerbuch-texte/en/james-c-c_-_history-of-farming-in-ontario-5596.txt.gz",
       "textRange": {
         "start": 80,
-        "ende": 1260
+        "ende": 1260,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "James, C. C.",
@@ -6287,7 +6358,8 @@
       "textUrl": "hoerbuch-texte/en/jordan-david-starr_-_life-s-enthusiasms-8991.txt.gz",
       "textRange": {
         "start": 23,
-        "ende": 686
+        "ende": 686,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Jordan, David Starr",
@@ -6356,7 +6428,8 @@
       "textUrl": "hoerbuch-texte/en/twain-mark_-_mark-twain-s-burlesque-autobiography-and-first-romance-4136.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 616
+        "ende": 616,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -6434,7 +6507,8 @@
       "textUrl": "hoerbuch-texte/en/van-dyke-henry_-_first-christmas-tree-8514.txt.gz",
       "textRange": {
         "start": 91,
-        "ende": 969
+        "ende": 969,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "van Dyke, Henry",
@@ -6511,7 +6585,8 @@
       "textUrl": "hoerbuch-texte/en/gildas_-_on-the-ruin-of-britain-17806.txt.gz",
       "textRange": {
         "start": 53,
-        "ende": 779
+        "ende": 779,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Gildas",
@@ -6582,7 +6657,8 @@
       "textUrl": "hoerbuch-texte/en/allen-james_-_as-a-man-thinketh-1968.txt.gz",
       "textRange": {
         "start": 88,
-        "ende": 970
+        "ende": 970,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Allen, James",
@@ -6696,7 +6772,8 @@
       "textUrl": "hoerbuch-texte/en/hough-emerson_-_maw-s-vacation-18274.txt.gz",
       "textRange": {
         "start": 6,
-        "ende": 1101
+        "ende": 1101,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hough, Emerson",
@@ -6837,7 +6914,8 @@
       "textUrl": "hoerbuch-texte/en/king-james-version-kjv_-_bible-kjv-nt-18-philemon-4520.txt.gz",
       "textRange": {
         "start": 34,
-        "ende": 109865
+        "ende": 109865,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "King James Version (KJV)",
@@ -6887,7 +6965,8 @@
       "textUrl": "hoerbuch-texte/en/blake-william_-_songs-of-innocence-and-experience-version-3-14754.txt.gz",
       "textRange": {
         "start": 53,
-        "ende": 1505
+        "ende": 1505,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Blake, William",
@@ -6946,7 +7025,8 @@
       "textUrl": "hoerbuch-texte/en/campanella-tommaso_-_city-of-the-sun-7433.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 1567
+        "ende": 1567,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Campanella, Tommaso",
@@ -7053,7 +7133,8 @@
       "textUrl": "hoerbuch-texte/en/dumas-alexandre_-_celebrated-crimes-vol-4-part-3-nisida-11798.txt.gz",
       "textRange": {
         "start": 23,
-        "ende": 62580
+        "ende": 62580,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Dumas, Alexandre",
@@ -7124,7 +7205,8 @@
       "textUrl": "hoerbuch-texte/en/allen-james_-_as-a-man-thinketh-version-3-8452.txt.gz",
       "textRange": {
         "start": 88,
-        "ende": 970
+        "ende": 970,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Allen, James",
@@ -7237,7 +7319,8 @@
       "textUrl": "hoerbuch-texte/en/twain-mark_-_fenimore-cooper-s-literary-offences-version-2-4072.txt.gz",
       "textRange": {
         "start": 38,
-        "ende": 550
+        "ende": 550,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -7288,7 +7371,8 @@
       "textUrl": "hoerbuch-texte/en/mead-richard_-_short-discourse-concerning-pestilential-contagion-and-the-methods-to-be-used-to-12031.txt.gz",
       "textRange": {
         "start": 82,
-        "ende": 919
+        "ende": 919,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Mead, Richard",
@@ -7357,7 +7441,8 @@
       "textUrl": "hoerbuch-texte/en/anonymous_-_tiny-story-book-2639.txt.gz",
       "textRange": {
         "start": 61,
-        "ende": 390
+        "ende": 390,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -7524,7 +7609,8 @@
       "textUrl": "hoerbuch-texte/en/eca-de-queiros-jose-maria-de_-_our-lady-of-the-pillar-13390.txt.gz",
       "textRange": {
         "start": 96,
-        "ende": 1152
+        "ende": 1152,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
@@ -7605,7 +7691,8 @@
       "textUrl": "hoerbuch-texte/en/stryker-elisabeth-g_-_story-of-one-short-life-1783-to-1818-10142.txt.gz",
       "textRange": {
         "start": 74,
-        "ende": 1107
+        "ende": 1107,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Stryker, Elisabeth G.",
@@ -7746,7 +7833,8 @@
       "textUrl": "hoerbuch-texte/en/peyser-herbert-francis_-_mendelssohn-and-certain-masterworks-11122.txt.gz",
       "textRange": {
         "start": 34,
-        "ende": 1462
+        "ende": 1462,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Peyser, Herbert Francis",
@@ -7824,7 +7912,8 @@
       "textUrl": "hoerbuch-texte/en/epictetus_-_enchiridion-higginson-translation-20808.txt.gz",
       "textRange": {
         "start": 50,
-        "ende": 1374
+        "ende": 1374,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Epictetus",
@@ -7939,7 +8028,8 @@
       "textUrl": "hoerbuch-texte/en/stein-evaleen_-_gabriel-and-the-hour-book-6826.txt.gz",
       "textRange": {
         "start": 184,
-        "ende": 2223
+        "ende": 2223,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Stein, Evaleen",
@@ -8079,7 +8169,8 @@
       "textUrl": "hoerbuch-texte/en/guyon-jeanne-marie-bouvier-de-la-motte_-_short-and-easy-method-of-prayer-3611.txt.gz",
       "textRange": {
         "start": 305,
-        "ende": 1855
+        "ende": 1855,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Guyon, Jeanne Marie Bouvier de la Motte",
@@ -8167,7 +8258,8 @@
       "textUrl": "hoerbuch-texte/en/king-james-version-kjv_-_bible-kjv-08-ruth-4537.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 394
+        "ende": 394,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "King James Version (KJV)",
@@ -8218,7 +8310,8 @@
       "textUrl": "hoerbuch-texte/en/mott-frederick-walker_-_brain-and-the-voice-in-speech-and-song-16030.txt.gz",
       "textRange": {
         "start": 14,
-        "ende": 2451
+        "ende": 2451,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Mott, Frederick Walker",
@@ -8331,7 +8424,8 @@
       "textUrl": "hoerbuch-texte/en/bastiat-frederic_-_capital-and-interest-14246.txt.gz",
       "textRange": {
         "start": 76,
-        "ende": 10761
+        "ende": 10761,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Bastiat, Frédéric",
@@ -8435,7 +8529,8 @@
       "textUrl": "hoerbuch-texte/en/walcott-stuart_-_above-the-french-lines-15419.txt.gz",
       "textRange": {
         "start": 92,
-        "ende": 1863
+        "ende": 1863,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Walcott, Stuart",
@@ -8531,7 +8626,8 @@
       "textUrl": "hoerbuch-texte/en/mcgee-thomas-d-arcy_-_popular-history-of-ireland-book-05-2422.txt.gz",
       "textRange": {
         "start": 164,
-        "ende": 28734
+        "ende": 28734,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "McGee, Thomas D'Arcy",
@@ -8608,7 +8704,8 @@
       "textUrl": "hoerbuch-texte/en/hall-eugene-edward_-_treatise-on-staff-making-and-pivoting-8085.txt.gz",
       "textRange": {
         "start": 74,
-        "ende": 1038
+        "ende": 1038,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Hall, Eugene Edward",
@@ -8712,7 +8809,8 @@
       "textUrl": "hoerbuch-texte/en/united-states-government_-_constitution-of-the-united-states-of-america-1787-465.txt.gz",
       "textRange": {
         "start": 5,
-        "ende": 626
+        "ende": 626,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "United States Government",
@@ -8817,7 +8915,8 @@
       "textUrl": "hoerbuch-texte/en/american-can-company_-_kitchen-tested-recipes-from-canned-foods-17584.txt.gz",
       "textRange": {
         "start": 12,
-        "ende": 735
+        "ende": 735,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "American Can Company",
@@ -8894,7 +8993,8 @@
       "textUrl": "hoerbuch-texte/en/united-states-office-of-strategic-services_-_simple-sabotage-field-manual-3474.txt.gz",
       "textRange": {
         "start": 73,
-        "ende": 1285
+        "ende": 1285,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "United States Office of Strategic Services",
@@ -8954,7 +9054,8 @@
       "textUrl": "hoerbuch-texte/en/blythe-samuel-g_-_fun-of-getting-thin-13204.txt.gz",
       "textRange": {
         "start": 40,
-        "ende": 646
+        "ende": 646,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Blythe, Samuel G.",
@@ -9022,7 +9123,8 @@
       "textUrl": "hoerbuch-texte/en/douay-rheims-version-drv_-_bible-drv-apocrypha-deuterocanon-additions-to-daniel-2225.txt.gz",
       "textRange": {
         "start": 32,
-        "ende": 2365
+        "ende": 2365,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Douay-Rheims Version (DRV)",
@@ -9090,7 +9192,8 @@
       "textUrl": "hoerbuch-texte/en/pliny-the-elder_-_boys-and-girls-pliny-vol-1-13681.txt.gz",
       "textRange": {
         "start": 284,
-        "ende": 11578
+        "ende": 11578,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Pliny the Elder; White, John S.",
@@ -9267,7 +9370,8 @@
       "textUrl": "hoerbuch-texte/en/courtenay-calista-mccabe_-_george-washington-6503.txt.gz",
       "textRange": {
         "start": 68,
-        "ende": 2266
+        "ende": 2266,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Courtenay, Calista McCabe",
@@ -9380,7 +9484,8 @@
       "textUrl": "hoerbuch-texte/en/kirk-william-f_-_right-off-the-bat-8790.txt.gz",
       "textRange": {
         "start": 160,
-        "ende": 1606
+        "ende": 1606,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Kirk, William F.",
@@ -9458,7 +9563,8 @@
       "textUrl": "hoerbuch-texte/en/perry-bliss_-_fishing-with-a-worm-379.txt.gz",
       "textRange": {
         "start": 66,
-        "ende": 473
+        "ende": 473,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Perry, Bliss",
@@ -9508,7 +9614,8 @@
       "textUrl": "hoerbuch-texte/en/anonymous_-_english-as-she-is-wrote-4435.txt.gz",
       "textRange": {
         "start": 64,
-        "ende": 1965
+        "ende": 1965,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -9587,7 +9694,8 @@
       "textUrl": "hoerbuch-texte/en/arnold-matthew_-_sohrab-and-rustum-an-episode-9542.txt.gz",
       "textRange": {
         "start": 32,
-        "ende": 8888
+        "ende": 8888,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Arnold, Matthew",
@@ -9638,7 +9746,8 @@
       "textUrl": "hoerbuch-texte/en/gould-john-mead_-_how-to-camp-out-11900.txt.gz",
       "textRange": {
         "start": 98,
-        "ende": 3777
+        "ende": 3777,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Gould, John Mead",
@@ -9805,7 +9914,8 @@
       "textUrl": "hoerbuch-texte/en/hardy-thomas_-_poems-of-pilgrimage-19595.txt.gz",
       "textRange": {
         "start": 200,
-        "ende": 4409
+        "ende": 4409,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hardy, Thomas",
@@ -9954,7 +10064,8 @@
       "textUrl": "hoerbuch-texte/en/aeschylus_-_persians-version-2-10076.txt.gz",
       "textRange": {
         "start": 49,
-        "ende": 6703
+        "ende": 6703,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Aeschylus",
@@ -10025,7 +10136,8 @@
       "textUrl": "hoerbuch-texte/en/ingersoll-robert-g_-_mistakes-of-moses-8348.txt.gz",
       "textRange": {
         "start": 56,
-        "ende": 5165
+        "ende": 5165,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Ingersoll, Robert G.",
@@ -10184,7 +10296,8 @@
       "textUrl": "hoerbuch-texte/en/weymouth-new-testament_-_bible-wnt-nt-11-philippians-13103.txt.gz",
       "textRange": {
         "start": 48,
-        "ende": 433
+        "ende": 433,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Weymouth New Testament",
@@ -10234,7 +10347,8 @@
       "textUrl": "hoerbuch-texte/en/browning-elizabeth-barrett_-_sonnets-from-the-portuguese-version-2-4199.txt.gz",
       "textRange": {
         "start": 35,
-        "ende": 1002
+        "ende": 1002,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Browning, Elizabeth Barrett",
@@ -10311,7 +10425,8 @@
       "textUrl": "hoerbuch-texte/en/tappan-eva-march_-_diggers-in-the-earth-14963.txt.gz",
       "textRange": {
         "start": 91,
-        "ende": 2649
+        "ende": 2649,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Tappan, Eva March",
@@ -10451,7 +10566,8 @@
       "textUrl": "hoerbuch-texte/en/rowland-helen_-_guide-to-men-3815.txt.gz",
       "textRange": {
         "start": 180,
-        "ende": 2363
+        "ende": 2363,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Rowland, Helen",
@@ -10601,7 +10717,8 @@
       "textUrl": "hoerbuch-texte/en/hudgings-william-f_-_introduction-to-einstein-22597.txt.gz",
       "textRange": {
         "start": 30,
-        "ende": 1543
+        "ende": 1543,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hudgings, William F.",
@@ -10858,7 +10975,8 @@
       "textUrl": "hoerbuch-texte/en/world-english-bible_-_bible-web-32-jonah-521.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 168
+        "ende": 168,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "World English Bible",
@@ -10908,7 +11026,8 @@
       "textUrl": "hoerbuch-texte/en/bailey-william-francis_-_story-of-the-first-trans-continental-railroad-16081.txt.gz",
       "textRange": {
         "start": 129,
-        "ende": 4233
+        "ende": 4233,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Bailey, William Francis",
@@ -11085,7 +11204,8 @@
       "textUrl": "hoerbuch-texte/en/adams-henry-sherman_-_making-a-rock-garden-4439.txt.gz",
       "textRange": {
         "start": 149,
-        "ende": 862
+        "ende": 862,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Adams, Henry Sherman",
@@ -11135,7 +11255,8 @@
       "textUrl": "hoerbuch-texte/en/buel-elizabeth-c-barney_-_tale-of-the-spinning-wheel-21859.txt.gz",
       "textRange": {
         "start": 44,
-        "ende": 1201
+        "ende": 1201,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Buel, Elizabeth C. Barney",
@@ -11222,7 +11343,8 @@
       "textUrl": "hoerbuch-texte/en/twain-mark_-_1601-conversation-as-it-was-by-the-social-fireside-in-the-time-of-the-tudors-ver-6362.txt.gz",
       "textRange": {
         "start": 40,
-        "ende": 1352
+        "ende": 1352,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -11293,7 +11415,8 @@
       "textUrl": "hoerbuch-texte/en/anderson-a-t_-_how-to-do-chemical-tricks-10303.txt.gz",
       "textRange": {
         "start": 5,
-        "ende": 2685
+        "ende": 2685,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anderson, A. T.",
@@ -11919,7 +12042,8 @@
       "textUrl": "hoerbuch-texte/en/fetis-francois-joseph_-_biographical-notice-of-nicolo-paganini-with-an-analysis-of-his-compositions-and-13476.txt.gz",
       "textRange": {
         "start": 96,
-        "ende": 3267
+        "ende": 3267,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Fetis, Francois-Joseph",
@@ -12016,7 +12140,8 @@
       "textUrl": "hoerbuch-texte/en/aristophanes_-_lysistrata-5001.txt.gz",
       "textRange": {
         "start": 47,
-        "ende": 3538
+        "ende": 3538,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Aristophanes",
@@ -12076,7 +12201,8 @@
       "textUrl": "hoerbuch-texte/en/barkley-henry-c_-_studies-in-the-art-of-rat-catching-11289.txt.gz",
       "textRange": {
         "start": 34,
-        "ende": 2727
+        "ende": 2727,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Barkley, Henry C.",
@@ -12217,7 +12343,8 @@
       "textUrl": "hoerbuch-texte/en/more-thomas_-_utopia-burnet-translation-993.txt.gz",
       "textRange": {
         "start": 38,
-        "ende": 3685
+        "ende": 3685,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "More, Thomas",
@@ -12368,7 +12495,8 @@
       "textUrl": "hoerbuch-texte/en/whittier-john-greenleaf_-_snow-bound-a-winter-idyl-1977.txt.gz",
       "textRange": {
         "start": 105,
-        "ende": 1920
+        "ende": 1920,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Whittier, John Greenleaf",
@@ -12436,7 +12564,8 @@
       "textUrl": "hoerbuch-texte/en/carroll-lewis_-_tangled-tale-3554.txt.gz",
       "textRange": {
         "start": 107,
-        "ende": 3726
+        "ende": 3726,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Carroll, Lewis",
@@ -12659,7 +12788,8 @@
       "textUrl": "hoerbuch-texte/en/wilde-oscar_-_lady-windermere-s-fan-version-2-8424.txt.gz",
       "textRange": {
         "start": 123,
-        "ende": 2940
+        "ende": 2940,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Wilde, Oscar",
@@ -12737,7 +12867,8 @@
       "textUrl": "hoerbuch-texte/en/pott-francis-lister-hawks_-_lessons-in-the-shanghai-dialect-15906.txt.gz",
       "textRange": {
         "start": 97,
-        "ende": 12205
+        "ende": 12205,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Pott, Francis Lister Hawks",
@@ -13174,7 +13305,8 @@
       "textUrl": "hoerbuch-texte/en/wells-h-g_-_little-wars-914.txt.gz",
       "textRange": {
         "start": 48,
-        "ende": 1591
+        "ende": 1591,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wells, H. G.",
@@ -13261,7 +13393,8 @@
       "textUrl": "hoerbuch-texte/en/chesterton-g-k_-_all-things-considered-1991.txt.gz",
       "textRange": {
         "start": 69,
-        "ende": 5427
+        "ende": 5427,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Chesterton, G. K.",
@@ -13410,7 +13543,8 @@
       "textUrl": "hoerbuch-texte/en/tomlinson-abraham_-_military-journals-of-two-private-soldiers-1758-1775-2546.txt.gz",
       "textRange": {
         "start": 82,
-        "ende": 4327
+        "ende": 4327,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Tomlinson, Abraham",
@@ -13659,7 +13793,8 @@
       "textUrl": "hoerbuch-texte/en/euripides_-_iphigenia-in-tauris-murray-translation-10035.txt.gz",
       "textRange": {
         "start": 61,
-        "ende": 3374
+        "ende": 3374,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Euripides",
@@ -13739,7 +13874,8 @@
       "textUrl": "hoerbuch-texte/en/joyce-james_-_chamber-music-version-2-22789.txt.gz",
       "textRange": {
         "start": 147,
-        "ende": 781
+        "ende": 781,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Joyce, James",
@@ -14105,7 +14241,8 @@
       "textUrl": "hoerbuch-texte/en/henry-o_-_gift-of-the-magi-391.txt.gz",
       "textRange": {
         "start": 34,
-        "ende": 254
+        "ende": 254,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Henry, O.",
@@ -14155,7 +14292,8 @@
       "textUrl": "hoerbuch-texte/en/henry-patrick_-_give-me-liberty-384.txt.gz",
       "textRange": {
         "start": 10,
-        "ende": 102
+        "ende": 102,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Henry, Patrick",
@@ -14206,7 +14344,8 @@
       "textUrl": "hoerbuch-texte/en/smith-venture_-_life-and-adventures-of-venture-8040.txt.gz",
       "textRange": {
         "start": 25,
-        "ende": 909
+        "ende": 909,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Smith, Venture",
@@ -14283,7 +14422,8 @@
       "textUrl": "hoerbuch-texte/en/anonymous_-_st-clair-s-defeat-1791-16451.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 983
+        "ende": 983,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -14370,7 +14510,8 @@
       "textUrl": "hoerbuch-texte/en/lindsay-vachel_-_congo-462.txt.gz",
       "textRange": {
         "start": 235,
-        "ende": 3721
+        "ende": 3721,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lindsay, Vachel",
@@ -14420,7 +14561,8 @@
       "textUrl": "hoerbuch-texte/en/brooke-l-leslie_-_johnny-crow-s-party-542.txt.gz",
       "textRange": {
         "start": 31,
-        "ende": 194
+        "ende": 194,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Brooke, L. Leslie",
@@ -14470,7 +14612,8 @@
       "textUrl": "hoerbuch-texte/en/alcott-william-a_-_three-days-on-the-ohio-river-11782.txt.gz",
       "textRange": {
         "start": 75,
-        "ende": 1007
+        "ende": 1007,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Alcott, William A.",
@@ -14529,7 +14672,8 @@
       "textUrl": "hoerbuch-texte/en/lincoln-abraham_-_gettysburg-address-version-2-390.txt.gz",
       "textRange": {
         "start": 5,
-        "ende": 44
+        "ende": 44,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lincoln, Abraham",
@@ -14579,7 +14723,8 @@
       "textUrl": "hoerbuch-texte/en/jewett-sarah-orne_-_gray-mills-of-farley-6019.txt.gz",
       "textRange": {
         "start": 106,
-        "ende": 13649
+        "ende": 13649,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Jewett, Sarah Orne",
@@ -14676,7 +14821,8 @@
       "textUrl": "hoerbuch-texte/en/freeman-merrill-pingree_-_dread-apache-that-early-day-scourge-of-the-southwest-18830.txt.gz",
       "textRange": {
         "start": 22,
-        "ende": 784
+        "ende": 784,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Freeman, Merrill Pingree",
@@ -14799,7 +14945,8 @@
       "textUrl": "hoerbuch-texte/en/herbert-henry-william_-_silent-rifleman-a-tale-of-the-texan-prairies-13706.txt.gz",
       "textRange": {
         "start": 31,
-        "ende": 2626
+        "ende": 2626,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Herbert, Henry William",
@@ -14921,7 +15068,8 @@
       "textUrl": "hoerbuch-texte/en/van-dyke-henry_-_spirit-of-christmas-version-2-3586.txt.gz",
       "textRange": {
         "start": 66,
-        "ende": 734
+        "ende": 734,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "van Dyke, Henry",
@@ -14998,7 +15146,8 @@
       "textUrl": "hoerbuch-texte/en/carroll-lewis_-_alice-s-adventures-in-wonderland-abridged-1122.txt.gz",
       "textRange": {
         "start": 16,
-        "ende": 3382
+        "ende": 3382,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Carroll, Lewis",
@@ -15130,7 +15279,8 @@
       "textUrl": "hoerbuch-texte/en/bowen-louise-dekoven_-_colored-people-of-chicago-14445.txt.gz",
       "textRange": {
         "start": 32,
-        "ende": 1153
+        "ende": 1153,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Bowen, Louise DeKoven",
@@ -15199,7 +15349,8 @@
       "textUrl": "hoerbuch-texte/en/barrie-j-m_-_story-of-peter-pan-6693.txt.gz",
       "textRange": {
         "start": 66,
-        "ende": 1149
+        "ende": 1149,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Barrie, J. M.; O'Connor, Daniel",
@@ -15295,7 +15446,8 @@
       "textUrl": "hoerbuch-texte/en/gilbert-w-s_-_h-m-s-pinafore-or-the-lass-that-loved-a-sailor-8953.txt.gz",
       "textRange": {
         "start": 21,
-        "ende": 31266
+        "ende": 31266,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Gilbert, W. S.",
@@ -15354,7 +15506,8 @@
       "textUrl": "hoerbuch-texte/en/anonymous_-_little-folded-hands-9380.txt.gz",
       "textRange": {
         "start": 236,
-        "ende": 1254
+        "ende": 1254,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -15503,7 +15656,8 @@
       "textUrl": "hoerbuch-texte/en/darrow-clarence_-_industrial-conspiracies-5262.txt.gz",
       "textRange": {
         "start": 37,
-        "ende": 1115
+        "ende": 1115,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Darrow, Clarence",
@@ -15563,7 +15717,8 @@
       "textUrl": "hoerbuch-texte/en/united-states-rubber-company_-_romance-of-rubber-405.txt.gz",
       "textRange": {
         "start": 84,
-        "ende": 954
+        "ende": 954,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "United States Rubber Company",
@@ -15613,7 +15768,8 @@
       "textUrl": "hoerbuch-texte/en/optic-oliver_-_birthday-party-a-story-for-little-folks-1223.txt.gz",
       "textRange": {
         "start": 62,
-        "ende": 919
+        "ende": 919,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Optic, Oliver",
@@ -15690,7 +15846,8 @@
       "textUrl": "hoerbuch-texte/en/havergal-frances-ridley_-_coming-to-the-king-9597.txt.gz",
       "textRange": {
         "start": 56,
-        "ende": 524
+        "ende": 524,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Havergal, Frances Ridley",
@@ -15858,7 +16015,8 @@
       "textUrl": "hoerbuch-texte/en/twain-mark_-_eve-s-diary-version-2-4089.txt.gz",
       "textRange": {
         "start": 46,
-        "ende": 700
+        "ende": 700,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -15910,7 +16068,8 @@
       "textUrl": "hoerbuch-texte/en/van-dyke-henry_-_story-of-the-other-wise-man-2578.txt.gz",
       "textRange": {
         "start": 22,
-        "ende": 979
+        "ende": 979,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "van Dyke, Henry",
@@ -15969,7 +16128,8 @@
       "textUrl": "hoerbuch-texte/en/anonymous_-_eirik-the-red-s-saga-638.txt.gz",
       "textRange": {
         "start": 98,
-        "ende": 980
+        "ende": 980,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -16068,7 +16228,8 @@
       "textUrl": "hoerbuch-texte/en/cooreman-gerard_-_martyrdom-of-belgium-official-report-of-massacres-of-peaceable-citizens-women-an-11492.txt.gz",
       "textRange": {
         "start": 29,
-        "ende": 1001
+        "ende": 1001,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Cooreman, Gérard",
@@ -16182,7 +16343,8 @@
       "textUrl": "hoerbuch-texte/en/plato_-_lesser-hippias-7396.txt.gz",
       "textRange": {
         "start": 272,
-        "ende": 1194
+        "ende": 1194,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Plato (Πλάτων)",
@@ -16244,7 +16406,8 @@
       "textUrl": "hoerbuch-texte/en/washington-booker-t_-_putting-the-most-into-life-15894.txt.gz",
       "textRange": {
         "start": 41,
-        "ende": 784
+        "ende": 784,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Washington, Booker T.",
@@ -16339,7 +16502,8 @@
       "textUrl": "hoerbuch-texte/en/herford-oliver_-_this-giddy-globe-version-2-18625.txt.gz",
       "textRange": {
         "start": 85,
-        "ende": 2364
+        "ende": 2364,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Herford, Oliver",
@@ -16408,7 +16572,8 @@
       "textUrl": "hoerbuch-texte/en/king-james-version-kjv_-_bible-kjv-apocrypha-deuterocanon-prayer-of-manasses-1256.txt.gz",
       "textRange": {
         "start": 57,
-        "ende": 19926
+        "ende": 19926,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "King James Version (KJV)",
@@ -16458,7 +16623,8 @@
       "textUrl": "hoerbuch-texte/en/chekhov-anton_-_kashtanka-7774.txt.gz",
       "textRange": {
         "start": 52,
-        "ende": 7359
+        "ende": 7359,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Chekhov, Anton",
@@ -16530,7 +16696,8 @@
       "textUrl": "hoerbuch-texte/en/irving-washington_-_more-selected-classics-of-washington-irving-11735.txt.gz",
       "textRange": {
         "start": 16,
-        "ende": 12766
+        "ende": 12766,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Irving, Washington",
@@ -16626,7 +16793,8 @@
       "textUrl": "hoerbuch-texte/en/burnett-frances-hodgson_-_sara-crewe-or-what-happened-at-miss-minchin-s-boarding-school-245.txt.gz",
       "textRange": {
         "start": 14,
-        "ende": 1838
+        "ende": 1838,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Burnett, Frances Hodgson",
@@ -16730,7 +16898,8 @@
       "textUrl": "hoerbuch-texte/en/dumas-alexandre_-_celebrated-crimes-vol-7-part-3-murat-12554.txt.gz",
       "textRange": {
         "start": 23,
-        "ende": 62580
+        "ende": 62580,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Dumas, Alexandre",
@@ -16800,7 +16969,8 @@
       "textUrl": "hoerbuch-texte/en/wells-h-g_-_discovery-of-the-future-8837.txt.gz",
       "textRange": {
         "start": 44,
-        "ende": 956
+        "ende": 956,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wells, H. G.",
@@ -16868,7 +17038,8 @@
       "textUrl": "hoerbuch-texte/en/pope-alexander_-_essay-on-criticism-version-2-9910.txt.gz",
       "textRange": {
         "start": 139,
-        "ende": 1287
+        "ende": 1287,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Pope, Alexander",
@@ -16938,7 +17109,8 @@
       "textUrl": "hoerbuch-texte/en/turner-percy-m_-_van-dyck-8009.txt.gz",
       "textRange": {
         "start": 112,
-        "ende": 1203
+        "ende": 1203,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Turner, Percy M.",
@@ -17025,7 +17197,8 @@
       "textUrl": "hoerbuch-texte/en/delafield-edward_-_inaugural-dissertation-on-pulmonary-consumption-18272.txt.gz",
       "textRange": {
         "start": 49,
-        "ende": 1706
+        "ende": 1706,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Delafield, Edward",
@@ -17112,7 +17285,8 @@
       "textUrl": "hoerbuch-texte/en/baker-sarah-s_-_aunt-friendly-s-picture-book-2268.txt.gz",
       "textRange": {
         "start": 71,
-        "ende": 615
+        "ende": 615,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Baker, Sarah S.",
@@ -17163,7 +17337,8 @@
       "textUrl": "hoerbuch-texte/en/lovecraft-h-p_-_dunwich-horror-10333.txt.gz",
       "textRange": {
         "start": 15,
-        "ende": 1722
+        "ende": 1722,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lovecraft, H. P.",
@@ -17233,7 +17408,8 @@
       "textUrl": "hoerbuch-texte/en/clarke-james-freeman_-_three-essays-by-james-freeman-clarke-8561.txt.gz",
       "textRange": {
         "start": 80,
-        "ende": 8538
+        "ende": 8538,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Clarke, James Freeman",
@@ -17302,7 +17478,9 @@
       "textUrl": "hoerbuch-texte/en/peyser-herbert-francis_-_schubert-and-his-works-9966.txt.gz",
       "textRange": {
         "start": 28,
-        "ende": 1486
+        "ende": 1486,
+        "confidence": "high",
+        "pruef": true
       },
       "tags": {
         "work_author": "Peyser, Herbert Francis",
@@ -17389,7 +17567,8 @@
       "textUrl": "hoerbuch-texte/en/byron-george-gordon-lord_-_giaour-6230.txt.gz",
       "textRange": {
         "start": 40,
-        "ende": 20934
+        "ende": 20934,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Byron, George Gordon, Lord",
@@ -17440,7 +17619,8 @@
       "textUrl": "hoerbuch-texte/en/plato_-_apology-of-socrates-version-2-9448.txt.gz",
       "textRange": {
         "start": 43,
-        "ende": 1450
+        "ende": 1450,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Plato (Πλάτων)",
@@ -17502,7 +17682,8 @@
       "textUrl": "hoerbuch-texte/en/kingsley-florence-morse_-_tor-a-street-boy-of-jerusalem-12081.txt.gz",
       "textRange": {
         "start": 104,
-        "ende": 2761
+        "ende": 2761,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Kingsley, Florence Morse",
@@ -17651,7 +17832,8 @@
       "textUrl": "hoerbuch-texte/en/newton-sir-isaac_-_observations-upon-the-apocalypse-of-st-john-14852.txt.gz",
       "textRange": {
         "start": 99,
-        "ende": 6752
+        "ende": 6752,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Newton, Sir Isaac",
@@ -17728,7 +17910,8 @@
       "textUrl": "hoerbuch-texte/en/king-james-version-kjv_-_bible-kjv-nt-10-ephesians-4347.txt.gz",
       "textRange": {
         "start": 55,
-        "ende": 549
+        "ende": 549,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "King James Version (KJV)",
@@ -17779,7 +17962,8 @@
       "textUrl": "hoerbuch-texte/en/pseudo-aristotle_-_aristotle-s-masterpiece-9622.txt.gz",
       "textRange": {
         "start": 89,
-        "ende": 11370
+        "ende": 11370,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Pseudo-Aristotle",
@@ -17974,7 +18158,8 @@
       "textUrl": "hoerbuch-texte/en/bennett-arnold_-_how-to-live-on-24-hours-a-day-version-2-9814.txt.gz",
       "textRange": {
         "start": 193,
-        "ende": 1387
+        "ende": 1387,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Bennett, Arnold",
@@ -18133,7 +18318,8 @@
       "textUrl": "hoerbuch-texte/en/tagore-rabindranath_-_glimpses-of-bengal-13721.txt.gz",
       "textRange": {
         "start": 48,
-        "ende": 3085
+        "ende": 3085,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Tagore, Rabindranath",
@@ -18509,7 +18695,8 @@
       "textUrl": "hoerbuch-texte/en/asser-bishop-of-sherbourne_-_life-of-alfred-the-great-2039.txt.gz",
       "textRange": {
         "start": 83,
-        "ende": 27861
+        "ende": 27861,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Asser, Bishop of Sherbourne",
@@ -18616,7 +18803,8 @@
       "textUrl": "hoerbuch-texte/en/brady-cyrus-townsend_-_and-thus-he-came-8619.txt.gz",
       "textRange": {
         "start": 96,
-        "ende": 1404
+        "ende": 1404,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Brady, Cyrus Townsend",
@@ -18756,7 +18944,8 @@
       "textUrl": "hoerbuch-texte/en/wiggin-kate-douglas_-_penelope-s-english-experiences-6495.txt.gz",
       "textRange": {
         "start": 58,
-        "ende": 3365
+        "ende": 3365,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Wiggin, Kate Douglas",
@@ -19023,7 +19212,8 @@
       "textUrl": "hoerbuch-texte/en/wright-orville_-_early-history-of-the-airplane-4071.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 1381
+        "ende": 1381,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wright, Orville; Wright, Wilbur",
@@ -19093,7 +19283,8 @@
       "textUrl": "hoerbuch-texte/en/unknown_-_magna-carta-536.txt.gz",
       "textRange": {
         "start": 19,
-        "ende": 1489
+        "ende": 1489,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Unknown",
@@ -19144,7 +19335,8 @@
       "textUrl": "hoerbuch-texte/en/tilden-joe_-_joe-tilden-s-recipes-for-epicures-4039.txt.gz",
       "textRange": {
         "start": 16,
-        "ende": 1834
+        "ende": 1834,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Tilden, Joe",
@@ -19275,7 +19467,8 @@
       "textUrl": "hoerbuch-texte/en/dewey-john_-_moral-principles-in-education-17750.txt.gz",
       "textRange": {
         "start": 79,
-        "ende": 1236
+        "ende": 1236,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Dewey, John",
@@ -19370,7 +19563,8 @@
       "textUrl": "hoerbuch-texte/en/tebb-william-scott_-_tea-and-the-effects-of-tea-drinking-20187.txt.gz",
       "textRange": {
         "start": 24,
-        "ende": 1200
+        "ende": 1200,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Tebb, William Scott",
@@ -19467,7 +19661,8 @@
       "textUrl": "hoerbuch-texte/en/pinchot-gifford_-_training-of-a-forester-12248.txt.gz",
       "textRange": {
         "start": 99,
-        "ende": 2324
+        "ende": 2324,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Pinchot, Gifford",
@@ -19653,7 +19848,8 @@
       "textUrl": "hoerbuch-texte/en/douay-rheims-version-drv_-_bible-drv-apocrypha-deuterocanon-baruch-2226.txt.gz",
       "textRange": {
         "start": 82,
-        "ende": 872
+        "ende": 872,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Douay-Rheims Version (DRV)",
@@ -19712,7 +19908,8 @@
       "textUrl": "hoerbuch-texte/en/johnson-samuel_-_plan-and-preface-to-a-dictionary-of-the-english-language-1029.txt.gz",
       "textRange": {
         "start": 198,
-        "ende": 1077
+        "ende": 1077,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Johnson, Samuel",
@@ -19789,7 +19986,8 @@
       "textUrl": "hoerbuch-texte/en/shaw-edward-r_-_discoverers-and-explorers-2802.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 2460
+        "ende": 2460,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Shaw, Edward R.",
@@ -19984,7 +20182,8 @@
       "textUrl": "hoerbuch-texte/en/london-jack_-_game-5710.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 1594
+        "ende": 1594,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "London, Jack",
@@ -20080,7 +20279,8 @@
       "textUrl": "hoerbuch-texte/en/bennett-arnold_-_mental-efficiency-3516.txt.gz",
       "textRange": {
         "start": 122,
-        "ende": 2345
+        "ende": 2345,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Bennett, Arnold",
@@ -20204,7 +20404,8 @@
       "textUrl": "hoerbuch-texte/en/spencer-herbert_-_philosophy-of-style-1076.txt.gz",
       "textRange": {
         "start": 39,
-        "ende": 1274
+        "ende": 1274,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Spencer, Herbert",
@@ -20272,7 +20473,8 @@
       "textUrl": "hoerbuch-texte/en/wordsworth-william_-_peter-bell-a-tale-13151.txt.gz",
       "textRange": {
         "start": 71,
-        "ende": 26212
+        "ende": 26212,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wordsworth, William",
@@ -20349,7 +20551,8 @@
       "textUrl": "hoerbuch-texte/en/wright-frederick-adam_-_greek-athletics-16788.txt.gz",
       "textRange": {
         "start": 68,
-        "ende": 2612
+        "ende": 2612,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Wright, Frederick Adam",
@@ -20453,7 +20656,8 @@
       "textUrl": "hoerbuch-texte/en/tennyson-alfred-lord_-_lotos-eaters-and-other-poems-22069.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 3790
+        "ende": 3790,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Tennyson, Alfred, Lord",
@@ -20629,7 +20833,8 @@
       "textUrl": "hoerbuch-texte/en/aeschylus_-_prometheus-bound-browning-translation-10016.txt.gz",
       "textRange": {
         "start": 205,
-        "ende": 8712
+        "ende": 8712,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Aeschylus",
@@ -20692,7 +20897,8 @@
       "textUrl": "hoerbuch-texte/en/cohen-chapman_-_theism-or-atheism-the-great-alternative-14210.txt.gz",
       "textRange": {
         "start": 96,
-        "ende": 5449
+        "ende": 5449,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Cohen, Chapman",
@@ -20877,7 +21083,8 @@
       "textUrl": "hoerbuch-texte/en/weymouth-new-testament_-_bible-wnt-nt-10-ephesians-13070.txt.gz",
       "textRange": {
         "start": 48,
-        "ende": 584
+        "ende": 584,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Weymouth New Testament",
@@ -20927,7 +21134,8 @@
       "textUrl": "hoerbuch-texte/en/browning-elizabeth-barrett_-_sonnets-from-the-portuguese-1115.txt.gz",
       "textRange": {
         "start": 35,
-        "ende": 1002
+        "ende": 1002,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Browning, Elizabeth Barrett",
@@ -21365,7 +21573,8 @@
       "textUrl": "hoerbuch-texte/en/gibson-charles-r_-_autobiography-of-an-electron-5627.txt.gz",
       "textRange": {
         "start": 97,
-        "ende": 3453
+        "ende": 3453,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Gibson, Charles R.",
@@ -21605,7 +21814,8 @@
       "textUrl": "hoerbuch-texte/en/emerson-ralph-waldo_-_nature-version-2-10073.txt.gz",
       "textRange": {
         "start": 78,
-        "ende": 1600
+        "ende": 1600,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Emerson, Ralph Waldo",
@@ -21727,7 +21937,8 @@
       "textUrl": "hoerbuch-texte/en/werner-carl_-_bringing-up-the-boy-12565.txt.gz",
       "textRange": {
         "start": 111,
-        "ende": 1873
+        "ende": 1873,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Werner, Carl",
@@ -21849,7 +22060,8 @@
       "textUrl": "hoerbuch-texte/en/united-states-army-corps-of-engineers_-_atomic-bombings-of-hiroshima-nagasaki-2400.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 2719
+        "ende": 2719,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "United States Army Corps of Engineers",
@@ -21964,7 +22176,8 @@
       "textUrl": "hoerbuch-texte/en/anonymous_-_mabinogion-volume-1-4382.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 3008
+        "ende": 3008,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -22143,7 +22356,8 @@
       "textUrl": "hoerbuch-texte/en/world-english-bible_-_bible-web-nt-11-philippians-11896.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 79123
+        "ende": 79123,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "World English Bible",
@@ -22193,7 +22407,8 @@
       "textUrl": "hoerbuch-texte/en/gilbert-w-s_-_more-bab-ballads-2112.txt.gz",
       "textRange": {
         "start": 90,
-        "ende": 4491
+        "ende": 4491,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Gilbert, W. S.",
@@ -22342,7 +22557,8 @@
       "textUrl": "hoerbuch-texte/en/rexford-eben-eugene_-_abc-of-vegetable-gardening-9396.txt.gz",
       "textRange": {
         "start": 105,
-        "ende": 2618
+        "ende": 2618,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Rexford, Eben Eugene",
@@ -22482,7 +22698,8 @@
       "textUrl": "hoerbuch-texte/en/schlegel-friedrich-von_-_lucinda-8361.txt.gz",
       "textRange": {
         "start": 154,
-        "ende": 20296
+        "ende": 20296,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Schlegel, Friedrich von",
@@ -22644,7 +22861,8 @@
       "textUrl": "hoerbuch-texte/en/mastin-john_-_chemistry-properties-and-tests-of-precious-stones-11525.txt.gz",
       "textRange": {
         "start": 161,
-        "ende": 3567
+        "ende": 3567,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Mastin, John",
@@ -22830,7 +23048,8 @@
       "textUrl": "hoerbuch-texte/en/lightwood-james-t_-_charles-dickens-and-music-20463.txt.gz",
       "textRange": {
         "start": 55,
-        "ende": 6311
+        "ende": 6311,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Lightwood, James T.",
@@ -22963,7 +23182,8 @@
       "textUrl": "hoerbuch-texte/en/aristophanes_-_lysistrata-version-3-13311.txt.gz",
       "textRange": {
         "start": 47,
-        "ende": 3538
+        "ende": 3538,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Aristophanes",
@@ -23034,7 +23254,8 @@
       "textUrl": "hoerbuch-texte/en/gibran-kahlil_-_prophet-13702.txt.gz",
       "textRange": {
         "start": 93,
-        "ende": 3096
+        "ende": 3096,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Gibran, Kahlil",
@@ -23140,7 +23361,8 @@
       "textUrl": "hoerbuch-texte/en/webster-marie-d_-_quilts-their-story-and-how-to-make-them-9314.txt.gz",
       "textRange": {
         "start": 340,
-        "ende": 4977
+        "ende": 4977,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Webster, Marie D.",
@@ -23262,7 +23484,8 @@
       "textUrl": "hoerbuch-texte/en/the-gawain-poet_-_pearl-jewett-translation-7027.txt.gz",
       "textRange": {
         "start": 44,
-        "ende": 1681
+        "ende": 1681,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "The Gawain Poet",
@@ -23759,7 +23982,9 @@
       "textUrl": "hoerbuch-texte/en/shakespeare-william_-_romeo-and-juliet-243.txt.gz",
       "textRange": {
         "start": 304,
-        "ende": 3971
+        "ende": 3971,
+        "confidence": "medium",
+        "pruef": true
       },
       "tags": {
         "work_author": "Shakespeare, William",
@@ -23846,7 +24071,8 @@
       "textUrl": "hoerbuch-texte/en/cicero-marcus-tullius_-_philippics-1728.txt.gz",
       "textRange": {
         "start": 70,
-        "ende": 20705
+        "ende": 20705,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Cicero, Marcus Tullius",
@@ -24026,7 +24252,8 @@
       "textUrl": "hoerbuch-texte/en/dickens-charles_-_speeches-literary-and-social-19266.txt.gz",
       "textRange": {
         "start": 63,
-        "ende": 9514
+        "ende": 9514,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Dickens, Charles",
@@ -24617,7 +24844,8 @@
       "textUrl": "hoerbuch-texte/en/ibsen-henrik_-_hedda-gabler-version-3-18842.txt.gz",
       "textRange": {
         "start": 49,
-        "ende": 9832
+        "ende": 9832,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Ibsen, Henrik",
@@ -24706,7 +24934,8 @@
       "textUrl": "hoerbuch-texte/en/smith-francis-hopkinson_-_little-gray-lady-8003.txt.gz",
       "textRange": {
         "start": 43,
-        "ende": 607
+        "ende": 607,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Smith, Francis Hopkinson",
@@ -24784,7 +25013,8 @@
       "textUrl": "hoerbuch-texte/en/ingersoll-robert-g_-_ingersoll-on-humboldt-from-the-works-of-robert-g-ingersoll-volume-1-lecture-2-15024.txt.gz",
       "textRange": {
         "start": 293,
-        "ende": 3040
+        "ende": 3040,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Ingersoll, Robert G.",
@@ -24834,7 +25064,8 @@
       "textUrl": "hoerbuch-texte/en/newell-peter_-_slant-book-409.txt.gz",
       "textRange": {
         "start": 31,
-        "ende": 330
+        "ende": 330,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Newell, Peter",
@@ -24884,7 +25115,8 @@
       "textUrl": "hoerbuch-texte/en/jefferson-thomas_-_declaration-of-independence-of-the-united-states-of-america-170.txt.gz",
       "textRange": {
         "start": 6,
-        "ende": 225
+        "ende": 225,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Jefferson, Thomas",
@@ -24934,7 +25166,8 @@
       "textUrl": "hoerbuch-texte/en/grenfell-sir-wilfred_-_adrift-on-an-ice-pan-3191.txt.gz",
       "textRange": {
         "start": 133,
-        "ende": 1186
+        "ende": 1186,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Grenfell, Sir Wilfred",
@@ -25002,7 +25235,8 @@
       "textUrl": "hoerbuch-texte/en/dawkins-charles-tyrwhitt_-_night-operations-for-infantry-compiled-for-the-use-of-company-officers-1916-12228.txt.gz",
       "textRange": {
         "start": 49,
-        "ende": 1287
+        "ende": 1287,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Dawkins, Charles Tyrwhitt",
@@ -25079,7 +25313,8 @@
       "textUrl": "hoerbuch-texte/en/brooke-l-leslie_-_ring-o-roses-a-nursery-rhyme-picture-book-976.txt.gz",
       "textRange": {
         "start": 177,
-        "ende": 419
+        "ende": 419,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Brooke, L. Leslie",
@@ -25148,7 +25383,8 @@
       "textUrl": "hoerbuch-texte/en/blackwood-algernon_-_man-who-found-out-a-nightmare-9105.txt.gz",
       "textRange": {
         "start": 53,
-        "ende": 5847
+        "ende": 5847,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Blackwood, Algernon",
@@ -25243,7 +25479,8 @@
       "textUrl": "hoerbuch-texte/en/brooke-l-leslie_-_johnny-crow-s-garden-192.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 202
+        "ende": 202,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Brooke, L. Leslie",
@@ -25293,7 +25530,8 @@
       "textUrl": "hoerbuch-texte/en/mayde-richard_-_frozen-north-13123.txt.gz",
       "textRange": {
         "start": 152,
-        "ende": 1073
+        "ende": 1073,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Mayde, Richard",
@@ -25371,7 +25609,8 @@
       "textUrl": "hoerbuch-texte/en/lincoln-abraham_-_gettysburg-address-version-3-1157.txt.gz",
       "textRange": {
         "start": 5,
-        "ende": 44
+        "ende": 44,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lincoln, Abraham",
@@ -25421,7 +25660,8 @@
       "textUrl": "hoerbuch-texte/en/andrews-mary-raymond-shipman_-_yellow-butterflies-17198.txt.gz",
       "textRange": {
         "start": 86,
-        "ende": 1050
+        "ende": 1050,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Andrews, Mary Raymond Shipman",
@@ -25490,7 +25730,8 @@
       "textUrl": "hoerbuch-texte/en/greene-samuel_-_monitor-and-the-merrimac-both-sides-of-the-story-14056.txt.gz",
       "textRange": {
         "start": 103,
-        "ende": 1082
+        "ende": 1082,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Greene, Samuel; Ramsay, H. Ashton; Watson, Eugene Winslow; Worden, John",
@@ -25568,7 +25809,8 @@
       "textUrl": "hoerbuch-texte/en/chapman-arthur_-_rustlers-beware-18323.txt.gz",
       "textRange": {
         "start": 12,
-        "ende": 2604
+        "ende": 2604,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Chapman, Arthur",
@@ -25700,7 +25942,8 @@
       "textUrl": "hoerbuch-texte/en/trollope-anthony_-_chateau-of-prince-polignac-21833.txt.gz",
       "textRange": {
         "start": 43,
-        "ende": 965
+        "ende": 965,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Trollope, Anthony",
@@ -25797,7 +26040,8 @@
       "textUrl": "hoerbuch-texte/en/carroll-lewis_-_alice-s-adventures-in-wonderland-abridged-version-2-6898.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 1300
+        "ende": 1300,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Carroll, Lewis",
@@ -25929,7 +26173,8 @@
       "textUrl": "hoerbuch-texte/en/clay-john-cecil_-_cupid-s-cyclopedia-12633.txt.gz",
       "textRange": {
         "start": 50,
-        "ende": 1569
+        "ende": 1569,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Clay, John Cecil; Herford, Oliver",
@@ -25998,7 +26243,8 @@
       "textUrl": "hoerbuch-texte/en/le-feuvre-amy_-_bulbs-and-blossoms-13643.txt.gz",
       "textRange": {
         "start": 80,
-        "ende": 1092
+        "ende": 1092,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Le Feuvre, Amy",
@@ -26077,7 +26323,8 @@
       "textUrl": "hoerbuch-texte/en/dyer-walter-alden_-_pierrot-dog-of-belgium-12872.txt.gz",
       "textRange": {
         "start": 103,
-        "ende": 2043
+        "ende": 2043,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Dyer, Walter Alden",
@@ -26192,7 +26439,8 @@
       "textUrl": "hoerbuch-texte/en/thoreau-henry-david_-_on-the-duty-of-civil-disobedience-version-3-10188.txt.gz",
       "textRange": {
         "start": 38,
-        "ende": 861
+        "ende": 861,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Thoreau, Henry David",
@@ -26251,7 +26499,8 @@
       "textUrl": "hoerbuch-texte/en/crane-walter_-_baby-s-songbook-3360.txt.gz",
       "textRange": {
         "start": 50,
-        "ende": 1205
+        "ende": 1205,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Crane, Walter",
@@ -26419,7 +26668,8 @@
       "textUrl": "hoerbuch-texte/en/douglass-john-m_-_indians-in-wisconsin-s-history-17216.txt.gz",
       "textRange": {
         "start": 15,
-        "ende": 1728
+        "ende": 1728,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Douglass, John M.",
@@ -26517,7 +26767,8 @@
       "textUrl": "hoerbuch-texte/en/muir-john_-_grand-canon-of-the-colorado-16538.txt.gz",
       "textRange": {
         "start": 12,
-        "ende": 724
+        "ende": 724,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Muir, John",
@@ -26594,7 +26845,8 @@
       "textUrl": "hoerbuch-texte/en/van-dyke-henry_-_spirit-of-christmas-1483.txt.gz",
       "textRange": {
         "start": 66,
-        "ende": 734
+        "ende": 734,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "van Dyke, Henry",
@@ -26673,7 +26925,8 @@
       "textUrl": "hoerbuch-texte/en/jordan-william-george_-_majesty-of-calmness-2664.txt.gz",
       "textRange": {
         "start": 74,
-        "ende": 1214
+        "ende": 1214,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Jordan, William George",
@@ -26779,7 +27032,8 @@
       "textUrl": "hoerbuch-texte/en/addison-joseph_-_days-with-sir-roger-de-coverley-13487.txt.gz",
       "textRange": {
         "start": 66,
-        "ende": 1070
+        "ende": 1070,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Addison, Joseph; Steele, Richard",
@@ -26892,7 +27146,8 @@
       "textUrl": "hoerbuch-texte/en/allen-james-lane_-_white-cowl-11527.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 8613
+        "ende": 8613,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Allen, James Lane",
@@ -26960,7 +27215,8 @@
       "textUrl": "hoerbuch-texte/en/walton-mrs-o-f_-_saved-at-sea-9929.txt.gz",
       "textRange": {
         "start": 47,
-        "ende": 1861
+        "ende": 1861,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Walton, Mrs. O. F.",
@@ -27110,7 +27366,8 @@
       "textUrl": "hoerbuch-texte/en/sophocles_-_trachiniai-campbell-translation-10496.txt.gz",
       "textRange": {
         "start": 74,
-        "ende": 15036
+        "ende": 15036,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Sophocles",
@@ -27172,7 +27429,8 @@
       "textUrl": "hoerbuch-texte/en/einstein-albert_-_sidelights-on-relativity-5041.txt.gz",
       "textRange": {
         "start": 65,
-        "ende": 953
+        "ende": 953,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Einstein, Albert",
@@ -27232,7 +27490,8 @@
       "textUrl": "hoerbuch-texte/en/thoreau-henry-david_-_canoeing-in-the-wilderness-13774.txt.gz",
       "textRange": {
         "start": 108,
-        "ende": 3490
+        "ende": 3490,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Thoreau, Henry David",
@@ -27373,7 +27632,8 @@
       "textUrl": "hoerbuch-texte/en/anonymous_-_curtezan-unmasked-4694.txt.gz",
       "textRange": {
         "start": 72,
-        "ende": 757
+        "ende": 757,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -27433,7 +27693,8 @@
       "textUrl": "hoerbuch-texte/en/urner-nathan-dane_-_never-a-handbook-for-the-uninitiated-and-inexperienced-aspirants-to-refined-soci-11410.txt.gz",
       "textRange": {
         "start": 83,
-        "ende": 1378
+        "ende": 1378,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Urner, Nathan Dane",
@@ -27555,7 +27816,8 @@
       "textUrl": "hoerbuch-texte/en/king-james-version-kjv_-_bible-kjv-nt-26-jude-325.txt.gz",
       "textRange": {
         "start": 55,
-        "ende": 148
+        "ende": 148,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "King James Version (KJV)",
@@ -27605,7 +27867,8 @@
       "textUrl": "hoerbuch-texte/en/theophrastus_-_characters-of-theophrastus-13695.txt.gz",
       "textRange": {
         "start": 93,
-        "ende": 1851
+        "ende": 1851,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Theophrastus",
@@ -27686,7 +27949,8 @@
       "textUrl": "hoerbuch-texte/en/ward-artemus_-_complete-works-of-artemus-ward-part-4-to-california-and-return-13745.txt.gz",
       "textRange": {
         "start": 386,
-        "ende": 2529
+        "ende": 2529,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Ward, Artemus",
@@ -27773,7 +28037,8 @@
       "textUrl": "hoerbuch-texte/en/greene-homer_-_whispering-tongues-16429.txt.gz",
       "textRange": {
         "start": 92,
-        "ende": 2712
+        "ende": 2712,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Greene, Homer",
@@ -27878,7 +28143,8 @@
       "textUrl": "hoerbuch-texte/en/dumas-alexandre_-_celebrated-crimes-vol-6-part-2-the-man-in-the-iron-mask-12238.txt.gz",
       "textRange": {
         "start": 23,
-        "ende": 62580
+        "ende": 62580,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Dumas, Alexandre",
@@ -27967,7 +28233,8 @@
       "textUrl": "hoerbuch-texte/en/gibran-kahlil_-_prophet-version-5-19050.txt.gz",
       "textRange": {
         "start": 93,
-        "ende": 3096
+        "ende": 3096,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Gibran, Kahlil",
@@ -28027,7 +28294,8 @@
       "textUrl": "hoerbuch-texte/en/pope-alexander_-_essay-on-criticism-3222.txt.gz",
       "textRange": {
         "start": 139,
-        "ende": 1287
+        "ende": 1287,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Pope, Alexander",
@@ -28079,7 +28347,8 @@
       "textUrl": "hoerbuch-texte/en/toch-maximilian_-_how-to-paint-permanent-pictures-20280.txt.gz",
       "textRange": {
         "start": 93,
-        "ende": 1638
+        "ende": 1638,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Toch, Maximilian",
@@ -28354,7 +28623,8 @@
       "textUrl": "hoerbuch-texte/en/mouritz-a_-_the-flu-a-brief-history-of-influenza-in-u-s-america-europe-hawaii-14933.txt.gz",
       "textRange": {
         "start": 48,
-        "ende": 1805
+        "ende": 1805,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Mouritz, A.",
@@ -28442,7 +28712,8 @@
       "textUrl": "hoerbuch-texte/en/optic-oliver_-_dolly-and-i-story-for-little-folks-18164.txt.gz",
       "textRange": {
         "start": 58,
-        "ende": 753
+        "ende": 753,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Optic, Oliver",
@@ -28519,7 +28790,8 @@
       "textUrl": "hoerbuch-texte/en/coleridge-stephen_-_great-testimony-against-scientific-cruelty-13017.txt.gz",
       "textRange": {
         "start": 58,
-        "ende": 1472
+        "ende": 1472,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Coleridge, Stephen",
@@ -28688,7 +28960,8 @@
       "textUrl": "hoerbuch-texte/en/jokai-mor_-_tower-of-dago-10312.txt.gz",
       "textRange": {
         "start": 76,
-        "ende": 1900
+        "ende": 1900,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Jókai, Mór",
@@ -28837,7 +29110,8 @@
       "textUrl": "hoerbuch-texte/en/paton-john_-_john-g-paton-missionary-to-the-new-hebrides-an-autobiography-third-part-22667.txt.gz",
       "textRange": {
         "start": 95,
-        "ende": 2938
+        "ende": 2938,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Paton, John",
@@ -28925,7 +29199,8 @@
       "textUrl": "hoerbuch-texte/en/eastman-charles-alexander_-_soul-of-the-indian-4618.txt.gz",
       "textRange": {
         "start": 85,
-        "ende": 1788
+        "ende": 1788,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Eastman, Charles Alexander",
@@ -29030,7 +29305,8 @@
       "textUrl": "hoerbuch-texte/en/peyser-herbert-francis_-_richard-strauss-11123.txt.gz",
       "textRange": {
         "start": 28,
-        "ende": 1592
+        "ende": 1592,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Peyser, Herbert Francis",
@@ -29108,7 +29384,8 @@
       "textUrl": "hoerbuch-texte/en/byron-george-gordon-lord_-_don-juan-canto-1-598.txt.gz",
       "textRange": {
         "start": 43,
-        "ende": 18245
+        "ende": 18245,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Byron, George Gordon, Lord",
@@ -29213,7 +29490,8 @@
       "textUrl": "hoerbuch-texte/en/plato_-_apology-of-socrates-6055.txt.gz",
       "textRange": {
         "start": 43,
-        "ende": 1450
+        "ende": 1450,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Plato (Πλάτων)",
@@ -29275,7 +29553,8 @@
       "textUrl": "hoerbuch-texte/en/perkins-lucy-fitch_-_scotch-twins-15429.txt.gz",
       "textRange": {
         "start": 123,
-        "ende": 3743
+        "ende": 3743,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Perkins, Lucy Fitch",
@@ -29451,7 +29730,8 @@
       "textUrl": "hoerbuch-texte/en/tucker-a-l-o-e-charlotte-maria_-_stories-of-the-wars-of-the-jews-16523.txt.gz",
       "textRange": {
         "start": 41,
-        "ende": 3413
+        "ende": 3413,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Tucker (A. L. O. E.), Charlotte Maria",
@@ -29672,7 +29952,8 @@
       "textUrl": "hoerbuch-texte/en/various_-_poems-of-the-great-war-14822.txt.gz",
       "textRange": {
         "start": 246,
-        "ende": 919
+        "ende": 919,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Various",
@@ -29875,7 +30156,8 @@
       "textUrl": "hoerbuch-texte/en/weymouth-new-testament_-_bible-wnt-nt-09-galatians-11665.txt.gz",
       "textRange": {
         "start": 48,
-        "ende": 581
+        "ende": 581,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Weymouth New Testament",
@@ -29925,7 +30207,8 @@
       "textUrl": "hoerbuch-texte/en/barnum-p-t_-_art-of-money-getting-5295.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 1402
+        "ende": 1402,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Barnum, P. T.",
@@ -30156,7 +30439,8 @@
       "textUrl": "hoerbuch-texte/en/alcott-louisa-may_-_hospital-sketches-1733.txt.gz",
       "textRange": {
         "start": 84,
-        "ende": 3048
+        "ende": 3048,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Alcott, Louisa May",
@@ -30252,7 +30536,8 @@
       "textUrl": "hoerbuch-texte/en/burnett-frances-hodgson_-_dawn-of-a-to-morrow-5182.txt.gz",
       "textRange": {
         "start": 59,
-        "ende": 2160
+        "ende": 2160,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Burnett, Frances Hodgson",
@@ -30357,7 +30642,8 @@
       "textUrl": "hoerbuch-texte/en/lucian-of-samosata_-_trips-to-the-moon-2547.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 3846
+        "ende": 3846,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Lucian of Samosata",
@@ -30456,7 +30742,8 @@
       "textUrl": "hoerbuch-texte/en/hepworth-t-c_-_magic-lantern-and-its-management-21639.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 1665
+        "ende": 1665,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Hepworth, T. C.",
@@ -30606,7 +30893,8 @@
       "textUrl": "hoerbuch-texte/en/morang-george_-_copyright-question-576.txt.gz",
       "textRange": {
         "start": 40,
-        "ende": 678
+        "ende": 678,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Morang, George",
@@ -30656,7 +30944,8 @@
       "textUrl": "hoerbuch-texte/en/simmons-amelia_-_american-cookery-4635.txt.gz",
       "textRange": {
         "start": 36,
-        "ende": 1972
+        "ende": 1972,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Simmons, Amelia",
@@ -30751,7 +31040,8 @@
       "textUrl": "hoerbuch-texte/en/quiller-couch-sir-arthur-thomas_-_on-reading-the-bible-20076.txt.gz",
       "textRange": {
         "start": 72,
-        "ende": 8169
+        "ende": 8169,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Quiller-Couch, Sir Arthur Thomas",
@@ -30823,7 +31113,8 @@
       "textUrl": "hoerbuch-texte/en/hinkle-thomas-clark_-_how-to-eat-a-cure-for-nerves-18738.txt.gz",
       "textRange": {
         "start": 38,
-        "ende": 1864
+        "ende": 1864,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hinkle, Thomas Clark",
@@ -30918,7 +31209,8 @@
       "textUrl": "hoerbuch-texte/en/allen-edward-tyson_-_practical-forestry-in-the-pacific-northwest-11733.txt.gz",
       "textRange": {
         "start": 65,
-        "ende": 4814
+        "ende": 4814,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Allen, Edward Tyson",
@@ -31050,7 +31342,8 @@
       "textUrl": "hoerbuch-texte/en/douay-rheims-version-drv_-_bible-drv-apocrypha-deuterocanon-book-of-tobit-tobias-2190.txt.gz",
       "textRange": {
         "start": 148,
-        "ende": 138101
+        "ende": 138101,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Douay-Rheims Version (DRV)",
@@ -31118,7 +31411,8 @@
       "textUrl": "hoerbuch-texte/en/tappan-eva-march_-_makers-of-many-things-5299.txt.gz",
       "textRange": {
         "start": 77,
-        "ende": 2317
+        "ende": 2317,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Tappan, Eva March",
@@ -31258,7 +31552,8 @@
       "textUrl": "hoerbuch-texte/en/pollard-josephine_-_life-of-george-washington-in-words-of-one-syllable-8259.txt.gz",
       "textRange": {
         "start": 57,
-        "ende": 4264
+        "ende": 4264,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Pollard, Josephine",
@@ -31434,7 +31729,8 @@
       "textUrl": "hoerbuch-texte/en/london-jack_-_abysmal-brute-13958.txt.gz",
       "textRange": {
         "start": 30,
-        "ende": 2719
+        "ende": 2719,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "London, Jack",
@@ -31521,7 +31817,8 @@
       "textUrl": "hoerbuch-texte/en/salt-henry_-_animals-rights-considered-in-relation-to-social-progress-version-2-19552.txt.gz",
       "textRange": {
         "start": 32,
-        "ende": 3682
+        "ende": 3682,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Salt, Henry",
@@ -31661,7 +31958,8 @@
       "textUrl": "hoerbuch-texte/en/blades-william_-_enemies-of-books-13415.txt.gz",
       "textRange": {
         "start": 32,
-        "ende": 2736
+        "ende": 2736,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Blades, William",
@@ -31792,7 +32090,8 @@
       "textUrl": "hoerbuch-texte/en/shakespeare-william_-_venus-and-adonis-version-2-15041.txt.gz",
       "textRange": {
         "start": 20,
-        "ende": 1436
+        "ende": 1436,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Shakespeare, William",
@@ -31843,7 +32142,8 @@
       "textUrl": "hoerbuch-texte/en/stuck-hudson_-_ascent-of-denali-10763.txt.gz",
       "textRange": {
         "start": 136,
-        "ende": 4508
+        "ende": 4508,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Stuck, Hudson",
@@ -31976,7 +32276,8 @@
       "textUrl": "hoerbuch-texte/en/dryden-john_-_odes-songs-and-lyrical-pieces-22026.txt.gz",
       "textRange": {
         "start": 96,
-        "ende": 15812
+        "ende": 15812,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Dryden, John",
@@ -32134,7 +32435,8 @@
       "textUrl": "hoerbuch-texte/en/euripides_-_bacchae-solo-version-11137.txt.gz",
       "textRange": {
         "start": 55,
-        "ende": 3398
+        "ende": 3398,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Euripides",
@@ -32204,7 +32506,8 @@
       "textUrl": "hoerbuch-texte/en/thiry-baron-d-holbach-paul-henri_-_good-sense-4241.txt.gz",
       "textRange": {
         "start": 496,
-        "ende": 7114
+        "ende": 7114,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Thiry, Baron d'Holbach, Paul Henri",
@@ -32434,7 +32737,8 @@
       "textUrl": "hoerbuch-texte/en/weymouth-new-testament_-_bible-wnt-nt-07-1-corinthians-5658.txt.gz",
       "textRange": {
         "start": 49,
-        "ende": 1610
+        "ende": 1610,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Weymouth New Testament",
@@ -32504,7 +32808,8 @@
       "textUrl": "hoerbuch-texte/en/shakespeare-william_-_shakespeare-s-sonnets-version-3-1997.txt.gz",
       "textRange": {
         "start": 11,
-        "ende": 2626
+        "ende": 2626,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Shakespeare, William",
@@ -32600,7 +32905,8 @@
       "textUrl": "hoerbuch-texte/en/antin-mary_-_they-who-knock-at-our-gates-a-complete-gospel-of-immigration-version-2-15643.txt.gz",
       "textRange": {
         "start": 130,
-        "ende": 2210
+        "ende": 2210,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Antin, Mary",
@@ -32686,7 +32992,8 @@
       "textUrl": "hoerbuch-texte/en/wright-john-dutton_-_what-the-mother-of-a-deaf-child-ought-to-know-8112.txt.gz",
       "textRange": {
         "start": 140,
-        "ende": 2090
+        "ende": 2090,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Wright, John Dutton",
@@ -32800,7 +33107,8 @@
       "textUrl": "hoerbuch-texte/en/huygens-christiaan_-_treatise-on-light-7124.txt.gz",
       "textRange": {
         "start": 40,
-        "ende": 3781
+        "ende": 3781,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Huygens, Christiaan",
@@ -32961,7 +33269,8 @@
       "textUrl": "hoerbuch-texte/en/haywood-eliza_-_history-of-miss-betsy-thoughtless-vol-4-11187.txt.gz",
       "textRange": {
         "start": 22,
-        "ende": 22728
+        "ende": 22728,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Haywood, Eliza",
@@ -33220,7 +33529,8 @@
       "textUrl": "hoerbuch-texte/en/world-english-bible_-_bible-web-nt-10-ephesians-1089.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 374
+        "ende": 374,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "World English Bible",
@@ -33270,7 +33580,8 @@
       "textUrl": "hoerbuch-texte/en/chesterton-g-k_-_ballad-of-the-white-horse-version-2-5381.txt.gz",
       "textRange": {
         "start": 220,
-        "ende": 3371
+        "ende": 3371,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Chesterton, G. K.",
@@ -33392,7 +33703,8 @@
       "textUrl": "hoerbuch-texte/en/marshall-logan_-_sinking-of-the-titanic-and-great-sea-disasters-1530.txt.gz",
       "textRange": {
         "start": 188,
-        "ende": 9597
+        "ende": 9597,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Marshall, Logan",
@@ -33605,7 +33917,8 @@
       "textUrl": "hoerbuch-texte/en/shelley-mary-wollstonecraft_-_mathilda-1868.txt.gz",
       "textRange": {
         "start": 46,
-        "ende": 4637
+        "ende": 4637,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Shelley, Mary Wollstonecraft",
@@ -33754,7 +34067,8 @@
       "textUrl": "hoerbuch-texte/en/muir-m-m-pattison_-_story-of-alchemy-and-the-beginnings-of-chemistry-2995.txt.gz",
       "textRange": {
         "start": 129,
-        "ende": 5532
+        "ende": 5532,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Muir, M. M. Pattison",
@@ -33922,7 +34236,8 @@
       "textUrl": "hoerbuch-texte/en/houdini-harry_-_unmasking-of-robert-houdin-18608.txt.gz",
       "textRange": {
         "start": 118,
-        "ende": 6034
+        "ende": 6034,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Houdini, Harry",
@@ -34072,7 +34387,8 @@
       "textUrl": "hoerbuch-texte/en/aristophanes_-_peace-17475.txt.gz",
       "textRange": {
         "start": 49,
-        "ende": 2369
+        "ende": 2369,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Aristophanes",
@@ -34150,7 +34466,8 @@
       "textUrl": "hoerbuch-texte/en/anonymous_-_london-and-country-brewer-10751.txt.gz",
       "textRange": {
         "start": 166,
-        "ende": 2898
+        "ende": 2898,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -34391,7 +34708,8 @@
       "textUrl": "hoerbuch-texte/en/aquinas-saint-thomas_-_summa-theologica-09-pars-prima-secundae-treatise-on-law-and-grace-9617.txt.gz",
       "textRange": {
         "start": 262,
-        "ende": 54286
+        "ende": 54286,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Aquinas, Saint Thomas",
@@ -34732,7 +35050,8 @@
       "textUrl": "hoerbuch-texte/en/donne-john_-_anniversary-poems-10216.txt.gz",
       "textRange": {
         "start": 36,
-        "ende": 26866
+        "ende": 26866,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Donne, John",
@@ -34791,7 +35110,8 @@
       "textUrl": "hoerbuch-texte/en/libby-walter_-_introduction-to-the-history-of-science-15811.txt.gz",
       "textRange": {
         "start": 79,
-        "ende": 8790
+        "ende": 8790,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Libby, Walter",
@@ -35022,7 +35342,8 @@
       "textUrl": "hoerbuch-texte/en/nesbit-e_-_beautiful-stories-from-shakespeare-version-2-20771.txt.gz",
       "textRange": {
         "start": 20,
-        "ende": 7026
+        "ende": 7026,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Nesbit, E.; Shakespeare, William",
@@ -35271,7 +35592,8 @@
       "textUrl": "hoerbuch-texte/en/davis-richard-harding_-_my-buried-treasure-7118.txt.gz",
       "textRange": {
         "start": 34,
-        "ende": 789
+        "ende": 789,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Davis, Richard Harding",
@@ -35333,7 +35655,8 @@
       "textUrl": "hoerbuch-texte/en/davis-richard-harding_-_unfinished-story-11218.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 5225
+        "ende": 5225,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Davis, Richard Harding",
@@ -35392,7 +35715,8 @@
       "textUrl": "hoerbuch-texte/en/hoskins-mrs-robert_-_clara-a-swain-m-d-9585.txt.gz",
       "textRange": {
         "start": 19,
-        "ende": 707
+        "ende": 707,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hoskins, Mrs. Robert",
@@ -35451,7 +35775,8 @@
       "textUrl": "hoerbuch-texte/en/balzac-honore-de_-_grande-breteche-11310.txt.gz",
       "textRange": {
         "start": 50,
-        "ende": 883
+        "ende": 883,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Balzac, Honoré de",

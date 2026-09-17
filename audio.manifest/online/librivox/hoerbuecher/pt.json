@@ -1125,7 +1125,8 @@
       "textUrl": "hoerbuch-texte/pt/camoes-luis-vaz-de_-_lusiadas-3313.txt.gz",
       "textRange": {
         "start": 275,
-        "ende": 11056
+        "ende": 11056,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Camões, Luís Vaz de",
@@ -1256,7 +1257,8 @@
       "textUrl": "hoerbuch-texte/pt/ribeiro-bernardim_-_saudades-historia-de-menina-e-moca-3680.txt.gz",
       "textRange": {
         "start": 183,
-        "ende": 3296
+        "ende": 3296,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Ribeiro, Bernardim",
@@ -5378,7 +5380,8 @@
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_reliquia-7642.txt.gz",
       "textRange": {
         "start": 46,
-        "ende": 9589
+        "ende": 9589,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
@@ -7845,7 +7848,8 @@
       "textUrl": "hoerbuch-texte/pt/assis-joaquim-maria-machado-de_-_memorias-postumas-de-bras-cubas-13488.txt.gz",
       "textRange": {
         "start": 93,
-        "ende": 8449
+        "ende": 8449,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Assis, Joaquim Maria Machado de",
@@ -8175,7 +8179,8 @@
       "textUrl": "hoerbuch-texte/pt/alencar-jose-de_-_como-e-porque-sou-romancista-13842.txt.gz",
       "textRange": {
         "start": 64,
-        "ende": 1258
+        "ende": 1258,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Alencar, José de",
@@ -8384,7 +8389,8 @@
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_defunto-14431.txt.gz",
       "textRange": {
         "start": 100,
-        "ende": 7653
+        "ende": 7653,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
@@ -8727,7 +8733,8 @@
       "textUrl": "hoerbuch-texte/pt/dinis-julio_-_familia-ingleza-scenas-da-vida-do-porto-15049.txt.gz",
       "textRange": {
         "start": 79,
-        "ende": 18677
+        "ende": 18677,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Dinis, Júlio",
@@ -9941,7 +9948,8 @@
       "textUrl": "hoerbuch-texte/pt/dinis-julio_-_fidalgos-da-casa-mourisca-16112.txt.gz",
       "textRange": {
         "start": 75,
-        "ende": 19650
+        "ende": 19650,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Dinis, Júlio",
@@ -10325,7 +10333,8 @@
       "textUrl": "hoerbuch-texte/pt/castro-osorio-ana-de_-_infelizes-historias-vividas-16284.txt.gz",
       "textRange": {
         "start": 67,
-        "ende": 2409
+        "ende": 2409,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Castro Osório, Ana de",
@@ -11429,7 +11438,8 @@
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_mysterio-da-estrada-de-cintra-17298.txt.gz",
       "textRange": {
         "start": 78,
-        "ende": 8806
+        "ende": 8806,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
@@ -11902,7 +11912,8 @@
       "textUrl": "hoerbuch-texte/pt/almeida-version_-_biblia-almeida-21-ecclesiastes-17520.txt.gz",
       "textRange": {
         "start": 36,
-        "ende": 156166
+        "ende": 156166,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Almeida Version",
@@ -12430,7 +12441,8 @@
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_mandarim-18348.txt.gz",
       "textRange": {
         "start": 62,
-        "ende": 2490
+        "ende": 2490,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
@@ -12550,7 +12562,8 @@
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_primo-bazilio-18959.txt.gz",
       "textRange": {
         "start": 71,
-        "ende": 18647
+        "ende": 18647,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
@@ -12762,7 +12775,8 @@
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_cidade-e-as-serras-20129.txt.gz",
       "textRange": {
         "start": 65,
-        "ende": 8405
+        "ende": 8405,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
@@ -12956,7 +12970,8 @@
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_reliquia-versao-2-21262.txt.gz",
       "textRange": {
         "start": 46,
-        "ende": 9589
+        "ende": 9589,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
@@ -13231,7 +13246,9 @@
       "textUrl": "hoerbuch-texte/pt/eca-de-queiros-jose-maria-de_-_crime-do-padre-amaro-22299.txt.gz",
       "textRange": {
         "start": 58,
-        "ende": 18809
+        "ende": 18809,
+        "confidence": "low",
+        "pruef": true
       },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",

@@ -2793,7 +2793,8 @@
       "textUrl": "hoerbuch-texte/grc/xenophon_-_anabasis-13233.txt.gz",
       "textRange": {
         "start": 10,
-        "ende": 22433
+        "ende": 22433,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Xenophon",
@@ -3788,7 +3789,8 @@
       "textUrl": "hoerbuch-texte/grc/xenophon_-_x-14354.txt.gz",
       "textRange": {
         "start": 26,
-        "ende": 30637
+        "ende": 30637,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Xenophon",

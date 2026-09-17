@@ -18,7 +18,8 @@
       "textUrl": "hoerbuch-texte/it/alighieri-dante_-_divina-commedia-529.txt.gz",
       "textRange": {
         "start": 11,
-        "ende": 19873
+        "ende": 19873,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Alighieri, Dante",
@@ -732,7 +733,8 @@
       "textUrl": "hoerbuch-texte/it/ghislanzoni-antonio_-_contessa-di-karolystria-1245.txt.gz",
       "textRange": {
         "start": 64,
-        "ende": 2612
+        "ende": 2612,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Ghislanzoni, Antonio",
@@ -3516,7 +3518,8 @@
       "textUrl": "hoerbuch-texte/it/amicis-edmondo-de_-_ricordi-di-parigi-1577.txt.gz",
       "textRange": {
         "start": 47,
-        "ende": 5307
+        "ende": 5307,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Amicis, Edmondo de",
@@ -5384,7 +5387,8 @@
       "textUrl": "hoerbuch-texte/it/barrili-anton-giulio_-_galatea-3311.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 7529
+        "ende": 7529,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Barrili, Anton Giulio",
@@ -5605,7 +5609,8 @@
       "textUrl": "hoerbuch-texte/it/giacomo-salvatore-di_-_mattinate-napoletane-3594.txt.gz",
       "textRange": {
         "start": 105,
-        "ende": 3284
+        "ende": 3284,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Giacomo, Salvatore Di",
@@ -5781,7 +5786,8 @@
       "textUrl": "hoerbuch-texte/it/barrili-anton-giulio_-_ritratto-del-diavolo-3627.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 8118
+        "ende": 8118,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Barrili, Anton Giulio",
@@ -9687,7 +9693,8 @@
       "textUrl": "hoerbuch-texte/it/alighieri-dante_-_divina-commedia-il-purgatorio-5600.txt.gz",
       "textRange": {
         "start": 142,
-        "ende": 19611
+        "ende": 19611,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Alighieri, Dante",
@@ -10435,7 +10442,8 @@
       "textUrl": "hoerbuch-texte/it/alighieri-dante_-_divina-commedia-l-inferno-5947.txt.gz",
       "textRange": {
         "start": 142,
-        "ende": 19611
+        "ende": 19611,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Alighieri, Dante",
@@ -13046,7 +13054,8 @@
       "textUrl": "hoerbuch-texte/it/carroll-lewis_-_avventure-d-alice-nel-paese-delle-meraviglie-8906.txt.gz",
       "textRange": {
         "start": 186,
-        "ende": 3626
+        "ende": 3626,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Carroll, Lewis",
@@ -13214,7 +13223,8 @@
       "textUrl": "hoerbuch-texte/it/alighieri-dante_-_rime-9630.txt.gz",
       "textRange": {
         "start": 110,
-        "ende": 10396
+        "ende": 10396,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Alighieri, Dante",
@@ -14757,7 +14767,8 @@
       "textUrl": "hoerbuch-texte/it/barrili-anton-giulio_-_undecimo-comandamento-10415.txt.gz",
       "textRange": {
         "start": 88,
-        "ende": 9068
+        "ende": 9068,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Barrili, Anton Giulio",
@@ -16930,7 +16941,8 @@
       "textUrl": "hoerbuch-texte/it/pirandello-luigi_-_sei-personaggi-in-cerca-d-autore-15730.txt.gz",
       "textRange": {
         "start": 70,
-        "ende": 3505
+        "ende": 3505,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pirandello, Luigi",
@@ -17065,7 +17077,8 @@
       "textUrl": "hoerbuch-texte/it/wilde-oscar_-_il-fantasma-di-canterville-e-il-delitto-di-lord-savile-15932.txt.gz",
       "textRange": {
         "start": 29,
-        "ende": 3274
+        "ende": 3274,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wilde, Oscar",
@@ -17496,7 +17509,8 @@
       "textUrl": "hoerbuch-texte/it/machiavelli-niccolo_-_mandragola-16301.txt.gz",
       "textRange": {
         "start": 110,
-        "ende": 4652
+        "ende": 4652,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Machiavelli, Niccolò",
@@ -17646,7 +17660,8 @@
       "textUrl": "hoerbuch-texte/it/carducci-giosue_-_terze-odi-barbare-16339.txt.gz",
       "textRange": {
         "start": 107,
-        "ende": 2410
+        "ende": 2410,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Carducci, Giosuè",
@@ -19218,7 +19233,8 @@
       "textUrl": "hoerbuch-texte/it/ariosto-ludovico_-_orlando-furioso-canti-01-04-17087.txt.gz",
       "textRange": {
         "start": 105,
-        "ende": 53578
+        "ende": 53578,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Ariosto, Ludovico",
@@ -19342,7 +19358,8 @@
       "textUrl": "hoerbuch-texte/it/ariosto-ludovico_-_orlando-furioso-canti-05-12-17772.txt.gz",
       "textRange": {
         "start": 105,
-        "ende": 53578
+        "ende": 53578,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Ariosto, Ludovico",
@@ -19624,7 +19641,8 @@
       "textUrl": "hoerbuch-texte/it/pirandello-luigi_-_enrico-iv-18894.txt.gz",
       "textRange": {
         "start": 59,
-        "ende": 3507
+        "ende": 3507,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pirandello, Luigi",
@@ -20094,7 +20112,8 @@
       "textUrl": "hoerbuch-texte/it/ariosto-ludovico_-_orlando-furioso-canti-13-20-19884.txt.gz",
       "textRange": {
         "start": 105,
-        "ende": 53578
+        "ende": 53578,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Ariosto, Ludovico",

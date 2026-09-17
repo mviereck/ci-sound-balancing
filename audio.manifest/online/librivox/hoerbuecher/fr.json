@@ -18,7 +18,8 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-01-80.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 1093
+        "ende": 1093,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Fontaine, Jean de La",
@@ -629,7 +630,8 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-02-209.txt.gz",
       "textRange": {
         "start": 64,
-        "ende": 894
+        "ende": 894,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Fontaine, Jean de La",
@@ -1077,7 +1079,8 @@
       "textUrl": "hoerbuch-texte/fr/verne-jules_-_tour-du-monde-en-quatre-vingts-jours-486.txt.gz",
       "textRange": {
         "start": 484,
-        "ende": 11151
+        "ende": 11151,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Verne, Jules",
@@ -1817,7 +1820,8 @@
       "textUrl": "hoerbuch-texte/fr/verne-jules_-_pays-des-fourrures-974.txt.gz",
       "textRange": {
         "start": 110,
-        "ende": 17186
+        "ende": 17186,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Verne, Jules",
@@ -2365,7 +2369,8 @@
       "textUrl": "hoerbuch-texte/fr/anonymous_-_mille-et-une-nuits-tome-1-1028.txt.gz",
       "textRange": {
         "start": 238,
-        "ende": 15372
+        "ende": 15372,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -5413,7 +5418,8 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-05-1356.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 1093
+        "ende": 1093,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Fontaine, Jean de La",
@@ -5644,7 +5650,8 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-06-1415.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 1093
+        "ende": 1093,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Fontaine, Jean de La",
@@ -5884,7 +5891,8 @@
       "textUrl": "hoerbuch-texte/fr/allais-alphonse_-_se-tordre-1417.txt.gz",
       "textRange": {
         "start": 65,
-        "ende": 6247
+        "ende": 6247,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Allais, Alphonse",
@@ -6359,7 +6367,8 @@
       "textUrl": "hoerbuch-texte/fr/daudet-alphonse_-_tartarin-de-tarascon-1441.txt.gz",
       "textRange": {
         "start": 24,
-        "ende": 8213
+        "ende": 8213,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Daudet, Alphonse",
@@ -8420,7 +8429,8 @@
       "textUrl": "hoerbuch-texte/fr/beaugrand-honore_-_chasse-galerie-1656.txt.gz",
       "textRange": {
         "start": 78,
-        "ende": 2068
+        "ende": 2068,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Beaugrand, Honoré",
@@ -8972,7 +8982,8 @@
       "textUrl": "hoerbuch-texte/fr/lautreamont-comte-de_-_chants-de-maldoror-1745.txt.gz",
       "textRange": {
         "start": 27,
-        "ende": 7179
+        "ende": 7179,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lautréamont, Comte de",
@@ -9775,7 +9786,8 @@
       "textUrl": "hoerbuch-texte/fr/verlaine-paul-marie_-_poemes-saturniens-1760.txt.gz",
       "textRange": {
         "start": 87,
-        "ende": 9160
+        "ende": 9160,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Verlaine, Paul-Marie",
@@ -10411,7 +10423,8 @@
       "textUrl": "hoerbuch-texte/fr/sand-george_-_mare-au-diable-1772.txt.gz",
       "textRange": {
         "start": 35,
-        "ende": 4917
+        "ende": 4917,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Sand, George",
@@ -10878,7 +10891,8 @@
       "textUrl": "hoerbuch-texte/fr/voltaire_-_candide-ou-l-optimisme-1870.txt.gz",
       "textRange": {
         "start": 76,
-        "ende": 3704
+        "ende": 3704,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Voltaire",
@@ -11187,7 +11201,8 @@
       "textUrl": "hoerbuch-texte/fr/sand-george_-_maitres-sonneurs-1902.txt.gz",
       "textRange": {
         "start": 44,
-        "ende": 13858
+        "ende": 13858,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Sand, George",
@@ -11523,7 +11538,8 @@
       "textUrl": "hoerbuch-texte/fr/verne-jules_-_cinq-semaines-en-ballon-1905.txt.gz",
       "textRange": {
         "start": 295,
-        "ende": 11323
+        "ende": 11323,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Verne, Jules",
@@ -11960,7 +11976,8 @@
       "textUrl": "hoerbuch-texte/fr/verlaine-paul-marie_-_fetes-galantes-1906.txt.gz",
       "textRange": {
         "start": 87,
-        "ende": 9160
+        "ende": 9160,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Verlaine, Paul-Marie",
@@ -13360,7 +13377,8 @@
       "textUrl": "hoerbuch-texte/fr/hemon-louis_-_maria-chapdelaine-2209.txt.gz",
       "textRange": {
         "start": 21,
-        "ende": 5626
+        "ende": 5626,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Hémon, Louis",
@@ -13545,7 +13563,8 @@
       "textUrl": "hoerbuch-texte/fr/leblanc-maurice_-_arsene-lupin-gentleman-cambrioleur-2212.txt.gz",
       "textRange": {
         "start": 87,
-        "ende": 8790
+        "ende": 8790,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Leblanc, Maurice",
@@ -14442,7 +14461,8 @@
       "textUrl": "hoerbuch-texte/fr/verne-jules_-_keraban-le-tetu-2339.txt.gz",
       "textRange": {
         "start": 53,
-        "ende": 7785
+        "ende": 7785,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Verne, Jules",
@@ -15061,7 +15081,8 @@
       "textUrl": "hoerbuch-texte/fr/segur-sophie-comtesse-de_-_nouveaux-contes-de-fees-pour-les-petits-enfants-2411.txt.gz",
       "textRange": {
         "start": 27,
-        "ende": 7557
+        "ende": 7557,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Ségur, Sophie, Comtesse de",
@@ -15273,7 +15294,8 @@
       "textUrl": "hoerbuch-texte/fr/diderot-denis_-_regrets-sur-ma-vieille-robe-de-chambre-2413.txt.gz",
       "textRange": {
         "start": 21,
-        "ende": 271
+        "ende": 271,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Diderot, Denis",
@@ -15321,7 +15343,8 @@
       "textUrl": "hoerbuch-texte/fr/verne-jules_-_voyage-au-centre-de-la-terre-2432.txt.gz",
       "textRange": {
         "start": 31,
-        "ende": 10281
+        "ende": 10281,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Verne, Jules",
@@ -16125,7 +16148,8 @@
       "textUrl": "hoerbuch-texte/fr/maupassant-guy-de_-_contes-de-la-becasse-2513.txt.gz",
       "textRange": {
         "start": 24,
-        "ende": 4745
+        "ende": 4745,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Maupassant, Guy de",
@@ -16321,7 +16345,8 @@
       "textUrl": "hoerbuch-texte/fr/flaubert-gustave_-_dictionnaire-des-idees-recues-2548.txt.gz",
       "textRange": {
         "start": 40,
-        "ende": 2603
+        "ende": 2603,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Flaubert, Gustave",
@@ -16895,7 +16920,8 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-06-ver-3-2573.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 1093
+        "ende": 1093,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Fontaine, Jean de La",
@@ -17135,7 +17161,8 @@
       "textUrl": "hoerbuch-texte/fr/maupassant-guy-de_-_boule-de-suif-2576.txt.gz",
       "textRange": {
         "start": 98,
-        "ende": 4980
+        "ende": 4980,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Maupassant, Guy de",
@@ -17738,7 +17765,8 @@
       "textUrl": "hoerbuch-texte/fr/gaboriau-mile_-_monsieur-lecoq-2621.txt.gz",
       "textRange": {
         "start": 57,
-        "ende": 14202
+        "ende": 14202,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Gaboriau, Émile",
@@ -20112,7 +20140,8 @@
       "textUrl": "hoerbuch-texte/fr/hugo-victor_-_miserables-tome-1-2660.txt.gz",
       "textRange": {
         "start": 44,
-        "ende": 14035
+        "ende": 14035,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Hugo, Victor",
@@ -21126,7 +21155,8 @@
       "textUrl": "hoerbuch-texte/fr/hugo-victor_-_miserables-tome-2-2728.txt.gz",
       "textRange": {
         "start": 40,
-        "ende": 12481
+        "ende": 12481,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Hugo, Victor",
@@ -22458,7 +22488,8 @@
       "textUrl": "hoerbuch-texte/fr/maupassant-guy-de_-_horla-2798.txt.gz",
       "textRange": {
         "start": 19,
-        "ende": 5728
+        "ende": 5728,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Maupassant, Guy de",
@@ -25938,7 +25969,8 @@
       "textUrl": "hoerbuch-texte/fr/verne-jules_-_vingt-mille-lieues-sous-les-mers-3103.txt.gz",
       "textRange": {
         "start": 110,
-        "ende": 18145
+        "ende": 18145,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Verne, Jules",
@@ -26411,7 +26443,8 @@
       "textUrl": "hoerbuch-texte/fr/moliere_-_precieuses-ridicules-3135.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 2182
+        "ende": 2182,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Molière",
@@ -26741,7 +26774,8 @@
       "textUrl": "hoerbuch-texte/fr/hugo-victor_-_notre-dame-de-paris-3138.txt.gz",
       "textRange": {
         "start": 44,
-        "ende": 21311
+        "ende": 21311,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Hugo, Victor",
@@ -27646,7 +27680,8 @@
       "textUrl": "hoerbuch-texte/fr/leroux-gaston_-_fauteuil-hante-3235.txt.gz",
       "textRange": {
         "start": 82,
-        "ende": 6762
+        "ende": 6762,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Leroux, Gaston",
@@ -27859,7 +27894,8 @@
       "textUrl": "hoerbuch-texte/fr/rodenbach-georges_-_bruges-la-morte-3368.txt.gz",
       "textRange": {
         "start": 65,
-        "ende": 2668
+        "ende": 2668,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Rodenbach, Georges",
@@ -32364,7 +32400,8 @@
       "textUrl": "hoerbuch-texte/fr/verne-jules_-_tribulations-d-un-chinois-en-chine-4013.txt.gz",
       "textRange": {
         "start": 63,
-        "ende": 8409
+        "ende": 8409,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Verne, Jules",
@@ -33425,7 +33462,8 @@
       "textUrl": "hoerbuch-texte/fr/saint-hilaire-mile-marco-de_-_art-de-payer-ses-dettes-et-de-satisfaire-ses-creanciers-sans-debourser-un-sou-4313.txt.gz",
       "textRange": {
         "start": 114,
-        "ende": 2981
+        "ende": 2981,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Saint-Hilaire, Émile Marco de",
@@ -33860,7 +33898,8 @@
       "textUrl": "hoerbuch-texte/fr/level-maurice_-_pouvante-4602.txt.gz",
       "textRange": {
         "start": 43,
-        "ende": 6097
+        "ende": 6097,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Level, Maurice",
@@ -35433,7 +35472,8 @@
       "textUrl": "hoerbuch-texte/fr/hugo-victor_-_miserables-tome-3-4703.txt.gz",
       "textRange": {
         "start": 50,
-        "ende": 11182
+        "ende": 11182,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Hugo, Victor",
@@ -36179,7 +36219,8 @@
       "textUrl": "hoerbuch-texte/fr/chevalier-henri-mile_-_fille-du-pirate-4725.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 8096
+        "ende": 8096,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Chevalier, Henri Émile",
@@ -38720,7 +38761,8 @@
       "textUrl": "hoerbuch-texte/fr/la-fayette-madame-de_-_princesse-de-monpensier-4893.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 1063
+        "ende": 1063,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "La Fayette, Madame de",
@@ -38771,7 +38813,8 @@
       "textUrl": "hoerbuch-texte/fr/verlaine-paul-marie_-_poeme-du-mois-001-chanson-d-autommne-4904.txt.gz",
       "textRange": {
         "start": 87,
-        "ende": 9160
+        "ende": 9160,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Verlaine, Paul-Marie",
@@ -38921,7 +38964,8 @@
       "textUrl": "hoerbuch-texte/fr/feval-fils-paul_-_fabrique-de-crimes-4905.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 4466
+        "ende": 4466,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Féval, fils, Paul",
@@ -39379,7 +39423,8 @@
       "textUrl": "hoerbuch-texte/fr/feval-pere-paul_-_vampire-4969.txt.gz",
       "textRange": {
         "start": 22,
-        "ende": 13246
+        "ende": 13246,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Féval, père, Paul",
@@ -40898,7 +40943,8 @@
       "textUrl": "hoerbuch-texte/fr/baudelaire-charles_-_poeme-du-mois-004-l-albatros-5268.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 4988
+        "ende": 4988,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Baudelaire, Charles",
@@ -41207,7 +41253,8 @@
       "textUrl": "hoerbuch-texte/fr/baudelaire-charles_-_poeme-du-mois-005-le-chat-5367.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 4988
+        "ende": 4988,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Baudelaire, Charles",
@@ -41643,7 +41690,8 @@
       "textUrl": "hoerbuch-texte/fr/sue-eugene_-_mysteres-de-paris-tome-1-5498.txt.gz",
       "textRange": {
         "start": 112,
-        "ende": 16022
+        "ende": 16022,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Sue, Eugène",
@@ -42073,7 +42121,8 @@
       "textUrl": "hoerbuch-texte/fr/hugo-victor_-_miserables-tome-4-5508.txt.gz",
       "textRange": {
         "start": 46,
-        "ende": 15905
+        "ende": 15905,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Hugo, Victor",
@@ -42808,7 +42857,8 @@
       "textUrl": "hoerbuch-texte/fr/rimbaud-arthur_-_poeme-du-mois-007-le-dormeur-du-val-5565.txt.gz",
       "textRange": {
         "start": 96,
-        "ende": 3279
+        "ende": 3279,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Rimbaud, Arthur",
@@ -43653,7 +43703,8 @@
       "textUrl": "hoerbuch-texte/fr/la-fayette-madame-de_-_princesse-de-cleves-5982.txt.gz",
       "textRange": {
         "start": 57,
-        "ende": 5662
+        "ende": 5662,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "La Fayette, Madame de",
@@ -45461,7 +45512,8 @@
       "textUrl": "hoerbuch-texte/fr/flaubert-gustave_-_madame-bovary-french-6435.txt.gz",
       "textRange": {
         "start": 70,
-        "ende": 14509
+        "ende": 14509,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Flaubert, Gustave",
@@ -45818,7 +45870,8 @@
       "textUrl": "hoerbuch-texte/fr/sue-eugene_-_mysteres-de-paris-tome-2-6441.txt.gz",
       "textRange": {
         "start": 105,
-        "ende": 15721
+        "ende": 15721,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Sue, Eugène",
@@ -47868,7 +47921,8 @@
       "textUrl": "hoerbuch-texte/fr/lou-s-pierre_-_chansons-de-bilitis-6742.txt.gz",
       "textRange": {
         "start": 35,
-        "ende": 4358
+        "ende": 4358,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Louÿs, Pierre",
@@ -48211,7 +48265,8 @@
       "textUrl": "hoerbuch-texte/fr/hugo-victor_-_miserables-tome-5-6767.txt.gz",
       "textRange": {
         "start": 46,
-        "ende": 13172
+        "ende": 13172,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Hugo, Victor",
@@ -48856,7 +48911,8 @@
       "textUrl": "hoerbuch-texte/fr/nodier-charles_-_infernaliana-7016.txt.gz",
       "textRange": {
         "start": 41,
-        "ende": 3131
+        "ende": 3131,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Nodier, Charles",
@@ -49586,7 +49642,8 @@
       "textUrl": "hoerbuch-texte/fr/sue-eugene_-_mysteres-de-paris-tome-3-7271.txt.gz",
       "textRange": {
         "start": 94,
-        "ende": 16391
+        "ende": 16391,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Sue, Eugène",
@@ -52291,7 +52348,8 @@
       "textUrl": "hoerbuch-texte/fr/verlaine-paul-marie_-_poetes-maudits-01-8373.txt.gz",
       "textRange": {
         "start": 87,
-        "ende": 9160
+        "ende": 9160,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Verlaine, Paul-Marie",
@@ -52725,7 +52783,8 @@
       "textUrl": "hoerbuch-texte/fr/zola-mile_-_germinal-french-8734.txt.gz",
       "textRange": {
         "start": 61,
-        "ende": 19742
+        "ende": 19742,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Zola, Émile",
@@ -53506,7 +53565,8 @@
       "textUrl": "hoerbuch-texte/fr/verne-jules_-_l-ile-mysterieuse-8978.txt.gz",
       "textRange": {
         "start": 14,
-        "ende": 27008
+        "ende": 27008,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Verne, Jules",
@@ -54105,7 +54165,8 @@
       "textUrl": "hoerbuch-texte/fr/verne-jules_-_enfants-du-capitaine-grant-9061.txt.gz",
       "textRange": {
         "start": 13,
-        "ende": 27912
+        "ende": 27912,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Verne, Jules",
@@ -55112,7 +55173,8 @@
       "textUrl": "hoerbuch-texte/fr/voltaire_-_zadig-ou-la-destinee-9697.txt.gz",
       "textRange": {
         "start": 236,
-        "ende": 3029
+        "ende": 3029,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Voltaire",
@@ -58069,7 +58131,8 @@
       "textUrl": "hoerbuch-texte/fr/lemaitre-jules_-_abc-petits-contes-11051.txt.gz",
       "textRange": {
         "start": 37,
-        "ende": 1179
+        "ende": 1179,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Lemaître, Jules",
@@ -58881,7 +58944,8 @@
       "textUrl": "hoerbuch-texte/fr/stendhal_-_rouge-et-le-noir-11650.txt.gz",
       "textRange": {
         "start": 191,
-        "ende": 20550
+        "ende": 20550,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Stendhal",
@@ -63577,7 +63641,8 @@
       "textUrl": "hoerbuch-texte/fr/howells-william-dean_-_rencontre-13782.txt.gz",
       "textRange": {
         "start": 77,
-        "ende": 8654
+        "ende": 8654,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Howells, William Dean",
@@ -64035,7 +64100,8 @@
       "textUrl": "hoerbuch-texte/fr/about-edmond_-_homme-a-l-oreille-cassee-13862.txt.gz",
       "textRange": {
         "start": 25,
-        "ende": 7109
+        "ende": 7109,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "About, Edmond",
@@ -66909,7 +66975,8 @@
       "textUrl": "hoerbuch-texte/fr/janin-jules_-_ane-mort-14460.txt.gz",
       "textRange": {
         "start": 63,
-        "ende": 6031
+        "ende": 6031,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Janin, Jules",
@@ -68072,7 +68139,8 @@
       "textUrl": "hoerbuch-texte/fr/maeterlinck-maurice_-_vie-des-abeilles-14690.txt.gz",
       "textRange": {
         "start": 128,
-        "ende": 11217
+        "ende": 11217,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Maeterlinck, Maurice",
@@ -69143,7 +69211,8 @@
       "textUrl": "hoerbuch-texte/fr/merimee-prosper_-_dernieres-nouvelles-14855.txt.gz",
       "textRange": {
         "start": 55,
-        "ende": 10105
+        "ende": 10105,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Mérimée, Prosper",
@@ -72838,7 +72907,8 @@
       "textUrl": "hoerbuch-texte/fr/nadaud-gustave_-_contes-recits-et-scenes-en-vers-15621.txt.gz",
       "textRange": {
         "start": 62,
-        "ende": 11907
+        "ende": 11907,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Nadaud, Gustave",
@@ -76498,7 +76568,8 @@
       "textUrl": "hoerbuch-texte/fr/leger-louis_-_recueil-de-contes-populaires-slaves-16110.txt.gz",
       "textRange": {
         "start": 116,
-        "ende": 9949
+        "ende": 9949,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Léger, Louis",
@@ -78663,7 +78734,8 @@
       "textUrl": "hoerbuch-texte/fr/lavisse-ernest_-_histoire-generale-du-ive-siecle-a-nos-jours-tome-01-les-origines-395-1095-16214.txt.gz",
       "textRange": {
         "start": 49,
-        "ende": 36040
+        "ende": 36040,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Lavisse, Ernest; Rambaud, Alfred Nicolas",
@@ -94143,7 +94215,8 @@
       "textUrl": "hoerbuch-texte/fr/porchat-jean-jacques_-_trois-mois-sous-la-neige-journal-d-un-jeune-habitant-du-jura-18615.txt.gz",
       "textRange": {
         "start": 33,
-        "ende": 3722
+        "ende": 3722,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Porchat, Jean-Jacques",

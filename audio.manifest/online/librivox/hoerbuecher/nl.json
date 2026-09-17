@@ -18,7 +18,8 @@
       "textUrl": "hoerbuch-texte/nl/bosboom-toussaint-a-l-g_-_majoor-frans-1297.txt.gz",
       "textRange": {
         "start": 70,
-        "ende": 15031
+        "ende": 15031,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Bosboom-Toussaint, A. L. G.",
@@ -302,7 +303,8 @@
       "textUrl": "hoerbuch-texte/nl/multatuli_-_max-havelaar-1362.txt.gz",
       "textRange": {
         "start": 41,
-        "ende": 14358
+        "ende": 14358,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Multatuli",
@@ -550,7 +552,8 @@
       "textUrl": "hoerbuch-texte/nl/lennep-jacob-van_-_lotgevallen-van-ferdinand-huyck-1601.txt.gz",
       "textRange": {
         "start": 44,
-        "ende": 23726
+        "ende": 23726,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lennep, Jacob van",
@@ -951,7 +954,8 @@
       "textUrl": "hoerbuch-texte/nl/couperus-louis_-_eline-vere-1841.txt.gz",
       "textRange": {
         "start": 61,
-        "ende": 23302
+        "ende": 23302,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Couperus, Louis",
@@ -1379,7 +1383,8 @@
       "textUrl": "hoerbuch-texte/nl/conscience-hendrik_-_leeuw-van-vlaenderen-of-de-slag-der-gulden-sporen-1878.txt.gz",
       "textRange": {
         "start": 58,
-        "ende": 15953
+        "ende": 15953,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Conscience, Hendrik",
@@ -1663,7 +1668,8 @@
       "textUrl": "hoerbuch-texte/nl/kieviet-cornelis-johannes_-_fulco-de-minstreel-2259.txt.gz",
       "textRange": {
         "start": 55,
-        "ende": 6618
+        "ende": 6618,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Kieviet, Cornelis Johannes",
@@ -1804,7 +1810,8 @@
       "textUrl": "hoerbuch-texte/nl/verne-jules_-_reis-om-de-wereld-in-80-dagen-2937.txt.gz",
       "textRange": {
         "start": 29,
-        "ende": 9393
+        "ende": 9393,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Verne, Jules",
@@ -1956,7 +1963,8 @@
       "textUrl": "hoerbuch-texte/nl/verne-jules_-_naar-het-middelpunt-der-aarde-3181.txt.gz",
       "textRange": {
         "start": 22,
-        "ende": 10301
+        "ende": 10301,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Verne, Jules",
@@ -2402,7 +2410,8 @@
       "textUrl": "hoerbuch-texte/nl/lagerloef-selma_-_niels-holgersson-s-wonderbare-reis-3330.txt.gz",
       "textRange": {
         "start": 77,
-        "ende": 19439
+        "ende": 19439,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lagerlöf, Selma",
@@ -2815,7 +2824,8 @@
       "textUrl": "hoerbuch-texte/nl/kieviet-cornelis-johannes_-_zoon-van-dik-trom-3351.txt.gz",
       "textRange": {
         "start": 25,
-        "ende": 6499
+        "ende": 6499,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Kieviet, Cornelis Johannes",
@@ -2982,7 +2992,8 @@
       "textUrl": "hoerbuch-texte/nl/stowe-harriet-beecher_-_negerhut-3545.txt.gz",
       "textRange": {
         "start": 86,
-        "ende": 22716
+        "ende": 22716,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Stowe, Harriet Beecher",
@@ -3448,7 +3459,8 @@
       "textUrl": "hoerbuch-texte/nl/dickens-charles_-_kerstlied-in-proza-a-christmas-carol-3719.txt.gz",
       "textRange": {
         "start": 59,
-        "ende": 3825
+        "ende": 3825,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Dickens, Charles",
@@ -3545,7 +3557,8 @@
       "textUrl": "hoerbuch-texte/nl/cervantes-saavedra-miguel-de_-_don-quichot-van-la-mancha-3784.txt.gz",
       "textRange": {
         "start": 79,
-        "ende": 9077
+        "ende": 9077,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Cervantes Saavedra, Miguel de",
@@ -3805,7 +3818,8 @@
       "textUrl": "hoerbuch-texte/nl/malot-hector_-_alleen-op-de-wereld-3846.txt.gz",
       "textRange": {
         "start": 61,
-        "ende": 24197
+        "ende": 24197,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Malot, Hector",
@@ -4298,7 +4312,8 @@
       "textUrl": "hoerbuch-texte/nl/doyle-sir-arthur-conan_-_agra-schat-3991.txt.gz",
       "textRange": {
         "start": 31,
-        "ende": 5062
+        "ende": 5062,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Doyle, Sir Arthur Conan",
@@ -4447,7 +4462,8 @@
       "textUrl": "hoerbuch-texte/nl/twain-mark_-_lotgevallen-van-tom-sawyer-4137.txt.gz",
       "textRange": {
         "start": 78,
-        "ende": 9397
+        "ende": 9397,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -4813,7 +4829,8 @@
       "textUrl": "hoerbuch-texte/nl/heijermans-jr-herman_-_gevleugelde-daden-4267.txt.gz",
       "textRange": {
         "start": 73,
-        "ende": 5309
+        "ende": 5309,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Heijermans, Jr., Herman",
@@ -4944,7 +4961,8 @@
       "textUrl": "hoerbuch-texte/nl/tolstoy-leo_-_anna-karenina-4461.txt.gz",
       "textRange": {
         "start": 23,
-        "ende": 27421
+        "ende": 27421,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Tolstoy, Leo",
@@ -6551,7 +6569,8 @@
       "textUrl": "hoerbuch-texte/nl/visser-piet_-_vliegende-hollander-5036.txt.gz",
       "textRange": {
         "start": 143,
-        "ende": 4600
+        "ende": 4600,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Visser, Piet",
@@ -6683,7 +6702,8 @@
       "textUrl": "hoerbuch-texte/nl/anonymous_-_aljaska-alaska-en-de-canada-spoorweg-5460.txt.gz",
       "textRange": {
         "start": 6,
-        "ende": 1912
+        "ende": 1912,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -6760,7 +6780,8 @@
       "textUrl": "hoerbuch-texte/nl/swift-jonathan_-_gulliver-s-reizen-6053.txt.gz",
       "textRange": {
         "start": 68,
-        "ende": 4919
+        "ende": 4919,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Swift, Jonathan",
@@ -6947,7 +6968,8 @@
       "textUrl": "hoerbuch-texte/nl/scott-sir-walter_-_ivanhoe-nl-6330.txt.gz",
       "textRange": {
         "start": 69,
-        "ende": 20868
+        "ende": 20868,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Scott, Sir Walter",
@@ -7398,7 +7420,8 @@
       "textUrl": "hoerbuch-texte/nl/may-karl_-_schat-in-het-zilvermeer-6760.txt.gz",
       "textRange": {
         "start": 67,
-        "ende": 26048
+        "ende": 26048,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "May, Karl",
@@ -7892,7 +7915,8 @@
       "textUrl": "hoerbuch-texte/nl/kuiper-a-c_-_elsje-7057.txt.gz",
       "textRange": {
         "start": 29,
-        "ende": 8809
+        "ende": 8809,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Kuiper, A. C.",
@@ -8068,7 +8092,8 @@
       "textUrl": "hoerbuch-texte/nl/stoke-melis_-_van-aardappel-mes-tot-officiersdegen-7370.txt.gz",
       "textRange": {
         "start": 35,
-        "ende": 5406
+        "ende": 5406,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Stoke, Melis",
@@ -8218,7 +8243,8 @@
       "textUrl": "hoerbuch-texte/nl/couperus-louis_-_zwevende-schaakbord-7454.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 8443
+        "ende": 8443,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Couperus, Louis",
@@ -8584,7 +8610,8 @@
       "textUrl": "hoerbuch-texte/nl/multatuli_-_geschiedenis-van-woutertje-pieterse-7575.txt.gz",
       "textRange": {
         "start": 77,
-        "ende": 14096
+        "ende": 14096,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Multatuli",
@@ -8905,7 +8932,8 @@
       "textUrl": "hoerbuch-texte/nl/koopmans-van-boekeren-henri-emile_-_jeanne-d-arc-de-maagd-van-orleans-7849.txt.gz",
       "textRange": {
         "start": 32,
-        "ende": 6617
+        "ende": 6617,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Koopmans van Boekeren, Henri Emile",
@@ -9099,7 +9127,8 @@
       "textUrl": "hoerbuch-texte/nl/couperus-louis_-_noodlot-8229.txt.gz",
       "textRange": {
         "start": 72,
-        "ende": 5418
+        "ende": 5418,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Couperus, Louis",
@@ -9285,7 +9314,8 @@
       "textUrl": "hoerbuch-texte/nl/hugo-victor_-_ellendigen-deel-1-fantine-8749.txt.gz",
       "textRange": {
         "start": 60,
-        "ende": 14623
+        "ende": 14623,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hugo, Victor",
@@ -9615,7 +9645,8 @@
       "textUrl": "hoerbuch-texte/nl/hugo-victor_-_ellendigen-deel-2-cosette-8886.txt.gz",
       "textRange": {
         "start": 66,
-        "ende": 12865
+        "ende": 12865,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hugo, Victor",
@@ -9946,7 +9977,8 @@
       "textUrl": "hoerbuch-texte/nl/zaalberg-louise_-_strijd-om-de-schatten-van-alva-of-de-watergeuzen-in-1572-8971.txt.gz",
       "textRange": {
         "start": 83,
-        "ende": 12723
+        "ende": 12723,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Zaalberg, Louise",
@@ -10194,7 +10226,8 @@
       "textUrl": "hoerbuch-texte/nl/hugo-victor_-_ellendigen-deel-3-marius-8979.txt.gz",
       "textRange": {
         "start": 69,
-        "ende": 11630
+        "ende": 11630,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hugo, Victor",
@@ -10489,7 +10522,8 @@
       "textUrl": "hoerbuch-texte/nl/hugo-victor_-_ellendigen-deel-4-st-denis-9038.txt.gz",
       "textRange": {
         "start": 66,
-        "ende": 15674
+        "ende": 15674,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hugo, Victor",
@@ -10819,7 +10853,8 @@
       "textUrl": "hoerbuch-texte/nl/harting-pieter_-_anno-2070-een-blik-in-de-toekomst-9065.txt.gz",
       "textRange": {
         "start": 22,
-        "ende": 2263
+        "ende": 2263,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Harting, Pieter",
@@ -10915,7 +10950,8 @@
       "textUrl": "hoerbuch-texte/nl/anonymous_-_duizend-en-een-nacht-eerste-deel-9081.txt.gz",
       "textRange": {
         "start": 3,
-        "ende": 7018
+        "ende": 7018,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -11118,7 +11154,8 @@
       "textUrl": "hoerbuch-texte/nl/hugo-victor_-_ellendigen-deel-5-jean-valjean-9162.txt.gz",
       "textRange": {
         "start": 67,
-        "ende": 13531
+        "ende": 13531,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hugo, Victor",
@@ -11412,7 +11449,8 @@
       "textUrl": "hoerbuch-texte/nl/anonymous_-_duizend-en-een-nacht-tweede-deel-9207.txt.gz",
       "textRange": {
         "start": 3,
-        "ende": 5800
+        "ende": 5800,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -11597,7 +11635,8 @@
       "textUrl": "hoerbuch-texte/nl/anonymous_-_duizend-en-een-nacht-derde-deel-9234.txt.gz",
       "textRange": {
         "start": 3,
-        "ende": 7529
+        "ende": 7529,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -11809,7 +11848,8 @@
       "textUrl": "hoerbuch-texte/nl/anonymous_-_duizend-en-een-nacht-vierde-deel-9278.txt.gz",
       "textRange": {
         "start": 3,
-        "ende": 7423
+        "ende": 7423,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -12021,7 +12061,8 @@
       "textUrl": "hoerbuch-texte/nl/anonymous_-_aladdin-en-de-wonderlamp-9298.txt.gz",
       "textRange": {
         "start": 30,
-        "ende": 4633
+        "ende": 4633,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -12172,7 +12213,8 @@
       "textUrl": "hoerbuch-texte/nl/anonymous_-_ali-baba-en-de-veertig-roovers-9332.txt.gz",
       "textRange": {
         "start": 32,
-        "ende": 1617
+        "ende": 1617,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -12251,7 +12293,8 @@
       "textUrl": "hoerbuch-texte/nl/louwerse-pieter_-_willem-tell-9336.txt.gz",
       "textRange": {
         "start": 5,
-        "ende": 7232
+        "ende": 7232,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Louwerse, Pieter",
@@ -12418,7 +12461,8 @@
       "textUrl": "hoerbuch-texte/nl/louwerse-pieter_-_schippersjongen-9375.txt.gz",
       "textRange": {
         "start": 23,
-        "ende": 9332
+        "ende": 9332,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Louwerse, Pieter",
@@ -12675,7 +12719,8 @@
       "textUrl": "hoerbuch-texte/nl/maurik-justus-van_-_krates-9433.txt.gz",
       "textRange": {
         "start": 69,
-        "ende": 9763
+        "ende": 9763,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Maurik, Justus van",
@@ -12869,7 +12914,8 @@
       "textUrl": "hoerbuch-texte/nl/lennep-jacob-van_-_roos-van-dekama-9752.txt.gz",
       "textRange": {
         "start": 58,
-        "ende": 23209
+        "ende": 23209,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lennep, Jacob van",
@@ -13243,7 +13289,8 @@
       "textUrl": "hoerbuch-texte/nl/verne-jules_-_reis-naar-de-maan-in-28-dagen-en-12-uren-10256.txt.gz",
       "textRange": {
         "start": 70,
-        "ende": 9164
+        "ende": 9164,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Verne, Jules",
@@ -13718,7 +13765,8 @@
       "textUrl": "hoerbuch-texte/nl/berens-fred_-_uit-de-schooljaren-van-hans-doncker-17478.txt.gz",
       "textRange": {
         "start": 33,
-        "ende": 3157
+        "ende": 3157,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Berens, Fred.",
@@ -13804,7 +13852,8 @@
       "textUrl": "hoerbuch-texte/nl/valkenstein-kees_-_kabouters-in-het-bosch-22889.txt.gz",
       "textRange": {
         "start": 73,
-        "ende": 1864
+        "ende": 1864,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Valkenstein, Kees",

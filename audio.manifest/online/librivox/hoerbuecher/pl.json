@@ -18,7 +18,8 @@
       "textUrl": "hoerbuch-texte/pl/schulz-bruno_-_sklepy-cynamonowe-1447.txt.gz",
       "textRange": {
         "start": 77,
-        "ende": 5131
+        "ende": 5131,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Schulz, Bruno",
@@ -284,7 +285,8 @@
       "textUrl": "hoerbuch-texte/pl/doyle-sir-arthur-conan_-_tajemnica-baskerville-ow-5541.txt.gz",
       "textRange": {
         "start": 37,
-        "ende": 6334
+        "ende": 6334,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Doyle, Sir Arthur Conan",

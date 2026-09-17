@@ -1623,7 +1623,8 @@
       "textUrl": "hoerbuch-texte/ca/verdaguer-i-santalo-jacint_-_atlantida-18876.txt.gz",
       "textRange": {
         "start": 112,
-        "ende": 12085
+        "ende": 12085,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Verdaguer i Santaló, Jacint",

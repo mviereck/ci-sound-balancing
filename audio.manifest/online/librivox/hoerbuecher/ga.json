@@ -18,7 +18,8 @@
       "textUrl": "hoerbuch-texte/ga/hyde-douglas_-_sgealuidhe-gaedhealach-17452.txt.gz",
       "textRange": {
         "start": 49,
-        "ende": 26257
+        "ende": 26257,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Hyde, Douglas",

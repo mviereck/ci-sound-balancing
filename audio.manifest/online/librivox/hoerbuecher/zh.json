@@ -4662,7 +4662,8 @@
       "textUrl": "hoerbuch-texte/zh/liu-e_-_lao-can-you-ji-mr-derelict-1800.txt.gz",
       "textRange": {
         "start": 30,
-        "ende": 1145
+        "ende": 1145,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Liu 刘鹗, E",
@@ -8823,7 +8824,8 @@
       "textUrl": "hoerbuch-texte/zh/sun-tzu_-_the-art-of-war-6940.txt.gz",
       "textRange": {
         "start": 29,
-        "ende": 131
+        "ende": 131,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Sun Tzu 孙武",
@@ -8984,7 +8986,8 @@
       "textUrl": "hoerbuch-texte/zh/lu-xun_-_q-the-true-story-of-ah-q-9414.txt.gz",
       "textRange": {
         "start": 32,
-        "ende": 711
+        "ende": 711,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lu, Xun",
@@ -9450,7 +9453,8 @@
       "textUrl": "hoerbuch-texte/zh/lu-xun_-_wandering-or-pang-huang-14135.txt.gz",
       "textRange": {
         "start": 29,
-        "ende": 3057
+        "ende": 3057,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lu, Xun",
@@ -9563,7 +9567,8 @@
       "textUrl": "hoerbuch-texte/zh/zhu-mingshi_-_cowherd-and-weaver-girl-15343.txt.gz",
       "textRange": {
         "start": 31,
-        "ende": 844
+        "ende": 844,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Zhu 名世朱, Mingshi",
@@ -9713,7 +9718,8 @@
       "textUrl": "hoerbuch-texte/zh/anonymous_-_di-gong-an-celebrated-cases-of-judge-dee-15726.txt.gz",
       "textRange": {
         "start": 30,
-        "ende": 6674
+        "ende": 6674,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -10331,7 +10337,8 @@
       "textUrl": "hoerbuch-texte/zh/hong-sheng_-_the-palace-of-eternal-life-20249.txt.gz",
       "textRange": {
         "start": 8,
-        "ende": 903
+        "ende": 903,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hong 洪, Sheng 昇",

@@ -353,7 +353,8 @@
       "textUrl": "hoerbuch-texte/de/goethe-johann-wolfgang-von_-_leiden-des-jungen-werther-182.txt.gz",
       "textRange": {
         "start": 305,
-        "ende": 2204
+        "ende": 2204,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Goethe, Johann Wolfgang von",
@@ -708,7 +709,8 @@
       "textUrl": "hoerbuch-texte/de/busch-wilhelm_-_max-und-moritz-538.txt.gz",
       "textRange": {
         "start": 38,
-        "ende": 827
+        "ende": 827,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Busch, Wilhelm",
@@ -758,7 +760,8 @@
       "textUrl": "hoerbuch-texte/de/busch-wilhelm_-_max-und-moritz-version-2-539.txt.gz",
       "textRange": {
         "start": 38,
-        "ende": 827
+        "ende": 827,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Busch, Wilhelm",
@@ -972,7 +975,8 @@
       "textUrl": "hoerbuch-texte/de/buechner-georg_-_woyzeck-698.txt.gz",
       "textRange": {
         "start": 44,
-        "ende": 1216
+        "ende": 1216,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Büchner, Georg",
@@ -1229,7 +1233,8 @@
       "textUrl": "hoerbuch-texte/de/nietzsche-friedrich_-_goetzendaemmerung-739.txt.gz",
       "textRange": {
         "start": 59,
-        "ende": 3300
+        "ende": 3300,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Nietzsche, Friedrich",
@@ -1829,7 +1834,8 @@
       "textUrl": "hoerbuch-texte/de/spyri-johanna_-_heidi-kann-brauchen-was-es-gelernt-hat-1692.txt.gz",
       "textRange": {
         "start": 88,
-        "ende": 4398
+        "ende": 4398,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Spyri, Johanna",
@@ -2223,7 +2229,8 @@
       "textUrl": "hoerbuch-texte/de/storm-theodor_-_bulemanns-haus-1882.txt.gz",
       "textRange": {
         "start": 74,
-        "ende": 832
+        "ende": 832,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Storm, Theodor",
@@ -2456,7 +2463,8 @@
       "textUrl": "hoerbuch-texte/de/brentano-clemens_-_maerchen-von-dem-myrtenfraeulein-2081.txt.gz",
       "textRange": {
         "start": 291,
-        "ende": 739
+        "ende": 739,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Brentano, Clemens",
@@ -3210,7 +3218,8 @@
       "textUrl": "hoerbuch-texte/de/mommsen-theodor_-_roemische-geschichte-buch-1-2158.txt.gz",
       "textRange": {
         "start": 290,
-        "ende": 9229
+        "ende": 9229,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Mommsen, Theodor",
@@ -3786,7 +3795,8 @@
       "textUrl": "hoerbuch-texte/de/hoffmann-e-t-a_-_nachtstuecke-2188.txt.gz",
       "textRange": {
         "start": 82,
-        "ende": 10842
+        "ende": 10842,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hoffmann, E. T. A.",
@@ -4151,7 +4161,8 @@
       "textUrl": "hoerbuch-texte/de/mommsen-theodor_-_roemische-geschichte-buch-2-2200.txt.gz",
       "textRange": {
         "start": 291,
-        "ende": 9393
+        "ende": 9393,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Mommsen, Theodor",
@@ -4471,7 +4482,8 @@
       "textUrl": "hoerbuch-texte/de/mommsen-theodor_-_roemische-geschichte-buch-3-2246.txt.gz",
       "textRange": {
         "start": 290,
-        "ende": 17748
+        "ende": 17748,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Mommsen, Theodor",
@@ -5369,7 +5381,8 @@
       "textUrl": "hoerbuch-texte/de/mommsen-theodor_-_roemische-geschichte-buch-4-2273.txt.gz",
       "textRange": {
         "start": 295,
-        "ende": 17921
+        "ende": 17921,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Mommsen, Theodor",
@@ -6069,7 +6082,8 @@
       "textUrl": "hoerbuch-texte/de/mommsen-theodor_-_roemische-geschichte-buch-5-2340.txt.gz",
       "textRange": {
         "start": 302,
-        "ende": 23376
+        "ende": 23376,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Mommsen, Theodor",
@@ -7526,7 +7540,8 @@
       "textUrl": "hoerbuch-texte/de/kafka-franz_-_in-der-strafkolonie-2570.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 1075
+        "ende": 1075,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Kafka, Franz",
@@ -7574,7 +7589,8 @@
       "textUrl": "hoerbuch-texte/de/mommsen-theodor_-_roemische-geschichte-buch-8-2622.txt.gz",
       "textRange": {
         "start": 373,
-        "ende": 23216
+        "ende": 23216,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Mommsen, Theodor",
@@ -8848,7 +8864,8 @@
       "textUrl": "hoerbuch-texte/de/goethe-johann-wolfgang-von_-_reineke-fuchs-2720.txt.gz",
       "textRange": {
         "start": 86,
-        "ende": 4759
+        "ende": 4759,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Goethe, Johann Wolfgang von",
@@ -9090,7 +9107,8 @@
       "textUrl": "hoerbuch-texte/de/keller-gottfried_-_auswahl-aus-die-leute-von-seldwyla-2820.txt.gz",
       "textRange": {
         "start": 74,
-        "ende": 8807
+        "ende": 8807,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Keller, Gottfried",
@@ -9324,7 +9342,8 @@
       "textUrl": "hoerbuch-texte/de/latzko-andreas_-_menschen-im-krieg-2866.txt.gz",
       "textRange": {
         "start": 94,
-        "ende": 4053
+        "ende": 4053,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Latzko, Andreas",
@@ -9428,7 +9447,8 @@
       "textUrl": "hoerbuch-texte/de/storm-theodor_-_aquis-submersus-2872.txt.gz",
       "textRange": {
         "start": 38,
-        "ende": 2822
+        "ende": 2822,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Storm, Theodor",
@@ -9697,7 +9717,8 @@
       "textUrl": "hoerbuch-texte/de/goethe-johann-wolfgang-von_-_novelle-2975.txt.gz",
       "textRange": {
         "start": 299,
-        "ende": 1316
+        "ende": 1316,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Goethe, Johann Wolfgang von",
@@ -10567,7 +10588,8 @@
       "textUrl": "hoerbuch-texte/de/mackay-john-henry_-_menschen-der-ehe-3107.txt.gz",
       "textRange": {
         "start": 17,
-        "ende": 2266
+        "ende": 2266,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Mackay, John Henry",
@@ -11425,7 +11447,8 @@
       "textUrl": "hoerbuch-texte/de/luxemburg-rosa_-_briefe-aus-dem-gefaengnis-3431.txt.gz",
       "textRange": {
         "start": 96,
-        "ende": 1631
+        "ende": 1631,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Luxemburg, Rosa",
@@ -11684,7 +11707,8 @@
       "textUrl": "hoerbuch-texte/de/heine-heinrich_-_deutschland-ein-wintermaerchen-3580.txt.gz",
       "textRange": {
         "start": 63,
-        "ende": 2821
+        "ende": 2821,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Heine, Heinrich",
@@ -12460,7 +12484,8 @@
       "textUrl": "hoerbuch-texte/de/goethe-johann-wolfgang-von_-_hermann-und-dorothea-3732.txt.gz",
       "textRange": {
         "start": 60,
-        "ende": 2273
+        "ende": 2273,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Goethe, Johann Wolfgang von",
@@ -13066,7 +13091,8 @@
       "textUrl": "hoerbuch-texte/de/dickens-charles_-_weihnachtsabend-eine-geistergeschichte-4821.txt.gz",
       "textRange": {
         "start": 79,
-        "ende": 3559
+        "ende": 3559,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Dickens, Charles",
@@ -13280,7 +13306,8 @@
       "textUrl": "hoerbuch-texte/de/falke-gustav_-_mann-im-nebel-5102.txt.gz",
       "textRange": {
         "start": 36,
-        "ende": 6646
+        "ende": 6646,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Falke, Gustav",
@@ -13811,7 +13838,8 @@
       "textUrl": "hoerbuch-texte/de/fontane-theodor_-_unterm-birnbaum-5256.txt.gz",
       "textRange": {
         "start": 58,
-        "ende": 4411
+        "ende": 4411,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Fontane, Theodor",
@@ -14252,7 +14280,8 @@
       "textUrl": "hoerbuch-texte/de/meyer-conrad-ferdinand_-_schuss-von-der-kanzel-5725.txt.gz",
       "textRange": {
         "start": 53,
-        "ende": 2018
+        "ende": 2018,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Meyer, Conrad Ferdinand",
@@ -14318,7 +14347,8 @@
       "textUrl": "hoerbuch-texte/de/twain-mark_-_abenteuer-tom-sawyers-5756.txt.gz",
       "textRange": {
         "start": 25,
-        "ende": 8438
+        "ende": 8438,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -14515,7 +14545,8 @@
       "textUrl": "hoerbuch-texte/de/fulda-ludwig_-_aladdin-und-die-wunderlampe-5915.txt.gz",
       "textRange": {
         "start": 88,
-        "ende": 3568
+        "ende": 3568,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Fulda, Ludwig",
@@ -14692,7 +14723,8 @@
       "textUrl": "hoerbuch-texte/de/unknown_-_bhagavadgita-des-erhabenen-sang-6062.txt.gz",
       "textRange": {
         "start": 112,
-        "ende": 3271
+        "ende": 3271,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Unknown",
@@ -15268,7 +15300,8 @@
       "textUrl": "hoerbuch-texte/de/grillparzer-franz_-_arme-spielmann-6535.txt.gz",
       "textRange": {
         "start": 68,
-        "ende": 1572
+        "ende": 1572,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Grillparzer, Franz",
@@ -15500,7 +15533,8 @@
       "textUrl": "hoerbuch-texte/de/siebe-josephine_-_kasperle-auf-reisen-6849.txt.gz",
       "textRange": {
         "start": 88,
-        "ende": 4692
+        "ende": 4692,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Siebe, Josephine",
@@ -15677,7 +15711,9 @@
       "textUrl": "hoerbuch-texte/de/wassermann-jakob_-_caspar-hauser-oder-die-traegheit-des-herzens-6932.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 15573
+        "ende": 15573,
+        "confidence": "low",
+        "pruef": true
       },
       "tags": {
         "work_author": "Wassermann, Jakob",
@@ -16121,7 +16157,8 @@
       "textUrl": "hoerbuch-texte/de/lagerloef-selma_-_maedchen-vom-moorhof-6942.txt.gz",
       "textRange": {
         "start": 72,
-        "ende": 8838
+        "ende": 8838,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Lagerlöf, Selma",
@@ -16760,7 +16797,8 @@
       "textUrl": "hoerbuch-texte/de/winter-amalie_-_leben-und-schicksale-des-katers-rosaurus-7255.txt.gz",
       "textRange": {
         "start": 74,
-        "ende": 2605
+        "ende": 2605,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Winter, Amalie",
@@ -17087,7 +17125,8 @@
       "textUrl": "hoerbuch-texte/de/fontane-theodor_-_effi-briest-version-2-7809.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 11470
+        "ende": 11470,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Fontane, Theodor",
@@ -17993,7 +18032,8 @@
       "textUrl": "hoerbuch-texte/de/keller-paul_-_ferien-vom-ich-8192.txt.gz",
       "textRange": {
         "start": 113,
-        "ende": 10800
+        "ende": 10800,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Keller, Paul",
@@ -18178,7 +18218,8 @@
       "textUrl": "hoerbuch-texte/de/dauthendey-max_-_acht-gesichter-am-biwasee-8289.txt.gz",
       "textRange": {
         "start": 5,
-        "ende": 5119
+        "ende": 5119,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Dauthendey, Max",
@@ -18492,7 +18533,8 @@
       "textUrl": "hoerbuch-texte/de/wassermann-jakob_-_mein-weg-als-deutscher-und-jude-8321.txt.gz",
       "textRange": {
         "start": 68,
-        "ende": 4032
+        "ende": 4032,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wassermann, Jakob",
@@ -18596,7 +18638,8 @@
       "textUrl": "hoerbuch-texte/de/zweig-stefan_-_brennendes-geheimnis-8359.txt.gz",
       "textRange": {
         "start": 58,
-        "ende": 2572
+        "ende": 2572,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Zweig, Stefan",
@@ -20076,7 +20119,8 @@
       "textUrl": "hoerbuch-texte/de/tolstoy-leo_-_herr-und-knecht-8857.txt.gz",
       "textRange": {
         "start": 67,
-        "ende": 2466
+        "ende": 2466,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Tolstoy, Leo",
@@ -20485,7 +20529,8 @@
       "textUrl": "hoerbuch-texte/de/grillparzer-franz_-_kloster-bei-sendomir-9082.txt.gz",
       "textRange": {
         "start": 78,
-        "ende": 1083
+        "ende": 1083,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Grillparzer, Franz",
@@ -20623,7 +20668,8 @@
       "textUrl": "hoerbuch-texte/de/bettauer-hugo_-_stadt-ohne-juden-9199.txt.gz",
       "textRange": {
         "start": 77,
-        "ende": 3847
+        "ende": 3847,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Bettauer, Hugo",
@@ -20810,7 +20856,8 @@
       "textUrl": "hoerbuch-texte/de/erasmus-desiderius_-_lob-der-narrheit-9318.txt.gz",
       "textRange": {
         "start": 87,
-        "ende": 3846
+        "ende": 3846,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Erasmus, Desiderius",
@@ -21005,7 +21052,8 @@
       "textUrl": "hoerbuch-texte/de/dickens-charles_-_weihnachtsabend-eine-geistergeschichte-version-2-9327.txt.gz",
       "textRange": {
         "start": 79,
-        "ende": 3559
+        "ende": 3559,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Dickens, Charles",
@@ -22785,7 +22833,8 @@
       "textUrl": "hoerbuch-texte/de/helm-clementine_-_backfischchen-s-leiden-und-freuden-9598.txt.gz",
       "textRange": {
         "start": 33,
-        "ende": 7442
+        "ende": 7442,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Helm, Clementine",
@@ -24973,7 +25022,8 @@
       "textUrl": "hoerbuch-texte/de/flaubert-gustave_-_frau-bovary-10524.txt.gz",
       "textRange": {
         "start": 50,
-        "ende": 16001
+        "ende": 16001,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Flaubert, Gustave",
@@ -25340,7 +25390,8 @@
       "textUrl": "hoerbuch-texte/de/musil-robert_-_verwirrungen-des-zoeglings-toerless-10972.txt.gz",
       "textRange": {
         "start": 61,
-        "ende": 6804
+        "ende": 6804,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Musil, Robert",
@@ -27067,7 +27118,8 @@
       "textUrl": "hoerbuch-texte/de/werfel-franz_-_nicht-der-moerder-der-ermordete-ist-schuldig-12234.txt.gz",
       "textRange": {
         "start": 10,
-        "ende": 5445
+        "ende": 5445,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Werfel, Franz",
@@ -27198,7 +27250,8 @@
       "textUrl": "hoerbuch-texte/de/ettlinger-karl_-_benno-stehkragen-12510.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 5129
+        "ende": 5129,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Ettlinger, Karl",
@@ -31353,7 +31406,8 @@
       "textUrl": "hoerbuch-texte/de/gogol-nikolai-vasilievich_-_taras-bulba-17771.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 11489
+        "ende": 11489,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Gogol, Nikolai Vasilievich",
@@ -31504,7 +31558,8 @@
       "textUrl": "hoerbuch-texte/de/kusmin-michail-alexejewitsch_-_taten-des-grossen-alexander-17932.txt.gz",
       "textRange": {
         "start": 29,
-        "ende": 1623
+        "ende": 1623,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Kusmin, Michail Alexejewitsch",
@@ -31967,7 +32022,9 @@
       "textUrl": "hoerbuch-texte/de/twain-mark_-_querkopf-wilson-18065.txt.gz",
       "textRange": {
         "start": 6,
-        "ende": 6611
+        "ende": 6611,
+        "confidence": "low",
+        "pruef": true
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -32215,7 +32272,8 @@
       "textUrl": "hoerbuch-texte/de/bogdanov-alexander-aleksandrovich_-_rote-stern-18114.txt.gz",
       "textRange": {
         "start": 26,
-        "ende": 6167
+        "ende": 6167,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Bogdanov, Alexander Aleksandrovich",
@@ -33161,7 +33219,8 @@
       "textUrl": "hoerbuch-texte/de/twain-mark_-_meine-reise-um-die-welt-erste-abteilung-18424.txt.gz",
       "textRange": {
         "start": 63,
-        "ende": 8051
+        "ende": 8051,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -33576,7 +33635,8 @@
       "textUrl": "hoerbuch-texte/de/twain-mark_-_meine-reise-um-die-welt-zweite-abteilung-19205.txt.gz",
       "textRange": {
         "start": 63,
-        "ende": 6890
+        "ende": 6890,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Twain, Mark",
@@ -33833,7 +33893,8 @@
       "textUrl": "hoerbuch-texte/de/kisch-egon-erwin_-_fall-des-generalstabschefs-redl-19207.txt.gz",
       "textRange": {
         "start": 81,
-        "ende": 1960
+        "ende": 1960,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Kisch, Egon Erwin",
@@ -33964,7 +34025,8 @@
       "textUrl": "hoerbuch-texte/de/lessing-theodor_-_haarmann-die-geschichte-eines-werwolfs-19571.txt.gz",
       "textRange": {
         "start": 76,
-        "ende": 5533
+        "ende": 5533,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Lessing, Theodor",
@@ -35185,7 +35247,8 @@
       "textUrl": "hoerbuch-texte/de/boelsche-wilhelm_-_von-wundern-und-tieren-20110.txt.gz",
       "textRange": {
         "start": 125,
-        "ende": 7391
+        "ende": 7391,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Bölsche, Wilhelm",
@@ -35645,7 +35708,8 @@
       "textUrl": "hoerbuch-texte/de/maeterlinck-maurice_-_leben-der-bienen-20230.txt.gz",
       "textRange": {
         "start": 37,
-        "ende": 6059
+        "ende": 6059,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Maeterlinck, Maurice",
@@ -35860,7 +35924,8 @@
       "textUrl": "hoerbuch-texte/de/hirschfeld-magnus_-_berlins-drittes-geschlecht-20293.txt.gz",
       "textRange": {
         "start": 24,
-        "ende": 2481
+        "ende": 2481,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Hirschfeld, Magnus",
@@ -37134,7 +37199,8 @@
       "textUrl": "hoerbuch-texte/de/gerstaecker-friedrich_-_herrn-mahlhubers-reiseabenteuer-20482.txt.gz",
       "textRange": {
         "start": 69,
-        "ende": 4682
+        "ende": 4682,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Gerstäcker, Friedrich",
@@ -37365,7 +37431,8 @@
       "textUrl": "hoerbuch-texte/de/raabe-wilhelm_-_zum-wilden-mann-20517.txt.gz",
       "textRange": {
         "start": 52,
-        "ende": 3459
+        "ende": 3459,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Raabe, Wilhelm",
@@ -37725,7 +37792,8 @@
       "textUrl": "hoerbuch-texte/de/buchner-max_-_reise-durch-den-stillen-ozean-21113.txt.gz",
       "textRange": {
         "start": 35,
-        "ende": 17501
+        "ende": 17501,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Buchner, Max",
@@ -41249,7 +41317,8 @@
       "textUrl": "hoerbuch-texte/de/haas-hippolyt_-_deutsche-nordseekueste-friesische-inseln-und-helgoland-22145.txt.gz",
       "textRange": {
         "start": 104,
-        "ende": 8804
+        "ende": 8804,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Haas, Hippolyt",
@@ -41589,7 +41658,8 @@
       "textUrl": "hoerbuch-texte/de/wildenbruch-ernst-von_-_wandernde-licht-22353.txt.gz",
       "textRange": {
         "start": 46,
-        "ende": 5702
+        "ende": 5702,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wildenbruch, Ernst von",
@@ -42255,7 +42325,8 @@
       "textUrl": "hoerbuch-texte/de/chun-carl_-_aus-den-tiefen-des-weltmeeres-22843.txt.gz",
       "textRange": {
         "start": 6,
-        "ende": 2467
+        "ende": 2467,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Chun, Carl",

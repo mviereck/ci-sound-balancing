@@ -116,7 +116,8 @@
       "textUrl": "hoerbuch-texte/enm/chaucer-geoffrey_-_troilus-and-criseyde-6783.txt.gz",
       "textRange": {
         "start": 46,
-        "ende": 9526
+        "ende": 9526,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Chaucer, Geoffrey",
@@ -238,7 +239,8 @@
       "textUrl": "hoerbuch-texte/enm/chaucer-geoffrey_-_canterbury-tales-middle-english-12609.txt.gz",
       "textRange": {
         "start": 169,
-        "ende": 30790
+        "ende": 30790,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Chaucer, Geoffrey",

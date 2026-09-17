@@ -373,7 +373,8 @@
       "textUrl": "hoerbuch-texte/ru/pushkin-alexander_-_krasavitse-546.txt.gz",
       "textRange": {
         "start": 65,
-        "ende": 100
+        "ende": 100,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pushkin, Alexander",

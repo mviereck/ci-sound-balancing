@@ -166,7 +166,8 @@
       "textUrl": "hoerbuch-texte/eo/carroll-lewis_-_aventuroj-de-alicio-en-mirlando-2381.txt.gz",
       "textRange": {
         "start": 49,
-        "ende": 3990
+        "ende": 3990,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Carroll, Lewis",
@@ -326,7 +327,8 @@
       "textUrl": "hoerbuch-texte/eo/mann-william-w_-_esperanto-self-taught-with-phonetic-pronunciation-volume-1-3934.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 6584
+        "ende": 6584,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Mann, William W.",
@@ -565,7 +567,8 @@
       "textUrl": "hoerbuch-texte/eo/mann-william-w_-_esperanto-self-taught-with-phonetic-pronunciation-volume-2-4319.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 6584
+        "ende": 6584,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Mann, William W.",
@@ -660,7 +663,8 @@
       "textUrl": "hoerbuch-texte/eo/mann-william-w_-_esperanto-self-taught-with-phonetic-pronunciation-volume-3-4709.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 6584
+        "ende": 6584,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Mann, William W.",
@@ -989,7 +993,8 @@
       "textUrl": "hoerbuch-texte/eo/andersen-hans-christian_-_fabeloj-9070.txt.gz",
       "textRange": {
         "start": 43,
-        "ende": 1266
+        "ende": 1266,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Andersen, Hans Christian",
@@ -1086,7 +1091,8 @@
       "textUrl": "hoerbuch-texte/eo/baum-l-frank_-_mirinda-sor-isto-de-oz-19077.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 4678
+        "ende": 4678,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Baum, L. Frank",
@@ -1354,7 +1360,8 @@
       "textUrl": "hoerbuch-texte/eo/maistre-xavier-de_-_voja-o-interne-de-mia-ambro-19628.txt.gz",
       "textRange": {
         "start": 59,
-        "ende": 2182
+        "ende": 2182,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Maistre, Xavier de",

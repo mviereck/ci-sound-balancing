@@ -18,7 +18,8 @@
       "textUrl": "hoerbuch-texte/es/alarcon-y-ariza-pedro-antonio-de_-_novelas-cortas-de-alarcon-1484.txt.gz",
       "textRange": {
         "start": 64,
-        "ende": 12838
+        "ende": 12838,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Alarcón y Ariza, Pedro Antonio de",
@@ -203,7 +204,8 @@
       "textUrl": "hoerbuch-texte/es/reina-valera_-_bible-reina-valera-nt-04-evangelio-segun-san-juan-1795.txt.gz",
       "textRange": {
         "start": 136,
-        "ende": 4224
+        "ende": 4224,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Reina-Valera",
@@ -433,7 +435,8 @@
       "textUrl": "hoerbuch-texte/es/delgado-rafael_-_angelina-1946.txt.gz",
       "textRange": {
         "start": 55,
-        "ende": 11188
+        "ende": 11188,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Delgado, Rafael",
@@ -1069,7 +1072,8 @@
       "textUrl": "hoerbuch-texte/es/about-edmond_-_nariz-de-un-notario-2577.txt.gz",
       "textRange": {
         "start": 77,
-        "ende": 3131
+        "ende": 3131,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "About, Edmond",
@@ -1166,7 +1170,8 @@
       "textUrl": "hoerbuch-texte/es/perez-galdos-benito_-_trafalgar-3275.txt.gz",
       "textRange": {
         "start": 21,
-        "ende": 5449
+        "ende": 5449,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pérez Galdós, Benito",
@@ -1362,7 +1367,8 @@
       "textUrl": "hoerbuch-texte/es/anonymous_-_lazarillo-de-tormes-3579.txt.gz",
       "textRange": {
         "start": 37,
-        "ende": 2123
+        "ende": 2123,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -1449,7 +1455,8 @@
       "textUrl": "hoerbuch-texte/es/alarcon-y-ariza-pedro-antonio-de_-_capitan-veneno-3924.txt.gz",
       "textRange": {
         "start": 70,
-        "ende": 12674
+        "ende": 12674,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Alarcón y Ariza, Pedro Antonio de",
@@ -1526,7 +1533,8 @@
       "textUrl": "hoerbuch-texte/es/guevara-luis-velez-de_-_diablo-cojuelo-5042.txt.gz",
       "textRange": {
         "start": 48,
-        "ende": 10005
+        "ende": 10005,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Guevara, Luis Vélez de",
@@ -1666,7 +1674,8 @@
       "textUrl": "hoerbuch-texte/es/altamirano-ignacio-manuel_-_navidad-en-las-montanas-5937.txt.gz",
       "textRange": {
         "start": 40,
-        "ende": 7270
+        "ende": 7270,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Altamirano, Ignacio Manuel",
@@ -1807,7 +1816,8 @@
       "textUrl": "hoerbuch-texte/es/dario-ruben_-_cantos-de-vida-y-esperanza-los-cisnes-y-otros-poemas-7587.txt.gz",
       "textRange": {
         "start": 47,
-        "ende": 3174
+        "ende": 3174,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Darío, Rubén",
@@ -1972,7 +1982,8 @@
       "textUrl": "hoerbuch-texte/es/stevenson-robert-louis_-_isla-del-tesoro-10139.txt.gz",
       "textRange": {
         "start": 185,
-        "ende": 10133
+        "ende": 10133,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Stevenson, Robert Louis",
@@ -2321,7 +2332,8 @@
       "textUrl": "hoerbuch-texte/es/pardo-bazan-emilia_-_pazos-de-ulloa-10541.txt.gz",
       "textRange": {
         "start": 47,
-        "ende": 9123
+        "ende": 9123,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pardo Bazán, Emilia",
@@ -2630,7 +2642,8 @@
       "textUrl": "hoerbuch-texte/es/poe-edgar-allan_-_cuentos-clasicos-del-norte-primera-serie-10825.txt.gz",
       "textRange": {
         "start": 186,
-        "ende": 6334
+        "ende": 6334,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Poe, Edgar Allan",
@@ -2792,7 +2805,8 @@
       "textUrl": "hoerbuch-texte/es/pardo-bazan-emilia_-_morrina-11129.txt.gz",
       "textRange": {
         "start": 71,
-        "ende": 9439
+        "ende": 9439,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pardo Bazán, Emilia",
@@ -3049,7 +3063,8 @@
       "textUrl": "hoerbuch-texte/es/unamuno-miguel-de_-_niebla-11412.txt.gz",
       "textRange": {
         "start": 56,
-        "ende": 8321
+        "ende": 8321,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Unamuno, Miguel de",
@@ -3405,7 +3420,8 @@
       "textUrl": "hoerbuch-texte/es/quevedo-francisco-de_-_historia-de-la-vida-del-buscon-llamado-don-pablos-ejemplo-de-vagabundos-y-espejo-13066.txt.gz",
       "textRange": {
         "start": 41,
-        "ende": 4805
+        "ende": 4805,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Quevedo, Francisco de",
@@ -3655,7 +3671,8 @@
       "textUrl": "hoerbuch-texte/es/poe-edgar-allan_-_poemas-13067.txt.gz",
       "textRange": {
         "start": 127,
-        "ende": 2124
+        "ende": 2124,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Poe, Edgar Allan",
@@ -3966,7 +3983,8 @@
       "textUrl": "hoerbuch-texte/es/alas-leopoldo-garcia_-_regenta-tomo-i-13208.txt.gz",
       "textRange": {
         "start": 43,
-        "ende": 34293
+        "ende": 34293,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Alas, Leopoldo Garcia",
@@ -4241,7 +4259,8 @@
       "textUrl": "hoerbuch-texte/es/becquer-gustavo-adolfo_-_desde-mi-celda-cartas-literarias-13264.txt.gz",
       "textRange": {
         "start": 304,
-        "ende": 11840
+        "ende": 11840,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Bécquer, Gustavo Adolfo",
@@ -4364,7 +4383,8 @@
       "textUrl": "hoerbuch-texte/es/hale-edward-everett_-_cuentos-clasicos-del-norte-segunda-serie-13285.txt.gz",
       "textRange": {
         "start": 33,
-        "ende": 7610
+        "ende": 7610,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hale, Edward Everett; Hawthorne, Nathaniel; Irving, Washington",
@@ -4524,7 +4544,8 @@
       "textUrl": "hoerbuch-texte/es/dario-ruben_-_prosas-profanas-y-otros-poemas-13291.txt.gz",
       "textRange": {
         "start": 14,
-        "ende": 3273
+        "ende": 3273,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Darío, Rubén",
@@ -4898,7 +4919,8 @@
       "textUrl": "hoerbuch-texte/es/shakespeare-william_-_mercader-de-venecia-13362.txt.gz",
       "textRange": {
         "start": 24,
-        "ende": 18952
+        "ende": 18952,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Shakespeare, William",
@@ -5121,7 +5143,8 @@
       "textUrl": "hoerbuch-texte/es/alas-leopoldo-garcia_-_regenta-tomo-ii-13403.txt.gz",
       "textRange": {
         "start": 43,
-        "ende": 34293
+        "ende": 34293,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Alas, Leopoldo Garcia",
@@ -5414,7 +5437,8 @@
       "textUrl": "hoerbuch-texte/es/anonymous_-_romancero-selecto-del-cid-13441.txt.gz",
       "textRange": {
         "start": 112,
-        "ende": 8547
+        "ende": 8547,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Anonymous",
@@ -5671,7 +5695,8 @@
       "textUrl": "hoerbuch-texte/es/manrique-jorge_-_coplas-13497.txt.gz",
       "textRange": {
         "start": 58,
-        "ende": 1497
+        "ende": 1497,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Manrique, Jorge",
@@ -5719,7 +5744,8 @@
       "textUrl": "hoerbuch-texte/es/campo-arana-jose_-_impresiones-poesias-13498.txt.gz",
       "textRange": {
         "start": 68,
-        "ende": 3312
+        "ende": 3312,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Campo Arana, José",
@@ -5850,7 +5876,8 @@
       "textUrl": "hoerbuch-texte/es/perez-galdos-benito_-_gloria-parte-1-13618.txt.gz",
       "textRange": {
         "start": 62,
-        "ende": 7803
+        "ende": 7803,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pérez Galdós, Benito",
@@ -6242,7 +6269,8 @@
       "textUrl": "hoerbuch-texte/es/about-edmond_-_germana-14147.txt.gz",
       "textRange": {
         "start": 99,
-        "ende": 7660
+        "ende": 7660,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "About, Edmond",
@@ -6420,7 +6448,8 @@
       "textUrl": "hoerbuch-texte/es/fernandez-y-gonzalez-manuel_-_cocinero-de-su-majestad-memorias-del-tiempo-de-felipe-iii-14271.txt.gz",
       "textRange": {
         "start": 93,
-        "ende": 47206
+        "ende": 47206,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Fernández y González, Manuel",
@@ -7235,7 +7264,8 @@
       "textUrl": "hoerbuch-texte/es/becquer-gustavo-adolfo_-_rimas-version-2-14272.txt.gz",
       "textRange": {
         "start": 304,
-        "ende": 11840
+        "ende": 11840,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Bécquer, Gustavo Adolfo",
@@ -7346,7 +7376,8 @@
       "textUrl": "hoerbuch-texte/es/perez-galdos-benito_-_fortunata-y-jacinta-dos-historias-de-casadas-primera-parte-14336.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 41884
+        "ende": 41884,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pérez Galdós, Benito",
@@ -7639,7 +7670,8 @@
       "textUrl": "hoerbuch-texte/es/perez-galdos-benito_-_fortunata-y-jacinta-dos-historias-de-casadas-segunda-parte-14510.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 41884
+        "ende": 41884,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pérez Galdós, Benito",
@@ -7914,7 +7946,8 @@
       "textUrl": "hoerbuch-texte/es/perez-galdos-benito_-_fortunata-y-jacinta-dos-historias-de-casadas-tercera-parte-14746.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 41884
+        "ende": 41884,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pérez Galdós, Benito",
@@ -8216,7 +8249,8 @@
       "textUrl": "hoerbuch-texte/es/riva-palacio-vicente_-_monja-y-casada-virgen-y-martir-libro-primero-el-convento-de-santa-teresa-14751.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 22654
+        "ende": 22654,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Riva Palacio, Vicente",
@@ -8446,7 +8480,8 @@
       "textUrl": "hoerbuch-texte/es/perez-galdos-benito_-_fortunata-y-jacinta-dos-historias-de-casadas-cuarta-parte-15026.txt.gz",
       "textRange": {
         "start": 54,
-        "ende": 41884
+        "ende": 41884,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pérez Galdós, Benito",
@@ -8719,7 +8754,8 @@
       "textUrl": "hoerbuch-texte/es/dario-ruben_-_poema-del-otono-y-otros-poemas-15127.txt.gz",
       "textRange": {
         "start": 315,
-        "ende": 2089
+        "ende": 2089,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Darío, Rubén",
@@ -8850,7 +8886,8 @@
       "textUrl": "hoerbuch-texte/es/dostoyevsky-fyodor_-_crimen-y-castigo-15136.txt.gz",
       "textRange": {
         "start": 14,
-        "ende": 21305
+        "ende": 21305,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Dostoyevsky, Fyodor",
@@ -9335,7 +9372,8 @@
       "textUrl": "hoerbuch-texte/es/perez-galdos-benito_-_gloria-parte-2-15209.txt.gz",
       "textRange": {
         "start": 63,
-        "ende": 8863
+        "ende": 8863,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pérez Galdós, Benito",
@@ -9673,7 +9711,8 @@
       "textUrl": "hoerbuch-texte/es/machado-ruiz-antonio_-_paginas-escogidas-15253.txt.gz",
       "textRange": {
         "start": 43,
-        "ende": 3814
+        "ende": 3814,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Machado Ruiz, Antonio",
@@ -9822,7 +9861,8 @@
       "textUrl": "hoerbuch-texte/es/zorrilla-y-moral-jose_-_granada-poema-oriental-tomo-1-15525.txt.gz",
       "textRange": {
         "start": 14,
-        "ende": 7883
+        "ende": 7883,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Zorrilla y Moral, José",
@@ -9953,7 +9993,8 @@
       "textUrl": "hoerbuch-texte/es/hope-anthony_-_prisionero-de-zenda-15544.txt.gz",
       "textRange": {
         "start": 53,
-        "ende": 6822
+        "ende": 6822,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hope, Anthony",
@@ -10192,7 +10233,8 @@
       "textUrl": "hoerbuch-texte/es/perez-galdos-benito_-_trafalgar-version-2-16136.txt.gz",
       "textRange": {
         "start": 21,
-        "ende": 5449
+        "ende": 5449,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pérez Galdós, Benito",
@@ -10386,7 +10428,8 @@
       "textUrl": "hoerbuch-texte/es/perez-galdos-benito_-_marianela-16285.txt.gz",
       "textRange": {
         "start": 120,
-        "ende": 6179
+        "ende": 6179,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Pérez Galdós, Benito",
@@ -10626,7 +10669,8 @@
       "textUrl": "hoerbuch-texte/es/perez-galdos-benito_-_bailen-version-2-16634.txt.gz",
       "textRange": {
         "start": 20,
-        "ende": 7105
+        "ende": 7105,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pérez Galdós, Benito",
@@ -10973,7 +11017,8 @@
       "textUrl": "hoerbuch-texte/es/pereda-jose-maria-de_-_penas-arriba-17110.txt.gz",
       "textRange": {
         "start": 41,
-        "ende": 13026
+        "ende": 13026,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Pereda, Jose María de",
@@ -11327,7 +11372,8 @@
       "textUrl": "hoerbuch-texte/es/mocho-fray_-_memorias-de-un-vigilante-17242.txt.gz",
       "textRange": {
         "start": 90,
-        "ende": 3477
+        "ende": 3477,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Mocho, Fray",
@@ -11495,7 +11541,8 @@
       "textUrl": "hoerbuch-texte/es/blasco-ibanez-vicente_-_sangre-y-arena-18281.txt.gz",
       "textRange": {
         "start": 61,
-        "ende": 12694
+        "ende": 12694,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Blasco Ibáñez, Vicente",
@@ -11714,7 +11761,8 @@
       "textUrl": "hoerbuch-texte/es/shakespeare-william_-_romeo-y-julieta-18658.txt.gz",
       "textRange": {
         "start": 24,
-        "ende": 18952
+        "ende": 18952,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Shakespeare, William",
@@ -11804,7 +11852,8 @@
       "textUrl": "hoerbuch-texte/es/pardo-bazan-emilia_-_tesoro-de-gaston-18837.txt.gz",
       "textRange": {
         "start": 129,
-        "ende": 3938
+        "ende": 3938,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Pardo Bazán, Emilia",
@@ -11978,7 +12027,8 @@
       "textUrl": "hoerbuch-texte/es/valle-inclan-ramon-del_-_luces-de-bohemia-18979.txt.gz",
       "textRange": {
         "start": 142,
-        "ende": 6154
+        "ende": 6154,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Valle-Inclán, Ramón del",
@@ -12154,7 +12204,8 @@
       "textUrl": "hoerbuch-texte/es/hawthorne-nathaniel_-_letra-escarlata-19144.txt.gz",
       "textRange": {
         "start": 118,
-        "ende": 9034
+        "ende": 9034,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Hawthorne, Nathaniel",
@@ -12450,7 +12501,8 @@
       "textUrl": "hoerbuch-texte/es/eca-de-queiros-jose-maria-de_-_mandarin-20596.txt.gz",
       "textRange": {
         "start": 63,
-        "ende": 2892
+        "ende": 2892,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Eça de Queirós, José Maria de",
@@ -12572,7 +12624,8 @@
       "textUrl": "hoerbuch-texte/es/fernandez-de-moratin-leandro_-_si-de-las-ninas-20704.txt.gz",
       "textRange": {
         "start": 64,
-        "ende": 3139
+        "ende": 3139,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Fernández de Moratín, Leandro",
@@ -12640,7 +12693,8 @@
       "textUrl": "hoerbuch-texte/es/camoes-luis-vaz-de_-_los-lusiadas-20751.txt.gz",
       "textRange": {
         "start": 62,
-        "ende": 10488
+        "ende": 10488,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Camões, Luís Vaz de",
@@ -12799,7 +12853,8 @@
       "textUrl": "hoerbuch-texte/es/unamuno-miguel-de_-_amor-y-pedagogia-20812.txt.gz",
       "textRange": {
         "start": 62,
-        "ende": 6501
+        "ende": 6501,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Unamuno, Miguel de",
@@ -13002,7 +13057,9 @@
       "textUrl": "hoerbuch-texte/es/deledda-grazia_-_cenizas-21290.txt.gz",
       "textRange": {
         "start": 9,
-        "ende": 11160
+        "ende": 11160,
+        "confidence": "low",
+        "pruef": true
       },
       "tags": {
         "work_author": "Deledda, Grazia",
@@ -13210,7 +13267,9 @@
       "textUrl": "hoerbuch-texte/es/unamuno-miguel-de_-_del-sentimiento-tragico-de-la-vida-21462.txt.gz",
       "textRange": {
         "start": 64,
-        "ende": 9947
+        "ende": 9947,
+        "confidence": "low",
+        "pruef": true
       },
       "tags": {
         "work_author": "Unamuno, Miguel de",
@@ -13514,7 +13573,8 @@
       "textUrl": "hoerbuch-texte/es/avellaneda-gertrudiz-gomez-de_-_sab-21773.txt.gz",
       "textRange": {
         "start": 256,
-        "ende": 6166
+        "ende": 6166,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Avellaneda, Gertrudiz Gómez de",
@@ -13727,7 +13787,8 @@
       "textUrl": "hoerbuch-texte/es/valera-juan_-_pepita-jimenez-21804.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 5867
+        "ende": 5867,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Valera, Juan",
@@ -13975,7 +14036,8 @@
       "textUrl": "hoerbuch-texte/es/valle-inclan-ramon-del_-_tirano-banderas-novela-de-tierra-caliente-21849.txt.gz",
       "textRange": {
         "start": 55,
-        "ende": 8202
+        "ende": 8202,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Valle-Inclán, Ramón del",
@@ -14260,7 +14322,8 @@
       "textUrl": "hoerbuch-texte/es/valle-inclan-ramon-del_-_divinas-palabras-tragicomedia-de-aldea-22019.txt.gz",
       "textRange": {
         "start": 111,
-        "ende": 5914
+        "ende": 5914,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Valle-Inclán, Ramón del",
@@ -14337,7 +14400,8 @@
       "textUrl": "hoerbuch-texte/es/eliot-george_-_silas-marner-spanish-version-22055.txt.gz",
       "textRange": {
         "start": 60,
-        "ende": 8123
+        "ende": 8123,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Eliot, George",
@@ -14576,7 +14640,8 @@
       "textUrl": "hoerbuch-texte/es/euripides_-_medea-spanish-version-22196.txt.gz",
       "textRange": {
         "start": 140,
-        "ende": 16870
+        "ende": 16870,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Euripides",
@@ -14656,7 +14721,8 @@
       "textUrl": "hoerbuch-texte/es/baroja-pio_-_inquietudes-de-shanti-andia-22369.txt.gz",
       "textRange": {
         "start": 34,
-        "ende": 11694
+        "ende": 11694,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Baroja, Pío",
@@ -15139,7 +15205,8 @@
       "textUrl": "hoerbuch-texte/es/munoz-seca-pedro_-_venganza-de-don-mendo-22427.txt.gz",
       "textRange": {
         "start": 112,
-        "ende": 7197
+        "ende": 7197,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Muñoz Seca, Pedro",
@@ -15218,7 +15285,8 @@
       "textUrl": "hoerbuch-texte/es/euripides_-_ifigenia-en-ulide-22443.txt.gz",
       "textRange": {
         "start": 80,
-        "ende": 14727
+        "ende": 14727,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Euripides",
@@ -15298,7 +15366,8 @@
       "textUrl": "hoerbuch-texte/es/euripides_-_electra-22486.txt.gz",
       "textRange": {
         "start": 80,
-        "ende": 16063
+        "ende": 16063,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Euripides",
@@ -15377,7 +15446,8 @@
       "textUrl": "hoerbuch-texte/es/euripides_-_orestes-22544.txt.gz",
       "textRange": {
         "start": 140,
-        "ende": 16870
+        "ende": 16870,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Euripides",
@@ -15457,7 +15527,8 @@
       "textUrl": "hoerbuch-texte/es/euripides_-_ifigenia-en-tauride-22576.txt.gz",
       "textRange": {
         "start": 80,
-        "ende": 16063
+        "ende": 16063,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Euripides",

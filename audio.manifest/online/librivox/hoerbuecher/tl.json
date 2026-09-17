@@ -94,7 +94,8 @@
       "textUrl": "hoerbuch-texte/tl/reyes-isabelo-de-los_-_singsing-nang-dalagang-marmol-6609.txt.gz",
       "textRange": {
         "start": 73,
-        "ende": 1445
+        "ende": 1445,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Reyes, Isabelo de los",
@@ -218,7 +219,8 @@
       "textUrl": "hoerbuch-texte/tl/medrano-pura-l_-_nang-bata-pa-kami-9429.txt.gz",
       "textRange": {
         "start": 99,
-        "ende": 1425
+        "ende": 1425,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Medrano, Pura L.",

@@ -15984,7 +15984,8 @@
       "textUrl": "hoerbuch-texte/mul/kochanowski-jan_-_treny-laments-6982.txt.gz",
       "textRange": {
         "start": 59,
-        "ende": 799
+        "ende": 799,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Kochanowski, Jan",
@@ -29930,7 +29931,8 @@
       "textUrl": "hoerbuch-texte/mul/various_-_christmas-short-works-collection-2016-11292.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 10137
+        "ende": 10137,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Various",
@@ -33379,7 +33381,8 @@
       "textUrl": "hoerbuch-texte/mul/fitzgerald-edward_-_multilingual-rubaiyat-13466.txt.gz",
       "textRange": {
         "start": 15,
-        "ende": 2136
+        "ende": 2136,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "FitzGerald, Edward; Khayyám, Omar",
@@ -34834,7 +34837,8 @@
       "textUrl": "hoerbuch-texte/mul/various_-_love-stories-volume-2-14495.txt.gz",
       "textRange": {
         "start": 60,
-        "ende": 25246
+        "ende": 25246,
+        "confidence": "high"
       },
       "tags": {
         "work_author": "Various",
@@ -47044,7 +47048,8 @@
       "textUrl": "hoerbuch-texte/mul/negri-ada_-_hast-thou-been-working-18371.txt.gz",
       "textRange": {
         "start": 107,
-        "ende": 5541
+        "ende": 5541,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Negri, Ada",

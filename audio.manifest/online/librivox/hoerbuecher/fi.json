@@ -18,7 +18,8 @@
       "textUrl": "hoerbuch-texte/fi/hellaakoski-aaro_-_liian-paha-sappi-483.txt.gz",
       "textRange": {
         "start": 3,
-        "ende": 1342
+        "ende": 1342,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Hellaakoski, Aaro",
@@ -119,7 +120,8 @@
       "textUrl": "hoerbuch-texte/fi/aho-juhani_-_helsinkiin-492.txt.gz",
       "textRange": {
         "start": 18,
-        "ende": 2988
+        "ende": 2988,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Aho, Juhani",
@@ -214,7 +216,8 @@
       "textUrl": "hoerbuch-texte/fi/aho-juhani_-_rautatie-691.txt.gz",
       "textRange": {
         "start": 21,
-        "ende": 4312
+        "ende": 4312,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Aho, Juhani",
@@ -327,7 +330,8 @@
       "textUrl": "hoerbuch-texte/fi/kivi-aleksis_-_seitsemaen-veljestae-1556.txt.gz",
       "textRange": {
         "start": 23,
-        "ende": 13251
+        "ende": 13251,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Kivi, Aleksis",
@@ -621,7 +625,8 @@
       "textUrl": "hoerbuch-texte/fi/reijonen-juho_-_vaihdokas-1947.txt.gz",
       "textRange": {
         "start": 47,
-        "ende": 4075
+        "ende": 4075,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Reijonen, Juho",
@@ -761,7 +766,8 @@
       "textUrl": "hoerbuch-texte/fi/gripenberg-alexandra_-_orjien-vapauttaminen-pohjois-amerikassa-2838.txt.gz",
       "textRange": {
         "start": 48,
-        "ende": 1672
+        "ende": 1672,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Gripenberg, Alexandra",
@@ -820,7 +826,8 @@
       "textUrl": "hoerbuch-texte/fi/aho-juhani_-_juha-2973.txt.gz",
       "textRange": {
         "start": 17,
-        "ende": 6309
+        "ende": 6309,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Aho, Juhani",
@@ -1037,7 +1044,8 @@
       "textUrl": "hoerbuch-texte/fi/zschokke-heinrich_-_kaleri-orja-6810.txt.gz",
       "textRange": {
         "start": 57,
-        "ende": 1084
+        "ende": 1084,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Zschokke, Heinrich",
@@ -1117,7 +1125,8 @@
       "textUrl": "hoerbuch-texte/fi/linnankoski-johannes_-_laulu-tulipunaisesta-kukasta-8379.txt.gz",
       "textRange": {
         "start": 21,
-        "ende": 10037
+        "ende": 10037,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Linnankoski, Johannes",
@@ -1456,7 +1465,8 @@
       "textUrl": "hoerbuch-texte/fi/wuorinen-olli_-_salmelan-heinaetalkoot-10152.txt.gz",
       "textRange": {
         "start": 45,
-        "ende": 2721
+        "ende": 2721,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Wuorinen, Olli",
@@ -1569,7 +1579,8 @@
       "textUrl": "hoerbuch-texte/fi/aho-juhani_-_ensimmaeiset-novellit-10973.txt.gz",
       "textRange": {
         "start": 39,
-        "ende": 2609
+        "ende": 2609,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Aho, Juhani",
@@ -1671,7 +1682,8 @@
       "textUrl": "hoerbuch-texte/fi/swift-jonathan_-_gulliverin-matkat-kaukaisilla-mailla-11149.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 3828
+        "ende": 3828,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Swift, Jonathan",
@@ -1867,7 +1879,8 @@
       "textUrl": "hoerbuch-texte/fi/machiavelli-niccolo_-_ruhtinas-12003.txt.gz",
       "textRange": {
         "start": 28,
-        "ende": 3828
+        "ende": 3828,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Machiavelli, Niccolò",
@@ -2235,7 +2248,8 @@
       "textUrl": "hoerbuch-texte/fi/goethe-johann-wolfgang-von_-_nuoren-wertherin-kaersimykset-12172.txt.gz",
       "textRange": {
         "start": 24,
-        "ende": 4528
+        "ende": 4528,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Goethe, Johann Wolfgang von",
@@ -2396,7 +2410,8 @@
       "textUrl": "hoerbuch-texte/fi/marryat-frederick_-_merirosvo-13064.txt.gz",
       "textRange": {
         "start": 48,
-        "ende": 6125
+        "ende": 6125,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Marryat, Frederick",
@@ -2601,7 +2616,8 @@
       "textUrl": "hoerbuch-texte/fi/andersen-hans-christian_-_satuja-ja-tarinoita-i-18086.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 5090
+        "ende": 5090,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Andersen, Hans Christian",

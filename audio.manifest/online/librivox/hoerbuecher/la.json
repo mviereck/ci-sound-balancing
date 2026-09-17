@@ -18,7 +18,8 @@
       "textUrl": "hoerbuch-texte/la/virgil_-_eclogae-dramatic-reading-135.txt.gz",
       "textRange": {
         "start": 42,
-        "ende": 1023
+        "ende": 1023,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Virgil",
@@ -886,7 +887,8 @@
       "textUrl": "hoerbuch-texte/la/carus-titus-lucretius_-_de-rerum-natura-7053.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 21358
+        "ende": 21358,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Carus, Titus Lucretius",
@@ -1092,7 +1094,8 @@
       "textUrl": "hoerbuch-texte/la/virgil_-_georgica-7221.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 10857
+        "ende": 10857,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Virgil",
@@ -1207,7 +1210,8 @@
       "textUrl": "hoerbuch-texte/la/seneca-lucius-annaeus_-_epistulae-morales-selectae-7230.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 10956
+        "ende": 10956,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Seneca, Lucius Annaeus",
@@ -1357,7 +1361,8 @@
       "textUrl": "hoerbuch-texte/la/cato-marcus-porcius_-_de-agricultura-7521.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 21081
+        "ende": 21081,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Cato, Marcus Porcius",
@@ -1479,7 +1484,8 @@
       "textUrl": "hoerbuch-texte/la/augustine-of-hippo-saint_-_confessionum-libri-tredecim-7528.txt.gz",
       "textRange": {
         "start": 39,
-        "ende": 17185
+        "ende": 17185,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Augustine of Hippo, Saint",
@@ -1800,7 +1806,8 @@
       "textUrl": "hoerbuch-texte/la/kempis-thomas-a_-_imitatione-christi-9624.txt.gz",
       "textRange": {
         "start": 49,
-        "ende": 24953
+        "ende": 24953,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Kempis, Thomas à",
@@ -1985,7 +1992,8 @@
       "textUrl": "hoerbuch-texte/la/benedict-of-nursia-saint_-_regula-sancti-benedicti-10254.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 11113
+        "ende": 11113,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Benedict of Nursia, Saint",
@@ -2116,7 +2124,8 @@
       "textUrl": "hoerbuch-texte/la/boethius-anicius-manlius-severinus_-_consolatione-philosophiae-10603.txt.gz",
       "textRange": {
         "start": 51,
-        "ende": 18065
+        "ende": 18065,
+        "confidence": "medium"
       },
       "tags": {
         "work_author": "Boethius, Anicius Manlius Severinus",

@@ -18,7 +18,8 @@
       "textUrl": "hoerbuch-texte/ceb/rama-vicente_-_unang-sugilanon-gikan-sa-librong-larawan-si-amboy-ang-palahubog-6583.txt.gz",
       "textRange": {
         "start": 72,
-        "ende": 2498
+        "ende": 2498,
+        "confidence": "low"
       },
       "tags": {
         "work_author": "Rama, Vicente",
