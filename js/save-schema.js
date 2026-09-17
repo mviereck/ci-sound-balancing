@@ -211,6 +211,14 @@ var SAVE_SCHEMA_GLOBAL = [
     get: function () { return (typeof plShowExperimental !== "undefined" ? plShowExperimental : false); },
     set: function (v) { if (typeof plShowExperimental !== "undefined") plShowExperimental = v; },
     default: false, valid: { type: "bool" } },
+  { key: "plTextFontStep", scope: "global",
+    get: function () { return (typeof plTextFontStep !== "undefined" ? plTextFontStep : 2); },
+    set: function (v) { if (typeof plTextFontStep !== "undefined" && typeof v === "number") plTextFontStep = v; },
+    default: 2, valid: { type: "number", min: 0, max: 4 } },
+  { key: "plTextLineStep", scope: "global",
+    get: function () { return (typeof plTextLineStep !== "undefined" ? plTextLineStep : 1); },
+    set: function (v) { if (typeof plTextLineStep !== "undefined" && typeof v === "number") plTextLineStep = v; },
+    default: 1, valid: { type: "number", min: 0, max: 3 } },
 
   // --- Hoerbuch-Positionen / Inhalts-Sprache ---
   { key: "plBookPositions", scope: "global",

@@ -2038,3 +2038,43 @@ input.ec-active.dep-locked {
 #infoIconPopup[hidden] {
   display: none !important;
 }
+
+/* BA584: Text-Begleitbox */
+.pl-textbox {
+  padding: 6px 8px;
+  background: var(--card-bg, #fff);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin: 4px 0;
+}
+.pl-textbox-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.pl-textbox-head-l {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.pl-textbox-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.pl-textbox-steppers {
+  display: inline-flex;
+  gap: 2px;
+}
+.pl-textbox-steppers .btn {
+  padding: 1px 5px;
+  font-size: 0.85em;
+  min-width: 0;
+}
+.pl-textbox-body {
+  min-height: 2.4em;
+  white-space: pre-line;
+}

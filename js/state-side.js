@@ -662,6 +662,8 @@ let plLoop         = false;     // Endlos-Toggle (aktuelles Stueck wiederholen),
 let plShuffle      = false;     // BA258: Zufall-Modus global, Default aus
 let plPauseMs      = 2000;      // Pause zwischen Stuecken (ms), Default 2000
 let plSentShowText = false;     // Satz-Text einblenden (Persistenz neu)
+let plTextFontStep = 2;         // Schriftgröße-Stufe der Text-Begleitbox (0..4)
+let plTextLineStep = 1;         // Zeilenabstand-Stufe der Text-Begleitbox (0..3)
 let plNoiseSelectedId = "gen:pink";   // Default-Geraeusch beim ersten Start
 let plNoiseSearchQuery = "";          // BA262: Suchfeld-Inhalt
 // BA570: parallele Achsen-Auswahl { axisKey: gewaehlterWert } (flüchtig, pro Sitzung)

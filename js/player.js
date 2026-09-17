@@ -1837,7 +1837,12 @@ const plNavSavedPos = {};      // key -> Sekunde, sitzungsweit, NICHT persistier
 function _plNavSameItem(a, b) {
   if (!a || !b) return false;
   if (a === b) return true;
-  return !!(a.id && b.id && a.id === b.id);
+  // Identität = Audio-Quelle (dieselbe Kennung wie der Ladestellen-Cache).
+  // item.id ist nur ein kategorie-internes Etikett und buchübergreifend NICHT
+  // eindeutig (Hörbuch-Kapitel heißen alle ch001, ch002 …).
+  var ka = (typeof _amBufKey === "function") ? _amBufKey(a) : (a.id || "");
+  var kb = (typeof _amBufKey === "function") ? _amBufKey(b) : (b.id || "");
+  return !!(ka && kb && ka === kb);
 }
 
 function plNavList() {
@@ -2163,6 +2168,75 @@ function plUpdNetSourceUI() {
   });
 }
 
+// ============================================================
+// BA584: Text-Begleitbox — gemeinsame Hülle
+// ============================================================
+
+var PL_TEXT_FONT_PX = [13, 15, 17, 20, 24];
+var PL_TEXT_LINE_LH = [1.2, 1.4, 1.7, 2.0];
+
+function plTextBoxRender(opts) {
+  var wrap = document.getElementById(opts.wrapId);
+  if (!wrap) return;
+  wrap.style.display = opts.visible ? "" : "none";
+  if (!opts.visible) return;
+
+  // Einmalig verdrahten (Guard per _wired-Flag auf dem Wrapper)
+  if (!wrap._wired) {
+    wrap._wired = true;
+    // Reveal-Toggle
+    if (opts.reveal) {
+      var cb = document.getElementById(opts.reveal.toggleCbId);
+      if (cb) {
+        cb.addEventListener("change", function () {
+          if (opts.reveal.toggleCbId === "plSentShowText") plSentShowText = !!cb.checked;
+          plUpdDisplay();
+        });
+      }
+    }
+    // Schrift/Zeilenabstand (Steller-IDs aus opts.stepperIds, falls gesetzt)
+    if (opts.stepperIds) {
+      var fm = document.getElementById(opts.stepperIds.fontMinus);
+      var fp = document.getElementById(opts.stepperIds.fontPlus);
+      var lm = document.getElementById(opts.stepperIds.lineMinus);
+      var lp = document.getElementById(opts.stepperIds.linePlus);
+      if (fm) fm.addEventListener("click", function () { plTextFontDelta(-1); });
+      if (fp) fp.addEventListener("click", function () { plTextFontDelta(+1); });
+      if (lm) lm.addEventListener("click", function () { plTextLineDelta(-1); });
+      if (lp) lp.addEventListener("click", function () { plTextLineDelta(+1); });
+    }
+  }
+
+  // Reveal-Zustand
+  var showBody = true;
+  if (opts.reveal) {
+    var cb2 = document.getElementById(opts.reveal.toggleCbId);
+    if (cb2) cb2.checked = !!opts.reveal.on;
+    showBody = !!opts.reveal.on;
+  }
+
+  var body = document.getElementById(opts.bodyId);
+  if (!body) return;
+  body.style.display = showBody ? "" : "none";
+
+  // Schrift/Zeilenabstand
+  body.style.fontSize   = PL_TEXT_FONT_PX[typeof plTextFontStep !== "undefined" ? plTextFontStep : 2] + "px";
+  body.style.lineHeight = String(PL_TEXT_LINE_LH[typeof plTextLineStep !== "undefined" ? plTextLineStep : 1]);
+
+  if (showBody && typeof opts.fillBody === "function") opts.fillBody(body);
+}
+
+function plTextFontDelta(d) {
+  if (typeof plTextFontStep === "undefined") return;
+  plTextFontStep = Math.max(0, Math.min(PL_TEXT_FONT_PX.length - 1, plTextFontStep + d));
+  plUpdDisplay();
+}
+function plTextLineDelta(d) {
+  if (typeof plTextLineStep === "undefined") return;
+  plTextLineStep = Math.max(0, Math.min(PL_TEXT_LINE_LH.length - 1, plTextLineStep + d));
+  plUpdDisplay();
+}
+
 function plUpdSourceUI() {
   PL_SOURCE_TABS.forEach(function (tab) {
     const on = (plActiveSource === tab.key);
@@ -2231,7 +2305,6 @@ function plUpdDisplay() {
   const titleEl  = document.getElementById("plDispTitle");
   const metaEl   = document.getElementById("plDispMeta");
   const detailEl = document.getElementById("plDispDetail");
-  const textToggleWrap = document.getElementById("plSentTextToggleWrap");
   if (!titleEl || !metaEl) return;
 
   const cat   = plCurrentCategory();
@@ -2277,22 +2350,18 @@ function plUpdDisplay() {
   }
 
   // --- Aufdeckbarer Bereich ---
-  // Toggle sichtbar wenn reveal-Felder vorhanden UND ctx != null
   const revealFields = decl.filter(function (f) { return f.visibility === "reveal"; });
   const showTextToggle = revealFields.length > 0 && ctx !== null;
-  if (textToggleWrap) textToggleWrap.style.display = showTextToggle ? "inline-flex" : "none";
-
-  const cb = document.getElementById("plSentShowText");
-  const tb = document.getElementById("plSentTextBox");
-  if (cb) cb.checked = !!plSentShowText;
-
-  const showBox = showTextToggle && !!plSentShowText;
-  if (tb) tb.style.display = showBox ? "" : "none";
-
-  if (showBox) {
-    const tx = document.getElementById("plSentText");
-    if (cat && typeof cat.fillReveal === "function") cat.fillReveal(tx, ctx, revealFields);
-  }
+  plTextBoxRender({
+    wrapId: "plSentTextBox", bodyId: "plSentText",
+    visible: showTextToggle,
+    reveal: { on: !!plSentShowText, toggleCbId: "plSentShowText" },
+    stepperIds: { fontMinus: "plSentFontMinus", fontPlus: "plSentFontPlus",
+                  lineMinus: "plSentLineMinus", linePlus: "plSentLinePlus" },
+    fillBody: function (bodyEl) {
+      if (cat && typeof cat.fillReveal === "function") cat.fillReveal(bodyEl, ctx, revealFields);
+    }
+  });
 
   // Hörbuch-Mitlesen: Text zum aktuell gewählten Buch sicherstellen.
   if (typeof plReadEnsureText === "function") plReadEnsureText();
@@ -2363,13 +2432,6 @@ document.querySelectorAll(".pl-pause-btn").forEach(function (b) {
   });
 });
 
-const _plSentTxtCb = document.getElementById("plSentShowText");
-if (_plSentTxtCb) {
-  _plSentTxtCb.addEventListener("change", function () {
-    plSentShowText = !!_plSentTxtCb.checked;
-    plUpdDisplay();
-  });
-}
 
 // ============================================================
 // BA193: Lautstärke-Schnellbuttons
@@ -3582,11 +3644,11 @@ PL_FILTER_DECL.hoerbuecher = {
       emptyDomId: "plBookEmpty",
       onCollectionSelect: function (id) {
         plBookSavePosition();
-        plBookSelectedId = id;
-        var pos = plBookPositions && plBookPositions[id];
-        plBookChapterIdx = (pos && typeof pos.chapterIdx === "number") ? pos.chapterIdx : 0;
-        plBuildFilterChain(PL_FILTER_DECL.hoerbuecher);
-        if (plActiveSource === "hoerbuecher") plBookLoadSelected();
+        _plNavApplyFilterChange(PL_FILTER_DECL.hoerbuecher, function () {
+          plBookSelectedId = id;
+          var pos = plBookPositions && plBookPositions[id];
+          plBookChapterIdx = (pos && typeof pos.chapterIdx === "number") ? pos.chapterIdx : 0;
+        });
       }
     },
     {
