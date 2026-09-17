@@ -2366,8 +2366,13 @@ function plUpdDisplay() {
     }
   });
 
-  // Hörbuch-Mitlesen: Text zum aktuell gewählten Buch sicherstellen.
+  // Hörbuch-Mitlesen: Text zum aktuell gewählten Buch sicherstellen und die Box
+  // neu zeichnen. plReadEnsureText lädt nur bei Buchwechsel (sonst früher
+  // return) und rendert dann selbst; plReadRender hier deckt den Fall
+  // "gleiches Buch" ab, damit Toggle/Schrift/Zeilenabstand auch OHNE laufende
+  // Wiedergabe sofort wirken (ohne Tick gäbe es sonst kein Neuzeichnen).
   if (typeof plReadEnsureText === "function") plReadEnsureText();
+  if (typeof plReadRender === "function") plReadRender();
 }
 
 function plRefreshTooltips() {
@@ -4003,18 +4008,25 @@ function _plReadElapsedSeconds(col) {
 
 // Rendert die Hoerbuch-Textbox (Ganztext, einmal gesetzt; danach nur Scroll).
 // Vom Tick (pUpdTL) und nach dem Laden aufgerufen.
-var _plReadWired = false;   // einmaliges Event-Wiring fuer Find/Autoscroll-Toggle
+var _plReadFindWired = false;   // Wiring-Guard Find-Knopf
+var _plReadAscWired  = false;   // Wiring-Guard Autoscroll-Toggle (getrennt, damit
+                                // ein fehlendes Element das andere nicht blockiert)
 function plReadRender() {
-  // Einmalig: Find-Knopf + Autoscroll-Toggle verdrahten.
-  if (!_plReadWired) {
+  // Einmalig verdrahten — je Element ein eigener Guard: sonst sperrt der zuerst
+  // gesetzte Guard das Wiring des anderen, falls es beim ersten Aufruf noch
+  // nicht im DOM war (Autoscroll-Toggle blieb so ohne Listener).
+  if (!_plReadFindWired) {
     var fb = document.getElementById("plReadFindBtn");
-    if (fb) { fb.addEventListener("click", function () { plReadFindPos(); }); _plReadWired = true; }
+    if (fb) { fb.addEventListener("click", function () { plReadFindPos(); }); _plReadFindWired = true; }
+  }
+  if (!_plReadAscWired) {
     var asc = document.getElementById("plReadAutoscroll");
     if (asc) {
       asc.addEventListener("change", function () {
         plReadAutoscroll = !!asc.checked;
         if (!plReadAutoscroll) _plReadAutoLastT = null;
       });
+      _plReadAscWired = true;
     }
   }
   var visible = _plReadLines && plActiveSource === "hoerbuecher";
