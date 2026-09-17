@@ -1077,6 +1077,7 @@ function pPause() {
   pPlaying = false;
   // Autoscroll-Zeitstempel loeschen, damit nach Fortsetzen kein dt-Sprung entsteht.
   if (typeof _plReadAutoLastT !== "undefined") _plReadAutoLastT = null;
+  if (typeof _plReadAutoAcc !== "undefined") _plReadAutoAcc = 0;
   // SW (BA382): pPause loescht den Play-Wunsch NICHT mehr. "Pause" wird auch
   // intern zum kurzen Anhalten (Neuberechnen/Pfadwechsel) genutzt; dort muss
   // der Wunsch erhalten bleiben. Nur die echten Nutzer-/Stopp-/Stueck-/Kategorie-
@@ -3913,6 +3914,7 @@ function _plReadExtract(raw) {
 }
 
 var _plReadAutoLastT = null;   // letzter Zeitstempel (s) fuer die Delta-Rechnung
+var _plReadAutoAcc   = 0;      // Sub-Pixel-Akkumulator (scrollTop verwirft Nachkommastellen)
 
 // Scrollt einen zeitbasierten Pixel-Schritt (Pixel/s aus Buch-Mittel).
 function plReadAutoscrollStep() {
@@ -3930,8 +3932,15 @@ function plReadAutoscrollStep() {
   if (dt <= 0) return;
 
   // Rate = ganze Scrollhoehe / Gesamt-Audiodauer des Buchs (Pixel/s).
+  // Pro Tick ist die Delta oft < 1 px; body.scrollTop verwirft Nachkommastellen.
+  // Darum den Bruchteil in _plReadAutoAcc sammeln und nur ganze Pixel anwenden.
   var ratePxPerSec = (body.scrollHeight - body.clientHeight) / total;
-  body.scrollTop += ratePxPerSec * dt;
+  _plReadAutoAcc += ratePxPerSec * dt;
+  var whole = Math.floor(_plReadAutoAcc);
+  if (whole >= 1) {
+    body.scrollTop += whole;
+    _plReadAutoAcc -= whole;
+  }
 }
 
 // Springt einmalig zur geschaetzten Textstelle (Bruchrechnung Pixel).
@@ -4024,7 +4033,7 @@ function plReadRender() {
     if (asc) {
       asc.addEventListener("change", function () {
         plReadAutoscroll = !!asc.checked;
-        if (!plReadAutoscroll) _plReadAutoLastT = null;
+        if (!plReadAutoscroll) { _plReadAutoLastT = null; _plReadAutoAcc = 0; }
       });
       _plReadAscWired = true;
     }
