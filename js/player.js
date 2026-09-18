@@ -1583,6 +1583,12 @@ function plStopAll() {
   // (Download + Warp), sonst liefe der Download der alten Kategorie weiter und
   // sein Callback könnte nachträglich abspielen.
   if (typeof amCancelLoad === "function") amCancelLoad();
+  // BA590: Eine laufende Warp-/Tempo-BERECHNUNG ebenfalls abbrechen. Ohne das
+  // bleibt pWarpBusy nach einem Kategoriewechsel waehrend der Berechnung auf
+  // true haengen -> getPlaybackBuffer liefert nie den Tempo-Buffer und weitere
+  // Geschwindigkeitswahl bleibt wirkungslos. pWarpCancelCompute setzt pWarpCancel;
+  // die laufende Berechnung wirft __warp_cancelled__ und raeumt pWarpBusy sauber.
+  if (typeof pWarpCancelCompute === "function") pWarpCancelCompute();
   _plLoadPending = null;
   if (typeof pStopReset === "function") pStopReset();
   _plAutoAdvCancel();
