@@ -1228,6 +1228,14 @@ async function _pApplyTempoStage(myGen) {
 async function pWarpTrigger() {
   const myGen = ++pWarpGen;
   pWarpedBuf = null;
+  // BA590: Cancel-Flag fuer DIESEN Lauf zuruecksetzen. Ein vorheriger
+  // plStopAll/Kategoriewechsel (ruft pWarpCancelCompute) kann pWarpCancel auf
+  // true gesetzt haben; ohne Reset bricht die Tempo-Stufe im frueh-Ausstieg
+  // sofort ab (__warp_cancelled__) -> pTempoBuf bleibt null, Geschwindigkeit
+  // wirkungslos. Der Generation-Zaehler (myGen) uebernimmt das Ueberholen eines
+  // noch laufenden alten Laufs; die Abbruch-Warteschleife unten setzt das Flag
+  // bei Bedarf erneut. Ein neuer Lauf startet daher immer mit sauberem Flag.
+  pWarpCancel = false;
 
   // Frühe Ausstiege = es wird NICHT gewarpt (Warp aus, kein Warp-Content, kein
   // Quell-Buffer). Der ungewarpte pBuf ist dann sofort spielbar -> liegt ein
