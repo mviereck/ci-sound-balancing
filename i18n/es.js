@@ -1622,6 +1622,7 @@ Object.assign(L.es, {
     plTipAutoAdv: "Reproducir automáticamente la pieza siguiente al terminar (se detiene tras 30 min sin interacción)",
     plAutoAdvLabel: "↪ Auto-avance",
     plPauseLabel: "Pausa entre piezas:",
+    plSpeedLabel: "Velocidad:",
     pwProgressLabel: "Calculando el warping de frecuencia:",
     amSortTitle:"por título",
     amSortArtist: "por artista",

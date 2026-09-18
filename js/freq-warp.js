@@ -25,6 +25,12 @@ let pWarpCancel = false;     // wird vom Stop-Button gesetzt, von _rbProcessMono
 let pWarpProgress = 0;        // 0..1, nur bei Rubberband gefüttert
 let pWarpAffected = { warpsLeft: false, warpsRight: false };
 
+// BA590: Abspieltempo als Faktor (1 = Normal). pSpeed=2 = doppelt so schnell.
+// Persistent (localStorage + JSON, scope global, Default 1).
+let pSpeed = 1;
+// BA590: getempter Buffer (nur wenn pSpeed != 1), sonst null.
+let pTempoBuf = null;
+
 // BA375: engine (r2/r3) aus dem Berechnungs-Modus. Einzige Quelle.
 function _warpEngineForMode() {
   return (pWarpCalcMode === "fast") ? "r2" : "r3";
@@ -637,19 +643,16 @@ async function _rbConvolveViaWebAudio(signal, fir, sampleRate) {
   return out;
 }
 
-// Pitch-Shift via Rubberband. cents > 0: hoeher, cents < 0: tiefer.
-// Liefert Float32Array gleicher Laenge wie signal (Anfangs-Latenz von
-// Rubberband wird abgeschnitten, Tail-Padding mit Stille).
-async function _rbPitchShift(rb, signal, sampleRate, cents, optionBits) {
-  if (Math.abs(cents) < 0.5) {
-    // Vernachlaessigbar — direkt zurueck (defensive Kopie nicht noetig,
-    // weil Aufrufer signal nicht weiterverwendet).
-    return signal;
-  }
-  const pitchScale = Math.pow(2, cents / 1200);
-
+// BA590: Gemeinsamer Rubberband-Kern fuer Pitch-Shift und Time-Stretch.
+// timeRatio: Ausgabedauer / Eingabedauer (1.0 = unveraendert).
+// pitchScale: Tonhoehenverschiebung (1.0 = unveraendert).
+// targetLen:  gewuenschte Ausgabelaenge in Samples (nach Latenz-Abschnitt).
+//   Fuer Pitch-Shift: signal.length (Laenge bleibt gleich).
+//   Fuer Time-Stretch: round(signal.length * timeRatio) (Laenge aendert sich).
+// Liefert Float32Array der Laenge targetLen.
+async function _rbTransform(rb, signal, sampleRate, timeRatio, pitchScale, targetLen, optionBits) {
   const state = rb.rubberband_new(
-    sampleRate, 1, optionBits, 1.0, pitchScale
+    sampleRate, 1, optionBits, timeRatio, pitchScale
   );
 
   // Pointer-auf-Pointer-Setup fuer Rubberband-API (channels=1).
@@ -730,7 +733,7 @@ async function _rbPitchShift(rb, signal, sampleRate, cents, optionBits) {
       }
     }
 
-    // 3) Drain: restliches Output abholen, bis Rubberband meldet, daß
+    // 3) Drain: restliches Output abholen, bis Rubberband meldet, dass
     //    nichts mehr da ist (avail <= 0).
     while (true) {
       const avail = rb.rubberband_available(state);
@@ -746,17 +749,18 @@ async function _rbPitchShift(rb, signal, sampleRate, cents, optionBits) {
 
     // Output zusammenfuegen.
     const merged = new Float32Array(outTotal);
-    let off = 0;
+    let mergedOff = 0;
     for (const c of outChunks) {
-      merged.set(c, off);
-      off += c.length;
+      merged.set(c, mergedOff);
+      mergedOff += c.length;
     }
 
-    // Anfangs-Latenz von Rubberband abschneiden.
+    // Anfangs-Latenz abschneiden, auf targetLen bringen (kuerzen oder mit
+    // Stille auffuellen).
     const startDelay = rb.rubberband_get_start_delay(state);
-    const result = new Float32Array(signal.length);
+    const result = new Float32Array(targetLen);
     const usable = Math.max(0, merged.length - startDelay);
-    const copyLen = Math.min(signal.length, usable);
+    const copyLen = Math.min(targetLen, usable);
     if (copyLen > 0) {
       result.set(merged.subarray(startDelay, startDelay + copyLen));
     }
@@ -768,6 +772,57 @@ async function _rbPitchShift(rb, signal, sampleRate, cents, optionBits) {
     rb.free(outBufPtr);
     rb.rubberband_delete(state);
   }
+}
+
+// Pitch-Shift via Rubberband. cents > 0: hoeher, cents < 0: tiefer.
+// Liefert Float32Array gleicher Laenge wie signal.
+async function _rbPitchShift(rb, signal, sampleRate, cents, optionBits) {
+  if (Math.abs(cents) < 0.5) {
+    // Vernachlaessigbar — direkt zurueck.
+    return signal;
+  }
+  const pitchScale = Math.pow(2, cents / 1200);
+  return _rbTransform(rb, signal, sampleRate, 1.0, pitchScale, signal.length, optionBits);
+}
+
+// BA590: Zeit-Streckung via Rubberband. timeRatio = Ausgabedauer / Eingabedauer
+// (>1 = laenger/langsamer, <1 = kuerzer/schneller). Tonhoehe bleibt konstant
+// (pitchScale = 1). Liefert Float32Array der Laenge round(signal.length*timeRatio).
+async function _rbTimeStretch(rb, signal, sampleRate, timeRatio, optionBits) {
+  const targetLen = Math.round(signal.length * timeRatio);
+  return _rbTransform(rb, signal, sampleRate, timeRatio, 1.0, targetLen, optionBits);
+}
+
+// BA590: Streckt einen fertigen Stereo-AudioBuffer auf das Tempo pSpeed.
+// timeRatio = 1/speed. Beide Kanaele mit demselben Lauf-Setup.
+// Nutzt pWarpBusy/pWarpUpdUI fuer die gemeinsame Fortschrittsanzeige.
+async function pComputeSpeedBuffer(srcBuf, speed) {
+  if (Math.abs(speed - 1) < 1e-6) return srcBuf;
+  const rb = await rubberbandLoad();
+  const timeRatio = 1 / speed;
+  const sr = srcBuf.sampleRate;
+  const optionBits = _rbBuildOptionBits({
+    engine: "r3", material: "standard", formant: true, fast: false, realtime: false
+  });
+  const inL = new Float32Array(srcBuf.getChannelData(0));
+  const inR = srcBuf.numberOfChannels > 1
+    ? new Float32Array(srcBuf.getChannelData(1)) : inL;
+
+  pWarpProgress = 0;
+  if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+  const outL = await _rbTimeStretch(rb, inL, sr, timeRatio, optionBits);
+  pWarpProgress = (inR === inL) ? 1 : 0.5;
+  if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+  const outR = (inR === inL) ? outL
+    : await _rbTimeStretch(rb, inR, sr, timeRatio, optionBits);
+  pWarpProgress = 1;
+  if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+
+  const c = gPC();
+  const out = c.createBuffer(2, outL.length, sr);
+  out.getChannelData(0).set(outL);
+  out.getChannelData(1).set(outR);
+  return out;
 }
 
 // Eine Mono-Seite durch alle Baender schicken und summieren, mit
@@ -1123,6 +1178,38 @@ function pWarpUpdUI() {
 
 let pWarpGen = 0;  // Generation-Zähler — neuer Aufruf überholt ältere Runs.
 
+// BA590: Tempo-Stufe: rechnet aus dem Nicht-Tempo-Buffer (Warp-Ergebnis oder
+// Original) den getempten pTempoBuf. Nur wenn pSpeed != 1. Nutzt
+// pWarpBusy/pWarpUpdUI fuer die gemeinsame Fortschrittsanzeige (Tempo haengt
+// ohnehin hinter dem Warp). Gibt false zurueck, wenn ueberholt.
+async function _pApplyTempoStage(myGen) {
+  pTempoBuf = null;
+  if (Math.abs(pSpeed - 1) <= 1e-6) return true;
+  // pTempoBuf ist null -> getPlaybackBuffer liefert Warp-Ergebnis oder Original.
+  const baseBuf = getPlaybackBuffer();
+  if (!baseBuf) return true;
+  pWarpBusy = true;
+  pWarpProgress = 0;
+  if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+  try {
+    pTempoBuf = await pComputeSpeedBuffer(baseBuf, pSpeed);
+  } catch (e) {
+    if (e && e.message === "__warp_cancelled__") {
+      pTempoBuf = null;
+      pWarpBusy = false;
+      if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+      return false;
+    }
+    console.error("Tempo-Fehler:", e);
+    pTempoBuf = null;
+  }
+  pWarpBusy = false;
+  if (myGen !== pWarpGen) return false;   // ueberholt
+  pBuf = getPlaybackBuffer();             // liest jetzt pTempoBuf
+  if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+  return true;
+}
+
 async function pWarpTrigger() {
   const myGen = ++pWarpGen;
   pWarpedBuf = null;
@@ -1138,8 +1225,8 @@ async function pWarpTrigger() {
         && typeof pBuf !== "undefined" && pBuf
         && typeof pPlay === "function" && !pPlaying) pPlay();
   };
-  if (!pWarpOn) { pWarpUpdUI(); _consumeWish(); return; }
-  if (_warpFResSource().length === 0) { pWarpUpdUI(); _consumeWish(); return; }
+  if (!pWarpOn) { await _pApplyTempoStage(myGen); pWarpUpdUI(); _consumeWish(); return; }
+  if (_warpFResSource().length === 0) { await _pApplyTempoStage(myGen); pWarpUpdUI(); _consumeWish(); return; }
   if (!pSourceBuf) { pWarpUpdUI(); return; }
 
   // Falls eine vorherige Berechnung noch läuft (anderer Buffer): abbrechen
@@ -1166,7 +1253,10 @@ async function pWarpTrigger() {
 
   // BA375: Engine frisch aus dem Modus ableiten (einzige Schreibstelle).
   pRubberbandOptions.engine = _warpEngineForMode();
-  const useStreaming = _warpUseStreamingForMode() && !pRubberbandOptions.liveShifter;
+  // BA590: Tempo != 1 erzwingt den Voll-Pfad (Streaming liefert keinen fertigen
+  // pWarpedBuf, den die Tempo-Stufe braucht).
+  const useStreaming = _warpUseStreamingForMode() && !pRubberbandOptions.liveShifter
+    && Math.abs(pSpeed - 1) <= 1e-6;
 
   if (useStreaming) {
     // ---- Streaming-Pfad (BA371 S1) ----
@@ -1269,6 +1359,9 @@ async function pWarpTrigger() {
   // nutzt ihn wie der Voll-Pfad, ohne Neuberechnung).
   pBuf = getPlaybackBuffer();
   pWarpUpdUI();
+
+  // BA590: Tempo-Stufe nach dem Warp anwenden.
+  if (!(await _pApplyTempoStage(myGen))) return;  // ueberholt -> still raus
 
   if (pWarpOn) {
     // SW (BA380): Einheitlicher Start ueber Play-Wunsch + Gate fuer ALLE Modi.

@@ -555,6 +555,13 @@ function getPlaybackBuffer() {
   const mode = getPlayerSide();
   if (!pSourceBuf) return null;
 
+  // BA590: Tempo hat Vorrang, wenn vorab berechnet und aktiv.
+  if (typeof pSpeed !== "undefined" && Math.abs(pSpeed - 1) > 1e-6
+      && typeof pTempoBuf !== "undefined" && pTempoBuf
+      && typeof pWarpBusy !== "undefined" && !pWarpBusy) {
+    return pTempoBuf;
+  }
+
   // EQ-Toggle wirkt als Master: wenn EQ aus, ist auch der Warp-Pfad bypass.
   const warpReady = typeof pWarpOn !== "undefined"
                   && pWarpOn && plEqOn && pWarpedBuf && !pWarpBusy;
@@ -2485,6 +2492,45 @@ document.querySelectorAll(".pl-vol-btn").forEach(function (b) {
 });
 
 // ============================================================
+// BA590: Abspielgeschwindigkeit-Buttons
+// ============================================================
+
+function plUpdSpeedBtns() {
+  document.querySelectorAll(".pl-speed-btn").forEach(function (b) {
+    const v = parseFloat(b.dataset.speed);
+    const active = (Math.abs(v - pSpeed) < 1e-6);
+    b.classList.toggle("active", active);
+    b.style.background = active ? "var(--accent, #6aa84f)" : "";
+    b.style.color      = active ? "#fff" : "";
+  });
+}
+
+document.querySelectorAll(".pl-speed-btn").forEach(function (b) {
+  b.addEventListener("click", function () {
+    const v = parseFloat(b.dataset.speed);
+    if (Number.isFinite(v)) plSetSpeed(v);
+  });
+});
+
+function plSetSpeed(v) {
+  if (!Number.isFinite(v) || v <= 0) return;
+  const old = pSpeed;
+  // Aktuelle reale Position sichern (wie pPause), damit dieselbe Stelle weiterlaeuft.
+  if (pCtx && pBuf && pPlaying) pOff = pCtx.currentTime - pT0;
+  if (old > 0) pOff = pOff * (old / v);   // reale Position ins neue Tempo umrechnen
+  pSpeed = v;
+  plUpdSpeedBtns();
+  if (pPlaying && typeof _pSetPlayWish === "function") _pSetPlayWish(true);
+  if (pSourceBuf && typeof pWarpTrigger === "function") {
+    const p = pWarpTrigger();
+    pWarpComputingPromise = p;
+    if (p && typeof p.finally === "function") {
+      p.finally(function () { if (pWarpComputingPromise === p) pWarpComputingPromise = null; });
+    }
+  }
+}
+
+// ============================================================
 // BA330: Generische Filter-Ketten-Mechanik (Musik + Geraeusche)
 // ============================================================
 
@@ -3518,6 +3564,7 @@ plUpdTransportUI();
 plUpdDisplay();
 plRefreshTooltips();
 plUpdVolBtns();
+plUpdSpeedBtns();
 
 // ============================================================
 // BA195: Hoerbuch-Quelle (lokal)
@@ -3752,6 +3799,7 @@ function plSyncUI(opts) {
   if (typeof plUpdDisplay       === "function") plUpdDisplay();
   if (typeof plRefreshTooltips  === "function") plRefreshTooltips();
   if (typeof plUpdVolBtns       === "function") plUpdVolBtns();
+  if (typeof plUpdSpeedBtns     === "function") plUpdSpeedBtns();
 
   // E. Bibliotheks-Listen
   if (typeof plSyncLibraries === "function") plSyncLibraries();

@@ -199,6 +199,10 @@ var SAVE_SCHEMA_GLOBAL = [
     get: function () { return (typeof pWarpCalcMode !== "undefined" ? pWarpCalcMode : "mid"); },
     set: function (v) { if (typeof pWarpCalcMode !== "undefined") pWarpCalcMode = v; },
     default: "mid", valid: { type: "enum", of: ["fast", "mid", "best"] } },
+  { key: "pSpeed", scope: "global",
+    get: function () { return (typeof pSpeed !== "undefined" ? pSpeed : 1); },
+    set: function (v) { if (typeof pSpeed !== "undefined") pSpeed = v; },
+    default: 1, valid: { type: "number", min: 0.5, max: 2 } },
   { key: "pMaplawOn", scope: "global",
     get: function () { return (typeof pMaplawOn !== "undefined" ? pMaplawOn : false); },
     set: function (v) { if (typeof pMaplawOn !== "undefined") pMaplawOn = v; },
@@ -577,6 +581,13 @@ function refreshAll() {
   // MAPLAW / Warp:
   if (typeof pMaplawTrigger === "function") pMaplawTrigger();
   if (typeof _pWarpCalcModeApply === "function") _pWarpCalcModeApply();
+  // BA590: Buttons spiegeln (plSyncUI ruft plUpdSpeedBtns bereits auf;
+  // Extra-Trigger nur wenn Tempo != 1 und Buffer bereit).
+  if (typeof pSpeed !== "undefined" && Math.abs(pSpeed - 1) > 1e-6
+      && typeof pSourceBuf !== "undefined" && pSourceBuf
+      && typeof pWarpTrigger === "function") {
+    pWarpTrigger();
+  }
   if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
   if (typeof schieberELLUpdateModeAvailability === "function") schieberELLUpdateModeAvailability();
   if (typeof schieberELLRebuild === "function"

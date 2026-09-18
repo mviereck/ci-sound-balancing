@@ -543,6 +543,7 @@ Object.assign(L.de, {
     plTipAutoAdv: "Nach Ende automatisch das nächste Stück abspielen (stoppt nach 30 min ohne Bedienung)",
     plAutoAdvLabel: "↪ Auto-Weiter",
     plPauseLabel: "Pause zwischen Stücken:",
+    plSpeedLabel: "Geschwindigkeit:",
     plDispEmpty: "Nichts geladen",
     plDispNoMeta: "—",
     sentTitle: "Sätze abspielen",
