@@ -1670,7 +1670,9 @@ const plCategories = {
     },
     currentBuffer: function () { return (typeof sSentenceBuf !== "undefined") ? sSentenceBuf : null; },
     fillReveal: function (textEl, ctx, revealFields) {
-      if (typeof sUpdateTextBox === "function") sUpdateTextBox();
+      if (!textEl) return;
+      textEl.style.whiteSpace = "pre-line";
+      textEl.textContent = (typeof sShownText !== "undefined" && sShownText) ? sShownText : "";
     },
     // --- Navigation ueber die Engine ---
     hasPrev: function () { return plNavHasPrev(); },
@@ -2192,8 +2194,7 @@ function plTextBoxRender(opts) {
       var cb = document.getElementById(opts.reveal.toggleCbId);
       if (cb) {
         cb.addEventListener("change", function () {
-          if (opts.reveal.toggleCbId === "plSentShowText") plSentShowText = !!cb.checked;
-          if (opts.reveal.toggleCbId === "plReadShowText") plReadShowText = !!cb.checked;
+          plShowText = !!cb.checked;
           plUpdDisplay();
         });
       }
@@ -2353,27 +2354,38 @@ function plUpdDisplay() {
     }
   }
 
-  // --- Aufdeckbarer Bereich ---
-  const revealFields = decl.filter(function (f) { return f.visibility === "reveal"; });
-  const showTextToggle = revealFields.length > 0 && ctx !== null;
-  plTextBoxRender({
-    wrapId: "plSentTextBox", bodyId: "plSentText",
-    visible: showTextToggle,
-    reveal: { on: !!plSentShowText, toggleCbId: "plSentShowText" },
-    stepperIds: { fontMinus: "plSentFontMinus", fontPlus: "plSentFontPlus",
-                  lineMinus: "plSentLineMinus", linePlus: "plSentLinePlus" },
-    fillBody: function (bodyEl) {
-      if (cat && typeof cat.fillReveal === "function") cat.fillReveal(bodyEl, ctx, revealFields);
-    }
-  });
+  // --- Text-Begleitbox (eine gemeinsame Box fuer Saetze und Hoerbuch) ---
+  // Die Box existiert einmal (#plTextBox, Body #plReadBody). Wer den Inhalt
+  // liefert, haengt an der aktiven Kategorie:
+  //   - Hoerbuch: plReadEnsureText/plReadRender fuellen ueber fillBody (Ganztext).
+  //   - sonst (Saetze/Geraeusche): fillReveal der Kategorie fuellt den Aufdeck-Text.
+  // Die Hoerbuch-Aktionen (Stelle finden / Autoscroll) sind nur bei Hoerbuch
+  // sichtbar (rechte Kopfgruppe).
+  const isBook = (plActiveSource === "hoerbuecher");
+  const _findBtn = document.getElementById("plReadFindBtn");
+  const _ascWrap = document.getElementById("plReadAutoscrollWrap");
+  if (_findBtn) _findBtn.style.display = isBook ? "" : "none";
+  if (_ascWrap) _ascWrap.style.display = isBook ? "" : "none";
 
-  // Hörbuch-Mitlesen: Text zum aktuell gewählten Buch sicherstellen und die Box
-  // neu zeichnen. plReadEnsureText lädt nur bei Buchwechsel (sonst früher
-  // return) und rendert dann selbst; plReadRender hier deckt den Fall
-  // "gleiches Buch" ab, damit Toggle/Schrift/Zeilenabstand auch OHNE laufende
-  // Wiedergabe sofort wirken (ohne Tick gäbe es sonst kein Neuzeichnen).
-  if (typeof plReadEnsureText === "function") plReadEnsureText();
-  if (typeof plReadRender === "function") plReadRender();
+  if (isBook) {
+    // Hoerbuch zeichnet ueber seinen eigenen Pfad (Ganztext + Autoscroll),
+    // der dieselbe Engine mit demselben Body benutzt (Schritt 6).
+    if (typeof plReadEnsureText === "function") plReadEnsureText();
+    if (typeof plReadRender === "function") plReadRender();
+  } else {
+    const revealFields = decl.filter(function (f) { return f.visibility === "reveal"; });
+    const showTextToggle = revealFields.length > 0 && ctx !== null;
+    plTextBoxRender({
+      wrapId: "plTextBox", bodyId: "plReadBody",
+      visible: showTextToggle,
+      reveal: { on: !!plShowText, toggleCbId: "plShowText" },
+      stepperIds: { fontMinus: "plTextFontMinus", fontPlus: "plTextFontPlus",
+                    lineMinus: "plTextLineMinus", linePlus: "plTextLinePlus" },
+      fillBody: function (bodyEl) {
+        if (cat && typeof cat.fillReveal === "function") cat.fillReveal(bodyEl, ctx, revealFields);
+      }
+    });
+  }
 }
 
 function plRefreshTooltips() {
@@ -4173,12 +4185,12 @@ function plReadRender() {
   }
   var visible = _plReadLines && plActiveSource === "hoerbuecher";
   plTextBoxRender({
-    wrapId: "plReadAlong", headLeftId: "plReadHeadL", headRightId: "plReadHeadR",
+    wrapId: "plTextBox", headLeftId: "plTextHeadL", headRightId: "plTextHeadR",
     bodyId: "plReadBody",
     visible: !!visible,
-    reveal: { on: !!plReadShowText, toggleCbId: "plReadShowText" },
-    stepperIds: { fontMinus: "plReadFontMinus", fontPlus: "plReadFontPlus",
-                  lineMinus: "plReadLineMinus", linePlus: "plReadLinePlus" },
+    reveal: { on: !!plShowText, toggleCbId: "plShowText" },
+    stepperIds: { fontMinus: "plTextFontMinus", fontPlus: "plTextFontPlus",
+                  lineMinus: "plTextLineMinus", linePlus: "plTextLinePlus" },
     fillBody: function (bodyEl) {
       // Ganztext nur einmal formatieren (Werkwechsel setzt _plReadBookId
       // zurueck). Der Absatz-Klassifizierer ist teurer als ein join()

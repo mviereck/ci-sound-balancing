@@ -1699,30 +1699,6 @@
                  style="display:none;font-size:0.85em;color:var(--text-muted)"
                  data-t="plBookEmpty"></div>
 
-            <div id="plReadAlong" class="pl-textbox" style="display:none; margin-top:10px">
-              <div class="pl-textbox-head">
-                <div class="pl-textbox-head-l" id="plReadHeadL">
-                  <label class="pl-textbox-toggle">
-                    <input type="checkbox" id="plReadShowText" />
-                    <span data-t="plReadShowText"></span>
-                  </label>
-                  <span class="pl-textbox-steppers">
-                    <button class="btn" type="button" id="plReadFontMinus" data-tip="plTextFontSmaller">A-</button>
-                    <button class="btn" type="button" id="plReadFontPlus"  data-tip="plTextFontLarger">A+</button>
-                    <button class="btn" type="button" id="plReadLineMinus" data-tip="plTextLineTighter">&#8661;-</button>
-                    <button class="btn" type="button" id="plReadLinePlus"  data-tip="plTextLineLooser">&#8661;+</button>
-                  </span>
-                </div>
-                <div class="pl-textbox-head-r" id="plReadHeadR">
-                  <button class="btn" type="button" id="plReadFindBtn"><span data-t="plReadFind"></span></button>
-                  <label class="pl-textbox-toggle">
-                    <input type="checkbox" id="plReadAutoscroll" />
-                    <span data-t="plReadAutoscroll"></span>
-                  </label>
-                </div>
-              </div>
-              <div class="pl-textbox-body" id="plReadBody"></div>
-            </div>
           </div>
 
           <!-- Transport-Leiste -->
@@ -1803,23 +1779,29 @@
             <div id="plDispTitle" style="font-weight:600; margin-bottom:4px">
               <span data-t="plDispEmpty"></span>
             </div>
-            <div id="plSentTextBox" class="pl-textbox" style="display:none">
+            <div id="plTextBox" class="pl-textbox" style="display:none">
               <div class="pl-textbox-head">
-                <div class="pl-textbox-head-l" id="plSentTextHeadL">
+                <div class="pl-textbox-head-l" id="plTextHeadL">
                   <label class="pl-textbox-toggle">
-                    <input type="checkbox" id="plSentShowText" />
-                    <span data-t="sentShowText"></span>
+                    <input type="checkbox" id="plShowText" />
+                    <span data-t="plReadShowText"></span>
                   </label>
                   <span class="pl-textbox-steppers">
-                    <button class="btn" type="button" id="plSentFontMinus" data-tip="plTextFontSmaller">A&#8722;</button>
-                    <button class="btn" type="button" id="plSentFontPlus"  data-tip="plTextFontLarger">A+</button>
-                    <button class="btn" type="button" id="plSentLineMinus" data-tip="plTextLineTighter">&#8661;&#8722;</button>
-                    <button class="btn" type="button" id="plSentLinePlus"  data-tip="plTextLineLooser">&#8661;+</button>
+                    <button class="btn" type="button" id="plTextFontMinus" data-tip="plTextFontSmaller">A&#8722;</button>
+                    <button class="btn" type="button" id="plTextFontPlus"  data-tip="plTextFontLarger">A+</button>
+                    <button class="btn" type="button" id="plTextLineMinus" data-tip="plTextLineTighter">&#8661;&#8722;</button>
+                    <button class="btn" type="button" id="plTextLinePlus"  data-tip="plTextLineLooser">&#8661;+</button>
                   </span>
                 </div>
-                <div class="pl-textbox-head-r" id="plSentTextHeadR"></div>
+                <div class="pl-textbox-head-r" id="plTextHeadR">
+                  <button class="btn" type="button" id="plReadFindBtn" style="display:none"><span data-t="plReadFind"></span></button>
+                  <label class="pl-textbox-toggle" id="plReadAutoscrollWrap" style="display:none">
+                    <input type="checkbox" id="plReadAutoscroll" />
+                    <span data-t="plReadAutoscroll"></span>
+                  </label>
+                </div>
               </div>
-              <div class="pl-textbox-body" id="plSentText"></div>
+              <div class="pl-textbox-body" id="plReadBody"></div>
             </div>
             <div id="plDispMeta"
                  style="font-size:0.82em; color:var(--text-muted); margin-top:4px"></div>

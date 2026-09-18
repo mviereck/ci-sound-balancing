@@ -206,16 +206,10 @@ function sUpdateButtons() {
 }
 
 function sUpdateTextBox() {
-  const show = document.getElementById("plSentShowText");
-  const box  = document.getElementById("plSentTextBox");
-  const txt  = document.getElementById("plSentText");
-  if (!show || !box || !txt) return;
-  if (show.checked && sShownText) {
-    txt.textContent = sShownText;
-    box.style.display = "";
-  } else {
-    box.style.display = "none";
-  }
+  // Der Satz-Text wird ueber die zentrale Text-Begleitbox gezeichnet
+  // (plUpdDisplay -> plTextBoxRender mit fillReveal). Kein eigener
+  // Sichtbarkeits-Pfad mehr.
+  if (typeof plUpdDisplay === "function") plUpdDisplay();
 }
 
 // ============================================================
