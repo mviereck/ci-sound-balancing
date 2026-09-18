@@ -3842,13 +3842,14 @@ async function plBookLoadSelected() {
 
   // Gespeicherte Position ggf. wiederherstellen (überschreibt den
   // 0-Reset aus pSetPlaybackMode).
+  const sp = (typeof pSpeed === "number" && pSpeed > 0) ? pSpeed : 1;
   const pos = (plBookPositions && plBookPositions[plBookSelectedId]) || null;
   if (pos && typeof pos.chapterIdx === "number" && pos.chapterIdx === plBookChapterIdx
       && typeof pos.posSeconds === "number" && pos.posSeconds > 0
-      && pos.posSeconds < abuf.duration - 5) {
-    pOff = pos.posSeconds;
+      && pos.posSeconds < abuf.duration - 5) {          // Vergleich in Werk-Zeit
+    pOff = pos.posSeconds / sp;                          // reale Position
     document.getElementById("plCur").textContent = pFmt(pOff);
-    document.getElementById("plTL").value = (pOff / abuf.duration) * 1000;
+    document.getElementById("plTL").value = (pOff / (abuf.duration / sp)) * 1000;
   } else {
     pOff = 0;
   }
@@ -3865,10 +3866,11 @@ function plBookSavePosition() {
   const cur = (typeof pCtx !== "undefined" && pCtx && pPlaying)
     ? (pCtx.currentTime - pT0)
     : pOff;
+  const sp = (typeof pSpeed === "number" && pSpeed > 0) ? pSpeed : 1;
   var _rb = document.getElementById("plReadBody");
   plBookPositions[plBookSelectedId] = {
     chapterIdx: plBookChapterIdx,
-    posSeconds: Math.max(0, cur),
+    posSeconds: Math.max(0, cur * sp),   // Werk-Zeit (tempo-unabhaengig)
     readTop: _rb ? _rb.scrollTop : 0
   };
 }
@@ -4016,7 +4018,8 @@ function plReadAutoscrollStep() {
   // Rate = ganze Scrollhoehe / Gesamt-Audiodauer des Buchs (Pixel/s).
   // Pro Tick ist die Delta oft < 1 px; body.scrollTop verwirft Nachkommastellen.
   // Darum den Bruchteil in _plReadAutoAcc sammeln und nur ganze Pixel anwenden.
-  var ratePxPerSec = (body.scrollHeight - body.clientHeight) / total;
+  var sp = (typeof pSpeed === "number" && pSpeed > 0) ? pSpeed : 1;
+  var ratePxPerSec = ((body.scrollHeight - body.clientHeight) / total) * sp;
   _plReadAutoAcc += ratePxPerSec * dt;
   var whole = Math.floor(_plReadAutoAcc);
   if (whole >= 1) {
@@ -4091,11 +4094,14 @@ function _plReadElapsedSeconds(col) {
   }
   var inCh = 0;
   if (typeof pBuf !== "undefined" && pBuf) {
+    var sp = (typeof pSpeed === "number" && pSpeed > 0) ? pSpeed : 1;
     var c = (typeof pPlaying !== "undefined" && pPlaying && typeof pCtx !== "undefined" && pCtx)
       ? (pCtx.currentTime - pT0) : (typeof pOff !== "undefined" ? pOff : 0);
-    inCh = Math.max(0, Math.min(c, pBuf.duration));
+    var cWerk = c * sp;                       // reale -> Werk-Sekunde
+    var chWerk = pBuf.duration * sp;          // reale Kapiteldauer -> Werk
+    inCh = Math.max(0, Math.min(cWerk, chWerk));
   }
-  return before + inCh;
+  return before + inCh;   // alles in Werk-Zeit
 }
 
 // === Absatz-Klassifizierer fuer die Hoerbuch-Textbox =================
