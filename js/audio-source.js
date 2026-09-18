@@ -214,6 +214,24 @@ function _amLangVariant(code) {
   return i < 0 ? "" : s.substring(i + 1);
 }
 
+// Leitet aus einer Textquellen-URL (tags.url_text_source) den Domain-
+// Bucket fuer die Filter-Achse "Textquelle" ab. Robust gegen uneinheitliche
+// Formatierung: fehlendes/gross geschriebenes Schema, fehlendes "www.".
+// Alle *.wikisource.org werden zu einem Bucket "wikisource.org"
+// zusammengefasst; sonst gilt die nackte Domain. Kein Wert -> "".
+function _amTextSourceHost(url) {
+  if (!url) return "";
+  var u = String(url).trim().toLowerCase();
+  u = u.replace(/^https?:\/*/, "");   // Schema weg (auch "https:/..." / "Https://")
+  u = u.replace(/^www\./, "");        // www. weg
+  var host = u.split("/")[0];         // bis zum ersten "/"
+  if (!host) return "";
+  if (/\.wikisource\.org$/.test(host) || host === "wikisource.org") {
+    return "wikisource.org";          // Sprach-Subdomains zusammenfassen
+  }
+  return host;
+}
+
 // --- Sortier-Achsen ---
 // Pro Kategorie eine Liste. Ein Eintrag = eine Achse.
 const AM_SORT_AXES = {
@@ -406,10 +424,11 @@ const AM_SORT_AXES = {
       bucketLabel: function (v) { return (typeof t === "function") ? t("plBookLength_" + v) : v; }
     },
     {
-      key: "has_text", labelKey: "plBookAxisText", labelDefault: "Text",
-      getter: function (c) { return (c.tags && c.tags.has_text) ? "y" : "n"; },
-      valueOf: function (c) { return (c.tags && c.tags.has_text) ? "y" : "n"; },
-      bucketLabel: function (v) { return (typeof t === "function") ? t("plBookText_" + v) : v; }
+      key: "text_source", labelKey: "plBookAxisText", labelDefault: "Textquelle",
+      getter: function (c) { return _amTextSourceHost(c.tags && c.tags.url_text_source); },
+      valueOf: function (c) { return _amTextSourceHost(c.tags && c.tags.url_text_source); }
+      // Kein bucketLabel: amAxisBucketLabel faellt auf den Rohwert zurueck,
+      // d.h. die nackte Domain (gutenberg.org, archive.org, ...) ist das Label.
     }
   ]
 };
