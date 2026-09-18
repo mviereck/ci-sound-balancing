@@ -673,7 +673,7 @@
       "url": "https://librivox.org/paramythi-horis-onoma-by-penelope-delta/",
       "textUrl": "hoerbuch-texte/el/delta-penelope_-_tale-without-name-7208.txt.gz",
       "textRange": {
-        "start": 11,
+        "start": 9,
         "ende": 6938,
         "confidence": "low"
       },
@@ -1429,7 +1429,7 @@
       "url": "https://librivox.org/ecclesiazusae-by-aristophanes/",
       "textUrl": "hoerbuch-texte/el/aristophanes_-_ecclesiazusae-12114.txt.gz",
       "textRange": {
-        "start": 58,
+        "start": 56,
         "ende": 3218,
         "confidence": "low"
       },
@@ -4350,7 +4350,7 @@
       "url": "https://librivox.org/politia-3-by-plato/",
       "textUrl": "hoerbuch-texte/el/plato_-_x-19289.txt.gz",
       "textRange": {
-        "start": 96,
+        "start": 92,
         "ende": 2813,
         "confidence": "low"
       },
@@ -4500,7 +4500,7 @@
       "url": "https://librivox.org/politia-4-by-plato/",
       "textUrl": "hoerbuch-texte/el/plato_-_x-19427.txt.gz",
       "textRange": {
-        "start": 96,
+        "start": 92,
         "ende": 3529,
         "confidence": "low"
       },

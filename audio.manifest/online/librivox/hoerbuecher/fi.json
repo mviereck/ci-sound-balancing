@@ -119,7 +119,7 @@
       "url": "https://librivox.org/helsinkiin-by-juhani-aho/",
       "textUrl": "hoerbuch-texte/fi/aho-juhani_-_helsinkiin-492.txt.gz",
       "textRange": {
-        "start": 18,
+        "start": 15,
         "ende": 2988,
         "confidence": "low"
       },
@@ -215,7 +215,7 @@
       "url": "https://librivox.org/rautatie-by-juhani-aho/",
       "textUrl": "hoerbuch-texte/fi/aho-juhani_-_rautatie-691.txt.gz",
       "textRange": {
-        "start": 21,
+        "start": 18,
         "ende": 4312,
         "confidence": "low"
       },
@@ -329,7 +329,7 @@
       "url": "https://librivox.org/seitseman-veljesta-by-aleksis-kivi/",
       "textUrl": "hoerbuch-texte/fi/kivi-aleksis_-_seitsemaen-veljestae-1556.txt.gz",
       "textRange": {
-        "start": 23,
+        "start": 20,
         "ende": 13251,
         "confidence": "low"
       },
@@ -624,7 +624,7 @@
       "url": "https://librivox.org/vaihdokas-by-juho-reijonen/",
       "textUrl": "hoerbuch-texte/fi/reijonen-juho_-_vaihdokas-1947.txt.gz",
       "textRange": {
-        "start": 47,
+        "start": 42,
         "ende": 4075,
         "confidence": "low"
       },
@@ -765,7 +765,7 @@
       "url": "https://librivox.org/orjien-vapauttaminen-pohjois-amerikassa-by-alexandra-gripenberg/",
       "textUrl": "hoerbuch-texte/fi/gripenberg-alexandra_-_orjien-vapauttaminen-pohjois-amerikassa-2838.txt.gz",
       "textRange": {
-        "start": 48,
+        "start": 43,
         "ende": 1672,
         "confidence": "low"
       },
@@ -825,7 +825,7 @@
       "url": "https://librivox.org/juha-kirjoittanut-juhani-aho/",
       "textUrl": "hoerbuch-texte/fi/aho-juhani_-_juha-2973.txt.gz",
       "textRange": {
-        "start": 17,
+        "start": 15,
         "ende": 6309,
         "confidence": "low"
       },
@@ -1043,7 +1043,7 @@
       "url": "https://librivox.org/kaleri-orja-by-heinrich-zschokke/",
       "textUrl": "hoerbuch-texte/fi/zschokke-heinrich_-_kaleri-orja-6810.txt.gz",
       "textRange": {
-        "start": 57,
+        "start": 54,
         "ende": 1084,
         "confidence": "low"
       },
@@ -1124,7 +1124,7 @@
       "url": "https://librivox.org/laulu-tulipunaisesta-kukasta-by-johannes-linnankoski/",
       "textUrl": "hoerbuch-texte/fi/linnankoski-johannes_-_laulu-tulipunaisesta-kukasta-8379.txt.gz",
       "textRange": {
-        "start": 21,
+        "start": 18,
         "ende": 10037,
         "confidence": "low"
       },
@@ -1464,7 +1464,7 @@
       "url": "https://librivox.org/salmelan-heinaetalkoot-by-olli-wuorinen/",
       "textUrl": "hoerbuch-texte/fi/wuorinen-olli_-_salmelan-heinaetalkoot-10152.txt.gz",
       "textRange": {
-        "start": 45,
+        "start": 40,
         "ende": 2721,
         "confidence": "low"
       },
@@ -1578,7 +1578,7 @@
       "url": "https://librivox.org/ensimmaeiset-novellit-by-juhani-aho/",
       "textUrl": "hoerbuch-texte/fi/aho-juhani_-_ensimmaeiset-novellit-10973.txt.gz",
       "textRange": {
-        "start": 39,
+        "start": 37,
         "ende": 2609,
         "confidence": "low"
       },
@@ -1681,7 +1681,7 @@
       "url": "https://librivox.org/gulliverin-matkat-kaukaisilla-mailla-by-jonathan-swift/",
       "textUrl": "hoerbuch-texte/fi/swift-jonathan_-_gulliverin-matkat-kaukaisilla-mailla-11149.txt.gz",
       "textRange": {
-        "start": 51,
+        "start": 49,
         "ende": 3828,
         "confidence": "low"
       },
@@ -1878,7 +1878,7 @@
       "url": "https://librivox.org/ruhtinas-by-niccolo-machiavelli/",
       "textUrl": "hoerbuch-texte/fi/machiavelli-niccolo_-_ruhtinas-12003.txt.gz",
       "textRange": {
-        "start": 28,
+        "start": 27,
         "ende": 3828,
         "confidence": "low"
       },
@@ -2247,7 +2247,7 @@
       "url": "https://librivox.org/nuoren-wertherin-kaersimykset-by-johann-wolfgang-von-goethe/",
       "textUrl": "hoerbuch-texte/fi/goethe-johann-wolfgang-von_-_nuoren-wertherin-kaersimykset-12172.txt.gz",
       "textRange": {
-        "start": 24,
+        "start": 17,
         "ende": 4528,
         "confidence": "low"
       },
@@ -2409,7 +2409,7 @@
       "url": "https://librivox.org/merirosvo-by-frederick-marryat/",
       "textUrl": "hoerbuch-texte/fi/marryat-frederick_-_merirosvo-13064.txt.gz",
       "textRange": {
-        "start": 48,
+        "start": 45,
         "ende": 6125,
         "confidence": "low"
       },
@@ -2615,7 +2615,7 @@
       "url": "https://librivox.org/satuja-ja-tarinoita-i-by-hans-christian-andersen/",
       "textUrl": "hoerbuch-texte/fi/andersen-hans-christian_-_satuja-ja-tarinoita-i-18086.txt.gz",
       "textRange": {
-        "start": 42,
+        "start": 39,
         "ende": 5090,
         "confidence": "low"
       },

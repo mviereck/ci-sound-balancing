@@ -165,7 +165,7 @@
       "url": "https://librivox.org/la-aventuroj-de-alicio-en-mirlando-by-lewis-carroll/",
       "textUrl": "hoerbuch-texte/eo/carroll-lewis_-_aventuroj-de-alicio-en-mirlando-2381.txt.gz",
       "textRange": {
-        "start": 49,
+        "start": 46,
         "ende": 3990,
         "confidence": "low"
       },
@@ -992,7 +992,7 @@
       "url": "https://librivox.org/fabeloj-by-hans-christian-andersen/",
       "textUrl": "hoerbuch-texte/eo/andersen-hans-christian_-_fabeloj-9070.txt.gz",
       "textRange": {
-        "start": 43,
+        "start": 41,
         "ende": 1266,
         "confidence": "low"
       },
@@ -1090,7 +1090,7 @@
       "url": "https://librivox.org/la-mirinda-sorcisto-de-oz-by-l-frank-baum/",
       "textUrl": "hoerbuch-texte/eo/baum-l-frank_-_mirinda-sor-isto-de-oz-19077.txt.gz",
       "textRange": {
-        "start": 54,
+        "start": 53,
         "ende": 4678,
         "confidence": "low"
       },
@@ -1359,7 +1359,7 @@
       "url": "https://librivox.org/vojago-interne-de-mia-cambro-by-xavier-de-maistre/",
       "textUrl": "hoerbuch-texte/eo/maistre-xavier-de_-_voja-o-interne-de-mia-ambro-19628.txt.gz",
       "textRange": {
-        "start": 59,
+        "start": 57,
         "ende": 2182,
         "confidence": "low"
       },

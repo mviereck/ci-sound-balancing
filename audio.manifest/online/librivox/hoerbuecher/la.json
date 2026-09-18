@@ -17,7 +17,7 @@
       "url": "https://librivox.org/eclogae-by-publius-vergilius-maro/",
       "textUrl": "hoerbuch-texte/la/virgil_-_eclogae-dramatic-reading-135.txt.gz",
       "textRange": {
-        "start": 42,
+        "start": 41,
         "ende": 1023,
         "confidence": "low"
       },
@@ -1483,7 +1483,7 @@
       "url": "https://librivox.org/confessionum-libri-tredecim-by-saint-augustine-of-hippo/",
       "textUrl": "hoerbuch-texte/la/augustine-of-hippo-saint_-_confessionum-libri-tredecim-7528.txt.gz",
       "textRange": {
-        "start": 39,
+        "start": 37,
         "ende": 17185,
         "confidence": "low"
       },

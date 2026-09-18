@@ -352,7 +352,7 @@
       "url": "https://librivox.org/die-leiden-des-jungen-werthers-by-johann-wolfgang-von-goethe/",
       "textUrl": "hoerbuch-texte/de/goethe-johann-wolfgang-von_-_leiden-des-jungen-werther-182.txt.gz",
       "textRange": {
-        "start": 305,
+        "start": 303,
         "ende": 2204,
         "confidence": "low"
       },
@@ -1833,7 +1833,7 @@
       "url": "https://librivox.org/heidi-kann-brauchen-was-es-gelernt-hat-by-johanna-spyri/",
       "textUrl": "hoerbuch-texte/de/spyri-johanna_-_heidi-kann-brauchen-was-es-gelernt-hat-1692.txt.gz",
       "textRange": {
-        "start": 88,
+        "start": 86,
         "ende": 4398,
         "confidence": "low"
       },
@@ -2228,7 +2228,7 @@
       "url": "https://librivox.org/bulemanns-haus-by-theodor-storm/",
       "textUrl": "hoerbuch-texte/de/storm-theodor_-_bulemanns-haus-1882.txt.gz",
       "textRange": {
-        "start": 74,
+        "start": 70,
         "ende": 832,
         "confidence": "low"
       },
@@ -2462,7 +2462,7 @@
       "url": "https://librivox.org/das-maerchen-von-dem-myrtenfraeulein-by-clemens-brentano/",
       "textUrl": "hoerbuch-texte/de/brentano-clemens_-_maerchen-von-dem-myrtenfraeulein-2081.txt.gz",
       "textRange": {
-        "start": 291,
+        "start": 286,
         "ende": 739,
         "confidence": "low"
       },
@@ -3794,7 +3794,7 @@
       "url": "https://librivox.org/nachtstuecke-by-eta-hoffmann/",
       "textUrl": "hoerbuch-texte/de/hoffmann-e-t-a_-_nachtstuecke-2188.txt.gz",
       "textRange": {
-        "start": 82,
+        "start": 80,
         "ende": 10842,
         "confidence": "low"
       },
@@ -5380,7 +5380,7 @@
       "url": "https://librivox.org/romische-geschichte-buch-4-by-theodor-mommsen/",
       "textUrl": "hoerbuch-texte/de/mommsen-theodor_-_roemische-geschichte-buch-4-2273.txt.gz",
       "textRange": {
-        "start": 295,
+        "start": 293,
         "ende": 17921,
         "confidence": "low"
       },
@@ -8863,7 +8863,7 @@
       "url": "https://librivox.org/reineke-fuchs-by-johann-wolfgang-von-goethe/",
       "textUrl": "hoerbuch-texte/de/goethe-johann-wolfgang-von_-_reineke-fuchs-2720.txt.gz",
       "textRange": {
-        "start": 86,
+        "start": 84,
         "ende": 4759,
         "confidence": "low"
       },
@@ -9341,7 +9341,7 @@
       "url": "https://librivox.org/menschen-im-krieg-by-andreas-latzko/",
       "textUrl": "hoerbuch-texte/de/latzko-andreas_-_menschen-im-krieg-2866.txt.gz",
       "textRange": {
-        "start": 94,
+        "start": 91,
         "ende": 4053,
         "confidence": "low"
       },
@@ -9446,7 +9446,7 @@
       "url": "https://librivox.org/aquis-submersus-by-theodor-storm/",
       "textUrl": "hoerbuch-texte/de/storm-theodor_-_aquis-submersus-2872.txt.gz",
       "textRange": {
-        "start": 38,
+        "start": 33,
         "ende": 2822,
         "confidence": "low"
       },
@@ -9716,7 +9716,7 @@
       "url": "https://librivox.org/novelle-by-johann-wolfgang-von-goethe/",
       "textUrl": "hoerbuch-texte/de/goethe-johann-wolfgang-von_-_novelle-2975.txt.gz",
       "textRange": {
-        "start": 299,
+        "start": 296,
         "ende": 1316,
         "confidence": "low"
       },
@@ -10587,7 +10587,7 @@
       "url": "https://librivox.org/menschen-der-ehe-by-john-henry-mackay/",
       "textUrl": "hoerbuch-texte/de/mackay-john-henry_-_menschen-der-ehe-3107.txt.gz",
       "textRange": {
-        "start": 17,
+        "start": 9,
         "ende": 2266,
         "confidence": "low"
       },
@@ -11446,7 +11446,7 @@
       "url": "https://librivox.org/briefe-aus-dem-gefangnis-by-rosa-luxemburg/",
       "textUrl": "hoerbuch-texte/de/luxemburg-rosa_-_briefe-aus-dem-gefaengnis-3431.txt.gz",
       "textRange": {
-        "start": 96,
+        "start": 93,
         "ende": 1631,
         "confidence": "low"
       },
@@ -12483,7 +12483,7 @@
       "url": "https://librivox.org/hermann-und-dorothea-by-johann-wolfgang-von-goethe/",
       "textUrl": "hoerbuch-texte/de/goethe-johann-wolfgang-von_-_hermann-und-dorothea-3732.txt.gz",
       "textRange": {
-        "start": 60,
+        "start": 57,
         "ende": 2273,
         "confidence": "low"
       },
@@ -13090,7 +13090,7 @@
       "url": "https://librivox.org/der-weihnachtsabend-eine-geistergeschichte-by-charles-dickens/",
       "textUrl": "hoerbuch-texte/de/dickens-charles_-_weihnachtsabend-eine-geistergeschichte-4821.txt.gz",
       "textRange": {
-        "start": 79,
+        "start": 76,
         "ende": 3559,
         "confidence": "low"
       },
@@ -13305,7 +13305,7 @@
       "url": "https://librivox.org/der-mann-im-nebel-by-gustav-falke/",
       "textUrl": "hoerbuch-texte/de/falke-gustav_-_mann-im-nebel-5102.txt.gz",
       "textRange": {
-        "start": 36,
+        "start": 34,
         "ende": 6646,
         "confidence": "low"
       },
@@ -13837,7 +13837,7 @@
       "url": "https://librivox.org/unterm-birnbaum-by-theodor-fontane/",
       "textUrl": "hoerbuch-texte/de/fontane-theodor_-_unterm-birnbaum-5256.txt.gz",
       "textRange": {
-        "start": 58,
+        "start": 55,
         "ende": 4411,
         "confidence": "low"
       },
@@ -14279,7 +14279,7 @@
       "url": "https://librivox.org/der-schuss-von-der-kanzel-by-conrad-ferdinand-meyer/",
       "textUrl": "hoerbuch-texte/de/meyer-conrad-ferdinand_-_schuss-von-der-kanzel-5725.txt.gz",
       "textRange": {
-        "start": 53,
+        "start": 50,
         "ende": 2018,
         "confidence": "low"
       },
@@ -14346,7 +14346,7 @@
       "url": "https://librivox.org/die-abenteuer-tom-sawyers-by-mark-twain/",
       "textUrl": "hoerbuch-texte/de/twain-mark_-_abenteuer-tom-sawyers-5756.txt.gz",
       "textRange": {
-        "start": 25,
+        "start": 23,
         "ende": 8438,
         "confidence": "low"
       },
@@ -14544,7 +14544,7 @@
       "url": "https://librivox.org/aladdin-und-die-wunderlampe-by-ludwig-fulda/",
       "textUrl": "hoerbuch-texte/de/fulda-ludwig_-_aladdin-und-die-wunderlampe-5915.txt.gz",
       "textRange": {
-        "start": 88,
+        "start": 86,
         "ende": 3568,
         "confidence": "low"
       },
@@ -15299,7 +15299,7 @@
       "url": "https://librivox.org/der-arme-spielmann-by-franz-grillparzer/",
       "textUrl": "hoerbuch-texte/de/grillparzer-franz_-_arme-spielmann-6535.txt.gz",
       "textRange": {
-        "start": 68,
+        "start": 65,
         "ende": 1572,
         "confidence": "low"
       },
@@ -15532,7 +15532,7 @@
       "url": "https://librivox.org/kasperle-auf-reisen-by-josephine-siebe/",
       "textUrl": "hoerbuch-texte/de/siebe-josephine_-_kasperle-auf-reisen-6849.txt.gz",
       "textRange": {
-        "start": 88,
+        "start": 86,
         "ende": 4692,
         "confidence": "low"
       },
@@ -16156,7 +16156,7 @@
       "url": "https://librivox.org/das-madchen-vom-moorhof-by-selma-lagerlof/",
       "textUrl": "hoerbuch-texte/de/lagerloef-selma_-_maedchen-vom-moorhof-6942.txt.gz",
       "textRange": {
-        "start": 72,
+        "start": 71,
         "ende": 8838,
         "confidence": "low"
       },
@@ -17124,7 +17124,7 @@
       "url": "https://librivox.org/effi-briest-version-2-by-theodor-fontane/",
       "textUrl": "hoerbuch-texte/de/fontane-theodor_-_effi-briest-version-2-7809.txt.gz",
       "textRange": {
-        "start": 45,
+        "start": 43,
         "ende": 11470,
         "confidence": "low"
       },
@@ -18031,7 +18031,7 @@
       "url": "https://librivox.org/ferien-vom-ich-by-paul-keller/",
       "textUrl": "hoerbuch-texte/de/keller-paul_-_ferien-vom-ich-8192.txt.gz",
       "textRange": {
-        "start": 113,
+        "start": 110,
         "ende": 10800,
         "confidence": "low"
       },
@@ -18532,7 +18532,7 @@
       "url": "https://librivox.org/mein-weg-als-deutscher-und-jude-by-jakob-wassermann/",
       "textUrl": "hoerbuch-texte/de/wassermann-jakob_-_mein-weg-als-deutscher-und-jude-8321.txt.gz",
       "textRange": {
-        "start": 68,
+        "start": 64,
         "ende": 4032,
         "confidence": "low"
       },
@@ -18637,7 +18637,7 @@
       "url": "https://librivox.org/brennendes-geheimnis-by-stefan-zweig/",
       "textUrl": "hoerbuch-texte/de/zweig-stefan_-_brennendes-geheimnis-8359.txt.gz",
       "textRange": {
-        "start": 58,
+        "start": 55,
         "ende": 2572,
         "confidence": "low"
       },
@@ -20118,7 +20118,7 @@
       "url": "https://librivox.org/herr-und-knecht-by-leo-tolstoy/",
       "textUrl": "hoerbuch-texte/de/tolstoy-leo_-_herr-und-knecht-8857.txt.gz",
       "textRange": {
-        "start": 67,
+        "start": 64,
         "ende": 2466,
         "confidence": "low"
       },
@@ -20528,7 +20528,7 @@
       "url": "https://librivox.org/kloster-sendomir-by-franz-grillparzer/",
       "textUrl": "hoerbuch-texte/de/grillparzer-franz_-_kloster-bei-sendomir-9082.txt.gz",
       "textRange": {
-        "start": 78,
+        "start": 75,
         "ende": 1083,
         "confidence": "low"
       },
@@ -20667,7 +20667,7 @@
       "url": "https://librivox.org/die-stadt-ohne-juden-by-hugo-bettauer/",
       "textUrl": "hoerbuch-texte/de/bettauer-hugo_-_stadt-ohne-juden-9199.txt.gz",
       "textRange": {
-        "start": 77,
+        "start": 74,
         "ende": 3847,
         "confidence": "low"
       },
@@ -21051,7 +21051,7 @@
       "url": "https://librivox.org/der-weihnachtsabend-eine-geistergeschichte-version-2-by-charles-dickens/",
       "textUrl": "hoerbuch-texte/de/dickens-charles_-_weihnachtsabend-eine-geistergeschichte-version-2-9327.txt.gz",
       "textRange": {
-        "start": 79,
+        "start": 76,
         "ende": 3559,
         "confidence": "low"
       },
@@ -22832,7 +22832,7 @@
       "url": "https://librivox.org/backfischchens-leiden-und-freuden-by-clementine-helm/",
       "textUrl": "hoerbuch-texte/de/helm-clementine_-_backfischchen-s-leiden-und-freuden-9598.txt.gz",
       "textRange": {
-        "start": 33,
+        "start": 32,
         "ende": 7442,
         "confidence": "low"
       },
@@ -25021,7 +25021,7 @@
       "url": "https://librivox.org/frau-bovary-by-gustave-flaubert/",
       "textUrl": "hoerbuch-texte/de/flaubert-gustave_-_frau-bovary-10524.txt.gz",
       "textRange": {
-        "start": 50,
+        "start": 47,
         "ende": 16001,
         "confidence": "low"
       },
@@ -27249,7 +27249,7 @@
       "url": "https://librivox.org/benno-stehkragen-by-karl-ettlinger/",
       "textUrl": "hoerbuch-texte/de/ettlinger-karl_-_benno-stehkragen-12510.txt.gz",
       "textRange": {
-        "start": 45,
+        "start": 41,
         "ende": 5129,
         "confidence": "low"
       },
@@ -31557,7 +31557,7 @@
       "url": "https://librivox.org/taten-des-grossen-alexander-by-michail-alexejewitsch-kusmin/",
       "textUrl": "hoerbuch-texte/de/kusmin-michail-alexejewitsch_-_taten-des-grossen-alexander-17932.txt.gz",
       "textRange": {
-        "start": 29,
+        "start": 28,
         "ende": 1623,
         "confidence": "low"
       },
@@ -32271,7 +32271,7 @@
       "url": "https://librivox.org/der-rote-stern-by-alexander-aleksandrovich-bogdanov/",
       "textUrl": "hoerbuch-texte/de/bogdanov-alexander-aleksandrovich_-_rote-stern-18114.txt.gz",
       "textRange": {
-        "start": 26,
+        "start": 23,
         "ende": 6167,
         "confidence": "low"
       },
@@ -35707,7 +35707,7 @@
       "url": "https://librivox.org/das-leben-der-bienen-by-maurice-maeterlinck/",
       "textUrl": "hoerbuch-texte/de/maeterlinck-maurice_-_leben-der-bienen-20230.txt.gz",
       "textRange": {
-        "start": 37,
+        "start": 34,
         "ende": 6059,
         "confidence": "low"
       },
@@ -37198,7 +37198,7 @@
       "url": "https://librivox.org/herrn-mahlhubers-reiseabenteuer-by-friedrich-gerstaecker/",
       "textUrl": "hoerbuch-texte/de/gerstaecker-friedrich_-_herrn-mahlhubers-reiseabenteuer-20482.txt.gz",
       "textRange": {
-        "start": 69,
+        "start": 68,
         "ende": 4682,
         "confidence": "low"
       },
@@ -37430,7 +37430,7 @@
       "url": "https://librivox.org/zum-wilden-mann-novelle-von-wilhelm-raabe-1830-1910-loa-by-wilhelm-raabe/",
       "textUrl": "hoerbuch-texte/de/raabe-wilhelm_-_zum-wilden-mann-20517.txt.gz",
       "textRange": {
-        "start": 52,
+        "start": 49,
         "ende": 3459,
         "confidence": "low"
       },

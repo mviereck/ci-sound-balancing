@@ -732,7 +732,7 @@
       "url": "https://librivox.org/la-contessa-di-karolystria-by-antonio-ghislanzoni/",
       "textUrl": "hoerbuch-texte/it/ghislanzoni-antonio_-_contessa-di-karolystria-1245.txt.gz",
       "textRange": {
-        "start": 64,
+        "start": 61,
         "ende": 2612,
         "confidence": "low"
       },
@@ -3517,7 +3517,7 @@
       "url": "https://librivox.org/ricordi-di-parigi-by-edmondo-de-amicis/",
       "textUrl": "hoerbuch-texte/it/amicis-edmondo-de_-_ricordi-di-parigi-1577.txt.gz",
       "textRange": {
-        "start": 47,
+        "start": 45,
         "ende": 5307,
         "confidence": "low"
       },
@@ -5386,7 +5386,7 @@
       "url": "https://librivox.org/galatea-by-anton-giulio-barrili/",
       "textUrl": "hoerbuch-texte/it/barrili-anton-giulio_-_galatea-3311.txt.gz",
       "textRange": {
-        "start": 54,
+        "start": 53,
         "ende": 7529,
         "confidence": "low"
       },
@@ -5608,7 +5608,7 @@
       "url": "https://librivox.org/mattinate-napoletane-by-salvatore-di-giacomo/",
       "textUrl": "hoerbuch-texte/it/giacomo-salvatore-di_-_mattinate-napoletane-3594.txt.gz",
       "textRange": {
-        "start": 105,
+        "start": 99,
         "ende": 3284,
         "confidence": "low"
       },
@@ -5785,7 +5785,7 @@
       "url": "https://librivox.org/ritratto-del-diavolo-il-by-anton-giulio-barrili/",
       "textUrl": "hoerbuch-texte/it/barrili-anton-giulio_-_ritratto-del-diavolo-3627.txt.gz",
       "textRange": {
-        "start": 54,
+        "start": 48,
         "ende": 8118,
         "confidence": "low"
       },
@@ -9692,7 +9692,7 @@
       "url": "https://librivox.org/la-divina-commedia-il-purgatorio-by-dante-alighieri/",
       "textUrl": "hoerbuch-texte/it/alighieri-dante_-_divina-commedia-il-purgatorio-5600.txt.gz",
       "textRange": {
-        "start": 142,
+        "start": 140,
         "ende": 19611,
         "confidence": "low"
       },
@@ -10441,7 +10441,7 @@
       "url": "https://librivox.org/la-divina-commedia-linferno-by-dante-alighieri/",
       "textUrl": "hoerbuch-texte/it/alighieri-dante_-_divina-commedia-l-inferno-5947.txt.gz",
       "textRange": {
-        "start": 142,
+        "start": 140,
         "ende": 19611,
         "confidence": "low"
       },
@@ -13053,7 +13053,7 @@
       "url": "https://librivox.org/le-avventure-dalice-nel-paese-delle-meraviglie-by-lewis-carroll/",
       "textUrl": "hoerbuch-texte/it/carroll-lewis_-_avventure-d-alice-nel-paese-delle-meraviglie-8906.txt.gz",
       "textRange": {
-        "start": 186,
+        "start": 183,
         "ende": 3626,
         "confidence": "low"
       },
@@ -14766,7 +14766,7 @@
       "url": "https://librivox.org/l-undecimo-comandamento-by-anton-giulio-barrili/",
       "textUrl": "hoerbuch-texte/it/barrili-anton-giulio_-_undecimo-comandamento-10415.txt.gz",
       "textRange": {
-        "start": 88,
+        "start": 86,
         "ende": 9068,
         "confidence": "low"
       },
@@ -17076,7 +17076,7 @@
       "url": "https://librivox.org/il-fantasma-di-canterville-e-il-delitto-di-lord-savile-by-oscar-wilde/",
       "textUrl": "hoerbuch-texte/it/wilde-oscar_-_il-fantasma-di-canterville-e-il-delitto-di-lord-savile-15932.txt.gz",
       "textRange": {
-        "start": 29,
+        "start": 27,
         "ende": 3274,
         "confidence": "low"
       },
@@ -19232,7 +19232,7 @@
       "url": "https://librivox.org/orlando-furioso-canti-01-04-by-ludovico-ariosto/",
       "textUrl": "hoerbuch-texte/it/ariosto-ludovico_-_orlando-furioso-canti-01-04-17087.txt.gz",
       "textRange": {
-        "start": 105,
+        "start": 103,
         "ende": 53578,
         "confidence": "low"
       },
@@ -19357,7 +19357,7 @@
       "url": "https://librivox.org/orlando-furioso-canti-05-12-by-ludovico-ariosto/",
       "textUrl": "hoerbuch-texte/it/ariosto-ludovico_-_orlando-furioso-canti-05-12-17772.txt.gz",
       "textRange": {
-        "start": 105,
+        "start": 103,
         "ende": 53578,
         "confidence": "low"
       },
@@ -20111,7 +20111,7 @@
       "url": "https://librivox.org/orlando-furioso-canti-13-20-by-ludovico-ariosto/",
       "textUrl": "hoerbuch-texte/it/ariosto-ludovico_-_orlando-furioso-canti-13-20-19884.txt.gz",
       "textRange": {
-        "start": 105,
+        "start": 103,
         "ende": 53578,
         "confidence": "low"
       },

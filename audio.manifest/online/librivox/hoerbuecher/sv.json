@@ -796,7 +796,7 @@
       "url": "https://librivox.org/goteborgsflickor-by-sigge-stromberg/",
       "textUrl": "hoerbuch-texte/sv/stroemberg-sigge_-_goeteborgsflickor-4327.txt.gz",
       "textRange": {
-        "start": 88,
+        "start": 85,
         "ende": 3154,
         "confidence": "low"
       },
@@ -1917,7 +1917,7 @@
       "url": "https://librivox.org/baron-olson-och-andra-historier-by-sigge-stroemberg/",
       "textUrl": "hoerbuch-texte/sv/stroemberg-sigge_-_baron-olson-och-andra-historier-7655.txt.gz",
       "textRange": {
-        "start": 81,
+        "start": 78,
         "ende": 4742,
         "confidence": "low"
       },
@@ -2121,7 +2121,7 @@
       "url": "https://librivox.org/valda-beraettelser-by-selma-lagerloef/",
       "textUrl": "hoerbuch-texte/sv/lagerloef-selma_-_valda-beraettelser-17645.txt.gz",
       "textRange": {
-        "start": 60,
+        "start": 57,
         "ende": 8722,
         "confidence": "low"
       },
