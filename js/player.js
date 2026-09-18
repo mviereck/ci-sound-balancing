@@ -2496,9 +2496,10 @@ document.querySelectorAll(".pl-vol-btn").forEach(function (b) {
 // ============================================================
 
 function plUpdSpeedBtns() {
+  const _sp = (typeof pSpeed === "number") ? pSpeed : 1;
   document.querySelectorAll(".pl-speed-btn").forEach(function (b) {
     const v = parseFloat(b.dataset.speed);
-    const active = (Math.abs(v - pSpeed) < 1e-6);
+    const active = (Math.abs(v - _sp) < 1e-6);
     b.classList.toggle("active", active);
     b.style.background = active ? "var(--accent, #6aa84f)" : "";
     b.style.color      = active ? "#fff" : "";
