@@ -2382,7 +2382,7 @@ function plUpdDisplay() {
     plTextBoxRender({
       wrapId: "plTextBox", bodyId: "plReadBody",
       visible: showTextToggle,
-      reveal: { on: !!plShowText, toggleCbId: "plShowText" },
+      reveal: { on: !!plShowText, toggleCbId: "plShowTextCb" },
       stepperIds: { fontMinus: "plTextFontMinus", fontPlus: "plTextFontPlus",
                     lineMinus: "plTextLineMinus", linePlus: "plTextLinePlus" },
       fillBody: function (bodyEl) {
@@ -4199,7 +4199,7 @@ function plReadRender() {
     wrapId: "plTextBox", headLeftId: "plTextHeadL", headRightId: "plTextHeadR",
     bodyId: "plReadBody",
     visible: !!visible,
-    reveal: { on: !!plShowText, toggleCbId: "plShowText" },
+    reveal: { on: !!plShowText, toggleCbId: "plShowTextCb" },
     stepperIds: { fontMinus: "plTextFontMinus", fontPlus: "plTextFontPlus",
                   lineMinus: "plTextLineMinus", linePlus: "plTextLinePlus" },
     fillBody: function (bodyEl) {
