@@ -1164,29 +1164,24 @@ function pWarpUpdUI() {
     if (!pWarpBusy) busyTip.style.display = "none";
   }
 
-  // Fortschrittsbalken im Transport-Bereich
-  const progressRow = document.getElementById("plWarpProgressRow");
-  const progressBar = document.getElementById("plWarpProgressBar");
-  const progressPct = document.getElementById("plWarpProgressPct");
-  if (progressRow) {
-    if (pWarpBusy) {
-      progressRow.style.display = "flex";
-      // BA590: Balken-Label je nach laufender Berechnung (Warp vs. Tempo).
-      const progressLabel = document.getElementById("plWarpProgressLabel");
-      if (progressLabel) {
-        progressLabel.textContent = (pWarpBusyKind === "speed")
-          ? t("pwSpeedProgressLabel")
-          : t("pwProgressLabel");
-      }
-      const pct = Math.round(pWarpProgress * 100);
-      if (progressBar) progressBar.style.width = pct + "%";
-      if (progressPct) progressPct.textContent = pct + " %";
-    } else {
-      progressRow.style.display = "none";
-      if (progressBar) progressBar.style.width = "0%";
-      if (progressPct) progressPct.textContent = "";
+  // Fortschrittsbalken — einheitliche Fortschrittszeile (BA592)
+  const progressBar = document.getElementById("plProgressComputeBar");
+  const progressPct = document.getElementById("plProgressComputePct");
+  if (pWarpBusy) {
+    const progressLabel = document.getElementById("plProgressComputeLabel");
+    if (progressLabel) {
+      progressLabel.textContent = (pWarpBusyKind === "speed")
+        ? t("pwSpeedProgressLabel")
+        : t("pwProgressLabel");
     }
+    const pct = Math.round(pWarpProgress * 100);
+    if (progressBar) progressBar.style.width = pct + "%";
+    if (progressPct) progressPct.textContent = pct + " %";
+  } else {
+    if (progressBar) progressBar.style.width = "0%";
+    if (progressPct) progressPct.textContent = "";
   }
+  if (typeof plUpdProgressRow === "function") plUpdProgressRow();
   if (typeof plUpdWarpLock === "function") plUpdWarpLock();
 }
 

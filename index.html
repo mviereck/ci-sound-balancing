@@ -1748,29 +1748,45 @@
               <span data-t="plAutoAdvLabel"></span>
             </button>
 
-            <div style="flex:1; display:flex; flex-direction:column; gap:3px; min-width:160px">
+          </div>
+
+          <!-- Einheitliche Fortschrittszeile: 3 Modi (play / compute / download) -->
+          <div id="plProgressRow" style="margin-bottom:6px">
+
+            <!-- Modus "play": Scrubber + Zeitanzeige (sichtbar wenn kein Vorgang läuft) -->
+            <div id="plProgressPlay" style="display:flex; flex-direction:column; gap:3px">
               <input type="range" id="plTL" min="0" max="1000" value="0" step="1" style="width:100%" />
               <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:0.78em; color:var(--text-muted)">
                 <span id="plCur">0:00</span><span id="plTot">0:00</span>
               </div>
             </div>
 
-            <span style="font-family:var(--mono); font-size:0.72em; color:var(--text-muted); background:var(--bg); padding:2px 6px; border-radius:4px">Mono</span>
-          </div>
-
-          <!-- Warp-Fortschrittsbalken (nur während Berechnung sichtbar) -->
-          <div id="plWarpProgressRow"
-               style="display:none; align-items:center; gap:8px; margin-bottom:6px; flex-wrap:wrap">
-            <span id="plWarpProgressLabel" style="font-size:0.82em; color:var(--text-muted)" data-t="pwProgressLabel"></span>
-            <div style="flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden">
-              <div id="plWarpProgressBar"
-                   style="height:100%; width:0%; background:var(--success); transition:width 0.25s ease"></div>
+            <!-- Modus "compute": Warp- oder Tempo-Berechnung -->
+            <div id="plProgressCompute" style="display:none; align-items:center; gap:8px; flex-wrap:wrap">
+              <span id="plProgressComputeLabel" style="font-size:0.82em; color:var(--text-muted)" data-t="pwProgressLabel"></span>
+              <div style="flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden">
+                <div id="plProgressComputeBar"
+                     style="height:100%; width:0%; background:var(--success); transition:width 0.25s ease"></div>
+              </div>
+              <span id="plProgressComputePct"
+                    style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
+              <button type="button" class="btn btn-sm" id="plComputeStopBtn"
+                      data-t="plWarpStopBtn"
+                      style="background:#c00;color:#fff;border-color:#900;font-size:0.82em"></button>
             </div>
-            <span id="plWarpProgressPct"
-                  style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
-            <button type="button" class="btn btn-sm" id="plWarpStopBtn"
-                    data-t="plWarpStopBtn"
-                    style="background:#c00;color:#fff;border-color:#900;font-size:0.82em"></button>
+
+            <!-- Modus "download": indizierter Pulsbalken -->
+            <div id="plProgressDownload" style="display:none; align-items:center; gap:8px; flex-wrap:wrap">
+              <span style="font-size:0.82em; color:var(--text-muted)" data-t="plDownloadProgressLabel"></span>
+              <div style="flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden">
+                <div id="plProgressDownloadBar"
+                     style="height:100%; background:var(--success)"></div>
+              </div>
+              <button type="button" class="btn btn-sm" id="plDownloadStopBtn"
+                      data-t="plDownloadStopBtn"
+                      style="background:#c00;color:#fff;border-color:#900;font-size:0.82em"></button>
+            </div>
+
           </div>
 
           <!-- Anzeige-Block -->

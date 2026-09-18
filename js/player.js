@@ -34,6 +34,8 @@ let pPlayWish = false;   // SW (BA378): gemerkter Play-Wunsch. true = Nutzer
                          // will spielen, Wiedergabe startet sobald Gate offen.
                          // Einzige Schreibstellen: _pSetPlayWish().
 
+let pDownloadBusy = false;
+
 let _plLoadPending = null;   // Token (Objekt) des laufenden Ladevorgangs, sonst
                              // null. Truthy solange geladen wird. Play-Klick
                              // während des Ladens startet dann KEINEN zweiten
@@ -1522,6 +1524,37 @@ function plUpdWarpLock() {
     } else {
       hint.style.display = "none";
     }
+  }
+}
+
+function pOnDownloadStart() {
+  pDownloadBusy = true;
+  if (typeof plUpdProgressRow === "function") plUpdProgressRow();
+}
+
+function pOnDownloadEnd() {
+  pDownloadBusy = false;
+  if (typeof plUpdProgressRow === "function") plUpdProgressRow();
+}
+
+function plUpdProgressRow() {
+  const elPlay     = document.getElementById("plProgressPlay");
+  const elCompute  = document.getElementById("plProgressCompute");
+  const elDownload = document.getElementById("plProgressDownload");
+  if (!elPlay) return;
+
+  if (typeof pWarpBusy !== "undefined" && pWarpBusy) {
+    elPlay.style.display     = "none";
+    elCompute.style.display  = "flex";
+    elDownload.style.display = "none";
+  } else if (pDownloadBusy) {
+    elPlay.style.display     = "none";
+    elCompute.style.display  = "none";
+    elDownload.style.display = "flex";
+  } else {
+    elPlay.style.display     = "flex";
+    elCompute.style.display  = "none";
+    elDownload.style.display = "none";
   }
 }
 

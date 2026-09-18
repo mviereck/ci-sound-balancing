@@ -1338,6 +1338,8 @@ Object.assign(L.de, {
     plWarpOverlapHint: "Messfehler, bitte unter Messergebnisse nachsehen.",
     pwProgressLabel: "Berechnung Frequenz Warping:",
     pwSpeedProgressLabel: "Berechnung Abspielgeschwindigkeit:",
+    plDownloadProgressLabel: "Herunterladen:",
+    plDownloadStopBtn: "Abbrechen",
     // Neue Keys für vereinheitlichte Test-UI
     ell_explainTitle: "Elektrodenlautstärke ausgleichen",
     ell_intro:

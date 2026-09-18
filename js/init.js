@@ -512,15 +512,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof pDrawEQ === "function") pDrawEQ();
     if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
   });
-  // BA374: Stop-Button am Fortschrittsbalken. Bricht die Berechnung ab,
-  // schaltet Frequenz-Warping aus und spielt ungewarpt an gleicher
-  // Position weiter.
-  const _plWarpStopBtn = document.getElementById("plWarpStopBtn");
-  if (_plWarpStopBtn) {
-    _plWarpStopBtn.addEventListener("click", () => {
+  // Stop-Button Compute (Warp/Tempo): Berechnung abbrechen, ungewarpt weiterspielen.
+  const _plComputeStopBtn = document.getElementById("plComputeStopBtn");
+  if (_plComputeStopBtn) {
+    _plComputeStopBtn.addEventListener("click", () => {
       if (typeof pWarpCancelCompute === "function") pWarpCancelCompute();
       pWarpOn = false;
-      // SW (BA379): ueber Play-Wunsch statt wasPlaying allein.
       const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
       if (wasPlaying) pPause();
       pBuf = getPlaybackBuffer();   // ungewarpt (pWarpOn === false)
@@ -529,6 +526,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
       if (typeof pDrawEQ === "function") pDrawEQ();
       if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
+    });
+  }
+
+  const _plDownloadStopBtn = document.getElementById("plDownloadStopBtn");
+  if (_plDownloadStopBtn) {
+    _plDownloadStopBtn.addEventListener("click", () => {
+      if (typeof amCancelLoad === "function") amCancelLoad();
+      if (typeof pStopReset === "function") pStopReset();
     });
   }
 

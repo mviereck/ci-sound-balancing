@@ -816,6 +816,7 @@ async function amGetItemBuffer(ctx, item) {
     // KEIN Aufrufer AbortError-Wissen — alle prüfen schon auf leeren Buffer.
     // Kein Generationszähler nötig: es läuft nur EIN Load.
     _amLoadAbort = new AbortController();
+    if (typeof pOnDownloadStart === "function") pOnDownloadStart();
     try {
       const r = await fetch(item.audio, { signal: _amLoadAbort.signal });
       const ab = await r.arrayBuffer();
@@ -825,6 +826,7 @@ async function amGetItemBuffer(ctx, item) {
       throw e;                                          // echter Netz-/Decode-Fehler
     } finally {
       _amLoadAbort = null;
+      if (typeof pOnDownloadEnd === "function") pOnDownloadEnd();
     }
   }
   if (!abuf) return null;
