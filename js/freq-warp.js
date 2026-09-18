@@ -1240,12 +1240,13 @@ async function pWarpTrigger() {
         && typeof pBuf !== "undefined" && pBuf
         && typeof pPlay === "function" && !pPlaying) pPlay();
   };
-  if (!pWarpOn) { await _pApplyTempoStage(myGen); pWarpUpdUI(); _consumeWish(); return; }
-  if (_warpFResSource().length === 0) { await _pApplyTempoStage(myGen); pWarpUpdUI(); _consumeWish(); return; }
-  if (!pSourceBuf) { pWarpUpdUI(); return; }
 
   // Falls eine vorherige Berechnung noch läuft (anderer Buffer): abbrechen
   // und auf deren Beendigung warten. Damit laufen zwei Aufrufe nicht parallel.
+  // BA590: MUSS vor den frühen Ausstiegen stehen -- diese rechnen jetzt selbst
+  // (Tempo-Stufe _pApplyTempoStage) und würden sonst parallel zu einer noch
+  // laufenden Berechnung starten (Race -> pWarpBusy haengt auf true -> keine
+  // Reaktion mehr auf weitere Geschwindigkeitswahl).
   if (pWarpBusy) {
     pWarpCancel = true;
     // BA371: Streaming-Sources stoppen, falls aktiv.
@@ -1254,7 +1255,12 @@ async function pWarpTrigger() {
       await new Promise(function (r) { setTimeout(r, 20); });
       if (myGen !== pWarpGen) return;
     }
+    pWarpCancel = false;   // Abbruch erledigt -- fuer den eigenen Lauf zuruecksetzen
   }
+
+  if (!pWarpOn) { if (!(await _pApplyTempoStage(myGen))) return; pWarpUpdUI(); _consumeWish(); return; }
+  if (_warpFResSource().length === 0) { if (!(await _pApplyTempoStage(myGen))) return; pWarpUpdUI(); _consumeWish(); return; }
+  if (!pSourceBuf) { pWarpUpdUI(); return; }
 
   const wasPlaying = pPlaying;
   if (wasPlaying) pPause();
