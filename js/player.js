@@ -2516,12 +2516,20 @@ document.querySelectorAll(".pl-speed-btn").forEach(function (b) {
 function plSetSpeed(v) {
   if (!Number.isFinite(v) || v <= 0) return;
   const old = pSpeed;
+  const wasPlaying = pPlaying;
   // Aktuelle reale Position sichern (wie pPause), damit dieselbe Stelle weiterlaeuft.
-  if (pCtx && pBuf && pPlaying) pOff = pCtx.currentTime - pT0;
-  if (old > 0) pOff = pOff * (old / v);   // reale Position ins neue Tempo umrechnen
+  let posReal = pOff;
+  if (pCtx && pBuf && pPlaying) posReal = pCtx.currentTime - pT0;
+  // Laufende Wiedergabe HIER stoppen: der frueh-ausstieg von pWarpTrigger (Warp
+  // aus / kein Warp-Content) pausiert nicht selbst, und _consumeWish startet die
+  // neue getempte Source nur bei !pPlaying. Ohne dieses pPause() liefe die alte
+  // Source im alten Tempo weiter. pPause setzt pOff = reale Ist-Position -- die
+  // Tempo-Umrechnung muss daher DANACH erfolgen.
+  if (wasPlaying) pPause();
+  pOff = (old > 0) ? posReal * (old / v) : posReal;   // reale Position ins neue Tempo
   pSpeed = v;
   plUpdSpeedBtns();
-  if (pPlaying && typeof _pSetPlayWish === "function") _pSetPlayWish(true);
+  if (wasPlaying && typeof _pSetPlayWish === "function") _pSetPlayWish(true);
   if (pSourceBuf && typeof pWarpTrigger === "function") {
     const p = pWarpTrigger();
     pWarpComputingPromise = p;

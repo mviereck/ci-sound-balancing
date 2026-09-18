@@ -1070,6 +1070,7 @@ Object.assign(L.fr, {
     pwStatusBusyProgress: "Calcul en cours… {pct} %",
     plWarpStopBtn: "Arrêter le calcul",
     plWarpBusyTooltip: "Calcul du warping fréquentiel en cours",
+    plSpeedBusyTooltip: "Calcul de la vitesse de lecture en cours",
     plWarpOverlapHint: "Erreur de mesure, veuillez vérifier sous Résultats de mesure.",
     // Neue Keys für vereinheitlichte Test-UI
     ell_explainTitle: "Équilibrer l'intensité des électrodes",
@@ -1624,6 +1625,7 @@ Object.assign(L.fr, {
     plPauseLabel: "Pause entre les morceaux :",
     plSpeedLabel: "Vitesse :",
     pwProgressLabel: "Calcul du warping fréquentiel :",
+    pwSpeedProgressLabel: "Calcul de la vitesse de lecture :",
     amSortTitle:"par titre",
     amSortArtist: "par artiste",
     amSortAlbum: "par album",

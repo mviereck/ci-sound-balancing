@@ -1334,8 +1334,10 @@ Object.assign(L.de, {
     pwStatusBusyProgress: "Berechne… {pct} %",
     plWarpStopBtn: "Berechnung stoppen",
     plWarpBusyTooltip: "Frequenz-Warping-Berechnung läuft",
+    plSpeedBusyTooltip: "Abspielgeschwindigkeit-Berechnung läuft",
     plWarpOverlapHint: "Messfehler, bitte unter Messergebnisse nachsehen.",
     pwProgressLabel: "Berechnung Frequenz Warping:",
+    pwSpeedProgressLabel: "Berechnung Abspielgeschwindigkeit:",
     // Neue Keys für vereinheitlichte Test-UI
     ell_explainTitle: "Elektrodenlautstärke ausgleichen",
     ell_intro:

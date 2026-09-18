@@ -21,6 +21,10 @@ let pWarpCalcMode = "mid";     // BA375: Berechnungs-Modus. "fast"|"mid"|"best".
                                // (R2) liefert bei schmalbandigem Ton pendelnde
                                // Tonhoehe; "mid" (R3-Streaming) ist sauber.
 let pWarpBusy = false;
+// BA590: Welche Berechnung laeuft gerade (fuer den Fortschritts-Tooltip):
+// "warp" = Frequenz-Warping, "speed" = Abspielgeschwindigkeit. Nur gueltig,
+// solange pWarpBusy true ist.
+let pWarpBusyKind = "warp";
 let pWarpCancel = false;     // wird vom Stop-Button gesetzt, von _rbProcessMonoSide gelesen
 let pWarpProgress = 0;        // 0..1, nur bei Rubberband gefüttert
 let pWarpAffected = { warpsLeft: false, warpsRight: false };
@@ -1151,9 +1155,12 @@ function pWarpUpdUI() {
   if (busyIcon) busyIcon.style.display = pWarpBusy ? "" : "none";
 
   // Tooltip auf festen Text reduziert (kein Prozent, kein Sperr-Bezug).
+  // BA590: Text je nach laufender Berechnung (Warp vs. Abspielgeschwindigkeit).
   const busyTip = document.getElementById("plPlayBusyTip");
   if (busyTip) {
-    busyTip.textContent = t("plWarpBusyTooltip");
+    busyTip.textContent = (pWarpBusyKind === "speed")
+      ? t("plSpeedBusyTooltip")
+      : t("plWarpBusyTooltip");
     if (!pWarpBusy) busyTip.style.display = "none";
   }
 
@@ -1164,6 +1171,13 @@ function pWarpUpdUI() {
   if (progressRow) {
     if (pWarpBusy) {
       progressRow.style.display = "flex";
+      // BA590: Balken-Label je nach laufender Berechnung (Warp vs. Tempo).
+      const progressLabel = document.getElementById("plWarpProgressLabel");
+      if (progressLabel) {
+        progressLabel.textContent = (pWarpBusyKind === "speed")
+          ? t("pwSpeedProgressLabel")
+          : t("pwProgressLabel");
+      }
       const pct = Math.round(pWarpProgress * 100);
       if (progressBar) progressBar.style.width = pct + "%";
       if (progressPct) progressPct.textContent = pct + " %";
@@ -1189,6 +1203,7 @@ async function _pApplyTempoStage(myGen) {
   const baseBuf = getPlaybackBuffer();
   if (!baseBuf) return true;
   pWarpBusy = true;
+  pWarpBusyKind = "speed";
   pWarpProgress = 0;
   if (typeof pWarpUpdUI === "function") pWarpUpdUI();
   try {
@@ -1245,6 +1260,7 @@ async function pWarpTrigger() {
   if (wasPlaying) pPause();
 
   pWarpBusy = true;
+  pWarpBusyKind = "warp";
   pWarpCancel = false;
   pWarpProgress = 0;
   pWarpUpdUI();

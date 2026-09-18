@@ -1070,6 +1070,7 @@ Object.assign(L.es, {
     pwStatusBusyProgress: "Calculando… {pct} %",
     plWarpStopBtn: "Detener cálculo",
     plWarpBusyTooltip: "Calculando el warping de frecuencia",
+    plSpeedBusyTooltip: "Calculando la velocidad de reproducción",
     plWarpOverlapHint: "Error de medición, consulte en Resultados de medición.",
     // Neue Keys für vereinheitlichte Test-UI
     ell_explainTitle: "Compensar volumen de electrodos",
@@ -1624,6 +1625,7 @@ Object.assign(L.es, {
     plPauseLabel: "Pausa entre piezas:",
     plSpeedLabel: "Velocidad:",
     pwProgressLabel: "Calculando el warping de frecuencia:",
+    pwSpeedProgressLabel: "Calculando la velocidad de reproducción:",
     amSortTitle:"por título",
     amSortArtist: "por artista",
     amSortAlbum: "por álbum",
