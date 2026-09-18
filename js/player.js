@@ -4170,6 +4170,13 @@ var _plReadFindWired = false;   // Wiring-Guard Find-Knopf
 var _plReadAscWired  = false;   // Wiring-Guard Autoscroll-Toggle (getrennt, damit
                                 // ein fehlendes Element das andere nicht blockiert)
 function plReadRender() {
+  // Die gemeinsame Text-Begleitbox (#plTextBox) gehoert bei aktiver
+  // Nicht-Hoerbuch-Kategorie dem Saetze-Pfad in plUpdDisplay. plReadRender
+  // wird vom Tick (pUpdTL) bedingungslos gerufen; ohne diesen Guard wuerde es
+  // die Box bei Saetzen sofort wieder verstecken (visible=false), weil sein
+  // visible an plActiveSource==="hoerbuecher" haengt. Nur bei Hoerbuch zeichnen.
+  if (plActiveSource !== "hoerbuecher") return;
+
   // Einmalig verdrahten — je Element ein eigener Guard: sonst sperrt der zuerst
   // gesetzte Guard das Wiring des anderen, falls es beim ersten Aufruf noch
   // nicht im DOM war (Autoscroll-Toggle blieb so ohne Listener).
