@@ -2374,7 +2374,11 @@ function plUpdDisplay() {
     if (typeof plReadRender === "function") plReadRender();
   } else {
     const revealFields = decl.filter(function (f) { return f.visibility === "reveal"; });
-    const showTextToggle = revealFields.length > 0 && ctx !== null;
+    // Box sichtbar, sobald die Kategorie ein Aufdeck-Feld hat -- unabhaengig
+    // davon, ob schon ein Item geladen ist (analog zum Hoerbuch, dessen Box
+    // erscheint, sobald Text existiert). Der Body ist leer, bis ein Item
+    // geladen ist; die Checkbox "Text anzeigen" steht aber von Anfang an.
+    const showTextToggle = revealFields.length > 0;
     plTextBoxRender({
       wrapId: "plTextBox", bodyId: "plReadBody",
       visible: showTextToggle,
