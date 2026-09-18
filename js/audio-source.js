@@ -425,8 +425,12 @@ const AM_SORT_AXES = {
     },
     {
       key: "text_source", labelKey: "plBookAxisText", labelDefault: "Textquelle",
-      getter: function (c) { return _amTextSourceHost(c.tags && c.tags.url_text_source); },
-      valueOf: function (c) { return _amTextSourceHost(c.tags && c.tags.url_text_source); }
+      // Nur Buecher MIT Text haben eine Textquelle. Ein has_text=n-Buch
+      // kann trotzdem eine url_text_source tragen (Herkunftslink ohne
+      // Volltext) -> ohne die has_text-Bedingung liefert der getter dort
+      // faelschlich einen Wert und die Achse zeigt nie "ohne Text".
+      getter: function (c) { return (c.tags && c.tags.has_text) ? _amTextSourceHost(c.tags.url_text_source) : ""; },
+      valueOf: function (c) { return (c.tags && c.tags.has_text) ? _amTextSourceHost(c.tags.url_text_source) : ""; }
       // Kein bucketLabel: amAxisBucketLabel faellt auf den Rohwert zurueck,
       // d.h. die nackte Domain (gutenberg.org, archive.org, ...) ist das Label.
     }
