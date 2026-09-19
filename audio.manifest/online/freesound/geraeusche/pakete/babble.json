@@ -15,7 +15,7 @@
   "items": [
     {
       "id": "fs-33392",
-      "title": "Resturant Ambience Tandoori.mp3",
+      "title": "Restaurant Ambience (Indian)",
       "audio": "https://cdn.freesound.org/previews/33/33392_29541-hq.mp3",
       "duration": 213,
       "tags": {
@@ -37,12 +37,15 @@
           "plates",
           "restaurant"
         ],
-        "url": "https://freesound.org/people/digifishmusic/sounds/33392/"
+        "url": "https://freesound.org/people/digifishmusic/sounds/33392/",
+        "title_de": "Restaurant-Atmosphäre (indisch)",
+        "title_fr": "Ambiance de restaurant (indien)",
+        "title_es": "Ambiente de restaurante (indio)"
       }
     },
     {
       "id": "fs-57554",
-      "title": "Choc Dee Thai Restaurant.mp3",
+      "title": "Thai Restaurant Ambience",
       "audio": "https://cdn.freesound.org/previews/57/57554_29541-hq.mp3",
       "duration": 92,
       "tags": {
@@ -69,12 +72,15 @@
           "talking",
           "thai-restaurant"
         ],
-        "url": "https://freesound.org/people/digifishmusic/sounds/57554/"
+        "url": "https://freesound.org/people/digifishmusic/sounds/57554/",
+        "title_de": "Thai-Restaurant-Atmosphäre",
+        "title_fr": "Ambiance de restaurant thaï",
+        "title_es": "Ambiente de restaurante tailandés"
       }
     },
     {
       "id": "fs-766655",
-      "title": "murmuring café",
+      "title": "Murmuring Café",
       "audio": "https://cdn.freesound.org/previews/766/766655_3324065-hq.mp3",
       "duration": 75,
       "tags": {
@@ -95,7 +101,10 @@
           "talking",
           "voices"
         ],
-        "url": "https://freesound.org/people/blaastaal/sounds/766655/"
+        "url": "https://freesound.org/people/blaastaal/sounds/766655/",
+        "title_de": "Gemurmel im Café",
+        "title_fr": "Murmures dans un café",
+        "title_es": "Murmullo en cafetería"
       }
     }
   ]

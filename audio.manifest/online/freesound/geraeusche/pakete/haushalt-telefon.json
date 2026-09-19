@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-50646",
-      "title": "Cordless phone ring.wav",
+      "title": "Cordless Phone Ring",
       "audio": "https://cdn.freesound.org/previews/50/50646_103482-hq.mp3",
       "duration": 20,
       "tags": {
@@ -39,12 +39,15 @@
           "phone",
           "ring"
         ],
-        "url": "https://freesound.org/people/cbakos/sounds/50646/"
+        "url": "https://freesound.org/people/cbakos/sounds/50646/",
+        "title_de": "Schnurlostelefon klingelt",
+        "title_fr": "Sonnerie de téléphone sans fil",
+        "title_es": "Timbre de teléfono inalámbrico"
       }
     },
     {
       "id": "fs-29621",
-      "title": "phone.wav",
+      "title": "Phone Ring 1",
       "audio": "https://cdn.freesound.org/previews/29/29621_98464-hq.mp3",
       "duration": 3,
       "tags": {
@@ -68,7 +71,10 @@
           "ringtone",
           "telephone"
         ],
-        "url": "https://freesound.org/people/infobandit/sounds/29621/"
+        "url": "https://freesound.org/people/infobandit/sounds/29621/",
+        "title_de": "Telefon klingelt 1",
+        "title_fr": "Sonnerie de téléphone 1",
+        "title_es": "Timbre de teléfono 1"
       }
     },
     {
@@ -94,12 +100,15 @@
           "ringer",
           "telephone"
         ],
-        "url": "https://freesound.org/people/visualasylum/sounds/329781/"
+        "url": "https://freesound.org/people/visualasylum/sounds/329781/",
+        "title_de": "Bürotelefon klingelt",
+        "title_fr": "Sonnerie de téléphone de bureau",
+        "title_es": "Timbre de teléfono de oficina"
       }
     },
     {
       "id": "fs-344365",
-      "title": "Cellphone ringing",
+      "title": "Cellphone Ringing",
       "audio": "https://cdn.freesound.org/previews/344/344365_6201031-hq.mp3",
       "duration": 5,
       "tags": {
@@ -120,12 +129,15 @@
           "ringing",
           "telephone"
         ],
-        "url": "https://freesound.org/people/jourblue/sounds/344365/"
+        "url": "https://freesound.org/people/jourblue/sounds/344365/",
+        "title_de": "Handy klingelt",
+        "title_fr": "Sonnerie de téléphone portable",
+        "title_es": "Teléfono móvil sonando"
       }
     },
     {
       "id": "fs-178137",
-      "title": "ring-ring.mp3",
+      "title": "Phone Ring (Retro)",
       "audio": "https://cdn.freesound.org/previews/178/178137_3307516-hq.mp3",
       "duration": 26,
       "tags": {
@@ -150,12 +162,15 @@
           "telephone",
           "uk"
         ],
-        "url": "https://freesound.org/people/keybit2/sounds/178137/"
+        "url": "https://freesound.org/people/keybit2/sounds/178137/",
+        "title_de": "Telefon klingelt (Retro)",
+        "title_fr": "Sonnerie rétro de téléphone",
+        "title_es": "Timbre retro de teléfono"
       }
     },
     {
       "id": "fs-60755",
-      "title": "telephone.mp3",
+      "title": "Telephone Ring 2",
       "audio": "https://cdn.freesound.org/previews/60/60755_27178-hq.mp3",
       "duration": 29,
       "tags": {
@@ -191,7 +206,10 @@
           "tone",
           "up"
         ],
-        "url": "https://freesound.org/people/morgantj/sounds/60755/"
+        "url": "https://freesound.org/people/morgantj/sounds/60755/",
+        "title_de": "Telefon klingelt 2",
+        "title_fr": "Sonnerie téléphonique 2",
+        "title_es": "Teléfono sonando 2"
       }
     }
   ]

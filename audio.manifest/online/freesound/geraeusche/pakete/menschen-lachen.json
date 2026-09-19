@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-15294",
-      "title": "SMALL GROUP LAUGHTER.wav",
+      "title": "Small Group Laughter",
       "audio": "https://cdn.freesound.org/previews/15/15294_33253-hq.mp3",
       "duration": 6,
       "tags": {
@@ -37,12 +37,15 @@
           "laugh",
           "laughter"
         ],
-        "url": "https://freesound.org/people/Ch0cchi/sounds/15294/"
+        "url": "https://freesound.org/people/Ch0cchi/sounds/15294/",
+        "title_de": "Lachen einer kleinen Gruppe",
+        "title_fr": "Rires d'un petit groupe",
+        "title_es": "Risas de un pequeño grupo"
       }
     },
     {
       "id": "fs-324894",
-      "title": "Crowd laugh.wav",
+      "title": "Crowd Laughing",
       "audio": "https://cdn.freesound.org/previews/324/324894_2104797-hq.mp3",
       "duration": 3,
       "tags": {
@@ -68,12 +71,15 @@
           "people",
           "walla"
         ],
-        "url": "https://freesound.org/people/deleted_user_2104797/sounds/324894/"
+        "url": "https://freesound.org/people/deleted_user_2104797/sounds/324894/",
+        "title_de": "Lachende Menge",
+        "title_fr": "Foule qui rit",
+        "title_es": "Multitud riendo"
       }
     },
     {
       "id": "fs-403058",
-      "title": "laughs",
+      "title": "Laughs",
       "audio": "https://cdn.freesound.org/previews/403/403058_6094808-hq.mp3",
       "duration": 6,
       "tags": {
@@ -97,12 +103,15 @@
           "radio-effects",
           "smile"
         ],
-        "url": "https://freesound.org/people/wrc4all/sounds/403058/"
+        "url": "https://freesound.org/people/wrc4all/sounds/403058/",
+        "title_de": "Lachen",
+        "title_fr": "Rires",
+        "title_es": "Risas"
       }
     },
     {
       "id": "fs-99635",
-      "title": "small crowd laughing and clapping.wav",
+      "title": "Small Crowd Laughing and Clapping",
       "audio": "https://cdn.freesound.org/previews/99/99635_1163166-hq.mp3",
       "duration": 13,
       "tags": {
@@ -148,7 +157,10 @@
           "tomlija",
           "zoom"
         ],
-        "url": "https://freesound.org/people/Tomlija/sounds/99635/"
+        "url": "https://freesound.org/people/Tomlija/sounds/99635/",
+        "title_de": "Kleine Gruppe lacht und klatscht",
+        "title_fr": "Petit groupe qui rit et applaudit",
+        "title_es": "Pequeño grupo riendo y aplaudiendo"
       }
     }
   ]

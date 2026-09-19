@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-797581",
-      "title": "Tableware - Handle plates",
+      "title": "Tableware: Handling Plates",
       "audio": "https://cdn.freesound.org/previews/797/797581_13973196-hq.mp3",
       "duration": 15,
       "tags": {
@@ -58,12 +58,15 @@
           "welsh",
           "welshdresser"
         ],
-        "url": "https://freesound.org/people/Vrymaa/sounds/797581/"
+        "url": "https://freesound.org/people/Vrymaa/sounds/797581/",
+        "title_de": "Geschirr: Teller hantieren",
+        "title_fr": "Vaisselle : manipulation d'assiettes",
+        "title_es": "Vajilla: manejo de platos"
       }
     },
     {
       "id": "fs-848942",
-      "title": "Cup Glasses And Cutlery Clinks",
+      "title": "Cup, Glasses and Cutlery Clinks",
       "audio": "https://cdn.freesound.org/previews/848/848942_9616576-hq.mp3",
       "duration": 13,
       "tags": {
@@ -91,12 +94,15 @@
           "table",
           "tea"
         ],
-        "url": "https://freesound.org/people/IENBA/sounds/848942/"
+        "url": "https://freesound.org/people/IENBA/sounds/848942/",
+        "title_de": "Tassen, Gläser und Besteck klirren",
+        "title_fr": "Tintements de tasses, verres et couverts",
+        "title_es": "Tintineo de tazas, vasos y cubiertos"
       }
     },
     {
       "id": "fs-813434",
-      "title": "Clinking of cutlery",
+      "title": "Clinking of Cutlery",
       "audio": "https://cdn.freesound.org/previews/813/813434_17552599-hq.mp3",
       "duration": 4,
       "tags": {
@@ -123,12 +129,15 @@
           "plato",
           "tenedor"
         ],
-        "url": "https://freesound.org/people/Luisa_Sanchez/sounds/813434/"
+        "url": "https://freesound.org/people/Luisa_Sanchez/sounds/813434/",
+        "title_de": "Besteckklirren",
+        "title_fr": "Tintement des couverts",
+        "title_es": "Tintineo de cubiertos"
       }
     },
     {
       "id": "fs-816848",
-      "title": "clinking of cutlery 2 edit",
+      "title": "Clinking of Cutlery 2",
       "audio": "https://cdn.freesound.org/previews/816/816848_17552599-hq.mp3",
       "duration": 4,
       "tags": {
@@ -148,7 +157,10 @@
           "dishes",
           "kitchen"
         ],
-        "url": "https://freesound.org/people/Luisa_Sanchez/sounds/816848/"
+        "url": "https://freesound.org/people/Luisa_Sanchez/sounds/816848/",
+        "title_de": "Besteckklirren 2",
+        "title_fr": "Tintement des couverts 2",
+        "title_es": "Tintineo de cubiertos 2"
       }
     }
   ]

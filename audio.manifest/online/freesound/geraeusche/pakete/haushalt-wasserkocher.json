@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-265017",
-      "title": "Tea kettle boiling whistling.wav",
+      "title": "Tea Kettle Boiling and Whistling",
       "audio": "https://cdn.freesound.org/previews/265/265017_4101863-hq.mp3",
       "duration": 28,
       "tags": {
@@ -48,12 +48,15 @@
           "whistle",
           "whistling"
         ],
-        "url": "https://freesound.org/people/sethlind/sounds/265017/"
+        "url": "https://freesound.org/people/sethlind/sounds/265017/",
+        "title_de": "Wasserkocher kocht und pfeift",
+        "title_fr": "Bouilloire qui bout et siffle",
+        "title_es": "Tetera hirviendo y silbando"
       }
     },
     {
       "id": "fs-181718",
-      "title": "whistling teapot.wav",
+      "title": "Whistling Teapot",
       "audio": "https://cdn.freesound.org/previews/181/181718_3153523-hq.mp3",
       "duration": 14,
       "tags": {
@@ -84,12 +87,15 @@
           "whistling",
           "whistling-teapot"
         ],
-        "url": "https://freesound.org/people/keweldog/sounds/181718/"
+        "url": "https://freesound.org/people/keweldog/sounds/181718/",
+        "title_de": "Pfeifende Teekanne",
+        "title_fr": "Théière sifflante",
+        "title_es": "Tetera silbante"
       }
     },
     {
       "id": "fs-239005",
-      "title": "kettle boiling.wav",
+      "title": "Kettle Boiling",
       "audio": "https://cdn.freesound.org/previews/239/239005_1149179-hq.mp3",
       "duration": 53,
       "tags": {
@@ -113,12 +119,15 @@
           "kettle",
           "water-boiling"
         ],
-        "url": "https://freesound.org/people/squashy555/sounds/239005/"
+        "url": "https://freesound.org/people/squashy555/sounds/239005/",
+        "title_de": "Wasserkocher kocht",
+        "title_fr": "Bouilloire en ébullition",
+        "title_es": "Tetera hirviendo"
       }
     },
     {
       "id": "fs-142333",
-      "title": "water boil.wav",
+      "title": "Water Boiling",
       "audio": "https://cdn.freesound.org/previews/142/142333_2557292-hq.mp3",
       "duration": 5,
       "tags": {
@@ -137,12 +146,15 @@
           "kettle",
           "water"
         ],
-        "url": "https://freesound.org/people/fryzu82/sounds/142333/"
+        "url": "https://freesound.org/people/fryzu82/sounds/142333/",
+        "title_de": "Wasser kocht",
+        "title_fr": "Eau bouillante",
+        "title_es": "Agua hirviendo"
       }
     },
     {
       "id": "fs-42371",
-      "title": "Tea Kettle.WAV",
+      "title": "Tea Kettle",
       "audio": "https://cdn.freesound.org/previews/42/42371_59021-hq.mp3",
       "duration": 54,
       "tags": {
@@ -164,12 +176,15 @@
           "teapot",
           "whistle"
         ],
-        "url": "https://freesound.org/people/gurdonark/sounds/42371/"
+        "url": "https://freesound.org/people/gurdonark/sounds/42371/",
+        "title_de": "Wasserkocher",
+        "title_fr": "Bouilloire",
+        "title_es": "Tetera"
       }
     },
     {
       "id": "fs-740116",
-      "title": "pouring boiling water into large cup 1",
+      "title": "Pouring Boiling Water into Cup",
       "audio": "https://cdn.freesound.org/previews/740/740116_14631530-hq.mp3",
       "duration": 7,
       "tags": {
@@ -191,12 +206,15 @@
           "pouring",
           "water"
         ],
-        "url": "https://freesound.org/people/FOSSarts/sounds/740116/"
+        "url": "https://freesound.org/people/FOSSarts/sounds/740116/",
+        "title_de": "Kochendes Wasser in Tasse gießen",
+        "title_fr": "Verser de l'eau bouillante dans une tasse",
+        "title_es": "Verter agua hirviendo en una taza"
       }
     },
     {
       "id": "fs-461213",
-      "title": "01_Boiling_Water.wav",
+      "title": "Boiling Water",
       "audio": "https://cdn.freesound.org/previews/461/461213_9672278-hq.mp3",
       "duration": 33,
       "tags": {
@@ -218,12 +236,15 @@
           "Panska",
           "Water"
         ],
-        "url": "https://freesound.org/people/15GPanskaSupsakPatrik/sounds/461213/"
+        "url": "https://freesound.org/people/15GPanskaSupsakPatrik/sounds/461213/",
+        "title_de": "Kochendes Wasser",
+        "title_fr": "Eau bouillante",
+        "title_es": "Agua hirviendo"
       }
     },
     {
       "id": "fs-469701",
-      "title": "Pouring Tea into a cup in Morocco",
+      "title": "Pouring Tea",
       "audio": "https://cdn.freesound.org/previews/469/469701_6253486-hq.mp3",
       "duration": 15,
       "tags": {
@@ -253,7 +274,10 @@
           "tea",
           "water"
         ],
-        "url": "https://freesound.org/people/florianreichelt/sounds/469701/"
+        "url": "https://freesound.org/people/florianreichelt/sounds/469701/",
+        "title_de": "Tee einschenken",
+        "title_fr": "Verser du thé",
+        "title_es": "Verter té"
       }
     }
   ]

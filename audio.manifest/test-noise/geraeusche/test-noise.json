@@ -10,10 +10,13 @@
   "items": [
     {
       "id": "cafe",
-      "title": "cafe",
+      "title": "Café Noise",
       "audio": "noise/cafe/cafe.wav",
       "tags": {
         "kind": "cafe",
+        "title_de": "Café-Geräusch",
+        "title_fr": "Bruit de café",
+        "title_es": "Ruido de cafetería",
         "stationary": "y",
         "loop_safe": "y",
         "spectrum": "broadband"
@@ -21,10 +24,13 @@
     },
     {
       "id": "car",
-      "title": "car",
+      "title": "Car Noise",
       "audio": "noise/car/car.wav",
       "tags": {
         "kind": "verkehr",
+        "title_de": "Autogeräusch",
+        "title_fr": "Bruit de voiture",
+        "title_es": "Ruido de coche",
         "stationary": "y",
         "loop_safe": "y",
         "spectrum": "lowpass"
@@ -32,10 +38,13 @@
     },
     {
       "id": "white",
-      "title": "white",
+      "title": "White Noise",
       "audio": "noise/white/white.wav",
       "tags": {
         "kind": "rauschen-weiss",
+        "title_de": "Weißes Rauschen",
+        "title_fr": "Bruit blanc",
+        "title_es": "Ruido blanco",
         "stationary": "y",
         "loop_safe": "y",
         "spectrum": "broadband"

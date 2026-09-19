@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-522058",
-      "title": "morning bird trio.mp3",
+      "title": "Morning Bird Trio",
       "audio": "https://cdn.freesound.org/previews/522/522058_10265490-hq.mp3",
       "duration": 54,
       "tags": {
@@ -42,12 +42,15 @@
           "nature",
           "spring"
         ],
-        "url": "https://freesound.org/people/dedindi/sounds/522058/"
+        "url": "https://freesound.org/people/dedindi/sounds/522058/",
+        "title_de": "Drei Vögel am Morgen",
+        "title_fr": "Trio d'oiseaux du matin",
+        "title_es": "Trío de pájaros matutinos"
       }
     },
     {
       "id": "fs-644989",
-      "title": "Jungle / Forest Ambience",
+      "title": "Jungle Forest Ambience",
       "audio": "https://cdn.freesound.org/previews/644/644989_3288322-hq.mp3",
       "duration": 40,
       "tags": {
@@ -73,12 +76,15 @@
           "jungle",
           "morning"
         ],
-        "url": "https://freesound.org/people/seventhsamurai/sounds/644989/"
+        "url": "https://freesound.org/people/seventhsamurai/sounds/644989/",
+        "title_de": "Dschungelatmosphäre",
+        "title_fr": "Ambiance de jungle forestière",
+        "title_es": "Ambiente de selva"
       }
     },
     {
       "id": "fs-679109",
-      "title": "Morning in the forest.wav",
+      "title": "Morning in the Forest",
       "audio": "https://cdn.freesound.org/previews/679/679109_12704565-hq.mp3",
       "duration": 91,
       "tags": {
@@ -105,7 +111,10 @@
           "morning",
           "nature"
         ],
-        "url": "https://freesound.org/people/IlMotografo/sounds/679109/"
+        "url": "https://freesound.org/people/IlMotografo/sounds/679109/",
+        "title_de": "Morgen im Wald",
+        "title_fr": "Matin en forêt",
+        "title_es": "Mañana en el bosque"
       }
     }
   ]

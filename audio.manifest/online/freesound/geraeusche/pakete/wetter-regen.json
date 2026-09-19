@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-194204",
-      "title": "Steady Rain.wav",
+      "title": "Steady Rain",
       "audio": "https://cdn.freesound.org/previews/194/194204_2367966-hq.mp3",
       "duration": 247,
       "tags": {
@@ -40,12 +40,15 @@
           "rolling",
           "steady"
         ],
-        "url": "https://freesound.org/people/pulswelle/sounds/194204/"
+        "url": "https://freesound.org/people/pulswelle/sounds/194204/",
+        "title_de": "Gleichmäßiger Regen",
+        "title_fr": "Pluie régulière",
+        "title_es": "Lluvia constante"
       }
     },
     {
       "id": "fs-184629",
-      "title": "Rain on Window Ledge, Drops and Spashes",
+      "title": "Rain on Window Ledge",
       "audio": "https://cdn.freesound.org/previews/184/184629_522747-hq.mp3",
       "duration": 154,
       "tags": {
@@ -69,12 +72,15 @@
           "Window",
           "Window-Ledge"
         ],
-        "url": "https://freesound.org/people/Erbsland-Music/sounds/184629/"
+        "url": "https://freesound.org/people/Erbsland-Music/sounds/184629/",
+        "title_de": "Regen auf der Fensterbank",
+        "title_fr": "Pluie sur le rebord de fenêtre",
+        "title_es": "Lluvia en el alféizar de la ventana"
       }
     },
     {
       "id": "fs-486266",
-      "title": "R23-33-Raining from Inside.wav",
+      "title": "Rain from Inside",
       "audio": "https://cdn.freesound.org/previews/486/486266_2524442-hq.mp3",
       "duration": 12,
       "tags": {
@@ -94,12 +100,15 @@
           "Rain",
           "Vintage"
         ],
-        "url": "https://freesound.org/people/craigsmith/sounds/486266/"
+        "url": "https://freesound.org/people/craigsmith/sounds/486266/",
+        "title_de": "Regen von drinnen",
+        "title_fr": "Pluie vue de l'intérieur",
+        "title_es": "Lluvia vista desde dentro"
       }
     },
     {
       "id": "fs-486272",
-      "title": "R30-25a-Steady Heavy Rain.wav",
+      "title": "Steady Heavy Rain",
       "audio": "https://cdn.freesound.org/previews/486/486272_2524442-hq.mp3",
       "duration": 46,
       "tags": {
@@ -119,12 +128,15 @@
           "Rain",
           "Vintage"
         ],
-        "url": "https://freesound.org/people/craigsmith/sounds/486272/"
+        "url": "https://freesound.org/people/craigsmith/sounds/486272/",
+        "title_de": "Gleichmäßiger Starkregen",
+        "title_fr": "Pluie forte et régulière",
+        "title_es": "Lluvia intensa y constante"
       }
     },
     {
       "id": "fs-434314",
-      "title": "amb, ext, steady, heavy rain, thunder roll , quad.wav",
+      "title": "Heavy Rain with Thunder",
       "audio": "https://cdn.freesound.org/previews/434/434314_138-hq.mp3",
       "duration": 264,
       "tags": {
@@ -146,12 +158,15 @@
           "quad",
           "rain"
         ],
-        "url": "https://freesound.org/people/drewhalasz/sounds/434314/"
+        "url": "https://freesound.org/people/drewhalasz/sounds/434314/",
+        "title_de": "Starkregen mit Donner",
+        "title_fr": "Forte pluie avec tonnerre",
+        "title_es": "Lluvia intensa con truenos"
       }
     },
     {
       "id": "fs-507719",
-      "title": "Tidal Pull.wav",
+      "title": "Tidal Rain",
       "audio": "https://cdn.freesound.org/previews/507/507719_678992-hq.mp3",
       "duration": 141,
       "tags": {
@@ -176,12 +191,15 @@
           "Spoken-Word",
           "Viking-Funeral"
         ],
-        "url": "https://freesound.org/people/Scott%20Simpson/sounds/507719/"
+        "url": "https://freesound.org/people/Scott%20Simpson/sounds/507719/",
+        "title_de": "Regengeräusch (Wellen)",
+        "title_fr": "Pluie marémotrice",
+        "title_es": "Lluvia con olas"
       }
     },
     {
       "id": "fs-759588",
-      "title": "summer-rain-storm",
+      "title": "Summer Rain Storm",
       "audio": "https://cdn.freesound.org/previews/759/759588_16433852-hq.mp3",
       "duration": 66,
       "tags": {
@@ -210,7 +228,10 @@
           "ThunderRumbles",
           "WarmRain"
         ],
-        "url": "https://freesound.org/people/r2d21/sounds/759588/"
+        "url": "https://freesound.org/people/r2d21/sounds/759588/",
+        "title_de": "Sommergewitter",
+        "title_fr": "Orage estival",
+        "title_es": "Tormenta de verano"
       }
     }
   ]

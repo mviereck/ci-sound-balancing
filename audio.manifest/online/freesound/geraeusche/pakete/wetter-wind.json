@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-17727",
-      "title": "ELEMENTS_WIND_01_Outdoor-Windy-Ambience.wav",
+      "title": "Outdoor Wind Ambience",
       "audio": "https://cdn.freesound.org/previews/17/17727_308-hq.mp3",
       "duration": 63,
       "tags": {
@@ -42,12 +42,15 @@
           "texture",
           "wind"
         ],
-        "url": "https://freesound.org/people/suonho/sounds/17727/"
+        "url": "https://freesound.org/people/suonho/sounds/17727/",
+        "title_de": "Wind draußen",
+        "title_fr": "Ambiance de vent en extérieur",
+        "title_es": "Viento al aire libre"
       }
     },
     {
       "id": "fs-65813",
-      "title": "CountrySideWinterEvening02.wav",
+      "title": "Country Side Winter Evening",
       "audio": "https://cdn.freesound.org/previews/65/65813_97826-hq.mp3",
       "duration": 166,
       "tags": {
@@ -71,12 +74,15 @@
           "weather",
           "winter"
         ],
-        "url": "https://freesound.org/people/pcaeldries/sounds/65813/"
+        "url": "https://freesound.org/people/pcaeldries/sounds/65813/",
+        "title_de": "Winterabend auf dem Land",
+        "title_fr": "Soirée d'hiver à la campagne",
+        "title_es": "Tarde de invierno en el campo"
       }
     },
     {
       "id": "fs-288899",
-      "title": "Rocky Mountain Outdoors:  wind and birds",
+      "title": "Rocky Mountain Outdoors: Wind and Birds",
       "audio": "https://cdn.freesound.org/previews/288/288899_2367139-hq.mp3",
       "duration": 90,
       "tags": {
@@ -109,12 +115,15 @@
           "summer",
           "wind"
         ],
-        "url": "https://freesound.org/people/petebuchwald/sounds/288899/"
+        "url": "https://freesound.org/people/petebuchwald/sounds/288899/",
+        "title_de": "Rocky Mountains: Wind und Vögel",
+        "title_fr": "Montagnes Rocheuses : vent et oiseaux",
+        "title_es": "Montañas Rocosas: viento y pájaros"
       }
     },
     {
       "id": "fs-269782",
-      "title": "outdoor ambience",
+      "title": "Outdoor Ambience",
       "audio": "https://cdn.freesound.org/previews/269/269782_3366749-hq.mp3",
       "duration": 39,
       "tags": {
@@ -145,7 +154,10 @@
           "wind",
           "wind-chimes"
         ],
-        "url": "https://freesound.org/people/seth-m/sounds/269782/"
+        "url": "https://freesound.org/people/seth-m/sounds/269782/",
+        "title_de": "Außenatmosphäre",
+        "title_fr": "Ambiance extérieure",
+        "title_es": "Ambiente exterior"
       }
     },
     {
@@ -175,12 +187,15 @@
           "Studio-Recording",
           "Wind"
         ],
-        "url": "https://freesound.org/people/Littleboot/sounds/196712/"
+        "url": "https://freesound.org/people/Littleboot/sounds/196712/",
+        "title_de": "Windspiel",
+        "title_fr": "Carillon éolien",
+        "title_es": "Campanillas de viento"
       }
     },
     {
       "id": "fs-70196",
-      "title": "Flag Flapping and Birds 2.wav",
+      "title": "Flag Flapping and Birds",
       "audio": "https://cdn.freesound.org/previews/70/70196_1022651-hq.mp3",
       "duration": 43,
       "tags": {
@@ -204,12 +219,15 @@
           "outdoor",
           "wind"
         ],
-        "url": "https://freesound.org/people/JustinBW/sounds/70196/"
+        "url": "https://freesound.org/people/JustinBW/sounds/70196/",
+        "title_de": "Flagge flattert und Vögel",
+        "title_fr": "Drapeau qui claque et oiseaux",
+        "title_es": "Bandera ondeando y pájaros"
       }
     },
     {
       "id": "fs-398904",
-      "title": "Ambience of a playground in the park.WAV",
+      "title": "Playground in the Park",
       "audio": "https://cdn.freesound.org/previews/398/398904_4325245-hq.mp3",
       "duration": 242,
       "tags": {
@@ -239,7 +257,10 @@
           "traffic",
           "youth"
         ],
-        "url": "https://freesound.org/people/lionROAR0905/sounds/398904/"
+        "url": "https://freesound.org/people/lionROAR0905/sounds/398904/",
+        "title_de": "Spielplatz im Park",
+        "title_fr": "Aire de jeux dans le parc",
+        "title_es": "Parque infantil en el parque"
       }
     }
   ]

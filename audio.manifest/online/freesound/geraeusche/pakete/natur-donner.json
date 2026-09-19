@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-360328",
-      "title": "Thunder, Very Close, Rain, A.wav",
+      "title": "Thunder, Very Close, with Rain",
       "audio": "https://cdn.freesound.org/previews/360/360328_5121236-hq.mp3",
       "duration": 14,
       "tags": {
@@ -53,12 +53,15 @@
           "very",
           "weather"
         ],
-        "url": "https://freesound.org/people/InspectorJ/sounds/360328/"
+        "url": "https://freesound.org/people/InspectorJ/sounds/360328/",
+        "title_de": "Donner aus nächster Nähe mit Regen",
+        "title_fr": "Tonnerre très proche avec pluie",
+        "title_es": "Trueno muy cercano con lluvia"
       }
     },
     {
       "id": "fs-101948",
-      "title": "Dry Thunder3.wav",
+      "title": "Dry Thunder 3",
       "audio": "https://cdn.freesound.org/previews/101/101948_649468-hq.mp3",
       "duration": 21,
       "tags": {
@@ -79,12 +82,15 @@
           "thunder",
           "thunderclap"
         ],
-        "url": "https://freesound.org/people/juskiddink/sounds/101948/"
+        "url": "https://freesound.org/people/juskiddink/sounds/101948/",
+        "title_de": "Trockener Donner 3",
+        "title_fr": "Tonnerre sec 3",
+        "title_es": "Trueno seco 3"
       }
     },
     {
       "id": "fs-101934",
-      "title": "Dry thunder2.wav",
+      "title": "Dry Thunder 2",
       "audio": "https://cdn.freesound.org/previews/101/101934_649468-hq.mp3",
       "duration": 26,
       "tags": {
@@ -105,12 +111,15 @@
           "thunder",
           "thunderclap"
         ],
-        "url": "https://freesound.org/people/juskiddink/sounds/101934/"
+        "url": "https://freesound.org/people/juskiddink/sounds/101934/",
+        "title_de": "Trockener Donner 2",
+        "title_fr": "Tonnerre sec 2",
+        "title_es": "Trueno seco 2"
       }
     },
     {
       "id": "fs-101933",
-      "title": "Dry thunder1.wav",
+      "title": "Dry Thunder 1",
       "audio": "https://cdn.freesound.org/previews/101/101933_649468-hq.mp3",
       "duration": 23,
       "tags": {
@@ -131,12 +140,15 @@
           "thunder",
           "thunderclap"
         ],
-        "url": "https://freesound.org/people/juskiddink/sounds/101933/"
+        "url": "https://freesound.org/people/juskiddink/sounds/101933/",
+        "title_de": "Trockener Donner 1",
+        "title_fr": "Tonnerre sec 1",
+        "title_es": "Trueno seco 1"
       }
     },
     {
       "id": "fs-27246",
-      "title": "Thunder200506_1.wav",
+      "title": "Thunder",
       "audio": "https://cdn.freesound.org/previews/27/27246_197070-hq.mp3",
       "duration": 12,
       "tags": {
@@ -157,12 +169,15 @@
           "thunder",
           "thunderclap"
         ],
-        "url": "https://freesound.org/people/csengeri/sounds/27246/"
+        "url": "https://freesound.org/people/csengeri/sounds/27246/",
+        "title_de": "Donner",
+        "title_fr": "Tonnerre",
+        "title_es": "Trueno"
       }
     },
     {
       "id": "fs-64458",
-      "title": "thunderClap1.wav",
+      "title": "Thunder Clap",
       "audio": "https://cdn.freesound.org/previews/64/64458_1198-hq.mp3",
       "duration": 9,
       "tags": {
@@ -184,7 +199,10 @@
           "summer",
           "thunder"
         ],
-        "url": "https://freesound.org/people/nicStage/sounds/64458/"
+        "url": "https://freesound.org/people/nicStage/sounds/64458/",
+        "title_de": "Donnerschlag",
+        "title_fr": "Coup de tonnerre",
+        "title_es": "Trueno"
       }
     }
   ]

@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-465397",
-      "title": "One car passing by",
+      "title": "One Car Passing By",
       "audio": "https://cdn.freesound.org/previews/465/465397_9786444-hq.mp3",
       "duration": 10,
       "tags": {
@@ -49,12 +49,15 @@
           "street",
           "vehicle"
         ],
-        "url": "https://freesound.org/people/JPBILLINGSLEYJR/sounds/465397/"
+        "url": "https://freesound.org/people/JPBILLINGSLEYJR/sounds/465397/",
+        "title_de": "Ein Auto fährt vorbei",
+        "title_fr": "Une voiture qui passe",
+        "title_es": "Un coche pasando"
       }
     },
     {
       "id": "fs-425527",
-      "title": "cars in motion Random Car Passby 2 Slow Mono Follow.wav",
+      "title": "Car Passing By (Slow)",
       "audio": "https://cdn.freesound.org/previews/425/425527_4421503-hq.mp3",
       "duration": 16,
       "tags": {
@@ -96,12 +99,15 @@
           "tyres",
           "vehicle"
         ],
-        "url": "https://freesound.org/people/Soundholder/sounds/425527/"
+        "url": "https://freesound.org/people/Soundholder/sounds/425527/",
+        "title_de": "Auto fährt langsam vorbei",
+        "title_fr": "Voiture passant lentement",
+        "title_es": "Coche pasando despacio"
       }
     },
     {
       "id": "fs-425526",
-      "title": "cars in motion passby gas engine truck medium speed mono NTG3.wav",
+      "title": "Truck Passing By",
       "audio": "https://cdn.freesound.org/previews/425/425526_4421503-hq.mp3",
       "duration": 15,
       "tags": {
@@ -147,12 +153,15 @@
           "tyres",
           "vehicle"
         ],
-        "url": "https://freesound.org/people/Soundholder/sounds/425526/"
+        "url": "https://freesound.org/people/Soundholder/sounds/425526/",
+        "title_de": "Lkw fährt vorbei",
+        "title_fr": "Camion qui passe",
+        "title_es": "Camión pasando"
       }
     },
     {
       "id": "fs-425525",
-      "title": "cars in motion passby gas engine truck medium speed stereo ORTF 8040.wav",
+      "title": "Truck Passing By (Stereo)",
       "audio": "https://cdn.freesound.org/previews/425/425525_4421503-hq.mp3",
       "duration": 17,
       "tags": {
@@ -198,7 +207,10 @@
           "tyres",
           "vehicle"
         ],
-        "url": "https://freesound.org/people/Soundholder/sounds/425525/"
+        "url": "https://freesound.org/people/Soundholder/sounds/425525/",
+        "title_de": "Lkw fährt vorbei (Stereo)",
+        "title_fr": "Camion qui passe (stéréo)",
+        "title_es": "Camión pasando (estéreo)"
       }
     }
   ]

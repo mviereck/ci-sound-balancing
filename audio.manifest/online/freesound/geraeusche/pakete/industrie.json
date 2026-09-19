@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-385943",
-      "title": "Ambience, Machine Factory, A.wav",
+      "title": "Machine Factory Ambience",
       "audio": "https://cdn.freesound.org/previews/385/385943_5121236-hq.mp3",
       "duration": 74,
       "tags": {
@@ -51,12 +51,15 @@
           "printer",
           "printers"
         ],
-        "url": "https://freesound.org/people/InspectorJ/sounds/385943/"
+        "url": "https://freesound.org/people/InspectorJ/sounds/385943/",
+        "title_de": "Maschinenhalle",
+        "title_fr": "Ambiance d'usine avec machines",
+        "title_es": "Ambiente de fábrica con maquinaria"
       }
     },
     {
       "id": "fs-269594",
-      "title": "Industrial/Factory Fans",
+      "title": "Industrial Factory Fans",
       "audio": "https://cdn.freesound.org/previews/269/269594_4965320-hq.mp3",
       "duration": 44,
       "tags": {
@@ -102,12 +105,15 @@
           "strange",
           "up"
         ],
-        "url": "https://freesound.org/people/IanStarGem/sounds/269594/"
+        "url": "https://freesound.org/people/IanStarGem/sounds/269594/",
+        "title_de": "Industrieventilatoren",
+        "title_fr": "Ventilateurs industriels",
+        "title_es": "Ventiladores industriales"
       }
     },
     {
       "id": "fs-231347",
-      "title": "3-Legged Robot Walker.mp3",
+      "title": "Mechanical Walker",
       "audio": "https://cdn.freesound.org/previews/231/231347_3519684-hq.mp3",
       "duration": 11,
       "tags": {
@@ -139,12 +145,15 @@
           "transformer",
           "walker"
         ],
-        "url": "https://freesound.org/people/AGMoneyTrigga/sounds/231347/"
+        "url": "https://freesound.org/people/AGMoneyTrigga/sounds/231347/",
+        "title_de": "Mechanischer Läufer",
+        "title_fr": "Machine marchante mécanique",
+        "title_es": "Máquina caminante mecánica"
       }
     },
     {
       "id": "fs-249879",
-      "title": "Custom Machine #1.wav",
+      "title": "Custom Machine",
       "audio": "https://cdn.freesound.org/previews/249/249879_4401185-hq.mp3",
       "duration": 86,
       "tags": {
@@ -172,12 +181,15 @@
           "robotic",
           "steamengine"
         ],
-        "url": "https://freesound.org/people/deleted_user_4401185/sounds/249879/"
+        "url": "https://freesound.org/people/deleted_user_4401185/sounds/249879/",
+        "title_de": "Sondermaschine",
+        "title_fr": "Machine spéciale",
+        "title_es": "Máquina especial"
       }
     },
     {
       "id": "fs-240895",
-      "title": "abandoned warehouse",
+      "title": "Abandoned Warehouse",
       "audio": "https://cdn.freesound.org/previews/240/240895_1134415-hq.mp3",
       "duration": 209,
       "tags": {
@@ -213,12 +225,15 @@
           "squeeze",
           "tone"
         ],
-        "url": "https://freesound.org/people/Kostrava/sounds/240895/"
+        "url": "https://freesound.org/people/Kostrava/sounds/240895/",
+        "title_de": "Verlassenes Lagerhaus",
+        "title_fr": "Entrepôt abandonné",
+        "title_es": "Almacén abandonado"
       }
     },
     {
       "id": "fs-249636",
-      "title": "factory1.wav",
+      "title": "Factory Noise 1",
       "audio": "https://cdn.freesound.org/previews/249/249636_2633921-hq.mp3",
       "duration": 39,
       "tags": {
@@ -243,12 +258,15 @@
           "press",
           "punch"
         ],
-        "url": "https://freesound.org/people/viertelnachvier/sounds/249636/"
+        "url": "https://freesound.org/people/viertelnachvier/sounds/249636/",
+        "title_de": "Fabrikgeräusch 1",
+        "title_fr": "Bruit de fabrique 1",
+        "title_es": "Ruido de fábrica 1"
       }
     },
     {
       "id": "fs-249637",
-      "title": "factory2.wav",
+      "title": "Factory Noise 2",
       "audio": "https://cdn.freesound.org/previews/249/249637_2633921-hq.mp3",
       "duration": 27,
       "tags": {
@@ -272,7 +290,10 @@
           "noise",
           "punch"
         ],
-        "url": "https://freesound.org/people/viertelnachvier/sounds/249637/"
+        "url": "https://freesound.org/people/viertelnachvier/sounds/249637/",
+        "title_de": "Fabrikgeräusch 2",
+        "title_fr": "Bruit de fabrique 2",
+        "title_es": "Ruido de fábrica 2"
       }
     },
     {
@@ -301,12 +322,15 @@
           "metal",
           "metallic"
         ],
-        "url": "https://freesound.org/people/RICHERlandTV/sounds/240134/"
+        "url": "https://freesound.org/people/RICHERlandTV/sounds/240134/",
+        "title_de": "Fabrikatmosphäre",
+        "title_fr": "Atmosphère d'usine",
+        "title_es": "Atmósfera de fábrica"
       }
     },
     {
       "id": "fs-271096",
-      "title": "Industrial Factory/Fans Loop",
+      "title": "Industrial Factory Fans Loop",
       "audio": "https://cdn.freesound.org/previews/271/271096_4965320-hq.mp3",
       "duration": 7,
       "tags": {
@@ -352,12 +376,15 @@
           "strange",
           "up"
         ],
-        "url": "https://freesound.org/people/IanStarGem/sounds/271096/"
+        "url": "https://freesound.org/people/IanStarGem/sounds/271096/",
+        "title_de": "Industrieventilatoren (Loop)",
+        "title_fr": "Ventilateurs industriels (boucle)",
+        "title_es": "Ventiladores industriales (bucle)"
       }
     },
     {
       "id": "fs-188447",
-      "title": "Metal_Punch_01.wav",
+      "title": "Metal Punch",
       "audio": "https://cdn.freesound.org/previews/188/188447_2035780-hq.mp3",
       "duration": 20,
       "tags": {
@@ -385,7 +412,10 @@
           "spool",
           "whir"
         ],
-        "url": "https://freesound.org/people/dheming/sounds/188447/"
+        "url": "https://freesound.org/people/dheming/sounds/188447/",
+        "title_de": "Metallstanzen",
+        "title_fr": "Poinçonnage du métal",
+        "title_es": "Punzonado de metal"
       }
     }
   ]

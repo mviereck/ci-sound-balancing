@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-166086",
-      "title": "Train passing by in the Wirikuta Desert (Mexico, SLP)",
+      "title": "Train Passing by in Desert",
       "audio": "https://cdn.freesound.org/previews/166/166086_1661766-hq.mp3",
       "duration": 154,
       "tags": {
@@ -60,12 +60,15 @@
           "wagon",
           "wuadley"
         ],
-        "url": "https://freesound.org/people/felix.blume/sounds/166086/"
+        "url": "https://freesound.org/people/felix.blume/sounds/166086/",
+        "title_de": "Zug fährt durch die Wüste vorbei",
+        "title_fr": "Train passant dans le désert",
+        "title_es": "Tren pasando por el desierto"
       }
     },
     {
       "id": "fs-237327",
-      "title": "Train passing by",
+      "title": "Train Passing By",
       "audio": "https://cdn.freesound.org/previews/237/237327_3435865-hq.mp3",
       "duration": 54,
       "tags": {
@@ -93,12 +96,15 @@
           "trains",
           "wagon"
         ],
-        "url": "https://freesound.org/people/Soundkrampf/sounds/237327/"
+        "url": "https://freesound.org/people/Soundkrampf/sounds/237327/",
+        "title_de": "Zug fährt vorbei",
+        "title_fr": "Train qui passe",
+        "title_es": "Tren pasando"
       }
     },
     {
       "id": "fs-248098",
-      "title": "Steam Train 3205 1.wav",
+      "title": "Steam Train 1",
       "audio": "https://cdn.freesound.org/previews/248/248098_1182495-hq.mp3",
       "duration": 34,
       "tags": {
@@ -124,12 +130,15 @@
           "train",
           "whistle"
         ],
-        "url": "https://freesound.org/people/Keith%20Selmes/sounds/248098/"
+        "url": "https://freesound.org/people/Keith%20Selmes/sounds/248098/",
+        "title_de": "Dampfzug 1",
+        "title_fr": "Train à vapeur 1",
+        "title_es": "Tren de vapor 1"
       }
     },
     {
       "id": "fs-447873",
-      "title": "In an old train.m4a",
+      "title": "In an Old Train",
       "audio": "https://cdn.freesound.org/previews/447/447873_9010973-hq.mp3",
       "duration": 18,
       "tags": {
@@ -154,12 +163,15 @@
           "train",
           "travel"
         ],
-        "url": "https://freesound.org/people/adoreonline/sounds/447873/"
+        "url": "https://freesound.org/people/adoreonline/sounds/447873/",
+        "title_de": "In einem alten Zug",
+        "title_fr": "Dans un vieux train",
+        "title_es": "En un tren antiguo"
       }
     },
     {
       "id": "fs-214011",
-      "title": "horror train to hell.wav",
+      "title": "Train Atmosphere",
       "audio": "https://cdn.freesound.org/previews/214/214011_1648170-hq.mp3",
       "duration": 92,
       "tags": {
@@ -203,12 +215,15 @@
           "train",
           "weird"
         ],
-        "url": "https://freesound.org/people/klankbeeld/sounds/214011/"
+        "url": "https://freesound.org/people/klankbeeld/sounds/214011/",
+        "title_de": "Zugatmosphäre",
+        "title_fr": "Ambiance de train",
+        "title_es": "Ambiente de tren"
       }
     },
     {
       "id": "fs-126762",
-      "title": "steam train.WAV",
+      "title": "Steam Train 2",
       "audio": "https://cdn.freesound.org/previews/126/126762_28867-hq.mp3",
       "duration": 196,
       "tags": {
@@ -255,12 +270,15 @@
           "whistle",
           "whistling"
         ],
-        "url": "https://freesound.org/people/inchadney/sounds/126762/"
+        "url": "https://freesound.org/people/inchadney/sounds/126762/",
+        "title_de": "Dampfzug 2",
+        "title_fr": "Train à vapeur 2",
+        "title_es": "Tren de vapor 2"
       }
     },
     {
       "id": "fs-136451",
-      "title": "Train passing by in the desert. Close recording. (California, USA)",
+      "title": "Train Passing by in Desert (Close)",
       "audio": "https://cdn.freesound.org/previews/136/136451_1661766-hq.mp3",
       "duration": 91,
       "tags": {
@@ -295,12 +313,15 @@
           "town",
           "transport"
         ],
-        "url": "https://freesound.org/people/felix.blume/sounds/136451/"
+        "url": "https://freesound.org/people/felix.blume/sounds/136451/",
+        "title_de": "Zug fährt nah durch die Wüste",
+        "title_fr": "Train passant dans le désert (proche)",
+        "title_es": "Tren pasando cerca en el desierto"
       }
     },
     {
       "id": "fs-376833",
-      "title": "city ambience 150906_0765.wav",
+      "title": "City Ambience",
       "audio": "https://cdn.freesound.org/previews/376/376833_1648170-hq.mp3",
       "duration": 168,
       "tags": {
@@ -344,12 +365,15 @@
           "urban",
           "white-noise"
         ],
-        "url": "https://freesound.org/people/klankbeeld/sounds/376833/"
+        "url": "https://freesound.org/people/klankbeeld/sounds/376833/",
+        "title_de": "Stadtatmosphäre",
+        "title_fr": "Ambiance de ville",
+        "title_es": "Ambiente de ciudad"
       }
     },
     {
       "id": "fs-219833",
-      "title": "Train passing by and horning in Romania (Bacau). Close recording.",
+      "title": "Train Passing and Horning",
       "audio": "https://cdn.freesound.org/previews/219/219833_1661766-hq.mp3",
       "duration": 91,
       "tags": {
@@ -385,7 +409,10 @@
           "walker",
           "walkers"
         ],
-        "url": "https://freesound.org/people/felix.blume/sounds/219833/"
+        "url": "https://freesound.org/people/felix.blume/sounds/219833/",
+        "title_de": "Zug fährt vorbei und hupt",
+        "title_fr": "Train qui passe et klaxonne",
+        "title_es": "Tren pasando y tocando la bocina"
       }
     },
     {
@@ -425,7 +452,10 @@
           "train",
           "wheels"
         ],
-        "url": "https://freesound.org/people/BrainClaim/sounds/432777/"
+        "url": "https://freesound.org/people/BrainClaim/sounds/432777/",
+        "title_de": "Zugunfall-Simulation",
+        "title_fr": "Simulation de collision de train",
+        "title_es": "Simulación de choque de tren"
       }
     }
   ]

@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-400991",
-      "title": "Construction, Jackhammer Excavator, A.wav",
+      "title": "Jackhammer on Construction Site",
       "audio": "https://cdn.freesound.org/previews/400/400991_5121236-hq.mp3",
       "duration": 17,
       "tags": {
@@ -55,12 +55,15 @@
           "jack-hammer",
           "jackhammer"
         ],
-        "url": "https://freesound.org/people/InspectorJ/sounds/400991/"
+        "url": "https://freesound.org/people/InspectorJ/sounds/400991/",
+        "title_de": "Presslufthammer auf Baustelle",
+        "title_fr": "Marteau-piqueur sur chantier",
+        "title_es": "Martillo neumático en obra"
       }
     },
     {
       "id": "fs-110621",
-      "title": "industrial_tools_jackhammer_operating_001.wav",
+      "title": "Jackhammer (Industrial Tools)",
       "audio": "https://cdn.freesound.org/previews/110/110621_1930766-hq.mp3",
       "duration": 10,
       "tags": {
@@ -85,7 +88,10 @@
           "pneumatic",
           "site"
         ],
-        "url": "https://freesound.org/people/soundscalpel.com/sounds/110621/"
+        "url": "https://freesound.org/people/soundscalpel.com/sounds/110621/",
+        "title_de": "Presslufthammer (Industriewerkzeug)",
+        "title_fr": "Marteau-piqueur (outils industriels)",
+        "title_es": "Martillo neumático (herramientas industriales)"
       }
     },
     {
@@ -122,7 +128,10 @@
           "tool",
           "tools"
         ],
-        "url": "https://freesound.org/people/MrAuralization/sounds/317361/"
+        "url": "https://freesound.org/people/MrAuralization/sounds/317361/",
+        "title_de": "Presslufthammer",
+        "title_fr": "Marteau-piqueur",
+        "title_es": "Martillo neumático"
       }
     }
   ]

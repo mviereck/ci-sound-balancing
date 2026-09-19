@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-61207",
-      "title": "pinkNoise.wav",
+      "title": "Pink Noise",
       "audio": "https://cdn.freesound.org/previews/61/61207_796868-hq.mp3",
       "duration": 30,
       "tags": {
@@ -37,7 +37,10 @@
           "stationary",
           "stereo"
         ],
-        "url": "https://freesound.org/people/KarlFaktor/sounds/61207/"
+        "url": "https://freesound.org/people/KarlFaktor/sounds/61207/",
+        "title_de": "Rosa Rauschen",
+        "title_fr": "Bruit rose",
+        "title_es": "Ruido rosa"
       }
     }
   ]

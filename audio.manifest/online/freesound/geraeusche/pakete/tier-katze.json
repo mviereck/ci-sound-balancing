@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-213889",
-      "title": "The cat's meow",
+      "title": "Cat Meow 1",
       "audio": "https://cdn.freesound.org/previews/213/213889_2287873-hq.mp3",
       "duration": 15,
       "tags": {
@@ -41,12 +41,15 @@
           "s",
           "sound"
         ],
-        "url": "https://freesound.org/people/Counter-gamer/sounds/213889/"
+        "url": "https://freesound.org/people/Counter-gamer/sounds/213889/",
+        "title_de": "Katze miaut 1",
+        "title_fr": "Miaulement de chat 1",
+        "title_es": "Maullido de gato 1"
       }
     },
     {
       "id": "fs-412016",
-      "title": "cat purring and meow",
+      "title": "Cat Purring and Meowing",
       "audio": "https://cdn.freesound.org/previews/412/412016_3652520-hq.mp3",
       "duration": 3,
       "tags": {
@@ -66,12 +69,15 @@
           "meow",
           "purr"
         ],
-        "url": "https://freesound.org/people/skymary/sounds/412016/"
+        "url": "https://freesound.org/people/skymary/sounds/412016/",
+        "title_de": "Katze schnurrt und miaut",
+        "title_fr": "Chat qui ronronne et miaule",
+        "title_es": "Gato ronroneando y maullando"
       }
     },
     {
       "id": "fs-274989",
-      "title": "Cat Meowing",
+      "title": "Cat Meowing 2",
       "audio": "https://cdn.freesound.org/previews/274/274989_8335-hq.mp3",
       "duration": 10,
       "tags": {
@@ -92,7 +98,10 @@
           "meow",
           "pet"
         ],
-        "url": "https://freesound.org/people/theshaggyfreak/sounds/274989/"
+        "url": "https://freesound.org/people/theshaggyfreak/sounds/274989/",
+        "title_de": "Katze miaut 2",
+        "title_fr": "Chat qui miaule 2",
+        "title_es": "Gato maullando 2"
       }
     }
   ]

@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-333404",
-      "title": "Cheer 2.wav",
+      "title": "Cheer 2",
       "audio": "https://cdn.freesound.org/previews/333/333404_5884138-hq.mp3",
       "duration": 4,
       "tags": {
@@ -48,12 +48,15 @@
           "theater",
           "theatre"
         ],
-        "url": "https://freesound.org/people/jayfrosting/sounds/333404/"
+        "url": "https://freesound.org/people/jayfrosting/sounds/333404/",
+        "title_de": "Jubel 2",
+        "title_fr": "Acclamations 2",
+        "title_es": "Vítores 2"
       }
     },
     {
       "id": "fs-277021",
-      "title": "Applause 2.WAV",
+      "title": "Applause 2",
       "audio": "https://cdn.freesound.org/previews/277/277021_1402315-hq.mp3",
       "duration": 6,
       "tags": {
@@ -83,12 +86,15 @@
           "public",
           "theatre"
         ],
-        "url": "https://freesound.org/people/Sandermotions/sounds/277021/"
+        "url": "https://freesound.org/people/Sandermotions/sounds/277021/",
+        "title_de": "Applaus 2",
+        "title_fr": "Applaudissements 2",
+        "title_es": "Aplausos 2"
       }
     },
     {
       "id": "fs-277020",
-      "title": "Applause 3.WAV",
+      "title": "Applause 3",
       "audio": "https://cdn.freesound.org/previews/277/277020_1402315-hq.mp3",
       "duration": 7,
       "tags": {
@@ -118,12 +124,15 @@
           "public",
           "theatre"
         ],
-        "url": "https://freesound.org/people/Sandermotions/sounds/277020/"
+        "url": "https://freesound.org/people/Sandermotions/sounds/277020/",
+        "title_de": "Applaus 3",
+        "title_fr": "Applaudissements 3",
+        "title_es": "Aplausos 3"
       }
     },
     {
       "id": "fs-277022",
-      "title": "Applause 1.WAV",
+      "title": "Applause 1",
       "audio": "https://cdn.freesound.org/previews/277/277022_1402315-hq.mp3",
       "duration": 7,
       "tags": {
@@ -153,12 +162,15 @@
           "public",
           "theatre"
         ],
-        "url": "https://freesound.org/people/Sandermotions/sounds/277022/"
+        "url": "https://freesound.org/people/Sandermotions/sounds/277022/",
+        "title_de": "Applaus 1",
+        "title_fr": "Applaudissements 1",
+        "title_es": "Aplausos 1"
       }
     },
     {
       "id": "fs-277019",
-      "title": "Applause 4.WAV",
+      "title": "Applause 4",
       "audio": "https://cdn.freesound.org/previews/277/277019_1402315-hq.mp3",
       "duration": 7,
       "tags": {
@@ -188,7 +200,10 @@
           "public",
           "theatre"
         ],
-        "url": "https://freesound.org/people/Sandermotions/sounds/277019/"
+        "url": "https://freesound.org/people/Sandermotions/sounds/277019/",
+        "title_de": "Applaus 4",
+        "title_fr": "Applaudissements 4",
+        "title_es": "Aplausos 4"
       }
     },
     {
@@ -218,7 +233,10 @@
           "crowd",
           "wooing"
         ],
-        "url": "https://freesound.org/people/SoundsExciting/sounds/365132/"
+        "url": "https://freesound.org/people/SoundsExciting/sounds/365132/",
+        "title_de": "Jubelnde Menge",
+        "title_fr": "Foule en liesse",
+        "title_es": "Multitud vitoreando"
       }
     },
     {
@@ -254,7 +272,10 @@
           "track",
           "track-field"
         ],
-        "url": "https://freesound.org/people/kellieskitchen/sounds/209989/"
+        "url": "https://freesound.org/people/kellieskitchen/sounds/209989/",
+        "title_de": "Einzelner Klatscher",
+        "title_fr": "Petit applaudissement",
+        "title_es": "Pequeño aplauso"
       }
     }
   ]

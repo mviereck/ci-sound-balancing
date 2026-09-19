@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-414297",
-      "title": "Asian Restaurant. wav",
+      "title": "Asian Restaurant Ambience",
       "audio": "https://cdn.freesound.org/previews/414/414297_2147722-hq.mp3",
       "duration": 27,
       "tags": {
@@ -48,12 +48,15 @@
           "people",
           "restaurant"
         ],
-        "url": "https://freesound.org/people/gusgus26/sounds/414297/"
+        "url": "https://freesound.org/people/gusgus26/sounds/414297/",
+        "title_de": "Asiatisches Restaurant",
+        "title_fr": "Ambiance de restaurant asiatique",
+        "title_es": "Ambiente de restaurante asiático"
       }
     },
     {
       "id": "fs-336322",
-      "title": "H4 - FOndo Cocina - Kitchen Background ambience.",
+      "title": "Kitchen Background Ambience",
       "audio": "https://cdn.freesound.org/previews/336/336322_5591146-hq.mp3",
       "duration": 40,
       "tags": {
@@ -73,12 +76,15 @@
           "domestic-sounds",
           "kitchen"
         ],
-        "url": "https://freesound.org/people/pepotx/sounds/336322/"
+        "url": "https://freesound.org/people/pepotx/sounds/336322/",
+        "title_de": "Küchen-Hintergrundatmosphäre",
+        "title_fr": "Ambiance sonore de cuisine",
+        "title_es": "Ambiente sonoro de cocina"
       }
     },
     {
       "id": "fs-426916",
-      "title": "nixeno - restaurant ambience with classical music.mp3",
+      "title": "Restaurant Ambience with Classical Music",
       "audio": "https://cdn.freesound.org/previews/426/426916_8214298-hq.mp3",
       "duration": 78,
       "tags": {
@@ -114,12 +120,15 @@
           "noise",
           "soundscape"
         ],
-        "url": "https://freesound.org/people/nixeno/sounds/426916/"
+        "url": "https://freesound.org/people/nixeno/sounds/426916/",
+        "title_de": "Restaurant mit klassischer Musik",
+        "title_fr": "Ambiance de restaurant avec musique classique",
+        "title_es": "Restaurante con música clásica"
       }
     },
     {
       "id": "fs-66416",
-      "title": "making breakfast.mp3",
+      "title": "Making Breakfast",
       "audio": "https://cdn.freesound.org/previews/66/66416_828209-hq.mp3",
       "duration": 270,
       "tags": {
@@ -147,7 +156,10 @@
           "toast",
           "toaster"
         ],
-        "url": "https://freesound.org/people/vedas/sounds/66416/"
+        "url": "https://freesound.org/people/vedas/sounds/66416/",
+        "title_de": "Frühstück zubereiten",
+        "title_fr": "Préparation du petit-déjeuner",
+        "title_es": "Preparando el desayuno"
       }
     },
     {
@@ -186,12 +198,15 @@
           "tap",
           "water"
         ],
-        "url": "https://freesound.org/people/brunoboselli/sounds/512511/"
+        "url": "https://freesound.org/people/brunoboselli/sounds/512511/",
+        "title_de": "Küchenatmosphäre",
+        "title_fr": "Ambiance de cuisine",
+        "title_es": "Ambiente de cocina"
       }
     },
     {
       "id": "fs-24256",
-      "title": "sizzle 4.flac",
+      "title": "Sizzle in Pan",
       "audio": "https://cdn.freesound.org/previews/24/24256_7037-hq.mp3",
       "duration": 31,
       "tags": {
@@ -214,12 +229,15 @@
           "sizzle",
           "stove"
         ],
-        "url": "https://freesound.org/people/tim.kahn/sounds/24256/"
+        "url": "https://freesound.org/people/tim.kahn/sounds/24256/",
+        "title_de": "Zischen in der Pfanne",
+        "title_fr": "Grésillement dans la poêle",
+        "title_es": "Chisporroteo en la sartén"
       }
     },
     {
       "id": "fs-24254",
-      "title": "sizzle 2.flac",
+      "title": "Sizzle in Pan 2",
       "audio": "https://cdn.freesound.org/previews/24/24254_7037-hq.mp3",
       "duration": 9,
       "tags": {
@@ -242,12 +260,15 @@
           "sizzle",
           "stove"
         ],
-        "url": "https://freesound.org/people/tim.kahn/sounds/24254/"
+        "url": "https://freesound.org/people/tim.kahn/sounds/24254/",
+        "title_de": "Zischen in der Pfanne 2",
+        "title_fr": "Grésillement dans la poêle 2",
+        "title_es": "Chisporroteo en la sartén 2"
       }
     },
     {
       "id": "fs-807394",
-      "title": "Food - Slicing a fruit",
+      "title": "Slicing a Fruit",
       "audio": "https://cdn.freesound.org/previews/807/807394_13973196-hq.mp3",
       "duration": 14,
       "tags": {
@@ -292,12 +313,15 @@
           "yum",
           "yummy"
         ],
-        "url": "https://freesound.org/people/Vrymaa/sounds/807394/"
+        "url": "https://freesound.org/people/Vrymaa/sounds/807394/",
+        "title_de": "Obst schneiden",
+        "title_fr": "Découper un fruit",
+        "title_es": "Cortar fruta"
       }
     },
     {
       "id": "fs-616065",
-      "title": "Chicken stir fry.wav",
+      "title": "Chicken Stir Fry",
       "audio": "https://cdn.freesound.org/previews/616/616065_12172648-hq.mp3",
       "duration": 34,
       "tags": {
@@ -335,7 +359,10 @@
           "wood",
           "wooden"
         ],
-        "url": "https://freesound.org/people/theplax/sounds/616065/"
+        "url": "https://freesound.org/people/theplax/sounds/616065/",
+        "title_de": "Hähnchen in der Pfanne braten",
+        "title_fr": "Poulet sauté à la poêle",
+        "title_es": "Pollo salteado en sartén"
       }
     }
   ]

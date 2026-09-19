@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-17185",
-      "title": "Nightingale song 3.wav",
+      "title": "Nightingale Song 3",
       "audio": "https://cdn.freesound.org/previews/17/17185_18799-hq.mp3",
       "duration": 261,
       "tags": {
@@ -57,12 +57,15 @@
           "sydnaktergal",
           "usignolo"
         ],
-        "url": "https://freesound.org/people/reinsamba/sounds/17185/"
+        "url": "https://freesound.org/people/reinsamba/sounds/17185/",
+        "title_de": "Nachtigall singt 3",
+        "title_fr": "Chant du rossignol 3",
+        "title_es": "Canto del ruiseñor 3"
       }
     },
     {
       "id": "fs-14909",
-      "title": "Nightingale song 2.wav",
+      "title": "Nightingale Song 2",
       "audio": "https://cdn.freesound.org/previews/14/14909_18799-hq.mp3",
       "duration": 152,
       "tags": {
@@ -89,12 +92,15 @@
           "spring",
           "usignolo"
         ],
-        "url": "https://freesound.org/people/reinsamba/sounds/14909/"
+        "url": "https://freesound.org/people/reinsamba/sounds/14909/",
+        "title_de": "Nachtigall singt 2",
+        "title_fr": "Chant du rossignol 2",
+        "title_es": "Canto del ruiseñor 2"
       }
     },
     {
       "id": "fs-14854",
-      "title": "Nightingale song.wav",
+      "title": "Nightingale Song",
       "audio": "https://cdn.freesound.org/previews/14/14854_18799-hq.mp3",
       "duration": 131,
       "tags": {
@@ -117,12 +123,15 @@
           "nightingale",
           "spring"
         ],
-        "url": "https://freesound.org/people/reinsamba/sounds/14854/"
+        "url": "https://freesound.org/people/reinsamba/sounds/14854/",
+        "title_de": "Nachtigall singt",
+        "title_fr": "Chant du rossignol",
+        "title_es": "Canto del ruiseñor"
       }
     },
     {
       "id": "fs-469312",
-      "title": "Exotic Creature Song, 01.wav",
+      "title": "Exotic Bird Song",
       "audio": "https://cdn.freesound.org/previews/469/469312_5121236-hq.mp3",
       "duration": 32,
       "tags": {
@@ -158,12 +167,15 @@
           "song",
           "vocal"
         ],
-        "url": "https://freesound.org/people/InspectorJ/sounds/469312/"
+        "url": "https://freesound.org/people/InspectorJ/sounds/469312/",
+        "title_de": "Exotischer Vogelgesang",
+        "title_fr": "Chant d'oiseau exotique",
+        "title_es": "Canto de pájaro exótico"
       }
     },
     {
       "id": "fs-624126",
-      "title": "Morning chirping of birds.wav",
+      "title": "Morning Chirping of Birds",
       "audio": "https://cdn.freesound.org/previews/624/624126_10152894-hq.mp3",
       "duration": 82,
       "tags": {
@@ -192,12 +204,15 @@
           "song",
           "sound"
         ],
-        "url": "https://freesound.org/people/dibko/sounds/624126/"
+        "url": "https://freesound.org/people/dibko/sounds/624126/",
+        "title_de": "Vögel zwitschern am Morgen",
+        "title_fr": "Gazouillis matinal des oiseaux",
+        "title_es": "Trino matutino de pájaros"
       }
     },
     {
       "id": "fs-98379",
-      "title": "flock of crows.wav",
+      "title": "Flock of Crows",
       "audio": "https://cdn.freesound.org/previews/98/98379_1163166-hq.mp3",
       "duration": 68,
       "tags": {
@@ -245,7 +260,10 @@
           "yelping",
           "zoom"
         ],
-        "url": "https://freesound.org/people/Tomlija/sounds/98379/"
+        "url": "https://freesound.org/people/Tomlija/sounds/98379/",
+        "title_de": "Krähenschwarm",
+        "title_fr": "Nuée de corneilles",
+        "title_es": "Bandada de cuervos"
       }
     }
   ]

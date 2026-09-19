@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-140453",
-      "title": "cooking_02.wav",
+      "title": "Cooking Sounds",
       "audio": "https://cdn.freesound.org/previews/140/140453_52655-hq.mp3",
       "duration": 46,
       "tags": {
@@ -41,12 +41,15 @@
           "sizzling",
           "wok"
         ],
-        "url": "https://freesound.org/people/aesqe/sounds/140453/"
+        "url": "https://freesound.org/people/aesqe/sounds/140453/",
+        "title_de": "Kochgeräusche",
+        "title_fr": "Bruits de cuisine",
+        "title_es": "Sonidos de cocina"
       }
     },
     {
       "id": "fs-364903",
-      "title": "Cooking, boiling",
+      "title": "Cooking, Boiling",
       "audio": "https://cdn.freesound.org/previews/364/364903_1511977-hq.mp3",
       "duration": 18,
       "tags": {
@@ -75,7 +78,10 @@
           "sizzling",
           "stove"
         ],
-        "url": "https://freesound.org/people/TiesWijnen/sounds/364903/"
+        "url": "https://freesound.org/people/TiesWijnen/sounds/364903/",
+        "title_de": "Kochen, Blubbern",
+        "title_fr": "Cuisson, ébullition",
+        "title_es": "Cocinar, hervir"
       }
     },
     {
@@ -101,7 +107,10 @@
           "pan",
           "sizzling"
         ],
-        "url": "https://freesound.org/people/BenjaminNelan/sounds/353124/"
+        "url": "https://freesound.org/people/BenjaminNelan/sounds/353124/",
+        "title_de": "Bratgeräusch in der Pfanne",
+        "title_fr": "Grésillement de poêle à frire",
+        "title_es": "Chisporroteo de sartén"
       }
     },
     {
@@ -133,12 +142,15 @@
           "sizzle",
           "sizzling"
         ],
-        "url": "https://freesound.org/people/timothyd4y/sounds/468911/"
+        "url": "https://freesound.org/people/timothyd4y/sounds/468911/",
+        "title_de": "Speck in der Pfanne",
+        "title_fr": "Bacon qui grésille",
+        "title_es": "Tocino chisporroteando"
       }
     },
     {
       "id": "fs-382709",
-      "title": "Butter Sizzling.wav",
+      "title": "Butter Sizzling",
       "audio": "https://cdn.freesound.org/previews/382/382709_7042661-hq.mp3",
       "duration": 24,
       "tags": {
@@ -157,12 +169,15 @@
           "Field-recording",
           "Sizzle"
         ],
-        "url": "https://freesound.org/people/hmoosher/sounds/382709/"
+        "url": "https://freesound.org/people/hmoosher/sounds/382709/",
+        "title_de": "Butter brutzelt",
+        "title_fr": "Beurre qui grésille",
+        "title_es": "Mantequilla chisporroteando"
       }
     },
     {
       "id": "fs-235537",
-      "title": "frying steak.wav",
+      "title": "Frying Steak",
       "audio": "https://cdn.freesound.org/previews/235/235537_4258636-hq.mp3",
       "duration": 15,
       "tags": {
@@ -189,12 +204,15 @@
           "skillet",
           "steak"
         ],
-        "url": "https://freesound.org/people/simosco/sounds/235537/"
+        "url": "https://freesound.org/people/simosco/sounds/235537/",
+        "title_de": "Steak braten",
+        "title_fr": "Frire un steak",
+        "title_es": "Freír un filete"
       }
     },
     {
       "id": "fs-233976",
-      "title": "BACON",
+      "title": "Bacon Frying",
       "audio": "https://cdn.freesound.org/previews/233/233976_177850-hq.mp3",
       "duration": 34,
       "tags": {
@@ -226,7 +244,10 @@
           "sizzling",
           "stove"
         ],
-        "url": "https://freesound.org/people/stomachache/sounds/233976/"
+        "url": "https://freesound.org/people/stomachache/sounds/233976/",
+        "title_de": "Speck braten",
+        "title_fr": "Cuire du bacon",
+        "title_es": "Freír bacon"
       }
     }
   ]

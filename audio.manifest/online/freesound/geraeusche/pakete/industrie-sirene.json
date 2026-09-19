@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-70936",
-      "title": "police.wav",
+      "title": "Police Siren",
       "audio": "https://cdn.freesound.org/previews/70/70936_533680-hq.mp3",
       "duration": 27,
       "tags": {
@@ -38,12 +38,15 @@
           "siren",
           "wail"
         ],
-        "url": "https://freesound.org/people/guitarguy1985/sounds/70936/"
+        "url": "https://freesound.org/people/guitarguy1985/sounds/70936/",
+        "title_de": "Polizeisirene",
+        "title_fr": "Sirène de police",
+        "title_es": "Sirena de policía"
       }
     },
     {
       "id": "fs-82515",
-      "title": "Nuclear_Alarm.wav",
+      "title": "Nuclear Alarm Siren",
       "audio": "https://cdn.freesound.org/previews/82/82515_384275-hq.mp3",
       "duration": 23,
       "tags": {
@@ -72,12 +75,15 @@
           "storm",
           "tornado"
         ],
-        "url": "https://freesound.org/people/IFartInUrGeneralDirection/sounds/82515/"
+        "url": "https://freesound.org/people/IFartInUrGeneralDirection/sounds/82515/",
+        "title_de": "Atomalarm-Sirene",
+        "title_fr": "Sirène d'alarme nucléaire",
+        "title_es": "Sirena de alarma nuclear"
       }
     },
     {
       "id": "fs-658724",
-      "title": "Sirens.wav",
+      "title": "Sirens",
       "audio": "https://cdn.freesound.org/previews/658/658724_11755334-hq.mp3",
       "duration": 20,
       "tags": {
@@ -116,12 +122,15 @@
           "truck",
           "vehicle"
         ],
-        "url": "https://freesound.org/people/tlabrant1/sounds/658724/"
+        "url": "https://freesound.org/people/tlabrant1/sounds/658724/",
+        "title_de": "Sirenen",
+        "title_fr": "Sirènes",
+        "title_es": "Sirenas"
       }
     },
     {
       "id": "fs-320789",
-      "title": "horn 01",
+      "title": "Horn",
       "audio": "https://cdn.freesound.org/previews/320/320789_1134415-hq.mp3",
       "duration": 28,
       "tags": {
@@ -156,12 +165,15 @@
           "tsunami",
           "warning"
         ],
-        "url": "https://freesound.org/people/Kostrava/sounds/320789/"
+        "url": "https://freesound.org/people/Kostrava/sounds/320789/",
+        "title_de": "Hupe",
+        "title_fr": "Klaxon",
+        "title_es": "Bocina"
       }
     },
     {
       "id": "fs-263621",
-      "title": "Permission to panic?",
+      "title": "Alarm Siren",
       "audio": "https://cdn.freesound.org/previews/263/263621_2906614-hq.mp3",
       "duration": 9,
       "tags": {
@@ -194,7 +206,10 @@
           "trek",
           "warning"
         ],
-        "url": "https://freesound.org/people/deleted_user_2906614/sounds/263621/"
+        "url": "https://freesound.org/people/deleted_user_2906614/sounds/263621/",
+        "title_de": "Alarmsirene",
+        "title_fr": "Sirène d'alarme",
+        "title_es": "Sirena de alarma"
       }
     }
   ]

@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-339673",
-      "title": "Vacuum Cleaner, A.wav",
+      "title": "Vacuum Cleaner 1",
       "audio": "https://cdn.freesound.org/previews/339/339673_5121236-hq.mp3",
       "duration": 44,
       "tags": {
@@ -41,12 +41,15 @@
           "hoover",
           "vacuum"
         ],
-        "url": "https://freesound.org/people/InspectorJ/sounds/339673/"
+        "url": "https://freesound.org/people/InspectorJ/sounds/339673/",
+        "title_de": "Staubsauger 1",
+        "title_fr": "Aspirateur 1",
+        "title_es": "Aspiradora 1"
       }
     },
     {
       "id": "fs-430632",
-      "title": "Vacuum Cleaner, On Idle Off, Close, A.wav",
+      "title": "Vacuum Cleaner: On, Idle, Off",
       "audio": "https://cdn.freesound.org/previews/430/430632_5121236-hq.mp3",
       "duration": 20,
       "tags": {
@@ -79,12 +82,15 @@
           "suction",
           "vacuum"
         ],
-        "url": "https://freesound.org/people/InspectorJ/sounds/430632/"
+        "url": "https://freesound.org/people/InspectorJ/sounds/430632/",
+        "title_de": "Staubsauger: An, Leerlauf, Aus",
+        "title_fr": "Aspirateur : allumage, marche, arrêt",
+        "title_es": "Aspiradora: encendido, marcha, apagado"
       }
     },
     {
       "id": "fs-30215",
-      "title": "Vacuum On Run Off.wav",
+      "title": "Vacuum Cleaner On and Off",
       "audio": "https://cdn.freesound.org/previews/30/30215_202551-hq.mp3",
       "duration": 35,
       "tags": {
@@ -103,12 +109,15 @@
           "vacuum",
           "vacuum-cleaner"
         ],
-        "url": "https://freesound.org/people/tweeterdj/sounds/30215/"
+        "url": "https://freesound.org/people/tweeterdj/sounds/30215/",
+        "title_de": "Staubsauger an- und ausschalten",
+        "title_fr": "Aspirateur allumé et éteint",
+        "title_es": "Aspiradora encendida y apagada"
       }
     },
     {
       "id": "fs-81574",
-      "title": "Vacuum2.flac",
+      "title": "Vacuum Cleaner 2",
       "audio": "https://cdn.freesound.org/previews/81/81574_16052-hq.mp3",
       "duration": 24,
       "tags": {
@@ -128,12 +137,15 @@
           "hoover",
           "vacuum"
         ],
-        "url": "https://freesound.org/people/bennstir/sounds/81574/"
+        "url": "https://freesound.org/people/bennstir/sounds/81574/",
+        "title_de": "Staubsauger 2",
+        "title_fr": "Aspirateur 2",
+        "title_es": "Aspiradora 2"
       }
     },
     {
       "id": "fs-102344",
-      "title": "IMPROV PERCS 007 5 BARS 130 BPM.wav",
+      "title": "Percussion Improvisation 1",
       "audio": "https://cdn.freesound.org/previews/102/102344_14771-hq.mp3",
       "duration": 9,
       "tags": {
@@ -196,12 +208,15 @@
           "water",
           "wood"
         ],
-        "url": "https://freesound.org/people/sandyrb/sounds/102344/"
+        "url": "https://freesound.org/people/sandyrb/sounds/102344/",
+        "title_de": "Schlagzeug-Improvisation 1",
+        "title_fr": "Improvisation de percussions 1",
+        "title_es": "Improvisación de percusión 1"
       }
     },
     {
       "id": "fs-102535",
-      "title": "IMPROV PERCS 141 2 BARS 130 BPM.wav",
+      "title": "Percussion Improvisation 2",
       "audio": "https://cdn.freesound.org/previews/102/102535_14771-hq.mp3",
       "duration": 4,
       "tags": {
@@ -267,12 +282,15 @@
           "wood",
           "wooden"
         ],
-        "url": "https://freesound.org/people/sandyrb/sounds/102535/"
+        "url": "https://freesound.org/people/sandyrb/sounds/102535/",
+        "title_de": "Schlagzeug-Improvisation 2",
+        "title_fr": "Improvisation de percussions 2",
+        "title_es": "Improvisación de percusión 2"
       }
     },
     {
       "id": "fs-271460",
-      "title": "Vacuum cleaner.wav",
+      "title": "Vacuum Cleaner 3",
       "audio": "https://cdn.freesound.org/previews/271/271460_4190771-hq.mp3",
       "duration": 18,
       "tags": {
@@ -298,7 +316,10 @@
           "vacuum",
           "vacuuming"
         ],
-        "url": "https://freesound.org/people/bdunis4/sounds/271460/"
+        "url": "https://freesound.org/people/bdunis4/sounds/271460/",
+        "title_de": "Staubsauger 3",
+        "title_fr": "Aspirateur 3",
+        "title_es": "Aspiradora 3"
       }
     }
   ]

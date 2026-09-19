@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-129678",
-      "title": "crickets",
+      "title": "Crickets",
       "audio": "https://cdn.freesound.org/previews/129/129678_2362707-hq.mp3",
       "duration": 16,
       "tags": {
@@ -36,12 +36,15 @@
           "crickets",
           "night"
         ],
-        "url": "https://freesound.org/people/FreethinkerAnon/sounds/129678/"
+        "url": "https://freesound.org/people/FreethinkerAnon/sounds/129678/",
+        "title_de": "Grillen",
+        "title_fr": "Grillons",
+        "title_es": "Grillos"
       }
     },
     {
       "id": "fs-530477",
-      "title": "Cricket chirping",
+      "title": "Cricket Chirping 1",
       "audio": "https://cdn.freesound.org/previews/530/530477_2579656-hq.mp3",
       "duration": 63,
       "tags": {
@@ -73,12 +76,15 @@
           "noise",
           "summer"
         ],
-        "url": "https://freesound.org/people/GB01/sounds/530477/"
+        "url": "https://freesound.org/people/GB01/sounds/530477/",
+        "title_de": "Grillenzirpen 1",
+        "title_fr": "Chant de grillons 1",
+        "title_es": "Canto de grillos 1"
       }
     },
     {
       "id": "fs-175020",
-      "title": "AMBIENCE NIGHT FIELD CRICKET 01.wav",
+      "title": "Night Field Crickets",
       "audio": "https://cdn.freesound.org/previews/175/175020_2979997-hq.mp3",
       "duration": 60,
       "tags": {
@@ -103,12 +109,15 @@
           "nature",
           "night"
         ],
-        "url": "https://freesound.org/people/sengjinn/sounds/175020/"
+        "url": "https://freesound.org/people/sengjinn/sounds/175020/",
+        "title_de": "Grillen auf dem Nachtfeld",
+        "title_fr": "Grillons des champs la nuit",
+        "title_es": "Grillos nocturnos en el campo"
       }
     },
     {
       "id": "fs-393389",
-      "title": "cricket",
+      "title": "Cricket",
       "audio": "https://cdn.freesound.org/previews/393/393389_3261030-hq.mp3",
       "duration": 67,
       "tags": {
@@ -139,12 +148,15 @@
           "samsung",
           "summer"
         ],
-        "url": "https://freesound.org/people/FunkApache/sounds/393389/"
+        "url": "https://freesound.org/people/FunkApache/sounds/393389/",
+        "title_de": "Grille",
+        "title_fr": "Grillon",
+        "title_es": "Grillo"
       }
     },
     {
       "id": "fs-97788",
-      "title": "Cricket chirping.wav",
+      "title": "Cricket Chirping 2",
       "audio": "https://cdn.freesound.org/previews/97/97788_1386366-hq.mp3",
       "duration": 30,
       "tags": {
@@ -164,12 +176,15 @@
           "night",
           "night-time"
         ],
-        "url": "https://freesound.org/people/CGEffex/sounds/97788/"
+        "url": "https://freesound.org/people/CGEffex/sounds/97788/",
+        "title_de": "Grillenzirpen 2",
+        "title_fr": "Chant de grillons 2",
+        "title_es": "Canto de grillos 2"
       }
     },
     {
       "id": "fs-383275",
-      "title": "Crickets Chirping At Night Free High Quality Sound FX",
+      "title": "Crickets Chirping at Night",
       "audio": "https://cdn.freesound.org/previews/383/383275_7146007-hq.mp3",
       "duration": 43,
       "tags": {
@@ -194,7 +209,10 @@
           "Quality",
           "Sound"
         ],
-        "url": "https://freesound.org/people/deleted_user_7146007/sounds/383275/"
+        "url": "https://freesound.org/people/deleted_user_7146007/sounds/383275/",
+        "title_de": "Grillen zirpen in der Nacht",
+        "title_fr": "Grillons qui chantent la nuit",
+        "title_es": "Grillos cantando de noche"
       }
     },
     {
@@ -223,12 +241,15 @@
           "summer",
           "surburbia"
         ],
-        "url": "https://freesound.org/people/ellie.vanderlip/sounds/704381/"
+        "url": "https://freesound.org/people/ellie.vanderlip/sounds/704381/",
+        "title_de": "Grillen aus Nordkalifornien",
+        "title_fr": "Grillons de Californie du Nord",
+        "title_es": "Grillos del norte de California"
       }
     },
     {
       "id": "fs-147264",
-      "title": "Desert Night Air With Bird Call",
+      "title": "Desert Night Air with Bird Call",
       "audio": "https://cdn.freesound.org/previews/147/147264_1728127-hq.mp3",
       "duration": 64,
       "tags": {
@@ -254,7 +275,10 @@
           "insects",
           "night"
         ],
-        "url": "https://freesound.org/people/kangaroovindaloo/sounds/147264/"
+        "url": "https://freesound.org/people/kangaroovindaloo/sounds/147264/",
+        "title_de": "Wüstennacht mit Vogelruf",
+        "title_fr": "Nuit du désert avec chant d'oiseau",
+        "title_es": "Noche en el desierto con canto de pájaro"
       }
     }
   ]

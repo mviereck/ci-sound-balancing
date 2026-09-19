@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-719482",
-      "title": "Bicycle Pedalling Rolling Braking_01",
+      "title": "Bicycle: Pedalling, Rolling, Braking",
       "audio": "https://cdn.freesound.org/previews/719/719482_4921277-hq.mp3",
       "duration": 28,
       "tags": {
@@ -52,12 +52,15 @@
           "spokes",
           "wheel"
         ],
-        "url": "https://freesound.org/people/Rudmer_Rotteveel/sounds/719482/"
+        "url": "https://freesound.org/people/Rudmer_Rotteveel/sounds/719482/",
+        "title_de": "Fahrrad: Treten, Rollen, Bremsen",
+        "title_fr": "Vélo : pédalage, roulement, freinage",
+        "title_es": "Bicicleta: pedaleo, rodadura, frenado"
       }
     },
     {
       "id": "fs-193395",
-      "title": "BikeBellWhileRiding.flac",
+      "title": "Bike Bell While Riding",
       "audio": "https://cdn.freesound.org/previews/193/193395_71257-hq.mp3",
       "duration": 4,
       "tags": {
@@ -79,12 +82,15 @@
           "ring",
           "ringing"
         ],
-        "url": "https://freesound.org/people/qubodup/sounds/193395/"
+        "url": "https://freesound.org/people/qubodup/sounds/193395/",
+        "title_de": "Fahrradklingel während der Fahrt",
+        "title_fr": "Sonnette de vélo en roulant",
+        "title_es": "Timbre de bicicleta en marcha"
       }
     },
     {
       "id": "fs-223754",
-      "title": "mountainBike pass in wood 140120_01.wav",
+      "title": "Mountain Bike Passing in Wood",
       "audio": "https://cdn.freesound.org/previews/223/223754_1648170-hq.mp3",
       "duration": 29,
       "tags": {
@@ -125,12 +131,15 @@
           "wood",
           "woods"
         ],
-        "url": "https://freesound.org/people/klankbeeld/sounds/223754/"
+        "url": "https://freesound.org/people/klankbeeld/sounds/223754/",
+        "title_de": "Mountainbike fährt durch den Wald",
+        "title_fr": "VTT passant dans les bois",
+        "title_es": "Bicicleta de montaña pasando por el bosque"
       }
     },
     {
       "id": "fs-378353",
-      "title": "Stationary bicycle",
+      "title": "Stationary Bicycle",
       "audio": "https://cdn.freesound.org/previews/378/378353_7020379-hq.mp3",
       "duration": 8,
       "tags": {
@@ -153,12 +162,15 @@
           "riding",
           "wheel"
         ],
-        "url": "https://freesound.org/people/13GPanska_Lakota_Jan/sounds/378353/"
+        "url": "https://freesound.org/people/13GPanska_Lakota_Jan/sounds/378353/",
+        "title_de": "Heimtrainer",
+        "title_fr": "Vélo stationnaire",
+        "title_es": "Bicicleta estática"
       }
     },
     {
       "id": "fs-193399",
-      "title": "ComfortBikeRide.flac",
+      "title": "Comfort Bike Ride",
       "audio": "https://cdn.freesound.org/previews/193/193399_71257-hq.mp3",
       "duration": 20,
       "tags": {
@@ -182,12 +194,15 @@
           "ride",
           "road"
         ],
-        "url": "https://freesound.org/people/qubodup/sounds/193399/"
+        "url": "https://freesound.org/people/qubodup/sounds/193399/",
+        "title_de": "Fahrradfahrt (Stadtrad)",
+        "title_fr": "Balade en vélo de ville",
+        "title_es": "Paseo en bicicleta urbana"
       }
     },
     {
       "id": "fs-326480",
-      "title": "two bikers passing 151009_0805.wav",
+      "title": "Two Bikers Passing",
       "audio": "https://cdn.freesound.org/previews/326/326480_1648170-hq.mp3",
       "duration": 25,
       "tags": {
@@ -231,7 +246,10 @@
           "wheel",
           "woods"
         ],
-        "url": "https://freesound.org/people/klankbeeld/sounds/326480/"
+        "url": "https://freesound.org/people/klankbeeld/sounds/326480/",
+        "title_de": "Zwei Radfahrer fahren vorbei",
+        "title_fr": "Deux cyclistes qui passent",
+        "title_es": "Dos ciclistas pasando"
       }
     }
   ]

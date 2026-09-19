@@ -60,7 +60,10 @@
           "up",
           "water"
         ],
-        "url": "https://freesound.org/people/jackthemurray/sounds/433589/"
+        "url": "https://freesound.org/people/jackthemurray/sounds/433589/",
+        "title_de": "Bachlauf aus der Nähe",
+        "title_fr": "Ruisseau entendu de près",
+        "title_es": "Riachuelo de cerca"
       }
     },
     {
@@ -90,12 +93,15 @@
           "stream",
           "water"
         ],
-        "url": "https://freesound.org/people/viznoman/sounds/267311/"
+        "url": "https://freesound.org/people/viznoman/sounds/267311/",
+        "title_de": "Fluss",
+        "title_fr": "Rivière",
+        "title_es": "Río"
       }
     },
     {
       "id": "fs-376709",
-      "title": "Woodland Stream March 2016.wav",
+      "title": "Woodland Stream",
       "audio": "https://cdn.freesound.org/previews/376/376709_182472-hq.mp3",
       "duration": 61,
       "tags": {
@@ -139,12 +145,15 @@
           "woodpecker",
           "woodpigeons"
         ],
-        "url": "https://freesound.org/people/plantmonkey/sounds/376709/"
+        "url": "https://freesound.org/people/plantmonkey/sounds/376709/",
+        "title_de": "Bach im Wald",
+        "title_fr": "Ruisseau en forêt",
+        "title_es": "Arroyo en el bosque"
       }
     },
     {
       "id": "fs-382322",
-      "title": "Stream.wav",
+      "title": "Stream",
       "audio": "https://cdn.freesound.org/previews/382/382322_3899984-hq.mp3",
       "duration": 31,
       "tags": {
@@ -178,12 +187,15 @@
           "trickle",
           "water"
         ],
-        "url": "https://freesound.org/people/sterferny/sounds/382322/"
+        "url": "https://freesound.org/people/sterferny/sounds/382322/",
+        "title_de": "Bach 1",
+        "title_fr": "Ruisseau 1",
+        "title_es": "Arroyo 1"
       }
     },
     {
       "id": "fs-415053",
-      "title": "Brook 2.wav",
+      "title": "Brook",
       "audio": "https://cdn.freesound.org/previews/415/415053_7707368-hq.mp3",
       "duration": 37,
       "tags": {
@@ -220,12 +232,15 @@
           "water",
           "waterfall"
         ],
-        "url": "https://freesound.org/people/straget/sounds/415053/"
+        "url": "https://freesound.org/people/straget/sounds/415053/",
+        "title_de": "Bach 2",
+        "title_fr": "Ruisseau 2",
+        "title_es": "Arroyo 2"
       }
     },
     {
       "id": "fs-446019",
-      "title": "Gentle Stream Natural Stream Sound",
+      "title": "Gentle Stream",
       "audio": "https://cdn.freesound.org/previews/446/446019_7241289-hq.mp3",
       "duration": 64,
       "tags": {
@@ -269,12 +284,15 @@
           "woodlands",
           "woods"
         ],
-        "url": "https://freesound.org/people/BurghRecords/sounds/446019/"
+        "url": "https://freesound.org/people/BurghRecords/sounds/446019/",
+        "title_de": "Sanfter Bach",
+        "title_fr": "Ruisseau paisible",
+        "title_es": "Arroyo suave"
       }
     },
     {
       "id": "fs-231536",
-      "title": "Creek 06 (loop)",
+      "title": "Creek (Loop)",
       "audio": "https://cdn.freesound.org/previews/231/231536_4034520-hq.mp3",
       "duration": 36,
       "tags": {
@@ -299,12 +317,15 @@
           "stream",
           "water"
         ],
-        "url": "https://freesound.org/people/VKProduktion/sounds/231536/"
+        "url": "https://freesound.org/people/VKProduktion/sounds/231536/",
+        "title_de": "Bach (Loop)",
+        "title_fr": "Ruisseau (boucle)",
+        "title_es": "Arroyo (bucle)"
       }
     },
     {
       "id": "fs-166310",
-      "title": "River 2.wav",
+      "title": "River 2",
       "audio": "https://cdn.freesound.org/previews/166/166310_2104797-hq.mp3",
       "duration": 85,
       "tags": {
@@ -332,12 +353,15 @@
           "stream",
           "water"
         ],
-        "url": "https://freesound.org/people/deleted_user_2104797/sounds/166310/"
+        "url": "https://freesound.org/people/deleted_user_2104797/sounds/166310/",
+        "title_de": "Fluss 2",
+        "title_fr": "Rivière 2",
+        "title_es": "Río 2"
       }
     },
     {
       "id": "fs-166307",
-      "title": "River 1.wav",
+      "title": "River 1",
       "audio": "https://cdn.freesound.org/previews/166/166307_2104797-hq.mp3",
       "duration": 85,
       "tags": {
@@ -365,7 +389,10 @@
           "stream",
           "water"
         ],
-        "url": "https://freesound.org/people/deleted_user_2104797/sounds/166307/"
+        "url": "https://freesound.org/people/deleted_user_2104797/sounds/166307/",
+        "title_de": "Fluss 1",
+        "title_fr": "Rivière 1",
+        "title_es": "Río 1"
       }
     }
   ]

@@ -46,12 +46,15 @@
           "south-africa",
           "weaver"
         ],
-        "url": "https://freesound.org/people/blouhond/sounds/157947/"
+        "url": "https://freesound.org/people/blouhond/sounds/157947/",
+        "title_de": "Stille Morgenatmosphäre draußen",
+        "title_fr": "Ambiance matinale calme en extérieur",
+        "title_es": "Ambiente matutino tranquilo al aire libre"
       }
     },
     {
       "id": "fs-65813",
-      "title": "CountrySideWinterEvening02.wav",
+      "title": "Country Side Winter Evening",
       "audio": "https://cdn.freesound.org/previews/65/65813_97826-hq.mp3",
       "duration": 166,
       "tags": {
@@ -75,12 +78,15 @@
           "weather",
           "winter"
         ],
-        "url": "https://freesound.org/people/pcaeldries/sounds/65813/"
+        "url": "https://freesound.org/people/pcaeldries/sounds/65813/",
+        "title_de": "Winterabend auf dem Land",
+        "title_fr": "Soirée d'hiver à la campagne",
+        "title_es": "Tarde de invierno en el campo"
       }
     },
     {
       "id": "fs-288899",
-      "title": "Rocky Mountain Outdoors:  wind and birds",
+      "title": "Rocky Mountain Outdoors: Wind and Birds",
       "audio": "https://cdn.freesound.org/previews/288/288899_2367139-hq.mp3",
       "duration": 90,
       "tags": {
@@ -113,12 +119,15 @@
           "summer",
           "wind"
         ],
-        "url": "https://freesound.org/people/petebuchwald/sounds/288899/"
+        "url": "https://freesound.org/people/petebuchwald/sounds/288899/",
+        "title_de": "Rocky Mountains: Wind und Vögel",
+        "title_fr": "Montagnes Rocheuses : vent et oiseaux",
+        "title_es": "Montañas Rocosas: viento y pájaros"
       }
     },
     {
       "id": "fs-578056",
-      "title": "Forest jungle nature dark Atmo",
+      "title": "Forest Jungle Dark Atmosphere",
       "audio": "https://cdn.freesound.org/previews/578/578056_2282212-hq.mp3",
       "duration": 156,
       "tags": {
@@ -164,12 +173,15 @@
           "jungle",
           "nature"
         ],
-        "url": "https://freesound.org/people/szegvari/sounds/578056/"
+        "url": "https://freesound.org/people/szegvari/sounds/578056/",
+        "title_de": "Dunkle Dschungelatmosphäre",
+        "title_fr": "Atmosphère sombre de jungle forestière",
+        "title_es": "Atmósfera oscura de selva"
       }
     },
     {
       "id": "fs-269782",
-      "title": "outdoor ambience",
+      "title": "Outdoor Ambience",
       "audio": "https://cdn.freesound.org/previews/269/269782_3366749-hq.mp3",
       "duration": 39,
       "tags": {
@@ -200,12 +212,15 @@
           "wind",
           "wind-chimes"
         ],
-        "url": "https://freesound.org/people/seth-m/sounds/269782/"
+        "url": "https://freesound.org/people/seth-m/sounds/269782/",
+        "title_de": "Außenatmosphäre",
+        "title_fr": "Ambiance extérieure",
+        "title_es": "Ambiente exterior"
       }
     },
     {
       "id": "fs-1055",
-      "title": "rbh mocking bird.wav",
+      "title": "Mocking Bird",
       "audio": "https://cdn.freesound.org/previews/1/1055_1112-hq.mp3",
       "duration": 49,
       "tags": {
@@ -227,12 +242,15 @@
           "nature",
           "outdoor"
         ],
-        "url": "https://freesound.org/people/RHumphries/sounds/1055/"
+        "url": "https://freesound.org/people/RHumphries/sounds/1055/",
+        "title_de": "Spottdrossel",
+        "title_fr": "Moqueur polyglotte",
+        "title_es": "Sinsonte"
       }
     },
     {
       "id": "fs-1053",
-      "title": "rbh crickets suburb night1.wav",
+      "title": "Crickets in Suburban Night",
       "audio": "https://cdn.freesound.org/previews/1/1053_1112-hq.mp3",
       "duration": 67,
       "tags": {
@@ -253,12 +271,15 @@
           "nature",
           "outdoor"
         ],
-        "url": "https://freesound.org/people/RHumphries/sounds/1053/"
+        "url": "https://freesound.org/people/RHumphries/sounds/1053/",
+        "title_de": "Grillen in der Vorortnacht",
+        "title_fr": "Grillons dans une nuit de banlieue",
+        "title_es": "Grillos en noche de suburbio"
       }
     },
     {
       "id": "fs-1050",
-      "title": "rbh Mpls Bog birds.wav",
+      "title": "Birds in a Bog",
       "audio": "https://cdn.freesound.org/previews/1/1050_1112-hq.mp3",
       "duration": 180,
       "tags": {
@@ -279,7 +300,10 @@
           "nature",
           "outdoor"
         ],
-        "url": "https://freesound.org/people/RHumphries/sounds/1050/"
+        "url": "https://freesound.org/people/RHumphries/sounds/1050/",
+        "title_de": "Vögel im Sumpf",
+        "title_fr": "Oiseaux dans un marais",
+        "title_es": "Pájaros en un pantano"
       }
     },
     {
@@ -327,12 +351,15 @@
           "wild",
           "wood"
         ],
-        "url": "https://freesound.org/people/KasperAugustTopp/sounds/512282/"
+        "url": "https://freesound.org/people/KasperAugustTopp/sounds/512282/",
+        "title_de": "Altstadt-Atmosphäre",
+        "title_fr": "Ambiance de vieille ville",
+        "title_es": "Ambiente de ciudad antigua"
       }
     },
     {
       "id": "fs-1056",
-      "title": "rbh city night crickets.wav",
+      "title": "City Night Crickets",
       "audio": "https://cdn.freesound.org/previews/1/1056_1112-hq.mp3",
       "duration": 180,
       "tags": {
@@ -353,7 +380,10 @@
           "nature",
           "outdoor"
         ],
-        "url": "https://freesound.org/people/RHumphries/sounds/1056/"
+        "url": "https://freesound.org/people/RHumphries/sounds/1056/",
+        "title_de": "Grillen in der Stadtnacht",
+        "title_fr": "Grillons de nuit en ville",
+        "title_es": "Grillos de noche en la ciudad"
       }
     }
   ]

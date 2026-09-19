@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-366111",
-      "title": "Indoor Footsteps.wav",
+      "title": "Indoor Footsteps",
       "audio": "https://cdn.freesound.org/previews/366/366111_6366356-hq.mp3",
       "duration": 4,
       "tags": {
@@ -47,12 +47,15 @@
           "walking",
           "wood"
         ],
-        "url": "https://freesound.org/people/WakuWakuWakuWaku/sounds/366111/"
+        "url": "https://freesound.org/people/WakuWakuWakuWaku/sounds/366111/",
+        "title_de": "Schritte drinnen",
+        "title_fr": "Pas en intérieur",
+        "title_es": "Pasos en interiores"
       }
     },
     {
       "id": "fs-433725",
-      "title": "Running on ground",
+      "title": "Running on Ground",
       "audio": "https://cdn.freesound.org/previews/433/433725_8807322-hq.mp3",
       "duration": 27,
       "tags": {
@@ -79,12 +82,15 @@
           "walking",
           "walks"
         ],
-        "url": "https://freesound.org/people/Disagree/sounds/433725/"
+        "url": "https://freesound.org/people/Disagree/sounds/433725/",
+        "title_de": "Laufen auf dem Boden",
+        "title_fr": "Course sur le sol",
+        "title_es": "Correr sobre el suelo"
       }
     },
     {
       "id": "fs-459964",
-      "title": "Footsteps on concrete",
+      "title": "Footsteps on Concrete",
       "audio": "https://cdn.freesound.org/previews/459/459964_6253486-hq.mp3",
       "duration": 20,
       "tags": {
@@ -122,12 +128,15 @@
           "walk",
           "walking"
         ],
-        "url": "https://freesound.org/people/florianreichelt/sounds/459964/"
+        "url": "https://freesound.org/people/florianreichelt/sounds/459964/",
+        "title_de": "Schritte auf Beton",
+        "title_fr": "Pas sur le béton",
+        "title_es": "Pasos sobre hormigón"
       }
     },
     {
       "id": "fs-50725",
-      "title": "Footsteps on Tiles.wav",
+      "title": "Footsteps on Tiles",
       "audio": "https://cdn.freesound.org/previews/50/50725_179538-hq.mp3",
       "duration": 24,
       "tags": {
@@ -160,12 +169,15 @@
           "tiles",
           "walking"
         ],
-        "url": "https://freesound.org/people/RutgerMuller/sounds/50725/"
+        "url": "https://freesound.org/people/RutgerMuller/sounds/50725/",
+        "title_de": "Schritte auf Fliesen",
+        "title_fr": "Pas sur le carrelage",
+        "title_es": "Pasos sobre azulejos"
       }
     },
     {
       "id": "fs-345560",
-      "title": "Footsteps, Stones, A.wav",
+      "title": "Footsteps on Stones",
       "audio": "https://cdn.freesound.org/previews/345/345560_5121236-hq.mp3",
       "duration": 19,
       "tags": {
@@ -191,12 +203,15 @@
           "stones",
           "walking"
         ],
-        "url": "https://freesound.org/people/InspectorJ/sounds/345560/"
+        "url": "https://freesound.org/people/InspectorJ/sounds/345560/",
+        "title_de": "Schritte auf Pflastersteinen",
+        "title_fr": "Pas sur les pavés",
+        "title_es": "Pasos sobre adoquines"
       }
     },
     {
       "id": "fs-19292",
-      "title": "footstep on wood foley.wav",
+      "title": "Footstep on Wood",
       "audio": "https://cdn.freesound.org/previews/19/19292_84709-hq.mp3",
       "duration": 17,
       "tags": {
@@ -217,7 +232,10 @@
           "walking",
           "wood"
         ],
-        "url": "https://freesound.org/people/martian/sounds/19292/"
+        "url": "https://freesound.org/people/martian/sounds/19292/",
+        "title_de": "Schritt auf Holzboden",
+        "title_fr": "Pas sur parquet",
+        "title_es": "Paso sobre suelo de madera"
       }
     }
   ]

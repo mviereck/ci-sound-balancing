@@ -17,7 +17,7 @@
   "items": [
     {
       "id": "fs-382688",
-      "title": "wind around car empty 170223_1092.wav",
+      "title": "Wind Around Car",
       "audio": "https://cdn.freesound.org/previews/382/382688_1648170-hq.mp3",
       "duration": 219,
       "tags": {
@@ -61,12 +61,15 @@
           "windy",
           "winter"
         ],
-        "url": "https://freesound.org/people/klankbeeld/sounds/382688/"
+        "url": "https://freesound.org/people/klankbeeld/sounds/382688/",
+        "title_de": "Wind ums Auto",
+        "title_fr": "Vent autour d'une voiture",
+        "title_es": "Viento alrededor de un coche"
       }
     },
     {
       "id": "fs-61208",
-      "title": "whiteNoise.wav",
+      "title": "White Noise",
       "audio": "https://cdn.freesound.org/previews/61/61208_796868-hq.mp3",
       "duration": 30,
       "tags": {
@@ -86,12 +89,15 @@
           "stereo",
           "white"
         ],
-        "url": "https://freesound.org/people/KarlFaktor/sounds/61208/"
+        "url": "https://freesound.org/people/KarlFaktor/sounds/61208/",
+        "title_de": "Weißes Rauschen",
+        "title_fr": "Bruit blanc",
+        "title_es": "Ruido blanco"
       }
     },
     {
       "id": "fs-842063",
-      "title": "Yamabiko Arrival at Mizusawa-Esashi",
+      "title": "Train Arrival at Station",
       "audio": "https://cdn.freesound.org/previews/842/842063_17756109-hq.mp3",
       "duration": 31,
       "tags": {
@@ -111,7 +117,10 @@
           "shinkansen",
           "train"
         ],
-        "url": "https://freesound.org/people/hoshisato/sounds/842063/"
+        "url": "https://freesound.org/people/hoshisato/sounds/842063/",
+        "title_de": "Zug fährt in Bahnhof ein",
+        "title_fr": "Arrivée du train en gare",
+        "title_es": "Llegada del tren a la estación"
       }
     }
   ]
