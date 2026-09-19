@@ -23,16 +23,6 @@
       "source": "common-voice/source.json"
     },
     {
-      "key": "freiburger",
-      "name": "Freiburger Sprachtest",
-      "categories": [
-        "saetze",
-        "geraeusche"
-      ],
-      "license": "CC-BY-4.0",
-      "source": "freiburger/source.json"
-    },
-    {
       "key": "mls-french",
       "name": "MLS Französisch",
       "categories": [

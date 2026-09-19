@@ -247,25 +247,25 @@ const AM_SORT_AXES = {
       key: "kind", labelKey: "plNoiseAxisKind", labelDefault: "Art",
       getter: function (it) { return (it.tags && it.tags.kind) || "zzz-unbekannt"; },
       valueOf: function (it) { return (it.tags && it.tags.kind) || ""; },
-      bucketLabel: function (v) { return (typeof t === "function") ? t("plNoiseKind_" + v) : v; }
+      bucketLabel: function (v) { return _amEnumLabel("plNoiseKind_", v); }
     },
     {
       key: "spectrum", labelKey: "plNoiseAxisSpectrum", labelDefault: "Spektrum",
       getter: function (it) { return (it.tags && it.tags.spectrum) || "zzz-unbekannt"; },
       valueOf: function (it) { return (it.tags && it.tags.spectrum) || ""; },
-      bucketLabel: function (v) { return (typeof t === "function") ? t("plNoiseSpectrum_" + v) : v; }
+      bucketLabel: function (v) { return _amEnumLabel("plNoiseSpectrum_", v); }
     },
     {
       key: "stationary", labelKey: "plNoiseAxisStationary", labelDefault: "Zeitverlauf",
       getter: function (it) { return (it.tags && it.tags.stationary) || "zzz-unbekannt"; },
       valueOf: function (it) { return (it.tags && it.tags.stationary) || ""; },
-      bucketLabel: function (v) { return (typeof t === "function") ? t("plNoiseStationary_" + v) : v; }
+      bucketLabel: function (v) { return _amEnumLabel("plNoiseStationary_", v); }
     },
     {
       key: "loop_safe", labelKey: "plNoiseAxisLoopSafe", labelDefault: "Loopbar",
       getter: function (it) { return (it.tags && it.tags.loop_safe) || "zzz-unbekannt"; },
       valueOf: function (it) { return (it.tags && it.tags.loop_safe) || ""; },
-      bucketLabel: function (v) { return (typeof t === "function") ? t("plNoiseLoopSafe_" + v) : v; }
+      bucketLabel: function (v) { return _amEnumLabel("plNoiseLoopSafe_", v); }
     }
   ],
   // BA558: Saetze-Achsen (vollstaendig, Konzept-Reihenfolge).
@@ -419,6 +419,10 @@ const AM_SORT_AXES = {
     },
     {
       key: "length", labelKey: "plBookAxisLength", labelDefault: "Länge",
+      // Ordinale Achse: feste Reihenfolge nach Dauer (nicht alphabetisch nach
+      // Label). amBucketsForAxisValues ordnet Werte mit axis.order nach diesem
+      // Index; unbekannte Werte landen dahinter.
+      order: ["very_short", "short", "medium", "long", "very_long"],
       getter: function (c) { return (c.tags && c.tags.length_band) || "zzz-unbekannt"; },
       valueOf: function (c) { return (c.tags && c.tags.length_band) || ""; },
       bucketLabel: function (v) { return (typeof t === "function") ? t("plBookLength_" + v) : v; }
@@ -443,6 +447,16 @@ const AM_SORT_AXES = {
 // uebereinstimmen (build der plBookGenre_-Keys).
 function _amGenreKey(raw) {
   return String(raw || "").toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+}
+
+// i18n-Label eines Achsen-Rohwerts ueber ein Praefix. Der Rohwert wird vor
+// dem Key-Bau normalisiert: Bindestrich -> Unterstrich, weil die i18n-Keys
+// keine Bindestriche tragen koennen (JS-Property), die Manifest-Rohwerte aber
+// schon (z.B. "rauschen-rosa", "test-ton"). Fehlt der Key, faellt t() auf den
+// deutschen Default bzw. amAxisBucketLabel auf den Rohwert zurueck.
+function _amEnumLabel(prefix, v) {
+  if (typeof t !== "function") return v;
+  return t(prefix + String(v).replace(/-/g, "_"));
 }
 
 function amSortAxesFor(category) {
@@ -595,13 +609,26 @@ function amBucketsForAxisValues(axis, items) {
       for (var j = 0; j < vals.length; j++) set.add(vals[j]);
     }
   }
-  // Nach ANGEZEIGTEM Label sortieren (nicht nach Rohwert), damit die
+  // Ordinale Achse (axis.order gesetzt): feste Reihenfolge nach dem
+  // deklarierten Werte-Index (z.B. Laenge sehr kurz -> sehr lang), nicht
+  // alphabetisch. Unbekannte/nicht gelistete Werte landen ans Ende.
+  // Sonst nach ANGEZEIGTEM Label sortieren (nicht nach Rohwert), damit die
   // sichtbare Reihenfolge alphabetisch ist (z.B. "Klassik" bei K statt
   // "westernart" am Ende). Ohne bucketLabel faellt das Label auf den
   // Rohwert zurueck -> Verhalten unveraendert.
-  var values = Array.from(set).sort(function (a, b) {
-    return amAxisBucketLabel(axis, a).localeCompare(amAxisBucketLabel(axis, b));
-  });
+  var values;
+  if (Array.isArray(axis.order)) {
+    var ord = axis.order;
+    var rank = function (v) { var i = ord.indexOf(v); return i < 0 ? ord.length : i; };
+    values = Array.from(set).sort(function (a, b) {
+      var d = rank(a) - rank(b);
+      return d !== 0 ? d : amAxisBucketLabel(axis, a).localeCompare(amAxisBucketLabel(axis, b));
+    });
+  } else {
+    values = Array.from(set).sort(function (a, b) {
+      return amAxisBucketLabel(axis, a).localeCompare(amAxisBucketLabel(axis, b));
+    });
+  }
   return { values: values, hasNone: hasNone, hasSome: hasSome };
 }
 
