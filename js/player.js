@@ -984,11 +984,19 @@ function _pOnPlaybackEnded() {
   const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
 
   // Loop hat Vorrang vor Auto-Advance: gleiches Stueck nach Pause nochmal.
+  // BA594: Pause parallel behandeln -- bei Loop liegt der (ggf. gewarpte)
+  // Buffer schon vor, das "Laden" ist sofort fertig, die Stille = reine Pause.
   if (typeof plLoop !== "undefined" && plLoop) {
-    setTimeout(function () {
-      if (!plLoop) return;  // wurde waehrend der Pause ausgeschaltet
+    const _gapToken = {};
+    _plGapReset();
+    _plGapCurrentToken = _gapToken;
+    _plGapMarkLoaded();                 // Buffer ist da -> Ladebedingung sofort erfuellt
+    _plGapArm(ms, function () {
+      if (_plGapCurrentToken !== _gapToken) return;
+      if (!plLoop) return;              // waehrend der Pause ausgeschaltet
+      if (typeof _pSetPlayWish === "function") _pSetPlayWish(true);
       if (typeof pPlay === "function") pPlay();
-    }, ms);
+    });
     return;
   }
 
@@ -2004,6 +2012,8 @@ function _plLoadCurrent(afterLoad) {
 function _plNavGoTo(item, opts) {
   const cat = plCurrentCategory();
   if (!cat || !item) return;
+  _plGapReset();                 // BA594: laufende Auto-Weiter/Loop-Pause verwerfen
+  _plGapCurrentToken = null;
   const keepPlaying = !!(opts && opts.keepPlaying);
   const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
 
@@ -2131,18 +2141,32 @@ function plNavAutoAdvance() {
   }
   if (!next) return;            // Ende der Reihe -> Stopp
   const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
-  setTimeout(function () {
+
+  // BA594: Laden SOFORT vorziehen, Pause LAEUFT PARALLEL. Der Ton startet
+  // erst, wenn Timer UND Laden fertig sind (_plGapMaybeStart).
+  if (typeof plShuffle !== "undefined" && plShuffle) _plNavPrevItem = cur;
+  cat.select(next);
+  if (typeof plUpdDisplay === "function") plUpdDisplay();
+
+  // Play-Wunsch NOCH NICHT setzen -- sonst spielt das Stueck los, sobald der
+  // Buffer da ist, ohne die Pause abzuwarten.
+  const _gapToken = {};
+  _plGapReset();
+  _plGapCurrentToken = _gapToken;
+
+  _plLoadCurrent(function () {
+    pOff = 0;
+    if (_plGapCurrentToken !== _gapToken) return;
+    _plGapMarkLoaded();
+  });
+
+  _plGapArm(ms, function () {
+    if (_plGapCurrentToken !== _gapToken) return;
     if (!plAutoAdvance || plLoop) return;
-    if (plCurrentCategory() !== cat) return;   // Kategorie gewechselt -> abbrechen
-    if (typeof plShuffle !== "undefined" && plShuffle) _plNavPrevItem = cur;
-    cat.select(next);
-    if (typeof plUpdDisplay === "function") plUpdDisplay();
-    // SW (BA379): Auto-Advance spielt automatisch -> Play-Wunsch setzen, damit
-    // auch der Streaming-Pfad über das Gate startet. Die gemeinsame Lade-Stelle
-    // verwirft den alten Auftrag und spielt bei Wunsch.
+    if (plCurrentCategory() !== cat) return;
     if (typeof _pSetPlayWish === "function") _pSetPlayWish(true);
-    _plLoadCurrent(function () { pOff = 0; });
-  }, ms);
+    if (typeof pPlay === "function") pPlay();
+  });
 }
 
 // Position (Sekunde) sitzungsweit je Kategorie merken / wiederherstellen.
@@ -2449,6 +2473,50 @@ function plRefreshTooltips() {
   });
 }
 
+// BA594: Auto-Weiter/Loop-Pause laeuft PARALLEL zum Vorladen des naechsten
+// Stuecks. _plGapTimer ist der Pausen-Timeout (benannt, damit ein Eingriff
+// ihn abbrechen kann). Start erfolgt, sobald BEIDE Bedingungen erfuellt sind:
+// _plGapTimerDone (Pause abgelaufen) UND _plGapLoadDone (Laden fertig).
+// Wer zuletzt eintrifft, ruft _plGapMaybeStart().
+let _plGapTimer        = null;    // Handle des Pausen-setTimeout
+let _plGapTimerDone    = false;   // Pause abgelaufen?
+let _plGapLoadDone     = false;   // Vorladen des naechsten Stuecks fertig?
+let _plGapStartFn      = null;
+let _plGapCurrentToken = null;   // BA594: identifiziert die laufende Gap-Sequenz
+
+// Setzt beide Flags zurueck und loescht einen evtl. laufenden Timer.
+function _plGapReset() {
+  if (_plGapTimer) { clearTimeout(_plGapTimer); _plGapTimer = null; }
+  _plGapTimerDone = false;
+  _plGapLoadDone  = false;
+}
+
+// Startet die Pause + koppelt den Ton an "beide fertig".
+function _plGapArm(ms, startFn) {
+  _plGapStartFn = startFn;
+  _plGapTimer = setTimeout(function () {
+    _plGapTimer = null;
+    _plGapTimerDone = true;
+    _plGapMaybeStart();
+  }, ms);
+}
+
+// Vom Lade-Callback gerufen: Vorladen ist fertig.
+function _plGapMarkLoaded() {
+  _plGapLoadDone = true;
+  _plGapMaybeStart();
+}
+
+// Startet, sobald beide Bedingungen erfuellt sind.
+function _plGapMaybeStart() {
+  if (!_plGapTimerDone || !_plGapLoadDone) return;
+  const fn = _plGapStartFn;
+  _plGapStartFn   = null;
+  _plGapTimerDone = false;
+  _plGapLoadDone  = false;
+  if (typeof fn === "function") fn();
+}
+
 let _plIdleTimer = null;
 const _PL_IDLE_MS = 30 * 60 * 1000;
 
@@ -2471,6 +2539,7 @@ function _plNoteInteraction() {
 }
 function _plAutoAdvCancel() {
   _plClearIdleTimer();
+  _plGapReset();   // BA594: laufende Auto-Weiter/Loop-Pause abbrechen
 }
 
 document.addEventListener("click",      _plNoteInteraction, true);
