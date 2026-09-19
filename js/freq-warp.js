@@ -1159,10 +1159,6 @@ function pWarpUpdUI() {
     playBtn.style.pointerEvents = "";
   }
 
-  // Sanduhr = "Frequenz-Warping-Berechnung laeuft" (nur waehrend pWarpBusy).
-  const busyIcon = document.getElementById("plPlayBusyIcon");
-  if (busyIcon) busyIcon.style.display = pWarpBusy ? "" : "none";
-
   // Tooltip auf festen Text reduziert (kein Prozent, kein Sperr-Bezug).
   // BA590: Text je nach laufender Berechnung (Warp vs. Abspielgeschwindigkeit).
   const busyTip = document.getElementById("plPlayBusyTip");

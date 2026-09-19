@@ -1563,7 +1563,12 @@ function plUpdProgressRow() {
   const elDownload = document.getElementById("plProgressDownload");
   if (!elPlay) return;
 
-  if (typeof pWarpBusy !== "undefined" && pWarpBusy) {
+  const warpBusy = typeof pWarpBusy !== "undefined" && pWarpBusy;
+  const busy = warpBusy || pDownloadBusy;
+  const busyIcon = document.getElementById("plBusyIcon");
+  if (busyIcon) busyIcon.style.display = busy ? "" : "none";
+
+  if (warpBusy) {
     elPlay.style.display     = "none";
     elCompute.style.display  = "flex";
     elDownload.style.display = "none";

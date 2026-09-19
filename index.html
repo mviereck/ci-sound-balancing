@@ -1769,9 +1769,6 @@
                       style="width:40px;height:40px;border-radius:50%;font-size:1.05em;display:flex;align-items:center;justify-content:center;padding:0">
                 &#9654;
               </button>
-              <span id="plPlayBusyIcon"
-                    style="display:none;font-size:1.4em;line-height:1"
-                    aria-hidden="true">&#9203;</span>
               <div id="plPlayBusyTip"
                    style="display:none;position:absolute;bottom:100%;left:0;margin-bottom:8px;padding:6px 10px;background:#333;color:#fff;border-radius:4px;font-size:0.82em;white-space:nowrap;z-index:1000;pointer-events:none;"></div>
             </span>
@@ -1788,6 +1785,9 @@
 
             <!-- Fortschrittszeile: 3 Modi, flex:1 füllt den Restplatz -->
             <div id="plProgressRow" style="flex:1; min-width:80px; height:28px; display:flex; align-items:center; overflow:hidden">
+
+              <!-- Sanduhr: Download, Warp- oder Tempo-Berechnung läuft -->
+              <span id="plBusyIcon" style="display:none; font-size:1.2em; line-height:1; flex-shrink:0; margin-right:2px" aria-hidden="true">&#9203;</span>
 
               <!-- Modus "play": Scrubber + Zeitanzeige -->
               <div id="plProgressPlay" style="display:flex; align-items:center; gap:6px; width:100%">
