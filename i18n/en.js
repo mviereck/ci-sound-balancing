@@ -1622,7 +1622,7 @@ Object.assign(L.en, {
     plTipShuffle: "Shuffle: play tracks in random order",
     plTipAutoAdv: "Automatically play the next track when finished (stops after 30 min without interaction)",
     plAutoAdvLabel: "↪ Auto-advance",
-    plPauseLabel: "Pause between tracks:",
+    plPauseLabel: "Pauses:",
     plSpeedLabel: "Speed:",
     pwProgressLabel: "Computing frequency warping:",
     pwSpeedProgressLabel: "Computing playback speed:",

@@ -542,7 +542,7 @@ Object.assign(L.de, {
     plTipShuffle: "Zufall: Stücke in zufälliger Reihenfolge wählen",
     plTipAutoAdv: "Nach Ende automatisch das nächste Stück abspielen (stoppt nach 30 min ohne Bedienung)",
     plAutoAdvLabel: "↪ Auto-Weiter",
-    plPauseLabel: "Pause zwischen Stücken:",
+    plPauseLabel: "Pausen:",
     plSpeedLabel: "Geschwindigkeit:",
     plDispEmpty: "Nichts geladen",
     plDispNoMeta: "—",

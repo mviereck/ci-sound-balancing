@@ -1622,7 +1622,7 @@ Object.assign(L.fr, {
     plTipShuffle: "Aléatoire : choisir les morceaux dans un ordre aléatoire",
     plTipAutoAdv: "Lire automatiquement le morceau suivant à la fin (s'arrête après 30 min sans action)",
     plAutoAdvLabel: "↪ Lecture auto",
-    plPauseLabel: "Pause entre les morceaux :",
+    plPauseLabel: "Pauses :",
     plSpeedLabel: "Vitesse :",
     pwProgressLabel: "Calcul du warping fréquentiel :",
     pwSpeedProgressLabel: "Calcul de la vitesse de lecture :",

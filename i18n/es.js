@@ -1622,7 +1622,7 @@ Object.assign(L.es, {
     plTipShuffle: "Aleatorio: elegir las piezas en orden aleatorio",
     plTipAutoAdv: "Reproducir automáticamente la pieza siguiente al terminar (se detiene tras 30 min sin interacción)",
     plAutoAdvLabel: "↪ Auto-avance",
-    plPauseLabel: "Pausa entre piezas:",
+    plPauseLabel: "Pausas:",
     plSpeedLabel: "Velocidad:",
     pwProgressLabel: "Calculando el warping de frecuencia:",
     pwSpeedProgressLabel: "Calculando la velocidad de reproducción:",
