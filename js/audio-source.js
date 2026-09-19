@@ -182,6 +182,7 @@ function _amSpeakerLabel(v) {
   if (m) return tr("plSpeaker_mlsEs", "Span. Vorleser") + " " + m[1];
   m = v.match(/^mls-pl-(\d+)$/);
   if (m) return tr("plSpeaker_mlsPl", "Poln. Vorleser") + " " + m[1];
+  if (v === "mailabs-elizabeth-klett") return "Elisabeth Klett";
   return v;   // Fallback: Rohwert
 }
 

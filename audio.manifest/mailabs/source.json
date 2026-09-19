@@ -1,0 +1,19 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "key": "mailabs",
+  "name": "M-AILABS Speech Dataset",
+  "url": "http://www.m-ailabs.bayern/en/the-m-ailabs-speech-dataset/",
+  "license": "PD",
+  "credit": "M-AILABS Speech Dataset — Munich AI Labs; Audio-Basis: LibriVox (PD)",
+  "base": "M-AILABS/",
+  "categories": [
+    "saetze"
+  ],
+  "manifests": {
+    "saetze": [
+      "saetze/en_UK/elizabeth_klett/jane_eyre.json",
+      "saetze/en_UK/elizabeth_klett/wives_and_daughters.json"
+    ]
+  },
+  "notes": "Lizenz M-AILABS: Quell-Audio LibriVox PD; Datensatz-Aufbereitung © Munich AI Labs. Hochschulen in D/CH/AT laut Lizenz ausgeschlossen."
+}
