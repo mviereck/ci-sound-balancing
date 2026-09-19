@@ -1721,6 +1721,15 @@ const plCategories = {
     current: function () { return (typeof sCurRec !== "undefined") ? sCurRec : null; },
     select: function (item) { if (item) sCurRec = item; },
     load: function () { return sLoadCurrent(); },
+    // Startwunsch: ein zufaelliger Thorsten-Satz. Die Liste ist bereits nach
+    // Inhaltssprache (plContentLang) gefiltert — bei Nicht-Deutsch sind keine
+    // Thorsten-Items dabei, dann liefert dies null und list[0] greift.
+    pickInitial: function (list) {
+      const th = list.filter(function (it) {
+        return it.tags && it.tags.speaker_id === "thorsten";
+      });
+      return th.length ? th[Math.floor(Math.random() * th.length)] : null;
+    },
     // --- Anzeige (unveraendert) ---
     currentItem: function () {
       if (typeof sCurRec === "undefined" || !sCurRec) return null;
@@ -1778,6 +1787,13 @@ const plCategories = {
       if (sel) sel.value = item.id;
     },
     load: function () { return plNoiseLoadSelected(); },
+    // Startwunsch: ein Bach-Geraeusch (angenehmer, loopbarer Naturklang zum
+    // Vorhoeren) statt des alphabetisch ersten Items. Fehlt es, greift list[0].
+    // Die Laufzeit-id traegt ein Loader-Praefix (Quelle/Ordner) vor der rohen
+    // Manifest-id -> Suffix-Match auf "/fs-231536".
+    pickInitial: function (list) {
+      return list.find(function (it) { return (it.id || "").endsWith("/fs-231536"); }) || null;
+    },
     // --- Anzeige (unveraendert: Indexnummer "n / gesamt") ---
     currentItem: function () {
       const it = (typeof plNoiseCurrentItem === "function") ? plNoiseCurrentItem() : null;
@@ -2084,9 +2100,18 @@ function plNavEnsureCursor() {
       if (_plNavSameItem(list[i], cur)) return;   // Zeiger noch gueltig
     }
   }
-  const first = (typeof plShuffle !== "undefined" && plShuffle)
-    ? _plNavPickRandom(list, null)
-    : list[0];
+  // Startzeiger bei leerem/ungueltigem Zeiger: Shuffle -> Zufall; sonst der
+  // deklarierte Startwunsch der Kategorie (cat.pickInitial), sonst das erste
+  // Item. pickInitial bekommt die bereits sprachgefilterte Liste — eine eigene
+  // Sprachpruefung eruebrigt sich (findet pickInitial nichts, greift list[0]).
+  let first;
+  if (typeof plShuffle !== "undefined" && plShuffle) {
+    first = _plNavPickRandom(list, null);
+  } else if (typeof cat.pickInitial === "function") {
+    first = cat.pickInitial(list) || list[0];
+  } else {
+    first = list[0];
+  }
   if (first) cat.select(first);
 }
 
@@ -2865,7 +2890,13 @@ function plBuildFilterChain(catDecl) {
         var curColId = catDecl.stateRef.getSelectedId();
         var colExists = sortedCols.some(function (c) { return c.id === curColId; });
         if (!colExists) {
-          catDecl.stateRef.setSelectedId(sortedCols[0].id);
+          // Start-Werk bei leerem/ungueltigem Zeiger: deklarierter Startwunsch
+          // der Kategorie (pickInitialWork) auf der bereits sprachgefilterten
+          // Werkliste; sonst das erste Werk.
+          var startCol = (typeof catDecl.pickInitialWork === "function")
+            ? (catDecl.pickInitialWork(sortedCols) || sortedCols[0])
+            : sortedCols[0];
+          catDecl.stateRef.setSelectedId(startCol.id);
         }
         domEl.value = catDecl.stateRef.getSelectedId();
       }
@@ -3783,6 +3814,15 @@ function plBookCurrentChapter() {
 PL_FILTER_DECL.hoerbuecher = {
   category: "hoerbuecher",
   languageSensitive: true,
+  // Startwunsch auf WERK-Ebene (nicht Kapitel): "Deutschland. Ein
+  // Wintermärchen". Ausgewertet in der collection-sel-Stage von
+  // plBuildFilterChain bei leerem/ungueltigem Werk-Zeiger. Die Werkliste ist
+  // bereits nach Inhaltssprache gefiltert — bei Nicht-Deutsch ist das Buch
+  // nicht dabei, dann greift sortedCols[0]. Die Laufzeit-id traegt ein
+  // Loader-Praefix (webspace-book:) -> Suffix-Match auf "librivox:3580".
+  pickInitialWork: function (cols) {
+    return cols.find(function (c) { return (c.id || "").endsWith("librivox:3580"); }) || null;
+  },
   _wired: false,
   fieldDecl: [
     { key: "chapter", labelKey: "plDispFieldChapter",  getValue: function (ctx) { return ctx.chapter  || ""; }, role: "title",   inFilter: false, inDisplay: true,  visibility: "always" },
