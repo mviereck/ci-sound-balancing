@@ -23,6 +23,15 @@
       "source": "common-voice/source.json"
     },
     {
+      "key": "mailabs",
+      "name": "M-AILABS Speech Dataset",
+      "categories": [
+        "saetze"
+      ],
+      "license": "PD",
+      "source": "mailabs/source.json"
+    },
+    {
       "key": "mls-french",
       "name": "MLS Französisch",
       "categories": [
