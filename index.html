@@ -1751,18 +1751,17 @@
           </div>
 
           <!-- Einheitliche Fortschrittszeile: 3 Modi (play / compute / download) -->
-          <div id="plProgressRow" style="margin-bottom:6px">
+          <div id="plProgressRow" style="margin-bottom:6px; height:28px; display:flex; align-items:center; overflow:hidden">
 
             <!-- Modus "play": Scrubber + Zeitanzeige (sichtbar wenn kein Vorgang läuft) -->
-            <div id="plProgressPlay" style="display:flex; flex-direction:column; gap:3px">
-              <input type="range" id="plTL" min="0" max="1000" value="0" step="1" style="width:100%" />
-              <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:0.78em; color:var(--text-muted)">
-                <span id="plCur">0:00</span><span id="plTot">0:00</span>
-              </div>
+            <div id="plProgressPlay" style="display:flex; align-items:center; gap:6px; width:100%">
+              <span id="plCur" style="font-family:var(--mono); font-size:0.78em; color:var(--text-muted); white-space:nowrap">0:00</span>
+              <input type="range" id="plTL" min="0" max="1000" value="0" step="1" style="flex:1; min-width:60px" />
+              <span id="plTot" style="font-family:var(--mono); font-size:0.78em; color:var(--text-muted); white-space:nowrap">0:00</span>
             </div>
 
             <!-- Modus "compute": Warp- oder Tempo-Berechnung -->
-            <div id="plProgressCompute" style="display:none; align-items:center; gap:8px; flex-wrap:wrap">
+            <div id="plProgressCompute" style="display:none; align-items:center; gap:8px; width:100%">
               <span id="plProgressComputeLabel" style="font-size:0.82em; color:var(--text-muted)" data-t="pwProgressLabel"></span>
               <div style="flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden">
                 <div id="plProgressComputeBar"
@@ -1776,7 +1775,7 @@
             </div>
 
             <!-- Modus "download": Fortschrittsbalken (Prozent wenn Content-Length, sonst Puls) -->
-            <div id="plProgressDownload" style="display:none; align-items:center; gap:8px; flex-wrap:wrap">
+            <div id="plProgressDownload" style="display:none; align-items:center; gap:8px; width:100%">
               <span style="font-size:0.82em; color:var(--text-muted)" data-t="plDownloadProgressLabel"></span>
               <div style="flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden">
                 <div id="plProgressDownloadBar"
