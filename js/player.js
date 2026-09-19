@@ -2189,6 +2189,8 @@ function plToggleAutoAdvance() {
 
 function plSetPause(ms) {
   plPauseMs = ms;
+  const _psel = document.getElementById("plPauseSelect");
+  if (_psel) _psel.value = String(ms);
   plUpdTransportUI();
 }
 
@@ -2333,16 +2335,6 @@ function plUpdTransportUI() {
     shBtn.style.background = plShuffle ? "var(--accent, #6aa84f)" : "";
     shBtn.style.color      = plShuffle ? "#fff" : "";
   }
-  document.querySelectorAll(".pl-pause-btn").forEach(function (b) {
-    const v = parseInt(b.dataset.ms, 10);
-    const active = (v === plPauseMs);
-    b.classList.toggle("active", active);
-    b.style.background = active ? "var(--accent, #6aa84f)" : "";
-    b.style.color      = active ? "#fff" : "";
-    b.disabled = false;
-    b.style.opacity = "1";
-    b.style.cursor  = "pointer";
-  });
   const prevBtn = document.getElementById("plPrev");
   const nextBtn = document.getElementById("plNext");
 
@@ -2508,12 +2500,14 @@ document.getElementById("plLoopBtn").addEventListener("click", plToggleLoop);
 document.getElementById("plShuffleBtn").addEventListener("click", plToggleShuffle);
 document.getElementById("plAutoAdvBtn").addEventListener("click", plToggleAutoAdvance);
 
-document.querySelectorAll(".pl-pause-btn").forEach(function (b) {
-  b.addEventListener("click", function () {
-    const v = parseInt(b.dataset.ms, 10);
+// Pause-Select (BA593)
+(function () {
+  const sel = document.getElementById("plPauseSelect");
+  if (sel) sel.addEventListener("change", function () {
+    const v = parseInt(this.value, 10);
     if (Number.isFinite(v)) plSetPause(v);
   });
-});
+})();
 
 
 // ============================================================
@@ -2529,6 +2523,8 @@ function plUpdVolBtns() {
     b.style.background = active ? "var(--accent, #6aa84f)" : "";
     b.style.color      = active ? "#fff" : "";
   });
+  const disp = document.getElementById("plVolDisplay");
+  if (disp) disp.textContent = cur + "%";
 }
 
 document.querySelectorAll(".pl-vol-btn").forEach(function (b) {
@@ -2548,21 +2544,27 @@ document.querySelectorAll(".pl-vol-btn").forEach(function (b) {
 
 function plUpdSpeedBtns() {
   const _sp = (typeof pSpeed === "number") ? pSpeed : 1;
-  document.querySelectorAll(".pl-speed-btn").forEach(function (b) {
-    const v = parseFloat(b.dataset.speed);
-    const active = (Math.abs(v - _sp) < 1e-6);
-    b.classList.toggle("active", active);
-    b.style.background = active ? "var(--accent, #6aa84f)" : "";
-    b.style.color      = active ? "#fff" : "";
-  });
+  const sel = document.getElementById("plSpeedSelect");
+  if (!sel) return;
+  let found = false;
+  for (let i = 0; i < sel.options.length; i++) {
+    if (Math.abs(parseFloat(sel.options[i].value) - _sp) < 1e-6) {
+      sel.selectedIndex = i;
+      found = true;
+      break;
+    }
+  }
+  if (!found) sel.value = String(_sp);
 }
 
-document.querySelectorAll(".pl-speed-btn").forEach(function (b) {
-  b.addEventListener("click", function () {
-    const v = parseFloat(b.dataset.speed);
+// Tempo-Select (BA593)
+(function () {
+  const sel = document.getElementById("plSpeedSelect");
+  if (sel) sel.addEventListener("change", function () {
+    const v = parseFloat(this.value);
     if (Number.isFinite(v)) plSetSpeed(v);
   });
-});
+})();
 
 function plSetSpeed(v) {
   if (!Number.isFinite(v) || v <= 0) return;

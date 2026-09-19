@@ -1701,19 +1701,21 @@
 
           </div>
 
-          <!-- Transport-Leiste -->
+          <!-- Transport + Fortschritt — eine Zeile -->
           <div id="plTransport" class="controls-row"
-               style="align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap">
+               style="align-items:center; gap:8px; margin-bottom:8px; flex-wrap:nowrap">
+
+            <!-- Runde Transport-Buttons -->
             <button class="btn pl-trans-btn" id="plPrev" type="button"
                     title="" data-tip="plTipPrev"
-                    style="width:40px;height:40px;border-radius:50%;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0">
+                    style="width:36px;height:36px;border-radius:50%;font-size:0.95em;display:flex;align-items:center;justify-content:center;padding:0;flex-shrink:0">
               &#9198;
             </button>
             <span id="plPlayWrap"
-                  style="position:relative;display:inline-flex;align-items:center;gap:8px">
+                  style="position:relative;display:inline-flex;align-items:center;gap:6px;flex-shrink:0">
               <button class="btn pl-trans-btn" id="plPlay" type="button"
                       title="" data-tip="plTipPlay"
-                      style="width:44px;height:44px;border-radius:50%;font-size:1.1em;display:flex;align-items:center;justify-content:center;padding:0">
+                      style="width:40px;height:40px;border-radius:50%;font-size:1.05em;display:flex;align-items:center;justify-content:center;padding:0">
                 &#9654;
               </button>
               <span id="plPlayBusyIcon"
@@ -1724,70 +1726,54 @@
             </span>
             <button class="btn pl-trans-btn" id="plStop" type="button"
                     title="" data-tip="plTipStop"
-                    style="width:40px;height:40px;border-radius:50%;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0">
+                    style="width:36px;height:36px;border-radius:50%;font-size:0.95em;display:flex;align-items:center;justify-content:center;padding:0;flex-shrink:0">
               &#9632;
             </button>
             <button class="btn pl-trans-btn" id="plNext" type="button"
                     title="" data-tip="plTipNext"
-                    style="width:40px;height:40px;border-radius:50%;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0">
+                    style="width:36px;height:36px;border-radius:50%;font-size:0.95em;display:flex;align-items:center;justify-content:center;padding:0;flex-shrink:0">
               &#9197;
             </button>
-            <button class="btn pl-trans-btn" id="plLoopBtn" type="button"
-                    title="" data-tip="plTipLoop"
-                    style="height:40px;border-radius:6px;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0 10px;gap:5px">
-              &#128257; Loop
-            </button>
-            <button class="btn pl-trans-btn" id="plShuffleBtn" type="button"
-                    title="" data-tip="plTipShuffle"
-                    style="height:40px;border-radius:6px;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0 10px;gap:5px">
-              &#127922; Zufall
-            </button>
-            <button class="btn pl-trans-btn" id="plAutoAdvBtn" type="button"
-                    title="" data-tip="plTipAutoAdv"
-                    style="height:40px;min-width:140px;font-weight:600;border-radius:6px">
-              <span data-t="plAutoAdvLabel"></span>
-            </button>
 
-          </div>
+            <!-- Fortschrittszeile: 3 Modi, flex:1 füllt den Restplatz -->
+            <div id="plProgressRow" style="flex:1; min-width:80px; height:28px; display:flex; align-items:center; overflow:hidden">
 
-          <!-- Einheitliche Fortschrittszeile: 3 Modi (play / compute / download) -->
-          <div id="plProgressRow" style="margin-bottom:6px; height:28px; display:flex; align-items:center; overflow:hidden">
-
-            <!-- Modus "play": Scrubber + Zeitanzeige (sichtbar wenn kein Vorgang läuft) -->
-            <div id="plProgressPlay" style="display:flex; align-items:center; gap:6px; width:100%">
-              <span id="plCur" style="font-family:var(--mono); font-size:0.78em; color:var(--text-muted); white-space:nowrap">0:00</span>
-              <input type="range" id="plTL" min="0" max="1000" value="0" step="1" style="flex:1; min-width:60px" />
-              <span id="plTot" style="font-family:var(--mono); font-size:0.78em; color:var(--text-muted); white-space:nowrap">0:00</span>
-            </div>
-
-            <!-- Modus "compute": Warp- oder Tempo-Berechnung -->
-            <div id="plProgressCompute" style="display:none; align-items:center; gap:8px; width:100%">
-              <span id="plProgressComputeLabel" style="font-size:0.82em; color:var(--text-muted)" data-t="pwProgressLabel"></span>
-              <div style="flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden">
-                <div id="plProgressComputeBar"
-                     style="height:100%; width:0%; background:var(--success); transition:width 0.25s ease"></div>
+              <!-- Modus "play": Scrubber + Zeitanzeige -->
+              <div id="plProgressPlay" style="display:flex; align-items:center; gap:6px; width:100%">
+                <span id="plCur" style="font-family:var(--mono); font-size:0.78em; color:var(--text-muted); white-space:nowrap">0:00</span>
+                <input type="range" id="plTL" min="0" max="1000" value="0" step="1" style="flex:1; min-width:40px" />
+                <span id="plTot" style="font-family:var(--mono); font-size:0.78em; color:var(--text-muted); white-space:nowrap">0:00</span>
               </div>
-              <span id="plProgressComputePct"
-                    style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
-              <button type="button" class="btn btn-sm" id="plComputeStopBtn"
-                      title="Berechnung stoppen"
-                      style="background:#c00;color:#fff;border-color:#900;font-size:1.1em;padding:0 6px;line-height:1">&#x1F6D1;</button>
-            </div>
 
-            <!-- Modus "download": Fortschrittsbalken (Prozent wenn Content-Length, sonst Puls) -->
-            <div id="plProgressDownload" style="display:none; align-items:center; gap:8px; width:100%">
-              <span style="font-size:0.82em; color:var(--text-muted)" data-t="plDownloadProgressLabel"></span>
-              <div style="flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden">
-                <div id="plProgressDownloadBar"
-                     style="height:100%; background:var(--success); transition:width 0.1s linear"></div>
+              <!-- Modus "compute": Warp- oder Tempo-Berechnung -->
+              <div id="plProgressCompute" style="display:none; align-items:center; gap:8px; width:100%">
+                <span id="plProgressComputeLabel" style="font-size:0.82em; color:var(--text-muted)" data-t="pwProgressLabel"></span>
+                <div style="flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden">
+                  <div id="plProgressComputeBar"
+                       style="height:100%; width:0%; background:var(--success); transition:width 0.25s ease"></div>
+                </div>
+                <span id="plProgressComputePct"
+                      style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
+                <button type="button" class="btn btn-sm" id="plComputeStopBtn"
+                        title="Berechnung stoppen"
+                        style="background:#c00;color:#fff;border-color:#900;font-size:1.1em;padding:0 6px;line-height:1">&#x1F6D1;</button>
               </div>
-              <span id="plProgressDownloadPct"
-                    style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
-              <button type="button" class="btn btn-sm" id="plDownloadStopBtn"
-                      title="Download abbrechen"
-                      style="background:#c00;color:#fff;border-color:#900;font-size:1.1em;padding:0 6px;line-height:1">&#x1F6D1;</button>
-            </div>
 
+              <!-- Modus "download": Fortschrittsbalken -->
+              <div id="plProgressDownload" style="display:none; align-items:center; gap:8px; width:100%">
+                <span style="font-size:0.82em; color:var(--text-muted)" data-t="plDownloadProgressLabel"></span>
+                <div style="flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden">
+                  <div id="plProgressDownloadBar"
+                       style="height:100%; background:var(--success); transition:width 0.1s linear"></div>
+                </div>
+                <span id="plProgressDownloadPct"
+                      style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
+                <button type="button" class="btn btn-sm" id="plDownloadStopBtn"
+                        title="Download abbrechen"
+                        style="background:#c00;color:#fff;border-color:#900;font-size:1.1em;padding:0 6px;line-height:1">&#x1F6D1;</button>
+              </div>
+
+            </div>
           </div>
 
           <!-- Anzeige-Block -->
@@ -1826,56 +1812,70 @@
                  style="display:none; font-size:0.82em; color:var(--text-muted); margin-top:2px"></div>
           </div>
 
-          <!-- Eigene Zeile: Pause-Buttons -->
-          <div id="plAutoAdvanceRow" class="controls-row"
-               style="align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap">
-            <div class="control-group" style="flex-wrap:wrap; gap:4px">
-              <label data-t="plPauseLabel" style="margin-right:4px"></label>
-              <div id="plPauseBtns" style="display:flex; gap:3px; flex-wrap:wrap">
-                <button class="btn pl-pause-btn" type="button" data-ms="0">0</button>
-                <button class="btn pl-pause-btn" type="button" data-ms="500">500</button>
-                <button class="btn pl-pause-btn" type="button" data-ms="750">750</button>
-                <button class="btn pl-pause-btn" type="button" data-ms="1000">1000</button>
-                <button class="btn pl-pause-btn" type="button" data-ms="2000">2000</button>
-                <button class="btn pl-pause-btn" type="button" data-ms="4000">4000</button>
-                <button class="btn pl-pause-btn" type="button" data-ms="8000">8000</button>
-              </div>
-              <span style="font-size:0.85em; color:var(--text-muted)">ms</span>
-            </div>
+          <!-- Modus-Zeile: Loop / Zufall / Auto-Weiter | Pause | Tempo -->
+          <div id="plModeRow" class="controls-row"
+               style="align-items:center; gap:6px; margin-bottom:8px; flex-wrap:wrap">
+
+            <button class="btn pl-trans-btn" id="plLoopBtn" type="button"
+                    title="" data-tip="plTipLoop"
+                    style="height:32px;border-radius:6px;font-size:0.9em;display:flex;align-items:center;justify-content:center;padding:0 8px;gap:4px">
+              &#128257; Loop
+            </button>
+            <button class="btn pl-trans-btn" id="plShuffleBtn" type="button"
+                    title="" data-tip="plTipShuffle"
+                    style="height:32px;border-radius:6px;font-size:0.9em;display:flex;align-items:center;justify-content:center;padding:0 8px;gap:4px">
+              &#127922; Zufall
+            </button>
+            <button class="btn pl-trans-btn" id="plAutoAdvBtn" type="button"
+                    title="" data-tip="plTipAutoAdv"
+                    style="height:32px;min-width:100px;font-weight:600;border-radius:6px">
+              <span data-t="plAutoAdvLabel"></span>
+            </button>
+
+            <span style="color:var(--border);margin:0 2px">|</span>
+
+            <label data-t="plPauseLabel" style="font-size:0.88em"></label>
+            <select id="plPauseSelect"
+                    style="height:32px;border:1px solid var(--border);border-radius:4px;padding:0 6px;font-size:0.88em;background:var(--bg);color:var(--text);cursor:pointer">
+              <option value="0">0 ms</option>
+              <option value="500">500 ms</option>
+              <option value="750">750 ms</option>
+              <option value="1000">1000 ms</option>
+              <option value="2000" selected>2000 ms</option>
+              <option value="4000">4000 ms</option>
+              <option value="8000">8000 ms</option>
+            </select>
+
+            <label data-t="plSpeedLabel" style="font-size:0.88em"></label>
+            <select id="plSpeedSelect"
+                    style="height:32px;border:1px solid var(--border);border-radius:4px;padding:0 6px;font-size:0.88em;background:var(--bg);color:var(--text);cursor:pointer">
+              <option value="0.5">0,5x</option>
+              <option value="0.6">0,6x</option>
+              <option value="0.7">0,7x</option>
+              <option value="0.8">0,8x</option>
+              <option value="0.9">0,9x</option>
+              <option value="1" selected>1x</option>
+              <option value="1.1">1,1x</option>
+              <option value="1.2">1,2x</option>
+              <option value="1.5">1,5x</option>
+              <option value="2">2x</option>
+            </select>
+
           </div>
 
-          <!-- Eigene Zeile: Lautstärke -->
+          <!-- Lautstärke-Zeile: Icon + Schieber + Wert + Preset-Buttons -->
           <div class="controls-row"
                style="align-items:center; gap:8px; margin-bottom:10px; flex-wrap:wrap">
-            <div class="control-group" style="flex-wrap:wrap; gap:4px">
-              <label data-t="lblVol"></label>
-              <input type="number" id="plVol" value="80" min="0" max="100" step="1"
-                     style="width:55px; padding:3px 5px; border:1px solid var(--border); border-radius:4px; text-align:center; font-family:var(--mono); font-size:0.88em" />%
-              <div id="plVolBtns" style="display:flex; gap:3px; flex-wrap:wrap; margin-left:6px">
-                <button class="btn pl-vol-btn" type="button" data-v="25">25</button>
-                <button class="btn pl-vol-btn" type="button" data-v="50">50</button>
-                <button class="btn pl-vol-btn" type="button" data-v="75">75</button>
-                <button class="btn pl-vol-btn" type="button" data-v="100">100</button>
-              </div>
-            </div>
-          </div>
-          <!-- Eigene Zeile: Abspielgeschwindigkeit -->
-          <div class="controls-row"
-               style="align-items:center; gap:8px; margin-bottom:10px; flex-wrap:wrap">
-            <div class="control-group" style="flex-wrap:wrap; gap:4px">
-              <label data-t="plSpeedLabel" style="margin-right:4px"></label>
-              <div id="plSpeedBtns" style="display:flex; gap:3px; flex-wrap:wrap">
-                <button class="btn pl-speed-btn" type="button" data-speed="0.5">0,5&times;</button>
-                <button class="btn pl-speed-btn" type="button" data-speed="0.6">0,6&times;</button>
-                <button class="btn pl-speed-btn" type="button" data-speed="0.7">0,7&times;</button>
-                <button class="btn pl-speed-btn" type="button" data-speed="0.8">0,8&times;</button>
-                <button class="btn pl-speed-btn" type="button" data-speed="0.9">0,9&times;</button>
-                <button class="btn pl-speed-btn" type="button" data-speed="1">1&times;</button>
-                <button class="btn pl-speed-btn" type="button" data-speed="1.1">1,1&times;</button>
-                <button class="btn pl-speed-btn" type="button" data-speed="1.2">1,2&times;</button>
-                <button class="btn pl-speed-btn" type="button" data-speed="1.5">1,5&times;</button>
-                <button class="btn pl-speed-btn" type="button" data-speed="2">2&times;</button>
-              </div>
+            <span style="font-size:1.1em" aria-hidden="true">&#128266;</span>
+            <input type="range" id="plVol" min="0" max="100" value="80" step="1"
+                   style="flex:1; min-width:80px; max-width:180px" />
+            <span id="plVolDisplay"
+                  style="font-family:var(--mono); font-size:0.85em; color:var(--text-muted); min-width:36px; text-align:right">80%</span>
+            <div id="plVolBtns" style="display:flex; gap:3px; flex-wrap:wrap">
+              <button class="btn pl-vol-btn" type="button" data-v="25">25</button>
+              <button class="btn pl-vol-btn" type="button" data-v="50">50</button>
+              <button class="btn pl-vol-btn" type="button" data-v="75">75</button>
+              <button class="btn pl-vol-btn" type="button" data-v="100">100</button>
             </div>
           </div>
         </div>

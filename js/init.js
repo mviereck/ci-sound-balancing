@@ -1082,11 +1082,19 @@ document.addEventListener("DOMContentLoaded", () => {
   _pWarpApplyLangTexts();
   if (typeof pWarpUpdUI === "function") pWarpUpdUI();
 
-  // Player volume textbox
+  // Player volume
   document.getElementById("plVol").addEventListener("change", function () {
     const v = Math.max(0, Math.min(100, parseInt(this.value) || 0));
     this.value = v;
     if (pGain) pGain.gain.value = v / 100;
+    if (typeof plUpdVolBtns === "function") plUpdVolBtns();
+  });
+  // Live-Anzeige beim Ziehen des Lautstärke-Schiebers (BA593)
+  document.getElementById("plVol").addEventListener("input", function () {
+    const v = parseInt(this.value, 10);
+    if (pGain) pGain.gain.value = v / 100;
+    const disp = document.getElementById("plVolDisplay");
+    if (disp) disp.textContent = v + "%";
     if (typeof plUpdVolBtns === "function") plUpdVolBtns();
   });
   // Schieber-Tab keyboard nav — wirkt nur, wenn das Canvas selbst
