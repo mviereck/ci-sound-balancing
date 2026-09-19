@@ -512,20 +512,31 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof pDrawEQ === "function") pDrawEQ();
     if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
   });
-  // Stop-Button Compute (Warp/Tempo): Berechnung abbrechen, ungewarpt weiterspielen.
+  // Stop-Button Compute (Warp/Tempo): Berechnung abbrechen.
+  // Warp-Abbruch: Warp aus, ungewarpt weiterspielen.
+  // Tempo-Abbruch: stoppen, kein falscher Buffer; nächster Play-Klick löst Neuberechnung aus.
   const _plComputeStopBtn = document.getElementById("plComputeStopBtn");
   if (_plComputeStopBtn) {
     _plComputeStopBtn.addEventListener("click", () => {
+      const isSpeed = (typeof pWarpBusyKind !== "undefined") && pWarpBusyKind === "speed";
       if (typeof pWarpCancelCompute === "function") pWarpCancelCompute();
-      pWarpOn = false;
       const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
       if (wasPlaying) pPause();
-      pBuf = getPlaybackBuffer();   // ungewarpt (pWarpOn === false)
+      if (isSpeed) {
+        // Tempo-Abbruch: pTempoBuf und pBuf leeren — kein ungetempter Buffer abspielen.
+        if (typeof pTempoBuf !== "undefined") pTempoBuf = null;
+        pBuf = null;
+        if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);
+      } else {
+        // Warp-Abbruch: Warp aus, ungewarpt weiterspielen wie bisher.
+        pWarpOn = false;
+        pBuf = getPlaybackBuffer();   // ungewarpt (pWarpOn === false)
+        if (wasPlaying) { if (typeof _pSetPlayWish === "function") _pSetPlayWish(true); if (typeof pPlay === "function") pPlay(); }
+        if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
+        if (typeof pDrawEQ === "function") pDrawEQ();
+        if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
+      }
       if (typeof pWarpUpdUI === "function") pWarpUpdUI();
-      if (wasPlaying) { if (typeof _pSetPlayWish === "function") _pSetPlayWish(true); if (typeof pPlay === "function") pPlay(); }
-      if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
-      if (typeof pDrawEQ === "function") pDrawEQ();
-      if (typeof schieberELLUpdateWarpHint === "function") schieberELLUpdateWarpHint();
     });
   }
 

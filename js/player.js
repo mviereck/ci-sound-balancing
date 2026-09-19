@@ -1529,7 +1529,19 @@ function plUpdWarpLock() {
 
 function pOnDownloadStart() {
   pDownloadBusy = true;
+  const bar = document.getElementById("plProgressDownloadBar");
+  const pct = document.getElementById("plProgressDownloadPct");
+  if (bar) bar.style.width = "0%";
+  if (pct) pct.textContent = "";
   if (typeof plUpdProgressRow === "function") plUpdProgressRow();
+}
+
+function pOnDownloadProgress(frac) {
+  const bar = document.getElementById("plProgressDownloadBar");
+  const pct = document.getElementById("plProgressDownloadPct");
+  const p = Math.round(frac * 100);
+  if (bar) bar.style.width = p + "%";
+  if (pct) pct.textContent = p + " %";
 }
 
 function pOnDownloadEnd() {

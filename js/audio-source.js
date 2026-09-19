@@ -819,8 +819,22 @@ async function amGetItemBuffer(ctx, item) {
     if (typeof pOnDownloadStart === "function") pOnDownloadStart();
     try {
       const r = await fetch(item.audio, { signal: _amLoadAbort.signal });
-      const ab = await r.arrayBuffer();
-      abuf = await ctx.decodeAudioData(ab);
+      const contentLength = parseInt(r.headers.get("content-length") || "0", 10);
+      const reader = r.body.getReader();
+      const chunks = [];
+      let received = 0;
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+        received += value.length;
+        if (contentLength > 0 && typeof pOnDownloadProgress === "function")
+          pOnDownloadProgress(received / contentLength);
+      }
+      const merged = new Uint8Array(received);
+      let off = 0;
+      for (const c of chunks) { merged.set(c, off); off += c.length; }
+      abuf = await ctx.decodeAudioData(merged.buffer);
     } catch (e) {
       if (e && e.name === "AbortError") return null;   // Wechsel während Laden
       throw e;                                          // echter Netz-/Decode-Fehler

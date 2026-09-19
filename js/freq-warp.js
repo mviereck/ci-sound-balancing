@@ -654,7 +654,7 @@ async function _rbConvolveViaWebAudio(signal, fir, sampleRate) {
 //   Fuer Pitch-Shift: signal.length (Laenge bleibt gleich).
 //   Fuer Time-Stretch: round(signal.length * timeRatio) (Laenge aendert sich).
 // Liefert Float32Array der Laenge targetLen.
-async function _rbTransform(rb, signal, sampleRate, timeRatio, pitchScale, targetLen, optionBits) {
+async function _rbTransform(rb, signal, sampleRate, timeRatio, pitchScale, targetLen, optionBits, onProgress) {
   const state = rb.rubberband_new(
     sampleRate, 1, optionBits, timeRatio, pitchScale
   );
@@ -732,6 +732,7 @@ async function _rbTransform(rb, signal, sampleRate, timeRatio, pitchScale, targe
         pos += want;
         if ((++yieldCounter & 15) === 0) {
           if (pWarpCancel) throw new Error("__warp_cancelled__");
+          if (typeof onProgress === "function") onProgress(Math.min(1, Math.max(pos, 0) / signal.length));
           await new Promise(function (r) { setTimeout(r, 0); });
         }
       }
@@ -792,9 +793,9 @@ async function _rbPitchShift(rb, signal, sampleRate, cents, optionBits) {
 // BA590: Zeit-Streckung via Rubberband. timeRatio = Ausgabedauer / Eingabedauer
 // (>1 = laenger/langsamer, <1 = kuerzer/schneller). Tonhoehe bleibt konstant
 // (pitchScale = 1). Liefert Float32Array der Laenge round(signal.length*timeRatio).
-async function _rbTimeStretch(rb, signal, sampleRate, timeRatio, optionBits) {
+async function _rbTimeStretch(rb, signal, sampleRate, timeRatio, optionBits, onProgress) {
   const targetLen = Math.round(signal.length * timeRatio);
-  return _rbTransform(rb, signal, sampleRate, timeRatio, 1.0, targetLen, optionBits);
+  return _rbTransform(rb, signal, sampleRate, timeRatio, 1.0, targetLen, optionBits, onProgress);
 }
 
 // BA590: Streckt einen fertigen Stereo-AudioBuffer auf das Tempo pSpeed.
@@ -812,13 +813,21 @@ async function pComputeSpeedBuffer(srcBuf, speed) {
   const inR = srcBuf.numberOfChannels > 1
     ? new Float32Array(srcBuf.getChannelData(1)) : inL;
 
+  const isStereo = inR !== inL;
   pWarpProgress = 0;
   if (typeof pWarpUpdUI === "function") pWarpUpdUI();
-  const outL = await _rbTimeStretch(rb, inL, sr, timeRatio, optionBits);
-  pWarpProgress = (inR === inL) ? 1 : 0.5;
+  const outL = await _rbTimeStretch(rb, inL, sr, timeRatio, optionBits, function (f) {
+    pWarpProgress = isStereo ? f * 0.5 : f;
+    if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+  });
+  pWarpProgress = isStereo ? 0.5 : 1;
   if (typeof pWarpUpdUI === "function") pWarpUpdUI();
-  const outR = (inR === inL) ? outL
-    : await _rbTimeStretch(rb, inR, sr, timeRatio, optionBits);
+  const outR = isStereo
+    ? await _rbTimeStretch(rb, inR, sr, timeRatio, optionBits, function (f) {
+        pWarpProgress = 0.5 + f * 0.5;
+        if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+      })
+    : outL;
   pWarpProgress = 1;
   if (typeof pWarpUpdUI === "function") pWarpUpdUI();
 

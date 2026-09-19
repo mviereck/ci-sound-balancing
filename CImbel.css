@@ -2092,11 +2092,3 @@ input.ec-active.dep-locked {
   white-space: pre-wrap;
 }
 
-@keyframes plDownloadPulse {
-  0%   { width: 15%; margin-left: 0%; }
-  50%  { width: 40%; margin-left: 30%; }
-  100% { width: 15%; margin-left: 85%; }
-}
-#plProgressDownloadBar {
-  animation: plDownloadPulse 1.6s ease-in-out infinite;
-}

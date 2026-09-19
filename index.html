@@ -1771,20 +1771,22 @@
               <span id="plProgressComputePct"
                     style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
               <button type="button" class="btn btn-sm" id="plComputeStopBtn"
-                      data-t="plWarpStopBtn"
-                      style="background:#c00;color:#fff;border-color:#900;font-size:0.82em"></button>
+                      title="Berechnung stoppen"
+                      style="background:#c00;color:#fff;border-color:#900;font-size:1.1em;padding:0 6px;line-height:1">&#x1F6D1;</button>
             </div>
 
-            <!-- Modus "download": indizierter Pulsbalken -->
+            <!-- Modus "download": Fortschrittsbalken (Prozent wenn Content-Length, sonst Puls) -->
             <div id="plProgressDownload" style="display:none; align-items:center; gap:8px; flex-wrap:wrap">
               <span style="font-size:0.82em; color:var(--text-muted)" data-t="plDownloadProgressLabel"></span>
               <div style="flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden">
                 <div id="plProgressDownloadBar"
-                     style="height:100%; background:var(--success)"></div>
+                     style="height:100%; background:var(--success); transition:width 0.1s linear"></div>
               </div>
+              <span id="plProgressDownloadPct"
+                    style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
               <button type="button" class="btn btn-sm" id="plDownloadStopBtn"
-                      data-t="plDownloadStopBtn"
-                      style="background:#c00;color:#fff;border-color:#900;font-size:0.82em"></button>
+                      title="Download abbrechen"
+                      style="background:#c00;color:#fff;border-color:#900;font-size:1.1em;padding:0 6px;line-height:1">&#x1F6D1;</button>
             </div>
 
           </div>
