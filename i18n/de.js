@@ -48,7 +48,7 @@ Object.assign(L.de, {
     LTZ_maturityHint: "Dieser Test ist genau genug, um Zeitversatz so weit zu korrigieren, dass Töne wieder verschmelzen. Er ist nicht fein genug, um Richtungshören zu optimieren.",
     LTZ_measIntro2: "Messung des Zeitversatzes von links und rechts, wann Töne ankommen.",
     LTZ_locHint: "Wenn die Lautstärke links und rechts sehr gut ausgeglichen ist, können Sie als Anhaltspunkt auch darauf achten, ‚wo‘ Sie den Ton hören. Eher links, rechts, oder mittig im Kopf.",
-    LTZ_measIntro: "Stelle mit dem Schieber den Versatz ein, bei dem die Klicks gleichzeitig wahrgenommen werden. Pfeiltasten: 1 ms — Shift+Pfeil: 0,1 ms — Strg+Pfeil: 10 ms.",
+    LTZ_measIntro: "Stellen Sie mit dem Schieber den Versatz ein, bei dem die Klicks gleichzeitig wahrgenommen werden. Pfeiltasten: 1 ms — Shift+Pfeil: 0,1 ms — Strg+Pfeil: 10 ms.",
     LTZ_sliderMinusLabel: "−200 ms (rechts verzögern)",
     LTZ_sliderZeroLabel: "0",
     LTZ_sliderPlusLabel: "+200 ms (links verzögern)",
