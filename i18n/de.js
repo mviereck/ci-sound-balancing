@@ -869,7 +869,6 @@ Object.assign(L.de, {
     kurvenELLIntroDesc:
       "Anpassung der Elektrodenlautstärke über alle Elektroden hinweg. Wählen Sie aus angebotenen Kurvenfunktionen und passen Sie die Werte live an.",
     kurvenELLTitle: "Kurvenfunktionen",
-    kurvenELLBoth: "Veränderung auf beide Seiten anwenden",
     kurvenELLDesc:
       "Vordefinierte Kurvenformen. Tilt und Pivot entsprechen den gleichnamigen MAESTRO-Werkzeugen. Das Sprache-Preset gewichtet Frequenzen nach ihrer Bedeutung für die Sprachverständlichkeit (ANSI S3.5). Tastatur: ↑↓ justiert Werte im Eingabefeld.",
     kurvenELLChartTitle: "Übersicht",

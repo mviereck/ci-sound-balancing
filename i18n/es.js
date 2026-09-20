@@ -638,7 +638,6 @@ Object.assign(L.es, {
     kurvenELLIntroDesc:
       "Ajuste del volumen de electrodos a lo largo de todos los electrodos. Elija entre las funciones de curva ofrecidas y ajuste los valores en directo.",
     kurvenELLTitle: "Funciones de curva",
-    kurvenELLBoth: "Aplicar el cambio a ambos lados",
     kurvenELLDesc:
       "Formas de curva predefinidas. Tilt y Pivot corresponden a las herramientas homónimas de MAESTRO. El preset Habla pondera las frecuencias según su importancia para la inteligibilidad del habla (ANSI S3.5). Teclado: ↑↓ ajusta los valores en el campo de entrada.",
     kurvenELLChartTitle: "Vista general",

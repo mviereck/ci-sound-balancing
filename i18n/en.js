@@ -637,7 +637,6 @@ Object.assign(L.en, {
     kurvenELLIntroDesc:
       "Adjustment of the electrode loudness across all electrodes. Choose from the provided curve functions and adjust the values live.",
     kurvenELLTitle: "Curve functions",
-    kurvenELLBoth: "Apply changes to both sides",
     kurvenELLDesc:
       "Predefined curve shapes. Tilt and Pivot correspond to the MAESTRO tools of the same name. The Speech preset weights frequencies by their importance for speech intelligibility (ANSI S3.5). Keyboard: ↑↓ adjusts values in the input field.",
     kurvenELLChartTitle: "Overview",

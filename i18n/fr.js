@@ -638,7 +638,6 @@ Object.assign(L.fr, {
     kurvenELLIntroDesc:
       "Ajustement de l'intensité des électrodes sur toutes les électrodes. Choisissez parmi les fonctions de courbe proposées et ajustez les valeurs en direct.",
     kurvenELLTitle: "Fonctions de courbe",
-    kurvenELLBoth: "Appliquer la modification aux deux côtés",
     kurvenELLDesc:
       "Formes de courbe prédéfinies. Tilt et Pivot correspondent aux outils MAESTRO du même nom. Le preset Parole pondère les fréquences selon leur importance pour l'intelligibilité de la parole (ANSI S3.5). Clavier : ↑↓ ajuste les valeurs dans le champ de saisie.",
     kurvenELLChartTitle: "Vue d'ensemble",

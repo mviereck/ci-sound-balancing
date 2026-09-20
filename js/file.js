@@ -236,9 +236,6 @@ function resetAll() {
   const _lvChkCurves = document.getElementById("schieberELLChkCurves");
   if (_lvChkCurves) _lvChkCurves.checked = false;
   if (typeof schieberELLUpdateModeAvailability === "function") schieberELLUpdateModeAvailability();
-  // --- „Schieber für beide Seiten gleich"-Checkbox ---
-  const _prBoth = document.getElementById("kurvenELLBothSides");
-  if (_prBoth) _prBoth.checked = true;
   // --- UI-Refresh ---
   FRQ_implantatTableBuild();
   kurvenELLTabelleBauen();

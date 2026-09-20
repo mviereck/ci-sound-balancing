@@ -149,22 +149,6 @@ function kurvenELLOnChange() {
   if (typeof schieberELLDraw === "function") schieberELLDraw();
   if (pEqF.length > 0) pUpdEQ();
 }
-function kurvenELLDeltaAndereSeite(pi, delta, currentPr) {
-  if (!document.getElementById("kurvenELLBothSides")?.checked) return;
-  if (Math.abs(delta) < 0.001) return;
-  const otherSide = activeSide === "left" ? "right" : "left";
-  const op = sideData[otherSide].kurvenELL;
-  if (!op || !op[pi]) return;
-  op[pi].strength = Math.max(
-    -20,
-    Math.min(20, +(op[pi].strength + delta).toFixed(1)),
-  );
-  // Mirror shape params too if same type
-  if (op[pi].type === currentPr.type) {
-    if (currentPr.center !== undefined) op[pi].center = currentPr.center;
-    if (currentPr.width !== undefined) op[pi].width = currentPr.width;
-  }
-}
 // Touch-Ctrl-Instanzen je Kurvenzeile (pi -> buildValueTouchCtrl-Rueckgabe).
 // Wird bei jedem Tabellenbau neu gefuellt; die Tastatur (init.js) liest hier
 // den Fein-Zustand der aktiven Zeile ab, damit der Fein-Toggle auch fuer
@@ -184,10 +168,8 @@ function _kurvenELLAdapter(pi) {
     get: function () { return kurvenELL[pi] ? kurvenELL[pi].strength : 0; },
     set: function (raw) {
       if (!kurvenELL[pi]) return;
-      var oldVal = kurvenELL[pi].strength;
       var newVal = Math.max(-20, Math.min(20, +(+raw).toFixed(1)));
       kurvenELL[pi].strength = newVal;
-      kurvenELLDeltaAndereSeite(pi, newVal - oldVal, kurvenELL[pi]);
       // Feldanzeige der Zeile nachziehen, falls im DOM.
       var inp = document.querySelector('.kurven-ell-str[data-pi="' + pi + '"]');
       if (inp) inp.value = newVal.toFixed(1);
@@ -261,11 +243,6 @@ function kurvenELLTabelleBauen() {
     cb.addEventListener("change", function () {
       const pi = +this.dataset.pi;
       kurvenELL[pi].on = this.checked;
-      if (document.getElementById("kurvenELLBothSides")?.checked) {
-        const otherSide = activeSide === "left" ? "right" : "left";
-        const op = sideData[otherSide].kurvenELL;
-        if (op && op[pi]) op[pi].on = this.checked;
-      }
       // Anhaken -> Zeile aktiv. Maus-Abhaken -> Auswahl entfernen.
       if (this.checked) kurvenELLActivePi = pi;
       else if (kurvenELLActivePi === pi) kurvenELLActivePi = -1;
@@ -301,13 +278,6 @@ function kurvenELLTabelleBauen() {
       if (v > 20000) v = 20000;
       kurvenELL[pi].center = v;
       this.value = v;
-      if (document.getElementById("kurvenELLBothSides")?.checked) {
-        const otherSide = activeSide === "left" ? "right" : "left";
-        const op = sideData[otherSide].kurvenELL;
-        if (op && op[pi] && op[pi].type === kurvenELL[pi].type) {
-          op[pi].center = v;
-        }
-      }
       kurvenELLOnChange();
     }),
   );
@@ -319,13 +289,6 @@ function kurvenELLTabelleBauen() {
       if (v > 4800) v = 4800;
       kurvenELL[pi].width = v;
       this.value = v;
-      if (document.getElementById("kurvenELLBothSides")?.checked) {
-        const otherSide = activeSide === "left" ? "right" : "left";
-        const op = sideData[otherSide].kurvenELL;
-        if (op && op[pi] && op[pi].type === kurvenELL[pi].type) {
-          op[pi].width = v;
-        }
-      }
       kurvenELLOnChange();
     }),
   );
@@ -333,13 +296,6 @@ function kurvenELLTabelleBauen() {
     sel.addEventListener("change", function () {
       const pi = +this.dataset.pi;
       kurvenELL[pi].phon = +this.value;
-      if (document.getElementById("kurvenELLBothSides")?.checked) {
-        const otherSide = activeSide === "left" ? "right" : "left";
-        const op = sideData[otherSide].kurvenELL;
-        if (op && op[pi] && op[pi].type === kurvenELL[pi].type) {
-          op[pi].phon = +this.value;
-        }
-      }
       kurvenELLOnChange();
     }),
   );
