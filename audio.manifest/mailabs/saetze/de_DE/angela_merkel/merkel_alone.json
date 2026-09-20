@@ -2,10 +2,10 @@
   "schema": "ci-sb-corpus/2",
   "kind": "collection",
   "category": "saetze",
-  "title": "Angela Merkel",
+  "title": "merkel_alone",
   "lang": "de",
   "license": "PD",
-  "credit": "M-AILABS — Angela Merkel (Angela Merkel, PD); Datensatz: Munich AI Labs (m-ailabs.bayern)",
+  "credit": "M-AILABS — merkel_alone (Angela Merkel, PD); Datensatz: Munich AI Labs (m-ailabs.bayern)",
   "url": "http://www.m-ailabs.bayern/en/the-m-ailabs-speech-dataset/",
   "tags": {
     "gender": "w",
