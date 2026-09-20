@@ -2176,13 +2176,19 @@ function plNavAutoAdvance() {
   // erst, wenn Timer UND Laden fertig sind (_plGapMaybeStart).
   if (typeof plShuffle !== "undefined" && plShuffle) _plNavPrevItem = cur;
   cat.select(next);
-  if (typeof plUpdDisplay === "function") plUpdDisplay();
 
   // Play-Wunsch NOCH NICHT setzen -- sonst spielt das Stueck los, sobald der
   // Buffer da ist, ohne die Pause abzuwarten.
   const _gapToken = {};
-  _plGapReset();
+  _plGapReset();          // setzt _plHoldDisplay = false -> danach die Sperre setzen
   _plGapCurrentToken = _gapToken;
+
+  // Anzeige waehrend der Pause einfrieren: das naechste Stueck wird sofort
+  // geladen (samt plUpdDisplay im Load-Nachschritt), aber die sichtbare Anzeige
+  // soll erst beim Ton-Start umspringen. Das Flag laesst plUpdDisplay frueh
+  // aussteigen; visuell bleibt der Stand des eben gehoerten Stuecks stehen.
+  // NACH _plGapReset setzen (das raeumt das Flag).
+  _plHoldDisplay = true;
 
   _plLoadCurrent(function () {
     pOff = 0;
@@ -2195,6 +2201,10 @@ function plNavAutoAdvance() {
     if (!plAutoAdvance || plLoop) return;
     if (plCurrentCategory() !== cat) return;
     if (typeof _pSetPlayWish === "function") _pSetPlayWish(true);
+    // Ton startet -> Anzeige entsperren und einmal neu zeichnen: Textvorschau
+    // kommt so zeitgleich mit dem Ton.
+    _plHoldDisplay = false;
+    if (typeof plUpdDisplay === "function") plUpdDisplay();
     if (typeof pPlay === "function") pPlay();
   });
 }
@@ -2309,6 +2319,7 @@ function plTextBoxRender(opts) {
       if (cb) {
         cb.addEventListener("change", function () {
           plShowText = !!cb.checked;
+          _plHoldDisplay = false;   // Box-Option hebt die Auto-Weiter-Sperre auf
           plUpdDisplay();
         });
       }
@@ -2348,11 +2359,13 @@ function plTextBoxRender(opts) {
 function plTextFontDelta(d) {
   if (typeof plTextFontStep === "undefined") return;
   plTextFontStep = Math.max(0, Math.min(PL_TEXT_FONT_PX.length - 1, plTextFontStep + d));
+  _plHoldDisplay = false;   // Box-Option hebt die Auto-Weiter-Sperre auf
   plUpdDisplay();
 }
 function plTextLineDelta(d) {
   if (typeof plTextLineStep === "undefined") return;
   plTextLineStep = Math.max(0, Math.min(PL_TEXT_LINE_LH.length - 1, plTextLineStep + d));
+  _plHoldDisplay = false;   // Box-Option hebt die Auto-Weiter-Sperre auf
   plUpdDisplay();
 }
 
@@ -2411,6 +2424,11 @@ function plUpdTransportUI() {
 }
 
 function plUpdDisplay() {
+  // Waehrend der Auto-Weiter-Pause NICHT neu zeichnen -- die Anzeige bliebe
+  // sonst das schon geladene naechste Stueck verraten. Sperre wird am Ton-Start
+  // (und an jedem Abbruch) aufgehoben. Die Box-Options heben sie bewusst auf.
+  if (_plHoldDisplay) return;
+
   const titleEl  = document.getElementById("plDispTitle");
   const metaEl   = document.getElementById("plDispMeta");
   const detailEl = document.getElementById("plDispDetail");
@@ -2514,11 +2532,26 @@ let _plGapLoadDone     = false;   // Vorladen des naechsten Stuecks fertig?
 let _plGapStartFn      = null;
 let _plGapCurrentToken = null;   // BA594: identifiziert die laufende Gap-Sequenz
 
+// Anzeige-Sperre waehrend der Auto-Weiter-Pause. Beim Vorruecken wird das
+// naechste Stueck sofort geladen; der Load-Nachschritt jeder Kategorie ruft
+// plUpdDisplay und wuerde damit Titel/Meta/Textbox schon in der Pause aufs
+// neue Stueck umschalten. Solange dieses Flag gesetzt ist, steigt plUpdDisplay
+// frueh aus -- die Anzeige bleibt visuell auf dem eben gehoerten Stueck stehen,
+// bis der Ton startet. Kein aufbewahrter Alt-Text: die Daten werden normal
+// ueberschrieben, nur das Neuzeichnen wird verzoegert. Geraeumt am Gap-Ende
+// (Ton-Start) und an jedem Abbruch (_plGapReset). Die Box-Options
+// (Text-anzeigen-Haken, Schrift/Zeilenabstand) heben die Sperre bewusst auf.
+let _plHoldDisplay     = false;
+
 // Setzt beide Flags zurueck und loescht einen evtl. laufenden Timer.
 function _plGapReset() {
   if (_plGapTimer) { clearTimeout(_plGapTimer); _plGapTimer = null; }
   _plGapTimerDone = false;
   _plGapLoadDone  = false;
+  // Anzeige-Sperre der Auto-Weiter-Pause aufheben: jeder Abbruch (Stop,
+  // Kategoriewechsel, Zurueck/Weiter, Filteraenderung) laeuft hierueber, und
+  // der zugehoerige Weg zeichnet die Anzeige gleich danach selbst neu.
+  _plHoldDisplay = false;
 }
 
 // Startet die Pause + koppelt den Ton an "beide fertig".
