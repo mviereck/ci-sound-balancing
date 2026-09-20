@@ -1338,6 +1338,7 @@ Object.assign(L.de, {
     pwProgressLabel: "Berechnung Frequenz Warping:",
     pwSpeedProgressLabel: "Berechnung Abspielgeschwindigkeit:",
     plDownloadProgressLabel: "Herunterladen:",
+    plPauseProgressLabel: "Pause:",
     plDownloadStopBtn: "Abbrechen",
     // Neue Keys für vereinheitlichte Test-UI
     ell_explainTitle: "Elektrodenlautstärke ausgleichen",

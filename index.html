@@ -1811,6 +1811,20 @@
                         style="background:#c00;color:#fff;border-color:#900;font-size:1.1em;padding:0 6px;line-height:1">&#x1F6D1;</button>
               </div>
 
+              <!-- Modus "pause": Fortschrittsbalken der Auto-Weiter-/Loop-Pause -->
+              <div id="plProgressPause" style="display:none; align-items:center; gap:8px; width:100%">
+                <span style="font-size:0.82em; color:var(--text-muted)" data-t="plPauseProgressLabel"></span>
+                <div style="flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden">
+                  <div id="plProgressPauseBar"
+                       style="height:100%; width:0%; background:var(--success); transition:width 0.1s linear"></div>
+                </div>
+                <span id="plProgressPauseTot"
+                      style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
+                <button type="button" class="btn btn-sm" id="plPauseStopBtn"
+                        title="Pause vorzeitig beenden"
+                        style="background:#c00;color:#fff;border-color:#900;font-size:1.1em;padding:0 6px;line-height:1">&#x1F6D1;</button>
+              </div>
+
             </div>
           </div>
 

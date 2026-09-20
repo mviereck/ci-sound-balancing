@@ -1561,10 +1561,16 @@ function plUpdProgressRow() {
   const elPlay     = document.getElementById("plProgressPlay");
   const elCompute  = document.getElementById("plProgressCompute");
   const elDownload = document.getElementById("plProgressDownload");
+  const elPause    = document.getElementById("plProgressPause");
   if (!elPlay) return;
 
   const warpBusy = typeof pWarpBusy !== "undefined" && pWarpBusy;
-  const busy = warpBusy || pDownloadBusy;
+  // Pause nur zeigen, wenn weder Warp noch Download laufen -- deren Anzeige
+  // hat Vorrang und wird nicht ueberschrieben. _plGapPauseVisible() ist erst
+  // true, wenn das Laden fertig ist und noch Restzeit bleibt.
+  const pauseVis = !warpBusy && !pDownloadBusy
+                   && typeof _plGapPauseVisible === "function" && _plGapPauseVisible();
+  const busy = warpBusy || pDownloadBusy || pauseVis;
   const busyIcon = document.getElementById("plBusyIcon");
   if (busyIcon) busyIcon.style.display = busy ? "" : "none";
 
@@ -1572,15 +1578,36 @@ function plUpdProgressRow() {
     elPlay.style.display     = "none";
     elCompute.style.display  = "flex";
     elDownload.style.display = "none";
+    if (elPause) elPause.style.display = "none";
   } else if (pDownloadBusy) {
     elPlay.style.display     = "none";
     elCompute.style.display  = "none";
     elDownload.style.display = "flex";
+    if (elPause) elPause.style.display = "none";
+  } else if (pauseVis) {
+    elPlay.style.display     = "none";
+    elCompute.style.display  = "none";
+    elDownload.style.display = "none";
+    if (elPause) { elPause.style.display = "flex"; _plUpdPauseProgress(); }
   } else {
     elPlay.style.display     = "flex";
     elCompute.style.display  = "none";
     elDownload.style.display = "none";
+    if (elPause) elPause.style.display = "none";
   }
+}
+
+// Fuellt Balken und Gesamtzeit des Pausen-Fortschritts. Der Balken waechst mit
+// der bereits verstrichenen Pausenzeit (startet also bei dem Anteil, den Warp/
+// Download schon verbraucht haben); die Gesamtzeit rechts ist die eingestellte
+// Pause (plPauseMs) in Sekunden.
+function _plUpdPauseProgress() {
+  const bar = document.getElementById("plProgressPauseBar");
+  const tot = document.getElementById("plProgressPauseTot");
+  if (bar && typeof _plGapElapsedFrac === "function") {
+    bar.style.width = Math.round(_plGapElapsedFrac() * 100) + "%";
+  }
+  if (tot) tot.textContent = Math.round((_plGapMs || 0) / 1000) + " s";
 }
 
 // BA435: Warp-Ueberlauf-Hinweis (ueberkreuzende Messung).
@@ -2531,6 +2558,9 @@ let _plGapTimerDone    = false;   // Pause abgelaufen?
 let _plGapLoadDone     = false;   // Vorladen des naechsten Stuecks fertig?
 let _plGapStartFn      = null;
 let _plGapCurrentToken = null;   // BA594: identifiziert die laufende Gap-Sequenz
+let _plGapStartAt      = 0;       // performance.now() beim Armen der Pause
+let _plGapMs           = 0;       // Gesamtdauer der Pause (fuer den Fortschritt)
+let _plGapTickTimer    = null;    // Anzeige-Tick des Pausen-Fortschrittsbalkens
 
 // Anzeige-Sperre waehrend der Auto-Weiter-Pause. Beim Vorruecken wird das
 // naechste Stueck sofort geladen; der Load-Nachschritt jeder Kategorie ruft
@@ -2546,6 +2576,7 @@ let _plHoldDisplay     = false;
 // Setzt beide Flags zurueck und loescht einen evtl. laufenden Timer.
 function _plGapReset() {
   if (_plGapTimer) { clearTimeout(_plGapTimer); _plGapTimer = null; }
+  _plGapStopTick();
   _plGapTimerDone = false;
   _plGapLoadDone  = false;
   // Anzeige-Sperre der Auto-Weiter-Pause aufheben: jeder Abbruch (Stop,
@@ -2557,27 +2588,80 @@ function _plGapReset() {
 // Startet die Pause + koppelt den Ton an "beide fertig".
 function _plGapArm(ms, startFn) {
   _plGapStartFn = startFn;
+  _plGapStartAt = (typeof performance !== "undefined") ? performance.now() : Date.now();
+  _plGapMs      = ms;
   _plGapTimer = setTimeout(function () {
     _plGapTimer = null;
     _plGapTimerDone = true;
     _plGapMaybeStart();
   }, ms);
+  // Anzeige-Tick startet den Pausen-Fortschrittsbalken. Er zeichnet nur, wenn
+  // das Laden schon fertig ist und noch Restzeit bleibt (plUpdProgressRow);
+  // solange Warp/Download laufen, ueberschreibt er deren Anzeige NICHT.
+  _plGapStartTick();
 }
 
 // Vom Lade-Callback gerufen: Vorladen ist fertig.
 function _plGapMarkLoaded() {
   _plGapLoadDone = true;
   _plGapMaybeStart();
+  // Laden fertig -> die Restzeit-Pause wird jetzt sichtbar; sofort einmal zeichnen.
+  if (typeof plUpdProgressRow === "function") plUpdProgressRow();
+}
+
+// Bruchteil (0..1) der bereits verstrichenen Pausenzeit. 1, wenn keine Pause
+// laeuft.
+function _plGapElapsedFrac() {
+  if (_plGapMs <= 0) return 1;
+  const now = (typeof performance !== "undefined") ? performance.now() : Date.now();
+  const frac = (now - _plGapStartAt) / _plGapMs;
+  return frac < 0 ? 0 : (frac > 1 ? 1 : frac);
+}
+
+// True, solange eine Auto-Weiter-/Loop-Pause laeuft, das Laden fertig ist und
+// noch Restzeit bleibt -> Pausen-Fortschrittsbalken zeigen. Ist die Pause durch
+// Warp/Download bereits ueberschritten, liefert dies false (keine Anzeige).
+function _plGapPauseVisible() {
+  return _plGapTimer !== null && _plGapLoadDone && _plGapElapsedFrac() < 1;
+}
+
+function _plGapStartTick() {
+  _plGapStopTick();
+  _plGapTickTimer = setInterval(function () {
+    if (typeof plUpdProgressRow === "function") plUpdProgressRow();
+  }, 100);
+}
+
+function _plGapStopTick() {
+  if (_plGapTickTimer) { clearInterval(_plGapTickTimer); _plGapTickTimer = null; }
+}
+
+// Stop-Button des Pausen-Balkens: laufende Pause sofort beenden und den Ton
+// starten (sofern das Laden fertig ist). Kein Abbruch der Sequenz -- anders als
+// die Compute-/Download-Stops beendet dieser nur die Wartezeit.
+function _plGapFinishEarly() {
+  if (_plGapTimer === null) return;
+  clearTimeout(_plGapTimer);
+  _plGapTimer = null;
+  _plGapStopTick();
+  _plGapTimerDone = true;
+  _plGapMaybeStart();
+  if (typeof plUpdProgressRow === "function") plUpdProgressRow();
 }
 
 // Startet, sobald beide Bedingungen erfuellt sind.
 function _plGapMaybeStart() {
   if (!_plGapTimerDone || !_plGapLoadDone) return;
+  _plGapStopTick();
   const fn = _plGapStartFn;
   _plGapStartFn   = null;
   _plGapTimerDone = false;
   _plGapLoadDone  = false;
   if (typeof fn === "function") fn();
+  // Ton startet -> Pausen-Modus ist vorbei; Fortschrittszeile auf den Play-Modus
+  // zuruecksetzen (sonst bleibt der zuletzt gezeichnete Pause-/Kein-Anzeige-Stand
+  // stehen und der Scrubber erscheint nicht).
+  if (typeof plUpdProgressRow === "function") plUpdProgressRow();
 }
 
 let _plIdleTimer = null;

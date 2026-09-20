@@ -1624,6 +1624,7 @@ Object.assign(L.fr, {
     plPauseLabel: "Pauses :",
     plSpeedLabel: "Vitesse :",
     pwProgressLabel: "Calcul du warping fréquentiel :",
+    plPauseProgressLabel: "Pause :",
     pwSpeedProgressLabel: "Calcul de la vitesse de lecture :",
     amSortTitle:"par titre",
     amSortArtist: "par artiste",

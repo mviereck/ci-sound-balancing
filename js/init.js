@@ -548,6 +548,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Stop-Button Pause: die Auto-Weiter-/Loop-Pause vorzeitig beenden. Anders als
+  // Compute-/Download-Stop bricht dies die Sequenz nicht ab, sondern startet den
+  // Ton sofort (sofern das naechste Stueck geladen ist).
+  const _plPauseStopBtn = document.getElementById("plPauseStopBtn");
+  if (_plPauseStopBtn) {
+    _plPauseStopBtn.addEventListener("click", () => {
+      if (typeof _plGapFinishEarly === "function") _plGapFinishEarly();
+    });
+  }
+
   // Gemeinsamer Reaktor auf Parameteränderungen (Modus, Stärke):
   // - Offline: Vorberechnung neu anstoßen (pWarpTrigger regelt pause/resume)
   // - Vocoder: knackfreier postMessage-Update an laufenden Worklet

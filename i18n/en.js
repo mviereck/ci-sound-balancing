@@ -1624,6 +1624,7 @@ Object.assign(L.en, {
     plPauseLabel: "Pauses:",
     plSpeedLabel: "Speed:",
     pwProgressLabel: "Computing frequency warping:",
+    plPauseProgressLabel: "Pause:",
     pwSpeedProgressLabel: "Computing playback speed:",
     amSortTitle: "by title",
     amSortArtist: "by artist",
