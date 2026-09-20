@@ -123,6 +123,15 @@
       "source": "online/freesound/source.json"
     },
     {
+      "key": "kerstin-rhasspy",
+      "name": "Kerstin (Rhasspy)",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC0-1.0",
+      "source": "online/kerstin-rhasspy/source.json"
+    },
+    {
       "key": "librivox",
       "name": "LibriVox",
       "categories": [

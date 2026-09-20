@@ -1,0 +1,18 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "key": "kerstin-rhasspy",
+  "name": "Kerstin (Rhasspy)",
+  "url": "https://github.com/rhasspy/dataset-voice-kerstin",
+  "license": "CC0-1.0",
+  "credit": "Rhasspy — Voice Dataset „Kerstin“ (CC0)",
+  "base": "",
+  "categories": [
+    "saetze"
+  ],
+  "manifests": {
+    "saetze": [
+      "saetze/kerstin.json"
+    ]
+  },
+  "notes": "Audio-URLs zeigen direkt auf raw.githubusercontent.com (verified/*.flac)."
+}
