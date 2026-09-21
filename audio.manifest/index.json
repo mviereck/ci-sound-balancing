@@ -139,6 +139,15 @@
       ],
       "license": "PD",
       "source": "online/librivox/source.json"
+    },
+    {
+      "key": "nathalie-rhasspy",
+      "name": "Nathalie (Rhasspy)",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC0-1.0",
+      "source": "online/nathalie-rhasspy/source.json"
     }
   ]
 }

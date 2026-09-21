@@ -1,0 +1,18 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "key": "nathalie-rhasspy",
+  "name": "Nathalie (Rhasspy)",
+  "url": "https://github.com/rhasspy/dataset-voice-nathalie",
+  "license": "CC0-1.0",
+  "credit": "Rhasspy — Voice Dataset „Nathalie“ (CC0)",
+  "base": "",
+  "categories": [
+    "saetze"
+  ],
+  "manifests": {
+    "saetze": [
+      "saetze/nathalie.json"
+    ]
+  },
+  "notes": "Audio-URLs zeigen direkt auf raw.githubusercontent.com (verified/*.flac)."
+}
