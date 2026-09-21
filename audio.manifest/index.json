@@ -114,6 +114,15 @@
       "source": "thorsten-voice-hessisch/source.json"
     },
     {
+      "key": "flemishguy-rhasspy",
+      "name": "Flemish Guy (Rhasspy)",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC0-1.0",
+      "source": "online/flemishguy-rhasspy/source.json"
+    },
+    {
       "key": "freesound",
       "name": "Freesound",
       "categories": [

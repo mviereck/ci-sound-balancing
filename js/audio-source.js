@@ -188,7 +188,9 @@ function _amSpeakerLabel(v) {
   if (v === "mailabs-rebecca-braunert-plunkett") return "Rebecca Braunert-Plunkett";
   if (v === "mailabs-karlsson") return "Karlsson";
   if (v === "mailabs-angela-merkel") return "Angela Merkel";
+  if (v === "kerstin") return "Kerstin";
   if (v === "nathalie") return "Nathalie";
+  if (v === "flemishguy") return "Flemish Guy";
   return v;   // Fallback: Rohwert
 }
 
