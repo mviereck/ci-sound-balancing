@@ -3333,6 +3333,8 @@ var LANG_TO_FLAG = {
   "pt": "🇵🇹",  // PT
   "pt-BR": "🇧🇷",
   "nl": "🇳🇱",  // NL
+  "nl-NL": "🇳🇱",
+  "nl-BE": "🇧🇪",
   "pl": "🇵🇱",  // PL
   "ru": "🇷🇺",  // RU
   "tr": "🇹🇷",  // TR
