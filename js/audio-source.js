@@ -447,6 +447,30 @@ const AM_SORT_AXES = {
       valueOf: function (c) { return (c.tags && c.tags.has_text) ? _amTextSourceHost(c.tags.url_text_source) : ""; }
       // Kein bucketLabel: amAxisBucketLabel faellt auf den Rohwert zurueck,
       // d.h. die nackte Domain (gutenberg.org, archive.org, ...) ist das Label.
+    },
+    {
+      key: "gender", labelKey: "plBookAxisGender", labelDefault: "Geschlecht",
+      getter: function (c) { return (c.tags && c.tags.gender) || "zzz-unbekannt"; },
+      valueOf: function (c) { return (c.tags && c.tags.gender) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plBookGender_" + v) : v; }
+    },
+    {
+      key: "dialekt", labelKey: "plBookAxisDialekt", labelDefault: "Dialekt",
+      getter: function (c) { return (c.tags && c.tags.dialekt) || "zzz-unbekannt"; },
+      valueOf: function (c) { return (c.tags && c.tags.dialekt) || ""; }
+      // kein bucketLabel: der Rohwert ("Hochdeutsch", ...) ist bereits das Label.
+    },
+    {
+      key: "worktype", labelKey: "plBookAxisWorktype", labelDefault: "Werktyp",
+      getter: function (c) { return (c.tags && c.tags.worktype) || "zzz-unbekannt"; },
+      valueOf: function (c) { return (c.tags && c.tags.worktype) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plBookWorktype_" + v) : v; }
+    },
+    {
+      key: "synthetic", labelKey: "plBookAxisSynthetic", labelDefault: "Stimme",
+      getter: function (c) { return (c.tags && c.tags.synthetic) || "zzz-unbekannt"; },
+      valueOf: function (c) { return (c.tags && c.tags.synthetic) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plBookSynthetic_" + v) : v; }
     }
   ]
 };
