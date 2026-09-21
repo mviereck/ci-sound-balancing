@@ -4341,7 +4341,6 @@ function plReadFindPos() {
 async function plReadEnsureText() {
   var col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
   var id  = col ? col.id : null;
-  var url = col ? col.textUrl : null;
 
   // Buch unverändert und schon geladen (oder als leer bekannt) → nichts tun.
   if (id === _plReadBookId) return;
@@ -4349,18 +4348,26 @@ async function plReadEnsureText() {
   _plReadBookId = id;
   _plReadLines = null;
 
-  // Nur .txt.gz kommt für den Prototyp in Frage.
-  if (!url || !/\.txt\.gz$/i.test(url)) { plReadRender(); return; }
   if (_plReadLoading) return;
-
   _plReadLoading = true;
   var wantId = id;
+
   try {
-    // textUrl ist assets-relativ (z. B. "hoerbuch-texte/de/…-172.txt.gz").
-    var raw = await gzFetchText("assets/" + url);
-    if (wantId !== _plReadBookId) return;   // inzwischen Buch gewechselt
-    var _range = col ? col.textRange : null;
-    _plReadLines = _plReadExtract(raw, _range);  // textRange -> Marken -> ganzer Text
+    if (col && col.textLive) {
+      // --- Quelle B: Live-Text von der Wikipedia-API (Commons) ---
+      var lines = await _plReadFetchLive(col.textLive);
+      if (wantId !== _plReadBookId) return;   // inzwischen Werk gewechselt
+      _plReadLines = lines;                    // null bei Fehler -> keine Box
+    } else {
+      // --- Quelle A: eingebackener .txt.gz-Text (LibriVox), unverändert ---
+      var url = col ? col.textUrl : null;
+      if (!url || !/\.txt\.gz$/i.test(url)) { return; }   // finally rendert
+      // textUrl ist assets-relativ (z. B. "hoerbuch-texte/de/…-172.txt.gz").
+      var raw = await gzFetchText("assets/" + url);
+      if (wantId !== _plReadBookId) return;
+      var _range = col ? col.textRange : null;
+      _plReadLines = _plReadExtract(raw, _range);  // textRange -> Marken -> ganzer Text
+    }
   } catch (e) {
     _plReadLines = null;
   } finally {
@@ -4377,6 +4384,92 @@ async function plReadEnsureText() {
       }
     }
   }
+}
+
+// Holt den Artikeltext (Version zum Upload-Zeitpunkt der Audiodatei) live von der
+// Wikipedia-API und entparst ihn zu Lesetext-Zeilen. Rückgabe: string[] oder null.
+async function _plReadFetchLive(tl) {
+  try {
+    if (!tl || !tl.api || !tl.article) return null;
+
+    // Version zum Upload-Datum: Artikelrevision, die zum uploadTs aktuell war
+    // (rvstart = uploadTs, rvdir=older, rvlimit=1). Fällt uploadTs weg → aktuelle.
+    var base = tl.api + "?action=query&format=json&origin=*"
+             + "&prop=revisions&rvprop=content&rvslots=main&rvlimit=1"
+             + "&titles=" + encodeURIComponent(tl.article);
+    if (tl.uploadTs) {
+      base += "&rvstart=" + encodeURIComponent(tl.uploadTs) + "&rvdir=older";
+    }
+    var r = await fetch(base, { mode: "cors" });
+    if (!r.ok) return null;
+    var d = await r.json();
+    var pages = d && d.query && d.query.pages;
+    if (!pages) return null;
+    var pg = pages[Object.keys(pages)[0]];
+    var wikitext = pg && pg.revisions && pg.revisions[0]
+                 && pg.revisions[0].slots && pg.revisions[0].slots.main
+                 && pg.revisions[0].slots.main["*"];
+    if (!wikitext) return null;
+
+    var text = _plWikitextToPlain(wikitext);
+    if (!text) return null;
+    return text.split("\n");
+  } catch (e) {
+    return null;
+  }
+}
+
+// Wikitext -> Lesetext. Entfernt Markup, Vorlagen, Boxen, Fußnoten, Fußzeilen.
+// Bewusst grob: Ziel ist "grob mitlaufender Lesetext", kein wortgenaues Alignment.
+function _plWikitextToPlain(t) {
+  if (!t) return "";
+
+  // 1. Verschachtelte Vorlagen {{ ... }} per Klammer-Zählung entfernen.
+  var out = [], depth = 0, i = 0;
+  while (i < t.length) {
+    if (t[i] === "{" && t[i + 1] === "{") { depth++; i += 2; continue; }
+    if (t[i] === "}" && t[i + 1] === "}" && depth > 0) { depth--; i += 2; continue; }
+    if (depth === 0) out.push(t[i]);
+    i++;
+  }
+  t = out.join("");
+
+  // 2. Tabellen {| ... |} und gallery/ref/Kommentare.
+  t = t.replace(/\{\|[\s\S]*?\|\}/g, "");
+  t = t.replace(/<gallery[\s\S]*?<\/gallery>/gi, "");
+  t = t.replace(/<ref[^>]*\/>/gi, "");
+  t = t.replace(/<ref[^>]*>[\s\S]*?<\/ref>/gi, "");
+  t = t.replace(/<!--[\s\S]*?-->/g, "");
+
+  // 3. Bild-/Datei-/Kategorie-Links komplett weg.
+  t = t.replace(/\[\[(?:Datei|File|Bild|Kategorie|Category):[^\]]*\]\]/gi, "");
+
+  // 4. Wikilinks: [[a|b]] -> b, [[a]] -> a. Externe: [url text] -> text.
+  t = t.replace(/\[\[([^\]|]*)\|([^\]]*)\]\]/g, "$2");
+  t = t.replace(/\[\[([^\]]*)\]\]/g, "$1");
+  t = t.replace(/\[https?:\/\/\S+ ([^\]]*)\]/g, "$1");
+
+  // 5. Auszeichnung, Überschriften, Entities.
+  t = t.replace(/'''/g, "").replace(/''/g, "");
+  t = t.replace(/^=+\s*(.*?)\s*=+$/gm, "$1");
+  t = t.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&");
+
+  // 6. Fußzeilen-Blöcke ab der ersten Meta-Überschrift abschneiden
+  //    und Interwiki-Zeilen (xx:Titel) am Ende entfernen.
+  var lines = t.split("\n");
+  var kept = [];
+  var footRe = /^(Quellen|Einzelnachweise|Literatur|Weblinks|Siehe auch|References|External links|See also)\s*$/i;
+  var interwikiRe = /^[a-z]{2,3}(-[a-z]+)?:.+$/i;
+  var stop = false;
+  for (var k = 0; k < lines.length; k++) {
+    var ln = lines[k].replace(/\s+$/,"");
+    if (footRe.test(ln.trim())) { stop = true; break; }
+    kept.push(ln);
+  }
+  while (kept.length && interwikiRe.test(kept[kept.length - 1].trim())) kept.pop();
+
+  // 7. Mehrfach-Leerzeilen zusammenfassen, Ränder trimmen.
+  return kept.join("\n").replace(/\n{3,}/g, "\n\n").trim();
 }
 
 // Kumulierte Abspielsekunden über das ganze Buch (Kapitel davor + laufendes).
