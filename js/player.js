@@ -4001,7 +4001,7 @@ PL_FILTER_DECL.hoerbuecher = {
     {
       id: "axes", kind: "parallel-axes", domId: "plBookAxes",
       basis: "collections",
-      parallelAxes: ["worktype", "genre", "fiction", "author", "reader",
+      parallelAxes: ["source", "fiction", "genre", "author", "reader",
                      "gender", "dialekt", "synthetic", "epoch", "length", "text_source"]
     },
     {

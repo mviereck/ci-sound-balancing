@@ -461,16 +461,19 @@ const AM_SORT_AXES = {
       // kein bucketLabel: der Rohwert ("Hochdeutsch", ...) ist bereits das Label.
     },
     {
-      key: "worktype", labelKey: "plBookAxisWorktype", labelDefault: "Werktyp",
-      getter: function (c) { return (c.tags && c.tags.worktype) || "zzz-unbekannt"; },
-      valueOf: function (c) { return (c.tags && c.tags.worktype) || ""; },
-      bucketLabel: function (v) { return (typeof t === "function") ? t("plBookWorktype_" + v) : v; }
-    },
-    {
       key: "synthetic", labelKey: "plBookAxisSynthetic", labelDefault: "Stimme",
       getter: function (c) { return (c.tags && c.tags.synthetic) || "zzz-unbekannt"; },
       valueOf: function (c) { return (c.tags && c.tags.synthetic) || ""; },
       bucketLabel: function (v) { return (typeof t === "function") ? t("plBookSynthetic_" + v) : v; }
+    },
+    {
+      // Quelle der Collection (LibriVox / Wikimedia Commons / Upload). Analog
+      // zur "source"-Achse der anderen Kategorien, aber auf Collection-Ebene:
+      // der Quellenname kommt als c.sourceTitle (Webspace-Loader bzw.
+      // local-books durchgereicht), Fallback Provider-Id.
+      key: "source", labelKey: "plBookAxisSource", labelDefault: "Quelle",
+      getter: function (c) { return c.sourceTitle || c._providerId || "zzz-unbekannt"; },
+      valueOf: function (c) { return c.sourceTitle || ""; }
     }
   ]
 };
@@ -1041,7 +1044,14 @@ amRegisterProvider({
   },
   listCollections: function (category) {
     if (category !== "hoerbuecher") return [];
-    return _amLocalBookCollections.slice();
+    // Quelle-Achse: hochgeladene Hörbücher sind Quelle "Upload"
+    // (i18n-Label plBookSource_upload; Rohwert als Fallback).
+    return _amLocalBookCollections.map(function (c) {
+      if (c && !c.sourceTitle) {
+        c.sourceTitle = (typeof t === "function") ? t("plBookSource_upload") : "Upload";
+      }
+      return c;
+    });
   }
 });
 
@@ -1257,6 +1267,9 @@ amRegisterProvider({
           id: id,
           title: col.title || srcKey,
           displayName: col.displayName || null,
+          // Quelle-Achse: echter Quellenname pro Collection (LibriVox /
+          // Wikimedia Commons / …), aus der Quelle dieser Manifest-Datei.
+          sourceTitle: entry.meta.name || entry.source.name || srcKey,
           lang: col.lang || null,
           tags: col.tags || {},
           license: entry.source.license || entry.meta.license,
