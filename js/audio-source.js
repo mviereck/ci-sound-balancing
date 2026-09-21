@@ -1264,6 +1264,8 @@ amRegisterProvider({
           pdfUrl:  col.pdfUrl || null,
           textUrl: col.textUrl || null,
           textRange: col.textRange || null,
+          textLive: col.textLive || null,   // Live-Textweg (Commons): Wikipedia-API-Beschaffung
+
           items: (col.items || []).map(function (it, i) {
             return {
               id: id + "#" + (it.id || ("ch" + (i+1))),
