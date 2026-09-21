@@ -166,6 +166,15 @@
       ],
       "license": "CC0-1.0",
       "source": "online/nathalie-rhasspy/source.json"
+    },
+    {
+      "key": "wikimedia-commons",
+      "name": "Wikimedia Commons — Gesprochene Wikipedia",
+      "categories": [
+        "hoerbuecher"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "source": "online/wikimedia-commons/source.json"
     }
   ]
 }

@@ -1,0 +1,18 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "key": "wikimedia-commons",
+  "name": "Wikimedia Commons — Gesprochene Wikipedia",
+  "url": "https://commons.wikimedia.org/wiki/Category:Spoken_German_Wikipedia",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "base": "",
+  "categories": [
+    "hoerbuecher"
+  ],
+  "manifests": {
+    "hoerbuecher": [
+      "online/wikimedia-commons/hoerbuecher/de.json"
+    ]
+  },
+  "notes": "Audio-URLs zeigen direkt auf upload.wikimedia.org (CORS). Artikeltext wird zur Laufzeit von der Wikipedia-API geladen (textLive)."
+}
