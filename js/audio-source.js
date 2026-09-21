@@ -191,6 +191,7 @@ function _amSpeakerLabel(v) {
   if (v === "kerstin") return "Kerstin";
   if (v === "nathalie") return "Nathalie";
   if (v === "flemishguy") return "Flemish Guy";
+  if (v === "kathleen") return "Kathleen";
   return v;   // Fallback: Rohwert
 }
 

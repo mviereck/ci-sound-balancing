@@ -132,6 +132,15 @@
       "source": "online/freesound/source.json"
     },
     {
+      "key": "kathleen-rhasspy",
+      "name": "Kathleen (Rhasspy)",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC0-1.0",
+      "source": "online/kathleen-rhasspy/source.json"
+    },
+    {
       "key": "kerstin-rhasspy",
       "name": "Kerstin (Rhasspy)",
       "categories": [
