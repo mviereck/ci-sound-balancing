@@ -18,6 +18,7 @@
       "textUrl": "hoerbuch-texte/fa/khayyam-omar_-_rubaiyat-of-omar-khayyam-persian-original-and-whinfield-translation-6310.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Khayyám, Omar",
         "reader": "Algy Pug",
         "readers": [

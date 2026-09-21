@@ -22,6 +22,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Schulz, Bruno",
         "reader": "iapetus",
         "readers": [
@@ -220,6 +221,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Zapolska, Gabriela",
         "reader": "Violet B Czaykowska",
         "readers": [
@@ -289,6 +291,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Doyle, Sir Arthur Conan",
         "reader": "Andrzej S. Zaliwski",
         "readers": [
@@ -464,6 +467,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Grabiński, Stefan",
         "reader": "Piotr Nater",
         "readers": [
@@ -558,6 +562,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Reymont, Wladyslaw",
         "reader": "Piotr Nater",
         "readers": [
@@ -678,6 +683,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dickens, Charles",
         "reader": "Nina Brown",
         "readers": [
@@ -772,6 +778,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Orkan, Władysław",
         "reader": "Nina Brown",
         "readers": [
@@ -880,6 +887,7 @@
       "textUrl": "hoerbuch-texte/pl/u-awski-jerzy_-_na-srebrnym-globie-6473.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Żuławski, Jerzy",
         "reader": "Jarek Celuch",
         "readers": [
@@ -1108,6 +1116,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Krasicki, Ignacy",
         "reader": "Piotr Nater",
         "readers": [
@@ -1202,6 +1211,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Krasicki, Ignacy",
         "reader": "Piotr Nater",
         "readers": [
@@ -1296,6 +1306,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Potocki, Jan",
         "reader": "Nina Brown",
         "readers": [
@@ -1957,6 +1968,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Majewski, Erazm",
         "reader": "Piotr Nater",
         "readers": [
@@ -2313,6 +2325,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Grabiński, Stefan",
         "reader": "Piotr Nater",
         "readers": [
@@ -2424,6 +2437,7 @@
       "textUrl": "hoerbuch-texte/pl/prus-boles-aw_-_lalka-tom-1-8764.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Prus, Bolesław",
         "reader": "Piotr Nater",
         "readers": [
@@ -2669,6 +2683,7 @@
       "textUrl": "hoerbuch-texte/pl/prus-boles-aw_-_lalka-tom-2-8912.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Prus, Bolesław",
         "reader": "Piotr Nater",
         "readers": [
@@ -2959,6 +2974,7 @@
       "textUrl": "hoerbuch-texte/pl/prus-boles-aw_-_lalka-tom-3-9500.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Prus, Bolesław",
         "reader": "Piotr Nater",
         "readers": [
@@ -3204,6 +3220,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Krasicki, Ignacy",
         "reader": "Piotr Nater",
         "readers": [
@@ -3333,6 +3350,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Deotyma",
         "reader": "Piotr Nater",
         "readers": [
@@ -3461,6 +3479,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Prus, Bolesław",
         "reader": "Piotr Nater",
         "readers": [
@@ -3734,6 +3753,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Prus, Bolesław",
         "reader": "Piotr Nater",
         "readers": [
@@ -3989,6 +4009,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Prus, Bolesław",
         "reader": "Piotr Nater",
         "readers": [
@@ -4235,6 +4256,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Mickiewicz, Adam",
         "reader": "Gosia Leksandrówna",
         "readers": [
@@ -4408,6 +4430,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Sienkiewicz, Henryk",
         "reader": "Piotr Nater",
         "readers": [
@@ -4653,6 +4676,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dygasiński, Adolf",
         "reader": "Piotr Nater",
         "readers": [
@@ -4745,6 +4769,7 @@
       "textUrl": "hoerbuch-texte/pl/sienkiewicz-henryk_-_za-chlebem-15606.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Sienkiewicz, Henryk",
         "reader": "Piotr Nater",
         "readers": [
@@ -4837,6 +4862,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Sienkiewicz, Henryk",
         "reader": "Jagoda",
         "readers": [
@@ -5019,6 +5045,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Słowacki, Juliusz",
         "reader": "Nela Reinfuss",
         "readers": [
@@ -5120,6 +5147,7 @@
       "textUrl": "hoerbuch-texte/pl/engels-friedrich_-_manifest-komunistyczny-15757.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Engels, Friedrich; Marx, Karl",
         "reader": "blazeiro",
         "readers": [
@@ -5205,6 +5233,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Konopnicka, Maria",
         "reader": "Piotr Nater",
         "readers": [
@@ -5524,6 +5553,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Baudouin de Courtenay, Jan",
         "reader": "Piotr Nater",
         "readers": [
@@ -5617,6 +5647,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Umiński, Władysław",
         "reader": "Glys",
         "readers": [

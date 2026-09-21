@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "David Barnes",
         "readers": [
@@ -1010,6 +1011,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Jin Yilin",
         "readers": [
@@ -2057,6 +2059,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Confucius 孔子",
         "reader": "Huang Hsin-Yu",
         "readers": [
@@ -2279,6 +2282,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Jc Guan",
         "readers": [
@@ -4666,6 +4670,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Liu 刘鹗, E",
         "reader": "HC",
         "readers": [
@@ -4893,6 +4898,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pu, Songling",
         "reader": "Jc Guan",
         "readers": [
@@ -5116,6 +5122,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Jc Guan",
         "readers": [
@@ -6237,6 +6244,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chinese Union Version",
         "reader": "HC",
         "readers": [
@@ -6387,6 +6395,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Jc Guan",
         "readers": [
@@ -6453,6 +6462,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chinese Union Version",
         "reader": "yuli",
         "readers": [
@@ -6635,6 +6645,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chinese Union Version",
         "reader": "yuli",
         "readers": [
@@ -6745,6 +6756,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chinese Union Version",
         "reader": "yuli",
         "readers": [
@@ -6999,6 +7011,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lu, Xun",
         "reader": "Jing Li",
         "readers": [
@@ -7145,6 +7158,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chinese Union Version",
         "reader": "yuli",
         "readers": [
@@ -7309,6 +7323,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lu, Xun",
         "reader": "Jing Li",
         "readers": [
@@ -7491,6 +7506,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lu, Xun",
         "reader": "Jing Li",
         "readers": [
@@ -7907,6 +7923,7 @@
       "textUrl": "hoerbuch-texte/zh/various_-_three-hundred-tang-poems-volume-5-6886.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Nora",
         "readers": [
@@ -8828,6 +8845,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Sun Tzu 孙武",
         "reader": "Emerald.W.",
         "readers": [
@@ -8990,6 +9008,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Lu, Xun",
         "reader": "Vivienne Wong",
         "readers": [
@@ -9107,6 +9126,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chinese Union Version",
         "reader": "aleithia",
         "readers": [
@@ -9334,6 +9354,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chinese Union Version",
         "reader": "aleithia",
         "readers": [
@@ -9457,6 +9478,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Lu, Xun",
         "reader": "Tina Ding",
         "readers": [
@@ -9571,6 +9593,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Zhu 名世朱, Mingshi",
         "reader": "Guomin Do",
         "readers": [
@@ -9722,6 +9745,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "Vivienne Wong",
         "readers": [
@@ -10341,6 +10365,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hong 洪, Sheng 昇",
         "reader": "Let’s Classics",
         "readers": [

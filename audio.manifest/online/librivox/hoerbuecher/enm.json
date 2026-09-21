@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chaucer, Geoffrey",
         "reader": "Alan Clare",
         "readers": [
@@ -120,6 +121,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Chaucer, Geoffrey",
         "reader": "Kevin Johnson",
         "readers": [
@@ -243,6 +245,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Chaucer, Geoffrey",
         "reader": "Tony Addison",
         "readers": [

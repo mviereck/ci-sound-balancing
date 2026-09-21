@@ -22,6 +22,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hellaakoski, Aaro",
         "reader": "Alex Patterson",
         "readers": [
@@ -124,6 +125,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Aho, Juhani",
         "reader": "Tuija Aalto",
         "readers": [
@@ -220,6 +222,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Aho, Juhani",
         "reader": "Tuija Aalto",
         "readers": [
@@ -334,6 +337,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Kivi, Aleksis",
         "reader": "Maire Rhode",
         "readers": [
@@ -629,6 +633,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Reijonen, Juho",
         "reader": "Maire Rhode",
         "readers": [
@@ -770,6 +775,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Gripenberg, Alexandra",
         "reader": "Andy Bay",
         "readers": [
@@ -830,6 +836,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Aho, Juhani",
         "reader": "Heikki Soini",
         "readers": [
@@ -1048,6 +1055,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Zschokke, Heinrich",
         "reader": "Harri Tapani Ylilammi",
         "readers": [
@@ -1129,6 +1137,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Linnankoski, Johannes",
         "reader": "Mari Mattila",
         "readers": [
@@ -1469,6 +1478,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Wuorinen, Olli",
         "reader": "Harri Tapani Ylilammi",
         "readers": [
@@ -1583,6 +1593,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Aho, Juhani",
         "reader": "Harri Tapani Ylilammi",
         "readers": [
@@ -1686,6 +1697,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Swift, Jonathan",
         "reader": "Harri Tapani Ylilammi",
         "readers": [
@@ -1883,6 +1895,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Machiavelli, Niccolò",
         "reader": "Harri Tapani Ylilammi",
         "readers": [
@@ -2252,6 +2265,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Goethe, Johann Wolfgang von",
         "reader": "Antti Vähäkainu",
         "readers": [
@@ -2414,6 +2428,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Marryat, Frederick",
         "reader": "Harri Tapani Ylilammi",
         "readers": [
@@ -2620,6 +2635,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Andersen, Hans Christian",
         "reader": "Cygnaeus",
         "readers": [

@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Stephanos 1550",
         "reader": "peaceuntoyou",
         "readers": [
@@ -101,6 +102,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Plato (Πλάτων)",
         "reader": "zaaf",
         "readers": [
@@ -194,6 +196,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Zoe Dickinson",
         "readers": [
@@ -290,6 +293,7 @@
       "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-1-book-1-6611.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
         "readers": [
@@ -428,6 +432,7 @@
       "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-2-book-2-6637.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
         "readers": [
@@ -530,6 +535,7 @@
       "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-3-book-3-6649.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
         "readers": [
@@ -632,6 +638,7 @@
       "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-4-book-4-6680.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
         "readers": [
@@ -805,6 +812,7 @@
       "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-v-5-book-5-6822.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
         "readers": [
@@ -943,6 +951,7 @@
       "textUrl": "hoerbuch-texte/grc/plato_-_dialogues-6827.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Plato (Πλάτων)",
         "reader": "Rapunzelina",
         "readers": [
@@ -1043,6 +1052,7 @@
       "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-6-book-6-7001.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
         "readers": [
@@ -1234,6 +1244,7 @@
       "textUrl": "hoerbuch-texte/grc/thucydides_-_histories-7-book-7-9995.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Thucydides (Θουκυδίδης)",
         "reader": "olorou",
         "readers": [
@@ -1362,6 +1373,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_homeric-hymns-11481.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -1698,6 +1710,7 @@
       "textUrl": "hoerbuch-texte/grc/plato_-_plato-s-definitions-and-epigrams-11611.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Plato (Πλάτων)",
         "reader": "Maria Sozopoulou",
         "readers": [
@@ -2035,6 +2048,7 @@
       "textUrl": "hoerbuch-texte/grc/stobaeus-joannes_-_seven-sages-and-delphic-maxims-12070.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Stobaeus, Joannes",
         "reader": "Maria Sozopoulou",
         "readers": [
@@ -2146,6 +2160,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Unknown",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -2400,6 +2415,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_01-the-odyssey-book-01-12391.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -2448,6 +2464,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_02-the-odyssey-book-02-12518.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -2496,6 +2513,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_03-the-odyssey-book-03-12634.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -2544,6 +2562,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_04-the-odyssey-ook-04-12734.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -2601,6 +2620,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_05-the-odyssey-book-05-12884.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -2649,6 +2669,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_06-the-odyssey-book-06-13000.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -2697,6 +2718,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_07-the-odyssey-book-07-13080.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -2745,6 +2767,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_08-the-odyssey-book-08-13185.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -2797,6 +2820,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Xenophon",
         "reader": "bedwere",
         "readers": [
@@ -3069,6 +3093,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_09-the-odyssey-book-09-13276.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3117,6 +3142,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_10-the-odyssey-book-10-13354.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3165,6 +3191,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_11-the-odyssey-book-11-13456.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3213,6 +3240,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_12-the-odyssey-book-12-13539.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3261,6 +3289,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_13-the-odyssey-book-13-13627.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3309,6 +3338,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_14-the-odyssey-book-14-13667.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3357,6 +3387,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_15-the-odyssey-book-15-13761.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3405,6 +3436,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_16-the-odyssey-book-16-13822.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3453,6 +3485,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_17-the-odyssey-book-17-13895.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3501,6 +3534,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_18-the-odyssey-book-18-13950.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3549,6 +3583,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_19-the-odyssey-book-19-14014.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3597,6 +3632,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_20-the-odyssey-book-20-14090.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3645,6 +3681,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_21-the-odyssey-book-21-14169.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3693,6 +3730,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_22-the-odyssey-book-22-14244.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3741,6 +3779,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_23-the-odyssey-book-23-14314.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -3793,6 +3832,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Xenophon",
         "reader": "bedwere",
         "readers": [
@@ -4048,6 +4088,7 @@
       "textUrl": "hoerbuch-texte/grc/homer_-_24-the-odyssey-ook-24-14395.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -4096,6 +4137,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Plato (Πλάτων)",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -4152,6 +4194,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hesiod",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [
@@ -4209,6 +4252,7 @@
       "textUrl": "hoerbuch-texte/grc/hesiod_-_x-22288.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hesiod",
         "reader": "Ἑλένη Κεμικτσή",
         "readers": [

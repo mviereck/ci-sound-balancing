@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Tolstoy, Leo",
         "reader": "Yakovlev Valery",
         "readers": [
@@ -308,6 +309,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Turgenev, Ivan",
         "reader": "Yakovlev Valery",
         "readers": [
@@ -377,6 +379,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pushkin, Alexander",
         "reader": "Yakovlev Valery",
         "readers": [
@@ -424,6 +427,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dostoyevsky, Fyodor",
         "reader": "Yakovlev Valery",
         "readers": [
@@ -523,6 +527,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dostoyevsky, Fyodor",
         "reader": "Yakovlev Valery",
         "readers": [
@@ -723,6 +728,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Griboedov, Alexander Sergeyevich; Грибое́дов, Алекса́ндр Серге́евич",
         "reader": "Irina Grinberg",
         "readers": [
@@ -851,6 +857,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Tolstoy, Leo",
         "reader": "Vladimir Anyanov",
         "readers": [
@@ -971,6 +978,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Jabotinsky, Ze'ev",
         "reader": "Mark Chulsky",
         "readers": [
@@ -1189,6 +1197,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Jabotinsky, Ze'ev",
         "reader": "Mark Chulsky",
         "readers": [
@@ -1522,6 +1531,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Turgenev, Ivan",
         "reader": "tovarisch",
         "readers": [
@@ -1783,6 +1793,7 @@
       "textUrl": "hoerbuch-texte/ru/pushkin-alexander_-_x-8641.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pushkin, Alexander",
         "reader": "Xenium5",
         "readers": [
@@ -1873,6 +1884,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fyodorov-Davydov, Aleksandr",
         "reader": "Anastasiia Solokha",
         "readers": [
@@ -2001,6 +2013,7 @@
       "textUrl": "hoerbuch-texte/ru/pushkin-alexander_-_dubrovsky-8982.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pushkin, Alexander",
         "reader": "Xenium5",
         "readers": [
@@ -2093,6 +2106,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Mandelstam, Osip",
         "reader": "Mark Chulsky",
         "readers": [
@@ -2176,6 +2190,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leskov, Nikolai",
         "reader": "Mark Chulsky",
         "readers": [
@@ -2349,6 +2364,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Zhukovsky, Vasily Andreyevich",
         "reader": "Mark Chulsky",
         "readers": [
@@ -2475,6 +2491,7 @@
       "textUrl": "hoerbuch-texte/ru/turgenev-ivan_-_veshnie-vody-10422.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Turgenev, Ivan",
         "reader": "tovarisch",
         "readers": [
@@ -2675,6 +2692,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Yershov, Pyotr Pavlovich",
         "reader": "Mark Chulsky",
         "readers": [
@@ -2758,6 +2776,7 @@
       "textUrl": "hoerbuch-texte/ru/pushkin-alexander_-_eugene-onegin-11018.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pushkin, Alexander",
         "reader": "Xenium5",
         "readers": [
@@ -2870,6 +2889,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Garshin, Vsevolod",
         "reader": "Mark Chulsky",
         "readers": [
@@ -3106,6 +3126,7 @@
       "textUrl": "hoerbuch-texte/ru/turgenev-ivan_-_dvoryanskoe-gnezdo-12256.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Turgenev, Ivan",
         "reader": "tovarisch",
         "readers": [
@@ -3370,6 +3391,7 @@
       "textUrl": "hoerbuch-texte/ru/goncharov-ivan_-_x-13240.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Goncharov, Ivan",
         "reader": "tovarisch",
         "readers": [
@@ -4324,6 +4346,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Shengeli, Georgy Arkadyevich",
         "reader": "Mark Chulsky",
         "readers": [
@@ -4414,6 +4437,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leskov, Nikolai",
         "reader": "Mark Chulsky",
         "readers": [
@@ -4570,6 +4594,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gumilyov, Nikolay",
         "reader": "Mark Chulsky",
         "readers": [
@@ -4633,6 +4658,7 @@
       "textUrl": "hoerbuch-texte/ru/leskov-nikolai_-_2-13881.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leskov, Nikolai",
         "reader": "Mark Chulsky",
         "readers": [
@@ -4834,6 +4860,7 @@
       "textUrl": "hoerbuch-texte/ru/goncharov-ivan_-_x-14105.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Goncharov, Ivan",
         "reader": "tovarisch",
         "readers": [
@@ -4989,6 +5016,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Aykhenvald, Yuly",
         "reader": "Mark Chulsky",
         "readers": [
@@ -5232,6 +5260,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Mark Chulsky",
         "readers": [
@@ -5361,6 +5390,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Aykhenvald, Yuly",
         "reader": "Mark Chulsky",
         "readers": [
@@ -5723,6 +5753,7 @@
       "textUrl": "hoerbuch-texte/ru/severyanin-igor_-_x-15098.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Severyanin, Igor",
         "reader": "Mark Chulsky",
         "readers": [
@@ -5822,6 +5853,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lokhvitskaya, Mirra",
         "reader": "Mark Chulsky",
         "readers": [
@@ -5903,6 +5935,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verlaine, Paul-Marie",
         "reader": "Mark Chulsky",
         "readers": [
@@ -6058,6 +6091,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Berdyaev, Nikolai; Bulgakov, Sergei; Frank, Semyon; Gershenzon, Mikhail; Kistyakovski, Bogdan; Lande, Aron; Struve, Peter",
         "reader": "Kazbek",
         "readers": [
@@ -6232,6 +6266,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Kuzmin, Mikhail",
         "reader": "Mark Chulsky",
         "readers": [
@@ -6340,6 +6375,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lvov-Rogachevsky, Vasily",
         "reader": "Mark Chulsky",
         "readers": [
@@ -6549,6 +6585,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Ivanov, Vyacheslav",
         "reader": "Mark Chulsky",
         "readers": [
@@ -6801,6 +6838,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Vetlugin, A.",
         "reader": "Mark Chulsky",
         "readers": [
@@ -6983,6 +7021,7 @@
       "textUrl": "hoerbuch-texte/ru/danilevsky-grigory_-_stepnyia-skazki-17203.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Danilevsky, Grigory",
         "reader": "Anastasiia Solokha",
         "readers": [
@@ -7103,6 +7142,7 @@
       "textUrl": "hoerbuch-texte/ru/longfellow-henry-wadsworth_-_song-of-hiawatha-17392.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Longfellow, Henry Wadsworth",
         "reader": "Mark Chulsky",
         "readers": [
@@ -7357,6 +7397,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Sholem Aleichem, שלום עליכם",
         "reader": "Hanna Ponomarenko",
         "readers": [
@@ -7503,6 +7544,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Annensky, Innokenty",
         "reader": "Mark Chulsky",
         "readers": [
@@ -7611,6 +7653,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chirikov, Evgeny",
         "reader": "Mark Chulsky",
         "readers": [
@@ -7701,6 +7744,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Mirbeau, Octave",
         "reader": "Mark Chulsky",
         "readers": [
@@ -7867,6 +7911,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Teffi, Nadezhda",
         "reader": "Mark Chulsky",
         "readers": [

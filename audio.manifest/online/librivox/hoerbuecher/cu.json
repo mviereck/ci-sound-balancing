@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Saint Dimitry of Rostov",
         "reader": "Euthymius",
         "readers": [
@@ -749,6 +750,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Saint Dimitry of Rostov",
         "reader": "Euthymius",
         "readers": [
@@ -1399,6 +1401,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Saint Dimitry of Rostov",
         "reader": "Euthymius",
         "readers": [
@@ -1959,6 +1962,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Saint Dimitry of Rostov",
         "reader": "Euthymius",
         "readers": [
@@ -2483,6 +2487,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Church Slavonic Bible",
         "reader": "Euthymius",
         "readers": [
@@ -2971,6 +2976,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Saint Dimitry of Rostov",
         "reader": "Euthymius",
         "readers": [
@@ -3315,6 +3321,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Saint Dimitry of Rostov",
         "reader": "Euthymius",
         "readers": [
@@ -3650,6 +3657,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Saint Dimitry of Rostov",
         "reader": "Euthymius",
         "readers": [

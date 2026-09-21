@@ -22,6 +22,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Eminescu, Mihai",
         "reader": "Cornel Nemes",
         "readers": [
@@ -2317,6 +2318,7 @@
       "textUrl": "hoerbuch-texte/ro/co-buc-george_-_balade-si-idile-14235.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Coșbuc, George",
         "reader": "Cornel Nemes",
         "readers": [
@@ -2875,6 +2877,7 @@
       "textUrl": "hoerbuch-texte/ro/macedonski-alexandru_-_cartea-de-aur-16535.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Macedonski, Alexandru",
         "reader": "Gabriela Oprea",
         "readers": [

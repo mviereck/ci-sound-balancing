@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Andal",
         "reader": "Neeru Iyer",
         "readers": [
@@ -111,6 +112,7 @@
       "textUrl": "hoerbuch-texte/ta/thiruvalluvar_-_sacred-kurral-of-tiruvalluva-nayanar-13085.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Thiruvalluvar",
         "reader": "Jothi Tharavant",
         "readers": [

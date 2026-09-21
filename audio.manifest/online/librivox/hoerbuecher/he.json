@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hebrew Bible",
         "reader": "Israel Radvinsky (1948-2007)",
         "readers": [
@@ -506,6 +507,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Brenner, יוסף חיים ברנר Yosef Haim",
         "reader": "Omri Lernau",
         "readers": [
@@ -614,6 +616,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Brenner, יוסף חיים ברנר Yosef Haim",
         "reader": "Omri Lernau",
         "readers": [
@@ -713,6 +716,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Brenner, יוסף חיים ברנר Yosef Haim",
         "reader": "Omri Lernau",
         "readers": [
@@ -922,6 +926,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Mendele Mocher Sforim, מנדלה מוכר ספרים",
         "reader": "Omri Lernau",
         "readers": [
@@ -1066,6 +1071,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Mendele Mocher Sforim, מנדלה מוכר ספרים",
         "reader": "Omri Lernau",
         "readers": [
@@ -1354,6 +1360,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Herzl, Theodor",
         "reader": "Omri Lernau",
         "readers": [
@@ -1512,6 +1519,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Ha'am, אחד העם Ahad",
         "reader": "Omri Lernau",
         "readers": [
@@ -1767,6 +1775,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Ben-Yehuda, אליעזר בן־יהודה Eliezer",
         "reader": "Omri Lernau",
         "readers": [
@@ -1976,6 +1985,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Mendele Mocher Sforim, מנדלה מוכר ספרים",
         "reader": "Omri Lernau",
         "readers": [
@@ -2572,6 +2582,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Mapu, אברהם מאפו Abraham",
         "reader": "Omri Lernau",
         "readers": [
@@ -2881,6 +2892,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hebrew Bible",
         "reader": "J.S. Kenney",
         "readers": [
@@ -3083,6 +3095,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gnessin, אורי ניסן גנסין Uri Nissan",
         "reader": "Omri Lernau",
         "readers": [
@@ -3148,6 +3161,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gnessin, אורי ניסן גנסין Uri Nissan",
         "reader": "Omri Lernau",
         "readers": [
@@ -3375,6 +3389,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Berdyczewski, מיכה יוסף ברדיצ'בסקי Micha Josef",
         "reader": "Omri Lernau",
         "readers": [
@@ -3611,6 +3626,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Sholem Aleichem, שלום עליכם",
         "reader": "Omri Lernau",
         "readers": [
@@ -3849,6 +3865,7 @@
       "textUrl": "hoerbuch-texte/he/brenner-yosef-haim_-_breakdown-and-bereavement-7712.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Brenner, יוסף חיים ברנר Yosef Haim",
         "reader": "Omri Lernau",
         "readers": [
@@ -4391,6 +4408,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Feierberg, מרדכי זאב פיארברג Mordecai Ze'ev",
         "reader": "Omri Lernau",
         "readers": [
@@ -4537,6 +4555,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Brenner, יוסף חיים ברנר Yosef Haim",
         "reader": "Omri Lernau",
         "readers": [
@@ -4870,6 +4889,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Berdyczewski, מיכה יוסף ברדיצ'בסקי Micha Josef",
         "reader": "Omri Lernau",
         "readers": [
@@ -4987,6 +5007,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gordon, יהודה לייב גורדון Judah Leib",
         "reader": "Omri Lernau",
         "readers": [
@@ -5077,6 +5098,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gordon, יהודה לייב גורדון Judah Leib",
         "reader": "Omri Lernau",
         "readers": [
@@ -5196,6 +5218,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bialik, חיים נחמן ביאליק Hayyim Nahman",
         "reader": "Omri Lernau",
         "readers": [
@@ -5333,6 +5356,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Steinberg, יעקב שטיינברג Jacob",
         "reader": "Guy Lederfein",
         "readers": [

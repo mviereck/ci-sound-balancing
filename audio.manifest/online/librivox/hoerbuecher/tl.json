@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Andrea L",
         "readers": [
@@ -98,6 +99,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Reyes, Isabelo de los",
         "reader": "April Gonzales",
         "readers": [
@@ -223,6 +225,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Medrano, Pura L.",
         "reader": "mlcui",
         "readers": [

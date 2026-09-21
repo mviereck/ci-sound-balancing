@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Yovkov, Yordan",
         "reader": "Euthymius",
         "readers": [
@@ -279,6 +280,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Belcheva, Mara",
         "reader": "Euthymius",
         "readers": [
@@ -351,6 +353,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Yovkov, Yordan; Йовков, Йордан",
         "reader": "Euthymius",
         "readers": [
@@ -483,6 +486,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Vazov, Ivan",
         "reader": "Georgi Stoychev",
         "readers": [

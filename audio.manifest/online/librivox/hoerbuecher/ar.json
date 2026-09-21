@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "al-Mawardi, Abu al-Hasan Ali Ibn Muhammad Ibn Habib",
         "reader": "Youssef Safiljil (Dr. Fighter)",
         "readers": [
@@ -246,6 +247,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "al-Kawakibi, Abd al-Rahman",
         "reader": "Khaled_Fouad",
         "readers": [
@@ -388,6 +390,7 @@
       "textUrl": "hoerbuch-texte/ar/ibn-al-muqaffa-abdullah_-_kalila-wa-dimna-15090.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Ibn al-Muqaffaʿ, Abdullah",
         "reader": "Aida Boumaza",
         "readers": [

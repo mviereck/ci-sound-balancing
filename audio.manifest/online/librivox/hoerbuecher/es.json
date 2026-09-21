@@ -22,6 +22,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Alarcón y Ariza, Pedro Antonio de",
         "reader": "Karen Savage",
         "readers": [
@@ -208,6 +209,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Reina-Valera",
         "reader": "arturo",
         "readers": [
@@ -439,6 +441,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Delgado, Rafael",
         "reader": "Karen Savage",
         "readers": [
@@ -1076,6 +1079,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "About, Edmond",
         "reader": "jaid",
         "readers": [
@@ -1174,6 +1178,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pérez Galdós, Benito",
         "reader": "Tux",
         "readers": [
@@ -1371,6 +1376,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "Tux",
         "readers": [
@@ -1459,6 +1465,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Alarcón y Ariza, Pedro Antonio de",
         "reader": "Tux",
         "readers": [
@@ -1537,6 +1544,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Guevara, Luis Vélez de",
         "reader": "Tux",
         "readers": [
@@ -1678,6 +1686,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Altamirano, Ignacio Manuel",
         "reader": "Karen Savage",
         "readers": [
@@ -1820,6 +1829,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Darío, Rubén",
         "reader": "KendalRigans",
         "readers": [
@@ -1986,6 +1996,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Stevenson, Robert Louis",
         "reader": "Victor Villarraza",
         "readers": [
@@ -2336,6 +2347,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pardo Bazán, Emilia",
         "reader": "Mongope",
         "readers": [
@@ -2646,6 +2658,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Poe, Edgar Allan",
         "reader": "Victor Villarraza",
         "readers": [
@@ -2809,6 +2822,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pardo Bazán, Emilia",
         "reader": "Mongope",
         "readers": [
@@ -3067,6 +3081,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Unamuno, Miguel de",
         "reader": "Mongope",
         "readers": [
@@ -3424,6 +3439,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Quevedo, Francisco de",
         "reader": "Epachuko",
         "readers": [
@@ -3675,6 +3691,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Poe, Edgar Allan",
         "reader": "KendalRigans",
         "readers": [
@@ -3987,6 +4004,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Alas, Leopoldo Garcia",
         "reader": "Epachuko",
         "readers": [
@@ -4263,6 +4281,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Bécquer, Gustavo Adolfo",
         "reader": "KendalRigans",
         "readers": [
@@ -4387,6 +4406,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hale, Edward Everett; Hawthorne, Nathaniel; Irving, Washington",
         "reader": "Epachuko",
         "readers": [
@@ -4548,6 +4568,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Darío, Rubén",
         "reader": "KendalRigans",
         "readers": [
@@ -4923,6 +4944,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Shakespeare, William",
         "reader": "KendalRigans",
         "readers": [
@@ -5147,6 +5169,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Alas, Leopoldo Garcia",
         "reader": "Epachuko",
         "readers": [
@@ -5441,6 +5464,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "KendalRigans",
         "readers": [
@@ -5699,6 +5723,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Manrique, Jorge",
         "reader": "KendalRigans",
         "readers": [
@@ -5748,6 +5773,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Campo Arana, José",
         "reader": "KendalRigans",
         "readers": [
@@ -5880,6 +5906,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pérez Galdós, Benito",
         "reader": "KendalRigans",
         "readers": [
@@ -6273,6 +6300,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "About, Edmond",
         "reader": "Joyfull",
         "readers": [
@@ -6452,6 +6480,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Fernández y González, Manuel",
         "reader": "Tux",
         "readers": [
@@ -7268,6 +7297,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Bécquer, Gustavo Adolfo",
         "reader": "Epachuko",
         "readers": [
@@ -7380,6 +7410,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pérez Galdós, Benito",
         "reader": "Epachuko",
         "readers": [
@@ -7674,6 +7705,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pérez Galdós, Benito",
         "reader": "Epachuko",
         "readers": [
@@ -7950,6 +7982,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pérez Galdós, Benito",
         "reader": "Epachuko",
         "readers": [
@@ -8253,6 +8286,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Riva Palacio, Vicente",
         "reader": "Joyfull",
         "readers": [
@@ -8484,6 +8518,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pérez Galdós, Benito",
         "reader": "Epachuko",
         "readers": [
@@ -8758,6 +8793,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Darío, Rubén",
         "reader": "KendalRigans",
         "readers": [
@@ -8890,6 +8926,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Dostoyevsky, Fyodor",
         "reader": "Epachuko",
         "readers": [
@@ -9376,6 +9413,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pérez Galdós, Benito",
         "reader": "KendalRigans",
         "readers": [
@@ -9715,6 +9753,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Machado Ruiz, Antonio",
         "reader": "KendalRigans",
         "readers": [
@@ -9865,6 +9904,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Zorrilla y Moral, José",
         "reader": "KendalRigans",
         "readers": [
@@ -9997,6 +10037,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hope, Anthony",
         "reader": "Tux",
         "readers": [
@@ -10237,6 +10278,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pérez Galdós, Benito",
         "reader": "Alexelmagno",
         "readers": [
@@ -10432,6 +10474,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pérez Galdós, Benito",
         "reader": "Maritza Mateo",
         "readers": [
@@ -10673,6 +10716,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pérez Galdós, Benito",
         "reader": "Alexelmagno",
         "readers": [
@@ -11021,6 +11065,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pereda, Jose María de",
         "reader": "Epachuko",
         "readers": [
@@ -11376,6 +11421,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Mocho, Fray",
         "reader": "KendalRigans",
         "readers": [
@@ -11545,6 +11591,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Blasco Ibáñez, Vicente",
         "reader": "Epachuko",
         "readers": [
@@ -11765,6 +11812,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Shakespeare, William",
         "reader": "Epachuko",
         "readers": [
@@ -11856,6 +11904,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pardo Bazán, Emilia",
         "reader": "Lu",
         "readers": [
@@ -12031,6 +12080,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Valle-Inclán, Ramón del",
         "reader": "Epachuko",
         "readers": [
@@ -12208,6 +12258,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hawthorne, Nathaniel",
         "reader": "Lu",
         "readers": [
@@ -12505,6 +12556,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "Epachuko",
         "readers": [
@@ -12628,6 +12680,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Fernández de Moratín, Leandro",
         "reader": "Epachuko",
         "readers": [
@@ -12697,6 +12750,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Camões, Luís Vaz de",
         "reader": "mpinedag",
         "readers": [
@@ -12857,6 +12911,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Unamuno, Miguel de",
         "reader": "Epachuko",
         "readers": [
@@ -13062,6 +13117,7 @@
         "pruef": true
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Deledda, Grazia",
         "reader": "Mongope",
         "readers": [
@@ -13271,6 +13327,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Unamuno, Miguel de",
         "reader": "Epachuko",
         "readers": [
@@ -13576,6 +13633,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Avellaneda, Gertrudiz Gómez de",
         "reader": "Epachuko",
         "readers": [
@@ -13790,6 +13848,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Valera, Juan",
         "reader": "Lu",
         "readers": [
@@ -14039,6 +14098,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Valle-Inclán, Ramón del",
         "reader": "Epachuko",
         "readers": [
@@ -14325,6 +14385,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Valle-Inclán, Ramón del",
         "reader": "Epachuko",
         "readers": [
@@ -14403,6 +14464,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Eliot, George",
         "reader": "Lu",
         "readers": [
@@ -14643,6 +14705,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Euripides",
         "reader": "Epachuko",
         "readers": [
@@ -14724,6 +14787,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Baroja, Pío",
         "reader": "mpinedag",
         "readers": [
@@ -15208,6 +15272,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Muñoz Seca, Pedro",
         "reader": "Epachuko",
         "readers": [
@@ -15288,6 +15353,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Euripides",
         "reader": "Epachuko",
         "readers": [
@@ -15369,6 +15435,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Euripides",
         "reader": "Epachuko",
         "readers": [
@@ -15449,6 +15516,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Euripides",
         "reader": "Epachuko",
         "readers": [
@@ -15530,6 +15598,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Euripides",
         "reader": "Epachuko",
         "readers": [

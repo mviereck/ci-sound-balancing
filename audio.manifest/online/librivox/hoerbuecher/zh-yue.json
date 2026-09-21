@@ -18,6 +18,7 @@
       "textUrl": "hoerbuch-texte/zh-yue/chalmers-john_-_english-and-cantonese-dictionary-14212.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chalmers, John; Dealy, Thomas",
         "reader": "DavidReader",
         "readers": [

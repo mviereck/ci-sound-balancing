@@ -22,6 +22,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Ezwa",
         "readers": [
@@ -273,6 +274,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Louis Segond Bible",
         "reader": "Ezwa",
         "readers": [
@@ -356,6 +358,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Perrault, Charles",
         "reader": "Ezwa",
         "readers": [
@@ -493,6 +496,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Maynard, François",
         "reader": "Annie Coleman Rothenberg",
         "readers": [
@@ -634,6 +638,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Ezwa",
         "readers": [
@@ -859,6 +864,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Laclos, Pierre Choderlos de",
         "reader": "Ezwa",
         "readers": [
@@ -1083,6 +1089,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Faris",
         "readers": [
@@ -1461,6 +1468,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Louis Segond Bible",
         "reader": "Ezwa",
         "readers": [
@@ -1508,6 +1516,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Louis Segond Bible",
         "reader": "Ezwa",
         "readers": [
@@ -1564,6 +1573,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Zola, Émile",
         "reader": "Ezwa",
         "readers": [
@@ -1612,6 +1622,7 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-03-972.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Claire Dyard",
         "readers": [
@@ -1824,6 +1835,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Claire Dyard",
         "readers": [
@@ -2286,6 +2298,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Perrault, Charles",
         "reader": "Ezwa",
         "readers": [
@@ -2373,6 +2386,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "Ezwa",
         "readers": [
@@ -3785,6 +3799,7 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-04-ver-2-1167.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Cicorée",
         "readers": [
@@ -4043,6 +4058,7 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-04-1232.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
         "readers": [
@@ -4280,6 +4296,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dumas, Alexandre",
         "reader": "Jc Guan",
         "readers": [
@@ -5422,6 +5439,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
         "readers": [
@@ -5654,6 +5672,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
         "readers": [
@@ -5895,6 +5914,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Allais, Alphonse",
         "reader": "Bernard",
         "readers": [
@@ -6371,6 +6391,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Daudet, Alphonse",
         "reader": "Ezwa",
         "readers": [
@@ -6715,6 +6736,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Louis Segond Bible",
         "reader": "Ezwa",
         "readers": [
@@ -6763,6 +6785,7 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-07-1478.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
         "readers": [
@@ -6973,6 +6996,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Ezwa",
         "readers": [
@@ -7146,6 +7170,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "Ezwa",
         "readers": [
@@ -8147,6 +8172,7 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-08-1593.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
         "readers": [
@@ -8433,6 +8459,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Beaugrand, Honoré",
         "reader": "Wen Rolland",
         "readers": [
@@ -8521,6 +8548,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Rimbaud, Arthur",
         "reader": "Jc Guan",
         "readers": [
@@ -8986,6 +9014,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Lautréamont, Comte de",
         "reader": "Herman Roskams",
         "readers": [
@@ -9577,6 +9606,7 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-09-1751.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
         "readers": [
@@ -9790,6 +9820,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verlaine, Paul-Marie",
         "reader": "Jc Guan",
         "readers": [
@@ -10188,6 +10219,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Didier",
         "readers": [
@@ -10427,6 +10459,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Sand, George",
         "reader": "Ezwa",
         "readers": [
@@ -10663,6 +10696,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Meilanie",
         "readers": [
@@ -10895,6 +10929,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Voltaire",
         "reader": "Bernard",
         "readers": [
@@ -11205,6 +11240,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Sand, George",
         "reader": "Ezwa",
         "readers": [
@@ -11542,6 +11578,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Bernard",
         "readers": [
@@ -11980,6 +12017,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verlaine, Paul-Marie",
         "reader": "Jc Guan",
         "readers": [
@@ -12216,6 +12254,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Plato (Πλάτων)",
         "reader": "leyla",
         "readers": [
@@ -12320,6 +12359,7 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-10-2058.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
         "readers": [
@@ -12503,6 +12543,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Molière",
         "reader": "Karen Savage",
         "readers": [
@@ -12562,6 +12603,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Petrarca, Francesco",
         "reader": "Aldor",
         "readers": [
@@ -12612,6 +12654,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dumas, Alexandre",
         "reader": "Jc Guan",
         "readers": [
@@ -13281,6 +13324,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Brissot de Warville, Jacques Pierre; Société des Amis des Noirs",
         "reader": "Ezwa",
         "readers": [
@@ -13329,6 +13373,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Duval, Paul",
         "reader": "Ezwa",
         "readers": [
@@ -13381,6 +13426,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hémon, Louis",
         "reader": "Jc Guan",
         "readers": [
@@ -13567,6 +13613,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Leblanc, Maurice",
         "reader": "Christian",
         "readers": [
@@ -13687,6 +13734,7 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-11-2232.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
         "readers": [
@@ -13816,6 +13864,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bunyan, John",
         "reader": "Ezwa",
         "readers": [
@@ -13955,6 +14004,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Cazotte, Jacques",
         "reader": "Ezwa",
         "readers": [
@@ -14092,6 +14142,7 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-01-ver-2-2292.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
         "readers": [
@@ -14338,6 +14389,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bilhaud, Paul",
         "reader": "Ezwa",
         "readers": [
@@ -14465,6 +14517,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Ezwa",
         "readers": [
@@ -14800,6 +14853,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Bernard",
         "readers": [
@@ -15085,6 +15139,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Ségur, Sophie, Comtesse de",
         "reader": "Ezwa",
         "readers": [
@@ -15298,6 +15353,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Diderot, Denis",
         "reader": "Enko",
         "readers": [
@@ -15347,6 +15403,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Emy",
         "readers": [
@@ -15799,6 +15856,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Ezwa",
         "readers": [
@@ -15929,6 +15987,7 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-02-ver-2-2506.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
         "readers": [
@@ -16152,6 +16211,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Maupassant, Guy de",
         "reader": "Didier",
         "readers": [
@@ -16349,6 +16409,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Flaubert, Gustave",
         "reader": "Ezwa",
         "readers": [
@@ -16564,6 +16625,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Christophe Huber",
         "readers": [
@@ -16810,6 +16872,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Bernard",
         "readers": [
@@ -16924,6 +16987,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Sylvie",
         "readers": [
@@ -17165,6 +17229,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Maupassant, Guy de",
         "reader": "Ezwa",
         "readers": [
@@ -17336,6 +17401,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Rousseau, Jean-Jacques",
         "reader": "Jc Guan",
         "readers": [
@@ -17474,6 +17540,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "About, Edmond",
         "reader": "Didier",
         "readers": [
@@ -17564,6 +17631,7 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-03-ver-2-2606.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
         "readers": [
@@ -17769,6 +17837,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Gaboriau, Émile",
         "reader": "Ezwa",
         "readers": [
@@ -18699,6 +18768,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Montaigne, Michel Eyquem de",
         "reader": "czandra",
         "readers": [
@@ -19265,6 +19335,7 @@
       "textUrl": "hoerbuch-texte/fr/daudet-alphonse_-_lettres-de-mon-moulin-2629.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Daudet, Alphonse",
         "reader": "Naf",
         "readers": [
@@ -19526,6 +19597,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Bernard",
         "readers": [
@@ -20075,6 +20147,7 @@
       "textUrl": "hoerbuch-texte/fr/rousseau-jean-jacques_-_discours-sur-les-sciences-et-les-arts-2644.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Rousseau, Jean-Jacques",
         "reader": "Aldor",
         "readers": [
@@ -20144,6 +20217,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Didier",
         "readers": [
@@ -20810,6 +20884,7 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-12-2724.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Jean Lambert",
         "readers": [
@@ -21159,6 +21234,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Didier",
         "readers": [
@@ -21881,6 +21957,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Couailhac, Louis",
         "reader": "Ezwa",
         "readers": [
@@ -22171,6 +22248,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leconte de Lisle, Charles Marie René",
         "reader": "Ezwa",
         "readers": [
@@ -22492,6 +22570,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Maupassant, Guy de",
         "reader": "Naf",
         "readers": [
@@ -22656,6 +22735,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Proust, Marcel",
         "reader": "Bernard",
         "readers": [
@@ -23684,6 +23764,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leprince de Beaumont, Jeanne-Marie",
         "reader": "Ezwa",
         "readers": [
@@ -23859,6 +23940,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Christian Al-Kadi",
         "readers": [
@@ -24079,6 +24161,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Brumaire, Jean",
         "reader": "Ezwa",
         "readers": [
@@ -24549,6 +24632,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leroux, Gaston",
         "reader": "Naf",
         "readers": [
@@ -24859,6 +24943,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Michel, Louise",
         "reader": "Enko",
         "readers": [
@@ -25238,6 +25323,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chatrian, Alexandre; Erckmann, Émile",
         "reader": "Ezwa",
         "readers": [
@@ -25431,6 +25517,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Nodier, Charles",
         "reader": "Ezwa",
         "readers": [
@@ -25487,6 +25574,7 @@
       "textUrl": "hoerbuch-texte/fr/villiers-de-l-isle-adam-auguste_-_contes-cruels-3078.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Villiers de l'Isle-Adam, Auguste",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -25794,6 +25882,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Villeneuve, Gabrielle-Suzanne Barbot Gallon",
         "reader": "Ezwa",
         "readers": [
@@ -25973,6 +26062,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -26447,6 +26537,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Molière",
         "reader": "Kalynda",
         "readers": [
@@ -26778,6 +26869,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Jc Guan",
         "readers": [
@@ -27411,6 +27503,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -27684,6 +27777,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Leroux, Gaston",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -27898,6 +27992,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Rodenbach, Georges",
         "reader": "Ezwa",
         "readers": [
@@ -28080,6 +28175,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Bernard",
         "readers": [
@@ -28730,6 +28826,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Montesquieu, Charles-Louis de Secondat, baron de La Brède et de",
         "reader": "Anne",
         "readers": [
@@ -30595,6 +30692,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Bernard",
         "readers": [
@@ -31519,6 +31617,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Andersen, Hans Christian; Grimm, Jacob & Wilhelm; Perrault, Charles",
         "reader": "Caroline Sophie",
         "readers": [
@@ -31743,6 +31842,7 @@
       "textUrl": "hoerbuch-texte/fr/fontaine-jean-de-la_-_fables-de-la-fontaine-livre-08-ver-2-3731.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Jason Justice",
         "readers": [
@@ -32036,6 +32136,7 @@
       "textUrl": "hoerbuch-texte/fr/corneille-pierre_-_cid-3930.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Corneille, Pierre",
         "reader": "Ezwa",
         "readers": [
@@ -32176,6 +32277,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Kalynda",
         "readers": [
@@ -32404,6 +32506,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -32640,6 +32743,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Bernard",
         "readers": [
@@ -33227,6 +33331,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Dan Mewton",
         "readers": [
@@ -33466,6 +33571,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Saint-Hilaire, Émile Marco de",
         "reader": "Ezwa",
         "readers": [
@@ -33630,6 +33736,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Mérimée, Prosper",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -33734,6 +33841,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Spyri, Johanna",
         "reader": "Caroline Sophie",
         "readers": [
@@ -33902,6 +34010,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Level, Maurice",
         "reader": "Ezwa",
         "readers": [
@@ -34048,6 +34157,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Vémar, A.",
         "reader": "Ezwa",
         "readers": [
@@ -34158,6 +34268,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Nathalie Mussard",
         "readers": [
@@ -34425,6 +34536,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Florian, Jean-Pierre Claris de",
         "reader": "Ezwa",
         "readers": [
@@ -35476,6 +35588,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Ezwa",
         "readers": [
@@ -36223,6 +36336,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Chevalier, Henri Émile",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -37351,6 +37465,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Bernard",
         "readers": [
@@ -38127,6 +38242,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Darby Bible",
         "reader": "Ezwa",
         "readers": [
@@ -38765,6 +38881,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "La Fayette, Madame de",
         "reader": "Ariodante",
         "readers": [
@@ -38817,6 +38934,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verlaine, Paul-Marie",
         "reader": "Ruth Golding",
         "readers": [
@@ -38968,6 +39086,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Féval, fils, Paul",
         "reader": "Ezwa",
         "readers": [
@@ -39151,6 +39270,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Ezwa",
         "readers": [
@@ -39427,6 +39547,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Féval, père, Paul",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -39718,6 +39839,7 @@
       "textUrl": "hoerbuch-texte/fr/montesquieu-charles-louis-de-secondat-baron-de-la-brede-et-de_-_lettres-persanes-tome-premier-4991.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Montesquieu, Charles-Louis de Secondat, baron de La Brède et de",
         "reader": "Caroline Sophie",
         "readers": [
@@ -40576,6 +40698,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Orléans, Charles d'",
         "reader": "Kaviraf",
         "readers": [
@@ -40674,6 +40797,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verhaeren, Emile",
         "reader": "Martin Langer",
         "readers": [
@@ -40762,6 +40886,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Marie-Claude Belanger",
         "readers": [
@@ -40947,6 +41072,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Baudelaire, Charles",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -41024,6 +41150,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Fannie",
         "readers": [
@@ -41257,6 +41384,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Baudelaire, Charles",
         "reader": "Ezwa",
         "readers": [
@@ -41374,6 +41502,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Courdil, Jean",
         "reader": "Cebes",
         "readers": [
@@ -41462,6 +41591,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gautier, Théophile",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -41694,6 +41824,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Sue, Eugène",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -42125,6 +42256,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Saab",
         "readers": [
@@ -42861,6 +42993,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Rimbaud, Arthur",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -42958,6 +43091,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Ezwa",
         "readers": [
@@ -43233,6 +43367,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Bernard",
         "readers": [
@@ -43707,6 +43842,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "La Fayette, Madame de",
         "reader": "Isabelle Brasme",
         "readers": [
@@ -43954,6 +44090,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Bernard",
         "readers": [
@@ -44344,6 +44481,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "de Sales, Saint Francis",
         "reader": "Grégory",
         "readers": [
@@ -45516,6 +45654,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Flaubert, Gustave",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -45874,6 +46013,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Sue, Eugène",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -46273,6 +46413,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "severinelec",
         "readers": [
@@ -47442,6 +47583,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Bernard",
         "readers": [
@@ -47925,6 +48067,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Louÿs, Pierre",
         "reader": "Herman Roskams",
         "readers": [
@@ -48269,6 +48412,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Gilles G. Le Blanc",
         "readers": [
@@ -48915,6 +49059,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Nodier, Charles",
         "reader": "Gilles G. Le Blanc",
         "readers": [
@@ -49279,6 +49424,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Robida, Albert",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -49646,6 +49792,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Sue, Eugène",
         "reader": "Nadine Eckert-Boulet",
         "readers": [
@@ -49943,6 +50090,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Bernard",
         "readers": [
@@ -50386,6 +50534,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dumas, Alexandre",
         "reader": "Ezwa",
         "readers": [
@@ -50578,6 +50727,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "millianna",
         "readers": [
@@ -50851,6 +51001,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Graigolin",
         "readers": [
@@ -51025,6 +51176,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leblanc, Maurice",
         "reader": "Gilles G. Le Blanc",
         "readers": [
@@ -51208,6 +51360,7 @@
       "textUrl": "hoerbuch-texte/fr/apollinaire-guillaume_-_alcools-7727.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Apollinaire, Guillaume",
         "reader": "Malone (1945 - 2023)",
         "readers": [
@@ -51714,6 +51867,7 @@
       "textUrl": "hoerbuch-texte/fr/dumas-alexandre_-_tulipe-noire-8072.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dumas, Alexandre",
         "reader": "Ezwa",
         "readers": [
@@ -52049,6 +52203,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Bernard",
         "readers": [
@@ -52352,6 +52507,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verlaine, Paul-Marie",
         "reader": "Françoise",
         "readers": [
@@ -52583,6 +52739,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Flaubert, Gustave",
         "reader": "Françoise",
         "readers": [
@@ -52787,6 +52944,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Zola, Émile",
         "reader": "Françoise",
         "readers": [
@@ -53194,6 +53352,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Bernard",
         "readers": [
@@ -53569,6 +53728,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Zeckou",
         "readers": [
@@ -54169,6 +54329,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Zeckou",
         "readers": [
@@ -54847,6 +55008,7 @@
       "textUrl": "hoerbuch-texte/fr/verne-jules_-_forceurs-de-blocus-9268.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Zeckou",
         "readers": [
@@ -54975,6 +55137,7 @@
       "textUrl": "hoerbuch-texte/fr/hudry-menos-gregoire_-_royale-maison-de-savoie-9321.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hudry-Menos, Grégoire",
         "reader": "BeniaminoMassimo",
         "readers": [
@@ -55063,6 +55226,7 @@
       "textUrl": "hoerbuch-texte/fr/gautier-theophile_-_contes-humoristiques-9587.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gautier, Théophile",
         "reader": "Zeckou",
         "readers": [
@@ -55177,6 +55341,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Voltaire",
         "reader": "defscan",
         "readers": [
@@ -55408,6 +55573,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Zeckou",
         "readers": [
@@ -55513,6 +55679,7 @@
       "textUrl": "hoerbuch-texte/fr/saint-vangile-selon-saint-marc-10039.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "",
         "reader": "pejuga",
         "readers": [
@@ -55697,6 +55864,7 @@
       "textUrl": "hoerbuch-texte/fr/cooper-james-fenimore_-_dernier-des-mohicans-10379.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Cooper, James Fenimore",
         "reader": "Bernard",
         "readers": [
@@ -56053,6 +56221,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Sonia",
         "readers": [
@@ -56327,6 +56496,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leblanc, Maurice",
         "reader": "Fao10rk",
         "readers": [
@@ -56450,6 +56620,7 @@
       "textUrl": "hoerbuch-texte/fr/fillion-bible_-_bible-fillion-apocrypha-deuterocanon-livre-de-tobie-10545.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fillion Bible",
         "reader": "pejuga",
         "readers": [
@@ -56625,6 +56796,7 @@
       "textUrl": "hoerbuch-texte/fr/fillion-bible_-_bible-fillion-apocrypha-deuterocanon-livre-de-judith-10612.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fillion Bible",
         "reader": "pejuga",
         "readers": [
@@ -56818,6 +56990,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Austen, Jane",
         "reader": "Laurette",
         "readers": [
@@ -57354,6 +57527,7 @@
       "textUrl": "hoerbuch-texte/fr/fillion-bible_-_bible-fillion-deuterocanon-livre-d-esther-10699.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fillion Bible",
         "reader": "pejuga",
         "readers": [
@@ -57547,6 +57721,7 @@
       "textUrl": "hoerbuch-texte/fr/fillion-bible_-_bible-fillion-18-livre-de-job-chapitres-selectionnes-10849.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fillion Bible",
         "reader": "pejuga",
         "readers": [
@@ -57920,6 +58095,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Milton, John",
         "reader": "Thomas A. Copeland",
         "readers": [
@@ -58135,6 +58311,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Lemaître, Jules",
         "reader": "Sonia",
         "readers": [
@@ -58407,6 +58584,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Mayah",
         "readers": [
@@ -58677,6 +58855,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Sonia",
         "readers": [
@@ -58948,6 +59127,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Stendhal",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -59674,6 +59854,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Carroll, Lewis",
         "reader": "Linda Olsen Fitak",
         "readers": [
@@ -59836,6 +60017,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "BeniaminoMassimo",
         "readers": [
@@ -60103,6 +60285,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Wilde, Oscar",
         "reader": "Linda Olsen Fitak",
         "readers": [
@@ -60339,6 +60522,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Sonia",
         "readers": [
@@ -60611,6 +60795,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lamartine, Alphonse de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -60685,6 +60870,7 @@
       "textUrl": "hoerbuch-texte/fr/balzac-honore-de_-_traite-de-la-vie-elegante-suivi-de-la-theorie-de-la-demarche-13346.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -60823,6 +61009,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Margot",
         "readers": [
@@ -61091,6 +61278,7 @@
       "textUrl": "hoerbuch-texte/fr/roorda-henri_-_pedagogue-n-aime-pas-les-enfants-13528.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Roorda, Henri",
         "reader": "Pauline Latournerie",
         "readers": [
@@ -61219,6 +61407,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -61502,6 +61691,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lafon, André",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -61630,6 +61820,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Margot",
         "readers": [
@@ -61899,6 +62090,7 @@
       "textUrl": "hoerbuch-texte/fr/chateaubriand-francois-rene-de_-_memoires-lettres-et-pieces-authentiques-touchant-la-vie-et-la-mort-de-s-a-r-mons-13603.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -62000,6 +62192,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Margueritte, Victor",
         "reader": "Pauline Latournerie",
         "readers": [
@@ -62209,6 +62402,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Tinayre, Marcelle",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -62545,6 +62739,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Faguet, Emile",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -62701,6 +62896,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Aulnoy, Madame d'",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -62820,6 +63016,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Staël, Madame Germaine de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -63645,6 +63842,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Howells, William Dean",
         "reader": "Margot",
         "readers": [
@@ -63811,6 +64009,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hoffmann, E. T. A.",
         "reader": "Aida Boumaza",
         "readers": [
@@ -63977,6 +64176,7 @@
       "textUrl": "hoerbuch-texte/fr/sand-george_-_laura-voyages-et-impressions-13856.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Sand, George",
         "reader": "YasmineHaggag",
         "readers": [
@@ -64104,6 +64304,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "About, Edmond",
         "reader": "Margot",
         "readers": [
@@ -64329,6 +64530,7 @@
       "textUrl": "hoerbuch-texte/fr/ouida_-_branche-de-lilas-14082.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Ouida",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -64403,6 +64605,7 @@
       "textUrl": "hoerbuch-texte/fr/zanta-leontine_-_science-et-l-amour-14095.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Zanta, Léontine",
         "reader": "Pauline Latournerie",
         "readers": [
@@ -64576,6 +64779,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Le Braz, Anatole",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -64713,6 +64917,7 @@
       "textUrl": "hoerbuch-texte/fr/renard-georges-francois_-_travers-les-regions-de-france-14185.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Renard, Georges François",
         "reader": "Cocotte",
         "readers": [
@@ -64973,6 +65178,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Le Braz, Anatole",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -65128,6 +65334,7 @@
       "textUrl": "hoerbuch-texte/fr/maupassant-guy-de_-_contes-du-jour-et-de-la-nuit-14238.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Maupassant, Guy de",
         "reader": "Frédéric Surget",
         "readers": [
@@ -65418,6 +65625,7 @@
       "textUrl": "hoerbuch-texte/fr/baudelaire-charles_-_fleurs-du-mal-14327.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Baudelaire, Charles",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -66838,6 +67046,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Diderot, Denis",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -66979,6 +67188,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Janin, Jules",
         "reader": "Stéphanie",
         "readers": [
@@ -67287,6 +67497,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Ezwa",
         "readers": [
@@ -67562,6 +67773,7 @@
       "textUrl": "hoerbuch-texte/fr/moliere_-_george-dandin-ou-le-mari-confondu-14564.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Molière",
         "reader": "Sonia",
         "readers": [
@@ -67663,6 +67875,7 @@
       "textUrl": "hoerbuch-texte/fr/marmier-xavier_-_arbre-de-noel-contes-et-legendes-14588.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Marmier, Xavier",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -68143,6 +68356,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Maeterlinck, Maurice",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -68263,6 +68477,7 @@
       "textUrl": "hoerbuch-texte/fr/poe-edgar-allan_-_histoires-extraordinaires-14715.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Poe, Edgar Allan",
         "reader": "Irene Alvarez Domenech",
         "readers": [
@@ -68493,6 +68708,7 @@
       "textUrl": "hoerbuch-texte/fr/sand-george_-_legendes-rustiques-14792.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Sand, George",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -68746,6 +68962,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Ruskin, John",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -68867,6 +69084,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Michelet, Jules",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -69215,6 +69433,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Mérimée, Prosper",
         "reader": "Stéphanie",
         "readers": [
@@ -69441,6 +69660,7 @@
       "textUrl": "hoerbuch-texte/fr/poe-edgar-allan_-_nouvelles-histoires-extraordinaires-14891.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Poe, Edgar Allan",
         "reader": "Stéphanie",
         "readers": [
@@ -69769,6 +69989,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bourget, Paul",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -69870,6 +70091,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Alain-Fournier",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -70322,6 +70544,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fleuriot, Zénaïde",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -70423,6 +70646,7 @@
       "textUrl": "hoerbuch-texte/fr/bernard-tristan_-_veillees-du-chauffeur-contes-essais-recits-de-voyages-15055.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bernard, Tristan",
         "reader": "Kamisole",
         "readers": [
@@ -70956,6 +71180,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Villiers de l'Isle-Adam, Auguste",
         "reader": "Isad",
         "readers": [
@@ -71111,6 +71336,7 @@
       "textUrl": "hoerbuch-texte/fr/verhaeren-emile_-_poemes-15168.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verhaeren, Emile",
         "reader": "Stéphanie",
         "readers": [
@@ -72056,6 +72282,7 @@
       "textUrl": "hoerbuch-texte/fr/chateaubriand-francois-rene-de_-_natchez-15273.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -72292,6 +72519,7 @@
       "textUrl": "hoerbuch-texte/fr/barthelemy-charles_-_quarante-fauteuils-de-l-academie-francaise-1634-1886-15278.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Barthelémy, Charles",
         "reader": "Isad",
         "readers": [
@@ -72716,6 +72944,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Renard, Maurice",
         "reader": "Isad",
         "readers": [
@@ -72911,6 +73140,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Nadaud, Gustave",
         "reader": "Stéphanie",
         "readers": [
@@ -73418,6 +73648,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Gagnon Courchesne",
         "readers": [
@@ -73700,6 +73931,7 @@
       "textUrl": "hoerbuch-texte/fr/gautier-theophile_-_romans-et-contes-15729.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gautier, Théophile",
         "reader": "Stéphanie",
         "readers": [
@@ -74159,6 +74391,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lermina, Jules",
         "reader": "Ezwa",
         "readers": [
@@ -74287,6 +74520,7 @@
       "textUrl": "hoerbuch-texte/fr/ducoudray-gustave_-_cent-recits-d-histoire-contemporaine-15841.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Ducoudray, Gustave",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -75235,6 +75469,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "NateGdM",
         "readers": [
@@ -75506,6 +75741,7 @@
       "textUrl": "hoerbuch-texte/fr/coppee-francois_-_poesie-tome-1-15942.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Coppée, François",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -76572,6 +76808,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Léger, Louis",
         "reader": "Stéphanie",
         "readers": [
@@ -76917,6 +77154,7 @@
       "textUrl": "hoerbuch-texte/fr/verhaeren-emile_-_poemes-nouvelle-serie-16130.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verhaeren, Emile",
         "reader": "Milinbreizh",
         "readers": [
@@ -77499,6 +77737,7 @@
       "textUrl": "hoerbuch-texte/fr/verne-jules_-_chateau-des-carpathes-16192.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -77707,6 +77946,7 @@
       "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-1-16199.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Rémi",
         "readers": [
@@ -78738,6 +78978,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Lavisse, Ernest; Rambaud, Alfred Nicolas",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -79439,6 +79680,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Le Glay, Edward",
         "reader": "Ezwa",
         "readers": [
@@ -79604,6 +79846,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Brés, Henriette-Suzanne",
         "reader": "Ezwa",
         "readers": [
@@ -79959,6 +80202,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Matrat, Emmanuel; Sermet, Julien; Various",
         "reader": "czandra",
         "readers": [
@@ -80091,6 +80335,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Guitton, Gustave; Le Rouge, Gustave",
         "reader": "Isad",
         "readers": [
@@ -80336,6 +80581,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Kempis, Thomas à",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -80502,6 +80748,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Macé, Jean",
         "reader": "Ezwa",
         "readers": [
@@ -80741,6 +80988,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Macé, Jean",
         "reader": "Ezwa",
         "readers": [
@@ -81094,6 +81342,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "SophieFrance",
         "readers": [
@@ -81239,6 +81488,7 @@
       "textUrl": "hoerbuch-texte/fr/andreyev-leonid-nikolayevich_-_nouvelles-16553.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Andreyev, Leonid Nikolayevich",
         "reader": "Stéphanie",
         "readers": [
@@ -81501,6 +81751,7 @@
       "textUrl": "hoerbuch-texte/fr/bigot-raoul_-_nounlegos-l-homme-qui-lit-dans-le-cerveau-16609.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bigot, Raoul",
         "reader": "Isad",
         "readers": [
@@ -81620,6 +81871,7 @@
       "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-2-16639.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Milinbreizh",
         "readers": [
@@ -82797,6 +83049,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -83065,6 +83318,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Alcott, Louisa May",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -83312,6 +83566,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leblanc, Maurice",
         "reader": "Bidou",
         "readers": [
@@ -83440,6 +83695,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bernhardt, Sarah",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -83721,6 +83977,7 @@
       "textUrl": "hoerbuch-texte/fr/crepet-eugene_-_tresor-epistolaire-de-la-france-1ere-serie-du-16e-au-18e-siecle-16919.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Crépet, Eugène",
         "reader": "Stéphanie",
         "readers": [
@@ -85688,6 +85945,7 @@
       "textUrl": "hoerbuch-texte/fr/derome-francois-magloire_-_reminiscences-et-portraits-kamouraska-17006.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Derome, François Magloire",
         "reader": "czandra",
         "readers": [
@@ -85798,6 +86056,7 @@
       "textUrl": "hoerbuch-texte/fr/leblanc-maurice_-_813-17113.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leblanc, Maurice",
         "reader": "Bidou",
         "readers": [
@@ -86007,6 +86266,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lavisse, Ernest; Rambaud, Alfred Nicolas",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -86843,6 +87103,7 @@
       "textUrl": "hoerbuch-texte/fr/gaspe-philippe-aubert-de_-_anciens-canadiens-17358.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gaspé, Philippe Aubert de",
         "reader": "czandra",
         "readers": [
@@ -87110,6 +87371,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gide, André",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -87193,6 +87455,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Bidou",
         "readers": [
@@ -87294,6 +87557,7 @@
       "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-3-17600.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Margot",
         "readers": [
@@ -88167,6 +88431,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Nerval, Gérard de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -88241,6 +88506,7 @@
       "textUrl": "hoerbuch-texte/fr/hugo-victor_-_quatrevingt-treize-17773.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Bidou",
         "readers": [
@@ -88441,6 +88707,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Maupassant, Guy de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -88605,6 +88872,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -88751,6 +89019,7 @@
       "textUrl": "hoerbuch-texte/fr/collin-de-plancy-jacques_-_contes-noirs-17836.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Collin de Plancy, Jacques",
         "reader": "Rémi",
         "readers": [
@@ -89103,6 +89372,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Guimet, Emile",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -89312,6 +89582,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "La Bruyère, Jean de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -89515,6 +89786,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Malot, Hector",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -90102,6 +90374,7 @@
       "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-4-17990.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Margot",
         "readers": [
@@ -90983,6 +91256,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -91309,6 +91583,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Doyle, Sir Arthur Conan",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -91474,6 +91749,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lavisse, Ernest; Rambaud, Alfred Nicolas",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -92275,6 +92551,7 @@
       "textUrl": "hoerbuch-texte/fr/zola-mile_-_fortune-des-rougon-18203.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Zola, Émile",
         "reader": "Bidou",
         "readers": [
@@ -92466,6 +92743,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -92765,6 +93043,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Berthet, Élie",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -93045,6 +93324,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -93246,6 +93526,7 @@
       "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-5-18588.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Cocotte",
         "readers": [
@@ -94219,6 +94500,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Porchat, Jean-Jacques",
         "reader": "czandra",
         "readers": [
@@ -94482,6 +94764,7 @@
       "textUrl": "hoerbuch-texte/fr/ouida_-_deux-petits-sabots-18672.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Ouida",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -94583,6 +94866,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Zola, Émile",
         "reader": "Bidou",
         "readers": [
@@ -94801,6 +95085,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -95280,6 +95565,7 @@
       "textUrl": "hoerbuch-texte/fr/verne-jules_-_michel-strogoff-18847.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Thomas Bouissaguet",
         "readers": [
@@ -95606,6 +95892,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Faure, Gracieux",
         "reader": "Stéphanie",
         "readers": [
@@ -96834,6 +97121,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -97106,6 +97394,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lavisse, Ernest; Rambaud, Alfred Nicolas",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -97905,6 +98194,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Jackson, Helen Hunt",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -98179,6 +98469,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gréville, Henry",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -98290,6 +98581,7 @@
       "textUrl": "hoerbuch-texte/fr/feval-pere-paul_-_loup-blanc-19268.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Féval, père, Paul",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -98509,6 +98801,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gaboriau, Émile",
         "reader": "Bidou",
         "readers": [
@@ -98799,6 +99092,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Féval, père, Paul",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -98937,6 +99231,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Féval, père, Paul",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -99074,6 +99369,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Féval, père, Paul",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -99211,6 +99507,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -99357,6 +99654,7 @@
       "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-6-19668.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Marie-Anne Vidal",
         "readers": [
@@ -100509,6 +100807,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gaboriau, Émile",
         "reader": "Bidou",
         "readers": [
@@ -100772,6 +101071,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chateaubriand, François-René de",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -101197,6 +101497,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -101307,6 +101608,7 @@
       "textUrl": "hoerbuch-texte/fr/leblanc-maurice_-_dents-du-tigre-20456.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leblanc, Maurice",
         "reader": "Bidou",
         "readers": [
@@ -101525,6 +101827,7 @@
       "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-7-20893.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "SophieFrance",
         "readers": [
@@ -102601,6 +102904,7 @@
       "textUrl": "hoerbuch-texte/fr/leblanc-maurice_-_triangle-d-or-20943.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leblanc, Maurice",
         "reader": "Bidou",
         "readers": [
@@ -102819,6 +103123,7 @@
       "textUrl": "hoerbuch-texte/fr/various_-_poesies-allemandes-21086.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -103094,6 +103399,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Colette",
         "reader": "Bidou",
         "readers": [
@@ -103195,6 +103501,7 @@
       "textUrl": "hoerbuch-texte/fr/bouniol-bathild_-_rues-de-paris-biographies-portraits-recits-et-legendes-21299.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bouniol, Bathild",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -104392,6 +104699,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Colette",
         "reader": "Bidou",
         "readers": [
@@ -104628,6 +104936,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leroux, Gaston",
         "reader": "Bidou",
         "readers": [
@@ -104928,6 +105237,7 @@
       "textUrl": "hoerbuch-texte/fr/duval-paul_-_monsieur-de-bougrelon-21782.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Duval, Paul",
         "reader": "markleuning",
         "readers": [
@@ -105011,6 +105321,7 @@
       "textUrl": "hoerbuch-texte/fr/various_-_lecture-tome-8-22117.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Christiane Jehanne",
         "readers": [
@@ -105935,6 +106246,7 @@
       "textUrl": "hoerbuch-texte/fr/filiatreault-aristide_-_contes-anecdotes-et-recits-canadiens-22298.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Filiatreault, Aristide",
         "reader": "czandra",
         "readers": [
@@ -106153,6 +106465,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Labé, Louise",
         "reader": "markleuning",
         "readers": [
@@ -106407,6 +106720,7 @@
       "textUrl": "hoerbuch-texte/fr/legrand-mile_-_recueil-de-contes-populaires-grecs-22639.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Legrand, Émile",
         "reader": "Rapunzelina",
         "readers": [

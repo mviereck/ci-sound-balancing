@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Kafka, Franz",
         "reader": "Thorsten Herbold",
         "readers": [
@@ -63,6 +64,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Storm, Theodor",
         "reader": "Franziska Nelson",
         "readers": [
@@ -111,6 +113,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Storm, Theodor",
         "reader": "Felix",
         "readers": [
@@ -212,6 +215,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hoffmann, Heinrich",
         "reader": "Roman Buettner",
         "readers": [
@@ -259,6 +263,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hoffmann, Heinrich",
         "reader": "Kara Shallenberg (1969-2023)",
         "readers": [
@@ -306,6 +311,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Nietzsche, Friedrich",
         "reader": "Rainer",
         "readers": [
@@ -357,6 +363,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Goethe, Johann Wolfgang von",
         "reader": "Rainer",
         "readers": [
@@ -495,6 +502,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Raabe, Wilhelm",
         "reader": "Felix",
         "readers": [
@@ -588,6 +596,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Schopenhauer, Arthur",
         "reader": "Gesine",
         "readers": [
@@ -635,6 +644,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Engels, Friedrich; Marx, Karl",
         "reader": "Rainer",
         "readers": [
@@ -713,6 +723,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Busch, Wilhelm",
         "reader": "Mikki Starzmann-Kassi",
         "readers": [
@@ -764,6 +775,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Busch, Wilhelm",
         "reader": "Roman Buettner",
         "readers": [
@@ -811,6 +823,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bassewitz, Gerdt von",
         "reader": "Franziska Nelson",
         "readers": [
@@ -979,6 +992,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Büchner, Georg",
         "reader": "Thomas Rappel",
         "readers": [
@@ -1237,6 +1251,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Nietzsche, Friedrich",
         "reader": "Rainer",
         "readers": [
@@ -1411,6 +1426,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Reventlow, Franziska Gräfin zu",
         "reader": "Stephanie König",
         "readers": [
@@ -1564,6 +1580,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bonaventura",
         "reader": "Rainer",
         "readers": [
@@ -1744,6 +1761,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Novalis",
         "reader": "ekyale",
         "readers": [
@@ -1838,6 +1856,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Spyri, Johanna",
         "reader": "Stephanie König",
         "readers": [
@@ -1957,6 +1976,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Kleist, Heinrich von",
         "reader": "platatoe",
         "readers": [
@@ -2233,6 +2253,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Storm, Theodor",
         "reader": "Hokuspokus",
         "readers": [
@@ -2280,6 +2301,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Humboldt, Wilhelm von",
         "reader": "redaer",
         "readers": [
@@ -2467,6 +2489,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Brentano, Clemens",
         "reader": "Dirk Weber",
         "readers": [
@@ -2550,6 +2573,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Paul",
         "reader": "Dirk Weber",
         "readers": [
@@ -2626,6 +2650,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Constantin, Ernst",
         "reader": "Dirk Weber",
         "readers": [
@@ -3007,6 +3032,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pushkin, Alexander",
         "reader": "Herr_Klugbeisser",
         "readers": [
@@ -3222,6 +3248,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Mommsen, Theodor",
         "reader": "redaer",
         "readers": [
@@ -3530,6 +3557,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Liliencron, Detlev von",
         "reader": "Dirk Weber",
         "readers": [
@@ -3604,6 +3632,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Dirk Weber",
         "readers": [
@@ -3799,6 +3828,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hoffmann, E. T. A.",
         "reader": "Rainer",
         "readers": [
@@ -4165,6 +4195,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Mommsen, Theodor",
         "reader": "redaer",
         "readers": [
@@ -4486,6 +4517,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Mommsen, Theodor",
         "reader": "redaer",
         "readers": [
@@ -5091,6 +5123,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Schweinfurth, Georg",
         "reader": "Dirk Weber",
         "readers": [
@@ -5385,6 +5418,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Mommsen, Theodor",
         "reader": "redaer",
         "readers": [
@@ -5999,6 +6033,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Schiller, Friedrich",
         "reader": "redaer",
         "readers": [
@@ -6086,6 +6121,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Mommsen, Theodor",
         "reader": "redaer",
         "readers": [
@@ -6844,6 +6880,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Constantin, Ernst",
         "reader": "Dirk Weber",
         "readers": [
@@ -6927,6 +6964,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "redaer",
         "readers": [
@@ -7274,6 +7312,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "redaer",
         "readers": [
@@ -7544,6 +7583,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Kafka, Franz",
         "reader": "Markus Wachenheim",
         "readers": [
@@ -7593,6 +7633,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Mommsen, Theodor",
         "reader": "redaer",
         "readers": [
@@ -8475,6 +8516,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Schiller, Friedrich",
         "reader": "redaer",
         "readers": [
@@ -8868,6 +8910,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Goethe, Johann Wolfgang von",
         "reader": "redaer",
         "readers": [
@@ -9015,6 +9058,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pushkin, Alexander",
         "reader": "Herr_Klugbeisser",
         "readers": [
@@ -9111,6 +9155,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Keller, Gottfried",
         "reader": "Markus Wachenheim",
         "readers": [
@@ -9284,6 +9329,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pushkin, Alexander",
         "reader": "Herr_Klugbeisser",
         "readers": [
@@ -9346,6 +9392,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Latzko, Andreas",
         "reader": "Julia Niedermaier",
         "readers": [
@@ -9451,6 +9498,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Storm, Theodor",
         "reader": "Christian Al-Kadi",
         "readers": [
@@ -9553,6 +9601,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lutherbibel",
         "reader": "Anne",
         "readers": [
@@ -9618,6 +9667,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Kleist, Heinrich von",
         "reader": "Rainer",
         "readers": [
@@ -9721,6 +9771,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Goethe, Johann Wolfgang von",
         "reader": "Gesine",
         "readers": [
@@ -9822,6 +9873,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Wieland, Christoph Martin",
         "reader": "redaer",
         "readers": [
@@ -10382,6 +10434,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Maupassant, Guy de",
         "reader": "Hokuspokus",
         "readers": [
@@ -10458,6 +10511,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gracián, Baltasar",
         "reader": "redaer",
         "readers": [
@@ -10592,6 +10646,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Mackay, John Henry",
         "reader": "Ragnar",
         "readers": [
@@ -10666,6 +10721,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Wilde, Oscar",
         "reader": "Christian Al-Kadi",
         "readers": [
@@ -10886,6 +10942,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Mackay, John Henry",
         "reader": "Ragnar",
         "readers": [
@@ -11104,6 +11161,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Burnett, Frances Hodgson",
         "reader": "Elli",
         "readers": [
@@ -11279,6 +11337,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Tzu, Lao",
         "reader": "redaer",
         "readers": [
@@ -11364,6 +11423,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Schiller, Friedrich",
         "reader": "redaer",
         "readers": [
@@ -11451,6 +11511,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Luxemburg, Rosa",
         "reader": "Hokuspokus",
         "readers": [
@@ -11534,6 +11595,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Meyrink, Gustav",
         "reader": "Hokuspokus",
         "readers": [
@@ -11711,6 +11773,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Heine, Heinrich",
         "reader": "Sonja",
         "readers": [
@@ -11804,6 +11867,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Horatius Flaccus, Quintus",
         "reader": "redaer",
         "readers": [
@@ -12008,6 +12072,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Wieland, Christoph Martin",
         "reader": "redaer",
         "readers": [
@@ -12272,6 +12337,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Horatius Flaccus, Quintus",
         "reader": "redaer",
         "readers": [
@@ -12488,6 +12554,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Goethe, Johann Wolfgang von",
         "reader": "redaer",
         "readers": [
@@ -12607,6 +12674,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Strindberg, August",
         "reader": "Claudia",
         "readers": [
@@ -12737,6 +12805,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Kielland, Alexander Lange",
         "reader": "Jessi",
         "readers": [
@@ -12876,6 +12945,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dostoyevsky, Fyodor",
         "reader": "Christian Al-Kadi",
         "readers": [
@@ -12935,6 +13005,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gotthelf, Jeremias",
         "reader": "Hans Hafen",
         "readers": [
@@ -13007,6 +13078,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hauff, Wilhelm",
         "reader": "Hokuspokus",
         "readers": [
@@ -13095,6 +13167,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Dickens, Charles",
         "reader": "Elli",
         "readers": [
@@ -13223,6 +13296,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Eichendorff, Joseph von",
         "reader": "Hokuspokus",
         "readers": [
@@ -13310,6 +13384,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Falke, Gustav",
         "reader": "Jessi",
         "readers": [
@@ -13510,6 +13585,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Sudermann, Hermann",
         "reader": "Karlsson",
         "readers": [
@@ -13611,6 +13687,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Zschokke, Heinrich",
         "reader": "Hokuspokus",
         "readers": [
@@ -13842,6 +13919,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontane, Theodor",
         "reader": "Karlsson",
         "readers": [
@@ -14060,6 +14138,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontane, Theodor",
         "reader": "Hans Hafen",
         "readers": [
@@ -14170,6 +14249,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Salice-Contessa, Karl Wilhelm",
         "reader": "Hokuspokus",
         "readers": [
@@ -14284,6 +14364,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Meyer, Conrad Ferdinand",
         "reader": "Hans Hafen",
         "readers": [
@@ -14351,6 +14432,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Twain, Mark",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -14549,6 +14631,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Fulda, Ludwig",
         "reader": "Elli",
         "readers": [
@@ -14727,6 +14810,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Unknown",
         "reader": "Christian Al-Kadi",
         "readers": [
@@ -14940,6 +15024,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Chesterton, G. K.",
         "reader": "Bernd Ungerer",
         "readers": [
@@ -15132,6 +15217,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Kyber, Manfred",
         "reader": "Karlsson",
         "readers": [
@@ -15233,6 +15319,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Panizza, Oskar",
         "reader": "Karlsson",
         "readers": [
@@ -15304,6 +15391,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Grillparzer, Franz",
         "reader": "Availle",
         "readers": [
@@ -15376,6 +15464,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Sudermann, Hermann",
         "reader": "Karlsson",
         "readers": [
@@ -15450,6 +15539,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Zschokke, Heinrich",
         "reader": "Hokuspokus",
         "readers": [
@@ -15537,6 +15627,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Siebe, Josephine",
         "reader": "bettine",
         "readers": [
@@ -15716,6 +15807,7 @@
         "pruef": true
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Wassermann, Jakob",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -16049,6 +16141,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Schnitzler, Arthur",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -16161,6 +16254,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Lagerlöf, Selma",
         "reader": "Karlsson",
         "readers": [
@@ -16273,6 +16367,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Reventlow, Franziska Gräfin zu",
         "reader": "Jessi",
         "readers": [
@@ -16401,6 +16496,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gerstäcker, Friedrich",
         "reader": "Karlsson",
         "readers": [
@@ -16504,6 +16600,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Shelley, Mary Wollstonecraft",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -16801,6 +16898,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Winter, Amalie",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -16912,6 +17010,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Balzac, Honoré de",
         "reader": "Hokuspokus",
         "readers": [
@@ -16995,6 +17094,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lagerlöf, Selma",
         "reader": "Karlsson",
         "readers": [
@@ -17129,6 +17229,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontane, Theodor",
         "reader": "Hans Hafen",
         "readers": [
@@ -17489,6 +17590,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Meyrink, Gustav",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -17671,6 +17773,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Kuzmin, Mikhail",
         "reader": "Friedrich",
         "readers": [
@@ -17799,6 +17902,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Wilde, Oscar",
         "reader": "Rebecca Braunert-Plunkett",
         "readers": [
@@ -17957,6 +18061,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hoffmann, E. T. A.",
         "reader": "Karlsson",
         "readers": [
@@ -18036,6 +18141,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Keller, Paul",
         "reader": "Rebecca Braunert-Plunkett",
         "readers": [
@@ -18222,6 +18328,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Dauthendey, Max",
         "reader": "Hokuspokus",
         "readers": [
@@ -18369,6 +18476,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Klabund",
         "reader": "Karlsson",
         "readers": [
@@ -18537,6 +18645,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Wassermann, Jakob",
         "reader": "Rebecca Braunert-Plunkett",
         "readers": [
@@ -18642,6 +18751,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Zweig, Stefan",
         "reader": "Julia Niedermaier",
         "readers": [
@@ -18815,6 +18925,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Becker, Karl Friedrich",
         "reader": "Karlsson",
         "readers": [
@@ -19025,6 +19136,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Busson, Paul",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -19297,6 +19409,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Keller, Paul",
         "reader": "Rebecca Braunert-Plunkett",
         "readers": [
@@ -19453,6 +19566,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Zschokke, Heinrich",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -19555,6 +19669,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dose, Johannes",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -19854,6 +19969,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Theden, Dietrich",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -20054,6 +20170,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Schnitzler, Arthur",
         "reader": "Hokuspokus",
         "readers": [
@@ -20123,6 +20240,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Tolstoy, Leo",
         "reader": "Karlsson",
         "readers": [
@@ -20253,6 +20371,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gogol, Nikolai Vasilievich",
         "reader": "Friedrich",
         "readers": [
@@ -20327,6 +20446,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gorky, Maxim",
         "reader": "Friedrich",
         "readers": [
@@ -20385,6 +20505,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Franzos, Karl Emil",
         "reader": "Friedrich",
         "readers": [
@@ -20533,6 +20654,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Grillparzer, Franz",
         "reader": "Availle",
         "readers": [
@@ -20605,6 +20727,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Schnitzler, Arthur",
         "reader": "Availle",
         "readers": [
@@ -20672,6 +20795,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Bettauer, Hugo",
         "reader": "Availle",
         "readers": [
@@ -20791,6 +20915,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Salice-Contessa, Karl Wilhelm",
         "reader": "Hokuspokus",
         "readers": [
@@ -20860,6 +20985,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Erasmus, Desiderius",
         "reader": "Julia Niedermaier",
         "readers": [
@@ -21056,6 +21182,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Dickens, Charles",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -21169,6 +21296,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Ungar, Hermann",
         "reader": "Bernd Ungerer",
         "readers": [
@@ -21297,6 +21425,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Spitteler, Carl",
         "reader": "Crln Yldz Ksr",
         "readers": [
@@ -21416,6 +21545,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Zapp, Arthur",
         "reader": "Friedrich",
         "readers": [
@@ -21607,6 +21737,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Zschokke, Heinrich",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -21681,6 +21812,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Thoma, Ludwig",
         "reader": "Klaus Neubauer",
         "readers": [
@@ -21827,6 +21959,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hawthorne, Nathaniel",
         "reader": "Bernd Ungerer",
         "readers": [
@@ -21913,6 +22046,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Heiberg, Hermann",
         "reader": "Friedrich",
         "readers": [
@@ -22102,6 +22236,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dostoyevsky, Fyodor",
         "reader": "Willi Rabe",
         "readers": [
@@ -22196,6 +22331,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Unknown",
         "reader": "Bernd Ungerer",
         "readers": [
@@ -22741,6 +22877,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Thoma, Ludwig",
         "reader": "Klaus Neubauer",
         "readers": [
@@ -22837,6 +22974,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Helm, Clementine",
         "reader": "Claudia Salto",
         "readers": [
@@ -23073,6 +23211,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Nietzsche, Friedrich",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -23175,6 +23314,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Ruederer, Josef",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -23240,6 +23380,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Przybyszewski, Stanisław",
         "reader": "Friedrich",
         "readers": [
@@ -23456,6 +23597,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Heyking, Elisabeth von",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -23683,6 +23825,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Unknown",
         "reader": "Bernd Ungerer",
         "readers": [
@@ -24219,6 +24362,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dehmel, Paula",
         "reader": "Eva K.",
         "readers": [
@@ -24428,6 +24572,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bécquer, Gustavo Adolfo",
         "reader": "Hokuspokus",
         "readers": [
@@ -24630,6 +24775,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Unknown",
         "reader": "Bernd Ungerer",
         "readers": [
@@ -25026,6 +25172,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Flaubert, Gustave",
         "reader": "Boris",
         "readers": [
@@ -25394,6 +25541,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Musil, Robert",
         "reader": "Boris",
         "readers": [
@@ -25522,6 +25670,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Salice-Contessa, Karl Wilhelm",
         "reader": "Crln Yldz Ksr",
         "readers": [
@@ -25578,6 +25727,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Roquette, Otto",
         "reader": "Crln Yldz Ksr",
         "readers": [
@@ -25643,6 +25793,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Roquette, Otto",
         "reader": "Crln Yldz Ksr",
         "readers": [
@@ -25771,6 +25922,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bessels, Emil",
         "reader": "Availle",
         "readers": [
@@ -25855,6 +26007,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Roquette, Otto",
         "reader": "Crln Yldz Ksr",
         "readers": [
@@ -25920,6 +26073,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gogol, Nikolai Vasilievich",
         "reader": "Eva K.",
         "readers": [
@@ -26276,6 +26430,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Merezhkovsky, Dmitry",
         "reader": "Friedrich",
         "readers": [
@@ -26676,6 +26831,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dohm, Hedwig",
         "reader": "Eva K.",
         "readers": [
@@ -26786,6 +26942,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Roquette, Otto",
         "reader": "Crln Yldz Ksr",
         "readers": [
@@ -26860,6 +27017,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bulwer-Lytton, Edward",
         "reader": "ClaudiaSterngucker",
         "readers": [
@@ -26952,6 +27110,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Burnett, Frances Hodgson",
         "reader": "Eva K.",
         "readers": [
@@ -27122,6 +27281,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Werfel, Franz",
         "reader": "Boris",
         "readers": [
@@ -27254,6 +27414,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Ettlinger, Karl",
         "reader": "schrm",
         "readers": [
@@ -27446,6 +27607,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Unknown",
         "reader": "Bernd Ungerer",
         "readers": [
@@ -27847,6 +28009,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lichtwer, Magnus Gottfried",
         "reader": "marham63",
         "readers": [
@@ -28884,6 +29047,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Prutz, Robert Eduard",
         "reader": "seito",
         "readers": [
@@ -29300,6 +29464,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Mann, Heinrich",
         "reader": "Eva K.",
         "readers": [
@@ -29492,6 +29657,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "May, Karl",
         "reader": "Katharina21",
         "readers": [
@@ -29828,6 +29994,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "May, Karl",
         "reader": "Katharina21",
         "readers": [
@@ -30109,6 +30276,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Twain, Mark",
         "reader": "Katharina21",
         "readers": [
@@ -30516,6 +30684,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Browning, Elizabeth Barrett",
         "reader": "lorda",
         "readers": [
@@ -30961,6 +31130,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Sydow, Margarethe von",
         "reader": "lorda",
         "readers": [
@@ -31098,6 +31268,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "May, Karl",
         "reader": "Katharina21",
         "readers": [
@@ -31410,6 +31581,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Gogol, Nikolai Vasilievich",
         "reader": "Friedrich",
         "readers": [
@@ -31562,6 +31734,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Kusmin, Michail Alexejewitsch",
         "reader": "Friedrich",
         "readers": [
@@ -31648,6 +31821,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Thoreau, Henry David",
         "reader": "Marcus Christopher",
         "readers": [
@@ -31896,6 +32070,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Przybyszewski, Stanisław",
         "reader": "Friedrich",
         "readers": [
@@ -32027,6 +32202,7 @@
         "pruef": true
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Twain, Mark",
         "reader": "Katharina21",
         "readers": [
@@ -32276,6 +32452,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Bogdanov, Alexander Aleksandrovich",
         "reader": "Friedrich",
         "readers": [
@@ -32623,6 +32800,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Ertler, Bruno",
         "reader": "lorda",
         "readers": [
@@ -33223,6 +33401,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Twain, Mark",
         "reader": "Katharina21",
         "readers": [
@@ -33559,6 +33738,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hawthorne, Nathaniel",
         "reader": "Hokuspokus",
         "readers": [
@@ -33639,6 +33819,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Twain, Mark",
         "reader": "Katharina21",
         "readers": [
@@ -33897,6 +34078,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Kisch, Egon Erwin",
         "reader": "Claus Misfeldt",
         "readers": [
@@ -34029,6 +34211,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Lessing, Theodor",
         "reader": "Claus Misfeldt",
         "readers": [
@@ -34418,6 +34601,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Burroughs, Edgar Rice",
         "reader": "Katharina21",
         "readers": [
@@ -34710,6 +34894,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lessing, Theodor",
         "reader": "Claus Misfeldt",
         "readers": [
@@ -34948,6 +35133,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "May, Karl",
         "reader": "Katharina21",
         "readers": [
@@ -35251,6 +35437,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Bölsche, Wilhelm",
         "reader": "Claus Misfeldt",
         "readers": [
@@ -35542,6 +35729,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Wilde, Oscar",
         "reader": "Hokuspokus",
         "readers": [
@@ -35616,6 +35804,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Rie, Therese",
         "reader": "Hokuspokus",
         "readers": [
@@ -35712,6 +35901,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Maeterlinck, Maurice",
         "reader": "Friedrich",
         "readers": [
@@ -35928,6 +36118,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hirschfeld, Magnus",
         "reader": "AliceStein",
         "readers": [
@@ -36146,6 +36337,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Ewers, Hanns Heinz",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -36211,6 +36403,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Schnitzler, Arthur",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -36312,6 +36505,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bulwer-Lytton, Edward",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -36640,6 +36834,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Collodi, Carlo",
         "reader": "Ramona Deininger-Schnabel",
         "readers": [
@@ -36806,6 +37001,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Raabe, Wilhelm",
         "reader": "josvanaken",
         "readers": [
@@ -36925,6 +37121,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Burroughs, Edgar Rice",
         "reader": "Katharina21",
         "readers": [
@@ -37203,6 +37400,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Gerstäcker, Friedrich",
         "reader": "Claus Misfeldt",
         "readers": [
@@ -37435,6 +37633,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Raabe, Wilhelm",
         "reader": "josvanaken",
         "readers": [
@@ -37563,6 +37762,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Burroughs, Edgar Rice",
         "reader": "Katharina21",
         "readers": [
@@ -37796,6 +37996,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Buchner, Max",
         "reader": "Claus Misfeldt",
         "readers": [
@@ -38546,6 +38747,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "May, Karl",
         "reader": "Katharina21",
         "readers": [
@@ -38863,6 +39065,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Frankfurter, Richard O.",
         "reader": "AliceStein",
         "readers": [
@@ -39198,6 +39401,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Burroughs, Edgar Rice",
         "reader": "Katharina21",
         "readers": [
@@ -39481,6 +39685,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Defoe, Daniel",
         "reader": "Katharina21",
         "readers": [
@@ -39654,6 +39859,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Kisch, Egon Erwin",
         "reader": "Claus Misfeldt",
         "readers": [
@@ -40089,6 +40295,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "May, Karl",
         "reader": "Katharina21",
         "readers": [
@@ -40379,6 +40586,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Alighieri, Dante; Zoozmann, Richard",
         "reader": "Yessy",
         "readers": [
@@ -41321,6 +41529,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Haas, Hippolyt",
         "reader": "Claus Misfeldt",
         "readers": [
@@ -41662,6 +41871,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Wildenbruch, Ernst von",
         "reader": "Anke_Fanti",
         "readers": [
@@ -41808,6 +42018,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "France, Anatole",
         "reader": "Claus Misfeldt",
         "readers": [
@@ -42329,6 +42540,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Chun, Carl",
         "reader": "Claus Misfeldt",
         "readers": [

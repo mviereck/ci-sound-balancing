@@ -22,6 +22,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Virgil",
         "reader": "hefyd",
         "readers": [
@@ -198,6 +199,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Biblia Sacra Vulgata",
         "reader": "Jim Cadwell",
         "readers": [
@@ -245,6 +247,7 @@
       "textUrl": "hoerbuch-texte/la/anonymous_-_historia-apollonii-regis-tyri-3327.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "zaaf",
         "readers": [
@@ -310,6 +313,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Homer",
         "reader": "hefyd",
         "readers": [
@@ -360,6 +364,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Caesar, Gaius Julius",
         "reader": "Marilianus",
         "readers": [
@@ -632,6 +637,7 @@
       "textUrl": "hoerbuch-texte/la/virgil_-_aeneidis-libri-xii-7041.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Virgil",
         "reader": "Malone (1945 - 2023)",
         "readers": [
@@ -891,6 +897,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Carus, Titus Lucretius",
         "reader": "Malone (1945 - 2023)",
         "readers": [
@@ -1098,6 +1105,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Virgil",
         "reader": "Malone (1945 - 2023)",
         "readers": [
@@ -1214,6 +1222,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Seneca, Lucius Annaeus",
         "reader": "Malone (1945 - 2023)",
         "readers": [
@@ -1365,6 +1374,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Cato, Marcus Porcius",
         "reader": "Malone (1945 - 2023)",
         "readers": [
@@ -1488,6 +1498,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Augustine of Hippo, Saint",
         "reader": "bedwere",
         "readers": [
@@ -1810,6 +1821,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Kempis, Thomas à",
         "reader": "bedwere",
         "readers": [
@@ -1996,6 +2008,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Benedict of Nursia, Saint",
         "reader": "bedwere",
         "readers": [
@@ -2128,6 +2141,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Boethius, Anicius Manlius Severinus",
         "reader": "bedwere",
         "readers": [
@@ -2265,6 +2279,7 @@
       "textUrl": "hoerbuch-texte/la/augustine-of-hippo-saint_-_civitate-dei-libri-xxii-11614.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Augustine of Hippo, Saint",
         "reader": "bedwere",
         "readers": [
@@ -3176,6 +3191,7 @@
       "textUrl": "hoerbuch-texte/la/clarke-h_-_selectae-fabulae-aesopi-or-select-fables-of-aesop-19647.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Clarke, H.",
         "reader": "laurakgibbs",
         "readers": [

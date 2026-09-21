@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Vayreda, Marian",
         "reader": "jpujolar",
         "readers": [
@@ -300,6 +301,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Oller, Narcís",
         "reader": "jpujolar",
         "readers": [
@@ -519,6 +521,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Lis Balcells",
         "readers": [
@@ -633,6 +636,7 @@
       "textUrl": "hoerbuch-texte/ca/march-ausias_-_alguns-dels-poemes-d-ausias-march-16948.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "March, Ausiàs",
         "reader": "Maria Josep Altadill",
         "readers": [
@@ -734,6 +738,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Almirall i Llozer, Valentí",
         "reader": "Josep Maria Camps Collet",
         "readers": [
@@ -970,6 +975,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Casellas, Raimon",
         "reader": "Enric",
         "readers": [
@@ -1188,6 +1194,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bertrana, Prudenci",
         "reader": "jrufi",
         "readers": [
@@ -1306,6 +1313,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bertrana, Prudenci",
         "reader": "Cristina Cobos",
         "readers": [
@@ -1432,6 +1440,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Monserdà, Dolors",
         "reader": "Marina Tomás",
         "readers": [
@@ -1627,6 +1636,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verdaguer i Santaló, Jacint",
         "reader": "Corda Jungfrau",
         "readers": [
@@ -1773,6 +1783,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Vallmitjana, Juli",
         "reader": "Rafael Ferran i Peralta",
         "readers": [

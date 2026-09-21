@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hlibov, Leonid",
         "reader": "radar",
         "readers": [
@@ -1029,6 +1030,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pchilka, Olena",
         "reader": "Mark Chulsky",
         "readers": [
@@ -1178,6 +1180,7 @@
       "textUrl": "hoerbuch-texte/uk/gogol-nikolai-vasilievich_-_2-evenings-on-a-farm-near-dikanka-christmas-eve-16059.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gogol, Nikolai Vasilievich",
         "reader": "T.Honcharyk",
         "readers": [
@@ -1290,6 +1293,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hnatyuk, Volodymyr Mykhailovych; Rudchenko, Ivan",
         "reader": "T.Honcharyk",
         "readers": [

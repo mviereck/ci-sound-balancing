@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Vieira, Padre Antonio",
         "reader": "Leni",
         "readers": [
@@ -164,6 +165,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bilac, Olavo",
         "reader": "Ariane Ribeiro",
         "readers": [
@@ -599,6 +601,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Leni",
         "readers": [
@@ -718,6 +721,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Alencar, José de",
         "reader": "Leni",
         "readers": [
@@ -1129,6 +1133,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Camões, Luís Vaz de",
         "reader": "zaaf",
         "readers": [
@@ -1261,6 +1266,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Ribeiro, Bernardim",
         "reader": "Leni",
         "readers": [
@@ -1579,6 +1585,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Castro Alves, Antônio Frederico de",
         "reader": "Leni",
         "readers": [
@@ -1923,6 +1930,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Alencar, José de",
         "reader": "Vicente Costa Filho",
         "readers": [
@@ -2052,6 +2060,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Barreto, Lima",
         "reader": "Vicente Costa Filho",
         "readers": [
@@ -2270,6 +2279,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Cunha, Euclides da",
         "reader": "Leni",
         "readers": [
@@ -2750,6 +2760,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Almeida Version",
         "reader": "Leni",
         "readers": [
@@ -2880,6 +2891,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Anjos, Augusto dos",
         "reader": "Leni",
         "readers": [
@@ -4790,6 +4802,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Barreto, Lima",
         "reader": "Miramontes",
         "readers": [
@@ -4961,6 +4974,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Castelo Branco, Camilo",
         "reader": "Sandra Luna",
         "readers": [
@@ -5197,6 +5211,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Alencar, José de",
         "reader": "Leni",
         "readers": [
@@ -5384,6 +5399,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "Leni",
         "readers": [
@@ -5656,6 +5672,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Alencar, José de",
         "reader": "Leni",
         "readers": [
@@ -5883,6 +5900,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Leni",
         "readers": [
@@ -6101,6 +6119,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Cunha, Euclides da",
         "reader": "Leni",
         "readers": [
@@ -6274,6 +6293,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Felipe Vale da Silva",
         "readers": [
@@ -6564,6 +6584,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Felipe Vale da Silva",
         "readers": [
@@ -6675,6 +6696,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Felipe Vale da Silva",
         "readers": [
@@ -7028,6 +7050,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Alencar, José de",
         "reader": "RogerioM",
         "readers": [
@@ -7148,6 +7171,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Azevedo, Aluísio",
         "reader": "RogerioM",
         "readers": [
@@ -7223,6 +7247,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "RogerioM",
         "readers": [
@@ -7412,6 +7437,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Azevedo, Aluísio",
         "reader": "Adriana Sacciotto",
         "readers": [
@@ -7603,6 +7629,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Azevedo, Aluísio",
         "reader": "Adriana Sacciotto",
         "readers": [
@@ -7852,6 +7879,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Leni",
         "readers": [
@@ -8183,6 +8211,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Alencar, José de",
         "reader": "Leni",
         "readers": [
@@ -8248,6 +8277,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lopes de Almeida, Júlia",
         "reader": "Rachel Moraes",
         "readers": [
@@ -8323,6 +8353,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Rio, João do",
         "reader": "Leni",
         "readers": [
@@ -8393,6 +8424,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "Leni",
         "readers": [
@@ -8469,6 +8501,7 @@
       "textUrl": "hoerbuch-texte/pt/rio-joao-do_-_vida-vertiginosa-15000.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Rio, João do",
         "reader": "Leni",
         "readers": [
@@ -8737,6 +8770,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Dinis, Júlio",
         "reader": "L.S.B.Seabra",
         "readers": [
@@ -9127,6 +9161,7 @@
       "textUrl": "hoerbuch-texte/pt/lopes-de-almeida-julia_-_viuva-simoes-15094.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lopes de Almeida, Júlia",
         "reader": "Rachel Moraes",
         "readers": [
@@ -9337,6 +9372,7 @@
       "textUrl": "hoerbuch-texte/pt/lopes-de-almeida-julia_-_memorias-de-martha-15439.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Lopes de Almeida, Júlia",
         "reader": "Rachel Moraes",
         "readers": [
@@ -9484,6 +9520,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Nabuco, Joaquim",
         "reader": "Rachel Moraes",
         "readers": [
@@ -9684,6 +9721,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Assis, Joaquim Maria Machado de",
         "reader": "Rachel Moraes",
         "readers": [
@@ -9952,6 +9990,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Dinis, Júlio",
         "reader": "L.S.B.Seabra",
         "readers": [
@@ -10337,6 +10376,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Castro Osório, Ana de",
         "reader": "MarinaFikota",
         "readers": [
@@ -10499,6 +10539,7 @@
       "textUrl": "hoerbuch-texte/pt/dos-reis-maria-firmina_-_rsula-16416.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "dos Reis, Maria Firmina",
         "reader": "MarinaFikota",
         "readers": [
@@ -10726,6 +10767,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Brontë, Charlotte",
         "reader": "Rachel Moraes",
         "readers": [
@@ -11109,6 +11151,7 @@
       "textUrl": "hoerbuch-texte/pt/andrade-mario-de_-_paulicea-desvairada-16567.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Andrade, Mário de",
         "reader": "Rachel Moraes",
         "readers": [
@@ -11202,6 +11245,7 @@
       "textUrl": "hoerbuch-texte/pt/alencar-jose-de_-_luciola-17120.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Alencar, José de",
         "reader": "Leni",
         "readers": [
@@ -11442,6 +11486,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "L.S.B.Seabra",
         "readers": [
@@ -11916,6 +11961,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Almeida Version",
         "reader": "Dyefferson Azevedo",
         "readers": [
@@ -12064,6 +12110,7 @@
       "textUrl": "hoerbuch-texte/pt/jansen-carl_-_contos-selectos-das-mil-e-uma-noites-17703.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Jansen, Carl",
         "reader": "Dyefferson Azevedo",
         "readers": [
@@ -12238,6 +12285,7 @@
       "textUrl": "hoerbuch-texte/pt/anonymous_-_freira-no-subterraneo-17898.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "Cristina Luiz",
         "readers": [
@@ -12445,6 +12493,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "L.S.B.Seabra",
         "readers": [
@@ -12566,6 +12615,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "L.S.B.Seabra",
         "readers": [
@@ -12779,6 +12829,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "L.S.B.Seabra",
         "readers": [
@@ -12974,6 +13025,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "L.S.B.Seabra",
         "readers": [
@@ -13251,6 +13303,7 @@
         "pruef": true
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Eça de Queirós, José Maria de",
         "reader": "Pindom",
         "readers": [

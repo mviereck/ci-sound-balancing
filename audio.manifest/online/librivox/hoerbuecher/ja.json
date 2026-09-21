@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bashō, Matsuo",
         "reader": "kaseumin",
         "readers": [
@@ -101,6 +102,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fujiwara, Teika no",
         "reader": "kaseumin",
         "readers": [
@@ -229,6 +231,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Tachihara, Michizou",
         "reader": "ekzemplaro",
         "readers": [
@@ -357,6 +360,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hagiwara, Sakutarō",
         "reader": "ekzemplaro",
         "readers": [
@@ -648,6 +652,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Niimi, Nankichi",
         "reader": "ekzemplaro",
         "readers": [
@@ -740,6 +745,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Toyoshima, Yoshio",
         "reader": "ekzemplaro",
         "readers": [
@@ -823,6 +829,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Niimi, Nankichi",
         "reader": "ekzemplaro",
         "readers": [
@@ -1086,6 +1093,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dazai, Osamu",
         "reader": "ekzemplaro",
         "readers": [
@@ -1241,6 +1249,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Akutagawa, Ryūnosuke",
         "reader": "ekzemplaro",
         "readers": [
@@ -1333,6 +1342,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
         "readers": [
@@ -1722,6 +1732,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
         "readers": [
@@ -1985,6 +1996,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
         "readers": [
@@ -2068,6 +2080,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
         "readers": [
@@ -2214,6 +2227,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Dazai, Osamu",
         "reader": "ekzemplaro",
         "readers": [
@@ -2306,6 +2320,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hori, Tatsuo",
         "reader": "ekzemplaro",
         "readers": [
@@ -2389,6 +2404,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Arishima, Takeo",
         "reader": "ekzemplaro",
         "readers": [
@@ -2508,6 +2524,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Tayama, Katai",
         "reader": "ekzemplaro",
         "readers": [
@@ -2645,6 +2662,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Kikuchi, Kan",
         "reader": "ekzemplaro",
         "readers": [
@@ -2719,6 +2737,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Izumi, Kyōka",
         "reader": "ekzemplaro",
         "readers": [
@@ -2989,6 +3008,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Itō, Sachio",
         "reader": "ekzemplaro",
         "readers": [
@@ -3072,6 +3092,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Ishikawa, Takuboku",
         "reader": "ekzemplaro",
         "readers": [
@@ -3162,6 +3183,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Itō, Sachio",
         "reader": "ekzemplaro",
         "readers": [
@@ -3317,6 +3339,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Akutagawa, Ryūnosuke",
         "reader": "ekzemplaro",
         "readers": [
@@ -3679,6 +3702,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Shimazaki, Tōson",
         "reader": "ekzemplaro",
         "readers": [
@@ -4365,6 +4389,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Tayama, Katai",
         "reader": "ekzemplaro",
         "readers": [
@@ -4979,6 +5004,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
         "readers": [
@@ -5114,6 +5140,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
         "readers": [
@@ -5269,6 +5296,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Mori, Ōgai",
         "reader": "ekzemplaro",
         "readers": [
@@ -5523,6 +5551,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
         "readers": [
@@ -6552,6 +6581,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Natsume, Sōseki",
         "reader": "ekzemplaro",
         "readers": [
@@ -8282,6 +8312,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Izumi, Kyōka",
         "reader": "ekzemplaro",
         "readers": [
@@ -8525,6 +8556,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Hirotsu, Ryūrō",
         "reader": "ekzemplaro",
         "readers": [
@@ -8660,6 +8692,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Shimazaki, Tōson",
         "reader": "ekzemplaro",
         "readers": [
@@ -8948,6 +8981,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Tokuda, Shuusei",
         "reader": "ekzemplaro",
         "readers": [

@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Petőfi, Sándor",
         "reader": "Diana Majlinger",
         "readers": [
@@ -119,6 +120,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gárdonyi, Géza",
         "reader": "Diana Majlinger",
         "readers": [

@@ -18,6 +18,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Moller, Otto Martin",
         "reader": "Kristoffer Hunsdahl",
         "readers": [
@@ -245,6 +246,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Kristoffer Hunsdahl",
         "readers": [
@@ -373,6 +375,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Kristoffer Hunsdahl",
         "readers": [
@@ -447,6 +450,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Kristoffer Hunsdahl",
         "readers": [
@@ -775,6 +779,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Andersen, Hans Christian",
         "reader": "Hedvig",
         "readers": [
@@ -922,6 +927,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Moller, Otto Martin",
         "reader": "Kristoffer Hunsdahl",
         "readers": [
@@ -1122,6 +1128,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Poe, Edgar Allan",
         "reader": "Kristoffer Hunsdahl",
         "readers": [
@@ -1207,6 +1214,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Grimm, Jacob & Wilhelm",
         "reader": "Kristoffer Hunsdahl",
         "readers": [
@@ -1353,6 +1361,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Marryat, Frederick",
         "reader": "Lulularsen",
         "readers": [
@@ -1636,6 +1645,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Swift, Jonathan",
         "reader": "Lulularsen",
         "readers": [

@@ -22,6 +22,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Alighieri, Dante",
         "reader": "Alessia",
         "readers": [
@@ -243,6 +244,7 @@
       "textUrl": "hoerbuch-texte/it/collodi-carlo_-_avventure-di-pinocchio-547.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Collodi, Carlo",
         "reader": "Simona",
         "readers": [
@@ -605,6 +607,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verga, Giovanni",
         "reader": "Simona",
         "readers": [
@@ -737,6 +740,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Ghislanzoni, Antonio",
         "reader": "Riccardo Fasol",
         "readers": [
@@ -865,6 +869,7 @@
       "textUrl": "hoerbuch-texte/it/fontaine-jean-de-la_-_favole-di-jean-de-la-fontaine-libro-01-1298.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Paolo Fedi",
         "readers": [
@@ -1114,6 +1119,7 @@
       "textUrl": "hoerbuch-texte/it/fontaine-jean-de-la_-_favole-di-jean-de-la-fontaine-libro-02-1322.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Paolo Fedi",
         "readers": [
@@ -1336,6 +1342,7 @@
       "textUrl": "hoerbuch-texte/it/fontaine-jean-de-la_-_favole-di-jean-de-la-fontaine-libro-03-1344.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Paolo Fedi",
         "readers": [
@@ -1538,6 +1545,7 @@
       "textUrl": "hoerbuch-texte/it/fontaine-jean-de-la_-_favole-di-jean-de-la-fontaine-libro-04-1361.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Paolo Fedi",
         "readers": [
@@ -1776,6 +1784,7 @@
       "textUrl": "hoerbuch-texte/it/fontaine-jean-de-la_-_favole-di-jean-de-la-fontaine-libro-05-1366.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Paolo Fedi",
         "readers": [
@@ -2005,6 +2014,7 @@
       "textUrl": "hoerbuch-texte/it/fontaine-jean-de-la_-_favole-di-jean-de-la-fontaine-libro-06-1370.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Paolo Fedi",
         "readers": [
@@ -2234,6 +2244,7 @@
       "textUrl": "hoerbuch-texte/it/fontaine-jean-de-la_-_favole-di-jean-de-la-fontaine-libro-07-1371.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Paolo Fedi",
         "readers": [
@@ -2436,6 +2447,7 @@
       "textUrl": "hoerbuch-texte/it/fontaine-jean-de-la_-_favole-di-jean-de-la-fontaine-libro-08-1393.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Paolo Fedi",
         "readers": [
@@ -2719,6 +2731,7 @@
       "textUrl": "hoerbuch-texte/it/fontaine-jean-de-la_-_favole-di-jean-de-la-fontaine-libro-10-1394.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Paolo Fedi",
         "readers": [
@@ -2903,6 +2916,7 @@
       "textUrl": "hoerbuch-texte/it/fontaine-jean-de-la_-_favole-di-jean-de-la-fontaine-libro-09-1395.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Paolo Fedi",
         "readers": [
@@ -3114,6 +3128,7 @@
       "textUrl": "hoerbuch-texte/it/fontaine-jean-de-la_-_favole-di-jean-de-la-fontaine-libro-11-1424.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Paolo Fedi",
         "readers": [
@@ -3235,6 +3250,7 @@
       "textUrl": "hoerbuch-texte/it/fontaine-jean-de-la_-_favole-di-jean-de-la-fontaine-libro-12-1425.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Fontaine, Jean de La",
         "reader": "Paolo Fedi",
         "readers": [
@@ -3522,6 +3538,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Amicis, Edmondo de",
         "reader": "Davide Lequile",
         "readers": [
@@ -3704,6 +3721,7 @@
       "textUrl": "hoerbuch-texte/it/pascoli-giovanni_-_myricae-1590.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pascoli, Giovanni",
         "reader": "Sergio Baldelli",
         "readers": [
@@ -4021,6 +4039,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Amicis, Edmondo de",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -4203,6 +4222,7 @@
       "textUrl": "hoerbuch-texte/it/bertelli-luigi_-_il-giornalino-di-gian-burrasca-2012.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Bertelli, Luigi",
         "reader": "Simona",
         "readers": [
@@ -5162,6 +5182,7 @@
       "textUrl": "hoerbuch-texte/it/verga-giovanni_-_vagabondaggio-2532.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verga, Giovanni",
         "reader": "Daniele",
         "readers": [
@@ -5312,6 +5333,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Campana, Dino",
         "reader": "Sergio Baldelli",
         "readers": [
@@ -5391,6 +5413,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Barrili, Anton Giulio",
         "reader": "Riccardo Fasol",
         "readers": [
@@ -5613,6 +5636,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Giacomo, Salvatore Di",
         "reader": "Davide Lequile",
         "readers": [
@@ -5790,6 +5814,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Barrili, Anton Giulio",
         "reader": "Riccardo Fasol",
         "readers": [
@@ -5954,6 +5979,7 @@
       "textUrl": "hoerbuch-texte/it/verga-giovanni_-_mastro-don-gesualdo-3829.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verga, Giovanni",
         "reader": "Mariarosa",
         "readers": [
@@ -6185,6 +6211,7 @@
       "textUrl": "hoerbuch-texte/it/galilei-galileo_-_dialogo-dei-massimi-sistemi-3886.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Galilei, Galileo",
         "reader": "Vito Marangelli",
         "readers": [
@@ -6759,6 +6786,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -6987,6 +7015,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Riccardo Fasol",
         "readers": [
@@ -7187,6 +7216,7 @@
       "textUrl": "hoerbuch-texte/it/goldoni-carlo_-_locandiera-4201.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Goldoni, Carlo",
         "reader": "Riccardo Fasol",
         "readers": [
@@ -7270,6 +7300,7 @@
       "textUrl": "hoerbuch-texte/it/gozzano-guido-gustavo_-_colloqui-4398.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gozzano, Guido Gustavo",
         "reader": "Sergio Baldelli",
         "readers": [
@@ -7335,6 +7366,7 @@
       "textUrl": "hoerbuch-texte/it/petrarca-francesco_-_canzoniere-rerum-vulgarium-fragmenta-vol-1-4918.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Petrarca, Francesco",
         "reader": "Sergio Baldelli",
         "readers": [
@@ -9020,6 +9052,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Speroni, Sperone",
         "reader": "Riccardo Fasol",
         "readers": [
@@ -9077,6 +9110,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -9291,6 +9325,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -9488,6 +9523,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -9697,6 +9733,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Alighieri, Dante",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -10037,6 +10074,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Salgari, Emilio",
         "reader": "Riccardo Fasol",
         "readers": [
@@ -10237,6 +10275,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -10446,6 +10485,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Alighieri, Dante",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -10790,6 +10830,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -10995,6 +11036,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -11185,6 +11227,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -11373,6 +11416,7 @@
       "textUrl": "hoerbuch-texte/it/verga-giovanni_-_malavoglia-7050.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verga, Giovanni",
         "reader": "Lisa Caputo",
         "readers": [
@@ -11556,6 +11600,7 @@
       "textUrl": "hoerbuch-texte/it/leopardi-giacomo_-_canti-7240.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Leopardi, Giacomo",
         "reader": "Sergio Baldelli",
         "readers": [
@@ -11963,6 +12008,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -12160,6 +12206,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -12339,6 +12386,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -12539,6 +12587,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -12736,6 +12785,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Alighieri, Dante",
         "reader": "Mary J",
         "readers": [
@@ -12855,6 +12905,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Filippo Gioachin",
         "readers": [
@@ -13058,6 +13109,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Carroll, Lewis",
         "reader": "Monika M. C.",
         "readers": [
@@ -13227,6 +13279,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Alighieri, Dante",
         "reader": "Sonia",
         "readers": [
@@ -14262,6 +14315,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Deledda, Grazia",
         "reader": "Enrica Giampieretti",
         "readers": [
@@ -14453,6 +14507,7 @@
       "textUrl": "hoerbuch-texte/it/straparola-giovanni-francesco_-_piacevoli-notti-libro-1-10011.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Straparola, Giovanni Francesco",
         "reader": "Roberto Cofini",
         "readers": [
@@ -14771,6 +14826,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Barrili, Anton Giulio",
         "reader": "paolo67",
         "readers": [
@@ -14989,6 +15045,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Machiavelli, Niccolò",
         "reader": "Renzo Clerico",
         "readers": [
@@ -15126,6 +15183,7 @@
       "textUrl": "hoerbuch-texte/it/manzoni-alessandro_-_gl-inni-sacri-11341.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Manzoni, Alessandro",
         "reader": "Fabiola",
         "readers": [
@@ -15209,6 +15267,7 @@
       "textUrl": "hoerbuch-texte/it/straparola-giovanni-francesco_-_piacevoli-notti-libro-2-11418.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Straparola, Giovanni Francesco",
         "reader": "Roberto Cofini",
         "readers": [
@@ -15779,6 +15838,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Kazbek",
         "readers": [
@@ -16626,6 +16686,7 @@
       "textUrl": "hoerbuch-texte/it/foscolo-ugo_-_ultime-lettere-di-jacopo-ortis-15151.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Foscolo, Ugo",
         "reader": "Davide",
         "readers": [
@@ -16746,6 +16807,7 @@
       "textUrl": "hoerbuch-texte/it/carducci-giosue_-_odi-barbare-15677.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Carducci, Giosuè",
         "reader": "Sonia",
         "readers": [
@@ -16945,6 +17007,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Algy Pug",
         "readers": [
@@ -17081,6 +17144,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Wilde, Oscar",
         "reader": "Marzia Molinari",
         "readers": [
@@ -17249,6 +17313,7 @@
       "textUrl": "hoerbuch-texte/it/carducci-giosue_-_nuove-odi-barbare-15951.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Carducci, Giosuè",
         "reader": "Marzia Marianera",
         "readers": [
@@ -17513,6 +17578,7 @@
         "confidence": "high"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Machiavelli, Niccolò",
         "reader": "Francesco Carzedda",
         "readers": [
@@ -17664,6 +17730,7 @@
         "confidence": "medium"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Carducci, Giosuè",
         "reader": "Liber",
         "readers": [
@@ -17886,6 +17953,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verga, Giovanni",
         "reader": "Francesca Roma",
         "readers": [
@@ -18059,6 +18127,7 @@
       "textUrl": "hoerbuch-texte/it/verga-giovanni_-_storie-del-castello-di-trezza-16421.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Verga, Giovanni",
         "reader": "Francesca Roma",
         "readers": [
@@ -18205,6 +18274,7 @@
       "textUrl": "hoerbuch-texte/it/alighieri-dante_-_divina-commedia-il-paradiso-16531.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Alighieri, Dante",
         "reader": "Pier",
         "readers": [
@@ -18540,6 +18610,7 @@
       "textUrl": "hoerbuch-texte/it/targioni-tozzetti-ottaviano_-_antologia-della-poesia-italiana-1265-1400-16910.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Targioni Tozzetti, Ottaviano",
         "reader": "Pier",
         "readers": [
@@ -19237,6 +19308,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Ariosto, Ludovico",
         "reader": "Algy Pug",
         "readers": [
@@ -19362,6 +19434,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Ariosto, Ludovico",
         "reader": "Algy Pug",
         "readers": [
@@ -19539,6 +19612,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Amicis, Edmondo de; Simonin, Louis",
         "reader": "Claudia Caldi",
         "readers": [
@@ -19645,6 +19719,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Pirandello, Luigi",
         "reader": "Algy Pug",
         "readers": [
@@ -19771,6 +19846,7 @@
       "textUrl": "hoerbuch-texte/it/mantegazza-paolo_-_anno-3000-19380.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Mantegazza, Paolo",
         "reader": "Claudia Caldi",
         "readers": [
@@ -19928,6 +20004,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Boccaccio, Giovanni",
         "reader": "Emanuela",
         "readers": [
@@ -20116,6 +20193,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Ariosto, Ludovico",
         "reader": "Marzia Marianera",
         "readers": [
@@ -20306,6 +20384,7 @@
       "textUrl": "hoerbuch-texte/it/cavalcanti-guido_-_rime-20247.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Cavalcanti, Guido",
         "reader": "Pier",
         "readers": [
@@ -21569,6 +21648,7 @@
       "textUrl": "hoerbuch-texte/it/sighele-scipio_-_crisi-dell-infanzia-e-la-delinquenza-dei-minorenni-20266.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Sighele, Scipio",
         "reader": "Claudia Caldi",
         "readers": [
@@ -21674,6 +21754,7 @@
       "textUrl": "hoerbuch-texte/it/gianni-lapo_-_rime-20796.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Gianni, Lapo",
         "reader": "Pier",
         "readers": [
@@ -21892,6 +21973,7 @@
       "textUrl": "hoerbuch-texte/it/guinizelli-guido_-_rime-21047.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Guinizelli, Guido",
         "reader": "Pier",
         "readers": [
@@ -22245,6 +22327,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Boccaccio, Giovanni",
         "reader": "Emanuela",
         "readers": [
@@ -22446,6 +22529,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Svevo, Italo",
         "reader": "Pier",
         "readers": [
@@ -22627,6 +22711,7 @@
       "textUrl": null,
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Various",
         "reader": "Pier",
         "readers": [
@@ -22692,6 +22777,7 @@
       "textUrl": "hoerbuch-texte/it/alighieri-dante_-_divina-commedia-il-purgatorio-versione-2-21703.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Alighieri, Dante",
         "reader": "Pier",
         "readers": [
@@ -23027,6 +23113,7 @@
       "textUrl": "hoerbuch-texte/it/alighieri-dante_-_divina-commedia-inferno-versione-2-22056.txt.gz",
       "textRange": null,
       "tags": {
+        "worktype": "buch",
         "work_author": "Alighieri, Dante",
         "reader": "Pier",
         "readers": [

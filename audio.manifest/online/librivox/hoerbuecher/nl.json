@@ -22,6 +22,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Bosboom-Toussaint, A. L. G.",
         "reader": "Anna Simon",
         "readers": [
@@ -307,6 +308,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Multatuli",
         "reader": "Anna Simon",
         "readers": [
@@ -556,6 +558,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Lennep, Jacob van",
         "reader": "Anna Simon",
         "readers": [
@@ -958,6 +961,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Couperus, Louis",
         "reader": "Carola Janssen",
         "readers": [
@@ -1387,6 +1391,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Conscience, Hendrik",
         "reader": "Anna Simon",
         "readers": [
@@ -1672,6 +1677,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Kieviet, Cornelis Johannes",
         "reader": "Anna Simon",
         "readers": [
@@ -1814,6 +1820,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -1967,6 +1974,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -2414,6 +2422,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Lagerlöf, Selma",
         "reader": "Marcel Coenders",
         "readers": [
@@ -2828,6 +2837,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Kieviet, Cornelis Johannes",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -2996,6 +3006,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Stowe, Harriet Beecher",
         "reader": "Marcel Coenders",
         "readers": [
@@ -3463,6 +3474,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Dickens, Charles",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -3561,6 +3573,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Cervantes Saavedra, Miguel de",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -3822,6 +3835,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Malot, Hector",
         "reader": "Marcel Coenders",
         "readers": [
@@ -4316,6 +4330,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Doyle, Sir Arthur Conan",
         "reader": "Peter Zinn",
         "readers": [
@@ -4466,6 +4481,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Twain, Mark",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -4833,6 +4849,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Heijermans, Jr., Herman",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -4965,6 +4982,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Tolstoy, Leo",
         "reader": "Marcel Coenders",
         "readers": [
@@ -6573,6 +6591,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Visser, Piet",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -6706,6 +6725,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "Edith van der Have-Raats",
         "readers": [
@@ -6784,6 +6804,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Swift, Jonathan",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -6972,6 +6993,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Scott, Sir Walter",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -7424,6 +7446,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "May, Karl",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -7919,6 +7942,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Kuiper, A. C.",
         "reader": "Hanny Gunnink",
         "readers": [
@@ -8096,6 +8120,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Stoke, Melis",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -8247,6 +8272,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Couperus, Louis",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -8614,6 +8640,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Multatuli",
         "reader": "Carola Janssen",
         "readers": [
@@ -8936,6 +8963,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Koopmans van Boekeren, Henri Emile",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -9131,6 +9159,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Couperus, Louis",
         "reader": "Marcel Coenders",
         "readers": [
@@ -9318,6 +9347,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Marcel Coenders",
         "readers": [
@@ -9649,6 +9679,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Marcel Coenders",
         "readers": [
@@ -9981,6 +10012,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Zaalberg, Louise",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -10230,6 +10262,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Marcel Coenders",
         "readers": [
@@ -10526,6 +10559,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Marcel Coenders",
         "readers": [
@@ -10857,6 +10891,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Harting, Pieter",
         "reader": "Marcel Coenders",
         "readers": [
@@ -10954,6 +10989,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "Marcel Coenders",
         "readers": [
@@ -11158,6 +11194,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Hugo, Victor",
         "reader": "Marcel Coenders",
         "readers": [
@@ -11453,6 +11490,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "Marcel Coenders",
         "readers": [
@@ -11639,6 +11677,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "Marcel Coenders",
         "readers": [
@@ -11852,6 +11891,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "Marcel Coenders",
         "readers": [
@@ -12065,6 +12105,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "Marcel Coenders",
         "readers": [
@@ -12217,6 +12258,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Anonymous",
         "reader": "Marcel Coenders",
         "readers": [
@@ -12297,6 +12339,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Louwerse, Pieter",
         "reader": "Marcel Coenders",
         "readers": [
@@ -12465,6 +12508,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Louwerse, Pieter",
         "reader": "Marcel Coenders",
         "readers": [
@@ -12723,6 +12767,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Maurik, Justus van",
         "reader": "Marcel Coenders",
         "readers": [
@@ -12918,6 +12963,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Lennep, Jacob van",
         "reader": "Marcel Coenders",
         "readers": [
@@ -13293,6 +13339,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Verne, Jules",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -13769,6 +13816,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Berens, Fred.",
         "reader": "Bart de Leeuw",
         "readers": [
@@ -13856,6 +13904,7 @@
         "confidence": "low"
       },
       "tags": {
+        "worktype": "buch",
         "work_author": "Valkenstein, Kees",
         "reader": "Wiggert Loonstra",
         "readers": [
