@@ -611,6 +611,7 @@ Object.assign(L.de, {
     plVariant_NO:           "Norwegen",
     plVariant_NL:           "Niederlande",
     plVariant_US:           "USA",
+    plVariant_GB:           "Großbritannien",
     plVariant_BE:           "Belgien",
     plVariant_IE:           "Irland",
     plVariant_IN:           "Indien",
