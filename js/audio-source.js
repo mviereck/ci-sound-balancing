@@ -1259,7 +1259,15 @@ amRegisterProvider({
         } else {
           _rawId = srcKey + ":" + _rawId;
         }
-        const id = "webspace-book:" + _rawId;
+        // Sprach-Segment VOR die Roh-id: dieselbe col.id kommt in mehreren
+        // sprachgetrennten Manifesten derselben Quelle vor (Commons "Blade Runner"
+        // de+es, gleicher Artikelname -> gleiche col.id "commons:blade-runner";
+        // auch LibriVox). Ohne Sprach-Qualifizierung kollidieren die Laufzeit-ids
+        // und plBookCurrentCollection().find(id) liefert die zuerst geladene
+        // (deutsche) Version. Das Segment steht VOR _rawId, damit der Startwunsch-
+        // Suffix-Match (endsWith("librivox:3580")) intakt bleibt.
+        const _langSeg = col.lang ? (String(col.lang) + ":") : "";
+        const id = "webspace-book:" + _langSeg + _rawId;
         out.push({
           schema: col.schema,
           kind: "collection",
