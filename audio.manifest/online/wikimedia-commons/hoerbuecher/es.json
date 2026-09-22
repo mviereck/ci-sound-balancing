@@ -10,6 +10,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:2-pallas",
+      "title": "(2) Pallas",
+      "displayName": "Wikipedia – (2) Pallas",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-2_Palas-article.ogg",
+      "tags": {
+        "reader": "Racso",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 69,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-2 Palas-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "(2) Pallas",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Es-2_Palas-article.ogg",
+          "duration": 69
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "(2) Pallas",
+        "uploadTs": "2008-04-27T21:20:39Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:0-de-enero",
       "title": "0 de enero",
       "displayName": "Wikipedia – 0 de enero",
@@ -116,6 +153,117 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "31 de febrero",
         "uploadTs": "2017-08-18T21:23:57Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:9-10-ditioantraceno",
+      "title": "9,10-ditioantraceno",
+      "displayName": "Wikipedia – 9,10-ditioantraceno",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-9,10-Ditioantraceno-article.ogg",
+      "tags": {
+        "reader": "Escierzo",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 107,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-9,10-Ditioantraceno-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "9,10-ditioantraceno",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/29/Es-9%2C10-Ditioantraceno-article.ogg",
+          "duration": 107
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "9,10-ditioantraceno",
+        "uploadTs": "2017-11-08T14:32:22Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:abel-matutes",
+      "title": "Abel Matutes",
+      "displayName": "Wikipedia – Abel Matutes",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-ABEL_MATUTES-article.ogg",
+      "tags": {
+        "reader": "Voz propia",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 58,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-ABEL MATUTES-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Abel Matutes",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Es-ABEL_MATUTES-article.ogg",
+          "duration": 58
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Abel Matutes",
+        "uploadTs": "2007-04-23T20:14:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:abelardo-l-rodr-guez",
+      "title": "Abelardo L. Rodríguez",
+      "displayName": "Wikipedia – Abelardo L. Rodríguez",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Abelardo_L._Rodríguez-article.ogg",
+      "tags": {
+        "reader": "Netito777",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 80,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Abelardo L. Rodríguez-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Abelardo L. Rodríguez",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Es-Abelardo_L._Rodr%C3%ADguez-article.ogg",
+          "duration": 80
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Abelardo L. Rodríguez",
+        "uploadTs": "2007-04-23T20:09:29Z"
       }
     },
     {
@@ -264,43 +412,6 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Adrastea (satélite)",
         "uploadTs": "2010-12-24T03:16:29Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:agathis-australis",
-      "title": "Agathis australis",
-      "displayName": "Wikipedia – Agathis australis",
-      "lang": "es",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Es-Kauri-article.ogg",
-      "tags": {
-        "reader": "",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 388,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Es-Kauri-article.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Agathis australis",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Es-Kauri-article.ogg",
-          "duration": 388
-        }
-      ],
-      "textLive": {
-        "wiki": "es",
-        "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Agathis australis",
-        "uploadTs": "2005-06-21T20:27:36Z"
       }
     },
     {
@@ -602,6 +713,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:alpine-f1-team",
+      "title": "Alpine F1 Team",
+      "displayName": "Wikipedia – Alpine F1 Team",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:ES-Alpine_F1_Team-Article.ogg",
+      "tags": {
+        "reader": "DaMatt08",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 179,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:ES-Alpine F1 Team-Article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Alpine F1 Team",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a5/ES-Alpine_F1_Team-Article.ogg",
+          "duration": 179
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Alpine F1 Team",
+        "uploadTs": "2022-03-23T21:42:52Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:amparo-soler-leal",
       "title": "Amparo Soler Leal",
       "displayName": "Wikipedia – Amparo Soler Leal",
@@ -782,6 +930,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Andrelândia",
         "uploadTs": "2013-03-08T02:00:15Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:anexo-caracter-sticas-generales-de-las-personas-con-tlp",
+      "title": "Anexo:Características generales de las personas con TLP",
+      "displayName": "Wikipedia – Anexo:Características generales de las personas con TLP",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Borderline-anexo_III.ogg",
+      "tags": {
+        "reader": "Gustavocarra",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1052,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Borderline-anexo III.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Anexo:Características generales de las personas con TLP",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Es-Borderline-anexo_III.ogg",
+          "duration": 1052
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Anexo:Características generales de las personas con TLP",
+        "uploadTs": "2008-01-09T17:06:14Z"
       }
     },
     {
@@ -972,6 +1157,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:argentina",
+      "title": "Argentina",
+      "displayName": "Wikipedia – Argentina",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-argentina-introduccion-article.ogg",
+      "tags": {
+        "reader": "Barbararodeker",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 287,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-argentina-introduccion-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Argentina",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Es-argentina-introduccion-article.ogg",
+          "duration": 287
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Argentina",
+        "uploadTs": "2015-10-09T14:08:56Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:argumento",
+      "title": "Argumento",
+      "displayName": "Wikipedia – Argumento",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Argumento_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Argumento (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Argumento",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/13/Wikipedia_-_Argumento_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Argumento",
+        "uploadTs": "2024-11-08T19:04:07Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:armatambo",
       "title": "Armatambo",
       "displayName": "Wikipedia – Armatambo",
@@ -1157,38 +1416,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:azcapotzalco",
-      "title": "Azcapotzalco",
-      "displayName": "Wikipedia – Azcapotzalco",
+      "id": "commons:astrafobia",
+      "title": "Astrafobia",
+      "displayName": "Wikipedia – Astrafobia",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Es-Azcapotzalco-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Astrafobia-article.oga",
       "tags": {
-        "reader": "Kuroisuisei",
+        "reader": "Orgullomoore",
         "gender": "",
         "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 964,
+        "length_band": "very_short",
+        "total_seconds": 89,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Es-Azcapotzalco-article.ogg"
+        "source_file": "File:Es-Astrafobia-article.oga"
       },
       "items": [
         {
           "id": "art",
-          "title": "Azcapotzalco",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Es-Azcapotzalco-article.ogg",
-          "duration": 964
+          "title": "Astrafobia",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/Es-Astrafobia-article.oga",
+          "duration": 89
         }
       ],
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Azcapotzalco",
-        "uploadTs": "2008-09-16T19:48:06Z"
+        "article": "Astrafobia",
+        "uploadTs": "2007-03-07T02:17:04Z"
       }
     },
     {
@@ -1268,9 +1527,83 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:barrio-san-antonio-cali",
-      "title": "Barrio San Antonio (Cali)",
-      "displayName": "Wikipedia – Barrio San Antonio (Cali)",
+      "id": "commons:bandera-de-la-rep-blica-dominicana",
+      "title": "Bandera de la República Dominicana",
+      "displayName": "Wikipedia – Bandera de la República Dominicana",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Bandera_de_la_República_Dominicana-article.ogg",
+      "tags": {
+        "reader": "DonovanP",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 103,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Bandera de la República Dominicana-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Bandera de la República Dominicana",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Es-Bandera_de_la_Rep%C3%BAblica_Dominicana-article.ogg",
+          "duration": 103
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Bandera de la República Dominicana",
+        "uploadTs": "2009-07-20T22:02:06Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:barranquilla",
+      "title": "Barranquilla",
+      "displayName": "Wikipedia – Barranquilla",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Barranquilla-article.ogg",
+      "tags": {
+        "reader": "Jdvillalobos",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 65,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Barranquilla-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Barranquilla",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/be/Es-Barranquilla-article.ogg",
+          "duration": 65
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Barranquilla",
+        "uploadTs": "2008-07-10T04:58:18Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:barrio-san-antonio",
+      "title": "Barrio San Antonio",
+      "displayName": "Wikipedia – Barrio San Antonio",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -1290,7 +1623,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Barrio San Antonio (Cali)",
+          "title": "Barrio San Antonio",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Es-Barrio_San_Antonio-article.ogg",
           "duration": 1138
         }
@@ -1298,8 +1631,45 @@
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Barrio San Antonio (Cali)",
+        "article": "Barrio San Antonio",
         "uploadTs": "2011-08-11T22:14:29Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:bartolomea-capitanio",
+      "title": "Bartolomea Capitanio",
+      "displayName": "Wikipedia – Bartolomea Capitanio",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Bartolomea_Capitanio-article.ogg",
+      "tags": {
+        "reader": "Aleposta",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 56,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Bartolomea Capitanio-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Bartolomea Capitanio",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Es-Bartolomea_Capitanio-article.ogg",
+          "duration": 56
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Bartolomea Capitanio",
+        "uploadTs": "2008-11-01T19:26:20Z"
       }
     },
     {
@@ -1453,6 +1823,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:ben-x",
+      "title": "Ben X",
+      "displayName": "Wikipedia – Ben X",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Ben_X-article.ogg",
+      "tags": {
+        "reader": "Asancu",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 83,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Ben X-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ben X",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/91/Es-Ben_X-article.ogg",
+          "duration": 83
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Ben X",
+        "uploadTs": "2013-02-14T16:07:23Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:bertha-c-ceres",
       "title": "Bertha Cáceres",
       "displayName": "Wikipedia – Bertha Cáceres",
@@ -1564,6 +1971,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:blitz",
+      "title": "Blitz",
+      "displayName": "Wikipedia – Blitz",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Blitz-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 69,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Blitz-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Blitz",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/77/Es-Blitz-article.ogg",
+          "duration": 69
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Blitz",
+        "uploadTs": "2006-08-10T17:36:00Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:boca-chica",
       "title": "Boca Chica",
       "displayName": "Wikipedia – Boca Chica",
@@ -1596,6 +2040,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Boca Chica",
         "uploadTs": "2011-08-20T13:54:16Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:bogot",
+      "title": "Bogotá",
+      "displayName": "Wikipedia – Bogotá",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Bogota-article.ogg",
+      "tags": {
+        "reader": "Fballesteros",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 69,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Bogota-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Bogotá",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/99/Es-Bogota-article.ogg",
+          "duration": 69
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Bogotá",
+        "uploadTs": "2007-04-17T19:11:03Z"
       }
     },
     {
@@ -1860,6 +2341,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:calentamiento-global",
+      "title": "Calentamiento global",
+      "displayName": "Wikipedia – Calentamiento global",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Calentamiento_global_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Calentamiento global (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Calentamiento global",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/66/Wikipedia_-_Calentamiento_global_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Calentamiento global",
+        "uploadTs": "2024-11-08T19:04:01Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:calvin-y-hobbes",
       "title": "Calvin y Hobbes",
       "displayName": "Wikipedia – Calvin y Hobbes",
@@ -1892,6 +2410,117 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Calvin y Hobbes",
         "uploadTs": "2009-11-18T20:09:20Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:camilo-henr-quez",
+      "title": "Camilo Henríquez",
+      "displayName": "Wikipedia – Camilo Henríquez",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Camilo_Henriquez_-_article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 295,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Camilo Henriquez - article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Camilo Henríquez",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/86/Es-Camilo_Henriquez_-_article.ogg",
+          "duration": 295
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Camilo Henríquez",
+        "uploadTs": "2006-04-10T04:07:31Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:camilo-minero",
+      "title": "Camilo Minero",
+      "displayName": "Wikipedia – Camilo Minero",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-CAMILO_MINERO-article.ogg",
+      "tags": {
+        "reader": "Netito777",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 77,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-CAMILO MINERO-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Camilo Minero",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Es-CAMILO_MINERO-article.ogg",
+          "duration": 77
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Camilo Minero",
+        "uploadTs": "2007-04-23T21:00:30Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:cantabria",
+      "title": "Cantabria",
+      "displayName": "Wikipedia – Cantabria",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Historia_de_Cantabria-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 856,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Historia de Cantabria-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Cantabria",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Es-Historia_de_Cantabria-article.ogg",
+          "duration": 856
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Cantabria",
+        "uploadTs": "2005-12-10T14:47:57Z"
       }
     },
     {
@@ -1934,9 +2563,9 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:caquet",
-      "title": "Caquetá",
-      "displayName": "Wikipedia – Caquetá",
+      "id": "commons:caquet-departamento",
+      "title": "Caquetá (departamento)",
+      "displayName": "Wikipedia – Caquetá (departamento)",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -1956,7 +2585,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Caquetá",
+          "title": "Caquetá (departamento)",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/Es-Caquet%C3%A1_%28departamento%29-article.ogg",
           "duration": 194
         }
@@ -1964,7 +2593,7 @@
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Caquetá",
+        "article": "Caquetá (departamento)",
         "uploadTs": "2007-05-11T14:51:07Z"
       }
     },
@@ -2040,6 +2669,80 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Carbonarios",
         "uploadTs": "2007-01-13T03:32:29Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:carl-sagan",
+      "title": "Carl Sagan",
+      "displayName": "Wikipedia – Carl Sagan",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Carl_Sagan_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Carl Sagan (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Carl Sagan",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Wikipedia_-_Carl_Sagan_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Carl Sagan",
+        "uploadTs": "2024-11-09T01:00:21Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:carlos-delgado-chalbaud",
+      "title": "Carlos Delgado Chalbaud",
+      "displayName": "Wikipedia – Carlos Delgado Chalbaud",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-CARLOS_DELGADO_CHALBAUD-article.ogg",
+      "tags": {
+        "reader": "Netito777",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 68,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-CARLOS DELGADO CHALBAUD-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Carlos Delgado Chalbaud",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/32/Es-CARLOS_DELGADO_CHALBAUD-article.ogg",
+          "duration": 68
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Carlos Delgado Chalbaud",
+        "uploadTs": "2007-04-23T20:24:50Z"
       }
     },
     {
@@ -2151,6 +2854,117 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Castillo de Marvão",
         "uploadTs": "2013-03-09T19:27:56Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:cataratas-del-ni-gara",
+      "title": "Cataratas del Niágara",
+      "displayName": "Wikipedia – Cataratas del Niágara",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Cataratas_del_Niágara-article.ogg",
+      "tags": {
+        "reader": "WikiAnthony",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 79,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Cataratas del Niágara-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Cataratas del Niágara",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Es-Cataratas_del_Ni%C3%A1gara-article.ogg",
+          "duration": 79
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Cataratas del Niágara",
+        "uploadTs": "2010-07-28T20:06:44Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:categor-a-wikipedia-wikipedia-grabada",
+      "title": "Categoría:Wikipedia:Wikipedia grabada",
+      "displayName": "Wikipedia – Categoría:Wikipedia:Wikipedia grabada",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Azcapotzalco-article.ogg",
+      "tags": {
+        "reader": "Kuroisuisei",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 964,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Azcapotzalco-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Categoría:Wikipedia:Wikipedia grabada",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Es-Azcapotzalco-article.ogg",
+          "duration": 964
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Categoría:Wikipedia:Wikipedia grabada",
+        "uploadTs": "2008-09-16T19:48:06Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:ceguera",
+      "title": "Ceguera",
+      "displayName": "Wikipedia – Ceguera",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Perro_guia-article.ogg",
+      "tags": {
+        "reader": "LaVozDeTuRelato",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 85,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Perro guia-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ceguera",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/88/Es-Perro_guia-article.ogg",
+          "duration": 85
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Ceguera",
+        "uploadTs": "2012-02-18T10:50:29Z"
       }
     },
     {
@@ -2304,6 +3118,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:chrono-serie",
+      "title": "Chrono (serie)",
+      "displayName": "Wikipedia – Chrono (serie)",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Chrono_(serie)-article.ogg",
+      "tags": {
+        "reader": "Racso",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 72,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Chrono (serie)-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Chrono (serie)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Es-Chrono_%28serie%29-article.ogg",
+          "duration": 72
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Chrono (serie)",
+        "uploadTs": "2008-04-27T21:22:49Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:cien-a-os-de-soledad",
       "title": "Cien años de soledad",
       "displayName": "Wikipedia – Cien años de soledad",
@@ -2336,6 +3187,80 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Cien años de soledad",
         "uploadTs": "2009-02-14T00:08:22Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:ciencia",
+      "title": "Ciencia",
+      "displayName": "Wikipedia – Ciencia",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Ciencia_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Ciencia (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ciencia",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/25/Wikipedia_-_Ciencia_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Ciencia",
+        "uploadTs": "2024-11-08T19:05:02Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:ciencia-ficci-n-fant-stica",
+      "title": "Ciencia ficción fantástica",
+      "displayName": "Wikipedia – Ciencia ficción fantástica",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Ciencia_ficción_fantástica_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Ciencia ficción fantástica (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ciencia ficción fantástica",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Wikipedia_-_Ciencia_ficci%C3%B3n_fant%C3%A1stica_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Ciencia ficción fantástica",
+        "uploadTs": "2024-11-08T19:04:08Z"
       }
     },
     {
@@ -2526,43 +3451,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:claudio",
-      "title": "Claudio",
-      "displayName": "Wikipedia – Claudio",
-      "lang": "es",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Es-Claudio-article.ogg",
-      "tags": {
-        "reader": "Boricuaeddie",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 238,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Es-Claudio-article.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Claudio",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Es-Claudio-article.ogg",
-          "duration": 238
-        }
-      ],
-      "textLive": {
-        "wiki": "es",
-        "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Claudio",
-        "uploadTs": "2008-03-24T13:54:21Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:clich",
       "title": "Cliché",
       "displayName": "Wikipedia – Cliché",
@@ -2595,6 +3483,80 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Cliché",
         "uploadTs": "2017-11-20T13:25:51Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:cognici-n-animal",
+      "title": "Cognición animal",
+      "displayName": "Wikipedia – Cognición animal",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Cognición_animal_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Cognición animal (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Cognición animal",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Wikipedia_-_Cognici%C3%B3n_animal_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Cognición animal",
+        "uploadTs": "2024-11-08T19:03:46Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:colombia",
+      "title": "Colombia",
+      "displayName": "Wikipedia – Colombia",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-COLOMBIA-article.ogg",
+      "tags": {
+        "reader": "Swevel",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 2186,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-COLOMBIA-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Colombia",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Es-COLOMBIA-article.ogg",
+          "duration": 2186
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Colombia",
+        "uploadTs": "2007-08-21T20:17:11Z"
       }
     },
     {
@@ -2748,9 +3710,9 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:comparaci-n-entre-el-esperanto-y-el-ido",
-      "title": "Comparación entre el esperanto y el ido",
-      "displayName": "Wikipedia – Comparación entre el esperanto y el ido",
+      "id": "commons:comparaci-c3-b3n-entre-el-esperanto-y-el-ido",
+      "title": "Comparaci%C3%B3n entre el esperanto y el ido",
+      "displayName": "Wikipedia – Comparaci%C3%B3n entre el esperanto y el ido",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -2770,7 +3732,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Comparación entre el esperanto y el ido",
+          "title": "Comparaci%C3%B3n entre el esperanto y el ido",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/3/34/Es-Comparaci%C3%B3n_entre_el_esperanto_y_el_ido-article.ogg",
           "duration": 1076
         }
@@ -2778,7 +3740,7 @@
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Comparación entre el esperanto y el ido",
+        "article": "Comparaci%C3%B3n entre el esperanto y el ido",
         "uploadTs": "2011-08-09T04:30:46Z"
       }
     },
@@ -2817,6 +3779,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Contrarrevolución de Córdoba",
         "uploadTs": "2010-05-06T16:39:12Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:copa-libertadores-de-am-rica",
+      "title": "Copa Libertadores de América",
+      "displayName": "Wikipedia – Copa Libertadores de América",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Copa_Libertadores_de_America_-_2.ogg",
+      "tags": {
+        "reader": "Strawberry on Vanilla",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 966,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Copa Libertadores de America - 2.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Copa Libertadores de América",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Copa_Libertadores_de_America_-_2.ogg",
+          "duration": 966
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Copa Libertadores de América",
+        "uploadTs": "2011-05-20T05:16:10Z"
       }
     },
     {
@@ -2891,6 +3890,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Corto (desambiguación)",
         "uploadTs": "2024-08-15T02:54:50Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:corvus-brachyrhynchos",
+      "title": "Corvus brachyrhynchos",
+      "displayName": "Wikipedia – Corvus brachyrhynchos",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Corvus_brachyrhynchos_-_es.ogg",
+      "tags": {
+        "reader": "Alvaro qc",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 53,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Corvus brachyrhynchos - es.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Corvus brachyrhynchos",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/44/Corvus_brachyrhynchos_-_es.ogg",
+          "duration": 53
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Corvus brachyrhynchos",
+        "uploadTs": "2008-04-26T21:53:51Z"
       }
     },
     {
@@ -3155,6 +4191,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:de-n-funes",
+      "title": "Deán Funes",
+      "displayName": "Wikipedia – Deán Funes",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Dean_Funes-article.ogg",
+      "tags": {
+        "reader": "Rayentray",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 574,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Dean Funes-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Deán Funes",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/59/Es-Dean_Funes-article.ogg",
+          "duration": 574
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Deán Funes",
+        "uploadTs": "2010-05-30T15:12:01Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:didyerid",
       "title": "Didyeridú",
       "displayName": "Wikipedia – Didyeridú",
@@ -3187,6 +4260,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Didyeridú",
         "uploadTs": "2019-11-02T19:33:19Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:dise-o-universal",
+      "title": "Diseño universal",
+      "displayName": "Wikipedia – Diseño universal",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-diseño_universal-article.ogg",
+      "tags": {
+        "reader": "Leandroidecba",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 242,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-diseño universal-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Diseño universal",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/47/Es-dise%C3%B1o_universal-article.ogg",
+          "duration": 242
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Diseño universal",
+        "uploadTs": "2007-10-13T18:38:42Z"
       }
     },
     {
@@ -3340,6 +4450,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:domingo-matheu",
+      "title": "Domingo Matheu",
+      "displayName": "Wikipedia – Domingo Matheu",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Domingo_Matheu-article.ogg",
+      "tags": {
+        "reader": "Alepostaa",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Domingo Matheu-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Domingo Matheu",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/94/Es-Domingo_Matheu-article.ogg",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Domingo Matheu",
+        "uploadTs": "2010-05-15T03:23:17Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:duck-hunt",
+      "title": "Duck Hunt",
+      "displayName": "Wikipedia – Duck Hunt",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Duck_Hunt-article.ogg",
+      "tags": {
+        "reader": "Racso",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 84,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Duck Hunt-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Duck Hunt",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Es-Duck_Hunt-article.ogg",
+          "duration": 84
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Duck Hunt",
+        "uploadTs": "2008-04-27T21:25:38Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:d-a-de-muertos",
       "title": "Día de Muertos",
       "displayName": "Wikipedia – Día de Muertos",
@@ -3409,6 +4593,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Eclipse",
         "uploadTs": "2019-11-02T19:38:20Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:edda-prosaica",
+      "title": "Edda prosaica",
+      "displayName": "Wikipedia – Edda prosaica",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Edda_prosaica-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 64,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Edda prosaica-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Edda prosaica",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Es-Edda_prosaica-article.ogg",
+          "duration": 64
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Edda prosaica",
+        "uploadTs": "2006-04-27T07:15:22Z"
       }
     },
     {
@@ -3747,9 +4968,9 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:erupci-n-del-monte-santa-helena-de-1980",
-      "title": "Erupción del monte Santa Helena de 1980",
-      "displayName": "Wikipedia – Erupción del monte Santa Helena de 1980",
+      "id": "commons:erupci-n-del-monte-saint-helens-en-1980",
+      "title": "Erupción del Monte Saint Helens en 1980",
+      "displayName": "Wikipedia – Erupción del Monte Saint Helens en 1980",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -3769,7 +4990,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Erupción del monte Santa Helena de 1980",
+          "title": "Erupción del Monte Saint Helens en 1980",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/1/17/Es-Erupci%C3%B3n_del_Monte_Saint_Helens-article.ogg",
           "duration": 153
         }
@@ -3777,7 +4998,7 @@
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Erupción del monte Santa Helena de 1980",
+        "article": "Erupción del Monte Saint Helens en 1980",
         "uploadTs": "2007-03-04T13:09:06Z"
       }
     },
@@ -3932,38 +5153,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:estado-nueva-esparta",
-      "title": "Estado Nueva Esparta",
-      "displayName": "Wikipedia – Estado Nueva Esparta",
+      "id": "commons:estaci-n-don-bosco",
+      "title": "Estación Don Bosco",
+      "displayName": "Wikipedia – Estación Don Bosco",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Spanish_wikipedia_article_Nueva_Esparta.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Estanción_Don_Bosco-article.ogg",
       "tags": {
-        "reader": "Wilfredor",
+        "reader": "Jmctachon",
         "gender": "",
         "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 2153,
+        "length_band": "very_short",
+        "total_seconds": 65,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Spanish wikipedia article Nueva Esparta.ogg"
+        "source_file": "File:Es-Estanción Don Bosco-article.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "Estado Nueva Esparta",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Spanish_wikipedia_article_Nueva_Esparta.ogg",
-          "duration": 2153
+          "title": "Estación Don Bosco",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/21/Es-Estanci%C3%B3n_Don_Bosco-article.ogg",
+          "duration": 65
         }
       ],
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Estado Nueva Esparta",
-        "uploadTs": "2024-05-04T19:12:50Z"
+        "article": "Estación Don Bosco",
+        "uploadTs": "2014-06-17T05:56:04Z"
       }
     },
     {
@@ -4117,6 +5338,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:fm-santa-mar-a-de-las-misiones",
+      "title": "FM Santa María de las Misiones",
+      "displayName": "Wikipedia – FM Santa María de las Misiones",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:FM_Santa_María_de_las_Misiones_(audio).ogg",
+      "tags": {
+        "reader": "Horacio Cambeiro",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 50,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:FM Santa María de las Misiones (audio).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "FM Santa María de las Misiones",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/57/FM_Santa_Mar%C3%ADa_de_las_Misiones_%28audio%29.ogg",
+          "duration": 50
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "FM Santa María de las Misiones",
+        "uploadTs": "2014-07-19T00:49:21Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:felice-orsini",
       "title": "Felice Orsini",
       "displayName": "Wikipedia – Felice Orsini",
@@ -4223,6 +5481,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Fernando Botero",
         "uploadTs": "2007-08-22T17:17:57Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:ferrocarril-metro-north",
+      "title": "Ferrocarril Metro–North",
+      "displayName": "Wikipedia – Ferrocarril Metro–North",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Ferrocarril_Metro–North-article.ogg",
+      "tags": {
+        "reader": "Vrysxy",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 111,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Ferrocarril Metro–North-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ferrocarril Metro–North",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Es-Ferrocarril_Metro%E2%80%93North-article.ogg",
+          "duration": 111
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Ferrocarril Metro–North",
+        "uploadTs": "2009-01-08T08:46:37Z"
       }
     },
     {
@@ -4413,6 +5708,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:gato-de-schr-dinger",
+      "title": "Gato de Schrödinger",
+      "displayName": "Wikipedia – Gato de Schrödinger",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-GATODESCHRÖDINGER-article.ogg",
+      "tags": {
+        "reader": "Luisrey89~commonswiki",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 96,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-GATODESCHRÖDINGER-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Gato de Schrödinger",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/91/Es-GATODESCHR%C3%96DINGER-article.ogg",
+          "duration": 96
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Gato de Schrödinger",
+        "uploadTs": "2006-06-23T02:39:18Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:gaueko",
       "title": "Gaueko",
       "displayName": "Wikipedia – Gaueko",
@@ -4445,6 +5777,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Gaueko",
         "uploadTs": "2020-05-20T21:37:00Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:gazeta-de-buenos-ayres",
+      "title": "Gazeta de Buenos Ayres",
+      "displayName": "Wikipedia – Gazeta de Buenos Ayres",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Gazeta_de_Buenos_Ayres-article.ogg",
+      "tags": {
+        "reader": "Mariadelcarmenpatricia",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 254,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Gazeta de Buenos Ayres-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Gazeta de Buenos Ayres",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/76/Es-Gazeta_de_Buenos_Ayres-article.ogg",
+          "duration": 254
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Gazeta de Buenos Ayres",
+        "uploadTs": "2010-05-24T20:30:09Z"
       }
     },
     {
@@ -4487,6 +5856,117 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:gilda-pincho",
+      "title": "Gilda (pincho)",
+      "displayName": "Wikipedia – Gilda (pincho)",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-gilda_(pincho).ogg",
+      "tags": {
+        "reader": "Txo",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 102,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-gilda (pincho).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Gilda (pincho)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/Es-gilda_%28pincho%29.ogg",
+          "duration": 102
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Gilda (pincho)",
+        "uploadTs": "2007-04-01T22:31:08Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:gioconda",
+      "title": "Gioconda",
+      "displayName": "Wikipedia – Gioconda",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-La_Gioconda-article.ogg",
+      "tags": {
+        "reader": "Joticajulian",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 128,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-La Gioconda-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Gioconda",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Es-La_Gioconda-article.ogg",
+          "duration": 128
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Gioconda",
+        "uploadTs": "2009-02-12T06:20:45Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:gota-fr-a-de-2024-en-espa-a",
+      "title": "Gota fría de 2024 en España",
+      "displayName": "Wikipedia – Gota fría de 2024 en España",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Gota_fría_de_2024_en_España_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Gota fría de 2024 en España (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Gota fría de 2024 en España",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Wikipedia_-_Gota_fr%C3%ADa_de_2024_en_Espa%C3%B1a_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Gota fría de 2024 en España",
+        "uploadTs": "2024-11-08T19:04:01Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:gran-colombia",
       "title": "Gran Colombia",
       "displayName": "Wikipedia – Gran Colombia",
@@ -4519,43 +5999,6 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Gran Colombia",
         "uploadTs": "2020-09-14T19:20:37Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:gregorio-funes",
-      "title": "Gregorio Funes",
-      "displayName": "Wikipedia – Gregorio Funes",
-      "lang": "es",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Es-Dean_Funes-article.ogg",
-      "tags": {
-        "reader": "Rayentray",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 574,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Es-Dean Funes-article.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Gregorio Funes",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/59/Es-Dean_Funes-article.ogg",
-          "duration": 574
-        }
-      ],
-      "textLive": {
-        "wiki": "es",
-        "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Gregorio Funes",
-        "uploadTs": "2010-05-30T15:12:01Z"
       }
     },
     {
@@ -4857,6 +6300,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:hip-lito-vieytes",
+      "title": "Hipólito Vieytes",
+      "displayName": "Wikipedia – Hipólito Vieytes",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Hipólito_Vieytes-article.ogg",
+      "tags": {
+        "reader": "Alepostaa",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 115,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Hipólito Vieytes-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Hipólito Vieytes",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Es-Hip%C3%B3lito_Vieytes-article.ogg",
+          "duration": 115
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Hipólito Vieytes",
+        "uploadTs": "2010-05-15T03:27:21Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:historia-universal",
+      "title": "Historia Universal",
+      "displayName": "Wikipedia – Historia Universal",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Historia_Universal-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 867,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Historia Universal-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Historia Universal",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Es-Historia_Universal-article.ogg",
+          "duration": 867
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Historia Universal",
+        "uploadTs": "2005-12-09T21:02:38Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:historia-de-am-rica-central",
       "title": "Historia de América Central",
       "displayName": "Wikipedia – Historia de América Central",
@@ -4894,38 +6411,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:historia-de-cantabria",
-      "title": "Historia de Cantabria",
-      "displayName": "Wikipedia – Historia de Cantabria",
+      "id": "commons:historia-de-andaluc-a",
+      "title": "Historia de Andalucía",
+      "displayName": "Wikipedia – Historia de Andalucía",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Es-Historia_de_Cantabria-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Historia_de_Andalucía-article.ogg",
       "tags": {
         "reader": "",
         "gender": "",
         "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 856,
+        "length_band": "medium",
+        "total_seconds": 934,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Es-Historia de Cantabria-article.ogg"
+        "source_file": "File:Es-Historia de Andalucía-article.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "Historia de Cantabria",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Es-Historia_de_Cantabria-article.ogg",
-          "duration": 856
+          "title": "Historia de Andalucía",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Es-Historia_de_Andaluc%C3%ADa-article.ogg",
+          "duration": 934
         }
       ],
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Historia de Cantabria",
-        "uploadTs": "2005-12-10T14:47:57Z"
+        "article": "Historia de Andalucía",
+        "uploadTs": "2005-06-22T19:27:30Z"
       }
     },
     {
@@ -4968,6 +6485,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:historia-de-la-vida",
+      "title": "Historia de la vida",
+      "displayName": "Wikipedia – Historia de la vida",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Historia_de_la_vida_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Historia de la vida (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Historia de la vida",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Wikipedia_-_Historia_de_la_vida_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Historia de la vida",
+        "uploadTs": "2024-11-08T19:03:52Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:historia-social-de-los-virus",
       "title": "Historia social de los virus",
       "displayName": "Wikipedia – Historia social de los virus",
@@ -5000,43 +6554,6 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Historia social de los virus",
         "uploadTs": "2020-08-09T22:00:04Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:historia-universal",
-      "title": "Historia universal",
-      "displayName": "Wikipedia – Historia universal",
-      "lang": "es",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Es-Historia_Universal-article.ogg",
-      "tags": {
-        "reader": "",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 867,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Es-Historia Universal-article.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Historia universal",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Es-Historia_Universal-article.ogg",
-          "duration": 867
-        }
-      ],
-      "textLive": {
-        "wiki": "es",
-        "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Historia universal",
-        "uploadTs": "2005-12-09T21:02:38Z"
       }
     },
     {
@@ -5111,6 +6628,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Homer's Phobia",
         "uploadTs": "2026-05-07T02:13:30Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:homo-sapiens",
+      "title": "Homo sapiens",
+      "displayName": "Wikipedia – Homo sapiens",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Homo_sapiens_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Homo sapiens (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Homo sapiens",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Wikipedia_-_Homo_sapiens_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Homo sapiens",
+        "uploadTs": "2024-11-08T19:04:12Z"
       }
     },
     {
@@ -5523,6 +7077,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:imperio-romano",
+      "title": "Imperio romano",
+      "displayName": "Wikipedia – Imperio romano",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Imperio_romano_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Imperio romano (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Imperio romano",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/88/Wikipedia_-_Imperio_romano_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Imperio romano",
+        "uploadTs": "2024-11-08T19:03:55Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:incidente-ovni-de-rendlesham-forest",
+      "title": "Incidente ovni de Rendlesham Forest",
+      "displayName": "Wikipedia – Incidente ovni de Rendlesham Forest",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Incidente_ovni_de_Rendlesham_Forest_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Incidente ovni de Rendlesham Forest (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Incidente ovni de Rendlesham Forest",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Wikipedia_-_Incidente_ovni_de_Rendlesham_Forest_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Incidente ovni de Rendlesham Forest",
+        "uploadTs": "2024-11-08T23:57:56Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:incorporaci-n-de-la-intendencia-de-salta-a-la-primera-junta",
       "title": "Incorporación de la Intendencia de Salta a la Primera Junta",
       "displayName": "Wikipedia – Incorporación de la Intendencia de Salta a la Primera Junta",
@@ -5629,6 +7257,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Inteligencia artificial en los proyectos de Wikimedia",
         "uploadTs": "2025-02-26T11:45:38Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:inteligencia-colectiva",
+      "title": "Inteligencia colectiva",
+      "displayName": "Wikipedia – Inteligencia colectiva",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Inteligencia_colectiva_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Inteligencia colectiva (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Inteligencia colectiva",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/92/Wikipedia_-_Inteligencia_colectiva_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Inteligencia colectiva",
+        "uploadTs": "2024-11-08T19:03:53Z"
       }
     },
     {
@@ -5745,38 +7410,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:isla-de-margarita",
-      "title": "Isla de Margarita",
-      "displayName": "Wikipedia – Isla de Margarita",
+      "id": "commons:islam",
+      "title": "Islam",
+      "displayName": "Wikipedia – Islam",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Isla_de_Margarita,_Spanish_Wikipedia_Article_Intro.wav",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Islam-article.ogg",
       "tags": {
-        "reader": "Wilfredo Rafael Rodriguez Hernandez",
+        "reader": "",
         "gender": "",
         "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
+        "length_band": "very_short",
+        "total_seconds": 65,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Isla de Margarita, Spanish Wikipedia Article Intro.wav"
+        "source_file": "File:Es-Islam-article.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "Isla de Margarita",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/85/Isla_de_Margarita%2C_Spanish_Wikipedia_Article_Intro.wav",
-          "duration": 0
+          "title": "Islam",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/76/Es-Islam-article.ogg",
+          "duration": 65
         }
       ],
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Isla de Margarita",
-        "uploadTs": "2020-09-01T16:38:35Z"
+        "article": "Islam",
+        "uploadTs": "2008-03-06T19:22:48Z"
       }
     },
     {
@@ -5888,6 +7553,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "James George Frazer",
         "uploadTs": "2019-10-20T17:36:28Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:jard-n-am-rica",
+      "title": "Jardín América",
+      "displayName": "Wikipedia – Jardín América",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Jardín_América-Article.ogg",
+      "tags": {
+        "reader": "Loco085",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 110,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Jardín América-Article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Jardín América",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/34/Es-Jard%C3%ADn_Am%C3%A9rica-Article.ogg",
+          "duration": 110
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Jardín América",
+        "uploadTs": "2006-04-28T22:40:38Z"
       }
     },
     {
@@ -6559,6 +8261,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:kauri",
+      "title": "Kauri",
+      "displayName": "Wikipedia – Kauri",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Kauri-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 388,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Kauri-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Kauri",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Es-Kauri-article.ogg",
+          "duration": 388
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Kauri",
+        "uploadTs": "2005-06-21T20:27:36Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:krampus",
       "title": "Krampus",
       "displayName": "Wikipedia – Krampus",
@@ -6633,38 +8372,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:la-gioconda",
-      "title": "La Gioconda",
-      "displayName": "Wikipedia – La Gioconda",
+      "id": "commons:lego",
+      "title": "LEGO",
+      "displayName": "Wikipedia – LEGO",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Es-La_Gioconda-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-LEGO-article.ogg",
       "tags": {
-        "reader": "Joticajulian",
+        "reader": "",
         "gender": "",
         "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 128,
+        "length_band": "medium",
+        "total_seconds": 1422,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Es-La Gioconda-article.ogg"
+        "source_file": "File:Es-LEGO-article.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "La Gioconda",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Es-La_Gioconda-article.ogg",
-          "duration": 128
+          "title": "LEGO",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Es-LEGO-article.ogg",
+          "duration": 1422
         }
       ],
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "La Gioconda",
-        "uploadTs": "2009-02-12T06:20:45Z"
+        "article": "LEGO",
+        "uploadTs": "2005-12-31T20:54:59Z"
       }
     },
     {
@@ -6781,9 +8520,9 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:levantamiento-campesino-en-el-salvador-de-1932",
-      "title": "Levantamiento campesino en El Salvador de 1932",
-      "displayName": "Wikipedia – Levantamiento campesino en El Salvador de 1932",
+      "id": "commons:levantamiento-campesino-de-1932-el-salvador",
+      "title": "Levantamiento campesino de 1932 (El Salvador)",
+      "displayName": "Wikipedia – Levantamiento campesino de 1932 (El Salvador)",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -6803,7 +8542,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Levantamiento campesino en El Salvador de 1932",
+          "title": "Levantamiento campesino de 1932 (El Salvador)",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/0/05/Es-Levantamiento_Campesino_de_1932_%28El_Salvador%29-article.ogg",
           "duration": 130
         }
@@ -6811,7 +8550,7 @@
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Levantamiento campesino en El Salvador de 1932",
+        "article": "Levantamiento campesino de 1932 (El Salvador)",
         "uploadTs": "2007-04-23T17:34:54Z"
       }
     },
@@ -6819,8 +8558,8 @@
       "kind": "collection",
       "category": "hoerbuecher",
       "id": "commons:ley-de-murphy",
-      "title": "Ley de Murphy",
-      "displayName": "Wikipedia – Ley de Murphy",
+      "title": "Ley de murphy",
+      "displayName": "Wikipedia – Ley de murphy",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -6840,7 +8579,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Ley de Murphy",
+          "title": "Ley de murphy",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Es-Ley_de_murphy-article.ogg",
           "duration": 469
         }
@@ -6848,7 +8587,7 @@
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Ley de Murphy",
+        "article": "Ley de murphy",
         "uploadTs": "2006-03-17T16:14:55Z"
       }
     },
@@ -7077,6 +8816,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:luis-ant-n-del-olmet",
+      "title": "Luis Antón del Olmet",
+      "displayName": "Wikipedia – Luis Antón del Olmet",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Luis_Antón_del_Olmet-article.ogg",
+      "tags": {
+        "reader": "Klondike",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 99,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Luis Antón del Olmet-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Luis Antón del Olmet",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/95/Es-Luis_Ant%C3%B3n_del_Olmet-article.ogg",
+          "duration": 99
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Luis Antón del Olmet",
+        "uploadTs": "2006-04-28T17:35:51Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:luis-federico-leloir",
       "title": "Luis Federico Leloir",
       "displayName": "Wikipedia – Luis Federico Leloir",
@@ -7146,6 +8922,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Malala Yousafzai",
         "uploadTs": "2018-08-27T06:17:21Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:mansi-n-encantada-atracci-n",
+      "title": "Mansión encantada (atracción)",
+      "displayName": "Wikipedia – Mansión encantada (atracción)",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-mansion-encantada-article.ogg",
+      "tags": {
+        "reader": "Guesst.top",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 119,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-mansion-encantada-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Mansión encantada (atracción)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Es-mansion-encantada-article.ogg",
+          "duration": 119
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Mansión encantada (atracción)",
+        "uploadTs": "2021-10-28T07:50:23Z"
       }
     },
     {
@@ -7262,6 +9075,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:maracaibo",
+      "title": "Maracaibo",
+      "displayName": "Wikipedia – Maracaibo",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Maracaibo,_Spanish_Wikipedia_Article_Intro.wav",
+      "tags": {
+        "reader": "Wilfredo Rafael Rodriguez Hernandez",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Maracaibo, Spanish Wikipedia Article Intro.wav"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Maracaibo",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Maracaibo%2C_Spanish_Wikipedia_Article_Intro.wav",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Maracaibo",
+        "uploadTs": "2020-09-01T16:38:40Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:mariano-moreno",
       "title": "Mariano Moreno",
       "displayName": "Wikipedia – Mariano Moreno",
@@ -7331,6 +9181,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Marielle Franco",
         "uploadTs": "2020-09-30T23:05:27Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:mario-bunge",
+      "title": "Mario Bunge",
+      "displayName": "Wikipedia – Mario Bunge",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Mario_Bunge-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 104,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Mario Bunge-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Mario Bunge",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Es-Mario_Bunge-article.ogg",
+          "duration": 104
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Mario Bunge",
+        "uploadTs": "2005-07-02T15:16:41Z"
       }
     },
     {
@@ -7595,6 +9482,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:modelo-extenso-de-lenguaje",
+      "title": "Modelo extenso de lenguaje",
+      "displayName": "Wikipedia – Modelo extenso de lenguaje",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Modelo_extenso_de_lenguaje_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Modelo extenso de lenguaje (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Modelo extenso de lenguaje",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Wikipedia_-_Modelo_extenso_de_lenguaje_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Modelo extenso de lenguaje",
+        "uploadTs": "2024-11-08T23:47:45Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:molina-campos",
+      "title": "Molina Campos",
+      "displayName": "Wikipedia – Molina Campos",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Florencio_Molina_Campos-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 103,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Florencio Molina Campos-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Molina Campos",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/33/Es-Florencio_Molina_Campos-article.ogg",
+          "duration": 103
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Molina Campos",
+        "uploadTs": "2005-07-01T23:16:46Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:monacato-femenino",
       "title": "Monacato femenino",
       "displayName": "Wikipedia – Monacato femenino",
@@ -7627,6 +9588,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Monacato femenino",
         "uploadTs": "2012-03-18T09:11:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:monstruo-de-las-galletas",
+      "title": "Monstruo de las Galletas",
+      "displayName": "Wikipedia – Monstruo de las Galletas",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Monstruo_de_las_Galletas-article.ogg",
+      "tags": {
+        "reader": "Quaid",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 96,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Monstruo de las Galletas-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Monstruo de las Galletas",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/10/Es-Monstruo_de_las_Galletas-article.ogg",
+          "duration": 96
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Monstruo de las Galletas",
+        "uploadTs": "2007-01-18T22:25:56Z"
       }
     },
     {
@@ -7669,6 +9667,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:m-nica-ferrari",
+      "title": "Mónica Ferrari",
+      "displayName": "Wikipedia – Mónica Ferrari",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Mónica_Ferrari_(voces).ogg",
+      "tags": {
+        "reader": "Horacio Cambeiro",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 86,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Mónica Ferrari (voces).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Mónica Ferrari",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/73/M%C3%B3nica_Ferrari_%28voces%29.ogg",
+          "duration": 86
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Mónica Ferrari",
+        "uploadTs": "2014-07-29T17:19:21Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:m-sica",
       "title": "Música",
       "displayName": "Wikipedia – Música",
@@ -7701,6 +9736,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Música",
         "uploadTs": "2018-08-27T05:41:41Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:nadia-yas-n",
+      "title": "Nadia Yasín",
+      "displayName": "Wikipedia – Nadia Yasín",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-NADIA_YASÍN-article.ogg",
+      "tags": {
+        "reader": "Netito777",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 50,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-NADIA YASÍN-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Nadia Yasín",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Es-NADIA_YAS%C3%8DN-article.ogg",
+          "duration": 50
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Nadia Yasín",
+        "uploadTs": "2007-04-23T20:29:31Z"
       }
     },
     {
@@ -7891,6 +9963,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:nino-buryanadze",
+      "title": "Nino Buryanadze",
+      "displayName": "Wikipedia – Nino Buryanadze",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-NINO_BURYANADSE-article.ogg",
+      "tags": {
+        "reader": "Netito777",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 67,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-NINO BURYANADSE-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Nino Buryanadze",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Es-NINO_BURYANADSE-article.ogg",
+          "duration": 67
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Nino Buryanadze",
+        "uploadTs": "2007-04-23T20:41:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:nix-sat-lite",
       "title": "Nix (satélite)",
       "displayName": "Wikipedia – Nix (satélite)",
@@ -7928,38 +10037,149 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:ober",
-      "title": "Oberá",
-      "displayName": "Wikipedia – Oberá",
+      "id": "commons:nomenclatura-qu-mica-de-los-compuestos-inorg-nicos",
+      "title": "Nomenclatura química de los compuestos inorgánicos",
+      "displayName": "Wikipedia – Nomenclatura química de los compuestos inorgánicos",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Es-oberaciudad-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Nomenclatura_química_de_los_compuestos_inorgánicos-article.ogg",
       "tags": {
-        "reader": "",
+        "reader": "joseluisjazz",
         "gender": "",
         "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 197,
+        "length_band": "medium",
+        "total_seconds": 2583,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Es-oberaciudad-article.ogg"
+        "source_file": "File:Es-Nomenclatura química de los compuestos inorgánicos-article.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "Oberá",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Es-oberaciudad-article.ogg",
-          "duration": 197
+          "title": "Nomenclatura química de los compuestos inorgánicos",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Es-Nomenclatura_qu%C3%ADmica_de_los_compuestos_inorg%C3%A1nicos-article.ogg",
+          "duration": 2583
         }
       ],
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Oberá",
-        "uploadTs": "2005-09-11T21:21:00Z"
+        "article": "Nomenclatura química de los compuestos inorgánicos",
+        "uploadTs": "2007-08-15T01:07:04Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:nornas",
+      "title": "Nornas",
+      "displayName": "Wikipedia – Nornas",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Nornas-article.ogg",
+      "tags": {
+        "reader": "Airunp",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 113,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Nornas-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Nornas",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/78/Es-Nornas-article.ogg",
+          "duration": 113
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Nornas",
+        "uploadTs": "2006-04-28T03:39:02Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:nueva-esparta",
+      "title": "Nueva Esparta",
+      "displayName": "Wikipedia – Nueva Esparta",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Spanish_wikipedia_article_Nueva_Esparta.ogg",
+      "tags": {
+        "reader": "Wilfredor",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 2153,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Spanish wikipedia article Nueva Esparta.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Nueva Esparta",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Spanish_wikipedia_article_Nueva_Esparta.ogg",
+          "duration": 2153
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Nueva Esparta",
+        "uploadTs": "2024-05-04T19:12:50Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:ober-ciudad",
+      "title": "Oberá (Ciudad)",
+      "displayName": "Wikipedia – Oberá (Ciudad)",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Jardín_América_en_Wikipedia.ogg",
+      "tags": {
+        "reader": "Horacio Cambeiro",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 118,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Jardín América en Wikipedia.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Oberá (Ciudad)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/Jard%C3%ADn_Am%C3%A9rica_en_Wikipedia.ogg",
+          "duration": 118
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Oberá (Ciudad)",
+        "uploadTs": "2014-06-10T11:36:40Z"
       }
     },
     {
@@ -8034,6 +10254,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Oráculo",
         "uploadTs": "2005-06-21T20:03:50Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:or-culo-de-olimpia",
+      "title": "Oráculo de Olimpia",
+      "displayName": "Wikipedia – Oráculo de Olimpia",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Oráculo_de_Olimpia-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 474,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Oráculo de Olimpia-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Oráculo de Olimpia",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/81/Es-Or%C3%A1culo_de_Olimpia-article.ogg",
+          "duration": 474
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Oráculo de Olimpia",
+        "uploadTs": "2005-06-26T01:44:27Z"
       }
     },
     {
@@ -8188,8 +10445,8 @@
       "kind": "collection",
       "category": "hoerbuecher",
       "id": "commons:parque-nacional-iguaz",
-      "title": "Parque nacional Iguazú",
-      "displayName": "Wikipedia – Parque nacional Iguazú",
+      "title": "Parque Nacional Iguazú",
+      "displayName": "Wikipedia – Parque Nacional Iguazú",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -8209,7 +10466,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Parque nacional Iguazú",
+          "title": "Parque Nacional Iguazú",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Es-Parque_Nacional_Iguaz%C3%BA-article.ogg",
           "duration": 336
         }
@@ -8217,8 +10474,82 @@
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Parque nacional Iguazú",
+        "article": "Parque Nacional Iguazú",
         "uploadTs": "2005-07-02T15:25:13Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:parque-arqueol-gico-puig-de-sa-morisca",
+      "title": "Parque arqueológico Puig de sa Morisca",
+      "displayName": "Wikipedia – Parque arqueológico Puig de sa Morisca",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es_Parque_Arqueológico_Puig_de_sa_Morisca.ogg",
+      "tags": {
+        "reader": "Rafael Ortega Díaz",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 105,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es Parque Arqueológico Puig de sa Morisca.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Parque arqueológico Puig de sa Morisca",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Es_Parque_Arqueol%C3%B3gico_Puig_de_sa_Morisca.ogg",
+          "duration": 105
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Parque arqueológico Puig de sa Morisca",
+        "uploadTs": "2007-04-27T03:58:53Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:pasaporte-paraguayo",
+      "title": "Pasaporte Paraguayo",
+      "displayName": "Wikipedia – Pasaporte Paraguayo",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Pasaporte_Peruano-article.ogg",
+      "tags": {
+        "reader": "Alejitao123",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 55,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Pasaporte Peruano-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Pasaporte Paraguayo",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Es-Pasaporte_Peruano-article.ogg",
+          "duration": 55
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Pasaporte Paraguayo",
+        "uploadTs": "2020-03-03T20:16:29Z"
       }
     },
     {
@@ -8668,6 +10999,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:primer-golpe-de-estado-de-jos-miguel-carrera",
+      "title": "Primer Golpe de Estado de José Miguel Carrera",
+      "displayName": "Wikipedia – Primer Golpe de Estado de José Miguel Carrera",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Primer_Golpe_de_Estado_de_José_Miguel_Carrera-article.ogg",
+      "tags": {
+        "reader": "Waldoz",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Primer Golpe de Estado de José Miguel Carrera-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Primer Golpe de Estado de José Miguel Carrera",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Es-Primer_Golpe_de_Estado_de_Jos%C3%A9_Miguel_Carrera-article.ogg",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Primer Golpe de Estado de José Miguel Carrera",
+        "uploadTs": "2007-07-04T20:35:12Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:primer-triunvirato-argentina",
       "title": "Primer Triunvirato (Argentina)",
       "displayName": "Wikipedia – Primer Triunvirato (Argentina)",
@@ -8774,43 +11142,6 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Profecía",
         "uploadTs": "2007-01-06T11:07:47Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:provincias-unidas-del-r-o-de-la-plata",
-      "title": "Provincias Unidas del Río de la Plata",
-      "displayName": "Wikipedia – Provincias Unidas del Río de la Plata",
-      "lang": "es",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Provincias_Unidas_del_Río_de_la_Plata.ogg",
-      "tags": {
-        "reader": "Roberto Fiadone",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 467,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Provincias Unidas del Río de la Plata.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Provincias Unidas del Río de la Plata",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/Provincias_Unidas_del_R%C3%ADo_de_la_Plata.ogg",
-          "duration": 467
-        }
-      ],
-      "textLive": {
-        "wiki": "es",
-        "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Provincias Unidas del Río de la Plata",
-        "uploadTs": "2010-05-27T02:49:48Z"
       }
     },
     {
@@ -8964,6 +11295,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:revoluci-n-francesa",
+      "title": "Revolución Francesa",
+      "displayName": "Wikipedia – Revolución Francesa",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Revolución_Francesa-article.ogg",
+      "tags": {
+        "reader": "My-self",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1568,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Revolución Francesa-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Revolución Francesa",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/02/Es-Revoluci%C3%B3n_Francesa-article.ogg",
+          "duration": 1568
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Revolución Francesa",
+        "uploadTs": "2007-05-24T03:56:40Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:revoluci-n-de-mayo",
       "title": "Revolución de Mayo",
       "displayName": "Wikipedia – Revolución de Mayo",
@@ -8996,43 +11364,6 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Revolución de Mayo",
         "uploadTs": "2010-05-24T21:04:08Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:revoluci-n-francesa",
-      "title": "Revolución francesa",
-      "displayName": "Wikipedia – Revolución francesa",
-      "lang": "es",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Es-Revolución_Francesa-article.ogg",
-      "tags": {
-        "reader": "My-self",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 1568,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Es-Revolución Francesa-article.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Revolución francesa",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/02/Es-Revoluci%C3%B3n_Francesa-article.ogg",
-          "duration": 1568
-        }
-      ],
-      "textLive": {
-        "wiki": "es",
-        "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Revolución francesa",
-        "uploadTs": "2007-05-24T03:56:40Z"
       }
     },
     {
@@ -9223,6 +11554,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:ruido-documental",
+      "title": "Ruido documental",
+      "displayName": "Wikipedia – Ruido documental",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Ruido_documental-article.ogg",
+      "tags": {
+        "reader": "Wikijoaki",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 70,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Ruido documental-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ruido documental",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Es-Ruido_documental-article.ogg",
+          "duration": 70
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Ruido documental",
+        "uploadTs": "2020-03-16T14:13:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:r-o-paran",
+      "title": "Río Paraná",
+      "displayName": "Wikipedia – Río Paraná",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Río_Paraná-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 143,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Río Paraná-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Río Paraná",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Es-R%C3%ADo_Paran%C3%A1-article.ogg",
+          "duration": 143
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Río Paraná",
+        "uploadTs": "2005-07-02T15:24:04Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:samur-i",
       "title": "Samurái",
       "displayName": "Wikipedia – Samurái",
@@ -9266,6 +11671,43 @@
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:San_José_de_Suaita_Ubicación.ogg",
+      "tags": {
+        "reader": "Ximonnomix~commonswiki",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 175,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:San José de Suaita Ubicación.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "San José de Suaita",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/06/San_Jos%C3%A9_de_Suaita_Ubicaci%C3%B3n.ogg",
+          "duration": 175
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "San José de Suaita",
+        "uploadTs": "2006-03-25T17:35:22Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:san-jos-de-suaita-apunte-de-historia-empresarial",
+      "title": "San José de Suaita. Apunte de Historia empresarial",
+      "displayName": "Wikipedia – San José de Suaita. Apunte de Historia empresarial",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
       "url": "https://commons.wikimedia.org/wiki/File:SJOSEDESUAITA-Apunte_de_historia_empresarial.ogg",
       "tags": {
         "reader": "",
@@ -9282,7 +11724,7 @@
       "items": [
         {
           "id": "art",
-          "title": "San José de Suaita",
+          "title": "San José de Suaita. Apunte de Historia empresarial",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ea/SJOSEDESUAITA-Apunte_de_historia_empresarial.ogg",
           "duration": 250
         }
@@ -9290,45 +11732,230 @@
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "San José de Suaita",
+        "article": "San José de Suaita. Apunte de Historia empresarial",
         "uploadTs": "2006-03-31T14:47:28Z"
       }
     },
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:santuario-de-olimpia",
-      "title": "Santuario de Olimpia",
-      "displayName": "Wikipedia – Santuario de Olimpia",
+      "id": "commons:san-jos-de-suaita-cultura",
+      "title": "San José de Suaita. Cultura",
+      "displayName": "Wikipedia – San José de Suaita. Cultura",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Es-Oráculo_de_Olimpia-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:SJOSEDESUAITA-Cultura.ogg",
       "tags": {
         "reader": "",
         "gender": "",
         "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 474,
+        "length_band": "very_short",
+        "total_seconds": 186,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Es-Oráculo de Olimpia-article.ogg"
+        "source_file": "File:SJOSEDESUAITA-Cultura.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "Santuario de Olimpia",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/81/Es-Or%C3%A1culo_de_Olimpia-article.ogg",
-          "duration": 474
+          "title": "San José de Suaita. Cultura",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/79/SJOSEDESUAITA-Cultura.ogg",
+          "duration": 186
         }
       ],
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Santuario de Olimpia",
-        "uploadTs": "2005-06-26T01:44:27Z"
+        "article": "San José de Suaita. Cultura",
+        "uploadTs": "2006-03-31T16:00:27Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:san-jos-de-suaita-demograf-a",
+      "title": "San José de Suaita. Demografía",
+      "displayName": "Wikipedia – San José de Suaita. Demografía",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:SJOSEDESUAITA-Demografía.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 139,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:SJOSEDESUAITA-Demografía.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "San José de Suaita. Demografía",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0a/SJOSEDESUAITA-Demograf%C3%ADa.ogg",
+          "duration": 139
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "San José de Suaita. Demografía",
+        "uploadTs": "2006-03-31T16:03:53Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:san-jos-de-suaita-econom-a",
+      "title": "San José de Suaita. Economía",
+      "displayName": "Wikipedia – San José de Suaita. Economía",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:SJOSEDESUAITA-Economía.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 236,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:SJOSEDESUAITA-Economía.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "San José de Suaita. Economía",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f0/SJOSEDESUAITA-Econom%C3%ADa.ogg",
+          "duration": 236
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "San José de Suaita. Economía",
+        "uploadTs": "2006-03-31T15:36:43Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:san-jos-de-suaita-historia",
+      "title": "San José de Suaita. Historia",
+      "displayName": "Wikipedia – San José de Suaita. Historia",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:SJOSEDESUAITA-Historia.ogg",
+      "tags": {
+        "reader": "Ximonnomix",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 675,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:SJOSEDESUAITA-Historia.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "San José de Suaita. Historia",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d3/SJOSEDESUAITA-Historia.ogg",
+          "duration": 675
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "San José de Suaita. Historia",
+        "uploadTs": "2006-03-31T14:35:57Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:santo-domingo",
+      "title": "Santo Domingo",
+      "displayName": "Wikipedia – Santo Domingo",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Santo_Domingo_(capital).ogg",
+      "tags": {
+        "reader": "Jcb",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 90,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Santo Domingo (capital).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Santo Domingo",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/Santo_Domingo_%28capital%29.ogg",
+          "duration": 90
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Santo Domingo",
+        "uploadTs": "2007-01-06T12:35:18Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:sibila",
+      "title": "Sibila",
+      "displayName": "Wikipedia – Sibila",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Sibila-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 111,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Sibila-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Sibila",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Es-Sibila-article.ogg",
+          "duration": 111
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Sibila",
+        "uploadTs": "2005-06-21T20:16:16Z"
       }
     },
     {
@@ -9366,43 +11993,6 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Siglo de Pericles",
         "uploadTs": "2005-06-26T00:45:35Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:sim-n-bol-var",
-      "title": "Simón Bolívar",
-      "displayName": "Wikipedia – Simón Bolívar",
-      "lang": "es",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Simon_Bolivar,_Spanish_Wikipedia_Article_Intro.wav",
-      "tags": {
-        "reader": "Wilfredo Rafael Rodriguez Hernandez",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Simon Bolivar, Spanish Wikipedia Article Intro.wav"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Simón Bolívar",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/42/Simon_Bolivar%2C_Spanish_Wikipedia_Article_Intro.wav",
-          "duration": 0
-        }
-      ],
-      "textLive": {
-        "wiki": "es",
-        "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Simón Bolívar",
-        "uploadTs": "2020-09-01T16:38:45Z"
       }
     },
     {
@@ -9519,6 +12109,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:stadio-giuseppe-grezar",
+      "title": "Stadio Giuseppe Grezar",
+      "displayName": "Wikipedia – Stadio Giuseppe Grezar",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Stadio_Giuseppe_Grezar-article.ogg",
+      "tags": {
+        "reader": "Metronick",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 116,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Stadio Giuseppe Grezar-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Stadio Giuseppe Grezar",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Es-Stadio_Giuseppe_Grezar-article.ogg",
+          "duration": 116
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Stadio Giuseppe Grezar",
+        "uploadTs": "2006-05-01T01:29:21Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:steven-pinker",
       "title": "Steven Pinker",
       "displayName": "Wikipedia – Steven Pinker",
@@ -9551,6 +12178,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Steven Pinker",
         "uploadTs": "2021-09-20T01:11:53Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:surgimiento-del-estado-argentino",
+      "title": "Surgimiento del Estado Argentino",
+      "displayName": "Wikipedia – Surgimiento del Estado Argentino",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Surgimiento_del_estado_argentino-article.ogg",
+      "tags": {
+        "reader": "Rayentray",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1487,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Surgimiento del estado argentino-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Surgimiento del Estado Argentino",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Es-Surgimiento_del_estado_argentino-article.ogg",
+          "duration": 1487
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Surgimiento del Estado Argentino",
+        "uploadTs": "2010-05-30T15:15:37Z"
       }
     },
     {
@@ -9699,6 +12363,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Tarjeta navideña",
         "uploadTs": "2019-11-02T19:54:29Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:tecnomarcador",
+      "title": "Tecnomarcador",
+      "displayName": "Wikipedia – Tecnomarcador",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Tecnomarcador_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Tecnomarcador (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Tecnomarcador",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Wikipedia_-_Tecnomarcador_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Tecnomarcador",
+        "uploadTs": "2024-11-08T19:03:45Z"
       }
     },
     {
@@ -9963,9 +12664,46 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:trofeo-de-la-copa-libertadores",
-      "title": "Trofeo de la Copa Libertadores",
-      "displayName": "Wikipedia – Trofeo de la Copa Libertadores",
+      "id": "commons:tres-arroyos",
+      "title": "Tres Arroyos",
+      "displayName": "Wikipedia – Tres Arroyos",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_grabada_es-tres_arroyos-article.ogg",
+      "tags": {
+        "reader": "Walteriorubenslezcano",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 65,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia grabada es-tres arroyos-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Tres Arroyos",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Wikipedia_grabada_es-tres_arroyos-article.ogg",
+          "duration": 65
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Tres Arroyos",
+        "uploadTs": "2020-07-30T15:01:59Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:trofeo-de-la-copa-libertadores-de-am-rica",
+      "title": "Trofeo de la Copa Libertadores de América",
+      "displayName": "Wikipedia – Trofeo de la Copa Libertadores de América",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -9985,7 +12723,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Trofeo de la Copa Libertadores",
+          "title": "Trofeo de la Copa Libertadores de América",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/9/93/Trofeo_de_la_Copa_Libertadores_de_America.ogg",
           "duration": 412
         }
@@ -9993,8 +12731,82 @@
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Trofeo de la Copa Libertadores",
+        "article": "Trofeo de la Copa Libertadores de América",
         "uploadTs": "2011-05-20T02:12:45Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:uruguay",
+      "title": "Uruguay",
+      "displayName": "Wikipedia – Uruguay",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:ES-lucha_de_por_Independencia_de_Uruguay.ogg",
+      "tags": {
+        "reader": "Mariadelcarmenpatricia",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 309,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:ES-lucha de por Independencia de Uruguay.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Uruguay",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fe/ES-lucha_de_por_Independencia_de_Uruguay.ogg",
+          "duration": 309
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Uruguay",
+        "uploadTs": "2010-08-21T09:24:03Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:usuario-abanico",
+      "title": "Usuario:abanico",
+      "displayName": "Wikipedia – Usuario:abanico",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Las_Palmas_de_Gran_Canaria-Wikiversity.ogg",
+      "tags": {
+        "reader": "abanico",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 169,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Las Palmas de Gran Canaria-Wikiversity.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Usuario:abanico",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/03/Las_Palmas_de_Gran_Canaria-Wikiversity.ogg",
+          "duration": 169
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Usuario:abanico",
+        "uploadTs": "2008-01-05T13:43:22Z"
       }
     },
     {
@@ -10296,6 +13108,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:v-neto",
+      "title": "Véneto",
+      "displayName": "Wikipedia – Véneto",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Véneto-article.ogg",
+      "tags": {
+        "reader": "Klausghm",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 231,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Véneto-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Véneto",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Es-V%C3%A9neto-article.ogg",
+          "duration": 231
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Véneto",
+        "uploadTs": "2008-06-16T03:35:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:v-ctor-guillermo-ramos-rangel",
       "title": "Víctor Guillermo Ramos Rangel",
       "displayName": "Wikipedia – Víctor Guillermo Ramos Rangel",
@@ -10333,6 +13182,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:wikimedia-commons",
+      "title": "Wikimedia Commons",
+      "displayName": "Wikipedia – Wikimedia Commons",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Wikimedia_Commons_(hablado_por_voz_AI).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Wikimedia Commons (hablado por voz AI).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Wikimedia Commons",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/38/Wikipedia_-_Wikimedia_Commons_%28hablado_por_voz_AI%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Wikimedia Commons",
+        "uploadTs": "2024-11-08T19:03:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:wikipedia",
       "title": "Wikipedia",
       "displayName": "Wikipedia – Wikipedia",
@@ -10365,6 +13251,117 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Wikipedia",
         "uploadTs": "2012-02-07T12:24:02Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:wikipedia-en-espa-ol",
+      "title": "Wikipedia en español",
+      "displayName": "Wikipedia – Wikipedia en español",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Wikipedia_en_español_(hablado_por_voz_AI)_(XimenaNeural_voz).mp3",
+      "tags": {
+        "reader": "KI (XimenaNeural)",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Wikipedia en español (hablado por voz AI) (XimenaNeural voz).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Wikipedia en español",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/32/Wikipedia_-_Wikipedia_en_espa%C3%B1ol_%28hablado_por_voz_AI%29_%28XimenaNeural_voz%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Wikipedia en español",
+        "uploadTs": "2024-11-09T01:19:25Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:wikiproyecto-wikipedia-grabada",
+      "title": "Wikiproyecto:Wikipedia grabada",
+      "displayName": "Wikipedia – Wikiproyecto:Wikipedia grabada",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Claudio-article.ogg",
+      "tags": {
+        "reader": "Boricuaeddie",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 238,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Es-Claudio-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Wikiproyecto:Wikipedia grabada",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Es-Claudio-article.ogg",
+          "duration": 238
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Wikiproyecto:Wikipedia grabada",
+        "uploadTs": "2008-03-24T13:54:21Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:xmms",
+      "title": "XMMS",
+      "displayName": "Wikipedia – XMMS",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:XMMS_1.ogg",
+      "tags": {
+        "reader": "Georgina C.",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 73,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:XMMS 1.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "XMMS",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/07/XMMS_1.ogg",
+          "duration": 73
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "XMMS",
+        "uploadTs": "2007-04-17T22:56:22Z"
       }
     },
     {
@@ -10481,38 +13478,112 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:ngeles-mastretta",
-      "title": "Ángeles Mastretta",
-      "displayName": "Wikipedia – Ángeles Mastretta",
+      "id": "commons:https-es-wikipedia-org-wiki-ciencias-formales",
+      "title": "https://es.wikipedia.org/wiki/Ciencias_formales",
+      "displayName": "Wikipedia – https://es.wikipedia.org/wiki/Ciencias_formales",
       "lang": "es",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Es-Ángeles_Mastretta-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Es-Ciencias_Formales-article.ogg",
       "tags": {
-        "reader": "Javier García Gómez",
+        "reader": "Guesst.top",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 220,
+        "total_seconds": 113,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Es-Ángeles Mastretta-article.ogg"
+        "source_file": "File:Es-Ciencias Formales-article.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "Ángeles Mastretta",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Es-%C3%81ngeles_Mastretta-article.ogg",
-          "duration": 220
+          "title": "https://es.wikipedia.org/wiki/Ciencias_formales",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Es-Ciencias_Formales-article.ogg",
+          "duration": 113
         }
       ],
       "textLive": {
         "wiki": "es",
         "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Ángeles Mastretta",
-        "uploadTs": "2006-12-21T05:25:23Z"
+        "article": "https://es.wikipedia.org/wiki/Ciencias_formales",
+        "uploadTs": "2018-08-27T01:46:51Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:w-argentina",
+      "title": "w:Argentina",
+      "displayName": "Wikipedia – w:Argentina",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Geografía_argentina.ogg",
+      "tags": {
+        "reader": "Roberto Fiadone",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 519,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Geografía argentina.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "w:Argentina",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/45/Geograf%C3%ADa_argentina.ogg",
+          "duration": 519
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "w:Argentina",
+        "uploadTs": "2010-05-30T03:03:15Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:w-provincias-unidas-del-r-o-de-la-plata",
+      "title": "w:Provincias Unidas del Río de la Plata",
+      "displayName": "Wikipedia – w:Provincias Unidas del Río de la Plata",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Provincias_Unidas_del_Río_de_la_Plata.ogg",
+      "tags": {
+        "reader": "Roberto Fiadone",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 467,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Provincias Unidas del Río de la Plata.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "w:Provincias Unidas del Río de la Plata",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/Provincias_Unidas_del_R%C3%ADo_de_la_Plata.ogg",
+          "duration": 467
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "w:Provincias Unidas del Río de la Plata",
+        "uploadTs": "2010-05-27T02:49:48Z"
       }
     },
     {

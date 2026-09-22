@@ -269,6 +269,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:nrw",
+      "title": ".nrw",
+      "displayName": "Wikipedia – .nrw",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-.nrw-article.ogg",
+      "tags": {
+        "reader": "Jonsonr",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 110,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-.nrw-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": ".nrw",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d8/De-.nrw-article.ogg",
+          "duration": 110
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": ".nrw",
+        "uploadTs": "2021-03-17T13:12:17Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:pro",
       "title": ".pro",
       "displayName": "Wikipedia – .pro",
@@ -634,6 +671,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Aachhorn",
         "uploadTs": "2011-04-04T01:49:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:abwasch",
+      "title": "Abwasch",
+      "displayName": "Wikipedia – Abwasch",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Abwasch-article.ogg",
+      "tags": {
+        "reader": "Andrang",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 79,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Abwasch-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Abwasch",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/De-Abwasch-article.ogg",
+          "duration": 79
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Abwasch",
+        "uploadTs": "2016-08-14T21:52:08Z"
       }
     },
     {
@@ -1453,6 +1527,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:alkohol",
+      "title": "Alkohol",
+      "displayName": "Wikipedia – Alkohol",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Alkohol-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 499,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Alkohol-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Alkohol",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8a/De-Alkohol-article.ogg",
+          "duration": 499
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Alkohol",
+        "uploadTs": "2005-08-05T22:17:44Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:alle-jahre-wieder-die-familie-semmeling",
       "title": "Alle Jahre wieder – Die Familie Semmeling",
       "displayName": "Wikipedia – Alle Jahre wieder – Die Familie Semmeling",
@@ -1485,6 +1596,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Alle Jahre wieder – Die Familie Semmeling",
         "uploadTs": "2011-10-13T18:09:22Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:allwissende-m-llhalde",
+      "title": "Allwissende Müllhalde",
+      "displayName": "Wikipedia – Allwissende Müllhalde",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Allwissende-Muellhalde-article.ogg",
+      "tags": {
+        "reader": "Rainer Lewalter",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 96,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Allwissende-Muellhalde-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Allwissende Müllhalde",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a7/De-Allwissende-Muellhalde-article.ogg",
+          "duration": 96
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Allwissende Müllhalde",
+        "uploadTs": "2006-08-02T19:48:36Z"
       }
     },
     {
@@ -2637,6 +2785,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:arboricol",
+      "title": "Arboricol",
+      "displayName": "Wikipedia – Arboricol",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Arboricol-article.ogg",
+      "tags": {
+        "reader": "Kogge",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Arboricol-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Arboricol",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ac/De-Arboricol-article.ogg",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Arboricol",
+        "uploadTs": "2014-05-16T09:31:29Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:area-51",
       "title": "Area 51",
       "displayName": "Wikipedia – Area 51",
@@ -2939,32 +3124,32 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Arzneimittelverzeichnis-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Arzneimittelverzeichnis-article-2004.ogg",
       "tags": {
-        "reader": "Sebbl2go",
+        "reader": "Guatemala",
         "gender": "m",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 231,
+        "total_seconds": 65,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Arzneimittelverzeichnis-article.ogg"
+        "source_file": "File:De-Arzneimittelverzeichnis-article-2004.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Arzneimittelverzeichnis",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/82/De-Arzneimittelverzeichnis-article.ogg",
-          "duration": 231
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a4/De-Arzneimittelverzeichnis-article-2004.ogg",
+          "duration": 65
         }
       ],
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Arzneimittelverzeichnis",
-        "uploadTs": "2008-06-29T23:12:18Z"
+        "uploadTs": "2011-04-04T01:39:01Z"
       }
     },
     {
@@ -4117,6 +4302,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:b227",
+      "title": "B227",
+      "displayName": "Wikipedia – B227",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-B227-article.ogg",
+      "tags": {
+        "reader": "Sebastian Stücker",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 112,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-B227-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "B227",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/54/De-B227-article.ogg",
+          "duration": 112
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "B227",
+        "uploadTs": "2006-10-08T13:37:28Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:bbc-world-service",
       "title": "BBC World Service",
       "displayName": "Wikipedia – BBC World Service",
@@ -4900,25 +5122,25 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Bahnstrecke_München-Pasing–Herrsching_2-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Bahnstrecke_München-Pasing–Herrsching_3-article.ogg",
       "tags": {
         "reader": "Blik",
         "gender": "m",
         "dialekt": "",
         "length_band": "medium",
-        "total_seconds": 2688,
+        "total_seconds": 1661,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Bahnstrecke München-Pasing–Herrsching 2-article.ogg"
+        "source_file": "File:De-Bahnstrecke München-Pasing–Herrsching 3-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Bahnstrecke München-Pasing–Herrsching",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a7/De-Bahnstrecke_M%C3%BCnchen-Pasing%E2%80%93Herrsching_2-article.ogg",
-          "duration": 2688
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/60/De-Bahnstrecke_M%C3%BCnchen-Pasing%E2%80%93Herrsching_3-article.ogg",
+          "duration": 1661
         }
       ],
       "textLive": {
@@ -4937,25 +5159,25 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Bahnstrecke-München–Simbach_1-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Bahnstrecke-München–Simbach_3-article.ogg",
       "tags": {
         "reader": "Blik",
         "gender": "m",
         "dialekt": "",
         "length_band": "long",
-        "total_seconds": 2831,
+        "total_seconds": 2888,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Bahnstrecke-München–Simbach 1-article.ogg"
+        "source_file": "File:De-Bahnstrecke-München–Simbach 3-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Bahnstrecke München–Simbach",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/De-Bahnstrecke-M%C3%BCnchen%E2%80%93Simbach_1-article.ogg",
-          "duration": 2831
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/De-Bahnstrecke-M%C3%BCnchen%E2%80%93Simbach_3-article.ogg",
+          "duration": 2888
         }
       ],
       "textLive": {
@@ -5259,6 +5481,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Battlefield 1943",
         "uploadTs": "2010-03-12T14:52:54Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:bauinformatik",
+      "title": "Bauinformatik",
+      "displayName": "Wikipedia – Bauinformatik",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Bauinformatik-article.ogg",
+      "tags": {
+        "reader": "debuglevel",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 112,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Bauinformatik-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Bauinformatik",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a9/De-Bauinformatik-article.ogg",
+          "duration": 112
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Bauinformatik",
+        "uploadTs": "2013-06-13T21:14:21Z"
       }
     },
     {
@@ -5740,6 +5999,117 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Benedikt_XVI.",
         "uploadTs": "2005-08-11T12:15:30Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:benutzer-akoenig",
+      "title": "Benutzer:AKoenig",
+      "displayName": "Wikipedia – Benutzer:AKoenig",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Erste_Marrokkokrise.ogg",
+      "tags": {
+        "reader": "Wikipedia",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 81,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Erste Marrokkokrise.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Benutzer:AKoenig",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/91/Erste_Marrokkokrise.ogg",
+          "duration": 81
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Benutzer:AKoenig",
+        "uploadTs": "2017-10-14T07:12:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:benutzer-kantor-jh",
+      "title": "Benutzer:Kantor.JH",
+      "displayName": "Wikipedia – Benutzer:Kantor.JH",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Universalien_der_Musikwahrnehmung-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1481,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Universalien der Musikwahrnehmung-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Benutzer:Kantor.JH",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/06/De-Universalien_der_Musikwahrnehmung-article.ogg",
+          "duration": 1481
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Benutzer:Kantor.JH",
+        "uploadTs": "2006-08-03T17:06:23Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:benutzer-southpark-playing-wikipedia",
+      "title": "Benutzer:Southpark/Playing Wikipedia",
+      "displayName": "Wikipedia – Benutzer:Southpark/Playing Wikipedia",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Playing_wikipedia.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 603,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Playing wikipedia.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Benutzer:Southpark/Playing Wikipedia",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Playing_wikipedia.ogg",
+          "duration": 603
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Benutzer:Southpark/Playing Wikipedia",
+        "uploadTs": "2006-08-02T20:22:59Z"
       }
     },
     {
@@ -7072,6 +7442,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Bohrplattform",
         "uploadTs": "2013-08-09T00:58:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:bono",
+      "title": "Bono",
+      "displayName": "Wikipedia – Bono",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Bono-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 296,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Bono-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Bono",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/De-Bono-article.ogg",
+          "duration": 296
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Bono",
+        "uploadTs": "2005-08-05T22:12:23Z"
       }
     },
     {
@@ -9377,32 +9784,32 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Chuchichaeschtli-article-08-2006-v2.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Schibboleth.ogg",
       "tags": {
-        "reader": "Gestumblindi",
-        "gender": "m",
+        "reader": "Benutzer:Krikelpit",
+        "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 193,
+        "total_seconds": 114,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Chuchichaeschtli-article-08-2006-v2.ogg"
+        "source_file": "File:Schibboleth.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Chuchichäschtli",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/90/De-Chuchichaeschtli-article-08-2006-v2.ogg",
-          "duration": 193
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Schibboleth.ogg",
+          "duration": 114
         }
       ],
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Chuchichäschtli",
-        "uploadTs": "2011-04-04T01:23:42Z"
+        "uploadTs": "2013-01-15T02:43:26Z"
       }
     },
     {
@@ -9525,25 +9932,25 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Commodore_64_6-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Commodore_64_5-article.ogg",
       "tags": {
         "reader": "Blik",
         "gender": "m",
         "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 478,
+        "length_band": "medium",
+        "total_seconds": 1775,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Commodore 64 6-article.ogg"
+        "source_file": "File:De-Commodore 64 5-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Commodore 64",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1f/De-Commodore_64_6-article.ogg",
-          "duration": 478
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/09/De-Commodore_64_5-article.ogg",
+          "duration": 1775
         }
       ],
       "textLive": {
@@ -10476,6 +10883,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Dante Alighieri",
         "uploadTs": "2014-01-01T13:55:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:darwin-airline",
+      "title": "Darwin_Airline",
+      "displayName": "Wikipedia – Darwin_Airline",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Darwin_Airline-article.ogg",
+      "tags": {
+        "reader": "Stolliii",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 69,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Darwin Airline-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Darwin_Airline",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/De-Darwin_Airline-article.ogg",
+          "duration": 69
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Darwin_Airline",
+        "uploadTs": "2008-03-31T19:06:27Z"
       }
     },
     {
@@ -11517,6 +11961,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:der-gott-der-stadt",
+      "title": "Der Gott der Stadt",
+      "displayName": "Wikipedia – Der Gott der Stadt",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Der_Gott_der_Stadt-wikisource.ogg",
+      "tags": {
+        "reader": "elias_togo",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 94,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Der Gott der Stadt-wikisource.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Der Gott der Stadt",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1b/De-Der_Gott_der_Stadt-wikisource.ogg",
+          "duration": 94
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Der Gott der Stadt",
+        "uploadTs": "2008-05-10T15:27:27Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:der-h-rverlag",
       "title": "Der Hörverlag",
       "displayName": "Wikipedia – Der Hörverlag",
@@ -11586,6 +12067,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Der Meister und Margarita",
         "uploadTs": "2011-07-27T19:51:37Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:der-panther",
+      "title": "Der Panther",
+      "displayName": "Wikipedia – Der Panther",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Der_Panther-wikisource.ogg",
+      "tags": {
+        "reader": "Popokatepetel",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 53,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Der Panther-wikisource.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Der Panther",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/13/De-Der_Panther-wikisource.ogg",
+          "duration": 53
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Der Panther",
+        "uploadTs": "2012-08-18T12:54:33Z"
       }
     },
     {
@@ -12775,6 +13293,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:deutschland-2-flora-und-fauna",
+      "title": "Deutschland 2 Flora und Fauna",
+      "displayName": "Wikipedia – Deutschland 2 Flora und Fauna",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Deutschland_2_Flora_und_Fauna-article.ogg",
+      "tags": {
+        "reader": "Lutz Ehrig",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 85,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Deutschland 2 Flora und Fauna-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Deutschland 2 Flora und Fauna",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ed/De-Deutschland_2_Flora_und_Fauna-article.ogg",
+          "duration": 85
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Deutschland 2 Flora und Fauna",
+        "uploadTs": "2006-12-23T14:16:54Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:deutschland-3-politik",
       "title": "Deutschland 3 Politik",
       "displayName": "Wikipedia – Deutschland 3 Politik",
@@ -13885,6 +14440,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:dirty-s-nchez",
+      "title": "Dirty Sánchez",
+      "displayName": "Wikipedia – Dirty Sánchez",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Dirty_sanchez.ogg",
+      "tags": {
+        "reader": "Matthuas104",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 55,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Dirty sanchez.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Dirty Sánchez",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/Dirty_sanchez.ogg",
+          "duration": 55
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Dirty Sánchez",
+        "uploadTs": "2008-05-19T08:02:03Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:dispositionssystem",
       "title": "Dispositionssystem",
       "displayName": "Wikipedia – Dispositionssystem",
@@ -14657,6 +15249,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "ENIAC",
         "uploadTs": "2010-09-24T02:06:49Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:echtzeit",
+      "title": "Echtzeit",
+      "displayName": "Wikipedia – Echtzeit",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Echtzeit-article.ogg",
+      "tags": {
+        "reader": "debuglevel",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 117,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Echtzeit-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Echtzeit",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/30/De-Echtzeit-article.ogg",
+          "duration": 117
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Echtzeit",
+        "uploadTs": "2013-06-13T21:07:43Z"
       }
     },
     {
@@ -15667,32 +16296,32 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Erde-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Erde_(gesprochene_Wikipedia_mit_KI-Stimme).mp3",
       "tags": {
-        "reader": "Ahoek",
-        "gender": "m",
+        "reader": "KI-Stimme",
+        "gender": "",
         "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 2504,
+        "length_band": "",
+        "total_seconds": 0,
         "fiction": "artikel",
-        "synthetic": "n",
+        "synthetic": "y",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Erde-article.ogg"
+        "source_file": "File:Wikipedia - Erde (gesprochene Wikipedia mit KI-Stimme).mp3"
       },
       "items": [
         {
           "id": "art",
           "title": "Erde",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6c/De-Erde-article.ogg",
-          "duration": 2504
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Wikipedia_-_Erde_%28gesprochene_Wikipedia_mit_KI-Stimme%29.mp3",
+          "duration": 0
         }
       ],
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Erde",
-        "uploadTs": "2013-08-25T22:25:00Z"
+        "uploadTs": "2024-10-31T00:04:43Z"
       }
     },
     {
@@ -16179,6 +16808,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:exaile",
+      "title": "Exaile",
+      "displayName": "Wikipedia – Exaile",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Exaile-article.ogg",
+      "tags": {
+        "reader": "Rhododendronbusch",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 118,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Exaile-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Exaile",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9f/De-Exaile-article.ogg",
+          "duration": 118
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Exaile",
+        "uploadTs": "2007-06-05T19:41:27Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:experimentelle-fotografie",
       "title": "Experimentelle Fotografie",
       "displayName": "Wikipedia – Experimentelle Fotografie",
@@ -16507,6 +17173,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Februar 2000",
         "uploadTs": "2016-07-06T16:47:45Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:federdruckwaffe",
+      "title": "Federdruckwaffe",
+      "displayName": "Wikipedia – Federdruckwaffe",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Federdruckwaffe-article.ogg",
+      "tags": {
+        "reader": "Pattrick Bailey",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 115,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Federdruckwaffe-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Federdruckwaffe",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7a/De-Federdruckwaffe-article.ogg",
+          "duration": 115
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Federdruckwaffe",
+        "uploadTs": "2021-11-02T14:57:36Z"
       }
     },
     {
@@ -18214,6 +18917,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:f-hrungsakademie-der-bundeswehr",
+      "title": "Führungsakademie der Bundeswehr",
+      "displayName": "Wikipedia – Führungsakademie der Bundeswehr",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Führungsakademie_der_Bundeswehr-article.ogg",
+      "tags": {
+        "reader": "Guatemala",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Führungsakademie der Bundeswehr-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Führungsakademie der Bundeswehr",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/De-F%C3%BChrungsakademie_der_Bundeswehr-article.ogg",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Führungsakademie der Bundeswehr",
+        "uploadTs": "2011-04-04T01:38:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:g-i-joe-die-abrechnung",
       "title": "G.I. Joe – Die Abrechnung",
       "displayName": "Wikipedia – G.I. Joe – Die Abrechnung",
@@ -18394,6 +19134,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Galileo Galilei",
         "uploadTs": "2013-08-23T00:32:02Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:gammaracanthuskytodermogammarus-loricatobaicalensis",
+      "title": "Gammaracanthuskytodermogammarus loricatobaicalensis",
+      "displayName": "Wikipedia – Gammaracanthuskytodermogammarus loricatobaicalensis",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Gammaracanthuskytodermogammarus-article.ogg",
+      "tags": {
+        "reader": "Achim Raschka",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 103,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Gammaracanthuskytodermogammarus-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Gammaracanthuskytodermogammarus loricatobaicalensis",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bd/De-Gammaracanthuskytodermogammarus-article.ogg",
+          "duration": 103
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Gammaracanthuskytodermogammarus loricatobaicalensis",
+        "uploadTs": "2006-07-30T15:37:42Z"
       }
     },
     {
@@ -19071,25 +19848,25 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Geschichte_Aubings_6-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Geschichte_Aubings_7-article.ogg",
       "tags": {
         "reader": "Blik",
         "gender": "m",
         "dialekt": "",
         "length_band": "short",
-        "total_seconds": 854,
+        "total_seconds": 373,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Geschichte Aubings 6-article.ogg"
+        "source_file": "File:De-Geschichte Aubings 7-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Geschichte Aubings",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/89/De-Geschichte_Aubings_6-article.ogg",
-          "duration": 854
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/De-Geschichte_Aubings_7-article.ogg",
+          "duration": 373
         }
       ],
       "textLive": {
@@ -20064,6 +20841,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:grundschlag",
+      "title": "Grundschlag",
+      "displayName": "Wikipedia – Grundschlag",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Grundschlag-article.ogg",
+      "tags": {
+        "reader": "Jonsonr",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 115,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Grundschlag-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Grundschlag",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ee/De-Grundschlag-article.ogg",
+          "duration": 115
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Grundschlag",
+        "uploadTs": "2022-01-09T13:24:58Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:grunewaldsee",
       "title": "Grunewaldsee",
       "displayName": "Wikipedia – Grunewaldsee",
@@ -20133,6 +20947,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Guano Islands Act",
         "uploadTs": "2021-09-22T11:40:40Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:gummihammer",
+      "title": "Gummihammer",
+      "displayName": "Wikipedia – Gummihammer",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Gummihammer-article.ogg",
+      "tags": {
+        "reader": "Fabian7351",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 63,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Gummihammer-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Gummihammer",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/De-Gummihammer-article.ogg",
+          "duration": 63
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Gummihammer",
+        "uploadTs": "2007-05-18T15:54:22Z"
       }
     },
     {
@@ -21248,6 +22099,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:heidenberg-siegen",
+      "title": "Heidenberg (Siegen)",
+      "displayName": "Wikipedia – Heidenberg (Siegen)",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Heidenberg_(Siegen)-article.ogg",
+      "tags": {
+        "reader": "Reiner Bäcker",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 102,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Heidenberg (Siegen)-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Heidenberg (Siegen)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/De-Heidenberg_%28Siegen%29-article.ogg",
+          "duration": 102
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Heidenberg (Siegen)",
+        "uploadTs": "2021-06-22T19:29:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:heilige-allianz",
       "title": "Heilige Allianz",
       "displayName": "Wikipedia – Heilige Allianz",
@@ -21544,6 +22432,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:helvetic-airways",
+      "title": "Helvetic Airways",
+      "displayName": "Wikipedia – Helvetic Airways",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Helvetic.ogg",
+      "tags": {
+        "reader": "Stollii",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Helvetic.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Helvetic Airways",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Helvetic.ogg",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Helvetic Airways",
+        "uploadTs": "2008-04-04T17:11:27Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:henry-ford-bau",
       "title": "Henry-Ford-Bau",
       "displayName": "Wikipedia – Henry-Ford-Bau",
@@ -21687,6 +22612,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Herpersdorf (Nürnberg)",
         "uploadTs": "2014-12-03T20:51:21Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:herrenchiemsee",
+      "title": "Herrenchiemsee",
+      "displayName": "Wikipedia – Herrenchiemsee",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Herrenchiemsee-article.ogg",
+      "tags": {
+        "reader": "JeLuF",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 94,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Herrenchiemsee-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Herrenchiemsee",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cc/De-Herrenchiemsee-article.ogg",
+          "duration": 94
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Herrenchiemsee",
+        "uploadTs": "2011-04-04T15:58:23Z"
       }
     },
     {
@@ -21846,32 +22808,32 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Himmelsscheibe_von_Nebra-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Himmelsscheibe_von_Nebra_6.ogg",
       "tags": {
-        "reader": "danyelz",
-        "gender": "m",
+        "reader": "Danyelz",
+        "gender": "",
         "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 1287,
+        "length_band": "very_short",
+        "total_seconds": 253,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Himmelsscheibe von Nebra-article.ogg"
+        "source_file": "File:Himmelsscheibe von Nebra 6.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Himmelsscheibe von Nebra",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d5/De-Himmelsscheibe_von_Nebra-article.ogg",
-          "duration": 1287
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/21/Himmelsscheibe_von_Nebra_6.ogg",
+          "duration": 253
         }
       ],
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Himmelsscheibe von Nebra",
-        "uploadTs": "2011-04-04T02:09:20Z"
+        "uploadTs": "2017-07-13T10:09:09Z"
       }
     },
     {
@@ -22020,6 +22982,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Holstentor",
         "uploadTs": "2013-03-20T00:53:51Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:homeshopping",
+      "title": "Homeshopping",
+      "displayName": "Wikipedia – Homeshopping",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Homeshopping-article.ogg",
+      "tags": {
+        "reader": "Explore.ur.world",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 96,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Homeshopping-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Homeshopping",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/50/De-Homeshopping-article.ogg",
+          "duration": 96
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Homeshopping",
+        "uploadTs": "2011-04-04T02:06:15Z"
       }
     },
     {
@@ -24837,6 +25836,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:kelten",
+      "title": "Kelten",
+      "displayName": "Wikipedia – Kelten",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipediakelten.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1419,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipediakelten.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Kelten",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/92/Wikipediakelten.ogg",
+          "duration": 1419
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Kelten",
+        "uploadTs": "2005-04-11T00:14:14Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:kenroku-en",
       "title": "Kenroku-en",
       "displayName": "Wikipedia – Kenroku-en",
@@ -24869,6 +25905,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Kenroku-en",
         "uploadTs": "2015-01-05T20:57:15Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:kettennieter",
+      "title": "Kettennieter",
+      "displayName": "Wikipedia – Kettennieter",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Kettennieter-article.ogg",
+      "tags": {
+        "reader": "Achim Raschka",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 118,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Kettennieter-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Kettennieter",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/De-Kettennieter-article.ogg",
+          "duration": 118
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Kettennieter",
+        "uploadTs": "2006-07-28T22:34:40Z"
       }
     },
     {
@@ -25202,6 +26275,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Kleiner Klappertopf",
         "uploadTs": "2010-10-06T07:39:11Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:kleinstbetrag",
+      "title": "Kleinstbetrag",
+      "displayName": "Wikipedia – Kleinstbetrag",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Kleinstbetrag-article.ogg",
+      "tags": {
+        "reader": "debuglevel",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 78,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Kleinstbetrag-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Kleinstbetrag",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/db/De-Kleinstbetrag-article.ogg",
+          "duration": 78
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Kleinstbetrag",
+        "uploadTs": "2013-06-13T21:09:20Z"
       }
     },
     {
@@ -25762,6 +26872,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:krautinsel",
+      "title": "Krautinsel",
+      "displayName": "Wikipedia – Krautinsel",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Krautinsel-article.ogg",
+      "tags": {
+        "reader": "TomK32",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 58,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Krautinsel-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Krautinsel",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/48/De-Krautinsel-article.ogg",
+          "duration": 58
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Krautinsel",
+        "uploadTs": "2011-04-04T02:05:44Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:kriminalfall-h-xter",
       "title": "Kriminalfall Höxter",
       "displayName": "Wikipedia – Kriminalfall Höxter",
@@ -26243,6 +27390,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:kurt-cobain",
+      "title": "Kurt Cobain",
+      "displayName": "Wikipedia – Kurt Cobain",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Kurt_Cobain-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 366,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Kurt Cobain-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Kurt Cobain",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ac/De-Kurt_Cobain-article.ogg",
+          "duration": 366
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Kurt Cobain",
+        "uploadTs": "2005-08-05T22:15:22Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:kurt-eisner",
       "title": "Kurt Eisner",
       "displayName": "Wikipedia – Kurt Eisner",
@@ -26645,6 +27829,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Künstlerhaus Kempten",
         "uploadTs": "2019-09-02T18:11:11Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:k-nstliche-intelligenz",
+      "title": "Künstliche Intelligenz",
+      "displayName": "Wikipedia – Künstliche Intelligenz",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Künstliche_Intelligenz_(gesprochene_Wikipedia_mit_KI-Stimme).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Künstliche Intelligenz (gesprochene Wikipedia mit KI-Stimme).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Künstliche Intelligenz",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Wikipedia_-_K%C3%BCnstliche_Intelligenz_%28gesprochene_Wikipedia_mit_KI-Stimme%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Künstliche Intelligenz",
+        "uploadTs": "2024-10-31T00:04:37Z"
       }
     },
     {
@@ -27618,32 +28839,32 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Linux-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Linux_(gesprochene_Wikipedia_mit_KI-Stimme).mp3",
       "tags": {
-        "reader": "Gumboyaya",
-        "gender": "m",
+        "reader": "KI-Stimme",
+        "gender": "",
         "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 1752,
+        "length_band": "",
+        "total_seconds": 0,
         "fiction": "artikel",
-        "synthetic": "n",
+        "synthetic": "y",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Linux-article.ogg"
+        "source_file": "File:Wikipedia - Linux (gesprochene Wikipedia mit KI-Stimme).mp3"
       },
       "items": [
         {
           "id": "art",
           "title": "Linux",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7e/De-Linux-article.ogg",
-          "duration": 1752
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/73/Wikipedia_-_Linux_%28gesprochene_Wikipedia_mit_KI-Stimme%29.mp3",
+          "duration": 0
         }
       ],
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Linux",
-        "uploadTs": "2006-12-27T00:36:41Z"
+        "uploadTs": "2024-10-31T00:05:19Z"
       }
     },
     {
@@ -27903,6 +29124,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Logik",
         "uploadTs": "2012-08-26T21:52:22Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:logos-aristoteles",
+      "title": "Logos (Aristoteles)",
+      "displayName": "Wikipedia – Logos (Aristoteles)",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Logos_(Aristoteles)-article.ogg",
+      "tags": {
+        "reader": "Jonsonr",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 106,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Logos (Aristoteles)-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Logos (Aristoteles)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/61/De-Logos_%28Aristoteles%29-article.ogg",
+          "duration": 106
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Logos (Aristoteles)",
+        "uploadTs": "2021-06-09T16:00:43Z"
       }
     },
     {
@@ -29129,6 +30387,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:martha-gunkel",
+      "title": "Martha Gunkel",
+      "displayName": "Wikipedia – Martha Gunkel",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Martha_Gunkel-article.ogg",
+      "tags": {
+        "reader": "Benutzer:Denis Apel",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 109,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Martha Gunkel-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Martha Gunkel",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/de/De-Martha_Gunkel-article.ogg",
+          "duration": 109
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Martha Gunkel",
+        "uploadTs": "2015-03-09T20:16:05Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:martin-bachmann",
       "title": "Martin Bachmann",
       "displayName": "Wikipedia – Martin Bachmann",
@@ -29975,6 +31270,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Messerschmitt Bf 108",
         "uploadTs": "2011-04-04T01:41:28Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:metalab",
+      "title": "Metalab",
+      "displayName": "Wikipedia – Metalab",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Metalab-article.ogg",
+      "tags": {
+        "reader": "Zra",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 93,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Metalab-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Metalab",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1c/De-Metalab-article.ogg",
+          "duration": 93
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Metalab",
+        "uploadTs": "2008-09-10T21:02:18Z"
       }
     },
     {
@@ -33273,6 +34605,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:n-nie",
+      "title": "Nänie",
+      "displayName": "Wikipedia – Nänie",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Nänie-wikisource.ogg",
+      "tags": {
+        "reader": "Popokatepetel",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 73,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Nänie-wikisource.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Nänie",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/24/De-N%C3%A4nie-wikisource.ogg",
+          "duration": 73
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Nänie",
+        "uploadTs": "2012-08-18T13:41:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:osi-modell",
       "title": "OSI-Modell",
       "displayName": "Wikipedia – OSI-Modell",
@@ -36492,6 +37861,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:planungssystem",
+      "title": "Planungssystem",
+      "displayName": "Wikipedia – Planungssystem",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Planungssystem-article.ogg",
+      "tags": {
+        "reader": "debuglevel",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Planungssystem-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Planungssystem",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/De-Planungssystem-article.ogg",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Planungssystem",
+        "uploadTs": "2013-06-13T21:11:12Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:plinius-der-j-ngere",
       "title": "Plinius der Jüngere",
       "displayName": "Wikipedia – Plinius der Jüngere",
@@ -36899,6 +38305,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:postzwang",
+      "title": "Postzwang",
+      "displayName": "Wikipedia – Postzwang",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Postzwang-article.ogg",
+      "tags": {
+        "reader": "Marbruno",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 116,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Postzwang-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Postzwang",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2c/De-Postzwang-article.ogg",
+          "duration": 116
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Postzwang",
+        "uploadTs": "2020-03-27T14:45:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:power-play-zeitschrift",
       "title": "Power Play (Zeitschrift)",
       "displayName": "Wikipedia – Power Play (Zeitschrift)",
@@ -37116,6 +38559,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Professionelle Zahnreinigung",
         "uploadTs": "2021-04-18T23:18:31Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:prognathie",
+      "title": "Prognathie",
+      "displayName": "Wikipedia – Prognathie",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Prognathie-article.ogg",
+      "tags": {
+        "reader": "Kogge",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 110,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Prognathie-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Prognathie",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f6/De-Prognathie-article.ogg",
+          "duration": 110
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Prognathie",
+        "uploadTs": "2014-06-08T15:51:28Z"
       }
     },
     {
@@ -38527,6 +40007,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:revue-illustrierte",
+      "title": "Revue (Illustrierte)",
+      "displayName": "Wikipedia – Revue (Illustrierte)",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ellgaard_REVUE_1979.ogg",
+      "tags": {
+        "reader": "Holger.Ellgaard",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 115,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ellgaard REVUE 1979.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Revue (Illustrierte)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/88/Ellgaard_REVUE_1979.ogg",
+          "duration": 115
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Revue (Illustrierte)",
+        "uploadTs": "2007-09-18T10:34:55Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:rhapsody-in-blue",
       "title": "Rhapsody in Blue",
       "displayName": "Wikipedia – Rhapsody in Blue",
@@ -38749,6 +40266,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:riddim",
+      "title": "Riddim",
+      "displayName": "Wikipedia – Riddim",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Riddim_v2-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 742,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Riddim v2-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Riddim",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dc/De-Riddim_v2-article.ogg",
+          "duration": 742
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Riddim",
+        "uploadTs": "2006-08-06T01:07:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:rieke-giraffe",
       "title": "Rieke (Giraffe)",
       "displayName": "Wikipedia – Rieke (Giraffe)",
@@ -38855,6 +40409,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz",
         "uploadTs": "2006-07-07T20:42:01Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:rixdorfer-h-he",
+      "title": "Rixdorfer Höhe",
+      "displayName": "Wikipedia – Rixdorfer Höhe",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Rixdorfer_Hoehe-article.ogg",
+      "tags": {
+        "reader": "Benutzer:Denis Apel",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 100,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Rixdorfer Hoehe-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Rixdorfer Höhe",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/84/De-Rixdorfer_Hoehe-article.ogg",
+          "duration": 100
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Rixdorfer Höhe",
+        "uploadTs": "2015-03-09T19:41:03Z"
       }
     },
     {
@@ -41006,6 +42597,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:schwarzschrift",
+      "title": "Schwarzschrift",
+      "displayName": "Wikipedia – Schwarzschrift",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Schwarzschrift-article.ogg",
+      "tags": {
+        "reader": "JohnWilliamDoe",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 85,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Schwarzschrift-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Schwarzschrift",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fc/De-Schwarzschrift-article.ogg",
+          "duration": 85
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Schwarzschrift",
+        "uploadTs": "2016-03-21T17:03:30Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:schwarzwald",
       "title": "Schwarzwald",
       "displayName": "Wikipedia – Schwarzwald",
@@ -42338,6 +43966,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:sildemower-see",
+      "title": "Sildemower See",
+      "displayName": "Wikipedia – Sildemower See",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Sildemower_See-article.ogg",
+      "tags": {
+        "reader": "Henricus Minor",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 111,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Sildemower See-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Sildemower See",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b8/De-Sildemower_See-article.ogg",
+          "duration": 111
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Sildemower See",
+        "uploadTs": "2016-09-07T11:38:28Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:sinai-agame",
       "title": "Sinai-Agame",
       "displayName": "Wikipedia – Sinai-Agame",
@@ -42777,6 +44442,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Speckputsch",
         "uploadTs": "2009-01-20T08:12:01Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:sphingosin",
+      "title": "Sphingosin",
+      "displayName": "Wikipedia – Sphingosin",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Sphingosin.ogg",
+      "tags": {
+        "reader": "LuMau",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 116,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Sphingosin.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Sphingosin",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sphingosin.ogg",
+          "duration": 116
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Sphingosin",
+        "uploadTs": "2019-03-24T19:30:22Z"
       }
     },
     {
@@ -43818,6 +45520,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:stipendienwerk-guatemala",
+      "title": "Stipendienwerk Guatemala",
+      "displayName": "Wikipedia – Stipendienwerk Guatemala",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Stipendienwerk_Guatemala-article-2004.ogg",
+      "tags": {
+        "reader": "Guatemala",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 119,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Stipendienwerk Guatemala-article-2004.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Stipendienwerk Guatemala",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/De-Stipendienwerk_Guatemala-article-2004.ogg",
+          "duration": 119
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Stipendienwerk Guatemala",
+        "uploadTs": "2011-07-12T01:21:20Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:stranger-things",
       "title": "Stranger Things",
       "displayName": "Wikipedia – Stranger Things",
@@ -44442,6 +46181,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Synchronsprecher",
         "uploadTs": "2013-01-07T19:19:46Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:synthesizer",
+      "title": "Synthesizer",
+      "displayName": "Wikipedia – Synthesizer",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia-Artikel_Synthesizer_Teil_1.ogg",
+      "tags": {
+        "reader": "Natalie Claussen (Rolf Gassner, René König)",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 229,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia-Artikel Synthesizer Teil 1.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Synthesizer",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Wikipedia-Artikel_Synthesizer_Teil_1.ogg",
+          "duration": 229
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Synthesizer",
+        "uploadTs": "2017-11-23T11:16:27Z"
       }
     },
     {
@@ -45404,6 +47180,80 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Thomas Mann",
         "uploadTs": "2008-10-03T20:23:11Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:thomas-meggle",
+      "title": "Thomas Meggle",
+      "displayName": "Wikipedia – Thomas Meggle",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-ThomasMeggle-article.ogg",
+      "tags": {
+        "reader": "Yellowcard",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 87,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-ThomasMeggle-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Thomas Meggle",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cb/De-ThomasMeggle-article.ogg",
+          "duration": 87
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Thomas Meggle",
+        "uploadTs": "2006-08-09T15:37:32Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:thomas-midgley",
+      "title": "Thomas Midgley",
+      "displayName": "Wikipedia – Thomas Midgley",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Thomas_Midgley_(gesprochene_Wikipedia,_de-DE-ConradNeural-Male).mp3",
+      "tags": {
+        "reader": "KI (ConradNeural)",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Thomas Midgley (gesprochene Wikipedia, de-DE-ConradNeural-Male).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Thomas Midgley",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Wikipedia_-_Thomas_Midgley_%28gesprochene_Wikipedia%2C_de-DE-ConradNeural-Male%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Thomas Midgley",
+        "uploadTs": "2024-12-09T11:13:13Z"
       }
     },
     {
@@ -47074,43 +48924,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:universalien-der-musikwahrnehmung",
-      "title": "Universalien der Musikwahrnehmung",
-      "displayName": "Wikipedia – Universalien der Musikwahrnehmung",
-      "lang": "de",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Universalien_der_Musikwahrnehmung-article.ogg",
-      "tags": {
-        "reader": "",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 1481,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Universalien der Musikwahrnehmung-article.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Universalien der Musikwahrnehmung",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/06/De-Universalien_der_Musikwahrnehmung-article.ogg",
-          "duration": 1481
-        }
-      ],
-      "textLive": {
-        "wiki": "de",
-        "api": "https://de.wikipedia.org/w/api.php",
-        "article": "Universalien der Musikwahrnehmung",
-        "uploadTs": "2006-08-03T17:06:23Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:universit-t-duisburg-essen",
       "title": "Universität Duisburg-Essen",
       "displayName": "Wikipedia – Universität Duisburg-Essen",
@@ -47709,25 +49522,25 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Verschwörungstheorie_4-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Verschwörungstheorie_5-article.ogg",
       "tags": {
         "reader": "Blik",
         "gender": "m",
         "dialekt": "",
         "length_band": "short",
-        "total_seconds": 396,
+        "total_seconds": 586,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Verschwörungstheorie 4-article.ogg"
+        "source_file": "File:De-Verschwörungstheorie 5-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Verschwörungstheorie",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/13/De-Verschw%C3%B6rungstheorie_4-article.ogg",
-          "duration": 396
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/79/De-Verschw%C3%B6rungstheorie_5-article.ogg",
+          "duration": 586
         }
       ],
       "textLive": {
@@ -49886,6 +51699,117 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:william-shakspeare-s-s-mmtliche-gedichte-sonett-nr-27",
+      "title": "William Shakspeare's sämmtliche Gedichte/Sonett Nr. 27",
+      "displayName": "Wikipedia – William Shakspeare's sämmtliche Gedichte/Sonett Nr. 27",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Sonett_Nr._27-wikisource.ogg",
+      "tags": {
+        "reader": "Popokatepetel",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 60,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Sonett Nr. 27-wikisource.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "William Shakspeare's sämmtliche Gedichte/Sonett Nr. 27",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/05/De-Sonett_Nr._27-wikisource.ogg",
+          "duration": 60
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "William Shakspeare's sämmtliche Gedichte/Sonett Nr. 27",
+        "uploadTs": "2012-08-18T14:28:03Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:william-shakspeare-s-s-mmtliche-gedichte-sonett-xviii",
+      "title": "William Shakspeare's sämmtliche Gedichte/Sonett XVIII",
+      "displayName": "Wikipedia – William Shakspeare's sämmtliche Gedichte/Sonett XVIII",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Sonett_Nr._18-wikisource.ogg",
+      "tags": {
+        "reader": "Popokatepetel",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 56,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Sonett Nr. 18-wikisource.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "William Shakspeare's sämmtliche Gedichte/Sonett XVIII",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5e/De-Sonett_Nr._18-wikisource.ogg",
+          "duration": 56
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "William Shakspeare's sämmtliche Gedichte/Sonett XVIII",
+        "uploadTs": "2012-08-07T17:12:33Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:william-shakspeare-s-s-mmtliche-gedichte-sonett-xxiii",
+      "title": "William Shakspeare's sämmtliche Gedichte/Sonett XXIII",
+      "displayName": "Wikipedia – William Shakspeare's sämmtliche Gedichte/Sonett XXIII",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Sonett_Nr._23-wikisource.ogg",
+      "tags": {
+        "reader": "Popokatepetel",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 59,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Sonett Nr. 23-wikisource.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "William Shakspeare's sämmtliche Gedichte/Sonett XXIII",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d1/De-Sonett_Nr._23-wikisource.ogg",
+          "duration": 59
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "William Shakspeare's sämmtliche Gedichte/Sonett XXIII",
+        "uploadTs": "2012-08-18T14:12:38Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:willy-brandt",
       "title": "Willy Brandt",
       "displayName": "Wikipedia – Willy Brandt",
@@ -50103,6 +52027,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Winterschlaf",
         "uploadTs": "2015-01-06T19:43:51Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:wissenschaft",
+      "title": "Wissenschaft",
+      "displayName": "Wikipedia – Wissenschaft",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Wissenschaft_(gesprochene_Wikipedia_mit_KI-Stimme).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Wissenschaft (gesprochene Wikipedia mit KI-Stimme).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Wissenschaft",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/57/Wikipedia_-_Wissenschaft_%28gesprochene_Wikipedia_mit_KI-Stimme%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Wissenschaft",
+        "uploadTs": "2024-10-31T00:04:36Z"
       }
     },
     {
@@ -50436,6 +52397,43 @@
         "api": "https://de.wikipedia.org/w/api.php",
         "article": "Wälder bei Blomberg",
         "uploadTs": "2020-03-16T16:45:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:xyger",
+      "title": "Xyger",
+      "displayName": "Wikipedia – Xyger",
+      "lang": "de",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Xyger-article.ogg",
+      "tags": {
+        "reader": "LeaGärtner154",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:De-Xyger-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Xyger",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cf/De-Xyger-article.ogg",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "de",
+        "api": "https://de.wikipedia.org/w/api.php",
+        "article": "Xyger",
+        "uploadTs": "2021-04-02T11:25:27Z"
       }
     },
     {

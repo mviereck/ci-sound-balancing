@@ -47,6 +47,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:kuuskalf",
+      "title": "Kuuskalf",
+      "displayName": "Wikipedia – Kuuskalf",
+      "lang": "nds",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Kuuskalf.ogg",
+      "tags": {
+        "reader": "Servien",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 60,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Kuuskalf.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Kuuskalf",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/53/Kuuskalf.ogg",
+          "duration": 60
+        }
+      ],
+      "textLive": {
+        "wiki": "nds",
+        "api": "https://nds.wikipedia.org/w/api.php",
+        "article": "Kuuskalf",
+        "uploadTs": "2009-06-29T12:44:50Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:mirreweenterhoorn",
       "title": "Mirreweenterhoorn",
       "displayName": "Wikipedia – Mirreweenterhoorn",
@@ -116,6 +153,80 @@
         "api": "https://nds.wikipedia.org/w/api.php",
         "article": "Oelebred",
         "uploadTs": "2009-06-29T12:43:03Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:putten",
+      "title": "Putten",
+      "displayName": "Wikipedia – Putten",
+      "lang": "nds",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Putten.ogg",
+      "tags": {
+        "reader": "Servien",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 100,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Putten.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Putten",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Putten.ogg",
+          "duration": 100
+        }
+      ],
+      "textLive": {
+        "wiki": "nds",
+        "api": "https://nds.wikipedia.org/w/api.php",
+        "article": "Putten",
+        "uploadTs": "2009-06-29T12:34:11Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:viensterbanke",
+      "title": "Viensterbanke",
+      "displayName": "Wikipedia – Viensterbanke",
+      "lang": "nds",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Viensterbanke.ogg",
+      "tags": {
+        "reader": "Servien",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 56,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Viensterbanke.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Viensterbanke",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/04/Viensterbanke.ogg",
+          "duration": 56
+        }
+      ],
+      "textLive": {
+        "wiki": "nds",
+        "api": "https://nds.wikipedia.org/w/api.php",
+        "article": "Viensterbanke",
+        "uploadTs": "2011-07-14T18:31:07Z"
       }
     }
   ]

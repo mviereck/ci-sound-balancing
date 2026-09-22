@@ -43,6 +43,117 @@
         "article": "Apartheed",
         "uploadTs": "2014-05-28T22:13:29Z"
       }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:dippeliinchen",
+      "title": "Dippeliinchen",
+      "displayName": "Wikipedia – Dippeliinchen",
+      "lang": "ksh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Dippeliinchen.ogg",
+      "tags": {
+        "reader": "BBKurt",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 55,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Dippeliinchen.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Dippeliinchen",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Dippeliinchen.ogg",
+          "duration": 55
+        }
+      ],
+      "textLive": {
+        "wiki": "ksh",
+        "api": "https://ksh.wikipedia.org/w/api.php",
+        "article": "Dippeliinchen",
+        "uploadTs": "2014-05-31T06:56:09Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:kupferhoff-buscheberch",
+      "title": "Kupferhoff Buscheberch",
+      "displayName": "Wikipedia – Kupferhoff Buscheberch",
+      "lang": "ksh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Kupferhoff_Buscheberch(1).ogg",
+      "tags": {
+        "reader": "BBKurt",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 75,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Kupferhoff Buscheberch(1).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Kupferhoff Buscheberch",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/37/Kupferhoff_Buscheberch%281%29.ogg",
+          "duration": 75
+        }
+      ],
+      "textLive": {
+        "wiki": "ksh",
+        "api": "https://ksh.wikipedia.org/w/api.php",
+        "article": "Kupferhoff Buscheberch",
+        "uploadTs": "2014-05-09T16:50:59Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:naomi-watts",
+      "title": "Naomi Watts",
+      "displayName": "Wikipedia – Naomi Watts",
+      "lang": "ksh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Naomi_Watts-ksh.ogg",
+      "tags": {
+        "reader": "BBKurt",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 115,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Naomi Watts-ksh.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Naomi Watts",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Naomi_Watts-ksh.ogg",
+          "duration": 115
+        }
+      ],
+      "textLive": {
+        "wiki": "ksh",
+        "api": "https://ksh.wikipedia.org/w/api.php",
+        "article": "Naomi Watts",
+        "uploadTs": "2014-06-29T09:31:19Z"
+      }
     }
   ]
 }

@@ -380,6 +380,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:ogg-vorbis",
+      "title": "Ogg Vorbis",
+      "displayName": "Wikipedia – Ogg Vorbis",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca-Ogg_Vorbis-article.ogg",
+      "tags": {
+        "reader": "KRLS",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 99,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca-Ogg Vorbis-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ogg Vorbis",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Ca-Ogg_Vorbis-article.ogg",
+          "duration": 99
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Ogg Vorbis",
+        "uploadTs": "2007-03-24T18:27:59Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:ramon-llull",
       "title": "Ramon Llull",
       "displayName": "Wikipedia – Ramon Llull",
@@ -412,6 +449,43 @@
         "api": "https://ca.wikipedia.org/w/api.php",
         "article": "Ramon Llull",
         "uploadTs": "2019-11-29T18:30:15Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:relaci-transitiva",
+      "title": "Relació transitiva",
+      "displayName": "Wikipedia – Relació transitiva",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca-Relació_Transitiva-article.ogg",
+      "tags": {
+        "reader": "RainCT",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca-Relació Transitiva-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Relació transitiva",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Ca-Relaci%C3%B3_Transitiva-article.ogg",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Relació transitiva",
+        "uploadTs": "2014-08-31T21:30:47Z"
       }
     },
     {
@@ -597,6 +671,43 @@
         "api": "https://ca.wikipedia.org/w/api.php",
         "article": "Tritó del Montseny",
         "uploadTs": "2019-02-08T19:02:09Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:viquip-dia-viquiprojecte-viquip-dia-parlada",
+      "title": "Viquipèdia:Viquiprojecte Viquipèdia Parlada",
+      "displayName": "Wikipedia – Viquipèdia:Viquiprojecte Viquipèdia Parlada",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca-Qxz-ad181.gif",
+      "tags": {
+        "reader": "Qxz-ad181.gif",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca-Qxz-ad181.gif"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Viquipèdia:Viquiprojecte Viquipèdia Parlada",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Ca-Qxz-ad181.gif",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Viquipèdia:Viquiprojecte Viquipèdia Parlada",
+        "uploadTs": "2010-02-04T22:55:48Z"
       }
     }
   ]

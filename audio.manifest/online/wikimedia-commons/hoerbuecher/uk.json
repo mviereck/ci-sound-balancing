@@ -232,6 +232,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ua-magnetic-bearing-ogg",
+      "title": "Магнітні підшипники",
+      "displayName": "Wikipedia – Магнітні підшипники",
+      "lang": "uk",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:UA_Magnetic_bearing.ogg",
+      "tags": {
+        "reader": "Veeer",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 112,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:UA Magnetic bearing.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Магнітні підшипники",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/99/UA_Magnetic_bearing.ogg",
+          "duration": 112
+        }
+      ],
+      "textLive": {
+        "wiki": "uk",
+        "api": "https://uk.wikipedia.org/w/api.php",
+        "article": "Магнітні підшипники",
+        "uploadTs": "2009-11-02T18:22:29Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-uk-music-of-ukraine-part-1-traditional-ethnic-ogg",
       "title": "Українська музика",
       "displayName": "Wikipedia – Українська музика",

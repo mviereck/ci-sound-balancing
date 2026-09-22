@@ -10,6 +10,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:love-will-tear-us-apart",
+      "title": "Love Will Tear Us Apart",
+      "displayName": "Wikipedia – Love Will Tear Us Apart",
+      "lang": "bg",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:BG-Love_Will_Tear_Us_Apart-2010_11_13.ogg",
+      "tags": {
+        "reader": "Александър",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 146,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:BG-Love Will Tear Us Apart-2010 11 13.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Love Will Tear Us Apart",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/BG-Love_Will_Tear_Us_Apart-2010_11_13.ogg",
+          "duration": 146
+        }
+      ],
+      "textLive": {
+        "wiki": "bg",
+        "api": "https://bg.wikipedia.org/w/api.php",
+        "article": "Love Will Tear Us Apart",
+        "uploadTs": "2010-11-13T09:17:33Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-bg-alexander-motsev-20101116-ogg",
       "title": "Александър Моцев",
       "displayName": "Wikipedia – Александър Моцев",
@@ -79,6 +116,43 @@
         "api": "https://bg.wikipedia.org/w/api.php",
         "article": "Георги Спасов (композитор)",
         "uploadTs": "2010-11-13T20:47:45Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-bg-gradska-panorama-2010-11-14-ogg",
+      "title": "Градска панорама",
+      "displayName": "Wikipedia – Градска панорама",
+      "lang": "bg",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Bg-Gradska_panorama-2010-11-14.ogg",
+      "tags": {
+        "reader": "Александър",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 92,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Bg-Gradska panorama-2010-11-14.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Градска панорама",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Bg-Gradska_panorama-2010-11-14.ogg",
+          "duration": 92
+        }
+      ],
+      "textLive": {
+        "wiki": "bg",
+        "api": "https://bg.wikipedia.org/w/api.php",
+        "article": "Градска панорама",
+        "uploadTs": "2010-11-15T02:04:25Z"
       }
     },
     {
@@ -227,6 +301,43 @@
         "api": "https://bg.wikipedia.org/w/api.php",
         "article": "Рила",
         "uploadTs": "2010-11-09T13:24:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-rudimentary-peni-bgwiki-aleksandar-ogg",
+      "title": "Рудиментари Пени",
+      "displayName": "Wikipedia – Рудиментари Пени",
+      "lang": "bg",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Rudimentary_peni_bgwiki_aleksandar.ogg",
+      "tags": {
+        "reader": "Александър",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 110,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Rudimentary peni bgwiki aleksandar.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Рудиментари Пени",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Rudimentary_peni_bgwiki_aleksandar.ogg",
+          "duration": 110
+        }
+      ],
+      "textLive": {
+        "wiki": "bg",
+        "api": "https://bg.wikipedia.org/w/api.php",
+        "article": "Рудиментари Пени",
+        "uploadTs": "2010-11-09T12:16:37Z"
       }
     },
     {

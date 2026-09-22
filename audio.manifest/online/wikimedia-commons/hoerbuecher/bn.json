@@ -1,0 +1,48 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (bn)",
+  "lang": "bn",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-dengue-bengali-symptoms-ogg",
+      "title": "ডেঙ্গু জ্বর",
+      "displayName": "Wikipedia – ডেঙ্গু জ্বর",
+      "lang": "bn",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Dengue_Bengali_symptoms.ogg",
+      "tags": {
+        "reader": "Priyanka Nag",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 71,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Dengue Bengali symptoms.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "ডেঙ্গু জ্বর",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Dengue_Bengali_symptoms.ogg",
+          "duration": 71
+        }
+      ],
+      "textLive": {
+        "wiki": "bn",
+        "api": "https://bn.wikipedia.org/w/api.php",
+        "article": "ডেঙ্গু জ্বর",
+        "uploadTs": "2012-12-16T09:27:54Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (bar)",
+  "lang": "bar",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:dreifl-ssestadion",
+      "title": "Dreiflüssestadion",
+      "displayName": "Wikipedia – Dreiflüssestadion",
+      "lang": "bar",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Bar-Dreiflüssestadion-article.ogg",
+      "tags": {
+        "reader": "Bloche",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 84,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Bar-Dreiflüssestadion-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Dreiflüssestadion",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/54/Bar-Dreifl%C3%BCssestadion-article.ogg",
+          "duration": 84
+        }
+      ],
+      "textLive": {
+        "wiki": "bar",
+        "api": "https://bar.wikipedia.org/w/api.php",
+        "article": "Dreiflüssestadion",
+        "uploadTs": "2010-09-07T06:38:41Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:g-llandar-ekkelsturtzo",
+      "title": "Güllandar Ekkelsturtzo",
+      "displayName": "Wikipedia – Güllandar Ekkelsturtzo",
+      "lang": "bar",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Guellendar_Ekkelsturtzo.ogg",
+      "tags": {
+        "reader": "hoferaanderl",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 111,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Guellendar Ekkelsturtzo.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Güllandar Ekkelsturtzo",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Guellendar_Ekkelsturtzo.ogg",
+          "duration": 111
+        }
+      ],
+      "textLive": {
+        "wiki": "bar",
+        "api": "https://bar.wikipedia.org/w/api.php",
+        "article": "Güllandar Ekkelsturtzo",
+        "uploadTs": "2011-08-17T15:13:18Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:keglbua",
+      "title": "Keglbua",
+      "displayName": "Wikipedia – Keglbua",
+      "lang": "bar",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Keglbua.ogg",
+      "tags": {
+        "reader": "Nutzer Dawaiamoi",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 67,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Keglbua.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Keglbua",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Keglbua.ogg",
+          "duration": 67
+        }
+      ],
+      "textLive": {
+        "wiki": "bar",
+        "api": "https://bar.wikipedia.org/w/api.php",
+        "article": "Keglbua",
+        "uploadTs": "2017-07-31T10:53:11Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:martin-frank",
+      "title": "Martin Frank",
+      "displayName": "Wikipedia – Martin Frank",
+      "lang": "bar",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Bar-Martin_Frank-article.ogg",
+      "tags": {
+        "reader": "Bloche",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 76,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Bar-Martin Frank-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Martin Frank",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/19/Bar-Martin_Frank-article.ogg",
+          "duration": 76
+        }
+      ],
+      "textLive": {
+        "wiki": "bar",
+        "api": "https://bar.wikipedia.org/w/api.php",
+        "article": "Martin Frank",
+        "uploadTs": "2010-09-06T16:08:14Z"
+      }
+    }
+  ]
+}

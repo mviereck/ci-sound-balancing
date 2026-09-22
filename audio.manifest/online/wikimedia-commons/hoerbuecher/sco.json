@@ -1,0 +1,48 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (sco)",
+  "lang": "sco",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:poust-naitural-philosophy",
+      "title": "Poust (naitural philosophy)",
+      "displayName": "Wikipedia – Poust (naitural philosophy)",
+      "lang": "sco",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Poust_(naitural_philosophy).ogg",
+      "tags": {
+        "reader": "Harry Bennett",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 54,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Poust (naitural philosophy).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Poust (naitural philosophy)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Poust_%28naitural_philosophy%29.ogg",
+          "duration": 54
+        }
+      ],
+      "textLive": {
+        "wiki": "sco",
+        "api": "https://sco.wikipedia.org/w/api.php",
+        "article": "Poust (naitural philosophy)",
+        "uploadTs": "2016-04-08T13:28:23Z"
+      }
+    }
+  ]
+}

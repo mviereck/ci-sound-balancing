@@ -47,6 +47,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:100-vosges",
+      "title": "100% Vosges",
+      "displayName": "Wikipedia – 100% Vosges",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:2019-08-04_-_100_Vosges.oga",
+      "tags": {
+        "reader": "Poslovitch",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 85,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:2019-08-04 - 100 Vosges.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "100% Vosges",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/40/2019-08-04_-_100_Vosges.oga",
+          "duration": 85
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "100% Vosges",
+        "uploadTs": "2019-08-04T14:58:05Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:2000-sg344",
       "title": "2000 SG344",
       "displayName": "Wikipedia – 2000 SG344",
@@ -417,6 +454,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:arlon",
+      "title": "Arlon",
+      "displayName": "Wikipedia – Arlon",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Fr-Arlon.ogg",
+      "tags": {
+        "reader": "Johan Burati",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 327,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Fr-Arlon.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Arlon",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Fr-Arlon.ogg",
+          "duration": 327
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Arlon",
+        "uploadTs": "2007-11-22T03:56:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:assassinat-de-jfk",
+      "title": "Assassinat de JFK",
+      "displayName": "Wikipedia – Assassinat de JFK",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Introkennedy.ogg",
+      "tags": {
+        "reader": "Christophe94",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 70,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Introkennedy.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Assassinat de JFK",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Introkennedy.ogg",
+          "duration": 70
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Assassinat de JFK",
+        "uploadTs": "2006-09-24T18:57:09Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:attaque-sur-pearl-harbor",
       "title": "Attaque sur Pearl Harbor",
       "displayName": "Wikipedia – Attaque sur Pearl Harbor",
@@ -486,6 +597,43 @@
         "api": "https://fr.wikipedia.org/w/api.php",
         "article": "Attentat du château de Versailles",
         "uploadTs": "2015-07-23T15:57:02Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:autel-de-la-gens-augusta",
+      "title": "Autel de la Gens Augusta",
+      "displayName": "Wikipedia – Autel de la Gens Augusta",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Autel_de_la_Gens_Augusta.ogg",
+      "tags": {
+        "reader": "Bhyounes",
+        "gender": "w",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 89,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Autel de la Gens Augusta.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Autel de la Gens Augusta",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/Autel_de_la_Gens_Augusta.ogg",
+          "duration": 89
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Autel de la Gens Augusta",
+        "uploadTs": "2019-09-05T21:52:37Z"
       }
     },
     {
@@ -967,6 +1115,43 @@
         "api": "https://fr.wikipedia.org/w/api.php",
         "article": "Café, parties 1 & 2",
         "uploadTs": "2007-01-03T02:13:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:calibre-10",
+      "title": "Calibre 10",
+      "displayName": "Wikipedia – Calibre 10",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Calibre_10.ogg",
+      "tags": {
+        "reader": "Michel",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 68,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Calibre 10.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Calibre 10",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Calibre_10.ogg",
+          "duration": 68
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Calibre 10",
+        "uploadTs": "2011-04-30T09:03:13Z"
       }
     },
     {
@@ -1633,6 +1818,80 @@
         "api": "https://fr.wikipedia.org/w/api.php",
         "article": "Convair 880",
         "uploadTs": "2021-09-30T06:33:52Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:coran-bleu-de-kairouan",
+      "title": "Coran bleu de Kairouan",
+      "displayName": "Wikipedia – Coran bleu de Kairouan",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Coran_bleu_de_Kairouan.ogg",
+      "tags": {
+        "reader": "Bhyounes",
+        "gender": "w",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 92,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Coran bleu de Kairouan.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Coran bleu de Kairouan",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/Coran_bleu_de_Kairouan.ogg",
+          "duration": 92
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Coran bleu de Kairouan",
+        "uploadTs": "2019-09-05T21:52:37Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:crat-re-d-euphronios-met-1972-11-10",
+      "title": "Cratère d'Euphronios (Met 1972.11.10)",
+      "displayName": "Wikipedia – Cratère d'Euphronios (Met 1972.11.10)",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Cratère_d'Euphronios_(Met_1972.11.10).oga",
+      "tags": {
+        "reader": "Michel",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 300,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Cratère d'Euphronios (Met 1972.11.10).oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Cratère d'Euphronios (Met 1972.11.10)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Crat%C3%A8re_d%27Euphronios_%28Met_1972.11.10%29.oga",
+          "duration": 300
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Cratère d'Euphronios (Met 1972.11.10)",
+        "uploadTs": "2011-05-05T15:10:40Z"
       }
     },
     {
@@ -3002,6 +3261,43 @@
         "api": "https://fr.wikipedia.org/w/api.php",
         "article": "Henry Fielding Partie 2",
         "uploadTs": "2015-08-02T19:40:02Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hercule-de-massicault",
+      "title": "Hercule de Massicault",
+      "displayName": "Wikipedia – Hercule de Massicault",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hercule_de_Massicault.ogg",
+      "tags": {
+        "reader": "Bhyounes",
+        "gender": "w",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 53,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hercule de Massicault.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Hercule de Massicault",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Hercule_de_Massicault.ogg",
+          "duration": 53
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Hercule de Massicault",
+        "uploadTs": "2019-09-05T21:52:43Z"
       }
     },
     {
@@ -4450,6 +4746,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:les-louanges",
+      "title": "Les Louanges",
+      "displayName": "Wikipedia – Les Louanges",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Fr-Les_Louanges-article.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 115,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Fr-Les Louanges-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Les Louanges",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/09/Fr-Les_Louanges-article.ogg",
+          "duration": 115
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Les Louanges",
+        "uploadTs": "2022-01-19T07:16:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:les-pluies-d-animaux",
       "title": "Les pluies d'animaux",
       "displayName": "Wikipedia – Les pluies d'animaux",
@@ -4519,6 +4852,43 @@
         "api": "https://fr.wikipedia.org/w/api.php",
         "article": "Ligne 7 du métro de Paris",
         "uploadTs": "2009-06-14T20:48:22Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:linus-pauling",
+      "title": "Linus Pauling",
+      "displayName": "Wikipedia – Linus Pauling",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Linus_Pauling.ogg",
+      "tags": {
+        "reader": "Micthev",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1967,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Linus Pauling.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Linus Pauling",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Linus_Pauling.ogg",
+          "duration": 1967
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Linus Pauling",
+        "uploadTs": "2011-12-24T01:16:25Z"
       }
     },
     {
@@ -4630,6 +5000,43 @@
         "api": "https://fr.wikipedia.org/w/api.php",
         "article": "Loïe Fuller",
         "uploadTs": "2008-02-24T21:11:31Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:mi4",
+      "title": "MI4",
+      "displayName": "Wikipedia – MI4",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:MI4_-_article_audio.ogg",
+      "tags": {
+        "reader": "Aridd",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 96,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:MI4 - article audio.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "MI4",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0e/MI4_-_article_audio.ogg",
+          "duration": 96
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "MI4",
+        "uploadTs": "2014-03-31T20:53:30Z"
       }
     },
     {
@@ -5005,6 +5412,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:mer",
+      "title": "Mer",
+      "displayName": "Wikipedia – Mer",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Mer.oga",
+      "tags": {
+        "reader": "Michel",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1263,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Mer.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Mer",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/df/Mer.oga",
+          "duration": 1263
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Mer",
+        "uploadTs": "2011-04-27T13:01:16Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:meurtres-de-whitechapel",
       "title": "Meurtres de Whitechapel",
       "displayName": "Wikipedia – Meurtres de Whitechapel",
@@ -5116,6 +5560,154 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:mosa-que-d-ulysse-et-les-sir-nes",
+      "title": "Mosaïque d'Ulysse et les sirènes",
+      "displayName": "Wikipedia – Mosaïque d'Ulysse et les sirènes",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Mosaïque_d'Ulysse_et_les_sirènes.ogg",
+      "tags": {
+        "reader": "Bhyounes",
+        "gender": "w",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 111,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Mosaïque d'Ulysse et les sirènes.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Mosaïque d'Ulysse et les sirènes",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Mosa%C3%AFque_d%27Ulysse_et_les_sir%C3%A8nes.ogg",
+          "duration": 111
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Mosaïque d'Ulysse et les sirènes",
+        "uploadTs": "2020-05-18T23:12:11Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:mosa-que-de-virgile",
+      "title": "Mosaïque de Virgile",
+      "displayName": "Wikipedia – Mosaïque de Virgile",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Mosaïque_de_Virgile.ogg",
+      "tags": {
+        "reader": "Bhyounes",
+        "gender": "w",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 83,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Mosaïque de Virgile.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Mosaïque de Virgile",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mosa%C3%AFque_de_Virgile.ogg",
+          "duration": 83
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Mosaïque de Virgile",
+        "uploadTs": "2019-09-05T21:52:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:mosa-que-de-l-ecclesia-mater",
+      "title": "Mosaïque de l'Ecclesia Mater",
+      "displayName": "Wikipedia – Mosaïque de l'Ecclesia Mater",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Mosaïque_de_l'Ecclesia_Mater.ogg",
+      "tags": {
+        "reader": "Bhyounes",
+        "gender": "w",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 63,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Mosaïque de l'Ecclesia Mater.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Mosaïque de l'Ecclesia Mater",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/59/Mosa%C3%AFque_de_l%27Ecclesia_Mater.ogg",
+          "duration": 63
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Mosaïque de l'Ecclesia Mater",
+        "uploadTs": "2019-09-05T21:52:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:mosa-que-du-seigneur-julius",
+      "title": "Mosaïque du seigneur Julius",
+      "displayName": "Wikipedia – Mosaïque du seigneur Julius",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Mosaïque_du_seigneur_Julius.ogg",
+      "tags": {
+        "reader": "Bhyounes",
+        "gender": "w",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 55,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Mosaïque du seigneur Julius.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Mosaïque du seigneur Julius",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/Mosa%C3%AFque_du_seigneur_Julius.ogg",
+          "duration": 55
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Mosaïque du seigneur Julius",
+        "uploadTs": "2019-09-05T21:52:46Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:mouvement-mau",
       "title": "Mouvement Mau",
       "displayName": "Wikipedia – Mouvement Mau",
@@ -5190,6 +5782,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:mus-e-de-la-tour-des-prisons",
+      "title": "Musée de la Tour des Prisons",
+      "displayName": "Wikipedia – Musée de la Tour des Prisons",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Fr-Musée_de_la_Tour_des_Prisons.oga",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Fr-Musée de la Tour des Prisons.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Musée de la Tour des Prisons",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/16/Fr-Mus%C3%A9e_de_la_Tour_des_Prisons.oga",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Musée de la Tour des Prisons",
+        "uploadTs": "2022-08-25T14:04:36Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:mus-e-national-du-bardo-tunisie",
+      "title": "Musée national du Bardo (Tunisie)",
+      "displayName": "Wikipedia – Musée national du Bardo (Tunisie)",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Musée_National_du_Bardo.ogg",
+      "tags": {
+        "reader": "Bhyounes",
+        "gender": "w",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 97,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Musée National du Bardo.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Musée national du Bardo (Tunisie)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Mus%C3%A9e_National_du_Bardo.ogg",
+          "duration": 97
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Musée national du Bardo (Tunisie)",
+        "uploadTs": "2019-09-05T21:52:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:m-duse-mythologie",
       "title": "Méduse (mythologie)",
       "displayName": "Wikipedia – Méduse (mythologie)",
@@ -5222,6 +5888,43 @@
         "api": "https://fr.wikipedia.org/w/api.php",
         "article": "Méduse (mythologie)",
         "uploadTs": "2023-01-14T18:17:33Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:m-nag-re-ustensile-de-cuisine",
+      "title": "Ménagère (ustensile de cuisine)",
+      "displayName": "Wikipedia – Ménagère (ustensile de cuisine)",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ménagère_(ustensile_de_cuisine).oga",
+      "tags": {
+        "reader": "Michel",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 93,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ménagère (ustensile de cuisine).oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ménagère (ustensile de cuisine)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e5/M%C3%A9nag%C3%A8re_%28ustensile_de_cuisine%29.oga",
+          "duration": 93
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Ménagère (ustensile de cuisine)",
+        "uploadTs": "2011-04-30T08:36:48Z"
       }
     },
     {
@@ -6004,6 +6707,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:psykter",
+      "title": "Psykter",
+      "displayName": "Wikipedia – Psykter",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Psykter.oga",
+      "tags": {
+        "reader": "Michel",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 60,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Psykter.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Psykter",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/79/Psykter.oga",
+          "duration": 60
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Psykter",
+        "uploadTs": "2011-05-05T15:50:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:puits-saint-charles",
       "title": "Puits Saint-Charles",
       "displayName": "Wikipedia – Puits Saint-Charles",
@@ -6369,6 +7109,43 @@
         "api": "https://fr.wikipedia.org/w/api.php",
         "article": "Rhinocéros indien",
         "uploadTs": "2007-06-08T13:03:12Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:ribat-de-lamta",
+      "title": "Ribat de Lamta",
+      "displayName": "Wikipedia – Ribat de Lamta",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ribat_de_Lamta_audio_text_fr.ogg",
+      "tags": {
+        "reader": "Nassima Chahboun",
+        "gender": "w",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 66,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ribat de Lamta audio text fr.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ribat de Lamta",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Ribat_de_Lamta_audio_text_fr.ogg",
+          "duration": 66
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Ribat de Lamta",
+        "uploadTs": "2023-07-23T17:45:49Z"
       }
     },
     {
@@ -7040,6 +7817,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:st-le-du-pr-tre",
+      "title": "Stèle du prêtre",
+      "displayName": "Wikipedia – Stèle du prêtre",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Stèle_du_prêtre.ogg",
+      "tags": {
+        "reader": "Bhyounes",
+        "gender": "w",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 60,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Stèle du prêtre.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Stèle du prêtre",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9c/St%C3%A8le_du_pr%C3%AAtre.ogg",
+          "duration": 60
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Stèle du prêtre",
+        "uploadTs": "2019-09-05T21:52:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:sud-aviation-se-210-caravelle",
       "title": "Sud-Aviation SE 210 Caravelle",
       "displayName": "Wikipedia – Sud-Aviation SE 210 Caravelle",
@@ -7410,6 +8224,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:vall-e-de-la-mort",
+      "title": "Vallée de la Mort",
+      "displayName": "Wikipedia – Vallée de la Mort",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Death_Valley_(désert).oga",
+      "tags": {
+        "reader": "Michel",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 144,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Death Valley (désert).oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Vallée de la Mort",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Death_Valley_%28d%C3%A9sert%29.oga",
+          "duration": 144
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Vallée de la Mort",
+        "uploadTs": "2011-04-30T07:35:11Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:vignacourt",
       "title": "Vignacourt",
       "displayName": "Wikipedia – Vignacourt",
@@ -7590,6 +8441,43 @@
         "api": "https://fr.wikipedia.org/w/api.php",
         "article": "Wogan Philipps",
         "uploadTs": "2014-03-31T19:49:53Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:zzz-onomatop-e",
+      "title": "Zzz (onomatopée)",
+      "displayName": "Wikipedia – Zzz (onomatopée)",
+      "lang": "fr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Fr-Zzz.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 91,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Fr-Zzz.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Zzz (onomatopée)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Fr-Zzz.ogg",
+          "duration": 91
+        }
+      ],
+      "textLive": {
+        "wiki": "fr",
+        "api": "https://fr.wikipedia.org/w/api.php",
+        "article": "Zzz (onomatopée)",
+        "uploadTs": "2022-03-20T19:27:41Z"
       }
     },
     {

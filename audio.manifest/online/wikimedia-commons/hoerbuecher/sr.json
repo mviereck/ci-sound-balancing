@@ -343,6 +343,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-sr-krvna-plazma-article-ogg",
+      "title": "Крвна плазма",
+      "displayName": "Wikipedia – Крвна плазма",
+      "lang": "sr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Sr-Krvna_plazma-article.ogg",
+      "tags": {
+        "reader": "Јелена Продановић",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 101,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Sr-Krvna plazma-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Крвна плазма",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Sr-Krvna_plazma-article.ogg",
+          "duration": 101
+        }
+      ],
+      "textLive": {
+        "wiki": "sr",
+        "api": "https://sr.wikipedia.org/w/api.php",
+        "article": "Крвна плазма",
+        "uploadTs": "2015-03-23T01:28:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ogg",
       "title": "Крикет",
       "displayName": "Wikipedia – Крикет",

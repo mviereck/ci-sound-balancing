@@ -195,13 +195,50 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:daerah-khusus-ibukota-jakarta",
+      "title": "Daerah Khusus Ibukota Jakarta",
+      "displayName": "Wikipedia – Daerah Khusus Ibukota Jakarta",
+      "lang": "id",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Jakarta-wikipedia.ogg",
+      "tags": {
+        "reader": "Gibransyah",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 701,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Jakarta-wikipedia.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Daerah Khusus Ibukota Jakarta",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/Jakarta-wikipedia.ogg",
+          "duration": 701
+        }
+      ],
+      "textLive": {
+        "wiki": "id",
+        "api": "https://id.wikipedia.org/w/api.php",
+        "article": "Daerah Khusus Ibukota Jakarta",
+        "uploadTs": "2012-11-26T18:32:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:di-bawah-lindungan-ka-bah-novel",
       "title": "Di Bawah Lindungan Ka'bah (novel)",
       "displayName": "Wikipedia – Di Bawah Lindungan Ka'bah (novel)",
       "lang": "id",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Arumiwidya_(WMID)_-_Bagian_1_Di_Bawah_Lindungan_Kabah.wav",
+      "url": "https://commons.wikimedia.org/wiki/File:Arumiwidya_(WMID)_-_Bagian_2_Di_Bawah_Lindungan_Kabah.wav",
       "tags": {
         "reader": "Arumiwidya",
         "gender": "",
@@ -212,13 +249,13 @@
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Arumiwidya (WMID) - Bagian 1 Di Bawah Lindungan Kabah.wav"
+        "source_file": "File:Arumiwidya (WMID) - Bagian 2 Di Bawah Lindungan Kabah.wav"
       },
       "items": [
         {
           "id": "art",
           "title": "Di Bawah Lindungan Ka'bah (novel)",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Arumiwidya_%28WMID%29_-_Bagian_1_Di_Bawah_Lindungan_Kabah.wav",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Arumiwidya_%28WMID%29_-_Bagian_2_Di_Bawah_Lindungan_Kabah.wav",
           "duration": 0
         }
       ],
@@ -412,6 +449,43 @@
         "api": "https://id.wikipedia.org/w/api.php",
         "article": "Imperialisme",
         "uploadTs": "2022-03-03T07:49:41Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:indonesia-pada-olimpiade-musim-panas-1952",
+      "title": "Indonesia pada Olimpiade Musim Panas 1952",
+      "displayName": "Wikipedia – Indonesia pada Olimpiade Musim Panas 1952",
+      "lang": "id",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Elis_(WMID)_Bagian_1_-_Indonesia_Pada_Olimpiade_Musim_Panas_1952.wav",
+      "tags": {
+        "reader": "Elis (WMID)",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Elis (WMID) Bagian 1 - Indonesia Pada Olimpiade Musim Panas 1952.wav"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Indonesia pada Olimpiade Musim Panas 1952",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/78/Elis_%28WMID%29_Bagian_1_-_Indonesia_Pada_Olimpiade_Musim_Panas_1952.wav",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "id",
+        "api": "https://id.wikipedia.org/w/api.php",
+        "article": "Indonesia pada Olimpiade Musim Panas 1952",
+        "uploadTs": "2022-08-10T06:09:55Z"
       }
     },
     {
@@ -676,6 +750,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:oberon",
+      "title": "Oberon",
+      "displayName": "Wikipedia – Oberon",
+      "lang": "id",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Nyilvoskt_-_Oberon.ogg",
+      "tags": {
+        "reader": "Nyilvoskt",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1297,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Nyilvoskt - Oberon.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Oberon",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Nyilvoskt_-_Oberon.ogg",
+          "duration": 1297
+        }
+      ],
+      "textLive": {
+        "wiki": "id",
+        "api": "https://id.wikipedia.org/w/api.php",
+        "article": "Oberon",
+        "uploadTs": "2022-10-30T07:51:16Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:oberon-satelit",
       "title": "Oberon (satelit)",
       "displayName": "Wikipedia – Oberon (satelit)",
@@ -793,25 +904,25 @@
       "lang": "id",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Akhsinatun_aisyah_bagian_2_perang_ustmaniyah_venesia.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Akhsinatun_aisyah_bagian_3_perang_ustmaniyah_venesia.ogg",
       "tags": {
         "reader": "Akhsinatun aisyah",
         "gender": "",
         "dialekt": "",
         "length_band": "short",
-        "total_seconds": 653,
+        "total_seconds": 510,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Akhsinatun aisyah bagian 2 perang ustmaniyah venesia.ogg"
+        "source_file": "File:Akhsinatun aisyah bagian 3 perang ustmaniyah venesia.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Perang Utsmaniyah–Venesia (1570–1573)",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/01/Akhsinatun_aisyah_bagian_2_perang_ustmaniyah_venesia.ogg",
-          "duration": 653
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/21/Akhsinatun_aisyah_bagian_3_perang_ustmaniyah_venesia.ogg",
+          "duration": 510
         }
       ],
       "textLive": {
@@ -1120,6 +1231,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:solusi-satu-negara",
+      "title": "Solusi satu negara",
+      "displayName": "Wikipedia – Solusi satu negara",
+      "lang": "id",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Solusi_satu_negara.ogg",
+      "tags": {
+        "reader": "MLDGuaDimana",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 91,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Solusi satu negara.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Solusi satu negara",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/99/Solusi_satu_negara.ogg",
+          "duration": 91
+        }
+      ],
+      "textLive": {
+        "wiki": "id",
+        "api": "https://id.wikipedia.org/w/api.php",
+        "article": "Solusi satu negara",
+        "uploadTs": "2022-03-02T12:33:15Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:sundel-bolong",
       "title": "Sundel bolong",
       "displayName": "Wikipedia – Sundel bolong",
@@ -1189,43 +1337,6 @@
         "api": "https://id.wikipedia.org/w/api.php",
         "article": "Tanaman transgenik",
         "uploadTs": "2012-11-26T18:52:01Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:tata-surya",
-      "title": "Tata Surya",
-      "displayName": "Wikipedia – Tata Surya",
-      "lang": "id",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Tata_Surya.ogg",
-      "tags": {
-        "reader": "Gibransyah",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 500,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Tata Surya.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Tata Surya",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Tata_Surya.ogg",
-          "duration": 500
-        }
-      ],
-      "textLive": {
-        "wiki": "id",
-        "api": "https://id.wikipedia.org/w/api.php",
-        "article": "Tata Surya",
-        "uploadTs": "2012-11-26T18:37:51Z"
       }
     },
     {
@@ -1374,6 +1485,43 @@
         "api": "https://id.wikipedia.org/w/api.php",
         "article": "Wolfenstein 3D",
         "uploadTs": "2024-12-08T14:42:58Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:tata-surya",
+      "title": "tata surya",
+      "displayName": "Wikipedia – tata surya",
+      "lang": "id",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Tata_Surya.ogg",
+      "tags": {
+        "reader": "Gibransyah",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 500,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Tata Surya.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "tata surya",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Tata_Surya.ogg",
+          "duration": 500
+        }
+      ],
+      "textLive": {
+        "wiki": "id",
+        "api": "https://id.wikipedia.org/w/api.php",
+        "article": "tata surya",
+        "uploadTs": "2012-11-26T18:37:51Z"
       }
     }
   ]

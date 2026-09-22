@@ -47,6 +47,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:jutaholms-caf",
+      "title": "Jutaholms café",
+      "displayName": "Wikipedia – Jutaholms café",
+      "lang": "sv",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Jutaholms_café.ogg",
+      "tags": {
+        "reader": "Tanzania",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 64,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Jutaholms café.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Jutaholms café",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/31/Jutaholms_caf%C3%A9.ogg",
+          "duration": 64
+        }
+      ],
+      "textLive": {
+        "wiki": "sv",
+        "api": "https://sv.wikipedia.org/w/api.php",
+        "article": "Jutaholms café",
+        "uploadTs": "2011-08-13T16:25:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:paleolitikum",
       "title": "Paleolitikum",
       "displayName": "Wikipedia – Paleolitikum",

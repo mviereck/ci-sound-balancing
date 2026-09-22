@@ -10,6 +10,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-iran-fa1-ogg",
+      "title": "ایران",
+      "displayName": "Wikipedia – ایران",
+      "lang": "fa",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Iran-fa1.ogg",
+      "tags": {
+        "reader": "Ladsgroup",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 636,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Iran-fa1.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "ایران",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Iran-fa1.ogg",
+          "duration": 636
+        }
+      ],
+      "textLive": {
+        "wiki": "fa",
+        "api": "https://fa.wikipedia.org/w/api.php",
+        "article": "ایران",
+        "uploadTs": "2009-03-06T23:41:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-seke-bahare-azadi-ogg",
+      "title": "سکه بهار آزادی",
+      "displayName": "Wikipedia – سکه بهار آزادی",
+      "lang": "fa",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Seke_bahare_azadi.ogg",
+      "tags": {
+        "reader": "Mehdi",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 972,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Seke bahare azadi.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "سکه بهار آزادی",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/78/Seke_bahare_azadi.ogg",
+          "duration": 972
+        }
+      ],
+      "textLive": {
+        "wiki": "fa",
+        "api": "https://fa.wikipedia.org/w/api.php",
+        "article": "سکه بهار آزادی",
+        "uploadTs": "2010-05-14T12:04:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-medical-physics-fa-ogg",
       "title": "فیزیک پزشکی",
       "displayName": "Wikipedia – فیزیک پزشکی",
@@ -122,8 +196,8 @@
       "kind": "collection",
       "category": "hoerbuecher",
       "id": "commons:file-paksazi-ghomi-part-1-ogg",
-      "title": "پاک‌سازی قومی",
-      "displayName": "Wikipedia – پاک‌سازی قومی",
+      "title": "پاکسازی قومی",
+      "displayName": "Wikipedia – پاکسازی قومی",
       "lang": "fa",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -143,7 +217,7 @@
       "items": [
         {
           "id": "art",
-          "title": "پاک‌سازی قومی",
+          "title": "پاکسازی قومی",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/8/85/Paksazi_ghomi_part_1.ogg",
           "duration": 2005
         }
@@ -151,7 +225,7 @@
       "textLive": {
         "wiki": "fa",
         "api": "https://fa.wikipedia.org/w/api.php",
-        "article": "پاک‌سازی قومی",
+        "article": "پاکسازی قومی",
         "uploadTs": "2014-11-13T14:21:59Z"
       }
     },
@@ -159,8 +233,8 @@
       "kind": "collection",
       "category": "hoerbuecher",
       "id": "commons:file-paksazi-ghomi-part-2-ogg",
-      "title": "پاک‌سازی قومی",
-      "displayName": "Wikipedia – پاک‌سازی قومی",
+      "title": "پاکسازی قومی",
+      "displayName": "Wikipedia – پاکسازی قومی",
       "lang": "fa",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -180,7 +254,7 @@
       "items": [
         {
           "id": "art",
-          "title": "پاک‌سازی قومی",
+          "title": "پاکسازی قومی",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Paksazi_ghomi_part_2.ogg",
           "duration": 2530
         }
@@ -188,7 +262,7 @@
       "textLive": {
         "wiki": "fa",
         "api": "https://fa.wikipedia.org/w/api.php",
-        "article": "پاک‌سازی قومی",
+        "article": "پاکسازی قومی",
         "uploadTs": "2014-11-12T17:25:16Z"
       }
     }

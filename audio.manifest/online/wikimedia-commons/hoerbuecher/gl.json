@@ -47,43 +47,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:eslavos-meridionais",
-      "title": "Eslavos meridionais",
-      "displayName": "Wikipedia – Eslavos meridionais",
-      "lang": "gl",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Historia_dos_eslavos_do_sur_Parte_1.ogg",
-      "tags": {
-        "reader": "Eduardo P",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 281,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Historia dos eslavos do sur Parte 1.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Eslavos meridionais",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/Historia_dos_eslavos_do_sur_Parte_1.ogg",
-          "duration": 281
-        }
-      ],
-      "textLive": {
-        "wiki": "gl",
-        "api": "https://gl.wikipedia.org/w/api.php",
-        "article": "Eslavos meridionais",
-        "uploadTs": "2013-03-02T03:54:58Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:galicia",
       "title": "Galicia",
       "displayName": "Wikipedia – Galicia",
@@ -121,9 +84,46 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:historia-dos-eslavos-do-sur",
+      "title": "Historia dos eslavos do sur",
+      "displayName": "Wikipedia – Historia dos eslavos do sur",
+      "lang": "gl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Historia_dos_eslavos_do_sur_Parte_1.ogg",
+      "tags": {
+        "reader": "Eduardo P",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 281,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Historia dos eslavos do sur Parte 1.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Historia dos eslavos do sur",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/Historia_dos_eslavos_do_sur_Parte_1.ogg",
+          "duration": 281
+        }
+      ],
+      "textLive": {
+        "wiki": "gl",
+        "api": "https://gl.wikipedia.org/w/api.php",
+        "article": "Historia dos eslavos do sur",
+        "uploadTs": "2013-03-02T03:54:58Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:valent-n-paz-andrade",
-      "title": "Valentín Paz-Andrade",
-      "displayName": "Wikipedia – Valentín Paz-Andrade",
+      "title": "Valentín Paz Andrade",
+      "displayName": "Wikipedia – Valentín Paz Andrade",
       "lang": "gl",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -143,7 +143,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Valentín Paz-Andrade",
+          "title": "Valentín Paz Andrade",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c7/GL-VALENTIN_PAZ_ANDRADE-2_DE_2-article.ogg",
           "duration": 726
         }
@@ -151,7 +151,7 @@
       "textLive": {
         "wiki": "gl",
         "api": "https://gl.wikipedia.org/w/api.php",
-        "article": "Valentín Paz-Andrade",
+        "article": "Valentín Paz Andrade",
         "uploadTs": "2012-04-21T11:24:18Z"
       }
     }

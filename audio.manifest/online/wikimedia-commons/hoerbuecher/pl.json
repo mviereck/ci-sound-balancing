@@ -10,6 +10,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:andrzej-glass",
+      "title": "Andrzej Glass",
+      "displayName": "Wikipedia – Andrzej Glass",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Haslo-Andrzej_Glass-20111029-Dominik_Jabs.ogg",
+      "tags": {
+        "reader": "Dominik Jabs",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 112,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Haslo-Andrzej Glass-20111029-Dominik Jabs.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Andrzej Glass",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Haslo-Andrzej_Glass-20111029-Dominik_Jabs.ogg",
+          "duration": 112
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Andrzej Glass",
+        "uploadTs": "2011-11-19T17:18:05Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:armia-tatu-ka",
       "title": "Armia tatuśka",
       "displayName": "Wikipedia – Armia tatuśka",
@@ -84,6 +121,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:deflegmator",
+      "title": "Deflegmator",
+      "displayName": "Wikipedia – Deflegmator",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pl-Deflegmator-article2.ogg",
+      "tags": {
+        "reader": "Miskofaty",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 61,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pl-Deflegmator-article2.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Deflegmator",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/60/Pl-Deflegmator-article2.ogg",
+          "duration": 61
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Deflegmator",
+        "uploadTs": "2014-03-28T20:43:59Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:dok-p-ywaj-cy",
+      "title": "Dok pływający",
+      "displayName": "Wikipedia – Dok pływający",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Spoken_Wikipedia_-_Polish_-_Dok_pływający.ogg",
+      "tags": {
+        "reader": "Bubel/author",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 84,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Spoken Wikipedia - Polish - Dok pływający.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Dok pływający",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Spoken_Wikipedia_-_Polish_-_Dok_p%C5%82ywaj%C4%85cy.ogg",
+          "duration": 84
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Dok pływający",
+        "uploadTs": "2009-08-12T17:27:40Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:d-wi-k",
       "title": "Dźwięk",
       "displayName": "Wikipedia – Dźwięk",
@@ -116,6 +227,43 @@
         "api": "https://pl.wikipedia.org/w/api.php",
         "article": "Dźwięk",
         "uploadTs": "2011-10-22T15:54:31Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:fonautograf",
+      "title": "Fonautograf",
+      "displayName": "Wikipedia – Fonautograf",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Haslo-fonoautograf-20111022.ogg",
+      "tags": {
+        "reader": "Borys Kozielski",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 63,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Haslo-fonoautograf-20111022.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Fonautograf",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Haslo-fonoautograf-20111022.ogg",
+          "duration": 63
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Fonautograf",
+        "uploadTs": "2011-10-22T15:54:44Z"
       }
     },
     {
@@ -232,6 +380,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:larisa-azutina",
+      "title": "Larisa Łazutina",
+      "displayName": "Wikipedia – Larisa Łazutina",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Spoken_Wikipedia_-_Polish_-_Larisa_Łazutina_16012008.ogg",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 119,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Spoken Wikipedia - Polish - Larisa Łazutina 16012008.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Larisa Łazutina",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/49/Spoken_Wikipedia_-_Polish_-_Larisa_%C5%81azutina_16012008.ogg",
+          "duration": 119
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Larisa Łazutina",
+        "uploadTs": "2008-01-16T18:24:51Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:miejsce-przewodniczenia",
       "title": "Miejsce przewodniczenia",
       "displayName": "Wikipedia – Miejsce przewodniczenia",
@@ -301,6 +486,80 @@
         "api": "https://pl.wikipedia.org/w/api.php",
         "article": "Parowie dożywotni",
         "uploadTs": "2012-02-18T18:38:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:patefon",
+      "title": "Patefon",
+      "displayName": "Wikipedia – Patefon",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Patefon-2014-08-01.ogg",
+      "tags": {
+        "reader": "Borys Kozielski",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 96,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Patefon-2014-08-01.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Patefon",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Patefon-2014-08-01.ogg",
+          "duration": 96
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Patefon",
+        "uploadTs": "2014-08-01T15:34:56Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:peter-rogers",
+      "title": "Peter Rogers",
+      "displayName": "Wikipedia – Peter Rogers",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pl-Peter_Rogers-article.ogg",
+      "tags": {
+        "reader": "Powerek38",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 380,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pl-Peter Rogers-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Peter Rogers",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/41/Pl-Peter_Rogers-article.ogg",
+          "duration": 380
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Peter Rogers",
+        "uploadTs": "2012-02-20T18:11:38Z"
       }
     },
     {

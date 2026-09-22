@@ -10,43 +10,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:abduhafizboy-madrasasi",
-      "title": "Abduhafizboy madrasasi",
-      "displayName": "Wikipedia – Abduhafizboy madrasasi",
-      "lang": "uz",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Abdulhafizboy_madrasasi.ogg",
-      "tags": {
-        "reader": "Madina Ibodullayeva",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 143,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Abdulhafizboy madrasasi.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Abduhafizboy madrasasi",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/94/Abdulhafizboy_madrasasi.ogg",
-          "duration": 143
-        }
-      ],
-      "textLive": {
-        "wiki": "uz",
-        "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Abduhafizboy madrasasi",
-        "uploadTs": "2022-07-15T08:53:38Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:abdulahadxon-daxmasi",
       "title": "Abdulahadxon daxmasi",
       "displayName": "Wikipedia – Abdulahadxon daxmasi",
@@ -79,6 +42,43 @@
         "api": "https://uz.wikipedia.org/w/api.php",
         "article": "Abdulahadxon daxmasi",
         "uploadTs": "2022-07-07T14:46:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:abdulhafizboy-madrasasi",
+      "title": "Abdulhafizboy madrasasi",
+      "displayName": "Wikipedia – Abdulhafizboy madrasasi",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Abdulhafizboy_madrasasi.ogg",
+      "tags": {
+        "reader": "Madina Ibodullayeva",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 143,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Abdulhafizboy madrasasi.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Abdulhafizboy madrasasi",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/94/Abdulhafizboy_madrasasi.ogg",
+          "duration": 143
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Abdulhafizboy madrasasi",
+        "uploadTs": "2022-07-15T08:53:38Z"
       }
     },
     {
@@ -195,9 +195,9 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:alisher-navoiy-nomli-o-rta-maktab-isfana",
-      "title": "Alisher Navoiy nomli oʻrta maktab (Isfana)",
-      "displayName": "Wikipedia – Alisher Navoiy nomli oʻrta maktab (Isfana)",
+      "id": "commons:alisher-navoiy-nomli-o-rta-maktab",
+      "title": "Alisher Navoiy nomli o'rta maktab",
+      "displayName": "Wikipedia – Alisher Navoiy nomli o'rta maktab",
       "lang": "uz",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -217,7 +217,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Alisher Navoiy nomli oʻrta maktab (Isfana)",
+          "title": "Alisher Navoiy nomli o'rta maktab",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/2/27/Alisher_Navoiy_nomli_o%27rta_maktab.ogg",
           "duration": 571
         }
@@ -225,7 +225,7 @@
       "textLive": {
         "wiki": "uz",
         "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Alisher Navoiy nomli oʻrta maktab (Isfana)",
+        "article": "Alisher Navoiy nomli o'rta maktab",
         "uploadTs": "2022-07-13T13:24:25Z"
       }
     },
@@ -264,6 +264,43 @@
         "api": "https://uz.wikipedia.org/w/api.php",
         "article": "Alisher Saʼdullayev",
         "uploadTs": "2022-10-01T13:10:25Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:anita-gara",
+      "title": "Anita Gara",
+      "displayName": "Wikipedia – Anita Gara",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Anita_Gara_(uzwiki).ogg",
+      "tags": {
+        "reader": "Panpanchik",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 111,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Anita Gara (uzwiki).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Anita Gara",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/14/Anita_Gara_%28uzwiki%29.ogg",
+          "duration": 111
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Anita Gara",
+        "uploadTs": "2022-09-19T14:12:05Z"
       }
     },
     {
@@ -602,9 +639,9 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:bahriddin-chustiy",
-      "title": "Bahriddin Chustiy",
-      "displayName": "Wikipedia – Bahriddin Chustiy",
+      "id": "commons:bahriddin-chustiylbahriddin-chustiy",
+      "title": "Bahriddin ChustiylBahriddin Chustiy",
+      "displayName": "Wikipedia – Bahriddin ChustiylBahriddin Chustiy",
       "lang": "uz",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -624,7 +661,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Bahriddin Chustiy",
+          "title": "Bahriddin ChustiylBahriddin Chustiy",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Bahriddin_Chustiy.ogg",
           "duration": 202
         }
@@ -632,7 +669,7 @@
       "textLive": {
         "wiki": "uz",
         "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Bahriddin Chustiy",
+        "article": "Bahriddin ChustiylBahriddin Chustiy",
         "uploadTs": "2023-05-18T15:45:28Z"
       }
     },
@@ -671,6 +708,43 @@
         "api": "https://uz.wikipedia.org/w/api.php",
         "article": "Baliqlardan qoʻrqish",
         "uploadTs": "2022-09-20T15:28:29Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:bezovtalikni-tark-etish-va-yangi-hayot-boshlash-sirlari",
+      "title": "Bezovtalikni tark etish va yangi hayot boshlash sirlari",
+      "displayName": "Wikipedia – Bezovtalikni tark etish va yangi hayot boshlash sirlari",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Bezovtalikni_tark_etish_va_yangi_hayot_boshlash_sirlari.ogg",
+      "tags": {
+        "reader": "Sevinch O'rolova",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 108,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Bezovtalikni tark etish va yangi hayot boshlash sirlari.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Bezovtalikni tark etish va yangi hayot boshlash sirlari",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Bezovtalikni_tark_etish_va_yangi_hayot_boshlash_sirlari.ogg",
+          "duration": 108
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Bezovtalikni tark etish va yangi hayot boshlash sirlari",
+        "uploadTs": "2022-07-23T13:58:21Z"
       }
     },
     {
@@ -782,6 +856,43 @@
         "api": "https://uz.wikipedia.org/w/api.php",
         "article": "Bu oqshom",
         "uploadTs": "2023-05-15T18:43:21Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:buket",
+      "title": "Buket",
+      "displayName": "Wikipedia – Buket",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Buket.ogg",
+      "tags": {
+        "reader": "Madina Ibodullayeva",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 111,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Buket.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Buket",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Buket.ogg",
+          "duration": 111
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Buket",
+        "uploadTs": "2022-07-13T13:19:53Z"
       }
     },
     {
@@ -930,6 +1041,43 @@
         "api": "https://uz.wikipedia.org/w/api.php",
         "article": "Chuqur madrasasi",
         "uploadTs": "2022-07-15T15:36:37Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:dadajonldadajon",
+      "title": "DadajonlDadajon",
+      "displayName": "Wikipedia – DadajonlDadajon",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Dadajon_qo'shig'i.ogg",
+      "tags": {
+        "reader": "Rajapova Hulkaroy",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 119,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Dadajon qo'shig'i.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "DadajonlDadajon",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Dadajon_qo%27shig%27i.ogg",
+          "duration": 119
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "DadajonlDadajon",
+        "uploadTs": "2023-06-04T17:47:06Z"
       }
     },
     {
@@ -1231,6 +1379,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:ey-sinfdoshley-sinfdosh",
+      "title": "Ey, sinfdoshlEy, sinfdosh",
+      "displayName": "Wikipedia – Ey, sinfdoshlEy, sinfdosh",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ey,_sinfdosh.ogg",
+      "tags": {
+        "reader": "Rajapova Hulkaroy",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 99,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ey, sinfdosh.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ey, sinfdoshlEy, sinfdosh",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/Ey%2C_sinfdosh.ogg",
+          "duration": 99
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Ey, sinfdoshlEy, sinfdosh",
+        "uploadTs": "2023-05-15T18:22:43Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:faint",
       "title": "Faint",
       "displayName": "Wikipedia – Faint",
@@ -1263,6 +1448,80 @@
         "api": "https://uz.wikipedia.org/w/api.php",
         "article": "Faint",
         "uploadTs": "2022-05-27T07:00:51Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:farhodning-jasorati",
+      "title": "Farhodning jasorati",
+      "displayName": "Wikipedia – Farhodning jasorati",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Farhodning_jasorati.ogg",
+      "tags": {
+        "reader": "Madina Ibodullayeva",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 53,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Farhodning jasorati.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Farhodning jasorati",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Farhodning_jasorati.ogg",
+          "duration": 53
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Farhodning jasorati",
+        "uploadTs": "2022-07-08T03:26:01Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:faysal-masjidi",
+      "title": "Faysal masjidi",
+      "displayName": "Wikipedia – Faysal masjidi",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Faysal_masjidi.ogg",
+      "tags": {
+        "reader": "Madina Ibodullayeva",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 60,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Faysal masjidi.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Faysal masjidi",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/50/Faysal_masjidi.ogg",
+          "duration": 60
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Faysal masjidi",
+        "uploadTs": "2022-07-05T22:59:50Z"
       }
     },
     {
@@ -1380,8 +1639,8 @@
       "kind": "collection",
       "category": "hoerbuecher",
       "id": "commons:graf-monte-kristo",
-      "title": "Graf Monte-Kristo",
-      "displayName": "Wikipedia – Graf Monte-Kristo",
+      "title": "Graf Monte Kristo",
+      "displayName": "Wikipedia – Graf Monte Kristo",
       "lang": "uz",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -1401,7 +1660,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Graf Monte-Kristo",
+          "title": "Graf Monte Kristo",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/2/20/Graf_Monte_Kristo.ogg",
           "duration": 729
         }
@@ -1409,16 +1668,16 @@
       "textLive": {
         "wiki": "uz",
         "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Graf Monte-Kristo",
+        "article": "Graf Monte Kristo",
         "uploadTs": "2022-10-19T06:37:26Z"
       }
     },
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:gruppa-krovi",
-      "title": "Gruppa krovi",
-      "displayName": "Wikipedia – Gruppa krovi",
+      "id": "commons:gruppa-krovi-qo-shiq",
+      "title": "Gruppa krovi (qoʻshiq)",
+      "displayName": "Wikipedia – Gruppa krovi (qoʻshiq)",
       "lang": "uz",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -1438,7 +1697,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Gruppa krovi",
+          "title": "Gruppa krovi (qoʻshiq)",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/6/61/Gruppa_krovi_%28uzwiki%29.ogg",
           "duration": 139
         }
@@ -1446,16 +1705,16 @@
       "textLive": {
         "wiki": "uz",
         "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Gruppa krovi",
+        "article": "Gruppa krovi (qoʻshiq)",
         "uploadTs": "2022-05-27T06:42:39Z"
       }
     },
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:gulnoz-tojiboyeva-yozuvchi",
-      "title": "Gulnoz Tojiboyeva (yozuvchi)",
-      "displayName": "Wikipedia – Gulnoz Tojiboyeva (yozuvchi)",
+      "id": "commons:gulnoz-tojiboyeva",
+      "title": "Gulnoz Tojiboyeva",
+      "displayName": "Wikipedia – Gulnoz Tojiboyeva",
       "lang": "uz",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -1475,7 +1734,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Gulnoz Tojiboyeva (yozuvchi)",
+          "title": "Gulnoz Tojiboyeva",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Gulnoz_Tojiboyeva.ogg",
           "duration": 280
         }
@@ -1483,7 +1742,7 @@
       "textLive": {
         "wiki": "uz",
         "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Gulnoz Tojiboyeva (yozuvchi)",
+        "article": "Gulnoz Tojiboyeva",
         "uploadTs": "2022-10-19T06:36:25Z"
       }
     },
@@ -1527,6 +1786,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:husayniy-madrasasi",
+      "title": "Husayniy madrasasi",
+      "displayName": "Wikipedia – Husayniy madrasasi",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Husayniy_madrasasi.ogg",
+      "tags": {
+        "reader": "Madina Ibodullayeva",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 117,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Husayniy madrasasi.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Husayniy madrasasi",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/21/Husayniy_madrasasi.ogg",
+          "duration": 117
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Husayniy madrasasi",
+        "uploadTs": "2022-07-15T15:38:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:ibrohim-oxund-madrasasi",
       "title": "Ibrohim oxund madrasasi",
       "displayName": "Wikipedia – Ibrohim oxund madrasasi",
@@ -1564,6 +1860,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:inson-o-zing",
+      "title": "Inson oʻzing",
+      "displayName": "Wikipedia – Inson oʻzing",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Inson_o'zing.ogg",
+      "tags": {
+        "reader": "Madina Ibodullayeva",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 119,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Inson o'zing.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Inson oʻzing",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Inson_o%27zing.ogg",
+          "duration": 119
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Inson oʻzing",
+        "uploadTs": "2022-08-09T17:50:08Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:istehzo-madrasasi",
       "title": "Istehzo madrasasi",
       "displayName": "Wikipedia – Istehzo madrasasi",
@@ -1596,6 +1929,43 @@
         "api": "https://uz.wikipedia.org/w/api.php",
         "article": "Istehzo madrasasi",
         "uploadTs": "2022-07-18T06:04:52Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:izohli-lug-at-2",
+      "title": "Izohli lug'at(2)",
+      "displayName": "Wikipedia – Izohli lug'at(2)",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Izohli_lug'at(2).ogg",
+      "tags": {
+        "reader": "Ilmli toliba",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 314,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Izohli lug'at(2).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Izohli lug'at(2)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/85/Izohli_lug%27at%282%29.ogg",
+          "duration": 314
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Izohli lug'at(2)",
+        "uploadTs": "2022-07-15T16:10:22Z"
       }
     },
     {
@@ -1639,8 +2009,8 @@
       "kind": "collection",
       "category": "hoerbuecher",
       "id": "commons:jo-ybori-kalon-madrasasi",
-      "title": "Joʻybori Kalon madrasasi",
-      "displayName": "Wikipedia – Joʻybori Kalon madrasasi",
+      "title": "Jo'ybori Kalon madrasasi",
+      "displayName": "Wikipedia – Jo'ybori Kalon madrasasi",
       "lang": "uz",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -1660,7 +2030,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Joʻybori Kalon madrasasi",
+          "title": "Jo'ybori Kalon madrasasi",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Jo%27ybori_Kalon_madrasasi.ogg",
           "duration": 332
         }
@@ -1668,7 +2038,7 @@
       "textLive": {
         "wiki": "uz",
         "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Joʻybori Kalon madrasasi",
+        "article": "Jo'ybori Kalon madrasasi",
         "uploadTs": "2022-07-19T02:01:42Z"
       }
     },
@@ -1824,8 +2194,8 @@
       "kind": "collection",
       "category": "hoerbuecher",
       "id": "commons:kerak-emas-shahlo-ko-zlaring",
-      "title": "Kerak emas shahlo koʻzlaring",
-      "displayName": "Wikipedia – Kerak emas shahlo koʻzlaring",
+      "title": "Kerak emas shahlo ko'zlaring",
+      "displayName": "Wikipedia – Kerak emas shahlo ko'zlaring",
       "lang": "uz",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -1845,7 +2215,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Kerak emas shahlo koʻzlaring",
+          "title": "Kerak emas shahlo ko'zlaring",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Kerak_emas_shahlo_ko%27zlaring.ogg",
           "duration": 143
         }
@@ -1853,7 +2223,7 @@
       "textLive": {
         "wiki": "uz",
         "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Kerak emas shahlo koʻzlaring",
+        "article": "Kerak emas shahlo ko'zlaring",
         "uploadTs": "2022-07-14T09:02:03Z"
       }
     },
@@ -2008,6 +2378,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:li-ruofan",
+      "title": "Li Ruofan",
+      "displayName": "Wikipedia – Li Ruofan",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Li_Ruofan_(uzwiki).ogg",
+      "tags": {
+        "reader": "Panpanchik",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 135,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Li Ruofan (uzwiki).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Li Ruofan",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/47/Li_Ruofan_%28uzwiki%29.ogg",
+          "duration": 135
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Li Ruofan",
+        "uploadTs": "2022-09-19T14:07:32Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:lola-murotova",
       "title": "Lola Murotova",
       "displayName": "Wikipedia – Lola Murotova",
@@ -2045,9 +2452,46 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:madaliyeva-manzura",
+      "title": "Madaliyeva Manzura",
+      "displayName": "Wikipedia – Madaliyeva Manzura",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Madaliyeva_Manzura.ogg",
+      "tags": {
+        "reader": "Madina Ibodullayeva",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 123,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Madaliyeva Manzura.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Madaliyeva Manzura",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Madaliyeva_Manzura.ogg",
+          "duration": 123
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Madaliyeva Manzura",
+        "uploadTs": "2022-07-26T09:35:39Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:maftun-bo-ldim",
-      "title": "Maftun boʻldim",
-      "displayName": "Wikipedia – Maftun boʻldim",
+      "title": "Maftun bo'ldim",
+      "displayName": "Wikipedia – Maftun bo'ldim",
       "lang": "uz",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -2067,7 +2511,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Maftun boʻldim",
+          "title": "Maftun bo'ldim",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/Maftun_bo%27ldim.ogg",
           "duration": 132
         }
@@ -2075,7 +2519,7 @@
       "textLive": {
         "wiki": "uz",
         "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Maftun boʻldim",
+        "article": "Maftun bo'ldim",
         "uploadTs": "2022-07-11T11:19:43Z"
       }
     },
@@ -2119,43 +2563,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:manzura-madaliyeva",
-      "title": "Manzura Madaliyeva",
-      "displayName": "Wikipedia – Manzura Madaliyeva",
-      "lang": "uz",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Madaliyeva_Manzura.ogg",
-      "tags": {
-        "reader": "Madina Ibodullayeva",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 123,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Madaliyeva Manzura.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Manzura Madaliyeva",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Madaliyeva_Manzura.ogg",
-          "duration": 123
-        }
-      ],
-      "textLive": {
-        "wiki": "uz",
-        "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Manzura Madaliyeva",
-        "uploadTs": "2022-07-26T09:35:39Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:mehnat-shuhrati-ordeni",
       "title": "Mehnat shuhrati ordeni",
       "displayName": "Wikipedia – Mehnat shuhrati ordeni",
@@ -2193,75 +2600,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:mir-arab",
-      "title": "Mir Arab",
-      "displayName": "Wikipedia – Mir Arab",
+      "id": "commons:mehtar-anbar-madrasasi",
+      "title": "Mehtar Anbar madrasasi",
+      "displayName": "Wikipedia – Mehtar Anbar madrasasi",
       "lang": "uz",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Mir_arab.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Mehtar_Anbar_madrasasi.ogg",
       "tags": {
         "reader": "Madina Ibodullayeva",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 133,
+        "total_seconds": 78,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Mir arab.ogg"
+        "source_file": "File:Mehtar Anbar madrasasi.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "Mir Arab",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mir_arab.ogg",
-          "duration": 133
+          "title": "Mehtar Anbar madrasasi",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Mehtar_Anbar_madrasasi.ogg",
+          "duration": 78
         }
       ],
       "textLive": {
         "wiki": "uz",
         "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Mir Arab",
-        "uploadTs": "2022-07-19T02:05:15Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:mir-arab-madrasasi",
-      "title": "Mir Arab madrasasi",
-      "displayName": "Wikipedia – Mir Arab madrasasi",
-      "lang": "uz",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Mir_arab_madrasasi.ogg",
-      "tags": {
-        "reader": "Madina Ibodullayeva",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 222,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Mir arab madrasasi.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Mir Arab madrasasi",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/40/Mir_arab_madrasasi.ogg",
-          "duration": 222
-        }
-      ],
-      "textLive": {
-        "wiki": "uz",
-        "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Mir Arab madrasasi",
-        "uploadTs": "2022-07-19T02:03:16Z"
+        "article": "Mehtar Anbar madrasasi",
+        "uploadTs": "2022-07-18T06:29:00Z"
       }
     },
     {
@@ -2373,6 +2743,80 @@
         "api": "https://uz.wikipedia.org/w/api.php",
         "article": "Mir Said Kamol madrasasi",
         "uploadTs": "2022-07-15T08:57:55Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:mir-arab",
+      "title": "Mir arab",
+      "displayName": "Wikipedia – Mir arab",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Mir_arab.ogg",
+      "tags": {
+        "reader": "Madina Ibodullayeva",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 133,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Mir arab.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Mir arab",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mir_arab.ogg",
+          "duration": 133
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Mir arab",
+        "uploadTs": "2022-07-19T02:05:15Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:mir-arab-madrasasi",
+      "title": "Mir arab madrasasi",
+      "displayName": "Wikipedia – Mir arab madrasasi",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Mir_arab_madrasasi.ogg",
+      "tags": {
+        "reader": "Madina Ibodullayeva",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 222,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Mir arab madrasasi.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Mir arab madrasasi",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/40/Mir_arab_madrasasi.ogg",
+          "duration": 222
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Mir arab madrasasi",
+        "uploadTs": "2022-07-19T02:03:16Z"
       }
     },
     {
@@ -2563,6 +3007,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:muvaffaqiyat-sirlari",
+      "title": "Muvaffaqiyat sirlari",
+      "displayName": "Wikipedia – Muvaffaqiyat sirlari",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Muvaffaqiyat_sirlari.ogg",
+      "tags": {
+        "reader": "Madina Ibodullayeva",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 87,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Muvaffaqiyat sirlari.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Muvaffaqiyat sirlari",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/80/Muvaffaqiyat_sirlari.ogg",
+          "duration": 87
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Muvaffaqiyat sirlari",
+        "uploadTs": "2022-07-18T06:30:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:my-love",
       "title": "My Love",
       "displayName": "Wikipedia – My Love",
@@ -2669,6 +3150,117 @@
         "api": "https://uz.wikipedia.org/w/api.php",
         "article": "No Son of Mine",
         "uploadTs": "2022-05-26T06:49:08Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:o-zbek-gimnaziyasi",
+      "title": "O'zbek gimnaziyasi",
+      "displayName": "Wikipedia – O'zbek gimnaziyasi",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:O'zbek_gimnaziyasi.ogg",
+      "tags": {
+        "reader": "Madina Ibodullayeva",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 664,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:O'zbek gimnaziyasi.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "O'zbek gimnaziyasi",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/O%27zbek_gimnaziyasi.ogg",
+          "duration": 664
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "O'zbek gimnaziyasi",
+        "uploadTs": "2022-07-13T13:30:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:o-zbek-tilining-izohli-lug-ati",
+      "title": "O'zbek tilining izohli lug'ati",
+      "displayName": "Wikipedia – O'zbek tilining izohli lug'ati",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:O'zbek_tilining_izohli_lug'ati.ogg",
+      "tags": {
+        "reader": "Ilmli toliba",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 438,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:O'zbek tilining izohli lug'ati.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "O'zbek tilining izohli lug'ati",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/eb/O%27zbek_tilining_izohli_lug%27ati.ogg",
+          "duration": 438
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "O'zbek tilining izohli lug'ati",
+        "uploadTs": "2022-07-11T11:31:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:odinaxon-otaxonova",
+      "title": "Odinaxon Otaxonova",
+      "displayName": "Wikipedia – Odinaxon Otaxonova",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Odinaxon_Otaxonova.ogg",
+      "tags": {
+        "reader": "Madina Ibodullayeva",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 84,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Odinaxon Otaxonova.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Odinaxon Otaxonova",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Odinaxon_Otaxonova.ogg",
+          "duration": 84
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Odinaxon Otaxonova",
+        "uploadTs": "2022-07-26T09:37:54Z"
       }
     },
     {
@@ -2817,80 +3409,6 @@
         "api": "https://uz.wikipedia.org/w/api.php",
         "article": "Oʻzbegim (qoʻshiq)",
         "uploadTs": "2022-05-26T14:49:12Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:o-zbek-gimnaziyasi",
-      "title": "Oʻzbek gimnaziyasi",
-      "displayName": "Wikipedia – Oʻzbek gimnaziyasi",
-      "lang": "uz",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:O'zbek_gimnaziyasi.ogg",
-      "tags": {
-        "reader": "Madina Ibodullayeva",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 664,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:O'zbek gimnaziyasi.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Oʻzbek gimnaziyasi",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/O%27zbek_gimnaziyasi.ogg",
-          "duration": 664
-        }
-      ],
-      "textLive": {
-        "wiki": "uz",
-        "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Oʻzbek gimnaziyasi",
-        "uploadTs": "2022-07-13T13:30:10Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:o-zbek-tilining-izohli-lug-ati-1981",
-      "title": "Oʻzbek tilining izohli lugʻati (1981)",
-      "displayName": "Wikipedia – Oʻzbek tilining izohli lugʻati (1981)",
-      "lang": "uz",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:O'zbek_tilining_izohli_lug'ati.ogg",
-      "tags": {
-        "reader": "Ilmli toliba",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 438,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:O'zbek tilining izohli lug'ati.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Oʻzbek tilining izohli lugʻati (1981)",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/eb/O%27zbek_tilining_izohli_lug%27ati.ogg",
-          "duration": 438
-        }
-      ],
-      "textLive": {
-        "wiki": "uz",
-        "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Oʻzbek tilining izohli lugʻati (1981)",
-        "uploadTs": "2022-07-11T11:31:48Z"
       }
     },
     {
@@ -3377,6 +3895,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:sturg-un-alimatov",
+      "title": "STurgʻun Alimatov",
+      "displayName": "Wikipedia – STurgʻun Alimatov",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Turgʻun_Alimatov.ogg",
+      "tags": {
+        "reader": "Sitora Oblaqulova",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 262,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Turgʻun Alimatov.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "STurgʻun Alimatov",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Turg%CA%BBun_Alimatov.ogg",
+          "duration": 262
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "STurgʻun Alimatov",
+        "uploadTs": "2022-06-25T14:58:54Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:sabrina-vega-gimnastikachi",
       "title": "Sabrina Vega (gimnastikachi)",
       "displayName": "Wikipedia – Sabrina Vega (gimnastikachi)",
@@ -3488,6 +4043,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:said-kamol-madrasasi",
+      "title": "Said Kamol madrasasi",
+      "displayName": "Wikipedia – Said Kamol madrasasi",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Said_Kamol_madrasasi.ogg",
+      "tags": {
+        "reader": "Madina Ibodullayeva",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 94,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Said Kamol madrasasi.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Said Kamol madrasasi",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/01/Said_Kamol_madrasasi.ogg",
+          "duration": 94
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Said Kamol madrasasi",
+        "uploadTs": "2022-07-18T06:34:40Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:said-otaliq-madrasasi",
       "title": "Said otaliq madrasasi",
       "displayName": "Wikipedia – Said otaliq madrasasi",
@@ -3562,6 +4154,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:samsonbrunnen",
+      "title": "Samsonbrunnen",
+      "displayName": "Wikipedia – Samsonbrunnen",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Samsonbrunnen_(uzwiki).ogg",
+      "tags": {
+        "reader": "Panpanchik",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 140,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Samsonbrunnen (uzwiki).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Samsonbrunnen",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Samsonbrunnen_%28uzwiki%29.ogg",
+          "duration": 140
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Samsonbrunnen",
+        "uploadTs": "2022-09-23T18:11:17Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:sardoba-suv-ombori",
       "title": "Sardoba suv ombori",
       "displayName": "Wikipedia – Sardoba suv ombori",
@@ -3594,6 +4223,117 @@
         "api": "https://uz.wikipedia.org/w/api.php",
         "article": "Sardoba suv ombori",
         "uploadTs": "2022-06-25T14:48:04Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:sa-d-al-g-omidiy",
+      "title": "Saʼd al-Gʻomidiy",
+      "displayName": "Wikipedia – Saʼd al-Gʻomidiy",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Saad_Al_G'omidiy.ogg",
+      "tags": {
+        "reader": "Boboyev1996",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 69,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Saad Al G'omidiy.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Saʼd al-Gʻomidiy",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Saad_Al_G%27omidiy.ogg",
+          "duration": 69
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Saʼd al-Gʻomidiy",
+        "uploadTs": "2022-07-27T04:30:27Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:sen-yetim-emassan",
+      "title": "Sen yetim emassan",
+      "displayName": "Wikipedia – Sen yetim emassan",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Sen_yetim_emassan.ogg",
+      "tags": {
+        "reader": "Qamar0904",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 111,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Sen yetim emassan.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Sen yetim emassan",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/Sen_yetim_emassan.ogg",
+          "duration": 111
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Sen yetim emassan",
+        "uploadTs": "2022-07-05T22:11:38Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:sergey-yesenin",
+      "title": "Sergey Yesenin",
+      "displayName": "Wikipedia – Sergey Yesenin",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Sergey_Yesenin.ogg",
+      "tags": {
+        "reader": "Miss Kamola",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1058,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Sergey Yesenin.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Sergey Yesenin",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/36/Sergey_Yesenin.ogg",
+          "duration": 1058
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Sergey Yesenin",
+        "uploadTs": "2023-04-17T09:16:15Z"
       }
     },
     {
@@ -3753,7 +4493,7 @@
       "lang": "uz",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Silk_Avia_(uzwiki).ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Silk_Avia.ogg",
       "tags": {
         "reader": "Zarifboyev",
         "gender": "",
@@ -3764,13 +4504,13 @@
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Silk Avia (uzwiki).ogg"
+        "source_file": "File:Silk Avia.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Silk Avia",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/86/Silk_Avia_%28uzwiki%29.ogg",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/13/Silk_Avia.ogg",
           "duration": 719
         }
       ],
@@ -3778,52 +4518,15 @@
         "wiki": "uz",
         "api": "https://uz.wikipedia.org/w/api.php",
         "article": "Silk Avia",
-        "uploadTs": "2024-10-29T16:07:42Z"
+        "uploadTs": "2024-10-29T16:29:20Z"
       }
     },
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:simsonbrunnen",
-      "title": "Simsonbrunnen",
-      "displayName": "Wikipedia – Simsonbrunnen",
-      "lang": "uz",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Samsonbrunnen_(uzwiki).ogg",
-      "tags": {
-        "reader": "Panpanchik",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 140,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Samsonbrunnen (uzwiki).ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Simsonbrunnen",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Samsonbrunnen_%28uzwiki%29.ogg",
-          "duration": 140
-        }
-      ],
-      "textLive": {
-        "wiki": "uz",
-        "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Simsonbrunnen",
-        "uploadTs": "2022-09-23T18:11:17Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:sitorai-mohi-xossa-malika",
-      "title": "Sitorai Mohi xossa (malika)",
-      "displayName": "Wikipedia – Sitorai Mohi xossa (malika)",
+      "id": "commons:sitorai-mohi-xossa",
+      "title": "Sitorai Mohi xossa",
+      "displayName": "Wikipedia – Sitorai Mohi xossa",
       "lang": "uz",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -3843,7 +4546,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Sitorai Mohi xossa (malika)",
+          "title": "Sitorai Mohi xossa",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Sitorai_Mohi_xossa.ogg",
           "duration": 400
         }
@@ -3851,7 +4554,7 @@
       "textLive": {
         "wiki": "uz",
         "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Sitorai Mohi xossa (malika)",
+        "article": "Sitorai Mohi xossa",
         "uploadTs": "2022-07-13T13:33:36Z"
       }
     },
@@ -3969,38 +4672,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:turg-un-alimatov",
-      "title": "Turgʻun Alimatov",
-      "displayName": "Wikipedia – Turgʻun Alimatov",
+      "id": "commons:tulporltulpor",
+      "title": "TulporlTulpor",
+      "displayName": "Wikipedia – TulporlTulpor",
       "lang": "uz",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Turgʻun_Alimatov.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Tulpor.ogg",
       "tags": {
-        "reader": "Sitora Oblaqulova",
+        "reader": "Rajapova Hulkaroy",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 262,
+        "total_seconds": 140,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Turgʻun Alimatov.ogg"
+        "source_file": "File:Tulpor.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "Turgʻun Alimatov",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Turg%CA%BBun_Alimatov.ogg",
-          "duration": 262
+          "title": "TulporlTulpor",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Tulpor.ogg",
+          "duration": 140
         }
       ],
       "textLive": {
         "wiki": "uz",
         "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Turgʻun Alimatov",
-        "uploadTs": "2022-06-25T14:58:54Z"
+        "article": "TulporlTulpor",
+        "uploadTs": "2023-06-04T17:24:50Z"
       }
     },
     {
@@ -4080,9 +4783,46 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:vasily-arkhipov",
+      "title": "Vasily Arkhipov",
+      "displayName": "Wikipedia – Vasily Arkhipov",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Vasily_Arkhipov_audio.ogg",
+      "tags": {
+        "reader": "Sarvinoz2222",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 682,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Vasily Arkhipov audio.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Vasily Arkhipov",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Vasily_Arkhipov_audio.ogg",
+          "duration": 682
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Vasily Arkhipov",
+        "uploadTs": "2023-08-14T17:12:01Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:xayr-maktabim",
-      "title": "Xayr, maktabim",
-      "displayName": "Wikipedia – Xayr, maktabim",
+      "title": "Xayr, maktabim!",
+      "displayName": "Wikipedia – Xayr, maktabim!",
       "lang": "uz",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -4102,7 +4842,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Xayr, maktabim",
+          "title": "Xayr, maktabim!",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/7/79/Xayr%2C_maktabim.ogg",
           "duration": 180
         }
@@ -4110,7 +4850,7 @@
       "textLive": {
         "wiki": "uz",
         "api": "https://uz.wikipedia.org/w/api.php",
-        "article": "Xayr, maktabim",
+        "article": "Xayr, maktabim!",
         "uploadTs": "2022-05-26T03:31:23Z"
       }
     },
@@ -4302,6 +5042,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:yomg-ir-qo-shiq",
+      "title": "Yomgʻir (qoʻshiq)",
+      "displayName": "Wikipedia – Yomgʻir (qoʻshiq)",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Yomgir.ogg",
+      "tags": {
+        "reader": "Rajapova Hulkaroy",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 106,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Yomgir.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Yomgʻir (qoʻshiq)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Yomgir.ogg",
+          "duration": 106
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Yomgʻir (qoʻshiq)",
+        "uploadTs": "2022-06-26T20:22:43Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:zelenoglazoye-taksi",
       "title": "Zelenoglazoye taksi",
       "displayName": "Wikipedia – Zelenoglazoye taksi",
@@ -4334,6 +5111,80 @@
         "api": "https://uz.wikipedia.org/w/api.php",
         "article": "Zelenoglazoye taksi",
         "uploadTs": "2022-07-07T14:12:03Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:zulfiya-nomidagi-davlat-mukofoti",
+      "title": "Zulfiya nomidagi davlat mukofoti",
+      "displayName": "Wikipedia – Zulfiya nomidagi davlat mukofoti",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Zulfiya_nomidagi_davlat_mukofoti.ogg",
+      "tags": {
+        "reader": "Humayro",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 116,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Zulfiya nomidagi davlat mukofoti.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Zulfiya nomidagi davlat mukofoti",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Zulfiya_nomidagi_davlat_mukofoti.ogg",
+          "duration": 116
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Zulfiya nomidagi davlat mukofoti",
+        "uploadTs": "2022-08-05T07:57:58Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:z-hringerbrunnen",
+      "title": "Zähringerbrunnen",
+      "displayName": "Wikipedia – Zähringerbrunnen",
+      "lang": "uz",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Zähringerbrunnen_(uzwiki).ogg",
+      "tags": {
+        "reader": "Panpanchik",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 113,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Zähringerbrunnen (uzwiki).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Zähringerbrunnen",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Z%C3%A4hringerbrunnen_%28uzwiki%29.ogg",
+          "duration": 113
+        }
+      ],
+      "textLive": {
+        "wiki": "uz",
+        "api": "https://uz.wikipedia.org/w/api.php",
+        "article": "Zähringerbrunnen",
+        "uploadTs": "2022-09-23T18:11:16Z"
       }
     },
     {

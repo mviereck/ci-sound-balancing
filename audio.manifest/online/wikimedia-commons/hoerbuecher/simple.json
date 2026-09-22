@@ -10,6 +10,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:adrian-lowe",
+      "title": "Adrian Lowe",
+      "displayName": "Wikipedia – Adrian Lowe",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Adrian_Lowe.oga",
+      "tags": {
+        "reader": "English and Simple Wikipedia Coontributors",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 53,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Adrian Lowe.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Adrian Lowe",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/35/Simple_en_Adrian_Lowe.oga",
+          "duration": 53
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Adrian Lowe",
+        "uploadTs": "2012-01-01T03:02:18Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:ana-ivanovi",
       "title": "Ana Ivanović",
       "displayName": "Wikipedia – Ana Ivanović",
@@ -47,6 +84,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:angie-ballard",
+      "title": "Angie Ballard",
+      "displayName": "Wikipedia – Angie Ballard",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Angie_Ballard.oga",
+      "tags": {
+        "reader": "LauraHale",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 89,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Angie Ballard.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Angie Ballard",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Simple_en_Angie_Ballard.oga",
+          "duration": 89
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Angie Ballard",
+        "uploadTs": "2012-01-01T03:02:18Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:baseball-uniform",
       "title": "Baseball uniform",
       "displayName": "Wikipedia – Baseball uniform",
@@ -79,6 +153,43 @@
         "api": "https://simple.wikipedia.org/w/api.php",
         "article": "Baseball uniform",
         "uploadTs": "2016-12-02T18:42:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:brickfilm",
+      "title": "Brickfilm",
+      "displayName": "Wikipedia – Brickfilm",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Brickfilm.oga",
+      "tags": {
+        "reader": "Erock23432",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 56,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Brickfilm.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Brickfilm",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Simple_en_Brickfilm.oga",
+          "duration": 56
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Brickfilm",
+        "uploadTs": "2011-04-23T13:34:21Z"
       }
     },
     {
@@ -232,6 +343,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:equinox",
+      "title": "Equinox",
+      "displayName": "Wikipedia – Equinox",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Equinox,_oldid_211368.oga",
+      "tags": {
+        "reader": "Storkk",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 70,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Equinox, oldid 211368.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Equinox",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Simple_en_Equinox%2C_oldid_211368.oga",
+          "duration": 70
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Equinox",
+        "uploadTs": "2016-12-02T19:06:58Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:evolution",
       "title": "Evolution",
       "displayName": "Wikipedia – Evolution",
@@ -264,6 +412,43 @@
         "api": "https://simple.wikipedia.org/w/api.php",
         "article": "Evolution",
         "uploadTs": "2016-12-02T18:39:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:fencing",
+      "title": "Fencing",
+      "displayName": "Wikipedia – Fencing",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Fencing.oga",
+      "tags": {
+        "reader": "Tdxiang",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 93,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Fencing.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Fencing",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Simple_en_Fencing.oga",
+          "duration": 93
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Fencing",
+        "uploadTs": "2017-01-25T07:35:35Z"
       }
     },
     {
@@ -528,6 +713,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:lego-minifigure",
+      "title": "Lego minifigure",
+      "displayName": "Wikipedia – Lego minifigure",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Lego_minifigure.oga",
+      "tags": {
+        "reader": "Erock23432",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 59,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Lego minifigure.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Lego minifigure",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/be/Simple_en_Lego_minifigure.oga",
+          "duration": 59
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Lego minifigure",
+        "uploadTs": "2011-04-23T15:45:41Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:louise-ellery",
+      "title": "Louise Ellery",
+      "displayName": "Wikipedia – Louise Ellery",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Louise_Ellery.oga",
+      "tags": {
+        "reader": "LauraHale",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 53,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Louise Ellery.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Louise Ellery",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/da/Simple_en_Louise_Ellery.oga",
+          "duration": 53
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Louise Ellery",
+        "uploadTs": "2012-01-01T03:02:13Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:mourning-dove",
       "title": "Mourning dove",
       "displayName": "Wikipedia – Mourning dove",
@@ -597,6 +856,43 @@
         "api": "https://simple.wikipedia.org/w/api.php",
         "article": "Oklahoma",
         "uploadTs": "2016-12-02T19:23:22Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:paralympic-games",
+      "title": "Paralympic Games",
+      "displayName": "Wikipedia – Paralympic Games",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Paralympic_Games.oga",
+      "tags": {
+        "reader": "LauraHale",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 105,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Paralympic Games.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Paralympic Games",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Simple_en_Paralympic_Games.oga",
+          "duration": 105
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Paralympic Games",
+        "uploadTs": "2012-01-01T03:02:12Z"
       }
     },
     {
@@ -676,6 +972,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:stop-motion",
+      "title": "Stop motion",
+      "displayName": "Wikipedia – Stop motion",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Stop-motion.oga",
+      "tags": {
+        "reader": "Erock23432",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 61,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Stop-motion.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Stop motion",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Simple_en_Stop-motion.oga",
+          "duration": 61
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Stop motion",
+        "uploadTs": "2011-04-23T02:46:13Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:sun",
+      "title": "Sun",
+      "displayName": "Wikipedia – Sun",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Sun.oga",
+      "tags": {
+        "reader": "Tdxiang",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 117,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Sun.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Sun",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/04/Simple_en_Sun.oga",
+          "duration": 117
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Sun",
+        "uploadTs": "2017-01-25T07:32:58Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:switzerland",
       "title": "Switzerland",
       "displayName": "Wikipedia – Switzerland",
@@ -713,6 +1083,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:united-states-marine-corps",
+      "title": "United States Marine Corps",
+      "displayName": "Wikipedia – United States Marine Corps",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple-United_States_Marine_Corps-article-20211121.ogg",
+      "tags": {
+        "reader": "Gallomimia",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple-United States Marine Corps-article-20211121.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "United States Marine Corps",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/57/Simple-United_States_Marine_Corps-article-20211121.ogg",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "United States Marine Corps",
+        "uploadTs": "2021-11-22T05:49:00Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:violin",
       "title": "Violin",
       "displayName": "Wikipedia – Violin",
@@ -745,6 +1152,80 @@
         "api": "https://simple.wikipedia.org/w/api.php",
         "article": "Violin",
         "uploadTs": "2016-12-02T19:05:36Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:wikipedia",
+      "title": "Wikipedia",
+      "displayName": "Wikipedia – Wikipedia",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Wikipedia.oga",
+      "tags": {
+        "reader": "Tdxiang",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 78,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Wikipedia.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Wikipedia",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Simple_en_Wikipedia.oga",
+          "duration": 78
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Wikipedia",
+        "uploadTs": "2016-12-02T19:09:27Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:world-trade-center-2001-present",
+      "title": "World Trade Center (2001–present)",
+      "displayName": "Wikipedia – World Trade Center (2001–present)",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_English_Narration_of_World_Trade_center_(2001-present).ogg",
+      "tags": {
+        "reader": "Maganball",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 93,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple English Narration of World Trade center (2001-present).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "World Trade Center (2001–present)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Simple_English_Narration_of_World_Trade_center_%282001-present%29.ogg",
+          "duration": 93
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "World Trade Center (2001–present)",
+        "uploadTs": "2025-01-15T20:51:03Z"
       }
     }
   ]

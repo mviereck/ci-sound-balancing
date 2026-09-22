@@ -1305,6 +1305,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:zh-tw-6-ogg",
+      "title": "Zh-tw-當哈利遇上莎莉-6.ogg",
+      "displayName": "Wikipedia – Zh-tw-當哈利遇上莎莉-6.ogg",
+      "lang": "zh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Zh-tw-當哈利遇上莎莉-6.ogg",
+      "tags": {
+        "reader": "Yuuchen",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 87,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Zh-tw-當哈利遇上莎莉-6.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Zh-tw-當哈利遇上莎莉-6.ogg",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/54/Zh-tw-%E7%95%B6%E5%93%88%E5%88%A9%E9%81%87%E4%B8%8A%E8%8E%8E%E8%8E%89-6.ogg",
+          "duration": 87
+        }
+      ],
+      "textLive": {
+        "wiki": "zh",
+        "api": "https://zh.wikipedia.org/w/api.php",
+        "article": "Zh-tw-當哈利遇上莎莉-6.ogg",
+        "uploadTs": "2015-11-30T16:52:54Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-zh-1-part-1-ogg",
       "title": "一美元金币",
       "displayName": "Wikipedia – 一美元金币",
@@ -1416,6 +1453,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-zh-oga",
+      "title": "中國國民黨",
+      "displayName": "Wikipedia – 中國國民黨",
+      "lang": "zh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Zh-中國國民黨.oga",
+      "tags": {
+        "reader": "",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 91,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Zh-中國國民黨.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "中國國民黨",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/56/Zh-%E4%B8%AD%E5%9C%8B%E5%9C%8B%E6%B0%91%E9%BB%A8.oga",
+          "duration": 91
+        }
+      ],
+      "textLive": {
+        "wiki": "zh",
+        "api": "https://zh.wikipedia.org/w/api.php",
+        "article": "中國國民黨",
+        "uploadTs": "2012-01-18T06:09:21Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-zh-2024-ogg",
       "title": "中文維基百科",
       "displayName": "Wikipedia – 中文維基百科",
@@ -1485,6 +1559,43 @@
         "api": "https://zh.wikipedia.org/w/api.php",
         "article": "乐山大佛",
         "uploadTs": "2011-07-25T06:40:27Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-zh-part-0-ogg",
+      "title": "北京话",
+      "displayName": "Wikipedia – 北京话",
+      "lang": "zh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Zh-北京话-part_0.ogg",
+      "tags": {
+        "reader": "Caq",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 76,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Zh-北京话-part 0.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "北京话",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/33/Zh-%E5%8C%97%E4%BA%AC%E8%AF%9D-part_0.ogg",
+          "duration": 76
+        }
+      ],
+      "textLive": {
+        "wiki": "zh",
+        "api": "https://zh.wikipedia.org/w/api.php",
+        "article": "北京话",
+        "uploadTs": "2016-06-22T02:48:47Z"
       }
     },
     {
@@ -1601,43 +1712,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-djibouti-chinese-spoken-article-1-out-of-3-ogg",
-      "title": "吉布提",
-      "displayName": "Wikipedia – 吉布提",
-      "lang": "zh",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Djibouti_-_Chinese_spoken_article_(1_out_of_3).ogg",
-      "tags": {
-        "reader": "Carrotkit",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 408,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Djibouti - Chinese spoken article (1 out of 3).ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "吉布提",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/46/Djibouti_-_Chinese_spoken_article_%281_out_of_3%29.ogg",
-          "duration": 408
-        }
-      ],
-      "textLive": {
-        "wiki": "zh",
-        "api": "https://zh.wikipedia.org/w/api.php",
-        "article": "吉布提",
-        "uploadTs": "2016-06-20T10:21:48Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:file-djibouti-chinese-spoken-article-2-out-of-3-ogg",
       "title": "吉布提",
       "displayName": "Wikipedia – 吉布提",
@@ -1707,6 +1781,43 @@
         "api": "https://zh.wikipedia.org/w/api.php",
         "article": "吉布提",
         "uploadTs": "2016-06-20T11:11:16Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-djibouti-chinese-spoken-article-1-out-of-3-ogg",
+      "title": "吉布提",
+      "displayName": "Wikipedia – 吉布提",
+      "lang": "zh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Djibouti_-_Chinese_spoken_article_(1_out_of_3).ogg",
+      "tags": {
+        "reader": "Carrotkit",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 408,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Djibouti - Chinese spoken article (1 out of 3).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "吉布提",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/46/Djibouti_-_Chinese_spoken_article_%281_out_of_3%29.ogg",
+          "duration": 408
+        }
+      ],
+      "textLive": {
+        "wiki": "zh",
+        "api": "https://zh.wikipedia.org/w/api.php",
+        "article": "吉布提",
+        "uploadTs": "2016-06-20T10:21:48Z"
       }
     },
     {
@@ -2193,6 +2304,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-zh-part2-ogg",
+      "title": "新湖镇 (东平县)",
+      "displayName": "Wikipedia – 新湖镇 (东平县)",
+      "lang": "zh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Zh-新湖镇_(东平县)-part2.ogg",
+      "tags": {
+        "reader": "Snghrax",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 108,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Zh-新湖镇 (东平县)-part2.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "新湖镇 (东平县)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/72/Zh-%E6%96%B0%E6%B9%96%E9%95%87_%28%E4%B8%9C%E5%B9%B3%E5%8E%BF%29-part2.ogg",
+          "duration": 108
+        }
+      ],
+      "textLive": {
+        "wiki": "zh",
+        "api": "https://zh.wikipedia.org/w/api.php",
+        "article": "新湖镇 (东平县)",
+        "uploadTs": "2018-06-17T09:58:31Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-2011-9-11-ogg",
       "title": "柳州话",
       "displayName": "Wikipedia – 柳州话",
@@ -2267,38 +2415,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-zh-02-ogg",
-      "title": "漢字",
-      "displayName": "Wikipedia – 漢字",
+      "id": "commons:file-jlua-oga",
+      "title": "济南市莱芜第一中学",
+      "displayName": "Wikipedia – 济南市莱芜第一中学",
       "lang": "zh",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Zh-漢字02.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Jlua_莱芜第一中学_頭段_莱芜话.oga",
       "tags": {
-        "reader": "KaurJmeb",
+        "reader": "亓英豪",
         "gender": "",
         "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 1210,
+        "length_band": "very_short",
+        "total_seconds": 69,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Zh-漢字02.ogg"
+        "source_file": "File:Jlua 莱芜第一中学 頭段 莱芜话.oga"
       },
       "items": [
         {
           "id": "art",
-          "title": "漢字",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Zh-%E6%BC%A2%E5%AD%9702.ogg",
-          "duration": 1210
+          "title": "济南市莱芜第一中学",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/Jlua_%E8%8E%B1%E8%8A%9C%E7%AC%AC%E4%B8%80%E4%B8%AD%E5%AD%A6_%E9%A0%AD%E6%AE%B5_%E8%8E%B1%E8%8A%9C%E8%AF%9D.oga",
+          "duration": 69
         }
       ],
       "textLive": {
         "wiki": "zh",
         "api": "https://zh.wikipedia.org/w/api.php",
-        "article": "漢字",
-        "uploadTs": "2005-12-05T18:19:19Z"
+        "article": "济南市莱芜第一中学",
+        "uploadTs": "2018-02-20T11:39:59Z"
       }
     },
     {
@@ -2336,6 +2484,43 @@
         "api": "https://zh.wikipedia.org/w/api.php",
         "article": "漢字",
         "uploadTs": "2005-12-05T17:53:51Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-zh-02-ogg",
+      "title": "漢字",
+      "displayName": "Wikipedia – 漢字",
+      "lang": "zh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Zh-漢字02.ogg",
+      "tags": {
+        "reader": "KaurJmeb",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1210,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Zh-漢字02.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "漢字",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Zh-%E6%BC%A2%E5%AD%9702.ogg",
+          "duration": 1210
+        }
+      ],
+      "textLive": {
+        "wiki": "zh",
+        "api": "https://zh.wikipedia.org/w/api.php",
+        "article": "漢字",
+        "uploadTs": "2005-12-05T18:19:19Z"
       }
     },
     {
@@ -2452,6 +2637,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-cdo-ogg",
+      "title": "福州第三中學",
+      "displayName": "Wikipedia – 福州第三中學",
+      "lang": "zh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Cdo_福州第三中學_頭段.ogg",
+      "tags": {
+        "reader": "趙玉成, 林琛",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 104,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Cdo 福州第三中學 頭段.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "福州第三中學",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/82/Cdo_%E7%A6%8F%E5%B7%9E%E7%AC%AC%E4%B8%89%E4%B8%AD%E5%AD%B8_%E9%A0%AD%E6%AE%B5.ogg",
+          "duration": 104
+        }
+      ],
+      "textLive": {
+        "wiki": "zh",
+        "api": "https://zh.wikipedia.org/w/api.php",
+        "article": "福州第三中學",
+        "uploadTs": "2017-11-18T12:44:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-zh-tw-ogg",
       "title": "賴瑞·歐布萊恩冠軍獎盃",
       "displayName": "Wikipedia – 賴瑞·歐布萊恩冠軍獎盃",
@@ -2563,43 +2785,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-zh-part-2-ogg",
-      "title": "韓國教育",
-      "displayName": "Wikipedia – 韓國教育",
-      "lang": "zh",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Zh-韓國教育-part_2.ogg",
-      "tags": {
-        "reader": "人间百态",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 978,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Zh-韓國教育-part 2.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "韓國教育",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/32/Zh-%E9%9F%93%E5%9C%8B%E6%95%99%E8%82%B2-part_2.ogg",
-          "duration": 978
-        }
-      ],
-      "textLive": {
-        "wiki": "zh",
-        "api": "https://zh.wikipedia.org/w/api.php",
-        "article": "韓國教育",
-        "uploadTs": "2025-05-11T13:44:59Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:file-zh-part-1-ogg",
       "title": "韓國教育",
       "displayName": "Wikipedia – 韓國教育",
@@ -2632,6 +2817,43 @@
         "api": "https://zh.wikipedia.org/w/api.php",
         "article": "韓國教育",
         "uploadTs": "2025-05-11T13:37:19Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-zh-part-2-ogg",
+      "title": "韓國教育",
+      "displayName": "Wikipedia – 韓國教育",
+      "lang": "zh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Zh-韓國教育-part_2.ogg",
+      "tags": {
+        "reader": "人间百态",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 978,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Zh-韓國教育-part 2.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "韓國教育",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/32/Zh-%E9%9F%93%E5%9C%8B%E6%95%99%E8%82%B2-part_2.ogg",
+          "duration": 978
+        }
+      ],
+      "textLive": {
+        "wiki": "zh",
+        "api": "https://zh.wikipedia.org/w/api.php",
+        "article": "韓國教育",
+        "uploadTs": "2025-05-11T13:44:59Z"
       }
     },
     {
@@ -2674,43 +2896,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-zh-yue-2-ogg",
-      "title": "香港語文",
-      "displayName": "Wikipedia – 香港語文",
-      "lang": "zh",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Zh-yue-香港語文2.ogg",
-      "tags": {
-        "reader": "Chungpui",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 1388,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Zh-yue-香港語文2.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "香港語文",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Zh-yue-%E9%A6%99%E6%B8%AF%E8%AA%9E%E6%96%872.ogg",
-          "duration": 1388
-        }
-      ],
-      "textLive": {
-        "wiki": "zh",
-        "api": "https://zh.wikipedia.org/w/api.php",
-        "article": "香港語文",
-        "uploadTs": "2005-12-11T16:20:39Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:file-zh-yue-1-ogg",
       "title": "香港語文",
       "displayName": "Wikipedia – 香港語文",
@@ -2743,6 +2928,43 @@
         "api": "https://zh.wikipedia.org/w/api.php",
         "article": "香港語文",
         "uploadTs": "2005-12-11T15:37:00Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-zh-yue-2-ogg",
+      "title": "香港語文",
+      "displayName": "Wikipedia – 香港語文",
+      "lang": "zh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Zh-yue-香港語文2.ogg",
+      "tags": {
+        "reader": "Chungpui",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1388,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Zh-yue-香港語文2.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "香港語文",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Zh-yue-%E9%A6%99%E6%B8%AF%E8%AA%9E%E6%96%872.ogg",
+          "duration": 1388
+        }
+      ],
+      "textLive": {
+        "wiki": "zh",
+        "api": "https://zh.wikipedia.org/w/api.php",
+        "article": "香港語文",
+        "uploadTs": "2005-12-11T16:20:39Z"
       }
     },
     {

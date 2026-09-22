@@ -43,6 +43,43 @@
         "article": "タチバナ",
         "uploadTs": "2024-04-16T03:52:27Z"
       }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-20231201t233822-ogg",
+      "title": "藤村紀雄",
+      "displayName": "Wikipedia – 藤村紀雄",
+      "lang": "ja",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:ウィキペディア日本語版_録音記事「藤村紀雄」20231201T233822版.ogg",
+      "tags": {
+        "reader": "Prefuture",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 93,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:ウィキペディア日本語版 録音記事「藤村紀雄」20231201T233822版.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "藤村紀雄",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/95/%E3%82%A6%E3%82%A3%E3%82%AD%E3%83%9A%E3%83%87%E3%82%A3%E3%82%A2%E6%97%A5%E6%9C%AC%E8%AA%9E%E7%89%88_%E9%8C%B2%E9%9F%B3%E8%A8%98%E4%BA%8B%E3%80%8C%E8%97%A4%E6%9D%91%E7%B4%80%E9%9B%84%E3%80%8D20231201T233822%E7%89%88.ogg",
+          "duration": 93
+        }
+      ],
+      "textLive": {
+        "wiki": "ja",
+        "api": "https://ja.wikipedia.org/w/api.php",
+        "article": "藤村紀雄",
+        "uploadTs": "2024-01-26T09:19:25Z"
+      }
     }
   ]
 }

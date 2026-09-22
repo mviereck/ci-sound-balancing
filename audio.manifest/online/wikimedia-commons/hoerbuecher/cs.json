@@ -47,6 +47,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:alternativa-politick-strana",
+      "title": "Alternativa (politická strana)",
+      "displayName": "Wikipedia – Alternativa (politická strana)",
+      "lang": "cs",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Alternativa_(politická_strana)_v._23611800.ogg",
+      "tags": {
+        "reader": "Juandev",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 111,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Alternativa (politická strana) v. 23611800.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Alternativa (politická strana)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/75/Alternativa_%28politick%C3%A1_strana%29_v._23611800.ogg",
+          "duration": 111
+        }
+      ],
+      "textLive": {
+        "wiki": "cs",
+        "api": "https://cs.wikipedia.org/w/api.php",
+        "article": "Alternativa (politická strana)",
+        "uploadTs": "2025-08-13T08:31:12Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:ath-ny",
       "title": "Athény",
       "displayName": "Wikipedia – Athény",
@@ -269,6 +306,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:bo-ivoj-ii",
+      "title": "Bořivoj II.",
+      "displayName": "Wikipedia – Bořivoj II.",
+      "lang": "cs",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Borivoj_II.ogg",
+      "tags": {
+        "reader": "Ludek",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 76,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Borivoj II.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Bořivoj II.",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/15/Borivoj_II.ogg",
+          "duration": 76
+        }
+      ],
+      "textLive": {
+        "wiki": "cs",
+        "api": "https://cs.wikipedia.org/w/api.php",
+        "article": "Bořivoj II.",
+        "uploadTs": "2008-05-28T11:33:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:brno",
       "title": "Brno",
       "displayName": "Wikipedia – Brno",
@@ -412,6 +486,43 @@
         "api": "https://cs.wikipedia.org/w/api.php",
         "article": "Břetislav II.",
         "uploadTs": "2008-02-17T12:42:30Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:d-jiny-sociologie-sociologie-ve-st-edov-k-m-isl-mu",
+      "title": "Dějiny sociologie#Sociologie ve středověkém islámu",
+      "displayName": "Wikipedia – Dějiny sociologie#Sociologie ve středověkém islámu",
+      "lang": "cs",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Dějiny_sociologie,_Sociologie_ve_středověkém_islámu.ogg",
+      "tags": {
+        "reader": "Ria",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 68,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Dějiny sociologie, Sociologie ve středověkém islámu.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Dějiny sociologie#Sociologie ve středověkém islámu",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3f/D%C4%9Bjiny_sociologie%2C_Sociologie_ve_st%C5%99edov%C4%9Bk%C3%A9m_isl%C3%A1mu.ogg",
+          "duration": 68
+        }
+      ],
+      "textLive": {
+        "wiki": "cs",
+        "api": "https://cs.wikipedia.org/w/api.php",
+        "article": "Dějiny sociologie#Sociologie ve středověkém islámu",
+        "uploadTs": "2010-01-31T18:19:07Z"
       }
     },
     {
@@ -935,6 +1046,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:l-pa-americk",
+      "title": "Lípa americká",
+      "displayName": "Wikipedia – Lípa americká",
+      "lang": "cs",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Lípa_americká_v._25137325.ogg",
+      "tags": {
+        "reader": "Juandev",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 50,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Lípa americká v. 25137325.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Lípa americká",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/34/L%C3%ADpa_americk%C3%A1_v._25137325.ogg",
+          "duration": 50
+        }
+      ],
+      "textLive": {
+        "wiki": "cs",
+        "api": "https://cs.wikipedia.org/w/api.php",
+        "article": "Lípa americká",
+        "uploadTs": "2025-08-13T08:55:05Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:mikul-kopern-k",
       "title": "Mikuláš Koperník",
       "displayName": "Wikipedia – Mikuláš Koperník",
@@ -1157,6 +1305,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:slavnost-nejsv-t-j-trojice",
+      "title": "Slavnost Nejsvětější Trojice",
+      "displayName": "Wikipedia – Slavnost Nejsvětější Trojice",
+      "lang": "cs",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Slavnost_Nejsvetejsi_Trojice.ogg",
+      "tags": {
+        "reader": "Juan de Vojníkov",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 74,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Slavnost Nejsvetejsi Trojice.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Slavnost Nejsvětější Trojice",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Slavnost_Nejsvetejsi_Trojice.ogg",
+          "duration": 74
+        }
+      ],
+      "textLive": {
+        "wiki": "cs",
+        "api": "https://cs.wikipedia.org/w/api.php",
+        "article": "Slavnost Nejsvětější Trojice",
+        "uploadTs": "2008-02-24T08:15:39Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:slune-n-soustava",
       "title": "Sluneční soustava",
       "displayName": "Wikipedia – Sluneční soustava",
@@ -1342,43 +1527,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:tycho-brahe",
-      "title": "Tycho Brahe",
-      "displayName": "Wikipedia – Tycho Brahe",
-      "lang": "cs",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Cs-tycho-brahe-article.ogg",
-      "tags": {
-        "reader": "H0n24",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 464,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Cs-tycho-brahe-article.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Tycho Brahe",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/68/Cs-tycho-brahe-article.ogg",
-          "duration": 464
-        }
-      ],
-      "textLive": {
-        "wiki": "cs",
-        "api": "https://cs.wikipedia.org/w/api.php",
-        "article": "Tycho Brahe",
-        "uploadTs": "2015-11-07T16:54:35Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:um-l-inteligence",
       "title": "Umělá inteligence",
       "displayName": "Wikipedia – Umělá inteligence",
@@ -1490,6 +1638,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:vladivoj",
+      "title": "Vladivoj",
+      "displayName": "Wikipedia – Vladivoj",
+      "lang": "cs",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Vladivoj.ogg",
+      "tags": {
+        "reader": "Ludek",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 76,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Vladivoj.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Vladivoj",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Vladivoj.ogg",
+          "duration": 76
+        }
+      ],
+      "textLive": {
+        "wiki": "cs",
+        "api": "https://cs.wikipedia.org/w/api.php",
+        "article": "Vladivoj",
+        "uploadTs": "2008-01-26T10:01:53Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:vratislav-i",
+      "title": "Vratislav I.",
+      "displayName": "Wikipedia – Vratislav I.",
+      "lang": "cs",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Vratislav_I.ogg",
+      "tags": {
+        "reader": "Ludek",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 116,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Vratislav I.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Vratislav I.",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/87/Vratislav_I.ogg",
+          "duration": 116
+        }
+      ],
+      "textLive": {
+        "wiki": "cs",
+        "api": "https://cs.wikipedia.org/w/api.php",
+        "article": "Vratislav I.",
+        "uploadTs": "2008-02-17T19:31:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:vratislav-ii",
       "title": "Vratislav II.",
       "displayName": "Wikipedia – Vratislav II.",
@@ -1522,6 +1744,43 @@
         "api": "https://cs.wikipedia.org/w/api.php",
         "article": "Vratislav II.",
         "uploadTs": "2008-02-03T10:04:28Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:wikipedista-h0n24",
+      "title": "Wikipedista:H0n24",
+      "displayName": "Wikipedia – Wikipedista:H0n24",
+      "lang": "cs",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Cs-tycho-brahe-article.ogg",
+      "tags": {
+        "reader": "H0n24",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 464,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Cs-tycho-brahe-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Wikipedista:H0n24",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/68/Cs-tycho-brahe-article.ogg",
+          "duration": 464
+        }
+      ],
+      "textLive": {
+        "wiki": "cs",
+        "api": "https://cs.wikipedia.org/w/api.php",
+        "article": "Wikipedista:H0n24",
+        "uploadTs": "2015-11-07T16:54:35Z"
       }
     },
     {

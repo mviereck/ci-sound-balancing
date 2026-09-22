@@ -10,6 +10,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:br-drene-grimm",
+      "title": "Brødrene Grimm",
+      "displayName": "Wikipedia – Brødrene Grimm",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Brødrene_Grimm.oga",
+      "tags": {
+        "reader": "Anders-k",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 61,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Brødrene Grimm.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Brødrene Grimm",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/07/Br%C3%B8drene_Grimm.oga",
+          "duration": 61
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Brødrene Grimm",
+        "uploadTs": "2018-08-28T19:12:50Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:danmarks-historie-1536-1660",
       "title": "Danmarks historie (1536-1660)",
       "displayName": "Wikipedia – Danmarks historie (1536-1660)",
@@ -42,6 +79,43 @@
         "api": "https://da.wikipedia.org/w/api.php",
         "article": "Danmarks historie (1536-1660)",
         "uploadTs": "2008-12-20T21:02:27Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:dansk-blindesamfund",
+      "title": "Dansk Blindesamfund",
+      "displayName": "Wikipedia – Dansk Blindesamfund",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Dansk_Blindesamfund.ogg",
+      "tags": {
+        "reader": "Anders-k",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 80,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Dansk Blindesamfund.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Dansk Blindesamfund",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/01/Dansk_Blindesamfund.ogg",
+          "duration": 80
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Dansk Blindesamfund",
+        "uploadTs": "2013-03-11T17:26:17Z"
       }
     },
     {
@@ -121,38 +195,112 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch",
-      "title": "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch",
-      "displayName": "Wikipedia – Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch",
+      "id": "commons:skabelon-blodtyper",
+      "title": "Skabelon:Blodtyper",
+      "displayName": "Wikipedia – Skabelon:Blodtyper",
       "lang": "da",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Llanfair.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:SkabelonBlodtyper.ogg",
       "tags": {
-        "reader": "CarinaT",
+        "reader": "Sabbe",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 140,
+        "total_seconds": 61,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Llanfair.ogg"
+        "source_file": "File:SkabelonBlodtyper.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Llanfair.ogg",
-          "duration": 140
+          "title": "Skabelon:Blodtyper",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ca/SkabelonBlodtyper.ogg",
+          "duration": 61
         }
       ],
       "textLive": {
         "wiki": "da",
         "api": "https://da.wikipedia.org/w/api.php",
-        "article": "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch",
-        "uploadTs": "2009-12-07T16:50:36Z"
+        "article": "Skabelon:Blodtyper",
+        "uploadTs": "2010-01-09T20:03:00Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:skabelon-test",
+      "title": "Skabelon:Test",
+      "displayName": "Wikipedia – Skabelon:Test",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Testskabelon.ogg",
+      "tags": {
+        "reader": "CarinaT",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 116,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Testskabelon.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Skabelon:Test",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Testskabelon.ogg",
+          "duration": 116
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Skabelon:Test",
+        "uploadTs": "2009-12-10T20:53:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:skabelon-velkommen",
+      "title": "Skabelon:Velkommen",
+      "displayName": "Wikipedia – Skabelon:Velkommen",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Velkommen.ogg",
+      "tags": {
+        "reader": "CarinaT",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 102,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Velkommen.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Skabelon:Velkommen",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/78/Velkommen.ogg",
+          "duration": 102
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Skabelon:Velkommen",
+        "uploadTs": "2009-12-10T20:51:13Z"
       }
     },
     {
@@ -232,6 +380,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:styrelsen-for-international-uddannelse",
+      "title": "Styrelsen for International Uddannelse",
+      "displayName": "Wikipedia – Styrelsen for International Uddannelse",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikilation_-_Styrelsen_for_international_uddannelse_2013-10-22.ogg",
+      "tags": {
+        "reader": "Lukan27",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 84,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikilation - Styrelsen for international uddannelse 2013-10-22.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Styrelsen for International Uddannelse",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Wikilation_-_Styrelsen_for_international_uddannelse_2013-10-22.ogg",
+          "duration": 84
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Styrelsen for International Uddannelse",
+        "uploadTs": "2013-10-21T23:08:18Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:s-byg-rd-r",
       "title": "Søbygård (Ærø)",
       "displayName": "Wikipedia – Søbygård (Ærø)",
@@ -269,9 +454,9 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:taumata",
-      "title": "Taumata",
-      "displayName": "Wikipedia – Taumata",
+      "id": "commons:taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu",
+      "title": "Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu",
+      "displayName": "Wikipedia – Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu",
       "lang": "da",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
@@ -291,7 +476,7 @@
       "items": [
         {
           "id": "art",
-          "title": "Taumata",
+          "title": "Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/7/75/Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu.ogg",
           "duration": 166
         }
@@ -299,7 +484,7 @@
       "textLive": {
         "wiki": "da",
         "api": "https://da.wikipedia.org/w/api.php",
-        "article": "Taumata",
+        "article": "Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu",
         "uploadTs": "2009-01-21T15:57:47Z"
       }
     },
@@ -375,6 +560,43 @@
         "api": "https://da.wikipedia.org/w/api.php",
         "article": "Vaduz",
         "uploadTs": "2008-12-10T20:57:41Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:wp-ia",
+      "title": "WP:IA",
+      "displayName": "Wikipedia – WP:IA",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Llanfair.ogg",
+      "tags": {
+        "reader": "CarinaT",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 140,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Llanfair.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "WP:IA",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Llanfair.ogg",
+          "duration": 140
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "WP:IA",
+        "uploadTs": "2009-12-07T16:50:36Z"
       }
     },
     {

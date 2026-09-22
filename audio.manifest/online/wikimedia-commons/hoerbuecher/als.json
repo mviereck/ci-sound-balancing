@@ -158,6 +158,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:eibe",
+      "title": "Eibe",
+      "displayName": "Wikipedia – Eibe",
+      "lang": "als",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Als-Iibe-Artikel.ogg",
+      "tags": {
+        "reader": "Terfili",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 297,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Als-Iibe-Artikel.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Eibe",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/41/Als-Iibe-Artikel.ogg",
+          "duration": 297
+        }
+      ],
+      "textLive": {
+        "wiki": "als",
+        "api": "https://als.wikipedia.org/w/api.php",
+        "article": "Eibe",
+        "uploadTs": "2011-05-22T21:18:25Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:elsass-cola",
       "title": "Elsass Cola",
       "displayName": "Wikipedia – Elsass Cola",
@@ -190,43 +227,6 @@
         "api": "https://als.wikipedia.org/w/api.php",
         "article": "Elsass Cola",
         "uploadTs": "2013-05-05T19:15:30Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:europ-ische-eibe",
-      "title": "Europäische Eibe",
-      "displayName": "Wikipedia – Europäische Eibe",
-      "lang": "als",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Als-Iibe-Artikel.ogg",
-      "tags": {
-        "reader": "Terfili",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 297,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Als-Iibe-Artikel.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Europäische Eibe",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/41/Als-Iibe-Artikel.ogg",
-          "duration": 297
-        }
-      ],
-      "textLive": {
-        "wiki": "als",
-        "api": "https://als.wikipedia.org/w/api.php",
-        "article": "Europäische Eibe",
-        "uploadTs": "2011-05-22T21:18:25Z"
       }
     },
     {
@@ -301,43 +301,6 @@
         "api": "https://als.wikipedia.org/w/api.php",
         "article": "FC Mulhouse",
         "uploadTs": "2015-12-30T08:11:36Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:glarnerdeutsche-sprachinsel-in-wisconsin",
-      "title": "Glarnerdeutsche Sprachinsel in Wisconsin",
-      "displayName": "Wikipedia – Glarnerdeutsche Sprachinsel in Wisconsin",
-      "lang": "als",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Als-Schwyzerdütsch_z_Wisconsin-Artikel.ogg",
-      "tags": {
-        "reader": "Terfili",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 762,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Als-Schwyzerdütsch z Wisconsin-Artikel.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Glarnerdeutsche Sprachinsel in Wisconsin",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Als-Schwyzerd%C3%BCtsch_z_Wisconsin-Artikel.ogg",
-          "duration": 762
-        }
-      ],
-      "textLive": {
-        "wiki": "als",
-        "api": "https://als.wikipedia.org/w/api.php",
-        "article": "Glarnerdeutsche Sprachinsel in Wisconsin",
-        "uploadTs": "2010-10-14T12:43:44Z"
       }
     },
     {
@@ -671,6 +634,43 @@
         "api": "https://als.wikipedia.org/w/api.php",
         "article": "Schauinslandbahn",
         "uploadTs": "2011-05-23T07:13:15Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:schweizerdeutsch-in-wisconsin",
+      "title": "Schweizerdeutsch in Wisconsin",
+      "displayName": "Wikipedia – Schweizerdeutsch in Wisconsin",
+      "lang": "als",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Als-Schwyzerdütsch_z_Wisconsin-Artikel.ogg",
+      "tags": {
+        "reader": "Terfili",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 762,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Als-Schwyzerdütsch z Wisconsin-Artikel.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Schweizerdeutsch in Wisconsin",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Als-Schwyzerd%C3%BCtsch_z_Wisconsin-Artikel.ogg",
+          "duration": 762
+        }
+      ],
+      "textLive": {
+        "wiki": "als",
+        "api": "https://als.wikipedia.org/w/api.php",
+        "article": "Schweizerdeutsch in Wisconsin",
+        "uploadTs": "2010-10-14T12:43:44Z"
       }
     },
     {

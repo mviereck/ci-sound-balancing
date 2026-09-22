@@ -10,6 +10,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-university-article-spoken-arabic-wikipedia-ogg",
+      "title": "آري باروسو",
+      "displayName": "Wikipedia – آري باروسو",
+      "lang": "ar",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:University_Article_Spoken_Arabic_Wikipedia.ogg",
+      "tags": {
+        "reader": "Riadismet",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 136,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:University Article Spoken Arabic Wikipedia.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "آري باروسو",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ae/University_Article_Spoken_Arabic_Wikipedia.ogg",
+          "duration": 136
+        }
+      ],
+      "textLive": {
+        "wiki": "ar",
+        "api": "https://ar.wikipedia.org/w/api.php",
+        "article": "آري باروسو",
+        "uploadTs": "2016-02-12T02:58:15Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-assia-djebar-ogg",
       "title": "آسيا جبار",
       "displayName": "Wikipedia – آسيا جبار",
@@ -79,6 +116,154 @@
         "api": "https://ar.wikipedia.org/w/api.php",
         "article": "ألمانيا الشرقية",
         "uploadTs": "2010-10-02T08:34:27Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ed-starink-wikipedia-arabic-spoken-article-ogg",
+      "title": "إ دي ستارينك",
+      "displayName": "Wikipedia – إ دي ستارينك",
+      "lang": "ar",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ed_Starink_Wikipedia_Arabic_Spoken_Article.ogg",
+      "tags": {
+        "reader": "Riadismet",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 94,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ed Starink Wikipedia Arabic Spoken Article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "إ دي ستارينك",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Ed_Starink_Wikipedia_Arabic_Spoken_Article.ogg",
+          "duration": 94
+        }
+      ],
+      "textLive": {
+        "wiki": "ar",
+        "api": "https://ar.wikipedia.org/w/api.php",
+        "article": "إ دي ستارينك",
+        "uploadTs": "2022-02-10T00:40:56Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-holandradio-ogg",
+      "title": "إذاعة هولندا العالمية",
+      "displayName": "Wikipedia – إذاعة هولندا العالمية",
+      "lang": "ar",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Holandradio.ogg",
+      "tags": {
+        "reader": "Mohamed Ouda",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 53,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Holandradio.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "إذاعة هولندا العالمية",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Holandradio.ogg",
+          "duration": 53
+        }
+      ],
+      "textLive": {
+        "wiki": "ar",
+        "api": "https://ar.wikipedia.org/w/api.php",
+        "article": "إذاعة هولندا العالمية",
+        "uploadTs": "2008-09-17T23:52:31Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-fernsehen-ogg",
+      "title": "إف دي مارشيتي",
+      "displayName": "Wikipedia – إف دي مارشيتي",
+      "lang": "ar",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Fernsehen.ogg",
+      "tags": {
+        "reader": "Riadismet",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 222,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Fernsehen.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "إف دي مارشيتي",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Fernsehen.ogg",
+          "duration": 222
+        }
+      ],
+      "textLive": {
+        "wiki": "ar",
+        "api": "https://ar.wikipedia.org/w/api.php",
+        "article": "إف دي مارشيتي",
+        "uploadTs": "2022-02-10T00:49:34Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-zoll-spoken-article-arabic-wikipedia-ogg",
+      "title": "إل كوندور باسا",
+      "displayName": "Wikipedia – إل كوندور باسا",
+      "lang": "ar",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Zoll_Spoken_Article_Arabic_Wikipedia.ogg",
+      "tags": {
+        "reader": "Riadismet",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 147,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Zoll Spoken Article Arabic Wikipedia.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "إل كوندور باسا",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Zoll_Spoken_Article_Arabic_Wikipedia.ogg",
+          "duration": 147
+        }
+      ],
+      "textLive": {
+        "wiki": "ar",
+        "api": "https://ar.wikipedia.org/w/api.php",
+        "article": "إل كوندور باسا",
+        "uploadTs": "2016-02-12T02:40:55Z"
       }
     },
     {
@@ -306,112 +491,112 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-fernsehen-ogg",
-      "title": "تلفزة",
-      "displayName": "Wikipedia – تلفزة",
+      "id": "commons:file-programming-ogg",
+      "title": "برمجة",
+      "displayName": "Wikipedia – برمجة",
       "lang": "ar",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Fernsehen.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Programming.ogg",
       "tags": {
-        "reader": "Riadismet",
+        "reader": "Yousry753",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 222,
+        "total_seconds": 112,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Fernsehen.ogg"
+        "source_file": "File:Programming.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "تلفزة",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Fernsehen.ogg",
-          "duration": 222
+          "title": "برمجة",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/79/Programming.ogg",
+          "duration": 112
         }
       ],
       "textLive": {
         "wiki": "ar",
         "api": "https://ar.wikipedia.org/w/api.php",
-        "article": "تلفزة",
-        "uploadTs": "2022-02-10T00:49:34Z"
+        "article": "برمجة",
+        "uploadTs": "2009-03-29T17:05:19Z"
       }
     },
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-university-article-spoken-arabic-wikipedia-ogg",
-      "title": "جامعة",
-      "displayName": "Wikipedia – جامعة",
+      "id": "commons:file-koeln-spoken-article-of-arabic-wikipedia-ogg",
+      "title": "بيتر دي أنجليس",
+      "displayName": "Wikipedia – بيتر دي أنجليس",
       "lang": "ar",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:University_Article_Spoken_Arabic_Wikipedia.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Koeln_Spoken_Article_of_Arabic_Wikipedia.ogg",
       "tags": {
         "reader": "Riadismet",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 136,
+        "total_seconds": 190,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:University Article Spoken Arabic Wikipedia.ogg"
+        "source_file": "File:Koeln Spoken Article of Arabic Wikipedia.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "جامعة",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ae/University_Article_Spoken_Arabic_Wikipedia.ogg",
-          "duration": 136
+          "title": "بيتر دي أنجليس",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/73/Koeln_Spoken_Article_of_Arabic_Wikipedia.ogg",
+          "duration": 190
         }
       ],
       "textLive": {
         "wiki": "ar",
         "api": "https://ar.wikipedia.org/w/api.php",
-        "article": "جامعة",
-        "uploadTs": "2016-02-12T02:58:15Z"
+        "article": "بيتر دي أنجليس",
+        "uploadTs": "2016-02-12T02:17:29Z"
       }
     },
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-zoll-spoken-article-arabic-wikipedia-ogg",
-      "title": "جمرك",
-      "displayName": "Wikipedia – جمرك",
+      "id": "commons:file-tunisia-ar-ogg",
+      "title": "تونس",
+      "displayName": "Wikipedia – تونس",
       "lang": "ar",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Zoll_Spoken_Article_Arabic_Wikipedia.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Tunisia-ar.ogg",
       "tags": {
         "reader": "Riadismet",
         "gender": "",
         "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 147,
+        "length_band": "short",
+        "total_seconds": 465,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Zoll Spoken Article Arabic Wikipedia.ogg"
+        "source_file": "File:Tunisia-ar.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "جمرك",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Zoll_Spoken_Article_Arabic_Wikipedia.ogg",
-          "duration": 147
+          "title": "تونس",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Tunisia-ar.ogg",
+          "duration": 465
         }
       ],
       "textLive": {
         "wiki": "ar",
         "api": "https://ar.wikipedia.org/w/api.php",
-        "article": "جمرك",
-        "uploadTs": "2016-02-12T02:40:55Z"
+        "article": "تونس",
+        "uploadTs": "2022-02-10T04:07:00Z"
       }
     },
     {
@@ -449,6 +634,43 @@
         "api": "https://ar.wikipedia.org/w/api.php",
         "article": "دويتشه فيله",
         "uploadTs": "2011-12-16T22:24:32Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-planungsgruppe-stieldorf-ogg",
+      "title": "روبرت شتولتس",
+      "displayName": "Wikipedia – روبرت شتولتس",
+      "lang": "ar",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Planungsgruppe_Stieldorf.ogg",
+      "tags": {
+        "reader": "Riadismet",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 264,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Planungsgruppe Stieldorf.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "روبرت شتولتس",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Planungsgruppe_Stieldorf.ogg",
+          "duration": 264
+        }
+      ],
+      "textLive": {
+        "wiki": "ar",
+        "api": "https://ar.wikipedia.org/w/api.php",
+        "article": "روبرت شتولتس",
+        "uploadTs": "2016-02-10T19:10:43Z"
       }
     },
     {
@@ -639,6 +861,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-jealousy-spoken-article-arabic-wikipedia-ogg",
+      "title": "غيرة",
+      "displayName": "Wikipedia – غيرة",
+      "lang": "ar",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Jealousy_Spoken_Article_Arabic_Wikipedia.ogg",
+      "tags": {
+        "reader": "Riadismet",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 112,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Jealousy Spoken Article Arabic Wikipedia.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "غيرة",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Jealousy_Spoken_Article_Arabic_Wikipedia.ogg",
+          "duration": 112
+        }
+      ],
+      "textLive": {
+        "wiki": "ar",
+        "api": "https://ar.wikipedia.org/w/api.php",
+        "article": "غيرة",
+        "uploadTs": "2016-02-12T02:44:17Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-tauber-spoken-arabic-article-ogg",
       "title": "فارنر تاوبر",
       "displayName": "Wikipedia – فارنر تاوبر",
@@ -676,38 +935,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-planungsgruppe-stieldorf-ogg",
-      "title": "فريق التخطيط شتيلدورف",
-      "displayName": "Wikipedia – فريق التخطيط شتيلدورف",
+      "id": "commons:file-louis-awad-ogg",
+      "title": "فريد الأطرش",
+      "displayName": "Wikipedia – فريد الأطرش",
       "lang": "ar",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Planungsgruppe_Stieldorf.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Louis_Awad.ogg",
       "tags": {
         "reader": "Riadismet",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 264,
+        "total_seconds": 216,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Planungsgruppe Stieldorf.ogg"
+        "source_file": "File:Louis Awad.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "فريق التخطيط شتيلدورف",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Planungsgruppe_Stieldorf.ogg",
-          "duration": 264
+          "title": "فريد الأطرش",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Louis_Awad.ogg",
+          "duration": 216
         }
       ],
       "textLive": {
         "wiki": "ar",
         "api": "https://ar.wikipedia.org/w/api.php",
-        "article": "فريق التخطيط شتيلدورف",
-        "uploadTs": "2016-02-10T19:10:43Z"
+        "article": "فريد الأطرش",
+        "uploadTs": "2022-02-10T02:34:42Z"
       }
     },
     {
@@ -750,38 +1009,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-koeln-spoken-article-of-arabic-wikipedia-ogg",
-      "title": "كولونيا",
-      "displayName": "Wikipedia – كولونيا",
+      "id": "commons:file-internationale-filmfestspiele-berlin-ogg",
+      "title": "كارل ماريا فون فيبر",
+      "displayName": "Wikipedia – كارل ماريا فون فيبر",
       "lang": "ar",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Koeln_Spoken_Article_of_Arabic_Wikipedia.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Internationale_Filmfestspiele_Berlin.ogg",
       "tags": {
         "reader": "Riadismet",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 190,
+        "total_seconds": 147,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Koeln Spoken Article of Arabic Wikipedia.ogg"
+        "source_file": "File:Internationale Filmfestspiele Berlin.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "كولونيا",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/73/Koeln_Spoken_Article_of_Arabic_Wikipedia.ogg",
-          "duration": 190
+          "title": "كارل ماريا فون فيبر",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/de/Internationale_Filmfestspiele_Berlin.ogg",
+          "duration": 147
         }
       ],
       "textLive": {
         "wiki": "ar",
         "api": "https://ar.wikipedia.org/w/api.php",
-        "article": "كولونيا",
-        "uploadTs": "2016-02-12T02:17:29Z"
+        "article": "كارل ماريا فون فيبر",
+        "uploadTs": "2016-02-10T19:38:35Z"
       }
     },
     {
@@ -861,43 +1120,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-louis-awad-ogg",
-      "title": "لويس عوض",
-      "displayName": "Wikipedia – لويس عوض",
-      "lang": "ar",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Louis_Awad.ogg",
-      "tags": {
-        "reader": "Riadismet",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 216,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Louis Awad.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "لويس عوض",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Louis_Awad.ogg",
-          "duration": 216
-        }
-      ],
-      "textLive": {
-        "wiki": "ar",
-        "api": "https://ar.wikipedia.org/w/api.php",
-        "article": "لويس عوض",
-        "uploadTs": "2022-02-10T02:34:42Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:file-hetteen-battle-ogg",
       "title": "معركة حطين",
       "displayName": "Wikipedia – معركة حطين",
@@ -930,43 +1152,6 @@
         "api": "https://ar.wikipedia.org/w/api.php",
         "article": "معركة حطين",
         "uploadTs": "2016-02-12T02:37:42Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-internationale-filmfestspiele-berlin-ogg",
-      "title": "مهرجان برلين السينمائي الدولي",
-      "displayName": "Wikipedia – مهرجان برلين السينمائي الدولي",
-      "lang": "ar",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Internationale_Filmfestspiele_Berlin.ogg",
-      "tags": {
-        "reader": "Riadismet",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 147,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Internationale Filmfestspiele Berlin.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "مهرجان برلين السينمائي الدولي",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/de/Internationale_Filmfestspiele_Berlin.ogg",
-          "duration": 147
-        }
-      ],
-      "textLive": {
-        "wiki": "ar",
-        "api": "https://ar.wikipedia.org/w/api.php",
-        "article": "مهرجان برلين السينمائي الدولي",
-        "uploadTs": "2016-02-10T19:38:35Z"
       }
     },
     {
@@ -1046,6 +1231,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ria-and-sekina-ogg",
+      "title": "هافا ناجيلا",
+      "displayName": "Wikipedia – هافا ناجيلا",
+      "lang": "ar",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ria_And_Sekina.ogg",
+      "tags": {
+        "reader": "Riadismet",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 205,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ria And Sekina.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "هافا ناجيلا",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/40/Ria_And_Sekina.ogg",
+          "duration": 205
+        }
+      ],
+      "textLive": {
+        "wiki": "ar",
+        "api": "https://ar.wikipedia.org/w/api.php",
+        "article": "هافا ناجيلا",
+        "uploadTs": "2016-02-10T20:08:04Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ogg-holland-ogg",
       "title": "هولندا",
       "displayName": "Wikipedia – هولندا",
@@ -1078,6 +1300,43 @@
         "api": "https://ar.wikipedia.org/w/api.php",
         "article": "هولندا",
         "uploadTs": "2016-07-02T14:01:54Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-leisure-spoken-arabic-article-ogg",
+      "title": "وقت فراغ",
+      "displayName": "Wikipedia – وقت فراغ",
+      "lang": "ar",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Leisure_Spoken_Arabic_article.ogg",
+      "tags": {
+        "reader": "Riadismet",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 59,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Leisure Spoken Arabic article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "وقت فراغ",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Leisure_Spoken_Arabic_article.ogg",
+          "duration": 59
+        }
+      ],
+      "textLive": {
+        "wiki": "ar",
+        "api": "https://ar.wikipedia.org/w/api.php",
+        "article": "وقت فراغ",
+        "uploadTs": "2016-02-10T19:41:38Z"
       }
     },
     {

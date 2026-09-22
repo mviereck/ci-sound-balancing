@@ -454,6 +454,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:john-william-godward",
+      "title": "John William Godward",
+      "displayName": "Wikipedia – John William Godward",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-John_William_Godward_(intro).ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 100,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-John William Godward (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "John William Godward",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/66/Ru-John_William_Godward_%28intro%29.ogg",
+          "duration": 100
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "John William Godward",
+        "uploadTs": "2014-12-14T13:49:25Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:nikola-tesla-part-1",
       "title": "NIkola Tesla, Part 1",
       "displayName": "Wikipedia – NIkola Tesla, Part 1",
@@ -523,6 +560,43 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "PATH (транспортная система)",
         "uploadTs": "2019-08-16T00:43:12Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:pentium-4",
+      "title": "Pentium 4",
+      "displayName": "Wikipedia – Pentium 4",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:RU_Pentium_4_Intro.ogg",
+      "tags": {
+        "reader": "GK tramrunner229",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 117,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:RU Pentium 4 Intro.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Pentium 4",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/RU_Pentium_4_Intro.ogg",
+          "duration": 117
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Pentium 4",
+        "uploadTs": "2021-09-11T14:55:45Z"
       }
     },
     {
@@ -1010,37 +1084,37 @@
       "kind": "collection",
       "category": "hoerbuecher",
       "id": "commons:s",
-      "title": "s:Осень (Отрывок — Пушкин)",
-      "displayName": "Wikipedia – s:Осень (Отрывок — Пушкин)",
+      "title": "s:Родине (Дрожжин)",
+      "displayName": "Wikipedia – s:Родине (Дрожжин)",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Осень_(отрывок).ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Rodine_(Drozhzhin).ogg",
       "tags": {
-        "reader": "Шантопик",
+        "reader": "Andrew Krizhanovsky / Андрей Крижановский",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 232,
+        "total_seconds": 62,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Осень (отрывок).ogg"
+        "source_file": "File:Ru-Rodine (Drozhzhin).ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "s:Осень (Отрывок — Пушкин)",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Ru-%D0%9E%D1%81%D0%B5%D0%BD%D1%8C_%28%D0%BE%D1%82%D1%80%D1%8B%D0%B2%D0%BE%D0%BA%29.ogg",
-          "duration": 232
+          "title": "s:Родине (Дрожжин)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Ru-Rodine_%28Drozhzhin%29.ogg",
+          "duration": 62
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "s:Осень (Отрывок — Пушкин)",
-        "uploadTs": "2017-09-08T14:20:58Z"
+        "article": "s:Родине (Дрожжин)",
+        "uploadTs": "2024-03-04T18:41:54Z"
       }
     },
     {
@@ -1194,6 +1268,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-ivan-aivazovsky-intro-ogg",
+      "title": "Айвазовский, Иван Константинович",
+      "displayName": "Wikipedia – Айвазовский, Иван Константинович",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Ivan_Aivazovsky-_intro.ogg",
+      "tags": {
+        "reader": "Александра Анучина",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 56,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Ivan Aivazovsky- intro.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Айвазовский, Иван Константинович",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Ru-Ivan_Aivazovsky-_intro.ogg",
+          "duration": 56
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Айвазовский, Иван Константинович",
+        "uploadTs": "2018-02-19T15:31:52Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-ivanaivazovsky-intro-ogg",
+      "title": "Айвазовский, Иван Константинович",
+      "displayName": "Wikipedia – Айвазовский, Иван Константинович",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-IvanAivazovsky-intro.ogg",
+      "tags": {
+        "reader": "Ангелина Насырова",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 52,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-IvanAivazovsky-intro.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Айвазовский, Иван Константинович",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/16/Ru-IvanAivazovsky-intro.ogg",
+          "duration": 52
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Айвазовский, Иван Константинович",
+        "uploadTs": "2018-02-19T16:46:57Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:15",
       "title": "Аполлон-15",
       "displayName": "Wikipedia – Аполлон-15",
@@ -1268,75 +1416,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-astrarium-part2-1-history-antiquity-ogg",
+      "id": "commons:file-ru-astrarium-part1-intro-ogg",
       "title": "Астрариум",
       "displayName": "Wikipedia – Астрариум",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Astrarium_part2.1_History_Antiquity.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Astrarium_part1_Intro.ogg",
       "tags": {
         "reader": "Lqht",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 217,
+        "total_seconds": 66,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Astrarium part2.1 History Antiquity.ogg"
+        "source_file": "File:Ru-Astrarium part1 Intro.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Астрариум",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Ru-Astrarium_part2.1_History_Antiquity.ogg",
-          "duration": 217
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Ru-Astrarium_part1_Intro.ogg",
+          "duration": 66
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Астрариум",
-        "uploadTs": "2018-08-22T12:40:55Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-astrarium-part2-3-history-modern-ogg",
-      "title": "Астрариум",
-      "displayName": "Wikipedia – Астрариум",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Astrarium_part2.3_History_Modern.ogg",
-      "tags": {
-        "reader": "Lqht",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 353,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Astrarium part2.3 History Modern.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Астрариум",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Ru-Astrarium_part2.3_History_Modern.ogg",
-          "duration": 353
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Астрариум",
-        "uploadTs": "2018-08-22T12:42:19Z"
+        "uploadTs": "2018-08-22T12:39:58Z"
       }
     },
     {
@@ -1379,38 +1490,75 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-astrarium-part2-2-history-middle-ages-and-renaissance-ogg",
+      "id": "commons:file-ru-astrarium-part2-1-history-antiquity-ogg",
       "title": "Астрариум",
       "displayName": "Wikipedia – Астрариум",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Astrarium_part2.2_History_Middle_Ages_and_Renaissance.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Astrarium_part2.1_History_Antiquity.ogg",
       "tags": {
         "reader": "Lqht",
         "gender": "",
         "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 462,
+        "length_band": "very_short",
+        "total_seconds": 217,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Astrarium part2.2 History Middle Ages and Renaissance.ogg"
+        "source_file": "File:Ru-Astrarium part2.1 History Antiquity.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Астрариум",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Ru-Astrarium_part2.2_History_Middle_Ages_and_Renaissance.ogg",
-          "duration": 462
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Ru-Astrarium_part2.1_History_Antiquity.ogg",
+          "duration": 217
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Астрариум",
-        "uploadTs": "2018-08-22T12:41:39Z"
+        "uploadTs": "2018-08-22T12:40:55Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-astrarium-part4-similar-instruments-ogg",
+      "title": "Астрариум",
+      "displayName": "Wikipedia – Астрариум",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Astrarium_part4_Similar_instruments.ogg",
+      "tags": {
+        "reader": "Lqht",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 103,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Astrarium part4 Similar instruments.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Астрариум",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Ru-Astrarium_part4_Similar_instruments.ogg",
+          "duration": 103
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Астрариум",
+        "uploadTs": "2018-08-22T12:43:37Z"
       }
     },
     {
@@ -1448,6 +1596,80 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Астрариум",
         "uploadTs": "2017-01-03T22:15:31Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-astrarium-part2-2-history-middle-ages-and-renaissance-ogg",
+      "title": "Астрариум",
+      "displayName": "Wikipedia – Астрариум",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Astrarium_part2.2_History_Middle_Ages_and_Renaissance.ogg",
+      "tags": {
+        "reader": "Lqht",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 462,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Astrarium part2.2 History Middle Ages and Renaissance.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Астрариум",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Ru-Astrarium_part2.2_History_Middle_Ages_and_Renaissance.ogg",
+          "duration": 462
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Астрариум",
+        "uploadTs": "2018-08-22T12:41:39Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-astrarium-part2-3-history-modern-ogg",
+      "title": "Астрариум",
+      "displayName": "Wikipedia – Астрариум",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Astrarium_part2.3_History_Modern.ogg",
+      "tags": {
+        "reader": "Lqht",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 353,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Astrarium part2.3 History Modern.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Астрариум",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Ru-Astrarium_part2.3_History_Modern.ogg",
+          "duration": 353
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Астрариум",
+        "uploadTs": "2018-08-22T12:42:19Z"
       }
     },
     {
@@ -2267,6 +2489,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-anastasiya-vertinskaya-intro-ogg",
+      "title": "Вертинская, Анастасия Александровна",
+      "displayName": "Wikipedia – Вертинская, Анастасия Александровна",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Anastasiya_Vertinskaya_(intro).ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Anastasiya Vertinskaya (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Вертинская, Анастасия Александровна",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/99/Ru-Anastasiya_Vertinskaya_%28intro%29.ogg",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Вертинская, Анастасия Александровна",
+        "uploadTs": "2010-05-06T20:22:38Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-upper-sorbian-language-intro-ogg",
       "title": "Верхнелужицкий язык",
       "displayName": "Wikipedia – Верхнелужицкий язык",
@@ -2674,6 +2933,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ogg",
+      "title": "Габон",
+      "displayName": "Wikipedia – Габон",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Габон.ogg",
+      "tags": {
+        "reader": "Илья Шевченко",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 97,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Габон.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Габон",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0a/%D0%93%D0%B0%D0%B1%D0%BE%D0%BD.ogg",
+          "duration": 97
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Габон",
+        "uploadTs": "2019-06-11T19:41:18Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-the-fortuneteller-avatar-the-last-airbender-ogg",
       "title": "Гадалка (Аватар: Легенда об Аанге)",
       "displayName": "Wikipedia – Гадалка (Аватар: Легенда об Аанге)",
@@ -2748,6 +3044,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-blood-brain-barrier-part-3-penetrability-and-diseases-ogg",
+      "title": "Гемато-энцефалический барьер",
+      "displayName": "Wikipedia – Гемато-энцефалический барьер",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Blood-brain_barrier_part_3_Penetrability_and_Diseases.ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 973,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Blood-brain barrier part 3 Penetrability and Diseases.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Гемато-энцефалический барьер",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/29/Ru-Blood-brain_barrier_part_3_Penetrability_and_Diseases.ogg",
+          "duration": 973
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Гемато-энцефалический барьер",
+        "uploadTs": "2010-06-27T05:54:16Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-blood-brain-barrier-part-1-intro-history-functions-structure-ogg",
       "title": "Гемато-энцефалический барьер",
       "displayName": "Wikipedia – Гемато-энцефалический барьер",
@@ -2817,43 +3150,6 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Гемато-энцефалический барьер",
         "uploadTs": "2010-06-26T16:17:12Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-blood-brain-barrier-part-3-penetrability-and-diseases-ogg",
-      "title": "Гемато-энцефалический барьер",
-      "displayName": "Wikipedia – Гемато-энцефалический барьер",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Blood-brain_barrier_part_3_Penetrability_and_Diseases.ogg",
-      "tags": {
-        "reader": "Andrew Krizhanovsky",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 973,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Blood-brain barrier part 3 Penetrability and Diseases.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Гемато-энцефалический барьер",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/29/Ru-Blood-brain_barrier_part_3_Penetrability_and_Diseases.ogg",
-          "duration": 973
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Гемато-энцефалический барьер",
-        "uploadTs": "2010-06-27T05:54:16Z"
       }
     },
     {
@@ -3488,38 +3784,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-anton-denikin-intro-ogg",
-      "title": "Деникин, Антон Иванович",
-      "displayName": "Wikipedia – Деникин, Антон Иванович",
+      "id": "commons:file-ru-alla-demidova-ogg",
+      "title": "Демидова, Алла Сергеевна",
+      "displayName": "Wikipedia – Демидова, Алла Сергеевна",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Anton_Denikin_(intro).ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Alla_Demidova.ogg",
       "tags": {
         "reader": "Andrew Krizhanovsky",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 277,
+        "total_seconds": 97,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Anton Denikin (intro).ogg"
+        "source_file": "File:Ru-Alla Demidova.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "Деникин, Антон Иванович",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Ru-Anton_Denikin_%28intro%29.ogg",
-          "duration": 277
+          "title": "Демидова, Алла Сергеевна",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/03/Ru-Alla_Demidova.ogg",
+          "duration": 97
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Деникин, Антон Иванович",
-        "uploadTs": "2012-12-20T10:02:51Z"
+        "article": "Демидова, Алла Сергеевна",
+        "uploadTs": "2010-07-18T17:09:20Z"
       }
     },
     {
@@ -3557,6 +3853,43 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Деникин, Антон Иванович",
         "uploadTs": "2012-12-02T23:51:29Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-anton-denikin-intro-ogg",
+      "title": "Деникин, Антон Иванович",
+      "displayName": "Wikipedia – Деникин, Антон Иванович",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Anton_Denikin_(intro).ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 277,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Anton Denikin (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Деникин, Антон Иванович",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Ru-Anton_Denikin_%28intro%29.ogg",
+          "duration": 277
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Деникин, Антон Иванович",
+        "uploadTs": "2012-12-20T10:02:51Z"
       }
     },
     {
@@ -3631,6 +3964,43 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "День Чёрного Солнца",
         "uploadTs": "2022-12-12T05:58:25Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-dzharylgach-intro-ogg",
+      "title": "Джарылгач",
+      "displayName": "Wikipedia – Джарылгач",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Dzharylgach_(intro).ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 68,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Dzharylgach (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Джарылгач",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Ru-Dzharylgach_%28intro%29.ogg",
+          "duration": 68
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Джарылгач",
+        "uploadTs": "2012-07-13T13:30:20Z"
       }
     },
     {
@@ -3969,6 +4339,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-lucanus-cervus-intro-ogg",
+      "title": "Жук-олень",
+      "displayName": "Wikipedia – Жук-олень",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Lucanus_cervus_(intro).ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 117,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Lucanus cervus (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Жук-олень",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Ru-Lucanus_cervus_%28intro%29.ogg",
+          "duration": 117
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Жук-олень",
+        "uploadTs": "2012-07-22T16:29:55Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-final-curtain-the-spectacular-spider-man-ogg",
       "title": "Занавес (Новые приключения Человека-паука)",
       "displayName": "Wikipedia – Занавес (Новые приключения Человека-паука)",
@@ -4038,6 +4445,43 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Западный храм воздуха",
         "uploadTs": "2022-12-13T06:05:28Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-starry-night-over-the-rh-ne-intro-ogg",
+      "title": "Звёздная ночь над Роной",
+      "displayName": "Wikipedia – Звёздная ночь над Роной",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Starry_Night_Over_the_Rhône_(intro).ogg",
+      "tags": {
+        "reader": "Александра Анучина",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 56,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Starry Night Over the Rhône (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Звёздная ночь над Роной",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Ru-Starry_Night_Over_the_Rh%C3%B4ne_%28intro%29.ogg",
+          "duration": 56
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Звёздная ночь над Роной",
+        "uploadTs": "2018-02-20T19:11:22Z"
       }
     },
     {
@@ -4487,6 +4931,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-history-of-trigonometry-intro-ogg",
+      "title": "История тригонометрии",
+      "displayName": "Wikipedia – История тригонометрии",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-History_of_trigonometry_(intro).ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 93,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-History of trigonometry (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "История тригонометрии",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Ru-History_of_trigonometry_%28intro%29.ogg",
+          "duration": 93
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "История тригонометрии",
+        "uploadTs": "2012-11-05T19:35:31Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-kanatnyj-tramvaj-v-san-francisco-ogg",
       "title": "Канатный трамвай Сан-Франциско",
       "displayName": "Wikipedia – Канатный трамвай Сан-Франциско",
@@ -4524,6 +5005,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-katakomby-rima-intro-ogg",
+      "title": "Катакомбы Рима",
+      "displayName": "Wikipedia – Катакомбы Рима",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-katakomby_rima_(intro).ogg",
+      "tags": {
+        "reader": "Marina Sakhamberidze",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 85,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-katakomby rima (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Катакомбы Рима",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Ru-katakomby_rima_%28intro%29.ogg",
+          "duration": 85
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Катакомбы Рима",
+        "uploadTs": "2015-12-10T13:21:11Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-catalysts-the-spectacular-spider-man-ogg",
       "title": "Катализатор (Новые приключения Человека-паука)",
       "displayName": "Wikipedia – Катализатор (Новые приключения Человека-паука)",
@@ -4556,6 +5074,43 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Катализатор (Новые приключения Человека-паука)",
         "uploadTs": "2022-10-11T07:56:43Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-katsura-tar-ogg",
+      "title": "Кацура Таро",
+      "displayName": "Wikipedia – Кацура Таро",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:RU-_Katsura_Tarō.ogg",
+      "tags": {
+        "reader": "Yaroslav",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 84,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:RU- Katsura Tarō.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Кацура Таро",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d0/RU-_Katsura_Tar%C5%8D.ogg",
+          "duration": 84
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Кацура Таро",
+        "uploadTs": "2017-03-11T14:43:16Z"
       }
     },
     {
@@ -4931,6 +5486,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-color-glass-condensate-ogg",
+      "title": "Конденсат цветового стекла",
+      "displayName": "Wikipedia – Конденсат цветового стекла",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Color-glass_condensate.ogg",
+      "tags": {
+        "reader": "Arbnos",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 70,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Color-glass condensate.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Конденсат цветового стекла",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/be/Ru-Color-glass_condensate.ogg",
+          "duration": 70
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Конденсат цветового стекла",
+        "uploadTs": "2015-07-23T22:46:32Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-copacabana-rio-de-janeiro-ogg",
       "title": "Копакабана",
       "displayName": "Wikipedia – Копакабана",
@@ -5264,38 +5856,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-sidney-crosby-part-1-intro-ogg",
+      "id": "commons:file-ru-sidney-crosby-part-4-style-and-technique-ogg",
       "title": "Кросби, Сидни",
       "displayName": "Wikipedia – Кросби, Сидни",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Sidney_Crosby_part_1_intro.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Sidney_Crosby_part_4_style_and_technique.ogg",
       "tags": {
         "reader": "TIMUR MURATOV",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 267,
+        "total_seconds": 236,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Sidney Crosby part 1 intro.ogg"
+        "source_file": "File:Ru-Sidney Crosby part 4 style and technique.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Кросби, Сидни",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Ru-Sidney_Crosby_part_1_intro.ogg",
-          "duration": 267
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/10/Ru-Sidney_Crosby_part_4_style_and_technique.ogg",
+          "duration": 236
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Кросби, Сидни",
-        "uploadTs": "2020-12-01T21:14:18Z"
+        "uploadTs": "2020-12-01T21:16:35Z"
       }
     },
     {
@@ -5375,38 +5967,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-sidney-crosby-part-4-style-and-technique-ogg",
+      "id": "commons:file-ru-sidney-crosby-part-1-intro-ogg",
       "title": "Кросби, Сидни",
       "displayName": "Wikipedia – Кросби, Сидни",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Sidney_Crosby_part_4_style_and_technique.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Sidney_Crosby_part_1_intro.ogg",
       "tags": {
         "reader": "TIMUR MURATOV",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 236,
+        "total_seconds": 267,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Sidney Crosby part 4 style and technique.ogg"
+        "source_file": "File:Ru-Sidney Crosby part 1 intro.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Кросби, Сидни",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/10/Ru-Sidney_Crosby_part_4_style_and_technique.ogg",
-          "duration": 236
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Ru-Sidney_Crosby_part_1_intro.ogg",
+          "duration": 267
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Кросби, Сидни",
-        "uploadTs": "2020-12-01T21:16:35Z"
+        "uploadTs": "2020-12-01T21:14:18Z"
       }
     },
     {
@@ -5518,6 +6110,43 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "ЛМ-49",
         "uploadTs": "2021-08-18T15:10:31Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-lake-ladoga-ogg",
+      "title": "Ладожское озеро",
+      "displayName": "Wikipedia – Ладожское озеро",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Lake_Ladoga.ogg",
+      "tags": {
+        "reader": "Участник:Sapankevich",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Lake Ladoga.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ладожское озеро",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Ru-Lake_Ladoga.ogg",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Ладожское озеро",
+        "uploadTs": "2013-11-24T20:37:58Z"
       }
     },
     {
@@ -5708,75 +6337,112 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-wiki-liberalism-part2-ogg",
-      "title": "Либерализм",
-      "displayName": "Wikipedia – Либерализм",
+      "id": "commons:file-ru-lesbiya-intro-ogg",
+      "title": "Лесбия",
+      "displayName": "Wikipedia – Лесбия",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-wiki_Liberalism-part2.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Lesbiya_(intro).ogg",
       "tags": {
-        "reader": "Andrew ivanovs",
+        "reader": "Marina Sakhamberidze",
         "gender": "",
         "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 740,
+        "length_band": "very_short",
+        "total_seconds": 78,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-wiki Liberalism-part2.ogg"
+        "source_file": "File:Ru-Lesbiya (intro).ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "Либерализм",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Ru-wiki_Liberalism-part2.ogg",
-          "duration": 740
+          "title": "Лесбия",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/10/Ru-Lesbiya_%28intro%29.ogg",
+          "duration": 78
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Либерализм",
-        "uploadTs": "2010-11-26T11:28:28Z"
+        "article": "Лесбия",
+        "uploadTs": "2015-12-08T15:11:47Z"
       }
     },
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-wiki-liberalism-part5-ogg",
+      "id": "commons:file-ru-wiki-liberalism-part7-ogg",
       "title": "Либерализм",
       "displayName": "Wikipedia – Либерализм",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-wiki_Liberalism-part5.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-wiki_Liberalism-part7.ogg",
       "tags": {
         "reader": "Andrew ivanovs",
         "gender": "",
         "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 439,
+        "length_band": "very_short",
+        "total_seconds": 84,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-wiki Liberalism-part5.ogg"
+        "source_file": "File:Ru-wiki Liberalism-part7.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Либерализм",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Ru-wiki_Liberalism-part5.ogg",
-          "duration": 439
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Ru-wiki_Liberalism-part7.ogg",
+          "duration": 84
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Либерализм",
-        "uploadTs": "2010-12-20T14:45:04Z"
+        "uploadTs": "2010-12-20T15:02:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-wiki-liberalism-part1-ogg",
+      "title": "Либерализм",
+      "displayName": "Wikipedia – Либерализм",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-wiki_Liberalism-part1.ogg",
+      "tags": {
+        "reader": "Andrew ivanovs",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 138,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-wiki Liberalism-part1.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Либерализм",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Ru-wiki_Liberalism-part1.ogg",
+          "duration": 138
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Либерализм",
+        "uploadTs": "2010-11-25T12:39:47Z"
       }
     },
     {
@@ -5856,6 +6522,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-wiki-liberalism-part5-ogg",
+      "title": "Либерализм",
+      "displayName": "Wikipedia – Либерализм",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-wiki_Liberalism-part5.ogg",
+      "tags": {
+        "reader": "Andrew ivanovs",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 439,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-wiki Liberalism-part5.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Либерализм",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Ru-wiki_Liberalism-part5.ogg",
+          "duration": 439
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Либерализм",
+        "uploadTs": "2010-12-20T14:45:04Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-wiki-liberalism-part6-ogg",
       "title": "Либерализм",
       "displayName": "Wikipedia – Либерализм",
@@ -5893,38 +6596,75 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-wiki-liberalism-part1-ogg",
+      "id": "commons:file-ru-wiki-liberalism-part2-ogg",
       "title": "Либерализм",
       "displayName": "Wikipedia – Либерализм",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-wiki_Liberalism-part1.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-wiki_Liberalism-part2.ogg",
       "tags": {
         "reader": "Andrew ivanovs",
         "gender": "",
         "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 138,
+        "length_band": "short",
+        "total_seconds": 740,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-wiki Liberalism-part1.ogg"
+        "source_file": "File:Ru-wiki Liberalism-part2.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Либерализм",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Ru-wiki_Liberalism-part1.ogg",
-          "duration": 138
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Ru-wiki_Liberalism-part2.ogg",
+          "duration": 740
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Либерализм",
-        "uploadTs": "2010-11-25T12:39:47Z"
+        "uploadTs": "2010-11-26T11:28:28Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-battlecruiser-intro-ogg",
+      "title": "Линейный крейсер",
+      "displayName": "Wikipedia – Линейный крейсер",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Battlecruiser_(intro).ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 118,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Battlecruiser (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Линейный крейсер",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/22/Ru-Battlecruiser_%28intro%29.ogg",
+          "duration": 118
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Линейный крейсер",
+        "uploadTs": "2010-04-23T18:50:38Z"
       }
     },
     {
@@ -5962,6 +6702,43 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Лонг Айленд",
         "uploadTs": "2021-08-11T20:36:29Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-intro-ogg",
+      "title": "Лондон",
+      "displayName": "Wikipedia – Лондон",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Лондон_(intro).ogg",
+      "tags": {
+        "reader": "Илья Шевченко",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 117,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Лондон (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Лондон",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Ru-%D0%9B%D0%BE%D0%BD%D0%B4%D0%BE%D0%BD_%28intro%29.ogg",
+          "duration": 117
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Лондон",
+        "uploadTs": "2025-01-07T12:35:11Z"
       }
     },
     {
@@ -6189,80 +6966,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-iss-part-3-assembly-ogg",
-      "title": "Международная космическая станция",
-      "displayName": "Wikipedia – Международная космическая станция",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-ISS_part_3_assembly.ogg",
-      "tags": {
-        "reader": "Andrew and Helen Krizhanovsky",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 515,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-ISS part 3 assembly.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Международная космическая станция",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Ru-ISS_part_3_assembly.ogg",
-          "duration": 515
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Международная космическая станция",
-        "uploadTs": "2008-08-02T15:16:42Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-iss-part-5-incidents-ogg",
-      "title": "Международная космическая станция",
-      "displayName": "Wikipedia – Международная космическая станция",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-ISS_part_5_incidents.ogg",
-      "tags": {
-        "reader": "Sergei Krizhanovsky",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 607,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-ISS part 5 incidents.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Международная космическая станция",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Ru-ISS_part_5_incidents.ogg",
-          "duration": 607
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Международная космическая станция",
-        "uploadTs": "2008-08-03T13:22:44Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:file-ru-iss-part-4-scientific-research-ogg",
       "title": "Международная космическая станция",
       "displayName": "Wikipedia – Международная космическая станция",
@@ -6295,6 +6998,43 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Международная космическая станция",
         "uploadTs": "2008-08-02T15:32:07Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-iss-part-3-assembly-ogg",
+      "title": "Международная космическая станция",
+      "displayName": "Wikipedia – Международная космическая станция",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-ISS_part_3_assembly.ogg",
+      "tags": {
+        "reader": "Andrew and Helen Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 515,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-ISS part 3 assembly.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Международная космическая станция",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Ru-ISS_part_3_assembly.ogg",
+          "duration": 515
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Международная космическая станция",
+        "uploadTs": "2008-08-02T15:16:42Z"
       }
     },
     {
@@ -6369,6 +7109,80 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Международная космическая станция",
         "uploadTs": "2008-08-02T15:05:28Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-iss-part-5-incidents-ogg",
+      "title": "Международная космическая станция",
+      "displayName": "Wikipedia – Международная космическая станция",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-ISS_part_5_incidents.ogg",
+      "tags": {
+        "reader": "Sergei Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 607,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-ISS part 5 incidents.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Международная космическая станция",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Ru-ISS_part_5_incidents.ogg",
+          "duration": 607
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Международная космическая станция",
+        "uploadTs": "2008-08-03T13:22:44Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-dead-man-intro-ogg",
+      "title": "Мертвец (фильм)",
+      "displayName": "Wikipedia – Мертвец (фильм)",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Dead_Man_(intro).ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 106,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Dead Man (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Мертвец (фильм)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/78/Ru-Dead_Man_%28intro%29.ogg",
+          "duration": 106
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Мертвец (фильм)",
+        "uploadTs": "2012-03-26T21:19:41Z"
       }
     },
     {
@@ -6480,6 +7294,43 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Мираж",
         "uploadTs": "2015-12-09T11:53:06Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-thelonious-monk-intro-ogg",
+      "title": "Монк, Телониус",
+      "displayName": "Wikipedia – Монк, Телониус",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Thelonious_Monk_(intro).ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 54,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Thelonious Monk (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Монк, Телониус",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/15/Ru-Thelonious_Monk_%28intro%29.ogg",
+          "duration": 54
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Монк, Телониус",
+        "uploadTs": "2012-07-06T14:00:34Z"
       }
     },
     {
@@ -6665,6 +7516,43 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Нати (тяжёлый крейсер)",
         "uploadTs": "2014-05-31T15:40:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-nea-moni-of-chios-intro-ogg",
+      "title": "Неа Мони",
+      "displayName": "Wikipedia – Неа Мони",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Nea_Moni_of_Chios_(intro).ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 117,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Nea Moni of Chios (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Неа Мони",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/66/Ru-Nea_Moni_of_Chios_%28intro%29.ogg",
+          "duration": 117
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Неа Мони",
+        "uploadTs": "2010-04-18T18:35:33Z"
       }
     },
     {
@@ -7188,43 +8076,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ogg",
-      "title": "Определение плагиата",
-      "displayName": "Wikipedia – Определение плагиата",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Определение_плагиата.ogg",
-      "tags": {
-        "reader": "Grishenkova Alena",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 577,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Определение плагиата.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Определение плагиата",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9f/%D0%9E%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%B0%D1%82%D0%B0.ogg",
-          "duration": 577
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Определение плагиата",
-        "uploadTs": "2012-12-24T10:08:03Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:file-ru-order-of-st-george-intro-ogg",
       "title": "Орден Святого Георгия",
       "displayName": "Wikipedia – Орден Святого Георгия",
@@ -7595,43 +8446,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-petrozavodsk-state-university-part-2-2-2-university-in-the-great-patriotic-war-ogg",
-      "title": "Петрозаводский государственный университет",
-      "displayName": "Wikipedia – Петрозаводский государственный университет",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Petrozavodsk_State_University_part_2_2_2_University_in_the_Great_Patriotic_War.ogg",
-      "tags": {
-        "reader": "Bonch-Bonch",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 268,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Petrozavodsk State University part 2 2 2 University in the Great Patriotic War.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Петрозаводский государственный университет",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/22/Ru-Petrozavodsk_State_University_part_2_2_2_University_in_the_Great_Patriotic_War.ogg",
-          "duration": 268
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Петрозаводский государственный университет",
-        "uploadTs": "2017-03-30T21:11:39Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:file-ru-petrsu-botanical-garden-ogg",
       "title": "Петрозаводский государственный университет",
       "displayName": "Wikipedia – Петрозаводский государственный университет",
@@ -7664,6 +8478,43 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Петрозаводский государственный университет",
         "uploadTs": "2018-08-21T12:17:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-petrozavodsk-state-university-part-2-2-2-university-in-the-great-patriotic-war-ogg",
+      "title": "Петрозаводский государственный университет",
+      "displayName": "Wikipedia – Петрозаводский государственный университет",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Petrozavodsk_State_University_part_2_2_2_University_in_the_Great_Patriotic_War.ogg",
+      "tags": {
+        "reader": "Bonch-Bonch",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 268,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Petrozavodsk State University part 2 2 2 University in the Great Patriotic War.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Петрозаводский государственный университет",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/22/Ru-Petrozavodsk_State_University_part_2_2_2_University_in_the_Great_Patriotic_War.ogg",
+          "duration": 268
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Петрозаводский государственный университет",
+        "uploadTs": "2017-03-30T21:11:39Z"
       }
     },
     {
@@ -8187,6 +9038,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-nares-strait-ogg",
+      "title": "Пролив Нэрса",
+      "displayName": "Wikipedia – Пролив Нэрса",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Nares_Strait.ogg",
+      "tags": {
+        "reader": "Retr0ra1n",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 99,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Nares Strait.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Пролив Нэрса",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Ru-Nares_Strait.ogg",
+          "duration": 99
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Пролив Нэрса",
+        "uploadTs": "2026-01-27T09:50:30Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-promenadrigelmana-ogg",
       "title": "Променад Ригельмана",
       "displayName": "Wikipedia – Променад Ригельмана",
@@ -8409,6 +9297,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-dakar-rally-intro-ogg",
+      "title": "Ралли Дакар",
+      "displayName": "Wikipedia – Ралли Дакар",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Dakar_Rally_(intro).ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 113,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Dakar Rally (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ралли Дакар",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/59/Ru-Dakar_Rally_%28intro%29.ogg",
+          "duration": 113
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Ралли Дакар",
+        "uploadTs": "2011-04-11T19:55:29Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-reaction-the-spectacular-spider-man-ogg",
       "title": "Реакция (Новые приключения Человека-паука)",
       "displayName": "Wikipedia – Реакция (Новые приключения Человека-паука)",
@@ -8483,186 +9408,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-russia-part-3-history-ogg",
-      "title": "Россия",
-      "displayName": "Wikipedia – Россия",
+      "id": "commons:file-ru-konstantin-rodzaevsky-intro-ogg",
+      "title": "Родзаевский, Константин Владимирович",
+      "displayName": "Wikipedia – Родзаевский, Константин Владимирович",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_3_History.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Konstantin_Rodzaevsky_(intro).ogg",
       "tags": {
         "reader": "Andrew Krizhanovsky",
         "gender": "",
         "dialekt": "",
-        "length_band": "long",
-        "total_seconds": 3443,
+        "length_band": "very_short",
+        "total_seconds": 86,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russia part 3 History.ogg"
+        "source_file": "File:Ru-Konstantin Rodzaevsky (intro).ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "Россия",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Ru-Russia_part_3_History.ogg",
-          "duration": 3443
+          "title": "Родзаевский, Константин Владимирович",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Ru-Konstantin_Rodzaevsky_%28intro%29.ogg",
+          "duration": 86
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Россия",
-        "uploadTs": "2010-04-02T14:33:56Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-russia-part-5-demographics-and-language-ogg",
-      "title": "Россия",
-      "displayName": "Wikipedia – Россия",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_5_Demographics_and_Language.ogg",
-      "tags": {
-        "reader": "Andrew Krizhanovsky",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 1257,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russia part 5 Demographics and Language.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Россия",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Ru-Russia_part_5_Demographics_and_Language.ogg",
-          "duration": 1257
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Россия",
-        "uploadTs": "2010-04-07T20:10:10Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-russia-part-9-culture-ogg",
-      "title": "Россия",
-      "displayName": "Wikipedia – Россия",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_9_Culture.ogg",
-      "tags": {
-        "reader": "Andrew Krizhanovsky",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 2610,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russia part 9 Culture.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Россия",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Ru-Russia_part_9_Culture.ogg",
-          "duration": 2610
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Россия",
-        "uploadTs": "2010-09-19T16:47:07Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-russia-part-10-unesco-sport-social-security-education-health-crime-ogg",
-      "title": "Россия",
-      "displayName": "Wikipedia – Россия",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_10_UNESCO_Sport_Social_security_Education_Health_Crime.ogg",
-      "tags": {
-        "reader": "Andrew Krizhanovsky",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 1185,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russia part 10 UNESCO Sport Social security Education Health Crime.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Россия",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/44/Ru-Russia_part_10_UNESCO_Sport_Social_security_Education_Health_Crime.ogg",
-          "duration": 1185
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Россия",
-        "uploadTs": "2010-09-26T07:35:10Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-russia-part-6-economy-ogg",
-      "title": "Россия",
-      "displayName": "Wikipedia – Россия",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_6_Economy.ogg",
-      "tags": {
-        "reader": "Andrew Krizhanovsky",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 1095,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russia part 6 Economy.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Россия",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Ru-Russia_part_6_Economy.ogg",
-          "duration": 1095
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Россия",
-        "uploadTs": "2010-04-10T20:13:26Z"
+        "article": "Родзаевский, Константин Владимирович",
+        "uploadTs": "2015-01-03T18:24:19Z"
       }
     },
     {
@@ -8705,112 +9482,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-russia-part-1-intro-ogg",
+      "id": "commons:file-ru-russia-part-10-unesco-sport-social-security-education-health-crime-ogg",
       "title": "Россия",
       "displayName": "Wikipedia – Россия",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_1_Intro.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_10_UNESCO_Sport_Social_security_Education_Health_Crime.ogg",
       "tags": {
         "reader": "Andrew Krizhanovsky",
         "gender": "",
         "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 298,
+        "length_band": "medium",
+        "total_seconds": 1185,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russia part 1 Intro.ogg"
+        "source_file": "File:Ru-Russia part 10 UNESCO Sport Social security Education Health Crime.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Россия",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/72/Ru-Russia_part_1_Intro.ogg",
-          "duration": 298
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/44/Ru-Russia_part_10_UNESCO_Sport_Social_security_Education_Health_Crime.ogg",
+          "duration": 1185
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Россия",
-        "uploadTs": "2018-08-26T14:15:22Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-russia-part-4-geography-ogg",
-      "title": "Россия",
-      "displayName": "Wikipedia – Россия",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_4_Geography.ogg",
-      "tags": {
-        "reader": "Andrew Krizhanovsky",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 571,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russia part 4 Geography.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Россия",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/58/Ru-Russia_part_4_Geography.ogg",
-          "duration": 571
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Россия",
-        "uploadTs": "2010-04-04T14:00:49Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-russia-part-8-science-ogg",
-      "title": "Россия",
-      "displayName": "Wikipedia – Россия",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_8_Science.ogg",
-      "tags": {
-        "reader": "Andrew Krizhanovsky",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 476,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russia part 8 Science.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Россия",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Ru-Russia_part_8_Science.ogg",
-          "duration": 476
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Россия",
-        "uploadTs": "2010-07-22T19:52:09Z"
+        "uploadTs": "2010-09-26T07:35:10Z"
       }
     },
     {
@@ -8853,6 +9556,265 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-russia-part-4-geography-ogg",
+      "title": "Россия",
+      "displayName": "Wikipedia – Россия",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_4_Geography.ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 571,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russia part 4 Geography.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Россия",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/58/Ru-Russia_part_4_Geography.ogg",
+          "duration": 571
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Россия",
+        "uploadTs": "2010-04-04T14:00:49Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russia-part-5-demographics-and-language-ogg",
+      "title": "Россия",
+      "displayName": "Wikipedia – Россия",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_5_Demographics_and_Language.ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1257,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russia part 5 Demographics and Language.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Россия",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Ru-Russia_part_5_Demographics_and_Language.ogg",
+          "duration": 1257
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Россия",
+        "uploadTs": "2010-04-07T20:10:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russia-part-8-science-ogg",
+      "title": "Россия",
+      "displayName": "Wikipedia – Россия",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_8_Science.ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 476,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russia part 8 Science.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Россия",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Ru-Russia_part_8_Science.ogg",
+          "duration": 476
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Россия",
+        "uploadTs": "2010-07-22T19:52:09Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russia-part-1-intro-ogg",
+      "title": "Россия",
+      "displayName": "Wikipedia – Россия",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_1_Intro.ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 298,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russia part 1 Intro.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Россия",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/72/Ru-Russia_part_1_Intro.ogg",
+          "duration": 298
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Россия",
+        "uploadTs": "2018-08-26T14:15:22Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russia-part-9-culture-ogg",
+      "title": "Россия",
+      "displayName": "Wikipedia – Россия",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_9_Culture.ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 2610,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russia part 9 Culture.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Россия",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Ru-Russia_part_9_Culture.ogg",
+          "duration": 2610
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Россия",
+        "uploadTs": "2010-09-19T16:47:07Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russia-part-3-history-ogg",
+      "title": "Россия",
+      "displayName": "Wikipedia – Россия",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_3_History.ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "long",
+        "total_seconds": 3443,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russia part 3 History.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Россия",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Ru-Russia_part_3_History.ogg",
+          "duration": 3443
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Россия",
+        "uploadTs": "2010-04-02T14:33:56Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russia-part-6-economy-ogg",
+      "title": "Россия",
+      "displayName": "Wikipedia – Россия",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russia_part_6_Economy.ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1095,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russia part 6 Economy.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Россия",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Ru-Russia_part_6_Economy.ogg",
+          "duration": 1095
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Россия",
+        "uploadTs": "2010-04-10T20:13:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-russians-ogg",
       "title": "Русские",
       "displayName": "Wikipedia – Русские",
@@ -8890,75 +9852,38 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-russian-language-part-5-2-1-general-information-oga",
+      "id": "commons:file-ru-russian-language-part-2-2-1-regional-variations-ogg",
       "title": "Русский язык",
       "displayName": "Wikipedia – Русский язык",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_2_1_General_information.oga",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_2_2_1_Regional_variations.ogg",
       "tags": {
-        "reader": "Owlunacy",
+        "reader": "Sergey Podkopaev",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 168,
+        "total_seconds": 96,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russian language part 5 2 1 General information.oga"
+        "source_file": "File:Ru-Russian language part 2 2 1 Regional variations.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Русский язык",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/Ru-Russian_language_part_5_2_1_General_information.oga",
-          "duration": 168
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Ru-Russian_language_part_2_2_1_Regional_variations.ogg",
+          "duration": 96
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Русский язык",
-        "uploadTs": "2018-09-06T06:07:26Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-russian-language-part-5-2-4-numeral-ogg",
-      "title": "Русский язык",
-      "displayName": "Wikipedia – Русский язык",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_2_4_Numeral.ogg",
-      "tags": {
-        "reader": "Owlunacy",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 186,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russian language part 5 2 4 Numeral.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Русский язык",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Ru-Russian_language_part_5_2_4_Numeral.ogg",
-          "duration": 186
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Русский язык",
-        "uploadTs": "2018-09-28T20:47:09Z"
+        "uploadTs": "2017-01-26T15:06:58Z"
       }
     },
     {
@@ -9001,297 +9926,112 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-russian-language-part-5-5-5-lexis-ogg",
+      "id": "commons:file-ru-russian-language-part-6-study-history-ogg",
       "title": "Русский язык",
       "displayName": "Wikipedia – Русский язык",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_5_5_Lexis.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_6_Study_history.ogg",
       "tags": {
         "reader": "Bonch-Bonch",
         "gender": "",
         "dialekt": "",
         "length_band": "short",
-        "total_seconds": 447,
+        "total_seconds": 743,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russian language part 5 5 5 Lexis.ogg"
+        "source_file": "File:Ru-Russian language part 6 Study history.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Русский язык",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Ru-Russian_language_part_5_5_5_Lexis.ogg",
-          "duration": 447
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Ru-Russian_language_part_6_Study_history.ogg",
+          "duration": 743
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Русский язык",
-        "uploadTs": "2018-09-28T22:08:29Z"
+        "uploadTs": "2018-09-28T22:38:06Z"
       }
     },
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-russian-language-part-5-5-4-syntax-ogg",
+      "id": "commons:file-ru-russian-language-part-2-2-2-mixed-derivatives-and-idioms-ogg",
       "title": "Русский язык",
       "displayName": "Wikipedia – Русский язык",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_5_4_Syntax.ogg",
-      "tags": {
-        "reader": "Bonch-Bonch",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 363,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russian language part 5 5 4 Syntax.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Русский язык",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/Ru-Russian_language_part_5_5_4_Syntax.ogg",
-          "duration": 363
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Русский язык",
-        "uploadTs": "2018-09-28T20:34:20Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-russian-language-intro-ogg",
-      "title": "Русский язык",
-      "displayName": "Wikipedia – Русский язык",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_(intro).ogg",
-      "tags": {
-        "reader": "Andrew Krizhanovsky",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 225,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russian language (intro).ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Русский язык",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/44/Ru-Russian_language_%28intro%29.ogg",
-          "duration": 225
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Русский язык",
-        "uploadTs": "2018-08-24T20:04:24Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-russian-language-part-4-2-old-russian-period-ogg",
-      "title": "Русский язык",
-      "displayName": "Wikipedia – Русский язык",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_4_2_Old_Russian_period.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_2_2_2_Mixed_derivatives_and_idioms.ogg",
       "tags": {
         "reader": "kanphis",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 215,
+        "total_seconds": 84,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russian language part 4 2 Old Russian period.ogg"
+        "source_file": "File:Ru-Russian language part 2 2 2 Mixed derivatives and idioms.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Русский язык",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Ru-Russian_language_part_4_2_Old_Russian_period.ogg",
-          "duration": 215
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/13/Ru-Russian_language_part_2_2_2_Mixed_derivatives_and_idioms.ogg",
+          "duration": 84
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Русский язык",
-        "uploadTs": "2017-01-29T15:51:29Z"
+        "uploadTs": "2017-01-26T15:11:50Z"
       }
     },
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-russian-language-part-5-1-2-consonants-oga",
+      "id": "commons:file-ru-russian-language-part-5-1-1-vowel-ogg",
       "title": "Русский язык",
       "displayName": "Wikipedia – Русский язык",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_1_2_Consonants.oga",
-      "tags": {
-        "reader": "Owlunacy",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 139,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russian language part 5 1 2 Consonants.oga"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Русский язык",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Ru-Russian_language_part_5_1_2_Consonants.oga",
-          "duration": 139
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Русский язык",
-        "uploadTs": "2018-09-05T22:40:37Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-russian-language-part-5-2-6-verb-ogg",
-      "title": "Русский язык",
-      "displayName": "Wikipedia – Русский язык",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_2_6_Verb.ogg",
-      "tags": {
-        "reader": "Iammelkor",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 412,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russian language part 5 2 6 Verb.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Русский язык",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/76/Ru-Russian_language_part_5_2_6_Verb.ogg",
-          "duration": 412
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Русский язык",
-        "uploadTs": "2018-09-28T21:20:24Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-russian-language-part-2-2-sociolinguistic-details-ogg",
-      "title": "Русский язык",
-      "displayName": "Wikipedia – Русский язык",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_2_2_Sociolinguistic_details.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_1_1_vowel.ogg",
       "tags": {
         "reader": "Sergey Podkopaev",
         "gender": "",
         "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 506,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russian language part 2 2 Sociolinguistic details.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Русский язык",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Ru-Russian_language_part_2_2_Sociolinguistic_details.ogg",
-          "duration": 506
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Русский язык",
-        "uploadTs": "2017-01-29T14:13:21Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-russian-language-part-4-1-old-russian-period-ogg",
-      "title": "Русский язык",
-      "displayName": "Wikipedia – Русский язык",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_4_1_Old_Russian_period.ogg",
-      "tags": {
-        "reader": "kanphis",
-        "gender": "",
-        "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 172,
+        "total_seconds": 80,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russian language part 4 1 Old Russian period.ogg"
+        "source_file": "File:Ru-Russian language part 5 1 1 vowel.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Русский язык",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Ru-Russian_language_part_4_1_Old_Russian_period.ogg",
-          "duration": 172
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Ru-Russian_language_part_5_1_1_vowel.ogg",
+          "duration": 80
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Русский язык",
-        "uploadTs": "2017-01-28T18:36:44Z"
+        "uploadTs": "2018-09-05T22:23:29Z"
       }
     },
     {
@@ -9334,38 +10074,75 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-russian-language-part-6-study-history-ogg",
+      "id": "commons:file-ru-russian-language-part-5-2-4-numeral-ogg",
       "title": "Русский язык",
       "displayName": "Wikipedia – Русский язык",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_6_Study_history.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_2_4_Numeral.ogg",
       "tags": {
-        "reader": "Bonch-Bonch",
+        "reader": "Owlunacy",
         "gender": "",
         "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 743,
+        "length_band": "very_short",
+        "total_seconds": 186,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russian language part 6 Study history.ogg"
+        "source_file": "File:Ru-Russian language part 5 2 4 Numeral.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Русский язык",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Ru-Russian_language_part_6_Study_history.ogg",
-          "duration": 743
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Ru-Russian_language_part_5_2_4_Numeral.ogg",
+          "duration": 186
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Русский язык",
-        "uploadTs": "2018-09-28T22:38:06Z"
+        "uploadTs": "2018-09-28T20:47:09Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russian-language-part-2-1-areal-settlement-and-population-ogg",
+      "title": "Русский язык",
+      "displayName": "Wikipedia – Русский язык",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_2_1_Areal_settlement_and_population.ogg",
+      "tags": {
+        "reader": "Sergey Podkopaev",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 354,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russian language part 2 1 Areal settlement and population.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Русский язык",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/84/Ru-Russian_language_part_2_1_Areal_settlement_and_population.ogg",
+          "duration": 354
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Русский язык",
+        "uploadTs": "2017-01-26T13:54:34Z"
       }
     },
     {
@@ -9408,6 +10185,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-russian-language-part-4-1-old-russian-period-ogg",
+      "title": "Русский язык",
+      "displayName": "Wikipedia – Русский язык",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_4_1_Old_Russian_period.ogg",
+      "tags": {
+        "reader": "kanphis",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 172,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russian language part 4 1 Old Russian period.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Русский язык",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Ru-Russian_language_part_4_1_Old_Russian_period.ogg",
+          "duration": 172
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Русский язык",
+        "uploadTs": "2017-01-28T18:36:44Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-russian-language-part-4-3-period-of-russian-national-language-ogg",
       "title": "Русский язык",
       "displayName": "Wikipedia – Русский язык",
@@ -9440,6 +10254,228 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Русский язык",
         "uploadTs": "2017-01-24T20:20:29Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russian-language-part-1-about-title-ogg",
+      "title": "Русский язык",
+      "displayName": "Wikipedia – Русский язык",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_1_About_title.ogg",
+      "tags": {
+        "reader": "kanphis",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 69,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russian language part 1 About title.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Русский язык",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Ru-Russian_language_part_1_About_title.ogg",
+          "duration": 69
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Русский язык",
+        "uploadTs": "2017-01-29T13:57:07Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russian-language-part-2-3-dialects-ogg",
+      "title": "Русский язык",
+      "displayName": "Wikipedia – Русский язык",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_2_3_Dialects.ogg",
+      "tags": {
+        "reader": "kanphis",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 187,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russian language part 2 3 Dialects.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Русский язык",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/43/Ru-Russian_language_part_2_3_Dialects.ogg",
+          "duration": 187
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Русский язык",
+        "uploadTs": "2017-01-29T14:27:49Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russian-language-part-5-1-4-morphonology-ogg",
+      "title": "Русский язык",
+      "displayName": "Wikipedia – Русский язык",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_1_4_morphonology.ogg",
+      "tags": {
+        "reader": "Sergey Podkopaev",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 108,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russian language part 5 1 4 morphonology.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Русский язык",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Ru-Russian_language_part_5_1_4_morphonology.ogg",
+          "duration": 108
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Русский язык",
+        "uploadTs": "2018-09-05T22:54:12Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russian-language-part-5-5-5-lexis-ogg",
+      "title": "Русский язык",
+      "displayName": "Wikipedia – Русский язык",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_5_5_Lexis.ogg",
+      "tags": {
+        "reader": "Bonch-Bonch",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 447,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russian language part 5 5 5 Lexis.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Русский язык",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Ru-Russian_language_part_5_5_5_Lexis.ogg",
+          "duration": 447
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Русский язык",
+        "uploadTs": "2018-09-28T22:08:29Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russian-language-part-5-2-6-verb-ogg",
+      "title": "Русский язык",
+      "displayName": "Wikipedia – Русский язык",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_2_6_Verb.ogg",
+      "tags": {
+        "reader": "Iammelkor",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 412,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russian language part 5 2 6 Verb.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Русский язык",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/76/Ru-Russian_language_part_5_2_6_Verb.ogg",
+          "duration": 412
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Русский язык",
+        "uploadTs": "2018-09-28T21:20:24Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russian-language-part-5-5-4-syntax-ogg",
+      "title": "Русский язык",
+      "displayName": "Wikipedia – Русский язык",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_5_4_Syntax.ogg",
+      "tags": {
+        "reader": "Bonch-Bonch",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 363,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russian language part 5 5 4 Syntax.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Русский язык",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/Ru-Russian_language_part_5_5_4_Syntax.ogg",
+          "duration": 363
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Русский язык",
+        "uploadTs": "2018-09-28T20:34:20Z"
       }
     },
     {
@@ -9519,75 +10555,223 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-russian-language-part-2-1-areal-settlement-and-population-ogg",
+      "id": "commons:file-ru-russian-language-intro-ogg",
       "title": "Русский язык",
       "displayName": "Wikipedia – Русский язык",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_2_1_Areal_settlement_and_population.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_(intro).ogg",
       "tags": {
-        "reader": "Sergey Podkopaev",
+        "reader": "Andrew Krizhanovsky",
         "gender": "",
         "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 354,
+        "length_band": "very_short",
+        "total_seconds": 225,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russian language part 2 1 Areal settlement and population.ogg"
+        "source_file": "File:Ru-Russian language (intro).ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Русский язык",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/84/Ru-Russian_language_part_2_1_Areal_settlement_and_population.ogg",
-          "duration": 354
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/44/Ru-Russian_language_%28intro%29.ogg",
+          "duration": 225
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Русский язык",
-        "uploadTs": "2017-01-26T13:54:34Z"
+        "uploadTs": "2018-08-24T20:04:24Z"
       }
     },
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-ru-russian-language-part-2-3-dialects-ogg",
+      "id": "commons:file-ru-russian-language-part-2-2-sociolinguistic-details-ogg",
       "title": "Русский язык",
       "displayName": "Wikipedia – Русский язык",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_2_3_Dialects.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_2_2_Sociolinguistic_details.ogg",
       "tags": {
-        "reader": "kanphis",
+        "reader": "Sergey Podkopaev",
         "gender": "",
         "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 187,
+        "length_band": "short",
+        "total_seconds": 506,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Russian language part 2 3 Dialects.ogg"
+        "source_file": "File:Ru-Russian language part 2 2 Sociolinguistic details.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Русский язык",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/43/Ru-Russian_language_part_2_3_Dialects.ogg",
-          "duration": 187
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Ru-Russian_language_part_2_2_Sociolinguistic_details.ogg",
+          "duration": 506
         }
       ],
       "textLive": {
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Русский язык",
-        "uploadTs": "2017-01-29T14:27:49Z"
+        "uploadTs": "2017-01-29T14:13:21Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russian-language-part-5-1-2-consonants-oga",
+      "title": "Русский язык",
+      "displayName": "Wikipedia – Русский язык",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_1_2_Consonants.oga",
+      "tags": {
+        "reader": "Owlunacy",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 139,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russian language part 5 1 2 Consonants.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Русский язык",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Ru-Russian_language_part_5_1_2_Consonants.oga",
+          "duration": 139
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Русский язык",
+        "uploadTs": "2018-09-05T22:40:37Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russian-language-part-5-1-3-prosody-ogg",
+      "title": "Русский язык",
+      "displayName": "Wikipedia – Русский язык",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_1_3_prosody.ogg",
+      "tags": {
+        "reader": "Sergey Podkopaev",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 95,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russian language part 5 1 3 prosody.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Русский язык",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Ru-Russian_language_part_5_1_3_prosody.ogg",
+          "duration": 95
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Русский язык",
+        "uploadTs": "2018-09-05T22:46:59Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russian-language-part-5-2-1-general-information-oga",
+      "title": "Русский язык",
+      "displayName": "Wikipedia – Русский язык",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_5_2_1_General_information.oga",
+      "tags": {
+        "reader": "Owlunacy",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 168,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russian language part 5 2 1 General information.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Русский язык",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/Ru-Russian_language_part_5_2_1_General_information.oga",
+          "duration": 168
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Русский язык",
+        "uploadTs": "2018-09-06T06:07:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-russian-language-part-4-2-old-russian-period-ogg",
+      "title": "Русский язык",
+      "displayName": "Wikipedia – Русский язык",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Russian_language_part_4_2_Old_Russian_period.ogg",
+      "tags": {
+        "reader": "kanphis",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 215,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Russian language part 4 2 Old Russian period.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Русский язык",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Ru-Russian_language_part_4_2_Old_Russian_period.ogg",
+          "duration": 215
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Русский язык",
+        "uploadTs": "2017-01-29T15:51:29Z"
       }
     },
     {
@@ -10254,6 +11438,43 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Смирнов, Борис Леонидович",
         "uploadTs": "2009-11-04T17:59:52Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-solntsevsky-prospekt-ogg",
+      "title": "Солнцевский проспект",
+      "displayName": "Wikipedia – Солнцевский проспект",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Solntsevsky_prospekt.ogg",
+      "tags": {
+        "reader": "Retr0ra1n",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 107,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Solntsevsky prospekt.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Солнцевский проспект",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Ru-Solntsevsky_prospekt.ogg",
+          "duration": 107
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Солнцевский проспект",
+        "uploadTs": "2026-01-31T12:07:30Z"
       }
     },
     {
@@ -10999,6 +12220,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-hangul-part2-jamo-order-ogg",
+      "title": "Хангыль",
+      "displayName": "Wikipedia – Хангыль",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Hangul_part2_Jamo_order.ogg",
+      "tags": {
+        "reader": "Andrew Krizhanovsky",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 523,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Hangul part2 Jamo order.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Хангыль",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Ru-Hangul_part2_Jamo_order.ogg",
+          "duration": 523
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Хангыль",
+        "uploadTs": "2008-08-17T20:39:36Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-hangul-part1-title-history-script-ogg",
       "title": "Хангыль",
       "displayName": "Wikipedia – Хангыль",
@@ -11068,43 +12326,6 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Хангыль",
         "uploadTs": "2008-08-17T20:48:36Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-hangul-part2-jamo-order-ogg",
-      "title": "Хангыль",
-      "displayName": "Wikipedia – Хангыль",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Hangul_part2_Jamo_order.ogg",
-      "tags": {
-        "reader": "Andrew Krizhanovsky",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 523,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Hangul part2 Jamo order.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Хангыль",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Ru-Hangul_part2_Jamo_order.ogg",
-          "duration": 523
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Хангыль",
-        "uploadTs": "2008-08-17T20:39:36Z"
       }
     },
     {
@@ -11332,13 +12553,13 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-flac",
+      "id": "commons:file-6-26-05-2022-flac",
       "title": "Цой, Виктор Робертович",
       "displayName": "Wikipedia – Цой, Виктор Робертович",
       "lang": "ru",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:«Цой,_Виктор_Робертович»_-_«Второй_состав_\"Кино\"»_(новейшая_версия).flac",
+      "url": "https://commons.wikimedia.org/wiki/File:«Цой,_Виктор_Робертович»_-_«Музыка._Палата_№6_и_Гарин_и_Гиперболоиды»_(26.05.2022).flac",
       "tags": {
         "reader": "Eniisi Lisika",
         "gender": "",
@@ -11349,13 +12570,13 @@
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:«Цой, Виктор Робертович» - «Второй состав \"Кино\"» (новейшая версия).flac"
+        "source_file": "File:«Цой, Виктор Робертович» - «Музыка. Палата №6 и Гарин и Гиперболоиды» (26.05.2022).flac"
       },
       "items": [
         {
           "id": "art",
           "title": "Цой, Виктор Робертович",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/05/%C2%AB%D0%A6%D0%BE%D0%B9%2C_%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80_%D0%A0%D0%BE%D0%B1%D0%B5%D1%80%D1%82%D0%BE%D0%B2%D0%B8%D1%87%C2%BB_-_%C2%AB%D0%92%D1%82%D0%BE%D1%80%D0%BE%D0%B9_%D1%81%D0%BE%D1%81%D1%82%D0%B0%D0%B2_%22%D0%9A%D0%B8%D0%BD%D0%BE%22%C2%BB_%28%D0%BD%D0%BE%D0%B2%D0%B5%D0%B9%D1%88%D0%B0%D1%8F_%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%29.flac",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/01/%C2%AB%D0%A6%D0%BE%D0%B9%2C_%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80_%D0%A0%D0%BE%D0%B1%D0%B5%D1%80%D1%82%D0%BE%D0%B2%D0%B8%D1%87%C2%BB_-_%C2%AB%D0%9C%D1%83%D0%B7%D1%8B%D0%BA%D0%B0._%D0%9F%D0%B0%D0%BB%D0%B0%D1%82%D0%B0_%E2%84%966_%D0%B8_%D0%93%D0%B0%D1%80%D0%B8%D0%BD_%D0%B8_%D0%93%D0%B8%D0%BF%D0%B5%D1%80%D0%B1%D0%BE%D0%BB%D0%BE%D0%B8%D0%B4%D1%8B%C2%BB_%2826.05.2022%29.flac",
           "duration": 0
         }
       ],
@@ -11363,7 +12584,7 @@
         "wiki": "ru",
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Цой, Виктор Робертович",
-        "uploadTs": "2022-08-01T05:20:09Z"
+        "uploadTs": "2022-05-25T23:41:58Z"
       }
     },
     {
@@ -11406,6 +12627,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-flac",
+      "title": "Цой, Виктор Робертович",
+      "displayName": "Wikipedia – Цой, Виктор Робертович",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:«Цой,_Виктор_Робертович»_-_«Второй_состав_\"Кино\"»_(новейшая_версия).flac",
+      "tags": {
+        "reader": "Eniisi Lisika",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:«Цой, Виктор Робертович» - «Второй состав \"Кино\"» (новейшая версия).flac"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Цой, Виктор Робертович",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/05/%C2%AB%D0%A6%D0%BE%D0%B9%2C_%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80_%D0%A0%D0%BE%D0%B1%D0%B5%D1%80%D1%82%D0%BE%D0%B2%D0%B8%D1%87%C2%BB_-_%C2%AB%D0%92%D1%82%D0%BE%D1%80%D0%BE%D0%B9_%D1%81%D0%BE%D1%81%D1%82%D0%B0%D0%B2_%22%D0%9A%D0%B8%D0%BD%D0%BE%22%C2%BB_%28%D0%BD%D0%BE%D0%B2%D0%B5%D0%B9%D1%88%D0%B0%D1%8F_%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%29.flac",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Цой, Виктор Робертович",
+        "uploadTs": "2022-08-01T05:20:09Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-25-05-2022-wav",
       "title": "Цой, Виктор Робертович",
       "displayName": "Wikipedia – Цой, Виктор Робертович",
@@ -11438,154 +12696,6 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Цой, Виктор Робертович",
         "uploadTs": "2022-05-25T20:51:34Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-6-26-05-2022-flac",
-      "title": "Цой, Виктор Робертович",
-      "displayName": "Wikipedia – Цой, Виктор Робертович",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:«Цой,_Виктор_Робертович»_-_«Музыка._Палата_№6_и_Гарин_и_Гиперболоиды»_(26.05.2022).flac",
-      "tags": {
-        "reader": "Eniisi Lisika",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:«Цой, Виктор Робертович» - «Музыка. Палата №6 и Гарин и Гиперболоиды» (26.05.2022).flac"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Цой, Виктор Робертович",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/01/%C2%AB%D0%A6%D0%BE%D0%B9%2C_%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80_%D0%A0%D0%BE%D0%B1%D0%B5%D1%80%D1%82%D0%BE%D0%B2%D0%B8%D1%87%C2%BB_-_%C2%AB%D0%9C%D1%83%D0%B7%D1%8B%D0%BA%D0%B0._%D0%9F%D0%B0%D0%BB%D0%B0%D1%82%D0%B0_%E2%84%966_%D0%B8_%D0%93%D0%B0%D1%80%D0%B8%D0%BD_%D0%B8_%D0%93%D0%B8%D0%BF%D0%B5%D1%80%D0%B1%D0%BE%D0%BB%D0%BE%D0%B8%D0%B4%D1%8B%C2%BB_%2826.05.2022%29.flac",
-          "duration": 0
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Цой, Виктор Робертович",
-        "uploadTs": "2022-05-25T23:41:58Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-patrick-chan-part-2-career-ogg",
-      "title": "Чан, Патрик",
-      "displayName": "Wikipedia – Чан, Патрик",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Patrick_Chan_part_2_career.ogg",
-      "tags": {
-        "reader": "TIMUR MURATOV",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 2345,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Patrick Chan part 2 career.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Чан, Патрик",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/63/Ru-Patrick_Chan_part_2_career.ogg",
-          "duration": 2345
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Чан, Патрик",
-        "uploadTs": "2018-11-23T18:55:58Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-patrick-chan-part-4-style-and-technique-ogg",
-      "title": "Чан, Патрик",
-      "displayName": "Wikipedia – Чан, Патрик",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Patrick_Chan_part_4_style_and_technique.ogg",
-      "tags": {
-        "reader": "TIMUR MURATOV",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 138,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Patrick Chan part 4 style and technique.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Чан, Патрик",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/71/Ru-Patrick_Chan_part_4_style_and_technique.ogg",
-          "duration": 138
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Чан, Патрик",
-        "uploadTs": "2018-11-18T15:14:30Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-patrick-chan-part-1-intro-ogg",
-      "title": "Чан, Патрик",
-      "displayName": "Wikipedia – Чан, Патрик",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Patrick_Chan_part_1_intro.ogg",
-      "tags": {
-        "reader": "TIMUR MURATOV",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 145,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Patrick Chan part 1 intro.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Чан, Патрик",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Ru-Patrick_Chan_part_1_intro.ogg",
-          "duration": 145
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Чан, Патрик",
-        "uploadTs": "2018-11-23T18:45:40Z"
       }
     },
     {
@@ -11628,6 +12738,154 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:file-ru-patrick-chan-part-4-style-and-technique-ogg",
+      "title": "Чан, Патрик",
+      "displayName": "Wikipedia – Чан, Патрик",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Patrick_Chan_part_4_style_and_technique.ogg",
+      "tags": {
+        "reader": "TIMUR MURATOV",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 138,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Patrick Chan part 4 style and technique.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Чан, Патрик",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/71/Ru-Patrick_Chan_part_4_style_and_technique.ogg",
+          "duration": 138
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Чан, Патрик",
+        "uploadTs": "2018-11-18T15:14:30Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-patrick-chan-part-2-career-ogg",
+      "title": "Чан, Патрик",
+      "displayName": "Wikipedia – Чан, Патрик",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Patrick_Chan_part_2_career.ogg",
+      "tags": {
+        "reader": "TIMUR MURATOV",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 2345,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Patrick Chan part 2 career.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Чан, Патрик",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/63/Ru-Patrick_Chan_part_2_career.ogg",
+          "duration": 2345
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Чан, Патрик",
+        "uploadTs": "2018-11-23T18:55:58Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-patrick-chan-part-1-intro-ogg",
+      "title": "Чан, Патрик",
+      "displayName": "Wikipedia – Чан, Патрик",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Patrick_Chan_part_1_intro.ogg",
+      "tags": {
+        "reader": "TIMUR MURATOV",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 145,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Patrick Chan part 1 intro.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Чан, Патрик",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Ru-Patrick_Chan_part_1_intro.ogg",
+          "duration": 145
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Чан, Патрик",
+        "uploadTs": "2018-11-23T18:45:40Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-patrick-chan-part-3-off-ice-ogg",
+      "title": "Чан, Патрик",
+      "displayName": "Wikipedia – Чан, Патрик",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Patrick_Chan_part_3_off-ice.ogg",
+      "tags": {
+        "reader": "TIMUR MURATOV",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 108,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Patrick Chan part 3 off-ice.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Чан, Патрик",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ru-Patrick_Chan_part_3_off-ice.ogg",
+          "duration": 108
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Чан, Патрик",
+        "uploadTs": "2018-11-18T15:14:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ru-cheboksary-dam-intro-ogg",
       "title": "Чебоксарская ГЭС",
       "displayName": "Wikipedia – Чебоксарская ГЭС",
@@ -11660,43 +12918,6 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Чебоксарская ГЭС",
         "uploadTs": "2010-07-31T08:37:47Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:file-ru-intro-ogg",
-      "title": "Челябинск",
-      "displayName": "Wikipedia – Челябинск",
-      "lang": "ru",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Ru-Челябинск_(intro).ogg",
-      "tags": {
-        "reader": "Тимур Куряев",
-        "gender": "m",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 122,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Ru-Челябинск (intro).ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Челябинск",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Ru-%D0%A7%D0%B5%D0%BB%D1%8F%D0%B1%D0%B8%D0%BD%D1%81%D0%BA_%28intro%29.ogg",
-          "duration": 122
-        }
-      ],
-      "textLive": {
-        "wiki": "ru",
-        "api": "https://ru.wikipedia.org/w/api.php",
-        "article": "Челябинск",
-        "uploadTs": "2025-01-04T21:04:20Z"
       }
     },
     {
@@ -12030,6 +13251,117 @@
         "api": "https://ru.wikipedia.org/w/api.php",
         "article": "Южный храм воздуха",
         "uploadTs": "2022-10-05T05:43:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-yad-hana-ogg",
+      "title": "Яд-Хана",
+      "displayName": "Wikipedia – Яд-Хана",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Yad_Hana.ogg",
+      "tags": {
+        "reader": "Andrew ivanovs",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Yad Hana.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Яд-Хана",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/66/Yad_Hana.ogg",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Яд-Хана",
+        "uploadTs": "2010-11-23T08:28:20Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-yaroslavl-intro-ogg",
+      "title": "Ярославль",
+      "displayName": "Wikipedia – Ярославль",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Yaroslavl_(intro).ogg",
+      "tags": {
+        "reader": "Nataly Lugovaya, incorporating:",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 97,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Yaroslavl (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ярославль",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Ru-Yaroslavl_%28intro%29.ogg",
+          "duration": 97
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Ярославль",
+        "uploadTs": "2012-07-20T12:53:09Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-ru-yasnogorsk-intro-ogg",
+      "title": "Ясногорск (Тульская область)",
+      "displayName": "Wikipedia – Ясногорск (Тульская область)",
+      "lang": "ru",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ru-Yasnogorsk_(intro).ogg",
+      "tags": {
+        "reader": "Sorovas",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 94,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ru-Yasnogorsk (intro).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ясногорск (Тульская область)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Ru-Yasnogorsk_%28intro%29.ogg",
+          "duration": 94
+        }
+      ],
+      "textLive": {
+        "wiki": "ru",
+        "api": "https://ru.wikipedia.org/w/api.php",
+        "article": "Ясногорск (Тульская область)",
+        "uploadTs": "2011-11-26T21:54:29Z"
       }
     }
   ]

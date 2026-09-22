@@ -232,6 +232,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:forfikuloj",
+      "title": "Forfikuloj",
+      "displayName": "Wikipedia – Forfikuloj",
+      "lang": "eo",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Forfikulo.ogg",
+      "tags": {
+        "reader": "Feelfo",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 76,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Forfikulo.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Forfikuloj",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Forfikulo.ogg",
+          "duration": 76
+        }
+      ],
+      "textLive": {
+        "wiki": "eo",
+        "api": "https://eo.wikipedia.org/w/api.php",
+        "article": "Forfikuloj",
+        "uploadTs": "2021-07-27T08:40:18Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:historio-de-brazilo",
       "title": "Historio de Brazilo",
       "displayName": "Wikipedia – Historio de Brazilo",
@@ -343,6 +380,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:klupeoj",
+      "title": "Klupeoj",
+      "displayName": "Wikipedia – Klupeoj",
+      "lang": "eo",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Klupeoj.ogg",
+      "tags": {
+        "reader": "Feelfo",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 60,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Klupeoj.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Klupeoj",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Klupeoj.ogg",
+          "duration": 60
+        }
+      ],
+      "textLive": {
+        "wiki": "eo",
+        "api": "https://eo.wikipedia.org/w/api.php",
+        "article": "Klupeoj",
+        "uploadTs": "2021-07-19T11:35:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:koleopteroj",
+      "title": "Koleopteroj",
+      "displayName": "Wikipedia – Koleopteroj",
+      "lang": "eo",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Kolepteroj_-_aŭdioartikolo.ogg",
+      "tags": {
+        "reader": "Feelfo",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 92,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Kolepteroj - aŭdioartikolo.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Koleopteroj",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/19/Kolepteroj_-_a%C5%ADdioartikolo.ogg",
+          "duration": 92
+        }
+      ],
+      "textLive": {
+        "wiki": "eo",
+        "api": "https://eo.wikipedia.org/w/api.php",
+        "article": "Koleopteroj",
+        "uploadTs": "2021-08-02T11:15:18Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:morusacoj",
       "title": "Morusacoj",
       "displayName": "Wikipedia – Morusacoj",
@@ -375,6 +486,43 @@
         "api": "https://eo.wikipedia.org/w/api.php",
         "article": "Morusacoj",
         "uploadTs": "2021-08-04T13:48:24Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:neduuma-genro",
+      "title": "Neduuma genro",
+      "displayName": "Wikipedia – Neduuma genro",
+      "lang": "eo",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Aŭdioartikolo_neduuma_genro.ogg",
+      "tags": {
+        "reader": "Feelfo",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 119,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Aŭdioartikolo neduuma genro.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Neduuma genro",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/16/A%C5%ADdioartikolo_neduuma_genro.ogg",
+          "duration": 119
+        }
+      ],
+      "textLive": {
+        "wiki": "eo",
+        "api": "https://eo.wikipedia.org/w/api.php",
+        "article": "Neduuma genro",
+        "uploadTs": "2021-08-04T13:11:53Z"
       }
     },
     {

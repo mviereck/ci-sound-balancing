@@ -158,6 +158,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:corno-ducale",
+      "title": "Corno Ducale",
+      "displayName": "Wikipedia – Corno Ducale",
+      "lang": "it",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Itwiki-Corno_Ducale.ogg",
+      "tags": {
+        "reader": "Jaakko",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 92,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Itwiki-Corno Ducale.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Corno Ducale",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/Itwiki-Corno_Ducale.ogg",
+          "duration": 92
+        }
+      ],
+      "textLive": {
+        "wiki": "it",
+        "api": "https://it.wikipedia.org/w/api.php",
+        "article": "Corno Ducale",
+        "uploadTs": "2008-03-16T17:29:50Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:fonni",
       "title": "Fonni",
       "displayName": "Wikipedia – Fonni",
@@ -264,6 +301,43 @@
         "api": "https://it.wikipedia.org/w/api.php",
         "article": "Il Signore degli Anelli",
         "uploadTs": "2008-06-28T13:20:58Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:ius-civile",
+      "title": "Ius civile",
+      "displayName": "Wikipedia – Ius civile",
+      "lang": "it",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ius_civile.ogg",
+      "tags": {
+        "reader": "Crys0000",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 98,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ius civile.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ius civile",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/28/Ius_civile.ogg",
+          "duration": 98
+        }
+      ],
+      "textLive": {
+        "wiki": "it",
+        "api": "https://it.wikipedia.org/w/api.php",
+        "article": "Ius civile",
+        "uploadTs": "2005-12-05T18:00:33Z"
       }
     },
     {
@@ -454,6 +528,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:stemma-dell-albania",
+      "title": "Stemma dell'Albania",
+      "displayName": "Wikipedia – Stemma dell'Albania",
+      "lang": "it",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Itwiki-Stemma_dell_Albania.ogg",
+      "tags": {
+        "reader": "Jaakko",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 61,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Itwiki-Stemma dell Albania.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Stemma dell'Albania",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/36/Itwiki-Stemma_dell_Albania.ogg",
+          "duration": 61
+        }
+      ],
+      "textLive": {
+        "wiki": "it",
+        "api": "https://it.wikipedia.org/w/api.php",
+        "article": "Stemma dell'Albania",
+        "uploadTs": "2008-03-20T10:19:25Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:stemma-dell-armenia",
       "title": "Stemma dell'Armenia",
       "displayName": "Wikipedia – Stemma dell'Armenia",
@@ -486,6 +597,117 @@
         "api": "https://it.wikipedia.org/w/api.php",
         "article": "Stemma dell'Armenia",
         "uploadTs": "2008-03-20T10:24:59Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:stemma-dell-estonia",
+      "title": "Stemma dell'Estonia",
+      "displayName": "Wikipedia – Stemma dell'Estonia",
+      "lang": "it",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Itwiki-Stemma_dell_Estonia.ogg",
+      "tags": {
+        "reader": "Jaakko",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 81,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Itwiki-Stemma dell Estonia.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Stemma dell'Estonia",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/14/Itwiki-Stemma_dell_Estonia.ogg",
+          "duration": 81
+        }
+      ],
+      "textLive": {
+        "wiki": "it",
+        "api": "https://it.wikipedia.org/w/api.php",
+        "article": "Stemma dell'Estonia",
+        "uploadTs": "2008-03-20T10:44:08Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:stemma-della-bulgaria",
+      "title": "Stemma della Bulgaria",
+      "displayName": "Wikipedia – Stemma della Bulgaria",
+      "lang": "it",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Itwiki-Stemma_della_Bulgaria.ogg",
+      "tags": {
+        "reader": "Jaakko",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 63,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Itwiki-Stemma della Bulgaria.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Stemma della Bulgaria",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/54/Itwiki-Stemma_della_Bulgaria.ogg",
+          "duration": 63
+        }
+      ],
+      "textLive": {
+        "wiki": "it",
+        "api": "https://it.wikipedia.org/w/api.php",
+        "article": "Stemma della Bulgaria",
+        "uploadTs": "2008-03-19T12:23:13Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:stemma-di-andorra",
+      "title": "Stemma di Andorra",
+      "displayName": "Wikipedia – Stemma di Andorra",
+      "lang": "it",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Itwiki-Stemma_di_Andorra.ogg",
+      "tags": {
+        "reader": "Jaakko",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 86,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Itwiki-Stemma di Andorra.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Stemma di Andorra",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/38/Itwiki-Stemma_di_Andorra.ogg",
+          "duration": 86
+        }
+      ],
+      "textLive": {
+        "wiki": "it",
+        "api": "https://it.wikipedia.org/w/api.php",
+        "article": "Stemma di Andorra",
+        "uploadTs": "2008-03-20T10:22:11Z"
       }
     },
     {

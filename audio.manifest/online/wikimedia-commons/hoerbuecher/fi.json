@@ -232,6 +232,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:suomen-kieli",
+      "title": "Suomen kieli",
+      "displayName": "Wikipedia – Suomen kieli",
+      "lang": "fi",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Fi-Suomen_kieli_johdanto.ogg",
+      "tags": {
+        "reader": "Vassilik",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 77,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Fi-Suomen kieli johdanto.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Suomen kieli",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/76/Fi-Suomen_kieli_johdanto.ogg",
+          "duration": 77
+        }
+      ],
+      "textLive": {
+        "wiki": "fi",
+        "api": "https://fi.wikipedia.org/w/api.php",
+        "article": "Suomen kieli",
+        "uploadTs": "2008-05-30T21:25:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:suomi",
       "title": "Suomi",
       "displayName": "Wikipedia – Suomi",

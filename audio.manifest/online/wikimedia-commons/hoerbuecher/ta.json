@@ -10,6 +10,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:w",
+      "title": "w:சிமோன்",
+      "displayName": "Wikipedia – w:சிமோன்",
+      "lang": "ta",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ta-சிமோன்-spoken_wikipedia.ogg",
+      "tags": {
+        "reader": "Sriveenkat",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 990,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ta-சிமோன்-spoken wikipedia.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "w:சிமோன்",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/72/Ta-%E0%AE%9A%E0%AE%BF%E0%AE%AE%E0%AF%8B%E0%AE%A9%E0%AF%8D-spoken_wikipedia.ogg",
+          "duration": 990
+        }
+      ],
+      "textLive": {
+        "wiki": "ta",
+        "api": "https://ta.wikipedia.org/w/api.php",
+        "article": "w:சிமோன்",
+        "uploadTs": "2023-06-25T08:34:39Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:file-ta-spoken-article-ogg",
       "title": "இந்திய சேவகர்கள் சங்கம்",
       "displayName": "Wikipedia – இந்திய சேவகர்கள் சங்கம்",

@@ -1227,6 +1227,43 @@
         "article": "hy:Կուղբերի ազդեցությունը շրջակա միջավայրի վրա",
         "uploadTs": "2025-07-31T20:25:36Z"
       }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-1972",
+      "title": "hy:Շախմատի աշխարհի առաջնություն 1972",
+      "displayName": "Wikipedia – hy:Շախմատի աշխարհի առաջնություն 1972",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Շախմատի_աշխարհի_առաջնություն_1972_(World_Chess_Championship_1972).ogg",
+      "tags": {
+        "reader": "Mane Minasyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 105,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Շախմատի աշխարհի առաջնություն 1972 (World Chess Championship 1972).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Շախմատի աշխարհի առաջնություն 1972",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Hy-%D5%87%D5%A1%D5%AD%D5%B4%D5%A1%D5%BF%D5%AB_%D5%A1%D5%B7%D5%AD%D5%A1%D6%80%D5%B0%D5%AB_%D5%A1%D5%BC%D5%A1%D5%BB%D5%B6%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6_1972_%28World_Chess_Championship_1972%29.ogg",
+          "duration": 105
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Շախմատի աշխարհի առաջնություն 1972",
+        "uploadTs": "2017-11-27T08:06:13Z"
+      }
     }
   ]
 }

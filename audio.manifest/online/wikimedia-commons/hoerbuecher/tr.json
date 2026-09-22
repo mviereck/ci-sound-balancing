@@ -306,6 +306,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:ha-kar",
+      "title": "Haçkar",
+      "displayName": "Wikipedia – Haçkar",
+      "lang": "tr",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Tr-Haçkar-article.ogg",
+      "tags": {
+        "reader": "Noumenon",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 118,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Tr-Haçkar-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Haçkar",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Tr-Ha%C3%A7kar-article.ogg",
+          "duration": 118
+        }
+      ],
+      "textLive": {
+        "wiki": "tr",
+        "api": "https://tr.wikipedia.org/w/api.php",
+        "article": "Haçkar",
+        "uploadTs": "2010-04-11T18:39:37Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:huri",
       "title": "Huri",
       "displayName": "Wikipedia – Huri",

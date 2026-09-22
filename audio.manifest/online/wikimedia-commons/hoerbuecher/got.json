@@ -1,0 +1,42 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (got)",
+  "lang": "got",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:krist-naubausailik",
+      "title": "Krist-Naubausailik",
+      "displayName": "Wikipedia – Krist-Naubausailik",
+      "lang": "got",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Krist-Naubausailik.mp3",
+      "tags": {
+        "reader": "Bokareis",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": false,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Krist-Naubausailik.mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Krist-Naubausailik",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Krist-Naubausailik.mp3",
+          "duration": 0
+        }
+      ]
+    }
+  ]
+}

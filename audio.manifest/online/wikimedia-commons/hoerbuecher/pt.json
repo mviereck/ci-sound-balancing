@@ -195,6 +195,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:an-lise-de-algoritmos",
+      "title": "Análise de algoritmos",
+      "displayName": "Wikipedia – Análise de algoritmos",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pt-Análise_de_algoritmos.ogg",
+      "tags": {
+        "reader": "LeonardoG",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 66,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pt-Análise de algoritmos.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Análise de algoritmos",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Pt-An%C3%A1lise_de_algoritmos.ogg",
+          "duration": 66
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Análise de algoritmos",
+        "uploadTs": "2006-07-22T11:00:05Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:arena-do-gr-mio",
       "title": "Arena do Grêmio",
       "displayName": "Wikipedia – Arena do Grêmio",
@@ -306,6 +343,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:avril-lavigne",
+      "title": "Avril Lavigne",
+      "displayName": "Wikipedia – Avril Lavigne",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:PT-Avril_Lavigne.ogg",
+      "tags": {
+        "reader": "Marcoscarvalho.email",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_long",
+        "total_seconds": 6451,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:PT-Avril Lavigne.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Avril Lavigne",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/82/PT-Avril_Lavigne.ogg",
+          "duration": 6451
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Avril Lavigne",
+        "uploadTs": "2011-06-21T16:07:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:ayrton-senna",
       "title": "Ayrton Senna",
       "displayName": "Wikipedia – Ayrton Senna",
@@ -412,6 +486,43 @@
         "api": "https://pt.wikipedia.org/w/api.php",
         "article": "Bolinho de bacalhau",
         "uploadTs": "2011-07-06T18:58:28Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:bolinho-de-chuva",
+      "title": "Bolinho de chuva",
+      "displayName": "Wikipedia – Bolinho de chuva",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Bolinho_de_Chuva.ogg",
+      "tags": {
+        "reader": "Vitorperrut555",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 104,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Bolinho de Chuva.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Bolinho de chuva",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Bolinho_de_Chuva.ogg",
+          "duration": 104
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Bolinho de chuva",
+        "uploadTs": "2024-11-24T22:15:26Z"
       }
     },
     {
@@ -565,6 +676,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:canto-das-baleias",
+      "title": "Canto das baleias",
+      "displayName": "Wikipedia – Canto das baleias",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pt-canto-das-baleias.ogg",
+      "tags": {
+        "reader": "Patirslm",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 104,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pt-canto-das-baleias.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Canto das baleias",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Pt-canto-das-baleias.ogg",
+          "duration": 104
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Canto das baleias",
+        "uploadTs": "2009-10-21T02:45:15Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:carrossel-telenovela",
       "title": "Carrossel (telenovela)",
       "displayName": "Wikipedia – Carrossel (telenovela)",
@@ -645,32 +793,32 @@
       "lang": "pt",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Coelho_Américas.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Coelho_comportamento.ogg",
       "tags": {
         "reader": "Deyvid Setti",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 135,
+        "total_seconds": 97,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Coelho Américas.ogg"
+        "source_file": "File:Coelho comportamento.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Coelho",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/Coelho_Am%C3%A9ricas.ogg",
-          "duration": 135
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Coelho_comportamento.ogg",
+          "duration": 97
         }
       ],
       "textLive": {
         "wiki": "pt",
         "api": "https://pt.wikipedia.org/w/api.php",
         "article": "Coelho",
-        "uploadTs": "2010-02-02T01:22:17Z"
+        "uploadTs": "2010-02-02T01:25:33Z"
       }
     },
     {
@@ -713,6 +861,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:creative-commons",
+      "title": "Creative Commons",
+      "displayName": "Wikipedia – Creative Commons",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Creative_Commons-pt.ogg",
+      "tags": {
+        "reader": "LeonardoG",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 103,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Creative Commons-pt.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Creative Commons",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/57/Creative_Commons-pt.ogg",
+          "duration": 103
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Creative Commons",
+        "uploadTs": "2008-07-07T22:58:59Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:diabetes-mellitus-tipo-2",
       "title": "Diabetes mellitus tipo 2",
       "displayName": "Wikipedia – Diabetes mellitus tipo 2",
@@ -745,6 +930,43 @@
         "api": "https://pt.wikipedia.org/w/api.php",
         "article": "Diabetes mellitus tipo 2",
         "uploadTs": "2013-12-02T02:16:34Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:diana-lvares-pereira-de-melo-duquesa-de-cadaval",
+      "title": "Diana Álvares Pereira de Melo, Duquesa de Cadaval",
+      "displayName": "Wikipedia – Diana Álvares Pereira de Melo, Duquesa de Cadaval",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:PT_-_Diana_Álvares_Pereira_de_Melo,_Duquesa_de_Cadaval.ogg",
+      "tags": {
+        "reader": "Beria/by",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 293,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:PT - Diana Álvares Pereira de Melo, Duquesa de Cadaval.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Diana Álvares Pereira de Melo, Duquesa de Cadaval",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ea/PT_-_Diana_%C3%81lvares_Pereira_de_Melo%2C_Duquesa_de_Cadaval.ogg",
+          "duration": 293
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Diana Álvares Pereira de Melo, Duquesa de Cadaval",
+        "uploadTs": "2011-06-28T18:11:39Z"
       }
     },
     {
@@ -930,6 +1152,43 @@
         "api": "https://pt.wikipedia.org/w/api.php",
         "article": "Europa",
         "uploadTs": "2013-01-20T03:18:41Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:falha-do-enem-de-2010",
+      "title": "Falha do Enem de 2010",
+      "displayName": "Wikipedia – Falha do Enem de 2010",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Falha_do_Enem_de_2010_intro.ogg",
+      "tags": {
+        "reader": "Eduardo P",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 79,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Falha do Enem de 2010 intro.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Falha do Enem de 2010",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/48/Falha_do_Enem_de_2010_intro.ogg",
+          "duration": 79
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Falha do Enem de 2010",
+        "uploadTs": "2013-01-30T17:51:05Z"
       }
     },
     {
@@ -1194,6 +1453,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:hist-c3-b3ria-de-bras-c3-adlia",
+      "title": "Hist%C3%B3ria de Bras%C3%ADlia",
+      "displayName": "Wikipedia – Hist%C3%B3ria de Bras%C3%ADlia",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:História_de_Brasília.ogg",
+      "tags": {
+        "reader": "Marcoscarvalho.email",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_long",
+        "total_seconds": 10923,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:História de Brasília.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Hist%C3%B3ria de Bras%C3%ADlia",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Hist%C3%B3ria_de_Bras%C3%ADlia.ogg",
+          "duration": 10923
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Hist%C3%B3ria de Bras%C3%ADlia",
+        "uploadTs": "2011-06-15T10:26:05Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:hist-ria-da-rep-blica-da-china-1912-1949",
       "title": "História da República da China (1912–1949)",
       "displayName": "Wikipedia – História da República da China (1912–1949)",
@@ -1268,43 +1564,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:hist-ria-de-bras-lia",
-      "title": "História de Brasília",
-      "displayName": "Wikipedia – História de Brasília",
-      "lang": "pt",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:História_de_Brasília.ogg",
-      "tags": {
-        "reader": "Marcoscarvalho.email",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_long",
-        "total_seconds": 10923,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:História de Brasília.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "História de Brasília",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Hist%C3%B3ria_de_Bras%C3%ADlia.ogg",
-          "duration": 10923
-        }
-      ],
-      "textLive": {
-        "wiki": "pt",
-        "api": "https://pt.wikipedia.org/w/api.php",
-        "article": "História de Brasília",
-        "uploadTs": "2011-06-15T10:26:05Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:hist-ria-do-brasil",
       "title": "História do Brasil",
       "displayName": "Wikipedia – História do Brasil",
@@ -1348,32 +1607,32 @@
       "lang": "pt",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Paraná_história_primeiros_tempos.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Paraná_história_Ciclo_das_Tropas.ogg",
       "tags": {
         "reader": "Deyvid Setti",
         "gender": "",
         "dialekt": "",
         "length_band": "very_short",
-        "total_seconds": 199,
+        "total_seconds": 106,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Paraná história primeiros tempos.ogg"
+        "source_file": "File:Paraná história Ciclo das Tropas.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "História do Paraná",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Paran%C3%A1_hist%C3%B3ria_primeiros_tempos.ogg",
-          "duration": 199
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/76/Paran%C3%A1_hist%C3%B3ria_Ciclo_das_Tropas.ogg",
+          "duration": 106
         }
       ],
       "textLive": {
         "wiki": "pt",
         "api": "https://pt.wikipedia.org/w/api.php",
         "article": "História do Paraná",
-        "uploadTs": "2010-02-25T13:53:38Z"
+        "uploadTs": "2010-02-25T14:30:18Z"
       }
     },
     {
@@ -1448,6 +1707,43 @@
         "api": "https://pt.wikipedia.org/w/api.php",
         "article": "Idade Antiga",
         "uploadTs": "2015-05-23T10:53:49Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:idade-de-ouro-isl-mica",
+      "title": "Idade de ouro islâmica",
+      "displayName": "Wikipedia – Idade de ouro islâmica",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pt-Idade_de_ouro_islâmica_intro.ogg",
+      "tags": {
+        "reader": "Eduardo P",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 59,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pt-Idade de ouro islâmica intro.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Idade de ouro islâmica",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/43/Pt-Idade_de_ouro_isl%C3%A2mica_intro.ogg",
+          "duration": 59
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Idade de ouro islâmica",
+        "uploadTs": "2013-03-08T17:49:43Z"
       }
     },
     {
@@ -1675,6 +1971,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:jesus",
+      "title": "Jesus",
+      "displayName": "Wikipedia – Jesus",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pt-Jesus.ogg",
+      "tags": {
+        "reader": "Beria/by",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "long",
+        "total_seconds": 2788,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pt-Jesus.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Jesus",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/29/Pt-Jesus.ogg",
+          "duration": 2788
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Jesus",
+        "uploadTs": "2025-01-10T04:14:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:kananga-do-jap-o",
       "title": "Kananga do Japão",
       "displayName": "Wikipedia – Kananga do Japão",
@@ -1712,6 +2045,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:l-c3-adnguas-maias",
+      "title": "L%C3%ADnguas maias",
+      "displayName": "Wikipedia – L%C3%ADnguas maias",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:PT-Línguas_Maias.ogg",
+      "tags": {
+        "reader": "Marcos Carvalho",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "long",
+        "total_seconds": 4577,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:PT-Línguas Maias.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "L%C3%ADnguas maias",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/34/PT-L%C3%ADnguas_Maias.ogg",
+          "duration": 4577
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "L%C3%ADnguas maias",
+        "uploadTs": "2011-05-27T12:46:21Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:lagoa-santa-minas-gerais",
       "title": "Lagoa Santa (Minas Gerais)",
       "displayName": "Wikipedia – Lagoa Santa (Minas Gerais)",
@@ -1744,6 +2114,43 @@
         "api": "https://pt.wikipedia.org/w/api.php",
         "article": "Lagoa Santa (Minas Gerais)",
         "uploadTs": "2019-04-08T20:32:00Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:lista-de-singles-n-mero-um-na-billboard-hot-100-em-1989",
+      "title": "Lista de singles número um na Billboard Hot 100 em 1989",
+      "displayName": "Wikipedia – Lista de singles número um na Billboard Hot 100 em 1989",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Lista_de_singles_número_um_na_Billboard_Hot_100_em_1989.ogg",
+      "tags": {
+        "reader": "Deyvid Setti",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 107,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Lista de singles número um na Billboard Hot 100 em 1989.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Lista de singles número um na Billboard Hot 100 em 1989",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/32/Lista_de_singles_n%C3%BAmero_um_na_Billboard_Hot_100_em_1989.ogg",
+          "duration": 107
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Lista de singles número um na Billboard Hot 100 em 1989",
+        "uploadTs": "2011-04-10T23:17:07Z"
       }
     },
     {
@@ -1860,43 +2267,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:l-nguas-maias",
-      "title": "Línguas maias",
-      "displayName": "Wikipedia – Línguas maias",
-      "lang": "pt",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:PT-Línguas_Maias.ogg",
-      "tags": {
-        "reader": "Marcos Carvalho",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "long",
-        "total_seconds": 4577,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:PT-Línguas Maias.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Línguas maias",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/34/PT-L%C3%ADnguas_Maias.ogg",
-          "duration": 4577
-        }
-      ],
-      "textLive": {
-        "wiki": "pt",
-        "api": "https://pt.wikipedia.org/w/api.php",
-        "article": "Línguas maias",
-        "uploadTs": "2011-05-27T12:46:21Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:massacre-de-katyn",
       "title": "Massacre de Katyn",
       "displayName": "Wikipedia – Massacre de Katyn",
@@ -1934,38 +2304,112 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:mol",
-      "title": "Mol",
-      "displayName": "Wikipedia – Mol",
+      "id": "commons:matinhos",
+      "title": "Matinhos",
+      "displayName": "Wikipedia – Matinhos",
       "lang": "pt",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Audiomol.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Matinhos_origens.ogg",
       "tags": {
-        "reader": "Mago®",
+        "reader": "Eduardo P",
         "gender": "",
         "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 1776,
+        "length_band": "very_short",
+        "total_seconds": 71,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Audiomol.ogg"
+        "source_file": "File:Matinhos origens.ogg"
       },
       "items": [
         {
           "id": "art",
-          "title": "Mol",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/03/Audiomol.ogg",
-          "duration": 1776
+          "title": "Matinhos",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/16/Matinhos_origens.ogg",
+          "duration": 71
         }
       ],
       "textLive": {
         "wiki": "pt",
         "api": "https://pt.wikipedia.org/w/api.php",
-        "article": "Mol",
-        "uploadTs": "2008-07-11T21:17:39Z"
+        "article": "Matinhos",
+        "uploadTs": "2013-01-29T00:37:53Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:mercado-comum-do-sul",
+      "title": "Mercado Comum do Sul",
+      "displayName": "Wikipedia – Mercado Comum do Sul",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Mercado_Comum_do_Sul_História_1.ogg",
+      "tags": {
+        "reader": "CasteloBranco",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 160,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Mercado Comum do Sul História 1.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Mercado Comum do Sul",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Mercado_Comum_do_Sul_Hist%C3%B3ria_1.ogg",
+          "duration": 160
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Mercado Comum do Sul",
+        "uploadTs": "2009-10-20T07:52:06Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:metal-gear-solid",
+      "title": "Metal Gear Solid",
+      "displayName": "Wikipedia – Metal Gear Solid",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:PT-MetalGearSolid.ogg",
+      "tags": {
+        "reader": "Mr.Yahoo!",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 98,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:PT-MetalGearSolid.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Metal Gear Solid",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/84/PT-MetalGearSolid.ogg",
+          "duration": 98
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Metal Gear Solid",
+        "uploadTs": "2009-04-10T22:53:50Z"
       }
     },
     {
@@ -2008,38 +2452,75 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:o-porri-o",
+      "title": "O Porriño",
+      "displayName": "Wikipedia – O Porriño",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:O_Porriño_introdução_(pt).ogg",
+      "tags": {
+        "reader": "Eduardo P",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 61,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:O Porriño introdução (pt).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "O Porriño",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b7/O_Porri%C3%B1o_introdu%C3%A7%C3%A3o_%28pt%29.ogg",
+          "duration": 61
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "O Porriño",
+        "uploadTs": "2013-01-16T22:50:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:pamplona",
       "title": "Pamplona",
       "displayName": "Wikipedia – Pamplona",
       "lang": "pt",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Pt-Pamplona_intro.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Pt-Pamplona_infobox.ogg",
       "tags": {
         "reader": "Deyvid Setti",
         "gender": "",
         "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 330,
+        "length_band": "very_short",
+        "total_seconds": 111,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Pt-Pamplona intro.ogg"
+        "source_file": "File:Pt-Pamplona infobox.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Pamplona",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/89/Pt-Pamplona_intro.ogg",
-          "duration": 330
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Pt-Pamplona_infobox.ogg",
+          "duration": 111
         }
       ],
       "textLive": {
         "wiki": "pt",
         "api": "https://pt.wikipedia.org/w/api.php",
         "article": "Pamplona",
-        "uploadTs": "2011-08-27T19:19:05Z"
+        "uploadTs": "2011-08-27T19:29:56Z"
       }
     },
     {
@@ -2236,32 +2717,32 @@
       "lang": "pt",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Pt-Prostituição_na_Europa.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Pt-Prostituição_na_Europa_Suécia.ogg",
       "tags": {
         "reader": "Deyvid Setti",
         "gender": "",
         "dialekt": "",
-        "length_band": "long",
-        "total_seconds": 3297,
+        "length_band": "very_short",
+        "total_seconds": 93,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Pt-Prostituição na Europa.ogg"
+        "source_file": "File:Pt-Prostituição na Europa Suécia.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Prostituição na Europa",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/89/Pt-Prostitui%C3%A7%C3%A3o_na_Europa.ogg",
-          "duration": 3297
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/Pt-Prostitui%C3%A7%C3%A3o_na_Europa_Su%C3%A9cia.ogg",
+          "duration": 93
         }
       ],
       "textLive": {
         "wiki": "pt",
         "api": "https://pt.wikipedia.org/w/api.php",
         "article": "Prostituição na Europa",
-        "uploadTs": "2011-07-14T01:20:29Z"
+        "uploadTs": "2011-07-14T01:26:59Z"
       }
     },
     {
@@ -2526,6 +3007,80 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:serra-de-tr-s-pontas",
+      "title": "Serra de Três Pontas",
+      "displayName": "Wikipedia – Serra de Três Pontas",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pt-Serra_de_Três_Pontas.ogg",
+      "tags": {
+        "reader": "Eduardo P",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 114,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pt-Serra de Três Pontas.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Serra de Três Pontas",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Pt-Serra_de_Tr%C3%AAs_Pontas.ogg",
+          "duration": 114
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Serra de Três Pontas",
+        "uploadTs": "2013-07-25T19:09:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:sherlock-holmes-baffled",
+      "title": "Sherlock Holmes Baffled",
+      "displayName": "Wikipedia – Sherlock Holmes Baffled",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pt_Sherlock_Holmes_Baffled.ogg",
+      "tags": {
+        "reader": "Eduardo P",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 76,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pt Sherlock Holmes Baffled.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Sherlock Holmes Baffled",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Pt_Sherlock_Holmes_Baffled.ogg",
+          "duration": 76
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Sherlock Holmes Baffled",
+        "uploadTs": "2013-04-12T18:35:55Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:s-o-bento-da-contenda",
       "title": "São Bento da Contenda",
       "displayName": "Wikipedia – São Bento da Contenda",
@@ -2558,6 +3113,43 @@
         "api": "https://pt.wikipedia.org/w/api.php",
         "article": "São Bento da Contenda",
         "uploadTs": "2009-02-28T19:32:57Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:s-o-jorge-da-lor",
+      "title": "São Jorge da Lor",
+      "displayName": "Wikipedia – São Jorge da Lor",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:São_Jorge_da_Lor_(Wikipédia).ogg",
+      "tags": {
+        "reader": "Tagido",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 79,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:São Jorge da Lor (Wikipédia).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "São Jorge da Lor",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d0/S%C3%A3o_Jorge_da_Lor_%28Wikip%C3%A9dia%29.ogg",
+          "duration": 79
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "São Jorge da Lor",
+        "uploadTs": "2009-04-10T19:53:17Z"
       }
     },
     {
@@ -2785,6 +3377,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:under-my-skin",
+      "title": "Under My Skin",
+      "displayName": "Wikipedia – Under My Skin",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Under_My_Skin_intro.ogg",
+      "tags": {
+        "reader": "Deyvid Setti",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 282,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Under My Skin intro.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Under My Skin",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Under_My_Skin_intro.ogg",
+          "duration": 282
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "Under My Skin",
+        "uploadTs": "2011-02-13T18:30:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:what-s-so-funny-about-truth-justice-the-american-way",
       "title": "What's so Funny about Truth, Justice & the American Way?",
       "displayName": "Wikipedia – What's so Funny about Truth, Justice & the American Way?",
@@ -2854,6 +3483,43 @@
         "api": "https://pt.wikipedia.org/w/api.php",
         "article": "Wouldn't Take Nothing for My Journey Now",
         "uploadTs": "2013-12-20T02:43:36Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:mol",
+      "title": "mol",
+      "displayName": "Wikipedia – mol",
+      "lang": "pt",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Audiomol.ogg",
+      "tags": {
+        "reader": "Mago®",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1776,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Audiomol.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "mol",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/03/Audiomol.ogg",
+          "duration": 1776
+        }
+      ],
+      "textLive": {
+        "wiki": "pt",
+        "api": "https://pt.wikipedia.org/w/api.php",
+        "article": "mol",
+        "uploadTs": "2008-07-11T21:17:39Z"
       }
     }
   ]
