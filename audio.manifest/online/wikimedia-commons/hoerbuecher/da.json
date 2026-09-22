@@ -1,0 +1,455 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (da)",
+  "lang": "da",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:danmarks-historie-1536-1660",
+      "title": "Danmarks historie (1536-1660)",
+      "displayName": "Wikipedia – Danmarks historie (1536-1660)",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Da-Danmarks_historie_(1536-1660).ogg",
+      "tags": {
+        "reader": "Broadbeer",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "long",
+        "total_seconds": 3353,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Da-Danmarks historie (1536-1660).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Danmarks historie (1536-1660)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Da-Danmarks_historie_%281536-1660%29.ogg",
+          "duration": 3353
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Danmarks historie (1536-1660)",
+        "uploadTs": "2008-12-20T21:02:27Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:follow-the-reaper",
+      "title": "Follow the Reaper",
+      "displayName": "Wikipedia – Follow the Reaper",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Follow_the_Reaper.ogg",
+      "tags": {
+        "reader": "Sabbe",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1206,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Follow the Reaper.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Follow the Reaper",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Follow_the_Reaper.ogg",
+          "duration": 1206
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Follow the Reaper",
+        "uploadTs": "2008-12-14T14:23:19Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:jorden",
+      "title": "Jorden",
+      "displayName": "Wikipedia – Jorden",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Jorden.ogg",
+      "tags": {
+        "reader": "CarinaT",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "long",
+        "total_seconds": 3746,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Jorden.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Jorden",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/78/Jorden.ogg",
+          "duration": 3746
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Jorden",
+        "uploadTs": "2009-12-08T19:07:27Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch",
+      "title": "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch",
+      "displayName": "Wikipedia – Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Llanfair.ogg",
+      "tags": {
+        "reader": "CarinaT",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 140,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Llanfair.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Llanfair.ogg",
+          "duration": 140
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch",
+        "uploadTs": "2009-12-07T16:50:36Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:skudsekund",
+      "title": "Skudsekund",
+      "displayName": "Wikipedia – Skudsekund",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Skudsekund2.ogg",
+      "tags": {
+        "reader": "Danielle dk",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 489,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Skudsekund2.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Skudsekund",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Skudsekund2.ogg",
+          "duration": 489
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Skudsekund",
+        "uploadTs": "2008-12-16T21:19:33Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:solen",
+      "title": "Solen",
+      "displayName": "Wikipedia – Solen",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Da-Solen.ogg",
+      "tags": {
+        "reader": "Danielle dk",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "long",
+        "total_seconds": 4470,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Da-Solen.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Solen",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Da-Solen.ogg",
+          "duration": 4470
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Solen",
+        "uploadTs": "2008-12-16T20:52:03Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:s-byg-rd-r",
+      "title": "Søbygård (Ærø)",
+      "displayName": "Wikipedia – Søbygård (Ærø)",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Søbygård.ogg",
+      "tags": {
+        "reader": "Rasmusbyg",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 467,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Søbygård.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Søbygård (Ærø)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c5/S%C3%B8byg%C3%A5rd.ogg",
+          "duration": 467
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Søbygård (Ærø)",
+        "uploadTs": "2008-12-10T13:01:18Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:taumata",
+      "title": "Taumata",
+      "displayName": "Wikipedia – Taumata",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu.ogg",
+      "tags": {
+        "reader": "CarinaT",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 166,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Taumata",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/75/Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu.ogg",
+          "duration": 166
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Taumata",
+        "uploadTs": "2009-01-21T15:57:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:tommerup-station",
+      "title": "Tommerup Station",
+      "displayName": "Wikipedia – Tommerup Station",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Tommerup_Station.ogg",
+      "tags": {
+        "reader": "Rasmusbyg",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 120,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Tommerup Station.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Tommerup Station",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/Tommerup_Station.ogg",
+          "duration": 120
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Tommerup Station",
+        "uploadTs": "2008-12-11T06:44:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:vaduz",
+      "title": "Vaduz",
+      "displayName": "Wikipedia – Vaduz",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Vaduz.ogg",
+      "tags": {
+        "reader": "Sabbe",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1678,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Vaduz.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Vaduz",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/02/Vaduz.ogg",
+          "duration": 1678
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Vaduz",
+        "uploadTs": "2008-12-10T20:57:41Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:wien",
+      "title": "Wien",
+      "displayName": "Wikipedia – Wien",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Spoken_Wikipedia-Da-Wien.oga",
+      "tags": {
+        "reader": "Sabbe",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "long",
+        "total_seconds": 3828,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Spoken Wikipedia-Da-Wien.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Wien",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Spoken_Wikipedia-Da-Wien.oga",
+          "duration": 3828
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Wien",
+        "uploadTs": "2008-12-12T20:42:51Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:r-sk-bing-skole",
+      "title": "Ærøskøbing Skole",
+      "displayName": "Wikipedia – Ærøskøbing Skole",
+      "lang": "da",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ærøskøbing_Skole.ogg",
+      "tags": {
+        "reader": "Rasmusbyg",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 353,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ærøskøbing Skole.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ærøskøbing Skole",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/99/%C3%86r%C3%B8sk%C3%B8bing_Skole.ogg",
+          "duration": 353
+        }
+      ],
+      "textLive": {
+        "wiki": "da",
+        "api": "https://da.wikipedia.org/w/api.php",
+        "article": "Ærøskøbing Skole",
+        "uploadTs": "2008-12-11T05:22:26Z"
+      }
+    }
+  ]
+}

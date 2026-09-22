@@ -1,0 +1,603 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (ca)",
+  "lang": "ca",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:castell-de-halton",
+      "title": "Castell de Halton",
+      "displayName": "Wikipedia – Castell de Halton",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca-Castell_de_Halton-article.ogg",
+      "tags": {
+        "reader": "Dragonfly137",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 388,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca-Castell de Halton-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Castell de Halton",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Ca-Castell_de_Halton-article.ogg",
+          "duration": 388
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Castell de Halton",
+        "uploadTs": "2019-02-08T14:32:24Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:color-dels-ulls",
+      "title": "Color dels ulls",
+      "displayName": "Wikipedia – Color dels ulls",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca-Color_dels_ulls-article.ogg",
+      "tags": {
+        "reader": "Dragonfly137",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 889,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca-Color dels ulls-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Color dels ulls",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Ca-Color_dels_ulls-article.ogg",
+          "duration": 889
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Color dels ulls",
+        "uploadTs": "2019-02-08T17:45:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:crist-en-majestat-de-ta-ll",
+      "title": "Crist en majestat de Taüll",
+      "displayName": "Wikipedia – Crist en majestat de Taüll",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca_absis_central_de_sant_climent_de_taull_sonia.ogg",
+      "tags": {
+        "reader": "Medol",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 528,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca absis central de sant climent de taull sonia.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Crist en majestat de Taüll",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/19/Ca_absis_central_de_sant_climent_de_taull_sonia.ogg",
+          "duration": 528
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Crist en majestat de Taüll",
+        "uploadTs": "2019-11-29T18:30:12Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:eco-mitologia",
+      "title": "Eco (mitologia)",
+      "displayName": "Wikipedia – Eco (mitologia)",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca_eco_mitologia_georgina.ogg",
+      "tags": {
+        "reader": "Medol",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 220,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca eco mitologia georgina.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Eco (mitologia)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Ca_eco_mitologia_georgina.ogg",
+          "duration": 220
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Eco (mitologia)",
+        "uploadTs": "2019-11-29T18:30:12Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:half-life",
+      "title": "Half-Life",
+      "displayName": "Wikipedia – Half-Life",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca-half-life-article.ogg",
+      "tags": {
+        "reader": "Umondri",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1682,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca-half-life-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Half-Life",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Ca-half-life-article.ogg",
+          "duration": 1682
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Half-Life",
+        "uploadTs": "2008-03-10T18:37:22Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:islamof-bia",
+      "title": "Islamofòbia",
+      "displayName": "Wikipedia – Islamofòbia",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca_islamofobia_maria.ogg",
+      "tags": {
+        "reader": "Medol",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 259,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca islamofobia maria.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Islamofòbia",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Ca_islamofobia_maria.ogg",
+          "duration": 259
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Islamofòbia",
+        "uploadTs": "2019-11-29T18:30:12Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:la-banalitat-del-mal",
+      "title": "La banalitat del mal",
+      "displayName": "Wikipedia – La banalitat del mal",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Audio_la_banalitat_del_mal_gerard.ogg",
+      "tags": {
+        "reader": "Medol",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 331,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Audio la banalitat del mal gerard.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "La banalitat del mal",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/00/Audio_la_banalitat_del_mal_gerard.ogg",
+          "duration": 331
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "La banalitat del mal",
+        "uploadTs": "2019-11-29T16:45:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:miquel-mart-i-pol",
+      "title": "Miquel Martí i Pol",
+      "displayName": "Wikipedia – Miquel Martí i Pol",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca-Miquel_Martí_i_Pol-article.ogg",
+      "tags": {
+        "reader": "RainCT",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 508,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca-Miquel Martí i Pol-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Miquel Martí i Pol",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/07/Ca-Miquel_Mart%C3%AD_i_Pol-article.ogg",
+          "duration": 508
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Miquel Martí i Pol",
+        "uploadTs": "2015-11-14T02:15:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:muriel-casals-i-couturier",
+      "title": "Muriel Casals i Couturier",
+      "displayName": "Wikipedia – Muriel Casals i Couturier",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca-Muriel_Casals_i_Couturier-article.ogg",
+      "tags": {
+        "reader": "Dragonfly137",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 360,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca-Muriel Casals i Couturier-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Muriel Casals i Couturier",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Ca-Muriel_Casals_i_Couturier-article.ogg",
+          "duration": 360
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Muriel Casals i Couturier",
+        "uploadTs": "2019-02-08T18:28:38Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:natura",
+      "title": "Natura",
+      "displayName": "Wikipedia – Natura",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca_natura_medol.ogg",
+      "tags": {
+        "reader": "Medol",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 199,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca natura medol.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Natura",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Ca_natura_medol.ogg",
+          "duration": 199
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Natura",
+        "uploadTs": "2019-11-29T18:30:15Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:ramon-llull",
+      "title": "Ramon Llull",
+      "displayName": "Wikipedia – Ramon Llull",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca_ramon_llull_alba.ogg",
+      "tags": {
+        "reader": "Medol",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 188,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca ramon llull alba.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ramon Llull",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Ca_ramon_llull_alba.ogg",
+          "duration": 188
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Ramon Llull",
+        "uploadTs": "2019-11-29T18:30:15Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:rosa-lavi-a-carreras",
+      "title": "Rosa Laviña Carreras",
+      "displayName": "Wikipedia – Rosa Laviña Carreras",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca-Rosa_Laviña_Carreras-article.flac",
+      "tags": {
+        "reader": "David Gómez",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca-Rosa Laviña Carreras-article.flac"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Rosa Laviña Carreras",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Ca-Rosa_Lavi%C3%B1a_Carreras-article.flac",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Rosa Laviña Carreras",
+        "uploadTs": "2014-05-12T12:01:36Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:tv3",
+      "title": "TV3",
+      "displayName": "Wikipedia – TV3",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca-TV3-article.ogg",
+      "tags": {
+        "reader": "Albertsab~commonswiki",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 125,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca-TV3-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "TV3",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Ca-TV3-article.ogg",
+          "duration": 125
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "TV3",
+        "uploadTs": "2006-08-16T21:41:36Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:tramvia-de-s-ller",
+      "title": "Tramvia de Sóller",
+      "displayName": "Wikipedia – Tramvia de Sóller",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca-Tramvia_de_Sóller-article.ogg",
+      "tags": {
+        "reader": "Dragonfly137",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 502,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca-Tramvia de Sóller-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Tramvia de Sóller",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Ca-Tramvia_de_S%C3%B3ller-article.ogg",
+          "duration": 502
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Tramvia de Sóller",
+        "uploadTs": "2019-02-09T10:43:58Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:treva-de-nadal",
+      "title": "Treva de Nadal",
+      "displayName": "Wikipedia – Treva de Nadal",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca_treva_de_nadal_julia.ogg",
+      "tags": {
+        "reader": "Medol",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 185,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca treva de nadal julia.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Treva de Nadal",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Ca_treva_de_nadal_julia.ogg",
+          "duration": 185
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Treva de Nadal",
+        "uploadTs": "2019-11-29T18:30:16Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:trit-del-montseny",
+      "title": "Tritó del Montseny",
+      "displayName": "Wikipedia – Tritó del Montseny",
+      "lang": "ca",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ca-Tritó_del_Montseny-article.ogg",
+      "tags": {
+        "reader": "Dragonfly137",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 513,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ca-Tritó del Montseny-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Tritó del Montseny",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Ca-Trit%C3%B3_del_Montseny-article.ogg",
+          "duration": 513
+        }
+      ],
+      "textLive": {
+        "wiki": "ca",
+        "api": "https://ca.wikipedia.org/w/api.php",
+        "article": "Tritó del Montseny",
+        "uploadTs": "2019-02-08T19:02:09Z"
+      }
+    }
+  ]
+}

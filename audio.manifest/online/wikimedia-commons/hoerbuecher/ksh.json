@@ -1,0 +1,48 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (ksh)",
+  "lang": "ksh",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:apartheed",
+      "title": "Apartheed",
+      "displayName": "Wikipedia – Apartheed",
+      "lang": "ksh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Apartheed.ogg",
+      "tags": {
+        "reader": "BBKurt",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 201,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Apartheed.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Apartheed",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Apartheed.ogg",
+          "duration": 201
+        }
+      ],
+      "textLive": {
+        "wiki": "ksh",
+        "api": "https://ksh.wikipedia.org/w/api.php",
+        "article": "Apartheed",
+        "uploadTs": "2014-05-28T22:13:29Z"
+      }
+    }
+  ]
+}

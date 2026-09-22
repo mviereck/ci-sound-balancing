@@ -1,0 +1,1232 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (hy)",
+  "lang": "hy",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:1",
+      "title": "1=ԴՆԹ",
+      "displayName": "Wikipedia – 1=ԴՆԹ",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Դնթ_(DNA).oga",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 186,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Դնթ (DNA).oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "1=ԴՆԹ",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/58/Hy-%D4%B4%D5%B6%D5%A9_%28DNA%29.oga",
+          "duration": 186
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "1=ԴՆԹ",
+        "uploadTs": "2017-12-18T06:28:53Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:civil-disobedience",
+      "title": "Civil disobedience",
+      "displayName": "Wikipedia – Civil disobedience",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Քաղաքացիական_անհնազանդություն_(Civil_disobedience).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 141,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Քաղաքացիական անհնազանդություն (Civil disobedience).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Civil disobedience",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/17/Hy-%D5%94%D5%A1%D5%B2%D5%A1%D6%84%D5%A1%D6%81%D5%AB%D5%A1%D5%AF%D5%A1%D5%B6_%D5%A1%D5%B6%D5%B0%D5%B6%D5%A1%D5%A6%D5%A1%D5%B6%D5%A4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6_%28Civil_disobedience%29.ogg",
+          "duration": 141
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "Civil disobedience",
+        "uploadTs": "2017-07-03T12:28:24Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-australia",
+      "title": "Hy-Ավստրալիա (Australia)",
+      "displayName": "Wikipedia – Hy-Ավստրալիա (Australia)",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Ավստրալիա_(Australia).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 184,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Ավստրալիա (Australia).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Hy-Ավստրալիա (Australia)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/Hy-%D4%B1%D5%BE%D5%BD%D5%BF%D6%80%D5%A1%D5%AC%D5%AB%D5%A1_%28Australia%29.ogg",
+          "duration": 184
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "Hy-Ավստրալիա (Australia)",
+        "uploadTs": "2016-08-19T11:06:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-moon",
+      "title": "Hy-Լուսին (Moon)",
+      "displayName": "Wikipedia – Hy-Լուսին (Moon)",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Լուսին_(Moon).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 207,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Լուսին (Moon).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Hy-Լուսին (Moon)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/55/Hy-%D4%BC%D5%B8%D6%82%D5%BD%D5%AB%D5%B6_%28Moon%29.ogg",
+          "duration": 207
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "Hy-Լուսին (Moon)",
+        "uploadTs": "2016-07-18T10:46:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-manchester-united-f-c",
+      "title": "Hy-Մանչեսթեր Յունայթեդ (Manchester United F C)",
+      "displayName": "Wikipedia – Hy-Մանչեսթեր Յունայթեդ (Manchester United F C)",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Մանչեսթեր_Յունայթեդ_(Manchester_United_F_C).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 197,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Մանչեսթեր Յունայթեդ (Manchester United F C).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Hy-Մանչեսթեր Յունայթեդ (Manchester United F C)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Hy-%D5%84%D5%A1%D5%B6%D5%B9%D5%A5%D5%BD%D5%A9%D5%A5%D6%80_%D5%85%D5%B8%D6%82%D5%B6%D5%A1%D5%B5%D5%A9%D5%A5%D5%A4_%28Manchester_United_F_C%29.ogg",
+          "duration": 197
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "Hy-Մանչեսթեր Յունայթեդ (Manchester United F C)",
+        "uploadTs": "2016-08-12T12:25:34Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-saturn",
+      "title": "Hy-Սատուրն (Saturn)",
+      "displayName": "Wikipedia – Hy-Սատուրն (Saturn)",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Սատուրն_(Saturn).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 278,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Սատուրն (Saturn).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Hy-Սատուրն (Saturn)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Hy-%D5%8D%D5%A1%D5%BF%D5%B8%D6%82%D6%80%D5%B6_%28Saturn%29.ogg",
+          "duration": 278
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "Hy-Սատուրն (Saturn)",
+        "uploadTs": "2016-07-21T10:22:52Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-1",
+      "title": "hy:1-ին տիպի շաքարային դիաբետ",
+      "displayName": "Wikipedia – hy:1-ին տիպի շաքարային դիաբետ",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-1-ին_տիպի_շաքարային_դիաբետ_(Diabetes_mellitus_type_1).ogg",
+      "tags": {
+        "reader": "Shushan Stepanyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 159,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-1-ին տիպի շաքարային դիաբետ (Diabetes mellitus type 1).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:1-ին տիպի շաքարային դիաբետ",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Hy-1-%D5%AB%D5%B6_%D5%BF%D5%AB%D5%BA%D5%AB_%D5%B7%D5%A1%D6%84%D5%A1%D6%80%D5%A1%D5%B5%D5%AB%D5%B6_%D5%A4%D5%AB%D5%A1%D5%A2%D5%A5%D5%BF_%28Diabetes_mellitus_type_1%29.ogg",
+          "duration": 159
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:1-ին տիպի շաքարային դիաբետ",
+        "uploadTs": "2017-02-28T10:29:41Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-2",
+      "title": "hy:2-րդ տիպի շաքարային դիաբետ",
+      "displayName": "Wikipedia – hy:2-րդ տիպի շաքարային դիաբետ",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-2-րդ_տիպի_շաքարային_դիաբետ_(Diabetes_mellitus_type_2).ogg",
+      "tags": {
+        "reader": "Mane Hambardzumyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 166,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-2-րդ տիպի շաքարային դիաբետ (Diabetes mellitus type 2).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:2-րդ տիպի շաքարային դիաբետ",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/db/Hy-2-%D6%80%D5%A4_%D5%BF%D5%AB%D5%BA%D5%AB_%D5%B7%D5%A1%D6%84%D5%A1%D6%80%D5%A1%D5%B5%D5%AB%D5%B6_%D5%A4%D5%AB%D5%A1%D5%A2%D5%A5%D5%BF_%28Diabetes_mellitus_type_2%29.ogg",
+          "duration": 166
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:2-րդ տիպի շաքարային դիաբետ",
+        "uploadTs": "2017-03-13T10:27:58Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-after-the-deluge",
+      "title": "hy:After the Deluge",
+      "displayName": "Wikipedia – hy:After the Deluge",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Ջրհեղեղից_հետո_(After_the_Deluge).ogg",
+      "tags": {
+        "reader": "Anna Hekekyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 151,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Ջրհեղեղից հետո (After the Deluge).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:After the Deluge",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Hy-%D5%8B%D6%80%D5%B0%D5%A5%D5%B2%D5%A5%D5%B2%D5%AB%D6%81_%D5%B0%D5%A5%D5%BF%D5%B8_%28After_the_Deluge%29.ogg",
+          "duration": 151
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:After the Deluge",
+        "uploadTs": "2017-12-22T06:22:30Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-albert-einstein",
+      "title": "hy:Albert Einstein",
+      "displayName": "Wikipedia – hy:Albert Einstein",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Ալբերտ_Այնշտայն_(Albert_Einstein).ogg",
+      "tags": {
+        "reader": "Andranik Antonyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 291,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Ալբերտ Այնշտայն (Albert Einstein).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Albert Einstein",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/93/Hy-%D4%B1%D5%AC%D5%A2%D5%A5%D6%80%D5%BF_%D4%B1%D5%B5%D5%B6%D5%B7%D5%BF%D5%A1%D5%B5%D5%B6_%28Albert_Einstein%29.ogg",
+          "duration": 291
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Albert Einstein",
+        "uploadTs": "2016-05-17T09:45:16Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-apoptosis",
+      "title": "hy:Apoptosis",
+      "displayName": "Wikipedia – hy:Apoptosis",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Ապոպտոզ_(Apoptosis).ogg",
+      "tags": {
+        "reader": "Artur Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 173,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Ապոպտոզ (Apoptosis).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Apoptosis",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Hy-%D4%B1%D5%BA%D5%B8%D5%BA%D5%BF%D5%B8%D5%A6_%28Apoptosis%29.ogg",
+          "duration": 173
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Apoptosis",
+        "uploadTs": "2017-01-14T12:27:16Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-armenian-genocide",
+      "title": "hy:Armenian Genocide",
+      "displayName": "Wikipedia – hy:Armenian Genocide",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Հայոց_ցեղասպանություն_(Armenian_Genocide).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 188,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Հայոց ցեղասպանություն (Armenian Genocide).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Armenian Genocide",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/Hy-%D5%80%D5%A1%D5%B5%D5%B8%D6%81_%D6%81%D5%A5%D5%B2%D5%A1%D5%BD%D5%BA%D5%A1%D5%B6%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6_%28Armenian_Genocide%29.ogg",
+          "duration": 188
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Armenian Genocide",
+        "uploadTs": "2016-05-25T09:07:55Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-armenian-genocide-denial",
+      "title": "hy:Armenian Genocide denial",
+      "displayName": "Wikipedia – hy:Armenian Genocide denial",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Հայոց_ցեղասպանության_ժխտում_(Armenian_Genocide_denial).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 152,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Հայոց ցեղասպանության ժխտում (Armenian Genocide denial).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Armenian Genocide denial",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/82/Hy-%D5%80%D5%A1%D5%B5%D5%B8%D6%81_%D6%81%D5%A5%D5%B2%D5%A1%D5%BD%D5%BA%D5%A1%D5%B6%D5%B8%D6%82%D5%A9%D5%B5%D5%A1%D5%B6_%D5%AA%D5%AD%D5%BF%D5%B8%D6%82%D5%B4_%28Armenian_Genocide_denial%29.ogg",
+          "duration": 152
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Armenian Genocide denial",
+        "uploadTs": "2016-06-14T09:07:58Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-armenian-carpet",
+      "title": "hy:Armenian carpet",
+      "displayName": "Wikipedia – hy:Armenian carpet",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Հայկական_գորգ_(Armenian_carpet).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 263,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Հայկական գորգ (Armenian carpet).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Armenian carpet",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/Hy-%D5%80%D5%A1%D5%B5%D5%AF%D5%A1%D5%AF%D5%A1%D5%B6_%D5%A3%D5%B8%D6%80%D5%A3_%28Armenian_carpet%29.ogg",
+          "duration": 263
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Armenian carpet",
+        "uploadTs": "2016-06-11T12:43:07Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-brain",
+      "title": "hy:Brain",
+      "displayName": "Wikipedia – hy:Brain",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Գլխուղեղ.ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 198,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Գլխուղեղ.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Brain",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/02/Hy-%D4%B3%D5%AC%D5%AD%D5%B8%D6%82%D5%B2%D5%A5%D5%B2.ogg",
+          "duration": 198
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Brain",
+        "uploadTs": "2016-09-13T09:46:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-british-empire",
+      "title": "hy:British Empire",
+      "displayName": "Wikipedia – hy:British Empire",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Բրիտանական_կայսրություն.ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 206,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Բրիտանական կայսրություն.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:British Empire",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/be/Hy-%D4%B2%D6%80%D5%AB%D5%BF%D5%A1%D5%B6%D5%A1%D5%AF%D5%A1%D5%B6_%D5%AF%D5%A1%D5%B5%D5%BD%D6%80%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6.ogg",
+          "duration": 206
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:British Empire",
+        "uploadTs": "2016-09-13T09:46:11Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-crusades",
+      "title": "hy:Crusades",
+      "displayName": "Wikipedia – hy:Crusades",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Խաչակրաց_արշավանքներ_(Crusades).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 251,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Խաչակրաց արշավանքներ (Crusades).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Crusades",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Hy-%D4%BD%D5%A1%D5%B9%D5%A1%D5%AF%D6%80%D5%A1%D6%81_%D5%A1%D6%80%D5%B7%D5%A1%D5%BE%D5%A1%D5%B6%D6%84%D5%B6%D5%A5%D6%80_%28Crusades%29.ogg",
+          "duration": 251
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Crusades",
+        "uploadTs": "2016-10-04T10:52:25Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-donald-trump",
+      "title": "hy:Donald Trump",
+      "displayName": "Wikipedia – hy:Donald Trump",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Դոնալդ_Թրամփ_(Donald_Trump).ogg",
+      "tags": {
+        "reader": "Artur Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 318,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Դոնալդ Թրամփ (Donald Trump).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Donald Trump",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/Hy-%D4%B4%D5%B8%D5%B6%D5%A1%D5%AC%D5%A4_%D4%B9%D6%80%D5%A1%D5%B4%D6%83_%28Donald_Trump%29.ogg",
+          "duration": 318
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Donald Trump",
+        "uploadTs": "2016-12-02T09:33:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-emmy-noether",
+      "title": "hy:Emmy Noether",
+      "displayName": "Wikipedia – hy:Emmy Noether",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Էմմի_Նյոթեր_(Emmi_Nyoter).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 313,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Էմմի Նյոթեր (Emmi Nyoter).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Emmy Noether",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Hy-%D4%B7%D5%B4%D5%B4%D5%AB_%D5%86%D5%B5%D5%B8%D5%A9%D5%A5%D6%80_%28Emmi_Nyoter%29.ogg",
+          "duration": 313
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Emmy Noether",
+        "uploadTs": "2016-06-02T13:48:02Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-gestalt-psychology",
+      "title": "hy:Gestalt psychology",
+      "displayName": "Wikipedia – hy:Gestalt psychology",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Գեշտալտ_հոգեբանություն_(Gestalt_psychology).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 135,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Գեշտալտ հոգեբանություն (Gestalt psychology).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Gestalt psychology",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Hy-%D4%B3%D5%A5%D5%B7%D5%BF%D5%A1%D5%AC%D5%BF_%D5%B0%D5%B8%D5%A3%D5%A5%D5%A2%D5%A1%D5%B6%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6_%28Gestalt_psychology%29.ogg",
+          "duration": 135
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Gestalt psychology",
+        "uploadTs": "2017-06-19T08:03:37Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-heart",
+      "title": "hy:Heart",
+      "displayName": "Wikipedia – hy:Heart",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Սիրտ_(Heart).ogg",
+      "tags": {
+        "reader": "Artur Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 238,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Սիրտ (Heart).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Heart",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Hy-%D5%8D%D5%AB%D6%80%D5%BF_%28Heart%29.ogg",
+          "duration": 238
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Heart",
+        "uploadTs": "2017-02-08T13:01:21Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-hy",
+      "title": "hy:Hy-Եվրոպա (արբանյակ)",
+      "displayName": "Wikipedia – hy:Hy-Եվրոպա (արբանյակ)",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Եվրոպա_(արբանյակ)_(Europa_(moon)).ogg",
+      "tags": {
+        "reader": "Emma Mirzoyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 277,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Եվրոպա (արբանյակ) (Europa (moon)).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Hy-Եվրոպա (արբանյակ)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Hy-%D4%B5%D5%BE%D6%80%D5%B8%D5%BA%D5%A1_%28%D5%A1%D6%80%D5%A2%D5%A1%D5%B6%D5%B5%D5%A1%D5%AF%29_%28Europa_%28moon%29%29.ogg",
+          "duration": 277
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Hy-Եվրոպա (արբանյակ)",
+        "uploadTs": "2017-09-27T13:16:31Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-levon-aronian",
+      "title": "hy:Levon Aronian",
+      "displayName": "Wikipedia – hy:Levon Aronian",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Լևոն_Արոնյան_(Levon_Aronian).ogg",
+      "tags": {
+        "reader": "Artur Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 219,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Լևոն Արոնյան (Levon Aronian).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Levon Aronian",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Hy-%D4%BC%D6%87%D5%B8%D5%B6_%D4%B1%D6%80%D5%B8%D5%B6%D5%B5%D5%A1%D5%B6_%28Levon_Aronian%29.ogg",
+          "duration": 219
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Levon Aronian",
+        "uploadTs": "2016-12-16T09:13:50Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-manuk-abeghian",
+      "title": "hy:Manuk Abeghian",
+      "displayName": "Wikipedia – hy:Manuk Abeghian",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Մանուկ_Աբեղյան_(Manuk_Abeghian).ogg",
+      "tags": {
+        "reader": "Artur Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 368,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Մանուկ Աբեղյան (Manuk Abeghian).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Manuk Abeghian",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Hy-%D5%84%D5%A1%D5%B6%D5%B8%D6%82%D5%AF_%D4%B1%D5%A2%D5%A5%D5%B2%D5%B5%D5%A1%D5%B6_%28Manuk_Abeghian%29.ogg",
+          "duration": 368
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Manuk Abeghian",
+        "uploadTs": "2016-11-23T13:20:00Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-michael-jackson",
+      "title": "hy:Michael Jackson",
+      "displayName": "Wikipedia – hy:Michael Jackson",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Մայքլ_Ջեքսոն_(Michael_Jackson).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 348,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Մայքլ Ջեքսոն (Michael Jackson).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Michael Jackson",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Hy-%D5%84%D5%A1%D5%B5%D6%84%D5%AC_%D5%8B%D5%A5%D6%84%D5%BD%D5%B8%D5%B6_%28Michael_Jackson%29.ogg",
+          "duration": 348
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Michael Jackson",
+        "uploadTs": "2016-07-11T14:09:00Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-milgram-experiment",
+      "title": "hy:Milgram experiment",
+      "displayName": "Wikipedia – hy:Milgram experiment",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Միլգրեմի_գիտափորձ_(Milgram_experiment).ogg",
+      "tags": {
+        "reader": "Anna Hekekyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 152,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Միլգրեմի գիտափորձ (Milgram experiment).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Milgram experiment",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Hy-%D5%84%D5%AB%D5%AC%D5%A3%D6%80%D5%A5%D5%B4%D5%AB_%D5%A3%D5%AB%D5%BF%D5%A1%D6%83%D5%B8%D6%80%D5%B1_%28Milgram_experiment%29.ogg",
+          "duration": 152
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Milgram experiment",
+        "uploadTs": "2017-12-22T06:22:31Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-norway",
+      "title": "hy:Norway",
+      "displayName": "Wikipedia – hy:Norway",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Նորվեգիա_(Norway).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 339,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Նորվեգիա (Norway).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Norway",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/31/Hy-%D5%86%D5%B8%D6%80%D5%BE%D5%A5%D5%A3%D5%AB%D5%A1_%28Norway%29.ogg",
+          "duration": 339
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Norway",
+        "uploadTs": "2016-11-21T12:48:36Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-pope-francis",
+      "title": "hy:Pope Francis",
+      "displayName": "Wikipedia – hy:Pope Francis",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Ֆրանցիսկոս_Հռոմի_պապ_(Pope_Francis).ogg",
+      "tags": {
+        "reader": "Narek Baghdasaryan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 259,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Ֆրանցիսկոս Հռոմի պապ (Pope Francis).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Pope Francis",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/20/Hy-%D5%96%D6%80%D5%A1%D5%B6%D6%81%D5%AB%D5%BD%D5%AF%D5%B8%D5%BD_%D5%80%D5%BC%D5%B8%D5%B4%D5%AB_%D5%BA%D5%A1%D5%BA_%28Pope_Francis%29.ogg",
+          "duration": 259
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Pope Francis",
+        "uploadTs": "2016-06-22T13:41:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-protein",
+      "title": "hy:Protein",
+      "displayName": "Wikipedia – hy:Protein",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-սպիտակուցներ_(Protein).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 164,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-սպիտակուցներ (Protein).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Protein",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/57/Hy-%D5%BD%D5%BA%D5%AB%D5%BF%D5%A1%D5%AF%D5%B8%D6%82%D6%81%D5%B6%D5%A5%D6%80_%28Protein%29.ogg",
+          "duration": 164
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Protein",
+        "uploadTs": "2016-06-20T10:01:52Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-roman-empire",
+      "title": "hy:Roman Empire",
+      "displayName": "Wikipedia – hy:Roman Empire",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Հռոմեական_կայսրություն_(Roman_Empire).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 245,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Հռոմեական կայսրություն (Roman Empire).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Roman Empire",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/Hy-%D5%80%D5%BC%D5%B8%D5%B4%D5%A5%D5%A1%D5%AF%D5%A1%D5%B6_%D5%AF%D5%A1%D5%B5%D5%BD%D6%80%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6_%28Roman_Empire%29.ogg",
+          "duration": 245
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Roman Empire",
+        "uploadTs": "2016-09-09T09:00:06Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-uranus",
+      "title": "hy:Uranus",
+      "displayName": "Wikipedia – hy:Uranus",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Ուրան_(մոլորակ).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 234,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Ուրան (մոլորակ).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Uranus",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Hy-%D5%88%D6%82%D6%80%D5%A1%D5%B6_%28%D5%B4%D5%B8%D5%AC%D5%B8%D6%80%D5%A1%D5%AF%29.ogg",
+          "duration": 234
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Uranus",
+        "uploadTs": "2016-09-13T09:46:11Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy-virus",
+      "title": "hy:Virus",
+      "displayName": "Wikipedia – hy:Virus",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Վիրուսներ_(Virus).ogg",
+      "tags": {
+        "reader": "Hayk Petrosyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 254,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Վիրուսներ (Virus).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Virus",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Hy-%D5%8E%D5%AB%D6%80%D5%B8%D6%82%D5%BD%D5%B6%D5%A5%D6%80_%28Virus%29.ogg",
+          "duration": 254
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Virus",
+        "uploadTs": "2016-06-06T13:18:19Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hy",
+      "title": "hy:Կուղբերի ազդեցությունը շրջակա միջավայրի վրա",
+      "displayName": "Wikipedia – hy:Կուղբերի ազդեցությունը շրջակա միջավայրի վրա",
+      "lang": "hy",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hy-Կուղբերի_ազդեցությունը_շրջակա_միջավայրի_վրա_(Environmental_impacts_of_beavers).ogg",
+      "tags": {
+        "reader": "Vardan Lablajyan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 233,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hy-Կուղբերի ազդեցությունը շրջակա միջավայրի վրա (Environmental impacts of beavers).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "hy:Կուղբերի ազդեցությունը շրջակա միջավայրի վրա",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Hy-%D4%BF%D5%B8%D6%82%D5%B2%D5%A2%D5%A5%D6%80%D5%AB_%D5%A1%D5%A6%D5%A4%D5%A5%D6%81%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%A8_%D5%B7%D6%80%D5%BB%D5%A1%D5%AF%D5%A1_%D5%B4%D5%AB%D5%BB%D5%A1%D5%BE%D5%A1%D5%B5%D6%80%D5%AB_%D5%BE%D6%80%D5%A1_%28Environmental_impacts_of_beavers%29.ogg",
+          "duration": 233
+        }
+      ],
+      "textLive": {
+        "wiki": "hy",
+        "api": "https://hy.wikipedia.org/w/api.php",
+        "article": "hy:Կուղբերի ազդեցությունը շրջակա միջավայրի վրա",
+        "uploadTs": "2025-07-31T20:25:36Z"
+      }
+    }
+  ]
+}

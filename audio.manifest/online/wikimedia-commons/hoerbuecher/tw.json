@@ -1,0 +1,48 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (tw)",
+  "lang": "tw",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:title",
+      "title": "{{{title",
+      "displayName": "Wikipedia – {{{title",
+      "lang": "tw",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Akwantuo_fri_Gaana_kɔ_Germany.ogg",
+      "tags": {
+        "reader": "Abel Frimps Jr",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 819,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Akwantuo fri Gaana kɔ Germany.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "{{{title",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/59/Akwantuo_fri_Gaana_k%C9%94_Germany.ogg",
+          "duration": 819
+        }
+      ],
+      "textLive": {
+        "wiki": "tw",
+        "api": "https://tw.wikipedia.org/w/api.php",
+        "article": "{{{title",
+        "uploadTs": "2020-01-23T18:46:40Z"
+      }
+    }
+  ]
+}

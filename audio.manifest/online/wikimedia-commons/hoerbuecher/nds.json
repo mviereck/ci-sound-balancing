@@ -1,0 +1,122 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (nds)",
+  "lang": "nds",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:albert-steenbergen",
+      "title": "Albert Steenbergen",
+      "displayName": "Wikipedia – Albert Steenbergen",
+      "lang": "nds",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Steenbergen.ogg",
+      "tags": {
+        "reader": "Ni'jluuseger",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 290,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Steenbergen.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Albert Steenbergen",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/14/Steenbergen.ogg",
+          "duration": 290
+        }
+      ],
+      "textLive": {
+        "wiki": "nds",
+        "api": "https://nds.wikipedia.org/w/api.php",
+        "article": "Albert Steenbergen",
+        "uploadTs": "2009-06-29T12:47:16Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:mirreweenterhoorn",
+      "title": "Mirreweenterhoorn",
+      "displayName": "Wikipedia – Mirreweenterhoorn",
+      "lang": "nds",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wiki-Mirreweenter.ogg",
+      "tags": {
+        "reader": "Woolters",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 156,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wiki-Mirreweenter.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Mirreweenterhoorn",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Wiki-Mirreweenter.ogg",
+          "duration": 156
+        }
+      ],
+      "textLive": {
+        "wiki": "nds",
+        "api": "https://nds.wikipedia.org/w/api.php",
+        "article": "Mirreweenterhoorn",
+        "uploadTs": "2008-01-21T12:27:49Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:oelebred",
+      "title": "Oelebred",
+      "displayName": "Wikipedia – Oelebred",
+      "lang": "nds",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Oelebred.ogg",
+      "tags": {
+        "reader": "Ni'jluuseger",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 409,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Oelebred.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Oelebred",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Oelebred.ogg",
+          "duration": 409
+        }
+      ],
+      "textLive": {
+        "wiki": "nds",
+        "api": "https://nds.wikipedia.org/w/api.php",
+        "article": "Oelebred",
+        "uploadTs": "2009-06-29T12:43:03Z"
+      }
+    }
+  ]
+}

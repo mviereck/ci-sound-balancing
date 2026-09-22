@@ -1,0 +1,603 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (pl)",
+  "lang": "pl",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:armia-tatu-ka",
+      "title": "Armia tatuśka",
+      "displayName": "Wikipedia – Armia tatuśka",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pl-Armia_tatuśka-article.ogg",
+      "tags": {
+        "reader": "Powerek38",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 651,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pl-Armia tatuśka-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Armia tatuśka",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Pl-Armia_tatu%C5%9Bka-article.ogg",
+          "duration": 651
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Armia tatuśka",
+        "uploadTs": "2012-02-20T07:14:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:artur-oppman",
+      "title": "Artur Oppman",
+      "displayName": "Wikipedia – Artur Oppman",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Haslo-Artur-Oppman-czyta-Adrian-Wisniewski.wav",
+      "tags": {
+        "reader": "Borys Kozielski",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Haslo-Artur-Oppman-czyta-Adrian-Wisniewski.wav"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Artur Oppman",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/31/Haslo-Artur-Oppman-czyta-Adrian-Wisniewski.wav",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Artur Oppman",
+        "uploadTs": "2014-05-14T11:50:28Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:d-wi-k",
+      "title": "Dźwięk",
+      "displayName": "Wikipedia – Dźwięk",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Haslo-dzwiek-20111022.ogg",
+      "tags": {
+        "reader": "Borys Kozielski",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 344,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Haslo-dzwiek-20111022.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Dźwięk",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Haslo-dzwiek-20111022.ogg",
+          "duration": 344
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Dźwięk",
+        "uploadTs": "2011-10-22T15:54:31Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:fonograf",
+      "title": "Fonograf",
+      "displayName": "Wikipedia – Fonograf",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Haslo-fonograf-20111022.ogg",
+      "tags": {
+        "reader": "Borys Kozielski",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 121,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Haslo-fonograf-20111022.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Fonograf",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/84/Haslo-fonograf-20111022.ogg",
+          "duration": 121
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Fonograf",
+        "uploadTs": "2011-10-22T15:55:11Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:half-pipe",
+      "title": "Half-pipe",
+      "displayName": "Wikipedia – Half-pipe",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Spoken_Wikipedia_-_Polish_-_Half-pipe_-_2006-03-03.ogg",
+      "tags": {
+        "reader": "Hołek",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 127,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Spoken Wikipedia - Polish - Half-pipe - 2006-03-03.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Half-pipe",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Spoken_Wikipedia_-_Polish_-_Half-pipe_-_2006-03-03.ogg",
+          "duration": 127
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Half-pipe",
+        "uploadTs": "2006-06-21T17:45:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:izotopy",
+      "title": "Izotopy",
+      "displayName": "Wikipedia – Izotopy",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pl-Izotopy-article.ogg",
+      "tags": {
+        "reader": "Miskofaty",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 193,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pl-Izotopy-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Izotopy",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Pl-Izotopy-article.ogg",
+          "duration": 193
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Izotopy",
+        "uploadTs": "2013-03-18T21:03:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:miejsce-przewodniczenia",
+      "title": "Miejsce przewodniczenia",
+      "displayName": "Wikipedia – Miejsce przewodniczenia",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pl-Miejsce_przewodniczenia-article.ogg",
+      "tags": {
+        "reader": "Powerek38",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 152,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pl-Miejsce przewodniczenia-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Miejsce przewodniczenia",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Pl-Miejsce_przewodniczenia-article.ogg",
+          "duration": 152
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Miejsce przewodniczenia",
+        "uploadTs": "2012-02-19T11:14:25Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:parowie-do-ywotni",
+      "title": "Parowie dożywotni",
+      "displayName": "Wikipedia – Parowie dożywotni",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pl-Parowie_dozywotni-article.ogg",
+      "tags": {
+        "reader": "Powerek38",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 522,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pl-Parowie dozywotni-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Parowie dożywotni",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Pl-Parowie_dozywotni-article.ogg",
+          "duration": 522
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Parowie dożywotni",
+        "uploadTs": "2012-02-18T18:38:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:pies-z-bonn-oberkassel",
+      "title": "Pies z Bonn-Oberkassel",
+      "displayName": "Wikipedia – Pies z Bonn-Oberkassel",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pl-Pies_z_Bonn-Oberkassel.ogg",
+      "tags": {
+        "reader": "ElevenLabs",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 785,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pl-Pies z Bonn-Oberkassel.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Pies z Bonn-Oberkassel",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/99/Pl-Pies_z_Bonn-Oberkassel.ogg",
+          "duration": 785
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Pies z Bonn-Oberkassel",
+        "uploadTs": "2025-06-03T15:31:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:podcast",
+      "title": "Podcast",
+      "displayName": "Wikipedia – Podcast",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Czytane_hasło_-_Podcasting.wav",
+      "tags": {
+        "reader": "Borys Kozielski",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Czytane hasło - Podcasting.wav"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Podcast",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/99/Czytane_has%C5%82o_-_Podcasting.wav",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Podcast",
+        "uploadTs": "2016-03-22T16:18:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:reklama",
+      "title": "Reklama",
+      "displayName": "Wikipedia – Reklama",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pl-Reklama-K-Chodorowski.wav",
+      "tags": {
+        "reader": "Borys Kozielski",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pl-Reklama-K-Chodorowski.wav"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Reklama",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/63/Pl-Reklama-K-Chodorowski.wav",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Reklama",
+        "uploadTs": "2015-04-01T19:46:50Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:richard-bourke-gubernator",
+      "title": "Richard Bourke (gubernator)",
+      "displayName": "Wikipedia – Richard Bourke (gubernator)",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pl-Richard_Bourke-article.ogg",
+      "tags": {
+        "reader": "Powerek38",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 270,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pl-Richard Bourke-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Richard Bourke (gubernator)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Pl-Richard_Bourke-article.ogg",
+          "duration": 270
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Richard Bourke (gubernator)",
+        "uploadTs": "2012-02-19T11:11:40Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:romani-ite-domum",
+      "title": "Romani ite domum",
+      "displayName": "Wikipedia – Romani ite domum",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Romani_ite_domum.ogg",
+      "tags": {
+        "reader": "Halibutt",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 375,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Romani ite domum.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Romani ite domum",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Romani_ite_domum.ogg",
+          "duration": 375
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Romani ite domum",
+        "uploadTs": "2015-12-04T19:01:12Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:rzymski-dyplom-wojskowy",
+      "title": "Rzymski dyplom wojskowy",
+      "displayName": "Wikipedia – Rzymski dyplom wojskowy",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Rzymski_dyplom_wojskowy.ogg",
+      "tags": {
+        "reader": "Halibutt",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1686,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Rzymski dyplom wojskowy.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Rzymski dyplom wojskowy",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Rzymski_dyplom_wojskowy.ogg",
+          "duration": 1686
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Rzymski dyplom wojskowy",
+        "uploadTs": "2015-12-04T14:58:51Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:stacyjka-hatley",
+      "title": "Stacyjka Hatley",
+      "displayName": "Wikipedia – Stacyjka Hatley",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pl-Stacyjka_Hatley-article.ogg",
+      "tags": {
+        "reader": "Powerek38",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 835,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pl-Stacyjka Hatley-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Stacyjka Hatley",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/62/Pl-Stacyjka_Hatley-article.ogg",
+          "duration": 835
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Stacyjka Hatley",
+        "uploadTs": "2012-02-18T21:24:23Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:ustr-j-polityczny-australii",
+      "title": "Ustrój polityczny Australii",
+      "displayName": "Wikipedia – Ustrój polityczny Australii",
+      "lang": "pl",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pl-Ustroj_polityczny_Australii-article.ogg",
+      "tags": {
+        "reader": "Powerek38",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1013,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Pl-Ustroj polityczny Australii-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ustrój polityczny Australii",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Pl-Ustroj_polityczny_Australii-article.ogg",
+          "duration": 1013
+        }
+      ],
+      "textLive": {
+        "wiki": "pl",
+        "api": "https://pl.wikipedia.org/w/api.php",
+        "article": "Ustrój polityczny Australii",
+        "uploadTs": "2012-02-18T16:32:07Z"
+      }
+    }
+  ]
+}

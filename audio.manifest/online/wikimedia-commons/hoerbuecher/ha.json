@@ -1,0 +1,48 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (ha)",
+  "lang": "ha",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:title",
+      "title": "{{{title",
+      "displayName": "Wikipedia – {{{title",
+      "lang": "ha",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Matsakaici_a_Jamus.ogg",
+      "tags": {
+        "reader": "DaSupremo",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "long",
+        "total_seconds": 2822,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Matsakaici a Jamus.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "{{{title",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/00/Matsakaici_a_Jamus.ogg",
+          "duration": 2822
+        }
+      ],
+      "textLive": {
+        "wiki": "ha",
+        "api": "https://ha.wikipedia.org/w/api.php",
+        "article": "{{{title",
+        "uploadTs": "2020-01-25T20:13:04Z"
+      }
+    }
+  ]
+}

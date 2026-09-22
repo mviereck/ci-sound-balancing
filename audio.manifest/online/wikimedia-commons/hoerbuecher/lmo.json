@@ -1,0 +1,48 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (lmo)",
+  "lang": "lmo",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:via-cerca-provincia-de-milan",
+      "title": "Via Cerca (provincia de Milan)",
+      "displayName": "Wikipedia – Via Cerca (provincia de Milan)",
+      "lang": "lmo",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Lmo-Via_Cerca_(provincia_de_Milan)-article.ogg",
+      "tags": {
+        "reader": "Sciking",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 176,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Lmo-Via Cerca (provincia de Milan)-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Via Cerca (provincia de Milan)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/91/Lmo-Via_Cerca_%28provincia_de_Milan%29-article.ogg",
+          "duration": 176
+        }
+      ],
+      "textLive": {
+        "wiki": "lmo",
+        "api": "https://lmo.wikipedia.org/w/api.php",
+        "article": "Via Cerca (provincia de Milan)",
+        "uploadTs": "2022-09-02T11:28:58Z"
+      }
+    }
+  ]
+}

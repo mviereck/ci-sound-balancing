@@ -1,0 +1,159 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (sv)",
+  "lang": "sv",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:hakarps-kyrka",
+      "title": "Hakarps kyrka",
+      "displayName": "Wikipedia – Hakarps kyrka",
+      "lang": "sv",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hakarps_kyrka.ogg",
+      "tags": {
+        "reader": "Tanzania",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1362,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hakarps kyrka.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Hakarps kyrka",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/75/Hakarps_kyrka.ogg",
+          "duration": 1362
+        }
+      ],
+      "textLive": {
+        "wiki": "sv",
+        "api": "https://sv.wikipedia.org/w/api.php",
+        "article": "Hakarps kyrka",
+        "uploadTs": "2011-08-13T17:03:20Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:paleolitikum",
+      "title": "Paleolitikum",
+      "displayName": "Wikipedia – Paleolitikum",
+      "lang": "sv",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Sv-Paleolitikum-article.ogg",
+      "tags": {
+        "reader": "Micke",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1183,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Sv-Paleolitikum-article.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Paleolitikum",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Sv-Paleolitikum-article.ogg",
+          "duration": 1183
+        }
+      ],
+      "textLive": {
+        "wiki": "sv",
+        "api": "https://sv.wikipedia.org/w/api.php",
+        "article": "Paleolitikum",
+        "uploadTs": "2008-04-25T12:25:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:scandic-hotels",
+      "title": "Scandic Hotels",
+      "displayName": "Wikipedia – Scandic Hotels",
+      "lang": "sv",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Sv-Scandic_Hotels-article.wav",
+      "tags": {
+        "reader": "Jonatan Svensson Glad",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Sv-Scandic Hotels-article.wav"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Scandic Hotels",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Sv-Scandic_Hotels-article.wav",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "sv",
+        "api": "https://sv.wikipedia.org/w/api.php",
+        "article": "Scandic Hotels",
+        "uploadTs": "2022-12-28T23:53:39Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:stora-nygatan-malm",
+      "title": "Stora Nygatan, Malmö",
+      "displayName": "Wikipedia – Stora Nygatan, Malmö",
+      "lang": "sv",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Sv-Stora_Nygatan,_Malmö-article.wav",
+      "tags": {
+        "reader": "Jonatan Svensson Glad",
+        "gender": "m",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Sv-Stora Nygatan, Malmö-article.wav"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Stora Nygatan, Malmö",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Sv-Stora_Nygatan%2C_Malm%C3%B6-article.wav",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "sv",
+        "api": "https://sv.wikipedia.org/w/api.php",
+        "article": "Stora Nygatan, Malmö",
+        "uploadTs": "2022-12-28T23:19:30Z"
+      }
+    }
+  ]
+}

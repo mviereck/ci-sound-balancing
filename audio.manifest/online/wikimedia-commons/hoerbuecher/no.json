@@ -1,0 +1,159 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (no)",
+  "lang": "no",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:marlene-dietrich",
+      "title": "Marlene Dietrich",
+      "displayName": "Wikipedia – Marlene Dietrich",
+      "lang": "no",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:No-MARLENEDIETRICH.ogg",
+      "tags": {
+        "reader": "Elise Øygaren",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 303,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:No-MARLENEDIETRICH.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Marlene Dietrich",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/07/No-MARLENEDIETRICH.ogg",
+          "duration": 303
+        }
+      ],
+      "textLive": {
+        "wiki": "no",
+        "api": "https://no.wikipedia.org/w/api.php",
+        "article": "Marlene Dietrich",
+        "uploadTs": "2015-05-23T16:35:59Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:m-nchen",
+      "title": "München",
+      "displayName": "Wikipedia – München",
+      "lang": "no",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:No-MÜNCHEN.ogg",
+      "tags": {
+        "reader": "VV",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1321,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:No-MÜNCHEN.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "München",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5e/No-M%C3%9CNCHEN.ogg",
+          "duration": 1321
+        }
+      ],
+      "textLive": {
+        "wiki": "no",
+        "api": "https://no.wikipedia.org/w/api.php",
+        "article": "München",
+        "uploadTs": "2013-04-04T16:45:36Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:romerriket",
+      "title": "Romerriket",
+      "displayName": "Wikipedia – Romerriket",
+      "lang": "no",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:No-ROMERRIKET.ogg",
+      "tags": {
+        "reader": "Vemund Vikjord",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "long",
+        "total_seconds": 2917,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:No-ROMERRIKET.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Romerriket",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/19/No-ROMERRIKET.ogg",
+          "duration": 2917
+        }
+      ],
+      "textLive": {
+        "wiki": "no",
+        "api": "https://no.wikipedia.org/w/api.php",
+        "article": "Romerriket",
+        "uploadTs": "2013-04-05T17:03:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:viktoria-av-hessen-darmstadt",
+      "title": "Viktoria av Hessen-Darmstadt",
+      "displayName": "Wikipedia – Viktoria av Hessen-Darmstadt",
+      "lang": "no",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:No-VIKTORIA_AV_HESSEN-DARMSTADT.ogg",
+      "tags": {
+        "reader": "Vemund Vikjord",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1212,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:No-VIKTORIA AV HESSEN-DARMSTADT.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Viktoria av Hessen-Darmstadt",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/56/No-VIKTORIA_AV_HESSEN-DARMSTADT.ogg",
+          "duration": 1212
+        }
+      ],
+      "textLive": {
+        "wiki": "no",
+        "api": "https://no.wikipedia.org/w/api.php",
+        "article": "Viktoria av Hessen-Darmstadt",
+        "uploadTs": "2013-04-05T08:12:25Z"
+      }
+    }
+  ]
+}

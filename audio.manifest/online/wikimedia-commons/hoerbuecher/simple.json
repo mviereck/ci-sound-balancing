@@ -1,0 +1,751 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (simple)",
+  "lang": "simple",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:ana-ivanovi",
+      "title": "Ana Ivanović",
+      "displayName": "Wikipedia – Ana Ivanović",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Ana_Ivanović.oga",
+      "tags": {
+        "reader": "Yottie",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 583,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Ana Ivanović.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ana Ivanović",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/db/Simple_en_Ana_Ivanovi%C4%87.oga",
+          "duration": 583
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Ana Ivanović",
+        "uploadTs": "2016-12-02T19:04:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:baseball-uniform",
+      "title": "Baseball uniform",
+      "displayName": "Wikipedia – Baseball uniform",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Baseball_uniform.oga",
+      "tags": {
+        "reader": "DefenseSupportParty",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 919,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Baseball uniform.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Baseball uniform",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Simple_en_Baseball_uniform.oga",
+          "duration": 919
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Baseball uniform",
+        "uploadTs": "2016-12-02T18:42:47Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:caffeine",
+      "title": "Caffeine",
+      "displayName": "Wikipedia – Caffeine",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Caffeine.oga",
+      "tags": {
+        "reader": "Whesse",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 580,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Caffeine.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Caffeine",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/80/Simple_en_Caffeine.oga",
+          "duration": 580
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Caffeine",
+        "uploadTs": "2008-01-01T03:57:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:chocolate",
+      "title": "Chocolate",
+      "displayName": "Wikipedia – Chocolate",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Chocolate,_oldid_484631.oga",
+      "tags": {
+        "reader": "Jordanhatch",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 122,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Chocolate, oldid 484631.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Chocolate",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/46/Simple_en_Chocolate%2C_oldid_484631.oga",
+          "duration": 122
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Chocolate",
+        "uploadTs": "2016-12-02T18:38:23Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:cuban-missile-crisis",
+      "title": "Cuban Missile Crisis",
+      "displayName": "Wikipedia – Cuban Missile Crisis",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Cuban_Missile_Crisis.oga",
+      "tags": {
+        "reader": "Yottie",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 786,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Cuban Missile Crisis.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Cuban Missile Crisis",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Simple_en_Cuban_Missile_Crisis.oga",
+          "duration": 786
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Cuban Missile Crisis",
+        "uploadTs": "2016-12-02T19:04:55Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:devon",
+      "title": "Devon",
+      "displayName": "Wikipedia – Devon",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Devon,_oldid_211351.oga",
+      "tags": {
+        "reader": ":simple:User:Storkk",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 433,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Devon, oldid 211351.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Devon",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/Simple_en_Devon%2C_oldid_211351.oga",
+          "duration": 433
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Devon",
+        "uploadTs": "2016-12-02T19:08:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:evolution",
+      "title": "Evolution",
+      "displayName": "Wikipedia – Evolution",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Evolution.oga",
+      "tags": {
+        "reader": "DefenseSupportParty",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1557,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Evolution.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Evolution",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/26/Simple_en_Evolution.oga",
+          "duration": 1557
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Evolution",
+        "uploadTs": "2016-12-02T18:39:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:france",
+      "title": "France",
+      "displayName": "Wikipedia – France",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_France.oga",
+      "tags": {
+        "reader": "Yottie",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1221,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en France.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "France",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Simple_en_France.oga",
+          "duration": 1221
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "France",
+        "uploadTs": "2016-12-02T19:05:12Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:ipswich-town-f-c",
+      "title": "Ipswich Town F.C.",
+      "displayName": "Wikipedia – Ipswich Town F.C.",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Ipswich_Town_F.C.oga",
+      "tags": {
+        "reader": "Yottie",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 554,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Ipswich Town F.C.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Ipswich Town F.C.",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/Simple_en_Ipswich_Town_F.C.oga",
+          "duration": 554
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Ipswich Town F.C.",
+        "uploadTs": "2016-12-02T19:07:43Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:japanese-american-internment",
+      "title": "Japanese American internment",
+      "displayName": "Wikipedia – Japanese American internment",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Japanese_American_internment.oga",
+      "tags": {
+        "reader": "Kansan",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 319,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Japanese American internment.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Japanese American internment",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/36/Simple_en_Japanese_American_internment.oga",
+          "duration": 319
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Japanese American internment",
+        "uploadTs": "2016-12-02T19:10:45Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:japanese-tea-ceremony",
+      "title": "Japanese tea ceremony",
+      "displayName": "Wikipedia – Japanese tea ceremony",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Japanese_tea_ceremony,_oldid_211401.oga",
+      "tags": {
+        "reader": "Storkk",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 247,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Japanese tea ceremony, oldid 211401.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Japanese tea ceremony",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Simple_en_Japanese_tea_ceremony%2C_oldid_211401.oga",
+          "duration": 247
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Japanese tea ceremony",
+        "uploadTs": "2016-12-02T19:10:15Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:kamikaze",
+      "title": "Kamikaze",
+      "displayName": "Wikipedia – Kamikaze",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Kamikaze.oga",
+      "tags": {
+        "reader": "Yottie",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 753,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Kamikaze.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Kamikaze",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/71/Simple_en_Kamikaze.oga",
+          "duration": 753
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Kamikaze",
+        "uploadTs": "2016-12-02T19:04:34Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:le-spectre-de-la-rose",
+      "title": "Le Spectre de la Rose",
+      "displayName": "Wikipedia – Le Spectre de la Rose",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Le_Spectre_de_la_rose.oga",
+      "tags": {
+        "reader": "Yottie",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 643,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Le Spectre de la rose.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Le Spectre de la Rose",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Simple_en_Le_Spectre_de_la_rose.oga",
+          "duration": 643
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Le Spectre de la Rose",
+        "uploadTs": "2017-01-25T11:21:56Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:lego",
+      "title": "Lego",
+      "displayName": "Wikipedia – Lego",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Lego.oga",
+      "tags": {
+        "reader": "Erock23432",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 151,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Lego.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Lego",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/09/Simple_en_Lego.oga",
+          "duration": 151
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Lego",
+        "uploadTs": "2011-04-24T00:38:25Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:mourning-dove",
+      "title": "Mourning dove",
+      "displayName": "Wikipedia – Mourning dove",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Mourning_dove.oga",
+      "tags": {
+        "reader": "Yottie",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 998,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Mourning dove.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Mourning dove",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Simple_en_Mourning_dove.oga",
+          "duration": 998
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Mourning dove",
+        "uploadTs": "2016-12-02T18:42:01Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:oklahoma",
+      "title": "Oklahoma",
+      "displayName": "Wikipedia – Oklahoma",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Oklahoma.oga",
+      "tags": {
+        "reader": "DefenseSupportParty",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 932,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Oklahoma.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Oklahoma",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Simple_en_Oklahoma.oga",
+          "duration": 932
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Oklahoma",
+        "uploadTs": "2016-12-02T19:23:22Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:pokemon",
+      "title": "Pokemon",
+      "displayName": "Wikipedia – Pokemon",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Pokemon.oga",
+      "tags": {
+        "reader": "Tdxiang",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 123,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Pokemon.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Pokemon",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Simple_en_Pokemon.oga",
+          "duration": 123
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Pokemon",
+        "uploadTs": "2017-01-25T07:34:11Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:scallop",
+      "title": "Scallop",
+      "displayName": "Wikipedia – Scallop",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Scallop.oga",
+      "tags": {
+        "reader": "Yottie",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1030,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Scallop.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Scallop",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/11/Simple_en_Scallop.oga",
+          "duration": 1030
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Scallop",
+        "uploadTs": "2016-12-02T18:41:29Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:switzerland",
+      "title": "Switzerland",
+      "displayName": "Wikipedia – Switzerland",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Switzerland.oga",
+      "tags": {
+        "reader": "Storkk",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 623,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Switzerland.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Switzerland",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Simple_en_Switzerland.oga",
+          "duration": 623
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Switzerland",
+        "uploadTs": "2016-12-02T19:08:29Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:violin",
+      "title": "Violin",
+      "displayName": "Wikipedia – Violin",
+      "lang": "simple",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simple_en_Violin.oga",
+      "tags": {
+        "reader": "Yottie",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 650,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simple en Violin.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Violin",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/43/Simple_en_Violin.oga",
+          "duration": 650
+        }
+      ],
+      "textLive": {
+        "wiki": "simple",
+        "api": "https://simple.wikipedia.org/w/api.php",
+        "article": "Violin",
+        "uploadTs": "2016-12-02T19:05:36Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (ee)",
+  "lang": "ee",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:title",
+      "title": "{{{title",
+      "displayName": "Wikipedia – {{{title",
+      "lang": "ee",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ghanatɔ_siwo_le_Germany.ogg",
+      "tags": {
+        "reader": "Enock4seth",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 623,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Ghanatɔ siwo le Germany.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "{{{title",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Ghanat%C9%94_siwo_le_Germany.ogg",
+          "duration": 623
+        }
+      ],
+      "textLive": {
+        "wiki": "ee",
+        "api": "https://ee.wikipedia.org/w/api.php",
+        "article": "{{{title",
+        "uploadTs": "2020-01-20T19:22:52Z"
+      }
+    }
+  ]
+}

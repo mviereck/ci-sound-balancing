@@ -1,0 +1,122 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (hi)",
+  "lang": "hi",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-hi-article-oga",
+      "title": "कश्मीर",
+      "displayName": "Wikipedia – कश्मीर",
+      "lang": "hi",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hi-कश्मीर-article.oga",
+      "tags": {
+        "reader": "Magicalsaumy",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1064,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hi-कश्मीर-article.oga"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "कश्मीर",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Hi-%E0%A4%95%E0%A4%B6%E0%A5%8D%E0%A4%AE%E0%A5%80%E0%A4%B0-article.oga",
+          "duration": 1064
+        }
+      ],
+      "textLive": {
+        "wiki": "hi",
+        "api": "https://hi.wikipedia.org/w/api.php",
+        "article": "कश्मीर",
+        "uploadTs": "2006-03-21T17:36:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-hi-hind-europiya-bhaashaa-parivaar-part1-ogg",
+      "title": "हिन्द-यूरोपीय भाषा-परिवार",
+      "displayName": "Wikipedia – हिन्द-यूरोपीय भाषा-परिवार",
+      "lang": "hi",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hi-Hind-Europiya_bhaashaa_parivaar_part1.ogg",
+      "tags": {
+        "reader": "Magicalsaumy",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 938,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hi-Hind-Europiya bhaashaa parivaar part1.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "हिन्द-यूरोपीय भाषा-परिवार",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Hi-Hind-Europiya_bhaashaa_parivaar_part1.ogg",
+          "duration": 938
+        }
+      ],
+      "textLive": {
+        "wiki": "hi",
+        "api": "https://hi.wikipedia.org/w/api.php",
+        "article": "हिन्द-यूरोपीय भाषा-परिवार",
+        "uploadTs": "2011-12-11T17:17:44Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-hi-hind-europiya-bhaashaa-parivaar-part2-ogg",
+      "title": "हिन्द-यूरोपीय भाषा-परिवार",
+      "displayName": "Wikipedia – हिन्द-यूरोपीय भाषा-परिवार",
+      "lang": "hi",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Hi-Hind-Europiya_bhaashaa_parivaar_part2.ogg",
+      "tags": {
+        "reader": "Magicalsaumy",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 582,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Hi-Hind-Europiya bhaashaa parivaar part2.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "हिन्द-यूरोपीय भाषा-परिवार",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Hi-Hind-Europiya_bhaashaa_parivaar_part2.ogg",
+          "duration": 582
+        }
+      ],
+      "textLive": {
+        "wiki": "hi",
+        "api": "https://hi.wikipedia.org/w/api.php",
+        "article": "हिन्द-यूरोपीय भाषा-परिवार",
+        "uploadTs": "2011-12-11T17:13:40Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,307 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection-set",
+  "category": "hoerbuecher",
+  "title": "Gesprochene Wikipedia (bg)",
+  "lang": "bg",
+  "license": "CC-BY-SA-3.0",
+  "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+  "collections": [
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-bg-alexander-motsev-20101116-ogg",
+      "title": "Александър Моцев",
+      "displayName": "Wikipedia – Александър Моцев",
+      "lang": "bg",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:BG-Alexander-Motsev-20101116.ogg",
+      "tags": {
+        "reader": "Spiritia",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 247,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:BG-Alexander-Motsev-20101116.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Александър Моцев",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/15/BG-Alexander-Motsev-20101116.ogg",
+          "duration": 247
+        }
+      ],
+      "textLive": {
+        "wiki": "bg",
+        "api": "https://bg.wikipedia.org/w/api.php",
+        "article": "Александър Моцев",
+        "uploadTs": "2010-11-16T21:21:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-bg-georgi-spasov-composer-20101113-ogg",
+      "title": "Георги Спасов (композитор)",
+      "displayName": "Wikipedia – Георги Спасов (композитор)",
+      "lang": "bg",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:BG-Georgi-Spasov-composer-20101113.ogg",
+      "tags": {
+        "reader": "Spiritia",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 182,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:BG-Georgi-Spasov-composer-20101113.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Георги Спасов (композитор)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9b/BG-Georgi-Spasov-composer-20101113.ogg",
+          "duration": 182
+        }
+      ],
+      "textLive": {
+        "wiki": "bg",
+        "api": "https://bg.wikipedia.org/w/api.php",
+        "article": "Георги Спасов (композитор)",
+        "uploadTs": "2010-11-13T20:47:45Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-bg-isaac-newton-20070703-ogg",
+      "title": "Исак Нютон",
+      "displayName": "Wikipedia – Исак Нютон",
+      "lang": "bg",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Bg-Isaac_Newton-20070703.ogg",
+      "tags": {
+        "reader": "PetaRZ",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1358,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Bg-Isaac Newton-20070703.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Исак Нютон",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Bg-Isaac_Newton-20070703.ogg",
+          "duration": 1358
+        }
+      ],
+      "textLive": {
+        "wiki": "bg",
+        "api": "https://bg.wikipedia.org/w/api.php",
+        "article": "Исак Нютон",
+        "uploadTs": "2010-11-09T13:46:57Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-bg-katya-stoyanova-20101101-ogg",
+      "title": "Катя Стоянова",
+      "displayName": "Wikipedia – Катя Стоянова",
+      "lang": "bg",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:BG-Katya-Stoyanova-20101101.ogg",
+      "tags": {
+        "reader": "Spiritia",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 215,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:BG-Katya-Stoyanova-20101101.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Катя Стоянова",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ad/BG-Katya-Stoyanova-20101101.ogg",
+          "duration": 215
+        }
+      ],
+      "textLive": {
+        "wiki": "bg",
+        "api": "https://bg.wikipedia.org/w/api.php",
+        "article": "Катя Стоянова",
+        "uploadTs": "2010-11-13T17:43:10Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-bg-netiquette-20101026-ogg",
+      "title": "Нетикет",
+      "displayName": "Wikipedia – Нетикет",
+      "lang": "bg",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:BG-Netiquette-20101026.ogg",
+      "tags": {
+        "reader": "Spiritia",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 260,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:BG-Netiquette-20101026.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Нетикет",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/53/BG-Netiquette-20101026.ogg",
+          "duration": 260
+        }
+      ],
+      "textLive": {
+        "wiki": "bg",
+        "api": "https://bg.wikipedia.org/w/api.php",
+        "article": "Нетикет",
+        "uploadTs": "2010-11-14T20:13:03Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-bg-rila-20070704-ogg",
+      "title": "Рила",
+      "displayName": "Wikipedia – Рила",
+      "lang": "bg",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Bg-Rila-20070704.ogg",
+      "tags": {
+        "reader": "Spiritia",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1318,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Bg-Rila-20070704.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Рила",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/19/Bg-Rila-20070704.ogg",
+          "duration": 1318
+        }
+      ],
+      "textLive": {
+        "wiki": "bg",
+        "api": "https://bg.wikipedia.org/w/api.php",
+        "article": "Рила",
+        "uploadTs": "2010-11-09T13:24:42Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:ii",
+      "title": "Филип II (Франция)",
+      "displayName": "Wikipedia – Филип II (Франция)",
+      "lang": "bg",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:BG-Philippe-II-France-20100929.ogg",
+      "tags": {
+        "reader": "Spiritia",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "medium",
+        "total_seconds": 1533,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:BG-Philippe-II-France-20100929.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Филип II (Франция)",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f6/BG-Philippe-II-France-20100929.ogg",
+          "duration": 1533
+        }
+      ],
+      "textLive": {
+        "wiki": "bg",
+        "api": "https://bg.wikipedia.org/w/api.php",
+        "article": "Филип II (Франция)",
+        "uploadTs": "2010-11-13T23:44:20Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:not-sure-if-i-got-the-article-right",
+      "title": "Черна дупка <!-- Not sure If I got the article right -->",
+      "displayName": "Wikipedia – Черна дупка <!-- Not sure If I got the article right -->",
+      "lang": "bg",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Bg-black-hole.ogg",
+      "tags": {
+        "reader": "Dbogdev",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 768,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Bg-black-hole.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Черна дупка <!-- Not sure If I got the article right -->",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/70/Bg-black-hole.ogg",
+          "duration": 768
+        }
+      ],
+      "textLive": {
+        "wiki": "bg",
+        "api": "https://bg.wikipedia.org/w/api.php",
+        "article": "Черна дупка <!-- Not sure If I got the article right -->",
+        "uploadTs": "2007-07-03T16:04:21Z"
+      }
+    }
+  ]
+}
