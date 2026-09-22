@@ -3048,8 +3048,14 @@ function plBuildFilterChain(catDecl) {
       for (var li = 0; li < langs.length; li++) {
         var lopt = document.createElement("option");
         lopt.value = langs[li];
+        // Aufbau: <Flagge> <Endonym> (<Sprachname in Tool-Sprache>).
+        // Der uebersetzte Name kommt aus i18n/langnames.js (langName_<code>);
+        // fehlt der Key, faellt t() auf den Schluessel selbst zurueck -> dann
+        // keine Klammer zeigen. plLangTransl kapselt das (mit Basis-Fallback).
+        var _endo = (typeof plLangName === "function" ? plLangName(langs[li]) : langs[li]);
+        var _transl = (typeof plLangTransl === "function" ? plLangTransl(langs[li]) : "");
         lopt.textContent = (typeof plLangFlag === "function" ? plLangFlag(langs[li]) + " " : "")
-          + (typeof plLangName === "function" ? plLangName(langs[li]) : langs[li]);
+          + _endo + (_transl ? " (" + _transl + ")" : "");
         domEl.appendChild(lopt);
       }
       domEl.value = curLang;
@@ -3322,6 +3328,11 @@ function plGetContentLang() {
 // BA337: Flaggen-Modalbox — Sprach-Maps, Helfer, Modal-Logik
 // ============================================================
 
+// Flaggen-Zuordnung. Eine Sprache → EINE Landesflagge ist immer eine
+// Vereinfachung (wie en→GB). Wo eine Sprache klar mit einem Land verbunden
+// ist, steht dessen Flagge; mehrere ind./russländische Sprachen teilen sich
+// bewusst 🇮🇳 bzw. 🇷🇺 (Sammelflagge). Staatenlose Sprachen und Plansprachen
+// (ab bas ckb cnh dyu eo ia kmr tok yi zza) haben keinen Eintrag → Globus 🌐.
 var LANG_TO_FLAG = {
   "de": "🇩🇪",  // DE
   "en": "🇬🇧",  // GB
@@ -3357,9 +3368,94 @@ var LANG_TO_FLAG = {
   "zh-CN": "🇨🇳",
   "zh-TW": "🇹🇼",
   "ja": "🇯🇵",  // JP
-  "ko": "🇰🇷"   // KR
+  "ko": "🇰🇷",  // KR
+  // --- nachgetragene Sprachen ---
+  "af": "🇿🇦",  // Afrikaans → ZA
+  "as": "🇮🇳",  // Assamesisch → IN
+  "ast": "🇪🇸", // Asturisch → ES
+  "az": "🇦🇿",  // Aserbaidschanisch → AZ
+  "ba": "🇷🇺",  // Baschkirisch → RU
+  "be": "🇧🇾",  // Belarussisch → BY
+  "bn": "🇧🇩",  // Bengalisch → BD
+  "br": "🇫🇷",  // Bretonisch → FR
+  "ca": "🇪🇸",  // Katalanisch → ES
+  "cv": "🇷🇺",  // Tschuwaschisch → RU
+  "cy": "🏴󠁧󠁢󠁷󠁬󠁳󠁿", // Walisisch → Wales
+  "dv": "🇲🇻",  // Dhivehi → MV
+  "et": "🇪🇪",  // Estnisch → EE
+  "eu": "🇪🇸",  // Baskisch → ES
+  "fa": "🇮🇷",  // Persisch → IR
+  "fy": "🇳🇱",  // Westfriesisch → NL
+  "ga": "🇮🇪",  // Irisch → IE
+  "gl": "🇪🇸",  // Galicisch → ES
+  "gn": "🇵🇾",  // Guaraní → PY
+  "ha": "🇳🇬",  // Hausa → NG
+  "hi": "🇮🇳",  // Hindi → IN
+  "hsb": "🇩🇪", // Obersorbisch → DE
+  "hy": "🇦🇲",  // Armenisch → AM
+  "id": "🇮🇩",  // Indonesisch → ID
+  "is": "🇮🇸",  // Isländisch → IS
+  "ka": "🇬🇪",  // Georgisch → GE
+  "kab": "🇩🇿", // Kabylisch → DZ
+  "kk": "🇰🇿",  // Kasachisch → KZ
+  "ky": "🇰🇬",  // Kirgisisch → KG
+  "lg": "🇺🇬",  // Luganda → UG
+  "lij": "🇮🇹", // Ligurisch → IT
+  "lo": "🇱🇦",  // Laotisch → LA
+  "lt": "🇱🇹",  // Litauisch → LT
+  "ltg": "🇱🇻", // Lettgallisch → LV
+  "lv": "🇱🇻",  // Lettisch → LV
+  "mdf": "🇷🇺", // Mokschanisch → RU
+  "mhr": "🇷🇺", // Wiesenmari → RU
+  "mk": "🇲🇰",  // Mazedonisch → MK
+  "ml": "🇮🇳",  // Malayalam → IN
+  "mn": "🇲🇳",  // Mongolisch → MN
+  "mr": "🇮🇳",  // Marathi → IN
+  "mrj": "🇷🇺", // Bergmari → RU
+  "mt": "🇲🇹",  // Maltesisch → MT
+  "myv": "🇷🇺", // Ersjanisch → RU
+  "nan": "🇹🇼", // Min-Nan → TW
+  "ne": "🇳🇵",  // Nepali → NP
+  "nhi": "🇲🇽", // Nahuatl → MX
+  "nn": "🇳🇴",  // Nynorsk → NO
+  "nso": "🇿🇦", // Nord-Sotho → ZA
+  "oc": "🇫🇷",  // Okzitanisch → FR
+  "or": "🇮🇳",  // Odia → IN
+  "os": "🇷🇺",  // Ossetisch → RU
+  "pa": "🇮🇳",  // Panjabi → IN
+  "ps": "🇦🇫",  // Paschto → AF
+  "rm": "🇨🇭",  // Rätoromanisch → CH
+  "rw": "🇷🇼",  // Kinyarwanda → RW
+  "sah": "🇷🇺", // Jakutisch → RU
+  "sat": "🇮🇳", // Santali → IN
+  "sc": "🇮🇹",  // Sardisch → IT
+  "skr": "🇵🇰", // Saraiki → PK
+  "sl": "🇸🇮",  // Slowenisch → SI
+  "sq": "🇦🇱",  // Albanisch → AL
+  "sw": "🇹🇿",  // Swahili → TZ
+  "ta": "🇮🇳",  // Tamil → IN
+  "te": "🇮🇳",  // Telugu → IN
+  "th": "🇹🇭",  // Thailändisch → TH
+  "ti": "🇪🇷",  // Tigrinya → ER
+  "tig": "🇪🇷", // Tigre → ER
+  "tk": "🇹🇲",  // Turkmenisch → TM
+  "tt": "🇷🇺",  // Tatarisch → RU
+  "tw": "🇬🇭",  // Twi → GH
+  "ug": "🇨🇳",  // Uigurisch → CN
+  "uk": "🇺🇦",  // Ukrainisch → UA
+  "ur": "🇵🇰",  // Urdu → PK
+  "uz": "🇺🇿",  // Usbekisch → UZ
+  "vi": "🇻🇳",  // Vietnamesisch → VN
+  "vot": "🇷🇺", // Wotisch → RU
+  "yo": "🇳🇬",  // Yoruba → NG
+  "yue": "🇭🇰", // Kantonesisch → HK
+  "zgh": "🇲🇦", // Standard-Tamazight → MA
+  "zu": "🇿🇦"   // Zulu → ZA
 };
 
+// Endonyme (Eigenname der Sprache in eigener Schrift). Sprachneutral —
+// KEIN i18n. Der in der Tool-Sprache uebersetzte Name kommt separat aus
+// i18n/langnames.js (Schluessel langName_<code>) und steht in Klammern dahinter.
 var LANG_NAMES = {
   "de": "Deutsch",
   "en": "English",
@@ -3393,7 +3489,100 @@ var LANG_NAMES = {
   "zh-CN": "中文（简体）",
   "zh-TW": "中文（繁體）",
   "ja": "日本語",
-  "ko": "한국어"
+  "ko": "한국어",
+  // --- nachgetragene Sprachen (Endonyme web-verifiziert) ---
+  "ab": "Аҧсуа",
+  "af": "Afrikaans",
+  "as": "অসমীয়া",
+  "ast": "Asturianu",
+  "az": "Azərbaycanca",
+  "ba": "Башҡортса",
+  "bas": "Ɓasaá",
+  "be": "Беларуская",
+  "bn": "বাংলা",
+  "br": "Brezhoneg",
+  "ca": "Català",
+  "ckb": "کوردیی ناوەندی",
+  "cnh": "Laiholh",
+  "cv": "Чӑвашла",
+  "cy": "Cymraeg",
+  "dv": "ދިވެހި",
+  "dyu": "Julakan",
+  "eo": "Esperanto",
+  "et": "Eesti",
+  "eu": "Euskara",
+  "fa": "فارسی",
+  "fy": "Frysk",
+  "ga": "Gaeilge",
+  "gl": "Galego",
+  "gn": "Avañe'ẽ",
+  "ha": "Hausa",
+  "hi": "हिन्दी",
+  "hsb": "Hornjoserbsce",
+  "hy": "Հայերեն",
+  "ia": "Interlingua",
+  "id": "Bahasa Indonesia",
+  "is": "Íslenska",
+  "ka": "ქართული",
+  "kab": "Taqbaylit",
+  "kk": "Қазақша",
+  "kmr": "Kurmancî",
+  "ky": "Кыргыз",
+  "lg": "Luganda",
+  "lij": "Lìgure",
+  "lo": "ລາວ",
+  "lt": "Lietuvių",
+  "ltg": "Latgalīšu",
+  "lv": "Latviešu",
+  "mdf": "Мокшень",
+  "mhr": "Олык марий",
+  "mk": "Македонски",
+  "ml": "മലയാളം",
+  "mn": "Монгол хэл",
+  "mr": "मराठी",
+  "mrj": "Кырык мары",
+  "mt": "Malti",
+  "myv": "Эрзянь",
+  "nan": "Bân-lâm-gí",
+  "ne": "नेपाली",
+  "nhi": "Nāhuatl",
+  "nn": "Norsk nynorsk",
+  "nso": "Sesotho sa Leboa",
+  "oc": "Occitan",
+  "or": "ଓଡ଼ିଆ",
+  "os": "Ирон",
+  "pa": "ਪੰਜਾਬੀ",
+  "ps": "پښتو",
+  "rm": "Rumantsch",
+  "rw": "Kinyarwanda",
+  "sah": "Саха тыла",
+  "sat": "ᱥᱟᱱᱛᱟᱲᱤ",
+  "sc": "Sardu",
+  "skr": "سرائیکی",
+  "sl": "Slovenščina",
+  "sq": "Shqip",
+  "sw": "Kiswahili",
+  "ta": "தமிழ்",
+  "te": "తెలుగు",
+  "th": "ไทย",
+  "ti": "ትግርኛ",
+  "tig": "ትግራይት",
+  "tk": "Türkmençe",
+  "tok": "toki pona",
+  "tt": "Татарча",
+  "tw": "Twi",
+  "ug": "ئۇيغۇرچە",
+  "uk": "Українська",
+  "ur": "اردو",
+  "uz": "Oʻzbekcha",
+  "vi": "Tiếng Việt",
+  "vot": "Vaďďa",
+  "yi": "ייִדיש",
+  "yo": "Yorùbá",
+  "yue": "粵語",
+  "zgh": "ⵜⴰⵎⴰⵣⵉⵖⵜ",
+  "zu": "isiZulu",
+  "zza": "Zazakî"
 };
 
 // Gibt die Flaggen-Emoji fuer einen BCP-47-Code zurueck.
@@ -3413,6 +3602,24 @@ function plLangName(code) {
   var primary = code.split("-")[0].toLowerCase();
   if (LANG_NAMES[primary]) return LANG_NAMES[primary];
   return code;
+}
+
+// Gibt den in der aktuellen Tool-Sprache uebersetzten Sprachnamen zurueck
+// (i18n-Key langName_<code> aus i18n/langnames.js), fuer die Klammer hinter
+// dem Endonym. Exakt-Match vor Primary-Tag-Fallback. Fehlt der Key, gibt t()
+// den Schluessel selbst zurueck -> dann "" liefern, damit keine Klammer erscheint.
+function plLangTransl(code) {
+  if (!code || typeof t !== "function") return "";
+  var key = "langName_" + code;
+  var v = t(key);
+  if (v && v !== key) return v;
+  var primary = code.split("-")[0].toLowerCase();
+  if (primary !== code) {
+    var pk = "langName_" + primary;
+    var pv = t(pk);
+    if (pv && pv !== pk) return pv;
+  }
+  return "";
 }
 
 // Gibt ein Array der verfuegbaren Inhalts-Sprachen zurueck (Codes, dedupliziert).
