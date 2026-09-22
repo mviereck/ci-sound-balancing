@@ -3048,14 +3048,12 @@ function plBuildFilterChain(catDecl) {
       for (var li = 0; li < langs.length; li++) {
         var lopt = document.createElement("option");
         lopt.value = langs[li];
-        // Aufbau: <Flagge> <Endonym> (<Sprachname in Tool-Sprache>).
-        // Der uebersetzte Name kommt aus i18n/langnames.js (langName_<code>);
-        // fehlt der Key, faellt t() auf den Schluessel selbst zurueck -> dann
-        // keine Klammer zeigen. plLangTransl kapselt das (mit Basis-Fallback).
-        var _endo = (typeof plLangName === "function" ? plLangName(langs[li]) : langs[li]);
-        var _transl = (typeof plLangTransl === "function" ? plLangTransl(langs[li]) : "");
-        lopt.textContent = (typeof plLangFlag === "function" ? plLangFlag(langs[li]) + " " : "")
-          + _endo + (_transl ? " (" + _transl + ")" : "");
+        // Beschriftung + Zwei-Formate-Regel in plLangOptionLabel gekapselt.
+        // Reihenfolge (Tool-Sprachen oben, Rest alphab. nach uebersetztem
+        // Namen) legt plContentLangAvailable fest.
+        lopt.textContent = (typeof plLangOptionLabel === "function")
+          ? plLangOptionLabel(langs[li])
+          : langs[li];
         domEl.appendChild(lopt);
       }
       domEl.value = curLang;
@@ -3450,7 +3448,18 @@ var LANG_TO_FLAG = {
   "yo": "🇳🇬",  // Yoruba → NG
   "yue": "🇭🇰", // Kantonesisch → HK
   "zgh": "🇲🇦", // Standard-Tamazight → MA
-  "zu": "🇿🇦"   // Zulu → ZA
+  "zu": "🇿🇦",  // Zulu → ZA
+  // --- Hörbuch-Sprachen (LibriVox/Commons): histor./regional/konstruiert ---
+  "ary": "🇲🇦", // Marokkanisches Arabisch → MA
+  "ceb": "🇵🇭", // Cebuano → PH
+  "jv": "🇮🇩",  // Javanisch → ID
+  "lb": "🇱🇺",  // Luxemburgisch → LU
+  "mi": "🇳🇿",  // Maori → NZ
+  "ms": "🇲🇾",  // Malaiisch → MY
+  "simple": "🇬🇧", // Simple English → GB
+  "tl": "🇵🇭"   // Tagalog → PH
+  // ohne Flagge (→ Globus): als ang bar cdo cu ee enm got grc isv ksh
+  //                          la lmo luo mul nds sco
 };
 
 // Endonyme (Eigenname der Sprache in eigener Schrift). Sprachneutral —
@@ -3582,7 +3591,32 @@ var LANG_NAMES = {
   "yue": "粵語",
   "zgh": "ⵜⴰⵎⴰⵣⵉⵖⵜ",
   "zu": "isiZulu",
-  "zza": "Zazakî"
+  "zza": "Zazakî",
+  // --- Hörbuch-Sprachen (LibriVox/Commons) ---
+  "als": "Alemannisch",
+  "ang": "Ænglisc",
+  "ary": "الدارجة",
+  "bar": "Boarisch",
+  "cdo": "閩東語",
+  "ceb": "Binisayâ",
+  "cu": "Словѣньскъ ѩзꙑкъ",
+  "ee": "Eʋegbe",
+  "got": "𐌲𐌿𐍄𐌹𐍃𐌺",
+  "grc": "Ἑλληνική",
+  "isv": "Medžuslovjansky",
+  "jv": "ꦧꦱꦗꦮ",
+  "ksh": "Kölsch",
+  "la": "Latina",
+  "lb": "Lëtzebuergesch",
+  "lmo": "Lombard",
+  "luo": "Dholuo",
+  "mi": "Te Reo Māori",
+  "ms": "Bahasa Melayu",
+  "mul": "Multiple languages",
+  "nds": "Plattdüütsch",
+  "sco": "Scots",
+  "simple": "Simple English",
+  "tl": "Tagalog"
 };
 
 // Gibt die Flaggen-Emoji fuer einen BCP-47-Code zurueck.
@@ -3622,6 +3656,31 @@ function plLangTransl(code) {
   return "";
 }
 
+// true, wenn code eine der vier Tool-Sprachen ist (de/en/fr/es). Quelle ist L
+// (i18n.js) — die maßgebliche Tool-Sprach-Menge, keine eigene Liste.
+function plIsToolLang(code) {
+  var base = code ? code.split("-")[0].toLowerCase() : "";
+  return (typeof L !== "undefined") && L.hasOwnProperty(base);
+}
+
+// Beschriftung einer Sprach-Option: <Flagge> <Haupt> (<Neben>).
+// Tool-Sprachen: Haupt = Endonym, Neben = uebersetzter Name ("Español (Spanisch)")
+// — der Nutzer kennt sie, das Endonym fuehrt.
+// Uebrige Sprachen: Haupt = uebersetzter Name, Neben = Endonym
+// ("Lombardisch (Lombardo)") — der uebersetzte Name hilft beim Finden und
+// traegt die alphabetische Sortierung. Fehlt ein Teil, entfaellt die Klammer.
+function plLangOptionLabel(code) {
+  var flag   = (typeof plLangFlag  === "function") ? plLangFlag(code)  : "";
+  var endo   = (typeof plLangName  === "function") ? plLangName(code)  : code;
+  var transl = (typeof plLangTransl === "function") ? plLangTransl(code) : "";
+  var main, sub;
+  if (plIsToolLang(code)) { main = endo;              sub = transl; }
+  else                    { main = transl || endo;   sub = transl ? endo : ""; }
+  var label = (flag ? flag + " " : "") + main;
+  if (sub && sub !== main) label += " (" + sub + ")";
+  return label;
+}
+
 // Gibt ein Array der verfuegbaren Inhalts-Sprachen zurueck (Codes, dedupliziert).
 // Pro Kategorie GETRENNT: category "saetze" -> tags.lang aus saetze-Items;
 // "hoerbuecher" -> col.lang aus hoerbuecher-Collections. Ohne Argument
@@ -3651,14 +3710,29 @@ function plContentLangAvailable(category) {
       if (c && c.lang) add(_amBaseLang(c.lang));
     }
   }
+  // Sortierung: die vier Tool-Sprachen (de/en/fr/es) zuerst, in fester
+  // L-Reihenfolge; danach alle uebrigen alphabetisch nach dem in der
+  // aktuellen Tool-Sprache uebersetzten Namen (plLangTransl), Fallback
+  // Endonym, Fallback Code. Locale-bewusster Vergleich (Umlaute etc.).
+  var toolOrder = (typeof L !== "undefined") ? Object.keys(L) : ["de", "en", "fr", "es"];
+  function toolRank(code) {
+    var base = code.split("-")[0].toLowerCase();
+    var i = toolOrder.indexOf(base);
+    return i < 0 ? -1 : i;
+  }
+  function sortName(code) {
+    var tr = (typeof plLangTransl === "function") ? plLangTransl(code) : "";
+    if (tr) return tr;
+    return (typeof plLangName === "function") ? plLangName(code) : code;
+  }
   out.sort(function (a, b) {
-    var known = Object.keys(LANG_NAMES);
-    var ia = known.indexOf(a);
-    var ib = known.indexOf(b);
-    if (ia < 0 && ib < 0) return a < b ? -1 : a > b ? 1 : 0;
-    if (ia < 0) return 1;
-    if (ib < 0) return -1;
-    return ia - ib;
+    var ra = toolRank(a), rb = toolRank(b);
+    if (ra >= 0 || rb >= 0) {
+      if (ra < 0) return 1;      // a kein Tool -> hinter b
+      if (rb < 0) return -1;     // b kein Tool -> hinter a
+      return ra - rb;            // beide Tool -> L-Reihenfolge
+    }
+    return sortName(a).localeCompare(sortName(b));
   });
   return out;
 }
