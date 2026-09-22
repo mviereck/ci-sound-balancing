@@ -1749,43 +1749,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-djibouti-chinese-spoken-article-3-out-of-3-ogg",
-      "title": "吉布提",
-      "displayName": "Wikipedia – 吉布提",
-      "lang": "zh",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Djibouti_-_Chinese_spoken_article_(3_out_of_3).ogg",
-      "tags": {
-        "reader": "Carrotkit",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 262,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Djibouti - Chinese spoken article (3 out of 3).ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "吉布提",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/91/Djibouti_-_Chinese_spoken_article_%283_out_of_3%29.ogg",
-          "duration": 262
-        }
-      ],
-      "textLive": {
-        "wiki": "zh",
-        "api": "https://zh.wikipedia.org/w/api.php",
-        "article": "吉布提",
-        "uploadTs": "2016-06-20T11:11:16Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:file-djibouti-chinese-spoken-article-1-out-of-3-ogg",
       "title": "吉布提",
       "displayName": "Wikipedia – 吉布提",
@@ -1818,6 +1781,43 @@
         "api": "https://zh.wikipedia.org/w/api.php",
         "article": "吉布提",
         "uploadTs": "2016-06-20T10:21:48Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-djibouti-chinese-spoken-article-3-out-of-3-ogg",
+      "title": "吉布提",
+      "displayName": "Wikipedia – 吉布提",
+      "lang": "zh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Djibouti_-_Chinese_spoken_article_(3_out_of_3).ogg",
+      "tags": {
+        "reader": "Carrotkit",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 262,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Djibouti - Chinese spoken article (3 out of 3).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "吉布提",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/91/Djibouti_-_Chinese_spoken_article_%283_out_of_3%29.ogg",
+          "duration": 262
+        }
+      ],
+      "textLive": {
+        "wiki": "zh",
+        "api": "https://zh.wikipedia.org/w/api.php",
+        "article": "吉布提",
+        "uploadTs": "2016-06-20T11:11:16Z"
       }
     },
     {
@@ -1860,43 +1860,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-zh-1-ogg",
-      "title": "哈利·波特",
-      "displayName": "Wikipedia – 哈利·波特",
-      "lang": "zh",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Zh-哈利·波特1.ogg",
-      "tags": {
-        "reader": "吉恩",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 488,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Zh-哈利·波特1.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "哈利·波特",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Zh-%E5%93%88%E5%88%A9%C2%B7%E6%B3%A2%E7%89%B91.ogg",
-          "duration": 488
-        }
-      ],
-      "textLive": {
-        "wiki": "zh",
-        "api": "https://zh.wikipedia.org/w/api.php",
-        "article": "哈利·波特",
-        "uploadTs": "2005-12-19T09:26:06Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:file-zh-2-ogg",
       "title": "哈利·波特",
       "displayName": "Wikipedia – 哈利·波特",
@@ -1929,6 +1892,43 @@
         "api": "https://zh.wikipedia.org/w/api.php",
         "article": "哈利·波特",
         "uploadTs": "2005-12-19T07:29:18Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-zh-1-ogg",
+      "title": "哈利·波特",
+      "displayName": "Wikipedia – 哈利·波特",
+      "lang": "zh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Zh-哈利·波特1.ogg",
+      "tags": {
+        "reader": "吉恩",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 488,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Zh-哈利·波特1.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "哈利·波特",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Zh-%E5%93%88%E5%88%A9%C2%B7%E6%B3%A2%E7%89%B91.ogg",
+          "duration": 488
+        }
+      ],
+      "textLive": {
+        "wiki": "zh",
+        "api": "https://zh.wikipedia.org/w/api.php",
+        "article": "哈利·波特",
+        "uploadTs": "2005-12-19T09:26:06Z"
       }
     },
     {
@@ -2785,43 +2785,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:file-zh-part-1-ogg",
-      "title": "韓國教育",
-      "displayName": "Wikipedia – 韓國教育",
-      "lang": "zh",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Zh-韓國教育-part_1.ogg",
-      "tags": {
-        "reader": "人间百态",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "short",
-        "total_seconds": 824,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Zh-韓國教育-part 1.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "韓國教育",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Zh-%E9%9F%93%E5%9C%8B%E6%95%99%E8%82%B2-part_1.ogg",
-          "duration": 824
-        }
-      ],
-      "textLive": {
-        "wiki": "zh",
-        "api": "https://zh.wikipedia.org/w/api.php",
-        "article": "韓國教育",
-        "uploadTs": "2025-05-11T13:37:19Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:file-zh-part-2-ogg",
       "title": "韓國教育",
       "displayName": "Wikipedia – 韓國教育",
@@ -2854,6 +2817,43 @@
         "api": "https://zh.wikipedia.org/w/api.php",
         "article": "韓國教育",
         "uploadTs": "2025-05-11T13:44:59Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:file-zh-part-1-ogg",
+      "title": "韓國教育",
+      "displayName": "Wikipedia – 韓國教育",
+      "lang": "zh",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Zh-韓國教育-part_1.ogg",
+      "tags": {
+        "reader": "人间百态",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "short",
+        "total_seconds": 824,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Zh-韓國教育-part 1.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "韓國教育",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Zh-%E9%9F%93%E5%9C%8B%E6%95%99%E8%82%B2-part_1.ogg",
+          "duration": 824
+        }
+      ],
+      "textLive": {
+        "wiki": "zh",
+        "api": "https://zh.wikipedia.org/w/api.php",
+        "article": "韓國教育",
+        "uploadTs": "2025-05-11T13:37:19Z"
       }
     },
     {

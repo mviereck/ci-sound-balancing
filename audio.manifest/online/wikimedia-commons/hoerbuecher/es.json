@@ -7410,6 +7410,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:isla-de-margarita",
+      "title": "Isla de Margarita",
+      "displayName": "Wikipedia – Isla de Margarita",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Isla_de_Margarita,_Spanish_Wikipedia_Article_Intro.wav",
+      "tags": {
+        "reader": "Wilfredo Rafael Rodriguez Hernandez",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Isla de Margarita, Spanish Wikipedia Article Intro.wav"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Isla de Margarita",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/85/Isla_de_Margarita%2C_Spanish_Wikipedia_Article_Intro.wav",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Isla de Margarita",
+        "uploadTs": "2020-09-01T16:38:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:islam",
       "title": "Islam",
       "displayName": "Wikipedia – Islam",
@@ -11184,6 +11221,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:racismo-en-quebec",
+      "title": "Racismo en Quebec",
+      "displayName": "Wikipedia – Racismo en Quebec",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Racismo_en_Quebec_intro_(Wikipedia_Spanish_Article).flac",
+      "tags": {
+        "reader": "Wilfredor",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Racismo en Quebec intro (Wikipedia Spanish Article).flac"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Racismo en Quebec",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Racismo_en_Quebec_intro_%28Wikipedia_Spanish_Article%29.flac",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Racismo en Quebec",
+        "uploadTs": "2024-04-24T19:05:08Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:radioteatro",
       "title": "Radioteatro",
       "displayName": "Wikipedia – Radioteatro",
@@ -11628,6 +11702,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:r-mulo-betancourt",
+      "title": "Rómulo Betancourt",
+      "displayName": "Wikipedia – Rómulo Betancourt",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Intro_Rómulo_Betancourt_Article_spanish.wav",
+      "tags": {
+        "reader": "Wilfredo Rafael Rodriguez Hernandez",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Intro Rómulo Betancourt Article spanish.wav"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Rómulo Betancourt",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/66/Intro_R%C3%B3mulo_Betancourt_Article_spanish.wav",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Rómulo Betancourt",
+        "uploadTs": "2020-09-16T15:16:40Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:samur-i",
       "title": "Samurái",
       "displayName": "Wikipedia – Samurái",
@@ -11993,6 +12104,43 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Siglo de Pericles",
         "uploadTs": "2005-06-26T00:45:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:sim-n-bol-var",
+      "title": "Simón Bolívar",
+      "displayName": "Wikipedia – Simón Bolívar",
+      "lang": "es",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Simon_Bolivar,_Spanish_Wikipedia_Article_Intro.wav",
+      "tags": {
+        "reader": "Wilfredo Rafael Rodriguez Hernandez",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Simon Bolivar, Spanish Wikipedia Article Intro.wav"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Simón Bolívar",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/42/Simon_Bolivar%2C_Spanish_Wikipedia_Article_Intro.wav",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "es",
+        "api": "https://es.wikipedia.org/w/api.php",
+        "article": "Simón Bolívar",
+        "uploadTs": "2020-09-01T16:38:45Z"
       }
     },
     {
@@ -12664,43 +12812,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:tres-arroyos",
-      "title": "Tres Arroyos",
-      "displayName": "Wikipedia – Tres Arroyos",
-      "lang": "es",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_grabada_es-tres_arroyos-article.ogg",
-      "tags": {
-        "reader": "Walteriorubenslezcano",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 65,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Wikipedia grabada es-tres arroyos-article.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Tres Arroyos",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Wikipedia_grabada_es-tres_arroyos-article.ogg",
-          "duration": 65
-        }
-      ],
-      "textLive": {
-        "wiki": "es",
-        "api": "https://es.wikipedia.org/w/api.php",
-        "article": "Tres Arroyos",
-        "uploadTs": "2020-07-30T15:01:59Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:trofeo-de-la-copa-libertadores-de-am-rica",
       "title": "Trofeo de la Copa Libertadores de América",
       "displayName": "Wikipedia – Trofeo de la Copa Libertadores de América",
@@ -13325,43 +13436,6 @@
         "api": "https://es.wikipedia.org/w/api.php",
         "article": "Wikiproyecto:Wikipedia grabada",
         "uploadTs": "2008-03-24T13:54:21Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:xmms",
-      "title": "XMMS",
-      "displayName": "Wikipedia – XMMS",
-      "lang": "es",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:XMMS_1.ogg",
-      "tags": {
-        "reader": "Georgina C.",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 73,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:XMMS 1.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "XMMS",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/07/XMMS_1.ogg",
-          "duration": 73
-        }
-      ],
-      "textLive": {
-        "wiki": "es",
-        "api": "https://es.wikipedia.org/w/api.php",
-        "article": "XMMS",
-        "uploadTs": "2007-04-17T22:56:22Z"
       }
     },
     {

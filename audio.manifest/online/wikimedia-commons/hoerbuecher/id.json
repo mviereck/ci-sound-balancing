@@ -164,25 +164,25 @@
       "lang": "id",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Lutfiana_Anies_(WMID)_-_Bagian_3_-_Bendera_Afrika_Selatan_(1928-1994).ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Lutfiana_Anies_(WMID)_-_Bagian_4_-_Bendera_Afrika_Selatan_(1928-1994).ogg",
       "tags": {
         "reader": "Lutfiana Anies (WMID)",
         "gender": "",
         "dialekt": "",
         "length_band": "short",
-        "total_seconds": 327,
+        "total_seconds": 335,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Lutfiana Anies (WMID) - Bagian 3 - Bendera Afrika Selatan (1928-1994).ogg"
+        "source_file": "File:Lutfiana Anies (WMID) - Bagian 4 - Bendera Afrika Selatan (1928-1994).ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Bendera Afrika Selatan (1928–1994)",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Lutfiana_Anies_%28WMID%29_-_Bagian_3_-_Bendera_Afrika_Selatan_%281928-1994%29.ogg",
-          "duration": 327
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Lutfiana_Anies_%28WMID%29_-_Bagian_4_-_Bendera_Afrika_Selatan_%281928-1994%29.ogg",
+          "duration": 335
         }
       ],
       "textLive": {
@@ -238,7 +238,7 @@
       "lang": "id",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Arumiwidya_(WMID)_-_Bagian_2_Di_Bawah_Lindungan_Kabah.wav",
+      "url": "https://commons.wikimedia.org/wiki/File:Arumiwidya_(WMID)_-_Bagian_1_Di_Bawah_Lindungan_Kabah.wav",
       "tags": {
         "reader": "Arumiwidya",
         "gender": "",
@@ -249,13 +249,13 @@
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Arumiwidya (WMID) - Bagian 2 Di Bawah Lindungan Kabah.wav"
+        "source_file": "File:Arumiwidya (WMID) - Bagian 1 Di Bawah Lindungan Kabah.wav"
       },
       "items": [
         {
           "id": "art",
           "title": "Di Bawah Lindungan Ka'bah (novel)",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Arumiwidya_%28WMID%29_-_Bagian_2_Di_Bawah_Lindungan_Kabah.wav",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Arumiwidya_%28WMID%29_-_Bagian_1_Di_Bawah_Lindungan_Kabah.wav",
           "duration": 0
         }
       ],
@@ -904,25 +904,25 @@
       "lang": "id",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Akhsinatun_aisyah_bagian_3_perang_ustmaniyah_venesia.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Akhsinatun-aisyah-bagian_1-perang-ustmaniyah-venesi.ogg",
       "tags": {
         "reader": "Akhsinatun aisyah",
         "gender": "",
         "dialekt": "",
         "length_band": "short",
-        "total_seconds": 510,
+        "total_seconds": 351,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Akhsinatun aisyah bagian 3 perang ustmaniyah venesia.ogg"
+        "source_file": "File:Akhsinatun-aisyah-bagian 1-perang-ustmaniyah-venesi.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Perang Utsmaniyah–Venesia (1570–1573)",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/21/Akhsinatun_aisyah_bagian_3_perang_ustmaniyah_venesia.ogg",
-          "duration": 510
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Akhsinatun-aisyah-bagian_1-perang-ustmaniyah-venesi.ogg",
+          "duration": 351
         }
       ],
       "textLive": {

@@ -25,7 +25,7 @@
         "total_seconds": 107,
         "fiction": "artikel",
         "synthetic": "n",
-        "has_text": false,
+        "has_text": true,
         "url_text_source": "https://wikipedia.org",
         "source_file": "File:Gora na MS.ogg"
       },
@@ -36,7 +36,13 @@
           "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Gora_na_MS.ogg",
           "duration": 107
         }
-      ]
+      ],
+      "textLive": {
+        "wiki": "isv",
+        "api": "https://incubator.wikimedia.org/w/api.php",
+        "article": "Wp/isv/Gora",
+        "uploadTs": "2025-07-14T05:54:33Z"
+      }
     },
     {
       "kind": "collection",
@@ -56,7 +62,7 @@
         "total_seconds": 67,
         "fiction": "artikel",
         "synthetic": "n",
-        "has_text": false,
+        "has_text": true,
         "url_text_source": "https://wikipedia.org",
         "source_file": "File:Hlěb.ogg"
       },
@@ -67,7 +73,13 @@
           "audio": "https://upload.wikimedia.org/wikipedia/commons/3/34/Hl%C4%9Bb.ogg",
           "duration": 67
         }
-      ]
+      ],
+      "textLive": {
+        "wiki": "isv",
+        "api": "https://incubator.wikimedia.org/w/api.php",
+        "article": "Wp/isv/Hlěb",
+        "uploadTs": "2025-07-08T16:56:11Z"
+      }
     },
     {
       "kind": "collection",
@@ -87,7 +99,7 @@
         "total_seconds": 50,
         "fiction": "artikel",
         "synthetic": "n",
-        "has_text": false,
+        "has_text": true,
         "url_text_source": "https://wikipedia.org",
         "source_file": "File:Jeda.ogg"
       },
@@ -98,7 +110,13 @@
           "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Jeda.ogg",
           "duration": 50
         }
-      ]
+      ],
+      "textLive": {
+        "wiki": "isv",
+        "api": "https://incubator.wikimedia.org/w/api.php",
+        "article": "Wp/isv/Jeda",
+        "uploadTs": "2025-07-08T17:06:24Z"
+      }
     },
     {
       "kind": "collection",
@@ -118,7 +136,7 @@
         "total_seconds": 62,
         "fiction": "artikel",
         "synthetic": "n",
-        "has_text": false,
+        "has_text": true,
         "url_text_source": "https://wikipedia.org",
         "source_file": "File:Lěs.ogg"
       },
@@ -129,7 +147,13 @@
           "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ea/L%C4%9Bs.ogg",
           "duration": 62
         }
-      ]
+      ],
+      "textLive": {
+        "wiki": "isv",
+        "api": "https://incubator.wikimedia.org/w/api.php",
+        "article": "Wp/isv/Lěs",
+        "uploadTs": "2025-07-14T05:44:39Z"
+      }
     },
     {
       "kind": "collection",
@@ -149,7 +173,7 @@
         "total_seconds": 50,
         "fiction": "artikel",
         "synthetic": "n",
-        "has_text": false,
+        "has_text": true,
         "url_text_source": "https://wikipedia.org",
         "source_file": "File:Most definicija na ms.ogg"
       },
@@ -160,7 +184,13 @@
           "audio": "https://upload.wikimedia.org/wikipedia/commons/7/75/Most_definicija_na_ms.ogg",
           "duration": 50
         }
-      ]
+      ],
+      "textLive": {
+        "wiki": "isv",
+        "api": "https://incubator.wikimedia.org/w/api.php",
+        "article": "Wp/isv/Most",
+        "uploadTs": "2025-07-08T16:29:14Z"
+      }
     },
     {
       "kind": "collection",
@@ -180,7 +210,7 @@
         "total_seconds": 86,
         "fiction": "artikel",
         "synthetic": "n",
-        "has_text": false,
+        "has_text": true,
         "url_text_source": "https://wikipedia.org",
         "source_file": "File:Měd.ogg"
       },
@@ -191,7 +221,13 @@
           "audio": "https://upload.wikimedia.org/wikipedia/commons/1/16/M%C4%9Bd.ogg",
           "duration": 86
         }
-      ]
+      ],
+      "textLive": {
+        "wiki": "isv",
+        "api": "https://incubator.wikimedia.org/w/api.php",
+        "article": "Wp/isv/Měd",
+        "uploadTs": "2025-07-09T16:18:00Z"
+      }
     },
     {
       "kind": "collection",
@@ -211,7 +247,7 @@
         "total_seconds": 74,
         "fiction": "artikel",
         "synthetic": "n",
-        "has_text": false,
+        "has_text": true,
         "url_text_source": "https://wikipedia.org",
         "source_file": "File:RěkaMS.ogg"
       },
@@ -222,7 +258,13 @@
           "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3f/R%C4%9BkaMS.ogg",
           "duration": 74
         }
-      ]
+      ],
+      "textLive": {
+        "wiki": "isv",
+        "api": "https://incubator.wikimedia.org/w/api.php",
+        "article": "Wp/isv/Rěka",
+        "uploadTs": "2025-07-14T05:32:25Z"
+      }
     },
     {
       "kind": "collection",
@@ -242,7 +284,7 @@
         "total_seconds": 59,
         "fiction": "artikel",
         "synthetic": "n",
-        "has_text": false,
+        "has_text": true,
         "url_text_source": "https://wikipedia.org",
         "source_file": "File:Sok definicija na MS.ogg"
       },
@@ -253,7 +295,13 @@
           "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/Sok_definicija_na_MS.ogg",
           "duration": 59
         }
-      ]
+      ],
+      "textLive": {
+        "wiki": "isv",
+        "api": "https://incubator.wikimedia.org/w/api.php",
+        "article": "Wp/isv/Sok",
+        "uploadTs": "2025-07-08T16:33:04Z"
+      }
     },
     {
       "kind": "collection",
@@ -273,7 +321,7 @@
         "total_seconds": 91,
         "fiction": "artikel",
         "synthetic": "n",
-        "has_text": false,
+        "has_text": true,
         "url_text_source": "https://wikipedia.org",
         "source_file": "File:Zemja.ogg"
       },
@@ -284,7 +332,13 @@
           "audio": "https://upload.wikimedia.org/wikipedia/commons/1/17/Zemja.ogg",
           "duration": 91
         }
-      ]
+      ],
+      "textLive": {
+        "wiki": "isv",
+        "api": "https://incubator.wikimedia.org/w/api.php",
+        "article": "Wp/isv/Zemja",
+        "uploadTs": "2025-07-09T02:50:23Z"
+      }
     }
   ]
 }

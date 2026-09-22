@@ -36831,25 +36831,25 @@
       "lang": "en",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Introduction_to_Evolution_Part_02.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Introduction_to_Evolution_Part_03.ogg",
       "tags": {
         "reader": "marmenta",
         "gender": "",
         "dialekt": "US",
         "length_band": "medium",
-        "total_seconds": 1305,
+        "total_seconds": 1342,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Introduction to Evolution Part 02.ogg"
+        "source_file": "File:Introduction to Evolution Part 03.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Introduction to Evolution",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Introduction_to_Evolution_Part_02.ogg",
-          "duration": 1305
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Introduction_to_Evolution_Part_03.ogg",
+          "duration": 1342
         }
       ],
       "textLive": {
@@ -43417,25 +43417,25 @@
       "lang": "en",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Bad_Girls_screen_reader_audio.wav",
+      "url": "https://commons.wikimedia.org/wiki/File:Glee_screen_reader_audio.wav",
       "tags": {
         "reader": "Isaidnoway",
         "gender": "",
         "dialekt": "US",
         "length_band": "very_short",
-        "total_seconds": 37,
+        "total_seconds": 46,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Bad Girls screen reader audio.wav"
+        "source_file": "File:Glee screen reader audio.wav"
       },
       "items": [
         {
           "id": "art",
           "title": "List of dramatic television series with LGBT characters: 1960s–2000s",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/38/Bad_Girls_screen_reader_audio.wav",
-          "duration": 37
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Glee_screen_reader_audio.wav",
+          "duration": 46
         }
       ],
       "textLive": {
@@ -45446,43 +45446,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:manhattanhenge",
-      "title": "Manhattanhenge",
-      "displayName": "Wikipedia – Manhattanhenge",
-      "lang": "en",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_Audio_-_Manhattanhenge.wav",
-      "tags": {
-        "reader": "JohnAnkerBow",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Wikipedia Audio - Manhattanhenge.wav"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Manhattanhenge",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Wikipedia_Audio_-_Manhattanhenge.wav",
-          "duration": 0
-        }
-      ],
-      "textLive": {
-        "wiki": "en",
-        "api": "https://en.wikipedia.org/w/api.php",
-        "article": "Manhattanhenge",
-        "uploadTs": "2018-10-22T15:19:06Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:mansard-roof",
       "title": "Mansard roof",
       "displayName": "Wikipedia – Mansard roof",
@@ -47328,6 +47291,43 @@
         "api": "https://en.wikipedia.org/w/api.php",
         "article": "Metal Gear Solid",
         "uploadTs": "2008-01-12T13:17:26Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:meteorological-history-of-cyclone-freddy",
+      "title": "Meteorological history of Cyclone Freddy",
+      "displayName": "Wikipedia – Meteorological history of Cyclone Freddy",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Meteorological_history_of_Cyclone_Freddy_(spoken_by_AI_voice).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Meteorological history of Cyclone Freddy (spoken by AI voice).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Meteorological history of Cyclone Freddy",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Wikipedia_-_Meteorological_history_of_Cyclone_Freddy_%28spoken_by_AI_voice%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Meteorological history of Cyclone Freddy",
+        "uploadTs": "2025-01-18T01:51:52Z"
       }
     },
     {
@@ -50769,43 +50769,6 @@
         "api": "https://en.wikipedia.org/w/api.php",
         "article": "Natural history museum",
         "uploadTs": "2019-07-26T10:54:29Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:nature-restoration-law",
-      "title": "Nature Restoration Law",
-      "displayName": "Wikipedia – Nature Restoration Law",
-      "lang": "en",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Nature_Restoration_Law_(spoken_by_AI_voice).mp3",
-      "tags": {
-        "reader": "KI-Stimme",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
-        "fiction": "artikel",
-        "synthetic": "y",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Wikipedia - Nature Restoration Law (spoken by AI voice).mp3"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Nature Restoration Law",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/62/Wikipedia_-_Nature_Restoration_Law_%28spoken_by_AI_voice%29.mp3",
-          "duration": 0
-        }
-      ],
-      "textLive": {
-        "wiki": "en",
-        "api": "https://en.wikipedia.org/w/api.php",
-        "article": "Nature Restoration Law",
-        "uploadTs": "2024-10-30T22:46:38Z"
       }
     },
     {
@@ -55288,43 +55251,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:penile-vaginal-intercourse",
-      "title": "Penile–vaginal intercourse",
-      "displayName": "Wikipedia – Penile–vaginal intercourse",
-      "lang": "en",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Penile-vaginal_intercourse.mp3",
-      "tags": {
-        "reader": "KI-Stimme",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
-        "fiction": "artikel",
-        "synthetic": "y",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Wikipedia - Penile-vaginal intercourse.mp3"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Penile–vaginal intercourse",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Wikipedia_-_Penile-vaginal_intercourse.mp3",
-          "duration": 0
-        }
-      ],
-      "textLive": {
-        "wiki": "en",
-        "api": "https://en.wikipedia.org/w/api.php",
-        "article": "Penile–vaginal intercourse",
-        "uploadTs": "2024-12-04T18:00:22Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:perfect-dark",
       "title": "Perfect Dark",
       "displayName": "Wikipedia – Perfect Dark",
@@ -56509,43 +56435,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:podcast",
-      "title": "Podcast",
-      "displayName": "Wikipedia – Podcast",
-      "lang": "en",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Podcast_(spoken_by_AI_voice).mp3",
-      "tags": {
-        "reader": "KI-Stimme",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
-        "fiction": "artikel",
-        "synthetic": "y",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Wikipedia - Podcast (spoken by AI voice).mp3"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Podcast",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Wikipedia_-_Podcast_%28spoken_by_AI_voice%29.mp3",
-          "duration": 0
-        }
-      ],
-      "textLive": {
-        "wiki": "en",
-        "api": "https://en.wikipedia.org/w/api.php",
-        "article": "Podcast",
-        "uploadTs": "2024-11-07T00:04:20Z"
-      }
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:podcasting",
       "title": "Podcasting",
       "displayName": "Wikipedia – Podcasting",
@@ -57392,6 +57281,43 @@
         "api": "https://en.wikipedia.org/w/api.php",
         "article": "Post-scarcity economy",
         "uploadTs": "2018-11-03T12:33:18Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:potential-cultural-impact-of-extraterrestrial-contact",
+      "title": "Potential cultural impact of extraterrestrial contact",
+      "displayName": "Wikipedia – Potential cultural impact of extraterrestrial contact",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Potential_cultural_impact_of_extraterrestrial_contact_(spoken_by_AI_voice).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Potential cultural impact of extraterrestrial contact (spoken by AI voice).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Potential cultural impact of extraterrestrial contact",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/Wikipedia_-_Potential_cultural_impact_of_extraterrestrial_contact_%28spoken_by_AI_voice%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Potential cultural impact of extraterrestrial contact",
+        "uploadTs": "2024-11-21T16:10:19Z"
       }
     },
     {
@@ -74639,6 +74565,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:tropical-storm-trami",
+      "title": "Tropical Storm Trami",
+      "displayName": "Wikipedia – Tropical Storm Trami",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Tropical_Storm_Trami_(2024)_(spoken_by_AI_voice).mp3",
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Tropical Storm Trami (2024) (spoken by AI voice).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Tropical Storm Trami",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/85/Wikipedia_-_Tropical_Storm_Trami_%282024%29_%28spoken_by_AI_voice%29.mp3",
+          "duration": 0
+        }
+      ],
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Tropical Storm Trami",
+        "uploadTs": "2024-10-27T23:56:35Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:trouble-board-game",
       "title": "Trouble (board game)",
       "displayName": "Wikipedia – Trouble (board game)",
@@ -80776,6 +80739,43 @@
         "api": "https://en.wikipedia.org/w/api.php",
         "article": "Wolfe+585, Senior",
         "uploadTs": "2010-07-27T20:06:36Z"
+      }
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:women-s-squash-in-australia",
+      "title": "Women's squash in Australia",
+      "displayName": "Wikipedia – Women's squash in Australia",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Women's_squash_in_Australia.ogg",
+      "tags": {
+        "reader": "LauraHale",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "very_short",
+        "total_seconds": 103,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Women's squash in Australia.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Women's squash in Australia",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/57/Women%27s_squash_in_Australia.ogg",
+          "duration": 103
+        }
+      ],
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Women's squash in Australia",
+        "uploadTs": "2012-06-06T01:48:17Z"
       }
     },
     {
