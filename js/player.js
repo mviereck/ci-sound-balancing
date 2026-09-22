@@ -4627,16 +4627,19 @@ function plReadRender() {
     var fb = document.getElementById("plReadFindBtn");
     if (fb) { fb.addEventListener("click", function () { plReadFindPos(); }); _plReadFindWired = true; }
   }
-  if (!_plReadAscWired) {
-    var asc = document.getElementById("plReadAutoscroll");
-    if (asc) {
-      asc.addEventListener("change", function () {
-        plReadAutoscroll = !!asc.checked;
-        if (!plReadAutoscroll) { _plReadAutoLastT = null; _plReadAutoAcc = 0; }
-      });
-      _plReadAscWired = true;
-    }
+  var asc = document.getElementById("plReadAutoscroll");
+  if (asc && !_plReadAscWired) {
+    asc.addEventListener("change", function () {
+      plReadAutoscroll = !!asc.checked;
+      if (!plReadAutoscroll) { _plReadAutoLastT = null; _plReadAutoAcc = 0; }
+    });
+    _plReadAscWired = true;
   }
+  // Checkbox-Zustand pro Render aus der (persistenten) Variable spiegeln —
+  // sonst startet die Box mit ungecheckter Box, waehrend plReadAutoscroll aus
+  // dem gespeicherten Zustand bereits true ist (es scrollt, Haken fehlt).
+  // Analog zur Reveal-Rueckschreibung in plTextBoxRender.
+  if (asc) asc.checked = !!plReadAutoscroll;
   var visible = _plReadLines && plActiveSource === "hoerbuecher";
   plTextBoxRender({
     wrapId: "plTextBox", headLeftId: "plTextHeadL", headRightId: "plTextHeadR",
