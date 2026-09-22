@@ -2162,7 +2162,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Angriff_auf_Pearl_Harbor_1-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Angriff_auf_Pearl_Harbor_2-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -2174,19 +2174,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "long",
-        "total_seconds": 3446,
+        "total_seconds": 3416,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Angriff auf Pearl Harbor 1-article.ogg"
+        "source_file": "File:De-Angriff auf Pearl Harbor 2-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Angriff auf Pearl Harbor",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/29/De-Angriff_auf_Pearl_Harbor_1-article.ogg",
-          "duration": 3446
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fb/De-Angriff_auf_Pearl_Harbor_2-article.ogg",
+          "duration": 3416
         }
       ]
     },
@@ -5122,7 +5122,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Bahnstrecke-München–Simbach_3-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Bahnstrecke-München–Simbach_1-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -5134,19 +5134,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "long",
-        "total_seconds": 2887,
+        "total_seconds": 2830,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Bahnstrecke-München–Simbach 3-article.ogg"
+        "source_file": "File:De-Bahnstrecke-München–Simbach 1-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Bahnstrecke München–Simbach",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/De-Bahnstrecke-M%C3%BCnchen%E2%80%93Simbach_3-article.ogg",
-          "duration": 2887
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/De-Bahnstrecke-M%C3%BCnchen%E2%80%93Simbach_1-article.ogg",
+          "duration": 2830
         }
       ]
     },
@@ -9784,7 +9784,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Commodore_64_6-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Commodore_64_5-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -9795,20 +9795,20 @@
         "reader": "Blik",
         "gender": "m",
         "dialekt": "Hochdeutsch",
-        "length_band": "short",
-        "total_seconds": 478,
+        "length_band": "medium",
+        "total_seconds": 1775,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Commodore 64 6-article.ogg"
+        "source_file": "File:De-Commodore 64 5-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Commodore 64",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1f/De-Commodore_64_6-article.ogg",
-          "duration": 478
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/0/09/De-Commodore_64_5-article.ogg",
+          "duration": 1775
         }
       ]
     },
@@ -19774,7 +19774,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Geschichte_Aubings_6-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Geschichte_Aubings_7-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -19786,19 +19786,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "short",
-        "total_seconds": 854,
+        "total_seconds": 372,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Geschichte Aubings 6-article.ogg"
+        "source_file": "File:De-Geschichte Aubings 7-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Geschichte Aubings",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/89/De-Geschichte_Aubings_6-article.ogg",
-          "duration": 854
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/De-Geschichte_Aubings_7-article.ogg",
+          "duration": 372
         }
       ]
     },
@@ -39421,7 +39421,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Regensburg_1-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Regensburg_2-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -39433,19 +39433,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "long",
-        "total_seconds": 4052,
+        "total_seconds": 3477,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Regensburg 1-article.ogg"
+        "source_file": "File:De-Regensburg 2-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Regensburg",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1a/De-Regensburg_1-article.ogg",
-          "duration": 4052
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/De-Regensburg_2-article.ogg",
+          "duration": 3477
         }
       ]
     },

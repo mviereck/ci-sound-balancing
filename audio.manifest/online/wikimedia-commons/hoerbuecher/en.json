@@ -11443,6 +11443,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:bnei-akiva-schools-of-toronto",
+      "title": "Bnei Akiva Schools of Toronto",
+      "displayName": "Wikipedia – Bnei Akiva Schools of Toronto",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Yoc.ogg",
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Bnei Akiva Schools of Toronto",
+        "uploadTs": "2011-12-25T04:55:11Z"
+      },
+      "tags": {
+        "reader": "en}}",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Yoc.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Bnei Akiva Schools of Toronto",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Yoc.ogg",
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:bob-dylan",
       "title": "Bob Dylan",
       "displayName": "Wikipedia – Bob Dylan",
@@ -37275,7 +37312,7 @@
       "lang": "en",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Introduction_to_Evolution_Part_03.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Introduction_to_Evolution_Part_02.ogg",
       "textLive": {
         "wiki": "en",
         "api": "https://en.wikipedia.org/w/api.php",
@@ -37287,19 +37324,19 @@
         "gender": "",
         "dialekt": "US",
         "length_band": "medium",
-        "total_seconds": 1341,
+        "total_seconds": 1305,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Introduction to Evolution Part 03.ogg"
+        "source_file": "File:Introduction to Evolution Part 02.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Introduction to Evolution",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Introduction_to_Evolution_Part_03.ogg",
-          "duration": 1341
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Introduction_to_Evolution_Part_02.ogg",
+          "duration": 1305
         }
       ]
     },
@@ -44083,7 +44120,7 @@
       "lang": "en",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Glee_screen_reader_audio.wav",
+      "url": "https://commons.wikimedia.org/wiki/File:Bad_Girls_screen_reader_audio.wav",
       "textLive": {
         "wiki": "en",
         "api": "https://en.wikipedia.org/w/api.php",
@@ -44095,19 +44132,19 @@
         "gender": "",
         "dialekt": "US",
         "length_band": "very_short",
-        "total_seconds": 46,
+        "total_seconds": 37,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Glee screen reader audio.wav"
+        "source_file": "File:Bad Girls screen reader audio.wav"
       },
       "items": [
         {
           "id": "art",
           "title": "List of dramatic television series with LGBT characters: 1960s–2000s",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Glee_screen_reader_audio.wav",
-          "duration": 46
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/38/Bad_Girls_screen_reader_audio.wav",
+          "duration": 37
         }
       ]
     },
@@ -48036,43 +48073,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:meteorological-history-of-cyclone-freddy",
-      "title": "Meteorological history of Cyclone Freddy",
-      "displayName": "Wikipedia – Meteorological history of Cyclone Freddy",
-      "lang": "en",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Meteorological_history_of_Cyclone_Freddy_(spoken_by_AI_voice).mp3",
-      "textLive": {
-        "wiki": "en",
-        "api": "https://en.wikipedia.org/w/api.php",
-        "article": "Meteorological history of Cyclone Freddy",
-        "uploadTs": "2025-01-18T01:51:52Z"
-      },
-      "tags": {
-        "reader": "KI-Stimme",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
-        "fiction": "artikel",
-        "synthetic": "y",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Wikipedia - Meteorological history of Cyclone Freddy (spoken by AI voice).mp3"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Meteorological history of Cyclone Freddy",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Wikipedia_-_Meteorological_history_of_Cyclone_Freddy_%28spoken_by_AI_voice%29.mp3",
-          "duration": 0
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:meteorological-history-of-hurricane-ivan",
       "title": "Meteorological history of Hurricane Ivan",
       "displayName": "Wikipedia – Meteorological history of Hurricane Ivan",
@@ -50124,7 +50124,7 @@
       "tags": {
         "reader": "Montrealais",
         "gender": "",
-        "dialekt": "Canadian English",
+        "dialekt": "Canadian",
         "length_band": "",
         "total_seconds": 0,
         "fiction": "artikel",
@@ -56324,6 +56324,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:penile-vaginal-intercourse",
+      "title": "Penile–vaginal intercourse",
+      "displayName": "Wikipedia – Penile–vaginal intercourse",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Penile-vaginal_intercourse.mp3",
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Penile–vaginal intercourse",
+        "uploadTs": "2024-12-04T18:00:22Z"
+      },
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Penile-vaginal intercourse.mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Penile–vaginal intercourse",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Wikipedia_-_Penile-vaginal_intercourse.mp3",
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:perfect-dark",
       "title": "Perfect Dark",
       "displayName": "Wikipedia – Perfect Dark",
@@ -57545,43 +57582,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:podcast",
-      "title": "Podcast",
-      "displayName": "Wikipedia – Podcast",
-      "lang": "en",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Podcast_(spoken_by_AI_voice).mp3",
-      "textLive": {
-        "wiki": "en",
-        "api": "https://en.wikipedia.org/w/api.php",
-        "article": "Podcast",
-        "uploadTs": "2024-11-07T00:04:20Z"
-      },
-      "tags": {
-        "reader": "KI-Stimme",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
-        "fiction": "artikel",
-        "synthetic": "y",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Wikipedia - Podcast (spoken by AI voice).mp3"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Podcast",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Wikipedia_-_Podcast_%28spoken_by_AI_voice%29.mp3",
-          "duration": 0
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:podcasting",
       "title": "Podcasting",
       "displayName": "Wikipedia – Podcasting",
@@ -58463,43 +58463,6 @@
           "id": "art",
           "title": "Post-scarcity economy",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/d/de/En-Post-scarcity_economy-article.opus",
-          "duration": 0
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:potential-cultural-impact-of-extraterrestrial-contact",
-      "title": "Potential cultural impact of extraterrestrial contact",
-      "displayName": "Wikipedia – Potential cultural impact of extraterrestrial contact",
-      "lang": "en",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Potential_cultural_impact_of_extraterrestrial_contact_(spoken_by_AI_voice).mp3",
-      "textLive": {
-        "wiki": "en",
-        "api": "https://en.wikipedia.org/w/api.php",
-        "article": "Potential cultural impact of extraterrestrial contact",
-        "uploadTs": "2024-11-21T16:10:19Z"
-      },
-      "tags": {
-        "reader": "KI-Stimme",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
-        "fiction": "artikel",
-        "synthetic": "y",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Wikipedia - Potential cultural impact of extraterrestrial contact (spoken by AI voice).mp3"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Potential cultural impact of extraterrestrial contact",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/Wikipedia_-_Potential_cultural_impact_of_extraterrestrial_contact_%28spoken_by_AI_voice%29.mp3",
           "duration": 0
         }
       ]
@@ -64433,7 +64396,7 @@
       "lang": "en",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:En_Self-handicapping_Section_4_Major_empirical_findings.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:En_Self-handicapping_Section_5_Applications_and_Section_6_Controversies.ogg",
       "textLive": {
         "wiki": "en",
         "api": "https://en.wikipedia.org/w/api.php",
@@ -64450,13 +64413,13 @@
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:En Self-handicapping Section 4 Major empirical findings.ogg"
+        "source_file": "File:En Self-handicapping Section 5 Applications and Section 6 Controversies.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Self-handicapping",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8c/En_Self-handicapping_Section_4_Major_empirical_findings.ogg",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b1/En_Self-handicapping_Section_5_Applications_and_Section_6_Controversies.ogg",
           "duration": 0
         }
       ]
@@ -82372,43 +82335,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:women-s-surfing-in-australia",
-      "title": "Women's surfing in Australia",
-      "displayName": "Wikipedia – Women's surfing in Australia",
-      "lang": "en",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Women's_surfing_in_Australia.ogg",
-      "textLive": {
-        "wiki": "en",
-        "api": "https://en.wikipedia.org/w/api.php",
-        "article": "Women's surfing in Australia",
-        "uploadTs": "2012-06-06T01:48:17Z"
-      },
-      "tags": {
-        "reader": "LauraHale",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Women's surfing in Australia.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Women's surfing in Australia",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Women%27s_surfing_in_Australia.ogg",
-          "duration": 0
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:wood-badge",
       "title": "Wood Badge",
       "displayName": "Wikipedia – Wood Badge",
@@ -84349,7 +84275,7 @@
       "tags": {
         "reader": "willmcw",
         "gender": "",
-        "dialekt": "californian",
+        "dialekt": "US California",
         "length_band": "short",
         "total_seconds": 617,
         "fiction": "artikel",
