@@ -2051,7 +2051,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Angriff_auf_Pearl_Harbor_2-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Angriff_auf_Pearl_Harbor_1-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -2063,19 +2063,19 @@
         "gender": "m",
         "dialekt": "",
         "length_band": "long",
-        "total_seconds": 3416,
+        "total_seconds": 3447,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Angriff auf Pearl Harbor 2-article.ogg"
+        "source_file": "File:De-Angriff auf Pearl Harbor 1-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Angriff auf Pearl Harbor",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fb/De-Angriff_auf_Pearl_Harbor_2-article.ogg",
-          "duration": 3416
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/29/De-Angriff_auf_Pearl_Harbor_1-article.ogg",
+          "duration": 3447
         }
       ]
     },
@@ -4937,7 +4937,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Bahnstrecke-München–Simbach_2-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Bahnstrecke-München–Simbach_3-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -4949,19 +4949,19 @@
         "gender": "m",
         "dialekt": "",
         "length_band": "long",
-        "total_seconds": 3913,
+        "total_seconds": 2888,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Bahnstrecke-München–Simbach 2-article.ogg"
+        "source_file": "File:De-Bahnstrecke-München–Simbach 3-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Bahnstrecke München–Simbach",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/35/De-Bahnstrecke-M%C3%BCnchen%E2%80%93Simbach_2-article.ogg",
-          "duration": 3913
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/De-Bahnstrecke-M%C3%BCnchen%E2%80%93Simbach_3-article.ogg",
+          "duration": 2888
         }
       ]
     },
@@ -19071,7 +19071,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Geschichte_Aubings_7-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Geschichte_Aubings_6-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -19083,19 +19083,19 @@
         "gender": "m",
         "dialekt": "",
         "length_band": "short",
-        "total_seconds": 373,
+        "total_seconds": 854,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Geschichte Aubings 7-article.ogg"
+        "source_file": "File:De-Geschichte Aubings 6-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Geschichte Aubings",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/De-Geschichte_Aubings_7-article.ogg",
-          "duration": 373
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/89/De-Geschichte_Aubings_6-article.ogg",
+          "duration": 854
         }
       ]
     },
@@ -24325,7 +24325,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Kaffee_2-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Kaffee_1-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -24336,20 +24336,20 @@
         "reader": "Blik",
         "gender": "m",
         "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 2426,
+        "length_band": "long",
+        "total_seconds": 4665,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Kaffee 2-article.ogg"
+        "source_file": "File:De-Kaffee 1-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Kaffee",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7c/De-Kaffee_2-article.ogg",
-          "duration": 2426
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f2/De-Kaffee_1-article.ogg",
+          "duration": 4665
         }
       ]
     },
@@ -33723,7 +33723,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Oktoberfestattentat_1-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Oktoberfestattentat_3-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -33734,20 +33734,20 @@
         "reader": "Blik",
         "gender": "m",
         "dialekt": "",
-        "length_band": "medium",
-        "total_seconds": 2478,
+        "length_band": "long",
+        "total_seconds": 2772,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Oktoberfestattentat 1-article.ogg"
+        "source_file": "File:De-Oktoberfestattentat 3-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Oktoberfestattentat",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8c/De-Oktoberfestattentat_1-article.ogg",
-          "duration": 2478
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1a/De-Oktoberfestattentat_3-article.ogg",
+          "duration": 2772
         }
       ]
     },
@@ -38089,7 +38089,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Regensburg_1-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Regensburg_2-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -38101,19 +38101,19 @@
         "gender": "m",
         "dialekt": "",
         "length_band": "long",
-        "total_seconds": 4053,
+        "total_seconds": 3477,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Regensburg 1-article.ogg"
+        "source_file": "File:De-Regensburg 2-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Regensburg",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1a/De-Regensburg_1-article.ogg",
-          "duration": 4053
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/De-Regensburg_2-article.ogg",
+          "duration": 3477
         }
       ]
     },

@@ -10518,43 +10518,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:bnei-akiva-schools-of-toronto",
-      "title": "Bnei Akiva Schools of Toronto",
-      "displayName": "Wikipedia – Bnei Akiva Schools of Toronto",
-      "lang": "en",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Yoc.ogg",
-      "textLive": {
-        "wiki": "en",
-        "api": "https://en.wikipedia.org/w/api.php",
-        "article": "Bnei Akiva Schools of Toronto",
-        "uploadTs": "2011-12-25T04:55:11Z"
-      },
-      "tags": {
-        "reader": "en}}",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "very_short",
-        "total_seconds": 130,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Yoc.ogg"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Bnei Akiva Schools of Toronto",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Yoc.ogg",
-          "duration": 130
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:bob-dylan",
       "title": "Bob Dylan",
       "displayName": "Wikipedia – Bob Dylan",
@@ -16728,43 +16691,6 @@
           "title": "Cool (Gwen Stefani song)",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2c/En-Cool_%28Gwen_Stefani_song%29-article.ogg",
           "duration": 918
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:cooper-union",
-      "title": "Cooper Union",
-      "displayName": "Wikipedia – Cooper Union",
-      "lang": "en",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_Audio_-_Cooper_Union_(Overview_&_History).wav",
-      "textLive": {
-        "wiki": "en",
-        "api": "https://en.wikipedia.org/w/api.php",
-        "article": "Cooper Union",
-        "uploadTs": "2018-11-09T03:57:18Z"
-      },
-      "tags": {
-        "reader": "JohnAnkerBow",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
-        "fiction": "artikel",
-        "synthetic": "n",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Wikipedia Audio - Cooper Union (Overview & History).wav"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Cooper Union",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Wikipedia_Audio_-_Cooper_Union_%28Overview_%26_History%29.wav",
-          "duration": 0
         }
       ]
     },
@@ -24498,6 +24424,43 @@
           "title": "Flatiron Building",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/7/78/Spoken_Wikipedia_-_Flatiron_Building.wav",
           "duration": 1444
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:flatiron-district",
+      "title": "Flatiron District",
+      "displayName": "Wikipedia – Flatiron District",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_Audio_-_Flatiron_District.wav",
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Flatiron District",
+        "uploadTs": "2018-10-22T22:02:40Z"
+      },
+      "tags": {
+        "reader": "JohnAnkerBow",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia Audio - Flatiron District.wav"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Flatiron District",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Wikipedia_Audio_-_Flatiron_District.wav",
+          "duration": 0
         }
       ]
     },
@@ -34167,7 +34130,7 @@
       "lang": "en",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Introduction_to_Evolution_Part_03.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Introduction_to_Evolution_Part_02.ogg",
       "textLive": {
         "wiki": "en",
         "api": "https://en.wikipedia.org/w/api.php",
@@ -34179,19 +34142,19 @@
         "gender": "",
         "dialekt": "US",
         "length_band": "medium",
-        "total_seconds": 1342,
+        "total_seconds": 1305,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Introduction to Evolution Part 03.ogg"
+        "source_file": "File:Introduction to Evolution Part 02.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Introduction to Evolution",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Introduction_to_Evolution_Part_03.ogg",
-          "duration": 1342
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Introduction_to_Evolution_Part_02.ogg",
+          "duration": 1305
         }
       ]
     },
@@ -43596,6 +43559,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:meteorological-history-of-cyclone-freddy",
+      "title": "Meteorological history of Cyclone Freddy",
+      "displayName": "Wikipedia – Meteorological history of Cyclone Freddy",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Meteorological_history_of_Cyclone_Freddy_(spoken_by_AI_voice).mp3",
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Meteorological history of Cyclone Freddy",
+        "uploadTs": "2025-01-18T01:51:52Z"
+      },
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Meteorological history of Cyclone Freddy (spoken by AI voice).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Meteorological history of Cyclone Freddy",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Wikipedia_-_Meteorological_history_of_Cyclone_Freddy_%28spoken_by_AI_voice%29.mp3",
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:meteorological-history-of-hurricane-ivan",
       "title": "Meteorological history of Hurricane Ivan",
       "displayName": "Wikipedia – Meteorological history of Hurricane Ivan",
@@ -50996,43 +50996,6 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
-      "id": "commons:penile-vaginal-intercourse",
-      "title": "Penile–vaginal intercourse",
-      "displayName": "Wikipedia – Penile–vaginal intercourse",
-      "lang": "en",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Penile-vaginal_intercourse.mp3",
-      "textLive": {
-        "wiki": "en",
-        "api": "https://en.wikipedia.org/w/api.php",
-        "article": "Penile–vaginal intercourse",
-        "uploadTs": "2024-12-04T18:00:22Z"
-      },
-      "tags": {
-        "reader": "KI-Stimme",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
-        "fiction": "artikel",
-        "synthetic": "y",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Wikipedia - Penile-vaginal intercourse.mp3"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Penile–vaginal intercourse",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Wikipedia_-_Penile-vaginal_intercourse.mp3",
-          "duration": 0
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
       "id": "commons:perfect-dark",
       "title": "Perfect Dark",
       "displayName": "Wikipedia – Perfect Dark",
@@ -52137,6 +52100,43 @@
           "title": "Plutonium",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Plutonium.ogg",
           "duration": 2721
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:podcast",
+      "title": "Podcast",
+      "displayName": "Wikipedia – Podcast",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Podcast_(spoken_by_AI_voice).mp3",
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Podcast",
+        "uploadTs": "2024-11-07T00:04:20Z"
+      },
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Podcast (spoken by AI voice).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Podcast",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Wikipedia_-_Podcast_%28spoken_by_AI_voice%29.mp3",
+          "duration": 0
         }
       ]
     },
@@ -75262,6 +75262,43 @@
           "title": "Zhan Guo Ce",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/5/56/En-Zhan_Guo_Ce.ogg",
           "duration": 740
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:zinc",
+      "title": "Zinc",
+      "displayName": "Wikipedia – Zinc",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Zinc_spoken.ogg",
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Zinc",
+        "uploadTs": "2012-01-25T06:21:56Z"
+      },
+      "tags": {
+        "reader": "Toby Hudson",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "long",
+        "total_seconds": 3793,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Zinc spoken.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Zinc",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Zinc_spoken.ogg",
+          "duration": 3793
         }
       ]
     },

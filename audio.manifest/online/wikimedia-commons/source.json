@@ -12,7 +12,8 @@
   "manifests": {
     "hoerbuecher": [
       "hoerbuecher/de.json",
-      "hoerbuecher/en.json"
+      "hoerbuecher/en.json",
+      "hoerbuecher/es.json"
     ]
   },
   "notes": "Audio-URLs zeigen direkt auf upload.wikimedia.org (CORS). Artikeltext wird zur Laufzeit von der Wikipedia-API geladen (textLive)."
