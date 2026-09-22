@@ -3206,7 +3206,7 @@
         "uploadTs": "2012-01-01T03:02:18Z"
       },
       "tags": {
-        "reader": "English and Simple Wikipedia Coontributors  (sound files are spoken word versions of articles referenced in file name)",
+        "reader": "English and Simple Wikipedia Coontributors",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -5967,6 +5967,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:arch-mission-foundation",
+      "title": "Arch Mission Foundation",
+      "displayName": "Wikipedia – Arch Mission Foundation",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Arch_Mission_Foundation_(Spoken_Wikipedia_by_AI-generated_voice).ogg",
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Arch Mission Foundation",
+        "uploadTs": "2024-08-21T21:14:16Z"
+      },
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Arch Mission Foundation (Spoken Wikipedia by AI-generated voice).ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Arch Mission Foundation",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/30/Wikipedia_-_Arch_Mission_Foundation_%28Spoken_Wikipedia_by_AI-generated_voice%29.ogg",
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:archaea",
       "title": "Archaea",
       "displayName": "Wikipedia – Archaea",
@@ -8661,6 +8698,43 @@
           "id": "art",
           "title": "Bank Myna",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Bank_Myna.ogg",
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
+      "id": "commons:bar-ukraine",
+      "title": "Bar, Ukraine",
+      "displayName": "Wikipedia – Bar, Ukraine",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Town_of_Bar_Vinnytsia_Region_State_of_Ukraine.ogg",
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Bar, Ukraine",
+        "uploadTs": "2016-01-12T09:53:21Z"
+      },
+      "tags": {
+        "reader": "Viktor O. Ledenyov",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "n",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Town of Bar Vinnytsia Region State of Ukraine.ogg"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Bar, Ukraine",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Town_of_Bar_Vinnytsia_Region_State_of_Ukraine.ogg",
           "duration": 0
         }
       ]
@@ -22224,7 +22298,7 @@
         "uploadTs": "2012-01-01T03:02:17Z"
       },
       "tags": {
-        "reader": "English and Simple Wikipedia Coontributors  (sound files are spoken word versions of articles referenced in file name)",
+        "reader": "English and Simple Wikipedia Coontributors",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -37201,7 +37275,7 @@
       "lang": "en",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Introduction_to_Evolution_Part_02.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Introduction_to_Evolution_Part_03.ogg",
       "textLive": {
         "wiki": "en",
         "api": "https://en.wikipedia.org/w/api.php",
@@ -37213,19 +37287,19 @@
         "gender": "",
         "dialekt": "American English",
         "length_band": "medium",
-        "total_seconds": 1305,
+        "total_seconds": 1341,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Introduction to Evolution Part 02.ogg"
+        "source_file": "File:Introduction to Evolution Part 03.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Introduction to Evolution",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Introduction_to_Evolution_Part_02.ogg",
-          "duration": 1305
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Introduction_to_Evolution_Part_03.ogg",
+          "duration": 1341
         }
       ]
     },
@@ -40576,7 +40650,7 @@
         "uploadTs": "2012-01-01T03:02:14Z"
       },
       "tags": {
-        "reader": "English and Simple Wikipedia Coontributors  (sound files are spoken word versions of articles referenced in file name)",
+        "reader": "English and Simple Wikipedia Coontributors",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -40650,7 +40724,7 @@
         "uploadTs": "2012-01-01T03:02:14Z"
       },
       "tags": {
-        "reader": "English and Simple Wikipedia Coontributors  (sound files are spoken word versions of articles referenced in file name)",
+        "reader": "English and Simple Wikipedia Coontributors",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -41057,7 +41131,7 @@
         "uploadTs": "2012-01-01T03:02:14Z"
       },
       "tags": {
-        "reader": "English and Simple Wikipedia Coontributors  (sound files are spoken word versions of articles referenced in file name)",
+        "reader": "English and Simple Wikipedia Coontributors",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -44009,7 +44083,7 @@
       "lang": "en",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Glee_screen_reader_audio.wav",
+      "url": "https://commons.wikimedia.org/wiki/File:Bad_Girls_screen_reader_audio.wav",
       "textLive": {
         "wiki": "en",
         "api": "https://en.wikipedia.org/w/api.php",
@@ -44021,19 +44095,19 @@
         "gender": "",
         "dialekt": "General American",
         "length_band": "very_short",
-        "total_seconds": 46,
+        "total_seconds": 37,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Glee screen reader audio.wav"
+        "source_file": "File:Bad Girls screen reader audio.wav"
       },
       "items": [
         {
           "id": "art",
           "title": "List of dramatic television series with LGBT characters: 1960s–2000s",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Glee_screen_reader_audio.wav",
-          "duration": 46
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/38/Bad_Girls_screen_reader_audio.wav",
+          "duration": 37
         }
       ]
     },
@@ -46533,7 +46607,7 @@
         "uploadTs": "2012-01-01T03:02:13Z"
       },
       "tags": {
-        "reader": "English and Simple Wikipedia Coontributors  (sound files are spoken word versions of articles referenced in file name)",
+        "reader": "English and Simple Wikipedia Coontributors",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -47962,6 +48036,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:meteorological-history-of-cyclone-freddy",
+      "title": "Meteorological history of Cyclone Freddy",
+      "displayName": "Wikipedia – Meteorological history of Cyclone Freddy",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Meteorological_history_of_Cyclone_Freddy_(spoken_by_AI_voice).mp3",
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Meteorological history of Cyclone Freddy",
+        "uploadTs": "2025-01-18T01:51:52Z"
+      },
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Meteorological history of Cyclone Freddy (spoken by AI voice).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Meteorological history of Cyclone Freddy",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Wikipedia_-_Meteorological_history_of_Cyclone_Freddy_%28spoken_by_AI_voice%29.mp3",
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:meteorological-history-of-hurricane-ivan",
       "title": "Meteorological history of Hurricane Ivan",
       "displayName": "Wikipedia – Meteorological history of Hurricane Ivan",
@@ -48235,7 +48346,7 @@
         "uploadTs": "2012-01-01T03:02:12Z"
       },
       "tags": {
-        "reader": "English and Simple Wikipedia Coontributors  (sound files are spoken word versions of articles referenced in file name)",
+        "reader": "English and Simple Wikipedia Coontributors",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -55709,7 +55820,7 @@
         "uploadTs": "2012-01-01T03:02:11Z"
       },
       "tags": {
-        "reader": "English and Simple Wikipedia Coontributors  (sound files are spoken word versions of articles referenced in file name)",
+        "reader": "English and Simple Wikipedia Coontributors",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -56560,7 +56671,7 @@
         "uploadTs": "2012-01-01T03:02:10Z"
       },
       "tags": {
-        "reader": "English and Simple Wikipedia Coontributors  (sound files are spoken word versions of articles referenced in file name)",
+        "reader": "English and Simple Wikipedia Coontributors",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -58352,43 +58463,6 @@
           "id": "art",
           "title": "Post-scarcity economy",
           "audio": "https://upload.wikimedia.org/wikipedia/commons/d/de/En-Post-scarcity_economy-article.opus",
-          "duration": 0
-        }
-      ]
-    },
-    {
-      "kind": "collection",
-      "category": "hoerbuecher",
-      "id": "commons:potential-cultural-impact-of-extraterrestrial-contact",
-      "title": "Potential cultural impact of extraterrestrial contact",
-      "displayName": "Wikipedia – Potential cultural impact of extraterrestrial contact",
-      "lang": "en",
-      "license": "CC-BY-SA-3.0",
-      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Potential_cultural_impact_of_extraterrestrial_contact_(spoken_by_AI_voice).mp3",
-      "textLive": {
-        "wiki": "en",
-        "api": "https://en.wikipedia.org/w/api.php",
-        "article": "Potential cultural impact of extraterrestrial contact",
-        "uploadTs": "2024-11-21T16:10:19Z"
-      },
-      "tags": {
-        "reader": "KI-Stimme",
-        "gender": "",
-        "dialekt": "",
-        "length_band": "",
-        "total_seconds": 0,
-        "fiction": "artikel",
-        "synthetic": "y",
-        "has_text": true,
-        "url_text_source": "https://wikipedia.org",
-        "source_file": "File:Wikipedia - Potential cultural impact of extraterrestrial contact (spoken by AI voice).mp3"
-      },
-      "items": [
-        {
-          "id": "art",
-          "title": "Potential cultural impact of extraterrestrial contact",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/Wikipedia_-_Potential_cultural_impact_of_extraterrestrial_contact_%28spoken_by_AI_voice%29.mp3",
           "duration": 0
         }
       ]
@@ -60297,7 +60371,7 @@
         "uploadTs": "2012-01-01T03:02:09Z"
       },
       "tags": {
-        "reader": "English and Simple Wikipedia Coontributors  (sound files are spoken word versions of articles referenced in file name)",
+        "reader": "English and Simple Wikipedia Coontributors",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -62295,7 +62369,7 @@
         "uploadTs": "2012-01-01T03:02:08Z"
       },
       "tags": {
-        "reader": "English and Simple Wikipedia Coontributors  (sound files are spoken word versions of articles referenced in file name)",
+        "reader": "English and Simple Wikipedia Coontributors",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -75393,7 +75467,7 @@
         "uploadTs": "2012-01-01T03:02:08Z"
       },
       "tags": {
-        "reader": "English and Simple Wikipedia Coontributors  (sound files are spoken word versions of articles referenced in file name)",
+        "reader": "English and Simple Wikipedia Coontributors",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -76045,6 +76119,43 @@
     {
       "kind": "collection",
       "category": "hoerbuecher",
+      "id": "commons:tropical-storm-trami",
+      "title": "Tropical Storm Trami",
+      "displayName": "Wikipedia – Tropical Storm Trami",
+      "lang": "en",
+      "license": "CC-BY-SA-3.0",
+      "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wikipedia_-_Tropical_Storm_Trami_(2024)_(spoken_by_AI_voice).mp3",
+      "textLive": {
+        "wiki": "en",
+        "api": "https://en.wikipedia.org/w/api.php",
+        "article": "Tropical Storm Trami",
+        "uploadTs": "2024-10-27T23:56:35Z"
+      },
+      "tags": {
+        "reader": "KI-Stimme",
+        "gender": "",
+        "dialekt": "",
+        "length_band": "",
+        "total_seconds": 0,
+        "fiction": "artikel",
+        "synthetic": "y",
+        "has_text": true,
+        "url_text_source": "https://wikipedia.org",
+        "source_file": "File:Wikipedia - Tropical Storm Trami (2024) (spoken by AI voice).mp3"
+      },
+      "items": [
+        {
+          "id": "art",
+          "title": "Tropical Storm Trami",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/85/Wikipedia_-_Tropical_Storm_Trami_%282024%29_%28spoken_by_AI_voice%29.mp3",
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "kind": "collection",
+      "category": "hoerbuecher",
       "id": "commons:trouble-board-game",
       "title": "Trouble (board game)",
       "displayName": "Wikipedia – Trouble (board game)",
@@ -76096,7 +76207,7 @@
         "uploadTs": "2012-01-01T03:02:08Z"
       },
       "tags": {
-        "reader": "English and Simple Wikipedia Coontributors  (sound files are spoken word versions of articles referenced in file name)",
+        "reader": "English and Simple Wikipedia Coontributors",
         "gender": "",
         "dialekt": "",
         "length_band": "",
