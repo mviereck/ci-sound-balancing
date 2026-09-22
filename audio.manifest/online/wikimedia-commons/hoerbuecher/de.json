@@ -2162,7 +2162,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Angriff_auf_Pearl_Harbor_1-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Angriff_auf_Pearl_Harbor_2-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -2174,19 +2174,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "long",
-        "total_seconds": 3446,
+        "total_seconds": 3416,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Angriff auf Pearl Harbor 1-article.ogg"
+        "source_file": "File:De-Angriff auf Pearl Harbor 2-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Angriff auf Pearl Harbor",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/29/De-Angriff_auf_Pearl_Harbor_1-article.ogg",
-          "duration": 3446
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fb/De-Angriff_auf_Pearl_Harbor_2-article.ogg",
+          "duration": 3416
         }
       ]
     },
@@ -3206,7 +3206,7 @@
         "uploadTs": "2015-03-14T12:37:32Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "GNU",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -5122,7 +5122,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Bahnstrecke-München–Simbach_1-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Bahnstrecke-München–Simbach_2-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -5134,19 +5134,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "long",
-        "total_seconds": 2830,
+        "total_seconds": 3912,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Bahnstrecke-München–Simbach 1-article.ogg"
+        "source_file": "File:De-Bahnstrecke-München–Simbach 2-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Bahnstrecke München–Simbach",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/De-Bahnstrecke-M%C3%BCnchen%E2%80%93Simbach_1-article.ogg",
-          "duration": 2830
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/3/35/De-Bahnstrecke-M%C3%BCnchen%E2%80%93Simbach_2-article.ogg",
+          "duration": 3912
         }
       ]
     },
@@ -5611,7 +5611,7 @@
         "uploadTs": "2014-12-27T22:53:29Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Mnntoino",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -5833,7 +5833,7 @@
         "uploadTs": "2011-10-30T15:39:01Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Jan Schreiber",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -5870,7 +5870,7 @@
         "uploadTs": "2011-03-03T16:28:11Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Caspar Speiser (ich)",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -6240,7 +6240,7 @@
         "uploadTs": "2017-04-22T12:09:09Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "butch.m",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -7017,7 +7017,7 @@
         "uploadTs": "2017-01-08T17:11:48Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Inwe Oronar",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -7165,7 +7165,7 @@
         "uploadTs": "2006-08-23T14:39:35Z"
       },
       "tags": {
-        "reader": "Benutzer:Conny",
+        "reader": "Conny",
         "gender": "m",
         "dialekt": "Sachsen; Berlin",
         "length_band": "",
@@ -8016,7 +8016,7 @@
         "uploadTs": "2011-10-26T20:21:04Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Jan Schreiber",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -10384,7 +10384,7 @@
         "uploadTs": "2021-02-27T20:23:15Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Vanita83",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -11901,7 +11901,7 @@
         "uploadTs": "2011-07-27T19:51:37Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Butch.m",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -14232,7 +14232,7 @@
         "uploadTs": "2015-03-14T11:59:01Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "GNU",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -15453,7 +15453,7 @@
         "uploadTs": "2014-07-29T21:34:10Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Boshomi",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -16452,7 +16452,7 @@
         "uploadTs": "2017-10-14T07:12:26Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Wikipedia",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -16933,7 +16933,7 @@
         "uploadTs": "2009-10-11T19:12:24Z"
       },
       "tags": {
-        "reader": "unknown, [http://podpedia.podspot.de Podpedia]",
+        "reader": "Podpedia",
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "short",
@@ -19005,7 +19005,7 @@
         "uploadTs": "2017-03-20T14:54:44Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Chrissey567",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -19774,7 +19774,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Geschichte_Aubings_6-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Geschichte_Aubings_7-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -19786,19 +19786,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "short",
-        "total_seconds": 854,
+        "total_seconds": 372,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Geschichte Aubings 6-article.ogg"
+        "source_file": "File:De-Geschichte Aubings 7-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Geschichte Aubings",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/89/De-Geschichte_Aubings_6-article.ogg",
-          "duration": 854
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/De-Geschichte_Aubings_7-article.ogg",
+          "duration": 372
         }
       ]
     },
@@ -21447,7 +21447,7 @@
         "uploadTs": "2006-07-07T00:36:54Z"
       },
       "tags": {
-        "reader": "Benutzer:Rainer Lewalter",
+        "reader": "Rainer Lewalter",
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "short",
@@ -21706,7 +21706,7 @@
         "uploadTs": "2011-07-28T10:19:40Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Butch.m",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -22076,7 +22076,7 @@
         "uploadTs": "2014-12-07T11:39:32Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Mnntoino",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -22409,7 +22409,7 @@
         "uploadTs": "2015-06-20T21:33:28Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Yanez",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -22705,7 +22705,7 @@
         "uploadTs": "2011-07-28T09:12:46Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Butch.m",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -23075,7 +23075,7 @@
         "uploadTs": "2011-07-28T11:44:17Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Butch.m",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -23593,7 +23593,7 @@
         "uploadTs": "2011-07-28T09:52:28Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Butch.m",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -27996,7 +27996,7 @@
         "uploadTs": "2011-04-04T02:11:41Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Guatemala",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -28921,7 +28921,7 @@
         "uploadTs": "2012-08-26T21:52:22Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Jan Schreiber",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -29846,7 +29846,7 @@
         "uploadTs": "2009-11-14T05:42:50Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "RanuKanu",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -30290,7 +30290,7 @@
         "uploadTs": "2018-12-31T12:52:04Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Felix Mack, Benutzer Fxtxt",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -32917,7 +32917,7 @@
         "uploadTs": "2014-12-11T18:02:42Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Mnntoino",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -33805,7 +33805,7 @@
         "uploadTs": "2011-07-28T14:49:43Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Butch.m",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -33990,7 +33990,7 @@
         "uploadTs": "2019-10-15T15:12:35Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Vikarino",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -34693,7 +34693,7 @@
         "uploadTs": "2013-12-31T08:42:31Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Martin Schlederer",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -34944,7 +34944,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Oktoberfestattentat_3-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Oktoberfestattentat_1-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -34956,19 +34956,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "medium",
-        "total_seconds": 2350,
+        "total_seconds": 2477,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Oktoberfestattentat 3-article.ogg"
+        "source_file": "File:De-Oktoberfestattentat 1-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Oktoberfestattentat",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1a/De-Oktoberfestattentat_3-article.ogg",
-          "duration": 2350
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8c/De-Oktoberfestattentat_1-article.ogg",
+          "duration": 2477
         }
       ]
     },
@@ -35507,7 +35507,7 @@
         "uploadTs": "2017-11-23T11:19:27Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Stoffels Michael",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -37764,7 +37764,7 @@
         "uploadTs": "2006-08-14T05:50:52Z"
       },
       "tags": {
-        "reader": "Benutzer:Rainer Lewalter",
+        "reader": "Rainer Lewalter",
         "gender": "",
         "dialekt": "Berlin",
         "length_band": "very_short",
@@ -39392,7 +39392,7 @@
         "uploadTs": "2017-01-15T20:21:47Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Vikarino",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -39873,7 +39873,7 @@
         "uploadTs": "2007-09-18T10:34:55Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Holger.Ellgaard",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -40354,7 +40354,7 @@
         "uploadTs": "2011-07-28T14:02:39Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Butch.m",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -40798,7 +40798,7 @@
         "uploadTs": "2012-04-09T16:11:07Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Wildnicken",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -40983,7 +40983,7 @@
         "uploadTs": "2017-03-26T18:13:10Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Chrissey567",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -41020,7 +41020,7 @@
         "uploadTs": "2011-07-28T18:35:34Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Butch.m",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -42241,7 +42241,7 @@
         "uploadTs": "2019-05-31T16:51:26Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Nutzer: RobbySchaefer",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -42463,7 +42463,7 @@
         "uploadTs": "2014-11-18T17:37:53Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Mnntoino",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -42722,7 +42722,7 @@
         "uploadTs": "2018-02-04T17:17:02Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Vikarino",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -43684,7 +43684,7 @@
         "uploadTs": "2014-01-01T19:21:50Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Martin Schlederer",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -44165,7 +44165,7 @@
         "uploadTs": "2017-03-07T09:48:27Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Ahdar-Ruafo",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -44276,7 +44276,7 @@
         "uploadTs": "2019-03-24T19:30:22Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "LuMau",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -45164,7 +45164,7 @@
         "uploadTs": "2017-12-07T15:03:34Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Martin Bertsche",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -46570,7 +46570,7 @@
         "uploadTs": "2011-03-03T17:12:27Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Caspar Speiser",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -49271,7 +49271,7 @@
         "uploadTs": "2015-03-14T12:19:31Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "GNU",
         "gender": "",
         "dialekt": "",
         "length_band": "",
@@ -49530,7 +49530,7 @@
         "uploadTs": "2007-06-05T20:13:10Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "AKoenig",
         "gender": "",
         "dialekt": "",
         "length_band": "",
