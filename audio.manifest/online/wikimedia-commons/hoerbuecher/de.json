@@ -1210,7 +1210,7 @@
       "tags": {
         "reader": "DmitriySp",
         "gender": "m",
-        "dialekt": "''unknown''",
+        "dialekt": "unknown",
         "length_band": "very_short",
         "total_seconds": 296,
         "fiction": "artikel",
@@ -2162,7 +2162,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Angriff_auf_Pearl_Harbor_2-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Angriff_auf_Pearl_Harbor_1-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -2174,19 +2174,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "long",
-        "total_seconds": 3416,
+        "total_seconds": 3446,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Angriff auf Pearl Harbor 2-article.ogg"
+        "source_file": "File:De-Angriff auf Pearl Harbor 1-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Angriff auf Pearl Harbor",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fb/De-Angriff_auf_Pearl_Harbor_2-article.ogg",
-          "duration": 3416
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/2/29/De-Angriff_auf_Pearl_Harbor_1-article.ogg",
+          "duration": 3446
         }
       ]
     },
@@ -5122,7 +5122,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Bahnstrecke-München–Simbach_3-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Bahnstrecke-München–Simbach_1-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -5134,19 +5134,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "long",
-        "total_seconds": 2887,
+        "total_seconds": 2830,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Bahnstrecke-München–Simbach 3-article.ogg"
+        "source_file": "File:De-Bahnstrecke-München–Simbach 1-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Bahnstrecke München–Simbach",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/De-Bahnstrecke-M%C3%BCnchen%E2%80%93Simbach_3-article.ogg",
-          "duration": 2887
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/De-Bahnstrecke-M%C3%BCnchen%E2%80%93Simbach_1-article.ogg",
+          "duration": 2830
         }
       ]
     },
@@ -7165,7 +7165,7 @@
         "uploadTs": "2006-08-23T14:39:35Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Benutzer:Conny",
         "gender": "m",
         "dialekt": "Sachsen; Berlin",
         "length_band": "",
@@ -12049,7 +12049,7 @@
         "uploadTs": "2007-08-15T12:49:38Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Benutzer:",
         "gender": "",
         "dialekt": "Hochdeutsch",
         "length_band": "",
@@ -19774,7 +19774,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Geschichte_Aubings_7-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Geschichte_Aubings_6-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -19786,19 +19786,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "short",
-        "total_seconds": 372,
+        "total_seconds": 854,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Geschichte Aubings 7-article.ogg"
+        "source_file": "File:De-Geschichte Aubings 6-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Geschichte Aubings",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/De-Geschichte_Aubings_7-article.ogg",
-          "duration": 372
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/89/De-Geschichte_Aubings_6-article.ogg",
+          "duration": 854
         }
       ]
     },
@@ -21447,7 +21447,7 @@
         "uploadTs": "2006-07-07T00:36:54Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Benutzer:Rainer Lewalter",
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "short",
@@ -21780,7 +21780,7 @@
         "uploadTs": "2006-08-26T22:41:56Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Benutzer:Henriette Fiebig",
         "gender": "w",
         "dialekt": "Berlin",
         "length_band": "medium",
@@ -30216,7 +30216,7 @@
         "uploadTs": "2015-03-09T20:16:05Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Benutzer:Denis Apel",
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "very_short",
@@ -34352,7 +34352,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Novemberpogrome-1938_2-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Novemberpogrome-1938_3-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -34369,13 +34369,13 @@
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Novemberpogrome-1938 2-article.ogg"
+        "source_file": "File:De-Novemberpogrome-1938 3-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Novemberpogrome 1938",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/73/De-Novemberpogrome-1938_2-article.ogg",
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fb/De-Novemberpogrome-1938_3-article.ogg",
           "duration": 0
         }
       ]
@@ -34944,7 +34944,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Oktoberfestattentat_1-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Oktoberfestattentat_3-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -34956,19 +34956,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "medium",
-        "total_seconds": 2477,
+        "total_seconds": 2350,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Oktoberfestattentat 1-article.ogg"
+        "source_file": "File:De-Oktoberfestattentat 3-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Oktoberfestattentat",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8c/De-Oktoberfestattentat_1-article.ogg",
-          "duration": 2477
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1a/De-Oktoberfestattentat_3-article.ogg",
+          "duration": 2350
         }
       ]
     },
@@ -36202,7 +36202,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Papier_2-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Papier_1-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -36213,20 +36213,20 @@
         "reader": "Blik",
         "gender": "m",
         "dialekt": "Hochdeutsch",
-        "length_band": "long",
-        "total_seconds": 3379,
+        "length_band": "medium",
+        "total_seconds": 2509,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Papier 2-article.ogg"
+        "source_file": "File:De-Papier 1-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Papier",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fb/De-Papier_2-article.ogg",
-          "duration": 3379
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5a/De-Papier_1-article.ogg",
+          "duration": 2509
         }
       ]
     },
@@ -37764,7 +37764,7 @@
         "uploadTs": "2006-08-14T05:50:52Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Benutzer:Rainer Lewalter",
         "gender": "",
         "dialekt": "Berlin",
         "length_band": "very_short",
@@ -38950,7 +38950,7 @@
       "tags": {
         "reader": "Jtanzler",
         "gender": "m",
-        "dialekt": "[[Österreichisches Deutsch]]",
+        "dialekt": "Österreichisches Deutsch",
         "length_band": "very_short",
         "total_seconds": 173,
         "fiction": "artikel",
@@ -39421,7 +39421,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Regensburg_1-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Regensburg_2-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -39433,19 +39433,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "long",
-        "total_seconds": 4052,
+        "total_seconds": 3477,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Regensburg 1-article.ogg"
+        "source_file": "File:De-Regensburg 2-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Regensburg",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1a/De-Regensburg_1-article.ogg",
-          "duration": 4052
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/De-Regensburg_2-article.ogg",
+          "duration": 3477
         }
       ]
     },
@@ -40243,7 +40243,7 @@
         "uploadTs": "2015-03-09T19:41:03Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Benutzer:Denis Apel",
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "very_short",
@@ -48568,7 +48568,7 @@
         "uploadTs": "2015-03-10T19:51:09Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Benutzer:Denis Apel",
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "short",
@@ -49300,7 +49300,7 @@
       "lang": "de",
       "license": "CC-BY-SA-3.0",
       "credit": "Wikimedia Commons — Gesprochene Wikipedia (CC BY-SA / GFDL)",
-      "url": "https://commons.wikimedia.org/wiki/File:De-Verschwörungstheorie_4-article.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:De-Verschwörungstheorie_5-article.ogg",
       "textLive": {
         "wiki": "de",
         "api": "https://de.wikipedia.org/w/api.php",
@@ -49312,19 +49312,19 @@
         "gender": "m",
         "dialekt": "Hochdeutsch",
         "length_band": "short",
-        "total_seconds": 396,
+        "total_seconds": 586,
         "fiction": "artikel",
         "synthetic": "n",
         "has_text": true,
         "url_text_source": "https://wikipedia.org",
-        "source_file": "File:De-Verschwörungstheorie 4-article.ogg"
+        "source_file": "File:De-Verschwörungstheorie 5-article.ogg"
       },
       "items": [
         {
           "id": "art",
           "title": "Verschwörungstheorie",
-          "audio": "https://upload.wikimedia.org/wikipedia/commons/1/13/De-Verschw%C3%B6rungstheorie_4-article.ogg",
-          "duration": 396
+          "audio": "https://upload.wikimedia.org/wikipedia/commons/7/79/De-Verschw%C3%B6rungstheorie_5-article.ogg",
+          "duration": 586
         }
       ]
     },
@@ -51454,7 +51454,7 @@
         "uploadTs": "2010-05-06T06:37:28Z"
       },
       "tags": {
-        "reader": "",
+        "reader": "Benutzer:Elya",
         "gender": "",
         "dialekt": "Hochdeutsch",
         "length_band": "",
