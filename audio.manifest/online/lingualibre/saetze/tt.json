@@ -1,0 +1,5425 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Lingua Libre",
+  "lang": "tt",
+  "license": "CC0-1.0",
+  "credit": "Lingua Libre (Wikimedia) — CC0 / CC BY-SA je Sprecher",
+  "url": "https://lingualibre.org",
+  "items": [
+    {
+      "id": "Q1524982-6a115340",
+      "text": "абагалык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e3/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B1%D0%B0%D0%B3%D0%B0%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-808eabe6",
+      "text": "абагасыманнар",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B1%D0%B0%D0%B3%D0%B0%D1%81%D1%8B%D0%BC%D0%B0%D0%BD%D0%BD%D0%B0%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1f2203be",
+      "text": "абзар",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fd/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B1%D0%B7%D0%B0%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0cdff86b",
+      "text": "абзар иясе",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/36/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B1%D0%B7%D0%B0%D1%80_%D0%B8%D1%8F%D1%81%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-aae94321",
+      "text": "абзар-кура",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/94/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B1%D0%B7%D0%B0%D1%80-%D0%BA%D1%83%D1%80%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a37b50dd",
+      "text": "абзый",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/05/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B1%D0%B7%D1%8B%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f80f5539",
+      "text": "абруй",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d4/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B1%D1%80%D1%83%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f7180f41",
+      "text": "абруйлылык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/40/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B1%D1%80%D1%83%D0%B9%D0%BB%D1%8B%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-270fa9aa",
+      "text": "абый",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e7/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B1%D1%8B%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f689d616",
+      "text": "абыстай",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/14/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B1%D1%8B%D1%81%D1%82%D0%B0%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-fda4027e",
+      "text": "аваздашлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/26/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D0%B0%D0%B7%D0%B4%D0%B0%D1%88%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-14ca2aff",
+      "text": "автокүтәргеч",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4d/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%82%D0%BE%D0%BA%D2%AF%D1%82%D3%99%D1%80%D0%B3%D0%B5%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-d6ae6dbb",
+      "text": "автоматик",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-26a8e125",
+      "text": "автомобильче",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ce/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D1%87%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-97fd47c0",
+      "text": "автомәктәп",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/be/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D3%99%D0%BA%D1%82%D3%99%D0%BF.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-9cb6ca7b",
+      "text": "автордаш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/68/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B4%D0%B0%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-be8abf83",
+      "text": "автордашлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ac/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B4%D0%B0%D1%88%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-79ee26b2",
+      "text": "автосаугыч",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/78/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%82%D0%BE%D1%81%D0%B0%D1%83%D0%B3%D1%8B%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5bc5b699",
+      "text": "автосуыткыч",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/27/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%82%D0%BE%D1%81%D1%83%D1%8B%D1%82%D0%BA%D1%8B%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-e192e6de",
+      "text": "автотөягеч",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%82%D0%BE%D1%82%D3%A9%D1%8F%D0%B3%D0%B5%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-89e71e1d",
+      "text": "автохуҗалык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c8/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%82%D0%BE%D1%85%D1%83%D2%97%D0%B0%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-44f5a3f4",
+      "text": "автошәһәр",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6c/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%82%D0%BE%D1%88%D3%99%D2%BB%D3%99%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-d04dc2f8",
+      "text": "автоэчергеч",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ed/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%82%D0%BE%D1%8D%D1%87%D0%B5%D1%80%D0%B3%D0%B5%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c4b8ff04",
+      "text": "автоүлчәгеч",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/aa/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%82%D0%BE%D2%AF%D0%BB%D1%87%D3%99%D0%B3%D0%B5%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-e752a097",
+      "text": "авыз иҗаты",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ca/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%8B%D0%B7_%D0%B8%D2%97%D0%B0%D1%82%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-257611b9",
+      "text": "авызлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7e/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%8B%D0%B7%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-890938f9",
+      "text": "авызчык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e6/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%8B%D0%B7%D1%87%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4f50db45",
+      "text": "авыл",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e6/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%8B%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-8ff36650",
+      "text": "авылдаш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/02/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%8B%D0%BB%D0%B4%D0%B0%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-bc4843d7",
+      "text": "авылча",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/08/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%8B%D0%BB%D1%87%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-9796cd5a",
+      "text": "авыр",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b6/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%8B%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-16b2beec",
+      "text": "авырлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/52/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%8B%D1%80%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-48b09e9d",
+      "text": "авыру",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8e/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%8B%D1%80%D1%83.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-811ca8c9",
+      "text": "авышлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a2/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%8B%D1%88%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-dca6489f",
+      "text": "авышма",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ce/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B2%D1%8B%D1%88%D0%BC%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-225b3b97",
+      "text": "ага",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/97/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-424c94e2",
+      "text": "агай",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D0%B0%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-779c78f1",
+      "text": "агай-эне",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e0/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D0%B0%D0%B9-%D1%8D%D0%BD%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b923f0fd",
+      "text": "агай-энелек",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D0%B0%D0%B9-%D1%8D%D0%BD%D0%B5%D0%BB%D0%B5%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-03281a7c",
+      "text": "агалтын",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/90/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D0%B0%D0%BB%D1%82%D1%8B%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-88883e0e",
+      "text": "агарткыч",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D0%B0%D1%80%D1%82%D0%BA%D1%8B%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-77a0a5ce",
+      "text": "агартучы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ab/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D0%B0%D1%80%D1%82%D1%83%D1%87%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-8ee80774",
+      "text": "агач",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/ff/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D0%B0%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-76b95229",
+      "text": "агач төбе",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/02/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D0%B0%D1%87_%D1%82%D3%A9%D0%B1%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-99ee23f7",
+      "text": "агач хәзерләү",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/60/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D0%B0%D1%87_%D1%85%D3%99%D0%B7%D0%B5%D1%80%D0%BB%D3%99%D2%AF.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-e3082ad5",
+      "text": "агачлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5c/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D0%B0%D1%87%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7362c3c7",
+      "text": "агентлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ae/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ea30045c",
+      "text": "агитаторлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ab/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D0%B8%D1%82%D0%B0%D1%82%D0%BE%D1%80%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-987fbfd3",
+      "text": "агрегатчы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D1%80%D0%B5%D0%B3%D0%B0%D1%82%D1%87%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ba8b23be",
+      "text": "агрессивлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D1%80%D0%B5%D1%81%D1%81%D0%B8%D0%B2%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4b565f2c",
+      "text": "агу кайтаргыч",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1f/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D1%83_%D0%BA%D0%B0%D0%B9%D1%82%D0%B0%D1%80%D0%B3%D1%8B%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-defa32f1",
+      "text": "агулылык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ca/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D1%83%D0%BB%D1%8B%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-661c922c",
+      "text": "агым",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fb/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D1%8B%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4d7e679f",
+      "text": "агынты",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D1%8B%D0%BD%D1%82%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-42298d9f",
+      "text": "агыр",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/85/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D1%8B%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c1113452",
+      "text": "агыш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9c/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B3%D1%8B%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f6a1cb81",
+      "text": "адыгей",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/26/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B4%D1%8B%D0%B3%D0%B5%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-77c39169",
+      "text": "адым",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4d/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B4%D1%8B%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4cb30918",
+      "text": "аеклык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7d/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B5%D0%BA%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b140a7a8",
+      "text": "аел",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7f/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B5%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-225b749a",
+      "text": "аергыч",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3d/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B5%D1%80%D0%B3%D1%8B%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4098d6f8",
+      "text": "аерма",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ef/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B5%D1%80%D0%BC%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-dcdcb9cc",
+      "text": "аермалык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4a/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B5%D1%80%D0%BC%D0%B0%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-63e8f110",
+      "text": "аерча",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f6/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B5%D1%80%D1%87%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-556ba9f3",
+      "text": "аерылмыш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/67/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B5%D1%80%D1%8B%D0%BB%D0%BC%D1%8B%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f955c31f",
+      "text": "аерымлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ca/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B5%D1%80%D1%8B%D0%BC%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-96cb1b37",
+      "text": "аждаһа",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e3/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B6%D0%B4%D0%B0%D2%BB%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0f613142",
+      "text": "азак",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/54/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D0%B0%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-32092831",
+      "text": "азап",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d1/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D0%B0%D0%BF.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-41beabf7",
+      "text": "азат",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c0/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D0%B0%D1%82.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-99bb306a",
+      "text": "азатлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/60/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D0%B0%D1%82%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4876d0cc",
+      "text": "азау теш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b7/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D0%B0%D1%83_%D1%82%D0%B5%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-6084cb73",
+      "text": "азгынлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/46/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D0%B3%D1%8B%D0%BD%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-83fe2ad9",
+      "text": "азияле",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D0%B8%D1%8F%D0%BB%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0dc550e5",
+      "text": "азлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/84/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-31cd3205",
+      "text": "азман",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a8/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D0%BC%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c9a1f2db",
+      "text": "азманлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/85/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D0%BC%D0%B0%D0%BD%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-42b37f8a",
+      "text": "азчылык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/86/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D1%87%D1%8B%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f012d08c",
+      "text": "азык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/48/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ed5df639",
+      "text": "азык-төлек",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/09/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D1%8B%D0%BA-%D1%82%D3%A9%D0%BB%D0%B5%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-120784f2",
+      "text": "азыксызлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/28/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D1%8B%D0%BA%D1%81%D1%8B%D0%B7%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-604a119f",
+      "text": "азыктамыр",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/13/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D1%8B%D0%BA%D1%82%D0%B0%D0%BC%D1%8B%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f0bbd4d8",
+      "text": "азәрбайҗан",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/05/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B7%D3%99%D1%80%D0%B1%D0%B0%D0%B9%D2%97%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-876cd869",
+      "text": "ай",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/20/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5aa17964",
+      "text": "айбалта",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3c/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B9%D0%B1%D0%B0%D0%BB%D1%82%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-250b114d",
+      "text": "айбалык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e8/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B9%D0%B1%D0%B0%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-3aa4a854",
+      "text": "айгыр",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B9%D0%B3%D1%8B%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-38af97fb",
+      "text": "айлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/eb/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B9%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-3e39bc74",
+      "text": "айлыкчы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%B9%D0%BB%D1%8B%D0%BA%D1%87%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-d5781ecd",
+      "text": "акбалык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8f/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D0%B1%D0%B0%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2910a1f1",
+      "text": "акбур",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/84/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D0%B1%D1%83%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4f1c0c6e",
+      "text": "акбүз",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/58/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D0%B1%D2%AF%D0%B7.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-30898e54",
+      "text": "аккойрык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ab/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D0%BA%D0%BE%D0%B9%D1%80%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ddde161e",
+      "text": "аккош",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/34/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D0%BA%D0%BE%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f34f92cb",
+      "text": "аккургаш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/51/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D0%BA%D1%83%D1%80%D0%B3%D0%B0%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-bc69bdde",
+      "text": "аккүбәләк",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/10/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D0%BA%D2%AF%D0%B1%D3%99%D0%BB%D3%99%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a9b2c4bd",
+      "text": "аккүз",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/55/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D0%BA%D2%AF%D0%B7.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-6cede8f0",
+      "text": "аклан",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a2/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D0%BB%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2db42fb5",
+      "text": "аклык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-edca4ef6",
+      "text": "акрынлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7f/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%80%D1%8B%D0%BD%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-fd020974",
+      "text": "аксакал",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4e/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%81%D0%B0%D0%BA%D0%B0%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-27229c87",
+      "text": "аксаклык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/03/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%81%D0%B0%D0%BA%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-e2e7aca2",
+      "text": "аксыллык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/db/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%81%D1%8B%D0%BB%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4ea66f25",
+      "text": "аксым",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/64/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%81%D1%8B%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c04d4f20",
+      "text": "аксыргак",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9d/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%81%D1%8B%D1%80%D0%B3%D0%B0%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-6e324f9c",
+      "text": "аксыргаклык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a5/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%81%D1%8B%D1%80%D0%B3%D0%B0%D0%BA%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b5047bb8",
+      "text": "аксөяк",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/96/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%81%D3%A9%D1%8F%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0ba96af4",
+      "text": "актамыр",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c0/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%82%D0%B0%D0%BC%D1%8B%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b0a5d414",
+      "text": "активлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/20/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-352f3c86",
+      "text": "актуальлек",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ed/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BB%D0%B5%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-40006206",
+      "text": "актыгы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%82%D1%8B%D0%B3%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0aa7e542",
+      "text": "актүш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0c/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%82%D2%AF%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2f52e8ea",
+      "text": "акула",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%83%D0%BB%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a5a47beb",
+      "text": "акча",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%87%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5f0bbf7e",
+      "text": "акчарлак",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%87%D0%B0%D1%80%D0%BB%D0%B0%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-cf408464",
+      "text": "акчасызлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fe/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%87%D0%B0%D1%81%D1%8B%D0%B7%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4a5788f3",
+      "text": "акшар",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%88%D0%B0%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4b900676",
+      "text": "акыл",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bf/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%8B%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a731b8d3",
+      "text": "акыллылык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0c/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%8B%D0%BB%D0%BB%D1%8B%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-79fc36fa",
+      "text": "акылсызлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/93/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%8B%D0%BB%D1%81%D1%8B%D0%B7%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4fe44a78",
+      "text": "акыручы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a8/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%8B%D1%80%D1%83%D1%87%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-096f692a",
+      "text": "акырынучы,",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/69/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BA%D1%8B%D1%80%D1%8B%D0%BD%D1%83%D1%87%D1%8B%2C.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-6766acfd",
+      "text": "ал",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f6/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ba8fd308",
+      "text": "ала",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/20/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-02a8a852",
+      "text": "ала балык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/34/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0_%D0%B1%D0%B0%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c08e20c0",
+      "text": "ала карга",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ec/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0_%D0%BA%D0%B0%D1%80%D0%B3%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-bfe52f74",
+      "text": "ала миләүшә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0_%D0%BC%D0%B8%D0%BB%D3%99%D2%AF%D1%88%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-75bbed0d",
+      "text": "алабай",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c0/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D0%B1%D0%B0%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b970af2d",
+      "text": "алабуга",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e2/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D0%B1%D1%83%D0%B3%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7507969c",
+      "text": "алабута",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/50/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D0%B1%D1%83%D1%82%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f7771e35",
+      "text": "алам-салам",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f0/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D0%BC-%D1%81%D0%B0%D0%BB%D0%B0%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f1454300",
+      "text": "аламалык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D0%BC%D0%B0%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-98c589af",
+      "text": "аламачы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/31/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D0%BC%D0%B0%D1%87%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4c2d312e",
+      "text": "алан",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6d/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5051f919",
+      "text": "аланлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D0%BD%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-786a5276",
+      "text": "алар",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dd/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4d02a664",
+      "text": "аларба",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e6/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D1%80%D0%B1%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4c00d89d",
+      "text": "аларны",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f0/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D1%80%D0%BD%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-96486503",
+      "text": "аларның",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D1%80%D0%BD%D1%8B%D2%A3.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-33bdf2bb",
+      "text": "алача",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/68/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D1%87%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0fe6e4c3",
+      "text": "алачак",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3d/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D1%87%D0%B0%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-36548650",
+      "text": "алачык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9c/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D1%87%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f2e899ba",
+      "text": "алаша",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6f/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B0%D1%88%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-288088a4",
+      "text": "албасты",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/86/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B1%D0%B0%D1%81%D1%82%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-28236b0d",
+      "text": "алган",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/00/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B3%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7d9556f3",
+      "text": "алгы як",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/16/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B3%D1%8B_%D1%8F%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-aba4406c",
+      "text": "алгырлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/07/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B3%D1%8B%D1%80%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-eed82cf5",
+      "text": "алдавыч",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/20/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B4%D0%B0%D0%B2%D1%8B%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-d123eb0e",
+      "text": "алдак",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/54/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B4%D0%B0%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c2e97417",
+      "text": "алдакчы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c6/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B4%D0%B0%D0%BA%D1%87%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2f684182",
+      "text": "алдакчылык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/26/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B4%D0%B0%D0%BA%D1%87%D1%8B%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-52c9fe29",
+      "text": "алдар",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/71/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B4%D0%B0%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c8c7bdde",
+      "text": "алды",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bc/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B4%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c11367b3",
+      "text": "алдынгылык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1e/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B4%D1%8B%D0%BD%D0%B3%D1%8B%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5613fbbf",
+      "text": "алиһә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%B8%D2%BB%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-6e547081",
+      "text": "алка",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/71/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BA%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-d578af52",
+      "text": "алка гөл",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4c/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BA%D0%B0_%D0%B3%D3%A9%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4089617f",
+      "text": "алка чәчәк",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/04/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BA%D0%B0_%D1%87%D3%99%D1%87%D3%99%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2fa7cf49",
+      "text": "алкушымча",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BA%D1%83%D1%88%D1%8B%D0%BC%D1%87%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-93cc49f2",
+      "text": "алкыш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/96/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BA%D1%8B%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2f1ca3b1",
+      "text": "Алла",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/LL-Q25285_%28tat%29-Ochpochmack-%D0%90%D0%BB%D0%BB%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1772f494",
+      "text": "алласыз",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e6/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BB%D0%B0%D1%81%D1%8B%D0%B7.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4f8f51f2",
+      "text": "алласызлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a5/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BB%D0%B0%D1%81%D1%8B%D0%B7%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-35652a36",
+      "text": "алма күбәләге",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/14/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BC%D0%B0_%D0%BA%D2%AF%D0%B1%D3%99%D0%BB%D3%99%D0%B3%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-913a2d8f",
+      "text": "алма үләне",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f3/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BC%D0%B0_%D2%AF%D0%BB%D3%99%D0%BD%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-9819f192",
+      "text": "алмагач",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/32/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BC%D0%B0%D0%B3%D0%B0%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c8d8e9f9",
+      "text": "алмачуар",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6c/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BC%D0%B0%D1%87%D1%83%D0%B0%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f5459dc0",
+      "text": "алмаш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/db/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BC%D0%B0%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1a0a94f3",
+      "text": "алмашлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BC%D0%B0%D1%88%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f193e1bc",
+      "text": "алмашыну",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BC%D0%B0%D1%88%D1%8B%D0%BD%D1%83.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ad4289c0",
+      "text": "алпавыт",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D0%BF%D0%B0%D0%B2%D1%8B%D1%82.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b00f42fc",
+      "text": "алтыкөнлек",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8d/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%82%D1%8B%D0%BA%D3%A9%D0%BD%D0%BB%D0%B5%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-33642116",
+      "text": "алтылы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/94/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%82%D1%8B%D0%BB%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2d80900e",
+      "text": "алтылык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8a/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%82%D1%8B%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a578b12a",
+      "text": "алтын",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f9/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%82%D1%8B%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b336ef86",
+      "text": "алтын камчы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bd/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%82%D1%8B%D0%BD_%D0%BA%D0%B0%D0%BC%D1%87%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-01345118",
+      "text": "алтын остасы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9f/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%82%D1%8B%D0%BD_%D0%BE%D1%81%D1%82%D0%B0%D1%81%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-50190117",
+      "text": "алтын чәчәк",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/81/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%82%D1%8B%D0%BD_%D1%87%D3%99%D1%87%D3%99%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-d4a469e1",
+      "text": "алтынчы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/97/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%82%D1%8B%D0%BD%D1%87%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ad451ce6",
+      "text": "алтөрән",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6e/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%82%D3%A9%D1%80%D3%99%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5e2037f7",
+      "text": "алучы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9f/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%83%D1%87%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0c7be74e",
+      "text": "алшарт",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/87/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%88%D0%B0%D1%80%D1%82.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-22b16a79",
+      "text": "алъяпкыч",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3f/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%8A%D1%8F%D0%BF%D0%BA%D1%8B%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-8e690d6d",
+      "text": "алым",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a9/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%8B%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-e7b48185",
+      "text": "алып",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3c/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%8B%D0%BF.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-fc5a2e39",
+      "text": "алып-сатар",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1d/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%8B%D0%BF-%D1%81%D0%B0%D1%82%D0%B0%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-6166ff89",
+      "text": "алыча",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a0/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%8B%D1%87%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5feee128",
+      "text": "алыш-биреш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BB%D1%8B%D1%88-%D0%B1%D0%B8%D1%80%D0%B5%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7e3ff1a5",
+      "text": "ана",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c8/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b98e959d",
+      "text": "ана корт",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f8/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D0%B0_%D0%BA%D0%BE%D1%80%D1%82.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a8529f18",
+      "text": "ана теле",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dc/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D0%B0_%D1%82%D0%B5%D0%BB%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2db82654",
+      "text": "анакай",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D0%B0%D0%BA%D0%B0%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-dcf6402e",
+      "text": "аналы-балалы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/07/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D0%B0%D0%BB%D1%8B-%D0%B1%D0%B0%D0%BB%D0%B0%D0%BB%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5164ca16",
+      "text": "аналы-кызлы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/52/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D0%B0%D0%BB%D1%8B-%D0%BA%D1%8B%D0%B7%D0%BB%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2471161c",
+      "text": "аналы-уллы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/56/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D0%B0%D0%BB%D1%8B-%D1%83%D0%BB%D0%BB%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-68da1927",
+      "text": "аналык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/95/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D0%B0%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-89c51146",
+      "text": "анар",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/00/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D0%B0%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-17ff93d8",
+      "text": "анар агачы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a9/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D0%B0%D1%80_%D0%B0%D0%B3%D0%B0%D1%87%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f54552d8",
+      "text": "анда",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/30/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D0%B4%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-66d5fbc5",
+      "text": "андыз",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/99/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D0%B4%D1%8B%D0%B7.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0d055976",
+      "text": "аннан",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/15/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D0%BD%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4006d14e",
+      "text": "ансатлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d5/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D1%81%D0%B0%D1%82%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a3138a92",
+      "text": "ант",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2c/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D1%82.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-41d5b156",
+      "text": "аны",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a7681e0a",
+      "text": "аныклагыч",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ca/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D1%8B%D0%BA%D0%BB%D0%B0%D0%B3%D1%8B%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0ad811b1",
+      "text": "аныкланмыш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/88/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D1%8B%D0%BA%D0%BB%D0%B0%D0%BD%D0%BC%D1%8B%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-389d0366",
+      "text": "аның",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9a/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BD%D1%8B%D2%A3.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-db56c72d",
+      "text": "апа",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a7/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BF%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1dacd9f9",
+      "text": "апакай",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BF%D0%B0%D0%BA%D0%B0%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4b34af7e",
+      "text": "апалы-сеңелле",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/35/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BF%D0%B0%D0%BB%D1%8B-%D1%81%D0%B5%D2%A3%D0%B5%D0%BB%D0%BB%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-d0ae48f4",
+      "text": "апалы-энеле",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/55/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BF%D0%B0%D0%BB%D1%8B-%D1%8D%D0%BD%D0%B5%D0%BB%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-dc56e981",
+      "text": "аппагым",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/57/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D0%BF%D0%BF%D0%B0%D0%B3%D1%8B%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-deaa1d0e",
+      "text": "арасында",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f6/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D1%80%D0%B0%D1%81%D1%8B%D0%BD%D0%B4%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-97130aba",
+      "text": "артык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fc/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D1%80%D1%82%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0d60d60d",
+      "text": "арчан",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d3/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D1%80%D1%87%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1bd98713",
+      "text": "арыслан",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/df/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D1%80%D1%8B%D1%81%D0%BB%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-9a1e563f",
+      "text": "ат",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/77/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D1%82.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0a68a66b",
+      "text": "аша",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D1%88%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ec13ceae",
+      "text": "аҗаган",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/25/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%97%D0%B0%D0%B3%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-490c89c9",
+      "text": "аң",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c6/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%A3.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b64046a0",
+      "text": "аң-белем",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ab/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%A3-%D0%B1%D0%B5%D0%BB%D0%B5%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a0cf4cb3",
+      "text": "аңа",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%A3%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1aeba301",
+      "text": "аңгыра",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/70/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%A3%D0%B3%D1%8B%D1%80%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-8413ffe5",
+      "text": "аңгыралык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d9/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%A3%D0%B3%D1%8B%D1%80%D0%B0%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-201345e4",
+      "text": "аңкау",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a0/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%A3%D0%BA%D0%B0%D1%83.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-01dcd52b",
+      "text": "аңлаешлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e2/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%A3%D0%BB%D0%B0%D0%B5%D1%88%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0765a04b",
+      "text": "аңлатма",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%A3%D0%BB%D0%B0%D1%82%D0%BC%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-56becb58",
+      "text": "аңлашылмау",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/59/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%A3%D0%BB%D0%B0%D1%88%D1%8B%D0%BB%D0%BC%D0%B0%D1%83.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-42e36263",
+      "text": "аңлашылмаучылык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c3/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%A3%D0%BB%D0%B0%D1%88%D1%8B%D0%BB%D0%BC%D0%B0%D1%83%D1%87%D1%8B%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-dbfb3729",
+      "text": "аңлылык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ec/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%A3%D0%BB%D1%8B%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2d0cf92f",
+      "text": "аңсызлык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/78/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%A3%D1%81%D1%8B%D0%B7%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-eecc45f2",
+      "text": "аһ-ваһ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%BB-%D0%B2%D0%B0%D2%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-cf3b78f9",
+      "text": "аһ-зар",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/01/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%BB-%D0%B7%D0%B0%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0ff14d10",
+      "text": "аһәң",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/15/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%BB%D3%99%D2%A3.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-d4fe93c0",
+      "text": "аһәңлелек",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/45/LL-Q25285_%28tat%29-Ochpochmack-%D0%B0%D2%BB%D3%99%D2%A3%D0%BB%D0%B5%D0%BB%D0%B5%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2fec8475",
+      "text": "бала",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/37/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B0%D0%BB%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-8df7c5a0",
+      "text": "балалар",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B0%D0%BB%D0%B0%D0%BB%D0%B0%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-6902117c",
+      "text": "балык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/de/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B0%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ddbd66ae",
+      "text": "бара",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6f/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B0%D1%80%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ed14a19c",
+      "text": "барып",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1a/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B0%D1%80%D1%8B%D0%BF.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7910570a",
+      "text": "баш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/52/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B0%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c8a727a3",
+      "text": "башка",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B0%D1%88%D0%BA%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b62fb222",
+      "text": "башлыгы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B0%D1%88%D0%BB%D1%8B%D0%B3%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-338f4ef0",
+      "text": "без",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4e/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B5%D0%B7.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1c08991e",
+      "text": "безгә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B5%D0%B7%D0%B3%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5a09e4bd",
+      "text": "безнең",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/90/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B5%D0%B7%D0%BD%D0%B5%D2%A3.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-8fe5e726",
+      "text": "белем",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/38/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B5%D0%BB%D0%B5%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1cfe4682",
+      "text": "белән",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/85/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B5%D0%BB%D3%99%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-04247988",
+      "text": "берничә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/64/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B5%D1%80%D0%BD%D0%B8%D1%87%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-acb806b5",
+      "text": "берсе",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e0/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B5%D1%80%D1%81%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7fa7fa09",
+      "text": "бик",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b7/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B8%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-62eb4e63",
+      "text": "бит",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ee/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D0%B8%D1%82.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c9b16859",
+      "text": "бу",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/de/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D1%83.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f05a5e4e",
+      "text": "буе",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/24/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D1%83%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-eadc0ea0",
+      "text": "буенча",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9c/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D1%83%D0%B5%D0%BD%D1%87%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-3539b051",
+      "text": "була",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bc/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D1%83%D0%BB%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-aab09e33",
+      "text": "булачак",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f3/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D1%83%D0%BB%D0%B0%D1%87%D0%B0%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-927fde91",
+      "text": "булган",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8d/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D1%83%D0%BB%D0%B3%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-aa12d503",
+      "text": "булды",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d1/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D1%83%D0%BB%D0%B4%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-52bcc4a6",
+      "text": "булмый",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8c/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D1%83%D0%BB%D0%BC%D1%8B%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0482865c",
+      "text": "булса",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/71/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D1%83%D0%BB%D1%81%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a84b3c90",
+      "text": "булып",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ee/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D1%83%D0%BB%D1%8B%D0%BF.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0c1909b5",
+      "text": "булырга",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/50/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D1%83%D0%BB%D1%8B%D1%80%D0%B3%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1ba14caf",
+      "text": "Быел",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e8/LL-Q25285_%28tat%29-Ochpochmack-%D0%91%D1%8B%D0%B5%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b51a2313",
+      "text": "бүген",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dc/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D2%AF%D0%B3%D0%B5%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0642118b",
+      "text": "бөтен",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/68/LL-Q25285_%28tat%29-Ochpochmack-%D0%B1%D3%A9%D1%82%D0%B5%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b383c07b",
+      "text": "вакытта",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a7/LL-Q25285_%28tat%29-Ochpochmack-%D0%B2%D0%B0%D0%BA%D1%8B%D1%82%D1%82%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-df742e23",
+      "text": "генә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/92/LL-Q25285_%28tat%29-Ochpochmack-%D0%B3%D0%B5%D0%BD%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q344907-266be937",
+      "text": "гобадия",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e0/LL-Q25285_%28tat%29-%D0%9A%D0%BE%D1%8F%D1%88-%D0%B3%D0%BE%D0%B1%D0%B0%D0%B4%D0%B8%D1%8F.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q344907",
+        "speaker_name": "Кояш",
+        "gender": "m"
+      },
+      "credit": "Кояш (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1524982-196fbfcc",
+      "text": "гына",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e1/LL-Q25285_%28tat%29-Ochpochmack-%D0%B3%D1%8B%D0%BD%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a0ab53a5",
+      "text": "да",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a5/LL-Q25285_%28tat%29-Ochpochmack-%D0%B4%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5a091949",
+      "text": "ди",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b6/LL-Q25285_%28tat%29-Ochpochmack-%D0%B4%D0%B8.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-84af2a23",
+      "text": "дигән",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/06/LL-Q25285_%28tat%29-Ochpochmack-%D0%B4%D0%B8%D0%B3%D3%99%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-e534b8f5",
+      "text": "диде",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2a/LL-Q25285_%28tat%29-Ochpochmack-%D0%B4%D0%B8%D0%B4%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0bd40cc0",
+      "text": "дип",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B4%D0%B8%D0%BF.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-3e13456d",
+      "text": "дә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b6/LL-Q25285_%28tat%29-Ochpochmack-%D0%B4%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-15f92c9c",
+      "text": "дәүләт",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/15/LL-Q25285_%28tat%29-Ochpochmack-%D0%B4%D3%99%D2%AF%D0%BB%D3%99%D1%82.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7c76b6b1",
+      "text": "дөрес",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/20/LL-Q25285_%28tat%29-Ochpochmack-%D0%B4%D3%A9%D1%80%D0%B5%D1%81.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2d30cec5",
+      "text": "ел",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/LL-Q25285_%28tat%29-Ochpochmack-%D0%B5%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-fae74463",
+      "text": "елда",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f7/LL-Q25285_%28tat%29-Ochpochmack-%D0%B5%D0%BB%D0%B4%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-42b4fa09",
+      "text": "елларда",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0a/LL-Q25285_%28tat%29-Ochpochmack-%D0%B5%D0%BB%D0%BB%D0%B0%D1%80%D0%B4%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1b376758",
+      "text": "зур",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2d/LL-Q25285_%28tat%29-Ochpochmack-%D0%B7%D1%83%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-6bf77948",
+      "text": "иде",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fe/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D0%B4%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-795137cb",
+      "text": "идем",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0e/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D0%B4%D0%B5%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1d3e45fd",
+      "text": "ике",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D0%BA%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-3fbdf426",
+      "text": "икенче",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8d/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D0%BA%D0%B5%D0%BD%D1%87%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b4d66ad8",
+      "text": "икән",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/14/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D0%BA%D3%99%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b5afe328",
+      "text": "ил",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1a/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2625ad36",
+      "text": "инде",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6b/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D0%BD%D0%B4%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-8a5f4340",
+      "text": "искә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bd/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D1%81%D0%BA%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-55d8cb6d",
+      "text": "исә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e7/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D1%81%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-30349825",
+      "text": "итеп",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e0/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D1%82%D0%B5%D0%BF.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-3b62f83a",
+      "text": "иткән",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c9/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D1%82%D0%BA%D3%99%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-95048915",
+      "text": "итте",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4d/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D1%82%D1%82%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-729c3ce2",
+      "text": "итү",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a4/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D1%82%D2%AF.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-842bba61",
+      "text": "итә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9e/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D1%82%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a033b87b",
+      "text": "итәргә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1e/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D1%82%D3%99%D1%80%D0%B3%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c979cd9b",
+      "text": "иң",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/76/LL-Q25285_%28tat%29-Ochpochmack-%D0%B8%D2%A3.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-4e8a11bf",
+      "text": "кабул",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cc/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B0%D0%B1%D1%83%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-172efefd",
+      "text": "кадәр",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/00/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B0%D0%B4%D3%99%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-135baaae",
+      "text": "Казан",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/15/LL-Q25285_%28tat%29-Ochpochmack-%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-6464d25b",
+      "text": "Казанда",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a3/LL-Q25285_%28tat%29-Ochpochmack-%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D0%B4%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-e034f14f",
+      "text": "кайбер",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/10/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B0%D0%B9%D0%B1%D0%B5%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a957c9e5",
+      "text": "кала",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/09/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B0%D0%BB%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-e2ba2d65",
+      "text": "калган",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B0%D0%BB%D0%B3%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2321b6e4",
+      "text": "караганда",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c7/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B0%D1%80%D0%B0%D0%B3%D0%B0%D0%BD%D0%B4%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7469ff90",
+      "text": "каршы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/53/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B0%D1%80%D1%88%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-699053d4",
+      "text": "кебек",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c8/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B5%D0%B1%D0%B5%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0e825664",
+      "text": "кенә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9e/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B5%D0%BD%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-72cafe75",
+      "text": "кеше",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/14/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B5%D1%88%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-d118f3d7",
+      "text": "килгән",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a9/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B8%D0%BB%D0%B3%D3%99%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-e28f1393",
+      "text": "килде",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a1/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B8%D0%BB%D0%B4%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-352c4808",
+      "text": "килеп",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/ff/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B8%D0%BB%D0%B5%D0%BF.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-476091c6",
+      "text": "килә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/06/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B8%D0%BB%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7f10096b",
+      "text": "кирәк",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f8/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D0%B8%D1%80%D3%99%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-26c3d496",
+      "text": "кына",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f6/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D1%8B%D0%BD%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-774f2d91",
+      "text": "күбрәк",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/58/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D2%AF%D0%B1%D1%80%D3%99%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1e86293a",
+      "text": "күз",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1b/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D2%AF%D0%B7.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-497480f5",
+      "text": "күп",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/01/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D2%AF%D0%BF.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-46df61fd",
+      "text": "күрә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/52/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D2%AF%D1%80%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-3f631fc3",
+      "text": "көн",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D3%A9%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7ce27ed4",
+      "text": "көнне",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/LL-Q25285_%28tat%29-Ochpochmack-%D0%BA%D3%A9%D0%BD%D0%BD%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5782412c",
+      "text": "матур",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c4/LL-Q25285_%28tat%29-Ochpochmack-%D0%BC%D0%B0%D1%82%D1%83%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1dcbf046",
+      "text": "менә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d9/LL-Q25285_%28tat%29-Ochpochmack-%D0%BC%D0%B5%D0%BD%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ae1bbc2e",
+      "text": "мең",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/47/LL-Q25285_%28tat%29-Ochpochmack-%D0%BC%D0%B5%D2%A3.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a60fa955",
+      "text": "милли",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c9/LL-Q25285_%28tat%29-Ochpochmack-%D0%BC%D0%B8%D0%BB%D0%BB%D0%B8.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-03adc0ca",
+      "text": "миллион",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/97/LL-Q25285_%28tat%29-Ochpochmack-%D0%BC%D0%B8%D0%BB%D0%BB%D0%B8%D0%BE%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-9eba2c40",
+      "text": "мин",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/49/LL-Q25285_%28tat%29-Ochpochmack-%D0%BC%D0%B8%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-59264d50",
+      "text": "минем",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a7/LL-Q25285_%28tat%29-Ochpochmack-%D0%BC%D0%B8%D0%BD%D0%B5%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-6fd82eda",
+      "text": "миңа",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1d/LL-Q25285_%28tat%29-Ochpochmack-%D0%BC%D0%B8%D2%A3%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-e0409913",
+      "text": "мондый",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c5/LL-Q25285_%28tat%29-Ochpochmack-%D0%BC%D0%BE%D0%BD%D0%B4%D1%8B%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q344923-78b9250f",
+      "text": "мәхәббәт",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/63/LL-Q7737_%28rus%29-%D0%9E%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D0%B0%D0%B4%D0%BD%D0%B8%D1%86%D0%B0-%D0%BC%D3%99%D1%85%D3%99%D0%B1%D0%B1%D3%99%D1%82.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q344923",
+        "speaker_name": "Олимпиадница",
+        "gender": "w"
+      },
+      "credit": "Олимпиадница (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1524982-9c72d4a4",
+      "text": "мөмкин",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/68/LL-Q25285_%28tat%29-Ochpochmack-%D0%BC%D3%A9%D0%BC%D0%BA%D0%B8%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-d33759f6",
+      "text": "ни",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dd/LL-Q25285_%28tat%29-Ochpochmack-%D0%BD%D0%B8.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-fd161566",
+      "text": "нинди",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e7/LL-Q25285_%28tat%29-Ochpochmack-%D0%BD%D0%B8%D0%BD%D0%B4%D0%B8.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5570f872",
+      "text": "ничек",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1b/LL-Q25285_%28tat%29-Ochpochmack-%D0%BD%D0%B8%D1%87%D0%B5%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-44aeb78a",
+      "text": "Президенты",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/06/LL-Q25285_%28tat%29-Ochpochmack-%D0%9F%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5f6cb084",
+      "text": "район",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d0/LL-Q25285_%28tat%29-Ochpochmack-%D1%80%D0%B0%D0%B9%D0%BE%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7420653d",
+      "text": "районы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9d/LL-Q25285_%28tat%29-Ochpochmack-%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-6f1e78ba",
+      "text": "республика",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/91/LL-Q25285_%28tat%29-Ochpochmack-%D1%80%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-19bbb693",
+      "text": "Республикасы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/LL-Q25285_%28tat%29-Ochpochmack-%D0%A0%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%81%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-6c159800",
+      "text": "Россия",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ca/LL-Q25285_%28tat%29-Ochpochmack-%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-0d410721",
+      "text": "рәисе",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/07/LL-Q25285_%28tat%29-Ochpochmack-%D1%80%D3%99%D0%B8%D1%81%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f6389fca",
+      "text": "Рөстәм",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/63/LL-Q25285_%28tat%29-Ochpochmack-%D0%A0%D3%A9%D1%81%D1%82%D3%99%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-58ad0172",
+      "text": "саен",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/72/LL-Q25285_%28tat%29-Ochpochmack-%D1%81%D0%B0%D0%B5%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1d406a22",
+      "text": "саны",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/73/LL-Q25285_%28tat%29-Ochpochmack-%D1%81%D0%B0%D0%BD%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ff572989",
+      "text": "социаль",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e2/LL-Q25285_%28tat%29-Ochpochmack-%D1%81%D0%BE%D1%86%D0%B8%D0%B0%D0%BB%D1%8C.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-9d35d591",
+      "text": "соң",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e4/LL-Q25285_%28tat%29-Ochpochmack-%D1%81%D0%BE%D2%A3.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-659cccd7",
+      "text": "соңгы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3c/LL-Q25285_%28tat%29-Ochpochmack-%D1%81%D0%BE%D2%A3%D0%B3%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-3cc54705",
+      "text": "сум",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b9/LL-Q25285_%28tat%29-Ochpochmack-%D1%81%D1%83%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-17e00709",
+      "text": "сүз",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5e/LL-Q25285_%28tat%29-Ochpochmack-%D1%81%D2%AF%D0%B7.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q344923-b456cb7a",
+      "text": "сәләт",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4b/LL-Q7737_%28rus%29-%D0%9E%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D0%B0%D0%B4%D0%BD%D0%B8%D1%86%D0%B0-%D1%81%D3%99%D0%BB%D3%99%D1%82.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q344923",
+        "speaker_name": "Олимпиадница",
+        "gender": "w"
+      },
+      "credit": "Олимпиадница (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1524982-91b1c7b4",
+      "text": "та",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-767c4e1e",
+      "text": "тагын",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D0%B0%D0%B3%D1%8B%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7ce61205",
+      "text": "тапкыр",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/50/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D0%B0%D0%BF%D0%BA%D1%8B%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c990c33f",
+      "text": "татар",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5a/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D0%B0%D1%82%D0%B0%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1e944bbd",
+      "text": "Татарстанда",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9d/LL-Q25285_%28tat%29-Ochpochmack-%D0%A2%D0%B0%D1%82%D0%B0%D1%80%D1%81%D1%82%D0%B0%D0%BD%D0%B4%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1c1574bd",
+      "text": "теле",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/61/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D0%B5%D0%BB%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f2710533",
+      "text": "тиеш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f7/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D0%B8%D0%B5%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-27259348",
+      "text": "Тик",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5f/LL-Q25285_%28tat%29-Ochpochmack-%D0%A2%D0%B8%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ee03104c",
+      "text": "тора",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9e/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D0%BE%D1%80%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-fa01ee7a",
+      "text": "туган",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2d/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D1%83%D0%B3%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-355efa49",
+      "text": "туры",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/35/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D1%83%D1%80%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-3db3308e",
+      "text": "турында",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f2/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D1%83%D1%80%D1%8B%D0%BD%D0%B4%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7b27564f",
+      "text": "түгел",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/97/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D2%AF%D0%B3%D0%B5%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-8adc3a7f",
+      "text": "тә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b7/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b9de4b5b",
+      "text": "төп",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/53/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D3%A9%D0%BF.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-58f48554",
+      "text": "төрле",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/92/LL-Q25285_%28tat%29-Ochpochmack-%D1%82%D3%A9%D1%80%D0%BB%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-5fafae85",
+      "text": "узган",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f5/LL-Q25285_%28tat%29-Ochpochmack-%D1%83%D0%B7%D0%B3%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-06935208",
+      "text": "ук",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0e/LL-Q25285_%28tat%29-Ochpochmack-%D1%83%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c62e8e81",
+      "text": "уку",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3c/LL-Q25285_%28tat%29-Ochpochmack-%D1%83%D0%BA%D1%83.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f7bbd0bb",
+      "text": "ул",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f1/LL-Q25285_%28tat%29-Ochpochmack-%D1%83%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f4367bc7",
+      "text": "урынбасары",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/de/LL-Q25285_%28tat%29-Ochpochmack-%D1%83%D1%80%D1%8B%D0%BD%D0%B1%D0%B0%D1%81%D0%B0%D1%80%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-57008910",
+      "text": "хакта",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8e/LL-Q25285_%28tat%29-Ochpochmack-%D1%85%D0%B0%D0%BA%D1%82%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-33c3346b",
+      "text": "халык",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/be/LL-Q25285_%28tat%29-Ochpochmack-%D1%85%D0%B0%D0%BB%D1%8B%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2d9a1f3a",
+      "text": "хезмәт",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c1/LL-Q25285_%28tat%29-Ochpochmack-%D1%85%D0%B5%D0%B7%D0%BC%D3%99%D1%82.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b78fbfdd",
+      "text": "хәбәр",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f0/LL-Q25285_%28tat%29-Ochpochmack-%D1%85%D3%99%D0%B1%D3%99%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-2b6bbcec",
+      "text": "хәзер",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/59/LL-Q25285_%28tat%29-Ochpochmack-%D1%85%D3%99%D0%B7%D0%B5%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-93ae2282",
+      "text": "хәл",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/LL-Q25285_%28tat%29-Ochpochmack-%D1%85%D3%99%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q344907-f3eb6cbc",
+      "text": "чак-чак",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/LL-Q25285_%28tat%29-%D0%9A%D0%BE%D1%8F%D1%88-%D1%87%D0%B0%D0%BA-%D1%87%D0%B0%D0%BA.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q344907",
+        "speaker_name": "Кояш",
+        "gender": "m"
+      },
+      "credit": "Кояш (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1524982-1551e8d1",
+      "text": "чит",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7c/LL-Q25285_%28tat%29-Ochpochmack-%D1%87%D0%B8%D1%82.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-81801355",
+      "text": "чыккан",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/57/LL-Q25285_%28tat%29-Ochpochmack-%D1%87%D1%8B%D0%BA%D0%BA%D0%B0%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b1f1aaa0",
+      "text": "шактый",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f2/LL-Q25285_%28tat%29-Ochpochmack-%D1%88%D0%B0%D0%BA%D1%82%D1%8B%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-48cefef0",
+      "text": "шул",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8c/LL-Q25285_%28tat%29-Ochpochmack-%D1%88%D1%83%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-e7ad641b",
+      "text": "шулай",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f1/LL-Q25285_%28tat%29-Ochpochmack-%D1%88%D1%83%D0%BB%D0%B0%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-7037bc46",
+      "text": "шундый",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bb/LL-Q25285_%28tat%29-Ochpochmack-%D1%88%D1%83%D0%BD%D0%B4%D1%8B%D0%B9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1960993b",
+      "text": "шушы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/30/LL-Q25285_%28tat%29-Ochpochmack-%D1%88%D1%83%D1%88%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-e72cd22a",
+      "text": "Шуңа",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1d/LL-Q25285_%28tat%29-Ochpochmack-%D0%A8%D1%83%D2%A3%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f271a328",
+      "text": "элек",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/76/LL-Q25285_%28tat%29-Ochpochmack-%D1%8D%D0%BB%D0%B5%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q344907-ff22bfc7",
+      "text": "эчпочмак",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bf/LL-Q25285_%28tat%29-%D0%9A%D0%BE%D1%8F%D1%88-%D1%8D%D1%87%D0%BF%D0%BE%D1%87%D0%BC%D0%B0%D0%BA.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q344907",
+        "speaker_name": "Кояш",
+        "gender": "m"
+      },
+      "credit": "Кояш (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1524982-ba96ecf7",
+      "text": "эш",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/72/LL-Q25285_%28tat%29-Ochpochmack-%D1%8D%D1%88.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-36434893",
+      "text": "эшли",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e6/LL-Q25285_%28tat%29-Ochpochmack-%D1%8D%D1%88%D0%BB%D0%B8.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-cdc98e47",
+      "text": "югары",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/75/LL-Q25285_%28tat%29-Ochpochmack-%D1%8E%D0%B3%D0%B0%D1%80%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ac9f995d",
+      "text": "юк",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/35/LL-Q25285_%28tat%29-Ochpochmack-%D1%8E%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-81eff190",
+      "text": "юл",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/43/LL-Q25285_%28tat%29-Ochpochmack-%D1%8E%D0%BB.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-298ea72b",
+      "text": "яки",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/34/LL-Q25285_%28tat%29-Ochpochmack-%D1%8F%D0%BA%D0%B8.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-1beacea5",
+      "text": "якын",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/LL-Q25285_%28tat%29-Ochpochmack-%D1%8F%D0%BA%D1%8B%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a48dff1d",
+      "text": "ярдәм",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/42/LL-Q25285_%28tat%29-Ochpochmack-%D1%8F%D1%80%D0%B4%D3%99%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-20318f2f",
+      "text": "яхшы",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ee/LL-Q25285_%28tat%29-Ochpochmack-%D1%8F%D1%85%D1%88%D1%8B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-b793afee",
+      "text": "яшь",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/35/LL-Q25285_%28tat%29-Ochpochmack-%D1%8F%D1%88%D1%8C.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-732d8ec7",
+      "text": "яңа",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/53/LL-Q25285_%28tat%29-Ochpochmack-%D1%8F%D2%A3%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ac67f6ea",
+      "text": "үз",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e9/LL-Q25285_%28tat%29-Ochpochmack-%D2%AF%D0%B7.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-6904ecd4",
+      "text": "үзе",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/08/LL-Q25285_%28tat%29-Ochpochmack-%D2%AF%D0%B7%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-76ab8a64",
+      "text": "үк",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/eb/LL-Q25285_%28tat%29-Ochpochmack-%D2%AF%D0%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-925a79dd",
+      "text": "һәм",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d1/LL-Q25285_%28tat%29-Ochpochmack-%D2%BB%D3%99%D0%BC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-67e73fe9",
+      "text": "һәр",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/79/LL-Q25285_%28tat%29-Ochpochmack-%D2%BB%D3%99%D1%80.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a7ef6fa0",
+      "text": "Ә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/df/LL-Q25285_%28tat%29-Ochpochmack-%D3%98.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-c8f17b2d",
+      "text": "ә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/57/LL-Q25285_%28tat%29-Ochpochmack-%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-80a2cfaf",
+      "text": "әле",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/eb/LL-Q25285_%28tat%29-Ochpochmack-%D3%99%D0%BB%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a06e7b73",
+      "text": "әлеге",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/30/LL-Q25285_%28tat%29-Ochpochmack-%D3%99%D0%BB%D0%B5%D0%B3%D0%B5.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-9a7194dc",
+      "text": "әллә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bb/LL-Q25285_%28tat%29-Ochpochmack-%D3%99%D0%BB%D0%BB%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-659f6f96",
+      "text": "Әмма",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c3/LL-Q25285_%28tat%29-Ochpochmack-%D3%98%D0%BC%D0%BC%D0%B0.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-f40019bf",
+      "text": "әнә",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e1/LL-Q25285_%28tat%29-Ochpochmack-%D3%99%D0%BD%D3%99.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-34f00427",
+      "text": "әти",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c5/LL-Q25285_%28tat%29-Ochpochmack-%D3%99%D1%82%D0%B8.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-ec4cfeb2",
+      "text": "өч",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/LL-Q25285_%28tat%29-Ochpochmack-%D3%A9%D1%87.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1524982-a75bbcc5",
+      "text": "өчен",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/60/LL-Q25285_%28tat%29-Ochpochmack-%D3%A9%D1%87%D0%B5%D0%BD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1524982",
+        "speaker_name": "Ochpochmack",
+        "gender": "m"
+      }
+    }
+  ]
+}

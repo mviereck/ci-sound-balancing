@@ -1,0 +1,4691 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Lingua Libre",
+  "lang": "ext",
+  "license": "CC0-1.0",
+  "credit": "Lingua Libre (Wikimedia) — CC0 / CC BY-SA je Sprecher",
+  "url": "https://lingualibre.org",
+  "items": [
+    {
+      "id": "Q1512908-e32b583f",
+      "text": "abostu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/81/LL-Q30007_%28ext%29-HackerPunki-abostu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d73dd720",
+      "text": "abril",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/92/LL-Q30007_%28ext%29-HackerPunki-abril.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-c652b1ec",
+      "text": "acuigu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3b/LL-Q30007_%28ext%29-HackerPunki-acuigu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-454aae5f",
+      "text": "acuíl",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c6/LL-Q30007_%28ext%29-HackerPunki-acu%C3%ADl.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a50da516",
+      "text": "acúin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a5/LL-Q30007_%28ext%29-HackerPunki-ac%C3%BAin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4d17f5d1",
+      "text": "adical",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/27/LL-Q30007_%28ext%29-HackerPunki-adical.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-ece697c0",
+      "text": "aginaera",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/LL-Q30007_%28ext%29-HackerPunki-aginaera.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-88a6a171",
+      "text": "agolel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9d/LL-Q30007_%28ext%29-HackerPunki-agolel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-fd8fc216",
+      "text": "agüela",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c3/LL-Q30007_%28ext%29-HackerPunki-ag%C3%BCela.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-5734d841",
+      "text": "agüelas",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/LL-Q30007_%28ext%29-HackerPunki-ag%C3%BCelas.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-12f274b4",
+      "text": "agüeli",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/LL-Q30007_%28ext%29-HackerPunki-ag%C3%BCeli.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-229e3630",
+      "text": "agüelu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d4/LL-Q30007_%28ext%29-HackerPunki-ag%C3%BCelu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b421ad4c",
+      "text": "agüelus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/87/LL-Q30007_%28ext%29-HackerPunki-ag%C3%BCelus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-721a31b0",
+      "text": "ahilal",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5f/LL-Q30007_%28ext%29-HackerPunki-ahilal.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b960f1f8",
+      "text": "ahili",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/63/LL-Q30007_%28ext%29-HackerPunki-ahili.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-fc9b4a20",
+      "text": "ahuyi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4a/LL-Q30007_%28ext%29-HackerPunki-ahuyi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-3bd5cc5a",
+      "text": "ahuyil",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/00/LL-Q30007_%28ext%29-HackerPunki-ahuyil.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-e22ee708",
+      "text": "ahuyimus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/LL-Q30007_%28ext%29-HackerPunki-ahuyimus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4b64740b",
+      "text": "ahúin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/LL-Q30007_%28ext%29-HackerPunki-ah%C3%BAin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-18bc60d3",
+      "text": "ahúis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c0/LL-Q30007_%28ext%29-HackerPunki-ah%C3%BAis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-95967fb2",
+      "text": "aina",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/LL-Q30007_%28ext%29-HackerPunki-aina.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-829aaf6d",
+      "text": "allegal",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/57/LL-Q30007_%28ext%29-HackerPunki-allegal.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d7bddac9",
+      "text": "amarillu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cb/LL-Q30007_%28ext%29-HackerPunki-amarillu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4de0a1a9",
+      "text": "andanciu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/86/LL-Q30007_%28ext%29-HackerPunki-andanciu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-ff5ca119",
+      "text": "anduvun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d8/LL-Q30007_%28ext%29-HackerPunki-anduvun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a202c0db",
+      "text": "antiel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/63/LL-Q30007_%28ext%29-HackerPunki-antiel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d436947a",
+      "text": "apreparaol",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/86/LL-Q30007_%28ext%29-HackerPunki-apreparaol.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-52b2b48a",
+      "text": "aquina",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/85/LL-Q30007_%28ext%29-HackerPunki-aquina.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-156d350c",
+      "text": "arguyi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b6/LL-Q30007_%28ext%29-HackerPunki-arguyi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-32497554",
+      "text": "arguyis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4c/LL-Q30007_%28ext%29-HackerPunki-arguyis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-fe9b8c1f",
+      "text": "arguyu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6b/LL-Q30007_%28ext%29-HackerPunki-arguyu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-e1c3fac3",
+      "text": "argüil",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/LL-Q30007_%28ext%29-HackerPunki-arg%C3%BCil.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-43dc8d7d",
+      "text": "Aspaña",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/28/LL-Q30007_%28ext%29-HackerPunki-Aspa%C3%B1a.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-68e00ac4",
+      "text": "assental",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/48/LL-Q30007_%28ext%29-HackerPunki-assental.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f2e48339",
+      "text": "assina",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/06/LL-Q30007_%28ext%29-HackerPunki-assina.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-8be0ec56",
+      "text": "avel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2e/LL-Q30007_%28ext%29-HackerPunki-avel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-aa08ecde",
+      "text": "ayel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/LL-Q30007_%28ext%29-HackerPunki-ayel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-8b73b6e6",
+      "text": "azeiti",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a4/LL-Q30007_%28ext%29-HackerPunki-azeiti.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-3522b597",
+      "text": "azetuna",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ca/LL-Q30007_%28ext%29-HackerPunki-azetuna.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-24bbd600",
+      "text": "azielti",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/41/LL-Q30007_%28ext%29-HackerPunki-azielti.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-0bdf2f30",
+      "text": "azituna",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f1/LL-Q30007_%28ext%29-HackerPunki-azituna.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-9bdb0216",
+      "text": "azul",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/80/LL-Q30007_%28ext%29-HackerPunki-azul.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-37f4890d",
+      "text": "Badajós",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9b/LL-Q30007_%28ext%29-HackerPunki-Badaj%C3%B3s.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-64ac6683",
+      "text": "bezus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/28/LL-Q30007_%28ext%29-HackerPunki-bezus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a0646cb5",
+      "text": "bimbri",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/48/LL-Q30007_%28ext%29-HackerPunki-bimbri.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a197de55",
+      "text": "brancu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/08/LL-Q30007_%28ext%29-HackerPunki-brancu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-de75b07b",
+      "text": "buracu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dd/LL-Q30007_%28ext%29-HackerPunki-buracu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-19755d9e",
+      "text": "caemus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/LL-Q30007_%28ext%29-HackerPunki-caemus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-e6991513",
+      "text": "caeça",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/LL-Q30007_%28ext%29-HackerPunki-cae%C3%A7a.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b3888162",
+      "text": "cai",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9b/LL-Q30007_%28ext%29-HackerPunki-cai.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-bae5a4f0",
+      "text": "caigu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ed/LL-Q30007_%28ext%29-HackerPunki-caigu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-659629c5",
+      "text": "calli",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/48/LL-Q30007_%28ext%29-HackerPunki-calli.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-9e9d0f30",
+      "text": "callis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7e/LL-Q30007_%28ext%29-HackerPunki-callis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-297d0f69",
+      "text": "caraiti",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/82/LL-Q30007_%28ext%29-HackerPunki-caraiti.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-de982b7e",
+      "text": "casa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5f/LL-Q30007_%28ext%29-HackerPunki-casa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-81f92691",
+      "text": "Caçris",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/47/LL-Q30007_%28ext%29-HackerPunki-Ca%C3%A7ris.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f98dd6db",
+      "text": "cebreru",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2f/LL-Q30007_%28ext%29-HackerPunki-cebreru.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b6eaec4b",
+      "text": "cefral",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/11/LL-Q30007_%28ext%29-HackerPunki-cefral.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-59419e20",
+      "text": "cencia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4b/LL-Q30007_%28ext%29-HackerPunki-cencia.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1534100-3ca1cc4a",
+      "text": "chambergu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5b/LL-Q30007_%28ext%29-Barrunterio-chambergu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1534100",
+        "speaker_name": "Barrunterio"
+      }
+    },
+    {
+      "id": "Q1512908-711a5d66",
+      "text": "cheiral",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/LL-Q30007_%28ext%29-HackerPunki-cheiral.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a590dae6",
+      "text": "cheral",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/43/LL-Q30007_%28ext%29-HackerPunki-cheral.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-586acdaa",
+      "text": "cheru",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/32/LL-Q30007_%28ext%29-HackerPunki-cheru.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-3702e134",
+      "text": "chiquenina",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/df/LL-Q30007_%28ext%29-HackerPunki-chiquenina.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-39777a9c",
+      "text": "chiqueninu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/aa/LL-Q30007_%28ext%29-HackerPunki-chiqueninu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-755b3cad",
+      "text": "cilleiru",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/10/LL-Q30007_%28ext%29-HackerPunki-cilleiru.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-09df81c2",
+      "text": "cincu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a6/LL-Q30007_%28ext%29-HackerPunki-cincu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-23a9080d",
+      "text": "ciá",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1e/LL-Q30007_%28ext%29-HackerPunki-ci%C3%A1.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b733577b",
+      "text": "cochi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f1/LL-Q30007_%28ext%29-HackerPunki-cochi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-c097072e",
+      "text": "colol",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a8/LL-Q30007_%28ext%29-HackerPunki-colol.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-956ba48b",
+      "text": "colorau",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/LL-Q30007_%28ext%29-HackerPunki-colorau.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-41f9e8c3",
+      "text": "coltura",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/92/LL-Q30007_%28ext%29-HackerPunki-coltura.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f6359f57",
+      "text": "colurnia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a0/LL-Q30007_%28ext%29-HackerPunki-colurnia.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-36fc45f7",
+      "text": "conceju",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ad/LL-Q30007_%28ext%29-HackerPunki-conceju.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-ee239f1e",
+      "text": "condumiu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/LL-Q30007_%28ext%29-HackerPunki-condumiu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-ec7da60b",
+      "text": "confissión",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/db/LL-Q30007_%28ext%29-HackerPunki-confissi%C3%B3n.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-09c51229",
+      "text": "conocencia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7a/LL-Q30007_%28ext%29-HackerPunki-conocencia.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-88ef6345",
+      "text": "corrupela",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/LL-Q30007_%28ext%29-HackerPunki-corrupela.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-54667c13",
+      "text": "costruigu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ae/LL-Q30007_%28ext%29-HackerPunki-costruigu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a02fa955",
+      "text": "costruís",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5c/LL-Q30007_%28ext%29-HackerPunki-costru%C3%ADs.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-200d67cf",
+      "text": "creyel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/02/LL-Q30007_%28ext%29-HackerPunki-creyel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-74d5b22b",
+      "text": "creyeol",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/29/LL-Q30007_%28ext%29-HackerPunki-creyeol.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-6ef728df",
+      "text": "crial",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/55/LL-Q30007_%28ext%29-HackerPunki-crial.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-976e9ff3",
+      "text": "cudiau",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/15/LL-Q30007_%28ext%29-HackerPunki-cudiau.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-c5ba306f",
+      "text": "da",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a2/LL-Q30007_%28ext%29-HackerPunki-da.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4c609184",
+      "text": "dais",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e5/LL-Q30007_%28ext%29-HackerPunki-dais.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-de7701c8",
+      "text": "dan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1d/LL-Q30007_%28ext%29-HackerPunki-dan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d45ce49c",
+      "text": "dandu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d3/LL-Q30007_%28ext%29-HackerPunki-dandu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-08aa3c3f",
+      "text": "das",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9e/LL-Q30007_%28ext%29-HackerPunki-das.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-8b3e05bf",
+      "text": "deziembri",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e7/LL-Q30007_%28ext%29-HackerPunki-deziembri.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-386e211f",
+      "text": "diendu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/46/LL-Q30007_%28ext%29-HackerPunki-diendu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-7b1355b5",
+      "text": "dil",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/22/LL-Q30007_%28ext%29-HackerPunki-dil.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-092ed8b0",
+      "text": "dimus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ab/LL-Q30007_%28ext%29-HackerPunki-dimus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-c20090b1",
+      "text": "din",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f0/LL-Q30007_%28ext%29-HackerPunki-din.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-45f65e57",
+      "text": "diva",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/LL-Q30007_%28ext%29-HackerPunki-diva.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-984e9092",
+      "text": "dixun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bc/LL-Q30007_%28ext%29-HackerPunki-dixun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d8ec0b38",
+      "text": "diés",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b7/LL-Q30007_%28ext%29-HackerPunki-di%C3%A9s.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d0ff267d",
+      "text": "dobráu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5e/LL-Q30007_%28ext%29-HackerPunki-dobr%C3%A1u.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-91bd9e8f",
+      "text": "dos",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/58/LL-Q30007_%28ext%29-HackerPunki-dos.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-5e7b787f",
+      "text": "duldar",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/37/LL-Q30007_%28ext%29-HackerPunki-duldar.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-65fce7bc",
+      "text": "duvia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fb/LL-Q30007_%28ext%29-HackerPunki-duvia.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-8acfddb1",
+      "text": "día",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/25/LL-Q30007_%28ext%29-HackerPunki-d%C3%ADa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-cb529cf8",
+      "text": "días",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/73/LL-Q30007_%28ext%29-HackerPunki-d%C3%ADas.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-af7f2311",
+      "text": "eletrecidá",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bf/LL-Q30007_%28ext%29-HackerPunki-eletrecid%C3%A1.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-5af8fb8d",
+      "text": "ella",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/10/LL-Q30007_%28ext%29-HackerPunki-ella.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-79aaa16e",
+      "text": "ellas",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fe/LL-Q30007_%28ext%29-HackerPunki-ellas.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a01301b4",
+      "text": "ellus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3a/LL-Q30007_%28ext%29-HackerPunki-ellus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-8ab5f104",
+      "text": "emprunu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f8/LL-Q30007_%28ext%29-HackerPunki-emprunu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-52201383",
+      "text": "enfruímus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/LL-Q30007_%28ext%29-HackerPunki-enfru%C3%ADmus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-81ac2cba",
+      "text": "enfrúin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3a/LL-Q30007_%28ext%29-HackerPunki-enfr%C3%BAin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-633fc908",
+      "text": "enfrúis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/55/LL-Q30007_%28ext%29-HackerPunki-enfr%C3%BAis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-bcfc5b51",
+      "text": "entangaol",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/37/LL-Q30007_%28ext%29-HackerPunki-entangaol.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-fae1487a",
+      "text": "epoca",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/02/LL-Q30007_%28ext%29-HackerPunki-epoca.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-6705e4c0",
+      "text": "epocas",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/41/LL-Q30007_%28ext%29-HackerPunki-epocas.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-3859bd0f",
+      "text": "eris",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5e/LL-Q30007_%28ext%29-HackerPunki-eris.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-173b5eb3",
+      "text": "errau",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9e/LL-Q30007_%28ext%29-HackerPunki-errau.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4149b01b",
+      "text": "es",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/eb/LL-Q30007_%28ext%29-HackerPunki-es.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d26577a5",
+      "text": "esfaratal",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8c/LL-Q30007_%28ext%29-HackerPunki-esfaratal.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4df7247a",
+      "text": "espenal",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fc/LL-Q30007_%28ext%29-HackerPunki-espenal.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-31398331",
+      "text": "estal",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c9/LL-Q30007_%28ext%29-HackerPunki-estal.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-6c80e3a7",
+      "text": "estoi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c8/LL-Q30007_%28ext%29-HackerPunki-estoi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-3701e9bc",
+      "text": "Estremaúra",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/79/LL-Q30007_%28ext%29-HackerPunki-Estrema%C3%BAra.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d021e5ff",
+      "text": "estuvun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/LL-Q30007_%28ext%29-HackerPunki-estuvun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2efe65e6",
+      "text": "estó",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2a/LL-Q30007_%28ext%29-HackerPunki-est%C3%B3.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-670a29b8",
+      "text": "familia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/38/LL-Q30007_%28ext%29-HackerPunki-familia.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-6eefc963",
+      "text": "gavilla",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6b/LL-Q30007_%28ext%29-HackerPunki-gavilla.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a2e9225c",
+      "text": "goleis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/20/LL-Q30007_%28ext%29-HackerPunki-goleis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-0c28d1c5",
+      "text": "golienda",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/LL-Q30007_%28ext%29-HackerPunki-golienda.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4cf53921",
+      "text": "golin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2a/LL-Q30007_%28ext%29-HackerPunki-golin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d5f3b390",
+      "text": "golu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0b/LL-Q30007_%28ext%29-HackerPunki-golu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b1d65458",
+      "text": "güelis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f2/LL-Q30007_%28ext%29-HackerPunki-g%C3%BCelis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-cee58b95",
+      "text": "güena",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ab/LL-Q30007_%28ext%29-HackerPunki-g%C3%BCena.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-0bb3f856",
+      "text": "güenas",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1a/LL-Q30007_%28ext%29-HackerPunki-g%C3%BCenas.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-3dc36ac0",
+      "text": "güenu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cb/LL-Q30007_%28ext%29-HackerPunki-g%C3%BCenu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-0605cb3a",
+      "text": "güenus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/00/LL-Q30007_%28ext%29-HackerPunki-g%C3%BCenus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-e486d23b",
+      "text": "güetri",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/54/LL-Q30007_%28ext%29-HackerPunki-g%C3%BCetri.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-82b74c7b",
+      "text": "güevu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ed/LL-Q30007_%28ext%29-HackerPunki-g%C3%BCevu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4c6de953",
+      "text": "habra",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/90/LL-Q30007_%28ext%29-HackerPunki-habra.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-034af272",
+      "text": "habral",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5d/LL-Q30007_%28ext%29-HackerPunki-habral.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b26c7047",
+      "text": "halda",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/94/LL-Q30007_%28ext%29-HackerPunki-halda.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-11237d82",
+      "text": "hazel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ce/LL-Q30007_%28ext%29-HackerPunki-hazel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-cebc6306",
+      "text": "haziendu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e8/LL-Q30007_%28ext%29-HackerPunki-haziendu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-af7ab55f",
+      "text": "hazin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2b/LL-Q30007_%28ext%29-HackerPunki-hazin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-0d13703b",
+      "text": "hebreru",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/10/LL-Q30007_%28ext%29-HackerPunki-hebreru.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-886c6484",
+      "text": "hechura",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5c/LL-Q30007_%28ext%29-HackerPunki-hechura.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b453d89d",
+      "text": "hel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ed/LL-Q30007_%28ext%29-HackerPunki-hel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-ed72375b",
+      "text": "heneru",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/de/LL-Q30007_%28ext%29-HackerPunki-heneru.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4040d29d",
+      "text": "hesa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/59/LL-Q30007_%28ext%29-HackerPunki-hesa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-12f7fbe0",
+      "text": "hirma",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a9/LL-Q30007_%28ext%29-HackerPunki-hirma.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4594a03e",
+      "text": "hiziendu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/89/LL-Q30007_%28ext%29-HackerPunki-hiziendu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2f7daf28",
+      "text": "hizun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/49/LL-Q30007_%28ext%29-HackerPunki-hizun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-441de5bb",
+      "text": "horma",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0e/LL-Q30007_%28ext%29-HackerPunki-horma.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b7924bbc",
+      "text": "huendu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f7/LL-Q30007_%28ext%29-HackerPunki-huendu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b8749298",
+      "text": "huera",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/88/LL-Q30007_%28ext%29-HackerPunki-huera.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-dd96cadb",
+      "text": "huerça",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b1/LL-Q30007_%28ext%29-HackerPunki-huer%C3%A7a.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-3bd7ad14",
+      "text": "huiva",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f4/LL-Q30007_%28ext%29-HackerPunki-huiva.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-df4ca5eb",
+      "text": "humal",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/60/LL-Q30007_%28ext%29-HackerPunki-humal.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-1a26e185",
+      "text": "hundil",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/31/LL-Q30007_%28ext%29-HackerPunki-hundil.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-0cabc549",
+      "text": "huélliga",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/LL-Q30007_%28ext%29-HackerPunki-hu%C3%A9lliga.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d455bf4e",
+      "text": "i",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e0/LL-Q30007_%28ext%29-HackerPunki-i.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-24a1bb7f",
+      "text": "igu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2e/LL-Q30007_%28ext%29-HackerPunki-igu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-62c53b2a",
+      "text": "ija",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/34/LL-Q30007_%28ext%29-HackerPunki-ija.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2fcfa3be",
+      "text": "ijas",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3b/LL-Q30007_%28ext%29-HackerPunki-ijas.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-45a3d3d9",
+      "text": "iju",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ae/LL-Q30007_%28ext%29-HackerPunki-iju.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f0d4c882",
+      "text": "ijus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/27/LL-Q30007_%28ext%29-HackerPunki-ijus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a943414b",
+      "text": "ilesia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/78/LL-Q30007_%28ext%29-HackerPunki-ilesia.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-8a9e7918",
+      "text": "iva",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/78/LL-Q30007_%28ext%29-HackerPunki-iva.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-3584d295",
+      "text": "ivan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c5/LL-Q30007_%28ext%29-HackerPunki-ivan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a5b6f4bf",
+      "text": "izil",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/31/LL-Q30007_%28ext%29-HackerPunki-izil.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-5f8cac7b",
+      "text": "izimus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b3/LL-Q30007_%28ext%29-HackerPunki-izimus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-add539cc",
+      "text": "jabalín",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/99/LL-Q30007_%28ext%29-HackerPunki-jabal%C3%ADn.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b552466d",
+      "text": "julgal",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d9/LL-Q30007_%28ext%29-HackerPunki-julgal.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f6e47040",
+      "text": "jullu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ce/LL-Q30007_%28ext%29-HackerPunki-jullu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-bcc7b740",
+      "text": "juñu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bd/LL-Q30007_%28ext%29-HackerPunki-ju%C3%B1u.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d2591c6e",
+      "text": "lambel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8a/LL-Q30007_%28ext%29-HackerPunki-lambel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f38aef79",
+      "text": "lambis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/eb/LL-Q30007_%28ext%29-HackerPunki-lambis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-812fdeb9",
+      "text": "lei",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fd/LL-Q30007_%28ext%29-HackerPunki-lei.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-0802c480",
+      "text": "lein",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/45/LL-Q30007_%28ext%29-HackerPunki-lein.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-99a30ea9",
+      "text": "leis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e2/LL-Q30007_%28ext%29-HackerPunki-leis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4c6a87ee",
+      "text": "lemus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/94/LL-Q30007_%28ext%29-HackerPunki-lemus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-18d08b39",
+      "text": "leu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d1/LL-Q30007_%28ext%29-HackerPunki-leu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-bfad99ff",
+      "text": "leyeis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/82/LL-Q30007_%28ext%29-HackerPunki-leyeis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-54aa84ea",
+      "text": "leyel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/64/LL-Q30007_%28ext%29-HackerPunki-leyel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-33d43b4f",
+      "text": "leyemus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bd/LL-Q30007_%28ext%29-HackerPunki-leyemus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a40108f0",
+      "text": "leyi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5c/LL-Q30007_%28ext%29-HackerPunki-leyi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-aecebcfc",
+      "text": "leyin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4f/LL-Q30007_%28ext%29-HackerPunki-leyin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-797763d2",
+      "text": "leyis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/LL-Q30007_%28ext%29-HackerPunki-leyis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-983e507c",
+      "text": "leyu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1d/LL-Q30007_%28ext%29-HackerPunki-leyu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-48bf0281",
+      "text": "leyís",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a5/LL-Q30007_%28ext%29-HackerPunki-ley%C3%ADs.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-e653658b",
+      "text": "libru",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/LL-Q30007_%28ext%29-HackerPunki-libru.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-77a95d5d",
+      "text": "licionis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/48/LL-Q30007_%28ext%29-HackerPunki-licionis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-84ae79c1",
+      "text": "lición",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c3/LL-Q30007_%28ext%29-HackerPunki-lici%C3%B3n.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-349f0a54",
+      "text": "loria",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d4/LL-Q30007_%28ext%29-HackerPunki-loria.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-56b12e52",
+      "text": "luenga",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/43/LL-Q30007_%28ext%29-HackerPunki-luenga.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-88cbf286",
+      "text": "luntria",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8a/LL-Q30007_%28ext%29-HackerPunki-luntria.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a2b24d54",
+      "text": "lé",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/01/LL-Q30007_%28ext%29-HackerPunki-l%C3%A9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-817e2853",
+      "text": "lén",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/24/LL-Q30007_%28ext%29-HackerPunki-l%C3%A9n.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-e256ce5c",
+      "text": "lés",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f3/LL-Q30007_%28ext%29-HackerPunki-l%C3%A9s.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-54736874",
+      "text": "lóndiga",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3e/LL-Q30007_%28ext%29-HackerPunki-l%C3%B3ndiga.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b09bc64f",
+      "text": "lúntriga",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1a/LL-Q30007_%28ext%29-HackerPunki-l%C3%BAntriga.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-890adfe6",
+      "text": "lúntruga",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b9/LL-Q30007_%28ext%29-HackerPunki-l%C3%BAntruga.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b8978665",
+      "text": "mairi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/16/LL-Q30007_%28ext%29-HackerPunki-mairi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b7ed0d37",
+      "text": "mairis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b0/LL-Q30007_%28ext%29-HackerPunki-mairis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-e679a2c1",
+      "text": "manteca",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6d/LL-Q30007_%28ext%29-HackerPunki-manteca.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-3b86d1fd",
+      "text": "mantecas",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/94/LL-Q30007_%28ext%29-HackerPunki-mantecas.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-38d1288d",
+      "text": "marrau",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/33/LL-Q30007_%28ext%29-HackerPunki-marrau.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-ba954c8d",
+      "text": "marru",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/40/LL-Q30007_%28ext%29-HackerPunki-marru.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b4949d2d",
+      "text": "marçu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4b/LL-Q30007_%28ext%29-HackerPunki-mar%C3%A7u.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-3609b599",
+      "text": "matrimoñu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/41/LL-Q30007_%28ext%29-HackerPunki-matrimo%C3%B1u.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-7fb80448",
+      "text": "mayu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/92/LL-Q30007_%28ext%29-HackerPunki-mayu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4527567f",
+      "text": "mañana",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/25/LL-Q30007_%28ext%29-HackerPunki-ma%C3%B1ana.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-97e58ce9",
+      "text": "mestel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/28/LL-Q30007_%28ext%29-HackerPunki-mestel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-6141ee85",
+      "text": "miral",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/81/LL-Q30007_%28ext%29-HackerPunki-miral.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2487313b",
+      "text": "mocipal",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f3/LL-Q30007_%28ext%29-HackerPunki-mocipal.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b61fa547",
+      "text": "moça",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/89/LL-Q30007_%28ext%29-HackerPunki-mo%C3%A7a.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-71b4bb3b",
+      "text": "moçu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/92/LL-Q30007_%28ext%29-HackerPunki-mo%C3%A7u.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2dd5e8e5",
+      "text": "mual",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/LL-Q30007_%28ext%29-HackerPunki-mual.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-16e518e5",
+      "text": "muamus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0e/LL-Q30007_%28ext%29-HackerPunki-muamus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-db57ed31",
+      "text": "mugel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/89/LL-Q30007_%28ext%29-HackerPunki-mugel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-6d36ab4e",
+      "text": "munchu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e5/LL-Q30007_%28ext%29-HackerPunki-munchu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-07f5d100",
+      "text": "musotras",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/49/LL-Q30007_%28ext%29-HackerPunki-musotras.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-5d040f20",
+      "text": "musotrus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2f/LL-Q30007_%28ext%29-HackerPunki-musotrus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-735ccf8f",
+      "text": "muáis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/75/LL-Q30007_%28ext%29-HackerPunki-mu%C3%A1is.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-7c26775c",
+      "text": "múa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cf/LL-Q30007_%28ext%29-HackerPunki-m%C3%BAa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-17762049",
+      "text": "múan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f0/LL-Q30007_%28ext%29-HackerPunki-m%C3%BAan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f666b0ed",
+      "text": "múas",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cb/LL-Q30007_%28ext%29-HackerPunki-m%C3%BAas.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-937b2883",
+      "text": "múu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/62/LL-Q30007_%28ext%29-HackerPunki-m%C3%BAu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-e842da1e",
+      "text": "nacencia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2b/LL-Q30007_%28ext%29-HackerPunki-nacencia.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-cbe65612",
+      "text": "naceru",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6c/LL-Q30007_%28ext%29-HackerPunki-naceru.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-0b9e3555",
+      "text": "nesseciá",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ea/LL-Q30007_%28ext%29-HackerPunki-nesseci%C3%A1.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f28d177b",
+      "text": "nochi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4a/LL-Q30007_%28ext%29-HackerPunki-nochi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d7f0379a",
+      "text": "nochis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dc/LL-Q30007_%28ext%29-HackerPunki-nochis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-8a296451",
+      "text": "noviembri",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f6/LL-Q30007_%28ext%29-HackerPunki-noviembri.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-52f632e0",
+      "text": "nuevi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5a/LL-Q30007_%28ext%29-HackerPunki-nuevi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-222ab38d",
+      "text": "númberu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/LL-Q30007_%28ext%29-HackerPunki-n%C3%BAmberu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-54dbea19",
+      "text": "obrigau",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1b/LL-Q30007_%28ext%29-HackerPunki-obrigau.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-e82a5338",
+      "text": "ochu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4d/LL-Q30007_%28ext%29-HackerPunki-ochu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a776bb71",
+      "text": "oe",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0d/LL-Q30007_%28ext%29-HackerPunki-oe.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-1daca9ea",
+      "text": "ogañu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3d/LL-Q30007_%28ext%29-HackerPunki-oga%C3%B1u.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-52ff7082",
+      "text": "oi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bc/LL-Q30007_%28ext%29-HackerPunki-oi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-eda4bfd5",
+      "text": "ojus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d1/LL-Q30007_%28ext%29-HackerPunki-ojus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a5c93cff",
+      "text": "ombri",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/00/LL-Q30007_%28ext%29-HackerPunki-ombri.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-45304ed0",
+      "text": "otubri",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3c/LL-Q30007_%28ext%29-HackerPunki-otubri.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-5f7fbcb8",
+      "text": "oyeis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5e/LL-Q30007_%28ext%29-HackerPunki-oyeis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-97afb1af",
+      "text": "oyel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b6/LL-Q30007_%28ext%29-HackerPunki-oyel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f50ebcc0",
+      "text": "oyemus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0c/LL-Q30007_%28ext%29-HackerPunki-oyemus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-8e90da39",
+      "text": "oyimus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c1/LL-Q30007_%28ext%29-HackerPunki-oyimus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a1735a4e",
+      "text": "pacencia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bf/LL-Q30007_%28ext%29-HackerPunki-pacencia.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-71340339",
+      "text": "palra",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c6/LL-Q30007_%28ext%29-HackerPunki-palra.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4d226b12",
+      "text": "palrais",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f9/LL-Q30007_%28ext%29-HackerPunki-palrais.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2964ecfb",
+      "text": "palral",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/53/LL-Q30007_%28ext%29-HackerPunki-palral.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2021f1e4",
+      "text": "palran",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3f/LL-Q30007_%28ext%29-HackerPunki-palran.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-96f454de",
+      "text": "pata",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/00/LL-Q30007_%28ext%29-HackerPunki-pata.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-58b99705",
+      "text": "pensaeru",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a7/LL-Q30007_%28ext%29-HackerPunki-pensaeru.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-db0cb666",
+      "text": "poencia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d2/LL-Q30007_%28ext%29-HackerPunki-poencia.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-3fc099f0",
+      "text": "ponemus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ac/LL-Q30007_%28ext%29-HackerPunki-ponemus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-320b036b",
+      "text": "pongu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/36/LL-Q30007_%28ext%29-HackerPunki-pongu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a1341f99",
+      "text": "ponin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6f/LL-Q30007_%28ext%29-HackerPunki-ponin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-570c928f",
+      "text": "ponís",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2c/LL-Q30007_%28ext%29-HackerPunki-pon%C3%ADs.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4be513a6",
+      "text": "praçel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/LL-Q30007_%28ext%29-HackerPunki-pra%C3%A7el.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-e38be66e",
+      "text": "prehessol",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/01/LL-Q30007_%28ext%29-HackerPunki-prehessol.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-41434f5c",
+      "text": "pressona",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/69/LL-Q30007_%28ext%29-HackerPunki-pressona.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f0f7c550",
+      "text": "preva",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a8/LL-Q30007_%28ext%29-HackerPunki-preva.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-69ddb655",
+      "text": "priessa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/46/LL-Q30007_%28ext%29-HackerPunki-priessa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-bca0d9d8",
+      "text": "prietu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/LL-Q30007_%28ext%29-HackerPunki-prietu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-99a25d3c",
+      "text": "probi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f1/LL-Q30007_%28ext%29-HackerPunki-probi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2136f8f2",
+      "text": "profissol",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f3/LL-Q30007_%28ext%29-HackerPunki-profissol.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-10589a6c",
+      "text": "proúxun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/07/LL-Q30007_%28ext%29-HackerPunki-pro%C3%BAxun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a2653dce",
+      "text": "pudun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fb/LL-Q30007_%28ext%29-HackerPunki-pudun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-403ade8b",
+      "text": "puebru",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/17/LL-Q30007_%28ext%29-HackerPunki-puebru.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-10c4f80a",
+      "text": "quairil",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/LL-Q30007_%28ext%29-HackerPunki-quairil.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-eea021df",
+      "text": "quatru",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/32/LL-Q30007_%28ext%29-HackerPunki-quatru.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-df29acb7",
+      "text": "quisun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d6/LL-Q30007_%28ext%29-HackerPunki-quisun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2f3770ce",
+      "text": "quixun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/60/LL-Q30007_%28ext%29-HackerPunki-quixun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a2d42af4",
+      "text": "quíu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ef/LL-Q30007_%28ext%29-HackerPunki-qu%C3%ADu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-34e16dda",
+      "text": "rial",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4e/LL-Q30007_%28ext%29-HackerPunki-rial.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b7263517",
+      "text": "rivista",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ad/LL-Q30007_%28ext%29-HackerPunki-rivista.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-0922da00",
+      "text": "roxu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/63/LL-Q30007_%28ext%29-HackerPunki-roxu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-6681804b",
+      "text": "sabel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d1/LL-Q30007_%28ext%29-HackerPunki-sabel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-6a3c83b6",
+      "text": "sacuímus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/27/LL-Q30007_%28ext%29-HackerPunki-sacu%C3%ADmus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f3d715c3",
+      "text": "Salamanca",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a0/LL-Q30007_%28ext%29-HackerPunki-Salamanca.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-caac999e",
+      "text": "sali",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b3/LL-Q30007_%28ext%29-HackerPunki-sali.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-82c281d8",
+      "text": "salil",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d0/LL-Q30007_%28ext%29-HackerPunki-salil.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-71e7c4f8",
+      "text": "salin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/73/LL-Q30007_%28ext%29-HackerPunki-salin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d68e4090",
+      "text": "sebu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4c/LL-Q30007_%28ext%29-HackerPunki-sebu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4b731955",
+      "text": "sebus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/28/LL-Q30007_%28ext%29-HackerPunki-sebus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-b2957581",
+      "text": "seis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/51/LL-Q30007_%28ext%29-HackerPunki-seis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2150e60f",
+      "text": "sel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cb/LL-Q30007_%28ext%29-HackerPunki-sel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-80bd2312",
+      "text": "setiembri",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ea/LL-Q30007_%28ext%29-HackerPunki-setiembri.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-ab458446",
+      "text": "siendu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/38/LL-Q30007_%28ext%29-HackerPunki-siendu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-61c83c4d",
+      "text": "sieti",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f4/LL-Q30007_%28ext%29-HackerPunki-sieti.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-39bad77f",
+      "text": "siquía",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ac/LL-Q30007_%28ext%29-HackerPunki-siqu%C3%ADa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-e36d036b",
+      "text": "siñol",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/67/LL-Q30007_%28ext%29-HackerPunki-si%C3%B1ol.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-0d3fdeb5",
+      "text": "siñorita",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/ba/LL-Q30007_%28ext%29-HackerPunki-si%C3%B1orita.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-fd7084fe",
+      "text": "sobráu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9b/LL-Q30007_%28ext%29-HackerPunki-sobr%C3%A1u.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-6f47ab19",
+      "text": "sofal",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8f/LL-Q30007_%28ext%29-HackerPunki-sofal.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-35365270",
+      "text": "solemus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d4/LL-Q30007_%28ext%29-HackerPunki-solemus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a04277c7",
+      "text": "sostribal",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/50/LL-Q30007_%28ext%29-HackerPunki-sostribal.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d1b94feb",
+      "text": "suelis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/LL-Q30007_%28ext%29-HackerPunki-suelis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-586f27e3",
+      "text": "sulumbra",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/LL-Q30007_%28ext%29-HackerPunki-sulumbra.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a4c974d2",
+      "text": "supun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a1/LL-Q30007_%28ext%29-HackerPunki-supun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-dac04e3c",
+      "text": "tamién",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/LL-Q30007_%28ext%29-HackerPunki-tami%C3%A9n.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-182ac856",
+      "text": "tardi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/47/LL-Q30007_%28ext%29-HackerPunki-tardi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-6a80815d",
+      "text": "tardis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/87/LL-Q30007_%28ext%29-HackerPunki-tardis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-83eec46f",
+      "text": "temus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/54/LL-Q30007_%28ext%29-HackerPunki-temus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-faba0ad9",
+      "text": "tenel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7f/LL-Q30007_%28ext%29-HackerPunki-tenel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-dd9d0135",
+      "text": "teniamus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b7/LL-Q30007_%28ext%29-HackerPunki-teniamus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-0999d8b5",
+      "text": "tenía",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/75/LL-Q30007_%28ext%29-HackerPunki-ten%C3%ADa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-19ace0de",
+      "text": "tenían",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f3/LL-Q30007_%28ext%29-HackerPunki-ten%C3%ADan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d616f07f",
+      "text": "tericia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/33/LL-Q30007_%28ext%29-HackerPunki-tericia.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-955b1fb0",
+      "text": "teu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/05/LL-Q30007_%28ext%29-HackerPunki-teu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-1b110568",
+      "text": "tiei",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d8/LL-Q30007_%28ext%29-HackerPunki-tiei.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-056be8a1",
+      "text": "tieis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/eb/LL-Q30007_%28ext%29-HackerPunki-tieis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-147c0465",
+      "text": "tiempu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c3/LL-Q30007_%28ext%29-HackerPunki-tiempu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-18731c5b",
+      "text": "tien",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d5/LL-Q30007_%28ext%29-HackerPunki-tien.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-7d4859bb",
+      "text": "tieni",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c5/LL-Q30007_%28ext%29-HackerPunki-tieni.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2119c114",
+      "text": "tiniais",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fd/LL-Q30007_%28ext%29-HackerPunki-tiniais.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f322a7ad",
+      "text": "tiniamus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7d/LL-Q30007_%28ext%29-HackerPunki-tiniamus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-0daf10c8",
+      "text": "tinías",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8d/LL-Q30007_%28ext%29-HackerPunki-tin%C3%ADas.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a2853dcd",
+      "text": "tiricia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b1/LL-Q30007_%28ext%29-HackerPunki-tiricia.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2e25a58c",
+      "text": "tién",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d8/LL-Q30007_%28ext%29-HackerPunki-ti%C3%A9n.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f9b69764",
+      "text": "tiés",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/47/LL-Q30007_%28ext%29-HackerPunki-ti%C3%A9s.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-196338fb",
+      "text": "trai",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fc/LL-Q30007_%28ext%29-HackerPunki-trai.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-a100e1c6",
+      "text": "trais",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/96/LL-Q30007_%28ext%29-HackerPunki-trais.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-918d381d",
+      "text": "trasantiel",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/LL-Q30007_%28ext%29-HackerPunki-trasantiel.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-6ab1cf34",
+      "text": "traúxun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9d/LL-Q30007_%28ext%29-HackerPunki-tra%C3%BAxun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-1ccfeebe",
+      "text": "tres",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b8/LL-Q30007_%28ext%29-HackerPunki-tres.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-7919d0a9",
+      "text": "truxun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d8/LL-Q30007_%28ext%29-HackerPunki-truxun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4ea5b222",
+      "text": "trá",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/LL-Q30007_%28ext%29-HackerPunki-tr%C3%A1.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-fb180dd8",
+      "text": "tráfagu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/53/LL-Q30007_%28ext%29-HackerPunki-tr%C3%A1fagu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d87b3277",
+      "text": "tráis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e9/LL-Q30007_%28ext%29-HackerPunki-tr%C3%A1is.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-388d2c7f",
+      "text": "trán",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/60/LL-Q30007_%28ext%29-HackerPunki-tr%C3%A1n.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-357f0ed2",
+      "text": "tuviamus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8d/LL-Q30007_%28ext%29-HackerPunki-tuviamus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d1159652",
+      "text": "tuvía",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/72/LL-Q30007_%28ext%29-HackerPunki-tuv%C3%ADa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-45176950",
+      "text": "tía",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fc/LL-Q30007_%28ext%29-HackerPunki-t%C3%ADa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-c0832d0e",
+      "text": "tíu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2a/LL-Q30007_%28ext%29-HackerPunki-t%C3%ADu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d7b53e9f",
+      "text": "tíus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3d/LL-Q30007_%28ext%29-HackerPunki-t%C3%ADus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-ea157189",
+      "text": "tú",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/LL-Q30007_%28ext%29-HackerPunki-t%C3%BA.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-6513107a",
+      "text": "unu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b0/LL-Q30007_%28ext%29-HackerPunki-unu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-7ebf5107",
+      "text": "uvun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/55/LL-Q30007_%28ext%29-HackerPunki-uvun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-201dec84",
+      "text": "valemus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a6/LL-Q30007_%28ext%29-HackerPunki-valemus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-153459f5",
+      "text": "vali",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e8/LL-Q30007_%28ext%29-HackerPunki-vali.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-fed76fd6",
+      "text": "valís",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e7/LL-Q30007_%28ext%29-HackerPunki-val%C3%ADs.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-4b23eefd",
+      "text": "velaquí",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/78/LL-Q30007_%28ext%29-HackerPunki-velaqu%C3%AD.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-14580ece",
+      "text": "verdi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c3/LL-Q30007_%28ext%29-HackerPunki-verdi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2634b215",
+      "text": "viinis",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/22/LL-Q30007_%28ext%29-HackerPunki-viinis.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-589040dc",
+      "text": "vinun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/97/LL-Q30007_%28ext%29-HackerPunki-vinun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-f2515d01",
+      "text": "voi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/48/LL-Q30007_%28ext%29-HackerPunki-voi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2f11f252",
+      "text": "vuo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b8/LL-Q30007_%28ext%29-HackerPunki-vuo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-e2d46906",
+      "text": "vusotras",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/60/LL-Q30007_%28ext%29-HackerPunki-vusotras.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-8f02a1ff",
+      "text": "vusotrus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/43/LL-Q30007_%28ext%29-HackerPunki-vusotrus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-d86b7484",
+      "text": "vél",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/LL-Q30007_%28ext%29-HackerPunki-v%C3%A9l.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-8b0f85d8",
+      "text": "yo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/25/LL-Q30007_%28ext%29-HackerPunki-yo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-403e954d",
+      "text": "zeru",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c6/LL-Q30007_%28ext%29-HackerPunki-zeru.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-c7c4b8df",
+      "text": "él",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e3/LL-Q30007_%28ext%29-HackerPunki-%C3%A9l.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-05b130e5",
+      "text": "ía",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/LL-Q30007_%28ext%29-HackerPunki-%C3%ADa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-2d13d18a",
+      "text": "ñeta",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/LL-Q30007_%28ext%29-HackerPunki-%C3%B1eta.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-c3532e4c",
+      "text": "ñetas",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/26/LL-Q30007_%28ext%29-HackerPunki-%C3%B1etas.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-8e6a6500",
+      "text": "ñetu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f5/LL-Q30007_%28ext%29-HackerPunki-%C3%B1etu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1512908-3c6900c9",
+      "text": "ñetus",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/17/LL-Q30007_%28ext%29-HackerPunki-%C3%B1etus.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1512908",
+        "speaker_name": "HackerPunki",
+        "gender": "m"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6027 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Lingua Libre",
+  "lang": "bci",
+  "license": "CC0-1.0",
+  "credit": "Lingua Libre (Wikimedia) — CC0 / CC BY-SA je Sprecher",
+  "url": "https://lingualibre.org",
+  "items": [
+    {
+      "id": "Q19855-9ec04838",
+      "text": "a",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5e/LL-Q140193_%28bci%29-Modjou-a.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-90f0b651",
+      "text": "a",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/LL-Q35107_%28bci%29-Franckk1-a.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140193-153622b6",
+      "text": "Aa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/03/LL-Q140193_%28bci%29-Olivier_Yao-Aa.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q19855-7baf5eaa",
+      "text": "Aa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/82/LL-Q140193_%28bci%29-Modjou-Aa.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-815e1437",
+      "text": "Aa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9a/LL-Q35107_%28bci%29-Franckk1-Aa.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-5a461a35",
+      "text": "abga",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5e/LL-Q35107_%28bci%29-N%27guess_ange-abga.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140193-ccd90ebf",
+      "text": "able",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0c/LL-Q140193_%28bci%29-Olivier_Yao-able.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-b53ad262",
+      "text": "able",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cc/LL-Q35107_%28bci%29-Franckk1-able.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1342962-9b692c9d",
+      "text": "able sifuɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3f/LL-Q35107_%28bci%29-Dadrik-able_sifu%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342962",
+        "speaker_name": "Dadrik",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-7ba3ee12",
+      "text": "abɛbɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/ff/LL-Q35107_%28bci%29-N%27guess_ange-ab%C9%9Bb%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-910af29e",
+      "text": "adjɔrɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c9/LL-Q35107_%28bci%29-N%27guess_ange-adj%C9%94r%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342962-d71e212d",
+      "text": "afuè",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/42/LL-Q35107_%28bci%29-Dadrik-afu%C3%A8.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342962",
+        "speaker_name": "Dadrik",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-52d5a2ba",
+      "text": "afuɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f8/LL-Q35107_%28bci%29-N%27guess_ange-afu%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-cf88a565",
+      "text": "agoyafu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/de/LL-Q35107_%28bci%29-N%27guess_ange-agoyafu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-a79983d0",
+      "text": "aklunye",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3a/LL-Q35107_%28bci%29-N%27guess_ange-aklunye.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q179883-1e1672cd",
+      "text": "Akoué",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6b/LL-Q35107_%28bci%29-Didierwiki-Akou%C3%A9.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-9ae496d0",
+      "text": "Akoué",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0a/LL-Q35107_%28bci%29-Franckk1-Akou%C3%A9.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-327aecc2",
+      "text": "akuatika",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2c/LL-Q35107_%28bci%29-N%27guess_ange-akuatika.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-966a8780",
+      "text": "alapla",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/LL-Q35107_%28bci%29-N%27guess_ange-alapla.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-5388ce57",
+      "text": "aliɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/00/LL-Q35107_%28bci%29-N%27guess_ange-ali%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-ed91669a",
+      "text": "Aloua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/eb/LL-Q35107_%28bci%29-N%27guess_ange-Aloua.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-c1cde4f2",
+      "text": "alowa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f1/LL-Q35107_%28bci%29-N%27guess_ange-alowa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-9a6497bf",
+      "text": "alua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/99/LL-Q35107_%28bci%29-N%27guess_ange-alua.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342962-c747c077",
+      "text": "alɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/01/LL-Q35107_%28bci%29-Dadrik-al%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342962",
+        "speaker_name": "Dadrik",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-c70d008c",
+      "text": "alɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4a/LL-Q35107_%28bci%29-N%27guess_ange-al%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-7a7d20de",
+      "text": "amango",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/ff/LL-Q35107_%28bci%29-N%27guess_ange-amango.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-6393e9fb",
+      "text": "amlon",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f8/LL-Q35107_%28bci%29-N%27guess_ange-amlon.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525538-6fb79682",
+      "text": "anglannan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/96/LL-Q35107_%28bci%29-KONEVICTOIRE-anglannan.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1427786-991494ee",
+      "text": "anglo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/LL-Q35107_%28bci%29-N%27guess_ange-anglo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-7a0ccded",
+      "text": "aniaan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/67/LL-Q35107_%28bci%29-N%27guess_ange-aniaan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-fff0956d",
+      "text": "anngbe",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/14/LL-Q35107_%28bci%29-N%27guess_ange-anngbe.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342962-4e6b65d3",
+      "text": "anuannzɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d2/LL-Q35107_%28bci%29-Dadrik-anuannz%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342962",
+        "speaker_name": "Dadrik",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-394e8839",
+      "text": "anunman",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dd/LL-Q35107_%28bci%29-N%27guess_ange-anunman.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-689dfc57",
+      "text": "aosin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/92/LL-Q35107_%28bci%29-N%27guess_ange-aosin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-35ef0cac",
+      "text": "asamian",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e5/LL-Q35107_%28bci%29-N%27guess_ange-asamian.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-40e15e4f",
+      "text": "asikigo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c3/LL-Q35107_%28bci%29-N%27guess_ange-asikigo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-1b59aa23",
+      "text": "asiɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d1/LL-Q35107_%28bci%29-N%27guess_ange-asi%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q213501-4169ae0a",
+      "text": "asua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6e/LL-Q35107_%28bci%29-Koffi.noel-asua.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-a940a6bd",
+      "text": "ati'n",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/16/LL-Q35107_%28bci%29-N%27guess_ange-ati%27n.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q213501-24363542",
+      "text": "ato",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/LL-Q35107_%28bci%29-Koffi.noel-ato.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q19855-9ee6b7fd",
+      "text": "avie",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/12/LL-Q140193_%28bci%29-Modjou-avie.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-e936c38e",
+      "text": "awlo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d0/LL-Q35107_%28bci%29-N%27guess_ange-awlo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342962-54e022f6",
+      "text": "awlɛnba",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d5/LL-Q35107_%28bci%29-Dadrik-awl%C9%9Bnba.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342962",
+        "speaker_name": "Dadrik",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-21be232a",
+      "text": "awugnan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/21/LL-Q35107_%28bci%29-N%27guess_ange-awugnan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q213501-64aa7ab6",
+      "text": "ayakan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a2/LL-Q35107_%28bci%29-Koffi.noel-ayakan.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140193-f5d5f234",
+      "text": "baba",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d2/LL-Q140193_%28bci%29-Olivier_Yao-baba.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q179883-857bb5ab",
+      "text": "baba",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/LL-Q35107_%28bci%29-Didierwiki-baba.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-155020bb",
+      "text": "baba",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d6/LL-Q35107_%28bci%29-Franckk1-baba.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-bfe3d1bb",
+      "text": "badjɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a4/LL-Q35107_%28bci%29-N%27guess_ange-badj%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q213501-d8669634",
+      "text": "bakan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/LL-Q35107_%28bci%29-Koffi.noel-bakan.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-072174df",
+      "text": "bakan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/87/LL-Q35107_%28bci%29-N%27guess_ange-bakan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-4d184dfa",
+      "text": "bali",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3d/LL-Q35107_%28bci%29-Franckk1-bali.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-35be3682",
+      "text": "baoulé",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/07/LL-Q35107_%28bci%29-Franckk1-baoul%C3%A9.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1525538-39c0d5b1",
+      "text": "baoulé lomi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e7/LL-Q35107_%28bci%29-KONEVICTOIRE-baoul%C3%A9_lomi.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1427786-a69e8fd4",
+      "text": "bayefuɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/23/LL-Q35107_%28bci%29-N%27guess_ange-bayefu%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-628138ef",
+      "text": "be ja",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6b/LL-Q35107_%28bci%29-N%27guess_ange-be_ja.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-3399f73e",
+      "text": "be sa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dc/LL-Q35107_%28bci%29-N%27guess_ange-be_sa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q213501-88ae1dd9",
+      "text": "bia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ea/LL-Q35107_%28bci%29-Koffi.noel-bia.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q213501-03623c91",
+      "text": "bie",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b3/LL-Q35107_%28bci%29-Koffi.noel-bie.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140193-0997f1da",
+      "text": "bla",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ea/LL-Q140193_%28bci%29-Olivier_Yao-bla.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q213501-a584b5e0",
+      "text": "bla",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/LL-Q35107_%28bci%29-Koffi.noel-bla.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q19855-e9ee2369",
+      "text": "bla",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/41/LL-Q140193_%28bci%29-Modjou-bla.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-178ac1fe",
+      "text": "bla",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fd/LL-Q35107_%28bci%29-N%27guess_ange-bla.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-60033aad",
+      "text": "bla",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/LL-Q35107_%28bci%29-Franckk1-bla.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1342956-933a8daf",
+      "text": "Bladiman",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4b/LL-Q35107_%28bci%29-ALEX_MEKAN_57-Bladiman.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-e886948d",
+      "text": "Blalè",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0a/LL-Q35107_%28bci%29-ALEX_MEKAN_57-Blal%C3%A8.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-16996bca",
+      "text": "blalɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/10/LL-Q35107_%28bci%29-N%27guess_ange-blal%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342956-fdd19c93",
+      "text": "Ble",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ac/LL-Q35107_%28bci%29-ALEX_MEKAN_57-Ble.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q213501-6ff0b6d5",
+      "text": "bli",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3d/LL-Q35107_%28bci%29-Koffi.noel-bli.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1342956-b12a02a8",
+      "text": "Bli",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a2/LL-Q35107_%28bci%29-ALEX_MEKAN_57-Bli.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-98ea8cea",
+      "text": "Blo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/77/LL-Q35107_%28bci%29-ALEX_MEKAN_57-Blo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-42484ab5",
+      "text": "blɔfuɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8f/LL-Q35107_%28bci%29-ALEX_MEKAN_57-bl%C9%94fu%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-7aaaa2c6",
+      "text": "blɔfuɛ lomin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b5/LL-Q35107_%28bci%29-ALEX_MEKAN_57-bl%C9%94fu%C9%9B_lomin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-7a851617",
+      "text": "blɔfuɛ mannda",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/19/LL-Q35107_%28bci%29-ALEX_MEKAN_57-bl%C9%94fu%C9%9B_mannda.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-c353c6f5",
+      "text": "blɛblɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c9/LL-Q35107_%28bci%29-ALEX_MEKAN_57-bl%C9%9Bbl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q19855-9fd148e1",
+      "text": "bo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a9/LL-Q140193_%28bci%29-Modjou-bo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1342956-2b6ce61a",
+      "text": "Bo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/53/LL-Q35107_%28bci%29-ALEX_MEKAN_57-Bo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q140217-88c0ba9d",
+      "text": "bo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c1/LL-Q35107_%28bci%29-Franckk1-bo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140193-397edba5",
+      "text": "bobo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/22/LL-Q140193_%28bci%29-Olivier_Yao-bobo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q179883-9deb086e",
+      "text": "bobo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/62/LL-Q35107_%28bci%29-Didierwiki-bobo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1342956-bf8f4a58",
+      "text": "Bobo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d6/LL-Q35107_%28bci%29-ALEX_MEKAN_57-Bobo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q140217-78ca79ca",
+      "text": "bobo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/ca/LL-Q35107_%28bci%29-Franckk1-bobo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1342962-98a7fc26",
+      "text": "boli",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a2/LL-Q35107_%28bci%29-Dadrik-boli.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342962",
+        "speaker_name": "Dadrik",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q179883-7253baec",
+      "text": "boli",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fc/LL-Q35107_%28bci%29-Didierwiki-boli.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1342956-ba8d8b43",
+      "text": "Boli",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/32/LL-Q35107_%28bci%29-ALEX_MEKAN_57-Boli.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q213502-95039c8e",
+      "text": "boli",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/LL-Q35107_%28bci%29-Jnov2.0-boli.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213502",
+        "speaker_name": "Jnov2.0",
+        "gender": "w"
+      },
+      "credit": "Jnov2.0 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q222745-9aa712cf",
+      "text": "boli",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a4/LL-Q35107_%28bci%29-Laurekarell-boli.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q222745",
+        "speaker_name": "Laurekarell",
+        "gender": "w"
+      },
+      "credit": "Laurekarell (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-5072dfac",
+      "text": "boua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/LL-Q35107_%28bci%29-N%27guess_ange-boua.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342956-dbaaf431",
+      "text": "bouké",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2c/LL-Q35107_%28bci%29-ALEX_MEKAN_57-bouk%C3%A9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q140217-a85411e1",
+      "text": "bua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e0/LL-Q35107_%28bci%29-Franckk1-bua.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-581367d8",
+      "text": "bue",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cc/LL-Q35107_%28bci%29-N%27guess_ange-bue.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q213501-70a31dbb",
+      "text": "cancan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e9/LL-Q35107_%28bci%29-Koffi.noel-cancan.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q179883-071f442e",
+      "text": "dan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/90/LL-Q35107_%28bci%29-Didierwiki-dan.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-68e9c12a",
+      "text": "dan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ea/LL-Q35107_%28bci%29-N%27guess_ange-dan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-37e15d94",
+      "text": "dan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e4/LL-Q35107_%28bci%29-Franckk1-dan.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140193-05b962ce",
+      "text": "di",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9e/LL-Q140193_%28bci%29-Olivier_Yao-di.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q19855-aeac394e",
+      "text": "di",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/42/LL-Q140193_%28bci%29-Modjou-di.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q179883-e2255ecc",
+      "text": "di",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a4/LL-Q35107_%28bci%29-Didierwiki-di.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-50a36adf",
+      "text": "di",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fb/LL-Q35107_%28bci%29-Franckk1-di.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-77ccdacc",
+      "text": "djelua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c9/LL-Q35107_%28bci%29-N%27guess_ange-djelua.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q179883-59df264f",
+      "text": "Djomolo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/LL-Q35107_%28bci%29-Didierwiki-Djomolo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-ed1cfdfe",
+      "text": "Djomolo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e6/LL-Q35107_%28bci%29-Franckk1-Djomolo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-4c404e78",
+      "text": "djuman",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/91/LL-Q35107_%28bci%29-N%27guess_ange-djuman.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-be29f6a6",
+      "text": "domi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c5/LL-Q35107_%28bci%29-N%27guess_ange-domi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-f74f8422",
+      "text": "douman",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f9/LL-Q35107_%28bci%29-N%27guess_ange-douman.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q213501-b8d5a397",
+      "text": "duo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bf/LL-Q35107_%28bci%29-Koffi.noel-duo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-058861fc",
+      "text": "duo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f2/LL-Q35107_%28bci%29-N%27guess_ange-duo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-0cafe637",
+      "text": "duo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dc/LL-Q35107_%28bci%29-Franckk1-duo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1342962-7f3803e8",
+      "text": "fa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/99/LL-Q35107_%28bci%29-Dadrik-fa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342962",
+        "speaker_name": "Dadrik",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q19855-10407e28",
+      "text": "fa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/72/LL-Q140193_%28bci%29-Modjou-fa.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q179883-e998d460",
+      "text": "fa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5b/LL-Q35107_%28bci%29-Didierwiki-fa.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-7e77a257",
+      "text": "fa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/LL-Q35107_%28bci%29-Franckk1-fa.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-dbb33d29",
+      "text": "fa ya",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c8/LL-Q35107_%28bci%29-N%27guess_ange-fa_ya.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q213501-3fafff8f",
+      "text": "fia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/16/LL-Q35107_%28bci%29-Koffi.noel-fia.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-9f2a3802",
+      "text": "fia",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a1/LL-Q35107_%28bci%29-N%27guess_ange-fia.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-2e1a2cf5",
+      "text": "fie",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5d/LL-Q35107_%28bci%29-N%27guess_ange-fie.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-3cf85774",
+      "text": "fie su",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4b/LL-Q35107_%28bci%29-N%27guess_ange-fie_su.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-320df38e",
+      "text": "fii",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/43/LL-Q35107_%28bci%29-N%27guess_ange-fii.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-5bd2d58b",
+      "text": "filie",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2e/LL-Q35107_%28bci%29-N%27guess_ange-filie.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-622357eb",
+      "text": "fitasin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e1/LL-Q35107_%28bci%29-N%27guess_ange-fitasin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-5bf2232f",
+      "text": "fite",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c5/LL-Q35107_%28bci%29-N%27guess_ange-fite.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-33a0b845",
+      "text": "fiéssou",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/LL-Q35107_%28bci%29-N%27guess_ange-fi%C3%A9ssou.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-a21ce2db",
+      "text": "Fiésu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/LL-Q35107_%28bci%29-N%27guess_ange-Fi%C3%A9su.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-6248f63e",
+      "text": "fiɛn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ee/LL-Q35107_%28bci%29-N%27guess_ange-fi%C9%9Bn.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342956-5d475719",
+      "text": "flafla",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/59/LL-Q35107_%28bci%29-ALEX_MEKAN_57-flafla.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-4afce643",
+      "text": "fluwa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/42/LL-Q35107_%28bci%29-ALEX_MEKAN_57-fluwa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-19abe072",
+      "text": "fluwa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8d/LL-Q35107_%28bci%29-N%27guess_ange-fluwa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-5da7277b",
+      "text": "flɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2b/LL-Q35107_%28bci%29-N%27guess_ange-fl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342956-e6da34ce",
+      "text": "foto",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/56/LL-Q35107_%28bci%29-ALEX_MEKAN_57-foto.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-371b230e",
+      "text": "foué tchin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/71/LL-Q35107_%28bci%29-ALEX_MEKAN_57-fou%C3%A9_tchin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-1dd966ff",
+      "text": "foué tchin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2d/LL-Q35107_%28bci%29-N%27guess_ange-fou%C3%A9_tchin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342956-74b6ac87",
+      "text": "fu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/86/LL-Q35107_%28bci%29-ALEX_MEKAN_57-fu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-080c6954",
+      "text": "fuan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c4/LL-Q35107_%28bci%29-ALEX_MEKAN_57-fuan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-0381e7c3",
+      "text": "fue",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1d/LL-Q35107_%28bci%29-ALEX_MEKAN_57-fue.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-12c927c4",
+      "text": "fufu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/26/LL-Q35107_%28bci%29-ALEX_MEKAN_57-fufu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-77d96023",
+      "text": "fuɛntuɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/28/LL-Q35107_%28bci%29-ALEX_MEKAN_57-fu%C9%9Bntu%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525538-a9f7b9bf",
+      "text": "gaan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/87/LL-Q35107_%28bci%29-KONEVICTOIRE-gaan.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1525538-1e5f0f9a",
+      "text": "gadi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/LL-Q35107_%28bci%29-KONEVICTOIRE-gadi.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1525538-025818c2",
+      "text": "gannglangan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/45/LL-Q35107_%28bci%29-KONEVICTOIRE-gannglangan.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1525538-c3d2bde5",
+      "text": "gannglanngan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ec/LL-Q35107_%28bci%29-KONEVICTOIRE-gannglanngan.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1427786-98dc0e4a",
+      "text": "gbada",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4f/LL-Q35107_%28bci%29-N%27guess_ange-gbada.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525538-9f96db50",
+      "text": "gbada",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/09/LL-Q35107_%28bci%29-KONEVICTOIRE-gbada.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1525538-e453e482",
+      "text": "gbaflinh",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/35/LL-Q35107_%28bci%29-KONEVICTOIRE-gbaflinh.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1525538-0a9b33b7",
+      "text": "gbekle",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/33/LL-Q35107_%28bci%29-KONEVICTOIRE-gbekle.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1427786-1aafc278",
+      "text": "gbo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/38/LL-Q35107_%28bci%29-N%27guess_ange-gbo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-4711002d",
+      "text": "gbolou",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5e/LL-Q35107_%28bci%29-N%27guess_ange-gbolou.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525538-fc56b14e",
+      "text": "gidigi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/93/LL-Q35107_%28bci%29-KONEVICTOIRE-gidigi.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1525538-8edc013b",
+      "text": "goua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2e/LL-Q35107_%28bci%29-KONEVICTOIRE-goua.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1427786-3be6aa3f",
+      "text": "gua bo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6c/LL-Q35107_%28bci%29-N%27guess_ange-gua_bo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525538-2882035a",
+      "text": "gôdê",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/48/LL-Q35107_%28bci%29-KONEVICTOIRE-g%C3%B4d%C3%AA.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1525538-9b353ec1",
+      "text": "gôli",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f9/LL-Q35107_%28bci%29-KONEVICTOIRE-g%C3%B4li.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1525538-473c01ea",
+      "text": "gɛgɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/LL-Q35107_%28bci%29-KONEVICTOIRE-g%C9%9Bg%C9%9B.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1427786-c65e4ecb",
+      "text": "ije",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e8/LL-Q35107_%28bci%29-N%27guess_ange-ije.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q19855-3d298413",
+      "text": "jaba",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f8/LL-Q140193_%28bci%29-Modjou-jaba.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q179883-68903f03",
+      "text": "jaba",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5b/LL-Q35107_%28bci%29-Didierwiki-jaba.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-c2468fbe",
+      "text": "jaba",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/29/LL-Q35107_%28bci%29-N%27guess_ange-jaba.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-e0eda43f",
+      "text": "jaba",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/80/LL-Q35107_%28bci%29-Franckk1-jaba.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q19855-10459516",
+      "text": "jaso",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/70/LL-Q140193_%28bci%29-Modjou-jaso.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-6b9ea579",
+      "text": "je",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7f/LL-Q35107_%28bci%29-N%27guess_ange-je.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-10af5541",
+      "text": "jese",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f8/LL-Q35107_%28bci%29-N%27guess_ange-jese.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-d8f55ed3",
+      "text": "jra",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/30/LL-Q35107_%28bci%29-N%27guess_ange-jra.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-1acd8177",
+      "text": "juejue",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f9/LL-Q35107_%28bci%29-N%27guess_ange-juejue.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140193-4cb2ddad",
+      "text": "ka",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a5/LL-Q140193_%28bci%29-Olivier_Yao-ka.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q19855-be02aaab",
+      "text": "ka",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3e/LL-Q140193_%28bci%29-Modjou-ka.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q179883-65b090f7",
+      "text": "ka",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c1/LL-Q35107_%28bci%29-Didierwiki-ka.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-15ebe9fe",
+      "text": "ka",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c7/LL-Q35107_%28bci%29-N%27guess_ange-ka.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-44e63750",
+      "text": "ka",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/32/LL-Q35107_%28bci%29-Franckk1-ka.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q19855-1b38b541",
+      "text": "kafe",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/LL-Q140193_%28bci%29-Modjou-kafe.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-2867ac40",
+      "text": "kafe",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/77/LL-Q35107_%28bci%29-N%27guess_ange-kafe.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-8d9337d0",
+      "text": "kafe",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7c/LL-Q35107_%28bci%29-Franckk1-kafe.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-1d8feca6",
+      "text": "kain",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/14/LL-Q35107_%28bci%29-N%27guess_ange-kain.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-fd9d747d",
+      "text": "kaka",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fe/LL-Q35107_%28bci%29-N%27guess_ange-kaka.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-206dcd20",
+      "text": "kaka",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1d/LL-Q35107_%28bci%29-Franckk1-kaka.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-d3be5ab6",
+      "text": "kakaje",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8b/LL-Q35107_%28bci%29-N%27guess_ange-kakaje.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140193-78860df4",
+      "text": "kakao",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/78/LL-Q140193_%28bci%29-Olivier_Yao-kakao.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q19855-f8a435a5",
+      "text": "kakao",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/58/LL-Q140193_%28bci%29-Modjou-kakao.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q213501-8d5a39bc",
+      "text": "kakao",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/73/LL-Q35107_%28bci%29-Koffi.noel-kakao.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-f3402ca3",
+      "text": "kakao",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e9/LL-Q35107_%28bci%29-N%27guess_ange-kakao.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-21b099c2",
+      "text": "kakao",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2a/LL-Q35107_%28bci%29-Franckk1-kakao.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-365ae3f8",
+      "text": "kakpè",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d6/LL-Q35107_%28bci%29-N%27guess_ange-kakp%C3%A8.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-3cd8c53c",
+      "text": "kalɔ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/03/LL-Q35107_%28bci%29-N%27guess_ange-kal%C9%94.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-d08f800a",
+      "text": "kalɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/LL-Q35107_%28bci%29-N%27guess_ange-kal%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q19855-30d57f51",
+      "text": "kan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/18/LL-Q140193_%28bci%29-Modjou-kan.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q179883-970f6e65",
+      "text": "kan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e2/LL-Q35107_%28bci%29-Didierwiki-kan.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-67860d4f",
+      "text": "kan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/54/LL-Q35107_%28bci%29-N%27guess_ange-kan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-b42474b8",
+      "text": "kan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/16/LL-Q35107_%28bci%29-Franckk1-kan.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-cc282b89",
+      "text": "kan ase",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f7/LL-Q35107_%28bci%29-N%27guess_ange-kan_ase.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342962-b578d360",
+      "text": "kanga",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/90/LL-Q35107_%28bci%29-Dadrik-kanga.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342962",
+        "speaker_name": "Dadrik",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-36d6a71a",
+      "text": "kanga",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/55/LL-Q35107_%28bci%29-N%27guess_ange-kanga.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-c13345f8",
+      "text": "kangakue",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/be/LL-Q35107_%28bci%29-N%27guess_ange-kangakue.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-f3f57316",
+      "text": "kangale",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/90/LL-Q35107_%28bci%29-N%27guess_ange-kangale.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-7002b9a2",
+      "text": "kanhan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/LL-Q35107_%28bci%29-N%27guess_ange-kanhan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140193-5d2ce56e",
+      "text": "kankan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/48/LL-Q140193_%28bci%29-Olivier_Yao-kankan.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q19855-f6876895",
+      "text": "kankan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0d/LL-Q140193_%28bci%29-Modjou-kankan.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-9532406b",
+      "text": "kankan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/97/LL-Q35107_%28bci%29-N%27guess_ange-kankan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-ac1ac9f8",
+      "text": "kankan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ed/LL-Q35107_%28bci%29-Franckk1-kankan.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-889242f3",
+      "text": "ketewɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b8/LL-Q35107_%28bci%29-N%27guess_ange-ketew%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-f03f9194",
+      "text": "kissié",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/76/LL-Q35107_%28bci%29-N%27guess_ange-kissi%C3%A9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-f6c7d392",
+      "text": "klangla",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ad/LL-Q35107_%28bci%29-N%27guess_ange-klangla.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-c7656fee",
+      "text": "klanman",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f8/LL-Q35107_%28bci%29-N%27guess_ange-klanman.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342956-f87c1f53",
+      "text": "kle",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4a/LL-Q35107_%28bci%29-ALEX_MEKAN_57-kle.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-fc190acf",
+      "text": "klenzua'",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/51/LL-Q35107_%28bci%29-ALEX_MEKAN_57-klenzua%27.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-0243bcdf",
+      "text": "klolè",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0a/LL-Q35107_%28bci%29-ALEX_MEKAN_57-klol%C3%A8.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-dd960b9b",
+      "text": "klolè",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/41/LL-Q35107_%28bci%29-N%27guess_ange-klol%C3%A8.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-71e7483a",
+      "text": "klɔ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d2/LL-Q35107_%28bci%29-N%27guess_ange-kl%C9%94.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342956-4c032a8d",
+      "text": "klɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/45/LL-Q35107_%28bci%29-ALEX_MEKAN_57-kl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-ca954c0b",
+      "text": "Klɛn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/LL-Q35107_%28bci%29-ALEX_MEKAN_57-Kl%C9%9Bn.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-fda62049",
+      "text": "klɛn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/dd/LL-Q35107_%28bci%29-N%27guess_ange-kl%C9%9Bn.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342956-b6dd1b8f",
+      "text": "Kofi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a8/LL-Q35107_%28bci%29-ALEX_MEKAN_57-Kofi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-b0a38d8a",
+      "text": "kokoe",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/eb/LL-Q35107_%28bci%29-ALEX_MEKAN_57-kokoe.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-688946f9",
+      "text": "kokonnyawo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/aa/LL-Q35107_%28bci%29-ALEX_MEKAN_57-kokonnyawo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-3807c54b",
+      "text": "kokosoklo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0f/LL-Q35107_%28bci%29-ALEX_MEKAN_57-kokosoklo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-66428eb2",
+      "text": "kokotre",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/88/LL-Q35107_%28bci%29-ALEX_MEKAN_57-kokotre.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-0c6201cb",
+      "text": "kokotui",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/27/LL-Q35107_%28bci%29-ALEX_MEKAN_57-kokotui.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-236c223f",
+      "text": "koliɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/62/LL-Q35107_%28bci%29-ALEX_MEKAN_57-koli%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-70ccfa36",
+      "text": "kondi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8b/LL-Q35107_%28bci%29-ALEX_MEKAN_57-kondi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-9e38ae70",
+      "text": "kondo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0d/LL-Q35107_%28bci%29-ALEX_MEKAN_57-kondo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342962-2af95209",
+      "text": "kondro",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5b/LL-Q35107_%28bci%29-Dadrik-kondro.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342962",
+        "speaker_name": "Dadrik",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-d827578a",
+      "text": "kondì",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/58/LL-Q35107_%28bci%29-ALEX_MEKAN_57-kond%C3%AC.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-ad635636",
+      "text": "kongonklɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9a/LL-Q35107_%28bci%29-ALEX_MEKAN_57-kongonkl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-a4b666e4",
+      "text": "kosian",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/de/LL-Q35107_%28bci%29-ALEX_MEKAN_57-kosian.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-dc4462f9",
+      "text": "kpa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/69/LL-Q35107_%28bci%29-Koukfranck-kpa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-a4421735",
+      "text": "kpajalɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/54/LL-Q35107_%28bci%29-N%27guess_ange-kpajal%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1504630-c8e66623",
+      "text": "kpako",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/37/LL-Q35107_%28bci%29-Koukfranck-kpako.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-a06920ca",
+      "text": "kpalike",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/LL-Q35107_%28bci%29-Koukfranck-kpalike.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-3822be7c",
+      "text": "kpangba",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0f/LL-Q35107_%28bci%29-Koukfranck-kpangba.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-21e7b009",
+      "text": "kpanngban",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d4/LL-Q35107_%28bci%29-Koukfranck-kpanngban.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-cc411b75",
+      "text": "kpata",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/ba/LL-Q35107_%28bci%29-Koukfranck-kpata.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-e63ddee6",
+      "text": "kpatalua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8e/LL-Q35107_%28bci%29-Koukfranck-kpatalua.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-a8ebd722",
+      "text": "kpaun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7e/LL-Q35107_%28bci%29-Koukfranck-kpaun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-d1a622c7",
+      "text": "kpokpo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ad/LL-Q35107_%28bci%29-Koukfranck-kpokpo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-b0b79ed2",
+      "text": "kpopko",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1f/LL-Q35107_%28bci%29-Koukfranck-kpopko.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-052574ed",
+      "text": "kpu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/39/LL-Q35107_%28bci%29-Assodavi-kpu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-576ed811",
+      "text": "kpuakpua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/89/LL-Q35107_%28bci%29-Assodavi-kpuakpua.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-3679332b",
+      "text": "kpuin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6e/LL-Q35107_%28bci%29-Assodavi-kpuin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-d64b05f7",
+      "text": "kpuju",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4e/LL-Q35107_%28bci%29-Assodavi-kpuju.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-84724122",
+      "text": "kpukpu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3a/LL-Q35107_%28bci%29-Assodavi-kpukpu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-108e8544",
+      "text": "kpɔci",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e1/LL-Q35107_%28bci%29-Koukfranck-kp%C9%94ci.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-3a8cffdc",
+      "text": "kpɔci su",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/00/LL-Q35107_%28bci%29-Koukfranck-kp%C9%94ci_su.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-7e993257",
+      "text": "kpɔkpɔ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f2/LL-Q35107_%28bci%29-Koukfranck-kp%C9%94kp%C9%94.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-9262c31c",
+      "text": "kpɔlɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a5/LL-Q35107_%28bci%29-Koukfranck-kp%C9%94l%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-cbaee519",
+      "text": "kpɔnman",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/14/LL-Q35107_%28bci%29-Koukfranck-kp%C9%94nman.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-2c8b5142",
+      "text": "kpɔtɔ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/ff/LL-Q35107_%28bci%29-Koukfranck-kp%C9%94t%C9%94.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-0c4e92fe",
+      "text": "kpɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5c/LL-Q35107_%28bci%29-Koukfranck-kp%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-fa29a13f",
+      "text": "kpɛkpɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9d/LL-Q35107_%28bci%29-Koukfranck-kp%C9%9Bkp%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-6edfbc66",
+      "text": "Kpɛn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/34/LL-Q35107_%28bci%29-Koukfranck-Kp%C9%9Bn.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-5b0ecdcf",
+      "text": "kpɛnngbɛn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d3/LL-Q35107_%28bci%29-Koukfranck-kp%C9%9Bnngb%C9%9Bn.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-f865efda",
+      "text": "ku",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d8/LL-Q35107_%28bci%29-Assodavi-ku.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q19855-a4ebd694",
+      "text": "kun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9d/LL-Q140193_%28bci%29-Modjou-kun.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q179883-bb6bf29e",
+      "text": "kun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/74/LL-Q35107_%28bci%29-Didierwiki-kun.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-272b3dab",
+      "text": "kun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/63/LL-Q35107_%28bci%29-N%27guess_ange-kun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-c3c127f7",
+      "text": "kun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fd/LL-Q35107_%28bci%29-Franckk1-kun.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140193-3a486bcc",
+      "text": "kɔ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/80/LL-Q140193_%28bci%29-Olivier_Yao-k%C9%94.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q19855-e4ed3e41",
+      "text": "kɔ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/ff/LL-Q140193_%28bci%29-Modjou-k%C9%94.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1342956-8e69d880",
+      "text": "kɔ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1a/LL-Q35107_%28bci%29-ALEX_MEKAN_57-k%C9%94.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q140217-e5436f9c",
+      "text": "kɔ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f4/LL-Q35107_%28bci%29-Franckk1-k%C9%94.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-0c8413f3",
+      "text": "kɔkɔti",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a4/LL-Q35107_%28bci%29-N%27guess_ange-k%C9%94k%C9%94ti.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1342956-44015ce5",
+      "text": "kɔliɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d7/LL-Q35107_%28bci%29-ALEX_MEKAN_57-k%C9%94li%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342956-f90fd7cc",
+      "text": "kɔmin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7d/LL-Q35107_%28bci%29-ALEX_MEKAN_57-k%C9%94min.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342956",
+        "speaker_name": "ALEX MEKAN 57",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-eb0895ea",
+      "text": "kɛklɛkɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a8/LL-Q35107_%28bci%29-N%27guess_ange-k%C9%9Bkl%C9%9Bk%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q19855-6d41fb7b",
+      "text": "la",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ef/LL-Q140193_%28bci%29-Modjou-la.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q222745-077e2b06",
+      "text": "la",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/11/LL-Q35107_%28bci%29-Laurekarell-la.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q222745",
+        "speaker_name": "Laurekarell",
+        "gender": "w"
+      },
+      "credit": "Laurekarell (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-cd6a270b",
+      "text": "la",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/03/LL-Q35107_%28bci%29-Franckk1-la.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q213501-3e1c3cb0",
+      "text": "labu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ed/LL-Q35107_%28bci%29-Koffi.noel-labu.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q213501-c5a3cb1a",
+      "text": "lalo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d3/LL-Q35107_%28bci%29-Koffi.noel-lalo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q213501-69e9cf6a",
+      "text": "lika",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/73/LL-Q35107_%28bci%29-Koffi.noel-lika.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-045f5adb",
+      "text": "lika",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bb/LL-Q35107_%28bci%29-N%27guess_ange-lika.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525538-afbbee8f",
+      "text": "lomi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/98/LL-Q35107_%28bci%29-KONEVICTOIRE-lomi.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q213501-98d59fe7",
+      "text": "luku",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/04/LL-Q35107_%28bci%29-Koffi.noel-luku.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q213502-c1838228",
+      "text": "man",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/28/LL-Q35107_%28bci%29-Jnov2.0-man.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213502",
+        "speaker_name": "Jnov2.0",
+        "gender": "w"
+      },
+      "credit": "Jnov2.0 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-b90c668f",
+      "text": "mancou",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/35/LL-Q35107_%28bci%29-N%27guess_ange-mancou.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140193-22ada833",
+      "text": "manda",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bb/LL-Q140193_%28bci%29-Olivier_Yao-manda.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-6ccadf5d",
+      "text": "manku",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2e/LL-Q35107_%28bci%29-N%27guess_ange-manku.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525385-028444fd",
+      "text": "n nyanman'",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2b/LL-Q35107_%28bci%29-Assodavi-n_nyanman%27.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-48e5d13f",
+      "text": "n'do",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/06/LL-Q35107_%28bci%29-N%27guess_ange-n%27do.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525385-c1c8777f",
+      "text": "n'dè",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/LL-Q35107_%28bci%29-Assodavi-n%27d%C3%A8.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-9abef746",
+      "text": "n'dɔtiɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/LL-Q35107_%28bci%29-N%27guess_ange-n%27d%C9%94ti%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-47541750",
+      "text": "n'gatɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/04/LL-Q35107_%28bci%29-N%27guess_ange-n%27gat%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q179883-d6997de9",
+      "text": "N'gban",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/92/LL-Q35107_%28bci%29-Didierwiki-N%27gban.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-185ceacb",
+      "text": "n'gbɔkuman",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5f/LL-Q35107_%28bci%29-N%27guess_ange-n%27gb%C9%94kuman.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-613589aa",
+      "text": "n'gluma",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/79/LL-Q35107_%28bci%29-N%27guess_ange-n%27gluma.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525385-3a6454bb",
+      "text": "n'go",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/LL-Q35107_%28bci%29-Assodavi-n%27go.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-b0ab0298",
+      "text": "n'zrama",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2d/LL-Q35107_%28bci%29-N%27guess_ange-n%27zrama.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-b5d57b35",
+      "text": "nanann",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c2/LL-Q35107_%28bci%29-N%27guess_ange-nanann.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-f02b0652",
+      "text": "nanwlɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/67/LL-Q35107_%28bci%29-N%27guess_ange-nanwl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525385-f3e11319",
+      "text": "ndara",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/88/LL-Q35107_%28bci%29-Assodavi-ndara.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-71a64701",
+      "text": "ndo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/LL-Q35107_%28bci%29-Assodavi-ndo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-abfff680",
+      "text": "ndre",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f7/LL-Q35107_%28bci%29-Assodavi-ndre.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-8c196ed3",
+      "text": "ndru",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9f/LL-Q35107_%28bci%29-Assodavi-ndru.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-a89cd63e",
+      "text": "ndrɔn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ac/LL-Q35107_%28bci%29-Assodavi-ndr%C9%94n.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-13c125c0",
+      "text": "nga",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/88/LL-Q35107_%28bci%29-Assodavi-nga.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-2a4e9cd1",
+      "text": "ngaciɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/97/LL-Q35107_%28bci%29-Assodavi-ngaci%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-88943318",
+      "text": "ngan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cb/LL-Q35107_%28bci%29-Assodavi-ngan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525385-6c52cf7f",
+      "text": "ngandro",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/13/LL-Q35107_%28bci%29-Assodavi-ngandro.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525538-612272f1",
+      "text": "ngban",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/LL-Q35107_%28bci%29-KONEVICTOIRE-ngban.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1427786-b73aca90",
+      "text": "nglo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/LL-Q35107_%28bci%29-N%27guess_ange-nglo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525402-301e0c9c",
+      "text": "nglonglo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/27/LL-Q35107_%28bci%29-Decar1010-nglonglo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525402",
+        "speaker_name": "Decar1010",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525389-5ef6c3b0",
+      "text": "ngo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/LL-Q35107_%28bci%29-Lionelle_Konan-ngo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525389",
+        "speaker_name": "Lionelle Konan",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525402-87bbbb57",
+      "text": "Ngoe ti",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7f/LL-Q35107_%28bci%29-Decar1010-Ngoe_ti.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525402",
+        "speaker_name": "Decar1010",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525389-92b0165a",
+      "text": "ngua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/30/LL-Q35107_%28bci%29-Lionelle_Konan-ngua.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525389",
+        "speaker_name": "Lionelle Konan",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-dae7a97b",
+      "text": "ngwlɛlɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ef/LL-Q35107_%28bci%29-N%27guess_ange-ngwl%C9%9Bl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q19855-70664f91",
+      "text": "nian",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c5/LL-Q140193_%28bci%29-Modjou-nian.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1525386-de3ee665",
+      "text": "nian",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/64/LL-Q35107_%28bci%29-The_best_winner-nian.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-f922160b",
+      "text": "nianman",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b0/LL-Q35107_%28bci%29-The_best_winner-nianman.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-3cb0c6e6",
+      "text": "niannun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2f/LL-Q35107_%28bci%29-The_best_winner-niannun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-2e965193",
+      "text": "niguéma",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f8/LL-Q35107_%28bci%29-N%27guess_ange-nigu%C3%A9ma.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525386-d8ccdf1b",
+      "text": "ninfan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f6/LL-Q35107_%28bci%29-The_best_winner-ninfan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-3a8a959f",
+      "text": "ninnge mma",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a6/LL-Q35107_%28bci%29-The_best_winner-ninnge_mma.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-7d3f911a",
+      "text": "nivialiɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/24/LL-Q35107_%28bci%29-The_best_winner-niviali%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-80bbe205",
+      "text": "njin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ea/LL-Q35107_%28bci%29-The_best_winner-njin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-c52e3a24",
+      "text": "njua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bf/LL-Q35107_%28bci%29-The_best_winner-njua.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-6e5325e9",
+      "text": "nna",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/34/LL-Q35107_%28bci%29-The_best_winner-nna.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-50727aef",
+      "text": "nnaka",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/49/LL-Q35107_%28bci%29-The_best_winner-nnaka.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-3ab30125",
+      "text": "nnan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a5/LL-Q35107_%28bci%29-The_best_winner-nnan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-9d7e9243",
+      "text": "nnana",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/LL-Q35107_%28bci%29-The_best_winner-nnana.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-f07cdbab",
+      "text": "nnase",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/02/LL-Q35107_%28bci%29-The_best_winner-nnase.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-53b0a846",
+      "text": "nnolo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/04/LL-Q35107_%28bci%29-The_best_winner-nnolo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-3b421b50",
+      "text": "nnun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/21/LL-Q35107_%28bci%29-The_best_winner-nnun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-e7025fa2",
+      "text": "nnɛn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2e/LL-Q35107_%28bci%29-N%27guess_ange-nn%C9%9Bn.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525386-dc870390",
+      "text": "nso",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7f/LL-Q35107_%28bci%29-The_best_winner-nso.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-3a56b660",
+      "text": "ntɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/LL-Q35107_%28bci%29-The_best_winner-nt%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525386-37e0a03c",
+      "text": "nuan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0f/LL-Q35107_%28bci%29-The_best_winner-nuan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-8dbb35c1",
+      "text": "nuan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6c/LL-Q35107_%28bci%29-N%27guess_ange-nuan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-fca5ec53",
+      "text": "nuan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/76/LL-Q35107_%28bci%29-Konan_amani_mossia-nuan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525386-eb5ef802",
+      "text": "nunnun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3a/LL-Q35107_%28bci%29-The_best_winner-nunnun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1525398-5152190f",
+      "text": "nunnun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/76/LL-Q35107_%28bci%29-Konan_amani_mossia-nunnun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-05dcab05",
+      "text": "nvan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/70/LL-Q35107_%28bci%29-Konan_amani_mossia-nvan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-e0757d70",
+      "text": "nvasuɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/35/LL-Q35107_%28bci%29-Konan_amani_mossia-nvasu%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-d26e0a4c",
+      "text": "nviɛlɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/70/LL-Q35107_%28bci%29-Konan_amani_mossia-nvi%C9%9Bl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-4a6a742e",
+      "text": "nvlɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/af/LL-Q35107_%28bci%29-Konan_amani_mossia-nvl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-093d5c8e",
+      "text": "nvɔlɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/87/LL-Q35107_%28bci%29-Konan_amani_mossia-nv%C9%94l%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-782c2d84",
+      "text": "nvɛn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4b/LL-Q35107_%28bci%29-Konan_amani_mossia-nv%C9%9Bn.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-4af5631e",
+      "text": "nvɛɛfuɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9c/LL-Q35107_%28bci%29-Konan_amani_mossia-nv%C9%9B%C9%9Bfu%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-4849ec41",
+      "text": "nyaan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d2/LL-Q35107_%28bci%29-Konan_amani_mossia-nyaan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-50e01c78",
+      "text": "nyan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1f/LL-Q35107_%28bci%29-Konan_amani_mossia-nyan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-135f724d",
+      "text": "nyannga",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f6/LL-Q35107_%28bci%29-Konan_amani_mossia-nyannga.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-638c5585",
+      "text": "nyannglan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7b/LL-Q35107_%28bci%29-Konan_amani_mossia-nyannglan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-401f0684",
+      "text": "nyanngo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a9/LL-Q35107_%28bci%29-Konan_amani_mossia-nyanngo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-818ea82d",
+      "text": "nyanngondin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fa/LL-Q35107_%28bci%29-Konan_amani_mossia-nyanngondin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525398-03b999ac",
+      "text": "nyannyrin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/41/LL-Q35107_%28bci%29-Konan_amani_mossia-nyannyrin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525398",
+        "speaker_name": "Konan amani mossia",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1525538-81a3ad0d",
+      "text": "nzan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d9/LL-Q35107_%28bci%29-KONEVICTOIRE-nzan.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1525538-6387a95b",
+      "text": "nzue",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e7/LL-Q35107_%28bci%29-KONEVICTOIRE-nzue.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1525538-4a0e8200",
+      "text": "nzueba",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2a/LL-Q35107_%28bci%29-KONEVICTOIRE-nzueba.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q1525538-1e14c7bc",
+      "text": "nzuesɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a4/LL-Q35107_%28bci%29-KONEVICTOIRE-nzues%C9%9B.wav",
+      "license": "CC-BY-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525538",
+        "speaker_name": "KONEVICTOIRE",
+        "gender": "w"
+      },
+      "credit": "KONEVICTOIRE (Lingua Libre, CC BY 4.0)"
+    },
+    {
+      "id": "Q140193-80a6f0a9",
+      "text": "nɔn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/99/LL-Q140193_%28bci%29-Olivier_Yao-n%C9%94n.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1525386-e3e0ebee",
+      "text": "nɔn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c4/LL-Q35107_%28bci%29-The_best_winner-n%C9%94n.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525386",
+        "speaker_name": "The best winner",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q140217-b88185f5",
+      "text": "nɔn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ad/LL-Q35107_%28bci%29-Franckk1-n%C9%94n.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1525385-382c95f0",
+      "text": "nɛnkɛn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/81/LL-Q35107_%28bci%29-Assodavi-n%C9%9Bnk%C9%9Bn.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q19855-def64278",
+      "text": "n’zoué",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c6/LL-Q140193_%28bci%29-Modjou-n%E2%80%99zou%C3%A9.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1525385-34872346",
+      "text": "n’zoué",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ed/LL-Q35107_%28bci%29-Assodavi-n%E2%80%99zou%C3%A9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1525385",
+        "speaker_name": "Assodavi",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342962-08cefa09",
+      "text": "oflɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/65/LL-Q35107_%28bci%29-Dadrik-ofl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342962",
+        "speaker_name": "Dadrik",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-f0a01bae",
+      "text": "oglɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/96/LL-Q35107_%28bci%29-N%27guess_ange-ogl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140193-09969182",
+      "text": "ondo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/0a/LL-Q140193_%28bci%29-Olivier_Yao-ondo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-68d91372",
+      "text": "ondo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a2/LL-Q35107_%28bci%29-N%27guess_ange-ondo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-6293afbd",
+      "text": "ondo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/cd/LL-Q35107_%28bci%29-Franckk1-ondo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-eebd7541",
+      "text": "onzani",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/30/LL-Q35107_%28bci%29-N%27guess_ange-onzani.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q665559-d6444427",
+      "text": "onze",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e3/LL-Q35107_%28bci%29-Aristidek5maya-onze.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q665559",
+        "speaker_name": "Aristidek5maya",
+        "gender": "m"
+      },
+      "credit": "Aristidek5maya (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-1a1155fc",
+      "text": "onze",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/LL-Q35107_%28bci%29-Franckk1-onze.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140193-073b73f3",
+      "text": "oto",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e3/LL-Q140193_%28bci%29-Olivier_Yao-oto.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140193-b1a9e75f",
+      "text": "otro",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4a/LL-Q140193_%28bci%29-Olivier_Yao-otro.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-43fab8ed",
+      "text": "otro",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/LL-Q35107_%28bci%29-Franckk1-otro.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140193-96cd71a4",
+      "text": "pai",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a8/LL-Q140193_%28bci%29-Olivier_Yao-pai.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-a1c8ee07",
+      "text": "pai",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4f/LL-Q35107_%28bci%29-Franckk1-pai.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-63f5d51a",
+      "text": "pkako",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/57/LL-Q35107_%28bci%29-N%27guess_ange-pkako.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-79f3fcd3",
+      "text": "pkangɔ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/16/LL-Q35107_%28bci%29-N%27guess_ange-pkang%C9%94.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-357fdf33",
+      "text": "pkɛma",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7c/LL-Q35107_%28bci%29-N%27guess_ange-pk%C9%9Bma.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1504630-204c12b4",
+      "text": "sa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/79/LL-Q35107_%28bci%29-Koukfranck-sa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q665559-dbdd5315",
+      "text": "sa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fc/LL-Q35107_%28bci%29-Aristidek5maya-sa.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q665559",
+        "speaker_name": "Aristidek5maya",
+        "gender": "m"
+      },
+      "credit": "Aristidek5maya (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q222745-1535b720",
+      "text": "sa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e4/LL-Q35107_%28bci%29-Laurekarell-sa.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q222745",
+        "speaker_name": "Laurekarell",
+        "gender": "w"
+      },
+      "credit": "Laurekarell (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1504630-242f97e4",
+      "text": "sabui",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/28/LL-Q35107_%28bci%29-Koukfranck-sabui.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-6bf3bd30",
+      "text": "saciliɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/50/LL-Q35107_%28bci%29-Koukfranck-sacili%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-fe10cb41",
+      "text": "sanndi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bb/LL-Q35107_%28bci%29-Koukfranck-sanndi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-57439fde",
+      "text": "sanngan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/ec/LL-Q35107_%28bci%29-Koukfranck-sanngan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-81e904cf",
+      "text": "sanngan nun",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6f/LL-Q35107_%28bci%29-Koukfranck-sanngan_nun.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-aa797b60",
+      "text": "sanngban",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2c/LL-Q35107_%28bci%29-Koukfranck-sanngban.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-1474bcaa",
+      "text": "sanngbe",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/64/LL-Q35107_%28bci%29-Koukfranck-sanngbe.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-c5b0aeff",
+      "text": "sannglo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/48/LL-Q35107_%28bci%29-Koukfranck-sannglo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-b32af11a",
+      "text": "sanngo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/eb/LL-Q35107_%28bci%29-Koukfranck-sanngo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1504630-20b85701",
+      "text": "sar",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/57/LL-Q35107_%28bci%29-Koukfranck-sar.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q140217-fac8cbf3",
+      "text": "sar",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5c/LL-Q35107_%28bci%29-Franckk1-sar.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1504630-d71b633f",
+      "text": "si",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/be/LL-Q35107_%28bci%29-Koukfranck-si.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q19855-ffb1323b",
+      "text": "si",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a7/LL-Q140193_%28bci%29-Modjou-si.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q665559-6a4d69ce",
+      "text": "si",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c3/LL-Q35107_%28bci%29-Aristidek5maya-si.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q665559",
+        "speaker_name": "Aristidek5maya",
+        "gender": "m"
+      },
+      "credit": "Aristidek5maya (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q213502-748b70e3",
+      "text": "si",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1c/LL-Q35107_%28bci%29-Jnov2.0-si.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213502",
+        "speaker_name": "Jnov2.0",
+        "gender": "w"
+      },
+      "credit": "Jnov2.0 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q222745-c1b52c73",
+      "text": "si",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bd/LL-Q35107_%28bci%29-Laurekarell-si.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q222745",
+        "speaker_name": "Laurekarell",
+        "gender": "w"
+      },
+      "credit": "Laurekarell (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1504630-40a08375",
+      "text": "si able",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c7/LL-Q35107_%28bci%29-Koukfranck-si_able.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1427786-59178444",
+      "text": "sielɛ’n",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/7d/LL-Q35107_%28bci%29-N%27guess_ange-siel%C9%9B%E2%80%99n.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1504630-a0e8f339",
+      "text": "siesie",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/0/05/LL-Q35107_%28bci%29-Koukfranck-siesie.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q213501-5002f06b",
+      "text": "sika",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1d/LL-Q35107_%28bci%29-Koffi.noel-sika.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q19855-203b1431",
+      "text": "sika",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2f/LL-Q140193_%28bci%29-Modjou-sika.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1342958-86a609cb",
+      "text": "sika",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2a/LL-Q35107_%28bci%29-Ladyboss03-sika.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342958",
+        "speaker_name": "Ladyboss03",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-fab2e8cc",
+      "text": "silɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3a/LL-Q35107_%28bci%29-N%27guess_ange-sil%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140193-da2dae92",
+      "text": "sin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b8/LL-Q140193_%28bci%29-Olivier_Yao-sin.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-4e734be9",
+      "text": "sin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/15/LL-Q35107_%28bci%29-N%27guess_ange-sin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-f5bc8abe",
+      "text": "sin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/fc/LL-Q35107_%28bci%29-Franckk1-sin.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-ddda7758",
+      "text": "siɛn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/ff/LL-Q35107_%28bci%29-N%27guess_ange-si%C9%9Bn.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1504630-cf8f14e5",
+      "text": "soko",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/91/LL-Q35107_%28bci%29-Koukfranck-soko.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q140193-75659aed",
+      "text": "soko",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/37/LL-Q140193_%28bci%29-Olivier_Yao-soko.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-617802fd",
+      "text": "soko",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2d/LL-Q35107_%28bci%29-Franckk1-soko.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-9846aeab",
+      "text": "sokosokotui",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d1/LL-Q35107_%28bci%29-N%27guess_ange-sokosokotui.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140193-cbc98a13",
+      "text": "soma",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/41/LL-Q140193_%28bci%29-Olivier_Yao-soma.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q213501-5556eb95",
+      "text": "sondo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/8a/LL-Q35107_%28bci%29-Koffi.noel-sondo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-2adde7d3",
+      "text": "sondo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/82/LL-Q35107_%28bci%29-Franckk1-sondo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-f6c62995",
+      "text": "srɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/83/LL-Q35107_%28bci%29-N%27guess_ange-sr%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q213501-9068dc68",
+      "text": "sua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/46/LL-Q35107_%28bci%29-Koffi.noel-sua.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213501",
+        "speaker_name": "Koffi.noel",
+        "gender": "m"
+      },
+      "credit": "Koffi.noel (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-3f8c5507",
+      "text": "sua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3c/LL-Q35107_%28bci%29-Franckk1-sua.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-ddd7e835",
+      "text": "suklu",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b4/LL-Q35107_%28bci%29-N%27guess_ange-suklu.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1504630-34dfb62a",
+      "text": "sɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bb/LL-Q35107_%28bci%29-Koukfranck-s%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1504630",
+        "speaker_name": "Koukfranck",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q1342962-f2d3ccb3",
+      "text": "taloua",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ae/LL-Q35107_%28bci%29-Dadrik-taloua.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1342962",
+        "speaker_name": "Dadrik",
+        "gender": "m"
+      }
+    },
+    {
+      "id": "Q140217-06b7687d",
+      "text": "tannin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/66/LL-Q35107_%28bci%29-Franckk1-tannin.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-66b948e1",
+      "text": "tchuanwla",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bb/LL-Q35107_%28bci%29-N%27guess_ange-tchuanwla.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q19855-60dc7c1f",
+      "text": "to",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d1/LL-Q140193_%28bci%29-Modjou-to.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q179883-dd288943",
+      "text": "to",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3c/LL-Q35107_%28bci%29-Didierwiki-to.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-a364ecdc",
+      "text": "to",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/1d/LL-Q35107_%28bci%29-Franckk1-to.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-1d595f8b",
+      "text": "Topbo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b5/LL-Q35107_%28bci%29-N%27guess_ange-Topbo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-998864a1",
+      "text": "tralɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/9a/LL-Q35107_%28bci%29-N%27guess_ange-tral%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-0b9487e0",
+      "text": "tronwan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c9/LL-Q35107_%28bci%29-N%27guess_ange-tronwan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140193-21f232e1",
+      "text": "tɔ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/3a/LL-Q140193_%28bci%29-Olivier_Yao-t%C9%94.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q19855-2ede0b9c",
+      "text": "tɔ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/95/LL-Q140193_%28bci%29-Modjou-t%C9%94.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-ffcb5919",
+      "text": "tɔ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d4/LL-Q35107_%28bci%29-Franckk1-t%C9%94.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-32eb80fe",
+      "text": "uflɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/34/LL-Q35107_%28bci%29-N%27guess_ange-ufl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q179883-5890f6e3",
+      "text": "wa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/5d/LL-Q35107_%28bci%29-Didierwiki-wa.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q179883",
+        "speaker_name": "Didierwiki",
+        "gender": "m"
+      },
+      "credit": "Didierwiki (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q213502-686f0371",
+      "text": "wa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/3/30/LL-Q35107_%28bci%29-Jnov2.0-wa.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213502",
+        "speaker_name": "Jnov2.0",
+        "gender": "w"
+      },
+      "credit": "Jnov2.0 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-b69720d6",
+      "text": "wa",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/5/55/LL-Q35107_%28bci%29-N%27guess_ange-wa.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140193-8ba82b7d",
+      "text": "waka",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d5/LL-Q140193_%28bci%29-Olivier_Yao-waka.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-1b8027de",
+      "text": "waka",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6d/LL-Q35107_%28bci%29-N%27guess_ange-waka.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-0446b964",
+      "text": "waka",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/4f/LL-Q35107_%28bci%29-Franckk1-waka.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-28c56815",
+      "text": "wandi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c4/LL-Q35107_%28bci%29-N%27guess_ange-wandi.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-6d8f543d",
+      "text": "wanzo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/44/LL-Q35107_%28bci%29-N%27guess_ange-wanzo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-4cb161b5",
+      "text": "wawɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/e/e0/LL-Q35107_%28bci%29-N%27guess_ange-waw%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-cb0b0584",
+      "text": "wazo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b2/LL-Q35107_%28bci%29-N%27guess_ange-wazo.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-3f3743e0",
+      "text": "we",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2f/LL-Q35107_%28bci%29-N%27guess_ange-we.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140217-15c4e6a3",
+      "text": "we",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/4/43/LL-Q35107_%28bci%29-Franckk1-we.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-d7210f9f",
+      "text": "wie",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2d/LL-Q35107_%28bci%29-N%27guess_ange-wie.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-c6505ad9",
+      "text": "wla",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/8/87/LL-Q35107_%28bci%29-N%27guess_ange-wla.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-6610d4b0",
+      "text": "wlaka",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/16/LL-Q35107_%28bci%29-N%27guess_ange-wlaka.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-ea3b6e0b",
+      "text": "wlan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/9/97/LL-Q35107_%28bci%29-N%27guess_ange-wlan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-63318346",
+      "text": "wlanwlan",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c7/LL-Q35107_%28bci%29-N%27guess_ange-wlanwlan.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-3c8cdd2b",
+      "text": "wlɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2c/LL-Q35107_%28bci%29-N%27guess_ange-wl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-5b45ba34",
+      "text": "wlɛwlɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/b9/LL-Q35107_%28bci%29-N%27guess_ange-wl%C9%9Bwl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-8107716c",
+      "text": "wulɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/d/d6/LL-Q35107_%28bci%29-N%27guess_ange-wul%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-01b58be2",
+      "text": "wé tchin",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/c/c5/LL-Q35107_%28bci%29-N%27guess_ange-w%C3%A9_tchin.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-f07597d6",
+      "text": "wɔli",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6e/LL-Q35107_%28bci%29-N%27guess_ange-w%C9%94li.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-b48645b7",
+      "text": "wɛnsɛn",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/73/LL-Q35107_%28bci%29-N%27guess_ange-w%C9%9Bns%C9%9Bn.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140193-55138e12",
+      "text": "ya",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/6/6e/LL-Q140193_%28bci%29-Olivier_Yao-ya.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q140217-5b717d94",
+      "text": "ya",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/f/f9/LL-Q35107_%28bci%29-Franckk1-ya.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140217",
+        "speaker_name": "Franckk1"
+      },
+      "credit": "Franckk1 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-70dfb5c1",
+      "text": "yié",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2d/LL-Q35107_%28bci%29-N%27guess_ange-yi%C3%A9.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q19855-27a60233",
+      "text": "yo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/1/19/LL-Q140193_%28bci%29-Modjou-yo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q19855",
+        "speaker_name": "Modjou",
+        "gender": "w"
+      },
+      "credit": "Modjou (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q213502-8bb05e5c",
+      "text": "yo",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/a1/LL-Q35107_%28bci%29-Jnov2.0-yo.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q213502",
+        "speaker_name": "Jnov2.0",
+        "gender": "w"
+      },
+      "credit": "Jnov2.0 (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-26c492b8",
+      "text": "yɔbouɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/7/72/LL-Q35107_%28bci%29-N%27guess_ange-y%C9%94bou%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-9f5aba5f",
+      "text": "zouglou",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/26/LL-Q35107_%28bci%29-N%27guess_ange-zouglou.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q140193-571503a2",
+      "text": "Zozi",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/2/2a/LL-Q140193_%28bci%29-Olivier_Yao-Zozi.wav",
+      "license": "CC-BY-SA-4.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q140193",
+        "speaker_name": "Olivier Yao",
+        "gender": "m"
+      },
+      "credit": "Olivier Yao (Lingua Libre, CC BY-SA 4.0)"
+    },
+    {
+      "id": "Q1427786-18fdec92",
+      "text": "ɲanmiɛn ble",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/a/ad/LL-Q35107_%28bci%29-N%27guess_ange-%C9%B2anmi%C9%9Bn_ble.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wortpaar",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    },
+    {
+      "id": "Q1427786-188a0b1d",
+      "text": "ɲinlɛ",
+      "audio": "https://upload.wikimedia.org/wikipedia/commons/b/bc/LL-Q35107_%28bci%29-N%27guess_ange-%C9%B2inl%C9%9B.wav",
+      "license": "CC0-1.0",
+      "tags": {
+        "word_band": "wort",
+        "style": "pronunciation",
+        "speaker_id": "ll-Q1427786",
+        "speaker_name": "N'guess ange",
+        "gender": "w"
+      }
+    }
+  ]
+}
