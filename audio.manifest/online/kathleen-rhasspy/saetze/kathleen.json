@@ -9,6 +9,7 @@
   "url": "https://github.com/rhasspy/dataset-voice-kathleen",
   "tags": {
     "speaker_id": "kathleen",
+    "speaker_name": "Kathleen",
     "gender": "w",
     "style": "studio"
   },

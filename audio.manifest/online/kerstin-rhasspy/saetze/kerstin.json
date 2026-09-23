@@ -9,6 +9,7 @@
   "url": "https://github.com/rhasspy/dataset-voice-kerstin",
   "tags": {
     "speaker_id": "kerstin",
+    "speaker_name": "Kerstin",
     "gender": "w",
     "style": "studio"
   },

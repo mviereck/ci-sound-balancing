@@ -9,6 +9,7 @@
   "url": "https://github.com/rhasspy/dataset-voice-flemishguy",
   "tags": {
     "speaker_id": "flemishguy",
+    "speaker_name": "Flemish Guy",
     "gender": "m",
     "style": "studio"
   },

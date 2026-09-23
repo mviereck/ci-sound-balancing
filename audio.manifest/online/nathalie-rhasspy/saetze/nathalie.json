@@ -9,6 +9,7 @@
   "url": "https://github.com/rhasspy/dataset-voice-nathalie",
   "tags": {
     "speaker_id": "nathalie",
+    "speaker_name": "Nathalie",
     "gender": "w",
     "style": "studio"
   },
