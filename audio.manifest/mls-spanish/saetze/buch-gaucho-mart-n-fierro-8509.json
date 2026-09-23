@@ -20,6 +20,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000000.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_12_hernandez_64kb.mp3",
@@ -35,6 +36,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000001.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
@@ -50,6 +52,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000002.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
@@ -65,6 +68,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000003.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
@@ -80,6 +84,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000004.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_12_hernandez_64kb.mp3",
@@ -95,6 +100,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000005.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_07_hernandez_64kb.mp3",
@@ -110,6 +116,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000006.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
@@ -125,6 +132,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000007.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
@@ -140,6 +148,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000008.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
@@ -155,6 +164,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000009.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_07_hernandez_64kb.mp3",
@@ -170,6 +180,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000010.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
@@ -185,6 +196,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000011.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_12_hernandez_64kb.mp3",
@@ -200,6 +212,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000012.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
@@ -215,6 +228,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000013.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_12_hernandez_64kb.mp3",
@@ -230,6 +244,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000014.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
@@ -245,6 +260,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000015.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
@@ -260,6 +276,7 @@
       "audio": "test/audio/8306/8509/8306_8509_000016.opus",
       "tags": {
         "speaker_id": "mls-es-8306",
+        "speaker_name": "Lector 8306",
         "gender": "m",
         "book_id": "8509",
         "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_07_hernandez_64kb.mp3",

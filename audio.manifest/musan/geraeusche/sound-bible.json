@@ -17,9 +17,10 @@
         "title_de": "Sonstiges sb01",
         "title_fr": "Autre sb01",
         "title_es": "Otro sb01",
-        "stationary": null,
-        "loop_safe": null,
-        "license": "PD"
+        "stationary": "n",
+        "loop_safe": "n",
+        "license": "PD",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -31,10 +32,11 @@
         "title_de": "Anrufbeantworter-Piepton",
         "title_fr": "Bip du répondeur",
         "title_es": "Pitido del contestador",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/5-Answering-Machine-Beep.html"
+        "license_url": "http://soundbible.com/5-Answering-Machine-Beep.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -46,10 +48,11 @@
         "title_de": "Apfel beißen",
         "title_fr": "Croquer une pomme",
         "title_es": "Morder una manzana",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1968-Apple-Bite.html"
+        "license_url": "http://soundbible.com/1968-Apple-Bite.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -61,10 +64,11 @@
         "title_de": "Applaus des Publikums",
         "title_fr": "Applaudissements du public",
         "title_es": "Aplausos del público",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2087-Audience-Applause.html"
+        "license_url": "http://soundbible.com/2087-Audience-Applause.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -76,10 +80,11 @@
         "title_de": "Plätschernder Bach",
         "title_fr": "Ruisseau qui murmure",
         "title_es": "Arroyo borboteante",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/1776-Babbling-Brook.html"
+        "license_url": "http://soundbible.com/1776-Babbling-Brook.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -91,10 +96,11 @@
         "title_de": "Hintergrundgeräusch",
         "title_fr": "Bruit de fond",
         "title_es": "Ruido de fondo",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/531-Background-Noise.html"
+        "license_url": "http://soundbible.com/531-Background-Noise.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -106,10 +112,11 @@
         "title_de": "Bananenklatscher",
         "title_fr": "Claquement de banane",
         "title_es": "Golpe de plátano",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "y",
         "license": "PD",
-        "license_url": "http://soundbible.com/2047-Banana-Slap.html"
+        "license_url": "http://soundbible.com/2047-Banana-Slap.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -121,10 +128,11 @@
         "title_de": "Raketenalarm",
         "title_fr": "Alerte missile",
         "title_es": "Alerta de misil",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2056-Missile-Alert.html"
+        "license_url": "http://soundbible.com/2056-Missile-Alert.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -136,10 +144,11 @@
         "title_de": "Besetztzeichen",
         "title_fr": "Signal occupé",
         "title_es": "Señal de ocupado",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1072-Busy-Signal.html"
+        "license_url": "http://soundbible.com/1072-Busy-Signal.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -151,10 +160,11 @@
         "title_de": "Summen (ausklingend)",
         "title_fr": "Bourdonnement décroissant",
         "title_es": "Zumbido que se desvanece",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1198-Buzz-Fade-Out.html"
+        "license_url": "http://soundbible.com/1198-Buzz-Fade-Out.html",
+        "spectrum": "highpass"
       }
     },
     {
@@ -166,10 +176,11 @@
         "title_de": "Summen",
         "title_fr": "Bourdonnement",
         "title_es": "Zumbido",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1581-Buzz.html"
+        "license_url": "http://soundbible.com/1581-Buzz.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -181,10 +192,11 @@
         "title_de": "Kanadagänse im Flug",
         "title_fr": "Oies du Canada en migration",
         "title_es": "Gansos canadienses migrando",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1861-Canadian-Geese-Migration.html"
+        "license_url": "http://soundbible.com/1861-Canadian-Geese-Migration.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -196,10 +208,11 @@
         "title_de": "Kardinal-Vogel",
         "title_fr": "Oiseau cardinal",
         "title_es": "Pájaro cardenal",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1515-Best-Cardinal-Bird.html"
+        "license_url": "http://soundbible.com/1515-Best-Cardinal-Bird.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -211,10 +224,11 @@
         "title_de": "Katze miaut",
         "title_fr": "Miaulement de chat",
         "title_es": "Maullido de gato",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1954-Cat-Meow-2.html"
+        "license_url": "http://soundbible.com/1954-Cat-Meow-2.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -226,10 +240,11 @@
         "title_de": "Zikade",
         "title_fr": "Cigale",
         "title_es": "Cigarra",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/920-Cicada.html"
+        "license_url": "http://soundbible.com/920-Cicada.html",
+        "spectrum": "highpass"
       }
     },
     {
@@ -241,10 +256,11 @@
         "title_de": "Stadtgeräusche",
         "title_fr": "Ambiance urbaine",
         "title_es": "Ambiente urbano",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/1266-City-Ambiance.html"
+        "license_url": "http://soundbible.com/1266-City-Ambiance.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -256,10 +272,11 @@
         "title_de": "Innenstadt",
         "title_fr": "Centre-ville",
         "title_es": "Centro de la ciudad",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2000-City-Centre.html"
+        "license_url": "http://soundbible.com/2000-City-Centre.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -271,10 +288,11 @@
         "title_de": "Münze fällt",
         "title_fr": "Pièce qui tombe",
         "title_es": "Moneda cayendo",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/2081-Coin-Drop.html"
+        "license_url": "http://soundbible.com/2081-Coin-Drop.html",
+        "spectrum": "highpass"
       }
     },
     {
@@ -286,10 +304,11 @@
         "title_de": "UFO-Landung (Effekt)",
         "title_fr": "Atterrissage d'OVNI (effet)",
         "title_es": "Aterrizaje OVNI (efecto)",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2063-UFO-Landing.html"
+        "license_url": "http://soundbible.com/2063-UFO-Landing.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -301,10 +320,11 @@
         "title_de": "Telefonnummer wählen",
         "title_fr": "Composition d'un numéro",
         "title_es": "Marcando un número",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/418-Dialing-Phone-Number.html"
+        "license_url": "http://soundbible.com/418-Dialing-Phone-Number.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -316,10 +336,11 @@
         "title_de": "Wählton",
         "title_fr": "Tonalité",
         "title_es": "Tono de marcación",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1070-Dial-Tone.html"
+        "license_url": "http://soundbible.com/1070-Dial-Tone.html",
+        "spectrum": "lowpass"
       }
     },
     {
@@ -331,10 +352,11 @@
         "title_de": "Geschirrspüler",
         "title_fr": "Lave-vaisselle",
         "title_es": "Lavavajillas",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/1667-Dishwasher.html"
+        "license_url": "http://soundbible.com/1667-Dishwasher.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -346,10 +368,11 @@
         "title_de": "Taube",
         "title_fr": "Colombe",
         "title_es": "Paloma",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1850-Dove.html"
+        "license_url": "http://soundbible.com/1850-Dove.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -361,10 +384,11 @@
         "title_de": "Chips essen",
         "title_fr": "Manger des chips",
         "title_es": "Comer patatas fritas",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/912-Eat-Chips.html"
+        "license_url": "http://soundbible.com/912-Eat-Chips.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -376,10 +400,11 @@
         "title_de": "Essen",
         "title_fr": "Manger",
         "title_es": "Comer",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/976-Eating.html"
+        "license_url": "http://soundbible.com/976-Eating.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -391,10 +416,11 @@
         "title_de": "Elektrischer Sweep-Ton",
         "title_fr": "Balayage électrique",
         "title_es": "Barrido eléctrico",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/1795-Electrical-Sweep.html"
+        "license_url": "http://soundbible.com/1795-Electrical-Sweep.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -406,10 +432,11 @@
         "title_de": "Augenpiekser",
         "title_fr": "Coup dans l'œil",
         "title_es": "Golpe en el ojo",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2048-Eye-Poke.html"
+        "license_url": "http://soundbible.com/2048-Eye-Poke.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -421,10 +448,11 @@
         "title_de": "Falke",
         "title_fr": "Faucon",
         "title_es": "Halcón",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1974-Falcon.html"
+        "license_url": "http://soundbible.com/1974-Falcon.html",
+        "spectrum": "highpass"
       }
     },
     {
@@ -436,10 +464,11 @@
         "title_de": "Faxgerät",
         "title_fr": "Télécopieur",
         "title_es": "Máquina de fax",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/851-Fax-Machine.html"
+        "license_url": "http://soundbible.com/851-Fax-Machine.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -451,10 +480,11 @@
         "title_de": "Fingerschnippen",
         "title_fr": "Claquement de doigts",
         "title_es": "Chasquido de dedos",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/1978-Finger-Snapping.html"
+        "license_url": "http://soundbible.com/1978-Finger-Snapping.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -466,10 +496,11 @@
         "title_de": "Feuerwehrsirene",
         "title_fr": "Sirène de pompiers",
         "title_es": "Sirena de bomberos",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1511-Fire-Truck-Siren.html"
+        "license_url": "http://soundbible.com/1511-Fire-Truck-Siren.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -481,10 +512,11 @@
         "title_de": "Fußballfans",
         "title_fr": "Foule de football",
         "title_es": "Aficionados al fútbol",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1882-Football-Crowd.html"
+        "license_url": "http://soundbible.com/1882-Football-Crowd.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -496,10 +528,11 @@
         "title_de": "Schritte auf Beton",
         "title_fr": "Pas sur le béton",
         "title_es": "Pasos en cemento",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/2057-Footsteps-On-Cement.html"
+        "license_url": "http://soundbible.com/2057-Footsteps-On-Cement.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -511,10 +544,11 @@
         "title_de": "Hühnchen braten",
         "title_fr": "Poulet à la poêle",
         "title_es": "Pollo friéndose",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1482-Frying-Chicken.html"
+        "license_url": "http://soundbible.com/1482-Frying-Chicken.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -526,10 +560,11 @@
         "title_de": "Schusswechsel",
         "title_fr": "Fusillade",
         "title_es": "Tiroteo",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2078-Gun-Battle-Sound.html"
+        "license_url": "http://soundbible.com/2078-Gun-Battle-Sound.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -541,10 +576,11 @@
         "title_de": "Hämmern",
         "title_fr": "Martelage",
         "title_es": "Martilleo",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/2082-Hammering.html"
+        "license_url": "http://soundbible.com/2082-Hammering.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -556,10 +592,11 @@
         "title_de": "Helikopter im Anflug",
         "title_fr": "Hélicoptère en approche",
         "title_es": "Helicóptero acercándose",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2074-Helicopter-Approach.html"
+        "license_url": "http://soundbible.com/2074-Helicopter-Approach.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -571,10 +608,11 @@
         "title_de": "Locher",
         "title_fr": "Perforeuse",
         "title_es": "Perforadora",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1969-Hole-Punch.html"
+        "license_url": "http://soundbible.com/1969-Hole-Punch.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -586,10 +624,11 @@
         "title_de": "Haustelefon klingelt",
         "title_fr": "Téléphone fixe qui sonne",
         "title_es": "Teléfono de casa sonando",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/315-Home-Phone-Ringing.html"
+        "license_url": "http://soundbible.com/315-Home-Phone-Ringing.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -601,10 +640,11 @@
         "title_de": "DTMF-Töne (Telefontastatur)",
         "title_fr": "Tonalités DTMF",
         "title_es": "Tonos DTMF",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/1573-DTMF-Tones.html"
+        "license_url": "http://soundbible.com/1573-DTMF-Tones.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -616,10 +656,11 @@
         "title_de": "Schwere Ketten",
         "title_fr": "Grosses chaînes",
         "title_es": "Cadenas grandes",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "y",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1101-Large-Chains.html"
+        "license_url": "http://soundbible.com/1101-Large-Chains.html",
+        "spectrum": "highpass"
       }
     },
     {
@@ -631,10 +672,11 @@
         "title_de": "Stockente quakt",
         "title_fr": "Canard colvert qui cancane",
         "title_es": "Pato ánade real graznando",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1862-Mallard-Duck-Quacking.html"
+        "license_url": "http://soundbible.com/1862-Mallard-Duck-Quacking.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -646,10 +688,11 @@
         "title_de": "Metallgong",
         "title_fr": "Gong en métal",
         "title_es": "Gong de metal",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "y",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2062-Metal-Gong-1.html"
+        "license_url": "http://soundbible.com/2062-Metal-Gong-1.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -661,10 +704,11 @@
         "title_de": "Modem",
         "title_fr": "Modem",
         "title_es": "Módem",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/1701-Modem.html"
+        "license_url": "http://soundbible.com/1701-Modem.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -676,10 +720,11 @@
         "title_de": "Moskito-Klingelton",
         "title_fr": "Sonnerie moustique",
         "title_es": "Tono de mosquito",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "y",
         "license": "PD",
-        "license_url": "http://soundbible.com/1591-Mosquito-Ringtone.html"
+        "license_url": "http://soundbible.com/1591-Mosquito-Ringtone.html",
+        "spectrum": "highpass"
       }
     },
     {
@@ -691,10 +736,11 @@
         "title_de": "Nervöses Lautsprecher-Rauschen",
         "title_fr": "Grésillements de haut-parleur",
         "title_es": "Zumbido de altavoz",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/2085-Annoying-Speaker-Pulsing.html"
+        "license_url": "http://soundbible.com/2085-Annoying-Speaker-Pulsing.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -706,10 +752,11 @@
         "title_de": "MP5 Maschinenpistole",
         "title_fr": "Mitraillette MP5",
         "title_es": "Subfusil MP5",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2091-MP5-SMG-9mm.html"
+        "license_url": "http://soundbible.com/2091-MP5-SMG-9mm.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -721,10 +768,11 @@
         "title_de": "Hunde bellen in der Nachbarschaft",
         "title_fr": "Chiens qui aboient",
         "title_es": "Perros ladrando en el vecindario",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1514-Neighborhood-Dogs-Barking.html"
+        "license_url": "http://soundbible.com/1514-Neighborhood-Dogs-Barking.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -736,10 +784,11 @@
         "title_de": "Nachtregen in einer russischen Stadt",
         "title_fr": "Pluie nocturne en ville russe",
         "title_es": "Lluvia nocturna en ciudad rusa",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2059-Night-Rain-In-Russian-City.html"
+        "license_url": "http://soundbible.com/2059-Night-Rain-In-Russian-City.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -751,10 +800,11 @@
         "title_de": "Grillen in der Nacht",
         "title_fr": "Grillons la nuit",
         "title_es": "Grillos de noche",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/2083-Crickets-Chirping-At-Night.html"
+        "license_url": "http://soundbible.com/2083-Crickets-Chirping-At-Night.html",
+        "spectrum": "highpass"
       }
     },
     {
@@ -766,10 +816,11 @@
         "title_de": "Seite umblättern",
         "title_fr": "Tourner une page",
         "title_es": "Pasar una página",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2066-Page-Turn.html"
+        "license_url": "http://soundbible.com/2066-Page-Turn.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -781,10 +832,11 @@
         "title_de": "Kugelschreiber klicken",
         "title_fr": "Clic de stylo",
         "title_es": "Clic de bolígrafo",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/835-Pen-Clicking.html"
+        "license_url": "http://soundbible.com/835-Pen-Clicking.html",
+        "spectrum": "highpass"
       }
     },
     {
@@ -796,10 +848,11 @@
         "title_de": "Telefon wählen mit Wählton",
         "title_fr": "Composition avec tonalité",
         "title_es": "Marcando con tono",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/1560-Phone-Dialing-With-Dialtone.html"
+        "license_url": "http://soundbible.com/1560-Phone-Dialing-With-Dialtone.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -811,10 +864,11 @@
         "title_de": "Telefon abgenommen",
         "title_fr": "Téléphone décroché",
         "title_es": "Teléfono descolgado",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1091-Phone-Off-Hook.html"
+        "license_url": "http://soundbible.com/1091-Phone-Off-Hook.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -826,10 +880,11 @@
         "title_de": "Telefon klingelt (8×)",
         "title_fr": "Téléphone sonnant (8×)",
         "title_es": "Teléfono sonando (8×)",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1869-Phone-Ringing-8x.html"
+        "license_url": "http://soundbible.com/1869-Phone-Ringing-8x.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -841,10 +896,11 @@
         "title_de": "Telefon klingelt",
         "title_fr": "Téléphone qui sonne",
         "title_es": "Teléfono sonando",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1518-Phone-Ringing.html"
+        "license_url": "http://soundbible.com/1518-Phone-Ringing.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -856,10 +912,11 @@
         "title_de": "Telefon vibriert",
         "title_fr": "Téléphone qui vibre",
         "title_es": "Teléfono vibrando",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "y",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1994-Phone-Vibrating.html"
+        "license_url": "http://soundbible.com/1994-Phone-Vibrating.html",
+        "spectrum": "lowpass"
       }
     },
     {
@@ -871,10 +928,11 @@
         "title_de": "Klavier zerbricht",
         "title_fr": "Piano qui se brise",
         "title_es": "Piano rompiéndose",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2086-Piano-Breaking.html"
+        "license_url": "http://soundbible.com/2086-Piano-Breaking.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -886,10 +944,11 @@
         "title_de": "Stecknadel fällt",
         "title_fr": "Épingle qui tombe",
         "title_es": "Alfiler cayendo",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1992-Pin-Dropping.html"
+        "license_url": "http://soundbible.com/1992-Pin-Dropping.html",
+        "spectrum": "highpass"
       }
     },
     {
@@ -901,10 +960,11 @@
         "title_de": "Polizei",
         "title_fr": "Police",
         "title_es": "Policía",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/1819-Police.html"
+        "license_url": "http://soundbible.com/1819-Police.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -916,10 +976,11 @@
         "title_de": "Bahnübergangs-Glocke",
         "title_fr": "Cloche de passage à niveau",
         "title_es": "Campana de paso a nivel",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2070-Railroad-Crossing-Bell.html"
+        "license_url": "http://soundbible.com/2070-Railroad-Crossing-Bell.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -931,10 +992,11 @@
         "title_de": "Regen (vom Haus aus)",
         "title_fr": "Pluie vue de l'intérieur",
         "title_es": "Lluvia desde dentro de casa",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "y",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2065-Rain-Inside-House.html"
+        "license_url": "http://soundbible.com/2065-Rain-Inside-House.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -946,10 +1008,11 @@
         "title_de": "Regen",
         "title_fr": "Pluie",
         "title_es": "Lluvia",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1158-Rain.html"
+        "license_url": "http://soundbible.com/1158-Rain.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -961,10 +1024,11 @@
         "title_de": "Plattenspieler-Knistern",
         "title_fr": "Grésillements de tourne-disque",
         "title_es": "Crepitación de tocadiscos",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1674-Record-Player-Static.html"
+        "license_url": "http://soundbible.com/1674-Record-Player-Static.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -976,10 +1040,11 @@
         "title_de": "Kleiner Steinschlag",
         "title_fr": "Petit éboulement",
         "title_es": "Pequeño deslizamiento de rocas",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1987-Rockslide-Small.html"
+        "license_url": "http://soundbible.com/1987-Rockslide-Small.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -991,10 +1056,11 @@
         "title_de": "Panzerfaust und Splitter",
         "title_fr": "RPG et éclats",
         "title_es": "RPG y metralla",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2075-RPG-Plus-Shrapnel.html"
+        "license_url": "http://soundbible.com/2075-RPG-Plus-Shrapnel.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -1006,10 +1072,11 @@
         "title_de": "Rascheln",
         "title_fr": "Bruissement",
         "title_es": "Susurro/crujido",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/895-Rustle.html"
+        "license_url": "http://soundbible.com/895-Rustle.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -1021,10 +1088,11 @@
         "title_de": "Schulfeueralarm",
         "title_fr": "Alarme incendie scolaire",
         "title_es": "Alarma de incendio escolar",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2022-School-Fire-Alarm.html"
+        "license_url": "http://soundbible.com/2022-School-Fire-Alarm.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -1036,10 +1104,11 @@
         "title_de": "Messer schärfen",
         "title_fr": "Aiguiser un couteau",
         "title_es": "Afilar un cuchillo",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2025-Sharpen-Knife.html"
+        "license_url": "http://soundbible.com/2025-Sharpen-Knife.html",
+        "spectrum": "highpass"
       }
     },
     {
@@ -1051,10 +1120,11 @@
         "title_de": "Sternschnuppe (Effekt)",
         "title_fr": "Étoile filante (effet)",
         "title_es": "Estrella fugaz (efecto)",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1744-Shooting-Star.html"
+        "license_url": "http://soundbible.com/1744-Shooting-Star.html",
+        "spectrum": "highpass"
       }
     },
     {
@@ -1066,10 +1136,11 @@
         "title_de": "Kurzer Wählton",
         "title_fr": "Tonalité courte",
         "title_es": "Tono de marcación corto",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "y",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1118-Short-Dial-Tone.html"
+        "license_url": "http://soundbible.com/1118-Short-Dial-Tone.html",
+        "spectrum": "lowpass"
       }
     },
     {
@@ -1081,10 +1152,11 @@
         "title_de": "Furz-Geräusche",
         "title_fr": "Pets comiques",
         "title_es": "Pedos cómicos",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2088-Silly-Farts.html"
+        "license_url": "http://soundbible.com/2088-Silly-Farts.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -1096,10 +1168,11 @@
         "title_de": "Mikrofon-Rückkopplung",
         "title_fr": "Larsen de microphone",
         "title_es": "Retroalimentación de micrófono",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/1349-Skype-Feedback.html"
+        "license_url": "http://soundbible.com/1349-Skype-Feedback.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -1111,10 +1184,11 @@
         "title_de": "Quietschende Tür",
         "title_fr": "Porte grinçante",
         "title_es": "Puerta chirriante",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1870-Sqeaking-Door.html"
+        "license_url": "http://soundbible.com/1870-Sqeaking-Door.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -1126,10 +1200,11 @@
         "title_de": "Papier tackern",
         "title_fr": "Agrafer du papier",
         "title_es": "Grapar papel",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/1537-Stapling-Paper.html"
+        "license_url": "http://soundbible.com/1537-Stapling-Paper.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -1141,10 +1216,11 @@
         "title_de": "Sonntagskirche Atmosphäre",
         "title_fr": "Ambiance d'église du dimanche",
         "title_es": "Ambiente de iglesia dominical",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/1264-Sunday-Church-Ambiance.html"
+        "license_url": "http://soundbible.com/1264-Sunday-Church-Ambiance.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -1156,10 +1232,11 @@
         "title_de": "Telefonklingeln",
         "title_fr": "Sonnerie de téléphone",
         "title_es": "Timbre de teléfono",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1411-Telephone-Ring.html"
+        "license_url": "http://soundbible.com/1411-Telephone-Ring.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -1171,10 +1248,11 @@
         "title_de": "Tempelglocke",
         "title_fr": "Cloche de temple",
         "title_es": "Campana de templo",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1531-Temple-Bell.html"
+        "license_url": "http://soundbible.com/1531-Temple-Bell.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -1186,10 +1264,11 @@
         "title_de": "Donner",
         "title_fr": "Tonnerre",
         "title_es": "Trueno",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2053-Thunder-Sound-FX.html"
+        "license_url": "http://soundbible.com/2053-Thunder-Sound-FX.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -1201,10 +1280,11 @@
         "title_de": "Donnerschlag",
         "title_fr": "Coup de tonnerre",
         "title_es": "Rayo de trueno",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2015-Thunder-Strike-1.html"
+        "license_url": "http://soundbible.com/2015-Thunder-Strike-1.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -1216,10 +1296,11 @@
         "title_de": "Dreieck-Tischglocke",
         "title_fr": "Triangle de table",
         "title_es": "Triángulo de mesa",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1525-Triangle-Dinner-Bell.html"
+        "license_url": "http://soundbible.com/1525-Triangle-Dinner-Bell.html",
+        "spectrum": "highpass"
       }
     },
     {
@@ -1231,10 +1312,11 @@
         "title_de": "LKW startet",
         "title_fr": "Camion au ralenti puis départ",
         "title_es": "Camión arrancando",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1116-Truck-Idle-And-Pull-Off.html"
+        "license_url": "http://soundbible.com/1116-Truck-Idle-And-Pull-Off.html",
+        "spectrum": "broadband"
       }
     },
     {
@@ -1246,10 +1328,11 @@
         "title_de": "Virginie-Vireo (Vogel)",
         "title_fr": "Viréo mélodieux",
         "title_es": "Vireo musical",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1846-Warbling-Vireo.html"
+        "license_url": "http://soundbible.com/1846-Warbling-Vireo.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -1261,10 +1344,11 @@
         "title_de": "Winchester 1873 Einzelschüsse",
         "title_fr": "Tirs Winchester 1873",
         "title_es": "Disparos Winchester 1873",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "y",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2071-Winchester-1873-Single-Shots.html"
+        "license_url": "http://soundbible.com/2071-Winchester-1873-Single-Shots.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -1276,10 +1360,11 @@
         "title_de": "Wind",
         "title_fr": "Vent",
         "title_es": "Viento",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "y",
+        "loop_safe": "n",
         "license": "PD",
-        "license_url": "http://soundbible.com/1247-Wind.html"
+        "license_url": "http://soundbible.com/1247-Wind.html",
+        "spectrum": "lowpass"
       }
     },
     {
@@ -1291,10 +1376,11 @@
         "title_de": "Woop-Woop (Effekt)",
         "title_fr": "Woup-woup (effet)",
         "title_es": "Woop-woop (efecto)",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "y",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/1377-Woop-Woop.html"
+        "license_url": "http://soundbible.com/1377-Woop-Woop.html",
+        "spectrum": "bandpass"
       }
     },
     {
@@ -1306,10 +1392,11 @@
         "title_de": "Whoosh (Effekt)",
         "title_fr": "Whoosh (effet)",
         "title_es": "Whoosh (efecto)",
-        "stationary": null,
-        "loop_safe": null,
+        "stationary": "n",
+        "loop_safe": "n",
         "license": "CC-BY-3.0",
-        "license_url": "http://soundbible.com/2068-Woosh.html"
+        "license_url": "http://soundbible.com/2068-Woosh.html",
+        "spectrum": "broadband"
       }
     }
   ]

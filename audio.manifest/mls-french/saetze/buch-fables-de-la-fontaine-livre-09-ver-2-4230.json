@@ -20,6 +20,7 @@
       "audio": "test/audio/5207/4230/5207_4230_000000.opus",
       "tags": {
         "speaker_id": "mls-fr-5207",
+        "speaker_name": "Lecteur 5207",
         "gender": "w",
         "book_id": "4230",
         "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",
@@ -35,6 +36,7 @@
       "audio": "test/audio/5207/4230/5207_4230_000001.opus",
       "tags": {
         "speaker_id": "mls-fr-5207",
+        "speaker_name": "Lecteur 5207",
         "gender": "w",
         "book_id": "4230",
         "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",
@@ -50,6 +52,7 @@
       "audio": "test/audio/5207/4230/5207_4230_000002.opus",
       "tags": {
         "speaker_id": "mls-fr-5207",
+        "speaker_name": "Lecteur 5207",
         "gender": "w",
         "book_id": "4230",
         "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",
@@ -65,6 +68,7 @@
       "audio": "test/audio/5207/4230/5207_4230_000003.opus",
       "tags": {
         "speaker_id": "mls-fr-5207",
+        "speaker_name": "Lecteur 5207",
         "gender": "w",
         "book_id": "4230",
         "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",
@@ -80,6 +84,7 @@
       "audio": "test/audio/5207/4230/5207_4230_000004.opus",
       "tags": {
         "speaker_id": "mls-fr-5207",
+        "speaker_name": "Lecteur 5207",
         "gender": "w",
         "book_id": "4230",
         "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",
@@ -95,6 +100,7 @@
       "audio": "test/audio/5207/4230/5207_4230_000005.opus",
       "tags": {
         "speaker_id": "mls-fr-5207",
+        "speaker_name": "Lecteur 5207",
         "gender": "w",
         "book_id": "4230",
         "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",
@@ -110,6 +116,7 @@
       "audio": "test/audio/5207/4230/5207_4230_000006.opus",
       "tags": {
         "speaker_id": "mls-fr-5207",
+        "speaker_name": "Lecteur 5207",
         "gender": "w",
         "book_id": "4230",
         "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",

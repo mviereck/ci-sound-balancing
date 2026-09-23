@@ -20,6 +20,7 @@
       "audio": "dev/audio/6318/5367/6318_5367_000000.opus",
       "tags": {
         "speaker_id": "mls-fr-6318",
+        "speaker_name": "Lecteur 6318",
         "gender": "m",
         "book_id": "5367",
         "original_url": "http://www.archive.org/download/chat_1105_librivox/chat7_baudelaire_ceb_64kb.mp3",
@@ -34,6 +35,7 @@
       "audio": "dev/audio/6318/5367/6318_5367_000001.opus",
       "tags": {
         "speaker_id": "mls-fr-6318",
+        "speaker_name": "Lecteur 6318",
         "gender": "m",
         "book_id": "5367",
         "original_url": "http://www.archive.org/download/chat_1105_librivox/chat7_baudelaire_ceb_64kb.mp3",
@@ -48,6 +50,7 @@
       "audio": "dev/audio/6318/5367/6318_5367_000002.opus",
       "tags": {
         "speaker_id": "mls-fr-6318",
+        "speaker_name": "Lecteur 6318",
         "gender": "m",
         "book_id": "5367",
         "original_url": "http://www.archive.org/download/chat_1105_librivox/chat7_baudelaire_ceb_64kb.mp3",

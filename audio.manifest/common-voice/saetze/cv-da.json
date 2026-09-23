@@ -9,6 +9,7 @@
   "url": "https://commonvoice.mozilla.org",
   "tags": {
     "speaker_id": "crowdsourced",
+    "speaker_name": "Crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },

@@ -20,6 +20,7 @@
       "audio": "test/audio/2154/2567/2154_2567_000000.opus",
       "tags": {
         "speaker_id": "mls-fr-2154",
+        "speaker_name": "Lecteur 2154",
         "gender": "w",
         "book_id": "2567",
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
@@ -35,6 +36,7 @@
       "audio": "test/audio/2154/2567/2154_2567_000001.opus",
       "tags": {
         "speaker_id": "mls-fr-2154",
+        "speaker_name": "Lecteur 2154",
         "gender": "w",
         "book_id": "2567",
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_09_lafontaine_64kb.mp3",
@@ -50,6 +52,7 @@
       "audio": "test/audio/2154/2567/2154_2567_000002.opus",
       "tags": {
         "speaker_id": "mls-fr-2154",
+        "speaker_name": "Lecteur 2154",
         "gender": "w",
         "book_id": "2567",
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_09_lafontaine_64kb.mp3",
@@ -65,6 +68,7 @@
       "audio": "test/audio/2154/2567/2154_2567_000003.opus",
       "tags": {
         "speaker_id": "mls-fr-2154",
+        "speaker_name": "Lecteur 2154",
         "gender": "w",
         "book_id": "2567",
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
@@ -80,6 +84,7 @@
       "audio": "test/audio/2154/2567/2154_2567_000004.opus",
       "tags": {
         "speaker_id": "mls-fr-2154",
+        "speaker_name": "Lecteur 2154",
         "gender": "w",
         "book_id": "2567",
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_09_lafontaine_64kb.mp3",
@@ -95,6 +100,7 @@
       "audio": "test/audio/2154/2567/2154_2567_000005.opus",
       "tags": {
         "speaker_id": "mls-fr-2154",
+        "speaker_name": "Lecteur 2154",
         "gender": "w",
         "book_id": "2567",
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
@@ -110,6 +116,7 @@
       "audio": "test/audio/2154/2567/2154_2567_000006.opus",
       "tags": {
         "speaker_id": "mls-fr-2154",
+        "speaker_name": "Lecteur 2154",
         "gender": "w",
         "book_id": "2567",
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
@@ -125,6 +132,7 @@
       "audio": "test/audio/2154/2567/2154_2567_000007.opus",
       "tags": {
         "speaker_id": "mls-fr-2154",
+        "speaker_name": "Lecteur 2154",
         "gender": "w",
         "book_id": "2567",
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_09_lafontaine_64kb.mp3",
@@ -140,6 +148,7 @@
       "audio": "test/audio/2154/2567/2154_2567_000008.opus",
       "tags": {
         "speaker_id": "mls-fr-2154",
+        "speaker_name": "Lecteur 2154",
         "gender": "w",
         "book_id": "2567",
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
@@ -155,6 +164,7 @@
       "audio": "test/audio/2154/2567/2154_2567_000009.opus",
       "tags": {
         "speaker_id": "mls-fr-2154",
+        "speaker_name": "Lecteur 2154",
         "gender": "w",
         "book_id": "2567",
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",

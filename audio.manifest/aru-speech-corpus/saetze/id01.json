@@ -9,6 +9,7 @@
   "url": "https://datacat.liverpool.ac.uk/681/",
   "tags": {
     "speaker_id": "aru-id01",
+    "speaker_name": "ARU-Sprecher 1",
     "gender": "u",
     "style": "test",
     "test_set": "IEEE/Harvard sentences"

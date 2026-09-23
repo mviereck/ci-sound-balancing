@@ -20,6 +20,7 @@
       "audio": "dev/audio/1770/3135/1770_3135_000000.opus",
       "tags": {
         "speaker_id": "mls-fr-1770",
+        "speaker_name": "Lecteur 1770",
         "gender": "m",
         "book_id": "3135",
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
@@ -35,6 +36,7 @@
       "audio": "dev/audio/1770/3135/1770_3135_000001.opus",
       "tags": {
         "speaker_id": "mls-fr-1770",
+        "speaker_name": "Lecteur 1770",
         "gender": "m",
         "book_id": "3135",
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
@@ -50,6 +52,7 @@
       "audio": "dev/audio/1770/3135/1770_3135_000002.opus",
       "tags": {
         "speaker_id": "mls-fr-1770",
+        "speaker_name": "Lecteur 1770",
         "gender": "m",
         "book_id": "3135",
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
@@ -65,6 +68,7 @@
       "audio": "dev/audio/1770/3135/1770_3135_000003.opus",
       "tags": {
         "speaker_id": "mls-fr-1770",
+        "speaker_name": "Lecteur 1770",
         "gender": "m",
         "book_id": "3135",
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
@@ -80,6 +84,7 @@
       "audio": "dev/audio/1770/3135/1770_3135_000004.opus",
       "tags": {
         "speaker_id": "mls-fr-1770",
+        "speaker_name": "Lecteur 1770",
         "gender": "m",
         "book_id": "3135",
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
@@ -95,6 +100,7 @@
       "audio": "dev/audio/1770/3135/1770_3135_000005.opus",
       "tags": {
         "speaker_id": "mls-fr-1770",
+        "speaker_name": "Lecteur 1770",
         "gender": "m",
         "book_id": "3135",
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
@@ -110,6 +116,7 @@
       "audio": "dev/audio/1770/3135/1770_3135_000006.opus",
       "tags": {
         "speaker_id": "mls-fr-1770",
+        "speaker_name": "Lecteur 1770",
         "gender": "m",
         "book_id": "3135",
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",

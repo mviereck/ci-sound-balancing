@@ -20,6 +20,7 @@
       "audio": "dev/audio/6318/5203/6318_5203_000000.opus",
       "tags": {
         "speaker_id": "mls-fr-6318",
+        "speaker_name": "Lecteur 6318",
         "gender": "m",
         "book_id": "5203",
         "original_url": "http://www.archive.org/download/fables_lafontaine_10_1206_librivox/fables_10_13_lafontaine_64kb.mp3",

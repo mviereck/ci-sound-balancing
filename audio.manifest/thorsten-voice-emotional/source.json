@@ -10,6 +10,15 @@
     "saetze"
   ],
   "manifests": {
-    "saetze": []
+    "saetze": [
+      "saetze/thorsten-amused.json",
+      "saetze/thorsten-angry.json",
+      "saetze/thorsten-disgusted.json",
+      "saetze/thorsten-drunk.json",
+      "saetze/thorsten-neutral.json",
+      "saetze/thorsten-sleepy.json",
+      "saetze/thorsten-surprised.json",
+      "saetze/thorsten-whisper.json"
+    ]
   }
 }
