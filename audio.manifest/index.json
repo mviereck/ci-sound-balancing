@@ -72,7 +72,8 @@
       "key": "oldenburger-olsa",
       "name": "Oldenburger OLSA (female TTS)",
       "categories": [
-        "saetze"
+        "saetze",
+        "geraeusche"
       ],
       "license": "CC-BY-NC-SA-4.0",
       "source": "oldenburger-olsa/source.json"

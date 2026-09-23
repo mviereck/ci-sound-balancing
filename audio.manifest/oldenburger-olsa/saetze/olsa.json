@@ -942,12 +942,6 @@
       "tags": {
         "word_band": "w3_6"
       }
-    },
-    {
-      "id": "stereonoise_OLSAfemale_TTS",
-      "text": "",
-      "audio": "stereonoise_OLSAfemale_TTS.wav",
-      "tags": {}
     }
   ]
 }

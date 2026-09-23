@@ -7,11 +7,15 @@
   "credit": "Oldenburger Satztest (OLSA), erzeugt mit VirtualSpeaker (Acapela) — Zenodo 4522088",
   "base": "Oldenburger OLSA female/",
   "categories": [
-    "saetze"
+    "saetze",
+    "geraeusche"
   ],
   "manifests": {
     "saetze": [
       "saetze/olsa.json"
+    ],
+    "geraeusche": [
+      "geraeusche/olsa-rauschen.json"
     ]
   },
   "notes": "Lizenz CC-BY-NC-SA 4.0; TV-/Radio-Broadcast verboten (laut OLSAfemale_TTS.license)."
