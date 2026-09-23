@@ -163,37 +163,6 @@ function amCollectItems(category) {
 // Anzeige-Label eines Sprecher-Rohwerts (speaker_id) ueber Muster statt
 // Einzel-Keys. Praefix -> uebersetzbarer Wortbaustein (t()) + Roh-ID-Zahl.
 // Unbekannt -> Rohwert (Fallback). Architektur §10.
-function _amSpeakerLabel(v) {
-  if (!v) return v;
-  var tr = function (k, d) { return (typeof t === "function") ? t(k) || d : d; };
-  // Feste Einzelwerte zuerst.
-  if (v === "thorsten")        return tr("plSpeaker_thorsten", "Thorsten");
-  if (v === "crowdsourced")    return tr("plSpeaker_crowdsourced", "Crowdsourced");
-  if (v === "freiburger-mono") return tr("plSpeaker_freiburgerMono", "Freiburger einsilbig");
-  if (v === "freiburger-poly") return tr("plSpeaker_freiburgerPoly", "Freiburger mehrsilbig");
-  if (v === "olsa-female")     return tr("plSpeaker_olsaFemale", "OLSA (weiblich)");
-  // Muster mit Nummer aus der Roh-ID.
-  var m;
-  m = v.match(/^aru-id0*(\d+)$/);
-  if (m) return tr("plSpeaker_aru", "ARU-Sprecher") + " " + m[1];
-  m = v.match(/^mls-fr-(\d+)$/);
-  if (m) return tr("plSpeaker_mlsFr", "Frz. Vorleser") + " " + m[1];
-  m = v.match(/^mls-es-(\d+)$/);
-  if (m) return tr("plSpeaker_mlsEs", "Span. Vorleser") + " " + m[1];
-  m = v.match(/^mls-pl-(\d+)$/);
-  if (m) return tr("plSpeaker_mlsPl", "Poln. Vorleser") + " " + m[1];
-  if (v === "mailabs-elizabeth-klett") return "Elisabeth Klett";
-  if (v === "mailabs-eva-k") return "Eva K.";
-  if (v === "mailabs-ramona-deininger") return "Ramona Deininger";
-  if (v === "mailabs-rebecca-braunert-plunkett") return "Rebecca Braunert-Plunkett";
-  if (v === "mailabs-karlsson") return "Karlsson";
-  if (v === "mailabs-angela-merkel") return "Angela Merkel";
-  if (v === "kerstin") return "Kerstin";
-  if (v === "nathalie") return "Nathalie";
-  if (v === "flemishguy") return "Flemish Guy";
-  if (v === "kathleen") return "Kathleen";
-  return v;   // Fallback: Rohwert
-}
 
 // Anzeige-Titel eines Geraeusch-Items in der aktuellen UI-Sprache.
 // Format B: it.title ist das Original (meist EN); Uebersetzungen liegen
@@ -317,7 +286,18 @@ const AM_SORT_AXES = {
       valueOf: function (it) {
         return (it.tags && (it.tags.speaker_id || it.tags.book_title)) || "";
       },
-      bucketLabel: function (v) { return _amSpeakerLabel(v); }
+      // Anzeigename kommt aus dem Manifest-Attribut speaker_name (Daten,
+      // nicht Code). value = speaker_id/book_title (die Gruppierung);
+      // gesucht wird das erste Item mit diesem Wert, dessen speaker_name.
+      labelFromItems: function (value, items) {
+        for (var i = 0; i < items.length; i++) {
+          var t2 = items[i].tags;
+          if (!t2) continue;
+          var v = (t2.speaker_id || t2.book_title) || "";
+          if (v === value && t2.speaker_name) return t2.speaker_name;
+        }
+        return null;  // kein Name gefunden -> Fallback (Rohwert)
+      }
     },
     {
       key: "style", labelKey: "plAxisStyle", labelDefault: "Aufnahme-Art",
@@ -666,11 +646,11 @@ function amBucketsForAxisValues(axis, items) {
     var rank = function (v) { var i = ord.indexOf(v); return i < 0 ? ord.length : i; };
     values = Array.from(set).sort(function (a, b) {
       var d = rank(a) - rank(b);
-      return d !== 0 ? d : amAxisBucketLabel(axis, a).localeCompare(amAxisBucketLabel(axis, b));
+      return d !== 0 ? d : amAxisBucketLabel(axis, a, items).localeCompare(amAxisBucketLabel(axis, b, items));
     });
   } else {
     values = Array.from(set).sort(function (a, b) {
-      return amAxisBucketLabel(axis, a).localeCompare(amAxisBucketLabel(axis, b));
+      return amAxisBucketLabel(axis, a, items).localeCompare(amAxisBucketLabel(axis, b, items));
     });
   }
   return { values: values, hasNone: hasNone, hasSome: hasSome };
@@ -679,7 +659,11 @@ function amBucketsForAxisValues(axis, items) {
 // Anzeigetext eines Achsenwerts. bucketLabel hat Vorrang (i18n-Lookup
 // im Tool), sonst Rohwert. Fuer die Sonderwerte liefert der Aufrufer
 // eigene Labels ("alle"/"ohne"), nicht diese Funktion.
-function amAxisBucketLabel(axis, value) {
+function amAxisBucketLabel(axis, value, items) {
+  if (typeof axis.labelFromItems === "function" && items) {
+    var lf = axis.labelFromItems(value, items);
+    if (lf) return lf;
+  }
   if (typeof axis.bucketLabel === "function") {
     var l = axis.bucketLabel(value);
     if (l) return l;

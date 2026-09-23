@@ -3157,7 +3157,7 @@ function plBuildFilterChain(catDecl) {
         for (var vi = 0; vi < b.values.length; vi++) {
           var o = document.createElement("option");
           o.value = b.values[vi];
-          o.textContent = amAxisBucketLabel(axis, b.values[vi]);
+          o.textContent = amAxisBucketLabel(axis, b.values[vi], filteredForBox);
           sel.appendChild(o);
         }
         // Auswahl-Erhalt: aktueller Wert, falls in der neuen Liste
