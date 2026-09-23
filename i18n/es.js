@@ -379,7 +379,7 @@ Object.assign(L.es, {
     plWordBand_wortpaar:          "Par de palabras",
     plWordBand_kurz:        "Frase corta",
     plWordBand_lang:       "Frase larga",
-    plWordBand_wort9plus:     "Frase muy larga",
+    plWordBand_sehrlang:     "Frase muy larga",
     plAxisGender:           "Género",
     plAxisSpeaker:          "Hablante",
     plAxisVariant:          "Variante",

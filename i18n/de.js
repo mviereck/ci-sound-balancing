@@ -616,7 +616,7 @@ Object.assign(L.de, {
     plWordBand_wortpaar:          "Wortpaar",
     plWordBand_kurz:        "Kurzer Satz",
     plWordBand_lang:       "Langer Satz",
-    plWordBand_wort9plus:     "Sehr langer Satz",
+    plWordBand_sehrlang:     "Sehr langer Satz",
     plAxisGender:           "Geschlecht",
     plAxisSpeaker:          "Sprecher",
     plAxisVariant:          "Sprachvariante",

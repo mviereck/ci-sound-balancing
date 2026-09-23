@@ -378,7 +378,7 @@ Object.assign(L.en, {
     plWordBand_wortpaar:          "Word pair",
     plWordBand_kurz:        "Short sentence",
     plWordBand_lang:       "Long sentence",
-    plWordBand_wort9plus:     "Very long sentence",
+    plWordBand_sehrlang:     "Very long sentence",
     plAxisGender:           "Gender",
     plAxisSpeaker:          "Speaker",
     plAxisVariant:          "Language variant",
