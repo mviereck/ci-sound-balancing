@@ -611,6 +611,12 @@ Object.assign(L.de, {
 
     plAxisLang:             "Sprache",
     plAxisSource:           "Quelle",
+    plAxisWordBand:         "Satzlänge",
+    plWordBand_w1:          "Einzelwort",
+    plWordBand_w2:          "Wortpaar",
+    plWordBand_w3_6:        "Kurzer Satz",
+    plWordBand_w7_15:       "Langer Satz",
+    plWordBand_w16plus:     "Sehr langer Satz",
     plAxisGender:           "Geschlecht",
     plAxisSpeaker:          "Sprecher",
     plAxisVariant:          "Sprachvariante",

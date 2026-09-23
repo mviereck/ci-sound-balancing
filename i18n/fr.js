@@ -374,6 +374,12 @@ Object.assign(L.fr, {
 
     plAxisLang:             "Langue",
     plAxisSource:           "Source",
+    plAxisWordBand:         "Longueur de phrase",
+    plWordBand_w1:          "Mot isolé",
+    plWordBand_w2:          "Paire de mots",
+    plWordBand_w3_6:        "Phrase courte",
+    plWordBand_w7_15:       "Phrase longue",
+    plWordBand_w16plus:     "Phrase très longue",
     plAxisGender:           "Genre",
     plAxisSpeaker:          "Locuteur",
     plAxisVariant:          "Variante",

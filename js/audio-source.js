@@ -293,6 +293,13 @@ const AM_SORT_AXES = {
       bucketLabel: function (v) { return (typeof t === "function") ? (t("plVariant_" + v) || v) : v; }
     },
     {
+      key: "word_band", labelKey: "plAxisWordBand", labelDefault: "Satzlänge",
+      order: ["w1", "w2", "w3_6", "w7_15", "w16plus"],
+      getter: function (it) { return (it.tags && it.tags.word_band) || "zzz-unbekannt"; },
+      valueOf: function (it) { return (it.tags && it.tags.word_band) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plWordBand_" + v) : v; }
+    },
+    {
       key: "source", labelKey: "plAxisSource", labelDefault: "Quelle",
       getter: function (it) { return it.sourceTitle || it._providerId || "zzz-unbekannt"; },
       valueOf: function (it) { return it.sourceTitle || ""; }

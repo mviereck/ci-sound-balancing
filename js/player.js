@@ -4510,7 +4510,7 @@ PL_FILTER_DECL.saetze = {
     },
     {
       id: "axes", kind: "parallel-axes", domId: "plSentAxes",
-      parallelAxes: ["variant", "source", "gender", "speaker", "style", "test_set", "accent", "emotion"]
+      parallelAxes: ["variant", "word_band", "source", "gender", "speaker", "style", "test_set", "accent", "emotion"]
     }
   ]
 };
