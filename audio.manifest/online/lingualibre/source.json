@@ -1,0 +1,18 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "key": "lingualibre",
+  "name": "Lingua Libre",
+  "url": "https://lingualibre.org",
+  "license": "CC0-1.0",
+  "credit": "Lingua Libre (Wikimedia) — CC0 / CC BY-SA je Sprecher",
+  "base": "",
+  "categories": [
+    "saetze"
+  ],
+  "manifests": {
+    "saetze": [
+      "saetze/de.json"
+    ]
+  },
+  "notes": "Audio-URLs zeigen direkt auf upload.wikimedia.org (MD5-Pfad, CORS offen). Lizenz pro Sprecher (CC0 oder CC BY-SA 4.0), im Item hinterlegt."
+}

@@ -159,6 +159,15 @@
       "source": "online/librivox/source.json"
     },
     {
+      "key": "lingualibre",
+      "name": "Lingua Libre",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC0-1.0",
+      "source": "online/lingualibre/source.json"
+    },
+    {
       "key": "nathalie-rhasspy",
       "name": "Nathalie (Rhasspy)",
       "categories": [
