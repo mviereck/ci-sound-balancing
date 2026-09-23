@@ -263,7 +263,7 @@ const AM_SORT_AXES = {
     },
     {
       key: "word_band", labelKey: "plAxisWordBand", labelDefault: "Satzlänge",
-      order: ["w1", "w2", "w3_8", "w9_18", "w19plus"],
+      order: ["wort", "wortpaar", "kurz", "lang", "sehrlang"],
       getter: function (it) { return (it.tags && it.tags.word_band) || "zzz-unbekannt"; },
       valueOf: function (it) { return (it.tags && it.tags.word_band) || ""; },
       bucketLabel: function (v) { return (typeof t === "function") ? t("plWordBand_" + v) : v; }

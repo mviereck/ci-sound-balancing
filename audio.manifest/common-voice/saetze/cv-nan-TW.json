@@ -23,7 +23,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -36,7 +36,7 @@
         "accent": "偏漳腔,桃園",
         "up_votes": 6,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -49,7 +49,7 @@
         "accent": "漳州腔",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -62,7 +62,7 @@
         "accent": "台北腔",
         "up_votes": 4,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -75,7 +75,7 @@
         "accent": "偏漳腔,桃園",
         "up_votes": 6,
         "down_votes": 0,
-        "word_band": "w1"
+        "word_band": "wort"
       }
     },
     {
@@ -88,7 +88,7 @@
         "accent": "偏漳腔,桃園",
         "up_votes": 6,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -101,7 +101,7 @@
         "accent": "漳州腔",
         "up_votes": 4,
         "down_votes": 0,
-        "word_band": "w1"
+        "word_band": "wort"
       }
     },
     {
@@ -114,7 +114,7 @@
         "accent": "漳州腔",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w1"
+        "word_band": "wort"
       }
     },
     {
@@ -127,7 +127,7 @@
         "accent": "偏漳腔,桃園",
         "up_votes": 3,
         "down_votes": 0,
-        "word_band": "w1"
+        "word_band": "wort"
       }
     },
     {
@@ -139,7 +139,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w1"
+        "word_band": "wort"
       }
     }
   ]

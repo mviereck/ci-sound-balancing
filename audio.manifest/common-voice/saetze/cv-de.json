@@ -23,7 +23,7 @@
         "gender": "u",
         "up_votes": 4,
         "down_votes": 0,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     },
     {
@@ -36,7 +36,7 @@
         "accent": "Deutschland Deutsch",
         "up_votes": 2,
         "down_votes": 1,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -48,7 +48,7 @@
         "gender": "u",
         "up_votes": 4,
         "down_votes": 0,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     },
     {
@@ -60,7 +60,7 @@
         "gender": "u",
         "up_votes": 4,
         "down_votes": 1,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     },
     {
@@ -72,7 +72,7 @@
         "gender": "u",
         "up_votes": 4,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -85,7 +85,7 @@
         "accent": "Deutschland Deutsch",
         "up_votes": 4,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -97,7 +97,7 @@
         "gender": "u",
         "up_votes": 3,
         "down_votes": 0,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     },
     {
@@ -109,7 +109,7 @@
         "gender": "u",
         "up_votes": 4,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -121,7 +121,7 @@
         "gender": "u",
         "up_votes": 4,
         "down_votes": 1,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -134,7 +134,7 @@
         "accent": "Deutschland Deutsch",
         "up_votes": 3,
         "down_votes": 0,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     }
   ]

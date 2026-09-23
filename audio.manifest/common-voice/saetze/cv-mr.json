@@ -23,7 +23,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     },
     {
@@ -36,7 +36,7 @@
         "accent": "Nashik Rural - Dindori,West Maharashtra",
         "up_votes": 6,
         "down_votes": 0,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     },
     {
@@ -49,7 +49,7 @@
         "accent": "Praman,Boli",
         "up_votes": 6,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -61,7 +61,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     },
     {
@@ -73,7 +73,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -85,7 +85,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     },
     {
@@ -97,7 +97,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -109,7 +109,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -121,7 +121,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     },
     {
@@ -133,7 +133,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -145,7 +145,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     },
     {
@@ -157,7 +157,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     },
     {
@@ -170,7 +170,7 @@
         "accent": "Praman,Boli",
         "up_votes": 6,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -182,7 +182,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     },
     {
@@ -194,7 +194,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 1,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -207,7 +207,7 @@
         "accent": "Nashik Rural - Dindori,West Maharashtra",
         "up_votes": 6,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -219,7 +219,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w9_18"
+        "word_band": "lang"
       }
     },
     {
@@ -231,7 +231,7 @@
         "gender": "u",
         "up_votes": 2,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     },
     {
@@ -244,7 +244,7 @@
         "accent": "Praman,Boli",
         "up_votes": 6,
         "down_votes": 0,
-        "word_band": "w3_8"
+        "word_band": "kurz"
       }
     }
   ]
