@@ -21,7 +21,8 @@
         "source_item_id": "25450107",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -32,7 +33,8 @@
         "source_item_id": "25628427",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -43,7 +45,8 @@
         "source_item_id": "25902155",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -54,7 +57,8 @@
         "source_item_id": "25978837",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -65,7 +69,8 @@
         "source_item_id": "26242377",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -76,7 +81,8 @@
         "source_item_id": "25903790",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -87,7 +93,8 @@
         "source_item_id": "26269303",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -98,7 +105,8 @@
         "source_item_id": "25931295",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -109,7 +117,8 @@
         "source_item_id": "25903650",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -120,7 +129,8 @@
         "source_item_id": "25969778",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -131,7 +141,8 @@
         "source_item_id": "25978850",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -142,7 +153,8 @@
         "source_item_id": "26241250",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -153,7 +165,8 @@
         "source_item_id": "26228631",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -164,7 +177,8 @@
         "source_item_id": "26021528",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 1
+        "down_votes": 1,
+        "word_band": "w7_15"
       }
     }
   ]

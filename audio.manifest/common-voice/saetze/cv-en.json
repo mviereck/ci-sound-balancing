@@ -21,7 +21,8 @@
         "source_item_id": "1026785",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -32,7 +33,8 @@
         "source_item_id": "103631",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 1
+        "down_votes": 1,
+        "word_band": "w7_15"
       }
     },
     {
@@ -43,7 +45,8 @@
         "source_item_id": "104927",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 1
+        "down_votes": 1,
+        "word_band": "w3_6"
       }
     },
     {
@@ -54,7 +57,8 @@
         "source_item_id": "104986",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -65,7 +69,8 @@
         "source_item_id": "106341",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -76,7 +81,8 @@
         "source_item_id": "106959",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -87,7 +93,8 @@
         "source_item_id": "10998",
         "gender": "u",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -98,7 +105,8 @@
         "source_item_id": "110708",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -110,7 +118,8 @@
         "gender": "u",
         "accent": "United States English",
         "up_votes": 2,
-        "down_votes": 1
+        "down_votes": 1,
+        "word_band": "w3_6"
       }
     },
     {
@@ -121,7 +130,8 @@
         "source_item_id": "1108",
         "gender": "u",
         "up_votes": 5,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     }
   ]

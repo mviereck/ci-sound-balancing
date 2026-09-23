@@ -24,7 +24,8 @@
         "book_id": "5367",
         "original_url": "http://www.archive.org/download/chat_1105_librivox/chat7_baudelaire_ceb_64kb.mp3",
         "original_start_s": 31.15,
-        "original_end_s": 49.48
+        "original_end_s": 49.48,
+        "word_band": "w16plus"
       }
     },
     {
@@ -37,7 +38,8 @@
         "book_id": "5367",
         "original_url": "http://www.archive.org/download/chat_1105_librivox/chat7_baudelaire_ceb_64kb.mp3",
         "original_start_s": 0.0,
-        "original_end_s": 18.25
+        "original_end_s": 18.25,
+        "word_band": "w16plus"
       }
     },
     {
@@ -50,7 +52,8 @@
         "book_id": "5367",
         "original_url": "http://www.archive.org/download/chat_1105_librivox/chat7_baudelaire_ceb_64kb.mp3",
         "original_start_s": 18.25,
-        "original_end_s": 31.15
+        "original_end_s": 31.15,
+        "word_band": "w16plus"
       }
     }
   ]

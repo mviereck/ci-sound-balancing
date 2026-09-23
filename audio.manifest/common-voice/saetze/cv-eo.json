@@ -22,7 +22,8 @@
         "gender": "u",
         "accent": "Internacia",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -34,7 +35,8 @@
         "gender": "u",
         "accent": "Internacia",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -46,7 +48,8 @@
         "gender": "u",
         "accent": "Internacia",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -57,7 +60,8 @@
         "source_item_id": "17904259",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -68,7 +72,8 @@
         "source_item_id": "17909798",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -80,7 +85,8 @@
         "gender": "u",
         "accent": "Internacia",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -92,7 +98,8 @@
         "gender": "u",
         "accent": "Internacia",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -103,7 +110,8 @@
         "source_item_id": "17919670",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -114,7 +122,8 @@
         "source_item_id": "17975065",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -125,7 +134,8 @@
         "source_item_id": "18236201",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     }
   ]

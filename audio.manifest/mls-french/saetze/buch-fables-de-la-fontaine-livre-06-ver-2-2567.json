@@ -25,7 +25,8 @@
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
         "original_start_s": 71.49,
         "original_end_s": 83.4,
-        "chapter_no": 6
+        "chapter_no": 6,
+        "word_band": "w16plus"
       }
     },
     {
@@ -39,7 +40,8 @@
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_09_lafontaine_64kb.mp3",
         "original_start_s": 14.11,
         "original_end_s": 29.4,
-        "chapter_no": 6
+        "chapter_no": 6,
+        "word_band": "w16plus"
       }
     },
     {
@@ -53,7 +55,8 @@
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_09_lafontaine_64kb.mp3",
         "original_start_s": 29.4,
         "original_end_s": 44.89,
-        "chapter_no": 6
+        "chapter_no": 6,
+        "word_band": "w16plus"
       }
     },
     {
@@ -67,7 +70,8 @@
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
         "original_start_s": 83.4,
         "original_end_s": 100.01,
-        "chapter_no": 6
+        "chapter_no": 6,
+        "word_band": "w16plus"
       }
     },
     {
@@ -81,7 +85,8 @@
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_09_lafontaine_64kb.mp3",
         "original_start_s": 64.87,
         "original_end_s": 78.88,
-        "chapter_no": 6
+        "chapter_no": 6,
+        "word_band": "w16plus"
       }
     },
     {
@@ -95,7 +100,8 @@
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
         "original_start_s": 14.26,
         "original_end_s": 24.44,
-        "chapter_no": 6
+        "chapter_no": 6,
+        "word_band": "w16plus"
       }
     },
     {
@@ -109,7 +115,8 @@
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
         "original_start_s": 54.01,
         "original_end_s": 71.49,
-        "chapter_no": 6
+        "chapter_no": 6,
+        "word_band": "w16plus"
       }
     },
     {
@@ -123,7 +130,8 @@
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_09_lafontaine_64kb.mp3",
         "original_start_s": 44.89,
         "original_end_s": 64.87,
-        "chapter_no": 6
+        "chapter_no": 6,
+        "word_band": "w16plus"
       }
     },
     {
@@ -137,7 +145,8 @@
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
         "original_start_s": 36.32,
         "original_end_s": 54.01,
-        "chapter_no": 6
+        "chapter_no": 6,
+        "word_band": "w16plus"
       }
     },
     {
@@ -151,7 +160,8 @@
         "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
         "original_start_s": 100.01,
         "original_end_s": 118.36,
-        "chapter_no": 6
+        "chapter_no": 6,
+        "word_band": "w16plus"
       }
     }
   ]

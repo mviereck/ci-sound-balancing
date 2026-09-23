@@ -22,7 +22,8 @@
         "gender": "u",
         "accent": "出生地：52 贵州省",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -34,7 +35,8 @@
         "gender": "u",
         "accent": "出生地：37 山东省",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -45,7 +47,8 @@
         "source_item_id": "18650517",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -57,7 +60,8 @@
         "gender": "u",
         "accent": "出生地：44 广东省",
         "up_votes": 3,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -68,7 +72,8 @@
         "source_item_id": "18848889",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -80,7 +85,8 @@
         "gender": "u",
         "accent": "出生地：43 湖南省",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -92,7 +98,8 @@
         "gender": "u",
         "accent": "出生地：23 黑龙江省",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -104,7 +111,8 @@
         "gender": "u",
         "accent": "出生地：11 北京市",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -116,7 +124,8 @@
         "gender": "u",
         "accent": "出生地：34 安徽省",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -128,7 +137,8 @@
         "gender": "u",
         "accent": "出生地：32 江苏省",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     }
   ]

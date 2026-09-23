@@ -22,7 +22,8 @@
         "gender": "u",
         "accent": "Галицький",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -33,7 +34,8 @@
         "source_item_id": "21170403",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -44,7 +46,8 @@
         "source_item_id": "21259349",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -55,7 +58,8 @@
         "source_item_id": "21265811",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -66,7 +70,8 @@
         "source_item_id": "21356507",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 1
+        "down_votes": 1,
+        "word_band": "w3_6"
       }
     },
     {
@@ -77,7 +82,8 @@
         "source_item_id": "21361245",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -88,7 +94,8 @@
         "source_item_id": "21374912",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -99,7 +106,8 @@
         "source_item_id": "21408518",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -110,7 +118,8 @@
         "source_item_id": "21425780",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -121,7 +130,8 @@
         "source_item_id": "21564489",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     }
   ]

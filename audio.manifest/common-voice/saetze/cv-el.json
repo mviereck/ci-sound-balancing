@@ -21,7 +21,8 @@
         "source_item_id": "20433064",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -32,7 +33,8 @@
         "source_item_id": "20437844",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -43,7 +45,8 @@
         "source_item_id": "20447802",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -54,7 +57,8 @@
         "source_item_id": "20536748",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 1
+        "down_votes": 1,
+        "word_band": "w7_15"
       }
     },
     {
@@ -65,7 +69,8 @@
         "source_item_id": "20575544",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -76,7 +81,8 @@
         "source_item_id": "20576009",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -87,7 +93,8 @@
         "source_item_id": "20750499",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -98,7 +105,8 @@
         "source_item_id": "21105373",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -109,7 +117,8 @@
         "source_item_id": "21349442",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -120,7 +129,8 @@
         "source_item_id": "24822921",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     }
   ]

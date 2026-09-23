@@ -22,7 +22,8 @@
         "gender": "u",
         "accent": "出生地：新北市",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -34,7 +35,8 @@
         "gender": "u",
         "accent": "出生地：桃園市,馬祖福州人,馬祖人混合客家人家庭",
         "up_votes": 8,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -45,7 +47,8 @@
         "source_item_id": "30586068",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -57,7 +60,8 @@
         "gender": "u",
         "accent": "出生地：臺北市",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -69,7 +73,8 @@
         "gender": "u",
         "accent": "出生地：新北市",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -80,7 +85,8 @@
         "source_item_id": "31113803",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -91,7 +97,8 @@
         "source_item_id": "26819679",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -103,7 +110,8 @@
         "gender": "u",
         "accent": "出生地：臺中市",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -115,7 +123,8 @@
         "gender": "u",
         "accent": "可以很正經也可以很溫柔,可以很俏皮,可以很撒嬌",
         "up_votes": 8,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -126,7 +135,8 @@
         "source_item_id": "25042181",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     }
   ]

@@ -22,7 +22,8 @@
         "gender": "u",
         "accent": "Central Kerala",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -33,7 +34,8 @@
         "source_item_id": "28930619",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -45,7 +47,8 @@
         "gender": "u",
         "accent": "Central Kerala",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -56,7 +59,8 @@
         "source_item_id": "28914077",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -67,7 +71,8 @@
         "source_item_id": "28913913",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w2"
       }
     },
     {
@@ -78,7 +83,8 @@
         "source_item_id": "28931145",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -90,7 +96,8 @@
         "gender": "u",
         "accent": "Central Kerala",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -101,7 +108,8 @@
         "source_item_id": "28913732",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 1
+        "down_votes": 1,
+        "word_band": "w2"
       }
     },
     {
@@ -112,7 +120,8 @@
         "source_item_id": "28914626",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w2"
       }
     },
     {
@@ -123,7 +132,8 @@
         "source_item_id": "28914360",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     }
   ]

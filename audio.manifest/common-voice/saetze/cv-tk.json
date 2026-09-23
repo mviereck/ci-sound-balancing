@@ -22,7 +22,8 @@
         "gender": "u",
         "accent": "Türkmençe,Türkmen",
         "up_votes": 6,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -34,7 +35,8 @@
         "gender": "u",
         "accent": "Ýemreli",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -46,7 +48,8 @@
         "gender": "u",
         "accent": "Ýemreli",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -58,7 +61,8 @@
         "gender": "u",
         "accent": "Türkmençe,Türkmen",
         "up_votes": 6,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -70,7 +74,8 @@
         "gender": "u",
         "accent": "Türkmençe,Türkmen",
         "up_votes": 6,
-        "down_votes": 3
+        "down_votes": 3,
+        "word_band": "w3_6"
       }
     },
     {
@@ -82,7 +87,8 @@
         "gender": "u",
         "accent": "Türkmençe,Türkmen",
         "up_votes": 6,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -94,7 +100,8 @@
         "gender": "u",
         "accent": "Ýemreli",
         "up_votes": 4,
-        "down_votes": 2
+        "down_votes": 2,
+        "word_band": "w3_6"
       }
     },
     {
@@ -106,7 +113,8 @@
         "gender": "u",
         "accent": "Türkmençe,Türkmen",
         "up_votes": 6,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -118,7 +126,8 @@
         "gender": "u",
         "accent": "Türkmençe,Türkmen",
         "up_votes": 6,
-        "down_votes": 3
+        "down_votes": 3,
+        "word_band": "w3_6"
       }
     },
     {
@@ -130,7 +139,8 @@
         "gender": "u",
         "accent": "Türkmençe,Türkmen",
         "up_votes": 6,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -142,7 +152,8 @@
         "gender": "u",
         "accent": "Türkmençe,Türkmen",
         "up_votes": 6,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -154,7 +165,8 @@
         "gender": "u",
         "accent": "Ýemreli",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     }
   ]

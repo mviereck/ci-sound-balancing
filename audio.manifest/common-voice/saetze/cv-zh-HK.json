@@ -21,7 +21,8 @@
         "source_item_id": "23703499",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -32,7 +33,8 @@
         "source_item_id": "23813751",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -43,7 +45,8 @@
         "source_item_id": "22222094",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 1
+        "down_votes": 1,
+        "word_band": "w1"
       }
     },
     {
@@ -54,7 +57,8 @@
         "source_item_id": "24531712",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -65,7 +69,8 @@
         "source_item_id": "23002173",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -76,7 +81,8 @@
         "source_item_id": "23682697",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -87,7 +93,8 @@
         "source_item_id": "23613466",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -98,7 +105,8 @@
         "source_item_id": "23612111",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -109,7 +117,8 @@
         "source_item_id": "23117265",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -120,7 +129,8 @@
         "source_item_id": "32355579",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     }
   ]

@@ -22,7 +22,8 @@
         "gender": "u",
         "accent": "Bijeljinski,Bosanski",
         "up_votes": 6,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -33,7 +34,8 @@
         "source_item_id": "38844946",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -45,7 +47,8 @@
         "gender": "u",
         "accent": "Bijeljinski,Bosanski",
         "up_votes": 6,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -56,7 +59,8 @@
         "source_item_id": "27014753",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -68,7 +72,8 @@
         "gender": "u",
         "accent": "Шумадијски",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -80,7 +85,8 @@
         "gender": "u",
         "accent": "Beogradski",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -91,7 +97,8 @@
         "source_item_id": "28438492",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -103,7 +110,8 @@
         "gender": "u",
         "accent": "Београдски",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -115,7 +123,8 @@
         "gender": "u",
         "accent": "Bijeljinski,Bosanski",
         "up_votes": 6,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -127,7 +136,8 @@
         "gender": "u",
         "accent": "Шумадијски",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -138,7 +148,8 @@
         "source_item_id": "27781369",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -150,7 +161,8 @@
         "gender": "u",
         "accent": "Шумадијски",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     }
   ]

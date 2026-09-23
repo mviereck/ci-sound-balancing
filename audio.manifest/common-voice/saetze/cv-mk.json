@@ -22,7 +22,8 @@
         "gender": "u",
         "accent": "Типичен скопски акцент",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -34,7 +35,8 @@
         "gender": "u",
         "accent": "Skopje,Native",
         "up_votes": 6,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -45,7 +47,8 @@
         "source_item_id": "39674331",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -57,7 +60,8 @@
         "gender": "u",
         "accent": "Типичен скопски акцент",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -69,7 +73,8 @@
         "gender": "u",
         "accent": "Skopje,Native",
         "up_votes": 6,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -80,7 +85,8 @@
         "source_item_id": "39808769",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -92,7 +98,8 @@
         "gender": "u",
         "accent": "Типичен скопски акцент",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -104,7 +111,8 @@
         "gender": "u",
         "accent": "Типичен скопски акцент",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -115,7 +123,8 @@
         "source_item_id": "39781807",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -127,7 +136,8 @@
         "gender": "u",
         "accent": "Типичен скопски акцент",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -139,7 +149,8 @@
         "gender": "u",
         "accent": "Типичен скопски акцент",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -151,7 +162,8 @@
         "gender": "u",
         "accent": "Типичен скопски акцент",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -162,7 +174,8 @@
         "source_item_id": "39900627",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     }
   ]

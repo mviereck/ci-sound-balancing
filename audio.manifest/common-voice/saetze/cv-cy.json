@@ -22,7 +22,8 @@
         "gender": "u",
         "accent": "Y Deyrnas Unedig Cymraeg",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -33,7 +34,8 @@
         "source_item_id": "19644804",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 1
+        "down_votes": 1,
+        "word_band": "w7_15"
       }
     },
     {
@@ -44,7 +46,8 @@
         "source_item_id": "19684386",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -56,7 +59,8 @@
         "gender": "u",
         "accent": "Y Deyrnas Unedig Cymraeg",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -67,7 +71,8 @@
         "source_item_id": "19806111",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -78,7 +83,8 @@
         "source_item_id": "19838981",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -90,7 +96,8 @@
         "gender": "u",
         "accent": "Y Deyrnas Unedig Cymraeg",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -102,7 +109,8 @@
         "gender": "u",
         "accent": "Y Deyrnas Unedig Cymraeg",
         "up_votes": 2,
-        "down_votes": 1
+        "down_votes": 1,
+        "word_band": "w7_15"
       }
     },
     {
@@ -114,7 +122,8 @@
         "gender": "u",
         "accent": "Y Deyrnas Unedig Cymraeg",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -125,7 +134,8 @@
         "source_item_id": "20454152",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     }
   ]

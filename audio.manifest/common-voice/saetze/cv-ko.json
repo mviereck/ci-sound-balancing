@@ -21,7 +21,8 @@
         "source_item_id": "35844569",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 1
+        "down_votes": 1,
+        "word_band": "w7_15"
       }
     },
     {
@@ -33,7 +34,8 @@
         "gender": "u",
         "accent": "서울",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -45,7 +47,8 @@
         "gender": "u",
         "accent": "서울",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -56,7 +59,8 @@
         "source_item_id": "35844225",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -68,7 +72,8 @@
         "gender": "u",
         "accent": "서울",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -80,7 +85,8 @@
         "gender": "u",
         "accent": "서울",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -91,7 +97,8 @@
         "source_item_id": "35891712",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 1
+        "down_votes": 1,
+        "word_band": "w7_15"
       }
     },
     {
@@ -102,7 +109,8 @@
         "source_item_id": "35890848",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -114,7 +122,8 @@
         "gender": "u",
         "accent": "서울",
         "up_votes": 4,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -126,7 +135,8 @@
         "gender": "u",
         "accent": "서울",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -137,7 +147,8 @@
         "source_item_id": "35845211",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w7_15"
       }
     },
     {
@@ -148,7 +159,8 @@
         "source_item_id": "35971984",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -159,7 +171,8 @@
         "source_item_id": "36985085",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 1
+        "down_votes": 1,
+        "word_band": "w7_15"
       }
     }
   ]

@@ -21,7 +21,8 @@
         "source_item_id": "26340569",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -32,7 +33,8 @@
         "source_item_id": "26294493",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -43,7 +45,8 @@
         "source_item_id": "25939490",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -54,7 +57,8 @@
         "source_item_id": "25888770",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w2"
       }
     },
     {
@@ -65,7 +69,8 @@
         "source_item_id": "26293536",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -76,7 +81,8 @@
         "source_item_id": "26087382",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -87,7 +93,8 @@
         "source_item_id": "25886146",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     },
     {
@@ -98,7 +105,8 @@
         "source_item_id": "26152994",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w2"
       }
     },
     {
@@ -109,7 +117,8 @@
         "source_item_id": "25912413",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w3_6"
       }
     },
     {
@@ -120,7 +129,8 @@
         "source_item_id": "25668627",
         "gender": "u",
         "up_votes": 2,
-        "down_votes": 0
+        "down_votes": 0,
+        "word_band": "w1"
       }
     }
   ]
