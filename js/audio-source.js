@@ -1172,20 +1172,12 @@ const _amWebspace = {
 function _amWsLangKey(category) {
   return amIsLangCategory(category) ? amCurrentLang() : "_all";
 }
-function _amWsManifKey(srcKey, category, langKey) {
-  return srcKey + "|" + category + "|" + langKey;
-}
-
-// Zaehler der geladenen Manifest-Buendel einer Kategorie fuer die gegebene
-// Sprache (langKey === null -> sprachlos, "_all"). Geht in den kategorie-
-// lokalen Stempel: steigt er, baut amCollectItems/-Collections neu.
+// Ist das Bündel dieser Kategorie×Sprache geladen? (0/1). Geht in den
+// kategorie-lokalen Stempel: springt es auf 1, baut amCollectItems/-Collections
+// einmal neu. (lang === null -> sprachlos, "_all".)
 function _amWebspaceLoadedCount(category, lang) {
   const langKey = (lang == null) ? "_all" : lang;
-  let n = 0;
-  for (const key of _amWebspace.manifests.keys()) {
-    if (key.endsWith("|" + category + "|" + langKey)) n++;
-  }
-  return n;
+  return _amWebspace.manifests.has(_amBundleKey(category, langKey)) ? 1 : 0;
 }
 
 async function amWebspaceLoadIndex() {
@@ -1229,94 +1221,59 @@ async function amWebspaceLoadSource(srcKey) {
   return entry;
 }
 
-// Ein einzelnes Kategorie-Manifest-Buendel einer Quelle laden und in
-// _amWebspace.manifests ablegen. Sprachsensitiv: nur Manifeste, deren
-// {path, lang} zur aktuellen Sprache passt (Basissprach-Vergleich); sprachlos:
-// alle Manifest-Pfade der Kategorie. Gibt die aufgebaute Collection-Liste
-// zurueck (auch bei Cache-Treffer). Idempotent ueber _amWebspace.manifests.
-async function _amWebspaceLoadCategoryManifests(entry, category) {
-  const srcKey = entry.meta.key;
+// Bündel-Schlüssel im manifests-Speicher (quellenübergreifend, EIN Eintrag je
+// Kategorie×Sprache — nicht mehr pro Quelle).
+function _amBundleKey(category, langKey) { return "bundle|" + category + "|" + langKey; }
+
+// EIN Sprach-Bündel einer Kategorie laden: audio.manifest/_bundle/<kat>-<langKey>.json
+// (quellenübergreifend, flaches collection-set). Ersetzt das frühere N-Einzeldatei-
+// Laden -> 1 Request statt bis zu ~45. Jede Collection trägt ihre Quell-Herkunft
+// selbst (_base/_sourceKey/_sourceName), daher braucht der Loader kein entry.source
+// je Quelle mehr. Ablage in _amWebspace.manifests unter _amBundleKey. Idempotent.
+async function _amWebspaceLoadBundle(category) {
   const langKey = _amWsLangKey(category);
-  const mkey = _amWsManifKey(srcKey, category, langKey);
-  if (_amWebspace.manifests.has(mkey)) return _amWebspace.manifests.get(mkey);
+  const bkey = _amBundleKey(category, langKey);
+  if (_amWebspace.manifests.has(bkey)) return _amWebspace.manifests.get(bkey);
 
-  const cats = (entry.source.manifests && typeof entry.source.manifests === "object")
-    ? entry.source.manifests : {};
-  const list = Array.isArray(cats[category]) ? cats[category] : [];
-  const cols = [];
-  const langSensitive = amIsLangCategory(category);
-  const wantBase = langSensitive ? langKey : null;
-
-  for (const e of list) {
-    // manifests-Eintrag: {path, lang} (Sprach-Kategorien) oder reiner
-    // Pfad-String (sprachlose Kategorien). Bei sprachsensitiven nur die
-    // Datei(en) der aktuellen Sprache laden.
-    const mfPath = (e && typeof e === "object") ? e.path : e;
-    if (!mfPath) continue;
-    if (langSensitive) {
-      const eLang = (e && typeof e === "object") ? e.lang : null;
-      const eBase = (typeof _amBaseLang === "function") ? _amBaseLang(eLang) : eLang;
-      if (eBase !== wantBase) continue;   // andere Sprache -> nicht laden
+  const url = amManifestUrl("_bundle/" + category + "-" + langKey + ".json");
+  let cols = [];
+  try {
+    const r = await fetch(url, { mode: "cors" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const mf = await r.json();
+    if (mf.kind === "collection-set" && Array.isArray(mf.collections)) {
+      cols = mf.collections;
+    } else if (mf.kind === "collection") {
+      cols = [mf];   // Einzel-Collection als Bündel toleriert
     }
-    const mfUrl = amManifestUrl(_amSourceDir(entry.meta.source) + mfPath);
-    try {
-      const mr = await fetch(mfUrl, { mode: "cors" });
-      if (!mr.ok) throw new Error("HTTP " + mr.status);
-      const mf = await mr.json();
-      // Indizes (Pointer) hier ignorieren — nur collections direkt.
-      // "collection-set" buendelt mehrere Buecher in EINER Datei; wird in
-      // die einzelnen Collections aufgeloest, Top-Level-Defaults vererbt.
-      if (mf.kind === "collection") {
-        cols.push(mf);
-      } else if (mf.kind === "collection-set" && Array.isArray(mf.collections)) {
-        for (const col of mf.collections) {
-          if (!col || typeof col !== "object") continue;
-          if (col.lang == null && mf.lang != null) col.lang = mf.lang;
-          if (col.license == null && mf.license != null) col.license = mf.license;
-          if (col.credit == null && mf.credit != null) col.credit = mf.credit;
-          cols.push(col);
-        }
-      }
-    } catch (e2) {
-      console.warn("[audio-source/webspace] Manifest " + mfPath + " fehlgeschlagen:", e2.message);
-    }
+  } catch (e) {
+    // Kein Bündel für diese Kategorie×Sprache (z.B. Sprache ohne Material):
+    // leere Liste, kein harter Fehler — die UI zeigt dann Kein-Material.
+    console.warn("[audio-source/webspace] Bündel nicht ladbar (" + url + "):", e.message);
   }
-
-  _amWebspace.manifests.set(mkey, cols);
+  _amWebspace.manifests.set(bkey, cols);
   return cols;
 }
 
-// Bedarfsgetriebenes Laden einer Kategorie in der aktuellen Sprache ueber ALLE
-// Quellen, die diese Kategorie fuehren. Sprachsensitive Kategorien: laedt nur
-// die aktuelle Sprache (frueher besuchte Sprachen bleiben im manifests-Cache
-// liegen, verfaelschen aber nichts, da listItems/-Collections nur die aktuelle
-// Sprache lesen). Refresht die Kategorie-UI, sobald neue Daten da sind.
+// Bedarfsgetriebenes Laden einer Kategorie in der aktuellen Sprache: EIN
+// Bündel-Fetch. Sprachsensitive Kategorien laden nur die aktuelle Sprache;
+// frühere Sprachen bleiben im manifests-Cache liegen (nur RAM). Refresht die
+// Kategorie-UI, sobald das Bündel da ist.
 async function amWebspaceEnsureCategory(category) {
   if (_amWebspace.failed) return;
   await amWebspaceLoadIndex();
   if (_amWebspace.failed) return;
 
   const langKey = _amWsLangKey(category);
-  let changed = false;
-  const jobs = [];
-  for (const meta of _amWebspace.sources) {
-    const catsOfSrc = Array.isArray(meta.categories) ? meta.categories : [];
-    if (catsOfSrc.indexOf(category) < 0) continue;
-    const mkey = _amWsManifKey(meta.key, category, langKey);
-    if (_amWebspace.manifests.has(mkey) || _amWebspace.manifestsLoading.has(mkey)) continue;
-    _amWebspace.manifestsLoading.add(mkey);
-    jobs.push(
-      amWebspaceLoadSource(meta.key).then(function (entry) {
-        if (!entry) return;
-        return _amWebspaceLoadCategoryManifests(entry, category).then(function () { changed = true; });
-      }).finally(function () {
-        _amWebspace.manifestsLoading.delete(mkey);
-      })
-    );
+  const bkey = _amBundleKey(category, langKey);
+  if (_amWebspace.manifests.has(bkey) || _amWebspace.manifestsLoading.has(bkey)) return;
+  _amWebspace.manifestsLoading.add(bkey);
+  try {
+    await _amWebspaceLoadBundle(category);
+  } finally {
+    _amWebspace.manifestsLoading.delete(bkey);
   }
-  if (jobs.length === 0) return;
-  await Promise.all(jobs);
-  if (changed) _amWebspaceRefreshCategory(category);
+  _amWebspaceRefreshCategory(category);
 }
 
 // "Lädt gerade": für die aktuelle Sprache dieser Kategorie ist mindestens eine
@@ -1327,14 +1284,10 @@ async function amWebspaceEnsureCategory(category) {
 function amCategoryLoading(category) {
   if (amSourceMode !== "online") return false;
   if (_amWebspace.failed) return false;
-  if (!_amWebspace.indexLoaded) return true;   // Index/source.json noch unterwegs
+  if (!_amWebspace.indexLoaded) return true;   // Index noch unterwegs
   const langKey = _amWsLangKey(category);
-  for (const meta of _amWebspace.sources) {
-    const catsOfSrc = Array.isArray(meta.categories) ? meta.categories : [];
-    if (catsOfSrc.indexOf(category) < 0) continue;
-    if (!_amWebspace.manifests.has(_amWsManifKey(meta.key, category, langKey))) return true;
-  }
-  return false;
+  // "Lädt", solange das eine Bündel dieser Kategorie×Sprache noch nicht da ist.
+  return !_amWebspace.manifests.has(_amBundleKey(category, langKey));
 }
 
 // UI-Refresh der Kategorie nach erfolgreichem Bedarfs-Laden.
@@ -1420,25 +1373,17 @@ function _amBuildItemTags(item, col, source) {
 
 // --- Provider-Eintrag fuer Webspace ---
 
-// Geladene Collections einer Kategorie in der aktuellen Sprache, ueber ALLE
-// Quellen. Liest den bedarfsgeladenen _amWebspace.manifests-Speicher (nur die
-// aktuelle Sprache), nicht die source.json. Liefert {col, entry, srcKey}-Paare,
-// damit die Provider je Collection weiter Quell-Defaults (base/license/credit)
-// aufloesen koennen. Loest gleichzeitig das Bedarfs-Laden aus (fire-and-forget:
-// erste Rueckgabe ggf. leer, der Refresh nach amWebspaceEnsureCategory zeigt sie).
+// Geladene Collections einer Kategorie in der aktuellen Sprache aus dem EINEN
+// Bündel. Jede Collection trägt ihre Quell-Herkunft selbst (_base/_sourceKey/
+// _sourceName), daher kein entry.source mehr nötig. Löst gleichzeitig das
+// Bedarfs-Laden aus (fire-and-forget: erste Rückgabe ggf. leer, der Refresh nach
+// amWebspaceEnsureCategory zeigt sie).
 function _amWebspaceCurrentCols(category) {
-  const out = [];
-  if (!_amWebspace.indexLoaded) { amWebspaceEnsureCategory(category); return out; }
+  if (!_amWebspace.indexLoaded) { amWebspaceEnsureCategory(category); return []; }
   const langKey = _amWsLangKey(category);
-  let anyMissing = false;
-  for (const [srcKey, entry] of _amWebspace.loaded) {
-    const cols = _amWebspace.manifests.get(_amWsManifKey(srcKey, category, langKey));
-    if (!cols) continue;
-    for (const col of cols) out.push({ col: col, entry: entry, srcKey: srcKey });
-  }
-  // Bedarfs-Laden anstossen (idempotent), falls Manifeste dieser Sprache fehlen.
-  amWebspaceEnsureCategory(category);
-  return out;
+  const cols = _amWebspace.manifests.get(_amBundleKey(category, langKey));
+  amWebspaceEnsureCategory(category);   // idempotent, lädt falls Bündel fehlt
+  return Array.isArray(cols) ? cols : [];
 }
 
 amRegisterProvider({
@@ -1446,19 +1391,23 @@ amRegisterProvider({
   listItems: function (category) {
     const out = [];
     if (category === "hoerbuecher") return out; // Hoerbuecher ueber listCollections
-    for (const pair of _amWebspaceCurrentCols(category)) {
-      const col = pair.col, entry = pair.entry, srcKey = pair.srcKey;
+    for (const col of _amWebspaceCurrentCols(category)) {
+      // Quell-Herkunft trägt die Collection selbst (Bündel ist quellenübergreifend).
+      const srcKey = col._sourceKey || "";
+      const srcBase = col._base || "";
+      const srcName = col._sourceName || srcKey;
+      const srcDefaults = { license: col.license, credit: col.credit };
       for (const it of (col.items || [])) {
         out.push({
           id: srcKey + ":" + (col.title || "") + "/" + (it.id || ""),
           title: it.title || it.id || "(unbenannt)",
           text: it.text || "",       // BA263: Saetze-Text durchreichen
-          audio: _amResolveAudioUrl(it.audio, entry.source.base),
+          audio: _amResolveAudioUrl(it.audio, srcBase),
           duration: it.duration,
-          sourceTitle: entry.meta.name || entry.source.name || srcKey,
-          license: it.license || entry.source.license || entry.meta.license,
-          credit:  it.credit  || entry.source.credit,
-          tags: _amBuildItemTags(it, col, entry.source)
+          sourceTitle: srcName || srcKey,
+          license: it.license || col.license,
+          credit:  it.credit  || col.credit,
+          tags: _amBuildItemTags(it, col, srcDefaults)
         });
       }
     }
@@ -1467,8 +1416,12 @@ amRegisterProvider({
   listCollections: function (category) {
     if (category !== "hoerbuecher") return [];
     const out = [];
-    for (const pair of _amWebspaceCurrentCols(category)) {
-      const col = pair.col, entry = pair.entry, srcKey = pair.srcKey;
+    for (const col of _amWebspaceCurrentCols(category)) {
+      // Quell-Herkunft trägt die Collection selbst (Bündel ist quellenübergreifend).
+      const srcKey = col._sourceKey || "";
+      const srcBase = col._base || "";
+      const srcName = col._sourceName || srcKey;
+      const srcDefaults = { license: col.license, credit: col.credit };
       {
         // Eindeutige id bevorzugen (Manifest liefert z.B. "librivox:148").
         // Traegt col.id bereits den srcKey als Praefix (LibriVox:
@@ -1499,12 +1452,12 @@ amRegisterProvider({
           title: col.title || srcKey,
           displayName: col.displayName || null,
           // Quelle-Achse: echter Quellenname pro Collection (LibriVox /
-          // Wikimedia Commons / …), aus der Quelle dieser Manifest-Datei.
-          sourceTitle: entry.meta.name || entry.source.name || srcKey,
+          // Wikimedia Commons / …), aus der Collection selbst (Bündel).
+          sourceTitle: srcName || srcKey,
           lang: col.lang || null,
           tags: col.tags || {},
-          license: entry.source.license || entry.meta.license,
-          credit:  entry.source.credit,
+          license: col.license,
+          credit:  col.credit,
           pdfUrl:  col.pdfUrl || null,
           textUrl: col.textUrl || null,
           textRange: col.textRange || null,
@@ -1514,9 +1467,9 @@ amRegisterProvider({
             return {
               id: id + "#" + (it.id || ("ch" + (i+1))),
               title: it.title || ("Kapitel " + (i+1)),
-              audio: _amResolveAudioUrl(it.audio, entry.source.base),
+              audio: _amResolveAudioUrl(it.audio, srcBase),
               duration: it.duration,
-              tags: _amBuildItemTags(it, col, entry.source)
+              tags: _amBuildItemTags(it, col, srcDefaults)
             };
           })
         });
