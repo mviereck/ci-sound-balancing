@@ -49,6 +49,10 @@ secrets/
 # Oldenburger) — mehrere GB, NIE committen
 Sprachdatensätze/
 
+# Manifest-Einzeldateien (Quelle der Wahrheit fuer den Buendel-Generator
+# build_bundles.py). Bleiben lokal; oeffentlich/online ist NUR audio.bundle/.
+audio.manifest/
+
 # Editor / OS
 *.swp
 *.swo

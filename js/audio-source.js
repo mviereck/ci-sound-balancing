@@ -1120,10 +1120,12 @@ amRegisterProvider({
 // Webspace-Manifest-Loader (BA196)
 // ============================================================
 
-// Manifeste leben im Repo (relativ zum Tool-HTML), nicht im Webspace.
+// Die Bündel leben im Repo (relativ zum Tool-HTML), nicht im Audio-Webspace.
 // Audio-URLs werden weiterhin ueber amWebspaceRoot() aufgeloest.
+// audio.bundle/ ist der EINZIGE öffentliche Manifest-Ordner; audio.manifest/
+// (Einzeldateien, Quelle der Wahrheit) bleibt lokal (gitignored).
 function amManifestRoot() {
-  return "audio.manifest/";
+  return "audio.bundle/";
 }
 
 // Manifest-URL mit Cache-Buster. Die JSON-Manifeste haengen sonst am
@@ -1137,15 +1139,6 @@ function amManifestUrl(path) {
   return amManifestRoot() + path + (path.indexOf("?") >= 0 ? "&" : "?") + "v=" + encodeURIComponent(v);
 }
 
-// Verzeichnis eines source.json-Pfads aus index.json, mit abschliessendem
-// "/". "online/freesound/source.json" -> "online/freesound/";
-// "musan/source.json" -> "musan/". Basis fuer die Collection-Manifest-URLs
-// derselben Quelle (Manifeste liegen relativ zur source.json).
-function _amSourceDir(sourcePath) {
-  if (!sourcePath) return "";
-  var i = sourcePath.lastIndexOf("/");
-  return i < 0 ? "" : sourcePath.substring(0, i + 1);
-}
 
 // Konfigurierbar ueber window.CI_SB_WEBSPACE_ROOT vor Lade-Beginn.
 const AM_WEBSPACE_ROOT_DEFAULT = "https://honigburg.de/opus/";
@@ -1160,9 +1153,8 @@ function amWebspaceRoot() {
 const _amWebspace = {
   indexLoaded: false,
   failed: false,
-  sources: [],                 // aus index.json
-  loaded: new Map(),           // sourceKey -> { meta, source }   (nur source.json, billig)
-  manifests: new Map(),        // "srcKey|cat|langKey" -> [collection,...]  (bedarfsgeladen)
+  bundleIndex: [],             // aus audio.bundle/index.json: [{category, langKey, file, collections}]
+  manifests: new Map(),        // "bundle|cat|langKey" -> [collection,...]  (bedarfsgeladen)
   manifestsLoading: new Set(), // laufende Bedarfs-Ladevorgaenge (Doppel-Load-Sperre)
   pendingRefresh: new Set()    // Kategorien, deren UI nach erfolgreichem Laden refreshet werden soll
 };
@@ -1187,45 +1179,22 @@ async function amWebspaceLoadIndex() {
     const r = await fetch(url, { mode: "cors" });
     if (!r.ok) throw new Error("HTTP " + r.status);
     const data = await r.json();
-    _amWebspace.sources = Array.isArray(data.sources) ? data.sources : [];
+    // Bündel-Index (audio.bundle/index.json): Verzeichnis aller Bündel +
+    // (über category+langKey) die verfügbaren Sprachen je Kategorie.
+    _amWebspace.bundleIndex = Array.isArray(data.bundles) ? data.bundles : [];
     _amWebspace.indexLoaded = true;
-    console.log("[audio-source/webspace] Index geladen: " + _amWebspace.sources.length + " Quellen.");
+    console.log("[audio-source/webspace] Bündel-Index geladen: " + _amWebspace.bundleIndex.length + " Bündel.");
   } catch (e) {
-    console.warn("[audio-source/webspace] Index nicht erreichbar (" + url + "):", e.message);
+    console.warn("[audio-source/webspace] Bündel-Index nicht erreichbar (" + url + "):", e.message);
     _amWebspace.failed = true;
   }
-}
-
-// source.json einer Quelle laden (nur Metadaten mit {path, lang}); die
-// Manifest-INHALTE bleiben aussen vor (die holt amWebspaceEnsureCategory
-// bedarfsgetrieben). Billig, wird beim Bootstrap fuer alle Quellen gemacht.
-async function amWebspaceLoadSource(srcKey) {
-  if (_amWebspace.failed) return null;
-  if (_amWebspace.loaded.has(srcKey)) return _amWebspace.loaded.get(srcKey);
-  const meta = _amWebspace.sources.find(function (s) { return s.key === srcKey; });
-  if (!meta) return null;
-
-  let source = null;
-  try {
-    const srcUrl = amManifestUrl(meta.source);
-    const r = await fetch(srcUrl, { mode: "cors" });
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    source = await r.json();
-  } catch (e) {
-    console.warn("[audio-source/webspace] source.json " + srcKey + " fehlgeschlagen:", e.message);
-    return null;
-  }
-
-  const entry = { meta: meta, source: source };
-  _amWebspace.loaded.set(srcKey, entry);
-  return entry;
 }
 
 // Bündel-Schlüssel im manifests-Speicher (quellenübergreifend, EIN Eintrag je
 // Kategorie×Sprache — nicht mehr pro Quelle).
 function _amBundleKey(category, langKey) { return "bundle|" + category + "|" + langKey; }
 
-// EIN Sprach-Bündel einer Kategorie laden: audio.manifest/_bundle/<kat>-<langKey>.json
+// EIN Sprach-Bündel einer Kategorie laden: audio.bundle/<kat>-<langKey>.json
 // (quellenübergreifend, flaches collection-set). Ersetzt das frühere N-Einzeldatei-
 // Laden -> 1 Request statt bis zu ~45. Jede Collection trägt ihre Quell-Herkunft
 // selbst (_base/_sourceKey/_sourceName), daher braucht der Loader kein entry.source
@@ -1235,7 +1204,7 @@ async function _amWebspaceLoadBundle(category) {
   const bkey = _amBundleKey(category, langKey);
   if (_amWebspace.manifests.has(bkey)) return _amWebspace.manifests.get(bkey);
 
-  const url = amManifestUrl("_bundle/" + category + "-" + langKey + ".json");
+  const url = amManifestUrl(category + "-" + langKey + ".json");
   let cols = [];
   try {
     const r = await fetch(url, { mode: "cors" });
@@ -1286,8 +1255,12 @@ function amCategoryLoading(category) {
   if (_amWebspace.failed) return false;
   if (!_amWebspace.indexLoaded) return true;   // Index noch unterwegs
   const langKey = _amWsLangKey(category);
-  // "Lädt", solange das eine Bündel dieser Kategorie×Sprache noch nicht da ist.
-  return !_amWebspace.manifests.has(_amBundleKey(category, langKey));
+  if (_amWebspace.manifests.has(_amBundleKey(category, langKey))) return false; // da
+  // Nur "lädt", wenn es für diese Kategorie×Sprache überhaupt ein Bündel im
+  // Index gibt — sonst gibt es schlicht kein Material (keine Dauer-Lademeldung).
+  return _amWebspace.bundleIndex.some(function (b) {
+    return b.category === category && b.langKey === langKey;
+  });
 }
 
 // UI-Refresh der Kategorie nach erfolgreichem Bedarfs-Laden.
@@ -1304,23 +1277,18 @@ function _amWebspaceRefreshCategory(category) {
 }
 
 // Sprachcodes einer Kategorie aus den GELADENEN source.json-Manifesten.
-// Die Sprache je Datei steht als {path, lang} in source.manifests[cat]
-// (zentral vom Builder aus dem Manifest-Kopf abgeleitet). So kennt das Tool
-// die verfügbaren Sprachen, OHNE die Items aller Manifeste aufzubauen —
-// nur die Manifest-Metadaten der source.json, nicht ihr Inhalt.
+// Die verfügbaren Sprachen kommen aus dem Bündel-Index (audio.bundle/index.json):
+// je (category, langKey) gibt es ein Bündel. So kennt das Tool die Sprachen einer
+// Kategorie OHNE die Bündel-Inhalte zu laden — nur das Verzeichnis.
 // Rückgabe: Set von Basissprachen (via _amBaseLang normalisiert).
 function amLangsForCategory(category) {
   var out = new Set();
-  // Webspace: aus den geladenen source.json-Manifesten ({path, lang}).
+  // Webspace: aus dem Bündel-Index. Nur sprachsensitive Kategorien haben echte
+  // Sprach-langKeys; "_all" (sprachlose Kategorie) ist keine wählbare Sprache.
   if (_amWebspace.indexLoaded) {
-    for (const [srcKey, entry] of _amWebspace.loaded) {
-      var cats = entry.source && entry.source.manifests;
-      if (!cats || typeof cats !== "object") continue;
-      var list = Array.isArray(cats[category]) ? cats[category] : [];
-      for (const e of list) {
-        var lang = (e && typeof e === "object") ? e.lang : null;
-        if (lang) out.add(_amBaseLang(lang));
-      }
+    for (const b of _amWebspace.bundleIndex) {
+      if (b.category !== category) continue;
+      if (b.langKey && b.langKey !== "_all") out.add(_amBaseLang(b.langKey));
     }
   }
   // Embed (Offline-Bundles): Sprache je Collection-Kopf (col.lang), ohne
@@ -1718,23 +1686,17 @@ amRegisterProvider({
   }
 });
 
-// Beim Start NUR den Index und alle source.json laden (billige Metadaten mit
-// {path, lang}) — daraus steht die Sprach-Auswahl (amLangsForCategory) sofort.
-// Die Manifest-INHALTE einer Kategorie werden NICHT vorgeladen; das erledigt
-// amWebspaceEnsureCategory bedarfsgetrieben beim ersten Kategorie-/Sprach-
-// Zugriff (angestossen aus den Provider-Methoden). So wird beim Start nichts
-// aufgebaut, was nicht gebraucht wird.
+// Beim Start NUR den Bündel-Index laden (audio.bundle/index.json). Daraus steht
+// die Sprach-Auswahl (amLangsForCategory) sofort. Die Bündel-INHALTE werden NICHT
+// vorgeladen; das erledigt amWebspaceEnsureCategory bedarfsgetrieben beim ersten
+// Kategorie-/Sprach-Zugriff (angestossen aus den Provider-Methoden). So wird beim
+// Start nichts aufgebaut, was nicht gebraucht wird.
 function amWebspaceBootstrap() {
   amWebspaceLoadIndex().then(function () {
     if (_amWebspace.failed) return;
-    const jobs = _amWebspace.sources.map(function (meta) {
-      return amWebspaceLoadSource(meta.key);
-    });
-    Promise.all(jobs).then(function () {
-      // source.json aller Quellen da -> Sprach-Auswahl + UI der Kategorien
-      // einmal auffrischen (die Manifeste holt der erste Zugriff nach).
-      amAfterSourceChange();
-      if (typeof sRefreshSpeakerDropdown === "function") sRefreshSpeakerDropdown();
-    });
+    // Bündel-Index da -> Sprach-Auswahl + UI der Kategorien einmal auffrischen
+    // (die Bündel holt der erste Zugriff nach).
+    amAfterSourceChange();
+    if (typeof sRefreshSpeakerDropdown === "function") sRefreshSpeakerDropdown();
   });
 }
