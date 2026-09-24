@@ -12,7 +12,10 @@
   ],
   "manifests": {
     "saetze": [
-      "saetze/olsa.json"
+      {
+        "path": "saetze/olsa.json",
+        "lang": "de"
+      }
     ],
     "geraeusche": [
       "geraeusche/olsa-rauschen.json"

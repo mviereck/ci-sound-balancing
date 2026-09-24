@@ -11,7 +11,10 @@
   ],
   "manifests": {
     "saetze": [
-      "saetze/thorsten-hessisch.json"
+      {
+        "path": "saetze/thorsten-hessisch.json",
+        "lang": "de"
+      }
     ]
   }
 }

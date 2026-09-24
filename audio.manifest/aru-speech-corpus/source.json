@@ -11,18 +11,54 @@
   ],
   "manifests": {
     "saetze": [
-      "saetze/id01.json",
-      "saetze/id02.json",
-      "saetze/id03.json",
-      "saetze/id04.json",
-      "saetze/id05.json",
-      "saetze/id06.json",
-      "saetze/id07.json",
-      "saetze/id08.json",
-      "saetze/id09.json",
-      "saetze/id10.json",
-      "saetze/id11.json",
-      "saetze/id12.json"
+      {
+        "path": "saetze/id01.json",
+        "lang": "en-GB"
+      },
+      {
+        "path": "saetze/id02.json",
+        "lang": "en-GB"
+      },
+      {
+        "path": "saetze/id03.json",
+        "lang": "en-GB"
+      },
+      {
+        "path": "saetze/id04.json",
+        "lang": "en-GB"
+      },
+      {
+        "path": "saetze/id05.json",
+        "lang": "en-GB"
+      },
+      {
+        "path": "saetze/id06.json",
+        "lang": "en-GB"
+      },
+      {
+        "path": "saetze/id07.json",
+        "lang": "en-GB"
+      },
+      {
+        "path": "saetze/id08.json",
+        "lang": "en-GB"
+      },
+      {
+        "path": "saetze/id09.json",
+        "lang": "en-GB"
+      },
+      {
+        "path": "saetze/id10.json",
+        "lang": "en-GB"
+      },
+      {
+        "path": "saetze/id11.json",
+        "lang": "en-GB"
+      },
+      {
+        "path": "saetze/id12.json",
+        "lang": "en-GB"
+      }
     ]
   }
 }

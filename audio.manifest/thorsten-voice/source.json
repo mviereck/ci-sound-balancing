@@ -11,7 +11,10 @@
   ],
   "manifests": {
     "saetze": [
-      "saetze/thorsten.json"
+      {
+        "path": "saetze/thorsten.json",
+        "lang": "de"
+      }
     ]
   }
 }

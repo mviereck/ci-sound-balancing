@@ -11,25 +11,82 @@
   ],
   "manifests": {
     "saetze": [
-      "saetze/buch-bible-reina-valera-23-isa-as-10282.json",
-      "saetze/buch-poes-as-10604.json",
-      "saetze/buch-rana-viajera-11957.json",
-      "saetze/buch-persuasi-n-11991.json",
-      "saetze/buch-don-quijote-2-1378.json",
-      "saetze/buch-puritanos-y-otros-cuentos-14016.json",
-      "saetze/buch-edad-de-oro-2162.json",
-      "saetze/buch-condenada-y-otros-cuentos-4006.json",
-      "saetze/buch-novelas-ejemplares-4369.json",
-      "saetze/buch-leyendas-5079.json",
-      "saetze/buch-don-quijote-1-567.json",
-      "saetze/buch-cuentos-de-la-selva-para-los-ni-os-6706.json",
-      "saetze/buch-novelas-cortas-de-asensi-7405.json",
-      "saetze/buch-cuentos-de-amor-de-locura-y-de-muerte-7613.json",
-      "saetze/buch-gaucho-mart-n-fierro-8509.json",
-      "saetze/buch-ladrones-de-londres-9310.json",
-      "saetze/buch-f-bulas-literarias-9358.json",
-      "saetze/buch-aventuras-de-robins-n-crusoe-9503.json",
-      "saetze/buch-bible-reina-valera-19-salmos-9951.json"
+      {
+        "path": "saetze/buch-bible-reina-valera-23-isa-as-10282.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-poes-as-10604.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-rana-viajera-11957.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-persuasi-n-11991.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-don-quijote-2-1378.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-puritanos-y-otros-cuentos-14016.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-edad-de-oro-2162.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-condenada-y-otros-cuentos-4006.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-novelas-ejemplares-4369.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-leyendas-5079.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-don-quijote-1-567.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-cuentos-de-la-selva-para-los-ni-os-6706.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-novelas-cortas-de-asensi-7405.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-cuentos-de-amor-de-locura-y-de-muerte-7613.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-gaucho-mart-n-fierro-8509.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-ladrones-de-londres-9310.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-f-bulas-literarias-9358.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-aventuras-de-robins-n-crusoe-9503.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/buch-bible-reina-valera-19-salmos-9951.json",
+        "lang": "es"
+      }
     ]
   }
 }

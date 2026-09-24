@@ -3821,21 +3821,16 @@ function plContentLangAvailable(category) {
     seen[code] = true;
     out.push(code);
   }
+  // Sprachen aus den source.json-/embed-Manifest-Metadaten (amLangsForCategory)
+  // statt aus der vollen Item-/Collection-Aggregation: nur die Sprach-Angabe
+  // je Manifest wird gelesen, nicht der Inhalt. Uploads tragen keine eigene
+  // Sprache (Sätze lang_any, Hörbuch-Upload lang:null) und erweitern die
+  // Liste daher korrekt nicht.
   var wantSaetze = (category === undefined || category === "saetze");
   var wantBuecher = (category === undefined || category === "hoerbuecher");
-  if (wantSaetze && typeof amCollectItems === "function") {
-    var items = amCollectItems("saetze");
-    for (var i = 0; i < items.length; i++) {
-      var it = items[i];
-      if (it && it.tags && it.tags.lang) add(_amBaseLang(it.tags.lang));
-    }
-  }
-  if (wantBuecher && typeof amCollectCollections === "function") {
-    var cols = amCollectCollections("hoerbuecher");
-    for (var j = 0; j < cols.length; j++) {
-      var c = cols[j];
-      if (c && c.lang) add(_amBaseLang(c.lang));
-    }
+  if (typeof amLangsForCategory === "function") {
+    if (wantSaetze)  amLangsForCategory("saetze").forEach(add);
+    if (wantBuecher) amLangsForCategory("hoerbuecher").forEach(add);
   }
   // Sortierung: die vier Tool-Sprachen (de/en/fr/es) zuerst, in fester
   // L-Reihenfolge; danach alle uebrigen alphabetisch nach dem in der

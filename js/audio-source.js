@@ -1150,7 +1150,12 @@ async function amWebspaceLoadSource(srcKey) {
   for (const cat of Object.keys(cats)) {
     manifests[cat] = [];
     const list = Array.isArray(cats[cat]) ? cats[cat] : [];
-    for (const mfPath of list) {
+    for (const entry of list) {
+      // manifests-Eintrag: {path, lang} (Sprach-Kategorien) oder reiner
+      // Pfad-String (sprachlose Kategorien musik/geraeusche). Sprache je
+      // Datei steht in source.json; hier zählt nur der Pfad.
+      const mfPath = (entry && typeof entry === "object") ? entry.path : entry;
+      if (!mfPath) continue;
       const mfUrl = amManifestUrl(_amSourceDir(meta.source) + mfPath);
       try {
         const mr = await fetch(mfUrl, { mode: "cors" });
@@ -1181,6 +1186,39 @@ async function amWebspaceLoadSource(srcKey) {
   const entry = { meta: meta, source: source, manifests: manifests };
   _amWebspace.loaded.set(srcKey, entry);
   return entry;
+}
+
+// Sprachcodes einer Kategorie aus den GELADENEN source.json-Manifesten.
+// Die Sprache je Datei steht als {path, lang} in source.manifests[cat]
+// (zentral vom Builder aus dem Manifest-Kopf abgeleitet). So kennt das Tool
+// die verfügbaren Sprachen, OHNE die Items aller Manifeste aufzubauen —
+// nur die Manifest-Metadaten der source.json, nicht ihr Inhalt.
+// Rückgabe: Set von Basissprachen (via _amBaseLang normalisiert).
+function amLangsForCategory(category) {
+  var out = new Set();
+  // Webspace: aus den geladenen source.json-Manifesten ({path, lang}).
+  if (_amWebspace.indexLoaded) {
+    for (const [srcKey, entry] of _amWebspace.loaded) {
+      var cats = entry.source && entry.source.manifests;
+      if (!cats || typeof cats !== "object") continue;
+      var list = Array.isArray(cats[category]) ? cats[category] : [];
+      for (const e of list) {
+        var lang = (e && typeof e === "object") ? e.lang : null;
+        if (lang) out.add(_amBaseLang(lang));
+      }
+    }
+  }
+  // Embed (Offline-Bundles): Sprache je Collection-Kopf (col.lang), ohne
+  // die Items aufzubauen. Nur die geladenen Bundles sind sichtbar.
+  var root = (typeof window !== "undefined") ? window.CI_SB_EMBED : null;
+  if (root && root.sources) {
+    for (const key in root.sources) {
+      var col = root.sources[key];
+      if (!col || col.category !== category) continue;
+      if (col.lang) out.add(_amBaseLang(col.lang));
+    }
+  }
+  return out;
 }
 
 function _amResolveAudioUrl(rawAudio, sourceBase) {

@@ -11,7 +11,10 @@
   ],
   "manifests": {
     "saetze": [
-      "saetze/kerstin.json"
+      {
+        "path": "saetze/kerstin.json",
+        "lang": "de"
+      }
     ]
   },
   "notes": "Audio-URLs zeigen direkt auf raw.githubusercontent.com (verified/*.flac)."

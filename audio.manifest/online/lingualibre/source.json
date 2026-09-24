@@ -11,145 +11,554 @@
   ],
   "manifests": {
     "saetze": [
-      "saetze/abl.json",
-      "saetze/af.json",
-      "saetze/ajp.json",
-      "saetze/apc.json",
-      "saetze/ar.json",
-      "saetze/arq.json",
-      "saetze/ary.json",
-      "saetze/as.json",
-      "saetze/ast.json",
-      "saetze/atj.json",
-      "saetze/az.json",
-      "saetze/ban.json",
-      "saetze/bar.json",
-      "saetze/bci.json",
-      "saetze/bcl.json",
-      "saetze/be.json",
-      "saetze/bew.json",
-      "saetze/bg.json",
-      "saetze/bik.json",
-      "saetze/bjn.json",
-      "saetze/bkr.json",
-      "saetze/blk.json",
-      "saetze/bn.json",
-      "saetze/br.json",
-      "saetze/btm.json",
-      "saetze/bug.json",
-      "saetze/ca.json",
-      "saetze/ceb.json",
-      "saetze/cmn.json",
-      "saetze/cs.json",
-      "saetze/cy.json",
-      "saetze/de.json",
-      "saetze/dtp.json",
-      "saetze/en-GB.json",
-      "saetze/en.json",
-      "saetze/eo.json",
-      "saetze/es.json",
-      "saetze/eu.json",
-      "saetze/ext.json",
-      "saetze/fa.json",
-      "saetze/fon.json",
-      "saetze/fr.json",
-      "saetze/fsl.json",
-      "saetze/ga.json",
-      "saetze/gcf.json",
-      "saetze/gcr.json",
-      "saetze/gl.json",
-      "saetze/gsc.json",
-      "saetze/gsw.json",
-      "saetze/ha.json",
-      "saetze/he.json",
-      "saetze/hi.json",
-      "saetze/ht.json",
-      "saetze/hy.json",
-      "saetze/id.json",
-      "saetze/ig.json",
-      "saetze/it.json",
-      "saetze/ja.json",
-      "saetze/jax.json",
-      "saetze/jv.json",
-      "saetze/ka.json",
-      "saetze/kaa.json",
-      "saetze/ken.json",
-      "saetze/kmr.json",
-      "saetze/kn.json",
-      "saetze/ko.json",
-      "saetze/kok.json",
-      "saetze/ku.json",
-      "saetze/ky.json",
-      "saetze/lb.json",
-      "saetze/lbx.json",
-      "saetze/ljp.json",
-      "saetze/ll-Q1120653.json",
-      "saetze/ll-Q1616050.json",
-      "saetze/ll-Q1616056.json",
-      "saetze/ll-Q322719.json",
-      "saetze/ll-Q4465.json",
-      "saetze/ll-Q713359.json",
-      "saetze/ll-Q720542.json",
-      "saetze/ll-Q733159.json",
-      "saetze/lnc.json",
-      "saetze/mad.json",
-      "saetze/mak.json",
-      "saetze/mg.json",
-      "saetze/min.json",
-      "saetze/mk.json",
-      "saetze/ml.json",
-      "saetze/mnw.json",
-      "saetze/mqg.json",
-      "saetze/mr.json",
-      "saetze/ms.json",
-      "saetze/mt.json",
-      "saetze/mui.json",
-      "saetze/my.json",
-      "saetze/nan.json",
-      "saetze/nia.json",
-      "saetze/nl.json",
-      "saetze/no.json",
-      "saetze/oc.json",
-      "saetze/oci-whistled.json",
-      "saetze/or.json",
-      "saetze/osi.json",
-      "saetze/pa.json",
-      "saetze/pi.json",
-      "saetze/pl.json",
-      "saetze/plm.json",
-      "saetze/pnb.json",
-      "saetze/pse.json",
-      "saetze/pt.json",
-      "saetze/pwn.json",
-      "saetze/qu.json",
-      "saetze/qxp.json",
-      "saetze/ro.json",
-      "saetze/ru.json",
-      "saetze/rup.json",
-      "saetze/rw.json",
-      "saetze/sas.json",
-      "saetze/sat.json",
-      "saetze/scn.json",
-      "saetze/shy.json",
-      "saetze/sk.json",
-      "saetze/so.json",
-      "saetze/sru.json",
-      "saetze/su.json",
-      "saetze/sv.json",
-      "saetze/szl.json",
-      "saetze/ta.json",
-      "saetze/te.json",
-      "saetze/tg.json",
-      "saetze/tl.json",
-      "saetze/tok.json",
-      "saetze/tr.json",
-      "saetze/tt.json",
-      "saetze/txg.json",
-      "saetze/uk.json",
-      "saetze/ur.json",
-      "saetze/vi.json",
-      "saetze/yo.json",
-      "saetze/yue.json"
+      {
+        "path": "saetze/abl.json",
+        "lang": "abl"
+      },
+      {
+        "path": "saetze/af.json",
+        "lang": "af"
+      },
+      {
+        "path": "saetze/ajp.json",
+        "lang": "ajp"
+      },
+      {
+        "path": "saetze/apc.json",
+        "lang": "apc"
+      },
+      {
+        "path": "saetze/ar.json",
+        "lang": "ar"
+      },
+      {
+        "path": "saetze/arq.json",
+        "lang": "arq"
+      },
+      {
+        "path": "saetze/ary.json",
+        "lang": "ary"
+      },
+      {
+        "path": "saetze/as.json",
+        "lang": "as"
+      },
+      {
+        "path": "saetze/ast.json",
+        "lang": "ast"
+      },
+      {
+        "path": "saetze/atj.json",
+        "lang": "atj"
+      },
+      {
+        "path": "saetze/az.json",
+        "lang": "az"
+      },
+      {
+        "path": "saetze/ban.json",
+        "lang": "ban"
+      },
+      {
+        "path": "saetze/bar.json",
+        "lang": "bar"
+      },
+      {
+        "path": "saetze/bci.json",
+        "lang": "bci"
+      },
+      {
+        "path": "saetze/bcl.json",
+        "lang": "bcl"
+      },
+      {
+        "path": "saetze/be.json",
+        "lang": "be"
+      },
+      {
+        "path": "saetze/bew.json",
+        "lang": "bew"
+      },
+      {
+        "path": "saetze/bg.json",
+        "lang": "bg"
+      },
+      {
+        "path": "saetze/bik.json",
+        "lang": "bik"
+      },
+      {
+        "path": "saetze/bjn.json",
+        "lang": "bjn"
+      },
+      {
+        "path": "saetze/bkr.json",
+        "lang": "bkr"
+      },
+      {
+        "path": "saetze/blk.json",
+        "lang": "blk"
+      },
+      {
+        "path": "saetze/bn.json",
+        "lang": "bn"
+      },
+      {
+        "path": "saetze/br.json",
+        "lang": "br"
+      },
+      {
+        "path": "saetze/btm.json",
+        "lang": "btm"
+      },
+      {
+        "path": "saetze/bug.json",
+        "lang": "bug"
+      },
+      {
+        "path": "saetze/ca.json",
+        "lang": "ca"
+      },
+      {
+        "path": "saetze/ceb.json",
+        "lang": "ceb"
+      },
+      {
+        "path": "saetze/cmn.json",
+        "lang": "cmn"
+      },
+      {
+        "path": "saetze/cs.json",
+        "lang": "cs"
+      },
+      {
+        "path": "saetze/cy.json",
+        "lang": "cy"
+      },
+      {
+        "path": "saetze/de.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/dtp.json",
+        "lang": "dtp"
+      },
+      {
+        "path": "saetze/en-GB.json",
+        "lang": "en-GB"
+      },
+      {
+        "path": "saetze/en.json",
+        "lang": "en"
+      },
+      {
+        "path": "saetze/eo.json",
+        "lang": "eo"
+      },
+      {
+        "path": "saetze/es.json",
+        "lang": "es"
+      },
+      {
+        "path": "saetze/eu.json",
+        "lang": "eu"
+      },
+      {
+        "path": "saetze/ext.json",
+        "lang": "ext"
+      },
+      {
+        "path": "saetze/fa.json",
+        "lang": "fa"
+      },
+      {
+        "path": "saetze/fon.json",
+        "lang": "fon"
+      },
+      {
+        "path": "saetze/fr.json",
+        "lang": "fr"
+      },
+      {
+        "path": "saetze/fsl.json",
+        "lang": "fsl"
+      },
+      {
+        "path": "saetze/ga.json",
+        "lang": "ga"
+      },
+      {
+        "path": "saetze/gcf.json",
+        "lang": "gcf"
+      },
+      {
+        "path": "saetze/gcr.json",
+        "lang": "gcr"
+      },
+      {
+        "path": "saetze/gl.json",
+        "lang": "gl"
+      },
+      {
+        "path": "saetze/gsc.json",
+        "lang": "gsc"
+      },
+      {
+        "path": "saetze/gsw.json",
+        "lang": "gsw"
+      },
+      {
+        "path": "saetze/ha.json",
+        "lang": "ha"
+      },
+      {
+        "path": "saetze/he.json",
+        "lang": "he"
+      },
+      {
+        "path": "saetze/hi.json",
+        "lang": "hi"
+      },
+      {
+        "path": "saetze/ht.json",
+        "lang": "ht"
+      },
+      {
+        "path": "saetze/hy.json",
+        "lang": "hy"
+      },
+      {
+        "path": "saetze/id.json",
+        "lang": "id"
+      },
+      {
+        "path": "saetze/ig.json",
+        "lang": "ig"
+      },
+      {
+        "path": "saetze/it.json",
+        "lang": "it"
+      },
+      {
+        "path": "saetze/ja.json",
+        "lang": "ja"
+      },
+      {
+        "path": "saetze/jax.json",
+        "lang": "jax"
+      },
+      {
+        "path": "saetze/jv.json",
+        "lang": "jv"
+      },
+      {
+        "path": "saetze/ka.json",
+        "lang": "ka"
+      },
+      {
+        "path": "saetze/kaa.json",
+        "lang": "kaa"
+      },
+      {
+        "path": "saetze/ken.json",
+        "lang": "ken"
+      },
+      {
+        "path": "saetze/kmr.json",
+        "lang": "kmr"
+      },
+      {
+        "path": "saetze/kn.json",
+        "lang": "kn"
+      },
+      {
+        "path": "saetze/ko.json",
+        "lang": "ko"
+      },
+      {
+        "path": "saetze/kok.json",
+        "lang": "kok"
+      },
+      {
+        "path": "saetze/ku.json",
+        "lang": "ku"
+      },
+      {
+        "path": "saetze/ky.json",
+        "lang": "ky"
+      },
+      {
+        "path": "saetze/lb.json",
+        "lang": "lb"
+      },
+      {
+        "path": "saetze/lbx.json",
+        "lang": "lbx"
+      },
+      {
+        "path": "saetze/ljp.json",
+        "lang": "ljp"
+      },
+      {
+        "path": "saetze/ll-Q1616050.json",
+        "lang": "ll-Q1616050"
+      },
+      {
+        "path": "saetze/ll-Q1616056.json",
+        "lang": "ll-Q1616056"
+      },
+      {
+        "path": "saetze/ll-Q322719.json",
+        "lang": "ll-Q322719"
+      },
+      {
+        "path": "saetze/ll-Q4465.json",
+        "lang": "ll-Q4465"
+      },
+      {
+        "path": "saetze/ll-Q713359.json",
+        "lang": "ll-Q713359"
+      },
+      {
+        "path": "saetze/ll-Q720542.json",
+        "lang": "ll-Q720542"
+      },
+      {
+        "path": "saetze/ll-Q733159.json",
+        "lang": "ll-Q733159"
+      },
+      {
+        "path": "saetze/lnc.json",
+        "lang": "lnc"
+      },
+      {
+        "path": "saetze/mad.json",
+        "lang": "mad"
+      },
+      {
+        "path": "saetze/mak.json",
+        "lang": "mak"
+      },
+      {
+        "path": "saetze/mg.json",
+        "lang": "mg"
+      },
+      {
+        "path": "saetze/min.json",
+        "lang": "min"
+      },
+      {
+        "path": "saetze/mk.json",
+        "lang": "mk"
+      },
+      {
+        "path": "saetze/ml.json",
+        "lang": "ml"
+      },
+      {
+        "path": "saetze/mnw.json",
+        "lang": "mnw"
+      },
+      {
+        "path": "saetze/mqg.json",
+        "lang": "mqg"
+      },
+      {
+        "path": "saetze/mr.json",
+        "lang": "mr"
+      },
+      {
+        "path": "saetze/ms.json",
+        "lang": "ms"
+      },
+      {
+        "path": "saetze/mt.json",
+        "lang": "mt"
+      },
+      {
+        "path": "saetze/mui.json",
+        "lang": "mui"
+      },
+      {
+        "path": "saetze/my.json",
+        "lang": "my"
+      },
+      {
+        "path": "saetze/nan.json",
+        "lang": "nan"
+      },
+      {
+        "path": "saetze/nia.json",
+        "lang": "nia"
+      },
+      {
+        "path": "saetze/nl.json",
+        "lang": "nl"
+      },
+      {
+        "path": "saetze/no.json",
+        "lang": "no"
+      },
+      {
+        "path": "saetze/oc.json",
+        "lang": "oc"
+      },
+      {
+        "path": "saetze/oci-whistled.json",
+        "lang": "oci-whistled"
+      },
+      {
+        "path": "saetze/or.json",
+        "lang": "or"
+      },
+      {
+        "path": "saetze/osi.json",
+        "lang": "osi"
+      },
+      {
+        "path": "saetze/pa.json",
+        "lang": "pa"
+      },
+      {
+        "path": "saetze/pi.json",
+        "lang": "pi"
+      },
+      {
+        "path": "saetze/pl.json",
+        "lang": "pl"
+      },
+      {
+        "path": "saetze/plm.json",
+        "lang": "plm"
+      },
+      {
+        "path": "saetze/pse.json",
+        "lang": "pse"
+      },
+      {
+        "path": "saetze/pt.json",
+        "lang": "pt"
+      },
+      {
+        "path": "saetze/pwn.json",
+        "lang": "pwn"
+      },
+      {
+        "path": "saetze/qu.json",
+        "lang": "qu"
+      },
+      {
+        "path": "saetze/qxp.json",
+        "lang": "qxp"
+      },
+      {
+        "path": "saetze/ro.json",
+        "lang": "ro"
+      },
+      {
+        "path": "saetze/ru.json",
+        "lang": "ru"
+      },
+      {
+        "path": "saetze/rup.json",
+        "lang": "rup"
+      },
+      {
+        "path": "saetze/rw.json",
+        "lang": "rw"
+      },
+      {
+        "path": "saetze/sas.json",
+        "lang": "sas"
+      },
+      {
+        "path": "saetze/sat.json",
+        "lang": "sat"
+      },
+      {
+        "path": "saetze/scn.json",
+        "lang": "scn"
+      },
+      {
+        "path": "saetze/shy.json",
+        "lang": "shy"
+      },
+      {
+        "path": "saetze/sk.json",
+        "lang": "sk"
+      },
+      {
+        "path": "saetze/so.json",
+        "lang": "so"
+      },
+      {
+        "path": "saetze/sru.json",
+        "lang": "sru"
+      },
+      {
+        "path": "saetze/su.json",
+        "lang": "su"
+      },
+      {
+        "path": "saetze/sv.json",
+        "lang": "sv"
+      },
+      {
+        "path": "saetze/szl.json",
+        "lang": "szl"
+      },
+      {
+        "path": "saetze/ta.json",
+        "lang": "ta"
+      },
+      {
+        "path": "saetze/te.json",
+        "lang": "te"
+      },
+      {
+        "path": "saetze/tg.json",
+        "lang": "tg"
+      },
+      {
+        "path": "saetze/tl.json",
+        "lang": "tl"
+      },
+      {
+        "path": "saetze/tok.json",
+        "lang": "tok"
+      },
+      {
+        "path": "saetze/tr.json",
+        "lang": "tr"
+      },
+      {
+        "path": "saetze/tt.json",
+        "lang": "tt"
+      },
+      {
+        "path": "saetze/txg.json",
+        "lang": "txg"
+      },
+      {
+        "path": "saetze/uk.json",
+        "lang": "uk"
+      },
+      {
+        "path": "saetze/ur.json",
+        "lang": "ur"
+      },
+      {
+        "path": "saetze/vi.json",
+        "lang": "vi"
+      },
+      {
+        "path": "saetze/yo.json",
+        "lang": "yo"
+      },
+      {
+        "path": "saetze/yue.json",
+        "lang": "yue"
+      }
     ]
   },
   "notes": "Audio-URLs zeigen direkt auf upload.wikimedia.org (MD5-Pfad, CORS offen). Lizenz pro Sprecher (CC0 oder CC BY-SA 4.0), im Item hinterlegt."

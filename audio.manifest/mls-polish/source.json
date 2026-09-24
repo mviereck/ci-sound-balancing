@@ -11,11 +11,26 @@
   ],
   "manifests": {
     "saetze": [
-      "saetze/buch-ballady-i-romanse-11059.json",
-      "saetze/buch-sklepy-cynamonowe-1447.json",
-      "saetze/buch-tajemnica-baskerville-w-5541.json",
-      "saetze/buch-wampir-6205.json",
-      "saetze/buch-dokt-r-mucho-apski-fantastyczne-przygody-8338.json"
+      {
+        "path": "saetze/buch-ballady-i-romanse-11059.json",
+        "lang": "pl"
+      },
+      {
+        "path": "saetze/buch-sklepy-cynamonowe-1447.json",
+        "lang": "pl"
+      },
+      {
+        "path": "saetze/buch-tajemnica-baskerville-w-5541.json",
+        "lang": "pl"
+      },
+      {
+        "path": "saetze/buch-wampir-6205.json",
+        "lang": "pl"
+      },
+      {
+        "path": "saetze/buch-dokt-r-mucho-apski-fantastyczne-przygody-8338.json",
+        "lang": "pl"
+      }
     ]
   }
 }

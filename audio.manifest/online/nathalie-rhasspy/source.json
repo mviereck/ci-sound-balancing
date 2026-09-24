@@ -11,7 +11,10 @@
   ],
   "manifests": {
     "saetze": [
-      "saetze/nathalie.json"
+      {
+        "path": "saetze/nathalie.json",
+        "lang": "nl-NL"
+      }
     ]
   },
   "notes": "Audio-URLs zeigen direkt auf raw.githubusercontent.com (verified/*.flac)."

@@ -11,39 +11,138 @@
   ],
   "manifests": {
     "saetze": [
-      "saetze/de_DE/angela_merkel/merkel_alone.json",
-      "saetze/de_DE/eva_k/grune_haus.json",
-      "saetze/de_DE/eva_k/kleine_lord.json",
-      "saetze/de_DE/eva_k/werde_die_du_bist.json",
-      "saetze/de_DE/ramona_deininger/alter_afrikaner.json",
-      "saetze/de_DE/ramona_deininger/caspar.json",
-      "saetze/de_DE/ramona_deininger/frankenstein.json",
-      "saetze/de_DE/ramona_deininger/grune_gesicht.json",
-      "saetze/de_DE/ramona_deininger/menschenhasser.json",
-      "saetze/de_DE/ramona_deininger/tom_sawyer.json",
-      "saetze/de_DE/ramona_deininger/tschun.json",
-      "saetze/de_DE/ramona_deininger/weihnachtsabend.json",
-      "saetze/de_DE/rebecca_braunert_plunkett/das_letzte_marchen.json",
-      "saetze/de_DE/rebecca_braunert_plunkett/ferien_vom_ich.json",
-      "saetze/de_DE/rebecca_braunert_plunkett/maerchen.json",
-      "saetze/de_DE/karlsson/altehous.json",
-      "saetze/de_DE/karlsson/herrnarnesschatz.json",
-      "saetze/de_DE/karlsson/kammmacher.json",
-      "saetze/de_DE/karlsson/kleinzaches.json",
-      "saetze/de_DE/karlsson/koenigsgaukler.json",
-      "saetze/de_DE/karlsson/liebesbriefe.json",
-      "saetze/de_DE/karlsson/maedchen_von_moorhof.json",
-      "saetze/de_DE/karlsson/odysseus.json",
-      "saetze/de_DE/karlsson/reise_tilsit.json",
-      "saetze/de_DE/karlsson/sandmann.json",
-      "saetze/de_DE/karlsson/schmied_seines_glueckes.json",
-      "saetze/de_DE/karlsson/spiegel_kaetzchen.json",
-      "saetze/de_DE/karlsson/undine.json",
-      "saetze/de_DE/karlsson/unterm_birnbaum.json",
-      "saetze/de_DE/mix/auf_zwei_planeten.json",
-      "saetze/de_DE/mix/erzaehlungen_poe.json",
-      "saetze/en_UK/elizabeth_klett/jane_eyre.json",
-      "saetze/en_UK/elizabeth_klett/wives_and_daughters.json"
+      {
+        "path": "saetze/de_DE/angela_merkel/merkel_alone.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/eva_k/grune_haus.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/eva_k/kleine_lord.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/eva_k/werde_die_du_bist.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/ramona_deininger/alter_afrikaner.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/ramona_deininger/caspar.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/ramona_deininger/frankenstein.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/ramona_deininger/grune_gesicht.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/ramona_deininger/menschenhasser.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/ramona_deininger/tom_sawyer.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/ramona_deininger/tschun.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/ramona_deininger/weihnachtsabend.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/rebecca_braunert_plunkett/das_letzte_marchen.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/rebecca_braunert_plunkett/ferien_vom_ich.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/rebecca_braunert_plunkett/maerchen.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/altehous.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/herrnarnesschatz.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/kammmacher.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/kleinzaches.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/koenigsgaukler.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/liebesbriefe.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/maedchen_von_moorhof.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/odysseus.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/reise_tilsit.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/sandmann.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/schmied_seines_glueckes.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/spiegel_kaetzchen.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/undine.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/karlsson/unterm_birnbaum.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/mix/auf_zwei_planeten.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/de_DE/mix/erzaehlungen_poe.json",
+        "lang": "de"
+      },
+      {
+        "path": "saetze/en_UK/elizabeth_klett/jane_eyre.json",
+        "lang": "en-GB"
+      },
+      {
+        "path": "saetze/en_UK/elizabeth_klett/wives_and_daughters.json",
+        "lang": "en-GB"
+      }
     ]
   },
   "notes": "Lizenz M-AILABS: Quell-Audio LibriVox PD; Datensatz-Aufbereitung © Munich AI Labs. Hochschulen in D/CH/AT laut Lizenz ausgeschlossen."

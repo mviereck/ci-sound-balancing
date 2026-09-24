@@ -11,67 +11,250 @@
   ],
   "manifests": {
     "hoerbuecher": [
-      "hoerbuecher/de.json",
-      "hoerbuecher/en.json",
-      "hoerbuecher/es.json",
-      "hoerbuecher/nl.json",
-      "hoerbuecher/fr.json",
-      "hoerbuecher/it.json",
-      "hoerbuecher/da.json",
-      "hoerbuecher/ru.json",
-      "hoerbuecher/zh.json",
-      "hoerbuecher/id.json",
-      "hoerbuecher/hy.json",
-      "hoerbuecher/pt.json",
-      "hoerbuecher/uz.json",
-      "hoerbuecher/ary.json",
-      "hoerbuecher/ar.json",
-      "hoerbuecher/cs.json",
-      "hoerbuecher/simple.json",
-      "hoerbuecher/pl.json",
-      "hoerbuecher/sr.json",
-      "hoerbuecher/th.json",
-      "hoerbuecher/ta.json",
-      "hoerbuecher/als.json",
-      "hoerbuecher/eo.json",
-      "hoerbuecher/ca.json",
-      "hoerbuecher/tr.json",
-      "hoerbuecher/uk.json",
-      "hoerbuecher/bg.json",
-      "hoerbuecher/ia.json",
-      "hoerbuecher/el.json",
-      "hoerbuecher/isv.json",
-      "hoerbuecher/az.json",
-      "hoerbuecher/fi.json",
-      "hoerbuecher/cdo.json",
-      "hoerbuecher/gl.json",
-      "hoerbuecher/lmo.json",
-      "hoerbuecher/fa.json",
-      "hoerbuecher/hi.json",
-      "hoerbuecher/hu.json",
-      "hoerbuecher/la.json",
-      "hoerbuecher/nds.json",
-      "hoerbuecher/ml.json",
-      "hoerbuecher/ksh.json",
-      "hoerbuecher/ro.json",
-      "hoerbuecher/sv.json",
-      "hoerbuecher/bar.json",
-      "hoerbuecher/no.json",
-      "hoerbuecher/or.json",
-      "hoerbuecher/eu.json",
-      "hoerbuecher/ee.json",
-      "hoerbuecher/ha.json",
-      "hoerbuecher/ms.json",
-      "hoerbuecher/tw.json",
-      "hoerbuecher/got.json",
-      "hoerbuecher/ja.json",
-      "hoerbuecher/sco.json",
-      "hoerbuecher/bn.json",
-      "hoerbuecher/jv.json",
-      "hoerbuecher/lt.json",
-      "hoerbuecher/mk.json",
-      "hoerbuecher/sl.json",
-      "hoerbuecher/cy.json"
+      {
+        "path": "hoerbuecher/de.json",
+        "lang": "de"
+      },
+      {
+        "path": "hoerbuecher/en.json",
+        "lang": "en"
+      },
+      {
+        "path": "hoerbuecher/es.json",
+        "lang": "es"
+      },
+      {
+        "path": "hoerbuecher/nl.json",
+        "lang": "nl"
+      },
+      {
+        "path": "hoerbuecher/fr.json",
+        "lang": "fr"
+      },
+      {
+        "path": "hoerbuecher/it.json",
+        "lang": "it"
+      },
+      {
+        "path": "hoerbuecher/da.json",
+        "lang": "da"
+      },
+      {
+        "path": "hoerbuecher/ru.json",
+        "lang": "ru"
+      },
+      {
+        "path": "hoerbuecher/zh.json",
+        "lang": "zh"
+      },
+      {
+        "path": "hoerbuecher/id.json",
+        "lang": "id"
+      },
+      {
+        "path": "hoerbuecher/hy.json",
+        "lang": "hy"
+      },
+      {
+        "path": "hoerbuecher/pt.json",
+        "lang": "pt"
+      },
+      {
+        "path": "hoerbuecher/uz.json",
+        "lang": "uz"
+      },
+      {
+        "path": "hoerbuecher/ary.json",
+        "lang": "ary"
+      },
+      {
+        "path": "hoerbuecher/ar.json",
+        "lang": "ar"
+      },
+      {
+        "path": "hoerbuecher/cs.json",
+        "lang": "cs"
+      },
+      {
+        "path": "hoerbuecher/simple.json",
+        "lang": "simple"
+      },
+      {
+        "path": "hoerbuecher/pl.json",
+        "lang": "pl"
+      },
+      {
+        "path": "hoerbuecher/sr.json",
+        "lang": "sr"
+      },
+      {
+        "path": "hoerbuecher/th.json",
+        "lang": "th"
+      },
+      {
+        "path": "hoerbuecher/ta.json",
+        "lang": "ta"
+      },
+      {
+        "path": "hoerbuecher/als.json",
+        "lang": "als"
+      },
+      {
+        "path": "hoerbuecher/eo.json",
+        "lang": "eo"
+      },
+      {
+        "path": "hoerbuecher/ca.json",
+        "lang": "ca"
+      },
+      {
+        "path": "hoerbuecher/tr.json",
+        "lang": "tr"
+      },
+      {
+        "path": "hoerbuecher/uk.json",
+        "lang": "uk"
+      },
+      {
+        "path": "hoerbuecher/bg.json",
+        "lang": "bg"
+      },
+      {
+        "path": "hoerbuecher/ia.json",
+        "lang": "ia"
+      },
+      {
+        "path": "hoerbuecher/el.json",
+        "lang": "el"
+      },
+      {
+        "path": "hoerbuecher/isv.json",
+        "lang": "isv"
+      },
+      {
+        "path": "hoerbuecher/az.json",
+        "lang": "az"
+      },
+      {
+        "path": "hoerbuecher/fi.json",
+        "lang": "fi"
+      },
+      {
+        "path": "hoerbuecher/cdo.json",
+        "lang": "cdo"
+      },
+      {
+        "path": "hoerbuecher/gl.json",
+        "lang": "gl"
+      },
+      {
+        "path": "hoerbuecher/lmo.json",
+        "lang": "lmo"
+      },
+      {
+        "path": "hoerbuecher/fa.json",
+        "lang": "fa"
+      },
+      {
+        "path": "hoerbuecher/hi.json",
+        "lang": "hi"
+      },
+      {
+        "path": "hoerbuecher/hu.json",
+        "lang": "hu"
+      },
+      {
+        "path": "hoerbuecher/la.json",
+        "lang": "la"
+      },
+      {
+        "path": "hoerbuecher/nds.json",
+        "lang": "nds"
+      },
+      {
+        "path": "hoerbuecher/ml.json",
+        "lang": "ml"
+      },
+      {
+        "path": "hoerbuecher/ksh.json",
+        "lang": "ksh"
+      },
+      {
+        "path": "hoerbuecher/ro.json",
+        "lang": "ro"
+      },
+      {
+        "path": "hoerbuecher/sv.json",
+        "lang": "sv"
+      },
+      {
+        "path": "hoerbuecher/bar.json",
+        "lang": "bar"
+      },
+      {
+        "path": "hoerbuecher/no.json",
+        "lang": "no"
+      },
+      {
+        "path": "hoerbuecher/or.json",
+        "lang": "or"
+      },
+      {
+        "path": "hoerbuecher/eu.json",
+        "lang": "eu"
+      },
+      {
+        "path": "hoerbuecher/ee.json",
+        "lang": "ee"
+      },
+      {
+        "path": "hoerbuecher/ha.json",
+        "lang": "ha"
+      },
+      {
+        "path": "hoerbuecher/ms.json",
+        "lang": "ms"
+      },
+      {
+        "path": "hoerbuecher/tw.json",
+        "lang": "tw"
+      },
+      {
+        "path": "hoerbuecher/got.json",
+        "lang": "got"
+      },
+      {
+        "path": "hoerbuecher/ja.json",
+        "lang": "ja"
+      },
+      {
+        "path": "hoerbuecher/sco.json",
+        "lang": "sco"
+      },
+      {
+        "path": "hoerbuecher/bn.json",
+        "lang": "bn"
+      },
+      {
+        "path": "hoerbuecher/jv.json",
+        "lang": "jv"
+      },
+      {
+        "path": "hoerbuecher/lt.json",
+        "lang": "lt"
+      },
+      {
+        "path": "hoerbuecher/mk.json",
+        "lang": "mk"
+      },
+      {
+        "path": "hoerbuecher/sl.json",
+        "lang": "sl"
+      },
+      {
+        "path": "hoerbuecher/cy.json",
+        "lang": "cy"
+      }
     ]
   },
   "notes": "Audio-URLs zeigen direkt auf upload.wikimedia.org (CORS). Artikeltext wird zur Laufzeit von der Wikipedia-API geladen (textLive)."

@@ -11,7 +11,10 @@
   ],
   "manifests": {
     "saetze": [
-      "saetze/flemishguy.json"
+      {
+        "path": "saetze/flemishguy.json",
+        "lang": "nl-BE"
+      }
     ]
   },
   "notes": "Audio-URLs zeigen direkt auf raw.githubusercontent.com (wavs/*.wav, keine verified/-Fassung)."
