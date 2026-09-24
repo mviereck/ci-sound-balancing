@@ -412,6 +412,7 @@ Object.assign(L.en, {
     plAxisGender_m:         "male",
     plAxisGender_w:         "female",
     plAxisGender_u:         "unknown",
+    plAxisGender_i:         "intersex",
     plAxisStyle_studio:     "Studio",
     plAxisStyle_narration:  "Narrated",
     plAxisStyle_test:       "Speech test",

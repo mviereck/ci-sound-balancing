@@ -3457,7 +3457,67 @@ var LANG_TO_FLAG = {
   "mi": "🇳🇿",  // Maori → NZ
   "ms": "🇲🇾",  // Malaiisch → MY
   "simple": "🇬🇧", // Simple English → GB
-  "tl": "🇵🇭"   // Tagalog → PH
+  "tl": "🇵🇭",   // Tagalog → PH
+  // --- Lingua-Libre-Wortsprachen (eindeutige Herkunftsflagge) ---
+  "abl": "🇮🇩",  // ID
+  "arq": "🇩🇿",  // DZ
+  "atj": "🇨🇦",  // CA
+  "ban": "🇮🇩",  // ID
+  "bcl": "🇵🇭",  // PH
+  "bew": "🇮🇩",  // ID
+  "bik": "🇵🇭",  // PH
+  "bjn": "🇮🇩",  // ID
+  "bkr": "🇮🇩",  // ID
+  "btm": "🇮🇩",  // ID
+  "bug": "🇮🇩",  // ID
+  "dtp": "🇲🇾",  // MY
+  "ext": "🇪🇸",  // ES
+  "fsl": "🇫🇷",  // FR
+  "gcf": "🇫🇷",  // FR
+  "gcr": "🇫🇷",  // FR
+  "ht": "🇭🇹",  // HT
+  "ig": "🇳🇬",  // NG
+  "jax": "🇮🇩",  // ID
+  "ken": "🇨🇲",  // CM
+  "kn": "🇮🇳",  // IN
+  "kok": "🇮🇳",  // IN
+  "lbx": "🇮🇩",  // ID
+  "ljp": "🇮🇩",  // ID
+  "lnc": "🇫🇷",  // FR
+  "mak": "🇮🇩",  // ID
+  "mg": "🇲🇬",  // MG
+  "mqg": "🇮🇩",  // ID
+  "mui": "🇮🇩",  // ID
+  "my": "🇲🇲",  // MM
+  "nia": "🇮🇩",  // ID
+  "osi": "🇮🇩",  // ID
+  "pi": "🇮🇳",  // IN
+  "plm": "🇮🇩",  // ID
+  "pse": "🇮🇩",  // ID
+  "pwn": "🇹🇼",  // TW
+  "qxp": "🇵🇪",  // PE
+  "sas": "🇮🇩",  // ID
+  "scn": "🇮🇹",  // IT
+  "shy": "🇩🇿",  // DZ
+  "sru": "🇧🇷",  // BR
+  "txg": "🇨🇳",  // CN
+  "bar": "🇩🇪",  // Bairisch → DE
+  "oci-whistled": "🇫🇷",  // Gepfiffenes Okzitanisch (Aas) → FR
+  // --- Kernland-Flaggen (mehrsprachige Sprachen, Herkunftsland) ---
+  "bci": "🇨🇮",  // CI
+  "blk": "🇲🇲",  // MM
+  "cmn": "🇨🇳",  // CN
+  "fon": "🇧🇯",  // BJ
+  "gsc": "🇫🇷",  // FR
+  "kaa": "🇺🇿",  // UZ
+  "mad": "🇮🇩",  // ID
+  "min": "🇮🇩",  // ID
+  "mnw": "🇲🇲",  // MM
+  "qu": "🇵🇪",  // PE
+  "so": "🇸🇴",  // SO
+  "su": "🇮🇩",  // ID
+  "szl": "🇵🇱",  // PL
+  "tg": "🇹🇯",  // TJ
   // ohne Flagge (→ Globus): als ang bar cdo cu ee enm got grc isv ksh
   //                          la lmo luo mul nds sco
 };
@@ -3616,7 +3676,71 @@ var LANG_NAMES = {
   "nds": "Plattdüütsch",
   "sco": "Scots",
   "simple": "Simple English",
-  "tl": "Tagalog"
+  "tl": "Tagalog",
+  // --- Lingua-Libre-Wortsprachen (Endonyme via Wikidata/LL-Wikibase) ---
+  "abl": "Lappung",
+  "arq": "دريرية",
+  "atj": "Atikamekw Nehiromowin",
+  "ban": "ᬩᬲᬩᬮᬶ",
+  "bcl": "Bikol Sentral",
+  "bew": "basa Betawi",
+  "bjn": "bahasa Banjar",
+  "bug": "ᨅᨔ ᨕᨚᨁᨗ",
+  "cmn": "普通话",
+  "dtp": "boros Kadazandusun",
+  "ext": "Lengua estremeña",
+  "fon": "fɔ̀ngbè",
+  "fsl": "langue des signes française",
+  "gcr": "Kriyòl Gwiyannen",
+  "gsc": "gascon",
+  "gsw": "Schwyzerdütsch",
+  "ht": "Kreyòl ayisyen",
+  "ig": "Asụsụ Igbo",
+  "jax": "bahaso Jambi",
+  "kaa": "Қарақалпақ тили",
+  "kn": "ಕನ್ನಡ",
+  "ku": "Kurdî",
+  "ljp": "bahasa Lampung Api",
+  "lnc": "Lengadocian",
+  "mad": "ꦧꦱꦩꦢꦸꦫ",
+  "mak": "ᨅᨔ ᨆᨀᨔᨑ",
+  "mg": "Fiteny malagasy",
+  "min": "bahaso Minangkabau",
+  "mnw": "ဘာသာမန်",
+  "mqg": "bahasa Melayu Kota Bangun Kutai",
+  "mui": "Miling Musai",
+  "my": "မြန်မာဘာသာစကား",
+  "nia": "Li Niha",
+  "osi": "basa Osing",
+  "pi": "𑀧𑀸𑀴𑀺",
+  "plm": "baso Pelémbang",
+  "pwn": "Pinayuanan",
+  "qu": "Qhichwa simi",
+  "qxp": "punu qhichwa simi",
+  "rup": "rrãmãneshti",
+  "sas": "ᬪᬵᬲᬵᬲᬓ᭄ᬱᬓ᭄",
+  "scn": "Sicilianu",
+  "shy": "Tacawit",
+  "so": "𐒖𐒍 𐒈𐒝𐒑𐒛𐒐𐒘",
+  "su": "Basa Sunda",
+  "szl": "Ślōnskŏ gŏdka",
+  "tg": "забони тоҷикӣ",
+  "txg": "𗼇𗟲",
+  "ll-Q1616050": "Talang Mamak",
+  "ll-Q1616056": "Sakai",
+  "ll-Q322719": "ବାଲେଶ୍ଵରୀ ଓଡିଆ",
+  "ll-Q4465": "Tiô-chiu-oē",
+  "ll-Q713359": "南京话",
+  "ll-Q720542": "salentinu",
+  "ll-Q733159": "Calabbrisi centru-miridiunali",
+  "oci-whistled": "occitan sifflé d'Aas",
+  // --- Endonyme nachrecherchiert (MediaWiki-Autonym/Wikidata) ---
+  "apc": "شامي",
+  "bci": "wawle",
+  "bik": "Bikol",
+  "blk": "ပအိုဝ်ႏဘာႏသာႏ",
+  "btm": "Batak Mandailing",
+  "gcf": "kréyòl Gwadloup"
 };
 
 // Gibt die Flaggen-Emoji fuer einen BCP-47-Code zurueck.
@@ -3673,6 +3797,9 @@ function plLangOptionLabel(code) {
   var flag   = (typeof plLangFlag  === "function") ? plLangFlag(code)  : "";
   var endo   = (typeof plLangName  === "function") ? plLangName(code)  : code;
   var transl = (typeof plLangTransl === "function") ? plLangTransl(code) : "";
+  // plLangName faellt bei fehlendem Endonym auf den rohen Code zurueck; als
+  // Neben-Teil ergaebe das eine unschoene "(pse)"-Klammer. Kein Endonym -> leer.
+  if (endo === code) endo = "";
   var main, sub;
   if (plIsToolLang(code)) { main = endo;              sub = transl; }
   else                    { main = transl || endo;   sub = transl ? endo : ""; }

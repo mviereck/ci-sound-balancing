@@ -177,17 +177,33 @@ function _amNoiseTitleLabel(it) {
   return tr || it.title || it.id || "";
 }
 
+// Atomare Sprach-Ersatz-Tags: der "-" ist Teil des Sprachnamens, KEINE
+// BCP-47-Regionalvariante. Sie stammen aus dem Lingua-Libre-Adapter
+// (_lang_bcp47), wo codelose/kollidierende Sprachen als "ll-<qid>" und das
+// gepfiffene Okzitanisch als "oci-whistled" getaggt werden. Fuer solche Tags
+// ist die Basissprache der ganze Tag und die Variante leer -- sonst
+// kollabieren alle "ll-*" auf die Scheinsprache "ll" (leere Sprachauswahl-
+// Option) und "oci-whistled" wird als Variante "whistled" von "oci" gefuehrt.
+function _amIsAtomicLangTag(code) {
+  var s = String(code || "");
+  return s.indexOf("ll-") === 0 || s === "oci-whistled";
+}
+
 // Basissprache eines BCP-47-artigen Codes: alles vor dem ersten "-".
 // "de" -> "de", "zh-CN" -> "zh", "rm-sursilv" -> "rm". Leer -> "".
+// Atomare Ersatz-Tags (ll-<qid>, oci-whistled) bleiben unveraendert.
 function _amBaseLang(code) {
   if (!code) return "";
+  if (_amIsAtomicLangTag(code)) return String(code);
   return String(code).split("-")[0];
 }
 
 // Sprachvariante (Subtag) eines BCP-47-artigen Codes: alles NACH dem
 // ersten "-". "de" -> "", "zh-TW" -> "TW", "rm-sursilv" -> "sursilv".
+// Atomare Ersatz-Tags (ll-<qid>, oci-whistled) haben keine Variante.
 function _amLangVariant(code) {
   if (!code) return "";
+  if (_amIsAtomicLangTag(code)) return "";
   var s = String(code);
   var i = s.indexOf("-");
   return i < 0 ? "" : s.substring(i + 1);
