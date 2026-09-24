@@ -1319,6 +1319,24 @@ async function amWebspaceEnsureCategory(category) {
   if (changed) _amWebspaceRefreshCategory(category);
 }
 
+// "Lädt gerade": für die aktuelle Sprache dieser Kategorie ist mindestens eine
+// Quelle NOCH NICHT geladen (Ladevorgang laufend ODER noch nicht angestossen).
+// Damit unterscheidet die UI "lädt noch" von "wirklich kein Material" — sonst
+// erschiene waehrend des Nachladens faelschlich die Kein-Material-Warnung.
+// Nur im Online-Modus relevant (offline gibt es kein Webspace-Nachladen).
+function amCategoryLoading(category) {
+  if (amSourceMode !== "online") return false;
+  if (_amWebspace.failed) return false;
+  if (!_amWebspace.indexLoaded) return true;   // Index/source.json noch unterwegs
+  const langKey = _amWsLangKey(category);
+  for (const meta of _amWebspace.sources) {
+    const catsOfSrc = Array.isArray(meta.categories) ? meta.categories : [];
+    if (catsOfSrc.indexOf(category) < 0) continue;
+    if (!_amWebspace.manifests.has(_amWsManifKey(meta.key, category, langKey))) return true;
+  }
+  return false;
+}
+
 // UI-Refresh der Kategorie nach erfolgreichem Bedarfs-Laden.
 function _amWebspaceRefreshCategory(category) {
   if (category === "geraeusche") {

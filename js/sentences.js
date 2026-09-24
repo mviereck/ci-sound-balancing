@@ -171,11 +171,15 @@ function sUpdateUI() {
   const ctrls = document.getElementById("plSentControls");
   const noMat = document.getElementById("plSentNoMaterial");
   const notReady = document.getElementById("plSentNotReady");
-  if (notReady) notReady.style.display = "none";
   const hasMaterial = sBuildSequencePool().length > 0;
   const axesEl = document.getElementById("plSentAxes");
   if (!hasMaterial) {
-    if (noMat) noMat.style.display = "";
+    // Unterscheiden: Manifeste der Sprache laden noch ("lädt…") vs. es gibt
+    // wirklich kein Material für diese Sprache (Kein-Material-Warnung). Sonst
+    // erschiene während des Nachladens fälschlich die Warnung.
+    const loading = (typeof amCategoryLoading === "function") && amCategoryLoading("saetze");
+    if (notReady) notReady.style.display = loading ? "" : "none";
+    if (noMat)    noMat.style.display    = loading ? "none" : "";
     // Controls sichtbar LASSEN, damit die Sprach-Box erreichbar bleibt
     // (sonst kaeme man aus einer leeren Sprache nicht mehr zurueck).
     // Nur die parallelen Achsen ausblenden -- sie haben kein Material.
@@ -184,6 +188,7 @@ function sUpdateUI() {
     if (plActiveSource === "saetze") sStop();
     return;
   }
+  if (notReady) notReady.style.display = "none";
   if (noMat) noMat.style.display = "none";
   if (ctrls) ctrls.style.display = "";
   if (axesEl) axesEl.style.display = "";
