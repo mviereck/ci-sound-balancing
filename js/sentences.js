@@ -111,7 +111,9 @@ function sBuildSequencePool() {
 async function sLoadCurrent() {
   if (!sCurRec) return;
   const audioRef = sCurRec.audio;
-  if (!audioRef) { sStop(); throw new Error("kein audio-Ref"); }
+  // Schlankes Boxen-Bündel: audio wird erst per amGetItemBuffer (Detail-Anreicherung)
+  // gesetzt; detail-Offset vorhanden => kein Fehler hier.
+  if (!audioRef && !sCurRec.detail) { sStop(); throw new Error("kein audio-Ref"); }
 
   const c = gPC();
   // Ein Ladeweg fuer alle: die zentrale Ladestelle. Lokale Upload-Dateien
