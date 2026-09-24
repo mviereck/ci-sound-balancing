@@ -47,6 +47,25 @@ function amRegisterProvider(p) {
 //  - embed (CI_SB_EMBED) und generated (AM_GEN_NOISES) sind statisch beim
 //    Seitenladen -> bewusst NICHT im Stempel.
 let _amCache = new Map();   // key -> { stamp, value }
+// Sprechername-Cache je Item-Menge (WeakMap: Array-Referenz -> Map<value,name>).
+// Fuellt die Sprecher-Achse labelFromItems in EINEM Durchlauf statt pro Wert die
+// Items zu scannen. Neue Item-Menge -> neuer Eintrag (alte GC-bar).
+const _amSpeakerNameCache = new WeakMap();
+
+// Sprachsensitive Kategorien: ihre Manifeste tragen je Datei eine Sprache
+// ({path, lang} in source.json), und es wird immer nur die aktuell gewaehlte
+// Inhalts-Sprache geladen/aggregiert. Sprachlose Kategorien (musik/geraeusche)
+// laden alles einmal und behalten es (ein Sprachwechsel fasst sie nicht an).
+// Single Source of Truth hier, nicht in PL_FILTER_DECL (player.js laedt spaeter).
+const _AM_LANG_CATEGORIES = { saetze: true, hoerbuecher: true };
+function amIsLangCategory(category) { return _AM_LANG_CATEGORIES[category] === true; }
+
+// Aktuelle Inhalts-Sprache (Basissprache). Nur fuer sprachsensitive
+// Kategorien relevant; sprachlose ignorieren sie.
+function amCurrentLang() {
+  var lang = (typeof plGetContentLang === "function") ? plGetContentLang() : "de";
+  return (typeof _amBaseLang === "function") ? _amBaseLang(lang) : String(lang || "").split("-")[0];
+}
 
 // BA349: Gesamtzahl der Dateien ueber alle lokalen Sammlungen (fuer den
 // Cache-Stempel: die "upload"-Sammlung waechst, ihre .size aendert sich nicht).
@@ -111,20 +130,37 @@ function amSetSourceMode(mode) {
   amAfterSourceChange();
 }
 
-function _amDataStamp() {
-  return [
-    amSourceMode,
-    _amEmbedLoaded.size,
-    _amWebspace.loaded.size,
-    _amLocalFileCount(_amMusicLocalFolders),
-    _amLocalFileCount(_amNoiseLocalFolders),
-    _amLocalBookCollections.length,
-    (typeof sLocalCollections !== "undefined" && sLocalCollections) ? _amLocalFileCount(sLocalCollections) : 0
-  ].join("|");
+// Kategorie-lokaler Daten-Stempel: nur die Quellen, die DIESE Kategorie
+// veraendern, plus (bei sprachsensitiven Kategorien) die aktuelle Sprache und
+// deren geladener Webspace-/Embed-Stand. So verwirft ein Musik-Upload nur den
+// Musik-Cache, ein Sprachwechsel nur die betroffene Sprach-Kategorie.
+// amSourceMode betrifft alle. Sprachlose Kategorien behalten ihren Cache ueber
+// einen Sprachwechsel hinweg.
+function _amDataStamp(category) {
+  const parts = [amSourceMode];
+  if (amIsLangCategory(category)) {
+    const lang = amCurrentLang();
+    parts.push("lang=" + lang);
+    parts.push("web=" + _amWebspaceLoadedCount(category, lang));
+    if (category === "saetze") {
+      parts.push("embed=" + (_amEmbedLoaded.has(lang) ? 1 : 0));
+      parts.push("upl=" + ((typeof sLocalCollections !== "undefined" && sLocalCollections) ? _amLocalFileCount(sLocalCollections) : 0));
+    } else if (category === "hoerbuecher") {
+      parts.push("upl=" + _amLocalBookCollections.length);
+    }
+  } else {
+    parts.push("web=" + _amWebspaceLoadedCount(category, null));
+    if (category === "musik") {
+      parts.push("upl=" + _amLocalFileCount(_amMusicLocalFolders));
+    } else if (category === "geraeusche") {
+      parts.push("upl=" + _amLocalFileCount(_amNoiseLocalFolders));
+    }
+  }
+  return parts.join("|");
 }
 
-function _amCacheGet(key, build) {
-  const stamp = _amDataStamp();
+function _amCacheGet(category, key, build) {
+  const stamp = _amDataStamp(category);
   const hit = _amCache.get(key);
   if (hit && hit.stamp === stamp) return hit.value;
   const value = build();
@@ -133,7 +169,8 @@ function _amCacheGet(key, build) {
 }
 
 function amCollectItems(category) {
-  return _amCacheGet("items:" + category, function () {
+  const _lk = amIsLangCategory(category) ? (":" + amCurrentLang()) : "";
+  return _amCacheGet(category, "items:" + category + _lk, function () {
   const out = [];
   const mode = amSourceMode;   // "online" | "offline"
   for (const p of AM_PROVIDERS) {
@@ -303,16 +340,24 @@ const AM_SORT_AXES = {
         return (it.tags && (it.tags.speaker_id || it.tags.book_title)) || "";
       },
       // Anzeigename kommt aus dem Manifest-Attribut speaker_name (Daten,
-      // nicht Code). value = speaker_id/book_title (die Gruppierung);
-      // gesucht wird das erste Item mit diesem Wert, dessen speaker_name.
+      // nicht Code). value = speaker_id/book_title (die Gruppierung).
+      // Statt pro Wert die ganze Item-Menge zu scannen (bei vielen Sprechern
+      // ueber zehntausenden Items O(werte*n) = sehr teuer), wird EINMAL je
+      // Item-Menge eine Map value->speaker_name gebaut und daraus gelesen. Der
+      // Cache haengt an der Item-Array-Referenz (WeakMap) -> neue Menge => neu.
       labelFromItems: function (value, items) {
-        for (var i = 0; i < items.length; i++) {
-          var t2 = items[i].tags;
-          if (!t2) continue;
-          var v = (t2.speaker_id || t2.book_title) || "";
-          if (v === value && t2.speaker_name) return t2.speaker_name;
+        var m = _amSpeakerNameCache.get(items);
+        if (!m) {
+          m = new Map();
+          for (var i = 0; i < items.length; i++) {
+            var t2 = items[i].tags;
+            if (!t2 || !t2.speaker_name) continue;
+            var v = (t2.speaker_id || t2.book_title) || "";
+            if (v && !m.has(v)) m.set(v, t2.speaker_name);
+          }
+          _amSpeakerNameCache.set(items, m);
         }
-        return null;  // kein Name gefunden -> Fallback (Rohwert)
+        return m.get(value) || null;  // kein Name -> Fallback (Rohwert)
       }
     },
     {
@@ -649,6 +694,14 @@ function amBucketsForAxisValues(axis, items) {
       for (var j = 0; j < vals.length; j++) set.add(vals[j]);
     }
   }
+  // Labels EINMAL je Wert vorberechnen (nicht pro Sortier-Vergleich): der
+  // Comparator wird O(werte*log(werte)) mal aufgerufen, und amAxisBucketLabel
+  // kann teuer sein (speaker.labelFromItems scannt die ganze Item-Menge, um
+  // den Anzeigenamen zu finden). Ohne Vorberechnung ergibt das O(werte*log*n)
+  // -- bei 86 Sprechern ueber 155k Items ~6 s. Mit Vorberechnung ein Scan je
+  // Wert. Die Sortierung liest dann nur noch aus der Map.
+  var labelOf = new Map();
+  set.forEach(function (v) { labelOf.set(v, amAxisBucketLabel(axis, v, items)); });
   // Ordinale Achse (axis.order gesetzt): feste Reihenfolge nach dem
   // deklarierten Werte-Index (z.B. Laenge sehr kurz -> sehr lang), nicht
   // alphabetisch. Unbekannte/nicht gelistete Werte landen ans Ende.
@@ -662,11 +715,11 @@ function amBucketsForAxisValues(axis, items) {
     var rank = function (v) { var i = ord.indexOf(v); return i < 0 ? ord.length : i; };
     values = Array.from(set).sort(function (a, b) {
       var d = rank(a) - rank(b);
-      return d !== 0 ? d : amAxisBucketLabel(axis, a, items).localeCompare(amAxisBucketLabel(axis, b, items));
+      return d !== 0 ? d : labelOf.get(a).localeCompare(labelOf.get(b));
     });
   } else {
     values = Array.from(set).sort(function (a, b) {
-      return amAxisBucketLabel(axis, a, items).localeCompare(amAxisBucketLabel(axis, b, items));
+      return labelOf.get(a).localeCompare(labelOf.get(b));
     });
   }
   return { values: values, hasNone: hasNone, hasSome: hasSome };
@@ -994,7 +1047,8 @@ function amCollectionSortAxesFor(category) {
 }
 
 function amCollectCollections(category) {
-  return _amCacheGet("collections:" + category, function () {
+  const _lk = amIsLangCategory(category) ? (":" + amCurrentLang()) : "";
+  return _amCacheGet(category, "collections:" + category + _lk, function () {
   const out = [];
   for (const p of AM_PROVIDERS) {
     if (typeof p.listCollections !== "function") continue;
@@ -1107,9 +1161,32 @@ const _amWebspace = {
   indexLoaded: false,
   failed: false,
   sources: [],                 // aus index.json
-  loaded: new Map(),           // sourceKey -> { source, manifests: {cat: [collection,...]} }
+  loaded: new Map(),           // sourceKey -> { meta, source }   (nur source.json, billig)
+  manifests: new Map(),        // "srcKey|cat|langKey" -> [collection,...]  (bedarfsgeladen)
+  manifestsLoading: new Set(), // laufende Bedarfs-Ladevorgaenge (Doppel-Load-Sperre)
   pendingRefresh: new Set()    // Kategorien, deren UI nach erfolgreichem Laden refreshet werden soll
 };
+
+// Sprachschluessel eines Manifest-Ladeziels: bei sprachsensitiven Kategorien
+// die aktuelle Basissprache, sonst "_all" (alle Manifeste der Kategorie).
+function _amWsLangKey(category) {
+  return amIsLangCategory(category) ? amCurrentLang() : "_all";
+}
+function _amWsManifKey(srcKey, category, langKey) {
+  return srcKey + "|" + category + "|" + langKey;
+}
+
+// Zaehler der geladenen Manifest-Buendel einer Kategorie fuer die gegebene
+// Sprache (langKey === null -> sprachlos, "_all"). Geht in den kategorie-
+// lokalen Stempel: steigt er, baut amCollectItems/-Collections neu.
+function _amWebspaceLoadedCount(category, lang) {
+  const langKey = (lang == null) ? "_all" : lang;
+  let n = 0;
+  for (const key of _amWebspace.manifests.keys()) {
+    if (key.endsWith("|" + category + "|" + langKey)) n++;
+  }
+  return n;
+}
 
 async function amWebspaceLoadIndex() {
   if (_amWebspace.indexLoaded || _amWebspace.failed) return;
@@ -1127,13 +1204,15 @@ async function amWebspaceLoadIndex() {
   }
 }
 
+// source.json einer Quelle laden (nur Metadaten mit {path, lang}); die
+// Manifest-INHALTE bleiben aussen vor (die holt amWebspaceEnsureCategory
+// bedarfsgetrieben). Billig, wird beim Bootstrap fuer alle Quellen gemacht.
 async function amWebspaceLoadSource(srcKey) {
   if (_amWebspace.failed) return null;
   if (_amWebspace.loaded.has(srcKey)) return _amWebspace.loaded.get(srcKey);
   const meta = _amWebspace.sources.find(function (s) { return s.key === srcKey; });
   if (!meta) return null;
 
-  const root = amWebspaceRoot();
   let source = null;
   try {
     const srcUrl = amManifestUrl(meta.source);
@@ -1145,47 +1224,112 @@ async function amWebspaceLoadSource(srcKey) {
     return null;
   }
 
-  const manifests = {};
-  const cats = (source.manifests && typeof source.manifests === "object") ? source.manifests : {};
-  for (const cat of Object.keys(cats)) {
-    manifests[cat] = [];
-    const list = Array.isArray(cats[cat]) ? cats[cat] : [];
-    for (const entry of list) {
-      // manifests-Eintrag: {path, lang} (Sprach-Kategorien) oder reiner
-      // Pfad-String (sprachlose Kategorien musik/geraeusche). Sprache je
-      // Datei steht in source.json; hier zählt nur der Pfad.
-      const mfPath = (entry && typeof entry === "object") ? entry.path : entry;
-      if (!mfPath) continue;
-      const mfUrl = amManifestUrl(_amSourceDir(meta.source) + mfPath);
-      try {
-        const mr = await fetch(mfUrl, { mode: "cors" });
-        if (!mr.ok) throw new Error("HTTP " + mr.status);
-        const mf = await mr.json();
-        // Indizes (Pointer) hier ignorieren — BA196 unterstuetzt nur collections direkt.
-        // Ein "collection-set" buendelt mehrere Buecher in EINER Datei (LibriVox:
-        // ein Manifest pro Sprache, haelt den Ladeweg klein). Wird in seine
-        // einzelnen Collections aufgeloest; Datei-Top-Level lang/license/credit
-        // vererbt sich als Default auf jede Collection, die es nicht selbst setzt.
-        if (mf.kind === "collection") {
-          manifests[cat].push(mf);
-        } else if (mf.kind === "collection-set" && Array.isArray(mf.collections)) {
-          for (const col of mf.collections) {
-            if (!col || typeof col !== "object") continue;
-            if (col.lang == null && mf.lang != null) col.lang = mf.lang;
-            if (col.license == null && mf.license != null) col.license = mf.license;
-            if (col.credit == null && mf.credit != null) col.credit = mf.credit;
-            manifests[cat].push(col);
-          }
+  const entry = { meta: meta, source: source };
+  _amWebspace.loaded.set(srcKey, entry);
+  return entry;
+}
+
+// Ein einzelnes Kategorie-Manifest-Buendel einer Quelle laden und in
+// _amWebspace.manifests ablegen. Sprachsensitiv: nur Manifeste, deren
+// {path, lang} zur aktuellen Sprache passt (Basissprach-Vergleich); sprachlos:
+// alle Manifest-Pfade der Kategorie. Gibt die aufgebaute Collection-Liste
+// zurueck (auch bei Cache-Treffer). Idempotent ueber _amWebspace.manifests.
+async function _amWebspaceLoadCategoryManifests(entry, category) {
+  const srcKey = entry.meta.key;
+  const langKey = _amWsLangKey(category);
+  const mkey = _amWsManifKey(srcKey, category, langKey);
+  if (_amWebspace.manifests.has(mkey)) return _amWebspace.manifests.get(mkey);
+
+  const cats = (entry.source.manifests && typeof entry.source.manifests === "object")
+    ? entry.source.manifests : {};
+  const list = Array.isArray(cats[category]) ? cats[category] : [];
+  const cols = [];
+  const langSensitive = amIsLangCategory(category);
+  const wantBase = langSensitive ? langKey : null;
+
+  for (const e of list) {
+    // manifests-Eintrag: {path, lang} (Sprach-Kategorien) oder reiner
+    // Pfad-String (sprachlose Kategorien). Bei sprachsensitiven nur die
+    // Datei(en) der aktuellen Sprache laden.
+    const mfPath = (e && typeof e === "object") ? e.path : e;
+    if (!mfPath) continue;
+    if (langSensitive) {
+      const eLang = (e && typeof e === "object") ? e.lang : null;
+      const eBase = (typeof _amBaseLang === "function") ? _amBaseLang(eLang) : eLang;
+      if (eBase !== wantBase) continue;   // andere Sprache -> nicht laden
+    }
+    const mfUrl = amManifestUrl(_amSourceDir(entry.meta.source) + mfPath);
+    try {
+      const mr = await fetch(mfUrl, { mode: "cors" });
+      if (!mr.ok) throw new Error("HTTP " + mr.status);
+      const mf = await mr.json();
+      // Indizes (Pointer) hier ignorieren — nur collections direkt.
+      // "collection-set" buendelt mehrere Buecher in EINER Datei; wird in
+      // die einzelnen Collections aufgeloest, Top-Level-Defaults vererbt.
+      if (mf.kind === "collection") {
+        cols.push(mf);
+      } else if (mf.kind === "collection-set" && Array.isArray(mf.collections)) {
+        for (const col of mf.collections) {
+          if (!col || typeof col !== "object") continue;
+          if (col.lang == null && mf.lang != null) col.lang = mf.lang;
+          if (col.license == null && mf.license != null) col.license = mf.license;
+          if (col.credit == null && mf.credit != null) col.credit = mf.credit;
+          cols.push(col);
         }
-      } catch (e) {
-        console.warn("[audio-source/webspace] Manifest " + mfPath + " fehlgeschlagen:", e.message);
       }
+    } catch (e2) {
+      console.warn("[audio-source/webspace] Manifest " + mfPath + " fehlgeschlagen:", e2.message);
     }
   }
 
-  const entry = { meta: meta, source: source, manifests: manifests };
-  _amWebspace.loaded.set(srcKey, entry);
-  return entry;
+  _amWebspace.manifests.set(mkey, cols);
+  return cols;
+}
+
+// Bedarfsgetriebenes Laden einer Kategorie in der aktuellen Sprache ueber ALLE
+// Quellen, die diese Kategorie fuehren. Sprachsensitive Kategorien: laedt nur
+// die aktuelle Sprache (frueher besuchte Sprachen bleiben im manifests-Cache
+// liegen, verfaelschen aber nichts, da listItems/-Collections nur die aktuelle
+// Sprache lesen). Refresht die Kategorie-UI, sobald neue Daten da sind.
+async function amWebspaceEnsureCategory(category) {
+  if (_amWebspace.failed) return;
+  await amWebspaceLoadIndex();
+  if (_amWebspace.failed) return;
+
+  const langKey = _amWsLangKey(category);
+  let changed = false;
+  const jobs = [];
+  for (const meta of _amWebspace.sources) {
+    const catsOfSrc = Array.isArray(meta.categories) ? meta.categories : [];
+    if (catsOfSrc.indexOf(category) < 0) continue;
+    const mkey = _amWsManifKey(meta.key, category, langKey);
+    if (_amWebspace.manifests.has(mkey) || _amWebspace.manifestsLoading.has(mkey)) continue;
+    _amWebspace.manifestsLoading.add(mkey);
+    jobs.push(
+      amWebspaceLoadSource(meta.key).then(function (entry) {
+        if (!entry) return;
+        return _amWebspaceLoadCategoryManifests(entry, category).then(function () { changed = true; });
+      }).finally(function () {
+        _amWebspace.manifestsLoading.delete(mkey);
+      })
+    );
+  }
+  if (jobs.length === 0) return;
+  await Promise.all(jobs);
+  if (changed) _amWebspaceRefreshCategory(category);
+}
+
+// UI-Refresh der Kategorie nach erfolgreichem Bedarfs-Laden.
+function _amWebspaceRefreshCategory(category) {
+  if (category === "geraeusche") {
+    if (typeof plNoiseRefreshUI === "function") plNoiseRefreshUI();
+  } else if (category === "hoerbuecher") {
+    if (typeof plBookRefreshUI === "function") plBookRefreshUI();
+  } else if (category === "saetze") {
+    if (typeof sUpdateUI === "function") sUpdateUI();
+  } else if (category === "musik") {
+    if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
+  }
 }
 
 // Sprachcodes einer Kategorie aus den GELADENEN source.json-Manifesten.
@@ -1258,29 +1402,46 @@ function _amBuildItemTags(item, col, source) {
 
 // --- Provider-Eintrag fuer Webspace ---
 
+// Geladene Collections einer Kategorie in der aktuellen Sprache, ueber ALLE
+// Quellen. Liest den bedarfsgeladenen _amWebspace.manifests-Speicher (nur die
+// aktuelle Sprache), nicht die source.json. Liefert {col, entry, srcKey}-Paare,
+// damit die Provider je Collection weiter Quell-Defaults (base/license/credit)
+// aufloesen koennen. Loest gleichzeitig das Bedarfs-Laden aus (fire-and-forget:
+// erste Rueckgabe ggf. leer, der Refresh nach amWebspaceEnsureCategory zeigt sie).
+function _amWebspaceCurrentCols(category) {
+  const out = [];
+  if (!_amWebspace.indexLoaded) { amWebspaceEnsureCategory(category); return out; }
+  const langKey = _amWsLangKey(category);
+  let anyMissing = false;
+  for (const [srcKey, entry] of _amWebspace.loaded) {
+    const cols = _amWebspace.manifests.get(_amWsManifKey(srcKey, category, langKey));
+    if (!cols) continue;
+    for (const col of cols) out.push({ col: col, entry: entry, srcKey: srcKey });
+  }
+  // Bedarfs-Laden anstossen (idempotent), falls Manifeste dieser Sprache fehlen.
+  amWebspaceEnsureCategory(category);
+  return out;
+}
+
 amRegisterProvider({
   id: "webspace",
   listItems: function (category) {
     const out = [];
-    if (!_amWebspace.indexLoaded) return out;
-    for (const [srcKey, entry] of _amWebspace.loaded) {
-      const cols = entry.manifests[category] || [];
-      for (const col of cols) {
-        // Hoerbuecher gehen ueber listCollections, nicht ueber Items
-        if (category === "hoerbuecher") continue;
-        for (const it of (col.items || [])) {
-          out.push({
-            id: srcKey + ":" + (col.title || "") + "/" + (it.id || ""),
-            title: it.title || it.id || "(unbenannt)",
-            text: it.text || "",       // BA263: Saetze-Text durchreichen
-            audio: _amResolveAudioUrl(it.audio, entry.source.base),
-            duration: it.duration,
-            sourceTitle: entry.meta.name || entry.source.name || srcKey,
-            license: it.license || entry.source.license || entry.meta.license,
-            credit:  it.credit  || entry.source.credit,
-            tags: _amBuildItemTags(it, col, entry.source)
-          });
-        }
+    if (category === "hoerbuecher") return out; // Hoerbuecher ueber listCollections
+    for (const pair of _amWebspaceCurrentCols(category)) {
+      const col = pair.col, entry = pair.entry, srcKey = pair.srcKey;
+      for (const it of (col.items || [])) {
+        out.push({
+          id: srcKey + ":" + (col.title || "") + "/" + (it.id || ""),
+          title: it.title || it.id || "(unbenannt)",
+          text: it.text || "",       // BA263: Saetze-Text durchreichen
+          audio: _amResolveAudioUrl(it.audio, entry.source.base),
+          duration: it.duration,
+          sourceTitle: entry.meta.name || entry.source.name || srcKey,
+          license: it.license || entry.source.license || entry.meta.license,
+          credit:  it.credit  || entry.source.credit,
+          tags: _amBuildItemTags(it, col, entry.source)
+        });
       }
     }
     return out;
@@ -1288,10 +1449,9 @@ amRegisterProvider({
   listCollections: function (category) {
     if (category !== "hoerbuecher") return [];
     const out = [];
-    if (!_amWebspace.indexLoaded) return out;
-    for (const [srcKey, entry] of _amWebspace.loaded) {
-      const cols = entry.manifests["hoerbuecher"] || [];
-      for (const col of cols) {
+    for (const pair of _amWebspaceCurrentCols(category)) {
+      const col = pair.col, entry = pair.entry, srcKey = pair.srcKey;
+      {
         // Eindeutige id bevorzugen (Manifest liefert z.B. "librivox:148").
         // Traegt col.id bereits den srcKey als Praefix (LibriVox:
         // "librivox:148"), NICHT doppeln. Fallback auf titelbasiert nur, wenn
@@ -1587,28 +1747,23 @@ amRegisterProvider({
   }
 });
 
+// Beim Start NUR den Index und alle source.json laden (billige Metadaten mit
+// {path, lang}) — daraus steht die Sprach-Auswahl (amLangsForCategory) sofort.
+// Die Manifest-INHALTE einer Kategorie werden NICHT vorgeladen; das erledigt
+// amWebspaceEnsureCategory bedarfsgetrieben beim ersten Kategorie-/Sprach-
+// Zugriff (angestossen aus den Provider-Methoden). So wird beim Start nichts
+// aufgebaut, was nicht gebraucht wird.
 function amWebspaceBootstrap() {
   amWebspaceLoadIndex().then(function () {
     if (_amWebspace.failed) return;
-    // Pro Source nachladen — parallel, aber pro Erfolg ein UI-Refresh.
-    for (const meta of _amWebspace.sources) {
-      amWebspaceLoadSource(meta.key).then(function (entry) {
-        if (!entry) return;
-        const cats = Array.isArray(meta.categories) ? meta.categories : [];
-        for (const cat of cats) {
-          if (cat === "geraeusche") {
-            if (typeof plNoiseRefreshUI    === "function") plNoiseRefreshUI();
-          } else if (cat === "hoerbuecher") {
-            if (typeof plBookRefreshUI     === "function") plBookRefreshUI();
-          } else if (cat === "saetze") {
-            // Wird in BA 197 relevant, sobald Saetze ueber amCollectItems gehen.
-            if (typeof sRefreshSpeakerDropdown === "function") sRefreshSpeakerDropdown();
-          } else if (cat === "musik") {
-            // BA261: Webspace-Musik-Sammlungen erscheinen jetzt im Musik-UI.
-            if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
-          }
-        }
-      });
-    }
+    const jobs = _amWebspace.sources.map(function (meta) {
+      return amWebspaceLoadSource(meta.key);
+    });
+    Promise.all(jobs).then(function () {
+      // source.json aller Quellen da -> Sprach-Auswahl + UI der Kategorien
+      // einmal auffrischen (die Manifeste holt der erste Zugriff nach).
+      amAfterSourceChange();
+      if (typeof sRefreshSpeakerDropdown === "function") sRefreshSpeakerDropdown();
+    });
   });
 }

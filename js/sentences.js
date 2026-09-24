@@ -42,7 +42,7 @@ function sBuildRecordingPool() {
   const sel = (typeof plSentAxisSel !== "undefined") ? plSentAxisSel : {};
   // Stempel-Cache-Key aus Sprache + serialisierter Achsen-Auswahl.
   const selKey = Object.keys(sel).sort().map(function (k) { return k + "=" + sel[k]; }).join("&");
-  return _amCacheGet("recpool:" + curLang + ":" + selKey, function () {
+  return _amCacheGet("saetze", "recpool:" + curLang + ":" + selKey, function () {
     const base = sBuildSequencePool();   // schon sprach-gefiltert + sortiert
     const axes = (typeof amSortAxesFor === "function") ? amSortAxesFor("saetze") : [];
     // Nur die parallelen Achsen (ohne lang) fuer den Match.
@@ -61,7 +61,7 @@ function sBuildSequencePool() {
   // localeCompare-Sortierung lief pro Bedien-Klick 2-10x -> ~190 ms je Aufbau,
   // in Summe sekundenlange UI-Blockaden. Jetzt sitzungsweit gecacht, Neuaufbau
   // nur bei Stempel-Aenderung.
-  return _amCacheGet("seqpool:" + curLang, function () {
+  return _amCacheGet("saetze", "seqpool:" + curLang, function () {
     const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
     const baseLang = (typeof _amBaseLang === "function") ? _amBaseLang(curLang) : curLang;
     const filtered = all.filter(function (it) {

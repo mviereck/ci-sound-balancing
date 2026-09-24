@@ -3100,12 +3100,55 @@ function plBuildFilterChain(catDecl) {
       // Fuer jede Achse: Werte aus der durch die ANDEREN Achsen
       // gefilterten Menge ziehen, Sichtbarkeitsregel (>1 Zustand)
       // pruefen, Box nur bei >1 anzeigen.
+      //
+      // Kaskaden-Optimierung: Statt jede Achse gegen die volle baseItems zu
+      // filtern (9x ueber ~155k), einmal die nach ALLEN aktiven Achsen
+      // gefilterte Menge bilden (_axActiveFiltered). Fuer eine Achse, die
+      // SELBST nicht aktiv filtert (sel === _all), ist "alle anderen aktiven"
+      // identisch mit "alle aktiven" -> die vorberechnete Menge gilt direkt,
+      // kein eigener Durchlauf. Nur eine selbst-aktive Achse braucht einen
+      // eigenen Filter (sie aus dem Filter herausnehmen); davon gibt es meist
+      // 0-2, nicht 9. Der Bucket-Lauf laeuft dann ueber die (oft viel
+      // kleinere) Teilmenge. Verhaltensneutral: gleiche Mengen wie zuvor.
+      var _axActiveKeys = function () {
+        var out = [];
+        for (var i = 0; i < axList.length; i++) {
+          var k = axList[i].key;
+          if (selTable[k] !== undefined && selTable[k] !== AM_SEL_ALL) out.push(k);
+        }
+        return out;
+      };
+      var _axActiveFiltered = null;   // lazy; Cache der nach allen aktiven Achsen gefilterten Menge
+      var _axActiveSig = null;        // Signatur der aktiven Achsen, fuer die _axActiveFiltered gilt
+      var _axGetActiveFiltered = function () {
+        var sig = _axActiveKeys().join("&");
+        if (_axActiveFiltered !== null && _axActiveSig === sig) return _axActiveFiltered;
+        var actKeys = _axActiveKeys();
+        if (actKeys.length === 0) {
+          _axActiveFiltered = baseItems;   // nichts aktiv -> volle Menge
+        } else {
+          _axActiveFiltered = baseItems.filter(function (it) {
+            return amItemMatchesAxes(axList, selTable, it, null);
+          });
+        }
+        _axActiveSig = sig;
+        return _axActiveFiltered;
+      };
+
       for (var ax2 = 0; ax2 < axList.length; ax2++) {
         var axis = axList[ax2];
         // Menge, gefiltert durch alle Achsen AUSSER dieser.
-        var filteredForBox = baseItems.filter(function (it) {
-          return amItemMatchesAxes(axList, selTable, it, axis.key);
-        });
+        var filteredForBox;
+        if (selTable[axis.key] === undefined || selTable[axis.key] === AM_SEL_ALL) {
+          // Diese Achse filtert selbst nicht -> "alle anderen aktiven" ist
+          // gleich "alle aktiven": vorberechnete Menge, kein eigener Durchlauf.
+          filteredForBox = _axGetActiveFiltered();
+        } else {
+          // Diese Achse ist selbst aktiv -> sie aus dem Filter herausnehmen.
+          filteredForBox = baseItems.filter(function (it) {
+            return amItemMatchesAxes(axList, selTable, it, axis.key);
+          });
+        }
         var b = amBucketsForAxisValues(axis, filteredForBox);
         // Zahl waehlbarer Zustaende: Werte + (hasNone?1:0). "_all" zaehlt
         // NICHT als eigener Zustand (es ist die Nicht-Filter-Option).
@@ -3313,6 +3356,13 @@ function plSetContentLang(code) {
   if (typeof amGetSourceMode === "function" && amGetSourceMode() === "offline"
       && typeof amEnsureEmbedBundle === "function") {
     amEnsureEmbedBundle(code);
+  }
+  // Online: Webspace-Manifeste der neuen Sprache bedarfsgetrieben nachladen —
+  // fuer beide sprachsensitiven Kategorien (die Inhalts-Sprache gilt global).
+  // amWebspaceEnsureCategory refresht die jeweilige Kategorie-UI nach dem Laden.
+  if (typeof amWebspaceEnsureCategory === "function") {
+    amWebspaceEnsureCategory("saetze");
+    amWebspaceEnsureCategory("hoerbuecher");
   }
   if (typeof sUpdateUI === "function") sUpdateUI();
   if (typeof plBookRefreshUI === "function") plBookRefreshUI();
