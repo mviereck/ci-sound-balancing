@@ -917,8 +917,61 @@ function _amNormalizeBufferRms(buf, refRms) {
   return buf;
 }
 
+// Holt die eine Detail-Zeile (audio+text) des Items per HTTP-Range-Request aus
+// der Detail-Datei und schreibt sie ins Item zurück. Nutzt denselben
+// _amLoadAbort-Controller wie der Buffer-Download, damit ein Wechsel (amCancelLoad)
+// auch diesen Fetch abbricht. Gibt true bei Erfolg, false bei Abbruch/Fehler.
+async function _amEnrichFromDetail(item) {
+  const [start, len] = item.detail;
+  // Range ist inklusive: bytes=start-(start+len-1).
+  const rangeHeader = "bytes=" + start + "-" + (start + len - 1);
+  _amLoadAbort = new AbortController();
+  try {
+    const r = await fetch(item._detailUrl, {
+      headers: { Range: rangeHeader },
+      signal: _amLoadAbort.signal
+    });
+    // 206 Partial Content (Range akzeptiert) ODER 200 (Server ignoriert Range und
+    // schickt alles) -> in beiden Fällen JSON-Zeile aus den ersten len Bytes lesen.
+    // Bei 200 mit ganzer Datei greifen wir per slice die richtige Zeile heraus.
+    if (!r.ok && r.status !== 206) throw new Error("HTTP " + r.status);
+    let text;
+    if (r.status === 206) {
+      text = await r.text();
+    } else {
+      // 200: ganze Datei kam; die richtige Zeile per Byte-Fenster ausschneiden.
+      const buf = new Uint8Array(await r.arrayBuffer());
+      text = new TextDecoder("utf-8").decode(buf.subarray(start, start + len));
+    }
+    const rec = JSON.parse(text);
+    // audio: rohe (relative) URL aus der Detail-Zeile mit demselben srcBase auflösen,
+    // den der Item-Bau sonst verwendet.
+    if (rec.audio != null) item.audio = _amResolveAudioUrl(rec.audio, item._detailBase || "");
+    if (rec.text  != null) item.text  = rec.text;
+    return true;
+  } catch (e) {
+    if (e && e.name === "AbortError") return false;   // Wechsel während Anreicherung
+    console.warn("[audio-source] Detail-Anreicherung fehlgeschlagen (" + item._detailUrl + "):", e.message);
+    return false;
+  } finally {
+    _amLoadAbort = null;
+  }
+}
+
 async function amGetItemBuffer(ctx, item) {
   if (!item || !item.id) return null;
+
+  // Detail-Anreicherung (schlankes Boxen-Bündel): fehlt die audio-URL, trägt das
+  // Item aber einen detail-Offset in die Detail-Datei, holen wir per Range-Request
+  // genau diese eine NDJSON-Zeile und schreiben audio+text INS ITEM zurück. Muss
+  // VOR _amBufKey laufen (der Cache-Schlüssel ist item.audio) und vor den
+  // audio/text-Lesern der Anzeige. Ein Wechsel bricht diesen Fetch über
+  // denselben _amLoadAbort ab wie den Buffer-Download.
+  if (!item.audio && item.detail && item._detailUrl) {
+    const enriched = await _amEnrichFromDetail(item);
+    if (!enriched) return null;   // abgebrochen oder Detail nicht ladbar
+  }
+
   const bufKey = _amBufKey(item);
   const cached = _amItemBufCache.get(bufKey);
   if (cached) return cached;
@@ -1359,6 +1412,10 @@ amRegisterProvider({
   listItems: function (category) {
     const out = [];
     if (category === "hoerbuecher") return out; // Hoerbuecher ueber listCollections
+    // Detail-Datei (schlankes Boxen-Bündel): dieselbe Kategorie×Sprache-Datei für
+    // alle Items. Nur relevant, wenn die Items detail-Offsets tragen (flache
+    // Kategorien seit dem schlanken Bündel); sonst ungenutzt.
+    const _detailUrl = amManifestUrl(category + "-" + _amWsLangKey(category) + ".detail.json");
     for (const col of _amWebspaceCurrentCols(category)) {
       // Quell-Herkunft trägt die Collection selbst (Bündel ist quellenübergreifend).
       const srcKey = col._sourceKey || "";
@@ -1369,13 +1426,19 @@ amRegisterProvider({
         out.push({
           id: srcKey + ":" + (col.title || "") + "/" + (it.id || ""),
           title: it.title || it.id || "(unbenannt)",
-          text: it.text || "",       // BA263: Saetze-Text durchreichen
-          audio: _amResolveAudioUrl(it.audio, srcBase),
+          text: it.text || "",       // BA263: Saetze-Text durchreichen (leer bei schlankem Bündel -> per Detail nachgeladen)
+          audio: it.audio ? _amResolveAudioUrl(it.audio, srcBase) : null,
           duration: it.duration,
           sourceTitle: srcName || srcKey,
           license: it.license || col.license,
           credit:  it.credit  || col.credit,
-          tags: _amBuildItemTags(it, col, srcDefaults)
+          tags: _amBuildItemTags(it, col, srcDefaults),
+          // Schlankes Boxen-Bündel: Offset in die Detail-Datei + deren URL.
+          // Der Basis-Pfad für die (relative) audio-URL steht in der Detail-Datei
+          // nicht zur Verfügung -> Auflösung passiert im Loader mit demselben srcBase.
+          detail: it.detail || null,
+          _detailUrl: it.detail ? _detailUrl : null,
+          _detailBase: it.detail ? srcBase : null
         });
       }
     }

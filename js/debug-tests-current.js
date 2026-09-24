@@ -218,3 +218,24 @@
     return { ok: true, msg: "multi-Achsen ok (Werte/Match/Buckets)" };
   });
 })();
+
+// BA602 — Detail-Anreicherung
+(function () {
+  /* BA602 — Detail-Anreicherung: ein schlankes Saetze-Item anreichern und pruefen,
+   * dass audio+text danach am Item stehen. */
+  dbg.test("build/BA602/detail-anreicherung", { tab: "player", label: "Detail-Anreicherung (Saetze)" }, async function () {
+    if (typeof amCollectItems !== "function") return { ok: false, msg: "amCollectItems fehlt" };
+    const items = amCollectItems("saetze");
+    const slim = items.find(function (it) { return it && it.detail && !it.audio; });
+    if (!slim) return { ok: false, msg: "kein schlankes Saetze-Item gefunden (Buendel evtl. nicht schlank?)" };
+    const c = (typeof gPC === "function") ? gPC() : null;
+    const before = { audio: slim.audio, text: slim.text };
+    await amGetItemBuffer(c, slim);   // loest die Anreicherung aus (Buffer egal)
+    const okAudio = typeof slim.audio === "string" && slim.audio.length > 0;
+    const okText  = typeof slim.text  === "string";
+    return {
+      ok: okAudio && okText,
+      msg: "vorher audio=" + JSON.stringify(before.audio) + " -> nachher audio=" + JSON.stringify(slim.audio) + ", text-len=" + (slim.text ? slim.text.length : 0)
+    };
+  });
+})();
