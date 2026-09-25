@@ -97,7 +97,7 @@ var SAVE_SCHEMA_GLOBAL = [
     set: function (v) { plMaskOn = v; }, default: false, valid: { type: "bool" } },
   { key: "plMaskLevelKey", scope: "global",
     get: function () { return plMaskLevelKey; },
-    set: function (v) { plMaskLevelKey = v; }, default: "l0", valid: { type: "string" } },
+    set: function (v) { plMaskLevelKey = v; }, default: "snr0", valid: { type: "string" } },
 
   // --- Schieber-Tab-Anzeige ---
   { key: "schieberELLShowMeas", scope: "global",

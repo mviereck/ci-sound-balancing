@@ -13,8 +13,12 @@ let pCtx = null,
   pCurrentPlayback = null,   // { sources, stop() } für Variante B/A
   pPlayGen = 0,              // erhöht sich bei jedem pPlay/pPause; schützt den Vocoder-Await
   pGain = null,
-  pMaskSrc  = null,   // BA604: parallele BufferSource des Maskierers
-  pMaskGain = null,   // BA604: Gain-Node des Maskierers (haengt an pGain)
+  pMaskSrc   = null,  // BA604: parallele BufferSource des Maskierers (mono)
+  pMaskGainL = null,  // BA604: Gain des Maskierers fuer die linke Seite
+  pMaskGainR = null,  // BA604: Gain des Maskierers fuer die rechte Seite
+  pMaskMerger = null, // BA604: fuehrt die beiden Seiten-Gains zu 2 Kanaelen -> pGain
+  pMaskBuf  = null,   // BA604: dekodierter Puffer des Maskierer-Geraeuschs (eigen,
+                      //        unabhaengig vom Kategorie-Puffer pNoiseBuf)
   pPlayerMuteGain = null,   // BA391: Player-Mute fuer Latenztest (1=hoerbar,0=stumm)
   pEqF = [],
   pEqFLeft = [],
@@ -930,14 +934,29 @@ function pEqFilterSpec(side, nhSim) {
 // Gibt linearen RMS (>=0) zurueck; 0 wenn kein Puffer.
 // MAPLAW im Mess-Render bewusst weggelassen (Worklet nicht offline verfuegbar;
 // EQ dominiert den Pegel-Effekt). Spaetere Verfeinerung moeglich.
+// BA604: Referenzpegel des Hauptaudios NACH der CImbel-Verarbeitung, SEITENWEISE.
+// Gibt {left, right} als lineare RMS pro Kanal zurueck (Kanal 0 = links,
+// 1 = rechts). Eine stumme Seite (nur Nullen) ergibt 0 -> dort spaeter kein
+// Maskierer. Der Playback-Buffer ist immer 2-kanalig und vorne belegt
+// (getPlaybackBuffer / create*Buffer); links/rechts koennen unterschiedliche
+// Pegel tragen, daher getrennt gemessen.
+// Greift den vorhandenen (gewarpten/getempten) Puffer ab -- kein Warp/Tempo-
+// Neurechnen -- und rendert EQ offline darueber. MAPLAW im Mess-Render bewusst
+// weggelassen (Worklet nicht offline verfuegbar; EQ dominiert den Pegel).
 async function pMaskMeasureMainRms() {
   const src = getPlaybackBuffer();   // gewarpter Puffer, falls Warp aktiv+fertig
-  if (!src || !src.length) return 0;
+  if (!src || !src.length) return { left: 0, right: 0 };
+  const rms2 = function (b) {
+    return {
+      left:  amBlockRms(b, 0),
+      right: b.numberOfChannels > 1 ? amBlockRms(b, 1) : 0,
+    };
+  };
   const nhSim = document.getElementById("plNHSim").checked;
   const useEq = plEqOn && nEl > 0;
   if (!useEq) {
     // Kein EQ -> das gehoerte Hauptaudio ist der Quellpuffer selbst.
-    return amBlockRms(src);
+    return rms2(src);
   }
   const oc = new OfflineAudioContext(src.numberOfChannels, src.length, src.sampleRate);
   const bs = oc.createBufferSource();
@@ -965,34 +984,41 @@ async function pMaskMeasureMainRms() {
   bs.start();
   let rendered;
   try { rendered = await oc.startRendering(); }
-  catch (e) { return amBlockRms(src); }   // Fallback: ungefiltert
-  return amBlockRms(rendered);
+  catch (e) { return rms2(src); }   // Fallback: ungefiltert
+  return rms2(rendered);
 }
 
-// BA604: linearer RMS des aktiven Geraeusche-Items (Maskierer). Nutzt den
-// bereits dekodierten Kategorie-Puffer pNoiseBuf (currentBuffer der Kategorie
-// "geraeusche"). Kein zweiter Lade-/Dekodierweg.
+// BA604: linearer RMS des Maskierer-Geraeuschs (mono). Nutzt den eigenen, ueber
+// pMaskEnsureBuf geholten Puffer pMaskBuf (unabhaengig vom Kategorie-Puffer).
+// Ein Wert -- das Rauschen wird spaeter seitenweise unterschiedlich verstaerkt.
 function pMaskMeasureNoiseRms() {
-  const buf = (typeof pNoiseBuf !== "undefined") ? pNoiseBuf : null;
-  return buf ? amBlockRms(buf) : 0;
+  return pMaskBuf ? amBlockRms(pMaskBuf, 0) : 0;
 }
 
-let pMaskMainRms = 0;   // zuletzt gemessener Hauptaudio-Referenzpegel (linear)
-let pMaskGen = 0;       // Generationszaehler des Mess-Renders
+let pMaskMainRms = { left: 0, right: 0 };   // zuletzt gemessener Hauptaudio-Pegel je Seite
+let pMaskGen = 0;                            // Generationszaehler des Mess-Renders
 
-// Setzt pMaskGain.gain aus den gemessenen Pegeln + der SNR-Stufe.
-// SNR (dB) = Hauptaudio UEBER Geraeusch: Ziel-Geraeusch-RMS = mainRms / 10^(snr/20).
+// Setzt die beiden Seiten-Gains (pMaskGainL/R) aus den gemessenen Pegeln + der
+// gewaehlten Stufe. Der dB-Wert ist der SNR = Sprache/Audio UEBER Rauschen
+// (audiologisch): +6 dB = Audio 6 dB lauter als Rauschen (leicht), -9 dB =
+// Rauschen 9 dB lauter (schwer). Ziel-Rausch-RMS(Seite) = mainRms(Seite) *
+// 10^(-snr/20). Ist eine Seite stumm (mainRms=0), bleibt das Geraeusch dort
+// stumm -> es folgt der gespielten Seite.
 function pMaskApplyGain() {
-  if (typeof pMaskGain === "undefined" || !pMaskGain) return;
-  if (!plMaskOn) { pMaskGain.gain.value = 0; return; }
+  if (typeof pMaskGainL === "undefined" || !pMaskGainL || !pMaskGainR) return;
   const noiseRms = pMaskMeasureNoiseRms();
-  if (pMaskMainRms <= 1e-9 || noiseRms <= 1e-9) { pMaskGain.gain.value = 0; return; }
   const snr = plMaskLevelDb(plMaskLevelKey);
-  const targetNoiseRms = pMaskMainRms / Math.pow(10, snr / 20);
-  pMaskGain.gain.value = targetNoiseRms / noiseRms;
+  const factor = Math.pow(10, -snr / 20);
+  const gainFor = function (mainRms) {
+    if (!plMaskOn || mainRms <= 1e-9 || noiseRms <= 1e-9) return 0;
+    return (mainRms * factor) / noiseRms;
+  };
+  pMaskGainL.gain.value = gainFor(pMaskMainRms.left);
+  pMaskGainR.gain.value = gainFor(pMaskMainRms.right);
 }
 
-// Voll-Neuberechnung: Hauptaudio messen (async, gen-gesichert), dann Gain.
+// Voll-Neuberechnung: Hauptaudio seitenweise messen (async, gen-gesichert), dann
+// Gains setzen.
 function pMaskRecompute() {
   if (!plMaskOn) { pMaskApplyGain(); return; }
   const gen = ++pMaskGen;
@@ -1003,36 +1029,64 @@ function pMaskRecompute() {
   });
 }
 
-// BA604: Startet die Maskierer-Source parallel zum Hauptaudio, falls aktiv.
-// Haengt pMaskSrc -> pMaskGain -> pGain. Loop, falls kuerzer als das Hauptaudio;
-// laengeres Geraeusch wird via pMaskStop (mit dem pSrc-Ende) abgeschnitten.
-function pMaskStart(c) {
-  pMaskStop();                       // evtl. alte Source raeumen
-  if (!plMaskOn) return;
-  if (typeof pNoiseBuf === "undefined" || !pNoiseBuf) return;
-  if (!pGain) return;
-  pMaskGain = c.createGain();
-  pMaskGain.gain.value = 0;          // wird von pMaskApplyGain gesetzt
-  pMaskGain.connect(pGain);
-  pMaskSrc = c.createBufferSource();
-  pMaskSrc.buffer = pNoiseBuf;
-  pMaskSrc.loop = true;
-  pMaskSrc.connect(pMaskGain);
-  pMaskSrc.start(0);
-  pMaskRecompute();                  // misst Hauptaudio + setzt Gain
+// BA604: Holt den Maskierer-Puffer (aktives Geraeusche-Item) bei Bedarf ueber
+// die zentrale Ladestelle -- OHNE den Kategorie-Zustand (pNoiseBuf,
+// pSetPlaybackMode) anzufassen. Fuellt die eigene Variable pMaskBuf.
+// Invalidierung an EINER Stelle: aendert sich das aktive Geraeusche-Item
+// (Identitaet ueber _amBufKey), wird neu geladen -- kein Patch an den vielen
+// plNoiseSelectedId-Setzstellen noetig.
+let _pMaskBufKey = null;   // Identitaet des zuletzt geladenen Maskierer-Geraeuschs
+async function pMaskEnsureBuf() {
+  const it = (typeof plNoiseCurrentItem === "function") ? plNoiseCurrentItem() : null;
+  if (!it) return null;
+  const key = (typeof _amBufKey === "function") ? _amBufKey(it) : it.id;
+  if (pMaskBuf && key === _pMaskBufKey) return pMaskBuf;
+  const abuf = await amGetItemBuffer(gPC(), it);
+  if (abuf) { pMaskBuf = abuf; _pMaskBufKey = key; }
+  return pMaskBuf;
 }
 
-// BA604: Stoppt und trennt die Maskierer-Source.
+// BA604: Startet die Maskierer-Source parallel zum Hauptaudio, falls aktiv.
+// Graph SEITENWEISE: pMaskSrc (mono) -> pMaskGainL -> Merger Kanal 0 (links)
+//                                    -> pMaskGainR -> Merger Kanal 1 (rechts) -> pGain.
+// So folgt das Geraeusch der gespielten Seite: die stumme Seite bekommt Gain 0
+// (pMaskApplyGain), das Geraeusch liegt dann nur auf der/den aktiven Seite(n).
+// Loop, falls kuerzer als das Hauptaudio; laengeres wird via pMaskStop (mit dem
+// pSrc-Ende) abgeschnitten. async: laedt das Geraeusch bei Bedarf; Start gegen
+// zwischenzeitliches pPause/pStopReset abgesichert (pPlaying + pMaskOn pruefen).
+async function pMaskStart(c) {
+  pMaskStop();                       // evtl. alte Nodes raeumen
+  if (!plMaskOn) return;
+  if (!pGain) return;
+  const buf = await pMaskEnsureBuf();
+  if (!buf) return;
+  if (!plMaskOn || !pPlaying) return;   // waehrend des Ladens gestoppt/ausgeschaltet
+  pMaskGainL = c.createGain(); pMaskGainL.gain.value = 0;
+  pMaskGainR = c.createGain(); pMaskGainR.gain.value = 0;
+  pMaskMerger = c.createChannelMerger(2);
+  pMaskGainL.connect(pMaskMerger, 0, 0);   // -> Kanal 0 (links)
+  pMaskGainR.connect(pMaskMerger, 0, 1);   // -> Kanal 1 (rechts)
+  pMaskMerger.connect(pGain);
+  pMaskSrc = c.createBufferSource();
+  pMaskSrc.buffer = buf;                    // mono
+  pMaskSrc.loop = true;
+  pMaskSrc.connect(pMaskGainL);
+  pMaskSrc.connect(pMaskGainR);
+  pMaskSrc.start(0);
+  pMaskRecompute();                  // misst Hauptaudio seitenweise + setzt Gains
+}
+
+// BA604: Stoppt und trennt die Maskierer-Nodes.
 function pMaskStop() {
   if (pMaskSrc) {
     try { pMaskSrc.stop(); } catch (e) {}
     try { pMaskSrc.disconnect(); } catch (e) {}
     pMaskSrc = null;
   }
-  if (pMaskGain) {
-    try { pMaskGain.disconnect(); } catch (e) {}
-    pMaskGain = null;
-  }
+  [pMaskGainL, pMaskGainR, pMaskMerger].forEach(function (nd) {
+    if (nd) { try { nd.disconnect(); } catch (e) {} }
+  });
+  pMaskGainL = null; pMaskGainR = null; pMaskMerger = null;
 }
 
 function pUpdEQ() {
@@ -1111,6 +1165,11 @@ function _pOnPlaybackEnded() {
   pOff = 0;
   pUpdBtn();
   pUpdTL();
+
+  // BA604: Maskierer stoppt mit dem Hauptaudio -- nicht in der Loop-/Auto-Weiter-
+  // Pause und nicht nach dem Track-Ende weiterlaufen lassen. Der naechste
+  // Durchlauf (pPlay) startet ihn neu.
+  pMaskStop();
 
   const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
 
@@ -2467,12 +2526,21 @@ function plSetSource(src) {
 // nach Zahl benannt -> spaetere Wertaenderung ohne Konsumenten-Umbenennung),
 // i18n-Label, dB-Wert = Hauptaudio-Pegel UEBER Geraeusch (groesser = leichter).
 // Weitere Stufe = ein Eintrag mehr.
+// SNR-Stufen (audiologisch: db = Sprache UEBER Rauschen; negativ = Rauschen
+// lauter = schwerer, positiv = leichter). Schluessel semantisch/stabil (nicht
+// nach dem dB-Wert benannt) -> Wertaenderung ohne Konsumenten-/Persistenz-Bruch.
 const PL_MASK_LEVELS = [
-  { key: "lm10", labelKey: "plMaskLvlM10", db: -10 },
-  { key: "lm5",  labelKey: "plMaskLvlM5",  db:  -5 },
-  { key: "l0",   labelKey: "plMaskLvl0",   db:   0 },
-  { key: "lp5",  labelKey: "plMaskLvlP5",  db:   5 },
-  { key: "lp10", labelKey: "plMaskLvlP10", db:  10 },
+  { key: "snrP21", labelKey: "plMaskSnrP21", db:  21 },
+  { key: "snrP18", labelKey: "plMaskSnrP18", db:  18 },
+  { key: "snrP15", labelKey: "plMaskSnrP15", db:  15 },
+  { key: "snrP12", labelKey: "plMaskSnrP12", db:  12 },
+  { key: "snrP9",  labelKey: "plMaskSnrP9",  db:   9 },
+  { key: "snrP6",  labelKey: "plMaskSnrP6",  db:   6 },
+  { key: "snrP3",  labelKey: "plMaskSnrP3",  db:   3 },
+  { key: "snr0",   labelKey: "plMaskSnr0",   db:   0 },
+  { key: "snrM3",  labelKey: "plMaskSnrM3",  db:  -3 },
+  { key: "snrM6",  labelKey: "plMaskSnrM6",  db:  -6 },
+  { key: "snrM9",  labelKey: "plMaskSnrM9",  db:  -9 },
 ];
 function plMaskLevelDb(key) {
   const e = PL_MASK_LEVELS.find(function (x) { return x.key === key; });

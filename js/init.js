@@ -575,8 +575,11 @@ document.addEventListener("DOMContentLoaded", () => {
       sel.appendChild(o);
     });
     sel.addEventListener("change", function () {
+      // Erst Level setzen, DANN einschalten -- sonst spiegelt das Refresh-UI
+      // im Einschalt-Zweig noch den alten Level-Key ins Dropdown zurueck
+      // (erster Klick zeigte sonst wieder 0 dB).
       if (this.value === "off") { plMaskSetOn(false); }
-      else { if (!plMaskOn) plMaskSetOn(true); plMaskSetLevel(this.value); }
+      else { plMaskSetLevel(this.value); if (!plMaskOn) plMaskSetOn(true); }
     });
     if (typeof plMaskRefreshUI === "function") plMaskRefreshUI();
   })();
