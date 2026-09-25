@@ -922,7 +922,8 @@ function _amNormalizeBufferRms(buf, refRms) {
 // _amLoadAbort-Controller wie der Buffer-Download, damit ein Wechsel (amCancelLoad)
 // auch diesen Fetch abbricht. Gibt true bei Erfolg, false bei Abbruch/Fehler.
 async function _amEnrichFromDetail(item) {
-  const [start, len] = item.detail;
+  const start = item.detailStart;   // beim Item-Bau (listItems) mitgezaehlt
+  const len = item.detail;          // Byte-Laenge der Detail-Zeile
   // Range ist inklusive: bytes=start-(start+len-1).
   const rangeHeader = "bytes=" + start + "-" + (start + len - 1);
   _amLoadAbort = new AbortController();
@@ -1416,6 +1417,11 @@ amRegisterProvider({
     // alle Items. Nur relevant, wenn die Items detail-Offsets tragen (flache
     // Kategorien seit dem schlanken Bündel); sonst ungenutzt.
     const _detailUrl = amManifestUrl(category + "-" + _amWsLangKey(category) + ".detail.json");
+    // Laufender Byte-Offset in die Detail-Datei: die NDJSON ist in genau dieser
+    // Item-Reihenfolge geschrieben (Builder: for col -> for it), also ist der Start
+    // eines Items die Summe der Zeilen-Laengen (item.detail) davor. Startet je
+    // listItems-Aufruf frisch bei 0.
+    let _detailOffset = 0;
     for (const col of _amWebspaceCurrentCols(category)) {
       // Quell-Herkunft trägt die Collection selbst (Bündel ist quellenübergreifend).
       const srcKey = col._sourceKey || "";
@@ -1433,13 +1439,15 @@ amRegisterProvider({
           license: it.license || col.license,
           credit:  it.credit  || col.credit,
           tags: _amBuildItemTags(it, col, srcDefaults),
-          // Schlankes Boxen-Bündel: Offset in die Detail-Datei + deren URL.
-          // Der Basis-Pfad für die (relative) audio-URL steht in der Detail-Datei
-          // nicht zur Verfügung -> Auflösung passiert im Loader mit demselben srcBase.
-          detail: it.detail || null,
-          _detailUrl: it.detail ? _detailUrl : null,
-          _detailBase: it.detail ? srcBase : null
+          // Schlankes Boxen-Bündel: detail = Byte-LAENGE der Detail-Zeile; der
+          // Start wird hier mitgezaehlt (Summe der len davor). URL + srcBase fuer
+          // die spaetere Anreicherung.
+          detail: (typeof it.detail === "number") ? it.detail : null,
+          detailStart: (typeof it.detail === "number") ? _detailOffset : null,
+          _detailUrl: (typeof it.detail === "number") ? _detailUrl : null,
+          _detailBase: (typeof it.detail === "number") ? srcBase : null
         });
+        if (typeof it.detail === "number") _detailOffset += it.detail;
       }
     }
     return out;

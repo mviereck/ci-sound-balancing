@@ -239,3 +239,24 @@
     };
   });
 })();
+
+// BA603 — detail nur Laenge: Offset-Rekonstruktion
+(function () {
+  /* BA603 — detail nur Laenge: ein WEIT HINTEN liegendes schlankes Saetze-Item
+   * anreichern und pruefen, dass Offset-Summierung stimmt (audio+text kommen an). */
+  dbg.test("build/BA603/detail-offset", { tab: "player", label: "Detail-Offset (spaetes Item)" }, async function () {
+    if (typeof amCollectItems !== "function") return { ok: false, msg: "amCollectItems fehlt" };
+    const items = amCollectItems("saetze");
+    const slim = items.filter(function (it) { return it && typeof it.detail === "number" && !it.audio; });
+    if (!slim.length) return { ok: false, msg: "kein schlankes Saetze-Item (Buendel evtl. altes Format?)" };
+    const it = slim[Math.min(slim.length - 1, 5000)];   // ein Item weit hinten (grosser Offset)
+    const c = (typeof gPC === "function") ? gPC() : null;
+    await amGetItemBuffer(c, it);
+    const okAudio = typeof it.audio === "string" && it.audio.length > 0;
+    const okText  = typeof it.text === "string";
+    return {
+      ok: okAudio && okText,
+      msg: "detailStart=" + it.detailStart + " len=" + it.detail + " -> audio=" + JSON.stringify(it.audio) + " text-len=" + (it.text ? it.text.length : 0)
+    };
+  });
+})();
