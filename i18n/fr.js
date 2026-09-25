@@ -268,6 +268,7 @@ Object.assign(L.fr, {
     plNoiseKind_rauschen_weiss: "Bruit blanc",
     plNoiseKind_rauschen_rosa: "Bruit rose",
     plNoiseKind_rauschen_ccitt: "Bruit CCITT",
+    plNoiseKind_rauschen_ssn: "Bruit de parole",
     plNoiseKind_babble: "Brouhaha",
     plNoiseKind_cafe: "Café",
     plNoiseKind_verkehr: "Trafic",

@@ -267,6 +267,7 @@ Object.assign(L.en, {
     plNoiseKind_rauschen_weiss: "White noise",
     plNoiseKind_rauschen_rosa: "Pink noise",
     plNoiseKind_rauschen_ccitt: "CCITT noise",
+    plNoiseKind_rauschen_ssn: "Speech-shaped noise",
     plNoiseKind_babble: "Babble",
     plNoiseKind_cafe: "Café",
     plNoiseKind_verkehr: "Traffic",
