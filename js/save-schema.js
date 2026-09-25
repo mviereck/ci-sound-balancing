@@ -92,6 +92,12 @@ var SAVE_SCHEMA_GLOBAL = [
   { key: "plSrcCurves", scope: "global",
     get: function () { return plSrcCurves; },
     set: function (v) { plSrcCurves = v; }, default: true, valid: { type: "bool" } },
+  { key: "plMaskOn", scope: "global",
+    get: function () { return plMaskOn; },
+    set: function (v) { plMaskOn = v; }, default: false, valid: { type: "bool" } },
+  { key: "plMaskLevelKey", scope: "global",
+    get: function () { return plMaskLevelKey; },
+    set: function (v) { plMaskLevelKey = v; }, default: "l0", valid: { type: "string" } },
 
   // --- Schieber-Tab-Anzeige ---
   { key: "schieberELLShowMeas", scope: "global",

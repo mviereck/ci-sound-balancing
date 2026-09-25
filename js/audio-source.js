@@ -917,6 +917,53 @@ function _amNormalizeBufferRms(buf, refRms) {
   return buf;
 }
 
+// Getrimmter Block-RMS (Referenzpegel-Schaetzer fuer die Geraeusch-Unterlegung).
+// Siehe .docs/spec/00-geraeusch-unterlegung-architektur.md, 3.
+// Verfahren: Signal in Bloecke schneiden, Block-RMS bilden, untersten
+// MASK_TRIM_LO / obersten MASK_TRIM_HI Anteil verwerfen, ueber den Kern IM
+// LEISTUNGSRAUM (linear) mitteln. Rueckgabe: linearer RMS (>=0). Leerer/
+// stiller Buffer -> 0.
+const MASK_BLOCK_MS = 25;    // Blocklaenge in ms
+const MASK_TRIM_LO  = 0.25;  // Anteil unten weg (Pausen/Stille)
+const MASK_TRIM_HI  = 0.05;  // Anteil oben weg (Knalle/Transienten)
+
+function amBlockRms(buf) {
+  if (!buf || !buf.length) return 0;
+  const sr = buf.sampleRate;
+  const n = Math.max(1, Math.round(sr * MASK_BLOCK_MS / 1000));
+  const nCh = buf.numberOfChannels;
+  const len = buf.length;
+  const nblk = Math.floor(len / n);
+  if (nblk === 0) {
+    // kuerzer als ein Block -> Voll-RMS
+    return _amRms(buf);
+  }
+  // Block-Leistungen (Mittel ueber Kanaele) sammeln
+  const powers = [];
+  for (let b = 0; b < nblk; b++) {
+    let sumSq = 0;
+    let cnt = 0;
+    const start = b * n;
+    for (let ch = 0; ch < nCh; ch++) {
+      const d = buf.getChannelData(ch);
+      for (let i = 0; i < n; i++) { const v = d[start + i]; sumSq += v * v; }
+      cnt += n;
+    }
+    const p = cnt > 0 ? sumSq / cnt : 0;
+    if (p > 1e-18) powers.push(p);   // digitale Null-Bloecke raus
+  }
+  if (powers.length === 0) return 0;
+  powers.sort(function (a, b) { return a - b; });
+  const lo = Math.floor(powers.length * MASK_TRIM_LO);
+  const hi = powers.length - Math.floor(powers.length * MASK_TRIM_HI);
+  let core = powers.slice(lo, hi);
+  if (core.length === 0) core = powers;
+  let acc = 0;
+  for (let i = 0; i < core.length; i++) acc += core[i];
+  const meanPow = acc / core.length;   // Mittel im Leistungsraum
+  return Math.sqrt(meanPow);           // -> linearer RMS
+}
+
 // Holt die eine Detail-Zeile (audio+text) des Items per HTTP-Range-Request aus
 // der Detail-Datei und schreibt sie ins Item zurück. Nutzt denselben
 // _amLoadAbort-Controller wie der Buffer-Download, damit ein Wechsel (amCancelLoad)

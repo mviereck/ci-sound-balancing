@@ -558,6 +558,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // BA604: Geraeusch-Unterlegung -- Dropdown fuellen + verdrahten.
+  (function () {
+    const sel = document.getElementById("plMaskSel");
+    if (!sel || typeof PL_MASK_LEVELS === "undefined") return;
+    const off = document.createElement("option");
+    off.value = "off";
+    off.setAttribute("data-t", "plMaskOff");
+    off.textContent = (typeof t === "function") ? t("plMaskOff") : "aus";
+    sel.appendChild(off);
+    PL_MASK_LEVELS.forEach(function (lvl) {
+      const o = document.createElement("option");
+      o.value = lvl.key;
+      o.setAttribute("data-t", lvl.labelKey);
+      o.textContent = (typeof t === "function") ? t(lvl.labelKey) : lvl.key;
+      sel.appendChild(o);
+    });
+    sel.addEventListener("change", function () {
+      if (this.value === "off") { plMaskSetOn(false); }
+      else { if (!plMaskOn) plMaskSetOn(true); plMaskSetLevel(this.value); }
+    });
+    if (typeof plMaskRefreshUI === "function") plMaskRefreshUI();
+  })();
+
   // Gemeinsamer Reaktor auf Parameteränderungen (Modus, Stärke):
   // - Offline: Vorberechnung neu anstoßen (pWarpTrigger regelt pause/resume)
   // - Vocoder: knackfreier postMessage-Update an laufenden Worklet
