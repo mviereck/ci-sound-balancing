@@ -206,6 +206,10 @@ function _st_loadHide() {
 }
 
 function st_start() {
+  // Ladebalken sofort synchron einblenden -- _st_preload ist async und gibt
+  // Kontrolle erst beim ersten await ab; ohne diesen Aufruf hier verschwindet
+  // der Balken, bevor der Browser einen Frame rendern kann.
+  _st_loadShow();
   Promise.resolve(_st_preload()).then(function () {
     // Kopfhoerercheck erst nach vollstaendigem Vorladen.
     testUI.sideCheck.run({ sides: "one", side: st_currentSide() }, function () {
@@ -232,9 +236,8 @@ async function _st_preload() {
   if (all.length < ST_LIST_LEN) {
     console.warn("[sprachtest] zu wenige OLSA-Saetze:", all.length);
   }
-  // Ladebalken sofort zeigen — noch vor dem ersten Netzwerk-Request.
+  // Ladebalken wurde bereits in st_start() synchron eingeblendet.
   const noiseItem = st_findOlsaNoiseItem();
-  _st_loadShow();
   _st_loadProgress(0, 1);   // unbestimmt bis Texte geladen
 
   // Texte laden (ein Range-Request fuer alle Items — braucht die Ziehung).
@@ -742,4 +745,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!parentEl) return;
   _st_parentEl = parentEl;
   ST_els = buildTestPanel(parentEl, st_cfg);
+  // ST_loadHint NACH buildTestPanel anlegen -- buildTestPanel leert parentEl
+  // per innerHTML='', ein vorher im HTML stehendes Element wuerde geloescht.
+  const hint = document.createElement("div");
+  hint.id = "ST_loadHint";
+  hint.hidden = true;
+  parentEl.insertBefore(hint, parentEl.firstChild);
 });
