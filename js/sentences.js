@@ -138,6 +138,22 @@ async function sLoadCurrent() {
 }
 
 
+// Direkt-Buffer-Eingang der Saetze-Kategorie (Sprachtest, Architektur SS4.1).
+// Setzt einen FERTIGEN Buffer als aktives Saetze-Item -- dieselbe Schreibstelle
+// wie sLoadCurrent (sSentenceBuf + pSetPlaybackMode("saetze")), aber ohne
+// Laden/Normalisieren. Ruft KEIN pPlay -- der Aufrufer macht das.
+function sSetDirectBuffer(buf, text) {
+  sSentenceBuf = buf;
+  pSetPlaybackMode("saetze");
+  pOff = 0;
+  pDrawEQ();
+  const viz = document.getElementById("plEqViz");
+  if (viz) viz.style.display = "";
+  sShownText = (typeof text === "string") ? text : "";
+  sUpdateTextBox();
+  if (typeof plUpdDisplay === "function") plUpdDisplay();
+}
+
 function sStop() {
   if (typeof pPlaying !== "undefined" && pPlaying) {
     pPause();

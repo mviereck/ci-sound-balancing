@@ -34,6 +34,11 @@ const ST_TRAIN_LEN = 3;      // Trainingssaetze (zaehlen nicht)
 const ST_SRT_WINDOW = 20;    // SRT = Mittel der letzten 20 SNR-Werte
 const ST_SRT_WINDOW_CONV = 6;// bei Konvergenz-Abbruch: letzte 6
 
+// OLSA-Stoerrauschen als festes Test-Asset (NICHT ueber das Geraeusche-Manifest,
+// damit sich der genormte Test nicht mit dem veraenderlichen Player-Bestand
+// mischt). Satz + Rauschen sind werksseitig auf SNR 0 dB abgestimmt.
+const ST_NOISE_URL = "assets/audio/stereonoise_OLSAfemale_TTS.wav";
+
 // --- Modul-Zustand ---
 let _st_parentEl = null;     // Panel-Element (im DOMContentLoaded gesetzt)
 let ST_els = null;           // Refs aus buildTestPanel
@@ -46,6 +51,7 @@ let st_snrHistory = [];      // SNR je gewertetem Satz (nur measure-Phase)
 let st_wordHistory = [];     // richtige Woerter (0..5) je gewertetem Satz
 let st_saved = null;         // gesicherter Player-Unterlegungszustand (Restore)
 let _st_preloadedSeq = null; // Satz-Reihenfolge aus _st_preload (Ziehung vorgezogen)
+let _st_noiseBuf = null;     // dekodiertes OLSA-Rauschen (Asset), einmal geladen
 
 // ------------------------------------------------------------
 // Player-Zustand sichern / erzwingen / wiederherstellen (SS4.4)
@@ -94,16 +100,15 @@ function st_currentSide() {
   return (typeof activeSide !== "undefined") ? activeSide : "left";
 }
 
-// Setzt das OLSA-Rauschen als aktives Geraeusche-Item und schaltet die
-// Unterlegung an. Das OLSA-Rauschen ist das Geraeusche-Item mit test_set OLSA.
-function st_forceOlsaNoise() {
-  const noise = st_findOlsaNoiseItem();
-  if (noise) plNoiseSelectedId = noise.id;
-  plMaskSetOn(true);
+// Der Sprachtest mischt sein Rauschen selbst in den Satz-Buffer (Architektur
+// SS4.5) und benutzt die Player-Geraeusch-Unterlegung NICHT. Fuer die Testdauer
+// wird sie ausgeschaltet, damit sie das Testsignal nicht zusaetzlich ueberlagert.
+function st_forceMaskOff() {
+  if (typeof plMaskSetOn === "function") plMaskSetOn(false);
 }
 
 // ------------------------------------------------------------
-// Material: OLSA-Saetze und -Rauschen aus den vorhandenen Listen
+// Material: OLSA-Saetze aus den vorhandenen Listen
 // (tags.test_set === "OLSA"). KEIN eigener Ladeweg -- amGetItemBuffer
 // laedt via Kategorie-Adapter (audio+text per Detail-Range).
 // ------------------------------------------------------------
@@ -111,14 +116,51 @@ function st_allOlsaSentences() {
   const pool = (typeof sBuildRecordingPool === "function") ? sBuildRecordingPool() : [];
   return pool.filter(function (it) { return it.tags && it.tags.test_set === "OLSA"; });
 }
-function st_findOlsaNoiseItem() {
-  const list = (typeof plNoiseVisibleItems === "function") ? plNoiseVisibleItems() : [];
-  // Das OLSA-Stoerrauschen traegt KEIN test_set-Tag; es wird ueber die stabile
-  // Item-id erkannt (Collection _sourceKey "olsa-noise", Datei
-  // stereonoise_OLSAfemale_TTS). id-Form: "<srcKey>:<title>/<rohe-id>".
-  return list.find(function (it) {
-    return typeof it.id === "string" && it.id.indexOf("stereonoise_OLSAfemale_TTS") >= 0;
-  }) || null;
+// Laedt das OLSA-Rausch-Asset EINMAL (fetch + decodeAudioData) in _st_noiseBuf.
+// Kein Manifest, keine Normalisierung -- das Rauschen wird im Original-Pegel
+// gehalten (Werks-Abstimmung zum Satz = SNR 0 dB).
+async function _st_ensureNoiseBuf() {
+  if (_st_noiseBuf) return _st_noiseBuf;
+  const ctx = (typeof gPC === "function") ? gPC() : null;
+  if (!ctx) return null;
+  const resp = await fetch(ST_NOISE_URL);
+  if (!resp.ok) throw new Error("OLSA-Rauschen nicht ladbar: HTTP " + resp.status);
+  const arr = await resp.arrayBuffer();
+  _st_noiseBuf = await ctx.decodeAudioData(arr);
+  return _st_noiseBuf;
+}
+
+// Baut EINEN Buffer aus Satz (Original-Pegel) + auf den Ziel-SNR skaliertem
+// Rauschen. Faktor auf das Rauschen = 10^(-snr/20): SNR 0 -> 1,0 (Werks-
+// Verhaeltnis), hoeheres SNR -> Rauschen leiser. Rausch-Ausschnitt: zufaelliger
+// Startpunkt, satzsynchrone Laenge, Umlauf am Ende. KEINE RMS-Messung.
+function _st_buildMixedBuffer(sentenceBuf, noiseBuf, snr) {
+  const ctx = (typeof gPC === "function") ? gPC() : null;
+  if (!ctx || !sentenceBuf) return sentenceBuf;
+  const len = sentenceBuf.length;
+  const nCh = sentenceBuf.numberOfChannels;
+  const out = ctx.createBuffer(nCh, len, sentenceBuf.sampleRate);
+  const factor = Math.pow(10, -snr / 20);
+
+  // Rausch-Startpunkt zufaellig (mit Umlauf); Rausch-Kanalzahl kann abweichen.
+  const noiseLen = noiseBuf ? noiseBuf.length : 0;
+  const noiseCh  = noiseBuf ? noiseBuf.numberOfChannels : 0;
+  const start = noiseLen > 0 ? Math.floor(Math.random() * noiseLen) : 0;
+
+  for (let ch = 0; ch < nCh; ch++) {
+    const dst = out.getChannelData(ch);
+    const src = sentenceBuf.getChannelData(ch);
+    // Rausch-Kanal: gleicher Kanal, sonst letzter vorhandener (mono-Rausch -> ch 0).
+    const nData = (noiseLen > 0)
+      ? noiseBuf.getChannelData(Math.min(ch, noiseCh - 1))
+      : null;
+    for (let i = 0; i < len; i++) {
+      let v = src[i];
+      if (nData) v += factor * nData[(start + i) % noiseLen];
+      dst[i] = v;
+    }
+  }
+  return out;
 }
 
 // Laedt die Satztexte der OLSA-Items EINMAL vorab (die balancierte Ziehung
@@ -237,7 +279,6 @@ async function _st_preload() {
     console.warn("[sprachtest] zu wenige OLSA-Saetze:", all.length);
   }
   // Ladebalken wurde bereits in st_start() synchron eingeblendet.
-  const noiseItem = st_findOlsaNoiseItem();
   _st_loadProgress(0, 1);   // unbestimmt bis Texte geladen
 
   // Texte laden (ein Range-Request fuer alle Items — braucht die Ziehung).
@@ -254,29 +295,21 @@ async function _st_preload() {
   const measure = st_shuffle(st_drawBalanced(rest, ST_LIST_LEN));
   _st_preloadedSeq = train.concat(measure);
 
-  // OLSA-Rauschen JETZT als Selected-ID setzen, damit pMaskEnsureBuf den
-  // richtigen Buffer laedt. plNoiseSelectedId wird spaeter in st_beginRun
-  // nochmals per st_forceOlsaNoise gesetzt (+ plMaskSetOn). Wir veraendern
-  // hier nur die ID, nicht den On/Off-Zustand des Maskierers.
-  if (noiseItem) plNoiseSelectedId = noiseItem.id;
-
-  // Audio-Buffer der 33 Saetze sequenziell laden + normalisieren.
+  // Audio-Buffer der 33 Saetze sequenziell laden (Roh-Buffer cachen).
   // Rauschen zaehlt als ein weiterer Schritt.
-  const total = _st_preloadedSeq.length + (noiseItem ? 1 : 0);
+  const total = _st_preloadedSeq.length + 1;   // +1 fuer das Rausch-Asset
   _st_loadProgress(0, total);
   const ctx = (typeof gPC === "function") ? gPC() : null;
   for (let i = 0; i < _st_preloadedSeq.length; i++) {
     if (ctx) {
       try {
-        const buf = await amGetItemBuffer(ctx, _st_preloadedSeq[i]);
-        if (buf) amGetNormalizedSentenceBuffer(ctx, _st_preloadedSeq[i], buf);
+        await amGetItemBuffer(ctx, _st_preloadedSeq[i]);
       } catch (e) { console.warn("[sprachtest] Audio vorladen:", _st_preloadedSeq[i].id, e); }
     }
     _st_loadProgress(i + 1, total);
   }
-  if (noiseItem && typeof pMaskEnsureBuf === "function") {
-    try { await pMaskEnsureBuf(); } catch (e) { console.warn("[sprachtest] Rauschen vorladen:", e); }
-  }
+  try { await _st_ensureNoiseBuf(); }
+  catch (e) { console.warn("[sprachtest] Rauschen vorladen:", e); }
   _st_loadProgress(total, total);
 }
 
@@ -291,7 +324,7 @@ async function st_beginRun() {
 
   st_savePlayerState();
   st_forceSingleSide();   // Test laeuft einseitig (aktive Seite), "beide" aus
-  st_forceOlsaNoise();
+  st_forceMaskOff();      // Player-Unterlegung fuer die Testdauer aus (SS4.4)
 
   const train   = seq.slice(0, ST_TRAIN_LEN);
   const measure = seq.slice(ST_TRAIN_LEN);
@@ -322,8 +355,8 @@ function st_shuffle(arr) {
   return a;
 }
 
-// Aktuellen Satz ueber den Player abspielen: als Saetze-Item setzen,
-// Ziel-SNR setzen, laden+starten.
+// Aktuellen Satz mischen und abspielen: Satz-Buffer (Cache) holen, Rauschen
+// auf den Ziel-SNR mischen, als fertigen Buffer an den Player uebergeben.
 function st_playCurrent() {
   const item = st_seq[st_idx];
   if (!item) return;
@@ -335,23 +368,23 @@ function st_playCurrent() {
       testUI.scratchText.clear(vr.scratchText);
     }
   }
-  // Ziel-SNR in die Unterlegung (freier dB-Wert, BA605).
-  plMaskSetLevelDb(st_snr);
-  // Unser OLSA-Satz-Item MUSS gesetzt sein, BEVOR die Kategorie auf "saetze"
-  // umschaltet: plSetSource -> saetze.onActivate ruft sLoadCurrent() mit dem
-  // dann aktuellen sCurRec. Ohne Vorab-Setzen laedt onActivate das ALTE
-  // Saetze-Item (Race -> erster Satz falsch, kein OLSA/Rauschen). Reihenfolge:
-  // erst sCurRec, dann Kategorie.
-  sCurRec = item;
   plAutoAdvance = false;
   plLoop = false;
-  if (plActiveSource !== "saetze") plSetSource("saetze");   // onActivate laedt jetzt schon UNSER item
-  // Laden + abspielen (idempotent auf denselben Buffer, falls onActivate schon lud).
-  Promise.resolve(sLoadCurrent()).then(function () {
+  // Satz-Buffer holen (im Vorlauf bereits gecacht, kein Nachladen), Rauschen
+  // auf den Ziel-SNR mischen, als fertigen Buffer an den Player uebergeben.
+  // KEIN Umweg ueber sLoadCurrent/onActivate: der Mix steht VOR pPlay(),
+  // deshalb kein Race und kein "erster Satz ohne Rauschen".
+  const ctx = (typeof gPC === "function") ? gPC() : null;
+  Promise.resolve(amGetItemBuffer(ctx, item)).then(function (sentBuf) {
+    if (!st_active) return;
+    if (!sentBuf) { console.error("[sprachtest] Satz-Buffer fehlt:", item.id); return; }
+    const mixed = _st_buildMixedBuffer(sentBuf, _st_noiseBuf, st_snr);
+    sCurRec = item;                       // fuer Wertung/Textbezug
+    sSetDirectBuffer(mixed, item.text || "");
     if (!st_active) return;
     _pSetPlayWish(true);
     pPlay();
-  }).catch(function (e) { console.error("[sprachtest] Laden:", e); });
+  }).catch(function (e) { console.error("[sprachtest] Satz mischen/laden:", e); });
 }
 
 // Satz-Ende (BA605-Callback): der Nutzer waehlt jetzt im Raster.
