@@ -626,8 +626,11 @@ const st_cfg = {
     titleKey: "stTitle",
     preserveOrder: true,
     paragraphs: [
+      { key: "stIntro1",     kind: "plain" },
+      { key: "stIntro2",     kind: "plain" },
       { key: "stInstruction", kind: "info" },
-      { key: "stTrainHint",   kind: "plain" }
+      { key: "stIntro4",     kind: "plain" },
+      { key: "stTrainHint",  kind: "plain" }
     ]
   },
   header: {
@@ -644,6 +647,19 @@ const st_cfg = {
         wordGrid:    { columns: 5, placeholder: "____" },
         confirmButton: { key: "stBtnOk" }
       },
+      prerequisites: [
+        {
+          checkFn: function() {
+            return !(typeof sideData !== "undefined" && sideData[activeSide] && sideData[activeSide].ST_result);
+          },
+          titleKey:   "stOverwriteTitle",
+          messageKey: "stOverwriteMsg",
+          actions: [
+            { kind: "continue", labelKey: "stBtnOverwriteOk" },
+            { kind: "abort",    labelKey: "stBtnOverwriteCancel" }
+          ]
+        }
+      ],
       hooks: {
         onStart:   st_start,
         onStop:    st_stop,
