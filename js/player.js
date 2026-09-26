@@ -57,6 +57,15 @@ function _pSetPlayWish(wish) {
   pUpdBtn();
 }
 
+// BA605: Optionaler Ende-Callback (Sprachtest). Ist er gesetzt, ruft
+// _pOnPlaybackEnded ihn beim Track-Ende auf STATT Loop/Auto-Advance zu
+// bedienen. Der Konsument setzt ihn fuer die Testdauer und raeumt ihn
+// danach mit pSetEndedCallback(null) wieder ab. Einzige Schreibstelle.
+let _pEndedCallback = null;
+function pSetEndedCallback(fn) {
+  _pEndedCallback = (typeof fn === "function") ? fn : null;
+}
+
 // SW (BA378): Start-Gate. Gibt true zurueck, wenn an der aktuellen
 // Abspielposition abgespielt werden darf:
 //  - Streaming (Schnell/Mittel): sobald der gemessene Vorlauf erreicht ist.
@@ -1007,7 +1016,10 @@ let pMaskGen = 0;                            // Generationszaehler des Mess-Rend
 function pMaskApplyGain() {
   if (typeof pMaskGainL === "undefined" || !pMaskGainL || !pMaskGainR) return;
   const noiseRms = pMaskMeasureNoiseRms();
-  const snr = plMaskLevelDb(plMaskLevelKey);
+  // BA605: freier dB-Sollwert (Sprachtest) hat Vorrang vor der Stufe.
+  const snr = (typeof plMaskDbOverride === "number" && plMaskDbOverride !== null)
+    ? plMaskDbOverride
+    : plMaskLevelDb(plMaskLevelKey);
   const factor = Math.pow(10, -snr / 20);
   const gainFor = function (mainRms) {
     if (!plMaskOn || mainRms <= 1e-9 || noiseRms <= 1e-9) return 0;
@@ -1170,6 +1182,13 @@ function _pOnPlaybackEnded() {
   // Pause und nicht nach dem Track-Ende weiterlaufen lassen. Der naechste
   // Durchlauf (pPlay) startet ihn neu.
   pMaskStop();
+
+  // BA605: Ist ein Ende-Callback gesetzt (Sprachtest), erhaelt er das
+  // Satz-Ende und Loop/Auto-Advance entfallen.
+  if (_pEndedCallback) {
+    _pEndedCallback();
+    return;
+  }
 
   const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
 
@@ -2490,6 +2509,22 @@ function plMaskSetLevel(key) {
   if (!PL_MASK_LEVELS.find(function (x) { return x.key === key; })) return;
   plMaskLevelKey = key;
   plMaskRefreshUI();
+  pMaskApplyGain();   // nur Faktor neu, kein Render
+}
+
+// BA605: Freier SNR-Sollwert fuer die Unterlegung (Sprachtest). Neben dem
+// diskreten Stufen-Schluessel kann ein beliebiger dB-Wert gesetzt werden;
+// pMaskApplyGain liest ihn bevorzugt, solange er != null ist.
+// plMaskSetLevelDb(null) gibt die Kontrolle wieder an den Stufen-Schluessel
+// zurueck. Bereich -15..+21 dB wird geklemmt.
+// Kein plMaskRefreshUI() -- das Player-Dropdown bleibt unberuehrt.
+let plMaskDbOverride = null;
+function plMaskSetLevelDb(db) {
+  if (db === null || db === undefined) {
+    plMaskDbOverride = null;
+  } else {
+    plMaskDbOverride = Math.max(-15, Math.min(21, db));
+  }
   pMaskApplyGain();   // nur Faktor neu, kein Render
 }
 
