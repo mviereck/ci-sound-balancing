@@ -1139,6 +1139,7 @@ Object.assign(L.en, {
     btnSwapLR: "⇄ L↔R",
     clipHintCapped: "{capped} has reached maximum volume — only {other} is still being adjusted.",
     btnConfirmOffset: "Confirm offset",
+    stScratchLabel: "Free notes (not scored):",
     sliderControl: "Slider control:",
     sliderStep: "±0.5 dB",
     sliderHold: "Hold Shift",

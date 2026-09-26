@@ -1139,6 +1139,7 @@ Object.assign(L.fr, {
     btnSwapLR: "⇄ G↔D",
     clipHintCapped: "{capped} a atteint le volume maximum — seul {other} est encore ajusté.",
     btnConfirmOffset: "Confirmer l'offset",
+    stScratchLabel: "Notes libres (non comptabilisées) :",
     sliderControl: "Commande du curseur :",
     sliderStep: "±0,5 dB",
     sliderHold: "Maintenir Maj",

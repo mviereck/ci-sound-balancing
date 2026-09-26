@@ -422,6 +422,20 @@ canvas {
   box-shadow: 0 0 10px rgba(59, 130, 246, 0.35);
 }
 
+/* BA606: scratchText + wordGrid */
+.scratch-text-wrap { margin: 0.6em 0; }
+.scratch-text-label { display: block; font-size: 0.85em; opacity: 0.8; margin-bottom: 0.2em; }
+.scratch-text { width: 100%; box-sizing: border-box; resize: vertical; }
+
+.word-grid-preview {
+  font-size: 1.1em; font-weight: 600; text-align: center;
+  margin: 0.4em 0 0.8em; min-height: 1.4em;
+}
+.word-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.4em; }
+.word-grid-col { display: flex; flex-direction: column; gap: 0.25em; }
+.word-grid-btn { width: 100%; }
+.word-grid-btn.selected { background: var(--success); color: #fff; }
+
 /* Adaptiver Frequenzabgleich — Antwort-Buttons (Bauanleitung 02b/1) */
 .hj-buttons {
   display: flex;

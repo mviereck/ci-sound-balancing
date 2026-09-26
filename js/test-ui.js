@@ -807,6 +807,60 @@ function _buildTestPanelNew(parentEl, cfg) {
       refs.cumulativeDisplay = cdEl;
     }
 
+    // --- scratchText (BA606) ---
+    // Freie Mitschreib-Textbox. Reine Gedaechtnisstuetze: nicht ausgewertet,
+    // vom Modul pro Runde geleert. Kein Auswahl-/Ergebnisbeitrag.
+    if (body.scratchText) {
+      var scWrap = _mkEl('div', 'scratch-text-wrap');
+      var scLabel = _mkEl('label', 'scratch-text-label');
+      _tEl(scLabel, (body.scratchText.labelKey) || 'stScratchLabel');
+      var scArea = _mkEl('textarea', 'scratch-text');
+      scArea.rows = 2;
+      scArea.autocomplete = 'off';
+      scArea.spellcheck = false;
+      scWrap.append(scLabel, scArea);
+      vWrap.appendChild(scWrap);
+      refs.scratchText = { wrap: scWrap, area: scArea };
+    }
+
+    // --- wordGrid (BA606) ---
+    // 5x10-Antwortraster mit Live-Satz-Vorschau. Fuenf Spalten, je bis zu
+    // zehn Wort-Buttons; Auswahl alternierend JE SPALTE (Klick auf anderen
+    // schaltet um, Klick auf aktiven deaktiviert -> Spalte leer = "nicht
+    // verstanden"). Spalten unabhaengig. Die Woerter setzt das Modul pro
+    // Runde ueber testUI.wordGrid.setWords; ausgelesen wird ueber getSelection.
+    // Die Engine kennt keine konkreten Woerter/Positionen.
+    if (body.wordGrid) {
+      var wgCols = (body.wordGrid.columns) || 5;
+      var wgWrap = _mkEl('div', 'word-grid-wrap');
+
+      // Live-Satz-Vorschau (oben)
+      var wgPreview = _mkEl('div', 'word-grid-preview');
+
+      // Spalten-Container
+      var wgGrid = _mkEl('div', 'word-grid');
+      var wgColumns = [];   // je Spalte: { col, buttons:[], selected:int|null, words:[] }
+
+      for (var ci = 0; ci < wgCols; ci++) {
+        var colEl = _mkEl('div', 'word-grid-col');
+        colEl.dataset.col = ci;
+        var colState = { col: colEl, buttons: [], selected: null, words: [] };
+        wgGrid.appendChild(colEl);
+        wgColumns.push(colState);
+      }
+
+      wgWrap.append(wgPreview, wgGrid);
+      vWrap.appendChild(wgWrap);
+
+      refs.wordGrid = {
+        wrap: wgWrap,
+        preview: wgPreview,
+        grid: wgGrid,
+        columns: wgColumns,
+        placeholder: (body.wordGrid.placeholder) || '____'
+      };
+    }
+
     // --- confirmButton ---
     var confirmButton = null;
     if (body.confirmButton) {
@@ -1483,6 +1537,89 @@ var testUI = {
         btn.disabled = isPlaying;
       });
     }
+  },
+
+  // ---- wordGrid (BA606) ----
+  wordGrid: {
+    // Woerter je Spalte setzen (pro Runde). words: Array von Spalten,
+    // jede Spalte ein Array von Strings (bis zu 10). Baut die Buttons neu,
+    // setzt alle Spalten auf "nicht gewaehlt" und rendert die Vorschau.
+    // onSelect (optional): Callback ohne Argumente, nach jeder Auswahl-
+    // aenderung gefeuert (das Modul kann daran z.B. Zustand spiegeln).
+    setWords: function(els, words, onSelect) {
+      if (!els) return;
+      els._onSelect = (typeof onSelect === 'function') ? onSelect : null;
+      for (var ci = 0; ci < els.columns.length; ci++) {
+        var cs = els.columns[ci];
+        cs.col.innerHTML = '';
+        cs.buttons = [];
+        cs.selected = null;
+        cs.words = (words && words[ci]) ? words[ci].slice() : [];
+        (function(colState, colIdx) {
+          for (var wi = 0; wi < colState.words.length; wi++) {
+            (function(wordIdx) {
+              var btn = _mkEl('button', 'btn word-grid-btn');
+              btn.type = 'button';
+              btn.textContent = colState.words[wordIdx];
+              btn.addEventListener('click', function() {
+                // Alternierend je Spalte: gleicher Button -> ab, anderer -> um.
+                if (colState.selected === wordIdx) {
+                  colState.selected = null;
+                } else {
+                  colState.selected = wordIdx;
+                }
+                testUI.wordGrid._refreshColumn(colState);
+                testUI.wordGrid._renderPreview(els);
+                if (els._onSelect) els._onSelect();
+              });
+              colState.buttons.push(btn);
+              colState.col.appendChild(btn);
+            })(wi);
+          }
+        })(cs, ci);
+      }
+      testUI.wordGrid._renderPreview(els);
+    },
+
+    // Auswahl auslesen: Array je Spalte mit dem gewaehlten Wort (String)
+    // oder null (Spalte leer = "nicht verstanden").
+    getSelection: function(els) {
+      if (!els) return [];
+      return els.columns.map(function(cs) {
+        return (cs.selected === null) ? null : cs.words[cs.selected];
+      });
+    },
+
+    // Alle Spalten leeren (neue Runde, Woerter bleiben stehen).
+    clearSelection: function(els) {
+      if (!els) return;
+      els.columns.forEach(function(cs) {
+        cs.selected = null;
+        testUI.wordGrid._refreshColumn(cs);
+      });
+      testUI.wordGrid._renderPreview(els);
+    },
+
+    // intern: aktiven Button einer Spalte optisch markieren.
+    _refreshColumn: function(cs) {
+      for (var i = 0; i < cs.buttons.length; i++) {
+        cs.buttons[i].classList.toggle('selected', cs.selected === i);
+      }
+    },
+
+    // intern: Satz-Vorschau bauen (gewaehlte Woerter + Platzhalter).
+    _renderPreview: function(els) {
+      var parts = els.columns.map(function(cs) {
+        return (cs.selected === null) ? els.placeholder : cs.words[cs.selected];
+      });
+      els.preview.textContent = parts.join(' ');
+    }
+  },
+
+  // ---- scratchText (BA606) ----
+  scratchText: {
+    clear: function(els) { if (els && els.area) els.area.value = ''; },
+    get:   function(els) { return (els && els.area) ? els.area.value : ''; }
   },
 
   // ---- piano (BA354) ----

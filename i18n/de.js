@@ -1434,6 +1434,7 @@ Object.assign(L.de, {
     btnSwapLR: "⇄ L↔R",
     clipHintCapped: "{capped} hat die maximale Lautstärke erreicht — nur {other} wird noch angepasst.",
     btnConfirmOffset: "Offset bestätigen",
+    stScratchLabel: "Frei mitschreiben (wird nicht gewertet):",
     sliderControl: "Slider-Steuerung:",
     sliderStep: "±0,5 dB",
     sliderHold: "Shift halten",
