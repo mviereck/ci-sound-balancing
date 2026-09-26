@@ -180,40 +180,92 @@ function st_drawBalanced(all, n) {
 // ------------------------------------------------------------
 // Ablauf
 // ------------------------------------------------------------
+// Ladebalken-Hilfsfunktionen (ST_loadHint in index.html).
+function _st_loadShow(msg) {
+  const el = document.getElementById("ST_loadHint");
+  if (!el) return;
+  el.innerHTML = "";
+  const txt = document.createElement("div");
+  txt.textContent = msg || t("stLoadingMsg");
+  const bar = document.createElement("progress");
+  bar.id = "ST_loadBar";
+  bar.value = 0;
+  bar.max = 1;
+  el.appendChild(txt);
+  el.appendChild(bar);
+  el.hidden = false;
+}
+function _st_loadProgress(done, total) {
+  const bar = document.getElementById("ST_loadBar");
+  if (bar) { bar.value = done; bar.max = total; }
+}
+function _st_loadHide() {
+  const el = document.getElementById("ST_loadHint");
+  if (el) el.hidden = true;
+}
+
 function st_start() {
-  // Der Test laeuft einseitig auf der aktiven Seite -> Kopfhoerercheck nur
-  // fuer DIESE Seite (nicht beide). "beide Seiten" wird spaeter in
-  // st_beginRun ohnehin fuer die Testdauer erzwungen.
-  testUI.sideCheck.run({ sides: "one", side: st_currentSide() }, function () {
-    Promise.resolve(st_beginRun()).catch(function (e) {
-      console.error("[sprachtest] Start fehlgeschlagen:", e);
+  Promise.resolve(_st_preload()).then(function () {
+    // Kopfhoerercheck erst nach vollstaendigem Vorladen.
+    testUI.sideCheck.run({ sides: "one", side: st_currentSide() }, function () {
+      Promise.resolve(st_beginRun()).catch(function (e) {
+        console.error("[sprachtest] Start fehlgeschlagen:", e);
+        _st_loadHide();
+      });
+    }, function () {
+      // Abbruch im Kopfhoerercheck.
+      _st_loadHide();
     });
-  }, function () {
-    // Abbruch im Kopfhoerercheck -> nichts starten.
+  }).catch(function (e) {
+    console.error("[sprachtest] Vorladen fehlgeschlagen:", e);
+    _st_loadHide();
   });
 }
 
-async function st_beginRun() {
+// Laedt Texte + alle Audio-Buffer (Trainings- + Messsaetze + Rauschen) sequenziell
+// in den Browser-Cache. Ladebalken in ST_loadHint. Ziehung passiert spaeter in
+// st_beginRun (braucht die jetzt geladenen Texte).
+async function _st_preload() {
   const all = st_allOlsaSentences();
   if (all.length < ST_LIST_LEN) {
     console.warn("[sprachtest] zu wenige OLSA-Saetze:", all.length);
   }
-  // Satztexte vorab laden (die balancierte Ziehung braucht sie).
+  // Texte laden (ein Range-Request fuer alle Items).
   try {
     await st_ensureTexts(all);
   } catch (e) {
     console.error("[sprachtest] Satztexte laden fehlgeschlagen:", e);
-    return;
+    throw e;
   }
+  // Audio-Buffer sequenziell laden (amGetItemBuffer cached; auch normalisiert).
+  // Rauschen zaehlt als ein weiterer Schritt.
+  const noiseItem = st_findOlsaNoiseItem();
+  const total = all.length + (noiseItem ? 1 : 0);
+  _st_loadShow();
+  _st_loadProgress(0, total);
+  const ctx = (typeof gPC === "function") ? gPC() : null;
+  for (let i = 0; i < all.length; i++) {
+    if (ctx) {
+      try {
+        const buf = await amGetItemBuffer(ctx, all[i]);
+        if (buf) amGetNormalizedSentenceBuffer(ctx, all[i], buf);
+      } catch (e) { console.warn("[sprachtest] Audio vorladen:", all[i].id, e); }
+    }
+    _st_loadProgress(i + 1, total);
+  }
+  if (noiseItem && typeof pMaskEnsureBuf === "function") {
+    try { await pMaskEnsureBuf(); } catch (e) { console.warn("[sprachtest] Rauschen vorladen:", e); }
+  }
+  _st_loadProgress(total, total);
+}
+
+async function st_beginRun() {
+  // Alle Texte + Buffer sind jetzt im Cache (aus _st_preload).
+  const all = st_allOlsaSentences();
+
   st_savePlayerState();
   st_forceSingleSide();   // Test laeuft einseitig (aktive Seite), "beide" aus
   st_forceOlsaNoise();
-  // Maskierer-Puffer VORAB laden: sonst laedt pMaskStart ihn beim ersten pPlay
-  // async nach, der erste Satz laeuft dann ohne Rauschen (ab dem zweiten ist er
-  // gecacht). Einmaliges Vorladen macht das Rauschen ab Satz 1 verfuegbar.
-  if (typeof pMaskEnsureBuf === "function") {
-    try { await pMaskEnsureBuf(); } catch (e) { console.warn("[sprachtest] Rauschen vorladen:", e); }
-  }
 
   // Trainingssaetze (zaehlen nicht) + gewertete Liste, beide balanciert
   // gezogen und getrennt. Danach die gewertete Liste verwuerfeln.
@@ -228,6 +280,8 @@ async function st_beginRun() {
   st_wordHistory = [];
   st_phase = (ST_TRAIN_LEN > 0) ? "train" : "measure";
   st_active = true;
+
+  _st_loadHide();
 
   // BA605: Satz-Ende-Signal auf unseren Handler legen.
   pSetEndedCallback(st_onSentenceEnded);

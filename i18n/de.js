@@ -1446,6 +1446,7 @@ Object.assign(L.de, {
     stOverwriteMsg: "Für diese Seite liegt bereits ein Sprachtest-Ergebnis vor. Ein neuer Durchgang überschreibt es unwiderruflich.\n\nFortfahren und früheres Ergebnis löschen?",
     stBtnOverwriteOk: "Ja, neu starten",
     stBtnOverwriteCancel: "Abbrechen",
+    stLoadingMsg: "Lade Testmaterial …",
     stPickHint: "Was haben Sie gehört? In jeder Spalte ein Wort — keins = nicht verstanden.",
     stBtnStart: "Sprachtest starten",
     stBtnOk: "OK — nächster Satz",

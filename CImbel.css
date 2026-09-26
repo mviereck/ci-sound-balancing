@@ -832,7 +832,17 @@ select:disabled {
 .test-box .slider-wrap .touch-ctrl { order: 3; }
 .test-box .slider-wrap .extend-btn { order: 4; }
 .test-box button[data-action="confirm"] {
+  margin-top: 1.6em;
   margin-bottom: 0.8em;
+}
+#ST_loadHint {
+  padding: 0.8em 1em;
+  font-size: 0.95em;
+}
+#ST_loadHint progress {
+  width: 100%;
+  margin-top: 0.4em;
+  display: block;
 }
 .test-box .info-box.key-hint {
   text-align: left;
