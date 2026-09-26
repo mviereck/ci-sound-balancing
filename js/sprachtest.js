@@ -254,6 +254,12 @@ async function _st_preload() {
   const measure = st_shuffle(st_drawBalanced(rest, ST_LIST_LEN));
   _st_preloadedSeq = train.concat(measure);
 
+  // OLSA-Rauschen JETZT als Selected-ID setzen, damit pMaskEnsureBuf den
+  // richtigen Buffer laedt. plNoiseSelectedId wird spaeter in st_beginRun
+  // nochmals per st_forceOlsaNoise gesetzt (+ plMaskSetOn). Wir veraendern
+  // hier nur die ID, nicht den On/Off-Zustand des Maskierers.
+  if (noiseItem) plNoiseSelectedId = noiseItem.id;
+
   // Audio-Buffer der 33 Saetze sequenziell laden + normalisieren.
   // Rauschen zaehlt als ein weiterer Schritt.
   const total = _st_preloadedSeq.length + (noiseItem ? 1 : 0);
@@ -745,10 +751,14 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!parentEl) return;
   _st_parentEl = parentEl;
   ST_els = buildTestPanel(parentEl, st_cfg);
-  // ST_loadHint NACH buildTestPanel anlegen -- buildTestPanel leert parentEl
-  // per innerHTML='', ein vorher im HTML stehendes Element wuerde geloescht.
+  // ST_loadHint NACH buildTestPanel anlegen (buildTestPanel leert parentEl).
+  // Position: direkt nach headerBox (wo Start-Button sitzt), nicht ganz oben.
   const hint = document.createElement("div");
   hint.id = "ST_loadHint";
   hint.hidden = true;
-  parentEl.insertBefore(hint, parentEl.firstChild);
+  if (ST_els && ST_els.headerBox) {
+    ST_els.headerBox.after(hint);
+  } else {
+    parentEl.appendChild(hint);
+  }
 });
