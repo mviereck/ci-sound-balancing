@@ -45,6 +45,7 @@ let st_snr = ST_START_SNR;   // aktueller Ziel-SNR
 let st_snrHistory = [];      // SNR je gewertetem Satz (nur measure-Phase)
 let st_wordHistory = [];     // richtige Woerter (0..5) je gewertetem Satz
 let st_saved = null;         // gesicherter Player-Unterlegungszustand (Restore)
+let _st_preloadedSeq = null; // Satz-Reihenfolge aus _st_preload (Ziehung vorgezogen)
 
 // ------------------------------------------------------------
 // Player-Zustand sichern / erzwingen / wiederherstellen (SS4.4)
@@ -222,34 +223,45 @@ function st_start() {
   });
 }
 
-// Laedt Texte + alle Audio-Buffer (Trainings- + Messsaetze + Rauschen) sequenziell
-// in den Browser-Cache. Ladebalken in ST_loadHint. Ziehung passiert spaeter in
-// st_beginRun (braucht die jetzt geladenen Texte).
+// Laedt Texte + Audio-Buffer der benoetigten Saetze (33) + Rauschen sequenziell
+// in den Browser-Cache. Ladebalken in ST_loadHint sofort beim Aufruf sichtbar.
+// Zieht die Satz-Reihenfolge vor und speichert sie in _st_preloadedSeq, damit
+// st_beginRun nur die tatsaechlich gespielte Teilmenge laedt (nicht alle ~150).
 async function _st_preload() {
   const all = st_allOlsaSentences();
   if (all.length < ST_LIST_LEN) {
     console.warn("[sprachtest] zu wenige OLSA-Saetze:", all.length);
   }
-  // Texte laden (ein Range-Request fuer alle Items).
+  // Ladebalken sofort zeigen — noch vor dem ersten Netzwerk-Request.
+  const noiseItem = st_findOlsaNoiseItem();
+  _st_loadShow();
+  _st_loadProgress(0, 1);   // unbestimmt bis Texte geladen
+
+  // Texte laden (ein Range-Request fuer alle Items — braucht die Ziehung).
   try {
     await st_ensureTexts(all);
   } catch (e) {
     console.error("[sprachtest] Satztexte laden fehlgeschlagen:", e);
     throw e;
   }
-  // Audio-Buffer sequenziell laden (amGetItemBuffer cached; auch normalisiert).
+
+  // Ziehung JETZT — nur die 33 tatsaechlich gespielten Saetze vorladen.
+  const train = st_drawBalanced(all, ST_TRAIN_LEN);
+  const rest = all.filter(function (it) { return train.indexOf(it) < 0; });
+  const measure = st_shuffle(st_drawBalanced(rest, ST_LIST_LEN));
+  _st_preloadedSeq = train.concat(measure);
+
+  // Audio-Buffer der 33 Saetze sequenziell laden + normalisieren.
   // Rauschen zaehlt als ein weiterer Schritt.
-  const noiseItem = st_findOlsaNoiseItem();
-  const total = all.length + (noiseItem ? 1 : 0);
-  _st_loadShow();
+  const total = _st_preloadedSeq.length + (noiseItem ? 1 : 0);
   _st_loadProgress(0, total);
   const ctx = (typeof gPC === "function") ? gPC() : null;
-  for (let i = 0; i < all.length; i++) {
+  for (let i = 0; i < _st_preloadedSeq.length; i++) {
     if (ctx) {
       try {
-        const buf = await amGetItemBuffer(ctx, all[i]);
-        if (buf) amGetNormalizedSentenceBuffer(ctx, all[i], buf);
-      } catch (e) { console.warn("[sprachtest] Audio vorladen:", all[i].id, e); }
+        const buf = await amGetItemBuffer(ctx, _st_preloadedSeq[i]);
+        if (buf) amGetNormalizedSentenceBuffer(ctx, _st_preloadedSeq[i], buf);
+      } catch (e) { console.warn("[sprachtest] Audio vorladen:", _st_preloadedSeq[i].id, e); }
     }
     _st_loadProgress(i + 1, total);
   }
@@ -260,18 +272,20 @@ async function _st_preload() {
 }
 
 async function st_beginRun() {
-  // Alle Texte + Buffer sind jetzt im Cache (aus _st_preload).
-  const all = st_allOlsaSentences();
+  // Satz-Reihenfolge aus _st_preload uebernehmen (Buffer bereits im Cache).
+  const seq = _st_preloadedSeq;
+  _st_preloadedSeq = null;
+  if (!seq || seq.length < ST_LIST_LEN + ST_TRAIN_LEN) {
+    console.error("[sprachtest] Vorladen fehlgeschlagen oder Sequenz zu kurz");
+    return;
+  }
 
   st_savePlayerState();
   st_forceSingleSide();   // Test laeuft einseitig (aktive Seite), "beide" aus
   st_forceOlsaNoise();
 
-  // Trainingssaetze (zaehlen nicht) + gewertete Liste, beide balanciert
-  // gezogen und getrennt. Danach die gewertete Liste verwuerfeln.
-  const train = st_drawBalanced(all, ST_TRAIN_LEN);
-  const rest = all.filter(function (it) { return train.indexOf(it) < 0; });
-  const measure = st_shuffle(st_drawBalanced(rest, ST_LIST_LEN));
+  const train   = seq.slice(0, ST_TRAIN_LEN);
+  const measure = seq.slice(ST_TRAIN_LEN);
 
   st_seq = train.concat(measure);
   st_idx = 0;
