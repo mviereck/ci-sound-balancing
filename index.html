@@ -482,6 +482,7 @@
           <button class="subtab" data-subtab="stereobalance" data-parent="ergebnisse" data-t="tabSTB"></button>
           <button class="subtab" data-subtab="latenz" data-parent="ergebnisse" id="subTabLTZBtn" data-t="tabLTZ">Latenz</button>
           <button class="subtab" data-subtab="freqmatch" data-parent="ergebnisse" id="subTabFRQBtn"></button>
+          <button class="subtab" data-subtab="sprachtest" data-parent="ergebnisse" id="ST_resSubtabBtn" data-t="tabSprachtest"></button>
           <button class="btn" id="printErgebnisseBtn"
                   style="margin-left:auto;padding:4px 10px;font-size:0.9em;">
             🖨 <span data-t="printBtn"></span>
@@ -757,6 +758,26 @@
               </thead>
               <tbody id="wvResultBody"></tbody>
             </table>
+          </div>
+        </div>
+
+        <!-- ===== ERGEBNIS SPRACHTEST ===== -->
+        <div id="subpanel-ergebnisse-sprachtest" class="subpanel">
+          <div id="ST_resEmpty" data-t="stResNoData"></div>
+          <div id="ST_resContent" style="display:none;">
+            <div class="st-res-srt">
+              <span data-t="stResSrtLabel"></span>
+              <strong id="ST_resSrtValue"></strong>
+              <span id="ST_resConvHint" data-t="stResConvHint" style="display:none;"></span>
+            </div>
+            <h4 data-t="stResCourseTitle"></h4>
+            <canvas id="ST_resCourseCanvas" width="640" height="240"></canvas>
+            <h4 data-t="stResScatterTitle"></h4>
+            <div class="st-res-note" data-t="stResScatterNote"></div>
+            <canvas id="ST_resScatterCanvas" width="640" height="240"></canvas>
+            <h4 data-t="stResSlopeTitle"></h4>
+            <div class="st-res-note" data-t="stResSlopeNote"></div>
+            <div id="ST_resSlopeValue"></div>
           </div>
         </div>
 

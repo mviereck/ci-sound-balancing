@@ -50,12 +50,14 @@ let st_saved = null;         // gesicherter Player-Unterlegungszustand (Restore)
 // Player-Zustand sichern / erzwingen / wiederherstellen (SS4.4)
 // ------------------------------------------------------------
 function st_savePlayerState() {
+  var bothCb = document.getElementById("plBothSides");
   st_saved = {
     maskOn:    plMaskOn,
     maskLevel: plMaskLevelKey,
     noiseId:   plNoiseSelectedId,
     activeSrc: plActiveSource,
-    sentRec:   (typeof sCurRec !== "undefined") ? sCurRec : null
+    sentRec:   (typeof sCurRec !== "undefined") ? sCurRec : null,
+    bothSides: bothCb ? bothCb.checked : false   // "beide Seiten" — fuer den Test aus
   };
 }
 function st_restorePlayerState() {
@@ -65,7 +67,30 @@ function st_restorePlayerState() {
   plMaskSetOn(!!st_saved.maskOn);
   plMaskSetLevel(st_saved.maskLevel);
   plNoiseSelectedId = st_saved.noiseId;
+  // "Beide Seiten" wiederherstellen (einseitig war nur fuer den Test erzwungen).
+  var bothCb = document.getElementById("plBothSides");
+  if (bothCb && bothCb.checked !== st_saved.bothSides) {
+    bothCb.checked = st_saved.bothSides;
+    if (typeof updatePlayerForSideChange === "function") updatePlayerForSideChange();
+  }
   st_saved = null;
+}
+
+// Erzwingt EINSEITIGE Wiedergabe (die global aktive Seite) fuer die Testdauer.
+// Der OLSA laeuft je Seite getrennt (ein Ergebnis pro Seite); "beide Seiten"
+// waere fachlich falsch. Nutzt den regulaeren Umschaltweg (Checkbox +
+// updatePlayerForSideChange), nicht einen Patch an getPlayerSide.
+function st_forceSingleSide() {
+  var bothCb = document.getElementById("plBothSides");
+  if (bothCb && bothCb.checked) {
+    bothCb.checked = false;
+    if (typeof updatePlayerForSideChange === "function") updatePlayerForSideChange();
+  }
+}
+
+// Die aktive Seite (fuer Ergebnis-Zuordnung / Anzeige).
+function st_currentSide() {
+  return (typeof activeSide !== "undefined") ? activeSide : "left";
 }
 
 // Setzt das OLSA-Rauschen als aktives Geraeusche-Item und schaltet die
@@ -87,7 +112,38 @@ function st_allOlsaSentences() {
 }
 function st_findOlsaNoiseItem() {
   const list = (typeof plNoiseVisibleItems === "function") ? plNoiseVisibleItems() : [];
-  return list.find(function (it) { return it.tags && it.tags.test_set === "OLSA"; }) || null;
+  // Das OLSA-Stoerrauschen traegt KEIN test_set-Tag; es wird ueber die stabile
+  // Item-id erkannt (Collection _sourceKey "olsa-noise", Datei
+  // stereonoise_OLSAfemale_TTS). id-Form: "<srcKey>:<title>/<rohe-id>".
+  return list.find(function (it) {
+    return typeof it.id === "string" && it.id.indexOf("stereonoise_OLSAfemale_TTS") >= 0;
+  }) || null;
+}
+
+// Laedt die Satztexte der OLSA-Items EINMAL vorab (die balancierte Ziehung
+// braucht den Text, der sonst erst beim Abspielen per Detail-Range kommt).
+// Nutzt die vorhandene Detail-NDJSON (item._detailUrl): eine Datei, per
+// Byte-Fenster (detailStart/detail) je Item die Zeile ausschneiden -> item.text.
+// Kein zweiter Textweg neben der Detail-Datei (Architektur SS3).
+async function st_ensureTexts(items) {
+  const need = items.filter(function (it) {
+    return (!it.text) && it._detailUrl && typeof it.detailStart === "number"
+        && typeof it.detail === "number";
+  });
+  if (!need.length) return;
+  const url = need[0]._detailUrl;
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error("Detail-Datei nicht ladbar: HTTP " + resp.status);
+  const raw = new Uint8Array(await resp.arrayBuffer());
+  const dec = new TextDecoder("utf-8");
+  need.forEach(function (it) {
+    if (it._detailUrl !== url) return;   // (alle gleich, Sicherheitsnetz)
+    const slice = raw.subarray(it.detailStart, it.detailStart + it.detail);
+    try {
+      const rec = JSON.parse(dec.decode(slice));
+      if (rec && rec.text != null) it.text = rec.text;
+    } catch (e) { /* Zeile unlesbar -> Item bleibt ohne Text, wird bei der Ziehung uebersprungen */ }
+  });
 }
 
 // Balancierte Ziehung von n Saetzen: moeglichst gleiche Wort-Balance je
@@ -125,21 +181,39 @@ function st_drawBalanced(all, n) {
 // Ablauf
 // ------------------------------------------------------------
 function st_start() {
-  // Kopfhoerercheck zuerst (beide Seiten), dann Testablauf.
-  testUI.sideCheck.run({ sides: "both" }, function () {
-    st_beginRun();
+  // Der Test laeuft einseitig auf der aktiven Seite -> Kopfhoerercheck nur
+  // fuer DIESE Seite (nicht beide). "beide Seiten" wird spaeter in
+  // st_beginRun ohnehin fuer die Testdauer erzwungen.
+  testUI.sideCheck.run({ sides: "one", side: st_currentSide() }, function () {
+    Promise.resolve(st_beginRun()).catch(function (e) {
+      console.error("[sprachtest] Start fehlgeschlagen:", e);
+    });
   }, function () {
     // Abbruch im Kopfhoerercheck -> nichts starten.
   });
 }
 
-function st_beginRun() {
+async function st_beginRun() {
   const all = st_allOlsaSentences();
   if (all.length < ST_LIST_LEN) {
     console.warn("[sprachtest] zu wenige OLSA-Saetze:", all.length);
   }
+  // Satztexte vorab laden (die balancierte Ziehung braucht sie).
+  try {
+    await st_ensureTexts(all);
+  } catch (e) {
+    console.error("[sprachtest] Satztexte laden fehlgeschlagen:", e);
+    return;
+  }
   st_savePlayerState();
+  st_forceSingleSide();   // Test laeuft einseitig (aktive Seite), "beide" aus
   st_forceOlsaNoise();
+  // Maskierer-Puffer VORAB laden: sonst laedt pMaskStart ihn beim ersten pPlay
+  // async nach, der erste Satz laeuft dann ohne Rauschen (ab dem zweiten ist er
+  // gecacht). Einmaliges Vorladen macht das Rauschen ab Satz 1 verfuegbar.
+  if (typeof pMaskEnsureBuf === "function") {
+    try { await pMaskEnsureBuf(); } catch (e) { console.warn("[sprachtest] Rauschen vorladen:", e); }
+  }
 
   // Trainingssaetze (zaehlen nicht) + gewertete Liste, beide balanciert
   // gezogen und getrennt. Danach die gewertete Liste verwuerfeln.
@@ -186,12 +260,16 @@ function st_playCurrent() {
   }
   // Ziel-SNR in die Unterlegung (freier dB-Wert, BA605).
   plMaskSetLevelDb(st_snr);
-  // Satz als aktives Saetze-Item setzen und ueber den vorhandenen Player abspielen.
-  if (plActiveSource !== "saetze") plSetSource("saetze");
+  // Unser OLSA-Satz-Item MUSS gesetzt sein, BEVOR die Kategorie auf "saetze"
+  // umschaltet: plSetSource -> saetze.onActivate ruft sLoadCurrent() mit dem
+  // dann aktuellen sCurRec. Ohne Vorab-Setzen laedt onActivate das ALTE
+  // Saetze-Item (Race -> erster Satz falsch, kein OLSA/Rauschen). Reihenfolge:
+  // erst sCurRec, dann Kategorie.
   sCurRec = item;
   plAutoAdvance = false;
   plLoop = false;
-  // Laden + abspielen.
+  if (plActiveSource !== "saetze") plSetSource("saetze");   // onActivate laedt jetzt schon UNSER item
+  // Laden + abspielen (idempotent auf denselben Buffer, falls onActivate schon lud).
   Promise.resolve(sLoadCurrent()).then(function () {
     if (!st_active) return;
     _pSetPlayWish(true);
@@ -224,8 +302,11 @@ function st_onConfirm() {
   const delta = st_adaptDelta(correct, measureCount);
   st_snr = Math.max(ST_SNR_MIN, Math.min(ST_SNR_MAX, st_snr + delta));
 
-  // Konvergenz-Abbruch (SS6): ab dem 7. gewerteten Satz, wenn delta == 0.
-  const converged = isMeasure && measureCount >= 7 && delta === 0;
+  // Konvergenz-Abbruch (Standard, Diplomarbeit Kap. 3.3): der Pegel hat sich
+  // eingependelt, wenn er sich ueber die LETZTEN 7 gewerteten Saetze nicht
+  // aendert (Konvergenzbereich). Dann Ende, SRT aus den letzten 6 Werten.
+  // Ein einzelnes delta==0 ist KEINE Konvergenz -- erst 7 gleiche SNR-Werte.
+  const converged = isMeasure && st_last7Stable();
 
   st_advance(converged);
 }
@@ -235,6 +316,19 @@ function st_onConfirm() {
 function st_adaptDelta(correct, measureCount) {
   const table = (measureCount <= 4) ? ST_ADAPT_COARSE : ST_ADAPT_FINE;
   return table[correct] || 0;
+}
+
+// Konvergenzbereich: true, wenn die letzten 7 gewerteten SNR-Werte identisch
+// sind (der Pegel hat sich ueber 7 Saetze nicht mehr veraendert). Vorher (< 7
+// Werte) nie konvergiert.
+function st_last7Stable() {
+  const h = st_snrHistory;
+  if (h.length < 7) return false;
+  const last = h[h.length - 1];
+  for (let i = h.length - 7; i < h.length; i++) {
+    if (h[i] !== last) return false;
+  }
+  return true;
 }
 
 function st_advance(converged) {
@@ -312,6 +406,104 @@ function st_updateUI() {
       text: done + "/" + ST_LIST_LEN
     });
   }
+}
+
+// ------------------------------------------------------------
+// Persistenz + Ergebnisanzeige
+// ------------------------------------------------------------
+function ST_saveResult(result) {
+  sideData[activeSide].ST_result = result;
+  if (typeof window._autoSaveState === "function") window._autoSaveState();
+  ST_renderResults();
+}
+
+function ST_renderResults() {
+  const res = (typeof sideData !== "undefined" && sideData[activeSide])
+    ? sideData[activeSide].ST_result || null
+    : null;
+  const empty = document.getElementById("ST_resEmpty");
+  const content = document.getElementById("ST_resContent");
+  if (!empty || !content) return;
+  if (!res || !res.snrHistory || !res.snrHistory.length) {
+    empty.style.display = "";
+    content.style.display = "none";
+    return;
+  }
+  empty.style.display = "none";
+  content.style.display = "";
+
+  const srtEl = document.getElementById("ST_resSrtValue");
+  if (srtEl) srtEl.textContent = (res.srt === null)
+    ? "---"
+    : (res.srt.toFixed(1) + " dB SNR");
+  const conv = document.getElementById("ST_resConvHint");
+  if (conv) conv.style.display = res.converged ? "" : "none";
+
+  ST_drawCourse(res);
+  ST_drawScatter(res);
+  ST_showSlope(res);
+}
+
+function ST_drawCourse(res) {
+  const cv = document.getElementById("ST_resCourseCanvas");
+  if (!cv) return;
+  const ctx = cv.getContext("2d");
+  ctx.clearRect(0, 0, cv.width, cv.height);
+  const snr = res.snrHistory;
+  const n = snr.length;
+  if (!n) return;
+  const yMin = -15, yMax = 21;
+  const padL = 40, padB = 24, padT = 12, padR = 12;
+  const w = cv.width - padL - padR, h = cv.height - padT - padB;
+  const xAt = function (i) { return padL + (n <= 1 ? 0 : (i / (n - 1)) * w); };
+  const yAt = function (v) { return padT + (1 - (v - yMin) / (yMax - yMin)) * h; };
+  ctx.strokeStyle = "#ccc"; ctx.lineWidth = 1; ctx.beginPath();
+  ctx.moveTo(padL, yAt(0)); ctx.lineTo(padL + w, yAt(0)); ctx.stroke();
+  ctx.strokeStyle = "#1f77b4"; ctx.lineWidth = 2; ctx.beginPath();
+  for (let i = 0; i < n; i++) {
+    const x = xAt(i), y = yAt(snr[i]);
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+  ctx.fillStyle = "#1f77b4";
+  for (let i = 0; i < n; i++) {
+    ctx.beginPath(); ctx.arc(xAt(i), yAt(snr[i]), 3, 0, 2 * Math.PI); ctx.fill();
+  }
+}
+
+function ST_drawScatter(res) {
+  const cv = document.getElementById("ST_resScatterCanvas");
+  if (!cv) return;
+  const ctx = cv.getContext("2d");
+  ctx.clearRect(0, 0, cv.width, cv.height);
+  const snr = res.snrHistory, wc = res.wordHistory;
+  const n = Math.min(snr.length, wc.length);
+  if (!n) return;
+  const xMin = -15, xMax = 21, yMin = 0, yMax = 5;
+  const padL = 40, padB = 24, padT = 12, padR = 12;
+  const w = cv.width - padL - padR, h = cv.height - padT - padB;
+  const xAt = function (v) { return padL + (v - xMin) / (xMax - xMin) * w; };
+  const yAt = function (v) { return padT + (1 - (v - yMin) / (yMax - yMin)) * h; };
+  ctx.fillStyle = "#ff7f0e";
+  for (let i = 0; i < n; i++) {
+    ctx.beginPath(); ctx.arc(xAt(snr[i]), yAt(wc[i]), 4, 0, 2 * Math.PI); ctx.fill();
+  }
+}
+
+function ST_showSlope(res) {
+  const el = document.getElementById("ST_resSlopeValue");
+  if (!el) return;
+  const snr = res.snrHistory, wc = res.wordHistory;
+  const n = Math.min(snr.length, wc.length);
+  if (n < 2) { el.textContent = "---"; return; }
+  let sx = 0, sy = 0, sxx = 0, sxy = 0;
+  for (let i = 0; i < n; i++) {
+    const x = snr[i], y = (wc[i] / 5) * 100;
+    sx += x; sy += y; sxx += x * x; sxy += x * y;
+  }
+  const denom = (n * sxx - sx * sx);
+  const slope = denom !== 0 ? (n * sxy - sx * sy) / denom : 0;
+  el.textContent = "ca. " + slope.toFixed(1) + " %/dB";
 }
 
 // ------------------------------------------------------------

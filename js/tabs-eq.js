@@ -37,6 +37,7 @@ function _switchSubtabInternal(parent, subtab) {
   if (parent === "ergebnisse" && subtab === "latenz") {
     if (typeof LTZ_renderResults === "function") LTZ_renderResults();
   }
+  if (parent === "ergebnisse" && subtab === "sprachtest") ST_renderResults();
   if (parent === "messungen" && subtab === "stereobalance") {
     STB_checkData();
   }

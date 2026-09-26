@@ -400,6 +400,10 @@ var SAVE_SCHEMA_SIDE = [
     get: function (s) { return sideData[s].ELL_results; },
     set: function (v, s) { sideData[s].ELL_results = Array.isArray(v) ? v : []; },
     default: function () { return []; }, valid: { type: "array" } },
+  { key: "ST_result", scope: "side",
+    get: function (s) { return sideData[s].ST_result || null; },
+    set: function (v, s) { sideData[s].ST_result = (v && typeof v === "object") ? v : null; },
+    default: null },
   { key: "schieberELL", scope: "side",
     get: function (s) { return sideData[s].schieberELL; },
     set: function (v, s) {
@@ -582,6 +586,7 @@ function refreshAll() {
   if (typeof plSyncUI === "function") plSyncUI();
   if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
   if (typeof LTZ_renderResults === "function") LTZ_renderResults();
+  if (typeof ST_renderResults === "function") ST_renderResults();
   if (typeof STB_renderResults === "function") STB_renderResults();
   if (typeof STB_renderMean === "function") STB_renderMean();
   // MAPLAW / Warp:

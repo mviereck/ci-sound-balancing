@@ -2106,3 +2106,9 @@ input.ec-active.dep-locked {
   white-space: pre-wrap;
 }
 
+/* ===== Sprachtest-Ergebnis (BA608) ===== */
+.st-res-srt { font-size: 1.3em; margin: 0.5em 0 1em; }
+.st-res-srt strong { font-size: 1.4em; }
+.st-res-note { font-size: 0.85em; opacity: 0.75; margin: 0.2em 0 0.4em; }
+#subpanel-ergebnisse-sprachtest canvas { max-width: 100%; height: auto; border: 1px solid #ddd; }
+
