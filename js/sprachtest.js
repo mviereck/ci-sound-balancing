@@ -379,6 +379,11 @@ function st_finish(converged) {
   if (typeof ST_saveResult === "function") ST_saveResult(result);
   else { window.ST_lastResult = result; console.log("[sprachtest] Ergebnis:", result); }
 
+  // testUI ueber natuerliches Ende informieren: stoppt den laufenden Test
+  // (blendet Stop-Button aus, hebt Tab-Sperre auf) -- analog zum Stop-Button,
+  // aber ohne den onStop-Hook zu rufen (kein zweites st_stop).
+  if (ST_els && typeof ST_els._stopTest === "function") ST_els._stopTest();
+
   // Abschluss-Box.
   if (typeof testUI !== "undefined" && testUI.completion) {
     testUI.completion.show({ nameKey: "tabSprachtest", subtabKey: "tabSprachtest", bodyKey: "stDoneBody" });
@@ -453,12 +458,48 @@ function ST_drawCourse(res) {
   const n = snr.length;
   if (!n) return;
   const yMin = -15, yMax = 21;
-  const padL = 40, padB = 24, padT = 12, padR = 12;
-  const w = cv.width - padL - padR, h = cv.height - padT - padB;
-  const xAt = function (i) { return padL + (n <= 1 ? 0 : (i / (n - 1)) * w); };
-  const yAt = function (v) { return padT + (1 - (v - yMin) / (yMax - yMin)) * h; };
-  ctx.strokeStyle = "#ccc"; ctx.lineWidth = 1; ctx.beginPath();
-  ctx.moveTo(padL, yAt(0)); ctx.lineTo(padL + w, yAt(0)); ctx.stroke();
+  const padL = 46, padB = 36, padT = 12, padR = 12;
+  const W = cv.width - padL - padR, H = cv.height - padT - padB;
+  const xAt = function (i) { return padL + (n <= 1 ? 0 : (i / (n - 1)) * W); };
+  const yAt = function (v) { return padT + (1 - (v - yMin) / (yMax - yMin)) * H; };
+
+  // Achsen
+  ctx.strokeStyle = "#bbb"; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(padL, padT); ctx.lineTo(padL, padT + H); ctx.lineTo(padL + W, padT + H); ctx.stroke();
+
+  // y-Ticks: -15, -10, -5, 0, 5, 10, 15, 20
+  ctx.fillStyle = "#555"; ctx.font = "11px sans-serif"; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+  [-15, -10, -5, 0, 5, 10, 15, 20].forEach(function (v) {
+    const y = yAt(v);
+    ctx.strokeStyle = v === 0 ? "#999" : "#e8e8e8"; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL + W, y); ctx.stroke();
+    ctx.fillStyle = "#555";
+    ctx.fillText(v + " dB", padL - 4, y);
+  });
+
+  // x-Ticks: 1, 5, 10, 15, 20, 25, 30
+  ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillStyle = "#555";
+  [1, 5, 10, 15, 20, 25, 30].forEach(function (i) {
+    if (i > n) return;
+    const x = xAt(i - 1);
+    ctx.strokeStyle = "#e8e8e8"; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, padT + H); ctx.stroke();
+    ctx.fillStyle = "#555";
+    ctx.fillText(i, x, padT + H + 4);
+  });
+
+  // Achsenbeschriftungen
+  ctx.fillStyle = "#333"; ctx.font = "11px sans-serif";
+  ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+  ctx.fillText("Satznummer", padL + W / 2, cv.height);
+  ctx.save();
+  ctx.translate(11, padT + H / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  ctx.fillText("SNR (dB)", 0, 0);
+  ctx.restore();
+
+  // SNR-Verlauf
   ctx.strokeStyle = "#1f77b4"; ctx.lineWidth = 2; ctx.beginPath();
   for (let i = 0; i < n; i++) {
     const x = xAt(i), y = yAt(snr[i]);
@@ -468,6 +509,18 @@ function ST_drawCourse(res) {
   ctx.fillStyle = "#1f77b4";
   for (let i = 0; i < n; i++) {
     ctx.beginPath(); ctx.arc(xAt(i), yAt(snr[i]), 3, 0, 2 * Math.PI); ctx.fill();
+  }
+
+  // SRT-Linie (Mittel der Auswertungs-Saetze), falls berechenbar
+  if (res.srt !== null && n >= 6) {
+    const srtY = yAt(res.srt);
+    ctx.strokeStyle = "#e05"; ctx.lineWidth = 1.5;
+    ctx.setLineDash([4, 3]);
+    ctx.beginPath(); ctx.moveTo(padL, srtY); ctx.lineTo(padL + W, srtY); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = "#e05"; ctx.font = "10px sans-serif";
+    ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+    ctx.fillText("SRT " + res.srt.toFixed(1) + " dB", padL + 2, srtY - 2);
   }
 }
 
@@ -480,10 +533,68 @@ function ST_drawScatter(res) {
   const n = Math.min(snr.length, wc.length);
   if (!n) return;
   const xMin = -15, xMax = 21, yMin = 0, yMax = 5;
-  const padL = 40, padB = 24, padT = 12, padR = 12;
-  const w = cv.width - padL - padR, h = cv.height - padT - padB;
-  const xAt = function (v) { return padL + (v - xMin) / (xMax - xMin) * w; };
-  const yAt = function (v) { return padT + (1 - (v - yMin) / (yMax - yMin)) * h; };
+  const padL = 46, padB = 36, padT = 12, padR = 12;
+  const W = cv.width - padL - padR, H = cv.height - padT - padB;
+  const xAt = function (v) { return padL + (v - xMin) / (xMax - xMin) * W; };
+  const yAt = function (v) { return padT + (1 - (v - yMin) / (yMax - yMin)) * H; };
+
+  // Achsen
+  ctx.strokeStyle = "#bbb"; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(padL, padT); ctx.lineTo(padL, padT + H); ctx.lineTo(padL + W, padT + H); ctx.stroke();
+
+  // y-Ticks: 0..5 (Woerter)
+  ctx.fillStyle = "#555"; ctx.font = "11px sans-serif"; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+  [0, 1, 2, 3, 4, 5].forEach(function (v) {
+    const y = yAt(v);
+    ctx.strokeStyle = "#e8e8e8"; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL + W, y); ctx.stroke();
+    ctx.fillStyle = "#555";
+    ctx.fillText(v, padL - 4, y);
+  });
+
+  // x-Ticks: alle 5 dB
+  ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillStyle = "#555";
+  [-15, -10, -5, 0, 5, 10, 15, 20].forEach(function (v) {
+    const x = xAt(v);
+    ctx.strokeStyle = v === 0 ? "#999" : "#e8e8e8"; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, padT + H); ctx.stroke();
+    ctx.fillStyle = "#555";
+    ctx.fillText(v, x, padT + H + 4);
+  });
+
+  // Achsenbeschriftungen
+  ctx.fillStyle = "#333"; ctx.font = "11px sans-serif";
+  ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+  ctx.fillText("SNR (dB)", padL + W / 2, cv.height);
+  ctx.save();
+  ctx.translate(11, padT + H / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  ctx.fillText("richtige Woerter", 0, 0);
+  ctx.restore();
+
+  // SRT-Linie
+  if (res.srt !== null) {
+    const x = xAt(res.srt);
+    ctx.strokeStyle = "#e05"; ctx.lineWidth = 1.5;
+    ctx.setLineDash([4, 3]);
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, padT + H); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = "#e05"; ctx.font = "10px sans-serif";
+    ctx.textAlign = "left"; ctx.textBaseline = "top";
+    ctx.fillText("SRT", x + 2, padT + 2);
+  }
+
+  // 50%-Linie (2.5 von 5 = Schwelle des adaptiven Verfahrens)
+  ctx.strokeStyle = "#aaa"; ctx.lineWidth = 1;
+  ctx.setLineDash([3, 3]);
+  ctx.beginPath(); ctx.moveTo(padL, yAt(2.5)); ctx.lineTo(padL + W, yAt(2.5)); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = "#888"; ctx.font = "10px sans-serif";
+  ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+  ctx.fillText("50 %", padL + 2, yAt(2.5) - 2);
+
+  // Datenpunkte
   ctx.fillStyle = "#ff7f0e";
   for (let i = 0; i < n; i++) {
     ctx.beginPath(); ctx.arc(xAt(snr[i]), yAt(wc[i]), 4, 0, 2 * Math.PI); ctx.fill();
