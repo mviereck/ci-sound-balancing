@@ -249,6 +249,11 @@ button:disabled {
   gap: 8px;
   flex-wrap: wrap;
 }
+/* Sprachtest: Bündel-Bereich (Auswahl/Upload/Status) vom folgenden
+   Start-Button abrücken; unabhängig davon, ob die Statuszeile Text trägt. */
+.st-bundle-box {
+  margin-bottom: 16px;
+}
 .btn-sm {
   padding: 4px 10px;
   font-size: 0.82em;
