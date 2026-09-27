@@ -6,15 +6,46 @@
 // Architektur: .docs/spec/00-sprachtest-olsa-architektur.md
 // ============================================================
 
-// --- Wortmatrix-Inventar (fest, je Position 10 Woerter) ---
-// Reihenfolge der Positionen: Name, Verb, Zahl, Adjektiv, Objekt.
-const ST_INVENTORY = [
-  ["Anna", "Felix", "Georg", "Julia", "Klara", "Lena", "Paul", "Robert", "Sabine", "Simon"],
-  ["bringt", "findet", "holt", "kauft", "liest", "malt", "nimmt", "putzt", "sucht", "trägt"],
-  ["zwei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "elf", "dreißig", "hundert"],
-  ["breite", "dünne", "feste", "frische", "graue", "harte", "kleine", "runde", "schwere", "weiche"],
-  ["Dosen", "Gabeln", "Kissen", "Lampen", "Nadeln", "Ringe", "Schuhe", "Socken", "Steine", "Tassen"]
-];
+// --- Testbuendel (Architektur SS3) ---
+// Ein Testbuendel haelt alles zusammen, was ein Matrixtest-Material ausmacht:
+// Satz-Zugriff, die aus den Satztexten abgeleitete Matrix (SS3.2), das
+// Stoergeraeusch und Herkunfts-Metadaten. Der Test liest sein aktives Buendel;
+// es gibt KEINE hartcodierte Matrix mehr.
+//
+// Das mitgelieferte Buendel: Saetze ueber den Saetze-Pool-Filter test_set,
+// Rauschen als Asset-URL. Das Upload-Buendel (BA 611/612) fuellt dieselben
+// Felder aus einem entpackten ZIP.
+const ST_BUNDLE_BUILTIN = {
+  id: "wortmatrix",
+  label: "Wortmatrix Thorsten 1",
+  validated: false,
+  testSet: "wortmatrix",                                  // Satz-Pool-Filter
+  noiseUrl: "assets/audio/rauschen_wortmatrix_thorsten-1.wav",
+  noiseBuf: null                                          // Buffer-Cache (lazy)
+};
+
+// Das aktuell aktive Buendel. Nach jedem Reload das mitgelieferte (SS3.4).
+// BA 611/612 fuegen Upload-Buendel hinzu und schalten hier um.
+let ST_activeBundle = ST_BUNDLE_BUILTIN;
+
+// Matrix-Extraktor (SS3.2): sammelt ueber alle Satztexte je Position (0..4)
+// die vorkommenden Woerter, dedupliziert, sortiert. Ergebnis: Array[5] von
+// Wort-Arrays (die zehn Woerter je Spalte). Erwartet, dass die Items ihren
+// text tragen (st_ensureTexts lief). Saetze ohne genau fuenf Woerter werden
+// uebersprungen (gleiche Regel wie st_drawBalanced).
+function st_extractMatrix(items) {
+  const cols = [ new Set(), new Set(), new Set(), new Set(), new Set() ];
+  items.forEach(function (it) {
+    const txt = (it.text || "").replace(/\.$/, "").trim();
+    if (!txt) return;
+    const w = txt.split(/\s+/);
+    if (w.length !== 5) return;
+    for (let p = 0; p < 5; p++) cols[p].add(w[p]);
+  });
+  return cols.map(function (s) {
+    return Array.from(s).sort(function (a, b) { return a.localeCompare(b); });
+  });
+}
 
 // --- Adaptionstabelle 3-1 (Diplomarbeit Hinze, Kap. 3.3) ---
 // Pegelaenderung des SPRACHpegels in dB fuer den FOLGEsatz, nach Anzahl
@@ -34,12 +65,6 @@ const ST_TRAIN_LEN = 3;      // Trainingssaetze (zaehlen nicht)
 const ST_SRT_WINDOW = 20;    // SRT = Mittel der letzten 20 SNR-Werte
 const ST_SRT_WINDOW_CONV = 6;// bei Konvergenz-Abbruch: letzte 6
 
-// Stoerrauschen als festes Test-Asset (NICHT ueber das Geraeusche-Manifest,
-// damit sich der genormte Test nicht mit dem veraenderlichen Player-Bestand
-// mischt). Speech-shaped noise aus dem Wortmatrix-Material; Satz + Rauschen
-// sind werksseitig auf SNR 0 dB abgestimmt.
-const ST_NOISE_URL = "assets/audio/rauschen_wortmatrix_thorsten-1.wav";
-
 // --- Modul-Zustand ---
 let _st_parentEl = null;     // Panel-Element (im DOMContentLoaded gesetzt)
 let ST_els = null;           // Refs aus buildTestPanel
@@ -52,7 +77,7 @@ let st_snrHistory = [];      // SNR je gewertetem Satz (nur measure-Phase)
 let st_wordHistory = [];     // richtige Woerter (0..5) je gewertetem Satz
 let st_saved = null;         // gesicherter Player-Unterlegungszustand (Restore)
 let _st_preloadedSeq = null; // Satz-Reihenfolge aus _st_preload (Ziehung vorgezogen)
-let _st_noiseBuf = null;     // dekodiertes Stoerrauschen (Asset), einmal geladen
+let _st_matrix = null;       // Matrix des aktiven Buendels (aus Satztexten, SS3.2)
 
 // ------------------------------------------------------------
 // Player-Zustand sichern / erzwingen / wiederherstellen (SS4.4)
@@ -115,20 +140,23 @@ function st_forceMaskOff() {
 // ------------------------------------------------------------
 function st_allOlsaSentences() {
   const pool = (typeof sBuildRecordingPool === "function") ? sBuildRecordingPool() : [];
-  return pool.filter(function (it) { return it.tags && it.tags.test_set === "wortmatrix"; });
+  const ts = ST_activeBundle.testSet;
+  return pool.filter(function (it) { return it.tags && it.tags.test_set === ts; });
 }
-// Laedt das Rausch-Asset EINMAL (fetch + decodeAudioData) in _st_noiseBuf.
-// Kein Manifest, keine Normalisierung -- das Rauschen wird im Original-Pegel
-// gehalten (Werks-Abstimmung zum Satz = SNR 0 dB).
+// Stellt den Stoergeraeusch-Buffer des AKTIVEN Buendels bereit (SS3.1/SS3.3).
+// Mitgeliefertes Buendel: per fetch+decode aus noiseUrl (einmalig, im Buendel
+// gecacht). Upload-Buendel (BA 611) legt noiseBuf direkt ab -> kein fetch.
 async function _st_ensureNoiseBuf() {
-  if (_st_noiseBuf) return _st_noiseBuf;
+  const b = ST_activeBundle;
+  if (b.noiseBuf) return b.noiseBuf;
   const ctx = (typeof gPC === "function") ? gPC() : null;
   if (!ctx) return null;
-  const resp = await fetch(ST_NOISE_URL);
+  if (!b.noiseUrl) return null;              // Upload-Buendel ohne URL: Buffer muss gesetzt sein
+  const resp = await fetch(b.noiseUrl);
   if (!resp.ok) throw new Error("Stoerrauschen nicht ladbar: HTTP " + resp.status);
   const arr = await resp.arrayBuffer();
-  _st_noiseBuf = await ctx.decodeAudioData(arr);
-  return _st_noiseBuf;
+  b.noiseBuf = await ctx.decodeAudioData(arr);
+  return b.noiseBuf;
 }
 
 // Baut EINEN Buffer aus Satz (Original-Pegel) + auf den Ziel-SNR skaliertem
@@ -289,6 +317,7 @@ async function _st_preload() {
     console.error("[sprachtest] Satztexte laden fehlgeschlagen:", e);
     throw e;
   }
+  _st_matrix = st_extractMatrix(all);
 
   // Ziehung JETZT — nur die 33 tatsaechlich gespielten Saetze vorladen.
   const train = st_drawBalanced(all, ST_TRAIN_LEN);
@@ -365,7 +394,7 @@ function st_playCurrent() {
   if (ST_els) {
     const vr = ST_els.verfahren["olsa"];
     if (vr) {
-      testUI.wordGrid.setWords(vr.wordGrid, ST_INVENTORY);
+      testUI.wordGrid.setWords(vr.wordGrid, _st_matrix || []);
       testUI.scratchText.clear(vr.scratchText);
     }
   }
@@ -379,7 +408,7 @@ function st_playCurrent() {
   Promise.resolve(amGetItemBuffer(ctx, item)).then(function (sentBuf) {
     if (!st_active) return;
     if (!sentBuf) { console.error("[sprachtest] Satz-Buffer fehlt:", item.id); return; }
-    const mixed = _st_buildMixedBuffer(sentBuf, _st_noiseBuf, st_snr);
+    const mixed = _st_buildMixedBuffer(sentBuf, ST_activeBundle.noiseBuf, st_snr);
     sCurRec = item;                       // fuer Wertung/Textbezug
     sSetDirectBuffer(mixed, item.text || "");
     if (!st_active) return;
