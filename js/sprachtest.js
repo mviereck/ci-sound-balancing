@@ -778,7 +778,7 @@ function st_buildBundleFragment() {
 
   // Buendel-Auswahl (nur bei > 1 Buendel sichtbar).
   const selRow = document.createElement("div");
-  selRow.className = "st-bundle-select-row";
+  selRow.className = "control-group st-bundle-select-row";
   const selLabel = document.createElement("label");
   selLabel.setAttribute("data-t", "stBundleLabel");
   const sel = document.createElement("select");
@@ -792,6 +792,7 @@ function st_buildBundleFragment() {
   const explain = document.createElement("p");
   explain.className = "explain-plain";
   explain.setAttribute("data-t", "stUploadExplain");
+  explain.dataset.bgHtml = "1";   // Wert enthaelt Links -> als HTML rendern
   const fileInput = document.createElement("input");
   fileInput.type = "file";
   fileInput.accept = ".zip";
