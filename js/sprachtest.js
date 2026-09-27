@@ -514,6 +514,9 @@ function st_finish(converged) {
     converged: !!converged,
     snrHistory: st_snrHistory.slice(),
     wordHistory: st_wordHistory.slice(),
+    bundleId: ST_activeBundle.id,
+    bundleLabel: ST_activeBundle.label,
+    validated: !!ST_activeBundle.validated,
     ts: Date.now()
   };
   if (typeof ST_saveResult === "function") ST_saveResult(result);
@@ -583,6 +586,13 @@ function ST_renderResults() {
     : (res.srt.toFixed(1) + " dB SNR");
   const conv = document.getElementById("ST_resConvHint");
   if (conv) conv.style.display = res.converged ? "" : "none";
+  const bundleEl = document.getElementById("ST_resBundle");
+  if (bundleEl) {
+    const lbl = res.bundleLabel || "";
+    bundleEl.textContent = lbl
+      ? (t("stResBundlePrefix") + " " + lbl + (res.validated ? "" : " " + t("stBundleUnvalidatedTag")))
+      : "";
+  }
 
   ST_drawCourse(res);
   ST_drawScatter(res);
@@ -758,6 +768,96 @@ function ST_showSlope(res) {
 }
 
 // ------------------------------------------------------------
+// Buendel-Fragment (Upload + Auswahl + Status + Ladebalken)
+// ------------------------------------------------------------
+let ST_bundleEls = null;   // Refs des Buendel-Fragments
+
+function st_buildBundleFragment() {
+  const wrap = document.createElement("div");
+  wrap.className = "st-bundle-box";
+
+  // Buendel-Auswahl (nur bei > 1 Buendel sichtbar).
+  const selRow = document.createElement("div");
+  selRow.className = "st-bundle-select-row";
+  const selLabel = document.createElement("label");
+  selLabel.setAttribute("data-t", "stBundleLabel");
+  const sel = document.createElement("select");
+  sel.id = "ST_bundleSelect";
+  sel.addEventListener("change", function () { st_setActiveBundle(sel.value); });
+  selRow.append(selLabel, sel);
+
+  // Upload-Bereich mit Zenodo-Erklaerung.
+  const upRow = document.createElement("div");
+  upRow.className = "st-bundle-upload-row";
+  const explain = document.createElement("p");
+  explain.className = "explain-plain";
+  explain.setAttribute("data-t", "stUploadExplain");
+  const fileInput = document.createElement("input");
+  fileInput.type = "file";
+  fileInput.accept = ".zip";
+  fileInput.style.display = "none";
+  fileInput.addEventListener("change", function () {
+    if (fileInput.files && fileInput.files[0]) st_onUploadFile(fileInput.files[0]);
+    fileInput.value = "";
+  });
+  const upBtn = document.createElement("button");
+  upBtn.className = "btn";
+  upBtn.setAttribute("data-t", "stUploadBtn");
+  upBtn.addEventListener("click", function () { fileInput.click(); });
+  upRow.append(explain, upBtn, fileInput);
+
+  // Status-/Fehlerzeile.
+  const status = document.createElement("div");
+  status.className = "st-bundle-status";
+  status.id = "ST_bundleStatus";
+
+  // Ladebalken-Container (zieht hierher um, §4).
+  const loadHint = document.createElement("div");
+  loadHint.id = "ST_loadHint";
+  loadHint.hidden = true;
+
+  wrap.append(selRow, upRow, status, loadHint);
+  ST_bundleEls = { wrap: wrap, selRow: selRow, select: sel, status: status };
+  return wrap;
+}
+
+// Auswahl-Dropdown befuellen; Auswahl-Zeile nur bei > 1 Buendel zeigen.
+function st_refreshBundleSelect() {
+  if (!ST_bundleEls) return;
+  const sel = ST_bundleEls.select;
+  sel.innerHTML = "";
+  ST_bundles.forEach(function (b) {
+    const opt = document.createElement("option");
+    opt.value = b.id;
+    opt.textContent = b.label + (b.validated ? "" : " " + t("stBundleUnvalidatedTag"));
+    sel.appendChild(opt);
+  });
+  sel.value = ST_activeBundle.id;
+  ST_bundleEls.selRow.style.display = (ST_bundles.length > 1) ? "" : "none";
+}
+
+// Aktives Buendel setzen (Umschalten).
+function st_setActiveBundle(id) {
+  const b = ST_bundles.find(function (x) { return x.id === id; });
+  if (!b) return;
+  ST_activeBundle = b;
+  st_refreshBundleSelect();
+}
+
+async function st_onUploadFile(file) {
+  const st = ST_bundleEls ? ST_bundleEls.status : null;
+  if (st) st.textContent = t("stUploadWorking");
+  try {
+    const bundle = await ST_buildOlsaBundleFromZip(file);
+    st_setActiveBundle(bundle.id);
+    if (st) st.textContent = t("stUploadOk");
+  } catch (e) {
+    console.error("[sprachtest] Upload fehlgeschlagen:", e);
+    if (st) st.textContent = (e && e.message) ? e.message : t("stUploadErrGeneric");
+  }
+}
+
+// ------------------------------------------------------------
 // Aufbau des Sub-Reiters
 // ------------------------------------------------------------
 const st_cfg = {
@@ -813,15 +913,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const parentEl = document.getElementById("subpanel-messungen-sprachtest");
   if (!parentEl) return;
   _st_parentEl = parentEl;
+  const stBundleFrag = st_buildBundleFragment();
+  st_cfg.verfahren[0].body.extraFragment = { fragment: stBundleFrag };
   ST_els = buildTestPanel(parentEl, st_cfg);
-  // ST_loadHint NACH buildTestPanel anlegen (buildTestPanel leert parentEl).
-  // Position: direkt nach headerBox (wo Start-Button sitzt), nicht ganz oben.
-  const hint = document.createElement("div");
-  hint.id = "ST_loadHint";
-  hint.hidden = true;
-  if (ST_els && ST_els.headerBox) {
-    ST_els.headerBox.after(hint);
-  } else {
-    parentEl.appendChild(hint);
-  }
+  st_refreshBundleSelect();
+  if (typeof applyLang === "function") applyLang();
 });
