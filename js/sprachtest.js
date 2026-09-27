@@ -913,8 +913,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const parentEl = document.getElementById("subpanel-messungen-sprachtest");
   if (!parentEl) return;
   _st_parentEl = parentEl;
+  // Buendel-Bereich (Auswahl + Upload + Status + Ladebalken) gehoert OBEN, vor
+  // dem Start-Button: er ist der Vor-dem-Test-Schritt (Material waehlen/laden).
+  // Deshalb header.extra (zwischen common und startStop, immer sichtbar) --
+  // NICHT body.extraFragment: das sitzt in der festen Body-Reihenfolge unter
+  // dem Antwort-Raster und im initial verborgenen testBox (test-ui.js:487,894).
   const stBundleFrag = st_buildBundleFragment();
-  st_cfg.verfahren[0].body.extraFragment = { fragment: stBundleFrag };
+  st_cfg.header.extra = { fragment: stBundleFrag };
   ST_els = buildTestPanel(parentEl, st_cfg);
   st_refreshBundleSelect();
   if (typeof applyLang === "function") applyLang();
