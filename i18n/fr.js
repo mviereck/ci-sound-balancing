@@ -793,7 +793,7 @@ Object.assign(L.fr, {
     FRQ_resultsLblIst: "Actuel",
     FRQ_resultsLblSoll: "Cible",
     FRQ_resultsChartHint: "Trait gris (pointillé) = fréquence actuelle, telle que programmée dans l'implant. Trait noir = fréquence cible, à laquelle l'électrode est perçue selon la mesure. La flèche montre la correction nécessaire ; l'axe Y montre son ampleur en cents. Électrodes non mesurées : seulement trait actuel + cercle. Électrodes exclues : seulement trait actuel + ✕.",
-    FRQ_resultsNoData: "Pas encore de résultats d'appariement fréquentiel.",
+    FRQ_resultsNoData: "Pas encore de résultats. Effectuez d'abord une mesure dans « Mesures → Appariement fréquentiel ».",
     FRQ_resultsClearAllBtnLabel: "🗑 Effacer tous les résultats d'appariement fréquentiel",
     FRQ_resultsClearAllConfirm: "Effacer tous les résultats d'appariement fréquentiel et les données brutes de piste (Slider et Adaptatif) ? Cette action ne peut pas être annulée.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Supprimer les résultats du piano",
@@ -1147,7 +1147,8 @@ Object.assign(L.fr, {
     stPickHint: "Qu'avez-vous entendu ? Un mot par colonne — aucun = non compris.",
     stBtnStart: "Démarrer le test de parole",
     stBtnOk: "OK — phrase suivante",
-    stResNoData: "Pas encore de résultat. Effectuez une session sous Mesures / Test de parole.",
+    stResNoData: "Pas encore de résultats. Effectuez d'abord une mesure dans « Mesures → Test de parole ».",
+    stResTitle: "Résultats de la mesure du test de parole",
     stResSrtLabel: "Seuil de réception de la parole (SRT) :",
     stResConvHint: "(terminé plus tôt -- sur les 6 dernières valeurs)",
     stResSrtExplain: "",
@@ -1246,7 +1247,7 @@ Object.assign(L.fr, {
 
     snapshotHintChanged: "Remarque : les réglages d'implant ont été modifiés depuis la mesure. Une nouvelle mesure peut être utile.", // BA 156
     STB_noResultsMsg: "Pas encore de résultats. Effectuez d'abord une mesure dans « Mesures → Balance stéréo ».",
-    STB_resTitle: "Résultats comparaison G/D",
+    STB_resTitle: "Résultats de la mesure de balance stéréo",
     STB_medianLabel: "Offset de balance recommandé (moyenne)",
     STB_resDesc: "Positif = droite plus forte que gauche (réduire la droite ou augmenter la gauche). Négatif = gauche plus forte.",
     STB_clearBtnLabel: "🗑 Effacer les résultats",

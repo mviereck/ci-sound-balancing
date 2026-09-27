@@ -1058,7 +1058,7 @@ Object.assign(L.de, {
     FRQ_resultsLblIst: "Ist",
     FRQ_resultsLblSoll: "Soll",
     FRQ_resultsChartHint: "Grauer (gestrichelter) Strich = Ist-Frequenz, wie im Implantat einprogrammiert. Schwarzer Strich = Soll-Frequenz, an der die Elektrode laut Messung wahrgenommen wird. Der Pfeil zeigt die nötige Korrektur; die Y-Achse zeigt deren Größe in Cent. Ungemessene Elektroden: nur Ist-Strich + Kreis. Ausgeschlossene Elektroden: nur Ist-Strich + ✕.",
-    FRQ_resultsNoData: "Noch keine Frequenzabgleich-Ergebnisse.",
+    FRQ_resultsNoData: "Noch keine Ergebnisse. Führen Sie erst eine Messung in „Messungen → Frequenzabgleich“ durch.",
     FRQ_resultsClearAllBtnLabel: "🗑 Alle Frequenzabgleich-Ergebnisse löschen",
     FRQ_resultsClearAllConfirm: "Alle Frequenzabgleich-Ergebnisse und Track-Rohdaten (Slider und Adaptiv) löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Klavier-Ergebnisse löschen",
@@ -1450,7 +1450,8 @@ Object.assign(L.de, {
     stPickHint: "Was haben Sie gehört? In jeder Spalte ein Wort — keins = nicht verstanden.",
     stBtnStart: "Sprachtest starten",
     stBtnOk: "OK — nächster Satz",
-    stResNoData: "Noch kein Sprachtest-Ergebnis. Führen Sie einen Durchgang unter Messungen / Sprachtest durch.",
+    stResNoData: "Noch keine Ergebnisse. Führen Sie erst eine Messung in „Messungen → Sprachtest“ durch.",
+    stResTitle: "Ergebnisse der Sprachtest-Messung",
     stResSrtLabel: "Sprachverständnisschwelle (SRT):",
     stResConvHint: "(vorzeitig beendet — aus den letzten 6 Werten)",
     stResSrtExplain: "Der SRT (Speech Reception Threshold) ist der SNR-Wert (Verhältnis Sprache zu Störgeräusch), bei dem Sie die Hälfte der Wörter richtig verstehen.\n\nNegative Werte sind besser: −5 dB bedeutet, das Störgeräusch darf 5 dB lauter sein als die Sprache — und Sie verstehen trotzdem noch die Hälfte. Normalhörende erreichen etwa −6 bis −9 dB. CI-Träger liegen typischerweise zwischen 0 und +5 dB S/N (Median ~2 dB); bei schlechterer Versorgung oder wenig Übung auch deutlich höher, vereinzelt über +10 dB.\n\nHinweis: Dieser Wert wurde mit den aktuell in CImbel eingestellten Korrekturen (Lautstärke, Frequenzabgleich) gemessen. Er ist nicht direkt mit klinischen Audiogramm-Werten vergleichbar, weil CImbel mit unkalibrierten Bluetooth-Pegeln arbeitet. Er eignet sich gut, um zu vergleichen, wie sich Änderungen an den Einstellungen auswirken.",
@@ -1555,7 +1556,7 @@ Object.assign(L.de, {
 
     snapshotHintChanged: "Hinweis: Implantat-Einstellungen wurden seit der Messung verändert. Eine neue Messung ist möglicherweise sinnvoll.", // BA 156
     STB_noResultsMsg: "Noch keine Ergebnisse. Führen Sie erst eine Messung in „Messungen → Stereo-Balance” durch.",
-    STB_resTitle: "Ergebnisse L/R-Vergleich",
+    STB_resTitle: "Ergebnisse der Stereo-Balance-Messung",
     STB_medianLabel: "Empfohlener Balance-Offset (Mittelwert)",
     STB_resDesc: "Positiv = Rechts lauter als Links (rechts abschwächen oder links anheben). Negativ = Links lauter.",
     STB_clearBtnLabel: "🗑 Ergebnisse löschen",

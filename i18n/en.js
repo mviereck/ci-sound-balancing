@@ -792,7 +792,7 @@ Object.assign(L.en, {
     FRQ_resultsLblIst: "Actual",
     FRQ_resultsLblSoll: "Target",
     FRQ_resultsChartHint: "Gray (dashed) line = actual frequency, as programmed in the implant. Black line = target frequency, at which the electrode is perceived according to the measurement. The arrow shows the necessary correction; the Y-axis shows its size in cents. Unmeasured electrodes: only actual line + circle. Excluded electrodes: only actual line + ✕.",
-    FRQ_resultsNoData: "No frequency matching results yet.",
+    FRQ_resultsNoData: "No results yet. First run a measurement under “Measurements → Frequency matching”.",
     FRQ_resultsClearAllBtnLabel: "🗑 Delete all frequency matching results",
     FRQ_resultsClearAllConfirm: "Delete all frequency matching results and track raw data (slider and adaptive)? This action cannot be undone.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Delete piano results",
@@ -1147,7 +1147,8 @@ Object.assign(L.en, {
     stPickHint: "What did you hear? One word per column — none = not understood.",
     stBtnStart: "Start speech test",
     stBtnOk: "OK — next sentence",
-    stResNoData: "No speech-test result yet. Run a session under Measurements / Speech test.",
+    stResNoData: "No results yet. First run a measurement under “Measurements → Speech test”.",
+    stResTitle: "Speech test measurement results",
     stResSrtLabel: "Speech reception threshold (SRT):",
     stResConvHint: "(ended early -- from the last 6 values)",
     stResSrtExplain: "",
@@ -1246,7 +1247,7 @@ Object.assign(L.en, {
 
     snapshotHintChanged: "Note: Implant settings have been changed since the measurement. A new measurement may be useful.", // BA 156
     STB_noResultsMsg: "No results yet. First run a measurement under “Measurements → Stereo balance”.",
-    STB_resTitle: "Results L/R comparison",
+    STB_resTitle: "Stereo balance measurement results",
     STB_medianLabel: "Recommended balance offset (mean)",
     STB_resDesc: "Positive = right louder than left (attenuate right or boost left). Negative = left louder.",
     STB_clearBtnLabel: "🗑 Delete results",

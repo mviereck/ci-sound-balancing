@@ -216,21 +216,16 @@ function _printResELL() {
 }
 
 function _printResLR() {
-  const card   = document.querySelector('#STB_resultsCard');
-  const target = (card && card.style.display !== 'none')
-    ? '#STB_resultsCard'
-    : '#STB_noResults';
-  const body = _printCloneSafe(target);
+  // Ergebnis- und Leerzustand liegen jetzt in einer gemeinsamen Karte mit
+  // Ueberschrift (wie ELL); der ausgeblendete Zustand faellt beim Klonen raus.
+  const body = _printCloneSafe('#subpanel-ergebnisse-stereobalance .card');
   openPrintWindow(t("tabSTB") || "Stereo-Balance", body);
 }
 
 function _printResFRQ() {
-  const noData = document.querySelector('#FRQ_resultsNoData');
-  const card   = document.querySelector('#FRQ_resultsCard');
-  const target = (card && card.style.display !== 'none')
-    ? '#FRQ_resultsCard'
-    : '#FRQ_resultsNoData';
-  const body = _printCloneSafe(target);
+  // Erste .card = Ergebnis-Karte (Leer/Inhalt in einer Karte, wie ELL);
+  // die Debug-Karte wvBox liegt danach und bleibt aussen vor.
+  const body = _printCloneSafe('#subpanel-ergebnisse-freqmatch .card');
   openPrintWindow(t("subTabFRQ") || "Frequenzabgleich", body);
 }
 

@@ -608,11 +608,12 @@
       </div>
         </div>
         <div id="subpanel-ergebnisse-stereobalance" class="subpanel">
-        <div id="STB_noResults" class="card">
-          <p style="color: var(--text-muted)" data-t="STB_noResultsMsg"></p>
-        </div>
-        <div class="card" id="STB_resultsCard" style="display: none">
+        <div class="card">
           <h2 id="STB_resTitle" data-t="STB_resTitle"></h2>
+          <div id="STB_noResults">
+            <p style="color: var(--text-muted)" data-t="STB_noResultsMsg"></p>
+          </div>
+          <div id="STB_resultsCard" style="display: none">
           <div
             id="STB_medianDisplay"
             style="
@@ -688,15 +689,17 @@
             ></button>
           </div>
           <div class="explain" style="margin-top: 12px" id="STB_resNote" data-t="STB_resNote"></div>
+          </div>
         </div>
         </div>
 
         <div id="subpanel-ergebnisse-freqmatch" class="subpanel">
-          <div id="FRQ_resultsNoData" class="card">
-            <p style="color: var(--text-muted)" id="FRQ_resultsNoDataText"></p>
-          </div>
-          <div class="card" id="FRQ_resultsCard" style="display:none">
-            <h2 id="FRQ_resultsTitle"></h2>
+          <div class="card">
+            <h2 id="FRQ_resultsTitle" data-t="FRQ_resultsTitle"></h2>
+            <div id="FRQ_resultsNoData">
+              <p style="color: var(--text-muted)" id="FRQ_resultsNoDataText"></p>
+            </div>
+            <div id="FRQ_resultsCard" style="display:none">
             <p style="font-size:0.84em;color:var(--text-muted);margin-bottom:10px" id="FRQ_resultsMeta"></p>
             <div id="FRQ_resultsProgressBox" style="display:none;margin:10px 0;">
               <div style="display:flex;justify-content:space-between;font-size:.85em;color:#555;margin-bottom:4px;">
@@ -735,6 +738,7 @@
               <button class="btn" id="FRQ_resultsClearPianoBtn" style="color:var(--danger)" data-t="FRQ_resultsClearPianoBtnLabel"></button>
               <button class="btn" id="FRQ_resultsClearAllBtn" style="color:var(--danger);display:none" data-t="FRQ_resultsClearAllBtnLabel"></button>
             </div>
+            </div>
           </div>
 
           <div id="wvBox" class="wv-debug-only card" style="margin-top:16px">
@@ -765,7 +769,11 @@
 
         <!-- ===== ERGEBNIS SPRACHTEST ===== -->
         <div id="subpanel-ergebnisse-sprachtest" class="subpanel">
-          <div id="ST_resEmpty" data-t="stResNoData"></div>
+          <div class="card">
+          <h2 data-t="stResTitle"></h2>
+          <div id="ST_resEmpty">
+            <p style="color: var(--text-muted)" data-t="stResNoData"></p>
+          </div>
           <div id="ST_resContent" style="display:none;">
             <div class="st-res-srt">
               <span data-t="stResSrtLabel"></span>
@@ -785,6 +793,7 @@
             <div class="st-res-note" data-t="stResSlopeNote"></div>
             <div id="ST_resSlopeValue"></div>
             <div class="explain explain-plain" data-t="stResSlopeExplain"></div>
+          </div>
           </div>
         </div>
 

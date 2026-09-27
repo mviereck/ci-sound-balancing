@@ -793,7 +793,7 @@ Object.assign(L.es, {
     FRQ_resultsLblIst: "Es",
     FRQ_resultsLblSoll: "Deseado",
     FRQ_resultsChartHint: "Línea gris (a trazos) = frecuencia actual, tal como está programada en el implante. Línea negra = frecuencia deseada en la que se percibe el electrodo según la medición. La flecha muestra la corrección necesaria; el eje Y muestra su tamaño en cent. Electrodos no medidos: solo línea «Es» + círculo. Electrodos excluidos: solo línea «Es» + ✕.",
-    FRQ_resultsNoData: "Aún no hay resultados de ajuste de frecuencia.",
+    FRQ_resultsNoData: "Aún no hay resultados. Realice primero una medición en «Mediciones → Ajuste de frecuencia».",
     FRQ_resultsClearAllBtnLabel: "🗑 Borrar todos los resultados de ajuste de frecuencia",
     FRQ_resultsClearAllConfirm: "¿Borrar todos los resultados de ajuste de frecuencia y los datos brutos de track (deslizador y adaptativo)? Esta acción no se puede deshacer.",
     FRQ_resultsClearPianoBtnLabel:  "🗑 Eliminar resultados del piano",
@@ -1147,7 +1147,8 @@ Object.assign(L.es, {
     stPickHint: "¿Qué ha oído? Una palabra por columna — ninguna = no entendido.",
     stBtnStart: "Iniciar prueba de habla",
     stBtnOk: "OK — frase siguiente",
-    stResNoData: "Aún no hay resultado. Realice una sesión en Mediciones / Prueba de habla.",
+    stResNoData: "Aún no hay resultados. Realice primero una medición en «Mediciones → Prueba de habla».",
+    stResTitle: "Resultados de la medición de la prueba de habla",
     stResSrtLabel: "Umbral de recepción del habla (SRT):",
     stResConvHint: "(terminado antes -- de los últimos 6 valores)",
     stResSrtExplain: "",
@@ -1246,7 +1247,7 @@ Object.assign(L.es, {
 
     snapshotHintChanged: "Aviso: los ajustes del implante han cambiado desde la medición. Puede ser razonable una nueva medición.", // BA 156
     STB_noResultsMsg: "Aún no hay resultados. Realice primero una medición en «Mediciones → Balance estéreo».",
-    STB_resTitle: "Resultados comparación L/R",
+    STB_resTitle: "Resultados de la medición de balance estéreo",
     STB_medianLabel: "Offset de balance recomendado (media)",
     STB_resDesc: "Positivo = derecha más fuerte que izquierda (atenuar derecha o subir izquierda). Negativo = izquierda más fuerte.",
     STB_clearBtnLabel: "🗑 Borrar resultados",
