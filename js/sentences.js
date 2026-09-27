@@ -416,7 +416,8 @@ if (typeof amRegisterProvider === "function") {
               lang_any: coll.lang_any || null,
               speaker_id: cid,
               gender: r.gender || coll.gender || "u",
-              style: coll.style || null
+              style: coll.style || null,
+              test_set: coll.testSet || null
             }
           });
         }
