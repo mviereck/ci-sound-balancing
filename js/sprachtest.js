@@ -6,14 +6,14 @@
 // Architektur: .docs/spec/00-sprachtest-olsa-architektur.md
 // ============================================================
 
-// --- OLSA-Wort-Inventar (fest, je Position 10 Woerter) ---
+// --- Wortmatrix-Inventar (fest, je Position 10 Woerter) ---
 // Reihenfolge der Positionen: Name, Verb, Zahl, Adjektiv, Objekt.
 const ST_INVENTORY = [
-  ["Britta", "Doris", "Kerstin", "Nina", "Peter", "Stefan", "Tanja", "Thomas", "Ulrich", "Wolfgang"],
-  ["bekommt", "gewann", "gibt", "hat", "kauft", "malt", "nahm", "schenkt", "sieht", "verleiht"],
-  ["zwei", "drei", "vier", "fünf", "sieben", "acht", "neun", "elf", "zwölf", "achtzehn"],
-  ["alte", "große", "grüne", "kleine", "nasse", "rote", "schöne", "schwere", "teure", "weiße"],
-  ["Autos", "Bilder", "Blumen", "Dosen", "Messer", "Ringe", "Schuhe", "Sessel", "Steine", "Tassen"]
+  ["Anna", "Felix", "Georg", "Julia", "Klara", "Lena", "Paul", "Robert", "Sabine", "Simon"],
+  ["bringt", "findet", "holt", "kauft", "liest", "malt", "nimmt", "putzt", "sucht", "trägt"],
+  ["zwei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "elf", "dreißig", "hundert"],
+  ["breite", "dünne", "feste", "frische", "graue", "harte", "kleine", "runde", "schwere", "weiche"],
+  ["Dosen", "Gabeln", "Kissen", "Lampen", "Nadeln", "Ringe", "Schuhe", "Socken", "Steine", "Tassen"]
 ];
 
 // --- Adaptionstabelle 3-1 (Diplomarbeit Hinze, Kap. 3.3) ---
@@ -34,10 +34,11 @@ const ST_TRAIN_LEN = 3;      // Trainingssaetze (zaehlen nicht)
 const ST_SRT_WINDOW = 20;    // SRT = Mittel der letzten 20 SNR-Werte
 const ST_SRT_WINDOW_CONV = 6;// bei Konvergenz-Abbruch: letzte 6
 
-// OLSA-Stoerrauschen als festes Test-Asset (NICHT ueber das Geraeusche-Manifest,
+// Stoerrauschen als festes Test-Asset (NICHT ueber das Geraeusche-Manifest,
 // damit sich der genormte Test nicht mit dem veraenderlichen Player-Bestand
-// mischt). Satz + Rauschen sind werksseitig auf SNR 0 dB abgestimmt.
-const ST_NOISE_URL = "assets/audio/stereonoise_OLSAfemale_TTS.wav";
+// mischt). Speech-shaped noise aus dem Wortmatrix-Material; Satz + Rauschen
+// sind werksseitig auf SNR 0 dB abgestimmt.
+const ST_NOISE_URL = "assets/audio/rauschen_wortmatrix_thorsten-1.wav";
 
 // --- Modul-Zustand ---
 let _st_parentEl = null;     // Panel-Element (im DOMContentLoaded gesetzt)
@@ -51,7 +52,7 @@ let st_snrHistory = [];      // SNR je gewertetem Satz (nur measure-Phase)
 let st_wordHistory = [];     // richtige Woerter (0..5) je gewertetem Satz
 let st_saved = null;         // gesicherter Player-Unterlegungszustand (Restore)
 let _st_preloadedSeq = null; // Satz-Reihenfolge aus _st_preload (Ziehung vorgezogen)
-let _st_noiseBuf = null;     // dekodiertes OLSA-Rauschen (Asset), einmal geladen
+let _st_noiseBuf = null;     // dekodiertes Stoerrauschen (Asset), einmal geladen
 
 // ------------------------------------------------------------
 // Player-Zustand sichern / erzwingen / wiederherstellen (SS4.4)
@@ -108,15 +109,15 @@ function st_forceMaskOff() {
 }
 
 // ------------------------------------------------------------
-// Material: OLSA-Saetze aus den vorhandenen Listen
-// (tags.test_set === "OLSA"). KEIN eigener Ladeweg -- amGetItemBuffer
+// Material: Wortmatrix-Saetze aus den vorhandenen Listen
+// (tags.test_set === "wortmatrix"). KEIN eigener Ladeweg -- amGetItemBuffer
 // laedt via Kategorie-Adapter (audio+text per Detail-Range).
 // ------------------------------------------------------------
 function st_allOlsaSentences() {
   const pool = (typeof sBuildRecordingPool === "function") ? sBuildRecordingPool() : [];
-  return pool.filter(function (it) { return it.tags && it.tags.test_set === "OLSA"; });
+  return pool.filter(function (it) { return it.tags && it.tags.test_set === "wortmatrix"; });
 }
-// Laedt das OLSA-Rausch-Asset EINMAL (fetch + decodeAudioData) in _st_noiseBuf.
+// Laedt das Rausch-Asset EINMAL (fetch + decodeAudioData) in _st_noiseBuf.
 // Kein Manifest, keine Normalisierung -- das Rauschen wird im Original-Pegel
 // gehalten (Werks-Abstimmung zum Satz = SNR 0 dB).
 async function _st_ensureNoiseBuf() {
@@ -124,7 +125,7 @@ async function _st_ensureNoiseBuf() {
   const ctx = (typeof gPC === "function") ? gPC() : null;
   if (!ctx) return null;
   const resp = await fetch(ST_NOISE_URL);
-  if (!resp.ok) throw new Error("OLSA-Rauschen nicht ladbar: HTTP " + resp.status);
+  if (!resp.ok) throw new Error("Stoerrauschen nicht ladbar: HTTP " + resp.status);
   const arr = await resp.arrayBuffer();
   _st_noiseBuf = await ctx.decodeAudioData(arr);
   return _st_noiseBuf;
@@ -163,7 +164,7 @@ function _st_buildMixedBuffer(sentenceBuf, noiseBuf, snr) {
   return out;
 }
 
-// Laedt die Satztexte der OLSA-Items EINMAL vorab (die balancierte Ziehung
+// Laedt die Satztexte der Wortmatrix-Items EINMAL vorab (die balancierte Ziehung
 // braucht den Text, der sonst erst beim Abspielen per Detail-Range kommt).
 // Nutzt die vorhandene Detail-NDJSON (item._detailUrl): eine Datei, per
 // Byte-Fenster (detailStart/detail) je Item die Zeile ausschneiden -> item.text.
@@ -276,7 +277,7 @@ function st_start() {
 async function _st_preload() {
   const all = st_allOlsaSentences();
   if (all.length < ST_LIST_LEN) {
-    console.warn("[sprachtest] zu wenige OLSA-Saetze:", all.length);
+    console.warn("[sprachtest] zu wenige Wortmatrix-Saetze:", all.length);
   }
   // Ladebalken wurde bereits in st_start() synchron eingeblendet.
   _st_loadProgress(0, 1);   // unbestimmt bis Texte geladen
