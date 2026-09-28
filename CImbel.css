@@ -228,6 +228,11 @@ h1 {
   background: var(--accent-light);
   border-color: var(--accent);
 }
+.is-active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
 .btn {
   padding: 8px 16px;
   border: 1px solid var(--border);

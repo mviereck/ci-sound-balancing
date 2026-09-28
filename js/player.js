@@ -1622,17 +1622,8 @@ function pMaplawUpdUI() {
   if (settingsBox) settingsBox.style.display = "none";
 
   cardOn.disabled = !applicable;
-  if (pMaplawOn && applicable) {
-    cardOn.textContent = t("plMaplawEnableOn");
-    cardOn.style.background = "var(--success)";
-    cardOn.style.color = "#fff";
-    cardOn.style.borderColor = "var(--success)";
-  } else {
-    cardOn.textContent = t("plMaplawEnableOff");
-    cardOn.style.background = "#e5e7eb";
-    cardOn.style.color = "var(--text)";
-    cardOn.style.borderColor = "var(--border)";
-  }
+  cardOn.textContent = (pMaplawOn && applicable) ? t("plMaplawEnableOn") : t("plMaplawEnableOff");
+  cardOn.classList.toggle("is-active", pMaplawOn && applicable);
 
   if (istEl) {
     const ist = (typeof pMaplawGetIstC === "function") ? pMaplawGetIstC() : null;
@@ -2593,14 +2584,10 @@ function plUpdNetSourceUI() {
   var mode = (typeof amGetSourceMode === "function") ? amGetSourceMode() : "online";
   var on  = document.getElementById("plNetOnlineBtn");
   var off = document.getElementById("plNetOfflineBtn");
-  // Aktiver Quellen-Knopf gruen hinterlegt (bewusst abweichend von der
-  // blauen Kategorie-Markierung daneben).
   [ [on, mode === "online"], [off, mode === "offline"] ].forEach(function (pair) {
     var btn = pair[0], active = pair[1];
     if (!btn) return;
-    btn.classList.toggle("active", active);
-    btn.style.background = active ? "#2e7d32" : "";
-    btn.style.color      = active ? "#fff"    : "";
+    btn.classList.toggle("is-active", active);
   });
 }
 
@@ -2681,9 +2668,7 @@ function plUpdSourceUI() {
     const on = (plActiveSource === tab.key);
     const btn = document.getElementById(tab.btnId);
     if (btn) {
-      btn.classList.toggle("active", on);
-      btn.style.background = on ? "var(--accent, #6aa84f)" : "";
-      btn.style.color      = on ? "#fff" : "";
+      btn.classList.toggle("is-active", on);
     }
     const sub = document.getElementById(tab.subId);
     if (sub) sub.style.display = on ? "" : "none";
@@ -2693,21 +2678,15 @@ function plUpdSourceUI() {
 function plUpdTransportUI() {
   const loopBtn = document.getElementById("plLoopBtn");
   if (loopBtn) {
-    loopBtn.classList.toggle("active", plLoop);
-    loopBtn.style.background = plLoop ? "var(--accent, #6aa84f)" : "";
-    loopBtn.style.color      = plLoop ? "#fff" : "";
+    loopBtn.classList.toggle("is-active", plLoop);
   }
   const aaBtn = document.getElementById("plAutoAdvBtn");
   if (aaBtn) {
-    aaBtn.classList.toggle("active", plAutoAdvance);
-    aaBtn.style.background = plAutoAdvance ? "var(--accent, #6aa84f)" : "";
-    aaBtn.style.color      = plAutoAdvance ? "#fff" : "";
+    aaBtn.classList.toggle("is-active", plAutoAdvance);
   }
   const shBtn = document.getElementById("plShuffleBtn");
   if (shBtn) {
-    shBtn.classList.toggle("active", plShuffle);
-    shBtn.style.background = plShuffle ? "var(--accent, #6aa84f)" : "";
-    shBtn.style.color      = plShuffle ? "#fff" : "";
+    shBtn.classList.toggle("is-active", plShuffle);
   }
   const prevBtn = document.getElementById("plPrev");
   const nextBtn = document.getElementById("plNext");
@@ -3017,9 +2996,7 @@ function plUpdVolBtns() {
   document.querySelectorAll(".pl-vol-btn").forEach(function (b) {
     const v = parseInt(b.dataset.v, 10);
     const active = (v === cur);
-    b.classList.toggle("active", active);
-    b.style.background = active ? "var(--accent, #6aa84f)" : "";
-    b.style.color      = active ? "#fff" : "";
+    b.classList.toggle("is-active", active);
   });
   const disp = document.getElementById("plVolDisplay");
   if (disp) disp.textContent = cur + "%";

@@ -180,33 +180,10 @@ function updSideButtons() {
   const L = document.getElementById("sideLeftBtn"),
     R = document.getElementById("sideRightBtn");
   if (!L || !R) return;
-  const activeStyle =
-    "background:var(--success);color:#fff;border-color:var(--success)";
-  const inactiveStyle =
-    "background:var(--surface);color:var(--text);border-color:var(--border)";
-  L.style.cssText = L.style.cssText.replace(
-    /background:[^;]+;color:[^;]+;border-color:[^;]+/,
-    "",
-  );
-  R.style.cssText = R.style.cssText.replace(
-    /background:[^;]+;color:[^;]+;border-color:[^;]+/,
-    "",
-  );
-  if (activeSide === "left") {
-    L.style.background = "var(--success)";
-    L.style.color = "#fff";
-    L.style.borderColor = "var(--success)";
-    R.style.background = "";
-    R.style.color = "";
-    R.style.borderColor = "";
-  } else {
-    R.style.background = "var(--success)";
-    R.style.color = "#fff";
-    R.style.borderColor = "var(--success)";
-    L.style.background = "";
-    L.style.color = "";
-    L.style.borderColor = "";
-  }
+  const active = (activeSide === "left") ? L : R;
+  const other  = (activeSide === "left") ? R : L;
+  active.classList.add("is-active");
+  other.classList.remove("is-active");
 }
 function ELL_updFClearBtn() {
   const btn = document.getElementById("fClearBtn");

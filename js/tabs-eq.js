@@ -327,17 +327,9 @@ function styleToggleBtn(btnId, active, nameKey) {
   const btn = document.getElementById(btnId);
   if (!btn) return;
   const name = t(nameKey);
-  if (active) {
-    btn.textContent = "✓ " + name + " " + t("toggleOn");
-    btn.style.background  = "var(--success)";
-    btn.style.color       = "#fff";
-    btn.style.borderColor = "var(--success)";
-  } else {
-    btn.textContent = name + " " + t("toggleOff");
-    btn.style.background  = "#e5e7eb";
-    btn.style.color       = "var(--text)";
-    btn.style.borderColor = "var(--border)";
-  }
+  btn.textContent = active ? ("✓ " + name + " " + t("toggleOn"))
+                           : (name + " " + t("toggleOff"));
+  btn.classList.toggle("is-active", active);
 }
 
 function updPlSrcButtons() {

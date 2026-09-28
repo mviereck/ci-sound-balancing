@@ -377,15 +377,7 @@ function openToneSelectionDialog(cfg, onChange) {
 
     // Gemeinsamer Aktiv/Inaktiv-Stil fuer die Auswahl-Buttons.
     function _envBtnStyle(btn, active) {
-      if (active) {
-        btn.style.background  = "var(--success)";
-        btn.style.color       = "#fff";
-        btn.style.borderColor = "var(--success)";
-      } else {
-        btn.style.background  = "#e5e7eb";
-        btn.style.color       = "var(--text)";
-        btn.style.borderColor = "var(--border)";
-      }
+      btn.classList.toggle("is-active", active);
     }
 
     // --- Anstiegsform ---
@@ -556,15 +548,7 @@ function openToneSelectionDialog(cfg, onChange) {
       'display:flex;gap:8px;margin:0 0 14px 0;flex-wrap:wrap;';
 
     var _tpUpdToggleStyle = function(btn, active) {
-      if (active) {
-        btn.style.background  = 'var(--success)';
-        btn.style.color       = '#fff';
-        btn.style.borderColor = 'var(--success)';
-      } else {
-        btn.style.background  = '#e5e7eb';
-        btn.style.color       = 'var(--text)';
-        btn.style.borderColor = 'var(--border)';
-      }
+      btn.classList.toggle('is-active', active);
     };
 
     var togMeas = document.createElement('button');
@@ -736,15 +720,7 @@ function openToneSelectionDialog(cfg, onChange) {
     sweepBtn.style.cssText = 'padding:6px 14px;font-weight:600;border-radius:6px;';
 
     function _swpUpdStyle(active) {
-      if (active) {
-        sweepBtn.style.background  = '#2563eb';
-        sweepBtn.style.color       = '#fff';
-        sweepBtn.style.borderColor = '#2563eb';
-      } else {
-        sweepBtn.style.background  = '';
-        sweepBtn.style.color       = '';
-        sweepBtn.style.borderColor = '';
-      }
+      sweepBtn.classList.toggle('is-active', active);
     }
     _swpUpdStyle(false);
 

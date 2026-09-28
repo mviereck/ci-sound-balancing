@@ -1079,15 +1079,7 @@ function frq_updateActiveMethodButtons() {
   for (let i = 0; i < map.length; i++) {
     const btn = document.getElementById(map[i].id);
     if (!btn) continue;
-    if (map[i].m === method) {
-      btn.style.background  = "var(--success)";
-      btn.style.color       = "#fff";
-      btn.style.borderColor = "var(--success)";
-    } else {
-      btn.style.background  = "#e5e7eb";
-      btn.style.color       = "var(--text)";
-      btn.style.borderColor = "var(--border)";
-    }
+    btn.classList.toggle("is-active", map[i].m === method);
   }
 }
 
