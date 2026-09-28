@@ -789,7 +789,7 @@ select:disabled {
   position: fixed;
   inset: 0;
   background: #0006;
-  z-index: 999;
+  z-index: 9999;
   align-items: center;
   justify-content: center;
 }
@@ -805,6 +805,17 @@ select:disabled {
   max-width: 90vw;
   box-shadow: 0 8px 32px #0004;
   text-align: center;
+}
+.modal-dlg {
+  background: var(--surface);
+  color: var(--text);
+  padding: 18px 22px;
+  border-radius: 8px;
+  min-width: 420px;
+  max-width: 90vw;
+  max-height: 85vh;
+  overflow: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
 }
 .modal-box h2 {
   font-size: 1.05em;

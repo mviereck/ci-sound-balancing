@@ -289,16 +289,10 @@ function openToneSelectionDialog(cfg, onChange) {
 
   var overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
-  overlay.style.cssText =
-    'position:fixed;inset:0;background:rgba(0,0,0,.45);' +
-    'display:flex;align-items:center;justify-content:center;z-index:9999;';
+  overlay.classList.add('active');
 
   var dlg = document.createElement('div');
   dlg.className = 'modal-dlg';
-  dlg.style.cssText =
-    'background:var(--bg,#fff);color:var(--fg,#000);padding:18px 22px;' +
-    'border-radius:8px;min-width:420px;max-width:90vw;max-height:85vh;' +
-    'overflow:auto;box-shadow:0 10px 30px rgba(0,0,0,.3);';
 
   var title = document.createElement('h3');
   // Titel per cfg.titleKey ueberschreibbar; Default "Einstellungen Testton".

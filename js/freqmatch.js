@@ -866,12 +866,9 @@ function _frq_pianoUpdateProgress() {
 function _frq_pianoShowRoundModal(durchlauf, onNext, onFinish) {
   var overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
-  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);'
-    + 'display:flex;align-items:center;justify-content:center;z-index:9999;';
+  overlay.classList.add('active');
   var box = document.createElement('div');
-  box.className = 'modal-box';
-  box.style.cssText = 'background:#fff;color:var(--text);padding:18px 22px;border-radius:8px;'
-    + 'min-width:300px;max-width:90vw;box-shadow:0 10px 30px rgba(0,0,0,.3);';
+  box.className = 'modal-dlg';
   var h = document.createElement('h3');
   h.style.cssText = 'margin:0 0 8px;font-size:1.05em;';
   h.textContent = t('FRQ_pianoDurchlaufTitle').replace('{x}', durchlauf);
