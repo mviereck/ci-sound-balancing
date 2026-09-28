@@ -1150,7 +1150,7 @@ Object.assign(L.es, {
     stResNoData: "Aún no hay resultados. Realice primero una medición en «Mediciones → Prueba de habla».",
     stResTitle: "Resultados prueba de habla",
     stResSrtLabel: "Umbral de recepción del habla (SRT):",
-    stResConvHint: "(terminado antes -- de los últimos 6 valores)",
+    stResConvHint: "(terminado antes por convergencia, de los últimos 6 valores similares)",
     stResSrtExplain: "",
     stResCourseTitle: "Curso de adaptación (SNR según el número de frase)",
     stResCourseExplain: "",

@@ -1150,7 +1150,7 @@ Object.assign(L.fr, {
     stResNoData: "Pas encore de résultats. Effectuez d'abord une mesure dans « Mesures → Test de parole ».",
     stResTitle: "Résultats test de parole",
     stResSrtLabel: "Seuil de réception de la parole (SRT) :",
-    stResConvHint: "(terminé plus tôt -- sur les 6 dernières valeurs)",
+    stResConvHint: "(terminé plus tôt pour cause de convergence, sur les 6 dernières valeurs similaires)",
     stResSrtExplain: "",
     stResCourseTitle: "Courbe d'adaptation (SNR selon le numéro de phrase)",
     stResCourseExplain: "",

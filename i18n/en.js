@@ -1150,7 +1150,7 @@ Object.assign(L.en, {
     stResNoData: "No results yet. First run a measurement under “Measurements → Speech test”.",
     stResTitle: "Speech test results",
     stResSrtLabel: "Speech reception threshold (SRT):",
-    stResConvHint: "(ended early -- from the last 6 values)",
+    stResConvHint: "(ended early due to convergence, from the last 6 similar values)",
     stResSrtExplain: "",
     stResCourseTitle: "Adaptation course (SNR over sentence number)",
     stResCourseExplain: "",
