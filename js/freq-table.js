@@ -385,8 +385,6 @@ function FRQ_implantatTableBuild() {
       wb = document.createElement("div");
       wb.id = "deactWarnBar";
       wb.className = "warning-bar";
-      wb.style.cssText =
-        "background:#fee2e2;color:#dc2626;border-left:3px solid #dc2626;padding:8px 14px;border-radius:6px;margin-bottom:10px;font-size:.88em;line-height:1.5";
       const frq_implantatCard = document.getElementById("FRQ_implantatTable").closest(".card");
       frq_implantatCard.insertBefore(
         wb,
@@ -460,8 +458,6 @@ function frq_implantatTableUpdateHints() {
       wb = document.createElement("div");
       wb.id = "deactWarnBar";
       wb.className = "warning-bar";
-      wb.style.cssText =
-        "background:#fee2e2;color:#dc2626;border-left:3px solid #dc2626;padding:8px 14px;border-radius:6px;margin-bottom:10px;font-size:.88em;line-height:1.5";
       const frq_implantatCard = document.getElementById("FRQ_implantatTable").closest(".card");
       frq_implantatCard.insertBefore(
         wb,

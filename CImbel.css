@@ -10,6 +10,8 @@
   --danger: #dc2626;
   --success: #16a34a;
   --warning: #d97706;
+  --tooltip-bg: #1e293b;
+  --tooltip-text: #f8fafc;
   --font: "Segoe UI", system-ui, -apple-system, sans-serif;
   --mono: "Consolas", "Menlo", monospace;
 }
@@ -260,6 +262,14 @@ button:disabled {
   min-height: 28px;
   border-radius: 4px;
 }
+.btn-stop {
+  background: var(--danger);
+  color: #fff;
+  border-color: var(--danger);
+  font-size: 1.1em;
+  padding: 0 6px;
+  line-height: 1;
+}
 .controls-row {
   display: flex;
   gap: 14px;
@@ -360,6 +370,19 @@ button:disabled {
   border-radius: 8px;
   padding: 16px;
   margin-top: 16px;
+}
+.chart-tooltip {
+  position: fixed;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.82em;
+  pointer-events: none;
+  display: none;
+  z-index: 1000;
+  line-height: 1.5;
+  white-space: nowrap;
 }
 canvas {
   width: 100%;
@@ -634,6 +657,16 @@ select:disabled {
 .explain-ok {
   border-left-color: var(--success);
   background: #e6f4ea;
+}
+.warning-bar {
+  background: #fee2e2;
+  color: var(--danger);
+  border-left: 3px solid var(--danger);
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 0.88em;
+  line-height: 1.5;
 }
 .explain-plain {
   font-size: 0.82em;

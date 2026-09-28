@@ -300,10 +300,10 @@
           </div>
 
           <!-- Konfig-Hinweise (bedingt) -->
-          <div id="cfgHintUnknownEl" class="explain"
-               style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"></div>
-          <div id="cfgHintAcousticEl" class="explain"
-               style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"></div>
+          <div id="cfgHintUnknownEl" class="explain explain-info"
+               style="display:none;margin-bottom:8px"></div>
+          <div id="cfgHintAcousticEl" class="explain explain-info"
+               style="display:none;margin-bottom:8px"></div>
           <div id="cfgHintDeafEl" class="explain explain-warn"
                style="display:none;margin-bottom:8px"></div>
           <div id="cfgHintBothAcousticEl" class="explain explain-warn"
@@ -326,8 +326,8 @@
             </div>
 
             <!-- Hersteller-Hinweis (wenn unknown) -->
-            <div id="mfrHintUnknownEl" class="explain"
-                 style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"></div>
+            <div id="mfrHintUnknownEl" class="explain explain-info"
+                 style="display:none;margin-bottom:8px"></div>
 
             <!-- Audioprozessor -->
             <div class="controls-row" id="implProcRow" style="margin-bottom: 6px">
@@ -1842,9 +1842,8 @@
                 </div>
                 <span id="plProgressComputePct"
                       style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
-                <button type="button" class="btn btn-sm" id="plComputeStopBtn"
-                        title="Berechnung stoppen"
-                        style="background:#c00;color:#fff;border-color:#900;font-size:1.1em;padding:0 6px;line-height:1">&#x1F6D1;</button>
+                <button type="button" class="btn btn-sm btn-stop" id="plComputeStopBtn"
+                        title="Berechnung stoppen">&#x1F6D1;</button>
               </div>
 
               <!-- Modus "download": Fortschrittsbalken -->
@@ -1856,9 +1855,8 @@
                 </div>
                 <span id="plProgressDownloadPct"
                       style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
-                <button type="button" class="btn btn-sm" id="plDownloadStopBtn"
-                        title="Download abbrechen"
-                        style="background:#c00;color:#fff;border-color:#900;font-size:1.1em;padding:0 6px;line-height:1">&#x1F6D1;</button>
+                <button type="button" class="btn btn-sm btn-stop" id="plDownloadStopBtn"
+                        title="Download abbrechen">&#x1F6D1;</button>
               </div>
 
               <!-- Modus "pause": Fortschrittsbalken der Auto-Weiter-/Loop-Pause -->
@@ -1870,9 +1868,8 @@
                 </div>
                 <span id="plProgressPauseTot"
                       style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
-                <button type="button" class="btn btn-sm" id="plPauseStopBtn"
-                        title="Pause vorzeitig beenden"
-                        style="background:#c00;color:#fff;border-color:#900;font-size:1.1em;padding:0 6px;line-height:1">&#x1F6D1;</button>
+                <button type="button" class="btn btn-sm btn-stop" id="plPauseStopBtn"
+                        title="Pause vorzeitig beenden">&#x1F6D1;</button>
               </div>
 
             </div>

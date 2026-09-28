@@ -115,10 +115,7 @@ function _axisTooltipHandler(cv, e) {
   if (!tip) {
     tip = document.createElement("div");
     tip.id = "axisTooltip";
-    tip.style.cssText =
-      "position:fixed;background:#1e293b;color:#f8fafc;padding:6px 10px;" +
-      "border-radius:6px;font-size:0.82em;pointer-events:none;display:none;" +
-      "z-index:1000;line-height:1.5;white-space:nowrap;";
+    tip.className = "chart-tooltip";
     document.body.appendChild(tip);
   }
   const hit = cv._axisHits.find(function (h) {
@@ -1080,9 +1077,7 @@ function _frqg_tooltipHandler(cv, e) {
   let tip = document.getElementById("frqg_tooltip");
   if (!tip) {
     tip = document.createElement("div"); tip.id = "frqg_tooltip";
-    tip.style.cssText = "position:fixed;background:#1e293b;color:#f8fafc;padding:6px 10px;" +
-      "border-radius:6px;font-size:0.82em;pointer-events:none;display:none;z-index:1000;" +
-      "line-height:1.6;white-space:nowrap;";
+    tip.className = "chart-tooltip";
     document.body.appendChild(tip);
   }
   // Naechstliegende Zeile ueber ALLE aufleuchtenden Elemente (nicht nur
