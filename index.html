@@ -268,7 +268,7 @@
       <!-- ===== SETUP ===== -->
       <div id="panel-setup" class="panel">
         <div class="card">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+          <div class="flex-between">
             <h2 id="FRQ_implantatTitle" style="margin:0;"></h2>
             <button class="btn" id="printImplantBtn"
                     title=""
@@ -826,7 +826,7 @@
       <!-- ===== SCHIEBER (zukünftig „Levels") ===== -->
       <div id="panel-schieber" class="panel">
         <div class="card">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+          <div class="flex-between">
             <h2 data-t="schieberELLTitle" style="margin:0;"></h2>
             <button class="btn" id="printSchieberELLBtn"
                     style="padding:4px 10px;font-size:0.9em;">
@@ -838,11 +838,11 @@
             <!-- Hauptmodus (per IMPL_HERSTELLERWERTE ausgeblendet, s. init.js) -->
             <span id="schieberELLModeSwitch" style="display:contents">
               <span style="font-weight:600" data-t="schieberELLModeLabel"></span>
-              <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <label class="flex-choice">
                 <input type="radio" name="schieberELLMode" id="schieberELLModeRel" value="rel" checked>
                 <span data-t="schieberELLModeRelative"></span>
               </label>
-              <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <label class="flex-choice">
                 <input type="radio" name="schieberELLMode" id="schieberELLModeAbs" value="abs">
                 <span data-t="schieberELLModeAbsolute"></span>
               </label>
@@ -850,11 +850,11 @@
             </span>
             <!-- Variante -->
             <span style="font-weight:600" data-t="schieberELLVariantLabel"></span>
-            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+            <label class="flex-choice">
               <input type="radio" name="schieberELLVariant" id="schieberELLVarSum" value="sum">
               <span data-t="schieberELLVarSum"></span>
             </label>
-            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+            <label class="flex-choice">
               <input type="radio" name="schieberELLVariant" id="schieberELLVarStack" value="stack" checked>
               <span data-t="schieberELLVarStack"></span>
             </label>
@@ -870,12 +870,12 @@
               <span style="display:inline-block;width:12px;height:12px;background:#16a34a;border-radius:2px"></span>
               <span data-t="schieberELLSrcSlider"></span>
             </label>
-            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+            <label class="flex-choice">
               <input type="checkbox" id="schieberELLChkMeas">
               <span style="display:inline-block;width:12px;height:12px;background:#2563eb;border-radius:2px"></span>
               <span data-t="schieberELLSrcMeas"></span>
             </label>
-            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+            <label class="flex-choice">
               <input type="checkbox" id="schieberELLChkCurves">
               <span style="display:inline-block;width:12px;height:12px;background:#d97706;border-radius:2px"></span>
               <span data-t="schieberELLSrcCurves"></span>
@@ -904,7 +904,7 @@
           <div class="explain-plain" data-t="kurvenELLIntroDesc"></div>
         </div>
         <div class="card kurven-ell-chart-card">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+          <div class="flex-between">
             <h2 data-t="kurvenELLChartTitle" style="margin:0;"></h2>
             <button class="btn" id="printKurvenELLBtn"
                     style="padding:4px 10px;font-size:0.9em;">
@@ -1019,7 +1019,7 @@
           <h3 data-t="FRQ_glaettTitle" style="font-size:1em;margin:0 0 10px">Me&#223;wertverlaufskurve gl&#228;tten</h3>
           <div data-t="FRQ_glaettIntro" style="font-size:0.88em;margin:0 0 12px;color:var(--text-muted)"><p style="margin:0 0 8px">Die exakten Me&#223;werte bestm&#246;glich umzusetzen kann zu unregelm&#228;&#223;iger Frequenzbandverteilung f&#252;hren. Die Me&#223;wertkurve zu gl&#228;tten kann zu gleichm&#228;&#223;igerer Bandverteilung f&#252;hren.</p><ul style="margin:0 0 8px;padding-left:1.4em"><li>Die farbigen Punkte gr&#252;n/gelb/rot geben einen Hinweis, wie gut die Kurve Ihre Messung trifft.</li><li>Das Verfahren &#8222;Ortsaffin&#8220; und die Voreinstellung von &#8222;Polynom&#8220; bilden eine Ann&#228;herung an die Elektrodenpositionen und k&#246;nnen trotz Me&#223;wertabweichungen eventuell gut passen.</li><li>Die T-f&#246;rmigen Residuenbalken geben die Me&#223;ungenauigkeit an; je besser die Kurve durch die Residuen l&#228;uft, desto besser pa&#223;t sie zu Ihren Me&#223;ergebnissen.</li><li>Als problematisch markierte Elektroden (z.&#8239;B. verrauscht) d&#252;rfen sich in der Kurve stark ver&#228;ndern.</li><li>Nur MED-EL: Pr&#252;fen Sie, ob FSP-gesteuerte Elektroden richtig markiert sind &#8212; oder nehmen Sie &#252;ber die Achse &#8222;Randausschlu&#223;&#8220; apikale Randelektroden aus der Gl&#228;ttung heraus.</li></ul></div>
           <!-- Zeile 1: global, immer sichtbar -->
-          <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+          <div class="flex-row wrap gap-weit" style="margin:0 0 12px;font-size:0.9em">
             <fieldset id="FRQ_glaettGrundlageFieldset" class="dbg-only-block" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettGrundlageLegend" style="padding:0 6px">Gl&#228;ttungs-Grundlage</legend>
               <label style="display:block"><input type="radio" name="FRQ_glaettGrundlage" value="residuum"> <span data-t="FRQ_glaettGrundlageResiduum">Residuum-Bereich</span></label>
@@ -1075,7 +1075,7 @@
             </fieldset>
           </div>
           <!-- Zeile 2: Verfahren + Polynom-Regler -->
-          <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+          <div class="flex-row wrap gap-weit" style="margin:0 0 12px;font-size:0.9em">
             <fieldset style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettVerfahrenLegend" style="padding:0 6px">Verfahren</legend>
               <label style="display:block"><input type="radio" name="FRQ_glaettVerfahren" value="aus"> <span data-t="FRQ_glaettVerfahrenAus">aus</span></label>
@@ -1125,7 +1125,7 @@
         <div class="card">
           <div id="FRQ_bandEmpfBlock" style="margin-top:18px">
             <h3 data-t="FRQ_bandEmpfTitle" style="font-size:1em;margin:0 0 10px">Bandgrenzen-Empfehlung</h3>
-            <div style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+            <div class="flex-row wrap gap-weit" style="margin:0 0 12px;font-size:0.9em">
               <fieldset id="FRQ_bandWandLoFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
                 <legend data-t="FRQ_bandWandLoLegend" style="padding:0 6px">Untergrenze</legend>
                 <div id="FRQ_bandWandLoOptions"></div>
@@ -1135,7 +1135,7 @@
                 <div id="FRQ_bandWandHiOptions"></div>
               </fieldset>
               <!-- Zeile 1: gemeinsame (globale) Achsen -->
-              <div id="FRQ_bandAchsenZeile1" style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+              <div id="FRQ_bandAchsenZeile1" class="flex-row wrap gap-weit" style="margin:0 0 12px;font-size:0.9em">
                 <fieldset id="FRQ_bandLageFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
                   <legend data-t="FRQ_bandLageLegend" style="padding:0 6px">Elektrodenlage</legend>
                   <label style="display:block"><input type="radio" name="FRQ_bandLage" value="geometrisch"> <span data-t="FRQ_bandLageGeom">geometrisch (log)</span></label>
@@ -1167,7 +1167,7 @@
               </div>
 
               <!-- Zeile 2: Verfahren-Wahl (zuerst) + verfahrensspezifische Achsen -->
-              <div id="FRQ_bandAchsenZeile2" style="display:flex;gap:28px;flex-wrap:wrap;margin:0 0 12px;font-size:0.9em">
+              <div id="FRQ_bandAchsenZeile2" class="flex-row wrap gap-weit" style="margin:0 0 12px;font-size:0.9em">
                 <fieldset id="FRQ_bandVerfahrenFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
                   <legend data-t="FRQ_bandVerfahrenLegend" style="padding:0 6px">Berechnungsverfahren</legend>
                   <label style="display:block"><input type="radio" name="FRQ_bandVerfahren" value="cbf"> <span data-t="FRQ_bandVerfCbf">CBF (CImbel based fitting)</span></label>
@@ -1423,15 +1423,15 @@
                 style="font-weight: 600; width: 240px; border-radius: 6px; text-align: left"
               ></button>
               <span style="display:inline-flex;align-items:center;gap:10px">
-                <label style="font-size:0.85em;display:flex;align-items:center;gap:4px;cursor:pointer">
+                <label class="flex-choice" style="font-size:0.85em">
                   <input type="radio" name="plWarpMode" value="fast" />
                   <span data-t="pwModeFast"></span>
                 </label>
-                <label style="font-size:0.85em;display:flex;align-items:center;gap:4px;cursor:pointer">
+                <label class="flex-choice" style="font-size:0.85em">
                   <input type="radio" name="plWarpMode" value="mid" checked />
                   <span data-t="pwModeMid"></span>
                 </label>
-                <label style="font-size:0.85em;display:flex;align-items:center;gap:4px;cursor:pointer">
+                <label class="flex-choice" style="font-size:0.85em">
                   <input type="radio" name="plWarpMode" value="best" />
                   <span data-t="pwModeBest"></span>
                 </label>
@@ -1796,7 +1796,7 @@
             <!-- Runde Transport-Buttons -->
             <button class="btn pl-trans-btn" id="plPrev" type="button"
                     title="" data-tip="plTipPrev"
-                    style="width:36px;height:36px;border-radius:50%;font-size:0.95em;display:flex;align-items:center;justify-content:center;padding:0;flex-shrink:0">
+>
               &#9198;
             </button>
             <span id="plPlayWrap"
@@ -1811,12 +1811,12 @@
             </span>
             <button class="btn pl-trans-btn" id="plStop" type="button"
                     title="" data-tip="plTipStop"
-                    style="width:36px;height:36px;border-radius:50%;font-size:0.95em;display:flex;align-items:center;justify-content:center;padding:0;flex-shrink:0">
+>
               &#9632;
             </button>
             <button class="btn pl-trans-btn" id="plNext" type="button"
                     title="" data-tip="plTipNext"
-                    style="width:36px;height:36px;border-radius:50%;font-size:0.95em;display:flex;align-items:center;justify-content:center;padding:0;flex-shrink:0">
+>
               &#9197;
             </button>
 

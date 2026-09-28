@@ -15,6 +15,23 @@
   --font: "Segoe UI", system-ui, -apple-system, sans-serif;
   --mono: "Consolas", "Menlo", monospace;
   --disabled-opacity: 0.5;
+  --piano-white-bg: #fff;
+  --piano-white-fg: #333;
+  --piano-white-border: #888;
+  --piano-black-bg: #222;
+  --piano-black-border: #000;
+  --piano-black-fg: #fff;
+  --piano-frame: #444;
+  --piano-disabled-white-bg: #d1d5db;
+  --piano-disabled-white-fg: #6b7280;
+  --piano-disabled-black-bg: #9ca3af;
+  --piano-x-white: #4b5563;
+  --piano-x-black: #1f2937;
+  --piano-hl-white: #ffe98b;
+  --piano-hl-black: #666;
+  --gap-eng: 4px;
+  --gap-mittel: 8px;
+  --gap-weit: 16px;
 }
 * {
   box-sizing: border-box;
@@ -2173,3 +2190,64 @@ input.ec-active.dep-locked {
 .st-res-srt strong { font-size: 1.4em; }
 .st-res-note { font-size: 0.85em; opacity: 0.75; margin: 0.2em 0 0.4em; }
 
+/* ===== Gemeinsamer Klaviatur-Farbsatz (BA617) ===== */
+.piano-white {
+  background: var(--piano-white-bg);
+  color: var(--piano-white-fg);
+  border-right: 1px solid var(--piano-white-border);
+}
+.piano-black {
+  background: var(--piano-black-bg);
+  border: 1px solid var(--piano-black-border);
+  color: var(--piano-black-fg);
+}
+.piano-key--disabled.piano-white {
+  background: var(--piano-disabled-white-bg);
+  color: var(--piano-disabled-white-fg);
+}
+.piano-key--disabled.piano-black {
+  background: var(--piano-disabled-black-bg);
+}
+.piano-bar {
+  background: var(--piano-black-bg);
+  border-top: 1px solid var(--piano-black-border);
+  border-bottom: 1px solid var(--piano-black-border);
+}
+
+
+/* --- Layout-Hilfsklassen BA618 --- */
+/* Dinge in einer Zeile, vertikal zentriert. */
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-mittel);
+}
+.flex-row.gap-eng  { gap: var(--gap-eng); }
+.flex-row.gap-weit { gap: var(--gap-weit); }
+.flex-row.wrap     { flex-wrap: wrap; }
+/* Zeile mit Inhalt links und rechts auseinandergezogen. */
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-mittel);
+}
+/* Anklickbare Auswahl-Zeile (Label mit Checkbox/Radio + Text). */
+.flex-choice {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-eng);
+  cursor: pointer;
+}
+/* Rundes Icon-Knöpfchen. */
+.icon-btn-round {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 0.95em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+}
