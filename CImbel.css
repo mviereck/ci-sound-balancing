@@ -2122,10 +2122,9 @@ input.ec-active.dep-locked {
 }
 
 /* ===== Sprachtest-Ergebnis (BA608) ===== */
-/* Abschnitts-Ueberschriften vom vorigen Abschnitt abruecken. */
-#ST_resContent h4 { margin: 20px 0 6px; }
+/* Ueberschriften nutzen .card h3, Grafiken .chart-container (toolweit).
+   Eigen bleiben nur der grosse SRT-Wert und die kleine Notizzeile. */
 .st-res-srt { font-size: 1.3em; margin: 0.5em 0 1em; }
 .st-res-srt strong { font-size: 1.4em; }
 .st-res-note { font-size: 0.85em; opacity: 0.75; margin: 0.2em 0 0.4em; }
-#subpanel-ergebnisse-sprachtest canvas { max-width: 100%; height: auto; border: 1px solid #ddd; }
 
