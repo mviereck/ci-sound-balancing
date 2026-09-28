@@ -726,7 +726,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ungenutzt, aber als Helfer bereitgestellt fuer die Folge-BAs.
     function matt(id, wirksam) {
       var el = document.getElementById(id);
-      if (el) el.style.opacity = wirksam ? "" : "0.5";
+      if (el) el.style.opacity = wirksam ? "" : "var(--disabled-opacity)";
     }
 
     // Zeile 2, verfahrensspezifisch (klassische Verfahren): Topologie/
@@ -904,7 +904,7 @@ document.addEventListener("DOMContentLoaded", () => {
       var r = document.querySelector('input[name="FRQ_glaettVerfahren"][value="' + val + '"]');
       if (!r) return;
       r.disabled = _istCochlear;
-      if (r.parentElement) r.parentElement.style.opacity = _istCochlear ? "0.45" : "";
+      if (r.parentElement) r.parentElement.style.opacity = _istCochlear ? "var(--disabled-opacity)" : "";
     });
     // Fallback: steht bei Cochlear doch ein gesperrtes Verfahren aktiv (z.B.
     // kuenftig aus geladenem Stand), auf "aus" zuruecksetzen, damit nicht ein
@@ -925,7 +925,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // opacity). Der Wert bleibt setzbar und greift, sobald er wieder wirkt.
     function matt(id, wirksam) {
       var el = document.getElementById(id);
-      if (el) el.style.opacity = wirksam ? "" : "0.5";
+      if (el) el.style.opacity = wirksam ? "" : "var(--disabled-opacity)";
     }
     // Randausschluss-Achse nur bei MED-EL: sie dient dem apikalen FSP-
     // Ausschluss (rate-pitch statt place-pitch, MED-EL-spezifisch). Bei AB
@@ -963,7 +963,7 @@ document.addEventListener("DOMContentLoaded", () => {
       var r0 = document.querySelector('input[name="' + grp + '"][value="0"]');
       if (r0) {
         r0.disabled = _istAb;
-        if (r0.parentElement) r0.parentElement.style.opacity = _istAb ? "0.45" : "";
+        if (r0.parentElement) r0.parentElement.style.opacity = _istAb ? "var(--disabled-opacity)" : "";
       }
     });
     // AB + Wert steht auf "0": auf "1" heben (State + Radio spiegeln), damit

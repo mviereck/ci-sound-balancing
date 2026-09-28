@@ -533,7 +533,7 @@ function openToneSelectionDialog(cfg, onChange) {
       flInp.value  = String(gToneEnvDbFloor);
       var hard = (gToneEnvAttackForm === "hard");
       atkInp.disabled = hard;
-      atkWrap.style.opacity = hard ? "0.45" : "1";
+      atkWrap.style.opacity = hard ? "var(--disabled-opacity)" : "1";
       flWrap.style.display = (gToneEnvAttackForm === "dblin") ? "flex" : "none";
     }
     refreshEnvUI();

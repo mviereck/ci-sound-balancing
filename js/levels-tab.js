@@ -525,7 +525,7 @@ function schieberELLUpdateModeAvailability() {
   btn.disabled = !ok;
   const lbl = btn.parentElement;
   if (lbl) {
-    lbl.style.opacity = ok ? "1" : "0.5";
+    lbl.style.opacity = ok ? "1" : "var(--disabled-opacity)";
     lbl.title = ok ? "" : t("schieberELLAbsNotAvailable");
   }
   if (schieberELLMode === "abs" && !ok) {

@@ -78,7 +78,7 @@ function FRQ_implantatTableBuild() {
       const ciSide = activeSide === "left" ? "right" : "left";
       const ciEffHz = fmtNum(withSide(ciSide, () => FRQ_implantatEffektiv(i)), "hz");
       const ownExcl = elExDur[i] != null;
-      if (ownExcl) tr.style.opacity = "0.55";
+      if (ownExcl) tr.style.opacity = "var(--disabled-opacity)";
       // Status-Optionen ohne „im CI deaktiviert", mit akustischer Wortwahl
       const so_ac =
         `<option value="">${t("acStOk")}</option>` +
@@ -135,7 +135,7 @@ function FRQ_implantatTableBuild() {
           im.upperLevel[i] !== null &&
           im.upperLevel[i] !== undefined
         ? im.upperLevel[i] : "";
-    if (isDeact || isExcl) tr.style.opacity = "0.55";
+    if (isDeact || isExcl) tr.style.opacity = "var(--disabled-opacity)";
 
     // BA 164: Status-Dropdown ohne „deactivated"-Option (6 statt 7)
     const so_i =

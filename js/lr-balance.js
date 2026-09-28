@@ -456,7 +456,7 @@ function STB_renderResults() {
     const tr = document.createElement("tr");
 
     if (isDisabled) {
-      tr.style.opacity = "0.4";
+      tr.style.opacity = "var(--disabled-opacity)";
       tr.innerHTML =
         `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
         `<td>${fmtNum(hzL, "hz")}</td><td>${fmtNum(hzR, "hz")}</td>` +

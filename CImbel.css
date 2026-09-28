@@ -14,6 +14,7 @@
   --tooltip-text: #f8fafc;
   --font: "Segoe UI", system-ui, -apple-system, sans-serif;
   --mono: "Consolas", "Menlo", monospace;
+  --disabled-opacity: 0.5;
 }
 * {
   box-sizing: border-box;

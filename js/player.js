@@ -709,7 +709,7 @@ function plUpdMonoBox() {
   const on = !!both.checked;
   mono.disabled = !on;
   const lbl = mono.closest("label");
-  if (lbl) lbl.style.opacity = on ? "" : "0.4";
+  if (lbl) lbl.style.opacity = on ? "" : "var(--disabled-opacity)";
 }
 
 // BA385: Blendet alle vom Master-Button (Equalizer) gesteuerten Box-Zeilen
@@ -747,7 +747,7 @@ function plUpdHeadroomBox() {
     cb2.checked = !!plEqHeadroomBoth;
     cb2.disabled = !plEqHeadroom;
     const lbl2 = cb2.closest("label");
-    if (lbl2) lbl2.style.opacity = plEqHeadroom ? "" : "0.4";
+    if (lbl2) lbl2.style.opacity = plEqHeadroom ? "" : "var(--disabled-opacity)";
     const info2 = document.getElementById("plEqHeadroomBothInfo");
     if (info2) info2.classList.toggle("hidden", !(plEqHeadroom && plEqHeadroomBoth));
   }
@@ -1679,7 +1679,7 @@ function plUpdBalLock() {
   else if (suppressed) reason = "suppressed";
   plBalLocked = (reason !== null);
   if (btn) {
-    btn.style.opacity = plBalLocked ? "0.4" : "";
+    btn.style.opacity = plBalLocked ? "var(--disabled-opacity)" : "";
     btn.style.cursor  = plBalLocked ? "not-allowed" : "";
   }
   if (hint) {
@@ -1712,7 +1712,7 @@ function plUpdLatLock() {
   const deaf = (typeof evalDeafState === "function") ? evalDeafState() : { hasDeaf: false };
   plLatLocked = !!deaf.hasDeaf;
   if (btn) {
-    btn.style.opacity = plLatLocked ? "0.4" : "";
+    btn.style.opacity = plLatLocked ? "var(--disabled-opacity)" : "";
     btn.style.cursor  = plLatLocked ? "not-allowed" : "";
   }
   if (hint) {
@@ -1735,7 +1735,7 @@ function plUpdWarpLock() {
   const deaf = (typeof evalDeafState === "function") ? evalDeafState() : { hasDeaf: false };
   plWarpLocked = !!deaf.hasDeaf;
   if (btn) {
-    btn.style.opacity = plWarpLocked ? "0.4" : "";
+    btn.style.opacity = plWarpLocked ? "var(--disabled-opacity)" : "";
     btn.style.cursor  = plWarpLocked ? "not-allowed" : "";
   }
   if (hint) {
@@ -2720,12 +2720,12 @@ function plUpdTransportUI() {
 
   if (nextBtn) {
     nextBtn.disabled = !hasNext;
-    nextBtn.style.opacity = hasNext ? "1" : "0.5";
+    nextBtn.style.opacity = hasNext ? "1" : "var(--disabled-opacity)";
     nextBtn.style.cursor  = hasNext ? "pointer" : "not-allowed";
   }
   if (prevBtn) {
     prevBtn.disabled = !hasPrev;
-    prevBtn.style.opacity = hasPrev ? "1" : "0.5";
+    prevBtn.style.opacity = hasPrev ? "1" : "var(--disabled-opacity)";
     prevBtn.style.cursor  = hasPrev ? "pointer" : "not-allowed";
   }
   // BA604: Maskierer-Dropdown bei Kategoriewechsel ein-/ausblenden.
@@ -3186,7 +3186,7 @@ function plBuildFilterChain(catDecl) {
         catDecl.stateRef.setCategory("_all");
       }
       domEl.disabled = (buckets.length === 0);
-      domEl.style.opacity = domEl.disabled ? "0.5" : "1";
+      domEl.style.opacity = domEl.disabled ? "var(--disabled-opacity)" : "1";
 
     } else if (stage.kind === "search") {
       // Suchfeld: nur schreiben wenn nicht fokussiert
