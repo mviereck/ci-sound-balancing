@@ -590,7 +590,7 @@ function ST_renderResults() {
   if (bundleEl) {
     const lbl = res.bundleLabel || "";
     bundleEl.textContent = lbl
-      ? (t("stResBundlePrefix") + " " + lbl + (res.validated ? "" : " " + t("stBundleUnvalidatedTag")))
+      ? (t("stResBundlePrefix") + " " + lbl)
       : "";
   }
 
@@ -830,7 +830,7 @@ function st_refreshBundleSelect() {
   ST_bundles.forEach(function (b) {
     const opt = document.createElement("option");
     opt.value = b.id;
-    opt.textContent = b.label + (b.validated ? "" : " " + t("stBundleUnvalidatedTag"));
+    opt.textContent = b.label;
     sel.appendChild(opt);
   });
   sel.value = ST_activeBundle.id;
@@ -851,7 +851,7 @@ async function st_onUploadFile(file) {
   try {
     const bundle = await ST_buildOlsaBundleFromZip(file);
     st_setActiveBundle(bundle.id);
-    if (st) st.textContent = t("stUploadOk");
+    if (st) st.textContent = "";   // Erfolg: keine Meldung, nur Platz
   } catch (e) {
     console.error("[sprachtest] Upload fehlgeschlagen:", e);
     if (st) st.textContent = (e && e.message) ? e.message : t("stUploadErrGeneric");
