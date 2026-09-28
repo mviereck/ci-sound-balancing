@@ -308,10 +308,7 @@ function openToneSelectionDialog(cfg, onChange) {
   //     Reiter). Gleiche gelbe Box-Optik wie die Debug-Hinweise.
   var _tpDbgHintFollows = dbgOn && (cfg.hintKey || cfg.extraHintKey);
   var _tpPersistStyle = function (bottomPx) {
-    return 'margin:0 0 ' + bottomPx + 'px 0;font-size:.92em;' +
-           'line-height:1.35;background:#fff4d6;' +
-           'border-left:3px solid #d8a200;padding:8px 10px;' +
-           'border-radius:4px;';
+    return 'margin:0 0 ' + bottomPx + 'px 0;';
   };
   // Letzter sichtbarer Dauer-Hinweis braucht 14px Abstand nach unten,
   // ausser es folgt noch ein Debug-Hinweis (dann 8px, zusammenruecken).
@@ -319,6 +316,7 @@ function openToneSelectionDialog(cfg, onChange) {
 
   var stabHint = document.createElement('p');
   stabHint.dataset.t = 'tonePopupHintStabilize';
+  stabHint.className = 'explain explain-warn';
   // BA 299: stabHint wird jetzt immer vom Tonauswahl-Hinweis gefolgt -> 8px.
   stabHint.style.cssText = _tpPersistStyle('8');
   dlg.appendChild(stabHint);
@@ -328,6 +326,7 @@ function openToneSelectionDialog(cfg, onChange) {
   // Dauer-Hinweis, sofern kein persistentHintKey folgt.
   var toneChoiceHint = document.createElement('p');
   toneChoiceHint.dataset.t = 'tonePopupHintToneChoice';
+  toneChoiceHint.className = 'explain explain-warn';
   toneChoiceHint.style.cssText = _tpPersistStyle(
     cfg.persistentHintKey ? '8' : _tpPersistLastMargin);
   dlg.appendChild(toneChoiceHint);
@@ -335,6 +334,7 @@ function openToneSelectionDialog(cfg, onChange) {
   if (cfg.persistentHintKey) {
     var persHint = document.createElement('p');
     persHint.dataset.t = cfg.persistentHintKey;
+    persHint.className = 'explain explain-warn';
     persHint.style.cssText = _tpPersistStyle(_tpPersistLastMargin);
     dlg.appendChild(persHint);
   }
@@ -348,20 +348,15 @@ function openToneSelectionDialog(cfg, onChange) {
   if (dbgOn && cfg.hintKey) {
     var hint = document.createElement('p');
     hint.dataset.t = cfg.hintKey;
-    hint.style.cssText =
-      'margin:0 0 ' + (_tpHasExtraHint ? '8' : '14') + 'px 0;' +
-      'font-size:.92em;line-height:1.35;' +
-      'background:#fff4d6;border-left:3px solid #d8a200;' +
-      'padding:8px 10px;border-radius:4px;';
+    hint.className = 'explain explain-warn';
+    hint.style.cssText = 'margin:0 0 ' + (_tpHasExtraHint ? '8' : '14') + 'px 0;';
     dlg.appendChild(hint);
   }
   if (dbgOn && cfg.extraHintKey) {
     var extraHint = document.createElement('p');
     extraHint.dataset.t = cfg.extraHintKey;
-    extraHint.style.cssText =
-      'margin:0 0 14px 0;font-size:.92em;line-height:1.35;' +
-      'background:#fff4d6;border-left:3px solid #d8a200;' +
-      'padding:8px 10px;border-radius:4px;';
+    extraHint.className = 'explain explain-warn';
+    extraHint.style.cssText = 'margin:0 0 14px 0;';
     dlg.appendChild(extraHint);
   }
 

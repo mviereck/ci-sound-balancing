@@ -62,7 +62,7 @@ function renderSamplerKeyboard(container, opts) {
   loadHint.className = 'sampler-keyboard-loadhint';
   loadHint.dataset.t = 'samplerKeyboardLoading';
   loadHint.style.cssText = 'display:none;text-align:center;font-size:.9em;'
-    + 'color:#d8a200;padding:2px 0 4px 0;font-style:italic;';
+    + 'color:var(--warning);padding:2px 0 4px 0;font-style:italic;';
   loadHint.textContent = 'Laedt ...';   // wird durch applyLang ueberschrieben
   wrap.appendChild(loadHint);
 
