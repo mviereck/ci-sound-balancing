@@ -35,11 +35,22 @@ let kurvenELLActivePi = -1;   // aktive Kurvenzeile (-1 = keine)
 let elActive = [];  // BA 164: Aktivitäts-Flag pro Elektrode der aktiven Seite
 let fullSweepRound = null,
   fullSweepDonePairs = [];
+// Voreingestellte Stärke je Kurventyp (Startwert des Schiebers beim
+// Einschalten; alle Kurven starten mit on:false). Fehlt ein Typ, gilt 0.
+const KURVEN_ELL_DEFAULT_STRENGTH = {
+  speech: 5,
+  iso226: 1,
+  volume: 0,
+  tilt: 2,
+  scurve: 3,
+  pivot: 5,
+  gauss: 5,
+};
 function initElektrodenlautstaerkeKurven() {
   kurvenELL = KURVEN_ELL_TYPES.map((tp) => ({
     type: tp,
     on: false,
-    strength: tp === "iso226" ? 1 : 0,
+    strength: KURVEN_ELL_DEFAULT_STRENGTH[tp] || 0,
     center: CENT_REF_HZ,
     width: 1200,
     phon: 70,
