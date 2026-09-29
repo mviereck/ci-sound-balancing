@@ -876,9 +876,9 @@ Object.assign(L.de, {
     kurvenELLStrLabel: "Stärke:",
     kurvenELLFineLabel: "Fein",
     kurvenELLExplTilt:
-      "Linearer Anstieg von apikal nach basal. Positive Werte betonen Höhen, negative Tiefen. Entspricht dem MAESTRO Tilt-Werkzeug.",
+      "Linearer Anstieg von apikal nach basal. Positive Werte betonen Höhen, negative Tiefen.",
     kurvenELLExplPivot:
-      "Mitte betonen, Ränder absenken (positiv) oder umgekehrt. Entspricht dem MAESTRO Pivot-Werkzeug.",
+      "Mitte betonen, Ränder absenken (positiv) oder umgekehrt.",
     kurvenELLExplScurve:
       "Wie Tilt, aber mit weicherem Übergang in der Mitte. Links der Mitte abgesenkt, rechts angehoben (oder umgekehrt).",
     kurvenELLExplGauss:
@@ -891,11 +891,12 @@ Object.assign(L.de, {
       "Bildet die natürliche Frequenzgewichtung des Normalohrs nach (gehörrichtige Lautstärke nach ISO 226:2003, Kurven gleicher Lautheit). Positive Werte heben tiefe und hohe Frequenzen gegenüber der Mitte an, negative kehren den Effekt um. Der phon-Wert bestimmt, für welche Hörlautstärke die Gewichtung gilt.",
     kurvenELLIntroTitle: "Kurven",
     kurvenELLIntroDesc:
-      "Anpassung der Elektrodenlautstärke über alle Elektroden hinweg. Wählen Sie aus angebotenen Kurvenfunktionen und passen Sie die Werte live an.",
+      "Anpassung der Elektrodenlautstärke über alle Elektroden hinweg. Wählen Sie aus angebotenen Kurvenfunktionen. Wenn gleichzeitig der Player läuft, können Sie die Änderungen live hören.",
     kurvenELLTitle: "Kurvenfunktionen",
     kurvenELLDesc:
-      "Vordefinierte Kurvenformen. Tilt und Pivot entsprechen den gleichnamigen MAESTRO-Werkzeugen. Das Sprache-Preset gewichtet Frequenzen nach ihrer Bedeutung für die Sprachverständlichkeit (ANSI S3.5). Tastatur: ↑↓ justiert Werte im Eingabefeld.",
+      "Vordefinierte Kurvenformen. Tastatur: ↑↓ justiert Werte im Eingabefeld.",
     kurvenELLChartTitle: "Übersicht",
+    kurvenELLChartShowLabel: "Im Graph anzeigen: ",
     kurvenELLChartMan: "Manuell",
     kurvenELLChartSum: "Summe",
     kurvenELLChartWarpHint:

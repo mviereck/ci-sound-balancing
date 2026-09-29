@@ -622,9 +622,9 @@ Object.assign(L.fr, {
     kurvenELLStrLabel: "Force :",
     kurvenELLFineLabel: "Fin",
     kurvenELLExplTilt:
-      "Augmentation linéaire de l'apical au basal. Valeurs positives accentuent les aigus, négatives les graves. Correspond à l'outil Tilt de MAESTRO.",
+      "Augmentation linéaire de l'apical au basal. Valeurs positives accentuent les aigus, négatives les graves.",
     kurvenELLExplPivot:
-      "Accentuer le milieu, abaisser les bords (positif) ou inversement. Correspond à l'outil Pivot de MAESTRO.",
+      "Accentuer le milieu, abaisser les bords (positif) ou inversement.",
     kurvenELLExplScurve:
       "Comme Tilt, mais avec une transition plus douce au milieu. À gauche du milieu abaissé, à droite relevé (ou inversement).",
     kurvenELLExplGauss:
@@ -637,11 +637,12 @@ Object.assign(L.fr, {
       "Reproduit la pondération naturelle des fréquences de l'oreille normale (courbes isosoniques selon ISO 226:2003). Les valeurs positives augmentent les basses et les hautes fréquences par rapport au médium, les négatives inversent l'effet. La valeur en phones définit le niveau d'écoute concerné.",
     kurvenELLIntroTitle: "Courbes",
     kurvenELLIntroDesc:
-      "Ajustement de l'intensité des électrodes sur toutes les électrodes. Choisissez parmi les fonctions de courbe proposées et ajustez les valeurs en direct.",
+      "Ajustement de l'intensité des électrodes sur toutes les électrodes. Choisissez parmi les fonctions de courbe proposées. Si le Player fonctionne en même temps, vous pouvez entendre les changements en direct.",
     kurvenELLTitle: "Fonctions de courbe",
     kurvenELLDesc:
-      "Formes de courbe prédéfinies. Tilt et Pivot correspondent aux outils MAESTRO du même nom. Le preset Parole pondère les fréquences selon leur importance pour l'intelligibilité de la parole (ANSI S3.5). Clavier : ↑↓ ajuste les valeurs dans le champ de saisie.",
+      "Formes de courbe prédéfinies. Clavier : ↑↓ ajuste les valeurs dans le champ de saisie.",
     kurvenELLChartTitle: "Vue d'ensemble",
+    kurvenELLChartShowLabel: "Afficher dans le graphique : ",
     kurvenELLChartMan: "Manuel",
     kurvenELLChartSum: "Somme",
     kurvenELLChartWarpHint:

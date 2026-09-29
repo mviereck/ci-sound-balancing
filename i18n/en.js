@@ -621,9 +621,9 @@ Object.assign(L.en, {
     kurvenELLStrLabel: "Strength:",
     kurvenELLFineLabel: "Fine",
     kurvenELLExplTilt:
-      "Linear increase from apical to basal. Positive values emphasize treble, negative values bass. Equivalent to the MAESTRO Tilt tool.",
+      "Linear increase from apical to basal. Positive values emphasize treble, negative values bass.",
     kurvenELLExplPivot:
-      "Emphasize the middle, lower the edges (positive) or vice versa. Equivalent to the MAESTRO Pivot tool.",
+      "Emphasize the middle, lower the edges (positive) or vice versa.",
     kurvenELLExplScurve:
       "Like Tilt, but with a softer transition in the middle. Lowered to the left of the middle, raised to the right (or vice versa).",
     kurvenELLExplGauss:
@@ -636,11 +636,12 @@ Object.assign(L.en, {
       "Reproduces the natural frequency weighting of the normal ear (equal-loudness contours per ISO 226:2003). Positive values raise low and high frequencies relative to the midrange, negative values reverse the effect. The phon value sets the listening level the weighting applies to.",
     kurvenELLIntroTitle: "Curves",
     kurvenELLIntroDesc:
-      "Adjustment of the electrode loudness across all electrodes. Choose from the provided curve functions and adjust the values live.",
+      "Adjustment of the electrode loudness across all electrodes. Choose from the provided curve functions. If the player is running at the same time, you can hear the changes live.",
     kurvenELLTitle: "Curve functions",
     kurvenELLDesc:
-      "Predefined curve shapes. Tilt and Pivot correspond to the MAESTRO tools of the same name. The Speech preset weights frequencies by their importance for speech intelligibility (ANSI S3.5). Keyboard: ↑↓ adjusts values in the input field.",
+      "Predefined curve shapes. Keyboard: ↑↓ adjusts values in the input field.",
     kurvenELLChartTitle: "Overview",
+    kurvenELLChartShowLabel: "Show in graph: ",
     kurvenELLChartMan: "Manual",
     kurvenELLChartSum: "Sum",
     kurvenELLChartWarpHint:

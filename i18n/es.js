@@ -622,9 +622,9 @@ Object.assign(L.es, {
     kurvenELLStrLabel: "Intensidad:",
     kurvenELLFineLabel: "Fino",
     kurvenELLExplTilt:
-      "Aumento lineal de apical a basal. Valores positivos realzan los agudos, negativos los graves. Equivale a la herramienta Tilt de MAESTRO.",
+      "Aumento lineal de apical a basal. Valores positivos realzan los agudos, negativos los graves.",
     kurvenELLExplPivot:
-      "Resaltar el centro y atenuar los bordes (positivo) o al revés. Equivale a la herramienta Pivot de MAESTRO.",
+      "Resaltar el centro y atenuar los bordes (positivo) o al revés.",
     kurvenELLExplScurve:
       "Como Tilt, pero con una transición más suave en el centro. A la izquierda del centro atenuado, a la derecha realzado (o viceversa).",
     kurvenELLExplGauss:
@@ -637,11 +637,12 @@ Object.assign(L.es, {
       "Reproduce la ponderación natural de frecuencias del oído normal (curvas isofónicas según ISO 226:2003). Los valores positivos realzan las frecuencias graves y agudas respecto a los medios, los negativos invierten el efecto. El valor en fonios define el nivel de escucha al que se aplica.",
     kurvenELLIntroTitle: "Curvas",
     kurvenELLIntroDesc:
-      "Ajuste del volumen de electrodos a lo largo de todos los electrodos. Elija entre las funciones de curva ofrecidas y ajuste los valores en directo.",
+      "Ajuste del volumen de electrodos a lo largo de todos los electrodos. Elija entre las funciones de curva ofrecidas. Si el reproductor está sonando al mismo tiempo, puede oír los cambios en directo.",
     kurvenELLTitle: "Funciones de curva",
     kurvenELLDesc:
-      "Formas de curva predefinidas. Tilt y Pivot corresponden a las herramientas homónimas de MAESTRO. El preset Habla pondera las frecuencias según su importancia para la inteligibilidad del habla (ANSI S3.5). Teclado: ↑↓ ajusta los valores en el campo de entrada.",
+      "Formas de curva predefinidas. Teclado: ↑↓ ajusta los valores en el campo de entrada.",
     kurvenELLChartTitle: "Vista general",
+    kurvenELLChartShowLabel: "Mostrar en el gráfico: ",
     kurvenELLChartMan: "Manual",
     kurvenELLChartSum: "Suma",
     kurvenELLChartWarpHint:
