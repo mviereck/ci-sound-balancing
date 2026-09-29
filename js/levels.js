@@ -236,7 +236,7 @@ function kurvenELLTabelleBauen() {
     if (phonSel) phonSel.value = pr.phon != null ? pr.phon : 70;
     const tr2 = document.createElement("tr");
     tr2.className = pr.on ? "" : "kurven-ell-row-off";
-    tr2.innerHTML = `<td></td><td colspan="2" style="font-size:.78em;color:var(--text-muted);padding-top:0">${t(KURVEN_ELL_EXPL[pr.type])}</td>`;
+    tr2.innerHTML = `<td></td><td colspan="2" style="font-size:.78em;color:var(--text);padding-top:0">${t(KURVEN_ELL_EXPL[pr.type])}</td>`;
     tbl.appendChild(tr2);
   }
   tbl.querySelectorAll(".kurven-ell-on").forEach(function (cb) {

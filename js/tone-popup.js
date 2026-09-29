@@ -445,7 +445,7 @@ function openToneSelectionDialog(cfg, onChange) {
     });
     var atkUnit = document.createElement("span");
     atkUnit.textContent = "ms";
-    atkUnit.style.color = "var(--text-muted)";
+    atkUnit.style.color = "var(--text)";
     atkWrap.append(atkLbl, atkInp, atkList, atkUnit);
     numRow.appendChild(atkWrap);
 
@@ -478,7 +478,7 @@ function openToneSelectionDialog(cfg, onChange) {
     });
     var flUnit = document.createElement("span");
     flUnit.textContent = "dB";
-    flUnit.style.color = "var(--text-muted)";
+    flUnit.style.color = "var(--text)";
     flWrap.append(flLbl, flInp, flList, flUnit);
     numRow.appendChild(flWrap);
     sec.appendChild(numRow);
@@ -636,7 +636,7 @@ function openToneSelectionDialog(cfg, onChange) {
       });
       var unit = document.createElement('span');
       unit.textContent = suffix;
-      unit.style.color = 'var(--text-muted)';
+      unit.style.color = 'var(--text)';
       wrap.append(lbl, inp, unit);
       return wrap;
     }

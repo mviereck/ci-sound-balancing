@@ -1362,7 +1362,7 @@ function _FRQ_renderBandEmpf(side) {
   // Graphen). Tabelle: nhSim fest false, Modus aus dem Referenzmodus.
   var werte = FRQ_empfWerte(false);
 
-  var dash = "<span style=\"color:var(--text-muted)\">&#8212;</span>";
+  var dash = "<span style=\"color:var(--text)\">&#8212;</span>";
   var rows = "";
   var overlapSeen = false;
   var abfTooSmall = false;
@@ -1387,7 +1387,7 @@ function _FRQ_renderBandEmpf(side) {
         + "<td>" + dash + "</td>"
         + "<td>" + dash + "</td>"
         + "<td>" + dash + "</td>"
-        + "<td><span style=\"color:var(--text-muted);font-style:italic\">"
+        + "<td><span style=\"color:var(--text);font-style:italic\">"
           + _statusTxt + "</span></td>"
         + "</tr>";
       continue;
@@ -1440,20 +1440,20 @@ function _FRQ_renderBandEmpf(side) {
                 : (_bStufe === "amber") ? "#d97706" : "#dc2626";
       var ueberTxt = (ueber >= 0 ? "+" : "") + fmtNum(ueber, "cent") + " ct";
       ratingCell = "<span style=\"color:" + farbe + ";font-weight:600\">" + stufe + "</span>"
-                 + " <span style=\"color:var(--text-muted)\">(" + ueberTxt + ")</span>";
+                 + " <span style=\"color:var(--text)\">(" + ueberTxt + ")</span>";
     } else if (ws && ws.bandCenterVorschlagHz != null && ws.nominellHz != null) {
       // BA448 (Sec. 14.5): ungemessene El. -> Verschiebungs-Vorschlag
       // (Frequenz + Cent gegen nominell). Nutzer-Beschluss 2026-07-06.
       var vHz = ws.bandCenterVorschlagHz;
       var vCent = 1200 * Math.log2(vHz / ws.nominellHz);
       var vCentTxt = (vCent >= 0 ? "+" : "") + fmtNum(vCent, "cent") + " ct";
-      ratingCell = "<span style=\"color:var(--text-muted);font-style:italic\">"
+      ratingCell = "<span style=\"color:var(--text);font-style:italic\">"
         + t("FRQ_bandEmpfVorschlag") + ": " + fmtNum(vHz, "hz") + " Hz (" + vCentTxt + ")</span>";
     }
 
     // BA528: Stumme Elektrode -> Hinweis in der Rating-Spalte anhaengen.
     if (_sd.elSt && _sd.elSt[i] === "mute") {
-      var _stummHinweis = "<span style=\"color:var(--text-muted);font-style:italic;display:block\">"
+      var _stummHinweis = "<span style=\"color:var(--text);font-style:italic;display:block\">"
         + t("FRQ_bandStumm") + "</span>";
       ratingCell = (ratingCell !== dash ? ratingCell : "") + _stummHinweis;
     }

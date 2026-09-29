@@ -337,7 +337,7 @@ function _ltz_buildExtraFragment() {
   });
   const intvHint = document.createElement('div');
   intvHint.id = 'ltz_intervalHint';
-  intvHint.style.cssText = 'font-size:0.85em;color:var(--text-muted);margin-top:4px;';
+  intvHint.style.cssText = 'font-size:0.85em;color:var(--text);margin-top:4px;';
   intvWrap.append(intvLbl, intvRow, intvHint);
 
   // Klangtyp

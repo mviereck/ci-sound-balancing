@@ -3,7 +3,6 @@
   --surface: #fff;
   --border: #d4d0c8;
   --text: #1a1a1a;
-  --text-muted: #1a1a1a;
   --accent: #2563eb;
   --accent-hover: #1d4ed8;
   --accent-light: #dbeafe;
@@ -66,7 +65,7 @@ h1 {
 .version-tag {
   font-size: 0.45em;
   font-weight: normal;
-  color: var(--text-muted);
+  color: var(--text);
   vertical-align: middle;
 }
 .brand-row {
@@ -112,7 +111,7 @@ h1 {
   background: none;
   cursor: pointer;
   font-size: 0.92em;
-  color: var(--text-muted);
+  color: var(--text);
   border-bottom: 2px solid transparent;
   margin-bottom: -2px;
   font-family: var(--font);
@@ -153,7 +152,7 @@ h1 {
   font-size: 0.95em;
   font-weight: 600;
   margin-bottom: 8px;
-  color: var(--text-muted);
+  color: var(--text);
 }
 .frq-implantat-table {
   width: 100%;
@@ -172,7 +171,7 @@ h1 {
   font-size: 0.8em;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color: var(--text-muted);
+  color: var(--text);
 }
 .frq-implantat-table input[type="number"] {
   width: 70px;
@@ -311,7 +310,7 @@ button:disabled {
 }
 .control-group label {
   font-size: 0.85em;
-  color: var(--text-muted);
+  color: var(--text);
   white-space: nowrap;
 }
 .control-group input[type="range"] {
@@ -339,11 +338,11 @@ button:disabled {
   padding: 24px 16px;
 }
 .pair-freq {
-  color: var(--text-muted);
+  color: var(--text);
   margin-bottom: 8px;
 }
 .progress-label {
-  color: var(--text-muted);
+  color: var(--text);
   font-size: 0.9em;
 }
 .progress-bar {
@@ -362,7 +361,7 @@ button:disabled {
 }
 .progress-text {
   font-size: 0.85em;
-  color: var(--text-muted);
+  color: var(--text);
   margin-top: 4px;
   text-align: center;
 }
@@ -434,7 +433,7 @@ canvas {
   font-size: 0.8em;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color: var(--text-muted);
+  color: var(--text);
 }
 .kbd {
   display: inline-block;
@@ -552,7 +551,7 @@ canvas {
 }
 .frq-status-row.frq-status-not-perceivable > .frq-status-cell {
   background: #f8d7da;
-  color: var(--text-muted);
+  color: var(--text);
 }
 .frq-status-provisional {
   font-style: italic;
@@ -629,17 +628,17 @@ canvas {
 .aba-label {
   font-size: 0.65em;
   font-weight: 400;
-  color: var(--text-muted);
+  color: var(--text);
   display: block;
 }
 .timer-display {
   font-family: var(--mono);
   font-size: 0.85em;
-  color: var(--text-muted);
+  color: var(--text);
 }
 .el-extra {
   font-size: 0.7em;
-  color: var(--text-muted);
+  color: var(--text);
   font-weight: 400;
 }
 .lang-select {
@@ -656,7 +655,7 @@ select:disabled {
 }
 .explain {
   font-size: 0.82em;
-  color: var(--text-muted);
+  color: var(--text);
   line-height: 1.5;
   margin-top: 8px;
   padding: 10px;
@@ -697,7 +696,7 @@ select:disabled {
 }
 .explain-plain {
   font-size: 0.82em;
-  color: var(--text-muted);
+  color: var(--text);
   line-height: 1.5;
   margin-top: 8px;
   white-space: pre-wrap;
@@ -741,7 +740,7 @@ select:disabled {
 }
 .kurven-ell-tbl .kurven-ell-param label {
   font-size: 0.82em;
-  color: var(--text-muted);
+  color: var(--text);
   white-space: nowrap;
 }
 .kurven-ell-tbl .kurven-ell-param select,
@@ -786,7 +785,7 @@ select:disabled {
   background: none;
   cursor: pointer;
   font-size: 0.88em;
-  color: var(--text-muted);
+  color: var(--text);
   border-bottom: 2px solid transparent;
   margin-bottom: -2px;
   font-family: var(--font);
@@ -969,7 +968,7 @@ select:disabled {
 }
 .test-hint {
   font-size: 0.88em;
-  color: var(--text-muted);
+  color: var(--text);
   margin: 2px 0 10px;
 }
 .tone-label-left,
@@ -984,7 +983,7 @@ select:disabled {
 }
 .conf-quality-label {
   font-size: 0.85em;
-  color: var(--text-muted);
+  color: var(--text);
   margin-top: 12px;
   margin-bottom: 2px;
 }
@@ -1112,11 +1111,11 @@ select:disabled {
   padding: 16px 0 24px;
   text-align: center;
   font-size: 0.82em;
-  color: var(--text-muted);
+  color: var(--text);
   border-top: 1px solid var(--border);
 }
 .app-footer a {
-  color: var(--text-muted);
+  color: var(--text);
   text-decoration: none;
 }
 .app-footer a:hover {
@@ -1251,7 +1250,7 @@ select:disabled {
 
 .support-zweck {
   font-size: 0.88em;
-  color: var(--text-muted);
+  color: var(--text);
   margin-top: 8px;
 }
 
@@ -1365,7 +1364,7 @@ select:disabled {
 .support-slogan {
   font-style: italic;
   font-size: 1.05em;
-  color: var(--text-muted);
+  color: var(--text);
   margin: 0;
 }
 
@@ -1393,7 +1392,7 @@ select:disabled {
 }
 .support-iban-qr-label {
   font-size: 0.9em;
-  color: var(--text-muted);
+  color: var(--text);
   margin: 8px 0 4px;
 }
 
@@ -1437,7 +1436,7 @@ select:disabled {
 .link-entry-urls {
   margin: 0 0 8px;
   font-size: 0.9em;
-  color: var(--text-muted);
+  color: var(--text);
   word-break: break-word;
 }
 .link-entry-urls a {
@@ -1879,7 +1878,7 @@ body.dbg-active .dbg-only-block { display: revert; }
   font-size: 0.9em;
 }
 #implValidateList .impl-val-empty {
-  color: var(--text-muted);
+  color: var(--text);
   font-style: italic;
   padding: 4px 0;
 }
@@ -2054,7 +2053,7 @@ input.ec-active.dep-locked {
 }
 .pl-upload-title {
   font-size: 0.82em;
-  color: var(--text-muted);
+  color: var(--text);
   margin-bottom: 6px;
 }
 .pl-upload-btns {
