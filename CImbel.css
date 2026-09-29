@@ -264,6 +264,10 @@ h1 {
   color: #fff;
   border-color: var(--success);
 }
+.is-active:hover {
+  background: var(--success);
+  color: #fff;
+}
 button:disabled {
   opacity: 0.4;
   cursor: not-allowed !important;
