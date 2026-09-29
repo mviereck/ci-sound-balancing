@@ -643,7 +643,7 @@ function _buildTestPanelNew(parentEl, cfg) {
 
       var pnRow = _mkEl("div", "tk-piano-row");
       pnRow.style.cssText = "position:relative;display:flex;flex:1;height:80px;"
-        + "border:1px solid #444;border-radius:4px;overflow:hidden;"
+        + "border:1px solid var(--piano-frame);border-radius:4px;overflow:hidden;"
         + "user-select:none;-webkit-user-select:none;touch-action:none;";
 
       var pnRight = _mkEl("button", "btn btn-sm tk-piano-arrow");
@@ -661,10 +661,10 @@ function _buildTestPanelNew(parentEl, cfg) {
 
       // Weisse Tasten (9).
       for (var _wi = 0; _wi < 9; _wi++) {
-        var _wk = _mkEl("div", "tk-key tk-white");
-        _wk.style.cssText = "flex:1;border-right:1px solid #888;background:#fff;"
+        var _wk = _mkEl("div", "piano-key piano-white");
+        _wk.style.cssText = "flex:1;"
           + "cursor:pointer;position:relative;display:flex;align-items:flex-end;"
-          + "justify-content:center;padding-bottom:4px;font-size:.78em;color:#333;";
+          + "justify-content:center;padding-bottom:4px;font-size:.78em;";
         _wk.textContent = PN_WHITE_LABELS[_wi];
         _wk.dataset.slot = String(_wi);
         _wk.dataset.black = "0";
@@ -678,14 +678,14 @@ function _buildTestPanelNew(parentEl, cfg) {
       // Schwarze Tasten (8), zwischen weiss i und i+1.
       var _pnWhitePct = 100 / 9;
       for (var _bi = 0; _bi < 8; _bi++) {
-        var _bk = _mkEl("div", "tk-key tk-black");
+        var _bk = _mkEl("div", "piano-key piano-black");
         var _bLeft  = (_bi + 1) * _pnWhitePct - _pnWhitePct / 4;
         var _bWidth = _pnWhitePct / 2;
         _bk.style.cssText = "position:absolute;top:0;left:" + _bLeft.toFixed(3) + "%;"
-          + "width:" + _bWidth.toFixed(3) + "%;height:60%;background:#222;"
-          + "border:1px solid #000;border-radius:0 0 3px 3px;cursor:pointer;"
+          + "width:" + _bWidth.toFixed(3) + "%;height:60%;"
+          + "border-radius:0 0 3px 3px;cursor:pointer;"
           + "display:flex;align-items:flex-end;justify-content:center;"
-          + "padding-bottom:3px;font-size:.72em;color:#fff;";
+          + "padding-bottom:3px;font-size:.72em;";
         _bk.textContent = PN_BLACK_LABELS[_bi];
         _bk.dataset.slot = String(_bi);
         _bk.dataset.black = "1";

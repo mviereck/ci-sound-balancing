@@ -69,7 +69,7 @@ function renderSamplerKeyboard(container, opts) {
   // Klavier-Reihe (relative, damit schwarze Tasten absolut positioniert werden koennen)
   var row = document.createElement('div');
   row.style.cssText = 'position:relative;display:flex;height:80px;'
-    + 'border:1px solid #444;border-radius:4px;overflow:hidden;'
+    + 'border:1px solid var(--piano-frame);border-radius:4px;overflow:hidden;'
     + 'user-select:none;-webkit-user-select:none;touch-action:none;';
 
   // Tasten-Referenzen sammeln, damit das Nachbar-Highlight beim
@@ -80,24 +80,22 @@ function renderSamplerKeyboard(container, opts) {
   // Weisse Tasten
   freqs.forEach(function(hz, i) {
     var key = document.createElement('div');
-    key.className = 'kb-key kb-white';
-    key.style.cssText = 'flex:1;border-right:1px solid #888;background:#fff;'
+    key.className = 'piano-key piano-white';
+    key.style.cssText = 'flex:1;'
       + 'cursor:pointer;position:relative;display:flex;align-items:flex-end;'
-      + 'justify-content:center;padding-bottom:4px;font-size:.78em;color:#333;';
+      + 'justify-content:center;padding-bottom:4px;font-size:.78em;';
     key.textContent = labels[i] != null ? String(labels[i]) : String(i + 1);
     key.dataset.electrodeIdx = String(i);
     key.dataset.hz = String(hz);
     if (disabledSet.has(i)) {
-      key.classList.add('kb-key--disabled');
-      key.style.background = '#d1d5db';
-      key.style.color      = '#6b7280';
-      key.style.cursor     = 'not-allowed';
+      key.classList.add('piano-key--disabled');
+      key.style.cursor = 'not-allowed';
       var xOv = document.createElement('span');
       xOv.style.cssText = 'position:absolute;inset:0;pointer-events:none;'
         + 'background-image:linear-gradient(to top right, transparent calc(50% - 1px), '
-        + '#4b5563 calc(50% - 1px), #4b5563 calc(50% + 1px), transparent calc(50% + 1px)),'
+        + 'var(--piano-x-white) calc(50% - 1px), var(--piano-x-white) calc(50% + 1px), transparent calc(50% + 1px)),'
         + 'linear-gradient(to top left, transparent calc(50% - 1px), '
-        + '#4b5563 calc(50% - 1px), #4b5563 calc(50% + 1px), transparent calc(50% + 1px));';
+        + 'var(--piano-x-white) calc(50% - 1px), var(--piano-x-white) calc(50% + 1px), transparent calc(50% + 1px));';
       key.appendChild(xOv);
     }
     whiteKeys[i] = key;
@@ -120,11 +118,11 @@ function renderSamplerKeyboard(container, opts) {
     var leftPct  = (bi + 1) * whiteWidthPct - whiteWidthPct / 4;
     var widthPct = whiteWidthPct / 2;
     var black    = document.createElement('div');
-    black.className = 'kb-key kb-black';
+    black.className = 'piano-key piano-black';
     black.style.cssText = 'position:absolute;top:0;'
       + 'left:' + leftPct.toFixed(3) + '%;'
       + 'width:' + widthPct.toFixed(3) + '%;'
-      + 'height:60%;background:#222;border:1px solid #000;'
+      + 'height:60%;'
       + 'border-radius:0 0 3px 3px;cursor:pointer;';
     black.dataset.electrodeIdx = '-1';
     black.dataset.blackIdx     = String(bi);
@@ -132,15 +130,14 @@ function renderSamplerKeyboard(container, opts) {
 
     var noAnchor = (leftAnchor < 0) || (rightAnchor >= freqs.length);
     if (noAnchor) {
-      black.classList.add('kb-key--disabled');
-      black.style.background = '#9ca3af';
-      black.style.cursor     = 'not-allowed';
+      black.classList.add('piano-key--disabled');
+      black.style.cursor = 'not-allowed';
       var xOvB = document.createElement('span');
       xOvB.style.cssText = 'position:absolute;inset:0;pointer-events:none;'
         + 'background-image:linear-gradient(to top right, transparent calc(50% - 1px), '
-        + '#1f2937 calc(50% - 1px), #1f2937 calc(50% + 1px), transparent calc(50% + 1px)),'
+        + 'var(--piano-x-black) calc(50% - 1px), var(--piano-x-black) calc(50% + 1px), transparent calc(50% + 1px)),'
         + 'linear-gradient(to top left, transparent calc(50% - 1px), '
-        + '#1f2937 calc(50% - 1px), #1f2937 calc(50% + 1px), transparent calc(50% + 1px));';
+        + 'var(--piano-x-black) calc(50% - 1px), var(--piano-x-black) calc(50% + 1px), transparent calc(50% + 1px));';
       black.appendChild(xOvB);
       black.dataset.hz = '0';
       row.appendChild(black);
@@ -174,12 +171,11 @@ function renderSamplerKeyboard(container, opts) {
     var barLeftPct  = firstLeft + firstWidth / 2;
     var barRightPct = lastLeft  + lastWidth  / 2;
     var bar = document.createElement('div');
-    bar.className = 'kb-bar';
+    bar.className = 'piano-bar';
     bar.dataset.grpKey = grpKey;
     bar.style.cssText = 'position:absolute;top:25%;height:15px;'
       + 'left:'  + barLeftPct.toFixed(3) + '%;'
       + 'width:' + (barRightPct - barLeftPct).toFixed(3) + '%;'
-      + 'background:#222;border-top:1px solid #000;border-bottom:1px solid #000;'
       + 'pointer-events:none;';
     grp.barEl = bar;
     row.appendChild(bar);
@@ -202,7 +198,7 @@ function renderSamplerKeyboard(container, opts) {
 
   // BA 241: Tasten-Bundle fuer Highlight.
   function _keysToHighlight(el) {
-    if (el.classList.contains('kb-white')) return [el];
+    if (el.classList.contains('piano-white')) return [el];
     var grpKey = el.dataset.grpKey;
     if (grpKey && blackGroups[grpKey]) {
       var grp = blackGroups[grpKey];
@@ -223,7 +219,7 @@ function renderSamplerKeyboard(container, opts) {
   function _highlightOn(els) {
     els.forEach(function(e) {
       if (e._origBg == null) e._origBg = e.style.background || '';
-      e.style.background = e.classList.contains('kb-black') ? '#666' : '#ffe98b';
+      e.style.background = e.classList.contains('piano-black') ? 'var(--piano-hl-black)' : 'var(--piano-hl-white)';
     });
   }
   function _highlightOff(els) {
