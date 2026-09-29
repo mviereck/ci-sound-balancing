@@ -260,9 +260,9 @@ h1 {
   cursor: default;
 }
 .is-active {
-  background: var(--accent);
+  background: var(--success);
   color: #fff;
-  border-color: var(--accent);
+  border-color: var(--success);
 }
 button:disabled {
   opacity: 0.4;
