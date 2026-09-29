@@ -719,7 +719,7 @@ select:disabled {
   font-size: 0.86em;
 }
 .kurven-ell-tbl td {
-  padding: 5px 6px;
+  padding: 3px 6px;
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
 }

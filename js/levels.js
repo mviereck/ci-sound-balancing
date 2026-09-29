@@ -225,7 +225,8 @@ function kurvenELLTabelleBauen() {
       params += ` <label>${t("kurvenELLPhon")}</label><select class="kurven-ell-phon" data-pi="${pi}">${phonOpts}</select> ${t("kurvenELLUnitPhon")}`;
     }
     params += "</div>";
-    tr.innerHTML = `<td><input type="checkbox" class="kurven-ell-on" data-pi="${pi}" ${pr.on ? "checked" : ""}></td><td class="kurven-ell-name">${t(KURVEN_ELL_NAMES[pr.type])}</td><td>${params}</td>`;
+    // Erklaertext ins Info-Icon-Popup verlagert (kompakter, 1 Zeile/Kurve).
+    tr.innerHTML = `<td><input type="checkbox" class="kurven-ell-on" data-pi="${pi}" ${pr.on ? "checked" : ""}></td><td class="kurven-ell-name">${t(KURVEN_ELL_NAMES[pr.type])}${infoIconHtml(KURVEN_ELL_EXPL[pr.type])}</td><td>${params}</td>`;
     tbl.appendChild(tr);
     const ctrInp = tr.querySelector(".kurven-ell-ctr");
     if (ctrInp)
@@ -234,10 +235,6 @@ function kurvenELLTabelleBauen() {
     if (widInp) widInp.value = (pr.width != null ? pr.width : 1200);
     const phonSel = tr.querySelector(".kurven-ell-phon");
     if (phonSel) phonSel.value = pr.phon != null ? pr.phon : 70;
-    const tr2 = document.createElement("tr");
-    tr2.className = pr.on ? "" : "kurven-ell-row-off";
-    tr2.innerHTML = `<td></td><td colspan="2" style="font-size:.78em;color:var(--text);padding-top:0">${t(KURVEN_ELL_EXPL[pr.type])}</td>`;
-    tbl.appendChild(tr2);
   }
   tbl.querySelectorAll(".kurven-ell-on").forEach(function (cb) {
     cb.addEventListener("change", function () {
