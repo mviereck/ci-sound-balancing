@@ -419,7 +419,9 @@ if (typeof amRegisterProvider === "function") {
               gender: r.gender || coll.gender || "u",
               style: coll.style || null,
               test_type: coll.testType || null,
-              test_set: coll.testSet || null
+              test_set: coll.testSet || null,
+              synthetic: coll.synthetic || null,
+              sentence_form: coll.sentenceForm || null
             }
           });
         }

@@ -353,7 +353,11 @@ const AM_SORT_AXES = {
             var t2 = items[i].tags;
             if (!t2 || !t2.speaker_name) continue;
             var v = (t2.speaker_id || t2.book_title) || "";
-            if (v && !m.has(v)) m.set(v, t2.speaker_name);
+            if (v && !m.has(v)) {
+              var nm = t2.speaker_name;
+              if (t2.synthetic === "y") nm = nm + " (TTS)";
+              m.set(v, nm);
+            }
           }
           _amSpeakerNameCache.set(items, m);
         }
@@ -367,9 +371,33 @@ const AM_SORT_AXES = {
       bucketLabel: function (v) { return (typeof t === "function") ? t("plAxisStyle_" + v) : v; }
     },
     {
+      key: "synthetic", labelKey: "plBookAxisSynthetic", labelDefault: "Stimmerzeuger",
+      getter: function (it) { return (it.tags && it.tags.synthetic) || "zzz-unbekannt"; },
+      valueOf: function (it) { return (it.tags && it.tags.synthetic) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plBookSynthetic_" + v) : v; }
+    },
+    {
+      key: "sentence_form", labelKey: "plAxisSentenceForm", labelDefault: "Sprechweise",
+      getter: function (it) { return (it.tags && it.tags.sentence_form) || "zzz-unbekannt"; },
+      valueOf: function (it) { return (it.tags && it.tags.sentence_form) || ""; },
+      bucketLabel: function (v) { return (typeof t === "function") ? t("plSentenceForm_" + v) : v; }
+    },
+    {
       key: "test_set", labelKey: "plAxisTestSet", labelDefault: "Testsatz-Sammlung",
       getter: function (it) { return (it.tags && it.tags.test_set) || "zzz-unbekannt"; },
-      valueOf: function (it) { return (it.tags && it.tags.test_set) || ""; }
+      valueOf: function (it) { return (it.tags && it.tags.test_set) || ""; },
+      labelFromItems: function (value, items) {
+        for (var i = 0; i < items.length; i++) {
+          var tg = items[i].tags;
+          if (!tg || tg.test_set !== value) continue;
+          var name = tg.speaker_name || value;
+          var sf = tg.sentence_form;
+          if (sf === "composed") return name + " " + ((typeof t === "function") ? t("stFormComposedSuffix") : "(Wortmontage)");
+          if (sf === "whole")    return name + " " + ((typeof t === "function") ? t("stFormWholeSuffix") : "(fliessend gesprochen)");
+          return name;
+        }
+        return null;
+      }
     },
     {
       key: "accent", labelKey: "plAxisAccent", labelDefault: "Akzent",
@@ -509,7 +537,7 @@ const AM_SORT_AXES = {
       // kein bucketLabel: der Rohwert ("Hochdeutsch", ...) ist bereits das Label.
     },
     {
-      key: "synthetic", labelKey: "plBookAxisSynthetic", labelDefault: "Stimme",
+      key: "synthetic", labelKey: "plBookAxisSynthetic", labelDefault: "Stimmerzeuger",
       getter: function (c) { return (c.tags && c.tags.synthetic) || "zzz-unbekannt"; },
       valueOf: function (c) { return (c.tags && c.tags.synthetic) || ""; },
       bucketLabel: function (v) { return (typeof t === "function") ? t("plBookSynthetic_" + v) : v; }

@@ -64,10 +64,12 @@ function zu_detectMatrix(files) {
   if (isOlsa) {
     return {
       test_type: "matrix",
-      test_set: "OLSA (weiblich)",
+      test_set: "olsa-weiblich",          // technischer Slug, kein Anzeigename
       speaker_id: "olsa-female",
-      speaker_name: "OLSA (weiblich)",
+      speaker_name: "OLSA-weiblich",
       gender: "w",
+      synthetic: "y",
+      sentence_form: "whole",
       license: "CC-BY-NC-SA-4.0",
       credit: "Oldenburger Satztest (OLSA), VirtualSpeaker (Acapela), Zenodo",
       textName: txtName,
@@ -81,15 +83,19 @@ function zu_detectMatrix(files) {
     var meta = null;
     try { meta = JSON.parse(new TextDecoder("utf-8").decode(files[tagsName])); }
     catch (e) { meta = null; }
-    if (meta && meta.test_type === "matrix" && meta.test_set && meta.license) {
+    if (meta && meta.test_type === "matrix" && meta.license && meta.sentence_form) {
+      var spName = meta.speaker_name || meta.name || "Unbekannt";
+      var tsSlug = meta.test_set ? zu_slug(String(meta.test_set)) : zu_slug(spName);
       return {
         test_type: "matrix",
-        test_set: String(meta.test_set),
+        test_set: tsSlug,
         speaker_id: meta.speaker_id || null,
-        speaker_name: meta.speaker_name || String(meta.test_set),
+        speaker_name: spName,
         gender: meta.gender || null,
+        synthetic: meta.synthetic || null,
+        sentence_form: String(meta.sentence_form),
         license: String(meta.license),
-        credit: meta.credit || String(meta.test_set),
+        credit: meta.credit || spName,
         textName: txtName,
         noiseName: noiseName
       };
@@ -142,6 +148,8 @@ function zu_ingestMatrix(files, det) {
     speakerId: det.speaker_id,
     speakerName: det.speaker_name,
     gender: det.gender,
+    synthetic: det.synthetic || null,
+    sentenceForm: det.sentence_form || null,
     style: "test",
     license: det.license,
     credit: det.credit
