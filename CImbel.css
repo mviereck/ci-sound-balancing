@@ -265,7 +265,7 @@ h1 {
   border-color: var(--success);
 }
 .is-active:hover {
-  background: var(--success);
+  background: #22c55e;
   color: #fff;
 }
 button:disabled {
