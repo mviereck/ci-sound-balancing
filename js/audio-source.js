@@ -1743,6 +1743,45 @@ function amNoiseAddLocalFile(file) {
   return item;
 }
 
+// Matrix-Stoerrauschen aus einem ZIP-Upload (BA 622): eigenes
+// Geraeusche-Item mit test_set-Verklammerung zur Satz-Sammlung. Eigener
+// cid je Sammlung (nicht die Sammel-"upload"-cid), damit es klar der
+// Matrix zugeordnet ist. det: das Erkenn-Objekt aus zu_detectMatrix.
+function amNoiseRegisterMatrixNoise(file, det) {
+  if (!file || !det) return null;
+  var cid = "matrix-noise-" + String(det.test_set).toLowerCase()
+              .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  var rel = file.name;
+  var coll = _amNoiseLocalFolders.get(cid);
+  if (!coll) {
+    coll = { id: cid, label: det.test_set, files: new Map(), items: [] };
+    _amNoiseLocalFolders.set(cid, coll);
+  }
+  coll.files.set(rel, file);
+  var item = {
+    id: "matrix-noise:" + cid + ":" + rel,
+    title: "Stoerrauschen - " + det.test_set,
+    audio: "local-noise-folder:" + cid + ":" + rel,
+    _file: file,
+    sourceTitle: det.test_set,
+    license: det.license || null,
+    credit: det.credit || null,
+    tags: {
+      kind: "rauschen-ssn",
+      spectrum: "broadband",
+      stationary: "y",
+      loop_safe: "y",
+      test_suitable: "y",
+      test_type: "matrix",
+      test_set: det.test_set,
+      source_local: "y"
+    }
+  };
+  // Doppel-Upload derselben Sammlung: Item ersetzen, nicht anhaeufen.
+  coll.items = [item];
+  return item;
+}
+
 // ============================================================
 // BA334: lokaler Geraeusche-Ordner-Provider
 // ============================================================

@@ -4253,8 +4253,27 @@ PL_FILTER_DECL.musik = {
       allowFile: true, allowFolder: true,
       titleKey: "plUploadTitle",
       folderLabelKey: "plUploadFolder", fileLabelKey: "plUploadFile",
-      accept: ".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*",
+      accept: ".mp3,.wav,.flac,.ogg,.m4a,.mp4,.zip,audio/*",
       onFile: async function (file) {
+        if (/\.zip$/i.test(file.name)) {
+          try {
+            await zuHandleZipUpload(file, "musik", {
+              onNormalAudio: async function (fileObjs) {
+                fileObjs.forEach(function (f) {
+                  if (typeof amMusicAddLocalFile === "function") {
+                    var it = amMusicAddLocalFile(f);
+                    if (it) plMusicSelectedId = it.id;
+                  }
+                });
+              }
+            });
+            plMusicRefreshUI();
+            if (plActiveSource === "musik") plMusicLoadSelected();
+          } catch (e) {
+            alert((typeof t === "function") ? t("zuUploadFailed") : "Upload fehlgeschlagen");
+          }
+          return;
+        }
         var it = (typeof amMusicAddLocalFile === "function") ? amMusicAddLocalFile(file) : null;
         if (it) plMusicSelectedId = it.id;
         plMusicRefreshUI();
@@ -4329,8 +4348,27 @@ PL_FILTER_DECL.geraeusche = {
       allowFile: true, allowFolder: true,
       titleKey: "plUploadTitle",
       folderLabelKey: "plUploadFolder", fileLabelKey: "plUploadFile",
-      accept: ".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*",
+      accept: ".mp3,.wav,.flac,.ogg,.m4a,.mp4,.zip,audio/*",
       onFile: async function (file) {
+        if (/\.zip$/i.test(file.name)) {
+          try {
+            await zuHandleZipUpload(file, "geraeusche", {
+              onNormalAudio: async function (fileObjs) {
+                fileObjs.forEach(function (f) {
+                  if (typeof amNoiseAddLocalFile === "function") {
+                    var it = amNoiseAddLocalFile(f);
+                    if (it) plNoiseSelectedId = it.id;
+                  }
+                });
+              }
+            });
+            plNoiseRefreshUI();
+            if (plActiveSource === "geraeusche") await plNoiseLoadSelected();
+          } catch (e) {
+            alert((typeof t === "function") ? t("zuUploadFailed") : "Upload fehlgeschlagen");
+          }
+          return;
+        }
         var it = (typeof amNoiseAddLocalFile === "function") ? amNoiseAddLocalFile(file) : null;
         if (it) plNoiseSelectedId = it.id;
         plNoiseRefreshUI();
@@ -4699,8 +4737,20 @@ PL_FILTER_DECL.hoerbuecher = {
       allowFile: true, allowFolder: true,
       titleKey: "plUploadTitle",
       folderLabelKey: "plUploadBookFolder", fileLabelKey: "plUploadBookFile",
-      accept: ".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*",
+      accept: ".mp3,.wav,.flac,.ogg,.m4a,.mp4,.zip,audio/*",
       onFile: async function (file) {
+        if (/\.zip$/i.test(file.name)) {
+          try {
+            await zuHandleZipUpload(file, "hoerbuecher", {
+              onNormalAudio: async function (fileObjs) {
+                await plBookHandleUpload(fileObjs);
+              }
+            });
+          } catch (e) {
+            alert((typeof t === "function") ? t("zuUploadFailed") : "Upload fehlgeschlagen");
+          }
+          return;
+        }
         await plBookHandleUpload([file]);
       },
       onFolder: async function (fileList) {
@@ -4926,8 +4976,21 @@ PL_FILTER_DECL.saetze = {
       allowFile: true, allowFolder: true,
       titleKey: "plUploadTitle",
       folderLabelKey: "plUploadFolder", fileLabelKey: "plUploadFile",
-      accept: ".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*",
+      accept: ".mp3,.wav,.flac,.ogg,.m4a,.mp4,.zip,audio/*",
       onFile: async function (file) {
+        if (/\.zip$/i.test(file.name)) {
+          try {
+            await zuHandleZipUpload(file, "saetze", {
+              onNormalAudio: async function (fileObjs) {
+                fileObjs.forEach(function (f) { if (typeof sAddLocalFile === "function") sAddLocalFile(f); });
+              }
+            });
+            if (typeof sUpdateUI === "function") sUpdateUI();
+          } catch (e) {
+            alert((typeof t === "function") ? t("zuUploadFailed") : "Upload fehlgeschlagen");
+          }
+          return;
+        }
         if (typeof sAddLocalFile === "function") sAddLocalFile(file);
         if (typeof sUpdateUI === "function") sUpdateUI();
       },

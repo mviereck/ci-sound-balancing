@@ -1960,4 +1960,12 @@ Object.assign(L.de, {
     sliderHintMsFine: "±0,1 ms",
     LTZ_verfahrenLabel: "Latenz",
     LTZ_vortestSTBMissing:  "Hinweis: Vortest „Stereo-Balance“ wurde noch nicht durchgeführt. Die Messung läuft trotzdem, ist aber genauer, wenn die Balance vorab gleichgezogen ist.",
+    // BA 622 -- Zentraler ZIP-Upload
+    zuUploadFailed: "Upload fehlgeschlagen.",
+    zuErrUnzip: "ZIP konnte nicht entpackt werden.",
+    zuErrNoText: "Kein Begleittext (sentences_*.txt) im ZIP gefunden.",
+    zuErrNoNoise: "Kein Störrauschen (stereonoise_*.wav) im ZIP gefunden.",
+    zuErrTooFewSentences: "Zu wenige Sätze im ZIP (mindestens 30).",
+    zuErrNotMatrix: "Das ZIP enthält kein gültiges Matrix-Testmaterial.",
+    zuErrNoAudio: "Keine Audiodateien im ZIP gefunden.",
 });
