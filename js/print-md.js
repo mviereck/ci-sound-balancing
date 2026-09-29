@@ -1493,7 +1493,7 @@ function _audiologChartImg(side) {
     ctx.strokeStyle = "#888"; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(pad.l, zY); ctx.lineTo(Wlog - pad.r, zY); ctx.stroke();
 
-    ctx.fillStyle = "#444"; ctx.font = "10px sans-serif"; ctx.textAlign = "right";
+    ctx.fillStyle = CHART_LABEL_FARBE; ctx.font = "10px sans-serif"; ctx.textAlign = "right";
     ctx.fillText("+" + maxAbs, pad.l - 4, pad.t + 8);
     ctx.fillText("0", pad.l - 4, zY + 3);
     ctx.fillText("-" + maxAbs, pad.l - 4, Hlog - pad.b + 4);
@@ -1510,7 +1510,7 @@ function _audiologChartImg(side) {
       if (disabled) {
         ctx.fillStyle = "#ccc";
         ctx.fillRect(x, pad.t, w, pH);
-        ctx.fillStyle = "#444"; ctx.textAlign = "center";
+        ctx.fillStyle = CHART_LABEL_FARBE; ctx.textAlign = "center";
         ctx.fillText(`${dENPrefix()}${dEN(i)}`, x + w / 2, Hlog - pad.b + 16);
         continue;
       }
@@ -1530,11 +1530,11 @@ function _audiologChartImg(side) {
         ctx.beginPath(); ctx.moveTo(xC - 4, yT); ctx.lineTo(xC + 4, yT); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(xC - 4, yB); ctx.lineTo(xC + 4, yB); ctx.stroke();
       }
-      ctx.fillStyle = "#444"; ctx.textAlign = "center";
+      ctx.fillStyle = CHART_LABEL_FARBE; ctx.textAlign = "center";
       ctx.font = "10px sans-serif";
       ctx.fillText(`${dENPrefix()}${dEN(i)}`, x + w / 2, Hlog - pad.b + 16);
     }
-    ctx.fillStyle = "#000"; ctx.font = "bold 12px sans-serif"; ctx.textAlign = "left";
+    ctx.fillStyle = CHART_LABEL_FARBE; ctx.font = "bold 12px sans-serif"; ctx.textAlign = "left";
     const sideName = side === "left" ? t("sideLeft") : t("sideRight");
     ctx.fillText(`${t("audiologChartTitle")} — ${sideName}`, pad.l, 18);
 
@@ -1696,13 +1696,13 @@ function _archivMkCanvas(w, h) {
 // E-Label, Hz, Cent (ausgedünnt nach axis.step). Hz wird kompakt
 // dargestellt (z.B. "1.0k"), Cent mit Vorzeichen.
 function _archivDrawElCentLabel(ctx, elLabel, cx, H, padB, axis, j) {
-  ctx.fillStyle = "#555";
+  ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.font = "9px sans-serif";
   ctx.textAlign = "center";
   ctx.fillText(elLabel, cx, H - padB + 12);
   const hz = axis.hzArr[j];
   const fTxt = fmtNum(hz, "hz");
-  ctx.fillStyle = "#888";
+  ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.font = "8px sans-serif";
   ctx.fillText(fTxt, cx, H - padB + 23);
   if (j % axis.step === 0 || j === 0 || j === axis.hzArr.length - 1) {
@@ -1715,13 +1715,13 @@ function _archivDrawElCentLabel(ctx, elLabel, cx, H, padB, axis, j) {
 // (ohne Cent) — verwendet von _archivChartELL und
 // _archivChartLR seit Bauanleitung 71.
 function _archivDrawElHzLabel(ctx, elLabel, cx, H, padB, axis, j) {
-  ctx.fillStyle = "#555";
+  ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.font = "9px sans-serif";
   ctx.textAlign = "center";
   ctx.fillText(elLabel, cx, H - padB + 12);
   const hz = axis.hzArr[j];
   const fTxt = fmtNum(hz, "hz");
-  ctx.fillStyle = "#888";
+  ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.font = "8px sans-serif";
   ctx.fillText(fTxt, cx, H - padB + 23);
 }
@@ -1729,7 +1729,7 @@ function _archivDrawElHzLabel(ctx, elLabel, cx, H, padB, axis, j) {
 // Variante nur mit Elektroden-Label (kein Hz, kein Cent) —
 // verwendet von _archivChartSchieberELL seit Bauanleitung 71.
 function _archivDrawElLabel(ctx, elLabel, cx, H, padB) {
-  ctx.fillStyle = "#555";
+  ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.font = "9px sans-serif";
   ctx.textAlign = "center";
   ctx.fillText(elLabel, cx, H - padB + 12);
@@ -1767,14 +1767,14 @@ function _archivDrawAxis(ctx, pad, W, H, maxAbs, opts) {
   ctx.lineTo(W - pad.r, zY);
   ctx.stroke();
   ctx.setLineDash([]);
-  ctx.fillStyle = "#666";
+  ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.font = "10px sans-serif";
   ctx.textAlign = "right";
   ctx.fillText("+" + maxAbs, pad.l - 4, pad.t + 10);
   ctx.fillText("0",          pad.l - 4, zY + 3);
   ctx.fillText("-" + maxAbs, pad.l - 4, H - pad.b + 2);
   if (opts && opts.title) {
-    ctx.fillStyle = "#000";
+    ctx.fillStyle = CHART_LABEL_FARBE;
     ctx.font = "bold 11px sans-serif";
     ctx.textAlign = "left";
     ctx.fillText(opts.title, pad.l, 14);

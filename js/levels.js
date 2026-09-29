@@ -358,7 +358,7 @@ function kurvenELLChartZeichnen() {
     ctx.moveTo(pad.left, y);
     ctx.lineTo(W - pad.right, y);
     ctx.stroke();
-    ctx.fillStyle = "#1a1a1a";
+    ctx.fillStyle = CHART_LABEL_FARBE;
     ctx.font = "9px Consolas,monospace";
     ctx.textAlign = "right";
     ctx.fillText((v >= 0 ? "+" : "") + v, pad.left - 4, y + 3);
@@ -405,7 +405,7 @@ function kurvenELLChartZeichnen() {
     const lbl = dENPrefix() + dEN(act[j]);
     ctx.fillText(lbl, tX(j), yE);
     ctx.font = "7px Consolas,monospace";
-    ctx.fillStyle = "#1a1a1a";
+    ctx.fillStyle = CHART_LABEL_FARBE;
     const elsF = axis.hzArr[j];
     ctx.fillText(
       fmtNum(elsF, "hz"),

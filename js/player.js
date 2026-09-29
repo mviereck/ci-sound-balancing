@@ -1509,7 +1509,7 @@ function pDrawEQ() {
     ctx.lineTo(W - pad.right, zY + yO);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = "#1a1a1a";
+    ctx.fillStyle = CHART_LABEL_FARBE;
     ctx.font = "9px Consolas,monospace";
     ctx.textAlign = "right";
     ctx.fillText("+" + dB.toFixed(0), pad.left - 4, zY - yO + 3);
@@ -1517,7 +1517,7 @@ function pDrawEQ() {
     ctx.setLineDash([2, 4]);
   }
   ctx.setLineDash([]);
-  ctx.fillStyle = "#1a1a1a";
+  ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.font = "9px Consolas,monospace";
   ctx.textAlign = "right";
   ctx.fillText("0", pad.left - 4, zY + 3);

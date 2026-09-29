@@ -118,7 +118,7 @@ function _schieberDrawRelative(ctx, W, H) {
   // Skala
   ctx.strokeStyle = "#e5e5e5";
   ctx.lineWidth = 1;
-  ctx.fillStyle = "#999";
+  ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.font = "9px Consolas,monospace";
   ctx.textAlign = "right";
   for (let v = -60; v <= 60; v += 10) {
@@ -218,7 +218,7 @@ function _schieberDrawAbsolute(ctx, W, H) {
   // Skala
   ctx.strokeStyle = "#e5e5e5";
   ctx.lineWidth = 1;
-  ctx.fillStyle = "#999";
+  ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.font = "9px Consolas,monospace";
   ctx.textAlign = "right";
   const stepY = yMax > 400 ? 100 : yMax > 200 ? 50 : 25;
@@ -295,12 +295,12 @@ function _schieberDrawAbsolute(ctx, W, H) {
     }
     // Beschriftung oben
     ctx.textAlign = "center";
-    ctx.fillStyle = "#1a1a1a";
+    ctx.fillStyle = CHART_LABEL_FARBE;
     ctx.font = "bold 12px Consolas,monospace";
     const valTxt = col.mclNew != null ? Math.round(col.mclNew) + " " + unitLbl : "—";
     ctx.fillText(valTxt, xMid, padTop - 26);
     ctx.font = "10px Consolas,monospace";
-    ctx.fillStyle = "#555";
+    ctx.fillStyle = CHART_LABEL_FARBE;
     const dbTxt = "(" + (col.sumDb >= 0 ? "+" : "") + col.sumDb.toFixed(1) + " dB)";
     ctx.fillText(dbTxt, xMid, padTop - 12);
     // Beschriftung unten
@@ -440,20 +440,20 @@ function _schieberDrawFocusAndSum(ctx, xMid, barW, padTop, plotH, zeroY, yPerDb,
   ctx.stroke();
 
   ctx.textAlign = "center";
-  ctx.fillStyle = "#1a1a1a";
+  ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.font = "bold 12px Consolas,monospace";
   const schTxt = (col.sch >= 0 ? "+" : "") + col.sch.toFixed(1);
   ctx.fillText(schTxt, xMid, padTop - 26);
   if (schieberELLShowMeas || schieberELLShowCurves) {
     ctx.font = "10px Consolas,monospace";
-    ctx.fillStyle = "#555";
+    ctx.fillStyle = CHART_LABEL_FARBE;
     const sTxt = "(S: " + (col.sum >= 0 ? "+" : "") + col.sum.toFixed(1) + ")";
     ctx.fillText(sTxt, xMid, padTop - 12);
   }
 }
 
 function _schieberDrawLabelsRelative(ctx, xMid, H, padBot, col) {
-  ctx.fillStyle = "#333";
+  ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.font = "10px Segoe UI,sans-serif";
   ctx.textAlign = "center";
   ctx.fillText(dENPrefix() + dEN(col.i), xMid, H - padBot + 14);

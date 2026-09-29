@@ -1775,6 +1775,10 @@ var FRQ_bandAusgang = "geglaettet";
 // Legende (FRQ_legendeHtml) und Ausgangspunkt-Auswahl (init.js). "schwarz"
 // ist bewusst ein Mittelgrau (nominell-Kurve).
 var KURVENFARBE = { blau: "#3b82f6", gruen: "#16a34a", schwarz: "#6b7280" };
+// Beschriftungsfarbe fuer ALLE Canvas-Graphen (Achsenzahlen, Labels,
+// Hz/Cent-Werte, Titel, Wert-Etiketten). EINE Wahrheit; Datenfarben
+// (KURVENFARBE, Ampel, Baender) bleiben getrennt. #1a1a1a == var(--text).
+var CHART_LABEL_FARBE = "#1a1a1a";
 // Ausgangspunkt des Bandgraphen -> Kurven-Farbschluessel. Verankert die
 // Zuordnung geglaettet/gemessen/nominell an genau einer Stelle (Kurvenfarbe
 // in results.js, Symbol vor dem Auswahl-Radio in init.js).

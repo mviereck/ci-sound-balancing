@@ -618,28 +618,28 @@ function ST_drawCourse(res) {
   ctx.beginPath(); ctx.moveTo(padL, padT); ctx.lineTo(padL, padT + H); ctx.lineTo(padL + W, padT + H); ctx.stroke();
 
   // y-Ticks: -15, -10, -5, 0, 5, 10, 15, 20
-  ctx.fillStyle = "#555"; ctx.font = "11px sans-serif"; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+  ctx.fillStyle = CHART_LABEL_FARBE; ctx.font = "11px sans-serif"; ctx.textAlign = "right"; ctx.textBaseline = "middle";
   [-15, -10, -5, 0, 5, 10, 15, 20].forEach(function (v) {
     const y = yAt(v);
     ctx.strokeStyle = v === 0 ? "#999" : "#e8e8e8"; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL + W, y); ctx.stroke();
-    ctx.fillStyle = "#555";
+    ctx.fillStyle = CHART_LABEL_FARBE;
     ctx.fillText(v + " dB", padL - 4, y);
   });
 
   // x-Ticks: 1, 5, 10, 15, 20, 25, 30
-  ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillStyle = "#555";
+  ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillStyle = CHART_LABEL_FARBE;
   [1, 5, 10, 15, 20, 25, 30].forEach(function (i) {
     if (i > n) return;
     const x = xAt(i - 1);
     ctx.strokeStyle = "#e8e8e8"; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, padT + H); ctx.stroke();
-    ctx.fillStyle = "#555";
+    ctx.fillStyle = CHART_LABEL_FARBE;
     ctx.fillText(i, x, padT + H + 4);
   });
 
   // Achsenbeschriftungen
-  ctx.fillStyle = "#333"; ctx.font = "11px sans-serif";
+  ctx.fillStyle = CHART_LABEL_FARBE; ctx.font = "11px sans-serif";
   ctx.textAlign = "center"; ctx.textBaseline = "bottom";
   ctx.fillText("Satznummer", padL + W / 2, cv.height);
   ctx.save();
@@ -693,27 +693,27 @@ function ST_drawScatter(res) {
   ctx.beginPath(); ctx.moveTo(padL, padT); ctx.lineTo(padL, padT + H); ctx.lineTo(padL + W, padT + H); ctx.stroke();
 
   // y-Ticks: 0..5 (Woerter)
-  ctx.fillStyle = "#555"; ctx.font = "11px sans-serif"; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+  ctx.fillStyle = CHART_LABEL_FARBE; ctx.font = "11px sans-serif"; ctx.textAlign = "right"; ctx.textBaseline = "middle";
   [0, 1, 2, 3, 4, 5].forEach(function (v) {
     const y = yAt(v);
     ctx.strokeStyle = "#e8e8e8"; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL + W, y); ctx.stroke();
-    ctx.fillStyle = "#555";
+    ctx.fillStyle = CHART_LABEL_FARBE;
     ctx.fillText(v, padL - 4, y);
   });
 
   // x-Ticks: alle 5 dB
-  ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillStyle = "#555";
+  ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillStyle = CHART_LABEL_FARBE;
   [-15, -10, -5, 0, 5, 10, 15, 20].forEach(function (v) {
     const x = xAt(v);
     ctx.strokeStyle = v === 0 ? "#999" : "#e8e8e8"; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, padT + H); ctx.stroke();
-    ctx.fillStyle = "#555";
+    ctx.fillStyle = CHART_LABEL_FARBE;
     ctx.fillText(v, x, padT + H + 4);
   });
 
   // Achsenbeschriftungen
-  ctx.fillStyle = "#333"; ctx.font = "11px sans-serif";
+  ctx.fillStyle = CHART_LABEL_FARBE; ctx.font = "11px sans-serif";
   ctx.textAlign = "center"; ctx.textBaseline = "bottom";
   ctx.fillText("SNR (dB)", padL + W / 2, cv.height);
   ctx.save();

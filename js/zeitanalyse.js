@@ -244,13 +244,13 @@
     var ctxLbl = ELL_ctx(side === "left" || side === "right" ? side : "global");
     var dENfn  = ctxLbl.dEN || dEN;
     var pfxFn  = ctxLbl.dENPrefix || dENPrefix;
-    g.fillStyle = "#555"; g.font = "10px Segoe UI,sans-serif"; g.textAlign = "right";
+    g.fillStyle = CHART_LABEL_FARBE; g.font = "10px Segoe UI,sans-serif"; g.textAlign = "right";
     for (var i = 0; i < data.elCount; i++) {
       g.fillText(pfxFn() + dENfn(i), padL - 6, ZA_HM_PAD_T + i * ZA_HM_ROW_H + ZA_HM_ROW_H / 2 + 3);
     }
 
     // X-Achse: ein paar Datums-Labels (erste, letzte, ggf. mittlere)
-    g.textAlign = "center"; g.fillStyle = "#888"; g.font = "9px Segoe UI,sans-serif";
+    g.textAlign = "center"; g.fillStyle = CHART_LABEL_FARBE; g.font = "9px Segoe UI,sans-serif";
     function dateLbl(ts) {
       var d = new Date(ts);
       return d.getDate() + "." + (d.getMonth() + 1) + ".";
@@ -263,7 +263,7 @@
     });
 
     // Legende (kurz, unter der X-Achse)
-    g.textAlign = "left"; g.fillStyle = "#888";
+    g.textAlign = "left"; g.fillStyle = CHART_LABEL_FARBE;
     g.fillText("blau = zu laut gemessen   rot = zu leise gemessen   grau = inaktiv", padL, h - 6);
   }
 
@@ -341,7 +341,7 @@
       var y = tY(v);
       g.strokeStyle = (v === 0) ? "#aaa" : "#eee"; g.lineWidth = (v === 0) ? 1.5 : 1;
       g.beginPath(); g.moveTo(padL, y); g.lineTo(w - padR, y); g.stroke();
-      g.fillStyle = "#999"; g.font = "9px Consolas,monospace"; g.textAlign = "right";
+      g.fillStyle = CHART_LABEL_FARBE; g.font = "9px Consolas,monospace"; g.textAlign = "right";
       g.fillText(v.toFixed(0), padL - 6, y + 3);
     });
 
@@ -368,7 +368,7 @@
     });
 
     // X-Achse: erste/letzte Datums-Labels
-    g.fillStyle = "#888"; g.font = "9px Segoe UI,sans-serif"; g.textAlign = "center";
+    g.fillStyle = CHART_LABEL_FARBE; g.font = "9px Segoe UI,sans-serif"; g.textAlign = "center";
     function dateLbl(ts) { var d = new Date(ts); return d.getDate() + "." + (d.getMonth()+1) + "."; }
     if (td.points.length) {
       g.fillText(dateLbl(td.points[0].ts), tX(td.points[0].ts), h - padB + 16);
@@ -380,7 +380,7 @@
     // Titel: welche Elektrode
     var ctxLbl = ELL_ctx(side === "left" || side === "right" ? side : "global");
     var label = (ctxLbl.dENPrefix || dENPrefix)() + (ctxLbl.dEN || dEN)(zaTrendEl);
-    g.fillStyle = "#333"; g.font = "11px Segoe UI,sans-serif"; g.textAlign = "left";
+    g.fillStyle = CHART_LABEL_FARBE; g.font = "11px Segoe UI,sans-serif"; g.textAlign = "left";
     g.fillText("Verlauf " + label + " (gemessene Abweichung dB, Balken = Residuum)", padL, 11);
   }
 

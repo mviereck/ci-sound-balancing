@@ -32,7 +32,7 @@ function drawUnmeasuredBar(ctx, x, yTop, yBot, bW) {
 
 function _drawRefElLabel(ctx, x, y, size) {
   ctx.save();
-  ctx.fillStyle = "#000";
+  ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.font = "bold " + (size || 11) + "px Segoe UI,sans-serif";
   ctx.textAlign = "center";
   ctx.fillText("Ref.-El.", x, y);
@@ -224,7 +224,7 @@ function drawBarGraph(cv, rows, cfg) {
   for (var g = 0; g <= 5; g++) {
     var gv = yMn + ((yMx - yMn) * g) / 5, gy = tY(gv);
     ctx2d.beginPath(); ctx2d.moveTo(pad.left, gy); ctx2d.lineTo(w - pad.right, gy); ctx2d.stroke();
-    ctx2d.fillStyle = "#999"; ctx2d.font = "10px Consolas,monospace"; ctx2d.textAlign = "right";
+    ctx2d.fillStyle = CHART_LABEL_FARBE; ctx2d.font = "10px Consolas,monospace"; ctx2d.textAlign = "right";
     ctx2d.fillText(gv.toFixed(1), pad.left - 8, gy + 4);
   }
   if (yMn < 0 && yMx > 0) {
@@ -284,7 +284,7 @@ function drawBarGraph(cv, rows, cfg) {
         ctx2d.font = "bold 9px Consolas,monospace";
         ctx2d.textAlign = "center";
         ctx2d.textBaseline = clipUp ? "top" : "bottom";
-        ctx2d.fillStyle = "#111";
+        ctx2d.fillStyle = CHART_LABEL_FARBE;
         ctx2d.fillText((v >= 0 ? "+" : "") + v.toFixed(1),
                        cxk, base + dir * 3);
         ctx2d.textBaseline = "alphabetic";
@@ -306,7 +306,7 @@ function drawBarGraph(cv, rows, cfg) {
     ctx2d.textAlign = "center";
     var yE = h - pad.bottom + 14, yHz = h - pad.bottom + 25, yAB = h - pad.bottom + 38;
     ctx2d.fillText(r.label, tX(j), yE);
-    ctx2d.font = "8px Consolas,monospace"; ctx2d.fillStyle = "#999";
+    ctx2d.font = "8px Consolas,monospace"; ctx2d.fillStyle = CHART_LABEL_FARBE;
     if (r.hz != null) ctx2d.fillText(fmtNum(r.hz, "hz"), tX(j), yHz);
     if (r.apikalBasal) {
       ctx2d.font = "8px Segoe UI,sans-serif";
@@ -342,7 +342,7 @@ function drawBarGraph(cv, rows, cfg) {
   // --- Y-Achsentitel ---
   ctx2d.save();
   ctx2d.translate(12, pad.top + pH / 2); ctx2d.rotate(-Math.PI / 2);
-  ctx2d.fillStyle = "#666"; ctx2d.font = "10px Segoe UI,sans-serif"; ctx2d.textAlign = "center";
+  ctx2d.fillStyle = CHART_LABEL_FARBE; ctx2d.font = "10px Segoe UI,sans-serif"; ctx2d.textAlign = "center";
   ctx2d.fillText(cfg.yLabel || "dB", 0, 0);
   ctx2d.restore();
 }
@@ -574,7 +574,7 @@ function drawFRQGraph(cv, rows, cfg) {
       ctx.strokeStyle = "#e5e5e5"; ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(pad.left + pW, y); ctx.stroke();
     }
-    ctx.fillStyle = "#000";
+    ctx.fillStyle = CHART_LABEL_FARBE;
     ctx.fillText(c === 0 ? "0" : ((c > 0 ? "+" : "") + c), pad.left - 6, y + 3);
   });
 
@@ -819,7 +819,7 @@ function drawFRQGraph(cv, rows, cfg) {
     const x = tX(tk.c);
     ctx.strokeStyle = "#9ca3af"; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(x, yScaleTop); ctx.lineTo(x, yScaleTop + 4); ctx.stroke();
-    ctx.font = "9px Segoe UI,sans-serif"; ctx.fillStyle = "#000";
+    ctx.font = "9px Segoe UI,sans-serif"; ctx.fillStyle = CHART_LABEL_FARBE;
     ctx.fillText(tk.hz + " Hz", x, yScaleTop + 14);
     ctx.fillText((tk.c >= 0 ? "+" : "") + fmtNum(tk.c, "cent") + " ct", x, yScaleTop + 25);
   });
@@ -828,7 +828,7 @@ function drawFRQGraph(cv, rows, cfg) {
   // Das sind die tatsaechlichen X-Achsen-Grenzen -- bei Randverhalten
   // "frei" die berechneten Bandgrenzen, sonst die feste Wand. REF_HZ ist
   // im Funktions-Scope (oben definiert).
-  ctx.font = "9px Segoe UI,sans-serif"; ctx.fillStyle = "#000";
+  ctx.font = "9px Segoe UI,sans-serif"; ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.textAlign = "left";
   ctx.fillText(fmtNum(centToHz(cMin), "hz") + " Hz", pad.left, yScaleTop + 14);
   ctx.textAlign = "right";
@@ -836,7 +836,7 @@ function drawFRQGraph(cv, rows, cfg) {
   ctx.textAlign = "center";   // Default fuer nachfolgenden Code wiederherstellen
 
   // --- Achsentitel (Y) ---
-  ctx.fillStyle = "#000"; ctx.font = "10px Segoe UI,sans-serif"; ctx.textAlign = "center";
+  ctx.fillStyle = CHART_LABEL_FARBE; ctx.font = "10px Segoe UI,sans-serif"; ctx.textAlign = "center";
   ctx.save();
   ctx.translate(13, pad.top + pH / 2); ctx.rotate(-Math.PI / 2);
   ctx.fillText(cfg.yLabel || "", 0, 0);
@@ -846,7 +846,7 @@ function drawFRQGraph(cv, rows, cfg) {
   if (cfg.titel) {
     var _titelText = (typeof t === "function") ? t(cfg.titel) : cfg.titel;
     if (_titelText) {
-      ctx.fillStyle = "#000";
+      ctx.fillStyle = CHART_LABEL_FARBE;
       ctx.font = "bold 13px Segoe UI,sans-serif";
       ctx.textAlign = "center";
       ctx.fillText(_titelText, pad.left + pW / 2, 16);

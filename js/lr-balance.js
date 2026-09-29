@@ -552,7 +552,7 @@ function STB_drawChart() {
 
   // --- dB-Grid (senkrechte Linien) + Skala unten ---
   ctx.strokeStyle = "#e5e5e5"; ctx.lineWidth = 1;
-  ctx.fillStyle = "#999"; ctx.font = "9px Consolas,monospace"; ctx.textAlign = "center";
+  ctx.fillStyle = CHART_LABEL_FARBE; ctx.font = "9px Consolas,monospace"; ctx.textAlign = "center";
   const stepDb = absMax > 20 ? 10 : absMax > 8 ? 5 : 2;
   for (let d = -absMax; d <= absMax; d += stepDb) {
     const x = tX(-d);   // d ist dB-Achsenwert (rechts positiv); tX invertiert intern
@@ -564,11 +564,11 @@ function STB_drawChart() {
   ctx.beginPath(); ctx.moveTo(midX, pad.top); ctx.lineTo(midX, pad.top + plotH); ctx.stroke();
 
   // --- Titel (Teil der Grafik, oben zentriert) ---
-  ctx.fillStyle = "#000"; ctx.font = "bold 13px Segoe UI,sans-serif"; ctx.textAlign = "center";
+  ctx.fillStyle = CHART_LABEL_FARBE; ctx.font = "bold 13px Segoe UI,sans-serif"; ctx.textAlign = "center";
   ctx.fillText(t("STB_chartTitel"), pad.left + plotW / 2, 16);
 
   // --- Richtungstext oben (unter dem Titel) ---
-  ctx.font = "10px Segoe UI,sans-serif"; ctx.fillStyle = "#555";
+  ctx.font = "10px Segoe UI,sans-serif"; ctx.fillStyle = CHART_LABEL_FARBE;
   ctx.textAlign = "right"; ctx.fillText(t("STB_dirLeft"),  midX - 8, pad.top - 12);
   ctx.textAlign = "left";  ctx.fillText(t("STB_dirRight"), midX + 8, pad.top - 12);
 
@@ -607,12 +607,12 @@ function STB_drawChart() {
 
     // Elektroden-Label links, waagerecht. (Frequenzangabe entfernt --
     // ueberlagerte sich mit der Elektrodennummer.)
-    ctx.fillStyle = "#555"; ctx.font = "10px Segoe UI,sans-serif"; ctx.textAlign = "right";
+    ctx.fillStyle = CHART_LABEL_FARBE; ctx.font = "10px Segoe UI,sans-serif"; ctx.textAlign = "right";
     ctx.fillText(r.label, pad.left - 8, yMid + 3);
 
     // apikal/basal oben/unten
     if (i === 0 || i === count - 1) {
-      ctx.fillStyle = "#999"; ctx.font = "8px Segoe UI,sans-serif"; ctx.textAlign = "left";
+      ctx.fillStyle = CHART_LABEL_FARBE; ctx.font = "8px Segoe UI,sans-serif"; ctx.textAlign = "left";
       ctx.fillText(t(i === 0 ? "apikal" : "basal"), pad.left - 90, yMid + (i === 0 ? -10 : 14));
     }
 

@@ -74,7 +74,7 @@ function _ugRenderGraph() {
   // Y-Gitter + Labels
   ctx.strokeStyle = "#e5e7eb";
   ctx.lineWidth   = 1;
-  ctx.fillStyle   = "#555";
+  ctx.fillStyle   = CHART_LABEL_FARBE;
   ctx.font        = "11px Segoe UI, sans-serif";
   ctx.textAlign   = "right";
   ctx.textBaseline = "middle";
@@ -147,7 +147,7 @@ function _ugRenderGraph() {
 
   // X-Achsen-Labels: jeden N-ten Monat
   var labelEvery = n <= 12 ? 1 : (n <= 24 ? 3 : 6);
-  ctx.fillStyle    = "#555";
+  ctx.fillStyle    = CHART_LABEL_FARBE;
   ctx.font         = "10.5px Segoe UI, sans-serif";
   ctx.textAlign    = "center";
   ctx.textBaseline = "top";
