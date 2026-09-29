@@ -6,26 +6,36 @@
 // Architektur: .docs/spec/00-sprachtest-olsa-architektur.md
 // ============================================================
 
-// --- Testbuendel (Architektur SS3) ---
-// Ein Testbuendel haelt alles zusammen, was ein Matrixtest-Material ausmacht:
-// Satz-Zugriff, die aus den Satztexten abgeleitete Matrix (SS3.2), das
-// Stoergeraeusch und Herkunfts-Metadaten. Der Test liest sein aktives Buendel;
-// es gibt KEINE hartcodierte Matrix mehr.
-//
-// Das mitgelieferte Buendel: Saetze ueber den Saetze-Pool-Filter test_set,
-// Rauschen als Asset-URL. Das Upload-Buendel (BA 611/612) fuellt dieselben
-// Felder aus einem entpackten ZIP.
-const ST_BUNDLE_BUILTIN = {
-  id: "wortmatrix",
-  label: "Wortmatrix Thorsten 1",
-  testSet: "wortmatrix",                                  // Satz-Pool-Filter
-  noiseUrl: "assets/audio/rauschen_wortmatrix_thorsten-1.wav",
-  noiseBuf: null                                          // Buffer-Cache (lazy)
-};
+// --- Material-Auswahl (Architektur SS3) ---
+// Das aktive Matrix-Testmaterial wird als test_set-Wert aus dem Saetze-Pool
+// gewaehlt. Gebaute (Manifest) und hochgeladene Sammlungen sind gleich
+// behandelt -- kein eigener Buenel-Mechanismus mehr.
 
-// Das aktuell aktive Buendel. Nach jedem Reload das mitgelieferte (SS3.4).
-// BA 611/612 fuegen Upload-Buendel hinzu und schalten hier um.
-let ST_activeBundle = ST_BUNDLE_BUILTIN;
+// Aktive Matrix-Sammlung (test_set-Wert). null = noch nicht gewaehlt;
+// st_currentTestSet() liefert die erste verfuegbare.
+let ST_activeTestSet = null;
+
+// Alle Matrix-Sammlungen aus dem Saetze-Pool (test_type === "matrix"),
+// dedupliziert nach test_set.
+function st_availableCollections() {
+  const pool = (typeof sBuildRecordingPool === "function") ? sBuildRecordingPool() : [];
+  const seen = new Map();
+  pool.forEach(function (it) {
+    const tg = it.tags || {};
+    if (tg.test_type !== "matrix" || !tg.test_set) return;
+    if (!seen.has(tg.test_set)) seen.set(tg.test_set, tg.test_set);
+  });
+  return Array.from(seen.keys()).map(function (ts) { return { testSet: ts, label: ts }; });
+}
+
+// Aktive Sammlung, mit Fallback auf die erste verfuegbare.
+function st_currentTestSet() {
+  const avail = st_availableCollections();
+  if (ST_activeTestSet && avail.some(function (c) { return c.testSet === ST_activeTestSet; })) {
+    return ST_activeTestSet;
+  }
+  return avail.length ? avail[0].testSet : null;
+}
 
 // Matrix-Extraktor (SS3.2): sammelt ueber alle Satztexte je Position (0..4)
 // die vorkommenden Woerter, dedupliziert, sortiert. Ergebnis: Array[5] von
@@ -139,23 +149,37 @@ function st_forceMaskOff() {
 // ------------------------------------------------------------
 function st_allOlsaSentences() {
   const pool = (typeof sBuildRecordingPool === "function") ? sBuildRecordingPool() : [];
-  const ts = ST_activeBundle.testSet;
+  const ts = st_currentTestSet();
+  if (!ts) return [];
   return pool.filter(function (it) { return it.tags && it.tags.test_set === ts; });
 }
-// Stellt den Stoergeraeusch-Buffer des AKTIVEN Buendels bereit (SS3.1/SS3.3).
-// Mitgeliefertes Buendel: per fetch+decode aus noiseUrl (einmalig, im Buendel
-// gecacht). Upload-Buendel (BA 611) legt noiseBuf direkt ab -> kein fetch.
+// Das Geraeusche-Pool-Item der aktiven Sammlung finden
+// (test_type matrix, gleicher test_set).
+function st_findNoiseItem() {
+  const ts = st_currentTestSet();
+  if (!ts) return null;
+  const list = (typeof plNoiseAllItems === "function")
+    ? plNoiseAllItems()
+    : ((typeof amCollectItems === "function") ? amCollectItems("geraeusche") : []);
+  return list.find(function (it) {
+    return it.tags && it.tags.test_type === "matrix" && it.tags.test_set === ts;
+  }) || null;
+}
+
+let _st_noiseCache = { testSet: null, buf: null };
+
+// Stellt den Stoergeraeusch-Buffer der aktiven Sammlung bereit (SS3.1/SS3.3).
+// Laedt das zugehoerige Geraeusche-Pool-Item per amGetItemBuffer (je Sammlung gecacht).
 async function _st_ensureNoiseBuf() {
-  const b = ST_activeBundle;
-  if (b.noiseBuf) return b.noiseBuf;
+  const ts = st_currentTestSet();
+  if (_st_noiseCache.testSet === ts && _st_noiseCache.buf) return _st_noiseCache.buf;
   const ctx = (typeof gPC === "function") ? gPC() : null;
-  if (!ctx) return null;
-  if (!b.noiseUrl) return null;              // Upload-Buendel ohne URL: Buffer muss gesetzt sein
-  const resp = await fetch(b.noiseUrl);
-  if (!resp.ok) throw new Error("Stoerrauschen nicht ladbar: HTTP " + resp.status);
-  const arr = await resp.arrayBuffer();
-  b.noiseBuf = await ctx.decodeAudioData(arr);
-  return b.noiseBuf;
+  if (!ctx || !ts) return null;
+  const item = st_findNoiseItem();
+  if (!item) return null;
+  const buf = await amGetItemBuffer(ctx, item);
+  _st_noiseCache = { testSet: ts, buf: buf };
+  return buf;
 }
 
 // Baut EINEN Buffer aus Satz (Original-Pegel) + auf den Ziel-SNR skaliertem
@@ -407,7 +431,7 @@ function st_playCurrent() {
   Promise.resolve(amGetItemBuffer(ctx, item)).then(function (sentBuf) {
     if (!st_active) return;
     if (!sentBuf) { console.error("[sprachtest] Satz-Buffer fehlt:", item.id); return; }
-    const mixed = _st_buildMixedBuffer(sentBuf, ST_activeBundle.noiseBuf, st_snr);
+    const mixed = _st_buildMixedBuffer(sentBuf, _st_noiseCache.buf, st_snr);
     sCurRec = item;                       // fuer Wertung/Textbezug
     sSetDirectBuffer(mixed, item.text || "");
     if (!st_active) return;
@@ -513,8 +537,8 @@ function st_finish(converged) {
     converged: !!converged,
     snrHistory: st_snrHistory.slice(),
     wordHistory: st_wordHistory.slice(),
-    bundleId: ST_activeBundle.id,
-    bundleLabel: ST_activeBundle.label,
+    testSet: st_currentTestSet(),
+    bundleLabel: st_currentTestSet(),
     ts: Date.now()
   };
   if (typeof ST_saveResult === "function") ST_saveResult(result);
@@ -781,7 +805,7 @@ function st_buildBundleFragment() {
   selLabel.setAttribute("data-t", "stBundleLabel");
   const sel = document.createElement("select");
   sel.id = "ST_bundleSelect";
-  sel.addEventListener("change", function () { st_setActiveBundle(sel.value); });
+  sel.addEventListener("change", function () { st_setActiveCollection(sel.value); });
   selRow.append(selLabel, sel);
 
   // Upload-Bereich mit Zenodo-Erklaerung.
@@ -820,26 +844,26 @@ function st_buildBundleFragment() {
   return wrap;
 }
 
-// Auswahl-Dropdown befuellen; Auswahl-Zeile nur bei > 1 Buendel zeigen.
+// Auswahl-Dropdown befuellen; Auswahl-Zeile nur bei > 1 Sammlung zeigen.
 function st_refreshBundleSelect() {
   if (!ST_bundleEls) return;
   const sel = ST_bundleEls.select;
+  const avail = st_availableCollections();
   sel.innerHTML = "";
-  ST_bundles.forEach(function (b) {
+  avail.forEach(function (c) {
     const opt = document.createElement("option");
-    opt.value = b.id;
-    opt.textContent = b.label;
+    opt.value = c.testSet;
+    opt.textContent = c.label;
     sel.appendChild(opt);
   });
-  sel.value = ST_activeBundle.id;
-  ST_bundleEls.selRow.style.display = (ST_bundles.length > 1) ? "" : "none";
+  const cur = st_currentTestSet();
+  if (cur) sel.value = cur;
+  ST_bundleEls.selRow.style.display = (avail.length > 1) ? "" : "none";
 }
 
-// Aktives Buendel setzen (Umschalten).
-function st_setActiveBundle(id) {
-  const b = ST_bundles.find(function (x) { return x.id === id; });
-  if (!b) return;
-  ST_activeBundle = b;
+// Aktive Sammlung setzen (Umschalten per test_set-Wert).
+function st_setActiveCollection(testSet) {
+  ST_activeTestSet = testSet;
   st_refreshBundleSelect();
 }
 
@@ -847,12 +871,9 @@ async function st_onUploadFile(file) {
   const st = ST_bundleEls ? ST_bundleEls.status : null;
   if (st) st.textContent = t("stUploadWorking");
   try {
-    // Anzeigename agnostisch aus dem Dateinamen ableiten (ZIP-Endung + Trenner weg).
-    const label = (file && file.name ? file.name : "")
-      .replace(/\.zip$/i, "").replace(/[_]+/g, " ").trim();
-    const bundle = await ST_buildOlsaBundleFromZip(file, label);
-    st_setActiveBundle(bundle.id);
-    if (st) st.textContent = "";   // Erfolg: keine Meldung, nur Platz
+    const res = await zuHandleZipUpload(file, "saetze", { matrixOnly: true });
+    st_setActiveCollection(res.test_set);
+    if (st) st.textContent = "";
   } catch (e) {
     console.error("[sprachtest] Upload fehlgeschlagen:", e);
     if (st) st.textContent = (e && e.message) ? e.message : t("stUploadErrGeneric");

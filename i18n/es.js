@@ -1848,4 +1848,13 @@ Object.assign(L.es, {
     sliderHintMsFine: "±0,1 ms",
     LTZ_verfahrenLabel: "Latencia",
     LTZ_vortestSTBMissing:  "Aviso: la prueba previa «Balance estéreo» aún no se ha realizado. La medición funciona igualmente, pero es más precisa si el balance se ha igualado antes.",
+
+    // BA 622 — ZIP-Upload
+    zuUploadFailed: "La carga ha fallado.",
+    zuErrUnzip: "No se pudo descomprimir el ZIP.",
+    zuErrNoText: "No se encontró texto acompañante (sentences_*.txt) en el ZIP.",
+    zuErrNoNoise: "No se encontró ruido de fondo (stereonoise_*.wav) en el ZIP.",
+    zuErrTooFewSentences: "Demasiado pocas frases en el ZIP (se requieren al menos 30).",
+    zuErrNotMatrix: "El ZIP no contiene material de prueba matricial válido.",
+    zuErrNoAudio: "No se encontraron archivos de audio en el ZIP.",
 });

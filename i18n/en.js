@@ -1848,4 +1848,13 @@ Object.assign(L.en, {
     sliderHintMsFine: "±0.1 ms",
     LTZ_verfahrenLabel: "Latency",
     LTZ_vortestSTBMissing:  "Note: pre-test \"Stereo balance\" has not been carried out yet. The measurement still works, but is more accurate if the balance has been levelled beforehand.",
+
+    // BA 622 — ZIP-Upload
+    zuUploadFailed: "Upload failed.",
+    zuErrUnzip: "ZIP could not be extracted.",
+    zuErrNoText: "No accompanying text (sentences_*.txt) found in ZIP.",
+    zuErrNoNoise: "No noise file (stereonoise_*.wav) found in ZIP.",
+    zuErrTooFewSentences: "Too few sentences in ZIP (at least 30 required).",
+    zuErrNotMatrix: "The ZIP does not contain valid matrix test material.",
+    zuErrNoAudio: "No audio files found in ZIP.",
 });

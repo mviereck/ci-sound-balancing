@@ -414,9 +414,11 @@ if (typeof amRegisterProvider === "function") {
             tags: {
               lang: coll.lang || null,
               lang_any: coll.lang_any || null,
-              speaker_id: cid,
+              speaker_id: coll.speakerId || cid,
+              speaker_name: coll.speakerName || null,
               gender: r.gender || coll.gender || "u",
               style: coll.style || null,
+              test_type: coll.testType || null,
               test_set: coll.testSet || null
             }
           });
