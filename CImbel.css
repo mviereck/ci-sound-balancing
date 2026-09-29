@@ -228,11 +228,6 @@ h1 {
   background: var(--accent-light);
   border-color: var(--accent);
 }
-.is-active {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
-}
 .btn {
   padding: 8px 16px;
   border: 1px solid var(--border);
@@ -263,6 +258,11 @@ h1 {
 .btn:disabled {
   opacity: 0.4;
   cursor: default;
+}
+.is-active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
 }
 button:disabled {
   opacity: 0.4;
