@@ -58,7 +58,10 @@ function _stu_parseSentenceText(bytes) {
 // Legt die getrennte Satz-Sammlung an (sLocalCollections), dekodiert das
 // Störgeräusch, leitet die Matrix aus den Satztexten ab. Wirft bei fehlenden
 // Bestandteilen (kein Begleittext / keine Sätze / kein Rauschen).
-async function ST_buildOlsaBundleFromZip(file) {
+// label: Anzeigename des Bündels, aus dem Upload abgeleitet (agnostisch — CImbel
+// kennt die Datei nicht vorab). Fehlt er, generischer Fallback.
+async function ST_buildOlsaBundleFromZip(file, label) {
+  const bundleLabel = (label && String(label).trim()) || t("stBundleUploadFallback");
   const files = await _stu_unzipAll(file);
   const names = Object.keys(files);
 
@@ -95,11 +98,11 @@ async function ST_buildOlsaBundleFromZip(file) {
 
   sLocalCollections.set(cid, {
     id: cid,
-    label: "OLSA female (Upload)",
+    label: bundleLabel,
     lang: "de",
     lang_any: "y",
     kind: "olsa-upload",
-    folderName: "OLSA female (Upload)",
+    folderName: bundleLabel,
     files: filesMap,
     recordings: recordings,
     testSet: ST_OLSA_TEST_SET,
@@ -120,8 +123,7 @@ async function ST_buildOlsaBundleFromZip(file) {
   // Bündel-Objekt (gleiche Form wie ST_BUNDLE_BUILTIN, §3).
   const bundle = {
     id: ST_OLSA_BUNDLE_ID,
-    label: "OLSA female (Upload)",
-    validated: true,
+    label: bundleLabel,
     testSet: ST_OLSA_TEST_SET,
     noiseUrl: null,          // kein fetch — Buffer direkt
     noiseBuf: noiseBuf,

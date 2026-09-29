@@ -1161,6 +1161,7 @@ Object.assign(L.fr, {
     stResSlopeTitle: "Pente de la fonction de discrimination",
     stResSlopeNote: "Estimation approximative d'une seule session -- ordre de grandeur seulement.",
     stResSlopeExplain: "",
+    stBundleUploadFallback: "Lot importé",
     stDoneBody: "Le résultat figure sous « Résultats » → « Test de parole ».",
     sliderControl: "Commande du curseur :",
     sliderStep: "±0,5 dB",

@@ -1161,6 +1161,7 @@ Object.assign(L.en, {
     stResSlopeTitle: "Slope of the discrimination function",
     stResSlopeNote: "Rough estimate from a single run -- order of magnitude only.",
     stResSlopeExplain: "",
+    stBundleUploadFallback: "Uploaded bundle",
     stDoneBody: "The result appears under \"Results\" → \"Speech test\".",
     sliderControl: "Slider control:",
     sliderStep: "±0.5 dB",

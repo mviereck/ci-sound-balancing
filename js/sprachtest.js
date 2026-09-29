@@ -18,7 +18,6 @@
 const ST_BUNDLE_BUILTIN = {
   id: "wortmatrix",
   label: "Wortmatrix Thorsten 1",
-  validated: false,
   testSet: "wortmatrix",                                  // Satz-Pool-Filter
   noiseUrl: "assets/audio/rauschen_wortmatrix_thorsten-1.wav",
   noiseBuf: null                                          // Buffer-Cache (lazy)
@@ -516,7 +515,6 @@ function st_finish(converged) {
     wordHistory: st_wordHistory.slice(),
     bundleId: ST_activeBundle.id,
     bundleLabel: ST_activeBundle.label,
-    validated: !!ST_activeBundle.validated,
     ts: Date.now()
   };
   if (typeof ST_saveResult === "function") ST_saveResult(result);
@@ -849,7 +847,10 @@ async function st_onUploadFile(file) {
   const st = ST_bundleEls ? ST_bundleEls.status : null;
   if (st) st.textContent = t("stUploadWorking");
   try {
-    const bundle = await ST_buildOlsaBundleFromZip(file);
+    // Anzeigename agnostisch aus dem Dateinamen ableiten (ZIP-Endung + Trenner weg).
+    const label = (file && file.name ? file.name : "")
+      .replace(/\.zip$/i, "").replace(/[_]+/g, " ").trim();
+    const bundle = await ST_buildOlsaBundleFromZip(file, label);
     st_setActiveBundle(bundle.id);
     if (st) st.textContent = "";   // Erfolg: keine Meldung, nur Platz
   } catch (e) {

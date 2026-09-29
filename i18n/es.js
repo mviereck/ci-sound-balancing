@@ -1161,6 +1161,7 @@ Object.assign(L.es, {
     stResSlopeTitle: "Pendiente de la función de discriminación",
     stResSlopeNote: "Estimación aproximada de una sola sesión -- solo orden de magnitud.",
     stResSlopeExplain: "",
+    stBundleUploadFallback: "Paquete subido",
     stDoneBody: "El resultado aparece en «Resultados» → «Prueba de habla».",
     sliderControl: "Control del deslizador:",
     sliderStep: "±0,5 dB",
