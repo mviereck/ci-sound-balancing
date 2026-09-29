@@ -159,7 +159,9 @@ function zu_ingestMatrix(files, det) {
   var noiseFile = new File([files[det.noiseName]], det.noiseName, { type: "audio/wav" });
   amNoiseRegisterMatrixNoise(noiseFile, det);
 
-  if (typeof sUpdateUI === "function") sUpdateUI();
+  // amAfterSourceChange broadcastet ueber das Kategorie-Refresh-Register an
+  // alle Kategorien (inkl. Saetze-UI und Sprachtest-Auswahl) -- kein separates
+  // sUpdateUI mehr noetig.
   if (typeof amAfterSourceChange === "function") amAfterSourceChange();
   return { test_set: det.test_set };
 }

@@ -220,6 +220,8 @@ function sUpdateUI() {
   sUpdateButtons();
   sUpdateTextBox();
 }
+// Am Kategorie-Refresh-Register anmelden: "Sätze-Material geändert" -> UI neu.
+if (typeof amRegisterCategoryRefresh === "function") amRegisterCategoryRefresh("saetze", sUpdateUI);
 
 
 function sUpdateButtons() {

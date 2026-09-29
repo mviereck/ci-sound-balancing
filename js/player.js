@@ -3623,8 +3623,10 @@ function plSetContentLang(code) {
     amWebspaceEnsureCategory("saetze");
     amWebspaceEnsureCategory("hoerbuecher");
   }
-  if (typeof sUpdateUI === "function") sUpdateUI();
-  if (typeof plBookRefreshUI === "function") plBookRefreshUI();
+  if (typeof amRefreshCategory === "function") {
+    amRefreshCategory("saetze");
+    amRefreshCategory("hoerbuecher");
+  }
 }
 
 function plGetContentLang() {
@@ -4456,6 +4458,7 @@ function plNoiseVisibleItems() {
 function plNoiseRefreshUI() {
   plBuildFilterChain(PL_FILTER_DECL.geraeusche);
 }
+if (typeof amRegisterCategoryRefresh === "function") amRegisterCategoryRefresh("geraeusche", plNoiseRefreshUI);
 
 function plNoiseCurrentItem() {
   const all = (typeof amCollectItems === "function") ? amCollectItems("geraeusche") : [];
@@ -4563,6 +4566,7 @@ function _plMusicTrackLabel(it) {
 function plMusicRefreshUI() {
   plBuildFilterChain(PL_FILTER_DECL.musik);
 }
+if (typeof amRegisterCategoryRefresh === "function") amRegisterCategoryRefresh("musik", plMusicRefreshUI);
 
 // Laedt das aktuell ausgewaehlte Musik-Item in pFileBuf ueber die zentrale Ladestelle.
 async function plMusicLoadSelected() {
@@ -4887,6 +4891,7 @@ function plSyncUI(opts) {
 function plBookRefreshUI() {
   plBuildFilterChain(PL_FILTER_DECL.hoerbuecher);
 }
+if (typeof amRegisterCategoryRefresh === "function") amRegisterCategoryRefresh("hoerbuecher", plBookRefreshUI);
 
 async function plBookLoadSelected() {
   const ch = plBookCurrentChapter();

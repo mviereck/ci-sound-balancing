@@ -108,12 +108,34 @@ function amEnsureEmbedBundle(lang) {
   document.head.appendChild(s);
 }
 
-// UI/Cache nach einer Quellen-/Bundle-Aenderung auffrischen.
+// Kategorie-Refresh-Register. Wer die UI einer Kategorie aus dem aktuellen
+// Material neu zeichnet (Player-Boxen, Sprachtest-Auswahl), meldet seinen
+// parameterlosen, idempotenten Refresher hier an. Die "Material geaendert"-
+// Sammelstellen (amAfterSourceChange, amRefreshCategory nach Bedarfs-Laden,
+// Sprachwechsel, ZIP-Upload) broadcasten ueber dieses Register statt ueber
+// hartcodierte Namenslisten -- so kennt jede Sammelstelle automatisch jeden
+// Zuhoerer (auch den Sprachtest, der frueher an keiner haftete).
+const _amCatRefreshers = {
+  musik: [], saetze: [], geraeusche: [], hoerbuecher: []
+};
+function amRegisterCategoryRefresh(category, fn) {
+  const list = _amCatRefreshers[category];
+  if (!list || typeof fn !== "function" || list.indexOf(fn) !== -1) return;
+  list.push(fn);
+}
+// UI einer Kategorie auffrischen: alle registrierten Refresher aufrufen.
+function amRefreshCategory(category) {
+  const list = _amCatRefreshers[category];
+  if (!list) return;
+  for (const fn of list) fn();
+}
+
+// UI/Cache nach einer Quellen-/Bundle-Aenderung auffrischen (alle Kategorien).
 function amAfterSourceChange() {
-  if (typeof sUpdateUI === "function") sUpdateUI();
-  if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
-  if (typeof plNoiseRefreshUI === "function") plNoiseRefreshUI();
-  if (typeof plBookRefreshUI === "function") plBookRefreshUI();
+  amRefreshCategory("saetze");
+  amRefreshCategory("musik");
+  amRefreshCategory("geraeusche");
+  amRefreshCategory("hoerbuecher");
 }
 
 // Zentraler Setter. Aendert den Modus, laedt im Offline-Modus das Bundle
@@ -1383,7 +1405,7 @@ async function amWebspaceEnsureCategory(category) {
   } finally {
     _amWebspace.manifestsLoading.delete(bkey);
   }
-  _amWebspaceRefreshCategory(category);
+  amRefreshCategory(category);
 }
 
 // "Lädt gerade": für die aktuelle Sprache dieser Kategorie ist mindestens eine
@@ -1405,17 +1427,6 @@ function amCategoryLoading(category) {
 }
 
 // UI-Refresh der Kategorie nach erfolgreichem Bedarfs-Laden.
-function _amWebspaceRefreshCategory(category) {
-  if (category === "geraeusche") {
-    if (typeof plNoiseRefreshUI === "function") plNoiseRefreshUI();
-  } else if (category === "hoerbuecher") {
-    if (typeof plBookRefreshUI === "function") plBookRefreshUI();
-  } else if (category === "saetze") {
-    if (typeof sUpdateUI === "function") sUpdateUI();
-  } else if (category === "musik") {
-    if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
-  }
-}
 
 // Sprachcodes einer Kategorie aus den GELADENEN source.json-Manifesten.
 // Die verfügbaren Sprachen kommen aus dem Bündel-Index (audio.bundle/index.json):

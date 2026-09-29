@@ -945,5 +945,12 @@ document.addEventListener("DOMContentLoaded", function () {
   st_cfg.header.extra = { fragment: stBundleFrag };
   ST_els = buildTestPanel(parentEl, st_cfg);
   st_refreshBundleSelect();
+  // Am Kategorie-Refresh-Register anmelden: Wird das Saetze-Material nachge-
+  // laden (bedarfsgeladenes Buendel, Sprachwechsel, Upload), aktualisiert sich
+  // die Sammlungs-Auswahl von selbst -- sonst erschiene das Dropdown erst nach
+  // einem Upload, obwohl schon mehrere gebaute Sammlungen im Pool stehen.
+  if (typeof amRegisterCategoryRefresh === "function") {
+    amRegisterCategoryRefresh("saetze", st_refreshBundleSelect);
+  }
   if (typeof applyLang === "function") applyLang();
 });
