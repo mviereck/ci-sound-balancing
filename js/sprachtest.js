@@ -334,16 +334,26 @@ function st_start() {
     testUI.sideCheck.run({ sides: "one", side: st_currentSide() }, function () {
       Promise.resolve(st_beginRun()).catch(function (e) {
         console.error("[sprachtest] Start fehlgeschlagen:", e);
-        _st_loadHide();
+        _st_abortStart();
       });
     }, function () {
       // Abbruch im Kopfhoerercheck.
-      _st_loadHide();
+      _st_abortStart();
     });
   }).catch(function (e) {
     console.error("[sprachtest] Vorladen fehlgeschlagen:", e);
-    _st_loadHide();
+    _st_abortStart();
   });
+}
+
+// Teststart komplett zuruecknehmen: Ladebalken weg UND den laufenden Test-
+// Zustand von testUI aufheben (Button-Sperren, Tab-Sperre, Player-Reset ueber
+// onStop=st_stop). Ohne diesen Stop-Weg bliebe testUI nach einem Fehlschlag
+// oder Kopfhoerercheck-Abbruch im "Test laeuft"-Zustand haengen -- Stop-Button
+// aktiv, kein Ton, kein Body.
+function _st_abortStart() {
+  _st_loadHide();
+  if (ST_els && typeof ST_els._stopTest === "function") ST_els._stopTest();
 }
 
 // Laedt Texte + Audio-Buffer der benoetigten Saetze (33) + Rauschen sequenziell
@@ -416,6 +426,12 @@ async function st_beginRun() {
   st_active = true;
 
   _st_loadHide();
+
+  // Testkörper jetzt einblenden (deferBody, SS-Start): Material ist geladen
+  // und der Kopfhörercheck bestanden, das Raster wird gleich befüllt.
+  if (typeof testUI !== "undefined" && typeof testUI.showBody === "function") {
+    testUI.showBody(ST_els);
+  }
 
   // BA605: Satz-Ende-Signal auf unseren Handler legen.
   pSetEndedCallback(st_onSentenceEnded);
@@ -928,6 +944,10 @@ const st_cfg = {
   verfahren: [
     {
       id: "olsa",
+      // Der Testkörper wird erst nach dem asynchronen Vorladen + Kopfhörer-
+      // check gezeigt (st_beginRun ruft testUI.showBody). Ohne deferBody
+      // erschiene das Antwort-Raster der Vorrunde, bevor Ton kommt.
+      deferBody: true,
       body: {
         instruction: { key: "stPickHint" },
         progress:    { format: "simple" },

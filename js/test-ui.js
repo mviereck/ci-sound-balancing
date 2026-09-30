@@ -1153,8 +1153,11 @@ function _buildTestPanelNew(parentEl, cfg) {
     stopBtn.disabled = false;
     // Locked-Hint zeigen
     lockedHint.hidden = false;
-    // testBox zeigen
-    testBox.hidden = false;
+    // testBox zeigen -- außer das Verfahren schiebt den Body auf (deferBody):
+    // dann bleibt der Testkörper verborgen, bis das Modul testUI.showBody()
+    // ruft (z.B. nach asynchronem Vorladen). Verhindert, daß das Antwort-
+    // Raster der Vorrunde sichtbar wird, bevor der Test wirklich bereit ist.
+    if (!vCfg2.deferBody) testBox.hidden = false;
     // Pfeiltasten-Listener installieren
     _installKeyListener(vCfg2);
     // runningTitle einblenden
@@ -1496,6 +1499,15 @@ function _tuSetLines(el, lines) {
 // ===== testUI Helfer-API =====
 
 var testUI = {
+
+  // ---- showBody ----
+  // Blendet den Testkörper (testBox) zur Laufzeit ein. Gegenstück zum
+  // Verfahren-Flag deferBody: bei deferBody bleibt der Body beim Start
+  // verborgen; das Modul ruft showBody, sobald der Test bereit ist (z.B.
+  // nach asynchronem Vorladen). els: das buildTestPanel-Rückgabeobjekt.
+  showBody: function(els) {
+    if (els && els.testBox) els.testBox.hidden = false;
+  },
 
   // ---- pairIndicator ----
   pairIndicator: {
