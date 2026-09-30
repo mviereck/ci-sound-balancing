@@ -1,26 +1,4 @@
-Attribution-ShareAlike 1.0 Generic
-
-CC BY-SA 1.0
-
-Legal Code
-
-Canonical URL
-
-https://creativecommons.org/licenses/by-sa/1.0/
-
-Other formats
-
-RDF/XML
-
-See the deed
-
-Version 1.0 • See the errata page for any corrections and the date of change
-
-Notice
-
-This is an older version of this license. Compared to previous versions, the 4.0 versions of all CC licenses are more user-friendly and more internationally robust . If you are licensing your own work , we strongly recommend the use of the 4.0 license instead: Legal Code - Attribution-ShareAlike 4.0 International
-
-Attribution-ShareAlike 1.0 Generic
+Attribution-ShareAlike 1.0
 
 CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE LEGAL SERVICES. DISTRIBUTION OF THIS DRAFT LICENSE DOES NOT CREATE AN ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS INFORMATION ON AN "AS-IS" BASIS. CREATIVE COMMONS MAKES NO WARRANTIES REGARDING THE INFORMATION PROVIDED, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM ITS USE.
 
@@ -68,8 +46,6 @@ If you distribute, publicly display, publicly perform, or publicly digitally per
 
 5. Representations, Warranties and Disclaimer
 
-By offering the Work for public release under this License, Licensor represents and warrants that, to the best of Licensor's knowledge after reasonable inquiry:
-
 Licensor has secured all rights in the Work necessary to grant the license rights hereunder and to permit the lawful exercise of the rights granted hereunder without You having any obligation to pay any royalties, compulsory license fees, residuals or any other payments;
 
 The Work does not infringe the copyright, trademark, publicity rights, common law rights or any other right of any third party or constitute defamation, invasion of privacy or other tortious injury to any third party.
@@ -100,28 +76,4 @@ Creative Commons is not a party to this License, and makes no warranty whatsoeve
 
 Except for the limited purpose of indicating to the public that the Work is licensed under the CCPL, neither party will use the trademark "Creative Commons" or any related trademark or logo of Creative Commons without the prior written consent of Creative Commons. Any permitted use will be in compliance with Creative Commons' then-current trademark usage guidelines, as may be published on its website or otherwise made available upon request from time to time.
 
-Creative Commons may be contacted at
-
-https://creativecommons.org/
-
-.
-
-About Creative Commons
-
-Creative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the "Licensor." The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication . Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies , Creative Commons does not authorize the use of the trademark "Creative Commons" or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.
-
-Creative Commons may be contacted at creativecommons.org .
-
-Creative Commons is the nonprofit behind the open licenses and other legal tools that allow creators to share their work. Our legal tools are free to use.
-
-Learn more about our work
-
-Learn more about CC Licensing
-
-Support our work
-
-Use the license for your own material.
-
-Licenses List
-
-Public Domain List
+Creative Commons may be contacted at https://creativecommons.org/.

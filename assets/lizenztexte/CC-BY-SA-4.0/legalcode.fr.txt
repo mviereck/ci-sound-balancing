@@ -1,59 +1,5 @@
 Attribution - Partage dans les mêmes conditions 4.0 International
 
-CC BY-SA 4.0
-
-Code Juridique
-
-Attribution - Partage dans les mêmes conditions 4.0 International
-
-Article 1 - Définitions.
-
-Article 2 - Champ d’application de la présente Licence publique.
-
-Article 3 – Conditions d'utilisation de la présente Licence publique.
-
-Article 4 – Le Droit sui generis des producteurs de bases de données.
-
-Article 5 – Limitations de garantie et exclusions de responsabilité.
-
-Article 6 – Durée et fin.
-
-Article 7 – Autres termes et conditions.
-
-Article 8 – Interprétation.
-
-Canonical URL
-
-https://creativecommons.org/licenses/by-sa/4.0/
-
-Other formats
-
-Plain Text
-
-RDF/XML
-
-See the deed
-
-Version 4.0 • See the errata page for any corrections and the date of change
-
-About the license and Creative Commons
-
-Creative Commons Corporation (« Creative Commons ») n'est pas un cabinet d'avocats et ne donne ni services ni conseils juridiques. La mise à disposition des licences publiques Creative Commons ne crée pas de rapport analogue à celui d’un client avec son conseil­ ni aucun autre type de relation juridique. Creative Commons propose ses licences et les informations qui y sont associées telles quelles, sans aucune garantie relative à ses licences, aux œuvres mises à disposition conformément aux termes et conditions d’utilisation de ses licences, ou à toute autre information afférente. Creative Commons décline formellement toute responsabilité quant aux préjudices pouvant résulter de leur utilisation.
-
-Utilisation des licences publiques Creative Commons
-
-Les licences publiques Creative Commons proposent des termes et conditions d’utilisation standardisés que les auteurs et autres titulaires de droits peuvent utiliser pour partager une œuvre originale ou toute autre œuvre protégée par le droit d'auteur et certains autres droits précisés dans la licence publique ci-dessous. Les avertissements suivants sont indiqués à titre informatif uniquement ; ils ne sont pas exhaustifs et ne font pas partie de nos licences.
-
-Avertissements à l’attention des donneurs de licence
-
-Nos licences publiques sont conçues pour être utilisées par les auteurs et titulaires de droits dans la limite des lois et règlements en vigueur. Nos licences sont irrévocables. Les donneurs de licence doivent lire et comprendre les termes et conditions de la licence qu'ils choisissent avant de l’utiliser. Les donneurs de licence doivent également obtenir tous les droits nécessaires avant d'utiliser nos licences de façon à ce que le public puisse utiliser l’œuvre comme prévu. Les donneurs de licence doivent clairement indiquer quelle œuvre n'est pas soumise à la licence. Cela comprend les œuvres soumises à d’autres licences Creative Commons et les œuvres utilisées aux termes d'une exception ou d'une limitation du droit d'auteur. Autres avertissements à l’attention des donneurs de licence.
-
-Avertissements à l’attention du public
-
-Le donneur de licence qui utilise l'une de nos licences publiques accorde au public l’autorisation d’utiliser l’œuvre aux termes et conditions précisés dans la licence. Si l’autorisation du donneur de licence n'est pas nécessaire pour quelque raison que ce soit (en raison, par exemple, d’une exception ou d’une limitation applicable au droit d'auteur), cette utilisation n'est pas soumise aux termes et conditions d’utilisation de la licence. Nos licences accordent uniquement des autorisations en vertu du droit d'auteur et de certains autres droits qu'un donneur de licence a le droit d’accorder. L’utilisation de l’œuvre peut néanmoins être restreint pour d'autres raisons, par exemple, si d'autres personnes détiennent un droit d'auteur ou d'autres droits sur l’œuvre. Un donneur de licence peut formuler des demandes particulières, comme notamment que toute modification soit indiquée ou décrite. Même si cela n'est pas rendu obligatoire par nos licences, nous vous invitons à honorer ces demandes dans la mesure du possible. Autres avertissements à l’attention du public.
-
-Attribution - Partage dans les mêmes conditions 4.0 International
-
 Lorsque Vous exercez les Droits accordés par la licence (définis ci-dessous), Vous acceptez d'être lié par les termes et conditions de la présente Licence publique Creative Commons Attribution - Partage dans les mêmes conditions 4.0 International (la « Licence publique »). Dans la mesure où la présente Licence publique peut être interprétée comme un contrat, Vous bénéficiez des Droits accordés par la licence en contrepartie de Votre acceptation des présents termes et conditions, et le Donneur de licence Vous accorde ces droits en contrepartie des avantages que lui procure le fait de mettre à disposition l’Œuvre sous licence en vertu des présents termes et conditions.
 
 Article 1 - Définitions.
@@ -62,19 +8,15 @@ Article 1 - Définitions.
 
 Licence d’Œuvre dérivée signifie licence par laquelle Vous accordez Vos Droit d'auteur et droits connexes portant sur Vos contributions à l'Œuvre dérivée, selon les termes et conditions de la présente Licence publique.
 
-Licence compatible BY-SA signifie licence figurant à l'adresse suivante
+Licence compatible BY-SA signifie licence figurant à l'adresse suivante creativecommons.org/compatiblelicenses, approuvée par Creative Commons comme étant essentiellement équivalente à la présente Licence publique.
 
-creativecommons.org/compatiblelicenses , approuvée par Creative Commons comme étant essentiellement équivalente à la présente Licence publique.
-
-Droit d’auteur et droits connexes
-
-signifie droit d’auteur et/ou droits connexes incluant, notamment, la représentation, la radio et télédiffusion, l’enregistrement sonore et le Droit sui generis des producteurs de bases de données, quelle que soit la classification ou qualification juridique de ces droits. Dans le cadre de la présente Licence publique, les droits visés à l’Article 2(b)(1)-(2) ne relèvent ni du Droit d’auteur ni de droits connexes.
+Droit d’auteur et droits connexes signifie droit d’auteur et/ou droits connexes incluant, notamment, la représentation, la radio et télédiffusion, l’enregistrement sonore et le Droit sui generis des producteurs de bases de données, quelle que soit la classification ou qualification juridique de ces droits. Dans le cadre de la présente Licence publique, les droits visés à l’Article 2(b)(1)-(2) ne relèvent ni du Droit d’auteur ni de droits connexes.
 
 Mesures techniques efficaces signifie mesures techniques qui, en l’absence d’autorisation expresse, ne peuvent être contournées dans le cadre de lois conformes aux dispositions de l’Article 11 du Traité de l’OMPI sur le droit d’auteur adopté le 20 Décembre 1996 et/ou d’accords internationaux de même objet.
 
-Exceptions et limitations signifie utilisation loyale et équitable ( fair use et fair dealing ) et/ou toute autre exception ou limitation applicable à Votre utilisation de l’Œuvre sous licence.
+Exceptions et limitations signifie utilisation loyale et équitable (fair use et fair dealing) et/ou toute autre exception ou limitation applicable à Votre utilisation de l’Œuvre sous licence.
 
-Eléments de licence signifie les composantes de la licence figurant dans l’intitulé de la Licence publique Creative Commons. Les éléments de la présente Licence publique sont : Attribution et Partage dans les mêmes conditions.
+Eléments de licence signifie les composantes de la licence figurant dans l’intitulé de la Licence publique Creative Commons. Les éléments de la présente Licence publique sont: Attribution et Partage dans les mêmes conditions.
 
 Œuvre sous licence signifie œuvre littéraire ou artistique, base de données ou toute autre œuvre pour laquelle le Donneur de licence a recours à la présente Licence publique.
 
@@ -90,33 +32,25 @@ Vous (preneur de licence) se rapporte à tout individu ou entité exerçant les 
 
 Article 2 - Champ d’application de la présente Licence publique.
 
-Octroi de la licence .
-
-Sous réserve du respect des termes et conditions d'utilisation de la présente Licence publique, le Donneur de licence Vous autorise à exercer pour le monde entier, à titre gratuit, non sous-licenciable, non exclusif, irrévocable, les Droits accordés par la licence afin de :
-
-reproduire et Partager l’Œuvre sous licence, en tout ou partie ; et
+reproduire et Partager l’Œuvre sous licence, en tout ou partie; et
 
 produire, reproduire et Partager l’Œuvre dérivée.
 
-Exceptions et limitations . Afin de lever toute ambiguïté, lorsque les Exceptions et limitations s’appliquent à Votre utilisation, la présente Licence publique ne s’applique pas et Vous n’avez pas à Vous conformer à ses termes et conditions.
+Exceptions et limitations. Afin de lever toute ambiguïté, lorsque les Exceptions et limitations s’appliquent à Votre utilisation, la présente Licence publique ne s’applique pas et Vous n’avez pas à Vous conformer à ses termes et conditions.
 
-Durée . La durée de la présente Licence publique est définie à l’Article 6(a) .
+Durée. La durée de la présente Licence publique est définie à l’Article 6(a).
 
-Supports et formats : modifications techniques autorisées . Le Donneur de licence Vous autorise à exercer les Droits accordés par la licence sur tous les supports et formats connus ou encore inconnus à ce jour, et à apporter toutes les modifications techniques que ceux-ci requièrent. Le Donneur de licence renonce et/ou accepte de ne pas exercer ses droits qui pourraient être susceptibles de Vous empêcher d’apporter les modifications techniques nécessaires pour exercer les Droits accordés par la licence, y compris celles nécessaires au contournement des Mesures techniques efficaces. Dans le cadre de la présente Licence publique, le fait de ne procéder qu’à de simples modifications techniques autorisées selon les termes du présent Article 2(a)(4) n’est jamais de nature à créer une Œuvre dérivée.
+Supports et formats: modifications techniques autorisées. Le Donneur de licence Vous autorise à exercer les Droits accordés par la licence sur tous les supports et formats connus ou encore inconnus à ce jour, et à apporter toutes les modifications techniques que ceux-ci requièrent. Le Donneur de licence renonce et/ou accepte de ne pas exercer ses droits qui pourraient être susceptibles de Vous empêcher d’apporter les modifications techniques nécessaires pour exercer les Droits accordés par la licence, y compris celles nécessaires au contournement des Mesures techniques efficaces. Dans le cadre de la présente Licence publique, le fait de ne procéder qu’à de simples modifications techniques autorisées selon les termes du présent Article 2(a)(4) n’est jamais de nature à créer une Œuvre dérivée.
 
-Utilisateurs en aval. .
-
-Offre du Donneur de licence – Œuvre sous licence . Chaque utilisateur de l’Œuvre sous licence reçoit automatiquement une offre de la part du Donneur de licence lui permettant d’exercer les Droits accordés par la licence selon les termes et conditions de la présente Licence publique.
+Offre du Donneur de licence – Œuvre sous licence. Chaque utilisateur de l’Œuvre sous licence reçoit automatiquement une offre de la part du Donneur de licence lui permettant d’exercer les Droits accordés par la licence selon les termes et conditions de la présente Licence publique.
 
 Offre additionnelle du Donneur de licence – Œuvre dérivée. Chaque utilisateur d’une Œuvre dérivée reçoit automatiquement une offre du Donneur de licence lui permettant d’exercer les Droits accordés par la licence sur l’Œuvre dérivée selon les termes et conditions de la Licence d’Œuvre dérivée que Vous appliquez.
 
-Pas de restrictions en aval pour les utilisateurs suivants . Vous ne pouvez proposer ou imposer des termes et conditions supplémentaires ou différents, ou appliquer quelque Mesure technique efficace que ce soit à l’Œuvre sous licence si ceux(celles)-ci sont de nature à restreindre l’exercice des Droits accordés par la licence aux utilisateurs de l’Œuvre sous licence.
+Pas de restrictions en aval pour les utilisateurs suivants. Vous ne pouvez proposer ou imposer des termes et conditions supplémentaires ou différents, ou appliquer quelque Mesure technique efficace que ce soit à l’Œuvre sous licence si ceux(celles)-ci sont de nature à restreindre l’exercice des Droits accordés par la licence aux utilisateurs de l’Œuvre sous licence.
 
-Non approbation . Aucun élément de la présente Licence publique ne peut être interprété comme laissant supposer que le preneur de licence ou que l’utilisation qu’il fait de l’Œuvre sous licence est lié à, parrainé, approuvé, ou doté d'un statut officiel par le Donneur de licence ou par toute autre personne à qui revient l’attribution de l’Œuvre sous licence, comme indiqué à l’Article 3(a)(1)(A)(i) .
+Non approbation. Aucun élément de la présente Licence publique ne peut être interprété comme laissant supposer que le preneur de licence ou que l’utilisation qu’il fait de l’Œuvre sous licence est lié à, parrainé, approuvé, ou doté d'un statut officiel par le Donneur de licence ou par toute autre personne à qui revient l’attribution de l’Œuvre sous licence, comme indiqué à l’Article 3(a)(1)(A)(i).
 
-Autres droits .
-
-Les droits moraux, tel que le droit à l’intégrité de l’œuvre, ne sont pas accordés par la présente Licence publique, ni le droit à l’image, ni le droit au respect de la vie privée, ni aucun autre droit de la personnalité ou apparenté ; cependant, dans la mesure du possible, le Donneur de licence renonce et/ou accepte de ne pas faire valoir les droits qu’il détient de manière à Vous permettre d’exercer les Droits accordés par la licence.
+Les droits moraux, tel que le droit à l’intégrité de l’œuvre, ne sont pas accordés par la présente Licence publique, ni le droit à l’image, ni le droit au respect de la vie privée, ni aucun autre droit de la personnalité ou apparenté; cependant, dans la mesure du possible, le Donneur de licence renonce et/ou accepte de ne pas faire valoir les droits qu’il détient de manière à Vous permettre d’exercer les Droits accordés par la licence.
 
 Le droit des brevets et le droit des marques ne sont pas concernés par la présente Licence publique.
 
@@ -126,33 +60,27 @@ Article 3 – Conditions d'utilisation de la présente Licence publique.
 
 L’exercice des Droits accordés par la licence est expressément soumis aux conditions suivantes.
 
-Attribution .
+Si Vous partagez l’Œuvre sous licence (y compris sous une forme modifiée), Vous devez:
 
-Si Vous partagez l’Œuvre sous licence (y compris sous une forme modifiée), Vous devez :
+identification du(des) auteur(s) de l’Œuvre sous licence et de toute personne à qui revient l’attribution de l’Œuvre sous licence, dans la mesure du possible, conformément à la demande du Donneur de licence (y compris sous la forme d’un pseudonyme s’il est indiqué);
 
-conserver les informations suivantes lorsqu’elles sont fournies par le Donneur de licence avec l’Œuvre sous licence :
+l’indication de l’existence d’un droit d’auteur;
 
-identification du(des) auteur(s) de l’Œuvre sous licence et de toute personne à qui revient l’attribution de l’Œuvre sous licence, dans la mesure du possible, conformément à la demande du Donneur de licence (y compris sous la forme d’un pseudonyme s’il est indiqué) ;
+une notice faisant référence à la présente Licence publique;
 
-l’indication de l’existence d’un droit d’auteur ;
+une notice faisant référence aux limitations de garantie et exclusions de responsabilité;
 
-une notice faisant référence à la présente Licence publique ;
+un URI ou un hyperlien vers l’Œuvre sous licence dans la mesure du possible;
 
-une notice faisant référence aux limitations de garantie et exclusions de responsabilité ;
-
-un URI ou un hyperlien vers l’Œuvre sous licence dans la mesure du possible ;
-
-Indiquer si Vous avez modifié l’Œuvre sous licence et conserver un suivi des modifications précédentes ; et
+Indiquer si Vous avez modifié l’Œuvre sous licence et conserver un suivi des modifications précédentes; et
 
 Indiquer si l’Œuvre sous licence est mise à disposition en vertu de la présente Licence publique en incluant le texte, l’URI ou l’hyperlien correspondant à la présente Licence publique.
 
 Vous pouvez satisfaire aux conditions de l’Article 3(a)(1) dans toute la mesure du possible, en fonction des supports, moyens et contextes dans lesquels Vous Partagez l’Œuvre sous licence. Par exemple, Vous pouvez satisfaire aux conditions susmentionnées en fournissant l’URI ou l’hyperlien vers la ressource incluant les informations requises.
 
-Bien que requises aux termes de l’Article 3(a)(1)(A) , certaines informations devront être retirées, dans la mesure du possible, si le Donneur de licence en fait la demande.
+Bien que requises aux termes de l’Article 3(a)(1)(A), certaines informations devront être retirées, dans la mesure du possible, si le Donneur de licence en fait la demande.
 
-Partage dans les mêmes conditions .
-
-Outre les conditions indiquées à l’Article 3(a) , si Vous Partagez une Œuvre dérivée que Vous avez réalisée, les conditions suivantes s’appliquent aussi.
+Outre les conditions indiquées à l’Article 3(a), si Vous Partagez une Œuvre dérivée que Vous avez réalisée, les conditions suivantes s’appliquent aussi.
 
 La Licence d’Œuvre dérivée que Vous appliquez doit être une licence Creative Commons avec les mêmes Eléments de licence, qu’il s’agisse de cette version ou d’une version ultérieure, ou une Licence compatible BY-SA.
 
@@ -162,11 +90,11 @@ Vous ne pouvez pas proposer ou imposer des termes ou des conditions supplémenta
 
 Article 4 – Le Droit sui generis des producteurs de bases de données.
 
-Lorsque les Droits accordés par la licence incluent le Droit sui generis des producteurs de bases de données applicable à Votre utilisation de l’Œuvre sous licence :
+Lorsque les Droits accordés par la licence incluent le Droit sui generis des producteurs de bases de données applicable à Votre utilisation de l’Œuvre sous licence:
 
-afin de lever toute ambiguïté, l’Article 2(a)(1) Vous accorde le droit d’extraire, réutiliser, reproduire et Partager la totalité ou une partie substantielle du contenu de la base de données ;
+afin de lever toute ambiguïté, l’Article 2(a)(1) Vous accorde le droit d’extraire, réutiliser, reproduire et Partager la totalité ou une partie substantielle du contenu de la base de données;
 
-si Vous incluez la totalité ou une partie substantielle du contenu de la base de données dans une base de données pour laquelle Vous détenez un Droit sui generis de producteur de bases de données, la base de données sur laquelle Vous détenez un tel droit (mais pas ses contenus individuels) sera alors considérée comme une Œuvre dérivée, y compris pour l’application de l’Article 3(b) ; et
+si Vous incluez la totalité ou une partie substantielle du contenu de la base de données dans une base de données pour laquelle Vous détenez un Droit sui generis de producteur de bases de données, la base de données sur laquelle Vous détenez un tel droit (mais pas ses contenus individuels) sera alors considérée comme une Œuvre dérivée, y compris pour l’application de l’Article 3(b); et
 
 Vous devez respecter les conditions de l’Article 3(a) si Vous Partagez la totalité ou une partie substantielle du contenu des bases de données.
 
@@ -184,17 +112,17 @@ Article 6 – Durée et fin.
 
 La présente Licence publique s’applique pendant toute la durée de validité des Droits accordés par la licence. Cependant, si Vous manquez à Vos obligations prévues par la présente Licence publique, Vos droits accordés par la présente Licence publique seront automatiquement révoqués.
 
-Lorsque les Droits accordés par la licence ont été révoqués selon les termes de l’Article 6(a), ils seront rétablis :
+Lorsque les Droits accordés par la licence ont été révoqués selon les termes de l’Article 6(a), ils seront rétablis:
 
-automatiquement, à compter du jour où la violation aura cessé, à condition que Vous y remédiiez dans les 30 jours suivant la date à laquelle Vous aurez eu connaissance de la violation ; ou
+automatiquement, à compter du jour où la violation aura cessé, à condition que Vous y remédiiez dans les 30 jours suivant la date à laquelle Vous aurez eu connaissance de la violation; ou
 
 à condition que le Donneur de licence l’autorise expressément.
 
 Afin de lever toute ambiguïté, le présent Article 6(b) n’affecte pas le droit du Donneur de licence de demander réparation dans les cas de violation de la présente Licence publique.
 
-Afin de lever toute ambiguïté, le Donneur de licence peut également proposer l’Œuvre sous licence selon d’autres termes et conditions et peut cesser la mise à disposition de l’Œuvre sous licence à tout moment ; une telle cessation n’entraîne pas la fin de la présente Licence publique.
+Afin de lever toute ambiguïté, le Donneur de licence peut également proposer l’Œuvre sous licence selon d’autres termes et conditions et peut cesser la mise à disposition de l’Œuvre sous licence à tout moment; une telle cessation n’entraîne pas la fin de la présente Licence publique.
 
-Les Articles 1 , 5 , 6 , 7 , et 8 continueront à s’appliquer même après la résiliation de la présente Licence publique.
+Les Articles 1, 5, 6, 7, et 8 continueront à s’appliquer même après la résiliation de la présente Licence publique.
 
 Article 7 – Autres termes et conditions.
 
@@ -211,23 +139,3 @@ Dans la mesure du possible, si une clause de la présente Licence publique est d
 Aucun terme ni aucune condition de la présente Licence publique ne sera écarté(e) et aucune violation ne sera admise sans l’accord exprès du Donneur de licence.
 
 Aucun terme ni aucune condition de la présente Licence publique ne constitue ou ne peut être interprété(e) comme une limitation ou une renonciation à un quelconque privilège ou à une immunité s’appliquant au Donneur de licence ou à Vous, y compris lorsque celles-ci émanent d’une procédure légale, quel(le) qu’en soit le système juridique concerné ou l’autorité compétente.
-
-About Creative Commons
-
-Creative Commons n’est pas partie prenante de ses licences publiques. Néanmoins, Creative Commons se réserve le droit d'utiliser une de ses licences publiques pour les œuvres qu’elle publie, et dans ce cas sera considérée comme « Donneur de licence ». Le texte des licences publiques Creative Commons est versé au domaine public en vertu de CC0 Domaine Public . A l’exception des seuls cas où il est indiqué que l’œuvre est mise à disposition sous licence publique Creative Commons et ceux autorisés par les statuts de Creative Commons disponibles sur creativecommons.org/policies , Creative Commons n’autorise l’utilisation par aucune partie de la marque "Creative Commons" ou de toute autre marque ou logo de Creative Commons sans le consentement écrit préalable de Creative Commons. Cette restriction relative à l'utilisation des marques ne constitue pas une partie de nos licences publiques.
-
-Vous pouvez joindre Creative Commons via creativecommons.org .
-
-Creative Commons is the nonprofit behind the open licenses and other legal tools that allow creators to share their work. Our legal tools are free to use.
-
-Learn more about our work
-
-Learn more about CC Licensing
-
-Support our work
-
-Use the license for your own material.
-
-Licenses List
-
-Public Domain List

@@ -1,53 +1,5 @@
 CC0 1.0 Universell
 
-CC0 1.0
-
-Lizenzvertrag
-
-CC0 1.0 Universell
-
-Zweckerklärung
-
-1. Copyright and Related Rights.
-
-2. Verzicht.
-
-3. Public License als Auffangregelung.
-
-4. Beschränkungen und Haftungsausschluss.
-
-Canonical URL
-
-https://creativecommons.org/publicdomain/zero/1.0/
-
-Other formats
-
-Plain Text
-
-RDF/XML
-
-See the deed
-
-Version 1.0 • See the errata page for any corrections and the date of change
-
-About the license and Creative Commons
-
-Die Creative Commons Corporation ("Creative Commons") ist keine Rechtsanwaltskanzlei und bietet weder Rechtsdienstleistungen noch Rechtsberatung. Die Verbreitung von Creative Commons Public Licenses führt zu keinem Mandatsverhältnis und keiner sonstigen Rechtsbeziehung. Creative Commons macht seine Lizenzen und die dazugehörigen Informationen so zugänglich, wie sie sind. Creative Commons übernimmt keinerlei Gewährleistung hinsichtlich seiner Lizenzen, jedweder unter deren Bedingungen lizenzierter Materialien oder darauf bezogener Informationen. Creative Commons schließt jegliche Haftung für Schäden, die aus ihrer Verwendung resultieren, so weit wie möglich aus.
-
-Verwendung der Creative Commons Public Licenses
-
-Creative Commons Public Licenses sind standardisierte Zusammenstellungen rechtlicher Bedingungen, die Urheber und andere Rechteinhaber verwenden können, um ihre selbst geschaffenen Werke und andere Materialien, die urheberrechtlich oder durch bestimmte andere Rechte geschützt sind, die unten in der Public License genauer benannt werden, zur Nutzung freizugeben. Die folgenden Überlegungen haben lediglich informativen Charakter, sind keineswegs vollständig und nicht Teil unserer Lizenzen.
-
-Überlegungen für Lizenzgeber
-
-Unsere Public Licenses sind zur Verwendung durch diejenigen gedacht, die rechtlich befugt sind, der Allgemeinheit solche Nutzungen von Material zu erlauben, die sonst durch das Urheberrecht oder bestimmte andere Rechte untersagt wären. Unsere Lizenzen sind unwiderruflich. Lizenzgeber sollten die Bedingungen der Lizenz, die sie auswählen, lesen und verstehen, bevor sie die Lizenz verwenden. Lizenzgeber sollten zudem alle erforderlichen Rechte einholen, die für die Verwendung unserer Lizenzen notwendig sind, damit die Allgemeinheit das lizenzierte Material wie erwartet nutzen kann. Lizenzgeber sollten jegliches Material, für welches die Lizenz nicht gilt, klar kenntlich machen. Das gilt auch für anderes CC-lizenziertes Material und für Material, das gemäß einer urheberrechtlichen Beschränkung oder Ausnahme genutzt wird. Weitere Überlegungen für Lizenzgeber finden Sie im Creative Commons Wiki (in Englisch).
-
-Überlegungen für die Allgemeinheit
-
-Durch die Verwendung einer unserer Public Licenses gibt ein Lizenzgeber der Allgemeinheit die Erlaubnis, das lizenzierte Material unter bestimmten Bedingungen zu nutzen. Falls die Erlaubnis des Lizenzgebers aus irgendwelchen Gründen gar nicht erforderlich ist – beispielsweise wegen einer urheberrechtlichen Ausnahme oder Beschränkung – dann wird die entsprechende Nutzung auch nicht durch die Lizenz geregelt. Die Erlaubnisse in unseren Lizenzen beziehen sich nur auf das Urheberrecht und bestimmte andere Rechte, hinsichtlich derer der Lizenzgeber Erlaubnisse geben kann. Die Nutzung des lizenzierten Materials kann aber dennoch aus anderen Gründen untersagt sein, etwa weil Dritte Urheber- oder andere Rechte am Material haben. Ein Lizenzgeber kann auch besondere Wünsche haben, etwa indem er dazu auffordert, alle Veränderungen zu kennzeichnen oder zu beschreiben. Obwohl dies dann nicht verpflichtend im Sinne unserer Lizenzen ist, sollten Sie sich bemühen, derlei Wünschen nach Möglichkeit nachzukommen. Weitere Überlegungen für die Allgemeinheit finden Sie im Creative Commons Wiki (in Englisch).
-
-CC0 1.0 Universell
-
 CREATIVE COMMONS IST KEINE RECHTSANWALTSKANZLEI UND LEISTET KEINE RECHTSDIENSTLEISTUNGEN. DIE VERBREITUNG DIESES DOKUMENTS FÜHRT ZU KEINEM MANDATSVERHÄLTNIS. CREATIVE COMMONS MACHT DIESE INFORMATIONEN SO ZUGÄNGLICH, WIE SIE SIND. CREATIVE COMMONS ÜBERNIMMT KEINERLEI GEWÄHRLEISTUNG HINSICHTLICH DER NUTZUNG DIESES DOKUMENTS UND DER DARUNTER BEREITGESTELLTEN INFORMATIONEN ODER WERKE UND SCHLIESST DIE HAFTUNG FÜR SCHÄDEN AUS, DIE SICH AUS DER NUTZUNG DIESES DOKUMENTS ODER DER DARUNTER BEREITGESTELLTEN INFORMATIONEN ODER WERKE ERGEBEN.
 
 Zweckerklärung
@@ -93,23 +45,3 @@ Der/die Erklärende bietet sein bzw. ihr Werk so an, wie es ist, und gibt in Bez
 Der/die Erklärende weist eine Verantwortlichkeit für die Klärung von Rechten anderer Personen von sich, sofern solche Rechte auf das Werk oder seine Nutzung anwendbar sein sollten, was insbesondere auch gilt hinsichtlich Urheberrechten und verwandter Schutzrechte anderer Personen am Werk. Des weiteren weist der/die Erklärende eine Verantwortlichkeit für die Einholung etwaig notwendiger Zustimmungen, Erlaubnisse oder anderer Rechte von sich, die für eine Nutzung des Werks erforderlich sein könnten.
 
 Der/die Erklärende ist sich bewusst und erkennt an, dass Creative Commons nicht Partei dieser Vereinbarung ist und keinerlei Pflichten oder Obliegenheiten in Bezug auf CC0 oder die Nutzung des Werkes hat.
-
-About Creative Commons
-
-Creative Commons ist keine Vertragspartei seiner Public Licenses. Dennoch kann Creative Commons sich dazu entscheiden, eine seiner Public Licenses für selbst publiziertes Material zu verwenden, und ist in diesen Fällen als „Lizenzgeber" zu betrachten. Der Text der Creative Commons Public Licenses selbst wird mittels der CC0 Verzichtserklärung der Gemeinfreiheit überantwortet. Abgesehen vom begrenzten Zweck, darauf hinzuweisen, dass Material unter einer Creative Commons Public License freigegeben ist, und falls es nicht anderweitig erlaubt wird durch die Creative-Commons-Policies, die unter creativecommons.org/policies veröffentlicht sind, erlaubt Creative Commons es nicht, dass die Marke "Creative Commons" oder eine andere Marke oder ein anderes Logo von Creative Commons ohne vorherige schriftliche Zustimmung genutzt werden, insbesondere in Verbindung mit nicht autorisierten Veränderungen seiner Public Licenses oder sonstigen Regelungen, Übereinkünften oder Vereinbarungen in Bezug auf die Nutzung lizenzierten Materials. Es sei klargestellt, dass dieser Absatz nicht Teil der Public Licenses ist.
-
-Creative Commons kann kontaktiert werden unter creativecommons.org .
-
-Creative Commons is the nonprofit behind the open licenses and other legal tools that allow creators to share their work. Our legal tools are free to use.
-
-Learn more about our work
-
-Learn more about CC Licensing
-
-Support our work
-
-Use the license for your own material.
-
-Licenses List
-
-Public Domain List

@@ -1,53 +1,5 @@
 CC0 1.0 Universal
 
-CC0 1.0
-
-Código legal
-
-CC0 1.0 Universal
-
-Declaración de Propósito
-
-1. Derechos de Autor y Derechos Conexos.
-
-2. Renuncia.
-
-3. Repliego de la Licencia Pública.
-
-4. Limitaciones y Descargo de Responsabilidad.
-
-Canonical URL
-
-https://creativecommons.org/publicdomain/zero/1.0/
-
-Other formats
-
-Plain Text
-
-RDF/XML
-
-See the deed
-
-Versión 1.0 • See the errata page for any corrections and the date of change
-
-About the license and Creative Commons
-
-Creative Commons Corporation ("Creative Commons") no es una firma de abogados ni ofrece servicios legales ni asesoría legal. La distribución de las licencias públicas de Creative Commons no genera una relación abogado-cliente ni de cualquier otro tipo. Creative Commons proporciona sus licencias y la información relacionada tal como se presenta. Creative Commons no ofrece ninguna garantía con respecto a sus licencias, ni sobre el material sujeto a sus términos y condiciones, ni sobre cualquier información relacionada. Creative Commons queda exenta de cualquier responsabilidad vinculada a daños que resulten de su uso conforme al marco legal aplicable.
-
-Uso de las Licencias Públicas de Creative Commons
-
-Las licencias públicas de Creative Commons proporcionan un conjunto estándar de términos y condiciones que los creadores y otros titulares de derechos pueden utilizar para compartir obras originales de su autoría y cualquier otro material sujeto a derechos de autor y a otros derechos que se especifican en la licencia pública de más abajo. Las consideraciones siguientes son solo con fines informativos, no son exhaustivas y no forman parte de nuestras licencias.
-
-Consideraciones para licenciantes
-
-Nuestras licencias públicas están destinadas a ser utilizadas por aquellos autorizados a dar permiso al público para utilizar material en formas que de otra manera estarían restringidas por los derechos de autor y por otros derechos. Nuestras licencias son irrevocables. Los licenciantes deben leer y entender los términos y las condiciones de la licencia que elijan antes de aplicarla. Los licenciantes deben también contar con todos los derechos necesarios antes de aplicar nuestras licencias, de modo que el público pueda reutilizar el material según lo esperado. Los licenciantes deben identificar con claridad cualquier material que no esté sujeto a la licencia. Esto incluye materiales que se encuentren distribuidos con otra licencia de CC o materiales utilizados en virtud de alguna excepción o limitación al derecho de autor. Más consideraciones para Licenciantes.
-
-Consideraciones para el público
-
-Mediante el uso de una de nuestras licencias públicas, el licenciante concede el permiso para utilizar el Material Licenciado bajo los términos y las condiciones que se especifican. Si producto de la aplicación de una excepción o limitación al derecho de autor u otra razón, no es necesario aplicar la licencia para el uso requerido, se entenderá que dicho uso no se encuentra regulado por la licencia. Nuestras licencias solamente otorgan los permisos que por derecho de autor y derechos conexos el licenciante tiene potestad legal de otorgar. El uso del Material Licenciado podría estar restringido por razones distintas de la licencia, incluyendo el ejercicio de otros derechos de autor u otros derechos sobre el material. El licenciante puede solicitar peticiones especiales, como pedir que los cambios estén marcados o descritos. Aunque nuestras licencias no lo requieren, se lo alienta a respetar esas solicitudes dentro de lo razonable. Más consideraciones para licenciatarios.
-
-CC0 1.0 Universal
-
 CREATIVE COMMONS CORPORATION NO ES UNA FIRMA DE ABOGADOS Y NO PROVEE SERVICIOS LEGALES. LA DISTRIBUCIÓN DE ESTE DOCUMENTO NO CREA UNA RELACIÓN CLIENTE-ABOGADO. CREATIVE COMMONS PROVEE ESTA INFORMACIÓN “TAL Y COMO ES". CREATIVE COMMONS NO OTORGA GARANTÍAS EN RELACIÓN AL USO DE ESTE DOCUMENTO O LA INFORMACIÓN O LAS OBRAS QUE SE PROVEEN A CONTINUACIÓN Y SE EXIME DE RESPONSABILIDAD POR DAÑOS RESULTANTES POR EL USO DE ESTE DOCUMENTO O LA INFORMACIÓN O LAS OBRAS QUE SE PROVEEN A CONTINUACIÓN.
 
 Declaración de Propósito
@@ -93,23 +45,3 @@ El Afirmante ofrece la Obra “tal y como es” y no hace representaciones o gar
 El Afirmante renuncia a la responsabilidad de los derechos de compensación de otras personas que puedan aplicarse a la Obra o a cualquier uso en esto, incluyendo sin limitación los Derechos de Autor y Derechos Conexos sobre la Obra de cualquier persona. Además, el Afirmante renuncia a la responsabilidad de obtener cualquier consentimiento o permiso necesario, así como cualquier otros derechos requeridos para cualquier uso de la Obra.
 
 El Afirmante entiende y reconoce que Creative Commons no es una parte en este documento y no tiene ningún derecho u obligación con respecto a esta CC0 o al uso de la Obra.
-
-About Creative Commons
-
-Creative Commons no es una parte en sus licencias públicas. No obstante, Creative Commons puede optar por aplicar una de sus licencias públicas al material que publica y en estos casos debe ser considerado como el "Licenciante". El texto de las licencias públicas de Creative Commons está dedicado al dominio público bajo una licencia CC0 de Dedicación al Dominio Público . Excepto con el propósito limitado de indicar que el material se comparte bajo una licencia pública de Creative Commons o según lo permitido por las políticas de Creative Commons publicadas en creativecommons.org/policies , Creative Commons no autoriza el uso de la marca "Creative Commons" o cualquier otra marca o logotipo de Creative Commons sin su consentimiento previo por escrito, incluso, de manera enunciativa y no taxativa, en relación con modificaciones no autorizadas de cualquiera de sus licencias públicas o de cualquier otro acuerdo, arreglo o convenio relativos al uso de Material Licenciado. Para evitar cualquier duda, este párrafo no forma parte de las licencias públicas.
-
-Puede contactarse con Creative Commons en creativecommons.org .
-
-Creative Commons is the nonprofit behind the open licenses and other legal tools that allow creators to share their work. Our legal tools are free to use.
-
-Learn more about our work
-
-Learn more about CC Licensing
-
-Support our work
-
-Use the license for your own material.
-
-Licenses List
-
-Public Domain List
