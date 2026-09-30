@@ -12,6 +12,15 @@ function switchSubtab(parent, subtab) {
     if (typeof tabLockShowModal === "function") tabLockShowModal("sideDeaf");
     return;
   }
+  // BA 629: Sperr-Guard L1b — Implantat-Angaben unvollstaendig sperrt
+  // alle Sub-Reiter ausser Sprachtest. Modal-Grund = aktueller L1-Reason.
+  if (typeof isSubtabLockedL1b === "function" && isSubtabLockedL1b(parent, subtab)) {
+    if (typeof tabLockShowModal === "function") {
+      const st = (typeof evalTabLockState === "function") ? evalTabLockState() : null;
+      tabLockShowModal(st ? st.reason : null);
+    }
+    return;
+  }
   _switchSubtabInternal(parent, subtab);
 }
 
@@ -70,7 +79,11 @@ function _switchSubtabInternal(parent, subtab) {
 // Sperrt Haupt-Reiter, wenn die Implantat-Angaben unzureichend
 // sind. Sperr-Schwelle und Tab-Liste sind hier zentral.
 // ============================================================
-const LOCKED_TABS_L1 = ["messungen", "ergebnisse", "kurven", "schieber", "frequenzbaender", "verlaufsanalyse"];
+// BA 629: "messungen" und "ergebnisse" sind NICHT mehr pauschal
+// L1-gesperrt — sie bleiben erreichbar, damit der Sprachtest-Sub-Reiter
+// immer zugaenglich ist. Die Sperre wandert auf ihre Sub-Reiter (alle
+// ausser "sprachtest"), siehe isSubtabLockedL1b / subtabLockApplyL1b unten.
+const LOCKED_TABS_L1 = ["kurven", "schieber", "frequenzbaender", "verlaufsanalyse"];
 
 // Liefert den aktuellen Sperr-Zustand:
 //   { locked: false, reason: null }                 — frei
@@ -117,6 +130,8 @@ function tabLockApply() {
   }
   // BA 173: Sub-Tab- und Player-Bereich-Sperre L2/L3 mit nachziehen
   if (typeof subtabLockApply === "function") subtabLockApply();
+  // BA 629: Sub-Reiter-Sperre L1b (alle ausser Sprachtest bei L1-Sperre)
+  if (typeof subtabLockApplyL1b === "function") subtabLockApplyL1b();
   // BA387: playerLockApply entfaellt -> die drei Button-Sperren direkt rufen.
   if (typeof plUpdBalLock  === "function") plUpdBalLock();
   if (typeof plUpdLatLock  === "function") plUpdLatLock();
@@ -203,6 +218,57 @@ function subtabLockApply() {
 }
 
 // ============================================================
+// BA 629: SUB-TAB-SPERRE L1b — Implantat-Angaben unvollstaendig
+// ------------------------------------------------------------
+// Wenn die L1-Sperre greift (evalTabLockState().locked), sind
+// "messungen" und "ergebnisse" NICHT mehr als Ganzes gesperrt,
+// damit der Sprachtest erreichbar bleibt. Stattdessen werden alle
+// ihre Sub-Reiter AUSSER "sprachtest" gesperrt.
+//
+// Eigener Grund, absichtlich getrennt von der L2-Sperre (taube
+// Seite): anderer Ausloeser, andere Frei-Liste.
+// ============================================================
+
+// Die Eltern-Reiter, deren Sub-Reiter bei L1-Sperre betroffen sind.
+const L1B_PARENTS = ["messungen", "ergebnisse"];
+// Sub-Reiter, der bei L1-Sperre IMMER frei bleibt.
+const L1B_FREE_SUBTAB = "sprachtest";
+
+// Ist der Sub-Reiter (parent/subtab) durch die L1b-Sperre blockiert?
+function isSubtabLockedL1b(parent, subtab) {
+  if (L1B_PARENTS.indexOf(parent) === -1) return false;
+  if (subtab === L1B_FREE_SUBTAB) return false;
+  return evalTabLockState().locked;
+}
+
+function subtabLockApplyL1b() {
+  const locked = evalTabLockState().locked;
+  L1B_PARENTS.forEach(function (parent) {
+    document
+      .querySelectorAll('.subtab[data-parent="' + parent + '"]')
+      .forEach(function (btn) {
+        const sub = btn.dataset.subtab;
+        const lock = locked && sub !== L1B_FREE_SUBTAB;
+        btn.classList.toggle("tab-locked", lock);
+      });
+    if (locked) {
+      // Steht der User auf einem nun gesperrten Sub-Reiter dieses
+      // Eltern-Reiters, auf den Sprachtest wechseln. Kein Modal —
+      // der User aendert gerade die Implantat-Angaben.
+      const activeSubBtn = document.querySelector(
+        '.subtab.active[data-parent="' + parent + '"]'
+      );
+      const activeSub = activeSubBtn ? activeSubBtn.dataset.subtab : null;
+      if (activeSub && activeSub !== L1B_FREE_SUBTAB) {
+        if (typeof _switchSubtabInternal === "function") {
+          _switchSubtabInternal(parent, L1B_FREE_SUBTAB);
+        }
+      }
+    }
+  });
+}
+
+// ============================================================
 // TABS
 // ============================================================
 function switchTab(n) {
@@ -232,6 +298,19 @@ function _switchTabInternal(n) {
   document
     .querySelectorAll(".panel")
     .forEach((p) => p.classList.toggle("active", p.id === "panel-" + n));
+  // BA 629: Bei aktiver L1-Sperre auf "messungen"/"ergebnisse" direkt
+  // den Sprachtest zeigen — die anderen Sub-Reiter sind gesperrt.
+  if ((n === "messungen" || n === "ergebnisse")
+      && typeof evalTabLockState === "function"
+      && evalTabLockState().locked) {
+    const activeSubBtn = document.querySelector(
+      '.subtab.active[data-parent="' + n + '"]'
+    );
+    const activeSub = activeSubBtn ? activeSubBtn.dataset.subtab : null;
+    if (activeSub !== "sprachtest" && typeof _switchSubtabInternal === "function") {
+      _switchSubtabInternal(n, "sprachtest");
+    }
+  }
   if (n === "ergebnisse") {
     // Aktiven Sub-Tab prüfen; falls keiner aktiv oder aktiver leer, sinnvollen wählen
     const activeSubtab = document.querySelector('.subtab[data-parent="ergebnisse"].active');

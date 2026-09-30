@@ -2045,6 +2045,16 @@ input.ec-active.dep-locked {
   opacity: 0.4;
 }
 
+/* BA 629: gesperrte Sub-Reiter ausgrauen (L1b: alle ausser Sprachtest
+   bei unvollstaendigen Implantat-Angaben; sowie L2: taube Seite). */
+.subtab.tab-locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.subtab.tab-locked:hover {
+  opacity: 0.4;
+}
+
 /* BA 230: Tonauswahl-Modal — Button-Variante statt Radiobuttons */
 .tone-btn-row {
   display: flex;
