@@ -1,6 +1,5 @@
 M-AILABS Speech Dataset — License
 Source: https://github.com/i-celeste-aurora/m-ailabs-dataset#license
-(Voice "eva_k" via Piper; dataset license per cstr/piper-voices-GGUF.)
 
 License
 
