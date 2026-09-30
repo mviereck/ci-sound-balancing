@@ -428,7 +428,7 @@ function updPlSrcButtons() {
   // Faktor-Dropdown mit gespeichertem Wert synchronisieren
   const fSel = document.getElementById("plSrcMeasFactorSel");
   if (fSel && typeof plSrcMeasFactor !== "undefined") {
-    fSel.value = String(plSrcMeasFactor);
+    fSel.value = parseFloat(plSrcMeasFactor).toFixed(1);
   }
   updEqToggleBtn();
 }
