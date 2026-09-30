@@ -1,0 +1,42 @@
+{
+  "CC0-1.0": {
+    "frei": true, "auflagen": [],
+    "texte": { "deed": ["de","en","fr","es"], "legalcode": ["de","en","fr","es"] },
+    "name": "CC0 1.0 (Public Domain Dedication)"
+  },
+  "PD": {
+    "frei": true, "auflagen": [],
+    "texte": { "hinweis": ["de","en","fr","es"] },
+    "name": "Public Domain"
+  },
+  "CC-BY-4.0": {
+    "frei": true, "auflagen": ["attribution"],
+    "texte": { "deed": ["de","en","fr","es"], "legalcode": ["de","en","fr","es"] },
+    "name": "CC BY 4.0"
+  },
+  "CC-BY-SA-4.0": {
+    "frei": true, "auflagen": ["attribution","share-alike"],
+    "texte": { "deed": ["de","en","fr","es"], "legalcode": ["de","en","fr","es"] },
+    "name": "CC BY-SA 4.0"
+  },
+  "CC-BY-3.0": {
+    "frei": true, "auflagen": ["attribution"],
+    "texte": { "deed": ["de","en","fr","es"], "legalcode": ["en"] },
+    "name": "CC BY 3.0"
+  },
+  "CC-BY-SA-3.0": {
+    "frei": true, "auflagen": ["attribution","share-alike"],
+    "texte": { "deed": ["de","en","fr","es"], "legalcode": ["en"] },
+    "name": "CC BY-SA 3.0"
+  },
+  "CC-BY-ND-3.0": {
+    "frei": true, "auflagen": ["attribution","no-derivatives"],
+    "texte": { "deed": ["de","en","fr","es"], "legalcode": ["en"] },
+    "name": "CC BY-ND 3.0"
+  },
+  "LicenseRef-M-AILABS": {
+    "frei": true, "auflagen": ["notice","attribution"],
+    "texte": { "legalcode": ["en"] },
+    "name": "M-AILABS (BSD-style)"
+  }
+}

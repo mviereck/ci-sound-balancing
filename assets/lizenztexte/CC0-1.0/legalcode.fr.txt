@@ -1,0 +1,230 @@
+CC0 1.0 Universel
+CC0 1.0
+Code Juridique
+CC0 1.0 Universel
+Déclaration d'Intention
+1. Droit d'Auteur et Droits Voisins.
+2. Renonciation.
+3. Licence Publique Supplétive.
+4. Limitations et Avertissements.
+Canonical URL
+https://creativecommons.org/publicdomain/zero/1.0/
+Other formats
+Plain Text
+RDF/XML
+See the deed
+Version 1.0 • See the
+errata page for any corrections and
+the date of change
+About the license and Creative Commons
+Creative Commons Corporation (« Creative Commons ») n'est pas un
+cabinet d'avocats et ne donne ni services ni conseils juridiques. La
+mise à disposition des licences publiques Creative Commons ne crée
+pas de rapport analogue à celui d’un client avec son conseil­ ni
+aucun autre type de relation juridique. Creative Commons propose ses
+licences et les informations qui y sont associées telles quelles,
+sans aucune garantie relative à ses licences, aux œuvres mises à
+disposition conformément aux termes et conditions d’utilisation de
+ses licences, ou à toute autre information afférente. Creative
+Commons décline formellement toute responsabilité quant aux
+préjudices pouvant résulter de leur utilisation.
+Utilisation des licences publiques Creative Commons
+Les licences publiques Creative Commons proposent des termes et
+conditions d’utilisation standardisés que les auteurs et autres
+titulaires de droits peuvent utiliser pour partager une œuvre
+originale ou toute autre œuvre protégée par le droit d'auteur et
+certains autres droits précisés dans la licence publique ci-dessous.
+Les avertissements suivants sont indiqués à titre informatif
+uniquement ; ils ne sont pas exhaustifs et ne font pas partie de nos
+licences.
+Avertissements à l’attention des donneurs de licence
+Nos licences publiques sont conçues pour être utilisées par les
+auteurs et titulaires de droits dans la limite des lois et
+règlements en vigueur. Nos licences sont irrévocables. Les donneurs
+de licence doivent lire et comprendre les termes et conditions de la
+licence qu'ils choisissent avant de l’utiliser. Les donneurs de
+licence doivent également obtenir tous les droits nécessaires avant
+d'utiliser nos licences de façon à ce que le public puisse utiliser
+l’œuvre comme prévu. Les donneurs de licence doivent clairement
+indiquer quelle œuvre n'est pas soumise à la licence. Cela comprend
+les œuvres soumises à d’autres licences Creative Commons et les
+œuvres utilisées aux termes d'une exception ou d'une limitation du
+droit d'auteur.
+Autres avertissements à l’attention des donneurs de licence.
+Avertissements à l’attention du public
+Le donneur de licence qui utilise l'une de nos licences publiques
+accorde au public l’autorisation d’utiliser l’œuvre aux termes et
+conditions précisés dans la licence. Si l’autorisation du donneur de
+licence n'est pas nécessaire pour quelque raison que ce soit (en
+raison, par exemple, d’une exception ou d’une limitation applicable
+au droit d'auteur), cette utilisation n'est pas soumise aux termes
+et conditions d’utilisation de la licence. Nos licences accordent
+uniquement des autorisations en vertu du droit d'auteur et de
+certains autres droits qu'un donneur de licence a le droit
+d’accorder. L’utilisation de l’œuvre peut néanmoins être restreint
+pour d'autres raisons, par exemple, si d'autres personnes détiennent
+un droit d'auteur ou d'autres droits sur l’œuvre. Un donneur de
+licence peut formuler des demandes particulières, comme notamment
+que toute modification soit indiquée ou décrite. Même si cela n'est
+pas rendu obligatoire par nos licences, nous vous invitons à honorer
+ces demandes dans la mesure du possible.
+Autres avertissements à l’attention du public.
+CC0 1.0 Universel
+CREATIVE COMMONS CORPORATION N'EST PAS UN CABINET D'AVOCATS ET NE
+FOURNIT PAS DE CONSEIL JURIDIQUE. LA DISTRIBUTION DE CE DOCUMENT NE
+CRÉE AUCUNE RELATION JURIDIQUE ENTRE LES PARTIES ET CREATIVE
+COMMONS. CREATIVE COMMONS MET À DISPOSITION CES INFORMATIONS EN
+L’ÉTAT. CREATIVE COMMONS NE DONNE AUCUNE GARANTIE CONCERNANT
+L'UTILISATION DE CE DOCUMENT OU DES INFORMATIONS OU ŒUVRES DÉLIVRÉES
+CI-DESSOUS, ET DÉCLINE TOUTE RESPONSABILITÉ POUR LES PRÉJUDICES QUI
+RÉSULTERAIENT DE L'UTILISATION DE CE DOCUMENT OU DES INFORMATIONS OU
+ŒUVRES DÉLIVRÉES CI-DESSOUS.
+Déclaration d'Intention
+Les lois de la plupart des juridictions à travers le monde accordent
+automatiquement des Droits d'Auteur et Droits Voisins exclusifs
+(définis ci-dessous) au créateur et au(x) titulaire(s) de droits
+successif(s) (ci-après, le « titulaire ») d'une œuvre originale
+et/ou d'une base de données (ci-après, une « Œuvre» ).
+Certains titulaires souhaitent renoncer de façon définitive à ces
+droits sur une Œuvre dans le but de contribuer à un fonds commun
+d'œuvres créatives, culturelles et scientifiques (les « Communs »)
+que le public a la possibilité d'élaborer, de modifier, et
+d'incorporer dans d'autres œuvres de façon fiable et sans crainte de
+recours ultérieurs pour contrefaçon, de réutiliser et de
+redistribuer aussi librement que possible sous n'importe quelle
+forme et pour n'importe quelle finalité, y compris, et sans
+réserves, à des fins commerciales. Ces titulaires contribuent aux
+Communs pour promouvoir les idéaux d'une culture libre et accroître
+la production d'œuvres créatives, culturelles et scientifiques, ou
+pour acquérir une réputation ou une plus grande diffusion de leur
+Œuvre, notamment grâce à l'utilisation et aux efforts des autres.
+C'est pour ces finalités et motivations, ainsi que pour d'autres, et
+sans attendre aucune rémunération, avantage ou compensation
+supplémentaire, que la personne associant CC0 à une Œuvre (le «
+Déclarant »), dans la mesure où elle est titulaire des Droits
+d'Auteur et des Droits Voisins sur l'Œuvre, décide volontairement
+d'appliquer CC0 à l'Œuvre et de distribuer publiquement l'Œuvre sous
+ses conditions, en toute connaissance de ses Droits d'Auteur et
+Droits Voisins sur l'Œuvre, ainsi que de la portée et des effets
+juridiques de CC0 sur ces droits.
+1. Droit d'Auteur et Droits Voisins.
+Il est possible qu'une Œuvre mise à disposition sous CC0 soit
+protégée par des droits d'auteur et des droits voisins (« Droit
+d'Auteur et Droits Voisins »). Le Droit d'Auteur et les Droits
+Voisins comportent, sans s'y limiter, les droits suivants :
+Le droit de reproduire, adapter, distribuer, interpréter,
+représenter, communiquer et traduire une Œuvre ;
+Les droits moraux détenus par le ou les auteur(s) originel(s)
+et/ou le ou les interprète(s) ;
+Les droits à la vie privée et à l'image des personnes représentées
+dans une Œuvre ;
+Le droit de la concurrence déloyale à l'égard d'une Œuvre, soumis
+aux limitations prévues dans le paragraphe 4(a) ci-dessous ;
+Les droits protégeant l'extraction, la diffusion, l'utilisation et
+la réutilisation des données contenues dans une Œuvre ;
+Les droits relatifs aux bases de données (tels qu'ils découlent de
+la Directive 96/9/CE du Parlement Européen et du Conseil du 11
+mars 1996 concernant la protection juridique des bases de données,
+ainsi que de toute transposition au niveau national, y compris de
+toute version amendée ou ultérieure de cette directive) ; et
+Tous autres droits similaires, équivalents ou correspondants à
+travers le monde, fondés sur toute loi ou traité en vigueur, et
+toute transposition nationale de ceux-ci.
+2. Renonciation.
+Dans la mesure du possible et sans enfreindre la loi en vigueur, le
+Déclarant affirme par la présente céder, abandonner, et renoncer
+ouvertement, pleinement, définitivement, irrévocablement et sans
+conditions à tous ses Droits d'Auteur et Droits Voisins, ainsi qu'à
+toute prétention, recours et possibilités d'action judiciaire,
+qu'ils soient à cet instant connus ou inconnus (y compris les
+prétentions, recours et possibilités d'action judiciaire qui
+seraient associés ou à naître), sur l'Œuvre, (i) partout dans le
+monde, (ii) pour la durée maximale prévue par les lois ou traités en
+vigueur (y compris les prolongations futures de cette durée), (iii)
+sur n'importe quel support existant ou futur et quel que soit le
+nombre de copies, et (iv) pour toute finalité quelle qu’elle soit, y
+compris, et sans réserve, les finalités commerciales, publicitaires
+ou promotionnelles (la « Renonciation »). La Renonciation est faite
+au bénéfice de chaque membre du public et au détriment des héritiers
+et successeurs du Déclarant, avec la ferme intention que cette
+Renonciation ne soit pas soumise à révocation, annulation,
+résiliation, interruption, ou de tout autre recours juridique ou
+judiciaire susceptible de perturber la jouissance paisible de
+l'Œuvre par le public telle que prévue par la Déclaration
+d'Intention du Déclarant.
+3. Licence Publique Supplétive.
+Au cas où une partie quelconque de la Renonciation serait jugée
+juridiquement nulle ou sans effet pour quelque raison que ce soit en
+vertu de la loi en vigueur, la Renonciation devra être préservée
+dans la mesure maximum permise, de manière à permettre la prise en
+compte la plus large de la Déclaration d'Intention du Déclarant. De
+plus, dans la mesure où la Renonciation serait jugée ainsi, le
+Déclarant accorde par la présente à chaque personne concernée une
+licence gratuite, non transférable, non sous-licenciable, non
+exclusive, irrévocable et inconditionnelle d’exercer les Droits
+d'Auteur et Droits Voisins sur l'Œuvre (i) partout dans le monde,
+(ii) pour la durée maximale prévue par les lois ou traités en
+vigueur (y compris les prolongations futures de cette durée), (iii)
+sur n'importe quel support existant ou futur et quel que soit le
+nombre de copies, et (iv) pour toute finalité quelle qu’elle soit, y
+compris, et sans réserve, les finalités commerciales, publicitaires
+ou promotionnelles (la « Licence »). La Licence sera réputée
+effective à la date à laquelle le Déclarant aura appliqué CC0 à
+l'Œuvre. Dans le cas où une partie quelconque de la Licence serait
+jugée juridiquement nulle ou sans effet pour quelque raison que ce
+soit en vertu de la loi en vigueur, une telle invalidité partielle
+ou ineffectivité n'invalidera pas le reste de la Licence, et dans un
+tel cas, le Déclarant affirme par la présente qu'il ou elle (i)
+n'exercera aucun de ses Droits d'Auteur ou Droits Voisins subsistant
+sur l'Œuvre ou (ii) ne revendiquera aucune prétention, recours et
+possibilité d'action judiciaire relatifs à l'Œuvre qui serait opposé
+à la Déclaration d'Intention du Déclarant.
+4. Limitations et Avertissements.
+Aucun droit sur une marque ou brevet détenu par le Déclarant n'est
+cédé, abandonné, transmis, mis sous licence ou affecté d'une
+quelconque manière par le présent document.
+Le Déclarant met à disposition l'Œuvre en l'état, sans déclaration
+ou garantie de quelque nature que ce soit concernant l'Œuvre,
+qu'elle soit explicite, implicite, réglementaire ou autre, y
+compris, et sans réserves, les garanties de titre, de qualité
+marchande, d'exactitude, d'adéquation à une fin particulière,
+d'absence de contrefaçon, d'erreurs, qu'elles soient ou non
+susceptibles d'être découvertes, de vices cachés ou apparents,
+dans la mesure de ce que permet la loi en vigueur.
+Le Déclarant décline toute responsabilité d'acquérir les droits
+d'autres personnes qui seraient susceptible de s'appliquer à
+l'Œuvre ou à toute utilisation de celle-ci, y compris, et sans
+limitation, les Droits d'Auteur et Droits Voisins de toute
+personne sur l'Œuvre. En outre, le Déclarant décline toute
+responsabilité sur l'obtention de consentements, autorisations et
+autres droits requis pour toute utilisation de l'Œuvre.
+Le Déclarant comprend et reconnaît que Creative Commons n'est pas
+partie à ce document et n'a aucun devoir ni obligation à l'égard
+de CC0 ou de l'utilisation de l'Œuvre.
+About Creative Commons
+Creative Commons n’est pas partie prenante de ses licences
+publiques. Néanmoins, Creative Commons se réserve le droit
+d'utiliser une de ses licences publiques pour les œuvres qu’elle
+publie, et dans ce cas sera considérée comme « Donneur de licence ».
+Le texte des licences publiques Creative Commons est versé au
+domaine public en vertu de
+CC0 Domaine Public . A l’exception des seuls cas où il est indiqué que l’œuvre est
+mise à disposition sous licence publique Creative Commons et ceux
+autorisés par les statuts de Creative Commons disponibles sur
+creativecommons.org/policies , Creative
+Commons n’autorise l’utilisation par aucune partie de la marque
+"Creative Commons" ou de toute autre marque ou logo de Creative
+Commons sans le consentement écrit préalable de Creative Commons.
+Cette restriction relative à l'utilisation des marques ne constitue
+pas une partie de nos licences publiques.
+Vous pouvez joindre Creative Commons via
+creativecommons.org .
+Creative Commons is the nonprofit behind the open licenses and other
+legal tools that allow creators to share their work. Our legal tools
+are free to use.
+Learn more about our work
+Learn more about CC Licensing
+Support our work
+Use the license for your own material.
+Licenses List
+Public Domain List
