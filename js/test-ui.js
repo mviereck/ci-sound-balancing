@@ -1634,6 +1634,16 @@ var testUI = {
     get:   function(els) { return (els && els.area) ? els.area.value : ''; }
   },
 
+  // ---- confirmButton ----
+  // Bestätigen-Button zur Laufzeit sperren/freigeben. els = refs.confirmButton
+  // (aus den Verfahren-Refs). Konsument: Sprachtest sperrt OK während der
+  // Satz-Wiedergabe und gibt es am Satzende frei. (Die playPair-Replay-Sperre
+  // greift nur bei pairIndicator-Verfahren; Buffer-Player-Tests brauchen diese
+  // explizite API.)
+  confirmButton: {
+    setEnabled: function(els, on) { if (els) els.disabled = !on; }
+  },
+
   // ---- piano (BA354) ----
   // Vom Verfahren (Schritt 3) genutzte Steuer-API des Klavier-Bausteins.
   // p = refs.piano aus den Verfahren-Refs.

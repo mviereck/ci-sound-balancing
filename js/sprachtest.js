@@ -476,15 +476,29 @@ function st_playCurrent() {
     sCurRec = item;                       // fuer Wertung/Textbezug
     sSetDirectBuffer(mixed, item.text || "");
     if (!st_active) return;
+    // OK erst nach Satzende freigeben (st_onSentenceEnded) -- man soll den
+    // Satz zu Ende hoeren, bevor bestaetigt wird. Das Raster bleibt waehrend
+    // der Wiedergabe bedienbar (nur der Bestaetigen-Button ist gesperrt).
+    st_setConfirmEnabled(false);
     _pSetPlayWish(true);
     pPlay();
   }).catch(function (e) { console.error("[sprachtest] Satz mischen/laden:", e); });
 }
 
-// Satz-Ende (BA605-Callback): der Nutzer waehlt jetzt im Raster.
-// Die Wertung passiert im OK-Hook (st_onConfirm).
+// Bestaetigen-Button (OK / naechster Satz) sperren/freigeben.
+function st_setConfirmEnabled(on) {
+  if (!ST_els) return;
+  const vr = ST_els.verfahren["olsa"];
+  if (vr && vr.confirmButton && typeof testUI !== "undefined"
+      && testUI.confirmButton) {
+    testUI.confirmButton.setEnabled(vr.confirmButton, on);
+  }
+}
+
+// Satz-Ende (BA605-Callback): der Satz ist fertig abgespielt -- jetzt darf
+// der Nutzer bestaetigen. Die Wertung passiert im OK-Hook (st_onConfirm).
 function st_onSentenceEnded() {
-  // absichtlich leer: Wertung erfolgt bei OK.
+  st_setConfirmEnabled(true);
 }
 
 // OK-Button: aktuellen Satz werten, SNR fuer den Folgesatz bestimmen.
