@@ -182,16 +182,33 @@ async function _st_ensureNoiseBuf() {
   return buf;
 }
 
+// Rausch-Vorlauf/-Nachlauf um den Satz (Architektur SS4.5): Das Rauschen setzt
+// vor dem Satz ein und laeuft nach ihm noch nach -- kein durchgehendes Rauschen
+// (das kommt in CImbel nicht in Frage), sondern ein je Darbietung eigenes
+// Rausch-Segment, das den Satz zeitlich umschliesst. Vermeidet den Onset-Effekt
+// eines satzsynchron einsetzenden Stoerers. Feste Werte (kein UI-Regler).
+const ST_NOISE_PREROLL_S  = 1.0;    // Rauschen beginnt 1 s vor dem Satz
+const ST_NOISE_POSTROLL_S = 0.5;    // Rauschen endet 0,5 s nach dem Satz
+const ST_NOISE_FADE_S     = 0.030;  // Ein-/Ausblendung an den AEUSSEREN Raendern
+
 // Baut EINEN Buffer aus Satz (Original-Pegel) + auf den Ziel-SNR skaliertem
 // Rauschen. Faktor auf das Rauschen = 10^(-snr/20): SNR 0 -> 1,0 (Werks-
-// Verhaeltnis), hoeheres SNR -> Rauschen leiser. Rausch-Ausschnitt: zufaelliger
-// Startpunkt, satzsynchrone Laenge, Umlauf am Ende. KEINE RMS-Messung.
+// Verhaeltnis), hoeheres SNR -> Rauschen leiser. Der Ausgabe-Buffer ist um
+// Vor- und Nachlauf laenger als der Satz; der Satz sitzt um den Vorlauf nach
+// hinten versetzt. Rauschen fuellt den GANZEN Buffer (Umlauf am Ende) und wird
+// nur an den beiden aeusseren Raendern ein-/ausgeblendet -- der Uebergang zum
+// Satz bleibt auf vollem Pegel. KEINE RMS-Messung.
 function _st_buildMixedBuffer(sentenceBuf, noiseBuf, snr) {
   const ctx = (typeof gPC === "function") ? gPC() : null;
   if (!ctx || !sentenceBuf) return sentenceBuf;
-  const len = sentenceBuf.length;
-  const nCh = sentenceBuf.numberOfChannels;
-  const out = ctx.createBuffer(nCh, len, sentenceBuf.sampleRate);
+  const sr  = sentenceBuf.sampleRate;
+  const sLen = sentenceBuf.length;                        // Satzlaenge (Samples)
+  const pre  = Math.round(ST_NOISE_PREROLL_S  * sr);      // Vorlauf (Samples)
+  const post = Math.round(ST_NOISE_POSTROLL_S * sr);      // Nachlauf (Samples)
+  const fade = Math.max(1, Math.round(ST_NOISE_FADE_S * sr));
+  const len  = pre + sLen + post;                         // Gesamtlaenge
+  const nCh  = sentenceBuf.numberOfChannels;
+  const out  = ctx.createBuffer(nCh, len, sr);
   const factor = Math.pow(10, -snr / 20);
 
   // Rausch-Startpunkt zufaellig (mit Umlauf); Rausch-Kanalzahl kann abweichen.
@@ -207,8 +224,16 @@ function _st_buildMixedBuffer(sentenceBuf, noiseBuf, snr) {
       ? noiseBuf.getChannelData(Math.min(ch, noiseCh - 1))
       : null;
     for (let i = 0; i < len; i++) {
-      let v = src[i];
-      if (nData) v += factor * nData[(start + i) % noiseLen];
+      // Satz sitzt um den Vorlauf versetzt.
+      let v = (i >= pre && i < pre + sLen) ? src[i - pre] : 0;
+      if (nData) {
+        // Aeussere Fade-Huellkurve: 0->1 ueber die ersten `fade` Samples,
+        // 1->0 ueber die letzten `fade` Samples, dazwischen voll.
+        let env = 1;
+        if (i < fade) env = i / fade;
+        else if (i >= len - fade) env = (len - 1 - i) / fade;
+        v += factor * env * nData[(start + i) % noiseLen];
+      }
       dst[i] = v;
     }
   }
