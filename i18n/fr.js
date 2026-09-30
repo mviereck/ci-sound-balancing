@@ -1247,6 +1247,8 @@ Object.assign(L.fr, {
     confQualityLabel: "Qualité de la mesure :",
     footerImprint: "Mentions légales",
     footerLicense: "GNU GPL v2+",
+    alDialogTitle: "Licence",
+    alNoText: "Aucun texte de licence disponible.",
     legalClose: "Fermer",
     legalLoading: "Chargement du texte de licence …",
     legalLicenseError: "Le texte de licence n'a pas pu être chargé.",

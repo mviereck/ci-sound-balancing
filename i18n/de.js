@@ -1554,6 +1554,8 @@ Object.assign(L.de, {
     testInRound: "Test in dieser Runde:",
     footerImprint: "Impressum",
     footerLicense: "GNU GPL v2+",
+    alDialogTitle: "Lizenz",
+    alNoText: "Kein Lizenztext hinterlegt.",
     legalClose: "Schließen",
     legalLoading: "Lade Lizenztext …",
     legalLicenseError: "Lizenztext konnte nicht geladen werden.",

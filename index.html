@@ -143,7 +143,7 @@
         'vendors/rubberband-wasm/dist/index.umd.min.js',
         'js/rubberband-loader.js',
         'js/smplr-loader.js',
-        'js/levels-tab.js', 'js/player.js', 'js/freq-warp.js', 'js/warp-verify.js', 'js/maplaw.js', 'js/lr-balance.js', 'js/latency.js', 'js/sentences.js',
+        'js/levels-tab.js', 'js/player.js', 'js/audio-lizenz.js', 'js/freq-warp.js', 'js/warp-verify.js', 'js/maplaw.js', 'js/lr-balance.js', 'js/latency.js', 'js/sentences.js',
         'vendors/fflate/fflate.min.js',
         'js/zip-upload.js',
         'js/sprachtest.js', 'js/zeitanalyse.js', 'js/init.js', 'js/legal.js',
@@ -2550,6 +2550,16 @@
           <div class="legal-dialog-body" id="licenseBody">
             <p data-t="legalLoading"></p>
           </div>
+        </div>
+      </dialog>
+
+      <dialog id="audioLicenseDialog" class="legal-dialog">
+        <div class="legal-dialog-inner">
+          <div class="legal-dialog-head">
+            <h2 id="audioLicenseTitle"></h2>
+            <button type="button" class="legal-close" data-close="audioLicenseDialog" data-t="legalClose"></button>
+          </div>
+          <div class="legal-dialog-body" id="audioLicenseBody"></div>
         </div>
       </dialog>
 

@@ -2200,6 +2200,7 @@ input.ec-active.dep-locked {
   opacity: 0.7;
   white-space: pre-wrap;
 }
+.pl-license-link { text-decoration: underline; cursor: pointer; }
 
 /* ===== Sprachtest-Ergebnis (BA608) ===== */
 /* Ueberschriften nutzen .card h3, Grafiken .chart-container (toolweit).

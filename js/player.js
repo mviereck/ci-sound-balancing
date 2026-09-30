@@ -2737,14 +2737,34 @@ function plUpdDisplay() {
   titleEl.textContent = titleText;
 
   // --- Kern-Meta: role creator / source / license, visibility always ---
-  const metaParts = [];
+  // license wird klickbar (oeffnet Volltext-Dialog), Rest bleibt Text.
+  metaEl.innerHTML = "";
+  const metaNodes = [];
   decl.forEach(function (f) {
     if (f.visibility !== "always") return;
     if (f.role !== "creator" && f.role !== "source" && f.role !== "license") return;
     const val = ctx ? f.getValue(ctx) : "";
-    if (val) metaParts.push(val);
+    if (!val) return;
+    if (f.role === "license" && typeof alHasEntry === "function" && alHasEntry(val)) {
+      const a = document.createElement("a");
+      a.href = "#";
+      a.className = "pl-license-link";
+      a.textContent = (typeof alLicenseName === "function") ? alLicenseName(val) : val;
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (typeof alOpenDialog === "function") alOpenDialog(val);
+      });
+      metaNodes.push(a);
+    } else {
+      metaNodes.push(document.createTextNode(
+        f.role === "license" && typeof alLicenseName === "function"
+          ? alLicenseName(val) : val));
+    }
   });
-  metaEl.textContent = metaParts.join(" · ");
+  metaNodes.forEach(function (node, i) {
+    if (i > 0) metaEl.appendChild(document.createTextNode(" · "));
+    metaEl.appendChild(node);
+  });
 
   // --- Detail-Zeile: role detail, visibility always ---
   const detailParts = [];
