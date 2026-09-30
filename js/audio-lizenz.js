@@ -76,7 +76,26 @@ function alOpenDialog(spdx) {
   container.className = "audio-license-text";
   body.appendChild(container);
 
-  function renderText(txt) {
+  // Erklaerende Ueberschriften je Abschnitt (Deed = menschenlesbar,
+  // Legal Code = rechtsverbindlich). Fallback-Texte, falls i18n fehlt.
+  var kopf = {
+    deed:      { key: "alHeadDeed",      def: "Verständliche Zusammenfassung (menschenlesbar, nicht rechtsverbindlich)" },
+    legalcode: { key: "alHeadLegal",     def: "Rechtsverbindlicher Lizenztext" },
+    hinweis:   { key: "alHeadHinweis",   def: "Hinweis" }
+  };
+
+  function _tt(key, def) { return (typeof t === "function" && t(key) !== key) ? t(key) : def; }
+
+  function renderSection(art, txt, isFirst) {
+    if (!isFirst) {
+      var hr = document.createElement("hr");
+      hr.className = "audio-license-sep";
+      container.appendChild(hr);
+    }
+    var h = document.createElement("h3");
+    h.className = "audio-license-head";
+    h.textContent = _tt(kopf[art].key, kopf[art].def);
+    container.appendChild(h);
     txt.split(/\n\s*\n/).forEach(function (para) {
       var p = para.replace(/\s+/g, " ").trim();
       if (!p) return;
@@ -87,10 +106,10 @@ function alOpenDialog(spdx) {
   }
 
   // Sequentiell laden, damit die Reihenfolge (deed vor legalcode) stimmt.
-  var i = 0, any = false;
+  var i = 0, rendered = 0;
   function loadNext() {
     if (i >= arten.length) {
-      if (!any) {
+      if (rendered === 0) {
         container.textContent = (typeof t === "function")
           ? t("alNoText") : "Kein Lizenztext hinterlegt.";
       }
@@ -98,7 +117,7 @@ function alOpenDialog(spdx) {
     }
     var art = arten[i++];
     _alFetchText(spdx, art, texte[art], function (txt) {
-      if (txt) { any = true; renderText(txt); }
+      if (txt) { renderSection(art, txt, rendered === 0); rendered++; }
       loadNext();
     });
   }

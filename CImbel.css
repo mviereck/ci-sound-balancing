@@ -1220,6 +1220,17 @@ select:disabled {
 .audio-license-text p:last-child {
   margin-bottom: 0;
 }
+.audio-license-head {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0 0 0.6em 0;
+  color: var(--text);
+}
+.audio-license-sep {
+  border: none;
+  border-top: 2px solid var(--border);
+  margin: 1.4em 0 1.1em 0;
+}
 @media (max-width: 768px) {
   .app-footer {
     font-size: 0.78em;
