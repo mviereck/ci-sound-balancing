@@ -1349,11 +1349,26 @@
                    applyLang ueberschrieben -> Haekchen/AN gingen beim
                    Laden/Sprachwechsel verloren. Sprachwechsel ruft daher
                    updPlSrcButtons (siehe applyLang-Patch in init.js). -->
-              <button
-                id="plSrcMeasBtn"
-                class="btn btn-sm"
-                style="font-weight: 600; width: 240px; border-radius: 6px; text-align: left"
-              ></button>
+              <div style="display: flex; align-items: center; gap: 6px">
+                <button
+                  id="plSrcMeasBtn"
+                  class="btn btn-sm"
+                  style="font-weight: 600; width: 240px; border-radius: 6px; text-align: left"
+                ></button>
+                <select id="plSrcMeasFactorSel" class="btn btn-sm" style="font-size: 0.9em; padding: 4px 6px; border-radius: 6px">
+                  <option value="0.5">×0.5</option>
+                  <option value="0.6">×0.6</option>
+                  <option value="0.7">×0.7</option>
+                  <option value="0.8">×0.8</option>
+                  <option value="0.9">×0.9</option>
+                  <option value="1.0" selected>×1.0</option>
+                  <option value="1.2">×1.2</option>
+                  <option value="1.4">×1.4</option>
+                  <option value="1.6">×1.6</option>
+                  <option value="1.8">×1.8</option>
+                  <option value="2.0">×2.0</option>
+                </select>
+              </div>
               <button
                 id="plSrcCurvesBtn"
                 class="btn btn-sm pl-src-child"

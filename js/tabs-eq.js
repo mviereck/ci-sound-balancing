@@ -425,6 +425,11 @@ function updPlSrcButtons() {
     else if (plSrcLevels || plSrcCurves) sel.value = "levels";
     else sel.value = "measured";
   }
+  // Faktor-Dropdown mit gespeichertem Wert synchronisieren
+  const fSel = document.getElementById("plSrcMeasFactorSel");
+  if (fSel && typeof plSrcMeasFactor !== "undefined") {
+    fSel.value = String(plSrcMeasFactor);
+  }
   updEqToggleBtn();
 }
 function updEqToggleBtn() {

@@ -311,6 +311,13 @@ document.addEventListener("DOMContentLoaded", () => {
       else plCheck();
     });
   document
+    .getElementById("plSrcMeasFactorSel")
+    .addEventListener("change", function () {
+      plSrcMeasFactor = parseFloat(this.value);
+      if (pEqF.length > 0) pUpdEQ();
+      else plCheck();
+    });
+  document
     .getElementById("plSrcLevelsBtn")
     .addEventListener("click", function () {
       plSrcLevels = !plSrcLevels;

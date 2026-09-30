@@ -643,6 +643,7 @@ let plEqHeadroomBoth = true; // BA 319: Absenk-Betrag ueber beide Seiten (an) vs
 let plSrcMeas = true,
   plSrcLevels = true,
   plSrcCurves = true; // EQ source toggles
+let plSrcMeasFactor = 1.0; // Staerke-Faktor fuer Elektrodenlautstaerke-Korrektur (0.5–2.0)
 let plShowExperimental = false; // Toggle für experimentelle Optionen (MAPLAW + Frequenz-Warping); Default aus
 
 let plActiveSource = "musik";   // "musik" | "saetze" | "geraeusche" | "hoerbuecher"
