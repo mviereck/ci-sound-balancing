@@ -1147,6 +1147,7 @@ select:disabled {
   padding: 0;
   max-width: 600px;
   width: calc(100% - 32px);
+  margin: auto;
   background: var(--surface);
   color: var(--text);
 }
@@ -1200,6 +1201,24 @@ select:disabled {
   border: 1px solid var(--border);
   max-height: 50vh;
   overflow-y: auto;
+}
+/* Fliesstext-Variante fuer den Audio-Lizenz-Dialog: EIN Scrollbereich,
+   Absaetze als <p>, weicher Umbruch (kein mono/pre-wrap). */
+.audio-license-text {
+  font-size: 0.85em;
+  line-height: 1.5;
+  background: var(--bg);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.audio-license-text p {
+  margin: 0 0 0.8em 0;
+}
+.audio-license-text p:last-child {
+  margin-bottom: 0;
 }
 @media (max-width: 768px) {
   .app-footer {

@@ -1916,7 +1916,7 @@ const plCategories = {
         genre:    (it.tags && Array.isArray(it.tags.genres) && it.tags.genres.length) ? it.tags.genres.join(", ") : "",
         year:     (it.tags && it.tags.year)   ? String(it.tags.year) : "",
         source:   it.sourceTitle || "",
-        license:  it.license     || ""
+        license:  (it.tags && it.tags.license) || it.license || ""
       };
     },
     title: function (ctx) {
@@ -2039,7 +2039,7 @@ const plCategories = {
         kind:     (it.tags && it.tags.kind)     || "",
         spectrum: (it.tags && it.tags.spectrum)  || "",
         source:   it.sourceTitle || "",
-        license:  it.license     || ""
+        license:  (it.tags && it.tags.license) || it.license || ""
       };
     },
     title: function (ctx) {

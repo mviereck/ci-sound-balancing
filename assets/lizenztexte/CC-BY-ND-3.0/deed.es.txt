@@ -1,90 +1,89 @@
 Atribución-SinDerivadas 3.0 No portada
+
 CC BY-ND 3.0
+
 Deed
+
 Notice
-This is an older version of this license. Compared to previous
-versions, the 4.0 versions of all CC licenses are
-more user-friendly and more internationally robust . If you are licensing your own work , we
-strongly recommend the use of the 4.0 license instead:
-Deed - Atribución/Reconocimiento-SinDerivados 4.0
-Internacional
+
+This is an older version of this license. Compared to previous versions, the 4.0 versions of all CC licenses are more user-friendly and more internationally robust . If you are licensing your own work , we strongly recommend the use of the 4.0 license instead: Deed - Atribución/Reconocimiento-SinDerivados 4.0 Internacional
+
 Canonical URL
+
 https://creativecommons.org/licenses/by-nd/3.0/
+
 See the legal code
+
 Usted es libre de:
-Compartir — copiar y redistribuir el material en
-cualquier medio o formato para cualquier propósito, incluso
-comercialmente.
-La licenciante no puede revocar estas libertades en tanto usted
-siga los términos de la licencia
+
+Compartir — copiar y redistribuir el material en cualquier medio o formato para cualquier propósito, incluso comercialmente.
+
+La licenciante no puede revocar estas libertades en tanto usted siga los términos de la licencia
+
 Bajo los siguientes términos:
-Atribución — Usted debe dar
-crédito de manera adecuada , brindar un enlace a la licencia, e
-indicar si se han realizado cambios . Puede hacerlo en cualquier forma razonable, pero no de forma
-tal que sugiera que usted o su uso tienen el apoyo de la
-licenciante.
-SinDerivadas — Si
-remezcla, transforma o crea a partir
-del material, no podrá distribuir el material modificado.
-No hay restricciones adicionales — No puede
-aplicar términos legales ni
-medidas tecnológicas
-que restrinjan legalmente a otras a hacer cualquier uso permitido
-por la licencia.
+
+Atribución — Usted debe dar crédito de manera adecuada , brindar un enlace a la licencia, e indicar si se han realizado cambios . Puede hacerlo en cualquier forma razonable, pero no de forma tal que sugiera que usted o su uso tienen el apoyo de la licenciante.
+
+SinDerivadas — Si remezcla, transforma o crea a partir del material, no podrá distribuir el material modificado.
+
+No hay restricciones adicionales — No puede aplicar términos legales ni medidas tecnológicas que restrinjan legalmente a otras a hacer cualquier uso permitido por la licencia.
+
 Avisos:
-No tiene que cumplir con la licencia para elementos del materiale en
-el dominio público o cuando su uso esté permitido por una
-excepción o limitación
-aplicable.
-No se dan garantías. La licencia podría no darle todos los permisos
-que necesita para el uso que tenga previsto. Por ejemplo, otros
-derechos como
-publicidad, privacidad, o derechos morales
-pueden limitar la forma en que utilice el material.
-Creative Commons is the nonprofit behind the open licenses and other
-legal tools that allow creators to share their work. Our legal tools
-are free to use.
+
+No tiene que cumplir con la licencia para elementos del materiale en el dominio público o cuando su uso esté permitido por una excepción o limitación aplicable.
+
+No se dan garantías. La licencia podría no darle todos los permisos que necesita para el uso que tenga previsto. Por ejemplo, otros derechos como publicidad, privacidad, o derechos morales pueden limitar la forma en que utilice el material.
+
+Creative Commons is the nonprofit behind the open licenses and other legal tools that allow creators to share their work. Our legal tools are free to use.
+
 Learn more about our work
+
 Learn more about CC Licensing
+
 Support our work
+
 Use the license for your own material.
+
 Licenses List
+
 Public Domain List
+
 Footnotes
+
 return to reference
-crédito de manera adecuada — Si se
-suministran, debe brindar el nombre de la creadora y de las
-partes atribuidas, un aviso de derechos autorales, una nota de
-licencia, un aviso legal, y un enlace al material. Las
-licencias CC anteriores a la versión 4.0 también requieren que
-brinde el título del material si se suministra, y pueden tener
-otras ligeras diferencias.
+
+crédito de manera adecuada — Si se suministran, debe brindar el nombre de la creadora y de las partes atribuidas, un aviso de derechos autorales, una nota de licencia, un aviso legal, y un enlace al material. Las licencias CC anteriores a la versión 4.0 también requieren que brinde el título del material si se suministra, y pueden tener otras ligeras diferencias.
+
 Más información
+
 return to reference
-indicar si se han realizado cambios — En 4.0,
-debe indicar si ha modificado el material y mantener una
-indicación de las modificaciones anteriores. En 3.0 y
-versiones anteriores a la licencia, la indicación de los
-cambios sólo se requiere si se crea una obra derivada.
+
+indicar si se han realizado cambios — En 4.0, debe indicar si ha modificado el material y mantener una indicación de las modificaciones anteriores. En 3.0 y versiones anteriores a la licencia, la indicación de los cambios sólo se requiere si se crea una obra derivada.
+
 Guía de etiquetado
+
 Más información
+
 return to reference
-remezcla, transforma o crea a partir — El
-simple hecho de cambiar el formato nunca genera una obra
-derivada.
+
+remezcla, transforma o crea a partir — El simple hecho de cambiar el formato nunca genera una obra derivada.
+
 Más información
+
 return to reference
-medidas tecnológicas — La licencia prohíbe la
-aplicación efectiva de medidas tecnológicas, definidas de
-acuerdo al Artículo 11 del Tratado OMPI de derecho autoral.
+
+medidas tecnológicas — La licencia prohíbe la aplicación efectiva de medidas tecnológicas, definidas de acuerdo al Artículo 11 del Tratado OMPI de derecho autoral.
+
 Más información
+
 return to reference
-excepción o limitación — Los derechos de las
-usuarias bajo las excepciones y limitaciones, como el uso
-justo y trato justo, no se ven afectados por las licencias CC.
+
+excepción o limitación — Los derechos de las usuarias bajo las excepciones y limitaciones, como el uso justo y trato justo, no se ven afectados por las licencias CC.
+
 Más información
+
 return to reference
-publicidad, privacidad, o derechos morales —
-Puede necesitar permisos adicionales antes de usar el material
-como lo había previsto.
+
+publicidad, privacidad, o derechos morales — Puede necesitar permisos adicionales antes de usar el material como lo había previsto.
+
 Más información

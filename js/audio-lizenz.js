@@ -66,36 +66,43 @@ function alOpenDialog(spdx) {
   if (titleEl) titleEl.textContent = alLicenseName(spdx);
   body.innerHTML = "";
 
-  // Reihenfolge: deed -> legalcode -> hinweis (je nachdem was existiert)
-  var arten = ["deed", "legalcode", "hinweis"];
-  var pending = 0, any = false;
-  arten.forEach(function (art) {
-    var langs = texte[art];
-    if (!langs || !langs.length) return;
-    pending++;
-    _alFetchText(spdx, art, langs, function (txt) {
-      pending--;
-      if (txt) {
-        any = true;
-        var pre = document.createElement("pre");
-        pre.className = "legal-license-text";
-        pre.textContent = txt;
-        body.appendChild(pre);
-      }
-      if (pending === 0 && !any) {
-        var p = document.createElement("p");
-        p.textContent = (typeof t === "function")
-          ? t("alNoText") : "Kein Lizenztext hinterlegt.";
-        body.appendChild(p);
-      }
-    });
+  // Reihenfolge: deed -> legalcode -> hinweis (nur was existiert).
+  // Alle Texte kommen in EINEN scrollbaren Container (kein zweigeteilter
+  // Bereich); jeder Absatz wird ein <p> (Fliesstext, weicher Umbruch).
+  var arten = ["deed", "legalcode", "hinweis"].filter(function (art) {
+    return texte[art] && texte[art].length;
   });
-  if (pending === 0) {
-    var p = document.createElement("p");
-    p.textContent = (typeof t === "function")
-      ? t("alNoText") : "Kein Lizenztext hinterlegt.";
-    body.appendChild(p);
+  var container = document.createElement("div");
+  container.className = "audio-license-text";
+  body.appendChild(container);
+
+  function renderText(txt) {
+    txt.split(/\n\s*\n/).forEach(function (para) {
+      var p = para.replace(/\s+/g, " ").trim();
+      if (!p) return;
+      var el = document.createElement("p");
+      el.textContent = p;
+      container.appendChild(el);
+    });
   }
+
+  // Sequentiell laden, damit die Reihenfolge (deed vor legalcode) stimmt.
+  var i = 0, any = false;
+  function loadNext() {
+    if (i >= arten.length) {
+      if (!any) {
+        container.textContent = (typeof t === "function")
+          ? t("alNoText") : "Kein Lizenztext hinterlegt.";
+      }
+      return;
+    }
+    var art = arten[i++];
+    _alFetchText(spdx, art, texte[art], function (txt) {
+      if (txt) { any = true; renderText(txt); }
+      loadNext();
+    });
+  }
+  loadNext();
 
   if (typeof dlg.showModal === "function") dlg.showModal();
   else dlg.setAttribute("open", "open");

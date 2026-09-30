@@ -1,105 +1,93 @@
 Attribution - Partage dans les Mêmes Conditions 3.0 non transposé
+
 CC BY-SA 3.0
+
 Deed
+
 Notice
-This is an older version of this license. Compared to previous
-versions, the 4.0 versions of all CC licenses are
-more user-friendly and more internationally robust . If you are licensing your own work , we
-strongly recommend the use of the 4.0 license instead:
-Deed - Attribution - Partage dans les mêmes conditions 4.0
-International
+
+This is an older version of this license. Compared to previous versions, the 4.0 versions of all CC licenses are more user-friendly and more internationally robust . If you are licensing your own work , we strongly recommend the use of the 4.0 license instead: Deed - Attribution - Partage dans les mêmes conditions 4.0 International
+
 Canonical URL
+
 https://creativecommons.org/licenses/by-sa/3.0/
+
 See the legal code
+
 Vous êtes autorisé à :
-Partager — copier, distribuer et communiquer le
-matériel par tous moyens et sous tous formats pour toute
-utilisation, y compris commerciale.
-Adapter — remixer, transformer et créer à partir
-du matériel pour toute utilisation, y compris commerciale.
-L'Offrant ne peut retirer les autorisations concédées par la
-licence tant que vous appliquez les termes de cette licence.
+
+Partager — copier, distribuer et communiquer le matériel par tous moyens et sous tous formats pour toute utilisation, y compris commerciale.
+
+Adapter — remixer, transformer et créer à partir du matériel pour toute utilisation, y compris commerciale.
+
+L'Offrant ne peut retirer les autorisations concédées par la licence tant que vous appliquez les termes de cette licence.
+
 Selon les conditions suivantes :
-Attribution — Vous devez
-créditer
-l'Œuvre, intégrer un lien vers la licence et
-indiquer
-si des modifications ont été effectuées à l'Oeuvre. Vous devez
-indiquer ces informations par tous les moyens raisonnables, sans
-toutefois suggérer que l'Offrant vous soutient ou soutient la
-façon dont vous avez utilisé son Oeuvre.
-Partage dans les Mêmes Conditions — Dans le cas
-où vous effectuez un remix, que vous transformez, ou créez à
-partir du matériel composant l'Oeuvre originale, vous devez
-diffuser l'Oeuvre modifiée dans les même conditions, c'est à dire
-avec
-la même licence
-avec laquelle l'Oeuvre originale a été diffusée.
-Pas de restrictions complémentaires — Vous n'êtes
-pas autorisé à appliquer des conditions légales ou des
-mesures techniques
-qui restreindraient légalement autrui à utiliser l'Oeuvre dans les
-conditions décrites par la licence.
+
+Attribution — Vous devez créditer l'Œuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées à l'Oeuvre. Vous devez indiquer ces informations par tous les moyens raisonnables, sans toutefois suggérer que l'Offrant vous soutient ou soutient la façon dont vous avez utilisé son Oeuvre.
+
+Partage dans les Mêmes Conditions — Dans le cas où vous effectuez un remix, que vous transformez, ou créez à partir du matériel composant l'Oeuvre originale, vous devez diffuser l'Oeuvre modifiée dans les même conditions, c'est à dire avec la même licence avec laquelle l'Oeuvre originale a été diffusée.
+
+Pas de restrictions complémentaires — Vous n'êtes pas autorisé à appliquer des conditions légales ou des mesures techniques qui restreindraient légalement autrui à utiliser l'Oeuvre dans les conditions décrites par la licence.
+
 Notes:
-Vous n'êtes pas dans l'obligation de respecter la licence pour les
-éléments ou matériel appartenant au domaine public ou dans le cas où
-l'utilisation que vous souhaitez faire est couverte par une
-exception .
-Aucune garantie n'est donnée. Il se peut que la licence ne vous
-donne pas toutes les permissions nécessaires pour votre utilisation.
-Par exemple, certains droits comme
-les droits moraux, le droit des données personnelles et le droit
-à l'image
-sont susceptibles de limiter votre utilisation.
-Creative Commons is the nonprofit behind the open licenses and other
-legal tools that allow creators to share their work. Our legal tools
-are free to use.
+
+Vous n'êtes pas dans l'obligation de respecter la licence pour les éléments ou matériel appartenant au domaine public ou dans le cas où l'utilisation que vous souhaitez faire est couverte par une exception .
+
+Aucune garantie n'est donnée. Il se peut que la licence ne vous donne pas toutes les permissions nécessaires pour votre utilisation. Par exemple, certains droits comme les droits moraux, le droit des données personnelles et le droit à l'image sont susceptibles de limiter votre utilisation.
+
+Creative Commons is the nonprofit behind the open licenses and other legal tools that allow creators to share their work. Our legal tools are free to use.
+
 Learn more about our work
+
 Learn more about CC Licensing
+
 Support our work
+
 Use the license for your own material.
+
 Licenses List
+
 Public Domain List
+
 Footnotes
+
 return to reference
-créditer — Dans la mesure du possible, vous
-devez donner le nom du créateur et des personnes à attribuer,
-une notice explicative des droits et crédits, une notice de
-non-responsabilité et un lien vers le matériel. Les versions
-antérieures à la version 4.0 des licences nécessitent
-également que vous donniez le titre du matériel, dans la
-mesure du possible, et peut avoir d'autres de légères
-différences.
+
+créditer — Dans la mesure du possible, vous devez donner le nom du créateur et des personnes à attribuer, une notice explicative des droits et crédits, une notice de non-responsabilité et un lien vers le matériel. Les versions antérieures à la version 4.0 des licences nécessitent également que vous donniez le titre du matériel, dans la mesure du possible, et peut avoir d'autres de légères différences.
+
 Plus d'informations.
+
 return to reference
-indiquer — Avec la version 4.0, vous devez
-indiquer si vous avez modifié le matériel et conserver les
-indications sur les modifications précédentes. Dans les
-versions précédentes dont la 3.0, il fallait simplement
-indiquer les changements si vous faisiez une oeuvre dérivée.
+
+indiquer — Avec la version 4.0, vous devez indiquer si vous avez modifié le matériel et conserver les indications sur les modifications précédentes. Dans les versions précédentes dont la 3.0, il fallait simplement indiquer les changements si vous faisiez une oeuvre dérivée.
+
 Guide pour attribuer une licence à votre Oeuvre
+
 Plus d'informations.
+
 return to reference
-la même licence — You may also use a license
-listed as compatible at
+
+la même licence — You may also use a license listed as compatible at
+
 https://creativecommons.org/compatiblelicenses
+
 Plus d'informations.
+
 return to reference
-mesures techniques — La licence interdit
-d'appliquer des mesures effectives de protection techniques au
-sens de l'article 11 du traité de l'OMPI sur le droit d'auteur
-de 1996.
+
+mesures techniques — La licence interdit d'appliquer des mesures effectives de protection techniques au sens de l'article 11 du traité de l'OMPI sur le droit d'auteur de 1996.
+
 Plus d'informations.
+
 return to reference
-exception — Les droits des utilisateurs au
-titre des exceptions et limitations - fair use et fair dealing
-aux Etats-Unis et en Grande-Bretagne -- ne sont pas affectés
-par les licences CC.
+
+exception — Les droits des utilisateurs au titre des exceptions et limitations - fair use et fair dealing aux Etats-Unis et en Grande-Bretagne -- ne sont pas affectés par les licences CC.
+
 Plus d'informations.
+
 return to reference
-les droits moraux, le droit des données personnelles et le
-droit à l'image
-— Il se peut que vous deviez obtenir des autorisations
-supplémentaires avant d'utiliser le matériel de la façon dont
-vous le souhaitez.
+
+les droits moraux, le droit des données personnelles et le droit à l'image — Il se peut que vous deviez obtenir des autorisations supplémentaires avant d'utiliser le matériel de la façon dont vous le souhaitez.
+
 Plus d'informations.
