@@ -17,7 +17,7 @@ let ST_activeTestSet = null;
 
 // Gewaehltes Hintergrundgeraeusch im Sprachtest. Sentinel ST_NOISE_DEFAULT
 // = testeigenes Werksrauschen (st_findNoiseItem). Sonst die id eines
-// loop_safe-Geraeusche-Items. Global fuer den Sprachtest (nicht pro Seite/
+// gleichmaessig gemessenen Geraeusche-Items (stationary). Global fuer den Sprachtest (nicht pro Seite/
 // Testset); sitzungsuebergreifend gesichert (SAVE_SCHEMA).
 const ST_NOISE_DEFAULT = "__werk__";
 let st_noiseChoiceId = ST_NOISE_DEFAULT;
@@ -176,7 +176,7 @@ function st_findNoiseItem() {
 let _st_noiseCache = { testSet: null, choice: null, buf: null };
 
 // Stellt den Stoergeraeusch-Buffer bereit. Default = testeigenes
-// Werksrauschen (roh). Ein gewaehltes loop_safe-Geraeusch wird auf den
+// Werksrauschen (roh). Ein gewaehltes gleichmaessiges Geraeusch (stationary) wird auf den
 // RMS der Werksdatei normiert (SNR-Achse bleibt stabil); das Werks-
 // rauschen ist die Eichreferenz und bleibt unveraendert.
 async function _st_ensureNoiseBuf() {
@@ -959,7 +959,7 @@ function st_buildBundleFragment() {
   loadHint.hidden = true;
 
   // Hintergrundgeraeusch-Auswahl (Default testeigenes Rauschen, sonst
-  // loop_safe-Geraeusche). Nur vor dem Start waehlbar -- die Sperrung
+  // gleichmaessige Geraeusche (stationary)). Nur vor dem Start waehlbar -- die Sperrung
   // waehrend des Tests erledigt die testUI-Automatik (header.extra).
   var noiseRow = document.createElement("div");
   noiseRow.className = "control-group st-noise-select-row";
@@ -980,7 +980,7 @@ function st_buildBundleFragment() {
 }
 
 // Geraeusch-Dropdown befuellen: feste Default-Option (testeigenes
-// Werksrauschen) + alle loop_safe-Geraeusche-Items. Auswahl aus
+// Werksrauschen) + alle gleichmaessig gemessenen Geraeusche-Items (stationary). Auswahl aus
 // st_noiseChoiceId wiederherstellen.
 function st_refreshNoiseSelect() {
   if (!ST_bundleEls || !ST_bundleEls.noiseSelect) return;
@@ -994,13 +994,13 @@ function st_refreshNoiseSelect() {
   sel.appendChild(optDef);
 
   var items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
-  var loopable = items.filter(function (it) {
-    return it && it.tags && it.tags.loop_safe === "y";
+  var gleichmaessig = items.filter(function (it) {
+    return it && it.tags && it.tags.stationary === "y";
   });
-  loopable.sort(function (a, b) {
+  gleichmaessig.sort(function (a, b) {
     return _amNoiseTitleLabel(a).toLowerCase().localeCompare(_amNoiseTitleLabel(b).toLowerCase());
   });
-  loopable.forEach(function (it) {
+  gleichmaessig.forEach(function (it) {
     var opt = document.createElement("option");
     opt.value = it.id;
     opt.textContent = _amNoiseTitleLabel(it);
@@ -1010,7 +1010,7 @@ function st_refreshNoiseSelect() {
   // Gesicherte/aktuelle Auswahl wiederherstellen; fehlt das Item
   // (nicht mehr geladen), auf Default zurueckfallen.
   var exists = (st_noiseChoiceId === ST_NOISE_DEFAULT)
-    || loopable.some(function (it) { return it.id === st_noiseChoiceId; });
+    || gleichmaessig.some(function (it) { return it.id === st_noiseChoiceId; });
   if (!exists) st_noiseChoiceId = ST_NOISE_DEFAULT;
   sel.value = st_noiseChoiceId;
 }
