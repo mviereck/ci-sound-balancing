@@ -453,6 +453,10 @@ function _buildTestPanelNew(parentEl, cfg) {
       headerBox.appendChild(ef);
     }
     headerRefs.extraFragment = ef;
+    // Opt-in: nur wenn der Aufrufer es ausdruecklich anfordert, werden
+    // die Fragment-Controls waehrend des Tests gesperrt (sonst bleibt
+    // das Fragment bedienbar -- Default fuer alle Reiter).
+    headerRefs.extraLockDuringTest = !!cfg.header.extra.lockDuringTest;
   }
 
   // --- startStop ---
@@ -1143,6 +1147,7 @@ function _buildTestPanelNew(parentEl, cfg) {
   // Sperren wird der vorherige disabled-Zustand je Element gemerkt,
   // damit eine modul-eigene Dauer-Sperre nach stop nicht aufgehoben wird.
   function _lockExtraFragment() {
+    if (!headerRefs.extraLockDuringTest) return;   // Opt-in
     var frag = headerRefs.extraFragment;
     if (!frag) return;
     var ctrls = frag.querySelectorAll('select, input, button');
