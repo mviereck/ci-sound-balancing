@@ -459,7 +459,6 @@ function st_playCurrent() {
     const vr = ST_els.verfahren["olsa"];
     if (vr) {
       testUI.wordGrid.setWords(vr.wordGrid, _st_matrix || []);
-      testUI.scratchText.clear(vr.scratchText);
     }
   }
   plAutoAdvance = false;
@@ -608,7 +607,15 @@ function st_finish(converged) {
   if (typeof testUI !== "undefined" && testUI.completion) {
     testUI.completion.show({ nameKey: "tabSprachtest", subtabKey: "tabSprachtest", bodyKey: "stDoneBody" });
   }
-  st_updateUI();
+
+  // Balken auf fertig: endet der Test durch Konvergenz vor der Obergrenze,
+  // steht st_idx noch darunter -- hier explizit auf voll setzen, statt mit
+  // st_updateUI auf dem Zwischenstand zu verharren.
+  const vr = ST_els && ST_els.verfahren["olsa"];
+  if (vr && vr.progress && typeof testUI !== "undefined" && testUI.progress) {
+    const total = ST_TRAIN_LEN + ST_LIST_LEN;
+    testUI.progress.set(vr.progress, { fraction: 1, text: total + "/" + total });
+  }
 }
 
 function st_stop() {
@@ -624,11 +631,16 @@ function st_updateUI() {
   if (!ST_els) return;
   const vr = ST_els.verfahren["olsa"];
   if (vr && vr.progress && typeof testUI !== "undefined" && testUI.progress) {
-    // Fortschritt: gewertete Saetze / 30 (Trainingsphase zeigt 0/30).
-    const done = st_snrHistory.length;
+    // Fortschritt: bestaetigte Saetze / Gesamtzahl (Uebung + Messung). st_idx
+    // rueckt bei JEDEM OK vor (st_advance), also auch waehrend der Uebung --
+    // so bewegt sich der Balken bei jeder Bestaetigung sichtbar. Der Nenner
+    // ist die Obergrenze; endet der Test durch Konvergenz frueher, springt er
+    // beim Abschluss einfach auf fertig.
+    const total = ST_TRAIN_LEN + ST_LIST_LEN;
+    const done = Math.min(st_idx, total);
     testUI.progress.set(vr.progress, {
-      fraction: done / ST_LIST_LEN,
-      text: done + "/" + ST_LIST_LEN
+      fraction: done / total,
+      text: done + "/" + total
     });
   }
 }
@@ -965,7 +977,6 @@ const st_cfg = {
       body: {
         instruction: { key: "stPickHint" },
         progress:    { format: "simple" },
-        scratchText: { labelKey: "stScratchLabel" },
         wordGrid:    { columns: 5, placeholder: "____" },
         confirmButton: { key: "stBtnOk" }
       },
