@@ -2241,6 +2241,7 @@ input.ec-active.dep-locked {
   white-space: pre-wrap;
 }
 .pl-license-link { text-decoration: underline; cursor: pointer; }
+.pl-origin-link  { text-decoration: underline; cursor: pointer; }
 
 /* ===== Sprachtest-Ergebnis (BA608) ===== */
 /* Ueberschriften nutzen .card h3, Grafiken .chart-container (toolweit).

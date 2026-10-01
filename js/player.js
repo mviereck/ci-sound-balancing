@@ -1914,9 +1914,11 @@ const plCategories = {
         composer: (it.tags && it.tags.composer) || "",
         album:    (it.tags && it.tags.album)  || "",
         genre:    (it.tags && Array.isArray(it.tags.genres) && it.tags.genres.length) ? it.tags.genres.join(", ") : "",
-        year:     (it.tags && it.tags.year)   ? String(it.tags.year) : "",
-        source:   it.sourceTitle || "",
-        license:  (it.tags && it.tags.license) || it.license || ""
+        year:         (it.tags && it.tags.year)   ? String(it.tags.year) : "",
+        source:       it.sourceTitle || "",
+        license:      (it.tags && it.tags.license) || it.license || "",
+        originUrl:    (it.tags && it.tags.source_local) ? "" : ((it.tags && it.tags.url) || ""),
+        uploadSource: (it.tags && it.tags.source_local) ? (it.sourceTitle || "") : ""
       };
     },
     title: function (ctx) {
@@ -1965,12 +1967,13 @@ const plCategories = {
     currentItem: function () {
       if (typeof sCurRec === "undefined" || !sCurRec) return null;
       return {
-        source:  sCurRec.sourceTitle || "",
-        speaker: sCurRec.title || (sCurRec.tags && sCurRec.tags.speaker_id) || "",
-        lang:    (sCurRec.tags && sCurRec.tags.lang) || "",
-        license: sCurRec.license || "",
-        credit:  sCurRec.credit  || "",
-        text:    sCurRec.text    || ""
+        source:    sCurRec.sourceTitle || "",
+        speaker:   sCurRec.title || (sCurRec.tags && sCurRec.tags.speaker_id) || "",
+        lang:      (sCurRec.tags && sCurRec.tags.lang) || "",
+        license:   sCurRec.license || "",
+        credit:    sCurRec.credit  || "",
+        text:      sCurRec.text    || "",
+        originUrl: (sCurRec.tags && sCurRec.tags.url) || ""
       };
     },
     title: function (ctx) {
@@ -2032,14 +2035,16 @@ const plCategories = {
       const total = sorted.length;
       const pos = it ? sorted.findIndex(function (x) { return x.id === it.id; }) : -1;
       const indexStr = (it && pos >= 0) ? (String(pos + 1) + " / " + String(total)) : ("– / " + String(total));
-      if (!it) return { index: indexStr, name: "", kind: "", spectrum: "", source: "", license: "" };
+      if (!it) return { index: indexStr, name: "", kind: "", spectrum: "", source: "", license: "", originUrl: "" };
       return {
-        index:    indexStr,
-        name:     _amNoiseTitleLabel(it),
-        kind:     (it.tags && it.tags.kind)     || "",
-        spectrum: (it.tags && it.tags.spectrum)  || "",
-        source:   it.sourceTitle || "",
-        license:  (it.tags && it.tags.license) || it.license || ""
+        index:     indexStr,
+        name:      _amNoiseTitleLabel(it),
+        kind:      (it.tags && it.tags.kind)     || "",
+        spectrum:     (it.tags && it.tags.spectrum)  || "",
+        source:       it.sourceTitle || "",
+        license:      (it.tags && it.tags.license) || it.license || "",
+        originUrl:    (it.tags && it.tags.source_local) ? "" : ((it.tags && it.tags.url) || ""),
+        uploadSource: (it.tags && it.tags.source_local) ? (it.sourceTitle || "") : ""
       };
     },
     title: function (ctx) {
@@ -2100,14 +2105,17 @@ const plCategories = {
       const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
       const ch  = (typeof plBookCurrentChapter    === "function") ? plBookCurrentChapter()    : null;
       if (!col || !ch) return null;
+      var hasText = col.tags && col.tags.has_text;
       return {
-        chapter: ch.title  || "",
-        work:    col.title || "",
-        author:  (col.tags && col.tags.work_author) || "",
-        reader:  (col.tags && col.tags.reader)      || "",
-        lang:    col.lang    || "",
-        license: col.license || "",
-        pdfUrl:  col.pdfUrl  || ""
+        chapter:       ch.title  || "",
+        work:          col.title || "",
+        author:        (col.tags && col.tags.work_author) || "",
+        reader:        (col.tags && col.tags.reader)      || "",
+        lang:          col.lang    || "",
+        license:       col.license || "",
+        pdfUrl:        col.pdfUrl  || "",
+        audioOriginUrl: col.url || (col.tags && col.tags.url) || "",
+        textOriginUrl:  hasText ? ((col.tags && col.tags.url_text_source) || "") : ""
       };
     },
     title: function (ctx) {
@@ -2711,6 +2719,18 @@ function plUpdTransportUI() {
   if (typeof plMaskRefreshUI === "function") plMaskRefreshUI();
 }
 
+// Lesbarer Anzeigetext fuer einen Herkunftslink: die nackte Domain
+// (ohne Schema/www). Faellt bei Parse-Problemen auf die rohe URL zurueck.
+function _plOriginLinkText(url) {
+  if (!url) return "";
+  try {
+    var h = new URL(url).hostname.replace(/^www\./, "");
+    return h || url;
+  } catch (e) {
+    return String(url).replace(/^https?:\/\//, "").replace(/^www\./, "").split("/")[0] || url;
+  }
+}
+
 function plUpdDisplay() {
   // Waehrend der Auto-Weiter-Pause NICHT neu zeichnen -- die Anzeige bliebe
   // sonst das schon geladene naechste Stueck verraten. Sperre wird am Ton-Start
@@ -2736,16 +2756,40 @@ function plUpdDisplay() {
   }
   titleEl.textContent = titleText;
 
-  // --- Kern-Meta: role creator / source / license, visibility always ---
-  // license wird klickbar (oeffnet Volltext-Dialog), Rest bleibt Text.
+  // --- Kern-Meta: role creator / source / license / origin, visibility always ---
+  // license wird klickbar (oeffnet Volltext-Dialog), origin wird externer Link.
+  // source und origin erhalten ein vorangestelltes Label aus f.labelKey.
   metaEl.innerHTML = "";
   const metaNodes = [];
   decl.forEach(function (f) {
     if (f.visibility !== "always") return;
-    if (f.role !== "creator" && f.role !== "source" && f.role !== "license") return;
+    if (f.role !== "creator" && f.role !== "source"
+        && f.role !== "license" && f.role !== "origin") return;
     const val = ctx ? f.getValue(ctx) : "";
     if (!val) return;
-    if (f.role === "license" && typeof alHasEntry === "function" && alHasEntry(val)) {
+
+    // Label-Praefix (z.B. "Quelle: ", "Audioquelle: ") aus labelKey.
+    // Nur fuer Herkunfts-/Quellen-Rollen; creator/license bleiben ohne Praefix.
+    var prefix = "";
+    if ((f.role === "origin" || f.role === "source") && f.labelKey) {
+      var lbl = (typeof t === "function") ? t(f.labelKey) : f.labelKey;
+      if (lbl && lbl !== f.labelKey) prefix = lbl + ": ";
+    }
+
+    if (f.role === "origin") {
+      // Herkunfts-Link: Wert ist eine URL. Neuer Tab, rel=noopener.
+      var span = document.createElement("span");
+      if (prefix) span.appendChild(document.createTextNode(prefix));
+      var a = document.createElement("a");
+      a.className = "pl-origin-link";
+      a.href = val;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = _plOriginLinkText(val);
+      span.appendChild(a);
+      metaNodes.push(span);
+    } else if (f.role === "license"
+               && typeof alHasEntry === "function" && alHasEntry(val)) {
       const a = document.createElement("a");
       a.href = "#";
       a.className = "pl-license-link";
@@ -2756,9 +2800,9 @@ function plUpdDisplay() {
       });
       metaNodes.push(a);
     } else {
-      metaNodes.push(document.createTextNode(
-        f.role === "license" && typeof alLicenseName === "function"
-          ? alLicenseName(val) : val));
+      var txt = (f.role === "license" && typeof alLicenseName === "function")
+        ? alLicenseName(val) : val;
+      metaNodes.push(document.createTextNode(prefix + txt));
     }
   });
   metaNodes.forEach(function (node, i) {
@@ -4252,8 +4296,9 @@ PL_FILTER_DECL.musik = {
     { key: "album",   labelKey: "plDispFieldAlbum",   getValue: function (ctx) { return ctx.album   || ""; }, role: "detail",  inFilter: false, inDisplay: true,  visibility: "always" },
     { key: "genre",   labelKey: "plDispFieldGenre",   getValue: function (ctx) { return ctx.genre   || ""; }, role: "detail",  inFilter: false, inDisplay: true,  visibility: "always" },
     { key: "year",    labelKey: "plDispFieldYear",    getValue: function (ctx) { return ctx.year    || ""; }, role: "detail",  inFilter: false, inDisplay: true,  visibility: "always" },
-    { key: "source",  labelKey: "plDispFieldSource",  getValue: function (ctx) { return ctx.source  || ""; }, role: "source",  inFilter: false, inDisplay: true,  visibility: "always" },
-    { key: "license", labelKey: "plDispFieldLicense", getValue: function (ctx) { return ctx.license || ""; }, role: "license", inFilter: false, inDisplay: true,  visibility: "always" }
+    { key: "origin",       labelKey: "plDispOrigin",  getValue: function (ctx) { return ctx.originUrl     || ""; }, role: "origin",  inFilter: false, inDisplay: true,  visibility: "always" },
+    { key: "uploadSource", labelKey: "plDispOrigin",  getValue: function (ctx) { return ctx.uploadSource   || ""; }, role: "source",  inFilter: false, inDisplay: true,  visibility: "always" },
+    { key: "license",      labelKey: "plDispFieldLicense", getValue: function (ctx) { return ctx.license   || ""; }, role: "license", inFilter: false, inDisplay: true,  visibility: "always" }
   ],
   stateRef: {
     getAxisSel: function (axisKey) {
@@ -4347,8 +4392,9 @@ PL_FILTER_DECL.geraeusche = {
     { key: "name",     labelKey: "plDispFieldNoiseName", getValue: function (ctx) { return ctx.name    || ""; }, role: "detail",  inFilter: false, inDisplay: true,  visibility: "reveal" },
     { key: "kind",     labelKey: "plDispFieldNoiseKind", getValue: function (ctx) { return ctx.kind    || ""; }, role: "detail",  inFilter: false, inDisplay: true,  visibility: "reveal" },
     { key: "spectrum", labelKey: "plDispFieldSpectrum",  getValue: function (ctx) { return ctx.spectrum || ""; }, role: "detail",  inFilter: false, inDisplay: true,  visibility: "reveal" },
-    { key: "source",   labelKey: "plDispFieldSource",    getValue: function (ctx) { return ctx.source  || ""; }, role: "source",  inFilter: false, inDisplay: true,  visibility: "always" },
-    { key: "license",  labelKey: "plDispFieldLicense",   getValue: function (ctx) { return ctx.license || ""; }, role: "license", inFilter: false, inDisplay: true,  visibility: "always" }
+    { key: "origin",       labelKey: "plDispOrigin",       getValue: function (ctx) { return ctx.originUrl   || ""; }, role: "origin",  inFilter: false, inDisplay: true,  visibility: "always" },
+    { key: "uploadSource", labelKey: "plDispOrigin",       getValue: function (ctx) { return ctx.uploadSource || ""; }, role: "source",  inFilter: false, inDisplay: true,  visibility: "always" },
+    { key: "license",      labelKey: "plDispFieldLicense", getValue: function (ctx) { return ctx.license      || ""; }, role: "license", inFilter: false, inDisplay: true,  visibility: "always" }
   ],
   stateRef: {
     getAxisSel: function (axisKey) {
@@ -4718,13 +4764,14 @@ PL_FILTER_DECL.hoerbuecher = {
   },
   _wired: false,
   fieldDecl: [
-    { key: "chapter", labelKey: "plDispFieldChapter",  getValue: function (ctx) { return ctx.chapter  || ""; }, role: "title",   inFilter: false, inDisplay: true,  visibility: "always" },
-    { key: "work",    labelKey: "plDispFieldWork",     getValue: function (ctx) { return ctx.work     || ""; }, role: "source",  inFilter: false, inDisplay: true,  visibility: "always" },
-    { key: "author",  labelKey: "plDispFieldAuthor",   getValue: function (ctx) { return ctx.author   || ""; }, role: "creator", inFilter: false, inDisplay: true,  visibility: "always" },
-    { key: "reader",  labelKey: "plDispFieldReader",   getValue: function (ctx) { return ctx.reader   || ""; }, role: "creator", inFilter: false, inDisplay: true,  visibility: "always" },
-    { key: "lang",    labelKey: "plDispFieldLang",     getValue: function (ctx) { return ctx.lang     || ""; }, role: "detail",  inFilter: false, inDisplay: true,  visibility: "always" },
-    { key: "license", labelKey: "plDispFieldLicense",  getValue: function (ctx) { return ctx.license  || ""; }, role: "license", inFilter: false, inDisplay: true,  visibility: "always" },
-    { key: "pdfUrl",  labelKey: "plDispFieldPdf",      getValue: function (ctx) { return ctx.pdfUrl   || ""; }, role: "pdf",     inFilter: false, inDisplay: false, visibility: "never"  }
+    { key: "chapter",      labelKey: "plDispFieldChapter",    getValue: function (ctx) { return ctx.chapter       || ""; }, role: "title",   inFilter: false, inDisplay: true,  visibility: "always" },
+    { key: "author",       labelKey: "plDispFieldAuthor",    getValue: function (ctx) { return ctx.author        || ""; }, role: "creator", inFilter: false, inDisplay: true,  visibility: "always" },
+    { key: "reader",       labelKey: "plDispFieldReader",    getValue: function (ctx) { return ctx.reader        || ""; }, role: "creator", inFilter: false, inDisplay: true,  visibility: "always" },
+    { key: "lang",         labelKey: "plDispFieldLang",      getValue: function (ctx) { return ctx.lang          || ""; }, role: "detail",  inFilter: false, inDisplay: true,  visibility: "always" },
+    { key: "license",      labelKey: "plDispFieldLicense",   getValue: function (ctx) { return ctx.license       || ""; }, role: "license", inFilter: false, inDisplay: true,  visibility: "always" },
+    { key: "audioOrigin",  labelKey: "plDispAudioOrigin",    getValue: function (ctx) { return ctx.audioOriginUrl || ""; }, role: "origin",  inFilter: false, inDisplay: true,  visibility: "always" },
+    { key: "textOrigin",   labelKey: "plDispTextOrigin",     getValue: function (ctx) { return ctx.textOriginUrl  || ""; }, role: "origin",  inFilter: false, inDisplay: true,  visibility: "always" },
+    { key: "pdfUrl",       labelKey: "plDispFieldPdf",       getValue: function (ctx) { return ctx.pdfUrl        || ""; }, role: "pdf",     inFilter: false, inDisplay: false, visibility: "never"  }
   ],
   stateRef: {
     // Sortierung fest alphabetisch nach Autor (keine Sortier-Box mehr).
@@ -4973,7 +5020,7 @@ PL_FILTER_DECL.saetze = {
     { key: "speaker", labelKey: "plDispFieldSpeaker",  getValue: function (ctx) { return ctx.speaker || ""; }, role: "creator", inFilter: false, inDisplay: true,  visibility: "always" },
     { key: "lang",    labelKey: "plDispFieldLang",     getValue: function (ctx) { return ctx.lang    || ""; }, role: "detail",  inFilter: false, inDisplay: true,  visibility: "always" },
     { key: "license", labelKey: "plDispFieldLicense",  getValue: function (ctx) { return ctx.license || ""; }, role: "license", inFilter: false, inDisplay: true,  visibility: "always" },
-    { key: "credit",  labelKey: "plDispFieldCredit",   getValue: function (ctx) { return ctx.credit  || ""; }, role: "source",  inFilter: false, inDisplay: true,  visibility: "always" },
+    { key: "origin",  labelKey: "plDispOrigin",         getValue: function (ctx) { return ctx.originUrl || ""; }, role: "origin",  inFilter: false, inDisplay: true,  visibility: "always" },
     { key: "text",    labelKey: "plDispFieldText",     getValue: function (ctx) { return ctx.text    || ""; }, role: "text",    inFilter: false, inDisplay: true,  visibility: "reveal" }
   ],
   stateRef: {
