@@ -15,6 +15,13 @@
 // st_currentTestSet() liefert die erste verfuegbare.
 let ST_activeTestSet = null;
 
+// Gewaehltes Hintergrundgeraeusch im Sprachtest. Sentinel ST_NOISE_DEFAULT
+// = testeigenes Werksrauschen (st_findNoiseItem). Sonst die id eines
+// loop_safe-Geraeusche-Items. Global fuer den Sprachtest (nicht pro Seite/
+// Testset); sitzungsuebergreifend gesichert (SAVE_SCHEMA).
+const ST_NOISE_DEFAULT = "__werk__";
+let st_noiseChoiceId = ST_NOISE_DEFAULT;
+
 // Alle Matrix-Sammlungen aus dem Saetze-Pool (test_type === "matrix"),
 // dedupliziert nach test_set.
 function st_availableCollections() {
@@ -166,20 +173,49 @@ function st_findNoiseItem() {
   }) || null;
 }
 
-let _st_noiseCache = { testSet: null, buf: null };
+let _st_noiseCache = { testSet: null, choice: null, buf: null };
 
-// Stellt den Stoergeraeusch-Buffer der aktiven Sammlung bereit (SS3.1/SS3.3).
-// Laedt das zugehoerige Geraeusche-Pool-Item per amGetItemBuffer (je Sammlung gecacht).
+// Stellt den Stoergeraeusch-Buffer bereit. Default = testeigenes
+// Werksrauschen (roh). Ein gewaehltes loop_safe-Geraeusch wird auf den
+// RMS der Werksdatei normiert (SNR-Achse bleibt stabil); das Werks-
+// rauschen ist die Eichreferenz und bleibt unveraendert.
 async function _st_ensureNoiseBuf() {
   const ts = st_currentTestSet();
-  if (_st_noiseCache.testSet === ts && _st_noiseCache.buf) return _st_noiseCache.buf;
+  const choice = st_noiseChoiceId;
+  if (_st_noiseCache.testSet === ts && _st_noiseCache.choice === choice && _st_noiseCache.buf) {
+    return _st_noiseCache.buf;
+  }
   const ctx = (typeof gPC === "function") ? gPC() : null;
   if (!ctx || !ts) return null;
-  const item = st_findNoiseItem();
-  if (!item) return null;
-  const buf = await amGetItemBuffer(ctx, item);
-  _st_noiseCache = { testSet: ts, buf: buf };
-  return buf;
+
+  // Werksdatei laden (immer noetig: roher Default ODER Eich-Referenz).
+  const werkItem = st_findNoiseItem();
+  if (!werkItem) return null;
+  const werkBuf = await amGetItemBuffer(ctx, werkItem);
+  if (!werkBuf) return null;
+
+  let outBuf = werkBuf;
+  if (choice && choice !== ST_NOISE_DEFAULT) {
+    const items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
+    const chosen = items.find(function (it) { return it.id === choice; });
+    if (chosen) {
+      const chosenBuf = await amGetItemBuffer(ctx, chosen);
+      if (chosenBuf) {
+        // Auf eine Kopie normieren (Original-Buffer im Cache nicht veraendern).
+        const refRms = _amRms(werkBuf);
+        const copy = ctx.createBuffer(chosenBuf.numberOfChannels, chosenBuf.length, chosenBuf.sampleRate);
+        for (let ch = 0; ch < chosenBuf.numberOfChannels; ch++) {
+          copy.copyToChannel(chosenBuf.getChannelData(ch), ch);
+        }
+        _amNormalizeBufferRms(copy, refRms);
+        outBuf = copy;
+      }
+    }
+    // Gewaehltes Item fehlt / laedt nicht -> stiller Fallback auf Werksrauschen.
+  }
+
+  _st_noiseCache = { testSet: ts, choice: choice, buf: outBuf };
+  return outBuf;
 }
 
 // Rausch-Vorlauf/-Nachlauf um den Satz (Architektur SS4.5): Das Rauschen setzt
@@ -585,6 +621,16 @@ function st_finish(converged) {
   if (typeof pStopReset === "function") pStopReset();
   st_restorePlayerState();
 
+  // Verwendetes Hintergrundgeraeusch fuer die Ergebnisanzeige festhalten.
+  let noiseLabel;
+  if (st_noiseChoiceId === ST_NOISE_DEFAULT) {
+    noiseLabel = (typeof t === "function") ? t("stNoiseDefaultOpt") : "Testeigenes Rauschen";
+  } else {
+    const items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
+    const it = items.find(function (x) { return x.id === st_noiseChoiceId; });
+    noiseLabel = it ? _amNoiseTitleLabel(it) : st_noiseChoiceId;
+  }
+
   // Ergebnis an das Ergebnis-Modul uebergeben (BA608 liefert ST_saveResult).
   const result = {
     srt: srt,
@@ -593,6 +639,7 @@ function st_finish(converged) {
     wordHistory: st_wordHistory.slice(),
     testSet: st_currentTestSet(),
     bundleLabel: st_currentTestSet(),
+    noiseLabel: noiseLabel,
     ts: Date.now()
   };
   if (typeof ST_saveResult === "function") ST_saveResult(result);
@@ -681,6 +728,11 @@ function ST_renderResults() {
     bundleEl.textContent = lbl
       ? (t("stResBundlePrefix") + " " + lbl)
       : "";
+  }
+  const noiseEl = document.getElementById("ST_resNoise");
+  if (noiseEl) {
+    const nl = res.noiseLabel || "";
+    noiseEl.textContent = nl ? (t("stResNoisePrefix") + " " + nl) : "";
   }
 
   ST_drawCourse(res);
@@ -906,9 +958,61 @@ function st_buildBundleFragment() {
   loadHint.id = "ST_loadHint";
   loadHint.hidden = true;
 
-  wrap.append(selRow, upRow, status, loadHint);
-  ST_bundleEls = { wrap: wrap, selRow: selRow, select: sel, status: status };
+  // Hintergrundgeraeusch-Auswahl (Default testeigenes Rauschen, sonst
+  // loop_safe-Geraeusche). Nur vor dem Start waehlbar -- die Sperrung
+  // waehrend des Tests erledigt die testUI-Automatik (header.extra).
+  var noiseRow = document.createElement("div");
+  noiseRow.className = "control-group st-noise-select-row";
+  var noiseLabel = document.createElement("label");
+  noiseLabel.setAttribute("data-t", "stNoiseLabel");
+  var noiseSel = document.createElement("select");
+  noiseSel.id = "ST_noiseSelect";
+  noiseSel.autocomplete = "off";
+  noiseSel.addEventListener("change", function () {
+    st_noiseChoiceId = noiseSel.value || ST_NOISE_DEFAULT;
+    if (typeof window._autoSaveState === "function") window._autoSaveState();
+  });
+  noiseRow.append(noiseLabel, noiseSel);
+
+  wrap.append(selRow, noiseRow, upRow, status, loadHint);
+  ST_bundleEls = { wrap: wrap, selRow: selRow, select: sel, status: status, noiseSelect: noiseSel };
   return wrap;
+}
+
+// Geraeusch-Dropdown befuellen: feste Default-Option (testeigenes
+// Werksrauschen) + alle loop_safe-Geraeusche-Items. Auswahl aus
+// st_noiseChoiceId wiederherstellen.
+function st_refreshNoiseSelect() {
+  if (!ST_bundleEls || !ST_bundleEls.noiseSelect) return;
+  var sel = ST_bundleEls.noiseSelect;
+  sel.innerHTML = "";
+
+  var optDef = document.createElement("option");
+  optDef.value = ST_NOISE_DEFAULT;
+  optDef.setAttribute("data-t", "stNoiseDefaultOpt");
+  optDef.textContent = (typeof t === "function") ? t("stNoiseDefaultOpt") : "Testeigenes Rauschen";
+  sel.appendChild(optDef);
+
+  var items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
+  var loopable = items.filter(function (it) {
+    return it && it.tags && it.tags.loop_safe === "y";
+  });
+  loopable.sort(function (a, b) {
+    return _amNoiseTitleLabel(a).toLowerCase().localeCompare(_amNoiseTitleLabel(b).toLowerCase());
+  });
+  loopable.forEach(function (it) {
+    var opt = document.createElement("option");
+    opt.value = it.id;
+    opt.textContent = _amNoiseTitleLabel(it);
+    sel.appendChild(opt);
+  });
+
+  // Gesicherte/aktuelle Auswahl wiederherstellen; fehlt das Item
+  // (nicht mehr geladen), auf Default zurueckfallen.
+  var exists = (st_noiseChoiceId === ST_NOISE_DEFAULT)
+    || loopable.some(function (it) { return it.id === st_noiseChoiceId; });
+  if (!exists) st_noiseChoiceId = ST_NOISE_DEFAULT;
+  sel.value = st_noiseChoiceId;
 }
 
 // Auswahl-Dropdown befuellen; Auswahl-Zeile nur bei > 1 Sammlung zeigen.
@@ -1012,15 +1116,17 @@ document.addEventListener("DOMContentLoaded", function () {
   // NICHT body.extraFragment: das sitzt in der festen Body-Reihenfolge unter
   // dem Antwort-Raster und im initial verborgenen testBox (test-ui.js:487,894).
   const stBundleFrag = st_buildBundleFragment();
-  st_cfg.header.extra = { fragment: stBundleFrag };
+  st_cfg.header.extra = { fragment: stBundleFrag, lockDuringTest: true };
   ST_els = buildTestPanel(parentEl, st_cfg);
   st_refreshBundleSelect();
+  st_refreshNoiseSelect();
   // Am Kategorie-Refresh-Register anmelden: Wird das Saetze-Material nachge-
   // laden (bedarfsgeladenes Buendel, Sprachwechsel, Upload), aktualisiert sich
   // die Sammlungs-Auswahl von selbst -- sonst erschiene das Dropdown erst nach
   // einem Upload, obwohl schon mehrere gebaute Sammlungen im Pool stehen.
   if (typeof amRegisterCategoryRefresh === "function") {
     amRegisterCategoryRefresh("saetze", st_refreshBundleSelect);
+    amRegisterCategoryRefresh("geraeusche", st_refreshNoiseSelect);
   }
   if (typeof applyLang === "function") applyLang();
 });
