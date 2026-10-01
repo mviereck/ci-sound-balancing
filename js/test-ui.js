@@ -1138,6 +1138,34 @@ function _buildTestPanelNew(parentEl, cfg) {
     });
   }
 
+  // Sperrt/entsperrt alle Form-Controls im header.extra-Fragment fuer
+  // die Testdauer (Lifecycle "Header-Voreinstellungs-Sperre"). Beim
+  // Sperren wird der vorherige disabled-Zustand je Element gemerkt,
+  // damit eine modul-eigene Dauer-Sperre nach stop nicht aufgehoben wird.
+  function _lockExtraFragment() {
+    var frag = headerRefs.extraFragment;
+    if (!frag) return;
+    var ctrls = frag.querySelectorAll('select, input, button');
+    for (var i = 0; i < ctrls.length; i++) {
+      var el = ctrls[i];
+      el.dataset.stuiPrevDisabled = el.disabled ? '1' : '0';
+      el.disabled = true;
+    }
+  }
+
+  function _unlockExtraFragment() {
+    var frag = headerRefs.extraFragment;
+    if (!frag) return;
+    var ctrls = frag.querySelectorAll('select, input, button');
+    for (var i = 0; i < ctrls.length; i++) {
+      var el = ctrls[i];
+      // Nur entsperren, was die Automatik selbst gesperrt hat; vorher
+      // schon gesperrte Elemente bleiben gesperrt.
+      if (el.dataset.stuiPrevDisabled === '0') el.disabled = false;
+      delete el.dataset.stuiPrevDisabled;
+    }
+  }
+
   // BA 219: Eigentliche Start-Sequenz aus dem Handler herausgezogen,
   // damit prerequisites davorgeschaltet werden koennen.
   function _doStartAfterPrereqs(vCfg2) {
@@ -1148,6 +1176,7 @@ function _buildTestPanelNew(parentEl, cfg) {
     // Verfahren-Dropdown sperren
     if (verfahrenSelect) verfahrenSelect.disabled = true;
     if (refSelect) refSelect.disabled = true;
+    _lockExtraFragment();
     // Start-/Stop-Button-Zustand
     startBtn.disabled = true;
     stopBtn.disabled = false;
@@ -1213,6 +1242,7 @@ function _buildTestPanelNew(parentEl, cfg) {
     // Verfahren-Dropdown entsperren
     if (verfahrenSelect) verfahrenSelect.disabled = false;
     if (refSelect) refSelect.disabled = false;
+    _unlockExtraFragment();
     // Start-/Stop-Button-Zustand
     startBtn.disabled = false;
     stopBtn.disabled = true;
