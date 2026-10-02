@@ -54,7 +54,8 @@ var FINANZEN_DAUER = [
 //   amount: Euro
 var FINANZEN_EINMAL = [
   { date: "2026-05", amount: 100.00 },
-  { date: "2026-06", amount:  50.00 }
+  { date: "2026-06", amount:  50.00 },
+  { date: "2026-09", amount: 100.00 }
 ];
 
 // ===========================================================
