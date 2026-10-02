@@ -1917,8 +1917,8 @@ const plCategories = {
         year:         (it.tags && it.tags.year)   ? String(it.tags.year) : "",
         source:       it.sourceTitle || "",
         license:      (it.tags && it.tags.license) || it.license || "",
-        originUrl:    (it.tags && it.tags.source_local) ? "" : ((it.tags && it.tags.url) || ""),
-        uploadSource: (it.tags && it.tags.source_local) ? (it.sourceTitle || "") : ""
+        originUrl:    _plEigenmaterial(it) ? "" : ((it.tags && it.tags.url) || ""),
+        uploadSource: _plEigenmaterialLabel(it)
       };
     },
     title: function (ctx) {
@@ -2043,8 +2043,8 @@ const plCategories = {
         spectrum:     (it.tags && it.tags.spectrum)  || "",
         source:       it.sourceTitle || "",
         license:      (it.tags && it.tags.license) || it.license || "",
-        originUrl:    (it.tags && it.tags.source_local) ? "" : ((it.tags && it.tags.url) || ""),
-        uploadSource: (it.tags && it.tags.source_local) ? (it.sourceTitle || "") : ""
+        originUrl:    _plEigenmaterial(it) ? "" : ((it.tags && it.tags.url) || ""),
+        uploadSource: _plEigenmaterialLabel(it)
       };
     },
     title: function (ctx) {
@@ -2731,6 +2731,22 @@ function _plOriginLinkText(url) {
   }
 }
 
+// Eigenmaterial = kein externer Herkunftslink: hochgeladene (source_local="y")
+// oder im Tool generierte Items (id-Prefix "gen:"). Fuer diese wird statt eines
+// Links ein Quelle-Text gezeigt ("Upload" bzw. "CImbel").
+function _plEigenmaterial(it) {
+  if (!it) return false;
+  if (it.tags && it.tags.source_local) return true;
+  if (typeof it.id === "string" && it.id.indexOf("gen:") === 0) return true;
+  return false;
+}
+function _plEigenmaterialLabel(it) {
+  if (!it) return "";
+  if (it.tags && it.tags.source_local) return it.sourceTitle || "Upload";
+  if (typeof it.id === "string" && it.id.indexOf("gen:") === 0) return "CImbel";
+  return "";
+}
+
 function plUpdDisplay() {
   // Waehrend der Auto-Weiter-Pause NICHT neu zeichnen -- die Anzeige bliebe
   // sonst das schon geladene naechste Stueck verraten. Sperre wird am Ton-Start
@@ -2756,54 +2772,66 @@ function plUpdDisplay() {
   }
   titleEl.textContent = titleText;
 
-  // --- Kern-Meta: role creator / source / license / origin, visibility always ---
+  // --- Kern-Meta: role creator / source / origin / license, visibility always ---
+  // Die Meta-Zeile wird in FESTER Rollen-Reihenfolge gebaut (creator -> Herkunft
+  // -> license), unabhaengig von der fieldDecl-Reihenfolge der Kategorie. So ist
+  // die Anordnung ueber alle vier Kategorien gleich. Innerhalb einer Rolle gilt
+  // die fieldDecl-Reihenfolge (z.B. Audioquelle vor Textquelle).
   // license wird klickbar (oeffnet Volltext-Dialog), origin wird externer Link.
-  // source und origin erhalten ein vorangestelltes Label aus f.labelKey.
+  // Herkunfts- (origin/source) UND Lizenz-Felder erhalten ein vorangestelltes
+  // Label aus f.labelKey; creator (Name/Kuenstler) bleibt ohne Praefix.
   metaEl.innerHTML = "";
   const metaNodes = [];
-  decl.forEach(function (f) {
-    if (f.visibility !== "always") return;
-    if (f.role !== "creator" && f.role !== "source"
-        && f.role !== "license" && f.role !== "origin") return;
-    const val = ctx ? f.getValue(ctx) : "";
-    if (!val) return;
+  const META_ROLE_ORDER = ["creator", "source", "origin", "license"];
 
-    // Label-Praefix (z.B. "Quelle: ", "Audioquelle: ") aus labelKey.
-    // Nur fuer Herkunfts-/Quellen-Rollen; creator/license bleiben ohne Praefix.
-    var prefix = "";
-    if ((f.role === "origin" || f.role === "source") && f.labelKey) {
-      var lbl = (typeof t === "function") ? t(f.labelKey) : f.labelKey;
-      if (lbl && lbl !== f.labelKey) prefix = lbl + ": ";
-    }
+  function _metaPrefix(f) {
+    if (f.role === "creator") return "";
+    if (!f.labelKey) return "";
+    var lbl = (typeof t === "function") ? t(f.labelKey) : f.labelKey;
+    return (lbl && lbl !== f.labelKey) ? (lbl + ": ") : "";
+  }
 
-    if (f.role === "origin") {
-      // Herkunfts-Link: Wert ist eine URL. Neuer Tab, rel=noopener.
-      var span = document.createElement("span");
-      if (prefix) span.appendChild(document.createTextNode(prefix));
-      var a = document.createElement("a");
-      a.className = "pl-origin-link";
-      a.href = val;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.textContent = _plOriginLinkText(val);
-      span.appendChild(a);
-      metaNodes.push(span);
-    } else if (f.role === "license"
-               && typeof alHasEntry === "function" && alHasEntry(val)) {
-      const a = document.createElement("a");
-      a.href = "#";
-      a.className = "pl-license-link";
-      a.textContent = (typeof alLicenseName === "function") ? alLicenseName(val) : val;
-      a.addEventListener("click", function (e) {
-        e.preventDefault();
-        if (typeof alOpenDialog === "function") alOpenDialog(val);
-      });
-      metaNodes.push(a);
-    } else {
-      var txt = (f.role === "license" && typeof alLicenseName === "function")
-        ? alLicenseName(val) : val;
-      metaNodes.push(document.createTextNode(prefix + txt));
-    }
+  META_ROLE_ORDER.forEach(function (role) {
+    decl.forEach(function (f) {
+      if (f.role !== role) return;
+      if (f.visibility !== "always") return;
+      const val = ctx ? f.getValue(ctx) : "";
+      if (!val) return;
+      const prefix = _metaPrefix(f);
+
+      if (f.role === "origin") {
+        // Herkunfts-Link: Wert ist eine URL. Neuer Tab, rel=noopener.
+        var span = document.createElement("span");
+        if (prefix) span.appendChild(document.createTextNode(prefix));
+        var a = document.createElement("a");
+        a.className = "pl-origin-link";
+        a.href = val;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = _plOriginLinkText(val);
+        span.appendChild(a);
+        metaNodes.push(span);
+      } else if (f.role === "license"
+                 && typeof alHasEntry === "function" && alHasEntry(val)) {
+        // Lizenz-Link mit vorangestelltem Label.
+        var lspan = document.createElement("span");
+        if (prefix) lspan.appendChild(document.createTextNode(prefix));
+        var la = document.createElement("a");
+        la.href = "#";
+        la.className = "pl-license-link";
+        la.textContent = (typeof alLicenseName === "function") ? alLicenseName(val) : val;
+        la.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (typeof alOpenDialog === "function") alOpenDialog(val);
+        });
+        lspan.appendChild(la);
+        metaNodes.push(lspan);
+      } else {
+        var txt = (f.role === "license" && typeof alLicenseName === "function")
+          ? alLicenseName(val) : val;
+        metaNodes.push(document.createTextNode(prefix + txt));
+      }
+    });
   });
   metaNodes.forEach(function (node, i) {
     if (i > 0) metaEl.appendChild(document.createTextNode(" · "));

@@ -1595,6 +1595,9 @@ amRegisterProvider({
           tags: col.tags || {},
           license: col.license,
           credit:  col.credit,
+          // Werk-Audio-URL (Angebotsseite: LibriVox-Werk / Commons-Artikel) fuer
+          // die "Audioquelle"-Anzeige. Ohne Durchreichen bliebe audioOriginUrl leer.
+          url:     col.url || null,
           pdfUrl:  col.pdfUrl || null,
           textUrl: col.textUrl || null,
           textRange: col.textRange || null,
