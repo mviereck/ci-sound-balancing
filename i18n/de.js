@@ -612,6 +612,7 @@ Object.assign(L.de, {
     plDispFieldSource:    "Quelle",
     plDispFieldLicense:   "Lizenz",
     plDispFieldCredit:    "Credit",
+    plDispFieldRecorder:  "Aufnahme",
     plDispOrigin:      "Quelle",
     plDispAudioOrigin: "Audioquelle",
     plDispTextOrigin:  "Textquelle",
