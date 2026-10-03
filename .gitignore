@@ -53,6 +53,11 @@ Sprachdatensätze/
 # build_bundles.py). Bleiben lokal; oeffentlich/online ist NUR audio.bundle/.
 audio.manifest/
 
+# Buendel-TMP: audio.bundle/ wird ueber dieses Geschwister-Verzeichnis atomar
+# ersetzt (build.py Phase 4). Nur Zwischenstand — nie committen. Bleibt nach
+# einem Abbruch zwischen Buendelung und rename evtl. liegen.
+audio.bundle.tmp/
+
 # Editor / OS
 *.swp
 *.swo
