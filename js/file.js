@@ -160,6 +160,8 @@ function resetAll() {
     if (typeof STB_renderResults === "function") STB_renderResults();
     if (typeof STB_renderMean === "function") STB_renderMean();
   }
+  // BA648: STB-Testelektroden-Auswahl auf "alle" (null) zuruecksetzen.
+  if (typeof stb_selectedEls !== "undefined") stb_selectedEls = null;
   if (typeof plApplyBalance !== "undefined") plApplyBalance = true;
   if (typeof plBalanceMode !== "undefined") plBalanceMode = "sym";
   if (typeof updBalApplyBtn === "function") updBalApplyBtn();

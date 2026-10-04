@@ -1085,6 +1085,14 @@ function ell_showCurPair() {
 // BA 247: Helfer fuer ell_showCurPair, ehemals inline.
 let _ELL_activeVerfahren = "full";
 
+// BA648: Einziger Schreibweg des seitenabhaengigen ELL-Testverfahrens.
+// Wahrheit in sideData[activeSide].ELL_activeVerfahren, globaler Spiegel
+// synchron (Vorbild setRefEl / ELL_distWeightMode). m: "full" | "conv".
+function ELL_setActiveVerfahren(m) {
+  _ELL_activeVerfahren = m;
+  if (sideData[activeSide]) sideData[activeSide].ELL_activeVerfahren = m;
+}
+
 function _ell_updateProgress() {
   var vref = ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
   if (!vref || !vref.progress) return;
@@ -1320,6 +1328,14 @@ function nextConvRnd() {
 // Modal als "keine ausgewaehlt" interpretiert.
 let _ell_selectedEls = null;
 
+// BA648: Einziger Schreibweg der seitenabhaengigen ELL-Testelektroden-Auswahl.
+// Wahrheit in sideData[activeSide].ELL_selectedEls, globaler Spiegel synchron
+// (Vorbild setRefEl / ELL_distWeightMode). sel: number[] | null (null = alle).
+function ELL_setSelectedEls(sel) {
+  _ell_selectedEls = sel;
+  if (sideData[activeSide]) sideData[activeSide].ELL_selectedEls = sel;
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   var parentEl = document.getElementById("subpanel-messungen-elektrodenlautstaerke");
   if (!parentEl) return;
@@ -1447,7 +1463,7 @@ document.addEventListener("DOMContentLoaded", function() {
           minSelected: 2,
           getSelection:    function()    { return _ell_selectedEls ? _ell_selectedEls.slice() : null; },
           setSelection:    function(sel) {
-            _ell_selectedEls = sel.slice();
+            ELL_setSelectedEls(sel.slice());
             // Bugfix (0.4.279.1): bei laufendem Test verbleibende Sequenz
             // sofort neu filtern, sonst werden abgewaehlte Elektroden
             // weiter abgefragt.
@@ -1483,7 +1499,7 @@ document.addEventListener("DOMContentLoaded", function() {
             testUI.sideCheck.run(
               { sides: 'one', side: activeSide },
               function() {
-                _ELL_activeVerfahren = 'full';
+                ELL_setActiveVerfahren('full');
                 startTestFull();
               },
               function() {
@@ -1505,7 +1521,7 @@ document.addEventListener("DOMContentLoaded", function() {
             testUI.sideCheck.run(
               { sides: 'one', side: activeSide },
               function() {
-                _ELL_activeVerfahren = 'conv';
+                ELL_setActiveVerfahren('conv');
                 startTestConv();
               },
               function() {

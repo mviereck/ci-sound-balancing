@@ -69,6 +69,13 @@ function bindActiveSide() {
   ELL_refEl = s.ELL_refEl;
   ELL_results = s.ELL_results;
   ELL_distWeightMode = s.ELL_distWeightMode || "voll";
+  // BA648: seitenabhaengige ELL-Testvorgaben spiegeln (Vorbild oben).
+  if (typeof _ell_selectedEls !== "undefined") {
+    _ell_selectedEls = (s.ELL_selectedEls !== undefined) ? s.ELL_selectedEls : null;
+  }
+  if (typeof _ELL_activeVerfahren !== "undefined") {
+    _ELL_activeVerfahren = s.ELL_activeVerfahren || "full";
+  }
   elActive = s.elActive || (s.elActive = new Array(s.nEl).fill(true));
   config = s.config || "ci";
   fullSweepRound = s.fullSweepRound !== undefined ? s.fullSweepRound : null;
@@ -154,6 +161,12 @@ function initSideData(side, m) {
   s.ELL_refEl = Math.floor(s.nEl / 2);
   s.ELL_results = [];
   s.ELL_distWeightMode = "voll";
+  // Seitenabhaengige ELL-Testvorgaben (BA648): gewaehlte Testelektroden
+  // (null = alle testbaren) und gewaehltes Testverfahren ("full" | "conv").
+  // Vorbild ELL_distWeightMode: Wahrheit in sideData, globaler Spiegel in
+  // bindActiveSide, Schreibweg ELL_setSelectedEls / ELL_setActiveVerfahren.
+  s.ELL_selectedEls = null;
+  s.ELL_activeVerfahren = "full";
   // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
   s.elActive = new Array(s.nEl).fill(true);
   // BA479: Frequenzketten-Auswahl pro Elektrode (true = geht ab der Glaettung
@@ -232,6 +245,9 @@ function setActiveSide(side) {
   buildImplantCard();
   updSideButtons();
   ELL_updFClearBtn();
+  // BA648: ELL-Auswahl ist jetzt seitenabhaengig -> Header-Zusammenfassung
+  // "m von n gewaehlt" auf die neue Seite nachziehen.
+  if (typeof ELL_refreshElectrodeSelectionSummary === "function") ELL_refreshElectrodeSelectionSummary();
   updPlSrcButtons();
   if (pBuf) updatePlayerForSideChange();
   else plCheck();

@@ -31,6 +31,11 @@ var SAVE_SCHEMA_GLOBAL = [
     get: function () { return (typeof STB_snapshot !== "undefined" ? STB_snapshot : null); },
     set: function (v) { if (typeof STB_snapshot !== "undefined") STB_snapshot = v || null; },
     default: null },
+  // BA648: STB-Testelektroden-Auswahl (seitenlos, null = alle).
+  { key: "stb_selectedEls", scope: "global",
+    get: function () { return (typeof stb_selectedEls !== "undefined" ? stb_selectedEls : null); },
+    set: function (v) { if (typeof stb_selectedEls !== "undefined") stb_selectedEls = Array.isArray(v) ? v.slice() : null; },
+    default: null },
 
   // --- Latenz / Player-Anwendung ---
   { key: "LTZ_result", scope: "global",
@@ -424,6 +429,22 @@ var SAVE_SCHEMA_SIDE = [
       sideData[s].ELL_distWeightMode = (v === "mittel" || v === "gering") ? v : "voll";
     },
     default: "voll", valid: { type: "string" } },
+  // BA648: seitenabhaengige ELL-Testvorgaben. Globaler Spiegel wird nach dem
+  // Laden ueber bindActiveSide (refreshAll) nachgezogen.
+  { key: "ELL_selectedEls", scope: "side",
+    get: function (s) { return sideData[s].ELL_selectedEls; },
+    set: function (v, s) {
+      sideData[s].ELL_selectedEls = Array.isArray(v)
+        ? v.filter(function (x) { return typeof x === "number"; })
+        : null;
+    },
+    default: null },
+  { key: "ELL_activeVerfahren", scope: "side",
+    get: function (s) { return sideData[s].ELL_activeVerfahren || "full"; },
+    set: function (v, s) {
+      sideData[s].ELL_activeVerfahren = (v === "conv") ? "conv" : "full";
+    },
+    default: "full", valid: { type: "string" } },
   { key: "ELL_results", scope: "side",
     get: function (s) { return sideData[s].ELL_results; },
     set: function (v, s) { sideData[s].ELL_results = Array.isArray(v) ? v : []; },
