@@ -100,14 +100,24 @@ let _st_matrix = null;       // Matrix des aktiven Buendels (aus Satztexten, SS3
 // ------------------------------------------------------------
 function st_savePlayerState() {
   var bothCb = document.getElementById("plBothSides");
+  var volEl  = document.getElementById("plVol");
   st_saved = {
     maskOn:    plMaskOn,
     maskLevel: plMaskLevelKey,
     noiseId:   plNoiseSelectedId,
     activeSrc: plActiveSource,
     sentRec:   (typeof sCurRec !== "undefined") ? sCurRec : null,
-    bothSides: bothCb ? bothCb.checked : false   // "beide Seiten" — fuer den Test aus
+    bothSides: bothCb ? bothCb.checked : false,  // "beide Seiten" — fuer den Test aus
+    plVol:     volEl ? parseInt(volEl.value, 10) : null
   };
+  // Sprachtest-Lautstaerke hart in den Player setzen (00-lautstaerke Sec. 4.5).
+  if (volEl) {
+    var p = teGet("sprachtest", "volume");
+    if (typeof p === "number") {
+      volEl.value = p;
+      volEl.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+  }
 }
 function st_restorePlayerState() {
   if (!st_saved) return;
@@ -121,6 +131,12 @@ function st_restorePlayerState() {
   if (bothCb && bothCb.checked !== st_saved.bothSides) {
     bothCb.checked = st_saved.bothSides;
     if (typeof updatePlayerForSideChange === "function") updatePlayerForSideChange();
+  }
+  // Player-Lautstaerke wiederherstellen (00-lautstaerke Sec. 4.5).
+  var volEl2 = document.getElementById("plVol");
+  if (volEl2 && st_saved.plVol != null) {
+    volEl2.value = st_saved.plVol;
+    volEl2.dispatchEvent(new Event("change", { bubbles: true }));
   }
   st_saved = null;
 }
