@@ -130,26 +130,6 @@ var SAVE_SCHEMA_GLOBAL = [
     set: function (v) { if (typeof plEqHeadroomBoth !== "undefined") plEqHeadroomBoth = v; },
     default: true, valid: { type: "bool" } },
 
-  // --- Tonarten ---
-  { key: "toneType_implant", scope: "global",
-    get: function () { return toneType_implant; },
-    set: function (v) { toneType_implant = v; },
-    default: function () { return TEST_DEFAULTS.implant.toneType; }, valid: { type: "fn", ok: function (v) { return isValidToneType(v); } } },
-
-  // --- Volume / Dauer / Pause ---
-  { key: "volume_global", scope: "global",
-    get: function () { return volume_global; },
-    set: function (v) { volume_global = v; },
-    default: function () { return TEST_DEFAULTS.commonVolume; }, valid: { type: "number", min: 0, max: 100 } },
-  { key: "duration_implant", scope: "global",
-    get: function () { return duration_implant; },
-    set: function (v) { duration_implant = v; },
-    default: function () { return TEST_DEFAULTS.implant.duration; }, valid: { type: "number", min: 100, max: 3000 } },
-  { key: "pause_implant", scope: "global",
-    get: function () { return pause_implant; },
-    set: function (v) { pause_implant = v; },
-    default: function () { return TEST_DEFAULTS.implant.pause; }, valid: { type: "number", min: 50, max: 2000 } },
-
   // --- Warp / MAPLAW ---
   { key: "pWarpOn", scope: "global",
     get: function () { return (typeof pWarpOn !== "undefined" ? pWarpOn : false); },

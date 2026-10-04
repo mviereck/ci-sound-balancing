@@ -138,10 +138,6 @@ function resetAll() {
   if (dfSelR) dfSelR.value = "unknown";
   // --- Globale Test-Parameter ---
   if (typeof FRQ_activeMethodValue !== "undefined") FRQ_activeMethodValue = null;
-  if (typeof volume_global !== "undefined") volume_global = TEST_DEFAULTS.commonVolume;
-  if (typeof toneType_implant !== "undefined") toneType_implant = TEST_DEFAULTS.implant.toneType;
-  if (typeof duration_implant !== "undefined") duration_implant = TEST_DEFAULTS.implant.duration;
-  if (typeof pause_implant    !== "undefined") pause_implant    = TEST_DEFAULTS.implant.pause;
   // Lautstaerke/Testton pro Test auf Defaults (00-lautstaerke-architektur.md).
   if (typeof TEST_EINSTELLUNGEN !== "undefined"
       && typeof TEST_EINSTELLUNGEN_DEFAULTS !== "undefined") {

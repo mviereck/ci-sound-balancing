@@ -328,8 +328,8 @@ function _implTonePopupUpdLabel() {
   if (!btn) return;
   var prefix = (typeof t === "function") ? t("implTonePopupBtn") : "Elektroden über Töne anspielen";
   var ttKey  = (typeof window.toneTypeI18nKey === "function")
-    ? window.toneTypeI18nKey(toneType_implant) : null;
-  var ttLbl  = (ttKey && typeof t === "function") ? t(ttKey) : toneType_implant;
+    ? window.toneTypeI18nKey(teGet("implantat","toneType")) : null;
+  var ttLbl  = (ttKey && typeof t === "function") ? t(ttKey) : teGet("implantat","toneType");
   btn.textContent = prefix + " — " + ttLbl;
 }
 
@@ -361,13 +361,10 @@ var _implTpModalTone  = null;
 function openImplantTonePopup() {
   if (typeof openToneSelectionDialog !== "function") return;
   var activePan = (activeSide === "left") ? -1 : 1;
-  // BA 296: Vol/Dur/Pau-Zeile nur im Debug-Modus zeigen.
-  var _implDbgOn = !!(window.dbg && typeof window.dbg.isActive === 'function'
-                      && window.dbg.isActive());
 
   openToneSelectionDialog({
-    getToneType:    function ()   { return toneType_implant; },
-    setToneType:    function (tt) { toneType_implant = tt; _implTonePopupUpdLabel(); },
+    getToneType:    function ()   { return teGet("implantat","toneType"); },
+    setToneType:    function (tt) { teSet("implantat","toneType", tt); _implTonePopupUpdLabel(); },
     onToneSelected: function (tt) { _implTpModalTone = tt; },
     onModalClose:   function ()   { _implTpModalTone = null; _implTpCorrectVol = null; },
 
@@ -377,26 +374,26 @@ function openImplantTonePopup() {
     persistentHintKey: "tonePopupHintImplantNoise",   // BA 298: Rausch-Hinweis, dauerhaft sichtbar
 
     // Tondauer + Tonpause dauerhaft sichtbar (wirken auf den Sweep);
-    // Lautstaerke bleibt nur im Debug-Modus.
-    showVolume:       _implDbgOn,
+    // Lautstaerke dauerhaft sichtbar (BA646).
+    showVolume:       true,
     showDuration:     true,
     showPause:        true,
-    getVolumePercent: function ()  { return volume_global; },
-    setVolumePercent: function (v) { volume_global = v; },
-    getDurationMs:    function ()  { return duration_implant; },
-    setDurationMs:    function (v) { duration_implant = v; },
-    getPauseMs:       function ()  { return pause_implant; },
-    setPauseMs:       function (v) { pause_implant = v; },
+    getVolumePercent: function ()  { return teGet("implantat","volume"); },
+    setVolumePercent: function (v) { teSet("implantat","volume", v); },
+    getDurationMs:    function ()  { return teGet("implantat","duration"); },
+    setDurationMs:    function (v) { teSet("implantat","duration", v); },
+    getPauseMs:       function ()  { return teGet("implantat","pause"); },
+    setPauseMs:       function (v) { teSet("implantat","pause", v); },
 
     getVolume: function () {
-      return Math.pow(volume_global / 100, 2);
+      return Math.pow((teGet("implantat","volume") || 0) / 100, 2);
     },
 
     getPreviewSequence: function (lastHz) {
       var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
-      var vol = Math.pow(volume_global / 100, 2);
+      var vol = Math.pow((teGet("implantat","volume") || 0) / 100, 2);
       if (typeof _implTpCorrectVol === 'function') vol = _implTpCorrectVol(vol, hz, activePan);
-      return [{ hz: hz, pan: activePan, vol: vol, durationMs: duration_implant }];
+      return [{ hz: hz, pan: activePan, vol: vol, durationMs: teGet("implantat","duration") }];
     },
 
     onTogglesReady: function (fn) { _implTpCorrectVol = fn; },
@@ -408,8 +405,8 @@ function openImplantTonePopup() {
     onPress: function (electrodeIdx, hz) {
       var c = (typeof gAC === "function") ? gAC() : null;
       if (!c) return;
-      var tt  = (_implTpModalTone !== null) ? _implTpModalTone : toneType_implant;
-      var vol = Math.pow(volume_global / 100, 2);
+      var tt  = (_implTpModalTone !== null) ? _implTpModalTone : teGet("implantat","toneType");
+      var vol = Math.pow((teGet("implantat","volume") || 0) / 100, 2);
       if (typeof _implTpCorrectVol === "function") vol = _implTpCorrectVol(vol, hz, activePan);
       try {
         playToneTyped(c, hz, vol, 60000, activePan, tt);

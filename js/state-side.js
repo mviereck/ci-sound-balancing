@@ -569,7 +569,6 @@ let ELL_curA = -1,
 // Tonart-Auswahl ist im Normalbetrieb ausgeblendet und nur im
 // Debug-Modus waehlbar.
 const TEST_DEFAULTS = {
-  commonVolume: 50,                 // BA 287: gemeinsame Lautstaerke aller Tests + Implantat
   freqmatch: { toneType: "sine", volume: 75, duration: 600, pause: 300, sequence: "abab" },
   elektrodenlautstaerke: { toneType: "sine", volume: 50, duration: 600, pause: 300, sequence: "abab" },
   stereobalance: { toneType: "sine", volume: 75, duration: 600, pause: 300, sequence: "abab" },
@@ -585,15 +584,6 @@ const TONE_ENV_DEFAULTS = {
 let toneType_freqmatch             = TEST_DEFAULTS.freqmatch.toneType;
 let toneType_elektrodenlautstaerke = TEST_DEFAULTS.elektrodenlautstaerke.toneType;
 let toneType_stereobalance         = TEST_DEFAULTS.stereobalance.toneType;
-// BA 287/645: volume_global bleibt bis BA 646 (Implantat-Leser in ui-implant.js).
-let volume_global = TEST_DEFAULTS.commonVolume;
-// BA 242: Implantat-Tab-Tonauswahl. Vol/Dur/Pau analog freqmatch.
-// Default-Tonart Sinus, weil im Implantat-Tab problematische Elektroden
-// per Sinus am besten zu erkennen sind (Rauschen, Aussetzer).
-let toneType_implant = TEST_DEFAULTS.implant.toneType;
-let duration_implant = TEST_DEFAULTS.implant.duration;
-let pause_implant    = TEST_DEFAULTS.implant.pause;
-
 // ---------------------------------------------------------------------
 // Lautstaerke/Testton pro Test (Architektur 00-lautstaerke-architektur.md).
 // EINE zentrale Struktur, ein Eintrag pro Test bzw. Abspielklavier-Familie,
