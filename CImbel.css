@@ -282,6 +282,14 @@ button:disabled {
 .st-bundle-box {
   margin-bottom: 16px;
 }
+.st-license-line {
+  font-size: 0.82em;
+  color: var(--muted, #666);
+  margin: 2px 0 8px;
+}
+.st-license-label {
+  font-weight: 600;
+}
 .btn-sm {
   padding: 4px 10px;
   font-size: 0.82em;

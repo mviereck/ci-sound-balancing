@@ -1171,6 +1171,8 @@ Object.assign(L.fr, {
     stResSlopeExplain: "",
     stBundleUploadFallback: "Lot importé",
     stNoiseLabel: "Bruit de fond :",
+    stLicSentences: "Enregistrements de phrases :",
+    stLicNoise: "Bruit de masquage :",
     stNoiseDefaultOpt: "Bruit propre au test",
     stResNoisePrefix: "Bruit :",
     stDoneBody: "Le résultat figure sous « Résultats » → « Test de parole ».",

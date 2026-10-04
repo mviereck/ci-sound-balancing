@@ -1171,6 +1171,8 @@ Object.assign(L.es, {
     stResSlopeExplain: "",
     stBundleUploadFallback: "Paquete subido",
     stNoiseLabel: "Ruido de fondo:",
+    stLicSentences: "Grabaciones de frases:",
+    stLicNoise: "Ruido de enmascaramiento:",
     stNoiseDefaultOpt: "Ruido propio de la prueba",
     stResNoisePrefix: "Ruido:",
     stDoneBody: "El resultado aparece en «Resultados» → «Prueba de habla».",

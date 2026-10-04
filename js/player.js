@@ -1967,15 +1967,7 @@ const plCategories = {
     // --- Anzeige (unveraendert) ---
     currentItem: function () {
       if (typeof sCurRec === "undefined" || !sCurRec) return null;
-      return {
-        source:    sCurRec.sourceTitle || "",
-        speaker:   sCurRec.title || (sCurRec.tags && sCurRec.tags.speaker_id) || "",
-        lang:      (sCurRec.tags && sCurRec.tags.lang) || "",
-        license:   sCurRec.license || "",
-        credit:    sCurRec.credit  || "",
-        text:      sCurRec.text    || "",
-        originUrl: (sCurRec.tags && sCurRec.tags.url) || ""
-      };
+      return plSentCtxFromItem(sCurRec);
     },
     title: function (ctx) {
       if (ctx.source && ctx.speaker && ctx.source !== ctx.speaker) {
@@ -2037,18 +2029,9 @@ const plCategories = {
       const pos = it ? sorted.findIndex(function (x) { return x.id === it.id; }) : -1;
       const indexStr = (it && pos >= 0) ? (String(pos + 1) + " / " + String(total)) : ("– / " + String(total));
       if (!it) return { index: indexStr, name: "", kind: "", spectrum: "", source: "", license: "", originUrl: "", recorder: "", credit: "" };
-      return {
-        index:     indexStr,
-        name:      _amNoiseTitleLabel(it),
-        kind:      (it.tags && it.tags.kind)     || "",
-        spectrum:     (it.tags && it.tags.spectrum)  || "",
-        source:       it.sourceTitle || "",
-        license:      (it.tags && it.tags.license) || it.license || "",
-        originUrl:    _plEigenmaterial(it) ? "" : ((it.tags && it.tags.url) || ""),
-        uploadSource: _plEigenmaterialLabel(it),
-        recorder:     (it.tags && it.tags.recorder) || "",
-        credit:       (it.tags && it.tags.credit) || it.credit || ""
-      };
+      const ctx = plNoiseCtxFromItem(it);
+      ctx.index = indexStr;
+      return ctx;
     },
     title: function (ctx) {
       return ctx.index || "";
@@ -2751,40 +2734,49 @@ function _plEigenmaterialLabel(it) {
   return "";
 }
 
-function plUpdDisplay() {
-  // Waehrend der Auto-Weiter-Pause NICHT neu zeichnen -- die Anzeige bliebe
-  // sonst das schon geladene naechste Stueck verraten. Sperre wird am Ton-Start
-  // (und an jedem Abbruch) aufgehoben. Die Box-Options heben sie bewusst auf.
-  if (_plHoldDisplay) return;
+// Roh-Item (audio-source) -> Anzeige-ctx fuer PL_FILTER_DECL.saetze.
+// Reine Abbildung ohne Player-Zustand: sowohl der Satz-currentItem als auch
+// der Sprachtest-Auswahlbereich fuettern damit plRenderMetaLine.
+function plSentCtxFromItem(it) {
+  if (!it) return null;
+  return {
+    source:    it.sourceTitle || "",
+    speaker:   it.title || (it.tags && it.tags.speaker_id) || "",
+    lang:      (it.tags && it.tags.lang) || "",
+    license:   it.license || "",
+    credit:    it.credit  || "",
+    text:      it.text    || "",
+    originUrl: (it.tags && it.tags.url) || ""
+  };
+}
 
-  const titleEl  = document.getElementById("plDispTitle");
-  const metaEl   = document.getElementById("plDispMeta");
-  const detailEl = document.getElementById("plDispDetail");
-  if (!titleEl || !metaEl) return;
+// Roh-Item (audio-source) -> Anzeige-ctx fuer PL_FILTER_DECL.geraeusche
+// (ohne das listen-/positionsabhaengige index-Feld -- das setzt currentItem
+// selbst). Gemeinsame Abbildung fuer Geraeusch-currentItem und Sprachtest.
+function plNoiseCtxFromItem(it) {
+  if (!it) return { name: "", kind: "", spectrum: "", source: "", license: "", originUrl: "", uploadSource: "", recorder: "", credit: "" };
+  return {
+    name:      _amNoiseTitleLabel(it),
+    kind:      (it.tags && it.tags.kind)     || "",
+    spectrum:  (it.tags && it.tags.spectrum) || "",
+    source:    it.sourceTitle || "",
+    license:   (it.tags && it.tags.license) || it.license || "",
+    originUrl: _plEigenmaterial(it) ? "" : ((it.tags && it.tags.url) || ""),
+    uploadSource: _plEigenmaterialLabel(it),
+    recorder:  (it.tags && it.tags.recorder) || "",
+    credit:    (it.tags && it.tags.credit) || it.credit || ""
+  };
+}
 
-  const cat   = plCurrentCategory();
-  const decl  = (PL_FILTER_DECL[plActiveSource] || {}).fieldDecl || [];
-  const ctx   = cat ? cat.currentItem() : null;
-
-  // --- Titelzeile (ueber den Vertrag: cat.title) ---
-  let titleText = "";
-  if (ctx && cat && typeof cat.title === "function") {
-    titleText = cat.title(ctx) || "";
-  }
-  if (!titleText) {
-    titleText = (typeof t === "function") ? t("plDispEmpty") : "Nichts geladen";
-  }
-  titleEl.textContent = titleText;
-
-  // --- Kern-Meta: role creator / source / origin / license, visibility always ---
-  // Die Meta-Zeile wird in FESTER Rollen-Reihenfolge gebaut (creator -> Herkunft
-  // -> license), unabhaengig von der fieldDecl-Reihenfolge der Kategorie. So ist
-  // die Anordnung ueber alle vier Kategorien gleich. Innerhalb einer Rolle gilt
-  // die fieldDecl-Reihenfolge (z.B. Audioquelle vor Textquelle).
-  // license wird klickbar (oeffnet Volltext-Dialog), origin wird externer Link.
-  // Herkunfts- (origin/source) UND Lizenz-Felder erhalten ein vorangestelltes
-  // Label aus f.labelKey; creator (Name/Kuenstler) bleibt ohne Praefix.
-  metaEl.innerHTML = "";
+// Baut die Meta-Zeile (creator / Herkunft / Lizenz) in targetEl aus einer
+// fieldDecl + einem Anzeige-ctx. Datengetrieben und zustandsfrei: feste
+// Rollen-Reihenfolge, Herkunft als externer Link, Lizenz klickbar (Volltext-
+// Dialog) sofern Katalog-Eintrag. Gemeinsame Anzeige fuer Player-Display UND
+// Sprachtest-Auswahlbereich -- EINE Quelle, keine Kopie. targetEl wird geleert.
+function plRenderMetaLine(targetEl, decl, ctx) {
+  if (!targetEl) return;
+  targetEl.innerHTML = "";
+  decl = decl || [];
   const metaNodes = [];
   const META_ROLE_ORDER = ["creator", "attribution", "source", "origin", "license"];
 
@@ -2838,9 +2830,45 @@ function plUpdDisplay() {
     });
   });
   metaNodes.forEach(function (node, i) {
-    if (i > 0) metaEl.appendChild(document.createTextNode(" · "));
-    metaEl.appendChild(node);
+    if (i > 0) targetEl.appendChild(document.createTextNode(" · "));
+    targetEl.appendChild(node);
   });
+}
+
+function plUpdDisplay() {
+  // Waehrend der Auto-Weiter-Pause NICHT neu zeichnen -- die Anzeige bliebe
+  // sonst das schon geladene naechste Stueck verraten. Sperre wird am Ton-Start
+  // (und an jedem Abbruch) aufgehoben. Die Box-Options heben sie bewusst auf.
+  if (_plHoldDisplay) return;
+
+  const titleEl  = document.getElementById("plDispTitle");
+  const metaEl   = document.getElementById("plDispMeta");
+  const detailEl = document.getElementById("plDispDetail");
+  if (!titleEl || !metaEl) return;
+
+  const cat   = plCurrentCategory();
+  const decl  = (PL_FILTER_DECL[plActiveSource] || {}).fieldDecl || [];
+  const ctx   = cat ? cat.currentItem() : null;
+
+  // --- Titelzeile (ueber den Vertrag: cat.title) ---
+  let titleText = "";
+  if (ctx && cat && typeof cat.title === "function") {
+    titleText = cat.title(ctx) || "";
+  }
+  if (!titleText) {
+    titleText = (typeof t === "function") ? t("plDispEmpty") : "Nichts geladen";
+  }
+  titleEl.textContent = titleText;
+
+  // --- Kern-Meta: role creator / source / origin / license, visibility always ---
+  // Die Meta-Zeile wird in FESTER Rollen-Reihenfolge gebaut (creator -> Herkunft
+  // -> license), unabhaengig von der fieldDecl-Reihenfolge der Kategorie. So ist
+  // die Anordnung ueber alle vier Kategorien gleich. Innerhalb einer Rolle gilt
+  // die fieldDecl-Reihenfolge (z.B. Audioquelle vor Textquelle).
+  // license wird klickbar (oeffnet Volltext-Dialog), origin wird externer Link.
+  // Herkunfts- (origin/source) UND Lizenz-Felder erhalten ein vorangestelltes
+  // Label aus f.labelKey; creator (Name/Kuenstler) bleibt ohne Praefix.
+  plRenderMetaLine(metaEl, decl, ctx);
 
   // --- Detail-Zeile: role detail, visibility always ---
   const detailParts = [];

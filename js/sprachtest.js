@@ -927,6 +927,19 @@ function st_buildBundleFragment() {
   sel.addEventListener("change", function () { st_setActiveCollection(sel.value); });
   selRow.append(selLabel, sel);
 
+  // Lizenz-/Herkunftszeile der Satzaufnahmen (gleiche Anzeige wie im Player,
+  // ueber plRenderMetaLine). Mit vorangestelltem Label, damit klar ist, wozu
+  // die Lizenz gehoert.
+  const sentLic = document.createElement("div");
+  sentLic.className = "st-license-line";
+  const sentLicLabel = document.createElement("span");
+  sentLicLabel.className = "st-license-label";
+  sentLicLabel.setAttribute("data-t", "stLicSentences");
+  const sentLicMeta = document.createElement("span");
+  sentLicMeta.className = "st-license-meta";
+  sentLicMeta.id = "ST_sentLicenseMeta";
+  sentLic.append(sentLicLabel, document.createTextNode(" "), sentLicMeta);
+
   // Upload-Bereich mit Zenodo-Erklaerung.
   const upRow = document.createElement("div");
   upRow.className = "st-bundle-upload-row";
@@ -971,12 +984,59 @@ function st_buildBundleFragment() {
   noiseSel.addEventListener("change", function () {
     st_noiseChoiceId = noiseSel.value || ST_NOISE_DEFAULT;
     if (typeof window._autoSaveState === "function") window._autoSaveState();
+    st_refreshLicenseLines();
   });
   noiseRow.append(noiseLabel, noiseSel);
 
-  wrap.append(selRow, noiseRow, upRow, status, loadHint);
-  ST_bundleEls = { wrap: wrap, selRow: selRow, select: sel, status: status, noiseSelect: noiseSel };
+  // Lizenz-/Herkunftszeile des Stoergeraeuschs (gleiche Anzeige wie im Player).
+  const noiseLic = document.createElement("div");
+  noiseLic.className = "st-license-line";
+  const noiseLicLabel = document.createElement("span");
+  noiseLicLabel.className = "st-license-label";
+  noiseLicLabel.setAttribute("data-t", "stLicNoise");
+  const noiseLicMeta = document.createElement("span");
+  noiseLicMeta.className = "st-license-meta";
+  noiseLicMeta.id = "ST_noiseLicenseMeta";
+  noiseLic.append(noiseLicLabel, document.createTextNode(" "), noiseLicMeta);
+
+  wrap.append(selRow, sentLic, noiseRow, noiseLic, upRow, status, loadHint);
+  ST_bundleEls = {
+    wrap: wrap, selRow: selRow, select: sel, status: status, noiseSelect: noiseSel,
+    sentLicenseMeta: sentLicMeta, noiseLicenseMeta: noiseLicMeta
+  };
   return wrap;
+}
+
+// Zeichnet die beiden Lizenz-/Herkunftszeilen (Satzaufnahmen + Stoergeraeusch)
+// neu -- gleiche Anzeige wie im Player, ueber plRenderMetaLine mit der jeweiligen
+// Kategorie-fieldDecl und einem reinen ctx (plSentCtxFromItem/plNoiseCtxFromItem).
+// Satz-ctx aus einem repraesentativen Item der aktiven Sammlung (eine Lizenz pro
+// Sammlung). Geraeusch-ctx: Werks-Item beim Default, sonst das gewaehlte Item.
+function st_refreshLicenseLines() {
+  if (!ST_bundleEls) return;
+  if (typeof plRenderMetaLine !== "function") return;
+
+  const sentEl = ST_bundleEls.sentLicenseMeta;
+  if (sentEl && typeof PL_FILTER_DECL !== "undefined" && PL_FILTER_DECL.saetze) {
+    const sent = st_allOlsaSentences();
+    const ctx = (sent.length && typeof plSentCtxFromItem === "function")
+      ? plSentCtxFromItem(sent[0]) : null;
+    plRenderMetaLine(sentEl, PL_FILTER_DECL.saetze.fieldDecl, ctx);
+  }
+
+  const noiseEl = ST_bundleEls.noiseLicenseMeta;
+  if (noiseEl && typeof PL_FILTER_DECL !== "undefined" && PL_FILTER_DECL.geraeusche) {
+    let nItem = null;
+    if (st_noiseChoiceId === ST_NOISE_DEFAULT) {
+      nItem = st_findNoiseItem();                       // testeigenes Werksrauschen
+    } else {
+      const items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
+      nItem = items.find(function (x) { return x.id === st_noiseChoiceId; }) || null;
+    }
+    const ctx = (nItem && typeof plNoiseCtxFromItem === "function")
+      ? plNoiseCtxFromItem(nItem) : null;
+    plRenderMetaLine(noiseEl, PL_FILTER_DECL.geraeusche.fieldDecl, ctx);
+  }
 }
 
 // Geraeusch-Dropdown befuellen: feste Default-Option (testeigenes
@@ -1013,6 +1073,7 @@ function st_refreshNoiseSelect() {
     || gleichmaessig.some(function (it) { return it.id === st_noiseChoiceId; });
   if (!exists) st_noiseChoiceId = ST_NOISE_DEFAULT;
   sel.value = st_noiseChoiceId;
+  st_refreshLicenseLines();
 }
 
 // Auswahl-Dropdown befuellen; Auswahl-Zeile nur bei > 1 Sammlung zeigen.
@@ -1030,6 +1091,7 @@ function st_refreshBundleSelect() {
   const cur = st_currentTestSet();
   if (cur) sel.value = cur;
   ST_bundleEls.selRow.style.display = (avail.length > 1) ? "" : "none";
+  st_refreshLicenseLines();
 }
 
 // Aktive Sammlung setzen (Umschalten per test_set-Wert).

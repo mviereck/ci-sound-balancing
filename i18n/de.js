@@ -1484,6 +1484,8 @@ Object.assign(L.de, {
     stUploadErrGeneric: "Das ZIP konnte nicht verarbeitet werden.",
     stResBundlePrefix: "Gemessen mit:",
     stNoiseLabel: "Hintergrundgeraeusch:",
+    stLicSentences: "Satzaufnahmen:",
+    stLicNoise: "Stoergeraeusch:",
     stNoiseDefaultOpt: "Testeigenes Rauschen",
     stResNoisePrefix: "Stoergeraeusch:",
     sliderControl: "Slider-Steuerung:",
