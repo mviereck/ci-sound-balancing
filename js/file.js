@@ -156,6 +156,14 @@ function resetAll() {
   if (typeof toneType_implant !== "undefined") toneType_implant = TEST_DEFAULTS.implant.toneType;
   if (typeof duration_implant !== "undefined") duration_implant = TEST_DEFAULTS.implant.duration;
   if (typeof pause_implant    !== "undefined") pause_implant    = TEST_DEFAULTS.implant.pause;
+  // Lautstaerke/Testton pro Test auf Defaults (00-lautstaerke-architektur.md).
+  if (typeof TEST_EINSTELLUNGEN !== "undefined"
+      && typeof TEST_EINSTELLUNGEN_DEFAULTS !== "undefined") {
+    Object.keys(TEST_EINSTELLUNGEN_DEFAULTS).forEach(function (k) {
+      if (typeof teSetEintrag === "function")
+        teSetEintrag(k, JSON.parse(JSON.stringify(TEST_EINSTELLUNGEN_DEFAULTS[k])));
+    });
+  }
   // --- Latenz ---
   if (typeof LTZ_result !== "undefined") LTZ_result = null;
   if (typeof plApplyLatency !== "undefined") plApplyLatency = true;

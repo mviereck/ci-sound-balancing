@@ -620,6 +620,87 @@ let toneType_implant = TEST_DEFAULTS.implant.toneType;
 let duration_implant = TEST_DEFAULTS.implant.duration;
 let pause_implant    = TEST_DEFAULTS.implant.pause;
 
+// ---------------------------------------------------------------------
+// Lautstaerke/Testton pro Test (Architektur 00-lautstaerke-architektur.md).
+// EINE zentrale Struktur, ein Eintrag pro Test bzw. Abspielklavier-Familie,
+// einheitliches Feldschema { volume, toneType, duration, pause, sequence }.
+// Nicht genutzte Felder bleiben null. volume ist Prozent (0..100).
+// EINZIGE Wertquelle; Zugriff NUR ueber teGet/teSet (siehe unten).
+// ---------------------------------------------------------------------
+const TEST_EINSTELLUNGEN = {
+  elektrodenlautstaerke: {
+    volume: 50,
+    toneType: TEST_DEFAULTS.elektrodenlautstaerke.toneType,
+    duration: TEST_DEFAULTS.elektrodenlautstaerke.duration,
+    pause: TEST_DEFAULTS.elektrodenlautstaerke.pause,
+    sequence: TEST_DEFAULTS.elektrodenlautstaerke.sequence
+  },
+  stereobalance: {
+    volume: 50,
+    toneType: TEST_DEFAULTS.stereobalance.toneType,
+    duration: TEST_DEFAULTS.stereobalance.duration,
+    pause: TEST_DEFAULTS.stereobalance.pause,
+    sequence: TEST_DEFAULTS.stereobalance.sequence
+  },
+  freqmatch: {
+    volume: 50,
+    toneType: TEST_DEFAULTS.freqmatch.toneType,
+    duration: TEST_DEFAULTS.freqmatch.duration,
+    pause: TEST_DEFAULTS.freqmatch.pause,
+    sequence: TEST_DEFAULTS.freqmatch.sequence
+  },
+  latenz: {
+    volume: 50,
+    toneType: null, duration: null, pause: null, sequence: null
+  },
+  sprachtest: {
+    volume: 50,
+    toneType: null, duration: null, pause: null, sequence: null
+  },
+  abspielklavier: {
+    volume: 50,
+    toneType: "sine",
+    duration: 500,
+    pause: 250,
+    sequence: null
+  },
+  implantat: {
+    volume: 50,
+    toneType: TEST_DEFAULTS.implant.toneType,
+    duration: TEST_DEFAULTS.implant.duration,
+    pause: TEST_DEFAULTS.implant.pause,
+    sequence: null
+  }
+};
+
+// Default-Vorlage je Eintrag (fuer Reset + Lade-Fallback). Tiefenkopie,
+// damit Reset nicht die laufende Struktur referenziert.
+const TEST_EINSTELLUNGEN_DEFAULTS = JSON.parse(JSON.stringify(TEST_EINSTELLUNGEN));
+
+// Zentraler Getter/Setter -- EINZIGER Zugriffsweg (Prinzip 4).
+// key: Eintrags-Schluessel (z.B. "freqmatch"); feld: "volume"|"toneType"|...
+function teGet(key, feld) {
+  const e = TEST_EINSTELLUNGEN[key];
+  return e ? e[feld] : null;
+}
+function teSet(key, feld, wert) {
+  const e = TEST_EINSTELLUNGEN[key];
+  if (e) e[feld] = wert;
+}
+// Ganzen Eintrag holen/setzen (fuer save-schema). setzt nur bekannte Felder.
+function teGetEintrag(key) {
+  const e = TEST_EINSTELLUNGEN[key];
+  return e ? { volume: e.volume, toneType: e.toneType, duration: e.duration,
+              pause: e.pause, sequence: e.sequence } : null;
+}
+function teSetEintrag(key, obj) {
+  const e = TEST_EINSTELLUNGEN[key];
+  if (!e || !obj || typeof obj !== "object") return;
+  ["volume", "toneType", "duration", "pause", "sequence"].forEach(function (f) {
+    if (obj[f] !== undefined) e[f] = obj[f];
+  });
+}
+
 // Frequenzabgleich-Ergebnisse (global, nicht pro Seite)
 // { varSide, refSide, elIdx, varFreq, refFreq, timestamp }
 let FRQ_resultsArray = [];

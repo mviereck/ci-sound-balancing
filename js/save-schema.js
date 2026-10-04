@@ -269,7 +269,97 @@ var SAVE_SCHEMA_GLOBAL = [
     get: function () { return (typeof audiologUserNote !== "undefined" ? audiologUserNote : ""); },
     set: function (v) { if (typeof audiologUserNote !== "undefined") { audiologUserNote = (typeof v === "string") ? v : ""; var e = document.getElementById("audiologNoteInput"); if (e) e.value = audiologUserNote; } },
     default: "", valid: { type: "string" } },
+  // --- Lautstaerke/Testton pro Test (00-lautstaerke-architektur.md) ---
+  { key: "te_elektrodenlautstaerke", scope: "global",
+    get: function () { return teGetEintrag("elektrodenlautstaerke"); },
+    set: function (v) { if (v) teSetEintrag("elektrodenlautstaerke", v); },
+    default: function () { return teGetEintrag("elektrodenlautstaerke"); },
+    valid: { type: "object" } },
+  { key: "te_stereobalance", scope: "global",
+    get: function () { return teGetEintrag("stereobalance"); },
+    set: function (v) { if (v) teSetEintrag("stereobalance", v); },
+    default: function () { return teGetEintrag("stereobalance"); },
+    valid: { type: "object" } },
+  { key: "te_freqmatch", scope: "global",
+    get: function () { return teGetEintrag("freqmatch"); },
+    set: function (v) { if (v) teSetEintrag("freqmatch", v); },
+    default: function () { return teGetEintrag("freqmatch"); },
+    valid: { type: "object" } },
+  { key: "te_latenz", scope: "global",
+    get: function () { return teGetEintrag("latenz"); },
+    set: function (v) { if (v) teSetEintrag("latenz", v); },
+    default: function () { return teGetEintrag("latenz"); },
+    valid: { type: "object" } },
+  { key: "te_sprachtest", scope: "global",
+    get: function () { return teGetEintrag("sprachtest"); },
+    set: function (v) { if (v) teSetEintrag("sprachtest", v); },
+    default: function () { return teGetEintrag("sprachtest"); },
+    valid: { type: "object" } },
+  { key: "te_abspielklavier", scope: "global",
+    get: function () { return teGetEintrag("abspielklavier"); },
+    set: function (v) { if (v) teSetEintrag("abspielklavier", v); },
+    default: function () { return teGetEintrag("abspielklavier"); },
+    valid: { type: "object" } },
+  { key: "te_implantat", scope: "global",
+    get: function () { return teGetEintrag("implantat"); },
+    set: function (v) { if (v) teSetEintrag("implantat", v); },
+    default: function () { return teGetEintrag("implantat"); },
+    valid: { type: "object" } },
 ];
+
+// Migration: speist TEST_EINSTELLUNGEN aus alten flachen Feldern des
+// geladenen Objekts d, falls d die neuen te_*-Objekte NICHT enthielt.
+// Liest nur aus d (nie aus globalen Variablen -> ueberlebt deren Entfernung
+// in BA645/646). Aufruf am Ende von applyState (Schritt 5).
+function teMigriereAusAlt(d) {
+  if (!d || typeof d !== "object") return;
+  var hat = function (k) { return d[k] !== undefined; };
+  // Lautstaerke: altes volume_global speiste ELL, STB, Freqmatch UND Implantat.
+  if (d.te_elektrodenlautstaerke === undefined && hat("volume_global"))
+    teSet("elektrodenlautstaerke", "volume", d.volume_global);
+  if (d.te_stereobalance === undefined && hat("volume_global"))
+    teSet("stereobalance", "volume", d.volume_global);
+  if (d.te_freqmatch === undefined && hat("volume_global"))
+    teSet("freqmatch", "volume", d.volume_global);
+  if (d.te_implantat === undefined && hat("volume_global"))
+    teSet("implantat", "volume", d.volume_global);
+  // Latenz: alter eigener Wert ltz_volume (war nie im Schema -> i.d.R. nicht
+  // in alten Dateien; defensiv dennoch beruecksichtigt).
+  if (d.te_latenz === undefined && hat("ltz_volume"))
+    teSet("latenz", "volume", d.ltz_volume);
+  // Sprachtest hatte frueher keinen eigenen Wert -> Default 50 bleibt.
+  // Abspielklaviere: alter geteilter Satz (war nie im Schema -> i.d.R. nicht
+  // in alten Dateien; defensiv).
+  if (d.te_abspielklavier === undefined) {
+    if (hat("FRQ_pianoVolume"))   teSet("abspielklavier", "volume",   d.FRQ_pianoVolume);
+    if (hat("FRQ_pianoDuration")) teSet("abspielklavier", "duration", d.FRQ_pianoDuration);
+    if (hat("FRQ_pianoPause"))    teSet("abspielklavier", "pause",    d.FRQ_pianoPause);
+  }
+  // Testton-Parameter je Reiter: alte *_<test>-Felder -> gleichnamige Felder.
+  if (d.te_elektrodenlautstaerke === undefined) {
+    if (hat("toneType_elektrodenlautstaerke")) teSet("elektrodenlautstaerke", "toneType", d.toneType_elektrodenlautstaerke);
+    if (hat("duration_elektrodenlautstaerke")) teSet("elektrodenlautstaerke", "duration", d.duration_elektrodenlautstaerke);
+    if (hat("pause_elektrodenlautstaerke"))    teSet("elektrodenlautstaerke", "pause",    d.pause_elektrodenlautstaerke);
+    if (hat("sequence_elektrodenlautstaerke")) teSet("elektrodenlautstaerke", "sequence", d.sequence_elektrodenlautstaerke);
+  }
+  if (d.te_stereobalance === undefined) {
+    if (hat("toneType_stereobalance")) teSet("stereobalance", "toneType", d.toneType_stereobalance);
+    if (hat("duration_stereobalance")) teSet("stereobalance", "duration", d.duration_stereobalance);
+    if (hat("pause_stereobalance"))    teSet("stereobalance", "pause",    d.pause_stereobalance);
+    if (hat("sequence_stereobalance")) teSet("stereobalance", "sequence", d.sequence_stereobalance);
+  }
+  if (d.te_freqmatch === undefined) {
+    if (hat("toneType_freqmatch")) teSet("freqmatch", "toneType", d.toneType_freqmatch);
+    if (hat("duration_freqmatch")) teSet("freqmatch", "duration", d.duration_freqmatch);
+    if (hat("pause_freqmatch"))    teSet("freqmatch", "pause",    d.pause_freqmatch);
+    if (hat("sequence_freqmatch")) teSet("freqmatch", "sequence", d.sequence_freqmatch);
+  }
+  if (d.te_implantat === undefined) {
+    if (hat("toneType_implant")) teSet("implantat", "toneType", d.toneType_implant);
+    if (hat("duration_implant")) teSet("implantat", "duration", d.duration_implant);
+    if (hat("pause_implant"))    teSet("implantat", "pause",    d.pause_implant);
+  }
+}
 
 // Normalisiert einen geladenen Bandsatz:
 //  - Laenge auf nEl (fehlende hinten mit Fallback fuellen, ueberzaehlige
@@ -565,6 +655,8 @@ function applyState(d) {
       });
     }
   });
+  // Alt-Format -> TEST_EINSTELLUNGEN (00-lautstaerke-architektur.md Sec. 4.7).
+  if (typeof teMigriereAusAlt === "function") teMigriereAusAlt(d);
 }
 
 // -----------------------------------------------------------------------
