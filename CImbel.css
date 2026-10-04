@@ -282,13 +282,13 @@ button:disabled {
 .st-bundle-box {
   margin-bottom: 16px;
 }
-.st-license-line {
+.st-license-link {
   font-size: 0.82em;
   color: var(--muted, #666);
-  margin: 2px 0 8px;
-}
-.st-license-label {
-  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 8px;
+  white-space: nowrap;
 }
 .btn-sm {
   padding: 4px 10px;

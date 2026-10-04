@@ -925,20 +925,10 @@ function st_buildBundleFragment() {
   const sel = document.createElement("select");
   sel.id = "ST_bundleSelect";
   sel.addEventListener("change", function () { st_setActiveCollection(sel.value); });
-  selRow.append(selLabel, sel);
-
-  // Lizenz-/Herkunftszeile der Satzaufnahmen (gleiche Anzeige wie im Player,
-  // ueber plRenderMetaLine). Mit vorangestelltem Label, damit klar ist, wozu
-  // die Lizenz gehoert.
-  const sentLic = document.createElement("div");
-  sentLic.className = "st-license-line";
-  const sentLicLabel = document.createElement("span");
-  sentLicLabel.className = "st-license-label";
-  sentLicLabel.setAttribute("data-t", "stLicSentences");
-  const sentLicMeta = document.createElement("span");
-  sentLicMeta.className = "st-license-meta";
-  sentLicMeta.id = "ST_sentLicenseMeta";
-  sentLic.append(sentLicLabel, document.createTextNode(" "), sentLicMeta);
+  // Dezenter Link hinter dem Dropdown: oeffnet die Erzeuger-/Lizenz-Modalbox
+  // der Satzaufnahmen (gleiche Anzeige wie im Player, ueber plRenderMetaLine).
+  const sentLicLink = st_makeLicenseLink("saetze");
+  selRow.append(selLabel, sel, sentLicLink);
 
   // Upload-Bereich mit Zenodo-Erklaerung.
   const upRow = document.createElement("div");
@@ -984,48 +974,53 @@ function st_buildBundleFragment() {
   noiseSel.addEventListener("change", function () {
     st_noiseChoiceId = noiseSel.value || ST_NOISE_DEFAULT;
     if (typeof window._autoSaveState === "function") window._autoSaveState();
-    st_refreshLicenseLines();
   });
-  noiseRow.append(noiseLabel, noiseSel);
+  // Dezenter Link hinter dem Geraeusch-Dropdown: Erzeuger-/Lizenz-Modalbox.
+  const noiseLicLink = st_makeLicenseLink("geraeusche");
+  noiseRow.append(noiseLabel, noiseSel, noiseLicLink);
 
-  // Lizenz-/Herkunftszeile des Stoergeraeuschs (gleiche Anzeige wie im Player).
-  const noiseLic = document.createElement("div");
-  noiseLic.className = "st-license-line";
-  const noiseLicLabel = document.createElement("span");
-  noiseLicLabel.className = "st-license-label";
-  noiseLicLabel.setAttribute("data-t", "stLicNoise");
-  const noiseLicMeta = document.createElement("span");
-  noiseLicMeta.className = "st-license-meta";
-  noiseLicMeta.id = "ST_noiseLicenseMeta";
-  noiseLic.append(noiseLicLabel, document.createTextNode(" "), noiseLicMeta);
-
-  wrap.append(selRow, sentLic, noiseRow, noiseLic, upRow, status, loadHint);
+  wrap.append(selRow, noiseRow, upRow, status, loadHint);
   ST_bundleEls = {
-    wrap: wrap, selRow: selRow, select: sel, status: status, noiseSelect: noiseSel,
-    sentLicenseMeta: sentLicMeta, noiseLicenseMeta: noiseLicMeta
+    wrap: wrap, selRow: selRow, select: sel, status: status, noiseSelect: noiseSel
   };
   return wrap;
 }
 
-// Zeichnet die beiden Lizenz-/Herkunftszeilen (Satzaufnahmen + Stoergeraeusch)
-// neu -- gleiche Anzeige wie im Player, ueber plRenderMetaLine mit der jeweiligen
-// Kategorie-fieldDecl und einem reinen ctx (plSentCtxFromItem/plNoiseCtxFromItem).
-// Satz-ctx aus einem repraesentativen Item der aktiven Sammlung (eine Lizenz pro
-// Sammlung). Geraeusch-ctx: Werks-Item beim Default, sonst das gewaehlte Item.
-function st_refreshLicenseLines() {
-  if (!ST_bundleEls) return;
-  if (typeof plRenderMetaLine !== "function") return;
+// Baut den dezenten "Erzeuger und Lizenz"-Link fuer eine Kategorie
+// ("saetze" | "geraeusche"); Klick oeffnet die Modalbox mit genau den
+// zugehoerigen Angaben.
+function st_makeLicenseLink(kind) {
+  const a = document.createElement("a");
+  a.href = "#";
+  a.className = "st-license-link";
+  a.setAttribute("data-t", "stLicLink");
+  a.textContent = (typeof t === "function") ? t("stLicLink") : "Erzeuger und Lizenz";
+  a.addEventListener("click", function (e) {
+    e.preventDefault();
+    st_openLicenseDialog(kind);
+  });
+  return a;
+}
 
-  const sentEl = ST_bundleEls.sentLicenseMeta;
-  if (sentEl && typeof PL_FILTER_DECL !== "undefined" && PL_FILTER_DECL.saetze) {
+// Oeffnet die Erzeuger-/Lizenz-Modalbox fuer eine Kategorie und fuellt den
+// Body mit der Player-Meta-Zeile (plRenderMetaLine) aus dem passenden ctx:
+// Satz-ctx aus einem repraesentativen Item der aktiven Sammlung (eine Lizenz
+// pro Sammlung); Geraeusch-ctx aus dem Werks-Item beim Default, sonst dem
+// gewaehlten Item.
+function st_openLicenseDialog(kind) {
+  const dlg  = document.getElementById("stLicenseDialog");
+  const body = document.getElementById("stLicenseBody");
+  if (!dlg || !body || typeof plRenderMetaLine !== "function") return;
+  if (typeof PL_FILTER_DECL === "undefined") return;
+
+  let decl = null, ctx = null;
+  if (kind === "saetze" && PL_FILTER_DECL.saetze) {
+    decl = PL_FILTER_DECL.saetze.fieldDecl;
     const sent = st_allOlsaSentences();
-    const ctx = (sent.length && typeof plSentCtxFromItem === "function")
+    ctx = (sent.length && typeof plSentCtxFromItem === "function")
       ? plSentCtxFromItem(sent[0]) : null;
-    plRenderMetaLine(sentEl, PL_FILTER_DECL.saetze.fieldDecl, ctx);
-  }
-
-  const noiseEl = ST_bundleEls.noiseLicenseMeta;
-  if (noiseEl && typeof PL_FILTER_DECL !== "undefined" && PL_FILTER_DECL.geraeusche) {
+  } else if (kind === "geraeusche" && PL_FILTER_DECL.geraeusche) {
+    decl = PL_FILTER_DECL.geraeusche.fieldDecl;
     let nItem = null;
     if (st_noiseChoiceId === ST_NOISE_DEFAULT) {
       nItem = st_findNoiseItem();                       // testeigenes Werksrauschen
@@ -1033,10 +1028,22 @@ function st_refreshLicenseLines() {
       const items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
       nItem = items.find(function (x) { return x.id === st_noiseChoiceId; }) || null;
     }
-    const ctx = (nItem && typeof plNoiseCtxFromItem === "function")
+    ctx = (nItem && typeof plNoiseCtxFromItem === "function")
       ? plNoiseCtxFromItem(nItem) : null;
-    plRenderMetaLine(noiseEl, PL_FILTER_DECL.geraeusche.fieldDecl, ctx);
   }
+
+  body.innerHTML = "";
+  const line = document.createElement("div");
+  line.className = "st-license-meta";
+  plRenderMetaLine(line, decl, ctx);
+  if (!line.textContent.trim()) {
+    line.textContent = (typeof t === "function" && t("alNoText") !== "alNoText")
+      ? t("alNoText") : "Keine Angaben hinterlegt.";
+  }
+  body.appendChild(line);
+
+  if (typeof dlg.showModal === "function") dlg.showModal();
+  else dlg.setAttribute("open", "open");
 }
 
 // Geraeusch-Dropdown befuellen: feste Default-Option (testeigenes
@@ -1073,7 +1080,6 @@ function st_refreshNoiseSelect() {
     || gleichmaessig.some(function (it) { return it.id === st_noiseChoiceId; });
   if (!exists) st_noiseChoiceId = ST_NOISE_DEFAULT;
   sel.value = st_noiseChoiceId;
-  st_refreshLicenseLines();
 }
 
 // Auswahl-Dropdown befuellen; Auswahl-Zeile nur bei > 1 Sammlung zeigen.
@@ -1091,7 +1097,6 @@ function st_refreshBundleSelect() {
   const cur = st_currentTestSet();
   if (cur) sel.value = cur;
   ST_bundleEls.selRow.style.display = (avail.length > 1) ? "" : "none";
-  st_refreshLicenseLines();
 }
 
 // Aktive Sammlung setzen (Umschalten per test_set-Wert).
