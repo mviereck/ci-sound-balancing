@@ -239,7 +239,7 @@ async function frq_playCurrent() {
     sequence:      teGet("freqmatch","sequence"),
     mode:          'sequence',
     pauseMs:       _frqTones.pauseMs,
-    toneType:      toneType_freqmatch,
+    toneType:      teGet("freqmatch","toneType"),
     onDone:        function () { isPlay = false; }
   });
 }
@@ -257,7 +257,7 @@ async function frq_playSimultaneous() {
   testUI.tonePlayer.playPair(_frqTones.first, _frqTones.second, {
     pairIndicator: _spi,
     mode:          'both',
-    toneType:      toneType_freqmatch,
+    toneType:      teGet("freqmatch","toneType"),
     onDone:        function () { isPlay = false; }
   });
 }
@@ -1137,8 +1137,8 @@ document.addEventListener("DOMContentLoaded", () => {
           setVolume: function (v) { teSet("freqmatch","volume", v); },
         },
         tonePopupButton: {
-          getToneType: function() { return toneType_freqmatch; },
-          setToneType: function(tt) { toneType_freqmatch = tt; },
+          getToneType: function() { return teGet("freqmatch","toneType"); },
+          setToneType: function(tt) { teSet("freqmatch","toneType", tt); },
           // BA 230: Klavier-Bug-Fix — Modal teilt die aktuell angeklickte
           // Tonart mit; onPress liest frq_modalTone mit Fallback auf toneType_freqmatch.
           onToneSelected:  function(tt) { frq_modalTone = tt; },
@@ -1240,7 +1240,7 @@ document.addEventListener("DOMContentLoaded", () => {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
             _frq_keyboardT0 = (typeof performance !== 'undefined') ? performance.now() : Date.now();
-            var tt      = (frq_modalTone !== null) ? frq_modalTone : toneType_freqmatch;
+            var tt      = (frq_modalTone !== null) ? frq_modalTone : teGet("freqmatch","toneType");
             var vol     = FRQ_getVolume();
             var aktivSide = activeSide;
             var aktivPan  = (aktivSide === 'left') ? -1 : 1;
@@ -1258,7 +1258,7 @@ document.addEventListener("DOMContentLoaded", () => {
             var t1   = (typeof performance !== 'undefined') ? performance.now() : Date.now();
             var held = Math.max(0, t1 - _frq_keyboardT0);
             if (held <= 0) return;
-            var tt      = (frq_modalTone !== null) ? frq_modalTone : toneType_freqmatch;
+            var tt      = (frq_modalTone !== null) ? frq_modalTone : teGet("freqmatch","toneType");
             var vol     = FRQ_getVolume();
             var aktivSide = activeSide;
             var gegenSide = (activeSide === 'left') ? 'right' : 'left';

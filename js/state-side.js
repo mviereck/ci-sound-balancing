@@ -580,10 +580,6 @@ const TONE_ENV_DEFAULTS = {
   dbFloor:    -20,      // Startpegel dB (nur bei dblin wirksam)
   release:    "short"   // Ausklang: kurz
 };
-// Tonart pro Test (je Test getrennt, Zugriff ueber tonePopupButton).
-let toneType_freqmatch             = TEST_DEFAULTS.freqmatch.toneType;
-let toneType_elektrodenlautstaerke = TEST_DEFAULTS.elektrodenlautstaerke.toneType;
-let toneType_stereobalance         = TEST_DEFAULTS.stereobalance.toneType;
 // ---------------------------------------------------------------------
 // Lautstaerke/Testton pro Test (Architektur 00-lautstaerke-architektur.md).
 // EINE zentrale Struktur, ein Eintrag pro Test bzw. Abspielklavier-Familie,

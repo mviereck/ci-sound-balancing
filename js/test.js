@@ -1175,7 +1175,7 @@ function playCur() {
     sequence:      teGet("elektrodenlautstaerke","sequence"),
     mode:          'sequence',
     pauseMs:       tGPau(),
-    toneType:      toneType_elektrodenlautstaerke,
+    toneType:      teGet("elektrodenlautstaerke","toneType"),
     onDone:        function () { isPlay = false; }
   });
 }
@@ -1387,8 +1387,8 @@ document.addEventListener("DOMContentLoaded", function() {
           setVolume: function (v) { teSet("elektrodenlautstaerke","volume", v); },
         },
         tonePopupButton: {
-          getToneType: function()   { return toneType_elektrodenlautstaerke; },
-          setToneType: function(tt) { toneType_elektrodenlautstaerke = tt; },
+          getToneType: function()   { return teGet("elektrodenlautstaerke","toneType"); },
+          setToneType: function(tt) { teSet("elektrodenlautstaerke","toneType", tt); },
           // BA 252: Tonart-Merker fuer Klavier-Anschlag im Modal.
           onToneSelected: function(tt) { _ell_tpModalTone = tt; },
           onModalClose:   function()   { _ell_tpModalTone = null; _ell_tpCorrectVol = null; },
@@ -1429,7 +1429,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
             var pan = (activeSide === 'left') ? -1 : 1;
-            var tt  = (_ell_tpModalTone !== null) ? _ell_tpModalTone : toneType_elektrodenlautstaerke;
+            var tt  = (_ell_tpModalTone !== null) ? _ell_tpModalTone : teGet("elektrodenlautstaerke","toneType");
             // BA 302: Korrektur ueber die Schalter-fn (Default an, abschaltbar).
             var vol = tGVol();
             if (typeof _ell_tpCorrectVol === 'function') vol = _ell_tpCorrectVol(vol, hz, pan);
@@ -1575,7 +1575,7 @@ function _ell_playSimul() {
   testUI.tonePlayer.playPair(_ellTones.first, _ellTones.second, {
     pairIndicator: vref && vref.pairIndicator,
     mode:          'both',
-    toneType:      toneType_elektrodenlautstaerke,
+    toneType:      teGet("elektrodenlautstaerke","toneType"),
     onDone:        function () { isPlay = false; }
   });
 }

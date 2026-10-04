@@ -171,7 +171,7 @@ async function stb_playCurrent() {
     sequence:      teGet("stereobalance","sequence"),
     mode:          'sequence',
     pauseMs:       stb_gPau(),
-    toneType:      toneType_stereobalance,
+    toneType:      teGet("stereobalance","toneType"),
     onDone:        function () { stb_isPlay = false; }
   });
 }
@@ -186,7 +186,7 @@ function stb_playSimul() {
   testUI.tonePlayer.playPair(_stbTones.first, _stbTones.second, {
     pairIndicator: _lrPI,
     mode:          'both',
-    toneType:      toneType_stereobalance,
+    toneType:      teGet("stereobalance","toneType"),
     onDone:        function () { stb_isPlay = false; }
   });
 }
@@ -838,8 +838,8 @@ document.addEventListener("DOMContentLoaded", function() {
           setVolume: function (v) { teSet("stereobalance","volume", v); },
         },
         tonePopupButton: {
-          getToneType: function()   { return toneType_stereobalance; },
-          setToneType: function(tt) { toneType_stereobalance = tt; },
+          getToneType: function()   { return teGet("stereobalance","toneType"); },
+          setToneType: function(tt) { teSet("stereobalance","toneType", tt); },
           onToneSelected: function(tt) { _lrTpModalTone = tt; },
           onModalClose:   function()   { _lrTpModalTone = null; _lrTpCorrectVol = null; },
           onTogglesReady: function(fn) { _lrTpCorrectVol = fn; },
@@ -885,7 +885,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
             _lrKbT0 = (typeof performance !== 'undefined') ? performance.now() : Date.now();
-            var tt   = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_stereobalance;
+            var tt   = (_lrTpModalTone !== null) ? _lrTpModalTone : teGet("stereobalance","toneType");
             var vol  = STB_gVol();
             var panA = (activeSide === 'left') ? -1 : 1;
             var hzA;
@@ -908,7 +908,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var t1   = (typeof performance !== 'undefined') ? performance.now() : Date.now();
             var held = Math.max(0, t1 - _lrKbT0);
             if (held <= 0) return;
-            var tt    = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_stereobalance;
+            var tt    = (_lrTpModalTone !== null) ? _lrTpModalTone : teGet("stereobalance","toneType");
             var vol   = STB_gVol();
             var other = (activeSide === 'left') ? 'right' : 'left';
             var panB  = (activeSide === 'left') ? 1 : -1;
