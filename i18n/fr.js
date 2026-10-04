@@ -1172,6 +1172,7 @@ Object.assign(L.fr, {
     stBundleUploadFallback: "Lot importé",
     stNoiseLabel: "Bruit de fond :",
     stLicLink: "Auteur et licence",
+    stLicNoiseSeeMaterial: "voir la licence du matériel de test",
     stNoiseDefaultOpt: "Bruit propre au test",
     stResNoisePrefix: "Bruit :",
     stDoneBody: "Le résultat figure sous « Résultats » → « Test de parole ».",

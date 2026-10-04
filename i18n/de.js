@@ -1485,6 +1485,7 @@ Object.assign(L.de, {
     stResBundlePrefix: "Gemessen mit:",
     stNoiseLabel: "Hintergrundgeraeusch:",
     stLicLink: "Erzeuger und Lizenz",
+    stLicNoiseSeeMaterial: "siehe Lizenz von Testmaterial",
     stNoiseDefaultOpt: "Testeigenes Rauschen",
     stResNoisePrefix: "Stoergeraeusch:",
     sliderControl: "Slider-Steuerung:",

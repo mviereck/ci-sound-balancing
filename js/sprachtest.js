@@ -1005,13 +1005,28 @@ function st_makeLicenseLink(kind) {
 // Oeffnet die Erzeuger-/Lizenz-Modalbox fuer eine Kategorie und fuellt den
 // Body mit der Player-Meta-Zeile (plRenderMetaLine) aus dem passenden ctx:
 // Satz-ctx aus einem repraesentativen Item der aktiven Sammlung (eine Lizenz
-// pro Sammlung); Geraeusch-ctx aus dem Werks-Item beim Default, sonst dem
-// gewaehlten Item.
+// pro Sammlung); Geraeusch-ctx aus dem gewaehlten Geraeusch-Item. Sonderfall
+// "testeigenes Rauschen": das Werksrauschen gehoert zur Testmaterial-Sammlung
+// und hat keine eigene Nennung -- dann nur der Verweis auf das Testmaterial.
 function st_openLicenseDialog(kind) {
   const dlg  = document.getElementById("stLicenseDialog");
   const body = document.getElementById("stLicenseBody");
   if (!dlg || !body || typeof plRenderMetaLine !== "function") return;
   if (typeof PL_FILTER_DECL === "undefined") return;
+
+  body.innerHTML = "";
+
+  // Testeigenes Rauschen: gehoert zum Testmaterial -> nur Verweis.
+  if (kind === "geraeusche" && st_noiseChoiceId === ST_NOISE_DEFAULT) {
+    const hint = document.createElement("div");
+    hint.className = "st-license-meta";
+    hint.textContent = (typeof t === "function" && t("stLicNoiseSeeMaterial") !== "stLicNoiseSeeMaterial")
+      ? t("stLicNoiseSeeMaterial") : "siehe Lizenz von Testmaterial";
+    body.appendChild(hint);
+    if (typeof dlg.showModal === "function") dlg.showModal();
+    else dlg.setAttribute("open", "open");
+    return;
+  }
 
   let decl = null, ctx = null;
   if (kind === "saetze" && PL_FILTER_DECL.saetze) {
@@ -1021,18 +1036,12 @@ function st_openLicenseDialog(kind) {
       ? plSentCtxFromItem(sent[0]) : null;
   } else if (kind === "geraeusche" && PL_FILTER_DECL.geraeusche) {
     decl = PL_FILTER_DECL.geraeusche.fieldDecl;
-    let nItem = null;
-    if (st_noiseChoiceId === ST_NOISE_DEFAULT) {
-      nItem = st_findNoiseItem();                       // testeigenes Werksrauschen
-    } else {
-      const items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
-      nItem = items.find(function (x) { return x.id === st_noiseChoiceId; }) || null;
-    }
+    const items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
+    const nItem = items.find(function (x) { return x.id === st_noiseChoiceId; }) || null;
     ctx = (nItem && typeof plNoiseCtxFromItem === "function")
       ? plNoiseCtxFromItem(nItem) : null;
   }
 
-  body.innerHTML = "";
   const line = document.createElement("div");
   line.className = "st-license-meta";
   plRenderMetaLine(line, decl, ctx);

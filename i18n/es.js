@@ -1172,6 +1172,7 @@ Object.assign(L.es, {
     stBundleUploadFallback: "Paquete subido",
     stNoiseLabel: "Ruido de fondo:",
     stLicLink: "Autor y licencia",
+    stLicNoiseSeeMaterial: "véase la licencia del material de prueba",
     stNoiseDefaultOpt: "Ruido propio de la prueba",
     stResNoisePrefix: "Ruido:",
     stDoneBody: "El resultado aparece en «Resultados» → «Prueba de habla».",

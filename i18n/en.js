@@ -1172,6 +1172,7 @@ Object.assign(L.en, {
     stBundleUploadFallback: "Uploaded bundle",
     stNoiseLabel: "Background noise:",
     stLicLink: "Creator and licence",
+    stLicNoiseSeeMaterial: "see licence of test material",
     stNoiseDefaultOpt: "Test's own noise",
     stResNoisePrefix: "Noise:",
     stDoneBody: "The result appears under \"Results\" → \"Speech test\".",
