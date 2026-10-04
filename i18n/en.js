@@ -1122,7 +1122,6 @@ Object.assign(L.en, {
     STB_doneExtra:        "You can activate stereo balance in the player.",
     FRQ_doneExtra:        "You can activate frequency warping in the player to hear the effect of an adjusted frequency shift.",
     linksFreesoundDesc:     "Freesound aims to create a huge collaborative database of audio snippets, samples, recordings, bleeps, … released under Creative Commons licenses that allow their reuse.",
-    linksFreesoundUsedLabel: "Used in this tool",
     STB_runningTitle: "Stereo balance test is running",
     STB_runningHint: "Adjust the loudness until both sides sound equally loud.",
     STB_prereqHint: "First run the electrode loudness measurement for both sides.",

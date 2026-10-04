@@ -2614,9 +2614,7 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
 // ist ein vernachlaessigbarer Edge-Case. Einblenden via 'modal-overlay'
 // + '.active' wie testUI.sideCheck.
 (function() {
-  var _CMP_SOUND = 'assets/audio/810330__mokasza__triumphant-success.mp3';
   var _cmpEls    = null;
-  var _cmpAudio  = null;
 
   function _cmpT(key) {
     return (typeof t === 'function' && t(key)) || key;
@@ -2648,10 +2646,6 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
   function _cmpClose() {
     if (!_cmpEls) return;
     _cmpEls.overlay.classList.remove('active');
-    if (_cmpAudio) {
-      try { _cmpAudio.pause(); } catch (e) { /* ignorieren */ }
-      _cmpAudio = null;
-    }
   }
 
   // opts: { nameKey, subtabKey, bodyKey }  — alle drei i18n-Keys, Pflicht.
@@ -2672,14 +2666,6 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
     _cmpEls.overlay.classList.add('active');
     if (typeof safeFocus === 'function') safeFocus(_cmpEls.okBtn);
     else _cmpEls.okBtn.focus();
-
-    try {
-      _cmpAudio = new Audio(_CMP_SOUND);
-      var pr = _cmpAudio.play();   // Promise; bei blockiertem Autoplay still abfangen
-      if (pr && typeof pr.catch === 'function') {
-        pr.catch(function() { /* Autoplay evtl. blockiert — Box bleibt sichtbar */ });
-      }
-    } catch (e) { /* Audio nicht verfuegbar — Box bleibt stumm */ }
   }
 
   testUI.completion = { show: _cmpShow, close: _cmpClose };

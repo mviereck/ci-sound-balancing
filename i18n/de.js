@@ -1417,7 +1417,6 @@ Object.assign(L.de, {
     FRQ_doneExtra:        "Sie können Frequenz-Warping im Player aktivieren, um den Effekt einer angepaßten Frequenzverschiebung zu hören.",
     // BA 279: Freesound-Quelle im Links-Reiter.
     linksFreesoundDesc:     "Freesound möchte eine riesige gemeinschaftliche Datenbank von Audio-Schnipseln, Samples, Aufnahmen, Bleeps, … aufbauen, die unter Creative-Commons-Lizenzen veröffentlicht sind und deren Wiederverwendung erlauben.",
-    linksFreesoundUsedLabel: "In diesem Tool verwendet",
     STB_runningTitle: "Stereo-Balance-Test läuft",
     STB_runningHint: "Passen Sie die Lautstärke an, bis sich beide Seiten gleich laut anhören.",
     STB_prereqHint: "Führen Sie zuerst die Messung Elektrodenlautstärke für beide Seiten aus.",

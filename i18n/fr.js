@@ -1122,7 +1122,6 @@ Object.assign(L.fr, {
     STB_doneExtra:        "Vous pouvez activer la balance stéréo dans le Player.",
     FRQ_doneExtra:        "Vous pouvez activer le warping fréquentiel dans le Player pour entendre l’effet d’un décalage de fréquence ajusté.",
     linksFreesoundDesc:     "Freesound vise à créer une immense base de données collaborative de fragments audio, d’échantillons, d’enregistrements, de bips, … publiés sous licences Creative Commons qui permettent leur réutilisation.",
-    linksFreesoundUsedLabel: "Utilisé dans cet outil",
     STB_runningTitle: "Test de balance stéréo en cours",
     STB_runningHint: "Ajustez le volume jusqu'à ce que les deux côtés paraissent aussi forts.",
     STB_prereqHint: "Effectuez d'abord la mesure d'intensité d'électrode pour les deux côtés.",

@@ -1122,7 +1122,6 @@ Object.assign(L.es, {
     STB_doneExtra:        "Puede activar el balance estéreo en el reproductor.",
     FRQ_doneExtra:        "Puede activar el warping de frecuencia en el reproductor para oír el efecto de un desplazamiento de frecuencia ajustado.",
     linksFreesoundDesc:     "Freesound pretende crear una enorme base de datos colaborativa de fragmentos de audio, muestras, grabaciones, pitidos, … publicados bajo licencias Creative Commons que permiten su reutilización.",
-    linksFreesoundUsedLabel: "Usado en esta herramienta",
     STB_runningTitle: "Prueba de balance estéreo en curso",
     STB_runningHint: "Ajuste el volumen hasta que ambos lados suenen igual de fuertes.",
     STB_prereqHint: "Realice primero la medición de volumen de electrodos para ambos lados.",
