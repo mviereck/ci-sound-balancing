@@ -348,7 +348,7 @@ function _buildTestPanelNew(parentEl, cfg) {
   // --- common: sequence / sliderTarget ---
   var seqSelect = null;
   var showSeq = hc.sequence && (hc.sequence === true || hc.sequence.show !== false);
-  if (showSeq || hc.tonePopupButton) {
+  if (showSeq || hc.tonePopupButton || hc.volumeButton) {
     var rowSequence = _mkEl('div', 'controls-row');
     rowSequence.dataset.row = 'sequence';
 
@@ -389,6 +389,37 @@ function _buildTestPanelNew(parentEl, cfg) {
       _tpUpdateLabel();
       headerRefs.tonePopupBtn = tonePopupBtn;
       headerRefs.tonePopupUpdate = _tpUpdateLabel;
+    }
+
+    // Lautstaerke-Button (00-lautstaerke-architektur.md Sec. 4.2).
+    // Rechts neben dem Testton-Button. Oeffnet die Lautstaerke-Modalbox.
+    if (hc.volumeButton) {
+      var vbCfg = hc.volumeButton;
+      var cgVB = _mkEl('div', 'control-group');
+      var lblVB = _mkEl('label'); _tEl(lblVB, 'volBtnLbl');
+      var volBtn = _mkEl('button', 'btn btn-small');
+      volBtn.type = 'button';
+
+      function _vbUpdateLabel() {
+        var p = (typeof vbCfg.getVolume === 'function') ? vbCfg.getVolume() : null;
+        // Label: "Lautstaerke: NN %" -- Prefix uebersetzt, Wert angehaengt.
+        var prefix = (typeof t === 'function') ? t('volBtnValue') : 'Lautstärke';
+        volBtn.textContent = prefix + ': ' + (p == null ? '--' : p + ' %');
+        delete volBtn.dataset.t; // Text wird dynamisch gesetzt, nicht per applyLang
+      }
+
+      volBtn.addEventListener('click', function () {
+        _openVolumeDialog({
+          getVolume: function () { return vbCfg.getVolume(); },
+          setVolume: function (p) { if (typeof vbCfg.setVolume === 'function') vbCfg.setVolume(p); }
+        }, _vbUpdateLabel);
+      });
+
+      cgVB.append(lblVB, volBtn);
+      rowSequence.appendChild(cgVB);
+      _vbUpdateLabel();
+      headerRefs.volumeBtn = volBtn;
+      headerRefs.volumeUpdate = _vbUpdateLabel;
     }
 
     if (showSeq) {
@@ -2167,6 +2198,60 @@ var testUI = {
   }
 
 };
+
+// Lautstaerke-Modalbox (00-lautstaerke-architektur.md Sec. 4.3).
+// cfg: { getVolume(): number, setVolume(p): void }
+// Hinweistext + 10 Prozent-Buttons (10..100), aktiver hervorgehoben,
+// Klick waehlt UND schliesst. onDone() nach Auswahl (Button-Refresh).
+function _openVolumeDialog(cfg, onDone) {
+  var overlay = _mkEl('div', 'modal-overlay');
+  overlay.classList.add('active');
+  var dlg = _mkEl('div', 'modal-dlg');
+
+  var title = _mkEl('h3');
+  title.dataset.t = 'volDlgTitle';
+  title.style.cssText = 'margin:0 0 8px 0;font-size:1.05em;';
+  dlg.appendChild(title);
+
+  var hint = _mkEl('p');
+  hint.dataset.t = 'volDlgHint';
+  hint.style.cssText = 'margin:0 0 14px 0;font-size:.92em;line-height:1.4;';
+  dlg.appendChild(hint);
+
+  var cur = cfg.getVolume();
+
+  var grid = _mkEl('div');
+  grid.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;justify-content:center;';
+  var schliessen = function () {
+    overlay.classList.remove('active');
+    if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+  };
+  for (var p = 10; p <= 100; p += 10) {
+    (function (val) {
+      var b = _mkEl('button', 'btn vol-dlg-btn');
+      b.type = 'button';
+      b.textContent = val + '%';
+      if (val === cur) b.classList.add('is-active');
+      b.style.cssText = 'min-width:56px;';
+      b.addEventListener('click', function () {
+        cfg.setVolume(val);
+        schliessen();
+        if (typeof onDone === 'function') onDone();
+      });
+      grid.appendChild(b);
+    })(p);
+  }
+  dlg.appendChild(grid);
+
+  // Schliessen ohne Auswahl: Klick auf Overlay-Hintergrund.
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) schliessen();
+  });
+
+  overlay.appendChild(dlg);
+  document.body.appendChild(overlay);
+  if (typeof applyLang === 'function') applyLang();
+}
 
 // BA 207: Modal-Dialog „Testelektroden auswählen".
 // cfg: {
