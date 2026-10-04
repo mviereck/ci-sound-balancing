@@ -1377,7 +1377,7 @@ Object.assign(L.es, {
     linksMeludiaDesc: "Aplicación profesional para entrenar la escucha de música. Disponible con una cuenta MED-EL.",
 
     linksRubberbandDesc: "Biblioteca open-source de alta calidad para estirar el tiempo y desplazar el tono del audio — el tempo y el tono pueden modificarse de forma independiente. CImbel utiliza la variante WebAssembly (RubberBand-WASM) para la simulación del ajuste de frecuencia.",
-    linksSmplrDesc: "Colección de instrumentos muestreados listos para usar para la Web Audio API, utilizables de inmediato en el navegador y sin configuración. CImbel utiliza smplr para los sonidos de Mellotron de los tonos de prueba del IC.",
+    linksSmplrDesc: "Colección de instrumentos muestreados listos para usar para la Web Audio API, utilizables de inmediato en el navegador y sin configuración.",
     linksEasyeffectsDesc: "Ecualizador para Linux que puede reproducir el sonido del ordenador como lo hace el reproductor de CImbel — según los resultados de la medición. CImbel puede generar archivos de configuración adecuados para EasyEffects.",
     linksEqapoDesc: "Ecualizador open-source para Windows. Reproduce el sonido del ordenador como lo hace el reproductor de CImbel — según los resultados de la medición. CImbel puede generar archivos de configuración adecuados para Equalizer APO.",
 
@@ -1400,13 +1400,25 @@ Object.assign(L.es, {
     linksGutenbergDesc: "Project Gutenberg es una biblioteca en línea con más de 75 000 eBooks gratuitos. Incluye también muchos audiolibros, que se pueden encontrar mediante la función de búsqueda.",
 
     linksAudioTitle: "Fuentes de los archivos de audio utilizados",
-    linksAudioIntro: "Origen de las grabaciones de voz utilizadas en el reproductor.",
+    linksAudioIntro: "Origen de las grabaciones de audio utilizadas en el reproductor.",
 
-    linksThorstenDesc: "Thorsten-Voice une inteligencia artificial (IA) y voz — un proyecto gratuito que desarrolla salida TTS artificial en alemán para todos. Las voces pueden utilizarse sin conexión a internet y sin coste, como una donación de voz al mundo.",
+    linksThorstenDesc: "Thorsten ha hablado y grabado decenas de miles de frases y las ha puesto gratuitamente a disposición del público. Su voz está ahora también disponible como voz TTS libre / generada por ordenador, para todos.",
 
     linksCommonVoiceDesc: "Colección de frases con transcripción en más de 100 idiomas del mundo, grabadas por hablantes naturales.",
 
-    linksOpenSlrDesc: "OpenSLR recopila recursos de habla y procesamiento del lenguaje — p. ej. corpus de entrenamiento para reconocimiento de voz y software asociado. El objetivo es un lugar central y sencillo donde los investigadores puedan publicar sus propios recursos. Además, se replican programas de otros lugares para ofrecer redundancia.",
+    linksOpenSlrDesc: "OpenSLR recopila recursos de habla y procesamiento del lenguaje — p. ej. corpus de entrenamiento para reconocimiento de voz y software asociado. El objetivo es un lugar central y sencillo donde los investigadores puedan publicar sus propios recursos.",
+
+    linksWikimediaCommonsDesc: "La Wikipedia hablada ofrece versiones leídas de los artículos de Wikipedia.",
+
+    linksLinguaLibreDesc: "Lingua Libre es un proyecto de la asociación Wikimédia France que pretende construir un corpus audiovisual colaborativo y multilingüe bajo licencia libre.",
+
+    linksLibrivoxDesc: "LibriVox ofrece audiolibros narrados por voluntarios de todo el mundo y puestos a disposición de forma gratuita.",
+
+    linksMailabsDesc: "El M-AILABS Speech Dataset reúne textos de libros leídos en voz alta procedentes de fuentes de dominio público (entre ellas LibriVox y Project Gutenberg) como audio y texto transcrito.",
+
+    linksAruDesc: "El ARU Speech Corpus de la University of Liverpool contiene listas de frases estándar grabadas con claridad (frases IEEE), pronunciadas en inglés en condiciones de estudio controladas.",
+
+    linksRhasspyDesc: "Rhasspy es un proyecto de asistente de voz y también pone a disposición frases habladas con su texto transcrito.",
 
     // BA 172: Tab-Sperre L1
     tabLockTitleStd: "Pestaña aún no disponible",

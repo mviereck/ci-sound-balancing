@@ -1377,7 +1377,7 @@ Object.assign(L.en, {
     linksMeludiaDesc: "Professional app for training music listening. Available with a MED-EL account.",
 
     linksRubberbandDesc: "High-quality open-source library for time-stretching and pitch-shifting audio — tempo and pitch can be changed independently of one another. CImbel uses the WebAssembly variant (RubberBand-WASM) for the frequency-matching simulation.",
-    linksSmplrDesc: "Collection of ready-to-play sampled instruments for the Web Audio API, usable in the browser immediately and without setup. CImbel uses smplr for the Mellotron sounds of the CI test tones.",
+    linksSmplrDesc: "Collection of ready-to-play sampled instruments for the Web Audio API, usable in the browser immediately and without setup.",
     linksEasyeffectsDesc: "Equalizer for Linux that can play back the computer's sound the way CImbel's player does — according to the measurement results. CImbel can generate matching configuration files for EasyEffects.",
     linksEqapoDesc: "Open-source equalizer for Windows. Plays back the computer's sound the way CImbel's player does — according to the measurement results. CImbel can generate matching configuration files for Equalizer APO.",
 
@@ -1400,13 +1400,25 @@ Object.assign(L.en, {
     linksGutenbergDesc: "Project Gutenberg is an online library with more than 75,000 free eBooks. It also includes many audiobooks, which can be found via the search function.",
 
     linksAudioTitle: "Sources of the audio files used",
-    linksAudioIntro: "Origin of the speech recordings used in the player.",
+    linksAudioIntro: "Origin of the audio recordings used in the player.",
 
-    linksThorstenDesc: "Thorsten-Voice brings together artificial intelligence (AI) and speech — a free project that develops artificial German TTS speech output for everyone. The voices can be used without an internet connection and without cost, so to speak a speech donation for the world.",
+    linksThorstenDesc: "Thorsten has spoken and recorded tens of thousands of sentences and made them freely available to the public. His voice is now also available as a free TTS / computer-generated voice for everyone.",
 
     linksCommonVoiceDesc: "Collection of sentences along with transcription from over 100 languages of the world, spoken by natural speakers.",
 
-    linksOpenSlrDesc: "OpenSLR collects speech and language processing resources — such as training corpora for speech recognition and associated software. The aim is a central, uncomplicated repository where researchers can make their own resources publicly accessible. In addition, programs from elsewhere are mirrored to provide backup security.",
+    linksOpenSlrDesc: "OpenSLR collects speech and language processing resources — such as training corpora for speech recognition and associated software. The aim is a central, uncomplicated repository where researchers can make their own resources publicly accessible.",
+
+    linksWikimediaCommonsDesc: "The Spoken Wikipedia provides spoken versions of Wikipedia articles.",
+
+    linksLinguaLibreDesc: "Lingua Libre is a project of the association Wikimédia France which aims to build a collaborative, multilingual, audiovisual corpus under free licence.",
+
+    linksLibrivoxDesc: "LibriVox offers audiobooks that are spoken by volunteers all over the world and made freely available.",
+
+    linksMailabsDesc: "The M-AILABS Speech Dataset bundles read-aloud book texts from public-domain sources (including LibriVox and Project Gutenberg) as audio and transcribed text.",
+
+    linksAruDesc: "The ARU Speech Corpus from the University of Liverpool contains clearly recorded standard sentence lists (IEEE sentences), spoken in English under controlled studio conditions.",
+
+    linksRhasspyDesc: "Rhasspy is a voice assistant project and also provides spoken sentences with transcribed text.",
 
     // BA 172: Tab lock L1
     tabLockTitleStd: "Tab not yet available",

@@ -1684,7 +1684,7 @@ Object.assign(L.de, {
     linksMeludiaDesc: "Professionelle App zum Trainieren des Musikhörens. Mit MED-EL Account verfügbar.",
 
     linksRubberbandDesc: "Hochwertige Open-Source-Bibliothek zum zeitlichen Dehnen und zum Verschieben der Tonhöhe von Audio — Tempo und Tonhöhe lassen sich unabhängig voneinander verändern. CImbel nutzt die WebAssembly-Variante (RubberBand-WASM) für die Simulation des Frequenzabgleichs.",
-    linksSmplrDesc: "Sammlung fertig gesampelter Instrumente für die Web Audio API, sofort und ohne Einrichtung im Browser nutzbar. CImbel verwendet smplr für die Mellotron-Klänge der CI-Testtöne.",
+    linksSmplrDesc: "Sammlung fertig gesampelter Instrumente für die Web Audio API, sofort und ohne Einrichtung im Browser nutzbar.",
     linksEasyeffectsDesc: "Equalizer für Linux, der den Computerton so wiedergeben kann wie der Player von CImbel — entsprechend den Meßergebnissen. CImbel kann passende Konfigurationsdateien für EasyEffects erzeugen.",
     linksEqapoDesc: "Open-Source-Equalizer für Windows. Gibt den Computerton so wieder wie der Player von CImbel — entsprechend den Meßergebnissen. CImbel kann passende Konfigurationsdateien für Equalizer APO erzeugen.",
 
@@ -1707,13 +1707,25 @@ Object.assign(L.de, {
     linksGutenbergDesc: "Project Gutenberg ist eine Online-Bibliothek mit über 75.000 kostenlosen eBooks. Dabei sind auch viele Hörbücher, die über die Suchfunktion gefunden werden können.",
 
     linksAudioTitle: "Quellen für verwendete Audiodateien",
-    linksAudioIntro: "Herkunft der Sprachaufnahmen, die im Player verwendet werden.",
+    linksAudioIntro: "Herkunft der Audioaufnahmen, die im Player verwendet werden.",
 
-    linksThorstenDesc: "Thorsten-Voice bringt künstliche Intelligenz (KI) und Sprache zusammen — ein kostenloses Projekt, das künstliche deutsche TTS-Sprachausgabe für jedermann entwickelt. Die Stimmen lassen sich ohne Internetverbindung und ohne Kosten nutzen, sozusagen eine Sprachspende für die Welt.",
+    linksThorstenDesc: "Thorsten hat zigtausende Sätze gesprochen und aufgenommen und der Allgemeinheit zur freien Verfügung gestellt. Seine Stimme ist jetzt auch als freies TTS / computergenerierte Stimme für jedermann verfügbar.",
 
     linksCommonVoiceDesc: "Sammlung von Sätzen samt Transkription aus über 100 Sprachen der Welt, eingesprochen von natürlichen Sprechern.",
 
-    linksOpenSlrDesc: "OpenSLR sammelt Sprach- und Sprachverarbeitungs-Ressourcen — etwa Trainingskorpora für Spracherkennung und zugehörige Software. Ziel ist ein zentraler, unkomplizierter Ablageort, an dem Forscher ihre eigenen Ressourcen öffentlich zugänglich machen können. Zusätzlich werden Programme von anderswo gespiegelt, um eine Ausfallsicherung zu bieten.",
+    linksOpenSlrDesc: "OpenSLR sammelt Sprach- und Sprachverarbeitungs-Ressourcen — etwa Trainingskorpora für Spracherkennung und zugehörige Software. Ziel ist ein zentraler, unkomplizierter Ablageort, an dem Forscher ihre eigenen Ressourcen öffentlich zugänglich machen können.",
+
+    linksWikimediaCommonsDesc: "Die Gesprochene Wikipedia stellt eingesprochene Fassungen von Wikipedia-Artikeln bereit.",
+
+    linksLinguaLibreDesc: "Lingua Libre ist ein Projekt des Vereins Wikimédia France mit dem Ziel, einen gemeinschaftlichen, mehrsprachigen, audiovisuellen Korpus unter freier Lizenz aufzubauen.",
+
+    linksLibrivoxDesc: "LibriVox bietet Hörbücher an, die von Freiwilligen auf der ganzen Welt gesprochen und frei zur Verfügung gestellt werden.",
+
+    linksMailabsDesc: "Der M-AILABS Speech Dataset bündelt vorgelesene Buchtexte aus gemeinfreien Quellen (u.a. LibriVox und Project Gutenberg) als Audio und transkribierten Text.",
+
+    linksAruDesc: "Das ARU Speech Corpus der University of Liverpool enthält klar aufgenommene Standard-Satzlisten (IEEE-Sätze), eingesprochen auf Englisch unter kontrollierten Studio-Bedingungen.",
+
+    linksRhasspyDesc: "Rhasspy ist ein Sprachassistent-Projekt und stellt auch gesprochene Sätze mit transkribiertem Text bereit.",
 
     // BA 172: Tab-Sperre L1
     tabLockTitleStd: "Reiter noch nicht verfügbar",

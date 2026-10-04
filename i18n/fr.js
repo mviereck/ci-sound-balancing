@@ -1377,7 +1377,7 @@ Object.assign(L.fr, {
     linksMeludiaDesc: "Application professionnelle pour entraîner l'écoute de la musique. Disponible avec un compte MED-EL.",
 
     linksRubberbandDesc: "Bibliothèque open-source de haute qualité pour l'étirement temporel et la transposition de hauteur de l'audio — le tempo et la hauteur peuvent être modifiés indépendamment l'un de l'autre. CImbel utilise la variante WebAssembly (RubberBand-WASM) pour la simulation de l'alignement fréquentiel.",
-    linksSmplrDesc: "Collection d'instruments échantillonnés prêts à l'emploi pour la Web Audio API, utilisables immédiatement dans le navigateur et sans configuration. CImbel utilise smplr pour les sons de Mellotron des sons de test IC.",
+    linksSmplrDesc: "Collection d'instruments échantillonnés prêts à l'emploi pour la Web Audio API, utilisables immédiatement dans le navigateur et sans configuration.",
     linksEasyeffectsDesc: "Égaliseur pour Linux capable de restituer le son de l'ordinateur comme le fait le Player de CImbel — conformément aux résultats de mesure. CImbel peut générer des fichiers de configuration adaptés pour EasyEffects.",
     linksEqapoDesc: "Égaliseur open-source pour Windows. Restitue le son de l'ordinateur comme le fait le Player de CImbel — conformément aux résultats de mesure. CImbel peut générer des fichiers de configuration adaptés pour Equalizer APO.",
 
@@ -1400,13 +1400,25 @@ Object.assign(L.fr, {
     linksGutenbergDesc: "Project Gutenberg est une bibliothèque en ligne avec plus de 75 000 ebooks gratuits. Elle comprend aussi de nombreux livres audio, que l'on peut trouver via la fonction de recherche.",
 
     linksAudioTitle: "Sources des fichiers audio utilisés",
-    linksAudioIntro: "Origine des enregistrements vocaux utilisés dans le Player.",
+    linksAudioIntro: "Origine des enregistrements audio utilisés dans le Player.",
 
-    linksThorstenDesc: "Thorsten-Voice rassemble intelligence artificielle (IA) et parole — un projet gratuit qui développe une synthèse vocale TTS artificielle allemande pour tous. Les voix peuvent être utilisées sans connexion Internet et sans coût, en quelque sorte un don de voix au monde.",
+    linksThorstenDesc: "Thorsten a prononcé et enregistré des dizaines de milliers de phrases et les a mises gratuitement à la disposition du public. Sa voix est désormais aussi disponible comme voix TTS libre / générée par ordinateur, pour tous.",
 
     linksCommonVoiceDesc: "Collection de phrases avec transcription dans plus de 100 langues du monde, prononcées par des locuteurs naturels.",
 
-    linksOpenSlrDesc: "OpenSLR rassemble des ressources de traitement vocal et linguistique — par exemple des corpus d'entraînement pour la reconnaissance vocale et les logiciels associés. L'objectif est un emplacement central et simple où les chercheurs peuvent rendre leurs propres ressources publiquement accessibles. De plus, des programmes d'ailleurs sont mis en miroir, pour offrir une sécurité en cas de panne.",
+    linksOpenSlrDesc: "OpenSLR rassemble des ressources de traitement vocal et linguistique — par exemple des corpus d'entraînement pour la reconnaissance vocale et les logiciels associés. L'objectif est un emplacement central et simple où les chercheurs peuvent rendre leurs propres ressources publiquement accessibles.",
+
+    linksWikimediaCommonsDesc: "La Wikipédia parlée propose des versions lues des articles de Wikipédia.",
+
+    linksLinguaLibreDesc: "Lingua Libre est un projet de l'association Wikimédia France qui vise à construire un corpus audiovisuel collaboratif et multilingue sous licence libre.",
+
+    linksLibrivoxDesc: "LibriVox propose des livres audio lus par des bénévoles du monde entier et mis à disposition gratuitement.",
+
+    linksMailabsDesc: "Le M-AILABS Speech Dataset regroupe des textes de livres lus à voix haute issus de sources du domaine public (notamment LibriVox et Project Gutenberg) sous forme d'audio et de texte transcrit.",
+
+    linksAruDesc: "L'ARU Speech Corpus de l'University of Liverpool contient des listes de phrases standard clairement enregistrées (phrases IEEE), prononcées en anglais dans des conditions de studio contrôlées.",
+
+    linksRhasspyDesc: "Rhasspy est un projet d'assistant vocal et met aussi à disposition des phrases parlées avec leur texte transcrit.",
 
     // BA 172: Tab-Sperre L1
     tabLockTitleStd: "Onglet pas encore disponible",
