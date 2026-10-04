@@ -253,7 +253,16 @@ function subtabLockApplyL1b() {
         const lock = locked && sub !== L1B_FREE_SUBTAB;
         btn.classList.toggle("tab-locked", lock);
       });
-    if (locked) {
+    // Nur den SICHTBAREN Eltern-Reiter zurechtschalten. Ein verstecktes
+    // Umschalten wuerde per _switchSubtabInternal -> pushState faelschlich
+    // die Adresszeile auf z.B. #ergebnisse:sprachtest setzen, obwohl der
+    // Nutzer auf der Intro-Seite steht. Versteckte Eltern-Reiter werden
+    // ohnehin beim Eintritt von _switchTabInternal versorgt.
+    const parentPanelVisible = (function () {
+      const panel = document.getElementById("panel-" + parent);
+      return !!(panel && panel.classList.contains("active"));
+    })();
+    if (locked && parentPanelVisible) {
       // Steht der User auf einem nun gesperrten Sub-Reiter dieses
       // Eltern-Reiters, auf den Sprachtest wechseln. Kein Modal —
       // der User aendert gerade die Implantat-Angaben.
