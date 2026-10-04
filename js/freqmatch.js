@@ -85,13 +85,13 @@ function frq_tonfolge(referenzmodus) {
 }
 
 function FRQ_getVolume() {
-  return Math.pow(volume_global / 100, 2);
+  return Math.pow((teGet("freqmatch","volume") || 0) / 100, 2);
 }
 function FRQ_getDuration() {
-  return duration_freqmatch || 750;
+  return teGet("freqmatch","duration") || 750;
 }
 function FRQ_getPause() {
-  return pause_freqmatch || 400;
+  return teGet("freqmatch","pause") || 400;
 }
 
 // Helfer: Verfahren-Refs
@@ -214,10 +214,10 @@ function frq_makeSequence() {
   var p = frq_pairTones();
   var pause = { pauseMs: p.pauseMs };
   var seq = [ p.first, pause, p.second ];
-  if (sequence_freqmatch === "aba" || sequence_freqmatch === "abab") {
+  if (teGet("freqmatch","sequence") === "aba" || teGet("freqmatch","sequence") === "abab") {
     seq.push(pause, p.first);
   }
-  if (sequence_freqmatch === "abab") {
+  if (teGet("freqmatch","sequence") === "abab") {
     seq.push(pause, p.second);
   }
   return seq;
@@ -236,7 +236,7 @@ async function frq_playCurrent() {
   var _frqTones = frq_pairTones();
   testUI.tonePlayer.playPair(_frqTones.first, _frqTones.second, {
     pairIndicator: _spi,
-    sequence:      sequence_freqmatch,
+    sequence:      teGet("freqmatch","sequence"),
     mode:          'sequence',
     pauseMs:       _frqTones.pauseMs,
     toneType:      toneType_freqmatch,
@@ -1132,6 +1132,10 @@ document.addEventListener("DOMContentLoaded", () => {
         pause:        false,
         // BA 209: Tonart-Dropdown durch tonePopupButton ersetzt.
         toneType:     false,
+        volumeButton: {
+          getVolume: function () { return teGet("freqmatch","volume"); },
+          setVolume: function (v) { teSet("freqmatch","volume", v); },
+        },
         tonePopupButton: {
           getToneType: function() { return toneType_freqmatch; },
           setToneType: function(tt) { toneType_freqmatch = tt; },
@@ -1143,15 +1147,13 @@ document.addEventListener("DOMContentLoaded", () => {
           // BA 304: Korrektur-Schalter auch im Frequenzabgleich zeigen.
           showToggles:  true,
           // BA 240: Vol/Dur/Pau-Felder in der Modal aktivieren.
-          showVolume:   true,
+          showVolume:   false,
           showDuration: true,
           showPause:    true,
-          getVolumePercent: function() { return volume_global; },
-          setVolumePercent: function(v) { volume_global = v; },
-          getDurationMs:    function() { return duration_freqmatch; },
-          setDurationMs:    function(v) { duration_freqmatch = v; },
-          getPauseMs:       function() { return pause_freqmatch; },
-          setPauseMs:       function(v) { pause_freqmatch = v; },
+          getDurationMs:    function() { return teGet("freqmatch","duration"); },
+          setDurationMs:    function(v) { teSet("freqmatch","duration", v); },
+          getPauseMs:       function() { return teGet("freqmatch","pause"); },
+          setPauseMs:       function(v) { teSet("freqmatch","pause", v); },
           // BA 240: Hint-Text fuer Test-Verfahren.
           hintKey: 'tonePopupHint',
           getVolume:   function() { return FRQ_getVolume(); },
@@ -1354,5 +1356,8 @@ function FRQ_refreshElectrodeSelectionSummary() {
 function FRQ_refreshToneTypeLabel() {
   if (FRQ_els && FRQ_els.header && typeof FRQ_els.header.tonePopupUpdate === 'function') {
     FRQ_els.header.tonePopupUpdate();
+  }
+  if (FRQ_els && FRQ_els.header && typeof FRQ_els.header.volumeUpdate === 'function') {
+    FRQ_els.header.volumeUpdate();
   }
 }

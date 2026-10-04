@@ -87,24 +87,22 @@ function _activeTestInput(type) {
 }
 function gVol() {
   // BA 287: gemeinsame Lautstaerke (frueher volume_test).
-  if (ELL_testAct && typeof volume_global !== 'undefined') {
-    return Math.pow((volume_global || 0) / 100, 2);
+  if (ELL_testAct && typeof teGet === 'function') {
+    return Math.pow((teGet("elektrodenlautstaerke","volume") || 0) / 100, 2);
   }
   const el = _activeTestInput('vol');
   return el ? Math.pow(parseInt(el.value) / 100, 2) : 0.25;
 }
 function gDur() {
-  // BA 250
-  if (ELL_testAct && typeof duration_elektrodenlautstaerke !== 'undefined') {
-    return duration_elektrodenlautstaerke || 750;
+  if (ELL_testAct && typeof teGet === 'function') {
+    return teGet("elektrodenlautstaerke","duration") || 750;
   }
   const el = _activeTestInput('dur');
   return parseInt(el && el.value) || 1000;
 }
 function gPau() {
-  // BA 250
-  if (ELL_testAct && typeof pause_elektrodenlautstaerke !== 'undefined') {
-    return pause_elektrodenlautstaerke || 300;
+  if (ELL_testAct && typeof teGet === 'function') {
+    return teGet("elektrodenlautstaerke","pause") || 300;
   }
   const el = _activeTestInput('pau');
   return parseInt(el && el.value) || 500;

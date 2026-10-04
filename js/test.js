@@ -834,9 +834,9 @@ const LS_HINT_K = 3;
 // BA 250: Helfer analog FRQ_getVolume/FRQ_getDuration/FRQ_getPause in freqmatch.js.
 // Lesen direkt aus den State-Variablen; macht die quadratische
 // Audio-Konversion fuer die Lautstaerke.
-function tGVol() { return Math.pow((volume_global || 0) / 100, 2); }
-function tGDur() { return duration_elektrodenlautstaerke || 750; }
-function tGPau() { return pause_elektrodenlautstaerke    || 300; }
+function tGVol() { return Math.pow((teGet("elektrodenlautstaerke","volume") || 0) / 100, 2); }
+function tGDur() { return teGet("elektrodenlautstaerke","duration") || 750; }
+function tGPau() { return teGet("elektrodenlautstaerke","pause")    || 300; }
 
 // BA 252: Klavier-Helfer fuer die Tonauswahl-Modalbox des
 // Elektrodenlautstaerke-Tests. Eine Seite (aktive Seite), alle
@@ -1172,7 +1172,7 @@ function playCur() {
   var _ellTones = _ell_pairTones();
   testUI.tonePlayer.playPair(_ellTones.first, _ellTones.second, {
     pairIndicator: vref && vref.pairIndicator,
-    sequence:      sequence_elektrodenlautstaerke,
+    sequence:      teGet("elektrodenlautstaerke","sequence"),
     mode:          'sequence',
     pauseMs:       tGPau(),
     toneType:      toneType_elektrodenlautstaerke,
@@ -1382,6 +1382,10 @@ document.addEventListener("DOMContentLoaded", function() {
         duration:  false,
         pause:     false,
         toneType:  false,
+        volumeButton: {
+          getVolume: function () { return teGet("elektrodenlautstaerke","volume"); },
+          setVolume: function (v) { teSet("elektrodenlautstaerke","volume", v); },
+        },
         tonePopupButton: {
           getToneType: function()   { return toneType_elektrodenlautstaerke; },
           setToneType: function(tt) { toneType_elektrodenlautstaerke = tt; },
@@ -1392,22 +1396,20 @@ document.addEventListener("DOMContentLoaded", function() {
           // BA 302: Korrektur-Schalter auch im Lautstaerke-Messreiter zeigen.
           showToggles:  true,
           // BA 250: Lautstaerke/Tondauer/Tonpause als Modalbox-Felder.
-          showVolume:   true,
+          showVolume:   false,
           showDuration: true,
           showPause:    true,
-          getVolumePercent: function()  { return volume_global; },
-          setVolumePercent: function(v) { volume_global = v; },
-          getDurationMs:    function()  { return duration_elektrodenlautstaerke; },
-          setDurationMs:    function(v) { duration_elektrodenlautstaerke = v; },
-          getPauseMs:       function()  { return pause_elektrodenlautstaerke; },
-          setPauseMs:       function(v) { pause_elektrodenlautstaerke = v; },
+          getDurationMs:    function()  { return teGet("elektrodenlautstaerke","duration"); },
+          setDurationMs:    function(v) { teSet("elektrodenlautstaerke","duration", v); },
+          getPauseMs:       function()  { return teGet("elektrodenlautstaerke","pause"); },
+          setPauseMs:       function(v) { teSet("elektrodenlautstaerke","pause", v); },
           // Probehoeren und Sequenz aus den neuen State-Werten.
           getVolume:   function() { return tGVol(); },
           getPreviewSequence: function (lastHz) {
             // Test laeuft -> echte Sequenz (aktuelles Paar + Schieber);
             // sonst ein Ton mit der zuletzt am Klavier angetippten Frequenz.
             if (ELL_testAct && ELL_testIdx < ELL_testPairs.length && ELL_curA != null && ELL_curB != null) {
-              return _ell_sequence({ aba: sequence_elektrodenlautstaerke === 'aba' });
+              return _ell_sequence({ aba: teGet("elektrodenlautstaerke","sequence") === 'aba' });
             }
             var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
             var pan = (activeSide === 'left') ? -1 : 1;
@@ -1529,6 +1531,9 @@ function ELL_refreshElectrodeSelectionSummary() {
 function ELL_refreshToneTypeLabel() {
   if (ELL_testEls && ELL_testEls.header && typeof ELL_testEls.header.tonePopupUpdate === 'function') {
     ELL_testEls.header.tonePopupUpdate();
+  }
+  if (ELL_testEls && ELL_testEls.header && typeof ELL_testEls.header.volumeUpdate === 'function') {
+    ELL_testEls.header.volumeUpdate();
   }
 }
 

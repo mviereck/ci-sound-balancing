@@ -119,25 +119,25 @@ function _collectTestSettings() {
   }
   return {
     elektrodenlautstaerke: _row(
-      (typeof toneType_elektrodenlautstaerke !== "undefined") ? toneType_elektrodenlautstaerke : TEST_DEFAULTS.elektrodenlautstaerke.toneType,
-      (typeof sequence_elektrodenlautstaerke !== "undefined") ? sequence_elektrodenlautstaerke : TEST_DEFAULTS.elektrodenlautstaerke.sequence,
-      (typeof duration_elektrodenlautstaerke !== "undefined") ? duration_elektrodenlautstaerke : null,
-      (typeof pause_elektrodenlautstaerke    !== "undefined") ? pause_elektrodenlautstaerke    : null,
-      (typeof volume_global !== "undefined") ? volume_global : null
+      teGet("elektrodenlautstaerke","toneType"),
+      teGet("elektrodenlautstaerke","sequence"),
+      teGet("elektrodenlautstaerke","duration"),
+      teGet("elektrodenlautstaerke","pause"),
+      teGet("elektrodenlautstaerke","volume")
     ),
     stereobalance: _row(
-      (typeof toneType_stereobalance !== "undefined") ? toneType_stereobalance : TEST_DEFAULTS.stereobalance.toneType,
-      (typeof sequence_stereobalance !== "undefined") ? sequence_stereobalance : TEST_DEFAULTS.stereobalance.sequence,
-      (typeof duration_stereobalance !== "undefined") ? duration_stereobalance : null,
-      (typeof pause_stereobalance    !== "undefined") ? pause_stereobalance    : null,
-      (typeof volume_global    !== "undefined") ? volume_global    : null
+      teGet("stereobalance","toneType"),
+      teGet("stereobalance","sequence"),
+      teGet("stereobalance","duration"),
+      teGet("stereobalance","pause"),
+      teGet("stereobalance","volume")
     ),
     freqmatch: _row(
-      (typeof toneType_freqmatch !== "undefined") ? toneType_freqmatch : TEST_DEFAULTS.freqmatch.toneType,
-      (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
-      (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : null,
-      (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : null,
-      (typeof volume_global      !== "undefined") ? volume_global      : null
+      teGet("freqmatch","toneType"),
+      teGet("freqmatch","sequence"),
+      teGet("freqmatch","duration"),
+      teGet("freqmatch","pause"),
+      teGet("freqmatch","volume")
     )
   };
 }

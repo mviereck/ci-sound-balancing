@@ -429,10 +429,8 @@ function _buildTestPanelNew(parentEl, cfg) {
       [['abab','ABAB'],['aba','ABA'],['ab','AB']].forEach(function(pair) {
         seqSelect.appendChild(new Option(pair[1], pair[0]));
       });
-      var seqVal = (id === 'elektrodenlautstaerke') ? sequence_elektrodenlautstaerke
-                 : (id === 'stereobalance') ? sequence_stereobalance
-                 : (id === 'freqmatch') ? sequence_freqmatch
-                 : 'ab';
+      var seqVal = (id === 'elektrodenlautstaerke' || id === 'stereobalance' || id === 'freqmatch')
+                 ? (teGet(id, 'sequence') || 'ab') : 'ab';
       seqSelect.value = seqVal;
       cg.append(lbl2, seqSelect);
       rowSequence.appendChild(cg);
@@ -1167,9 +1165,8 @@ function _buildTestPanelNew(parentEl, cfg) {
   // Sequence-Dropdown Event-Listener (pro Test)
   if (seqSelect) {
     seqSelect.addEventListener('change', function() {
-      if (id === 'elektrodenlautstaerke') sequence_elektrodenlautstaerke = seqSelect.value;
-      if (id === 'stereobalance') sequence_stereobalance = seqSelect.value;
-      if (id === 'freqmatch') sequence_freqmatch = seqSelect.value;
+      if (id === 'elektrodenlautstaerke' || id === 'stereobalance' || id === 'freqmatch')
+        teSet(id, 'sequence', seqSelect.value);
     });
   }
 

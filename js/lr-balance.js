@@ -45,9 +45,9 @@ function _lrUpdCumulative(v) {
 }
 
 
-function STB_gVol() { return Math.pow((volume_global || 0) / 100, 2); }
-function stb_gDur() { return duration_stereobalance || 1000; }
-function stb_gPau() { return pause_stereobalance    || 400;  }
+function STB_gVol() { return Math.pow((teGet("stereobalance","volume") || 0) / 100, 2); }
+function stb_gDur() { return teGet("stereobalance","duration") || 1000; }
+function stb_gPau() { return teGet("stereobalance","pause")    || 400;  }
 
 // BA 253: Klavier-Helfer fuer die Tonauswahl-Modalbox des
 // Stereo-Balance-Tests. Tasten bis Min(leftN, rightN); disabled
@@ -168,7 +168,7 @@ async function stb_playCurrent() {
   var _stbTones = stb_pairTones();
   testUI.tonePlayer.playPair(_stbTones.first, _stbTones.second, {
     pairIndicator: _lrPI,
-    sequence:      sequence_stereobalance,
+    sequence:      teGet("stereobalance","sequence"),
     mode:          'sequence',
     pauseMs:       stb_gPau(),
     toneType:      toneType_stereobalance,
@@ -833,6 +833,10 @@ document.addEventListener("DOMContentLoaded", function() {
         pause:     false,
         // BA 253: Tonart-Dropdown durch tonePopupButton ersetzt.
         toneType:  false,
+        volumeButton: {
+          getVolume: function () { return teGet("stereobalance","volume"); },
+          setVolume: function (v) { teSet("stereobalance","volume", v); },
+        },
         tonePopupButton: {
           getToneType: function()   { return toneType_stereobalance; },
           setToneType: function(tt) { toneType_stereobalance = tt; },
@@ -842,19 +846,17 @@ document.addEventListener("DOMContentLoaded", function() {
           // BA 304: Korrektur-Schalter auch in der Stereo-Balance zeigen.
           showToggles:  true,
           hintKey: 'tonePopupHint',
-          showVolume:   true,
+          showVolume:   false,
           showDuration: true,
           showPause:    true,
-          getVolumePercent: function()  { return volume_global; },
-          setVolumePercent: function(v) { volume_global = v; },
-          getDurationMs:    function()  { return duration_stereobalance; },
-          setDurationMs:    function(v) { duration_stereobalance = v; },
-          getPauseMs:       function()  { return pause_stereobalance; },
-          setPauseMs:       function(v) { pause_stereobalance = v; },
+          getDurationMs:    function()  { return teGet("stereobalance","duration"); },
+          setDurationMs:    function(v) { teSet("stereobalance","duration", v); },
+          getPauseMs:       function()  { return teGet("stereobalance","pause"); },
+          setPauseMs:       function(v) { teSet("stereobalance","pause", v); },
           getVolume:   function() { return STB_gVol(); },
           getPreviewSequence: function (lastHz) {
             if (STB_running && stb_currentEl !== null) {
-              return stb_sequence({ aba: sequence_stereobalance === 'aba' });
+              return stb_sequence({ aba: teGet("stereobalance","sequence") === 'aba' });
             }
             // Kein Test: gemerkter Ton, beide Seiten nacheinander.
             // BA 301: jede Seite mit ihrer Korrektur (Elektrodenlautstaerke
@@ -1035,6 +1037,9 @@ function STB_refreshElectrodeSelectionSummary() {
 function STB_refreshToneTypeLabel() {
   if (STB_els && STB_els.header && typeof STB_els.header.tonePopupUpdate === 'function') {
     STB_els.header.tonePopupUpdate();
+  }
+  if (STB_els && STB_els.header && typeof STB_els.header.volumeUpdate === 'function') {
+    STB_els.header.volumeUpdate();
   }
 }
 

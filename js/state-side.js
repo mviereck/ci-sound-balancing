@@ -581,38 +581,12 @@ const TONE_ENV_DEFAULTS = {
   dbFloor:    -20,      // Startpegel dB (nur bei dblin wirksam)
   release:    "short"   // Ausklang: kurz
 };
-// BA 209: Tonart speziell fur Frequenzabgleich.
-// Default 'richCiHF' (CI-Test flach).
-let toneType_freqmatch = TEST_DEFAULTS.freqmatch.toneType;
-// BA 246: Tonart speziell fuer Elektrodenlautstaerke. Eigene Persistenz
-// statt globalToneType, damit Tonart-Popup-Dialog (analog freqmatch)
-// pro Test funktioniert. Wird in BA 247 erstmals aus dem testUI-Header
-// gelesen/geschrieben.
+// Tonart pro Test (je Test getrennt, Zugriff ueber tonePopupButton).
+let toneType_freqmatch             = TEST_DEFAULTS.freqmatch.toneType;
 let toneType_elektrodenlautstaerke = TEST_DEFAULTS.elektrodenlautstaerke.toneType;
-// BA 240: Vol/Dur/Pau leben jetzt als State-Variablen statt im testUI-Header.
-// Vol als int 0..100 (UI-Wert); FRQ_getVolume macht die quadratische Audio-Konversion.
-let duration_freqmatch = TEST_DEFAULTS.freqmatch.duration;
-let pause_freqmatch    = TEST_DEFAULTS.freqmatch.pause;
-// BA 250: Vol/Dur/Pau fuer Elektrodenlautstaerke. Analog zu freqmatch
-// als State-Variablen statt im testUI-Header. Vol als int 0..100;
-// tGVol macht die quadratische Audio-Konversion.
-// BA 287: gemeinsame Lautstaerke fuer alle drei Mess-Tests UND den
-// Implantat-Reiter. Ersetzt die frueheren volume_test/volume_balance/
-// volume_freqmatch/volume_implant. Vol als int 0..100; die Getter
-// (tGVol/STB_gVol/FRQ_getVolume/...) machen die quadratische Audio-Konversion.
+let toneType_stereobalance         = TEST_DEFAULTS.stereobalance.toneType;
+// BA 287/645: volume_global bleibt bis BA 646 (Implantat-Leser in ui-implant.js).
 let volume_global = TEST_DEFAULTS.commonVolume;
-let duration_elektrodenlautstaerke = TEST_DEFAULTS.elektrodenlautstaerke.duration;
-let pause_elektrodenlautstaerke    = TEST_DEFAULTS.elektrodenlautstaerke.pause;
-// BA 253: Tonart, Lautstaerke, Tondauer, Tonpause speziell fuer
-// Stereo-Balance. Ueber die Tonauswahl-Modalbox eingestellt; getrennt
-// vom Frequenzabgleich- und Elektrodenlautstaerke-Test.
-let toneType_stereobalance = TEST_DEFAULTS.stereobalance.toneType;
-let duration_stereobalance = TEST_DEFAULTS.stereobalance.duration;
-let pause_stereobalance    = TEST_DEFAULTS.stereobalance.pause;
-// BA 254: Tonfolge (AB/ABA) speziell pro Test. Ersetzt globalSequence.
-let sequence_freqmatch = TEST_DEFAULTS.freqmatch.sequence;
-let sequence_elektrodenlautstaerke      = TEST_DEFAULTS.elektrodenlautstaerke.sequence;
-let sequence_stereobalance   = TEST_DEFAULTS.stereobalance.sequence;
 // BA 242: Implantat-Tab-Tonauswahl. Vol/Dur/Pau analog freqmatch.
 // Default-Tonart Sinus, weil im Implantat-Tab problematische Elektroden
 // per Sinus am besten zu erkennen sind (Rauschen, Aussetzer).

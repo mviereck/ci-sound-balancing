@@ -1144,7 +1144,12 @@ const st_cfg = {
     ]
   },
   header: {
-    common: {},                 // keine Voreinstellungen -- nur Start/Stop
+    common: {
+      volumeButton: {
+        getVolume: function () { return teGet("sprachtest","volume"); },
+        setVolume: function (v) { teSet("sprachtest","volume", v); },
+      }
+    },
     startStop: { startKey: "stBtnStart", stopKey: "btnCancelTest", resumable: false }
   },
   verfahren: [

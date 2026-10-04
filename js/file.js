@@ -137,22 +137,8 @@ function resetAll() {
   const dfSelR = document.getElementById("defaultMfrSelect");
   if (dfSelR) dfSelR.value = "unknown";
   // --- Globale Test-Parameter ---
-  // BA 254: Tonfolge pro Test
-  if (typeof sequence_freqmatch !== "undefined") sequence_freqmatch = TEST_DEFAULTS.freqmatch.sequence;
   if (typeof FRQ_activeMethodValue !== "undefined") FRQ_activeMethodValue = null;
-  if (typeof sequence_elektrodenlautstaerke      !== "undefined") sequence_elektrodenlautstaerke      = TEST_DEFAULTS.elektrodenlautstaerke.sequence;
-  if (typeof sequence_stereobalance   !== "undefined") sequence_stereobalance   = TEST_DEFAULTS.stereobalance.sequence;
-  // BA 246
-  if (typeof toneType_elektrodenlautstaerke !== "undefined") toneType_elektrodenlautstaerke = TEST_DEFAULTS.elektrodenlautstaerke.toneType;
   if (typeof volume_global !== "undefined") volume_global = TEST_DEFAULTS.commonVolume;
-  if (typeof duration_elektrodenlautstaerke !== "undefined") duration_elektrodenlautstaerke = TEST_DEFAULTS.elektrodenlautstaerke.duration;
-  if (typeof pause_elektrodenlautstaerke    !== "undefined") pause_elektrodenlautstaerke    = TEST_DEFAULTS.elektrodenlautstaerke.pause;
-  if (typeof toneType_stereobalance !== "undefined") toneType_stereobalance = TEST_DEFAULTS.stereobalance.toneType;
-  if (typeof duration_stereobalance !== "undefined") duration_stereobalance = TEST_DEFAULTS.stereobalance.duration;
-  if (typeof pause_stereobalance    !== "undefined") pause_stereobalance    = TEST_DEFAULTS.stereobalance.pause;
-  if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = TEST_DEFAULTS.freqmatch.toneType;
-  if (typeof duration_freqmatch !== "undefined") duration_freqmatch = TEST_DEFAULTS.freqmatch.duration;
-  if (typeof pause_freqmatch    !== "undefined") pause_freqmatch    = TEST_DEFAULTS.freqmatch.pause;
   if (typeof toneType_implant !== "undefined") toneType_implant = TEST_DEFAULTS.implant.toneType;
   if (typeof duration_implant !== "undefined") duration_implant = TEST_DEFAULTS.implant.duration;
   if (typeof pause_implant    !== "undefined") pause_implant    = TEST_DEFAULTS.implant.pause;

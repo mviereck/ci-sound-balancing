@@ -298,14 +298,10 @@ function LTZ_applyToPlayer() {
 // =====================================================================
 
 let LTZ_els = null;          // panel-refs aus buildTestPanel
-let ltz_volume = 75;         // 0..100, eigener Lautstärkewert (Test-lokal)
 
 function _ltz_getVolumeFactor() {
-  // 0..1, fallback 0.5
-  const v = (LTZ_els && LTZ_els.header && LTZ_els.header.volInput)
-    ? parseNum(LTZ_els.header.volInput.value) : ltz_volume;
-  if (!isFinite(v)) return 0.5;
-  return Math.max(0, Math.min(100, v)) / 100;
+  const p = teGet("latenz","volume");
+  return (typeof p === "number" ? p : 50) / 100;
 }
 
 function _ltz_buildExtraFragment() {
@@ -537,12 +533,24 @@ document.addEventListener("DOMContentLoaded", function() {
     header: {
       common: {
         refSelect:    false,
-        volume:       { show: true },
+        volume:       false,
         duration:     false,
         pause:        false,
         toneType:     false,
         sequence:     false,
-        sliderTarget: false
+        sliderTarget: false,
+        volumeButton: {
+          getVolume: function () { return teGet("latenz","volume"); },
+          setVolume: function (v) {
+            teSet("latenz","volume", v);
+            if (LTZ_active && ltz_balGainL && ltz_balGainR) {
+              var balG = (typeof STB_rawGains === "function") ? STB_rawGains() : { left: 0, right: 0 };
+              var f = _ltz_getVolumeFactor();
+              ltz_balGainL.gain.value = dB2G(balG.left)  * f;
+              ltz_balGainR.gain.value = dB2G(balG.right) * f;
+            }
+          },
+        }
       },
       extra:    { fragment: _ltz_buildExtraFragment() },
       startStop:{ startKey: 'LTZ_startBtn', stopKey: 'btnCancelTest', resumable: false }
@@ -568,22 +576,6 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   LTZ_els = buildTestPanel(parentEl, cfg);
-
-  // Volume-Default setzen
-  if (LTZ_els.header && LTZ_els.header.volInput) {
-    LTZ_els.header.volInput.value = String(ltz_volume);
-    LTZ_els.header.volInput.addEventListener('change', function() {
-      ltz_volume = parseNum(LTZ_els.header.volInput.value) || 50;
-      // Wenn der Test läuft: Gains live nachziehen
-      if (LTZ_active && ltz_balGainL && ltz_balGainR) {
-        const balG = (typeof STB_rawGains === "function")
-          ? STB_rawGains() : { left: 0, right: 0 };
-        const f = _ltz_getVolumeFactor();
-        ltz_balGainL.gain.value = dB2G(balG.left)  * f;
-        ltz_balGainR.gain.value = dB2G(balG.right) * f;
-      }
-    });
-  }
 
   // Initial-Setup
   _ltz_updateIntervalHint();
