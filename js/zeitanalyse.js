@@ -403,6 +403,33 @@
     return minder;
   }
 
+  // Streuung des Elektroden-Buendels je Sitzung (Architektur §5 Ausgabe 5):
+  // Mittel + Standardabweichung der verankerten Pegel UEBER DIE ELEKTRODEN einer
+  // Sitzung. Gewertet wird DIESELBE Elektrodenmenge wie die schwarzen Kurven:
+  // die durchgehend vollwertigen (nicht in `minder`). Ein Maszstab fuer den
+  // ganzen Graphen, kein Pro-Sitzung-Sonderfall. Das Residuum bleibt auszen vor
+  // (das ist Mess-Unsicherheit einer Elektrode, nicht die Buendel-Streuung).
+  // <2 vollwertige Werte in einer Sitzung -> kein Streuwert (sd=null), die
+  // Sitzung bricht Band/Linie (Luecke), damit kein falsches sd=0 erscheint.
+  // weightedStd (core.js) mit Gewicht 1 ueberall = ungewichtete SD -> KEINE
+  // zweite SD-Implementierung.
+  function zaBundleStreuung(side, data, minder) {
+    return data.sessions.map(function (s) {
+      var vals = [];
+      for (var i = 0; i < data.elCount; i++) {
+        if (minder.has(i)) continue;                       // nur schwarze Elektroden
+        var c = (i < s.corr.length) ? s.corr[i] : null;
+        if (c === null || typeof c !== "number" || !isFinite(c)) continue;
+        vals.push(c);
+      }
+      if (vals.length < 2) return { ts: s.ts, mean: null, sd: null };
+      var sum = 0; vals.forEach(function (v) { sum += v; });
+      var mean = sum / vals.length;
+      var sd = weightedStd(vals, vals.map(function () { return 1; }));
+      return { ts: s.ts, mean: mean, sd: sd };
+    });
+  }
+
   function zaDrawBundle() {
     var cv = document.getElementById("zaBundle");
     if (!cv) return;
@@ -415,7 +442,7 @@
       cv.width = cv.width;   // leeren
       return;
     }
-    if (hint) hint.textContent = "schwarz = vollwertige Elektrode, grau = zeitweise minderwertig (verrauscht/fast stumm)";
+    if (hint) hint.textContent = "schwarz = vollwertige Elektrode, grau = zeitweise minderwertig; blaues Band = Streuung (Mittel ± SD) der vollwertigen, blaue Linie = SD je Messung (vom Nullpunkt)";
 
     var dpr = window.devicePixelRatio || 1;
     var w = cv.parentElement.clientWidth - 32;
@@ -446,9 +473,44 @@
       g.fillText(v.toFixed(0), padL - 6, y + 3);
     });
 
+    var minder = zaBundleMinderwertig(side);
+
+    // Streuband + Streuungslinie der vollwertigen Elektroden (ZUERST, damit sie
+    // UNTER den Kurven liegen). Band = Mittel ± SD je Sitzung (hellblaue Flaeche),
+    // Linie = SD je Sitzung vom Nullpunkt nach oben (SD=3 -> Hoehe +3), gleiche
+    // dB-Skala. Luecken (sd===null, <2 vollwertige Werte) unterbrechen beide.
+    var streu = zaBundleStreuung(side, data, minder);
+    // (a) Band als zusammenhaengende Polygon-Segmente (an Luecken getrennt)
+    g.fillStyle = "rgba(59,130,246,0.12)";
+    var seg = [];
+    function flushBand() {
+      if (seg.length >= 2) {
+        g.beginPath();
+        g.moveTo(tX(seg[0].ts), tY(seg[0].mean + seg[0].sd));
+        for (var k = 1; k < seg.length; k++) g.lineTo(tX(seg[k].ts), tY(seg[k].mean + seg[k].sd));
+        for (var m = seg.length - 1; m >= 0; m--) g.lineTo(tX(seg[m].ts), tY(seg[m].mean - seg[m].sd));
+        g.closePath(); g.fill();
+      }
+      seg = [];
+    }
+    streu.forEach(function (p) {
+      if (p.sd === null) { flushBand(); return; }
+      seg.push(p);
+    });
+    flushBand();
+    // (b) Streuungslinie (SD vom Nullpunkt nach oben), an Luecken unterbrochen
+    g.strokeStyle = "#2563eb"; g.lineWidth = 1.5;
+    var sdDown = false;
+    streu.forEach(function (p) {
+      if (p.sd === null) { sdDown = false; return; }
+      var x = tX(p.ts), y = tY(p.sd);
+      if (!sdDown) { g.beginPath(); g.moveTo(x, y); sdDown = true; }
+      else g.lineTo(x, y);
+    });
+    if (sdDown) g.stroke();
+
     // Eine Kurve je Elektrode. Reihenfolge: erst grau (minderwertig), dann
     // schwarz (vollwertig) -> vollwertige Linien liegen oben.
-    var minder = zaBundleMinderwertig(side);
     function drawEl(i, farbe) {
       g.strokeStyle = farbe; g.lineWidth = 1.5;
       var pendown = false;   // Linie an Luecken (corr===null) unterbrechen
@@ -475,7 +537,7 @@
 
     // Titel
     g.fillStyle = CHART_LABEL_FARBE; g.font = "11px Segoe UI,sans-serif"; g.textAlign = "left";
-    g.fillText("Alle Elektroden (gemessene Abweichung dB)", padL, 11);
+    g.fillText("Alle Elektroden (gemessene Abweichung dB; blau = Streuband + SD)", padL, 11);
   }
 
   // Gemeinsamer Balkengraph-Koerper: baut Rows aus (verankerten) levels + res +
@@ -1182,6 +1244,7 @@
     heatColor:      zaHeatColor,
     trendData:      zaTrendData,
     bundleMinder:   zaBundleMinderwertig,
+    bundleStreuung: zaBundleStreuung,
   };
 
   if (document.readyState === "loading") {
