@@ -1159,22 +1159,42 @@
 
   // Alle verankerten Einzel-Paare aller Sitzungen (00-zeitanalyse §7): je Sitzung
   // ein Offset pro Paar, aus den VERANKERTEN Sitzungspegeln (Verankerung ist fuer
-  // Paar-Differenzen invariant, macht den Uebertrag aber referenzfrei). q im
-  // Eintrag mitgefuehrt (weight-Feld) — ELL_compWLS nutzt ell_gWt, das q wirkt
-  // ueber die Mehrfach-Vorkommen. So traegt der Zielreiter das echte Residuum.
+  // Paar-Differenzen invariant, macht den Uebertrag aber referenzfrei).
+  //
+  // Datei-Gewicht q (Schaerfe x Zeit, §6a) in die PAARWEISE Kurve: ELL_compWLS
+  // kennt KEIN Gewicht pro Paar-Eintrag (test.js nutzt nur ell_gWt(Status) x
+  // Distanz), daher wirkt q nur ueber die ANZAHL der Eintraege. Jede Sitzung
+  // traegt ihr Paar k-fach bei, k = round(q/qmax * N), min. 1 (q>0). N = Anzahl
+  // der aktuell gewichteten (q>0) deduplizierten Sitzungen der Seite -> so viele
+  // Stufen wie Datenpunkte, selbstskalierend; Liste waechst hoechstens ~N-fach.
+  // qmax deckelt (max-normiert): die staerkste Sitzung = N Kopien. Bei
+  // qmax/qmin > N verschmelzen die schwaechsten auf 1 Kopie (gewollt: mehr
+  // Stufen als Sitzungen waeren sinnlos). Der Uebertrag (§7) erbt die Replikation
+  // -> Graph und uebertragene Kurve konsistent.
   function zaTransferPairs(side) {
-    var out = [];
+    // 1) gewichtete Sitzungen + qmax bestimmen
+    var wsess = [];   // [{rec, q}]
     zaSessions.forEach(function (s) {
       var rec = zaRec(s, side);
       if (!rec || !rec.raw) return;
-      if (!(zaWeight(rec, side) > 0)) return;
-      var r = ELL_compWLS(zaToCtx(rec, side));
-      var lvA = zaAnchor(r.levels, rec.elSt, rec.elExDur);
-      (rec.raw || []).forEach(function (p) {
+      var q = zaWeight(rec, side);
+      if (!(q > 0)) return;
+      wsess.push({ rec: rec, q: q });
+    });
+    var N = wsess.length;
+    if (!N) return [];
+    var qmax = wsess.reduce(function (mx, e) { return e.q > mx ? e.q : mx; }, 0);
+    // 2) je Sitzung Paare k-fach (max-normiert, k>=1)
+    var out = [];
+    wsess.forEach(function (e) {
+      var k = (qmax > 0) ? Math.max(1, Math.round(e.q / qmax * N)) : 1;
+      var r = ELL_compWLS(zaToCtx(e.rec, side));
+      var lvA = zaAnchor(r.levels, e.rec.elSt, e.rec.elExDur);
+      (e.rec.raw || []).forEach(function (p) {
         if (typeof p.a !== "number" || typeof p.b !== "number") return;
         var va = lvA[p.a], vb = lvA[p.b];
         if (va == null || vb == null) return;
-        out.push({ a: p.a, b: p.b, offset: va - vb });
+        for (var c = 0; c < k; c++) out.push({ a: p.a, b: p.b, offset: va - vb });
       });
     });
     return out;
