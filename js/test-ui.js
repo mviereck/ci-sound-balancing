@@ -1589,9 +1589,12 @@ var testUI = {
       if (Array.isArray(opts.rightLines))      _tuSetLines(els.right, opts.rightLines);
       else if (opts.rightText !== undefined)   els.right.textContent = opts.rightText;
       if (els.freq) {
+        // Hz auf 2 Nachkommastellen runden (ohne nachlaufende Nullen);
+        // die Rohwerte haben sonst viele unsinnige Nachkommastellen.
+        var _hz = function(v) { return Math.round(v * 100) / 100; };
         var parts = [];
-        if (opts.leftHz !== undefined) parts.push(opts.leftHz + ' Hz');
-        if (opts.rightHz !== undefined) parts.push(opts.rightHz + ' Hz');
+        if (opts.leftHz !== undefined) parts.push(_hz(opts.leftHz) + ' Hz');
+        if (opts.rightHz !== undefined) parts.push(_hz(opts.rightHz) + ' Hz');
         els.freq.textContent = parts.join(' vs. ');
       }
     },

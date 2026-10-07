@@ -384,6 +384,100 @@
     g.fillText("Verlauf " + label + " (gemessene Abweichung dB, Balken = Residuum)", padL, 11);
   }
 
+  // ---- Buendelgraph: alle Elektroden ueber Zeit (Architektur §5 Ausgabe 5) ----
+
+  // Welche Elektroden waren im ausgewerteten Zeitraum JEMALS minderwertig
+  // (ell_gWt < 1 in mindestens einer Sitzung)? Rueckgabe: Set von Indizes.
+  // Minderwertig = verrauscht/fast stumm/stumm/ausgeschlossen; vollwertig nur
+  // Status "normal" (ell_gWt === 1). Eigenschaft PRO Elektrode ueber den
+  // ganzen Zeitraum -> eine Kurve ist einfarbig.
+  function zaBundleMinderwertig(side) {
+    var minder = new Set();
+    zaSessions.forEach(function (s) {
+      var rec = zaRec(s, side);
+      if (!rec) return;
+      for (var i = 0; i < rec.nEl; i++) {
+        if (ell_gWt(i, rec.elSt, rec.elExDur) < 1) minder.add(i);
+      }
+    });
+    return minder;
+  }
+
+  function zaDrawBundle() {
+    var cv = document.getElementById("zaBundle");
+    if (!cv) return;
+    var side = activeSide;
+    var data = zaHeatmapData(side);
+    var hint = document.getElementById("zaBundleHint");
+    var g = cv.getContext("2d");
+    if (!data.sessions.length || !data.elCount) {
+      if (hint) hint.textContent = "Keine auswertbaren Sitzungen fuer diese Seite.";
+      cv.width = cv.width;   // leeren
+      return;
+    }
+    if (hint) hint.textContent = "schwarz = vollwertige Elektrode, grau = zeitweise minderwertig (verrauscht/fast stumm)";
+
+    var dpr = window.devicePixelRatio || 1;
+    var w = cv.parentElement.clientWidth - 32;
+    var h = 220;
+    var padL = 46, padR = 12, padT = 16, padB = 34;
+    var plotW = w - padL - padR, plotH = h - padT - padB;
+    cv.width = w * dpr; cv.height = h * dpr;
+    cv.style.width = w + "px"; cv.style.height = h + "px";
+    g.scale(dpr, dpr); g.clearRect(0, 0, w, h);
+
+    // Y-Bereich FEST (ZA_Y_RANGE) -> vergleichbar mit den anderen Graphen.
+    var amax = ZA_Y_RANGE;
+    function tY(v) {
+      var vv = Math.max(-amax, Math.min(amax, v));
+      return padT + (amax - vv) / (2 * amax) * plotH;
+    }
+    function tX(ts) {
+      if (data.tMax === data.tMin) return padL + plotW / 2;
+      return padL + (ts - data.tMin) / (data.tMax - data.tMin) * plotW;
+    }
+
+    // Gitter + Nulllinie + Y-Ticks (wie zaDrawTrend)
+    [-amax, -amax/2, 0, amax/2, amax].forEach(function (v) {
+      var y = tY(v);
+      g.strokeStyle = (v === 0) ? "#aaa" : "#eee"; g.lineWidth = (v === 0) ? 1.5 : 1;
+      g.beginPath(); g.moveTo(padL, y); g.lineTo(w - padR, y); g.stroke();
+      g.fillStyle = CHART_LABEL_FARBE; g.font = "9px Consolas,monospace"; g.textAlign = "right";
+      g.fillText(v.toFixed(0), padL - 6, y + 3);
+    });
+
+    // Eine Kurve je Elektrode. Reihenfolge: erst grau (minderwertig), dann
+    // schwarz (vollwertig) -> vollwertige Linien liegen oben.
+    var minder = zaBundleMinderwertig(side);
+    function drawEl(i, farbe) {
+      g.strokeStyle = farbe; g.lineWidth = 1.5;
+      var pendown = false;   // Linie an Luecken (corr===null) unterbrechen
+      data.sessions.forEach(function (s) {
+        var c = (i < s.corr.length) ? s.corr[i] : null;
+        if (c === null || typeof c !== "number") { pendown = false; return; }
+        var x = tX(s.ts), y = tY(c);
+        if (!pendown) { g.beginPath(); g.moveTo(x, y); pendown = true; }
+        else g.lineTo(x, y);
+      });
+      if (pendown) g.stroke();
+    }
+    // grau zuerst
+    for (var i = 0; i < data.elCount; i++) if (minder.has(i)) drawEl(i, "#b0b0b0");
+    // schwarz oben drueber
+    for (var j = 0; j < data.elCount; j++) if (!minder.has(j)) drawEl(j, "#111");
+
+    // X-Achse: erste/letzte Datums-Labels (wie zaDrawTrend)
+    g.fillStyle = CHART_LABEL_FARBE; g.font = "9px Segoe UI,sans-serif"; g.textAlign = "center";
+    function dateLbl(ts) { var d = new Date(ts); return d.getDate() + "." + (d.getMonth()+1) + "."; }
+    var n = data.sessions.length;
+    g.fillText(dateLbl(data.sessions[0].ts), tX(data.sessions[0].ts), h - padB + 16);
+    if (n > 1) g.fillText(dateLbl(data.sessions[n-1].ts), tX(data.sessions[n-1].ts), h - padB + 16);
+
+    // Titel
+    g.fillStyle = CHART_LABEL_FARBE; g.font = "11px Segoe UI,sans-serif"; g.textAlign = "left";
+    g.fillText("Alle Elektroden (gemessene Abweichung dB)", padL, 11);
+  }
+
   // Gemeinsamer Balkengraph-Koerper: baut Rows aus (verankerten) levels + res +
   // measured und zeichnet. EINE Zeichenstelle fuer alle drei Balken-Quellen
   // (ctx-basiert paarweise/Einzelmessung via zaDrawBarFromCtx, pegelweise via
@@ -830,6 +924,7 @@
     zaDrawCurve();
     zaDrawSingle();
     zaDrawHeatmap();
+    zaDrawBundle();
     zaDrawTrend();
   }
 
@@ -1055,6 +1150,7 @@
     zaDrawCurve();
     zaDrawSingle();
     zaDrawHeatmap();
+    zaDrawBundle();
     zaDrawTrend();
   }
 
@@ -1085,6 +1181,7 @@
     heatmapData:    zaHeatmapData,
     heatColor:      zaHeatColor,
     trendData:      zaTrendData,
+    bundleMinder:   zaBundleMinderwertig,
   };
 
   if (document.readyState === "loading") {
