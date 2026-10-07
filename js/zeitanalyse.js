@@ -34,6 +34,16 @@
   var zaTimeDir      = "neutral";   // "neutral" | "frueh" | "mittig" | "spaet"
   var zaTimeStrength = "mittel";    // Schluessel in ZA_TIME_STRENGTH
 
+  // ---- Ausreisser-Abwertung (00-zeitanalyse §6a, dritte Gewichtsachse) ----
+  // Zeitlicher Ausreisser EINER Elektrode: ein verankerter Pegel, der weit vom
+  // Median DERSELBEN Elektrode ueber ihre Mess-Historie abweicht (robust: MAD).
+  // Weich abgewertet (nie ganz raus), NUR pegelweise (paarweise rechnet ueber
+  // Paar-Differenzen, kein sauberer Einzelwert-Hebel). Default aus.
+  var ZA_OUTLIER_MINN   = 4;     // erst ab so vielen Werten einer Elektrode filtern
+  var ZA_OUTLIER_MAD0   = 0.5;   // dB: Boden fuer MAD (Messgenauigkeit, gegen MAD=0)
+  var ZA_OUTLIER_K      = { mild: 3.5, stark: 2.5 };  // Schwelle k*MAD (klein=aggressiver)
+  var zaOutlierMode     = "aus"; // "aus" | "mild" | "stark"
+
   // Konsolidierungsverfahren (00-zeitanalyse §4): "paarweise" | "pegelweise".
   var zaConsolMode = "paarweise";
 
@@ -98,6 +108,24 @@
     var qRes = 1 / (Math.pow(res, p) + ZA_EPS);
     var qZeit = zaTimeWeight(rec, side, zaTimeSpan(side));
     return qRes * qZeit;
+  }
+
+  // Ausreisser-Abwertungsfaktor eines Werts v gegen seine Peer-Werte `values`
+  // (die Pegel-Historie DERSELBEN Elektrode, §6a Achse 3). Rueckgabe in (0..1]:
+  // 1 = kein Ausreisser (innerhalb k*MAD), <1 = abgewertet (faellt ~1/Abstand,
+  // nie 0). Filter aus ODER <ZA_OUTLIER_MINN Werte -> immer 1 (keine Abwertung).
+  // Robust: Median + MAD (vom Ausreisser selbst nicht verzerrt), MAD-Boden.
+  function zaOutlierFactor(values, v) {
+    if (zaOutlierMode === "aus") return 1;
+    if (!values || values.length < ZA_OUTLIER_MINN) return 1;
+    var med = median(values);
+    var mad = median(values.map(function (x) { return Math.abs(x - med); }));
+    if (mad < ZA_OUTLIER_MAD0) mad = ZA_OUTLIER_MAD0;   // Boden
+    var k = ZA_OUTLIER_K[zaOutlierMode] || 3.5;
+    var dist = Math.abs(v - med);
+    var schwelle = k * mad;
+    if (dist <= schwelle) return 1;
+    return schwelle / dist;   // weich: am Schwellwert 1, dahinter ~1/Abstand
   }
 
   // Konsens-Paarliste der Sitzungen einer Seite. side = 'left'|'right'.
@@ -487,7 +515,8 @@
       cv.width = cv.width;   // leeren
       return;
     }
-    if (hint) hint.textContent = "schwarz = vollwertige Elektrode, grau = zeitweise minderwertig; blaues Band = Streuung (Mittel ± SD) der vollwertigen, blaue Linie = SD je Messung (vom Nullpunkt)";
+    if (hint) hint.textContent = "schwarz = vollwertige Elektrode, grau = zeitweise minderwertig; blaues Band = Streuung (Mittel ± SD) der vollwertigen, blaue Linie = SD je Messung (vom Nullpunkt)"
+      + (zaOutlierMode !== "aus" ? "; roter Ring = zeitlicher Ausreißer der Elektrode (pegelweise abgewertet)" : "");
 
     var dpr = window.devicePixelRatio || 1;
     var w = cv.parentElement.clientWidth - 32;
@@ -567,6 +596,24 @@
         else g.lineTo(x, y);
       });
       if (pendown) g.stroke();
+      // Ausreisser-Markierung (§6a Achse 3): roter Ring auf Punkten, die aus der
+      // Historie DIESER Elektrode herausfallen. zaOutlierFactor liefert bei Modus
+      // "aus" immer 1 -> ohne aktiven Regler keine Markierung.
+      if (zaOutlierMode !== "aus") {
+        var vals = [];
+        data.sessions.forEach(function (s) {
+          var c = (i < s.corr.length) ? s.corr[i] : null;
+          if (typeof c === "number" && isFinite(c)) vals.push(c);
+        });
+        data.sessions.forEach(function (s) {
+          var c = (i < s.corr.length) ? s.corr[i] : null;
+          if (typeof c !== "number" || !isFinite(c)) return;
+          if (zaOutlierFactor(vals, c) < 1) {
+            g.strokeStyle = "#dc2626"; g.lineWidth = 1.5;
+            g.beginPath(); g.arc(tX(s.ts), tY(c), 3.5, 0, Math.PI * 2); g.stroke();
+          }
+        });
+      }
     }
     // grau zuerst
     for (var i = 0; i < data.elCount; i++) if (minder.has(i)) drawEl(i, "#b0b0b0");
@@ -695,6 +742,10 @@
       var arr = per[i];
       if (!arr || !arr.length) continue;
       measured.add(i);
+      // Ausreisser-Abwertung (§6a Achse 3): erst jetzt, mit VOLLSTAENDIGER
+      // Historie der Elektrode. Faktor dämpft e.w; Streuung (res) erbt es.
+      var vhist = arr.map(function (e) { return e.v; });
+      arr.forEach(function (e) { e.w *= zaOutlierFactor(vhist, e.v); });
       var W = 0, sw = 0;
       arr.forEach(function (e) { W += e.w; sw += e.v * e.w; });
       levels[i] = W > 0 ? sw / W : 0;
@@ -774,6 +825,19 @@
       if (b) b.style.fontWeight = (k === key) ? "700" : "400";
     });
     zaDrawCurve();
+  }
+
+  // Ausreisser-Abwertung (§6a Achse 3): aus|mild|stark. Wirkt auf die pegelweise
+  // Kurve UND auf die Ausreisser-Markierung im Buendelgraphen -> beide neu.
+  function zaOnOutlier(mode) {
+    if (["aus", "mild", "stark"].indexOf(mode) < 0) return;
+    zaOutlierMode = mode;
+    ["aus", "mild", "stark"].forEach(function (m) {
+      var b = document.getElementById("zaOutlier_" + m);
+      if (b) b.style.fontWeight = (m === mode) ? "700" : "400";
+    });
+    zaDrawCurve();
+    zaDrawBundle();
   }
 
   // Verfahrens-Schalter (00-zeitanalyse §4): paarweise | pegelweise.
@@ -1277,6 +1341,10 @@
       var b = document.getElementById("zaTimeStr_" + k);
       if (b) b.addEventListener("click", function () { zaOnTimeStrength(k); });
     });
+    ["aus", "mild", "stark"].forEach(function (m) {
+      var b = document.getElementById("zaOutlier_" + m);
+      if (b) b.addEventListener("click", function () { zaOnOutlier(m); });
+    });
     ["paarweise", "pegelweise"].forEach(function (m) {
       var b = document.getElementById("zaConsol_" + m);
       if (b) b.addEventListener("click", function () { zaOnConsolMode(m); });
@@ -1336,6 +1404,7 @@
     weight:         zaWeight,
     timeWeight:     zaTimeWeight,
     timeSpan:       zaTimeSpan,
+    outlierFactor:  zaOutlierFactor,
     consolidatedCtx: zaConsolidatedCtx,
     heatmapData:    zaHeatmapData,
     heatColor:      zaHeatColor,
