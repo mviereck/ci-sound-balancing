@@ -26,6 +26,14 @@
   var ZA_SHARPNESS = { mild: 1.0, mittel: 1.5, scharf: 2.0 };
   var zaSharpKey  = "mittel";
 
+  // ---- Zeit-Gewichtung (00-zeitanalyse §6a, zweite Gewichtsachse) ----
+  // Relativer Zeitbezug: Position t in [0,1] zwischen aeltester (tMin) und
+  // juengster (tMax) Mess-Zeit. q_zeit = u + (1-u) * form(t)^s.
+  var ZA_TIME_MIN = 0.1;   // Mindestbeitrag u: keine Messung faellt ganz auf 0
+  var ZA_TIME_STRENGTH = { schwach: 0.5, mittel: 1.0, stark: 2.0 };  // Exponent s
+  var zaTimeDir      = "neutral";   // "neutral" | "frueh" | "mittig" | "spaet"
+  var zaTimeStrength = "mittel";    // Schluessel in ZA_TIME_STRENGTH
+
   // Konsolidierungsverfahren (00-zeitanalyse §4): "paarweise" | "pegelweise".
   var zaConsolMode = "paarweise";
 
@@ -48,11 +56,48 @@
     });
   }
 
+  // Zeitspanne (tMin/tMax) ueber ALLE Sitzungen einer Seite (juengster Stempel
+  // je Record, §6b). Degeneriert (eine Messung / gleiche Stempel) -> tMin==tMax.
+  function zaTimeSpan(side) {
+    var tMin = null, tMax = null;
+    zaSessions.forEach(function (s) {
+      var rec = zaRec(s, side);
+      if (!rec) return;
+      var ts = zaYoungestTs(rec);
+      if (ts === null) return;
+      if (tMin === null || ts < tMin) tMin = ts;
+      if (tMax === null || ts > tMax) tMax = ts;
+    });
+    return { tMin: tMin, tMax: tMax };
+  }
+
+  // Zeit-Gewichtsfaktor q_zeit eines Records (00-zeitanalyse §6a, Achse 2).
+  // q_zeit = u + (1-u) * form(t)^s, t in [0,1] relativ zur Zeitspanne der Seite.
+  // Richtung neutral oder degenerierte Spanne (tMax==tMin) -> 1 (kein Effekt).
+  function zaTimeWeight(rec, side, span) {
+    if (zaTimeDir === "neutral") return 1;
+    var ts = zaYoungestTs(rec);
+    if (ts === null) return 1;
+    var tMin = span.tMin, tMax = span.tMax;
+    if (tMin === null || tMax === null || tMax === tMin) return 1;
+    var t = (ts - tMin) / (tMax - tMin);   // 0..1
+    var s = ZA_TIME_STRENGTH[zaTimeStrength] || 1.0;
+    var form;
+    if (zaTimeDir === "frueh")       form = Math.pow(1 - t, s);
+    else if (zaTimeDir === "spaet")  form = Math.pow(t, s);
+    else /* mittig */                form = Math.pow(1 - Math.abs(2 * t - 1), s);
+    return ZA_TIME_MIN + (1 - ZA_TIME_MIN) * form;
+  }
+
+  // Datei-Gewicht = Produkt zweier Achsen (§6a): Residuum-Schaerfe x Zeit.
+  // EINE Stelle; alle Konsumenten (Konsens, Pegelkonsol, Uebertrag) lesen hier.
   function zaWeight(rec, side) {
     var res = zaMeanResidual(rec, side);
     if (res === null || !(res >= 0)) return 0;
     var p = ZA_SHARPNESS[zaSharpKey] || 1.5;
-    return 1 / (Math.pow(res, p) + ZA_EPS);
+    var qRes = 1 / (Math.pow(res, p) + ZA_EPS);
+    var qZeit = zaTimeWeight(rec, side, zaTimeSpan(side));
+    return qRes * qZeit;
   }
 
   // Konsens-Paarliste der Sitzungen einer Seite. side = 'left'|'right'.
@@ -709,6 +754,28 @@
     zaDrawCurve();
   }
 
+  // Zeit-Gewichtung Richtung (§6a Achse 2): neutral|frueh|mittig|spaet.
+  function zaOnTimeDir(dir) {
+    if (["neutral", "frueh", "mittig", "spaet"].indexOf(dir) < 0) return;
+    zaTimeDir = dir;
+    ["neutral", "frueh", "mittig", "spaet"].forEach(function (d) {
+      var b = document.getElementById("zaTimeDir_" + d);
+      if (b) b.style.fontWeight = (d === dir) ? "700" : "400";
+    });
+    zaDrawCurve();
+  }
+
+  // Zeit-Gewichtung Staerke (§6a Achse 2): schwach|mittel|stark.
+  function zaOnTimeStrength(key) {
+    if (!ZA_TIME_STRENGTH[key]) return;
+    zaTimeStrength = key;
+    ["schwach", "mittel", "stark"].forEach(function (k) {
+      var b = document.getElementById("zaTimeStr_" + k);
+      if (b) b.style.fontWeight = (k === key) ? "700" : "400";
+    });
+    zaDrawCurve();
+  }
+
   // Verfahrens-Schalter (00-zeitanalyse §4): paarweise | pegelweise.
   function zaOnConsolMode(mode) {
     if (mode !== "paarweise" && mode !== "pegelweise") return;
@@ -1182,6 +1249,14 @@
       var b = document.getElementById("zaSharp_" + k);
       if (b) b.addEventListener("click", function () { zaOnSharpness(k); });
     });
+    ["neutral", "frueh", "mittig", "spaet"].forEach(function (d) {
+      var b = document.getElementById("zaTimeDir_" + d);
+      if (b) b.addEventListener("click", function () { zaOnTimeDir(d); });
+    });
+    ["schwach", "mittel", "stark"].forEach(function (k) {
+      var b = document.getElementById("zaTimeStr_" + k);
+      if (b) b.addEventListener("click", function () { zaOnTimeStrength(k); });
+    });
     ["paarweise", "pegelweise"].forEach(function (m) {
       var b = document.getElementById("zaConsol_" + m);
       if (b) b.addEventListener("click", function () { zaOnConsolMode(m); });
@@ -1239,6 +1314,8 @@
     isComplete:     zaIsComplete,
     consensusPairs: zaConsensusPairs,
     weight:         zaWeight,
+    timeWeight:     zaTimeWeight,
+    timeSpan:       zaTimeSpan,
     consolidatedCtx: zaConsolidatedCtx,
     heatmapData:    zaHeatmapData,
     heatColor:      zaHeatColor,
