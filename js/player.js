@@ -706,7 +706,9 @@ function plUpdMonoBox() {
   const both = document.getElementById("plBothSides");
   const mono = document.getElementById("plMonoEQ");
   if (!both || !mono) return;
-  const on = !!both.checked;
+  both.checked = plBothSides;   // DOM aus Variable spiegeln
+  mono.checked = plMonoEQ;
+  const on = plBothSides;
   mono.disabled = !on;
   const lbl = mono.closest("label");
   if (lbl) lbl.style.opacity = on ? "" : "var(--disabled-opacity)";

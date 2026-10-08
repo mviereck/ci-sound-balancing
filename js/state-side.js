@@ -281,10 +281,8 @@ function _FRQ_pianoNachLadenNeuRechnen() {
 }
 
 function getPlayerSide() {
-  const cb = document.getElementById("plBothSides");
-  if (cb && cb.checked) {
-    const mono = document.getElementById("plMonoEQ");
-    if (mono && mono.checked) return "mono";
+  if (plBothSides) {
+    if (plMonoEQ) return "mono";
     return "both";
   }
   return activeSide;
@@ -569,6 +567,8 @@ let plLoop         = false;     // Endlos-Toggle (aktuelles Stueck wiederholen),
 let plShuffle      = false;     // BA258: Zufall-Modus global, Default aus
 let plPauseMs      = 2000;      // Pause zwischen Stuecken (ms), Default 2000
 let plMaskOn       = false;    // BA604: Geraeusch-Unterlegung an/aus, Default aus
+let plBothSides    = false;   // Player "Beide Seiten" -- Wahrheit, DOM gespiegelt
+let plMonoEQ       = false;   // Player "Stereo zu Mono" -- Wahrheit, DOM gespiegelt
 let plMaskLevelKey = "snr0";   // BA604: gewaehlte SNR-Stufe (Schluessel aus PL_MASK_LEVELS)
 let plShowText       = true;    // Begleittext sichtbar (Default AN, Sitzungszustand, beide Kategorien)
 let plReadAutoscroll = false;   // Autoscroll-Setting (persistent)

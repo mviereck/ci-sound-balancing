@@ -119,14 +119,14 @@ var SAVE_SCHEMA = [
     get: function () { return schieberELLVariant; },
     set: function (v) { schieberELLVariant = v; }, default: "stack", valid: { type: "string" } },
 
-  // --- Player-Checkboxen (DOM) ---
+  // --- Player-Checkboxen (Variable, DOM gespiegelt via plUpdMonoBox) ---
   { key: "plBothSides", scope: "global",
-    get: function () { var e = document.getElementById("plBothSides"); return e ? e.checked : false; },
-    set: function (v) { var e = document.getElementById("plBothSides"); if (e) e.checked = v; },
+    get: function () { return plBothSides; },
+    set: function (v) { plBothSides = !!v; },
     default: false, valid: { type: "bool" } },
   { key: "plMonoEQ", scope: "global",
-    get: function () { var e = document.getElementById("plMonoEQ"); return e ? e.checked : false; },
-    set: function (v) { var e = document.getElementById("plMonoEQ"); if (e) e.checked = v; },
+    get: function () { return plMonoEQ; },
+    set: function (v) { plMonoEQ = !!v; },
     default: false, valid: { type: "bool" } },
 
   // --- EQ ---

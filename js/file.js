@@ -181,10 +181,8 @@ function resetAll() {
   }
   if (typeof updPlSrcButtons === "function") updPlSrcButtons();
   // --- Player „beide Seiten" + Mono-EQ ---
-  const _plBoth = document.getElementById("plBothSides");
-  if (_plBoth) _plBoth.checked = false;
-  const _plMono = document.getElementById("plMonoEQ");
-  if (_plMono) _plMono.checked = false;
+  plBothSides = false;
+  plMonoEQ = false;
   if (typeof plUpdMonoBox === "function") plUpdMonoBox();
   // --- EQ-Knopf + Stärke ---
   if (typeof plEqOn !== "undefined") plEqOn = false;

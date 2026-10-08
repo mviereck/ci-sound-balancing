@@ -146,6 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("plBothSides")
     .addEventListener("change", function () {
+      plBothSides = this.checked;
       updatePlayerForSideChange();
       updBalApplyBtn();
       updLatApplyBtn();
@@ -155,20 +156,12 @@ document.addEventListener("DOMContentLoaded", () => {
           && typeof pWarpTrigger === "function") {
         pWarpTrigger();
       }
-      try {
-        // BA 163: pro Browser-Tab
-        const _sv = sessionStorage.getItem("ci-lb-v4");
-        if (_sv) {
-          const _d = JSON.parse(_sv);
-          _d.plBothSides = this.checked;
-          sessionStorage.setItem("ci-lb-v4", JSON.stringify(_d));
-        }
-      } catch (_e) {}
     });
   // BA 306: Player — Stereo-zu-Mono-Misch-Checkbox
   document
     .getElementById("plMonoEQ")
     .addEventListener("change", function () {
+      plMonoEQ = this.checked;
       updatePlayerForSideChange();
       updBalApplyBtn();
       updLatApplyBtn();
@@ -177,14 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
           && typeof pWarpTrigger === "function") {
         pWarpTrigger();
       }
-      try {
-        const _sv = sessionStorage.getItem("ci-lb-v4");
-        if (_sv) {
-          const _d = JSON.parse(_sv);
-          _d.plMonoEQ = this.checked;
-          sessionStorage.setItem("ci-lb-v4", JSON.stringify(_d));
-        }
-      } catch (_e) {}
     });
   // Test-Tab Event-Listener werden jetzt in test.js DOMContentLoaded verdrahtet
   // File

@@ -99,7 +99,6 @@ let _st_matrix = null;       // Matrix des aktiven Buendels (aus Satztexten, SS3
 // Player-Zustand sichern / erzwingen / wiederherstellen (SS4.4)
 // ------------------------------------------------------------
 function st_savePlayerState() {
-  var bothCb = document.getElementById("plBothSides");
   var volEl  = document.getElementById("plVol");
   st_saved = {
     maskOn:    plMaskOn,
@@ -107,7 +106,7 @@ function st_savePlayerState() {
     noiseId:   plNoiseSelectedId,
     activeSrc: plActiveSource,
     sentRec:   (typeof sCurRec !== "undefined") ? sCurRec : null,
-    bothSides: bothCb ? bothCb.checked : false,  // "beide Seiten" — fuer den Test aus
+    bothSides: plBothSides,
     plVol:     volEl ? parseInt(volEl.value, 10) : null
   };
   // Sprachtest-Lautstaerke hart in den Player setzen (00-lautstaerke Sec. 4.5).
@@ -127,9 +126,8 @@ function st_restorePlayerState() {
   plMaskSetLevel(st_saved.maskLevel);
   plNoiseSelectedId = st_saved.noiseId;
   // "Beide Seiten" wiederherstellen (einseitig war nur fuer den Test erzwungen).
-  var bothCb = document.getElementById("plBothSides");
-  if (bothCb && bothCb.checked !== st_saved.bothSides) {
-    bothCb.checked = st_saved.bothSides;
+  if (plBothSides !== st_saved.bothSides) {
+    plBothSides = st_saved.bothSides;
     if (typeof updatePlayerForSideChange === "function") updatePlayerForSideChange();
   }
   // Player-Lautstaerke wiederherstellen (00-lautstaerke Sec. 4.5).
@@ -146,9 +144,8 @@ function st_restorePlayerState() {
 // waere fachlich falsch. Nutzt den regulaeren Umschaltweg (Checkbox +
 // updatePlayerForSideChange), nicht einen Patch an getPlayerSide.
 function st_forceSingleSide() {
-  var bothCb = document.getElementById("plBothSides");
-  if (bothCb && bothCb.checked) {
-    bothCb.checked = false;
+  if (plBothSides) {
+    plBothSides = false;
     if (typeof updatePlayerForSideChange === "function") updatePlayerForSideChange();
   }
 }
