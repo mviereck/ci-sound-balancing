@@ -1572,7 +1572,6 @@ Object.assign(L.de, {
     legalLicenseError: "Lizenztext konnte nicht geladen werden.",
     legalLicenseFallbackLink: "Lizenztext im Repository öffnen",
 
-    snapshotHintChanged: "Hinweis: Implantat-Einstellungen wurden seit der Messung verändert. Eine neue Messung ist möglicherweise sinnvoll.", // BA 156
     STB_noResultsMsg: "Noch keine Ergebnisse. Führen Sie erst eine Messung in „Messungen → Stereo-Balance” durch.",
     STB_resTitle: "Ergebnisse Stereo-Balance",
     STB_medianLabel: "Empfohlener Balance-Offset (Mittelwert)",

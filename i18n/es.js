@@ -1265,7 +1265,6 @@ Object.assign(L.es, {
     legalLicenseError: "No se ha podido cargar el texto de la licencia.",
     legalLicenseFallbackLink: "Abrir el texto de la licencia en el repositorio",
 
-    snapshotHintChanged: "Aviso: los ajustes del implante han cambiado desde la medición. Puede ser razonable una nueva medición.", // BA 156
     STB_noResultsMsg: "Aún no hay resultados. Realice primero una medición en «Mediciones → Balance estéreo».",
     STB_resTitle: "Resultados balance estéreo",
     STB_medianLabel: "Offset de balance recomendado (media)",

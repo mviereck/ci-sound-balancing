@@ -1265,7 +1265,6 @@ Object.assign(L.fr, {
     legalLicenseError: "Le texte de licence n'a pas pu être chargé.",
     legalLicenseFallbackLink: "Ouvrir le texte de licence dans le dépôt",
 
-    snapshotHintChanged: "Remarque : les réglages d'implant ont été modifiés depuis la mesure. Une nouvelle mesure peut être utile.", // BA 156
     STB_noResultsMsg: "Pas encore de résultats. Effectuez d'abord une mesure dans « Mesures → Balance stéréo ».",
     STB_resTitle: "Résultats balance stéréo",
     STB_medianLabel: "Offset de balance recommandé (moyenne)",

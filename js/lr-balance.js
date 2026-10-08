@@ -4,8 +4,6 @@
 
 // State
 let STB_results = {}; // {elIdx: offset_dB}  Ausgleichs-Korrektur: negativ = rechts war lauter
-// BA 156: Schnappschuß zum Zeitpunkt der ersten LR-Messung
-let STB_snapshot = null;
 let stb_seq = []; // sequence of electrode indices to test
 let stb_seqIdx = 0;
 let stb_currentEl = null; // current electrode index (left side numbering)
@@ -329,10 +327,6 @@ function stb_confirm() {
   // Save undo
   stb_undoStack.push({ el, prev: STB_results[el] });
   STB_results[el] = val;
-  // BA 156
-  if (STB_snapshot === null && typeof implantSnapshot === 'function') {
-    STB_snapshot = implantSnapshot();
-  }
   stb_seqIdx++;
   STB_renderResults();
   STB_renderMean();
@@ -485,10 +479,6 @@ function STB_renderResults() {
 
   STB_drawChart();
   STB_renderMean();
-  // BA 156
-  if (typeof renderSnapshotHint === 'function' && STB_els && STB_els.snapHintBox) {
-    renderSnapshotHint('stereobalance', STB_els.snapHintBox);
-  }
 }
 
 // Eigener GEDREHTER Stereo-Zeichner (BA 497): senkrechte Mittelachse,
@@ -676,10 +666,6 @@ function STB_checkData() {
                  || (sideData.right.config || "ci") === "deaf";
     deafHint.style.display = hasDeaf ? "" : "none";
     if (hasDeaf) deafHint.textContent = t("cfgHintDeafTest");
-  }
-  // BA 156
-  if (typeof renderSnapshotHint === 'function' && STB_els && STB_els.snapHintBox) {
-    renderSnapshotHint('stereobalance', STB_els.snapHintBox);
   }
   _lrRenderPrereqHints();
 }
@@ -1014,7 +1000,6 @@ document.addEventListener("DOMContentLoaded", function() {
     STB_clearBtn.addEventListener('click', function() {
       if (!confirm(t("stb_clearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
       STB_results = {};
-      STB_snapshot = null;
       STB_resetSequence();
       if (typeof depLockApply === 'function') depLockApply();
       var stb_rC = document.getElementById("STB_resultsCard");

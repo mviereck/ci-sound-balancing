@@ -416,64 +416,6 @@ function isSideUsable(side) {
   return true;
 }
 
-// BA 156: Snapshot der für Tests relevanten Implantat-Felder
-function implantSnapshot() {
-  function _sideSnap(side) {
-    const s = sideData[side];
-    if (!s) return null;
-    // BA 164: Quelle ist jetzt elActive[]
-    const deact = [];
-    const arr = s.elActive || [];
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] === false) deact.push(i);
-    }
-    return {
-      config: s.config || "unknown",
-      manufacturer: s.manufacturer || "unknown",
-      nEl: s.nEl || 0,
-      deactivatedIdx: deact,
-    };
-  }
-  return {
-    left:  _sideSnap("left"),
-    right: _sideSnap("right"),
-  };
-}
-
-function implantSnapshotsDiffer(a, b) {
-  if (!a || !b) return false;
-  function _eqSide(x, y) {
-    if (!x || !y) return false;
-    if (x.config !== y.config) return false;
-    if (x.manufacturer !== y.manufacturer) return false;
-    if (x.nEl !== y.nEl) return false;
-    const xD = x.deactivatedIdx || [], yD = y.deactivatedIdx || [];
-    if (xD.length !== yD.length) return false;
-    for (let i = 0; i < xD.length; i++) if (xD[i] !== yD[i]) return false;
-    return true;
-  }
-  return !(_eqSide(a.left, b.left) && _eqSide(a.right, b.right));
-}
-
-// BA 156: Hinweis-Banner-Helper. testKey ∈ {'stereobalance', 'latenz'}.
-function renderSnapshotHint(testKey, containerEl) {
-  if (!containerEl) return;
-  let oldSnap = null;
-  if (testKey === 'stereobalance') {
-    oldSnap = (typeof STB_snapshot !== 'undefined') ? STB_snapshot : null;
-  } else if (testKey === 'latenz') {
-    oldSnap = (typeof LTZ_result !== 'undefined' && LTZ_result)
-            ? LTZ_result.implantSnapshot : null;
-  }
-  if (!oldSnap) { containerEl.innerHTML = ''; return; }
-  const curSnap = implantSnapshot();
-  if (!implantSnapshotsDiffer(oldSnap, curSnap)) {
-    containerEl.innerHTML = '';
-    return;
-  }
-  containerEl.innerHTML =
-    '<div class="snapshot-hint">' + t('snapshotHintChanged') + '</div>';
-}
 let _syncInProgress = false;
 function FRQ_implantatSyncToAcoustic() {
   if (_syncInProgress) return;

@@ -52,11 +52,6 @@ function _switchSubtabInternal(parent, subtab) {
   if (parent === "messungen" && subtab === "stereobalance") {
     STB_checkData();
   }
-  if (parent === "messungen" && subtab === "latenz") {
-    if (typeof renderSnapshotHint === 'function') {
-      renderSnapshotHint('latenz', document.getElementById('snapHint_LTZ'));
-    }
-  }
   if (parent === "messungen" && subtab === "freqmatch") {
     if (typeof FRQ_applyLang === "function") FRQ_applyLang();
     if (typeof _FRQ_refreshTabState === "function") _FRQ_refreshTabState();

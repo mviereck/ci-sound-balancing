@@ -1265,7 +1265,6 @@ Object.assign(L.en, {
     legalLicenseError: "License text could not be loaded.",
     legalLicenseFallbackLink: "Open license text in repository",
 
-    snapshotHintChanged: "Note: Implant settings have been changed since the measurement. A new measurement may be useful.", // BA 156
     STB_noResultsMsg: "No results yet. First run a measurement under “Measurements → Stereo balance”.",
     STB_resTitle: "Stereo balance results",
     STB_medianLabel: "Recommended balance offset (mean)",
