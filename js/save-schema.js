@@ -3,9 +3,12 @@
 // Kein DOMContentLoaded-Closure (global sichtbar fuer file.js / init.js).
 
 // -----------------------------------------------------------------------
-// Feld-Tabelle GLOBAL
+// Feld-Tabelle — EIN Register. scope: "global" | "side" steht am Feld.
+// Thematische Blöcke (global / seitenweise / Band-Wahlen) sind reine
+// Kommentar-Ordnung; buildState/applyState verzweigen nur über e.scope.
 // -----------------------------------------------------------------------
-var SAVE_SCHEMA_GLOBAL = [
+// === global ===
+var SAVE_SCHEMA = [
   // --- Kern / Seite ---
   { key: "currentSide", scope: "global",
     get: function () { return activeSide; },
@@ -340,10 +343,9 @@ function _saveNormBaender(arr, nEl, mfr, fillDefault) {
 }
 
 // -----------------------------------------------------------------------
-// Feld-Tabelle SEITENWEISE
+// === seitenweise === (config und manufacturer zuerst — manufacturer setzt nEl)
 // -----------------------------------------------------------------------
-// config und manufacturer zuerst (manufacturer setzt nEl).
-var SAVE_SCHEMA_SIDE = [
+SAVE_SCHEMA.push(
   { key: "config", scope: "side",
     get: function (s) { return sideData[s].config; },
     set: function (v, s) { sideData[s].config = v || "ci"; },
@@ -544,22 +546,17 @@ var SAVE_SCHEMA_SIDE = [
       sideData[s].bandWandHi = (typeof v === "number") ? v : (bg ? bg.default[1] : null);
     },
     default: null },
-];
+);
 
 // Band-Wahlen (24) datengetrieben aus FRQ_BAND_WAHLEN (key === fileKey).
 FRQ_BAND_WAHLEN.forEach(function (w) {
-  SAVE_SCHEMA_SIDE.push({
+  SAVE_SCHEMA.push({
     key: w.key, scope: "side",
     get: function (s) { return sideData[s][w.key]; },
     set: function (v, s) { sideData[s][w.key] = (typeof v === "string") ? v : w.def; },
     default: w.def, valid: { type: "string" },
   });
 });
-
-// -----------------------------------------------------------------------
-// Zusammenfuehrung
-// -----------------------------------------------------------------------
-var SAVE_SCHEMA = SAVE_SCHEMA_GLOBAL.concat(SAVE_SCHEMA_SIDE);
 
 // -----------------------------------------------------------------------
 // Generische Hilfsfunktionen
