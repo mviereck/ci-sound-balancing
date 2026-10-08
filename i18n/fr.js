@@ -454,7 +454,6 @@ Object.assign(L.fr, {
     archivCfgProcessor: "Processeur audio",
     archivCfgCValue: "MAPLAW c-actuel",
     archivCfgStrategy: "Stratégie de codage",
-    archivCfgDefMfr: "Trame de fréquences par défaut",
     archivTestSeq: "Séquence",
     archivColRel: "Δ relatif",
     archivKurvenELLStrength: "Force",

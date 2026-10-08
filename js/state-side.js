@@ -24,7 +24,6 @@ function FRQ_implantatEffektiv(i, srcData) {
   return band ? geomMitte(band.lo, band.hi) : 0;
 }
 let ell_focus = 0;
-let defaultMfr = "unknown"; // BA 154: Erststart-Default
 let audiologUserNote = ""; // Patient-Notiz für Audiologen-Bericht (top-level, beide Seiten)
 let userFileSuffix = ""; // globaler Dateinamen-Suffix für alle Exporte
 let userLastName  = ""; // Nachname für Dateinamen und Druck-Seitentitel (BA 268)
@@ -454,18 +453,18 @@ function FRQ_implantatSyncToAcoustic() {
         }
       }
     } else {
-      // Beide nicht-CI: Default-Raster setzen
+      // Beide nicht-CI: leeres „unknown"-Raster setzen (kein Hersteller gewaehlt).
       const lCfg = sideData.left.config || "ci";
       const rCfg = sideData.right.config || "ci";
       if (lCfg !== "ci" && rCfg !== "ci") {
         ["left","right"].forEach(side => {
           const s = sideData[side];
           if (s.config !== "ci") {
-            const defN = MFR[defaultMfr].n;
+            const defN = MFR["unknown"].n;
             s.nEl = defN;
-            s.FRQ_implantatBaenderDefault = implantDefaultBaender(defaultMfr);
+            s.FRQ_implantatBaenderDefault = implantDefaultBaender("unknown");
             s.FRQ_implantatBaenderOwn = new Array(defN).fill(null);
-            s.manufacturer = defaultMfr;
+            s.manufacturer = "unknown";
             ["elSt","elExDur","schieberELL"].forEach(k => {
               if (!s[k] || s[k].length !== defN) {
                 const def = k === "elSt" || k === "elExDur" ? null : 0;

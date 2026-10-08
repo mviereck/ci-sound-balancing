@@ -453,7 +453,6 @@ Object.assign(L.en, {
     archivCfgProcessor: "Audio processor",
     archivCfgCValue: "MAPLAW actual c",
     archivCfgStrategy: "Coding strategy",
-    archivCfgDefMfr: "Default frequency grid",
     archivTestSeq: "Sequence",
     archivColRel: "Δ relative",
     archivKurvenELLStrength: "Strength",

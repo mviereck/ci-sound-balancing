@@ -120,7 +120,6 @@ function resetAll() {
     sideData[s].kurvenELL = [];
     initSideData(s, "unknown");
   }
-  defaultMfr = "unknown";
   // --- Notiz an Audiologen ---
   if (typeof audiologUserNote !== "undefined") {
     audiologUserNote = "";
@@ -134,8 +133,6 @@ function resetAll() {
   document.getElementById("mfrSelect").value = "unknown";
   const cfgSelR = document.getElementById("cfgSelect");
   if (cfgSelR) cfgSelR.value = "unknown";
-  const dfSelR = document.getElementById("defaultMfrSelect");
-  if (dfSelR) dfSelR.value = "unknown";
   // --- Globale Test-Parameter ---
   if (typeof FRQ_activeMethodValue !== "undefined") FRQ_activeMethodValue = null;
   // Lautstaerke/Testton pro Test auf Defaults (00-lautstaerke-architektur.md).

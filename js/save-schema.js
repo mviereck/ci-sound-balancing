@@ -7,10 +7,6 @@
 // -----------------------------------------------------------------------
 var SAVE_SCHEMA_GLOBAL = [
   // --- Kern / Seite ---
-  { key: "defaultMfr", scope: "global",
-    get: function () { return defaultMfr; },
-    set: function (v) { if (v && MFR[v]) defaultMfr = v; },
-    default: "medel", valid: { type: "string" } },
   { key: "currentSide", scope: "global",
     get: function () { return activeSide; },
     set: function (v) { activeSide = SIDES.includes(v) ? v : "left"; },

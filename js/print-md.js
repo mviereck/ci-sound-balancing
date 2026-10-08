@@ -94,7 +94,6 @@ function collectArchivData() {
       activeSide: activeSide,
     },
     testSettings: _collectTestSettings(),
-    defaultMfr: defaultMfr,
     schieberELL: {
       mode: schieberELLMode,
       variant: schieberELLVariant,
@@ -692,7 +691,6 @@ function _archivMdPlayer(data) {
 
 function _archivMdMisc(data) {
   const out = [`\n## ${t("archivSecMisc")}\n`];
-  out.push(`- ${t("archivCfgDefMfr")}: ${(MFR[data.defaultMfr] && MFR[data.defaultMfr].name) || data.defaultMfr}`);
   if (IMPL_HERSTELLERWERTE) {
     out.push(`- ${t("archivSchieberELLMode")}: ${data.schieberELL.mode === "abs" ? t("schieberELLModeAbsolute") : t("schieberELLModeRelative")}`);
   }

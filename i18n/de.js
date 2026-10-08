@@ -707,7 +707,6 @@ Object.assign(L.de, {
     archivCfgProcessor: "Audio-Prozessor",
     archivCfgCValue: "MAPLAW Ist-c",
     archivCfgStrategy: "Kodierungsstrategie",
-    archivCfgDefMfr: "Default-Frequenzraster",
     archivTestSeq: "Sequenz",
     archivColRel: "Δ relativ",
     archivKurvenELLStrength: "Stärke",
