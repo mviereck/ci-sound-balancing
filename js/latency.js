@@ -311,7 +311,7 @@ function LTZ_applyToPlayer() {
 let LTZ_els = null;          // panel-refs aus buildTestPanel
 
 function _ltz_getVolumeFactor() {
-  const p = teGet("latenz","volume");
+  const p = saveGet("LTZtest_volume");
   return (typeof p === "number" ? p : 50) / 100;
 }
 
@@ -552,9 +552,9 @@ document.addEventListener("DOMContentLoaded", function() {
         sequence:     false,
         sliderTarget: false,
         volumeButton: {
-          getVolume: function () { return teGet("latenz","volume"); },
+          getVolume: function () { return saveGet("LTZtest_volume"); },
           setVolume: function (v) {
-            teSet("latenz","volume", v);
+            saveSet("LTZtest_volume", v);
             if (LTZ_active && ltz_balGainL && ltz_balGainR) {
               var balG = (typeof STB_rawGains === "function") ? STB_rawGains() : { left: 0, right: 0 };
               var f = _ltz_getVolumeFactor();

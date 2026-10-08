@@ -43,9 +43,9 @@ function _lrUpdCumulative(v) {
 }
 
 
-function STB_gVol() { return Math.pow((teGet("stereobalance","volume") || 0) / 100, 2); }
-function stb_gDur() { return teGet("stereobalance","duration") || 1000; }
-function stb_gPau() { return teGet("stereobalance","pause")    || 400;  }
+function STB_gVol() { return Math.pow((saveGet("STBtest_volume") || 0) / 100, 2); }
+function stb_gDur() { return saveGet("STBtest_duration") || 1000; }
+function stb_gPau() { return saveGet("STBtest_pause")    || 400;  }
 
 // BA 253: Klavier-Helfer fuer die Tonauswahl-Modalbox des
 // Stereo-Balance-Tests. Tasten bis Min(leftN, rightN); disabled
@@ -166,10 +166,10 @@ async function stb_playCurrent() {
   var _stbTones = stb_pairTones();
   testUI.tonePlayer.playPair(_stbTones.first, _stbTones.second, {
     pairIndicator: _lrPI,
-    sequence:      teGet("stereobalance","sequence"),
+    sequence:      saveGet("STBtest_sequence"),
     mode:          'sequence',
     pauseMs:       stb_gPau(),
-    toneType:      teGet("stereobalance","toneType"),
+    toneType:      saveGet("STBtest_toneType"),
     onDone:        function () { stb_isPlay = false; }
   });
 }
@@ -184,7 +184,7 @@ function stb_playSimul() {
   testUI.tonePlayer.playPair(_stbTones.first, _stbTones.second, {
     pairIndicator: _lrPI,
     mode:          'both',
-    toneType:      teGet("stereobalance","toneType"),
+    toneType:      saveGet("STBtest_toneType"),
     onDone:        function () { stb_isPlay = false; }
   });
 }
@@ -820,12 +820,12 @@ document.addEventListener("DOMContentLoaded", function() {
         // BA 253: Tonart-Dropdown durch tonePopupButton ersetzt.
         toneType:  false,
         volumeButton: {
-          getVolume: function () { return teGet("stereobalance","volume"); },
-          setVolume: function (v) { teSet("stereobalance","volume", v); },
+          getVolume: function () { return saveGet("STBtest_volume"); },
+          setVolume: function (v) { saveSet("STBtest_volume", v); },
         },
         tonePopupButton: {
-          getToneType: function()   { return teGet("stereobalance","toneType"); },
-          setToneType: function(tt) { teSet("stereobalance","toneType", tt); },
+          getToneType: function()   { return saveGet("STBtest_toneType"); },
+          setToneType: function(tt) { saveSet("STBtest_toneType", tt); },
           onToneSelected: function(tt) { _lrTpModalTone = tt; },
           onModalClose:   function()   { _lrTpModalTone = null; _lrTpCorrectVol = null; },
           onTogglesReady: function(fn) { _lrTpCorrectVol = fn; },
@@ -835,14 +835,14 @@ document.addEventListener("DOMContentLoaded", function() {
           showVolume:   false,
           showDuration: true,
           showPause:    true,
-          getDurationMs:    function()  { return teGet("stereobalance","duration"); },
-          setDurationMs:    function(v) { teSet("stereobalance","duration", v); },
-          getPauseMs:       function()  { return teGet("stereobalance","pause"); },
-          setPauseMs:       function(v) { teSet("stereobalance","pause", v); },
+          getDurationMs:    function()  { return saveGet("STBtest_duration"); },
+          setDurationMs:    function(v) { saveSet("STBtest_duration", v); },
+          getPauseMs:       function()  { return saveGet("STBtest_pause"); },
+          setPauseMs:       function(v) { saveSet("STBtest_pause", v); },
           getVolume:   function() { return STB_gVol(); },
           getPreviewSequence: function (lastHz) {
             if (STB_running && stb_currentEl !== null) {
-              return stb_sequence({ aba: teGet("stereobalance","sequence") === 'aba' });
+              return stb_sequence({ aba: saveGet("STBtest_sequence") === 'aba' });
             }
             // Kein Test: gemerkter Ton, beide Seiten nacheinander.
             // BA 301: jede Seite mit ihrer Korrektur (Elektrodenlautstaerke
@@ -871,7 +871,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
             _lrKbT0 = (typeof performance !== 'undefined') ? performance.now() : Date.now();
-            var tt   = (_lrTpModalTone !== null) ? _lrTpModalTone : teGet("stereobalance","toneType");
+            var tt   = (_lrTpModalTone !== null) ? _lrTpModalTone : saveGet("STBtest_toneType");
             var vol  = STB_gVol();
             var panA = (activeSide === 'left') ? -1 : 1;
             var hzA;
@@ -894,7 +894,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var t1   = (typeof performance !== 'undefined') ? performance.now() : Date.now();
             var held = Math.max(0, t1 - _lrKbT0);
             if (held <= 0) return;
-            var tt    = (_lrTpModalTone !== null) ? _lrTpModalTone : teGet("stereobalance","toneType");
+            var tt    = (_lrTpModalTone !== null) ? _lrTpModalTone : saveGet("STBtest_toneType");
             var vol   = STB_gVol();
             var other = (activeSide === 'left') ? 'right' : 'left';
             var panB  = (activeSide === 'left') ? 1 : -1;

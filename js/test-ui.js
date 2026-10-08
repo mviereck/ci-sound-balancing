@@ -429,8 +429,8 @@ function _buildTestPanelNew(parentEl, cfg) {
       [['abab','ABAB'],['aba','ABA'],['ab','AB']].forEach(function(pair) {
         seqSelect.appendChild(new Option(pair[1], pair[0]));
       });
-      var seqVal = (id === 'elektrodenlautstaerke' || id === 'stereobalance' || id === 'freqmatch')
-                 ? (teGet(id, 'sequence') || 'ab') : 'ab';
+      var _seqKeyMap = { elektrodenlautstaerke: 'ELLtest_sequence', stereobalance: 'STBtest_sequence', freqmatch: 'FRQtest_sequence' };
+      var seqVal = _seqKeyMap[id] ? (saveGet(_seqKeyMap[id]) || 'ab') : 'ab';
       seqSelect.value = seqVal;
       cg.append(lbl2, seqSelect);
       rowSequence.appendChild(cg);
@@ -1165,8 +1165,8 @@ function _buildTestPanelNew(parentEl, cfg) {
   // Sequence-Dropdown Event-Listener (pro Test)
   if (seqSelect) {
     seqSelect.addEventListener('change', function() {
-      if (id === 'elektrodenlautstaerke' || id === 'stereobalance' || id === 'freqmatch')
-        teSet(id, 'sequence', seqSelect.value);
+      var _seqWriteMap = { elektrodenlautstaerke: 'ELLtest_sequence', stereobalance: 'STBtest_sequence', freqmatch: 'FRQtest_sequence' };
+      if (_seqWriteMap[id]) saveSet(_seqWriteMap[id], seqSelect.value);
     });
   }
 

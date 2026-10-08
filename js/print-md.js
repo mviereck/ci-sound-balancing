@@ -118,25 +118,25 @@ function _collectTestSettings() {
   }
   return {
     elektrodenlautstaerke: _row(
-      teGet("elektrodenlautstaerke","toneType"),
-      teGet("elektrodenlautstaerke","sequence"),
-      teGet("elektrodenlautstaerke","duration"),
-      teGet("elektrodenlautstaerke","pause"),
-      teGet("elektrodenlautstaerke","volume")
+      saveGet("ELLtest_toneType"),
+      saveGet("ELLtest_sequence"),
+      saveGet("ELLtest_duration"),
+      saveGet("ELLtest_pause"),
+      saveGet("ELLtest_volume")
     ),
     stereobalance: _row(
-      teGet("stereobalance","toneType"),
-      teGet("stereobalance","sequence"),
-      teGet("stereobalance","duration"),
-      teGet("stereobalance","pause"),
-      teGet("stereobalance","volume")
+      saveGet("STBtest_toneType"),
+      saveGet("STBtest_sequence"),
+      saveGet("STBtest_duration"),
+      saveGet("STBtest_pause"),
+      saveGet("STBtest_volume")
     ),
     freqmatch: _row(
-      teGet("freqmatch","toneType"),
-      teGet("freqmatch","sequence"),
-      teGet("freqmatch","duration"),
-      teGet("freqmatch","pause"),
-      teGet("freqmatch","volume")
+      saveGet("FRQtest_toneType"),
+      saveGet("FRQtest_sequence"),
+      saveGet("FRQtest_duration"),
+      saveGet("FRQtest_pause"),
+      saveGet("FRQtest_volume")
     )
   };
 }

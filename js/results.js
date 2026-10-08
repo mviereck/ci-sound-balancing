@@ -43,7 +43,7 @@ function ELL_renderResults() {
   // BA 250: Elektrodenlautstaerke-Test hat kein Header-Volume-Feld
   // mehr — der Wert sitzt im State volume_test (in der Tonart-Modalbox
   // eingestellt). Fallback 75 wie bisher.
-  const vol = (typeof teGet === 'function') ? (teGet("elektrodenlautstaerke","volume") || 50) : 50;
+  const vol = saveGet("ELLtest_volume") || 50;
   let meta = `${new Date().toLocaleString(lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US")}`;
   if (hB) meta += ` · ${ELL_results.length} bal.`;
   meta += ` · ${t("lblVol")} ${vol}% · ${MFR[mfr].name}`;
@@ -1519,7 +1519,7 @@ function _frqPianoWerteByIdx(form) {
 
 // Grundlautstaerke (quadratische Kennlinie, vgl. ui-implant.js:381).
 function _frqPianoBaseVol() {
-  return Math.pow((teGet("abspielklavier","volume") || 0) / 100, 2);
+  return Math.pow((saveGet("abspielklavier_volume") || 0) / 100, 2);
 }
 
 // Ein Ton-Token fuer eine Seite. hz kann null sein -> null (Ton auslassen).
@@ -1536,7 +1536,7 @@ function _frqPianoToken(hz, side) {
   } else if (typeof corrVol === "function") {
     vol = corrVol(vol, side, hz, true, true);
   }
-  return { hz: hz, pan: pan, vol: vol, durationMs: teGet("abspielklavier","duration") };
+  return { hz: hz, pan: pan, vol: vol, durationMs: saveGet("abspielklavier_duration") };
 }
 
 // A-B-A-B-Token-Array fuer eine Elektrode. BA507: form statt extract;
@@ -1554,11 +1554,11 @@ function _frqPianoSequence(elIdx, form) {
   if (!tokA) return [];
   function durchlauf(seq) {
     seq.push(tokA);
-    if (tokB) { seq.push({ pauseMs: teGet("abspielklavier","pause") }); seq.push(tokB); }
+    if (tokB) { seq.push({ pauseMs: saveGet("abspielklavier_pause") }); seq.push(tokB); }
   }
   var seq = [];
   durchlauf(seq);
-  seq.push({ pauseMs: teGet("abspielklavier","pause") });
+  seq.push({ pauseMs: saveGet("abspielklavier_pause") });
   durchlauf(seq);
   return seq;
 }
@@ -1612,8 +1612,8 @@ var _frqPianoModalTone = null;
 function _frqOpenPiano(titleKey, form) {
   if (typeof openToneSelectionDialog !== "function") return;
   openToneSelectionDialog({
-    getToneType:    function ()   { return teGet("abspielklavier","toneType") || "sine"; },
-    setToneType:    function (tt) { teSet("abspielklavier","toneType", tt); _frqPianoModalTone = tt; },
+    getToneType:    function ()   { return saveGet("abspielklavier_toneType") || "sine"; },
+    setToneType:    function (tt) { saveSet("abspielklavier_toneType", tt); _frqPianoModalTone = tt; },
     onToneSelected: function (tt) { _frqPianoModalTone = tt; },
     onModalClose:   function ()   { _frqPianoModalTone = null; },
 
@@ -1622,12 +1622,12 @@ function _frqOpenPiano(titleKey, form) {
     showVolume:   true,
     showDuration: true,
     showPause:    true,
-    getVolumePercent: function ()  { return teGet("abspielklavier","volume"); },
-    setVolumePercent: function (v) { teSet("abspielklavier","volume", v); },
-    getDurationMs:    function ()  { return teGet("abspielklavier","duration"); },
-    setDurationMs:    function (v) { teSet("abspielklavier","duration", v); },
-    getPauseMs:       function ()  { return teGet("abspielklavier","pause"); },
-    setPauseMs:       function (v) { teSet("abspielklavier","pause", v); },
+    getVolumePercent: function ()  { return saveGet("abspielklavier_volume"); },
+    setVolumePercent: function (v) { saveSet("abspielklavier_volume", v); },
+    getDurationMs:    function ()  { return saveGet("abspielklavier_duration"); },
+    setDurationMs:    function (v) { saveSet("abspielklavier_duration", v); },
+    getPauseMs:       function ()  { return saveGet("abspielklavier_pause"); },
+    setPauseMs:       function (v) { saveSet("abspielklavier_pause", v); },
     getVolume:        function ()  { return _frqPianoBaseVol(); },
 
     // Korrektur-Toggles (Elektrodenlautstaerke + Balance).
@@ -1714,11 +1714,11 @@ function _frqElPianoSequence(elIdx) {
   if (!tokA) return [];
   function durchlauf(seq) {
     seq.push(tokA);
-    if (tokB) { seq.push({ pauseMs: teGet("abspielklavier","pause") }); seq.push(tokB); }
+    if (tokB) { seq.push({ pauseMs: saveGet("abspielklavier_pause") }); seq.push(tokB); }
   }
   var seq = [];
   durchlauf(seq);
-  seq.push({ pauseMs: teGet("abspielklavier","pause") });
+  seq.push({ pauseMs: saveGet("abspielklavier_pause") });
   durchlauf(seq);
   return seq;
 }
@@ -1744,8 +1744,8 @@ function FRQ_openElektrodenPiano() {
   if (typeof openToneSelectionDialog !== "function") return;
   _frqElPianoKorrigiert = true;   // Default: korrigiert
   openToneSelectionDialog({
-    getToneType:    function ()   { return teGet("abspielklavier","toneType") || "sine"; },
-    setToneType:    function (tt) { teSet("abspielklavier","toneType", tt); _frqPianoModalTone = tt; },
+    getToneType:    function ()   { return saveGet("abspielklavier_toneType") || "sine"; },
+    setToneType:    function (tt) { saveSet("abspielklavier_toneType", tt); _frqPianoModalTone = tt; },
     onToneSelected: function (tt) { _frqPianoModalTone = tt; },
     onModalClose:   function ()   { _frqPianoModalTone = null; },
 
@@ -1754,12 +1754,12 @@ function FRQ_openElektrodenPiano() {
     showVolume:   true,
     showDuration: true,
     showPause:    true,
-    getVolumePercent: function ()  { return teGet("abspielklavier","volume"); },
-    setVolumePercent: function (v) { teSet("abspielklavier","volume", v); },
-    getDurationMs:    function ()  { return teGet("abspielklavier","duration"); },
-    setDurationMs:    function (v) { teSet("abspielklavier","duration", v); },
-    getPauseMs:       function ()  { return teGet("abspielklavier","pause"); },
-    setPauseMs:       function (v) { teSet("abspielklavier","pause", v); },
+    getVolumePercent: function ()  { return saveGet("abspielklavier_volume"); },
+    setVolumePercent: function (v) { saveSet("abspielklavier_volume", v); },
+    getDurationMs:    function ()  { return saveGet("abspielklavier_duration"); },
+    setDurationMs:    function (v) { saveSet("abspielklavier_duration", v); },
+    getPauseMs:       function ()  { return saveGet("abspielklavier_pause"); },
+    setPauseMs:       function (v) { saveSet("abspielklavier_pause", v); },
     getVolume:        function ()  { return _frqPianoBaseVol(); },
 
     // Lautstaerke-Korrektur (Elektrodenlautstaerke + Balance) wie die

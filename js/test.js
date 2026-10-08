@@ -834,9 +834,9 @@ const LS_HINT_K = 3;
 // BA 250: Helfer analog FRQ_getVolume/FRQ_getDuration/FRQ_getPause in freqmatch.js.
 // Lesen direkt aus den State-Variablen; macht die quadratische
 // Audio-Konversion fuer die Lautstaerke.
-function tGVol() { return Math.pow((teGet("elektrodenlautstaerke","volume") || 0) / 100, 2); }
-function tGDur() { return teGet("elektrodenlautstaerke","duration") || 750; }
-function tGPau() { return teGet("elektrodenlautstaerke","pause")    || 300; }
+function tGVol() { return Math.pow((saveGet("ELLtest_volume") || 0) / 100, 2); }
+function tGDur() { return saveGet("ELLtest_duration") || 750; }
+function tGPau() { return saveGet("ELLtest_pause")    || 300; }
 
 // BA 252: Klavier-Helfer fuer die Tonauswahl-Modalbox des
 // Elektrodenlautstaerke-Tests. Eine Seite (aktive Seite), alle
@@ -1180,10 +1180,10 @@ function playCur() {
   var _ellTones = _ell_pairTones();
   testUI.tonePlayer.playPair(_ellTones.first, _ellTones.second, {
     pairIndicator: vref && vref.pairIndicator,
-    sequence:      teGet("elektrodenlautstaerke","sequence"),
+    sequence:      saveGet("ELLtest_sequence"),
     mode:          'sequence',
     pauseMs:       tGPau(),
-    toneType:      teGet("elektrodenlautstaerke","toneType"),
+    toneType:      saveGet("ELLtest_toneType"),
     onDone:        function () { isPlay = false; }
   });
 }
@@ -1399,12 +1399,12 @@ document.addEventListener("DOMContentLoaded", function() {
         pause:     false,
         toneType:  false,
         volumeButton: {
-          getVolume: function () { return teGet("elektrodenlautstaerke","volume"); },
-          setVolume: function (v) { teSet("elektrodenlautstaerke","volume", v); },
+          getVolume: function () { return saveGet("ELLtest_volume"); },
+          setVolume: function (v) { saveSet("ELLtest_volume", v); },
         },
         tonePopupButton: {
-          getToneType: function()   { return teGet("elektrodenlautstaerke","toneType"); },
-          setToneType: function(tt) { teSet("elektrodenlautstaerke","toneType", tt); },
+          getToneType: function()   { return saveGet("ELLtest_toneType"); },
+          setToneType: function(tt) { saveSet("ELLtest_toneType", tt); },
           // BA 252: Tonart-Merker fuer Klavier-Anschlag im Modal.
           onToneSelected: function(tt) { _ell_tpModalTone = tt; },
           onModalClose:   function()   { _ell_tpModalTone = null; _ell_tpCorrectVol = null; },
@@ -1415,17 +1415,17 @@ document.addEventListener("DOMContentLoaded", function() {
           showVolume:   false,
           showDuration: true,
           showPause:    true,
-          getDurationMs:    function()  { return teGet("elektrodenlautstaerke","duration"); },
-          setDurationMs:    function(v) { teSet("elektrodenlautstaerke","duration", v); },
-          getPauseMs:       function()  { return teGet("elektrodenlautstaerke","pause"); },
-          setPauseMs:       function(v) { teSet("elektrodenlautstaerke","pause", v); },
+          getDurationMs:    function()  { return saveGet("ELLtest_duration"); },
+          setDurationMs:    function(v) { saveSet("ELLtest_duration", v); },
+          getPauseMs:       function()  { return saveGet("ELLtest_pause"); },
+          setPauseMs:       function(v) { saveSet("ELLtest_pause", v); },
           // Probehoeren und Sequenz aus den neuen State-Werten.
           getVolume:   function() { return tGVol(); },
           getPreviewSequence: function (lastHz) {
             // Test laeuft -> echte Sequenz (aktuelles Paar + Schieber);
             // sonst ein Ton mit der zuletzt am Klavier angetippten Frequenz.
             if (ELL_testAct && ELL_testIdx < ELL_testPairs.length && ELL_curA != null && ELL_curB != null) {
-              return _ell_sequence({ aba: teGet("elektrodenlautstaerke","sequence") === 'aba' });
+              return _ell_sequence({ aba: saveGet("ELLtest_sequence") === 'aba' });
             }
             var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
             var pan = (activeSide === 'left') ? -1 : 1;
@@ -1445,7 +1445,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
             var pan = (activeSide === 'left') ? -1 : 1;
-            var tt  = (_ell_tpModalTone !== null) ? _ell_tpModalTone : teGet("elektrodenlautstaerke","toneType");
+            var tt  = (_ell_tpModalTone !== null) ? _ell_tpModalTone : saveGet("ELLtest_toneType");
             // BA 302: Korrektur ueber die Schalter-fn (Default an, abschaltbar).
             var vol = tGVol();
             if (typeof _ell_tpCorrectVol === 'function') vol = _ell_tpCorrectVol(vol, hz, pan);
@@ -1591,7 +1591,7 @@ function _ell_playSimul() {
   testUI.tonePlayer.playPair(_ellTones.first, _ellTones.second, {
     pairIndicator: vref && vref.pairIndicator,
     mode:          'both',
-    toneType:      teGet("elektrodenlautstaerke","toneType"),
+    toneType:      saveGet("ELLtest_toneType"),
     onDone:        function () { isPlay = false; }
   });
 }

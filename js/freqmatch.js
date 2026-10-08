@@ -84,13 +84,13 @@ function frq_tonfolge(referenzmodus) {
 }
 
 function FRQ_getVolume() {
-  return Math.pow((teGet("freqmatch","volume") || 0) / 100, 2);
+  return Math.pow((saveGet("FRQtest_volume") || 0) / 100, 2);
 }
 function FRQ_getDuration() {
-  return teGet("freqmatch","duration") || 750;
+  return saveGet("FRQtest_duration") || 750;
 }
 function FRQ_getPause() {
-  return teGet("freqmatch","pause") || 400;
+  return saveGet("FRQtest_pause") || 400;
 }
 
 // Helfer: Verfahren-Refs
@@ -213,10 +213,10 @@ function frq_makeSequence() {
   var p = frq_pairTones();
   var pause = { pauseMs: p.pauseMs };
   var seq = [ p.first, pause, p.second ];
-  if (teGet("freqmatch","sequence") === "aba" || teGet("freqmatch","sequence") === "abab") {
+  if (saveGet("FRQtest_sequence") === "aba" || saveGet("FRQtest_sequence") === "abab") {
     seq.push(pause, p.first);
   }
-  if (teGet("freqmatch","sequence") === "abab") {
+  if (saveGet("FRQtest_sequence") === "abab") {
     seq.push(pause, p.second);
   }
   return seq;
@@ -235,10 +235,10 @@ async function frq_playCurrent() {
   var _frqTones = frq_pairTones();
   testUI.tonePlayer.playPair(_frqTones.first, _frqTones.second, {
     pairIndicator: _spi,
-    sequence:      teGet("freqmatch","sequence"),
+    sequence:      saveGet("FRQtest_sequence"),
     mode:          'sequence',
     pauseMs:       _frqTones.pauseMs,
-    toneType:      teGet("freqmatch","toneType"),
+    toneType:      saveGet("FRQtest_toneType"),
     onDone:        function () { isPlay = false; }
   });
 }
@@ -256,7 +256,7 @@ async function frq_playSimultaneous() {
   testUI.tonePlayer.playPair(_frqTones.first, _frqTones.second, {
     pairIndicator: _spi,
     mode:          'both',
-    toneType:      teGet("freqmatch","toneType"),
+    toneType:      saveGet("FRQtest_toneType"),
     onDone:        function () { isPlay = false; }
   });
 }
@@ -1117,12 +1117,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // BA 209: Tonart-Dropdown durch tonePopupButton ersetzt.
         toneType:     false,
         volumeButton: {
-          getVolume: function () { return teGet("freqmatch","volume"); },
-          setVolume: function (v) { teSet("freqmatch","volume", v); },
+          getVolume: function () { return saveGet("FRQtest_volume"); },
+          setVolume: function (v) { saveSet("FRQtest_volume", v); },
         },
         tonePopupButton: {
-          getToneType: function() { return teGet("freqmatch","toneType"); },
-          setToneType: function(tt) { teSet("freqmatch","toneType", tt); },
+          getToneType: function() { return saveGet("FRQtest_toneType"); },
+          setToneType: function(tt) { saveSet("FRQtest_toneType", tt); },
           // BA 230: Klavier-Bug-Fix — Modal teilt die aktuell angeklickte
           // Tonart mit; onPress liest frq_modalTone mit Fallback auf toneType_freqmatch.
           onToneSelected:  function(tt) { frq_modalTone = tt; },
@@ -1134,10 +1134,10 @@ document.addEventListener("DOMContentLoaded", () => {
           showVolume:   false,
           showDuration: true,
           showPause:    true,
-          getDurationMs:    function() { return teGet("freqmatch","duration"); },
-          setDurationMs:    function(v) { teSet("freqmatch","duration", v); },
-          getPauseMs:       function() { return teGet("freqmatch","pause"); },
-          setPauseMs:       function(v) { teSet("freqmatch","pause", v); },
+          getDurationMs:    function() { return saveGet("FRQtest_duration"); },
+          setDurationMs:    function(v) { saveSet("FRQtest_duration", v); },
+          getPauseMs:       function() { return saveGet("FRQtest_pause"); },
+          setPauseMs:       function(v) { saveSet("FRQtest_pause", v); },
           // BA 240: Hint-Text fuer Test-Verfahren.
           hintKey: 'tonePopupHint',
           getVolume:   function() { return FRQ_getVolume(); },
@@ -1224,7 +1224,7 @@ document.addEventListener("DOMContentLoaded", () => {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
             _frq_keyboardT0 = (typeof performance !== 'undefined') ? performance.now() : Date.now();
-            var tt      = (frq_modalTone !== null) ? frq_modalTone : teGet("freqmatch","toneType");
+            var tt      = (frq_modalTone !== null) ? frq_modalTone : saveGet("FRQtest_toneType");
             var vol     = FRQ_getVolume();
             var aktivSide = activeSide;
             var aktivPan  = (aktivSide === 'left') ? -1 : 1;
@@ -1242,7 +1242,7 @@ document.addEventListener("DOMContentLoaded", () => {
             var t1   = (typeof performance !== 'undefined') ? performance.now() : Date.now();
             var held = Math.max(0, t1 - _frq_keyboardT0);
             if (held <= 0) return;
-            var tt      = (frq_modalTone !== null) ? frq_modalTone : teGet("freqmatch","toneType");
+            var tt      = (frq_modalTone !== null) ? frq_modalTone : saveGet("FRQtest_toneType");
             var vol     = FRQ_getVolume();
             var aktivSide = activeSide;
             var gegenSide = (activeSide === 'left') ? 'right' : 'left';

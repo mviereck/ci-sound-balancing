@@ -182,14 +182,9 @@ function initSideData(side, m) {
   if (typeof FRQ_BAND_WAHLEN !== "undefined") {
     FRQ_BAND_WAHLEN.forEach(function (w) { s[w.key] = w.def; });
   }
-  // BA649: seitenweise Test-Einstellungen (ganzer Eintrag pro Ohr).
-  // Tiefenkopie der gemeinsamen Default-Vorlage je seitenweisem Test.
-  s.te = {};
-  Object.keys(TE_SEITENWEISE).forEach(function (k) {
-    if (TE_SEITENWEISE[k]) {
-      s.te[k] = JSON.parse(JSON.stringify(TEST_EINSTELLUNGEN_DEFAULTS[k]));
-    }
-  });
+  // BA651: seitenweise Testeinstellungen als Einzelfelder in sideData.
+  s.ELLtest_volume = 50; s.ELLtest_toneType = "sine"; s.ELLtest_duration = 600; s.ELLtest_pause = 300; s.ELLtest_sequence = "abab";
+  s.SNRtest_volume = 50;
   s.fullSweepRound = null;
   s.fullSweepDonePairs = [];
   s.implant = {
@@ -507,92 +502,18 @@ function setSideConfig(side, cfg) {
 
 // ============================================================
 // BA 280: Zentrale Default-Werte (Single Source of Truth).
-// Alle Erststart-Werte, resetAll-Rucksetzwerte, Speicher-/Lade-
-// Fallbacks und Druck-Anzeige-Fallbacks fur Test-Parameter und
-// Ton-Hullkurve greifen ausschliesslich auf diese zwei Objekte zu.
-// Wer einen Default andern will, andert ihn NUR hier.
-// ------------------------------------------------------------
-// BA 296: Default-Ton fuer alle Verfahren auf "sine" (Sinus). Die
-// Tonart-Auswahl ist im Normalbetrieb ausgeblendet und nur im
-// Debug-Modus waehlbar.
-const TEST_DEFAULTS = {
-  freqmatch: { toneType: "sine", volume: 75, duration: 600, pause: 300, sequence: "abab" },
-  elektrodenlautstaerke: { toneType: "sine", volume: 50, duration: 600, pause: 300, sequence: "abab" },
-  stereobalance: { toneType: "sine", volume: 75, duration: 600, pause: 300, sequence: "abab" },
-  implant:   { toneType: "sine", volume: 75, duration: 600, pause: 300 }
-};
 const TONE_ENV_DEFAULTS = {
   attackForm: "dblin",  // Anstiegsform: dB-linear
   attackMs:   90,       // Anschwingzeit ms
   dbFloor:    -20,      // Startpegel dB (nur bei dblin wirksam)
   release:    "short"   // Ausklang: kurz
 };
-// ---------------------------------------------------------------------
-// Lautstaerke/Testton pro Test (Architektur 00-lautstaerke-architektur.md).
-// EINE zentrale Struktur, ein Eintrag pro Test bzw. Abspielklavier-Familie,
-// einheitliches Feldschema { volume, toneType, duration, pause, sequence }.
-// Nicht genutzte Felder bleiben null. volume ist Prozent (0..100).
-// EINZIGE Wertquelle; Zugriff NUR ueber teGet/teSet (siehe unten).
-// ---------------------------------------------------------------------
-// BA649: Welche Test-Eintraege seitenweise gefuehrt werden (alle Felder
-// pro Ohr). Einzige Stelle, die den Scope kennt -- teGet/teSet lesen nur
-// hier. Architektur 00-lautstaerke-architektur.md Sec. 3 + 5.
-// true = seitenweise (Instanz pro Seite in sideData[side].te[testId]);
-// fehlt/false = seitenlos (eine Instanz in TEST_EINSTELLUNGEN).
-const TE_SEITENWEISE = {
-  elektrodenlautstaerke: true,
-  sprachtest: true,
-};
-
-const TEST_EINSTELLUNGEN = {
-  elektrodenlautstaerke: {
-    volume: 50,
-    toneType: TEST_DEFAULTS.elektrodenlautstaerke.toneType,
-    duration: TEST_DEFAULTS.elektrodenlautstaerke.duration,
-    pause: TEST_DEFAULTS.elektrodenlautstaerke.pause,
-    sequence: TEST_DEFAULTS.elektrodenlautstaerke.sequence
-  },
-  stereobalance: {
-    volume: 50,
-    toneType: TEST_DEFAULTS.stereobalance.toneType,
-    duration: TEST_DEFAULTS.stereobalance.duration,
-    pause: TEST_DEFAULTS.stereobalance.pause,
-    sequence: TEST_DEFAULTS.stereobalance.sequence
-  },
-  freqmatch: {
-    volume: 50,
-    toneType: TEST_DEFAULTS.freqmatch.toneType,
-    duration: TEST_DEFAULTS.freqmatch.duration,
-    pause: TEST_DEFAULTS.freqmatch.pause,
-    sequence: TEST_DEFAULTS.freqmatch.sequence
-  },
-  latenz: {
-    volume: 50,
-    toneType: null, duration: null, pause: null, sequence: null
-  },
-  sprachtest: {
-    volume: 50,
-    toneType: null, duration: null, pause: null, sequence: null
-  },
-  abspielklavier: {
-    volume: 50,
-    toneType: "sine",
-    duration: 500,
-    pause: 250,
-    sequence: null
-  },
-  implantat: {
-    volume: 50,
-    toneType: TEST_DEFAULTS.implant.toneType,
-    duration: TEST_DEFAULTS.implant.duration,
-    pause: TEST_DEFAULTS.implant.pause,
-    sequence: null
-  }
-};
-
-// Default-Vorlage je Eintrag (fuer Reset + Lade-Fallback). Tiefenkopie,
-// damit Reset nicht die laufende Struktur referenziert.
-const TEST_EINSTELLUNGEN_DEFAULTS = JSON.parse(JSON.stringify(TEST_EINSTELLUNGEN));
+// BA651: Testeinstellungen seitenlos (global). volume in Prozent (0..100).
+let STBtest_volume = 50, STBtest_toneType = "sine", STBtest_duration = 600, STBtest_pause = 300, STBtest_sequence = "abab";
+let FRQtest_volume = 50, FRQtest_toneType = "sine", FRQtest_duration = 600, FRQtest_pause = 300, FRQtest_sequence = "abab";
+let LTZtest_volume = 50;
+let abspielklavier_volume = 50, abspielklavier_toneType = "sine", abspielklavier_duration = 500, abspielklavier_pause = 250;
+let implantat_volume = 50, implantat_toneType = "sine", implantat_duration = 600, implantat_pause = 300;
 
 initSideData("left", "unknown");
 initSideData("right", "unknown");
@@ -615,52 +536,6 @@ let ELL_curA = -1,
   ELL_curB = -1,
   undoSt = [],
   convRnd = 0;
-
-// BA649: Liefert das Einstellungs-Objekt eines Tests aus seinem Scope.
-// Seitenweise Tests (TE_SEITENWEISE): aus sideData[side].te, Default side =
-// aktive Seite. Seitenlose: aus TEST_EINSTELLUNGEN. Legt bei seitenweisen
-// Tests das te-Fach und den Eintrag faul an (Tiefenkopie der Default-
-// Vorlage), falls noch nicht vorhanden -- so ist jeder Zugriff sicher.
-function teEintrag(key, side) {
-  if (TE_SEITENWEISE[key]) {
-    var s = sideData[(side === "left" || side === "right") ? side : activeSide];
-    if (!s) return null;
-    if (!s.te) s.te = {};
-    if (!s.te[key]) {
-      s.te[key] = JSON.parse(JSON.stringify(TEST_EINSTELLUNGEN_DEFAULTS[key]));
-    }
-    return s.te[key];
-  }
-  return TEST_EINSTELLUNGEN[key] || null;
-}
-
-// Zentraler Getter/Setter -- EINZIGER Zugriffsweg (Prinzip 4).
-// Scope-Aufloesung (seitenweise vs. seitenlos) steckt in teEintrag (BA649);
-// die Signatur bleibt unveraendert, alle Aufrufer unberuehrt.
-// key: Eintrags-Schluessel (z.B. "freqmatch"); feld: "volume"|"toneType"|...
-function teGet(key, feld) {
-  const e = teEintrag(key);
-  return e ? e[feld] : null;
-}
-function teSet(key, feld, wert) {
-  const e = teEintrag(key);
-  if (e) e[feld] = wert;
-}
-// Ganzen Eintrag holen/setzen (fuer save-schema). setzt nur bekannte Felder.
-// side optional: nur fuer seitenweise Tests relevant (Laden/Speichern je
-// Seite); fehlt side, gilt die aktive Seite.
-function teGetEintrag(key, side) {
-  const e = teEintrag(key, side);
-  return e ? { volume: e.volume, toneType: e.toneType, duration: e.duration,
-              pause: e.pause, sequence: e.sequence } : null;
-}
-function teSetEintrag(key, obj, side) {
-  const e = teEintrag(key, side);
-  if (!e || !obj || typeof obj !== "object") return;
-  ["volume", "toneType", "duration", "pause", "sequence"].forEach(function (f) {
-    if (obj[f] !== undefined) e[f] = obj[f];
-  });
-}
 
 // Frequenzabgleich-Ergebnisse (global, nicht pro Seite)
 // { varSide, refSide, elIdx, varFreq, refFreq, timestamp }

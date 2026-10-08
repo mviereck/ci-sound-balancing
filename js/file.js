@@ -135,21 +135,17 @@ function resetAll() {
   if (cfgSelR) cfgSelR.value = "unknown";
   // --- Globale Test-Parameter ---
   if (typeof FRQ_activeMethodValue !== "undefined") FRQ_activeMethodValue = null;
-  // Lautstaerke/Testton pro Test auf Defaults (00-lautstaerke-architektur.md).
-  if (typeof TEST_EINSTELLUNGEN !== "undefined"
-      && typeof TEST_EINSTELLUNGEN_DEFAULTS !== "undefined"
-      && typeof teSetEintrag === "function") {
-    Object.keys(TEST_EINSTELLUNGEN_DEFAULTS).forEach(function (k) {
-      var def = JSON.parse(JSON.stringify(TEST_EINSTELLUNGEN_DEFAULTS[k]));
-      if (typeof TE_SEITENWEISE !== "undefined" && TE_SEITENWEISE[k]) {
-        // seitenweise: beide Ohren auf Default
-        teSetEintrag(k, def, "left");
-        teSetEintrag(k, def, "right");
-      } else {
-        teSetEintrag(k, def);
-      }
-    });
-  }
+  // BA651: Testeinstellungen auf Defaults zuruecksetzen.
+  STBtest_volume = 50; STBtest_toneType = "sine"; STBtest_duration = 600; STBtest_pause = 300; STBtest_sequence = "abab";
+  FRQtest_volume = 50; FRQtest_toneType = "sine"; FRQtest_duration = 600; FRQtest_pause = 300; FRQtest_sequence = "abab";
+  LTZtest_volume = 50;
+  abspielklavier_volume = 50; abspielklavier_toneType = "sine"; abspielklavier_duration = 500; abspielklavier_pause = 250;
+  implantat_volume = 50; implantat_toneType = "sine"; implantat_duration = 600; implantat_pause = 300;
+  ["left", "right"].forEach(function (side) {
+    sideData[side].ELLtest_volume = 50; sideData[side].ELLtest_toneType = "sine";
+    sideData[side].ELLtest_duration = 600; sideData[side].ELLtest_pause = 300; sideData[side].ELLtest_sequence = "abab";
+    sideData[side].SNRtest_volume = 50;
+  });
   // --- Latenz ---
   if (typeof LTZ_result !== "undefined") LTZ_result = null;
   if (typeof ltz_clickType !== "undefined") ltz_clickType = "click";

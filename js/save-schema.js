@@ -211,98 +211,84 @@ var SAVE_SCHEMA = [
     get: function () { return (typeof audiologUserNote !== "undefined" ? audiologUserNote : ""); },
     set: function (v) { if (typeof audiologUserNote !== "undefined") { audiologUserNote = (typeof v === "string") ? v : ""; var e = document.getElementById("audiologNoteInput"); if (e) e.value = audiologUserNote; } },
     default: "", valid: { type: "string" } },
-  // --- Lautstaerke/Testton pro Test (00-lautstaerke-architektur.md) ---
-  { key: "te_stereobalance", scope: "global",
-    get: function () { return teGetEintrag("stereobalance"); },
-    set: function (v) { if (v) teSetEintrag("stereobalance", v); },
-    default: function () { return teGetEintrag("stereobalance"); },
-    valid: { type: "object" } },
-  { key: "te_freqmatch", scope: "global",
-    get: function () { return teGetEintrag("freqmatch"); },
-    set: function (v) { if (v) teSetEintrag("freqmatch", v); },
-    default: function () { return teGetEintrag("freqmatch"); },
-    valid: { type: "object" } },
-  { key: "te_latenz", scope: "global",
-    get: function () { return teGetEintrag("latenz"); },
-    set: function (v) { if (v) teSetEintrag("latenz", v); },
-    default: function () { return teGetEintrag("latenz"); },
-    valid: { type: "object" } },
-  { key: "te_abspielklavier", scope: "global",
-    get: function () { return teGetEintrag("abspielklavier"); },
-    set: function (v) { if (v) teSetEintrag("abspielklavier", v); },
-    default: function () { return teGetEintrag("abspielklavier"); },
-    valid: { type: "object" } },
-  { key: "te_implantat", scope: "global",
-    get: function () { return teGetEintrag("implantat"); },
-    set: function (v) { if (v) teSetEintrag("implantat", v); },
-    default: function () { return teGetEintrag("implantat"); },
-    valid: { type: "object" } },
+  // --- Testeinstellungen (seitenlos) ---
+  { key: "STBtest_volume", scope: "global",
+    get: function () { return STBtest_volume; },
+    set: function (v) { if (typeof v === "number") STBtest_volume = v; },
+    default: 50, valid: { type: "number", min: 0, max: 100 } },
+  { key: "STBtest_toneType", scope: "global",
+    get: function () { return STBtest_toneType; },
+    set: function (v) { if (typeof v === "string") STBtest_toneType = v; },
+    default: "sine", valid: { type: "string" } },
+  { key: "STBtest_duration", scope: "global",
+    get: function () { return STBtest_duration; },
+    set: function (v) { if (typeof v === "number") STBtest_duration = v; },
+    default: 600, valid: { type: "number", min: 0, max: 5000 } },
+  { key: "STBtest_pause", scope: "global",
+    get: function () { return STBtest_pause; },
+    set: function (v) { if (typeof v === "number") STBtest_pause = v; },
+    default: 300, valid: { type: "number", min: 0, max: 5000 } },
+  { key: "STBtest_sequence", scope: "global",
+    get: function () { return STBtest_sequence; },
+    set: function (v) { if (typeof v === "string") STBtest_sequence = v; },
+    default: "abab", valid: { type: "string" } },
+  { key: "FRQtest_volume", scope: "global",
+    get: function () { return FRQtest_volume; },
+    set: function (v) { if (typeof v === "number") FRQtest_volume = v; },
+    default: 50, valid: { type: "number", min: 0, max: 100 } },
+  { key: "FRQtest_toneType", scope: "global",
+    get: function () { return FRQtest_toneType; },
+    set: function (v) { if (typeof v === "string") FRQtest_toneType = v; },
+    default: "sine", valid: { type: "string" } },
+  { key: "FRQtest_duration", scope: "global",
+    get: function () { return FRQtest_duration; },
+    set: function (v) { if (typeof v === "number") FRQtest_duration = v; },
+    default: 600, valid: { type: "number", min: 0, max: 5000 } },
+  { key: "FRQtest_pause", scope: "global",
+    get: function () { return FRQtest_pause; },
+    set: function (v) { if (typeof v === "number") FRQtest_pause = v; },
+    default: 300, valid: { type: "number", min: 0, max: 5000 } },
+  { key: "FRQtest_sequence", scope: "global",
+    get: function () { return FRQtest_sequence; },
+    set: function (v) { if (typeof v === "string") FRQtest_sequence = v; },
+    default: "abab", valid: { type: "string" } },
+  { key: "LTZtest_volume", scope: "global",
+    get: function () { return LTZtest_volume; },
+    set: function (v) { if (typeof v === "number") LTZtest_volume = v; },
+    default: 50, valid: { type: "number", min: 0, max: 100 } },
+  { key: "abspielklavier_volume", scope: "global",
+    get: function () { return abspielklavier_volume; },
+    set: function (v) { if (typeof v === "number") abspielklavier_volume = v; },
+    default: 50, valid: { type: "number", min: 0, max: 100 } },
+  { key: "abspielklavier_toneType", scope: "global",
+    get: function () { return abspielklavier_toneType; },
+    set: function (v) { if (typeof v === "string") abspielklavier_toneType = v; },
+    default: "sine", valid: { type: "string" } },
+  { key: "abspielklavier_duration", scope: "global",
+    get: function () { return abspielklavier_duration; },
+    set: function (v) { if (typeof v === "number") abspielklavier_duration = v; },
+    default: 500, valid: { type: "number", min: 0, max: 5000 } },
+  { key: "abspielklavier_pause", scope: "global",
+    get: function () { return abspielklavier_pause; },
+    set: function (v) { if (typeof v === "number") abspielklavier_pause = v; },
+    default: 250, valid: { type: "number", min: 0, max: 5000 } },
+  { key: "implantat_volume", scope: "global",
+    get: function () { return implantat_volume; },
+    set: function (v) { if (typeof v === "number") implantat_volume = v; },
+    default: 50, valid: { type: "number", min: 0, max: 100 } },
+  { key: "implantat_toneType", scope: "global",
+    get: function () { return implantat_toneType; },
+    set: function (v) { if (typeof v === "string") implantat_toneType = v; },
+    default: "sine", valid: { type: "string" } },
+  { key: "implantat_duration", scope: "global",
+    get: function () { return implantat_duration; },
+    set: function (v) { if (typeof v === "number") implantat_duration = v; },
+    default: 600, valid: { type: "number", min: 0, max: 5000 } },
+  { key: "implantat_pause", scope: "global",
+    get: function () { return implantat_pause; },
+    set: function (v) { if (typeof v === "number") implantat_pause = v; },
+    default: 300, valid: { type: "number", min: 0, max: 5000 } },
 ];
-
-// Migration: speist TEST_EINSTELLUNGEN aus alten flachen Feldern des
-// geladenen Objekts d, falls d die neuen te_*-Objekte NICHT enthielt.
-// Liest nur aus d (nie aus globalen Variablen -> ueberlebt deren Entfernung
-// in BA645/646). Aufruf am Ende von applyState (Schritt 5).
-function teMigriereAusAlt(d) {
-  if (!d || typeof d !== "object") return;
-  var hat = function (k) { return d[k] !== undefined; };
-  // Lautstaerke: altes volume_global speiste ELL, STB, Freqmatch UND Implantat.
-  if (d.te_elektrodenlautstaerke === undefined && hat("volume_global")) {
-    teSetEintrag("elektrodenlautstaerke", { volume: d.volume_global }, "left");
-    teSetEintrag("elektrodenlautstaerke", { volume: d.volume_global }, "right");
-  }
-  if (d.te_sprachtest === undefined && hat("volume_global")) {
-    teSetEintrag("sprachtest", { volume: d.volume_global }, "left");
-    teSetEintrag("sprachtest", { volume: d.volume_global }, "right");
-  }
-  if (d.te_stereobalance === undefined && hat("volume_global"))
-    teSet("stereobalance", "volume", d.volume_global);
-  if (d.te_freqmatch === undefined && hat("volume_global"))
-    teSet("freqmatch", "volume", d.volume_global);
-  if (d.te_implantat === undefined && hat("volume_global"))
-    teSet("implantat", "volume", d.volume_global);
-  // Latenz: alter eigener Wert ltz_volume (war nie im Schema -> i.d.R. nicht
-  // in alten Dateien; defensiv dennoch beruecksichtigt).
-  if (d.te_latenz === undefined && hat("ltz_volume"))
-    teSet("latenz", "volume", d.ltz_volume);
-  // Sprachtest hatte frueher keinen eigenen Wert -> Default 50 bleibt.
-  // Abspielklaviere: alter geteilter Satz (war nie im Schema -> i.d.R. nicht
-  // in alten Dateien; defensiv).
-  if (d.te_abspielklavier === undefined) {
-    if (hat("FRQ_pianoVolume"))   teSet("abspielklavier", "volume",   d.FRQ_pianoVolume);
-    if (hat("FRQ_pianoDuration")) teSet("abspielklavier", "duration", d.FRQ_pianoDuration);
-    if (hat("FRQ_pianoPause"))    teSet("abspielklavier", "pause",    d.FRQ_pianoPause);
-  }
-  // Testton-Parameter je Reiter: alte *_<test>-Felder -> gleichnamige Felder.
-  if (d.te_elektrodenlautstaerke === undefined) {
-    var _ellTon = {};
-    if (hat("toneType_elektrodenlautstaerke")) _ellTon.toneType = d.toneType_elektrodenlautstaerke;
-    if (hat("duration_elektrodenlautstaerke")) _ellTon.duration = d.duration_elektrodenlautstaerke;
-    if (hat("pause_elektrodenlautstaerke"))    _ellTon.pause    = d.pause_elektrodenlautstaerke;
-    if (hat("sequence_elektrodenlautstaerke")) _ellTon.sequence = d.sequence_elektrodenlautstaerke;
-    if (Object.keys(_ellTon).length) {
-      teSetEintrag("elektrodenlautstaerke", _ellTon, "left");
-      teSetEintrag("elektrodenlautstaerke", _ellTon, "right");
-    }
-  }
-  if (d.te_stereobalance === undefined) {
-    if (hat("toneType_stereobalance")) teSet("stereobalance", "toneType", d.toneType_stereobalance);
-    if (hat("duration_stereobalance")) teSet("stereobalance", "duration", d.duration_stereobalance);
-    if (hat("pause_stereobalance"))    teSet("stereobalance", "pause",    d.pause_stereobalance);
-    if (hat("sequence_stereobalance")) teSet("stereobalance", "sequence", d.sequence_stereobalance);
-  }
-  if (d.te_freqmatch === undefined) {
-    if (hat("toneType_freqmatch")) teSet("freqmatch", "toneType", d.toneType_freqmatch);
-    if (hat("duration_freqmatch")) teSet("freqmatch", "duration", d.duration_freqmatch);
-    if (hat("pause_freqmatch"))    teSet("freqmatch", "pause",    d.pause_freqmatch);
-    if (hat("sequence_freqmatch")) teSet("freqmatch", "sequence", d.sequence_freqmatch);
-  }
-  if (d.te_implantat === undefined) {
-    if (hat("toneType_implant")) teSet("implantat", "toneType", d.toneType_implant);
-    if (hat("duration_implant")) teSet("implantat", "duration", d.duration_implant);
-    if (hat("pause_implant"))    teSet("implantat", "pause",    d.pause_implant);
-  }
-}
 
 // Normalisiert einen geladenen Bandsatz:
 //  - Laenge auf nEl (fehlende hinten mit Fallback fuellen, ueberzaehlige
@@ -452,18 +438,31 @@ SAVE_SCHEMA.push(
       sideData[s].ELL_activeVerfahren = (v === "conv") ? "conv" : "full";
     },
     default: "full", valid: { type: "string" } },
-  // BA649: seitenweise Test-Einstellungen (ganzer te-Eintrag pro Seite).
-  // get/set reichen die Seite an teGetEintrag/teSetEintrag durch.
-  { key: "te_elektrodenlautstaerke", scope: "side",
-    get: function (s) { return teGetEintrag("elektrodenlautstaerke", s); },
-    set: function (v, s) { if (v) teSetEintrag("elektrodenlautstaerke", v, s); },
-    default: function () { return null; },
-    valid: { type: "object" } },
-  { key: "te_sprachtest", scope: "side",
-    get: function (s) { return teGetEintrag("sprachtest", s); },
-    set: function (v, s) { if (v) teSetEintrag("sprachtest", v, s); },
-    default: function () { return null; },
-    valid: { type: "object" } },
+  // --- Testeinstellungen (seitenweise) ---
+  { key: "ELLtest_volume", scope: "side",
+    get: function (s) { return sideData[s].ELLtest_volume; },
+    set: function (v, s) { if (typeof v === "number") sideData[s].ELLtest_volume = v; },
+    default: 50, valid: { type: "number", min: 0, max: 100 } },
+  { key: "ELLtest_toneType", scope: "side",
+    get: function (s) { return sideData[s].ELLtest_toneType; },
+    set: function (v, s) { if (typeof v === "string") sideData[s].ELLtest_toneType = v; },
+    default: "sine", valid: { type: "string" } },
+  { key: "ELLtest_duration", scope: "side",
+    get: function (s) { return sideData[s].ELLtest_duration; },
+    set: function (v, s) { if (typeof v === "number") sideData[s].ELLtest_duration = v; },
+    default: 600, valid: { type: "number", min: 0, max: 5000 } },
+  { key: "ELLtest_pause", scope: "side",
+    get: function (s) { return sideData[s].ELLtest_pause; },
+    set: function (v, s) { if (typeof v === "number") sideData[s].ELLtest_pause = v; },
+    default: 300, valid: { type: "number", min: 0, max: 5000 } },
+  { key: "ELLtest_sequence", scope: "side",
+    get: function (s) { return sideData[s].ELLtest_sequence; },
+    set: function (v, s) { if (typeof v === "string") sideData[s].ELLtest_sequence = v; },
+    default: "abab", valid: { type: "string" } },
+  { key: "SNRtest_volume", scope: "side",
+    get: function (s) { return sideData[s].SNRtest_volume; },
+    set: function (v, s) { if (typeof v === "number") sideData[s].SNRtest_volume = v; },
+    default: 50, valid: { type: "number", min: 0, max: 100 } },
   { key: "ELL_results", scope: "side",
     get: function (s) { return sideData[s].ELL_results; },
     set: function (v, s) { sideData[s].ELL_results = Array.isArray(v) ? v : []; },
@@ -586,6 +585,26 @@ function _saveDefault(entry) {
 }
 
 // -----------------------------------------------------------------------
+// Laufzeit-Accessor: EIN Weg, ein persistiertes Feld zur Laufzeit zu
+// lesen/schreiben (ausserhalb von buildState/applyState). Scope-Aufloesung
+// steckt im Schema-Eintrag (get/set bekommen bei scope:"side" die Seite).
+// -----------------------------------------------------------------------
+var _SAVE_SCHEMA_BY_KEY = {};
+SAVE_SCHEMA.forEach(function (e) { _SAVE_SCHEMA_BY_KEY[e.key] = e; });
+
+function saveGet(key, side) {
+  var e = _SAVE_SCHEMA_BY_KEY[key];
+  if (!e) return null;
+  return (e.scope === "side") ? e.get(side || activeSide) : e.get();
+}
+function saveSet(key, v, side) {
+  var e = _SAVE_SCHEMA_BY_KEY[key];
+  if (!e) return;
+  if (e.scope === "side") e.set(v, side || activeSide);
+  else e.set(v);
+}
+
+// -----------------------------------------------------------------------
 // buildState / applyState (Phase 1)
 // -----------------------------------------------------------------------
 function buildState() {
@@ -620,8 +639,6 @@ function applyState(d) {
       });
     }
   });
-  // Alt-Format -> TEST_EINSTELLUNGEN (00-lautstaerke-architektur.md Sec. 4.7).
-  if (typeof teMigriereAusAlt === "function") teMigriereAusAlt(d);
 }
 
 // -----------------------------------------------------------------------

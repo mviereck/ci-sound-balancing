@@ -112,7 +112,7 @@ function st_savePlayerState() {
   };
   // Sprachtest-Lautstaerke hart in den Player setzen (00-lautstaerke Sec. 4.5).
   if (volEl) {
-    var p = teGet("sprachtest", "volume");
+    var p = saveGet("SNRtest_volume");
     if (typeof p === "number") {
       volEl.value = p;
       volEl.dispatchEvent(new Event("change", { bubbles: true }));
@@ -1130,8 +1130,8 @@ function st_setActiveCollection(testSet) {
   st_refreshBundleSelect();
 }
 
-// BA649: Lautstaerke-Button im Sprachtest-Header nach Seitenwechsel neu
-// beschriften (teGet liefert dann den Wert der neuen aktiven Seite).
+// Lautstaerke-Button im Sprachtest-Header nach Seitenwechsel neu
+// beschriften (saveGet liefert dann den Wert der neuen aktiven Seite).
 function ST_refreshVolumeLabel() {
   if (ST_els && ST_els.header && typeof ST_els.header.volumeUpdate === "function") {
     ST_els.header.volumeUpdate();
@@ -1170,8 +1170,8 @@ const st_cfg = {
   header: {
     common: {
       volumeButton: {
-        getVolume: function () { return teGet("sprachtest","volume"); },
-        setVolume: function (v) { teSet("sprachtest","volume", v); },
+        getVolume: function () { return saveGet("SNRtest_volume"); },
+        setVolume: function (v) { saveSet("SNRtest_volume", v); },
       }
     },
     startStop: { startKey: "stBtnStart", stopKey: "btnCancelTest", resumable: false }

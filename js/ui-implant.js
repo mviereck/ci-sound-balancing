@@ -328,8 +328,8 @@ function _implTonePopupUpdLabel() {
   if (!btn) return;
   var prefix = (typeof t === "function") ? t("implTonePopupBtn") : "Elektroden über Töne anspielen";
   var ttKey  = (typeof window.toneTypeI18nKey === "function")
-    ? window.toneTypeI18nKey(teGet("implantat","toneType")) : null;
-  var ttLbl  = (ttKey && typeof t === "function") ? t(ttKey) : teGet("implantat","toneType");
+    ? window.toneTypeI18nKey(saveGet("implantat_toneType")) : null;
+  var ttLbl  = (ttKey && typeof t === "function") ? t(ttKey) : saveGet("implantat_toneType");
   btn.textContent = prefix + " — " + ttLbl;
 }
 
@@ -363,8 +363,8 @@ function openImplantTonePopup() {
   var activePan = (activeSide === "left") ? -1 : 1;
 
   openToneSelectionDialog({
-    getToneType:    function ()   { return teGet("implantat","toneType"); },
-    setToneType:    function (tt) { teSet("implantat","toneType", tt); _implTonePopupUpdLabel(); },
+    getToneType:    function ()   { return saveGet("implantat_toneType"); },
+    setToneType:    function (tt) { saveSet("implantat_toneType", tt); _implTonePopupUpdLabel(); },
     onToneSelected: function (tt) { _implTpModalTone = tt; },
     onModalClose:   function ()   { _implTpModalTone = null; _implTpCorrectVol = null; },
 
@@ -378,22 +378,22 @@ function openImplantTonePopup() {
     showVolume:       true,
     showDuration:     true,
     showPause:        true,
-    getVolumePercent: function ()  { return teGet("implantat","volume"); },
-    setVolumePercent: function (v) { teSet("implantat","volume", v); },
-    getDurationMs:    function ()  { return teGet("implantat","duration"); },
-    setDurationMs:    function (v) { teSet("implantat","duration", v); },
-    getPauseMs:       function ()  { return teGet("implantat","pause"); },
-    setPauseMs:       function (v) { teSet("implantat","pause", v); },
+    getVolumePercent: function ()  { return saveGet("implantat_volume"); },
+    setVolumePercent: function (v) { saveSet("implantat_volume", v); },
+    getDurationMs:    function ()  { return saveGet("implantat_duration"); },
+    setDurationMs:    function (v) { saveSet("implantat_duration", v); },
+    getPauseMs:       function ()  { return saveGet("implantat_pause"); },
+    setPauseMs:       function (v) { saveSet("implantat_pause", v); },
 
     getVolume: function () {
-      return Math.pow((teGet("implantat","volume") || 0) / 100, 2);
+      return Math.pow((saveGet("implantat_volume") || 0) / 100, 2);
     },
 
     getPreviewSequence: function (lastHz) {
       var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
-      var vol = Math.pow((teGet("implantat","volume") || 0) / 100, 2);
+      var vol = Math.pow((saveGet("implantat_volume") || 0) / 100, 2);
       if (typeof _implTpCorrectVol === 'function') vol = _implTpCorrectVol(vol, hz, activePan);
-      return [{ hz: hz, pan: activePan, vol: vol, durationMs: teGet("implantat","duration") }];
+      return [{ hz: hz, pan: activePan, vol: vol, durationMs: saveGet("implantat_duration") }];
     },
 
     onTogglesReady: function (fn) { _implTpCorrectVol = fn; },
@@ -405,8 +405,8 @@ function openImplantTonePopup() {
     onPress: function (electrodeIdx, hz) {
       var c = (typeof gAC === "function") ? gAC() : null;
       if (!c) return;
-      var tt  = (_implTpModalTone !== null) ? _implTpModalTone : teGet("implantat","toneType");
-      var vol = Math.pow((teGet("implantat","volume") || 0) / 100, 2);
+      var tt  = (_implTpModalTone !== null) ? _implTpModalTone : saveGet("implantat_toneType");
+      var vol = Math.pow((saveGet("implantat_volume") || 0) / 100, 2);
       if (typeof _implTpCorrectVol === "function") vol = _implTpCorrectVol(vol, hz, activePan);
       try {
         playToneTyped(c, hz, vol, 60000, activePan, tt);
