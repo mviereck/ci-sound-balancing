@@ -183,6 +183,14 @@ function initSideData(side, m) {
   if (typeof FRQ_BAND_WAHLEN !== "undefined") {
     FRQ_BAND_WAHLEN.forEach(function (w) { s[w.key] = w.def; });
   }
+  // BA649: seitenweise Test-Einstellungen (ganzer Eintrag pro Ohr).
+  // Tiefenkopie der gemeinsamen Default-Vorlage je seitenweisem Test.
+  s.te = {};
+  Object.keys(TE_SEITENWEISE).forEach(function (k) {
+    if (TE_SEITENWEISE[k]) {
+      s.te[k] = JSON.parse(JSON.stringify(TEST_EINSTELLUNGEN_DEFAULTS[k]));
+    }
+  });
   s.fullSweepRound = null;
   s.fullSweepDonePairs = [];
   s.implant = {
@@ -248,6 +256,9 @@ function setActiveSide(side) {
   // BA648: ELL-Auswahl ist jetzt seitenabhaengig -> Header-Zusammenfassung
   // "m von n gewaehlt" auf die neue Seite nachziehen.
   if (typeof ELL_refreshElectrodeSelectionSummary === "function") ELL_refreshElectrodeSelectionSummary();
+  // BA649: Lautstaerke-/Testton-Button zeigen den Wert der neuen Seite.
+  if (typeof ELL_refreshToneTypeLabel === "function") ELL_refreshToneTypeLabel();
+  if (typeof ST_refreshVolumeLabel === "function") ST_refreshVolumeLabel();
   updPlSrcButtons();
   if (pBuf) updatePlayerForSideChange();
   else plCheck();
@@ -603,6 +614,16 @@ const TONE_ENV_DEFAULTS = {
 // Nicht genutzte Felder bleiben null. volume ist Prozent (0..100).
 // EINZIGE Wertquelle; Zugriff NUR ueber teGet/teSet (siehe unten).
 // ---------------------------------------------------------------------
+// BA649: Welche Test-Eintraege seitenweise gefuehrt werden (alle Felder
+// pro Ohr). Einzige Stelle, die den Scope kennt -- teGet/teSet lesen nur
+// hier. Architektur 00-lautstaerke-architektur.md Sec. 3 + 5.
+// true = seitenweise (Instanz pro Seite in sideData[side].te[testId]);
+// fehlt/false = seitenlos (eine Instanz in TEST_EINSTELLUNGEN).
+const TE_SEITENWEISE = {
+  elektrodenlautstaerke: true,
+  sprachtest: true,
+};
+
 const TEST_EINSTELLUNGEN = {
   elektrodenlautstaerke: {
     volume: 50,
@@ -653,24 +674,46 @@ const TEST_EINSTELLUNGEN = {
 // damit Reset nicht die laufende Struktur referenziert.
 const TEST_EINSTELLUNGEN_DEFAULTS = JSON.parse(JSON.stringify(TEST_EINSTELLUNGEN));
 
+// BA649: Liefert das Einstellungs-Objekt eines Tests aus seinem Scope.
+// Seitenweise Tests (TE_SEITENWEISE): aus sideData[side].te, Default side =
+// aktive Seite. Seitenlose: aus TEST_EINSTELLUNGEN. Legt bei seitenweisen
+// Tests das te-Fach und den Eintrag faul an (Tiefenkopie der Default-
+// Vorlage), falls noch nicht vorhanden -- so ist jeder Zugriff sicher.
+function teEintrag(key, side) {
+  if (TE_SEITENWEISE[key]) {
+    var s = sideData[(side === "left" || side === "right") ? side : activeSide];
+    if (!s) return null;
+    if (!s.te) s.te = {};
+    if (!s.te[key]) {
+      s.te[key] = JSON.parse(JSON.stringify(TEST_EINSTELLUNGEN_DEFAULTS[key]));
+    }
+    return s.te[key];
+  }
+  return TEST_EINSTELLUNGEN[key] || null;
+}
+
 // Zentraler Getter/Setter -- EINZIGER Zugriffsweg (Prinzip 4).
+// Scope-Aufloesung (seitenweise vs. seitenlos) steckt in teEintrag (BA649);
+// die Signatur bleibt unveraendert, alle Aufrufer unberuehrt.
 // key: Eintrags-Schluessel (z.B. "freqmatch"); feld: "volume"|"toneType"|...
 function teGet(key, feld) {
-  const e = TEST_EINSTELLUNGEN[key];
+  const e = teEintrag(key);
   return e ? e[feld] : null;
 }
 function teSet(key, feld, wert) {
-  const e = TEST_EINSTELLUNGEN[key];
+  const e = teEintrag(key);
   if (e) e[feld] = wert;
 }
 // Ganzen Eintrag holen/setzen (fuer save-schema). setzt nur bekannte Felder.
-function teGetEintrag(key) {
-  const e = TEST_EINSTELLUNGEN[key];
+// side optional: nur fuer seitenweise Tests relevant (Laden/Speichern je
+// Seite); fehlt side, gilt die aktive Seite.
+function teGetEintrag(key, side) {
+  const e = teEintrag(key, side);
   return e ? { volume: e.volume, toneType: e.toneType, duration: e.duration,
               pause: e.pause, sequence: e.sequence } : null;
 }
-function teSetEintrag(key, obj) {
-  const e = TEST_EINSTELLUNGEN[key];
+function teSetEintrag(key, obj, side) {
+  const e = teEintrag(key, side);
   if (!e || !obj || typeof obj !== "object") return;
   ["volume", "toneType", "duration", "pause", "sequence"].forEach(function (f) {
     if (obj[f] !== undefined) e[f] = obj[f];

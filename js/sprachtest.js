@@ -1130,6 +1130,14 @@ function st_setActiveCollection(testSet) {
   st_refreshBundleSelect();
 }
 
+// BA649: Lautstaerke-Button im Sprachtest-Header nach Seitenwechsel neu
+// beschriften (teGet liefert dann den Wert der neuen aktiven Seite).
+function ST_refreshVolumeLabel() {
+  if (ST_els && ST_els.header && typeof ST_els.header.volumeUpdate === "function") {
+    ST_els.header.volumeUpdate();
+  }
+}
+
 async function st_onUploadFile(file) {
   const st = ST_bundleEls ? ST_bundleEls.status : null;
   if (st) st.textContent = t("stUploadWorking");

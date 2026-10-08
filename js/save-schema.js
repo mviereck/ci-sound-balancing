@@ -205,11 +205,6 @@ var SAVE_SCHEMA_GLOBAL = [
     set: function (v) { if (typeof audiologUserNote !== "undefined") { audiologUserNote = (typeof v === "string") ? v : ""; var e = document.getElementById("audiologNoteInput"); if (e) e.value = audiologUserNote; } },
     default: "", valid: { type: "string" } },
   // --- Lautstaerke/Testton pro Test (00-lautstaerke-architektur.md) ---
-  { key: "te_elektrodenlautstaerke", scope: "global",
-    get: function () { return teGetEintrag("elektrodenlautstaerke"); },
-    set: function (v) { if (v) teSetEintrag("elektrodenlautstaerke", v); },
-    default: function () { return teGetEintrag("elektrodenlautstaerke"); },
-    valid: { type: "object" } },
   { key: "te_stereobalance", scope: "global",
     get: function () { return teGetEintrag("stereobalance"); },
     set: function (v) { if (v) teSetEintrag("stereobalance", v); },
@@ -224,11 +219,6 @@ var SAVE_SCHEMA_GLOBAL = [
     get: function () { return teGetEintrag("latenz"); },
     set: function (v) { if (v) teSetEintrag("latenz", v); },
     default: function () { return teGetEintrag("latenz"); },
-    valid: { type: "object" } },
-  { key: "te_sprachtest", scope: "global",
-    get: function () { return teGetEintrag("sprachtest"); },
-    set: function (v) { if (v) teSetEintrag("sprachtest", v); },
-    default: function () { return teGetEintrag("sprachtest"); },
     valid: { type: "object" } },
   { key: "te_abspielklavier", scope: "global",
     get: function () { return teGetEintrag("abspielklavier"); },
@@ -250,8 +240,14 @@ function teMigriereAusAlt(d) {
   if (!d || typeof d !== "object") return;
   var hat = function (k) { return d[k] !== undefined; };
   // Lautstaerke: altes volume_global speiste ELL, STB, Freqmatch UND Implantat.
-  if (d.te_elektrodenlautstaerke === undefined && hat("volume_global"))
-    teSet("elektrodenlautstaerke", "volume", d.volume_global);
+  if (d.te_elektrodenlautstaerke === undefined && hat("volume_global")) {
+    teSetEintrag("elektrodenlautstaerke", { volume: d.volume_global }, "left");
+    teSetEintrag("elektrodenlautstaerke", { volume: d.volume_global }, "right");
+  }
+  if (d.te_sprachtest === undefined && hat("volume_global")) {
+    teSetEintrag("sprachtest", { volume: d.volume_global }, "left");
+    teSetEintrag("sprachtest", { volume: d.volume_global }, "right");
+  }
   if (d.te_stereobalance === undefined && hat("volume_global"))
     teSet("stereobalance", "volume", d.volume_global);
   if (d.te_freqmatch === undefined && hat("volume_global"))
@@ -272,10 +268,15 @@ function teMigriereAusAlt(d) {
   }
   // Testton-Parameter je Reiter: alte *_<test>-Felder -> gleichnamige Felder.
   if (d.te_elektrodenlautstaerke === undefined) {
-    if (hat("toneType_elektrodenlautstaerke")) teSet("elektrodenlautstaerke", "toneType", d.toneType_elektrodenlautstaerke);
-    if (hat("duration_elektrodenlautstaerke")) teSet("elektrodenlautstaerke", "duration", d.duration_elektrodenlautstaerke);
-    if (hat("pause_elektrodenlautstaerke"))    teSet("elektrodenlautstaerke", "pause",    d.pause_elektrodenlautstaerke);
-    if (hat("sequence_elektrodenlautstaerke")) teSet("elektrodenlautstaerke", "sequence", d.sequence_elektrodenlautstaerke);
+    var _ellTon = {};
+    if (hat("toneType_elektrodenlautstaerke")) _ellTon.toneType = d.toneType_elektrodenlautstaerke;
+    if (hat("duration_elektrodenlautstaerke")) _ellTon.duration = d.duration_elektrodenlautstaerke;
+    if (hat("pause_elektrodenlautstaerke"))    _ellTon.pause    = d.pause_elektrodenlautstaerke;
+    if (hat("sequence_elektrodenlautstaerke")) _ellTon.sequence = d.sequence_elektrodenlautstaerke;
+    if (Object.keys(_ellTon).length) {
+      teSetEintrag("elektrodenlautstaerke", _ellTon, "left");
+      teSetEintrag("elektrodenlautstaerke", _ellTon, "right");
+    }
   }
   if (d.te_stereobalance === undefined) {
     if (hat("toneType_stereobalance")) teSet("stereobalance", "toneType", d.toneType_stereobalance);
@@ -445,6 +446,18 @@ var SAVE_SCHEMA_SIDE = [
       sideData[s].ELL_activeVerfahren = (v === "conv") ? "conv" : "full";
     },
     default: "full", valid: { type: "string" } },
+  // BA649: seitenweise Test-Einstellungen (ganzer te-Eintrag pro Seite).
+  // get/set reichen die Seite an teGetEintrag/teSetEintrag durch.
+  { key: "te_elektrodenlautstaerke", scope: "side",
+    get: function (s) { return teGetEintrag("elektrodenlautstaerke", s); },
+    set: function (v, s) { if (v) teSetEintrag("elektrodenlautstaerke", v, s); },
+    default: function () { return null; },
+    valid: { type: "object" } },
+  { key: "te_sprachtest", scope: "side",
+    get: function (s) { return teGetEintrag("sprachtest", s); },
+    set: function (v, s) { if (v) teSetEintrag("sprachtest", v, s); },
+    default: function () { return null; },
+    valid: { type: "object" } },
   { key: "ELL_results", scope: "side",
     get: function (s) { return sideData[s].ELL_results; },
     set: function (v, s) { sideData[s].ELL_results = Array.isArray(v) ? v : []; },

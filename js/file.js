@@ -140,10 +140,17 @@ function resetAll() {
   if (typeof FRQ_activeMethodValue !== "undefined") FRQ_activeMethodValue = null;
   // Lautstaerke/Testton pro Test auf Defaults (00-lautstaerke-architektur.md).
   if (typeof TEST_EINSTELLUNGEN !== "undefined"
-      && typeof TEST_EINSTELLUNGEN_DEFAULTS !== "undefined") {
+      && typeof TEST_EINSTELLUNGEN_DEFAULTS !== "undefined"
+      && typeof teSetEintrag === "function") {
     Object.keys(TEST_EINSTELLUNGEN_DEFAULTS).forEach(function (k) {
-      if (typeof teSetEintrag === "function")
-        teSetEintrag(k, JSON.parse(JSON.stringify(TEST_EINSTELLUNGEN_DEFAULTS[k])));
+      var def = JSON.parse(JSON.stringify(TEST_EINSTELLUNGEN_DEFAULTS[k]));
+      if (typeof TE_SEITENWEISE !== "undefined" && TE_SEITENWEISE[k]) {
+        // seitenweise: beide Ohren auf Default
+        teSetEintrag(k, def, "left");
+        teSetEintrag(k, def, "right");
+      } else {
+        teSetEintrag(k, def);
+      }
     });
   }
   // --- Latenz ---
