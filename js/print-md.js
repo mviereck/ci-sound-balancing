@@ -314,8 +314,8 @@ function _collectBilateral() {
     out.latenz.has = true;
     out.latenz.value = {
       ms: LTZ_result.valueMs,
-      clickType: LTZ_result.clickType || null,
-      intervalMs: LTZ_result.intervalMs || null,
+      clickType: (typeof LTZ_settings !== "undefined" && LTZ_settings) ? (LTZ_settings.clickType || null) : null,
+      intervalMs: (typeof LTZ_settings !== "undefined" && LTZ_settings) ? (LTZ_settings.intervalMs || null) : null,
     };
   }
   return out;

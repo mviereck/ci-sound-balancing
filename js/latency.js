@@ -2,7 +2,10 @@
 // latency.js — Latenz-Messung (Inter-Ohr-Zeitversatz)
 // --------------------------------------------------------------------
 // Exportierte Globals:
-//   LTZ_result           {valueMs, clickType, intervalMs} | null
+//   LTZ_result           {valueMs, timestamp} | null — reiner Ergebniswert
+//   LTZ_settings         {clickType, intervalMs} — Latenz-Testeinstellungen
+//                        (persistenter Pseudo-Snapshot; laufend gepflegt,
+//                        unabhängig vom Ergebnis). Begleit-Info "womit gemessen".
 //   plApplyLatency          bool — im Player anwenden?
 //   ltz_sliderMs             aktuell vom UI gesetzter Wert (Live-Test)
 //   LTZ_active               Test läuft gerade?
@@ -24,13 +27,21 @@
 //   LTZ_initGraph(ctx)
 // ====================================================================
 
-let LTZ_result = null;      // {valueMs, clickType, intervalMs}
+let LTZ_result = null;      // {valueMs, timestamp} — reiner Ergebniswert
 let plApplyLatency = true;     // analog plApplyBalance
 
 let ltz_sliderMs = 0;           // aktueller Schieber-Wert (Test-Live)
 let LTZ_active = false;
 let ltz_clickType = "click";
 let ltz_intervalMs = 1000;
+
+// Latenz-Testeinstellungen (Pseudo-Snapshot): die beim Messen benutzte
+// Klang-/Intervall-Wahl. Laufend aus ltz_clickType/ltz_intervalMs gepflegt
+// (ltz_syncSettings), unabhängig vom Ergebnis persistiert (save-schema.js).
+let LTZ_settings = { clickType: ltz_clickType, intervalMs: ltz_intervalMs };
+function ltz_syncSettings() {
+  LTZ_settings = { clickType: ltz_clickType, intervalMs: ltz_intervalMs };
+}
 
 let ltz_testSource = null;      // BufferSource für Test-Klicks
 let ltz_testBuf = null;         // aktuell verwendeter Loop-Buffer
@@ -325,6 +336,7 @@ function _ltz_buildExtraFragment() {
     b.textContent = ms + ' ms';
     b.addEventListener('click', function() {
       ltz_intervalMs = ms;
+      ltz_syncSettings();
       _ltz_refreshExtraActives();
       _ltz_updateIntervalHint();
       ltz_restartIfActive();
@@ -357,6 +369,7 @@ function _ltz_buildExtraFragment() {
     b.dataset.t = pair[1];
     b.addEventListener('click', function() {
       ltz_clickType = pair[0];
+      ltz_syncSettings();
       _ltz_refreshExtraActives();
       ltz_restartIfActive();
     });
@@ -495,12 +508,11 @@ function ltz_hookOnSlide(ms) {
 
 function ltz_hookOnApply() {
   // = "Offset bestaetigen": aktuellen Schieberwert speichern + Test beenden.
+  // Nur der Ergebniswert; clickType/intervalMs liegen in LTZ_settings
+  // (Latenz-Testeinstellungen), vom Ergebnis entkoppelt (Anhang A Pkt. 3).
   LTZ_result = {
     valueMs:    ltz_sliderMs,
-    clickType:  ltz_clickType,
-    intervalMs: ltz_intervalMs,
-    timestamp:  Date.now(),
-    implantSnapshot: (typeof implantSnapshot === 'function') ? implantSnapshot() : null
+    timestamp:  Date.now()
   };
   LTZ_applyToPlayer();
   if (typeof LTZ_renderResults === 'function') LTZ_renderResults();
@@ -648,14 +660,10 @@ function LTZ_renderResults() {
     "burst500":  "LTZ_typeBurst500",
     "burst1500": "LTZ_typeBurst1500",
     "burst4000": "LTZ_typeBurst4000",
-  }[LTZ_result.clickType];
+  }[LTZ_settings.clickType];
   const typeLabel = (typeof t === "function" && typeKey)
-    ? t(typeKey) : (LTZ_result.clickType || "");
+    ? t(typeKey) : (LTZ_settings.clickType || "");
   ltz_resEls.context.textContent =
-    `${t("LTZ_resMeasuredWith")}: ${typeLabel}, ${t("LTZ_resInterval")} ${LTZ_result.intervalMs} ms`;
-  // BA 156
-  if (typeof renderSnapshotHint === 'function' && LTZ_els && LTZ_els.snapHintBox) {
-    renderSnapshotHint('latenz', LTZ_els.snapHintBox);
-  }
+    `${t("LTZ_resMeasuredWith")}: ${typeLabel}, ${t("LTZ_resInterval")} ${LTZ_settings.intervalMs} ms`;
 }
 

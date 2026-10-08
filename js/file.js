@@ -155,6 +155,9 @@ function resetAll() {
   }
   // --- Latenz ---
   if (typeof LTZ_result !== "undefined") LTZ_result = null;
+  if (typeof ltz_clickType !== "undefined") ltz_clickType = "click";
+  if (typeof ltz_intervalMs !== "undefined") ltz_intervalMs = 1000;
+  if (typeof ltz_syncSettings === "function") ltz_syncSettings();
   if (typeof plApplyLatency !== "undefined") plApplyLatency = true;
   if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
   if (typeof LTZ_renderResults === "function") LTZ_renderResults();
@@ -163,7 +166,6 @@ function resetAll() {
   if (typeof STB_results !== "undefined") {
     Object.keys(STB_results).forEach(k => delete STB_results[k]);
     if (typeof STB_resetSequence === "function") STB_resetSequence();
-    if (typeof STB_snapshot !== "undefined") STB_snapshot = null;
     if (typeof STB_renderResults === "function") STB_renderResults();
     if (typeof STB_renderMean === "function") STB_renderMean();
   }

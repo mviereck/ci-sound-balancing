@@ -27,10 +27,6 @@ var SAVE_SCHEMA_GLOBAL = [
     get: function () { return (typeof STB_results !== "undefined" ? STB_results : {}); },
     set: function (v) { if (typeof STB_results !== "undefined" && v) { Object.keys(STB_results).forEach(function (k) { delete STB_results[k]; }); Object.assign(STB_results, v); } },
     default: function () { return {}; }, valid: { type: "object" } },
-  { key: "STB_snapshot", scope: "global",
-    get: function () { return (typeof STB_snapshot !== "undefined" ? STB_snapshot : null); },
-    set: function (v) { if (typeof STB_snapshot !== "undefined") STB_snapshot = v || null; },
-    default: null },
   // BA648: STB-Testelektroden-Auswahl (seitenlos, null = alle).
   { key: "stb_selectedEls", scope: "global",
     get: function () { return (typeof stb_selectedEls !== "undefined" ? stb_selectedEls : null); },
@@ -41,6 +37,18 @@ var SAVE_SCHEMA_GLOBAL = [
   { key: "LTZ_result", scope: "global",
     get: function () { return (typeof LTZ_result !== "undefined" ? LTZ_result : null); },
     set: function (v) { if (typeof LTZ_result !== "undefined") LTZ_result = v || null; },
+    default: null },
+  // Latenz-Testeinstellungen (clickType/intervalMs), vom Ergebnis entkoppelt.
+  { key: "LTZ_settings", scope: "global",
+    get: function () { return (typeof LTZ_settings !== "undefined" ? LTZ_settings : null); },
+    set: function (v) {
+      if (typeof LTZ_settings === "undefined") return;
+      if (v && typeof v === "object") {
+        if (typeof v.clickType  === "string") { ltz_clickType  = v.clickType; }
+        if (typeof v.intervalMs === "number") { ltz_intervalMs = v.intervalMs; }
+      }
+      if (typeof ltz_syncSettings === "function") ltz_syncSettings();
+    },
     default: null },
   { key: "st_noiseChoiceId", scope: "global",
     get: function () { return (typeof st_noiseChoiceId !== "undefined" ? st_noiseChoiceId : "__werk__"); },
@@ -650,6 +658,9 @@ function refreshAll() {
   if (typeof plSyncUI === "function") plSyncUI();
   if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
   if (typeof LTZ_renderResults === "function") LTZ_renderResults();
+  // Latenz-Testeinstellungen (LTZ_settings) in die Buttons/Hinweis spiegeln.
+  if (typeof _ltz_refreshExtraActives === "function") _ltz_refreshExtraActives();
+  if (typeof _ltz_updateIntervalHint === "function") _ltz_updateIntervalHint();
   if (typeof ST_renderResults === "function") ST_renderResults();
   if (typeof STB_renderResults === "function") STB_renderResults();
   if (typeof STB_renderMean === "function") STB_renderMean();
