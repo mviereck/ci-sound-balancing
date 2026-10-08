@@ -1054,16 +1054,9 @@ function FRQ_renderResults() {
     if (finalEntries.length === 0) {
       txt = '';
     } else if (finalEntries.length < totalActive) {
-      const resVals = finalEntries
-        .filter(function(r) { return r.fmResidual != null; })
-        .map(function(r) { return r.fmResidual; });
-      const meanRes = resVals.length > 0
-        ? resVals.reduce(function(s, v) { return s + v; }, 0) / resVals.length
-        : 0;
       txt = t('FRQ_resultsQualityPartial')
         .replace('{done}', finalEntries.length)
-        .replace('{total}', totalActive)
-        .replace('{res}', meanRes.toFixed(1));
+        .replace('{total}', totalActive);
     } else {
       var _pianoRun = (FRQ_pianoSession && FRQ_pianoSession.run) || null;
       if (_pianoRun && _pianoRun.durchlauf >= 1) {

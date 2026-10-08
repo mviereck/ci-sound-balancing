@@ -1606,17 +1606,6 @@ function FRQ_baender(mitten, verfahren, topologie, optimieren, ziel, range, wand
 // die CI-Umprogrammierung SENKT umgekehrt die rechte Mittenfrequenz.
 // ============================================================
 
-// Wandelt einen Roh-Offset in der ALTEN var/ref-Mess-Konvention
-// ("refHz = varHz * 2^(rawOffset/1200)") in den kanonischen cent.
-// NUR fuer die Lade-Migration alter .cimbel-Dateien (var/ref-Felder).
-// Der Live-Test schreibt cent direkt aus referenzmodus (freqmatch.js).
-//   frqRefMode 'right' (var=rechts, ref=links): pse>0 => links hoeher => -pse
-//   sonst ('left'/'symmetric'):                                        => +pse
-function FRQ_varRefOffsetToCanonical(frqRefMode, rawOffset) {
-  var c = (typeof rawOffset === "number" && isFinite(rawOffset)) ? rawOffset : 0;
-  return (frqRefMode === "right") ? -c : c;
-}
-
 // Verteilt den KANONISCHEN cent nach der Player-Einstellung warpMode
 // auf die beiden Seiten. Rueckgabe { csL, csR } = Cent-Shift links/rechts.
 // Braucht KEINEN testmode (Mess-Herkunft ist im kanonischen cent

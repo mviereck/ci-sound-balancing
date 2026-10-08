@@ -237,7 +237,6 @@ function _collectSideData(side) {
         elIdx: r.elIdx,
         elLabel: `${dENPrefix()}${dEN(r.elIdx)}`,
         cent: r.cent,
-        provisional: !!r._provisional,
       });
     }
 
@@ -606,16 +605,9 @@ function _archivMdFRQ(sd) {
   const out = [`### ${t("FRQ_measureTitle")}`, ""];
   out.push(`| ${t("FRQ_resColEl")} | ${t("FRQ_resColCent")} |`);
   out.push("|---|---|");
-  let hasProv = false;
   for (const r of sd.freqmatch.rows) {
     const centStr = `${r.cent >= 0 ? "+" : ""}${fmtNum(r.cent, "cent")} ¢`;
-    const lbl = r.provisional ? `${r.elLabel} *` : r.elLabel;
-    if (r.provisional) hasProv = true;
-    out.push(`| ${lbl} | ${centStr} |`);
-  }
-  if (hasProv) {
-    out.push("");
-    out.push(`_${t("archivFmProvNote")}_`);
+    out.push(`| ${r.elLabel} | ${centStr} |`);
   }
   return out.join("\n") + "\n";
 }

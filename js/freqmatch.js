@@ -8,7 +8,6 @@ let frq_keyboardCorrectVolume = null; // BA 239: Korrektorfunktion(vol,hz,pan) a
 let _frq_keyboardT0 = 0;   // BA 293: Zeitpunkt des Klavier-Anschlags (Haltedauer)
 let FRQ_running = false;
 let FRQ_els = null;
-let frq_verfahren = 'piano';   // 'slider' | 'adaptive' | 'piano' — realer Default (Klavier-only-Betrieb, BA363)
 let frq_sequence = [];
 let frq_sequenceIdx = 0;
 let frq_currentEl = null;
@@ -776,28 +775,13 @@ function _frq_pianoWriteResults() {
     var crossed = sb.letzteCrossed;
     var wide    = (sb.breite > FM_PIANO_MAX_SPAN);
     var pStatus = crossed ? "piano-crossed" : (wide ? "piano-wide" : "piano");
-    // BA437: fmExcluded von crossed/wide ENTKOPPELT. piano-crossed/-wide
-    // sind nur noch ein Hinweis (Status-Badge + Warndreieck), kein
-    // Ausschluss. Diese Messwerte sind gleichwertig und flieszen voll in
-    // Warp/Wertquelle/Anzeige ein. Feld bleibt im Format, ist nur nie
-    // mehr true.
-    var pExcl   = false;
-
     var entry = {
       elIdx:      elIdx,
       cent:       (frqRefMode === 'left') ? -pse : pse,
       frqRefMode: frqRefMode,
       timestamp: Date.now(),
       method:    "piano",
-      fmStatus:  pStatus,
-      fmExcluded:            pExcl,
-      fmResidual:            null,
-      fmCombinedUncertainty: null,
-      fmDelta:               null,
-      fmConv:                null,
-      fmRunSpread:           null,
-      fmRunsCount:           0,
-      fmStatusLast:          null
+      fmStatus:  pStatus
     };
     FRQ_resultsArray.push(entry);
   });

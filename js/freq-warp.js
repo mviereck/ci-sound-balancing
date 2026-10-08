@@ -137,33 +137,15 @@ function _rbBuildLiveOptionBits(opts) {
 
 let _pWarpFResVersion = 0;
 
-// Quelle der Warp-Punkte: FRQ_resultsArray (final) + laufende Tracks (vorläufig), exakt
-// dieselbe Vereinigung wie die Meßergebnis-Tabelle in results.js. So sieht
-// das Warping immer das, was der Nutzer in der Tabelle sieht — keine
-// abweichende Logik. fmStatus 'in-progress' und 'in-progress-early'
-// (Platzhalter cent=0) werden mitgenommen; final hat Vorrang pro Elektrode.
-// BA353: Quelle = zentraler aktives-Verfahren-Filter (results.js).
-// Frueher: FRQ_resultsArray + in-progress + Slider-Schaetzungen ungefiltert vereinigt.
+// Quelle der Warp-Punkte: dieselbe Vereinigung wie die Meßergebnis-Tabelle
+// in results.js (zentraler aktives-Verfahren-Filter). So sieht das Warping
+// immer das, was der Nutzer in der Tabelle sieht — keine abweichende Logik.
 function _warpFResSource() {
-  // fmExcluded (piano-crossed/-wide) wird NICHT mehr herausgefiltert: diese
-  // Werte sollen normal ins Warping einflieszen. Das Flag bleibt am Datensatz
-  // fuer spaeteren Gebrauch erhalten.
+  // piano-crossed/-wide werden NICHT herausgefiltert: diese Werte sind
+  // gleichwertig und flieszen normal ins Warping ein (nur fmStatus-Hinweis).
   return (typeof FRQ_activeResults === "function")
     ? FRQ_activeResults()
     : [];
-}
-
-// Zählt die Quelle für UI-Anzeige.
-function _warpFResStats() {
-  const all = _warpFResSource();
-  let finals = 0, provisional = 0, sliderEst = 0;
-  for (const r of all) {
-    if (!r) continue;
-    if (r._sliderEstimate)   sliderEst++;
-    else if (r._provisional) provisional++;
-    else                     finals++;
-  }
-  return { total: all.length, finals, provisional, sliderEst };
 }
 
 // BA428: Warp-Stuetzpunkte aus der zentralen Wertquelle FRQ_werte

@@ -290,18 +290,6 @@ function FRQ_implantatTableBuild() {
     s.addEventListener("change", (e) => {
       const idx = +e.target.dataset.i,
         val = e.target.value || null;
-      // BA 205: Wechsel auf "mute" sperren, wenn adaptive FreqMatch-Trials vorliegen.
-      // Anderes Dropdown-Verhalten bleibt frei. Wert auf alten Stand zurücksetzen,
-      // Transient-Popup mit derselben Begründung wie .ec/.ec-active zeigen.
-      if (val === "mute"
-          && typeof _FRQ_hasAdaptiveData === 'function'
-          && _FRQ_hasAdaptiveData()) {
-        e.target.value = elSt[idx] || '';
-        if (typeof depLockShowTransientPopup === 'function') {
-          depLockShowTransientPopup(e.target, 'depFieldMute', ['depReasonFRQAdaptive']);
-        }
-        return;
-      }
       elSt[idx] = val;
       // BA 164: „deactivated" als Status-Option entfernt — nur noch „mute"
       if (val === "mute") {

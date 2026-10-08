@@ -34,7 +34,7 @@ const DEP_LOCK_RULES = [
       if (otherHasLoud) reasons.push('depReasonLoudnessOtherSide');
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
-          reasons.push('depReasonFRQAdaptive');
+          reasons.push('depReasonFreqMatch');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ — ignorieren */ }
       return reasons;
     }
@@ -53,7 +53,7 @@ const DEP_LOCK_RULES = [
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
-          reasons.push('depReasonFRQAdaptive');
+          reasons.push('depReasonFreqMatch');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       return reasons;
     }
@@ -70,7 +70,7 @@ const DEP_LOCK_RULES = [
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
-          reasons.push('depReasonFRQAdaptive');
+          reasons.push('depReasonFreqMatch');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       return reasons;
     }
@@ -84,7 +84,7 @@ const DEP_LOCK_RULES = [
       const reasons = [];
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
-          reasons.push('depReasonFRQAdaptive');
+          reasons.push('depReasonFreqMatch');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       return reasons;
     }
@@ -101,7 +101,7 @@ const DEP_LOCK_RULES = [
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
-          reasons.push('depReasonFRQAdaptive');
+          reasons.push('depReasonFreqMatch');
       } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
       return reasons;
     }
