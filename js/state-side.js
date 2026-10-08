@@ -505,27 +505,6 @@ function setSideConfig(side, cfg) {
   // BA 172: Tab-Sperre L1 neu bewerten
   if (typeof tabLockApply === 'function') tabLockApply();
 }
-initSideData("left", "unknown");
-initSideData("right", "unknown");
-activeSide = "left";
-bindActiveSide();
-updateMfrSelectLabels();
-
-let audioCtx = null,
-  runningSources = [],
-  playTO = null,
-  isPlay = false,
-  holdIdx = -1;
-let ELL_testAct = false,
-  ELL_testPairs = [],
-  ELL_testIdx = 0,
-  ELL_curPlayed = false,
-  ELL_curBase = 0,
-  slExt = false;
-let ELL_curA = -1,
-  ELL_curB = -1,
-  undoSt = [],
-  convRnd = 0;
 
 // ============================================================
 // BA 280: Zentrale Default-Werte (Single Source of Truth).
@@ -615,6 +594,28 @@ const TEST_EINSTELLUNGEN = {
 // Default-Vorlage je Eintrag (fuer Reset + Lade-Fallback). Tiefenkopie,
 // damit Reset nicht die laufende Struktur referenziert.
 const TEST_EINSTELLUNGEN_DEFAULTS = JSON.parse(JSON.stringify(TEST_EINSTELLUNGEN));
+
+initSideData("left", "unknown");
+initSideData("right", "unknown");
+activeSide = "left";
+bindActiveSide();
+updateMfrSelectLabels();
+
+let audioCtx = null,
+  runningSources = [],
+  playTO = null,
+  isPlay = false,
+  holdIdx = -1;
+let ELL_testAct = false,
+  ELL_testPairs = [],
+  ELL_testIdx = 0,
+  ELL_curPlayed = false,
+  ELL_curBase = 0,
+  slExt = false;
+let ELL_curA = -1,
+  ELL_curB = -1,
+  undoSt = [],
+  convRnd = 0;
 
 // BA649: Liefert das Einstellungs-Objekt eines Tests aus seinem Scope.
 // Seitenweise Tests (TE_SEITENWEISE): aus sideData[side].te, Default side =
