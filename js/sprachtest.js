@@ -986,6 +986,7 @@ function st_buildBundleFragment() {
   noiseSel.autocomplete = "off";
   noiseSel.addEventListener("change", function () {
     st_noiseChoiceId = noiseSel.value || ST_NOISE_DEFAULT;
+    sideData[activeSide].SNRtest_noise = st_noiseChoiceId;
     if (typeof window._autoSaveState === "function") window._autoSaveState();
   });
   // Dezenter Link hinter dem Geraeusch-Dropdown: Erzeuger-/Lizenz-Modalbox.
@@ -1100,7 +1101,10 @@ function st_refreshNoiseSelect() {
   // (nicht mehr geladen), auf Default zurueckfallen.
   var exists = (st_noiseChoiceId === ST_NOISE_DEFAULT)
     || gleichmaessig.some(function (it) { return it.id === st_noiseChoiceId; });
-  if (!exists) st_noiseChoiceId = ST_NOISE_DEFAULT;
+  if (!exists) {
+    st_noiseChoiceId = ST_NOISE_DEFAULT;
+    sideData[activeSide].SNRtest_noise = ST_NOISE_DEFAULT;
+  }
   sel.value = st_noiseChoiceId;
 }
 

@@ -75,6 +75,9 @@ function bindActiveSide() {
   if (typeof _ELL_activeVerfahren !== "undefined") {
     _ELL_activeVerfahren = s.ELL_activeVerfahren || "full";
   }
+  if (typeof st_noiseChoiceId !== "undefined") {
+    st_noiseChoiceId = (s.SNRtest_noise !== undefined) ? s.SNRtest_noise : "__werk__";
+  }
   elActive = s.elActive || (s.elActive = new Array(s.nEl).fill(true));
   config = s.config || "ci";
   fullSweepRound = s.fullSweepRound !== undefined ? s.fullSweepRound : null;
@@ -185,6 +188,7 @@ function initSideData(side, m) {
   // BA651: seitenweise Testeinstellungen als Einzelfelder in sideData.
   s.ELLtest_volume = 50; s.ELLtest_toneType = "sine"; s.ELLtest_duration = 600; s.ELLtest_pause = 300; s.ELLtest_sequence = "abab";
   s.SNRtest_volume = 50;
+  s.SNRtest_noise = "__werk__";   // Sprachtest-Rauschwahl, seitenweise
   s.fullSweepRound = null;
   s.fullSweepDonePairs = [];
   s.implant = {
