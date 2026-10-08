@@ -38,17 +38,14 @@ var SAVE_SCHEMA = [
     set: function (v) { if (typeof LTZ_result !== "undefined") LTZ_result = v || null; },
     default: null },
   // Latenz-Testeinstellungen (clickType/intervalMs), vom Ergebnis entkoppelt.
-  { key: "LTZ_settings", scope: "global",
-    get: function () { return (typeof LTZ_settings !== "undefined" ? LTZ_settings : null); },
-    set: function (v) {
-      if (typeof LTZ_settings === "undefined") return;
-      if (v && typeof v === "object") {
-        if (typeof v.clickType  === "string") { ltz_clickType  = v.clickType; }
-        if (typeof v.intervalMs === "number") { ltz_intervalMs = v.intervalMs; }
-      }
-      if (typeof ltz_syncSettings === "function") ltz_syncSettings();
-    },
-    default: null },
+  { key: "LTZtest_clickType", scope: "global",
+    get: function () { return (typeof ltz_clickType !== "undefined" ? ltz_clickType : "click"); },
+    set: function (v) { if (typeof ltz_clickType !== "undefined" && typeof v === "string") ltz_clickType = v; },
+    default: "click", valid: { type: "string" } },
+  { key: "LTZtest_intervalMs", scope: "global",
+    get: function () { return (typeof ltz_intervalMs !== "undefined" ? ltz_intervalMs : 1000); },
+    set: function (v) { if (typeof ltz_intervalMs !== "undefined" && typeof v === "number") ltz_intervalMs = v; },
+    default: 1000, valid: { type: "number", min: 0, max: 10000 } },
   { key: "plApplyLatency", scope: "global",
     get: function () { return (typeof plApplyLatency !== "undefined" ? plApplyLatency : true); },
     set: function (v) { if (typeof plApplyLatency !== "undefined") plApplyLatency = v; },
@@ -668,7 +665,7 @@ function refreshAll() {
   if (typeof plSyncUI === "function") plSyncUI();
   if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
   if (typeof LTZ_renderResults === "function") LTZ_renderResults();
-  // Latenz-Testeinstellungen (LTZ_settings) in die Buttons/Hinweis spiegeln.
+  // Latenz-Testeinstellungen (ltz_clickType/ltz_intervalMs) in die Buttons/Hinweis spiegeln.
   if (typeof _ltz_refreshExtraActives === "function") _ltz_refreshExtraActives();
   if (typeof _ltz_updateIntervalHint === "function") _ltz_updateIntervalHint();
   if (typeof ST_renderResults === "function") ST_renderResults();

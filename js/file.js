@@ -150,7 +150,6 @@ function resetAll() {
   if (typeof LTZ_result !== "undefined") LTZ_result = null;
   if (typeof ltz_clickType !== "undefined") ltz_clickType = "click";
   if (typeof ltz_intervalMs !== "undefined") ltz_intervalMs = 1000;
-  if (typeof ltz_syncSettings === "function") ltz_syncSettings();
   if (typeof plApplyLatency !== "undefined") plApplyLatency = true;
   if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
   if (typeof LTZ_renderResults === "function") LTZ_renderResults();

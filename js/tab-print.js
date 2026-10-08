@@ -250,8 +250,8 @@ function _printResLTZ() {
     "burst500":  "LTZ_typeBurst500",
     "burst1500": "LTZ_typeBurst1500",
     "burst4000": "LTZ_typeBurst4000",
-  }[LTZ_settings.clickType];
-  const typeLabel = typeKey ? t(typeKey) : (LTZ_settings.clickType || "");
+  }[ltz_clickType];
+  const typeLabel = typeKey ? t(typeKey) : (ltz_clickType || "");
   const sign = v >= 0 ? "+" : "−";
   const body = `
     <div class="print-card">
@@ -260,7 +260,7 @@ function _printResLTZ() {
       <p>${mainTxt}</p>
       <p style="font-size:0.9em;">
         ${t("LTZ_resMeasuredWith")}: ${typeLabel},
-        ${t("LTZ_resInterval")} ${LTZ_settings.intervalMs} ms
+        ${t("LTZ_resInterval")} ${ltz_intervalMs} ms
       </p>
       <p style="font-size:0.9em;">
         ${t("LTZ_resApplied")}: ${plApplyLatency ? t("yes") : t("no")}
