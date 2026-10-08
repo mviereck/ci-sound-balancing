@@ -78,6 +78,9 @@ function bindActiveSide() {
   if (typeof st_noiseChoiceId !== "undefined") {
     st_noiseChoiceId = (s.SNRtest_noise !== undefined) ? s.SNRtest_noise : "__werk__";
   }
+  if (typeof ST_activeTestSet !== "undefined") {
+    ST_activeTestSet = (s.SNRtest_material !== undefined) ? s.SNRtest_material : null;
+  }
   elActive = s.elActive || (s.elActive = new Array(s.nEl).fill(true));
   config = s.config || "ci";
   fullSweepRound = s.fullSweepRound !== undefined ? s.fullSweepRound : null;
@@ -189,6 +192,7 @@ function initSideData(side, m) {
   s.ELLtest_volume = 50; s.ELLtest_toneType = "sine"; s.ELLtest_duration = 600; s.ELLtest_pause = 300; s.ELLtest_sequence = "abab";
   s.SNRtest_volume = 50;
   s.SNRtest_noise = "__werk__";   // Sprachtest-Rauschwahl, seitenweise
+  s.SNRtest_material = null;   // Sprachtest-Testmaterial (test_set-Wert), seitenweise; null = Fallback erste verfuegbare
   s.fullSweepRound = null;
   s.fullSweepDonePairs = [];
   s.implant = {

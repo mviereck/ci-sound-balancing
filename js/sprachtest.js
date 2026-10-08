@@ -634,25 +634,12 @@ function st_finish(converged) {
   if (typeof pStopReset === "function") pStopReset();
   st_restorePlayerState();
 
-  // Verwendetes Hintergrundgeraeusch fuer die Ergebnisanzeige festhalten.
-  let noiseLabel;
-  if (st_noiseChoiceId === ST_NOISE_DEFAULT) {
-    noiseLabel = (typeof t === "function") ? t("stNoiseDefaultOpt") : "Testeigenes Rauschen";
-  } else {
-    const items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
-    const it = items.find(function (x) { return x.id === st_noiseChoiceId; });
-    noiseLabel = it ? _amNoiseTitleLabel(it) : st_noiseChoiceId;
-  }
-
   // Ergebnis an das Ergebnis-Modul uebergeben (BA608 liefert ST_saveResult).
   const result = {
     srt: srt,
     converged: !!converged,
     snrHistory: st_snrHistory.slice(),
     wordHistory: st_wordHistory.slice(),
-    testSet: st_currentTestSet(),
-    bundleLabel: st_currentTestSet(),
-    noiseLabel: noiseLabel,
     ts: Date.now()
   };
   if (typeof ST_saveResult === "function") ST_saveResult(result);
@@ -709,14 +696,14 @@ function st_updateUI() {
 // Persistenz + Ergebnisanzeige
 // ------------------------------------------------------------
 function ST_saveResult(result) {
-  sideData[activeSide].ST_result = result;
+  sideData[activeSide].SNR_result = result;
   if (typeof window._autoSaveState === "function") window._autoSaveState();
   ST_renderResults();
 }
 
 function ST_renderResults() {
   const res = (typeof sideData !== "undefined" && sideData[activeSide])
-    ? sideData[activeSide].ST_result || null
+    ? sideData[activeSide].SNR_result || null
     : null;
   const empty = document.getElementById("ST_resEmpty");
   const content = document.getElementById("ST_resContent");
@@ -737,14 +724,21 @@ function ST_renderResults() {
   if (conv) conv.style.display = res.converged ? "" : "none";
   const bundleEl = document.getElementById("ST_resBundle");
   if (bundleEl) {
-    const lbl = res.bundleLabel || "";
+    const lbl = st_currentTestSet() || "";
     bundleEl.textContent = lbl
       ? (t("stResBundlePrefix") + " " + lbl)
       : "";
   }
   const noiseEl = document.getElementById("ST_resNoise");
   if (noiseEl) {
-    const nl = res.noiseLabel || "";
+    let nl;
+    if (st_noiseChoiceId === ST_NOISE_DEFAULT) {
+      nl = (typeof t === "function") ? t("stNoiseDefaultOpt") : "Testeigenes Rauschen";
+    } else {
+      const items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
+      const it = items.find(function (x) { return x.id === st_noiseChoiceId; });
+      nl = it ? _amNoiseTitleLabel(it) : st_noiseChoiceId;
+    }
     noiseEl.textContent = nl ? (t("stResNoisePrefix") + " " + nl) : "";
   }
 
@@ -1128,6 +1122,7 @@ function st_refreshBundleSelect() {
 // Aktive Sammlung setzen (Umschalten per test_set-Wert).
 function st_setActiveCollection(testSet) {
   ST_activeTestSet = testSet;
+  sideData[activeSide].SNRtest_material = testSet;
   st_refreshBundleSelect();
 }
 
@@ -1193,7 +1188,7 @@ const st_cfg = {
       prerequisites: [
         {
           checkFn: function() {
-            return !(typeof sideData !== "undefined" && sideData[activeSide] && sideData[activeSide].ST_result);
+            return !(typeof sideData !== "undefined" && sideData[activeSide] && sideData[activeSide].SNR_result);
           },
           titleKey:   "stOverwriteTitle",
           messageKey: "stOverwriteMsg",
