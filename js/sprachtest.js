@@ -12,19 +12,19 @@
 // behandelt -- kein eigener Buenel-Mechanismus mehr.
 
 // Aktive Matrix-Sammlung (test_set-Wert). null = noch nicht gewaehlt;
-// st_currentTestSet() liefert die erste verfuegbare.
-let ST_activeTestSet = null;
+// snr_currentTestSet() liefert die erste verfuegbare.
+let SNR_activeTestSet = null;
 
-// Gewaehltes Hintergrundgeraeusch im Sprachtest. Sentinel ST_NOISE_DEFAULT
-// = testeigenes Werksrauschen (st_findNoiseItem). Sonst die id eines
+// Gewaehltes Hintergrundgeraeusch im Sprachtest. Sentinel SNR_NOISE_DEFAULT
+// = testeigenes Werksrauschen (snr_findNoiseItem). Sonst die id eines
 // gleichmaessig gemessenen Geraeusche-Items (stationary). Global fuer den Sprachtest (nicht pro Seite/
 // Testset); sitzungsuebergreifend gesichert (SAVE_SCHEMA).
-const ST_NOISE_DEFAULT = "__werk__";
-let st_noiseChoiceId = ST_NOISE_DEFAULT;
+const SNR_NOISE_DEFAULT = "__werk__";
+let snr_noiseChoiceId = SNR_NOISE_DEFAULT;
 
 // Alle Matrix-Sammlungen aus dem Saetze-Pool (test_type === "matrix"),
 // dedupliziert nach test_set.
-function st_availableCollections() {
+function snr_availableCollections() {
   const pool = (typeof sBuildRecordingPool === "function") ? sBuildRecordingPool() : [];
   const seen = new Map();
   pool.forEach(function (it) {
@@ -36,10 +36,10 @@ function st_availableCollections() {
 }
 
 // Aktive Sammlung, mit Fallback auf die erste verfuegbare.
-function st_currentTestSet() {
-  const avail = st_availableCollections();
-  if (ST_activeTestSet && avail.some(function (c) { return c.testSet === ST_activeTestSet; })) {
-    return ST_activeTestSet;
+function snr_currentTestSet() {
+  const avail = snr_availableCollections();
+  if (SNR_activeTestSet && avail.some(function (c) { return c.testSet === SNR_activeTestSet; })) {
+    return SNR_activeTestSet;
   }
   return avail.length ? avail[0].testSet : null;
 }
@@ -47,9 +47,9 @@ function st_currentTestSet() {
 // Matrix-Extraktor (SS3.2): sammelt ueber alle Satztexte je Position (0..4)
 // die vorkommenden Woerter, dedupliziert, sortiert. Ergebnis: Array[5] von
 // Wort-Arrays (die zehn Woerter je Spalte). Erwartet, dass die Items ihren
-// text tragen (st_ensureTexts lief). Saetze ohne genau fuenf Woerter werden
-// uebersprungen (gleiche Regel wie st_drawBalanced).
-function st_extractMatrix(items) {
+// text tragen (snr_ensureTexts lief). Saetze ohne genau fuenf Woerter werden
+// uebersprungen (gleiche Regel wie snr_drawBalanced).
+function snr_extractMatrix(items) {
   const cols = [ new Set(), new Set(), new Set(), new Set(), new Set() ];
   items.forEach(function (it) {
     const txt = (it.text || "").replace(/\.$/, "").trim();
@@ -70,37 +70,37 @@ function st_extractMatrix(items) {
 // RAUSCHEN (Hauptaudio fest). Ein negativer Sprachpegel-Schritt = niedrigerer
 // SNR. Wir fuehren den SNR-Sollwert direkt: SNR_neu = SNR_alt + delta, wobei
 // delta genau die Tabellenwerte sind (mehr verstanden -> SNR sinkt).
-const ST_ADAPT_COARSE = { 5: -3, 4: -2, 3: -1, 2: +1, 1: +2, 0: +3 };
-const ST_ADAPT_FINE   = { 5: -2, 4: -1, 3:  0, 2:  0, 1: +1, 0: +2 };
+const SNR_ADAPT_COARSE = { 5: -3, 4: -2, 3: -1, 2: +1, 1: +2, 0: +3 };
+const SNR_ADAPT_FINE   = { 5: -2, 4: -1, 3:  0, 2:  0, 1: +1, 0: +2 };
 
-const ST_START_SNR = 0;      // erster Satz bei SNR 0 dB
-const ST_SNR_MIN = -15;      // Klemmung (Architektur SS4.3)
-const ST_SNR_MAX = 21;
-const ST_LIST_LEN = 30;      // gewertete Saetze
-const ST_TRAIN_LEN = 3;      // Trainingssaetze (zaehlen nicht)
-const ST_SRT_WINDOW = 20;    // SRT = Mittel der letzten 20 SNR-Werte
-const ST_SRT_WINDOW_CONV = 6;// bei Konvergenz-Abbruch: letzte 6
+const SNR_START_SNR = 0;      // erster Satz bei SNR 0 dB
+const SNR_MIN = -15;      // Klemmung (Architektur SS4.3)
+const SNR_MAX = 21;
+const SNR_LIST_LEN = 30;      // gewertete Saetze
+const SNR_TRAIN_LEN = 3;      // Trainingssaetze (zaehlen nicht)
+const SNR_SRT_WINDOW = 20;    // SRT = Mittel der letzten 20 SNR-Werte
+const SNR_SRT_WINDOW_CONV = 6;// bei Konvergenz-Abbruch: letzte 6
 
 // --- Modul-Zustand ---
 let _st_parentEl = null;     // Panel-Element (im DOMContentLoaded gesetzt)
-let ST_els = null;           // Refs aus buildTestPanel
-let st_active = false;       // laeuft ein Durchgang?
-let st_phase = null;         // "train" | "measure"
-let st_seq = [];             // gezogene Satz-Items (Trainingssaetze + 30)
-let st_idx = 0;              // Index in st_seq
-let st_snr = ST_START_SNR;   // aktueller Ziel-SNR
-let st_snrHistory = [];      // SNR je gewertetem Satz (nur measure-Phase)
-let st_wordHistory = [];     // richtige Woerter (0..5) je gewertetem Satz
-let st_saved = null;         // gesicherter Player-Unterlegungszustand (Restore)
+let SNR_els = null;           // Refs aus buildTestPanel
+let snr_active = false;       // laeuft ein Durchgang?
+let snr_phase = null;         // "train" | "measure"
+let snr_seq = [];             // gezogene Satz-Items (Trainingssaetze + 30)
+let snr_idx = 0;              // Index in snr_seq
+let snr_snr = SNR_START_SNR;   // aktueller Ziel-SNR
+let snr_snrHistory = [];      // SNR je gewertetem Satz (nur measure-Phase)
+let snr_wordHistory = [];     // richtige Woerter (0..5) je gewertetem Satz
+let snr_saved = null;         // gesicherter Player-Unterlegungszustand (Restore)
 let _st_preloadedSeq = null; // Satz-Reihenfolge aus _st_preload (Ziehung vorgezogen)
 let _st_matrix = null;       // Matrix des aktiven Buendels (aus Satztexten, SS3.2)
 
 // ------------------------------------------------------------
 // Player-Zustand sichern / erzwingen / wiederherstellen (SS4.4)
 // ------------------------------------------------------------
-function st_savePlayerState() {
+function snr_savePlayerState() {
   var volEl  = document.getElementById("plVol");
-  st_saved = {
+  snr_saved = {
     maskOn:    plMaskOn,
     maskLevel: plMaskLevelKey,
     noiseId:   plNoiseSelectedId,
@@ -118,32 +118,32 @@ function st_savePlayerState() {
     }
   }
 }
-function st_restorePlayerState() {
-  if (!st_saved) return;
+function snr_restorePlayerState() {
+  if (!snr_saved) return;
   pSetEndedCallback(null);              // BA605: unseren Callback abraeumen
   plMaskSetLevelDb(null);               // BA605: freien SNR loslassen
-  plMaskSetOn(!!st_saved.maskOn);
-  plMaskSetLevel(st_saved.maskLevel);
-  plNoiseSelectedId = st_saved.noiseId;
+  plMaskSetOn(!!snr_saved.maskOn);
+  plMaskSetLevel(snr_saved.maskLevel);
+  plNoiseSelectedId = snr_saved.noiseId;
   // "Beide Seiten" wiederherstellen (einseitig war nur fuer den Test erzwungen).
-  if (plBothSides !== st_saved.bothSides) {
-    plBothSides = st_saved.bothSides;
+  if (plBothSides !== snr_saved.bothSides) {
+    plBothSides = snr_saved.bothSides;
     if (typeof updatePlayerForSideChange === "function") updatePlayerForSideChange();
   }
   // Player-Lautstaerke wiederherstellen (00-lautstaerke Sec. 4.5).
   var volEl2 = document.getElementById("plVol");
-  if (volEl2 && st_saved.plVol != null) {
-    volEl2.value = st_saved.plVol;
+  if (volEl2 && snr_saved.plVol != null) {
+    volEl2.value = snr_saved.plVol;
     volEl2.dispatchEvent(new Event("change", { bubbles: true }));
   }
-  st_saved = null;
+  snr_saved = null;
 }
 
 // Erzwingt EINSEITIGE Wiedergabe (die global aktive Seite) fuer die Testdauer.
 // Der OLSA laeuft je Seite getrennt (ein Ergebnis pro Seite); "beide Seiten"
 // waere fachlich falsch. Nutzt den regulaeren Umschaltweg (Checkbox +
 // updatePlayerForSideChange), nicht einen Patch an getPlayerSide.
-function st_forceSingleSide() {
+function snr_forceSingleSide() {
   if (plBothSides) {
     plBothSides = false;
     if (typeof updatePlayerForSideChange === "function") updatePlayerForSideChange();
@@ -151,14 +151,14 @@ function st_forceSingleSide() {
 }
 
 // Die aktive Seite (fuer Ergebnis-Zuordnung / Anzeige).
-function st_currentSide() {
+function snr_currentSide() {
   return (typeof activeSide !== "undefined") ? activeSide : "left";
 }
 
 // Der Sprachtest mischt sein Rauschen selbst in den Satz-Buffer (Architektur
 // SS4.5) und benutzt die Player-Geraeusch-Unterlegung NICHT. Fuer die Testdauer
 // wird sie ausgeschaltet, damit sie das Testsignal nicht zusaetzlich ueberlagert.
-function st_forceMaskOff() {
+function snr_forceMaskOff() {
   if (typeof plMaskSetOn === "function") plMaskSetOn(false);
 }
 
@@ -167,16 +167,16 @@ function st_forceMaskOff() {
 // (tags.test_set === "wortmatrix"). KEIN eigener Ladeweg -- amGetItemBuffer
 // laedt via Kategorie-Adapter (audio+text per Detail-Range).
 // ------------------------------------------------------------
-function st_allOlsaSentences() {
+function snr_allOlsaSentences() {
   const pool = (typeof sBuildRecordingPool === "function") ? sBuildRecordingPool() : [];
-  const ts = st_currentTestSet();
+  const ts = snr_currentTestSet();
   if (!ts) return [];
   return pool.filter(function (it) { return it.tags && it.tags.test_set === ts; });
 }
 // Das Geraeusche-Pool-Item der aktiven Sammlung finden
 // (test_type matrix, gleicher test_set).
-function st_findNoiseItem() {
-  const ts = st_currentTestSet();
+function snr_findNoiseItem() {
+  const ts = snr_currentTestSet();
   if (!ts) return null;
   const list = (typeof plNoiseAllItems === "function")
     ? plNoiseAllItems()
@@ -193,8 +193,8 @@ let _st_noiseCache = { testSet: null, choice: null, buf: null };
 // RMS der Werksdatei normiert (SNR-Achse bleibt stabil); das Werks-
 // rauschen ist die Eichreferenz und bleibt unveraendert.
 async function _st_ensureNoiseBuf() {
-  const ts = st_currentTestSet();
-  const choice = st_noiseChoiceId;
+  const ts = snr_currentTestSet();
+  const choice = snr_noiseChoiceId;
   if (_st_noiseCache.testSet === ts && _st_noiseCache.choice === choice && _st_noiseCache.buf) {
     return _st_noiseCache.buf;
   }
@@ -202,13 +202,13 @@ async function _st_ensureNoiseBuf() {
   if (!ctx || !ts) return null;
 
   // Werksdatei laden (immer noetig: roher Default ODER Eich-Referenz).
-  const werkItem = st_findNoiseItem();
+  const werkItem = snr_findNoiseItem();
   if (!werkItem) return null;
   const werkBuf = await amGetItemBuffer(ctx, werkItem);
   if (!werkBuf) return null;
 
   let outBuf = werkBuf;
-  if (choice && choice !== ST_NOISE_DEFAULT) {
+  if (choice && choice !== SNR_NOISE_DEFAULT) {
     const items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
     const chosen = items.find(function (it) { return it.id === choice; });
     if (chosen) {
@@ -236,9 +236,9 @@ async function _st_ensureNoiseBuf() {
 // (das kommt in CImbel nicht in Frage), sondern ein je Darbietung eigenes
 // Rausch-Segment, das den Satz zeitlich umschliesst. Vermeidet den Onset-Effekt
 // eines satzsynchron einsetzenden Stoerers. Feste Werte (kein UI-Regler).
-const ST_NOISE_PREROLL_S  = 1.0;    // Rauschen beginnt 1 s vor dem Satz
-const ST_NOISE_POSTROLL_S = 0.5;    // Rauschen endet 0,5 s nach dem Satz
-const ST_NOISE_FADE_S     = 0.030;  // Ein-/Ausblendung an den AEUSSEREN Raendern
+const SNR_NOISE_PREROLL_S  = 1.0;    // Rauschen beginnt 1 s vor dem Satz
+const SNR_NOISE_POSTROLL_S = 0.5;    // Rauschen endet 0,5 s nach dem Satz
+const SNR_NOISE_FADE_S     = 0.030;  // Ein-/Ausblendung an den AEUSSEREN Raendern
 
 // Baut EINEN Buffer aus Satz (Original-Pegel) + auf den Ziel-SNR skaliertem
 // Rauschen. Faktor auf das Rauschen = 10^(-snr/20): SNR 0 -> 1,0 (Werks-
@@ -252,9 +252,9 @@ function _st_buildMixedBuffer(sentenceBuf, noiseBuf, snr) {
   if (!ctx || !sentenceBuf) return sentenceBuf;
   const sr  = sentenceBuf.sampleRate;
   const sLen = sentenceBuf.length;                        // Satzlaenge (Samples)
-  const pre  = Math.round(ST_NOISE_PREROLL_S  * sr);      // Vorlauf (Samples)
-  const post = Math.round(ST_NOISE_POSTROLL_S * sr);      // Nachlauf (Samples)
-  const fade = Math.max(1, Math.round(ST_NOISE_FADE_S * sr));
+  const pre  = Math.round(SNR_NOISE_PREROLL_S  * sr);      // Vorlauf (Samples)
+  const post = Math.round(SNR_NOISE_POSTROLL_S * sr);      // Nachlauf (Samples)
+  const fade = Math.max(1, Math.round(SNR_NOISE_FADE_S * sr));
   const len  = pre + sLen + post;                         // Gesamtlaenge
   const nCh  = sentenceBuf.numberOfChannels;
   const out  = ctx.createBuffer(nCh, len, sr);
@@ -294,7 +294,7 @@ function _st_buildMixedBuffer(sentenceBuf, noiseBuf, snr) {
 // Nutzt die vorhandene Detail-NDJSON (item._detailUrl): eine Datei, per
 // Byte-Fenster (detailStart/detail) je Item die Zeile ausschneiden -> item.text.
 // Kein zweiter Textweg neben der Detail-Datei (Architektur SS3).
-async function st_ensureTexts(items) {
+async function snr_ensureTexts(items) {
   const need = items.filter(function (it) {
     return (!it.text) && it._detailUrl && typeof it.detailStart === "number"
         && typeof it.detail === "number";
@@ -319,7 +319,7 @@ async function st_ensureTexts(items) {
 // Position. Greedy: fuer jeden Kandidaten die Summe der bisherigen
 // Verwendungshaeufigkeit seiner fuenf Woerter bilden, den mit der kleinsten
 // Summe waehlen (seltenste Woerter zuerst), Zufalls-Tiebreak.
-function st_drawBalanced(all, n) {
+function snr_drawBalanced(all, n) {
   const pool = all.slice();
   const used = [ {}, {}, {}, {}, {} ];   // je Position: wort -> anzahl
   const chosen = [];
@@ -349,15 +349,15 @@ function st_drawBalanced(all, n) {
 // ------------------------------------------------------------
 // Ablauf
 // ------------------------------------------------------------
-// Ladebalken-Hilfsfunktionen (ST_loadHint in index.html).
+// Ladebalken-Hilfsfunktionen (SNR_loadHint in index.html).
 function _st_loadShow(msg) {
-  const el = document.getElementById("ST_loadHint");
+  const el = document.getElementById("SNR_loadHint");
   if (!el) return;
   el.innerHTML = "";
   const txt = document.createElement("div");
   txt.textContent = msg || t("stLoadingMsg");
   const bar = document.createElement("progress");
-  bar.id = "ST_loadBar";
+  bar.id = "SNR_loadBar";
   bar.value = 0;
   bar.max = 1;
   el.appendChild(txt);
@@ -365,23 +365,23 @@ function _st_loadShow(msg) {
   el.hidden = false;
 }
 function _st_loadProgress(done, total) {
-  const bar = document.getElementById("ST_loadBar");
+  const bar = document.getElementById("SNR_loadBar");
   if (bar) { bar.value = done; bar.max = total; }
 }
 function _st_loadHide() {
-  const el = document.getElementById("ST_loadHint");
+  const el = document.getElementById("SNR_loadHint");
   if (el) el.hidden = true;
 }
 
-function st_start() {
+function snr_start() {
   // Ladebalken sofort synchron einblenden -- _st_preload ist async und gibt
   // Kontrolle erst beim ersten await ab; ohne diesen Aufruf hier verschwindet
   // der Balken, bevor der Browser einen Frame rendern kann.
   _st_loadShow();
   Promise.resolve(_st_preload()).then(function () {
     // Kopfhoerercheck erst nach vollstaendigem Vorladen.
-    testUI.sideCheck.run({ sides: "one", side: st_currentSide() }, function () {
-      Promise.resolve(st_beginRun()).catch(function (e) {
+    testUI.sideCheck.run({ sides: "one", side: snr_currentSide() }, function () {
+      Promise.resolve(snr_beginRun()).catch(function (e) {
         console.error("[sprachtest] Start fehlgeschlagen:", e);
         _st_abortStart();
       });
@@ -397,39 +397,39 @@ function st_start() {
 
 // Teststart komplett zuruecknehmen: Ladebalken weg UND den laufenden Test-
 // Zustand von testUI aufheben (Button-Sperren, Tab-Sperre, Player-Reset ueber
-// onStop=st_stop). Ohne diesen Stop-Weg bliebe testUI nach einem Fehlschlag
+// onStop=snr_stop). Ohne diesen Stop-Weg bliebe testUI nach einem Fehlschlag
 // oder Kopfhoerercheck-Abbruch im "Test laeuft"-Zustand haengen -- Stop-Button
 // aktiv, kein Ton, kein Body.
 function _st_abortStart() {
   _st_loadHide();
-  if (ST_els && typeof ST_els._stopTest === "function") ST_els._stopTest();
+  if (SNR_els && typeof SNR_els._stopTest === "function") SNR_els._stopTest();
 }
 
 // Laedt Texte + Audio-Buffer der benoetigten Saetze (33) + Rauschen sequenziell
-// in den Browser-Cache. Ladebalken in ST_loadHint sofort beim Aufruf sichtbar.
+// in den Browser-Cache. Ladebalken in SNR_loadHint sofort beim Aufruf sichtbar.
 // Zieht die Satz-Reihenfolge vor und speichert sie in _st_preloadedSeq, damit
-// st_beginRun nur die tatsaechlich gespielte Teilmenge laedt (nicht alle ~150).
+// snr_beginRun nur die tatsaechlich gespielte Teilmenge laedt (nicht alle ~150).
 async function _st_preload() {
-  const all = st_allOlsaSentences();
-  if (all.length < ST_LIST_LEN) {
+  const all = snr_allOlsaSentences();
+  if (all.length < SNR_LIST_LEN) {
     console.warn("[sprachtest] zu wenige Wortmatrix-Saetze:", all.length);
   }
-  // Ladebalken wurde bereits in st_start() synchron eingeblendet.
+  // Ladebalken wurde bereits in snr_start() synchron eingeblendet.
   _st_loadProgress(0, 1);   // unbestimmt bis Texte geladen
 
   // Texte laden (ein Range-Request fuer alle Items — braucht die Ziehung).
   try {
-    await st_ensureTexts(all);
+    await snr_ensureTexts(all);
   } catch (e) {
     console.error("[sprachtest] Satztexte laden fehlgeschlagen:", e);
     throw e;
   }
-  _st_matrix = st_extractMatrix(all);
+  _st_matrix = snr_extractMatrix(all);
 
   // Ziehung JETZT — nur die 33 tatsaechlich gespielten Saetze vorladen.
-  const train = st_drawBalanced(all, ST_TRAIN_LEN);
+  const train = snr_drawBalanced(all, SNR_TRAIN_LEN);
   const rest = all.filter(function (it) { return train.indexOf(it) < 0; });
-  const measure = st_shuffle(st_drawBalanced(rest, ST_LIST_LEN));
+  const measure = snr_shuffle(snr_drawBalanced(rest, SNR_LIST_LEN));
   _st_preloadedSeq = train.concat(measure);
 
   // Audio-Buffer der 33 Saetze sequenziell laden (Roh-Buffer cachen).
@@ -450,46 +450,46 @@ async function _st_preload() {
   _st_loadProgress(total, total);
 }
 
-async function st_beginRun() {
+async function snr_beginRun() {
   // Satz-Reihenfolge aus _st_preload uebernehmen (Buffer bereits im Cache).
   const seq = _st_preloadedSeq;
   _st_preloadedSeq = null;
-  if (!seq || seq.length < ST_LIST_LEN + ST_TRAIN_LEN) {
+  if (!seq || seq.length < SNR_LIST_LEN + SNR_TRAIN_LEN) {
     console.error("[sprachtest] Vorladen fehlgeschlagen oder Sequenz zu kurz");
     return;
   }
 
-  st_savePlayerState();
-  st_forceSingleSide();   // Test laeuft einseitig (aktive Seite), "beide" aus
-  st_forceMaskOff();      // Player-Unterlegung fuer die Testdauer aus (SS4.4)
+  snr_savePlayerState();
+  snr_forceSingleSide();   // Test laeuft einseitig (aktive Seite), "beide" aus
+  snr_forceMaskOff();      // Player-Unterlegung fuer die Testdauer aus (SS4.4)
 
-  const train   = seq.slice(0, ST_TRAIN_LEN);
-  const measure = seq.slice(ST_TRAIN_LEN);
+  const train   = seq.slice(0, SNR_TRAIN_LEN);
+  const measure = seq.slice(SNR_TRAIN_LEN);
 
-  st_seq = train.concat(measure);
-  st_idx = 0;
-  st_snr = ST_START_SNR;
-  st_snrHistory = [];
-  st_wordHistory = [];
-  st_phase = (ST_TRAIN_LEN > 0) ? "train" : "measure";
-  st_active = true;
+  snr_seq = train.concat(measure);
+  snr_idx = 0;
+  snr_snr = SNR_START_SNR;
+  snr_snrHistory = [];
+  snr_wordHistory = [];
+  snr_phase = (SNR_TRAIN_LEN > 0) ? "train" : "measure";
+  snr_active = true;
 
   _st_loadHide();
 
   // Testkörper jetzt einblenden (deferBody, SS-Start): Material ist geladen
   // und der Kopfhörercheck bestanden, das Raster wird gleich befüllt.
   if (typeof testUI !== "undefined" && typeof testUI.showBody === "function") {
-    testUI.showBody(ST_els);
+    testUI.showBody(SNR_els);
   }
 
   // BA605: Satz-Ende-Signal auf unseren Handler legen.
-  pSetEndedCallback(st_onSentenceEnded);
+  pSetEndedCallback(snr_onSentenceEnded);
 
-  st_playCurrent();
-  st_updateUI();
+  snr_playCurrent();
+  snr_updateUI();
 }
 
-function st_shuffle(arr) {
+function snr_shuffle(arr) {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -500,12 +500,12 @@ function st_shuffle(arr) {
 
 // Aktuellen Satz mischen und abspielen: Satz-Buffer (Cache) holen, Rauschen
 // auf den Ziel-SNR mischen, als fertigen Buffer an den Player uebergeben.
-function st_playCurrent() {
-  const item = st_seq[st_idx];
+function snr_playCurrent() {
+  const item = snr_seq[snr_idx];
   if (!item) return;
   // Raster fuer die neue Runde leeren.
-  if (ST_els) {
-    const vr = ST_els.verfahren["olsa"];
+  if (SNR_els) {
+    const vr = SNR_els.verfahren["olsa"];
     if (vr) {
       testUI.wordGrid.setWords(vr.wordGrid, _st_matrix || []);
     }
@@ -518,25 +518,25 @@ function st_playCurrent() {
   // deshalb kein Race und kein "erster Satz ohne Rauschen".
   const ctx = (typeof gPC === "function") ? gPC() : null;
   Promise.resolve(amGetItemBuffer(ctx, item)).then(function (sentBuf) {
-    if (!st_active) return;
+    if (!snr_active) return;
     if (!sentBuf) { console.error("[sprachtest] Satz-Buffer fehlt:", item.id); return; }
-    const mixed = _st_buildMixedBuffer(sentBuf, _st_noiseCache.buf, st_snr);
+    const mixed = _st_buildMixedBuffer(sentBuf, _st_noiseCache.buf, snr_snr);
     sCurRec = item;                       // fuer Wertung/Textbezug
     sSetDirectBuffer(mixed, item.text || "");
-    if (!st_active) return;
-    // OK erst nach Satzende freigeben (st_onSentenceEnded) -- man soll den
+    if (!snr_active) return;
+    // OK erst nach Satzende freigeben (snr_onSentenceEnded) -- man soll den
     // Satz zu Ende hoeren, bevor bestaetigt wird. Das Raster bleibt waehrend
     // der Wiedergabe bedienbar (nur der Bestaetigen-Button ist gesperrt).
-    st_setConfirmEnabled(false);
+    snr_setConfirmEnabled(false);
     _pSetPlayWish(true);
     pPlay();
   }).catch(function (e) { console.error("[sprachtest] Satz mischen/laden:", e); });
 }
 
 // Bestaetigen-Button (OK / naechster Satz) sperren/freigeben.
-function st_setConfirmEnabled(on) {
-  if (!ST_els) return;
-  const vr = ST_els.verfahren["olsa"];
+function snr_setConfirmEnabled(on) {
+  if (!SNR_els) return;
+  const vr = SNR_els.verfahren["olsa"];
   if (vr && vr.confirmButton && typeof testUI !== "undefined"
       && testUI.confirmButton) {
     testUI.confirmButton.setEnabled(vr.confirmButton, on);
@@ -544,51 +544,51 @@ function st_setConfirmEnabled(on) {
 }
 
 // Satz-Ende (BA605-Callback): der Satz ist fertig abgespielt -- jetzt darf
-// der Nutzer bestaetigen. Die Wertung passiert im OK-Hook (st_onConfirm).
-function st_onSentenceEnded() {
-  st_setConfirmEnabled(true);
+// der Nutzer bestaetigen. Die Wertung passiert im OK-Hook (snr_onConfirm).
+function snr_onSentenceEnded() {
+  snr_setConfirmEnabled(true);
 }
 
 // OK-Button: aktuellen Satz werten, SNR fuer den Folgesatz bestimmen.
-function st_onConfirm() {
-  if (!st_active) return;
-  const item = st_seq[st_idx];
-  const vr = ST_els.verfahren["olsa"];
+function snr_onConfirm() {
+  if (!snr_active) return;
+  const item = snr_seq[snr_idx];
+  const vr = SNR_els.verfahren["olsa"];
   const sel = testUI.wordGrid.getSelection(vr.wordGrid);   // 5 Werte (Wort|null)
-  const correct = st_countCorrect(item, sel);
+  const correct = snr_countCorrect(item, sel);
 
-  const isMeasure = (st_phase === "measure");
+  const isMeasure = (snr_phase === "measure");
   if (isMeasure) {
-    st_snrHistory.push(st_snr);
-    st_wordHistory.push(correct);
+    snr_snrHistory.push(snr_snr);
+    snr_wordHistory.push(correct);
   }
 
   // Naechsten SNR bestimmen (Adaption).
-  const measureCount = st_snrHistory.length;
-  const delta = st_adaptDelta(correct, measureCount);
-  st_snr = Math.max(ST_SNR_MIN, Math.min(ST_SNR_MAX, st_snr + delta));
+  const measureCount = snr_snrHistory.length;
+  const delta = snr_adaptDelta(correct, measureCount);
+  snr_snr = Math.max(SNR_MIN, Math.min(SNR_MAX, snr_snr + delta));
 
   // Konvergenz-Abbruch (Standard, Diplomarbeit Kap. 3.3): der Pegel hat sich
   // eingependelt, wenn er sich ueber die LETZTEN 7 gewerteten Saetze nicht
   // aendert (Konvergenzbereich). Dann Ende, SRT aus den letzten 6 Werten.
   // Ein einzelnes delta==0 ist KEINE Konvergenz -- erst 7 gleiche SNR-Werte.
-  const converged = isMeasure && st_last7Stable();
+  const converged = isMeasure && snr_last7Stable();
 
-  st_advance(converged);
+  snr_advance(converged);
 }
 
 // Phasen-Delta: measureCount = Anzahl bereits gewerteter Saetze.
 // Saetze 1-4 der Liste folgen der Grobphase, ab dem 5. die Feinphase.
-function st_adaptDelta(correct, measureCount) {
-  const table = (measureCount <= 4) ? ST_ADAPT_COARSE : ST_ADAPT_FINE;
+function snr_adaptDelta(correct, measureCount) {
+  const table = (measureCount <= 4) ? SNR_ADAPT_COARSE : SNR_ADAPT_FINE;
   return table[correct] || 0;
 }
 
 // Konvergenzbereich: true, wenn die letzten 7 gewerteten SNR-Werte identisch
 // sind (der Pegel hat sich ueber 7 Saetze nicht mehr veraendert). Vorher (< 7
 // Werte) nie konvergiert.
-function st_last7Stable() {
-  const h = st_snrHistory;
+function snr_last7Stable() {
+  const h = snr_snrHistory;
   if (h.length < 7) return false;
   const last = h[h.length - 1];
   for (let i = h.length - 7; i < h.length; i++) {
@@ -597,25 +597,25 @@ function st_last7Stable() {
   return true;
 }
 
-function st_advance(converged) {
-  st_idx++;
+function snr_advance(converged) {
+  snr_idx++;
   // Trainingsphase zu Ende?
-  if (st_phase === "train" && st_idx >= ST_TRAIN_LEN) {
-    st_phase = "measure";
-    st_snr = ST_START_SNR;   // Messung startet frisch bei 0 dB
-    st_playCurrent();
-    st_updateUI();
+  if (snr_phase === "train" && snr_idx >= SNR_TRAIN_LEN) {
+    snr_phase = "measure";
+    snr_snr = SNR_START_SNR;   // Messung startet frisch bei 0 dB
+    snr_playCurrent();
+    snr_updateUI();
     return;
   }
-  const measureCount = st_snrHistory.length;
-  const done = converged || (st_phase === "measure" && measureCount >= ST_LIST_LEN)
-             || (st_idx >= st_seq.length);
-  if (done) { st_finish(converged); return; }
-  st_playCurrent();
-  st_updateUI();
+  const measureCount = snr_snrHistory.length;
+  const done = converged || (snr_phase === "measure" && measureCount >= SNR_LIST_LEN)
+             || (snr_idx >= snr_seq.length);
+  if (done) { snr_finish(converged); return; }
+  snr_playCurrent();
+  snr_updateUI();
 }
 
-function st_countCorrect(item, sel) {
+function snr_countCorrect(item, sel) {
   const t = (item.text || "").replace(/\.$/, "").trim().split(/\s+/);
   let n = 0;
   for (let p = 0; p < 5; p++) {
@@ -624,31 +624,31 @@ function st_countCorrect(item, sel) {
   return n;
 }
 
-function st_finish(converged) {
-  st_active = false;
-  const win = converged ? ST_SRT_WINDOW_CONV : ST_SRT_WINDOW;
-  const tail = st_snrHistory.slice(-win);
+function snr_finish(converged) {
+  snr_active = false;
+  const win = converged ? SNR_SRT_WINDOW_CONV : SNR_SRT_WINDOW;
+  const tail = snr_snrHistory.slice(-win);
   const srt = tail.length ? (tail.reduce(function (a, b) { return a + b; }, 0) / tail.length) : null;
 
   // Wiedergabe stoppen, Player-Zustand wiederherstellen.
   if (typeof pStopReset === "function") pStopReset();
-  st_restorePlayerState();
+  snr_restorePlayerState();
 
-  // Ergebnis an das Ergebnis-Modul uebergeben (BA608 liefert ST_saveResult).
+  // Ergebnis an das Ergebnis-Modul uebergeben (BA608 liefert SNR_saveResult).
   const result = {
     srt: srt,
     converged: !!converged,
-    snrHistory: st_snrHistory.slice(),
-    wordHistory: st_wordHistory.slice(),
+    snrHistory: snr_snrHistory.slice(),
+    wordHistory: snr_wordHistory.slice(),
     ts: Date.now()
   };
-  if (typeof ST_saveResult === "function") ST_saveResult(result);
-  else { window.ST_lastResult = result; console.log("[sprachtest] Ergebnis:", result); }
+  if (typeof SNR_saveResult === "function") SNR_saveResult(result);
+  else { window.SNR_lastResult = result; console.log("[sprachtest] Ergebnis:", result); }
 
   // testUI ueber natuerliches Ende informieren: stoppt den laufenden Test
   // (blendet Stop-Button aus, hebt Tab-Sperre auf) -- analog zum Stop-Button,
-  // aber ohne den onStop-Hook zu rufen (kein zweites st_stop).
-  if (ST_els && typeof ST_els._stopTest === "function") ST_els._stopTest();
+  // aber ohne den onStop-Hook zu rufen (kein zweites snr_stop).
+  if (SNR_els && typeof SNR_els._stopTest === "function") SNR_els._stopTest();
 
   // Abschluss-Box.
   if (typeof testUI !== "undefined" && testUI.completion) {
@@ -656,35 +656,35 @@ function st_finish(converged) {
   }
 
   // Balken auf fertig: endet der Test durch Konvergenz vor der Obergrenze,
-  // steht st_idx noch darunter -- hier explizit auf voll setzen, statt mit
-  // st_updateUI auf dem Zwischenstand zu verharren.
-  const vr = ST_els && ST_els.verfahren["olsa"];
+  // steht snr_idx noch darunter -- hier explizit auf voll setzen, statt mit
+  // snr_updateUI auf dem Zwischenstand zu verharren.
+  const vr = SNR_els && SNR_els.verfahren["olsa"];
   if (vr && vr.progress && typeof testUI !== "undefined" && testUI.progress) {
-    const total = ST_TRAIN_LEN + ST_LIST_LEN;
+    const total = SNR_TRAIN_LEN + SNR_LIST_LEN;
     testUI.progress.set(vr.progress, { fraction: 1, text: total + "/" + total });
   }
 }
 
-function st_stop() {
+function snr_stop() {
   // Nutzer bricht ab: Wiedergabe stoppen, Zustand zurueck,
   // kein Ergebnis speichern.
-  st_active = false;
+  snr_active = false;
   if (typeof pStopReset === "function") pStopReset();
-  st_restorePlayerState();
-  st_updateUI();
+  snr_restorePlayerState();
+  snr_updateUI();
 }
 
-function st_updateUI() {
-  if (!ST_els) return;
-  const vr = ST_els.verfahren["olsa"];
+function snr_updateUI() {
+  if (!SNR_els) return;
+  const vr = SNR_els.verfahren["olsa"];
   if (vr && vr.progress && typeof testUI !== "undefined" && testUI.progress) {
-    // Fortschritt: bestaetigte Saetze / Gesamtzahl (Uebung + Messung). st_idx
-    // rueckt bei JEDEM OK vor (st_advance), also auch waehrend der Uebung --
+    // Fortschritt: bestaetigte Saetze / Gesamtzahl (Uebung + Messung). snr_idx
+    // rueckt bei JEDEM OK vor (snr_advance), also auch waehrend der Uebung --
     // so bewegt sich der Balken bei jeder Bestaetigung sichtbar. Der Nenner
     // ist die Obergrenze; endet der Test durch Konvergenz frueher, springt er
     // beim Abschluss einfach auf fertig.
-    const total = ST_TRAIN_LEN + ST_LIST_LEN;
-    const done = Math.min(st_idx, total);
+    const total = SNR_TRAIN_LEN + SNR_LIST_LEN;
+    const done = Math.min(snr_idx, total);
     testUI.progress.set(vr.progress, {
       fraction: done / total,
       text: done + "/" + total
@@ -695,18 +695,18 @@ function st_updateUI() {
 // ------------------------------------------------------------
 // Persistenz + Ergebnisanzeige
 // ------------------------------------------------------------
-function ST_saveResult(result) {
+function SNR_saveResult(result) {
   sideData[activeSide].SNR_result = result;
   if (typeof window._autoSaveState === "function") window._autoSaveState();
-  ST_renderResults();
+  SNR_renderResults();
 }
 
-function ST_renderResults() {
+function SNR_renderResults() {
   const res = (typeof sideData !== "undefined" && sideData[activeSide])
     ? sideData[activeSide].SNR_result || null
     : null;
-  const empty = document.getElementById("ST_resEmpty");
-  const content = document.getElementById("ST_resContent");
+  const empty = document.getElementById("SNR_resEmpty");
+  const content = document.getElementById("SNR_resContent");
   if (!empty || !content) return;
   if (!res || !res.snrHistory || !res.snrHistory.length) {
     empty.style.display = "";
@@ -716,39 +716,39 @@ function ST_renderResults() {
   empty.style.display = "none";
   content.style.display = "";
 
-  const srtEl = document.getElementById("ST_resSrtValue");
+  const srtEl = document.getElementById("SNR_resSrtValue");
   if (srtEl) srtEl.textContent = (res.srt === null)
     ? "---"
     : (res.srt.toFixed(1) + " dB SNR");
-  const conv = document.getElementById("ST_resConvHint");
+  const conv = document.getElementById("SNR_resConvHint");
   if (conv) conv.style.display = res.converged ? "" : "none";
-  const bundleEl = document.getElementById("ST_resBundle");
+  const bundleEl = document.getElementById("SNR_resBundle");
   if (bundleEl) {
-    const lbl = st_currentTestSet() || "";
+    const lbl = snr_currentTestSet() || "";
     bundleEl.textContent = lbl
       ? (t("stResBundlePrefix") + " " + lbl)
       : "";
   }
-  const noiseEl = document.getElementById("ST_resNoise");
+  const noiseEl = document.getElementById("SNR_resNoise");
   if (noiseEl) {
     let nl;
-    if (st_noiseChoiceId === ST_NOISE_DEFAULT) {
+    if (snr_noiseChoiceId === SNR_NOISE_DEFAULT) {
       nl = (typeof t === "function") ? t("stNoiseDefaultOpt") : "Testeigenes Rauschen";
     } else {
       const items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
-      const it = items.find(function (x) { return x.id === st_noiseChoiceId; });
-      nl = it ? _amNoiseTitleLabel(it) : st_noiseChoiceId;
+      const it = items.find(function (x) { return x.id === snr_noiseChoiceId; });
+      nl = it ? _amNoiseTitleLabel(it) : snr_noiseChoiceId;
     }
     noiseEl.textContent = nl ? (t("stResNoisePrefix") + " " + nl) : "";
   }
 
-  ST_drawCourse(res);
-  ST_drawScatter(res);
-  ST_showSlope(res);
+  SNR_drawCourse(res);
+  SNR_drawScatter(res);
+  SNR_showSlope(res);
 }
 
-function ST_drawCourse(res) {
-  const cv = document.getElementById("ST_resCourseCanvas");
+function SNR_drawCourse(res) {
+  const cv = document.getElementById("SNR_resCourseCanvas");
   if (!cv) return;
   const ctx = cv.getContext("2d");
   ctx.clearRect(0, 0, cv.width, cv.height);
@@ -822,8 +822,8 @@ function ST_drawCourse(res) {
   }
 }
 
-function ST_drawScatter(res) {
-  const cv = document.getElementById("ST_resScatterCanvas");
+function SNR_drawScatter(res) {
+  const cv = document.getElementById("SNR_resScatterCanvas");
   if (!cv) return;
   const ctx = cv.getContext("2d");
   ctx.clearRect(0, 0, cv.width, cv.height);
@@ -899,8 +899,8 @@ function ST_drawScatter(res) {
   }
 }
 
-function ST_showSlope(res) {
-  const el = document.getElementById("ST_resSlopeValue");
+function SNR_showSlope(res) {
+  const el = document.getElementById("SNR_resSlopeValue");
   if (!el) return;
   const snr = res.snrHistory, wc = res.wordHistory;
   const n = Math.min(snr.length, wc.length);
@@ -918,9 +918,9 @@ function ST_showSlope(res) {
 // ------------------------------------------------------------
 // Buendel-Fragment (Upload + Auswahl + Status + Ladebalken)
 // ------------------------------------------------------------
-let ST_bundleEls = null;   // Refs des Buendel-Fragments
+let SNR_bundleEls = null;   // Refs des Buendel-Fragments
 
-function st_buildBundleFragment() {
+function snr_buildBundleFragment() {
   const wrap = document.createElement("div");
   wrap.className = "st-bundle-box";
 
@@ -930,11 +930,11 @@ function st_buildBundleFragment() {
   const selLabel = document.createElement("label");
   selLabel.setAttribute("data-t", "stBundleLabel");
   const sel = document.createElement("select");
-  sel.id = "ST_bundleSelect";
-  sel.addEventListener("change", function () { st_setActiveCollection(sel.value); });
+  sel.id = "SNR_bundleSelect";
+  sel.addEventListener("change", function () { snr_setActiveCollection(sel.value); });
   // Dezenter Link hinter dem Dropdown: oeffnet die Erzeuger-/Lizenz-Modalbox
   // der Satzaufnahmen (gleiche Anzeige wie im Player, ueber plRenderMetaLine).
-  const sentLicLink = st_makeLicenseLink("saetze");
+  const sentLicLink = snr_makeLicenseLink("saetze");
   selRow.append(selLabel, sel, sentLicLink);
 
   // Upload-Bereich mit Zenodo-Erklaerung.
@@ -949,7 +949,7 @@ function st_buildBundleFragment() {
   fileInput.accept = ".zip";
   fileInput.style.display = "none";
   fileInput.addEventListener("change", function () {
-    if (fileInput.files && fileInput.files[0]) st_onUploadFile(fileInput.files[0]);
+    if (fileInput.files && fileInput.files[0]) snr_onUploadFile(fileInput.files[0]);
     fileInput.value = "";
   });
   const upBtn = document.createElement("button");
@@ -961,11 +961,11 @@ function st_buildBundleFragment() {
   // Status-/Fehlerzeile.
   const status = document.createElement("div");
   status.className = "st-bundle-status";
-  status.id = "ST_bundleStatus";
+  status.id = "SNR_bundleStatus";
 
   // Ladebalken-Container (zieht hierher um, §4).
   const loadHint = document.createElement("div");
-  loadHint.id = "ST_loadHint";
+  loadHint.id = "SNR_loadHint";
   loadHint.hidden = true;
 
   // Hintergrundgeraeusch-Auswahl (Default testeigenes Rauschen, sonst
@@ -976,19 +976,19 @@ function st_buildBundleFragment() {
   var noiseLabel = document.createElement("label");
   noiseLabel.setAttribute("data-t", "stNoiseLabel");
   var noiseSel = document.createElement("select");
-  noiseSel.id = "ST_noiseSelect";
+  noiseSel.id = "SNR_noiseSelect";
   noiseSel.autocomplete = "off";
   noiseSel.addEventListener("change", function () {
-    st_noiseChoiceId = noiseSel.value || ST_NOISE_DEFAULT;
-    sideData[activeSide].SNRtest_noise = st_noiseChoiceId;
+    snr_noiseChoiceId = noiseSel.value || SNR_NOISE_DEFAULT;
+    sideData[activeSide].SNRtest_noise = snr_noiseChoiceId;
     if (typeof window._autoSaveState === "function") window._autoSaveState();
   });
   // Dezenter Link hinter dem Geraeusch-Dropdown: Erzeuger-/Lizenz-Modalbox.
-  const noiseLicLink = st_makeLicenseLink("geraeusche");
+  const noiseLicLink = snr_makeLicenseLink("geraeusche");
   noiseRow.append(noiseLabel, noiseSel, noiseLicLink);
 
   wrap.append(selRow, noiseRow, upRow, status, loadHint);
-  ST_bundleEls = {
+  SNR_bundleEls = {
     wrap: wrap, selRow: selRow, select: sel, status: status, noiseSelect: noiseSel
   };
   return wrap;
@@ -997,7 +997,7 @@ function st_buildBundleFragment() {
 // Baut den dezenten "Erzeuger und Lizenz"-Link fuer eine Kategorie
 // ("saetze" | "geraeusche"); Klick oeffnet die Modalbox mit genau den
 // zugehoerigen Angaben.
-function st_makeLicenseLink(kind) {
+function snr_makeLicenseLink(kind) {
   const a = document.createElement("a");
   a.href = "#";
   a.className = "st-license-link";
@@ -1005,7 +1005,7 @@ function st_makeLicenseLink(kind) {
   a.textContent = (typeof t === "function") ? t("stLicLink") : "Erzeuger und Lizenz";
   a.addEventListener("click", function (e) {
     e.preventDefault();
-    st_openLicenseDialog(kind);
+    snr_openLicenseDialog(kind);
   });
   return a;
 }
@@ -1016,7 +1016,7 @@ function st_makeLicenseLink(kind) {
 // pro Sammlung); Geraeusch-ctx aus dem gewaehlten Geraeusch-Item. Sonderfall
 // "testeigenes Rauschen": das Werksrauschen gehoert zur Testmaterial-Sammlung
 // und hat keine eigene Nennung -- dann nur der Verweis auf das Testmaterial.
-function st_openLicenseDialog(kind) {
+function snr_openLicenseDialog(kind) {
   const dlg  = document.getElementById("stLicenseDialog");
   const body = document.getElementById("stLicenseBody");
   if (!dlg || !body || typeof plRenderMetaLine !== "function") return;
@@ -1025,7 +1025,7 @@ function st_openLicenseDialog(kind) {
   body.innerHTML = "";
 
   // Testeigenes Rauschen: gehoert zum Testmaterial -> nur Verweis.
-  if (kind === "geraeusche" && st_noiseChoiceId === ST_NOISE_DEFAULT) {
+  if (kind === "geraeusche" && snr_noiseChoiceId === SNR_NOISE_DEFAULT) {
     const hint = document.createElement("div");
     hint.className = "st-license-meta";
     hint.textContent = (typeof t === "function" && t("stLicNoiseSeeMaterial") !== "stLicNoiseSeeMaterial")
@@ -1039,13 +1039,13 @@ function st_openLicenseDialog(kind) {
   let decl = null, ctx = null;
   if (kind === "saetze" && PL_FILTER_DECL.saetze) {
     decl = PL_FILTER_DECL.saetze.fieldDecl;
-    const sent = st_allOlsaSentences();
+    const sent = snr_allOlsaSentences();
     ctx = (sent.length && typeof plSentCtxFromItem === "function")
       ? plSentCtxFromItem(sent[0]) : null;
   } else if (kind === "geraeusche" && PL_FILTER_DECL.geraeusche) {
     decl = PL_FILTER_DECL.geraeusche.fieldDecl;
     const items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
-    const nItem = items.find(function (x) { return x.id === st_noiseChoiceId; }) || null;
+    const nItem = items.find(function (x) { return x.id === snr_noiseChoiceId; }) || null;
     ctx = (nItem && typeof plNoiseCtxFromItem === "function")
       ? plNoiseCtxFromItem(nItem) : null;
   }
@@ -1065,14 +1065,14 @@ function st_openLicenseDialog(kind) {
 
 // Geraeusch-Dropdown befuellen: feste Default-Option (testeigenes
 // Werksrauschen) + alle gleichmaessig gemessenen Geraeusche-Items (stationary). Auswahl aus
-// st_noiseChoiceId wiederherstellen.
-function st_refreshNoiseSelect() {
-  if (!ST_bundleEls || !ST_bundleEls.noiseSelect) return;
-  var sel = ST_bundleEls.noiseSelect;
+// snr_noiseChoiceId wiederherstellen.
+function snr_refreshNoiseSelect() {
+  if (!SNR_bundleEls || !SNR_bundleEls.noiseSelect) return;
+  var sel = SNR_bundleEls.noiseSelect;
   sel.innerHTML = "";
 
   var optDef = document.createElement("option");
-  optDef.value = ST_NOISE_DEFAULT;
+  optDef.value = SNR_NOISE_DEFAULT;
   optDef.setAttribute("data-t", "stNoiseDefaultOpt");
   optDef.textContent = (typeof t === "function") ? t("stNoiseDefaultOpt") : "Testeigenes Rauschen";
   sel.appendChild(optDef);
@@ -1093,20 +1093,20 @@ function st_refreshNoiseSelect() {
 
   // Gesicherte/aktuelle Auswahl wiederherstellen; fehlt das Item
   // (nicht mehr geladen), auf Default zurueckfallen.
-  var exists = (st_noiseChoiceId === ST_NOISE_DEFAULT)
-    || gleichmaessig.some(function (it) { return it.id === st_noiseChoiceId; });
+  var exists = (snr_noiseChoiceId === SNR_NOISE_DEFAULT)
+    || gleichmaessig.some(function (it) { return it.id === snr_noiseChoiceId; });
   if (!exists) {
-    st_noiseChoiceId = ST_NOISE_DEFAULT;
-    sideData[activeSide].SNRtest_noise = ST_NOISE_DEFAULT;
+    snr_noiseChoiceId = SNR_NOISE_DEFAULT;
+    sideData[activeSide].SNRtest_noise = SNR_NOISE_DEFAULT;
   }
-  sel.value = st_noiseChoiceId;
+  sel.value = snr_noiseChoiceId;
 }
 
 // Auswahl-Dropdown befuellen; Auswahl-Zeile nur bei > 1 Sammlung zeigen.
-function st_refreshBundleSelect() {
-  if (!ST_bundleEls) return;
-  const sel = ST_bundleEls.select;
-  const avail = st_availableCollections();
+function snr_refreshBundleSelect() {
+  if (!SNR_bundleEls) return;
+  const sel = SNR_bundleEls.select;
+  const avail = snr_availableCollections();
   sel.innerHTML = "";
   avail.forEach(function (c) {
     const opt = document.createElement("option");
@@ -1114,32 +1114,32 @@ function st_refreshBundleSelect() {
     opt.textContent = c.label;
     sel.appendChild(opt);
   });
-  const cur = st_currentTestSet();
+  const cur = snr_currentTestSet();
   if (cur) sel.value = cur;
-  ST_bundleEls.selRow.style.display = (avail.length > 1) ? "" : "none";
+  SNR_bundleEls.selRow.style.display = (avail.length > 1) ? "" : "none";
 }
 
 // Aktive Sammlung setzen (Umschalten per test_set-Wert).
-function st_setActiveCollection(testSet) {
-  ST_activeTestSet = testSet;
+function snr_setActiveCollection(testSet) {
+  SNR_activeTestSet = testSet;
   sideData[activeSide].SNRtest_material = testSet;
-  st_refreshBundleSelect();
+  snr_refreshBundleSelect();
 }
 
 // Lautstaerke-Button im Sprachtest-Header nach Seitenwechsel neu
 // beschriften (saveGet liefert dann den Wert der neuen aktiven Seite).
-function ST_refreshVolumeLabel() {
-  if (ST_els && ST_els.header && typeof ST_els.header.volumeUpdate === "function") {
-    ST_els.header.volumeUpdate();
+function SNR_refreshVolumeLabel() {
+  if (SNR_els && SNR_els.header && typeof SNR_els.header.volumeUpdate === "function") {
+    SNR_els.header.volumeUpdate();
   }
 }
 
-async function st_onUploadFile(file) {
-  const st = ST_bundleEls ? ST_bundleEls.status : null;
+async function snr_onUploadFile(file) {
+  const st = SNR_bundleEls ? SNR_bundleEls.status : null;
   if (st) st.textContent = t("stUploadWorking");
   try {
     const res = await zuHandleZipUpload(file, "saetze", { matrixOnly: true });
-    st_setActiveCollection(res.test_set);
+    snr_setActiveCollection(res.test_set);
     if (st) st.textContent = "";
   } catch (e) {
     console.error("[sprachtest] Upload fehlgeschlagen:", e);
@@ -1150,7 +1150,7 @@ async function st_onUploadFile(file) {
 // ------------------------------------------------------------
 // Aufbau des Sub-Reiters
 // ------------------------------------------------------------
-const st_cfg = {
+const snr_cfg = {
   id: "sprachtest",
   explain: {
     titleKey: "stTitle",
@@ -1176,7 +1176,7 @@ const st_cfg = {
     {
       id: "olsa",
       // Der Testkörper wird erst nach dem asynchronen Vorladen + Kopfhörer-
-      // check gezeigt (st_beginRun ruft testUI.showBody). Ohne deferBody
+      // check gezeigt (snr_beginRun ruft testUI.showBody). Ohne deferBody
       // erschiene das Antwort-Raster der Vorrunde, bevor Ton kommt.
       deferBody: true,
       body: {
@@ -1199,9 +1199,9 @@ const st_cfg = {
         }
       ],
       hooks: {
-        onStart:   st_start,
-        onStop:    st_stop,
-        onConfirm: st_onConfirm
+        onStart:   snr_start,
+        onStop:    snr_stop,
+        onConfirm: snr_onConfirm
       }
     }
   ]
@@ -1216,18 +1216,18 @@ document.addEventListener("DOMContentLoaded", function () {
   // Deshalb header.extra (zwischen common und startStop, immer sichtbar) --
   // NICHT body.extraFragment: das sitzt in der festen Body-Reihenfolge unter
   // dem Antwort-Raster und im initial verborgenen testBox (test-ui.js:487,894).
-  const stBundleFrag = st_buildBundleFragment();
-  st_cfg.header.extra = { fragment: stBundleFrag, lockDuringTest: true };
-  ST_els = buildTestPanel(parentEl, st_cfg);
-  st_refreshBundleSelect();
-  st_refreshNoiseSelect();
+  const stBundleFrag = snr_buildBundleFragment();
+  snr_cfg.header.extra = { fragment: stBundleFrag, lockDuringTest: true };
+  SNR_els = buildTestPanel(parentEl, snr_cfg);
+  snr_refreshBundleSelect();
+  snr_refreshNoiseSelect();
   // Am Kategorie-Refresh-Register anmelden: Wird das Saetze-Material nachge-
   // laden (bedarfsgeladenes Buendel, Sprachwechsel, Upload), aktualisiert sich
   // die Sammlungs-Auswahl von selbst -- sonst erschiene das Dropdown erst nach
   // einem Upload, obwohl schon mehrere gebaute Sammlungen im Pool stehen.
   if (typeof amRegisterCategoryRefresh === "function") {
-    amRegisterCategoryRefresh("saetze", st_refreshBundleSelect);
-    amRegisterCategoryRefresh("geraeusche", st_refreshNoiseSelect);
+    amRegisterCategoryRefresh("saetze", snr_refreshBundleSelect);
+    amRegisterCategoryRefresh("geraeusche", snr_refreshNoiseSelect);
   }
   if (typeof applyLang === "function") applyLang();
 });

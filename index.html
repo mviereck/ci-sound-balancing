@@ -455,7 +455,7 @@
           <button class="subtab" data-subtab="stereobalance" data-parent="messungen" data-t="tabSTB"></button>
           <button class="subtab" data-subtab="latenz" data-parent="messungen" id="LTZ_subtabBtn" data-t="tabLTZ"></button>
           <button class="subtab" data-subtab="freqmatch" data-parent="messungen" id="FRQ_subtabBtn" data-t="subTabFRQ"></button>
-          <button class="subtab" data-subtab="sprachtest" data-parent="messungen" id="ST_subtabBtn" data-t="tabSprachtest"></button>
+          <button class="subtab" data-subtab="sprachtest" data-parent="messungen" id="SNR_subtabBtn" data-t="tabSprachtest"></button>
         </div>
         <div id="subpanel-messungen-elektrodenlautstaerke" class="subpanel active">
           <!-- Inhalt wird von test-ui.js / test.js erzeugt -->
@@ -484,7 +484,7 @@
           <button class="subtab" data-subtab="stereobalance" data-parent="ergebnisse" data-t="tabSTB"></button>
           <button class="subtab" data-subtab="latenz" data-parent="ergebnisse" id="subTabLTZBtn" data-t="tabLTZ">Latenz</button>
           <button class="subtab" data-subtab="freqmatch" data-parent="ergebnisse" id="subTabFRQBtn"></button>
-          <button class="subtab" data-subtab="sprachtest" data-parent="ergebnisse" id="ST_resSubtabBtn" data-t="tabSprachtest"></button>
+          <button class="subtab" data-subtab="sprachtest" data-parent="ergebnisse" id="SNR_resSubtabBtn" data-t="tabSprachtest"></button>
           <button class="btn" id="printErgebnisseBtn"
                   style="margin-left:auto;padding:4px 10px;font-size:0.9em;">
             🖨 <span data-t="printBtn"></span>
@@ -771,32 +771,32 @@
         <div id="subpanel-ergebnisse-sprachtest" class="subpanel">
           <div class="card">
           <h2 data-t="stResTitle"></h2>
-          <div id="ST_resEmpty">
+          <div id="SNR_resEmpty">
             <p style="color: var(--text)" data-t="stResNoData"></p>
           </div>
-          <div id="ST_resContent" style="display:none;">
+          <div id="SNR_resContent" style="display:none;">
             <div class="st-res-srt">
               <span data-t="stResSrtLabel"></span>
-              <strong id="ST_resSrtValue"></strong>
-              <span id="ST_resConvHint" data-t="stResConvHint" style="display:none;"></span>
+              <strong id="SNR_resSrtValue"></strong>
+              <span id="SNR_resConvHint" data-t="stResConvHint" style="display:none;"></span>
             </div>
-            <div id="ST_resBundle" class="st-res-bundle"></div>
-            <div id="ST_resNoise" class="st-res-bundle"></div>
+            <div id="SNR_resBundle" class="st-res-bundle"></div>
+            <div id="SNR_resNoise" class="st-res-bundle"></div>
             <div class="explain explain-plain" data-t="stResSrtExplain"></div>
             <h3 style="margin:20px 0 6px" data-t="stResCourseTitle"></h3>
             <div class="chart-container">
-              <canvas id="ST_resCourseCanvas" width="640" height="240"></canvas>
+              <canvas id="SNR_resCourseCanvas" width="640" height="240"></canvas>
             </div>
             <div class="explain explain-plain" data-t="stResCourseExplain"></div>
             <h3 style="margin:20px 0 6px" data-t="stResScatterTitle"></h3>
             <div class="st-res-note" data-t="stResScatterNote"></div>
             <div class="chart-container">
-              <canvas id="ST_resScatterCanvas" width="640" height="240"></canvas>
+              <canvas id="SNR_resScatterCanvas" width="640" height="240"></canvas>
             </div>
             <div class="explain explain-plain" data-t="stResScatterExplain"></div>
             <h3 style="margin:20px 0 6px" data-t="stResSlopeTitle"></h3>
             <div class="st-res-note" data-t="stResSlopeNote"></div>
-            <div id="ST_resSlopeValue"></div>
+            <div id="SNR_resSlopeValue"></div>
             <div class="explain explain-plain" data-t="stResSlopeExplain"></div>
           </div>
           </div>

@@ -676,7 +676,7 @@ function refreshAll() {
   // Latenz-Testeinstellungen (ltz_clickType/ltz_intervalMs) in die Buttons/Hinweis spiegeln.
   if (typeof _ltz_refreshExtraActives === "function") _ltz_refreshExtraActives();
   if (typeof _ltz_updateIntervalHint === "function") _ltz_updateIntervalHint();
-  if (typeof ST_renderResults === "function") ST_renderResults();
+  if (typeof SNR_renderResults === "function") SNR_renderResults();
   if (typeof STB_renderResults === "function") STB_renderResults();
   if (typeof STB_renderMean === "function") STB_renderMean();
   // MAPLAW / Warp:

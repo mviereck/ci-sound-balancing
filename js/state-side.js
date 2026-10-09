@@ -75,11 +75,11 @@ function bindActiveSide() {
   if (typeof _ELL_activeVerfahren !== "undefined") {
     _ELL_activeVerfahren = s.ELL_activeVerfahren || "full";
   }
-  if (typeof st_noiseChoiceId !== "undefined") {
-    st_noiseChoiceId = (s.SNRtest_noise !== undefined) ? s.SNRtest_noise : "__werk__";
+  if (typeof snr_noiseChoiceId !== "undefined") {
+    snr_noiseChoiceId = (s.SNRtest_noise !== undefined) ? s.SNRtest_noise : "__werk__";
   }
-  if (typeof ST_activeTestSet !== "undefined") {
-    ST_activeTestSet = (s.SNRtest_material !== undefined) ? s.SNRtest_material : null;
+  if (typeof SNR_activeTestSet !== "undefined") {
+    SNR_activeTestSet = (s.SNRtest_material !== undefined) ? s.SNRtest_material : null;
   }
   elActive = s.elActive || (s.elActive = new Array(s.nEl).fill(true));
   config = s.config || "ci";
@@ -248,7 +248,7 @@ function setActiveSide(side) {
   // an der aktiven Seite (FRQ_refHzForMode/FRQ_seitenWerte) -> bei Seiten-
   // wechsel neu rendern, sonst bleibt die Anzeige auf der alten Seite stehen.
   if (typeof FRQ_renderResults === "function") FRQ_renderResults();
-  if (typeof ST_renderResults === "function") ST_renderResults();
+  if (typeof SNR_renderResults === "function") SNR_renderResults();
   // Verlaufsanalyse (debug-only) haengt ebenfalls an activeSide -> mitziehen,
   // sonst bleibt Heatmap/Trend/Kurve auf der alten Seite stehen.
   if (typeof window.zaRedraw === "function") window.zaRedraw();
@@ -260,7 +260,7 @@ function setActiveSide(side) {
   if (typeof ELL_refreshElectrodeSelectionSummary === "function") ELL_refreshElectrodeSelectionSummary();
   // BA649: Lautstaerke-/Testton-Button zeigen den Wert der neuen Seite.
   if (typeof ELL_refreshToneTypeLabel === "function") ELL_refreshToneTypeLabel();
-  if (typeof ST_refreshVolumeLabel === "function") ST_refreshVolumeLabel();
+  if (typeof SNR_refreshVolumeLabel === "function") SNR_refreshVolumeLabel();
   updPlSrcButtons();
   if (pBuf) updatePlayerForSideChange();
   else plCheck();
