@@ -335,7 +335,6 @@ var FM_PIANO_START        = 240;   // ct: Startschritt ohne Vorgeschichte
 var FM_PIANO_BODEN        = 7.5;   // ct: kleinste Schrittweite (eff. 3,75 ct)
 var FM_PIANO_GLEIT_N      = 3;     // Runden im gleitenden Streuband
 var FM_PIANO_STAGNATION_K = 3;     // Runden ohne Verringerung -> ausgereizt
-var FM_PIANO_MAX_SPAN     = 1200;  // ct: breiteres Streuband -> Status piano-wide
 
 // BA416: seitenloser Zugriff auf die globale Klaviertest-Session.
 function _frq_pianoData() {
@@ -680,6 +679,7 @@ function frq_pianoConfirm() {
   var border = run.borderOrder[run.posInBorder];
   _frq_pianoSetBorder(elIdx, run.durchlaufSteps[elIdx], border, pr.markedAbsCent, run.durchgang);
   run.lastUpdate = Date.now();
+  _frq_pianoData().lastConfirmedTs = run.lastUpdate;   // BA657: stabiler, ladefester Zeitstempel
 
   if (typeof FRQ_setActiveMethod === "function") FRQ_setActiveMethod("piano");
   _frq_pianoWriteResults();
@@ -763,6 +763,10 @@ function _frq_pianoWriteResults() {
   // rechnet seine Ergebnisse aus dem Verlauf (Neu-Rechnen beim Laden).
   if (!fp.perElectrode) return;
   var frqRefMode = fp.frqRefMode;   // bei Testbeginn eingefroren (BA416)
+  // BA657: stabiler Zeitstempel aus der Session. Fallback fuer Altstaende
+  // ohne lastConfirmedTs: run.lastUpdate (laufende Sitzung) oder 0.
+  var stableTs = (typeof fp.lastConfirmedTs === "number") ? fp.lastConfirmedTs
+    : (fp.run && typeof fp.run.lastUpdate === "number") ? fp.run.lastUpdate : 0;
 
   Object.keys(fp.perElectrode).forEach(function (elKey) {
     var elIdx = parseInt(elKey, 10);
@@ -772,16 +776,24 @@ function _frq_pianoWriteResults() {
     if (!sb) return;
     var pse = sb.mitte;
 
-    var crossed = sb.letzteCrossed;
-    var wide    = (sb.breite > FM_PIANO_MAX_SPAN);
-    var pStatus = crossed ? "piano-crossed" : (wide ? "piano-wide" : "piano");
+    // BA657: Streumasse aus demselben Streuband (verhaltensgleich zu
+    // _frq_pianoDurchgangBand). Gehen mit in den Eintrag -> Leser holen sie
+    // aus dem Array, nicht mehr live aus dem Rundenverlauf.
+    var residDown  = sb.mitte - sb.lo;
+    var residUp    = sb.hi - sb.mitte;
+    var restspanne = sb.restspanne;
+
+    var pStatus = sb.letzteCrossed ? "piano-crossed" : "piano";   // BA657: piano-wide entfernt
     var entry = {
       elIdx:      elIdx,
       cent:       (frqRefMode === 'left') ? -pse : pse,
       frqRefMode: frqRefMode,
-      timestamp: Date.now(),
-      method:    "piano",
-      fmStatus:  pStatus
+      timestamp:  stableTs,
+      method:     "piano",
+      fmStatus:   pStatus,
+      residDown:  residDown,
+      residUp:    residUp,
+      restspanne: restspanne
     };
     FRQ_resultsArray.push(entry);
   });

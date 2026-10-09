@@ -262,17 +262,18 @@ const _FRQ_STATUS_MAP = {
   "aborted":         { key: "FRQ_resultsStatusAborted",  cls: "frq-badge-aborted" },
   "piano":           { key: "FRQ_resultsStatusPiano",        cls: "frq-badge-ok" },
   "piano-crossed":   { key: "FRQ_resultsStatusPianoCrossed", cls: "frq-badge-err" },
-  "piano-wide":      { key: "FRQ_resultsStatusPianoWide",    cls: "frq-badge-wide" },
 };
 
 // Reiner Statustext (Klartext) fuer einen fmStatus. Genutzt vom Ausdruck.
 function _FRQ_statusText(fmStatus) {
+  if (fmStatus === "piano-wide") fmStatus = "piano";   // BA657: Altwert -> ok
   const m = _FRQ_STATUS_MAP[fmStatus];
   return m ? t(m.key) : "—";
 }
 
 // Status-Badge-HTML fuer die Reiter-Tabelle.
 function _FRQ_statusBadgeHtml(fmStatus) {
+  if (fmStatus === "piano-wide") fmStatus = "piano";   // BA657: Altwert -> ok
   const m = _FRQ_STATUS_MAP[fmStatus];
   if (!m) return '<span class="muted">—</span>';
   return '<span class="frq-badge ' + m.cls + '" data-t="' + m.key + '">'
@@ -640,7 +641,7 @@ function FRQ_ergebnisRows(side, opts) {
     var _rU = (isMeasured && seite.residUp    != null) ? seite.residUp    : 0;
     var _rS = (isMeasured && seite.restspanne != null) ? seite.restspanne : 0;
     var fmStatus = r ? (r.fmStatus || "converged") : null;
-    var warn = (fmStatus === "piano-crossed" || fmStatus === "piano-wide");
+    var warn = (fmStatus === "piano-crossed");   // BA657: piano-wide entfernt
 
     // Sichtbarkeit: elActive===false -> unsichtbar (wie Bandgraph/Sec.9.5).
     var sichtbar = !(sideData[side].elActive && sideData[side].elActive[wr.elIdx] === false);
@@ -672,9 +673,6 @@ function FRQ_ergebnisRows(side, opts) {
       if (fmStatus === "piano-crossed") {
         tooltip.push("⚠️ " + tipT("FRQ_resultsTipPianoCrossed",
           "Grenzen vertauscht – Wert unsicher"));
-      } else if (fmStatus === "piano-wide") {
-        tooltip.push("⚠️ " + tipT("FRQ_resultsTipPianoWide",
-          "Unsicherheit sehr groß"));
       }
     }
 

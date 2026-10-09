@@ -2081,18 +2081,19 @@ function _frqGlaetteMeasured(measured, verfahren) {
   });
   var weights = keys.map(function (k) {
     if (_istGemessen(k)) {
-      // BA517: Gewichts-Grundlage waehlbar (bandGlaettGrundlage):
-      // "residuum" = Residuum-Bandbreite (residDown+residUp),
-      // "restspanne" = Restspanne. Beide aus _frq_pianoResiduumBand.
-      var _bw = (typeof _frq_pianoResiduumBand === "function")
-        ? _frq_pianoResiduumBand(k) : null;
+      // BA657: Gewichts-Grundlage (bandGlaettGrundlage) aus dem Array-Eintrag,
+      // nicht mehr live aus _frq_pianoResiduumBand.
+      // "residuum" = residDown+residUp, "restspanne" = restspanne.
+      var _me = measured[k];
       var _grund = (side && sideData[side] && sideData[side].bandGlaettGrundlage)
         ? sideData[side].bandGlaettGrundlage : "residuum";
       var _res = null;
-      if (_bw) {
-        _res = (_grund === "restspanne")
-          ? _bw.restspanne
-          : (_bw.residDown + _bw.residUp);
+      if (_me) {
+        if (_grund === "restspanne") {
+          _res = (_me.restspanne != null) ? _me.restspanne : null;
+        } else if (_me.residDown != null && _me.residUp != null) {
+          _res = _me.residDown + _me.residUp;
+        }
       }
       return _frqGlaettGewicht(k, _res);
     }
@@ -2344,13 +2345,11 @@ function _FRQ_werteBerechne(form, modus, nhSim, verfahren, topologie, optimieren
                  && (!_fcL || _fcL[i] !== false);
     var aktivR = withSide("right", function () { return elActive[i] !== false; })
                  && (!_fcR || _fcR[i] !== false);
-    // BA509: Residuum-Band + Restspanne live aus dem Rundenverlauf (kein
-    // gespeichertes fmResiduum mehr). Gemessen -> echtes Band, sonst null.
-    var _rb = (gemessen && typeof _frq_pianoResiduumBand === "function")
-      ? _frq_pianoResiduumBand(i) : null;
-    var residDown  = _rb ? _rb.residDown  : null;
-    var residUp    = _rb ? _rb.residUp    : null;
-    var restspanne = _rb ? _rb.restspanne : null;
+    // BA657: Residuum-Band + Restspanne aus dem Array-Eintrag (bei der
+    // Auswertung eingefroren), nicht mehr live aus dem Rundenverlauf.
+    var residDown  = (gemessen && r && r.residDown  != null) ? r.residDown  : null;
+    var residUp    = (gemessen && r && r.residUp    != null) ? r.residUp    : null;
+    var restspanne = (gemessen && r && r.restspanne != null) ? r.restspanne : null;
 
     // Nominelle (eingetragene) Frequenz je Seite -- keine Messgroesse,
     // existiert immer.
