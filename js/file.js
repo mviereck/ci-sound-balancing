@@ -183,6 +183,9 @@ function resetAll() {
   plBothSides = false;
   plMonoEQ = false;
   if (typeof plUpdMonoBox === "function") plUpdMonoBox();
+  // --- Player „Normalhoerende simulieren" ---
+  plNHSim = false;
+  if (typeof plUpdNHBox === "function") plUpdNHBox();
   // --- EQ-Knopf + Stärke ---
   if (typeof plEqOn !== "undefined") plEqOn = false;
   if (typeof updEqToggleBtn === "function") updEqToggleBtn();
@@ -425,7 +428,7 @@ function collectSysEqCorrection() {
   // Frequenz + Q spiegeln den Player (pEqFreq/pCompQ, seitenrichtig und
   // nhSim-abhaengig). Bei getrennten Kanaelen (both/mono) traegt jede Seite
   // ihre eigenen Werte; sonst liefert die aktive/gewaehlte Seite (mode) beide.
-  const nhSim = document.getElementById("plNHSim").checked;
+  const nhSim = plNHSim;
   const sideL = splitChannels ? "left"  : mode;   // mode = "left"|"right"
   const sideR = splitChannels ? "right" : mode;
   const bands = [];

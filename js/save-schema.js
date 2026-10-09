@@ -121,6 +121,10 @@ var SAVE_SCHEMA = [
     get: function () { return plMonoEQ; },
     set: function (v) { plMonoEQ = !!v; },
     default: false, valid: { type: "bool" } },
+  { key: "plNHSim", scope: "global",
+    get: function () { return (typeof plNHSim !== "undefined" ? plNHSim : false); },
+    set: function (v) { if (typeof plNHSim !== "undefined") plNHSim = !!v; },
+    default: false, valid: { type: "bool" } },
 
   // --- EQ ---
   { key: "plEqOn", scope: "global",

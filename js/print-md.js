@@ -321,7 +321,6 @@ function _collectBilateral() {
 
 function _collectPlayer() {
   const sideMode = (typeof getPlayerSide === "function") ? getPlayerSide() : null;
-  const nhEl  = document.getElementById("plNHSim");
   const eqOn  = (typeof plEqOn !== "undefined") ? plEqOn : true;
 
   // BA 315: volle Korrektur (EQ + flache Balance) aus der zentralen
@@ -341,7 +340,7 @@ function _collectPlayer() {
   return {
     sideMode,
     eqOn,
-    nhSim: nhEl ? nhEl.checked : false,
+    nhSim: !!plNHSim,
     srcMeas:    (typeof plSrcMeas    !== "undefined") ? plSrcMeas    : true,
     srcLevels:  (typeof plSrcLevels  !== "undefined") ? plSrcLevels  : true,
     srcCurves:  (typeof plSrcCurves  !== "undefined") ? plSrcCurves  : true,
@@ -832,7 +831,7 @@ function _audStatusText(side, i) {
 function _audiologIsTestProgram(side) {
   const eqOn = (typeof plEqOn !== "undefined") ? plEqOn : true;
   if (!eqOn) return false;
-  const nhSim = document.getElementById("plNHSim")?.checked;
+  const nhSim = plNHSim;
   if (nhSim) return false;
   return withSide(side, () => {
     const presetC = (typeof plSrcCurves !== "undefined" && plSrcCurves)
@@ -902,8 +901,7 @@ function _audiologSideHasFreqChange(side) {
   if (typeof plEqOn !== "undefined" && !plEqOn) return false;
   if (typeof FRQ_tabellenZeilen !== "function") return false;
   const modus = (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "right";
-  const nhEl  = document.getElementById("plNHSim");
-  const nhSim = !!(nhEl && nhEl.checked);
+  const nhSim = !!plNHSim;
   const zeilen = FRQ_tabellenZeilen({ side: side, modus: modus, nhSim: nhSim });
   return zeilen.some(function (z) {
     return z.kind === "data" && z.diffCent != null
@@ -920,8 +918,7 @@ function _audiologFreqTable(side) {
   if (typeof plEqOn !== "undefined" && !plEqOn) return "";
   if (typeof FRQ_tabellenZeilen !== "function") return "";
   const modus = (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "right";
-  const nhEl  = document.getElementById("plNHSim");
-  const nhSim = !!(nhEl && nhEl.checked);
+  const nhSim = !!plNHSim;
   const zeilen = FRQ_tabellenZeilen({ side: side, modus: modus, nhSim: nhSim });
 
   // BA425: Nur zeigen, wenn die Seite eine Aenderung != 0 hat.
@@ -1022,8 +1019,7 @@ function _audiologWarnTexts() {
   // gelten nur bei aktivem Warping.
   if (warpOn) {
     // 3. NH-Sim aktiv.
-    const nhEl = document.getElementById("plNHSim");
-    if (nhEl && nhEl.checked) {
+    if (plNHSim) {
       out.push(t("audiologWarnNhSim"));
     }
 
@@ -1546,8 +1542,7 @@ function _audiologFreqChartImg(side) {
   if (!_audiologSideHasFreqChange(side)) return "";
 
   const modus = (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "right";
-  const nhEl  = document.getElementById("plNHSim");
-  const nhSim = !!(nhEl && nhEl.checked);
+  const nhSim = !!plNHSim;
 
   const cv = document.createElement("canvas");
   const _rows = FRQ_ergebnisRows(side, { modus: modus, nhSim: nhSim });

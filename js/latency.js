@@ -276,8 +276,7 @@ function getPlayerLTZMs() {
   if (typeof plEqOn !== "undefined" && !plEqOn) return 0;
   if (!plApplyLatency) return 0;
   if (!LTZ_result || !isFinite(LTZ_result.valueMs)) return 0;
-  const nh = document.getElementById("plNHSim");
-  const nhSim = nh ? nh.checked : false;
+  const nhSim = !!plNHSim;
   return nhSim ? -LTZ_result.valueMs : LTZ_result.valueMs;
 }
 

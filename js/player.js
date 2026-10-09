@@ -675,7 +675,7 @@ function getPlayerCorrection(side, applyNhSim) {
   if (!plEqOn) {
     return { eq: eqRaw.map(function () { return 0; }), balance: 0 };
   }
-  const nhSim = applyNhSim && document.getElementById("plNHSim").checked;
+  const nhSim = applyNhSim && plNHSim;
   // Normal: -eqRaw (= Korrektur, Anhebung). nhSim: +eqRaw (Fehleinstellung).
   let eq = eqRaw.map(function (v) { return nhSim ? v : -v; });
   // BA 316: gemeinsame Absenkung. Derselbe Offset (ueber beide Seiten)
@@ -752,6 +752,17 @@ function plUpdHeadroomBox() {
     if (lbl2) lbl2.style.opacity = plEqHeadroom ? "" : "var(--disabled-opacity)";
     const info2 = document.getElementById("plEqHeadroomBothInfo");
     if (info2) info2.classList.toggle("hidden", !(plEqHeadroom && plEqHeadroomBoth));
+  }
+}
+
+// BA 656: Checkbox-Zustand und Sichtbarkeit der Erklaer-Zeile (plNHInfo)
+// synchronisieren. Wahrheit = Variable plNHSim; DOM daraus gespiegelt.
+function plUpdNHBox() {
+  const cb = document.getElementById("plNHSim");
+  if (cb) {
+    cb.checked = !!plNHSim;
+    const info = document.getElementById("plNHInfo");
+    if (info) info.classList.toggle("hidden", !plNHSim);
   }
 }
 
@@ -882,7 +893,7 @@ function pBuildEQ() {
   pChannelRightGain = null;
   pEnsureOutputBase(c);
   const mode = getPlayerSide();
-  const nhSim = document.getElementById("plNHSim").checked;
+  const nhSim = plNHSim;
   pFrqRefresh();                     // BA430: Wertquelle einmal je Bau-Lauf
   if (_pUseSplitChains(mode)) {
     const corrL = getPlayerCorrection("left");
@@ -925,7 +936,7 @@ function pBuildEQ() {
 
 // BA604: Filter-Spezifikation als Daten -- eine Quelle fuer Live-EQ (pBuildEQ)
 // und den Offline-Mess-Render (pMaskMeasureMainRms). Liefert je Seite eine
-// Liste {freq, q, gain}. nhSim = document.getElementById("plNHSim").checked.
+// Liste {freq, q, gain}. nhSim = plNHSim.
 function pEqFilterSpec(side, nhSim) {
   const corr = getPlayerCorrection(side);
   const spec = [];
@@ -963,7 +974,7 @@ async function pMaskMeasureMainRms() {
       right: b.numberOfChannels > 1 ? amBlockRms(b, 1) : 0,
     };
   };
-  const nhSim = document.getElementById("plNHSim").checked;
+  const nhSim = plNHSim;
   const useEq = plEqOn && nEl > 0;
   if (!useEq) {
     // Kein EQ -> das gehoerte Hauptaudio ist der Quellpuffer selbst.
@@ -1386,9 +1397,6 @@ function plCheck() {
     pDrawEQ();
   }
   document.getElementById("plEqViz").style.display = "";
-  document
-    .getElementById("plNHInfo")
-    .classList.toggle("hidden", !document.getElementById("plNHSim").checked);
   // Deaf-Hinweis
   const deafHint = document.getElementById("plDeafHintEl");
   if (deafHint) {
@@ -1466,8 +1474,7 @@ function pDrawEQ() {
   // effFreqDisplay. Anwendungs-Konsument: folgt dem Player-warpMode und dem
   // NH-Sim-Schalter. Verschiebung nur bei eingeschaltetem Warp (pWarpOn);
   // bei Warp aus stehen die Balken auf den nominellen Frequenzen.
-  const _frqNhSim = !!(document.getElementById("plNHSim")
-                       && document.getElementById("plNHSim").checked);
+  const _frqNhSim = !!plNHSim;
   const _frqWerte = FRQ_werte("gehoert", FRQ_distribution, _frqNhSim);
   const _frqByIdx = {};
   for (const _w of _frqWerte) _frqByIdx[_w.elIdx] = _w;
@@ -4976,6 +4983,7 @@ function plSyncUI(opts) {
   // B. Korrektur-Optionen
   if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
   if (typeof plUpdMonoBox     === "function") plUpdMonoBox();
+  if (typeof plUpdNHBox       === "function") plUpdNHBox();
   if (typeof updBalApplyBtn   === "function") updBalApplyBtn();
   if (typeof updLatApplyBtn   === "function") updLatApplyBtn();
   if (typeof pWarpUpdUI       === "function") pWarpUpdUI();

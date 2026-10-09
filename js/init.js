@@ -319,11 +319,11 @@ document.addEventListener("DOMContentLoaded", () => {
       else plCheck();
     });
   document.getElementById("plNHSim").addEventListener("change", function () {
-    document
-      .getElementById("plNHInfo")
-      .classList.toggle("hidden", !this.checked);
+    plNHSim = this.checked;
+    if (typeof plUpdNHBox === "function") plUpdNHBox();
     pUpdEQ();
     if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
+    if (typeof _autoSaveState === "function") _autoSaveState();
   });
   document.getElementById("plEqHeadroom").addEventListener("change", function () {
     plEqHeadroom = this.checked;

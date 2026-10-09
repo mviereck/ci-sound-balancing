@@ -368,7 +368,7 @@ async function streamFillBuffer(srcBuf, target, stage, onSegmentReady, onProgres
 // Spaeter ggf. erste N Abschnitte mitteln (Nutzer-Entscheidung).
 function buildWarpStage(srcBuf, warpMode) {
   const src = _warpFResSource();
-  const nhSim = !!(document.getElementById("plNHSim") ? document.getElementById("plNHSim").checked : false);
+  const nhSim = !!plNHSim;
   // BA435: wp vor Bypass holen, damit overlap in den Bypass-Zweig aufgenommen werden kann.
   const wp = buildWarpPointsFromWerte(warpMode, nhSim);
   if (warpMode === "off" || src.length === 0 || wp.overlap) {
@@ -1013,7 +1013,7 @@ async function _rbLivePitchShift(rb, signal, sampleRate, cents, liveOpts) {
 
 async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode) {
   const src = _warpFResSource();
-  const nhSim = !!(document.getElementById("plNHSim")?.checked);
+  const nhSim = !!plNHSim;
   // BA435: wp vor Bypass holen, damit overlap in den Bypass-Zweig aufgenommen werden kann.
   const wp = buildWarpPointsFromWerte(warpMode, nhSim);
   if (warpMode === "off" || src.length === 0 || wp.overlap) {
