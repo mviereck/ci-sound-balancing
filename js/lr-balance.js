@@ -994,6 +994,17 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  // Mittelungs-Verfahren mean/median: Radios -> STB_avgMode. Wirkt ueber
+  // STB_meanRaw() auf Anzeige, Chart, Player, Messtests, Ausdruck.
+  document.querySelectorAll('input[name="STB_avgMode"]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      if (!this.checked) return;
+      STB_avgMode = this.value;
+      if (typeof saveSet === 'function') saveSet('STB_avgMode', STB_avgMode);
+      STB_renderResults();
+    });
+  });
+
   // Clear-Button im Ergebnis-Sub-Tab
   var STB_clearBtn = document.getElementById('STB_clearBtn');
   if (STB_clearBtn) {
@@ -1016,6 +1027,14 @@ function STB_refreshElectrodeSelectionSummary() {
   if (STB_els && STB_els.header && typeof STB_els.header.electrodeSelectionUpdate === 'function') {
     STB_els.header.electrodeSelectionUpdate();
   }
+}
+
+// Radio-Zustand mean/median nach Laden eines Stands auf STB_avgMode spiegeln.
+function STB_refreshAvgMode() {
+  var mode = (typeof STB_avgMode !== "undefined") ? STB_avgMode : "mean";
+  document.querySelectorAll('input[name="STB_avgMode"]').forEach(function (r) {
+    r.checked = (r.value === mode);
+  });
 }
 
 // BA 281: Tonart-Label im Kopf nach Laden eines Stands aktualisieren.

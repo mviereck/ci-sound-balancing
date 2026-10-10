@@ -634,6 +634,16 @@
               id="STB_medianLabel"
               data-t="STB_medianLabel"
             ></div>
+            <div style="margin-bottom: 6px; font-size: 0.85em">
+              <label style="margin-right: 10px; cursor: pointer">
+                <input type="radio" name="STB_avgMode" value="mean" checked />
+                <span data-t="STB_avgModeMean"></span>
+              </label>
+              <label style="cursor: pointer">
+                <input type="radio" name="STB_avgMode" value="median" />
+                <span data-t="STB_avgModeMedian"></span>
+              </label>
+            </div>
             <div
               id="STB_medianValue"
               style="
@@ -1945,15 +1955,6 @@
                  style="display:none; font-size:0.82em; color:var(--text); margin-top:2px"></div>
           </div>
 
-        </div>
-
-        <!-- experimentelle Optionen (ausgeblendet, wird vielleicht später genutzt) -->
-        <div class="card" id="plExperimentalToggleCard" style="display:none">
-          <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
-            <input type="checkbox" id="plShowExperimental" />
-            <span data-t="plShowExpLabel"></span>
-          </label>
-          <div id="plExperimentalHint" class="explain" style="display:none;margin-top:8px;font-size:0.85em;color:var(--text)" data-t="plExpHint"></div>
         </div>
 
       </div>

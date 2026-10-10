@@ -295,8 +295,15 @@ function getPlayerSide() {
   }
   return activeSide;
 }
+// Mittelungs-Verfahren der Stereo-Balance-Auswertung: "mean" | "median".
+// Bestimmt allein, welchen Wert STB_meanRaw() liefert; Default arithmetisch.
+let STB_avgMode = "mean";
+
 // Zentraler roher Mittelwert der Stereo-Balance-Messung (STB_results).
-// EINE Wahrheit fuer Anzeige, Player, Messtests und Ausdruck.
+// EINE Wahrheit fuer Anzeige, Player, Messtests und Ausdruck -- der EINZIGE
+// Zugriff auf die STB_results-Rohwerte zu Auswertungszwecken. Ob gemittelt
+// (mean) oder Median gebildet wird, entscheidet STB_avgMode; alle Leser
+// bekommen denselben einen Wert.
 // Filterung: nur endliche Werte UND nicht deaktivierte/stummgeschaltete
 // Elektroden (auf BEIDEN Seiten geprueft) -- deaktivierte tragen nicht mehr
 // zur Balance bei. Liefert null, wenn keine gueltige Messung uebrig bleibt.
@@ -312,8 +319,15 @@ function STB_meanRaw() {
     return !(exL || exR);
   });
   if (!keys.length) return null;
-  var sum = keys.reduce(function (a, k) { return a + STB_results[+k]; }, 0);
-  return sum / keys.length;
+  var vals = keys.map(function (k) { return STB_results[+k]; });
+  if (STB_avgMode === "median") {
+    var sorted = vals.slice().sort(function (a, b) { return a - b; });
+    var mid = sorted.length >> 1;
+    // Gerade Anzahl: Mittel der beiden mittleren Werte (robuste Mitte).
+    return (sorted.length % 2) ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+  }
+  var sum = vals.reduce(function (a, v) { return a + v; }, 0);
+  return sum / vals.length;
 }
 function getPlayerSTB() {
   if (!plApplyBalance) return 0;
@@ -568,7 +582,6 @@ let plSrcMeas = true,
   plSrcLevels = true,
   plSrcCurves = true; // EQ source toggles
 let plSrcMeasFactor = 1.0; // Staerke-Faktor fuer Elektrodenlautstaerke-Korrektur (0.5–2.0)
-let plShowExperimental = false; // Toggle für experimentelle Optionen (MAPLAW + Frequenz-Warping); Default aus
 
 let plActiveSource = "musik";   // "musik" | "saetze" | "geraeusche" | "hoerbuecher"
 let plAutoAdvance  = false;     // Auto-Advance-Toggle, Default aus

@@ -26,6 +26,11 @@ var SAVE_SCHEMA = [
     get: function () { return (typeof STB_results !== "undefined" ? STB_results : {}); },
     set: function (v) { if (typeof STB_results !== "undefined" && v) { Object.keys(STB_results).forEach(function (k) { delete STB_results[k]; }); Object.assign(STB_results, v); } },
     default: function () { return {}; }, valid: { type: "object" } },
+  // Mittelungs-Verfahren der STB-Auswertung (mean/median).
+  { key: "STB_avgMode", scope: "global",
+    get: function () { return (typeof STB_avgMode !== "undefined" ? STB_avgMode : "mean"); },
+    set: function (v) { if (typeof STB_avgMode !== "undefined") STB_avgMode = v; },
+    default: "mean", valid: { type: "enum", of: ["mean", "median"] } },
   // BA648: STB-Testelektroden-Auswahl (seitenlos, null = alle).
   { key: "stb_selectedEls", scope: "global",
     get: function () { return (typeof stb_selectedEls !== "undefined" ? stb_selectedEls : null); },
@@ -701,6 +706,7 @@ function refreshAll() {
   if (typeof FRQ_refreshElectrodeSelectionSummary === "function") FRQ_refreshElectrodeSelectionSummary();
   if (typeof ELL_refreshElectrodeSelectionSummary === "function") ELL_refreshElectrodeSelectionSummary();
   if (typeof STB_refreshToneTypeLabel === "function") STB_refreshToneTypeLabel();
+  if (typeof STB_refreshAvgMode === "function") STB_refreshAvgMode();
   if (typeof FRQ_refreshToneTypeLabel === "function") FRQ_refreshToneTypeLabel();
   if (typeof ELL_refreshToneTypeLabel === "function") ELL_refreshToneTypeLabel();
   if (typeof ELL_updFClearBtn === "function") ELL_updFClearBtn();
