@@ -164,10 +164,6 @@ var SAVE_SCHEMA = [
     get: function () { return (typeof pMaplawSollC !== "undefined" ? pMaplawSollC : 1000); },
     set: function (v) { if (typeof pMaplawSollC !== "undefined") pMaplawSollC = v; },
     default: 1000, valid: { type: "number", min: 0, max: 100000 } },
-  { key: "plShowExperimental", scope: "global",
-    get: function () { return (typeof plShowExperimental !== "undefined" ? plShowExperimental : false); },
-    set: function (v) { if (typeof plShowExperimental !== "undefined") plShowExperimental = v; },
-    default: false, valid: { type: "bool" } },
   { key: "plTextFontStep", scope: "global",
     get: function () { return (typeof plTextFontStep !== "undefined" ? plTextFontStep : 2); },
     set: function (v) { if (typeof plTextFontStep !== "undefined" && typeof v === "number") plTextFontStep = v; },
@@ -616,6 +612,7 @@ function buildState() {
   var d = {
     app: "CImbel",
     version: APP_VERSION,
+    savedAt: new Date().toISOString(),  // Speicherzeitpunkt (ISO-8601 UTC); Dateiname traegt zusaetzlich das lokale Kurzdatum
     presetFormat: "freq-v3",
     sides: { left: {}, right: {} },
   };
@@ -669,7 +666,7 @@ function refreshAll() {
   if (typeof pEqF !== "undefined" && pEqF && pEqF.length > 0 && typeof pUpdEQ === "function") pUpdEQ();
   // plSyncUI ersetzt die einzelnen Player-UI-Updates (updEqToggleBtn,
   // updPlSrcButtons, updBalApplyBtn, pWarpUpdUI, pMaplawUpdUI,
-  // pApplyShowExperimental, plUpdMonoBox, plUpdHeadroomBox u.a.).
+  // plUpdMonoBox, plUpdHeadroomBox u.a.).
   if (typeof plSyncUI === "function") plSyncUI();
   if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
   if (typeof LTZ_renderResults === "function") LTZ_renderResults();
