@@ -304,7 +304,7 @@ function _collectBilateral() {
       out.stereobalance.has = true;
       const sorted = keys.slice().sort((a, b) => (+a) - (+b));
       out.stereobalance.rows = sorted.map((k) => ({ elIdx: +k, value: STB_results[k] }));
-      out.stereobalance.mean = STB_meanRaw();
+      out.stereobalance.mean = STB_evalValue();
     }
   }
   if (typeof LTZ_result !== "undefined" && LTZ_result
@@ -1085,7 +1085,7 @@ function _audiologSTBBlock(mainSides) {
   if (typeof STB_results === "undefined") return "";
   const keys = Object.keys(STB_results).filter((k) => isFinite(STB_results[k]));
   if (keys.length === 0) return "";
-  const mean = STB_meanRaw();
+  const mean = STB_evalValue();
   if (mean === null || !isFinite(mean) || mean === 0) return "";
 
   const balActive = (typeof plApplyBalance !== "undefined") && plApplyBalance

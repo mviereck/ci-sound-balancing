@@ -31,6 +31,13 @@ var SAVE_SCHEMA = [
     get: function () { return (typeof STB_avgMode !== "undefined" ? STB_avgMode : "mean"); },
     set: function (v) { if (typeof STB_avgMode !== "undefined") STB_avgMode = v; },
     default: "mean", valid: { type: "enum", of: ["mean", "median"] } },
+  // STB-Auswertung (beide Verfahren gemeinsam): null = nicht gemessen,
+  // sonst { mean, median }. Wird beim Laden aus STB_results neu gerechnet
+  // (STB_writeEval in applyData), daher hier nur persistiert.
+  { key: "STB_eval", scope: "global",
+    get: function () { return (typeof STB_eval !== "undefined" ? STB_eval : null); },
+    set: function (v) { if (typeof STB_eval !== "undefined") STB_eval = v || null; },
+    default: null },
   // BA648: STB-Testelektroden-Auswahl (seitenlos, null = alle).
   { key: "stb_selectedEls", scope: "global",
     get: function () { return (typeof stb_selectedEls !== "undefined" ? stb_selectedEls : null); },
@@ -679,6 +686,10 @@ function refreshAll() {
   if (typeof _ltz_refreshExtraActives === "function") _ltz_refreshExtraActives();
   if (typeof _ltz_updateIntervalHint === "function") _ltz_updateIntervalHint();
   if (typeof SNR_renderResults === "function") SNR_renderResults();
+  // Nach Laden: STB-Auswertung aus den geladenen STB_results NEU rechnen
+  // (analog _FRQ_pianoNachLadenNeuRechnen), nicht den gespeicherten Wert
+  // blind uebernehmen -> Feld und Rohwerte bleiben konsistent.
+  if (typeof STB_writeEval === "function") STB_writeEval();
   if (typeof STB_renderResults === "function") STB_renderResults();
   if (typeof STB_renderMean === "function") STB_renderMean();
   // MAPLAW / Warp:

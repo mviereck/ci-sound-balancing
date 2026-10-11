@@ -328,6 +328,7 @@ function stb_confirm() {
   stb_undoStack.push({ el, prev: STB_results[el] });
   STB_results[el] = val;
   stb_seqIdx++;
+  STB_writeEval();   // Auswertung aus aktuellen STB_results neu schreiben
   STB_renderResults();
   STB_renderMean();
   stb_showPair();
@@ -340,6 +341,7 @@ function stb_undo() {
   if (prev === undefined) delete STB_results[el];
   else STB_results[el] = prev;
   stb_seqIdx = Math.max(0, stb_seqIdx - 1);
+  STB_writeEval();   // Auswertung aus aktuellen STB_results neu schreiben
   STB_renderResults();
   STB_renderMean();
   stb_showPair();
@@ -364,6 +366,7 @@ function STB_finish() {
   if (STB_els && STB_els._stopTest) STB_els._stopTest();
   lockTestTabs(false, null);
   if (typeof depLockApply === 'function') depLockApply();
+  STB_writeEval();   // Testende: Auswertung festschreiben (analog FRQ _frq_pianoFinish)
   STB_renderResults();
   STB_renderMean();
   // BA 279: Abschluss-Box. STB_finish ist das natuerliche Sequenz-Ende
@@ -388,7 +391,7 @@ function stb_pause() {
 }
 
 function STB_renderMean() {
-  const mean = STB_meanRaw();
+  const mean = STB_evalValue();
   if (mean === null) return;
   // Positive stb_result = right louder = right needs to be quieter = negative balance offset
   const balOffset = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
@@ -618,9 +621,10 @@ function STB_drawChart() {
   _attachAxisTooltip(cv);
 
   // Gestrichelter senkrechter Mean-Strich ueber die ganze Plothoehe.
-  // Nutzt STB_meanRaw() (state-side.js) -- KEINE neue Rechnung. tX invertiert
-  // das Vorzeichen automatisch (negativer Mean = rechts lauter -> rechts).
-  var _mean = (typeof STB_meanRaw === "function") ? STB_meanRaw() : null;
+  // Liest den ausgewerteten Wert (STB_evalValue, state-side.js) -- KEINE neue
+  // Rechnung. tX invertiert das Vorzeichen automatisch (negativer Wert =
+  // rechts lauter -> rechts).
+  var _mean = (typeof STB_evalValue === "function") ? STB_evalValue() : null;
   if (_mean !== null && isFinite(_mean)) {
     var _mx = tX(_mean);
     ctx.save();
@@ -994,8 +998,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // Mittelungs-Verfahren mean/median: Radios -> STB_avgMode. Wirkt ueber
-  // STB_meanRaw() auf Anzeige, Chart, Player, Messtests, Ausdruck.
+  // Mittelungs-Verfahren mean/median: Radios -> STB_avgMode. STB_eval haelt
+  // beide Werte, daher kein Neu-Schreiben noetig -- nur der gelesene
+  // Schluessel wechselt. Wirkt ueber STB_evalValue() auf Anzeige, Chart,
+  // Player, Messtests, Ausdruck.
   document.querySelectorAll('input[name="STB_avgMode"]').forEach(function (r) {
     r.addEventListener('change', function () {
       if (!this.checked) return;
@@ -1011,6 +1017,7 @@ document.addEventListener("DOMContentLoaded", function() {
     STB_clearBtn.addEventListener('click', function() {
       if (!confirm(t("stb_clearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
       STB_results = {};
+      STB_eval = null;   // keine Messung mehr -> Auswertung leeren
       STB_resetSequence();
       if (typeof depLockApply === 'function') depLockApply();
       var stb_rC = document.getElementById("STB_resultsCard");

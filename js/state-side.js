@@ -296,20 +296,26 @@ function getPlayerSide() {
   return activeSide;
 }
 // Mittelungs-Verfahren der Stereo-Balance-Auswertung: "mean" | "median".
-// Bestimmt allein, welchen Wert STB_meanRaw() liefert; Default arithmetisch.
+// Waehlt, welchen der beiden in STB_eval abgelegten Werte die Konsumenten
+// lesen; Default arithmetisch.
 let STB_avgMode = "mean";
 
-// Zentraler roher Mittelwert der Stereo-Balance-Messung (STB_results).
-// EINE Wahrheit fuer Anzeige, Player, Messtests und Ausdruck -- der EINZIGE
-// Zugriff auf die STB_results-Rohwerte zu Auswertungszwecken. Ob gemittelt
-// (mean) oder Median gebildet wird, entscheidet STB_avgMode; alle Leser
-// bekommen denselben einen Wert.
+// Persistente Stereo-Balance-AUSWERTUNG (analog FRQ_resultsArray): haelt
+// BEIDE Auswertungen gemeinsam. null = noch nicht gemessen (unterscheidet
+// sich damit von einem errechneten 0). Bei Messung: { mean, median } mit
+// je einer Zahl. Geschrieben von STB_writeEval() an den Auslösern
+// Bestaetigung / Testende / nach Laden (lr-balance.js); NICHT live bei
+// jedem Lesen. Liegt im SAVE_SCHEMA.
+let STB_eval = null;
+
+// Rohe Verdichtung der STB_results nach Verfahren ("mean"|"median").
+// Die EINZIGE Stelle, die aus den STB_results-Rohwerten rechnet; wird nur
+// aus STB_writeEval() aufgerufen, nicht mehr direkt von Konsumenten.
 // Filterung: nur endliche Werte UND nicht deaktivierte/stummgeschaltete
-// Elektroden (auf BEIDEN Seiten geprueft) -- deaktivierte tragen nicht mehr
-// zur Balance bei. Liefert null, wenn keine gueltige Messung uebrig bleibt.
-// STB_results liegt in lr-balance.js (spaeter geladen), daher erst zur
-// Laufzeit auswerten.
-function STB_meanRaw() {
+// Elektroden (auf BEIDEN Seiten geprueft). Liefert null, wenn keine
+// gueltige Messung uebrig bleibt. STB_results liegt in lr-balance.js
+// (spaeter geladen), daher erst zur Laufzeit auswerten.
+function STB_meanRaw(mode) {
   if (typeof STB_results === "undefined") return null;
   var keys = Object.keys(STB_results).filter(function (k) {
     var i = +k;
@@ -320,7 +326,7 @@ function STB_meanRaw() {
   });
   if (!keys.length) return null;
   var vals = keys.map(function (k) { return STB_results[+k]; });
-  if (STB_avgMode === "median") {
+  if ((mode || STB_avgMode) === "median") {
     var sorted = vals.slice().sort(function (a, b) { return a - b; });
     var mid = sorted.length >> 1;
     // Gerade Anzahl: Mittel der beiden mittleren Werte (robuste Mitte).
@@ -329,9 +335,27 @@ function STB_meanRaw() {
   var sum = vals.reduce(function (a, v) { return a + v; }, 0);
   return sum / vals.length;
 }
+
+// Schreibt die Auswertung aus den aktuellen STB_results nach STB_eval.
+// Analog _frq_pianoWriteResults: rechnet aus den Rohwerten, legt beide
+// Verfahren ab. Keine gueltige Messung -> STB_eval = null (nicht gemessen).
+// Aufrufer: stb_confirm, STB_finish, Laden (lr-balance.js / save-schema.js).
+function STB_writeEval() {
+  var m  = STB_meanRaw("mean");
+  if (m === null) { STB_eval = null; return; }
+  STB_eval = { mean: m, median: STB_meanRaw("median") };
+}
+
+// Zentraler Leser fuer alle Konsumenten: der nach STB_avgMode gewaehlte
+// Auswertungswert aus STB_eval, oder null (nicht gemessen).
+function STB_evalValue() {
+  if (!STB_eval) return null;
+  var v = STB_eval[STB_avgMode];
+  return (typeof v === "number" && isFinite(v)) ? v : null;
+}
 function getPlayerSTB() {
   if (!plApplyBalance) return 0;
-  const mean = STB_meanRaw();
+  const mean = STB_evalValue();
   if (mean === null) return 0;
   // Positive mean = right louder → negative balance offset (rechts dämpfen)
   return Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
@@ -359,7 +383,7 @@ function getPlayerSTBGains() {
 function STB_rawGains() {
   // Wie getPlayerSTBGains(), aber ignoriert plApplyBalance.
   // Für Meßtests (Frequenzabgleich, Latenz): Balance immer anwenden.
-  const mean = STB_meanRaw();
+  const mean = STB_evalValue();
   if (mean === null) return { left: 0, right: 0 };
   // b = gemessene L↔R-Differenz; Verteilung wie getPlayerSTBGains.
   const b = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
