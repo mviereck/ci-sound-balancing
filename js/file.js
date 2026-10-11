@@ -210,9 +210,6 @@ function resetAll() {
   if (typeof pMaplawSollC !== "undefined") pMaplawSollC = 1000;
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
   if (typeof pMaplawTrigger === "function") pMaplawTrigger();
-  // --- Player-Experimental ---
-  if (typeof plShowExperimental !== "undefined") plShowExperimental = false;
-  if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
   // BA323: Player-Box ist zustandslos — keine Reset-Zuweisungen mehr nötig.
   // --- Sprecher-Auswahl im Player ---
   const _spk = document.getElementById("plSentSpeaker");

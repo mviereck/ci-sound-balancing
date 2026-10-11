@@ -1598,19 +1598,6 @@ function pMaplawTrigger() {
   }
 }
 
-// Wendet den Zustand von plShowExperimental auf die UI an: Checkbox-State,
-// Sichtbarkeit der MAPLAW- und Warping-Cards sowie des Hinweistexts.
-// Wird beim DOMContentLoaded, beim Checkbox-Change und nach JSON-Load aufgerufen.
-function pApplyShowExperimental() {
-  const on = !!plShowExperimental;
-  const cb = document.getElementById("plShowExperimental");
-  const ht = document.getElementById("plExperimentalHint");
-  if (cb) cb.checked = on;
-  if (ht) ht.style.display = on ? "" : "none";
-  const locked = !!pMaplawOn;
-  if (cb) cb.disabled = locked;
-}
-
 // BA385: MAPLAW-UI ist ausgeblendet. Diese Funktion und die MAPLAW-Mechanik
 // (Worklet, pMaplawTrigger) duerfen NUR fuer MED-EL verwendet werden.
 function pMaplawUpdUI() {
@@ -4988,7 +4975,6 @@ function plSyncUI(opts) {
   if (typeof updLatApplyBtn   === "function") updLatApplyBtn();
   if (typeof pWarpUpdUI       === "function") pWarpUpdUI();
   if (typeof pMaplawUpdUI     === "function") pMaplawUpdUI();
-  if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
 
   // C. Sperren (NACH B: duerfen Button-Optik zuletzt setzen, damit sie
   //    nicht von einem spaeteren Box-Schritt ueberschrieben werden)

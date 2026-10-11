@@ -427,7 +427,6 @@ document.addEventListener("DOMContentLoaded", () => {
       pMaplawOn = !pMaplawOn;
       if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
       pMaplawTrigger();
-      if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
     });
   }
 
@@ -453,15 +452,6 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         this.value = String(pMaplawSollC);
       }
-    });
-  }
-
-  // ========== Experimentelle Optionen Toggle ==========
-  const plShowExpEl = document.getElementById("plShowExperimental");
-  if (plShowExpEl) {
-    plShowExpEl.addEventListener("change", function () {
-      plShowExperimental = this.checked;
-      if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
     });
   }
 
