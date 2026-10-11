@@ -238,6 +238,9 @@ function drawBarGraph(cv, rows, cfg) {
   var farbPaar = cfg.farbPaar || { pos: "#2563eb", neg: "#dc2626", null: "#9ca3af" };
   var schwelle = (cfg.schwelle != null) ? cfg.schwelle : 0.05;
   var balkenFarbe = function (r) {
+    // Feste Balkenfarbe pro Zeile (r.balkenFix) hat Vorrang vor Ampel/Vorzeichen.
+    // Additiv/ruckwaertskompatibel: bestehende Aufrufer setzen das Feld nicht.
+    if (r.balkenFix) return r.balkenFix;
     if (cfg.balkenFarbe === "ampel") return STUFE[r.stufe] || "#9ca3af";
     var v = r.wert || 0;
     return v > schwelle ? farbPaar.pos : v < -schwelle ? farbPaar.neg : farbPaar.null;
