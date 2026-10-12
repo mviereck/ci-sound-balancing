@@ -457,6 +457,65 @@
     g.fillText("Verlauf " + label + " (gemessene Abweichung dB, Balken = Residuum)", padL, 11);
   }
 
+  // ---- Stabilitaets-Rangliste: welche Elektrode schwankte am wenigsten? ----
+
+  // Erst ab so vielen (aktiven) Messwerten einer Elektrode eine SD bilden —
+  // darunter ist "Schwankung" nicht aussagekraeftig.
+  var ZA_STAB_MINN = 4;
+
+  // Pro Elektrode die zeitliche Streuung (SD in dB) ihrer schon auf den
+  // Sitzungs-Median verankerten Ist-Pegel (zaHeatmapData.corr). Quelle ist die
+  // ROHE, reglerunabhaengige Einzelsitzungs-Sicht (ELL_compWLS + zaAnchor) —
+  // dieselbe wie Heatmap/Buendel. corr[i]===null (inaktive Sitzung) faellt
+  // automatisch raus, es zaehlen also nur die aktiven Vorkommen. SD via
+  // weightedStd (Gewicht 1) = KEINE zweite SD-Implementierung.
+  // Rueckgabe: [{el, sd, n}] nach SD aufsteigend (stabilste zuerst), nur
+  // Elektroden mit >= ZA_STAB_MINN Werten.
+  function zaStabilityRank(side) {
+    var hm = zaHeatmapData(side);
+    var out = [];
+    for (var i = 0; i < hm.elCount; i++) {
+      var vals = [];
+      hm.sessions.forEach(function (s) {
+        var c = (i < s.corr.length) ? s.corr[i] : null;
+        if (typeof c === "number" && isFinite(c)) vals.push(c);
+      });
+      if (vals.length < ZA_STAB_MINN) continue;
+      var sd = weightedStd(vals, vals.map(function () { return 1; }));
+      out.push({ el: i, sd: sd, n: vals.length });
+    }
+    out.sort(function (a, b) { return a.sd - b.sd; });
+    return out;
+  }
+
+  function zaRenderStability() {
+    var el = document.getElementById("zaStability");
+    if (!el) return;
+    var side = activeSide;
+    var rank = zaStabilityRank(side);
+    if (!rank.length) {
+      el.innerHTML = "<div style='color:#888;font-size:.85em'>Keine Elektrode mit mindestens "
+        + ZA_STAB_MINN + " Messwerten auf dieser Seite.</div>";
+      return;
+    }
+    var ctxLbl = ELL_ctx(side === "left" || side === "right" ? side : "global");
+    var pfx = (ctxLbl.dENPrefix || dENPrefix)(), dENf = (ctxLbl.dEN || dEN);
+    var rows = rank.map(function (r, idx) {
+      var bg = (idx === 0) ? "background:#dcfce7;font-weight:600;" : "";
+      return "<tr style='" + bg + "'>"
+        + "<td style='padding:2px 10px'>" + pfx + dENf(r.el)
+        + "</td><td style='padding:2px 10px;text-align:right'>±" + r.sd.toFixed(2) + " dB"
+        + "</td><td style='padding:2px 10px;text-align:right'>" + r.n
+        + "</td></tr>";
+    }).join("");
+    el.innerHTML = "<table style='border-collapse:collapse;font-size:.9em'>"
+      + "<tr style='font-weight:600;border-bottom:1px solid #ccc'>"
+      + "<td style='padding:2px 10px'>Elektrode</td>"
+      + "<td style='padding:2px 10px;text-align:right'>Schwankung</td>"
+      + "<td style='padding:2px 10px;text-align:right'>Messungen</td></tr>"
+      + rows + "</table>";
+  }
+
   // ---- Buendelgraph: alle Elektroden ueber Zeit (Architektur §5 Ausgabe 5) ----
 
   // Welche Elektroden waren im ausgewerteten Zeitraum JEMALS minderwertig
@@ -1118,6 +1177,7 @@
     zaDrawSingle();
     zaDrawHeatmap();
     zaDrawBundle();
+    zaRenderStability();
     zaDrawTrend();
   }
 
@@ -1376,6 +1436,7 @@
     zaDrawSingle();
     zaDrawHeatmap();
     zaDrawBundle();
+    zaRenderStability();
     zaDrawTrend();
   }
 
@@ -1411,6 +1472,7 @@
     trendData:      zaTrendData,
     bundleMinder:   zaBundleMinderwertig,
     bundleStreuung: zaBundleStreuung,
+    stabilityRank:  zaStabilityRank,
   };
 
   if (document.readyState === "loading") {

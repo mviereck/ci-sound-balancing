@@ -1058,9 +1058,9 @@
             </fieldset>
             <fieldset id="FRQ_glaettLageFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettLageLegend" style="padding:0 6px">Elektrodenlage in Cochlea</legend>
-              <label style="display:block"><input type="radio" name="FRQ_glaettLage" value="aussen"> <span data-t="FRQ_glaettLageAussen">Au&#223;enwand (Greenwood)</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettLage" value="aussen"> <span data-t="FRQ_glaettLageAussen">Au&#223;enwand &#8211; Corti-Organ/OC (Greenwood)</span></label>
               <label style="display:block"><input type="radio" name="FRQ_glaettLage" value="mitte"> <span data-t="FRQ_glaettLageMitte">Mitte</span></label>
-              <label style="display:block"><input type="radio" name="FRQ_glaettLage" value="innen"> <span data-t="FRQ_glaettLageInnen">Innenwand (Spiralganglion)</span></label>
+              <label style="display:block"><input type="radio" name="FRQ_glaettLage" value="innen"> <span data-t="FRQ_glaettLageInnen">Innenwand &#8211; Spiralganglion/SG (Stakhovskaya)</span></label>
             </fieldset>
             <fieldset id="FRQ_glaettRandfreiFieldset" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px">
               <legend data-t="FRQ_glaettRandfreiLegend" style="padding:0 6px">Randausschlu&#223; (apikal)</legend>
@@ -2277,6 +2277,11 @@
           <div style="margin:4px 0">
             <canvas id="zaBundle"></canvas>
             <div id="zaBundleHint" style="color:#888;font-size:.85em">schwarz = vollwertige Elektrode, grau = zeitweise minderwertig; blaues Band = Streuung (Mittel ± SD) der vollwertigen, blaue Linie = SD je Messung (vom Nullpunkt)</div>
+          </div>
+          <h3 style="margin:20px 0 6px">Stabilität je Elektrode</h3>
+          <div style="margin:4px 0">
+            <div style="color:#888;font-size:.85em;margin-bottom:6px">Schwankung des (auf den Sitzungs-Median zentrierten) gemessenen Pegels über alle eingelesenen Messungen — stabilste Elektrode zuerst.</div>
+            <div id="zaStability"></div>
           </div>
           <h3 style="margin:20px 0 6px">Zeit-Verlauf einer Elektrode</h3>
           <div style="margin:4px 0">
