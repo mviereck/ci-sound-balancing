@@ -117,6 +117,7 @@ function pickDefaultRefEl(side) {
 function setRefEl(v) {
   ELL_refEl = v;
   if (sideData[activeSide]) sideData[activeSide].ELL_refEl = v;
+  if (typeof ELL_writeEval === "function") ELL_writeEval(activeSide);
   if (typeof ELL_renderResults === "function") ELL_renderResults();
   if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
   if (typeof pUpdEQ === "function") pUpdEQ();
@@ -165,6 +166,7 @@ function initSideData(side, m) {
   s.schieberELL = new Array(s.nEl).fill(0);
   s.ELL_refEl = Math.floor(s.nEl / 2);
   s.ELL_results = [];
+  s.ELL_eval = null;
   s.ELL_distWeightMode = "voll";
   // Seitenabhaengige ELL-Testvorgaben (BA648): gewaehlte Testelektroden
   // (null = alle testbaren) und gewaehltes Testverfahren ("full" | "conv").

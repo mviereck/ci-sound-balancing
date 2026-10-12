@@ -649,62 +649,117 @@ function ELL_compWLS(ctx) {
 }
 
 // ============================================================
-// ELL_testData — EINZIGE Schnittstelle zu den Ergebnissen des
-// Elektrodenlautstaerke-Tests (ELL_compWLS). Alle Stellen, die diese
-// Werte brauchen (Korrektur wie Anzeige), rufen NUR diese Funktion
-// auf und drehen das Vorzeichen NICHT mehr selbst.
+// ELL_writeEval — EINZIGER Schreiber der persistierten ELL-Auswertung.
+// Rechnet aus den Rohwerten EINER Seite (ELL_results, elExDur, elSt via
+// ctx) die komplette Auswertung und legt sie in sideData[side].ELL_eval.
+// Der EINZIGE Leser der Rohwerte (Architektur: 00-persistierte-
+// messauswertung). Alle Konsumenten lesen danach nur ELL_eval
+// (ueber ELL_testData). Vorbild: STB_writeEval (state-side.js).
 //
-// Ruft ELL_compWLS() genau EINMAL pro Aufruf und liefert ein Objekt:
-//   raw[i]            rohe Mess-dB direkt aus ELL_compWLS (ungegatet).
-//                     Ist-Zustand: zu leise => negativ. Fuer Anzeige
-//                     und Statistik, die ihren eigenen Filter haben.
-//   measured[i]       Ist-Zustand, GEGATET: Elektrode ohne gueltige
-//                     Messdaten / ausgeschlossen / stumm => 0.
-//   correction[i]     KORREKTUR-dB, gegatet: zu leise => POSITIV
-//                     (= beim Abspielen anheben). = -measured.
-//   correctionGain[i] correction als linearer Faktor dB2G(correction);
-//                     ungemessen => 1 (neutral).
-//   residual[i]       Streuung/Residuum pro Elektrode (ELL_res).
-//   weight[i]         Gewicht pro Elektrode (ELL_wt).
+// Nicht-volatiler Zeitstempel: max ueber ALLE ELL_results-timestamps
+// der Seite (nie Date.now hier). Reines Neu-Auswerten (Ref-Elektrode/
+// Gewichtung geaendert) laesst die Rohwerte unberuehrt -> Stempel stabil.
+function ELL_writeEval(side) {
+  var key = (side === "left" || side === "right") ? side : activeSide;
+  var s = sideData[key];
+  if (!s) return;
+  var ctx = ELL_ctx(key);
+  var n = ctx.nEl != null ? ctx.nEl : (s.nEl || 0);
+  var results = ctx.ELL_results || [];
+  var _elSt = ctx.elSt || [];
+  var _elExDur = ctx.elExDur || [];
+
+  var wls = ELL_compWLS(ctx);           // { levels, residuals, ELL_res, ELL_wt }
+  var levels = wls.levels;
+  var ELL_res = wls.ELL_res;
+  var ELL_wt = wls.ELL_wt;
+
+  // Pro Elektrode: eingefrorener "gemessen?"-Zustand + Vergleichszahl.
+  // hat gueltige Mess-Paare = beide Elektroden des Paars aktiv
+  // (nicht ausgeschlossen, nicht stumm). Binaer; Grund wird nicht
+  // unterschieden (Architektur 6).
+  var gemessen = new Array(n).fill(false);
+  var vergleiche = new Array(n).fill(0);
+  for (var p = 0; p < results.length; p++) {
+    var r = results[p];
+    if (!r) continue;
+    var ok = _elExDur[r.a] === null && _elSt[r.a] !== "mute"
+          && _elExDur[r.b] === null && _elSt[r.b] !== "mute";
+    if (!ok) continue;
+    if (r.a >= 0 && r.a < n) { gemessen[r.a] = true; vergleiche[r.a]++; }
+    if (r.b >= 0 && r.b < n) { gemessen[r.b] = true; vergleiche[r.b]++; }
+  }
+
+  // Pegel/Korrektur pro Elektrode. Pegel bleibt 0 fuer "nicht gemessen"
+  // (einfache Leser brauchen keinen Sonderfall); der "gemessen?"-Zustand
+  // steht getrennt in gemessen[].
+  var measured = new Array(n);
+  var correction = new Array(n);
+  var correctionGain = new Array(n);
+  for (var i = 0; i < n; i++) {
+    var m = (gemessen[i] && isFinite(levels[i])) ? levels[i] : 0;
+    measured[i] = m;
+    correction[i] = -m;
+    correctionGain[i] = dB2G(-m);
+  }
+
+  // Nicht-volatiler Zeitstempel: max ueber ALLE Rohwert-Stempel der Seite.
+  var ts = 0;
+  for (var q = 0; q < results.length; q++) {
+    var t0 = results[q] && results[q].timestamp;
+    if (typeof t0 === "number" && t0 > ts) ts = t0;
+  }
+
+  s.ELL_eval = {
+    raw: levels,
+    measured: measured,
+    correction: correction,
+    correctionGain: correctionGain,
+    residual: ELL_res,
+    weight: ELL_wt,
+    gemessen: gemessen,
+    vergleiche: vergleiche,
+    refEl: ctx.ELL_refEl,
+    distWeightMode: (typeof ELL_distWeightMode !== "undefined") ? ELL_distWeightMode : "voll",
+    timestamp: ts
+  };
+}
+
+// ============================================================
+// ELL_testData — reiner Leser des persistierten ELL_eval-Felds.
+// Alle Konsumenten (Korrektur, Anzeige) rufen NUR diese Funktion;
+// die Rohwerte werden ausschliesslich von ELL_writeEval gelesen.
+// Liefert ein neutrales Ergebnis, wenn ELL_eval noch nicht geschrieben.
 //
 // opts.side: optionale Seite ("left"/"right"); sonst aktive Seite.
-//
-// Das Gate (gueltige Messdaten?) ist hier dieselbe Bedingung wie der
-// frueher in player.js/tone-popup.js duplizierte hd-Check.
+// opts.ctx wird nach dem Umbau nicht mehr ausgewertet — Aufrufer mit
+// { ctx: ELL_ctx("global") } bleiben kompatibel (Fallback = activeSide).
 function ELL_testData(opts) {
   opts = opts || {};
-  const _ctx = opts.ctx || (opts.side ? ELL_ctx(opts.side) : {});
-  const run = function () {
-    var _nEl      = (_ctx.nEl        != null) ? _ctx.nEl        : nEl;
-    var _results  = (_ctx.ELL_results != null) ? _ctx.ELL_results : ELL_results;
-    var _elSt     = (_ctx.elSt       != null) ? _ctx.elSt       : elSt;
-    var _elExDur  = (_ctx.elExDur    != null) ? _ctx.elExDur    : elExDur;
-    const n = _nEl;
-    const { levels, ELL_res, ELL_wt } = ELL_compWLS(_ctx);
-    const measured = new Array(n);
-    const correction = new Array(n);
-    const correctionGain = new Array(n);
-    for (let i = 0; i < n; i++) {
-      const hd = _results.some(function (r) {
-        return (r.a === i || r.b === i)
-          && _elExDur[r.a] === null && _elSt[r.a] !== "mute"
-          && _elExDur[r.b] === null && _elSt[r.b] !== "mute";
-      });
-      const m = (hd && isFinite(levels[i])) ? levels[i] : 0;
-      measured[i] = m;
-      correction[i] = -m;
-      correctionGain[i] = dB2G(-m);
-    }
-    return {
-      raw: levels,
-      measured: measured,
-      correction: correction,
-      correctionGain: correctionGain,
-      residual: ELL_res,
-      weight: ELL_wt,
-    };
+  // Seite bestimmen: explizite side, sonst aktive Seite.
+  // opts.ctx wird nicht mehr ausgewertet — Aufrufer mit { ctx: ELL_ctx("global") }
+  // bleiben kompatibel (Fallback = activeSide).
+  var key = (opts.side === "left" || opts.side === "right") ? opts.side : activeSide;
+  var s = sideData[key];
+  var n = (s && s.nEl) ? s.nEl : 0;
+  var ev = s ? s.ELL_eval : null;
+  if (ev) return ev;
+  // Noch nicht ausgewertet: neutrales Ergebnis (keine Korrektur, nichts
+  // gemessen). Form identisch zum writeEval-Ergebnis, damit Leser nie
+  // auf fehlende Felder stossen.
+  return {
+    raw: new Array(n).fill(0),
+    measured: new Array(n).fill(0),
+    correction: new Array(n).fill(0),
+    correctionGain: new Array(n).fill(1),
+    residual: new Array(n).fill(0),
+    weight: new Array(n).fill(1),
+    gemessen: new Array(n).fill(false),
+    vergleiche: new Array(n).fill(0),
+    refEl: s ? s.ELL_refEl : null,
+    distWeightMode: (typeof ELL_distWeightMode !== "undefined") ? ELL_distWeightMode : "voll",
+    timestamp: 0
   };
-  return run();
 }
 
 // BA 300: Frequenzaufgeloeste Elektrodenlautstaerke-Korrektur (linearer
@@ -1016,6 +1071,7 @@ function endTest() {
   // Aufruf ueber den onStop-Hook (-> endTest) laeuft also nicht in eine
   // Endlosschleife. Vgl. STB_finish in stereobalance-balance.js.
   if (ELL_testEls && ELL_testEls._stopTest) ELL_testEls._stopTest();
+  if (typeof ELL_writeEval === "function") ELL_writeEval(activeSide);
 }
 function ell_showCurPair() {
   if (!ELL_testEls) return;

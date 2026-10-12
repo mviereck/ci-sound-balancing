@@ -480,6 +480,10 @@ SAVE_SCHEMA.push(
     get: function (s) { return sideData[s].ELL_results; },
     set: function (v, s) { sideData[s].ELL_results = Array.isArray(v) ? v : []; },
     default: function () { return []; }, valid: { type: "array" } },
+  { key: "ELL_eval", scope: "side",
+    get: function (s) { return sideData[s].ELL_eval; },
+    set: function (v, s) { sideData[s].ELL_eval = (v && typeof v === "object") ? v : null; },
+    default: function () { return null; }, valid: { type: "any" } },
   { key: "SNR_result", scope: "side",
     get: function (s) { return sideData[s].SNR_result || null; },
     set: function (v, s) { sideData[s].SNR_result = (v && typeof v === "object") ? v : null; },
@@ -668,6 +672,10 @@ function refreshAll() {
   if (typeof bindActiveSide === "function") bindActiveSide();
   if (typeof FRQ_implantatTableBuild === "function") FRQ_implantatTableBuild();
   if (typeof buildImplantCard === "function") buildImplantCard();
+  // Nach Laden: ELL-Auswertung beider Seiten aus den geladenen
+  // ELL_results NEU rechnen (analog STB_writeEval), nicht den
+  // gespeicherten Wert blind uebernehmen.
+  if (typeof ELL_writeEval === "function") { ELL_writeEval("left"); ELL_writeEval("right"); }
   if (typeof ELL_renderResults === "function") ELL_renderResults();
   if (typeof FRQ_renderResults === "function") FRQ_renderResults();
   if (typeof kurvenELLTabelleBauen === "function") kurvenELLTabelleBauen();

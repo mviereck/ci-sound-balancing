@@ -78,28 +78,19 @@ function ELL_renderResults() {
         if (this.checked) {
           sideData[activeSide].ELL_distWeightMode = v;
           ELL_distWeightMode = v;
+          if (typeof ELL_writeEval === "function") ELL_writeEval(activeSide);
           ELL_renderResults();
         }
       };
     });
-    const { raw: levels, residual: ELL_res, weight: ELL_wt } = ELL_testData({ ctx: ELL_ctx("global") });
-    const pc = new Array(nEl).fill(0);
-    const valid = ELL_results.filter(
-      (r) =>
-        elExDur[r.a] === null &&
-        elSt[r.a] !== "mute" &&
-        elExDur[r.b] === null &&
-        elSt[r.b] !== "mute",
-    );
-    for (const r of valid) {
-      pc[r.a]++;
-      pc[r.b]++;
-    }
+    const _ev = ELL_testData({ ctx: ELL_ctx("global") });
+    const levels = _ev.raw, ELL_res = _ev.residual, ELL_wt = _ev.weight;
+    const gemessen = _ev.gemessen, pc = _ev.vergleiche;
     // Zuverlässigkeitseinschätzung berechnen
     const act = actEl();
     const maxLv = Math.max(...act.map((i) => Math.abs(levels[i])), 0.001);
     function ell_color(i) {
-      if (!pc[i]) return "grey";
+      if (!gemessen[i]) return "grey";
       const res = ELL_res[i] || 0.001;
       if (res <= 1.0) return "green";
       if (res < 3.0) return "yellow";
@@ -198,7 +189,7 @@ function ELL_renderResults() {
     var _ellRows = [];
     for (var _i = 0; _i < nEl; _i++) {
       var _ex = elExDur[_i] !== null || elSt[_i] === "mute";
-      var _zustand = _ex ? "deaktiviert" : (!pc[_i] ? "ungemessen" : "gemessen");
+      var _zustand = _ex ? "deaktiviert" : (!gemessen[_i] ? "ungemessen" : "gemessen");
       var _st = ell_color(_i);   // "green"|"yellow"|"red"|"grey"
       _ellRows.push({
         elNum: _i,

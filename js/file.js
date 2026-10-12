@@ -117,6 +117,7 @@ function resetAll() {
     sideData[s].schieberELL = new Array(sideData[s].nEl).fill(0);
     sideData[s].ELL_refEl = Math.floor(sideData[s].nEl / 2);
     sideData[s].ELL_results = [];
+    sideData[s].ELL_eval = null;
     sideData[s].kurvenELL = [];
     initSideData(s, "unknown");
   }
@@ -361,6 +362,7 @@ function ELL_clearRes() {
   const ch = confirm(t("delConfirmMeas"));
   if (!ch) return;
   sideData[activeSide].ELL_results.splice(0, sideData[activeSide].ELL_results.length);
+  sideData[activeSide].ELL_eval = null;
   sideData[activeSide].fullSweepRound = null;
   sideData[activeSide].fullSweepDonePairs = [];
   ELL_results = sideData[activeSide].ELL_results;
