@@ -275,6 +275,7 @@ function setActiveSide(side) {
   // BA649: Lautstaerke-/Testton-Button zeigen den Wert der neuen Seite.
   if (typeof ELL_refreshToneTypeLabel === "function") ELL_refreshToneTypeLabel();
   if (typeof SNR_refreshVolumeLabel === "function") SNR_refreshVolumeLabel();
+  if (typeof snr_refreshMeasSide === "function") snr_refreshMeasSide();   // BA662
   updPlSrcButtons();
   if (pBuf) updatePlayerForSideChange();
   else plCheck();
@@ -603,6 +604,14 @@ let ELL_curA = -1,
 // Frequenzabgleich-Ergebnisse (global, nicht pro Seite)
 // { varSide, refSide, elIdx, varFreq, refFreq, timestamp }
 let FRQ_resultsArray = [];
+
+// BA662: Beidohriges Sprachtest-Ergebnis (Player "beide Seiten").
+// Seitenlos: ein SRT fuer das Hoeren mit beiden Ohren zusammen, gehoert
+// zu keiner Einzelseite. Vorbild FRQ_pianoSession / LTZ_result.
+// null = kein beidohriger Durchgang gemessen. Liegt im SAVE_SCHEMA
+// (scope:"global"). Die seitenweisen Ergebnisse bleiben in
+// sideData[side].SNR_result.
+let SNR_resultBoth = null;
 
 // BA416: Klaviertest-Sitzungszustand, global+seitenlos (Architektur 6a).
 // null = keine Session. Persistiert in .cimbel (global) + localStorage.

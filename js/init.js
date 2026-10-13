@@ -148,6 +148,9 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("change", function () {
       plBothSides = this.checked;
       updatePlayerForSideChange();
+      // BA662: Sprachtest-Seiten-Anzeige + Ergebnis-Anzeige folgen "beide Seiten".
+      if (typeof snr_refreshMeasSide === "function") snr_refreshMeasSide();
+      if (typeof SNR_renderResults === "function") SNR_renderResults();
       updBalApplyBtn();
       updLatApplyBtn();
       // BA 306: Einseiten-Inhalt ist jetzt Mono -> Warp-Inhalt aendert

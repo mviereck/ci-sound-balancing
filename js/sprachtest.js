@@ -85,6 +85,7 @@ const SNR_SRT_WINDOW_CONV = 6;// bei Konvergenz-Abbruch: letzte 6
 let _st_parentEl = null;     // Panel-Element (im DOMContentLoaded gesetzt)
 let SNR_els = null;           // Refs aus buildTestPanel
 let snr_active = false;       // laeuft ein Durchgang?
+let snr_bothEar = false;      // BA662: Modus DIESES Durchgangs (beim Start fixiert)
 let snr_phase = null;         // "train" | "measure"
 let snr_seq = [];             // gezogene Satz-Items (Trainingssaetze + 30)
 let snr_idx = 0;              // Index in snr_seq
@@ -139,15 +140,12 @@ function snr_restorePlayerState() {
   snr_saved = null;
 }
 
-// Erzwingt EINSEITIGE Wiedergabe (die global aktive Seite) fuer die Testdauer.
-// Der OLSA laeuft je Seite getrennt (ein Ergebnis pro Seite); "beide Seiten"
-// waere fachlich falsch. Nutzt den regulaeren Umschaltweg (Checkbox +
-// updatePlayerForSideChange), nicht einen Patch an getPlayerSide.
-function snr_forceSingleSide() {
-  if (plBothSides) {
-    plBothSides = false;
-    if (typeof updatePlayerForSideChange === "function") updatePlayerForSideChange();
-  }
+// BA662: Der Sprachtest FOLGT der Player-Seiten-Einstellung, statt sie zu
+// erzwingen. true = beidohriger Durchgang (Player "beide Seiten" aktiv,
+// inkl. Mono-Unterfall), false = einseitig auf der aktiven Seite.
+// Architektur 00-sprachtest-olsa-architektur.md §4.4.
+function snr_isBothEar() {
+  return (typeof plBothSides !== "undefined") && !!plBothSides;
 }
 
 // Die aktive Seite (fuer Ergebnis-Zuordnung / Anzeige).
@@ -380,7 +378,10 @@ function snr_start() {
   _st_loadShow();
   Promise.resolve(_st_preload()).then(function () {
     // Kopfhoerercheck erst nach vollstaendigem Vorladen.
-    testUI.sideCheck.run({ sides: "one", side: snr_currentSide() }, function () {
+    var _sideCfg = snr_isBothEar()
+      ? { sides: "both" }
+      : { sides: "one", side: snr_currentSide() };
+    testUI.sideCheck.run(_sideCfg, function () {
       Promise.resolve(snr_beginRun()).catch(function (e) {
         console.error("[sprachtest] Start fehlgeschlagen:", e);
         _st_abortStart();
@@ -460,7 +461,8 @@ async function snr_beginRun() {
   }
 
   snr_savePlayerState();
-  snr_forceSingleSide();   // Test laeuft einseitig (aktive Seite), "beide" aus
+  // BA662: KEINE Seiten-Erzwingung mehr — der Test laeuft mit der im Player
+  // gewaehlten Seite(n) (snr_isBothEar / getPlayerSide). Architektur §4.4.
   snr_forceMaskOff();      // Player-Unterlegung fuer die Testdauer aus (SS4.4)
 
   const train   = seq.slice(0, SNR_TRAIN_LEN);
@@ -473,6 +475,7 @@ async function snr_beginRun() {
   snr_wordHistory = [];
   snr_phase = (SNR_TRAIN_LEN > 0) ? "train" : "measure";
   snr_active = true;
+  snr_bothEar = snr_isBothEar();   // BA662: Modus dieses Durchgangs merken
 
   _st_loadHide();
 
@@ -696,15 +699,23 @@ function snr_updateUI() {
 // Persistenz + Ergebnisanzeige
 // ------------------------------------------------------------
 function SNR_saveResult(result) {
-  sideData[activeSide].SNR_result = result;
+  if (snr_bothEar) {
+    SNR_resultBoth = result;       // BA662: seitenlose Ablage (scope:"global")
+  } else {
+    sideData[activeSide].SNR_result = result;
+  }
   if (typeof window._autoSaveState === "function") window._autoSaveState();
   SNR_renderResults();
 }
 
 function SNR_renderResults() {
-  const res = (typeof sideData !== "undefined" && sideData[activeSide])
-    ? sideData[activeSide].SNR_result || null
-    : null;
+  // BA662: Anzeige folgt der Player-Seiten-Einstellung (Architektur §8):
+  // "beide Seiten" -> beidohriges Ergebnis, sonst aktive Einzelseite.
+  const res = snr_isBothEar()
+    ? (SNR_resultBoth || null)
+    : ((typeof sideData !== "undefined" && sideData[activeSide])
+        ? sideData[activeSide].SNR_result || null
+        : null);
   const empty = document.getElementById("SNR_resEmpty");
   const content = document.getElementById("SNR_resContent");
   if (!empty || !content) return;
@@ -717,9 +728,18 @@ function SNR_renderResults() {
   content.style.display = "";
 
   const srtEl = document.getElementById("SNR_resSrtValue");
-  if (srtEl) srtEl.textContent = (res.srt === null)
-    ? "---"
-    : (res.srt.toFixed(1) + " dB SNR");
+  if (srtEl) {
+    // BA662-FIX: Seiten-Angabe an den SRT-Wert haengen, damit auf der
+    // Auswertungsseite sichtbar ist, zu welcher Messung das Ergebnis gehoert.
+    // Folgt derselben Quelle wie die Ablage-Wahl oben (snr_isBothEar).
+    const sideKey = snr_isBothEar()
+      ? "stResSideBoth"
+      : ((activeSide === "left") ? "stResSideLeft" : "stResSideRight");
+    const sideLbl = (typeof t === "function") ? t(sideKey) : sideKey;
+    srtEl.textContent = (res.srt === null)
+      ? "---"
+      : (res.srt.toFixed(1) + " dB SNR (" + sideLbl + ")");
+  }
   const conv = document.getElementById("SNR_resConvHint");
   if (conv) conv.style.display = res.converged ? "" : "none";
   const bundleEl = document.getElementById("SNR_resBundle");
@@ -924,6 +944,15 @@ function snr_buildBundleFragment() {
   const wrap = document.createElement("div");
   wrap.className = "st-bundle-box";
 
+  // BA662: Anzeige "was wird gemessen" — nur die Seite(n), folgt der
+  // Player-Einstellung (snr_isBothEar / activeSide). Material/Geraeusch/
+  // Lautstaerke stehen bereits in den uebrigen Zeilen, nicht doppeln.
+  var measSideRow = document.createElement("div");
+  measSideRow.className = "st-meas-side-row";
+  var measSideEl = document.createElement("div");
+  measSideEl.id = "SNR_measSide";
+  measSideRow.appendChild(measSideEl);
+
   // Buendel-Auswahl (nur bei > 1 Buendel sichtbar).
   const selRow = document.createElement("div");
   selRow.className = "control-group st-bundle-select-row";
@@ -987,11 +1016,28 @@ function snr_buildBundleFragment() {
   const noiseLicLink = snr_makeLicenseLink("geraeusche");
   noiseRow.append(noiseLabel, noiseSel, noiseLicLink);
 
-  wrap.append(selRow, noiseRow, upRow, status, loadHint);
+  wrap.append(measSideRow, selRow, noiseRow, upRow, status, loadHint);
   SNR_bundleEls = {
     wrap: wrap, selRow: selRow, select: sel, status: status, noiseSelect: noiseSel
   };
   return wrap;
+}
+
+// BA662: Anzeige-Zeile "Messung: beide Ohren / linkes Ohr / rechtes Ohr"
+// aktualisieren. Folgt der Player-Seiten-Einstellung (snr_isBothEar /
+// activeSide). Architektur §5.1c.
+function snr_refreshMeasSide() {
+  var el = document.getElementById("SNR_measSide");
+  if (!el) return;
+  var sideKey;
+  if (snr_isBothEar()) {
+    sideKey = "stMeasSideBoth";
+  } else {
+    sideKey = (activeSide === "left") ? "stMeasSideLeft" : "stMeasSideRight";
+  }
+  var prefix = (typeof t === "function") ? t("stMeasSidePrefix") : "Messung:";
+  var val    = (typeof t === "function") ? t(sideKey) : sideKey;
+  el.textContent = prefix + " " + val;
 }
 
 // Baut den dezenten "Erzeuger und Lizenz"-Link fuer eine Kategorie
@@ -1188,6 +1234,10 @@ const snr_cfg = {
       prerequisites: [
         {
           checkFn: function() {
+            // BA662: pruefe die Ablage, in die DIESER Start schreiben wuerde.
+            if (snr_isBothEar()) {
+              return !(typeof SNR_resultBoth !== "undefined" && SNR_resultBoth);
+            }
             return !(typeof sideData !== "undefined" && sideData[activeSide] && sideData[activeSide].SNR_result);
           },
           titleKey:   "stOverwriteTitle",
@@ -1221,6 +1271,7 @@ document.addEventListener("DOMContentLoaded", function () {
   SNR_els = buildTestPanel(parentEl, snr_cfg);
   snr_refreshBundleSelect();
   snr_refreshNoiseSelect();
+  snr_refreshMeasSide();   // BA662: Seiten-Anzeige initial setzen
   // Am Kategorie-Refresh-Register anmelden: Wird das Saetze-Material nachge-
   // laden (bedarfsgeladenes Buendel, Sprachwechsel, Upload), aktualisiert sich
   // die Sammlungs-Auswahl von selbst -- sonst erschiene das Dropdown erst nach

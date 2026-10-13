@@ -48,6 +48,12 @@ var SAVE_SCHEMA = [
     get: function () { return (typeof STB_evalSelectedEls !== "undefined" ? STB_evalSelectedEls : null); },
     set: function (v) { if (typeof STB_evalSelectedEls !== "undefined") STB_evalSelectedEls = Array.isArray(v) ? v.slice() : null; } },
 
+  // BA662: Beidohriges Sprachtest-Ergebnis (seitenlos, wie LTZ_result).
+  { key: "SNR_resultBoth", scope: "global",
+    get: function () { return (typeof SNR_resultBoth !== "undefined") ? SNR_resultBoth : null; },
+    set: function (v) { SNR_resultBoth = (v && typeof v === "object") ? v : null; },
+    default: null, valid: { type: "any" } },
+
   // --- Latenz / Player-Anwendung ---
   { key: "LTZ_result", scope: "global",
     get: function () { return (typeof LTZ_result !== "undefined" ? LTZ_result : null); },
