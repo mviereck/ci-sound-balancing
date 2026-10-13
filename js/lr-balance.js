@@ -20,6 +20,14 @@ let STB_els = null;
 // BA 245: Elektroden-Auswahl für den Test (null = alle testbaren).
 let stb_selectedEls = null;
 
+// BA661: Auswertungs-eigene Elektrodenauswahl der Stereo-Balance. Bestimmt,
+// welche gemessenen Elektroden in die Verdichtung (STB_meanRaw) einfliessen.
+// null = alle gemessenen; sonst Index-Liste. UNABHAENGIG von der Testauswahl
+// stb_selectedEls (die nur die Test-Sequenz filtert). Hash-wirksame
+// Auswertungs-Einstellung (Snapshot-Grundmodell §7 Nr. 3). STB ist binaural
+// -> global (kein scope "side").
+let STB_evalSelectedEls = null;
+
 function _lrSliderVal() {
   if (!STB_els) return 0;
   var sl = STB_els.verfahren && STB_els.verfahren.stereobalance
@@ -451,6 +459,11 @@ function STB_renderResults() {
     const leftLabel  = dENPrefix("left")  + dEN(i, "left");
     const rightLabel = dENPrefix("right") + dEN(rightEl, "right");
     const tr = document.createElement("tr");
+    // BA661: gemessen, aber in der Auswertungs-Auswahl abgewaehlt?
+    var _stbAbgew = v !== undefined
+      && typeof STB_evalSelectedEls !== "undefined" && STB_evalSelectedEls
+      && STB_evalSelectedEls.length
+      && STB_evalSelectedEls.indexOf(i) < 0;
 
     if (isDisabled) {
       tr.style.opacity = "var(--disabled-opacity)";
@@ -465,6 +478,13 @@ function STB_renderResults() {
         `<td>${fmtNum(hzL, "hz")}</td><td>${fmtNum(hzR, "hz")}</td>` +
         `<td style="color:#9ca3af">—</td>` +
         `<td style="font-size:.82em;color:#9ca3af">${t('notMeasured')}</td>`;
+    } else if (_stbAbgew) {
+      tr.style.opacity = "var(--disabled-opacity)";
+      tr.innerHTML =
+        `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
+        `<td>${fmtNum(hzL, "hz")}</td><td>${fmtNum(hzR, "hz")}</td>` +
+        `<td style="color:#9ca3af">—</td>` +
+        `<td style="font-size:.82em;color:#9ca3af">${t('ELL_abgewaehlt')}</td>`;
     } else {
       // STB_results ist die Ausgleichs-Korrektur: NEGATIV = rechts war
       // lauter (musste gedaempft werden), POSITIV = links war lauter.
@@ -479,6 +499,54 @@ function STB_renderResults() {
     }
     tb.appendChild(tr);
   }
+
+  // BA661: Auswertungs-Elektrodenauswahl. Gemeinsamer testUI-Dialog; nicht
+  // gemessene Elektroden sind nicht waehlbar (Status "unmeasured", BA659).
+  (function () {
+    var _esBtn = document.getElementById("STB_evalSelBtn");
+    var _esSum = document.getElementById("STB_evalSelSummary");
+    if (!_esBtn || !_esSum) return;
+    var _count = Math.min(sideData.left.nEl, sideData.right.nEl);
+    var _evalCfg = {
+      minSelected: 1,
+      getSelection: function () {
+        return (typeof STB_evalSelectedEls !== "undefined" && STB_evalSelectedEls)
+          ? STB_evalSelectedEls.slice() : null;
+      },
+      setSelection: function (sel) {
+        STB_evalSelectedEls = sel.slice();
+        if (typeof saveSet === "function") saveSet("STB_evalSelectedEls", STB_evalSelectedEls);
+        if (typeof STB_writeEval === "function") STB_writeEval();
+        STB_renderResults();
+        if (typeof pUpdEQ === "function") pUpdEQ();
+      },
+      getElectrodeStatus: function () {
+        var testable = [], muted = [], excluded = [], unmeasured = [];
+        for (var i = 0; i < _count; i++) {
+          var rightI = i < sideData.right.nEl ? i : sideData.right.nEl - 1;
+          var exL = sideData.left.elExDur[i]       !== null;
+          var exR = sideData.right.elExDur[rightI] !== null;
+          var muL = sideData.left.elSt[i]          === "mute";
+          var muR = sideData.right.elSt[rightI]    === "mute";
+          var deL = sideData.left.elActive  && sideData.left.elActive[i]       === false;
+          var deR = sideData.right.elActive && sideData.right.elActive[rightI] === false;
+          if (exL || exR)                    { excluded.push(i); continue; }
+          if (muL || muR || deL || deR)      { muted.push(i);    continue; }
+          if (STB_results[i] === undefined)  { unmeasured.push(i); continue; }
+          testable.push(i);
+        }
+        return { testable: testable, muted: muted, excluded: excluded, unmeasured: unmeasured };
+      },
+      electrodeLabel: function (i) {
+        var leftLabel = dENPrefix("left") + dEN(i, "left");
+        var hzL = stb_effFRQ("left", i);
+        return leftLabel + " (" + fmtNum(hzL, "hz") + " Hz)";
+      }
+    };
+    function _esUpdate() { _esSum.textContent = testUI.electrodeSelection.summaryText(_evalCfg); }
+    _esBtn.onclick = function () { testUI.electrodeSelection.open(_evalCfg, _esUpdate); };
+    _esUpdate();
+  })();
 
   STB_drawChart();
   STB_renderMean();
@@ -511,8 +579,16 @@ function STB_drawChart() {
     const rightEl = i < sideData["right"].nEl ? i : sideData["right"].nEl - 1;
     const exL = sideData.left.elExDur[i]        !== null || sideData.left.elSt[i]        === 'mute';
     const exR = sideData.right.elExDur[rightEl] !== null || sideData.right.elSt[rightEl] === 'mute';
+    // Abgewaehlt = gemessen, aber durch die Auswertungs-Auswahl
+    // (STB_evalSelectedEls) ausgeschlossen. Eigener Zustand -> grauer Balken
+    // in voller Laenge (Messwert sichtbar, aber nicht ausgewertet).
+    const _abgew = STB_results[i] !== undefined
+      && typeof STB_evalSelectedEls !== "undefined" && STB_evalSelectedEls
+      && STB_evalSelectedEls.length
+      && STB_evalSelectedEls.indexOf(i) < 0;
     let zustand;
     if (exL || exR) zustand = "deaktiviert";
+    else if (_abgew) zustand = "abgewaehlt";
     else if (STB_results[i] !== undefined) zustand = "gemessen";
     else zustand = "ungemessen";
     rows.push({
@@ -592,8 +668,10 @@ function STB_drawChart() {
       ctx.fillText("?", midX, yMid);
       ctx.textBaseline = "alphabetic";
     } else {
+      // gemessen -> blauer Balken; abgewaehlt -> grauer Balken (voller Wert,
+      // aber nicht ausgewertet). Geometrie identisch.
       const xVal = tX(r.wert);
-      ctx.fillStyle = STB_BAR_COLOR;
+      ctx.fillStyle = (r.zustand === "abgewaehlt") ? "#9ca3af" : STB_BAR_COLOR;
       const x0 = Math.min(midX, xVal), wBar = Math.abs(xVal - midX);
       ctx.fillRect(x0, yTop, wBar || 2, barH);
     }
@@ -1018,6 +1096,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (!confirm(t("stb_clearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
       STB_results = {};
       STB_eval = null;   // keine Messung mehr -> Auswertung leeren
+      STB_evalSelectedEls = null;   // BA661: Auswertungsauswahl zuruecksetzen
       STB_resetSequence();
       if (typeof depLockApply === 'function') depLockApply();
       var stb_rC = document.getElementById("STB_resultsCard");

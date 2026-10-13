@@ -579,6 +579,10 @@ function ELL_compWLS(ctx) {
   var _elSt    = (ctx.elSt       != null) ? ctx.elSt       : elSt;
   var _elExDur = (ctx.elExDur    != null) ? ctx.elExDur    : elExDur;
   var _refEl   = (ctx.ELL_refEl  != null) ? ctx.ELL_refEl  : ELL_refEl;
+  // BA660: Auswertungs-Elektrodenauswahl. null/undefined = alle gemessenen.
+  var _evalSel = (ctx.ELL_evalSelectedEls != null) ? ctx.ELL_evalSelectedEls : null;
+  var _evalSelSet = (_evalSel && _evalSel.length) ? new Set(_evalSel) : null;
+  function _ellSelOk(i) { return !_evalSelSet || _evalSelSet.has(i); }
 
   const n = _nEl,
     lv = new Array(n).fill(0);
@@ -591,7 +595,9 @@ function ELL_compWLS(ctx) {
       _elExDur[r.a] === null &&
       _elSt[r.a] !== "mute" &&
       _elExDur[r.b] === null &&
-      _elSt[r.b] !== "mute",
+      _elSt[r.b] !== "mute" &&
+      _ellSelOk(r.a) &&
+      _ellSelOk(r.b),
   );
   if (!valid.length)
     return {
@@ -680,6 +686,12 @@ function ELL_writeEval(side) {
   // unterschieden (Architektur 6).
   var gemessen = new Array(n).fill(false);
   var vergleiche = new Array(n).fill(0);
+  // gemessen[] traegt den PHYSISCHEN Mess-Status (hat die Elektrode ein
+  // gueltiges Paar?) -- bewusst UNABHAENGIG von der Auswertungs-Auswahl.
+  // Die Auswahl darf gemessen[] NICHT beeinflussen, sonst wuerde eine in der
+  // Auswertungs-Box abgewaehlte Elektrode dort als "nicht gemessen" gelten
+  // und liesse sich nicht wieder zuwaehlen (Rueckkopplung). Der
+  // Auswahl-Filter sitzt allein in ELL_compWLS (Pegelberechnung).
   for (var p = 0; p < results.length; p++) {
     var r = results[p];
     if (!r) continue;
@@ -688,6 +700,15 @@ function ELL_writeEval(side) {
     if (!ok) continue;
     if (r.a >= 0 && r.a < n) { gemessen[r.a] = true; vergleiche[r.a]++; }
     if (r.b >= 0 && r.b < n) { gemessen[r.b] = true; vergleiche[r.b]++; }
+  }
+  // Getrennter Zustand "fliesst in die Auswertung ein?" = gemessen UND in der
+  // Auswertungs-Auswahl. Traegt die Markierung "gemessen aber abgewaehlt"
+  // (gemessen[i] && !ausgewertet[i]) fuer die Ergebnis-Tabelle.
+  var _weEvalSel = (ctx.ELL_evalSelectedEls != null) ? ctx.ELL_evalSelectedEls : null;
+  var _weEvalSelSet = (_weEvalSel && _weEvalSel.length) ? new Set(_weEvalSel) : null;
+  var ausgewertet = new Array(n).fill(false);
+  for (var ai = 0; ai < n; ai++) {
+    ausgewertet[ai] = gemessen[ai] && (!_weEvalSelSet || _weEvalSelSet.has(ai));
   }
 
   // Pegel/Korrektur pro Elektrode. Pegel bleibt 0 fuer "nicht gemessen"
@@ -718,6 +739,7 @@ function ELL_writeEval(side) {
     residual: ELL_res,
     weight: ELL_wt,
     gemessen: gemessen,
+    ausgewertet: ausgewertet,
     vergleiche: vergleiche,
     refEl: ctx.ELL_refEl,
     distWeightMode: (typeof ELL_distWeightMode !== "undefined") ? ELL_distWeightMode : "voll",
@@ -755,6 +777,7 @@ function ELL_testData(opts) {
     residual: new Array(n).fill(0),
     weight: new Array(n).fill(1),
     gemessen: new Array(n).fill(false),
+    ausgewertet: new Array(n).fill(false),
     vergleiche: new Array(n).fill(0),
     refEl: s ? s.ELL_refEl : null,
     distWeightMode: (typeof ELL_distWeightMode !== "undefined") ? ELL_distWeightMode : "voll",
@@ -1384,12 +1407,27 @@ function nextConvRnd() {
 // Modal als "keine ausgewaehlt" interpretiert.
 let _ell_selectedEls = null;
 
+// BA660: globaler Spiegel der Auswertungs-Elektrodenauswahl der aktiven
+// Seite. Wahrheit liegt in sideData[activeSide].ELL_evalSelectedEls.
+let _ell_evalSelectedEls = null;
+
 // BA648: Einziger Schreibweg der seitenabhaengigen ELL-Testelektroden-Auswahl.
 // Wahrheit in sideData[activeSide].ELL_selectedEls, globaler Spiegel synchron
 // (Vorbild setRefEl / ELL_distWeightMode). sel: number[] | null (null = alle).
 function ELL_setSelectedEls(sel) {
   _ell_selectedEls = sel;
   if (sideData[activeSide]) sideData[activeSide].ELL_selectedEls = sel;
+}
+
+// BA660: Schreibweg der Auswertungs-Elektrodenauswahl. Setzt Spiegel UND
+// seitenweise Wahrheit, schreibt die Auswertung neu und rendert.
+function ELL_setEvalSelectedEls(sel) {
+  _ell_evalSelectedEls = sel;
+  if (sideData[activeSide]) sideData[activeSide].ELL_evalSelectedEls = sel;
+  if (typeof ELL_writeEval === "function") ELL_writeEval(activeSide);
+  if (typeof ELL_renderResults === "function") ELL_renderResults();
+  if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
+  if (typeof pUpdEQ === "function") pUpdEQ();
 }
 
 document.addEventListener("DOMContentLoaded", function() {

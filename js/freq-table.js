@@ -523,6 +523,7 @@ function switchMfr(m) {
   s.ELL_refEl = Math.floor(s.nEl / 2);
   s.ELL_results = [];
   s.ELL_eval = null;
+  s.ELL_evalSelectedEls = null;
   // Reset implant arrays to new electrode count, preserve global params
   if (!s.implant)
     s.implant = {

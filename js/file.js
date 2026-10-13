@@ -165,6 +165,7 @@ function resetAll() {
   }
   // BA648: STB-Testelektroden-Auswahl auf "alle" (null) zuruecksetzen.
   if (typeof stb_selectedEls !== "undefined") stb_selectedEls = null;
+  if (typeof STB_evalSelectedEls !== "undefined") STB_evalSelectedEls = null;
   if (typeof plApplyBalance !== "undefined") plApplyBalance = true;
   if (typeof plBalanceMode !== "undefined") plBalanceMode = "sym";
   if (typeof updBalApplyBtn === "function") updBalApplyBtn();
@@ -363,6 +364,8 @@ function ELL_clearRes() {
   if (!ch) return;
   sideData[activeSide].ELL_results.splice(0, sideData[activeSide].ELL_results.length);
   sideData[activeSide].ELL_eval = null;
+  sideData[activeSide].ELL_evalSelectedEls = null;
+  if (typeof _ell_evalSelectedEls !== "undefined") _ell_evalSelectedEls = null;
   sideData[activeSide].fullSweepRound = null;
   sideData[activeSide].fullSweepDonePairs = [];
   ELL_results = sideData[activeSide].ELL_results;

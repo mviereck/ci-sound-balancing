@@ -72,6 +72,9 @@ function bindActiveSide() {
   if (typeof _ell_selectedEls !== "undefined") {
     _ell_selectedEls = (s.ELL_selectedEls !== undefined) ? s.ELL_selectedEls : null;
   }
+  if (typeof _ell_evalSelectedEls !== "undefined") {
+    _ell_evalSelectedEls = (s.ELL_evalSelectedEls !== undefined) ? s.ELL_evalSelectedEls : null;
+  }
   if (typeof _ELL_activeVerfahren !== "undefined") {
     _ELL_activeVerfahren = s.ELL_activeVerfahren || "full";
   }
@@ -140,6 +143,7 @@ function ELL_ctx(side) {
     elSt:        s.elSt,
     elExDur:     s.elExDur,
     ELL_refEl:   s.ELL_refEl,
+    ELL_evalSelectedEls: (s.ELL_evalSelectedEls !== undefined) ? s.ELL_evalSelectedEls : null,
     // Funktions-Closures (drawChart) — seitenrichtig, lesen NICHT die Globalen
     hzGetter: function (i) {
       return FRQ_implantatEffektiv(i, s);
@@ -174,6 +178,14 @@ function initSideData(side, m) {
   // bindActiveSide, Schreibweg ELL_setSelectedEls / ELL_setActiveVerfahren.
   s.ELL_selectedEls = null;
   s.ELL_activeVerfahren = "full";
+  // BA660: Auswertungs-eigene Elektrodenauswahl. Bestimmt, welche der
+  // gemessenen Elektroden in die ELL-Auswertung (ELL_compWLS) einfliessen.
+  // null = alle gemessenen; sonst Index-Liste. UNABHAENGIG von der
+  // Testauswahl ELL_selectedEls (die nur die Test-Sequenz filtert) --
+  // hier wird die AUSWERTUNG gefiltert. Hash-wirksame Auswertungs-
+  // Einstellung (Snapshot-Grundmodell §7 Nr. 3). Globaler Spiegel in
+  // bindActiveSide, Schreibweg ELL_setEvalSelectedEls.
+  s.ELL_evalSelectedEls = null;
   // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
   s.elActive = new Array(s.nEl).fill(true);
   // BA479: Frequenzketten-Auswahl pro Elektrode (true = geht ab der Glaettung
@@ -319,9 +331,14 @@ let STB_eval = null;
 // (spaeter geladen), daher erst zur Laufzeit auswerten.
 function STB_meanRaw(mode) {
   if (typeof STB_results === "undefined") return null;
+  // BA661: Auswertungs-Elektrodenauswahl. null/leer = alle gemessenen.
+  var _selSet = (typeof STB_evalSelectedEls !== "undefined"
+                 && STB_evalSelectedEls && STB_evalSelectedEls.length)
+                ? new Set(STB_evalSelectedEls) : null;
   var keys = Object.keys(STB_results).filter(function (k) {
     var i = +k;
     if (!isFinite(STB_results[i])) return false;
+    if (_selSet && !_selSet.has(i)) return false;
     var exL = sideData.left.elExDur[i]  !== null || sideData.left.elSt[i]  === "mute";
     var exR = sideData.right.elExDur[i] !== null || sideData.right.elSt[i] === "mute";
     return !(exL || exR);

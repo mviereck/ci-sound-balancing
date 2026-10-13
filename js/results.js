@@ -83,14 +83,56 @@ function ELL_renderResults() {
         }
       };
     });
+    // BA660: Auswertungs-Elektrodenauswahl. Nutzt den gemeinsamen
+    // testUI-Dialog. Nicht gemessene Elektroden sind nicht waehlbar
+    // (Status "unmeasured", ausgegraut -- BA659).
+    (function () {
+      var _esBtn = document.getElementById("ELL_evalSelBtn");
+      var _esSum = document.getElementById("ELL_evalSelSummary");
+      if (!_esBtn || !_esSum) return;
+      var _ev = ELL_testData({ ctx: ELL_ctx("global") });
+      var _gem = _ev.gemessen || [];
+      var _evalCfg = {
+        minSelected: 2,
+        getSelection: function () {
+          return (typeof _ell_evalSelectedEls !== "undefined" && _ell_evalSelectedEls)
+            ? _ell_evalSelectedEls.slice() : null;
+        },
+        setSelection: function (sel) {
+          if (typeof ELL_setEvalSelectedEls === "function") ELL_setEvalSelectedEls(sel.slice());
+        },
+        getElectrodeStatus: function () {
+          var testable = [], muted = [], excluded = [], unmeasured = [];
+          for (var i = 0; i < nEl; i++) {
+            if (elExDur[i] !== null)                 { excluded.push(i); continue; }
+            if (elSt[i] === "mute")                  { muted.push(i);    continue; }
+            if (elActive && elActive[i] === false)   { muted.push(i);    continue; }
+            if (!_gem[i])                            { unmeasured.push(i); continue; }
+            testable.push(i);
+          }
+          return { testable: testable, muted: muted, excluded: excluded, unmeasured: unmeasured };
+        },
+        electrodeLabel: function (i) {
+          return dENPrefix() + dEN(i) + " (" + fmtNum(FRQ_implantatEffektiv(i), "hz") + " Hz)";
+        }
+      };
+      function _esUpdate() { _esSum.textContent = testUI.electrodeSelection.summaryText(_evalCfg); }
+      _esBtn.onclick = function () { testUI.electrodeSelection.open(_evalCfg, _esUpdate); };
+      _esUpdate();
+    })();
     const _ev = ELL_testData({ ctx: ELL_ctx("global") });
     const levels = _ev.raw, ELL_res = _ev.residual, ELL_wt = _ev.weight;
     const gemessen = _ev.gemessen, pc = _ev.vergleiche;
-    // Zuverlässigkeitseinschätzung berechnen
+    const ausgewertet = _ev.ausgewertet || new Array(nEl).fill(true);
+    // Zuverlässigkeitseinschätzung berechnen. Nur AUSGEWERTETE Elektroden
+    // zählen in Statistik/Farbe/Fließtext -- abgewählte (gemessen, aber aus
+    // der Auswertung genommen) haben keinen Pegel/Residuum und dürfen die
+    // Kennzahlen nicht als scheinbare 0-dB-Treffer verfälschen.
     const act = actEl();
-    const maxLv = Math.max(...act.map((i) => Math.abs(levels[i])), 0.001);
+    const actAusg = act.filter((i) => ausgewertet[i]);
+    const maxLv = Math.max(...actAusg.map((i) => Math.abs(levels[i])), 0.001);
     function ell_color(i) {
-      if (!gemessen[i]) return "grey";
+      if (!ausgewertet[i]) return "grey";
       const res = ELL_res[i] || 0.001;
       if (res <= 1.0) return "green";
       if (res < 3.0) return "yellow";
@@ -98,13 +140,13 @@ function ELL_renderResults() {
     }
     // Fließtext
     const avgMeas =
-      act.length > 0 ? pc.reduce((s, v) => s + v, 0) / act.length : 0;
+      actAusg.length > 0 ? actAusg.reduce((s, i) => s + (pc[i] || 0), 0) / actAusg.length : 0;
     const rtEl = document.getElementById("ELL_reliabilityText");
     if (rtEl && rtEl.parentElement) {
       const rmsLv = Math.sqrt(
-        act.reduce((s, i) => s + levels[i] ** 2, 0) / (act.length || 1),
+        actAusg.reduce((s, i) => s + levels[i] ** 2, 0) / (actAusg.length || 1),
       );
-      const meanRes = act.reduce((s, i) => s + ELL_res[i], 0) / (act.length || 1);
+      const meanRes = actAusg.reduce((s, i) => s + ELL_res[i], 0) / (actAusg.length || 1);
       const globalSNR = meanRes > 0 ? rmsLv / meanRes : 0;
       const redEls = act.filter((i) => ell_color(i) === "red");
       const yellEls = act.filter((i) => ell_color(i) === "yellow");
@@ -168,9 +210,16 @@ function ELL_renderResults() {
       const tr = document.createElement("tr"),
         v = levels[i],
         ex = elExDur[i] !== null || elSt[i] === "mute";
+      // Gemessen, aber in der Auswertungs-Auswahl abgewaehlt: zaehlt nicht in
+      // die Auswertung (kein Pegel/Residuum/Gewicht), bleibt aber eine echte
+      // Messung (anders als "ex"). Eigene Markierung + Ausgrauen.
+      const abgew = !ex && gemessen[i] && !ausgewertet[i];
+      const dim = ex || abgew;   // ausgegraut + Werte als "—"
       let st = "";
       if (ex) {
         st = t("excludedSkipped");
+      } else if (abgew) {
+        st = t("ELL_abgewaehlt");
       } else if (elSt[i]) {
         const lb = {
           noisyHeavy: t("stNoisyHeavy"),
@@ -180,16 +229,18 @@ function ELL_renderResults() {
         };
         st = lb[elSt[i]] || "";
       }
-      if (ex) {
+      if (dim) {
         tr.style.opacity = "var(--disabled-opacity)";
       }
-      tr.innerHTML = `<td style="font-weight:600">${dENPrefix()}${dEN(i)}</td><td>${fmtNum(FRQ_implantatEffektiv(i), "hz")}</td><td style="color:${ex ? "#999" : v > 0.05 ? "#2563eb" : v < -0.05 ? "#dc2626" : "#1a1a1a"}">${ex ? "—" : (v >= 0 ? "+" : "") + v.toFixed(1)}</td><td>${pc[i] || "—"}</td><td style="color:${ex ? "#999" : ell_color(i) === "green" ? "#16a34a" : ell_color(i) === "yellow" ? "#d97706" : ell_color(i) === "red" ? "#dc2626" : "#999"}">${ELL_res[i] > 0 ? ELL_res[i].toFixed(1) : "—"}</td><td>${ex ? "—" : ELL_wt[i].toFixed(1)}</td><td style="font-size:.78em">${st}</td><td style="text-align:center;font-weight:700">${i === ELL_refEl ? "X" : ""}</td>`;
+      tr.innerHTML = `<td style="font-weight:600">${dENPrefix()}${dEN(i)}</td><td>${fmtNum(FRQ_implantatEffektiv(i), "hz")}</td><td style="color:${dim ? "#999" : v > 0.05 ? "#2563eb" : v < -0.05 ? "#dc2626" : "#1a1a1a"}">${dim ? "—" : (v >= 0 ? "+" : "") + v.toFixed(1)}</td><td>${pc[i] || "—"}</td><td style="color:${dim ? "#999" : ell_color(i) === "green" ? "#16a34a" : ell_color(i) === "yellow" ? "#d97706" : ell_color(i) === "red" ? "#dc2626" : "#999"}">${!dim && ELL_res[i] > 0 ? ELL_res[i].toFixed(1) : "—"}</td><td>${dim ? "—" : ELL_wt[i].toFixed(1)}</td><td style="font-size:.78em">${st}</td><td style="text-align:center;font-weight:700">${i === ELL_refEl ? "X" : ""}</td>`;
       tb.appendChild(tr);
     }
     var _ellRows = [];
     for (var _i = 0; _i < nEl; _i++) {
       var _ex = elExDur[_i] !== null || elSt[_i] === "mute";
-      var _zustand = _ex ? "deaktiviert" : (!gemessen[_i] ? "ungemessen" : "gemessen");
+      // Abgewaehlte (gemessen, aber nicht ausgewertet) im Graph wie ungemessen
+      // behandeln -- kein Pegelbalken, da sie nicht in die Auswertung eingehen.
+      var _zustand = _ex ? "deaktiviert" : (!ausgewertet[_i] ? "ungemessen" : "gemessen");
       var _st = ell_color(_i);   // "green"|"yellow"|"red"|"grey"
       _ellRows.push({
         elNum: _i,

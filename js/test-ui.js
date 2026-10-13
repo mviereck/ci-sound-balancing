@@ -2258,7 +2258,10 @@ function _openVolumeDialog(cfg, onDone) {
 //   minSelected:        number   - Mindestanzahl gewählter Elektroden (>=1)
 //   getSelection:       () => number[] | null   - aktuelle Auswahl
 //   setSelection:       (sel: number[]) => void - Auswahl setzen, Sync-Callbacks intern
-//   getElectrodeStatus: () => { testable: number[], muted: number[], excluded: number[] }
+//   getElectrodeStatus: () => { testable: number[], muted: number[], excluded: number[], unmeasured?: number[] }
+//       unmeasured (optional): aktive, aber nicht gemessene Elektroden —
+//       ausgegraut, nicht waehlbar, Suffix "(nicht gemessen)". Fehlt das
+//       Feld, verhaelt sich der Dialog wie bisher (nur testable/muted/excluded).
 //   electrodeLabel:     (i) => string  - Anzeigename z.B. "E3 (590 Hz)"
 // }
 function _openElectrodeSelectionDialog(cfg, onChange) {
@@ -2297,7 +2300,8 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
   dlg.appendChild(allRow);
 
   var stat = cfg.getElectrodeStatus();
-  var allIndices = [].concat(stat.testable, stat.muted, stat.excluded)
+  var statUnmeasured = Array.isArray(stat.unmeasured) ? stat.unmeasured : [];
+  var allIndices = [].concat(stat.testable, stat.muted, stat.excluded, statUnmeasured)
     .sort(function(a, b) { return a - b; });
   var cur = cfg.getSelection();
   var selSet;
@@ -2319,10 +2323,12 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
   var exclSuf   = (typeof t === 'function' && t('electrodeSelectionExcludedSuffix'))   || 'ausgeschlossen';
   var mutedSet = new Set(stat.muted);
   var exclSet  = new Set(stat.excluded);
+  var unmeasSuf = (typeof t === 'function' && t('electrodeSelectionUnmeasuredSuffix')) || 'nicht gemessen';
+  var unmeasSet = new Set(statUnmeasured);
 
   allIndices.forEach(function(i) {
     var lbl = document.createElement('label');
-    var disabled = mutedSet.has(i) || exclSet.has(i);
+    var disabled = mutedSet.has(i) || exclSet.has(i) || unmeasSet.has(i);
     lbl.style.cssText =
       'display:flex;align-items:center;gap:6px;font-size:.92em;' +
       (disabled ? 'opacity:.45;cursor:not-allowed;' : 'cursor:pointer;');
@@ -2334,8 +2340,9 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
     cbRefs[i] = cb;
     var sp = document.createElement('span');
     var baseTxt = cfg.electrodeLabel(i);
-    if (mutedSet.has(i))     baseTxt += ' (' + mutedSuf + ')';
-    else if (exclSet.has(i)) baseTxt += ' (' + exclSuf + ')';
+    if (mutedSet.has(i))        baseTxt += ' (' + mutedSuf + ')';
+    else if (exclSet.has(i))    baseTxt += ' (' + exclSuf + ')';
+    else if (unmeasSet.has(i))  baseTxt += ' (' + unmeasSuf + ')';
     sp.textContent = baseTxt;
     lbl.append(cb, sp);
     list.appendChild(lbl);
