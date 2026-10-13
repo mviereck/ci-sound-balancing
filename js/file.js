@@ -118,6 +118,7 @@ function resetAll() {
     sideData[s].ELL_refEl = Math.floor(sideData[s].nEl / 2);
     sideData[s].ELL_results = [];
     sideData[s].ELL_eval = null;
+    sideData[s].SNR_result = null;   // BA662-FIX: seitenweises Sprachtest-Ergebnis mitloeschen
     sideData[s].kurvenELL = [];
     initSideData(s, "unknown");
   }
@@ -236,6 +237,7 @@ function resetAll() {
   kurvenELLTabelleBauen();
   kurvenELLChartZeichnen();
   ELL_renderResults();
+  if (typeof SNR_renderResults === "function") SNR_renderResults();   // BA662-FIX: Sprachtest-Ergebnisanzeige nach Reset leeren
   if (typeof buildImplantCard === "function") buildImplantCard();
   if (typeof schieberELLRebuild === "function") schieberELLRebuild();
   if (typeof updSideButtons === "function") updSideButtons();
