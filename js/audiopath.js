@@ -171,6 +171,11 @@ function AWG_openAddModal(side) {
   if (typeof AWG_renderSelects === "function") AWG_renderSelects();
   const input = document.getElementById("awgAddInput");
   if (input) input.value = "";
+  // "Verwalten..." nur anbieten, wenn es verwaltbare Eintraege gibt —
+  // sonst fuehrte der Knopf in eine leere (nicht geoeffnete) Box.
+  const manageBtn = document.getElementById("awgManageOpen");
+  if (manageBtn) manageBtn.style.display =
+    (_awgManageableEntries().length > 0) ? "" : "none";
   _awgShow(document.getElementById("awgAddDialog"));
   if (input) input.focus();
 }
@@ -187,46 +192,63 @@ function _awgAddConfirm() {
   _awgAddFromSide = null;
 }
 
-// Verwalten-Box: Zeile je sichtbarem Eintrag ausser ID 0. Pro Zeile ein
-// Textfeld (Umbenennen bei Aenderung) und ein Ausblenden-Knopf.
-function AWG_openManageModal() {
+// Verwaltbar sind alle sichtbaren Eintraege ausser dem Default (ID 0).
+function _awgManageableEntries() {
+  return AWG_visibleEntries().filter(function (e) { return e.id !== AWG_NONE_ID; });
+}
+
+// Baut die Zeilen der Verwalten-Box: je Eintrag ein Textfeld (Umbenennen)
+// und ein Loeschen-Knopf. Nur Fuellen der Liste, kein Oeffnen/Schliessen.
+function _awgBuildManageList() {
   const list = document.getElementById("awgManageList");
-  if (list) {
-    list.innerHTML = "";
-    AWG_visibleEntries().forEach(function (e) {
-      if (e.id === AWG_NONE_ID) return;   // Default nicht editier-/ausblendbar
-      const row = document.createElement("div");
-      row.className = "awg-manage-row";
-      const txt = document.createElement("input");
-      txt.type = "text";
-      txt.value = e.label;
-      txt.addEventListener("change", function () {
-        if (typeof AWG_rename === "function") AWG_rename(e.id, this.value);
-        if (typeof AWG_renderSelects === "function") AWG_renderSelects();
-        if (typeof _autoSaveState === "function") _autoSaveState();
-      });
-      const del = document.createElement("button");
-      del.className = "btn";
-      del.textContent = (typeof t === "function") ? t("AWG_deleteBtn") : "Löschen";
-      del.addEventListener("click", function () {
-        if (AWG_isUsed(e.id)) {
-          // Benutzter Eintrag: nur ausblenden, nach Rueckfrage.
-          const msg = (typeof t === "function") ? t("AWG_delUsedConfirm")
-            : "Der Eintrag wird bereits genutzt. Löschen wird ihn nur in der Liste ausblenden. Fortfahren?";
-          if (!window.confirm(msg)) return;
-          AWG_hide(e.id);
-        } else {
-          // Unbenutzter Eintrag: echt entfernen.
-          AWG_remove(e.id);
-        }
-        AWG_openManageModal();   // Liste neu aufbauen
-        if (typeof AWG_renderSelects === "function") AWG_renderSelects();
-        if (typeof _autoSaveState === "function") _autoSaveState();
-      });
-      row.appendChild(txt);
-      row.appendChild(del);
-      list.appendChild(row);
+  if (!list) return;
+  list.innerHTML = "";
+  _awgManageableEntries().forEach(function (e) {
+    const row = document.createElement("div");
+    row.className = "awg-manage-row";
+    const txt = document.createElement("input");
+    txt.type = "text";
+    txt.value = e.label;
+    txt.addEventListener("change", function () {
+      if (typeof AWG_rename === "function") AWG_rename(e.id, this.value);
+      if (typeof AWG_renderSelects === "function") AWG_renderSelects();
+      if (typeof _autoSaveState === "function") _autoSaveState();
     });
-  }
+    const del = document.createElement("button");
+    del.className = "btn";
+    del.textContent = (typeof t === "function") ? t("AWG_deleteBtn") : "Löschen";
+    del.addEventListener("click", function () {
+      if (AWG_isUsed(e.id)) {
+        // Benutzter Eintrag: nur ausblenden, nach Rueckfrage.
+        const msg = (typeof t === "function") ? t("AWG_delUsedConfirm")
+          : "Der Eintrag wird bereits genutzt. Löschen wird ihn nur in der Liste ausblenden. Fortfahren?";
+        if (!window.confirm(msg)) return;
+        AWG_hide(e.id);
+      } else {
+        // Unbenutzter Eintrag: echt entfernen.
+        AWG_remove(e.id);
+      }
+      if (typeof AWG_renderSelects === "function") AWG_renderSelects();
+      if (typeof _autoSaveState === "function") _autoSaveState();
+      // War das der letzte verwaltbare Eintrag, hat die Box nichts mehr zu
+      // tun -> schliessen statt in leerer Box stranden. Sonst Liste neu
+      // aufbauen, Box bleibt offen.
+      if (_awgManageableEntries().length === 0) {
+        _awgClose(document.getElementById("awgManageDialog"));
+      } else {
+        _awgBuildManageList();
+      }
+    });
+    row.appendChild(txt);
+    row.appendChild(del);
+    list.appendChild(row);
+  });
+}
+
+// Oeffnet die Verwalten-Box — nur, wenn es ueberhaupt verwaltbare
+// Eintraege gibt (sonst gaebe es eine leere Box ohne Aktion).
+function AWG_openManageModal() {
+  if (_awgManageableEntries().length === 0) return;
+  _awgBuildManageList();
   _awgShow(document.getElementById("awgManageDialog"));
 }
