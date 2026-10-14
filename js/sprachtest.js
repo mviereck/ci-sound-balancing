@@ -44,6 +44,30 @@ function snr_currentTestSet() {
   return avail.length ? avail[0].testSet : null;
 }
 
+// Anzeigename einer Matrix-Sammlung aus ihrem stabilen test_set-Slug.
+// Gesichert wird im Ergebnis der Slug (stabil); die Auswertung uebersetzt
+// ihn hier in den menschlichen Namen (tags.speaker_name, via _amBuildItemTags
+// auf jedes Pool-Item vererbt). Fallback: der Slug selbst (fremdes Material
+// ohne speaker_name, oder Sammlung nicht mehr im Pool).
+function snr_testSetLabel(slug) {
+  if (!slug) return "";
+  const pool = (typeof sBuildRecordingPool === "function") ? sBuildRecordingPool() : [];
+  const it = pool.find(function (x) { return x.tags && x.tags.test_set === slug; });
+  return (it && it.tags && it.tags.speaker_name) ? it.tags.speaker_name : slug;
+}
+
+// Anzeigename des im Ergebnis gesicherten Rausch-Werts (noiseId). Default-Marker
+// -> "Testeigenes Rauschen"; sonst das Geraeusch-Item in UI-Sprache
+// (_amNoiseTitleLabel). Fallback: die Roh-Id.
+function snr_noiseLabel(noiseId) {
+  if (noiseId === SNR_NOISE_DEFAULT) {
+    return (typeof t === "function") ? t("stNoiseDefaultOpt") : "Testeigenes Rauschen";
+  }
+  const items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
+  const it = items.find(function (x) { return x.id === noiseId; });
+  return it ? _amNoiseTitleLabel(it) : noiseId;
+}
+
 // Matrix-Extraktor (SS3.2): sammelt ueber alle Satztexte je Position (0..4)
 // die vorkommenden Woerter, dedupliziert, sortiert. Ergebnis: Array[5] von
 // Wort-Arrays (die zehn Woerter je Spalte). Erwartet, dass die Items ihren
@@ -643,6 +667,12 @@ function snr_finish(converged) {
     converged: !!converged,
     snrHistory: snr_snrHistory.slice(),
     wordHistory: snr_wordHistory.slice(),
+    // Material/Rauschen zum Testzeitpunkt EINFRIEREN (stabile Slugs/Ids, nicht
+    // Anzeigenamen -- die koennen sich aendern). Die Auswertung uebersetzt sie
+    // beim Rendern. Ohne diese Felder zeigte die Ergebnisseite spaeter das
+    // gerade aktive Material statt des gemessenen (Live-Lookup-Bug).
+    materialSlug: snr_currentTestSet() || null,
+    noiseId: snr_noiseChoiceId,
     ts: Date.now()
   };
   if (typeof SNR_saveResult === "function") SNR_saveResult(result);
@@ -744,21 +774,21 @@ function SNR_renderResults() {
   if (conv) conv.style.display = res.converged ? "" : "none";
   const bundleEl = document.getElementById("SNR_resBundle");
   if (bundleEl) {
-    const lbl = snr_currentTestSet() || "";
+    // Material aus dem gesicherten Slug des Ergebnisses uebersetzen; Alt-
+    // Ergebnisse ohne materialSlug fallen auf den heutigen Live-Lookup zurueck.
+    const slug = (res.materialSlug !== undefined && res.materialSlug !== null)
+      ? res.materialSlug
+      : snr_currentTestSet();
+    const lbl = snr_testSetLabel(slug);
     bundleEl.textContent = lbl
       ? (t("stResBundlePrefix") + " " + lbl)
       : "";
   }
   const noiseEl = document.getElementById("SNR_resNoise");
   if (noiseEl) {
-    let nl;
-    if (snr_noiseChoiceId === SNR_NOISE_DEFAULT) {
-      nl = (typeof t === "function") ? t("stNoiseDefaultOpt") : "Testeigenes Rauschen";
-    } else {
-      const items = (typeof plNoiseAllItems === "function") ? plNoiseAllItems() : [];
-      const it = items.find(function (x) { return x.id === snr_noiseChoiceId; });
-      nl = it ? _amNoiseTitleLabel(it) : snr_noiseChoiceId;
-    }
+    // Rauschen aus der gesicherten noiseId; Alt-Ergebnisse ohne Feld -> Live.
+    const nid = (res.noiseId !== undefined) ? res.noiseId : snr_noiseChoiceId;
+    const nl = snr_noiseLabel(nid);
     noiseEl.textContent = nl ? (t("stResNoisePrefix") + " " + nl) : "";
   }
 
