@@ -405,15 +405,25 @@ function snr_start() {
     var _sideCfg = snr_isBothEar()
       ? { sides: "both" }
       : { sides: "one", side: snr_currentSide() };
-    testUI.sideCheck.run(_sideCfg, function () {
-      Promise.resolve(snr_beginRun()).catch(function (e) {
-        console.error("[sprachtest] Start fehlgeschlagen:", e);
+    var _sideCheckThen = function () {
+      testUI.sideCheck.run(_sideCfg, function () {
+        Promise.resolve(snr_beginRun()).catch(function (e) {
+          console.error("[sprachtest] Start fehlgeschlagen:", e);
+          _st_abortStart();
+        });
+      }, function () {
+        // Abbruch im Kopfhoerercheck.
         _st_abortStart();
       });
-    }, function () {
-      // Abbruch im Kopfhoerercheck.
-      _st_abortStart();
-    });
+    };
+    // Audioweg-Bestaetigung VOR der Sitz-Pruefung. SNR ist nicht
+    // fortsetzbar (frischer Durchgang) -> kein Verlauf zum Abgleich,
+    // measuredPathIds liefert leere Liste (nur "(keine Angabe)"-Warnung).
+    testUI.audioPathCheck.run(
+      Object.assign({}, _sideCfg, { measuredPathIds: function () { return []; } }),
+      _sideCheckThen,
+      function () { _st_abortStart(); }
+    );
   }).catch(function (e) {
     console.error("[sprachtest] Vorladen fehlgeschlagen:", e);
     _st_abortStart();
@@ -651,6 +661,23 @@ function snr_countCorrect(item, sel) {
   return n;
 }
 
+// Aktiver Audioweg (Katalog-id) einer Seite, 0 = "(keine Angabe)".
+function _snr_activePathId(side) {
+  return (typeof sideData !== "undefined" && sideData[side]
+          && sideData[side].AWG_activeId != null) ? sideData[side].AWG_activeId : 0;
+}
+// Eingefrorenes Weg-Objekt fuer das Ergebnis: beidseitig {left,right},
+// einseitig nur die getestete Seite ({left:...} ODER {right:...}).
+function _snr_frozenAudioPath() {
+  if (snr_isBothEar()) {
+    return { left: _snr_activePathId("left"), right: _snr_activePathId("right") };
+  }
+  var side = snr_currentSide();
+  var o = {};
+  o[side] = _snr_activePathId(side);
+  return o;
+}
+
 function snr_finish(converged) {
   snr_active = false;
   const win = converged ? SNR_SRT_WINDOW_CONV : SNR_SRT_WINDOW;
@@ -673,7 +700,10 @@ function snr_finish(converged) {
     // gerade aktive Material statt des gemessenen (Live-Lookup-Bug).
     materialSlug: snr_currentTestSet() || null,
     noiseId: snr_noiseChoiceId,
-    ts: Date.now()
+    ts: Date.now(),
+    // Mess-Kontext Audioweg: aktive Wege zum Testzeitpunkt einfrieren.
+    // Beidseitig beide Seiten, einseitig nur die getestete (aktive).
+    audioPath: _snr_frozenAudioPath()
   };
   if (typeof SNR_saveResult === "function") SNR_saveResult(result);
   else { window.SNR_lastResult = result; console.log("[sprachtest] Ergebnis:", result); }
