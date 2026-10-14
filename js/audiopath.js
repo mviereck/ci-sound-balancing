@@ -79,13 +79,35 @@ function AWG_rename(id, label) {
   return true;
 }
 
-// Ausblenden = "Loeschen". Der Datensatz bleibt erhalten (alte Messungen
-// behalten Bezug + Bezeichnung), nur hidden=true. ID 0 nicht ausblendbar.
+// Wird dieser Audioweg von irgendeiner Messung referenziert? Die
+// eingefrorene audiopathID je Meszschritt existiert erst ab dem
+// Einfrieren-Schritt; bis dahin referenziert nichts einen Eintrag, also
+// immer false. Einzige Auskunftsstelle — spaeter hier die Rohwerte aller
+// Tests (und, sobald es sie gibt, die Snapshots) pruefen.
+function AWG_isUsed(id) {
+  if (id === AWG_NONE_ID) return false;
+  return false;
+}
+
+// Ausblenden: Datensatz bleibt erhalten (benutzte Eintraege, deren alte
+// Messungen Bezug + Bezeichnung brauchen), nur hidden=true. ID 0 nicht
+// ausblendbar.
 function AWG_hide(id) {
   if (id === AWG_NONE_ID) return false;
   const e = AWG_catalog.find(function (x) { return x.id === id; });
   if (!e) return false;
   e.hidden = true;
+  return true;
+}
+
+// Echtes Entfernen aus dem Katalog — nur fuer UNbenutzte Eintraege. Die
+// id bleibt dennoch fuer immer verbraucht (AWG_nextId zaehlt nur vorwaerts,
+// wird hier nicht zurueckgesetzt). ID 0 nicht entfernbar.
+function AWG_remove(id) {
+  if (id === AWG_NONE_ID) return false;
+  const i = AWG_catalog.findIndex(function (x) { return x.id === id; });
+  if (i < 0) return false;
+  AWG_catalog.splice(i, 1);
   return true;
 }
 
@@ -185,9 +207,18 @@ function AWG_openManageModal() {
       });
       const del = document.createElement("button");
       del.className = "btn";
-      del.textContent = (typeof t === "function") ? t("AWG_hideBtn") : "Ausblenden";
+      del.textContent = (typeof t === "function") ? t("AWG_deleteBtn") : "Löschen";
       del.addEventListener("click", function () {
-        if (typeof AWG_hide === "function") AWG_hide(e.id);
+        if (AWG_isUsed(e.id)) {
+          // Benutzter Eintrag: nur ausblenden, nach Rueckfrage.
+          const msg = (typeof t === "function") ? t("AWG_delUsedConfirm")
+            : "Der Eintrag wird bereits genutzt. Löschen wird ihn nur in der Liste ausblenden. Fortfahren?";
+          if (!window.confirm(msg)) return;
+          AWG_hide(e.id);
+        } else {
+          // Unbenutzter Eintrag: echt entfernen.
+          AWG_remove(e.id);
+        }
         AWG_openManageModal();   // Liste neu aufbauen
         if (typeof AWG_renderSelects === "function") AWG_renderSelects();
         if (typeof _autoSaveState === "function") _autoSaveState();
