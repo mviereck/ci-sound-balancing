@@ -2,6 +2,19 @@
 // I18N — FRANÇAIS
 // ============================================================
 Object.assign(L.fr, {
+    AWG_none: "(non précisé)",
+    AWG_optNew: "Nouvelle entrée…",
+    AWG_addTitle: "Décrire le trajet audio",
+    AWG_addExplain: "Tout type de connexion peut introduire sa propre latence ou modifier le signal audio. C’est pourquoi il est important de documenter le trajet de transmission pendant les mesures.\n\nDécrivez le type de connexion avec vos propres mots afin de pouvoir le reconnaître et l’attribuer clairement par la suite. La description est enregistrée et vous est proposée à nouveau lors de la sélection.\n\nExemples :\nPC Windows → AudioLink → IC\nPC Linux → casque studio avec câble → oreille nue\nSmartphone → Bluetooth → aide auditive",
+    AWG_addPlaceholder: "p. ex. PC Windows → AudioLink → IC",
+    AWG_addSave: "Enregistrer",
+    AWG_manageOpen: "Gérer les entrées existantes…",
+    AWG_manageTitle: "Gérer les trajets audio",
+    AWG_manageWarn: "Attention : ne modifiez un texte que pour décrire plus précisément le même trajet — jamais pour saisir un trajet différent. Sinon, d’anciennes mesures recevraient une désignation erronée.",
+    AWG_deleteBtn: "Supprimer",
+    AWG_delUsedConfirm: "Cette entrée est déjà utilisée. La suppression ne fera que la masquer de la liste. Continuer ?",
+    cancel: "Annuler",
+    close: "Fermer",
     subtitle: "",
     sideLeft: "GAUCHE",
     sideRight: "DROITE",

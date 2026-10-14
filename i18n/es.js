@@ -2,6 +2,19 @@
 // I18N — ESPAÑOL
 // ============================================================
 Object.assign(L.es, {
+    AWG_none: "(sin especificar)",
+    AWG_optNew: "Nueva entrada…",
+    AWG_addTitle: "Describir la ruta de audio",
+    AWG_addExplain: "Cualquier tipo de conexión puede introducir su propia latencia o alterar la señal de audio. Por eso es importante documentar la ruta de transmisión durante las mediciones.\n\nDescriba el tipo de conexión con sus propias palabras para poder reconocerla y asignarla con claridad más adelante. La descripción se guarda y se le vuelve a ofrecer para su selección.\n\nEjemplos:\nPC con Windows → AudioLink → IC\nPC con Linux → auriculares de estudio con cable → oído sin nada\nSmartphone → Bluetooth → audífono",
+    AWG_addPlaceholder: "p. ej. PC con Windows → AudioLink → IC",
+    AWG_addSave: "Guardar",
+    AWG_manageOpen: "Gestionar entradas existentes…",
+    AWG_manageTitle: "Gestionar rutas de audio",
+    AWG_manageWarn: "Atención: cambie un texto solo para describir con más precisión la misma ruta, nunca para introducir una ruta diferente. De lo contrario, las mediciones anteriores recibirían una designación incorrecta.",
+    AWG_deleteBtn: "Eliminar",
+    AWG_delUsedConfirm: "Esta entrada ya está en uso. Al eliminarla, solo se ocultará de la lista. ¿Continuar?",
+    cancel: "Cancelar",
+    close: "Cerrar",
     subtitle: "",
     sideLeft: "IZQUIERDA",
     sideRight: "DERECHA",

@@ -2,6 +2,19 @@
 // I18N — ENGLISH
 // ============================================================
 Object.assign(L.en, {
+    AWG_none: "(not specified)",
+    AWG_optNew: "New entry…",
+    AWG_addTitle: "Describe audio path",
+    AWG_addExplain: "Any kind of connection can introduce its own latency or alter the audio signal. That is why it is important to document the transmission path during measurements.\n\nDescribe the type of connection in your own words so that you can clearly recognise and assign it later. The description is saved and offered to you again for selection.\n\nExamples:\nWindows PC → AudioLink → CI\nLinux PC → studio headphones with cable → bare ear\nSmartphone → Bluetooth → hearing aid",
+    AWG_addPlaceholder: "e.g. Windows PC → AudioLink → CI",
+    AWG_addSave: "Save",
+    AWG_manageOpen: "Manage existing entries…",
+    AWG_manageTitle: "Manage audio paths",
+    AWG_manageWarn: "Caution: only change a text to describe the same path more precisely — never to enter a different path. Otherwise earlier measurements get a wrong label.",
+    AWG_deleteBtn: "Delete",
+    AWG_delUsedConfirm: "This entry is already in use. Deleting will only hide it from the list. Continue?",
+    cancel: "Cancel",
+    close: "Close",
     subtitle: "",
     sideLeft: "LEFT",
     sideRight: "RIGHT",

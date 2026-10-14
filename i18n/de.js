@@ -2012,7 +2012,7 @@ Object.assign(L.de, {
     AWG_none: "(keine Angabe)",
     AWG_optNew: "Neuer Eintrag…",
     AWG_addTitle: "Audioweg beschreiben",
-    AWG_addExplain: "Jede Art von Verbindung kann ihre eigenen Latenzen erzeugen oder Audiosignale verändern. Deshalb ist es wichtig, den Übertragungsweg während der Messungen zu dokumentieren.\n\nBeschreiben Sie in Ihren Worten die Art der Verbindung, so dass Sie sie eindeutig wiedererkennen und zuordnen können. Die Beschreibung wird gesichert und Ihnen später zur Auswahl wieder angeboten.\n\nBeispiele:\nPC → AudioLink → CI\nPC → Studiokopfhörer mit Kabel → Ohr ohne alles\nSmartphone → Bluetooth → Hörgerät",
+    AWG_addExplain: "Jede Art von Verbindung kann ihre eigenen Latenzen erzeugen oder Audiosignale verändern. Deshalb ist es wichtig, den Übertragungsweg während der Messungen zu dokumentieren.\n\nBeschreiben Sie in Ihren Worten die Art der Verbindung, so dass Sie sie eindeutig wiedererkennen und zuordnen können. Die Beschreibung wird gesichert und Ihnen später zur Auswahl wieder angeboten.\n\nBeispiele:\nWindows-PC → AudioLink → CI\nLinux-PC → Studiokopfhörer mit Kabel → Ohr ohne alles\nSmartphone → Bluetooth → Hörgerät",
     AWG_addPlaceholder: "z. B. PC → AudioLink → CI",
     AWG_addSave: "Speichern",
     AWG_manageOpen: "Bestehende Einträge verwalten…",
