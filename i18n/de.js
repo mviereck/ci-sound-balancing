@@ -2020,6 +2020,10 @@ Object.assign(L.de, {
     AWG_manageWarn: "Achtung: Ändern Sie einen Text nur, um denselben Weg genauer zu beschreiben — niemals, um einen anderen Weg einzutragen. Sonst bekommen frühere Messungen eine falsche Bezeichnung.",
     AWG_deleteBtn: "Löschen",
     AWG_delUsedConfirm: "Der Eintrag wird bereits genutzt. Löschen wird ihn nur in der Liste ausblenden. Fortfahren?",
+    AWGchk_title: "Übertragungsweg bestätigen",
+    AWGchk_proceed: "Weiter",
+    AWGchk_warnNone: "Für mindestens eine Seite ist kein Übertragungsweg angegeben („keine Angabe“).",
+    AWGchk_warnMixed: "Die bisherige Messung beruht auf anderen Übertragungswegen als jetzt angegeben. Das führt zu gemischten Ergebnissen.",
     cancel: "Abbrechen",
     close: "Schließen",
 });

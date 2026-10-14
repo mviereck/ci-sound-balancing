@@ -2691,6 +2691,103 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
   };
 })();
 
+// ===== testUI.audioPathCheck — Audioweg-Bestaetigung vor Teststart =====
+// Mess-Kontext Audioweg: zeigt je gepruefter Seite den eingestellten
+// Uebertragungsweg und warnt bei (keine Angabe) oder Abweichung von
+// bereits gemessenen Schritten. Fortfahren ist immer erlaubt (nur warnen).
+// Baumuster wie testUI.sideCheck (modal-overlay + modal-box).
+(function() {
+  var _apEls = null;
+
+  function _apT(key) { return (typeof t === 'function' && t(key)) || key; }
+
+  function _apInitDom() {
+    if (_apEls) return;
+    var overlay = _mkEl('div', 'modal-overlay ap-modal');
+    var box     = _mkEl('div', 'modal-box');
+    var titleEl = _mkEl('h2');
+    titleEl.dataset.t = 'AWGchk_title';
+    titleEl.textContent = _apT('AWGchk_title');
+    var pathList = _mkEl('div', 'ap-path-list');   // je Seite eine Zeile
+    var warnEl   = _mkEl('p', 'ap-warn');          // Warntext(e), sonst leer
+    var btnRow   = _mkEl('div', 'btn-group');
+    var btnProceed = _mkEl('button', 'btn btn-primary');
+    btnProceed.dataset.t = 'AWGchk_proceed';
+    btnProceed.textContent = _apT('AWGchk_proceed');
+    var btnAbort = _mkEl('button', 'btn');
+    btnAbort.dataset.t = 'cancel';
+    btnAbort.textContent = _apT('cancel');
+    btnRow.append(btnProceed, btnAbort);
+    box.append(titleEl, pathList, warnEl, btnRow);
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+    _apEls = { overlay: overlay, pathList: pathList, warnEl: warnEl,
+               btnProceed: btnProceed, btnAbort: btnAbort };
+  }
+
+  function _apSideActiveId(side) {
+    return (typeof sideData !== "undefined" && sideData[side]
+            && sideData[side].AWG_activeId != null) ? sideData[side].AWG_activeId : 0;
+  }
+
+  function _apSideLabel(side) {
+    return (side === "left") ? _apT('sideLeft') : _apT('sideRight');
+  }
+
+  function _apRun(cfg, onProceed, onAbort) {
+    _apInitDom();
+    cfg = cfg || {};
+    var sides = (cfg.sides === 'both') ? ['left', 'right']
+              : [ (cfg.side === 'right') ? 'right' : 'left' ];
+    var results = Array.isArray(cfg.results) ? cfg.results : [];
+
+    // Zeile je Seite: "LINKS: <Weg>".
+    _apEls.pathList.innerHTML = "";
+    sides.forEach(function (side) {
+      var row = _mkEl('div', 'ap-path-row');
+      var id  = _apSideActiveId(side);
+      var lbl = (typeof AWG_label === "function") ? AWG_label(id) : String(id);
+      row.textContent = _apSideLabel(side) + ": " + lbl;
+      _apEls.pathList.appendChild(row);
+    });
+
+    // Warnbedingungen.
+    var warnings = [];
+    var anyNone = sides.some(function (side) { return _apSideActiveId(side) === 0; });
+    if (anyNone) warnings.push(_apT('AWGchk_warnNone'));
+
+    var mixed = sides.some(function (side) {
+      var cur = _apSideActiveId(side);
+      // Nur Schritte, die zu DIESER Seite gehoeren. Bei ELL (einseitig)
+      // gehoeren alle results zur geprueften Seite; die Weg-Zuordnung je
+      // Schritt steckt in audiopathID. Vergleich: weicht irgendein Schritt
+      // vom aktuell eingestellten Weg ab?
+      return results.some(function (r) {
+        if (!r) return false;
+        var pid = (r.audiopathID != null) ? r.audiopathID : 0;
+        return pid !== cur;
+      });
+    });
+    if (results.length && mixed) warnings.push(_apT('AWGchk_warnMixed'));
+
+    if (warnings.length) {
+      _apEls.warnEl.textContent = warnings.join("  ");
+      _apEls.warnEl.style.display = "";
+    } else {
+      _apEls.warnEl.textContent = "";
+      _apEls.warnEl.style.display = "none";
+    }
+
+    function _close() { _apEls.overlay.classList.remove('active'); }
+    _apEls.btnProceed.onclick = function () { _close(); if (onProceed) onProceed(); };
+    _apEls.btnAbort.onclick   = function () { _close(); if (onAbort) onAbort(); };
+
+    _apEls.overlay.classList.add('active');
+  }
+
+  testUI.audioPathCheck = { run: _apRun };
+})();
+
 // ===== testUI.completion — Abschluss-Box nach natuerlichem Testende =====
 // BA 279: Wiederverwendbarer Testende-Hinweis. EINE Funktion; das
 // Gemeinsame ist fest verdrahtet (Klang, Titelmuster, generischer

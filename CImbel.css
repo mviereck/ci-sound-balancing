@@ -2358,3 +2358,7 @@ input.ec-active.dep-locked {
 .awg-manage-list { max-height: 50vh; overflow-y: auto; margin: 12px 0; }
 .awg-manage-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
 .awg-manage-row input[type="text"] { flex: 1; padding: 6px 8px; }
+
+.ap-path-list { margin: 12px 0; }
+.ap-path-row { font-weight: 600; padding: 2px 0; }
+.ap-warn { color: var(--warning); font-weight: 600; }

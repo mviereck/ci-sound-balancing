@@ -731,6 +731,26 @@ function ELL_writeEval(side) {
     if (typeof t0 === "number" && t0 > ts) ts = t0;
   }
 
+  // Audioweg-Verdichtung (Mess-Kontext): konkrete id, wenn ALLE gueltigen
+  // Mess-Schritte denselben Weg tragen; sonst "gemischt". null = keine
+  // gueltigen Mess-Schritte (nichts gemessen). Nur der Schreiber liest die
+  // Roh-Wege (Architektur persistierte-messauswertung §6).
+  var _awgSeen = null;        // erste gesehene id
+  var _awgMixed = false;
+  var _awgAny = false;
+  for (var pw = 0; pw < results.length; pw++) {
+    var rw = results[pw];
+    if (!rw) continue;
+    var okw = _elExDur[rw.a] === null && _elSt[rw.a] !== "mute"
+           && _elExDur[rw.b] === null && _elSt[rw.b] !== "mute";
+    if (!okw) continue;
+    var pid = (rw.audiopathID != null) ? rw.audiopathID : 0;
+    if (!_awgAny) { _awgSeen = pid; _awgAny = true; }
+    else if (pid !== _awgSeen) { _awgMixed = true; }
+  }
+  // audioPath: "gemischt" | konkrete id | null (nichts gemessen).
+  var audioPath = !_awgAny ? null : (_awgMixed ? "gemischt" : _awgSeen);
+
   s.ELL_eval = {
     raw: levels,
     measured: measured,
@@ -743,6 +763,7 @@ function ELL_writeEval(side) {
     vergleiche: vergleiche,
     refEl: ctx.ELL_refEl,
     distWeightMode: (typeof ELL_distWeightMode !== "undefined") ? ELL_distWeightMode : "voll",
+    audioPath: audioPath,
     timestamp: ts
   };
 }
@@ -1270,7 +1291,8 @@ function ell_recBal() {
   if (!ELL_testAct || ELL_testIdx >= ELL_testPairs.length) return;
   // BA 247: ELL_curBase ist immer 0.
   const a = ELL_curA, b = ELL_curB, tot = _ell_sliderVal();
-  const ne = { a, b, offset: tot, timestamp: Date.now() };
+  const ne = { a, b, offset: tot, timestamp: Date.now(),
+               audiopathID: (typeof AWG_activeId !== "undefined") ? AWG_activeId : 0 };
   const ei = ELL_results.findIndex((x) => (x.a === a && x.b === b) || (x.a === b && x.b === a));
   if (ei >= 0) {
     undoSt.push({ t: "b", a: "r", e: ne, p: { ...ELL_results[ei] } });
@@ -1589,15 +1611,26 @@ document.addEventListener("DOMContentLoaded", function() {
         body: _ell_body(),
         hooks: Object.assign({
           onStart: function() {
-            // BA 255: Seitenabfrage vor eigentlichem Start.
-            testUI.sideCheck.run(
-              { sides: 'one', side: activeSide },
+            // Audioweg-Bestaetigung VOR der Sitz-Pruefung (nur warnen,
+            // Fortfahren immer erlaubt). Bei "Weiter" folgt die Sitz-Pruefung.
+            var _sideCheckThen = function() {
+              testUI.sideCheck.run(
+                { sides: 'one', side: activeSide },
+                function() {
+                  ELL_setActiveVerfahren('full');
+                  startTestFull();
+                },
+                function() {
+                  // Abbruch: testUI stoppt sich selbst, hier nichts weiter zu tun.
+                  if (ELL_testEls && ELL_testEls._stopTest) ELL_testEls._stopTest();
+                }
+              );
+            };
+            testUI.audioPathCheck.run(
+              { sides: 'one', side: activeSide, results: ELL_results },
+              _sideCheckThen,
               function() {
-                ELL_setActiveVerfahren('full');
-                startTestFull();
-              },
-              function() {
-                // Abbruch: testUI stoppt sich selbst, hier nichts weiter zu tun.
+                // Abbruch in der Audioweg-Box: Test gar nicht erst starten.
                 if (ELL_testEls && ELL_testEls._stopTest) ELL_testEls._stopTest();
               }
             );
@@ -1611,14 +1644,25 @@ document.addEventListener("DOMContentLoaded", function() {
         body: _ell_body(),
         hooks: Object.assign({
           onStart: function() {
-            // BA 255: Seitenabfrage vor eigentlichem Start.
-            testUI.sideCheck.run(
-              { sides: 'one', side: activeSide },
+            // Audioweg-Bestaetigung VOR der Sitz-Pruefung (nur warnen,
+            // Fortfahren immer erlaubt). Bei "Weiter" folgt die Sitz-Pruefung.
+            var _sideCheckThenConv = function() {
+              testUI.sideCheck.run(
+                { sides: 'one', side: activeSide },
+                function() {
+                  ELL_setActiveVerfahren('conv');
+                  startTestConv();
+                },
+                function() {
+                  if (ELL_testEls && ELL_testEls._stopTest) ELL_testEls._stopTest();
+                }
+              );
+            };
+            testUI.audioPathCheck.run(
+              { sides: 'one', side: activeSide, results: ELL_results },
+              _sideCheckThenConv,
               function() {
-                ELL_setActiveVerfahren('conv');
-                startTestConv();
-              },
-              function() {
+                // Abbruch in der Audioweg-Box: Test gar nicht erst starten.
                 if (ELL_testEls && ELL_testEls._stopTest) ELL_testEls._stopTest();
               }
             );
