@@ -322,9 +322,32 @@ function frq_startPiano() {
     alert((typeof t === 'function' && t('FRQ_noActiveEl')) || 'Keine aktiven Elektroden.');
     FRQ_els._stopTest(); return;
   }
-  testUI.sideCheck.run(
-    { sides: 'both' },
-    _frq_doStartPiano,
+  var _sideCheckThen = function() {
+    testUI.sideCheck.run(
+      { sides: 'both' },
+      _frq_doStartPiano,
+      function() { if (FRQ_els) FRQ_els._stopTest(); }
+    );
+  };
+  testUI.audioPathCheck.run(
+    { sides: 'both',
+      measuredPathIds: function (side) {
+        // Je Seite die bisher gemessenen Wege aus ALLEN Verlaufs-Eintraegen
+        // aller Elektroden der aktuellen Sitzung, in Verlaufsreihenfolge.
+        var fp = _frq_pianoData();
+        if (!fp || !fp.perElectrode) return [];
+        var field = (side === "left") ? "audiopathL" : "audiopathR";
+        var ids = [];
+        Object.keys(fp.perElectrode).forEach(function (elKey) {
+          var pe = fp.perElectrode[elKey];
+          var v = (pe && Array.isArray(pe.verlauf)) ? pe.verlauf : [];
+          v.forEach(function (e) {
+            if (e && e[field] != null) ids.push(e[field]);
+          });
+        });
+        return ids;
+      } },
+    _sideCheckThen,
     function() { if (FRQ_els) FRQ_els._stopTest(); }
   );
 }
@@ -396,6 +419,14 @@ function _frq_pianoPrevBorder(elIdx, border, dg) {
   return val;
 }
 
+// Aktiver Audioweg (Katalog-id) einer Seite zum aktuellen Zeitpunkt.
+// 0 = "(keine Angabe)". Eigener kleiner Helfer, weil FRQ die Wege je
+// Grenz-Bestaetigung aus BEIDEN Seiten braucht (beidseitiger Test).
+function _frq_activePathId(side) {
+  return (typeof sideData !== "undefined" && sideData[side]
+          && sideData[side].AWG_activeId != null) ? sideData[side].AWG_activeId : 0;
+}
+
 // EINZIGE Schreibstelle. Schreibt in den aktiven Runden-Eintrag des
 // laufenden Durchlaufs; existiert keiner, wird er angelegt.
 function _frq_pianoSetBorder(elIdx, step, border, cent, dg) {
@@ -412,7 +443,9 @@ function _frq_pianoSetBorder(elIdx, step, border, cent, dg) {
         && (v[last].lower == null || v[last].upper == null)) {
       idx = last;
     } else {
-      v.push({ step: step, lower: null, upper: null, durchgang: dg });
+      v.push({ step: step, lower: null, upper: null, durchgang: dg,
+               audiopathL: _frq_activePathId("left"),
+               audiopathR: _frq_activePathId("right") });
       idx = v.length - 1;
     }
     if (run) {
@@ -421,6 +454,11 @@ function _frq_pianoSetBorder(elIdx, step, border, cent, dg) {
     }
   }
   v[idx][border] = cent;
+  // Weg-Paar der aktiven Seiten zum Bestaetigungs-Zeitpunkt festhalten
+  // (ueberschreibt mit dem aktuell gueltigen Paar; der zuletzt gesetzte
+  // Wert gilt fuer diesen Verlaufs-Eintrag).
+  v[idx].audiopathL = _frq_activePathId("left");
+  v[idx].audiopathR = _frq_activePathId("right");
 }
 
 // Vollstaendige Runden (beide Grenzen) einer Sitzung, chronologisch.
@@ -750,6 +788,24 @@ function _frq_pianoFinish() {
   if (FRQ_els && typeof FRQ_els._stopTest === 'function') FRQ_els._stopTest();
 }
 
+// Verdichtet die Audioweg-ids EINER Seite ueber die Verlaufs-Eintraege
+// einer Elektrode zu konkret | "gemischt" | null (keine). Liest nur den
+// persistierten Verlauf (ladefest), nicht die fluechtige aktive Auswahl.
+function _frq_audioPathSide(elIdx, side) {
+  var fp = _frq_pianoData();
+  var pe = fp && fp.perElectrode && fp.perElectrode[elIdx];
+  var v  = (pe && Array.isArray(pe.verlauf)) ? pe.verlauf : [];
+  var field = (side === "left") ? "audiopathL" : "audiopathR";
+  var seen = null, mixed = false, any = false;
+  for (var i = 0; i < v.length; i++) {
+    if (!v[i]) continue;
+    var pid = (v[i][field] != null) ? v[i][field] : 0;
+    if (!any) { seen = pid; any = true; }
+    else if (pid !== seen) { mixed = true; }
+  }
+  return !any ? null : (mixed ? "gemischt" : seen);
+}
+
 // B1: Klavier-Ergebnisse aus dem Roh-Speicher nach FRQ_resultsArray (live).
 // Ergebnis je Elektrode = Mittelwert der feinsten Runde mit BEIDEN Grenzen.
 // (Plausibilitaets-Ausschluss kommt in B2.)
@@ -793,7 +849,9 @@ function _frq_pianoWriteResults() {
       fmStatus:   pStatus,
       residDown:  residDown,
       residUp:    residUp,
-      restspanne: restspanne
+      restspanne: restspanne,
+      audioPath:  { left:  _frq_audioPathSide(elIdx, "left"),
+                    right: _frq_audioPathSide(elIdx, "right") }
     };
     FRQ_resultsArray.push(entry);
   });
