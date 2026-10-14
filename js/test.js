@@ -1627,7 +1627,13 @@ document.addEventListener("DOMContentLoaded", function() {
               );
             };
             testUI.audioPathCheck.run(
-              { sides: 'one', side: activeSide, results: ELL_results },
+              { sides: 'one', side: activeSide,
+                measuredPathIds: function (side) {
+                  // ELL ist einseitig: alle ELL_results gehoeren zur aktiven Seite.
+                  return (ELL_results || []).map(function (r) {
+                    return (r && r.audiopathID != null) ? r.audiopathID : 0;
+                  });
+                } },
               _sideCheckThen,
               function() {
                 // Abbruch in der Audioweg-Box: Test gar nicht erst starten.
@@ -1659,7 +1665,13 @@ document.addEventListener("DOMContentLoaded", function() {
               );
             };
             testUI.audioPathCheck.run(
-              { sides: 'one', side: activeSide, results: ELL_results },
+              { sides: 'one', side: activeSide,
+                measuredPathIds: function (side) {
+                  // ELL ist einseitig: alle ELL_results gehoeren zur aktiven Seite.
+                  return (ELL_results || []).map(function (r) {
+                    return (r && r.audiopathID != null) ? r.audiopathID : 0;
+                  });
+                } },
               _sideCheckThenConv,
               function() {
                 // Abbruch in der Audioweg-Box: Test gar nicht erst starten.

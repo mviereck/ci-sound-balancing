@@ -26,6 +26,10 @@ var SAVE_SCHEMA = [
     get: function () { return (typeof STB_results !== "undefined" ? STB_results : {}); },
     set: function (v) { if (typeof STB_results !== "undefined" && v) { Object.keys(STB_results).forEach(function (k) { delete STB_results[k]; }); Object.assign(STB_results, v); } },
     default: function () { return {}; }, valid: { type: "object" } },
+  { key: "STB_resultsPath", scope: "global",
+    get: function () { return (typeof STB_resultsPath !== "undefined" ? STB_resultsPath : {}); },
+    set: function (v) { if (typeof STB_resultsPath !== "undefined" && v) { Object.keys(STB_resultsPath).forEach(function (k) { delete STB_resultsPath[k]; }); Object.assign(STB_resultsPath, v); } },
+    default: function () { return {}; }, valid: { type: "object" } },
   // Mittelungs-Verfahren der STB-Auswertung (mean/median).
   { key: "STB_avgMode", scope: "global",
     get: function () { return (typeof STB_avgMode !== "undefined" ? STB_avgMode : "mean"); },

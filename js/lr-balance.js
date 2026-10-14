@@ -4,6 +4,7 @@
 
 // State
 let STB_results = {}; // {elIdx: offset_dB}  Ausgleichs-Korrektur: negativ = rechts war lauter
+let STB_resultsPath = {};  // {elIdx: {left, right}} — aktiver Audioweg beider Seiten je Einzelmessung (Mess-Kontext)
 let stb_seq = []; // sequence of electrode indices to test
 let stb_seqIdx = 0;
 let stb_currentEl = null; // current electrode index (left side numbering)
@@ -333,8 +334,12 @@ function stb_confirm() {
   const el = stb_currentEl;
   const val = _lrSliderVal();
   // Save undo
-  stb_undoStack.push({ el, prev: STB_results[el] });
+  stb_undoStack.push({ el, prev: STB_results[el], prevPath: STB_resultsPath[el] });
   STB_results[el] = val;
+  STB_resultsPath[el] = {
+    left:  (typeof sideData !== "undefined" && sideData.left  && sideData.left.AWG_activeId  != null) ? sideData.left.AWG_activeId  : 0,
+    right: (typeof sideData !== "undefined" && sideData.right && sideData.right.AWG_activeId != null) ? sideData.right.AWG_activeId : 0
+  };
   stb_seqIdx++;
   STB_writeEval();   // Auswertung aus aktuellen STB_results neu schreiben
   STB_renderResults();
@@ -345,9 +350,11 @@ function stb_confirm() {
 function stb_undo() {
   if (!stb_undoStack.length) return;
   stb_stopPlay();
-  const { el, prev } = stb_undoStack.pop();
+  const { el, prev, prevPath } = stb_undoStack.pop();
   if (prev === undefined) delete STB_results[el];
   else STB_results[el] = prev;
+  if (prevPath === undefined) delete STB_resultsPath[el];
+  else STB_resultsPath[el] = prevPath;
   stb_seqIdx = Math.max(0, stb_seqIdx - 1);
   STB_writeEval();   // Auswertung aus aktuellen STB_results neu schreiben
   STB_renderResults();
@@ -755,15 +762,29 @@ function STB_checkData() {
 // ---- BA 245: testUI-Hooks ----
 
 function stb_hookOnStart() {
-  // BA 255: Seitenabfrage vor eigentlichem Start.
-  testUI.sideCheck.run(
-    { sides: 'both' },
-    function() {
-      _lrDoStart();
-    },
-    function() {
-      if (STB_els && STB_els._stopTest) STB_els._stopTest();
-    }
+  var _sideCheckThen = function() {
+    testUI.sideCheck.run(
+      { sides: 'both' },
+      function() { _lrDoStart(); },
+      function() { if (STB_els && STB_els._stopTest) STB_els._stopTest(); }
+    );
+  };
+  testUI.audioPathCheck.run(
+    { sides: 'both',
+      measuredPathIds: function (side) {
+        // Je Seite die bisher gemessenen Wege aus der Parallel-Tabelle,
+        // in Elektroden-Reihenfolge (zuletzt = hoechster Elektroden-Key
+        // genuegt fuer "zuletzt gemessen"; Messreihenfolge ist bei STB
+        // nicht persistiert, daher Key-Reihenfolge).
+        if (typeof STB_resultsPath === "undefined") return [];
+        return Object.keys(STB_resultsPath).map(Number).sort(function (a,b){return a-b;})
+          .map(function (el) {
+            var pair = STB_resultsPath[el];
+            return (pair && pair[side] != null) ? pair[side] : 0;
+          });
+      } },
+    _sideCheckThen,
+    function() { if (STB_els && STB_els._stopTest) STB_els._stopTest(); }
   );
 }
 
@@ -1095,6 +1116,7 @@ document.addEventListener("DOMContentLoaded", function() {
     STB_clearBtn.addEventListener('click', function() {
       if (!confirm(t("stb_clearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
       STB_results = {};
+      Object.keys(STB_resultsPath).forEach(function (k) { delete STB_resultsPath[k]; });
       STB_eval = null;   // keine Messung mehr -> Auswertung leeren
       STB_evalSelectedEls = null;   // BA661: Auswertungsauswahl zuruecksetzen
       STB_resetSequence();

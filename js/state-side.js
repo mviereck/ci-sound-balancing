@@ -374,10 +374,48 @@ function STB_meanRaw(mode) {
 // Analog _frq_pianoWriteResults: rechnet aus den Rohwerten, legt beide
 // Verfahren ab. Keine gueltige Messung -> STB_eval = null (nicht gemessen).
 // Aufrufer: stb_confirm, STB_finish, Laden (lr-balance.js / save-schema.js).
+// Verdichtet je Seite die Audioweg-IDs der gemessenen Elektroden zu
+// konkret | "gemischt" | null (nichts gemessen). Nutzt dieselbe
+// Elektroden-Teilmenge wie die Wert-Verdichtung (STB_meanRaw-Filter).
+function _STB_audioPathSide(side, keys) {
+  var seen = null, mixed = false, any = false;
+  for (var i = 0; i < keys.length; i++) {
+    var pair = (typeof STB_resultsPath !== "undefined") ? STB_resultsPath[keys[i]] : null;
+    var pid = (pair && pair[side] != null) ? pair[side] : 0;
+    if (!any) { seen = pid; any = true; }
+    else if (pid !== seen) { mixed = true; }
+  }
+  return !any ? null : (mixed ? "gemischt" : seen);
+}
+
+// Dieselbe Elektroden-Teilmenge wie STB_meanRaw (endlich, nicht
+// ausgeschlossen/stumm, in der Auswertungs-Auswahl). EINE Quelle.
+function _STB_evalKeys() {
+  if (typeof STB_results === "undefined") return [];
+  var _selSet = (typeof STB_evalSelectedEls !== "undefined"
+                 && STB_evalSelectedEls && STB_evalSelectedEls.length)
+                ? new Set(STB_evalSelectedEls) : null;
+  return Object.keys(STB_results).map(Number).filter(function (i) {
+    if (!isFinite(STB_results[i])) return false;
+    if (_selSet && !_selSet.has(i)) return false;
+    var exL = sideData.left.elExDur[i]  !== null || sideData.left.elSt[i]  === "mute";
+    var exR = sideData.right.elExDur[i] !== null || sideData.right.elSt[i] === "mute";
+    return !(exL || exR);
+  });
+}
+
 function STB_writeEval() {
   var m  = STB_meanRaw("mean");
   if (m === null) { STB_eval = null; return; }
-  STB_eval = { mean: m, median: STB_meanRaw("median") };
+  var keys = _STB_evalKeys();
+  STB_eval = {
+    mean: m,
+    median: STB_meanRaw("median"),
+    audioPath: {
+      left:  _STB_audioPathSide("left",  keys),
+      right: _STB_audioPathSide("right", keys)
+    }
+  };
 }
 
 // Zentraler Leser fuer alle Konsumenten: der nach STB_avgMode gewaehlte

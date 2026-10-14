@@ -2744,7 +2744,8 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
     cfg = cfg || {};
     var sides = (cfg.sides === 'both') ? ['left', 'right']
               : [ (cfg.side === 'right') ? 'right' : 'left' ];
-    var results = Array.isArray(cfg.results) ? cfg.results : [];
+    var getPathIds = (typeof cfg.measuredPathIds === "function")
+      ? cfg.measuredPathIds : function () { return []; };
 
     // Zeile je Seite: "LINKS: <Weg>".
     _apEls.pathList.innerHTML = "";
@@ -2769,16 +2770,15 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
     //   - alle Schritte gleicher Weg == aktuell eingestellt -> kein Hinweis
     //   - alle Schritte gleicher Weg != aktuell  -> "abweichend" (+ voriger Weg)
     //   - Schritte mit mehreren Wegen            -> "bereits gemischt" (+ zuletzt gemessener Weg)
-    // Bei ELL (einseitig) gehoeren alle results zur geprueften Seite.
     sides.forEach(function (side) {
       var cur = _apSideActiveId(side);
+      var ids = getPathIds(side) || [];
       var seen = null, mixedPrev = false, any = false, lastId = 0;
-      results.forEach(function (r) {
-        if (!r) return;
-        var pid = (r.audiopathID != null) ? r.audiopathID : 0;
+      ids.forEach(function (pid0) {
+        var pid = (pid0 != null) ? pid0 : 0;
         if (!any) { seen = pid; any = true; }
         else if (pid !== seen) { mixedPrev = true; }
-        lastId = pid;   // results sind in Messreihenfolge; letzter = zuletzt gemessen
+        lastId = pid;   // in Messreihenfolge -> letzter = zuletzt gemessen
       });
       if (!any) return;                       // noch nichts gemessen
       if (mixedPrev) {
