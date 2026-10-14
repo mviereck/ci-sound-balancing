@@ -2,6 +2,13 @@
 // I18N — ENGLISH
 // ============================================================
 Object.assign(L.en, {
+    AWG_selectLabel: "Audio path:",
+    AWGchk_title: "Please check that the configured transmission paths are correct. They can be set at the top via the LEFT and RIGHT buttons.",
+    AWGchk_proceed: "Continue",
+    AWGchk_warnNone: "No transmission path is specified for at least one side (“not specified”).",
+    AWGchk_warnDeviates: "So far measured consistently with: {path}. The now deviating setting leads to mixed results.",
+    AWGchk_warnAlreadyMixed: "The existing measurement already contains mixed transmission paths. Last measured with: {path}.",
+    AWGchk_pleaseCheck: "Please check the setting.",
     AWG_none: "(not specified)",
     AWG_optNew: "New entry…",
     AWG_addTitle: "Describe audio path",

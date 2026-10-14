@@ -2,6 +2,13 @@
 // I18N — FRANÇAIS
 // ============================================================
 Object.assign(L.fr, {
+    AWG_selectLabel: "Trajet audio :",
+    AWGchk_title: "Veuillez vérifier que les trajets de transmission réglés sont corrects. Ils se règlent en haut via les boutons GAUCHE et DROITE.",
+    AWGchk_proceed: "Continuer",
+    AWGchk_warnNone: "Aucun trajet de transmission n’est indiqué pour au moins un côté (« non précisé »).",
+    AWGchk_warnDeviates: "Jusqu’ici mesuré de façon homogène avec : {path}. Le réglage désormais différent entraîne des résultats mixtes.",
+    AWGchk_warnAlreadyMixed: "La mesure existante contient déjà des trajets de transmission mixtes. Dernière mesure avec : {path}.",
+    AWGchk_pleaseCheck: "Veuillez vérifier le réglage.",
     AWG_none: "(non précisé)",
     AWG_optNew: "Nouvelle entrée…",
     AWG_addTitle: "Décrire le trajet audio",

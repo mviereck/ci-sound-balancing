@@ -2,6 +2,13 @@
 // I18N — ESPAÑOL
 // ============================================================
 Object.assign(L.es, {
+    AWG_selectLabel: "Ruta de audio:",
+    AWGchk_title: "Compruebe que las rutas de transmisión configuradas son correctas. Se ajustan arriba con los botones IZQUIERDA y DERECHA.",
+    AWGchk_proceed: "Continuar",
+    AWGchk_warnNone: "No se ha indicado ninguna ruta de transmisión para al menos un lado (“sin especificar”).",
+    AWGchk_warnDeviates: "Hasta ahora medido de forma homogénea con: {path}. El ajuste ahora distinto produce resultados mixtos.",
+    AWGchk_warnAlreadyMixed: "La medición existente ya contiene rutas de transmisión mixtas. Última medición con: {path}.",
+    AWGchk_pleaseCheck: "Compruebe el ajuste.",
     AWG_none: "(sin especificar)",
     AWG_optNew: "Nueva entrada…",
     AWG_addTitle: "Describir la ruta de audio",
