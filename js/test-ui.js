@@ -2701,6 +2701,11 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
 
   function _apT(key) { return (typeof t === 'function' && t(key)) || key; }
 
+  // Text mit {path}-Platzhalter, ersetzt durch ein Weg-Label.
+  function _apFmt(key, pathLabel) {
+    return _apT(key).replace('{path}', pathLabel);
+  }
+
   function _apInitDom() {
     if (_apEls) return;
     var overlay = _mkEl('div', 'modal-overlay ap-modal');
@@ -2751,32 +2756,49 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
       _apEls.pathList.appendChild(row);
     });
 
-    // Warnbedingungen.
+    // Warnbedingungen. "Bitte pruefen" erscheint IMMER (AWGchk_pleaseCheck);
+    // dazu je nach bisherigem Messzustand ein spezifischer Hinweis.
     var warnings = [];
+
+    // (1) Fehlender Weg (unabhaengig, kann mit (2) zusammen erscheinen).
     var anyNone = sides.some(function (side) { return _apSideActiveId(side) === 0; });
     if (anyNone) warnings.push(_apT('AWGchk_warnNone'));
 
-    var mixed = sides.some(function (side) {
+    // (2) Vergleich mit den bisherigen Mess-Schritten. Analyse der Roh-Wege:
+    //   - keine Schritte            -> kein Hinweis
+    //   - alle Schritte gleicher Weg == aktuell eingestellt -> kein Hinweis
+    //   - alle Schritte gleicher Weg != aktuell  -> "abweichend" (+ voriger Weg)
+    //   - Schritte mit mehreren Wegen            -> "bereits gemischt" (+ zuletzt gemessener Weg)
+    // Bei ELL (einseitig) gehoeren alle results zur geprueften Seite.
+    sides.forEach(function (side) {
       var cur = _apSideActiveId(side);
-      // Nur Schritte, die zu DIESER Seite gehoeren. Bei ELL (einseitig)
-      // gehoeren alle results zur geprueften Seite; die Weg-Zuordnung je
-      // Schritt steckt in audiopathID. Vergleich: weicht irgendein Schritt
-      // vom aktuell eingestellten Weg ab?
-      return results.some(function (r) {
-        if (!r) return false;
+      var seen = null, mixedPrev = false, any = false, lastId = 0;
+      results.forEach(function (r) {
+        if (!r) return;
         var pid = (r.audiopathID != null) ? r.audiopathID : 0;
-        return pid !== cur;
+        if (!any) { seen = pid; any = true; }
+        else if (pid !== seen) { mixedPrev = true; }
+        lastId = pid;   // results sind in Messreihenfolge; letzter = zuletzt gemessen
       });
+      if (!any) return;                       // noch nichts gemessen
+      if (mixedPrev) {
+        warnings.push(_apFmt('AWGchk_warnAlreadyMixed', AWG_label(lastId)));
+      } else if (seen !== cur) {
+        warnings.push(_apFmt('AWGchk_warnDeviates', AWG_label(seen)));
+      }
+      // seen === cur: einheitlich und passend -> kein Zusatzhinweis.
     });
-    if (results.length && mixed) warnings.push(_apT('AWGchk_warnMixed'));
 
-    if (warnings.length) {
-      _apEls.warnEl.textContent = warnings.join("  ");
-      _apEls.warnEl.style.display = "";
-    } else {
-      _apEls.warnEl.textContent = "";
-      _apEls.warnEl.style.display = "none";
-    }
+    // Bitte-um-Pruefung immer ans Ende.
+    warnings.push(_apT('AWGchk_pleaseCheck'));
+
+    // Je Hinweis eine Zeile (die "Bitte pruefen"-Zeile steht immer dabei).
+    _apEls.warnEl.innerHTML = "";
+    warnings.forEach(function (w) {
+      var line = _mkEl('div');
+      line.textContent = w;
+      _apEls.warnEl.appendChild(line);
+    });
 
     function _close() { _apEls.overlay.classList.remove('active'); }
     _apEls.btnProceed.onclick = function () { _close(); if (onProceed) onProceed(); };

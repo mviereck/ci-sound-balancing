@@ -90,6 +90,12 @@ h1 {
   align-items: center;
   gap: 10px;
 }
+.awg-select-label {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-size: 0.95em;
+  color: var(--text);
+}
 .awg-select {
   flex: 1;
   min-width: 180px;
