@@ -2770,6 +2770,10 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
     //   - alle Schritte gleicher Weg == aktuell eingestellt -> kein Hinweis
     //   - alle Schritte gleicher Weg != aktuell  -> "abweichend" (+ voriger Weg)
     //   - Schritte mit mehreren Wegen            -> "bereits gemischt" (+ zuletzt gemessener Weg)
+    // Bei zwei geprueften Seiten jeder seitenbezogenen Warnung die Seite
+    // voranstellen ("LINKS: ..."), sonst waeren zwei gleichartige Zeilen
+    // nicht auseinanderzuhalten. Bei nur einer Seite kein Praefix.
+    var sidePrefix = (sides.length > 1);
     sides.forEach(function (side) {
       var cur = _apSideActiveId(side);
       var ids = getPathIds(side) || [];
@@ -2781,10 +2785,11 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
         lastId = pid;   // in Messreihenfolge -> letzter = zuletzt gemessen
       });
       if (!any) return;                       // noch nichts gemessen
+      var pre = sidePrefix ? (_apSideLabel(side) + ": ") : "";
       if (mixedPrev) {
-        warnings.push(_apFmt('AWGchk_warnAlreadyMixed', AWG_label(lastId)));
+        warnings.push(pre + _apFmt('AWGchk_warnAlreadyMixed', AWG_label(lastId)));
       } else if (seen !== cur) {
-        warnings.push(_apFmt('AWGchk_warnDeviates', AWG_label(seen)));
+        warnings.push(pre + _apFmt('AWGchk_warnDeviates', AWG_label(seen)));
       }
       // seen === cur: einheitlich und passend -> kein Zusatzhinweis.
     });
