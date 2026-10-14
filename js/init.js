@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (cl) plContentLang = cl;
     } catch (e) {}
   }
+  if (typeof AWG_init === "function") AWG_init();
   applyLang();
   updSideButtons();
   ELL_updFClearBtn();
@@ -29,6 +30,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const _nd = document.getElementById("FRQ_resultsNoDataText");
   if (_nd) _nd.textContent = t("FRQ_resultsNoData");
   document.getElementById("langSelect").addEventListener("change", () => window.applyLang());
+
+  // BA663: Audioweg-Dropdowns
+  var awgL = document.getElementById("awgSelectLeft");
+  var awgR = document.getElementById("awgSelectRight");
+  if (awgL) awgL.addEventListener("change", function () { AWG_onSelectChange("left", this.value); });
+  if (awgR) awgR.addEventListener("change", function () { AWG_onSelectChange("right", this.value); });
+  if (typeof AWG_renderSelects === "function") AWG_renderSelects();
+
+  // BA663: Audioweg-Dialog-Buttons
+  var awgAddSave   = document.getElementById("awgAddSave");
+  var awgAddCancel = document.getElementById("awgAddCancel");
+  var awgManageOpen  = document.getElementById("awgManageOpen");
+  var awgManageClose = document.getElementById("awgManageClose");
+  if (awgAddSave)   awgAddSave.addEventListener("click", function () { _awgAddConfirm(); });
+  if (awgAddCancel) awgAddCancel.addEventListener("click", function () {
+    _awgClose(document.getElementById("awgAddDialog"));
+    if (typeof AWG_renderSelects === "function") AWG_renderSelects();
+  });
+  if (awgManageOpen)  awgManageOpen.addEventListener("click", function () {
+    _awgClose(document.getElementById("awgAddDialog"));
+    AWG_openManageModal();
+  });
+  if (awgManageClose) awgManageClose.addEventListener("click", function () {
+    _awgClose(document.getElementById("awgManageDialog"));
+  });
+
   // toneHint-Texte: keine separaten Boxen mehr — in buildTestPanel-Erklärungsblock
   function updToneHint() {
     // Platzhalter — keine eigenständigen toneHintBoxen mehr

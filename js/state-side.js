@@ -13,6 +13,7 @@ let mfr,
   elExDur,
   schieberELL,
   ELL_refEl,
+  AWG_activeId,          // aktiver Audioweg der aktiven Seite (Spiegel von sideData[side].AWG_activeId)
   ELL_results,
   ELL_distWeightMode,
   config;
@@ -66,6 +67,7 @@ function bindActiveSide() {
   schieberELL = s.schieberELL;
   kurvenELL = s.kurvenELL;
   ELL_refEl = s.ELL_refEl;
+  AWG_activeId = (s.AWG_activeId != null) ? s.AWG_activeId : 0;
   ELL_results = s.ELL_results;
   ELL_distWeightMode = s.ELL_distWeightMode || "voll";
   // BA648: seitenabhaengige ELL-Testvorgaben spiegeln (Vorbild oben).
@@ -124,6 +126,17 @@ function setRefEl(v) {
   if (typeof ELL_renderResults === "function") ELL_renderResults();
   if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
   if (typeof pUpdEQ === "function") pUpdEQ();
+}
+// Einziger Schreibweg fuer den aktiven Audioweg EINER Seite. Wahrheit
+// seitenweise in sideData[side].AWG_activeId; der globale Spiegel
+// AWG_activeId gilt nur fuer die aktive Seite. Zieht die Dropdown-Anzeige
+// nach (AWG_renderSelects, Abschnitt 4).
+function AWG_setActive(side, id) {
+  if (side !== "left" && side !== "right") return;
+  if (sideData[side]) sideData[side].AWG_activeId = id;
+  if (side === activeSide) AWG_activeId = id;
+  if (typeof AWG_renderSelects === "function") AWG_renderSelects();
+  if (typeof _autoSaveState === "function") _autoSaveState();
 }
 // Baut das vollständige ctx-Objekt einer Seite für die parametrisierten
 // ELL-Funktionen (ELL_compWLS, drawBarGraph, ELL_testData). side:
@@ -268,6 +281,7 @@ function setActiveSide(side) {
   if (typeof window.zaRedraw === "function") window.zaRedraw();
   buildImplantCard();
   updSideButtons();
+  if (typeof AWG_renderSelects === "function") AWG_renderSelects();
   ELL_updFClearBtn();
   // BA648: ELL-Auswahl ist jetzt seitenabhaengig -> Header-Zusammenfassung
   // "m von n gewaehlt" auf die neue Seite nachziehen.

@@ -54,6 +54,22 @@ var SAVE_SCHEMA = [
     set: function (v) { SNR_resultBoth = (v && typeof v === "object") ? v : null; },
     default: null, valid: { type: "any" } },
 
+  // --- Audioweg-Katalog (Mess-Kontext) ---
+  // Seitenloser gemeinsamer Katalog + fortlaufende ID-Vergabe.
+  { key: "AWG_catalog", scope: "global",
+    get: function () { return (typeof AWG_catalog !== "undefined" ? AWG_catalog : []); },
+    set: function (v) {
+      if (typeof AWG_catalog === "undefined") return;
+      AWG_catalog = Array.isArray(v) ? v.slice() : [];
+      if (typeof AWG_init === "function") AWG_init();   // leerer Stand -> ID 0 sichern
+    },
+    default: function () { return [{ id: 0, label: "", hidden: false }]; },
+    valid: { type: "array" } },
+  { key: "AWG_nextId", scope: "global",
+    get: function () { return (typeof AWG_nextId !== "undefined" ? AWG_nextId : 1); },
+    set: function (v) { if (typeof AWG_nextId !== "undefined" && typeof v === "number" && v >= 1) AWG_nextId = v; },
+    default: 1, valid: { type: "number", min: 1 } },
+
   // --- Latenz / Player-Anwendung ---
   { key: "LTZ_result", scope: "global",
     get: function () { return (typeof LTZ_result !== "undefined" ? LTZ_result : null); },
@@ -431,6 +447,11 @@ SAVE_SCHEMA.push(
       sideData[s].ELL_refEl = valid ? v : pickDefaultRefEl(s);
     },
     default: function () { return 0; } },
+  // Aktiver Audioweg je Seite (Katalog-id; 0 = "(keine Angabe)").
+  { key: "AWG_activeId", scope: "side",
+    get: function (s) { return (sideData[s].AWG_activeId != null) ? sideData[s].AWG_activeId : 0; },
+    set: function (v, s) { sideData[s].AWG_activeId = (typeof v === "number") ? v : 0; },
+    default: function () { return 0; } },
   { key: "ELL_distWeightMode", scope: "side",
     get: function (s) { return sideData[s].ELL_distWeightMode || "voll"; },
     set: function (v, s) {
@@ -743,6 +764,7 @@ function refreshAll() {
   if (typeof ELL_refreshToneTypeLabel === "function") ELL_refreshToneTypeLabel();
   if (typeof ELL_updFClearBtn === "function") ELL_updFClearBtn();
   if (typeof updSideButtons === "function") updSideButtons();
+  if (typeof AWG_renderSelects === "function") AWG_renderSelects();
   // Sperren zuletzt:
   if (typeof tabLockApply === "function") tabLockApply();
   if (typeof depLockApply === "function") depLockApply();

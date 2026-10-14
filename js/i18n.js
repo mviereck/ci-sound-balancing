@@ -108,6 +108,7 @@ function applyLang() {
   // BA389: Player-UI zentral spiegeln (ersetzt die Einzel-Refresher in
   // applyLang; deckt auch die in 2a entfernten Box-Updates ab).
   if (typeof plSyncUI === "function") plSyncUI();
+  if (typeof AWG_renderSelects === "function") AWG_renderSelects();
   try {
     localStorage.setItem("ci-lb-lang", lang);
   } catch (e) {}

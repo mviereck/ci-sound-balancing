@@ -137,7 +137,7 @@
         'js/mobile.js', 'js/touch-ctrl.js', 'js/i18n.js',
         'i18n/de.js', 'i18n/en.js', 'i18n/fr.js', 'i18n/es.js', 'i18n/langnames.js',
         'js/dependency-lock.js', 'js/info-icon.js',
-        'js/core.js', 'js/state-side.js', 'js/audio-source.js', 'assets/audio-embed/noises.js', 'js/richtone-profiles.js', 'js/citest-profiles.js', 'js/audio.js',
+        'js/core.js', 'js/audiopath.js', 'js/state-side.js', 'js/audio-source.js', 'assets/audio-embed/noises.js', 'js/richtone-profiles.js', 'js/citest-profiles.js', 'js/audio.js',
         'js/ui-implant.js', 'js/freq-table.js', 'js/data/implant-baender.js', 'js/data/cochlear-fats.js', 'js/implant-validate.js', 'js/tone-popup.js', 'js/sampler-keyboard.js', 'js/test-ui.js', 'js/test.js', 'js/freqmatch.js',
         'js/results.js', 'js/chart.js', 'js/save-schema.js', 'js/file.js', 'js/print.js', 'js/print-md.js', 'js/tab-print.js', 'js/tabs-eq.js', 'js/levels.js',
         'vendors/rubberband-wasm/dist/index.umd.min.js',
@@ -172,22 +172,28 @@
       <div class="brand-row">
         <img class="brand-logo" src="assets/images/CImbel_logo.png" width="150" height="150" alt="">
         <div class="side-switch">
-          <button
-            id="sideLeftBtn"
-            class="side-btn"
-            data-t="sideLeft"
-            onclick="setActiveSide('left')"
-          >
-            LINKS
-          </button>
-          <button
-            id="sideRightBtn"
-            class="side-btn"
-            data-t="sideRight"
-            onclick="setActiveSide('right')"
-          >
-            RECHTS
-          </button>
+          <div class="side-row">
+            <button
+              id="sideLeftBtn"
+              class="side-btn"
+              data-t="sideLeft"
+              onclick="setActiveSide('left')"
+            >
+              LINKS
+            </button>
+            <select id="awgSelectLeft" class="awg-select" aria-label="Audioweg links"></select>
+          </div>
+          <div class="side-row">
+            <button
+              id="sideRightBtn"
+              class="side-btn"
+              data-t="sideRight"
+              onclick="setActiveSide('right')"
+            >
+              RECHTS
+            </button>
+            <select id="awgSelectRight" class="awg-select" aria-label="Audioweg rechts"></select>
+          </div>
         </div>
       </div>
       <!-- hidden select kept for JS compatibility -->
@@ -2704,6 +2710,26 @@
         </div>
       </dialog>
     </div>
+
+  <dialog id="awgAddDialog" class="awg-dialog">
+    <h2 data-t="AWG_addTitle"></h2>
+    <p data-t="AWG_addExplain"></p>
+    <input type="text" id="awgAddInput" class="awg-input" data-t-placeholder="AWG_addPlaceholder">
+    <div class="awg-dialog-actions">
+      <button id="awgAddCancel" class="btn" data-t="cancel"></button>
+      <button id="awgManageOpen" class="btn" data-t="AWG_manageOpen"></button>
+      <button id="awgAddSave" class="btn btn-primary" data-t="AWG_addSave"></button>
+    </div>
+  </dialog>
+
+  <dialog id="awgManageDialog" class="awg-dialog">
+    <h2 data-t="AWG_manageTitle"></h2>
+    <p data-t="AWG_manageWarn" class="awg-warn"></p>
+    <div id="awgManageList" class="awg-manage-list"></div>
+    <div class="awg-dialog-actions">
+      <button id="awgManageClose" class="btn" data-t="close"></button>
+    </div>
+  </dialog>
 
     <div id="depLockPopup" hidden></div>
     <div id="infoIconPopup" hidden></div>
