@@ -136,6 +136,11 @@ function AWG_setActive(side, id) {
   if (sideData[side]) sideData[side].AWG_activeId = id;
   if (side === activeSide) AWG_activeId = id;
   if (typeof AWG_renderSelects === "function") AWG_renderSelects();
+  // Das aktuelle Weg-Paar hat sich evtl. geaendert -> die anzuwendende
+  // Latenz und der Latenz-Button-Zustand haengen daran. Neu anwenden +
+  // Button-Optik aktualisieren.
+  if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
+  if (typeof plUpdLatLock === "function") plUpdLatLock();
   if (typeof _autoSaveState === "function") _autoSaveState();
 }
 // Baut das vollständige ctx-Objekt einer Seite für die parametrisierten

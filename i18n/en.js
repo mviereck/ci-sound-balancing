@@ -1462,6 +1462,7 @@ Object.assign(L.en, {
     tabLockBodySideDeaf:
       "You have entered one side as deaf. This test compares both sides with each other; this is not feasible on a deaf side.",
     plLockHintSideDeaf: "Not available — side entered as deaf.",
+    plLatUnmeasuredHint: "⚠ Latency for the selected audio paths has not been measured yet.",
     plBalSuppressedTitle: "Not available when reducing electrode volume without considering both sides.",
 
     // BA 183: Update check banner

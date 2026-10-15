@@ -1698,13 +1698,26 @@ function plUpdLatLock() {
   const hint = document.getElementById("plLockHintLat");
   const deaf = (typeof evalDeafState === "function") ? evalDeafState() : { hasDeaf: false };
   plLatLocked = !!deaf.hasDeaf;
+  // Zweiter Zustand: zum aktuell eingestellten Weg-Paar gibt es noch keine
+  // Messung. NUR optisch (matt + Warndreieck), Klick bleibt wirksam ->
+  // NICHT ueber plLatLocked (das schluckt den Klick, nur fuer Taub).
+  // Taub hat Vorrang: ist eine Seite taub, zeigen wir den Taub-Hinweis.
+  var unmeasured = false;
+  if (!plLatLocked && typeof LTZ_currentEntry === "function") {
+    var _e = LTZ_currentEntry();
+    unmeasured = !(_e && isFinite(_e.valueMs));
+  }
   if (btn) {
-    btn.style.opacity = plLatLocked ? "var(--disabled-opacity)" : "";
+    var matt = plLatLocked || unmeasured;
+    btn.style.opacity = matt ? "var(--disabled-opacity)" : "";
     btn.style.cursor  = plLatLocked ? "not-allowed" : "";
   }
   if (hint) {
     if (plLatLocked) {
       hint.textContent = (typeof t === "function") ? t("plLockHintSideDeaf") : "Nicht verfügbar — Seite als taub eingetragen.";
+      hint.style.display = "inline";
+    } else if (unmeasured) {
+      hint.textContent = (typeof t === "function") ? t("plLatUnmeasuredHint") : "⚠ Latenz der eingestellten Audiowege wurde noch nicht gemessen.";
       hint.style.display = "inline";
     } else {
       hint.style.display = "none";

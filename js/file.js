@@ -149,7 +149,7 @@ function resetAll() {
     sideData[side].SNRtest_volume = 50;
   });
   // --- Latenz ---
-  if (typeof LTZ_result !== "undefined") LTZ_result = null;
+  if (typeof LTZ_result !== "undefined") LTZ_result = [];
   if (typeof SNR_resultBoth !== "undefined") SNR_resultBoth = null;   // BA662
   if (typeof ltz_clickType !== "undefined") ltz_clickType = "click";
   if (typeof ltz_intervalMs !== "undefined") ltz_intervalMs = 1000;

@@ -2,7 +2,7 @@
 // latency.js — Latenz-Messung (Inter-Ohr-Zeitversatz)
 // --------------------------------------------------------------------
 // Exportierte Globals:
-//   LTZ_result           {valueMs, timestamp} | null — reiner Ergebniswert
+//   LTZ_result           Array<{idL,idR,valueMs,timestamp}> — je Audioweg-Paar ein Versatz
 //   plApplyLatency          bool — im Player anwenden?
 //   ltz_sliderMs             aktuell vom UI gesetzter Wert (Live-Test)
 //   LTZ_active               Test läuft gerade?
@@ -24,7 +24,80 @@
 //   LTZ_initGraph(ctx)
 // ====================================================================
 
-let LTZ_result = null;      // {valueMs, timestamp} — reiner Ergebniswert
+// Sammlung gemessener Latenz-Versaetze, geschluesselt nach Audioweg-Paar.
+// Jeder Eintrag: { idL, idR, valueMs, timestamp }. idL/idR = die beim
+// Messen eingestellten Audioweg-IDs links/rechts (0 = "(keine Angabe)").
+// Schluessel ist das GEORDNETE Paar (idL, idR). Gleiches Paar erneut
+// gemessen -> ersetzt; neues Paar -> kommt dazu. Leere Sammlung = [].
+let LTZ_result = [];
+
+// --- Weg-Paar-Zugriff (zentral) --------------------------------------
+// Einzige Stelle, die das aktuell eingestellte Weg-Paar aufloest und in
+// LTZ_result sucht/schreibt. Alle Leser (Player, Startwert, Anzeige,
+// Ausdrucke) gehen hierdurch.
+
+// Das aktuell toolweit eingestellte Weg-Paar: BEIDE Seiten aus sideData
+// (nicht der globale Spiegel AWG_activeId — der gilt nur fuer die aktive
+// Seite; wir brauchen links UND rechts). Fehlt etwas -> 0.
+function LTZ_currentPair() {
+  var l = 0, r = 0;
+  if (typeof sideData !== "undefined" && sideData) {
+    if (sideData.left  && sideData.left.AWG_activeId  != null) l = sideData.left.AWG_activeId;
+    if (sideData.right && sideData.right.AWG_activeId != null) r = sideData.right.AWG_activeId;
+  }
+  return { idL: l, idR: r };
+}
+
+// Eintrag zum gegebenen Paar finden (oder null). Geordneter Vergleich.
+function LTZ_entryForPair(idL, idR) {
+  if (!Array.isArray(LTZ_result)) return null;
+  for (var i = 0; i < LTZ_result.length; i++) {
+    var e = LTZ_result[i];
+    if (e && e.idL === idL && e.idR === idR) return e;
+  }
+  return null;
+}
+
+// Eintrag zum AKTUELL eingestellten Paar (oder null).
+function LTZ_currentEntry() {
+  var p = LTZ_currentPair();
+  return LTZ_entryForPair(p.idL, p.idR);
+}
+
+// Versatz des aktuell eingestellten Paars schreiben: gleiches Paar ->
+// ersetzt (valueMs+timestamp), neues Paar -> kommt dazu. Einzige
+// Schreibstelle in die Sammlung ausser Migration/Reset.
+function LTZ_setCurrent(valueMs) {
+  if (!Array.isArray(LTZ_result)) LTZ_result = [];
+  var p = LTZ_currentPair();
+  var e = LTZ_entryForPair(p.idL, p.idR);
+  if (e) {
+    e.valueMs   = valueMs;
+    e.timestamp = Date.now();
+  } else {
+    LTZ_result.push({ idL: p.idL, idR: p.idR, valueMs: valueMs, timestamp: Date.now() });
+  }
+}
+
+// Migration eines Alt-Stands in die Sammlung. Nimmt beliebigen geladenen
+// Wert und liefert IMMER ein Array:
+//   - bereits Array -> unveraendert (ggf. unbrauchbare Eintraege gefiltert)
+//   - altes {valueMs,...}-Objekt -> ein Eintrag unter Paar (0,0)
+//   - null/leer/unbrauchbar -> []
+function LTZ_migrateResult(v) {
+  if (Array.isArray(v)) {
+    return v.filter(function (e) {
+      return e && typeof e.idL === "number" && typeof e.idR === "number"
+          && isFinite(e.valueMs);
+    });
+  }
+  if (v && typeof v === "object" && isFinite(v.valueMs)) {
+    return [{ idL: 0, idR: 0, valueMs: v.valueMs,
+              timestamp: (typeof v.timestamp === "number") ? v.timestamp : Date.now() }];
+  }
+  return [];
+}
+
 let plApplyLatency = true;     // analog plApplyBalance
 
 let ltz_sliderMs = 0;           // aktueller Schieber-Wert (Test-Live)
@@ -275,9 +348,10 @@ function ltz_setSliderMs(ms) {
 function getPlayerLTZMs() {
   if (typeof plEqOn !== "undefined" && !plEqOn) return 0;
   if (!plApplyLatency) return 0;
-  if (!LTZ_result || !isFinite(LTZ_result.valueMs)) return 0;
+  var e = LTZ_currentEntry();
+  if (!e || !isFinite(e.valueMs)) return 0;
   const nhSim = !!plNHSim;
-  return nhSim ? -LTZ_result.valueMs : LTZ_result.valueMs;
+  return nhSim ? -e.valueMs : e.valueMs;
 }
 
 // Setzt die Delays auf den gespeicherten LTZ_result-Wert, falls
@@ -449,8 +523,9 @@ function ltz_hookOnStart() {
     { sides: 'both' },
     function() {
       // Startwert: vorhandenes Ergebnis oder 0
-      const startMs = (LTZ_result && isFinite(LTZ_result.valueMs))
-        ? LTZ_result.valueMs : 0;
+      var _curEntry = LTZ_currentEntry();
+      const startMs = (_curEntry && isFinite(_curEntry.valueMs))
+        ? _curEntry.valueMs : 0;
       const slRef = LTZ_els.verfahren.latenz.slider;
       if (slRef) {
         testUI.slider.setValue(slRef, startMs);
@@ -496,10 +571,7 @@ function ltz_hookOnSlide(ms) {
 function ltz_hookOnApply() {
   // = "Offset bestaetigen": aktuellen Schieberwert speichern + Test beenden.
   // Nur der Ergebniswert; clickType/intervalMs (ltz_clickType/ltz_intervalMs) vom Ergebnis entkoppelt.
-  LTZ_result = {
-    valueMs:    ltz_sliderMs,
-    timestamp:  Date.now()
-  };
+  LTZ_setCurrent(ltz_sliderMs);
   LTZ_applyToPlayer();
   if (typeof LTZ_renderResults === 'function') LTZ_renderResults();
   if (typeof depLockApply === 'function') depLockApply();

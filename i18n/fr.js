@@ -1462,6 +1462,7 @@ Object.assign(L.fr, {
     tabLockBodySideDeaf:
       "Vous avez inscrit un côté comme sourd. Ce test compare les deux côtés entre eux ; cela n'est pas réalisable sur un côté sourd.",
     plLockHintSideDeaf: "Non disponible — côté inscrit comme sourd.",
+    plLatUnmeasuredHint: "⚠ La latence des trajets audio sélectionnés n’a pas encore été mesurée.",
     plBalSuppressedTitle: "Non disponible avec la réduction du volume des électrodes sans tenir compte des deux côtés.",
 
     // BA 183: Update-Check-Banner

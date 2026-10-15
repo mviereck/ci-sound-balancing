@@ -76,9 +76,12 @@ var SAVE_SCHEMA = [
 
   // --- Latenz / Player-Anwendung ---
   { key: "LTZ_result", scope: "global",
-    get: function () { return (typeof LTZ_result !== "undefined" ? LTZ_result : null); },
-    set: function (v) { if (typeof LTZ_result !== "undefined") LTZ_result = v || null; },
-    default: null },
+    get: function () { return (typeof LTZ_result !== "undefined" ? LTZ_result : []); },
+    set: function (v) {
+      if (typeof LTZ_result === "undefined") return;
+      LTZ_result = (typeof LTZ_migrateResult === "function") ? LTZ_migrateResult(v) : (Array.isArray(v) ? v : []);
+    },
+    default: [] },
   // Latenz-Testeinstellungen (clickType/intervalMs), vom Ergebnis entkoppelt.
   { key: "LTZtest_clickType", scope: "global",
     get: function () { return (typeof ltz_clickType !== "undefined" ? ltz_clickType : "click"); },

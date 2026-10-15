@@ -1749,6 +1749,7 @@ Object.assign(L.de, {
     tabLockBodySideDeaf:
       "Sie haben eine Seite als taub eingetragen. Dieser Test vergleicht beide Seiten miteinander; das ist auf einer tauben Seite nicht durchführbar.",
     plLockHintSideDeaf: "Nicht verfügbar — Seite als taub eingetragen.",
+    plLatUnmeasuredHint: "⚠ Latenz der eingestellten Audiowege wurde noch nicht gemessen.",
     plBalSuppressedTitle: "Nicht verfügbar mit Elektrodenlautstärke absenken, ohne beide Seiten zu berücksichtigen.",
 
     // BA 183: Update-Check-Banner
