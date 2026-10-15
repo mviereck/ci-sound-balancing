@@ -20,6 +20,7 @@
 //   AWG_add(label)              — neuen Eintrag anlegen, gibt dessen id zurueck
 //   AWG_rename(id, label)       — Beschreibungstext aendern (ID 0 unveraenderlich)
 //   AWG_hide(id)                — Eintrag ausblenden (ID 0 nicht ausblendbar)
+//   AWG_distribution(ids)      — Liste von ids -> Verteilung [{id,count}] (absteigend), null bei leer
 // ====================================================================
 
 // Reservierte ID des Default-Eintrags "(keine Angabe)". label wird
@@ -49,6 +50,32 @@ function AWG_label(id) {
     return (typeof t === "function") ? t("AWG_none") : "(keine Angabe)";
   }
   return e.label;
+}
+
+// Verdichtet eine Liste von Audioweg-ids (ein Eintrag je gewertetem
+// Meszschritt, Reihenfolge egal, ID 0 und null zaehlen als "(keine
+// Angabe)") zu einer Verteilung:
+//   [ { id, count }, ... ], absteigend nach count.
+// Leere Eingabe -> null (nichts gemessen). Das ersetzt die fruehere
+// skalare Verdichtung (id | "gemischt" | null); "gemischt" ist jetzt
+// einfach eine Liste mit mehr als einem Eintrag.
+// Einzige Stelle, die diese Verdichtung kennt -- alle vier Tests rufen sie.
+function AWG_distribution(ids) {
+  if (!Array.isArray(ids) || ids.length === 0) return null;
+  var counts = {};
+  for (var i = 0; i < ids.length; i++) {
+    var id = (ids[i] != null) ? ids[i] : 0;   // null/undefined -> ID 0
+    counts[id] = (counts[id] || 0) + 1;
+  }
+  var out = Object.keys(counts).map(function (k) {
+    return { id: parseInt(k, 10), count: counts[k] };
+  });
+  // Absteigend nach count; bei Gleichstand aufsteigend nach id (stabil,
+  // reproduzierbar).
+  out.sort(function (a, b) {
+    return (b.count - a.count) || (a.id - b.id);
+  });
+  return out;
 }
 
 function AWG_visibleEntries() {

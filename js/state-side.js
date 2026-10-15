@@ -380,17 +380,16 @@ function STB_meanRaw(mode) {
 // Verfahren ab. Keine gueltige Messung -> STB_eval = null (nicht gemessen).
 // Aufrufer: stb_confirm, STB_finish, Laden (lr-balance.js / save-schema.js).
 // Verdichtet je Seite die Audioweg-IDs der gemessenen Elektroden zu
-// konkret | "gemischt" | null (nichts gemessen). Nutzt dieselbe
+// einer Verteilung [{id,count}] | null. Nutzt dieselbe
 // Elektroden-Teilmenge wie die Wert-Verdichtung (STB_meanRaw-Filter).
 function _STB_audioPathSide(side, keys) {
-  var seen = null, mixed = false, any = false;
+  // BA673: Liste der ids je gewerteter Elektrode, dann zentral verdichten.
+  var ids = [];
   for (var i = 0; i < keys.length; i++) {
     var pair = (typeof STB_resultsPath !== "undefined") ? STB_resultsPath[keys[i]] : null;
-    var pid = (pair && pair[side] != null) ? pair[side] : 0;
-    if (!any) { seen = pid; any = true; }
-    else if (pid !== seen) { mixed = true; }
+    ids.push((pair && pair[side] != null) ? pair[side] : 0);
   }
-  return !any ? null : (mixed ? "gemischt" : seen);
+  return AWG_distribution(ids);   // [{id,count}] | null
 }
 
 // Dieselbe Elektroden-Teilmenge wie STB_meanRaw (endlich, nicht

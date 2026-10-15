@@ -666,15 +666,20 @@ function _snr_activePathId(side) {
   return (typeof sideData !== "undefined" && sideData[side]
           && sideData[side].AWG_activeId != null) ? sideData[side].AWG_activeId : 0;
 }
-// Eingefrorenes Weg-Objekt fuer das Ergebnis: beidseitig {left,right},
-// einseitig nur die getestete Seite ({left:...} ODER {right:...}).
+// Eingefrorenes Weg-Objekt fuer das Ergebnis: je Seite eine Verteilung
+// (BA673, wie die anderen Tests). SNR hat je Seite genau einen Durchgang,
+// also genau einen Eintrag count:1. Beidseitig {left,right}, einseitig nur
+// die getestete Seite ({left:...} ODER {right:...}).
 function _snr_frozenAudioPath() {
   if (snr_isBothEar()) {
-    return { left: _snr_activePathId("left"), right: _snr_activePathId("right") };
+    return {
+      left:  AWG_distribution([_snr_activePathId("left")]),
+      right: AWG_distribution([_snr_activePathId("right")])
+    };
   }
   var side = snr_currentSide();
   var o = {};
-  o[side] = _snr_activePathId(side);
+  o[side] = AWG_distribution([_snr_activePathId(side)]);
   return o;
 }
 

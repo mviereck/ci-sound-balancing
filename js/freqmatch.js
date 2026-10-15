@@ -789,21 +789,22 @@ function _frq_pianoFinish() {
 }
 
 // Verdichtet die Audioweg-ids EINER Seite ueber die Verlaufs-Eintraege
-// einer Elektrode zu konkret | "gemischt" | null (keine). Liest nur den
+// einer Elektrode zu einer Verteilung [{id,count}] | null. Liest nur den
 // persistierten Verlauf (ladefest), nicht die fluechtige aktive Auswahl.
 function _frq_audioPathSide(elIdx, side) {
+  // BA673: ids aus dem persistierten Verlauf dieser Elektrode, dann zentral
+  // verdichten. Pro Elektroden-Eintrag ein audioPath; die testweite
+  // Verdichtung ueber alle Elektroden macht erst die Anzeige.
   var fp = _frq_pianoData();
   var pe = fp && fp.perElectrode && fp.perElectrode[elIdx];
   var v  = (pe && Array.isArray(pe.verlauf)) ? pe.verlauf : [];
   var field = (side === "left") ? "audiopathL" : "audiopathR";
-  var seen = null, mixed = false, any = false;
+  var ids = [];
   for (var i = 0; i < v.length; i++) {
     if (!v[i]) continue;
-    var pid = (v[i][field] != null) ? v[i][field] : 0;
-    if (!any) { seen = pid; any = true; }
-    else if (pid !== seen) { mixed = true; }
+    ids.push((v[i][field] != null) ? v[i][field] : 0);
   }
-  return !any ? null : (mixed ? "gemischt" : seen);
+  return AWG_distribution(ids);   // [{id,count}] | null
 }
 
 // B1: Klavier-Ergebnisse aus dem Roh-Speicher nach FRQ_resultsArray (live).

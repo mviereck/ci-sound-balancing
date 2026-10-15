@@ -731,25 +731,19 @@ function ELL_writeEval(side) {
     if (typeof t0 === "number" && t0 > ts) ts = t0;
   }
 
-  // Audioweg-Verdichtung (Mess-Kontext): konkrete id, wenn ALLE gueltigen
-  // Mess-Schritte denselben Weg tragen; sonst "gemischt". null = keine
-  // gueltigen Mess-Schritte (nichts gemessen). Nur der Schreiber liest die
-  // Roh-Wege (Architektur persistierte-messauswertung §6).
-  var _awgSeen = null;        // erste gesehene id
-  var _awgMixed = false;
-  var _awgAny = false;
+  // Audioweg-Verteilung je gewertetem Meszschritt (BA673): Liste der ids,
+  // dann zentral verdichten. ELL ist einseitig -> flache Verteilung der
+  // getesteten (aktiven) Seite, kein {left,right}-Wrapper.
+  var _awgIds = [];
   for (var pw = 0; pw < results.length; pw++) {
     var rw = results[pw];
     if (!rw) continue;
     var okw = _elExDur[rw.a] === null && _elSt[rw.a] !== "mute"
            && _elExDur[rw.b] === null && _elSt[rw.b] !== "mute";
     if (!okw) continue;
-    var pid = (rw.audiopathID != null) ? rw.audiopathID : 0;
-    if (!_awgAny) { _awgSeen = pid; _awgAny = true; }
-    else if (pid !== _awgSeen) { _awgMixed = true; }
+    _awgIds.push((rw.audiopathID != null) ? rw.audiopathID : 0);
   }
-  // audioPath: "gemischt" | konkrete id | null (nichts gemessen).
-  var audioPath = !_awgAny ? null : (_awgMixed ? "gemischt" : _awgSeen);
+  var audioPath = AWG_distribution(_awgIds);   // [{id,count}] | null
 
   s.ELL_eval = {
     raw: levels,
