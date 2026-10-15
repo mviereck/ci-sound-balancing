@@ -297,7 +297,7 @@ function _calcAbsDelta(side, i, dB, mfrLocal, impl) {
 }
 
 function _collectBilateral() {
-  const out = { stereobalance: { has: false, rows: [], mean: null }, latenz: { has: false, value: null } };
+  const out = { stereobalance: { has: false, rows: [], mean: null }, latenz: { has: false, entries: [] } };
   if (typeof STB_results !== "undefined") {
     const keys = Object.keys(STB_results).filter((k) => isFinite(STB_results[k]));
     if (keys.length > 0) {
@@ -307,14 +307,17 @@ function _collectBilateral() {
       out.stereobalance.mean = STB_evalValue();
     }
   }
-  if (typeof LTZ_result !== "undefined" && LTZ_result
-      && isFinite(LTZ_result.valueMs) && LTZ_result.valueMs !== 0) {
-    out.latenz.has = true;
-    out.latenz.value = {
-      ms: LTZ_result.valueMs,
-      clickType: (typeof ltz_clickType !== "undefined") ? (ltz_clickType || null) : null,
-      intervalMs: (typeof ltz_intervalMs !== "undefined") ? (ltz_intervalMs || null) : null,
-    };
+  if (typeof LTZ_result !== "undefined" && Array.isArray(LTZ_result)) {
+    // ALLE gemessenen Weg-Paare ins Archiv (vollstaendige Sicherung),
+    // auch ein Versatz von 0 (eine Messung "kein Versatz" ist ein Befund).
+    out.latenz.entries = LTZ_result
+      .filter((e) => e && isFinite(e.valueMs))
+      .map((e) => ({
+        idL: e.idL, idR: e.idR, ms: e.valueMs,
+        labelL: (typeof AWG_label === "function") ? AWG_label(e.idL) : String(e.idL),
+        labelR: (typeof AWG_label === "function") ? AWG_label(e.idR) : String(e.idR),
+      }));
+    out.latenz.has = out.latenz.entries.length > 0;
   }
   return out;
 }
@@ -627,12 +630,17 @@ function _archivMdBilateral(data) {
     out.push("");
   }
   if (bil.latenz.has) {
-    const v = bil.latenz.value;
-    const sideTxt = v.ms >= 0 ? t("sideRight") : t("sideLeft");
     out.push(`### ${t("LTZ_resTitle") || "Inter-Ohr-Latenz"}`);
-    out.push(`- ${t("archivLTZValue")}: ${Math.abs(v.ms).toFixed(2)} ms (${sideTxt})`);
-    if (v.clickType)  out.push(`- ${t("archivLTZClick")}: ${v.clickType}`);
-    if (v.intervalMs) out.push(`- ${t("archivLTZInterval")}: ${v.intervalMs} ms`);
+    out.push("");
+    out.push(`| ${t("LTZ_colPathL")} | ${t("LTZ_colPathR")} | ${t("archivLTZValue")} |`);
+    out.push("|---|---|---|");
+    for (const e of bil.latenz.entries) {
+      // Vorzeichen: + = links frueher/schneller (konsistent zu LTZ_renderResults),
+      // - = rechts frueher.
+      const faster = e.ms >= 0 ? t("sideLeft") : t("sideRight");
+      const msTxt = (e.ms >= 0 ? "+" : "−") + Math.abs(e.ms).toFixed(2) + " ms";
+      out.push(`| ${_mdEsc(e.labelL)} | ${_mdEsc(e.labelR)} | ${msTxt} (${faster}) |`);
+    }
     out.push("");
   }
   return out.join("\n");
