@@ -20,6 +20,11 @@ let SNR_activeTestSet = null;
 // gleichmaessig gemessenen Geraeusche-Items (stationary). Global fuer den Sprachtest (nicht pro Seite/
 // Testset); sitzungsuebergreifend gesichert (SAVE_SCHEMA).
 const SNR_NOISE_DEFAULT = "__werk__";
+// Sentinel fuer "Material/Rauschen beim Laden unbekannt" (Alt-Stand ohne
+// eingefrorene Angabe). Verschieden von SNR_NOISE_DEFAULT ("__werk__",
+// gueltiges Werk-Rauschen). snr_testSetLabel/snr_noiseLabel loesen ihn zu
+// t("snrUnknown") = "unbekannt" auf.
+const SNR_UNKNOWN = "__unknown__";
 let snr_noiseChoiceId = SNR_NOISE_DEFAULT;
 
 // Alle Matrix-Sammlungen aus dem Saetze-Pool (test_type === "matrix"),
@@ -51,6 +56,7 @@ function snr_currentTestSet() {
 // ohne speaker_name, oder Sammlung nicht mehr im Pool).
 function snr_testSetLabel(slug) {
   if (!slug) return "";
+  if (slug === SNR_UNKNOWN) return (typeof t === "function") ? t("snrUnknown") : "unbekannt";
   const pool = (typeof sBuildRecordingPool === "function") ? sBuildRecordingPool() : [];
   const it = pool.find(function (x) { return x.tags && x.tags.test_set === slug; });
   return (it && it.tags && it.tags.speaker_name) ? it.tags.speaker_name : slug;
@@ -60,6 +66,9 @@ function snr_testSetLabel(slug) {
 // -> "Testeigenes Rauschen"; sonst das Geraeusch-Item in UI-Sprache
 // (_amNoiseTitleLabel). Fallback: die Roh-Id.
 function snr_noiseLabel(noiseId) {
+  if (noiseId === SNR_UNKNOWN) {
+    return (typeof t === "function") ? t("snrUnknown") : "unbekannt";
+  }
   if (noiseId === SNR_NOISE_DEFAULT) {
     return (typeof t === "function") ? t("stNoiseDefaultOpt") : "Testeigenes Rauschen";
   }
@@ -683,6 +692,26 @@ function _snr_frozenAudioPath() {
   return o;
 }
 
+// Vervollstaendigt ein geladenes SNR-Ergebnis-Objekt. Alt-Staende (vor der
+// Audioweg-/Material-Einfrierung gespeichert) haben KEIN audioPath-Feld —
+// das ist das zuverlaessige Alt-Erkennungsmerkmal. Nur dann werden fehlende
+// Angaben neutral aufgefuellt (kein Rueckfall auf Live-Werte):
+//   audioPath   -> {} (leer; die Anzeige zeigt dann "(keine Angabe)")
+//   materialSlug-> SNR_UNKNOWN  (sofern nicht gesetzt)
+//   noiseId     -> SNR_UNKNOWN  (sofern nicht gesetzt)
+// Vorbild: LTZ_migrateResult (latency.js). Gibt das (ggf. ergaenzte) Objekt
+// zurueck; null/kein Objekt -> null.
+function SNR_migrateResult(obj) {
+  if (!obj || typeof obj !== "object") return null;
+  // Neues Format (hat audioPath) -> unveraendert zurueck.
+  if (obj.audioPath !== undefined) return obj;
+  // Alt-Stand: neutral vervollstaendigen.
+  obj.audioPath = {};
+  if (obj.materialSlug == null) obj.materialSlug = SNR_UNKNOWN;
+  if (obj.noiseId == null)      obj.noiseId      = SNR_UNKNOWN;
+  return obj;
+}
+
 function snr_finish(converged) {
   snr_active = false;
   const win = converged ? SNR_SRT_WINDOW_CONV : SNR_SRT_WINDOW;
@@ -814,13 +843,11 @@ function SNR_renderResults() {
     const _date = _ts.toLocaleString(
       lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US");
     const _vol = saveGet("SNRtest_volume") || 50;
-    const _slug = (res.materialSlug != null) ? res.materialSlug : snr_currentTestSet();
-    const _matLbl = snr_testSetLabel(_slug);
-    const _nid = (res.noiseId !== undefined) ? res.noiseId : snr_noiseChoiceId;
-    const _noiseLbl = snr_noiseLabel(_nid);
+    const _matLbl = snr_testSetLabel(res.materialSlug);
+    const _noiseLbl = snr_noiseLabel(res.noiseId);
     let _m = _date + " · " + t("lblVol") + " " + _vol + "%";
-    if (_matLbl)   _m += " · " + _matLbl;
-    if (_noiseLbl) _m += " · " + _noiseLbl;
+    if (_matLbl)   _m += " · " + t("stResMetaMatrix") + " " + _matLbl;
+    if (_noiseLbl) _m += " · " + t("stResMetaNoise") + " " + _noiseLbl;
     _snrMetaEl.textContent = _m;
   }
   // Audiowege-Box (BA674): SNR ein- oder beidseitig je nach Modus. res.audioPath
@@ -828,9 +855,12 @@ function SNR_renderResults() {
   const _snrBox = document.getElementById("SNR_resAwgBox");
   if (_snrBox && typeof AWG_boxHtml === "function") {
     const _ap = res.audioPath || {};
+    const _none = [{ id: 0, count: 1 }];   // "(keine Angabe)"
     const _sides = snr_isBothEar()
-      ? [{ side: "left", dist: _ap.left }, { side: "right", dist: _ap.right }]
-      : [{ side: null, dist: _ap.left || _ap.right }];
+      ? [{ side: "left",  dist: Array.isArray(_ap.left)  ? _ap.left  : _none },
+         { side: "right", dist: Array.isArray(_ap.right) ? _ap.right : _none }]
+      : [{ side: null, dist: Array.isArray(_ap.left) ? _ap.left
+                            : (Array.isArray(_ap.right) ? _ap.right : _none) }];
     _snrBox.innerHTML = AWG_boxHtml(_sides);
   }
 

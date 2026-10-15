@@ -55,7 +55,7 @@ var SAVE_SCHEMA = [
   // BA662: Beidohriges Sprachtest-Ergebnis (seitenlos, wie LTZ_result).
   { key: "SNR_resultBoth", scope: "global",
     get: function () { return (typeof SNR_resultBoth !== "undefined") ? SNR_resultBoth : null; },
-    set: function (v) { SNR_resultBoth = (v && typeof v === "object") ? v : null; },
+    set: function (v) { SNR_resultBoth = (typeof SNR_migrateResult === "function") ? SNR_migrateResult(v) : ((v && typeof v === "object") ? v : null); },
     default: null, valid: { type: "any" } },
 
   // --- Audioweg-Katalog (Mess-Kontext) ---
@@ -527,7 +527,7 @@ SAVE_SCHEMA.push(
     default: function () { return null; }, valid: { type: "any" } },
   { key: "SNR_result", scope: "side",
     get: function (s) { return sideData[s].SNR_result || null; },
-    set: function (v, s) { sideData[s].SNR_result = (v && typeof v === "object") ? v : null; },
+    set: function (v, s) { sideData[s].SNR_result = (typeof SNR_migrateResult === "function") ? SNR_migrateResult(v) : ((v && typeof v === "object") ? v : null); },
     default: null },
   { key: "schieberELL", scope: "side",
     get: function (s) { return sideData[s].schieberELL; },

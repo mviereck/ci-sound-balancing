@@ -45,7 +45,7 @@ function ELL_renderResults() {
   // eingestellt). Fallback 75 wie bisher.
   const vol = saveGet("ELLtest_volume") || 50;
   let meta = `${new Date().toLocaleString(lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US")}`;
-  if (hB) meta += ` · ${ELL_results.length} bal.`;
+  if (hB) meta += ` · ${ELL_results.length} ${t("ELL_resMetaPairs")}`;
   meta += ` · ${t("lblVol")} ${vol}%`;
   const rMeta = document.getElementById("ELL_resMeta");
   if (rMeta) rMeta.innerHTML = meta;
@@ -951,7 +951,20 @@ function FRQ_renderResults() {
       const dateStr = d.toLocaleString(
         lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US"
       );
-      metaText = dateStr + " · " + finalCount + " Messpunkte";
+      metaText = dateStr + " · " + finalCount + " " + t("FRQ_resMetaEls");
+      // Vergleiche gesamt = Summe der Verlaufs-Grenzrunden ueber alle
+      // Elektroden. Existiert nur beim Klaviertest (piano); bei anderen
+      // Verfahren gibt es keinen Verlauf -> nur Elektroden-Zahl zeigen.
+      const _frqMethod = (typeof frq_getActiveMethod === "function") ? frq_getActiveMethod() : "piano";
+      if (_frqMethod === "piano" && typeof _frq_pianoData === "function") {
+        const _pe = _frq_pianoData().perElectrode || {};
+        let _cmp = 0;
+        Object.keys(_pe).forEach(function (k) {
+          const v = _pe[k] && _pe[k].verlauf;
+          if (Array.isArray(v)) _cmp += v.length;
+        });
+        if (_cmp > 0) metaText += " · " + _cmp + " " + t("FRQ_resMetaCmp");
+      }
       metaText += " · " + t("lblVol") + " " + (saveGet("FRQtest_volume") || 50) + "%";
     }
     metaEl.textContent = metaText;
