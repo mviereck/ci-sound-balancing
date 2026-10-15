@@ -299,11 +299,11 @@ function _calcAbsDelta(side, i, dB, mfrLocal, impl) {
 function _collectBilateral() {
   const out = { stereobalance: { has: false, rows: [], mean: null }, latenz: { has: false, entries: [] } };
   if (typeof STB_results !== "undefined") {
-    const keys = Object.keys(STB_results).filter((k) => isFinite(STB_results[k]));
+    const keys = Object.keys(STB_results).filter((k) => STB_hasRaw(+k));
     if (keys.length > 0) {
       out.stereobalance.has = true;
       const sorted = keys.slice().sort((a, b) => (+a) - (+b));
-      out.stereobalance.rows = sorted.map((k) => ({ elIdx: +k, value: STB_results[k] }));
+      out.stereobalance.rows = sorted.map((k) => ({ elIdx: +k, value: STB_rawOffset(+k) }));
       out.stereobalance.mean = STB_evalValue();
     }
   }
@@ -1091,7 +1091,7 @@ function _audiologMaplawSection(mainSides, headerLevel) {
 
 function _audiologSTBBlock(mainSides) {
   if (typeof STB_results === "undefined") return "";
-  const keys = Object.keys(STB_results).filter((k) => isFinite(STB_results[k]));
+  const keys = Object.keys(STB_results).filter((k) => STB_hasRaw(+k));
   if (keys.length === 0) return "";
   const mean = STB_evalValue();
   if (mean === null || !isFinite(mean) || mean === 0) return "";

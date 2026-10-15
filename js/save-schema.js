@@ -8,6 +8,10 @@
 // Kommentar-Ordnung; buildState/applyState verzweigen nur über e.scope.
 // -----------------------------------------------------------------------
 // === global ===
+// BA676: Zwischenablage fuer den beim Laden alter Dateien aufgefangenen
+// STB_resultsPath, bis die STB_results-Migration ihn einzieht.
+var _STB_loadPathTmp = null;
+
 var SAVE_SCHEMA = [
   // --- Kern / Seite ---
   { key: "currentSide", scope: "global",
@@ -22,13 +26,26 @@ var SAVE_SCHEMA = [
     default: "geglaettet", valid: { type: "string" } },
 
   // --- Stereo-Balance ---
+  // BA676: STB_resultsPath ist als Laufzeit-Feld gestrichen (der Weg liegt im
+  // Rohwert STB_results[el].audiopathID). Dieses Auffang-Feld existiert nur
+  // noch, um beim Laden ALTER Dateien den dort gespeicherten Pfad abzugreifen
+  // und der STB_results-Migration zugaenglich zu machen (Zwischenablage).
+  // get liefert nichts mehr (nicht neu speichern); set fuellt nur die Ablage.
+  { key: "STB_resultsPath", scope: "global",
+    get: function () { return undefined; },   // nicht mehr persistieren
+    set: function (v) { _STB_loadPathTmp = (v && typeof v === "object") ? v : null; },
+    default: function () { return undefined; } },
   { key: "STB_results", scope: "global",
     get: function () { return (typeof STB_results !== "undefined" ? STB_results : {}); },
-    set: function (v) { if (typeof STB_results !== "undefined" && v) { Object.keys(STB_results).forEach(function (k) { delete STB_results[k]; }); Object.assign(STB_results, v); } },
-    default: function () { return {}; }, valid: { type: "object" } },
-  { key: "STB_resultsPath", scope: "global",
-    get: function () { return (typeof STB_resultsPath !== "undefined" ? STB_resultsPath : {}); },
-    set: function (v) { if (typeof STB_resultsPath !== "undefined" && v) { Object.keys(STB_resultsPath).forEach(function (k) { delete STB_resultsPath[k]; }); Object.assign(STB_resultsPath, v); } },
+    set: function (v) {
+      if (typeof STB_results === "undefined") return;
+      // BA676: aufs Objekt-Format migrieren; alten STB_resultsPath (nur beim
+      // Laden alter Dateien vorhanden) aus der Zwischenablage einziehen.
+      var migrated = STB_migrateResults(v, _STB_loadPathTmp);
+      _STB_loadPathTmp = null;   // Zwischenablage nach Gebrauch leeren
+      Object.keys(STB_results).forEach(function (k) { delete STB_results[k]; });
+      Object.assign(STB_results, migrated);
+    },
     default: function () { return {}; }, valid: { type: "object" } },
   // Mittelungs-Verfahren der STB-Auswertung (mean/median).
   { key: "STB_avgMode", scope: "global",

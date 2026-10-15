@@ -160,9 +160,6 @@ function resetAll() {
   // --- LR-Balance ---
   if (typeof STB_results !== "undefined") {
     Object.keys(STB_results).forEach(k => delete STB_results[k]);
-    if (typeof STB_resultsPath !== "undefined") {
-      Object.keys(STB_resultsPath).forEach(function (k) { delete STB_resultsPath[k]; });
-    }
     if (typeof STB_eval !== "undefined") STB_eval = null;   // keine Messung mehr
     if (typeof STB_resetSequence === "function") STB_resetSequence();
     if (typeof STB_renderResults === "function") STB_renderResults();

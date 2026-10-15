@@ -349,6 +349,60 @@ let STB_eval = null;
 // Elektroden (auf BEIDEN Seiten geprueft). Liefert null, wenn keine
 // gueltige Messung uebrig bleibt. STB_results liegt in lr-balance.js
 // (spaeter geladen), daher erst zur Laufzeit auswerten.
+// BA676: Zentraler Lese-Accessor fuer den STB-Rohwert. Der Rohwert je
+// Elektrode ist seit BA676 ein Objekt { offset, timestamp, audiopathID:
+// {left,right} } (vorher eine nackte Zahl). KEIN Konsument liest .offset
+// direkt -- alle gehen ueber diese zwei Helfer, damit die Objektform an
+// einer Stelle gekapselt bleibt.
+//   STB_rawOffset(i) -> Zahl (der dB-Ausgleich) | undefined (nicht gemessen)
+//   STB_hasRaw(i)    -> true, wenn eine gueltige (endliche) Messung vorliegt
+function STB_rawOffset(i) {
+  if (typeof STB_results === "undefined") return undefined;
+  var r = STB_results[i];
+  if (r == null || typeof r !== "object") return undefined;
+  return isFinite(r.offset) ? r.offset : undefined;
+}
+function STB_hasRaw(i) {
+  return STB_rawOffset(i) !== undefined;
+}
+
+// BA676: Migration geladener STB_results aufs Objekt-Format.
+//   - neues Format (Eintrag ist Objekt mit .offset)       -> uebernommen
+//   - altes Format (Eintrag ist nackte Zahl)              -> { offset: zahl,
+//       timestamp: null, audiopathID: {left,right} }; den Weg aus dem alten
+//       Parallel-Feld oldPath[el] einziehen, falls vorhanden, sonst {0,0}
+//   - unbrauchbarer Eintrag                               -> uebersprungen
+// oldPath: der beim Laden mitgelieferte alte STB_resultsPath-Wert (oder null).
+function STB_migrateResults(v, oldPath) {
+  var out = {};
+  if (!v || typeof v !== "object") return out;
+  var op = (oldPath && typeof oldPath === "object") ? oldPath : {};
+  Object.keys(v).forEach(function (k) {
+    var e = v[k];
+    if (e != null && typeof e === "object") {
+      // Neues Format: nur uebernehmen, wenn offset endlich ist.
+      if (!isFinite(e.offset)) return;
+      var ap = (e.audiopathID && typeof e.audiopathID === "object") ? e.audiopathID : {};
+      out[k] = {
+        offset: e.offset,
+        timestamp: (typeof e.timestamp === "number") ? e.timestamp : null,
+        audiopathID: { left:  (typeof ap.left  === "number") ? ap.left  : 0,
+                       right: (typeof ap.right === "number") ? ap.right : 0 }
+      };
+    } else if (isFinite(e)) {
+      // Altes Format: nackte Zahl. Weg aus dem alten Parallel-Feld ziehen.
+      var p = op[k];
+      out[k] = {
+        offset: e,
+        timestamp: null,
+        audiopathID: { left:  (p && typeof p.left  === "number") ? p.left  : 0,
+                       right: (p && typeof p.right === "number") ? p.right : 0 }
+      };
+    }
+  });
+  return out;
+}
+
 function STB_meanRaw(mode) {
   if (typeof STB_results === "undefined") return null;
   // BA661: Auswertungs-Elektrodenauswahl. null/leer = alle gemessenen.
@@ -357,14 +411,14 @@ function STB_meanRaw(mode) {
                 ? new Set(STB_evalSelectedEls) : null;
   var keys = Object.keys(STB_results).filter(function (k) {
     var i = +k;
-    if (!isFinite(STB_results[i])) return false;
+    if (!STB_hasRaw(i)) return false;
     if (_selSet && !_selSet.has(i)) return false;
     var exL = sideData.left.elExDur[i]  !== null || sideData.left.elSt[i]  === "mute";
     var exR = sideData.right.elExDur[i] !== null || sideData.right.elSt[i] === "mute";
     return !(exL || exR);
   });
   if (!keys.length) return null;
-  var vals = keys.map(function (k) { return STB_results[+k]; });
+  var vals = keys.map(function (k) { return STB_rawOffset(+k); });
   if ((mode || STB_avgMode) === "median") {
     var sorted = vals.slice().sort(function (a, b) { return a - b; });
     var mid = sorted.length >> 1;
@@ -383,11 +437,13 @@ function STB_meanRaw(mode) {
 // einer Verteilung [{id,count}] | null. Nutzt dieselbe
 // Elektroden-Teilmenge wie die Wert-Verdichtung (STB_meanRaw-Filter).
 function _STB_audioPathSide(side, keys) {
-  // BA673: Liste der ids je gewerteter Elektrode, dann zentral verdichten.
+  // BA673/676: Liste der ids je gewerteter Elektrode aus dem Rohwert-Objekt,
+  // dann zentral verdichten.
   var ids = [];
   for (var i = 0; i < keys.length; i++) {
-    var pair = (typeof STB_resultsPath !== "undefined") ? STB_resultsPath[keys[i]] : null;
-    ids.push((pair && pair[side] != null) ? pair[side] : 0);
+    var r = (typeof STB_results !== "undefined") ? STB_results[keys[i]] : null;
+    var ap = (r && typeof r === "object") ? r.audiopathID : null;
+    ids.push((ap && ap[side] != null) ? ap[side] : 0);
   }
   return AWG_distribution(ids);   // [{id,count}] | null
 }
@@ -400,7 +456,7 @@ function _STB_evalKeys() {
                  && STB_evalSelectedEls && STB_evalSelectedEls.length)
                 ? new Set(STB_evalSelectedEls) : null;
   return Object.keys(STB_results).map(Number).filter(function (i) {
-    if (!isFinite(STB_results[i])) return false;
+    if (!STB_hasRaw(i)) return false;
     if (_selSet && !_selSet.has(i)) return false;
     var exL = sideData.left.elExDur[i]  !== null || sideData.left.elSt[i]  === "mute";
     var exR = sideData.right.elExDur[i] !== null || sideData.right.elSt[i] === "mute";

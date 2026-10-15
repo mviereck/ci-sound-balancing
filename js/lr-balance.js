@@ -3,8 +3,12 @@
 // ============================================================
 
 // State
-let STB_results = {}; // {elIdx: offset_dB}  Ausgleichs-Korrektur: negativ = rechts war lauter
-let STB_resultsPath = {};  // {elIdx: {left, right}} — aktiver Audioweg beider Seiten je Einzelmessung (Mess-Kontext)
+// BA676: Rohwert je Elektrode ist ein Objekt { offset, timestamp,
+// audiopathID:{left,right} }. offset = dB-Ausgleich (negativ = rechts war
+// lauter); timestamp = Zeitpunkt der letzten Bestaetigung; audiopathID = die
+// aktiven Audiowege beider Seiten zur Messzeit. Leser gehen ueber
+// STB_rawOffset/STB_hasRaw (state-side.js), nie ueber .offset direkt.
+let STB_results = {};
 let stb_seq = []; // sequence of electrode indices to test
 let stb_seqIdx = 0;
 let stb_currentEl = null; // current electrode index (left side numbering)
@@ -41,7 +45,7 @@ function _lrUpdCumulative(v) {
   var cd = STB_els.verfahren && STB_els.verfahren.stereobalance
     && STB_els.verfahren.stereobalance.cumulativeDisplay;
   if (!cd) return;
-  const existing = stb_currentEl !== null ? STB_results[stb_currentEl] : undefined;
+  const existing = stb_currentEl !== null ? STB_rawOffset(stb_currentEl) : undefined;
   if (existing !== undefined) {
     cd.textContent =
       t("cumulativeDb") + ": " + (existing >= 0 ? "+" : "") + existing.toFixed(1) + " dB";
@@ -281,7 +285,7 @@ function stb_showPair() {
   // Slider: existing-Wert oder 0 setzen; Range wird über setValue automatisch erweitert
   var slRef = STB_els && STB_els.verfahren && STB_els.verfahren.stereobalance
     && STB_els.verfahren.stereobalance.slider;
-  const existing = STB_results[el];
+  const existing = STB_rawOffset(el);
   if (slRef) {
     var startVal = (existing !== undefined && isFinite(existing)) ? existing : 0;
     testUI.slider.setValue(slRef, startVal);
@@ -334,11 +338,14 @@ function stb_confirm() {
   const el = stb_currentEl;
   const val = _lrSliderVal();
   // Save undo
-  stb_undoStack.push({ el, prev: STB_results[el], prevPath: STB_resultsPath[el] });
-  STB_results[el] = val;
-  STB_resultsPath[el] = {
-    left:  (typeof sideData !== "undefined" && sideData.left  && sideData.left.AWG_activeId  != null) ? sideData.left.AWG_activeId  : 0,
-    right: (typeof sideData !== "undefined" && sideData.right && sideData.right.AWG_activeId != null) ? sideData.right.AWG_activeId : 0
+  stb_undoStack.push({ el, prev: STB_results[el] });
+  STB_results[el] = {
+    offset: val,
+    timestamp: Date.now(),
+    audiopathID: {
+      left:  (typeof sideData !== "undefined" && sideData.left  && sideData.left.AWG_activeId  != null) ? sideData.left.AWG_activeId  : 0,
+      right: (typeof sideData !== "undefined" && sideData.right && sideData.right.AWG_activeId != null) ? sideData.right.AWG_activeId : 0
+    }
   };
   stb_seqIdx++;
   STB_writeEval();   // Auswertung aus aktuellen STB_results neu schreiben
@@ -350,11 +357,9 @@ function stb_confirm() {
 function stb_undo() {
   if (!stb_undoStack.length) return;
   stb_stopPlay();
-  const { el, prev, prevPath } = stb_undoStack.pop();
+  const { el, prev } = stb_undoStack.pop();
   if (prev === undefined) delete STB_results[el];
   else STB_results[el] = prev;
-  if (prevPath === undefined) delete STB_resultsPath[el];
-  else STB_resultsPath[el] = prevPath;
   stb_seqIdx = Math.max(0, stb_seqIdx - 1);
   STB_writeEval();   // Auswertung aus aktuellen STB_results neu schreiben
   STB_renderResults();
@@ -477,7 +482,7 @@ function STB_renderResults() {
     const exL = sideData.left.elExDur[i]        !== null || sideData.left.elSt[i]        === 'mute';
     const exR = sideData.right.elExDur[rightEl] !== null || sideData.right.elSt[rightEl] === 'mute';
     const isDisabled = exL || exR;
-    const v = STB_results[i];
+    const v = STB_rawOffset(i);
     const hzL = stb_effFRQ("left", i);
     const hzR = stb_effFRQ("right", rightEl);
     const leftLabel  = dENPrefix("left")  + dEN(i, "left");
@@ -556,7 +561,7 @@ function STB_renderResults() {
           var deR = sideData.right.elActive && sideData.right.elActive[rightI] === false;
           if (exL || exR)                    { excluded.push(i); continue; }
           if (muL || muR || deL || deR)      { muted.push(i);    continue; }
-          if (STB_results[i] === undefined)  { unmeasured.push(i); continue; }
+          if (!STB_hasRaw(i))                { unmeasured.push(i); continue; }
           testable.push(i);
         }
         return { testable: testable, muted: muted, excluded: excluded, unmeasured: unmeasured };
@@ -606,20 +611,20 @@ function STB_drawChart() {
     // Abgewaehlt = gemessen, aber durch die Auswertungs-Auswahl
     // (STB_evalSelectedEls) ausgeschlossen. Eigener Zustand -> grauer Balken
     // in voller Laenge (Messwert sichtbar, aber nicht ausgewertet).
-    const _abgew = STB_results[i] !== undefined
+    const _abgew = STB_hasRaw(i)
       && typeof STB_evalSelectedEls !== "undefined" && STB_evalSelectedEls
       && STB_evalSelectedEls.length
       && STB_evalSelectedEls.indexOf(i) < 0;
     let zustand;
     if (exL || exR) zustand = "deaktiviert";
     else if (_abgew) zustand = "abgewaehlt";
-    else if (STB_results[i] !== undefined) zustand = "gemessen";
+    else if (STB_hasRaw(i)) zustand = "gemessen";
     else zustand = "ungemessen";
     rows.push({
       elNum: i,
       label: dENPrefix("left") + dEN(i, "left"),
       hz: stb_effFRQ("left", i),
-      wert: (STB_results[i] !== undefined ? STB_results[i] : 0),
+      wert: (STB_hasRaw(i) ? STB_rawOffset(i) : 0),
       zustand: zustand
     });
   }
@@ -789,15 +794,16 @@ function stb_hookOnStart() {
   testUI.audioPathCheck.run(
     { sides: 'both',
       measuredPathIds: function (side) {
-        // Je Seite die bisher gemessenen Wege aus der Parallel-Tabelle,
+        // BA676: Je Seite die bisher gemessenen Wege aus dem Rohwert-Objekt,
         // in Elektroden-Reihenfolge (zuletzt = hoechster Elektroden-Key
         // genuegt fuer "zuletzt gemessen"; Messreihenfolge ist bei STB
         // nicht persistiert, daher Key-Reihenfolge).
-        if (typeof STB_resultsPath === "undefined") return [];
-        return Object.keys(STB_resultsPath).map(Number).sort(function (a,b){return a-b;})
+        if (typeof STB_results === "undefined") return [];
+        return Object.keys(STB_results).map(Number).sort(function (a,b){return a-b;})
           .map(function (el) {
-            var pair = STB_resultsPath[el];
-            return (pair && pair[side] != null) ? pair[side] : 0;
+            var r = STB_results[el];
+            var ap = (r && typeof r === "object") ? r.audiopathID : null;
+            return (ap && ap[side] != null) ? ap[side] : 0;
           });
       } },
     _sideCheckThen,
@@ -1133,7 +1139,6 @@ document.addEventListener("DOMContentLoaded", function() {
     STB_clearBtn.addEventListener('click', function() {
       if (!confirm(t("stb_clearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
       STB_results = {};
-      Object.keys(STB_resultsPath).forEach(function (k) { delete STB_resultsPath[k]; });
       STB_eval = null;   // keine Messung mehr -> Auswertung leeren
       STB_evalSelectedEls = null;   // BA661: Auswertungsauswahl zuruecksetzen
       STB_resetSequence();

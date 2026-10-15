@@ -510,7 +510,7 @@ function _ltz_hasSTB() {
   // Pragmatische Detektion: mindestens ein gemessener Balance-Wert
   // existiert in STB_results ODER in sideData[*].ELL_results.
   if (typeof STB_results === 'object' && STB_results
-      && Object.values(STB_results).some(function(v) { return isFinite(v); })) return true;
+      && Object.keys(STB_results).some(function(k) { return STB_hasRaw(+k); })) return true;
   if (typeof sideData === 'object' && sideData) {
     for (const side of ['left', 'right']) {
       const sd = sideData[side];
