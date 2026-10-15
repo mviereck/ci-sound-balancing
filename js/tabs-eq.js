@@ -321,7 +321,9 @@ function _switchTabInternal(n) {
     // Aktiven Sub-Tab prüfen; falls keiner aktiv oder aktiver leer, sinnvollen wählen
     const activeSubtab = document.querySelector('.subtab[data-parent="ergebnisse"].active');
     const currentName = activeSubtab ? activeSubtab.dataset.subtab : null;
-    const hasBal = typeof ELL_results !== "undefined" && ELL_results.length > 0;
+    // Snapshot-Trennung: Meszauswertung lesen, nicht ELL_results roh.
+    const hasBal = typeof ELL_testData === "function"
+      && ELL_testData({ ctx: ELL_ctx("global") }).gemessen.some(Boolean);
     const hasFR = typeof FRQ_resultsArray !== "undefined" && FRQ_resultsArray.length > 0;
     const hasLR = typeof STB_results !== "undefined" && Object.keys(STB_results).length > 0;
     if (!currentName || currentName === "elektrodenlautstaerke") {

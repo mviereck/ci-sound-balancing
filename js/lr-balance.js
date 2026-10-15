@@ -750,11 +750,11 @@ function STB_drawChart() {
   if (_stbHint) _stbHint.innerHTML = FRQ_legendeHtml("stbbar", stbLegendData(rows));
 }
 
-// BA 251: jRes entfaellt; Lautstaerke-Daten = ELL_results.
+// Lautstaerke-Daten vorhanden? Snapshot-Trennung: aus der Meszauswertung
+// (ELL_testData), nie roh aus ELL_results.
 function _lrHasLvData(side) {
-  const s = sideData[side];
-  if (!s) return false;
-  return (s.ELL_results && s.ELL_results.length > 0);
+  if (typeof ELL_testData !== "function") return false;
+  return ELL_testData({ side }).gemessen.some(Boolean);
 }
 
 // Sichtbarkeit der dynamischen Vortest-Hinweise oben in der Erklaer-Box.
@@ -766,8 +766,8 @@ function _lrRenderPrereqHints() {
 }
 
 function STB_checkData() {
-  const hasLeft = sideData["left"].ELL_results.length > 0;
-  const hasRight = sideData["right"].ELL_results.length > 0;
+  const hasLeft = _lrHasLvData("left");
+  const hasRight = _lrHasLvData("right");
   const nd = document.getElementById("stb_noData");
   if (nd) nd.style.display = hasLeft && hasRight ? "none" : "";
   // Deaf-Hinweis

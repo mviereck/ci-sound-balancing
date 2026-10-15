@@ -1034,11 +1034,11 @@ function _frq_refreshHighGainWarningVisibility() {
 }
 
 
-// BA 251: jRes entfaellt; Lautstaerke-Daten = ELL_results.
+// Lautstaerke-Daten vorhanden? Snapshot-Trennung: aus der Meszauswertung
+// (ELL_testData), nie roh aus ELL_results.
 function _frq_hasLvData(side) {
-  const s = sideData[side];
-  if (!s) return false;
-  return (s.ELL_results && s.ELL_results.length > 0);
+  if (typeof ELL_testData !== "function") return false;
+  return ELL_testData({ side }).gemessen.some(Boolean);
 }
 
 function _frq_renderPrereqHints() {

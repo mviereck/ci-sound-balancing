@@ -2,8 +2,11 @@
 // RESULTS
 // ============================================================
 function ELL_renderResults() {
-  // BA 251: hJ entfaellt (judgment-Verfahren raus); nur noch ELL_results.
-  const hB = ELL_results.length > 0;
+  // Datenvorhanden-Pruefung aus der Meszauswertung (nie roh aus
+  // ELL_results): im Snapshot-Modell koennen Messung und Auswertung
+  // auseinanderfallen, deshalb liest ausschliesslich die Auswertung.
+  const _evHead = ELL_testData({ ctx: ELL_ctx("global") });
+  const hB = (_evHead.gemessen || []).some(Boolean);
   if (!hB) {
     const nr = document.getElementById("ELL_noRes");
     const rc = document.getElementById("ELL_resC");
@@ -45,7 +48,7 @@ function ELL_renderResults() {
   // eingestellt). Fallback 75 wie bisher.
   const vol = saveGet("ELLtest_volume") || 50;
   let meta = `${new Date().toLocaleString(lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US")}`;
-  if (hB) meta += ` · ${ELL_results.length} ${t("ELL_resMetaPairs")}`;
+  if (hB) meta += ` · ${_evHead.nPairs} ${t("ELL_resMetaPairs")}`;
   meta += ` · ${t("lblVol")} ${vol}%`;
   const rMeta = document.getElementById("ELL_resMeta");
   if (rMeta) rMeta.innerHTML = meta;

@@ -1635,7 +1635,9 @@ function pMaplawUpdUI() {
 }
 
 window.addEventListener("resize", () => {
-  if (ELL_results.length > 0) {
+  // Snapshot-Trennung: Meszauswertung lesen, nicht ELL_results roh.
+  if (typeof ELL_testData === "function"
+      && ELL_testData({ ctx: ELL_ctx("global") }).gemessen.some(Boolean)) {
     pDrawEQ();
     if (document.getElementById("ELL_resC").style.display !== "none")
       ELL_renderResults();

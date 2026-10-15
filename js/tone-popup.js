@@ -537,11 +537,15 @@ function openToneSelectionDialog(cfg, onChange) {
   // (siehe js/tabs-eq.js updPlSrcButtons / updBalApplyBtn):
   // grün = aktiv, grau = inaktiv. Beide Default an, lokal.
   //
-  // Die Korrektur-Toggles (und die ueber onTogglesReady ausgegebene
-  // Korrektor-fn) werden NUR im Reiter Implantat genutzt; dort steuern
-  // sie Vorschau, Klavier und Sweep. Die Test-Aufrufer setzen
-  // showToggles:false und wenden ihre Elektrodenlautstaerke-Korrektur
-  // selbst an (STB_corrGain / FRQ_correctionGain) — die fn liegt dort brach.
+  // Die Korrektur-Toggles und die ueber onTogglesReady ausgegebene
+  // Korrektor-fn (corrVol -> ELL_measGain -> ELL_testData, also die
+  // Meszauswertung, nie die Rohwerte) steuern Vorschau, Klavier und Sweep.
+  // Seit BA 302 setzen die Mess-Reiter (ELL, STB, Freqabgleich) ebenfalls
+  // showToggles:true; die ELL-Mess-Box nutzt die fn ueber onTogglesReady
+  // beim Probehoeren/Sequenz (test.js). STB/Freqabgleich wenden ihre
+  // Korrektur ausserdem ueber STB_corrGain / FRQ_correctionGain an — beide
+  // lesen gleichfalls ELL_testData, kein Verbraucher greift roh auf
+  // ELL_results zu.
   if (cfg.showToggles !== false) {
     var togRow = document.createElement('div');
     togRow.style.cssText =

@@ -164,16 +164,18 @@ function _collectSideData(side) {
       });
     }
 
-    // Messungen
-    const measHas = Array.isArray(ELL_results) && ELL_results.length > 0;
+    // Messungen — Snapshot-Trennung: alles aus der Meszauswertung
+    // (ELL_testData), nie roh aus ELL_results.
+    const _evSide = ELL_testData({ side });
+    const measHas = (_evSide.gemessen || []).some(Boolean);
     let measRows = [];
     let measRefEl = null;
     let measSweep = null;
     if (measHas) {
-      measRefEl = ELL_refEl;
-      const { raw: levels, residual: ELL_res } = ELL_testData({ ctx: ELL_ctx("global") });
+      measRefEl = _evSide.refEl;
+      const { raw: levels, residual: ELL_res, gemessen: _gem } = _evSide;
       for (let i = 0; i < nEl; i++) {
-        const inMeas = ELL_results.some((r) => r.a === i || r.b === i);
+        const inMeas = !!_gem[i];
         measRows.push({
           idx: i,
           label: `${dENPrefix()}${dEN(i)}`,
@@ -1006,9 +1008,9 @@ function _audiologWarnTexts() {
   if (!eqOn) {
     out.push(t("audiologWarnEqOff"));
     // 1b. Elektrodenlautstärke-Ergebnisse vorhanden, aber EQ aus.
+    // Snapshot-Trennung: Meszauswertung lesen, nicht ELL_results roh.
     const hasELLResults = ["left", "right"].some(function (s) {
-      return sideData[s] && sideData[s].ELL_results
-        && sideData[s].ELL_results.length > 0;
+      return ELL_testData({ side: s }).gemessen.some(Boolean);
     });
     if (hasELLResults) out.push(t("audiologWarnMeasuredNoEQ"));
     return out;
@@ -1200,18 +1202,13 @@ function _audiologAdvice() {
   return lines.join("\n");
 }
 
-// BA 251: jRes entfaellt; letzte Messung kommt nur noch aus ELL_results.
-
+// Letzte Messung: Snapshot-Trennung — der (nicht-volatile) Zeitstempel
+// steht in der Meszauswertung (ELL_eval.timestamp = max ueber alle
+// Rohwert-Stempel der Seite), nie roh aus ELL_results.
 function _audiologLastELL(side) {
-  const sd = sideData[side];
-  if (!sd) return null;
-  let max = 0;
-  const collect = (arr) => {
-    if (!Array.isArray(arr)) return;
-    for (const e of arr) if (e && e.timestamp && e.timestamp > max) max = e.timestamp;
-  };
-  collect(sd.ELL_results);
-  return max > 0 ? new Date(max) : null;
+  if (typeof ELL_testData !== "function") return null;
+  const ts = ELL_testData({ side }).timestamp;
+  return (ts && ts > 0) ? new Date(ts) : null;
 }
 
 function _audiologDateStr(d) {

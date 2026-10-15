@@ -511,10 +511,10 @@ function _ltz_hasSTB() {
   // existiert in STB_results ODER in sideData[*].ELL_results.
   if (typeof STB_results === 'object' && STB_results
       && Object.keys(STB_results).some(function(k) { return STB_hasRaw(+k); })) return true;
-  if (typeof sideData === 'object' && sideData) {
+  if (typeof ELL_testData === 'function') {
     for (const side of ['left', 'right']) {
-      const sd = sideData[side];
-      if (sd && Array.isArray(sd.ELL_results) && sd.ELL_results.length > 0) return true;
+      // Snapshot-Trennung: Meszauswertung lesen, nicht ELL_results roh.
+      if (ELL_testData({ side }).gemessen.some(Boolean)) return true;
     }
   }
   return false;

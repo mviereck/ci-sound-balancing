@@ -166,6 +166,12 @@ function AWG_isUsed(id) {
   if (id === AWG_NONE_ID) return false;
 
   // ELL: audiopathID je Rohwert, BEIDE Seiten (sideData[side].ELL_results).
+  // BEWUSSTE AUSNAHME vom Snapshot-Trennungs-Anspruch (nur-Auswertung-lesen):
+  // AWG_isUsed fragt nicht "was ist aktuell gewertet", sondern "existiert
+  // irgendwo eine Rohwert-Referenz, die beim echten Entfernen braeche". Das
+  // ist inhaerent eine Rohdaten-Frage. Die gewertete Verteilung ELL_eval
+  // .audioPath filtert ausgeschlossene Elektroden heraus (test.js) -- eine
+  // spaeter wieder aufgenommene Elektrode verloere sonst ihren Audioweg-Namen.
   if (typeof sideData !== "undefined") {
     for (const side of ["left", "right"]) {
       const rows = sideData[side] && sideData[side].ELL_results;

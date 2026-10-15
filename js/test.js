@@ -755,6 +755,10 @@ function ELL_writeEval(side) {
     gemessen: gemessen,
     ausgewertet: ausgewertet,
     vergleiche: vergleiche,
+    // Anzahl der Rohwert-Paare zum Auswertungszeitpunkt (eingefrorener
+    // Snapshot-Stand). Konsumenten (Metazeile, Datenvorhanden-Pruefung)
+    // lesen diese Zahl, nie ELL_results.length roh.
+    nPairs: results.length,
     refEl: ctx.ELL_refEl,
     distWeightMode: (typeof ELL_distWeightMode !== "undefined") ? ELL_distWeightMode : "voll",
     audioPath: audioPath,
@@ -794,6 +798,7 @@ function ELL_testData(opts) {
     gemessen: new Array(n).fill(false),
     ausgewertet: new Array(n).fill(false),
     vergleiche: new Array(n).fill(0),
+    nPairs: 0,
     refEl: s ? s.ELL_refEl : null,
     distWeightMode: (typeof ELL_distWeightMode !== "undefined") ? ELL_distWeightMode : "voll",
     timestamp: 0
