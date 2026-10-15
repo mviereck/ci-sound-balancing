@@ -230,42 +230,10 @@ function _printResFRQ() {
 }
 
 function _printResLTZ() {
-  if (!LTZ_result || !isFinite(LTZ_result.valueMs)) {
-    return openPrintWindow(t("LTZ_resTitle"),
-      `<div class="print-card"><h2>${t("LTZ_resTitle")}</h2>` +
-      `<p>${t("LTZ_resNoneText")}</p></div>`);
-  }
-  const v = LTZ_result.valueMs;
-  const a = Math.abs(v).toFixed(1).replace(".", ",");
-  let mainTxt;
-  if (Math.abs(v) < 0.05) {
-    mainTxt = t("LTZ_resNoOffset");
-  } else if (v > 0) {
-    mainTxt = t("LTZ_resLeftFaster").replace("{ms}", a);
-  } else {
-    mainTxt = t("LTZ_resRightFaster").replace("{ms}", a);
-  }
-  const typeKey = {
-    "click":     "LTZ_typeClick",
-    "burst500":  "LTZ_typeBurst500",
-    "burst1500": "LTZ_typeBurst1500",
-    "burst4000": "LTZ_typeBurst4000",
-  }[ltz_clickType];
-  const typeLabel = typeKey ? t(typeKey) : (ltz_clickType || "");
-  const sign = v >= 0 ? "+" : "−";
-  const body = `
-    <div class="print-card">
-      <h2>${t("LTZ_resTitle")}</h2>
-      <p style="font-size:1.4em;font-weight:600;">${sign}${a} ms</p>
-      <p>${mainTxt}</p>
-      <p style="font-size:0.9em;">
-        ${t("LTZ_resMeasuredWith")}: ${typeLabel},
-        ${t("LTZ_resInterval")} ${ltz_intervalMs} ms
-      </p>
-      <p style="font-size:0.9em;">
-        ${t("LTZ_resApplied")}: ${plApplyLatency ? t("yes") : t("no")}
-      </p>
-    </div>`;
+  // Ergebnis-Karte (Liste aller Weg-Paare) klonen, wie _printResFRQ.
+  // Sicherstellen, dass die Liste aktuell gerendert ist.
+  if (typeof LTZ_renderResults === "function") LTZ_renderResults();
+  const body = _printCloneSafe('#subpanel-ergebnisse-latenz .card');
   openPrintWindow(t("LTZ_resTitle"), body);
 }
 

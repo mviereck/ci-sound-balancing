@@ -79,6 +79,16 @@ function LTZ_setCurrent(valueMs) {
   }
 }
 
+// Entfernt den Eintrag des aktuell eingestellten Weg-Paars (macht das Paar
+// wieder "ungemessen"). Kein Eintrag vorhanden -> nichts zu tun.
+function LTZ_clearCurrent() {
+  if (!Array.isArray(LTZ_result)) { LTZ_result = []; return; }
+  var p = LTZ_currentPair();
+  LTZ_result = LTZ_result.filter(function (e) {
+    return !(e && e.idL === p.idL && e.idR === p.idR);
+  });
+}
+
 // Migration eines Alt-Stands in die Sammlung. Nimmt beliebigen geladenen
 // Wert und liefert IMMER ein Array:
 //   - bereits Array -> unveraendert (ggf. unbrauchbare Eintraege gefiltert)
@@ -665,6 +675,20 @@ document.addEventListener("DOMContentLoaded", function() {
     tabBtn.addEventListener('click', function() { setTimeout(_ltz_refreshPrereqHints, 0); });
   }
 
+  // Lösch-Knopf: aktuell eingestellte Weg-Kombination auf "ungemessen"
+  // setzen (ihren Eintrag entfernen), nach Rueckfrage.
+  var _ltzClearBtn = document.getElementById("LTZ_clearBtn");
+  if (_ltzClearBtn) {
+    _ltzClearBtn.addEventListener("click", function () {
+      var msg = (typeof t === "function") ? t("LTZ_clearConfirm") : "Messung dieser Audioweg-Kombination entfernen?";
+      if (!window.confirm(msg)) return;
+      if (typeof LTZ_clearCurrent === "function") LTZ_clearCurrent();
+      if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
+      if (typeof LTZ_renderResults === "function") LTZ_renderResults();
+      if (typeof _autoSaveState === "function") _autoSaveState();
+    });
+  }
+
   // Sprachwechsel: Intervall-Hint neu rendern
   document.addEventListener('lang-changed', _ltz_updateIntervalHint);
 });
@@ -675,19 +699,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
 let ltz_resEls = null;
 
+// Formatiert einen Versatz als vorzeichenbehafteten ms-Text mit
+// Richtungssatz. Gibt { big, text } zurueck.
+function _ltz_fmtOffset(v) {
+  var a = Math.abs(v).toFixed(1).replace(".", ",");
+  if (Math.abs(v) < 0.05) {
+    return { big: "0,0 ms",
+             text: (typeof t === "function") ? t("LTZ_resNoOffset") : "Kein Versatz." };
+  }
+  if (v > 0) {
+    return { big: "+" + a + " ms",
+             text: (typeof t === "function") ? t("LTZ_resLeftFaster").replace("{ms}", a)
+                                             : ("Linke Seite war " + a + " ms schneller.") };
+  }
+  return { big: "−" + a + " ms",
+           text: (typeof t === "function") ? t("LTZ_resRightFaster").replace("{ms}", a)
+                                           : ("Rechte Seite war " + a + " ms schneller.") };
+}
+
 function LTZ_renderResults() {
   if (!ltz_resEls) {
     ltz_resEls = {
-      none:      document.getElementById("LTZ_resNone"),
-      content:   document.getElementById("LTZ_resContent"),
-      valueBig:  document.getElementById("LTZ_resValueBig"),
-      text:      document.getElementById("LTZ_resText"),
-      context:   document.getElementById("LTZ_resContext"),
+      none:    document.getElementById("LTZ_resNone"),
+      content: document.getElementById("LTZ_resContent"),
+      list:    document.getElementById("LTZ_resList"),
     };
   }
-  if (!ltz_resEls.none || !ltz_resEls.content) return;
+  if (!ltz_resEls.none || !ltz_resEls.content || !ltz_resEls.list) return;
 
-  if (!LTZ_result || !isFinite(LTZ_result.valueMs)) {
+  var entries = Array.isArray(LTZ_result) ? LTZ_result : [];
+  if (entries.length === 0) {
     ltz_resEls.none.hidden = false;
     ltz_resEls.content.hidden = true;
     return;
@@ -695,33 +736,31 @@ function LTZ_renderResults() {
   ltz_resEls.none.hidden = true;
   ltz_resEls.content.hidden = false;
 
-  const v = LTZ_result.valueMs;
-  const a = Math.abs(v).toFixed(1).replace(".", ",");
-  if (Math.abs(v) < 0.05) {
-    ltz_resEls.valueBig.textContent = "0,0 ms";
-    ltz_resEls.text.textContent = (typeof t === "function")
-      ? t("LTZ_resNoOffset") : "Kein Versatz.";
-  } else if (v > 0) {
-    ltz_resEls.valueBig.textContent = `+${a} ms`;
-    ltz_resEls.text.textContent = (typeof t === "function")
-      ? t("LTZ_resLeftFaster").replace("{ms}", a)
-      : `Linke Seite war ${a} ms schneller.`;
-  } else {
-    ltz_resEls.valueBig.textContent = `−${a} ms`;
-    ltz_resEls.text.textContent = (typeof t === "function")
-      ? t("LTZ_resRightFaster").replace("{ms}", a)
-      : `Rechte Seite war ${a} ms schneller.`;
-  }
+  var cur = (typeof LTZ_currentPair === "function") ? LTZ_currentPair() : { idL: 0, idR: 0 };
 
-  const typeKey = {
-    "click":     "LTZ_typeClick",
-    "burst500":  "LTZ_typeBurst500",
-    "burst1500": "LTZ_typeBurst1500",
-    "burst4000": "LTZ_typeBurst4000",
-  }[ltz_clickType];
-  const typeLabel = (typeof t === "function" && typeKey)
-    ? t(typeKey) : (ltz_clickType || "");
-  ltz_resEls.context.textContent =
-    `${t("LTZ_resMeasuredWith")}: ${typeLabel}, ${t("LTZ_resInterval")} ${ltz_intervalMs} ms`;
+  var head =
+    "<thead><tr>" +
+    "<th style=\"text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);\">" + t("LTZ_colPathL") + "</th>" +
+    "<th style=\"text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);\">" + t("LTZ_colPathR") + "</th>" +
+    "<th style=\"text-align:right;padding:6px 8px;border-bottom:1px solid var(--border);\">" + t("LTZ_colOffset") + "</th>" +
+    "</tr></thead>";
+
+  var rows = entries.map(function (e) {
+    var isCur = (e.idL === cur.idL && e.idR === cur.idR);
+    var f = _ltz_fmtOffset(e.valueMs);
+    var labL = (typeof AWG_label === "function") ? AWG_label(e.idL) : String(e.idL);
+    var labR = (typeof AWG_label === "function") ? AWG_label(e.idR) : String(e.idR);
+    var rowStyle = isCur
+      ? "font-weight:700;background:var(--accent-light);"
+      : "";
+    var curTag = isCur ? (" <span style=\"font-weight:400;font-size:0.82em;color:var(--accent);\">(" + t("LTZ_colCurrent") + ")</span>") : "";
+    return "<tr style=\"" + rowStyle + "\">" +
+      "<td style=\"padding:6px 8px;border-bottom:1px solid var(--border);\">" + labL + curTag + "</td>" +
+      "<td style=\"padding:6px 8px;border-bottom:1px solid var(--border);\">" + labR + "</td>" +
+      "<td style=\"padding:6px 8px;border-bottom:1px solid var(--border);text-align:right;font-family:var(--mono);\" title=\"" + f.text + "\">" + f.big + "</td>" +
+      "</tr>";
+  }).join("");
+
+  ltz_resEls.list.innerHTML = head + "<tbody>" + rows + "</tbody>";
 }
 

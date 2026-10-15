@@ -1116,14 +1116,15 @@ function _audiologSTBBlock(mainSides) {
 // ---------- Latenz (immer wenn gemessen, auch einseitig) ----------
 
 function _audiologLTZBlock(mainSides) {
-  if (typeof LTZ_result === "undefined" || !LTZ_result) return "";
-  if (!isFinite(LTZ_result.valueMs)) return "";
-  const ms = LTZ_result.valueMs;
+  if (typeof LTZ_currentEntry !== "function") return "";
+  const e = LTZ_currentEntry();
+  if (!e || !isFinite(e.valueMs)) return "";
+  const ms = e.valueMs;
   if (ms === 0) return "";
-  const LTZ_active = (typeof plApplyLatency !== "undefined") && plApplyLatency
-                 && (mainSides.length === 2);
   const earlierSide = ms >= 0 ? t("sideLeft")  : t("sideRight");
   const laterSide   = ms >= 0 ? t("sideRight") : t("sideLeft");
+  const labL = (typeof AWG_label === "function") ? AWG_label(e.idL) : String(e.idL);
+  const labR = (typeof AWG_label === "function") ? AWG_label(e.idR) : String(e.idR);
   const lines = [];
   lines.push(`## ${t("audiologSecLTZ")}`);
   lines.push("");
@@ -1131,6 +1132,9 @@ function _audiologLTZBlock(mainSides) {
   lines.push(`- ${t("audiologLTZImpact")
     .replace("{earlier}", earlierSide)
     .replace("{later}", laterSide)}`);
+  lines.push(`- ${t("audiologLTZPaths")
+    .replace("{left}", labL)
+    .replace("{right}", labR)}`);
   lines.push("");
   return lines.join("\n");
 }
@@ -1277,7 +1281,8 @@ function buildAudiologMarkdown() {
   if (miss) parts.push(miss);
   const bal = _audiologSTBBlock(mainSides);
   if (bal) parts.push(bal);
-  const lat = _audiologLTZBlock(mainSides);
+  const _ltzActive = (typeof plApplyLatency !== "undefined") && plApplyLatency;
+  const lat = _ltzActive ? _audiologLTZBlock(mainSides) : "";
   if (lat) parts.push(lat);
 
   // ===========================================================
