@@ -46,9 +46,15 @@ function ELL_renderResults() {
   const vol = saveGet("ELLtest_volume") || 50;
   let meta = `${new Date().toLocaleString(lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US")}`;
   if (hB) meta += ` · ${ELL_results.length} bal.`;
-  meta += ` · ${t("lblVol")} ${vol}% · ${MFR[mfr].name}`;
+  meta += ` · ${t("lblVol")} ${vol}%`;
   const rMeta = document.getElementById("ELL_resMeta");
   if (rMeta) rMeta.innerHTML = meta;
+  // Audiowege-Box (BA674): ELL ist einseitig -> flache Verteilung der
+  // aktiven Seite, ohne Seiten-Praefix.
+  const _ellEval = sideData[activeSide] && sideData[activeSide].ELL_eval;
+  const _ellBox = document.getElementById("ELL_resAwgBox");
+  if (_ellBox) _ellBox.innerHTML = (typeof AWG_boxHtml === "function" && _ellEval)
+    ? AWG_boxHtml([{ side: null, dist: _ellEval.audioPath }]) : "";
   const th = document.getElementById("ELL_resTH"),
     tb = document.getElementById("ELL_resTB");
   th.innerHTML = "";
@@ -946,8 +952,30 @@ function FRQ_renderResults() {
         lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US"
       );
       metaText = dateStr + " · " + finalCount + " Messpunkte";
+      metaText += " · " + t("lblVol") + " " + (saveGet("FRQtest_volume") || 50) + "%";
     }
     metaEl.textContent = metaText;
+  }
+  // Audiowege-Box (BA674): testweite Verdichtung ueber ALLE gewerteten
+  // Elektroden je Seite. Jeder FRQ_resultsArray-Eintrag traegt eine
+  // Verteilung pro Elektrode ({left,right}); hier zu einer Verteilung je
+  // Seite zusammenfuehren (ids count-fach expandieren, neu verdichten).
+  const _frqBox = document.getElementById("FRQ_resultsAwgBox");
+  if (_frqBox && typeof AWG_boxHtml === "function") {
+    const _collect = function (side) {
+      const ids = [];
+      (displayData || []).forEach(function (entry) {
+        const d = entry && entry.audioPath && entry.audioPath[side];
+        if (Array.isArray(d)) d.forEach(function (e) {
+          for (let k = 0; k < e.count; k++) ids.push(e.id);
+        });
+      });
+      return (typeof AWG_distribution === "function") ? AWG_distribution(ids) : null;
+    };
+    _frqBox.innerHTML = AWG_boxHtml([
+      { side: "left",  dist: _collect("left") },
+      { side: "right", dist: _collect("right") }
+    ]);
   }
 
   const varLabel = aktivSide === 'left' ? t('sideLeft')  : t('sideRight');

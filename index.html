@@ -530,6 +530,7 @@
               "
               id="ELL_resMeta"
             ></p>
+            <div id="ELL_resAwgBox"></div>
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:0.88em">
               <label for="ELL_refEl" data-t="lblRef" style="white-space:nowrap"></label>
               <select id="ELL_refEl" style="font-family:var(--mono);padding:4px 8px"></select>
@@ -627,6 +628,8 @@
             <p style="color: var(--text)" data-t="STB_noResultsMsg"></p>
           </div>
           <div id="STB_resultsCard" style="display: none">
+            <p style="font-size:0.84em;color:var(--text);margin-bottom:10px" id="STB_resMeta"></p>
+            <div id="STB_resAwgBox"></div>
           <div
             id="STB_medianDisplay"
             style="
@@ -729,6 +732,7 @@
             </div>
             <div id="FRQ_resultsCard" style="display:none">
             <p style="font-size:0.84em;color:var(--text);margin-bottom:10px" id="FRQ_resultsMeta"></p>
+            <div id="FRQ_resultsAwgBox"></div>
             <div id="FRQ_resultsProgressBox" style="display:none;margin:10px 0;">
               <div style="display:flex;justify-content:space-between;font-size:.85em;color:#555;margin-bottom:4px;">
                 <span data-t="FRQ_resultsProgressLabel">Fortschritt laufende Messung</span>
@@ -803,13 +807,13 @@
             <p style="color: var(--text)" data-t="stResNoData"></p>
           </div>
           <div id="SNR_resContent" style="display:none;">
+            <p style="font-size:0.84em;color:var(--text);margin-bottom:10px" id="SNR_resMeta"></p>
+            <div id="SNR_resAwgBox"></div>
             <div class="st-res-srt">
               <span data-t="stResSrtLabel"></span>
               <strong id="SNR_resSrtValue"></strong>
               <span id="SNR_resConvHint" data-t="stResConvHint" style="display:none;"></span>
             </div>
-            <div id="SNR_resBundle" class="st-res-bundle"></div>
-            <div id="SNR_resNoise" class="st-res-bundle"></div>
             <div class="explain explain-plain" data-t="stResSrtExplain"></div>
             <h3 style="margin:20px 0 6px" data-t="stResCourseTitle"></h3>
             <div class="chart-container">

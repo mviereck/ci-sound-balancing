@@ -447,6 +447,23 @@ function STB_renderResults() {
   document.getElementById("STB_resultsCard").style.display = "";
   if (noResEl) noResEl.style.display = "none";
 
+  // Meta-Zeile (BA674, einheitlich mit ELL): Datum · N Elektroden · Lautstaerke.
+  var _stbMetaEl = document.getElementById("STB_resMeta");
+  if (_stbMetaEl) {
+    var _stbVol = saveGet("STBtest_volume") || 50;
+    var _stbDate = new Date().toLocaleString(
+      lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US");
+    _stbMetaEl.textContent = _stbDate + " · " + keys.length + " " + t("STB_resMetaEls")
+      + " · " + t("lblVol") + " " + _stbVol + "%";
+  }
+  // Audiowege-Box (BA674): STB beidseitig -> beide Seiten.
+  var _stbBox = document.getElementById("STB_resAwgBox");
+  if (_stbBox) _stbBox.innerHTML = (typeof AWG_boxHtml === "function" && typeof STB_eval !== "undefined" && STB_eval)
+    ? AWG_boxHtml([
+        { side: "left",  dist: STB_eval.audioPath && STB_eval.audioPath.left },
+        { side: "right", dist: STB_eval.audioPath && STB_eval.audioPath.right }
+      ]) : "";
+
   // Table
   const th = document.getElementById("STB_resTH");
   const tb = document.getElementById("STB_resTB");

@@ -21,6 +21,7 @@
 //   AWG_rename(id, label)       — Beschreibungstext aendern (ID 0 unveraenderlich)
 //   AWG_hide(id)                — Eintrag ausblenden (ID 0 nicht ausblendbar)
 //   AWG_distribution(ids)      — Liste von ids -> Verteilung [{id,count}] (absteigend), null bei leer
+//   AWG_boxHtml(sides)         — HTML der "Audiowege"-Box, "" wenn alle Seiten leer
 // ====================================================================
 
 // Reservierte ID des Default-Eintrags "(keine Angabe)". label wird
@@ -76,6 +77,55 @@ function AWG_distribution(ids) {
     return (b.count - a.count) || (a.id - b.id);
   });
   return out;
+}
+
+// ====================================================================
+// Audiowege-Anzeige auf den Auswertungsseiten (Architektur §3.5).
+// EINE test-agnostische Box fuer alle vier Tests. Liest NICHT die
+// Rohwerte, sondern die in der Auswertung eingefrorene Verteilung
+// (audioPath = [{id,count}] je Seite, aus AWG_distribution).
+// ====================================================================
+
+// Eine Weg-Zeile aus einer Verteilung: alle Wege absteigend nach Anteil
+// (die Liste ist bereits sortiert), Format "Label (X von N, p %)".
+// Bei genau EINEM Weg nur das Label ohne Klammer. Prozent wird hier LIVE
+// gerechnet (nicht gespeichert). dist = [{id,count}] | null.
+function _awgDistText(dist) {
+  if (!Array.isArray(dist) || dist.length === 0) return null;
+  var n = 0;
+  for (var i = 0; i < dist.length; i++) n += dist[i].count;
+  if (n === 0) return null;
+  if (dist.length === 1) return AWG_label(dist[0].id);   // ein Weg: ohne Klammer
+  return dist.map(function (e) {
+    var p = Math.round((e.count / n) * 100);
+    return AWG_label(e.id) + " (" + e.count + " " + t("AWG_boxOf") + " " + n + ", " + p + " %)";
+  }).join(" · ");
+}
+
+// Baut das HTML der "Audiowege"-Box. sides = Array von
+//   { side: "left"|"right"|null, dist: [{id,count}]|null }
+// side === null -> einseitige Anzeige ohne Seiten-Praefix (ELL; SNR
+// einseitig). Zwei Eintraege -> je eine Unterzeile "Links:"/"Rechts:".
+// Gibt "" zurueck, wenn KEINE Seite eine nicht-leere Verteilung hat
+// (dann zeigt der Aufrufer die Box gar nicht).
+function AWG_boxHtml(sides) {
+  var rows = [];
+  for (var i = 0; i < sides.length; i++) {
+    var txt = _awgDistText(sides[i].dist);
+    if (txt === null) continue;   // leere Seite ueberspringen
+    var s = sides[i].side;
+    if (s === "left" || s === "right") {
+      var pre = (s === "left") ? t("AWG_boxLeft") : t("AWG_boxRight");
+      rows.push("<div><strong>" + pre + "</strong> " + txt + "</div>");
+    } else {
+      rows.push("<div>" + txt + "</div>");
+    }
+  }
+  if (rows.length === 0) return "";
+  return "<div class=\"awg-box\">"
+       + "<div class=\"awg-box-title\">" + t("AWG_boxTitle") + "</div>"
+       + rows.join("")
+       + "</div>";
 }
 
 function AWG_visibleEntries() {

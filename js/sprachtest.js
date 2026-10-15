@@ -807,24 +807,31 @@ function SNR_renderResults() {
   }
   const conv = document.getElementById("SNR_resConvHint");
   if (conv) conv.style.display = res.converged ? "" : "none";
-  const bundleEl = document.getElementById("SNR_resBundle");
-  if (bundleEl) {
-    // Material aus dem gesicherten Slug des Ergebnisses uebersetzen; Alt-
-    // Ergebnisse ohne materialSlug fallen auf den heutigen Live-Lookup zurueck.
-    const slug = (res.materialSlug !== undefined && res.materialSlug !== null)
-      ? res.materialSlug
-      : snr_currentTestSet();
-    const lbl = snr_testSetLabel(slug);
-    bundleEl.textContent = lbl
-      ? (t("stResBundlePrefix") + " " + lbl)
-      : "";
+  // Einheitliche Meta-Zeile (BA674): Datum · Lautstaerke · Material · Rauschen.
+  const _snrMetaEl = document.getElementById("SNR_resMeta");
+  if (_snrMetaEl) {
+    const _ts = (res.ts != null) ? new Date(res.ts) : new Date();
+    const _date = _ts.toLocaleString(
+      lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US");
+    const _vol = saveGet("SNRtest_volume") || 50;
+    const _slug = (res.materialSlug != null) ? res.materialSlug : snr_currentTestSet();
+    const _matLbl = snr_testSetLabel(_slug);
+    const _nid = (res.noiseId !== undefined) ? res.noiseId : snr_noiseChoiceId;
+    const _noiseLbl = snr_noiseLabel(_nid);
+    let _m = _date + " · " + t("lblVol") + " " + _vol + "%";
+    if (_matLbl)   _m += " · " + _matLbl;
+    if (_noiseLbl) _m += " · " + _noiseLbl;
+    _snrMetaEl.textContent = _m;
   }
-  const noiseEl = document.getElementById("SNR_resNoise");
-  if (noiseEl) {
-    // Rauschen aus der gesicherten noiseId; Alt-Ergebnisse ohne Feld -> Live.
-    const nid = (res.noiseId !== undefined) ? res.noiseId : snr_noiseChoiceId;
-    const nl = snr_noiseLabel(nid);
-    noiseEl.textContent = nl ? (t("stResNoisePrefix") + " " + nl) : "";
+  // Audiowege-Box (BA674): SNR ein- oder beidseitig je nach Modus. res.audioPath
+  // ist {left,right} oder {side}; nicht vorhandene Seiten -> uebersprungen.
+  const _snrBox = document.getElementById("SNR_resAwgBox");
+  if (_snrBox && typeof AWG_boxHtml === "function") {
+    const _ap = res.audioPath || {};
+    const _sides = snr_isBothEar()
+      ? [{ side: "left", dist: _ap.left }, { side: "right", dist: _ap.right }]
+      : [{ side: null, dist: _ap.left || _ap.right }];
+    _snrBox.innerHTML = AWG_boxHtml(_sides);
   }
 
   SNR_drawCourse(res);
