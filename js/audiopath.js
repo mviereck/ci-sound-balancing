@@ -156,13 +156,61 @@ function AWG_rename(id, label) {
   return true;
 }
 
-// Wird dieser Audioweg von irgendeiner Messung referenziert? Die
-// eingefrorene audiopathID je Meszschritt existiert erst ab dem
-// Einfrieren-Schritt; bis dahin referenziert nichts einen Eintrag, also
-// immer false. Einzige Auskunftsstelle — spaeter hier die Rohwerte aller
-// Tests (und, sobald es sie gibt, die Snapshots) pruefen.
+// Wird dieser Audioweg von irgendeiner Messung referenziert? Durchsucht die
+// eingefrorenen Audioweg-Referenzen aller vier Mess-Tests + Latenz. Die
+// fluechtige aktive Auswahl (sideData[side].AWG_activeId) zaehlt bewusst
+// NICHT als Nutzung (nur abgeschlossene Messungen, §4). Einzige
+// Auskunftsstelle — spaeter hier zusaetzlich die Snapshots pruefen.
+// Defensiv gegen undefined, da audiopath.js frueh laedt.
 function AWG_isUsed(id) {
   if (id === AWG_NONE_ID) return false;
+
+  // ELL: audiopathID je Rohwert, BEIDE Seiten (sideData[side].ELL_results).
+  if (typeof sideData !== "undefined") {
+    for (const side of ["left", "right"]) {
+      const rows = sideData[side] && sideData[side].ELL_results;
+      if (Array.isArray(rows) && rows.some(function (r) { return r && r.audiopathID === id; })) return true;
+    }
+  }
+
+  // STB: STB_resultsPath = {elIdx:{left,right}} (global).
+  if (typeof STB_resultsPath !== "undefined" && STB_resultsPath) {
+    for (const k in STB_resultsPath) {
+      const p = STB_resultsPath[k];
+      if (p && (p.left === id || p.right === id)) return true;
+    }
+  }
+
+  // FRQ: FRQ_pianoSession.perElectrode[el].verlauf[] mit audiopathL/R (global).
+  if (typeof FRQ_pianoSession !== "undefined" && FRQ_pianoSession && FRQ_pianoSession.perElectrode) {
+    const pe = FRQ_pianoSession.perElectrode;
+    for (const el in pe) {
+      const v = pe[el] && pe[el].verlauf;
+      if (Array.isArray(v) && v.some(function (e) { return e && (e.audiopathL === id || e.audiopathR === id); })) return true;
+    }
+  }
+
+  // SNR: audioPath = {left?,right?} als Verteilung [{id,count}].
+  //   SNR_resultBoth (global) + sideData[side].SNR_result (je Seite).
+  const _snrHas = function (res) {
+    if (!res || !res.audioPath) return false;
+    for (const side of ["left", "right"]) {
+      const dist = res.audioPath[side];
+      if (Array.isArray(dist) && dist.some(function (d) { return d && d.id === id; })) return true;
+    }
+    return false;
+  };
+  if (typeof SNR_resultBoth !== "undefined" && _snrHas(SNR_resultBoth)) return true;
+  if (typeof sideData !== "undefined") {
+    for (const side of ["left", "right"]) {
+      if (_snrHas(sideData[side] && sideData[side].SNR_result)) return true;
+    }
+  }
+
+  // Latenz: LTZ_result = Array<{idL,idR,...}> (global).
+  if (typeof LTZ_result !== "undefined" && Array.isArray(LTZ_result)
+      && LTZ_result.some(function (e) { return e && (e.idL === id || e.idR === id); })) return true;
+
   return false;
 }
 
@@ -302,7 +350,16 @@ function _awgBuildManageList() {
         if (!window.confirm(msg)) return;
         AWG_hide(e.id);
       } else {
-        // Unbenutzter Eintrag: echt entfernen.
+        // Unbenutzter Eintrag: echt entfernen. War er gerade als aktive
+        // Auswahl einer Seite gesetzt, faellt diese auf "(keine Angabe)"
+        // (ID 0) zurueck -- sonst zeigte das Dropdown einen entfernten Weg.
+        if (typeof sideData !== "undefined" && typeof AWG_setActive === "function") {
+          ["left", "right"].forEach(function (side) {
+            if (sideData[side] && sideData[side].AWG_activeId === e.id) {
+              AWG_setActive(side, AWG_NONE_ID);
+            }
+          });
+        }
         AWG_remove(e.id);
       }
       if (typeof AWG_renderSelects === "function") AWG_renderSelects();
