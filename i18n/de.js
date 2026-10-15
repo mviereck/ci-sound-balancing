@@ -41,6 +41,7 @@ Object.assign(L.de, {
     LTZ_clearConfirm: "Messung dieser Audioweg-Kombination entfernen?",
     LTZ_clearHint: "Entfernt die Messung der aktuell eingestellten Audioweg-Kombination.",
     LTZ_resListIntro: "Gemessene Inter-Ohr-Latenz je Audioweg-Kombination. Die aktuell eingestellte Kombination ist hervorgehoben.",
+    LTZ_resSignLegend: "+ = linke Seite hört früher · − = rechte Seite hört früher",
     LTZ_colPathL: "Audioweg links",
     LTZ_colPathR: "Audioweg rechts",
     LTZ_colOffset: "Versatz",

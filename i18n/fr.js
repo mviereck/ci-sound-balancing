@@ -61,6 +61,7 @@ Object.assign(L.fr, {
     LTZ_clearConfirm: "Supprimer la mesure de cette combinaison de trajets audio ?",
     LTZ_clearHint: "Supprime la mesure de la combinaison de trajets audio actuellement sélectionnée.",
     LTZ_resListIntro: "Latence interaurale mesurée par combinaison de trajets audio. La combinaison actuellement sélectionnée est mise en évidence.",
+    LTZ_resSignLegend: "+ = l'oreille gauche entend plus tôt · − = l'oreille droite entend plus tôt",
     LTZ_colPathL: "Trajet audio gauche",
     LTZ_colPathR: "Trajet audio droit",
     LTZ_colOffset: "Décalage",

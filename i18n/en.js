@@ -61,6 +61,7 @@ Object.assign(L.en, {
     LTZ_clearConfirm: "Remove the measurement for this audio-path combination?",
     LTZ_clearHint: "Removes the measurement for the currently selected audio-path combination.",
     LTZ_resListIntro: "Measured inter-aural latency per audio-path combination. The currently selected combination is highlighted.",
+    LTZ_resSignLegend: "+ = left ear hears earlier · − = right ear hears earlier",
     LTZ_colPathL: "Audio path left",
     LTZ_colPathR: "Audio path right",
     LTZ_colOffset: "Offset",

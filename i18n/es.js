@@ -61,6 +61,7 @@ Object.assign(L.es, {
     LTZ_clearConfirm: "¿Eliminar la medición de esta combinación de rutas de audio?",
     LTZ_clearHint: "Elimina la medición de la combinación de rutas de audio seleccionada actualmente.",
     LTZ_resListIntro: "Latencia interaural medida por combinación de rutas de audio. La combinación seleccionada actualmente está resaltada.",
+    LTZ_resSignLegend: "+ = el oído izquierdo oye antes · − = el oído derecho oye antes",
     LTZ_colPathL: "Ruta de audio izquierda",
     LTZ_colPathR: "Ruta de audio derecha",
     LTZ_colOffset: "Desfase",

@@ -528,35 +528,50 @@ function _ltz_refreshPrereqHints() {
 // --- Hook-Implementierungen ---
 
 function ltz_hookOnStart() {
-  // Seitenhörtest vor Start (analog freqmatch slider).
-  testUI.sideCheck.run(
+  // Mess-Kontext Audioweg: VOR der Seiten-Sitz-Pruefung die Audioweg-
+  // Vortest-Box (test-agnostisch, testUI.audioPathCheck). Der Latenztest
+  // uebergibt KEIN measuredPathIds -> Default leere Liste -> nur Anzeige
+  // der eingestellten Wege + "(keine Angabe)"-Warnung + Pruefbitte, KEINE
+  // Abweich-/Mischwarnung (ein anderer Weg ist hier normal und erwuenscht).
+  var _sideCheckThen = function() {
+    // Seitenhörtest vor Start (analog freqmatch slider).
+    testUI.sideCheck.run(
+      { sides: 'both' },
+      function() {
+        // Startwert: vorhandenes Ergebnis oder 0
+        var _curEntry = LTZ_currentEntry();
+        const startMs = (_curEntry && isFinite(_curEntry.valueMs))
+          ? _curEntry.valueMs : 0;
+        const slRef = LTZ_els.verfahren.latenz.slider;
+        if (slRef) {
+          testUI.slider.setValue(slRef, startMs);
+          // setValue setzt nur Range/Wert, nicht die Anzeige -> sonst zeigt
+          // der Slider beim Neustart den zuletzt geschobenen Text, bis man
+          // erneut schiebt. Anzeige analog stereobalance-balance.js explizit setzen.
+          testUI.slider.setValueDisplay(slRef, startMs.toFixed(1) + " ms");
+        }
+        ltz_setSliderMs(startMs);
+        _ltz_updateIntervalHint();
+        // BA392: Hoerbarkeit bei jedem Start auf "beide hoerbar" zuruecksetzen
+        ltz_clicksAudible = true;
+        ltz_playerAudible = true;
+        _ltz_refreshAudibleBtns();
+        ltz_startTest();
+        if (typeof pPlayerMuteGain !== "undefined" && pPlayerMuteGain) {
+          ltz_rampGain(pPlayerMuteGain, true);
+        }
+      },
+      function() {
+        // Abbruch im sideCheck -> testUI stoppt; wir raeumen nur unsere Resourcen.
+        if (LTZ_els && LTZ_els._stopTest) LTZ_els._stopTest();
+      }
+    );
+  };
+  testUI.audioPathCheck.run(
     { sides: 'both' },
+    _sideCheckThen,
     function() {
-      // Startwert: vorhandenes Ergebnis oder 0
-      var _curEntry = LTZ_currentEntry();
-      const startMs = (_curEntry && isFinite(_curEntry.valueMs))
-        ? _curEntry.valueMs : 0;
-      const slRef = LTZ_els.verfahren.latenz.slider;
-      if (slRef) {
-        testUI.slider.setValue(slRef, startMs);
-        // setValue setzt nur Range/Wert, nicht die Anzeige -> sonst zeigt
-        // der Slider beim Neustart den zuletzt geschobenen Text, bis man
-        // erneut schiebt. Anzeige analog stereobalance-balance.js explizit setzen.
-        testUI.slider.setValueDisplay(slRef, startMs.toFixed(1) + " ms");
-      }
-      ltz_setSliderMs(startMs);
-      _ltz_updateIntervalHint();
-      // BA392: Hoerbarkeit bei jedem Start auf "beide hoerbar" zuruecksetzen
-      ltz_clicksAudible = true;
-      ltz_playerAudible = true;
-      _ltz_refreshAudibleBtns();
-      ltz_startTest();
-      if (typeof pPlayerMuteGain !== "undefined" && pPlayerMuteGain) {
-        ltz_rampGain(pPlayerMuteGain, true);
-      }
-    },
-    function() {
-      // Abbruch im sideCheck -> testUI stoppt; wir raeumen nur unsere Resourcen.
+      // Abbruch in der Audioweg-Box -> Test gar nicht starten, aufraeumen.
       if (LTZ_els && LTZ_els._stopTest) LTZ_els._stopTest();
     }
   );
