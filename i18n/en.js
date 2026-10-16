@@ -1483,6 +1483,14 @@ Object.assign(L.en, {
     plLockHintSideDeaf: "Not available — side entered as deaf.",
     plLatUnmeasuredHint: "⚠ Latency for the selected audio paths has not been measured yet.",
     plBalSuppressedTitle: "Not available when reducing electrode volume without considering both sides.",
+    plSrcMeasEmptyHint: "⚠ No loudness measurement for this side yet.",
+    plSrcCurvesEmptyHint: "⚠ No curve values set.",
+    plSrcLevelsEmptyHint: "⚠ No slider values set.",
+    plSrcSideUnmeasLeft: "⚠ Left ear not measured yet.",
+    plSrcSideUnmeasRight: "⚠ Right ear not measured yet.",
+    plBalEmptyHint: "⚠ Stereo balance has not been measured yet.",
+    plWarpEmptyHint: "⚠ Frequency matching has not been measured yet.",
+    plWarpNoSideHint: "⚠ Has no effect on the side being played.",
 
     // BA 183: Update check banner
     updateBannerMsg: "New version available",

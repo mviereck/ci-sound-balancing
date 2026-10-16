@@ -1759,6 +1759,14 @@ Object.assign(L.de, {
     plLockHintSideDeaf: "Nicht verfügbar — Seite als taub eingetragen.",
     plLatUnmeasuredHint: "⚠ Latenz der eingestellten Audiowege wurde noch nicht gemessen.",
     plBalSuppressedTitle: "Nicht verfügbar mit Elektrodenlautstärke absenken, ohne beide Seiten zu berücksichtigen.",
+    plSrcMeasEmptyHint: "⚠ Noch keine Lautstärke-Messung für diese Seite.",
+    plSrcCurvesEmptyHint: "⚠ Keine Kurven-Werte gesetzt.",
+    plSrcLevelsEmptyHint: "⚠ Keine Schieber-Werte gesetzt.",
+    plSrcSideUnmeasLeft: "⚠ Linkes Ohr noch nicht gemessen.",
+    plSrcSideUnmeasRight: "⚠ Rechtes Ohr noch nicht gemessen.",
+    plBalEmptyHint: "⚠ Stereo-Balance wurde noch nicht gemessen.",
+    plWarpEmptyHint: "⚠ Frequenzabgleich wurde noch nicht gemessen.",
+    plWarpNoSideHint: "⚠ Wirkt sich auf die abgespielte Seite nicht aus.",
 
     // BA 183: Update-Check-Banner
     updateBannerMsg: "Neue Version verfuegbar",

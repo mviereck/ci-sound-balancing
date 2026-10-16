@@ -780,6 +780,7 @@ function updatePlayerForSideChange() {
   }
   if (typeof plUpdMonoBox === "function") plUpdMonoBox();
   plCheck();
+  if (typeof plUpdSrcDatenmangel === "function") plUpdSrcDatenmangel();
 }
 
 // BA430: Filter-Positionsfrequenz einer Elektrode im EQ-Audio-Pfad.
@@ -1679,7 +1680,20 @@ function plUpdBalLock() {
       hint.textContent = (typeof t === "function") ? t("plBalSuppressedTitle") : "Nicht verfügbar mit Elektrodenlautstärke absenken, ohne beide Seiten zu berücksichtigen.";
       hint.style.display = "inline";
     } else {
-      hint.style.display = "none";
+      // BA677: Datenmangel (keine Balance-Auswertung) -> matt + Hinweis,
+      // Klick bleibt wirksam (plBalLocked NICHT gesetzt). Nur wenn keine
+      // Sperre gilt UND Button aktiv (plApplyBalance).
+      var balActive = (typeof plApplyBalance === "undefined") || plApplyBalance;
+      var balUnmeasured = balActive
+        && (typeof STB_evalValue === "function")
+        && STB_evalValue() === null;
+      if (btn) btn.style.opacity = balUnmeasured ? "var(--disabled-opacity)" : "";
+      if (balUnmeasured) {
+        hint.textContent = t("plBalEmptyHint");
+        hint.style.display = "inline";
+      } else {
+        hint.style.display = "none";
+      }
     }
   }
   // Dropdown (Sym/Links/Rechts) nur sichtbar, wenn Balance aktiv UND nicht gesperrt
@@ -1704,8 +1718,12 @@ function plUpdLatLock() {
   // Messung. NUR optisch (matt + Warndreieck), Klick bleibt wirksam ->
   // NICHT ueber plLatLocked (das schluckt den Klick, nur fuer Taub).
   // Taub hat Vorrang: ist eine Seite taub, zeigen wir den Taub-Hinweis.
+  // BA677-Fix: Datenmangel-Hinweis nur, wenn der Latenz-Button aktiv ist
+  // (analog Balance/Quellen/Warp). Bei inaktivem Button weder matt noch
+  // Hinweis. Die Taub-Sperre (plLatLocked) bleibt davon unberuehrt.
+  var latActive = (typeof plApplyLatency === "undefined") || plApplyLatency;
   var unmeasured = false;
-  if (!plLatLocked && typeof LTZ_currentEntry === "function") {
+  if (!plLatLocked && latActive && typeof LTZ_currentEntry === "function") {
     var _e = LTZ_currentEntry();
     unmeasured = !(_e && isFinite(_e.valueMs));
   }
@@ -1744,9 +1762,145 @@ function plUpdWarpLock() {
     if (plWarpLocked) {
       hint.textContent = (typeof t === "function") ? t("plLockHintSideDeaf") : "Nicht verfügbar — Seite als taub eingetragen.";
       hint.style.display = "inline";
-    } else {
+    } else if (!((typeof pWarpOn !== "undefined") && pWarpOn)) {
+      // BA677-Fix: Warp-Button aus -> Datenmangel-Hinweis nicht zeigen (der
+      // Hinweis gilt nur fuer den aktivierten Button, analog Balance/Quellen).
+      if (btn) btn.style.opacity = "";
       hint.style.display = "none";
+    } else {
+      // BA677: Datenmangel aus dem FERTIGEN Warp-Ergebnis. FRQ_werte("warp")
+      // liefert je Elektrode entry.left.cs / entry.right.cs - die Cent-
+      // Verschiebung je Seite, mit allen Einstellungen (inkl. angewandter
+      // Verteilung) bereits eingerechnet. Wir pruefen nur, ob eine Seite
+      // durchweg 0 ist; KEINE eigene Seitenverteilung, KEIN Referenzmodus.
+      // FRQ_distribution wird nur DURCHGEREICHT (wie im Warp-Playback-Pfad).
+      var _wmode = (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "symmetric";
+      var _warp = (typeof FRQ_werte === "function")
+        ? FRQ_werte("warp", _wmode, false) : [];
+      function _seiteWarpt(seite) {   // "left" | "right"
+        return _warp.some(function (e) {
+          var cs = e && e[seite] ? e[seite].cs : null;
+          return typeof cs === "number" && cs !== 0;
+        });
+      }
+      var warpsL = _seiteWarpt("left");
+      var warpsR = _seiteWarpt("right");
+
+      // Welche Seiten spielen? both/mono -> beide, sonst die aktive.
+      var _mode = (typeof getPlayerSide === "function") ? getPlayerSide() : "both";
+      var _play = (_mode === "both" || _mode === "mono") ? ["left","right"] : [_mode];
+      var wirktAufSpielseite = _play.some(function (s) {
+        return (s === "left") ? warpsL : warpsR;
+      });
+
+      if (!warpsL && !warpsR) {
+        // (a) Warp verschiebt gar nichts -> matt + Hinweis
+        if (btn) btn.style.opacity = "var(--disabled-opacity)";
+        hint.textContent = t("plWarpEmptyHint");
+        hint.style.display = "inline";
+      } else if (!wirktAufSpielseite) {
+        // (b) verschiebt etwas, aber nicht auf der spielenden Seite ->
+        // NICHT matt, nur Hinweis
+        if (btn) btn.style.opacity = "";
+        hint.textContent = t("plWarpNoSideHint");
+        hint.style.display = "inline";
+      } else {
+        if (btn) btn.style.opacity = "";
+        hint.style.display = "none";
+      }
     }
+  }
+}
+
+// BA677: Datenmangel-Mattierung der drei EQ-Quellen-Buttons
+// (Elektrodenlautstaerke / Kurven / Schieber). Eigener Optik-Zustand NEBEN
+// der Sperre: matt (opacity) + Hinweis, Klick bleibt wirksam (kein Flag, der
+// den Klick schluckt). Einzige Schreibstelle fuer opacity/Hinweis dieser drei
+// Buttons. Vorbild: unmeasured-Zweig in plUpdLatLock.
+// Seitenbezug: Elektrodenlautstaerke + Kurven pruefen die SPIELENDEN,
+// nicht-tauben Seiten (getPlayerSide); nur eine von zwei hoerenden Seiten mit
+// Werten -> Teil-Hinweis mit konkreter Seite. Schieber: matt nur, wenn BEIDE
+// Seiten komplett 0 (kein Teil-Hinweis).
+function plUpdSrcDatenmangel() {
+  // Welche Seiten spielen? both/mono -> beide, sonst die aktive.
+  var mode = (typeof getPlayerSide === "function") ? getPlayerSide() : "both";
+  var playSides = (mode === "both" || mode === "mono")
+    ? ["left", "right"]
+    : [mode];   // "left" | "right"
+
+  // Hoerende (nicht-taube) der spielenden Seiten.
+  var hearSides = playSides.filter(function (s) {
+    return !(typeof isDeaf === "function" && isDeaf(s));
+  });
+
+  // Pro Quelle: Liste der hoerenden Seiten, die Werte haben.
+  function sidesWith(hasValuesForSide) {
+    return hearSides.filter(hasValuesForSide);
+  }
+  var measSides = sidesWith(function (s) {
+    return ELL_testData({ side: s }).gemessen.some(Boolean);
+  });
+  var curveSides = sidesWith(function (s) {
+    return withSide(s, function () {
+      return kurvenELLSumme().some(function (v) { return v !== 0; });
+    });
+  });
+
+  // Schieber: einfach - matt nur, wenn BEIDE Seiten 0 (ueber beide Seiten,
+  // unabhaengig von der spielenden Seite; kein Teil-Hinweis).
+  var levelsAny = ["left", "right"].some(function (s) {
+    return withSide(s, function () {
+      return schieberELL.some(function (v) { return v !== 0; });
+    });
+  });
+
+  // Teil-Hinweis-Text fuer die EINE fehlende Seite (nur bei zwei hoerenden
+  // Seiten und genau einer mit Werten). Liefert null, wenn kein Teil-Hinweis.
+  function partialHint(sidesWithVals) {
+    if (hearSides.length !== 2) return null;
+    if (sidesWithVals.length !== 1) return null;
+    var missing = (sidesWithVals[0] === "left") ? "right" : "left";
+    return (missing === "left")
+      ? t("plSrcSideUnmeasLeft") : t("plSrcSideUnmeasRight");
+  }
+
+  // Button + Hinweis setzen. matt = true -> opacity grau. hint = Text|null.
+  function apply(btnId, hintId, matt, hint) {
+    var btn = document.getElementById(btnId);
+    if (btn) btn.style.opacity = matt ? "var(--disabled-opacity)" : "";
+    var h = document.getElementById(hintId);
+    if (h) {
+      if (hint) { h.textContent = hint; h.style.display = "inline"; }
+      else { h.style.display = "none"; }
+    }
+  }
+
+  // Elektrodenlautstaerke (Messung) — Hinweis nur wenn Button aktiv (an)
+  if (typeof plSrcMeas !== "undefined" && plSrcMeas) {
+    var measMatt = (measSides.length === 0);
+    var measPartial = partialHint(measSides);
+    apply("plSrcMeasBtn", "plSrcMeasHint",
+          measMatt, measMatt ? t("plSrcMeasEmptyHint") : measPartial);
+  } else {
+    apply("plSrcMeasBtn", "plSrcMeasHint", false, null);
+  }
+
+  // Kurven — Hinweis nur wenn Button aktiv (an)
+  if (typeof plSrcCurves !== "undefined" && plSrcCurves) {
+    var curveMatt = (curveSides.length === 0);
+    var curvePartial = partialHint(curveSides);
+    apply("plSrcCurvesBtn", "plSrcCurvesHint",
+          curveMatt, curveMatt ? t("plSrcCurvesEmptyHint") : curvePartial);
+  } else {
+    apply("plSrcCurvesBtn", "plSrcCurvesHint", false, null);
+  }
+
+  // Schieber — Hinweis nur wenn Button aktiv (an)
+  if (typeof plSrcLevels !== "undefined" && plSrcLevels) {
+    apply("plSrcLevelsBtn", "plSrcLevelsHint",
+          !levelsAny, !levelsAny ? t("plSrcLevelsEmptyHint") : null);
+  } else {
+    apply("plSrcLevelsBtn", "plSrcLevelsHint", false, null);
   }
 }
 
@@ -4981,6 +5135,7 @@ function plSyncUI(opts) {
   if (typeof plUpdMasterVisibility === "function") plUpdMasterVisibility();
   if (typeof updEqToggleBtn        === "function") updEqToggleBtn();
   if (typeof updPlSrcButtons       === "function") updPlSrcButtons();
+  if (typeof plUpdSrcDatenmangel   === "function") plUpdSrcDatenmangel();
 
   // B. Korrektur-Optionen
   if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();

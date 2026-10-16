@@ -352,6 +352,7 @@ function stb_confirm() {
   STB_renderResults();
   STB_renderMean();
   stb_showPair();
+  if (typeof plSyncUI === "function") plSyncUI();
 }
 
 function stb_undo() {
@@ -365,6 +366,7 @@ function stb_undo() {
   STB_renderResults();
   STB_renderMean();
   stb_showPair();
+  if (typeof plSyncUI === "function") plSyncUI();
 }
 
 // Setzt die Vergleichsreihe vollstaendig zurueck: Reihenfolge, Position,

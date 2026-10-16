@@ -593,6 +593,7 @@ function schieberELLOnChange(i, newVal) {
   if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
   if (typeof pEqF !== "undefined" && pEqF.length > 0) pUpdEQ();
   schieberELLDraw();
+  if (typeof plUpdSrcDatenmangel === "function") plUpdSrcDatenmangel();
 }
 
 function schieberELLResetAll() {
@@ -601,6 +602,7 @@ function schieberELLResetAll() {
   if (typeof kurvenELLChartZeichnen === "function") kurvenELLChartZeichnen();
   if (typeof pEqF !== "undefined" && pEqF.length > 0) pUpdEQ();
   schieberELLDraw();
+  if (typeof plUpdSrcDatenmangel === "function") plUpdSrcDatenmangel();
 }
 
 // ---------- DOM-Listener (Klick, Toggle, Resize) ----------

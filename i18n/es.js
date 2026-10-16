@@ -1483,6 +1483,14 @@ Object.assign(L.es, {
     plLockHintSideDeaf: "No disponible — lado registrado como sordo.",
     plLatUnmeasuredHint: "⚠ La latencia de las rutas de audio seleccionadas aún no se ha medido.",
     plBalSuppressedTitle: "No disponible al reducir el volumen de los electrodos sin considerar ambos lados.",
+    plSrcMeasEmptyHint: "⚠ Aún no hay medición de sonoridad para este lado.",
+    plSrcCurvesEmptyHint: "⚠ No hay valores de curva definidos.",
+    plSrcLevelsEmptyHint: "⚠ No hay valores de deslizador definidos.",
+    plSrcSideUnmeasLeft: "⚠ Oído izquierdo aún no medido.",
+    plSrcSideUnmeasRight: "⚠ Oído derecho aún no medido.",
+    plBalEmptyHint: "⚠ El balance estéreo aún no se ha medido.",
+    plWarpEmptyHint: "⚠ El ajuste de frecuencia aún no se ha medido.",
+    plWarpNoSideHint: "⚠ No afecta al lado que se está reproduciendo.",
 
     // BA 183: Update-Check-Banner
     updateBannerMsg: "Nueva versión disponible",

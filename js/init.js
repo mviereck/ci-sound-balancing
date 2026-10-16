@@ -322,6 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", function () {
       plSrcMeas = !plSrcMeas;
       updPlSrcButtons();
+      if (typeof plUpdSrcDatenmangel === "function") plUpdSrcDatenmangel();
       if (pEqF.length > 0) pUpdEQ();
       else plCheck();
     });
@@ -337,6 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", function () {
       plSrcLevels = !plSrcLevels;
       updPlSrcButtons();
+      if (typeof plUpdSrcDatenmangel === "function") plUpdSrcDatenmangel();
       if (pEqF.length > 0) pUpdEQ();
       else plCheck();
     });
@@ -345,6 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", function () {
       plSrcCurves = !plSrcCurves;
       updPlSrcButtons();
+      if (typeof plUpdSrcDatenmangel === "function") plUpdSrcDatenmangel();
       if (pEqF.length > 0) pUpdEQ();
       else plCheck();
     });

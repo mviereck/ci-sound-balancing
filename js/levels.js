@@ -148,6 +148,7 @@ function kurvenELLOnChange() {
   kurvenELLChartZeichnen();
   if (typeof schieberELLDraw === "function") schieberELLDraw();
   if (pEqF.length > 0) pUpdEQ();
+  if (typeof plUpdSrcDatenmangel === "function") plUpdSrcDatenmangel();
 }
 // Touch-Ctrl-Instanzen je Kurvenzeile (pi -> buildValueTouchCtrl-Rueckgabe).
 // Wird bei jedem Tabellenbau neu gefuellt; die Tastatur (init.js) liest hier

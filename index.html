@@ -1398,17 +1398,24 @@
                   <option value="1.8">×1.8</option>
                   <option value="2.0">×2.0</option>
                 </select>
+                <span id="plSrcMeasHint" style="display:none;font-size:0.82em;color:var(--warning)"></span>
               </div>
-              <button
-                id="plSrcCurvesBtn"
-                class="btn btn-sm pl-src-child"
-                style="font-weight: 600; width: 240px; border-radius: 6px; text-align: left; margin-left: 24px"
-              ></button>
-              <button
-                id="plSrcLevelsBtn"
-                class="btn btn-sm pl-src-child pl-src-child-last"
-                style="font-weight: 600; width: 240px; border-radius: 6px; text-align: left; margin-left: 24px"
-              ></button>
+              <div style="display: flex; align-items: center">
+                <button
+                  id="plSrcCurvesBtn"
+                  class="btn btn-sm pl-src-child"
+                  style="font-weight: 600; width: 240px; border-radius: 6px; text-align: left; margin-left: 24px"
+                ></button>
+                <span id="plSrcCurvesHint" style="display:none;font-size:0.82em;color:var(--warning);margin-left:8px"></span>
+              </div>
+              <div style="display: flex; align-items: center">
+                <button
+                  id="plSrcLevelsBtn"
+                  class="btn btn-sm pl-src-child pl-src-child-last"
+                  style="font-weight: 600; width: 240px; border-radius: 6px; text-align: left; margin-left: 24px"
+                ></button>
+                <span id="plSrcLevelsHint" style="display:none;font-size:0.82em;color:var(--warning);margin-left:8px"></span>
+              </div>
             </div>
             <!-- hidden select for compatibility -->
             <select id="plSrc" style="display: none">
