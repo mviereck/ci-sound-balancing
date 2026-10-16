@@ -9,6 +9,14 @@
 // Kein IIFE, kein Modul-System. Globaler Scope wie restliches Tool.
 // ============================================================
 
+// Lautstärke-Daten vorhanden? Snapshot-Trennung: aus der Meßauswertung
+// (ELL_testData), nie roh aus ELL_results. typeof-Guard, weil depLockApply
+// schon im top-level-Init von state-side.js läuft, bevor test.js geladen ist.
+function _depHasLoud(side) {
+  if (typeof ELL_testData !== "function") return false;
+  return ELL_testData({ side }).gemessen.some(Boolean);
+}
+
 // ---- Sperr-Tabelle ----
 // Pro Eintrag:
 //   selector       — CSS-Selektor des Feldes (Single-Match)
@@ -26,12 +34,11 @@ const DEP_LOCK_RULES = [
       const reasons = [];
       // Snapshot-Trennung: "gemessen?" kommt aus der Meszauswertung
       // (ELL_testData), nie roh aus ELL_results.
-      const ownHasLoud = ELL_testData({ side: activeSide }).gemessen.some(Boolean);
+      const ownHasLoud = _depHasLoud(activeSide);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       const other = activeSide === 'left' ? 'right' : 'left';
       const otherSync = (sideData[other].config || 'ci') !== 'ci';
-      const otherHasLoud = otherSync
-        && ELL_testData({ side: other }).gemessen.some(Boolean);
+      const otherHasLoud = otherSync && _depHasLoud(other);
       if (otherHasLoud) reasons.push('depReasonLoudnessOtherSide');
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
@@ -49,7 +56,7 @@ const DEP_LOCK_RULES = [
     fieldLabelKey: 'depFieldCfg',
     getReasonKeys: function() {
       const reasons = [];
-      const ownHasLoud = ELL_testData({ side: activeSide }).gemessen.some(Boolean);
+      const ownHasLoud = _depHasLoud(activeSide);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
@@ -65,7 +72,7 @@ const DEP_LOCK_RULES = [
     fieldLabelKey: 'depFieldHzEigen',
     getReasonKeys: function(el) {
       const reasons = [];
-      const ownHasLoud = ELL_testData({ side: activeSide }).gemessen.some(Boolean);
+      const ownHasLoud = _depHasLoud(activeSide);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
@@ -95,7 +102,7 @@ const DEP_LOCK_RULES = [
     fieldLabelKey: 'depFieldActive',
     getReasonKeys: function() {
       const reasons = [];
-      const ownHasLoud = ELL_testData({ side: activeSide }).gemessen.some(Boolean);
+      const ownHasLoud = _depHasLoud(activeSide);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
         if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
