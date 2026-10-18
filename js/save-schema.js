@@ -26,35 +26,51 @@ var SAVE_SCHEMA = [
     default: "geglaettet", valid: { type: "string" } },
 
   // --- Stereo-Balance ---
-  // BA676: STB_resultsPath ist als Laufzeit-Feld gestrichen (der Weg liegt im
-  // Rohwert STB_results[el].audiopathID). Dieses Auffang-Feld existiert nur
-  // noch, um beim Laden ALTER Dateien den dort gespeicherten Pfad abzugreifen
-  // und der STB_results-Migration zugaenglich zu machen (Zwischenablage).
-  // get liefert nichts mehr (nicht neu speichern); set fuellt nur die Ablage.
+  // STB_resultsPath: Auffang-Feld fuer den Pfad aus ALTEN Dateien (Zwischenablage).
+  // get liefert nichts (nicht neu speichern); set fuellt nur _STB_loadPathTmp.
   { key: "STB_resultsPath", scope: "global",
-    get: function () { return undefined; },   // nicht mehr persistieren
+    get: function () { return undefined; },
     set: function (v) { _STB_loadPathTmp = (v && typeof v === "object") ? v : null; },
     default: function () { return undefined; } },
-  { key: "STB_results", scope: "global",
-    get: function () { return (typeof STB_results !== "undefined" ? STB_results : {}); },
+
+  // Rohwert: neuer Key STB_raw. set migriert aufs Objekt-Format und zieht den
+  // alten STB_resultsPath (nur beim Laden alter Dateien) aus der Zwischenablage.
+  { key: "STB_raw", scope: "global",
+    get: function () { return (typeof STB_raw !== "undefined" ? STB_raw : {}); },
     set: function (v) {
-      if (typeof STB_results === "undefined") return;
-      // BA676: aufs Objekt-Format migrieren; alten STB_resultsPath (nur beim
-      // Laden alter Dateien vorhanden) aus der Zwischenablage einziehen.
-      var migrated = STB_migrateResults(v, _STB_loadPathTmp);
-      _STB_loadPathTmp = null;   // Zwischenablage nach Gebrauch leeren
-      Object.keys(STB_results).forEach(function (k) { delete STB_results[k]; });
-      Object.assign(STB_results, migrated);
+      if (typeof STB_raw === "undefined") return;
+      var migrated = STB_migrateRaw(v, _STB_loadPathTmp);
+      _STB_loadPathTmp = null;
+      Object.keys(STB_raw).forEach(function (k) { delete STB_raw[k]; });
+      Object.assign(STB_raw, migrated);
     },
     default: function () { return {}; }, valid: { type: "object" } },
+
+  // Alt-Schluessel (vor BA679 hiess STB_raw noch STB_results). Faengt beim Laden
+  // alter Dateien die Rohwerte ab und migriert sie ins neue Feld. get liefert
+  // nichts (neue Dateien tragen nur STB_raw). MUSS NACH dem STB_raw-Eintrag
+  // stehen: applyState ruft set() IMMER; der STB_raw-Eintrag setzt bei einer
+  // Altdatei (kein STB_raw-Key) zuerst den Default {}. Erst danach migriert
+  // dieser Auffang (Guard: STB_raw noch leer) die Altdaten -- stuende er davor,
+  // machte der STB_raw-Default die Migration wieder platt.
+  { key: "STB_results", scope: "global",
+    get: function () { return undefined; },
+    set: function (v) {
+      if (typeof STB_raw === "undefined" || v == null) return;
+      if (Object.keys(STB_raw).length) return;   // STB_raw bereits aus neuem Key befuellt
+      var migrated = STB_migrateRaw(v, _STB_loadPathTmp);
+      _STB_loadPathTmp = null;
+      Object.assign(STB_raw, migrated);
+    },
+    default: function () { return undefined; } },
+
   // Mittelungs-Verfahren der STB-Auswertung (mean/median).
   { key: "STB_avgMode", scope: "global",
     get: function () { return (typeof STB_avgMode !== "undefined" ? STB_avgMode : "mean"); },
     set: function (v) { if (typeof STB_avgMode !== "undefined") STB_avgMode = v; },
     default: "mean", valid: { type: "enum", of: ["mean", "median"] } },
-  // STB-Auswertung (beide Verfahren gemeinsam): null = nicht gemessen,
-  // sonst { mean, median }. Wird beim Laden aus STB_results neu gerechnet
-  // (STB_writeEval in applyData), daher hier nur persistiert.
+  // STB-Auswertung (Stufe 3): null = nicht gemessen. Wird beim Laden neu
+  // gerechnet (STB_writeEval in applyData), daher hier nur persistiert.
   { key: "STB_eval", scope: "global",
     get: function () { return (typeof STB_eval !== "undefined" ? STB_eval : null); },
     set: function (v) { if (typeof STB_eval !== "undefined") STB_eval = v || null; },
@@ -769,9 +785,8 @@ function refreshAll() {
   if (typeof _ltz_refreshExtraActives === "function") _ltz_refreshExtraActives();
   if (typeof _ltz_updateIntervalHint === "function") _ltz_updateIntervalHint();
   if (typeof SNR_renderResults === "function") SNR_renderResults();
-  // Nach Laden: STB-Auswertung aus den geladenen STB_results NEU rechnen
-  // (analog _FRQ_pianoNachLadenNeuRechnen), nicht den gespeicherten Wert
-  // blind uebernehmen -> Feld und Rohwerte bleiben konsistent.
+  // Nach Laden: STB-Auswertung aus STB_raw NEU rechnen, nicht den gespeicherten
+  // Wert blind uebernehmen -> Feld und Rohwerte bleiben konsistent.
   if (typeof STB_writeEval === "function") STB_writeEval();
   if (typeof STB_renderResults === "function") STB_renderResults();
   if (typeof STB_renderMean === "function") STB_renderMean();

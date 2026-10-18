@@ -179,10 +179,10 @@ function AWG_isUsed(id) {
     }
   }
 
-  // STB: Audioweg liegt im Rohwert-Objekt STB_results[el].audiopathID (global).
-  if (typeof STB_results !== "undefined" && STB_results) {
-    for (const k in STB_results) {
-      const r = STB_results[k];
+  // STB: Audioweg liegt im Rohwert-Objekt STB_raw[el].audiopathID (global).
+  if (typeof STB_raw !== "undefined" && STB_raw) {
+    for (const k in STB_raw) {
+      const r = STB_raw[k];
       const p = (r && typeof r === "object") ? r.audiopathID : null;
       if (p && (p.left === id || p.right === id)) return true;
     }

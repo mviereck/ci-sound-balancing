@@ -300,8 +300,8 @@ function _calcAbsDelta(side, i, dB, mfrLocal, impl) {
 
 function _collectBilateral() {
   const out = { stereobalance: { has: false, rows: [], mean: null }, latenz: { has: false, entries: [] } };
-  if (typeof STB_results !== "undefined") {
-    const keys = Object.keys(STB_results).filter((k) => STB_hasRaw(+k));
+  if (typeof STB_raw !== "undefined") {
+    const keys = Object.keys(STB_raw).filter((k) => STB_hasRaw(+k));
     if (keys.length > 0) {
       out.stereobalance.has = true;
       const sorted = keys.slice().sort((a, b) => (+a) - (+b));
@@ -1092,8 +1092,8 @@ function _audiologMaplawSection(mainSides, headerLevel) {
 // ---------- Stereo-Balance (immer wenn gemessen, auch einseitig) ----------
 
 function _audiologSTBBlock(mainSides) {
-  if (typeof STB_results === "undefined") return "";
-  const keys = Object.keys(STB_results).filter((k) => STB_hasRaw(+k));
+  if (typeof STB_raw === "undefined") return "";
+  const keys = Object.keys(STB_raw).filter((k) => STB_hasRaw(+k));
   if (keys.length === 0) return "";
   const mean = STB_evalValue();
   if (mean === null || !isFinite(mean) || mean === 0) return "";

@@ -508,9 +508,9 @@ function _ltz_updateIntervalHint() {
 
 function _ltz_hasSTB() {
   // Pragmatische Detektion: mindestens ein gemessener Balance-Wert
-  // existiert in STB_results ODER in sideData[*].ELL_raw.
-  if (typeof STB_results === 'object' && STB_results
-      && Object.keys(STB_results).some(function(k) { return STB_hasRaw(+k); })) return true;
+  // existiert in STB_raw ODER in sideData[*].ELL_raw.
+  if (typeof STB_raw === 'object' && STB_raw
+      && Object.keys(STB_raw).some(function(k) { return STB_hasRaw(+k); })) return true;
   if (typeof ELL_testData === 'function') {
     for (const side of ['left', 'right']) {
       // Snapshot-Trennung: Meszauswertung lesen, nicht ELL_raw roh.

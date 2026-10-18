@@ -3,12 +3,10 @@
 // ============================================================
 
 // State
-// BA676: Rohwert je Elektrode ist ein Objekt { offset, timestamp,
-// audiopathID:{left,right} }. offset = dB-Ausgleich (negativ = rechts war
-// lauter); timestamp = Zeitpunkt der letzten Bestaetigung; audiopathID = die
-// aktiven Audiowege beider Seiten zur Messzeit. Leser gehen ueber
+// Stufe 1 -- Rohwert je Elektrode: { offset, timestamp, audiopathID:{left,right} }.
+// offset = dB-Ausgleich (negativ = rechts war lauter). Leser gehen ueber
 // STB_rawOffset/STB_hasRaw (state-side.js), nie ueber .offset direkt.
-let STB_results = {};
+let STB_raw = {};
 let stb_seq = []; // sequence of electrode indices to test
 let stb_seqIdx = 0;
 let stb_currentEl = null; // current electrode index (left side numbering)
@@ -26,7 +24,7 @@ let STB_els = null;
 let stb_selectedEls = null;
 
 // BA661: Auswertungs-eigene Elektrodenauswahl der Stereo-Balance. Bestimmt,
-// welche gemessenen Elektroden in die Verdichtung (STB_meanRaw) einfliessen.
+// welche gemessenen Elektroden in die Verdichtung (STB_computeEval_average) einfliessen.
 // null = alle gemessenen; sonst Index-Liste. UNABHAENGIG von der Testauswahl
 // stb_selectedEls (die nur die Test-Sequenz filtert). Hash-wirksame
 // Auswertungs-Einstellung (Snapshot-Grundmodell §7 Nr. 3). STB ist binaural
@@ -338,8 +336,8 @@ function stb_confirm() {
   const el = stb_currentEl;
   const val = _lrSliderVal();
   // Save undo
-  stb_undoStack.push({ el, prev: STB_results[el] });
-  STB_results[el] = {
+  stb_undoStack.push({ el, prev: STB_raw[el] });
+  STB_raw[el] = {
     offset: val,
     timestamp: Date.now(),
     audiopathID: {
@@ -348,7 +346,7 @@ function stb_confirm() {
     }
   };
   stb_seqIdx++;
-  STB_writeEval();   // Auswertung aus aktuellen STB_results neu schreiben
+  STB_writeEval();
   STB_renderResults();
   STB_renderMean();
   stb_showPair();
@@ -359,10 +357,10 @@ function stb_undo() {
   if (!stb_undoStack.length) return;
   stb_stopPlay();
   const { el, prev } = stb_undoStack.pop();
-  if (prev === undefined) delete STB_results[el];
-  else STB_results[el] = prev;
+  if (prev === undefined) delete STB_raw[el];
+  else STB_raw[el] = prev;
   stb_seqIdx = Math.max(0, stb_seqIdx - 1);
-  STB_writeEval();   // Auswertung aus aktuellen STB_results neu schreiben
+  STB_writeEval();
   STB_renderResults();
   STB_renderMean();
   stb_showPair();
@@ -444,7 +442,7 @@ function STB_renderMean() {
 }
 
 function STB_renderResults() {
-  const keys = Object.keys(STB_results).map(Number);
+  const keys = Object.keys(STB_raw).map(Number);
   const noResEl = document.getElementById("STB_noResults");
   if (!keys.length) {
     document.getElementById("STB_resultsCard").style.display = "none";
@@ -517,7 +515,7 @@ function STB_renderResults() {
         `<td style="color:#9ca3af">—</td>` +
         `<td style="font-size:.82em;color:#9ca3af">${t('ELL_abgewaehlt')}</td>`;
     } else {
-      // STB_results ist die Ausgleichs-Korrektur: NEGATIV = rechts war
+      // STB_raw ist die Ausgleichs-Korrektur: NEGATIV = rechts war
       // lauter (musste gedaempft werden), POSITIV = links war lauter.
       const meaning =
         v < -0.1 ? t('STB_meaningRight') : v > 0.1 ? t('STB_meaningLeft') : t('STB_meaningEqual');
@@ -585,7 +583,7 @@ function STB_renderResults() {
 
 // Eigener GEDREHTER Stereo-Zeichner (BA 497): senkrechte Mittelachse,
 // waagerechte Balken. Ausschlag rechts = rechts lauter (negativer
-// STB_results), links = links lauter. Loest Stereo aus drawBarGraph;
+// STB_raw), links = links lauter. Loest Stereo aus drawBarGraph;
 // ELL bleibt an der Engine.
 var STB_BAR_COLOR = "#2563eb";   // Blau der Balkengraph-Familie (wie ELL)
 
@@ -800,10 +798,10 @@ function stb_hookOnStart() {
         // in Elektroden-Reihenfolge (zuletzt = hoechster Elektroden-Key
         // genuegt fuer "zuletzt gemessen"; Messreihenfolge ist bei STB
         // nicht persistiert, daher Key-Reihenfolge).
-        if (typeof STB_results === "undefined") return [];
-        return Object.keys(STB_results).map(Number).sort(function (a,b){return a-b;})
+        if (typeof STB_raw === "undefined") return [];
+        return Object.keys(STB_raw).map(Number).sort(function (a,b){return a-b;})
           .map(function (el) {
-            var r = STB_results[el];
+            var r = STB_raw[el];
             var ap = (r && typeof r === "object") ? r.audiopathID : null;
             return (ap && ap[side] != null) ? ap[side] : 0;
           });
@@ -1131,6 +1129,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (!this.checked) return;
       STB_avgMode = this.value;
       if (typeof saveSet === 'function') saveSet('STB_avgMode', STB_avgMode);
+      if (typeof STB_writeEval === 'function') STB_writeEval();   // avgMode/value ins Feld einfrieren
       STB_renderResults();
     });
   });
@@ -1140,8 +1139,8 @@ document.addEventListener("DOMContentLoaded", function() {
   if (STB_clearBtn) {
     STB_clearBtn.addEventListener('click', function() {
       if (!confirm(t("stb_clearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
-      STB_results = {};
-      STB_eval = null;   // keine Messung mehr -> Auswertung leeren
+      STB_raw = {};
+      STB_eval = null;
       STB_evalSelectedEls = null;   // BA661: Auswertungsauswahl zuruecksetzen
       STB_resetSequence();
       if (typeof depLockApply === 'function') depLockApply();

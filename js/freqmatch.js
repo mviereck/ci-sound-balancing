@@ -1048,9 +1048,9 @@ function _frq_renderPrereqHints() {
   if (elsLeftEl)  elsLeftEl.style.display  = _frq_hasLvData('left')  ? 'none' : '';
   if (elsRightEl) elsRightEl.style.display = _frq_hasLvData('right') ? 'none' : '';
   if (sbEl) {
-    const hasSb = typeof STB_results !== 'undefined'
-               && STB_results
-               && Object.keys(STB_results).length > 0;
+    const hasSb = typeof STB_raw !== 'undefined'
+               && STB_raw
+               && Object.keys(STB_raw).length > 0;
     sbEl.style.display = hasSb ? 'none' : '';
   }
 }

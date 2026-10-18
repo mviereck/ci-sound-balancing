@@ -325,7 +325,7 @@ function _switchTabInternal(n) {
     const hasBal = typeof ELL_testData === "function"
       && ELL_testData().gemessen.some(Boolean);
     const hasFR = typeof FRQ_resultsArray !== "undefined" && FRQ_resultsArray.length > 0;
-    const hasLR = typeof STB_results !== "undefined" && Object.keys(STB_results).length > 0;
+    const hasLR = typeof STB_raw !== "undefined" && Object.keys(STB_raw).length > 0;
     if (!currentName || currentName === "elektrodenlautstaerke") {
       // Default-Auswahl: Tab mit Daten bevorzugen
       // BA 251: hasJdg entfaellt; reine Bal/FR-Logik bleibt.

@@ -330,35 +330,22 @@ function getPlayerSide() {
   return activeSide;
 }
 // Mittelungs-Verfahren der Stereo-Balance-Auswertung: "mean" | "median".
-// Waehlt, welchen der beiden in STB_eval abgelegten Werte die Konsumenten
-// lesen; Default arithmetisch.
+// Default arithmetisch.
 let STB_avgMode = "mean";
 
-// Persistente Stereo-Balance-AUSWERTUNG (analog FRQ_resultsArray): haelt
-// BEIDE Auswertungen gemeinsam. null = noch nicht gemessen (unterscheidet
-// sich damit von einem errechneten 0). Bei Messung: { mean, median } mit
-// je einer Zahl. Geschrieben von STB_writeEval() an den Auslösern
-// Bestaetigung / Testende / nach Laden (lr-balance.js); NICHT live bei
-// jedem Lesen. Liegt im SAVE_SCHEMA.
+// Persistente STB-Auswertung (Stufe 3). null = nicht gemessen.
+// Geschrieben von STB_writeEval() an den Ausloesern Bestaetigung / Testende /
+// nach Laden. Liegt im SAVE_SCHEMA. Felder: perEl, mean, median, avgMode,
+// value, audioPath, timestamp.
 let STB_eval = null;
 
-// Rohe Verdichtung der STB_results nach Verfahren ("mean"|"median").
-// Die EINZIGE Stelle, die aus den STB_results-Rohwerten rechnet; wird nur
-// aus STB_writeEval() aufgerufen, nicht mehr direkt von Konsumenten.
-// Filterung: nur endliche Werte UND nicht deaktivierte/stummgeschaltete
-// Elektroden (auf BEIDEN Seiten geprueft). Liefert null, wenn keine
-// gueltige Messung uebrig bleibt. STB_results liegt in lr-balance.js
-// (spaeter geladen), daher erst zur Laufzeit auswerten.
-// BA676: Zentraler Lese-Accessor fuer den STB-Rohwert. Der Rohwert je
-// Elektrode ist seit BA676 ein Objekt { offset, timestamp, audiopathID:
-// {left,right} } (vorher eine nackte Zahl). KEIN Konsument liest .offset
-// direkt -- alle gehen ueber diese zwei Helfer, damit die Objektform an
-// einer Stelle gekapselt bleibt.
+// Stufe 1 — Rohwert-Accessor. STB_raw liegt in lr-balance.js (spaeter
+// geladen), daher typeof-Guard.
 //   STB_rawOffset(i) -> Zahl (der dB-Ausgleich) | undefined (nicht gemessen)
 //   STB_hasRaw(i)    -> true, wenn eine gueltige (endliche) Messung vorliegt
 function STB_rawOffset(i) {
-  if (typeof STB_results === "undefined") return undefined;
-  var r = STB_results[i];
+  if (typeof STB_raw === "undefined") return undefined;
+  var r = STB_raw[i];
   if (r == null || typeof r !== "object") return undefined;
   return isFinite(r.offset) ? r.offset : undefined;
 }
@@ -366,21 +353,19 @@ function STB_hasRaw(i) {
   return STB_rawOffset(i) !== undefined;
 }
 
-// BA676: Migration geladener STB_results aufs Objekt-Format.
+// Migration geladener Rohwerte aufs Objekt-Format.
 //   - neues Format (Eintrag ist Objekt mit .offset)       -> uebernommen
 //   - altes Format (Eintrag ist nackte Zahl)              -> { offset: zahl,
-//       timestamp: null, audiopathID: {left,right} }; den Weg aus dem alten
-//       Parallel-Feld oldPath[el] einziehen, falls vorhanden, sonst {0,0}
+//       timestamp: null, audiopathID: {left,right} }; Weg aus oldPath ziehen
 //   - unbrauchbarer Eintrag                               -> uebersprungen
-// oldPath: der beim Laden mitgelieferte alte STB_resultsPath-Wert (oder null).
-function STB_migrateResults(v, oldPath) {
+// oldPath: beim Laden alter Dateien aufgefangener STB_resultsPath (oder null).
+function STB_migrateRaw(v, oldPath) {
   var out = {};
   if (!v || typeof v !== "object") return out;
   var op = (oldPath && typeof oldPath === "object") ? oldPath : {};
   Object.keys(v).forEach(function (k) {
     var e = v[k];
     if (e != null && typeof e === "object") {
-      // Neues Format: nur uebernehmen, wenn offset endlich ist.
       if (!isFinite(e.offset)) return;
       var ap = (e.audiopathID && typeof e.audiopathID === "object") ? e.audiopathID : {};
       out[k] = {
@@ -390,7 +375,6 @@ function STB_migrateResults(v, oldPath) {
                        right: (typeof ap.right === "number") ? ap.right : 0 }
       };
     } else if (isFinite(e)) {
-      // Altes Format: nackte Zahl. Weg aus dem alten Parallel-Feld ziehen.
       var p = op[k];
       out[k] = {
         offset: e,
@@ -403,131 +387,151 @@ function STB_migrateResults(v, oldPath) {
   return out;
 }
 
-function STB_meanRaw(mode) {
-  if (typeof STB_results === "undefined") return null;
-  // BA661: Auswertungs-Elektrodenauswahl. null/leer = alle gemessenen.
+// Stufe 2a -- die eine gewertete Elektroden-Teilmenge: endlich gemessen,
+// in der Auswertungs-Auswahl, auf BEIDEN Seiten nicht stumm/ausgeschlossen.
+// EINE Quelle fuer Wert-Verdichtung UND Audioweg.
+function STB_evalKeys() {
+  if (typeof STB_raw === "undefined") return [];
   var _selSet = (typeof STB_evalSelectedEls !== "undefined"
                  && STB_evalSelectedEls && STB_evalSelectedEls.length)
                 ? new Set(STB_evalSelectedEls) : null;
-  var keys = Object.keys(STB_results).filter(function (k) {
-    var i = +k;
+  return Object.keys(STB_raw).map(Number).filter(function (i) {
     if (!STB_hasRaw(i)) return false;
     if (_selSet && !_selSet.has(i)) return false;
     var exL = sideData.left.elExDur[i]  !== null || sideData.left.elSt[i]  === "mute";
     var exR = sideData.right.elExDur[i] !== null || sideData.right.elSt[i] === "mute";
     return !(exL || exR);
   });
+}
+
+// Stufe 2a -- Verdichtung der offsets der gewerteten Elektroden nach mode.
+// Kennt STB_avgMode NICHT; mode ("mean"|"median") wird immer uebergeben.
+// null, wenn keine gueltige Elektrode uebrig bleibt.
+function STB_computeEval_average(mode) {
+  var keys = STB_evalKeys();
   if (!keys.length) return null;
-  var vals = keys.map(function (k) { return STB_rawOffset(+k); });
-  if ((mode || STB_avgMode) === "median") {
+  var vals = keys.map(function (k) { return STB_rawOffset(k); });
+  if (mode === "median") {
     var sorted = vals.slice().sort(function (a, b) { return a - b; });
     var mid = sorted.length >> 1;
-    // Gerade Anzahl: Mittel der beiden mittleren Werte (robuste Mitte).
     return (sorted.length % 2) ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
   }
   var sum = vals.reduce(function (a, v) { return a + v; }, 0);
   return sum / vals.length;
 }
 
-// Schreibt die Auswertung aus den aktuellen STB_results nach STB_eval.
-// Analog _frq_pianoWriteResults: rechnet aus den Rohwerten, legt beide
-// Verfahren ab. Keine gueltige Messung -> STB_eval = null (nicht gemessen).
-// Aufrufer: stb_confirm, STB_finish, Laden (lr-balance.js / save-schema.js).
-// Verdichtet je Seite die Audioweg-IDs der gemessenen Elektroden zu
-// einer Verteilung [{id,count}] | null. Nutzt dieselbe
-// Elektroden-Teilmenge wie die Wert-Verdichtung (STB_meanRaw-Filter).
-function _STB_audioPathSide(side, keys) {
-  // BA673/676: Liste der ids je gewerteter Elektrode aus dem Rohwert-Objekt,
-  // dann zentral verdichten.
+// Audioweg-Verdichtung je Seite ueber die gewerteten Elektroden.
+function STB_audioPathSide(side, keys) {
   var ids = [];
   for (var i = 0; i < keys.length; i++) {
-    var r = (typeof STB_results !== "undefined") ? STB_results[keys[i]] : null;
+    var r = (typeof STB_raw !== "undefined") ? STB_raw[keys[i]] : null;
     var ap = (r && typeof r === "object") ? r.audiopathID : null;
     ids.push((ap && ap[side] != null) ? ap[side] : 0);
   }
   return AWG_distribution(ids);   // [{id,count}] | null
 }
 
-// Dieselbe Elektroden-Teilmenge wie STB_meanRaw (endlich, nicht
-// ausgeschlossen/stumm, in der Auswertungs-Auswahl). EINE Quelle.
-function _STB_evalKeys() {
-  if (typeof STB_results === "undefined") return [];
-  var _selSet = (typeof STB_evalSelectedEls !== "undefined"
-                 && STB_evalSelectedEls && STB_evalSelectedEls.length)
-                ? new Set(STB_evalSelectedEls) : null;
-  return Object.keys(STB_results).map(Number).filter(function (i) {
-    if (!STB_hasRaw(i)) return false;
-    if (_selSet && !_selSet.has(i)) return false;
-    var exL = sideData.left.elExDur[i]  !== null || sideData.left.elSt[i]  === "mute";
-    var exR = sideData.right.elExDur[i] !== null || sideData.right.elSt[i] === "mute";
-    return !(exL || exR);
-  });
-}
-
+// Stufe 2b -- einziger Schreiber von STB_eval. Schreibt perEl, avgMode,
+// value, timestamp. Aufrufer: stb_confirm, STB_finish, Laden, avgMode-Change.
 function STB_writeEval() {
-  var m  = STB_meanRaw("mean");
-  if (m === null) { STB_eval = null; return; }
-  var keys = _STB_evalKeys();
+  var keys = STB_evalKeys();
+  if (!keys.length) { STB_eval = null; return; }
+
+  var mean   = STB_computeEval_average("mean");
+  var median = STB_computeEval_average("median");
+
+  // avgMode/value ins Feld einfrieren, damit Stufe 4/5 nicht aus der
+  // globalen Variable lesen muessen. Default "mean".
+  var mode = (typeof STB_avgMode !== "undefined" && STB_avgMode === "median")
+             ? "median" : "mean";
+  var value = (mode === "median") ? median : mean;
+
+  // Per-Elektrode-Ebene: nur die gewerteten Elektroden.
+  var perEl = {};
+  for (var ki = 0; ki < keys.length; ki++) {
+    var el = keys[ki];
+    var r = STB_raw[el];
+    perEl[el] = {
+      offset: r.offset,
+      ausgewertet: true,
+      audiopathID: (r && r.audiopathID && typeof r.audiopathID === "object")
+        ? { left:  (typeof r.audiopathID.left  === "number") ? r.audiopathID.left  : 0,
+            right: (typeof r.audiopathID.right === "number") ? r.audiopathID.right : 0 }
+        : { left: 0, right: 0 }
+    };
+  }
+
+  // Nicht-volatiler Zeitstempel: Maximum ueber alle STB_raw-Stempel.
+  var ts = 0;
+  var allKeys = Object.keys(STB_raw);
+  for (var ti = 0; ti < allKeys.length; ti++) {
+    var t0 = STB_raw[allKeys[ti]] && STB_raw[allKeys[ti]].timestamp;
+    if (typeof t0 === "number" && t0 > ts) ts = t0;
+  }
+
   STB_eval = {
-    mean: m,
-    median: STB_meanRaw("median"),
+    perEl: perEl,
+    mean: mean,
+    median: median,
+    avgMode: mode,
+    value: value,
     audioPath: {
-      left:  _STB_audioPathSide("left",  keys),
-      right: _STB_audioPathSide("right", keys)
-    }
+      left:  STB_audioPathSide("left",  keys),
+      right: STB_audioPathSide("right", keys)
+    },
+    timestamp: ts
   };
 }
 
-// Zentraler Leser fuer alle Konsumenten: der nach STB_avgMode gewaehlte
-// Auswertungswert aus STB_eval, oder null (nicht gemessen).
+// Stufe 4 -- reiner Leser des persistierten STB_eval-Felds. Parameterlos
+// (STB binaural/global, ein STB_eval). Alle Anzeige-/Status-Leser gehen hier
+// durch, nie roh an STB_raw/STB_eval. Rechnet NICHT.
+function STB_testData() {
+  if (STB_eval) return STB_eval;
+  return {
+    perEl: {},
+    mean: null,
+    median: null,
+    avgMode: (typeof STB_avgMode !== "undefined" && STB_avgMode === "median")
+             ? "median" : "mean",
+    value: null,
+    audioPath: { left: null, right: null },
+    timestamp: 0
+  };
+}
+
+// Stufe-4-naher Anzeige-Helfer: der nach avgMode gewaehlte Wert (value),
+// gelesen ueber Stufe 4. null = nicht gemessen.
 function STB_evalValue() {
-  if (!STB_eval) return null;
-  var v = STB_eval[STB_avgMode];
+  var v = STB_testData().value;
   return (typeof v === "number" && isFinite(v)) ? v : null;
 }
-function getPlayerSTB() {
-  if (!plApplyBalance) return 0;
-  const mean = STB_evalValue();
-  if (mean === null) return 0;
-  // Positive mean = right louder → negative balance offset (rechts dämpfen)
-  return Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
-}
-function getPlayerSTBGains() {
-  // Liefert {left, right} dB-Werte für die beiden Channel-Gains
-  // im "both"-Modus. Berücksichtigt plBalanceMode.
-  // b ist die gemessene L↔R-Differenz in dB (= -mean der STB_results).
-  // Der akustische Unterschied muss in ALLEN Modi genau b betragen,
-  // wie beim Test eingestellt (STB_pairGains verteilt off als ±off/2).
-  // "sym" (Default): symmetrisch, jede Seite trägt die Hälfte (±b/2).
-  // "left":  voller Ausgleich b ausschließlich auf der linken Seite.
-  // "right": voller Ausgleich b ausschließlich auf der rechten Seite.
-  const b = getPlayerSTB();
-  const mode = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
-  const clamp = (v) => Math.max(-60, Math.min(60, v));
-  if (mode === "left") {
-    return { left: clamp(b), right: 0 };
-  }
-  if (mode === "right") {
-    return { left: 0, right: clamp(-b) };
-  }
+
+// Stufe 5 -- die anzuwendenden Balance-Gains {left,right} in dB.
+// Liest NUR ueber Stufe 4 (STB_evalValue -> STB_testData), nie den Rohwert.
+// opts.applyBalance: false -> {0,0}; true -> Gains immer anwenden.
+// Verteilung nach plBalanceMode: "sym" jede Seite +/- b/2,
+// "left" voller Ausgleich links, "right" voller Ausgleich rechts.
+// b = -value (positiver value = rechts lauter -> rechts daempfen).
+function STB_apply(opts) {
+  opts = opts || {};
+  if (opts.applyBalance === false) return { left: 0, right: 0 };
+  var mean = STB_evalValue();
+  if (mean === null) return { left: 0, right: 0 };
+  var clamp = function (v) { return Math.max(-60, Math.min(60, v)); };
+  var b = clamp(parseFloat((-mean).toFixed(1)));
+  var mode = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
+  if (mode === "left")  return { left: clamp(b),  right: 0 };
+  if (mode === "right") return { left: 0, right: clamp(-b) };
   return { left: b / 2, right: -b / 2 };
+}
+
+// Rueckwaerts-Wrapper (BA 680 entfernt sie beim Umstellen der Aufrufer).
+function getPlayerSTBGains() {
+  return STB_apply({ applyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : false });
 }
 function STB_rawGains() {
-  // Wie getPlayerSTBGains(), aber ignoriert plApplyBalance.
-  // Für Meßtests (Frequenzabgleich, Latenz): Balance immer anwenden.
-  const mean = STB_evalValue();
-  if (mean === null) return { left: 0, right: 0 };
-  // b = gemessene L↔R-Differenz; Verteilung wie getPlayerSTBGains.
-  const b = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
-  const mode = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
-  const clamp = (v) => Math.max(-60, Math.min(60, v));
-  if (mode === "left") {
-    return { left: clamp(b), right: 0 };
-  }
-  if (mode === "right") {
-    return { left: 0, right: clamp(-b) };
-  }
-  return { left: b / 2, right: -b / 2 };
+  return STB_apply({ applyBalance: true });
 }
 function withSide(side, fn) {
   const prevSide = activeSide;
