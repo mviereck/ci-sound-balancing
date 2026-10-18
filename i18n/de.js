@@ -236,6 +236,7 @@ Object.assign(L.de, {
     excludedSkipped: "deaktiviert/ausgelassen",
     ELL_abgewaehlt: "abgewählt",
     notMeasured: "nicht gemessen",
+    STB_notEvaluated: "nicht ausgewertet",
     ELL_resNotDoneTitle: "Testreihe noch nicht abgeschlossen.",
     ELL_resNotDoneDetail: "Modus Round Robin: Runde {round} von {maxRounds}, {done} von {total} Paaren bestätigt.",
     copyDone: "Kopiert.",
@@ -1146,6 +1147,7 @@ Object.assign(L.de, {
     FRQ_legElement_balken:        "Balken",
     FRQ_legElement_xRechteck:     "Feld mit Kreuz",
     FRQ_legElement_frageRechteck: "Feld mit Fragezeichen",
+    FRQ_legElement_grauRechteck:  "Graues Feld",
     FRQ_legElement_meanLinie:     "Gestrichelte Linie",
     FRQ_legFarbe_rotblau:         "rot/blau",
     FRQ_legIntro_ellbar:  "Graph zeigt die gemessene Lautstärke-Abweichung je Elektrode.",
@@ -1160,6 +1162,7 @@ Object.assign(L.de, {
     FRQ_leg_stbbar_balken:        "Wahrgenommene Lautstärke-Differenz (Ausschlag zur lauteren Seite)",
     FRQ_leg_stbbar_xRechteck:     "Elektrode deaktiviert oder stummgeschaltet",
     FRQ_leg_stbbar_frageRechteck: "Elektrode aktiv, aber noch nicht gemessen",
+    FRQ_leg_stbbar_grauRechteck:  "Elektrode nicht ausgewertet (nicht gemessen oder abgewählt)",
     FRQ_leg_stbbar_meanLinie:     "Mittelwert der Balance über alle aktiven Elektroden",
     // Graph-Titel (§9)
     FRQ_titel_ergebnis: "Meßergebnisse Frequenzabgleich",

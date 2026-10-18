@@ -477,46 +477,30 @@ function STB_renderResults() {
   tb.innerHTML = "";
 
   const count = Math.min(sideData["left"].nEl, sideData["right"].nEl);
+  const _td = STB_testData();
   for (let i = 0; i < count; i++) {
     const rightEl = i < sideData["right"].nEl ? i : sideData["right"].nEl - 1;
     const exL = sideData.left.elExDur[i]        !== null || sideData.left.elSt[i]        === 'mute';
     const exR = sideData.right.elExDur[rightEl] !== null || sideData.right.elSt[rightEl] === 'mute';
-    const isDisabled = exL || exR;
-    const v = STB_rawOffset(i);
+    const isDisabled = exL || exR;   // Implantat-Status (zulaessige Zusatzquelle)
+    const _pe = _td.perEl[i];        // Stufe 4: nur ausgewertete Elektroden
     const hzL = stb_effFRQ("left", i);
     const hzR = stb_effFRQ("right", rightEl);
     const leftLabel  = dENPrefix("left")  + dEN(i, "left");
     const rightLabel = dENPrefix("right") + dEN(rightEl, "right");
     const tr = document.createElement("tr");
-    // BA661: gemessen, aber in der Auswertungs-Auswahl abgewaehlt?
-    var _stbAbgew = v !== undefined
-      && typeof STB_evalSelectedEls !== "undefined" && STB_evalSelectedEls
-      && STB_evalSelectedEls.length
-      && STB_evalSelectedEls.indexOf(i) < 0;
 
     if (isDisabled) {
+      // Zustand 2: deaktiviert (Implantat-Status). Eigener Zustand.
       tr.style.opacity = "var(--disabled-opacity)";
       tr.innerHTML =
         `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
         `<td>${fmtNum(hzL, "hz")}</td><td>${fmtNum(hzR, "hz")}</td>` +
         `<td>—</td>` +
         `<td style="font-size:.82em">${t('excludedSkipped')}</td>`;
-    } else if (v === undefined) {
-      tr.innerHTML =
-        `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
-        `<td>${fmtNum(hzL, "hz")}</td><td>${fmtNum(hzR, "hz")}</td>` +
-        `<td style="color:#9ca3af">—</td>` +
-        `<td style="font-size:.82em;color:#9ca3af">${t('notMeasured')}</td>`;
-    } else if (_stbAbgew) {
-      tr.style.opacity = "var(--disabled-opacity)";
-      tr.innerHTML =
-        `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
-        `<td>${fmtNum(hzL, "hz")}</td><td>${fmtNum(hzR, "hz")}</td>` +
-        `<td style="color:#9ca3af">—</td>` +
-        `<td style="font-size:.82em;color:#9ca3af">${t('ELL_abgewaehlt')}</td>`;
-    } else {
-      // STB_raw ist die Ausgleichs-Korrektur: NEGATIV = rechts war
-      // lauter (musste gedaempft werden), POSITIV = links war lauter.
+    } else if (_pe) {
+      // Zustand 1: valide (in der Auswertung). Offset + Richtung aus Stufe 4.
+      const v = _pe.offset;
       const meaning =
         v < -0.1 ? t('STB_meaningRight') : v > 0.1 ? t('STB_meaningLeft') : t('STB_meaningEqual');
       const color = v < -0.1 ? "#dc2626" : v > 0.1 ? "#2563eb" : "#1a1a1a";
@@ -525,6 +509,15 @@ function STB_renderResults() {
         `<td>${fmtNum(hzL, "hz")}</td><td>${fmtNum(hzR, "hz")}</td>` +
         `<td style="color:${color}">${v >= 0 ? "+" : ""}${v.toFixed(1)}</td>` +
         `<td style="font-size:.82em;color:${color}">${meaning}</td>`;
+    } else {
+      // Zustand 3: invalide (ungemessen ODER abgewaehlt -- zusammengefasst,
+      // ohne Grund). "—", ausgegraut.
+      tr.style.opacity = "var(--disabled-opacity)";
+      tr.innerHTML =
+        `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
+        `<td>${fmtNum(hzL, "hz")}</td><td>${fmtNum(hzR, "hz")}</td>` +
+        `<td style="color:#9ca3af">—</td>` +
+        `<td style="font-size:.82em;color:#9ca3af">${t('STB_notEvaluated')}</td>`;
     }
     tb.appendChild(tr);
   }
@@ -603,28 +596,24 @@ function STB_drawChart() {
   if (count === 0) return;
 
   // Zeilen-Daten (Zustand + Wert) je Elektrode
+  const _td = STB_testData();
   const rows = [];
   for (let i = 0; i < count; i++) {
     const rightEl = i < sideData["right"].nEl ? i : sideData["right"].nEl - 1;
     const exL = sideData.left.elExDur[i]        !== null || sideData.left.elSt[i]        === 'mute';
     const exR = sideData.right.elExDur[rightEl] !== null || sideData.right.elSt[rightEl] === 'mute';
-    // Abgewaehlt = gemessen, aber durch die Auswertungs-Auswahl
-    // (STB_evalSelectedEls) ausgeschlossen. Eigener Zustand -> grauer Balken
-    // in voller Laenge (Messwert sichtbar, aber nicht ausgewertet).
-    const _abgew = STB_hasRaw(i)
-      && typeof STB_evalSelectedEls !== "undefined" && STB_evalSelectedEls
-      && STB_evalSelectedEls.length
-      && STB_evalSelectedEls.indexOf(i) < 0;
+    const _pe = _td.perEl[i];   // Stufe 4: nur ausgewertete Elektroden
+    // Drei Zustaende: deaktiviert (Implantat-Status) vor valide (perEl) vor
+    // invalide (sonst). "abgewaehlt" und "ungemessen" sind EIN Zustand.
     let zustand;
     if (exL || exR) zustand = "deaktiviert";
-    else if (_abgew) zustand = "abgewaehlt";
-    else if (STB_hasRaw(i)) zustand = "gemessen";
-    else zustand = "ungemessen";
+    else if (_pe)   zustand = "valide";
+    else            zustand = "invalide";
     rows.push({
       elNum: i,
       label: dENPrefix("left") + dEN(i, "left"),
       hz: stb_effFRQ("left", i),
-      wert: (STB_hasRaw(i) ? STB_rawOffset(i) : 0),
+      wert: (_pe ? _pe.offset : 0),
       zustand: zustand
     });
   }
@@ -632,7 +621,7 @@ function STB_drawChart() {
   // --- Skala: symmetrische dB-Halbspanne (min 5 dB) ueber gemessene ---
   let absMax = 5;
   rows.forEach(function (r) {
-    if (r.zustand === "gemessen") absMax = Math.max(absMax, Math.ceil(Math.abs(r.wert)));
+    if (r.zustand === "valide") absMax = Math.max(absMax, Math.ceil(Math.abs(r.wert)));
   });
 
   // --- Geometrie ---
@@ -681,6 +670,7 @@ function STB_drawChart() {
     const stW = plotW / 4;
     const stX = midX - stW / 2;
     if (r.zustand === "deaktiviert") {
+      // Implantat-Status: graues Feld mit X.
       ctx.fillStyle = "#e5e7eb";
       ctx.fillRect(stX, yTop, stW, barH);
       ctx.strokeStyle = "#6b7280"; ctx.lineWidth = 1.5;
@@ -688,19 +678,15 @@ function STB_drawChart() {
       ctx.moveTo(stX, yTop); ctx.lineTo(stX + stW, yBot);
       ctx.moveTo(stX + stW, yTop); ctx.lineTo(stX, yBot);
       ctx.stroke();
-    } else if (r.zustand === "ungemessen") {
+    } else if (r.zustand === "invalide") {
+      // ungemessen ODER abgewaehlt -- ein Zustand, neutrales graues Feld
+      // ohne Grund-Symbol.
       ctx.fillStyle = "#e5e7eb";
       ctx.fillRect(stX, yTop, stW, barH);
-      ctx.fillStyle = "#6b7280";
-      ctx.font = "bold 14px Segoe UI,sans-serif";
-      ctx.textAlign = "center"; ctx.textBaseline = "middle";
-      ctx.fillText("?", midX, yMid);
-      ctx.textBaseline = "alphabetic";
     } else {
-      // gemessen -> blauer Balken; abgewaehlt -> grauer Balken (voller Wert,
-      // aber nicht ausgewertet). Geometrie identisch.
+      // valide -> blauer Balken mit Wert.
       const xVal = tX(r.wert);
-      ctx.fillStyle = (r.zustand === "abgewaehlt") ? "#9ca3af" : STB_BAR_COLOR;
+      ctx.fillStyle = STB_BAR_COLOR;
       const x0 = Math.min(midX, xVal), wBar = Math.abs(xVal - midX);
       ctx.fillRect(x0, yTop, wBar || 2, barH);
     }

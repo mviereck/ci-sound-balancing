@@ -1000,10 +1000,10 @@ function stbLegendData(rows) {
     return { key: key, farbe: farbe, achse: achse, hex: HEX[farbe] || ["#9ca3af"] };
   };
   var el = [];
-  el.push(mk("balken",        "blau",    null));
-  el.push(mk("xRechteck",     "grau",    null));
-  el.push(mk("frageRechteck", "grau",    null));
-  el.push(mk("meanLinie",     "schwarz", null));
+  el.push(mk("balken",       "blau",    null));
+  el.push(mk("xRechteck",    "grau",    null));
+  el.push(mk("grauRechteck", "grau",    null));
+  el.push(mk("meanLinie",    "schwarz", null));
   return { elemente: el, bewertung: "ampel", ampelStufen: [], farbSpalte: false };
 }
 
