@@ -329,7 +329,7 @@ function kurvenELLChartZeichnen() {
   const act = allEl();
   if (!act.length) return;
   _kurvenFrqRefresh();               // BA429: Wertquelle einmal je Zeichenlauf
-  const corr = ELL_testData({ ctx: ELL_ctx("global") }).correction;
+  const corr = ELL_testData().correction;
   const pc = kurvenELLSumme();
   const measV = act.map((i) => corr[i]);
   const manV = act.map((i) => schieberELL[i]);

@@ -572,10 +572,10 @@ function shuffle(a) {
 function randAB(p) {
   return p.map(([x, y]) => (Math.random() < 0.5 ? [x, y] : [y, x]));
 }
-function ELL_compWLS(ctx) {
+function ELL_computeEval_compWLS(ctx) {
   ctx = ctx || {};
   var _nEl     = (ctx.nEl        != null) ? ctx.nEl        : nEl;
-  var _results = (ctx.ELL_results != null) ? ctx.ELL_results : ELL_results;
+  var _results = (ctx.ELL_raw != null) ? ctx.ELL_raw : ELL_raw;
   var _elSt    = (ctx.elSt       != null) ? ctx.elSt       : elSt;
   var _elExDur = (ctx.elExDur    != null) ? ctx.elExDur    : elExDur;
   var _refEl   = (ctx.ELL_refEl  != null) ? ctx.ELL_refEl  : ELL_refEl;
@@ -656,13 +656,13 @@ function ELL_compWLS(ctx) {
 
 // ============================================================
 // ELL_writeEval — EINZIGER Schreiber der persistierten ELL-Auswertung.
-// Rechnet aus den Rohwerten EINER Seite (ELL_results, elExDur, elSt via
+// Rechnet aus den Rohwerten EINER Seite (ELL_raw, elExDur, elSt via
 // ctx) die komplette Auswertung und legt sie in sideData[side].ELL_eval.
 // Der EINZIGE Leser der Rohwerte (Architektur: 00-persistierte-
 // messauswertung). Alle Konsumenten lesen danach nur ELL_eval
 // (ueber ELL_testData). Vorbild: STB_writeEval (state-side.js).
 //
-// Nicht-volatiler Zeitstempel: max ueber ALLE ELL_results-timestamps
+// Nicht-volatiler Zeitstempel: max ueber ALLE ELL_raw-timestamps
 // der Seite (nie Date.now hier). Reines Neu-Auswerten (Ref-Elektrode/
 // Gewichtung geaendert) laesst die Rohwerte unberuehrt -> Stempel stabil.
 function ELL_writeEval(side) {
@@ -671,11 +671,11 @@ function ELL_writeEval(side) {
   if (!s) return;
   var ctx = ELL_ctx(key);
   var n = ctx.nEl != null ? ctx.nEl : (s.nEl || 0);
-  var results = ctx.ELL_results || [];
+  var results = ctx.ELL_raw || [];
   var _elSt = ctx.elSt || [];
   var _elExDur = ctx.elExDur || [];
 
-  var wls = ELL_compWLS(ctx);           // { levels, residuals, ELL_res, ELL_wt }
+  var wls = ELL_computeEval_compWLS(ctx);           // { levels, residuals, ELL_res, ELL_wt }
   var levels = wls.levels;
   var ELL_res = wls.ELL_res;
   var ELL_wt = wls.ELL_wt;
@@ -691,7 +691,7 @@ function ELL_writeEval(side) {
   // Die Auswahl darf gemessen[] NICHT beeinflussen, sonst wuerde eine in der
   // Auswertungs-Box abgewaehlte Elektrode dort als "nicht gemessen" gelten
   // und liesse sich nicht wieder zuwaehlen (Rueckkopplung). Der
-  // Auswahl-Filter sitzt allein in ELL_compWLS (Pegelberechnung).
+  // Auswahl-Filter sitzt allein in ELL_computeEval_compWLS (Pegelberechnung).
   for (var p = 0; p < results.length; p++) {
     var r = results[p];
     if (!r) continue;
@@ -757,7 +757,7 @@ function ELL_writeEval(side) {
     vergleiche: vergleiche,
     // Anzahl der Rohwert-Paare zum Auswertungszeitpunkt (eingefrorener
     // Snapshot-Stand). Konsumenten (Metazeile, Datenvorhanden-Pruefung)
-    // lesen diese Zahl, nie ELL_results.length roh.
+    // lesen diese Zahl, nie ELL_raw.length roh.
     nPairs: results.length,
     refEl: ctx.ELL_refEl,
     distWeightMode: (typeof ELL_distWeightMode !== "undefined") ? ELL_distWeightMode : "voll",
@@ -773,13 +773,10 @@ function ELL_writeEval(side) {
 // Liefert ein neutrales Ergebnis, wenn ELL_eval noch nicht geschrieben.
 //
 // opts.side: optionale Seite ("left"/"right"); sonst aktive Seite.
-// opts.ctx wird nach dem Umbau nicht mehr ausgewertet — Aufrufer mit
-// { ctx: ELL_ctx("global") } bleiben kompatibel (Fallback = activeSide).
+// Stufe 4 (reiner Leser): einziger Freiheitsgrad ist die Seite, weil die
+// Auswertung pro Seite gespeichert ist. Kein ctx-Weg, keine Rechnung.
 function ELL_testData(opts) {
   opts = opts || {};
-  // Seite bestimmen: explizite side, sonst aktive Seite.
-  // opts.ctx wird nicht mehr ausgewertet — Aufrufer mit { ctx: ELL_ctx("global") }
-  // bleiben kompatibel (Fallback = activeSide).
   var key = (opts.side === "left" || opts.side === "right") ? opts.side : activeSide;
   var s = sideData[key];
   var n = (s && s.nEl) ? s.nEl : 0;
@@ -812,14 +809,13 @@ function ELL_testData(opts) {
 // Messdaten/Frequenzen vorliegen. Logik identisch zu FRQ_correctionGain
 // (freqmatch.js); zentralisiert, damit alle Korrektur-Aufrufer (Klavier,
 // Vorspiel, Sweep) dieselbe Quelle nutzen.
-function ELL_measGain(side, hz) {
+function ELL_apply(side, hz) {
   var ctx = ELL_ctx(side);
-  // BA 303: defensive Abfragen (aus FRQ_correctionGain uebernommen). Ohne
-  // Mess-Paare oder ohne ELL_compWLS neutral zurueck, BEVOR ELL_testData()
-  // gerufen wird (nutzt intern ELL_results.some -> wuerde sonst werfen).
-  if (!ctx.ELL_results || ctx.ELL_results.length === 0) return 1;
-  if (typeof ELL_compWLS !== "function") return 1;
-  var levels = ELL_testData({ ctx: ctx }).correction;
+  // Stufe 5 liest NUR ueber Stufe 4 (ELL_testData), nie den Rohwert.
+  // Ohne Messung neutral (Gain 1).
+  var td = ELL_testData({ side: side });
+  if (!td || !td.gemessen || !td.gemessen.some(Boolean)) return 1;
+  var levels = td.correction;
   if (!levels || !levels.length) return 1;
   var nEff = (typeof ctx.nEl === "number" && ctx.nEl > 0) ? ctx.nEl : 0;
   if (!nEff) return 1;
@@ -868,8 +864,8 @@ function ELL_measGain(side, hz) {
 // STB_rawGains() (respektiert den Balance-Modus).
 function corrVol(vol, side, hz, applyELL, applyBal) {
   var v = vol;
-  if (applyELL && typeof ELL_measGain === "function") {
-    v *= ELL_measGain(side, hz);
+  if (applyELL && typeof ELL_apply === "function") {
+    v *= ELL_apply(side, hz);
   }
   if (applyBal && typeof STB_rawGains === "function") {
     var bg = STB_rawGains() || { left: 0, right: 0 };
@@ -880,8 +876,8 @@ function corrVol(vol, side, hz, applyELL, applyBal) {
 }
 
 function getConvPairs(fast) {
-  if (fast && ELL_results.length > 0) {
-    const { residuals } = ELL_compWLS(ELL_ctx("global"));
+  if (fast && ELL_raw.length > 0) {
+    const { residuals } = ELL_computeEval_compWLS(ELL_ctx("global"));
     const act = new Set(actEl());
     const vr = residuals
       .filter((r) => act.has(r.a) && act.has(r.b))
@@ -909,12 +905,12 @@ function getConvPairs(fast) {
 // LS-HINT: Schätzung und Unsicherheit für Paar (a, b)
 // ============================================================
 function ell_getLsEstimate(a, b) {
-  if (ELL_results.length === 0) return { estimate: 0, halfWidth: 0, hasData: false };
-  const { raw: levels, residual: ELL_res } = ELL_testData({ ctx: ELL_ctx("global") });
+  if (ELL_raw.length === 0) return { estimate: 0, halfWidth: 0, hasData: false };
+  const { raw: levels, residual: ELL_res } = ELL_testData();
   const wA = ell_gWt(a), wB = ell_gWt(b);
   if (wA <= 0 || wB <= 0) return { estimate: 0, halfWidth: 0, hasData: false };
-  const nA = ELL_results.filter(r => r.a === a || r.b === a).length;
-  const nB = ELL_results.filter(r => r.a === b || r.b === b).length;
+  const nA = ELL_raw.filter(r => r.a === a || r.b === a).length;
+  const nB = ELL_raw.filter(r => r.a === b || r.b === b).length;
   const N = Math.min(nA, nB);
   const resTerm = Math.max(ELL_res[a] || 0, ELL_res[b] || 0);
   const prior = LS_HINT_BASIS_DB * LS_HINT_K / (LS_HINT_K + N);
@@ -1155,7 +1151,7 @@ function ell_showCurPair() {
   // Verfahren (full / conv); im Konvergenz-Normalfall greift fast immer
   // der gespeicherte Wert.
   ELL_curBase = 0;
-  var ex = ELL_results.find(function(r) {
+  var ex = ELL_raw.find(function(r) {
     return (r.a === ELL_curA && r.b === ELL_curB) || (r.a === ELL_curB && r.b === ELL_curA);
   });
   var startVal = 0;
@@ -1292,13 +1288,13 @@ function ell_recBal() {
   const a = ELL_curA, b = ELL_curB, tot = _ell_sliderVal();
   const ne = { a, b, offset: tot, timestamp: Date.now(),
                audiopathID: (typeof AWG_activeId !== "undefined") ? AWG_activeId : 0 };
-  const ei = ELL_results.findIndex((x) => (x.a === a && x.b === b) || (x.a === b && x.b === a));
+  const ei = ELL_raw.findIndex((x) => (x.a === a && x.b === b) || (x.a === b && x.b === a));
   if (ei >= 0) {
-    undoSt.push({ t: "b", a: "r", e: ne, p: { ...ELL_results[ei] } });
-    ELL_results[ei] = ne;
+    undoSt.push({ t: "b", a: "r", e: ne, p: { ...ELL_raw[ei] } });
+    ELL_raw[ei] = ne;
   } else {
     undoSt.push({ t: "b", a: "a", e: ne });
-    ELL_results.push(ne);
+    ELL_raw.push(ne);
   }
   // BA 247: Vollstaendig: gemessenes Paar als erledigt markieren.
   if (_ELL_activeVerfahren === "full") {
@@ -1320,11 +1316,11 @@ function ell_undoL() {
   const u = undoSt.pop();
   // BA 247: nur noch der b-Pfad (balance); j-Pfad entfaellt mit judgment.
   if (u.a === "a") {
-    const i = ELL_results.findIndex(function(x) { return x.timestamp === u.e.timestamp; });
-    if (i >= 0) ELL_results.splice(i, 1);
+    const i = ELL_raw.findIndex(function(x) { return x.timestamp === u.e.timestamp; });
+    if (i >= 0) ELL_raw.splice(i, 1);
   } else {
-    const i = ELL_results.findIndex(function(x) { return x.a === u.e.a && x.b === u.e.b; });
-    if (i >= 0) ELL_results[i] = u.p;
+    const i = ELL_raw.findIndex(function(x) { return x.a === u.e.a && x.b === u.e.b; });
+    if (i >= 0) ELL_raw[i] = u.p;
   }
   // Bug-Fix §6.9: Bei full-Verfahren auch aus fullSweepDonePairs entfernen.
   if (_ELL_activeVerfahren === "full") {
@@ -1385,7 +1381,7 @@ function nextFullRound() {
   ell_showCurPair();
 }
 function nextConvRnd() {
-  const { residuals } = ELL_compWLS(ELL_ctx("global"));
+  const { residuals } = ELL_computeEval_compWLS(ELL_ctx("global"));
   const act = new Set(actEl());
   const vr = residuals.filter((r) => act.has(r.a) && act.has(r.b));
   const mx = vr.length ? Math.max(...vr.map((r) => r.residual)) : 0;
@@ -1628,8 +1624,8 @@ document.addEventListener("DOMContentLoaded", function() {
             testUI.audioPathCheck.run(
               { sides: 'one', side: activeSide,
                 measuredPathIds: function (side) {
-                  // ELL ist einseitig: alle ELL_results gehoeren zur aktiven Seite.
-                  return (ELL_results || []).map(function (r) {
+                  // ELL ist einseitig: alle ELL_raw gehoeren zur aktiven Seite.
+                  return (ELL_raw || []).map(function (r) {
                     return (r && r.audiopathID != null) ? r.audiopathID : 0;
                   });
                 } },
@@ -1666,8 +1662,8 @@ document.addEventListener("DOMContentLoaded", function() {
             testUI.audioPathCheck.run(
               { sides: 'one', side: activeSide,
                 measuredPathIds: function (side) {
-                  // ELL ist einseitig: alle ELL_results gehoeren zur aktiven Seite.
-                  return (ELL_results || []).map(function (r) {
+                  // ELL ist einseitig: alle ELL_raw gehoeren zur aktiven Seite.
+                  return (ELL_raw || []).map(function (r) {
                     return (r && r.audiopathID != null) ? r.audiopathID : 0;
                   });
                 } },

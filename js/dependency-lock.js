@@ -10,7 +10,7 @@
 // ============================================================
 
 // Lautstärke-Daten vorhanden? Snapshot-Trennung: aus der Meßauswertung
-// (ELL_testData), nie roh aus ELL_results. typeof-Guard, weil depLockApply
+// (ELL_testData), nie roh aus ELL_raw. typeof-Guard, weil depLockApply
 // schon im top-level-Init von state-side.js läuft, bevor test.js geladen ist.
 function _depHasLoud(side) {
   if (typeof ELL_testData !== "function") return false;
@@ -33,7 +33,7 @@ const DEP_LOCK_RULES = [
     getReasonKeys: function() {
       const reasons = [];
       // Snapshot-Trennung: "gemessen?" kommt aus der Meszauswertung
-      // (ELL_testData), nie roh aus ELL_results.
+      // (ELL_testData), nie roh aus ELL_raw.
       const ownHasLoud = _depHasLoud(activeSide);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       const other = activeSide === 'left' ? 'right' : 'left';

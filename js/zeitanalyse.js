@@ -6,7 +6,7 @@
   "use strict";
 
   // Normalisiert ein Status-Array auf Laenge n; fehlende Eintraege erhalten fill.
-  // Verhindert, dass leere Arrays in ELL_compWLS-Filtern als "undefined" gelten
+  // Verhindert, dass leere Arrays in ELL_computeEval_compWLS-Filtern als "undefined" gelten
   // und Paare faelschlich ausschliessen (BA 406).
   function normStatus(arr, n, fill) {
     var out = new Array(n);
@@ -130,7 +130,7 @@
 
   // Konsens-Paarliste der Sitzungen einer Seite. side = 'left'|'right'.
   // Ergebnis: [{a, b, offset, timestamp}] — EIN Eintrag pro Paar
-  // (Format = ELL_results; spaeter auch fuer den Uebertrag §7).
+  // (Format = ELL_raw; spaeter auch fuer den Uebertrag §7).
   // Seiten-Datensatz einer Datei-Sitzung fuer die gewuenschte Seite
   // (oder null, wenn diese Seite in der Datei keine Daten hat).
   function zaRec(session, side) {
@@ -172,7 +172,7 @@
   // Wert pro Paar -> kuenstlich winziges Residuum, inkonsistent zum Uebertrag.)
   function zaConsolidatedCtx(side) {
     var base = ELL_ctx(side === "left" || side === "right" ? side : "global");
-    return Object.assign({}, base, { ELL_results: zaTransferPairs(side) });
+    return Object.assign({}, base, { ELL_raw: zaTransferPairs(side) });
   }
 
   // ---- Heatmap (BA 409) + Zeit-Trend (BA 410) ----
@@ -205,7 +205,7 @@
       var ts = zaYoungestTs(rec);
       if (ts === null) return;                 // ohne Stempel keine Zeitposition
       var ctx = zaToCtx(rec, side);
-      var r = ELL_compWLS(ctx);                // {levels, ELL_res, ...}
+      var r = ELL_computeEval_compWLS(ctx);                // {levels, ELL_res, ...}
       // Hoehen-Verankerung (§4a): referenzfreie Nulllinie, pro Sitzung.
       var lvA = zaAnchor(r.levels, rec.elSt, rec.elExDur);
       elCount = Math.max(elCount, rec.nEl);
@@ -465,7 +465,7 @@
 
   // Pro Elektrode die zeitliche Streuung (SD in dB) ihrer schon auf den
   // Sitzungs-Median verankerten Ist-Pegel (zaHeatmapData.corr). Quelle ist die
-  // ROHE, reglerunabhaengige Einzelsitzungs-Sicht (ELL_compWLS + zaAnchor) —
+  // ROHE, reglerunabhaengige Einzelsitzungs-Sicht (ELL_computeEval_compWLS + zaAnchor) —
   // dieselbe wie Heatmap/Buendel. corr[i]===null (inaktive Sitzung) faellt
   // automatisch raus, es zaehlen also nur die aktiven Vorkommen. SD via
   // weightedStd (Gewicht 1) = KEINE zweite SD-Implementierung.
@@ -733,23 +733,23 @@
   }
 
   // Einstieg ctx-basiert (paarweise Konsolidierung + Einzelmessung):
-  // ELL_compWLS -> verankern (§4a) -> zaDrawBarRows.
+  // ELL_computeEval_compWLS -> verankern (§4a) -> zaDrawBarRows.
   function zaDrawBarFromCtx(canvasId, hintId, ctx, leerHint) {
     var cv = document.getElementById(canvasId);
     if (!cv) return;
     var hint = hintId ? document.getElementById(hintId) : null;
-    if (!ctx || !ctx.ELL_results || !ctx.ELL_results.length) {
+    if (!ctx || !ctx.ELL_raw || !ctx.ELL_raw.length) {
       if (hint) hint.textContent = leerHint || "";
       cv.width = cv.width;   // leeren
       return;
     }
     if (hint) hint.textContent = "";
-    var r = ELL_compWLS(ctx);
+    var r = ELL_computeEval_compWLS(ctx);
     var _elSt = (ctx.elSt != null) ? ctx.elSt : elSt;
     var _elExDur = (ctx.elExDur != null) ? ctx.elExDur : elExDur;
     var levels = zaAnchor(r.levels, _elSt, _elExDur);   // §4a
     var measured = new Set();
-    ctx.ELL_results.forEach(function (p) { measured.add(p.a); measured.add(p.b); });
+    ctx.ELL_raw.forEach(function (p) { measured.add(p.a); measured.add(p.b); });
     zaDrawBarRows(cv, levels, r.ELL_res, measured, ctx);
   }
 
@@ -773,7 +773,7 @@
   // Pegelweise Konsolidierung (00-zeitanalyse §4): jede Sitzung einzeln zur
   // verankerten Pegelkurve rechnen, dann je Elektrode q-gewichtet mitteln.
   // Streuung = gewichtete SD der verankerten Einzelpegel (§4c). Liefert
-  // { levels, res, measured:Set, nEl } im selben Format wie ELL_compWLS-Nutzung.
+  // { levels, res, measured:Set, nEl } im selben Format wie ELL_computeEval_compWLS-Nutzung.
   function zaPegelKonsol(side) {
     var per = [];      // je El: [{v, w}]
     var nEl = 0;
@@ -782,7 +782,7 @@
       if (!rec) return;
       var q = zaWeight(rec, side);
       if (!(q > 0)) return;
-      var r = ELL_compWLS(zaToCtx(rec, side));
+      var r = ELL_computeEval_compWLS(zaToCtx(rec, side));
       var lvA = zaAnchor(r.levels, rec.elSt, rec.elExDur);
       nEl = Math.max(nEl, rec.nEl);
       for (var i = 0; i < rec.nEl; i++) {
@@ -1072,9 +1072,10 @@
     // behalten).
     function zaSideRecord(name, s, sd) {
       if (!s) return null;
-      // Feld-Umbenennung durch die .cimbel-Umstrukturierung (0.6): neue
-      // Namen bevorzugen, alte als Fallback fuer Altdateien.
-      var br = Array.isArray(s.ELL_results) ? s.ELL_results : s.balanceResults;
+      // Feld-Umbenennung: ELL_raw (ab BA678), ELL_raw (vor BA678), balanceResults (aelteste Dateien).
+      var br = Array.isArray(s.ELL_raw) ? s.ELL_raw
+             : Array.isArray(s.ELL_raw) ? s.ELL_raw
+             : s.balanceResults;
       if (!Array.isArray(br) || !br.length) return null;   // Fall a: keine Paare
       var elStRaw    = (s.elSt      != null) ? s.elSt      : s.electrodeStatus;
       var elExDurRaw = (s.elExDur   != null) ? s.elExDur   : s.electrodeExcludedDuring;
@@ -1181,7 +1182,7 @@
     zaDrawTrend();
   }
 
-  // Baut das ELL_compWLS-ctx aus einem Seiten-Datensatz (rec) einer
+  // Baut das ELL_computeEval_compWLS-ctx aus einem Seiten-Datensatz (rec) einer
   // eingelesenen Datei. Referenzelektrode aus ELL_ctx(side) (einheitlich).
   function zaToCtx(rec, side) {
     var refEl = (typeof ELL_ctx === "function")
@@ -1189,19 +1190,19 @@
                 : (rec && rec.refEl);
     return {
       nEl:         rec.nEl,
-      ELL_results: rec.raw,
+      ELL_raw: rec.raw,
       elSt:        rec.elSt,
       elExDur:     rec.elExDur,
       ELL_refEl:   refEl
     };
   }
 
-  // Mittleres Residuum (dB) eines Records: ELL_compWLS ueber sein ctx,
+  // Mittleres Residuum (dB) eines Records: ELL_computeEval_compWLS ueber sein ctx,
   // dann Mittel von ELL_res ueber die aktiven Elektroden.
   function zaMeanResidual(rec, side) {
-    if (typeof ELL_compWLS !== "function" || !rec) return null;
+    if (typeof ELL_computeEval_compWLS !== "function" || !rec) return null;
     var ctx = zaToCtx(rec, side);
-    var r = ELL_compWLS(ctx);
+    var r = ELL_computeEval_compWLS(ctx);
     if (!r || !r.ELL_res) return null;
     var sum = 0, cnt = 0;
     for (var i = 0; i < rec.nEl; i++) {
@@ -1285,7 +1286,7 @@
   // ein Offset pro Paar, aus den VERANKERTEN Sitzungspegeln (Verankerung ist fuer
   // Paar-Differenzen invariant, macht den Uebertrag aber referenzfrei).
   //
-  // Datei-Gewicht q (Schaerfe x Zeit, §6a) in die PAARWEISE Kurve: ELL_compWLS
+  // Datei-Gewicht q (Schaerfe x Zeit, §6a) in die PAARWEISE Kurve: ELL_computeEval_compWLS
   // kennt KEIN Gewicht pro Paar-Eintrag (test.js nutzt nur ell_gWt(Status) x
   // Distanz), daher wirkt q nur ueber die ANZAHL der Eintraege. Jede Sitzung
   // traegt ihr Paar k-fach bei, k = round(q/qmax * N), min. 1 (q>0). N = Anzahl
@@ -1312,7 +1313,7 @@
     var out = [];
     wsess.forEach(function (e) {
       var k = (qmax > 0) ? Math.max(1, Math.round(e.q / qmax * N)) : 1;
-      var r = ELL_compWLS(zaToCtx(e.rec, side));
+      var r = ELL_computeEval_compWLS(zaToCtx(e.rec, side));
       var lvA = zaAnchor(r.levels, e.rec.elSt, e.rec.elExDur);
       (e.rec.raw || []).forEach(function (p) {
         if (typeof p.a !== "number" || typeof p.b !== "number") return;
@@ -1362,7 +1363,7 @@
 
     var s = sideData[side];
     if (!s) return;
-    s.ELL_results        = pairs;
+    s.ELL_raw        = pairs;
     s.fullSweepRound     = null;
     s.fullSweepDonePairs = [];
     undoSt               = [];

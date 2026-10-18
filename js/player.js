@@ -609,8 +609,15 @@ function getPlaybackBuffer() {
   }
 }
 
-function ELL_computeGains() {
-  const corr = ELL_testData({ ctx: ELL_ctx("global") }).correction;
+// Player-Mischer: summiert pro Elektrode die drei Korrektur-Quellen —
+// ELL-Messung (ueber Stufe 4 ELL_testData().correction), Schieber
+// (schieberELL) und Kurven (kurvenELLSumme). Liefert die EQ-Stuetzpunkte
+// je Elektrode (negierte Korrektur, eqRaw-Konvention); die Interpolation
+// ueber das Spektrum macht die Biquad-Filterkette (pBuildEQ), nicht diese
+// Funktion. Liest ELL ueber Stufe 4 (Stuetzpunkt-Bauer, nicht Einzelwert-
+// Anwender — Architektur 00-persistierte-messauswertung, Zugriffsregel).
+function pl_ELLSKcomputeGains() {
+  const corr = ELL_testData().correction;
   const presetCurve = kurvenELLSumme();
   const g = new Array(nEl).fill(0);
   for (let i = 0; i < nEl; i++) {
@@ -628,7 +635,7 @@ function ELL_computeGains() {
 // Hoechste noetige Anhebung ueber BEIDE Seiten, aber nur unter den
 // REGULAEREN Elektroden (nicht stumm/fast stumm/deaktiviert/ausgeschlossen).
 // Rueckgabe >= 0; 0 = keine Anhebung noetig => keine Absenkung.
-// ELL_computeGains() liefert die negierte Korrektur (eqRaw-Konvention), die
+// pl_ELLSKcomputeGains() liefert die negierte Korrektur (eqRaw-Konvention), die
 // echte Korrektur (positiv = Anhebung) ist daher -g[i].
 // BA 320: Kern — hoechste noetige Anhebung ueber die uebergebenen Seiten,
 // UNABHAENGIG von plEqHeadroomBoth. Fuer den Vergleich gemeinsam vs.
@@ -638,7 +645,7 @@ function _eqHeadroomOffsetForSides(sides) {
   let mx = 0;
   sides.forEach(function (s) {
     withSide(s, function () {
-      const g = ELL_computeGains();
+      const g = pl_ELLSKcomputeGains();
       for (let i = 0; i < nEl; i++) {
         if (elSt[i] === "mute" || elSt[i] === "almostMute") continue;
         if (elActive && elActive[i] === false) continue;
@@ -671,7 +678,7 @@ function _eqHeadroomOffset(scopeSide) {
 // rechnet eigene EQ-/Balance-Logik.
 function getPlayerCorrection(side, applyNhSim) {
   if (applyNhSim === undefined) applyNhSim = true;   // BA 315: Ausdruck ruft mit false
-  const eqRaw = withSide(side, ELL_computeGains);   // ELL_computeGains-Konvention (negierte Korrektur)
+  const eqRaw = withSide(side, pl_ELLSKcomputeGains);   // pl_ELLSKcomputeGains-Konvention (negierte Korrektur)
   if (!plEqOn) {
     return { eq: eqRaw.map(function () { return 0; }), balance: 0 };
   }
@@ -1636,9 +1643,9 @@ function pMaplawUpdUI() {
 }
 
 window.addEventListener("resize", () => {
-  // Snapshot-Trennung: Meszauswertung lesen, nicht ELL_results roh.
+  // Snapshot-Trennung: Meszauswertung lesen, nicht ELL_raw roh.
   if (typeof ELL_testData === "function"
-      && ELL_testData({ ctx: ELL_ctx("global") }).gemessen.some(Boolean)) {
+      && ELL_testData().gemessen.some(Boolean)) {
     pDrawEQ();
     if (document.getElementById("ELL_resC").style.display !== "none")
       ELL_renderResults();

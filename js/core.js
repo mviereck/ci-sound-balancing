@@ -1670,7 +1670,7 @@ function FRQ_modusVonReferenzmodus(rm) {
 // Groessen -- die nominellen Frequenzen (keine Messgroesse) bleiben erhalten.
 //
 // BA453: aus test.js hierher verschoben (war test.js:550). core.js laedt
-// vor test.js (index.html:140-141), die Aufrufer in test.js (ELL_compWLS,
+// vor test.js (index.html:140-141), die Aufrufer in test.js (ELL_computeEval_compWLS,
 // ELL_res-Serie) sehen die Funktion weiterhin. Status -> Gewicht:
 // stumm/ausgeschlossen=0, almostMute=0.05, noisyHeavy=0.15, noisyMore=0.4,
 // noisyLess=0.8, normal=1. Startquelle fuer CBF-Statusgewicht (Architektur

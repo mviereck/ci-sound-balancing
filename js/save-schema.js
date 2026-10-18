@@ -534,10 +534,27 @@ SAVE_SCHEMA.push(
     get: function (s) { return sideData[s].SNRtest_material || null; },
     set: function (v, s) { sideData[s].SNRtest_material = (typeof v === "string" && v) ? v : null; },
     default: null },
-  { key: "ELL_results", scope: "side",
-    get: function (s) { return sideData[s].ELL_results; },
-    set: function (v, s) { sideData[s].ELL_results = Array.isArray(v) ? v : []; },
+  { key: "ELL_raw", scope: "side",
+    get: function (s) { return sideData[s].ELL_raw; },
+    set: function (v, s) { sideData[s].ELL_raw = Array.isArray(v) ? v : []; },
     default: function () { return []; }, valid: { type: "array" } },
+  // Alt-Schluessel (vor BA678 hiess ELL_raw noch ELL_results). Faengt beim
+  // Laden alter Dateien den dort gespeicherten Rohwert ab und schreibt ihn
+  // ins neue Feld sideData[s].ELL_raw. get liefert nichts (nicht erneut
+  // speichern, neue Dateien tragen nur noch ELL_raw).
+  // MUSS NACH dem ELL_raw-Eintrag stehen: applyState iteriert SAVE_SCHEMA in
+  // Reihenfolge und ruft set() IMMER; der ELL_raw-Eintrag setzt bei einer
+  // Altdatei (kein ELL_raw-Key) zuerst den Default []. Erst danach migriert
+  // dieser Auffang (Guard !ELL_raw.length ist dann erfuellt) die Altdaten --
+  // stuende er davor, machte der ELL_raw-Default die Migration wieder platt.
+  { key: "ELL_results", scope: "side",
+    get: function () { return undefined; },
+    set: function (v, s) {
+      if (Array.isArray(v) && v.length && (!sideData[s].ELL_raw || !sideData[s].ELL_raw.length)) {
+        sideData[s].ELL_raw = v;
+      }
+    },
+    default: function () { return undefined; } },
   { key: "ELL_eval", scope: "side",
     get: function (s) { return sideData[s].ELL_eval; },
     set: function (v, s) { sideData[s].ELL_eval = (v && typeof v === "object") ? v : null; },
@@ -687,7 +704,7 @@ function buildState() {
     app: "CImbel",
     version: APP_VERSION,
     savedAt: new Date().toISOString(),  // Speicherzeitpunkt (ISO-8601 UTC); Dateiname traegt zusaetzlich das lokale Kurzdatum
-    presetFormat: "freq-v3",
+    presetFormat: "freq-v4",
     sides: { left: {}, right: {} },
   };
   SAVE_SCHEMA.forEach(function (e) {
@@ -731,7 +748,7 @@ function refreshAll() {
   if (typeof FRQ_implantatTableBuild === "function") FRQ_implantatTableBuild();
   if (typeof buildImplantCard === "function") buildImplantCard();
   // Nach Laden: ELL-Auswertung beider Seiten aus den geladenen
-  // ELL_results NEU rechnen (analog STB_writeEval), nicht den
+  // ELL_raw NEU rechnen (analog STB_writeEval), nicht den
   // gespeicherten Wert blind uebernehmen.
   if (typeof ELL_writeEval === "function") { ELL_writeEval("left"); ELL_writeEval("right"); }
   if (typeof ELL_renderResults === "function") ELL_renderResults();

@@ -116,7 +116,7 @@ function resetAll() {
     sideData[s].elExDur = new Array(sideData[s].nEl).fill(null);
     sideData[s].schieberELL = new Array(sideData[s].nEl).fill(0);
     sideData[s].ELL_refEl = Math.floor(sideData[s].nEl / 2);
-    sideData[s].ELL_results = [];
+    sideData[s].ELL_raw = [];
     sideData[s].ELL_eval = null;
     sideData[s].SNR_result = null;   // BA662-FIX: seitenweises Sprachtest-Ergebnis mitloeschen
     sideData[s].kurvenELL = [];
@@ -365,13 +365,13 @@ function loadJson(file) {
 function ELL_clearRes() {
   const ch = confirm(t("delConfirmMeas"));
   if (!ch) return;
-  sideData[activeSide].ELL_results.splice(0, sideData[activeSide].ELL_results.length);
+  sideData[activeSide].ELL_raw.splice(0, sideData[activeSide].ELL_raw.length);
   sideData[activeSide].ELL_eval = null;
   sideData[activeSide].ELL_evalSelectedEls = null;
   if (typeof _ell_evalSelectedEls !== "undefined") _ell_evalSelectedEls = null;
   sideData[activeSide].fullSweepRound = null;
   sideData[activeSide].fullSweepDonePairs = [];
-  ELL_results = sideData[activeSide].ELL_results;
+  ELL_raw = sideData[activeSide].ELL_raw;
   fullSweepRound = null;
   fullSweepDonePairs = [];
   ELL_renderResults();

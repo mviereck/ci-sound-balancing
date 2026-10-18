@@ -753,7 +753,7 @@ function STB_drawChart() {
 }
 
 // Lautstaerke-Daten vorhanden? Snapshot-Trennung: aus der Meszauswertung
-// (ELL_testData), nie roh aus ELL_results.
+// (ELL_testData), nie roh aus ELL_raw.
 function _lrHasLvData(side) {
   if (typeof ELL_testData !== "function") return false;
   return ELL_testData({ side }).gemessen.some(Boolean);

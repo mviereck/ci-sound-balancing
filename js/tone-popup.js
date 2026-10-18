@@ -538,14 +538,14 @@ function openToneSelectionDialog(cfg, onChange) {
   // grün = aktiv, grau = inaktiv. Beide Default an, lokal.
   //
   // Die Korrektur-Toggles und die ueber onTogglesReady ausgegebene
-  // Korrektor-fn (corrVol -> ELL_measGain -> ELL_testData, also die
+  // Korrektor-fn (corrVol -> ELL_apply -> ELL_testData, also die
   // Meszauswertung, nie die Rohwerte) steuern Vorschau, Klavier und Sweep.
   // Seit BA 302 setzen die Mess-Reiter (ELL, STB, Freqabgleich) ebenfalls
   // showToggles:true; die ELL-Mess-Box nutzt die fn ueber onTogglesReady
   // beim Probehoeren/Sequenz (test.js). STB/Freqabgleich wenden ihre
   // Korrektur ausserdem ueber STB_corrGain / FRQ_correctionGain an — beide
   // lesen gleichfalls ELL_testData, kein Verbraucher greift roh auf
-  // ELL_results zu.
+  // ELL_raw zu.
   if (cfg.showToggles !== false) {
     var togRow = document.createElement('div');
     togRow.style.cssText =

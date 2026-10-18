@@ -14,7 +14,7 @@ let mfr,
   schieberELL,
   ELL_refEl,
   AWG_activeId,          // aktiver Audioweg der aktiven Seite (Spiegel von sideData[side].AWG_activeId)
-  ELL_results,
+  ELL_raw,
   ELL_distWeightMode,
   config;
 // Einzige Frequenzquelle aller Messungen/Wiedergaben: geometrische
@@ -68,7 +68,7 @@ function bindActiveSide() {
   kurvenELL = s.kurvenELL;
   ELL_refEl = s.ELL_refEl;
   AWG_activeId = (s.AWG_activeId != null) ? s.AWG_activeId : 0;
-  ELL_results = s.ELL_results;
+  ELL_raw = s.ELL_raw;
   ELL_distWeightMode = s.ELL_distWeightMode || "voll";
   // BA648: seitenabhaengige ELL-Testvorgaben spiegeln (Vorbild oben).
   if (typeof _ell_selectedEls !== "undefined") {
@@ -144,7 +144,7 @@ function AWG_setActive(side, id) {
   if (typeof _autoSaveState === "function") _autoSaveState();
 }
 // Baut das vollständige ctx-Objekt einer Seite für die parametrisierten
-// ELL-Funktionen (ELL_compWLS, drawBarGraph, ELL_testData). side:
+// ELL-Funktionen (ELL_computeEval_compWLS, drawBarGraph, ELL_testData). side:
 // 'left' | 'right' | 'global' ('global' = aktuell gebundene Seite).
 // Liefert seitenrichtige Daten UND Closures, ohne die globalen Tool-
 // Variablen zu binden (kein withSide nötig).
@@ -157,7 +157,7 @@ function ELL_ctx(side) {
   return {
     // Datenfelder (compWLS + drawChart)
     nEl:         _nEl,
-    ELL_results: s.ELL_results,
+    ELL_raw: s.ELL_raw,
     elSt:        s.elSt,
     elExDur:     s.elExDur,
     ELL_refEl:   s.ELL_refEl,
@@ -187,7 +187,7 @@ function initSideData(side, m) {
   s.elExDur = new Array(s.nEl).fill(null);
   s.schieberELL = new Array(s.nEl).fill(0);
   s.ELL_refEl = Math.floor(s.nEl / 2);
-  s.ELL_results = [];
+  s.ELL_raw = [];
   s.ELL_eval = null;
   s.ELL_distWeightMode = "voll";
   // Seitenabhaengige ELL-Testvorgaben (BA648): gewaehlte Testelektroden
@@ -197,7 +197,7 @@ function initSideData(side, m) {
   s.ELL_selectedEls = null;
   s.ELL_activeVerfahren = "full";
   // BA660: Auswertungs-eigene Elektrodenauswahl. Bestimmt, welche der
-  // gemessenen Elektroden in die ELL-Auswertung (ELL_compWLS) einfliessen.
+  // gemessenen Elektroden in die ELL-Auswertung (ELL_computeEval_compWLS) einfliessen.
   // null = alle gemessenen; sonst Index-Liste. UNABHAENGIG von der
   // Testauswahl ELL_selectedEls (die nur die Test-Sequenz filtert) --
   // hier wird die AUSWERTUNG gefiltert. Hash-wirksame Auswertungs-
@@ -541,7 +541,7 @@ function withSide(side, fn) {
     schieberELL,
     kurvenELL,
     ELL_refEl,
-    ELL_results,
+    ELL_raw,
   };
   activeSide = side;
   bindActiveSide();

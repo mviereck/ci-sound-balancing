@@ -3,9 +3,9 @@
 // ============================================================
 function ELL_renderResults() {
   // Datenvorhanden-Pruefung aus der Meszauswertung (nie roh aus
-  // ELL_results): im Snapshot-Modell koennen Messung und Auswertung
+  // ELL_raw): im Snapshot-Modell koennen Messung und Auswertung
   // auseinanderfallen, deshalb liest ausschliesslich die Auswertung.
-  const _evHead = ELL_testData({ ctx: ELL_ctx("global") });
+  const _evHead = ELL_testData();
   const hB = (_evHead.gemessen || []).some(Boolean);
   if (!hB) {
     const nr = document.getElementById("ELL_noRes");
@@ -99,7 +99,7 @@ function ELL_renderResults() {
       var _esBtn = document.getElementById("ELL_evalSelBtn");
       var _esSum = document.getElementById("ELL_evalSelSummary");
       if (!_esBtn || !_esSum) return;
-      var _ev = ELL_testData({ ctx: ELL_ctx("global") });
+      var _ev = ELL_testData();
       var _gem = _ev.gemessen || [];
       var _evalCfg = {
         minSelected: 2,
@@ -129,7 +129,7 @@ function ELL_renderResults() {
       _esBtn.onclick = function () { testUI.electrodeSelection.open(_evalCfg, _esUpdate); };
       _esUpdate();
     })();
-    const _ev = ELL_testData({ ctx: ELL_ctx("global") });
+    const _ev = ELL_testData();
     const levels = _ev.raw, ELL_res = _ev.residual, ELL_wt = _ev.weight;
     const gemessen = _ev.gemessen, pc = _ev.vergleiche;
     const ausgewertet = _ev.ausgewertet || new Array(nEl).fill(true);

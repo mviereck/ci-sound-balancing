@@ -165,7 +165,7 @@ function AWG_rename(id, label) {
 function AWG_isUsed(id) {
   if (id === AWG_NONE_ID) return false;
 
-  // ELL: audiopathID je Rohwert, BEIDE Seiten (sideData[side].ELL_results).
+  // ELL: audiopathID je Rohwert, BEIDE Seiten (sideData[side].ELL_raw).
   // BEWUSSTE AUSNAHME vom Snapshot-Trennungs-Anspruch (nur-Auswertung-lesen):
   // AWG_isUsed fragt nicht "was ist aktuell gewertet", sondern "existiert
   // irgendwo eine Rohwert-Referenz, die beim echten Entfernen braeche". Das
@@ -174,7 +174,7 @@ function AWG_isUsed(id) {
   // spaeter wieder aufgenommene Elektrode verloere sonst ihren Audioweg-Namen.
   if (typeof sideData !== "undefined") {
     for (const side of ["left", "right"]) {
-      const rows = sideData[side] && sideData[side].ELL_results;
+      const rows = sideData[side] && sideData[side].ELL_raw;
       if (Array.isArray(rows) && rows.some(function (r) { return r && r.audiopathID === id; })) return true;
     }
   }

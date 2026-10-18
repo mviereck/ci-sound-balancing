@@ -94,7 +94,7 @@ function _schieberDrawRelative(ctx, W, H) {
     // BA 164
     elActive[i] === false || elSt[i] === "mute" || elExDur[i] !== null;
 
-  const measArr = ELL_testData({ ctx: ELL_ctx("global") }).correction;
+  const measArr = ELL_testData().correction;
   const preArr = kurvenELLSumme();
   const cols = all.map((i) => {
     if (isExcluded(i)) return { i, excluded: true };
@@ -172,7 +172,7 @@ function _schieberDrawAbsolute(ctx, W, H) {
   const yMax = ELL_axisMaxFor(mfr);
   const unitLbl = ELL_unitLabelFor(mfr);
 
-  const measArr = ELL_testData({ ctx: ELL_ctx("global") }).correction;
+  const measArr = ELL_testData().correction;
   const preArr = kurvenELLSumme();
 
   const toAbs = (dB, mclAudi, thrAudi) => {

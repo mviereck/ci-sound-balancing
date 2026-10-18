@@ -521,7 +521,7 @@ function switchMfr(m) {
   s.elActive = new Array(s.nEl).fill(true);
   s.elFreqChain = new Array(s.nEl).fill(true);
   s.ELL_refEl = Math.floor(s.nEl / 2);
-  s.ELL_results = [];
+  s.ELL_raw = [];
   s.ELL_eval = null;
   s.ELL_evalSelectedEls = null;
   // Reset implant arrays to new electrode count, preserve global params
@@ -545,7 +545,7 @@ function switchMfr(m) {
   bindActiveSide();
   initElektrodenlautstaerkeKurven();
   s.kurvenELL = kurvenELL;
-  ELL_results.splice(0, ELL_results.length);
+  ELL_raw.splice(0, ELL_raw.length);
   ELL_refEl = Math.floor(nEl / 2);
   // Sync akustische Seite wenn nötig
   FRQ_implantatSyncToAcoustic();

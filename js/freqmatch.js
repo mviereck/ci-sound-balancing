@@ -108,9 +108,9 @@ function _frq_activePairIndicator() {
 
 function FRQ_correctionGain(side, hz) {
   // BA 303: dedupliziert -- die Interpolations-Logik liegt jetzt zentral
-  // in ELL_measGain (test.js). FRQ_correctionGain bleibt als benannter Aufrufer fuer
+  // in ELL_apply (test.js). FRQ_correctionGain bleibt als benannter Aufrufer fuer
   // die Frequenzabgleich-Sequenzen erhalten.
-  return (typeof ELL_measGain === "function") ? ELL_measGain(side, hz) : 1;
+  return (typeof ELL_apply === "function") ? ELL_apply(side, hz) : 1;
 }
 
 // BA 207: Schneidet eine Elektroden-Sequenz auf die User-Auswahl.
@@ -1035,7 +1035,7 @@ function _frq_refreshHighGainWarningVisibility() {
 
 
 // Lautstaerke-Daten vorhanden? Snapshot-Trennung: aus der Meszauswertung
-// (ELL_testData), nie roh aus ELL_results.
+// (ELL_testData), nie roh aus ELL_raw.
 function _frq_hasLvData(side) {
   if (typeof ELL_testData !== "function") return false;
   return ELL_testData({ side }).gemessen.some(Boolean);

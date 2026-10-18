@@ -165,7 +165,7 @@ function _collectSideData(side) {
     }
 
     // Messungen — Snapshot-Trennung: alles aus der Meszauswertung
-    // (ELL_testData), nie roh aus ELL_results.
+    // (ELL_testData), nie roh aus ELL_raw.
     const _evSide = ELL_testData({ side });
     const measHas = (_evSide.gemessen || []).some(Boolean);
     let measRows = [];
@@ -761,7 +761,7 @@ function _audiologDbForSide(side) {
 function _audiologELLResForSide(side) {
   return withSide(side, () => {
     try {
-      const { ELL_res } = ELL_compWLS();
+      const { ELL_res } = ELL_computeEval_compWLS();
       return Array.from(ELL_res || []);
     } catch (e) {
       return new Array(nEl).fill(0);
@@ -1008,7 +1008,7 @@ function _audiologWarnTexts() {
   if (!eqOn) {
     out.push(t("audiologWarnEqOff"));
     // 1b. Elektrodenlautstärke-Ergebnisse vorhanden, aber EQ aus.
-    // Snapshot-Trennung: Meszauswertung lesen, nicht ELL_results roh.
+    // Snapshot-Trennung: Meszauswertung lesen, nicht ELL_raw roh.
     const hasELLResults = ["left", "right"].some(function (s) {
       return ELL_testData({ side: s }).gemessen.some(Boolean);
     });
@@ -1204,7 +1204,7 @@ function _audiologAdvice() {
 
 // Letzte Messung: Snapshot-Trennung — der (nicht-volatile) Zeitstempel
 // steht in der Meszauswertung (ELL_eval.timestamp = max ueber alle
-// Rohwert-Stempel der Seite), nie roh aus ELL_results.
+// Rohwert-Stempel der Seite), nie roh aus ELL_raw.
 function _audiologLastELL(side) {
   if (typeof ELL_testData !== "function") return null;
   const ts = ELL_testData({ side }).timestamp;
