@@ -526,13 +526,7 @@ function STB_apply(opts) {
   return { left: b / 2, right: -b / 2 };
 }
 
-// Rueckwaerts-Wrapper (BA 680 entfernt sie beim Umstellen der Aufrufer).
-function getPlayerSTBGains() {
-  return STB_apply({ applyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : false });
-}
-function STB_rawGains() {
-  return STB_apply({ applyBalance: true });
-}
+
 function withSide(side, fn) {
   const prevSide = activeSide;
   const prev = {

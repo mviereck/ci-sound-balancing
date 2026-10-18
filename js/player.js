@@ -696,7 +696,9 @@ function getPlayerCorrection(side, applyNhSim) {
   // BA 319: ist die Absenkung seitenweise (Headroom an, Beide-Seiten aus),
   // wird die Stereo-Balance ausgesetzt (binaurale Balance ist kein Ziel).
   const balSuppressed = plEqHeadroom && !plEqHeadroomBoth;
-  const balG = getPlayerSTBGains();          // {left,right} dB, 0 wenn plApplyBalance aus
+  const balG = (typeof STB_apply === "function")
+    ? STB_apply({ applyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : false })
+    : { left: 0, right: 0 };   // {left,right} dB, 0 wenn Balance-Toggle aus
   const bRaw = balSuppressed ? 0 : ((side === "right") ? balG.right : balG.left);
   const balance = nhSim ? -bRaw : bRaw;
   return { eq: eq, balance: balance };

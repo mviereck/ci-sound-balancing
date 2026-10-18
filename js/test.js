@@ -861,14 +861,14 @@ function ELL_apply(side, hz) {
 // side: "left" | "right" (vom Aufrufer aus dem Pan abgeleitet).
 // applyELL / applyBal: einzeln schaltbar -- im Implantat-Reiter ueber die
 // zwei Box-Schalter, in den Mess-Reitern beide true. Balance kommt aus
-// STB_rawGains() (respektiert den Balance-Modus).
+// STB_apply({ applyBalance: true }) (respektiert den Balance-Modus).
 function corrVol(vol, side, hz, applyELL, applyBal) {
   var v = vol;
   if (applyELL && typeof ELL_apply === "function") {
     v *= ELL_apply(side, hz);
   }
-  if (applyBal && typeof STB_rawGains === "function") {
-    var bg = STB_rawGains() || { left: 0, right: 0 };
+  if (applyBal && typeof STB_apply === "function") {
+    var bg = STB_apply({ applyBalance: true }) || { left: 0, right: 0 };
     var bd = (side === "left") ? bg.left : (side === "right") ? bg.right : 0;
     if (bd) v *= dB2G(bd);
   }

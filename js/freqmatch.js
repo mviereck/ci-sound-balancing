@@ -188,8 +188,8 @@ function frq_pairTones() {
   var vol = FRQ_getVolume();
   var dur = FRQ_getDuration();
   var pau = FRQ_getPause();
-  var balG = (typeof STB_rawGains === "function")
-    ? STB_rawGains() : { left: 0, right: 0 };
+  var balG = (typeof STB_apply === "function")
+    ? STB_apply({ applyBalance: true }) : { left: 0, right: 0 };
   function tok(side) {
     var hz    = (side === "left") ? hzL : hzR;
     var pan   = (side === "left") ? -1 : 1;
@@ -1048,9 +1048,8 @@ function _frq_renderPrereqHints() {
   if (elsLeftEl)  elsLeftEl.style.display  = _frq_hasLvData('left')  ? 'none' : '';
   if (elsRightEl) elsRightEl.style.display = _frq_hasLvData('right') ? 'none' : '';
   if (sbEl) {
-    const hasSb = typeof STB_raw !== 'undefined'
-               && STB_raw
-               && Object.keys(STB_raw).length > 0;
+    const hasSb = typeof STB_testData === 'function'
+               && STB_testData().value !== null;
     sbEl.style.display = hasSb ? 'none' : '';
   }
 }

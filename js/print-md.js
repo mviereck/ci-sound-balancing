@@ -300,13 +300,14 @@ function _calcAbsDelta(side, i, dB, mfrLocal, impl) {
 
 function _collectBilateral() {
   const out = { stereobalance: { has: false, rows: [], mean: null }, latenz: { has: false, entries: [] } };
-  if (typeof STB_raw !== "undefined") {
-    const keys = Object.keys(STB_raw).filter((k) => STB_hasRaw(+k));
+  if (typeof STB_testData === "function") {
+    const _td = STB_testData();
+    const keys = Object.keys(_td.perEl).map(Number);
     if (keys.length > 0) {
       out.stereobalance.has = true;
-      const sorted = keys.slice().sort((a, b) => (+a) - (+b));
-      out.stereobalance.rows = sorted.map((k) => ({ elIdx: +k, value: STB_rawOffset(+k) }));
-      out.stereobalance.mean = STB_evalValue();
+      const sorted = keys.slice().sort((a, b) => a - b);
+      out.stereobalance.rows = sorted.map((k) => ({ elIdx: k, value: _td.perEl[k].offset }));
+      out.stereobalance.mean = _td.value;
     }
   }
   if (typeof LTZ_result !== "undefined" && Array.isArray(LTZ_result)) {
@@ -1092,10 +1093,11 @@ function _audiologMaplawSection(mainSides, headerLevel) {
 // ---------- Stereo-Balance (immer wenn gemessen, auch einseitig) ----------
 
 function _audiologSTBBlock(mainSides) {
-  if (typeof STB_raw === "undefined") return "";
-  const keys = Object.keys(STB_raw).filter((k) => STB_hasRaw(+k));
+  if (typeof STB_testData !== "function") return "";
+  const _td = STB_testData();
+  const keys = Object.keys(_td.perEl).map(Number);
   if (keys.length === 0) return "";
-  const mean = STB_evalValue();
+  const mean = _td.value;
   if (mean === null || !isFinite(mean) || mean === 0) return "";
 
   const balActive = (typeof plApplyBalance !== "undefined") && plApplyBalance

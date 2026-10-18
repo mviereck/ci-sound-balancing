@@ -275,8 +275,8 @@ function ltz_startTest() {
 
   // Stereo-Balance-Gains (vor pGain). Splitter + L/R-Gains + Merger
   // entstehen pro Test und werden beim Stop wieder verworfen.
-  const balG = (typeof STB_rawGains === "function")
-    ? STB_rawGains() : { left: 0, right: 0 };
+  const balG = (typeof STB_apply === "function")
+    ? STB_apply({ applyBalance: true }) : { left: 0, right: 0 };
   const volFactor = _ltz_getVolumeFactor();   // 0..1, Default 0.5 (=50%)
   ltz_balSplitter = ctx.createChannelSplitter(2);
   ltz_balMerger   = ctx.createChannelMerger(2);
@@ -507,10 +507,8 @@ function _ltz_updateIntervalHint() {
 }
 
 function _ltz_hasSTB() {
-  // Pragmatische Detektion: mindestens ein gemessener Balance-Wert
-  // existiert in STB_raw ODER in sideData[*].ELL_raw.
-  if (typeof STB_raw === 'object' && STB_raw
-      && Object.keys(STB_raw).some(function(k) { return STB_hasRaw(+k); })) return true;
+  // Meßauswertung lesen, nicht roh (analog zum ELL-Zweig).
+  if (typeof STB_testData === 'function' && STB_testData().value !== null) return true;
   if (typeof ELL_testData === 'function') {
     for (const side of ['left', 'right']) {
       // Snapshot-Trennung: Meszauswertung lesen, nicht ELL_raw roh.
@@ -639,7 +637,7 @@ document.addEventListener("DOMContentLoaded", function() {
           setVolume: function (v) {
             saveSet("LTZtest_volume", v);
             if (LTZ_active && ltz_balGainL && ltz_balGainR) {
-              var balG = (typeof STB_rawGains === "function") ? STB_rawGains() : { left: 0, right: 0 };
+              var balG = (typeof STB_apply === "function") ? STB_apply({ applyBalance: true }) : { left: 0, right: 0 };
               var f = _ltz_getVolumeFactor();
               ltz_balGainL.gain.value = dB2G(balG.left)  * f;
               ltz_balGainR.gain.value = dB2G(balG.right) * f;
