@@ -324,7 +324,7 @@ function _switchTabInternal(n) {
     // Snapshot-Trennung: Meszauswertung lesen, nicht ELL_raw roh.
     const hasBal = typeof ELL_testData === "function"
       && ELL_testData().gemessen.some(Boolean);
-    const hasFR = typeof FRQ_resultsArray !== "undefined" && FRQ_resultsArray.length > 0;
+    const hasFR = typeof FRQ_eval !== "undefined" && FRQ_eval.length > 0;
     const hasLR = typeof STB_testData === "function" && STB_testData().value !== null;
     if (!currentName || currentName === "elektrodenlautstaerke") {
       // Default-Auswahl: Tab mit Daten bevorzugen

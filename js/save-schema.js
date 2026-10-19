@@ -151,11 +151,11 @@ var SAVE_SCHEMA = [
 
   // --- Frequenzabgleich-Ergebnisse + Piano-Session ---
   { key: "FRQ_resultsArray", scope: "global",
-    get: function () { return (typeof FRQ_resultsArray !== "undefined" ? FRQ_resultsArray : []); },
-    set: function (v) { if (typeof FRQ_resultsArray !== "undefined") FRQ_resultsArray.splice(0, FRQ_resultsArray.length, ...(Array.isArray(v) ? v : [])); },
+    get: function () { return (typeof FRQ_eval !== "undefined" ? FRQ_eval : []); },
+    set: function (v) { if (typeof FRQ_eval !== "undefined") FRQ_eval.splice(0, FRQ_eval.length, ...(Array.isArray(v) ? v : [])); },
     default: function () { return []; }, valid: { type: "array" } },
   { key: "FRQ_pianoSession", scope: "global",
-    get: function () { return (typeof FRQ_pianoSession !== "undefined" ? FRQ_pianoSession : null); },
+    get: function () { return (typeof FRQ_rawPiano !== "undefined" ? FRQ_rawPiano : null); },
     set: function (v) { if (typeof _FRQ_loadPianoSession === "function") _FRQ_loadPianoSession({ pianoSession: v || null }); },
     default: null },
   { key: "freqmatchTestSelection", scope: "global",

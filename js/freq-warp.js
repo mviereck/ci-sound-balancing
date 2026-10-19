@@ -1,5 +1,5 @@
 // ============================================================
-// FREQ-WARP – Offline-Frequenz-Warping auf Basis von FRQ_resultsArray
+// FREQ-WARP – Offline-Frequenz-Warping auf Basis von FRQ_eval
 // ============================================================
 // Geladen zwischen player.js (#14) und lr-balance.js (#15).
 // Exportiert ins globale Scope:
@@ -143,32 +143,32 @@ let _pWarpFResVersion = 0;
 function _warpFResSource() {
   // piano-crossed/-wide werden NICHT herausgefiltert: diese Werte sind
   // gleichwertig und flieszen normal ins Warping ein (nur fmStatus-Hinweis).
-  return (typeof FRQ_activeResults === "function")
-    ? FRQ_activeResults()
+  return (typeof FRQ_testData === "function")
+    ? FRQ_testData()
     : [];
 }
 
-// BA428: Warp-Stuetzpunkte aus der zentralen Wertquelle FRQ_werte
+// BA428: Warp-Stuetzpunkte aus der zentralen Wertquelle FRQ_apply
 // (Form "warp"). Ersetzt buildWarpPoints fuer die Audio-Pipeline.
 // Liefert je GEMESSENE Elektrode einen Eintrag mit SEITENWEISER Bandmitte
 // (hzL/hzR = Abgreifpunkt im Original) und seitenweisem Shift (csL/csR).
 // Ungemessene Elektroden werden ausgelassen (wie buildWarpPoints, das nur
-// ueber fRes-Eintraege lief). nhSim wird an FRQ_werte durchgereicht; die
+// ueber fRes-Eintraege lief). nhSim wird an FRQ_apply durchgereicht; die
 // gesamte Vorzeichen-/Bandmitten-Wahrheit lebt dort (BA427), nicht hier.
 //   warpMode: "left" | "right" | "symmetric"  (Player-warpMode direkt)
 //   nhSim:    bool
-// BA435: Warp bezieht Mitten, Shift UND Bandgrenzen aus FRQ_werte
+// BA435: Warp bezieht Mitten, Shift UND Bandgrenzen aus FRQ_apply
 // (Form 'warp'). Seitenweise: eine Elektrode kommt in die L-Kette, wenn
 // sie LINKS aktiv ist (R entsprechend). Ungemessene/stumme aktive werden
 // mit nomineller Mitte + cs=0 einbezogen (Luecke aufgefuellt, §9.3 #3/#4).
-// Bandgrenzen (lo/hi) kommen fertig aus FRQ_werte -- der Warp rechnet sie
+// Bandgrenzen (lo/hi) kommen fertig aus FRQ_apply -- der Warp rechnet sie
 // NICHT mehr selbst (kein _rbBuildBandEdgesFor).
 // Rueckgabe: { L, R, overlap }.
 //   L/R: [{ hz, cs, lo, hi }], aufsteigend hz.
 //   overlap: bool -- eine Seite hat ueberkreuzende Mitten -> kein Warp.
 function buildWarpPointsFromWerte(warpMode, nhSim) {
-  if (typeof FRQ_werte !== "function") return { L: [], R: [], overlap: false };
-  const werte = FRQ_werte("warp", warpMode, !!nhSim);
+  if (typeof FRQ_apply !== "function") return { L: [], R: [], overlap: false };
+  const werte = FRQ_apply("warp", warpMode, !!nhSim);
   const L = [], R = [];
   let overlap = false;
   for (const w of werte) {
@@ -397,7 +397,7 @@ function buildWarpStage(srcBuf, warpMode) {
 
   const sampleRate = srcBuf.sampleRate;
   const nyquist = sampleRate / 2;
-  // BA435: Bandgrenzen fertig aus FRQ_werte (Form warp), gespiegelte Raender.
+  // BA435: Bandgrenzen fertig aus FRQ_apply (Form warp), gespiegelte Raender.
   const bandsL = wp.L.map(function(p) { return [p.lo, p.hi]; });
   const bandsR = wp.R.map(function(p) { return [p.lo, p.hi]; });
 
@@ -1030,7 +1030,7 @@ async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode) {
 
   const sampleRate = srcBuf.sampleRate;
   const nyquist = sampleRate / 2;
-  // BA435: Bandgrenzen fertig aus FRQ_werte (Form warp), gespiegelte Raender.
+  // BA435: Bandgrenzen fertig aus FRQ_apply (Form warp), gespiegelte Raender.
   const bandsL = wp.L.map(p => [p.lo, p.hi]);
   const bandsR = wp.R.map(p => [p.lo, p.hi]);
 

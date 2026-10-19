@@ -20,12 +20,12 @@
 
   // BA522: Verletzungs-Kanten + gewichtete Mitte
   dbg.test('build/BA522/streuband-kanten', { tab: 'messungen', label: 'BA522: Verletzungs-Kanten + gewichtete Mitte' }, function () {
-    var backup = (typeof FRQ_pianoSession !== 'undefined') ? FRQ_pianoSession : null;
+    var backup = (typeof FRQ_rawPiano !== 'undefined') ? FRQ_rawPiano : null;
     function err(msg) { return { ok: false, msg: msg }; }
     try {
       // Fall A: sauberer Konvergierer (Elektrode 0, Sitzung 1)
       // Band = letzte Runde (+-30), grobe Vorrunden zaehlen nicht mehr
-      FRQ_pianoSession = {
+      FRQ_rawPiano = {
         frqRefMode: null, run: null,
         perElectrode: {
           0: { verlauf: [
@@ -47,7 +47,7 @@
       if (_frq_pianoAusgereizt(0, 1) !== false) return err('Fall A: ausgereizt soll false sein');
 
       // Fall B: stabiler Pendler (Elektrode 1, Sitzung 1)
-      FRQ_pianoSession.perElectrode[1] = { verlauf: [
+      FRQ_rawPiano.perElectrode[1] = { verlauf: [
         { step: 60, lower: -60, upper:  60, durchgang: 1 },
         { step: 60, lower: -30, upper:  90, durchgang: 1 },
         { step: 60, lower: -60, upper:  60, durchgang: 1 },
@@ -77,7 +77,7 @@
       //   e1 lower=-30 (sLo=null->-30), upper=90 (sHi=null->90)
       //   e2 lower=-30 (nicht < sLo=-30), upper=30 (nicht > sHi_davor=90) -> keine Ausweitung
       // bandLo=-30, bandHi=30; mitte=6 liegt darin
-      FRQ_pianoSession.perElectrode[2] = { verlauf: [
+      FRQ_rawPiano.perElectrode[2] = { verlauf: [
         { step: 60, lower: -30, upper: 90, durchgang: 1 },
         { step: 30, lower: -30, upper: 30, durchgang: 1 }
       ]};
@@ -90,28 +90,28 @@
 
       return { ok: true, msg: 'A/B/C/D bestanden' };
     } finally {
-      FRQ_pianoSession = backup;
+      FRQ_rawPiano = backup;
     }
   });
 })();
 
-/* BA552 — FRQ_werte-Cache: Treffer bei gleichen Eingaben, Miss nach
+/* BA552 — FRQ_apply-Cache: Treffer bei gleichen Eingaben, Miss nach
  * Aenderung. Prueft die Zuverlaessigkeits-Invariante an einer im Schluessel
  * erfassten Quelle (activeSide). */
 (function () {
   if (typeof dbg === "undefined" || !dbg.test) return;
-  dbg.test("build/BA552/frqwerte-cache", { label: "FRQ_werte-Cache" }, function () {
-    if (typeof FRQ_werte !== "function") return { ok: false, msg: "FRQ_werte fehlt" };
+  dbg.test("build/BA552/frqwerte-cache", { label: "FRQ_apply-Cache" }, function () {
+    if (typeof FRQ_apply !== "function") return { ok: false, msg: "FRQ_apply fehlt" };
     var dist = (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "right";
 
     // 1) Zwei Aufrufe mit identischen Eingaben -> identische Array-Referenz
     //    (Cache-Treffer gibt dieselbe Referenz zurueck).
-    var a = FRQ_werte("gehoert", dist, false);
-    var b = FRQ_werte("gehoert", dist, false);
+    var a = FRQ_apply("gehoert", dist, false);
+    var b = FRQ_apply("gehoert", dist, false);
     if (a !== b) return { ok: false, msg: "Zweiter gleicher Aufruf war KEIN Cache-Treffer (verschiedene Referenz)" };
 
     // 2) Anderes Argument (form) -> Miss -> andere Referenz.
-    var c = FRQ_werte("warp", dist, false);
+    var c = FRQ_apply("warp", dist, false);
     if (c === a) return { ok: false, msg: "Anderes Argument haette Neuberechnung ausloesen muessen" };
 
     // 3) Nach Aenderung einer erfassten Eingabe (activeSide) -> Miss.
@@ -119,9 +119,9 @@
     var savedSide = activeSide;
     var missNachSideWechsel = false;
     try {
-      var vorher = FRQ_werte("gehoert", "right", false);
+      var vorher = FRQ_apply("gehoert", "right", false);
       activeSide = (activeSide === "left") ? "right" : "left";
-      var nachher = FRQ_werte("gehoert", "right", false);
+      var nachher = FRQ_apply("gehoert", "right", false);
       missNachSideWechsel = (vorher !== nachher);
     } finally {
       activeSide = savedSide;

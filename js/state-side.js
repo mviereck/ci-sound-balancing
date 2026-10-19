@@ -300,11 +300,11 @@ function setActiveSide(side) {
   else plCheck();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
 }
-// Laedt FRQ_pianoSession aus den geladenen Daten (globale, seitenlose
+// Laedt FRQ_rawPiano aus den geladenen Daten (globale, seitenlose
 // Session). d = das geladene JSON-Objekt.
 function _FRQ_loadPianoSession(d) {
-  FRQ_pianoSession = (d && d.pianoSession) ? d.pianoSession : null;
-  if (!FRQ_pianoSession) return;
+  FRQ_rawPiano = (d && d.pianoSession) ? d.pianoSession : null;
+  if (!FRQ_rawPiano) return;
   _FRQ_pianoNachLadenNeuRechnen();
 }
 
@@ -313,12 +313,12 @@ function _FRQ_loadPianoSession(d) {
 // entsprechen. Ohne diesen Schritt stuende eine mit aelterem
 // Rechenstand gespeicherte Mitte bis zur naechsten Bestaetigung neben
 // dem live gerechneten Band. Nur bei vorhandenen Verlaufsdaten —
-// _frq_pianoWriteResults loescht sonst piano-Eintraege ersatzlos.
+// FRQ_writeEval loescht sonst piano-Eintraege ersatzlos.
 function _FRQ_pianoNachLadenNeuRechnen() {
-  if (FRQ_pianoSession && FRQ_pianoSession.perElectrode
-      && Object.keys(FRQ_pianoSession.perElectrode).length > 0
-      && typeof _frq_pianoWriteResults === "function") {
-    _frq_pianoWriteResults();
+  if (FRQ_rawPiano && FRQ_rawPiano.perElectrode
+      && Object.keys(FRQ_rawPiano.perElectrode).length > 0
+      && typeof FRQ_writeEval === "function") {
+    FRQ_writeEval();
   }
 }
 
@@ -713,11 +713,11 @@ let ELL_curA = -1,
 
 // Frequenzabgleich-Ergebnisse (global, nicht pro Seite)
 // { varSide, refSide, elIdx, varFreq, refFreq, timestamp }
-let FRQ_resultsArray = [];
+let FRQ_eval = [];
 
 // BA662: Beidohriges Sprachtest-Ergebnis (Player "beide Seiten").
 // Seitenlos: ein SRT fuer das Hoeren mit beiden Ohren zusammen, gehoert
-// zu keiner Einzelseite. Vorbild FRQ_pianoSession / LTZ_result.
+// zu keiner Einzelseite. Vorbild FRQ_rawPiano / LTZ_result.
 // null = kein beidohriger Durchgang gemessen. Liegt im SAVE_SCHEMA
 // (scope:"global"). Die seitenweisen Ergebnisse bleiben in
 // sideData[side].SNR_result.
@@ -725,12 +725,12 @@ let SNR_resultBoth = null;
 
 // BA416: Klaviertest-Sitzungszustand, global+seitenlos (Architektur 6a).
 // null = keine Session. Persistiert in .cimbel (global) + localStorage.
-let FRQ_pianoSession = null;
+let FRQ_rawPiano = null;
 
 // FRQ_distribution: globale Verteilung der Frequenz-Messergebnisse auf die
 // Seiten (frueher Player-pWarpMode). "left" | "right" | "symmetric".
 // EINE Wahl fuer alle Anwendungs-Konsumenten; gesetzt NUR im Reiter
-// Frequenzbaender (BA492) + Datei-Laden; gelesen von FRQ_werte als Default.
+// Frequenzbaender (BA492) + Datei-Laden; gelesen von FRQ_apply als Default.
 // Architektur 00-freqmatch-wertquelle-architektur.md §4.3.
 let FRQ_distribution = "right";
 

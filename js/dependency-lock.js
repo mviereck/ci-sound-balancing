@@ -41,9 +41,9 @@ const DEP_LOCK_RULES = [
       const otherHasLoud = otherSync && _depHasLoud(other);
       if (otherHasLoud) reasons.push('depReasonLoudnessOtherSide');
       try {
-        if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
+        if (typeof FRQ_eval !== 'undefined' && Array.isArray(FRQ_eval) && FRQ_eval.length > 0)
           reasons.push('depReasonFreqMatch');
-      } catch(ex) { /* FRQ_resultsArray noch in TDZ — ignorieren */ }
+      } catch(ex) { /* FRQ_eval noch in TDZ — ignorieren */ }
       return reasons;
     }
   }
@@ -59,9 +59,9 @@ const DEP_LOCK_RULES = [
       const ownHasLoud = _depHasLoud(activeSide);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
-        if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
+        if (typeof FRQ_eval !== 'undefined' && Array.isArray(FRQ_eval) && FRQ_eval.length > 0)
           reasons.push('depReasonFreqMatch');
-      } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
+      } catch(ex) { /* FRQ_eval noch in TDZ */ }
       return reasons;
     }
   },
@@ -75,9 +75,9 @@ const DEP_LOCK_RULES = [
       const ownHasLoud = _depHasLoud(activeSide);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
-        if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
+        if (typeof FRQ_eval !== 'undefined' && Array.isArray(FRQ_eval) && FRQ_eval.length > 0)
           reasons.push('depReasonFreqMatch');
-      } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
+      } catch(ex) { /* FRQ_eval noch in TDZ */ }
       return reasons;
     }
   },
@@ -89,9 +89,9 @@ const DEP_LOCK_RULES = [
     getReasonKeys: function() {
       const reasons = [];
       try {
-        if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
+        if (typeof FRQ_eval !== 'undefined' && Array.isArray(FRQ_eval) && FRQ_eval.length > 0)
           reasons.push('depReasonFreqMatch');
-      } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
+      } catch(ex) { /* FRQ_eval noch in TDZ */ }
       return reasons;
     }
   },
@@ -105,9 +105,9 @@ const DEP_LOCK_RULES = [
       const ownHasLoud = _depHasLoud(activeSide);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
-        if (typeof FRQ_resultsArray !== 'undefined' && Array.isArray(FRQ_resultsArray) && FRQ_resultsArray.length > 0)
+        if (typeof FRQ_eval !== 'undefined' && Array.isArray(FRQ_eval) && FRQ_eval.length > 0)
           reasons.push('depReasonFreqMatch');
-      } catch(ex) { /* FRQ_resultsArray noch in TDZ */ }
+      } catch(ex) { /* FRQ_eval noch in TDZ */ }
       return reasons;
     }
   }

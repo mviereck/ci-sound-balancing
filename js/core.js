@@ -858,7 +858,7 @@ function _frqGauss(M, rhs) {
 // den Einzel-Elektrode-Fall -- DANN ruft er das gewaehlte Verfahren
 // (FRQ_bandVerfahren[verfahren]) fuer Grenzen + Center und die gewaehlte
 // Topologie (FRQ_bandTopologie[topologie]) fuer die Grenzsetzung.
-// EINZIGER Aufrufer ist FRQ_werte (Sec. 9.4); kein Konsument ruft dies
+// EINZIGER Aufrufer ist FRQ_apply (Sec. 9.4); kein Konsument ruft dies
 // direkt.
 //
 // Eingang: mitten = Array je Elektrode in Elektroden-Reihenfolge,
@@ -1075,7 +1075,7 @@ function FRQ_abfGrenzen(kette, wand, mitAusgleich, schwellen, lage, k) {
 // Loeser frei).
 //   kette  Array aktiver El. in Reihenfolge, je { elIdx, hz,
 //          statusGewicht, residuum, gemessen } (hz aufsteigend, vom
-//          Rahmen geprueft; Felder aus FRQ_werte, BA453)
+//          Rahmen geprueft; Felder aus FRQ_apply, BA453)
 //   wand   { loHz, hiHz } gewaehlte Wand (BA462, seitengebunden)
 //   opt    { cbfGewicht, cbfApikalFrei, cbfBasalFrei, randverhalten,
 //            cbfSprache } (Achsen; mit Defaults abgesichert.
@@ -1339,15 +1339,15 @@ function FRQ_bewertungsStufe(devCent, residDown, residUp) {
 // BA485: Gemeinsame Y-Skala aller Frequenzgraphen. Basis = groesster
 // BETRAG der gemessenen gehoerten Verschiebung (shiftCent, "roh") ueber
 // BEIDE Seiten, mal 1.5. Symmetrisch um 0, auf 50er gerundet, Boden 50.
-// Argumentlos: holt die Werte selbst aus FRQ_werte("gehoert"). Ergebnis
+// Argumentlos: holt die Werte selbst aus FRQ_apply("gehoert"). Ergebnis
 // wird von allen vier Graphen-Aufrufern als cfg.yMaxFest uebergeben, so
 // dass Kurven- und Seitenwechsel die Skala nicht mehr springen lassen.
 function FRQ_yMaxCent() {
   // BA491: Achse 2. Speist Glaettungs-/Band-/Ausdruck-Graphen (folgen
   // FRQ_distribution); der reine Ergebnisgraph zieht seine Hoehe nicht mehr hier (Schritt 6).
   var modus = (typeof FRQ_distribution === "string") ? FRQ_distribution : "right";
-  var werte = (typeof FRQ_werte === "function")
-    ? FRQ_werte("gehoert", modus, false) : [];
+  var werte = (typeof FRQ_apply === "function")
+    ? FRQ_apply("gehoert", modus, false) : [];
   var maxAbs = 0;
   for (var i = 0; i < werte.length; i++) {
     var wr = werte[i];
@@ -1634,7 +1634,7 @@ function FRQ_refHzForMode(elIdx) {
 }
 
 // BA419: Uebersetzt den Referenzmodus (im Test bewegte Seite) in den
-// "korrigierte Seite"-Modus, den FRQ_werte/FRQ_seitenWerte erwarten. EINE
+// "korrigierte Seite"-Modus, den FRQ_apply/FRQ_seitenWerte erwarten. EINE
 // geteilte Stelle fuer alle Referenzmodus-Konsumenten (Ergebnis-Graph,
 // spaeter Ergebnis-Tabelle, Player-Warp-Default). Mapping nach
 // Nutzer-Beschluss BA417: left<->right getauscht, symmetric bleibt.
@@ -1790,7 +1790,7 @@ function _frqGlaettK() {
 // BA477 / §9.5.1: elIdx-Liste der auf `side` AKTIVEN Elektroden (elActive[i] !== false),
 // aufsteigend. Nur elActive===false faellt aus der Glaettung; stumm/ausgeschlossen/
 // ungemessen bleiben drin. Seitenrichtig ueber withSide (elActive ist seitengebunden,
-// gleiches Muster wie FRQ_werte core.js:1706-1707).
+// gleiches Muster wie FRQ_apply core.js:1706-1707).
 function _frqAktiveElIdx(side) {
   var s = (typeof sideData !== "undefined") ? sideData[side] : null;
   var n = (s && s.nEl) ? s.nEl : 0;
@@ -2157,10 +2157,10 @@ function _frqGlaetteMeasured(measured, verfahren) {
 //   gehoert :  nhSim aus -> gehoerte/Korrektur-Richtung; nhSim an -> gespiegelt.
 //   roh     :  cent unveraendert, plus Referenzseite (nhSim ohne Wirkung).
 // ============================================================
-// FRQ_werte — Cache (Architektur 00-freqmatch-wertquelle §4.7)
+// FRQ_apply — Cache (Architektur 00-freqmatch-wertquelle §4.7)
 // ============================================================
 //
-// FRQ_werte ist die meistgerufene Frequenz-Ableitungsstelle des Tools;
+// FRQ_apply ist die meistgerufene Frequenz-Ableitungsstelle des Tools;
 // ein einziger Benutzer-Schritt (Schieber/Kurve) loest sie mehrfach mit
 // IDENTISCHEN Eingaben aus. Der Cache gibt bei unveraenderter Eingabelage
 // das zuletzt berechnete Ergebnis zurueck, statt neu zu rechnen.
@@ -2170,25 +2170,25 @@ function _frqGlaetteMeasured(measured, verfahren) {
 // Eingaben gleich -> altes Ergebnis ist per Definition richtig.
 //
 // +++ ZUVERLAESSIGKEITS-INVARIANTE (bindend, §4.7) +++
-// Der Schluessel MUSS JEDE Eingabe erfassen, aus der _FRQ_werteBerechne
+// Der Schluessel MUSS JEDE Eingabe erfassen, aus der _FRQ_applyBerechne
 // (samt aller von ihr gerufenen inneren Funktionen: _frqGlaetteMeasured,
 // FRQ_baender, ell_gWt, _resBodenCt, FRQ_seitenWerte, _frq_pianoResiduumBand
 // ...) liest. Erfasst sind die drei Container + Modus-Schalter + Argumente:
 //   - sideData         (beide Seiten: alle band*-Achsen, elActive,
 //                       elFreqChain, elSt, elExDur, implant, kurvenELL,
 //                       nominelle Frequenzen, manufacturer)
-//   - FRQ_resultsArray  (die Frequenzabgleich-Messergebnisse)
-//   - FRQ_pianoSession  (Klaviertest-Verlauf -> Residuum-Baender +
+//   - FRQ_eval  (die Frequenzabgleich-Messergebnisse)
+//   - FRQ_rawPiano  (Klaviertest-Verlauf -> Residuum-Baender +
 //                        Glaettungs-Gewichte; EIGENE globale Struktur,
 //                        NICHT Teil von sideData!)
 //   - FRQ_distribution, activeSide (globale Modus-/Seiten-Schalter)
 //   - die Aufruf-Argumente (form, modus, nhSim, verfahren, topologie,
 //                           optimieren, ziel, mitAusgleich)
 //
-// WER _FRQ_werteBerechne (oder eine ihrer inneren Funktionen) um eine NEUE
+// WER _FRQ_applyBerechne (oder eine ihrer inneren Funktionen) um eine NEUE
 // Datenquelle erweitert, die AUSSERHALB dieser Container/Schalter liegt,
 // MUSS sie hier in den Schluessel aufnehmen. Sonst liefert der Cache STILL
-// veraltete Werte (falsche Frequenzen, ohne Fehlermeldung). FRQ_pianoSession
+// veraltete Werte (falsche Frequenzen, ohne Fehlermeldung). FRQ_rawPiano
 // ist der Beleg, dass diese Gefahr real ist: bei einem naiven "sideData-Hash"
 // waere es uebersehen worden.
 //
@@ -2196,14 +2196,14 @@ function _frqGlaetteMeasured(measured, verfahren) {
 // nicht feld-selektiv: mehr Rechenzeit, aber wartungssicher -- eine neue
 // band*-Achse landet automatisch im Schluessel, weil sie Teil des Containers
 // ist. Niemand muss daran denken, sie "auch aufzunehmen".
-var _FRQ_werteCacheKey = null;
-var _FRQ_werteCacheVal = null;
+var _FRQ_applyCacheKey = null;
+var _FRQ_applyCacheVal = null;
 
-function _FRQ_werteCacheSchluessel(args) {
+function _FRQ_applyCacheSchluessel(args) {
   // typeof-Guards: einige Container koennen zur fruehen Ladezeit fehlen.
   var sd   = (typeof sideData !== "undefined") ? sideData : null;
-  var res  = (typeof FRQ_resultsArray !== "undefined") ? FRQ_resultsArray : null;
-  var ps   = (typeof FRQ_pianoSession !== "undefined") ? FRQ_pianoSession : null;
+  var res  = (typeof FRQ_eval !== "undefined") ? FRQ_eval : null;
+  var ps   = (typeof FRQ_rawPiano !== "undefined") ? FRQ_rawPiano : null;
   var dist = (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : null;
   var side = (typeof activeSide !== "undefined") ? activeSide : null;
   try {
@@ -2219,20 +2219,20 @@ function _FRQ_werteCacheSchluessel(args) {
   }
 }
 
-function FRQ_werte(form, modus, nhSim, verfahren, topologie, optimieren, ziel, mitAusgleich) {
-  var key = _FRQ_werteCacheSchluessel(
+function FRQ_apply(form, modus, nhSim, verfahren, topologie, optimieren, ziel, mitAusgleich) {
+  var key = _FRQ_applyCacheSchluessel(
     [form, modus, nhSim, verfahren, topologie, optimieren, ziel, mitAusgleich]);
-  if (key === _FRQ_werteCacheKey && _FRQ_werteCacheVal !== null) {
-    return _FRQ_werteCacheVal;
+  if (key === _FRQ_applyCacheKey && _FRQ_applyCacheVal !== null) {
+    return _FRQ_applyCacheVal;
   }
-  var val = _FRQ_werteBerechne(
+  var val = _FRQ_applyBerechne(
     form, modus, nhSim, verfahren, topologie, optimieren, ziel, mitAusgleich);
-  _FRQ_werteCacheKey = key;
-  _FRQ_werteCacheVal = val;
+  _FRQ_applyCacheKey = key;
+  _FRQ_applyCacheVal = val;
   return val;
 }
 
-function _FRQ_werteBerechne(form, modus, nhSim, verfahren, topologie, optimieren, ziel, mitAusgleich) {
+function _FRQ_applyBerechne(form, modus, nhSim, verfahren, topologie, optimieren, ziel, mitAusgleich) {
   // nhSim: bool -- die Player-Einstellung "Normalhoerenden-Simulation".
   // Die gesamte Vorzeichen-/Spiegelungslogik lebt HIER, nicht im Konsumenten
   // (Nutzer-Vorgabe BA421: kein Konsument denkt ueber Vorzeichen nach).
@@ -2257,7 +2257,7 @@ function _FRQ_werteBerechne(form, modus, nhSim, verfahren, topologie, optimieren
 
   // Gemessene Eintraege des aktiven Verfahrens, indexiert nach elIdx.
   var measured = {};
-  var active = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
+  var active = (typeof FRQ_testData === "function") ? FRQ_testData() : [];
   for (var k = 0; k < active.length; k++) {
     if (active[k] && active[k].elIdx != null) measured[active[k].elIdx] = active[k];
   }
@@ -2286,7 +2286,7 @@ function _FRQ_werteBerechne(form, modus, nhSim, verfahren, topologie, optimieren
   // Vor-Glaettung (§9.5.1) kann measured[i].cent auch fuer eine
   // ungemessene aktive Elektrode gesetzt sein (cent=0 -> geglaettet).
   // Solche Eintraege duerfen NICHT als "gemessen" gelten. Quelle der
-  // Wahrheit: die rohen Ergebnisse aus FRQ_activeResults.
+  // Wahrheit: die rohen Ergebnisse aus FRQ_testData.
   var _echtGemessen = {};
   for (var em = 0; em < active.length; em++) {
     if (active[em] && active[em].elIdx != null && active[em].cent != null) {

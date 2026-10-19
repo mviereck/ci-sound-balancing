@@ -4,7 +4,7 @@
 
 // BA429: Frequenz-Position einer Elektrode im Kurven-Reiter.
 // Ersetzt _kurvenFreq: bezieht die Frequenz aus der zentralen Wertquelle
-// FRQ_werte (Form "gehoert") statt aus dem alten buildWarpPoints-Pfad, der
+// FRQ_apply (Form "gehoert") statt aus dem alten buildWarpPoints-Pfad, der
 // die falsche Vorzeichen-Richtung lieferte (E1: 138 statt 104 Hz).
 //
 // Verhalten (Nutzer-Vorgabe):
@@ -16,7 +16,7 @@
 //     immer die echte gehoerte Position, keine ~141-Spiegelung. Bewusster
 //     Unterschied zum Player-Graph.
 //
-// typeof-Guard fuer FRQ_werte (core.js) zur Ladezeit; pWarpOn aus freq-warp.js.
+// typeof-Guard fuer FRQ_apply (core.js) zur Ladezeit; pWarpOn aus freq-warp.js.
 // Modus: FRQ_distribution (global, BA491). nhSim fest false (Kurven-Reiter).
 let _kurvenFrqCache = null;
 
@@ -25,8 +25,8 @@ function _kurvenFrqRefresh() {
   // elIdx indizieren. Aufrufer rufen _kurvenFreq(i); der Cache wird zu
   // Beginn jedes Laufs neu aufgebaut (siehe kurvenELLBerechnen /
   // kurvenELLChartZeichnen).
-  if (typeof FRQ_werte !== "function") { _kurvenFrqCache = null; return; }
-  const werte = FRQ_werte("gehoert", FRQ_distribution, false);   // nhSim fest false
+  if (typeof FRQ_apply !== "function") { _kurvenFrqCache = null; return; }
+  const werte = FRQ_apply("gehoert", FRQ_distribution, false);   // nhSim fest false
   const byIdx = {};
   for (const w of werte) byIdx[w.elIdx] = w;
   _kurvenFrqCache = byIdx;

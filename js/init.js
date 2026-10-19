@@ -698,7 +698,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // BA445: Bandverfahren-/Topologie-Wahl -> globale Zustaende + Ansicht neu.
   // Nur die Ergebnis-Ansicht neu zeichnen (Tabelle + Graph). Audio-Konsumenten
   // ziehen die neue Kombination beim naechsten Playback automatisch
-  // (FRQ_werte liest global) -- hier KEIN Player-Interna anfassen.
+  // (FRQ_apply liest global) -- hier KEIN Player-Interna anfassen.
   function _frqBandWahlInit(groupName, setter) {
     var radios = document.querySelectorAll('input[name="' + groupName + '"]');
     for (var i = 0; i < radios.length; i++) {

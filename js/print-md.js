@@ -232,7 +232,7 @@ function _collectSideData(side) {
     const frq_rows = [];
     const frq_src = (typeof _warpFResSource === "function")
       ? _warpFResSource()
-      : ((typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) ? FRQ_resultsArray : []);
+      : ((typeof FRQ_eval !== "undefined" && Array.isArray(FRQ_eval)) ? FRQ_eval : []);
     for (const r of frq_src) {
       frq_rows.push({
         elIdx: r.elIdx,
@@ -1018,8 +1018,8 @@ function _audiologWarnTexts() {
   }
 
   const warpOn = (typeof pWarpOn !== "undefined") && pWarpOn;
-  const hasFreqResults = (typeof FRQ_activeResults === "function")
-    && FRQ_activeResults().length > 0;
+  const hasFreqResults = (typeof FRQ_testData === "function")
+    && FRQ_testData().length > 0;
 
   // 2. Frequenzabgleich gemessen, aber Warping aus.
   if (hasFreqResults && !warpOn) {
@@ -1346,13 +1346,13 @@ function buildAudiologMarkdown() {
     if (mlSide) parts.push(mlSide);
 
     // H3 Änderung der Mittenfrequenzen — falls relevant für diese Seite.
-    // Quelle ist _warpFResSource() (FRQ_resultsArray + Provisionals aus laufendem Test).
+    // Quelle ist _warpFResSource() (FRQ_eval + Provisionals aus laufendem Test).
     // Bei sym-Warp + einseitigem Druck: zusätzlich eigene H3-Sektion
     // (Graph + Tabelle) für die andere Seite, da sym auf beide Seiten wirkt.
     if (typeof pWarpOn !== "undefined" && pWarpOn
         && typeof plEqOn !== "undefined" && plEqOn
         && ((typeof _warpFResSource === "function" && _warpFResSource().length > 0)
-            || (typeof FRQ_resultsArray !== "undefined" && FRQ_resultsArray.length > 0))) {
+            || (typeof FRQ_eval !== "undefined" && FRQ_eval.length > 0))) {
       const isSymSingle = (mainSides.length === 1
                           && typeof FRQ_distribution !== "undefined"
                           && FRQ_distribution === "symmetric");
@@ -1548,7 +1548,7 @@ function _audiologFreqChartImg(side) {
   if (typeof pWarpOn === "undefined" || !pWarpOn) return "";
   if (typeof plEqOn !== "undefined" && !plEqOn) return "";
   if (typeof drawFRQGraph !== "function" || typeof FRQ_ergebnisRows !== "function") return "";
-  const displayData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
+  const displayData = (typeof FRQ_testData === "function") ? FRQ_testData() : [];
   if (!displayData || displayData.length === 0) return "";
   // BA425: Kein Graph, wenn diese Seite keine Aenderung != 0 hat.
   if (!_audiologSideHasFreqChange(side)) return "";
@@ -1738,10 +1738,10 @@ function _archivDrawElLabel(ctx, elLabel, cx, H, padB) {
 function _frqGehoertHzRoh(i) {
   var side = (typeof activeSide === "string") ? activeSide : "right";
   var warpAn = (typeof pWarpOn !== "undefined") && pWarpOn;
-  if (!warpAn || typeof FRQ_werte !== "function") {
+  if (!warpAn || typeof FRQ_apply !== "function") {
     return withSide(side, function () { return FRQ_implantatEffektiv(i); });
   }
-  var werte = FRQ_werte("gehoert", FRQ_distribution, false);
+  var werte = FRQ_apply("gehoert", FRQ_distribution, false);
   for (var k = 0; k < werte.length; k++) {
     if (werte[k].elIdx === i) {
       var s = werte[k][side];

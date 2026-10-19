@@ -292,11 +292,11 @@ function ELL_renderResults() {
 // EINZIGE Stelle, durch die Ergebnisgraph, Player (Warp) und Druck gehen.
 // Generisch: vergleicht frq_entryMethod(eintrag) mit dem aktiven Verfahren,
 // kennt die Verfahren nicht beim Namen.
-function FRQ_activeResults() {
+function FRQ_testData() {
   const method = (typeof frq_getActiveMethod === "function") ? frq_getActiveMethod() : "piano";
   const me = (typeof frq_entryMethod === "function") ? frq_entryMethod : function(r) { return "piano"; };
-  return (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray))
-    ? FRQ_resultsArray.filter(function(r) { return r && me(r) === method; })
+  return (typeof FRQ_eval !== "undefined" && Array.isArray(FRQ_eval))
+    ? FRQ_eval.filter(function(r) { return r && me(r) === method; })
     : [];
 }
 
@@ -339,7 +339,7 @@ function _FRQ_statusBadgeHtml(fmStatus) {
 // opts:
 //   side   'left' | 'right'  -- die angezeigte/gedruckte Seite (Pflicht).
 //   modus  'left'|'right'|'symmetric' -- Verschiebungs-Verteilung fuer
-//          FRQ_werte. Default = Mess-Reiter: FRQ_modusVonReferenzmodus(
+//          FRQ_apply. Default = Mess-Reiter: FRQ_modusVonReferenzmodus(
 //          frq_referenzmodus()). Ausdruck gibt den Player-warpMode.
 //   nhSim  bool -- Default false (Mess-Reiter). Ausdruck gibt plNHSim.
 //
@@ -367,8 +367,8 @@ function FRQ_tabellenZeilen(opts) {
     : FRQ_modusVonReferenzmodus(frq_referenzmodus());
   const nhSim = !!opts.nhSim;
 
-  const displayData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
-  const frqWerte = FRQ_werte("gehoert", modus, nhSim);
+  const displayData = (typeof FRQ_testData === "function") ? FRQ_testData() : [];
+  const frqWerte = FRQ_apply("gehoert", modus, nhSim);
   const werteByIdx = {};
   for (const wr of frqWerte) werteByIdx[wr.elIdx] = wr;
   const byIdx = {};
@@ -661,13 +661,13 @@ function FRQ_legendeHtml(graphKey, data) {
 // Rueckgabe: rows[] fuer drawFRQGraph.
 function FRQ_ergebnisRows(side, opts) {
   opts = opts || {};
-  var fResData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
+  var fResData = (typeof FRQ_testData === "function") ? FRQ_testData() : [];
   var measuredByIdx = {};
   for (var m = 0; m < fResData.length; m++) measuredByIdx[fResData[m].elIdx] = fResData[m];
 
   var modus = (typeof opts.modus === "string") ? opts.modus
     : FRQ_modusVonReferenzmodus(frq_referenzmodus());
-  var werte = FRQ_werte("gehoert", modus, !!opts.nhSim);
+  var werte = FRQ_apply("gehoert", modus, !!opts.nhSim);
 
   var tipT = function (k, fb) {
     if (typeof t !== "function") return fb;
@@ -749,11 +749,11 @@ function FRQ_ergebnisRows(side, opts) {
 // (Verschiebung roh->geglaettet, Residuum). T-Balken um den ROHEN Wert
 // (residuumMitteCent). Nutzt drawFRQGraph (KEINE eigene Zeichenlogik).
 //
-// BA483 (§15.6): reiner Konsument von FRQ_werte('gehoert'). Beide Reihen
+// BA483 (§15.6): reiner Konsument von FRQ_apply('gehoert'). Beide Reihen
 // kommen direkt aus der Wertquelle -- gehoertHz (roh), gehoertHzGlatt,
 // shiftCent (roh), shiftCentGlatt, residuum, gemessen -- KEINE eigene
 // cent->Hz-Ableitung mehr (frueher _hzAusCent/_shiftAusCent, entfernt,
-// da FRQ_werte seit BA482 roh UND geglaettet nebeneinander liefert).
+// da FRQ_apply seit BA482 roh UND geglaettet nebeneinander liefert).
 function FRQ_glaettRows(side, opts) {
   opts = opts || {};
   var nhSim = !!opts.nhSim;
@@ -764,9 +764,9 @@ function FRQ_glaettRows(side, opts) {
   // BA483 (§15.6): reiner Konsument der Wertquelle -- KEINE eigene cent->Hz-
   // Ableitung mehr. gehoertHz (roh, grau), gehoertHzGlatt (schwarz),
   // shiftCent (roh, T-Balken-Mitte), shiftCentGlatt (Punkt), residuum,
-  // gemessen kommen alle aus FRQ_werte("gehoert").
-  var werte = (typeof FRQ_werte === "function")
-    ? FRQ_werte("gehoert", modus, nhSim) : [];
+  // gemessen kommen alle aus FRQ_apply("gehoert").
+  var werte = (typeof FRQ_apply === "function")
+    ? FRQ_apply("gehoert", modus, nhSim) : [];
   var byIdx = {};
   for (var wi = 0; wi < werte.length; wi++) byIdx[werte[wi].elIdx] = werte[wi];
 
@@ -922,7 +922,7 @@ function FRQ_renderResults() {
   const aktivSide = (typeof activeSide === "string") ? activeSide
     : (sideData.left.config === 'ci' ? 'left' : 'right');
 
-  if (typeof FRQ_resultsArray === "undefined" || FRQ_resultsArray.length === 0) {
+  if (typeof FRQ_eval === "undefined" || FRQ_eval.length === 0) {
     noData.style.display = "";
     card.style.display = "none";
     return;
@@ -933,7 +933,7 @@ function FRQ_renderResults() {
   if (typeof frq_updateActiveMethodButtons === "function") frq_updateActiveMethodButtons();
 
   // BA353: Anzeige-Daten: aktives Verfahren.
-  const displayData = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
+  const displayData = (typeof FRQ_testData === "function") ? FRQ_testData() : [];
 
   // Titel
   const titleEl = document.getElementById("FRQ_resultsTitle");
@@ -973,7 +973,7 @@ function FRQ_renderResults() {
     metaEl.textContent = metaText;
   }
   // Audiowege-Box (BA674): testweite Verdichtung ueber ALLE gewerteten
-  // Elektroden je Seite. Jeder FRQ_resultsArray-Eintrag traegt eine
+  // Elektroden je Seite. Jeder FRQ_eval-Eintrag traegt eine
   // Verteilung pro Elektrode ({left,right}); hier zu einer Verteilung je
   // Seite zusammenfuehren (ids count-fach expandieren, neu verdichten).
   const _frqBox = document.getElementById("FRQ_resultsAwgBox");
@@ -1128,7 +1128,7 @@ function FRQ_renderResults() {
   // Qualitätstext
   const qEl = document.getElementById('FRQ_resultsQualityText');
   if (qEl) {
-    const finalEntries = (typeof FRQ_activeResults === "function") ? FRQ_activeResults() : [];
+    const finalEntries = (typeof FRQ_testData === "function") ? FRQ_testData() : [];
     const nElTotal = sideData[aktivSide].nEl;
     const nExcluded = sideData[aktivSide].elExDur.filter(function(v) { return v !== null; }).length
                     + sideData[aktivSide].elSt.filter(function(s) { return s === 'mute'; }).length;
@@ -1142,7 +1142,7 @@ function FRQ_renderResults() {
         .replace('{done}', finalEntries.length)
         .replace('{total}', totalActive);
     } else {
-      var _pianoRun = (FRQ_pianoSession && FRQ_pianoSession.run) || null;
+      var _pianoRun = (FRQ_rawPiano && FRQ_rawPiano.run) || null;
       if (_pianoRun && _pianoRun.durchlauf >= 1) {
         txt = t('FRQ_resultsQualityPiano')
           .replace('{round}', _pianoRun.durchlauf);
@@ -1184,8 +1184,8 @@ function FRQ_renderResults() {
 }
 
 // BA445: Bandgrenzen-Empfehlungs-Tabelle (Architektur Sec. 12.3/12.5).
-// Reiner Konsument von FRQ_werte -- Verfahren + Topologie = global gewaehlt
-// (Defaults in FRQ_werte). Zeilen = aktive Elektroden der angezeigten Seite.
+// Reiner Konsument von FRQ_apply -- Verfahren + Topologie = global gewaehlt
+// (Defaults in FRQ_apply). Zeilen = aktive Elektroden der angezeigten Seite.
 // Bei lueckig/ueberlappend ist die Center-Abweichung konstruktionsbedingt 0
 // (Center == gehoerte Frequenz) -> Bewertung dort immer "im Rauschen" (Sec.
 // 12.5, Variante 4a: Spalten konsistent, nicht topologie-abhaengig anders).
@@ -1194,25 +1194,25 @@ var FRQ_bandEmpfSchwelleCent = 30;   // leicht<->deutlich (Startwert, Sec. 12.5)
 // BA452: EINZIGE Empfehlungs-Wertquelle fuer Tabelle UND Graph.
 // Leitet die Band-Achsen-Wahl an EINER Stelle ab (vorher doppelt in
 // results.js + chart.js -> BA451-Divergenz). Verfahren/Topologie zieht
-// FRQ_werte selbst aus den globalen Wahlen (core.js:931-934); Optimieren/
-// Ziel/Randausgleich liest FRQ_werte NICHT selbst (core.js:938) -> hier
+// FRQ_apply selbst aus den globalen Wahlen (core.js:931-934); Optimieren/
+// Ziel/Randausgleich liest FRQ_apply NICHT selbst (core.js:938) -> hier
 // ableiten und explizit uebergeben.
 //   nhSim         bool -- Normalhoerenden-Simulation (Tabelle: false,
 //                 Graph: !!opts.nhSim). PFLICHT-Parameter, kein Default.
 //   modusOverride optional -- der Graph reicht opts.modus durch; fehlt es,
 //                 wird der Modus wie in der Tabelle aus dem Referenzmodus
 //                 abgeleitet.
-// Rueckgabe: das FRQ_werte-Array (leer, wenn FRQ_werte fehlt).
+// Rueckgabe: das FRQ_apply-Array (leer, wenn FRQ_apply fehlt).
 function FRQ_empfWerte(nhSim, modusOverride) {
   // BA491: Achse 2 -> globaler FRQ_distribution (nicht Referenzmodus).
   var modus = (typeof modusOverride === "string")
     ? modusOverride
     : ((typeof FRQ_distribution === "string") ? FRQ_distribution : "right");
   // BA463: Verfahren/Topologie/Optimieren/Ziel/Randausgleich liegen jetzt
-  // pro Seite in sideData -> FRQ_werte zieht sie SEITENRICHTIG selbst
+  // pro Seite in sideData -> FRQ_apply zieht sie SEITENRICHTIG selbst
   // (undefined = kein Override). Nur modus/nhSim bleiben Aufrufer-Sache.
-  return (typeof FRQ_werte === "function")
-    ? FRQ_werte("gehoert", modus, !!nhSim)
+  return (typeof FRQ_apply === "function")
+    ? FRQ_apply("gehoert", modus, !!nhSim)
     : [];
 }
 
@@ -1232,9 +1232,9 @@ function _FRQ_bandWandFuerGraph(side) {
 }
 
 // BA474: Render-Einstieg des Top-Reiters "Frequenzbaender". Ruft den
-// Bandgrenzen-Renderer UNABHAENGIG von FRQ_resultsArray (der Reiter zeigt auch
+// Bandgrenzen-Renderer UNABHAENGIG von FRQ_eval (der Reiter zeigt auch
 // ohne Frequenzabgleich-Messung die Baender aus den Nominalfrequenzen --
-// FRQ_werte liefert nominellHz immer, core.js:1708). Ausserhalb der
+// FRQ_apply liefert nominellHz immer, core.js:1708). Ausserhalb der
 // DOMContentLoaded-Closure deklariert, weil switchTab (tabs-eq.js) sie
 // cross-file ruft (Leitlinien: Closure-Falle).
 function FRQ_renderBaenderTab() {
@@ -1590,12 +1590,12 @@ function _FRQ_renderBandEmpf(side) {
 // Box-Korrektor-fn (aus onTogglesReady); null bis die Box erstmals geoeffnet wird.
 var _frqPianoCorrFn   = null;
 
-// Werte-Zugriff: das FRQ_werte-Array nach elIdx, aktueller Modus.
+// Werte-Zugriff: das FRQ_apply-Array nach elIdx, aktueller Modus.
 // BA507: form waehlbar (klavierGlatt|klavierBand); liefert left.hz/right.hz.
 function _frqPianoWerteByIdx(form) {
   var modus = (typeof FRQ_distribution === "string") ? FRQ_distribution : "right";
-  var werte = (typeof FRQ_werte === "function")
-    ? FRQ_werte(form, modus, false) : [];
+  var werte = (typeof FRQ_apply === "function")
+    ? FRQ_apply(form, modus, false) : [];
   var byIdx = {};
   for (var i = 0; i < werte.length; i++) byIdx[werte[i].elIdx] = werte[i];
   return byIdx;
@@ -1758,7 +1758,7 @@ function FRQ_openBandPiano() {
 // Messung, klingen beide Seiten gleich hoch.
 //
 // Die Seiten-/Vertauschungslogik (welche Seite nominell, welche die gemessene
-// Frequenz) lebt vollstaendig in FRQ_werte (Form "klavierRoh"): CI nominell +
+// Frequenz) lebt vollstaendig in FRQ_apply (Form "klavierRoh"): CI nominell +
 // natuerliches Ohr = Wahrnehmung (1 CI); Referenz-CI nominell + Korrektur-CI
 // gewarpt (2 CI). KEIN Vertauschen hier im Konsumenten (Architektur-Regel).
 // Umschalter "Frequenzabgleich aktivieren": AN = klavierRoh-Frequenzen,
@@ -1891,20 +1891,20 @@ document.addEventListener("DOMContentLoaded", function() {
   if (allBtn) {
     allBtn.addEventListener("click", function() {
       if (!confirm(t("FRQ_resultsClearAllConfirm") || "Alle löschen?")) return;
-      FRQ_resultsArray.splice(0, FRQ_resultsArray.length);
+      FRQ_eval.splice(0, FRQ_eval.length);
       _frq_resultsRefreshAfterClear();
     });
   }
 
-  // BA364: Klavier-Loeschbutton — entfernt nur piano-Eintraege aus FRQ_resultsArray.
+  // BA364: Klavier-Loeschbutton — entfernt nur piano-Eintraege aus FRQ_eval.
   const pianoBtn = document.getElementById("FRQ_resultsClearPianoBtn");
   if (pianoBtn) {
     pianoBtn.addEventListener("click", function() {
       if (!confirm(t("FRQ_resultsClearPianoConfirm") || "Klavier-Ergebnisse loeschen?")) return;
-      for (let i = FRQ_resultsArray.length - 1; i >= 0; i--) {
-        if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === "piano") FRQ_resultsArray.splice(i, 1);
+      for (let i = FRQ_eval.length - 1; i >= 0; i--) {
+        if (FRQ_eval[i] && frq_entryMethod(FRQ_eval[i]) === "piano") FRQ_eval.splice(i, 1);
       }
-      FRQ_pianoSession = null;
+      FRQ_rawPiano = null;
       _frq_resultsRefreshAfterClear();
     });
   }

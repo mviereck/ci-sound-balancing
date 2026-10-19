@@ -794,20 +794,20 @@ function updatePlayerForSideChange() {
 
 // BA430: Filter-Positionsfrequenz einer Elektrode im EQ-Audio-Pfad.
 // Ersetzt effFreqDisplay/FRQ_implantatEffektiv als Frequenz-Quelle.
-// Bezieht die Frequenz aus der zentralen Wertquelle FRQ_werte (Form
+// Bezieht die Frequenz aus der zentralen Wertquelle FRQ_apply (Form
 // "gehoert"). Modusabhaengig (s. .docs/spec/00-eq-kette-architektur.md, 4):
 //   NH-Sim aus -> nominelle Frequenz (Filter sitzt dort, wohin der Warp
 //                 das Material schiebt).
 //   NH-Sim an  -> echte gehoerte Frequenz (Warp schiebt Material dorthin);
 //                 ungemessen -> Rueckfall nominell.
-//   Elektrode ohne FRQ_werte-Eintrag -> nominell.
+//   Elektrode ohne FRQ_apply-Eintrag -> nominell.
 // modus = FRQ_distribution. Cache je Bau-/Update-Lauf einmal fuellen (pFrqRefresh).
-// typeof-Guard fuer FRQ_werte, da zur Laufzeit gerufen.
+// typeof-Guard fuer FRQ_apply, da zur Laufzeit gerufen.
 let _pEqFrqCache = null;
 
 function pFrqRefresh() {
-  if (typeof FRQ_werte !== "function") { _pEqFrqCache = null; return; }
-  const werte = FRQ_werte("gehoert", FRQ_distribution, false);   // nhSim NICHT durchreichen
+  if (typeof FRQ_apply !== "function") { _pEqFrqCache = null; return; }
+  const werte = FRQ_apply("gehoert", FRQ_distribution, false);   // nhSim NICHT durchreichen
   const byIdx = {};
   for (const w of werte) byIdx[w.elIdx] = w;
   _pEqFrqCache = byIdx;
@@ -1480,12 +1480,12 @@ function pDrawEQ() {
     pH = H - pad.top - pad.bottom,
     zY = pad.top + pH / 2;
   // BA426: Player-Graph zieht seine Frequenz-Positionen ausschliesslich aus
-  // der zentralen Wertquelle FRQ_werte (Form "gehoert"), NICHT mehr aus
+  // der zentralen Wertquelle FRQ_apply (Form "gehoert"), NICHT mehr aus
   // effFreqDisplay. Anwendungs-Konsument: folgt dem Player-warpMode und dem
   // NH-Sim-Schalter. Verschiebung nur bei eingeschaltetem Warp (pWarpOn);
   // bei Warp aus stehen die Balken auf den nominellen Frequenzen.
   const _frqNhSim = !!plNHSim;
-  const _frqWerte = FRQ_werte("gehoert", FRQ_distribution, _frqNhSim);
+  const _frqWerte = FRQ_apply("gehoert", FRQ_distribution, _frqNhSim);
   const _frqByIdx = {};
   for (const _w of _frqWerte) _frqByIdx[_w.elIdx] = _w;
   const _frqWarpAn = (typeof pWarpOn !== "undefined") && pWarpOn;
@@ -1776,15 +1776,15 @@ function plUpdWarpLock() {
       if (btn) btn.style.opacity = "";
       hint.style.display = "none";
     } else {
-      // BA677: Datenmangel aus dem FERTIGEN Warp-Ergebnis. FRQ_werte("warp")
+      // BA677: Datenmangel aus dem FERTIGEN Warp-Ergebnis. FRQ_apply("warp")
       // liefert je Elektrode entry.left.cs / entry.right.cs - die Cent-
       // Verschiebung je Seite, mit allen Einstellungen (inkl. angewandter
       // Verteilung) bereits eingerechnet. Wir pruefen nur, ob eine Seite
       // durchweg 0 ist; KEINE eigene Seitenverteilung, KEIN Referenzmodus.
       // FRQ_distribution wird nur DURCHGEREICHT (wie im Warp-Playback-Pfad).
       var _wmode = (typeof FRQ_distribution !== "undefined") ? FRQ_distribution : "symmetric";
-      var _warp = (typeof FRQ_werte === "function")
-        ? FRQ_werte("warp", _wmode, false) : [];
+      var _warp = (typeof FRQ_apply === "function")
+        ? FRQ_apply("warp", _wmode, false) : [];
       function _seiteWarpt(seite) {   // "left" | "right"
         return _warp.some(function (e) {
           var cs = e && e[seite] ? e[seite].cs : null;

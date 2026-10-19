@@ -173,7 +173,7 @@ function resetAll() {
   if (typeof plBalanceMode !== "undefined") plBalanceMode = "sym";
   if (typeof updBalApplyBtn === "function") updBalApplyBtn();
   // --- Frequenzabgleich-Ergebnisse ---
-  if (typeof FRQ_resultsArray !== "undefined") FRQ_resultsArray.splice(0, FRQ_resultsArray.length);
+  if (typeof FRQ_eval !== "undefined") FRQ_eval.splice(0, FRQ_eval.length);
   if (typeof freqmatchTestSelection !== "undefined") freqmatchTestSelection = null;
   if (typeof FRQ_renderResults === "function") FRQ_renderResults();
   // BA 161: FreqMatch-Tab-UI nach Reset auffrischen

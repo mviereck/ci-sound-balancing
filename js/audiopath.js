@@ -188,9 +188,9 @@ function AWG_isUsed(id) {
     }
   }
 
-  // FRQ: FRQ_pianoSession.perElectrode[el].verlauf[] mit audiopathL/R (global).
-  if (typeof FRQ_pianoSession !== "undefined" && FRQ_pianoSession && FRQ_pianoSession.perElectrode) {
-    const pe = FRQ_pianoSession.perElectrode;
+  // FRQ: FRQ_rawPiano.perElectrode[el].verlauf[] mit audiopathL/R (global).
+  if (typeof FRQ_rawPiano !== "undefined" && FRQ_rawPiano && FRQ_rawPiano.perElectrode) {
+    const pe = FRQ_rawPiano.perElectrode;
     for (const el in pe) {
       const v = pe[el] && pe[el].verlauf;
       if (Array.isArray(v) && v.some(function (e) { return e && (e.audiopathL === id || e.audiopathR === id); })) return true;

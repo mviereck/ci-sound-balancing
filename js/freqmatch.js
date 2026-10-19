@@ -58,7 +58,7 @@ function frq_freqFromCents(refHz, c) {
 // Waehrend eines Tests die eingefrorene Session-Einstellung, sonst die
 // aktuelle Dropdown-Wahl. Werte: 'left' | 'right' | 'symmetric'.
 function frq_referenzmodus() {
-  if (FRQ_pianoSession && FRQ_pianoSession.frqRefMode) return FRQ_pianoSession.frqRefMode;
+  if (FRQ_rawPiano && FRQ_rawPiano.frqRefMode) return FRQ_rawPiano.frqRefMode;
   var v = FRQ_els && FRQ_els.header && FRQ_els.header.refSelect
     ? FRQ_els.header.refSelect.value : 'right';
   return (v === 'left' || v === 'right' || v === 'symmetric') ? v : 'right';
@@ -361,10 +361,10 @@ var FM_PIANO_STAGNATION_K = 3;     // Runden ohne Verringerung -> ausgereizt
 
 // BA416: seitenloser Zugriff auf die globale Klaviertest-Session.
 function _frq_pianoData() {
-  if (!FRQ_pianoSession) {
-    FRQ_pianoSession = { frqRefMode: null, run: null, perElectrode: {} };
+  if (!FRQ_rawPiano) {
+    FRQ_rawPiano = { frqRefMode: null, run: null, perElectrode: {} };
   }
-  return FRQ_pianoSession;
+  return FRQ_rawPiano;
 }
 
 function _frq_randBorderOrder() {
@@ -474,7 +474,7 @@ function _frq_pianoVolleRunden(elIdx, dg) {
 // Runden der Sitzung dg. bisIdx (optional, Index in der Liste der
 // vollen Runden) begrenzt die Historie -- gebraucht vom Ausgereizt-
 // Kriterium. null = keine Daten.
-function _frq_pianoStreuband(elIdx, dg, bisIdx) {
+function FRQ_computeEval_streuband(elIdx, dg, bisIdx) {
   var voll = _frq_pianoVolleRunden(elIdx, dg);
   if (bisIdx != null && bisIdx >= 0) voll = voll.slice(0, bisIdx + 1);
   if (!voll.length) return null;
@@ -519,7 +519,7 @@ function _frq_pianoStreuband(elIdx, dg, bisIdx) {
 // Band einer Sitzung im Konsumenten-Vertrag. residDown/residUp >= 0
 // (die Mitte liegt konstruktionsbedingt zwischen lo und hi).
 function _frq_pianoDurchgangBand(elIdx, dg) {
-  var sb = _frq_pianoStreuband(elIdx, dg, null);
+  var sb = FRQ_computeEval_streuband(elIdx, dg, null);
   if (!sb) return null;
   return { mitte: sb.mitte, residDown: sb.mitte - sb.lo,
            residUp: sb.hi - sb.mitte, restspanne: sb.restspanne };
@@ -538,8 +538,8 @@ function _frq_pianoAusgereizt(elIdx, dg) {
   if (voll.length < FM_PIANO_STAGNATION_K + 1) return false;
   for (var k = 0; k < FM_PIANO_STAGNATION_K; k++) {
     var iNeu = voll.length - 1 - k;
-    var bNeu = _frq_pianoStreuband(elIdx, dg, iNeu).breite;
-    var bAlt = _frq_pianoStreuband(elIdx, dg, iNeu - 1).breite;
+    var bNeu = FRQ_computeEval_streuband(elIdx, dg, iNeu).breite;
+    var bAlt = FRQ_computeEval_streuband(elIdx, dg, iNeu - 1).breite;
     if (bNeu < bAlt) return false;
   }
   return true;
@@ -548,7 +548,7 @@ function _frq_pianoAusgereizt(elIdx, dg) {
 // Schritt-Regel (Architektur Sec. 2): naechster Schritt der Elektrode
 // in Sitzung dg; null = ausgereizt (wird nicht mehr besucht).
 function _frq_pianoNaechsterSchritt(elIdx, dg) {
-  var sb = _frq_pianoStreuband(elIdx, dg, null);
+  var sb = FRQ_computeEval_streuband(elIdx, dg, null);
   if (!sb) return _frq_pianoSitzungsStart(elIdx, dg).step;
   if (_frq_pianoAusgereizt(elIdx, dg)) return null;
   return _frq_pianoClampStep(sb.breite / 8);
@@ -563,7 +563,7 @@ function _frq_pianoNaechsterSchritt(elIdx, dg) {
 // Ohne Vorgeschichte Startschritt / Zentren 0 (nominell).
 function _frq_pianoSitzungsStart(elIdx, dg) {
   for (var d = dg - 1; d >= 1; d--) {
-    var sb = _frq_pianoStreuband(elIdx, d, null);
+    var sb = FRQ_computeEval_streuband(elIdx, d, null);
     if (sb) {
       return {
         step: _frq_pianoClampStep(sb.breite / 8),
@@ -720,7 +720,7 @@ function frq_pianoConfirm() {
   _frq_pianoData().lastConfirmedTs = run.lastUpdate;   // BA657: stabiler, ladefester Zeitstempel
 
   if (typeof FRQ_setActiveMethod === "function") FRQ_setActiveMethod("piano");
-  _frq_pianoWriteResults();
+  FRQ_writeEval();
   if (typeof FRQ_renderResults === "function") {
     try { FRQ_renderResults(); } catch (e) {}
   }
@@ -784,7 +784,7 @@ function _frq_pianoDurchlaufTransition() {
 function _frq_pianoFinish() {
   var run = _frq_pianoData().run; if (run) run.beendet = true;
   FRQ_running = false;
-  _frq_pianoWriteResults();
+  FRQ_writeEval();
   if (FRQ_els && typeof FRQ_els._stopTest === 'function') FRQ_els._stopTest();
 }
 
@@ -807,13 +807,13 @@ function _frq_audioPathSide(elIdx, side) {
   return AWG_distribution(ids);   // [{id,count}] | null
 }
 
-// B1: Klavier-Ergebnisse aus dem Roh-Speicher nach FRQ_resultsArray (live).
+// B1: Klavier-Ergebnisse aus dem Roh-Speicher nach FRQ_eval (live).
 // Ergebnis je Elektrode = Mittelwert der feinsten Runde mit BEIDEN Grenzen.
 // (Plausibilitaets-Ausschluss kommt in B2.)
-function _frq_pianoWriteResults() {
-  if (typeof FRQ_resultsArray === "undefined") return;
-  for (var i = FRQ_resultsArray.length - 1; i >= 0; i--) {
-    if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === "piano") FRQ_resultsArray.splice(i, 1);
+function FRQ_writeEval() {
+  if (typeof FRQ_eval === "undefined") return;
+  for (var i = FRQ_eval.length - 1; i >= 0; i--) {
+    if (FRQ_eval[i] && frq_entryMethod(FRQ_eval[i]) === "piano") FRQ_eval.splice(i, 1);
   }
   var fp = _frq_pianoData();
   // Kein run-Erfordernis: auch ein geladener Stand ohne Lauf-Objekt
@@ -829,7 +829,7 @@ function _frq_pianoWriteResults() {
     var elIdx = parseInt(elKey, 10);
     var dg = _frq_pianoLetzterDurchgang(elIdx);
     if (dg === 0) return;
-    var sb = _frq_pianoStreuband(elIdx, dg, null);
+    var sb = FRQ_computeEval_streuband(elIdx, dg, null);
     if (!sb) return;
     var pse = sb.mitte;
 
@@ -854,7 +854,7 @@ function _frq_pianoWriteResults() {
       audioPath:  { left:  _frq_audioPathSide(elIdx, "left"),
                     right: _frq_audioPathSide(elIdx, "right") }
     };
-    FRQ_resultsArray.push(entry);
+    FRQ_eval.push(entry);
   });
 }
 
@@ -1003,7 +1003,7 @@ function _frq_autoSetRefMode() {
   if (!FRQ_els || !FRQ_els.header || !FRQ_els.header.refSelect) return;
   // Schutz: solange Daten vorliegen, refSelect nicht implizit umstellen —
   // ein manueller Wechsel ist durch depLock gesperrt (Popup mit Begründung).
-  if (FRQ_resultsArray.length > 0) return;
+  if (FRQ_eval.length > 0) return;
   const leftCfg  = (sideData.left  && sideData.left.config)  || 'ci';
   const rightCfg = (sideData.right && sideData.right.config) || 'ci';
   const leftIsCI  = (leftCfg  === 'ci');
@@ -1090,13 +1090,13 @@ function frq_entryMethod(r) {
 // Hat ein Verfahren ueberhaupt Daten? (fuer Default-Ableitung, aktuell ungenutzt)
 function frq_methodHasData(method) {
   if (method !== "piano") return false;
-  if (typeof FRQ_resultsArray !== "undefined" && Array.isArray(FRQ_resultsArray)) {
-    for (let i = 0; i < FRQ_resultsArray.length; i++) {
-      if (FRQ_resultsArray[i] && frq_entryMethod(FRQ_resultsArray[i]) === "piano") return true;
+  if (typeof FRQ_eval !== "undefined" && Array.isArray(FRQ_eval)) {
+    for (let i = 0; i < FRQ_eval.length; i++) {
+      if (FRQ_eval[i] && frq_entryMethod(FRQ_eval[i]) === "piano") return true;
     }
   }
-  if (FRQ_pianoSession && FRQ_pianoSession.perElectrode
-      && Object.keys(FRQ_pianoSession.perElectrode).length > 0) return true;
+  if (FRQ_rawPiano && FRQ_rawPiano.perElectrode
+      && Object.keys(FRQ_rawPiano.perElectrode).length > 0) return true;
   return false;
 }
 
