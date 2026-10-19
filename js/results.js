@@ -1009,7 +1009,6 @@ function FRQ_renderResults() {
     "<th>" + t("FRQ_resultsColDiffCent") + "</th>" +
     "<th title=\"" + t("FRQ_resultsColRestspanneTip") + "\">" + t("FRQ_resultsColRestspanne") + "</th>" +
     "<th title=\"" + t("FRQ_resultsColResiduumTip") + "\">" + t("FRQ_resultsColResiduum") + "</th>" +
-    "<th title=\"" + t("FRQ_resultsColVorherTip") + "\">" + t("FRQ_resultsColVorher") + "</th>" +
     "<th>" + t("FRQ_resultsColStatus") + "</th>";
 
   // BA420: Seitenangabe statt Referenz-/Zielseiten-Erklärung. {side} = die
@@ -1046,7 +1045,7 @@ function FRQ_renderResults() {
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
         "<td>" + nomCell + "</td>" +
-        "<td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>" +
+        "<td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>" +
         "<td style=\"font-size:.82em\">" + t("FRQ_resultsStatusNotActive") + "</td>";
       tb.appendChild(tr);
       continue;
@@ -1056,7 +1055,7 @@ function FRQ_renderResults() {
       const note = '<span style="font-size:.82em">' + t("notMeasured") + "</span>";
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
-        "<td style=\"" + grey + "\">—</td>".repeat(7) +
+        "<td style=\"" + grey + "\">—</td>".repeat(6) +
         "<td>" + note + "</td>";
       tb.appendChild(tr);
       continue;
@@ -1092,15 +1091,6 @@ function FRQ_renderResults() {
       residuumCell = '<span style="color:' + reColor + ';font-weight:600">&#8722;'
         + fmtNum(z.residDown, "cent") + ' &#8230; +' + fmtNum(z.residUp, "cent") + ' ct</span>';
     }
-    // BA521: Sitzungs-Vergleich (vorige Sitzung / Differenz), kanonische cent.
-    let vorherCell = dash;
-    const vgl = (typeof _frq_pianoVergleich === "function")
-      ? _frq_pianoVergleich(z.elIdx) : null;
-    if (vgl) {
-      const vc = vgl.vorherCent, dc = vgl.deltaCent;
-      vorherCell = (vc >= 0 ? "+" : "") + fmtNum(vc, "cent") + " ct / Δ "
-        + (dc >= 0 ? "+" : "") + fmtNum(dc, "cent") + " ct";
-    }
     tr.innerHTML =
       "<td style=\"font-weight:600\">" + z.elLabel + "</td>" +
       "<td>" + nomHzCell + "</td>" +
@@ -1109,7 +1099,6 @@ function FRQ_renderResults() {
       "<td>" + diffCtCell + "</td>" +
       "<td>" + restspanneCell + "</td>" +
       "<td>" + residuumCell + "</td>" +
-      "<td style=\"font-size:.9em\">" + vorherCell + "</td>" +
       "<td>" + (z.fmStatus
         ? _FRQ_statusBadgeHtml(z.fmStatus)
         : '<span style="font-size:.82em">' + t("notMeasured") + "</span>")
@@ -1141,12 +1130,6 @@ function FRQ_renderResults() {
       txt = t('FRQ_resultsQualityPartial')
         .replace('{done}', finalEntries.length)
         .replace('{total}', totalActive);
-    } else {
-      var _pianoRun = (FRQ_rawPiano && FRQ_rawPiano.run) || null;
-      if (_pianoRun && _pianoRun.durchlauf >= 1) {
-        txt = t('FRQ_resultsQualityPiano')
-          .replace('{round}', _pianoRun.durchlauf);
-      }
     }
     qEl.textContent = txt;
     qEl.style.display = txt ? '' : 'none';
