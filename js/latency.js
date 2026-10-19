@@ -2,7 +2,7 @@
 // latency.js — Latenz-Messung (Inter-Ohr-Zeitversatz)
 // --------------------------------------------------------------------
 // Exportierte Globals:
-//   LTZ_result           Array<{idL,idR,valueMs,timestamp}> — je Audioweg-Paar ein Versatz
+//   LTZ_raw              Array<{idL,idR,valueMs,timestamp}> — je Audioweg-Paar ein Versatz (Stufe 1)
 //   plApplyLatency          bool — im Player anwenden?
 //   ltz_sliderMs             aktuell vom UI gesetzter Wert (Live-Test)
 //   LTZ_active               Test läuft gerade?
@@ -29,11 +29,11 @@
 // Messen eingestellten Audioweg-IDs links/rechts (0 = "(keine Angabe)").
 // Schluessel ist das GEORDNETE Paar (idL, idR). Gleiches Paar erneut
 // gemessen -> ersetzt; neues Paar -> kommt dazu. Leere Sammlung = [].
-let LTZ_result = [];
+let LTZ_raw = [];
 
 // --- Weg-Paar-Zugriff (zentral) --------------------------------------
 // Einzige Stelle, die das aktuell eingestellte Weg-Paar aufloest und in
-// LTZ_result sucht/schreibt. Alle Leser (Player, Startwert, Anzeige,
+// LTZ_raw sucht/schreibt. Alle Leser (Player, Startwert, Anzeige,
 // Ausdrucke) gehen hierdurch.
 
 // Das aktuell toolweit eingestellte Weg-Paar: BEIDE Seiten aus sideData
@@ -50,9 +50,9 @@ function LTZ_currentPair() {
 
 // Eintrag zum gegebenen Paar finden (oder null). Geordneter Vergleich.
 function LTZ_entryForPair(idL, idR) {
-  if (!Array.isArray(LTZ_result)) return null;
-  for (var i = 0; i < LTZ_result.length; i++) {
-    var e = LTZ_result[i];
+  if (!Array.isArray(LTZ_raw)) return null;
+  for (var i = 0; i < LTZ_raw.length; i++) {
+    var e = LTZ_raw[i];
     if (e && e.idL === idL && e.idR === idR) return e;
   }
   return null;
@@ -68,23 +68,23 @@ function LTZ_currentEntry() {
 // ersetzt (valueMs+timestamp), neues Paar -> kommt dazu. Einzige
 // Schreibstelle in die Sammlung ausser Migration/Reset.
 function LTZ_setCurrent(valueMs) {
-  if (!Array.isArray(LTZ_result)) LTZ_result = [];
+  if (!Array.isArray(LTZ_raw)) LTZ_raw = [];
   var p = LTZ_currentPair();
   var e = LTZ_entryForPair(p.idL, p.idR);
   if (e) {
     e.valueMs   = valueMs;
     e.timestamp = Date.now();
   } else {
-    LTZ_result.push({ idL: p.idL, idR: p.idR, valueMs: valueMs, timestamp: Date.now() });
+    LTZ_raw.push({ idL: p.idL, idR: p.idR, valueMs: valueMs, timestamp: Date.now() });
   }
 }
 
 // Entfernt den Eintrag des aktuell eingestellten Weg-Paars (macht das Paar
 // wieder "ungemessen"). Kein Eintrag vorhanden -> nichts zu tun.
 function LTZ_clearCurrent() {
-  if (!Array.isArray(LTZ_result)) { LTZ_result = []; return; }
+  if (!Array.isArray(LTZ_raw)) { LTZ_raw = []; return; }
   var p = LTZ_currentPair();
-  LTZ_result = LTZ_result.filter(function (e) {
+  LTZ_raw = LTZ_raw.filter(function (e) {
     return !(e && e.idL === p.idL && e.idR === p.idR);
   });
 }
@@ -106,6 +106,73 @@ function LTZ_migrateResult(v) {
               timestamp: (typeof v.timestamp === "number") ? v.timestamp : Date.now() }];
   }
   return [];
+}
+
+// ====================================================================
+// Messauswertung (Sechs-Schichten-Muster, s. 00-persistierte-
+// messauswertung-architektur.md). Latenz ist der Trivialfall: es gibt
+// nichts zu rechnen (kein *_computeEval), der Schreiber reicht valueMs
+// je Paar durch. Getrennt gehalten, damit spaetere Historie/Mittelung
+// ohne Topologie-Bruch andockt.
+// ====================================================================
+
+// Stufe 3 -- das persistierte Auswertungs-Feld. null = noch nichts
+// geschrieben (neutrales Fallback liefert LTZ_testData).
+let LTZ_eval = null;
+
+// Stufe 2b -- die EINZIGE Schreibstelle fuer LTZ_eval. Reicht valueMs je
+// gemessenem Weg-Paar durch (kein Rechenschritt) und leitet einen
+// nicht-volatilen Zeitstempel ab: Maximum ueber die LTZ_raw-Stempel.
+// Niemals Date.now() hier -- das stuende nur am Rohwert (LTZ_setCurrent).
+function LTZ_writeEval() {
+  if (!Array.isArray(LTZ_raw) || LTZ_raw.length === 0) { LTZ_eval = null; return; }
+
+  var entries = [];
+  var ts = 0;
+  for (var i = 0; i < LTZ_raw.length; i++) {
+    var e = LTZ_raw[i];
+    if (!e || !isFinite(e.valueMs)) continue;
+    entries.push({ idL: e.idL, idR: e.idR, valueMs: e.valueMs });
+    if (typeof e.timestamp === "number" && e.timestamp > ts) ts = e.timestamp;
+  }
+  if (entries.length === 0) { LTZ_eval = null; return; }
+
+  LTZ_eval = { entries: entries, timestamp: ts };
+}
+
+// Stufe 4 -- reiner Leser des persistierten LTZ_eval-Felds. Parameterlos
+// (Latenz ist binaural/global, ein LTZ_eval). Rechnet NICHT. Liefert
+// zusaetzlich zum entries-Array den 'current'-Eintrag (das nach der
+// globalen Audioweg-Einstellung gueltige Paar, oder null), damit
+// Anzeige-Leser das aktuelle Paar nicht selbst aufloesen. Alle Anzeige-/
+// Status-Leser gehen hier durch, nie roh an LTZ_raw.
+function LTZ_testData() {
+  var ev = LTZ_eval ? LTZ_eval : { entries: [], timestamp: 0 };
+  var p = LTZ_currentPair();
+  var current = null;
+  for (var i = 0; i < ev.entries.length; i++) {
+    var e = ev.entries[i];
+    if (e && e.idL === p.idL && e.idR === p.idR) { current = e; break; }
+  }
+  return { entries: ev.entries, timestamp: ev.timestamp, current: current };
+}
+
+// Stufe 5 -- der nach der globalen Audioweg-Einstellung gueltige
+// Messwert. Liest NUR ueber Stufe 4 (LTZ_testData), nie den Rohwert.
+// Liefert { idL, idR, valueMs, measured }. 'measured' trennt den echten
+// Messwert 0 ms (gueltiger Befund "kein Versatz") vom Fallback 0 bei
+// ungemessenem Paar.
+//
+// WICHTIG: LTZ_apply wendet NICHTS an -- kein plApplyLatency, kein nhSim,
+// kein EQ-Gate. Das ist Sache des Konsumenten (getPlayerLTZMs spiegelt
+// den Player/Export). Mess-Schichten liefern Messwerte, nicht Anwendung.
+function LTZ_apply() {
+  var td = LTZ_testData();
+  var p = LTZ_currentPair();
+  if (td.current && isFinite(td.current.valueMs)) {
+    return { idL: p.idL, idR: p.idR, valueMs: td.current.valueMs, measured: true };
+  }
+  return { idL: p.idL, idR: p.idR, valueMs: 0, measured: false };
 }
 
 let plApplyLatency = true;     // analog plApplyBalance
@@ -358,13 +425,13 @@ function ltz_setSliderMs(ms) {
 function getPlayerLTZMs() {
   if (typeof plEqOn !== "undefined" && !plEqOn) return 0;
   if (!plApplyLatency) return 0;
-  var e = LTZ_currentEntry();
-  if (!e || !isFinite(e.valueMs)) return 0;
+  var a = LTZ_apply();           // Stufe 5: gueltiger Messwert + measured
+  if (!a.measured) return 0;
   const nhSim = !!plNHSim;
-  return nhSim ? -e.valueMs : e.valueMs;
+  return nhSim ? -a.valueMs : a.valueMs;
 }
 
-// Setzt die Delays auf den gespeicherten LTZ_result-Wert, falls
+// Setzt die Delays auf den gespeicherten LTZ_raw-Wert (ueber Stufe 5), falls
 // plApplyLatency aktiv ist. Wird vom Test-Start/Stop und vom
 // plApplyLatency-Toggle aufgerufen.
 function LTZ_applyToPlayer() {
@@ -595,6 +662,7 @@ function ltz_hookOnApply() {
   // = "Offset bestaetigen": aktuellen Schieberwert speichern + Test beenden.
   // Nur der Ergebniswert; clickType/intervalMs (ltz_clickType/ltz_intervalMs) vom Ergebnis entkoppelt.
   LTZ_setCurrent(ltz_sliderMs);
+  LTZ_writeEval();
   LTZ_applyToPlayer();
   if (typeof LTZ_renderResults === 'function') LTZ_renderResults();
   if (typeof depLockApply === 'function') depLockApply();
@@ -696,6 +764,7 @@ document.addEventListener("DOMContentLoaded", function() {
       var msg = (typeof t === "function") ? t("LTZ_clearConfirm") : "Messung dieser Audioweg-Kombination entfernen?";
       if (!window.confirm(msg)) return;
       if (typeof LTZ_clearCurrent === "function") LTZ_clearCurrent();
+      if (typeof LTZ_writeEval === "function") LTZ_writeEval();
       if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
       if (typeof LTZ_renderResults === "function") LTZ_renderResults();
       if (typeof _autoSaveState === "function") _autoSaveState();
@@ -740,7 +809,7 @@ function LTZ_renderResults() {
   }
   if (!ltz_resEls.none || !ltz_resEls.content || !ltz_resEls.list) return;
 
-  var entries = Array.isArray(LTZ_result) ? LTZ_result : [];
+  var entries = LTZ_testData().entries;
   if (entries.length === 0) {
     ltz_resEls.none.hidden = false;
     ltz_resEls.content.hidden = true;

@@ -149,11 +149,12 @@ function resetAll() {
     sideData[side].SNRtest_volume = 50;
   });
   // --- Latenz ---
-  if (typeof LTZ_result !== "undefined") LTZ_result = [];
+  if (typeof LTZ_raw !== "undefined") LTZ_raw = [];
   if (typeof SNR_resultBoth !== "undefined") SNR_resultBoth = null;   // BA662
   if (typeof ltz_clickType !== "undefined") ltz_clickType = "click";
   if (typeof ltz_intervalMs !== "undefined") ltz_intervalMs = 1000;
   if (typeof plApplyLatency !== "undefined") plApplyLatency = true;
+  if (typeof LTZ_writeEval === "function") LTZ_writeEval();   // LTZ_eval = null
   if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
   if (typeof LTZ_renderResults === "function") LTZ_renderResults();
   if (typeof LTZ_sliderInput === "function") LTZ_sliderInput(0);

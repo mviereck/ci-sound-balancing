@@ -1732,9 +1732,8 @@ function plUpdLatLock() {
   // Hinweis. Die Taub-Sperre (plLatLocked) bleibt davon unberuehrt.
   var latActive = (typeof plApplyLatency === "undefined") || plApplyLatency;
   var unmeasured = false;
-  if (!plLatLocked && latActive && typeof LTZ_currentEntry === "function") {
-    var _e = LTZ_currentEntry();
-    unmeasured = !(_e && isFinite(_e.valueMs));
+  if (!plLatLocked && latActive && typeof LTZ_apply === "function") {
+    unmeasured = !LTZ_apply().measured;
   }
   if (btn) {
     var matt = plLatLocked || unmeasured;

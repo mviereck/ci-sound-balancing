@@ -310,11 +310,11 @@ function _collectBilateral() {
       out.stereobalance.mean = _td.value;
     }
   }
-  if (typeof LTZ_result !== "undefined" && Array.isArray(LTZ_result)) {
+  if (typeof LTZ_testData === "function") {
     // ALLE gemessenen Weg-Paare ins Archiv (vollstaendige Sicherung),
     // auch ein Versatz von 0 (eine Messung "kein Versatz" ist ein Befund).
-    out.latenz.entries = LTZ_result
-      .filter((e) => e && isFinite(e.valueMs))
+    // LTZ_writeEval filtert bereits auf endliche valueMs (kein .filter noetig).
+    out.latenz.entries = LTZ_testData().entries
       .map((e) => ({
         idL: e.idL, idR: e.idR, ms: e.valueMs,
         labelL: (typeof AWG_label === "function") ? AWG_label(e.idL) : String(e.idL),
@@ -1120,15 +1120,15 @@ function _audiologSTBBlock(mainSides) {
 // ---------- Latenz (immer wenn gemessen, auch einseitig) ----------
 
 function _audiologLTZBlock(mainSides) {
-  if (typeof LTZ_currentEntry !== "function") return "";
-  const e = LTZ_currentEntry();
-  if (!e || !isFinite(e.valueMs)) return "";
-  const ms = e.valueMs;
+  if (typeof LTZ_apply !== "function") return "";
+  const a = LTZ_apply();
+  if (!a.measured) return "";
+  const ms = a.valueMs;
   if (ms === 0) return "";
   const earlierSide = ms >= 0 ? t("sideLeft")  : t("sideRight");
   const laterSide   = ms >= 0 ? t("sideRight") : t("sideLeft");
-  const labL = (typeof AWG_label === "function") ? AWG_label(e.idL) : String(e.idL);
-  const labR = (typeof AWG_label === "function") ? AWG_label(e.idR) : String(e.idR);
+  const labL = (typeof AWG_label === "function") ? AWG_label(a.idL) : String(a.idL);
+  const labR = (typeof AWG_label === "function") ? AWG_label(a.idR) : String(a.idR);
   const lines = [];
   lines.push(`## ${t("audiologSecLTZ")}`);
   lines.push("");

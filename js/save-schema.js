@@ -108,11 +108,13 @@ var SAVE_SCHEMA = [
     default: 1, valid: { type: "number", min: 1 } },
 
   // --- Latenz / Player-Anwendung ---
+  // Rohwert (Stufe 1). Persistierter Key bleibt "LTZ_result" (Alt-Stand-
+  // Kompatibilitaet); die Variable heisst LTZ_raw.
   { key: "LTZ_result", scope: "global",
-    get: function () { return (typeof LTZ_result !== "undefined" ? LTZ_result : []); },
+    get: function () { return (typeof LTZ_raw !== "undefined" ? LTZ_raw : []); },
     set: function (v) {
-      if (typeof LTZ_result === "undefined") return;
-      LTZ_result = (typeof LTZ_migrateResult === "function") ? LTZ_migrateResult(v) : (Array.isArray(v) ? v : []);
+      if (typeof LTZ_raw === "undefined") return;
+      LTZ_raw = (typeof LTZ_migrateResult === "function") ? LTZ_migrateResult(v) : (Array.isArray(v) ? v : []);
     },
     default: [] },
   // Latenz-Testeinstellungen (clickType/intervalMs), vom Ergebnis entkoppelt.
@@ -779,6 +781,9 @@ function refreshAll() {
   // updPlSrcButtons, updBalApplyBtn, pWarpUpdUI, pMaplawUpdUI,
   // plUpdMonoBox, plUpdHeadroomBox u.a.).
   if (typeof plSyncUI === "function") plSyncUI();
+  // Nach Laden: Latenz-Auswertung aus LTZ_raw NEU schreiben, bevor
+  // LTZ_applyToPlayer (liest ueber Stufe 5) und die Anzeige laufen.
+  if (typeof LTZ_writeEval === "function") LTZ_writeEval();
   if (typeof LTZ_applyToPlayer === "function") LTZ_applyToPlayer();
   if (typeof LTZ_renderResults === "function") LTZ_renderResults();
   // Latenz-Testeinstellungen (ltz_clickType/ltz_intervalMs) in die Buttons/Hinweis spiegeln.

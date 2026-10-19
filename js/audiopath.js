@@ -214,9 +214,9 @@ function AWG_isUsed(id) {
     }
   }
 
-  // Latenz: LTZ_result = Array<{idL,idR,...}> (global).
-  if (typeof LTZ_result !== "undefined" && Array.isArray(LTZ_result)
-      && LTZ_result.some(function (e) { return e && (e.idL === id || e.idR === id); })) return true;
+  // Latenz: LTZ_raw = Array<{idL,idR,...}> (global, Stufe 1).
+  if (typeof LTZ_raw !== "undefined" && Array.isArray(LTZ_raw)
+      && LTZ_raw.some(function (e) { return e && (e.idL === id || e.idR === id); })) return true;
 
   return false;
 }
