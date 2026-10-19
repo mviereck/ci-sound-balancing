@@ -90,6 +90,10 @@ var SAVE_SCHEMA = [
     get: function () { return (typeof SNR_resultBoth !== "undefined") ? SNR_resultBoth : null; },
     set: function (v) { SNR_resultBoth = (typeof SNR_migrateResult === "function") ? SNR_migrateResult(v) : ((v && typeof v === "object") ? v : null); },
     default: null, valid: { type: "any" } },
+  { key: "SNR_rawBoth", scope: "global",
+    get: function () { return (typeof SNR_rawBoth !== "undefined") ? SNR_rawBoth : null; },
+    set: function (v) { SNR_rawBoth = (v && typeof v === "object") ? v : null; },
+    default: null, valid: { type: "any" } },
 
   // --- Audioweg-Katalog (Mess-Kontext) ---
   // Seitenloser gemeinsamer Katalog + fortlaufende ID-Vergabe.
@@ -591,6 +595,10 @@ SAVE_SCHEMA.push(
     get: function (s) { return sideData[s].SNR_result || null; },
     set: function (v, s) { sideData[s].SNR_result = (typeof SNR_migrateResult === "function") ? SNR_migrateResult(v) : ((v && typeof v === "object") ? v : null); },
     default: null },
+  { key: "SNR_rawSide", scope: "side",
+    get: function (s) { return sideData[s].SNR_rawSide || null; },
+    set: function (v, s) { sideData[s].SNR_rawSide = (v && typeof v === "object") ? v : null; },
+    default: null },
   { key: "schieberELL", scope: "side",
     get: function (s) { return sideData[s].schieberELL; },
     set: function (v, s) {
@@ -799,6 +807,19 @@ function refreshAll() {
   // Latenz-Testeinstellungen (ltz_clickType/ltz_intervalMs) in die Buttons/Hinweis spiegeln.
   if (typeof _ltz_refreshExtraActives === "function") _ltz_refreshExtraActives();
   if (typeof _ltz_updateIntervalHint === "function") _ltz_updateIntervalHint();
+  // Alt-Staende (Ergebnis ohne zugeordneten Rohwert): Rohwert aus dem Ergebnis
+  // rekonstruieren (Architektur Weg a), damit alle Staende neu-rechenbar sind.
+  if (typeof SNR_rawFromResult === "function") {
+    if (typeof SNR_resultBoth !== "undefined" && SNR_resultBoth
+        && (typeof SNR_rawBoth === "undefined" || !SNR_rawBoth)) {
+      SNR_rawBoth = SNR_rawFromResult(SNR_resultBoth);
+    }
+    ["left", "right"].forEach(function (s) {
+      if (sideData[s] && sideData[s].SNR_result && !sideData[s].SNR_rawSide) {
+        sideData[s].SNR_rawSide = SNR_rawFromResult(sideData[s].SNR_result);
+      }
+    });
+  }
   if (typeof SNR_renderResults === "function") SNR_renderResults();
   // Nach Laden: STB-Auswertung aus STB_raw NEU rechnen, nicht den gespeicherten
   // Wert blind uebernehmen -> Feld und Rohwerte bleiben konsistent.

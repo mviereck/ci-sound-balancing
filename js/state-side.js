@@ -189,6 +189,7 @@ function initSideData(side, m) {
   s.ELL_refEl = Math.floor(s.nEl / 2);
   s.ELL_raw = [];
   s.ELL_eval = null;
+  s.SNR_rawSide = null;   // Sprachtest-Rohwert je Seite (Stufe 1)
   s.ELL_distWeightMode = "voll";
   // Seitenabhaengige ELL-Testvorgaben (BA648): gewaehlte Testelektroden
   // (null = alle testbaren) und gewaehltes Testverfahren ("full" | "conv").
@@ -721,6 +722,11 @@ let FRQ_eval = [];
 // null = kein beidohriger Durchgang gemessen. Liegt im SAVE_SCHEMA
 // (scope:"global"). Die seitenweisen Ergebnisse bleiben in
 // sideData[side].SNR_result.
+// Sprachtest-Rohwert (Stufe 1, Sechs-Schichten-Muster). Satzreihe des
+// beidohrigen Durchgangs (Player "beide Seiten"). null = kein beidohriger
+// Durchgang gemessen. Liegt im SAVE_SCHEMA (scope "global"). Das seitige
+// Gegenstueck ist sideData[side].SNR_rawSide.
+let SNR_rawBoth = null;
 let SNR_resultBoth = null;
 
 // BA416: Klaviertest-Sitzungszustand, global+seitenlos (Architektur 6a).

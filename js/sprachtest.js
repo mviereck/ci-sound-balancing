@@ -25,6 +25,12 @@ const SNR_NOISE_DEFAULT = "__werk__";
 // gueltiges Werk-Rauschen). snr_testSetLabel/snr_noiseLabel loesen ihn zu
 // t("snrUnknown") = "unbekannt" auf.
 const SNR_UNKNOWN = "__unknown__";
+// Marker fuer "Wortposition unbekannt" in rekonstruierten Alt-Rohwerten
+// (SNR_migrateResult). Verschieden von null (= "keine Auswahl getroffen"):
+// null ist ein gueltiger Live-Zustand, dieser Marker heisst "Information war
+// im Alt-Stand nie vorhanden". Spaetere Wort-Auswerter schliessen solche
+// Saetze aus, statt sie als "0 richtig" fehlzudeuten.
+const SNR_WORD_UNKNOWN = "__wortunbekannt__";
 let snr_noiseChoiceId = SNR_NOISE_DEFAULT;
 
 // Alle Matrix-Sammlungen aus dem Saetze-Pool (test_type === "matrix"),
@@ -125,6 +131,8 @@ let snr_idx = 0;              // Index in snr_seq
 let snr_snr = SNR_START_SNR;   // aktueller Ziel-SNR
 let snr_snrHistory = [];      // SNR je gewertetem Satz (nur measure-Phase)
 let snr_wordHistory = [];     // richtige Woerter (0..5) je gewertetem Satz
+let snr_rawSaetze = [];       // reiche Rohwert-Reihe (Stufe 1): je Satz
+                              // {snr, correct, positionen[5], timestamp}
 let snr_saved = null;         // gesicherter Player-Unterlegungszustand (Restore)
 let _st_preloadedSeq = null; // Satz-Reihenfolge aus _st_preload (Ziehung vorgezogen)
 let _st_matrix = null;       // Matrix des aktiven Buendels (aus Satztexten, SS3.2)
@@ -516,6 +524,7 @@ async function snr_beginRun() {
   snr_snr = SNR_START_SNR;
   snr_snrHistory = [];
   snr_wordHistory = [];
+  snr_rawSaetze = [];
   snr_phase = (SNR_TRAIN_LEN > 0) ? "train" : "measure";
   snr_active = true;
   snr_bothEar = snr_isBothEar();   // BA662: Modus dieses Durchgangs merken
@@ -607,6 +616,17 @@ function snr_onConfirm() {
   if (isMeasure) {
     snr_snrHistory.push(snr_snr);
     snr_wordHistory.push(correct);
+    // Reiche Rohwert-Reihe (Stufe 1): positionsweise gewaehlt/richtig je Satz.
+    // sel ist Array[5] von Wort|null (testUI.wordGrid.getSelection); der
+    // Sollsatz steht in item.text (5 Woerter, Punkt am Ende entfaellt).
+    const _soll = (item.text || "").replace(/\.$/, "").trim().split(/\s+/);
+    const positionen = [];
+    for (let p = 0; p < 5; p++) {
+      positionen.push({ gewaehlt: (sel[p] != null) ? sel[p] : null,
+                        richtig:  (_soll[p] != null) ? _soll[p] : "" });
+    }
+    snr_rawSaetze.push({ snr: snr_snr, correct: correct,
+                         positionen: positionen, timestamp: Date.now() });
   }
 
   // Naechsten SNR bestimmen (Adaption).
@@ -712,6 +732,36 @@ function SNR_migrateResult(obj) {
   return obj;
 }
 
+// Rekonstruiert aus einem (Alt-)Ergebnis-Objekt den Rohwert (Stufe 1), damit
+// auch geladene Alt-Staende neu-rechenbar sind (Architektur Weg a). Die
+// Satzreihe ergibt sich aus res.snrHistory/res.wordHistory; die positionsweise
+// Wort-Information war im Alt-Stand nie vorhanden -> Unbekannt-Marker. correct
+// stammt aus wordHistory (die bekannte Anzahl). Gibt null zurueck, wenn das
+// Ergebnis keine verwertbare Reihe traegt.
+function SNR_rawFromResult(res) {
+  if (!res || !Array.isArray(res.snrHistory) || !res.snrHistory.length) return null;
+  const wh = Array.isArray(res.wordHistory) ? res.wordHistory : [];
+  const saetze = res.snrHistory.map(function (snr, i) {
+    const positionen = [];
+    for (let p = 0; p < 5; p++) {
+      positionen.push({ gewaehlt: SNR_WORD_UNKNOWN, richtig: SNR_WORD_UNKNOWN });
+    }
+    return {
+      snr: snr,
+      correct: (typeof wh[i] === "number") ? wh[i] : 0,
+      positionen: positionen,
+      timestamp: (typeof res.ts === "number") ? res.ts : 0
+    };
+  });
+  return {
+    saetze: saetze,
+    converged: !!res.converged,
+    materialSlug: (res.materialSlug != null) ? res.materialSlug : SNR_UNKNOWN,
+    noiseId: (res.noiseId != null) ? res.noiseId : SNR_UNKNOWN,
+    audioPath: (res.audioPath && typeof res.audioPath === "object") ? res.audioPath : {}
+  };
+}
+
 function snr_finish(converged) {
   snr_active = false;
   const win = converged ? SNR_SRT_WINDOW_CONV : SNR_SRT_WINDOW;
@@ -721,6 +771,22 @@ function snr_finish(converged) {
   // Wiedergabe stoppen, Player-Zustand wiederherstellen.
   if (typeof pStopReset === "function") pStopReset();
   snr_restorePlayerState();
+
+  // Rohwert (Stufe 1) zusammensetzen und ablegen. Seitig vs. binaural wie das
+  // Ergebnis (snr_bothEar, in snr_beginRun fixiert). Der Rohwert ist die
+  // Quelle, aus der beim Laden neu gerechnet wird (BA 687).
+  const rawObj = {
+    saetze: snr_rawSaetze.slice(),
+    converged: !!converged,
+    materialSlug: snr_currentTestSet() || null,
+    noiseId: snr_noiseChoiceId,
+    audioPath: _snr_frozenAudioPath()
+  };
+  if (snr_bothEar) {
+    SNR_rawBoth = rawObj;
+  } else {
+    sideData[activeSide].SNR_rawSide = rawObj;
+  }
 
   // Ergebnis an das Ergebnis-Modul uebergeben (BA608 liefert SNR_saveResult).
   const result = {
