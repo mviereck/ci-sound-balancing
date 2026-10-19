@@ -117,6 +117,16 @@ var SAVE_SCHEMA = [
       LTZ_raw = (typeof LTZ_migrateResult === "function") ? LTZ_migrateResult(v) : (Array.isArray(v) ? v : []);
     },
     default: [] },
+  // Auswertung (Stufe 3): null = nicht gemessen. Wird beim Laden neu
+  // gerechnet (LTZ_writeEval in applyData), daher hier nur persistiert.
+  // Muss persistiert sein, obwohl beim Laden neu gerechnet: der Snapshot
+  // friert das Rechenergebnis ein, und Berechnungswege koennen sich aendern
+  // -- nur so ist ein frueher evtl. abweichendes Ergebnis wiederherstellbar
+  // (00-persistierte-messauswertung-architektur.md Abschnitt 2, Stufe 3).
+  { key: "LTZ_eval", scope: "global",
+    get: function () { return (typeof LTZ_eval !== "undefined" ? LTZ_eval : null); },
+    set: function (v) { if (typeof LTZ_eval !== "undefined") LTZ_eval = (v && typeof v === "object") ? v : null; },
+    default: function () { return null; } },
   // Latenz-Testeinstellungen (clickType/intervalMs), vom Ergebnis entkoppelt.
   { key: "LTZtest_clickType", scope: "global",
     get: function () { return (typeof ltz_clickType !== "undefined" ? ltz_clickType : "click"); },
