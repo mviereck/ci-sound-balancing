@@ -98,12 +98,9 @@ async function wv_runWarpVerify() {
   const nhSim = !!plNHSim;
   const werte = FRQ_apply("gehoert", FRQ_distribution, nhSim);
 
-  // Status je elIdx aus FRQ_testData() vorindizieren (fmStatus).
   const statusByIdx = {};
-  if (typeof FRQ_testData === "function") {
-    for (const r of FRQ_testData()) {
-      if (r && r.elIdx != null) statusByIdx[r.elIdx] = r.fmStatus || "";
-    }
+  for (const w of werte) {
+    if (w && w.elIdx != null) statusByIdx[w.elIdx] = w.fmStatus || "";
   }
 
   // Seite = aktive globale Seite (Umschalter), NICHT aus modus abgeleitet.

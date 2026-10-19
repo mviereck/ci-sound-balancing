@@ -2362,6 +2362,7 @@ function _FRQ_applyBerechne(form, modus, nhSim, verfahren, topologie, optimieren
       elIdx: i,
       gemessen: gemessen,
       deaktiviert: deaktiviert,
+      fmStatus: (r && r.fmStatus) || null,
       left: left,
       right: right
     };

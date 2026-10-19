@@ -230,8 +230,8 @@ function _collectSideData(side) {
     // Frequenzabgleich — Archiv-Format: kanonisches cent, seitenneutral (eine
     // Zeile je Elektrode, kein Seiten-Filter, kein Player-Bezug).
     const frq_rows = [];
-    const frq_src = (typeof _warpFResSource === "function")
-      ? _warpFResSource()
+    const frq_src = (typeof FRQ_testData === "function")
+      ? FRQ_testData()
       : ((typeof FRQ_eval !== "undefined" && Array.isArray(FRQ_eval)) ? FRQ_eval : []);
     for (const r of frq_src) {
       frq_rows.push({

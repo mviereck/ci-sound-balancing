@@ -143,9 +143,10 @@ let _pWarpFResVersion = 0;
 function _warpFResSource() {
   // piano-crossed/-wide werden NICHT herausgefiltert: diese Werte sind
   // gleichwertig und flieszen normal ins Warping ein (nur fmStatus-Hinweis).
-  return (typeof FRQ_testData === "function")
-    ? FRQ_testData()
+  var werte = (typeof FRQ_apply === "function")
+    ? FRQ_apply("warp", (typeof FRQ_distribution === "string") ? FRQ_distribution : "right", !!plNHSim)
     : [];
+  return werte.filter(function (w) { return w && w.gemessen; });
 }
 
 // BA428: Warp-Stuetzpunkte aus der zentralen Wertquelle FRQ_apply

@@ -367,12 +367,9 @@ function FRQ_tabellenZeilen(opts) {
     : FRQ_modusVonReferenzmodus(frq_referenzmodus());
   const nhSim = !!opts.nhSim;
 
-  const displayData = (typeof FRQ_testData === "function") ? FRQ_testData() : [];
   const frqWerte = FRQ_apply("gehoert", modus, nhSim);
   const werteByIdx = {};
   for (const wr of frqWerte) werteByIdx[wr.elIdx] = wr;
-  const byIdx = {};
-  for (const r of displayData) byIdx[r.elIdx] = r;
 
   const rows = [];
   const nCi = sideData[side].nEl;
@@ -402,7 +399,7 @@ function FRQ_tabellenZeilen(opts) {
     // Elektrode der beidseitigen Menge; r (Messeintrag) kann fehlen.
     const wr    = werteByIdx[i];
     const wSide = wr ? wr[side] : null;
-    const isNotPerc = (r && r.fmStatus === "not-perceivable");
+    const isNotPerc = (wr && wr.fmStatus === "not-perceivable");
     let nominellHz = null, gehoertHz = null, diffHz = null, diffCent = null;
     if (wSide && wSide.nominellHz != null) nominellHz = wSide.nominellHz;
     // BA483 (§15.5): "gemessen" aus dem Flag der Wertquelle, NICHT aus
@@ -425,7 +422,7 @@ function FRQ_tabellenZeilen(opts) {
     rows.push({ elIdx: i, elLabel, kind: "data",
       nominellHz, gehoertHz, diffHz, diffCent, restspanne, residDown, residUp,
       bandLoHz, bandHiHz, bandOverlap, bandOverlapEls,
-      isNotPerceivable: isNotPerc, fmStatus: (r && r.fmStatus) || null });
+      isNotPerceivable: isNotPerc, fmStatus: (wr && wr.fmStatus) || null });
   }
   return rows;
 }
@@ -661,10 +658,6 @@ function FRQ_legendeHtml(graphKey, data) {
 // Rueckgabe: rows[] fuer drawFRQGraph.
 function FRQ_ergebnisRows(side, opts) {
   opts = opts || {};
-  var fResData = (typeof FRQ_testData === "function") ? FRQ_testData() : [];
-  var measuredByIdx = {};
-  for (var m = 0; m < fResData.length; m++) measuredByIdx[fResData[m].elIdx] = fResData[m];
-
   var modus = (typeof opts.modus === "string") ? opts.modus
     : FRQ_modusVonReferenzmodus(frq_referenzmodus());
   var werte = FRQ_apply("gehoert", modus, !!opts.nhSim);
@@ -679,7 +672,6 @@ function FRQ_ergebnisRows(side, opts) {
   for (var j = 0; j < werte.length; j++) {
     var wr = werte[j];
     var seite = wr[side];
-    var r = measuredByIdx[wr.elIdx];
     var elNum = dEN(wr.elIdx, side);
     var hzIst = seite.nominellHz;
     // BA483 (§15.5): "gemessen" aus dem Wertquelle-Flag. Nach BA482 sind
@@ -691,7 +683,7 @@ function FRQ_ergebnisRows(side, opts) {
     var _rD = (isMeasured && seite.residDown  != null) ? seite.residDown  : 0;
     var _rU = (isMeasured && seite.residUp    != null) ? seite.residUp    : 0;
     var _rS = (isMeasured && seite.restspanne != null) ? seite.restspanne : 0;
-    var fmStatus = r ? (r.fmStatus || "converged") : null;
+    var fmStatus = wr.gemessen ? (wr.fmStatus || "converged") : null;
     var warn = (fmStatus === "piano-crossed");   // BA657: piano-wide entfernt
 
     // Sichtbarkeit: elActive===false -> unsichtbar (wie Bandgraph/Sec.9.5).
@@ -1117,7 +1109,8 @@ function FRQ_renderResults() {
   // Qualitätstext
   const qEl = document.getElementById('FRQ_resultsQualityText');
   if (qEl) {
-    const finalEntries = (typeof FRQ_testData === "function") ? FRQ_testData() : [];
+    const _feModus = FRQ_modusVonReferenzmodus(frq_referenzmodus());
+    const finalEntries = FRQ_apply("gehoert", _feModus, false).filter(function (w) { return w && w.gemessen; });
     const nElTotal = sideData[aktivSide].nEl;
     const nExcluded = sideData[aktivSide].elExDur.filter(function(v) { return v !== null; }).length
                     + sideData[aktivSide].elSt.filter(function(s) { return s === 'mute'; }).length;
