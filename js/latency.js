@@ -2,7 +2,7 @@
 // latency.js — Latenz-Messung (Inter-Ohr-Zeitversatz)
 // --------------------------------------------------------------------
 // Exportierte Globals:
-//   LTZ_raw              Array<{idL,idR,valueMs,timestamp}> — je Audioweg-Paar ein Versatz (Stufe 1)
+//   LTZ_raw              Array<{audioweg:{left,right},valueMs,timestamp}> — je Audioweg-Paar ein Versatz (Stufe 1)
 //   plApplyLatency          bool — im Player anwenden?
 //   ltz_sliderMs             aktuell vom UI gesetzter Wert (Live-Test)
 //   LTZ_active               Test läuft gerade?
@@ -25,9 +25,9 @@
 // ====================================================================
 
 // Sammlung gemessener Latenz-Versaetze, geschluesselt nach Audioweg-Paar.
-// Jeder Eintrag: { idL, idR, valueMs, timestamp }. idL/idR = die beim
-// Messen eingestellten Audioweg-IDs links/rechts (0 = "(keine Angabe)").
-// Schluessel ist das GEORDNETE Paar (idL, idR). Gleiches Paar erneut
+// Jeder Eintrag: { audioweg:{left,right}, valueMs, timestamp }. left/right =
+// die beim Messen eingestellten Audioweg-IDs (0 = "(keine Angabe)").
+// Schluessel ist das GEORDNETE Paar (left, right). Gleiches Paar erneut
 // gemessen -> ersetzt; neues Paar -> kommt dazu. Leere Sammlung = [].
 let LTZ_raw = [];
 
@@ -45,15 +45,15 @@ function LTZ_currentPair() {
     if (sideData.left  && sideData.left.AWG_activeId  != null) l = sideData.left.AWG_activeId;
     if (sideData.right && sideData.right.AWG_activeId != null) r = sideData.right.AWG_activeId;
   }
-  return { idL: l, idR: r };
+  return { left: l, right: r };
 }
 
 // Eintrag zum gegebenen Paar finden (oder null). Geordneter Vergleich.
-function LTZ_entryForPair(idL, idR) {
+function LTZ_entryForPair(left, right) {
   if (!Array.isArray(LTZ_raw)) return null;
   for (var i = 0; i < LTZ_raw.length; i++) {
     var e = LTZ_raw[i];
-    if (e && e.idL === idL && e.idR === idR) return e;
+    if (e && e.audioweg && e.audioweg.left === left && e.audioweg.right === right) return e;
   }
   return null;
 }
@@ -61,7 +61,7 @@ function LTZ_entryForPair(idL, idR) {
 // Eintrag zum AKTUELL eingestellten Paar (oder null).
 function LTZ_currentEntry() {
   var p = LTZ_currentPair();
-  return LTZ_entryForPair(p.idL, p.idR);
+  return LTZ_entryForPair(p.left, p.right);
 }
 
 // Versatz des aktuell eingestellten Paars schreiben: gleiches Paar ->
@@ -70,12 +70,12 @@ function LTZ_currentEntry() {
 function LTZ_setCurrent(valueMs) {
   if (!Array.isArray(LTZ_raw)) LTZ_raw = [];
   var p = LTZ_currentPair();
-  var e = LTZ_entryForPair(p.idL, p.idR);
+  var e = LTZ_entryForPair(p.left, p.right);
   if (e) {
     e.valueMs   = valueMs;
     e.timestamp = Date.now();
   } else {
-    LTZ_raw.push({ idL: p.idL, idR: p.idR, valueMs: valueMs, timestamp: Date.now() });
+    LTZ_raw.push({ audioweg: { left: p.left, right: p.right }, valueMs: valueMs, timestamp: Date.now() });
   }
 }
 
@@ -85,7 +85,7 @@ function LTZ_clearCurrent() {
   if (!Array.isArray(LTZ_raw)) { LTZ_raw = []; return; }
   var p = LTZ_currentPair();
   LTZ_raw = LTZ_raw.filter(function (e) {
-    return !(e && e.idL === p.idL && e.idR === p.idR);
+    return !(e && e.audioweg && e.audioweg.left === p.left && e.audioweg.right === p.right);
   });
 }
 
@@ -97,12 +97,12 @@ function LTZ_clearCurrent() {
 function LTZ_migrateResult(v) {
   if (Array.isArray(v)) {
     return v.filter(function (e) {
-      return e && typeof e.idL === "number" && typeof e.idR === "number"
-          && isFinite(e.valueMs);
+      return e && e.audioweg && typeof e.audioweg.left === "number"
+          && typeof e.audioweg.right === "number" && isFinite(e.valueMs);
     });
   }
   if (v && typeof v === "object" && isFinite(v.valueMs)) {
-    return [{ idL: 0, idR: 0, valueMs: v.valueMs,
+    return [{ audioweg: { left: 0, right: 0 }, valueMs: v.valueMs,
               timestamp: (typeof v.timestamp === "number") ? v.timestamp : Date.now() }];
   }
   return [];
@@ -132,7 +132,7 @@ function LTZ_writeEval() {
   for (var i = 0; i < LTZ_raw.length; i++) {
     var e = LTZ_raw[i];
     if (!e || !isFinite(e.valueMs)) continue;
-    entries.push({ idL: e.idL, idR: e.idR, valueMs: e.valueMs });
+    entries.push({ left: e.audioweg.left, right: e.audioweg.right, valueMs: e.valueMs });
     if (typeof e.timestamp === "number" && e.timestamp > ts) ts = e.timestamp;
   }
   if (entries.length === 0) { LTZ_eval = null; return; }
@@ -152,14 +152,14 @@ function LTZ_testData() {
   var current = null;
   for (var i = 0; i < ev.entries.length; i++) {
     var e = ev.entries[i];
-    if (e && e.idL === p.idL && e.idR === p.idR) { current = e; break; }
+    if (e && e.left === p.left && e.right === p.right) { current = e; break; }
   }
   return { entries: ev.entries, timestamp: ev.timestamp, current: current };
 }
 
 // Stufe 5 -- der nach der globalen Audioweg-Einstellung gueltige
 // Messwert. Liest NUR ueber Stufe 4 (LTZ_testData), nie den Rohwert.
-// Liefert { idL, idR, valueMs, measured }. 'measured' trennt den echten
+// Liefert { left, right, valueMs, measured }. 'measured' trennt den echten
 // Messwert 0 ms (gueltiger Befund "kein Versatz") vom Fallback 0 bei
 // ungemessenem Paar.
 //
@@ -170,9 +170,9 @@ function LTZ_apply() {
   var td = LTZ_testData();
   var p = LTZ_currentPair();
   if (td.current && isFinite(td.current.valueMs)) {
-    return { idL: p.idL, idR: p.idR, valueMs: td.current.valueMs, measured: true };
+    return { left: p.left, right: p.right, valueMs: td.current.valueMs, measured: true };
   }
-  return { idL: p.idL, idR: p.idR, valueMs: 0, measured: false };
+  return { left: p.left, right: p.right, valueMs: 0, measured: false };
 }
 
 let plApplyLatency = true;     // analog plApplyBalance
@@ -595,8 +595,8 @@ function _ltz_refreshPrereqHints() {
 function ltz_hookOnStart() {
   // Mess-Kontext Audioweg: VOR der Seiten-Sitz-Pruefung die Audioweg-
   // Vortest-Box (test-agnostisch, testUI.audioPathCheck). Der Latenztest
-  // uebergibt KEIN measuredPathIds -> Default leere Liste -> nur Anzeige
-  // der eingestellten Wege + "(keine Angabe)"-Warnung + Pruefbitte, KEINE
+  // uebergibt kein measuredEntries -> leere Liste -> nur Anzeige der
+  // eingestellten Wege + "(keine Angabe)"-Warnung + Pruefbitte, KEINE
   // Abweich-/Mischwarnung (ein anderer Weg ist hier normal und erwuenscht).
   var _sideCheckThen = function() {
     // Seitenhörtest vor Start (analog freqmatch slider).
@@ -818,7 +818,7 @@ function LTZ_renderResults() {
   ltz_resEls.none.hidden = true;
   ltz_resEls.content.hidden = false;
 
-  var cur = (typeof LTZ_currentPair === "function") ? LTZ_currentPair() : { idL: 0, idR: 0 };
+  var cur = (typeof LTZ_currentPair === "function") ? LTZ_currentPair() : { left: 0, right: 0 };
 
   var head =
     "<thead><tr>" +
@@ -828,10 +828,10 @@ function LTZ_renderResults() {
     "</tr></thead>";
 
   var rows = entries.map(function (e) {
-    var isCur = (e.idL === cur.idL && e.idR === cur.idR);
+    var isCur = (e.left === cur.left && e.right === cur.right);
     var f = _ltz_fmtOffset(e.valueMs);
-    var labL = (typeof AWG_label === "function") ? AWG_label(e.idL) : String(e.idL);
-    var labR = (typeof AWG_label === "function") ? AWG_label(e.idR) : String(e.idR);
+    var labL = (typeof AWG_label === "function") ? AWG_label(e.left) : String(e.left);
+    var labR = (typeof AWG_label === "function") ? AWG_label(e.right) : String(e.right);
     var rowStyle = isCur
       ? "font-weight:700;background:var(--accent-light);"
       : "";

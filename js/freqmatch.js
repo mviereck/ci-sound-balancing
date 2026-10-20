@@ -331,22 +331,20 @@ function frq_startPiano() {
   };
   testUI.audioPathCheck.run(
     { sides: 'both',
-      measuredPathIds: function (side) {
-        // Je Seite die bisher gemessenen Wege aus ALLEN Verlaufs-Eintraegen
-        // aller Elektroden der aktuellen Sitzung, in Verlaufsreihenfolge.
+      // Alle Verlaufs-Eintraege aller Elektroden der Sitzung als eine Liste,
+      // in Verlaufsreihenfolge. Die Box zieht die ids je Seite ueber
+      // AWG_usedIds (Feld audioweg).
+      measuredEntries: (function () {
         var fp = _frq_pianoData();
         if (!fp || !fp.perElectrode) return [];
-        var field = (side === "left") ? "audiopathL" : "audiopathR";
-        var ids = [];
+        var all = [];
         Object.keys(fp.perElectrode).forEach(function (elKey) {
           var pe = fp.perElectrode[elKey];
           var v = (pe && Array.isArray(pe.verlauf)) ? pe.verlauf : [];
-          v.forEach(function (e) {
-            if (e && e[field] != null) ids.push(e[field]);
-          });
+          for (var i = 0; i < v.length; i++) all.push(v[i]);
         });
-        return ids;
-      } },
+        return all;
+      })() },
     _sideCheckThen,
     function() { if (FRQ_els) FRQ_els._stopTest(); }
   );
@@ -444,8 +442,8 @@ function _frq_pianoSetBorder(elIdx, step, border, cent, dg) {
       idx = last;
     } else {
       v.push({ step: step, lower: null, upper: null, durchgang: dg,
-               audiopathL: _frq_activePathId("left"),
-               audiopathR: _frq_activePathId("right") });
+               audioweg: { left:  _frq_activePathId("left"),
+                           right: _frq_activePathId("right") } });
       idx = v.length - 1;
     }
     if (run) {
@@ -457,8 +455,8 @@ function _frq_pianoSetBorder(elIdx, step, border, cent, dg) {
   // Weg-Paar der aktiven Seiten zum Bestaetigungs-Zeitpunkt festhalten
   // (ueberschreibt mit dem aktuell gueltigen Paar; der zuletzt gesetzte
   // Wert gilt fuer diesen Verlaufs-Eintrag).
-  v[idx].audiopathL = _frq_activePathId("left");
-  v[idx].audiopathR = _frq_activePathId("right");
+  v[idx].audioweg = { left:  _frq_activePathId("left"),
+                      right: _frq_activePathId("right") };
 }
 
 // Vollstaendige Runden (beide Grenzen) einer Sitzung, chronologisch.
@@ -773,19 +771,13 @@ function _frq_pianoFinish() {
 // einer Elektrode zu einer Verteilung [{id,count}] | null. Liest nur den
 // persistierten Verlauf (ladefest), nicht die fluechtige aktive Auswahl.
 function _frq_audioPathSide(elIdx, side) {
-  // BA673: ids aus dem persistierten Verlauf dieser Elektrode, dann zentral
-  // verdichten. Pro Elektroden-Eintrag ein audioPath; die testweite
-  // Verdichtung ueber alle Elektroden macht erst die Anzeige.
+  // BA673: Verlauf dieser Elektrode zentral durchsehen (AWG_usedIds auf dem
+  // Feld audioweg) + verdichten. Pro Elektroden-Eintrag ein audioPath; die
+  // testweite Verdichtung ueber alle Elektroden macht erst die Anzeige.
   var fp = _frq_pianoData();
   var pe = fp && fp.perElectrode && fp.perElectrode[elIdx];
   var v  = (pe && Array.isArray(pe.verlauf)) ? pe.verlauf : [];
-  var field = (side === "left") ? "audiopathL" : "audiopathR";
-  var ids = [];
-  for (var i = 0; i < v.length; i++) {
-    if (!v[i]) continue;
-    ids.push((v[i][field] != null) ? v[i][field] : 0);
-  }
-  return AWG_distribution(ids);   // [{id,count}] | null
+  return AWG_distribution(AWG_usedIds(v, side));   // [{id,count}] | null
 }
 
 // B1: Klavier-Ergebnisse aus dem Roh-Speicher nach FRQ_eval (live).

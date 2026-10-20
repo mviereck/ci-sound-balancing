@@ -156,69 +156,80 @@ function AWG_rename(id, label) {
   return true;
 }
 
+// Die EINZIGE Funktion, die je ein Rohmeszschritt-Objekt durchsieht.
+// Jeder Eintrag traegt das vereinheitlichte Feld audioweg:{left,right}.
+// side = "left"|"right" -> nur diese Seite; weggelassen -> beide Seiten
+// flach hintereinander. Reihenfolge = Listen-Reihenfolge des entries-Arrays
+// (fuer die Vortest-Box: letzter in der Liste = zuletzt gemessen).
+// Fehlendes audioweg oder fehlende Seite -> ID 0.
+function AWG_usedIds(entries, side) {
+  var out = [];
+  var sides = side ? [side] : ["left", "right"];
+  (entries || []).forEach(function (e) {
+    if (!e || !e.audioweg) return;
+    for (var i = 0; i < sides.length; i++) {
+      var v = e.audioweg[sides[i]];
+      out.push((v != null) ? v : 0);
+    }
+  });
+  return out;
+}
+
+// Die EINZIGE Stelle, die weiss, WO die Rohwert-Listen aller Tests liegen.
+// Liefert ein Array von Eintragslisten (je Test eine oder mehrere). Sieht
+// selbst nichts durch -- das tut AWG_usedIds. Defensiv gegen undefined,
+// da audiopath.js frueh laedt.
+// SNAPSHOT-FAEHIG: sobald es Snapshots gibt, wird hier EINE weitere Quelle
+// ergaenzt (ihre Rohwert-Listen); die fuenf Tests und AWG_usedIds bleiben
+// unberuehrt, weil Snapshot-Eintraege dasselbe audioweg-Feld tragen.
+function AWG_usedCollect() {
+  var lists = [];
+  // ELL: sideData[side].ELL_raw (beide Seiten getrennt abgelegt).
+  if (typeof sideData !== "undefined") {
+    ["left", "right"].forEach(function (s) {
+      if (sideData[s] && Array.isArray(sideData[s].ELL_raw)) lists.push(sideData[s].ELL_raw);
+    });
+  }
+  // STB: STB_raw ist ein Objekt {el: eintrag} -> Werte als Liste.
+  if (typeof STB_raw !== "undefined" && STB_raw) {
+    lists.push(Object.keys(STB_raw).map(function (k) { return STB_raw[k]; }));
+  }
+  // Latenz: LTZ_raw ist bereits eine flache Liste.
+  if (typeof LTZ_raw !== "undefined" && Array.isArray(LTZ_raw)) lists.push(LTZ_raw);
+  // FRQ: perElectrode[el].verlauf[] zweistufig -> flach zu einer Liste.
+  if (typeof FRQ_rawPiano !== "undefined" && FRQ_rawPiano && FRQ_rawPiano.perElectrode) {
+    var frqAll = [];
+    var pe = FRQ_rawPiano.perElectrode;
+    for (var el in pe) {
+      var v = pe[el] && pe[el].verlauf;
+      if (Array.isArray(v)) for (var i = 0; i < v.length; i++) frqAll.push(v[i]);
+    }
+    lists.push(frqAll);
+  }
+  // SNR: zwei moegliche Rohwert-Objekte (binaural global + je Seite), jeweils
+  // EIN Durchgang = ein Eintrag mit audioweg. Als Ein-Element-Listen einwerfen.
+  if (typeof SNR_rawBoth !== "undefined" && SNR_rawBoth) lists.push([SNR_rawBoth]);
+  if (typeof sideData !== "undefined") {
+    ["left", "right"].forEach(function (s) {
+      if (sideData[s] && sideData[s].SNR_rawSide) lists.push([sideData[s].SNR_rawSide]);
+    });
+  }
+  return lists;
+}
+
 // Wird dieser Audioweg von irgendeiner Messung referenziert? Durchsucht die
-// eingefrorenen Audioweg-Referenzen aller vier Mess-Tests + Latenz. Die
-// fluechtige aktive Auswahl (sideData[side].AWG_activeId) zaehlt bewusst
-// NICHT als Nutzung (nur abgeschlossene Messungen, §4). Einzige
-// Auskunftsstelle — spaeter hier zusaetzlich die Snapshots pruefen.
-// Defensiv gegen undefined, da audiopath.js frueh laedt.
+// eingefrorenen audioweg-Felder aller Rohmessungen ueber die eine Durchsicht
+// AWG_usedIds (voller Umfang via AWG_usedCollect). Die fluechtige aktive
+// Auswahl (sideData[side].AWG_activeId) zaehlt bewusst NICHT (nur
+// abgeschlossene Messungen). BEWUSSTE Rohwert-Ausnahme: AWG_isUsed fragt
+// "existiert eine Rohwert-Referenz, die beim Entfernen braeche", nicht "was
+// ist gewertet" -- darum ueber die Rohwerte, nicht die Auswertung.
+// Spaeter kommen die Snapshot-Listen als weitere Quelle in AWG_usedCollect.
 function AWG_isUsed(id) {
   if (id === AWG_NONE_ID) return false;
-
-  // ELL: audiopathID je Rohwert, BEIDE Seiten (sideData[side].ELL_raw).
-  // BEWUSSTE AUSNAHME vom Snapshot-Trennungs-Anspruch (nur-Auswertung-lesen):
-  // AWG_isUsed fragt nicht "was ist aktuell gewertet", sondern "existiert
-  // irgendwo eine Rohwert-Referenz, die beim echten Entfernen braeche". Das
-  // ist inhaerent eine Rohdaten-Frage. Die gewertete Verteilung ELL_eval
-  // .audioPath filtert ausgeschlossene Elektroden heraus (test.js) -- eine
-  // spaeter wieder aufgenommene Elektrode verloere sonst ihren Audioweg-Namen.
-  if (typeof sideData !== "undefined") {
-    for (const side of ["left", "right"]) {
-      const rows = sideData[side] && sideData[side].ELL_raw;
-      if (Array.isArray(rows) && rows.some(function (r) { return r && r.audiopathID === id; })) return true;
-    }
-  }
-
-  // STB: Audioweg liegt im Rohwert-Objekt STB_raw[el].audiopathID (global).
-  if (typeof STB_raw !== "undefined" && STB_raw) {
-    for (const k in STB_raw) {
-      const r = STB_raw[k];
-      const p = (r && typeof r === "object") ? r.audiopathID : null;
-      if (p && (p.left === id || p.right === id)) return true;
-    }
-  }
-
-  // FRQ: FRQ_rawPiano.perElectrode[el].verlauf[] mit audiopathL/R (global).
-  if (typeof FRQ_rawPiano !== "undefined" && FRQ_rawPiano && FRQ_rawPiano.perElectrode) {
-    const pe = FRQ_rawPiano.perElectrode;
-    for (const el in pe) {
-      const v = pe[el] && pe[el].verlauf;
-      if (Array.isArray(v) && v.some(function (e) { return e && (e.audiopathL === id || e.audiopathR === id); })) return true;
-    }
-  }
-
-  // SNR: audioPath = {left?,right?} als Verteilung [{id,count}].
-  //   SNR_evalBoth (global) + sideData[side].SNR_evalSide (je Seite).
-  const _snrHas = function (res) {
-    if (!res || !res.audioPath) return false;
-    for (const side of ["left", "right"]) {
-      const dist = res.audioPath[side];
-      if (Array.isArray(dist) && dist.some(function (d) { return d && d.id === id; })) return true;
-    }
-    return false;
-  };
-  if (typeof SNR_evalBoth !== "undefined" && _snrHas(SNR_evalBoth)) return true;
-  if (typeof sideData !== "undefined") {
-    for (const side of ["left", "right"]) {
-      if (_snrHas(sideData[side] && sideData[side].SNR_evalSide)) return true;
-    }
-  }
-
-  // Latenz: LTZ_raw = Array<{idL,idR,...}> (global, Stufe 1).
-  if (typeof LTZ_raw !== "undefined" && Array.isArray(LTZ_raw)
-      && LTZ_raw.some(function (e) { return e && (e.idL === id || e.idR === id); })) return true;
-
-  return false;
+  return AWG_usedCollect().some(function (entries) {
+    return AWG_usedIds(entries).indexOf(id) >= 0;
+  });
 }
 
 // Ausblenden: Datensatz bleibt erhalten (benutzte Eintraege, deren alte

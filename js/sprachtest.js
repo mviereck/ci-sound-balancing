@@ -435,9 +435,9 @@ function snr_start() {
     };
     // Audioweg-Bestaetigung VOR der Sitz-Pruefung. SNR ist nicht
     // fortsetzbar (frischer Durchgang) -> kein Verlauf zum Abgleich,
-    // measuredPathIds liefert leere Liste (nur "(keine Angabe)"-Warnung).
+    // keine measuredEntries (nur "(keine Angabe)"-Warnung falls kein Weg).
     testUI.audioPathCheck.run(
-      Object.assign({}, _sideCfg, { measuredPathIds: function () { return []; } }),
+      Object.assign({}, _sideCfg),
       _sideCheckThen,
       function () { _st_abortStart(); }
     );
@@ -695,20 +695,18 @@ function _snr_activePathId(side) {
   return (typeof sideData !== "undefined" && sideData[side]
           && sideData[side].AWG_activeId != null) ? sideData[side].AWG_activeId : 0;
 }
-// Eingefrorenes Weg-Objekt fuer das Ergebnis: je Seite eine Verteilung
-// (BA673, wie die anderen Tests). SNR hat je Seite genau einen Durchgang,
-// also genau einen Eintrag count:1. Beidseitig {left,right}, einseitig nur
-// die getestete Seite ({left:...} ODER {right:...}).
-function _snr_frozenAudioPath() {
+// Eingefrorenes Audioweg-Feld fuer den Rohwert: je Seite die rohe aktive
+// Weg-id (einheitliches audioweg:{left,right}). SNR hat je Seite genau EINEN
+// Durchgang (der Weg kann im Test nicht gewechselt werden). Einseitig bleibt
+// die ungetestete Seite 0. Die Verdichtung zur Verteilung passiert erst in
+// SNR_writeEval (_snr_evalAudioPath).
+function _snr_frozenAudioweg() {
   if (snr_isBothEar()) {
-    return {
-      left:  AWG_distribution([_snr_activePathId("left")]),
-      right: AWG_distribution([_snr_activePathId("right")])
-    };
+    return { left: _snr_activePathId("left"), right: _snr_activePathId("right") };
   }
   var side = snr_currentSide();
-  var o = {};
-  o[side] = AWG_distribution([_snr_activePathId(side)]);
+  var o = { left: 0, right: 0 };
+  o[side] = _snr_activePathId(side);
   return o;
 }
 
@@ -802,6 +800,24 @@ function SNR_computeEval_srt(raw) {
 }
 
 // ------------------------------------------------------------
+// Verdichtet das rohe audioweg:{left,right} des SNR-Durchgangs zur
+// Verteilung je Seite. SNR = ein Durchgang je Seite -> je Seite genau ein
+// Eintrag count:1. Beidseitig {left,right}, einseitig nur die getestete
+// Seite. Nutzt die eine Durchsicht AWG_usedIds + AWG_distribution wie die
+// anderen Tests.
+function _snr_evalAudioPath(raw) {
+  if (!raw || !raw.audioweg) return {};
+  var o = {};
+  if (snr_isBothEar()) {
+    o.left  = AWG_distribution(AWG_usedIds([raw], "left"));
+    o.right = AWG_distribution(AWG_usedIds([raw], "right"));
+  } else {
+    var side = snr_currentSide();
+    o[side] = AWG_distribution(AWG_usedIds([raw], side));
+  }
+  return o;
+}
+
 // Stufe 2b: EINZIGE Schreibstelle. Rechnet via SNR_computeEval_srt aus dem
 // Rohwert und friert das Ergebnis ins Auswertungs-Feld (SNR_evalSide je Seite
 // oder SNR_evalBoth global). Nicht-volatiler Zeitstempel = max ueber die
@@ -847,7 +863,7 @@ function SNR_writeEval(scope) {
     // Mitgefuehrter Kontext (aus dem Rohwert durchgereicht).
     materialSlug: raw.materialSlug,
     noiseId: raw.noiseId,
-    audioPath: raw.audioPath,
+    audioPath: _snr_evalAudioPath(raw),
     timestamp: ts
   });
 }
@@ -892,7 +908,7 @@ function snr_finish(converged) {
     converged: !!converged,
     materialSlug: snr_currentTestSet() || null,
     noiseId: snr_noiseChoiceId,
-    audioPath: _snr_frozenAudioPath()
+    audioweg: _snr_frozenAudioweg()
   };
   if (snr_bothEar) {
     SNR_rawBoth = rawObj;

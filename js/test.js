@@ -731,19 +731,22 @@ function ELL_writeEval(side) {
     if (typeof t0 === "number" && t0 > ts) ts = t0;
   }
 
-  // Audioweg-Verteilung je gewertetem Meszschritt (BA673): Liste der ids,
-  // dann zentral verdichten. ELL ist einseitig -> flache Verteilung der
-  // getesteten (aktiven) Seite, kein {left,right}-Wrapper.
-  var _awgIds = [];
+  // Nur die gewerteten Schritte (ausgeschlossene/stumme Elektroden raus),
+  // dann zentral durchsehen + verdichten.
+  var _kept = [];
   for (var pw = 0; pw < results.length; pw++) {
     var rw = results[pw];
     if (!rw) continue;
     var okw = _elExDur[rw.a] === null && _elSt[rw.a] !== "mute"
            && _elExDur[rw.b] === null && _elSt[rw.b] !== "mute";
     if (!okw) continue;
-    _awgIds.push((rw.audiopathID != null) ? rw.audiopathID : 0);
+    _kept.push(rw);
   }
-  var audioPath = AWG_distribution(_awgIds);   // [{id,count}] | null
+  // ELL ist einseitig; die Seite steckt im Ablageort. Die getestete Seite
+  // gezielt abgreifen, damit die flache Verteilung wie bisher nur echte Wege
+  // der getesteten Seite zeigt (die ungetestete Seite ist 0).
+  var _ellSide = key;
+  var audioPath = AWG_distribution(AWG_usedIds(_kept, _ellSide));
 
   s.ELL_eval = {
     raw: levels,
@@ -1286,8 +1289,11 @@ function ell_recBal() {
   if (!ELL_testAct || ELL_testIdx >= ELL_testPairs.length) return;
   // BA 247: ELL_curBase ist immer 0.
   const a = ELL_curA, b = ELL_curB, tot = _ell_sliderVal();
+  const _awgId = (typeof AWG_activeId !== "undefined") ? AWG_activeId : 0;
   const ne = { a, b, offset: tot, timestamp: Date.now(),
-               audiopathID: (typeof AWG_activeId !== "undefined") ? AWG_activeId : 0 };
+               audioweg: (activeSide === "right")
+                 ? { left: 0, right: _awgId }
+                 : { left: _awgId, right: 0 } };
   const ei = ELL_raw.findIndex((x) => (x.a === a && x.b === b) || (x.a === b && x.b === a));
   if (ei >= 0) {
     undoSt.push({ t: "b", a: "r", e: ne, p: { ...ELL_raw[ei] } });
@@ -1623,12 +1629,7 @@ document.addEventListener("DOMContentLoaded", function() {
             };
             testUI.audioPathCheck.run(
               { sides: 'one', side: activeSide,
-                measuredPathIds: function (side) {
-                  // ELL ist einseitig: alle ELL_raw gehoeren zur aktiven Seite.
-                  return (ELL_raw || []).map(function (r) {
-                    return (r && r.audiopathID != null) ? r.audiopathID : 0;
-                  });
-                } },
+                measuredEntries: ELL_raw },
               _sideCheckThen,
               function() {
                 // Abbruch in der Audioweg-Box: Test gar nicht erst starten.
@@ -1661,12 +1662,7 @@ document.addEventListener("DOMContentLoaded", function() {
             };
             testUI.audioPathCheck.run(
               { sides: 'one', side: activeSide,
-                measuredPathIds: function (side) {
-                  // ELL ist einseitig: alle ELL_raw gehoeren zur aktiven Seite.
-                  return (ELL_raw || []).map(function (r) {
-                    return (r && r.audiopathID != null) ? r.audiopathID : 0;
-                  });
-                } },
+                measuredEntries: ELL_raw },
               _sideCheckThenConv,
               function() {
                 // Abbruch in der Audioweg-Box: Test gar nicht erst starten.

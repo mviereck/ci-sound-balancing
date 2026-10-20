@@ -3,7 +3,7 @@
 // ============================================================
 
 // State
-// Stufe 1 -- Rohwert je Elektrode: { offset, timestamp, audiopathID:{left,right} }.
+// Stufe 1 -- Rohwert je Elektrode: { offset, timestamp, audioweg:{left,right} }.
 // offset = dB-Ausgleich (negativ = rechts war lauter). Leser gehen ueber
 // STB_rawOffset/STB_hasRaw (state-side.js), nie ueber .offset direkt.
 let STB_raw = {};
@@ -340,7 +340,7 @@ function stb_confirm() {
   STB_raw[el] = {
     offset: val,
     timestamp: Date.now(),
-    audiopathID: {
+    audioweg: {
       left:  (typeof sideData !== "undefined" && sideData.left  && sideData.left.AWG_activeId  != null) ? sideData.left.AWG_activeId  : 0,
       right: (typeof sideData !== "undefined" && sideData.right && sideData.right.AWG_activeId != null) ? sideData.right.AWG_activeId : 0
     }
@@ -779,19 +779,13 @@ function stb_hookOnStart() {
   };
   testUI.audioPathCheck.run(
     { sides: 'both',
-      measuredPathIds: function (side) {
-        // BA676: Je Seite die bisher gemessenen Wege aus dem Rohwert-Objekt,
-        // in Elektroden-Reihenfolge (zuletzt = hoechster Elektroden-Key
-        // genuegt fuer "zuletzt gemessen"; Messreihenfolge ist bei STB
-        // nicht persistiert, daher Key-Reihenfolge).
-        if (typeof STB_raw === "undefined") return [];
-        return Object.keys(STB_raw).map(Number).sort(function (a,b){return a-b;})
-          .map(function (el) {
-            var r = STB_raw[el];
-            var ap = (r && typeof r === "object") ? r.audiopathID : null;
-            return (ap && ap[side] != null) ? ap[side] : 0;
-          });
-      } },
+      // Rohwert-Liste in Elektroden-Key-Reihenfolge (Messreihenfolge bei STB
+      // nicht persistiert; Key-Reihenfolge wie bisher). Die Box zieht die ids
+      // je Seite ueber AWG_usedIds.
+      measuredEntries: (typeof STB_raw !== "undefined" && STB_raw)
+        ? Object.keys(STB_raw).map(Number).sort(function (a,b){return a-b;})
+            .map(function (el) { return STB_raw[el]; })
+        : [] },
     _sideCheckThen,
     function() { if (STB_els && STB_els._stopTest) STB_els._stopTest(); }
   );

@@ -316,9 +316,9 @@ function _collectBilateral() {
     // LTZ_writeEval filtert bereits auf endliche valueMs (kein .filter noetig).
     out.latenz.entries = LTZ_testData().entries
       .map((e) => ({
-        idL: e.idL, idR: e.idR, ms: e.valueMs,
-        labelL: (typeof AWG_label === "function") ? AWG_label(e.idL) : String(e.idL),
-        labelR: (typeof AWG_label === "function") ? AWG_label(e.idR) : String(e.idR),
+        left: e.left, right: e.right, ms: e.valueMs,
+        labelL: (typeof AWG_label === "function") ? AWG_label(e.left) : String(e.left),
+        labelR: (typeof AWG_label === "function") ? AWG_label(e.right) : String(e.right),
       }));
     out.latenz.has = out.latenz.entries.length > 0;
   }
@@ -1127,8 +1127,8 @@ function _audiologLTZBlock(mainSides) {
   if (ms === 0) return "";
   const earlierSide = ms >= 0 ? t("sideLeft")  : t("sideRight");
   const laterSide   = ms >= 0 ? t("sideRight") : t("sideLeft");
-  const labL = (typeof AWG_label === "function") ? AWG_label(a.idL) : String(a.idL);
-  const labR = (typeof AWG_label === "function") ? AWG_label(a.idR) : String(a.idR);
+  const labL = (typeof AWG_label === "function") ? AWG_label(a.left) : String(a.left);
+  const labR = (typeof AWG_label === "function") ? AWG_label(a.right) : String(a.right);
   const lines = [];
   lines.push(`## ${t("audiologSecLTZ")}`);
   lines.push("");

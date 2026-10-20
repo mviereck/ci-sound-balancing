@@ -358,7 +358,7 @@ function STB_hasRaw(i) {
 // Migration geladener Rohwerte aufs Objekt-Format.
 //   - neues Format (Eintrag ist Objekt mit .offset)       -> uebernommen
 //   - altes Format (Eintrag ist nackte Zahl)              -> { offset: zahl,
-//       timestamp: null, audiopathID: {left,right} }; Weg aus oldPath ziehen
+//       timestamp: null, audioweg: {left,right} }; Weg aus oldPath ziehen
 //   - unbrauchbarer Eintrag                               -> uebersprungen
 // oldPath: beim Laden alter Dateien aufgefangener STB_resultsPath (oder null).
 function STB_migrateRaw(v, oldPath) {
@@ -369,20 +369,22 @@ function STB_migrateRaw(v, oldPath) {
     var e = v[k];
     if (e != null && typeof e === "object") {
       if (!isFinite(e.offset)) return;
-      var ap = (e.audiopathID && typeof e.audiopathID === "object") ? e.audiopathID : {};
+      // Laedt sowohl neues audioweg- als auch altes audiopathID-Feld (Alt-Dateien).
+      var aw = (e.audioweg && typeof e.audioweg === "object") ? e.audioweg
+             : (e.audiopathID && typeof e.audiopathID === "object") ? e.audiopathID : {};
       out[k] = {
         offset: e.offset,
         timestamp: (typeof e.timestamp === "number") ? e.timestamp : null,
-        audiopathID: { left:  (typeof ap.left  === "number") ? ap.left  : 0,
-                       right: (typeof ap.right === "number") ? ap.right : 0 }
+        audioweg: { left:  (typeof aw.left  === "number") ? aw.left  : 0,
+                    right: (typeof aw.right === "number") ? aw.right : 0 }
       };
     } else if (isFinite(e)) {
       var p = op[k];
       out[k] = {
         offset: e,
         timestamp: null,
-        audiopathID: { left:  (p && typeof p.left  === "number") ? p.left  : 0,
-                       right: (p && typeof p.right === "number") ? p.right : 0 }
+        audioweg: { left:  (p && typeof p.left  === "number") ? p.left  : 0,
+                    right: (p && typeof p.right === "number") ? p.right : 0 }
       };
     }
   });
@@ -424,13 +426,12 @@ function STB_computeEval_average(mode) {
 
 // Audioweg-Verdichtung je Seite ueber die gewerteten Elektroden.
 function STB_audioPathSide(side, keys) {
-  var ids = [];
+  var entries = [];
   for (var i = 0; i < keys.length; i++) {
     var r = (typeof STB_raw !== "undefined") ? STB_raw[keys[i]] : null;
-    var ap = (r && typeof r === "object") ? r.audiopathID : null;
-    ids.push((ap && ap[side] != null) ? ap[side] : 0);
+    if (r) entries.push(r);
   }
-  return AWG_distribution(ids);   // [{id,count}] | null
+  return AWG_distribution(AWG_usedIds(entries, side));   // [{id,count}] | null
 }
 
 // Stufe 2b -- einziger Schreiber von STB_eval. Schreibt perEl, avgMode,
@@ -456,9 +457,9 @@ function STB_writeEval() {
     perEl[el] = {
       offset: r.offset,
       ausgewertet: true,
-      audiopathID: (r && r.audiopathID && typeof r.audiopathID === "object")
-        ? { left:  (typeof r.audiopathID.left  === "number") ? r.audiopathID.left  : 0,
-            right: (typeof r.audiopathID.right === "number") ? r.audiopathID.right : 0 }
+      audioweg: (r && r.audioweg && typeof r.audioweg === "object")
+        ? { left:  (typeof r.audioweg.left  === "number") ? r.audioweg.left  : 0,
+            right: (typeof r.audioweg.right === "number") ? r.audioweg.right : 0 }
         : { left: 0, right: 0 }
     };
   }

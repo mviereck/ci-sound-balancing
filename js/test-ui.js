@@ -2744,8 +2744,12 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
     cfg = cfg || {};
     var sides = (cfg.sides === 'both') ? ['left', 'right']
               : [ (cfg.side === 'right') ? 'right' : 'left' ];
-    var getPathIds = (typeof cfg.measuredPathIds === "function")
-      ? cfg.measuredPathIds : function () { return []; };
+    // Die Box bekommt die Rohwert-Liste des laufenden Tests (cfg.measuredEntries)
+    // und zieht die bisher gemessenen Weg-ids je Seite ueber die eine Durchsicht.
+    var getPathIds = function (side) {
+      return (typeof AWG_usedIds === "function" && cfg.measuredEntries)
+        ? AWG_usedIds(cfg.measuredEntries, side) : [];
+    };
 
     // Zeile je Seite: "LINKS: <Weg>".
     _apEls.pathList.innerHTML = "";
