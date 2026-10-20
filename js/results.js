@@ -375,7 +375,6 @@ function FRQ_tabellenZeilen(opts) {
   const nCi = sideData[side].nEl;
   for (let i = 0; i < nCi; i++) {
     const elLabel = dENPrefix(side) + dEN(i, side);
-    const r = byIdx[i];
     // BA433-Fix (§9.5): Nur NICHT AKTIVE Elektroden (elActive===false,
     // vom Audiologen abgeschaltet) fallen aus der Tabelle als "nicht
     // existent" -> kind "notActive", kein Band. Stumme/ausgeschlossene
