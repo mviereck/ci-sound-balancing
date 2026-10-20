@@ -85,10 +85,11 @@ var SAVE_SCHEMA = [
     get: function () { return (typeof STB_evalSelectedEls !== "undefined" ? STB_evalSelectedEls : null); },
     set: function (v) { if (typeof STB_evalSelectedEls !== "undefined") STB_evalSelectedEls = Array.isArray(v) ? v.slice() : null; } },
 
-  // BA662: Beidohriges Sprachtest-Ergebnis (seitenlos, wie LTZ_result).
+  // BA687: Beidohriges Sprachtest-Auswertungs-Feld (Stufe 3). Key-String bleibt
+  // fuer Lade-Migration von Alt-Dateien (vor BA687).
   { key: "SNR_resultBoth", scope: "global",
-    get: function () { return (typeof SNR_resultBoth !== "undefined") ? SNR_resultBoth : null; },
-    set: function (v) { SNR_resultBoth = (typeof SNR_migrateResult === "function") ? SNR_migrateResult(v) : ((v && typeof v === "object") ? v : null); },
+    get: function () { return (typeof SNR_evalBoth !== "undefined") ? SNR_evalBoth : null; },
+    set: function (v) { SNR_evalBoth = (typeof SNR_migrateResult === "function") ? SNR_migrateResult(v) : ((v && typeof v === "object") ? v : null); },
     default: null, valid: { type: "any" } },
   { key: "SNR_rawBoth", scope: "global",
     get: function () { return (typeof SNR_rawBoth !== "undefined") ? SNR_rawBoth : null; },
@@ -591,9 +592,11 @@ SAVE_SCHEMA.push(
     get: function (s) { return sideData[s].ELL_eval; },
     set: function (v, s) { sideData[s].ELL_eval = (v && typeof v === "object") ? v : null; },
     default: function () { return null; }, valid: { type: "any" } },
+  // BA687: Seitiges Sprachtest-Auswertungs-Feld (Stufe 3). Key-String bleibt
+  // fuer Lade-Migration von Alt-Dateien (vor BA687).
   { key: "SNR_result", scope: "side",
-    get: function (s) { return sideData[s].SNR_result || null; },
-    set: function (v, s) { sideData[s].SNR_result = (typeof SNR_migrateResult === "function") ? SNR_migrateResult(v) : ((v && typeof v === "object") ? v : null); },
+    get: function (s) { return sideData[s].SNR_evalSide || null; },
+    set: function (v, s) { sideData[s].SNR_evalSide = (typeof SNR_migrateResult === "function") ? SNR_migrateResult(v) : ((v && typeof v === "object") ? v : null); },
     default: null },
   { key: "SNR_rawSide", scope: "side",
     get: function (s) { return sideData[s].SNR_rawSide || null; },
@@ -819,6 +822,13 @@ function refreshAll() {
         sideData[s].SNR_rawSide = SNR_rawFromResult(sideData[s].SNR_result);
       }
     });
+  }
+  // Nach Laden: SNR-Auswertung aus dem Rohwert NEU schreiben (nicht den
+  // geladenen Wert blind uebernehmen) -- Feld und Rohwerte konsistent.
+  if (typeof SNR_writeEval === "function") {
+    SNR_writeEval("both");
+    SNR_writeEval("left");
+    SNR_writeEval("right");
   }
   if (typeof SNR_renderResults === "function") SNR_renderResults();
   // Nach Laden: STB-Auswertung aus STB_raw NEU rechnen, nicht den gespeicherten

@@ -762,11 +762,123 @@ function SNR_rawFromResult(res) {
   };
 }
 
+// ------------------------------------------------------------
+// Stufe 2a (Sechs-Schichten-Muster): reine Rechenfunktion. Aus dem Rohwert
+// (SNR_rawSide/SNR_rawBoth, BA686) die Auswertung rechnen -- SRT, Steigung,
+// abgeleitete Reihen -- OHNE zu schreiben. Darf fuer tool-fremde Daten direkt
+// genutzt werden. Gibt null zurueck, wenn der Rohwert keine Messsaetze traegt.
+function SNR_computeEval_srt(raw) {
+  if (!raw || !Array.isArray(raw.saetze) || !raw.saetze.length) return null;
+  const converged = !!raw.converged;
+  // Satz-Reihen aus dem Rohwert ableiten (correct steht je Satz, BA686).
+  const snrHistory  = raw.saetze.map(function (s) { return s.snr; });
+  const wordHistory = raw.saetze.map(function (s) { return s.correct; });
+  // SRT = Mittel der letzten win Werte (win = 6 bei Konvergenz, sonst 20).
+  const win = converged ? SNR_SRT_WINDOW_CONV : SNR_SRT_WINDOW;
+  const tail = snrHistory.slice(-win);
+  const srt = tail.length
+    ? (tail.reduce(function (a, b) { return a + b; }, 0) / tail.length)
+    : null;
+  // Steigung: lineare Regression wie bisher in SNR_showSlope (x=SNR, y=%).
+  let slope = null;
+  const nS = Math.min(snrHistory.length, wordHistory.length);
+  if (nS >= 2) {
+    let sx = 0, sy = 0, sxx = 0, sxy = 0;
+    for (let i = 0; i < nS; i++) {
+      const x = snrHistory[i], y = (wordHistory[i] / 5) * 100;
+      sx += x; sy += y; sxx += x * x; sxy += x * y;
+    }
+    const denom = (nS * sxx - sx * sx);
+    slope = denom !== 0 ? (nS * sxy - sx * sy) / denom : 0;
+  }
+  return {
+    srt: srt,
+    slope: slope,
+    converged: converged,
+    snrHistory: snrHistory,
+    wordHistory: wordHistory,
+    gemessen: snrHistory.length > 0
+  };
+}
+
+// ------------------------------------------------------------
+// Stufe 2b: EINZIGE Schreibstelle. Rechnet via SNR_computeEval_srt aus dem
+// Rohwert und friert das Ergebnis ins Auswertungs-Feld (SNR_evalSide je Seite
+// oder SNR_evalBoth global). Nicht-volatiler Zeitstempel = max ueber die
+// Rohwert-Satz-Stempel (nie Date.now hier -- das steht am Rohwert).
+//
+// scope: "both" schreibt SNR_evalBoth aus SNR_rawBoth; "left"/"right" schreibt
+// sideData[scope].SNR_evalSide aus sideData[scope].SNR_rawSide. Ohne Argument:
+// der aktuelle Modus (snr_isBothEar) auf der aktiven Seite.
+function SNR_writeEval(scope) {
+  if (scope == null) scope = snr_isBothEar() ? "both" : snr_currentSide();
+
+  let raw, assign;
+  if (scope === "both") {
+    raw = (typeof SNR_rawBoth !== "undefined") ? SNR_rawBoth : null;
+    assign = function (ev) { SNR_evalBoth = ev; };
+  } else {
+    const s = sideData[scope];
+    if (!s) return;
+    raw = s.SNR_rawSide || null;
+    assign = function (ev) { s.SNR_evalSide = ev; };
+  }
+
+  if (!raw) { assign(null); return; }
+
+  const comp = SNR_computeEval_srt(raw);
+  if (!comp) { assign(null); return; }
+
+  // Nicht-volatiler Zeitstempel: max ueber die Rohwert-Satz-Stempel.
+  let ts = 0;
+  for (let i = 0; i < raw.saetze.length; i++) {
+    const t0 = raw.saetze[i] && raw.saetze[i].timestamp;
+    if (typeof t0 === "number" && t0 > ts) ts = t0;
+  }
+
+  assign({
+    srt: comp.srt,
+    slope: comp.slope,
+    converged: comp.converged,
+    gemessen: comp.gemessen,
+    // Kopie der Satzreihe fuers Zeichnen (Anzeige liest NUR Stufe 4, nie Rohwert).
+    snrHistory: comp.snrHistory.slice(),
+    wordHistory: comp.wordHistory.slice(),
+    // Mitgefuehrter Kontext (aus dem Rohwert durchgereicht).
+    materialSlug: raw.materialSlug,
+    noiseId: raw.noiseId,
+    audioPath: raw.audioPath,
+    timestamp: ts
+  });
+}
+
+// ------------------------------------------------------------
+// Stufe 4: reiner Leser des Auswertungs-Felds. Waehlt seitig/binaural nach
+// snr_isBothEar() (wie die Anzeige heute). Rechnet NICHT. Alle Anzeige-/
+// Status-Leser gehen hier durch, nie roh an SNR_rawSide/SNR_rawBoth oder an
+// SNR_evalSide/SNR_evalBoth direkt.
+function SNR_testData() {
+  let ev;
+  if (snr_isBothEar()) {
+    ev = (typeof SNR_evalBoth !== "undefined") ? SNR_evalBoth : null;
+  } else {
+    const s = sideData[snr_currentSide()];
+    ev = s ? (s.SNR_evalSide || null) : null;
+  }
+  // Neutrales Fallback: Form wie das geschriebene Feld, damit Leser nie auf
+  // fehlende Felder stossen. gemessen=false => Anzeige zeigt "noch nichts".
+  if (!ev) {
+    return {
+      srt: null, slope: null, converged: false, gemessen: false,
+      snrHistory: [], wordHistory: [],
+      materialSlug: null, noiseId: null, audioPath: {}, timestamp: 0
+    };
+  }
+  return ev;
+}
+
 function snr_finish(converged) {
   snr_active = false;
-  const win = converged ? SNR_SRT_WINDOW_CONV : SNR_SRT_WINDOW;
-  const tail = snr_snrHistory.slice(-win);
-  const srt = tail.length ? (tail.reduce(function (a, b) { return a + b; }, 0) / tail.length) : null;
 
   // Wiedergabe stoppen, Player-Zustand wiederherstellen.
   if (typeof pStopReset === "function") pStopReset();
@@ -788,25 +900,11 @@ function snr_finish(converged) {
     sideData[activeSide].SNR_rawSide = rawObj;
   }
 
-  // Ergebnis an das Ergebnis-Modul uebergeben (BA608 liefert SNR_saveResult).
-  const result = {
-    srt: srt,
-    converged: !!converged,
-    snrHistory: snr_snrHistory.slice(),
-    wordHistory: snr_wordHistory.slice(),
-    // Material/Rauschen zum Testzeitpunkt EINFRIEREN (stabile Slugs/Ids, nicht
-    // Anzeigenamen -- die koennen sich aendern). Die Auswertung uebersetzt sie
-    // beim Rendern. Ohne diese Felder zeigte die Ergebnisseite spaeter das
-    // gerade aktive Material statt des gemessenen (Live-Lookup-Bug).
-    materialSlug: snr_currentTestSet() || null,
-    noiseId: snr_noiseChoiceId,
-    ts: Date.now(),
-    // Mess-Kontext Audioweg: aktive Wege zum Testzeitpunkt einfrieren.
-    // Beidseitig beide Seiten, einseitig nur die getestete (aktive).
-    audioPath: _snr_frozenAudioPath()
-  };
-  if (typeof SNR_saveResult === "function") SNR_saveResult(result);
-  else { window.SNR_lastResult = result; console.log("[sprachtest] Ergebnis:", result); }
+  // Stufe 2b: aus dem eben abgelegten Rohwert die Auswertung schreiben.
+  SNR_writeEval(snr_bothEar ? "both" : activeSide);
+  // Persistieren + Anzeige (ersetzt den alten SNR_saveResult-Objektbau).
+  if (typeof window._autoSaveState === "function") window._autoSaveState();
+  SNR_renderResults();
 
   // testUI ueber natuerliches Ende informieren: stoppt den laufenden Test
   // (blendet Stop-Button aus, hebt Tab-Sperre auf) -- analog zum Stop-Button,
@@ -858,28 +956,12 @@ function snr_updateUI() {
 // ------------------------------------------------------------
 // Persistenz + Ergebnisanzeige
 // ------------------------------------------------------------
-function SNR_saveResult(result) {
-  if (snr_bothEar) {
-    SNR_resultBoth = result;       // BA662: seitenlose Ablage (scope:"global")
-  } else {
-    sideData[activeSide].SNR_result = result;
-  }
-  if (typeof window._autoSaveState === "function") window._autoSaveState();
-  SNR_renderResults();
-}
-
 function SNR_renderResults() {
-  // BA662: Anzeige folgt der Player-Seiten-Einstellung (Architektur §8):
-  // "beide Seiten" -> beidohriges Ergebnis, sonst aktive Einzelseite.
-  const res = snr_isBothEar()
-    ? (SNR_resultBoth || null)
-    : ((typeof sideData !== "undefined" && sideData[activeSide])
-        ? sideData[activeSide].SNR_result || null
-        : null);
+  const res = SNR_testData();
   const empty = document.getElementById("SNR_resEmpty");
   const content = document.getElementById("SNR_resContent");
   if (!empty || !content) return;
-  if (!res || !res.snrHistory || !res.snrHistory.length) {
+  if (!res || !res.gemessen || !res.snrHistory || !res.snrHistory.length) {
     empty.style.display = "";
     content.style.display = "none";
     return;
@@ -905,7 +987,7 @@ function SNR_renderResults() {
   // Einheitliche Meta-Zeile (BA674): Datum · Lautstaerke · Material · Rauschen.
   const _snrMetaEl = document.getElementById("SNR_resMeta");
   if (_snrMetaEl) {
-    const _ts = (res.ts != null) ? new Date(res.ts) : new Date();
+    const _ts = (res.timestamp != null && res.timestamp > 0) ? new Date(res.timestamp) : new Date();
     const _date = _ts.toLocaleString(
       lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US");
     const _vol = saveGet("SNRtest_volume") || 50;
@@ -1090,17 +1172,8 @@ function SNR_drawScatter(res) {
 function SNR_showSlope(res) {
   const el = document.getElementById("SNR_resSlopeValue");
   if (!el) return;
-  const snr = res.snrHistory, wc = res.wordHistory;
-  const n = Math.min(snr.length, wc.length);
-  if (n < 2) { el.textContent = "---"; return; }
-  let sx = 0, sy = 0, sxx = 0, sxy = 0;
-  for (let i = 0; i < n; i++) {
-    const x = snr[i], y = (wc[i] / 5) * 100;
-    sx += x; sy += y; sxx += x * x; sxy += x * y;
-  }
-  const denom = (n * sxx - sx * sx);
-  const slope = denom !== 0 ? (n * sxy - sx * sy) / denom : 0;
-  el.textContent = "ca. " + slope.toFixed(1) + " %/dB";
+  if (typeof res.slope !== "number") { el.textContent = "---"; return; }
+  el.textContent = "ca. " + res.slope.toFixed(1) + " %/dB";
 }
 
 // ------------------------------------------------------------
@@ -1402,11 +1475,9 @@ const snr_cfg = {
       prerequisites: [
         {
           checkFn: function() {
-            // BA662: pruefe die Ablage, in die DIESER Start schreiben wuerde.
-            if (snr_isBothEar()) {
-              return !(typeof SNR_resultBoth !== "undefined" && SNR_resultBoth);
-            }
-            return !(typeof sideData !== "undefined" && sideData[activeSide] && sideData[activeSide].SNR_result);
+            // BA687: Existenz ueber Stufe 4 (SNR_testData), nicht das Feld roh.
+            // true = darf ohne Ueberschreib-Warnung starten (noch nichts gemessen).
+            return !SNR_testData().gemessen;
           },
           titleKey:   "stOverwriteTitle",
           messageKey: "stOverwriteMsg",

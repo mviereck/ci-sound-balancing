@@ -198,7 +198,7 @@ function AWG_isUsed(id) {
   }
 
   // SNR: audioPath = {left?,right?} als Verteilung [{id,count}].
-  //   SNR_resultBoth (global) + sideData[side].SNR_result (je Seite).
+  //   SNR_evalBoth (global) + sideData[side].SNR_evalSide (je Seite).
   const _snrHas = function (res) {
     if (!res || !res.audioPath) return false;
     for (const side of ["left", "right"]) {
@@ -207,10 +207,10 @@ function AWG_isUsed(id) {
     }
     return false;
   };
-  if (typeof SNR_resultBoth !== "undefined" && _snrHas(SNR_resultBoth)) return true;
+  if (typeof SNR_evalBoth !== "undefined" && _snrHas(SNR_evalBoth)) return true;
   if (typeof sideData !== "undefined") {
     for (const side of ["left", "right"]) {
-      if (_snrHas(sideData[side] && sideData[side].SNR_result)) return true;
+      if (_snrHas(sideData[side] && sideData[side].SNR_evalSide)) return true;
     }
   }
 

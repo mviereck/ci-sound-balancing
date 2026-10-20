@@ -190,6 +190,7 @@ function initSideData(side, m) {
   s.ELL_raw = [];
   s.ELL_eval = null;
   s.SNR_rawSide = null;   // Sprachtest-Rohwert je Seite (Stufe 1)
+  s.SNR_evalSide = null;   // Sprachtest-Auswertung je Seite (Stufe 3)
   s.ELL_distWeightMode = "voll";
   // Seitenabhaengige ELL-Testvorgaben (BA648): gewaehlte Testelektroden
   // (null = alle testbaren) und gewaehltes Testverfahren ("full" | "conv").
@@ -728,6 +729,9 @@ let FRQ_eval = [];
 // Gegenstueck ist sideData[side].SNR_rawSide.
 let SNR_rawBoth = null;
 let SNR_resultBoth = null;
+// Stufe 3 (Auswertung) des beidohrigen Sprachtests. null = nicht gemessen.
+// Loest SNR_resultBoth ab (dessen Lade-Key bleibt als Auffang, save-schema.js).
+let SNR_evalBoth = null;
 
 // BA416: Klaviertest-Sitzungszustand, global+seitenlos (Architektur 6a).
 // null = keine Session. Persistiert in .cimbel (global) + localStorage.

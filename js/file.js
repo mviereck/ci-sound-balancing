@@ -118,8 +118,8 @@ function resetAll() {
     sideData[s].ELL_refEl = Math.floor(sideData[s].nEl / 2);
     sideData[s].ELL_raw = [];
     sideData[s].ELL_eval = null;
-    sideData[s].SNR_result = null;   // BA662-FIX: seitenweises Sprachtest-Ergebnis mitloeschen
-    sideData[s].SNR_rawSide = null;  // BA686: seitigen Sprachtest-Rohwert mitloeschen
+    sideData[s].SNR_evalSide = null;  // BA687: seitige Sprachtest-Auswertung
+    sideData[s].SNR_rawSide = null;   // BA686: seitiger Sprachtest-Rohwert
     sideData[s].kurvenELL = [];
     initSideData(s, "unknown");
   }
@@ -151,8 +151,8 @@ function resetAll() {
   });
   // --- Latenz ---
   if (typeof LTZ_raw !== "undefined") LTZ_raw = [];
-  if (typeof SNR_resultBoth !== "undefined") SNR_resultBoth = null;   // BA662
-  if (typeof SNR_rawBoth !== "undefined") SNR_rawBoth = null;         // BA686
+  if (typeof SNR_evalBoth !== "undefined") SNR_evalBoth = null;   // BA687: beidohrige Sprachtest-Auswertung
+  if (typeof SNR_rawBoth !== "undefined") SNR_rawBoth = null;     // BA686: beidohriger Sprachtest-Rohwert
   if (typeof ltz_clickType !== "undefined") ltz_clickType = "click";
   if (typeof ltz_intervalMs !== "undefined") ltz_intervalMs = 1000;
   if (typeof plApplyLatency !== "undefined") plApplyLatency = true;
