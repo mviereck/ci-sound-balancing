@@ -2,7 +2,7 @@
 // latency.js — Latenz-Messung (Inter-Ohr-Zeitversatz)
 // --------------------------------------------------------------------
 // Exportierte Globals:
-//   LTZ_raw              Array<{audioweg:{left,right},valueMs,timestamp}> — je Audioweg-Paar ein Versatz (Stufe 1)
+//   LTZ_raw              { durchlauf:{}, messpunkte:[{bezug:{left,right}, historie:[{audioweg:{left,right},timestamp,valueMs}]}] } — Rohwert-Grundmuster (Stufe 1, §8)
 //   plApplyLatency          bool — im Player anwenden?
 //   ltz_sliderMs             aktuell vom UI gesetzter Wert (Live-Test)
 //   LTZ_active               Test läuft gerade?
@@ -24,12 +24,18 @@
 //   LTZ_initGraph(ctx)
 // ====================================================================
 
-// Sammlung gemessener Latenz-Versaetze, geschluesselt nach Audioweg-Paar.
-// Jeder Eintrag: { audioweg:{left,right}, valueMs, timestamp }. left/right =
-// die beim Messen eingestellten Audioweg-IDs (0 = "(keine Angabe)").
-// Schluessel ist das GEORDNETE Paar (left, right). Gleiches Paar erneut
-// gemessen -> ersetzt; neues Paar -> kommt dazu. Leere Sammlung = [].
-let LTZ_raw = [];
+// Rohwert-Grundmuster (Stufe 1, Architektur §8): Container ist ein Objekt
+// { durchlauf, messpunkte }. Der Durchlauf-Kopf ist bei Latenz leer (kein
+// Durchlauf, §8.3). messpunkte ist die flache Liste: je gemessenem Weg-Paar
+// ein Meszpunkt { bezug:{left,right}, historie:[...] }. historie haelt die
+// Meszschritte neuester zuerst, hoechstens LTZ_HIST_MAX. Ein Schritt:
+// { audioweg:{left,right}, timestamp, valueMs }. bezug = das geordnete
+// Weg-Paar (left,right = Audioweg-IDs, 0 = "(keine Angabe)"); redundant zum
+// audioweg des Schritts, aber Pflichtfeld (§8.2). Gleiches Paar erneut
+// gemessen -> neuer Schritt an den Kopf (ueberschreiben wird verschieben).
+// Leere Sammlung = { durchlauf:{}, messpunkte:[] }.
+let LTZ_raw = { durchlauf: {}, messpunkte: [] };
+const LTZ_HIST_MAX = 4;   // max. Meszschritte je Meszpunkt (§8.1, Grundmuster)
 
 // --- Weg-Paar-Zugriff (zentral) --------------------------------------
 // Einzige Stelle, die das aktuell eingestellte Weg-Paar aufloest und in
@@ -48,64 +54,119 @@ function LTZ_currentPair() {
   return { left: l, right: r };
 }
 
-// Eintrag zum gegebenen Paar finden (oder null). Geordneter Vergleich.
-function LTZ_entryForPair(left, right) {
-  if (!Array.isArray(LTZ_raw)) return null;
-  for (var i = 0; i < LTZ_raw.length; i++) {
-    var e = LTZ_raw[i];
-    if (e && e.audioweg && e.audioweg.left === left && e.audioweg.right === right) return e;
+// Meszpunkt zum gegebenen Weg-Paar finden (oder null). Geordneter Vergleich
+// gegen bezug. Einzige Stelle, die messpunkte durchsucht.
+function LTZ_pointForPair(left, right) {
+  if (!LTZ_raw || !Array.isArray(LTZ_raw.messpunkte)) return null;
+  for (var i = 0; i < LTZ_raw.messpunkte.length; i++) {
+    var p = LTZ_raw.messpunkte[i];
+    if (p && p.bezug && p.bezug.left === left && p.bezug.right === right) return p;
   }
   return null;
 }
 
-// Eintrag zum AKTUELL eingestellten Paar (oder null).
-function LTZ_currentEntry() {
+// Meszpunkt zum AKTUELL eingestellten Weg-Paar (oder null).
+function LTZ_currentPoint() {
   var p = LTZ_currentPair();
-  return LTZ_entryForPair(p.left, p.right);
+  return LTZ_pointForPair(p.left, p.right);
 }
 
-// Versatz des aktuell eingestellten Paars schreiben: gleiches Paar ->
-// ersetzt (valueMs+timestamp), neues Paar -> kommt dazu. Einzige
-// Schreibstelle in die Sammlung ausser Migration/Reset.
+// Versatz des aktuell eingestellten Weg-Paars schreiben. Gleiches Paar ->
+// neuer Schritt an den Kopf der historie (ueberschreiben wird verschieben,
+// §8.1), aelteste faellt bei > LTZ_HIST_MAX weg. Neues Paar -> neuer Meszpunkt.
+// Einzige Schreibstelle in messpunkte ausser Migration/Reset.
 function LTZ_setCurrent(valueMs) {
-  if (!Array.isArray(LTZ_raw)) LTZ_raw = [];
-  var p = LTZ_currentPair();
-  var e = LTZ_entryForPair(p.left, p.right);
-  if (e) {
-    e.valueMs   = valueMs;
-    e.timestamp = Date.now();
+  if (!LTZ_raw || !Array.isArray(LTZ_raw.messpunkte)) LTZ_raw = { durchlauf: {}, messpunkte: [] };
+  var pair = LTZ_currentPair();
+  var schritt = {
+    audioweg: { left: pair.left, right: pair.right },
+    timestamp: Date.now(),
+    valueMs: valueMs
+  };
+  var punkt = LTZ_pointForPair(pair.left, pair.right);
+  if (punkt) {
+    punkt.historie.unshift(schritt);
+    if (punkt.historie.length > LTZ_HIST_MAX) punkt.historie.length = LTZ_HIST_MAX;
   } else {
-    LTZ_raw.push({ audioweg: { left: p.left, right: p.right }, valueMs: valueMs, timestamp: Date.now() });
+    LTZ_raw.messpunkte.push({
+      bezug: { left: pair.left, right: pair.right },
+      historie: [schritt]
+    });
   }
 }
 
-// Entfernt den Eintrag des aktuell eingestellten Weg-Paars (macht das Paar
-// wieder "ungemessen"). Kein Eintrag vorhanden -> nichts zu tun.
+// Entfernt den Meszpunkt des aktuell eingestellten Weg-Paars (macht das Paar
+// wieder "ungemessen"). Kein Meszpunkt -> nichts zu tun.
 function LTZ_clearCurrent() {
-  if (!Array.isArray(LTZ_raw)) { LTZ_raw = []; return; }
-  var p = LTZ_currentPair();
-  LTZ_raw = LTZ_raw.filter(function (e) {
-    return !(e && e.audioweg && e.audioweg.left === p.left && e.audioweg.right === p.right);
+  if (!LTZ_raw || !Array.isArray(LTZ_raw.messpunkte)) { LTZ_raw = { durchlauf: {}, messpunkte: [] }; return; }
+  var pair = LTZ_currentPair();
+  LTZ_raw.messpunkte = LTZ_raw.messpunkte.filter(function (p) {
+    return !(p && p.bezug && p.bezug.left === pair.left && p.bezug.right === pair.right);
   });
 }
 
-// Migration eines Alt-Stands in die Sammlung. Nimmt beliebigen geladenen
-// Wert und liefert IMMER ein Array:
-//   - bereits Array -> unveraendert (ggf. unbrauchbare Eintraege gefiltert)
-//   - altes {valueMs,...}-Objekt -> ein Eintrag unter Paar (0,0)
-//   - null/leer/unbrauchbar -> []
+// Migration eines geladenen Werts auf das neue Container-Grundmuster.
+// Liefert IMMER { durchlauf:{}, messpunkte:[] }:
+//   - NEU: bereits { durchlauf, messpunkte } -> messpunkte validiert uebernehmen
+//   - ALT A: flaches Array [{audioweg,valueMs,timestamp}, ...] -> je Eintrag ein
+//            Meszpunkt mit einschrittiger historie (bezug = audioweg)
+//   - ALT B: einzelnes {valueMs,...}-Objekt -> ein Meszpunkt unter Paar (0,0)
+//   - null/leer/unbrauchbar -> { durchlauf:{}, messpunkte:[] }
 function LTZ_migrateResult(v) {
-  if (Array.isArray(v)) {
-    return v.filter(function (e) {
-      return e && e.audioweg && typeof e.audioweg.left === "number"
-          && typeof e.audioweg.right === "number" && isFinite(e.valueMs);
+  var leer = { durchlauf: {}, messpunkte: [] };
+
+  // Ein Schritt-Objekt aus einem Alt-Flach-Eintrag bauen (defensiv).
+  function _schrittAusAlt(e) {
+    var aw = (e && e.audioweg && typeof e.audioweg === "object") ? e.audioweg : {};
+    return {
+      audioweg: { left:  (typeof aw.left  === "number") ? aw.left  : 0,
+                  right: (typeof aw.right === "number") ? aw.right : 0 },
+      timestamp: (typeof e.timestamp === "number") ? e.timestamp : Date.now(),
+      valueMs: e.valueMs
+    };
+  }
+
+  // NEU: Container-Objekt.
+  if (v && typeof v === "object" && !Array.isArray(v) && Array.isArray(v.messpunkte)) {
+    var out = { durchlauf: (v.durchlauf && typeof v.durchlauf === "object") ? v.durchlauf : {}, messpunkte: [] };
+    v.messpunkte.forEach(function (p) {
+      if (!p || !p.bezug || typeof p.bezug.left !== "number" || typeof p.bezug.right !== "number") return;
+      var hist = Array.isArray(p.historie) ? p.historie.filter(function (s) {
+        return s && s.audioweg && typeof s.audioweg.left === "number"
+            && typeof s.audioweg.right === "number" && isFinite(s.valueMs);
+      }) : [];
+      if (!hist.length) return;
+      if (hist.length > LTZ_HIST_MAX) hist = hist.slice(0, LTZ_HIST_MAX);
+      out.messpunkte.push({ bezug: { left: p.bezug.left, right: p.bezug.right }, historie: hist });
     });
+    return out;
   }
+
+  // ALT A: flaches Array von Schritten.
+  if (Array.isArray(v)) {
+    var outA = { durchlauf: {}, messpunkte: [] };
+    v.forEach(function (e) {
+      if (!(e && e.audioweg && typeof e.audioweg.left === "number"
+            && typeof e.audioweg.right === "number" && isFinite(e.valueMs))) return;
+      outA.messpunkte.push({
+        bezug: { left: e.audioweg.left, right: e.audioweg.right },
+        historie: [_schrittAusAlt(e)]
+      });
+    });
+    return outA;
+  }
+
+  // ALT B: einzelnes {valueMs}-Objekt -> Paar (0,0).
   if (v && typeof v === "object" && isFinite(v.valueMs)) {
-    return [{ audioweg: { left: 0, right: 0 }, valueMs: v.valueMs,
-              timestamp: (typeof v.timestamp === "number") ? v.timestamp : Date.now() }];
+    return { durchlauf: {}, messpunkte: [ {
+      bezug: { left: 0, right: 0 },
+      historie: [ { audioweg: { left: 0, right: 0 },
+                    timestamp: (typeof v.timestamp === "number") ? v.timestamp : Date.now(),
+                    valueMs: v.valueMs } ]
+    } ] };
   }
-  return [];
+
+  return leer;
 }
 
 // ====================================================================
@@ -122,18 +183,20 @@ let LTZ_eval = null;
 
 // Stufe 2b -- die EINZIGE Schreibstelle fuer LTZ_eval. Reicht valueMs je
 // gemessenem Weg-Paar durch (kein Rechenschritt) und leitet einen
-// nicht-volatilen Zeitstempel ab: Maximum ueber die LTZ_raw-Stempel.
+// nicht-volatilen Zeitstempel ab: Maximum ueber die historie[0]-Stempel.
 // Niemals Date.now() hier -- das stuende nur am Rohwert (LTZ_setCurrent).
 function LTZ_writeEval() {
-  if (!Array.isArray(LTZ_raw) || LTZ_raw.length === 0) { LTZ_eval = null; return; }
+  var mp = (LTZ_raw && Array.isArray(LTZ_raw.messpunkte)) ? LTZ_raw.messpunkte : [];
+  if (mp.length === 0) { LTZ_eval = null; return; }
 
   var entries = [];
   var ts = 0;
-  for (var i = 0; i < LTZ_raw.length; i++) {
-    var e = LTZ_raw[i];
-    if (!e || !isFinite(e.valueMs)) continue;
-    entries.push({ left: e.audioweg.left, right: e.audioweg.right, valueMs: e.valueMs });
-    if (typeof e.timestamp === "number" && e.timestamp > ts) ts = e.timestamp;
+  for (var i = 0; i < mp.length; i++) {
+    var p = mp[i];
+    var s = (p && Array.isArray(p.historie)) ? p.historie[0] : null;   // neuester Schritt
+    if (!s || !isFinite(s.valueMs)) continue;
+    entries.push({ left: p.bezug.left, right: p.bezug.right, valueMs: s.valueMs });
+    if (typeof s.timestamp === "number" && s.timestamp > ts) ts = s.timestamp;
   }
   if (entries.length === 0) { LTZ_eval = null; return; }
 
@@ -604,9 +667,10 @@ function ltz_hookOnStart() {
       { sides: 'both' },
       function() {
         // Startwert: vorhandenes Ergebnis oder 0
-        var _curEntry = LTZ_currentEntry();
-        const startMs = (_curEntry && isFinite(_curEntry.valueMs))
-          ? _curEntry.valueMs : 0;
+        var _curPoint = LTZ_currentPoint();
+        var _curStep = (_curPoint && Array.isArray(_curPoint.historie)) ? _curPoint.historie[0] : null;
+        const startMs = (_curStep && isFinite(_curStep.valueMs))
+          ? _curStep.valueMs : 0;
         const slRef = LTZ_els.verfahren.latenz.slider;
         if (slRef) {
           testUI.slider.setValue(slRef, startMs);

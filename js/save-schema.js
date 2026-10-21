@@ -113,15 +113,32 @@ var SAVE_SCHEMA = [
     default: 1, valid: { type: "number", min: 1 } },
 
   // --- Latenz / Player-Anwendung ---
-  // Rohwert (Stufe 1). Persistierter Key bleibt "LTZ_result" (Alt-Stand-
-  // Kompatibilitaet); die Variable heisst LTZ_raw.
-  { key: "LTZ_result", scope: "global",
-    get: function () { return (typeof LTZ_raw !== "undefined" ? LTZ_raw : []); },
+  // Rohwert (Stufe 1, Grundmuster §8). Schreib-Key LTZ_raw. set migriert jede
+  // Eingangsform aufs neue Container-Objekt (LTZ_migrateResult).
+  { key: "LTZ_raw", scope: "global",
+    get: function () { return (typeof LTZ_raw !== "undefined" ? LTZ_raw : { durchlauf: {}, messpunkte: [] }); },
     set: function (v) {
       if (typeof LTZ_raw === "undefined") return;
-      LTZ_raw = (typeof LTZ_migrateResult === "function") ? LTZ_migrateResult(v) : (Array.isArray(v) ? v : []);
+      LTZ_raw = (typeof LTZ_migrateResult === "function")
+        ? LTZ_migrateResult(v)
+        : ((v && typeof v === "object") ? v : { durchlauf: {}, messpunkte: [] });
     },
-    default: [] },
+    default: function () { return { durchlauf: {}, messpunkte: [] }; } },
+  // Alt-Schluessel (vor dieser BA hiess der persistierte LTZ-Rohwert-Key
+  // "LTZ_result"). Faengt beim Laden alter Dateien die Altform ab und migriert
+  // sie ins neue Feld. get liefert nichts (neue Dateien tragen nur LTZ_raw).
+  // MUSS NACH dem LTZ_raw-Eintrag stehen: applyState ruft set() IMMER; der
+  // LTZ_raw-Eintrag setzt bei einer Altdatei (kein LTZ_raw-Key) zuerst den
+  // Default. Erst danach migriert dieser Auffang (Guard: messpunkte noch leer)
+  // die Altdaten -- stuende er davor, machte der LTZ_raw-Default ihn platt.
+  { key: "LTZ_result", scope: "global",
+    get: function () { return undefined; },
+    set: function (v) {
+      if (typeof LTZ_raw === "undefined" || v == null) return;
+      if (LTZ_raw && Array.isArray(LTZ_raw.messpunkte) && LTZ_raw.messpunkte.length) return;  // bereits aus neuem Key befuellt
+      LTZ_raw = (typeof LTZ_migrateResult === "function") ? LTZ_migrateResult(v) : LTZ_raw;
+    },
+    default: function () { return undefined; } },
   // Auswertung (Stufe 3): null = nicht gemessen. Wird beim Laden neu
   // gerechnet (LTZ_writeEval in applyData), daher hier nur persistiert.
   // Muss persistiert sein, obwohl beim Laden neu gerechnet: der Snapshot

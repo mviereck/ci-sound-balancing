@@ -194,8 +194,19 @@ function AWG_usedCollect() {
   if (typeof STB_raw !== "undefined" && STB_raw) {
     lists.push(Object.keys(STB_raw).map(function (k) { return STB_raw[k]; }));
   }
-  // Latenz: LTZ_raw ist bereits eine flache Liste.
-  if (typeof LTZ_raw !== "undefined" && Array.isArray(LTZ_raw)) lists.push(LTZ_raw);
+  // Latenz: LTZ_raw = { durchlauf, messpunkte:[{bezug,historie}] }. Die
+  // audioweg-tragenden Objekte sind die Schritte in historie, eine Ebene
+  // tiefer als die Meszpunkte. (Vereinheitlichung dieser Sammelstelle folgt,
+  // sobald alle Container das Grundmuster tragen.)
+  if (typeof LTZ_raw !== "undefined" && LTZ_raw && Array.isArray(LTZ_raw.messpunkte)) {
+    var ltzAll = [];
+    LTZ_raw.messpunkte.forEach(function (p) {
+      if (p && Array.isArray(p.historie)) {
+        for (var i = 0; i < p.historie.length; i++) ltzAll.push(p.historie[i]);
+      }
+    });
+    lists.push(ltzAll);
+  }
   // FRQ: perElectrode[el].verlauf[] zweistufig -> flach zu einer Liste.
   if (typeof FRQ_rawPiano !== "undefined" && FRQ_rawPiano && FRQ_rawPiano.perElectrode) {
     var frqAll = [];

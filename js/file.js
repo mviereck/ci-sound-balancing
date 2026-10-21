@@ -150,7 +150,7 @@ function resetAll() {
     sideData[side].SNRtest_volume = 50;
   });
   // --- Latenz ---
-  if (typeof LTZ_raw !== "undefined") LTZ_raw = [];
+  if (typeof LTZ_raw !== "undefined") LTZ_raw = { durchlauf: {}, messpunkte: [] };
   if (typeof SNR_evalBoth !== "undefined") SNR_evalBoth = null;   // BA687: beidohrige Sprachtest-Auswertung
   if (typeof SNR_rawBoth !== "undefined") SNR_rawBoth = null;     // BA686: beidohriger Sprachtest-Rohwert
   if (typeof ltz_clickType !== "undefined") ltz_clickType = "click";
