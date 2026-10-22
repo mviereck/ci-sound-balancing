@@ -186,10 +186,11 @@ function _collectSideData(side) {
           status: (elActive && elActive[i] === false) ? "deactivated" : (elSt[i] || null),
         });
       }
-      if (sd.fullSweepRound != null) {
+      var _ellD = (sd.ELL_raw && sd.ELL_raw.durchlauf) ? sd.ELL_raw.durchlauf : null;
+      if (_ellD && _ellD.round != null) {
         measSweep = {
-          round: sd.fullSweepRound,
-          doneCount: Array.isArray(sd.fullSweepDonePairs) ? sd.fullSweepDonePairs.length : 0,
+          round: _ellD.round,
+          doneCount: Array.isArray(_ellD.donePairs) ? _ellD.donePairs.length : 0,
           totalPairs: (nEl * (nEl - 1)) / 2,
         };
       }

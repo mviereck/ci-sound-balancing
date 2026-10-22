@@ -170,9 +170,19 @@
   // damit das echte sitzungsuebergreifende Residuum und konsistent mit dem
   // Ergebnisreiter nach Uebertrag. (Frueher: gemittelte Konsens-Paare -> ein
   // Wert pro Paar -> kuenstlich winziges Residuum, inkonsistent zum Uebertrag.)
+  // Flache Paarliste [{a,b,offset,timestamp}] -> Meszpunkt-Liste fuer
+  // ELL_computeEval_compWLS (Grundmuster §8: ctx.ELL_raw traegt Meszpunkte).
+  function zaPaareZuMesspunkten(pairs) {
+    return (pairs || []).map(function (r) {
+      return { bezug: { a: r.a, b: r.b },
+               historie: [ { audioweg: (r.audioweg || { left: 0, right: 0 }),
+                             timestamp: r.timestamp, offset: r.offset } ] };
+    });
+  }
+
   function zaConsolidatedCtx(side) {
     var base = ELL_ctx(side === "left" || side === "right" ? side : "global");
-    return Object.assign({}, base, { ELL_raw: zaTransferPairs(side) });
+    return Object.assign({}, base, { ELL_raw: zaPaareZuMesspunkten(zaTransferPairs(side)) });
   }
 
   // ---- Heatmap (BA 409) + Zeit-Trend (BA 410) ----
@@ -738,7 +748,7 @@
     var cv = document.getElementById(canvasId);
     if (!cv) return;
     var hint = hintId ? document.getElementById(hintId) : null;
-    if (!ctx || !ctx.ELL_raw || !ctx.ELL_raw.length) {
+    if (!ctx || !ctx.ELL_raw || !ctx.ELL_raw.length) {   // ctx.ELL_raw ist Meszpunkt-Liste (Array)
       if (hint) hint.textContent = leerHint || "";
       cv.width = cv.width;   // leeren
       return;
@@ -1072,10 +1082,21 @@
     // behalten).
     function zaSideRecord(name, s, sd) {
       if (!s) return null;
-      // Feld-Umbenennung: ELL_raw (ab BA678), ELL_raw (vor BA678), balanceResults (aelteste Dateien).
-      var br = Array.isArray(s.ELL_raw) ? s.ELL_raw
-             : Array.isArray(s.ELL_raw) ? s.ELL_raw
-             : s.balanceResults;
+      // Eingang normalisieren auf die interne flache Form [{a,b,offset,timestamp}]:
+      //   - NEU (Grundmuster §8): { durchlauf, messpunkte:[{bezug,historie}] }
+      //   - ALT: flaches Array [{a,b,offset,timestamp}]
+      //   - AELTESTE: balanceResults
+      var br;
+      if (s.ELL_raw && typeof s.ELL_raw === "object" && Array.isArray(s.ELL_raw.messpunkte)) {
+        br = [];
+        s.ELL_raw.messpunkte.forEach(function (p) {
+          var st = (p && Array.isArray(p.historie)) ? p.historie[0] : null;
+          if (!p || !p.bezug || !st || !isFinite(st.offset)) return;
+          br.push({ a: p.bezug.a, b: p.bezug.b, offset: st.offset, timestamp: st.timestamp });
+        });
+      } else {
+        br = Array.isArray(s.ELL_raw) ? s.ELL_raw : s.balanceResults;
+      }
       if (!Array.isArray(br) || !br.length) return null;   // Fall a: keine Paare
       var elStRaw    = (s.elSt      != null) ? s.elSt      : s.electrodeStatus;
       var elExDurRaw = (s.elExDur   != null) ? s.elExDur   : s.electrodeExcludedDuring;
@@ -1190,7 +1211,7 @@
                 : (rec && rec.refEl);
     return {
       nEl:         rec.nEl,
-      ELL_raw: rec.raw,
+      ELL_raw: zaPaareZuMesspunkten(rec.raw),
       elSt:        rec.elSt,
       elExDur:     rec.elExDur,
       ELL_refEl:   refEl
@@ -1363,9 +1384,9 @@
 
     var s = sideData[side];
     if (!s) return;
-    s.ELL_raw        = pairs;
-    s.fullSweepRound     = null;
-    s.fullSweepDonePairs = [];
+    s.ELL_raw = (typeof ELL_migrateRaw === "function")
+      ? ELL_migrateRaw(pairs)
+      : { durchlauf: { round: null, donePairs: [] }, messpunkte: [] };
     undoSt               = [];
 
     if (typeof bindActiveSide === "function") bindActiveSide();

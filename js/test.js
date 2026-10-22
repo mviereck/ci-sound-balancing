@@ -572,10 +572,134 @@ function shuffle(a) {
 function randAB(p) {
   return p.map(([x, y]) => (Math.random() < 0.5 ? [x, y] : [y, x]));
 }
+
+const ELL_HIST_MAX = 4;
+
+// Rohwert-Grundmuster §8: der aktuelle (neueste) Meszschritt eines Meszpunkts,
+// oder null. historie ist neuester-zuerst, also Index 0.
+function ELL_pointStep(punkt) {
+  return (punkt && Array.isArray(punkt.historie)) ? punkt.historie[0] : null;
+}
+
+// Neuen Meszschritt in den Meszpunkt des Paars (a,b) schreiben: neuer Schritt
+// an den Kopf (ueberschreiben wird verschieben, §8.1), aeltester faellt bei
+// > ELL_HIST_MAX weg. Existiert kein Meszpunkt zum Paar -> neu anlegen.
+// container = das { durchlauf, messpunkte }-Objekt (in-place mutiert!).
+function ELL_rawPush(container, a, b, schritt) {
+  if (!container || !Array.isArray(container.messpunkte)) return;
+  var mp = container.messpunkte;
+  var pi = mp.findIndex(function (p) {
+    return p && p.bezug && ((p.bezug.a === a && p.bezug.b === b) || (p.bezug.a === b && p.bezug.b === a));
+  });
+  if (pi >= 0) {
+    mp[pi].historie.unshift(schritt);
+    if (mp[pi].historie.length > ELL_HIST_MAX) mp[pi].historie.length = ELL_HIST_MAX;
+  } else {
+    mp.push({ bezug: { a: a, b: b }, historie: [schritt] });
+  }
+}
+
+// Meszpunkt-Liste (Grundmuster §8) -> flache Arbeitsform
+// [{a,b,offset,timestamp,audioweg}] mit dem NEUESTEN Schritt je Punkt. Die
+// beiden Rohwert-Leser (ELL_computeEval_compWLS, ELL_writeEval) arbeiten darauf
+// unveraendert weiter mit .a/.b/.offset/.timestamp/.audioweg.
+function ELL_flachAusMesspunkte(mpListe) {
+  if (!Array.isArray(mpListe)) mpListe = [];
+  var out = [];
+  mpListe.forEach(function (p) {
+    var st = ELL_pointStep(p);
+    if (!p || !p.bezug || !st || !isFinite(st.offset)) return;
+    out.push({ a: p.bezug.a, b: p.bezug.b, offset: st.offset,
+               timestamp: st.timestamp, audioweg: st.audioweg });
+  });
+  return out;
+}
+
+// Round-Robin-Fortsetz-Zustand der aktiven Seite (im Rohwert-Container,
+// Grundmuster §8.3). Legt durchlauf an, falls er fehlt.
+function ELL_durchlauf() {
+  var s = sideData[activeSide];
+  if (!s.ELL_raw || typeof s.ELL_raw !== "object") s.ELL_raw = { durchlauf: {}, messpunkte: [] };
+  if (!s.ELL_raw.durchlauf || typeof s.ELL_raw.durchlauf !== "object") s.ELL_raw.durchlauf = {};
+  var d = s.ELL_raw.durchlauf;
+  if (d.round === undefined) d.round = null;
+  if (!Array.isArray(d.donePairs)) d.donePairs = [];
+  return d;
+}
+
+// Migration eines geladenen ELL-Rohwerts aufs Grundmuster §8. Liefert IMMER
+// { durchlauf:{round,donePairs}, messpunkte:[] }:
+//   - NEU: bereits { durchlauf, messpunkte } -> validiert uebernehmen
+//   - ALT: flaches Array [{a,b,offset,timestamp,audioweg}, ...] -> je Eintrag ein
+//          Meszpunkt mit einschrittiger historie (bezug = {a,b})
+//   - null/leer -> leeres Grundmuster
+// Der Durchlauf-Kopf wird hier NICHT aus Alt-Dateien gefuellt (die trugen ihn
+// in getrennten Feldern fullSweepRound/fullSweepDonePairs) -- das macht der
+// Auffang-Eintrag in save-schema.js (Schritt 5b).
+function ELL_migrateRaw(v) {
+  var leer = { durchlauf: { round: null, donePairs: [] }, messpunkte: [] };
+
+  // NEU: Container-Objekt.
+  if (v && typeof v === "object" && !Array.isArray(v) && Array.isArray(v.messpunkte)) {
+    var d = (v.durchlauf && typeof v.durchlauf === "object") ? v.durchlauf : {};
+    var out = {
+      durchlauf: { round: (typeof d.round === "number") ? d.round : null,
+                   donePairs: Array.isArray(d.donePairs) ? d.donePairs : [] },
+      messpunkte: []
+    };
+    v.messpunkte.forEach(function (p) {
+      if (!p || !p.bezug || typeof p.bezug.a !== "number" || typeof p.bezug.b !== "number") return;
+      var hist = Array.isArray(p.historie) ? p.historie.filter(function (st) {
+        return st && isFinite(st.offset);
+      }) : [];
+      if (!hist.length) return;
+      if (hist.length > ELL_HIST_MAX) hist = hist.slice(0, ELL_HIST_MAX);
+      out.messpunkte.push({ bezug: { a: p.bezug.a, b: p.bezug.b }, historie: hist });
+    });
+    return out;
+  }
+
+  // ALT: flaches Array von Schritten.
+  if (Array.isArray(v)) {
+    var outA = { durchlauf: { round: null, donePairs: [] }, messpunkte: [] };
+    v.forEach(function (e) {
+      if (!e || typeof e.a !== "number" || typeof e.b !== "number" || !isFinite(e.offset)) return;
+      var aw = (e.audioweg && typeof e.audioweg === "object")
+             ? { left: (typeof e.audioweg.left === "number") ? e.audioweg.left : 0,
+                 right: (typeof e.audioweg.right === "number") ? e.audioweg.right : 0 }
+             : { left: 0, right: 0 };
+      outA.messpunkte.push({
+        bezug: { a: e.a, b: e.b },
+        historie: [ { audioweg: aw,
+                      timestamp: (typeof e.timestamp === "number") ? e.timestamp : null,
+                      offset: e.offset } ]
+      });
+    });
+    return outA;
+  }
+
+  return leer;
+}
+
+// Alle Meszschritte der aktiven Seite flach (fuer AWG_usedIds: jeder Schritt
+// traegt audioweg). Grundmuster §8: Schritte liegen in messpunkte[].historie.
+function ELL_alleSchritte() {
+  var mp = (ELL_raw && Array.isArray(ELL_raw.messpunkte)) ? ELL_raw.messpunkte : [];
+  var out = [];
+  mp.forEach(function (p) {
+    if (p && Array.isArray(p.historie)) {
+      for (var i = 0; i < p.historie.length; i++) out.push(p.historie[i]);
+    }
+  });
+  return out;
+}
+
 function ELL_computeEval_compWLS(ctx) {
   ctx = ctx || {};
   var _nEl     = (ctx.nEl        != null) ? ctx.nEl        : nEl;
-  var _results = (ctx.ELL_raw != null) ? ctx.ELL_raw : ELL_raw;
+  // ctx.ELL_raw traegt die Meszpunkt-Liste (Grundmuster §8); in die flache
+  // Arbeitsform ziehen, damit die WLS-Mechanik unveraendert bleibt.
+  var _results = ELL_flachAusMesspunkte((ctx.ELL_raw != null) ? ctx.ELL_raw : (ELL_raw ? ELL_raw.messpunkte : []));
   var _elSt    = (ctx.elSt       != null) ? ctx.elSt       : elSt;
   var _elExDur = (ctx.elExDur    != null) ? ctx.elExDur    : elExDur;
   var _refEl   = (ctx.ELL_refEl  != null) ? ctx.ELL_refEl  : ELL_refEl;
@@ -671,7 +795,10 @@ function ELL_writeEval(side) {
   if (!s) return;
   var ctx = ELL_ctx(key);
   var n = ctx.nEl != null ? ctx.nEl : (s.nEl || 0);
-  var results = ctx.ELL_raw || [];
+  // ctx.ELL_raw ist die Meszpunkt-Liste (Grundmuster §8); flache Arbeitsform
+  // ziehen. Alle vier results-Schleifen (gemessen/vergleiche, Zeitstempel-Max,
+  // _kept fuer AWG_usedIds, nPairs) bleiben damit unveraendert.
+  var results = ELL_flachAusMesspunkte(ctx.ELL_raw || []);
   var _elSt = ctx.elSt || [];
   var _elExDur = ctx.elExDur || [];
 
@@ -879,7 +1006,7 @@ function corrVol(vol, side, hz, applyELL, applyBal) {
 }
 
 function getConvPairs(fast) {
-  if (fast && ELL_raw.length > 0) {
+  if (fast && ELL_raw.messpunkte.length > 0) {
     const { residuals } = ELL_computeEval_compWLS(ELL_ctx("global"));
     const act = new Set(actEl());
     const vr = residuals
@@ -908,12 +1035,12 @@ function getConvPairs(fast) {
 // LS-HINT: Schätzung und Unsicherheit für Paar (a, b)
 // ============================================================
 function ell_getLsEstimate(a, b) {
-  if (ELL_raw.length === 0) return { estimate: 0, halfWidth: 0, hasData: false };
+  if (ELL_raw.messpunkte.length === 0) return { estimate: 0, halfWidth: 0, hasData: false };
   const { raw: levels, residual: ELL_res } = ELL_testData();
   const wA = ell_gWt(a), wB = ell_gWt(b);
   if (wA <= 0 || wB <= 0) return { estimate: 0, halfWidth: 0, hasData: false };
-  const nA = ELL_raw.filter(r => r.a === a || r.b === a).length;
-  const nB = ELL_raw.filter(r => r.a === b || r.b === b).length;
+  const nA = ELL_raw.messpunkte.filter(p => p.bezug.a === a || p.bezug.b === a).length;
+  const nB = ELL_raw.messpunkte.filter(p => p.bezug.a === b || p.bezug.b === b).length;
   const N = Math.min(nA, nB);
   const resTerm = Math.max(ELL_res[a] || 0, ELL_res[b] || 0);
   const prior = LS_HINT_BASIS_DB * LS_HINT_K / (LS_HINT_K + N);
@@ -1007,18 +1134,14 @@ function startTestFull() {
   if (!rrTable) {
     p = allPairs();
   } else {
-    if (s.fullSweepRound === null) {
-      s.fullSweepRound = 1;
-      s.fullSweepDonePairs = [];
-    }
-    fullSweepRound = s.fullSweepRound;
-    fullSweepDonePairs = s.fullSweepDonePairs;
-    var roundPairs = rrTable[fullSweepRound - 1];
+    var d = ELL_durchlauf();
+    if (d.round === null) { d.round = 1; d.donePairs = []; }
+    var roundPairs = rrTable[d.round - 1];
     var actSet = new Set(actEl());
     var available = roundPairs.filter(function(p) {
       return actSet.has(p[0]) && actSet.has(p[1]);
     });
-    var doneSet = new Set(fullSweepDonePairs.map(function(p) {
+    var doneSet = new Set(d.donePairs.map(function(p) {
       return p[0] + "-" + p[1];
     }));
     p = available.filter(function(p) {
@@ -1154,12 +1277,14 @@ function ell_showCurPair() {
   // Verfahren (full / conv); im Konvergenz-Normalfall greift fast immer
   // der gespeicherte Wert.
   ELL_curBase = 0;
-  var ex = ELL_raw.find(function(r) {
-    return (r.a === ELL_curA && r.b === ELL_curB) || (r.a === ELL_curB && r.b === ELL_curA);
+  var _exMp = ELL_raw.messpunkte.find(function(p) {
+    return p && p.bezug && ((p.bezug.a === ELL_curA && p.bezug.b === ELL_curB) || (p.bezug.a === ELL_curB && p.bezug.b === ELL_curA));
   });
+  var ex = _exMp ? ELL_pointStep(_exMp) : null;
+  var _exBezug = _exMp ? _exMp.bezug : null;
   var startVal = 0;
   if (ex) {
-    startVal = (ex.a === ELL_curA) ? ex.offset : -ex.offset;
+    startVal = (_exBezug && _exBezug.a === ELL_curA) ? ex.offset : -ex.offset;
   } else {
     var estStart = ell_getLsEstimate(ELL_curA, ELL_curB);
     if (estStart.hasData) {
@@ -1195,18 +1320,18 @@ function _ell_updateProgress() {
   var vref = ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
   if (!vref || !vref.progress) return;
   if (_ELL_activeVerfahren === "full") {
-    var s = sideData[activeSide];
     var rrTable = ROUND_ROBIN[nEl];
     if (rrTable) {
       var maxRounds = rrTable.length;
       var pairsPerRound = rrTable[0].length;
-      var completedRounds = (s.fullSweepRound || 1) - 1;
+      var _curRound = ELL_durchlauf().round || 1;
+      var completedRounds = _curRound - 1;
       var totalPairs = maxRounds * pairsPerRound;
       var n = completedRounds * pairsPerRound + ELL_testIdx + 1;
       // BA 247fix2: progress.set erwartet ein opts-Objekt, kein String.
       testUI.progress.set(vref.progress, {
         text: t("comp") + " " + n + " " + t("of") + " " + totalPairs +
-              ". " + t("round") + " " + (s.fullSweepRound || 1) + " " + t("of") + " " + maxRounds,
+              ". " + t("round") + " " + _curRound + " " + t("of") + " " + maxRounds,
         fraction: n / totalPairs
       });
     }
@@ -1290,26 +1415,26 @@ function ell_recBal() {
   // BA 247: ELL_curBase ist immer 0.
   const a = ELL_curA, b = ELL_curB, tot = _ell_sliderVal();
   const _awgId = (typeof AWG_activeId !== "undefined") ? AWG_activeId : 0;
-  const ne = { a, b, offset: tot, timestamp: Date.now(),
+  const schritt = { offset: tot, timestamp: Date.now(),
                audioweg: (activeSide === "right")
                  ? { left: 0, right: _awgId }
                  : { left: _awgId, right: 0 } };
-  const ei = ELL_raw.findIndex((x) => (x.a === a && x.b === b) || (x.a === b && x.b === a));
+  const mp = ELL_raw.messpunkte;
+  const ei = mp.findIndex((p) => p && p.bezug && ((p.bezug.a === a && p.bezug.b === b) || (p.bezug.a === b && p.bezug.b === a)));
   if (ei >= 0) {
-    undoSt.push({ t: "b", a: "r", e: ne, p: { ...ELL_raw[ei] } });
-    ELL_raw[ei] = ne;
+    // Undo-Rueckfall: ganze alte historie des Punktes sichern (tiefe Kopie der Liste).
+    undoSt.push({ t: "b", a: "r", bezug: { a, b }, prevHist: mp[ei].historie.slice() });
   } else {
-    undoSt.push({ t: "b", a: "a", e: ne });
-    ELL_raw.push(ne);
+    undoSt.push({ t: "b", a: "a", bezug: { a, b } });
   }
+  ELL_rawPush(ELL_raw, a, b, schritt);
   // BA 247: Vollstaendig: gemessenes Paar als erledigt markieren.
   if (_ELL_activeVerfahren === "full") {
     const ka = Math.min(a, b), kb = Math.max(a, b);
-    const s = sideData[activeSide];
-    if (!s.fullSweepDonePairs.some(([x, y]) => x === ka && y === kb)) {
-      s.fullSweepDonePairs.push([ka, kb]);
+    const d = ELL_durchlauf();
+    if (!d.donePairs.some(([x, y]) => x === ka && y === kb)) {
+      d.donePairs.push([ka, kb]);
     }
-    fullSweepDonePairs = s.fullSweepDonePairs;
   }
   ELL_testIdx++;
   ell_updUndo();
@@ -1320,22 +1445,22 @@ function ell_undoL() {
   stopAll();
   ELL_testIdx--;
   const u = undoSt.pop();
-  // BA 247: nur noch der b-Pfad (balance); j-Pfad entfaellt mit judgment.
+  const mp = ELL_raw.messpunkte;
+  const _pi = mp.findIndex(function(p) { return p && p.bezug && p.bezug.a === u.bezug.a && p.bezug.b === u.bezug.b; });
   if (u.a === "a") {
-    const i = ELL_raw.findIndex(function(x) { return x.timestamp === u.e.timestamp; });
-    if (i >= 0) ELL_raw.splice(i, 1);
+    // Erstmessung des Paars -> Meszpunkt ganz entfernen.
+    if (_pi >= 0) mp.splice(_pi, 1);
   } else {
-    const i = ELL_raw.findIndex(function(x) { return x.a === u.e.a && x.b === u.e.b; });
-    if (i >= 0) ELL_raw[i] = u.p;
+    // Wiederholung -> alte historie des Punktes wiederherstellen.
+    if (_pi >= 0) mp[_pi].historie = u.prevHist;
   }
-  // Bug-Fix §6.9: Bei full-Verfahren auch aus fullSweepDonePairs entfernen.
+  // Bug-Fix §6.9: Bei full-Verfahren auch aus durchlauf.donePairs entfernen.
   if (_ELL_activeVerfahren === "full") {
-    const ka = Math.min(u.e.a, u.e.b);
-    const kb = Math.max(u.e.a, u.e.b);
-    const s = sideData[activeSide];
-    const idx = s.fullSweepDonePairs.findIndex(function(p) { return p[0] === ka && p[1] === kb; });
-    if (idx >= 0) s.fullSweepDonePairs.splice(idx, 1);
-    fullSweepDonePairs = s.fullSweepDonePairs;
+    const ka = Math.min(u.bezug.a, u.bezug.b);
+    const kb = Math.max(u.bezug.a, u.bezug.b);
+    const d = ELL_durchlauf();
+    const idx = d.donePairs.findIndex(function(p) { return p[0] === ka && p[1] === kb; });
+    if (idx >= 0) d.donePairs.splice(idx, 1);
   }
   ell_updUndo();
   ell_showCurPair();
@@ -1349,18 +1474,14 @@ function ell_updUndo() {
   if (btn) btn.disabled = ELL_testIdx <= 0 || !undoSt.length;
 }
 function nextFullRound() {
-  const s = sideData[activeSide];
   const rrTable = ROUND_ROBIN[nEl];
   const maxRounds = rrTable ? rrTable.length : 0;
-  s.fullSweepRound++;
-  s.fullSweepDonePairs = [];
-  fullSweepRound = s.fullSweepRound;
-  fullSweepDonePairs = [];
-  if (s.fullSweepRound > maxRounds) {
-    s.fullSweepRound = null;
-    s.fullSweepDonePairs = [];
-    fullSweepRound = null;
-    fullSweepDonePairs = [];
+  const d = ELL_durchlauf();
+  d.round++;
+  d.donePairs = [];
+  if (d.round > maxRounds) {
+    d.round = null;
+    d.donePairs = [];
     endTest();
     ELL_renderResults();
     // BA 279: Abschluss-Box NUR beim vollstaendigen Round-Robin-Durchlauf.
@@ -1375,7 +1496,7 @@ function nextFullRound() {
     return;
   }
   const actSet = new Set(actEl());
-  const roundPairs = rrTable[s.fullSweepRound - 1].filter(
+  const roundPairs = rrTable[d.round - 1].filter(
     ([a, b]) => actSet.has(a) && actSet.has(b),
   );
   // BA 247fix: Elektroden-Auswahl im Header gilt auch ab der zweiten
@@ -1629,7 +1750,7 @@ document.addEventListener("DOMContentLoaded", function() {
             };
             testUI.audioPathCheck.run(
               { sides: 'one', side: activeSide,
-                measuredEntries: ELL_raw },
+                measuredEntries: ELL_alleSchritte() },
               _sideCheckThen,
               function() {
                 // Abbruch in der Audioweg-Box: Test gar nicht erst starten.
@@ -1662,7 +1783,7 @@ document.addEventListener("DOMContentLoaded", function() {
             };
             testUI.audioPathCheck.run(
               { sides: 'one', side: activeSide,
-                measuredEntries: ELL_raw },
+                measuredEntries: ELL_alleSchritte() },
               _sideCheckThenConv,
               function() {
                 // Abbruch in der Audioweg-Box: Test gar nicht erst starten.

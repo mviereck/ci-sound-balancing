@@ -184,10 +184,21 @@ function AWG_usedIds(entries, side) {
 // unberuehrt, weil Snapshot-Eintraege dasselbe audioweg-Feld tragen.
 function AWG_usedCollect() {
   var lists = [];
-  // ELL: sideData[side].ELL_raw (beide Seiten getrennt abgelegt).
+  // ELL: sideData[side].ELL_raw = { durchlauf, messpunkte }. audioweg liegt an
+  // den Schritten in historie (eine Ebene tiefer). (Vereinheitlichung dieser
+  // Sammelstelle folgt, sobald alle Container das Grundmuster tragen.)
   if (typeof sideData !== "undefined") {
     ["left", "right"].forEach(function (s) {
-      if (sideData[s] && Array.isArray(sideData[s].ELL_raw)) lists.push(sideData[s].ELL_raw);
+      var c = sideData[s] && sideData[s].ELL_raw;
+      if (c && Array.isArray(c.messpunkte)) {
+        var ellAll = [];
+        c.messpunkte.forEach(function (p) {
+          if (p && Array.isArray(p.historie)) {
+            for (var i = 0; i < p.historie.length; i++) ellAll.push(p.historie[i]);
+          }
+        });
+        lists.push(ellAll);
+      }
     });
   }
   // STB: STB_raw ist ein Objekt {el: eintrag} -> Werte als Liste.

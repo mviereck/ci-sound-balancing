@@ -33,8 +33,6 @@ let userFirstName = ""; // Vorname für Dateinamen und Druck-Seitentitel (BA 268
 let kurvenELL = [];
 let kurvenELLActivePi = -1;   // aktive Kurvenzeile (-1 = keine)
 let elActive = [];  // BA 164: Aktivitäts-Flag pro Elektrode der aktiven Seite
-let fullSweepRound = null,
-  fullSweepDonePairs = [];
 // Voreingestellte Stärke je Kurventyp (Startwert des Schiebers beim
 // Einschalten; alle Kurven starten mit on:false). Fehlt ein Typ, gilt 0.
 const KURVEN_ELL_DEFAULT_STRENGTH = {
@@ -88,8 +86,6 @@ function bindActiveSide() {
   }
   elActive = s.elActive || (s.elActive = new Array(s.nEl).fill(true));
   config = s.config || "ci";
-  fullSweepRound = s.fullSweepRound !== undefined ? s.fullSweepRound : null;
-  fullSweepDonePairs = s.fullSweepDonePairs || [];
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
 }
@@ -157,7 +153,7 @@ function ELL_ctx(side) {
   return {
     // Datenfelder (compWLS + drawChart)
     nEl:         _nEl,
-    ELL_raw: s.ELL_raw,
+    ELL_raw: (s.ELL_raw && Array.isArray(s.ELL_raw.messpunkte)) ? s.ELL_raw.messpunkte : [],
     elSt:        s.elSt,
     elExDur:     s.elExDur,
     ELL_refEl:   s.ELL_refEl,
@@ -187,7 +183,7 @@ function initSideData(side, m) {
   s.elExDur = new Array(s.nEl).fill(null);
   s.schieberELL = new Array(s.nEl).fill(0);
   s.ELL_refEl = Math.floor(s.nEl / 2);
-  s.ELL_raw = [];
+  s.ELL_raw = { durchlauf: { round: null, donePairs: [] }, messpunkte: [] };
   s.ELL_eval = null;
   s.SNR_rawSide = null;   // Sprachtest-Rohwert je Seite (Stufe 1)
   s.SNR_evalSide = null;   // Sprachtest-Auswertung je Seite (Stufe 3)
@@ -227,8 +223,6 @@ function initSideData(side, m) {
   s.SNRtest_volume = 50;
   s.SNRtest_noise = "__werk__";   // Sprachtest-Rauschwahl, seitenweise
   s.SNRtest_material = null;   // Sprachtest-Testmaterial (test_set-Wert), seitenweise; null = Fallback erste verfuegbare
-  s.fullSweepRound = null;
-  s.fullSweepDonePairs = [];
   s.implant = {
     model: "",
     processor: "",

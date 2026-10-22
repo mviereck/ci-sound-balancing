@@ -26,14 +26,15 @@ function ELL_renderResults() {
   if (ndBox && ndTitle && ndDetail) {
     const s = sideData[activeSide];
     const rrTable = (typeof ROUND_ROBIN !== 'undefined') ? ROUND_ROBIN[nEl] : null;
-    const inFullSweep = rrTable && s && s.fullSweepRound !== null && s.fullSweepRound !== undefined;
+    var _d = (s && s.ELL_raw && s.ELL_raw.durchlauf) ? s.ELL_raw.durchlauf : null;
+    const inFullSweep = rrTable && _d && _d.round !== null && _d.round !== undefined;
     if (inFullSweep) {
       const maxRounds = rrTable.length;
-      const pairsPerRound = rrTable[s.fullSweepRound - 1].length;
-      const done = (s.fullSweepDonePairs || []).length;
+      const pairsPerRound = rrTable[_d.round - 1].length;
+      const done = (_d.donePairs || []).length;
       ndTitle.textContent  = t('ELL_resNotDoneTitle');
       ndDetail.textContent = t('ELL_resNotDoneDetail')
-        .replace('{round}',     s.fullSweepRound)
+        .replace('{round}',     _d.round)
         .replace('{maxRounds}', maxRounds)
         .replace('{done}',      done)
         .replace('{total}',     pairsPerRound);

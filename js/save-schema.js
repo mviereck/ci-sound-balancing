@@ -586,8 +586,8 @@ SAVE_SCHEMA.push(
     default: null },
   { key: "ELL_raw", scope: "side",
     get: function (s) { return sideData[s].ELL_raw; },
-    set: function (v, s) { sideData[s].ELL_raw = Array.isArray(v) ? v : []; },
-    default: function () { return []; }, valid: { type: "array" } },
+    set: function (v, s) { sideData[s].ELL_raw = ELL_migrateRaw(v); },
+    default: function () { return { durchlauf: { round: null, donePairs: [] }, messpunkte: [] }; } },
   // Alt-Schluessel (vor BA678 hiess ELL_raw noch ELL_results). Faengt beim
   // Laden alter Dateien den dort gespeicherten Rohwert ab und schreibt ihn
   // ins neue Feld sideData[s].ELL_raw. get liefert nichts (nicht erneut
@@ -600,8 +600,10 @@ SAVE_SCHEMA.push(
   { key: "ELL_results", scope: "side",
     get: function () { return undefined; },
     set: function (v, s) {
-      if (Array.isArray(v) && v.length && (!sideData[s].ELL_raw || !sideData[s].ELL_raw.length)) {
-        sideData[s].ELL_raw = v;
+      var _cur = sideData[s].ELL_raw;
+      var _isEmpty = !_cur || (Array.isArray(_cur.messpunkte) && !_cur.messpunkte.length) || (Array.isArray(_cur) && !_cur.length);
+      if (Array.isArray(v) && v.length && _isEmpty) {
+        sideData[s].ELL_raw = (typeof ELL_migrateRaw === "function") ? ELL_migrateRaw(v) : v;
       }
     },
     default: function () { return undefined; } },
@@ -645,14 +647,29 @@ SAVE_SCHEMA.push(
       }
     },
     default: null },
+  // Alt-Schluessel: vor dieser BA lag der Round-Robin-Fortsetz-Zustand in
+  // getrennten Feldern. Jetzt im Rohwert-Container (ELL_raw.durchlauf, §8.3).
+  // Diese beiden Auffaenge schieben einen Alt-Stand in den durchlauf-Kopf.
+  // get liefert nichts (neue Dateien tragen den Kopf in ELL_raw).
+  // MUESSEN NACH dem ELL_raw-Eintrag stehen (ELL_raw legt den Container an).
   { key: "fullSweepRound", scope: "side",
-    get: function (s) { return sideData[s].fullSweepRound; },
-    set: function (v, s) { sideData[s].fullSweepRound = v !== undefined ? v : null; },
-    default: null },
+    get: function () { return undefined; },
+    set: function (v, s) {
+      if (v === undefined || v === null) return;
+      if (!sideData[s].ELL_raw || typeof sideData[s].ELL_raw !== "object") return;
+      if (!sideData[s].ELL_raw.durchlauf) sideData[s].ELL_raw.durchlauf = { round: null, donePairs: [] };
+      sideData[s].ELL_raw.durchlauf.round = v;
+    },
+    default: function () { return undefined; } },
   { key: "fullSweepDonePairs", scope: "side",
-    get: function (s) { return sideData[s].fullSweepDonePairs; },
-    set: function (v, s) { sideData[s].fullSweepDonePairs = Array.isArray(v) ? v : []; },
-    default: function () { return []; }, valid: { type: "array" } },
+    get: function () { return undefined; },
+    set: function (v, s) {
+      if (!Array.isArray(v) || !v.length) return;
+      if (!sideData[s].ELL_raw || typeof sideData[s].ELL_raw !== "object") return;
+      if (!sideData[s].ELL_raw.durchlauf) sideData[s].ELL_raw.durchlauf = { round: null, donePairs: [] };
+      sideData[s].ELL_raw.durchlauf.donePairs = v;
+    },
+    default: function () { return undefined; } },
   { key: "implant", scope: "side",
     get: function (s) { return sideData[s].implant; },
     set: function (v, s) {
