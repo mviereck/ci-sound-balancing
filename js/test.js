@@ -1324,10 +1324,16 @@ function _ell_updateProgress() {
     if (rrTable) {
       var maxRounds = rrTable.length;
       var pairsPerRound = rrTable[0].length;
-      var _curRound = ELL_durchlauf().round || 1;
+      var _dl = ELL_durchlauf();
+      var _curRound = _dl.round || 1;
       var completedRounds = _curRound - 1;
       var totalPairs = maxRounds * pairsPerRound;
-      var n = completedRounds * pairsPerRound + ELL_testIdx + 1;
+      // Fortschritt innerhalb der Runde aus den erledigten Paaren (nicht aus
+      // ELL_testIdx): nach Pause/Neustart wird ELL_testPairs nur aus den
+      // Rest-Paaren neu gebaut und ELL_testIdx startet bei 0 -- der echte
+      // Rundenfortschritt steht in durchlauf.donePairs.
+      var doneInRound = Array.isArray(_dl.donePairs) ? _dl.donePairs.length : 0;
+      var n = completedRounds * pairsPerRound + doneInRound + 1;
       // BA 247fix2: progress.set erwartet ein opts-Objekt, kein String.
       testUI.progress.set(vref.progress, {
         text: t("comp") + " " + n + " " + t("of") + " " + totalPairs +
