@@ -6,9 +6,14 @@
 // Stufe 1 -- Rohwert je Elektrode: { offset, timestamp, audioweg:{left,right} }.
 // offset = dB-Ausgleich (negativ = rechts war lauter). Leser gehen ueber
 // STB_rawOffset/STB_hasRaw (state-side.js), nie ueber .offset direkt.
-let STB_raw = {};
-let stb_seq = []; // sequence of electrode indices to test
-let stb_seqIdx = 0;
+// Rohwert-Grundmuster (Stufe 1, §8): Container { durchlauf, messpunkte }.
+// durchlauf = Stereo-Balance-Fortsetz-Position { seq, idx } (bei Testbeginn
+// fixierte Elektroden-Reihenfolge + Position); messpunkte = flache Liste
+// { bezug:{el}, historie:[{audioweg,timestamp,offset}] }, neuester Schritt am
+// Kopf, hoechstens STB_HIST_MAX. Die Elektrode steht im bezug (war der
+// Objekt-Schluessel). Container global/binaural, ein SAVE_SCHEMA-Feld.
+let STB_raw = { durchlauf: { seq: [], idx: 0 }, messpunkte: [] };
+const STB_HIST_MAX = 4;   // max. Meszschritte je Meszpunkt (§8.1, Grundmuster)
 let stb_currentEl = null; // current electrode index (left side numbering)
 let stb_flipped = false; // if true, first tone is R then L
 let STB_running = false;
@@ -222,6 +227,41 @@ function stb_stopPlay() {
   }
 }
 
+// Stereo-Balance-Fortsetz-Position (im Rohwert-Container, §8.3). Legt den Kopf
+// an, falls er fehlt. Alle Leser/Schreiber von seq/idx gehen hierdurch.
+function stb_durchlauf() {
+  if (!STB_raw || typeof STB_raw !== "object") STB_raw = { durchlauf: {}, messpunkte: [] };
+  if (!STB_raw.durchlauf || typeof STB_raw.durchlauf !== "object") STB_raw.durchlauf = {};
+  var d = STB_raw.durchlauf;
+  if (!Array.isArray(d.seq)) d.seq = [];
+  if (typeof d.idx !== "number") d.idx = 0;
+  return d;
+}
+
+// Meszpunkt einer Elektrode (oder null).
+function stb_pointForEl(el) {
+  if (!STB_raw || !Array.isArray(STB_raw.messpunkte)) return null;
+  for (var i = 0; i < STB_raw.messpunkte.length; i++) {
+    var p = STB_raw.messpunkte[i];
+    if (p && p.bezug && p.bezug.el === el) return p;
+  }
+  return null;
+}
+
+// Neuen Meszschritt der Elektrode el schreiben: neuer Schritt an den Kopf der
+// historie (ueberschreiben wird verschieben, §8.1), aeltester faellt bei
+// > STB_HIST_MAX weg. Kein Meszpunkt -> neu anlegen. In-place (STB_raw-Referenz).
+function stb_rawPush(el, schritt) {
+  if (!STB_raw || !Array.isArray(STB_raw.messpunkte)) return;
+  var p = stb_pointForEl(el);
+  if (p) {
+    p.historie.unshift(schritt);
+    if (p.historie.length > STB_HIST_MAX) p.historie.length = STB_HIST_MAX;
+  } else {
+    STB_raw.messpunkte.push({ bezug: { el: el }, historie: [schritt] });
+  }
+}
+
 function stb_buildSequence() {
   // Use left side as reference for electrode count
   const leftNEl = sideData["left"].nEl;
@@ -248,19 +288,58 @@ function stb_buildSequence() {
   }
   const mode = (STB_els && STB_els.header && STB_els.header.modeSelect)
     ? STB_els.header.modeSelect.value : "random";
+  var _seq;
   if (mode === "ascending") {
-    stb_seq = filtered.slice();
+    _seq = filtered.slice();
   } else if (mode === "descending") {
-    stb_seq = filtered.slice().reverse();
+    _seq = filtered.slice().reverse();
   } else {
     const arr = filtered.slice();
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
-    stb_seq = arr;
+    _seq = arr;
   }
-  stb_seqIdx = 0;
+  var d = stb_durchlauf();
+  d.seq = _seq;
+  d.idx = 0;
+}
+
+// Fortsetz-Abgleich (§8.4): beim Fortsetzen aus einer Pause die Rest-Sequenz
+// (ab durchlauf.idx) gegen die aktuell testbaren (beidseitig aktiv) UND im
+// Header gewaehlten Elektroden abgleichen. Bereits absolvierte Positionen
+// (< idx) bleiben unangetastet; aus dem Rest fallen entfernte/stummgeschaltete
+// Elektroden, neu hinzugekommene ungemessene werden gemaess Modus einsortiert.
+function stb_resumeSequence() {
+  var d = stb_durchlauf();
+  // testbar = beidseitig aktiv (nicht ausgeschlossen, nicht stumm)
+  var leftNEl = sideData["left"].nEl, rightNEl = sideData["right"].nEl;
+  var count = Math.min(leftNEl, rightNEl);
+  var testbar = [];
+  for (var i = 0; i < count; i++) {
+    var leftOk  = sideData["left"].elExDur[i]  === null && sideData["left"].elSt[i]  !== "mute";
+    var rightOk = sideData["right"].elExDur[i] === null && sideData["right"].elSt[i] !== "mute";
+    if (leftOk && rightOk) testbar.push(i);
+  }
+  var selSet = (stb_selectedEls === null) ? null : new Set(stb_selectedEls);
+  var zulaessig = new Set(testbar.filter(function (i) { return !selSet || selSet.has(i); }));
+
+  var absolviert = d.seq.slice(0, d.idx);            // unangetastet
+  var rest = d.seq.slice(d.idx).filter(function (el) { return zulaessig.has(el); });
+
+  // Neu hinzugekommene, noch ungemessene zulaessige Elektroden: nicht in seq.
+  var inSeq = new Set(d.seq);
+  var neu = [];
+  zulaessig.forEach(function (el) { if (!inSeq.has(el)) neu.push(el); });
+  var mode = (STB_els && STB_els.header && STB_els.header.modeSelect)
+    ? STB_els.header.modeSelect.value : "random";
+  if (mode === "ascending")       neu.sort(function (a, b) { return a - b; });
+  else if (mode === "descending") neu.sort(function (a, b) { return b - a; });
+  else { for (var k = neu.length - 1; k > 0; k--) { var j = Math.floor(Math.random() * (k + 1)); var tmp = neu[k]; neu[k] = neu[j]; neu[j] = tmp; } }
+
+  d.seq = absolviert.concat(rest, neu);
+  // idx bleibt: die absolvierten Positionen aendern sich nicht.
 }
 
 function stb_determineFlip() {
@@ -272,11 +351,12 @@ function stb_determineFlip() {
 }
 
 function stb_showPair() {
-  if (stb_seqIdx >= stb_seq.length) {
+  var d = stb_durchlauf();
+  if (d.idx >= d.seq.length) {
     STB_finish();
     return;
   }
-  const el = stb_seq[stb_seqIdx];
+  const el = d.seq[d.idx];
   stb_currentEl = el;
   stb_flipped = stb_determineFlip();
 
@@ -301,8 +381,8 @@ function stb_showPair() {
     && STB_els.verfahren.stereobalance.progress;
   if (prRef) {
     testUI.progress.set(prRef, {
-      fraction: (stb_seqIdx + 1) / stb_seq.length,
-      text: t("comp") + " " + (stb_seqIdx + 1) + " " + t("of") + " " + stb_seq.length
+      fraction: (d.idx + 1) / d.seq.length,
+      text: t("comp") + " " + (d.idx + 1) + " " + t("of") + " " + d.seq.length
     });
   }
 
@@ -335,9 +415,10 @@ function stb_confirm() {
   if (stb_currentEl === null || !STB_running) return;
   const el = stb_currentEl;
   const val = _lrSliderVal();
-  // Save undo
-  stb_undoStack.push({ el, prev: STB_raw[el] });
-  STB_raw[el] = {
+  // Undo-Rueckfall: ganze alte historie des Punktes sichern (oder null = Erstmessung).
+  var _p = stb_pointForEl(el);
+  stb_undoStack.push({ el: el, prevHist: _p ? _p.historie.slice() : null });
+  var schritt = {
     offset: val,
     timestamp: Date.now(),
     audioweg: {
@@ -345,7 +426,8 @@ function stb_confirm() {
       right: (typeof sideData !== "undefined" && sideData.right && sideData.right.AWG_activeId != null) ? sideData.right.AWG_activeId : 0
     }
   };
-  stb_seqIdx++;
+  stb_rawPush(el, schritt);
+  stb_durchlauf().idx++;
   STB_writeEval();
   STB_renderResults();
   STB_renderMean();
@@ -356,10 +438,17 @@ function stb_confirm() {
 function stb_undo() {
   if (!stb_undoStack.length) return;
   stb_stopPlay();
-  const { el, prev } = stb_undoStack.pop();
-  if (prev === undefined) delete STB_raw[el];
-  else STB_raw[el] = prev;
-  stb_seqIdx = Math.max(0, stb_seqIdx - 1);
+  const u = stb_undoStack.pop();
+  var _pi = STB_raw.messpunkte.findIndex(function (p) { return p && p.bezug && p.bezug.el === u.el; });
+  if (u.prevHist === null) {
+    // Erstmessung -> Meszpunkt ganz entfernen.
+    if (_pi >= 0) STB_raw.messpunkte.splice(_pi, 1);
+  } else {
+    // Wiederholung -> alte historie wiederherstellen.
+    if (_pi >= 0) STB_raw.messpunkte[_pi].historie = u.prevHist;
+  }
+  var d = stb_durchlauf();
+  d.idx = Math.max(0, d.idx - 1);
   STB_writeEval();
   STB_renderResults();
   STB_renderMean();
@@ -372,8 +461,9 @@ function stb_undo() {
 // (Clear-Button, resetAll) gebraucht, damit ein pausierter Fortschritt
 // nicht in einen frischen Start hineinblutet (Stop = Pause, BA 245).
 function STB_resetSequence() {
-  stb_seq = [];
-  stb_seqIdx = 0;
+  var d = stb_durchlauf();
+  d.seq = [];
+  d.idx = 0;
   stb_currentEl = null;
   stb_undoStack = [];
 }
@@ -381,8 +471,9 @@ function STB_resetSequence() {
 function STB_finish() {
   stb_stopPlay();
   STB_running = false;
-  stb_seq = [];
-  stb_seqIdx = 0;
+  var d = stb_durchlauf();
+  d.seq = [];
+  d.idx = 0;
   if (STB_els && STB_els._stopTest) STB_els._stopTest();
   lockTestTabs(false, null);
   if (typeof depLockApply === 'function') depLockApply();
@@ -390,7 +481,7 @@ function STB_finish() {
   STB_renderResults();
   STB_renderMean();
   // BA 279: Abschluss-Box. STB_finish ist das natuerliche Sequenz-Ende
-  // (aus stb_showPair, wenn stb_seqIdx >= stb_seq.length). stb_pause (Stop): KEINE Box.
+  // (aus stb_showPair, wenn d.idx >= d.seq.length). stb_pause (Stop): KEINE Box.
   if (typeof testUI !== 'undefined' && testUI.completion) {
     testUI.completion.show({
       nameKey:   'tabSTB',
@@ -400,7 +491,7 @@ function STB_finish() {
   }
 }
 
-// BA 245: "Stop" ist semantisch Pause — stb_seq und stb_seqIdx bleiben erhalten.
+// BA 245: "Stop" ist semantisch Pause — durchlauf.seq und durchlauf.idx bleiben erhalten.
 function stb_pause() {
   stb_stopPlay();
   STB_running = false;
@@ -442,7 +533,9 @@ function STB_renderMean() {
 }
 
 function STB_renderResults() {
-  const keys = Object.keys(STB_raw).map(Number);
+  const keys = Array.isArray(STB_raw.messpunkte)
+    ? STB_raw.messpunkte.map(function (p) { return p.bezug.el; })
+    : [];
   const noResEl = document.getElementById("STB_noResults");
   if (!keys.length) {
     document.getElementById("STB_resultsCard").style.display = "none";
@@ -782,9 +875,11 @@ function stb_hookOnStart() {
       // Rohwert-Liste in Elektroden-Key-Reihenfolge (Messreihenfolge bei STB
       // nicht persistiert; Key-Reihenfolge wie bisher). Die Box zieht die ids
       // je Seite ueber AWG_usedIds.
-      measuredEntries: (typeof STB_raw !== "undefined" && STB_raw)
-        ? Object.keys(STB_raw).map(Number).sort(function (a,b){return a-b;})
-            .map(function (el) { return STB_raw[el]; })
+      measuredEntries: (typeof STB_raw !== "undefined" && STB_raw && Array.isArray(STB_raw.messpunkte))
+        ? STB_raw.messpunkte.slice()
+            .sort(function (a,b){ return a.bezug.el - b.bezug.el; })
+            .map(function (p) { return (Array.isArray(p.historie) ? p.historie[0] : null); })
+            .filter(function (st) { return !!st; })
         : [] },
     _sideCheckThen,
     function() { if (STB_els && STB_els._stopTest) STB_els._stopTest(); }
@@ -798,11 +893,16 @@ function _lrDoStart() {
     if (STB_els && STB_els._stopTest) STB_els._stopTest();
     return;
   }
-  // Resume: Sequenz und Position erhalten, nur Zustand wieder hochfahren
-  if (!stb_seq || !stb_seq.length || stb_seqIdx >= stb_seq.length) {
+  // Frischer Start (keine/durchlaufene Sequenz) -> neu bauen. Fortsetzen eines
+  // laufenden Durchlaufs (seq vorhanden, idx noch drin) -> Rest-Sequenz gegen
+  // die aktuelle Lage abgleichen (Option B, §8.4).
+  var _d = stb_durchlauf();
+  if (!_d.seq.length || _d.idx >= _d.seq.length) {
     stb_buildSequence();
+  } else {
+    stb_resumeSequence();
   }
-  if (!stb_seq.length) {
+  if (!stb_durchlauf().seq.length) {
     alert(t("STB_noElMsg") || "Keine gemeinsamen aktiven Elektroden gefunden.");
     if (STB_els && STB_els._stopTest) STB_els._stopTest();
     return;
@@ -1119,7 +1219,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if (STB_clearBtn) {
     STB_clearBtn.addEventListener('click', function() {
       if (!confirm(t("stb_clearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
-      STB_raw = {};
+      STB_raw = { durchlauf: { seq: [], idx: 0 }, messpunkte: [] };
       STB_eval = null;
       STB_evalSelectedEls = null;   // BA661: Auswertungsauswahl zuruecksetzen
       STB_resetSequence();

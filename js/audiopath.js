@@ -201,9 +201,17 @@ function AWG_usedCollect() {
       }
     });
   }
-  // STB: STB_raw ist ein Objekt {el: eintrag} -> Werte als Liste.
-  if (typeof STB_raw !== "undefined" && STB_raw) {
-    lists.push(Object.keys(STB_raw).map(function (k) { return STB_raw[k]; }));
+  // STB: STB_raw = { durchlauf, messpunkte:[{bezug,historie}] }. audioweg liegt
+  // an den Schritten in historie (eine Ebene tiefer). (Vereinheitlichung dieser
+  // Sammelstelle folgt, sobald alle Container das Grundmuster tragen.)
+  if (typeof STB_raw !== "undefined" && STB_raw && Array.isArray(STB_raw.messpunkte)) {
+    var stbAll = [];
+    STB_raw.messpunkte.forEach(function (p) {
+      if (p && Array.isArray(p.historie)) {
+        for (var i = 0; i < p.historie.length; i++) stbAll.push(p.historie[i]);
+      }
+    });
+    lists.push(stbAll);
   }
   // Latenz: LTZ_raw = { durchlauf, messpunkte:[{bezug,historie}] }. Die
   // audioweg-tragenden Objekte sind die Schritte in historie, eine Ebene

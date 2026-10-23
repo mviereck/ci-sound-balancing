@@ -39,12 +39,12 @@ var SAVE_SCHEMA = [
     get: function () { return (typeof STB_raw !== "undefined" ? STB_raw : {}); },
     set: function (v) {
       if (typeof STB_raw === "undefined") return;
-      var migrated = STB_migrateRaw(v, _STB_loadPathTmp);
-      _STB_loadPathTmp = null;
-      Object.keys(STB_raw).forEach(function (k) { delete STB_raw[k]; });
-      Object.assign(STB_raw, migrated);
+      STB_raw = (typeof STB_migrateRaw === "function")
+        ? STB_migrateRaw(v, (typeof _STB_loadPathTmp !== "undefined" ? _STB_loadPathTmp : null))
+        : v;
+      if (typeof _STB_loadPathTmp !== "undefined") _STB_loadPathTmp = null;
     },
-    default: function () { return {}; }, valid: { type: "object" } },
+    default: function () { return { durchlauf: { seq: [], idx: 0 }, messpunkte: [] }; }, valid: { type: "object" } },
 
   // Alt-Schluessel (vor BA679 hiess STB_raw noch STB_results). Faengt beim Laden
   // alter Dateien die Rohwerte ab und migriert sie ins neue Feld. get liefert
@@ -57,10 +57,10 @@ var SAVE_SCHEMA = [
     get: function () { return undefined; },
     set: function (v) {
       if (typeof STB_raw === "undefined" || v == null) return;
-      if (Object.keys(STB_raw).length) return;   // STB_raw bereits aus neuem Key befuellt
+      if (STB_raw && Array.isArray(STB_raw.messpunkte) && STB_raw.messpunkte.length) return;  // bereits befuellt
       var migrated = STB_migrateRaw(v, _STB_loadPathTmp);
       _STB_loadPathTmp = null;
-      Object.assign(STB_raw, migrated);
+      STB_raw = migrated;
     },
     default: function () { return undefined; } },
 

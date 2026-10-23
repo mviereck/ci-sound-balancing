@@ -340,10 +340,10 @@ let STB_eval = null;
 //   STB_rawOffset(i) -> Zahl (der dB-Ausgleich) | undefined (nicht gemessen)
 //   STB_hasRaw(i)    -> true, wenn eine gueltige (endliche) Messung vorliegt
 function STB_rawOffset(i) {
-  if (typeof STB_raw === "undefined") return undefined;
-  var r = STB_raw[i];
-  if (r == null || typeof r !== "object") return undefined;
-  return isFinite(r.offset) ? r.offset : undefined;
+  if (typeof STB_raw === "undefined" || !STB_raw || !Array.isArray(STB_raw.messpunkte)) return undefined;
+  var p = (typeof stb_pointForEl === "function") ? stb_pointForEl(i) : null;
+  var st = (p && Array.isArray(p.historie)) ? p.historie[0] : null;
+  return (st && isFinite(st.offset)) ? st.offset : undefined;
 }
 function STB_hasRaw(i) {
   return STB_rawOffset(i) !== undefined;
@@ -355,34 +355,68 @@ function STB_hasRaw(i) {
 //       timestamp: null, audioweg: {left,right} }; Weg aus oldPath ziehen
 //   - unbrauchbarer Eintrag                               -> uebersprungen
 // oldPath: beim Laden alter Dateien aufgefangener STB_resultsPath (oder null).
+// Migration geladener STB-Rohwerte aufs Grundmuster §8. Liefert IMMER
+// { durchlauf:{seq,idx}, messpunkte:[{bezug:{el}, historie:[...]}] }:
+//   - NEU: bereits { durchlauf, messpunkte } -> validiert uebernehmen
+//   - ALT A: Objekt {el: {offset,timestamp,audioweg}} -> je Elektrode ein
+//            Meszpunkt mit einschrittiger historie
+//   - ALT B: Objekt {el: <nackte Zahl>} (aelteste) -> Weg aus oldPath
+//   - unbrauchbar -> leeres Grundmuster
+// oldPath: beim Laden alter Dateien aufgefangener STB_resultsPath (oder null).
 function STB_migrateRaw(v, oldPath) {
-  var out = {};
-  if (!v || typeof v !== "object") return out;
+  var leer = { durchlauf: { seq: [], idx: 0 }, messpunkte: [] };
+  if (!v || typeof v !== "object") return leer;
   var op = (oldPath && typeof oldPath === "object") ? oldPath : {};
+
+  // NEU: Container-Objekt.
+  if (!Array.isArray(v) && Array.isArray(v.messpunkte)) {
+    var d = (v.durchlauf && typeof v.durchlauf === "object") ? v.durchlauf : {};
+    var out = {
+      durchlauf: { seq: Array.isArray(d.seq) ? d.seq : [],
+                   idx: (typeof d.idx === "number") ? d.idx : 0 },
+      messpunkte: []
+    };
+    v.messpunkte.forEach(function (p) {
+      if (!p || !p.bezug || typeof p.bezug.el !== "number") return;
+      var hist = Array.isArray(p.historie) ? p.historie.filter(function (st) {
+        return st && isFinite(st.offset);
+      }) : [];
+      if (!hist.length) return;
+      if (hist.length > STB_HIST_MAX) hist = hist.slice(0, STB_HIST_MAX);
+      out.messpunkte.push({ bezug: { el: p.bezug.el }, historie: hist });
+    });
+    return out;
+  }
+
+  // ALT: Objekt {el: eintrag}. Jede Elektrode -> ein Meszpunkt mit einem Schritt.
+  var outA = { durchlauf: { seq: [], idx: 0 }, messpunkte: [] };
   Object.keys(v).forEach(function (k) {
+    var el = Number(k);
+    if (!isFinite(el)) return;
     var e = v[k];
+    var schritt = null;
     if (e != null && typeof e === "object") {
       if (!isFinite(e.offset)) return;
-      // Laedt sowohl neues audioweg- als auch altes audiopathID-Feld (Alt-Dateien).
       var aw = (e.audioweg && typeof e.audioweg === "object") ? e.audioweg
              : (e.audiopathID && typeof e.audiopathID === "object") ? e.audiopathID : {};
-      out[k] = {
-        offset: e.offset,
-        timestamp: (typeof e.timestamp === "number") ? e.timestamp : null,
+      schritt = {
         audioweg: { left:  (typeof aw.left  === "number") ? aw.left  : 0,
-                    right: (typeof aw.right === "number") ? aw.right : 0 }
+                    right: (typeof aw.right === "number") ? aw.right : 0 },
+        timestamp: (typeof e.timestamp === "number") ? e.timestamp : null,
+        offset: e.offset
       };
     } else if (isFinite(e)) {
-      var p = op[k];
-      out[k] = {
-        offset: e,
+      var pth = op[k];
+      schritt = {
+        audioweg: { left:  (pth && typeof pth.left  === "number") ? pth.left  : 0,
+                    right: (pth && typeof pth.right === "number") ? pth.right : 0 },
         timestamp: null,
-        audioweg: { left:  (p && typeof p.left  === "number") ? p.left  : 0,
-                    right: (p && typeof p.right === "number") ? p.right : 0 }
+        offset: e
       };
     }
+    if (schritt) outA.messpunkte.push({ bezug: { el: el }, historie: [schritt] });
   });
-  return out;
+  return outA;
 }
 
 // Stufe 2a -- die eine gewertete Elektroden-Teilmenge: endlich gemessen,
@@ -393,7 +427,10 @@ function STB_evalKeys() {
   var _selSet = (typeof STB_evalSelectedEls !== "undefined"
                  && STB_evalSelectedEls && STB_evalSelectedEls.length)
                 ? new Set(STB_evalSelectedEls) : null;
-  return Object.keys(STB_raw).map(Number).filter(function (i) {
+  var _els = Array.isArray(STB_raw.messpunkte)
+    ? STB_raw.messpunkte.map(function (p) { return p.bezug.el; })
+    : [];
+  return _els.filter(function (i) {
     if (!STB_hasRaw(i)) return false;
     if (_selSet && !_selSet.has(i)) return false;
     var exL = sideData.left.elExDur[i]  !== null || sideData.left.elSt[i]  === "mute";
@@ -422,8 +459,9 @@ function STB_computeEval_average(mode) {
 function STB_audioPathSide(side, keys) {
   var entries = [];
   for (var i = 0; i < keys.length; i++) {
-    var r = (typeof STB_raw !== "undefined") ? STB_raw[keys[i]] : null;
-    if (r) entries.push(r);
+    var p = (typeof stb_pointForEl === "function") ? stb_pointForEl(keys[i]) : null;
+    var st = (p && Array.isArray(p.historie)) ? p.historie[0] : null;
+    if (st) entries.push(st);
   }
   return AWG_distribution(AWG_usedIds(entries, side));   // [{id,count}] | null
 }
@@ -447,11 +485,13 @@ function STB_writeEval() {
   var perEl = {};
   for (var ki = 0; ki < keys.length; ki++) {
     var el = keys[ki];
-    var r = STB_raw[el];
+    var p = stb_pointForEl(el);
+    var r = (p && Array.isArray(p.historie)) ? p.historie[0] : null;
+    if (!r) continue;
     perEl[el] = {
       offset: r.offset,
       ausgewertet: true,
-      audioweg: (r && r.audioweg && typeof r.audioweg === "object")
+      audioweg: (r.audioweg && typeof r.audioweg === "object")
         ? { left:  (typeof r.audioweg.left  === "number") ? r.audioweg.left  : 0,
             right: (typeof r.audioweg.right === "number") ? r.audioweg.right : 0 }
         : { left: 0, right: 0 }
@@ -460,9 +500,10 @@ function STB_writeEval() {
 
   // Nicht-volatiler Zeitstempel: Maximum ueber alle STB_raw-Stempel.
   var ts = 0;
-  var allKeys = Object.keys(STB_raw);
-  for (var ti = 0; ti < allKeys.length; ti++) {
-    var t0 = STB_raw[allKeys[ti]] && STB_raw[allKeys[ti]].timestamp;
+  var _mp = Array.isArray(STB_raw.messpunkte) ? STB_raw.messpunkte : [];
+  for (var ti = 0; ti < _mp.length; ti++) {
+    var st = (_mp[ti] && Array.isArray(_mp[ti].historie)) ? _mp[ti].historie[0] : null;
+    var t0 = st && st.timestamp;
     if (typeof t0 === "number" && t0 > ts) ts = t0;
   }
 
