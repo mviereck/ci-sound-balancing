@@ -162,7 +162,7 @@ function resetAll() {
   if (typeof LTZ_sliderInput === "function") LTZ_sliderInput(0);
   // --- LR-Balance ---
   if (typeof STB_raw !== "undefined") {
-    Object.keys(STB_raw).forEach(k => delete STB_raw[k]);
+    STB_raw = { durchlauf: { seq: [], idx: 0 }, messpunkte: [] };   // Rohwert-Grundmuster §8
     if (typeof STB_eval !== "undefined") STB_eval = null;   // keine Messung mehr
     if (typeof STB_resetSequence === "function") STB_resetSequence();
     if (typeof STB_renderResults === "function") STB_renderResults();
