@@ -93,7 +93,7 @@ var SAVE_SCHEMA = [
     default: null, valid: { type: "any" } },
   { key: "SNR_rawBoth", scope: "global",
     get: function () { return (typeof SNR_rawBoth !== "undefined") ? SNR_rawBoth : null; },
-    set: function (v) { SNR_rawBoth = (v && typeof v === "object") ? v : null; },
+    set: function (v) { SNR_rawBoth = (typeof SNR_migrateRaw === "function") ? SNR_migrateRaw(v) : ((v && typeof v === "object") ? v : null); },
     default: null, valid: { type: "any" } },
 
   // --- Audioweg-Katalog (Mess-Kontext) ---
@@ -619,7 +619,7 @@ SAVE_SCHEMA.push(
     default: null },
   { key: "SNR_rawSide", scope: "side",
     get: function (s) { return sideData[s].SNR_rawSide || null; },
-    set: function (v, s) { sideData[s].SNR_rawSide = (v && typeof v === "object") ? v : null; },
+    set: function (v, s) { sideData[s].SNR_rawSide = (typeof SNR_migrateRaw === "function") ? SNR_migrateRaw(v) : ((v && typeof v === "object") ? v : null); },
     default: null },
   { key: "schieberELL", scope: "side",
     get: function (s) { return sideData[s].schieberELL; },

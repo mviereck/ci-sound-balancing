@@ -236,12 +236,23 @@ function AWG_usedCollect() {
     }
     lists.push(frqAll);
   }
-  // SNR: zwei moegliche Rohwert-Objekte (binaural global + je Seite), jeweils
-  // EIN Durchgang = ein Eintrag mit audioweg. Als Ein-Element-Listen einwerfen.
-  if (typeof SNR_rawBoth !== "undefined" && SNR_rawBoth) lists.push([SNR_rawBoth]);
+  // SNR: binaural global + je Seite. audioweg liegt an den Schritten in
+  // messpunkte[].historie (fuer alle Saetze eines Durchgangs derselbe Weg).
+  function _snrSchritte(c) {
+    var out = [];
+    if (c && Array.isArray(c.messpunkte)) {
+      c.messpunkte.forEach(function (p) {
+        if (p && Array.isArray(p.historie)) {
+          for (var i = 0; i < p.historie.length; i++) out.push(p.historie[i]);
+        }
+      });
+    }
+    return out;
+  }
+  if (typeof SNR_rawBoth !== "undefined" && SNR_rawBoth) lists.push(_snrSchritte(SNR_rawBoth));
   if (typeof sideData !== "undefined") {
     ["left", "right"].forEach(function (s) {
-      if (sideData[s] && sideData[s].SNR_rawSide) lists.push([sideData[s].SNR_rawSide]);
+      if (sideData[s] && sideData[s].SNR_rawSide) lists.push(_snrSchritte(sideData[s].SNR_rawSide));
     });
   }
   return lists;

@@ -116,6 +116,7 @@ const SNR_START_SNR = 0;      // erster Satz bei SNR 0 dB
 const SNR_MIN = -15;      // Klemmung (Architektur SS4.3)
 const SNR_MAX = 21;
 const SNR_LIST_LEN = 30;      // gewertete Saetze
+const SNR_HIST_MAX = 4;       // max. Meszschritte je Meszpunkt (§8.1); SNR nutzt stets 1
 const SNR_TRAIN_LEN = 3;      // Trainingssaetze (zaehlen nicht)
 const SNR_SRT_WINDOW = 20;    // SRT = Mittel der letzten 20 SNR-Werte
 const SNR_SRT_WINDOW_CONV = 6;// bei Konvergenz-Abbruch: letzte 6
@@ -131,8 +132,8 @@ let snr_idx = 0;              // Index in snr_seq
 let snr_snr = SNR_START_SNR;   // aktueller Ziel-SNR
 let snr_snrHistory = [];      // SNR je gewertetem Satz (nur measure-Phase)
 let snr_wordHistory = [];     // richtige Woerter (0..5) je gewertetem Satz
-let snr_rawSaetze = [];       // reiche Rohwert-Reihe (Stufe 1): je Satz
-                              // {snr, correct, positionen[5], timestamp}
+let snr_rawSaetze = [];       // Meszpunkte je Satz {bezug:{id}, historie:[1 Schritt
+                              // {audioweg,timestamp,snr,correct,positionen}]}
 let snr_saved = null;         // gesicherter Player-Unterlegungszustand (Restore)
 let _st_preloadedSeq = null; // Satz-Reihenfolge aus _st_preload (Ziehung vorgezogen)
 let _st_matrix = null;       // Matrix des aktiven Buendels (aus Satztexten, SS3.2)
@@ -616,17 +617,26 @@ function snr_onConfirm() {
   if (isMeasure) {
     snr_snrHistory.push(snr_snr);
     snr_wordHistory.push(correct);
-    // Reiche Rohwert-Reihe (Stufe 1): positionsweise gewaehlt/richtig je Satz.
-    // sel ist Array[5] von Wort|null (testUI.wordGrid.getSelection); der
-    // Sollsatz steht in item.text (5 Woerter, Punkt am Ende entfaellt).
+    // Reiche Rohwert-Reihe (Stufe 1, Grundmuster §8.6): positionsweise WORTNUMMER
+    // (Index in der sortierten Spalten-Wortliste) je Satz. sel ist Array[5] von
+    // Wort|null (testUI.wordGrid.getSelection); der Sollsatz steht in item.text.
     const _soll = (item.text || "").replace(/\.$/, "").trim().split(/\s+/);
     const positionen = [];
     for (let p = 0; p < 5; p++) {
-      positionen.push({ gewaehlt: (sel[p] != null) ? sel[p] : null,
-                        richtig:  (_soll[p] != null) ? _soll[p] : "" });
+      positionen.push({ gewaehlt: snr_wordNum((sel[p] != null) ? sel[p] : null, p),
+                        richtig:  snr_wordNum((_soll[p] != null) ? _soll[p] : null, p) });
     }
-    snr_rawSaetze.push({ snr: snr_snr, correct: correct,
-                         positionen: positionen, timestamp: Date.now() });
+    // Ein Meszpunkt je Satz: bezug = Satz-id, historie = genau EIN Schritt.
+    snr_rawSaetze.push({
+      bezug: { id: (item && item.id != null) ? item.id : null },
+      historie: [ {
+        audioweg: _snr_frozenAudioweg(),
+        timestamp: Date.now(),
+        snr: snr_snr,
+        correct: correct,
+        positionen: positionen
+      } ]
+    });
   }
 
   // Naechsten SNR bestimmen (Adaption).
@@ -690,6 +700,17 @@ function snr_countCorrect(item, sel) {
   return n;
 }
 
+// Wortnummer eines Worts in Spalte p: Index in der sortierten Spalten-Wortliste
+// (_st_matrix[p]). Unbekannt / keine Matrix / nicht gefunden -> -1.
+// null (keine Auswahl) -> null durchreichen.
+function snr_wordNum(wort, p) {
+  if (wort == null) return null;
+  var col = (Array.isArray(_st_matrix) && Array.isArray(_st_matrix[p])) ? _st_matrix[p] : null;
+  if (!col) return -1;
+  var idx = col.indexOf(wort);
+  return (idx >= 0) ? idx : -1;
+}
+
 // Aktiver Audioweg (Katalog-id) einer Seite, 0 = "(keine Angabe)".
 function _snr_activePathId(side) {
   return (typeof sideData !== "undefined" && sideData[side]
@@ -730,6 +751,55 @@ function SNR_migrateResult(obj) {
   return obj;
 }
 
+// Migration eines geladenen SNR-Rohwert-Containers aufs Grundmuster §8. Liefert
+// das Container-Objekt { durchlauf, messpunkte } oder null:
+//   - NEU: bereits { durchlauf, messpunkte } -> validiert uebernehmen
+//   - ALT: { saetze:[{snr,correct,positionen,timestamp}], converged, materialSlug,
+//           noiseId, audioweg } -> je Satz ein Meszpunkt (bezug.id = null, da
+//           Alt-Staende keine Satz-id trugen; audioweg des Durchgangs an jeden
+//           Schritt; positionen bleiben wie gespeichert)
+//   - null/kein Objekt -> null
+function SNR_migrateRaw(v) {
+  if (!v || typeof v !== "object") return null;
+
+  // NEU: Container-Objekt.
+  if (Array.isArray(v.messpunkte)) {
+    var d = (v.durchlauf && typeof v.durchlauf === "object") ? v.durchlauf : {};
+    return {
+      durchlauf: { converged: !!d.converged,
+                   materialSlug: (d.materialSlug != null) ? d.materialSlug : null,
+                   noiseId: (d.noiseId != null) ? d.noiseId : null },
+      messpunkte: v.messpunkte.filter(function (p) {
+        return p && p.bezug && Array.isArray(p.historie) && p.historie.length;
+      })
+    };
+  }
+
+  // ALT: { saetze, converged, materialSlug, noiseId, audioweg }.
+  if (Array.isArray(v.saetze)) {
+    var aw = (v.audioweg && typeof v.audioweg === "object")
+           ? { left: (typeof v.audioweg.left === "number") ? v.audioweg.left : 0,
+               right: (typeof v.audioweg.right === "number") ? v.audioweg.right : 0 }
+           : { left: 0, right: 0 };
+    return {
+      durchlauf: { converged: !!v.converged,
+                   materialSlug: (v.materialSlug != null) ? v.materialSlug : null,
+                   noiseId: (v.noiseId != null) ? v.noiseId : null },
+      messpunkte: v.saetze.map(function (s) {
+        return {
+          bezug: { id: null },
+          historie: [ { audioweg: aw,
+                        timestamp: (typeof s.timestamp === "number") ? s.timestamp : 0,
+                        snr: s.snr, correct: s.correct,
+                        positionen: Array.isArray(s.positionen) ? s.positionen : [] } ]
+        };
+      })
+    };
+  }
+
+  return null;
+}
+
 // Rekonstruiert aus einem (Alt-)Ergebnis-Objekt den Rohwert (Stufe 1), damit
 // auch geladene Alt-Staende neu-rechenbar sind (Architektur Weg a). Die
 // Satzreihe ergibt sich aus res.snrHistory/res.wordHistory; die positionsweise
@@ -739,25 +809,46 @@ function SNR_migrateResult(obj) {
 function SNR_rawFromResult(res) {
   if (!res || !Array.isArray(res.snrHistory) || !res.snrHistory.length) return null;
   const wh = Array.isArray(res.wordHistory) ? res.wordHistory : [];
-  const saetze = res.snrHistory.map(function (snr, i) {
+  const aw = (res.audioPath && typeof res.audioPath === "object" && res.audioPath.left != null)
+           ? res.audioPath : { left: 0, right: 0 };
+  const messpunkte = res.snrHistory.map(function (snr, i) {
     const positionen = [];
     for (let p = 0; p < 5; p++) {
       positionen.push({ gewaehlt: SNR_WORD_UNKNOWN, richtig: SNR_WORD_UNKNOWN });
     }
     return {
-      snr: snr,
-      correct: (typeof wh[i] === "number") ? wh[i] : 0,
-      positionen: positionen,
-      timestamp: (typeof res.ts === "number") ? res.ts : 0
+      bezug: { id: null },
+      historie: [ {
+        audioweg: { left: (typeof aw.left === "number") ? aw.left : 0,
+                    right: (typeof aw.right === "number") ? aw.right : 0 },
+        timestamp: (typeof res.ts === "number") ? res.ts : 0,
+        snr: snr,
+        correct: (typeof wh[i] === "number") ? wh[i] : 0,
+        positionen: positionen
+      } ]
     };
   });
   return {
-    saetze: saetze,
-    converged: !!res.converged,
-    materialSlug: (res.materialSlug != null) ? res.materialSlug : SNR_UNKNOWN,
-    noiseId: (res.noiseId != null) ? res.noiseId : SNR_UNKNOWN,
-    audioPath: (res.audioPath && typeof res.audioPath === "object") ? res.audioPath : {}
+    durchlauf: {
+      converged: !!res.converged,
+      materialSlug: (res.materialSlug != null) ? res.materialSlug : SNR_UNKNOWN,
+      noiseId: (res.noiseId != null) ? res.noiseId : SNR_UNKNOWN
+    },
+    messpunkte: messpunkte
   };
+}
+
+// Meszpunkt-Liste (Grundmuster §8) -> flache Satz-Reihe [{snr,correct,timestamp}]
+// mit dem (einzigen) Schritt je Meszpunkt, in Meszreihenfolge.
+function snr_flachAusMesspunkte(mpListe) {
+  if (!Array.isArray(mpListe)) return [];
+  var out = [];
+  mpListe.forEach(function (p) {
+    var st = (p && Array.isArray(p.historie)) ? p.historie[0] : null;
+    if (!st) return;
+    out.push({ snr: st.snr, correct: st.correct, timestamp: st.timestamp });
+  });
+  return out;
 }
 
 // ------------------------------------------------------------
@@ -766,11 +857,12 @@ function SNR_rawFromResult(res) {
 // abgeleitete Reihen -- OHNE zu schreiben. Darf fuer tool-fremde Daten direkt
 // genutzt werden. Gibt null zurueck, wenn der Rohwert keine Messsaetze traegt.
 function SNR_computeEval_srt(raw) {
-  if (!raw || !Array.isArray(raw.saetze) || !raw.saetze.length) return null;
-  const converged = !!raw.converged;
-  // Satz-Reihen aus dem Rohwert ableiten (correct steht je Satz, BA686).
-  const snrHistory  = raw.saetze.map(function (s) { return s.snr; });
-  const wordHistory = raw.saetze.map(function (s) { return s.correct; });
+  if (!raw || !Array.isArray(raw.messpunkte) || !raw.messpunkte.length) return null;
+  const converged = !!(raw.durchlauf && raw.durchlauf.converged);
+  // Satz-Reihen aus den Meszpunkten ableiten (ein Schritt je Satz).
+  const _reihe = snr_flachAusMesspunkte(raw.messpunkte);
+  const snrHistory  = _reihe.map(function (s) { return s.snr; });
+  const wordHistory = _reihe.map(function (s) { return s.correct; });
   // SRT = Mittel der letzten win Werte (win = 6 bei Konvergenz, sonst 20).
   const win = converged ? SNR_SRT_WINDOW_CONV : SNR_SRT_WINDOW;
   const tail = snrHistory.slice(-win);
@@ -800,20 +892,24 @@ function SNR_computeEval_srt(raw) {
 }
 
 // ------------------------------------------------------------
-// Verdichtet das rohe audioweg:{left,right} des SNR-Durchgangs zur
-// Verteilung je Seite. SNR = ein Durchgang je Seite -> je Seite genau ein
-// Eintrag count:1. Beidseitig {left,right}, einseitig nur die getestete
-// Seite. Nutzt die eine Durchsicht AWG_usedIds + AWG_distribution wie die
-// anderen Tests.
+// Verdichtet den audioweg des SNR-Durchgangs zur Verteilung je Seite.
+// Im Grundmuster §8 liegt audioweg an den Schritten (messpunkte[].historie[0]);
+// alle Saetze eines Durchgangs tragen denselben Weg -> ersten Schritt nehmen.
 function _snr_evalAudioPath(raw) {
-  if (!raw || !raw.audioweg) return {};
+  var firstStep = null;
+  if (raw && Array.isArray(raw.messpunkte) && raw.messpunkte.length) {
+    var p0 = raw.messpunkte[0];
+    firstStep = (p0 && Array.isArray(p0.historie) && p0.historie.length) ? p0.historie[0] : null;
+  }
+  if (!firstStep || !firstStep.audioweg) return {};
+  var schritte = [firstStep];
   var o = {};
   if (snr_isBothEar()) {
-    o.left  = AWG_distribution(AWG_usedIds([raw], "left"));
-    o.right = AWG_distribution(AWG_usedIds([raw], "right"));
+    o.left  = AWG_distribution(AWG_usedIds(schritte, "left"));
+    o.right = AWG_distribution(AWG_usedIds(schritte, "right"));
   } else {
     var side = snr_currentSide();
-    o[side] = AWG_distribution(AWG_usedIds([raw], side));
+    o[side] = AWG_distribution(AWG_usedIds(schritte, side));
   }
   return o;
 }
@@ -847,8 +943,9 @@ function SNR_writeEval(scope) {
 
   // Nicht-volatiler Zeitstempel: max ueber die Rohwert-Satz-Stempel.
   let ts = 0;
-  for (let i = 0; i < raw.saetze.length; i++) {
-    const t0 = raw.saetze[i] && raw.saetze[i].timestamp;
+  for (let i = 0; i < raw.messpunkte.length; i++) {
+    const _st = raw.messpunkte[i] && Array.isArray(raw.messpunkte[i].historie) ? raw.messpunkte[i].historie[0] : null;
+    const t0 = _st && _st.timestamp;
     if (typeof t0 === "number" && t0 > ts) ts = t0;
   }
 
@@ -861,8 +958,8 @@ function SNR_writeEval(scope) {
     snrHistory: comp.snrHistory.slice(),
     wordHistory: comp.wordHistory.slice(),
     // Mitgefuehrter Kontext (aus dem Rohwert durchgereicht).
-    materialSlug: raw.materialSlug,
-    noiseId: raw.noiseId,
+    materialSlug: raw.durchlauf ? raw.durchlauf.materialSlug : null,
+    noiseId: raw.durchlauf ? raw.durchlauf.noiseId : null,
     audioPath: _snr_evalAudioPath(raw),
     timestamp: ts
   });
@@ -904,11 +1001,12 @@ function snr_finish(converged) {
   // Ergebnis (snr_bothEar, in snr_beginRun fixiert). Der Rohwert ist die
   // Quelle, aus der beim Laden neu gerechnet wird (BA 687).
   const rawObj = {
-    saetze: snr_rawSaetze.slice(),
-    converged: !!converged,
-    materialSlug: snr_currentTestSet() || null,
-    noiseId: snr_noiseChoiceId,
-    audioweg: _snr_frozenAudioweg()
+    durchlauf: {
+      converged: !!converged,
+      materialSlug: snr_currentTestSet() || null,
+      noiseId: snr_noiseChoiceId
+    },
+    messpunkte: snr_rawSaetze.slice()   // sind bereits {bezug,historie}-Meszpunkte
   };
   if (snr_bothEar) {
     SNR_rawBoth = rawObj;
