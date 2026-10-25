@@ -58,7 +58,7 @@ function frq_freqFromCents(refHz, c) {
 // Waehrend eines Tests die eingefrorene Session-Einstellung, sonst die
 // aktuelle Dropdown-Wahl. Werte: 'left' | 'right' | 'symmetric'.
 function frq_referenzmodus() {
-  if (FRQ_rawPiano && FRQ_rawPiano.frqRefMode) return FRQ_rawPiano.frqRefMode;
+  if (FRQ_rawPiano && FRQ_rawPiano.durchlauf && FRQ_rawPiano.durchlauf.frqRefMode) return FRQ_rawPiano.durchlauf.frqRefMode;
   var v = FRQ_els && FRQ_els.header && FRQ_els.header.refSelect
     ? FRQ_els.header.refSelect.value : 'right';
   return (v === 'left' || v === 'right' || v === 'symmetric') ? v : 'right';
@@ -335,12 +335,9 @@ function frq_startPiano() {
       // in Verlaufsreihenfolge. Die Box zieht die ids je Seite ueber
       // AWG_usedIds (Feld audioweg).
       measuredEntries: (function () {
-        var fp = _frq_pianoData();
-        if (!fp || !fp.perElectrode) return [];
         var all = [];
-        Object.keys(fp.perElectrode).forEach(function (elKey) {
-          var pe = fp.perElectrode[elKey];
-          var v = (pe && Array.isArray(pe.verlauf)) ? pe.verlauf : [];
+        _frq_pianoAlleElektroden().forEach(function (el) {
+          var v = _frq_pianoVerlauf(el);
           for (var i = 0; i < v.length; i++) all.push(v[i]);
         });
         return all;
@@ -360,8 +357,11 @@ var FM_PIANO_STAGNATION_K = 3;     // Runden ohne Verringerung -> ausgereizt
 // BA416: seitenloser Zugriff auf die globale Klaviertest-Session.
 function _frq_pianoData() {
   if (!FRQ_rawPiano) {
-    FRQ_rawPiano = { frqRefMode: null, run: null, perElectrode: {} };
+    FRQ_rawPiano = { durchlauf: { run: null, frqRefMode: null }, messpunkte: [] };
   }
+  // Defensiv: Teilstrukturen sicherstellen (geladene/migrierte Staende).
+  if (!FRQ_rawPiano.durchlauf || typeof FRQ_rawPiano.durchlauf !== "object") FRQ_rawPiano.durchlauf = { run: null, frqRefMode: null };
+  if (!Array.isArray(FRQ_rawPiano.messpunkte)) FRQ_rawPiano.messpunkte = [];
   return FRQ_rawPiano;
 }
 
@@ -369,11 +369,81 @@ function _frq_randBorderOrder() {
   return (Math.random() < 0.5) ? ['lower', 'upper'] : ['upper', 'lower'];
 }
 
-// Verlaufsliste einer Elektrode (immer ein Array, ggf. leer).
-function _frq_pianoVerlauf(elIdx) {
+// Meszpunkt einer Elektrode (oder null).
+function _frq_pianoPoint(elIdx) {
   var fp = _frq_pianoData();
-  var pe = fp && fp.perElectrode && fp.perElectrode[elIdx];
-  return (pe && Array.isArray(pe.verlauf)) ? pe.verlauf : [];
+  for (var i = 0; i < fp.messpunkte.length; i++) {
+    var p = fp.messpunkte[i];
+    if (p && p.bezug && p.bezug.el === elIdx) return p;
+  }
+  return null;
+}
+
+// Meszpunkt einer Elektrode anlegen (falls fehlend) und zurueckgeben.
+function _frq_pianoEnsurePoint(elIdx) {
+  var p = _frq_pianoPoint(elIdx);
+  if (!p) {
+    p = { bezug: { el: elIdx }, historie: [] };
+    _frq_pianoData().messpunkte.push(p);
+  }
+  return p;
+}
+
+// Verlaufsliste (= historie) einer Elektrode (immer ein Array, ggf. leer).
+// Teil A: GLEICHE Reihenfolge wie bisher (aeltester zuerst).
+function _frq_pianoVerlauf(elIdx) {
+  var p = _frq_pianoPoint(elIdx);
+  return (p && Array.isArray(p.historie)) ? p.historie : [];
+}
+
+// Alle Elektroden-Indizes mit Meszpunkten (ersetzt Object.keys(perElectrode)).
+function _frq_pianoAlleElektroden() {
+  return _frq_pianoData().messpunkte
+    .map(function (p) { return p && p.bezug ? p.bezug.el : null; })
+    .filter(function (el) { return el != null; });
+}
+
+// Migration eines geladenen Klaviertest-Containers aufs Grundmuster §8 (Teil A:
+// Reihenfolge bleibt wie geladen). Liefert { durchlauf:{run,frqRefMode}, messpunkte }
+// oder null:
+//   - NEU: bereits { durchlauf, messpunkte } -> validiert uebernehmen
+//   - ALT: { frqRefMode, run, perElectrode:{el:{verlauf}} } -> je Elektrode ein
+//          Meszpunkt (bezug.el), verlauf -> historie (gleiche Reihenfolge);
+//          run+frqRefMode -> durchlauf
+//   - null -> null
+function FRQ_migratePiano(v) {
+  if (!v || typeof v !== "object") return null;
+
+  // NEU.
+  if (Array.isArray(v.messpunkte)) {
+    var d = (v.durchlauf && typeof v.durchlauf === "object") ? v.durchlauf : {};
+    return {
+      durchlauf: { run: (d.run && typeof d.run === "object") ? d.run : null,
+                   frqRefMode: (d.frqRefMode != null) ? d.frqRefMode : null },
+      messpunkte: v.messpunkte.filter(function (p) {
+        return p && p.bezug && typeof p.bezug.el === "number" && Array.isArray(p.historie);
+      })
+    };
+  }
+
+  // ALT: perElectrode-Objekt.
+  if (v.perElectrode && typeof v.perElectrode === "object") {
+    var mp = [];
+    Object.keys(v.perElectrode).forEach(function (k) {
+      var el = parseInt(k, 10);
+      if (!isFinite(el)) return;
+      var pe = v.perElectrode[k];
+      var hist = (pe && Array.isArray(pe.verlauf)) ? pe.verlauf : [];
+      mp.push({ bezug: { el: el }, historie: hist });
+    });
+    return {
+      durchlauf: { run: (v.run && typeof v.run === "object") ? v.run : null,
+                   frqRefMode: (v.frqRefMode != null) ? v.frqRefMode : null },
+      messpunkte: mp
+    };
+  }
+
+  return null;
 }
 
 // Hoechste Durchgangs-Nummer im Verlauf einer Elektrode (0 = keine Daten).
@@ -389,7 +459,7 @@ function _frq_pianoLetzterDurchgang(elIdx) {
 // verlauf) oder null. Die Runden-Identitaet haengt am Lauf, NICHT an
 // (durchgang, step) -- Schrittweiten koennen sich wiederholen (Pendler).
 function _frq_pianoAktiverEintrag(elIdx) {
-  var run = _frq_pianoData().run;
+  var run = _frq_pianoData().durchlauf.run;
   var idx = run && run.durchlaufEintrag ? run.durchlaufEintrag[elIdx] : null;
   var v = _frq_pianoVerlauf(elIdx);
   return (idx != null && v[idx]) ? idx : null;
@@ -428,10 +498,8 @@ function _frq_activePathId(side) {
 // EINZIGE Schreibstelle. Schreibt in den aktiven Runden-Eintrag des
 // laufenden Durchlaufs; existiert keiner, wird er angelegt.
 function _frq_pianoSetBorder(elIdx, step, border, cent, dg) {
-  var fp = _frq_pianoData(); var run = fp.run;
-  if (!fp.perElectrode[elIdx]) fp.perElectrode[elIdx] = { verlauf: [] };
-  if (!Array.isArray(fp.perElectrode[elIdx].verlauf)) fp.perElectrode[elIdx].verlauf = [];
-  var v = fp.perElectrode[elIdx].verlauf;
+  var fp = _frq_pianoData(); var run = fp.durchlauf.run;
+  var v = _frq_pianoEnsurePoint(elIdx).historie;
   var idx = _frq_pianoAktiverEintrag(elIdx);
   if (idx == null) {
     // Robustheit (Format-Uebergang): halbfertiger letzter Eintrag
@@ -586,19 +654,18 @@ function _frq_pianoResiduumBand(elIdx) {
 function _frq_pianoEnsureRun() {
   var fp = _frq_pianoData();
   var elList = frq_sequence.slice();
-  if (fp.run && !fp.run.beendet) return;
+  if (fp.durchlauf.run && !fp.durchlauf.run.beendet) return;
   // Referenzmodus nur einfrieren, solange es noch keine Daten gibt
   // (das cent-Vorzeichen der Altdaten haengt daran).
-  if (!fp.perElectrode || !Object.keys(fp.perElectrode).length) {
-    fp.perElectrode = {};
-    fp.frqRefMode = frq_referenzmodus();
+  if (!fp.messpunkte.length) {
+    fp.durchlauf.frqRefMode = frq_referenzmodus();
   }
   var maxDg = 0;
-  Object.keys(fp.perElectrode).forEach(function (k) {
-    maxDg = Math.max(maxDg, _frq_pianoLetzterDurchgang(parseInt(k, 10)));
+  _frq_pianoAlleElektroden().forEach(function (el) {
+    maxDg = Math.max(maxDg, _frq_pianoLetzterDurchgang(el));
   });
   var dg = maxDg + 1;
-  fp.run = {
+  fp.durchlauf.run = {
     runId:        new Date().toISOString(),
     startedAt:    Date.now(),
     lastUpdate:   Date.now(),
@@ -614,7 +681,7 @@ function _frq_pianoEnsureRun() {
     posInBorder:  0
   };
   elList.forEach(function (el) {
-    fp.run.durchlaufSteps[el] = _frq_pianoNaechsterSchritt(el, dg);
+    fp.durchlauf.run.durchlaufSteps[el] = _frq_pianoNaechsterSchritt(el, dg);
   });
 }
 
@@ -628,7 +695,7 @@ function _frq_doStartPiano() {
 
 // Aktuelle (Elektrode, Grenze) laden: Tastatur stellen, Box-Rolle setzen.
 function _frq_pianoLoadStep() {
-  var run = _frq_pianoData().run;
+  var run = _frq_pianoData().durchlauf.run;
   if (!run) return;
   if (run.posInDurchlauf >= run.durchlaufOrder.length) { _frq_pianoDurchlaufTransition(); return; }
 
@@ -687,7 +754,7 @@ function frq_pianoOnPlay(evt) {
 // Grenze bestaetigen: zuletzt gespielten Tasten-Offset speichern, weiter.
 function frq_pianoConfirm() {
   if (!FRQ_running || frq_currentEl === null) return;
-  var run = _frq_pianoData().run;
+  var run = _frq_pianoData().durchlauf.run;
   if (!run) return;
   var pr = _frq_pianoRefs();
   if (!pr || pr.markedAbsCent == null) return;   // noch keine Taste gespielt
@@ -718,7 +785,7 @@ function frq_pianoConfirm() {
 // Elektrode neu beginnen). Eine abgeschlossene Runde wird nicht aufgerollt.
 function frq_pianoBack() {
   if (!FRQ_running) return;
-  var run = _frq_pianoData().run;
+  var run = _frq_pianoData().durchlauf.run;
   if (!run) return;
   if (run.posInBorder > 0) {
     run.posInBorder = 0;
@@ -736,7 +803,7 @@ function frq_pianoBack() {
 // Durchlauf-Uebergang: Modal (weitere Durchlaeufe moeglich) oder
 // direkter Abschluss (alle Elektroden ausgereizt).
 function _frq_pianoDurchlaufTransition() {
-  var run = _frq_pianoData().run;
+  var run = _frq_pianoData().durchlauf.run;
   if (!run) return;
   var offen = run.electrodeList.filter(function (el) {
     return _frq_pianoNaechsterSchritt(el, run.durchgang) != null;
@@ -761,7 +828,7 @@ function _frq_pianoDurchlaufTransition() {
 }
 
 function _frq_pianoFinish() {
-  var run = _frq_pianoData().run; if (run) run.beendet = true;
+  var run = _frq_pianoData().durchlauf.run; if (run) run.beendet = true;
   FRQ_running = false;
   FRQ_writeEval();
   if (FRQ_els && typeof FRQ_els._stopTest === 'function') FRQ_els._stopTest();
@@ -774,9 +841,7 @@ function _frq_audioPathSide(elIdx, side) {
   // BA673: Verlauf dieser Elektrode zentral durchsehen (AWG_usedIds auf dem
   // Feld audioweg) + verdichten. Pro Elektroden-Eintrag ein audioPath; die
   // testweite Verdichtung ueber alle Elektroden macht erst die Anzeige.
-  var fp = _frq_pianoData();
-  var pe = fp && fp.perElectrode && fp.perElectrode[elIdx];
-  var v  = (pe && Array.isArray(pe.verlauf)) ? pe.verlauf : [];
+  var v = _frq_pianoVerlauf(elIdx);
   return AWG_distribution(AWG_usedIds(v, side));   // [{id,count}] | null
 }
 
@@ -791,15 +856,14 @@ function FRQ_writeEval() {
   var fp = _frq_pianoData();
   // Kein run-Erfordernis: auch ein geladener Stand ohne Lauf-Objekt
   // rechnet seine Ergebnisse aus dem Verlauf (Neu-Rechnen beim Laden).
-  if (!fp.perElectrode) return;
-  var frqRefMode = fp.frqRefMode;   // bei Testbeginn eingefroren (BA416)
+  if (!fp.messpunkte.length) return;
+  var frqRefMode = fp.durchlauf.frqRefMode;   // bei Testbeginn eingefroren (BA416)
   // BA657: stabiler Zeitstempel aus der Session. Fallback fuer Altstaende
   // ohne lastConfirmedTs: run.lastUpdate (laufende Sitzung) oder 0.
   var stableTs = (typeof fp.lastConfirmedTs === "number") ? fp.lastConfirmedTs
-    : (fp.run && typeof fp.run.lastUpdate === "number") ? fp.run.lastUpdate : 0;
+    : (fp.durchlauf.run && typeof fp.durchlauf.run.lastUpdate === "number") ? fp.durchlauf.run.lastUpdate : 0;
 
-  Object.keys(fp.perElectrode).forEach(function (elKey) {
-    var elIdx = parseInt(elKey, 10);
+  _frq_pianoAlleElektroden().forEach(function (elIdx) {
     var dg = _frq_pianoLetzterDurchgang(elIdx);
     if (dg === 0) return;
     var sb = FRQ_computeEval_streuband(elIdx, dg, null);
@@ -824,6 +888,7 @@ function FRQ_writeEval() {
       residDown:  residDown,
       residUp:    residUp,
       restspanne: restspanne,
+      vergleiche: sb.anzahl,
       audioPath:  { left:  _frq_audioPathSide(elIdx, "left"),
                     right: _frq_audioPathSide(elIdx, "right") }
     };
@@ -856,10 +921,10 @@ function _frq_pianoUpdateBoxes(border) {
 // Zahl der bisher bestaetigten Grenzen (im aktuellen Durchgang).
 function _frq_pianoCountConfirmed() {
   var fp = _frq_pianoData();
-  if (!fp || !fp.perElectrode || !fp.run) return 0;
-  var dg = fp.run.durchgang, c = 0;
-  Object.keys(fp.perElectrode).forEach(function (el) {
-    var v = _frq_pianoVerlauf(parseInt(el, 10));
+  if (!fp || !fp.messpunkte.length || !fp.durchlauf.run) return 0;
+  var dg = fp.durchlauf.run.durchgang, c = 0;
+  _frq_pianoAlleElektroden().forEach(function (el) {
+    var v = _frq_pianoVerlauf(el);
     for (var i = 0; i < v.length; i++) {
       var e = v[i];
       if (!e || e.durchgang !== dg) continue;
@@ -876,7 +941,7 @@ function _frq_pianoUpdateProgress() {
     && FRQ_els.verfahren.piano.progress;
   if (!els) return;
   var fp = _frq_pianoData();
-  var run = fp && fp.run;
+  var run = fp && fp.durchlauf.run;
   if (!run) return;
   var m = run.durchlaufOrder.length;
   var n = Math.min(run.posInDurchlauf + 1, m);
@@ -1068,8 +1133,8 @@ function frq_methodHasData(method) {
       if (FRQ_eval[i] && frq_entryMethod(FRQ_eval[i]) === "piano") return true;
     }
   }
-  if (FRQ_rawPiano && FRQ_rawPiano.perElectrode
-      && Object.keys(FRQ_rawPiano.perElectrode).length > 0) return true;
+  if (FRQ_rawPiano && Array.isArray(FRQ_rawPiano.messpunkte)
+      && FRQ_rawPiano.messpunkte.length > 0) return true;
   return false;
 }
 

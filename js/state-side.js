@@ -299,7 +299,8 @@ function setActiveSide(side) {
 // Laedt FRQ_rawPiano aus den geladenen Daten (globale, seitenlose
 // Session). d = das geladene JSON-Objekt.
 function _FRQ_loadPianoSession(d) {
-  FRQ_rawPiano = (d && d.pianoSession) ? d.pianoSession : null;
+  var v = (d && d.pianoSession) ? d.pianoSession : null;
+  FRQ_rawPiano = (typeof FRQ_migratePiano === "function") ? FRQ_migratePiano(v) : v;
   if (!FRQ_rawPiano) return;
   _FRQ_pianoNachLadenNeuRechnen();
 }
@@ -311,8 +312,8 @@ function _FRQ_loadPianoSession(d) {
 // dem live gerechneten Band. Nur bei vorhandenen Verlaufsdaten —
 // FRQ_writeEval loescht sonst piano-Eintraege ersatzlos.
 function _FRQ_pianoNachLadenNeuRechnen() {
-  if (FRQ_rawPiano && FRQ_rawPiano.perElectrode
-      && Object.keys(FRQ_rawPiano.perElectrode).length > 0
+  if (FRQ_rawPiano && Array.isArray(FRQ_rawPiano.messpunkte)
+      && FRQ_rawPiano.messpunkte.length > 0
       && typeof FRQ_writeEval === "function") {
     FRQ_writeEval();
   }

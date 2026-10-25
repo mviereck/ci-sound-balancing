@@ -226,14 +226,14 @@ function AWG_usedCollect() {
     });
     lists.push(ltzAll);
   }
-  // FRQ: perElectrode[el].verlauf[] zweistufig -> flach zu einer Liste.
-  if (typeof FRQ_rawPiano !== "undefined" && FRQ_rawPiano && FRQ_rawPiano.perElectrode) {
+  // FRQ: messpunkte[el].historie[] -> flach zu einer Liste (audioweg je Schritt).
+  if (typeof FRQ_rawPiano !== "undefined" && FRQ_rawPiano && Array.isArray(FRQ_rawPiano.messpunkte)) {
     var frqAll = [];
-    var pe = FRQ_rawPiano.perElectrode;
-    for (var el in pe) {
-      var v = pe[el] && pe[el].verlauf;
-      if (Array.isArray(v)) for (var i = 0; i < v.length; i++) frqAll.push(v[i]);
-    }
+    FRQ_rawPiano.messpunkte.forEach(function (p) {
+      if (p && Array.isArray(p.historie)) {
+        for (var i = 0; i < p.historie.length; i++) frqAll.push(p.historie[i]);
+      }
+    });
     lists.push(frqAll);
   }
   // SNR: binaural global + je Seite. audioweg liegt an den Schritten in

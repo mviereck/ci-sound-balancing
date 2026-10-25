@@ -26,15 +26,15 @@
       // Fall A: sauberer Konvergierer (Elektrode 0, Sitzung 1)
       // Band = letzte Runde (+-30), grobe Vorrunden zaehlen nicht mehr
       FRQ_rawPiano = {
-        frqRefMode: null, run: null,
-        perElectrode: {
-          0: { verlauf: [
+        durchlauf: { run: null, frqRefMode: null },
+        messpunkte: [
+          { bezug: { el: 0 }, historie: [
             { step: 240, lower: -240, upper: 240, durchgang: 1 },
             { step: 120, lower: -120, upper: 120, durchgang: 1 },
             { step:  60, lower:  -60, upper:  60, durchgang: 1 },
             { step:  30, lower:  -30, upper:  30, durchgang: 1 }
           ]}
-        }
+        ]
       };
       var bandA = _frq_pianoResiduumBand(0);
       if (!bandA) return err('Fall A: kein Band');
@@ -47,13 +47,13 @@
       if (_frq_pianoAusgereizt(0, 1) !== false) return err('Fall A: ausgereizt soll false sein');
 
       // Fall B: stabiler Pendler (Elektrode 1, Sitzung 1)
-      FRQ_rawPiano.perElectrode[1] = { verlauf: [
+      FRQ_rawPiano.messpunkte.push({ bezug: { el: 1 }, historie: [
         { step: 60, lower: -60, upper:  60, durchgang: 1 },
         { step: 60, lower: -30, upper:  90, durchgang: 1 },
         { step: 60, lower: -60, upper:  60, durchgang: 1 },
         { step: 60, lower: -30, upper:  90, durchgang: 1 },
         { step: 60, lower: -60, upper:  60, durchgang: 1 }
-      ]};
+      ]});
       if (_frq_pianoAusgereizt(1, 1) !== true) return err('Fall B: ausgereizt soll true sein');
       if (_frq_pianoNaechsterSchritt(1, 1) !== null) return err('Fall B: naechsterSchritt soll null sein');
       var bandB = _frq_pianoResiduumBand(1);
@@ -77,10 +77,10 @@
       //   e1 lower=-30 (sLo=null->-30), upper=90 (sHi=null->90)
       //   e2 lower=-30 (nicht < sLo=-30), upper=30 (nicht > sHi_davor=90) -> keine Ausweitung
       // bandLo=-30, bandHi=30; mitte=6 liegt darin
-      FRQ_rawPiano.perElectrode[2] = { verlauf: [
+      FRQ_rawPiano.messpunkte.push({ bezug: { el: 2 }, historie: [
         { step: 60, lower: -30, upper: 90, durchgang: 1 },
         { step: 30, lower: -30, upper: 30, durchgang: 1 }
-      ]};
+      ]});
       var bandD = _frq_pianoResiduumBand(2);
       if (!bandD) return err('Fall D: kein Band');
       if (Math.abs(bandD.mitte - 6) > 0.001)       return err('Fall D: mitte erwartet 6, got ' + bandD.mitte);

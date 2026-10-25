@@ -951,12 +951,10 @@ function FRQ_renderResults() {
       // Elektroden. Existiert nur beim Klaviertest (piano); bei anderen
       // Verfahren gibt es keinen Verlauf -> nur Elektroden-Zahl zeigen.
       const _frqMethod = (typeof frq_getActiveMethod === "function") ? frq_getActiveMethod() : "piano";
-      if (_frqMethod === "piano" && typeof _frq_pianoData === "function") {
-        const _pe = _frq_pianoData().perElectrode || {};
+      if (_frqMethod === "piano" && typeof FRQ_testData === "function") {
         let _cmp = 0;
-        Object.keys(_pe).forEach(function (k) {
-          const v = _pe[k] && _pe[k].verlauf;
-          if (Array.isArray(v)) _cmp += v.length;
+        FRQ_testData().forEach(function (r) {
+          if (r && typeof r.vergleiche === "number") _cmp += r.vergleiche;
         });
         if (_cmp > 0) metaText += " · " + _cmp + " " + t("FRQ_resMetaCmp");
       }
