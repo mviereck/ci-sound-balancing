@@ -266,52 +266,32 @@
   });
 })();
 
-// BA694 — Streuband-Identitaet bei umgekehrter Historie
+// BA694 — Streuband-Rechnung mit neuester-zuerst-Historie
 (function () {
-  dbg.test('build/BA694/streuband-identitaet', { tab: 'messungen', label: 'BA694: Streuband-Identitaet (neuester-zuerst)' }, function () {
+  dbg.test('build/BA694/streuband-neuest-zuerst', { tab: 'messungen', label: 'BA694: Streuband neuester-zuerst' }, function () {
     var backup = (typeof FRQ_rawPiano !== 'undefined') ? FRQ_rawPiano : null;
     function err(msg) { return { ok: false, msg: msg }; }
-    function fmt(b) {
-      return 'mitte=' + b.mitte.toFixed(3) + ' lo=' + b.lo.toFixed(3)
-           + ' hi=' + b.hi.toFixed(3) + ' breite=' + b.breite.toFixed(3)
-           + ' anzahl=' + b.anzahl;
-    }
     try {
-      // Fester Verlauf: 4 volle Runden, chronologisch (aeltester zuerst).
-      var chronoHist = [
-        { step: 240, lower: -240, upper: 240, durchgang: 1 },
-        { step: 120, lower: -120, upper: 120, durchgang: 1 },
-        { step:  60, lower:  -60, upper:  60, durchgang: 1 },
-        { step:  30, lower:  -30, upper:  30, durchgang: 1 }
-      ];
-      // Neuester-zuerst = umgedrehte Kopie.
-      var neuestHist = chronoHist.slice().reverse();
-
-      // Referenz: chronologisch.
-      FRQ_rawPiano = {
-        durchlauf: { run: null, frqRefMode: null, histNeuesteZuerst: false },
-        messpunkte: [{ bezug: { el: 0 }, historie: chronoHist }]
-      };
-      var ref = FRQ_computeEval_streuband(0, 1, null);
-      if (!ref) return err('Referenz: kein Streuband');
-
-      // Test: neuester-zuerst (so wie BA694 speichert).
+      // Verlauf neuester-zuerst: R4(step30) an Index 0, R1(step240) an Index 3.
+      // _frq_pianoVolleRunden dreht auf chronologisch -> Fenster = R2/R3/R4.
+      // Erwartet: mitte=0, lo=-30, hi=30, breite=60, anzahl=4.
       FRQ_rawPiano = {
         durchlauf: { run: null, frqRefMode: null, histNeuesteZuerst: true },
-        messpunkte: [{ bezug: { el: 0 }, historie: neuestHist }]
+        messpunkte: [{ bezug: { el: 0 }, historie: [
+          { step:  30, lower:  -30, upper:  30, durchgang: 1 },
+          { step:  60, lower:  -60, upper:  60, durchgang: 1 },
+          { step: 120, lower: -120, upper: 120, durchgang: 1 },
+          { step: 240, lower: -240, upper: 240, durchgang: 1 }
+        ]}]
       };
-      var res = FRQ_computeEval_streuband(0, 1, null);
-      if (!res) return err('Ergebnis: kein Streuband');
-
-      var ok = Math.abs(ref.mitte   - res.mitte)   < 0.001
-            && Math.abs(ref.lo      - res.lo)       < 0.001
-            && Math.abs(ref.hi      - res.hi)       < 0.001
-            && Math.abs(ref.breite  - res.breite)   < 0.001
-            && ref.anzahl === res.anzahl;
-      return {
-        ok: ok,
-        msg: 'chrono: ' + fmt(ref) + ' | neuestZuerst: ' + fmt(res)
-      };
+      var sb = FRQ_computeEval_streuband(0, 1, null);
+      if (!sb) return err('kein Streuband');
+      if (Math.abs(sb.mitte  -   0) > 0.001) return err('mitte erwartet 0, got ' + sb.mitte);
+      if (Math.abs(sb.lo     - -30) > 0.001) return err('lo erwartet -30, got ' + sb.lo);
+      if (Math.abs(sb.hi     -  30) > 0.001) return err('hi erwartet 30, got ' + sb.hi);
+      if (Math.abs(sb.breite -  60) > 0.001) return err('breite erwartet 60, got ' + sb.breite);
+      if (sb.anzahl !== 4) return err('anzahl erwartet 4, got ' + sb.anzahl);
+      return { ok: true, msg: 'mitte=' + sb.mitte + ' lo=' + sb.lo + ' hi=' + sb.hi + ' breite=' + sb.breite + ' anzahl=' + sb.anzahl };
     } finally {
       FRQ_rawPiano = backup;
     }
