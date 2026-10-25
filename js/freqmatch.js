@@ -353,11 +353,13 @@ var FM_PIANO_START        = 240;   // ct: Startschritt ohne Vorgeschichte
 var FM_PIANO_BODEN        = 7.5;   // ct: kleinste Schrittweite (eff. 3,75 ct)
 var FM_PIANO_GLEIT_N      = 3;     // Runden im gleitenden Streuband
 var FM_PIANO_STAGNATION_K = 3;     // Runden ohne Verringerung -> ausgereizt
+var FM_PIANO_HIST_MAX     = 12;    // max. Verlaufs-Eintraege je Elektrode (§8.1);
+                                   // deckt STAGNATION_K+GLEIT_N=6 volle Runden + Puffer
 
 // BA416: seitenloser Zugriff auf die globale Klaviertest-Session.
 function _frq_pianoData() {
   if (!FRQ_rawPiano) {
-    FRQ_rawPiano = { durchlauf: { run: null, frqRefMode: null }, messpunkte: [] };
+    FRQ_rawPiano = { durchlauf: { run: null, frqRefMode: null, histNeuesteZuerst: true }, messpunkte: [] };
   }
   // Defensiv: Teilstrukturen sicherstellen (geladene/migrierte Staende).
   if (!FRQ_rawPiano.durchlauf || typeof FRQ_rawPiano.durchlauf !== "object") FRQ_rawPiano.durchlauf = { run: null, frqRefMode: null };
@@ -417,28 +419,44 @@ function FRQ_migratePiano(v) {
   // NEU.
   if (Array.isArray(v.messpunkte)) {
     var d = (v.durchlauf && typeof v.durchlauf === "object") ? v.durchlauf : {};
+    var _neu = (d.histNeuesteZuerst === true);
+    var _run = (d.run && typeof d.run === "object") ? d.run : null;
+    if (_run && !_neu) { _run = Object.assign({}, _run); _run.durchlaufEintrag = {}; }
     return {
-      durchlauf: { run: (d.run && typeof d.run === "object") ? d.run : null,
-                   frqRefMode: (d.frqRefMode != null) ? d.frqRefMode : null },
-      messpunkte: v.messpunkte.filter(function (p) {
-        return p && p.bezug && typeof p.bezug.el === "number" && Array.isArray(p.historie);
-      })
+      durchlauf: { run: _run,
+                   frqRefMode: (d.frqRefMode != null) ? d.frqRefMode : null,
+                   histNeuesteZuerst: true },
+      messpunkte: v.messpunkte
+        .filter(function (p) {
+          return p && p.bezug && typeof p.bezug.el === "number" && Array.isArray(p.historie);
+        })
+        .map(function (p) {
+          // vor-694-Stand (ungemarkt) trug die historie chronologisch -> umdrehen.
+          var hist = _neu ? p.historie.slice() : p.historie.slice().reverse();
+          if (hist.length > FM_PIANO_HIST_MAX) hist = hist.slice(0, FM_PIANO_HIST_MAX);
+          return { bezug: { el: p.bezug.el }, historie: hist };
+        })
     };
   }
 
-  // ALT: perElectrode-Objekt.
+  // ALT: perElectrode-Objekt (ganz alte Staende vor BA 693).
   if (v.perElectrode && typeof v.perElectrode === "object") {
     var mp = [];
     Object.keys(v.perElectrode).forEach(function (k) {
       var el = parseInt(k, 10);
       if (!isFinite(el)) return;
       var pe = v.perElectrode[k];
-      var hist = (pe && Array.isArray(pe.verlauf)) ? pe.verlauf : [];
+      // Alt-verlauf war chronologisch -> umdrehen auf neuester-zuerst.
+      var hist = (pe && Array.isArray(pe.verlauf)) ? pe.verlauf.slice().reverse() : [];
+      if (hist.length > FM_PIANO_HIST_MAX) hist = hist.slice(0, FM_PIANO_HIST_MAX);
       mp.push({ bezug: { el: el }, historie: hist });
     });
+    var _altRun = (v.run && typeof v.run === "object") ? v.run : null;
+    if (_altRun) { _altRun = Object.assign({}, _altRun); _altRun.durchlaufEintrag = {}; }
     return {
-      durchlauf: { run: (v.run && typeof v.run === "object") ? v.run : null,
-                   frqRefMode: (v.frqRefMode != null) ? v.frqRefMode : null },
+      durchlauf: { run: _altRun,
+                   frqRefMode: (v.frqRefMode != null) ? v.frqRefMode : null,
+                   histNeuesteZuerst: true },
       messpunkte: mp
     };
   }
@@ -478,13 +496,15 @@ function _frq_pianoBorderVal(elIdx, border) {
 // Grenze in der Sitzung dg, ohne die laufende Runde. null = keiner.
 function _frq_pianoPrevBorder(elIdx, border, dg) {
   var cur = _frq_pianoAktiverEintrag(elIdx);
-  var v = _frq_pianoVerlauf(elIdx), val = null;
+  var v = _frq_pianoVerlauf(elIdx);
+  // historie neuester-zuerst: der erste passende (ohne die laufende Runde) ist
+  // der chronologisch juengste bestaetigte Wert dieser Grenze.
   for (var i = 0; i < v.length; i++) {
     if (cur != null && i === cur) continue;
     var e = v[i];
-    if (e && e.durchgang === dg && typeof e[border] === "number") val = e[border];
+    if (e && e.durchgang === dg && typeof e[border] === "number") return e[border];
   }
-  return val;
+  return null;
 }
 
 // Aktiver Audioweg (Katalog-id) einer Seite zum aktuellen Zeitpunkt.
@@ -502,21 +522,21 @@ function _frq_pianoSetBorder(elIdx, step, border, cent, dg) {
   var v = _frq_pianoEnsurePoint(elIdx).historie;
   var idx = _frq_pianoAktiverEintrag(elIdx);
   if (idx == null) {
-    // Robustheit (Format-Uebergang): halbfertiger letzter Eintrag
-    // gleicher Sitzung/Schrittweite wird weiterverwendet.
-    var last = v.length - 1;
-    if (last >= 0 && v[last].durchgang === dg && v[last].step === step
-        && (v[last].lower == null || v[last].upper == null)) {
-      idx = last;
+    // Historie neuester-zuerst: der jeweils aktive Eintrag liegt am Kopf (0).
+    // Halbfertiger Kopf-Eintrag gleicher Sitzung/Schrittweite wird weiterverwendet.
+    if (v.length > 0 && v[0].durchgang === dg && v[0].step === step
+        && (v[0].lower == null || v[0].upper == null)) {
+      idx = 0;
     } else {
-      v.push({ step: step, lower: null, upper: null, durchgang: dg,
-               audioweg: { left:  _frq_activePathId("left"),
-                           right: _frq_activePathId("right") } });
-      idx = v.length - 1;
+      v.unshift({ step: step, lower: null, upper: null, durchgang: dg,
+                  audioweg: { left:  _frq_activePathId("left"),
+                              right: _frq_activePathId("right") } });
+      if (v.length > FM_PIANO_HIST_MAX) v.length = FM_PIANO_HIST_MAX;
+      idx = 0;
     }
     if (run) {
       if (!run.durchlaufEintrag) run.durchlaufEintrag = {};
-      run.durchlaufEintrag[elIdx] = idx;
+      run.durchlaufEintrag[elIdx] = idx;   // = 0
     }
   }
   v[idx][border] = cent;
@@ -527,9 +547,13 @@ function _frq_pianoSetBorder(elIdx, step, border, cent, dg) {
                       right: _frq_activePathId("right") };
 }
 
-// Vollstaendige Runden (beide Grenzen) einer Sitzung, chronologisch.
+// Vollstaendige Runden (beide Grenzen) einer Sitzung, CHRONOLOGISCH
+// (aeltester zuerst) -- der Vertrag der Streuband-Rechnung. Da die historie
+// seit BA694 neuester-zuerst liegt, wird sie hier einmal zurueckgedreht; alle
+// Rechen-Konsumenten (streuband/ausgereizt/naechsterSchritt/sitzungsStart)
+// arbeiten dadurch unveraendert auf einer chronologischen Liste.
 function _frq_pianoVolleRunden(elIdx, dg) {
-  return _frq_pianoVerlauf(elIdx).filter(function (e) {
+  return _frq_pianoVerlauf(elIdx).slice().reverse().filter(function (e) {
     return e && e.durchgang === dg
       && typeof e.lower === "number" && typeof e.upper === "number";
   });

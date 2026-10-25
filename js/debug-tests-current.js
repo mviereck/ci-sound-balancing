@@ -25,14 +25,15 @@
     try {
       // Fall A: sauberer Konvergierer (Elektrode 0, Sitzung 1)
       // Band = letzte Runde (+-30), grobe Vorrunden zaehlen nicht mehr
+      // BA694: Historie neuester-zuerst (umgekehrte Reihenfolge gegenueber Original).
       FRQ_rawPiano = {
-        durchlauf: { run: null, frqRefMode: null },
+        durchlauf: { run: null, frqRefMode: null, histNeuesteZuerst: true },
         messpunkte: [
           { bezug: { el: 0 }, historie: [
-            { step: 240, lower: -240, upper: 240, durchgang: 1 },
-            { step: 120, lower: -120, upper: 120, durchgang: 1 },
+            { step:  30, lower:  -30, upper:  30, durchgang: 1 },
             { step:  60, lower:  -60, upper:  60, durchgang: 1 },
-            { step:  30, lower:  -30, upper:  30, durchgang: 1 }
+            { step: 120, lower: -120, upper: 120, durchgang: 1 },
+            { step: 240, lower: -240, upper: 240, durchgang: 1 }
           ]}
         ]
       };
@@ -46,7 +47,9 @@
       if (Math.abs(stepA - 15) > 0.001) return err('Fall A: step erwartet 15, got ' + stepA);
       if (_frq_pianoAusgereizt(0, 1) !== false) return err('Fall A: ausgereizt soll false sein');
 
-      // Fall B: stabiler Pendler (Elektrode 1, Sitzung 1)
+      // Fall B: stabiler Pendler (Elektrode 1, Sitzung 1) — neuester-zuerst
+      // Chronologisch war: R1(-60,60) R2(-30,90) R3(-60,60) R4(-30,90) R5(-60,60)
+      // Neuester-zuerst: R5 an Index 0.
       FRQ_rawPiano.messpunkte.push({ bezug: { el: 1 }, historie: [
         { step: 60, lower: -60, upper:  60, durchgang: 1 },
         { step: 60, lower: -30, upper:  90, durchgang: 1 },
@@ -70,16 +73,18 @@
       if (Math.abs(startC.center - 15) > 0.001) return err('Fall C: center erwartet 15, got ' + startC.center);
 
       // Fall D: asymmetrische Konvergenz, gewichtete Mitte (Elektrode 2, Sitzung 1)
-      // Runde 1: step=60, lower=-30, upper=90 -> mitte=30; w=1/3600
-      // Runde 2: step=30, lower=-30, upper=30 -> mitte=0;  w=1/900=4/3600
+      // Chronologisch: R1 step=60 lower=-30 upper=90, R2 step=30 lower=-30 upper=30
+      // Runde 1: step=60 -> mitte=30; w=1/3600
+      // Runde 2: step=30 -> mitte=0;  w=1/900=4/3600
       // mitte = (30*1 + 0*4)/5 = 6
-      // Band: Ausgangspunkt (letzte Runde) [-30,+30]; Verletzungs-Logik:
-      //   e1 lower=-30 (sLo=null->-30), upper=90 (sHi=null->90)
-      //   e2 lower=-30 (nicht < sLo=-30), upper=30 (nicht > sHi_davor=90) -> keine Ausweitung
+      // Band: Ausgangspunkt (letzte=R2) [-30,+30]; Verletzungs-Logik:
+      //   R1 lower=-30 (sLo=null->-30), upper=90 (sHi=null->90)
+      //   R2 lower=-30 (nicht < sLo=-30), upper=30 (nicht > sHi=90) -> keine Ausweitung
       // bandLo=-30, bandHi=30; mitte=6 liegt darin
+      // BA694: neuester-zuerst -> R2 an Index 0, R1 an Index 1.
       FRQ_rawPiano.messpunkte.push({ bezug: { el: 2 }, historie: [
-        { step: 60, lower: -30, upper: 90, durchgang: 1 },
-        { step: 30, lower: -30, upper: 30, durchgang: 1 }
+        { step: 30, lower: -30, upper: 30, durchgang: 1 },
+        { step: 60, lower: -30, upper: 90, durchgang: 1 }
       ]});
       var bandD = _frq_pianoResiduumBand(2);
       if (!bandD) return err('Fall D: kein Band');
@@ -258,5 +263,57 @@
       ok: okAudio && okText,
       msg: "detailStart=" + it.detailStart + " len=" + it.detail + " -> audio=" + JSON.stringify(it.audio) + " text-len=" + (it.text ? it.text.length : 0)
     };
+  });
+})();
+
+// BA694 — Streuband-Identitaet bei umgekehrter Historie
+(function () {
+  dbg.test('build/BA694/streuband-identitaet', { tab: 'messungen', label: 'BA694: Streuband-Identitaet (neuester-zuerst)' }, function () {
+    var backup = (typeof FRQ_rawPiano !== 'undefined') ? FRQ_rawPiano : null;
+    function err(msg) { return { ok: false, msg: msg }; }
+    function fmt(b) {
+      return 'mitte=' + b.mitte.toFixed(3) + ' lo=' + b.lo.toFixed(3)
+           + ' hi=' + b.hi.toFixed(3) + ' breite=' + b.breite.toFixed(3)
+           + ' anzahl=' + b.anzahl;
+    }
+    try {
+      // Fester Verlauf: 4 volle Runden, chronologisch (aeltester zuerst).
+      var chronoHist = [
+        { step: 240, lower: -240, upper: 240, durchgang: 1 },
+        { step: 120, lower: -120, upper: 120, durchgang: 1 },
+        { step:  60, lower:  -60, upper:  60, durchgang: 1 },
+        { step:  30, lower:  -30, upper:  30, durchgang: 1 }
+      ];
+      // Neuester-zuerst = umgedrehte Kopie.
+      var neuestHist = chronoHist.slice().reverse();
+
+      // Referenz: chronologisch.
+      FRQ_rawPiano = {
+        durchlauf: { run: null, frqRefMode: null, histNeuesteZuerst: false },
+        messpunkte: [{ bezug: { el: 0 }, historie: chronoHist }]
+      };
+      var ref = FRQ_computeEval_streuband(0, 1, null);
+      if (!ref) return err('Referenz: kein Streuband');
+
+      // Test: neuester-zuerst (so wie BA694 speichert).
+      FRQ_rawPiano = {
+        durchlauf: { run: null, frqRefMode: null, histNeuesteZuerst: true },
+        messpunkte: [{ bezug: { el: 0 }, historie: neuestHist }]
+      };
+      var res = FRQ_computeEval_streuband(0, 1, null);
+      if (!res) return err('Ergebnis: kein Streuband');
+
+      var ok = Math.abs(ref.mitte   - res.mitte)   < 0.001
+            && Math.abs(ref.lo      - res.lo)       < 0.001
+            && Math.abs(ref.hi      - res.hi)       < 0.001
+            && Math.abs(ref.breite  - res.breite)   < 0.001
+            && ref.anzahl === res.anzahl;
+      return {
+        ok: ok,
+        msg: 'chrono: ' + fmt(ref) + ' | neuestZuerst: ' + fmt(res)
+      };
+    } finally {
+      FRQ_rawPiano = backup;
+    }
   });
 })();
