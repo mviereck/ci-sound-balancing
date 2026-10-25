@@ -182,63 +182,17 @@ function AWG_usedIds(entries, side) {
 // SNAPSHOT-FAEHIG: sobald es Snapshots gibt, wird hier EINE weitere Quelle
 // ergaenzt (ihre Rohwert-Listen); die fuenf Tests und AWG_usedIds bleiben
 // unberuehrt, weil Snapshot-Eintraege dasselbe audioweg-Feld tragen.
+// Die EINZIGE Stelle, die weiss, WO die Rohwert-Container aller Tests liegen.
+// Liefert ein Array von Eintragslisten (je Container eine): die flach
+// eingesammelten Meszschritte (messpunkte[].historie), weil jeder Schritt das
+// Feld audioweg traegt (nicht der Meszpunkt). Alle fuenf Container tragen seit
+// dem Rohwert-Grundmuster (§8) dieselbe Form { durchlauf, messpunkte }, darum
+// EINE Durchsicht statt fuenf.
+// SNAPSHOT-FAEHIG: sobald es Snapshots gibt, wird hier EINE weitere Quelle
+// ergaenzt; die Durchsicht und AWG_usedIds bleiben unberuehrt.
 function AWG_usedCollect() {
-  var lists = [];
-  // ELL: sideData[side].ELL_raw = { durchlauf, messpunkte }. audioweg liegt an
-  // den Schritten in historie (eine Ebene tiefer). (Vereinheitlichung dieser
-  // Sammelstelle folgt, sobald alle Container das Grundmuster tragen.)
-  if (typeof sideData !== "undefined") {
-    ["left", "right"].forEach(function (s) {
-      var c = sideData[s] && sideData[s].ELL_raw;
-      if (c && Array.isArray(c.messpunkte)) {
-        var ellAll = [];
-        c.messpunkte.forEach(function (p) {
-          if (p && Array.isArray(p.historie)) {
-            for (var i = 0; i < p.historie.length; i++) ellAll.push(p.historie[i]);
-          }
-        });
-        lists.push(ellAll);
-      }
-    });
-  }
-  // STB: STB_raw = { durchlauf, messpunkte:[{bezug,historie}] }. audioweg liegt
-  // an den Schritten in historie (eine Ebene tiefer). (Vereinheitlichung dieser
-  // Sammelstelle folgt, sobald alle Container das Grundmuster tragen.)
-  if (typeof STB_raw !== "undefined" && STB_raw && Array.isArray(STB_raw.messpunkte)) {
-    var stbAll = [];
-    STB_raw.messpunkte.forEach(function (p) {
-      if (p && Array.isArray(p.historie)) {
-        for (var i = 0; i < p.historie.length; i++) stbAll.push(p.historie[i]);
-      }
-    });
-    lists.push(stbAll);
-  }
-  // Latenz: LTZ_raw = { durchlauf, messpunkte:[{bezug,historie}] }. Die
-  // audioweg-tragenden Objekte sind die Schritte in historie, eine Ebene
-  // tiefer als die Meszpunkte. (Vereinheitlichung dieser Sammelstelle folgt,
-  // sobald alle Container das Grundmuster tragen.)
-  if (typeof LTZ_raw !== "undefined" && LTZ_raw && Array.isArray(LTZ_raw.messpunkte)) {
-    var ltzAll = [];
-    LTZ_raw.messpunkte.forEach(function (p) {
-      if (p && Array.isArray(p.historie)) {
-        for (var i = 0; i < p.historie.length; i++) ltzAll.push(p.historie[i]);
-      }
-    });
-    lists.push(ltzAll);
-  }
-  // FRQ: messpunkte[el].historie[] -> flach zu einer Liste (audioweg je Schritt).
-  if (typeof FRQ_rawPiano !== "undefined" && FRQ_rawPiano && Array.isArray(FRQ_rawPiano.messpunkte)) {
-    var frqAll = [];
-    FRQ_rawPiano.messpunkte.forEach(function (p) {
-      if (p && Array.isArray(p.historie)) {
-        for (var i = 0; i < p.historie.length; i++) frqAll.push(p.historie[i]);
-      }
-    });
-    lists.push(frqAll);
-  }
-  // SNR: binaural global + je Seite. audioweg liegt an den Schritten in
-  // messpunkte[].historie (fuer alle Saetze eines Durchgangs derselbe Weg).
-  function _snrSchritte(c) {
+  // Ein Container -> seine Meszschritte flach (audioweg-tragende Objekte).
+  function _schritte(c) {
     var out = [];
     if (c && Array.isArray(c.messpunkte)) {
       c.messpunkte.forEach(function (p) {
@@ -249,13 +203,22 @@ function AWG_usedCollect() {
     }
     return out;
   }
-  if (typeof SNR_rawBoth !== "undefined" && SNR_rawBoth) lists.push(_snrSchritte(SNR_rawBoth));
+
+  // Alle Rohwert-Container, egal wo sie liegen (global oder seitig).
+  var container = [];
+  if (typeof STB_raw      !== "undefined") container.push(STB_raw);
+  if (typeof LTZ_raw      !== "undefined") container.push(LTZ_raw);
+  if (typeof FRQ_rawPiano !== "undefined") container.push(FRQ_rawPiano);
+  if (typeof SNR_rawBoth  !== "undefined") container.push(SNR_rawBoth);
   if (typeof sideData !== "undefined") {
     ["left", "right"].forEach(function (s) {
-      if (sideData[s] && sideData[s].SNR_rawSide) lists.push(_snrSchritte(sideData[s].SNR_rawSide));
+      if (!sideData[s]) return;
+      container.push(sideData[s].ELL_raw);
+      container.push(sideData[s].SNR_rawSide);
     });
   }
-  return lists;
+
+  return container.map(_schritte);
 }
 
 // Wird dieser Audioweg von irgendeiner Messung referenziert? Durchsucht die
