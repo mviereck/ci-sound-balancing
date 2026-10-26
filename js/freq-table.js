@@ -12,7 +12,7 @@ function _frq_implantatTableRefreshMeasSummaries() {
 function FRQ_implantatTableBuild() {
   const im = sideData[activeSide].implant || {};
   const cfg = sideData[activeSide].config || "ci";
-  const isAcoustic = ["hg", "normal", "shoh"].includes(cfg);  // BA 153
+  const isAcoustic = ["normal", "shoh"].includes(cfg);  // BA 153
   const elPfx = cfg === "ci" ? t("cfgLblEnCI") : t("cfgLblEnAcoustic");
   const elLbl = cfg === "ci" ? t("cfgLblElCI") : t("cfgLblElAcoustic");
   // BA 154: bei „Keine Angabe" Tabelle leeren und früh aussteigen
@@ -29,7 +29,7 @@ function FRQ_implantatTableBuild() {
   // BA 155: beide Seiten akustisch — Tabelle leeren
   const leftCfg2  = sideData.left.config  || "unknown";
   const rightCfg2 = sideData.right.config || "unknown";
-  const _isAc = function(c) { return c === "hg" || c === "normal" || c === "shoh"; };
+  const _isAc = function(c) { return c === "normal" || c === "shoh"; };
   if (_isAc(leftCfg2) && _isAc(rightCfg2)) { _hideTableArea(); return; }
   const isMedel = mfr === "medel",
     isAB = mfr === "ab",
@@ -419,14 +419,14 @@ function _frqBandRefreshRow(i) {
 // damit Tab-Fokus zwischen Eingabefeldern erhalten bleibt.
 function frq_implantatTableUpdateHints() {
   const cfg = sideData[activeSide].config || "ci";
-  const isAcoustic = ["hg", "normal", "shoh"].includes(cfg);
+  const isAcoustic = ["normal", "shoh"].includes(cfg);
   const isUnknownCfg = cfg === "unknown";
   const isUnknownMfr = !isAcoustic && cfg === "ci"
     && (sideData[activeSide].manufacturer === "unknown" || !sideData[activeSide].manufacturer);
   // Beide Seiten akustisch
   const leftCfg2  = sideData.left.config  || "unknown";
   const rightCfg2 = sideData.right.config || "unknown";
-  const _isAc = function(c) { return c === "hg" || c === "normal" || c === "shoh"; };
+  const _isAc = function(c) { return c === "normal" || c === "shoh"; };
   const bothAcoustic = _isAc(leftCfg2) && _isAc(rightCfg2);
   // Wenn die Tabelle gar nicht gerendert würde: Warnbalken aus.
   // (Sollte beim .fo-change normalerweise nicht eintreten — Sicherheitsnetz.)

@@ -224,6 +224,7 @@ function initSideData(side, m) {
   s.SNRtest_noise = "__werk__";   // Sprachtest-Rauschwahl, seitenweise
   s.SNRtest_material = null;   // Sprachtest-Testmaterial (test_set-Wert), seitenweise; null = Fallback erste verfuegbare
   s.map = null;   // BA696: gemessenes CI-Programm (MAP) als Zahl 1..maxMaps; null = keine Angabe
+  s.hgVersorgung = "unknown";   // BA697: Hörversorgung bei config==="shoh": "unknown" | "hg" | "none"
   s.implant = {
     model: "",
     processor: "",
@@ -635,7 +636,7 @@ function FRQ_implantatSyncToAcoustic() {
       const other = src === "left" ? "right" : "left";
       // BA 154: nur akustische Konfigurationen spiegeln, nicht „unknown" oder „deaf"
       const otherCfg = sideData[other].config || "unknown";
-      if (["hg", "normal", "shoh"].includes(otherCfg)) {
+      if (["normal", "shoh"].includes(otherCfg)) {
         const srcData = sideData[src];
         const otherData = sideData[other];
         otherData.nEl = srcData.nEl;
@@ -693,6 +694,9 @@ function FRQ_implantatSyncToAcoustic() {
 // Konfiguration einer Seite setzen und Sync auslösen
 function setSideConfig(side, cfg) {
   sideData[side].config = cfg;
+  // BA697: Hörversorgung gilt nur bei „Schwerhörig". Bei jedem Wechsel
+  // auf eine andere Hörsituation zurücksetzen (nicht erhalten).
+  if (cfg !== "shoh") sideData[side].hgVersorgung = "unknown";
   if (cfg === "ci") {
     // Wenn zurück zu CI: unabhängig werden — Frequenzen auf Default,
     // Hersteller-Fallback weiterhin „unknown" (BA 154).

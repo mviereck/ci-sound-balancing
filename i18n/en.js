@@ -1069,6 +1069,13 @@ Object.assign(L.en, {
     cfgNormal: "Normal hearing",
     cfgSchwerh: "Hard of hearing",
     cfgTaub: "Deaf",
+    lblHgVersorgung: "Hearing care",
+    hgVersUnknown: "(not specified)",
+    hgVersHg: "Hearing aid",
+    hgVersNone: "no device",
+    hgVersLabelPrint: "Hearing care",
+    audiologMap: "Measured program (MAP)",
+    audiologMapNone: "—",
 
     // Dependency lock (BA 149)
     depFieldMfr: "Manufacturer",

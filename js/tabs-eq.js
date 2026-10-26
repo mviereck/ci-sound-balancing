@@ -89,7 +89,7 @@ const LOCKED_TABS_L1 = ["kurven", "schieber", "frequenzbaender", "verlaufsanalys
 function evalTabLockState() {
   const lC = (sideData.left  && sideData.left.config)  || "unknown";
   const rC = (sideData.right && sideData.right.config) || "unknown";
-  const isAc = (c) => c === "hg" || c === "normal" || c === "shoh";
+  const isAc = (c) => c === "normal" || c === "shoh";
   if (isAc(lC) && isAc(rC)) return { locked: true, reason: "bothAcoustic" };
   if (lC === "unknown" || rC === "unknown") return { locked: true, reason: "unconfigured" };
   const lMfr = sideData.left  && sideData.left.manufacturer;

@@ -1323,6 +1323,13 @@ Object.assign(L.de, {
     cfgNormal: "Normalhörend",
     cfgSchwerh: "Schwerhörig",
     cfgTaub: "Taub",
+    lblHgVersorgung: "Hörversorgung",
+    hgVersUnknown: "(keine Angabe)",
+    hgVersHg: "Hörgerät",
+    hgVersNone: "keine Versorgung",
+    hgVersLabelPrint: "Hörversorgung",
+    audiologMap: "Gemessenes Programm (MAP)",
+    audiologMapNone: "—",
 
     // Dependency-Lock (BA 149)
     depFieldMfr: "Hersteller",

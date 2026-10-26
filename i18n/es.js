@@ -1070,6 +1070,13 @@ Object.assign(L.es, {
     cfgNormal: "Audición normal",
     cfgSchwerh: "Hipoacúsico",
     cfgTaub: "Sordo",
+    lblHgVersorgung: "Equipamiento auditivo",
+    hgVersUnknown: "(sin especificar)",
+    hgVersHg: "Audífono",
+    hgVersNone: "sin equipamiento",
+    hgVersLabelPrint: "Equipamiento auditivo",
+    audiologMap: "Programa medido (MAP)",
+    audiologMapNone: "—",
 
     // Dependency-Lock (BA 149)
     depFieldMfr: "Fabricante",

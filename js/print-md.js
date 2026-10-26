@@ -246,6 +246,8 @@ function _collectSideData(side) {
       side,
       label: side === "left" ? t("sideLeft") : t("sideRight"),
       config: sd.config || "ci",
+      hgVersorgung: sd.hgVersorgung || "unknown",   // BA697
+      map: (typeof sd.map === "number") ? sd.map : null,   // BA697
       manufacturer: mfr,
       manufacturerLabel: (MFR[mfr] && MFR[mfr].name) || mfr,
       nEl,
@@ -417,11 +419,23 @@ function _archivMdConfig(data) {
   for (const side of ["left", "right"]) {
     const sd = data.sides[side];
     lines.push(`### ${sd.label}`);
-    const _CFG_KEY = { ci: "cfgCI", hg: "cfgHG", normal: "cfgNormal", shoh: "cfgSchwerh", deaf: "cfgTaub" };
+    const _CFG_KEY = { ci: "cfgCI", normal: "cfgNormal", shoh: "cfgSchwerh", deaf: "cfgTaub" };
     const cfgLabel = t(_CFG_KEY[sd.config] || "") || sd.config;
     lines.push(`- ${t("archivCfgConfig")}: ${cfgLabel}`);
+    // BA697: Hörversorgung nur bei „Schwerhörig" mit echtem Wert.
+    if (sd.config === "shoh" && (sd.hgVersorgung === "hg" || sd.hgVersorgung === "none")) {
+      const _hgLbl = sd.hgVersorgung === "hg" ? t("hgVersHg") : t("hgVersNone");
+      lines.push(`- ${t("hgVersLabelPrint")}: ${_hgLbl}`);
+    }
     lines.push(`- ${t("archivCfgMfr")}: ${sd.manufacturerLabel}`);
     lines.push(`- ${t("archivCfgN")}: ${sd.nEl}`);
+    // BA697: Gemessenes Programm (MAP) bei jeder CI-Seite, auch ohne Wahl.
+    if (sd.config === "ci") {
+      const _mapLbl = (typeof sd.map === "number")
+        ? t("implMapItem").replace("{n}", String(sd.map))
+        : t("audiologMapNone");
+      lines.push(`- ${t("audiologMap")}: ${_mapLbl}`);
+    }
     const im = sd.implant;
     if (im.model)      lines.push(`- ${t("archivCfgModel")}: ${im.model}`);
     if (im.processor)  lines.push(`- ${t("archivCfgProcessor")}: ${im.processor}`);
@@ -1230,7 +1244,6 @@ function _audiologConfigLabel(side) {
   const cfg = (sd && sd.config) || "ci";
   const map = {
     ci:     "cfgCI",
-    hg:     "cfgHG",
     normal: "cfgNormal",
     shoh:   "cfgSchwerh",
     deaf:   "cfgTaub",
@@ -1302,6 +1315,17 @@ function buildAudiologMarkdown() {
     meta.push(`${t("audiologMfr")}: ${mfrLbl}`);
     if (impl.processor) meta.push(`${t("audiologProcessor")}: ${impl.processor}`);
     if (impl.model)     meta.push(`${t("audiologImplant")}: ${impl.model}`);
+    // BA697: MAP bei jeder CI-Seite, auch ohne Wahl „—".
+    if ((sd.config || "ci") === "ci") {
+      const _mapLbl = (typeof sd.map === "number")
+        ? t("implMapItem").replace("{n}", String(sd.map))
+        : t("audiologMapNone");
+      meta.push(`${t("audiologMap")}: ${_mapLbl}`);
+    }
+    // BA697: Hörversorgung nur bei „Schwerhörig" mit echtem Wert.
+    if (sd.config === "shoh" && (sd.hgVersorgung === "hg" || sd.hgVersorgung === "none")) {
+      meta.push(`${t("hgVersLabelPrint")}: ${sd.hgVersorgung === "hg" ? t("hgVersHg") : t("hgVersNone")}`);
+    }
     const lastM = _audiologLastELL(side);
     if (lastM) meta.push(`${t("audiologLastMeas")}: ${_audiologDateStr(lastM)}`);
     parts.push(`_${meta.join(" · ")}_`);

@@ -140,6 +140,7 @@ function resetAll() {
     sideData[s].SNR_rawSide = null;   // BA686: seitiger Sprachtest-Rohwert
     sideData[s].kurvenELL = [];
     sideData[s].map = null;   // BA696
+    sideData[s].hgVersorgung = "unknown";   // BA697
     initSideData(s, "unknown");
   }
   // --- Notiz an Audiologen ---

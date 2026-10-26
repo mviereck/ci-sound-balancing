@@ -19,7 +19,7 @@ function _tpEsc(s) {
 // Mappt den internen cfg-Wert auf den korrekten i18n-Key.
 function _cfgI18nKey(cfg) {
   return (
-    { ci: "cfgCI", hg: "cfgHG", normal: "cfgNormal", shoh: "cfgSchwerh", deaf: "cfgTaub" }[cfg] ||
+    { ci: "cfgCI", normal: "cfgNormal", shoh: "cfgSchwerh", deaf: "cfgTaub" }[cfg] ||
     cfg
   );
 }
@@ -50,10 +50,19 @@ function printImplantTab() {
   // Implantat-Parameter-Block
   const paramRows = [];
   paramRows.push([t("cfgLabel"), t(_cfgI18nKey(cfg))]);
+  // BA697: Hörversorgung nur bei „Schwerhörig" mit echtem Wert.
+  if (cfg === "shoh" && (s.hgVersorgung === "hg" || s.hgVersorgung === "none")) {
+    paramRows.push([t("hgVersLabelPrint"), s.hgVersorgung === "hg" ? t("hgVersHg") : t("hgVersNone")]);
+  }
   if (isCi) {
     paramRows.push([t("lblMfr"), (MFR[m] && MFR[m].name) || m]);
     if (im.model)     paramRows.push([t("lblImplModel"), im.model]);
     if (im.processor) paramRows.push([t("lblImplProc"),  im.processor]);
+    // BA697: MAP bei jeder CI-Seite, auch ohne Wahl „—".
+    paramRows.push([t("audiologMap"),
+      (typeof s.map === "number")
+        ? t("implMapItem").replace("{n}", String(s.map))
+        : t("audiologMapNone")]);
     if (im.cValue != null && m === "medel")
       paramRows.push([t("lblImplC"), String(im.cValue)]);
     if (im.idr != null && m === "ab")

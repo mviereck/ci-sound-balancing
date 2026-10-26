@@ -439,8 +439,30 @@ function _saveNormBaender(arr, nEl, mfr, fillDefault) {
 SAVE_SCHEMA.push(
   { key: "config", scope: "side",
     get: function (s) { return sideData[s].config; },
-    set: function (v, s) { sideData[s].config = v || "ci"; },
+    set: function (v, s) {
+      // BA697: Alt-Konfig „Hörgerät" (eigener config-Wert) auf
+      // „Schwerhörig" + Hörversorgung=Hörgerät migrieren.
+      if (v === "hg") {
+        sideData[s].config = "shoh";
+        sideData[s].hgVersorgung = "hg";
+      } else {
+        sideData[s].config = v || "ci";
+      }
+    },
     default: "ci", valid: { type: "string" } },
+  { key: "hgVersorgung", scope: "side",
+    get: function (s) { return sideData[s].hgVersorgung; },
+    set: function (v, s) {
+      // BA697: Nur bei „Schwerhörig" sinnvoll.
+      if (sideData[s].config !== "shoh") { sideData[s].hgVersorgung = "unknown"; return; }
+      var ok = (v === "hg" || v === "none" || v === "unknown");
+      // Migrations-Schutz: liefert die Alt-Datei kein echtes hgVersorgung
+      // (v fällt auf Default "unknown" zurück), aber die config-Migration
+      // hat bereits "hg" gesetzt, dann diesen Wert behalten.
+      if (v === "unknown" && sideData[s].hgVersorgung === "hg") return;
+      sideData[s].hgVersorgung = ok ? v : "unknown";
+    },
+    default: "unknown", valid: { type: "string" } },
   { key: "manufacturer", scope: "side",
     get: function (s) { return sideData[s].manufacturer; },
     set: function (v, s) {

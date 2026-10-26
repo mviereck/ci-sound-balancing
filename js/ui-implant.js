@@ -80,6 +80,31 @@ function buildImplantCard() {
     if (mfrOptUnknown) mfrOptUnknown.textContent = t("mfrUnknown");
   }
 
+  // BA697: Hörversorgung-Dropdown (nur bei „Schwerhörig")
+  const hgRow = document.getElementById("hgVersorgungRow");
+  const hgSel = document.getElementById("hgVersorgungSelect");
+  if (hgRow && hgSel) {
+    const lblHg = document.getElementById("lblHgVersorgung");
+    if (lblHg) lblHg.textContent = t("lblHgVersorgung");
+    const hgOpts = { unknown: "hgVersUnknown", hg: "hgVersHg", none: "hgVersNone" };
+    Object.entries(hgOpts).forEach(([val, key]) => {
+      const o = hgSel.querySelector('option[value="' + val + '"]');
+      if (o) o.textContent = t(key);
+    });
+    const showHg = cfg === "shoh";
+    hgRow.style.display = showHg ? "" : "none";
+    // aktuellen Wert spiegeln (Fallback "unknown")
+    hgSel.value = ["unknown", "hg", "none"].includes(s.hgVersorgung) ? s.hgVersorgung : "unknown";
+    hgSel.onchange = function () {
+      sideData[activeSide].hgVersorgung = this.value;
+      // Frequenzabgleich-Warnhinweis hängt an shoh+hg → neu bewerten.
+      if (typeof _frq_refreshHighGainWarningVisibility === "function") {
+        _frq_refreshHighGainWarningVisibility();
+      }
+      if (typeof _autoSaveState === "function") _autoSaveState();
+    };
+  }
+
   // BA 154: Cascade
   const isUnknownCfg = cfg === "unknown";
   const isUnknownMfr = isCiCfg && (s.manufacturer === "unknown" || !s.manufacturer);
@@ -121,7 +146,7 @@ function buildImplantCard() {
   const hintAc = document.getElementById("cfgHintAcousticEl");
   const hintDeaf = document.getElementById("cfgHintDeafEl");
   if (hintAc) {
-    const isAcoustic = ["hg","normal","shoh"].includes(cfg);
+    const isAcoustic = ["normal","shoh"].includes(cfg);
     const src = FRQ_implantatGetSource();
     // BA 165: Hinweis nur sinnvoll, wenn andere Seite tatsächlich CI ist.
     // Sonst greift cfgHintBothAcoustic (an anderer Stelle gerendert).
@@ -142,7 +167,7 @@ function buildImplantCard() {
   if (hintBothAc) {
     const leftCfg  = sideData.left.config  || "unknown";
     const rightCfg = sideData.right.config || "unknown";
-    const isAc = function(c) { return c === "hg" || c === "normal" || c === "shoh"; };
+    const isAc = function(c) { return c === "normal" || c === "shoh"; };
     const bothAcoustic = isAc(leftCfg) && isAc(rightCfg);
     hintBothAc.style.display = bothAcoustic ? "" : "none";
     if (bothAcoustic) hintBothAc.innerHTML = t("cfgHintBothAcoustic");

@@ -306,10 +306,21 @@
               <select id="cfgSelect">
                 <option value="unknown" id="cfgOptUnknown"></option>
                 <option value="ci" id="cfgOptCI"></option>
-                <option value="hg" id="cfgOptHG"></option>
                 <option value="normal" id="cfgOptNormal"></option>
                 <option value="shoh" id="cfgOptSchwerh"></option>
                 <option value="deaf" id="cfgOptTaub"></option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Hörversorgung (nur bei „Schwerhörig") -->
+          <div class="controls-row" id="hgVersorgungRow" style="display:none;margin-bottom: 8px">
+            <div class="control-group">
+              <label id="lblHgVersorgung" for="hgVersorgungSelect" data-t="lblHgVersorgung"></label>
+              <select id="hgVersorgungSelect">
+                <option value="unknown" data-t="hgVersUnknown"></option>
+                <option value="hg" data-t="hgVersHg"></option>
+                <option value="none" data-t="hgVersNone"></option>
               </select>
             </div>
           </div>

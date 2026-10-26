@@ -1054,7 +1054,7 @@ function _frq_evalTestEligibility() {
   if (leftCfg === 'deaf' || rightCfg === 'deaf') {
     return { blocked: true, reason: 'sideDeaf' };
   }
-  function isAcoustic(c) { return c === 'normal' || c === 'shoh' || c === 'hg'; }
+  function isAcoustic(c) { return c === 'normal' || c === 'shoh'; }
   if (isAcoustic(leftCfg) && isAcoustic(rightCfg)) {
     return { blocked: true, reason: 'bothAcoustic' };
   }
@@ -1086,9 +1086,10 @@ function _frq_autoSetRefMode() {
 
 function _frq_refreshHighGainWarningVisibility() {
   if (!FRQ_els) return;
-  const leftCfg  = (sideData.left  && sideData.left.config)  || 'ci';
-  const rightCfg = (sideData.right && sideData.right.config) || 'ci';
-  const hasHG = (leftCfg === 'hg') || (rightCfg === 'hg');
+  // BA697: „Hörgerät" ist kein eigener config-Wert mehr, sondern
+  // „Schwerhörig" + hgVersorgung==="hg".
+  const _isHg = function (sd) { return sd && sd.config === 'shoh' && sd.hgVersorgung === 'hg'; };
+  const hasHG = _isHg(sideData.left) || _isHg(sideData.right);
   // HG-Warnung nur zeigen, wenn Test nicht ohnehin geblockt ist.
   const blocked = _frq_evalTestEligibility().blocked;
   const visible = hasHG && !blocked;
