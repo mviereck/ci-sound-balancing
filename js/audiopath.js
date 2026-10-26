@@ -282,6 +282,25 @@ function AWG_renderSelects() {
     optNew.value = AWG_OPT_NEW;
     optNew.textContent = (typeof t === "function") ? t("AWG_optNew") : "Neuer Eintrag…";
     sel.appendChild(optNew);
+
+    // BA696: MAP-Textanzeige + Infoknopf im Header.
+    var mapEl = document.getElementById(
+      side === "left" ? "mapDisplayLeft" : "mapDisplayRight");
+    if (mapEl) {
+      var sd = (typeof sideData !== "undefined") ? sideData[side] : null;
+      var isCi = sd && (sd.config || "ci") === "ci";
+      if (!isCi) {
+        mapEl.innerHTML = "";
+      } else {
+        var info = (typeof infoIconHtml === "function")
+          ? " " + infoIconHtml("mapHeaderInfo") : "";
+        if (typeof sd.map === "number") {
+          mapEl.innerHTML = t("implMapItem").replace("{n}", String(sd.map)) + info;
+        } else {
+          mapEl.innerHTML = t("mapHeaderNone") + info;
+        }
+      }
+    }
   });
 }
 

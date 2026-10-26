@@ -173,6 +173,7 @@
         <img class="brand-logo" src="assets/images/CImbel_logo.png" width="150" height="150" alt="">
         <div class="side-switch">
           <div class="side-row">
+            <span class="side-map-display" id="mapDisplayLeft"></span>
             <button
               id="sideLeftBtn"
               class="side-btn"
@@ -185,6 +186,7 @@
             <select id="awgSelectLeft" class="awg-select" aria-label="Audioweg links"></select>
           </div>
           <div class="side-row">
+            <span class="side-map-display" id="mapDisplayRight"></span>
             <button
               id="sideRightBtn"
               class="side-btn"
@@ -358,6 +360,14 @@
                   id="implGenDisplay"
                   style="font-family: var(--mono); font-size: 0.88em"
                 ></span>
+              </div>
+            </div>
+
+            <!-- BA696: Gemessenes Programm (MAP) -->
+            <div class="controls-row" id="implMapRow" style="display: none; margin-bottom: 6px">
+              <div class="control-group">
+                <label id="lblImplMap" for="implMapSelect" data-t="lblImplMap"></label>
+                <select id="implMapSelect" style="min-width: 160px"></select>
               </div>
             </div>
 
@@ -2015,16 +2025,7 @@
               <input type="text"
                      id="userFileSuffix"
                      maxlength="64"
-                     style="padding:6px 8px;border:1px solid var(--border);border-radius:4px 0 0 4px;min-width:120px;font-family:var(--mono)" />
-              <button id="userFileSuffixBtn" type="button"
-                      style="padding:6px 10px;border:1px solid var(--border);border-left:none;border-radius:0 4px 4px 0;background:var(--surface);cursor:pointer;font-size:0.8em;color:var(--text)">▼</button>
-              <div id="userFileSuffixDrop"
-                   style="display:none;position:absolute;top:100%;left:0;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.18);min-width:100%;margin-top:2px">
-                <div data-suf="MAP1" style="padding:6px 12px;cursor:pointer;font-family:var(--mono)">MAP1</div>
-                <div data-suf="MAP2" style="padding:6px 12px;cursor:pointer;font-family:var(--mono)">MAP2</div>
-                <div data-suf="MAP3" style="padding:6px 12px;cursor:pointer;font-family:var(--mono)">MAP3</div>
-                <div data-suf="MAP4" style="padding:6px 12px;cursor:pointer;font-family:var(--mono)">MAP4</div>
-              </div>
+                     style="padding:6px 8px;border:1px solid var(--border);border-radius:4px;min-width:120px;font-family:var(--mono)" />
             </div>
           </div>
         </div>

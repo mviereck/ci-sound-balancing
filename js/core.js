@@ -200,6 +200,7 @@ const MFR = {
   medel: {
     name: "MED-EL",
     n: 12,
+    maxMaps: 4,
     apFirst: true,
     defaultRange: [70, 8500],   // BA433: echte From/To (MAESTRO-Default)
     // Mögliche Gesamt-Bandgrenzen (untere/obere Wand). Quelle:
@@ -221,6 +222,7 @@ const MFR = {
   ab: {
     name: "Advanced Bionics",
     n: 16,
+    maxMaps: 5,
     apFirst: true,
     defaultRange: [250, 8700],  // SoundWave 2.2 FAT, HiRes/HiRes120 Extended Low (Default): E1-Low 250 Hz, E16-High 8700 Hz
     // Mögliche Gesamt-Bandgrenzen. Quelle: SoundWave 2.2 Quick
@@ -238,6 +240,7 @@ const MFR = {
   cochlear: {
     name: "Cochlear",
     n: 22,
+    maxMaps: 4,
     apFirst: false,
     defaultRange: [188, 7938],  // Standard-FAT 188–7938 Hz
     // Mögliche Gesamt-Bandgrenzen (LFE/HFE, frei kreuzkombinierbar).

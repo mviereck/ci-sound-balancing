@@ -375,42 +375,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ========== Globale Dateinamen-Ergänzung ==========
   const userFileSuffixEl   = document.getElementById("userFileSuffix");
-  const userFileSuffixBtn  = document.getElementById("userFileSuffixBtn");
-  const userFileSuffixDrop = document.getElementById("userFileSuffixDrop");
 
   if (userFileSuffixEl) {
     userFileSuffixEl.addEventListener("input", function () {
       userFileSuffix = String(this.value || "");
       // BA 163: pro Browser-Tab
       try { sessionStorage.setItem("ci-lb-userFileSuffix", userFileSuffix); } catch (e) {}
-    });
-  }
-  if (userFileSuffixBtn && userFileSuffixDrop) {
-    userFileSuffixBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const open = userFileSuffixDrop.style.display !== "none";
-      userFileSuffixDrop.style.display = open ? "none" : "block";
-    });
-    userFileSuffixDrop.addEventListener("click", function (e) {
-      const opt = e.target.closest("[data-suf]");
-      if (!opt) return;
-      userFileSuffixEl.value = opt.dataset.suf;
-      userFileSuffix = opt.dataset.suf;
-      // BA 163: pro Browser-Tab
-      try { sessionStorage.setItem("ci-lb-userFileSuffix", userFileSuffix); } catch (e) {}
-      userFileSuffixDrop.style.display = "none";
-      userFileSuffixEl.focus();
-    });
-    userFileSuffixDrop.addEventListener("mouseover", function (e) {
-      const opt = e.target.closest("[data-suf]");
-      if (opt) opt.style.background = "rgba(0,0,0,0.08)";
-    });
-    userFileSuffixDrop.addEventListener("mouseout", function (e) {
-      const opt = e.target.closest("[data-suf]");
-      if (opt) opt.style.background = "";
-    });
-    document.addEventListener("click", function () {
-      userFileSuffixDrop.style.display = "none";
     });
   }
   try {

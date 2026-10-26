@@ -86,9 +86,20 @@ h1 {
   gap: 10px;
 }
 .side-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: 10px;
+}
+.side-map-display {
+  justify-self: end;
+  text-align: right;
+  font-size: 0.95em;
+  color: var(--text);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 .awg-select-label {
   flex: 0 0 auto;
@@ -1077,6 +1088,15 @@ select:disabled {
   }
   .side-switch {
     grid-column: unset;
+  }
+  .side-row {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  .side-map-display {
+    justify-self: center;
+    text-align: center;
   }
   .touch-btn-sm {
     min-width: 38px;

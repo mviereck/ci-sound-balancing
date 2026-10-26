@@ -223,6 +223,7 @@ function initSideData(side, m) {
   s.SNRtest_volume = 50;
   s.SNRtest_noise = "__werk__";   // Sprachtest-Rauschwahl, seitenweise
   s.SNRtest_material = null;   // Sprachtest-Testmaterial (test_set-Wert), seitenweise; null = Fallback erste verfuegbare
+  s.map = null;   // BA696: gemessenes CI-Programm (MAP) als Zahl 1..maxMaps; null = keine Angabe
   s.implant = {
     model: "",
     processor: "",

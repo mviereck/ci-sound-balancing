@@ -40,6 +40,22 @@ function _safeUserFileSuffix() {
   return s.replace(/[\s\/\\:*?"<>|\x00-\x1F]/g, "_");
 }
 
+// BA696: MAP-Block fuer den Dateinamen. Nur CI-Seiten mit gesetzter
+// MAP (Zahl) liefern ein Segment "<L|R>-MAP<n>"; feste Reihenfolge L,R.
+function _fnBuildMapBlock() {
+  if (typeof sideData === "undefined") return "";
+  var segs = [];
+  ["left", "right"].forEach(function (side) {
+    var sd = sideData[side];
+    if (!sd) return;
+    var isCi = (sd.config || "ci") === "ci";
+    if (isCi && typeof sd.map === "number") {
+      segs.push(sideLetter(side) + "-MAP" + sd.map);
+    }
+  });
+  return segs.join("_");
+}
+
 function _fnBuildNameBlock() {
   const ln = _fnSafeNamePart(typeof userLastName  === "string" ? userLastName  : "");
   const fn = _fnSafeNamePart(typeof userFirstName === "string" ? userFirstName : "");
@@ -65,6 +81,8 @@ function buildCImbelFilename(typeTag, extraTag, ext) {
   const parts = ["CImbel"];
   const nameBlock = _fnBuildNameBlock();
   if (nameBlock) parts.push(nameBlock);
+  const mapBlock = _fnBuildMapBlock();   // BA696
+  if (mapBlock) parts.push(mapBlock);
   const suf = _safeUserFileSuffix();
   if (suf) parts.push(suf);
   if (typeTag)  parts.push(typeTag);
@@ -121,6 +139,7 @@ function resetAll() {
     sideData[s].SNR_evalSide = null;  // BA687: seitige Sprachtest-Auswertung
     sideData[s].SNR_rawSide = null;   // BA686: seitiger Sprachtest-Rohwert
     sideData[s].kurvenELL = [];
+    sideData[s].map = null;   // BA696
     initSideData(s, "unknown");
   }
   // --- Notiz an Audiologen ---

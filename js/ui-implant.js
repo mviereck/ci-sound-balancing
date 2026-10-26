@@ -50,6 +50,8 @@ function buildImplantCard() {
   }
   document.getElementById("lblImplModel").textContent = t("lblImplModel");
   document.getElementById("lblImplProc").textContent = t("lblImplProc");
+  var lblMapEl = document.getElementById("lblImplMap");
+  if (lblMapEl) lblMapEl.textContent = t("lblImplMap");
   document.getElementById("lblImplC").textContent = t("lblImplC");
   document.getElementById("lblImplIDR").textContent = t("lblImplIDR");
   const genLbl = document.getElementById("lblImplGen");
@@ -172,6 +174,8 @@ function buildImplantCard() {
     if (prRow) prRow.style.display = "none";
     const mdRow = document.getElementById("implModelRow");
     if (mdRow) mdRow.style.display = "none";
+    var mapRowHide = document.getElementById("implMapRow");
+    if (mapRowHide) mapRowHide.style.display = "none";
     return;
   }
   // 2026-08-30: Audioprozessor-, Implantat-Modell- und Kodierungsstrategie-
@@ -186,10 +190,10 @@ function buildImplantCard() {
   // Show/hide manufacturer-specific params
   // 2026-08-30: implMedelParams (Kodierungsstrategie + ausgeblendeter c-Wert)
   // und implGenGroup (Cochlear-Generation) dauerhaft ausgeblendet — beide
-  // enthalten nur noch UI-verborgene Felder. AB-IDR (implAbParams) bleibt.
+  // enthalten nur noch UI-verborgene Felder.
   document.getElementById("implMedelParams").style.display = "none";
-  document.getElementById("implAbParams").style.display =
-    (IMPL_HERSTELLERWERTE && m === "ab") ? "" : "none";
+  // BA696: AB-IDR (implAbParams) ebenfalls dauerhaft ausgeblendet; s.implant.idr bleibt im Datenmodell.
+  document.getElementById("implAbParams").style.display = "none";
   const genGrp = document.getElementById("implGenGroup");
   if (genGrp) genGrp.style.display = "none";
 
@@ -233,6 +237,35 @@ function buildImplantCard() {
     prSel.appendChild(o);
   });
   prSel.value = prevProc || "";
+
+  // BA696: Gemessenes Programm (MAP) — datengetrieben aus MFR[m].maxMaps.
+  var mapRow = document.getElementById("implMapRow");
+  var mapSel = document.getElementById("implMapSelect");
+  if (mapRow && mapSel) {
+    var maxMaps = (MFR[m] && typeof MFR[m].maxMaps === "number") ? MFR[m].maxMaps : 0;
+    mapSel.innerHTML = "";
+    var optNone = document.createElement("option");
+    optNone.value = "";
+    optNone.textContent = t("implMapNone");
+    mapSel.appendChild(optNone);
+    for (var mp = 1; mp <= maxMaps; mp++) {
+      var o = document.createElement("option");
+      o.value = String(mp);
+      o.textContent = t("implMapItem").replace("{n}", String(mp));
+      mapSel.appendChild(o);
+    }
+    // aktuellen Wert spiegeln (Zahl -> String; null -> "")
+    mapSel.value = (typeof s.map === "number") ? String(s.map) : "";
+    // Zeile nur zeigen, wenn der Hersteller MAPs kennt
+    mapRow.style.display = (maxMaps > 0) ? "" : "none";
+    mapSel.onchange = function () {
+      var val = this.value;
+      sideData[activeSide].map = (val === "") ? null : parseInt(val, 10);
+      // Header-Textanzeige aktualisieren
+      if (typeof AWG_renderSelects === "function") AWG_renderSelects();
+      if (typeof _autoSaveState === "function") _autoSaveState();
+    };
+  }
 
   // Global params
   if (m === "medel") {

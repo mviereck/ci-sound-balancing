@@ -453,6 +453,17 @@ SAVE_SCHEMA.push(
     },
     default: "unknown", valid: { type: "string" } },
 
+  { key: "map", scope: "side",
+    get: function (s) { return sideData[s].map; },
+    set: function (v, s) {
+      // Nur ganze Zahlen 1..maxMaps des aktuellen Herstellers; sonst null.
+      var mfr = sideData[s].manufacturer;
+      var max = (MFR[mfr] && typeof MFR[mfr].maxMaps === "number") ? MFR[mfr].maxMaps : 0;
+      var n = (typeof v === "number") ? Math.round(v) : parseInt(v, 10);
+      sideData[s].map = (!isNaN(n) && n >= 1 && n <= max) ? n : null;
+    },
+    default: null, valid: { type: "number" } },
+
   { key: "FRQ_implantatBaenderDefault", scope: "side",
     get: function (s) { return sideData[s].FRQ_implantatBaenderDefault; },
     set: function (v, s) {
