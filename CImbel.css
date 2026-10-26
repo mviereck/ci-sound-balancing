@@ -101,6 +101,12 @@ h1 {
   align-items: center;
   gap: 4px;
 }
+.awg-select-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
 .awg-select-label {
   flex: 0 0 auto;
   white-space: nowrap;
