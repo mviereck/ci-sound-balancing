@@ -736,15 +736,21 @@ function ELL_computeEval_compWLS(ctx) {
   const _frqImpl = (MFR[mfr] && MFR[mfr].FRQ_implantat) ? MFR[mfr].FRQ_implantat : [];
   const _dMax = (_frqImpl.length > 1 && _frqImpl[_frqImpl.length - 1] > 0 && _frqImpl[0] > 0)
                 ? Math.log2(_frqImpl[_frqImpl.length - 1] / _frqImpl[0]) : 1;
+  // Paar-Gewicht: Status-Vertrauen (min der beiden ell_gWt) x Oktavabstand
+  // (_wDist). EINE Quelle, damit Pegel-WLS und Residuum-Gewichtung nie
+  // auseinanderlaufen.
+  function _pairW(r) {
+    const _dOkt = (_frqImpl[r.b] > 0 && _frqImpl[r.a] > 0)
+                  ? Math.log2(_frqImpl[r.b] / _frqImpl[r.a]) : 0;
+    const _wDist = (_dMax > 0)
+                   ? _wFern + (1 - _wFern) * (1 - _dOkt / _dMax) : 1;
+    return Math.min(ell_gWt(r.a, _elSt, _elExDur), ell_gWt(r.b, _elSt, _elExDur)) * _wDist;
+  }
   for (let it = 0; it < 80; it++) {
     const su = new Array(n).fill(0),
       wt = new Array(n).fill(0);
     for (const r of valid) {
-      const _dOkt = (_frqImpl[r.b] > 0 && _frqImpl[r.a] > 0)
-                    ? Math.log2(_frqImpl[r.b] / _frqImpl[r.a]) : 0;
-      const _wDist = (_dMax > 0)
-                     ? _wFern + (1 - _wFern) * (1 - _dOkt / _dMax) : 1;
-      const w = Math.min(ell_gWt(r.a, _elSt, _elExDur), ell_gWt(r.b, _elSt, _elExDur)) * _wDist;
+      const w = _pairW(r);
       su[r.b] += (lv[r.a] - r.offset) * w;
       wt[r.b] += w;
       su[r.a] += (lv[r.b] + r.offset) * w;
@@ -761,14 +767,23 @@ function ELL_computeEval_compWLS(ctx) {
   const res = valid.map((r) => ({
     ...r,
     residual: Math.abs(r.offset - (lv[r.a] - lv[r.b])),
+    w: _pairW(r),
   }));
-  const ea = new Array(n).fill(null).map(() => []);
+  // Pro-Elektrode-Residuum als GEWICHTETE RMS: sqrt( Sum(res^2 * w) / Sum(w) ).
+  // Dieselbe Gewichtung w wie die WLS-Pegelschaetzung (Status x Oktavabstand)
+  // und dieselbe Quadrat-Logik -- WLS-konsistentes Streuungsmass. Ein schlecht
+  // gewichtetes Paar zieht das Residuum einer gut bewerteten Elektrode nur
+  // anteilig hoch; da sich w im Quotienten kuerzt, wird das Residuum NICHT
+  // klein, wenn alle Paare unsicher sind (es bleibt in Residuen-Groessenordnung).
+  const _eaSumWR2 = new Array(n).fill(0);
+  const _eaSumW   = new Array(n).fill(0);
   for (const r of res) {
-    ea[r.a].push(r.residual);
-    ea[r.b].push(r.residual);
+    const _wr2 = r.residual * r.residual * r.w;
+    _eaSumWR2[r.a] += _wr2; _eaSumW[r.a] += r.w;
+    _eaSumWR2[r.b] += _wr2; _eaSumW[r.b] += r.w;
   }
-  const ELL_res = ea.map((a) =>
-    a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0,
+  const ELL_res = _eaSumW.map((sw, i) =>
+    sw > 0 ? Math.sqrt(_eaSumWR2[i] / sw) : 0,
   );
   return {
     levels: lv,
