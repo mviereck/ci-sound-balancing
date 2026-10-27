@@ -945,12 +945,24 @@ function ELL_apply(side, hz) {
   // Ohne Messung neutral (Gain 1).
   var td = ELL_testData({ side: side });
   if (!td || !td.gemessen || !td.gemessen.some(Boolean)) return 1;
-  var levels = td.correction;
-  if (!levels || !levels.length) return 1;
+  var allLevels = td.correction;
+  if (!allLevels || !allLevels.length) return 1;
   var nEff = (typeof ctx.nEl === "number" && ctx.nEl > 0) ? ctx.nEl : 0;
   if (!nEff) return 1;
-  var f = [];
-  for (var _fi = 0; _fi < nEff; _fi++) f.push(ctx.hzGetter(_fi));
+  // Stützpunkt-Grundsatz (00-persistierte-messauswertung §4): die
+  // Interpolation baut ihre Stützstellen NUR aus gemessen-und-ausgewerteten
+  // Elektroden. Eine nicht genutzte Elektrode trägt in correction nur den
+  // neutralen 0-Füllwert; als Stützstelle würde sie die interpolierte
+  // Korrektur ihrer Nachbar-Frequenzen fälschlich zum Nullpunkt ziehen.
+  // Darum vorab filtern -- die ungemessene Elektrode wird so übersprungen,
+  // interpoliert wird zwischen den nächsten genutzten Nachbarn.
+  var _ausg = td.ausgewertet;
+  var f = [], levels = [];
+  for (var _fi = 0; _fi < nEff; _fi++) {
+    if (_ausg && !_ausg[_fi]) continue;
+    f.push(ctx.hzGetter(_fi));
+    levels.push(allLevels[_fi]);
+  }
   if (!f.length) return 1;
   var n = f.length;
   if (n === 1) return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
@@ -1036,7 +1048,16 @@ function getConvPairs(fast) {
 // ============================================================
 function ell_getLsEstimate(a, b) {
   if (ELL_raw.messpunkte.length === 0) return { estimate: 0, halfWidth: 0, hasData: false };
-  const { raw: levels, residual: ELL_res } = ELL_testData();
+  const _td = ELL_testData();
+  const { raw: levels, residual: ELL_res } = _td;
+  // Stützpunkt-Grundsatz (00-persistierte-messauswertung §4): eine nicht
+  // genutzte Elektrode (nicht gemessen ODER aus der Auswertung abgewählt)
+  // hat in levels/residual nur den neutralen 0-Füllwert, kein echtes
+  // Ergebnis. Die Schätzung würde daraus einen zum Nullpunkt gezogenen
+  // Scheinwert mit zu schmaler Streuung bauen -- deshalb KEINE Schätzung,
+  // sobald eine der beiden Elektroden nicht gemessen+ausgewertet ist.
+  const _ausg = _td.ausgewertet;
+  if (!_ausg || !_ausg[a] || !_ausg[b]) return { estimate: 0, halfWidth: 0, hasData: false };
   const wA = ell_gWt(a), wB = ell_gWt(b);
   if (wA <= 0 || wB <= 0) return { estimate: 0, halfWidth: 0, hasData: false };
   const nA = ELL_raw.messpunkte.filter(p => p.bezug.a === a || p.bezug.b === a).length;
