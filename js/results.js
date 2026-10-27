@@ -258,6 +258,10 @@ function ELL_renderResults() {
         hz: FRQ_implantatEffektiv(_i),
         wert: levels[_i] || 0,
         zustand: _zustand,
+        // Status-Gewicht der Elektrode (ell_gWt via ELL_wt): voll=1, verrauscht/
+        // fast stumm <1. Der Graph malt den Pegel-Balken proportional blasser,
+        // damit geringer gewichtete Elektroden erkennbar sind.
+        gewicht: (ELL_wt && ELL_wt[_i] != null) ? ELL_wt[_i] : 1,
         residuum: ELL_res[_i],
         stufe: _st === "green" ? "gruen" : _st === "yellow" ? "gelb" : _st === "red" ? "rot" : null,
         istRef: _i === ELL_refEl,
@@ -534,6 +538,11 @@ function FRQ_elementSymbol(key, hexArr) {
       return svg("<rect x=\"1\" y=\"3\" width=\"12\" height=\"8\" fill=\"" + c + "\" stroke=\"" + rand + "\" stroke-width=\"1\"/>");
     case "balken":   // senkrechter gefuellter Balken (ELL/Stereo)
       return svg("<rect x=\"4\" y=\"2\" width=\"6\" height=\"11\" fill=\"" + c + "\"/>");
+    case "schraffur":   // geringer gewichtet: Balken mit Diagonal-Schraffur
+      return svg("<rect x=\"2\" y=\"2\" width=\"10\" height=\"11\" fill=\"#9ca3af\"/>"
+        + "<line x1=\"2\" y1=\"13\" x2=\"12\" y2=\"3\" stroke=\"#fff\" stroke-width=\"1.5\"/>"
+        + "<line x1=\"2\" y1=\"9\"  x2=\"8\"  y2=\"3\" stroke=\"#fff\" stroke-width=\"1.5\"/>"
+        + "<line x1=\"6\" y1=\"13\" x2=\"12\" y2=\"7\" stroke=\"#fff\" stroke-width=\"1.5\"/>");
     case "xRechteck":   // deaktiviert: graues Rechteck mit X
       return svg("<rect x=\"1\" y=\"1\" width=\"12\" height=\"12\" fill=\"#e5e7eb\" stroke=\"#9ca3af\"/>"
         + "<line x1=\"2\" y1=\"2\" x2=\"12\" y2=\"12\" stroke=\"#6b7280\" stroke-width=\"1.25\"/>"

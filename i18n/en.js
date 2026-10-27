@@ -909,6 +909,7 @@ Object.assign(L.en, {
     FRQ_leg_band_flaeche_hellrot:  "Band overlap",
     // Bar-graph legend ELL + Stereo (BA496)
     FRQ_legElement_balken:        "Bar",
+    FRQ_legElement_schraffur:     "Hatched bar",
     FRQ_legElement_xRechteck:     "Box with cross",
     FRQ_legElement_frageRechteck: "Box with question mark",
     FRQ_legElement_grauRechteck:  "Grey field",
@@ -921,6 +922,7 @@ Object.assign(L.en, {
     FRQ_legStufe_ellampel_gelb:  "Measurement uncertainty < 3 dB, good measurement",
     FRQ_legStufe_ellampel_rot:   "Measurement very uncertain",
     FRQ_leg_ellbar_querbalken:    "Measurement uncertainty",
+    FRQ_leg_ellbar_schraffur:     "Electrode enters the calculation with reduced weight due to its status (noisy/almost silent); denser hatching = lower weight",
     FRQ_leg_ellbar_xRechteck:     "Electrode disabled or muted",
     FRQ_leg_ellbar_frageRechteck: "Electrode active but not yet measured",
     FRQ_leg_stbbar_balken:        "Perceived loudness difference (deflection toward the louder side)",

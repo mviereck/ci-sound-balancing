@@ -1148,6 +1148,7 @@ Object.assign(L.de, {
     FRQ_leg_band_flaeche_hellrot:  "Bandüberlappung",
     // Balken-Legende ELL + Stereo (BA496)
     FRQ_legElement_balken:        "Balken",
+    FRQ_legElement_schraffur:     "Schraffierter Balken",
     FRQ_legElement_xRechteck:     "Feld mit Kreuz",
     FRQ_legElement_frageRechteck: "Feld mit Fragezeichen",
     FRQ_legElement_grauRechteck:  "Graues Feld",
@@ -1160,6 +1161,7 @@ Object.assign(L.de, {
     FRQ_legStufe_ellampel_gelb:  "Meßunsicherheit < 3 dB, gute Messung",
     FRQ_legStufe_ellampel_rot:   "Messung sehr unsicher",
     FRQ_leg_ellbar_querbalken:    "Meßunsicherheit",
+    FRQ_leg_ellbar_schraffur:     "Elektrode geht wegen ihres Status (verrauscht/fast stumm) mit geringerem Gewicht in die Berechnung ein; dichtere Schraffur = geringeres Gewicht",
     FRQ_leg_ellbar_xRechteck:     "Elektrode deaktiviert oder stummgeschaltet",
     FRQ_leg_ellbar_frageRechteck: "Elektrode aktiv, aber noch nicht gemessen",
     FRQ_leg_stbbar_balken:        "Wahrgenommene Lautstärke-Differenz (Ausschlag zur lauteren Seite)",

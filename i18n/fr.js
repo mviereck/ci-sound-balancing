@@ -910,6 +910,7 @@ Object.assign(L.fr, {
     FRQ_leg_band_flaeche_hellrot:  "Chevauchement de bandes",
     // Légende graphe en barres ELL + Stéréo (BA496)
     FRQ_legElement_balken:        "Barre",
+    FRQ_legElement_schraffur:     "Barre hachurée",
     FRQ_legElement_xRechteck:     "Case barrée",
     FRQ_legElement_frageRechteck: "Case avec point d'interrogation",
     FRQ_legElement_grauRechteck:  "Champ gris",
@@ -922,6 +923,7 @@ Object.assign(L.fr, {
     FRQ_legStufe_ellampel_gelb:  "Incertitude de mesure < 3 dB, bonne mesure",
     FRQ_legStufe_ellampel_rot:   "Mesure très incertaine",
     FRQ_leg_ellbar_querbalken:    "Incertitude de mesure",
+    FRQ_leg_ellbar_schraffur:     "L'électrode entre dans le calcul avec un poids réduit en raison de son état (bruitée/presque muette) ; hachures plus denses = poids plus faible",
     FRQ_leg_ellbar_xRechteck:     "Électrode désactivée ou mise en sourdine",
     FRQ_leg_ellbar_frageRechteck: "Électrode active mais pas encore mesurée",
     FRQ_leg_stbbar_balken:        "Différence de sonorité perçue (déflexion vers le côté le plus fort)",

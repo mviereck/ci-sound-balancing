@@ -910,6 +910,7 @@ Object.assign(L.es, {
     FRQ_leg_band_flaeche_hellrot:  "Solapamiento de bandas",
     // Leyenda gráfico de barras ELL + Estéreo (BA496)
     FRQ_legElement_balken:        "Barra",
+    FRQ_legElement_schraffur:     "Barra rayada",
     FRQ_legElement_xRechteck:     "Casilla con cruz",
     FRQ_legElement_frageRechteck: "Casilla con interrogación",
     FRQ_legElement_grauRechteck:  "Campo gris",
@@ -922,6 +923,7 @@ Object.assign(L.es, {
     FRQ_legStufe_ellampel_gelb:  "Incertidumbre de medición < 3 dB, medición buena",
     FRQ_legStufe_ellampel_rot:   "Medición muy incierta",
     FRQ_leg_ellbar_querbalken:    "Incertidumbre de medición",
+    FRQ_leg_ellbar_schraffur:     "El electrodo entra en el cálculo con menor peso debido a su estado (ruidoso/casi mudo); rayado más denso = menor peso",
     FRQ_leg_ellbar_xRechteck:     "Electrodo desactivado o silenciado",
     FRQ_leg_ellbar_frageRechteck: "Electrodo activo pero aún no medido",
     FRQ_leg_stbbar_balken:        "Diferencia de sonoridad percibida (desviación hacia el lado más fuerte)",

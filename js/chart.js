@@ -30,6 +30,44 @@ function drawUnmeasuredBar(ctx, x, yTop, yBot, bW) {
   ctx.textBaseline = 'alphabetic';   // Default wiederherstellen
 }
 
+// Schraffur-Overlay fuer geringer gewichtete Elektroden (Status-Gewicht
+// gewicht < 1: verrauscht/fast stumm). Diagonale weisse, halbtransparente
+// Linien ueber dem (vollfarbigen) Pegel-Balken; der Linienabstand sinkt
+// STUFENLOS mit dem Gewicht -> je geringer das Gewicht, desto dichter die
+// Schraffur. Balkenfarbe/-hoehe bleiben unberuehrt (anders als Blaesse, die
+// die Ampelfarbe verfaelscht). Geklippt auf das Balken-Rechteck [x..x+bW,
+// yA..yB]. gewicht in (0,1); bei gewicht>=1 wird nicht aufgerufen.
+function drawWeightHatch(ctx, x, yA, yB, bW, gewicht) {
+  var yTop = Math.min(yA, yB), yBot = Math.max(yA, yB);
+  var h = yBot - yTop;
+  if (h < 1 || bW < 1) return;
+  // Linienabstand: voll gewichtet (~1) weit, fast stumm (~0.05) eng.
+  // gap von ~9 px (gewicht nahe 1) bis ~3 px (gewicht 0). Linear in gewicht.
+  var gap = 3 + 6 * Math.max(0, Math.min(1, gewicht));
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(x, yTop, bW, h);
+  ctx.clip();
+  // Diagonale (45 Grad), links-unten -> rechts-oben; Clip schneidet den Rest.
+  // Jede Linie zweifach: dunkler Unterstrich (Kontrast auf hellen Ampelfarben
+  // gelb/gruen) + kraeftige weisse Linie darueber. Deutlich genug, dass das
+  // Muster auch ohne Browser-Zoom traegt.
+  var span = bW + h;
+  function _hatch(col, lw) {
+    ctx.strokeStyle = col;
+    ctx.lineWidth = lw;
+    for (var off = 0; off <= span; off += gap) {
+      ctx.beginPath();
+      ctx.moveTo(x + off, yBot);
+      ctx.lineTo(x + off - h, yBot - h);
+      ctx.stroke();
+    }
+  }
+  _hatch("rgba(0,0,0,0.35)", 3.5);   // Schatten/Kontrast
+  _hatch("rgba(255,255,255,0.95)", 2);  // weisse Deckschraffur
+  ctx.restore();
+}
+
 function _drawRefElLabel(ctx, x, y, size) {
   ctx.save();
   ctx.fillStyle = CHART_LABEL_FARBE;
@@ -264,6 +302,13 @@ function drawBarGraph(cv, rows, cfg) {
       var v = r.wert || 0, yZ = tY(0), yV = tY(v);
       ctx2d.fillStyle = balkenFarbe(r);
       ctx2d.fillRect(x, Math.min(yZ, yV), bW, Math.abs(yV - yZ) || 2);
+      // Status-Gewicht (r.gewicht, opt-in): geringer gewichtete Elektroden
+      // (verrauscht/fast stumm) bekommen ein Schraffur-Overlay auf dem Balken,
+      // dichter je geringer das Gewicht. Vor Kapp-Dreieck/T-Balken, damit die
+      // oben drauf sichtbar bleiben.
+      if (r.gewicht != null && r.gewicht < 1) {
+        drawWeightHatch(ctx2d, x, yZ, yV, bW, r.gewicht);
+      }
       // Kapp-Markierung: deutliches Dreieck knapp INNERHALB der Plotkante
       // (mit weisser Kontur, damit es auf dem farbigen Balken sichtbar bleibt)
       // + echter dB-Wert. dir: 1 = nach oben gekappt, -1 = nach unten.
@@ -972,6 +1017,7 @@ function ellLegendData(rows) {
   var el = [];
   el.push(mk("balken",        "gruengelbrot", "y"));   // Ampel-Balken
   el.push(mk("querbalken",    "schwarz",      "y"));   // Streuung/Residuum
+  el.push(mk("schraffur",     "grau",         null));  // geringer gewichtet
   el.push(mk("xRechteck",     "grau",         null));  // deaktiviert
   el.push(mk("frageRechteck", "grau",         null));  // ungemessen
   // Eigene Ampel-Stufen (bewertung "ellampel") -- NICHT die mit den
