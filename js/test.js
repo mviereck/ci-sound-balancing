@@ -1265,17 +1265,10 @@ function ell_showCurPair() {
   }
 
   // BA 247: ELL_curBase ist immer 0. Slider sitzt auf dem gespeicherten
-  // Wert (falls vorhanden).
-  // Direkt-Edit 280.2: Paar ohne eigenen Messwert startet am zufaellig
-  // gewaehlten Rand des Unsicherheitsbandes der Voreinschaetzung
-  // (estimate +/- halfWidth), nicht in dessen Mitte. Grund: ein Start
-  // exakt auf dem Schaetzwert macht blosses Bestaetigen zu einem
-  // Null-Residuum, wodurch die errechnete Unsicherheit kuenstlich gegen
-  // 0 schrumpft (Scheinkonvergenz). Das zufaellige Vorzeichen haelt den
-  // Mittelwert bias-frei, das volle halfWidth erhaelt die Streuung.
-  // Ohne Datenbasis (kein hasData) weiterhin 0 dB. Gilt fuer beide
-  // Verfahren (full / conv); im Konvergenz-Normalfall greift fast immer
-  // der gespeicherte Wert.
+  // Wert (falls vorhanden), sonst bei 0 dB. Ein Paar ohne eigenen
+  // Messwert bekommt KEINE automatische Voreinschaetzung aus Nachbar-
+  // Paaren mehr -- es startet immer bei 0 (frueher: Start am Rand des
+  // Unsicherheitsbandes von ell_getLsEstimate, entfernt).
   ELL_curBase = 0;
   var _exMp = ELL_raw.messpunkte.find(function(p) {
     return p && p.bezug && ((p.bezug.a === ELL_curA && p.bezug.b === ELL_curB) || (p.bezug.a === ELL_curB && p.bezug.b === ELL_curA));
@@ -1285,12 +1278,6 @@ function ell_showCurPair() {
   var startVal = 0;
   if (ex) {
     startVal = (_exBezug && _exBezug.a === ELL_curA) ? ex.offset : -ex.offset;
-  } else {
-    var estStart = ell_getLsEstimate(ELL_curA, ELL_curB);
-    if (estStart.hasData) {
-      var edgeSign = (Math.random() < 0.5) ? -1 : 1;
-      startVal = estStart.estimate + edgeSign * estStart.halfWidth;
-    }
   }
   if (vref && vref.slider) {
     testUI.slider.setValue(vref.slider, startVal);
