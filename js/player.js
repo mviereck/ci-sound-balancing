@@ -2127,7 +2127,21 @@ const plCategories = {
     // sonst die sortierte Gesamt-Sequenz; Zeiger = sCurRec)
     list: function () {
       var pool = sBuildRecordingPool();
-      return (typeof amCombinedNavList === "function") ? amCombinedNavList("saetze", pool) : pool;
+      if (typeof amCombinedNavList !== "function") return pool;
+      // Index-Quellen demselben Filter unterwerfen wie den materialen Pool:
+      // probeItem gegen dieselben parallelen Achsen + Auswahl matchen wie
+      // sBuildRecordingPool (js/sentences.js).
+      var sources = [];
+      if (typeof amIndexSourcesMatching === "function") {
+        var axes = (typeof amSortAxesFor === "function") ? amSortAxesFor("saetze") : [];
+        var parAxes = axes.filter(function (a) { return a.key !== "lang"; });
+        var sel = (typeof plSentAxisSel !== "undefined") ? plSentAxisSel : {};
+        sources = amIndexSourcesMatching("saetze", function (probe) {
+          return (typeof amItemMatchesAxes === "function")
+            ? amItemMatchesAxes(parAxes, sel, probe) : true;
+        });
+      }
+      return amCombinedNavList("saetze", pool, sources);
     },
     current: function () { return (typeof sCurRec !== "undefined") ? sCurRec : null; },
     select: function (item) { if (item) sCurRec = item; },
@@ -2355,13 +2369,13 @@ function plNavCurrent() {
 }
 
 function plNavIndex() {
-  const list = plNavList();
-  const cur  = plNavCurrent();
+  const cur = plNavCurrent();
   if (!cur) return -1;
-  for (let i = 0; i < list.length; i++) {
-    if (_plNavSameItem(list[i], cur)) return i;
-  }
-  return -1;
+  // Jedes Listen-Item traegt seine Position (_navPos), gesetzt beim
+  // Listenbau (amCombinedNavList). Der Zeiger ist stets ein Item der
+  // aktuellen Liste -> direktes Ablesen, keine Suche.
+  // Siehe 00-index-quelle-architektur.md (_navPos).
+  return (typeof cur._navPos === "number") ? cur._navPos : -1;
 }
 
 function _plNavPickRandom(list, exclude) {
@@ -2478,12 +2492,11 @@ function plNavPrev() {
   if (list.length === 0) return;
   let target = null;
   if (typeof plShuffle !== "undefined" && plShuffle) {
-    if (_plNavPrevItem) {
-      for (let i = 0; i < list.length; i++) {
-        if (_plNavSameItem(list[i], _plNavPrevItem)) { target = list[i]; break; }
-      }
-      _plNavPrevItem = null;   // 1x-Memory verbraucht
+    if (_plNavPrevItem && typeof _plNavPrevItem._navPos === "number"
+        && _plNavPrevItem._navPos < list.length) {
+      target = list[_plNavPrevItem._navPos];   // direkte Position, keine Suche
     }
+    _plNavPrevItem = null;   // 1x-Memory verbraucht (auch wenn ungueltig)
   } else {
     const i = plNavIndex();
     if (i > 0) target = list[i - 1];

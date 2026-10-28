@@ -44,6 +44,20 @@ function amIndexSourcesForCategory(category) {
   return AM_INDEX_SOURCES.filter(function (s) { return s.category === category; });
 }
 
+// Index-Quellen einer Kategorie, die den aktuellen Filter bestehen.
+// matchFn(probeItem) -> bool liefert die Kategorie (kennt Achsen+Auswahl).
+// Eine Quelle ohne probeItem gilt als bestehend (kein Kriterium); liefert
+// probeItem null (Quelle hat gerade kein Material), gilt sie als nicht
+// bestehend. Siehe 00-index-quelle-architektur.md §4.
+function amIndexSourcesMatching(category, matchFn) {
+  return amIndexSourcesForCategory(category).filter(function (s) {
+    if (typeof s.probeItem !== "function") return true;
+    var probe = s.probeItem();
+    if (!probe) return false;
+    return (typeof matchFn === "function") ? matchFn(probe) : true;
+  });
+}
+
 // Kombiniert den materialen Pool einer Kategorie mit ihren Index-Quellen
 // zu einer Array-artigen Navigations-Liste. Der Pool belegt [0 .. P-1],
 // jede Index-Quelle schliesst mit ihrem Adressraum an. Die Navigation
@@ -52,10 +66,22 @@ function amIndexSourcesForCategory(category) {
 //
 // Ohne registrierte Index-Quelle wird das Pool-Array UNVERAENDERT
 // zurueckgegeben (kein Proxy) -- Verhalten identisch zu vorher.
-function amCombinedNavList(category, poolArray) {
+
+// Stempelt jedem Pool-Item seine Position (in-place). Fuer den Fall ohne
+// Index-Quelle. Siehe 00-index-quelle-architektur.md (_navPos).
+function _amStampNavPos(pool) {
+  for (var i = 0; i < pool.length; i++) {
+    if (pool[i]) pool[i]._navPos = i;
+  }
+  return pool;
+}
+
+// sources: bereits (durch den aktuellen Filter) zulaessige Index-Quellen,
+// von der Kategorie uebergeben. Fehlt/leer -> reiner Pool.
+function amCombinedNavList(category, poolArray, sources) {
   var pool = Array.isArray(poolArray) ? poolArray : [];
-  var sources = amIndexSourcesForCategory(category);
-  if (sources.length === 0) return pool;
+  sources = Array.isArray(sources) ? sources : [];
+  if (sources.length === 0) return _amStampNavPos(pool);
 
   var poolLen = pool.length;
   var segs = [];            // { start, count, src }
@@ -69,14 +95,18 @@ function amCombinedNavList(category, poolArray) {
 
   function at(idx) {
     if (idx < 0 || idx >= total) return undefined;
-    if (idx < poolLen) return pool[idx];
-    for (var s = 0; s < segs.length; s++) {
-      var seg = segs[s];
-      if (idx < seg.start + seg.count) {
-        return seg.src.itemAt(idx - seg.start);
+    var it;
+    if (idx < poolLen) {
+      it = pool[idx];
+    } else {
+      it = undefined;
+      for (var s = 0; s < segs.length; s++) {
+        var seg = segs[s];
+        if (idx < seg.start + seg.count) { it = seg.src.itemAt(idx - seg.start); break; }
       }
     }
-    return undefined;
+    if (it) it._navPos = idx;
+    return it;
   }
 
   // Der Proxy faengt NUR .length und numerische Index-Zugriffe ab -- genau
@@ -2048,6 +2078,19 @@ async function _amCvLiveResolve(item) {
   }
 }
 
+// Gemeinsame Quell-/Tag-Felder eines CV-Live-Items (fuer itemAt UND probeItem).
+function _amCvLiveCommon(c) {
+  return {
+    sourceTitle: c._sourceName || c._sourceKey || "Common Voice",
+    _providerId: "common-voice-live",
+    tags: {
+      lang: c.lang || "",
+      source: (c.tags && c.tags.source) || c._sourceName || "Common Voice",
+      synthetic: "n"
+    }
+  };
+}
+
 amRegisterIndexSource({
   id: "common-voice-live",
   category: "saetze",
@@ -2062,20 +2105,17 @@ amRegisterIndexSource({
   itemAt: function (k) {
     var c = _amCvLiveCollection();
     if (!c) return null;
-    var lang = c.lang || "";
+    var common = _amCvLiveCommon(c);
     return {
-      id: "cv-live:" + lang + ":" + k,
+      id: "cv-live:" + (c.lang || "") + ":" + k,
       title: (c.title || "Common Voice Live"),
       text: "",
       audio: "",            // leer -> _amBufKey faellt auf id zurueck (stabile Identitaet)
-      sourceTitle: c._sourceName || c._sourceKey || "Common Voice",
+      sourceTitle: common.sourceTitle,
+      _providerId: common._providerId,
       license: c.license,
       credit: c.credit,
-      tags: {
-        lang: lang,
-        source: (c.tags && c.tags.source) || c._sourceName || "Common Voice",
-        synthetic: "n"
-      },
+      tags: common.tags,
       // Aufloese-Auftrag (von der Quelle mitgegeben; die Engine ruft nur
       // item._resolve, kennt die HF-API nicht):
       _rowsFetch: {
@@ -2086,5 +2126,14 @@ amRegisterIndexSource({
       },
       _resolve: _amCvLiveResolve
     };
+  },
+  // Repraesentatives Item OHNE Index-Bezug: traegt die fuer alle Eintraege
+  // gleichen Filter-Eigenschaften, damit die Kategorie-Pool-Bildung mit dem
+  // gewoehnlichen Achsen-Match prueft, ob die Quelle beim aktuellen Filter
+  // beitraegt (00-index-quelle-architektur.md, Filter-Zugehoerigkeit).
+  probeItem: function () {
+    var c = _amCvLiveCollection();
+    if (!c) return null;
+    return _amCvLiveCommon(c);
   }
 });
