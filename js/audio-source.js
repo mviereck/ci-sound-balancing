@@ -1157,6 +1157,16 @@ async function amGetItemBuffer(ctx, item) {
     if (!enriched) return null;   // abgebrochen oder Detail nicht ladbar
   }
 
+  // Generischer On-demand-Aufloeser: fehlt audio und traegt das Item eine
+  // Aufloese-Funktion (von einer Index-Quelle gesetzt), beschafft sie
+  // audio+text und schreibt sie INS ITEM zurueck -- bevor _amBufKey/Cache
+  // laufen (Cache-Schluessel ist item.audio). Die Engine kennt die konkrete
+  // Quelle/API nicht. Siehe 00-index-quelle-architektur.md.
+  if (!item.audio && typeof item._resolve === "function") {
+    const ok = await item._resolve(item);
+    if (!ok) return null;   // abgebrochen oder nicht aufloesbar
+  }
+
   const bufKey = _amBufKey(item);
   const cached = _amItemBufCache.get(bufKey);
   if (cached) return cached;
@@ -1986,3 +1996,95 @@ function amWebspaceBootstrap() {
     if (typeof sRefreshSpeakerDropdown === "function") sRefreshSpeakerDropdown();
   });
 }
+
+// --- Common Voice Live (Index-Quelle) ---
+
+// Aktuelle Index-Collection (Common Voice Live) der aktiven Saetze-Sprache
+// oder null. Eine Collection ist eine Index-Quelle, wenn sie index_count
+// traegt (vom Builder, siehe common-voice-live.py). Liest IMMER nur die
+// aktuelle Sprache (wie _amWebspaceCurrentCols fuer jede Webspace-Quelle).
+function _amCvLiveCollection() {
+  if (typeof _amWebspaceCurrentCols !== "function") return null;
+  var cols = _amWebspaceCurrentCols("saetze");
+  for (var i = 0; i < cols.length; i++) {
+    var c = cols[i];
+    if (c && typeof c.index_count === "number" && c.index_count > 0) return c;
+  }
+  return null;
+}
+
+// Loest EIN Common-Voice-Live-Item per HF datasets-server /rows-API auf:
+// holt die Audio-URL (audio[0].src) und den Satztext (sentence) der Zeile
+// und schreibt sie INS ITEM zurueck. Gibt true bei Erfolg, false bei
+// Abbruch/Fehler. Nutzt _amLoadAbort wie _amEnrichFromDetail.
+async function _amCvLiveResolve(item) {
+  var fx = item._rowsFetch;   // {dataset, config, split, offset}, von itemAt gesetzt
+  if (!fx) return false;
+  var url = "https://datasets-server.huggingface.co/rows"
+    + "?dataset=" + encodeURIComponent(fx.dataset)
+    + "&config="  + encodeURIComponent(fx.config)
+    + "&split="   + encodeURIComponent(fx.split)
+    + "&offset="  + fx.offset
+    + "&length=1";
+  _amLoadAbort = new AbortController();
+  try {
+    var r = await fetch(url, { signal: _amLoadAbort.signal });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    var data = await r.json();
+    var rows = data && data.rows;
+    var row = (Array.isArray(rows) && rows.length) ? rows[0].row : null;
+    if (!row) throw new Error("keine Zeile");
+    var src = (Array.isArray(row.audio) && row.audio.length) ? row.audio[0].src : null;
+    if (!src) throw new Error("keine audio-URL");
+    item.audio = src;
+    item.text = row.sentence || "";
+    return true;
+  } catch (e) {
+    if (e && e.name === "AbortError") return false;   // Wechsel waehrend Abruf
+    console.warn("[audio-source] Common-Voice-Live-Abruf fehlgeschlagen (" + url + "):", e.message);
+    return false;
+  } finally {
+    _amLoadAbort = null;
+  }
+}
+
+amRegisterIndexSource({
+  id: "common-voice-live",
+  category: "saetze",
+  // Adressraum der AKTUELLEN Saetze-Sprache (0, wenn keine Live-Collection
+  // geladen ist -> amCombinedNavList traegt dann nichts bei).
+  count: function () {
+    var c = _amCvLiveCollection();
+    return c ? c.index_count : 0;
+  },
+  // Leichtes Item zur Zeile k (synchron, KEIN Netz). Die Audio-Quelle wird
+  // erst beim Abspielen ueber item._resolve beschafft (amGetItemBuffer).
+  itemAt: function (k) {
+    var c = _amCvLiveCollection();
+    if (!c) return null;
+    var lang = c.lang || "";
+    return {
+      id: "cv-live:" + lang + ":" + k,
+      title: (c.title || "Common Voice Live"),
+      text: "",
+      audio: "",            // leer -> _amBufKey faellt auf id zurueck (stabile Identitaet)
+      sourceTitle: c._sourceName || c._sourceKey || "Common Voice",
+      license: c.license,
+      credit: c.credit,
+      tags: {
+        lang: lang,
+        source: (c.tags && c.tags.source) || c._sourceName || "Common Voice",
+        synthetic: "n"
+      },
+      // Aufloese-Auftrag (von der Quelle mitgegeben; die Engine ruft nur
+      // item._resolve, kennt die HF-API nicht):
+      _rowsFetch: {
+        dataset: c.index_dataset,
+        config:  c.index_config,
+        split:   c.index_split,
+        offset:  k
+      },
+      _resolve: _amCvLiveResolve
+    };
+  }
+});
