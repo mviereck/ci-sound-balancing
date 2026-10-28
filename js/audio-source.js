@@ -21,6 +21,81 @@ function amRegisterProvider(p) {
   AM_PROVIDERS.push(p);
 }
 
+// Index-Quellen: grosse Online-Bestaende ohne Item-Manifest, adressiert
+// ueber eine fortlaufende Indexnummer statt einer vorab geladenen Liste.
+// Siehe .docs/spec/00-index-quelle-architektur.md.
+// Eine Index-Quelle liefert KEINE Items vorab, sondern:
+//   { id, category, count() -> N, itemAt(k) -> leichtes Item (0<=k<N) }
+//   count()  synchron: Anzahl adressierbarer Eintraege (z.B. vorab
+//            bekannte Bestandsgroesse).
+//   itemAt(k) synchron und billig: leichtes Item mit stabiler, global
+//            eindeutiger id und Tags, OHNE audio -- die Audio-Quelle wird
+//            erst beim Abspielen (amGetItemBuffer) beschafft. KEIN
+//            Netzzugriff in itemAt.
+const AM_INDEX_SOURCES = [];
+
+function amRegisterIndexSource(src) {
+  // src = { id, category, count, itemAt }
+  AM_INDEX_SOURCES.push(src);
+}
+
+// Alle Index-Quellen einer Kategorie (leer, solange keine registriert ist).
+function amIndexSourcesForCategory(category) {
+  return AM_INDEX_SOURCES.filter(function (s) { return s.category === category; });
+}
+
+// Kombiniert den materialen Pool einer Kategorie mit ihren Index-Quellen
+// zu einer Array-artigen Navigations-Liste. Der Pool belegt [0 .. P-1],
+// jede Index-Quelle schliesst mit ihrem Adressraum an. Die Navigation
+// (plNav*) liest die Liste NUR index-artig (.length / [i]); itemAt(k)
+// liefert das leichte Item on-demand, nichts wird materialisiert.
+//
+// Ohne registrierte Index-Quelle wird das Pool-Array UNVERAENDERT
+// zurueckgegeben (kein Proxy) -- Verhalten identisch zu vorher.
+function amCombinedNavList(category, poolArray) {
+  var pool = Array.isArray(poolArray) ? poolArray : [];
+  var sources = amIndexSourcesForCategory(category);
+  if (sources.length === 0) return pool;
+
+  var poolLen = pool.length;
+  var segs = [];            // { start, count, src }
+  var total = poolLen;
+  for (var i = 0; i < sources.length; i++) {
+    var c = sources[i].count() | 0;
+    if (c < 0) c = 0;
+    segs.push({ start: total, count: c, src: sources[i] });
+    total += c;
+  }
+
+  function at(idx) {
+    if (idx < 0 || idx >= total) return undefined;
+    if (idx < poolLen) return pool[idx];
+    for (var s = 0; s < segs.length; s++) {
+      var seg = segs[s];
+      if (idx < seg.start + seg.count) {
+        return seg.src.itemAt(idx - seg.start);
+      }
+    }
+    return undefined;
+  }
+
+  // Der Proxy faengt NUR .length und numerische Index-Zugriffe ab -- genau
+  // das, was die Navigation nutzt. Volle Iteration (map/filter/find/forEach/
+  // Spread) ueber diese Liste wuerde den ganzen Index-Anteil materialisieren
+  // und ist NICHT zulaessig (Notausgang-Prinzip, 00-index-quelle-
+  // architektur.md); sie wird hier bewusst nicht gesondert bedient.
+  return new Proxy(pool, {
+    get: function (target, prop, receiver) {
+      if (prop === "length") return total;
+      if (typeof prop === "string") {
+        var n = Number(prop);
+        if (Number.isInteger(n) && n >= 0) return at(n);
+      }
+      return Reflect.get(target, prop, receiver);
+    }
+  });
+}
+
 // BA348: Stempel-Cache fuer die Listen-Aggregation (ersetzt den Tick-Cache
 // aus BA347). amCollectItems/amCollectCollections und die Saetze-Pools
 // werden pro Bedien-Klick 7-37x aufgerufen; der teure Aufbau (Objektbau,

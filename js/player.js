@@ -2068,7 +2068,10 @@ function plStopAll() {
 const plCategories = {
   musik: {
     // --- Vertrag ---
-    list: function () { return plMusicVisibleItems(); },
+    list: function () {
+      var pool = plMusicVisibleItems();
+      return (typeof amCombinedNavList === "function") ? amCombinedNavList("musik", pool) : pool;
+    },
     current: function () { return plMusicCurrentItem(); },
     select: function (item) {
       if (!item) return;
@@ -2123,7 +2126,8 @@ const plCategories = {
     // --- Vertrag --- (Liste = Satz-Pool; bei gewaehltem Sprecher dessen Pool,
     // sonst die sortierte Gesamt-Sequenz; Zeiger = sCurRec)
     list: function () {
-      return sBuildRecordingPool();
+      var pool = sBuildRecordingPool();
+      return (typeof amCombinedNavList === "function") ? amCombinedNavList("saetze", pool) : pool;
     },
     current: function () { return (typeof sCurRec !== "undefined") ? sCurRec : null; },
     select: function (item) { if (item) sCurRec = item; },
@@ -2178,7 +2182,10 @@ const plCategories = {
 
   geraeusche: {
     // --- Vertrag ---
-    list: function () { return plNoiseVisibleItems(); },
+    list: function () {
+      var pool = plNoiseVisibleItems();
+      return (typeof amCombinedNavList === "function") ? amCombinedNavList("geraeusche", pool) : pool;
+    },
     current: function () { return plNoiseCurrentItem(); },
     select: function (item) {
       if (!item) return;
@@ -2244,7 +2251,8 @@ const plCategories = {
     // --- Vertrag --- (Liste = Kapitel des aktuellen Werks; Zeiger = Kapitel)
     list: function () {
       const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-      return (col && Array.isArray(col.items)) ? col.items : [];
+      var pool = (col && Array.isArray(col.items)) ? col.items : [];
+      return (typeof amCombinedNavList === "function") ? amCombinedNavList("hoerbuecher", pool) : pool;
     },
     current: function () {
       return (typeof plBookCurrentChapter === "function") ? plBookCurrentChapter() : null;
