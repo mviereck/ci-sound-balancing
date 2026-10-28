@@ -1171,6 +1171,7 @@ Object.assign(L.en, {
     compNameFmSlider:   "Frequency matching (fine-tuning)",
     compSubLoudness:    "Electrode loudness",
     rrDoneExtra:        "You can refine the measurement results further with the second test procedure “Convergence”. You can listen to the effect of the correction in the player.",
+    ellConvDoneExtra:    "The measurement is stable: no electrode pair deviates noticeably any more, and every electrode has enough comparisons. You can hear the effect of the correction in the player.",
     STB_doneExtra:        "You can activate stereo balance in the player.",
     FRQ_doneExtra:        "You can activate frequency warping in the player to hear the effect of an adjusted frequency shift.",
     linksFreesoundDesc:     "Freesound aims to create a huge collaborative database of audio snippets, samples, recordings, bleeps, … released under Creative Commons licenses that allow their reuse.",

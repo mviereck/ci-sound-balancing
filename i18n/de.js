@@ -1431,6 +1431,7 @@ Object.assign(L.de, {
     compNameFmSlider:   "Frequenzabgleich (Nachjustierung)",
     compSubLoudness:    "Elektrodenlautstärke",
     rrDoneExtra:        "Sie können die Meßergebnisse mit dem zweiten Testverfahren „Konvergenz“ weiter verfeinern. Sie können im Player die Wirkung der Korrektur anhören.",
+    ellConvDoneExtra:    "Die Messung ist stabil: Kein Elektrodenpaar weicht noch deutlich ab, und jede Elektrode hat genug Vergleiche. Im Player können Sie die Wirkung der Korrektur anhören.",
     STB_doneExtra:        "Sie können Stereo-Balance im Player aktivieren.",
     FRQ_doneExtra:        "Sie können Frequenz-Warping im Player aktivieren, um den Effekt einer angepaßten Frequenzverschiebung zu hören.",
     // BA 279: Freesound-Quelle im Links-Reiter.

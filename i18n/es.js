@@ -1171,6 +1171,7 @@ Object.assign(L.es, {
     compNameFmSlider:   "Emparejamiento de frecuencia (reajuste)",
     compSubLoudness:    "Volumen de electrodos",
     rrDoneExtra:        "Puede refinar más los resultados de medición con el segundo procedimiento de prueba «Convergencia». Puede escuchar el efecto de la corrección en el reproductor.",
+    ellConvDoneExtra:    "La medición es estable: ninguna pareja de electrodos se desvía ya de forma notable, y cada electrodo tiene suficientes comparaciones. Puede escuchar el efecto de la corrección en el reproductor.",
     STB_doneExtra:        "Puede activar el balance estéreo en el reproductor.",
     FRQ_doneExtra:        "Puede activar el warping de frecuencia en el reproductor para oír el efecto de un desplazamiento de frecuencia ajustado.",
     linksFreesoundDesc:     "Freesound pretende crear una enorme base de datos colaborativa de fragmentos de audio, muestras, grabaciones, pitidos, … publicados bajo licencias Creative Commons que permiten su reutilización.",

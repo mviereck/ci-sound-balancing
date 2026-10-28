@@ -1171,6 +1171,7 @@ Object.assign(L.fr, {
     compNameFmSlider:   "Appariement de fréquence (réajustement)",
     compSubLoudness:    "Intensité des électrodes",
     rrDoneExtra:        "Vous pouvez affiner davantage les résultats de mesure avec la deuxième procédure de test « Convergence ». Vous pouvez écouter l’effet de la correction dans le Player.",
+    ellConvDoneExtra:    "La mesure est stable : aucune paire d’électrodes ne s’écarte encore nettement, et chaque électrode a assez de comparaisons. Vous pouvez écouter l’effet de la correction dans le lecteur.",
     STB_doneExtra:        "Vous pouvez activer la balance stéréo dans le Player.",
     FRQ_doneExtra:        "Vous pouvez activer le warping fréquentiel dans le Player pour entendre l’effet d’un décalage de fréquence ajusté.",
     linksFreesoundDesc:     "Freesound vise à créer une immense base de données collaborative de fragments audio, d’échantillons, d’enregistrements, de bips, … publiés sous licences Creative Commons qui permettent leur réutilisation.",

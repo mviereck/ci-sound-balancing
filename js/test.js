@@ -554,6 +554,14 @@ function actEl() {
 function allEl() {
   return [...Array(nEl).keys()];
 }
+// BA 698: Konvergenz-Auswahl. Relevanz- UND Abbruchschwelle (dB): ein
+// Paar ist "auffaellig", wenn sein Residuum >= dieser Wert ist; der Test
+// endet (Stabilitaets-Teil), wenn kein gemessenes Paar mehr auffaellig ist.
+const ELL_CONV_SCHWELLE_DB = 1;
+// BA 698: Mindestzahl gueltiger Paare je Elektrode fuer den Abbruch
+// (Datenbasis-Teil). Gedeckelt auf (aktive-1), siehe _ell_convMinPaare.
+const ELL_CONV_MIN_PAARE = 4;
+
 function allPairs() {
   const a = actEl(),
     p = [];
@@ -1032,30 +1040,149 @@ function corrVol(vol, side, hz, applyELL, applyBal) {
   return v;
 }
 
-function getConvPairs(fast) {
-  if (fast && ELL_raw.messpunkte.length > 0) {
-    const { residuals } = ELL_computeEval_compWLS(ELL_ctx("global"));
-    const act = new Set(actEl());
-    const vr = residuals
-      .filter((r) => act.has(r.a) && act.has(r.b))
-      .sort((a, b) => b.residual - a.residual);
-    const tp = vr
-      .slice(0, Math.max(5, Math.ceil(vr.length * 0.2)))
-      .map((r) => [r.a, r.b]);
-    const ap = allPairs(),
-      ex = shuffle(ap).slice(0, Math.min(5, ap.length));
-    const seen = new Set(),
-      mg = [];
-    [...tp, ...ex].forEach((p) => {
-      const k = Math.min(p[0], p[1]) + "-" + Math.max(p[0], p[1]);
-      if (!seen.has(k)) {
-        seen.add(k);
-        mg.push(p);
-      }
-    });
-    return mg;
+// ============================================================
+// BA 698: KONVERGENZ-PAARAUSWAHL (00-ell-paarauswahl-architektur §4-§6)
+// ============================================================
+
+// Im Test erlaubte Elektroden: aktiv (nicht ausgeschlossen/stumm) UND,
+// falls eine Header-Elektrodenauswahl gesetzt ist, in dieser Auswahl.
+// Die Auswahl _ell_selectedEls (null/leer = alle) gilt fuer BEIDE
+// Verfahren; im Konvergenztest ist dies die eine Quelle, aus der Quellen
+// UND Abbruch ihre Elektrodenmenge ziehen -- sonst verlangte der Abbruch
+// Mindest-Vergleiche fuer gar nicht testbare Elektroden und endete nie.
+function _ell_convErlaubteEls() {
+  const akt = actEl();
+  const sel = _ell_selectedEls;
+  if (!sel || !sel.length) return new Set(akt);
+  const s = new Set(sel);
+  return new Set(akt.filter((i) => s.has(i)));
+}
+
+// Gueltige Paarzahl je aktiver Elektrode aus den gemessenen Paaren.
+// residuals enthaelt genau die gueltigen gemessenen Paare (beide
+// Elektroden aktiv, nicht stumm/ausgeschlossen) -- siehe
+// ELL_computeEval_compWLS/valid. Rueckgabe: Map elektrodenIndex -> Anzahl.
+function _ell_convPaarzahlProEl(residuals) {
+  const m = new Map();
+  for (const r of residuals) {
+    m.set(r.a, (m.get(r.a) || 0) + 1);
+    m.set(r.b, (m.get(r.b) || 0) + 1);
   }
-  return allPairs();
+  return m;
+}
+
+// Mindest-Paarzahl, gedeckelt auf (Zahl erlaubter Elektroden - 1): eine
+// Elektrode kann nie mehr Paare haben, als es andere erlaubte gibt.
+function _ell_convMinPaare() {
+  const n = _ell_convErlaubteEls().size;
+  return Math.min(ELL_CONV_MIN_PAARE, Math.max(0, n - 1));
+}
+
+// Schluessel eines ungeordneten Paars.
+function _ell_pairKey(a, b) {
+  return Math.min(a, b) + "-" + Math.max(a, b);
+}
+
+// Abbruchbedingung (§6): true -> Test ist fertig.
+//   (a) kein gemessenes Paar hat residual >= Schwelle, UND
+//   (b) jede aktive Elektrode hat >= Mindestzahl gueltige Paare.
+function _ell_convFertig(residuals) {
+  const erl = _ell_convErlaubteEls();
+  const gem = residuals.filter((r) => erl.has(r.a) && erl.has(r.b));
+  const maxRes = gem.length ? Math.max(...gem.map((r) => r.residual)) : 0;
+  if (maxRes >= ELL_CONV_SCHWELLE_DB) return false;            // (a) nicht erfuellt
+  const minP = _ell_convMinPaare();
+  const zahl = _ell_convPaarzahlProEl(gem);
+  for (const i of erl) {
+    if ((zahl.get(i) || 0) < minP) return false;               // (b) nicht erfuellt
+  }
+  return true;
+}
+
+// Die zwei Auswahlquellen (§4.2), jeweils nach Dringlichkeit absteigend,
+// nur Eintraege >= Schwelle. Rueckgabe: { widerspruch:[[a,b],...],
+// luecke:[[a,b],...] }.
+function _ell_convQuellen(residuals, ELL_res) {
+  const erl = _ell_convErlaubteEls();
+
+  // Quelle "Widerspruch": gemessene erlaubte Paare nach Einzelresiduum.
+  const widerspruch = residuals
+    .filter((r) => erl.has(r.a) && erl.has(r.b) && r.residual >= ELL_CONV_SCHWELLE_DB)
+    .sort((x, y) => y.residual - x.residual)
+    .map((r) => [r.a, r.b]);
+
+  // Quelle "Luecke": ungemessene erlaubte Paare nach max(ELL_res) der
+  // beiden Elektroden, nur wenn dieses Maximum >= Schwelle. allPairs()
+  // liefert Paare aktiver Elektroden; die Header-Auswahl wird ueber erl
+  // mitgefiltert (beide Elektroden erlaubt).
+  const gemessen = new Set(residuals.map((r) => _ell_pairKey(r.a, r.b)));
+  const luecke = allPairs()
+    .filter(([a, b]) => erl.has(a) && erl.has(b) && !gemessen.has(_ell_pairKey(a, b)))
+    .map(([a, b]) => [a, b, Math.max(ELL_res[a] || 0, ELL_res[b] || 0)])
+    .filter((e) => e[2] >= ELL_CONV_SCHWELLE_DB)
+    .sort((x, y) => y[2] - x[2])
+    .map((e) => [e[0], e[1]]);
+
+  return { widerspruch, luecke };
+}
+
+// Erste in `liste` enthaltene Paarung, die KEINE der Elektroden in
+// `sperre` (Set) enthaelt; faellt auf das erste Element zurueck, wenn
+// jede Kandidatin gesperrt ist (Sperre nur "solange Auswahl gross genug").
+function _ell_convErstesErlaubt(liste, sperre) {
+  if (!liste.length) return null;
+  for (const p of liste) {
+    if (!sperre.has(p[0]) && !sperre.has(p[1])) return p;
+  }
+  return liste[0];
+}
+
+// Kernauswahl (§4.3): bestimmt das naechste Paar.
+//   letzteSorte: "widerspruch" | "luecke" | null (Start, kein Zwang)
+//   letzteEls:   [a,b] der eben gemessenen Elektroden oder null
+// Rueckgabe: { pair:[a,b], sorte } oder null (nichts mehr auszuwaehlen).
+function _ell_convNaechstes(letzteSorte, letzteEls) {
+  const { residuals, ELL_res } = ELL_computeEval_compWLS(ELL_ctx("global"));
+  const { widerspruch, luecke } = _ell_convQuellen(residuals, ELL_res);
+  if (!widerspruch.length && !luecke.length) return null;
+
+  const sperre = new Set(letzteEls || []);
+
+  // Zielsorte per Alternierung; am Start (letzteSorte=null) keine Praeferenz.
+  // Reihenfolge der Praeferenz als [primaer, sekundaer].
+  let pref;
+  if (letzteSorte === "widerspruch")      pref = ["luecke", "widerspruch"];
+  else if (letzteSorte === "luecke")      pref = ["widerspruch", "luecke"];
+  else {
+    // Start: dringlichstes Paar beider Sorten. Da die Skalen nicht
+    // vergleichbar sind, bevorzugt "widerspruch" (echter Befund) vor
+    // "luecke" (abgeleitete Schaetzung), sofern vorhanden.
+    pref = ["widerspruch", "luecke"];
+  }
+
+  const quellen = { widerspruch, luecke };
+
+  // Primaere Zielsorte: Sperre hat Vorrang -> steckt die einzige Kandidatin
+  // in der Sperre und existiert die andere Sorte, wird gewechselt.
+  for (let i = 0; i < pref.length; i++) {
+    const sorte = pref[i];
+    const liste = quellen[sorte];
+    if (!liste.length) continue;
+    const kand = _ell_convErstesErlaubt(liste, sperre);
+    // Enthaelt die gewaehlte Kandidatin eine gesperrte Elektrode UND gibt
+    // es noch eine nicht erschoepfte andere Sorte, Sorte wechseln.
+    const gesperrt = kand && (sperre.has(kand[0]) || sperre.has(kand[1]));
+    const andere = quellen[pref[(i + 1) % pref.length]];
+    if (gesperrt && andere && andere.length) continue;
+    return { pair: kand, sorte };
+  }
+
+  // Beide Sorten enthalten nur gesperrte Kandidaten -> Sperre aufgeben,
+  // primaere Sorte nehmen (Auswahl war nicht gross genug).
+  for (const sorte of pref) {
+    if (quellen[sorte].length) return { pair: quellen[sorte][0], sorte };
+  }
+  return null;
 }
 
 // ============================================================
@@ -1197,18 +1324,30 @@ function startTestFull() {
 }
 
 // BA 247: Konvergenz-Start (frueher 'conv_fast' in startTest)
+// BA 698: Konvergenz-Start (schrittweise Auswahl, keine Runden).
 function startTestConv() {
   if (!ELL_testEls) return;
-  var p = getConvPairs(true);
-  p = _ell_filterByElectrodeSelection(p);
-  ELL_testPairs = randAB(shuffle(p));
-  ELL_testIdx = 0;
+  // Auswertung einmal rechnen, Abbruch pruefen (nichts nachzumessen?).
+  const { residuals } = ELL_computeEval_compWLS(ELL_ctx("global"));
+  if (_ell_convFertig(residuals)) {
+    // Sofort fertig: kein Paar auffaellig und Datenbasis ausreichend.
+    ELL_testAct = false;
+    convRnd = 0;
+    _ell_convShowDone();
+    return;
+  }
+  _ell_convLetzteSorte = null;
+  _ell_convGemessen    = 0;
+  _ell_convZielSum     = _ell_convSchaetzRest(residuals); // Fortschritt-Start
+  ELL_testPairs = [];
+  ELL_testIdx   = 0;
   undoSt = [];
   ELL_testAct = true;
   ELL_curPlayed = false;
   convRnd = 1;
   lockTestTabs(true, 'elektrodenlautstaerke');
-  ell_showCurPair();
+  // Erstes Paar bestimmen und anzeigen.
+  _ell_convSetze(_ell_convNaechstes(null, null));
 }
 
 // BA 247: Sequenz auf die im Header gewaehlten Elektroden filtern.
@@ -1266,7 +1405,7 @@ function endTest() {
   // BA 278fix: Natuerliches Testende muss die Test-UI zuruecksetzen
   // (testBox ausblenden, Start/Stop-Button-Zustand, Laufzustand beenden).
   // Bisher rief nur der Stop-Button _stopTest() auf; die natuerlichen
-  // Endpfade (nextFullRound, nextConvRnd) uebersprangen es, sodass
+  // Endpfade (nextFullRound, _ell_convShowDone) uebersprangen es, sodass
   // der Test nach dem letzten Vergleich haengen blieb (kein Ton, kein
   // Abschluss). _stopTest hat einen Re-Entry-Schutz (_testRunning), der
   // Aufruf ueber den onStop-Hook (-> endTest) laeuft also nicht in eine
@@ -1278,9 +1417,9 @@ function ell_showCurPair() {
   if (!ELL_testEls) return;
   if (ELL_testIdx >= ELL_testPairs.length) {
     if (convRnd === 0) return nextFullRound();
-    if (convRnd > 0)  return nextConvRnd();
-    endTest();
-    ELL_renderResults();
+    // Konvergenz: das Weiterschalten erfolgt in ell_recBal; ein
+    // Listenende ohne gesetztes Folgepaar bedeutet "fertig".
+    _ell_convShowDone();
     return;
   }
   var pair = ELL_testPairs[ELL_testIdx];
@@ -1365,10 +1504,13 @@ function _ell_updateProgress() {
       });
     }
   } else {
+    // BA 698: Konvergenz -- grobe Schaetzung, pro Schritt neu. Keine
+    // feste Zielzahl; Zaehler darf springen.
+    const ziel = Math.max(1, _ell_convZielSum);
+    const done = Math.min(_ell_convGemessen, ziel);
     testUI.progress.set(vref.progress, {
-      text: t("comp") + " " + (ELL_testIdx + 1) + " " + t("of") + " " + ELL_testPairs.length +
-            (convRnd > 0 ? " (" + t("round") + " " + convRnd + ")" : ""),
-      fraction: (ELL_testIdx + 1) / Math.max(1, ELL_testPairs.length)
+      text: t("comp") + " " + done + " " + t("of") + " ~" + ziel,
+      fraction: done / ziel
     });
   }
 }
@@ -1457,17 +1599,30 @@ function ell_recBal() {
     undoSt.push({ t: "b", a: "a", bezug: { a, b } });
   }
   ELL_rawPush(ELL_raw, a, b, schritt);
-  // BA 247: Vollstaendig: gemessenes Paar als erledigt markieren.
+  // Round Robin: Paar als erledigt markieren (unveraendert).
   if (_ELL_activeVerfahren === "full") {
     const ka = Math.min(a, b), kb = Math.max(a, b);
     const d = ELL_durchlauf();
     if (!d.donePairs.some(([x, y]) => x === ka && y === kb)) {
       d.donePairs.push([ka, kb]);
     }
+    ELL_testIdx++;
+    ell_updUndo();
+    ell_showCurPair();
+    return;
   }
-  ELL_testIdx++;
+  // Konvergenz: nach jeder Bestaetigung neu rechnen, naechstes Paar
+  // frisch bestimmen (Elektroden-Sperre = die eben gemessenen a,b).
+  // KEIN ELL_testIdx++ hier: _ell_convSetze haengt das Folgepaar an und
+  // setzt ELL_testIdx aufs Listenende. Das eben gemessene Paar bleibt an
+  // seinem Index stehen, sodass ell_undoL (ELL_testIdx--) es wieder zeigt.
+  _ell_convGemessen++;
   ell_updUndo();
-  ell_showCurPair();
+  const { residuals } = ELL_computeEval_compWLS(ELL_ctx("global"));
+  if (_ell_convFertig(residuals)) { _ell_convShowDone(); return; }
+  _ell_convZielSum = Math.max(_ell_convZielSum,
+                              _ell_convGemessen + _ell_convSchaetzRest(residuals));
+  _ell_convSetze(_ell_convNaechstes(_ell_convLetzteSorte, [a, b]));
 }
 function ell_undoL() {
   if (!ELL_testAct || !undoSt.length || ELL_testIdx <= 0) return;
@@ -1514,7 +1669,7 @@ function nextFullRound() {
     endTest();
     ELL_renderResults();
     // BA 279: Abschluss-Box NUR beim vollstaendigen Round-Robin-Durchlauf.
-    // Konvergenz (nextConvRnd) und Pause/Stop (onStop -> endTest): KEINE Box.
+    // Konvergenz (_ell_convShowDone) und Pause/Stop (onStop -> endTest): KEINE Box hier.
     if (ELL_testEls && typeof testUI !== 'undefined' && testUI.completion) {
       testUI.completion.show({
         nameKey:   'ell_rrName',
@@ -1536,40 +1691,40 @@ function nextFullRound() {
   undoSt = [];
   ell_showCurPair();
 }
-function nextConvRnd() {
-  const { residuals } = ELL_computeEval_compWLS(ELL_ctx("global"));
-  const act = new Set(actEl());
-  const vr = residuals.filter((r) => act.has(r.a) && act.has(r.b));
-  const mx = vr.length ? Math.max(...vr.map((r) => r.residual)) : 0;
-  if (mx < 1) {
-    endTest();
-    ELL_renderResults();
-    return;
-  }
-  convRnd++;
-  const sr = [...vr].sort((a, b) => b.residual - a.residual);
-  const tp = sr
-    .slice(0, Math.max(5, Math.ceil(sr.length * 0.2)))
-    .map((r) => [r.a, r.b]);
-  const ap = allPairs(),
-    ex = shuffle(ap).slice(0, Math.min(Math.max(3, Math.floor(ap.length * 0.1)), 8));
-  const seen = new Set(), mg = [];
-  [...tp, ...ex].forEach((p) => {
-    const k = Math.min(p[0], p[1]) + "-" + Math.max(p[0], p[1]);
-    if (!seen.has(k)) { seen.add(k); mg.push(p); }
-  });
-  ELL_testPairs = randAB(shuffle(mg));
-  ELL_testIdx = 0;
-  undoSt = [];
-  // BA 247fix2: progress.set erwartet ein opts-Objekt.
-  var vref = ELL_testEls && ELL_testEls.verfahren && ELL_testEls.verfahren[_ELL_activeVerfahren];
-  if (vref && vref.progress) {
-    testUI.progress.set(vref.progress, {
-      text: t("round") + " " + convRnd + " – " + mg.length + " (max res: " + mx.toFixed(1) + " dB)",
-      fraction: 0
+// BA 698: Ein ausgewaehltes Paar in den Anzeige-Zustand uebernehmen und
+// zeigen. erg = { pair:[a,b], sorte } aus _ell_convNaechstes, oder null.
+// ELL_testPairs HAENGT AN (ueberschreibt nicht): damit ell_undoL nach
+// ELL_testIdx-- das zuletzt gemessene Paar wieder zeigt (dein Beschluss:
+// Undo zeigt genau das zurueckgenommene Paar). Das aktuelle Paar steht
+// immer am Listenende, ELL_testIdx zeigt darauf.
+function _ell_convSetze(erg) {
+  if (!erg || !erg.pair) { _ell_convShowDone(); return; }
+  _ell_convLetzteSorte = erg.sorte;
+  ELL_testPairs.push(erg.pair);
+  ELL_testIdx = ELL_testPairs.length - 1;
+  ell_showCurPair();
+}
+
+// BA 698: Konvergenz-Ende mit Abschlussbox (§6). Kein stilles Ende.
+function _ell_convShowDone() {
+  endTest();
+  ELL_renderResults();
+  if (ELL_testEls && typeof testUI !== "undefined" && testUI.completion) {
+    testUI.completion.show({
+      nameKey:   "ell_verfahrenConv",
+      subtabKey: "compSubLoudness",
+      bodyKey:   "ellConvDoneExtra"
     });
   }
-  ell_showCurPair();
+}
+
+// BA 698: grobe Restschaetzung fuer den Fortschritt (§6). Zahl der aktuell
+// auffaelligen Paare beider Sorten -- bewusst ungenau, wird pro Schritt neu
+// berechnet.
+function _ell_convSchaetzRest(residuals) {
+  const { ELL_res } = ELL_computeEval_compWLS(ELL_ctx("global"));
+  const { widerspruch, luecke } = _ell_convQuellen(residuals, ELL_res);
+  return widerspruch.length + luecke.length;
 }
 
 // ============================================================
@@ -1579,6 +1734,11 @@ function nextConvRnd() {
 // test-ui.js Z. 2270 und aus stereobalance-balance). Leeres Array waere im
 // Modal als "keine ausgewaehlt" interpretiert.
 let _ell_selectedEls = null;
+
+// BA 698: Konvergenz-Auswahl-Zustand (kein Rundenbegriff mehr).
+let _ell_convLetzteSorte = null;   // "widerspruch" | "luecke" | null
+let _ell_convZielSum     = 0;      // geschaetzte Gesamtzahl (Fortschritt)
+let _ell_convGemessen    = 0;      // bereits nachgemessene Paare (Fortschritt)
 
 // BA660: globaler Spiegel der Auswertungs-Elektrodenauswahl der aktiven
 // Seite. Wahrheit liegt in sideData[activeSide].ELL_evalSelectedEls.
