@@ -1328,6 +1328,7 @@ Object.assign(L.es, {
     STB_noResultsMsg: "Aún no hay resultados. Realice primero una medición en «Mediciones → Balance estéreo».",
     STB_resTitle: "Resultados balance estéreo",
     STB_medianLabel: "Offset de balance recomendado",
+    STB_avgModeLabel: "Promediado entre electrodos:",
     STB_avgModeMean: "Media",
     STB_avgModeMedian: "Mediana",
     STB_evalSelLabel: "Electrodos evaluados:",

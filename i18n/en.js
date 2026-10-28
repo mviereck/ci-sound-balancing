@@ -1328,6 +1328,7 @@ Object.assign(L.en, {
     STB_noResultsMsg: "No results yet. First run a measurement under “Measurements → Stereo balance”.",
     STB_resTitle: "Stereo balance results",
     STB_medianLabel: "Recommended balance offset",
+    STB_avgModeLabel: "Averaging across electrodes:",
     STB_avgModeMean: "Mean",
     STB_avgModeMedian: "Median",
     STB_evalSelLabel: "Evaluated electrodes:",

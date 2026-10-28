@@ -1601,6 +1601,7 @@ Object.assign(L.de, {
     STB_noResultsMsg: "Noch keine Ergebnisse. Führen Sie erst eine Messung in „Messungen → Stereo-Balance” durch.",
     STB_resTitle: "Ergebnisse Stereo-Balance",
     STB_medianLabel: "Empfohlener Balance-Offset",
+    STB_avgModeLabel: "Mittelung über die Elektroden:",
     STB_avgModeMean: "Mittelwert",
     STB_avgModeMedian: "Median",
     STB_evalSelLabel: "Ausgewertete Elektroden:",

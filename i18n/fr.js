@@ -1328,6 +1328,7 @@ Object.assign(L.fr, {
     STB_noResultsMsg: "Pas encore de résultats. Effectuez d'abord une mesure dans « Mesures → Balance stéréo ».",
     STB_resTitle: "Résultats balance stéréo",
     STB_medianLabel: "Offset de balance recommandé",
+    STB_avgModeLabel: "Moyennage sur les électrodes :",
     STB_avgModeMean: "Moyenne",
     STB_avgModeMedian: "Médiane",
     STB_evalSelLabel: "Électrodes évaluées:",

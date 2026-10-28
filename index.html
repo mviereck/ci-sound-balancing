@@ -655,6 +655,23 @@
           <div id="STB_resultsCard" style="display: none">
             <p style="font-size:0.84em;color:var(--text);margin-bottom:10px" id="STB_resMeta"></p>
             <div id="STB_resAwgBox"></div>
+            <div id="STB_avgModeRow"
+                 style="display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:0.88em">
+              <span data-t="STB_avgModeLabel" style="white-space:nowrap"></span>
+              <label style="display:flex;align-items:center;gap:4px">
+                <input type="radio" name="STB_avgMode" value="mean" checked />
+                <span data-t="STB_avgModeMean"></span>
+              </label>
+              <label style="display:flex;align-items:center;gap:4px">
+                <input type="radio" name="STB_avgMode" value="median" />
+                <span data-t="STB_avgModeMedian"></span>
+              </label>
+            </div>
+            <div id="STB_evalSelRow" style="margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:0.88em">
+              <span data-t="STB_evalSelLabel" style="white-space:nowrap"></span>
+              <button type="button" class="btn btn-small" id="STB_evalSelBtn" data-t="STB_evalSelBtn"></button>
+              <span id="STB_evalSelSummary" style="color:#555"></span>
+            </div>
           <div
             id="STB_medianDisplay"
             style="
@@ -675,21 +692,6 @@
               id="STB_medianLabel"
               data-t="STB_medianLabel"
             ></div>
-            <div style="margin-bottom: 6px; font-size: 0.85em">
-              <label style="margin-right: 10px; cursor: pointer">
-                <input type="radio" name="STB_avgMode" value="mean" checked />
-                <span data-t="STB_avgModeMean"></span>
-              </label>
-              <label style="cursor: pointer">
-                <input type="radio" name="STB_avgMode" value="median" />
-                <span data-t="STB_avgModeMedian"></span>
-              </label>
-            </div>
-            <div id="STB_evalSelRow" style="margin-bottom:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.85em">
-              <span data-t="STB_evalSelLabel" style="white-space:nowrap"></span>
-              <button type="button" class="btn btn-small" id="STB_evalSelBtn" data-t="STB_evalSelBtn"></button>
-              <span id="STB_evalSelSummary" style="color:#555"></span>
-            </div>
             <div
               id="STB_medianValue"
               style="
