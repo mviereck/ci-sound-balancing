@@ -111,9 +111,14 @@ function sBuildSequencePool() {
 async function sLoadCurrent() {
   if (!sCurRec) return;
   const audioRef = sCurRec.audio;
-  // Schlankes Boxen-Bündel: audio wird erst per amGetItemBuffer (Detail-Anreicherung)
-  // gesetzt; detail-Offset vorhanden => kein Fehler hier.
-  if (!audioRef && !sCurRec.detail) { sStop(); throw new Error("kein audio-Ref"); }
+  // Audio wird teils erst in amGetItemBuffer beschafft: beim schlanken
+  // Boxen-Bündel über den detail-Offset, bei Index-Quellen (z.B. Common
+  // Voice Live) über item._resolve. In beiden Fällen ist audio hier noch
+  // leer und das ist KEIN Fehler. Nur wenn keiner dieser Nachlade-Wege
+  // existiert, fehlt das Audio wirklich.
+  if (!audioRef && !sCurRec.detail && typeof sCurRec._resolve !== "function") {
+    sStop(); throw new Error("kein audio-Ref");
+  }
 
   const c = gPC();
   // Ein Ladeweg fuer alle: die zentrale Ladestelle. Lokale Upload-Dateien
