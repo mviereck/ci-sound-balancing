@@ -1332,7 +1332,13 @@ function amCollectCollections(category) {
   const _lk = amIsLangCategory(category) ? (":" + amCurrentLang()) : "";
   return _amCacheGet(category, "collections:" + category + _lk, function () {
   const out = [];
+  const mode = amSourceMode;   // "online" | "offline"
   for (const p of AM_PROVIDERS) {
+    // Quellen-Modus: dieselbe Filterung wie in amCollectItems — online blendet
+    // embed aus, offline blendet webspace aus. Hoerbuecher laufen NUR ueber
+    // listCollections, daher muss die Modus-Ausblendung auch hier greifen.
+    if (mode === "online"  && p.id === "embed")    continue;
+    if (mode === "offline" && p.id === "webspace") continue;
     if (typeof p.listCollections !== "function") continue;
     try {
       const cols = p.listCollections(category);
@@ -1480,6 +1486,13 @@ async function amWebspaceLoadIndex() {
 function amWebspaceResetFailed() {
   _amWebspace.failed = false;
   _amWebspace.indexLoaded = false;
+  // Auch die geladenen Bündel verwerfen: Ein während einer Offline-Phase
+  // fehlgeschlagener Bündel-Fetch trägt einen LEEREN Eintrag in manifests
+  // ein (_amWebspaceLoadBundle, catch -> cols=[]). Der Idempotenz-Guard
+  // (manifests.has(bkey)) würde diesen leeren Eintrag sonst dauerhaft
+  // festhalten, und die Online-Listen blieben nach dem Wiederanlauf leer.
+  // Der Reset bedeutet "frisch laden" — also auch die Bündel neu holen.
+  _amWebspace.manifests.clear();
 }
 
 // Bündel-Schlüssel im manifests-Speicher (quellenübergreifend, EIN Eintrag je
