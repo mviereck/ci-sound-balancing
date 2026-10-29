@@ -408,7 +408,6 @@ Object.assign(L.de, {
     plBookAxisLength: "Länge",
     plBookAxisText: "Textquelle",
     plBookAxisGender: "Geschlecht",
-    plBookAxisDialekt: "Dialekt",
     plBookAxisSource: "Quelle",
     plBookSource_upload: "Upload",
     plBookAxisSynthetic: "Stimmerzeuger",

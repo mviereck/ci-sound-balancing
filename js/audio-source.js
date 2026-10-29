@@ -669,12 +669,6 @@ const AM_SORT_AXES = {
       bucketLabel: function (v) { return (typeof t === "function") ? t("plBookGender_" + v) : v; }
     },
     {
-      key: "dialekt", labelKey: "plBookAxisDialekt", labelDefault: "Dialekt",
-      getter: function (c) { return (c.tags && c.tags.dialekt) || "zzz-unbekannt"; },
-      valueOf: function (c) { return (c.tags && c.tags.dialekt) || ""; }
-      // kein bucketLabel: der Rohwert ("Hochdeutsch", ...) ist bereits das Label.
-    },
-    {
       key: "synthetic", labelKey: "plBookAxisSynthetic", labelDefault: "Stimmerzeuger",
       getter: function (c) { return (c.tags && c.tags.synthetic) || "zzz-unbekannt"; },
       valueOf: function (c) { return (c.tags && c.tags.synthetic) || ""; },

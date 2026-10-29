@@ -1795,7 +1795,6 @@ Object.assign(L.fr, {
     plBookAxisLength: "Durée",
     plBookAxisText: "Source du texte",
     plBookAxisGender: "Genre (voix)",
-    plBookAxisDialekt: "Dialecte",
     plBookAxisSource: "Source",
     plBookSource_upload: "Téléversement",
     plBookAxisSynthetic: "Type de voix",

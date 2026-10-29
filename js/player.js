@@ -4947,20 +4947,17 @@ function plBookVisibleItems() {
     var cl = col ? col.lang : null;
     return !cl || ((typeof _amBaseLang === "function") ? _amBaseLang(cl) === base : cl === lang);
   });
-  // Achsen-Auswahl anwenden (dieselbe generische Engine wie bei Geraeuschen).
+  // Achsen-Auswahl anwenden (dieselbe generische Engine wie bei Geraeuschen):
+  // volle Achsenliste direkt uebergeben, Reihenfolge egal (UND-Verknuepfung).
   if (typeof amItemMatchesAxes === "function" && typeof amSortAxesFor === "function"
       && typeof plBookAxisSel !== "undefined") {
     var axes = amSortAxesFor("hoerbuecher");
-    var axList = ["work", "genre", "fiction", "author", "reader", "epoch",
-                  "length", "text_source", "gender", "dialekt", "synthetic", "source"]
-      .map(function (k) { return axes.find(function (a) { return a.key === k; }); })
-      .filter(function (a) { return !!a; });
     var sel = {};
-    axList.forEach(function (a) {
+    axes.forEach(function (a) {
       var v = plBookAxisSel[a.key];
       sel[a.key] = (v === undefined) ? "_all" : v;
     });
-    items = items.filter(function (it) { return amItemMatchesAxes(axList, sel, it); });
+    items = items.filter(function (it) { return amItemMatchesAxes(axes, sel, it); });
   }
   // Stabil sortieren: nach Werk, dann Kapitel-Position.
   items.sort(function (a, b) {
@@ -5049,8 +5046,8 @@ PL_FILTER_DECL.hoerbuecher = {
     },
     {
       id: "axes", kind: "parallel-axes", domId: "plBookAxes",
-      parallelAxes: ["work", "source", "fiction", "genre", "author", "reader",
-                     "gender", "dialekt", "synthetic", "epoch", "length", "text_source"]
+      parallelAxes: ["source", "fiction", "genre", "epoch", "reader",
+                     "gender", "synthetic", "length", "text_source", "author", "work"]
     },
     {
       id: "search", kind: "search", domId: "plBookSearchInput"
