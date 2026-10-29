@@ -1058,6 +1058,18 @@ function _ell_convErlaubteEls() {
   return new Set(akt.filter((i) => s.has(i)));
 }
 
+// Konvergenz-ctx: wie ELL_ctx("global"), aber OHNE Auswertungs-
+// Elektrodenauswahl (ELL_evalSelectedEls neutralisiert). Die
+// Auswertungsauswahl (BA660) darf nicht auf den Test zurueckwirken --
+// der Konvergenztest sieht alle gemessenen, aktiven, test-erlaubten Paare;
+// die Test-Einschraenkung sitzt allein in _ell_convErlaubteEls
+// (_ell_selectedEls). Alle vier Konvergenz-Aufrufer von compWLS nutzen nur
+// residuals/ELL_res (nie levels), darum ist das Weglassen des Filters hier
+// unschaedlich fuer die Pegel. EINE Quelle fuer diesen Vertrag.
+function ELL_ctxConv() {
+  return Object.assign({}, ELL_ctx("global"), { ELL_evalSelectedEls: null });
+}
+
 // Gueltige Paarzahl je aktiver Elektrode aus den gemessenen Paaren.
 // residuals enthaelt genau die gueltigen gemessenen Paare (beide
 // Elektroden aktiv, nicht stumm/ausgeschlossen) -- siehe
@@ -1142,7 +1154,7 @@ function _ell_convErstesErlaubt(liste, sperre) {
 //   letzteEls:   [a,b] der eben gemessenen Elektroden oder null
 // Rueckgabe: { pair:[a,b], sorte } oder null (nichts mehr auszuwaehlen).
 function _ell_convNaechstes(letzteSorte, letzteEls) {
-  const { residuals, ELL_res } = ELL_computeEval_compWLS(ELL_ctx("global"));
+  const { residuals, ELL_res } = ELL_computeEval_compWLS(ELL_ctxConv());
   const { widerspruch, luecke } = _ell_convQuellen(residuals, ELL_res);
   if (!widerspruch.length && !luecke.length) return null;
 
@@ -1328,7 +1340,7 @@ function startTestFull() {
 function startTestConv() {
   if (!ELL_testEls) return;
   // Auswertung einmal rechnen, Abbruch pruefen (nichts nachzumessen?).
-  const { residuals } = ELL_computeEval_compWLS(ELL_ctx("global"));
+  const { residuals } = ELL_computeEval_compWLS(ELL_ctxConv());
   if (_ell_convFertig(residuals)) {
     // Sofort fertig: kein Paar auffaellig und Datenbasis ausreichend.
     ELL_testAct = false;
@@ -1618,7 +1630,7 @@ function ell_recBal() {
   // seinem Index stehen, sodass ell_undoL (ELL_testIdx--) es wieder zeigt.
   _ell_convGemessen++;
   ell_updUndo();
-  const { residuals } = ELL_computeEval_compWLS(ELL_ctx("global"));
+  const { residuals } = ELL_computeEval_compWLS(ELL_ctxConv());
   if (_ell_convFertig(residuals)) { _ell_convShowDone(); return; }
   _ell_convZielSum = Math.max(_ell_convZielSum,
                               _ell_convGemessen + _ell_convSchaetzRest(residuals));
@@ -1722,7 +1734,7 @@ function _ell_convShowDone() {
 // auffaelligen Paare beider Sorten -- bewusst ungenau, wird pro Schritt neu
 // berechnet.
 function _ell_convSchaetzRest(residuals) {
-  const { ELL_res } = ELL_computeEval_compWLS(ELL_ctx("global"));
+  const { ELL_res } = ELL_computeEval_compWLS(ELL_ctxConv());
   const { widerspruch, luecke } = _ell_convQuellen(residuals, ELL_res);
   return widerspruch.length + luecke.length;
 }
