@@ -2515,10 +2515,15 @@ function plNavEnsureCursor() {
   const list = plNavList();
   if (list.length === 0) return;
   const cur = plNavCurrent();
-  if (cur) {
-    for (let i = 0; i < list.length; i++) {
-      if (_plNavSameItem(list[i], cur)) return;   // Zeiger noch gueltig
-    }
+  // Gueltig = cur steht (unveraendert) an seiner gestempelten Position in der
+  // AKTUELLEN Liste. _navPos kann aus einer frueheren Liste stammen (Filter-/
+  // Sprachwechsel), darum neben der Position den Identitaets-Abgleich: zeigt
+  // die Position woanders hin oder liegt sie ausserhalb, gilt der Zeiger als
+  // ausgefallen -> neu waehlen. O(1), keine Suche ueber den (ggf. riesigen)
+  // Index-Bereich. Siehe 00-index-quelle-architektur.md (_navPos).
+  if (cur && typeof cur._navPos === "number" && cur._navPos < list.length
+      && _plNavSameItem(list[cur._navPos], cur)) {
+    return;   // Zeiger noch gueltig
   }
   // Startzeiger bei leerem/ungueltigem Zeiger: Shuffle -> Zufall; sonst der
   // deklarierte Startwunsch der Kategorie (cat.pickInitial), sonst das erste
