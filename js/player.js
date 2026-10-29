@@ -3614,14 +3614,14 @@ function plBuildFilterChain(catDecl) {
       for (var st1 = 0; st1 < axList.length; st1++) {
         selTable[axList[st1].key] = catDecl.stateRef.getAxisSel(axList[st1].key);
       }
-      var baseItems;
-      if (typeof catDecl.visibleItems === "function") {
-        baseItems = catDecl.visibleItems();
-      } else {
-        baseItems = (typeof amCollectItems === "function") ? amCollectItems(catDecl.category) : [];
-        if (typeof catDecl.axesBaseItems === "function") {
-          baseItems = catDecl.axesBaseItems(baseItems);
-        }
+      // Basismenge der Achsen-Boxen: IMMER die ungefilterte Kategorie-Menge
+      // (+ optionaler axesBaseItems-Vorfilter, z.B. Inhalts-Sprache bei
+      // Saetzen). Nicht visibleItems() nehmen -- das wendet die Achsen-Auswahl
+      // schon an und bricht die Kaskaden-Logik (Box-Werte aus allen Items, die
+      // die ANDEREN aktiven Achsen erfuellen).
+      var baseItems = (typeof amCollectItems === "function") ? amCollectItems(catDecl.category) : [];
+      if (typeof catDecl.axesBaseItems === "function") {
+        baseItems = catDecl.axesBaseItems(baseItems);
       }
 
       // Container leeren.
