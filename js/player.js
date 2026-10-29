@@ -5356,13 +5356,50 @@ function _plReadExtract(raw, textRange) {
 var _plReadAutoLastT = null;   // letzter Zeitstempel (s) fuer die Delta-Rechnung
 var _plReadAutoAcc   = 0;      // Sub-Pixel-Akkumulator (scrollTop verwirft Nachkommastellen)
 
+// Textbezug des aktuellen Hoerbuch-Werks (siehe 00-textbegleitbox-architektur.md,
+// "Textbezug des Werks"). Liefert Traeger + Modus + Lade-Identitaet in EINER
+// Auskunft; alle Textweg-Funktionen verzweigen ueber diesen Helfer, nirgends
+// sonst steht ein textScope-Vergleich.
+//   scope   : "work" | "chapter"  (Default "work", wenn nicht deklariert)
+//   carrier : Objekt mit den Text-Feldern (textUrl/textLive/textRange)
+//   work    : die Collection (fuer Scroll-Bezug im "work"-Modus + Fallback)
+//   loadId  : Identitaet, bei deren Wechsel der Text neu geladen wird
+//             ("work": Werk-id; "chapter": Kapitel-id)
+function _plReadTextCarrier() {
+  var item = (typeof plBookCurrentItem === "function") ? plBookCurrentItem() : null;
+  if (!item) return null;
+  var work = (typeof plBookWorkOf === "function") ? plBookWorkOf(item) : null;
+  // Modus ist eine Werk-Eigenschaft; Default "work".
+  var scope = (work && work.textScope === "chapter") ? "chapter" : "work";
+  if (scope === "chapter") {
+    return { scope: "chapter", carrier: item, work: work, loadId: item.id };
+  }
+  return { scope: "work", carrier: work, work: work, loadId: work ? work.id : null };
+}
+
+// Bezugs-Gesamtdauer fuer die Positionsschaetzung, je textScope:
+//   "work"    -> Summe aller Kapiteldauern des Werks
+//   "chapter" -> Dauer des aktuellen Kapitels
+function _plReadTotalSeconds() {
+  var tc = _plReadTextCarrier();
+  if (!tc) return 0;
+  if (tc.scope === "chapter") {
+    var item = (typeof plBookCurrentItem === "function") ? plBookCurrentItem() : null;
+    return item ? (+item.duration || 0) : 0;
+  }
+  var work = tc.work;
+  var total = 0;
+  if (work && Array.isArray(work.items)) {
+    for (var i = 0; i < work.items.length; i++) total += (+work.items[i].duration || 0);
+  }
+  return total;
+}
+
 // Scrollt einen zeitbasierten Pixel-Schritt (Pixel/s aus Buch-Mittel).
 function plReadAutoscrollStep() {
   var body = document.getElementById("plReadBody");
   if (!body) return;
-  var col = plBookWorkOf(plBookCurrentItem());
-  var total = 0;
-  if (col && Array.isArray(col.items)) for (var i = 0; i < col.items.length; i++) total += (+col.items[i].duration || 0);
+  var total = _plReadTotalSeconds();
   if (total <= 0) { _plReadAutoLastT = null; return; }
 
   var now = (typeof pCtx !== "undefined" && pCtx) ? pCtx.currentTime : (performance.now() / 1000);
@@ -5388,11 +5425,9 @@ function plReadAutoscrollStep() {
 function plReadFindPos() {
   var body = document.getElementById("plReadBody");
   if (!body || !_plReadLines) return;
-  var col = plBookWorkOf(plBookCurrentItem());
-  var total = 0;
-  if (col && Array.isArray(col.items)) for (var i = 0; i < col.items.length; i++) total += (+col.items[i].duration || 0);
+  var total = _plReadTotalSeconds();
   if (total <= 0) return;
-  var frac = _plReadElapsedSeconds(col) / total;
+  var frac = _plReadElapsedSeconds() / total;
   frac = Math.max(0, Math.min(1, frac));
   body.scrollTop = frac * (body.scrollHeight - body.clientHeight);
 }
@@ -5400,10 +5435,11 @@ function plReadFindPos() {
 // Lädt (falls nötig) den Text zum aktuell gewählten Buch. Idempotent:
 // gleiches Buch → kein Neuladen. Kein Text/keine Marke → _plReadLines=null.
 async function plReadEnsureText() {
-  var col = plBookWorkOf(plBookCurrentItem());
-  var id  = col ? col.id : null;
+  var tc  = _plReadTextCarrier();
+  var car = tc ? tc.carrier : null;
+  var id  = tc ? tc.loadId : null;
 
-  // Buch unverändert und schon geladen (oder als leer bekannt) → nichts tun.
+  // Traeger unveraendert und schon geladen (oder als leer bekannt) -> nichts tun.
   if (id === _plReadBookId) return;
 
   _plReadBookId = id;
@@ -5414,19 +5450,19 @@ async function plReadEnsureText() {
   var wantId = id;
 
   try {
-    if (col && col.textLive) {
+    if (car && car.textLive) {
       // --- Quelle B: Live-Text von der Wikipedia-API (Commons) ---
-      var lines = await _plReadFetchLive(col.textLive);
-      if (wantId !== _plReadBookId) return;   // inzwischen Werk gewechselt
+      var lines = await _plReadFetchLive(car.textLive);
+      if (wantId !== _plReadBookId) return;   // inzwischen Traeger gewechselt
       _plReadLines = lines;                    // null bei Fehler -> keine Box
     } else {
-      // --- Quelle A: eingebackener .txt.gz-Text (LibriVox), unverändert ---
-      var url = col ? col.textUrl : null;
+      // --- Quelle A: eingebackener .txt.gz-Text (LibriVox), unveraendert ---
+      var url = car ? car.textUrl : null;
       if (!url || !/\.txt\.gz$/i.test(url)) { return; }   // finally rendert
-      // textUrl ist assets-relativ (z. B. "hoerbuch-texte/de/…-172.txt.gz").
+      // textUrl ist assets-relativ (z. B. "hoerbuch-texte/de/...-172.txt.gz").
       var raw = await gzFetchText("assets/" + url);
       if (wantId !== _plReadBookId) return;
-      var _range = col ? col.textRange : null;
+      var _range = car ? car.textRange : null;
       _plReadLines = _plReadExtract(raw, _range);  // textRange -> Marken -> ganzer Text
     }
   } catch (e) {
@@ -5536,13 +5572,21 @@ function _plWikitextToPlain(t) {
 }
 
 // Kumulierte Abspielsekunden über das ganze Buch (Kapitel davor + laufendes).
-function _plReadElapsedSeconds(col) {
-  if (!col || !Array.isArray(col.items)) return 0;
-  var cur = (typeof plBookCurrentItem === "function") ? plBookCurrentItem() : null;
-  var idx = (cur && typeof cur.chapter_pos === "number") ? cur.chapter_pos : 0;
+function _plReadElapsedSeconds() {
+  var tc = _plReadTextCarrier();
+  if (!tc) return 0;
+  // Vorangehende Kapitel nur im "work"-Modus aufsummieren; im "chapter"-Modus
+  // zaehlt nur die Zeit im aktuellen Kapitel (jedes Kapitel hat eigenen Text).
   var before = 0;
-  for (var i = 0; i < idx && i < col.items.length; i++) {
-    before += (+col.items[i].duration || 0);
+  if (tc.scope === "work") {
+    var work = tc.work;
+    var cur = (typeof plBookCurrentItem === "function") ? plBookCurrentItem() : null;
+    var idx = (cur && typeof cur.chapter_pos === "number") ? cur.chapter_pos : 0;
+    if (work && Array.isArray(work.items)) {
+      for (var i = 0; i < idx && i < work.items.length; i++) {
+        before += (+work.items[i].duration || 0);
+      }
+    }
   }
   var inCh = 0;
   if (typeof pBuf !== "undefined" && pBuf) {
@@ -5553,7 +5597,7 @@ function _plReadElapsedSeconds(col) {
     var chWerk = pBuf.duration * sp;          // reale Kapiteldauer -> Werk
     inCh = Math.max(0, Math.min(cWerk, chWerk));
   }
-  return before + inCh;   // alles in Werk-Zeit
+  return before + inCh;   // Werk-Zeit ("work") bzw. Kapitel-Zeit ("chapter")
 }
 
 // === Absatz-Klassifizierer fuer die Hoerbuch-Textbox =================

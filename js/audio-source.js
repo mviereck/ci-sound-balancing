@@ -1364,7 +1364,14 @@ function _amFlattenBookChapters(cols) {
         workId: col.id,
         chapter_pos: ii,
         sourceTitle: col.sourceTitle || null,
-        tags: mergedTags
+        tags: mergedTags,
+        // textScope "chapter": Text-Zeiger liegt am Kapitel-Item (jeder Artikel
+        // sein eigener Text). Nur durchreichen, wenn das Quell-Kapitel sie traegt;
+        // bei "work"-Werken (LibriVox) fehlen sie, der Text kommt von der Collection.
+        textScope: ch.textScope || null,
+        textUrl:   ch.textUrl   || null,
+        textLive:  ch.textLive  || null,
+        textRange: ch.textRange || null
       });
     }
   }
@@ -1791,6 +1798,7 @@ amRegisterProvider({
           // die "Audioquelle"-Anzeige. Ohne Durchreichen bliebe audioOriginUrl leer.
           url:     col.url || null,
           pdfUrl:  col.pdfUrl || null,
+          textScope: col.textScope || null,
           textUrl: col.textUrl || null,
           textRange: col.textRange || null,
           textLive: col.textLive || null,   // Live-Textweg (Commons): Wikipedia-API-Beschaffung
@@ -1801,7 +1809,12 @@ amRegisterProvider({
               title: it.title || ("Kapitel " + (i+1)),
               audio: _amResolveAudioUrl(it.audio, srcBase),
               duration: it.duration,
-              tags: _amBuildItemTags(it, col, srcDefaults)
+              tags: _amBuildItemTags(it, col, srcDefaults),
+              // Kapitel-Textfelder (textScope "chapter") durchreichen.
+              textScope: it.textScope || null,
+              textUrl:   it.textUrl   || null,
+              textLive:  it.textLive  || null,
+              textRange: it.textRange || null
             };
           })
         });
