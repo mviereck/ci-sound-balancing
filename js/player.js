@@ -2262,42 +2262,49 @@ const plCategories = {
   },
 
   hoerbuecher: {
-    // --- Vertrag --- (Liste = Kapitel des aktuellen Werks; Zeiger = Kapitel)
+    // --- Vertrag (flach wie Musik/Geraeusche, BA704) ---
+    // list() = alle sichtbaren Kapitel-Items (ueber die Achsen gefiltert,
+    // u.a. Werk-Achse). Zeiger = das gewaehlte Kapitel-Item (plBookSelectedId).
     list: function () {
-      const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-      var pool = (col && Array.isArray(col.items)) ? col.items : [];
+      var pool = plBookVisibleItems();
       return (typeof amCombinedNavList === "function") ? amCombinedNavList("hoerbuecher", pool) : pool;
     },
-    current: function () {
-      return (typeof plBookCurrentChapter === "function") ? plBookCurrentChapter() : null;
-    },
+    current: function () { return plBookCurrentItem(); },
     select: function (item) {
-      const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-      if (!col || !Array.isArray(col.items)) return;
-      const idx = col.items.indexOf(item);
-      if (idx < 0) return;
-      plBookChapterIdx = idx;
-      const sel = document.getElementById("plBookChSel");
-      if (sel) sel.value = String(idx);
+      if (!item) return;
+      plBookSelectedId = item.id;
+      const sel = document.getElementById("plBookItemSel");
+      if (sel) sel.value = item.id;
     },
     load: function () { return plBookLoadSelected(); },
-    // --- Anzeige (unveraendert) ---
+    // Startwunsch auf Kapitel-Ebene: ein Kapitel des Start-Werks. Die
+    // Werk-Vorwahl geschieht ueber die work-Achse (pickInitial findet dann
+    // ein Kapitel dieses Werks); sonst greift list[0].
+    pickInitial: function (list) {
+      // Start-Werk "Deutschland. Ein Wintermaerchen" (librivox:3580):
+      // erstes Kapitel dieses Werks, falls in der gefilterten Liste.
+      for (var i = 0; i < list.length; i++) {
+        if (list[i] && (list[i].workId || "").endsWith("librivox:3580")) return list[i];
+      }
+      return null;
+    },
+    // --- Anzeige ---
     currentItem: function () {
-      const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-      const ch  = (typeof plBookCurrentChapter    === "function") ? plBookCurrentChapter()    : null;
-      if (!col || !ch) return null;
-      var hasText = col.tags && col.tags.has_text;
+      const it = plBookCurrentItem();
+      if (!it) return null;
+      const col = plBookWorkOf(it);
+      var hasText = col && col.tags && col.tags.has_text;
       return {
-        chapter:       ch.title  || "",
-        work:          col.title || "",
-        author:        (col.tags && col.tags.work_author) || "",
-        reader:        (col.tags && col.tags.reader)      || "",
-        lang:          col.lang    || "",
-        license:       col.license || "",
-        pdfUrl:        col.pdfUrl  || "",
-        audioOriginUrl: col.url || (col.tags && col.tags.url) || "",
+        chapter:        it.title || "",
+        work:           (it.tags && it.tags.work) || (col && col.title) || "",
+        author:         (it.tags && it.tags.work_author) || "",
+        reader:         (it.tags && it.tags.reader) || "",
+        lang:           (col && col.lang) || "",
+        license:        (col && col.license) || "",
+        pdfUrl:         (col && col.pdfUrl) || "",
+        audioOriginUrl: (col && (col.url || (col.tags && col.tags.url))) || "",
         textOriginUrl:  hasText ? ((col.tags && col.tags.url_text_source) || "") : "",
-        credit:        col.credit || (col.tags && col.tags.credit) || ""
+        credit:         (col && (col.credit || (col.tags && col.tags.credit))) || ""
       };
     },
     title: function (ctx) {
@@ -2318,10 +2325,10 @@ const plCategories = {
       pSetPlaybackMode("hoerbuecher");
       plNavEnsureCursor();
       if (typeof plBookRefreshUI === "function") plBookRefreshUI();
-      if (plBookCurrentChapter()) {
-        // plBookLoadSelected stellt die Pro-Werk-Position selbst wieder her
-        // (plBookPositions). KEIN plNavRestorePos hier.
-        plBookLoadSelected();
+      if (plBookCurrentItem()) {
+        Promise.resolve(plBookLoadSelected()).then(function () {
+          plNavRestorePos();
+        });
       }
     },
     onDeactivate: function () {
@@ -3447,7 +3454,7 @@ function plBuildFilterChain(catDecl) {
   // BA342: Fuer die AKTIVE Kategorie zuerst den Zeiger gegen die aktuell
   // gefilterte Liste validieren -> zentrale, einzige Zeiger-Neuwahl (bei Zufall
   // gewuerfelt), bevor die Dropdown-Werte gesetzt werden. Die Stage-Eigenwahl
-  // (item-sel/collection-sel visible[0]) bleibt nur Fallback fuer INAKTIVE
+  // (item-sel visible[0]) bleibt nur Fallback fuer INAKTIVE
   // Kategorien.
   if (catDecl.category === plActiveSource && typeof plNavEnsureCursor === "function") {
     plNavEnsureCursor();
@@ -3543,105 +3550,6 @@ function plBuildFilterChain(catDecl) {
         domEl.value = catDecl.stateRef.getSelectedId();
       }
 
-    } else if (stage.kind === "collection-sel") {
-      // Sammlung-Dropdown (Hoerbuch: sortierte Liste aller Collections)
-      var colEmptyEl = stage.emptyDomId ? document.getElementById(stage.emptyDomId) : null;
-      var allCols = (typeof amCollectCollections === "function")
-        ? amCollectCollections(catDecl.category) : [];
-      // BA336: Vor-Filter nach Inhalts-Sprache fuer sprach-sensible Kategorien
-      if (catDecl.languageSensitive) {
-        var _cLang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
-        var _cBase = (typeof _amBaseLang === "function") ? _amBaseLang(_cLang) : _cLang;
-        allCols = allCols.filter(function (c) {
-          return !c.lang || ((typeof _amBaseLang === "function")
-            ? _amBaseLang(c.lang) === _cBase : c.lang === _cLang);
-        });
-      }
-      // Parallele Achsen-Auswahl (plBookAxisSel) auf die Buchliste anwenden:
-      // dieselbe generische Engine wie bei Items, nur auf Collections. So
-      // grenzen die Achsen-Boxen die Buch-Auswahl ein (nie die Kapitel).
-      if (typeof catDecl.stateRef.getAxisSel === "function"
-          && typeof amSortAxesFor === "function"
-          && typeof amItemMatchesAxes === "function") {
-        var _axDecl = (catDecl.stages || []).find(function (s) { return s.kind === "parallel-axes"; });
-        if (_axDecl) {
-          var _axAll = amSortAxesFor(catDecl.category);
-          var _axList = [];
-          (_axDecl.parallelAxes || []).forEach(function (k) {
-            var a = _axAll.find(function (x) { return x.key === k; });
-            if (a) _axList.push(a);
-          });
-          var _selT = {};
-          _axList.forEach(function (a) { _selT[a.key] = catDecl.stateRef.getAxisSel(a.key); });
-          allCols = allCols.filter(function (c) {
-            return amItemMatchesAxes(_axList, _selT, c);
-          });
-        }
-      }
-      // Stichwortsuche (falls die Kategorie ein Suchfeld hat): filtert die
-      // Buchliste nach Titel/Autor/Anzeige-Name. Analog zur Musik-/Geraeusch-
-      // Suche, nur auf Collections.
-      if (typeof catDecl.stateRef.getSearchQuery === "function") {
-        var _q = (catDecl.stateRef.getSearchQuery() || "").trim().toLowerCase();
-        if (_q) {
-          allCols = allCols.filter(function (c) {
-            var hay = ((c.displayName || "") + " " + (c.title || "") + " "
-              + ((c.tags && c.tags.work_author) || "")).toLowerCase();
-            return hay.indexOf(_q) >= 0;
-          });
-        }
-      }
-      var sortedCols = (typeof amSortCollections === "function")
-        ? amSortCollections(allCols, catDecl.category, catDecl.stateRef.getSortAxis())
-        : allCols;
-      while (domEl.firstChild) domEl.removeChild(domEl.firstChild);
-      for (var ci = 0; ci < sortedCols.length; ci++) {
-        var coll = sortedCols[ci];
-        var copt = document.createElement("option");
-        copt.value = coll.id;
-        // Anzeige "Nachname, Vorname – Titel" (displayName aus Manifest);
-        // Fallback auf Titel (lokale Uploads ohne displayName).
-        copt.textContent = coll.displayName || coll.title || coll.id;
-        domEl.appendChild(copt);
-      }
-      if (sortedCols.length === 0) {
-        if (colEmptyEl) colEmptyEl.style.display = "";
-        catDecl.stateRef.setSelectedId(null);
-      } else {
-        if (colEmptyEl) colEmptyEl.style.display = "none";
-        var curColId = catDecl.stateRef.getSelectedId();
-        var colExists = sortedCols.some(function (c) { return c.id === curColId; });
-        if (!colExists) {
-          // Start-Werk bei leerem/ungueltigem Zeiger: deklarierter Startwunsch
-          // der Kategorie (pickInitialWork) auf der bereits sprachgefilterten
-          // Werkliste; sonst das erste Werk.
-          var startCol = (typeof catDecl.pickInitialWork === "function")
-            ? (catDecl.pickInitialWork(sortedCols) || sortedCols[0])
-            : sortedCols[0];
-          catDecl.stateRef.setSelectedId(startCol.id);
-        }
-        domEl.value = catDecl.stateRef.getSelectedId();
-      }
-
-    } else if (stage.kind === "chapter-sel") {
-      // Kapitel-Dropdown (Hoerbuch: Kapitel der aktuell gewaehlten Collection)
-      var curCol = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-      while (domEl.firstChild) domEl.removeChild(domEl.firstChild);
-      if (curCol && Array.isArray(curCol.items)) {
-        for (var ki = 0; ki < curCol.items.length; ki++) {
-          var kopt = document.createElement("option");
-          kopt.value = String(ki);
-          kopt.textContent = (ki + 1) + ". " + (curCol.items[ki].title || ("Kapitel " + (ki + 1)));
-          domEl.appendChild(kopt);
-        }
-        var chIdx = catDecl.stateRef.getChapterIdx();
-        if (chIdx >= curCol.items.length) {
-          chIdx = 0;
-          catDecl.stateRef.setChapterIdx(0);
-        }
-        domEl.value = String(chIdx);
-      }
-
     } else if (stage.kind === "lang-sel") {
       // Sprach-Sonderbox: kein "_all", immer sichtbar, Pflicht-Wahl.
       // plContentLangAvailable(category) liefert die Sprachcodes DIESER
@@ -3679,24 +3587,14 @@ function plBuildFilterChain(catDecl) {
       for (var st1 = 0; st1 < axList.length; st1++) {
         selTable[axList[st1].key] = catDecl.stateRef.getAxisSel(axList[st1].key);
       }
-      // Basismenge. Default = alle Items der Kategorie. Mit
-      // stage.basis === "collections" (Hoerbuecher) sind es stattdessen
-      // die Sammlungen (Buecher): dieselbe generische Achsen-Engine
-      // filtert dann Buecher statt Items -- ein Buch traegt seine Tags
-      // wie ein Item. Die parallelen Achsen filtern so nur Buecher,
-      // nie Kapitel.
       var baseItems;
-      if (stage.basis === "collections") {
-        baseItems = (typeof amCollectCollections === "function")
-          ? amCollectCollections(catDecl.category) : [];
+      if (typeof catDecl.visibleItems === "function") {
+        baseItems = catDecl.visibleItems();
       } else {
-        baseItems = (typeof amCollectItems === "function")
-          ? amCollectItems(catDecl.category) : [];
-      }
-      if (typeof catDecl.axesBaseItems === "function") {
-        // Optionaler Hook: Kategorie kann die Basismenge vorfiltern
-        // (Saetze/Hoerbuecher: nach Inhalts-Sprache). Default = volle Kategorie.
-        baseItems = catDecl.axesBaseItems(baseItems);
+        baseItems = (typeof amCollectItems === "function") ? amCollectItems(catDecl.category) : [];
+        if (typeof catDecl.axesBaseItems === "function") {
+          baseItems = catDecl.axesBaseItems(baseItems);
+        }
       }
 
       // Container leeren.
@@ -3916,22 +3814,6 @@ function plBuildFilterChain(catDecl) {
         wel.addEventListener("change", function () {
           catDecl.stateRef.setSelectedId(wel.value);
           if (wstage.onItemSelect) wstage.onItemSelect(wel.value);
-        });
-
-      } else if (wstage.kind === "collection-sel") {
-        wel.addEventListener("change", function () {
-          if (wstage.onCollectionSelect) wstage.onCollectionSelect(wel.value);
-          else {
-            catDecl.stateRef.setSelectedId(wel.value);
-            plBuildFilterChain(catDecl);
-          }
-        });
-
-      } else if (wstage.kind === "chapter-sel") {
-        wel.addEventListener("change", function () {
-          var idx = parseInt(wel.value, 10) || 0;
-          catDecl.stateRef.setChapterIdx(idx);
-          if (wstage.onChapterSelect) wstage.onChapterSelect(idx);
         });
 
       } else if (wstage.kind === "lang-sel") {
@@ -5018,37 +4900,71 @@ async function plBookHandleUpload(fileList) {
   };
 
   amAddLocalBookCollection(collection);
-  plBookSelectedId = bookId;
-  plBookChapterIdx = 0;
+  // BA704: plBookSelectedId zeigt auf eine Kapitel-Item-ID, nicht die Collection-ID.
+  // Erstes Kapitel des neuen Werks vorwaehlen; work-Achse auf den neuen Werktitel
+  // setzen, damit das hochgeladene Buch nicht durch eine andere Achsen-Wahl verborgen bleibt.
+  plBookSelectedId = (items.length > 0) ? items[0].id : null;
+  plBookAxisSel.work = folderName;
   plBookRefreshUI();
 }
 
-function plBookCurrentCollection() {
-  const all = (typeof amCollectCollections === "function")
+// BA704: sichtbare Kapitel-Items (Achsen-gefiltert), analog plNoiseVisibleItems.
+function plBookVisibleItems() {
+  var items = (typeof amCollectItems === "function") ? amCollectItems("hoerbuecher") : [];
+  // Inhalts-Sprache vorfiltern (sprach-sensible Kategorie): Kapitel erben
+  // col.lang NICHT als Tag -> ueber das Werk nachschlagen.
+  var lang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
+  var base = (typeof _amBaseLang === "function") ? _amBaseLang(lang) : lang;
+  items = items.filter(function (it) {
+    var col = plBookWorkOf(it);
+    var cl = col ? col.lang : null;
+    return !cl || ((typeof _amBaseLang === "function") ? _amBaseLang(cl) === base : cl === lang);
+  });
+  // Achsen-Auswahl anwenden (dieselbe generische Engine wie bei Geraeuschen).
+  if (typeof amItemMatchesAxes === "function" && typeof amSortAxesFor === "function"
+      && typeof plBookAxisSel !== "undefined") {
+    var axes = amSortAxesFor("hoerbuecher");
+    var axList = ["work", "genre", "fiction", "author", "reader", "epoch",
+                  "length", "text_source", "gender", "dialekt", "synthetic", "source"]
+      .map(function (k) { return axes.find(function (a) { return a.key === k; }); })
+      .filter(function (a) { return !!a; });
+    var sel = {};
+    axList.forEach(function (a) {
+      var v = plBookAxisSel[a.key];
+      sel[a.key] = (v === undefined) ? "_all" : v;
+    });
+    items = items.filter(function (it) { return amItemMatchesAxes(axList, sel, it); });
+  }
+  // Stabil sortieren: nach Werk, dann Kapitel-Position.
+  items.sort(function (a, b) {
+    var wa = (a.tags && a.tags.work) || "", wb = (b.tags && b.tags.work) || "";
+    if (wa !== wb) return wa < wb ? -1 : 1;
+    return (a.chapter_pos || 0) - (b.chapter_pos || 0);
+  });
+  return items;
+}
+
+// Das aktuell gewaehlte Kapitel-Item (ueber plBookSelectedId).
+function plBookCurrentItem() {
+  if (!plBookSelectedId) return null;
+  var items = plBookVisibleItems();
+  return items.find(function (it) { return it.id === plBookSelectedId; }) || null;
+}
+
+// Werk (Collection) zu einem Kapitel-Item, ueber item.workId. Dient dem
+// Mitlesen (Text + Kapitelsequenz) und der Anzeige. Nachschlag in der
+// weiterhin vorhandenen Collection-Liste (keine neue Struktur).
+function plBookWorkOf(item) {
+  if (!item || !item.workId) return null;
+  var all = (typeof amCollectCollections === "function")
     ? amCollectCollections("hoerbuecher") : [];
-  return all.find(function (c) { return c.id === plBookSelectedId; }) || null;
+  return all.find(function (c) { return c.id === item.workId; }) || null;
 }
 
-function plBookCurrentChapter() {
-  const col = plBookCurrentCollection();
-  if (!col || !col.items || col.items.length === 0) return null;
-  const idx = Math.max(0, Math.min(plBookChapterIdx, col.items.length - 1));
-  return col.items[idx];
-}
-
-// Deklaration: Hoerbuecher
+// Deklaration: Hoerbuecher (BA704: flach wie Musik/Geraeusche)
 PL_FILTER_DECL.hoerbuecher = {
   category: "hoerbuecher",
   languageSensitive: true,
-  // Startwunsch auf WERK-Ebene (nicht Kapitel): "Deutschland. Ein
-  // Wintermärchen". Ausgewertet in der collection-sel-Stage von
-  // plBuildFilterChain bei leerem/ungueltigem Werk-Zeiger. Die Werkliste ist
-  // bereits nach Inhaltssprache gefiltert — bei Nicht-Deutsch ist das Buch
-  // nicht dabei, dann greift sortedCols[0]. Die Laufzeit-id traegt ein
-  // Loader-Praefix (webspace-book:) -> Suffix-Match auf "librivox:3580".
-  pickInitialWork: function (cols) {
-    return cols.find(function (c) { return (c.id || "").endsWith("librivox:3580"); }) || null;
-  },
   _wired: false,
   fieldDecl: [
     { key: "chapter",      labelKey: "plDispFieldChapter",    getValue: function (ctx) { return ctx.chapter       || ""; }, role: "title",   inFilter: false, inDisplay: true,  visibility: "always" },
@@ -5062,13 +4978,8 @@ PL_FILTER_DECL.hoerbuecher = {
     { key: "pdfUrl",       labelKey: "plDispFieldPdf",       getValue: function (ctx) { return ctx.pdfUrl        || ""; }, role: "pdf",     inFilter: false, inDisplay: false, visibility: "never"  }
   ],
   stateRef: {
-    // Sortierung fest alphabetisch nach Autor (keine Sortier-Box mehr).
-    getSortAxis:   function () { return "author"; },
-    setSortAxis:   function () {},
     getSelectedId: function () { return plBookSelectedId; },
     setSelectedId: function (v) { plBookSelectedId = v; },
-    getChapterIdx: function () { return plBookChapterIdx; },
-    setChapterIdx: function (v) { plBookChapterIdx = v; },
     getAxisSel: function (axisKey) {
       var v = plBookAxisSel[axisKey];
       return (v === undefined) ? "_all" : v;
@@ -5079,17 +4990,7 @@ PL_FILTER_DECL.hoerbuecher = {
     getSearchQuery: function () { return plBookSearchQuery; },
     setSearchQuery: function (v) { plBookSearchQuery = v; }
   },
-  // Basismenge der parallelen Achsen: die Buch-Sammlungen, nach
-  // Inhalts-Sprache vorgefiltert (die lang-sel-Box bedient plContentLang;
-  // die Achsen sehen nur Buecher der aktuellen Sprache). Analog zu Saetzen,
-  // nur auf Collections. lang-lose Uploads immer dabei.
-  axesBaseItems: function (cols) {
-    var lang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
-    var base = _amBaseLang(lang);
-    return cols.filter(function (c) {
-      return !c.lang || _amBaseLang(c.lang) === base;
-    });
-  },
+  visibleItems: function () { return plBookVisibleItems(); },
   stages: [
     {
       id: "upload", kind: "upload", domId: "plBookUploadBox",
@@ -5121,38 +5022,26 @@ PL_FILTER_DECL.hoerbuecher = {
     },
     {
       id: "axes", kind: "parallel-axes", domId: "plBookAxes",
-      basis: "collections",
-      parallelAxes: ["source", "fiction", "genre", "author", "reader",
+      parallelAxes: ["work", "source", "fiction", "genre", "author", "reader",
                      "gender", "dialekt", "synthetic", "epoch", "length", "text_source"]
     },
     {
       id: "search", kind: "search", domId: "plBookSearchInput"
     },
     {
-      id: "collection", kind: "collection-sel", domId: "plBookSel",
+      id: "item", kind: "item-sel", domId: "plBookItemSel",
       emptyDomId: "plBookEmpty",
-      onCollectionSelect: function (id) {
+      getItemLabel: function (it) {
+        // "Werk — Kapitel" bei Mehrkapitel-Werken, sonst Kapiteltitel.
+        var w = (it.tags && it.tags.work) || "";
+        var c = it.title || it.id || "";
+        return (w && w !== c) ? (w + " — " + c) : c;
+      },
+      onItemSelect: function (id) {
         plBookSavePosition();
         _plNavApplyFilterChange(PL_FILTER_DECL.hoerbuecher, function () {
           plBookSelectedId = id;
-          var pos = plBookPositions && plBookPositions[id];
-          plBookChapterIdx = (pos && typeof pos.chapterIdx === "number") ? pos.chapterIdx : 0;
         });
-      }
-    },
-    {
-      id: "chapter", kind: "chapter-sel", domId: "plBookChSel",
-      onChapterSelect: function (idx) {
-        plBookSavePosition();
-        var col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-        var item = (col && Array.isArray(col.items)) ? col.items[idx] : null;
-        if (plActiveSource !== "hoerbuecher") {
-          plBookChapterIdx = idx;
-          if (typeof plUpdDisplay === "function") plUpdDisplay();
-          return;
-        }
-        if (item) _plNavGoTo(item);
-        else if (typeof plUpdDisplay === "function") plUpdDisplay();
       }
     }
   ],
@@ -5245,12 +5134,21 @@ function plSyncUI(opts) {
 }
 
 function plBookRefreshUI() {
+  // BA704: Start-Werk in der work-Achse vorbelegen (bisheriges Verhalten:
+  // beim Oeffnen ein Buch gewaehlt). Nur setzen, wenn noch keine Wahl
+  // getroffen wurde, und nur, wenn das Werk in der aktuellen Sprache existiert.
+  if (plBookAxisSel.work === undefined) {
+    var _cols = (typeof amCollectCollections === "function")
+      ? amCollectCollections("hoerbuecher") : [];
+    var _start = _cols.find(function (c) { return (c.id || "").endsWith("librivox:3580"); });
+    if (_start) plBookAxisSel.work = _start.title;
+  }
   plBuildFilterChain(PL_FILTER_DECL.hoerbuecher);
 }
 if (typeof amRegisterCategoryRefresh === "function") amRegisterCategoryRefresh("hoerbuecher", plBookRefreshUI);
 
 async function plBookLoadSelected() {
-  const ch = plBookCurrentChapter();
+  const ch = plBookCurrentItem();
   if (!ch) return;
   const ctx = gPC();
   const abuf = await amGetItemBuffer(ctx, ch);
@@ -5259,14 +5157,14 @@ async function plBookLoadSelected() {
   pBookBuf = abuf;
   pSetPlaybackMode("hoerbuecher");
 
-  // Gespeicherte Position ggf. wiederherstellen (überschreibt den
+  // Gespeicherte Position ggf. wiederherstellen (ueberschreibt den
   // 0-Reset aus pSetPlaybackMode).
   const sp = (typeof pSpeed === "number" && pSpeed > 0) ? pSpeed : 1;
-  const pos = (plBookPositions && plBookPositions[plBookSelectedId]) || null;
-  if (pos && typeof pos.chapterIdx === "number" && pos.chapterIdx === plBookChapterIdx
-      && typeof pos.posSeconds === "number" && pos.posSeconds > 0
-      && pos.posSeconds < abuf.duration - 5) {          // Vergleich in Werk-Zeit
-    pOff = pos.posSeconds / sp;                          // reale Position
+  const key = (typeof _amBufKey === "function") ? _amBufKey(ch) : ch.id;
+  const pos = (plBookPositions && plBookPositions[key]) || null;
+  if (pos && typeof pos.posSeconds === "number" && pos.posSeconds > 0
+      && pos.posSeconds < abuf.duration - 5) {
+    pOff = pos.posSeconds / sp;
     document.getElementById("plCur").textContent = pFmt(pOff);
     document.getElementById("plTL").value = (pOff / (abuf.duration / sp)) * 1000;
   } else {
@@ -5281,14 +5179,15 @@ async function plBookLoadSelected() {
 }
 
 function plBookSavePosition() {
-  if (!plBookSelectedId || !plBookCurrentChapter()) return;
+  const ch = plBookCurrentItem();
+  if (!ch) return;
   const cur = (typeof pCtx !== "undefined" && pCtx && pPlaying)
     ? (pCtx.currentTime - pT0)
     : pOff;
   const sp = (typeof pSpeed === "number" && pSpeed > 0) ? pSpeed : 1;
+  const key = (typeof _amBufKey === "function") ? _amBufKey(ch) : ch.id;
   var _rb = document.getElementById("plReadBody");
-  plBookPositions[plBookSelectedId] = {
-    chapterIdx: plBookChapterIdx,
+  plBookPositions[key] = {
     posSeconds: Math.max(0, cur * sp),   // Werk-Zeit (tempo-unabhaengig)
     readTop: _rb ? _rb.scrollTop : 0
   };
@@ -5437,7 +5336,7 @@ var _plReadAutoAcc   = 0;      // Sub-Pixel-Akkumulator (scrollTop verwirft Nach
 function plReadAutoscrollStep() {
   var body = document.getElementById("plReadBody");
   if (!body) return;
-  var col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+  var col = plBookWorkOf(plBookCurrentItem());
   var total = 0;
   if (col && Array.isArray(col.items)) for (var i = 0; i < col.items.length; i++) total += (+col.items[i].duration || 0);
   if (total <= 0) { _plReadAutoLastT = null; return; }
@@ -5465,7 +5364,7 @@ function plReadAutoscrollStep() {
 function plReadFindPos() {
   var body = document.getElementById("plReadBody");
   if (!body || !_plReadLines) return;
-  var col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+  var col = plBookWorkOf(plBookCurrentItem());
   var total = 0;
   if (col && Array.isArray(col.items)) for (var i = 0; i < col.items.length; i++) total += (+col.items[i].duration || 0);
   if (total <= 0) return;
@@ -5477,7 +5376,7 @@ function plReadFindPos() {
 // Lädt (falls nötig) den Text zum aktuell gewählten Buch. Idempotent:
 // gleiches Buch → kein Neuladen. Kein Text/keine Marke → _plReadLines=null.
 async function plReadEnsureText() {
-  var col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+  var col = plBookWorkOf(plBookCurrentItem());
   var id  = col ? col.id : null;
 
   // Buch unverändert und schon geladen (oder als leer bekannt) → nichts tun.
@@ -5514,7 +5413,9 @@ async function plReadEnsureText() {
     // Leseposition wiederherstellen: gespeicherter readTop, sonst Stelle-Finden.
     var _body = document.getElementById("plReadBody");
     if (_body && _plReadLines) {
-      var _pos = (plBookPositions && plBookSelectedId) ? plBookPositions[plBookSelectedId] : null;
+      var _key = (typeof _amBufKey === "function" && plBookCurrentItem())
+        ? _amBufKey(plBookCurrentItem()) : null;
+      var _pos = (plBookPositions && _key) ? plBookPositions[_key] : null;
       if (_pos && typeof _pos.readTop === "number" && _pos.readTop > 0) {
         _body.scrollTop = _pos.readTop;
       } else {
@@ -5613,7 +5514,8 @@ function _plWikitextToPlain(t) {
 // Kumulierte Abspielsekunden über das ganze Buch (Kapitel davor + laufendes).
 function _plReadElapsedSeconds(col) {
   if (!col || !Array.isArray(col.items)) return 0;
-  var idx = (typeof plBookChapterIdx === "number") ? plBookChapterIdx : 0;
+  var cur = (typeof plBookCurrentItem === "function") ? plBookCurrentItem() : null;
+  var idx = (cur && typeof cur.chapter_pos === "number") ? cur.chapter_pos : 0;
   var before = 0;
   for (var i = 0; i < idx && i < col.items.length; i++) {
     before += (+col.items[i].duration || 0);

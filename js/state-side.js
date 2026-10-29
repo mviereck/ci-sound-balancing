@@ -819,11 +819,10 @@ let plNoiseAxisSel = {};
 let plSentAxisSel = {};
 let plContentLang = "de";             // BA336: Inhalts-Sprache (entkoppelt von Tool-Sprache lang); Default wird in init.js auf Tool-Sprache gesetzt
 let pNoiseBuf         = null;         // dekodierter / generierter Geraeusch-Buffer
-let plBookSelectedId = null;          // Collection-ID des aktuellen Buchs
-let plBookChapterIdx = 0;             // Index des aktuellen Kapitels
+let plBookSelectedId = null;          // Item-ID des aktuellen Kapitels
 let plBookAxisSel    = {};            // Auswahl-Tabelle der parallelen Hoerbuch-Achsen: { axisKey: wert }
 let plBookSearchQuery = "";           // Stichwortsuche der Hoerbuch-Buchliste
-let plBookPositions  = {};            // { <bookId>: { chapterIdx, posSeconds } }
+let plBookPositions  = {};            // { <bufKey>: { posSeconds, readTop } }
 
 // BA260: Musik-Bibliothek
 let plMusicSelectedId   = null;     // welches Stueck aktiv ist

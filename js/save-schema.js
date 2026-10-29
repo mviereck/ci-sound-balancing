@@ -292,7 +292,18 @@ var SAVE_SCHEMA = [
   // --- Hoerbuch-Positionen / Inhalts-Sprache ---
   { key: "plBookPositions", scope: "global",
     get: function () { return (typeof plBookPositions !== "undefined" && plBookPositions ? plBookPositions : {}); },
-    set: function (v) { if (typeof plBookPositions !== "undefined" && v && typeof v === "object") Object.assign(plBookPositions, v); },
+    set: function (v) {
+      // BA704: Alt-Format (werk-indiziert, mit chapterIdx) verwerfen. Neu ist
+      // kapitel-indiziert (bufKey -> {posSeconds, readTop}); Eintraege mit
+      // chapterIdx stammen aus dem alten Schema und werden ignoriert.
+      if (typeof plBookPositions === "undefined" || !v || typeof v !== "object") return;
+      var clean = {};
+      Object.keys(v).forEach(function (k) {
+        var e = v[k];
+        if (e && typeof e === "object" && typeof e.chapterIdx === "undefined") clean[k] = e;
+      });
+      Object.assign(plBookPositions, clean);
+    },
     default: function () { return {}; }, valid: { type: "object" } },
   { key: "plContentLang", scope: "global",
     get: function () { return (typeof plContentLang !== "undefined" ? plContentLang : "de"); },

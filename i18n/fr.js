@@ -1787,6 +1787,7 @@ Object.assign(L.fr, {
     amBookSortLang: "par langue",
     amBookSortReader: "par lecteur",
     amBookSortTitle: "par titre",
+    plBookAxisWork: "Œuvre",
     plBookAxisGenre: "Genre",
     plBookAxisAuthor: "Auteur",
     plBookAxisReader: "Lecteur",

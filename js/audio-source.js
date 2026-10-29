@@ -594,6 +594,13 @@ const AM_SORT_AXES = {
   // Builder), damit der Code nichts rechnen muss.
   hoerbuecher: [
     {
+      // BA704: Werk-Achse. Grenzt die Kapitelliste auf ein Buch ein.
+      // Wert = Werktitel (tags.work, von _amFlattenBookChapters gesetzt).
+      key: "work", labelKey: "plBookAxisWork", labelDefault: "Werk",
+      getter: function (c) { return (c.tags && c.tags.work) || "zzz-unbekannt"; },
+      valueOf: function (c) { return (c.tags && c.tags.work) || ""; }
+    },
+    {
       key: "genre", labelKey: "plBookAxisGenre", labelDefault: "Genre",
       multi: true,
       getter: function (c) {
@@ -1328,6 +1335,48 @@ function amCollectionSortAxesFor(category) {
   return AM_COLLECTION_SORT_AXES[category] || [];
 }
 
+// ============================================================
+// BA704: Hoerbuch-Kapitel als flache Items
+// ============================================================
+// Macht aus Hoerbuch-Collections (Werk + col.items[]) flache Kapitel-
+// Items wie bei Musik/Geraeuschen. Jedes Kapitel erbt die Werk-Tags
+// seiner Collection (damit die Hoerbuch-Achsen greifen) und traegt
+// zusaetzlich:
+//   - workId: id der Collection (Werk) -> Mitlese-/Positions-Nachschlag
+//   - tags.work: Werktitel -> Wert der "work"-Filter-Achse
+//   - chapter_pos: 0-basierter Index des Kapitels im Werk (fuer die
+//     Mitlese-Positionsrechnung ueber die Kapitelsequenz)
+// item.audio/_file/duration bleiben wie in der Collection -> der
+// vorhandene Ladeweg (amGetItemBuffer) greift unveraendert.
+function _amFlattenBookChapters(cols) {
+  var out = [];
+  if (!Array.isArray(cols)) return out;
+  for (var ci = 0; ci < cols.length; ci++) {
+    var col = cols[ci];
+    if (!col || !Array.isArray(col.items)) continue;
+    var workTags = col.tags || {};
+    for (var ii = 0; ii < col.items.length; ii++) {
+      var ch = col.items[ii];
+      if (!ch) continue;
+      // Werk-Tags erben, Kapitel-Tags gewinnen bei Kollision.
+      var mergedTags = Object.assign({}, workTags, ch.tags || {});
+      mergedTags.work = col.title || col.id || "";
+      out.push({
+        id: ch.id,
+        title: ch.title || ch.id || "",
+        audio: ch.audio || "",
+        _file: ch._file || null,
+        duration: ch.duration,
+        workId: col.id,
+        chapter_pos: ii,
+        sourceTitle: col.sourceTitle || null,
+        tags: mergedTags
+      });
+    }
+  }
+  return out;
+}
+
 function amCollectCollections(category) {
   const _lk = amIsLangCategory(category) ? (":" + amCurrentLang()) : "";
   return _amCacheGet(category, "collections:" + category + _lk, function () {
@@ -1389,7 +1438,9 @@ function amAddLocalBookCollection(col) {
 amRegisterProvider({
   id: "local-books",
   listItems: function (category) {
-    return [];
+    if (category !== "hoerbuecher") return [];
+    // BA704: lokale Hoerbuch-Uploads ebenfalls flach verflachen.
+    return _amFlattenBookChapters(this.listCollections("hoerbuecher"));
   },
   listCollections: function (category) {
     if (category !== "hoerbuecher") return [];
@@ -1652,7 +1703,12 @@ amRegisterProvider({
   id: "webspace",
   listItems: function (category) {
     const out = [];
-    if (category === "hoerbuecher") return out; // Hoerbuecher ueber listCollections
+    // BA704: Hoerbuch-Kapitel flach wie andere Kategorien. Die Collections
+    // kommen weiter aus listCollections (unten) und dienen dem Mitlese-
+    // Nachschlag; hier werden sie zu flachen Kapitel-Items verflacht.
+    if (category === "hoerbuecher") {
+      return _amFlattenBookChapters(this.listCollections("hoerbuecher"));
+    }
     // Detail-Datei (schlankes Boxen-Bündel): dieselbe Kategorie×Sprache-Datei für
     // alle Items. Nur relevant, wenn die Items detail-Offsets tragen (flache
     // Kategorien seit dem schlanken Bündel); sonst ungenutzt.
@@ -1718,7 +1774,7 @@ amRegisterProvider({
         // sprachgetrennten Manifesten derselben Quelle vor (Commons "Blade Runner"
         // de+es, gleicher Artikelname -> gleiche col.id "commons:blade-runner";
         // auch LibriVox). Ohne Sprach-Qualifizierung kollidieren die Laufzeit-ids
-        // und plBookCurrentCollection().find(id) liefert die zuerst geladene
+        // und plBookWorkOf().find(id) liefert die zuerst geladene
         // (deutsche) Version. Das Segment steht VOR _rawId, damit der Startwunsch-
         // Suffix-Match (endsWith("librivox:3580")) intakt bleibt.
         const _langSeg = col.lang ? (String(col.lang) + ":") : "";
