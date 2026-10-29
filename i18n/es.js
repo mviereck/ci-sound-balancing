@@ -1682,6 +1682,8 @@ Object.assign(L.es, {
     plNetSourceLabel: "Fuente:",
     plNetOnline: "en línea",
     plNetOffline: "sin conexión",
+    plNetHintOffline: "Sin conexión — se muestra el contenido incluido.",
+    plNetRecheck: "Comprobar de nuevo",
     plSrcMusic: "♫ Música",
     plSrcSentences: "💬 Frases",
     plSrcNoise: "🔊 Sonidos",

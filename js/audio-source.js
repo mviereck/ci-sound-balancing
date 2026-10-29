@@ -241,6 +241,9 @@ function amAfterSourceChange() {
   amRefreshCategory("musik");
   amRefreshCategory("geraeusche");
   amRefreshCategory("hoerbuecher");
+  // BA703: Offline-Hinweiszeile im Player nachziehen (Guard: Funktion lebt
+  // in player.js und ist evtl. noch nicht geladen).
+  if (typeof plUpdNetHint === "function") plUpdNetHint();
 }
 
 // Zentraler Setter. Aendert den Modus, laedt im Offline-Modus das Bundle
@@ -296,6 +299,7 @@ function _amCacheGet(category, key, build) {
 }
 
 function amCollectItems(category) {
+  if (typeof amNetEnsureFresh === "function") amNetEnsureFresh();
   const _lk = amIsLangCategory(category) ? (":" + amCurrentLang()) : "";
   return _amCacheGet(category, "items:" + category + _lk, function () {
   const out = [];
@@ -1468,6 +1472,16 @@ async function amWebspaceLoadIndex() {
   }
 }
 
+// Setzt den Webspace-Fehlerzustand zurück, damit nach einem
+// zwischenzeitlichen Offline ein erneutes Index-Laden möglich wird.
+// Der Netzstatus-Wächter ruft das, wenn ein Ping nach vorherigem
+// Offline wieder Erfolg meldet (§9.4). Nur das Fehler-/Index-Flag wird
+// geleert; bereits geladene Bündel bleiben im manifests-Cache.
+function amWebspaceResetFailed() {
+  _amWebspace.failed = false;
+  _amWebspace.indexLoaded = false;
+}
+
 // Bündel-Schlüssel im manifests-Speicher (quellenübergreifend, EIN Eintrag je
 // Kategorie×Sprache — nicht mehr pro Quelle).
 function _amBundleKey(category, langKey) { return "bundle|" + category + "|" + langKey; }
@@ -2137,3 +2151,122 @@ amRegisterIndexSource({
     return _amCvLiveCommon(c);
   }
 });
+
+// ============================================================
+// Netzstatus-Wächter (BA703) — automatische Online/Offline-Erkennung.
+// Siehe .docs/spec/00-embedded-audio-architektur.md §9.
+// Setzt amSourceMode über amSetSourceMode(); amCollectItems bleibt die
+// EINE Filterstelle. Blockiert nie: Listenbau liest das letzte bekannte
+// Ping-Ergebnis, Pings laufen async.
+// ============================================================
+
+var AM_NET_PING_TIMEOUT_MS = 5000;   // Timeout eines einzelnen Pings (§9.1)
+var AM_NET_PING_TTL_MS     = 45000;  // Gültigkeit des gecachten Ping-Ergebnisses (§9.2)
+var AM_NET_FAIL_THRESHOLD  = 2;      // erst nach so vielen Fehl-Pings in Folge -> offline (§9.1)
+
+var _amNet = {
+  pingOkAt: 0,        // Zeitstempel des letzten erfolgreichen Pings (0 = nie)
+  pingInFlight: false,
+  failStreak: 0       // aufeinanderfolgende Fehl-Pings
+};
+
+// URL der Ping-Datei (relativ zum Audio-Server). Eigener Cache-Buster,
+// damit kein alter 200er aus dem Browser-Cache "online" vortäuscht —
+// zusätzlich zu cache:"no-store".
+function _amPingUrl() {
+  return amWebspaceRoot() + "ping.txt?t=" + Date.now();
+}
+
+// Ein einzelner HEAD-Ping mit Timeout. Erfolg = r.ok. Der Datei-Inhalt
+// wird nicht gelesen (ping.txt ist leer). Gibt true/false zurück.
+async function _amPingOnce() {
+  var ctrl = new AbortController();
+  var timer = setTimeout(function () { try { ctrl.abort(); } catch (e) {} }, AM_NET_PING_TIMEOUT_MS);
+  try {
+    var r = await fetch(_amPingUrl(), { method: "HEAD", cache: "no-store", signal: ctrl.signal });
+    return !!(r && r.ok);
+  } catch (e) {
+    return false;   // Timeout (AbortError) oder Netzfehler
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+// Kern: EINEN Ping ausführen und daraus den Modus ableiten (mit Dämpfung).
+// Doppel-Läufe werden unterdrückt (pingInFlight).
+async function amNetProbe() {
+  // navigator.onLine === false ist zuverlässig "kein Netz": sofort offline,
+  // kein Ping nötig (§9.1).
+  if (typeof navigator !== "undefined" && navigator.onLine === false) {
+    _amNet.failStreak = AM_NET_FAIL_THRESHOLD;   // als "offline bestätigt" merken
+    amSetSourceMode("offline");
+    return;
+  }
+  if (_amNet.pingInFlight) return;
+  _amNet.pingInFlight = true;
+  var ok;
+  try {
+    ok = await _amPingOnce();
+  } finally {
+    _amNet.pingInFlight = false;
+  }
+  if (ok) {
+    _amNet.failStreak = 0;
+    _amNet.pingOkAt = Date.now();
+    // Nach zwischenzeitlichem Offline den Webspace-Fehlerzustand lösen (§9.4),
+    // damit der Index neu geladen wird.
+    if (amGetSourceMode() === "offline" && typeof amWebspaceResetFailed === "function") {
+      amWebspaceResetFailed();
+    }
+    amSetSourceMode("online");
+  } else {
+    _amNet.failStreak++;
+    // Dämpfung: erst ab Schwelle umschalten (§9.1). Ein einzelner
+    // Aussetzer bei trägem Netz schaltet NICHT um.
+    if (_amNet.failStreak >= AM_NET_FAIL_THRESHOLD) {
+      amSetSourceMode("offline");
+    }
+  }
+}
+
+// Nicht-blockierender Anstoß: wenn das letzte Ping-Ergebnis älter als die
+// TTL ist (oder nie), einen Ping im Hintergrund starten. Ruft der Listenbau
+// bzw. Lese-Pfade auf, ohne auf das Ergebnis zu warten (§9.2/§9.3).
+function amNetEnsureFresh() {
+  if (_amNet.pingInFlight) return;
+  var age = Date.now() - _amNet.pingOkAt;
+  if (_amNet.pingOkAt === 0 || age > AM_NET_PING_TTL_MS) {
+    amNetProbe();   // kein await — Hintergrund
+  }
+}
+
+// Sofort-Ping, Cache verworfen. Auslöser: 404/Fehlschlag beim Laden eines
+// Audios (§9.3 Punkt 4) und der manuelle "Erneut prüfen"-Button. Der Ping
+// (nicht der einzelne Fehlschlag) entscheidet über einen Moduswechsel.
+function amNetForceProbe() {
+  _amNet.pingOkAt = 0;   // Cache verwerfen -> amNetProbe läuft wirklich
+  amNetProbe();          // kein await
+}
+
+// Start-Erkennung + Browser-Events verdrahten (§9.3 Punkt 1+2). Einmal
+// aufrufen, sobald das Dokument bereit ist.
+function amNetInit() {
+  if (typeof navigator !== "undefined" && navigator.onLine === false) {
+    // Offline gestartet: sofort offline, kein Ping.
+    _amNet.failStreak = AM_NET_FAIL_THRESHOLD;
+    amSetSourceMode("offline");
+  } else {
+    // Optimistisch online (Liste flackert nicht leer); erster Ping korrigiert.
+    amNetForceProbe();
+  }
+  if (typeof window !== "undefined") {
+    window.addEventListener("offline", function () {
+      _amNet.failStreak = AM_NET_FAIL_THRESHOLD;
+      amSetSourceMode("offline");
+    });
+    window.addEventListener("online", function () {
+      // Netz physisch zurück — NICHT blind online, erst Ping (§9.1).
+      amNetForceProbe();
+    });
+  }
+}

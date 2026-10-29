@@ -292,6 +292,8 @@ Object.assign(L.de, {
     plNetSourceLabel: "Quelle:",
     plNetOnline: "online",
     plNetOffline: "offline",
+    plNetHintOffline: "Offline — es wird der mitgelieferte Bestand angezeigt.",
+    plNetRecheck: "Erneut prüfen",
     plSrcMusic: "♫ Musik",
     plSrcSentences: "💬 Sätze",
     plSrcNoise: "🔊 Geräusche",

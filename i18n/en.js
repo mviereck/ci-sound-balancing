@@ -1682,6 +1682,8 @@ Object.assign(L.en, {
     plNetSourceLabel: "Source:",
     plNetOnline: "online",
     plNetOffline: "offline",
+    plNetHintOffline: "Offline — showing the bundled content.",
+    plNetRecheck: "Check again",
     plSrcMusic: "♫ Music",
     plSrcSentences: "💬 Sentences",
     plSrcNoise: "🔊 Sounds",

@@ -1642,8 +1642,18 @@
         <div class="card" id="plPlayCard">
           <h3 data-t="plPlayTitle" style="margin-bottom: 8px"></h3>
 
-          <!-- Quellen-Modus: online / offline -->
-          <div class="controls-row" style="margin-bottom: 10px">
+          <!-- BA703: Offline-Hinweiszeile (nur bei offline sichtbar) -->
+          <div id="plNetHint" class="controls-row" style="display: none; margin-bottom: 10px">
+            <div class="control-group" style="flex-wrap: wrap; gap: 8px; align-items: center">
+              <span data-t="plNetHintOffline" style="color: var(--warn, #b26a00)"></span>
+              <button id="plNetRecheckBtn" class="btn btn-sm"
+                      style="border-radius: 6px"
+                      data-t="plNetRecheck"></button>
+            </div>
+          </div>
+
+          <!-- Quellen-Modus: online / offline (nur im Debugmodus sichtbar) -->
+          <div class="controls-row dbg-only-block" style="margin-bottom: 10px">
             <div class="control-group" style="flex-wrap: wrap; gap: 6px">
               <label data-t="plNetSourceLabel" style="align-self: center"></label>
               <button id="plNetOnlineBtn" class="btn btn-sm"

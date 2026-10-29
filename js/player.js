@@ -2444,6 +2444,12 @@ function _plLoadCurrent(afterLoad) {
   }).catch(function (err) {
     stillCurrent();
     console.error("[player] Laden fehlgeschlagen:", err);
+    // BA703: Ein fehlgeschlagener Audio-Download (z.B. 404) ist kein
+    // Offline-Beweis, aber ein Anlass, die Erreichbarkeit sofort zu
+    // prüfen. Der Ping entscheidet (§9.3 Punkt 4) — Server weg -> der
+    // Wächter schaltet offline und baut die Listen neu; Server da ->
+    // es war nur diese eine Datei.
+    if (typeof amNetForceProbe === "function") amNetForceProbe();
   });
 }
 
@@ -2783,6 +2789,15 @@ function plUpdNetSourceUI() {
     if (!btn) return;
     btn.classList.toggle("is-active", active);
   });
+}
+
+// BA703: Offline-Hinweiszeile unter der Wiedergabe-Überschrift. Nur im
+// Offline-Modus sichtbar. Der Button stößt einen Sofort-Ping an (§9.7).
+function plUpdNetHint() {
+  var row = document.getElementById("plNetHint");
+  if (!row) return;
+  var mode = (typeof amGetSourceMode === "function") ? amGetSourceMode() : "online";
+  row.style.display = (mode === "offline") ? "" : "none";
 }
 
 // ============================================================
@@ -3282,6 +3297,14 @@ document.getElementById("plNetOnlineBtn").addEventListener("click",
   function () { amSetSourceMode("online"); plUpdNetSourceUI(); });
 document.getElementById("plNetOfflineBtn").addEventListener("click",
   function () { amSetSourceMode("offline"); plUpdNetSourceUI(); });
+
+// BA703: "Erneut prüfen" — manueller Sofort-Ping.
+(function () {
+  var b = document.getElementById("plNetRecheckBtn");
+  if (b) b.addEventListener("click", function () {
+    if (typeof amNetForceProbe === "function") amNetForceProbe();
+  });
+})();
 
 // BA192: Quellen-Top-Toggle
 document.getElementById("plSrcMusicBtn").addEventListener("click",
@@ -4927,6 +4950,8 @@ plMusicRefreshUI();
 
 // Erstaufbau
 plUpdNetSourceUI();
+plUpdNetHint();                                    // BA703
+if (typeof amNetInit === "function") amNetInit();  // BA703: Wächter starten
 plUpdSourceUI();
 plUpdTransportUI();
 plUpdDisplay();
