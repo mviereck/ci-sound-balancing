@@ -843,8 +843,17 @@ function pCompQ(i, side, nhSim) {
     fL = pEqFreq(i - 1, side, nhSim);
     fH = pEqFreq(i + 1, side, nhSim);
   }
+  // Degenerierte Nachbarschaft abfangen: Eine Elektrode mit Frequenz 0
+  // (z.B. stummgestellt) oder zwei gleiche Nachbarfrequenzen fuehren zu
+  // bw <= 0 bzw. Division durch 0 -> nicht-endlicher Q. Ein BiquadFilter
+  // wirft dann beim Setzen von Q.value ("non-finite"). In diesen Faellen
+  // auf den natuerlichen Oktav-Q (Math.SQRT2) zurueckfallen -- derselbe
+  // Wert, den die Formel bei regulaerer Frequenzstaffelung liefert.
+  if (!(ef > 0) || !(fL > 0) || !(fH > 0)) return Math.SQRT2;
   const bw = Math.log2(Math.sqrt(ef * fH)) - Math.log2(Math.sqrt(fL * ef));
-  return ef / (ef * (Math.pow(2, bw / 2) - Math.pow(2, -bw / 2)));
+  if (!(bw > 0)) return Math.SQRT2;
+  const q = ef / (ef * (Math.pow(2, bw / 2) - Math.pow(2, -bw / 2)));
+  return isFinite(q) && q > 0 ? q : Math.SQRT2;
 }
 
 // BA 306: Entscheidet, ob die getrennten Links/Rechts-EQ-Ketten
@@ -1265,6 +1274,14 @@ async function pPlay() {
   }
 
   const c = gPC();
+  // Autoplay-Policy: der Context startet suspendiert und gibt erst nach
+  // resume() Ton aus. gPC() stoesst resume() an, aber asynchron -- ohne
+  // Warten startet pSrc.start() in den noch schlafenden Ausgang und der
+  // erste Ton verpufft (bis ein anderer Klick den Ausgang weckt). Darum
+  // hier auf das Resume warten, bevor die Quelle startet.
+  if (c.state === "suspended") { try { await c.resume(); } catch (e) {} }
+  if (gen !== pPlayGen) return;   // von neuem pPlay/pPause ueberholt
+
   pBuf = getPlaybackBuffer();
 
   const wired = await _pWireOutputChain(c, gen);
@@ -2000,6 +2017,16 @@ function _plHideWarpOverlapHint() {
 // ===== BA192: zentrale Wiedergabe-Steuerung =====
 
 function plPlayPauseToggle() {
+  // Autoplay-Policy: Den Player-AudioContext SYNCHRON im Klick aufwecken.
+  // Seit der Play-Wunsch (BA386) den Abspielstart vom Klick entkoppelt,
+  // laeuft das resume() in pPlay/pWarpTrigger erst in einer asynchronen
+  // Lade-Kette ab -- ausserhalb der User-Geste. Chrome verweigert resume()
+  // dann ("must be resumed after a user gesture"), der Context bleibt
+  // suspendiert und der erste Ton verpufft stumm, bis ein anderer Klick
+  // (z.B. Testton) den Ausgang weckt. gPC() hier erzeugt/resumt pCtx noch
+  // im Geste-Kontext -- fuer alle folgenden Startpfade (Sofort-Play,
+  // Wunsch+Laden, Streaming).
+  if (typeof gPC === "function") { try { gPC(); } catch (e) {} }
   // Laeuft -> pausieren. SW (BA382): echte Nutzer-Pause loescht den Wunsch.
   if (typeof pPlaying !== "undefined" && pPlaying) {
     if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);
