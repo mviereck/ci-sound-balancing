@@ -7,9 +7,7 @@
 // Uploads). Kein eigener Datencontainer, kein eigener Ladeweg.
 //
 // Diese Datei hält: die Satz-Pools (sBuildSequencePool/
-// sBuildRecordingPool), die Wiedergabe (sLoadCurrent: laden über
-// amGetItemBuffer, RMS-Normalisierung + optionaler Hintergrund-Mix),
-// die Sätze-UI (sUpdateUI) und den Upload-Weg (local:-Refs,
+// sBuildRecordingPool), die Sätze-UI (sUpdateUI) und den Upload-Weg (local:-Refs,
 // sLocalCollections).
 
 let sCurRec = null;     // aktuell laufendes Item (flaches amProvider-Schema)
@@ -105,47 +103,9 @@ function sBuildSequencePool() {
 
 // Laedt den aktuellen Satz, normalisiert den Vordergrund per RMS,
 // schreibt sSentenceBuf und ruft pSetPlaybackMode("saetze"). Der
-// Hintergrundmix ist herausgeloest (siehe 00-player-engine-architektur.md).
-// Ruft KEIN pPlay — Aufrufer macht das.
-// Gibt Promise zurueck; wirft bei Ladefehler.
-async function sLoadCurrent() {
-  if (!sCurRec) return;
-  const audioRef = sCurRec.audio;
-  // Audio wird teils erst in amGetItemBuffer beschafft: beim schlanken
-  // Boxen-Bündel über den detail-Offset, bei Index-Quellen (z.B. Common
-  // Voice Live) über item._resolve. In beiden Fällen ist audio hier noch
-  // leer und das ist KEIN Fehler. Nur wenn keiner dieser Nachlade-Wege
-  // existiert, fehlt das Audio wirklich.
-  if (!audioRef && !sCurRec.detail && typeof sCurRec._resolve !== "function") {
-    sStop(); throw new Error("kein audio-Ref");
-  }
-
-  const c = gPC();
-  // Ein Ladeweg fuer alle: die zentrale Ladestelle. Lokale Upload-Dateien
-  // erkennt sie am item._file (vom Provider gesetzt), Web-Refs per fetch.
-  const decoded = await amGetItemBuffer(c, sCurRec);
-  if (!decoded) { sStop(); throw new Error("Audio nicht ladbar: " + audioRef); }
-  if (plActiveSource !== "saetze") return;
-
-  // BA327: Vordergrund immer RMS-normalisieren (kein Schalter). Einziger
-  // postDecode-Schritt der Kategorie Saetze.
-  const normItem = sCurRec;
-  const finalBuf = amGetNormalizedSentenceBuffer(c, normItem, decoded);
-
-  sSentenceBuf = finalBuf;
-  pSetPlaybackMode("saetze");
-  pOff = 0;
-  pDrawEQ();
-  document.getElementById("plEqViz").style.display = "";
-  sShownText = sCurRec.text || "";
-  sUpdateTextBox();
-  if (typeof plUpdDisplay === "function") plUpdDisplay();
-}
-
-
 // Direkt-Buffer-Eingang der Saetze-Kategorie (Sprachtest, Architektur SS4.1).
 // Setzt einen FERTIGEN Buffer als aktives Saetze-Item -- dieselbe Schreibstelle
-// wie sLoadCurrent (sSentenceBuf + pSetPlaybackMode("saetze")), aber ohne
+// wie _plLoadInto/saetze (sSentenceBuf + pSetPlaybackMode("saetze")), aber ohne
 // Laden/Normalisieren. Ruft KEIN pPlay -- der Aufrufer macht das.
 function sSetDirectBuffer(buf, text) {
   sSentenceBuf = buf;

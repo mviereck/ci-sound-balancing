@@ -2090,10 +2090,24 @@ function plStopAll() {
 // aktiven Adapter.
 // ============================================================
 
+// Generischer onActivate fuer alle vier Kategorien (BA709). Stellt beim
+// Reiterwechsel Zeiger, Liste, gemerkte Position und Anzeige her -- laedt
+// KEIN Audio (Laden erst bei Play, BA708). Divergenz nur ueber cat.category
+// (Modus) und cat.refreshUI (kategorie-eigener UI-Aufbau).
+function _plOnActivate(cat) {
+  if (!cat) return;
+  pSetPlaybackMode(cat.category);
+  plNavEnsureCursor();
+  if (typeof cat.refreshUI === "function") cat.refreshUI();
+  plNavRestorePos();
+  if (typeof plUpdDisplay === "function") plUpdDisplay();
+}
+
 // --- Adapter-Objekte ---
 
 const plCategories = {
   musik: {
+    category: "musik",
     // --- Vertrag ---
     list: function () {
       var pool = plMusicVisibleItems();
@@ -2106,7 +2120,8 @@ const plCategories = {
       const sel = document.getElementById("plMusicItemSel");
       if (sel) sel.value = item.id;
     },
-    load: function () { return plMusicLoadSelected(); },
+    load: function () { return _plLoadInto(this); },
+    setBuffer: function (buf) { pFileBuf = buf; },
     // --- Anzeige (unveraendert) ---
     currentItem: function () {
       const it = (typeof plMusicCurrentItem === "function") ? plMusicCurrentItem() : null;
@@ -2136,19 +2151,13 @@ const plCategories = {
     next: function () { plNavNext(); },
     autoAdvance: function () { plNavAutoAdvance(); },
     // --- Lebenszyklus ---
-    onActivate: function () {
-      pSetPlaybackMode("musik");
-      plNavEnsureCursor();
-      if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
-      // Laden erst bei Play: KEIN Vorab-Laden beim Reiterwechsel. Nur Position
-      // (plNavRestorePos setzt pOff) + Anzeige herstellen.
-      plNavRestorePos();
-      if (typeof plUpdDisplay === "function") plUpdDisplay();
-    },
+    refreshUI: function () { if (typeof plMusicRefreshUI === "function") plMusicRefreshUI(); },
+    onActivate: function () { _plOnActivate(this); },
     onDeactivate: function () {}
   },
 
   saetze: {
+    category: "saetze",
     // --- Vertrag --- (Liste = Satz-Pool; bei gewaehltem Sprecher dessen Pool,
     // sonst die sortierte Gesamt-Sequenz; Zeiger = sCurRec)
     list: function () {
@@ -2171,7 +2180,18 @@ const plCategories = {
     },
     current: function () { return (typeof sCurRec !== "undefined") ? sCurRec : null; },
     select: function (item) { if (item) sCurRec = item; },
-    load: function () { return sLoadCurrent(); },
+    load: function () { return _plLoadInto(this); },
+    setBuffer: function (buf) { sSentenceBuf = buf; },
+    postDecode: function (buf, it) {
+      // RMS-Normalisierung des Satz-Vordergrunds (BA327). Einziger
+      // postDecode-Schritt; gibt den normalisierten Buffer zurueck.
+      return amGetNormalizedSentenceBuffer(gPC(), it, buf);
+    },
+    afterLoad: function (it) {
+      // Mitlese-Text der Saetze-Kategorie.
+      sShownText = it.text || "";
+      if (typeof sUpdateTextBox === "function") sUpdateTextBox();
+    },
     // Startwunsch: ein zufaelliger Thorsten-Satz. Die Liste ist bereits nach
     // Inhaltssprache (plContentLang) gefiltert — bei Nicht-Deutsch sind keine
     // Thorsten-Items dabei, dann liefert dies null und list[0] greift.
@@ -2205,20 +2225,15 @@ const plCategories = {
     next: function () { plNavNext(); },
     autoAdvance: function () { plNavAutoAdvance(); },
     // --- Lebenszyklus ---
-    onActivate: function () {
-      pSetPlaybackMode("saetze");
-      plNavEnsureCursor();
-      if (typeof sUpdateUI === "function") sUpdateUI();
-      // Laden erst bei Play: KEIN Vorab-Laden beim Reiterwechsel.
-      plNavRestorePos();
-      if (typeof plUpdDisplay === "function") plUpdDisplay();
-    },
+    refreshUI: function () { if (typeof sUpdateUI === "function") sUpdateUI(); },
+    onActivate: function () { _plOnActivate(this); },
     onDeactivate: function () {
       if (typeof pStopReset === "function") pStopReset();
     }
   },
 
   geraeusche: {
+    category: "geraeusche",
     // --- Vertrag ---
     list: function () {
       var pool = plNoiseVisibleItems();
@@ -2231,7 +2246,8 @@ const plCategories = {
       const sel = document.getElementById("plNoiseItemSel");
       if (sel) sel.value = item.id;
     },
-    load: function () { return plNoiseLoadSelected(); },
+    load: function () { return _plLoadInto(this); },
+    setBuffer: function (buf) { pNoiseBuf = buf; },
     // Startwunsch: ein Bach-Geraeusch (angenehmer, loopbarer Naturklang zum
     // Vorhoeren) statt des alphabetisch ersten Items. Fehlt es, greift list[0].
     // Die Laufzeit-id traegt ein Loader-Praefix (Quelle/Ordner) vor der rohen
@@ -2272,18 +2288,13 @@ const plCategories = {
     next: function () { plNavNext(); },
     autoAdvance: function () { plNavAutoAdvance(); },
     // --- Lebenszyklus ---
-    onActivate: function () {
-      pSetPlaybackMode("geraeusche");
-      plNavEnsureCursor();
-      if (typeof plNoiseRefreshUI === "function") plNoiseRefreshUI();
-      // Laden erst bei Play: KEIN Vorab-Laden beim Reiterwechsel.
-      plNavRestorePos();
-      if (typeof plUpdDisplay === "function") plUpdDisplay();
-    },
+    refreshUI: function () { if (typeof plNoiseRefreshUI === "function") plNoiseRefreshUI(); },
+    onActivate: function () { _plOnActivate(this); },
     onDeactivate: function () {}
   },
 
   hoerbuecher: {
+    category: "hoerbuecher",
     // --- Vertrag (flach wie Musik/Geraeusche, BA704) ---
     // list() = alle sichtbaren Kapitel-Items (ueber die Achsen gefiltert,
     // u.a. Werk-Achse). Zeiger = das gewaehlte Kapitel-Item (plBookSelectedId).
@@ -2298,7 +2309,25 @@ const plCategories = {
       const sel = document.getElementById("plBookItemSel");
       if (sel) sel.value = item.id;
     },
-    load: function () { return plBookLoadSelected(); },
+    load: function () { return _plLoadInto(this); },
+    setBuffer: function (buf) { pBookBuf = buf; },
+    afterLoad: function (it) {
+      // Gespeicherte Kapitel-Position wiederherstellen (ueberschreibt den
+      // 0-Reset). Identisch zur alten plBookLoadSelected-Logik.
+      const buf = pBookBuf;
+      if (!buf) return;
+      const sp = (typeof pSpeed === "number" && pSpeed > 0) ? pSpeed : 1;
+      const key = (typeof _amBufKey === "function") ? _amBufKey(it) : it.id;
+      const pos = (plBookPositions && plBookPositions[key]) || null;
+      if (pos && typeof pos.posSeconds === "number" && pos.posSeconds > 0
+          && pos.posSeconds < buf.duration - 5) {
+        pOff = pos.posSeconds / sp;
+        const curEl = document.getElementById("plCur");
+        const tlEl  = document.getElementById("plTL");
+        if (curEl) curEl.textContent = pFmt(pOff);
+        if (tlEl)  tlEl.value = (pOff / (buf.duration / sp)) * 1000;
+      }
+    },
     // Startwunsch auf Kapitel-Ebene: der Wikipedia-Artikel "Die Kunst des
     // Liebens". Die Werk-Achse startet auf "beliebig" (keine Vorbelegung in
     // plBookRefreshUI), die Liste zeigt also alle Kapitel; pickInitial waehlt
@@ -2343,14 +2372,8 @@ const plCategories = {
     next: function () { plNavNext(); },
     autoAdvance: function () { plNavAutoAdvance(); },
     // --- Lebenszyklus ---
-    onActivate: function () {
-      pSetPlaybackMode("hoerbuecher");
-      plNavEnsureCursor();
-      if (typeof plBookRefreshUI === "function") plBookRefreshUI();
-      // Laden erst bei Play: KEIN Vorab-Laden beim Reiterwechsel.
-      plNavRestorePos();
-      if (typeof plUpdDisplay === "function") plUpdDisplay();
-    },
+    refreshUI: function () { if (typeof plBookRefreshUI === "function") plBookRefreshUI(); },
+    onActivate: function () { _plOnActivate(this); },
     onDeactivate: function () {
       if (typeof plBookSavePosition === "function") plBookSavePosition();
     }
@@ -2392,8 +2415,7 @@ function _plNavSameItem(a, b) {
 // zurück. Ohne diese Prüfung setzt der ZULETZT ZURÜCKKEHRENDE (nicht der zuletzt
 // gewählte) Buffer das Kategorie-Audio -> es wird ein anderes Werk gespielt als
 // gewählt. Identität über _amBufKey wie _plNavSameItem. Gemeinsame Schranke für
-// alle Kategorie-Loadfunktionen (plBookLoadSelected/plMusicLoadSelected/
-// plNoiseLoadSelected) -- ein Vertrag, keine pro-Kategorie-Kopie.
+// alle Kategorie-Loadfunktionen (_plLoadInto) -- ein Vertrag, keine pro-Kategorie-Kopie.
 function _plLoadStillCurrent(loadedItem) {
   if (!loadedItem) return false;
   const cat = plCurrentCategory();
@@ -4573,7 +4595,7 @@ PL_FILTER_DECL.musik = {
               }
             });
             plMusicRefreshUI();
-            if (plActiveSource === "musik") plMusicLoadSelected();
+            if (plActiveSource === "musik") plCurrentCategory().load();
           } catch (e) {
             alert((typeof t === "function") ? t("zuUploadFailed") : "Upload fehlgeschlagen");
           }
@@ -4582,7 +4604,7 @@ PL_FILTER_DECL.musik = {
         var it = (typeof amMusicAddLocalFile === "function") ? amMusicAddLocalFile(file) : null;
         if (it) plMusicSelectedId = it.id;
         plMusicRefreshUI();
-        if (plActiveSource === "musik") plMusicLoadSelected();
+        if (plActiveSource === "musik") plCurrentCategory().load();
       },
       onFolder: async function (fileList) {
         var res = await amMusicIngestLocalFolder(fileList);
@@ -4671,7 +4693,7 @@ PL_FILTER_DECL.geraeusche = {
               }
             });
             plNoiseRefreshUI();
-            if (plActiveSource === "geraeusche") await plNoiseLoadSelected();
+            if (plActiveSource === "geraeusche") await plCurrentCategory().load();
           } catch (e) {
             alert((typeof t === "function") ? t("zuUploadFailed") : "Upload fehlgeschlagen");
           }
@@ -4680,7 +4702,7 @@ PL_FILTER_DECL.geraeusche = {
         var it = (typeof amNoiseAddLocalFile === "function") ? amNoiseAddLocalFile(file) : null;
         if (it) plNoiseSelectedId = it.id;
         plNoiseRefreshUI();
-        if (plActiveSource === "geraeusche") await plNoiseLoadSelected();
+        if (plActiveSource === "geraeusche") await plCurrentCategory().load();
       },
       onFolder: async function (fileList) {
         var res = (typeof amNoiseIngestLocalFolder === "function")
@@ -4771,22 +4793,47 @@ function plNoiseCurrentItem() {
   return all.find(function (it) { return it.id === plNoiseSelectedId; }) || null;
 }
 
-async function plNoiseLoadSelected() {
-  const it = plNoiseCurrentItem();
+// Generischer Buffer-Load fuer ALLE vier Kategorien (BA709). Ersetzt die vier
+// kategorie-eigenen Load-Funktionen (plNoise/plMusic/plBookLoadSelected,
+// sLoadCurrent). Divergenzen laufen ausschliesslich ueber die Vertrags-Haken
+// cat.current/cat.setBuffer/cat.postDecode/cat.afterLoad -- der Koerper kennt
+// KEINE Kategorie beim Namen.
+//
+// Ablauf (identisch fuer alle):
+//   1. aktuelles Item ueber den Vertrag (cat.current)
+//   2. Buffer ueber die EINE zentrale Ladestelle (amGetItemBuffer)
+//   3. abgebrochen/nicht ladbar -> still zurueck (kein Buffer = nichts geschieht)
+//   4. ueberholt (verspaeteter Buffer eines anderen Items) -> _plLoadStillCurrent
+//   5. optionaler postDecode (Saetze: RMS) -> ggf. ersetzter Buffer
+//   6. Buffer ablegen (cat.setBuffer), Wiedergabe-Modus setzen (pSetPlaybackMode
+//      baut EQ + konsumiert Play-Wunsch), Position auf 0
+//   7. optionaler afterLoad (Hoerbuch: gemerkte Position; Saetze: Mitlese-Text)
+//   8. Anzeige
+// pBuildEQ wird NICHT hier gerufen -- pSetPlaybackMode ruft es bereits
+// (js/player.js, "if (pSourceBuf) { ...; pBuildEQ(); ... }").
+async function _plLoadInto(cat) {
+  if (!cat || typeof cat.current !== "function") return;
+  const it = cat.current();
   if (!it) return;
   const ctx = gPC();
   const abuf = await amGetItemBuffer(ctx, it);
-  if (!abuf) return;
-  if (!_plLoadStillCurrent(it)) return;   // überholt: Buffer eines anderen Items
+  if (!abuf) return;                       // abgebrochen / nicht ladbar
+  if (!_plLoadStillCurrent(it)) return;    // ueberholt: Buffer eines anderen Items
 
-  pNoiseBuf = abuf;
-  pSetPlaybackMode("geraeusche");
+  let buf = abuf;
+  if (typeof cat.postDecode === "function") {
+    buf = cat.postDecode(buf, it) || buf;
+  }
+  if (typeof cat.setBuffer === "function") cat.setBuffer(buf);
+  pSetPlaybackMode(cat.category);          // setzt pSourceBuf/pBuf, pBuildEQ, Warp, pOff-Reset-Anzeige
   pOff = 0;
+  if (typeof cat.afterLoad === "function") cat.afterLoad(it);
+
+  pDrawEQ();
+  const viz = document.getElementById("plEqViz");
+  if (viz) viz.style.display = "";
   if (typeof plUpdDisplay     === "function") plUpdDisplay();
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-  pBuildEQ();
-  pDrawEQ();
-  document.getElementById("plEqViz").style.display = "";
 }
 
 // ============================================================
@@ -4874,25 +4921,6 @@ function plMusicRefreshUI() {
   plBuildFilterChain(PL_FILTER_DECL.musik);
 }
 if (typeof amRegisterCategoryRefresh === "function") amRegisterCategoryRefresh("musik", plMusicRefreshUI);
-
-// Laedt das aktuell ausgewaehlte Musik-Item in pFileBuf ueber die zentrale Ladestelle.
-async function plMusicLoadSelected() {
-  const it = plMusicCurrentItem();
-  if (!it) return;
-  const c = gPC();
-  const abuf = await amGetItemBuffer(c, it);
-  if (!abuf) return;   // ueberholt oder nicht ladbar
-  if (!_plLoadStillCurrent(it)) return;   // überholt: Buffer eines anderen Items
-
-  pFileBuf = abuf;
-  pSetPlaybackMode("musik");
-  pOff = 0;
-  pBuildEQ();
-  pDrawEQ();
-  document.getElementById("plEqViz").style.display = "";
-  if (typeof plUpdDisplay     === "function") plUpdDisplay();
-  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-}
 
 // Wahl im Item-Dropdown -> ueber die zentrale Engine (select/load/Play).
 function plMusicSetSelected(id) {
@@ -5235,38 +5263,6 @@ function plBookRefreshUI() {
   plBuildFilterChain(PL_FILTER_DECL.hoerbuecher);
 }
 if (typeof amRegisterCategoryRefresh === "function") amRegisterCategoryRefresh("hoerbuecher", plBookRefreshUI);
-
-async function plBookLoadSelected() {
-  const ch = plBookCurrentItem();
-  if (!ch) return;
-  const ctx = gPC();
-  const abuf = await amGetItemBuffer(ctx, ch);
-  if (!abuf) return;   // ueberholt oder nicht ladbar
-  if (!_plLoadStillCurrent(ch)) return;   // überholt: Buffer eines anderen Kapitels
-
-  pBookBuf = abuf;
-  pSetPlaybackMode("hoerbuecher");
-
-  // Gespeicherte Position ggf. wiederherstellen (ueberschreibt den
-  // 0-Reset aus pSetPlaybackMode).
-  const sp = (typeof pSpeed === "number" && pSpeed > 0) ? pSpeed : 1;
-  const key = (typeof _amBufKey === "function") ? _amBufKey(ch) : ch.id;
-  const pos = (plBookPositions && plBookPositions[key]) || null;
-  if (pos && typeof pos.posSeconds === "number" && pos.posSeconds > 0
-      && pos.posSeconds < abuf.duration - 5) {
-    pOff = pos.posSeconds / sp;
-    document.getElementById("plCur").textContent = pFmt(pOff);
-    document.getElementById("plTL").value = (pOff / (abuf.duration / sp)) * 1000;
-  } else {
-    pOff = 0;
-  }
-
-  if (typeof plUpdDisplay     === "function") plUpdDisplay();
-  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-  pBuildEQ();
-  pDrawEQ();
-  document.getElementById("plEqViz").style.display = "";
-}
 
 function plBookSavePosition() {
   const ch = plBookCurrentItem();
