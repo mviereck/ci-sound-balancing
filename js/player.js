@@ -3634,7 +3634,15 @@ function plBuildFilterChain(catDecl) {
         domEl.disabled = false;
         var hasId = visible.some(function (x) { return x.id === catDecl.stateRef.getSelectedId(); });
         if (!hasId) {
-          catDecl.stateRef.setSelectedId(visible[0].id);
+          // Leerer/ungueltiger Zeiger: erst den deklarierten Startwunsch der
+          // Kategorie (pickInitial, z.B. Hoerbuch "Die Kunst des Liebens"),
+          // sonst das erste Item. Ohne pickInitial-Vorrang bliebe der Zeiger
+          // beim Init (inaktive Kategorie, plNavEnsureCursor laeuft nicht) auf
+          // visible[0] haengen und pickInitial griffe nie. Konsistent mit
+          // plNavEnsureCursor (cat.pickInitial(list) || list[0]).
+          var _plCat = (typeof plCategories !== "undefined") ? plCategories[catDecl.category] : null;
+          var _wish = (_plCat && typeof _plCat.pickInitial === "function") ? _plCat.pickInitial(visible) : null;
+          catDecl.stateRef.setSelectedId((_wish && _wish.id) || visible[0].id);
         }
         domEl.value = catDecl.stateRef.getSelectedId();
       }
