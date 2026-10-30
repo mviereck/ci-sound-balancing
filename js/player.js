@@ -2392,6 +2392,22 @@ function _plNavSameItem(a, b) {
   return !!(ka && kb && ka === kb);
 }
 
+// Nach einem asynchronen Buffer-Load prüfen, ob das geladene Item noch das
+// aktuell gewählte seiner Kategorie ist. Mehrere Loads können parallel laufen
+// (schnelle Filter-/Such-/Dropdown-Wechsel); amCancelLoad bricht nur den
+// laufenden fetch ab, ein knapp davor fertiger Buffer kehrt aber verspätet
+// zurück. Ohne diese Prüfung setzt der ZULETZT ZURÜCKKEHRENDE (nicht der zuletzt
+// gewählte) Buffer das Kategorie-Audio -> es wird ein anderes Werk gespielt als
+// gewählt. Identität über _amBufKey wie _plNavSameItem. Gemeinsame Schranke für
+// alle Kategorie-Loadfunktionen (plBookLoadSelected/plMusicLoadSelected/
+// plNoiseLoadSelected) -- ein Vertrag, keine pro-Kategorie-Kopie.
+function _plLoadStillCurrent(loadedItem) {
+  if (!loadedItem) return false;
+  const cat = plCurrentCategory();
+  const cur = (cat && typeof cat.current === "function") ? cat.current() : null;
+  return _plNavSameItem(loadedItem, cur);
+}
+
 function plNavList() {
   const cat = plCurrentCategory();
   return (cat && typeof cat.list === "function") ? (cat.list() || []) : [];
@@ -4737,6 +4753,7 @@ async function plNoiseLoadSelected() {
   const ctx = gPC();
   const abuf = await amGetItemBuffer(ctx, it);
   if (!abuf) return;
+  if (!_plLoadStillCurrent(it)) return;   // überholt: Buffer eines anderen Items
 
   pNoiseBuf = abuf;
   pSetPlaybackMode("geraeusche");
@@ -4841,6 +4858,7 @@ async function plMusicLoadSelected() {
   const c = gPC();
   const abuf = await amGetItemBuffer(c, it);
   if (!abuf) return;   // ueberholt oder nicht ladbar
+  if (!_plLoadStillCurrent(it)) return;   // überholt: Buffer eines anderen Items
 
   pFileBuf = abuf;
   pSetPlaybackMode("musik");
@@ -4941,6 +4959,25 @@ async function plBookHandleUpload(fileList) {
   plBookRefreshUI();
 }
 
+// Freitext-Match fuer ein Kapitel-Item (analog _plMusicSearchMatch).
+// Durchsucht Autor, Werk-Titel und Kapitelname -- alle am Item ueber tags
+// bzw. it.title vorhanden (vgl. Anzeige-Kontext: it.tags.work_author /
+// it.tags.work / it.title). So reduziert "heine" die Liste auf die Kapitel
+// aller Werke Heines, "caspar" auf die Kapitel von "Caspar Hauser".
+function _plBookSearchMatch(it, q) {
+  if (!q) return true;
+  const s = q.toLowerCase();
+  const fields = [
+    (it.tags && it.tags.work_author) || "",
+    (it.tags && it.tags.work)        || "",
+    it.title || ""
+  ];
+  for (const f of fields) {
+    if (f && f.toLowerCase().indexOf(s) >= 0) return true;
+  }
+  return false;
+}
+
 // BA704: sichtbare Kapitel-Items (Achsen-gefiltert), analog plNoiseVisibleItems.
 function plBookVisibleItems() {
   var items = (typeof amCollectItems === "function") ? amCollectItems("hoerbuecher") : [];
@@ -4964,6 +5001,10 @@ function plBookVisibleItems() {
       sel[a.key] = (v === undefined) ? "_all" : v;
     });
     items = items.filter(function (it) { return amItemMatchesAxes(axes, sel, it); });
+  }
+  // Freitextsuche (Autor / Werk / Kapitel) anwenden.
+  if (typeof plBookSearchQuery !== "undefined" && plBookSearchQuery) {
+    items = items.filter(function (it) { return _plBookSearchMatch(it, plBookSearchQuery); });
   }
   // Stabil sortieren: nach Werk, dann Kapitel-Position.
   items.sort(function (a, b) {
@@ -5183,6 +5224,7 @@ async function plBookLoadSelected() {
   const ctx = gPC();
   const abuf = await amGetItemBuffer(ctx, ch);
   if (!abuf) return;   // ueberholt oder nicht ladbar
+  if (!_plLoadStillCurrent(ch)) return;   // überholt: Buffer eines anderen Kapitels
 
   pBookBuf = abuf;
   pSetPlaybackMode("hoerbuecher");
