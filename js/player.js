@@ -2299,14 +2299,14 @@ const plCategories = {
       if (sel) sel.value = item.id;
     },
     load: function () { return plBookLoadSelected(); },
-    // Startwunsch auf Kapitel-Ebene: ein Kapitel des Start-Werks. Die
-    // Werk-Vorwahl geschieht ueber die work-Achse (pickInitial findet dann
-    // ein Kapitel dieses Werks); sonst greift list[0].
+    // Startwunsch auf Kapitel-Ebene: der Wikipedia-Artikel "Die Kunst des
+    // Liebens". Die Werk-Achse startet auf "beliebig" (keine Vorbelegung in
+    // plBookRefreshUI), die Liste zeigt also alle Kapitel; pickInitial waehlt
+    // daraus das Start-Item per id-Suffix (der Loader stellt ein Quell-Praefix
+    // voran). Fehlt es (andere Sprache), greift list[0].
     pickInitial: function (list) {
-      // Start-Werk "Deutschland. Ein Wintermaerchen" (librivox:3580):
-      // erstes Kapitel dieses Werks, falls in der gefilterten Liste.
       for (var i = 0; i < list.length; i++) {
-        if (list[i] && (list[i].workId || "").endsWith("librivox:3580")) return list[i];
+        if (list[i] && (list[i].id || "").endsWith("#die-kunst-des-liebens")) return list[i];
       }
       return null;
     },
@@ -5229,15 +5229,9 @@ function plSyncUI(opts) {
 }
 
 function plBookRefreshUI() {
-  // BA704: Start-Werk in der work-Achse vorbelegen (bisheriges Verhalten:
-  // beim Oeffnen ein Buch gewaehlt). Nur setzen, wenn noch keine Wahl
-  // getroffen wurde, und nur, wenn das Werk in der aktuellen Sprache existiert.
-  if (plBookAxisSel.work === undefined) {
-    var _cols = (typeof amCollectCollections === "function")
-      ? amCollectCollections("hoerbuecher") : [];
-    var _start = _cols.find(function (c) { return (c.id || "").endsWith("librivox:3580"); });
-    if (_start) plBookAxisSel.work = _start.title;
-  }
+  // Keine Werk-Vorbelegung: die Werk-Filterbox startet auf "beliebig", die
+  // Liste zeigt alle Kapitel aller Werke. Der Startzeiger (ein Kapitel) kommt
+  // aus pickInitial des Hoerbuch-Vertrags (Start-Item "Die Kunst des Liebens").
   plBuildFilterChain(PL_FILTER_DECL.hoerbuecher);
 }
 if (typeof amRegisterCategoryRefresh === "function") amRegisterCategoryRefresh("hoerbuecher", plBookRefreshUI);
