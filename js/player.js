@@ -2140,11 +2140,10 @@ const plCategories = {
       pSetPlaybackMode("musik");
       plNavEnsureCursor();
       if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
-      if (plMusicCurrentItem()) {
-        Promise.resolve(plMusicLoadSelected()).then(function () {
-          plNavRestorePos();
-        });
-      }
+      // Laden erst bei Play: KEIN Vorab-Laden beim Reiterwechsel. Nur Position
+      // (plNavRestorePos setzt pOff) + Anzeige herstellen.
+      plNavRestorePos();
+      if (typeof plUpdDisplay === "function") plUpdDisplay();
     },
     onDeactivate: function () {}
   },
@@ -2210,11 +2209,9 @@ const plCategories = {
       pSetPlaybackMode("saetze");
       plNavEnsureCursor();
       if (typeof sUpdateUI === "function") sUpdateUI();
-      if (typeof sCurRec !== "undefined" && sCurRec) {
-        Promise.resolve(sLoadCurrent()).then(function () {
-          plNavRestorePos();
-        }).catch(function (err) { console.error("[sentences] onActivate load:", err); });
-      }
+      // Laden erst bei Play: KEIN Vorab-Laden beim Reiterwechsel.
+      plNavRestorePos();
+      if (typeof plUpdDisplay === "function") plUpdDisplay();
     },
     onDeactivate: function () {
       if (typeof pStopReset === "function") pStopReset();
@@ -2279,11 +2276,9 @@ const plCategories = {
       pSetPlaybackMode("geraeusche");
       plNavEnsureCursor();
       if (typeof plNoiseRefreshUI === "function") plNoiseRefreshUI();
-      if (plNoiseCurrentItem()) {
-        Promise.resolve(plNoiseLoadSelected()).then(function () {
-          plNavRestorePos();
-        });
-      }
+      // Laden erst bei Play: KEIN Vorab-Laden beim Reiterwechsel.
+      plNavRestorePos();
+      if (typeof plUpdDisplay === "function") plUpdDisplay();
     },
     onDeactivate: function () {}
   },
@@ -2352,11 +2347,9 @@ const plCategories = {
       pSetPlaybackMode("hoerbuecher");
       plNavEnsureCursor();
       if (typeof plBookRefreshUI === "function") plBookRefreshUI();
-      if (plBookCurrentItem()) {
-        Promise.resolve(plBookLoadSelected()).then(function () {
-          plNavRestorePos();
-        });
-      }
+      // Laden erst bei Play: KEIN Vorab-Laden beim Reiterwechsel.
+      plNavRestorePos();
+      if (typeof plUpdDisplay === "function") plUpdDisplay();
     },
     onDeactivate: function () {
       if (typeof plBookSavePosition === "function") plBookSavePosition();
@@ -2522,7 +2515,19 @@ function _plNavGoTo(item, opts) {
   const resume = keepPlaying && wasPlaying;
   if (resume && typeof _pSetPlayWish === "function") _pSetPlayWish(true);
 
-  _plLoadCurrent();
+  // Laden erst bei Play: nur bei laufender Wiedergabe (Playlist-Skip) wird
+  // sofort geladen+weitergespielt. Sonst nur Zeiger + Anzeige -- der Download
+  // beginnt erst beim Play-Klick (plPlayPauseToggle).
+  if (resume) {
+    _plLoadCurrent();
+  } else {
+    // Still: kein laufender Buffer mehr fuer das NEUE Stueck. pBuf nullen, damit
+    // ein spaeterer Play-Klick nicht das alte Stueck startet (plPlayPauseToggle
+    // prueft pBuf). Laufenden Download abbrechen.
+    if (typeof amCancelLoad === "function") amCancelLoad();
+    pBuf = null;
+    _plLoadPending = null;
+  }
   if (typeof plUpdDisplay     === "function") plUpdDisplay();
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
 }
@@ -2606,19 +2611,16 @@ function plNavAfterFilterChange(before) {
   if (!cat) return;
   const after = plNavCurrent();
   if (!_plNavSameItem(before, after)) {
+    // Zeiger hat sich durch Filter/Suche geaendert. Laden erst bei Play:
+    // KEIN Vorab-Laden des neuen Stuecks. Lief Wiedergabe, wird sie gestoppt
+    // (das alte Stueck ist aus dem Filter gefallen); der laufende Download
+    // wird abgebrochen und der alte Buffer verworfen.
     if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);  // SW (BA379)
     if (typeof pPlaying !== "undefined" && pPlaying && typeof pPause === "function") pPause();
+    if (typeof amCancelLoad === "function") amCancelLoad();
+    pBuf = null;
+    _plLoadPending = null;
     pOff = 0;
-    if (cat.current && cat.current()) {
-      // Altes Stück fiel aus dem Filter: neues laden, aber pausiert bereitstellen
-      // (Wunsch oben gelöscht -> pSetPlaybackMode spielt nicht).
-      _plLoadCurrent(function () {
-        pOff = 0;
-        if (typeof plUpdDisplay     === "function") plUpdDisplay();
-        if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-      });
-      return;
-    }
   }
   if (typeof plUpdDisplay     === "function") plUpdDisplay();
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
@@ -3188,6 +3190,28 @@ function plUpdDisplay() {
       }
     });
   }
+
+  // Zeit-/Dauer-Anzeige (Laden erst bei Play): Ohne geladenen Buffer laeuft
+  // pSetPlaybackMode nicht, das sonst plTot/plCur/plTL setzt. Hier aus dem
+  // aktiven Buffer (falls vorhanden), sonst aus der Metadauer des rohen Items
+  // (cat.current().duration), sonst "0:00". plCur/plTL stehen beim Auswaehlen
+  // auf Anfang; eine laufende Wiedergabe fasst diesen Block nicht an (dann ist
+  // pBuf gesetzt und die laufende Positions-Anzeige kommt aus pUpdTL/Timer).
+  (function () {
+    var totEl = document.getElementById("plTot");
+    if (!totEl || typeof pFmt !== "function") return;
+    if (typeof pBuf !== "undefined" && pBuf) {
+      // Buffer aktiv -> pSetPlaybackMode/pUpdTL bedienen die Anzeige; nicht stoeren.
+      return;
+    }
+    var it  = cat ? cat.current() : null;
+    var dur = (it && typeof it.duration === "number" && it.duration > 0) ? it.duration : 0;
+    totEl.textContent = dur > 0 ? pFmt(dur) : "0:00";
+    var curEl = document.getElementById("plCur");
+    var tlEl  = document.getElementById("plTL");
+    if (curEl) curEl.textContent = "0:00";
+    if (tlEl)  tlEl.value = 0;
+  })();
 }
 
 function plRefreshTooltips() {
