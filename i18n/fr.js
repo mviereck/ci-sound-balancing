@@ -1740,7 +1740,7 @@ Object.assign(L.fr, {
     plNoiseSearchPlaceholder: "Nom, type, source …",
     plNoiseComingSoon: "Les bruits seront ajoutés dans une version ultérieure.",
     plBookSortLabel: "Tri :",
-    plBookSelLabel: "Livre audio :",
+    plBookSelLabel: "Chapitre :",
     plBookChapterLabel: "Chapitre :",
     plBookEmpty: "Aucun livre audio chargé. Cliquez sur « + Livre audio (dossier de chapitres) » pour en ouvrir un.",
     plBookRemove: "×",

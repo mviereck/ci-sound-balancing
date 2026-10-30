@@ -596,7 +596,11 @@ const AM_SORT_AXES = {
     {
       // BA704: Werk-Achse. Grenzt die Kapitelliste auf ein Buch ein.
       // Wert = Werktitel (tags.work, von _amFlattenBookChapters gesetzt).
-      key: "work", labelKey: "plBookAxisWork", labelDefault: "Werk",
+      // scope "items": die Werk-Auswahl wirkt NUR auf die Kapitel-Liste, nicht
+      // auf die anderen Filter-Boxen (Werk ist feiner als alle uebrigen Achsen;
+      // ohne dies kollabieren beim Werk-Waehlen alle anderen Boxen). Siehe
+      // 00-filterkette-architektur.md Paragraph 3.5.
+      key: "work", labelKey: "plBookAxisWork", labelDefault: "Werk", scope: "items",
       getter: function (c) { return (c.tags && c.tags.work) || "zzz-unbekannt"; },
       valueOf: function (c) { return (c.tags && c.tags.work) || ""; }
     },

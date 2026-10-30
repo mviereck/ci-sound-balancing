@@ -3614,6 +3614,12 @@ function plBuildFilterChain(catDecl) {
       for (var st1 = 0; st1 < axList.length; st1++) {
         selTable[axList[st1].key] = catDecl.stateRef.getAxisSel(axList[st1].key);
       }
+      // Filterbasis fuer den Box-Aufbau: nur scope:"all"-Achsen wirken auf die
+      // ANDEREN Boxen zurueck. scope:"items"-Achsen (z.B. Werk) sind feiner und
+      // wuerden sonst alle uebrigen Boxen kollabieren lassen -> sie filtern nur
+      // die Item-Liste (visibleItems), nicht die Boxen. Siehe
+      // 00-filterkette-architektur.md Paragraph 3.5. Default (kein scope) = "all".
+      var axListFilter = axList.filter(function (a) { return a.scope !== "items"; });
       // Basismenge der Achsen-Boxen: IMMER die ungefilterte Kategorie-Menge
       // (+ optionaler axesBaseItems-Vorfilter, z.B. Inhalts-Sprache bei
       // Saetzen). Nicht visibleItems() nehmen -- das wendet die Achsen-Auswahl
@@ -3642,8 +3648,8 @@ function plBuildFilterChain(catDecl) {
       // kleinere) Teilmenge. Verhaltensneutral: gleiche Mengen wie zuvor.
       var _axActiveKeys = function () {
         var out = [];
-        for (var i = 0; i < axList.length; i++) {
-          var k = axList[i].key;
+        for (var i = 0; i < axListFilter.length; i++) {
+          var k = axListFilter[i].key;
           if (selTable[k] !== undefined && selTable[k] !== AM_SEL_ALL) out.push(k);
         }
         return out;
@@ -3658,7 +3664,7 @@ function plBuildFilterChain(catDecl) {
           _axActiveFiltered = baseItems;   // nichts aktiv -> volle Menge
         } else {
           _axActiveFiltered = baseItems.filter(function (it) {
-            return amItemMatchesAxes(axList, selTable, it, null);
+            return amItemMatchesAxes(axListFilter, selTable, it, null);
           });
         }
         _axActiveSig = sig;
@@ -3676,7 +3682,7 @@ function plBuildFilterChain(catDecl) {
         } else {
           // Diese Achse ist selbst aktiv -> sie aus dem Filter herausnehmen.
           filteredForBox = baseItems.filter(function (it) {
-            return amItemMatchesAxes(axList, selTable, it, axis.key);
+            return amItemMatchesAxes(axListFilter, selTable, it, axis.key);
           });
         }
         var b = amBucketsForAxisValues(axis, filteredForBox);

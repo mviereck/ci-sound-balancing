@@ -388,7 +388,7 @@ Object.assign(L.de, {
     amSortSpeaker: "nach Sprecher",
     amSortStyle: "nach Stil",
     plBookSortLabel: "Sortierung:",
-    plBookSelLabel: "Hörbuch:",
+    plBookSelLabel: "Kapitel:",
     plBookChapterLabel: "Kapitel:",
     plBookRemove: "×",
     plBookEmpty: "Noch kein Hörbuch geladen. Klicke \"+ Hörbuch-Ordner laden\", um eines zu öffnen.",

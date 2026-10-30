@@ -1740,7 +1740,7 @@ Object.assign(L.en, {
     plNoiseSearchPlaceholder: "Name, type, source …",
     plNoiseComingSoon: "Sounds will be added in a later version.",
     plBookSortLabel: "Sort by:",
-    plBookSelLabel: "Audiobook:",
+    plBookSelLabel: "Chapter:",
     plBookChapterLabel: "Chapter:",
     plBookEmpty: "No audiobook loaded yet. Click \"+ Audiobook (chapter folder)\" to open one.",
     plBookRemove: "×",
