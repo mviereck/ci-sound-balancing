@@ -4837,9 +4837,9 @@ async function _plLoadInto(cat) {
   pOff = 0;
   if (typeof cat.afterLoad === "function") cat.afterLoad(it);
 
-  pDrawEQ();
-  const viz = document.getElementById("plEqViz");
-  if (viz) viz.style.display = "";
+  // Kein pDrawEQ/plEqViz hier: der EQ-Graph haengt an EQ-Korrektur/Seite/
+  // Frequenzen (nicht am geladenen Stueck) und wird ueber plCheck + die
+  // FRQ-/Warp-Pfade gezeichnet; die Visualisierung ist ab Reiteraufbau sichtbar.
   if (typeof plUpdDisplay     === "function") plUpdDisplay();
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
 }
