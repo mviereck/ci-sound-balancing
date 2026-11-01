@@ -2201,12 +2201,12 @@ var testUI = {
 
 // Lautstaerke-Modalbox (00-lautstaerke-architektur.md Sec. 4.3).
 // cfg: { getVolume(): number, setVolume(p): void }
-// Hinweistext + 10 Prozent-Buttons (10..100), aktiver hervorgehoben,
+// Hinweistext + Prozent-Buttons (5..100 in Fuenferschritten), aktiver hervorgehoben,
 // Klick waehlt UND schliesst. onDone() nach Auswahl (Button-Refresh).
 function _openVolumeDialog(cfg, onDone) {
   var overlay = _mkEl('div', 'modal-overlay');
   overlay.classList.add('active');
-  var dlg = _mkEl('div', 'modal-dlg');
+  var dlg = _mkEl('div', 'modal-dlg vol-dlg');
 
   var title = _mkEl('h3');
   title.dataset.t = 'volDlgTitle';
@@ -2220,19 +2220,17 @@ function _openVolumeDialog(cfg, onDone) {
 
   var cur = cfg.getVolume();
 
-  var grid = _mkEl('div');
-  grid.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;justify-content:center;';
+  var grid = _mkEl('div', 'vol-dlg-grid');
   var schliessen = function () {
     overlay.classList.remove('active');
     if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
   };
-  for (var p = 10; p <= 100; p += 10) {
+  for (var p = 5; p <= 100; p += 5) {
     (function (val) {
       var b = _mkEl('button', 'btn vol-dlg-btn');
       b.type = 'button';
       b.textContent = val + '%';
       if (val === cur) b.classList.add('is-active');
-      b.style.cssText = 'min-width:56px;';
       b.addEventListener('click', function () {
         cfg.setVolume(val);
         schliessen();

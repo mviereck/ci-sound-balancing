@@ -896,6 +896,33 @@ select:disabled {
   font-weight: 600;
   margin-bottom: 10px;
 }
+/* Lautstaerke-Modalbox: 20 Prozent-Felder (5..100) in zwei Zeilen zu zehn.
+   Auf dem Smartphone bricht das Raster frei um (5 bzw. 4 Spalten), damit
+   die Tap-Flaechen gross genug bleiben. */
+.vol-dlg {
+  min-width: 0;
+  width: min(560px, 92vw);
+}
+.vol-dlg-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
+}
+.vol-dlg-grid .vol-dlg-btn {
+  min-width: 0;
+  min-height: 44px;
+  padding: 6px 4px;
+}
+@media (max-width: 600px) {
+  .vol-dlg-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media (max-width: 380px) {
+  .vol-dlg-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 @media print {
   body {
     background: #fff;
