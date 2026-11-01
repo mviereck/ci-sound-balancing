@@ -759,7 +759,13 @@
     var _elExDur = (ctx.elExDur != null) ? ctx.elExDur : elExDur;
     var levels = zaAnchor(r.levels, _elSt, _elExDur);   // §4a
     var measured = new Set();
-    ctx.ELL_raw.forEach(function (p) { measured.add(p.a); measured.add(p.b); });
+    // ELL_raw traegt Messpunkte im Grundmuster-§8-Format {bezug:{a,b},historie}
+    // (p||bezug: Altformat-Rueckfall). Zuvor direkt p.a/p.b -> leeres Set ->
+    // alle Elektroden "ungemessen" -> Fragezeichen statt Balken.
+    ctx.ELL_raw.forEach(function (p) {
+      var bz = p.bezug || p;
+      measured.add(bz.a); measured.add(bz.b);
+    });
     zaDrawBarRows(cv, levels, r.ELL_res, measured, ctx);
   }
 
