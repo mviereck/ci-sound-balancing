@@ -1484,8 +1484,15 @@ function amManifestUrl(path) {
 }
 
 
+// EINE Quelle fuer die Produktions-Domain: der opus/-Ordner liegt dort neben
+// dem Tool-HTML, ist aber ABSOLUT adressiert, damit auch ein lokal (ZIP-
+// Download, file://) gestartetes Tool die Audios laedt. Der Server sendet
+// Access-Control-Allow-Origin: *, cross-origin ist also erlaubt; TLS liegt auf
+// ci-sound-balancing.org. Audio-Root und Ping-URL leiten sich hieraus ab.
+const AM_SERVER_ROOT = "https://www.ci-sound-balancing.org/opus/";
+
 // Konfigurierbar ueber window.CI_SB_WEBSPACE_ROOT vor Lade-Beginn.
-const AM_WEBSPACE_ROOT_DEFAULT = "https://honigburg.de/opus/";
+const AM_WEBSPACE_ROOT_DEFAULT = AM_SERVER_ROOT;
 
 function amWebspaceRoot() {
   const r = (typeof window !== "undefined" && window.CI_SB_WEBSPACE_ROOT)
@@ -2250,11 +2257,12 @@ var _amNet = {
   failStreak: 0       // aufeinanderfolgende Fehl-Pings
 };
 
-// URL der Ping-Datei (relativ zum Audio-Server). Eigener Cache-Buster,
-// damit kein alter 200er aus dem Browser-Cache "online" vortäuscht —
-// zusätzlich zu cache:"no-store".
+// URL der Ping-Datei. Absolut auf dem Produktions-Server (AM_SERVER_ROOT) —
+// die Netz-/Quellen-Verfügbarkeitsprüfung zielt auf die Online-Audioquelle.
+// Eigener Cache-Buster, damit kein alter 200er aus dem Browser-Cache "online"
+// vortäuscht — zusätzlich zu cache:"no-store".
 function _amPingUrl() {
-  return amWebspaceRoot() + "ping.txt?t=" + Date.now();
+  return AM_SERVER_ROOT + "ping.txt?t=" + Date.now();
 }
 
 // Ein einzelner HEAD-Ping mit Timeout. Erfolg = r.ok. Der Datei-Inhalt
