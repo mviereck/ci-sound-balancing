@@ -356,6 +356,17 @@ function _cimbelVersionIncompatible(d) {
 }
 
 function loadJson(file) {
+  // Nur eigene Sicherungen (.cimbel) zum Laden zulassen. Faengt u.a. den
+  // haeufigen Fall ab, dass versehentlich ein CImbel-Ausdruck (.md) oder
+  // eine fremde Datei gewaehlt wird -> freundliche Meldung statt rohem
+  // JSON.parse-Fehler. Endungspruefung case-insensitiv; die inhaltliche
+  // Pruefung (_isCimbelSave, Versionsgrenze) folgt unveraendert danach.
+  if (!(file && typeof file.name === "string" &&
+        file.name.toLowerCase().endsWith(".cimbel"))) {
+    alert(t("loadWrongExt"));
+    document.getElementById("fInput").value = "";
+    return;
+  }
   const r = new FileReader();
   r.onload = (e) => {
     try {

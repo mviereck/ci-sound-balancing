@@ -708,6 +708,9 @@ Object.assign(L.en, {
     kurvenELLUnitPhon: "phon",
     loadNotCimbel:
       "This file is not a CImbel save and cannot be loaded.",
+    loadWrongExt:
+      "This file is not a CImbel save. Please choose a file with the " +
+      ".cimbel extension.",
     loadVersionIncompatible:
       "This file comes from a different CImbel version. From version 0.6 " +
       "onwards, measurements use different frequencies; measurement data " +

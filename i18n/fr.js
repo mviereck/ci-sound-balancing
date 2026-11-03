@@ -709,6 +709,9 @@ Object.assign(L.fr, {
     kurvenELLUnitPhon: "phones",
     loadNotCimbel:
       "Ce fichier n'est pas une sauvegarde CImbel et ne peut pas être chargé.",
+    loadWrongExt:
+      "Ce fichier n'est pas une sauvegarde CImbel. Veuillez choisir un " +
+      "fichier avec l'extension .cimbel.",
     loadVersionIncompatible:
       "Ce fichier provient d'une autre version de CImbel. À partir de la " +
       "version 0.6, les mesures utilisent d'autres fréquences ; les données " +

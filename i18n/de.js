@@ -934,6 +934,9 @@ Object.assign(L.de, {
     kurvenELLUnitPhon: "phon",
     loadNotCimbel:
       "Diese Datei ist kein CImbel-Speicherstand und kann nicht geladen werden.",
+    loadWrongExt:
+      "Diese Datei ist keine CImbel-Sicherung. Bitte wählen Sie eine Datei " +
+      "mit der Endung .cimbel.",
     loadVersionIncompatible:
       "Diese Datei stammt aus einer anderen CImbel-Version. Ab Version 0.6 " +
       "wird mit anderen Frequenzen gemessen; Messdaten aus Version 0.5 und " +
