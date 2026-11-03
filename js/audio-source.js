@@ -2257,13 +2257,16 @@ var _amNet = {
   failStreak: 0       // aufeinanderfolgende Fehl-Pings
 };
 
-// URL der Ping-Datei. Liegt auf der Server-WURZEL, bewusst ENTKOPPELT vom
-// opus/-Ordner (AM_SERVER_ROOT): der Opus-Bestand kann lokal (Stick) oder
-// remote liegen und seine Wurzel umschalten, die Netz-Prüfung zielt aber
-// immer auf den echten Produktions-Server. Eigener Cache-Buster, damit kein
-// alter 200er aus dem Browser-Cache "online" vortäuscht — zusätzlich zu
-// cache:"no-store".
-const AM_PING_URL = "https://www.ci-sound-balancing.org/.ping.txt";
+// URL der Ping-Datei. Liegt im eigenen Ordner /ping/ auf dem Produktions-
+// Server, bewusst ENTKOPPELT vom opus/-Ordner (AM_SERVER_ROOT): der Opus-
+// Bestand kann lokal (Stick) oder remote liegen und seine Wurzel umschalten,
+// die Netz-Prüfung zielt aber immer auf den echten Produktions-Server. Der
+// Ordner /ping/ hat eine eigene .htaccess mit Access-Control-Allow-Origin:*,
+// damit der cross-origin-Ping (Stick/localhost -> www) gelesen werden darf,
+// ohne CORS auf dem ganzen Wurzelverzeichnis zu öffnen. Eigener Cache-Buster,
+// damit kein alter 200er aus dem Browser-Cache "online" vortäuscht —
+// zusätzlich zu cache:"no-store".
+const AM_PING_URL = "https://www.ci-sound-balancing.org/ping/ping.txt";
 function _amPingUrl() {
   return AM_PING_URL + "?t=" + Date.now();
 }
