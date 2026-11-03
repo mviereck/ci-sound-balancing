@@ -2257,12 +2257,15 @@ var _amNet = {
   failStreak: 0       // aufeinanderfolgende Fehl-Pings
 };
 
-// URL der Ping-Datei. Absolut auf dem Produktions-Server (AM_SERVER_ROOT) —
-// die Netz-/Quellen-Verfügbarkeitsprüfung zielt auf die Online-Audioquelle.
-// Eigener Cache-Buster, damit kein alter 200er aus dem Browser-Cache "online"
-// vortäuscht — zusätzlich zu cache:"no-store".
+// URL der Ping-Datei. Liegt auf der Server-WURZEL, bewusst ENTKOPPELT vom
+// opus/-Ordner (AM_SERVER_ROOT): der Opus-Bestand kann lokal (Stick) oder
+// remote liegen und seine Wurzel umschalten, die Netz-Prüfung zielt aber
+// immer auf den echten Produktions-Server. Eigener Cache-Buster, damit kein
+// alter 200er aus dem Browser-Cache "online" vortäuscht — zusätzlich zu
+// cache:"no-store".
+const AM_PING_URL = "https://www.ci-sound-balancing.org/.ping.txt";
 function _amPingUrl() {
-  return AM_SERVER_ROOT + "ping.txt?t=" + Date.now();
+  return AM_PING_URL + "?t=" + Date.now();
 }
 
 // Ein einzelner HEAD-Ping mit Timeout. Erfolg = r.ok. Der Datei-Inhalt
