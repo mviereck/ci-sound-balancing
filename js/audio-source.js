@@ -305,10 +305,11 @@ function amCollectItems(category) {
   const out = [];
   const mode = amSourceMode;   // "online" | "offline"
   for (const p of AM_PROVIDERS) {
-    // Quellen-Modus: online blendet embed aus, offline blendet webspace aus.
+    // Quellen-Modus: online blendet embed aus (hier). Offline entscheidet der
+    // webspace-Provider SELBST, was er liefert (nur Opus-Collections bei
+    // lokalem Opus, sonst nichts) — siehe _amWebspaceVisibleCols, 9.9.1.
     // Uploads/generierte Provider sind in beiden Modi sichtbar.
     if (mode === "online"  && p.id === "embed")    continue;
-    if (mode === "offline" && p.id === "webspace") continue;
     try {
       const items = p.listItems(category);
       if (Array.isArray(items)) {
@@ -1388,11 +1389,10 @@ function amCollectCollections(category) {
   const out = [];
   const mode = amSourceMode;   // "online" | "offline"
   for (const p of AM_PROVIDERS) {
-    // Quellen-Modus: dieselbe Filterung wie in amCollectItems — online blendet
-    // embed aus, offline blendet webspace aus. Hoerbuecher laufen NUR ueber
-    // listCollections, daher muss die Modus-Ausblendung auch hier greifen.
+    // Quellen-Modus: online blendet embed aus (hier). Offline entscheidet der
+    // webspace-Provider SELBST (9.9.1, _amWebspaceVisibleCols). Hoerbuecher
+    // sind rein Fremd-URL -> offline leer, faellt ueber denselben Filter weg.
     if (mode === "online"  && p.id === "embed")    continue;
-    if (mode === "offline" && p.id === "webspace") continue;
     if (typeof p.listCollections !== "function") continue;
     try {
       const cols = p.listCollections(category);
@@ -1718,6 +1718,17 @@ function _amWebspaceCurrentCols(category) {
   return Array.isArray(cols) ? cols : [];
 }
 
+// Sichtbare Collections des webspace-Providers je nach Lage (§9.9.1).
+// online: alle. offline + lokaler Opus: nur Opus-Collections (_base !== "").
+// offline ohne lokalen Opus: keine (dann liefert der Provider nichts, embed
+// uebernimmt). Opus vs. Fremd-URL steht pro Collection in col._base
+// (gesetzt "" = Fremd-URL mit voller http-URL; nicht-leer = Opus-Bestand).
+function _amWebspaceVisibleCols(cols) {
+  if (amSourceMode !== "offline") return cols;        // online: alles
+  if (!_amLocalOpus.present) return [];               // offline ohne lokalen Opus: nichts
+  return cols.filter(function (c) { return c && c._base !== "" && c._base != null; });
+}
+
 amRegisterProvider({
   id: "webspace",
   listItems: function (category) {
@@ -1737,7 +1748,7 @@ amRegisterProvider({
     // eines Items die Summe der Zeilen-Laengen (item.detail) davor. Startet je
     // listItems-Aufruf frisch bei 0.
     let _detailOffset = 0;
-    for (const col of _amWebspaceCurrentCols(category)) {
+    for (const col of _amWebspaceVisibleCols(_amWebspaceCurrentCols(category))) {
       // Quell-Herkunft trägt die Collection selbst (Bündel ist quellenübergreifend).
       const srcKey = col._sourceKey || "";
       const srcBase = col._base || "";
@@ -1770,7 +1781,7 @@ amRegisterProvider({
   listCollections: function (category) {
     if (category !== "hoerbuecher") return [];
     const out = [];
-    for (const col of _amWebspaceCurrentCols(category)) {
+    for (const col of _amWebspaceVisibleCols(_amWebspaceCurrentCols(category))) {
       // Quell-Herkunft trägt die Collection selbst (Bündel ist quellenübergreifend).
       const srcKey = col._sourceKey || "";
       const srcBase = col._base || "";
