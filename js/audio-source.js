@@ -1495,10 +1495,17 @@ const AM_SERVER_ROOT = "https://www.ci-sound-balancing.org/opus/";
 const AM_WEBSPACE_ROOT_DEFAULT = AM_SERVER_ROOT;
 
 function amWebspaceRoot() {
-  const r = (typeof window !== "undefined" && window.CI_SB_WEBSPACE_ROOT)
-    ? window.CI_SB_WEBSPACE_ROOT
-    : AM_WEBSPACE_ROOT_DEFAULT;
-  return r.endsWith("/") ? r : (r + "/");
+  // 9.9 — zweite Achse: Liegt ein lokaler Opus-Bestand relativ neben dem
+  // Tool (opus/opus.ping war erreichbar), nutze die RELATIVE Wurzel. Sonst
+  // die absolute Webspace-Wurzel (Fallback fuer ZIP-Download/file:// bzw.
+  // kein lokaler Opus). Eine explizite window.CI_SB_WEBSPACE_ROOT-Vorgabe
+  // hat Vorrang — sie ist die manuelle Uebersteuerung (z.B. Dev-Test).
+  if (typeof window !== "undefined" && window.CI_SB_WEBSPACE_ROOT) {
+    const r = window.CI_SB_WEBSPACE_ROOT;
+    return r.endsWith("/") ? r : (r + "/");
+  }
+  if (_amLocalOpus.present) return AM_LOCAL_OPUS_ROOT;
+  return AM_WEBSPACE_ROOT_DEFAULT;   // endet bereits auf "/"
 }
 
 const _amWebspace = {
@@ -2238,6 +2245,55 @@ amRegisterIndexSource({
     return _amCvLiveCommon(c);
   }
 });
+
+// ============================================================
+// Lokaler-Opus-Waechter — zweite, vom Netz-Ping UNABHAENGIGE Achse.
+// Siehe .docs/spec/00-embedded-audio-architektur.md 9.9.
+// Beantwortet nur "liegt ein Opus-Bestand relativ neben dem Tool?"
+// und bestimmt damit die Opus-URL-Wurzel (relativ vs. absolut).
+// Blockiert nie: amWebspaceRoot() liest das gecachte Ergebnis synchron,
+// die Probe laeuft einmal beim Start asynchron.
+// ============================================================
+
+// Relative Marker-Datei in der Opus-Wurzel. Liegt (leer) in JEDER
+// Opus-Kopie (Webspace, Stick, Dev). Treffer => lokaler Opus relativ da.
+const AM_LOCAL_OPUS_PING = "opus/opus.ping";
+// Relative Opus-Wurzel, wenn der lokale Bestand da ist. Zeigt auf denselben
+// opus/-Ordner, nur relativ statt absolut (AM_SERVER_ROOT).
+const AM_LOCAL_OPUS_ROOT = "opus/";
+
+var _amLocalOpus = {
+  present: false,   // true = opus/opus.ping war erreichbar (lokale Wurzel)
+  checked: false    // true = Start-Probe abgeschlossen (einmalig)
+};
+
+// Ein einzelner HEAD-Check auf die relative Marker-Datei. Erfolg = r.ok.
+// HEAD, weil nur der Status zaehlt (Datei ist leer) — konsistent mit dem
+// Netz-Ping (_amPingOnce). Relativ, weil die Frage "neben mir?" lautet.
+async function _amLocalOpusProbe() {
+  try {
+    var r = await fetch(AM_LOCAL_OPUS_PING, { method: "HEAD", cache: "no-store" });
+    return !!(r && r.ok);
+  } catch (e) {
+    return false;   // nicht erreichbar (ZIP/file://, kein lokaler Opus)
+  }
+}
+
+// Start-Erkennung: EINMAL beim Start. Kein TTL — ob ein lokaler Opus da ist,
+// aendert sich innerhalb einer Sitzung nicht. Bei Treffer ein UI-Refresh,
+// damit die bereits aufgebauten Listen ihre Audio-URLs ueber die neue
+// (lokale) Wurzel neu aufloesen.
+function amLocalOpusInit() {
+  if (_amLocalOpus.checked) return;
+  _amLocalOpusProbe().then(function (ok) {
+    _amLocalOpus.checked = true;
+    _amLocalOpus.present = ok;
+    if (ok && typeof amAfterSourceChange === "function") {
+      // Optimistisch-entfernt -> lokal: Listen neu aufbauen, neue URLs greifen.
+      amAfterSourceChange();
+    }
+  });
+}
 
 // ============================================================
 // Netzstatus-Wächter (BA703) — automatische Online/Offline-Erkennung.
