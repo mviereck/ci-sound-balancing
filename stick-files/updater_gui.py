@@ -266,11 +266,17 @@ class UpdaterGUI:
         self._setze_status("Prüfung fertig. 'System aktualisieren' startet apt upgrade.")
 
     def _system_upgrade(self):
-        self._setze_status("apt upgrade laeuft im Terminal ...")
-        # Sichtbar im Terminal, am Ende Hinweis. x-terminal-emulator = Debian-Alternative.
-        subprocess.Popen(["x-terminal-emulator", "-e", "bash", "-c",
-                          "pkexec apt -y upgrade; echo; echo 'Systemupdate fertig.'; "
-                          "read -p 'Fenster schliessen mit Enter ...' _"])
+        self._setze_status("apt upgrade läuft im Terminal ...")
+        self._im_hintergrund(self._system_upgrade_bg)
+
+    def _system_upgrade_bg(self):
+        # Sichtbar im Terminal; blockierend im Hintergrund-Thread (run, nicht
+        # Popen), damit nach Terminal-Ende der Status aktualisiert wird -- sonst
+        # bliebe "laeuft im Terminal" stehen, auch wenn das Terminal zu ist.
+        subprocess.run(["x-terminal-emulator", "-e", "bash", "-c",
+                        "pkexec apt -y upgrade; echo; echo 'Systemupdate fertig.'; "
+                        "read -p 'Fenster schliessen mit Enter ...' _"])
+        self._setze_status("Systemupdate abgeschlossen.")
 
 
 def main():
