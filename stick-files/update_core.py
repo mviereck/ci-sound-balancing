@@ -200,36 +200,59 @@ def cmd_audio_status(args):
     return 0
 
 
-def cmd_audio_sync(args):
-    soll = _lade_soll(args.webspace)
+class SyncAbbruch(Exception):
+    """Wird geworfen, wenn der Schrumpf-Schutz greift (zu viel zu loeschen)."""
+    pass
+
+
+def audio_sync(opus_root, webspace, fortschritt=None):
+    """Fuehrt den Audio-Abgleich aus: fehlende/geaenderte laden, Verwaistes
+    loeschen (mit Schrumpf-Schutz), danach vorhanden.txt neu. Gibt
+    (geladen, geloescht) zurueck. Wirft ValueError bei leerer/unerreichbarer
+    Soll-Liste und SyncAbbruch bei ausgeloestem Schrumpf-Schutz.
+
+    fortschritt(i, n, pfad): optionaler Callback, VOR dem Laden der i-ten von n
+    zu ladenden Dateien aufgerufen (1-basiert). Fuer die GUI-Fortschrittsanzeige.
+    """
+    soll = _lade_soll(webspace)
     if not soll:
-        print("FEHLER: Soll-Liste leer oder nicht erreichbar -> kein Sync.", file=sys.stderr)
-        return 1
-    ist = _ist_bestand(args.opus_root)
+        raise ValueError("Soll-Liste leer oder nicht erreichbar")
+    ist = _ist_bestand(opus_root)
 
-    # laden
+    zu_laden = [(p, g) for p, g in soll.items() if p not in ist or ist[p] != g]
     geladen = 0
-    for pfad, groesse in soll.items():
-        if pfad not in ist or ist[pfad] != groesse:
-            if _opus_download_if_needed(pfad, groesse, args.opus_root, args.webspace, True):
-                geladen += 1
+    for i, (pfad, groesse) in enumerate(zu_laden, start=1):
+        if fortschritt is not None:
+            fortschritt(i, len(zu_laden), pfad)
+        if _opus_download_if_needed(pfad, groesse, opus_root, webspace, True):
+            geladen += 1
 
-    # loeschen (Spiegel) mit Schrumpf-Schutz
     verwaist = [p for p in ist if p not in soll]
     if verwaist:
         anteil = len(verwaist) / max(1, len(ist))
         if anteil > LOESCH_SCHWELLE:
-            print("FEHLER: " + str(len(verwaist)) + " von " + str(len(ist)) +
-                  " Dateien waeren zu loeschen (> " + str(int(LOESCH_SCHWELLE * 100)) +
-                  " %). Vermuteter Unfall -> KEIN Loeschen.", file=sys.stderr)
-            return 1
+            raise SyncAbbruch(
+                str(len(verwaist)) + " von " + str(len(ist)) +
+                " Dateien waeren zu loeschen (> " + str(int(LOESCH_SCHWELLE * 100)) +
+                " %). Vermuteter Unfall -> KEIN Loeschen.")
         for pfad in verwaist:
-            (Path(args.opus_root) / pfad).unlink()
+            (Path(opus_root) / pfad).unlink()
 
-    # Ist-Liste neu
-    _schreibe_vorhanden(args.opus_root)
+    _schreibe_vorhanden(opus_root)
+    return geladen, len(verwaist)
+
+
+def cmd_audio_sync(args):
+    try:
+        geladen, geloescht = audio_sync(args.opus_root, args.webspace)
+    except ValueError as e:
+        print("FEHLER: " + str(e) + " -> kein Sync.", file=sys.stderr)
+        return 1
+    except SyncAbbruch as e:
+        print("FEHLER: " + str(e), file=sys.stderr)
+        return 1
     print("Audio-Sync fertig: " + str(geladen) + " geladen, " +
-          str(len(verwaist)) + " geloescht.")
+          str(geloescht) + " geloescht.")
     return 0
 
 
