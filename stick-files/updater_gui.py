@@ -74,7 +74,7 @@ class UpdaterGUI:
     def __init__(self, root):
         self.root = root
         root.title("CImbel aktualisieren")
-        root.geometry("560x420")
+        root.geometry("600x640")
         # Fenster-X abfangen: Schliessen nur ueber den Exit-Button.
         root.protocol("WM_DELETE_WINDOW", self._ignoriere_close)
 
@@ -117,22 +117,27 @@ class UpdaterGUI:
                                     command=self._system_pruefen, state="disabled")
         self.btn_system.pack(side="right")
 
-        # --- Log (selektierbar, scrollbar) ---
+        # --- Untere Leiste ZUERST (side="bottom"), damit sie immer sichtbar
+        #     bleibt und nicht vom expandierenden Log unter den Rand gedraengt
+        #     wird. Reihenfolge von unten nach oben: Beenden, Kopieren, Status.
+        tk.Button(root, text="Beenden", command=root.destroy).pack(side="bottom", pady=8)
+        self.lbl_status = tk.Label(root, text="", fg="#000")
+        self.lbl_status.pack(side="bottom", pady=4)
+        tk.Button(root, text="Meldungen ins Clipboard kopieren",
+                  command=self._log_kopieren).pack(side="bottom", pady=2)
+
+        # --- Log (selektierbar, scrollbar) fuellt den Rest ---
         self._log_frame = tk.LabelFrame(root, text="Meldungen", padx=4, pady=4)
         self._log_frame.pack(fill="both", expand=True, padx=10, pady=4)
-        self.txt_log = tk.Text(self._log_frame, height=8, wrap="word")
+        self.txt_log = tk.Text(self._log_frame, height=14, wrap="word")
         self.txt_log.pack(side="left", fill="both", expand=True)
         _sb = tk.Scrollbar(self._log_frame, command=self.txt_log.yview)
         _sb.pack(side="right", fill="y")
         self.txt_log.config(yscrollcommand=_sb.set)
-        tk.Button(root, text="Fehlerbericht ins Clipboard kopieren",
-                  command=self._log_kopieren).pack(pady=2)
+        # Fehlerzeilen rot (tag), normale schwarz.
+        self.txt_log.tag_config("fehler", foreground="#c00")
 
-        # --- Statuszeile + Exit ---
-        self.lbl_status = tk.Label(root, text="", fg="#000")
-        self.lbl_status.pack(pady=4)
-        tk.Button(root, text="Beenden", command=root.destroy).pack(pady=8)
-
+        self._fehler_aufgetreten = False
         self._im_hintergrund(self._initialer_status)
 
     # ------------------------------------------------- Nebenlaeufigkeit
@@ -147,20 +152,41 @@ class UpdaterGUI:
     def _setze_status(self, text):
         self._ui(lambda: self.lbl_status.config(text=text))
 
-    def _log(self, text):
+    def _log(self, text, fehler=False):
+        """Eine Zeile ins Meldungsfeld. fehler=True -> rot + merkt sich, dass
+        ein Fehler auftrat (fuer die Abschlussmeldung)."""
+        if fehler:
+            self._fehler_aufgetreten = True
         def _append():
-            self.txt_log.insert("end", text + "\n")
+            if fehler:
+                self.txt_log.insert("end", text + "\n", "fehler")
+            else:
+                self.txt_log.insert("end", text + "\n")
             self.txt_log.see("end")
         self._ui(_append)
+
+    def _abschluss(self, erfolgstext):
+        """Nach einer Aktion: Erfolgs- oder Sammel-Fehlermeldung ins Log."""
+        if self._fehler_aufgetreten:
+            self._log("Es sind Fehler aufgetreten (siehe oben). "
+                      "Mit 'Meldungen ins Clipboard kopieren' den Bericht sichern.",
+                      fehler=True)
+        else:
+            self._log(erfolgstext)
 
     def _log_kopieren(self):
         inhalt = self.txt_log.get("1.0", "end").strip()
         self.root.clipboard_clear()
         self.root.clipboard_append(inhalt)
+        # Tk leert das Clipboard beim Beenden -- update() erzwingt die Uebergabe
+        # an den X-Server, damit der Inhalt auch nach Programmende verfuegbar ist.
+        self.root.update()
         self._setze_status("Meldungen ins Clipboard kopiert.")
 
     def _ignoriere_close(self):
-        self._setze_status("Zum Beenden den Knopf 'Beenden' benutzen.")
+        self._log("Zum Beenden bitte den Knopf 'Beenden' benutzen "
+                  "(das Schließkreuz ist absichtlich wirkungslos, damit keine "
+                  "laufende Aktion unterbrochen wird).")
 
     # ------------------------------------------------- Initialer Status
 
@@ -207,6 +233,7 @@ class UpdaterGUI:
             return
         self._log("git pull OK")
         self._setze_status("Dateiliste (home) anwenden ...")
+        self._log("Wende Werks-Dateien an (Dateiliste MANIFEST, home) ...")
         # unprivilegiert: direkt im Kern, Meldungen je Eintrag ins Log
         manifest = update_core._lade_manifest(STICK_ROOT)
         for e in manifest:
@@ -214,15 +241,18 @@ class UpdaterGUI:
                 continue
             msg = update_core._manifest_eintrag_anwenden(
                 e, STICK_ROOT, OPUS_ROOT, WEBSPACE)
-            self._log(msg)
+            self._log(msg, fehler=msg.startswith("FEHLER"))
         # system-root gebuendelt via pkexec (nur falls es solche Eintraege gibt)
         if _hat_system_root_eintraege():
             self._setze_status("Systemdateien (Passwort noetig) ...")
-            subprocess.run(["pkexec", sys.executable, CORE_PY,
+            self._log("Wende Systemdateien an (Passwort nötig) ...")
+            rc = subprocess.run(["pkexec", sys.executable, CORE_PY,
                             "--stick-root", STICK_ROOT, "--opus-root", OPUS_ROOT,
-                            "--webspace", WEBSPACE, "manifest", "--bereich", "system-root"])
+                            "--webspace", WEBSPACE, "manifest", "--bereich", "system-root"]).returncode
+            if rc != 0:
+                self._log("Systemdateien fehlgeschlagen (rc=" + str(rc) + ")", fehler=True)
         self._setze_status("CImbel aktualisiert.")
-        self._log("CImbel aktualisiert.")
+        self._abschluss("CImbel aktualisiert.")
         self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
 
     # ------------------------------------------------- Audios (zweistufig)
@@ -232,6 +262,8 @@ class UpdaterGUI:
         # im Hintergrund, Button sperren, Spinner zeigen.
         self.btn_audio.config(state="disabled")
         self._setze_status("Prüfe Audios (lade Liste) ...")
+        self._log("Prüfe Audios: lade die Soll-Liste vom Server und vergleiche "
+                  "mit dem lokalen Bestand. Das kann einen Moment dauern ...")
         self.progress.config(mode="indeterminate")
         self.progress.pack(pady=4)
         self.progress.start(12)
