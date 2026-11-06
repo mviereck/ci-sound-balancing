@@ -97,10 +97,13 @@ class UpdaterGUI:
         # --- Bereich Audios ---
         self._bereich_audio = tk.LabelFrame(root, text="Audios", padx=8, pady=6)
         self._bereich_audio.pack(fill="x", padx=10, pady=4)
-        self.lbl_audio = tk.Label(self._bereich_audio, text="...")
+        self.lbl_audio = tk.Label(self._bereich_audio, text="noch nicht geprüft")
         self.lbl_audio.pack(side="left")
-        self.btn_audio = tk.Button(self._bereich_audio, text="Audios aktualisieren",
-                                   command=self._audio_update, state="disabled")
+        # Zweistufig: erst pruefen (laedt die grosse Soll-Liste + scannt den
+        # lokalen Bestand -- auf USB langsam, darum nicht automatisch beim
+        # Start), dann aktualisieren.
+        self.btn_audio = tk.Button(self._bereich_audio, text="Auf neue Audios prüfen",
+                                   command=self._audio_pruefen, state="disabled")
         self.btn_audio.pack(side="right")
         self.progress = ttk.Progressbar(root, length=520, mode="determinate")
         # wird nur beim Audio-Download eingeblendet
@@ -157,22 +160,12 @@ class UpdaterGUI:
         else:
             self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
 
-        # Audio-Status
-        try:
-            laden, _verwaist = update_core._audio_diff(OPUS_ROOT, WEBSPACE)
-            n = len(laden)
-        except Exception as e:
-            self._ui(lambda: self.lbl_audio.config(text="Status nicht ermittelbar"))
-            n = 0
-            laden = []
-        if n > 0:
-            self._ui(lambda: self.lbl_audio.config(
-                text=str(n) + " neue/geaenderte Audios (Download kann lange dauern)"))
-            self._ui(lambda: self.btn_audio.config(state="normal"))
-        else:
-            self._ui(lambda: self.lbl_audio.config(text="aktuell"))
+        # Audio-Status NICHT automatisch ermitteln: _audio_diff laedt die grosse
+        # Soll-Liste und scannt ~180k Dateien (USB langsam). Zweistufig -- der
+        # Nutzer startet die Pruefung per Knopf.
+        self._ui(lambda: self.btn_audio.config(state="normal"))
 
-        # System immer anwaehlbar (apt update braucht erst Knopfdruck)
+        # System immer anwaehlbar (apt update braucht erst Knopfdruck).
         self._ui(lambda: self.btn_system.config(state="normal"))
 
     # ------------------------------------------------- CImbel
@@ -202,7 +195,35 @@ class UpdaterGUI:
         self._setze_status("CImbel aktualisiert.")
         self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
 
-    # ------------------------------------------------- Audios
+    # ------------------------------------------------- Audios (zweistufig)
+
+    def _audio_pruefen(self):
+        # Stufe 1: pruefen (Soll laden + lokalen Bestand scannen). Langsam ->
+        # im Hintergrund, Button sperren waehrenddessen.
+        self.btn_audio.config(state="disabled")
+        self._setze_status("Prüfe Audios ...")
+        self._im_hintergrund(self._audio_pruefen_bg)
+
+    def _audio_pruefen_bg(self):
+        try:
+            laden, _verwaist = update_core._audio_diff(OPUS_ROOT, WEBSPACE)
+            n = len(laden)
+        except Exception as e:
+            self._ui(lambda: self.lbl_audio.config(text="Status nicht ermittelbar"))
+            self._setze_status("Audio-Prüfung fehlgeschlagen: " + str(e))
+            self._ui(lambda: self.btn_audio.config(state="normal"))
+            return
+        if n > 0:
+            self._ui(lambda: self.lbl_audio.config(
+                text=str(n) + " neue/geänderte Audios (Download kann lange dauern)"))
+            # Stufe 2: Button wird zum Aktualisieren-Knopf.
+            self._ui(lambda: self.btn_audio.config(
+                text="Audios aktualisieren", command=self._audio_update, state="normal"))
+        else:
+            self._ui(lambda: self.lbl_audio.config(text="aktuell"))
+            self._setze_status("Audios sind aktuell.")
+            # kein Aktualisieren noetig -> Knopf bleibt deaktiviert
+        return
 
     def _audio_update(self):
         self.btn_audio.config(state="disabled")
@@ -234,11 +255,15 @@ class UpdaterGUI:
         self._im_hintergrund(self._system_pruefen_bg)
 
     def _system_pruefen_bg(self):
-        # apt update braucht root -> pkexec. Ausgabe im Terminal sichtbar.
-        subprocess.run(["pkexec", "apt", "update"])
+        # apt update braucht root -> pkexec, sichtbar im Terminal (wie upgrade).
+        # subprocess.run wartet, bis das Terminal geschlossen ist, erst dann
+        # schaltet der Button auf "System aktualisieren" um.
+        subprocess.run(["x-terminal-emulator", "-e", "bash", "-c",
+                        "pkexec apt update; echo; echo 'Prüfung fertig.'; "
+                        "read -p 'Fenster schliessen mit Enter ...' _"])
         self._ui(lambda: self.btn_system.config(text="System aktualisieren",
                                                 command=self._system_upgrade))
-        self._setze_status("Pruefung fertig. 'System aktualisieren' startet apt upgrade.")
+        self._setze_status("Prüfung fertig. 'System aktualisieren' startet apt upgrade.")
 
     def _system_upgrade(self):
         self._setze_status("apt upgrade laeuft im Terminal ...")
