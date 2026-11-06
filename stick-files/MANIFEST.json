@@ -1,0 +1,10 @@
+[
+  {
+    "herkunft": "repo",
+    "typ": "datei",
+    "quelle": "beispiel/willkommen.txt",
+    "ziel": "~/Desktop/CImbel-Willkommen.txt",
+    "modus": "force",
+    "bereich": "home"
+  }
+]

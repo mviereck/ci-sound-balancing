@@ -1,0 +1,4 @@
+Willkommen bei CImbel auf dem USB-Stick.
+
+Diese Datei wurde vom Updater auf den Schreibtisch gelegt
+(Beispieleintrag der Dateiliste MANIFEST.json).
