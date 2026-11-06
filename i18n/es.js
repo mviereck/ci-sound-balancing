@@ -1518,6 +1518,7 @@ Object.assign(L.es, {
     updateBannerMsg: "Nueva versión disponible",
     updateBannerBtn: "Actualizar ahora",
     updateBannerClose: "Cerrar banner",
+    updateStickMsg: "Nueva versión disponible — ejecute el icono de actualización en el escritorio.",
 
     // BA 208: Selección de electrodos de prueba
     electrodeSelectionTitle: "Seleccionar electrodos de prueba",

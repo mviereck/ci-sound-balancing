@@ -1518,6 +1518,7 @@ Object.assign(L.en, {
     updateBannerMsg: "New version available",
     updateBannerBtn: "Update now",
     updateBannerClose: "Close banner",
+    updateStickMsg: "New version available — please run the update icon on the desktop.",
 
     // BA 208: Testelektroden-Auswahl
     electrodeSelectionTitle: "Select test electrodes",

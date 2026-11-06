@@ -1518,6 +1518,7 @@ Object.assign(L.fr, {
     updateBannerMsg: "Nouvelle version disponible",
     updateBannerBtn: "Mettre à jour maintenant",
     updateBannerClose: "Fermer la bannière",
+    updateStickMsg: "Nouvelle version disponible — veuillez lancer l’icône de mise à jour sur le bureau.",
 
     // BA 208: Sélection des électrodes de test
     electrodeSelectionTitle: "Sélection des électrodes de test",

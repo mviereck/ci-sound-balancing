@@ -1793,6 +1793,7 @@ Object.assign(L.de, {
     updateBannerMsg: "Neue Version verfuegbar",
     updateBannerBtn: "Jetzt aktualisieren",
     updateBannerClose: "Banner schliessen",
+    updateStickMsg: "Neue Version verfügbar — bitte das Update-Icon auf dem Desktop ausführen.",
 
     // BA 207: Auswahl Testelektroden
     electrodeSelectionTitle: "Testelektroden auswählen",
