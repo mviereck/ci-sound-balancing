@@ -1723,10 +1723,50 @@ function _amWebspaceCurrentCols(category) {
 // offline ohne lokalen Opus: keine (dann liefert der Provider nichts, embed
 // uebernimmt). Opus vs. Fremd-URL steht pro Collection in col._base
 // (gesetzt "" = Fremd-URL mit voller http-URL; nicht-leer = Opus-Bestand).
+// Ist ein Opus-Item lokal vorhanden? Vergleichspfad = col._base + it.audio
+// (dieselbe Zusammensetzung wie _amResolveAudioUrl, nur ohne root). Fremd-URL-
+// Items (volle http(s):/data:) sind nie im Opus-Ordner -> immer "vorhanden".
+function _amItemImBestand(it, colBase) {
+  if (!_amOpusBestand.set) return true;               // keine Liste -> kein Filter
+  var audio = it && it.audio;
+  if (!audio) return true;                            // ohne audio nicht wegfiltern
+  if (/^(data:|https?:|blob:)/i.test(audio)) return true;  // Fremd-URL: unberuehrt
+  return _amOpusBestand.set.has((colBase || "") + audio);
+}
+
+// §9.9.2: Opus-Collections auf die lokal vorhandenen Items reduzieren. Nur
+// wenn eine Bestandsliste geladen ist (Stick); sonst unveraendert. Collections
+// ohne verbleibende Items fallen weg (keine leere Box). Fremd-URL-Collections
+// (_base === "") bleiben unangetastet.
+function _amBestandFilterCols(cols) {
+  if (!_amOpusBestand.set) return cols;               // keine Liste -> kein Filter (Web/ZIP)
+  var out = [];
+  for (var i = 0; i < cols.length; i++) {
+    var c = cols[i];
+    if (!c) continue;
+    if (c._base === "" || c._base == null) { out.push(c); continue; }  // Fremd-URL: unberuehrt
+    var items = (c.items || []).filter(function (it) { return _amItemImBestand(it, c._base); });
+    if (items.length === 0) continue;                 // ganz leer -> Collection faellt weg
+    // Flache Kopie mit gefilterten items (Original-Collection nicht mutieren).
+    var copy = Object.assign({}, c);
+    copy.items = items;
+    out.push(copy);
+  }
+  return out;
+}
+
 function _amWebspaceVisibleCols(cols) {
-  if (amSourceMode !== "offline") return cols;        // online: alles
-  if (!_amLocalOpus.present) return [];               // offline ohne lokalen Opus: nichts
-  return cols.filter(function (c) { return c && c._base !== "" && c._base != null; });
+  // §9.9.1 (Lage online/offline nach col._base) UND §9.9.2 (Item-Bestand)
+  // laufen durch DIESELBE Stelle; beide Provider-Methoden profitieren.
+  var lageGefiltert;
+  if (amSourceMode !== "offline") {
+    lageGefiltert = cols;                              // online: alle Collections
+  } else if (!_amLocalOpus.present) {
+    return [];                                         // offline ohne lokalen Opus: nichts
+  } else {
+    lageGefiltert = cols.filter(function (c) { return c && c._base !== "" && c._base != null; });
+  }
+  return _amBestandFilterCols(lageGefiltert);          // §9.9.2 Item-Bestandsfilter
 }
 
 amRegisterProvider({
@@ -2302,6 +2342,56 @@ function amLocalOpusInit() {
     if (ok && typeof amAfterSourceChange === "function") {
       // Optimistisch-entfernt -> lokal: Listen neu aufbauen, neue URLs greifen.
       amAfterSourceChange();
+    }
+  });
+}
+
+// ============================================================
+// Opus-Bestandsfilter (§9.9.2) — welche Opus-Dateien liegen KONKRET lokal?
+// Zweite relative Start-Probe neben _amLocalOpus (§9.9): diese liest den
+// INHALT (GET), nicht nur den Status, und haelt die Menge der vorhandenen
+// relativen Opus-Pfade. Nur am Stick vorhanden; fehlt die Datei (Web/ZIP),
+// bleibt das Set null = KEIN Filter (Verhalten wie bisher).
+// ============================================================
+
+// Relative Bestandsliste; liegt (nur) am Stick im opus/-Ordner. Eine Zeile
+// je vorhandener Opus-Datei, Pfad relativ unter opus/ (z.B.
+// "mailabs/de/.../datei.opus"), alphabetisch sortiert. Erzeugt der
+// Stick-Updater per find; diese Seite liest nur.
+const AM_LOCAL_OPUS_LIST = "opus/vorhanden.txt";
+
+var _amOpusBestand = {
+  set: null,       // null = keine Liste geladen -> KEIN Filter; Set<string> = vorhandene Pfade
+  checked: false   // true = Start-Probe abgeschlossen (einmalig)
+};
+
+// Ein GET auf die relative Bestandsliste. Erfolg + nicht-leer => Set der Pfade.
+// Leere ODER fehlende Datei => null (defensiv: eine leere Liste ist vermutlich
+// ein Teil-Download/Fehler und soll NICHT die ganze Sammlung leerraeumen).
+async function _amOpusBestandProbe() {
+  try {
+    var r = await fetch(AM_LOCAL_OPUS_LIST, { cache: "no-store" });
+    if (!r || !r.ok) return null;
+    var txt = await r.text();
+    var zeilen = txt.split("\n")
+      .map(function (s) { return s.trim(); })
+      .filter(function (s) { return s.length > 0; });
+    if (zeilen.length === 0) return null;   // leer => kein Filter
+    return new Set(zeilen);
+  } catch (e) {
+    return null;   // nicht erreichbar (Web/ZIP/file://) => kein Filter
+  }
+}
+
+// Start-Erkennung: EINMAL beim Start (wie _amLocalOpus, kein TTL). Bei Treffer
+// ein UI-Refresh, damit bereits aufgebaute Listen den Filter anwenden.
+function amOpusBestandInit() {
+  if (_amOpusBestand.checked) return;
+  _amOpusBestandProbe().then(function (set) {
+    _amOpusBestand.checked = true;
+    _amOpusBestand.set = set;
+    if (set && typeof amAfterSourceChange === "function") {
+      amAfterSourceChange();   // optimistisch ungefiltert -> gefiltert
     }
   });
 }

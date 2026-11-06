@@ -4946,6 +4946,7 @@ plUpdNetSourceUI();
 plUpdNetHint();                                    // BA703
 if (typeof amNetInit === "function") amNetInit();  // BA703: Wächter starten
 if (typeof amLocalOpusInit === "function") amLocalOpusInit();  // 9.9: Lokaler-Opus-Probe
+if (typeof amOpusBestandInit === "function") amOpusBestandInit();  // 9.9.2: Opus-Bestandsliste
 plUpdSourceUI();
 plUpdTransportUI();
 plUpdDisplay();
