@@ -1,0 +1,5 @@
+<IfModule mod_headers.c>
+    <Files "version.js">
+        Header set Access-Control-Allow-Origin "*"
+    </Files>
+</IfModule>
