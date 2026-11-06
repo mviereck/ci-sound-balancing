@@ -119,10 +119,9 @@ class UpdaterGUI:
 
         # --- Untere Leiste ZUERST (side="bottom"), damit sie immer sichtbar
         #     bleibt und nicht vom expandierenden Log unter den Rand gedraengt
-        #     wird. Reihenfolge von unten nach oben: Beenden, Kopieren, Status.
+        #     wird. Reihenfolge von unten nach oben: Beenden, Kopieren.
+        #     Keine eigene Statuszeile mehr -- alle Meldungen gehen ins Log.
         tk.Button(root, text="Beenden", command=root.destroy).pack(side="bottom", pady=8)
-        self.lbl_status = tk.Label(root, text="", fg="#000")
-        self.lbl_status.pack(side="bottom", pady=4)
         tk.Button(root, text="Meldungen ins Clipboard kopieren",
                   command=self._log_kopieren).pack(side="bottom", pady=2)
 
@@ -149,9 +148,6 @@ class UpdaterGUI:
         """Im Tk-Thread ausfuehren."""
         self.root.after(0, fn)
 
-    def _setze_status(self, text):
-        self._ui(lambda: self.lbl_status.config(text=text))
-
     def _log(self, text, fehler=False):
         """Eine Zeile ins Meldungsfeld. fehler=True -> rot + merkt sich, dass
         ein Fehler auftrat (fuer die Abschlussmeldung)."""
@@ -164,6 +160,26 @@ class UpdaterGUI:
                 self.txt_log.insert("end", text + "\n")
             self.txt_log.see("end")
         self._ui(_append)
+
+    def _log_fortschritt(self, text):
+        """Eine Fortschritts-Zeile, die sich an Ort und Stelle aktualisiert
+        (statt bei jedem Schritt eine neue Zeile anzuhaengen). Ersetzt die
+        letzte Log-Zeile, wenn sie zuvor ebenfalls per _log_fortschritt
+        geschrieben wurde; sonst haengt sie eine neue an. Fuer den
+        Audio-Download-Zaehler (viele tausend Schritte)."""
+        def _ersetze():
+            if getattr(self, "_fortschritt_aktiv", False):
+                # letzte Zeile (vor dem abschliessenden \n) ueberschreiben
+                self.txt_log.delete("end-2l", "end-1l")
+            self.txt_log.insert("end", text + "\n")
+            self.txt_log.see("end")
+            self._fortschritt_aktiv = True
+        self._ui(_ersetze)
+
+    def _fortschritt_ende(self):
+        """Fortschritts-Zeile abschliessen: die naechste normale Log-Zeile
+        soll wieder angehaengt, nicht ueberschrieben werden."""
+        self._fortschritt_aktiv = False
 
     def _abschluss(self, erfolgstext):
         """Nach einer Aktion: Erfolgs- oder Sammel-Fehlermeldung ins Log."""
@@ -181,7 +197,7 @@ class UpdaterGUI:
         # Tk leert das Clipboard beim Beenden -- update() erzwingt die Uebergabe
         # an den X-Server, damit der Inhalt auch nach Programmende verfuegbar ist.
         self.root.update()
-        self._setze_status("Meldungen ins Clipboard kopiert.")
+        self._log("Meldungen ins Clipboard kopiert.")
 
     def _ignoriere_close(self):
         self._log("Zum Beenden bitte den Knopf 'Beenden' benutzen "
@@ -224,15 +240,12 @@ class UpdaterGUI:
         self._im_hintergrund(self._cimbel_update_bg)
 
     def _cimbel_update_bg(self):
-        self._setze_status("git pull ...")
+        self._log("git pull ...")
         rc = subprocess.run(["git", "-C", REPO_ROOT, "pull"]).returncode
         if rc != 0:
-            msg = "git pull fehlgeschlagen (rc=" + str(rc) + ")"
-            self._setze_status(msg)
-            self._log(msg)
+            self._log("git pull fehlgeschlagen (rc=" + str(rc) + ")", fehler=True)
             return
         self._log("git pull OK")
-        self._setze_status("Dateiliste (home) anwenden ...")
         self._log("Wende Werks-Dateien an (Dateiliste MANIFEST, home) ...")
         # unprivilegiert: direkt im Kern, Meldungen je Eintrag ins Log
         manifest = update_core._lade_manifest(STICK_ROOT)
@@ -244,14 +257,12 @@ class UpdaterGUI:
             self._log(msg, fehler=msg.startswith("FEHLER"))
         # system-root gebuendelt via pkexec (nur falls es solche Eintraege gibt)
         if _hat_system_root_eintraege():
-            self._setze_status("Systemdateien (Passwort noetig) ...")
             self._log("Wende Systemdateien an (Passwort nötig) ...")
             rc = subprocess.run(["pkexec", sys.executable, CORE_PY,
                             "--stick-root", STICK_ROOT, "--opus-root", OPUS_ROOT,
                             "--webspace", WEBSPACE, "manifest", "--bereich", "system-root"]).returncode
             if rc != 0:
                 self._log("Systemdateien fehlgeschlagen (rc=" + str(rc) + ")", fehler=True)
-        self._setze_status("CImbel aktualisiert.")
         self._abschluss("CImbel aktualisiert.")
         self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
 
@@ -261,7 +272,6 @@ class UpdaterGUI:
         # Stufe 1: pruefen (Soll laden + lokalen Bestand lesen/scannen). Langsam ->
         # im Hintergrund, Button sperren, Spinner zeigen.
         self.btn_audio.config(state="disabled")
-        self._setze_status("Prüfe Audios (lade Liste) ...")
         self._log("Prüfe Audios: lade die Soll-Liste vom Server und vergleiche "
                   "mit dem lokalen Bestand. Das kann einen Moment dauern ...")
         self.progress.config(mode="indeterminate")
@@ -274,10 +284,8 @@ class UpdaterGUI:
             laden, verwaist = update_core._audio_diff(OPUS_ROOT, WEBSPACE)
             n = len(laden)
         except Exception as e:
-            msg = "Audio-Prüfung fehlgeschlagen: " + str(e)
             self._ui(lambda: self.lbl_audio.config(text="Status nicht ermittelbar"))
-            self._setze_status(msg)
-            self._log(msg)
+            self._log("Audio-Prüfung fehlgeschlagen: " + str(e), fehler=True)
             self._ui(lambda: self.btn_audio.config(state="normal"))
             return
         finally:
@@ -293,7 +301,7 @@ class UpdaterGUI:
                 text="Audios aktualisieren", command=self._audio_update, state="normal"))
         else:
             self._ui(lambda: self.lbl_audio.config(text="aktuell"))
-            self._setze_status("Audios sind aktuell.")
+            self._log("Audios sind aktuell.")
             # kein Aktualisieren noetig -> Knopf bleibt deaktiviert
         return
 
@@ -306,32 +314,28 @@ class UpdaterGUI:
     def _audio_update_bg(self):
         def fortschritt(i, n, pfad):
             self._ui(lambda: self.progress.config(maximum=n, value=i))
-            self._setze_status("Lade " + str(i) + " / " + str(n) + " ...")
+            self._log_fortschritt("Lade " + str(i) + " / " + str(n) + " ...")
         try:
             geladen, geloescht = update_core.audio_sync(OPUS_ROOT, WEBSPACE, fortschritt)
         except update_core.SyncAbbruch as e:
-            msg = "Abbruch (Sicherung): " + str(e)
-            self._setze_status(msg)
-            self._log(msg)
+            self._fortschritt_ende()
+            self._log("Abbruch (Sicherung): " + str(e), fehler=True)
             return
         except ValueError as e:
-            msg = "Fehler: " + str(e)
-            self._setze_status(msg)
-            self._log(msg)
+            self._fortschritt_ende()
+            self._log("Fehler: " + str(e), fehler=True)
             return
         finally:
             self._ui(self.progress.pack_forget)
-        ergebnis = ("Audios aktualisiert: " + str(geladen) + " geladen, " +
-                    str(geloescht) + " entfernt.")
-        self._setze_status(ergebnis)
-        self._log(ergebnis)
+        self._fortschritt_ende()
+        self._log("Audios aktualisiert: " + str(geladen) + " geladen, " +
+                  str(geloescht) + " entfernt.")
         self._ui(lambda: self.lbl_audio.config(text="aktuell"))
 
     # ------------------------------------------------- System (zweistufig)
 
     def _system_pruefen(self):
-        self._setze_status("apt update (Passwort noetig) ...")
-        self._log("apt update gestartet (laeuft im Terminal) ...")
+        self._log("apt update gestartet (laeuft im Terminal, Passwort nötig) ...")
         self._im_hintergrund(self._system_pruefen_bg)
 
     def _system_pruefen_bg(self):
@@ -343,12 +347,9 @@ class UpdaterGUI:
                         "read -p 'Fenster schliessen mit Enter ...' _"])
         self._ui(lambda: self.btn_system.config(text="System aktualisieren",
                                                 command=self._system_upgrade))
-        msg = "apt update fertig. 'System aktualisieren' startet apt upgrade."
-        self._setze_status(msg)
-        self._log(msg)
+        self._log("apt update fertig. 'System aktualisieren' startet apt upgrade.")
 
     def _system_upgrade(self):
-        self._setze_status("apt upgrade läuft im Terminal ...")
         self._log("apt upgrade gestartet (laeuft im Terminal) ...")
         self._im_hintergrund(self._system_upgrade_bg)
 
@@ -359,9 +360,7 @@ class UpdaterGUI:
         subprocess.run(["x-terminal-emulator", "-e", "bash", "-c",
                         "pkexec apt -y upgrade; echo; echo 'Systemupdate fertig.'; "
                         "read -p 'Fenster schliessen mit Enter ...' _"])
-        msg = "Systemupdate abgeschlossen."
-        self._setze_status(msg)
-        self._log(msg)
+        self._log("Systemupdate abgeschlossen.")
 
 
 def main():
