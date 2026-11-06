@@ -2373,11 +2373,19 @@ async function _amOpusBestandProbe() {
     var r = await fetch(AM_LOCAL_OPUS_LIST, { cache: "no-store" });
     if (!r || !r.ok) return null;
     var txt = await r.text();
-    var zeilen = txt.split("\n")
-      .map(function (s) { return s.trim(); })
+    // Jede Zeile ist "pfad<TAB>groesse" (die Groesse nutzt nur der Stick-
+    // Updater). Der Bestandsfilter braucht NUR den Pfad: alles vor dem
+    // LETZTEN Tab (Pfade duerfen Leerzeichen enthalten). Zeile ohne Tab ->
+    // ganze Zeile ist der Pfad (abwaertskompatibel zu einer reinen Pfadliste).
+    var pfade = txt.split("\n")
+      .map(function (s) {
+        s = s.replace(/[\r\n]+$/, "");
+        var t = s.lastIndexOf("\t");
+        return (t >= 0) ? s.slice(0, t) : s;
+      })
       .filter(function (s) { return s.length > 0; });
-    if (zeilen.length === 0) return null;   // leer => kein Filter
-    return new Set(zeilen);
+    if (pfade.length === 0) return null;   // leer => kein Filter
+    return new Set(pfade);
   } catch (e) {
     return null;   // nicht erreichbar (Web/ZIP/file://) => kein Filter
   }

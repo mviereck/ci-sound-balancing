@@ -8,6 +8,7 @@ bereich=system-root ruft die UI dieses Skript gebuendelt via pkexec.
 import argparse
 import json
 import os
+import subprocess
 import sys
 import urllib.request
 from pathlib import Path
@@ -24,6 +25,50 @@ LOESCH_SCHWELLE = 0.5
 
 def _expand(ziel):
     """~ expandieren (home-Bereich)."""
+    return os.path.expanduser(ziel)
+
+
+# Deutsche MANIFEST-Platzhalter -> xdg-user-dir-Schluessel. Locale-korrekt:
+# @SCHREIBTISCH@ loest auf einem englischen System zu ~/Desktop auf, auf einem
+# deutschen zu ~/Schreibtisch. So bleibt das MANIFEST sprachunabhaengig.
+_XDG_PLATZHALTER = {
+    "@SCHREIBTISCH@": "DESKTOP",
+    "@MUSIK@": "MUSIC",
+    "@DOWNLOADS@": "DOWNLOAD",
+    "@DOKUMENTE@": "DOCUMENTS",
+    "@BILDER@": "PICTURES",
+    "@VIDEOS@": "VIDEOS",
+}
+
+
+class ZielFehler(Exception):
+    """Zielpfad nicht aufloesbar (unbekannter/nicht ermittelbarer Platzhalter)."""
+    pass
+
+
+def _loese_ziel(ziel):
+    """Loest ein MANIFEST-ziel auf: fuehrt ggf. einen @NAME@-Platzhalter (XDG-
+    Ordner) ueber xdg-user-dir auf, danach ~ expandieren. Beginnt ziel mit
+    '@', MUSS der Platzhalter bekannt und aufloesbar sein -- sonst ZielFehler
+    (statt still ins falsche Verzeichnis zu schreiben). Ohne Platzhalter:
+    nur ~ expandieren (wie bisher)."""
+    if ziel.startswith("@"):
+        ende = ziel.find("@", 1)
+        if ende < 0:
+            raise ZielFehler("ungueltiger Platzhalter in: " + ziel)
+        name = ziel[:ende + 1]                    # inkl. schliessendem @
+        rest = ziel[ende + 1:].lstrip("/")
+        schluessel = _XDG_PLATZHALTER.get(name)
+        if not schluessel:
+            raise ZielFehler("unbekannter Platzhalter: " + name)
+        try:
+            basis = subprocess.run(["xdg-user-dir", schluessel],
+                                    capture_output=True, text=True).stdout.strip()
+        except OSError:
+            basis = ""
+        if not basis:
+            raise ZielFehler("Zielordner " + name + " nicht auffindbar (xdg-user-dir)")
+        return os.path.join(basis, rest) if rest else basis
     return os.path.expanduser(ziel)
 
 
@@ -74,10 +119,9 @@ def _lade_soll(webspace):
         zeile = zeile.strip()
         if not zeile:
             continue
-        teile = zeile.split("\t")
-        if len(teile) != 2:
+        if "\t" not in zeile:
             continue
-        pfad, groesse = teile[0], teile[1]
+        pfad, groesse = zeile.rsplit("\t", 1)   # am LETZTEN Tab: Pfad darf Leerzeichen/Tabs enthalten
         try:
             soll[pfad] = int(groesse)
         except ValueError:
@@ -85,17 +129,38 @@ def _lade_soll(webspace):
     return soll
 
 
-def _ist_bestand(opus_root):
-    """Lokaler Opus-Bestand: dict relpfad -> groesse. relpfad ist relativ zur
-    Opus-Wurzel (passt zu base+audio der Soll-Liste)."""
-    opus_root = Path(opus_root)
+def _lies_vorhanden(opus_root):
+    """Liest opus/vorhanden.txt -> dict relpfad -> groesse. Zeile
+    `relpfad<TAB>groesse`, am LETZTEN Tab getrennt (Pfade duerfen Leerzeichen
+    enthalten). Fehlt die Datei oder eine Zeile ohne Tab -> uebersprungen."""
+    pfad = Path(opus_root) / "vorhanden.txt"
     ist = {}
-    for p in opus_root.rglob("*"):
-        if not p.is_file():
+    try:
+        txt = pfad.read_text(encoding="utf-8")
+    except OSError:
+        return ist
+    for zeile in txt.splitlines():
+        zeile = zeile.rstrip("\n")
+        if not zeile:
             continue
-        rel = p.relative_to(opus_root).as_posix()
-        ist[rel] = p.stat().st_size
+        if "\t" not in zeile:
+            continue
+        rel, groesse = zeile.rsplit("\t", 1)
+        try:
+            ist[rel] = int(groesse)
+        except ValueError:
+            continue
     return ist
+
+
+def _ist_bestand(opus_root):
+    """Lokaler Opus-Bestand: dict relpfad -> groesse. Liest vorhanden.txt
+    (schnell); fehlt sie, wird sie einmal per Scan erzeugt (teuer, nur beim
+    Erststart). Nach einem audio-sync schreibt der Sync die Liste neu."""
+    opus_root = Path(opus_root)
+    if not (opus_root / "vorhanden.txt").is_file():
+        _schreibe_vorhanden(opus_root)
+    return _lies_vorhanden(opus_root)
 
 
 # ---------------------------------------------------------------- MANIFEST
@@ -116,13 +181,20 @@ def _manifest_eintrag_anwenden(e, stick_root, opus_root, webspace):
 
     # loeschen: gezielt, unabhaengig von herkunft/typ.
     if modus == "loeschen":
-        zp = Path(_expand(ziel))
+        try:
+            zp = Path(_loese_ziel(ziel))
+        except ZielFehler as e:
+            return "FEHLER: " + str(e)
         if zp.exists():
             zp.unlink()
             return "geloescht: " + ziel
         return "schon weg: " + ziel
 
     if herkunft == "repo":
+        try:
+            ziel_aufgeloest = _loese_ziel(ziel)
+        except ZielFehler as e:
+            return "FEHLER: " + str(e)
         src_basis = Path(stick_root) / quelle
         if typ == "ordner":
             n = 0
@@ -130,7 +202,7 @@ def _manifest_eintrag_anwenden(e, stick_root, opus_root, webspace):
                 if not src.is_file():
                     continue
                 rel = src.relative_to(src_basis).as_posix()
-                zp = Path(_expand(ziel)) / rel
+                zp = Path(ziel_aufgeloest) / rel
                 if modus == "nur-wenn-fehlt" and zp.exists():
                     continue
                 zp.parent.mkdir(parents=True, exist_ok=True)
@@ -138,7 +210,7 @@ def _manifest_eintrag_anwenden(e, stick_root, opus_root, webspace):
                 n += 1
             return "repo-ordner " + quelle + ": " + str(n) + " Datei(en)"
         else:
-            zp = Path(_expand(ziel))
+            zp = Path(ziel_aufgeloest)
             if modus == "nur-wenn-fehlt" and zp.exists():
                 return "vorhanden, uebersprungen: " + ziel
             zp.parent.mkdir(parents=True, exist_ok=True)
@@ -259,21 +331,24 @@ def cmd_audio_sync(args):
 # ---------------------------------------------------------------- vorhanden.txt
 
 def _schreibe_vorhanden(opus_root):
-    """find -> opus/vorhanden.txt (REINE Pfadliste, relativ zur Opus-Wurzel,
-    alphabetisch). CImbels Bestandsfilter (ss9.9.2) liest sie; sie traegt
-    KEINE Groesse."""
+    """Scannt den lokalen Opus-Ordner (rglob+stat) und schreibt
+    opus/vorhanden.txt: je Zeile `relpfad<TAB>groesse`, alphabetisch nach Pfad.
+    Dies ist der EINZIGE Ort mit dem teuren Datei-Scan; der Audioabgleich liest
+    danach nur noch diese Liste. CImbels Bestandsfilter (ss9.9.2) nutzt den
+    Pfad (erste Spalte vor dem letzten Tab) und ignoriert die Groesse."""
     opus_root = Path(opus_root)
-    pfade = []
+    eintraege = []
     for p in opus_root.rglob("*"):
-        if p.is_file():
-            rel = p.relative_to(opus_root).as_posix()
-            if rel == "vorhanden.txt" or rel == "soll-items.txt":
-                continue   # die Steuerdateien selbst nicht listen
-            pfade.append(rel)
+        if not p.is_file():
+            continue
+        rel = p.relative_to(opus_root).as_posix()
+        if rel in ("vorhanden.txt", "soll-items.txt"):
+            continue   # die Steuerdateien selbst nicht listen
+        eintraege.append((rel, p.stat().st_size))
     ziel = opus_root / "vorhanden.txt"
     with open(ziel, "w", encoding="utf-8") as f:
-        for p in sorted(pfade):
-            f.write(p + "\n")
+        for rel, groesse in sorted(eintraege):
+            f.write(rel + "\t" + str(groesse) + "\n")
 
 
 def cmd_vorhanden(args):

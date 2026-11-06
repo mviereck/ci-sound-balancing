@@ -106,7 +106,7 @@ class UpdaterGUI:
                                    command=self._audio_pruefen, state="disabled")
         self.btn_audio.pack(side="right")
         self.progress = ttk.Progressbar(root, length=520, mode="determinate")
-        # wird nur beim Audio-Download eingeblendet
+        # wird nur beim Audio-Pruefen (indeterminate) und -Download (determinate) eingeblendet
 
         # --- Bereich System ---
         self._bereich_system = tk.LabelFrame(root, text="System", padx=8, pady=6)
@@ -117,8 +117,19 @@ class UpdaterGUI:
                                     command=self._system_pruefen, state="disabled")
         self.btn_system.pack(side="right")
 
+        # --- Log (selektierbar, scrollbar) ---
+        self._log_frame = tk.LabelFrame(root, text="Meldungen", padx=4, pady=4)
+        self._log_frame.pack(fill="both", expand=True, padx=10, pady=4)
+        self.txt_log = tk.Text(self._log_frame, height=8, wrap="word")
+        self.txt_log.pack(side="left", fill="both", expand=True)
+        _sb = tk.Scrollbar(self._log_frame, command=self.txt_log.yview)
+        _sb.pack(side="right", fill="y")
+        self.txt_log.config(yscrollcommand=_sb.set)
+        tk.Button(root, text="Fehlerbericht ins Clipboard kopieren",
+                  command=self._log_kopieren).pack(pady=2)
+
         # --- Statuszeile + Exit ---
-        self.lbl_status = tk.Label(root, text="", fg="#555")
+        self.lbl_status = tk.Label(root, text="", fg="#000")
         self.lbl_status.pack(pady=4)
         tk.Button(root, text="Beenden", command=root.destroy).pack(pady=8)
 
@@ -135,6 +146,18 @@ class UpdaterGUI:
 
     def _setze_status(self, text):
         self._ui(lambda: self.lbl_status.config(text=text))
+
+    def _log(self, text):
+        def _append():
+            self.txt_log.insert("end", text + "\n")
+            self.txt_log.see("end")
+        self._ui(_append)
+
+    def _log_kopieren(self):
+        inhalt = self.txt_log.get("1.0", "end").strip()
+        self.root.clipboard_clear()
+        self.root.clipboard_append(inhalt)
+        self._setze_status("Meldungen ins Clipboard kopiert.")
 
     def _ignoriere_close(self):
         self._setze_status("Zum Beenden den Knopf 'Beenden' benutzen.")
@@ -178,14 +201,20 @@ class UpdaterGUI:
         self._setze_status("git pull ...")
         rc = subprocess.run(["git", "-C", REPO_ROOT, "pull"]).returncode
         if rc != 0:
-            self._setze_status("git pull fehlgeschlagen.")
+            msg = "git pull fehlgeschlagen (rc=" + str(rc) + ")"
+            self._setze_status(msg)
+            self._log(msg)
             return
+        self._log("git pull OK")
         self._setze_status("Dateiliste (home) anwenden ...")
-        # unprivilegiert, direkt im Kern
-        import argparse
-        ns = argparse.Namespace(stick_root=STICK_ROOT, opus_root=OPUS_ROOT,
-                                webspace=WEBSPACE, bereich="home")
-        update_core.cmd_manifest(ns)
+        # unprivilegiert: direkt im Kern, Meldungen je Eintrag ins Log
+        manifest = update_core._lade_manifest(STICK_ROOT)
+        for e in manifest:
+            if e.get("bereich", "home") != "home":
+                continue
+            msg = update_core._manifest_eintrag_anwenden(
+                e, STICK_ROOT, OPUS_ROOT, WEBSPACE)
+            self._log(msg)
         # system-root gebuendelt via pkexec (nur falls es solche Eintraege gibt)
         if _hat_system_root_eintraege():
             self._setze_status("Systemdateien (Passwort noetig) ...")
@@ -193,26 +222,37 @@ class UpdaterGUI:
                             "--stick-root", STICK_ROOT, "--opus-root", OPUS_ROOT,
                             "--webspace", WEBSPACE, "manifest", "--bereich", "system-root"])
         self._setze_status("CImbel aktualisiert.")
+        self._log("CImbel aktualisiert.")
         self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
 
     # ------------------------------------------------- Audios (zweistufig)
 
     def _audio_pruefen(self):
-        # Stufe 1: pruefen (Soll laden + lokalen Bestand scannen). Langsam ->
-        # im Hintergrund, Button sperren waehrenddessen.
+        # Stufe 1: pruefen (Soll laden + lokalen Bestand lesen/scannen). Langsam ->
+        # im Hintergrund, Button sperren, Spinner zeigen.
         self.btn_audio.config(state="disabled")
-        self._setze_status("Prüfe Audios ...")
+        self._setze_status("Prüfe Audios (lade Liste) ...")
+        self.progress.config(mode="indeterminate")
+        self.progress.pack(pady=4)
+        self.progress.start(12)
         self._im_hintergrund(self._audio_pruefen_bg)
 
     def _audio_pruefen_bg(self):
         try:
-            laden, _verwaist = update_core._audio_diff(OPUS_ROOT, WEBSPACE)
+            laden, verwaist = update_core._audio_diff(OPUS_ROOT, WEBSPACE)
             n = len(laden)
         except Exception as e:
+            msg = "Audio-Prüfung fehlgeschlagen: " + str(e)
             self._ui(lambda: self.lbl_audio.config(text="Status nicht ermittelbar"))
-            self._setze_status("Audio-Prüfung fehlgeschlagen: " + str(e))
+            self._setze_status(msg)
+            self._log(msg)
             self._ui(lambda: self.btn_audio.config(state="normal"))
             return
+        finally:
+            self._ui(self.progress.stop)
+            self._ui(self.progress.pack_forget)
+        self._log("Audio-Prüfung: " + str(n) + " zu laden, " +
+                  str(len(verwaist)) + " verwaist.")
         if n > 0:
             self._ui(lambda: self.lbl_audio.config(
                 text=str(n) + " neue/geänderte Audios (Download kann lange dauern)"))
@@ -227,6 +267,7 @@ class UpdaterGUI:
 
     def _audio_update(self):
         self.btn_audio.config(state="disabled")
+        self.progress.config(mode="determinate")
         self.progress.pack(pady=4)
         self._im_hintergrund(self._audio_update_bg)
 
@@ -237,21 +278,28 @@ class UpdaterGUI:
         try:
             geladen, geloescht = update_core.audio_sync(OPUS_ROOT, WEBSPACE, fortschritt)
         except update_core.SyncAbbruch as e:
-            self._setze_status("Abbruch (Sicherung): " + str(e))
+            msg = "Abbruch (Sicherung): " + str(e)
+            self._setze_status(msg)
+            self._log(msg)
             return
         except ValueError as e:
-            self._setze_status("Fehler: " + str(e))
+            msg = "Fehler: " + str(e)
+            self._setze_status(msg)
+            self._log(msg)
             return
         finally:
             self._ui(self.progress.pack_forget)
-        self._setze_status("Audios aktualisiert: " + str(geladen) + " geladen, " +
-                           str(geloescht) + " entfernt.")
+        ergebnis = ("Audios aktualisiert: " + str(geladen) + " geladen, " +
+                    str(geloescht) + " entfernt.")
+        self._setze_status(ergebnis)
+        self._log(ergebnis)
         self._ui(lambda: self.lbl_audio.config(text="aktuell"))
 
     # ------------------------------------------------- System (zweistufig)
 
     def _system_pruefen(self):
         self._setze_status("apt update (Passwort noetig) ...")
+        self._log("apt update gestartet (laeuft im Terminal) ...")
         self._im_hintergrund(self._system_pruefen_bg)
 
     def _system_pruefen_bg(self):
@@ -263,10 +311,13 @@ class UpdaterGUI:
                         "read -p 'Fenster schliessen mit Enter ...' _"])
         self._ui(lambda: self.btn_system.config(text="System aktualisieren",
                                                 command=self._system_upgrade))
-        self._setze_status("Prüfung fertig. 'System aktualisieren' startet apt upgrade.")
+        msg = "apt update fertig. 'System aktualisieren' startet apt upgrade."
+        self._setze_status(msg)
+        self._log(msg)
 
     def _system_upgrade(self):
         self._setze_status("apt upgrade läuft im Terminal ...")
+        self._log("apt upgrade gestartet (laeuft im Terminal) ...")
         self._im_hintergrund(self._system_upgrade_bg)
 
     def _system_upgrade_bg(self):
@@ -276,7 +327,9 @@ class UpdaterGUI:
         subprocess.run(["x-terminal-emulator", "-e", "bash", "-c",
                         "pkexec apt -y upgrade; echo; echo 'Systemupdate fertig.'; "
                         "read -p 'Fenster schliessen mit Enter ...' _"])
-        self._setze_status("Systemupdate abgeschlossen.")
+        msg = "Systemupdate abgeschlossen."
+        self._setze_status(msg)
+        self._log(msg)
 
 
 def main():
