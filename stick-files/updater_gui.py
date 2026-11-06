@@ -335,21 +335,53 @@ class UpdaterGUI:
     # ------------------------------------------------- System (zweistufig)
 
     def _system_pruefen(self):
+        self.btn_system.config(state="disabled")
         self._log("apt update gestartet (laeuft im Terminal, Passwort nötig) ...")
         self._im_hintergrund(self._system_pruefen_bg)
 
+    def _anzahl_upgradable(self):
+        """Zahl aktualisierbarer Pakete -- unprivilegiert (kein root noetig).
+        'apt list --upgradable' listet je ein Paket als 'name/suite ...';
+        die Kopfzeile ('Listing...'/'Auflistung...') enthaelt kein '/'."""
+        try:
+            out = subprocess.run(["apt", "list", "--upgradable"],
+                                  capture_output=True, text=True).stdout
+        except OSError:
+            return None
+        return sum(1 for z in out.splitlines() if "/" in z)
+
     def _system_pruefen_bg(self):
-        # apt update braucht root -> pkexec, sichtbar im Terminal (wie upgrade).
-        # subprocess.run wartet, bis das Terminal geschlossen ist, erst dann
-        # schaltet der Button auf "System aktualisieren" um.
-        subprocess.run(["x-terminal-emulator", "-e", "bash", "-c",
-                        "pkexec apt update; echo; echo 'Prüfung fertig.'; "
-                        "read -p 'Fenster schliessen mit Enter ...' _"])
-        self._ui(lambda: self.btn_system.config(text="System aktualisieren",
-                                                command=self._system_upgrade))
-        self._log("apt update fertig. 'System aktualisieren' startet apt upgrade.")
+        # apt update braucht root -> pkexec, sichtbar im Terminal. Schliesst bei
+        # Erfolg automatisch, wartet nur bei Fehler auf Enter (|| read), damit
+        # der Nutzer eine Fehlermeldung (z.B. Repo unerreichbar) noch sieht.
+        rc = subprocess.run(["x-terminal-emulator", "-e", "bash", "-c",
+                        "pkexec apt update || { echo; echo 'apt update fehlgeschlagen.'; "
+                        "read -p 'Fenster schliessen mit Enter ...' _; exit 1; }"]).returncode
+        if rc != 0:
+            self._log("apt update fehlgeschlagen -- bitte Terminal-Ausgabe beachten.",
+                      fehler=True)
+            self._ui(lambda: self.btn_system.config(state="normal"))
+            return
+        # Erfolg: Paketzahl still ermitteln und anzeigen; Upgrade nur anbieten,
+        # wenn es etwas zu aktualisieren gibt.
+        n = self._anzahl_upgradable()
+        if n is None:
+            self._log("Paketzahl nicht ermittelbar (apt list fehlgeschlagen).", fehler=True)
+            self._ui(lambda: self.btn_system.config(state="normal"))
+            return
+        if n > 0:
+            self._log("apt update fertig: " + str(n) + " Paket-Updates verfügbar.")
+            self._ui(lambda: self.lbl_system.config(
+                text=str(n) + " Paket-Updates verfügbar"))
+            self._ui(lambda: self.btn_system.config(
+                text="System aktualisieren", command=self._system_upgrade, state="normal"))
+        else:
+            self._log("apt update fertig: System ist aktuell.")
+            self._ui(lambda: self.lbl_system.config(text="System ist aktuell"))
+            # kein Upgrade noetig -> Knopf bleibt deaktiviert
 
     def _system_upgrade(self):
+        self.btn_system.config(state="disabled")
         self._log("apt upgrade gestartet (laeuft im Terminal) ...")
         self._im_hintergrund(self._system_upgrade_bg)
 
@@ -357,10 +389,17 @@ class UpdaterGUI:
         # Sichtbar im Terminal; blockierend im Hintergrund-Thread (run, nicht
         # Popen), damit nach Terminal-Ende der Status aktualisiert wird -- sonst
         # bliebe "laeuft im Terminal" stehen, auch wenn das Terminal zu ist.
-        subprocess.run(["x-terminal-emulator", "-e", "bash", "-c",
-                        "pkexec apt -y upgrade; echo; echo 'Systemupdate fertig.'; "
-                        "read -p 'Fenster schliessen mit Enter ...' _"])
-        self._log("Systemupdate abgeschlossen.")
+        # Schliesst bei Erfolg automatisch, wartet nur bei Fehler auf Enter.
+        rc = subprocess.run(["x-terminal-emulator", "-e", "bash", "-c",
+                        "pkexec apt -y upgrade || { echo; echo 'apt upgrade fehlgeschlagen.'; "
+                        "read -p 'Fenster schliessen mit Enter ...' _; exit 1; }"]).returncode
+        if rc != 0:
+            self._log("apt upgrade fehlgeschlagen -- bitte Terminal-Ausgabe beachten.",
+                      fehler=True)
+            self._ui(lambda: self.btn_system.config(state="normal"))
+            return
+        self._log("Systemupdate abgeschlossen. System ist aktuell.")
+        self._ui(lambda: self.lbl_system.config(text="System ist aktuell"))
 
 
 def main():
