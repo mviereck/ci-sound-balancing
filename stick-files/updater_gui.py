@@ -1,22 +1,24 @@
 #!/usr/bin/env python3
 """Stick-Updater -- grafische Oberflaeche (Tkinter).
 
-Ein Fenster mit drei Bereichen: CImbel / Audios / System. Orchestriert den
-Kern update_core.py: unprivilegierte Teile per Modul-Import, privilegierte
-(system-root-Dateiliste, apt) per pkexec-Subprocess. Exit nur ueber den
-Exit-Button.
+Ein Fenster mit vier Bereichen: CImbel / Audios / Pico-ASHA / System.
+Orchestriert update_core.py (unprivilegiert per Import, privilegiert per
+pkexec) und pico_core.py (Pico-Erkennung, Download, Flash-Orchestrierung).
+Exit nur ueber den Exit-Button.
 """
 import os
 import sys
 import json
 import threading
 import subprocess
+import time
 import urllib.request
 import tkinter as tk
 from tkinter import ttk
 from pathlib import Path
 
 import update_core
+import pico_core
 
 STICK_ROOT = update_core.DEF_STICK_ROOT
 OPUS_ROOT = update_core.DEF_OPUS_ROOT
@@ -74,7 +76,7 @@ class UpdaterGUI:
     def __init__(self, root):
         self.root = root
         root.title("CImbel aktualisieren")
-        root.geometry("600x640")
+        root.geometry("600x720")
         # Fenster-X abfangen: Schliessen nur ueber den Exit-Button.
         root.protocol("WM_DELETE_WINDOW", self._ignoriere_close)
 
@@ -107,6 +109,21 @@ class UpdaterGUI:
         self.btn_audio.pack(side="right")
         self.progress = ttk.Progressbar(root, length=520, mode="determinate")
         # wird nur beim Audio-Pruefen (indeterminate) und -Download (determinate) eingeblendet
+
+        # --- Bereich Pico-ASHA ---
+        self._bereich_pico = tk.LabelFrame(root, text="Pico-ASHA", padx=8, pady=6)
+        self._bereich_pico.pack(fill="x", padx=10, pady=4)
+        self.lbl_pico = tk.Label(self._bereich_pico, text="...")
+        self.lbl_pico.pack(side="left")
+        # Force-Flash ist IMMER anwaehlbar (unabhaengig vom Versionsvergleich):
+        self.btn_pico_force = tk.Button(self._bereich_pico, text="Pico neu flashen",
+                                        command=lambda: self._pico_flash_dialog(force=True))
+        self.btn_pico_force.pack(side="right")
+        # Update-Button erscheint nur, wenn eine neue Version vorliegt:
+        self.btn_pico = tk.Button(self._bereich_pico, text="Pico-ASHA aktualisieren",
+                                  command=lambda: self._pico_flash_dialog(force=False),
+                                  state="disabled")
+        self.btn_pico.pack(side="right", padx=(0, 6))
 
         # --- Bereich System ---
         self._bereich_system = tk.LabelFrame(root, text="System", padx=8, pady=6)
@@ -207,6 +224,7 @@ class UpdaterGUI:
     # ------------------------------------------------- Initialer Status
 
     def _initialer_status(self):
+        self._pico_status()          # laeuft unabhaengig vom Netz
         self.online = _online()
         if not self.online:
             self._ui(lambda: self.lbl_online.config(
@@ -400,6 +418,216 @@ class UpdaterGUI:
             return
         self._log("Systemupdate abgeschlossen. System ist aktuell.")
         self._ui(lambda: self.lbl_system.config(text="System ist aktuell"))
+
+    # ------------------------------------------------- Pico-ASHA
+
+    def _pico_status(self):
+        self._im_hintergrund(self._pico_status_bg)
+
+    def _pico_status_bg(self):
+        if not pico_core.pico_betrieb_da():
+            self._ui(lambda: self.lbl_pico.config(text="Kein Pico gefunden"))
+            return
+        fw = pico_core.lies_firmware_version()
+        if fw is None:
+            self._ui(lambda: self.lbl_pico.config(
+                text="Pico gefunden, Firmware unbekannt"))
+            return
+        stick = pico_core.stick_satz()
+        web = pico_core.webspace_satz()   # None, wenn offline
+        if web is None:
+            self._ui(lambda: self.lbl_pico.config(
+                text="Pico gefunden (Version " + fw +
+                     "); Abgleich nur mit Internet möglich"))
+            return
+        # Zwei Vergleiche (Architektur §4):
+        update_da = (stick is None) or (web["satz_version"] != stick.get("satz_version"))
+        pico_veraltet = (fw != web["firmware_upstream"])
+        if update_da or pico_veraltet:
+            self._ui(lambda: self.lbl_pico.config(
+                text="Neue Version von Pico-ASHA verfügbar (" +
+                     web["satz_version"] + ")"))
+            self._ui(lambda: self.btn_pico.config(state="normal"))
+        else:
+            self._ui(lambda: self.lbl_pico.config(text="Pico-ASHA ist aktuell"))
+
+    def _pico_flash_dialog(self, force):
+        PicoFlashDialog(self.root, force, self._pico_status)
+
+
+# ----------------------------------------------------------- Pico-Flash-Dialog
+
+class PicoFlashDialog:
+    """Gefuehrter Flash-Ablauf fuer den Pico-ASHA.
+
+    Eigenes Toplevel-Fenster mit eigenem Log (Machart reset_gui.py).
+    nach_flash_cb wird nach erfolgreichem Flash im Tk-Thread aufgerufen.
+    """
+
+    def __init__(self, parent, force, nach_flash_cb):
+        self._force = force
+        self._nach_flash_cb = nach_flash_cb
+        self._abbrechen = False
+
+        self._win = tk.Toplevel(parent)
+        self._win.title("Pico-ASHA flashen")
+        self._win.geometry("520x380")
+        self._win.protocol("WM_DELETE_WINDOW", self._anfrage_abbrechen)
+
+        tk.Label(self._win,
+                 text="Pico-ASHA Firmware-Update",
+                 font=("", 12, "bold")).pack(pady=(12, 4))
+
+        self._lbl_anleitung = tk.Label(
+            self._win, text="", justify="left", wraplength=490, anchor="w")
+        self._lbl_anleitung.pack(fill="x", padx=12, pady=4)
+
+        self._btn_abbrechen = tk.Button(
+            self._win, text="Abbrechen", command=self._anfrage_abbrechen)
+        self._btn_abbrechen.pack(side="bottom", pady=8)
+
+        frame = tk.LabelFrame(self._win, text="Meldungen", padx=4, pady=4)
+        frame.pack(fill="both", expand=True, padx=10, pady=4)
+        self._txt = tk.Text(frame, height=8, wrap="word")
+        self._txt.pack(side="left", fill="both", expand=True)
+        sb = tk.Scrollbar(frame, command=self._txt.yview)
+        sb.pack(side="right", fill="y")
+        self._txt.config(yscrollcommand=sb.set)
+        self._txt.tag_config("fehler", foreground="#c00")
+        self._txt.tag_config("ok", foreground="#070")
+
+        threading.Thread(target=self._ablauf, daemon=True).start()
+
+    def _ui(self, fn):
+        self._win.after(0, fn)
+
+    def _log(self, text, fehler=False, ok=False):
+        def _append():
+            tag = "fehler" if fehler else ("ok" if ok else "")
+            self._txt.insert("end", text + "\n", tag)
+            self._txt.see("end")
+        self._ui(_append)
+
+    def _anleitung(self, text):
+        self._ui(lambda: self._lbl_anleitung.config(text=text))
+
+    def _anfrage_abbrechen(self):
+        self._abbrechen = True
+        self._win.destroy()
+
+    def _ablauf(self):
+        # Schritt 1: Satz sicherstellen
+        if self._force:
+            # Force: lokal vorhandene .uf2 nutzen; kein erzwungener Download
+            stick = pico_core.stick_satz()
+            if not stick:
+                self._log("Fehler: Kein lokaler Satz vorhanden. "
+                          "Bitte zuerst einen Online-Update durchfuehren "
+                          "(Pico-ASHA aktualisieren).", fehler=True)
+                self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
+                return
+        else:
+            web = pico_core.webspace_satz()
+            if not web:
+                self._log("Fehler: Webspace nicht erreichbar. "
+                          "Bitte Internetverbindung pruefen.", fehler=True)
+                self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
+                return
+            stick = pico_core.stick_satz()
+            if stick is None or web["satz_version"] != stick.get("satz_version"):
+                self._log("Lade neuen Satz " + web["satz_version"] + " ...")
+                try:
+                    pico_core.satz_herunterladen(web)
+                except Exception as e:
+                    self._log("Download fehlgeschlagen: " + str(e), fehler=True)
+                    self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
+                    return
+                self._log("Download abgeschlossen.")
+
+        # Schritt 2: BOOTSEL-Aufforderung
+        self._anleitung(
+            "Ziehen Sie den Pico ab und stecken Sie ihn mit "
+            "gedrücktem BOOTSEL-Knopf wieder ein.")
+        self._log("Warte auf BOOTSEL-Laufwerk ...")
+
+        # Schritt 3: Auf Flash-Laufwerk warten (Polling, kein Timeout)
+        mp = board = None
+        while not self._abbrechen:
+            mp, board = pico_core.flash_laufwerk()
+            if mp and board:
+                break
+            time.sleep(0.5)
+        if self._abbrechen:
+            return
+
+        # Schritt 4: Modell anzeigen + flashen
+        board_name = "Pico 2 W" if board == "pico2_w" else "Pico W"
+        self._log(board_name + " erkannt, Laufwerk: " + mp)
+        self._anleitung("Firmware wird geschrieben ...")
+        try:
+            pico_core.flashe(board, mp)
+        except Exception as e:
+            self._log("Fehler beim Flashen: " + str(e), fehler=True)
+            self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
+            return
+
+        # Schritt 5a: Warten, bis Laufwerk verschwindet (Pico rebootet)
+        self._log("Firmware geschrieben, Pico startet neu ...")
+        for _ in range(60):  # max. 30 s
+            if self._abbrechen:
+                return
+            if pico_core.pico_flashmodus() is None:
+                break
+            time.sleep(0.5)
+        else:
+            self._log(
+                "Laufwerk ist nicht verschwunden. Moeglicherweise falsches "
+                "Modell (Family-ID-Abweisung) -- bitte Pico-Modell pruefen.",
+                fehler=True)
+            self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
+            return
+
+        # Schritt 5b: Warten, bis Pico wieder im Betrieb meldet + Version lesen
+        self._anleitung("Pico bootet neu, bitte warten ...")
+        for _ in range(40):  # max. 20 s
+            if self._abbrechen:
+                return
+            if pico_core.pico_betrieb_da():
+                break
+            time.sleep(0.5)
+        else:
+            self._log(
+                "Pico meldet sich nicht zurueck. Firmware moeglicherweise "
+                "nicht gestartet -- bitte manuell pruefen.", fehler=True)
+            self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
+            return
+
+        fw_neu = pico_core.lies_firmware_version()
+        aktueller_satz = pico_core.stick_satz()
+        erwartet = aktueller_satz.get("firmware_upstream") if aktueller_satz else None
+
+        if erwartet and fw_neu != erwartet:
+            self._log(
+                "Warnung: Pico meldet Version " + str(fw_neu) +
+                ", erwartet " + erwartet +
+                ". Bedien-GUI wird NICHT uebernommen.", fehler=True)
+            self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
+            return
+
+        # Schritt 6: GUI uebernehmen (erst nach bestaetigtem Erfolg)
+        try:
+            pico_core.gui_uebernehmen()
+        except Exception as e:
+            self._log("GUI-Uebernahme fehlgeschlagen: " + str(e), fehler=True)
+            self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
+            return
+
+        self._log("Pico-ASHA aktualisiert. Die Bedien-GUI ist auf dem "
+                  "neuen Stand.", ok=True)
+        self._anleitung("Fertig!")
+        self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
+        # Hauptfenster-Zeile aktualisieren
+        self._ui(self._nach_flash_cb)
 
 
 def main():
