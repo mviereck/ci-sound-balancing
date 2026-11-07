@@ -24,6 +24,7 @@ nichts anderes (opus, git, ... bleiben unberuehrt). Diese Invariante ist
 der Kern des Selbstschutzes (_pruefe_home_sicher).
 """
 import argparse
+import glob
 import os
 import shutil
 import subprocess
@@ -34,11 +35,22 @@ HOME = "/home/cimbel"
 SKEL = "/usr/local/share/cimbel-skel"
 DATEN = "/mnt/daten"
 DOWNLOADS = "/mnt/daten/Downloads"
+# Papierkoerbe auf der exFAT-Datenpartition: nemo/Cinnamon legen pro
+# Dateisystem einen eigenen Papierkorb im Wurzelverzeichnis an
+# (freedesktop-Spec), typisch .Trash-<UID>. Eine von /mnt/daten geloeschte
+# Datei landet HIER, nicht im Home-Papierkorb -> der Reset muss ihn mit
+# leeren, sonst bleiben persoenliche Daten zurueck. Glob erfasst alle
+# Varianten (.Trash-1000, .Trash-0, generisches .Trash), bleibt aber streng
+# auf .Trash*-Ordner beschraenkt.
+TRASH_GLOB = "/mnt/daten/.Trash*"
 
-# In /mnt/daten darf AUSSCHLIESSLICH der Inhalt dieses Ordners geloescht
-# werden -- nichts sonst. Jeder home-Eintrag, dessen Symlink real woandershin
-# unter /mnt/daten zeigt (opus, git, ...), ist ein Risiko-Fall -> Abbruch.
-ERLAUBT_IN_DATEN = DOWNLOADS
+
+def _erlaubte_daten_pfade():
+    """Die einzigen Orte unter /mnt/daten, deren Inhalt der Reset loeschen
+    darf: der Downloads-Ordner und die .Trash*-Papierkoerbe. Alles andere
+    (opus, git, ...) ist tabu. EINE Quelle fuer Selbstschutz UND die
+    Lösch-Schritte, damit beide nicht auseinanderdriften."""
+    return [DOWNLOADS] + sorted(glob.glob(TRASH_GLOB))
 
 
 class ResetFehler(Exception):
@@ -70,22 +82,23 @@ def firefox_laeuft():
 
 def _zeigt_nach_daten_verboten(pfad):
     """Prueft EINEN Pfad (Datei/Ordner/Symlink direkt unter home): Wenn es ein
-    Symlink ist, dessen reales Ziel unter /mnt/daten liegt und NICHT der
-    erlaubte Downloads-Ordner ist -> True (verboten). Loeschen wuerde den
-    Link zwar nur als Link entfernen; die Pruefung ist der doppelte Boden
-    gegen einen kuenftigen Fehler im Loeschverfahren (z.B. versehentliches
-    Folgen). realpath loest die Symlink-Kette auf; opus/git & Co. fliegen
-    damit auf."""
+    Symlink ist, dessen reales Ziel unter /mnt/daten liegt und NICHT einer der
+    erlaubten Orte (Downloads, .Trash*) ist -> True (verboten). Loeschen
+    wuerde den Link zwar nur als Link entfernen; die Pruefung ist der doppelte
+    Boden gegen einen kuenftigen Fehler im Loeschverfahren (z.B.
+    versehentliches Folgen). realpath loest die Symlink-Kette auf; opus/git &
+    Co. fliegen damit auf."""
     try:
         real = os.path.realpath(pfad)
     except OSError:
         return False
     # innerhalb von /mnt/daten?
     if real == DATEN or real.startswith(DATEN + os.sep):
-        # erlaubt ist nur der Downloads-Ordner selbst (dessen Inhalt wird
-        # separat und gezielt geleert) -- alles andere unter /mnt/daten ist tabu
-        if real == ERLAUBT_IN_DATEN or real.startswith(ERLAUBT_IN_DATEN + os.sep):
-            return False
+        # erlaubt sind nur die gezielt geleerten Orte (Downloads-Inhalt,
+        # .Trash*-Inhalt) -- alles andere unter /mnt/daten ist tabu.
+        for erlaubt in _erlaubte_daten_pfade():
+            if real == erlaubt or real.startswith(erlaubt + os.sep):
+                return False
         return True
     return False
 
@@ -165,19 +178,18 @@ def _home_befuellen(skel, home, protokoll):
     return n
 
 
-# ----------------------------------------------------------- Downloads leeren
+# ------------------------------------------------- Inhalt eines Ordners leeren
 
-def _downloads_leeren(protokoll):
-    """Leert den INHALT von /mnt/daten/Downloads -- der Ordner selbst bleibt
-    (und damit der ~/Downloads-Symlink gueltig). /mnt/daten/opus und alles
-    andere unter /mnt/daten werden NICHT angefasst. Existiert der Ordner
-    nicht, ist nichts zu tun (kein Fehler)."""
-    dl = Path(DOWNLOADS)
-    if not dl.is_dir():
-        protokoll("Downloads-Ordner nicht vorhanden -- nichts zu leeren.")
+def _inhalt_leeren(ordner):
+    """Leert den INHALT eines Ordners (der Ordner selbst bleibt). Symlinks
+    werden als Links entfernt (nie ihr Ziel), Unterordner rekursiv. Gibt die
+    Zahl entfernter Eintraege zurueck. Fehlt der Ordner, 0 (kein Fehler).
+    Gemeinsamer Loesch-Koerper fuer Downloads UND die .Trash*-Papierkoerbe."""
+    o = Path(ordner)
+    if not o.is_dir():
         return 0
     n = 0
-    for eintrag in dl.iterdir():
+    for eintrag in o.iterdir():
         p = str(eintrag)
         if os.path.islink(p):
             os.unlink(p)
@@ -186,18 +198,46 @@ def _downloads_leeren(protokoll):
         else:
             os.unlink(p)
         n += 1
+    return n
+
+
+def _downloads_leeren(protokoll):
+    """Leert den INHALT von /mnt/daten/Downloads -- der Ordner selbst bleibt
+    (und damit der ~/Downloads-Symlink gueltig). opus & alles andere unter
+    /mnt/daten bleiben unberuehrt."""
+    if not Path(DOWNLOADS).is_dir():
+        protokoll("Downloads-Ordner nicht vorhanden -- nichts zu leeren.")
+        return
+    n = _inhalt_leeren(DOWNLOADS)
     protokoll("Downloads geleert: " + str(n) + " Eintrag(e) entfernt "
               "(Ordner bleibt bestehen).")
-    return n
+
+
+def _trash_leeren(protokoll):
+    """Leert den INHALT aller Papierkoerbe auf der Datenpartition
+    (/mnt/daten/.Trash*). Eine von /mnt/daten geloeschte Datei landet hier
+    statt im Home-Papierkorb -- ohne diesen Schritt blieben persoenliche
+    Daten zurueck. Die .Trash*-Ordner selbst bleiben (leer); opus/git & alles
+    andere unter /mnt/daten werden NICHT angefasst."""
+    trashes = sorted(glob.glob(TRASH_GLOB))
+    if not trashes:
+        protokoll("Kein Papierkorb auf der Datenpartition -- nichts zu leeren.")
+        return
+    gesamt = 0
+    for t in trashes:
+        gesamt += _inhalt_leeren(t)
+    protokoll("Papierkorb der Datenpartition geleert: " + str(gesamt) +
+              " Eintrag(e) entfernt.")
 
 
 # ----------------------------------------------------------- Reset (gesamt)
 
 def reset(protokoll=None, pruefe_firefox=True):
     """Fuehrt das Zuruecksetzen aus: Selbstschutz pruefen -> home leeren ->
-    aus skel befuellen -> Downloads-Inhalt leeren. protokoll(text) ist ein
-    optionaler Callback je Teilschritt (fuer die GUI/CLI-Ausgabe). Wirft
-    ResetFehler bei ausgeloestem Selbstschutz oder fehlender Werks-Kopie.
+    aus skel befuellen -> Downloads-Inhalt leeren -> Papierkoerbe der
+    Datenpartition leeren. protokoll(text) ist ein optionaler Callback je
+    Teilschritt (fuer die GUI/CLI-Ausgabe). Wirft ResetFehler bei
+    ausgeloestem Selbstschutz oder fehlender Werks-Kopie.
 
     pruefe_firefox: wenn True und Firefox laeuft -> ResetFehler (die GUI
     prueft das schon vorher und sperrt den Knopf; hier als zweiter Riegel
@@ -214,7 +254,8 @@ def reset(protokoll=None, pruefe_firefox=True):
         zeilen = ["  " + p + " -> " + z for p, z in risiken]
         raise ResetFehler(
             "SICHERHEITS-ABBRUCH: im home zeigen Links unerwartet nach "
-            + DATEN + " (ausser " + ERLAUBT_IN_DATEN + "):\n"
+            + DATEN + " (erlaubt nur: " + ", ".join(_erlaubte_daten_pfade())
+            + "):\n"
             + "\n".join(zeilen)
             + "\nEs wurde NICHTS geloescht.")
 
@@ -228,6 +269,9 @@ def reset(protokoll=None, pruefe_firefox=True):
     protokoll("Leere den Download-Ordner ...")
     _downloads_leeren(protokoll)
 
+    protokoll("Leere den Papierkorb der Datenpartition ...")
+    _trash_leeren(protokoll)
+
 
 def cmd_reset(args):
     reset(protokoll=print, pruefe_firefox=not args.ohne_firefox_check)
@@ -240,7 +284,7 @@ def cmd_reset(args):
 def cmd_trockenlauf(args):
     """Sicherheitsnachweis ohne jede Aenderung: zeigt, was das echte Leeren
     anfassen wuerde, und prueft die Invariante (nichts unter /mnt/daten
-    ausser Downloads-Inhalt)."""
+    ausser Downloads-Inhalt und .Trash*-Inhalt)."""
     print("== Trockenlauf (es wird NICHTS geaendert) ==")
     print("Firefox laeuft: " + ("JA -> reset wuerde abbrechen" if firefox_laeuft()
                                  else "nein"))
@@ -273,6 +317,15 @@ def cmd_trockenlauf(args):
               + " Eintrag(e) wuerden geleert (Ordner bleibt).")
     else:
         print("\nDownloads (" + DOWNLOADS + ") existiert nicht.")
+
+    trashes = sorted(glob.glob(TRASH_GLOB))
+    if trashes:
+        for t in trashes:
+            n = sum(1 for _ in Path(t).iterdir()) if Path(t).is_dir() else 0
+            print("Papierkorb (" + t + "): " + str(n)
+                  + " Eintrag(e) wuerden geleert (Ordner bleibt).")
+    else:
+        print("Papierkorb (" + TRASH_GLOB + "): keiner vorhanden.")
 
     # Nachweis: opus/git unangetastet
     for schutz in ("/mnt/daten/opus", "/mnt/daten/git"):
