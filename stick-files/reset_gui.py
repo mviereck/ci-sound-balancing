@@ -10,6 +10,8 @@ Schliessen nur ueber den Beenden-Knopf, Arbeit im Hintergrund-Thread.
 Die eigentliche Logik steckt im Kern reset_core.py (auch per CLI testbar,
 inkl. 'trockenlauf' als Sicherheitsnachweis).
 """
+import shutil
+import subprocess
 import threading
 import tkinter as tk
 from tkinter import messagebox
@@ -173,10 +175,42 @@ class ResetGUI:
         if self._fehler_aufgetreten:
             self._abschluss_fehler()
         else:
+            # nemo-desktop zeichnet die Desktop-Icons + den Hintergrund,
+            # liest sie aber nicht von selbst neu ein, wenn die Dateien unter
+            # ihm ausgetauscht wurden -> den Zeichner neu starten, damit der
+            # Werkszustand sofort sichtbar wird (statt erst nach einem
+            # Reboot). Fehler hier machen den schon abgeschlossenen Reset
+            # NICHT rot (nur Hinweis).
+            self._desktop_neu_laden()
             self._log("")
             self._log("Fertig: Der Stick ist auf den Werkszustand "
                       "zurueckgesetzt. Sie koennen das Fenster jetzt mit "
                       "„Beenden“ schliessen.")
+
+    def _desktop_neu_laden(self):
+        """Startet den Desktop-Icon-Zeichner neu ('nemo-desktop -q' beenden,
+        dann wieder starten), damit Icons + Hintergrund den frischen home-
+        Stand neu einlesen. nemo-desktop hat KEIN --replace (am VM geprueft);
+        der Weg ist '-q' und Neustart nacheinander. Nur wenn das Programm
+        vorhanden ist. Scheitert es, ist das kein Reset-Fehler -- der Nutzer
+        kann notfalls neu starten."""
+        if not shutil.which("nemo-desktop"):
+            self._log("Hinweis: Desktop-Oberflaeche nicht gefunden -- bitte "
+                      "zum Anzeigen des Werkszustands den Rechner neu starten.")
+            return
+        try:
+            # -q beendet die laufende Instanz; run wartet, bis sie weg ist,
+            # DANN den Neustart als Hintergrundprozess (Popen, kehrt sofort
+            # zurueck -- nemo-desktop laeuft dauerhaft weiter). Ausgabe
+            # verschlucken (soll nicht ins Tool-Log).
+            subprocess.run(["nemo-desktop", "-q"],
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            subprocess.Popen(["nemo-desktop"],
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            self._log("Desktop wird aktualisiert ...")
+        except OSError as e:
+            self._log("Desktop-Aktualisierung nicht moeglich (" + str(e) +
+                      ") -- notfalls den Rechner neu starten.")
 
     def _abschluss_fehler(self):
         self._log("Es sind Fehler aufgetreten (siehe oben). Mit "
