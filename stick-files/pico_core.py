@@ -292,19 +292,19 @@ def cmd_status():
 
     s_satz = stick_satz()
     if s_satz:
-        print(f"Stick-Satz: {s_satz.get('version', '?')}")
+        print(f"Stick-Satz: {s_satz.get('satz_version', '?')}")
     else:
         print("Stick-Satz: (kein Satz heruntergeladen)")
 
     w_satz = webspace_satz()
     if w_satz:
-        print(f"Webspace-Satz: {w_satz.get('version', '?')}")
+        print(f"Webspace-Satz: {w_satz.get('satz_version', '?')}")
     else:
         print("Webspace-Satz: (nicht erreichbar)")
 
     # Urteile
     if s_satz and w_satz:
-        if s_satz.get("version") != w_satz.get("version"):
+        if s_satz.get("satz_version") != w_satz.get("satz_version"):
             print("Update verfügbar: ja")
         else:
             print("Update verfügbar: nein")
@@ -312,7 +312,7 @@ def cmd_status():
         print("Update verfügbar: (kein Vergleich möglich)")
 
     if betrieb and fw_version and s_satz:
-        upstream = _upstream_version(s_satz.get("version", ""))
+        upstream = _upstream_version(s_satz.get("satz_version", ""))
         if upstream and fw_version != upstream:
             print(f"Pico veraltet: ja (Firmware {fw_version}, Satz {upstream})")
         elif upstream:
