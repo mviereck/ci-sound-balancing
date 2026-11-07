@@ -3,16 +3,15 @@
 
 Unprivilegiert, CLI-testbar (wie update_core.py und reset_core.py).
 Wird von stick-files/updater_gui.py als Modul importiert (BA 721).
-Benötigt: python3-serial (pyserial).
+Benötigt: pa_cli (Qt-Konsolentool, liegt neben den Satz-Dateien in LOKAL)
+für die Firmware-Versionsabfrage.
 """
 
 import json
 import os
 import pathlib
 import shutil
-import struct
 import subprocess
-import time
 import urllib.request
 from pathlib import Path
 
@@ -24,6 +23,7 @@ WEBSPACE = "https://www.ci-sound-balancing.org/pico-asha/"
 LOKAL = "/mnt/daten/pico-asha"            # Satz-Dateien + behaltene Artefakte
 VERSIONSDATEI = "picoasha-version.json"   # liegt im Webspace UND in LOKAL
 GUI_AKTIV = "PicoASHAGui-aktuell"         # fester Startpfad (Kopie, kein Symlink)
+PA_CLI = "/mnt/daten/pico-asha/pa_cli"    # Qt-Konsolentool fuer Serial-Kommunikation
 
 # USB-IDs (verifiziert am realen Gerät)
 USB_BETRIEB = (0xcafe, 0x4011)            # Pico-ASHA laeuft, meldet sich als Serial
@@ -35,86 +35,36 @@ BOOTSEL = {                               # Flash-Modus: USB-PID -> Board
 BOOTSEL_LABEL = {"RPI-RP2": "pico_w", "RP2350": "pico2_w"}
 
 # ---------------------------------------------------------------------------
-# COBS-Codec + Serial-Protokoll (am echten Pico 2 W getestet, pa_version 0.3.0)
+# Serial-Kommunikation ueber pa_cli (Qt-Konsolentool)
 # ---------------------------------------------------------------------------
-
-def cobs_encode(data: bytes) -> bytes:
-    out = bytearray(); idx = 0; data = bytes(data)
-    while idx <= len(data):
-        end = idx
-        while end < len(data) and end - idx < 254 and data[end] != 0:
-            end += 1
-        block = data[idx:end]
-        out.append(len(block) + 1)
-        out += block
-        if end < len(data) and data[end] == 0:
-            idx = end + 1
-            if idx == len(data):
-                out.append(1)
-        elif end - idx == 254 and end < len(data):
-            idx = end
-        else:
-            break
-    return bytes(out)
-
-
-def cobs_decode(enc: bytes) -> bytes:
-    out = bytearray(); i = 0; enc = bytes(enc)
-    while i < len(enc):
-        code = enc[i]; i += 1
-        if code == 0:
-            break
-        out += enc[i:i + code - 1]; i += code - 1
-        if code < 0xFF and i < len(enc):
-            out.append(0)
-    return bytes(out)
-
-
-TYPE_CMD = 4
-TYPE_INTRO = 0
-CMD_INTRO = 5
-
-
-def _build_intro_cmd() -> bytes:
-    """Frame zum Anfordern des Intro-Pakets (Header + 12-Byte-CmdPacket)."""
-    cmd = bytearray(12)
-    cmd[0] = CMD_INTRO      # cmd
-    cmd[1] = 0              # cmd_status
-    total = 8 + 12
-    head = struct.pack("<BBHI", TYPE_CMD, total, 0, 0)
-    return b"\x00" + cobs_encode(head + bytes(cmd))
+#
+# Die Versionsabfrage laeuft NICHT ueber pyserial, sondern ueber das
+# mitgelieferte Qt-Tool `pa_cli` (Pico-ASHA-Repo, gui/pa_cli.cpp). Grund: am
+# Geraet per usbmon verifiziert, dass der Pico ausschliesslich dem
+# QSerialPort-Lesepfad antwortet; pyserial und ein roher os/termios-Weg
+# erzeugen byte-identische USB-Transfers (DTR, SET_LINE_CODING, Kommando-
+# Bulk-OUT), erhalten aber keine Bulk-IN-Antwortdaten. `pa_cli version` gibt
+# die Version als eine Zeile "major.minor.patch" auf stdout aus.
 
 
 def lies_firmware_version(port: str = "/dev/ttyACM0"):
-    """Liest die pa_version (x.y.z) ueber Serial. Gibt 'major.minor.patch'
-    zurueck oder None (kein/kein antwortender Pico). Oeffnet nur lesend-
-    schreibend fuer die eine Abfrage, schliesst danach. Ohne Netz nutzbar."""
-    import serial
-    try:
-        s = serial.Serial(port, 115200, timeout=0.4,
-                          bytesize=8, parity="N", stopbits=1, rtscts=True)
-    except Exception:
+    """Liest die pa_version (x.y.z) ueber das Qt-Tool pa_cli. Gibt
+    'major.minor.patch' zurueck oder None (kein/kein antwortender Pico, oder
+    pa_cli fehlt). Ohne Netz nutzbar."""
+    if not os.access(PA_CLI, os.X_OK):
         return None
     try:
-        s.setDTR(True)
-        time.sleep(0.2)
-        s.reset_input_buffer()
-        s.write(_build_intro_cmd()); s.flush()
-        time.sleep(0.4)
-        raw = s.read(4096)
-    finally:
-        try: s.setDTR(False)
-        except Exception: pass
-        s.close()
-    for teil in raw.split(b"\x00"):
-        if len(teil) < 4:
-            continue
-        dec = cobs_decode(teil)
-        if len(dec) >= 11:   # 8 Header + >=3 Payload
-            typ = dec[0]
-            payload = dec[8:]
-            if typ == TYPE_INTRO and len(payload) >= 3:
-                return f"{payload[0]}.{payload[1]}.{payload[2]}"
+        res = subprocess.run([PA_CLI, "--port", port, "version"],
+                             capture_output=True, text=True, timeout=10)
+    except Exception:
+        return None
+    if res.returncode != 0:
+        return None
+    ver = res.stdout.strip()
+    # Plausibilitaet: "x.y.z" mit numerischen Teilen.
+    teile = ver.split(".")
+    if len(teile) == 3 and all(t.isdigit() for t in teile):
+        return ver
     return None
 
 # ---------------------------------------------------------------------------
@@ -209,27 +159,41 @@ def satz_herunterladen(satz):
 # Flashen + GUI-Übernahme
 # ---------------------------------------------------------------------------
 
+def _lsblk_laufwerk():
+    """Findet das BOOTSEL-Blockgeraet an seinem Label. Gibt (dev, board,
+    mountpunkt) zurueck; mountpunkt ist leer, wenn (noch) nicht gemountet.
+    Liest NAME/LABEL/MOUNTPOINT aus lsblk -- MOUNTPOINT ist die verlaessliche
+    Quelle fuer 'schon gemountet?' (Desktops automounten oft sofort)."""
+    out = subprocess.run(["lsblk", "-o", "NAME,LABEL,MOUNTPOINT", "-nr"],
+                         capture_output=True, text=True).stdout
+    for zeile in out.splitlines():
+        teile = zeile.split(maxsplit=2)
+        if len(teile) >= 2 and teile[1] in BOOTSEL_LABEL:
+            dev = "/dev/" + teile[0]
+            board = BOOTSEL_LABEL[teile[1]]
+            mp = teile[2] if len(teile) == 3 else ""
+            return dev, board, mp
+    return None, None, ""
+
+
 def flash_laufwerk():
     """Mountet das BOOTSEL-Laufwerk (ohne root via udisksctl) und gibt
-    (mountpunkt, board) zurueck oder (None, None). Board primaer aus der
-    INFO_UF2.TXT/Label, als Gegenpruefung zu pico_flashmodus()."""
-    # Blockgeraet mit Label RPI-RP2 oder RP2350 finden
-    out = subprocess.run(["lsblk", "-o", "NAME,LABEL", "-nr"],
-                         capture_output=True, text=True).stdout
-    dev = board = None
-    for zeile in out.splitlines():
-        teile = zeile.split()
-        if len(teile) == 2 and teile[1] in BOOTSEL_LABEL:
-            dev = "/dev/" + teile[0]; board = BOOTSEL_LABEL[teile[1]]; break
+    (mountpunkt, board) zurueck oder (None, None). Board aus Label
+    (Gegenpruefung zu pico_flashmodus()). Idempotent: ist das Laufwerk vom
+    Desktop bereits automatisch gemountet, wird dessen Mountpunkt genutzt --
+    udisksctl wird nur gerufen, wenn noch nicht gemountet, und der Mountpunkt
+    danach aus lsblk gelesen (nicht aus der udisksctl-Ausgabe, die bei
+    'AlreadyMounted' leer bleibt)."""
+    dev, board, mp = _lsblk_laufwerk()
     if not dev:
         return None, None
-    r = subprocess.run(["udisksctl", "mount", "-b", dev],
-                       capture_output=True, text=True)
-    # Ausgabe: "Mounted /dev/sdb1 at /media/.../RP2350"
-    mp = None
-    if "at " in r.stdout:
-        mp = r.stdout.split("at ", 1)[1].strip().rstrip(".")
-    return mp, board
+    if mp:
+        return mp, board                       # schon gemountet (Automount)
+    subprocess.run(["udisksctl", "mount", "-b", dev],
+                   capture_output=True, text=True)
+    # tatsaechlichen Mountpunkt verlaesslich aus lsblk lesen
+    _, _, mp = _lsblk_laufwerk()
+    return (mp or None), board
 
 
 def flashe(board, mountpunkt):
@@ -388,12 +352,12 @@ def main():
     sub.add_parser("force-flash", help="Pico flashen ohne Versionsvergleich")
     args = parser.parse_args()
 
-    try:
-        import serial  # noqa: F401 — früh prüfen, damit Fehlermeldung klar ist
-    except ImportError:
-        print("Fehler: python3-serial (pyserial) ist nicht installiert.\n"
-              "Auf dem Stick: sudo apt install python3-serial")
-        return 1
+    # pa_cli ist das Qt-Tool fuer die Versionsabfrage. Fehlt es, bleibt die
+    # Versionsanzeige leer (lies_firmware_version gibt None) -- kein harter
+    # Abbruch, damit download/flash auch ohne es laufen.
+    if not os.access(PA_CLI, os.X_OK):
+        print(f"Hinweis: {PA_CLI} fehlt oder ist nicht ausfuehrbar -- "
+              "Firmware-Version kann nicht gelesen werden.")
 
     if args.cmd == "status":
         return cmd_status()
