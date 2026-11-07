@@ -23,7 +23,7 @@ WEBSPACE = "https://www.ci-sound-balancing.org/pico-asha/"
 LOKAL = "/mnt/daten/pico-asha"            # Satz-Dateien + behaltene Artefakte
 VERSIONSDATEI = "picoasha-version.json"   # liegt im Webspace UND in LOKAL
 GUI_AKTIV = "PicoASHAGui-aktuell"         # fester Startpfad (Kopie, kein Symlink)
-PA_CLI = "/mnt/daten/pico-asha/pa_cli"    # Qt-Konsolentool fuer Serial-Kommunikation
+PA_CLI = str(Path(__file__).resolve().parent / "pa_cli")  # Qt-Konsolentool (neben diesem Skript in stick-files/)
 
 # USB-IDs (verifiziert am realen Gerät)
 USB_BETRIEB = (0xcafe, 0x4011)            # Pico-ASHA laeuft, meldet sich als Serial
