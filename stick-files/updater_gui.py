@@ -425,8 +425,27 @@ class UpdaterGUI:
         self._im_hintergrund(self._pico_status_bg)
 
     def _pico_status_bg(self):
-        if not pico_core.pico_betrieb_da():
+        betrieb = pico_core.pico_betrieb_da()
+        bootsel = pico_core.pico_flashmodus() is not None
+        # Force-Flash braucht einen Pico in IRGENDEINER Form (Betrieb oder
+        # BOOTSEL); sonst deaktivieren. Der normale Aktualisieren-Knopf wird
+        # erst in den passenden Zweigen unten freigegeben.
+        force_an = betrieb or bootsel
+        self._ui(lambda: self.btn_pico_force.config(
+            state="normal" if force_an else "disabled"))
+        self._ui(lambda: self.btn_pico.config(state="disabled"))
+
+        if not betrieb:
             self._ui(lambda: self.lbl_pico.config(text="Kein Pico gefunden"))
+            return
+        # Port durch die laufende PicoASHAGui gesperrt? Dann die Version nicht
+        # lesbar -- in die Meldungen-Box schreiben, nicht in die Statuszeile.
+        if pico_core.pico_port_gesperrt():
+            self._ui(lambda: self._log(
+                "PicoASHAGui läuft und belegt den Pico-Anschluss. Bitte "
+                "PicoASHAGui beenden, dann erneut prüfen.", fehler=True))
+            self._ui(lambda: self.lbl_pico.config(
+                text="Pico gefunden (Anschluss belegt)"))
             return
         fw = pico_core.lies_firmware_version()
         if fw is None:

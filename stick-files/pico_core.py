@@ -67,6 +67,24 @@ def lies_firmware_version(port: str = "/dev/ttyACM0"):
         return ver
     return None
 
+
+def pico_port_gesperrt(port: str = "/dev/ttyACM0") -> bool:
+    """True, wenn der serielle Pico-Port durch einen anderen Prozess
+    (typisch die laufende PicoASHAGui) gesperrt ist. QtSerialPort meldet dann
+    beim Oeffnen einen 'locking'-Fehler. Dient der GUI dazu, den Nutzer zum
+    Beenden der PicoASHAGui aufzufordern, statt faelschlich 'Firmware
+    unbekannt' anzuzeigen. Setzt einen Pico im Betrieb voraus; ohne pa_cli
+    oder ohne Geraet: False (dann greifen die anderen Statuszweige)."""
+    if not pico_betrieb_da() or not os.access(PA_CLI, os.X_OK):
+        return False
+    try:
+        res = subprocess.run([PA_CLI, "--port", port, "version"],
+                             capture_output=True, text=True, timeout=10)
+    except Exception:
+        return False
+    # QSerialPort-errorString() bei belegtem Port enthaelt "locking".
+    return "locking" in (res.stderr or "").lower()
+
 # ---------------------------------------------------------------------------
 # Pico-Erkennung
 # ---------------------------------------------------------------------------
