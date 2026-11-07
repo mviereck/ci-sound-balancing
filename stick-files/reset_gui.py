@@ -21,20 +21,22 @@ import reset_core
 
 # Erklaerungstext (bewusst in der GUI, nicht im Kern -- Nutzer-Text).
 ERKLAERUNG = (
-    "Dieser Knopf setzt den Stick auf den Auslieferungszustand zurueck "
-    "(„Werkszustand“).\n\n"
-    "GELOESCHT wird:\n"
-    "• alle persoenlichen Daten im Benutzerverzeichnis, inkl. aller "
-    "Browserdaten (Verlauf, Lesezeichen, gespeicherte Seiten),\n"
-    "• der gesamte Inhalt des Download-Ordners.\n\n"
-    "ERHALTEN bleibt:\n"
-    "• CImbel selbst und alle Programm-Updates,\n"
-    "• die heruntergeladenen Audios (Opus-Bestand),\n"
-    "• alle System-Aenderungen.\n\n"
-    "Wichtiger Hinweis zum Datenschutz: Dies ist ein EINFACHES Loeschen, "
-    "NICHT forensisch sicher. Mit Spezialwerkzeugen koennten geloeschte "
-    "Daten teilweise wiederhergestellt werden. Fuer absoluten "
-    "Privatsphaere-Schutz genuegt dieses Loeschen nicht."
+    "Mit diesem Programm können Sie persönliche Daten vom USB Stick "
+    "löschen.\n\n"
+    "Gelöscht wird:\n"
+    "• Das persönliche Verzeichnis /home/cimbel auf der Systempartition.\n"
+    "  (Enthält z. B. Browserverläufe, Einstellungen am Desktop)\n"
+    "• Der Ordner Downloads auf der zusätzlichen Windows-Partition.\n"
+    "  (Enthält z. B. Ihre Meßdaten)\n"
+    "• Papierkorb beider Partitionen.\n\n"
+    "NICHT gelöscht wird:\n"
+    "• Änderungen am Betriebssystem selbst\n"
+    "• Updates von CImbel und Audios.\n\n"
+    "Diese Löschung ist NICHT forensisch sicher. Ein Datenrettungsprogramm "
+    "könnte gelöschte Dateien möglicherweise wiederherstellen.\n\n"
+    "Insgesamt wird das System nur auf einen sauberen Ausgangszustand zum "
+    "Arbeiten zurückgesetzt. Für absolut sicheren Datenschutz dürfen Sie "
+    "den Stick nicht weitergeben."
 )
 
 WARNUNG = (
