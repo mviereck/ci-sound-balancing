@@ -582,7 +582,13 @@ class UpdaterGUI:
             return
         # Zwei Vergleiche (Architektur §4):
         update_da = (stick is None) or (web["satz_version"] != stick.get("satz_version"))
-        pico_veraltet = (fw != web["firmware_upstream"])
+        # fw ist seit dem CImbel-Patch die volle Kennung 'x.y.z+cimbel.N' (pa_cli),
+        # direkt mit satz_version vergleichbar. Der Pico ist "veraltet", wenn er
+        # nicht dem Stick-Satz entspricht (das waere das Flash-Ziel) -- deckt
+        # sowohl Upstream- als auch Patch-Unterschiede ab. Ist noch kein Satz auf
+        # dem Stick, als Referenz der Webspace-Satz.
+        ziel_satz = (stick or web).get("satz_version")
+        pico_veraltet = (ziel_satz is not None and fw != ziel_satz)
         if update_da or pico_veraltet:
             self._ui(lambda: self.lbl_pico.config(
                 text="Neue Version von Pico-ASHA verfügbar (" +
@@ -772,7 +778,10 @@ class PicoFlashDialog:
         self._anleitung("Lese neue Firmware-Version ...")
         fw_neu, rc, err = pico_core.warte_firmware_version(timeout_s=15.0)
         aktueller_satz = pico_core.stick_satz()
-        erwartet = aktueller_satz.get("firmware_upstream") if aktueller_satz else None
+        # Nach dem Flashen muss der Pico die volle Satz-Kennung melden
+        # ('x.y.z+cimbel.N'); fw_neu (pa_cli) hat dasselbe Format. So wird auch
+        # bestaetigt, dass die richtige Patch-Variante geflasht wurde.
+        erwartet = aktueller_satz.get("satz_version") if aktueller_satz else None
 
         if erwartet and fw_neu != erwartet:
             self._log(

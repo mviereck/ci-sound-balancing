@@ -44,7 +44,8 @@ BOOTSEL_LABEL = {"RPI-RP2": "pico_w", "RP2350": "pico2_w"}
 # QSerialPort-Lesepfad antwortet; pyserial und ein roher os/termios-Weg
 # erzeugen byte-identische USB-Transfers (DTR, SET_LINE_CODING, Kommando-
 # Bulk-OUT), erhalten aber keine Bulk-IN-Antwortdaten. `pa_cli version` gibt
-# die Version als eine Zeile "major.minor.patch" auf stdout aus.
+# die Version als eine Zeile "x.y.z+cimbel.N" auf stdout aus (Upstream-Version
+# plus CImbel-Patch-Nummer; N=0 bei unveraenderter Original-FW).
 
 
 def lies_firmware_version_roh(port: str = "/dev/ttyACM0"):
@@ -62,18 +63,20 @@ def lies_firmware_version_roh(port: str = "/dev/ttyACM0"):
     except Exception as e:
         return None, None, f"pa_cli-Aufruf fehlgeschlagen: {e}"
     ver = res.stdout.strip()
-    # Plausibilitaet: "x.y.z" mit numerischen Teilen.
-    teile = ver.split(".")
-    if res.returncode == 0 and len(teile) == 3 and all(t.isdigit() for t in teile):
+    # Plausibilitaet: "x.y.z+cimbel.N" -- pa_cli liefert seit dem CImbel-Patch
+    # immer die volle Satz-Kennung (Upstream-Version plus Patch-Nummer; N=0 bei
+    # unveraenderter Original-FW). Das Format ist direkt mit satz_version aus
+    # picoasha-version.json vergleichbar (ein Versionspfad).
+    if res.returncode == 0 and _ist_satz_version(ver):
         return ver, res.returncode, (res.stderr or "")
     return None, res.returncode, (res.stderr or "")
 
 
 def lies_firmware_version(port: str = "/dev/ttyACM0"):
-    """Liest die pa_version (x.y.z) ueber das Qt-Tool pa_cli. Gibt
-    'major.minor.patch' zurueck oder None (kein/kein antwortender Pico, oder
-    pa_cli fehlt). Ohne Netz nutzbar. Duenner Wrapper um
-    lies_firmware_version_roh (nur die Version)."""
+    """Liest die Firmware-Version ueber das Qt-Tool pa_cli. Gibt die volle
+    Satz-Kennung 'x.y.z+cimbel.N' zurueck (N=0 bei unveraenderter Original-FW)
+    oder None (kein/kein antwortender Pico, oder pa_cli fehlt). Ohne Netz
+    nutzbar. Duenner Wrapper um lies_firmware_version_roh (nur die Version)."""
     ver, _rc, _err = lies_firmware_version_roh(port)
     return ver
 
@@ -250,9 +253,16 @@ def gui_uebernehmen():
 # Hilfsfunktionen für CLI
 # ---------------------------------------------------------------------------
 
-def _upstream_version(satz_version: str) -> str:
-    """Extrahiert den Upstream-Teil aus 'x.y.z+cimbel.n' -> 'x.y.z'."""
-    return satz_version.split("+")[0] if satz_version else ""
+def _ist_satz_version(s: str) -> bool:
+    """True, wenn s die Form 'x.y.z+cimbel.N' hat (numerische x,y,z,N). Das ist
+    das Format, das pa_cli seit dem CImbel-Patch liefert und das auch in
+    satz_version (picoasha-version.json) steht."""
+    if not s or "+cimbel." not in s:
+        return False
+    kern, _, patch = s.partition("+cimbel.")
+    teile = kern.split(".")
+    return (len(teile) == 3 and all(t.isdigit() for t in teile)
+            and patch.isdigit())
 
 
 def _pico_port():
@@ -330,10 +340,13 @@ def cmd_status():
         print("Update verfügbar: (kein Vergleich möglich)")
 
     if betrieb and fw_version and s_satz:
-        upstream = _upstream_version(s_satz.get("satz_version", ""))
-        if upstream and fw_version != upstream:
-            print(f"Pico veraltet: ja (Firmware {fw_version}, Satz {upstream})")
-        elif upstream:
+        # Voller Vergleich inkl. Patch-Nummer: fw_version ist 'x.y.z+cimbel.N'
+        # (pa_cli), satz_version ebenso. So schlaegt auch ein noch nicht
+        # geflashter Patch (Pico cimbel.0, Satz cimbel.1) als 'veraltet' an.
+        satz_ver = s_satz.get("satz_version", "")
+        if satz_ver and fw_version != satz_ver:
+            print(f"Pico veraltet: ja (Firmware {fw_version}, Satz {satz_ver})")
+        elif satz_ver:
             print("Pico veraltet: nein")
         else:
             print("Pico veraltet: (kein Vergleich möglich)")
