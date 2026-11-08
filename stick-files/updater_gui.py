@@ -438,16 +438,20 @@ class UpdaterGUI:
         if not betrieb:
             self._ui(lambda: self.lbl_pico.config(text="Kein Pico gefunden"))
             return
+        # Richtigen ttyACM*-Port ermitteln (nach Re-Enumeration nicht
+        # zwingend /dev/ttyACM0). Faellt _pico_port auf None, greifen die
+        # Funktionen auf ihren Default-Port zurueck.
+        port = pico_core._pico_port() or "/dev/ttyACM0"
         # Port durch die laufende PicoASHAGui gesperrt? Dann die Version nicht
         # lesbar -- in die Meldungen-Box schreiben, nicht in die Statuszeile.
-        if pico_core.pico_port_gesperrt():
+        if pico_core.pico_port_gesperrt(port):
             self._ui(lambda: self._log(
                 "PicoASHAGui läuft und belegt den Pico-Anschluss. Bitte "
                 "PicoASHAGui beenden, dann erneut prüfen.", fehler=True))
             self._ui(lambda: self.lbl_pico.config(
                 text="Pico gefunden (Anschluss belegt)"))
             return
-        fw = pico_core.lies_firmware_version()
+        fw = pico_core.lies_firmware_version(port)
         if fw is None:
             self._ui(lambda: self.lbl_pico.config(
                 text="Pico gefunden, Firmware unbekannt"))
@@ -501,9 +505,14 @@ class PicoFlashDialog:
             self._win, text="", justify="left", wraplength=490, anchor="w")
         self._lbl_anleitung.pack(fill="x", padx=12, pady=4)
 
+        knopfleiste = tk.Frame(self._win)
+        knopfleiste.pack(side="bottom", pady=8)
+        self._btn_kopieren = tk.Button(
+            knopfleiste, text="Meldungen kopieren", command=self._meldungen_kopieren)
+        self._btn_kopieren.pack(side="left", padx=6)
         self._btn_abbrechen = tk.Button(
-            self._win, text="Abbrechen", command=self._anfrage_abbrechen)
-        self._btn_abbrechen.pack(side="bottom", pady=8)
+            knopfleiste, text="Abbrechen", command=self._anfrage_abbrechen)
+        self._btn_abbrechen.pack(side="left", padx=6)
 
         frame = tk.LabelFrame(self._win, text="Meldungen", padx=4, pady=4)
         frame.pack(fill="both", expand=True, padx=10, pady=4)
@@ -529,6 +538,16 @@ class PicoFlashDialog:
 
     def _anleitung(self, text):
         self._ui(lambda: self._lbl_anleitung.config(text=text))
+
+    def _meldungen_kopieren(self):
+        """Legt den gesamten Inhalt der Meldungen-Box ins System-Clipboard
+        (fuer Fehlerberichte). Kurze Bestaetigung am Knopf."""
+        inhalt = self._txt.get("1.0", "end-1c")
+        self._win.clipboard_clear()
+        self._win.clipboard_append(inhalt)
+        self._btn_kopieren.config(text="Kopiert ✓")
+        self._win.after(1500, lambda: self._btn_kopieren.config(
+            text="Meldungen kopieren"))
 
     def _anfrage_abbrechen(self):
         self._abbrechen = True
@@ -621,7 +640,12 @@ class PicoFlashDialog:
             self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
             return
 
-        fw_neu = pico_core.lies_firmware_version()
+        # Versions-Recheck: nach dem Reboot ist die USB-Anmeldung
+        # (pico_betrieb_da) frueher da als der CDC-tty + die Antwort-
+        # bereitschaft der FW. Darum nicht genau einmal lesen, sondern einige
+        # Sekunden pollen (richtiger ttyACM*-Port je Runde).
+        self._anleitung("Lese neue Firmware-Version ...")
+        fw_neu, rc, err = pico_core.warte_firmware_version(timeout_s=15.0)
         aktueller_satz = pico_core.stick_satz()
         erwartet = aktueller_satz.get("firmware_upstream") if aktueller_satz else None
 
@@ -630,6 +654,11 @@ class PicoFlashDialog:
                 "Warnung: Pico meldet Version " + str(fw_neu) +
                 ", erwartet " + erwartet +
                 ". Bedien-GUI wird NICHT uebernommen.", fehler=True)
+            if fw_neu is None:
+                # Rohe pa_cli-Diagnose, statt nur "None" zu zeigen.
+                diag = (err or "").strip() or "keine Fehlerausgabe"
+                self._log("Diagnose (pa_cli): returncode=" + str(rc) +
+                          ", meldung: " + diag, fehler=True)
             self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
             return
 

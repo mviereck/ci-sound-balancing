@@ -47,25 +47,35 @@ BOOTSEL_LABEL = {"RPI-RP2": "pico_w", "RP2350": "pico2_w"}
 # die Version als eine Zeile "major.minor.patch" auf stdout aus.
 
 
-def lies_firmware_version(port: str = "/dev/ttyACM0"):
-    """Liest die pa_version (x.y.z) ueber das Qt-Tool pa_cli. Gibt
-    'major.minor.patch' zurueck oder None (kein/kein antwortender Pico, oder
-    pa_cli fehlt). Ohne Netz nutzbar."""
+def lies_firmware_version_roh(port: str = "/dev/ttyACM0"):
+    """Wie lies_firmware_version, aber gibt die Rohdaten des pa_cli-Aufrufs
+    mit zurueck: (version_oder_None, returncode_oder_None, stderr_text).
+    Dient der Diagnose (unterscheidet 'kein Pico' / 'Port nicht oeffenbar' /
+    'locking' / Timeout, die alle in version=None muenden). returncode ist
+    None, wenn pa_cli fehlt oder der Aufruf eine Exception warf; stderr
+    enthaelt dann eine erklaerende Zeile."""
     if not os.access(PA_CLI, os.X_OK):
-        return None
+        return None, None, "pa_cli fehlt oder ist nicht ausfuehrbar"
     try:
         res = subprocess.run([PA_CLI, "--port", port, "version"],
                              capture_output=True, text=True, timeout=10)
-    except Exception:
-        return None
-    if res.returncode != 0:
-        return None
+    except Exception as e:
+        return None, None, f"pa_cli-Aufruf fehlgeschlagen: {e}"
     ver = res.stdout.strip()
     # Plausibilitaet: "x.y.z" mit numerischen Teilen.
     teile = ver.split(".")
-    if len(teile) == 3 and all(t.isdigit() for t in teile):
-        return ver
-    return None
+    if res.returncode == 0 and len(teile) == 3 and all(t.isdigit() for t in teile):
+        return ver, res.returncode, (res.stderr or "")
+    return None, res.returncode, (res.stderr or "")
+
+
+def lies_firmware_version(port: str = "/dev/ttyACM0"):
+    """Liest die pa_version (x.y.z) ueber das Qt-Tool pa_cli. Gibt
+    'major.minor.patch' zurueck oder None (kein/kein antwortender Pico, oder
+    pa_cli fehlt). Ohne Netz nutzbar. Duenner Wrapper um
+    lies_firmware_version_roh (nur die Version)."""
+    ver, _rc, _err = lies_firmware_version_roh(port)
+    return ver
 
 
 def pico_port_gesperrt(port: str = "/dev/ttyACM0") -> bool:
@@ -253,6 +263,32 @@ def _pico_port():
     for p in sorted(pathlib.Path("/dev").glob("ttyACM*")):
         return str(p)
     return None
+
+
+def warte_firmware_version(timeout_s: float = 15.0, intervall_s: float = 0.5):
+    """Pollt nach einem Flash/Reboot die Firmware-Version, bis sie lesbar ist
+    oder timeout_s abgelaufen ist. Deckt das Timing-Race zwischen USB-Re-
+    Enumeration (pico_betrieb_da schon True) und CDC-tty-Bereitschaft ab: der
+    tty und die Antwortbereitschaft der FW brauchen nach dem Reboot laenger
+    als die USB-Anmeldung. Nutzt in jeder Runde _pico_port() (richtiger
+    ttyACM*-Port nach Re-Enumeration, nicht fester Default).
+
+    Gibt (version_oder_None, letzter_returncode, letzter_stderr) zurueck --
+    bei Erfolg die Version, bei Timeout die letzte Roh-Fehlerinfo fuer die
+    Diagnose."""
+    import time
+    ende = time.monotonic() + timeout_s
+    letzter_rc, letzter_err = None, "kein ttyACM-Port erschienen"
+    while True:
+        port = _pico_port()
+        if port:
+            ver, rc, err = lies_firmware_version_roh(port)
+            if ver:
+                return ver, rc, err
+            letzter_rc, letzter_err = rc, err
+        if time.monotonic() >= ende:
+            return None, letzter_rc, letzter_err
+        time.sleep(intervall_s)
 
 # ---------------------------------------------------------------------------
 # CLI-Subkommandos
