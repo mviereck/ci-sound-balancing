@@ -96,7 +96,7 @@ class UpdaterGUI:
     def __init__(self, root, nach_selbstupdate=False):
         self.root = root
         root.title("CImbel aktualisieren")
-        root.geometry("600x720")
+        root.geometry("650x720")
         # Fenster-X abfangen: Schliessen nur ueber den Exit-Button.
         root.protocol("WM_DELETE_WINDOW", self._ignoriere_close)
 
@@ -137,7 +137,7 @@ class UpdaterGUI:
         self.lbl_pico.pack(side="left")
         # Force-Flash ist IMMER anwaehlbar (unabhaengig vom Versionsvergleich):
         self.btn_pico_force = tk.Button(self._bereich_pico, text="Pico neu flashen",
-                                        command=lambda: self._pico_flash_dialog(force=True))
+                                        command=self._pico_force_flash)
         self.btn_pico_force.pack(side="right")
         # Update-Button erscheint nur, wenn eine neue Version vorliegt:
         self.btn_pico = tk.Button(self._bereich_pico, text="Pico-ASHA aktualisieren",
@@ -601,6 +601,50 @@ class UpdaterGUI:
             self._ui(lambda: self.btn_pico.config(state="normal"))
         else:
             self._ui(lambda: self.lbl_pico.config(text="Pico-ASHA ist aktuell"))
+
+    def _pico_force_flash(self):
+        """Force-Flash ('Pico neu flashen'): erst die Satz-Variante abfragen
+        (optimiert/Original), dann den Flash-Dialog mit der Wahl starten. Bricht
+        der Nutzer die Abfrage ab, passiert nichts."""
+        variante = self._frage_variante()
+        if variante is None:
+            return
+        self._pico_flash_dialog(force=True, variante=variante)
+
+    def _frage_variante(self):
+        """Modale Abfrage, welche Pico-ASHA-Variante geflasht werden soll.
+        Gibt "default" (fuer CImbel optimiert, empfohlen), "original" oder None
+        (abgebrochen) zurueck."""
+        dlg = tk.Toplevel(self.root)
+        dlg.title("Pico-ASHA Version waehlen")
+        dlg.geometry("560x210")
+        dlg.transient(self.root)
+        wahl = {"v": None}
+
+        tk.Label(dlg, text="Es gibt zwei Versionen von Pico-ASHA.\n"
+                           "Welche soll installiert werden?",
+                 justify="left", wraplength=520,
+                 font=("", 11)).pack(padx=16, pady=(16, 12), anchor="w")
+
+        def _waehle(v):
+            wahl["v"] = v
+            dlg.destroy()
+
+        knoepfe = tk.Frame(dlg)
+        knoepfe.pack(padx=16, pady=8, fill="x")
+        tk.Button(knoepfe,
+                  text="Für CImbel-Messungen optimiert (empfohlen)",
+                  command=lambda: _waehle("default")).pack(fill="x", pady=4)
+        tk.Button(knoepfe,
+                  text="Original (angenehmerer Klang bei hohen Tönen)",
+                  command=lambda: _waehle("original")).pack(fill="x", pady=4)
+        tk.Button(dlg, text="Abbrechen",
+                  command=dlg.destroy).pack(pady=(4, 8))
+
+        dlg.protocol("WM_DELETE_WINDOW", dlg.destroy)
+        dlg.grab_set()
+        self.root.wait_window(dlg)
+        return wahl["v"]
 
     def _pico_flash_dialog(self, force, variante="default"):
         self._aktion_beginnen()
