@@ -156,8 +156,41 @@ def webspace_satz():
 
 
 def stick_satz():
-    """Lokal zuletzt heruntergeladener Satz (dict) oder None."""
+    """Lokal zuletzt heruntergeladene Satz-DATEI (ganzes dict im saetze[]-Format)
+    oder None. Enthaelt saetze[] (Original + Patch), default, original,
+    firmware_upstream -- die einzelne Variante liefert waehle_satz()."""
     return _lies_json_datei(os.path.join(LOKAL, VERSIONSDATEI))
+
+
+# ---------------------------------------------------------------------------
+# Satz-Variante aus der Datei ziehen (saetze[]-Format)
+# ---------------------------------------------------------------------------
+#
+# Die picoasha-version.json fuehrt ZWEI Saetze auf: Original (+cimbel.0) und
+# Patch (+cimbel.N). Welcher gilt, steht in den Feldern "default" (= Patch, der
+# mess-optimierte Standard) und "original". waehle_satz() zieht den passenden
+# Eintrag als flaches Satz-dict (satz_version, uf2_pico_w, uf2_pico2_w, gui,
+# ist_patch) heraus -- die eine Stelle, die die saetze[]-Struktur kennt; alle
+# Konsumenten (Vergleich, Download, Flash, GUI-Uebernahme) gehen darueber.
+
+def waehle_satz(datei, variante="default"):
+    """Liefert aus der Satz-Datei (ganzes dict) den Satz der gewuenschten
+    Variante als flaches dict, oder None.
+    variante: "default" (Patch, Standard) oder "original" (unveraenderte FW).
+    Der Zielsatz ist der saetze[]-Eintrag, dessen satz_version mit dem Wert im
+    gleichnamigen Top-Level-Feld uebereinstimmt. Fehlt die Struktur (altes
+    flaches Format, leeres dict), gibt es None -- die Konsumenten behandeln das
+    wie 'kein Satz'."""
+    if not datei:
+        return None
+    saetze = datei.get("saetze")
+    ziel_version = datei.get(variante)
+    if not isinstance(saetze, list) or not ziel_version:
+        return None
+    for s in saetze:
+        if s.get("satz_version") == ziel_version:
+            return s
+    return None
 
 # ---------------------------------------------------------------------------
 # Download (beide .uf2 + GUI, abbruchrobust)
@@ -176,14 +209,23 @@ def _download(url, ziel):
     os.replace(tmp, ziel)
 
 
-def satz_herunterladen(satz):
-    """Laedt beide .uf2, die GUI und die Satz-Datei des uebergebenen Satzes
-    (dict aus webspace_satz()) nach LOKAL. Pauschal beide Boards (klein)."""
-    for feld in ("uf2_pico_w", "uf2_pico2_w", "gui"):
-        name = satz[feld]
-        _download(WEBSPACE + name, os.path.join(LOKAL, name))
+def satz_herunterladen(datei):
+    """Laedt die Artefakte ALLER Saetze (Original + Patch) der uebergebenen
+    Satz-Datei (ganzes dict aus webspace_satz()) nach LOKAL, dazu die
+    Satz-Datei selbst. Beide Saetze, weil die Flash-Auswahl zwischen Original
+    und Patch waehlen koennen muss, ohne nachzuladen (Konzept Offline-Stick:
+    'der Stick holt beide'). Pauschal beide Boards je Satz (klein). Mehrfach
+    vorkommende Dateinamen werden nur einmal geladen."""
+    saetze = (datei or {}).get("saetze") or []
+    schon = set()
+    for s in saetze:
+        for feld in ("uf2_pico_w", "uf2_pico2_w", "gui"):
+            name = s.get(feld)
+            if name and name not in schon:
+                schon.add(name)
+                _download(WEBSPACE + name, os.path.join(LOKAL, name))
     # Satz-Datei zuletzt schreiben -> erst nach vollstaendigem Download gilt
-    # der Stick als auf diesem Satz.
+    # der Stick als auf diesem Satz(-Stand).
     _download(WEBSPACE + VERSIONSDATEI, os.path.join(LOKAL, VERSIONSDATEI))
 
 # ---------------------------------------------------------------------------
@@ -227,11 +269,15 @@ def flash_laufwerk():
     return (mp or None), board
 
 
-def flashe(board, mountpunkt):
-    """Kopiert die zum Board passende .uf2 aus LOKAL auf das gemountete
-    Flash-Laufwerk. Wirft bei fehlender Datei. Nach vollstaendigem Kopieren
-    rebootet der Pico selbst (Laufwerk verschwindet)."""
-    satz = stick_satz()
+def flashe(board, mountpunkt, variante="default"):
+    """Kopiert die zum Board passende .uf2 des gewaehlten Satzes (variante:
+    'default' = Patch, 'original' = unveraenderte FW) aus LOKAL auf das
+    gemountete Flash-Laufwerk. Wirft bei fehlender Datei oder fehlendem Satz.
+    Nach vollstaendigem Kopieren rebootet der Pico selbst (Laufwerk
+    verschwindet)."""
+    satz = waehle_satz(stick_satz(), variante)
+    if not satz:
+        raise RuntimeError(f"Kein Satz '{variante}' in der lokalen Satz-Datei.")
     name = satz["uf2_pico_w" if board == "pico_w" else "uf2_pico2_w"]
     quelle = os.path.join(LOKAL, name)
     shutil.copy(quelle, os.path.join(mountpunkt, "pico_asha.uf2"))
@@ -239,11 +285,14 @@ def flashe(board, mountpunkt):
     subprocess.run(["sync"])
 
 
-def gui_uebernehmen():
-    """Kopiert die GUI des aktuellen Stick-Satzes auf den festen Startpfad
-    LOKAL/PicoASHAGui-aktuell (Kopie, KEIN Symlink -- exFAT). Das Desktop-Icon
-    zeigt auf diesen festen Pfad. NUR nach bestaetigtem Flash-Erfolg aufrufen."""
-    satz = stick_satz()
+def gui_uebernehmen(variante="default"):
+    """Kopiert die GUI des gewaehlten Stick-Satzes (variante: 'default'=Patch,
+    'original') auf den festen Startpfad LOKAL/PicoASHAGui-aktuell (Kopie, KEIN
+    Symlink -- exFAT). Das Desktop-Icon zeigt auf diesen festen Pfad. NUR nach
+    bestaetigtem Flash-Erfolg aufrufen; muss zur geflashten Variante passen."""
+    satz = waehle_satz(stick_satz(), variante)
+    if not satz:
+        raise RuntimeError(f"Kein Satz '{variante}' in der lokalen Satz-Datei.")
     quelle = os.path.join(LOKAL, satz["gui"])
     ziel = os.path.join(LOKAL, GUI_AKTIV)
     shutil.copy(quelle, ziel)
@@ -318,13 +367,17 @@ def cmd_status():
     else:
         print("Firmware-Version: —")
 
-    s_satz = stick_satz()
+    # Vergleich/Anzeige beziehen sich auf den default-Satz (Patch, der
+    # mess-optimierte Standard); die Flash-Auswahl kann spaeter die
+    # Original-Variante explizit waehlen.
+    s_datei = stick_satz(); w_datei = webspace_satz()
+    s_satz = waehle_satz(s_datei, "default")
+    w_satz = waehle_satz(w_datei, "default")
     if s_satz:
         print(f"Stick-Satz: {s_satz.get('satz_version', '?')}")
     else:
         print("Stick-Satz: (kein Satz heruntergeladen)")
 
-    w_satz = webspace_satz()
     if w_satz:
         print(f"Webspace-Satz: {w_satz.get('satz_version', '?')}")
     else:
@@ -342,7 +395,7 @@ def cmd_status():
     if betrieb and fw_version and s_satz:
         # Voller Vergleich inkl. Patch-Nummer: fw_version ist 'x.y.z+cimbel.N'
         # (pa_cli), satz_version ebenso. So schlaegt auch ein noch nicht
-        # geflashter Patch (Pico cimbel.0, Satz cimbel.1) als 'veraltet' an.
+        # geflashter Patch (Pico cimbel.0, default-Satz cimbel.1) als 'veraltet' an.
         satz_ver = s_satz.get("satz_version", "")
         if satz_ver and fw_version != satz_ver:
             print(f"Pico veraltet: ja (Firmware {fw_version}, Satz {satz_ver})")
@@ -355,14 +408,14 @@ def cmd_status():
 
 
 def cmd_download():
-    """Aktuellen Webspace-Satz nach LOKAL herunterladen."""
-    w_satz = webspace_satz()
-    if not w_satz:
+    """Satz-Datei + Artefakte (beide Saetze) vom Webspace nach LOKAL laden."""
+    w_datei = webspace_satz()
+    if not w_datei:
         print("Fehler: Webspace nicht erreichbar.")
         return 1
-    print(f"Lade Satz {w_satz.get('version', '?')} herunter ...")
+    print(f"Lade Satz-Stand {w_datei.get('default', '?')} (inkl. Original) herunter ...")
     try:
-        satz_herunterladen(w_satz)
+        satz_herunterladen(w_datei)
     except Exception as e:
         print(f"Fehler beim Download: {e}")
         return 1
@@ -370,8 +423,8 @@ def cmd_download():
     return 0
 
 
-def cmd_flash(force=False):
-    """Pico im BOOTSEL-Modus flashen."""
+def cmd_flash(force=False, variante="default"):
+    """Pico im BOOTSEL-Modus flashen (variante: 'default'=Patch, 'original')."""
     board_usb = pico_flashmodus()
     mp, board_lw = flash_laufwerk()
 
@@ -394,9 +447,9 @@ def cmd_flash(force=False):
         # Im BOOTSEL-Modus läuft keine Firmware — Versionsabfrage nur zur Info,
         # wenn zufällig vorher ein Serial-Port noch offen ist; sonst überspringen.
 
-    print("Schreibe Firmware ...")
+    print(f"Schreibe Firmware ({variante}) ...")
     try:
-        flashe(board, mp)
+        flashe(board, mp, variante)
     except Exception as e:
         print(f"Fehler beim Flashen: {e}")
         return 1
@@ -415,8 +468,12 @@ def main():
     sub = parser.add_subparsers(dest="cmd", required=True)
     sub.add_parser("status",      help="Pico-, Satz- und Versionsstatus anzeigen")
     sub.add_parser("download",    help="Aktuellen Webspace-Satz herunterladen")
-    sub.add_parser("flash",       help="Pico im BOOTSEL-Modus flashen")
-    sub.add_parser("force-flash", help="Pico flashen ohne Versionsvergleich")
+    p_f = sub.add_parser("flash",       help="Pico im BOOTSEL-Modus flashen")
+    p_ff = sub.add_parser("force-flash", help="Pico flashen ohne Versionsvergleich")
+    for p in (p_f, p_ff):
+        p.add_argument("--variante", choices=("default", "original"),
+                       default="default",
+                       help="default=Patch (Standard), original=unveraenderte FW")
     args = parser.parse_args()
 
     # pa_cli ist das Qt-Tool fuer die Versionsabfrage. Fehlt es, bleibt die
@@ -431,9 +488,9 @@ def main():
     elif args.cmd == "download":
         return cmd_download()
     elif args.cmd == "flash":
-        return cmd_flash(force=False)
+        return cmd_flash(force=False, variante=args.variante)
     elif args.cmd == "force-flash":
-        return cmd_flash(force=True)
+        return cmd_flash(force=True, variante=args.variante)
     return 1
 
 

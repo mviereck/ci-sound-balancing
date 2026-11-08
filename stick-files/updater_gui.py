@@ -573,34 +573,40 @@ class UpdaterGUI:
             self._ui(lambda: self.lbl_pico.config(
                 text="Pico gefunden, Firmware unbekannt"))
             return
-        stick = pico_core.stick_satz()
-        web = pico_core.webspace_satz()   # None, wenn offline
+        # Satz-Dateien im saetze[]-Format; fuer Vergleich/Anzeige der default-
+        # Satz (Patch, mess-optimierter Standard). waehle_satz() gibt None, wenn
+        # kein Satz da ist -- dann wie bisher "kein Vergleich".
+        stick_datei = pico_core.stick_satz()
+        web_datei = pico_core.webspace_satz()   # None, wenn offline
+        web = pico_core.waehle_satz(web_datei, "default")
+        stick = pico_core.waehle_satz(stick_datei, "default")
         if web is None:
             self._ui(lambda: self.lbl_pico.config(
                 text="Pico gefunden (Version " + fw +
                      "); Abgleich nur mit Internet möglich"))
             return
+        web_ver = web["satz_version"]
         # Zwei Vergleiche (Architektur §4):
-        update_da = (stick is None) or (web["satz_version"] != stick.get("satz_version"))
+        update_da = (stick is None) or (web_ver != stick.get("satz_version"))
         # fw ist seit dem CImbel-Patch die volle Kennung 'x.y.z+cimbel.N' (pa_cli),
         # direkt mit satz_version vergleichbar. Der Pico ist "veraltet", wenn er
-        # nicht dem Stick-Satz entspricht (das waere das Flash-Ziel) -- deckt
-        # sowohl Upstream- als auch Patch-Unterschiede ab. Ist noch kein Satz auf
-        # dem Stick, als Referenz der Webspace-Satz.
+        # nicht dem default-Satz (Patch) entspricht -- deckt sowohl Upstream- als
+        # auch Patch-Unterschiede ab. Ist noch kein Satz auf dem Stick, als
+        # Referenz der Webspace-default-Satz.
         ziel_satz = (stick or web).get("satz_version")
         pico_veraltet = (ziel_satz is not None and fw != ziel_satz)
         if update_da or pico_veraltet:
             self._ui(lambda: self.lbl_pico.config(
-                text="Neue Version von Pico-ASHA verfügbar (" +
-                     web["satz_version"] + ")"))
+                text="Neue Version von Pico-ASHA verfügbar (" + web_ver + ")"))
             self._ui(lambda: self.btn_pico.config(state="normal"))
         else:
             self._ui(lambda: self.lbl_pico.config(text="Pico-ASHA ist aktuell"))
 
-    def _pico_flash_dialog(self, force):
+    def _pico_flash_dialog(self, force, variante="default"):
         self._aktion_beginnen()
         PicoFlashDialog(self.root, force, self._pico_status,
-                        nach_schliessen_cb=self._aktion_beenden)
+                        nach_schliessen_cb=self._aktion_beenden,
+                        variante=variante)
 
 
 # ----------------------------------------------------------- Pico-Flash-Dialog
@@ -613,8 +619,13 @@ class PicoFlashDialog:
     nach_schliessen_cb wird beim Schliessen des Dialogs genau einmal gerufen.
     """
 
-    def __init__(self, parent, force, nach_flash_cb, nach_schliessen_cb=None):
+    def __init__(self, parent, force, nach_flash_cb, nach_schliessen_cb=None,
+                 variante="default"):
         self._force = force
+        # Welche Satz-Variante geflasht wird: "default" (Patch, mess-optimiert)
+        # oder "original" (unveraenderte FW). Steuert Flash, Erwartungs-Vergleich
+        # und GUI-Uebernahme, damit alles zur selben Variante gehoert.
+        self._variante = variante
         self._nach_flash_cb = nach_flash_cb
         self._nach_schliessen_cb = nach_schliessen_cb
         self._abbrechen = False
@@ -696,17 +707,21 @@ class PicoFlashDialog:
                 self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
                 return
         else:
-            web = pico_core.webspace_satz()
-            if not web:
+            web_datei = pico_core.webspace_satz()
+            if not web_datei:
                 self._log("Fehler: Webspace nicht erreichbar. "
                           "Bitte Internetverbindung pruefen.", fehler=True)
                 self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
                 return
-            stick = pico_core.stick_satz()
-            if stick is None or web["satz_version"] != stick.get("satz_version"):
-                self._log("Lade neuen Satz " + web["satz_version"] + " ...")
+            # Vergleich der Satz-Staende ueber den default-Satz (Patch); der
+            # Download holt ohnehin beide Varianten.
+            web = pico_core.waehle_satz(web_datei, "default")
+            stick = pico_core.waehle_satz(pico_core.stick_satz(), "default")
+            web_ver = web["satz_version"] if web else "?"
+            if stick is None or (web and web_ver != stick.get("satz_version")):
+                self._log("Lade neuen Satz " + web_ver + " ...")
                 try:
-                    pico_core.satz_herunterladen(web)
+                    pico_core.satz_herunterladen(web_datei)
                 except Exception as e:
                     self._log("Download fehlgeschlagen: " + str(e), fehler=True)
                     self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
@@ -734,7 +749,7 @@ class PicoFlashDialog:
         self._log(board_name + " erkannt, Laufwerk: " + mp)
         self._anleitung("Firmware wird geschrieben ...")
         try:
-            pico_core.flashe(board, mp)
+            pico_core.flashe(board, mp, self._variante)
         except Exception as e:
             self._log("Fehler beim Flashen: " + str(e), fehler=True)
             self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
@@ -777,10 +792,10 @@ class PicoFlashDialog:
         # Sekunden pollen (richtiger ttyACM*-Port je Runde).
         self._anleitung("Lese neue Firmware-Version ...")
         fw_neu, rc, err = pico_core.warte_firmware_version(timeout_s=15.0)
-        aktueller_satz = pico_core.stick_satz()
-        # Nach dem Flashen muss der Pico die volle Satz-Kennung melden
-        # ('x.y.z+cimbel.N'); fw_neu (pa_cli) hat dasselbe Format. So wird auch
-        # bestaetigt, dass die richtige Patch-Variante geflasht wurde.
+        # Nach dem Flashen muss der Pico die volle Satz-Kennung der GEFLASHTEN
+        # Variante melden ('x.y.z+cimbel.N'); fw_neu (pa_cli) hat dasselbe
+        # Format. So wird bestaetigt, dass die richtige Variante geflasht wurde.
+        aktueller_satz = pico_core.waehle_satz(pico_core.stick_satz(), self._variante)
         erwartet = aktueller_satz.get("satz_version") if aktueller_satz else None
 
         if erwartet and fw_neu != erwartet:
@@ -796,9 +811,10 @@ class PicoFlashDialog:
             self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
             return
 
-        # Schritt 6: GUI uebernehmen (erst nach bestaetigtem Erfolg)
+        # Schritt 6: GUI uebernehmen (erst nach bestaetigtem Erfolg) -- GUI der
+        # geflashten Variante, passend zur Firmware.
         try:
-            pico_core.gui_uebernehmen()
+            pico_core.gui_uebernehmen(self._variante)
         except Exception as e:
             self._log("GUI-Uebernahme fehlgeschlagen: " + str(e), fehler=True)
             self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
