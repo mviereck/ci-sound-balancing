@@ -9,6 +9,7 @@ Exit nur ueber den Exit-Button.
 import os
 import sys
 import json
+import hashlib
 import threading
 import subprocess
 import time
@@ -27,6 +28,7 @@ REPO_ROOT = "/mnt/daten/git/ci-sound-balancing"
 LOKALE_VERSION = REPO_ROOT + "/js/version.js"
 PROD_VERSION_URL = "https://www.ci-sound-balancing.org/js/version.js"
 CORE_PY = str(Path(__file__).resolve().parent / "update_core.py")
+NACH_SELBSTUPDATE_FLAG = "--nach-selbstupdate-manifest"
 
 
 # ----------------------------------------------------------- Hilfen (Logik)
@@ -70,10 +72,28 @@ def _hat_system_root_eintraege():
         return False
 
 
+def _updater_code_hash():
+    """Kombinierter Inhalts-Hash der beiden Updater-Code-Dateien
+    (updater_gui.py + update_core.py). Aendert sich der Hash ueber einen
+    git pull hinweg, hat sich der Updater-Code selbst erneuert und die
+    laufende Instanz ist veraltet -> Neustart noetig. Nur DIESE zwei
+    Dateien zaehlen; ein reiner Doku-/Audio-/js-Pull aendert den Hash nicht."""
+    h = hashlib.sha256()
+    for pfad in (os.path.abspath(__file__), CORE_PY):
+        try:
+            with open(pfad, "rb") as f:
+                h.update(f.read())
+        except OSError:
+            # Fehlt eine Datei (sollte nicht vorkommen) -> markanter Wert,
+            # damit ein echter Unterschied nicht faelschlich als "gleich" gilt.
+            h.update(b"<fehlt:" + pfad.encode("utf-8", "replace") + b">")
+    return h.hexdigest()
+
+
 # ----------------------------------------------------------- GUI
 
 class UpdaterGUI:
-    def __init__(self, root):
+    def __init__(self, root, nach_selbstupdate=False):
         self.root = root
         root.title("CImbel aktualisieren")
         root.geometry("600x720")
@@ -154,7 +174,15 @@ class UpdaterGUI:
         self.txt_log.tag_config("fehler", foreground="#c00")
 
         self._fehler_aufgetreten = False
+        self._aktion_laeuft = False
+        self._knopf_vorzustand = {}
         self._im_hintergrund(self._initialer_status)
+
+        # Nach einem Selbst-Update gestartet: die frische Instanz holt das
+        # MANIFEST-Anwenden nach, das die alte Instanz bewusst NICHT mehr
+        # gemacht hat. Im "beschaeftigt"-Zustand bis der Lauf fertig ist.
+        if nach_selbstupdate:
+            self._im_hintergrund(self._nach_selbstupdate_bg)
 
     # ------------------------------------------------- Nebenlaeufigkeit
 
@@ -164,6 +192,41 @@ class UpdaterGUI:
     def _ui(self, fn):
         """Im Tk-Thread ausfuehren."""
         self.root.after(0, fn)
+
+    # ------------------------------------------------- Aktionssperre
+    # Es laeuft immer nur EINE Aktion zur Zeit. Jede knopfausgeloeste Aktion
+    # klammert ihren Ablauf in _aktion_beginnen()/_aktion_beenden(): die erste
+    # sperrt ALLE Aktions-Knoepfe (grau), die zweite stellt den Knopf-Zustand
+    # von vor der Sperre wieder her. So bleibt die statusabhaengige Freigabe
+    # (btn_cimbel nur bei neuer Version, btn_audio als Pruef-/Aktualisieren-
+    # Knopf, btn_pico nur bei Update) erhalten -- die laufende Aktion steuert
+    # ihren eigenen Knopf wie bisher, die Sperre betrifft nur die ANDEREN.
+
+    def _aktions_knoepfe(self):
+        """Alle vier Bereichs-Knoepfe -- die eine Liste, die jeder Sperr-/
+        Freigabe-Schritt durchlaeuft (kein zweiter Ort mit festen Knopf-IDs)."""
+        return [self.btn_cimbel, self.btn_audio, self.btn_system,
+                self.btn_pico, self.btn_pico_force]
+
+    def _aktion_beginnen(self):
+        """Sperrt alle Aktions-Knoepfe und merkt sich ihren Vorzustand.
+        MUSS im Tk-Thread laufen (von dort werden die Aktionen gestartet)."""
+        self._aktion_laeuft = True
+        self._knopf_vorzustand = {
+            b: str(b.cget("state")) for b in self._aktions_knoepfe()}
+        for b in self._aktions_knoepfe():
+            b.config(state="disabled")
+
+    def _aktion_beenden(self):
+        """Hebt die Sperre auf: stellt den gemerkten Vorzustand wieder her.
+        Aus dem Hintergrund-Thread ueber self._ui(...) aufrufen -- setzt NUR
+        state, nicht text/command (sonst wuerde ein Pruef->Aktualisieren-
+        umbenannter Knopf zurueckgesetzt)."""
+        def _wieder():
+            for b, st in getattr(self, "_knopf_vorzustand", {}).items():
+                b.config(state=st)
+            self._aktion_laeuft = False
+        self._ui(_wieder)
 
     def _log(self, text, fehler=False):
         """Eine Zeile ins Meldungsfeld. fehler=True -> rot + merkt sich, dass
@@ -254,18 +317,51 @@ class UpdaterGUI:
     # ------------------------------------------------- CImbel
 
     def _cimbel_update(self):
+        self._aktion_beginnen()
         self.btn_cimbel.config(state="disabled")
         self._im_hintergrund(self._cimbel_update_bg)
 
     def _cimbel_update_bg(self):
         self._log("git pull ...")
+        hash_vorher = _updater_code_hash()
         rc = subprocess.run(["git", "-C", REPO_ROOT, "pull"]).returncode
         if rc != 0:
             self._log("git pull fehlgeschlagen (rc=" + str(rc) + ")", fehler=True)
+            self._aktion_beenden()
             return
         self._log("git pull OK")
+        hash_nachher = _updater_code_hash()
+
+        if hash_nachher != hash_vorher:
+            # Der Updater hat sich selbst erneuert -> frische Instanz starten,
+            # DIESE wendet dann das MANIFEST an (nicht der alte Code hier).
+            self._log("Der Updater wurde aktualisiert und startet neu ...")
+            self._ui(lambda: self.lbl_cimbel.config(text="Updater startet neu ..."))
+            time.sleep(2.0)  # Meldung kurz sichtbar lassen (Oma-Test)
+            try:
+                os.execv(sys.executable,
+                         [sys.executable, os.path.abspath(__file__),
+                          NACH_SELBSTUPDATE_FLAG])
+            except OSError as e:
+                # Pull ok, aber Neustart gescheitert: Fenster bleibt bedienbar,
+                # KEIN MANIFEST aus der alten Instanz (Alt-Code-Risiko).
+                self._log("Automatischer Neustart fehlgeschlagen (" + str(e) +
+                          "). Bitte den Updater von Hand schließen und neu "
+                          "starten.", fehler=True)
+                self._aktion_beenden()
+                return
+            # execv kehrt bei Erfolg nie zurueck; ab hier kein Code.
+
+        # Updater-Code unveraendert -> MANIFEST in dieser Instanz anwenden.
+        self._manifest_anwenden_lokal()
+        self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
+        self._aktion_beenden()
+
+    def _manifest_anwenden_lokal(self):
+        """Wendet das MANIFEST an (Bereich home direkt, system-root gebuendelt
+        via pkexec). Gemeinsamer Koerper fuer den normalen CImbel-Update und
+        den Flag-Pfad nach dem Selbst-Neustart -- KEIN git pull hier."""
         self._log("Wende Werks-Dateien an (Dateiliste MANIFEST, home) ...")
-        # unprivilegiert: direkt im Kern, Meldungen je Eintrag ins Log
         manifest = update_core._lade_manifest(STICK_ROOT)
         for e in manifest:
             if e.get("bereich", "home") != "home":
@@ -273,7 +369,6 @@ class UpdaterGUI:
             msg = update_core._manifest_eintrag_anwenden(
                 e, STICK_ROOT, OPUS_ROOT, WEBSPACE)
             self._log(msg, fehler=msg.startswith("FEHLER"))
-        # system-root gebuendelt via pkexec (nur falls es solche Eintraege gibt)
         if _hat_system_root_eintraege():
             self._log("Wende Systemdateien an (Passwort nötig) ...")
             rc = subprocess.run(["pkexec", sys.executable, CORE_PY,
@@ -282,11 +377,20 @@ class UpdaterGUI:
             if rc != 0:
                 self._log("Systemdateien fehlgeschlagen (rc=" + str(rc) + ")", fehler=True)
         self._abschluss("CImbel aktualisiert.")
+
+    def _nach_selbstupdate_bg(self):
+        # In den beschaeftigt-Zustand (im Tk-Thread setzen), MANIFEST anwenden,
+        # danach freigeben. Kein Pull, keine Hash-Pruefung.
+        self._ui(self._aktion_beginnen)
+        self._log("Updater neu gestartet. Wende Aktualisierung an ...")
+        self._manifest_anwenden_lokal()
         self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
+        self._aktion_beenden()
 
     # ------------------------------------------------- Audios (zweistufig)
 
     def _audio_pruefen(self):
+        self._aktion_beginnen()
         # Stufe 1: pruefen (Soll laden + lokalen Bestand lesen/scannen). Langsam ->
         # im Hintergrund, Button sperren, Spinner zeigen.
         self.btn_audio.config(state="disabled")
@@ -305,6 +409,7 @@ class UpdaterGUI:
             self._ui(lambda: self.lbl_audio.config(text="Status nicht ermittelbar"))
             self._log("Audio-Prüfung fehlgeschlagen: " + str(e), fehler=True)
             self._ui(lambda: self.btn_audio.config(state="normal"))
+            self._aktion_beenden()
             return
         finally:
             self._ui(self.progress.stop)
@@ -321,9 +426,11 @@ class UpdaterGUI:
             self._ui(lambda: self.lbl_audio.config(text="aktuell"))
             self._log("Audios sind aktuell.")
             # kein Aktualisieren noetig -> Knopf bleibt deaktiviert
+        self._aktion_beenden()
         return
 
     def _audio_update(self):
+        self._aktion_beginnen()
         self.btn_audio.config(state="disabled")
         self.progress.config(mode="determinate")
         self.progress.pack(pady=4)
@@ -338,10 +445,12 @@ class UpdaterGUI:
         except update_core.SyncAbbruch as e:
             self._fortschritt_ende()
             self._log("Abbruch (Sicherung): " + str(e), fehler=True)
+            self._aktion_beenden()
             return
         except ValueError as e:
             self._fortschritt_ende()
             self._log("Fehler: " + str(e), fehler=True)
+            self._aktion_beenden()
             return
         finally:
             self._ui(self.progress.pack_forget)
@@ -349,10 +458,12 @@ class UpdaterGUI:
         self._log("Audios aktualisiert: " + str(geladen) + " geladen, " +
                   str(geloescht) + " entfernt.")
         self._ui(lambda: self.lbl_audio.config(text="aktuell"))
+        self._aktion_beenden()
 
     # ------------------------------------------------- System (zweistufig)
 
     def _system_pruefen(self):
+        self._aktion_beginnen()
         self.btn_system.config(state="disabled")
         self._log("apt update gestartet (laeuft im Terminal, Passwort nötig) ...")
         self._im_hintergrund(self._system_pruefen_bg)
@@ -379,6 +490,7 @@ class UpdaterGUI:
             self._log("apt update fehlgeschlagen -- bitte Terminal-Ausgabe beachten.",
                       fehler=True)
             self._ui(lambda: self.btn_system.config(state="normal"))
+            self._aktion_beenden()
             return
         # Erfolg: Paketzahl still ermitteln und anzeigen; Upgrade nur anbieten,
         # wenn es etwas zu aktualisieren gibt.
@@ -386,6 +498,7 @@ class UpdaterGUI:
         if n is None:
             self._log("Paketzahl nicht ermittelbar (apt list fehlgeschlagen).", fehler=True)
             self._ui(lambda: self.btn_system.config(state="normal"))
+            self._aktion_beenden()
             return
         if n > 0:
             self._log("apt update fertig: " + str(n) + " Paket-Updates verfügbar.")
@@ -397,8 +510,10 @@ class UpdaterGUI:
             self._log("apt update fertig: System ist aktuell.")
             self._ui(lambda: self.lbl_system.config(text="System ist aktuell"))
             # kein Upgrade noetig -> Knopf bleibt deaktiviert
+        self._aktion_beenden()
 
     def _system_upgrade(self):
+        self._aktion_beginnen()
         self.btn_system.config(state="disabled")
         self._log("apt upgrade gestartet (laeuft im Terminal) ...")
         self._im_hintergrund(self._system_upgrade_bg)
@@ -415,9 +530,11 @@ class UpdaterGUI:
             self._log("apt upgrade fehlgeschlagen -- bitte Terminal-Ausgabe beachten.",
                       fehler=True)
             self._ui(lambda: self.btn_system.config(state="normal"))
+            self._aktion_beenden()
             return
         self._log("Systemupdate abgeschlossen. System ist aktuell.")
         self._ui(lambda: self.lbl_system.config(text="System ist aktuell"))
+        self._aktion_beenden()
 
     # ------------------------------------------------- Pico-ASHA
 
@@ -475,7 +592,9 @@ class UpdaterGUI:
             self._ui(lambda: self.lbl_pico.config(text="Pico-ASHA ist aktuell"))
 
     def _pico_flash_dialog(self, force):
-        PicoFlashDialog(self.root, force, self._pico_status)
+        self._aktion_beginnen()
+        PicoFlashDialog(self.root, force, self._pico_status,
+                        nach_schliessen_cb=self._aktion_beenden)
 
 
 # ----------------------------------------------------------- Pico-Flash-Dialog
@@ -485,12 +604,15 @@ class PicoFlashDialog:
 
     Eigenes Toplevel-Fenster mit eigenem Log (Machart reset_gui.py).
     nach_flash_cb wird nach erfolgreichem Flash im Tk-Thread aufgerufen.
+    nach_schliessen_cb wird beim Schliessen des Dialogs genau einmal gerufen.
     """
 
-    def __init__(self, parent, force, nach_flash_cb):
+    def __init__(self, parent, force, nach_flash_cb, nach_schliessen_cb=None):
         self._force = force
         self._nach_flash_cb = nach_flash_cb
+        self._nach_schliessen_cb = nach_schliessen_cb
         self._abbrechen = False
+        self._schliessen_gemeldet = False
 
         self._win = tk.Toplevel(parent)
         self._win.title("Pico-ASHA flashen")
@@ -551,6 +673,9 @@ class PicoFlashDialog:
 
     def _anfrage_abbrechen(self):
         self._abbrechen = True
+        if self._nach_schliessen_cb and not self._schliessen_gemeldet:
+            self._schliessen_gemeldet = True
+            self._nach_schliessen_cb()
         self._win.destroy()
 
     def _ablauf(self):
@@ -679,8 +804,9 @@ class PicoFlashDialog:
 
 
 def main():
+    nach_update = NACH_SELBSTUPDATE_FLAG in sys.argv
     root = tk.Tk()
-    UpdaterGUI(root)
+    UpdaterGUI(root, nach_selbstupdate=nach_update)
     root.mainloop()
 
 
