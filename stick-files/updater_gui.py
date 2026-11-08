@@ -96,7 +96,7 @@ class UpdaterGUI:
     def __init__(self, root, nach_selbstupdate=False):
         self.root = root
         root.title("CImbel aktualisieren")
-        root.geometry("650x720")
+        root.geometry("760x720")
         # Fenster-X abfangen: Schliessen nur ueber den Exit-Button.
         root.protocol("WM_DELETE_WINDOW", self._ignoriere_close)
 
@@ -632,9 +632,10 @@ class UpdaterGUI:
 
         knoepfe = tk.Frame(dlg)
         knoepfe.pack(padx=16, pady=8, fill="x")
-        tk.Button(knoepfe,
+        btn_default = tk.Button(knoepfe,
                   text="Für CImbel-Messungen optimiert (empfohlen)",
-                  command=lambda: _waehle("default")).pack(fill="x", pady=4)
+                  command=lambda: _waehle("default"))
+        btn_default.pack(fill="x", pady=4)
         tk.Button(knoepfe,
                   text="Original (angenehmerer Klang bei hohen Tönen)",
                   command=lambda: _waehle("original")).pack(fill="x", pady=4)
@@ -642,6 +643,11 @@ class UpdaterGUI:
                   command=dlg.destroy).pack(pady=(4, 8))
 
         dlg.protocol("WM_DELETE_WINDOW", dlg.destroy)
+        # Enter bestaetigt den empfohlenen Default, Esc bricht ab. Der Default-
+        # Knopf bekommt den Fokus (sichtbar hervorgehoben).
+        dlg.bind("<Return>", lambda e: _waehle("default"))
+        dlg.bind("<Escape>", lambda e: dlg.destroy())
+        btn_default.focus_set()
         dlg.grab_set()
         self.root.wait_window(dlg)
         return wahl["v"]
