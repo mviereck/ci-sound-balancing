@@ -46,6 +46,7 @@ var FINANZEN_DAUER = [
   { monthly: 10.00, start: "2026-05", end: null      },
   { monthly: 10.00, start: "2026-05", end: null      },
   { monthly:  5.00, start: "2026-06", end: null      },
+  { monthly:  5.00, start: "2026-11", end: null      },
   { monthly: 10.00, start: "2026-05", end: "2027-04" }
 ];
 
