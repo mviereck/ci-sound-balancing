@@ -160,8 +160,11 @@ class UpdaterGUI:
         self.root = root
         root.title("CImbel aktualisieren")
         root.geometry("760x720")
-        # Fenster-X abfangen: Schliessen nur ueber den Exit-Button.
-        root.protocol("WM_DELETE_WINDOW", self._ignoriere_close)
+        # Fenster-X UND Beenden-Knopf gehen durch denselben Pfad
+        # (_beenden_versuch): Schliessen nur, wenn gerade keine Aktion laeuft --
+        # sonst wuerde eine laufende Aktion (git pull, MANIFEST, Download)
+        # mitten im Schreiben hart abgebrochen.
+        root.protocol("WM_DELETE_WINDOW", self._beenden_versuch)
 
         self.online = False
 
@@ -238,7 +241,7 @@ class UpdaterGUI:
         #     bleibt und nicht vom expandierenden Log unter den Rand gedraengt
         #     wird. Reihenfolge von unten nach oben: Beenden, Kopieren.
         #     Keine eigene Statuszeile mehr -- alle Meldungen gehen ins Log.
-        tk.Button(root, text="Beenden", command=root.destroy).pack(side="bottom", pady=8)
+        tk.Button(root, text="Beenden", command=self._beenden_versuch).pack(side="bottom", pady=8)
         tk.Button(root, text="Meldungen ins Clipboard kopieren",
                   command=self._log_kopieren).pack(side="bottom", pady=2)
 
@@ -354,10 +357,17 @@ class UpdaterGUI:
         self.root.update()
         self._log("Meldungen ins Clipboard kopiert.")
 
-    def _ignoriere_close(self):
-        self._log("Zum Beenden bitte den Knopf 'Beenden' benutzen "
-                  "(das Schließkreuz ist absichtlich wirkungslos, damit keine "
-                  "laufende Aktion unterbrochen wird).")
+    def _beenden_versuch(self):
+        """Gemeinsamer Austritts-Pfad fuer Beenden-Knopf und Fenster-X. Schliesst
+        den Updater NUR, wenn gerade keine Aktion laeuft -- sonst wuerde ein
+        git pull, ein MANIFEST-Kopiervorgang oder ein Download mitten im
+        Schreiben hart abgebrochen (Daemon-Threads sterben mit dem Prozess).
+        Laeuft eine Aktion, bleibt das Fenster offen mit Hinweis."""
+        if self._aktion_laeuft:
+            self._log("Es läuft gerade eine Aktion -- bitte warten, bis sie "
+                      "fertig ist, dann erneut 'Beenden' drücken.")
+            return
+        self.root.destroy()
 
     # ------------------------------------------------- Initialer Status
 
