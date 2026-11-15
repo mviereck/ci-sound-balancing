@@ -32,16 +32,23 @@ PROD_VERSION_URL = "https://www.ci-sound-balancing.org/js/version.js"
 CORE_PY = str(Path(__file__).resolve().parent / "update_core.py")
 NACH_SELBSTUPDATE_FLAG = "--nach-selbstupdate-manifest"
 
+# "Auf Updates pruefen" (apt update) ist nur sinnvoll, wenn der letzte
+# Listen-Abgleich eine Weile her ist -- sonst laedt es dieselben Listen neu.
+SYSTEM_UPDATE_MAX_ALTER_S = 12 * 3600
+# mtime dieses Verzeichnisses = Zeitpunkt des letzten erfolgreichen apt update
+# (wird bei jedem Listen-Download neu geschrieben; robuster als der optionale
+# update-success-stamp, den nur der APT::Periodic-Cron anlegt).
+APT_LISTS_DIR = "/var/lib/apt/lists"
+
 # --- eira (x86-Installer im lokalen git-Clone) ---
 # Zwei Clones liegen nebeneinander, je eine git-Quelle. EIRA_CLONE legt fest,
 # welcher der aktive ist; der Quellenwechsel (Fork <-> Original) erfolgt durch
 # Aendern dieser Konstante -- die kommt per CImbel-Update auf den Stick, der
 # Updater-Code aendert sich, der Selbst-Neustart greift, danach weicht der
-# eira-Hash ab und ein eira-Update wird angeboten. EIRA_CLONE_URL ist die Quelle
-# fuer einen Not-Neuklon, wenn der Clone kaputt/divergiert ist (dann ist die URL
-# im Clone selbst evtl. nicht mehr lesbar -- darum hier fest hinterlegt).
+# eira-Hash ab und ein eira-Update wird angeboten. Die Quelle wird mit dem
+# Stick ausgeliefert und ist immer vorhanden; es gibt keinen Neuklon-/Reparatur-
+# Weg (der Updater aktualisiert, er repariert nicht).
 EIRA_CLONE = "/mnt/daten/git/eira-RaspberryPi-fork"
-EIRA_CLONE_URL = "https://codeberg.org/mviereck/eira-RaspberryPi.git"
 EIRA_INSTALLER = EIRA_CLONE + "/installer_x86.sh"
 
 
@@ -77,13 +84,14 @@ def _online():
         return False
 
 
-def _hat_system_root_eintraege():
+def _apt_update_faellig():
+    """True, wenn das letzte apt update laenger als SYSTEM_UPDATE_MAX_ALTER_S
+    her ist (oder der Zeitpunkt nicht ermittelbar). mtime von APT_LISTS_DIR."""
     try:
-        with open(Path(STICK_ROOT) / "MANIFEST.json", encoding="utf-8") as f:
-            eintraege = json.load(f)
-        return any(e.get("bereich") == "system-root" for e in eintraege)
-    except (OSError, json.JSONDecodeError):
-        return False
+        alter = time.time() - os.path.getmtime(APT_LISTS_DIR)
+    except OSError:
+        return True
+    return alter > SYSTEM_UPDATE_MAX_ALTER_S
 
 
 def _updater_code_hash():
@@ -209,13 +217,21 @@ class UpdaterGUI:
         # wird nur beim Audio-Pruefen (indeterminate) und -Download (determinate) eingeblendet
 
         # --- Bereich System ---
+        # Zwei getrennte Knoepfe: "Auf Updates pruefen" (apt update) und
+        # "System aktualisieren" (apt upgrade). Jeder nur waehlbar, wenn er eine
+        # sinnvolle Aktion ausloest: pruefen nur, wenn das letzte apt update
+        # laenger als SYSTEM_UPDATE_MAX_ALTER_S zurueckliegt; aktualisieren nur,
+        # wenn apt list --upgradable Pakete meldet.
         self._bereich_system = tk.LabelFrame(root, text="System", padx=8, pady=6)
         self._bereich_system.pack(fill="x", padx=10, pady=4)
         self.lbl_system = tk.Label(self._bereich_system, text="apt-Updates (optional)")
         self.lbl_system.pack(side="left")
+        self.btn_system_upgrade = tk.Button(self._bereich_system, text="System aktualisieren",
+                                            command=self._system_upgrade, state="disabled")
+        self.btn_system_upgrade.pack(side="right")
         self.btn_system = tk.Button(self._bereich_system, text="Auf Updates pruefen",
                                     command=self._system_pruefen, state="disabled")
-        self.btn_system.pack(side="right")
+        self.btn_system.pack(side="right", padx=(0, 6))
 
         # --- Untere Leiste ZUERST (side="bottom"), damit sie immer sichtbar
         #     bleibt und nicht vom expandierenden Log unter den Rand gedraengt
@@ -236,9 +252,7 @@ class UpdaterGUI:
         # Fehlerzeilen rot (tag), normale schwarz.
         self.txt_log.tag_config("fehler", foreground="#c00")
 
-        self._fehler_aufgetreten = False
         self._aktion_laeuft = False
-        self._knopf_vorzustand = {}
         self._im_hintergrund(self._initialer_status)
 
         # Nach einem Selbst-Update gestartet: die frische Instanz holt das
@@ -259,43 +273,49 @@ class UpdaterGUI:
     # ------------------------------------------------- Aktionssperre
     # Es laeuft immer nur EINE Aktion zur Zeit. Jede knopfausgeloeste Aktion
     # klammert ihren Ablauf in _aktion_beginnen()/_aktion_beenden(): die erste
-    # sperrt ALLE Aktions-Knoepfe (grau), die zweite stellt den Knopf-Zustand
-    # von vor der Sperre wieder her. So bleibt die statusabhaengige Freigabe
-    # (btn_cimbel nur bei neuer Version, btn_audio als Pruef-/Aktualisieren-
-    # Knopf, btn_pico nur bei Update) erhalten -- die laufende Aktion steuert
-    # ihren eigenen Knopf wie bisher, die Sperre betrifft nur die ANDEREN.
+    # sperrt ALLE Aktions-Knoepfe (grau), die zweite leitet jeden Knopf-Zustand
+    # frisch aus dem aktuellen Status ab (Status-Recheck pro Bereich). So gibt es
+    # fuer die Knopf-Freigabe genau EINE Quelle -- den echten Status --, keinen
+    # gemerkten Vorzustand: ein Knopf, der nach seiner Aktion nichts mehr zu tun
+    # hat, sperrt sich dadurch von selbst.
 
     def _aktions_knoepfe(self):
-        """Alle vier Bereichs-Knoepfe -- die eine Liste, die jeder Sperr-/
-        Freigabe-Schritt durchlaeuft (kein zweiter Ort mit festen Knopf-IDs)."""
+        """Alle Bereichs-Knoepfe -- die eine Liste, die der Sperr-Schritt
+        durchlaeuft (kein zweiter Ort mit festen Knopf-IDs)."""
         return [self.btn_cimbel, self.btn_eira, self.btn_audio, self.btn_system,
-                self.btn_pico, self.btn_pico_force]
+                self.btn_system_upgrade, self.btn_pico, self.btn_pico_force]
 
     def _aktion_beginnen(self):
-        """Sperrt alle Aktions-Knoepfe und merkt sich ihren Vorzustand.
-        MUSS im Tk-Thread laufen (von dort werden die Aktionen gestartet)."""
+        """Sperrt alle Aktions-Knoepfe. MUSS im Tk-Thread laufen (von dort
+        werden die Aktionen gestartet)."""
         self._aktion_laeuft = True
-        self._knopf_vorzustand = {
-            b: str(b.cget("state")) for b in self._aktions_knoepfe()}
         for b in self._aktions_knoepfe():
             b.config(state="disabled")
 
     def _aktion_beenden(self):
-        """Hebt die Sperre auf: stellt den gemerkten Vorzustand wieder her.
-        Aus dem Hintergrund-Thread ueber self._ui(...) aufrufen -- setzt NUR
-        state, nicht text/command (sonst wuerde ein Pruef->Aktualisieren-
-        umbenannter Knopf zurueckgesetzt)."""
-        def _wieder():
-            for b, st in getattr(self, "_knopf_vorzustand", {}).items():
-                b.config(state=st)
-            self._aktion_laeuft = False
-        self._ui(_wieder)
+        """Hebt die Sperre auf und bewertet alle Bereiche neu (Status-Recheck).
+        Aus dem Hintergrund-Thread ueber self._ui(...) aufrufen."""
+        self._aktion_laeuft = False
+        self._status_recheck()
+
+    def _status_recheck(self):
+        """Leitet die Knopf-Freigabe der Bereiche mit BILLIGER Statuspruefung
+        frisch ab -- nach jeder Aktion und einmal beim Start: CImbel (ein curl),
+        eira (git fetch), System (apt list + mtime). Audios bleiben AUSSEN VOR:
+        ihr Status braucht den teuren ~180k-Scan (zweistufig), darum fuehrt der
+        Audio-Bereich seinen Knopf selbst (pruefen -> aktualisieren -> zurueck),
+        nicht dieser Recheck. Darf vom Hintergrund-Thread aufgerufen werden (die
+        Teil-Checks arbeiten selbst mit self._ui/_im_hintergrund)."""
+        if not self.online:
+            return
+        self._cimbel_status()
+        self._eira_status()
+        self._im_hintergrund(self._system_knoepfe_setzen)
 
     def _log(self, text, fehler=False):
-        """Eine Zeile ins Meldungsfeld. fehler=True -> rot + merkt sich, dass
-        ein Fehler auftrat (fuer die Abschlussmeldung)."""
-        if fehler:
-            self._fehler_aufgetreten = True
+        """Eine Zeile ins Meldungsfeld. fehler=True -> rot. Jede Aktion meldet
+        ihren Fehler an Ort und Stelle (sprechend); es gibt keine nachlaufende
+        Sammelmeldung mehr."""
         def _append():
             if fehler:
                 self.txt_log.insert("end", text + "\n", "fehler")
@@ -323,15 +343,6 @@ class UpdaterGUI:
         """Fortschritts-Zeile abschliessen: die naechste normale Log-Zeile
         soll wieder angehaengt, nicht ueberschrieben werden."""
         self._fortschritt_aktiv = False
-
-    def _abschluss(self, erfolgstext):
-        """Nach einer Aktion: Erfolgs- oder Sammel-Fehlermeldung ins Log."""
-        if self._fehler_aufgetreten:
-            self._log("Es sind Fehler aufgetreten (siehe oben). "
-                      "Mit 'Meldungen ins Clipboard kopieren' den Bericht sichern.",
-                      fehler=True)
-        else:
-            self._log(erfolgstext)
 
     def _log_kopieren(self):
         inhalt = self.txt_log.get("1.0", "end").strip()
@@ -361,41 +372,52 @@ class UpdaterGUI:
             self._ui(lambda: self.lbl_audio.config(text="offline"))
             return
         self._ui(lambda: self.lbl_online.config(text="Internetverbindung vorhanden.", fg="#070"))
+        # Bereiche mit billiger Statuspruefung ableiten (CImbel/eira/System) --
+        # dieselbe Logik wie nach jeder Aktion (Status-Recheck), kein zweiter Weg.
+        self._status_recheck()
+        # Audios: Grundzustand 'pruefen' einmal freigeben (der Bereich fuehrt
+        # seinen Knopf selbst, s. _status_recheck).
+        self._ui(self._audio_grundzustand)
 
-        # CImbel-Status
-        lok, prod = _lokale_version(), _prod_version()
-        if prod and lok and prod != lok:
-            self._ui(lambda: self.lbl_cimbel.config(
-                text="Neue Version verfuegbar (" + str(prod) + ")"))
-            self._ui(lambda: self.btn_cimbel.config(state="normal"))
-        else:
-            self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
+    def _cimbel_status(self):
+        """CImbel-Freigabe aus dem Status: lokale vs. Produktions-Version
+        (Ungleich-Vergleich). Knopf nur bei Abweichung."""
+        def _bg():
+            lok, prod = _lokale_version(), _prod_version()
+            if prod and lok and prod != lok:
+                self._ui(lambda: self.lbl_cimbel.config(
+                    text="Neue Version verfuegbar (" + str(prod) + ")"))
+                self._ui(lambda: self.btn_cimbel.config(state="normal"))
+            else:
+                self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
+                self._ui(lambda: self.btn_cimbel.config(state="disabled"))
+        self._im_hintergrund(_bg)
 
-        # eira-Status: git fetch im aktiven Clone, lokalen gegen remote Commit
-        # vergleichen (reiner Hash-Vergleich, braucht Netz).
-        self._eira_status()
-
-        # Audio-Status NICHT automatisch ermitteln: _audio_diff laedt die grosse
-        # Soll-Liste und scannt ~180k Dateien (USB langsam). Zweistufig -- der
-        # Nutzer startet die Pruefung per Knopf.
-        self._ui(lambda: self.btn_audio.config(state="normal"))
-
-        # System immer anwaehlbar (apt update braucht erst Knopfdruck).
-        self._ui(lambda: self.btn_system.config(state="normal"))
+    def _audio_grundzustand(self):
+        """Audio-Knopf in den Grundzustand 'pruefen' (zweistufig: der teure
+        ~180k-Scan laeuft NIE automatisch). Im Tk-Thread aufrufen."""
+        self.btn_audio.config(text="Auf neue Audios prüfen",
+                              command=self._audio_pruefen, state="normal")
 
     # ------------------------------------------------- CImbel
 
     def _cimbel_update(self):
-        self._aktion_beginnen()
-        self.btn_cimbel.config(state="disabled")
+        self._aktion_beginnen()  # sperrt alle Knoepfe
         self._im_hintergrund(self._cimbel_update_bg)
 
     def _cimbel_update_bg(self):
-        self._log("git pull ...")
+        self._log("git pull --ff-only ...")
         hash_vorher = _updater_code_hash()
-        rc = subprocess.run(["git", "-C", REPO_ROOT, "pull"]).returncode
-        if rc != 0:
-            self._log("git pull fehlgeschlagen (rc=" + str(rc) + ")", fehler=True)
+        # --ff-only wie bei eira: reiner Konsum-Clone, nie ein Merge-Commit.
+        # Ausgabe (stdout+stderr) einfangen, damit ein git-Fehler sichtbar wird.
+        p = subprocess.run(["git", "-C", REPO_ROOT, "pull", "--ff-only"],
+                           capture_output=True, text=True)
+        if p.returncode != 0:
+            self._log("git pull fehlgeschlagen (rc=" + str(p.returncode) + ")",
+                      fehler=True)
+            ausgabe = ((p.stdout or "") + (p.stderr or "")).strip()
+            if ausgabe:
+                self._log(ausgabe, fehler=True)
             self._aktion_beenden()
             return
         self._log("git pull OK")
@@ -438,14 +460,16 @@ class UpdaterGUI:
             msg = update_core._manifest_eintrag_anwenden(
                 e, STICK_ROOT, OPUS_ROOT, WEBSPACE)
             self._log(msg, fehler=msg.startswith("FEHLER"))
-        if _hat_system_root_eintraege():
+        # system-root-Eintraege gebuendelt via pkexec -- aus der schon geladenen
+        # Liste abgeleitet (kein zweites Oeffnen des MANIFEST).
+        if any(e.get("bereich") == "system-root" for e in manifest):
             self._log("Wende Systemdateien an (Passwort nötig) ...")
             rc = subprocess.run(["pkexec", sys.executable, CORE_PY,
                             "--stick-root", STICK_ROOT, "--opus-root", OPUS_ROOT,
                             "--webspace", WEBSPACE, "manifest", "--bereich", "system-root"]).returncode
             if rc != 0:
                 self._log("Systemdateien fehlgeschlagen (rc=" + str(rc) + ")", fehler=True)
-        self._abschluss("CImbel aktualisiert.")
+        self._log("CImbel aktualisiert.")
 
     def _nach_selbstupdate_bg(self):
         # In den beschaeftigt-Zustand (im Tk-Thread setzen), MANIFEST anwenden,
@@ -463,40 +487,32 @@ class UpdaterGUI:
     # also immer CImbels Default-Zustand; wer abweichen will, startet den
     # Installer selbst). Eigener Mechanismus, NICHT das MANIFEST.
 
-    def _git(self, *args, capture=False):
-        """git im eira-Clone. capture=True -> (rc, stdout.strip()); sonst rc."""
-        cmd = ["git", "-C", EIRA_CLONE, *args]
-        if capture:
-            p = subprocess.run(cmd, capture_output=True, text=True)
-            return p.returncode, (p.stdout or "").strip()
-        return subprocess.run(cmd).returncode
+    def _git(self, *args):
+        """git im eira-Clone. Immer (returncode, ausgabe) -- ausgabe ist stdout
+        UND stderr zusammen, damit eine git-Fehlermeldung (die git nach stderr
+        schreibt) nicht verlorengeht. Gestrippt."""
+        p = subprocess.run(["git", "-C", EIRA_CLONE, *args],
+                           capture_output=True, text=True)
+        return p.returncode, ((p.stdout or "") + (p.stderr or "")).strip()
 
     def _eira_status(self):
         self._im_hintergrund(self._eira_status_bg)
 
     def _eira_status_bg(self):
-        if not os.path.isdir(os.path.join(EIRA_CLONE, ".git")):
-            self._ui(lambda: self.lbl_eira.config(text="eira-Quelle fehlt"))
-            self._ui(lambda: self._log(
-                "eira-git-Clone nicht gefunden (" + EIRA_CLONE + "). "
-                "Mit 'eira aktualisieren' neu holen.", fehler=True))
-            self._ui(lambda: self.btn_eira.config(state="normal"))
-            return
-        # Remote-Stand holen (nur fetch, veraendert den Arbeitsbaum nicht).
-        rc = self._git("fetch", "--quiet")
+        # Die Quelle wird mit dem Stick ausgeliefert und ist immer da; es gibt
+        # keinen Reparatur-/Neuklon-Weg (der Updater aktualisiert, er repariert
+        # nicht). Laesst sich kein belastbarer Vergleich bilden (kein Clone, kein
+        # Netz, kein Upstream), bleibt der Knopf grau -- F1: ein Knopf ist nur
+        # waehlbar, wenn er eine sinnvolle Aktion ausloest.
+        self._ui(lambda: self.btn_eira.config(state="disabled"))
+        rc, _ = self._git("fetch", "--quiet")
         if rc != 0:
-            self._ui(lambda: self.lbl_eira.config(text="Abgleich fehlgeschlagen"))
-            self._ui(lambda: self._log(
-                "eira: git fetch fehlgeschlagen (rc=" + str(rc) + ").", fehler=True))
-            self._ui(lambda: self.btn_eira.config(state="normal"))
+            self._ui(lambda: self.lbl_eira.config(text="auf dem neuesten Stand"))
             return
-        rc1, lokal = self._git("rev-parse", "HEAD", capture=True)
-        rc2, remote = self._git("rev-parse", "@{u}", capture=True)
+        rc1, lokal = self._git("rev-parse", "HEAD")
+        rc2, remote = self._git("rev-parse", "@{u}")
         if rc1 != 0 or rc2 != 0 or not lokal or not remote:
-            self._ui(lambda: self.lbl_eira.config(text="Abgleich fehlgeschlagen"))
-            self._ui(lambda: self._log(
-                "eira: Commit-Vergleich fehlgeschlagen (kein Upstream?).", fehler=True))
-            self._ui(lambda: self.btn_eira.config(state="normal"))
+            self._ui(lambda: self.lbl_eira.config(text="auf dem neuesten Stand"))
             return
         if lokal != remote:
             self._ui(lambda: self.lbl_eira.config(
@@ -507,75 +523,65 @@ class UpdaterGUI:
 
     def _eira_update(self):
         self._aktion_beginnen()
-        self.btn_eira.config(state="disabled")
         self._im_hintergrund(self._eira_update_bg)
 
     def _eira_update_bg(self):
-        # Clone fehlt -> direkt Not-Neuklon anbieten.
-        if not os.path.isdir(os.path.join(EIRA_CLONE, ".git")):
-            self._log("eira-Clone fehlt -- hole die Quelle neu ...")
-            if not self._eira_neu_klonen():
-                self._aktion_beenden()
-                return
-        else:
-            self._log("eira: git pull --ff-only ...")
-            # --ff-only: nie ein Merge/Konflikt (der Clone bleibt bei EINER
-            # Quelle homogen -> normal immer Fast-Forward). Scheitert es doch
-            # (divergiert, z.B. nach Quellenwechsel), bricht git sauber ab statt
-            # zu haengen -> wir bieten den Not-Neuklon an.
-            rc, aus = self._git("pull", "--ff-only", capture=True)
-            if aus:
-                self._log(aus)
-            if rc != 0:
-                self._log("eira: git pull --ff-only fehlgeschlagen (rc=" + str(rc) +
-                          "). Hole die Quelle frisch (verwirft den alten Clone) ...",
-                          fehler=True)
-                if not self._eira_neu_klonen():
-                    self._aktion_beenden()
-                    return
-
-        # Installer mit -y ueber pkexec (installiert aus dem Clone, in dem er liegt).
-        self._log("eira: Installer laeuft (Passwort noetig) ...")
-        rc = subprocess.run(["pkexec", EIRA_INSTALLER, "-y"]).returncode
+        # HEAD vor dem pull merken: Laeuft der Installer danach nicht sauber
+        # durch (Passwort-Abbruch ODER Fehler), setzen wir den Clone auf den
+        # alten Commit zurueck. Sonst waere git "aktuell" (neuer Commit gezogen),
+        # das laufende System aber noch alt -> der Status wuerde den Knopf
+        # faelschlich sperren. So bleibt git-Stand == installierter Stand.
+        rc, alter_head = self._git("rev-parse", "HEAD")
+        if rc != 0 or not alter_head:
+            self._log("eira: HEAD nicht lesbar (" + alter_head + ").", fehler=True)
+            self._aktion_beenden()
+            return
+        self._log("eira: git pull --ff-only ...")
+        # --ff-only: nie ein Merge/Konflikt (der Clone bleibt bei EINER Quelle
+        # homogen -> normal immer Fast-Forward). Scheitert es doch (divergiert),
+        # bricht git sauber ab statt zu haengen.
+        rc, aus = self._git("pull", "--ff-only")
+        if aus:
+            self._log(aus)
         if rc != 0:
-            self._log("eira-Installation fehlgeschlagen (rc=" + str(rc) + ")", fehler=True)
+            self._log("eira: git pull --ff-only fehlgeschlagen (rc=" + str(rc) + ").",
+                      fehler=True)
+            self._aktion_beenden()
+            return
+
+        # Installer mit -y ueber pkexec (installiert aus dem Clone, in dem er
+        # liegt). Ausgabe einfangen, damit eine echte Fehlermeldung sichtbar ist.
+        self._log("eira: Installer laeuft (Passwort nötig) ...")
+        p = subprocess.run(["pkexec", EIRA_INSTALLER, "-y"],
+                           capture_output=True, text=True)
+        if p.returncode == 0:
+            self._log("eira aktualisiert.")
+            self._aktion_beenden()
+            return
+
+        # pkexec meldet 126/127, wenn die Autorisierung abgebrochen/verweigert
+        # wurde (Passwort-Dialog weggeklickt) -- das ist KEIN Fehler, sondern
+        # eine legitime Nutzeraktion. Alles andere ist ein echter Installer-
+        # Fehler (dann die eingefangene Ausgabe zeigen). In beiden Faellen den
+        # Clone auf den alten Commit zuruecksetzen, damit das Update erneut
+        # angeboten wird.
+        if p.returncode in (126, 127):
+            self._log("Passwort nicht eingegeben, Update abgebrochen.")
         else:
-            self._ui(lambda: self.lbl_eira.config(text="auf dem neuesten Stand"))
-        self._abschluss("eira aktualisiert.")
+            self._log("eira-Installation fehlgeschlagen (rc=" + str(p.returncode) + ").",
+                      fehler=True)
+            ausgabe = ((p.stdout or "") + (p.stderr or "")).strip()
+            if ausgabe:
+                self._log(ausgabe, fehler=True)
+        self._git("reset", "--hard", alter_head)
         self._aktion_beenden()
-
-    def _eira_neu_klonen(self):
-        """Not-Neuklon: frisch in einen tmp-Ordner (--depth 1), bei Erfolg
-        ATOMAR gegen den alten Clone tauschen (der alte bleibt bis zum Gelingen
-        unangetastet -- ein Netzabbruch laesst also nie einen leeren Ordner
-        zurueck). Gibt True bei Erfolg. URL aus EIRA_CLONE_URL (der alte Clone
-        ist evtl. kaputt, seine remote-URL nicht verlaesslich lesbar)."""
-        tmp = EIRA_CLONE + ".neu"
-        alt = EIRA_CLONE + ".alt"
-        subprocess.run(["rm", "-rf", tmp])
-        rc = subprocess.run(["git", "clone", "--depth", "1",
-                             EIRA_CLONE_URL, tmp]).returncode
-        if rc != 0:
-            self._log("eira: Neu-Klon fehlgeschlagen (rc=" + str(rc) +
-                      "). Internetverbindung pruefen.", fehler=True)
-            subprocess.run(["rm", "-rf", tmp])
-            return False
-        # atomarer Swap: alt beiseite, neu an die Stelle, alt loeschen.
-        subprocess.run(["rm", "-rf", alt])
-        if os.path.isdir(EIRA_CLONE):
-            os.rename(EIRA_CLONE, alt)
-        os.rename(tmp, EIRA_CLONE)
-        subprocess.run(["rm", "-rf", alt])
-        self._log("eira: Quelle frisch geholt.")
-        return True
 
     # ------------------------------------------------- Audios (zweistufig)
 
     def _audio_pruefen(self):
-        self._aktion_beginnen()
+        self._aktion_beginnen()  # sperrt alle Knoepfe
         # Stufe 1: pruefen (Soll laden + lokalen Bestand lesen/scannen). Langsam ->
-        # im Hintergrund, Button sperren, Spinner zeigen.
-        self.btn_audio.config(state="disabled")
+        # im Hintergrund, Spinner zeigen.
         self._log("Prüfe Audios: lade die Soll-Liste vom Server und vergleiche "
                   "mit dem lokalen Bestand. Das kann einen Moment dauern ...")
         self.progress.config(mode="indeterminate")
@@ -590,7 +596,7 @@ class UpdaterGUI:
         except Exception as e:
             self._ui(lambda: self.lbl_audio.config(text="Status nicht ermittelbar"))
             self._log("Audio-Prüfung fehlgeschlagen: " + str(e), fehler=True)
-            self._ui(lambda: self.btn_audio.config(state="normal"))
+            self._ui(self._audio_grundzustand)  # zurueck auf 'pruefen'
             self._aktion_beenden()
             return
         finally:
@@ -601,19 +607,20 @@ class UpdaterGUI:
         if n > 0:
             self._ui(lambda: self.lbl_audio.config(
                 text=str(n) + " neue/geänderte Audios (Download kann lange dauern)"))
-            # Stufe 2: Button wird zum Aktualisieren-Knopf.
+            # Stufe 2: Button wird zum Aktualisieren-Knopf. Den fuehrt der
+            # Audio-Bereich selbst -- der Status-Recheck in _aktion_beenden
+            # fasst Audios bewusst nicht an.
             self._ui(lambda: self.btn_audio.config(
                 text="Audios aktualisieren", command=self._audio_update, state="normal"))
         else:
             self._ui(lambda: self.lbl_audio.config(text="aktuell"))
             self._log("Audios sind aktuell.")
-            # kein Aktualisieren noetig -> Knopf bleibt deaktiviert
+            self._ui(self._audio_grundzustand)  # nichts zu laden -> 'pruefen' bleibt
         self._aktion_beenden()
         return
 
     def _audio_update(self):
-        self._aktion_beginnen()
-        self.btn_audio.config(state="disabled")
+        self._aktion_beginnen()  # sperrt alle Knoepfe
         self.progress.config(mode="determinate")
         self.progress.pack(pady=4)
         self._im_hintergrund(self._audio_update_bg)
@@ -627,11 +634,13 @@ class UpdaterGUI:
         except update_core.SyncAbbruch as e:
             self._fortschritt_ende()
             self._log("Abbruch (Sicherung): " + str(e), fehler=True)
+            self._ui(self._audio_grundzustand)  # erneut pruefbar
             self._aktion_beenden()
             return
         except ValueError as e:
             self._fortschritt_ende()
             self._log("Fehler: " + str(e), fehler=True)
+            self._ui(self._audio_grundzustand)  # erneut pruefbar
             self._aktion_beenden()
             return
         finally:
@@ -640,26 +649,54 @@ class UpdaterGUI:
         self._log("Audios aktualisiert: " + str(geladen) + " geladen, " +
                   str(geloescht) + " entfernt.")
         self._ui(lambda: self.lbl_audio.config(text="aktuell"))
+        # Download holt genau die fehlenden/geaenderten Dateien -> danach ist
+        # nichts mehr zu laden. Knopf zurueck in den Grundzustand 'pruefen'
+        # (kein automatischer ~180k-Scan).
+        self._ui(self._audio_grundzustand)
         self._aktion_beenden()
 
-    # ------------------------------------------------- System (zweistufig)
-
-    def _system_pruefen(self):
-        self._aktion_beginnen()
-        self.btn_system.config(state="disabled")
-        self._log("apt update gestartet (laeuft im Terminal, Passwort nötig) ...")
-        self._im_hintergrund(self._system_pruefen_bg)
+    # ------------------------------------------------- System (zwei Knoepfe)
+    # "Auf Updates pruefen" (apt update) und "System aktualisieren" (apt
+    # upgrade) sind getrennte Knoepfe. Beide leiten ihre Freigabe aus dem Status
+    # ab (_system_knoepfe_setzen) -- die EINE Stelle, die beide Knopf-Zustaende
+    # setzt. Jede Aktion ruft sie am Ende erneut auf (Status-Recheck pro
+    # Bereich, keine gemerkten Vorzustaende).
 
     def _anzahl_upgradable(self):
         """Zahl aktualisierbarer Pakete -- unprivilegiert (kein root noetig).
         'apt list --upgradable' listet je ein Paket als 'name/suite ...';
-        die Kopfzeile ('Listing...'/'Auflistung...') enthaelt kein '/'."""
+        die Kopfzeile ('Listing...'/'Auflistung...') enthaelt kein '/'.
+        None bei Fehler."""
         try:
             out = subprocess.run(["apt", "list", "--upgradable"],
                                   capture_output=True, text=True).stdout
         except OSError:
             return None
         return sum(1 for z in out.splitlines() if "/" in z)
+
+    def _system_knoepfe_setzen(self):
+        """Leitet beide System-Knoepfe + Label aus dem Status ab (beides billig
+        und unprivilegiert). 'pruefen' waehlbar, wenn apt update faellig ist;
+        'aktualisieren' waehlbar, wenn Pakete aktualisierbar sind. Setzt das
+        Label passend. Aus dem Hintergrund-Thread ueber self._ui aufrufen."""
+        faellig = _apt_update_faellig()
+        n = self._anzahl_upgradable()
+        def _setzen():
+            self.btn_system.config(state="normal" if faellig else "disabled")
+            self.btn_system_upgrade.config(
+                state="normal" if (n or 0) > 0 else "disabled")
+            if n:
+                self.lbl_system.config(text=str(n) + " Paket-Updates verfügbar")
+            elif n == 0:
+                self.lbl_system.config(text="System ist aktuell")
+            else:
+                self.lbl_system.config(text="apt-Updates (optional)")
+        self._ui(_setzen)
+
+    def _system_pruefen(self):
+        self._aktion_beginnen()
+        self._log("apt update gestartet (laeuft im Terminal, Passwort nötig) ...")
+        self._im_hintergrund(self._system_pruefen_bg)
 
     def _system_pruefen_bg(self):
         # apt update braucht root -> pkexec, sichtbar im Terminal. Schliesst bei
@@ -671,32 +708,14 @@ class UpdaterGUI:
         if rc != 0:
             self._log("apt update fehlgeschlagen -- bitte Terminal-Ausgabe beachten.",
                       fehler=True)
-            self._ui(lambda: self.btn_system.config(state="normal"))
-            self._aktion_beenden()
-            return
-        # Erfolg: Paketzahl still ermitteln und anzeigen; Upgrade nur anbieten,
-        # wenn es etwas zu aktualisieren gibt.
-        n = self._anzahl_upgradable()
-        if n is None:
-            self._log("Paketzahl nicht ermittelbar (apt list fehlgeschlagen).", fehler=True)
-            self._ui(lambda: self.btn_system.config(state="normal"))
-            self._aktion_beenden()
-            return
-        if n > 0:
-            self._log("apt update fertig: " + str(n) + " Paket-Updates verfügbar.")
-            self._ui(lambda: self.lbl_system.config(
-                text=str(n) + " Paket-Updates verfügbar"))
-            self._ui(lambda: self.btn_system.config(
-                text="System aktualisieren", command=self._system_upgrade, state="normal"))
         else:
-            self._log("apt update fertig: System ist aktuell.")
-            self._ui(lambda: self.lbl_system.config(text="System ist aktuell"))
-            # kein Upgrade noetig -> Knopf bleibt deaktiviert
+            self._log("apt update fertig.")
+        # Knopf-Freigabe macht der Status-Recheck in _aktion_beenden (ruft
+        # _system_knoepfe_setzen) -- kein zweiter Aufruf noetig.
         self._aktion_beenden()
 
     def _system_upgrade(self):
         self._aktion_beginnen()
-        self.btn_system.config(state="disabled")
         self._log("apt upgrade gestartet (laeuft im Terminal) ...")
         self._im_hintergrund(self._system_upgrade_bg)
 
@@ -711,11 +730,10 @@ class UpdaterGUI:
         if rc != 0:
             self._log("apt upgrade fehlgeschlagen -- bitte Terminal-Ausgabe beachten.",
                       fehler=True)
-            self._ui(lambda: self.btn_system.config(state="normal"))
-            self._aktion_beenden()
-            return
-        self._log("Systemupdate abgeschlossen. System ist aktuell.")
-        self._ui(lambda: self.lbl_system.config(text="System ist aktuell"))
+        else:
+            self._log("Systemupdate abgeschlossen.")
+        # Knopf-Freigabe macht der Status-Recheck in _aktion_beenden; nach dem
+        # Upgrade sollte n==0 sein -> "aktualisieren" wird grau.
         self._aktion_beenden()
 
     # ------------------------------------------------- Pico-ASHA
