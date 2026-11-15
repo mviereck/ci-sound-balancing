@@ -257,6 +257,12 @@ class UpdaterGUI:
         self.txt_log.tag_config("fehler", foreground="#c00")
 
         self._aktion_laeuft = False
+        # Audio-Zustand, aus dem der Audio-Knopf abgeleitet wird (eine Quelle,
+        # wie _system_knoepfe_setzen): None = ungeprueft (Grundzustand 'pruefen'),
+        # >0 = N zu ladende Audios ('aktualisieren' anbieten), 0 = aktuell. Der
+        # teure ~180k-Scan setzt das Feld nur auf Knopfdruck; der Status-Recheck
+        # liest es, ohne zu scannen.
+        self._audio_zu_laden = None
         self._im_hintergrund(self._initialer_status)
 
         # Nach einem Selbst-Update gestartet: die frische Instanz holt das
@@ -303,17 +309,21 @@ class UpdaterGUI:
         self._status_recheck()
 
     def _status_recheck(self):
-        """Leitet die Knopf-Freigabe der Bereiche mit BILLIGER Statuspruefung
-        frisch ab -- nach jeder Aktion und einmal beim Start: CImbel (ein curl),
-        eira (git fetch), System (apt list + mtime). Audios bleiben AUSSEN VOR:
-        ihr Status braucht den teuren ~180k-Scan (zweistufig), darum fuehrt der
-        Audio-Bereich seinen Knopf selbst (pruefen -> aktualisieren -> zurueck),
-        nicht dieser Recheck. Darf vom Hintergrund-Thread aufgerufen werden (die
-        Teil-Checks arbeiten selbst mit self._ui/_im_hintergrund)."""
+        """Bringt JEDEN Bereichs-Knopf nach einer Aktion (und beim Start) wieder
+        in seinen korrekten Zustand -- MUSS dieselbe Knopfmenge abdecken, die
+        _aktion_beginnen pauschal sperrt, sonst bleibt ein Knopf faelschlich grau
+        haengen (Bug: System-Upgrade liess Audios/Pico gesperrt). Pico laeuft
+        netz-unabhaengig (USB-Pruefung); die netzabhaengigen Bereiche nur online.
+        Audios: KEIN Scan hier (der teure ~180k-Scan laeuft nur auf Knopfdruck) --
+        der Knopf wird aus dem gemerkten Zustand self._audio_zu_laden abgeleitet.
+        Darf vom Hintergrund-Thread aufgerufen werden (die Teil-Checks arbeiten
+        selbst mit self._ui/_im_hintergrund)."""
+        self._pico_status()          # netz-unabhaengig (USB)
         if not self.online:
             return
         self._cimbel_status()
         self._eira_status()
+        self._ui(self._audio_knopf_setzen)
         self._im_hintergrund(self._system_knoepfe_setzen)
 
     def _log(self, text, fehler=False):
@@ -386,9 +396,8 @@ class UpdaterGUI:
         # Bereiche mit billiger Statuspruefung ableiten (CImbel/eira/System) --
         # dieselbe Logik wie nach jeder Aktion (Status-Recheck), kein zweiter Weg.
         self._status_recheck()
-        # Audios: Grundzustand 'pruefen' einmal freigeben (der Bereich fuehrt
-        # seinen Knopf selbst, s. _status_recheck).
-        self._ui(self._audio_grundzustand)
+        # Audios: Knopf aus dem (anfangs ungeprueften) Zustand ableiten.
+        self._ui(self._audio_knopf_setzen)
 
     def _cimbel_status(self):
         """CImbel-Freigabe aus dem Status: lokale vs. Produktions-Version
@@ -404,11 +413,18 @@ class UpdaterGUI:
                 self._ui(lambda: self.btn_cimbel.config(state="disabled"))
         self._im_hintergrund(_bg)
 
-    def _audio_grundzustand(self):
-        """Audio-Knopf in den Grundzustand 'pruefen' (zweistufig: der teure
-        ~180k-Scan laeuft NIE automatisch). Im Tk-Thread aufrufen."""
-        self.btn_audio.config(text="Auf neue Audios prüfen",
-                              command=self._audio_pruefen, state="normal")
+    def _audio_knopf_setzen(self):
+        """Leitet den Audio-Knopf aus self._audio_zu_laden ab (eine Quelle) --
+        OHNE Scan, darum im Status-Recheck gefahrlos. None/0 -> Grundzustand
+        'Auf neue Audios prüfen'; >0 -> 'Audios aktualisieren'. Im Tk-Thread
+        aufrufen."""
+        n = self._audio_zu_laden
+        if n and n > 0:
+            self.btn_audio.config(text="Audios aktualisieren",
+                                  command=self._audio_update, state="normal")
+        else:
+            self.btn_audio.config(text="Auf neue Audios prüfen",
+                                  command=self._audio_pruefen, state="normal")
 
     # ------------------------------------------------- CImbel
 
@@ -654,7 +670,7 @@ class UpdaterGUI:
         except Exception as e:
             self._ui(lambda: self.lbl_audio.config(text="Status nicht ermittelbar"))
             self._log("Audio-Prüfung fehlgeschlagen: " + str(e), fehler=True)
-            self._ui(self._audio_grundzustand)  # zurueck auf 'pruefen'
+            self._audio_zu_laden = None  # ungeprueft -> Grundzustand
             self._aktion_beenden()
             return
         finally:
@@ -662,18 +678,15 @@ class UpdaterGUI:
             self._ui(self.progress.pack_forget)
         self._log("Audio-Prüfung: " + str(n) + " zu laden, " +
                   str(len(verwaist)) + " verwaist.")
+        # Zustand merken; den Knopf leitet _status_recheck (in _aktion_beenden)
+        # daraus ab -> keine Doppelsetzung, keine Ueberschreib-Kollision.
+        self._audio_zu_laden = n
         if n > 0:
             self._ui(lambda: self.lbl_audio.config(
                 text=str(n) + " neue/geänderte Audios (Download kann lange dauern)"))
-            # Stufe 2: Button wird zum Aktualisieren-Knopf. Den fuehrt der
-            # Audio-Bereich selbst -- der Status-Recheck in _aktion_beenden
-            # fasst Audios bewusst nicht an.
-            self._ui(lambda: self.btn_audio.config(
-                text="Audios aktualisieren", command=self._audio_update, state="normal"))
         else:
             self._ui(lambda: self.lbl_audio.config(text="aktuell"))
             self._log("Audios sind aktuell.")
-            self._ui(self._audio_grundzustand)  # nichts zu laden -> 'pruefen' bleibt
         self._aktion_beenden()
         return
 
@@ -692,13 +705,13 @@ class UpdaterGUI:
         except update_core.SyncAbbruch as e:
             self._fortschritt_ende()
             self._log("Abbruch (Sicherung): " + str(e), fehler=True)
-            self._ui(self._audio_grundzustand)  # erneut pruefbar
+            self._audio_zu_laden = None  # Stand unklar -> erneut pruefbar
             self._aktion_beenden()
             return
         except ValueError as e:
             self._fortschritt_ende()
             self._log("Fehler: " + str(e), fehler=True)
-            self._ui(self._audio_grundzustand)  # erneut pruefbar
+            self._audio_zu_laden = None  # Stand unklar -> erneut pruefbar
             self._aktion_beenden()
             return
         finally:
@@ -708,9 +721,9 @@ class UpdaterGUI:
                   str(geloescht) + " entfernt.")
         self._ui(lambda: self.lbl_audio.config(text="aktuell"))
         # Download holt genau die fehlenden/geaenderten Dateien -> danach ist
-        # nichts mehr zu laden. Knopf zurueck in den Grundzustand 'pruefen'
-        # (kein automatischer ~180k-Scan).
-        self._ui(self._audio_grundzustand)
+        # nichts mehr zu laden. Zustand 0; _status_recheck setzt den Knopf
+        # zurueck auf 'pruefen' (kein automatischer ~180k-Scan).
+        self._audio_zu_laden = 0
         self._aktion_beenden()
 
     # ------------------------------------------------- System (zwei Knoepfe)
