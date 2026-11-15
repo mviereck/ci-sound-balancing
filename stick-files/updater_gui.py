@@ -15,6 +15,7 @@ import hashlib
 import threading
 import subprocess
 import time
+import tempfile
 import urllib.request
 import tkinter as tk
 from tkinter import ttk
@@ -550,11 +551,17 @@ class UpdaterGUI:
             return
 
         # Installer mit -y ueber pkexec (installiert aus dem Clone, in dem er
-        # liegt). Ausgabe einfangen, damit eine echte Fehlermeldung sichtbar ist.
-        self._log("eira: Installer laeuft (Passwort nötig) ...")
-        p = subprocess.run(["pkexec", EIRA_INSTALLER, "-y"],
-                           capture_output=True, text=True)
-        if p.returncode == 0:
+        # liegt). Laeuft SICHTBAR im Terminal, damit der Nutzer den Ablauf sieht;
+        # die Ausgabe wird per 'tee' zusaetzlich in eine temp-Datei gespiegelt
+        # und der Installer-Returncode in eine zweite temp-Datei geschrieben
+        # (x-terminal-emulator gibt nur den Exit des Terminals zurueck, nicht den
+        # des inneren Befehls). Bei Fehler zeigt der Updater die letzten Zeilen
+        # der Ausgabe rot im Log -- so live-Terminal UND Log-Diagnose.
+        self._log("eira: Installer laeuft im Terminal (Passwort nötig) ...")
+        rc = self._pkexec_im_terminal(
+            [EIRA_INSTALLER, "-y"], "eira-Installer")
+
+        if rc == 0:
             self._log("eira aktualisiert.")
             self._aktion_beenden()
             return
@@ -562,19 +569,60 @@ class UpdaterGUI:
         # pkexec meldet 126/127, wenn die Autorisierung abgebrochen/verweigert
         # wurde (Passwort-Dialog weggeklickt) -- das ist KEIN Fehler, sondern
         # eine legitime Nutzeraktion. Alles andere ist ein echter Installer-
-        # Fehler (dann die eingefangene Ausgabe zeigen). In beiden Faellen den
-        # Clone auf den alten Commit zuruecksetzen, damit das Update erneut
-        # angeboten wird.
-        if p.returncode in (126, 127):
+        # Fehler. In beiden Faellen den Clone auf den alten Commit zuruecksetzen,
+        # damit das Update erneut angeboten wird.
+        if rc in (126, 127):
             self._log("Passwort nicht eingegeben, Update abgebrochen.")
-        else:
-            self._log("eira-Installation fehlgeschlagen (rc=" + str(p.returncode) + ").",
-                      fehler=True)
-            ausgabe = ((p.stdout or "") + (p.stderr or "")).strip()
-            if ausgabe:
-                self._log(ausgabe, fehler=True)
+        # (bei echtem Fehler hat _pkexec_im_terminal die letzten Ausgabe-Zeilen
+        #  bereits rot ins Log geschrieben)
         self._git("reset", "--hard", alter_head)
         self._aktion_beenden()
+
+    def _pkexec_im_terminal(self, befehl, bezeichnung, log_zeilen=20):
+        """Fuehrt 'pkexec <befehl...>' SICHTBAR in einem Terminalfenster aus und
+        liefert den Returncode des inneren Befehls. Die Ausgabe wird per 'tee'
+        in eine temp-Datei gespiegelt; bei Returncode != 0 (ausser 126/127,
+        Abbruch) werden die letzten log_zeilen Zeilen rot ins Updater-Log
+        geschrieben. Das Terminal schliesst bei Erfolg automatisch und wartet
+        nur bei Fehler auf Enter (Ausgabe bleibt lesbar)."""
+        with tempfile.NamedTemporaryFile(
+                mode="r", suffix=".log", delete=False) as f_out:
+            out_pfad = f_out.name
+        with tempfile.NamedTemporaryFile(
+                mode="r", suffix=".rc", delete=False) as f_rc:
+            rc_pfad = f_rc.name
+        # Innere Kette: pkexec-Ausgabe durch tee in die Datei; den echten
+        # Returncode (PIPESTATUS[0], nicht der von tee) in die rc-Datei; bei
+        # Fehler auf Enter warten, sonst Terminal sofort schliessen.
+        quoted = " ".join("'" + a.replace("'", "'\\''") + "'" for a in befehl)
+        skript = (
+            "pkexec " + quoted + " 2>&1 | tee " + out_pfad + "; "
+            "rc=${PIPESTATUS[0]}; echo \"$rc\" > " + rc_pfad + "; "
+            "[ \"$rc\" -eq 0 ] || { echo; "
+            "read -p 'Fenster schliessen mit Enter ...' _; }")
+        subprocess.run(["x-terminal-emulator", "-e", "bash", "-c", skript])
+        # Returncode aus der rc-Datei lesen (das Terminal selbst meldet ihn nicht
+        # verlaesslich).
+        try:
+            rc = int(Path(rc_pfad).read_text().strip())
+        except (OSError, ValueError):
+            rc = 1  # rc-Datei nicht lesbar -> als Fehler behandeln
+        if rc not in (0, 126, 127):
+            try:
+                zeilen = Path(out_pfad).read_text(errors="replace").splitlines()
+            except OSError:
+                zeilen = []
+            self._log(bezeichnung + " fehlgeschlagen (rc=" + str(rc) + ").",
+                      fehler=True)
+            schwanz = [z for z in zeilen[-log_zeilen:] if z.strip()]
+            for z in schwanz:
+                self._log(z, fehler=True)
+        for p in (out_pfad, rc_pfad):
+            try:
+                os.unlink(p)
+            except OSError:
+                pass
+        return rc
 
     # ------------------------------------------------- Audios (zweistufig)
 
@@ -724,14 +772,18 @@ class UpdaterGUI:
         # Popen), damit nach Terminal-Ende der Status aktualisiert wird -- sonst
         # bliebe "laeuft im Terminal" stehen, auch wenn das Terminal zu ist.
         # Schliesst bei Erfolg automatisch, wartet nur bei Fehler auf Enter.
+        # Nach erfolgreichem Upgrade 'apt clean' (Paketcache leeren, spart USB-
+        # Platz) -- im selben pkexec-Lauf (eine Passwortabfrage), nur bei Erfolg
+        # (&&); clean ist unkritisch, sein Returncode bleibt ausser Betracht.
         rc = subprocess.run(["x-terminal-emulator", "-e", "bash", "-c",
-                        "pkexec apt -y upgrade || { echo; echo 'apt upgrade fehlgeschlagen.'; "
+                        "pkexec sh -c 'apt -y upgrade && apt clean' || "
+                        "{ echo; echo 'apt upgrade fehlgeschlagen.'; "
                         "read -p 'Fenster schliessen mit Enter ...' _; exit 1; }"]).returncode
         if rc != 0:
             self._log("apt upgrade fehlgeschlagen -- bitte Terminal-Ausgabe beachten.",
                       fehler=True)
         else:
-            self._log("Systemupdate abgeschlossen.")
+            self._log("Systemupdate abgeschlossen, Paketcache geleert.")
         # Knopf-Freigabe macht der Status-Recheck in _aktion_beenden; nach dem
         # Upgrade sollte n==0 sein -> "aktualisieren" wird grau.
         self._aktion_beenden()
