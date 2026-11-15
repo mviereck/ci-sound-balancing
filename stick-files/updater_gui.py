@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """Stick-Updater -- grafische Oberflaeche (Tkinter).
 
-Ein Fenster mit vier Bereichen: CImbel / Audios / Pico-ASHA / System.
+Ein Fenster mit fuenf Bereichen: CImbel / eira / Pico-ASHA / Audios / System.
 Orchestriert update_core.py (unprivilegiert per Import, privilegiert per
-pkexec) und pico_core.py (Pico-Erkennung, Download, Flash-Orchestrierung).
+pkexec), pico_core.py (Pico-Erkennung, Download, Flash-Orchestrierung) und den
+eira-x86-Installer (git pull im lokalen Clone + Installer via pkexec).
 Exit nur ueber den Exit-Button.
 """
 import os
 import sys
 import json
+import fcntl
 import hashlib
 import threading
 import subprocess
@@ -29,6 +31,18 @@ LOKALE_VERSION = REPO_ROOT + "/js/version.js"
 PROD_VERSION_URL = "https://www.ci-sound-balancing.org/js/version.js"
 CORE_PY = str(Path(__file__).resolve().parent / "update_core.py")
 NACH_SELBSTUPDATE_FLAG = "--nach-selbstupdate-manifest"
+
+# --- eira (x86-Installer im lokalen git-Clone) ---
+# Zwei Clones liegen nebeneinander, je eine git-Quelle. EIRA_CLONE legt fest,
+# welcher der aktive ist; der Quellenwechsel (Fork <-> Original) erfolgt durch
+# Aendern dieser Konstante -- die kommt per CImbel-Update auf den Stick, der
+# Updater-Code aendert sich, der Selbst-Neustart greift, danach weicht der
+# eira-Hash ab und ein eira-Update wird angeboten. EIRA_CLONE_URL ist die Quelle
+# fuer einen Not-Neuklon, wenn der Clone kaputt/divergiert ist (dann ist die URL
+# im Clone selbst evtl. nicht mehr lesbar -- darum hier fest hinterlegt).
+EIRA_CLONE = "/mnt/daten/git/eira-RaspberryPi-fork"
+EIRA_CLONE_URL = "https://codeberg.org/mviereck/eira-RaspberryPi.git"
+EIRA_INSTALLER = EIRA_CLONE + "/installer_x86.sh"
 
 
 # ----------------------------------------------------------- Hilfen (Logik)
@@ -90,6 +104,46 @@ def _updater_code_hash():
     return h.hexdigest()
 
 
+# Haelt den Dateideskriptor der Einzelinstanz-Sperre fuer die GANZE Programm-
+# laufzeit offen (Modul-global, nicht lokal -- sonst schloesse der Garbage
+# Collector das fd und gaebe die flock-Sperre sofort wieder frei).
+_instanz_lock_fd = None
+
+
+def _einzelinstanz_sichern():
+    """Stellt sicher, dass nur EINE Updater-Instanz laeuft. Gibt True zurueck,
+    wenn wir die einzige sind (Start erlaubt), sonst False (eine andere Instanz
+    haelt die Sperre -> der Aufrufer soll kommentarlos enden).
+
+    flock, NICHT Datei-Existenz: Gesperrt ist 'ein lebender Prozess haelt die
+    Sperre', nicht 'die Datei liegt da'. Darum blockiert eine liegengebliebene
+    Lock-Datei NIE einen spaeteren Start -- der Kernel gibt die Sperre bei
+    Prozessende (auch Absturz/Kill) automatisch frei. Die Datei liegt in
+    /run/user/<uid> (Session-tmpfs), das ohnehin beim Abmelden verschwindet.
+
+    Vertraeglich mit dem os.execv-Selbst-Neustart (_cimbel_update_bg): execv
+    erhaelt den Prozess und seine offenen fds (kein O_CLOEXEC), die neue Instanz
+    laeuft also mit DERSELBEN gehaltenen Sperre weiter -- kein Fehlalarm gegen
+    sich selbst. Liegt /run/user/<uid> nicht vor (kein systemd-Login), faellt
+    der Ort auf /tmp zurueck; die Sperre wirkt dort ebenso."""
+    global _instanz_lock_fd
+    laufzeit = os.environ.get("XDG_RUNTIME_DIR") or ("/run/user/%d" % os.getuid())
+    if not os.path.isdir(laufzeit):
+        laufzeit = "/tmp"
+    lockpfad = os.path.join(laufzeit, "cimbel-updater.lock")
+    try:
+        _instanz_lock_fd = os.open(lockpfad, os.O_RDWR | os.O_CREAT, 0o600)
+        fcntl.flock(_instanz_lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        # Eine andere Instanz haelt die Sperre.
+        return False
+    except OSError:
+        # Lock-Datei nicht anlegbar (sollte nicht vorkommen): im Zweifel starten
+        # lassen, statt den Updater ganz zu blockieren.
+        return True
+    return True
+
+
 # ----------------------------------------------------------- GUI
 
 class UpdaterGUI:
@@ -116,19 +170,14 @@ class UpdaterGUI:
                                     command=self._cimbel_update, state="disabled")
         self.btn_cimbel.pack(side="right")
 
-        # --- Bereich Audios ---
-        self._bereich_audio = tk.LabelFrame(root, text="Audios", padx=8, pady=6)
-        self._bereich_audio.pack(fill="x", padx=10, pady=4)
-        self.lbl_audio = tk.Label(self._bereich_audio, text="noch nicht geprüft")
-        self.lbl_audio.pack(side="left")
-        # Zweistufig: erst pruefen (laedt die grosse Soll-Liste + scannt den
-        # lokalen Bestand -- auf USB langsam, darum nicht automatisch beim
-        # Start), dann aktualisieren.
-        self.btn_audio = tk.Button(self._bereich_audio, text="Auf neue Audios prüfen",
-                                   command=self._audio_pruefen, state="disabled")
-        self.btn_audio.pack(side="right")
-        self.progress = ttk.Progressbar(root, length=520, mode="determinate")
-        # wird nur beim Audio-Pruefen (indeterminate) und -Download (determinate) eingeblendet
+        # --- Bereich eira ---
+        self._bereich_eira = tk.LabelFrame(root, text="eira", padx=8, pady=6)
+        self._bereich_eira.pack(fill="x", padx=10, pady=4)
+        self.lbl_eira = tk.Label(self._bereich_eira, text="...")
+        self.lbl_eira.pack(side="left")
+        self.btn_eira = tk.Button(self._bereich_eira, text="eira aktualisieren",
+                                  command=self._eira_update, state="disabled")
+        self.btn_eira.pack(side="right")
 
         # --- Bereich Pico-ASHA ---
         self._bereich_pico = tk.LabelFrame(root, text="Pico-ASHA", padx=8, pady=6)
@@ -144,6 +193,20 @@ class UpdaterGUI:
                                   command=lambda: self._pico_flash_dialog(force=False),
                                   state="disabled")
         self.btn_pico.pack(side="right", padx=(0, 6))
+
+        # --- Bereich Audios ---
+        self._bereich_audio = tk.LabelFrame(root, text="Audios", padx=8, pady=6)
+        self._bereich_audio.pack(fill="x", padx=10, pady=4)
+        self.lbl_audio = tk.Label(self._bereich_audio, text="noch nicht geprüft")
+        self.lbl_audio.pack(side="left")
+        # Zweistufig: erst pruefen (laedt die grosse Soll-Liste + scannt den
+        # lokalen Bestand -- auf USB langsam, darum nicht automatisch beim
+        # Start), dann aktualisieren.
+        self.btn_audio = tk.Button(self._bereich_audio, text="Auf neue Audios prüfen",
+                                   command=self._audio_pruefen, state="disabled")
+        self.btn_audio.pack(side="right")
+        self.progress = ttk.Progressbar(root, length=520, mode="determinate")
+        # wird nur beim Audio-Pruefen (indeterminate) und -Download (determinate) eingeblendet
 
         # --- Bereich System ---
         self._bereich_system = tk.LabelFrame(root, text="System", padx=8, pady=6)
@@ -205,7 +268,7 @@ class UpdaterGUI:
     def _aktions_knoepfe(self):
         """Alle vier Bereichs-Knoepfe -- die eine Liste, die jeder Sperr-/
         Freigabe-Schritt durchlaeuft (kein zweiter Ort mit festen Knopf-IDs)."""
-        return [self.btn_cimbel, self.btn_audio, self.btn_system,
+        return [self.btn_cimbel, self.btn_eira, self.btn_audio, self.btn_system,
                 self.btn_pico, self.btn_pico_force]
 
     def _aktion_beginnen(self):
@@ -293,6 +356,8 @@ class UpdaterGUI:
             self._ui(lambda: self.lbl_online.config(
                 text="Keine Internetverbindung -- bitte WLAN einrichten.", fg="#a00"))
             self._ui(lambda: self.lbl_cimbel.config(text="offline"))
+            self._ui(lambda: self.lbl_eira.config(
+                text="Abgleich nur mit Internet möglich"))
             self._ui(lambda: self.lbl_audio.config(text="offline"))
             return
         self._ui(lambda: self.lbl_online.config(text="Internetverbindung vorhanden.", fg="#070"))
@@ -305,6 +370,10 @@ class UpdaterGUI:
             self._ui(lambda: self.btn_cimbel.config(state="normal"))
         else:
             self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
+
+        # eira-Status: git fetch im aktiven Clone, lokalen gegen remote Commit
+        # vergleichen (reiner Hash-Vergleich, braucht Netz).
+        self._eira_status()
 
         # Audio-Status NICHT automatisch ermitteln: _audio_diff laedt die grosse
         # Soll-Liste und scannt ~180k Dateien (USB langsam). Zweistufig -- der
@@ -386,6 +455,119 @@ class UpdaterGUI:
         self._manifest_anwenden_lokal()
         self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
         self._aktion_beenden()
+
+    # ------------------------------------------------- eira (x86-Installer)
+    # eira liegt als git-Clone unter EIRA_CLONE. Status = Commit-Vergleich
+    # (lokaler HEAD vs. origin nach fetch). Update = git pull --ff-only + der
+    # x86-Installer mit -y ueber pkexec (der Stick ist das CImbel-Messgeraet,
+    # also immer CImbels Default-Zustand; wer abweichen will, startet den
+    # Installer selbst). Eigener Mechanismus, NICHT das MANIFEST.
+
+    def _git(self, *args, capture=False):
+        """git im eira-Clone. capture=True -> (rc, stdout.strip()); sonst rc."""
+        cmd = ["git", "-C", EIRA_CLONE, *args]
+        if capture:
+            p = subprocess.run(cmd, capture_output=True, text=True)
+            return p.returncode, (p.stdout or "").strip()
+        return subprocess.run(cmd).returncode
+
+    def _eira_status(self):
+        self._im_hintergrund(self._eira_status_bg)
+
+    def _eira_status_bg(self):
+        if not os.path.isdir(os.path.join(EIRA_CLONE, ".git")):
+            self._ui(lambda: self.lbl_eira.config(text="eira-Quelle fehlt"))
+            self._ui(lambda: self._log(
+                "eira-git-Clone nicht gefunden (" + EIRA_CLONE + "). "
+                "Mit 'eira aktualisieren' neu holen.", fehler=True))
+            self._ui(lambda: self.btn_eira.config(state="normal"))
+            return
+        # Remote-Stand holen (nur fetch, veraendert den Arbeitsbaum nicht).
+        rc = self._git("fetch", "--quiet")
+        if rc != 0:
+            self._ui(lambda: self.lbl_eira.config(text="Abgleich fehlgeschlagen"))
+            self._ui(lambda: self._log(
+                "eira: git fetch fehlgeschlagen (rc=" + str(rc) + ").", fehler=True))
+            self._ui(lambda: self.btn_eira.config(state="normal"))
+            return
+        rc1, lokal = self._git("rev-parse", "HEAD", capture=True)
+        rc2, remote = self._git("rev-parse", "@{u}", capture=True)
+        if rc1 != 0 or rc2 != 0 or not lokal or not remote:
+            self._ui(lambda: self.lbl_eira.config(text="Abgleich fehlgeschlagen"))
+            self._ui(lambda: self._log(
+                "eira: Commit-Vergleich fehlgeschlagen (kein Upstream?).", fehler=True))
+            self._ui(lambda: self.btn_eira.config(state="normal"))
+            return
+        if lokal != remote:
+            self._ui(lambda: self.lbl_eira.config(
+                text="Neue Version verfügbar (" + remote[:7] + ")"))
+            self._ui(lambda: self.btn_eira.config(state="normal"))
+        else:
+            self._ui(lambda: self.lbl_eira.config(text="auf dem neuesten Stand"))
+
+    def _eira_update(self):
+        self._aktion_beginnen()
+        self.btn_eira.config(state="disabled")
+        self._im_hintergrund(self._eira_update_bg)
+
+    def _eira_update_bg(self):
+        # Clone fehlt -> direkt Not-Neuklon anbieten.
+        if not os.path.isdir(os.path.join(EIRA_CLONE, ".git")):
+            self._log("eira-Clone fehlt -- hole die Quelle neu ...")
+            if not self._eira_neu_klonen():
+                self._aktion_beenden()
+                return
+        else:
+            self._log("eira: git pull --ff-only ...")
+            # --ff-only: nie ein Merge/Konflikt (der Clone bleibt bei EINER
+            # Quelle homogen -> normal immer Fast-Forward). Scheitert es doch
+            # (divergiert, z.B. nach Quellenwechsel), bricht git sauber ab statt
+            # zu haengen -> wir bieten den Not-Neuklon an.
+            rc, aus = self._git("pull", "--ff-only", capture=True)
+            if aus:
+                self._log(aus)
+            if rc != 0:
+                self._log("eira: git pull --ff-only fehlgeschlagen (rc=" + str(rc) +
+                          "). Hole die Quelle frisch (verwirft den alten Clone) ...",
+                          fehler=True)
+                if not self._eira_neu_klonen():
+                    self._aktion_beenden()
+                    return
+
+        # Installer mit -y ueber pkexec (installiert aus dem Clone, in dem er liegt).
+        self._log("eira: Installer laeuft (Passwort noetig) ...")
+        rc = subprocess.run(["pkexec", EIRA_INSTALLER, "-y"]).returncode
+        if rc != 0:
+            self._log("eira-Installation fehlgeschlagen (rc=" + str(rc) + ")", fehler=True)
+        else:
+            self._ui(lambda: self.lbl_eira.config(text="auf dem neuesten Stand"))
+        self._abschluss("eira aktualisiert.")
+        self._aktion_beenden()
+
+    def _eira_neu_klonen(self):
+        """Not-Neuklon: frisch in einen tmp-Ordner (--depth 1), bei Erfolg
+        ATOMAR gegen den alten Clone tauschen (der alte bleibt bis zum Gelingen
+        unangetastet -- ein Netzabbruch laesst also nie einen leeren Ordner
+        zurueck). Gibt True bei Erfolg. URL aus EIRA_CLONE_URL (der alte Clone
+        ist evtl. kaputt, seine remote-URL nicht verlaesslich lesbar)."""
+        tmp = EIRA_CLONE + ".neu"
+        alt = EIRA_CLONE + ".alt"
+        subprocess.run(["rm", "-rf", tmp])
+        rc = subprocess.run(["git", "clone", "--depth", "1",
+                             EIRA_CLONE_URL, tmp]).returncode
+        if rc != 0:
+            self._log("eira: Neu-Klon fehlgeschlagen (rc=" + str(rc) +
+                      "). Internetverbindung pruefen.", fehler=True)
+            subprocess.run(["rm", "-rf", tmp])
+            return False
+        # atomarer Swap: alt beiseite, neu an die Stelle, alt loeschen.
+        subprocess.run(["rm", "-rf", alt])
+        if os.path.isdir(EIRA_CLONE):
+            os.rename(EIRA_CLONE, alt)
+        os.rename(tmp, EIRA_CLONE)
+        subprocess.run(["rm", "-rf", alt])
+        self._log("eira: Quelle frisch geholt.")
+        return True
 
     # ------------------------------------------------- Audios (zweistufig)
 
@@ -879,6 +1061,11 @@ class PicoFlashDialog:
 
 
 def main():
+    # Einzelinstanz: laeuft schon ein Updater, kommentarlos enden (vor tk.Tk(),
+    # damit kein zweites Fenster aufblitzt). Der os.execv-Selbst-Neustart ist
+    # davon nicht betroffen -- er erbt die gehaltene Sperre (s. _einzelinstanz_sichern).
+    if not _einzelinstanz_sichern():
+        sys.exit(0)
     nach_update = NACH_SELBSTUPDATE_FLAG in sys.argv
     root = tk.Tk()
     UpdaterGUI(root, nach_selbstupdate=nach_update)
