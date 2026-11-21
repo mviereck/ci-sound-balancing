@@ -250,19 +250,60 @@ def cmd_manifest(args):
 
 # ---------------------------------------------------------------- Audio
 
-def _audio_diff(opus_root, webspace):
+def _unter_praefix(pfad, praefixe):
+    """True, wenn pfad unter einem der Praefixe liegt. praefixe=None bedeutet
+    'kein Filter' (ganzer Bestand) -> immer True."""
+    if praefixe is None:
+        return True
+    return any(pfad.startswith(p) for p in praefixe)
+
+
+def _audio_diff(opus_root, webspace, praefixe=None):
     """Gibt (fehlend_oder_geaendert, verwaist) zurueck:
       fehlend_oder_geaendert: list[(pfad, soll_groesse)] -> muss geladen werden
       verwaist:               list[pfad] -> lokal da, aber nicht in Soll
-    """
+
+    praefixe (optional): Liste erlaubter Pfad-Praefixe (Teilmengen-Auswahl).
+    None = ganzer Bestand (heutiges Verhalten). Mit Filter zaehlen nur Soll-
+    und Ist-Pfade unter einem der Praefixe -- so wird 'verwaist' auf die
+    gewaehlten Teilmengen beschraenkt (nie ausserhalb geloescht)."""
     soll = _lade_soll(webspace)
     ist = _ist_bestand(opus_root)
     laden = []
     for pfad, groesse in soll.items():
+        if not _unter_praefix(pfad, praefixe):
+            continue
         if pfad not in ist or ist[pfad] != groesse:
             laden.append((pfad, groesse))
-    verwaist = [p for p in ist if p not in soll]
+    verwaist = [p for p in ist
+                if p not in soll and _unter_praefix(p, praefixe)]
     return laden, verwaist
+
+
+def audio_gruppen(opus_root, webspace, gruppen):
+    """Fuer die Fensteranzeige: pro Teilmengen-Praefix Gesamtgroesse (laut
+    Soll) und 'Rest zu laden' (Soll minus lokal Vorhandenes). Kein Scan, liest
+    nur Soll-Liste + vorhanden.txt.
+
+    gruppen: list[(schluessel, praefix)]. Rueckgabe: dict schluessel ->
+    (soll_bytes, soll_dateien, rest_bytes, rest_dateien). Ein Pfad zaehlt zur
+    ersten Gruppe, deren Praefix er traegt (Reihenfolge der Liste zaehlt; so
+    schlagen die M-AILABS-Sprecher-Praefixe nicht zusaetzlich beim groben
+    'M-AILABS/'-Praefix an, falls beide in der Liste stuenden)."""
+    soll = _lade_soll(webspace)
+    ist = _ist_bestand(opus_root)
+    erg = {schluessel: [0, 0, 0, 0] for schluessel, _ in gruppen}
+    for pfad, groesse in soll.items():
+        for schluessel, praefix in gruppen:
+            if pfad.startswith(praefix):
+                e = erg[schluessel]
+                e[0] += groesse
+                e[1] += 1
+                if pfad not in ist or ist[pfad] != groesse:
+                    e[2] += groesse
+                    e[3] += 1
+                break
+    return {k: tuple(v) for k, v in erg.items()}
 
 
 def cmd_audio_status(args):
@@ -277,40 +318,62 @@ class SyncAbbruch(Exception):
     pass
 
 
-def audio_sync(opus_root, webspace, fortschritt=None):
+def audio_sync(opus_root, webspace, fortschritt=None, praefixe=None):
     """Fuehrt den Audio-Abgleich aus: fehlende/geaenderte laden, Verwaistes
-    loeschen (mit Schrumpf-Schutz), danach vorhanden.txt neu. Gibt
+    loeschen (mit Schrumpf-Schutz), danach vorhanden.txt fortschreiben. Gibt
     (geladen, geloescht) zurueck. Wirft ValueError bei leerer/unerreichbarer
     Soll-Liste und SyncAbbruch bei ausgeloestem Schrumpf-Schutz.
 
     fortschritt(i, n, pfad): optionaler Callback, VOR dem Laden der i-ten von n
     zu ladenden Dateien aufgerufen (1-basiert). Fuer die GUI-Fortschrittsanzeige.
-    """
+
+    praefixe (optional): Liste erlaubter Pfad-Praefixe (Teilmengen-Auswahl).
+    None = ganzer Bestand (heutiges Verhalten). Mit Filter werden nur Dateien
+    unter den gewaehlten Praefixen geladen UND nur dort Verwaistes geloescht --
+    nie ausserhalb der Auswahl (Rueckruf bleibt teilmengen-gebunden). Der
+    Schrumpf-Schutz bezieht sich auf den Ist-Bestand UNTER den Praefixen."""
     soll = _lade_soll(webspace)
     if not soll:
         raise ValueError("Soll-Liste leer oder nicht erreichbar")
     ist = _ist_bestand(opus_root)
 
-    zu_laden = [(p, g) for p, g in soll.items() if p not in ist or ist[p] != g]
+    zu_laden = [(p, g) for p, g in soll.items()
+                if _unter_praefix(p, praefixe) and (p not in ist or ist[p] != g)]
     geladen = 0
+    geladen_pfade = {}                        # pfad -> soll_groesse (fuer vorhanden.txt)
     for i, (pfad, groesse) in enumerate(zu_laden, start=1):
         if fortschritt is not None:
             fortschritt(i, len(zu_laden), pfad)
         if _opus_download_if_needed(pfad, groesse, opus_root, webspace, True):
             geladen += 1
+        geladen_pfade[pfad] = groesse
 
-    verwaist = [p for p in ist if p not in soll]
+    # Verwaist = lokal da, nicht in Soll -- im Filterfall nur unter den Praefixen.
+    verwaist = [p for p in ist
+                if p not in soll and _unter_praefix(p, praefixe)]
     if verwaist:
-        anteil = len(verwaist) / max(1, len(ist))
+        # Schrumpf-Schutz relativ zum betrachteten Bestand: ohne Filter der
+        # ganze Ist-Bestand, mit Filter nur der Teil unter den Praefixen.
+        bezug = [p for p in ist if _unter_praefix(p, praefixe)]
+        anteil = len(verwaist) / max(1, len(bezug))
         if anteil > LOESCH_SCHWELLE:
             raise SyncAbbruch(
-                str(len(verwaist)) + " von " + str(len(ist)) +
+                str(len(verwaist)) + " von " + str(len(bezug)) +
                 " Dateien waeren zu loeschen (> " + str(int(LOESCH_SCHWELLE * 100)) +
                 " %). Vermuteter Unfall -> KEIN Loeschen.")
         for pfad in verwaist:
             (Path(opus_root) / pfad).unlink()
 
-    _schreibe_vorhanden(opus_root)
+    # vorhanden.txt inkrementell fortschreiben statt teurem Voll-Scan: die
+    # gelesene Ist-Liste um die geladenen Pfade ergaenzen, die geloeschten
+    # entfernen, neu sortiert schreiben. Ergebnis identisch zum Scan, aber
+    # ohne ~180k stat auf dem USB. Der Voll-Scan laeuft nur noch auf den
+    # expliziten 'vorhanden'-Knopf (Hand-Aenderungen am Bestand heilen).
+    neu = dict(ist)
+    neu.update(geladen_pfade)
+    for pfad in verwaist:
+        neu.pop(pfad, None)
+    _schreibe_vorhanden_aus_dict(opus_root, neu)
     return geladen, len(verwaist)
 
 
@@ -330,25 +393,34 @@ def cmd_audio_sync(args):
 
 # ---------------------------------------------------------------- vorhanden.txt
 
+def _schreibe_vorhanden_aus_dict(opus_root, bestand):
+    """Schreibt opus/vorhanden.txt aus einem fertigen dict relpfad->groesse:
+    je Zeile `relpfad<TAB>groesse`, alphabetisch nach Pfad. Gemeinsamer
+    Schreibkoerper fuer den Voll-Scan (_schreibe_vorhanden) und die
+    inkrementelle Fortschreibung (audio_sync)."""
+    ziel = Path(opus_root) / "vorhanden.txt"
+    with open(ziel, "w", encoding="utf-8") as f:
+        for rel, groesse in sorted(bestand.items()):
+            f.write(rel + "\t" + str(groesse) + "\n")
+
+
 def _schreibe_vorhanden(opus_root):
     """Scannt den lokalen Opus-Ordner (rglob+stat) und schreibt
-    opus/vorhanden.txt: je Zeile `relpfad<TAB>groesse`, alphabetisch nach Pfad.
-    Dies ist der EINZIGE Ort mit dem teuren Datei-Scan; der Audioabgleich liest
-    danach nur noch diese Liste. CImbels Bestandsfilter (ss9.9.2) nutzt den
-    Pfad (erste Spalte vor dem letzten Tab) und ignoriert die Groesse."""
+    opus/vorhanden.txt (je Zeile `relpfad<TAB>groesse`, alphabetisch). Dies ist
+    der EINZIGE Ort mit dem teuren Datei-Scan; der Audioabgleich liest danach
+    nur noch diese Liste und schreibt sie inkrementell fort. CImbels
+    Bestandsfilter (ss9.9.2) nutzt den Pfad (erste Spalte vor dem letzten Tab)
+    und ignoriert die Groesse."""
     opus_root = Path(opus_root)
-    eintraege = []
+    bestand = {}
     for p in opus_root.rglob("*"):
         if not p.is_file():
             continue
         rel = p.relative_to(opus_root).as_posix()
         if rel in ("vorhanden.txt", "soll-items.txt"):
             continue   # die Steuerdateien selbst nicht listen
-        eintraege.append((rel, p.stat().st_size))
-    ziel = opus_root / "vorhanden.txt"
-    with open(ziel, "w", encoding="utf-8") as f:
-        for rel, groesse in sorted(eintraege):
-            f.write(rel + "\t" + str(groesse) + "\n")
+        bestand[rel] = p.stat().st_size
+    _schreibe_vorhanden_aus_dict(opus_root, bestand)
 
 
 def cmd_vorhanden(args):

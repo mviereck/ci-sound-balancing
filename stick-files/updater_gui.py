@@ -52,6 +52,51 @@ APT_LISTS_DIR = "/var/lib/apt/lists"
 EIRA_CLONE = "/mnt/daten/cimbel-intern/git/eira-RaspberryPi-fork"
 EIRA_INSTALLER = EIRA_CLONE + "/installer_x86.sh"
 
+# --- Audio-Teilmengen (statische Landkarte des Opus-Bestands) ---
+# Der Nutzer waehlt im Audio-Download-Fenster, welche Teilmengen er laden will.
+# Jede Teilmenge ist ein Pfad-Praefix in der Soll-Liste (opus/soll-items.txt);
+# update_core filtert Diff/Sync darauf. Statisch, weil nur so lesbare Namen,
+# Reihenfolge und die M-AILABS-Aufschluesselung nach Sprechern moeglich sind --
+# ein neuer Opus-Ordner braucht hier eine Pflege-Zeile. Format je Eintrag:
+#   (praefix, label, beschreibung, kinder)
+# kinder: Liste (praefix, label, beschreibung) der Unter-Teilmengen (M-AILABS
+# nach Sprechern) -- oder None fuer eine einfache Teilmenge. Bei vorhandenen
+# Kindern ist das Eltern-Praefix der Sammel-Praefix (Haken = alle Kinder).
+AUDIO_TEILMENGEN = [
+    ("ARU_Speech_Corpus_v1_0/", "ARU Speech Corpus", "Sätze (Englisch)", None),
+    ("common-voice/", "Common Voice", "Sätze, viele Sprecher", None),
+    ("musan/", "MUSAN", "Musik & Geräusche", None),
+    ("test-noise/", "Test-Geräusche", "Geräusche", None),
+    ("testsaetze-hagermann/", "Hagermann-Testsätze", "Matrix-Testsätze (Sprachtest)", None),
+    ("mls_french_opus/", "MLS Französisch", "Hörbuch-Sätze (Französisch)", None),
+    ("mls_polish_opus/", "MLS Polnisch", "Hörbuch-Sätze (Polnisch)", None),
+    ("mls_spanish_opus/", "MLS Spanisch", "Hörbuch-Sätze (Spanisch)", None),
+    ("Thorsten Voice/", "Thorsten Voice", "Sätze (Deutsch, eine Stimme)", None),
+    ("Thorsten-Voice-Emotional/", "Thorsten Voice – Emotional", "Sätze in versch. Emotionen", None),
+    ("Thorsten-Voice-Hessisch/", "Thorsten Voice – Hessisch", "Sätze (hessischer Dialekt)", None),
+    ("M-AILABS/", "M-AILABS", "Sätze aus Hörbüchern (DE & EN)", [
+        ("M-AILABS/de_DE/by_book/female/angela_merkel/", "DE · Angela Merkel", "", None),
+        ("M-AILABS/de_DE/by_book/female/eva_k/", "DE · Eva K", "", None),
+        ("M-AILABS/de_DE/by_book/female/ramona_deininger/", "DE · Ramona Deininger", "", None),
+        ("M-AILABS/de_DE/by_book/female/rebecca_braunert_plunkett/", "DE · Rebecca Braunert-Plunkett", "", None),
+        ("M-AILABS/de_DE/by_book/male/karlsson/", "DE · Karlsson", "", None),
+        ("M-AILABS/de_DE/by_book/mix/auf_zwei_planeten/", "DE · Auf zwei Planeten (Buch)", "", None),
+        ("M-AILABS/de_DE/by_book/mix/erzaehlungen_poe/", "DE · Erzählungen Poe (Buch)", "", None),
+        ("M-AILABS/en_UK/by_book/female/elizabeth_klett/", "EN · Elizabeth Klett", "", None),
+    ]),
+]
+
+
+def _menschlich_bytes(n):
+    """Bytes als kurze, menschenlesbare Groesse (MB/GB, eine Nachkommastelle)."""
+    if n >= 1024 ** 3:
+        return "%.1f GB" % (n / 1024 ** 3)
+    if n >= 1024 ** 2:
+        return "%.0f MB" % (n / 1024 ** 2)
+    if n >= 1024:
+        return "%.0f kB" % (n / 1024)
+    return str(n) + " B"
+
 
 # ----------------------------------------------------------- Hilfen (Logik)
 
@@ -209,16 +254,16 @@ class UpdaterGUI:
         # --- Bereich Audios ---
         self._bereich_audio = tk.LabelFrame(root, text="Audios", padx=8, pady=6)
         self._bereich_audio.pack(fill="x", padx=10, pady=4)
-        self.lbl_audio = tk.Label(self._bereich_audio, text="noch nicht geprüft")
+        self.lbl_audio = tk.Label(self._bereich_audio,
+                                  text="Teilmengen wählen und laden")
         self.lbl_audio.pack(side="left")
-        # Zweistufig: erst pruefen (laedt die grosse Soll-Liste + scannt den
-        # lokalen Bestand -- auf USB langsam, darum nicht automatisch beim
-        # Start), dann aktualisieren.
-        self.btn_audio = tk.Button(self._bereich_audio, text="Auf neue Audios prüfen",
-                                   command=self._audio_pruefen, state="disabled")
+        # Ein Knopf oeffnet das Audio-Download-Fenster: dort waehlt der Nutzer
+        # per Checkbox, welche Teilmengen (Ordner, M-AILABS nach Sprechern) er
+        # laden will, mit Groessen-/Rest-Anzeige. Oeffnen sperrt alle Knoepfe
+        # (eigenes Toplevel wie der Pico-Dialog), Schliessen gibt sie frei.
+        self.btn_audio = tk.Button(self._bereich_audio, text="Audios verwalten …",
+                                   command=self._audio_fenster_oeffnen, state="disabled")
         self.btn_audio.pack(side="right")
-        self.progress = ttk.Progressbar(root, length=520, mode="determinate")
-        # wird nur beim Audio-Pruefen (indeterminate) und -Download (determinate) eingeblendet
 
         # --- Bereich System ---
         # Zwei getrennte Knoepfe: "Auf Updates pruefen" (apt update) und
@@ -257,12 +302,6 @@ class UpdaterGUI:
         self.txt_log.tag_config("fehler", foreground="#c00")
 
         self._aktion_laeuft = False
-        # Audio-Zustand, aus dem der Audio-Knopf abgeleitet wird (eine Quelle,
-        # wie _system_knoepfe_setzen): None = ungeprueft (Grundzustand 'pruefen'),
-        # >0 = N zu ladende Audios ('aktualisieren' anbieten), 0 = aktuell. Der
-        # teure ~180k-Scan setzt das Feld nur auf Knopfdruck; der Status-Recheck
-        # liest es, ohne zu scannen.
-        self._audio_zu_laden = None
         self._im_hintergrund(self._initialer_status)
 
         # Nach einem Selbst-Update gestartet: die frische Instanz holt das
@@ -314,8 +353,9 @@ class UpdaterGUI:
         _aktion_beginnen pauschal sperrt, sonst bleibt ein Knopf faelschlich grau
         haengen (Bug: System-Upgrade liess Audios/Pico gesperrt). Pico laeuft
         netz-unabhaengig (USB-Pruefung); die netzabhaengigen Bereiche nur online.
-        Audios: KEIN Scan hier (der teure ~180k-Scan laeuft nur auf Knopfdruck) --
-        der Knopf wird aus dem gemerkten Zustand self._audio_zu_laden abgeleitet.
+        Audios: KEIN Scan hier (der teure ~180k-Scan laeuft nur im Audio-Fenster
+        auf Knopfdruck) -- der Knopf ist online einfach waehlbar (oeffnet das
+        Fenster), offline grau.
         Darf vom Hintergrund-Thread aufgerufen werden (die Teil-Checks arbeiten
         selbst mit self._ui/_im_hintergrund)."""
         self._pico_status()          # netz-unabhaengig (USB)
@@ -396,8 +436,6 @@ class UpdaterGUI:
         # Bereiche mit billiger Statuspruefung ableiten (CImbel/eira/System) --
         # dieselbe Logik wie nach jeder Aktion (Status-Recheck), kein zweiter Weg.
         self._status_recheck()
-        # Audios: Knopf aus dem (anfangs ungeprueften) Zustand ableiten.
-        self._ui(self._audio_knopf_setzen)
 
     def _cimbel_status(self):
         """CImbel-Freigabe aus dem Status: lokale vs. Produktions-Version
@@ -414,17 +452,11 @@ class UpdaterGUI:
         self._im_hintergrund(_bg)
 
     def _audio_knopf_setzen(self):
-        """Leitet den Audio-Knopf aus self._audio_zu_laden ab (eine Quelle) --
-        OHNE Scan, darum im Status-Recheck gefahrlos. None/0 -> Grundzustand
-        'Auf neue Audios prüfen'; >0 -> 'Audios aktualisieren'. Im Tk-Thread
-        aufrufen."""
-        n = self._audio_zu_laden
-        if n and n > 0:
-            self.btn_audio.config(text="Audios aktualisieren",
-                                  command=self._audio_update, state="normal")
-        else:
-            self.btn_audio.config(text="Auf neue Audios prüfen",
-                                  command=self._audio_pruefen, state="normal")
+        """Audio-Knopf freigeben: online einfach waehlbar (oeffnet das
+        Audio-Download-Fenster), kein Scan noetig. Im Tk-Thread aufrufen; der
+        Status-Recheck ruft diese Methode nur im Online-Zweig."""
+        self.btn_audio.config(text="Audios verwalten …",
+                              command=self._audio_fenster_oeffnen, state="normal")
 
     # ------------------------------------------------- CImbel
 
@@ -650,81 +682,14 @@ class UpdaterGUI:
                 pass
         return rc
 
-    # ------------------------------------------------- Audios (zweistufig)
+    # ------------------------------------------------- Audios (eigenes Fenster)
 
-    def _audio_pruefen(self):
-        self._aktion_beginnen()  # sperrt alle Knoepfe
-        # Stufe 1: pruefen (Soll laden + lokalen Bestand lesen/scannen). Langsam ->
-        # im Hintergrund, Spinner zeigen.
-        self._log("Prüfe Audios: lade die Soll-Liste vom Server und vergleiche "
-                  "mit dem lokalen Bestand. Das kann einen Moment dauern ...")
-        self.progress.config(mode="indeterminate")
-        self.progress.pack(pady=4)
-        self.progress.start(12)
-        self._im_hintergrund(self._audio_pruefen_bg)
-
-    def _audio_pruefen_bg(self):
-        try:
-            laden, verwaist = update_core._audio_diff(OPUS_ROOT, WEBSPACE)
-            n = len(laden)
-        except Exception as e:
-            self._ui(lambda: self.lbl_audio.config(text="Status nicht ermittelbar"))
-            self._log("Audio-Prüfung fehlgeschlagen: " + str(e), fehler=True)
-            self._audio_zu_laden = None  # ungeprueft -> Grundzustand
-            self._aktion_beenden()
-            return
-        finally:
-            self._ui(self.progress.stop)
-            self._ui(self.progress.pack_forget)
-        self._log("Audio-Prüfung: " + str(n) + " zu laden, " +
-                  str(len(verwaist)) + " verwaist.")
-        # Zustand merken; den Knopf leitet _status_recheck (in _aktion_beenden)
-        # daraus ab -> keine Doppelsetzung, keine Ueberschreib-Kollision.
-        self._audio_zu_laden = n
-        if n > 0:
-            self._ui(lambda: self.lbl_audio.config(
-                text=str(n) + " neue/geänderte Audios (Download kann lange dauern)"))
-        else:
-            self._ui(lambda: self.lbl_audio.config(text="aktuell"))
-            self._log("Audios sind aktuell.")
-        self._aktion_beenden()
-        return
-
-    def _audio_update(self):
-        self._aktion_beginnen()  # sperrt alle Knoepfe
-        self.progress.config(mode="determinate")
-        self.progress.pack(pady=4)
-        self._im_hintergrund(self._audio_update_bg)
-
-    def _audio_update_bg(self):
-        def fortschritt(i, n, pfad):
-            self._ui(lambda: self.progress.config(maximum=n, value=i))
-            self._log_fortschritt("Lade " + str(i) + " / " + str(n) + " ...")
-        try:
-            geladen, geloescht = update_core.audio_sync(OPUS_ROOT, WEBSPACE, fortschritt)
-        except update_core.SyncAbbruch as e:
-            self._fortschritt_ende()
-            self._log("Abbruch (Sicherung): " + str(e), fehler=True)
-            self._audio_zu_laden = None  # Stand unklar -> erneut pruefbar
-            self._aktion_beenden()
-            return
-        except ValueError as e:
-            self._fortschritt_ende()
-            self._log("Fehler: " + str(e), fehler=True)
-            self._audio_zu_laden = None  # Stand unklar -> erneut pruefbar
-            self._aktion_beenden()
-            return
-        finally:
-            self._ui(self.progress.pack_forget)
-        self._fortschritt_ende()
-        self._log("Audios aktualisiert: " + str(geladen) + " geladen, " +
-                  str(geloescht) + " entfernt.")
-        self._ui(lambda: self.lbl_audio.config(text="aktuell"))
-        # Download holt genau die fehlenden/geaenderten Dateien -> danach ist
-        # nichts mehr zu laden. Zustand 0; _status_recheck setzt den Knopf
-        # zurueck auf 'pruefen' (kein automatischer ~180k-Scan).
-        self._audio_zu_laden = 0
-        self._aktion_beenden()
+    def _audio_fenster_oeffnen(self):
+        """Oeffnet das Audio-Download-Fenster (eigenes Toplevel, Machart
+        Pico-Dialog). Oeffnen sperrt alle Knoepfe, Schliessen gibt sie frei --
+        dieselbe fenster-uebergreifende Aktionssperre wie beim Pico-Flash."""
+        self._aktion_beginnen()
+        AudioDownloadDialog(self.root, nach_schliessen_cb=self._aktion_beenden)
 
     # ------------------------------------------------- System (zwei Knoepfe)
     # "Auf Updates pruefen" (apt update) und "System aktualisieren" (apt
@@ -1151,6 +1116,306 @@ class PicoFlashDialog:
         self._ui(lambda: self._btn_abbrechen.config(text="Schliessen"))
         # Hauptfenster-Zeile aktualisieren
         self._ui(self._nach_flash_cb)
+
+
+# ------------------------------------------------- Audio-Download-Dialog
+
+class AudioDownloadDialog:
+    """Eigenes Toplevel-Fenster fuer den Teilmengen-Audio-Download.
+
+    Der Nutzer waehlt per Checkbox, welche Teilmengen (AUDIO_TEILMENGEN; M-AILABS
+    nach Sprechern aufgeschluesselt) er laden will; je Zeile die Gesamtgroesse
+    und der 'Rest zu laden'. 'Ausgewählte laden' startet update_core.audio_sync
+    mit den gewaehlten Praefixen -- additiv, Loeschen nur innerhalb der gewaehlten
+    Teilmengen (Lizenz-Rueckruf). 'Lokalen Bestand neu prüfen' loest den teuren
+    Voll-Scan aus (heilt Hand-Aenderungen am Bestand).
+
+    nach_schliessen_cb wird beim Schliessen genau einmal gerufen (gibt die
+    Hauptfenster-Knoepfe frei -- fenster-uebergreifende Aktionssperre)."""
+
+    def __init__(self, parent, nach_schliessen_cb=None):
+        self._nach_schliessen_cb = nach_schliessen_cb
+        self._schliessen_gemeldet = False
+        self._aktiv = False            # laeuft gerade ein Lauf im Fenster?
+
+        self._win = tk.Toplevel(parent)
+        self._win.title("Audios verwalten")
+        self._win.geometry("640x620")
+        self._win.protocol("WM_DELETE_WINDOW", self._schliessen)
+
+        tk.Label(self._win, text="Audio-Teilmengen wählen",
+                 font=("", 12, "bold")).pack(pady=(12, 2))
+        tk.Label(self._win, justify="left", wraplength=600,
+                 text="Angehakte Teilmengen werden geladen (nur was lokal fehlt). "
+                      "Innerhalb angehakter Teilmengen werden lokal vorhandene, "
+                      "aber nicht mehr angebotene Dateien entfernt.").pack(
+                 padx=14, pady=(0, 6), anchor="w")
+
+        # --- Auswahl-Liste (scrollbar) ---
+        rahmen = tk.Frame(self._win)
+        rahmen.pack(fill="both", expand=True, padx=12, pady=4)
+        self._canvas = tk.Canvas(rahmen, highlightthickness=0)
+        sb = tk.Scrollbar(rahmen, orient="vertical", command=self._canvas.yview)
+        self._liste = tk.Frame(self._canvas)
+        self._liste.bind("<Configure>", lambda e: self._canvas.configure(
+            scrollregion=self._canvas.bbox("all")))
+        self._canvas.create_window((0, 0), window=self._liste, anchor="nw")
+        self._canvas.configure(yscrollcommand=sb.set)
+        self._canvas.pack(side="left", fill="both", expand=True)
+        sb.pack(side="right", fill="y")
+
+        # Checkbox-Zustand + Label-Widgets je Praefix (fuer Groessen-Nachtrag).
+        self._var = {}              # praefix -> tk.BooleanVar
+        self._eltern = {}           # eltern-praefix -> [kind-praefix, ...]
+        self._groessen_lbl = {}     # praefix -> Label (Groesse/Rest)
+        self._zeilen_bauen()
+
+        # --- Summenzeile + Warnhinweis ---
+        self._lbl_summe = tk.Label(self._win, text="Auswahl: 0 Teilmengen · 0 B zu laden",
+                                   font=("", 10, "bold"))
+        self._lbl_summe.pack(anchor="w", padx=14, pady=(4, 0))
+        tk.Label(self._win, text="⚠ Der Download kann je nach Auswahl lange dauern.",
+                 fg="#a60").pack(anchor="w", padx=14)
+
+        self._progress = ttk.Progressbar(self._win, length=600, mode="determinate")
+        # eingeblendet nur waehrend eines Laufs
+
+        # --- Knopfleiste ---
+        leiste = tk.Frame(self._win)
+        leiste.pack(side="bottom", pady=8)
+        self._btn_laden = tk.Button(leiste, text="Ausgewählte laden",
+                                    command=self._laden, state="disabled")
+        self._btn_laden.pack(side="left", padx=6)
+        self._btn_rescan = tk.Button(leiste, text="Lokalen Bestand neu prüfen",
+                                     command=self._rescan)
+        self._btn_rescan.pack(side="left", padx=6)
+        self._btn_schliessen = tk.Button(leiste, text="Schließen", command=self._schliessen)
+        self._btn_schliessen.pack(side="left", padx=6)
+
+        # --- Meldungen ---
+        mf = tk.LabelFrame(self._win, text="Meldungen", padx=4, pady=4)
+        mf.pack(side="bottom", fill="x", padx=10, pady=4)
+        self._txt = tk.Text(mf, height=5, wrap="word")
+        self._txt.pack(side="left", fill="both", expand=True)
+        msb = tk.Scrollbar(mf, command=self._txt.yview)
+        msb.pack(side="right", fill="y")
+        self._txt.config(yscrollcommand=msb.set)
+        self._txt.tag_config("fehler", foreground="#c00")
+
+        # Groessen/Rest asynchron laden (Soll-Liste holen + vorhanden.txt lesen).
+        self._log("Lade Größenübersicht ...")
+        threading.Thread(target=self._groessen_laden_bg, daemon=True).start()
+
+    # -------- Zeilenaufbau
+
+    def _zeilen_bauen(self):
+        """Baut die Checkbox-Zeilen aus AUDIO_TEILMENGEN -- flache Ordner + den
+        aufgeklappten M-AILABS-Block mit Sprecher-Kindern."""
+        for praefix, label, beschr, kinder in AUDIO_TEILMENGEN:
+            self._zeile(self._liste, praefix, label, beschr, einzug=0,
+                        ist_eltern=bool(kinder))
+            if kinder:
+                self._eltern[praefix] = [k[0] for k in kinder]
+                for kpraefix, klabel, kbeschr, _ in kinder:
+                    self._zeile(self._liste, kpraefix, klabel, kbeschr, einzug=28,
+                                ist_eltern=False)
+
+    def _zeile(self, parent, praefix, label, beschr, einzug, ist_eltern):
+        var = tk.BooleanVar(value=False)
+        self._var[praefix] = var
+        zeile = tk.Frame(parent)
+        zeile.pack(fill="x", anchor="w")
+        cb = tk.Checkbutton(zeile, text=label, variable=var,
+                            command=lambda p=praefix: self._auswahl_geaendert(p))
+        cb.pack(side="left", padx=(einzug, 0))
+        if beschr:
+            tk.Label(zeile, text="– " + beschr, fg="#666").pack(side="left", padx=(2, 0))
+        # Groesse/Rest rechtsbuendig -- Text folgt, wenn _groessen_laden_bg fertig.
+        lbl = tk.Label(zeile, text="…", fg="#333")
+        lbl.pack(side="right", padx=(0, 8))
+        self._groessen_lbl[praefix] = lbl
+
+    # -------- Groessen/Rest
+
+    def _alle_gruppen(self):
+        """(schluessel, praefix)-Liste fuer audio_gruppen: jede Teilmenge und
+        jedes M-AILABS-Kind. Die Kind-Praefixe stehen VOR dem groben 'M-AILABS/'
+        -- so ordnet audio_gruppen jeden Pfad dem spezifischsten Kind zu, und
+        das Eltern-'M-AILABS/' bekommt (korrekt) 0 direkte Treffer."""
+        kinder = []
+        eltern = []
+        for praefix, _, _, ks in AUDIO_TEILMENGEN:
+            if ks:
+                for kp, _, _, _ in ks:
+                    kinder.append((kp, kp))
+                eltern.append((praefix, praefix))
+            else:
+                eltern.append((praefix, praefix))
+        return kinder + eltern
+
+    def _groessen_laden_bg(self):
+        try:
+            self._gruppen = update_core.audio_gruppen(
+                OPUS_ROOT, WEBSPACE, self._alle_gruppen())
+        except Exception as e:
+            self._log("Größenübersicht nicht ladbar: " + str(e), fehler=True)
+            return
+        self._ui(self._groessen_anzeigen)
+
+    def _eltern_summe(self, eltern_praefix):
+        """Summiert (soll_b, soll_n, rest_b, rest_n) ueber die Kinder eines
+        Eltern-Praefix -- das Eltern-'M-AILABS/' selbst hat keine direkten
+        Treffer, seine Zahl ist die Summe der Sprecher."""
+        sb = sn = rb = rn = 0
+        for kp in self._eltern.get(eltern_praefix, []):
+            g = self._gruppen.get(kp)
+            if g:
+                sb += g[0]; sn += g[1]; rb += g[2]; rn += g[3]
+        return sb, sn, rb, rn
+
+    def _zeile_text(self, soll_b, rest_b):
+        if rest_b <= 0:
+            return _menschlich_bytes(soll_b) + "  (vollständig)"
+        return _menschlich_bytes(soll_b) + "  · " + _menschlich_bytes(rest_b) + " zu laden"
+
+    def _groessen_anzeigen(self):
+        for praefix, lbl in self._groessen_lbl.items():
+            if praefix in self._eltern:
+                sb, _, rb, _ = self._eltern_summe(praefix)
+            else:
+                g = self._gruppen.get(praefix, (0, 0, 0, 0))
+                sb, rb = g[0], g[2]
+            lbl.config(text=self._zeile_text(sb, rb))
+        self._log("Größenübersicht geladen.")
+        self._summe_aktualisieren()
+
+    # -------- Auswahl-Logik
+
+    def _auswahl_geaendert(self, praefix):
+        # Eltern-Haken schaltet alle Kinder mit; Kind-Haken laesst Eltern in Ruhe
+        # (Eltern-Checkbox ist nur Sammel-Schalter, kein eigener Download-Praefix).
+        if praefix in self._eltern:
+            wert = self._var[praefix].get()
+            for kp in self._eltern[praefix]:
+                self._var[kp].set(wert)
+        self._summe_aktualisieren()
+
+    def _gewaehlte_praefixe(self):
+        """Download-Praefixe aus der Auswahl: jede angehakte EINFACHE Teilmenge
+        und jedes angehakte M-AILABS-Kind. Der Eltern-'M-AILABS/'-Haken zaehlt
+        NICHT direkt (er hat die Kinder schon mitgeschaltet) -- sonst wuerde der
+        grobe Praefix zusaetzlich alles unter M-AILABS/ matchen."""
+        praefixe = []
+        for praefix in self._var:
+            if praefix in self._eltern:
+                continue                      # Sammel-Schalter, kein Praefix
+            if self._var[praefix].get():
+                praefixe.append(praefix)
+        return praefixe
+
+    def _summe_aktualisieren(self):
+        if not hasattr(self, "_gruppen"):
+            return
+        praefixe = self._gewaehlte_praefixe()
+        rest_b = 0
+        for p in praefixe:
+            g = self._gruppen.get(p)
+            if g:
+                rest_b += g[2]
+        self._lbl_summe.config(
+            text="Auswahl: " + str(len(praefixe)) + " Teilmengen · " +
+                 _menschlich_bytes(rest_b) + " zu laden")
+        # Laden-Knopf nur, wenn etwas gewaehlt ist (und kein Lauf aktiv).
+        if praefixe and not self._aktiv:
+            self._btn_laden.config(state="normal")
+        else:
+            self._btn_laden.config(state="disabled")
+
+    # -------- Nebenlaeufigkeit / Log (eigenes Fenster)
+
+    def _ui(self, fn):
+        self._win.after(0, fn)
+
+    def _log(self, text, fehler=False):
+        def _append():
+            self._txt.insert("end", text + "\n", "fehler" if fehler else "")
+            self._txt.see("end")
+        self._ui(_append)
+
+    def _lauf_beginnen(self):
+        self._aktiv = True
+        for b in (self._btn_laden, self._btn_rescan):
+            b.config(state="disabled")
+
+    def _lauf_beenden(self):
+        self._aktiv = False
+        self._btn_rescan.config(state="normal")
+        self._summe_aktualisieren()       # setzt Laden-Knopf nach Auswahl
+
+    # -------- Aktionen
+
+    def _laden(self):
+        praefixe = self._gewaehlte_praefixe()
+        if not praefixe:
+            return
+        self._lauf_beginnen()
+        self._progress.config(mode="determinate", value=0)
+        self._progress.pack(pady=4)
+        threading.Thread(target=self._laden_bg, args=(praefixe,), daemon=True).start()
+
+    def _laden_bg(self, praefixe):
+        def fortschritt(i, n, pfad):
+            self._ui(lambda: self._progress.config(maximum=max(1, n), value=i))
+        self._log("Lade ausgewählte Teilmengen ...")
+        try:
+            geladen, geloescht = update_core.audio_sync(
+                OPUS_ROOT, WEBSPACE, fortschritt, praefixe)
+        except update_core.SyncAbbruch as e:
+            self._log("Abbruch (Sicherung): " + str(e), fehler=True)
+            self._ui(self._progress.pack_forget)
+            self._ui(self._lauf_beenden)
+            return
+        except ValueError as e:
+            self._log("Fehler: " + str(e), fehler=True)
+            self._ui(self._progress.pack_forget)
+            self._ui(self._lauf_beenden)
+            return
+        self._ui(self._progress.pack_forget)
+        self._log("Fertig: " + str(geladen) + " geladen, " +
+                  str(geloescht) + " entfernt.")
+        # Bestand hat sich geaendert -> Groessen/Rest neu (kein Scan: liest die
+        # frisch fortgeschriebene vorhanden.txt).
+        self._ui(self._lauf_beenden)
+        threading.Thread(target=self._groessen_laden_bg, daemon=True).start()
+
+    def _rescan(self):
+        self._lauf_beginnen()
+        self._log("Prüfe den lokalen Bestand (vollständiger Scan, kann auf dem "
+                  "USB-Stick dauern) ...")
+        threading.Thread(target=self._rescan_bg, daemon=True).start()
+
+    def _rescan_bg(self):
+        try:
+            update_core._schreibe_vorhanden(OPUS_ROOT)
+        except Exception as e:
+            self._log("Scan fehlgeschlagen: " + str(e), fehler=True)
+            self._ui(self._lauf_beenden)
+            return
+        self._log("Bestand neu erfasst.")
+        self._ui(self._lauf_beenden)
+        threading.Thread(target=self._groessen_laden_bg, daemon=True).start()
+
+    def _schliessen(self):
+        # Waehrend eines laufenden Downloads/Scans nicht schliessen (wie das
+        # Hauptfenster: keine Aktion mitten im Schreiben abbrechen).
+        if self._aktiv:
+            self._log("Bitte warten, bis der laufende Vorgang fertig ist.",
+                      fehler=True)
+            return
+        if self._nach_schliessen_cb and not self._schliessen_gemeldet:
+            self._schliessen_gemeldet = True
+            self._nach_schliessen_cb()
+        self._win.destroy()
 
 
 def main():
