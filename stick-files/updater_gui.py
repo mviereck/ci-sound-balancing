@@ -1147,7 +1147,7 @@ class AudioDownloadDialog:
 
         self._win = tk.Toplevel(parent)
         self._win.title("Audios verwalten")
-        self._win.geometry("670x620")
+        self._win.geometry("700x620")
         self._win.protocol("WM_DELETE_WINDOW", self._schliessen)
 
         tk.Label(self._win, text="Audio-Teilmengen wählen",
@@ -1177,7 +1177,7 @@ class AudioDownloadDialog:
 
         # --- Summenzeile + Warnhinweis ---
         self._lbl_summe = tk.Label(self._win, text="Auswahl: 0 Teilmengen · 0 B zu laden",
-                                   font=("", 10, "bold"))
+                                   font=("", 10, "bold"), justify="left", wraplength=660)
         self._lbl_summe.pack(anchor="w", padx=14, pady=(4, 0))
         # Freier Platz immer sichtbar (nicht nur im Fehlerfall) -- auch bevor
         # etwas angehakt ist; wird in _summe_aktualisieren mitgepflegt und hier
