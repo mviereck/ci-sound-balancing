@@ -1,30 +1,32 @@
 #!/usr/bin/env python3
 """Stick-Zuruecksetzen-Kern (unprivilegiert, keine UI).
 
-Setzt das Nutzer-home auf den Werkszustand zurueck: /home/cimbel leeren
-(link-sicher), aus der Werks-Kopie /usr/local/share/cimbel-skel/ neu
-befuellen, den Inhalt von /mnt/daten/Downloads leeren. Laeuft vollstaendig
-als User -- home gehoert ihm, die Werks-Kopie wird nur gelesen (beim
-Image-Bau welt-lesbar angelegt).
+Setzt die Desktop-/Nutzerkonfiguration auf den Ursprungszustand zurueck:
+leert /home/cimbel link-sicher -- AUSSER dem Schreibtisch -- und befuellt es
+aus der Werks-Kopie /usr/local/share/cimbel-skel/. Der Schreibtisch bleibt
+erhalten und wird nur aus der Werks-Kopie ueberschrieben (Stick-Starter
+repariert, persoenliche Dateien des Nutzers dort bleiben). Persoenliche
+Daten (Dokumente/Bilder/... auf der NTFS-Datenpartition) werden NICHT
+angefasst -- sie liegen hinter Symlinks, die link-sicher nur als Link
+ersetzt werden. Laeuft vollstaendig als User -- home gehoert ihm, die
+Werks-Kopie wird nur gelesen (beim Image-Bau welt-lesbar angelegt).
 
 Sub-Kommandos:
   reset          -- das eigentliche Zuruecksetzen
-  trockenlauf    -- zaehlt/prueft, ohne zu loeschen (Sicherheitsnachweis)
+  trockenlauf    -- zaehlt/prueft, ohne zu aendern (Sicherheitsnachweis)
   skel-erzeugen  -- Werks-Kopie aus dem aktuellen home erzeugen (Wartung)
 
-DER GEFAEHRLICHSTE PUNKT (siehe Konzept_Offline_Stick.md, Icon-Abschnitt):
-Im home liegen Symlinks auf die exFAT-Datenpartition
+LINK-SICHERHEIT (siehe Konzept_Offline_Stick.md):
+Im home liegen Symlinks auf die NTFS-Datenpartition, u.a.
   ~/Downloads  -> /mnt/daten/Downloads
   <Musik>/...  -> /mnt/daten/opus   (12 GB Audio)
-Ein rekursives Loeschen, das Symlinks FOLGT, wuerde durch diese Links
-hindurch den Opus-Bestand und den Downloads-Zielordner zerstoeren. Darum:
-home nur link-sicher leeren (Links als Dateien entfernen, nie ihr Ziel),
-und in /mnt/daten ausschliesslich den INHALT von /Downloads anfassen --
-nichts anderes (opus, git, ... bleiben unberuehrt). Diese Invariante ist
-der Kern des Selbstschutzes (_pruefe_home_sicher).
+sowie die Datenordner (Dokumente/Bilder/...). Ein rekursives Loeschen, das
+Symlinks FOLGT, wuerde durch diese Links hindurch die persoenlichen Daten
+auf /mnt/daten zerstoeren. Darum wird home nur link-sicher geleert (Links
+als Dateien entfernen, nie ihr Ziel). Der Reset fasst /mnt/daten selbst
+GAR NICHT an -- weder loeschend noch lesend.
 """
 import argparse
-import glob
 import os
 import shutil
 import subprocess
@@ -33,28 +35,33 @@ from pathlib import Path
 
 HOME = "/home/cimbel"
 SKEL = "/usr/local/share/cimbel-skel"
-DATEN = "/mnt/daten"
-DOWNLOADS = "/mnt/daten/Downloads"
-# Papierkoerbe auf der exFAT-Datenpartition: nemo/Cinnamon legen pro
-# Dateisystem einen eigenen Papierkorb im Wurzelverzeichnis an
-# (freedesktop-Spec), typisch .Trash-<UID>. Eine von /mnt/daten geloeschte
-# Datei landet HIER, nicht im Home-Papierkorb -> der Reset muss ihn mit
-# leeren, sonst bleiben persoenliche Daten zurueck. Glob erfasst alle
-# Varianten (.Trash-1000, .Trash-0, generisches .Trash), bleibt aber streng
-# auf .Trash*-Ordner beschraenkt.
-TRASH_GLOB = "/mnt/daten/.Trash*"
 
 
-def _erlaubte_daten_pfade():
-    """Die einzigen Orte unter /mnt/daten, deren Inhalt der Reset loeschen
-    darf: der Downloads-Ordner und die .Trash*-Papierkoerbe. Alles andere
-    (opus, git, ...) ist tabu. EINE Quelle fuer Selbstschutz UND die
-    Lösch-Schritte, damit beide nicht auseinanderdriften."""
-    return [DOWNLOADS] + sorted(glob.glob(TRASH_GLOB))
+def _schreibtisch_name(home=HOME):
+    """Name des Schreibtisch-Ordners, locale-korrekt ueber xdg-user-dir
+    (deutsch 'Schreibtisch', englisch 'Desktop'). Der Reset nimmt diesen
+    EINEN home-Ordner von der Leerung aus: er liegt auf ext4 (nicht auf
+    NTFS gelinkt), traegt die Stick-Starter UND evtl. persoenliche Dateien
+    des Nutzers -- deshalb nicht loeschen, nur aus der Werks-Kopie
+    ueberschreiben. Faellt xdg-user-dir aus, Fallback auf den vorhandenen
+    Ordner ('Schreibtisch' oder 'Desktop'), sonst 'Schreibtisch'."""
+    try:
+        name = subprocess.run(["xdg-user-dir", "DESKTOP"],
+                              capture_output=True, text=True).stdout.strip()
+    except OSError:
+        name = ""
+    # xdg-user-dir liefert absoluten Pfad -> nur den letzten Teil nehmen.
+    name = os.path.basename(name) if name else ""
+    if name:
+        return name
+    for kandidat in ("Schreibtisch", "Desktop"):
+        if (Path(home) / kandidat).is_dir():
+            return kandidat
+    return "Schreibtisch"
 
 
 class ResetFehler(Exception):
-    """Abbruch des Zuruecksetzens (z.B. ausgeloester Selbstschutz)."""
+    """Abbruch des Zuruecksetzens (z.B. fehlende Werks-Kopie)."""
     pass
 
 
@@ -78,58 +85,25 @@ def firefox_laeuft():
     return rc == 0
 
 
-# ----------------------------------------------------------- Selbstschutz
-
-def _zeigt_nach_daten_verboten(pfad):
-    """Prueft EINEN Pfad (Datei/Ordner/Symlink direkt unter home): Wenn es ein
-    Symlink ist, dessen reales Ziel unter /mnt/daten liegt und NICHT einer der
-    erlaubten Orte (Downloads, .Trash*) ist -> True (verboten). Loeschen
-    wuerde den Link zwar nur als Link entfernen; die Pruefung ist der doppelte
-    Boden gegen einen kuenftigen Fehler im Loeschverfahren (z.B.
-    versehentliches Folgen). realpath loest die Symlink-Kette auf; opus/git &
-    Co. fliegen damit auf."""
-    try:
-        real = os.path.realpath(pfad)
-    except OSError:
-        return False
-    # innerhalb von /mnt/daten?
-    if real == DATEN or real.startswith(DATEN + os.sep):
-        # erlaubt sind nur die gezielt geleerten Orte (Downloads-Inhalt,
-        # .Trash*-Inhalt) -- alles andere unter /mnt/daten ist tabu.
-        for erlaubt in _erlaubte_daten_pfade():
-            if real == erlaubt or real.startswith(erlaubt + os.sep):
-                return False
-        return True
-    return False
-
-
-def _pruefe_home_sicher(home):
-    """Durchlaeuft die obersten home-Eintraege und sammelt alle, die (ueber
-    einen Symlink) real nach /mnt/daten zeigen -- ausser dem erlaubten
-    Downloads-Ziel. Gibt die Liste der riskanten (pfad, realziel) zurueck.
-    Leere Liste = sicher. Nicht-leer = Abbruch vor jedem echten Loeschen."""
-    risiken = []
-    home = Path(home)
-    if not home.is_dir():
-        return risiken
-    for eintrag in home.iterdir():
-        if _zeigt_nach_daten_verboten(str(eintrag)):
-            risiken.append((str(eintrag), os.path.realpath(str(eintrag))))
-    return risiken
-
-
 # ----------------------------------------------------------- home leeren
 
-def _home_leeren(home, protokoll):
+def _home_leeren(home, protokoll, ausser=()):
     """Leert /home/cimbel LINK-SICHER: entfernt jeden obersten Eintrag, ohne
     Symlinks zu folgen. Ein Symlink wird als Link entfernt (unlink), sein
-    Ziel bleibt unangetastet -- so koennen opus/Downloads nicht durch die
-    home-Links zerstoert werden. Ordner werden rekursiv entfernt, aber
-    shutil.rmtree folgt per Default keinen Symlinks beim Absteigen (es
-    entfernt einen Symlink-Eintrag als Link, nicht sein Ziel). Der home-
-    Ordner selbst bleibt bestehen (nur sein Inhalt geht)."""
+    Ziel bleibt unangetastet -- so koennen die Datenordner auf /mnt/daten
+    nicht durch die home-Links zerstoert werden. Ordner werden rekursiv
+    entfernt, aber shutil.rmtree folgt per Default keinen Symlinks beim
+    Absteigen (es entfernt einen Symlink-Eintrag als Link, nicht sein Ziel).
+    Der home-Ordner selbst bleibt bestehen (nur sein Inhalt geht).
+
+    ausser: Namen oberster home-Eintraege, die NICHT geleert werden (der
+    Schreibtisch -- er bleibt erhalten und wird spaeter nur aus der
+    Werks-Kopie ueberschrieben)."""
     home = Path(home)
     for eintrag in home.iterdir():
+        if eintrag.name in ausser:
+            protokoll("Behalten (wird nur ueberschrieben): " + eintrag.name)
+            continue
         p = str(eintrag)
         # os.path.islink zuerst: ein Symlink auf einen Ordner darf NICHT als
         # Ordner behandelt (rmtree) werden -- sonst stieg man ins Ziel ab.
@@ -178,70 +152,19 @@ def _home_befuellen(skel, home, protokoll):
     return n
 
 
-# ------------------------------------------------- Inhalt eines Ordners leeren
-
-def _inhalt_leeren(ordner):
-    """Leert den INHALT eines Ordners (der Ordner selbst bleibt). Symlinks
-    werden als Links entfernt (nie ihr Ziel), Unterordner rekursiv. Gibt die
-    Zahl entfernter Eintraege zurueck. Fehlt der Ordner, 0 (kein Fehler).
-    Gemeinsamer Loesch-Koerper fuer Downloads UND die .Trash*-Papierkoerbe."""
-    o = Path(ordner)
-    if not o.is_dir():
-        return 0
-    n = 0
-    for eintrag in o.iterdir():
-        p = str(eintrag)
-        if os.path.islink(p):
-            os.unlink(p)
-        elif eintrag.is_dir():
-            shutil.rmtree(p)
-        else:
-            os.unlink(p)
-        n += 1
-    return n
-
-
-def _downloads_leeren(protokoll):
-    """Leert den INHALT von /mnt/daten/Downloads -- der Ordner selbst bleibt
-    (und damit der ~/Downloads-Symlink gueltig). opus & alles andere unter
-    /mnt/daten bleiben unberuehrt."""
-    if not Path(DOWNLOADS).is_dir():
-        protokoll("Downloads-Ordner nicht vorhanden -- nichts zu leeren.")
-        return
-    n = _inhalt_leeren(DOWNLOADS)
-    protokoll("Downloads geleert: " + str(n) + " Eintrag(e) entfernt "
-              "(Ordner bleibt bestehen).")
-
-
-def _trash_leeren(protokoll):
-    """Leert den INHALT aller Papierkoerbe auf der Datenpartition
-    (/mnt/daten/.Trash*). Eine von /mnt/daten geloeschte Datei landet hier
-    statt im Home-Papierkorb -- ohne diesen Schritt blieben persoenliche
-    Daten zurueck. Die .Trash*-Ordner selbst bleiben (leer); opus/git & alles
-    andere unter /mnt/daten werden NICHT angefasst."""
-    trashes = sorted(glob.glob(TRASH_GLOB))
-    if not trashes:
-        protokoll("Kein Papierkorb auf der Datenpartition -- nichts zu leeren.")
-        return
-    gesamt = 0
-    for t in trashes:
-        gesamt += _inhalt_leeren(t)
-    protokoll("Papierkorb der Datenpartition geleert: " + str(gesamt) +
-              " Eintrag(e) entfernt.")
-
-
 # ----------------------------------------------------------- Reset (gesamt)
 
 def reset(protokoll=None, pruefe_firefox=True):
-    """Fuehrt das Zuruecksetzen aus: Selbstschutz pruefen -> home leeren ->
-    aus skel befuellen -> Downloads-Inhalt leeren -> Papierkoerbe der
-    Datenpartition leeren. protokoll(text) ist ein optionaler Callback je
-    Teilschritt (fuer die GUI/CLI-Ausgabe). Wirft ResetFehler bei
-    ausgeloestem Selbstschutz oder fehlender Werks-Kopie.
+    """Fuehrt das Zuruecksetzen aus: home link-sicher leeren (AUSSER dem
+    Schreibtisch) -> aus skel befuellen (der Schreibtisch wird dabei nur
+    ueberschrieben, nicht geleert -> Stick-Starter repariert, persoenliche
+    Dateien dort bleiben). /mnt/daten wird NICHT angefasst. protokoll(text)
+    ist ein optionaler Callback je Teilschritt (fuer die GUI/CLI-Ausgabe).
+    Wirft ResetFehler bei fehlender Werks-Kopie.
 
     pruefe_firefox: wenn True und Firefox laeuft -> ResetFehler (die GUI
     prueft das schon vorher und sperrt den Knopf; hier als zweiter Riegel
-    fuer den CLI-Weg)."""
+    fuer den CLI-Weg -- das Firefox-Profil wird mit dem home ersetzt)."""
     if protokoll is None:
         protokoll = lambda _t: None
 
@@ -249,28 +172,15 @@ def reset(protokoll=None, pruefe_firefox=True):
         raise ResetFehler("Firefox laeuft noch -- bitte erst schliessen "
                           "(offene Profildateien wuerden das Zuruecksetzen stoeren).")
 
-    risiken = _pruefe_home_sicher(HOME)
-    if risiken:
-        zeilen = ["  " + p + " -> " + z for p, z in risiken]
-        raise ResetFehler(
-            "SICHERHEITS-ABBRUCH: im home zeigen Links unerwartet nach "
-            + DATEN + " (erlaubt nur: " + ", ".join(_erlaubte_daten_pfade())
-            + "):\n"
-            + "\n".join(zeilen)
-            + "\nEs wurde NICHTS geloescht.")
+    schreibtisch = _schreibtisch_name(HOME)
 
-    protokoll("Leere das Benutzerverzeichnis (Links bleiben als Links) ...")
-    _home_leeren(HOME, protokoll)
+    protokoll("Setze das Benutzerverzeichnis zurueck "
+              "(Schreibtisch bleibt erhalten, Links bleiben als Links) ...")
+    _home_leeren(HOME, protokoll, ausser=(schreibtisch,))
 
-    protokoll("Stelle den Werkszustand aus der Werks-Kopie her ...")
+    protokoll("Stelle den Ursprungszustand aus der Werks-Kopie her ...")
     n = _home_befuellen(SKEL, HOME, protokoll)
-    protokoll("Werkszustand hergestellt (" + str(n) + " Eintrag(e)).")
-
-    protokoll("Leere den Download-Ordner ...")
-    _downloads_leeren(protokoll)
-
-    protokoll("Leere den Papierkorb der Datenpartition ...")
-    _trash_leeren(protokoll)
+    protokoll("Ursprungszustand hergestellt (" + str(n) + " Eintrag(e)).")
 
 
 def cmd_reset(args):
@@ -282,59 +192,41 @@ def cmd_reset(args):
 # ----------------------------------------------------------- Trockenlauf
 
 def cmd_trockenlauf(args):
-    """Sicherheitsnachweis ohne jede Aenderung: zeigt, was das echte Leeren
-    anfassen wuerde, und prueft die Invariante (nichts unter /mnt/daten
-    ausser Downloads-Inhalt und .Trash*-Inhalt)."""
+    """Sicherheitsnachweis ohne jede Aenderung: zeigt, was das Zuruecksetzen
+    im home anfassen wuerde (Schreibtisch ausgenommen), und weist nach, dass
+    /mnt/daten GAR NICHT beruehrt wird."""
     print("== Trockenlauf (es wird NICHTS geaendert) ==")
     print("Firefox laeuft: " + ("JA -> reset wuerde abbrechen" if firefox_laeuft()
                                  else "nein"))
 
+    schreibtisch = _schreibtisch_name(HOME)
+    print("Schreibtisch-Ordner (bleibt erhalten, wird nur ueberschrieben): "
+          + schreibtisch)
+
     home = Path(HOME)
     if home.is_dir():
         eintraege = list(home.iterdir())
-        print("\nhome (" + HOME + ") -- " + str(len(eintraege)) + " Eintrag(e), wuerden entfernt:")
+        print("\nhome (" + HOME + ") -- " + str(len(eintraege)) + " Eintrag(e):")
         for e in sorted(eintraege, key=lambda x: x.name):
-            if os.path.islink(str(e)):
+            if e.name == schreibtisch:
+                print("  KEEP  " + e.name + "  (bleibt, wird nur aus Werks-Kopie ueberschrieben)")
+            elif os.path.islink(str(e)):
                 print("  LINK  " + e.name + " -> " + os.readlink(str(e))
                       + "  (als Link entfernt, Ziel " + os.path.realpath(str(e)) + " bleibt)")
             elif e.is_dir():
-                print("  DIR   " + e.name)
+                print("  DIR   " + e.name + "  (wird entfernt)")
             else:
-                print("  FILE  " + e.name)
+                print("  FILE  " + e.name + "  (wird entfernt)")
     else:
         print("home (" + HOME + ") existiert nicht.")
 
-    risiken = _pruefe_home_sicher(HOME)
-    print("\nSelbstschutz: " + ("OK -- kein home-Link zeigt verbotenerweise nach " + DATEN
-                                 if not risiken else "RISIKO!"))
-    for p, z in risiken:
-        print("  RISIKO " + p + " -> " + z)
-
-    dl = Path(DOWNLOADS)
-    if dl.is_dir():
-        n = sum(1 for _ in dl.iterdir())
-        print("\nDownloads (" + DOWNLOADS + "): " + str(n)
-              + " Eintrag(e) wuerden geleert (Ordner bleibt).")
-    else:
-        print("\nDownloads (" + DOWNLOADS + ") existiert nicht.")
-
-    trashes = sorted(glob.glob(TRASH_GLOB))
-    if trashes:
-        for t in trashes:
-            n = sum(1 for _ in Path(t).iterdir()) if Path(t).is_dir() else 0
-            print("Papierkorb (" + t + "): " + str(n)
-                  + " Eintrag(e) wuerden geleert (Ordner bleibt).")
-    else:
-        print("Papierkorb (" + TRASH_GLOB + "): keiner vorhanden.")
-
-    # Nachweis: opus/git unangetastet
-    for schutz in ("/mnt/daten/opus", "/mnt/daten/git"):
-        print("Unberuehrt (nie angefasst): " + schutz
-              + (" [vorhanden]" if Path(schutz).exists() else " [nicht vorhanden]"))
+    # Nachweis: /mnt/daten wird nie angefasst (weder loeschend noch lesend).
+    print("\n/mnt/daten wird vom Reset GAR NICHT angefasst "
+          "(Datenordner, opus, git bleiben unberuehrt).")
 
     print("\nWerks-Kopie (" + SKEL + "): "
           + ("vorhanden" if Path(SKEL).is_dir() else "FEHLT -- reset wuerde scheitern"))
-    return 0 if not risiken else 1
+    return 0
 
 
 # ----------------------------------------------------------- skel erzeugen

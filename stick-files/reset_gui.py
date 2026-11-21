@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Persoenliche Daten loeschen -- grafische Oberflaeche (Tkinter).
+"""Desktop auf Ursprungszustand zuruecksetzen -- grafische Oberflaeche (Tkinter).
 
-Setzt das Benutzerverzeichnis auf den Werkszustand zurueck: leert
-/home/cimbel link-sicher, befuellt es aus der Werks-Kopie und leert den
-Download-Ordner. Laeuft vollstaendig als User (kein root/pkexec). Machart
-wie der Stick-Updater (updater_gui.py): Log statt Statuszeile, rote Fehler,
+Setzt die Desktop-/Nutzerkonfiguration auf den Ursprungszustand zurueck:
+leert /home/cimbel link-sicher (AUSSER dem Schreibtisch) und befuellt es aus
+der Werks-Kopie. Der Schreibtisch bleibt erhalten und wird nur ueberschrieben.
+Persoenliche Daten (Dokumente/Bilder/... auf der Windows-Partition) werden
+NICHT angefasst. Laeuft vollstaendig als User (kein root/pkexec). Machart wie
+der Stick-Updater (updater_gui.py): Log statt Statuszeile, rote Fehler,
 Schliessen nur ueber den Beenden-Knopf, Arbeit im Hintergrund-Thread.
 
 Die eigentliche Logik steckt im Kern reset_core.py (auch per CLI testbar,
@@ -21,43 +23,45 @@ import reset_core
 
 # Erklaerungstext (bewusst in der GUI, nicht im Kern -- Nutzer-Text).
 ERKLAERUNG = (
-    "Mit diesem Programm können Sie persönliche Daten vom USB Stick "
-    "löschen.\n\n"
-    "Gelöscht wird:\n"
-    "• Das persönliche Verzeichnis /home/cimbel auf der Systempartition.\n"
-    "  (Enthält z. B. Browserverläufe, Einstellungen am Desktop)\n"
-    "• Der Ordner Downloads auf der zusätzlichen Windows-Partition.\n"
-    "  (Enthält z. B. Ihre Meßdaten)\n"
-    "• Papierkorb beider Partitionen.\n\n"
-    "NICHT gelöscht wird:\n"
-    "• Änderungen am Betriebssystem selbst\n"
-    "• Updates von CImbel und Audios.\n\n"
-    "Diese Löschung ist NICHT forensisch sicher. Ein Datenrettungsprogramm "
-    "könnte gelöschte Dateien möglicherweise wiederherstellen.\n\n"
-    "Insgesamt wird das System nur auf einen sauberen Ausgangszustand zum "
-    "Arbeiten zurückgesetzt. Für absolut sicheren Datenschutz dürfen Sie "
-    "den Stick nicht weitergeben."
+    "Mit diesem Programm setzen Sie den Desktop und die Programm-"
+    "Einstellungen auf den Ursprungszustand zurück. Das hilft, wenn der "
+    "Stick verkonfiguriert wurde und nicht mehr richtig funktioniert.\n\n"
+    "Zurückgesetzt wird:\n"
+    "• Die Desktop-Einstellungen (Aussehen, Symbole).\n"
+    "• Das Firefox-Profil (Einstellungen, Verlauf und LESEZEICHEN).\n"
+    "• Die Starter auf dem Schreibtisch werden wiederhergestellt.\n\n"
+    "NICHT angetastet wird:\n"
+    "• Ihre persönlichen Dateien (Dokumente, Bilder, Musik, Downloads) "
+    "auf der Windows-Partition.\n"
+    "• Ihre eigenen Dateien auf dem Schreibtisch.\n"
+    "• Änderungen am Betriebssystem, Updates von CImbel und Audios.\n\n"
+    "WICHTIG: Ihre Firefox-Lesezeichen gehen dabei verloren. Wenn Sie "
+    "Lesezeichen behalten möchten, sichern Sie diese bitte vorher "
+    "(in Firefox: Lesezeichen → Lesezeichen verwalten → Importieren und "
+    "Sichern → Sichern)."
 )
 
 WARNUNG = (
     "Letzte Warnung:\n\n"
-    "Alle persoenlichen Daten und der gesamte Download-Ordner werden jetzt "
-    "geloescht. Messergebnisse, die nur im Download-Ordner liegen, gehen "
-    "dabei UNWIEDERBRINGLICH verloren.\n\n"
-    "Bitte wichtige Messergebnisse VORHER sichern (z.B. auf einen anderen "
-    "USB-Stick oder per E-Mail).\n\n"
-    "Jetzt wirklich auf Werkszustand zuruecksetzen?"
+    "Das Firefox-Profil wird jetzt auf den Ursprungszustand zurueckgesetzt. "
+    "Dabei gehen Ihre FIREFOX-LESEZEICHEN, der Verlauf und gespeicherte "
+    "Einstellungen verloren.\n\n"
+    "Ihre persoenlichen Dateien (Dokumente, Bilder, Musik, Downloads) "
+    "bleiben erhalten.\n\n"
+    "Bitte sichern Sie wichtige Lesezeichen VORHER, falls noch nicht "
+    "geschehen.\n\n"
+    "Jetzt wirklich auf den Ursprungszustand zuruecksetzen?"
 )
 
 
 class ResetGUI:
     def __init__(self, root):
         self.root = root
-        root.title("Persoenliche Daten loeschen")
+        root.title("Desktop auf Ursprungszustand zuruecksetzen")
         root.geometry("640x620")
         # Fenster-X abfangen: Schliessen nur ueber den Beenden-Knopf (wie
-        # der Updater), damit kein Abbruch mitten im Loeschen einen halben
-        # Zustand hinterlaesst.
+        # der Updater), damit kein Abbruch mitten im Zuruecksetzen einen
+        # halben Zustand hinterlaesst.
         root.protocol("WM_DELETE_WINDOW", self._ignoriere_close)
 
         # --- Erklaerung oben ---
@@ -76,7 +80,7 @@ class ResetGUI:
         tk.Button(root, text="Beenden", command=root.destroy).pack(side="bottom", pady=8)
         tk.Button(root, text="Meldungen ins Clipboard kopieren",
                   command=self._log_kopieren).pack(side="bottom", pady=2)
-        self.btn_reset = tk.Button(root, text="Auf Werkszustand zuruecksetzen",
+        self.btn_reset = tk.Button(root, text="Auf Ursprungszustand zuruecksetzen",
                                    command=self._reset, state="disabled")
         self.btn_reset.pack(side="bottom", pady=6)
 
@@ -145,7 +149,7 @@ class ResetGUI:
         else:
             self._ui(lambda: self.lbl_firefox.config(text=""))
             self._ui(lambda: self.btn_reset.config(
-                text="Auf Werkszustand zuruecksetzen", command=self._reset,
+                text="Auf Ursprungszustand zuruecksetzen", command=self._reset,
                 state="normal"))
 
     # ------------------------------------------------- Reset
@@ -154,7 +158,7 @@ class ResetGUI:
         # Bestaetigungs-Dialog mit Verlust-Warnung.
         if not messagebox.askyesno("Wirklich zuruecksetzen?", WARNUNG,
                                     icon="warning", default="no"):
-            self._log("Abgebrochen -- es wurde nichts geloescht.")
+            self._log("Abgebrochen -- es wurde nichts geaendert.")
             return
         self.btn_reset.config(state="disabled")
         self._im_hintergrund(self._reset_bg)
@@ -177,38 +181,34 @@ class ResetGUI:
         if self._fehler_aufgetreten:
             self._abschluss_fehler()
         else:
-            # nemo-desktop zeichnet die Desktop-Icons + den Hintergrund,
-            # liest sie aber nicht von selbst neu ein, wenn die Dateien unter
-            # ihm ausgetauscht wurden -> den Zeichner neu starten, damit der
-            # Werkszustand sofort sichtbar wird (statt erst nach einem
+            # xfdesktop zeichnet die Desktop-Icons + den Hintergrund, liest
+            # sie aber nicht von selbst neu ein, wenn die Dateien unter ihm
+            # ausgetauscht wurden -> den Zeichner neu laden, damit der
+            # Ursprungszustand sofort sichtbar wird (statt erst nach einem
             # Reboot). Fehler hier machen den schon abgeschlossenen Reset
             # NICHT rot (nur Hinweis).
             self._desktop_neu_laden()
             self._log("")
-            self._log("Fertig: Der Stick ist auf den Werkszustand "
+            self._log("Fertig: Der Desktop ist auf den Ursprungszustand "
                       "zurueckgesetzt. Sie koennen das Fenster jetzt mit "
                       "„Beenden“ schliessen.")
 
     def _desktop_neu_laden(self):
-        """Startet den Desktop-Icon-Zeichner neu ('nemo-desktop -q' beenden,
-        dann wieder starten), damit Icons + Hintergrund den frischen home-
-        Stand neu einlesen. nemo-desktop hat KEIN --replace (am VM geprueft);
-        der Weg ist '-q' und Neustart nacheinander. Nur wenn das Programm
-        vorhanden ist. Scheitert es, ist das kein Reset-Fehler -- der Nutzer
-        kann notfalls neu starten."""
-        if not shutil.which("nemo-desktop"):
+        """Laedt den XFCE-Desktop-Zeichner neu ('xfdesktop --reload'), damit
+        Icons + Hintergrund den frischen home-Stand neu einlesen. xfdesktop
+        hat -- anders als der alte nemo-desktop -- ein echtes --reload (kein
+        Beenden/Neustart noetig). Nur wenn das Programm vorhanden ist.
+        Scheitert es, ist das kein Reset-Fehler -- der Nutzer kann notfalls
+        neu starten."""
+        if not shutil.which("xfdesktop"):
             self._log("Hinweis: Desktop-Oberflaeche nicht gefunden -- bitte "
-                      "zum Anzeigen des Werkszustands den Rechner neu starten.")
+                      "zum Anzeigen des Ursprungszustands den Rechner neu starten.")
             return
         try:
-            # -q beendet die laufende Instanz; run wartet, bis sie weg ist,
-            # DANN den Neustart als Hintergrundprozess (Popen, kehrt sofort
-            # zurueck -- nemo-desktop laeuft dauerhaft weiter). Ausgabe
-            # verschlucken (soll nicht ins Tool-Log).
-            subprocess.run(["nemo-desktop", "-q"],
+            # --reload laedt die laufende xfdesktop-Instanz neu (Icons +
+            # Hintergrund). Ausgabe verschlucken (soll nicht ins Tool-Log).
+            subprocess.run(["xfdesktop", "--reload"],
                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            subprocess.Popen(["nemo-desktop"],
-                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             self._log("Desktop wird aktualisiert ...")
         except OSError as e:
             self._log("Desktop-Aktualisierung nicht moeglich (" + str(e) +
