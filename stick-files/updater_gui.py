@@ -1153,9 +1153,7 @@ class AudioDownloadDialog:
         tk.Label(self._win, text="Audio-Teilmengen wählen",
                  font=("", 12, "bold")).pack(pady=(12, 2))
         tk.Label(self._win, justify="left", wraplength=600,
-                 text="Angehakte Teilmengen werden geladen (nur was lokal fehlt). "
-                      "Innerhalb angehakter Teilmengen werden lokal vorhandene, "
-                      "aber nicht mehr angebotene Dateien entfernt.").pack(
+                 text="Angehakte Teilmengen werden geladen (nur was lokal fehlt).").pack(
                  padx=14, pady=(0, 6), anchor="w")
 
         # --- Auswahl-Liste (scrollbar) ---
@@ -1181,6 +1179,12 @@ class AudioDownloadDialog:
         self._lbl_summe = tk.Label(self._win, text="Auswahl: 0 Teilmengen · 0 B zu laden",
                                    font=("", 10, "bold"))
         self._lbl_summe.pack(anchor="w", padx=14, pady=(4, 0))
+        # Freier Platz immer sichtbar (nicht nur im Fehlerfall) -- auch bevor
+        # etwas angehakt ist; wird in _summe_aktualisieren mitgepflegt und hier
+        # schon initial gesetzt (braucht die Soll-Liste nicht).
+        self._lbl_platz = tk.Label(self._win, text="", fg="#555")
+        self._lbl_platz.pack(anchor="w", padx=14)
+        self._platz_anzeigen()
         tk.Label(self._win, text="⚠ Der Download kann je nach Auswahl lange dauern.",
                  fg="#a60").pack(anchor="w", padx=14)
 
@@ -1342,6 +1346,19 @@ class AudioDownloadDialog:
         except OSError:
             return -1
 
+    def _platz_anzeigen(self, frei=None):
+        """Setzt die 'Freier Platz'-Zeile (immer sichtbar). frei=None ->
+        selbst ermitteln (initial, vor dem Soll-Laden)."""
+        if frei is None:
+            frei = self._freier_platz()
+        if frei < 0:
+            self._lbl_platz.config(text="Freier Platz: nicht ermittelbar")
+        else:
+            self._lbl_platz.config(
+                text="Freier Platz: " + _menschlich_bytes(frei) +
+                     " (davon " + _menschlich_bytes(AUDIO_PLATZ_RESERVE) +
+                     " Reserve)")
+
     def _summe_aktualisieren(self):
         if not hasattr(self, "_gruppen"):
             return
@@ -1365,11 +1382,13 @@ class AudioDownloadDialog:
             self._lbl_summe.config(text=basis, fg="#000")
         else:
             self._lbl_summe.config(
-                text=basis + "  — zu wenig Platz! frei: " +
-                     _menschlich_bytes(max(0, frei)) + ", nötig inkl. " +
-                     _menschlich_bytes(AUDIO_PLATZ_RESERVE) + " Reserve: " +
-                     _menschlich_bytes(rest_b + AUDIO_PLATZ_RESERVE),
+                text=basis + "  — zu wenig Platz (inkl. " +
+                     _menschlich_bytes(AUDIO_PLATZ_RESERVE) + " Reserve nötig: " +
+                     _menschlich_bytes(rest_b + AUDIO_PLATZ_RESERVE) + ")",
                 fg="#c00")
+
+        # Freier Platz generell anzeigen (immer, unabhaengig von der Auswahl).
+        self._platz_anzeigen(frei)
 
         # Laden-Knopf nur, wenn etwas gewaehlt ist, der Platz reicht und kein
         # Lauf aktiv ist.
