@@ -44,7 +44,22 @@ TROCKEN=0
 
 log() { echo "[firstboot-grow] $*"; }
 
-# --- 0. schon erledigt? -----------------------------------------------------
+# --- 0a. in einer VM? Dann NICHT scharf laufen ------------------------------
+# Der Master wird in einer VM (VirtualBox: systemd-detect-virt -> "oracle")
+# gepflegt; auf echter Hardware liefert es "none". Lief das Skript in der VM
+# scharf durch, wuerde es dort den Marker setzen -- und das daraus gebaute
+# Image kaeme beim Nutzer mit gesetztem Marker an (vergroessert dann nichts).
+# Darum in jeder VM hart aussteigen, OHNE Marker zu setzen. So muss beim
+# Image-Bau nicht daran gedacht werden, den Marker zu entfernen.
+# Ausnahme: --trockenlauf laeuft auch in der VM durch (Test der Ziel-
+# Identifikation), er veraendert ohnehin nichts und setzt keinen Marker.
+VIRT="$(systemd-detect-virt 2>/dev/null || echo none)"
+if [ "$VIRT" != "none" ] && [ "$TROCKEN" -eq 0 ]; then
+    log "Virtualisierung erkannt ($VIRT) -- Master-/VM-Umgebung, KEIN Grow, KEIN Marker."
+    exit 0
+fi
+
+# --- 0b. schon erledigt? ----------------------------------------------------
 if [ -e "$MARKER" ]; then
     log "Marker vorhanden ($MARKER) -- bereits vergroessert, nichts zu tun."
     exit 0

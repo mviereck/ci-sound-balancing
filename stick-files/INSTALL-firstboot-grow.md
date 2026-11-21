@@ -44,18 +44,26 @@ sudo systemctl daemon-reload
 sudo systemctl enable cimbel-firstboot-grow.service
 ```
 
-## WICHTIG vor dem Image-Bau: Marker entfernen
+## Marker vor dem Image-Bau — meist automatisch sauber
 
-Der Grow setzt nach Erfolg den Marker `/var/lib/cimbel/firstboot-grow-done`.
-Lief der Dienst auf dem **Master** schon einmal (z.B. beim Testen), muss der
-Marker vor dem Image-Bau weg — sonst vergrößert sich beim Nutzer nichts:
+Der Grow setzt nach Erfolg den Marker `/var/lib/cimbel/firstboot-grow-done`
+**und** self-disabled den Dienst. Damit das Image nicht mit gesetztem Marker
+ausgeliefert wird (sonst vergrößert sich beim Nutzer nichts), prüft das Skript
+als **allererstes** `systemd-detect-virt`: In der Master-VM (VirtualBox →
+`oracle`) steigt es scharf **ohne** Marker aus. Solange der Master eine VM ist,
+muss also **nichts** von Hand entfernt werden — der VM-Check hält das Image
+automatisch sauber.
+
+**Nur falls du den Dienst scharf auf echter Hardware getestet hast** (dann
+`systemd-detect-virt` = `none` → Marker kann gesetzt/Dienst disabled sein),
+vor dem Image-Bau zurücksetzen:
 
 ```
 sudo rm -f /var/lib/cimbel/firstboot-grow-done
-sudo systemctl enable cimbel-firstboot-grow.service   # self-disable ggf. rückgängig
+sudo systemctl enable cimbel-firstboot-grow.service   # self-disable rückgängig
 ```
 
-Prüfen, dass der Dienst aktiviert und der Marker weg ist:
+Prüfen, dass der Dienst aktiviert und kein Marker da ist:
 
 ```
 systemctl is-enabled cimbel-firstboot-grow.service    # -> enabled
