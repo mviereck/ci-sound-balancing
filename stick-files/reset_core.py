@@ -18,13 +18,13 @@ Sub-Kommandos:
 
 LINK-SICHERHEIT (siehe Konzept_Offline_Stick.md):
 Im home liegen Symlinks auf die NTFS-Datenpartition, u.a.
-  ~/Downloads  -> /mnt/daten/Downloads
-  <Musik>/...  -> /mnt/daten/opus   (12 GB Audio)
-sowie die Datenordner (Dokumente/Bilder/...). Ein rekursives Loeschen, das
-Symlinks FOLGT, wuerde durch diese Links hindurch die persoenlichen Daten
-auf /mnt/daten zerstoeren. Darum wird home nur link-sicher geleert (Links
-als Dateien entfernen, nie ihr Ziel). Der Reset fasst /mnt/daten selbst
-GAR NICHT an -- weder loeschend noch lesend.
+  ~/Downloads  -> /mnt/daten/Nutzerdaten/Downloads
+  <Musik>/...  -> /mnt/daten/cimbel-intern/opus   (12 GB Audio, Stoeber-Link)
+sowie die uebrigen Datenordner (Dokumente/Bilder/... -> Nutzerdaten/). Ein
+rekursives Loeschen, das Symlinks FOLGT, wuerde durch diese Links hindurch
+die persoenlichen Daten auf /mnt/daten zerstoeren. Darum wird home nur
+link-sicher geleert (Links als Dateien entfernen, nie ihr Ziel). Der Reset
+fasst /mnt/daten selbst GAR NICHT an -- weder loeschend noch lesend.
 """
 import argparse
 import os
@@ -122,9 +122,11 @@ def _home_leeren(home, protokoll, ausser=()):
 
 def _home_befuellen(skel, home, protokoll):
     """Kopiert die Werks-Kopie skel -> home. Symlinks werden als Symlinks
-    uebernommen (symlinks=True), damit ~/Downloads -> /mnt/daten/Downloads und
-    der Musik-Link -> /mnt/daten/opus nach dem Zuruecksetzen wieder da sind
-    (NICHT ihre Ziele kopieren). Versteckte Dateien (.mozilla, .config, ...)
+    uebernommen (symlinks=True), damit die XDG-Datenordner-Links (nach
+    Nutzerdaten/) und der Opus-Stoeber-Link (nach cimbel-intern/opus) nach
+    dem Zuruecksetzen wieder da sind (NICHT ihre Ziele kopieren). Die
+    restlichen /mnt/daten-Treffer in diesem Modul sind erklaerende Kommentare.
+    Versteckte Dateien (.mozilla, .config, ...)
     sind normale iterdir-Eintraege und werden mitkopiert. Idempotent:
     dirs_exist_ok=True erlaubt das Schreiben in den noch bestehenden home-
     Ordner und einen Wiederholungslauf nach Abbruch."""

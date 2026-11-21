@@ -27,7 +27,7 @@ import pico_core
 STICK_ROOT = update_core.DEF_STICK_ROOT
 OPUS_ROOT = update_core.DEF_OPUS_ROOT
 WEBSPACE = update_core.DEF_WEBSPACE
-REPO_ROOT = "/mnt/daten/git/ci-sound-balancing"
+REPO_ROOT = "/mnt/daten/cimbel-intern/git/ci-sound-balancing"
 LOKALE_VERSION = REPO_ROOT + "/js/version.js"
 PROD_VERSION_URL = "https://www.ci-sound-balancing.org/js/version.js"
 CORE_PY = str(Path(__file__).resolve().parent / "update_core.py")
@@ -49,7 +49,7 @@ APT_LISTS_DIR = "/var/lib/apt/lists"
 # eira-Hash ab und ein eira-Update wird angeboten. Die Quelle wird mit dem
 # Stick ausgeliefert und ist immer vorhanden; es gibt keinen Neuklon-/Reparatur-
 # Weg (der Updater aktualisiert, er repariert nicht).
-EIRA_CLONE = "/mnt/daten/git/eira-RaspberryPi-fork"
+EIRA_CLONE = "/mnt/daten/cimbel-intern/git/eira-RaspberryPi-fork"
 EIRA_INSTALLER = EIRA_CLONE + "/installer_x86.sh"
 
 

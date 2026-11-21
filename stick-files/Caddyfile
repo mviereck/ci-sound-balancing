@@ -10,7 +10,7 @@
 
 :9000 {
       bind 127.0.0.1 ::1
-      root * /mnt/daten/git/ci-sound-balancing
+      root * /mnt/daten/cimbel-intern/git/ci-sound-balancing
       file_server
 
       # Stick-Kennung: eigener Response-Header, an dem CImbel erkennt, dass es
@@ -19,7 +19,7 @@
       header X-CImbel-Stick "1"
 
       handle_path /opus/* {
-              root * /mnt/daten/opus
+              root * /mnt/daten/cimbel-intern/opus
               file_server
       }
 }

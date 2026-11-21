@@ -20,7 +20,7 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 
 WEBSPACE = "https://www.ci-sound-balancing.org/pico-asha/"
-LOKAL = "/mnt/daten/pico-asha"            # Satz-Dateien + behaltene Artefakte
+LOKAL = "/mnt/daten/cimbel-intern/pico-asha"   # Satz-Dateien + behaltene Artefakte
 VERSIONSDATEI = "picoasha-version.json"   # liegt im Webspace UND in LOKAL
 GUI_AKTIV = "PicoASHAGui-aktuell"         # fester Startpfad (Kopie, kein Symlink)
 PA_CLI = str(Path(__file__).resolve().parent / "pa_cli")  # Qt-Konsolentool (neben diesem Skript in stick-files/)

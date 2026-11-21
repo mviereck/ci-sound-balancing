@@ -13,8 +13,8 @@ import sys
 import urllib.request
 from pathlib import Path
 
-DEF_STICK_ROOT = "/mnt/daten/git/ci-sound-balancing/stick-files"
-DEF_OPUS_ROOT = "/mnt/daten/opus"
+DEF_STICK_ROOT = "/mnt/daten/cimbel-intern/git/ci-sound-balancing/stick-files"
+DEF_OPUS_ROOT = "/mnt/daten/cimbel-intern/opus"
 DEF_WEBSPACE = "https://www.ci-sound-balancing.org/opus/"
 
 # Schrumpf-Schutz: loescht audio-sync mehr als diesen Anteil der lokal
