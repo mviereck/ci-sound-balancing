@@ -391,6 +391,64 @@ def cmd_audio_sync(args):
     return 0
 
 
+def teilmenge_umfang(opus_root, praefix):
+    """Lokaler Umfang einer Teilmenge: (anzahl, bytes) der Dateien unter praefix
+    laut vorhanden.txt. Fuer die Loeschen-Bestaetigung (was wird frei?). Liest
+    nur die Liste, kein Scan."""
+    ist = _lies_vorhanden(opus_root)
+    n = b = 0
+    for pfad, groesse in ist.items():
+        if pfad.startswith(praefix):
+            n += 1
+            b += groesse
+    return n, b
+
+
+def teilmenge_loeschen(opus_root, praefix):
+    """Loescht ALLE lokal vorhandenen Dateien unter praefix (aus vorhanden.txt),
+    schreibt vorhanden.txt inkrementell fort. Gibt (geloescht, bytes_frei)
+    zurueck. Rein lokal, kein Netz. Ein nicht loeschbarer Pfad (schon weg o.ae.)
+    wird uebersprungen, bleibt aber aus der Liste entfernt (er ist ja nicht
+    mehr da). Platzschaffen auf Nutzerwunsch -- KEIN Schrumpf-Schutz (anders als
+    audio_sync, wo Loeschen ein Nebeneffekt des Abgleichs ist)."""
+    opus_root = Path(opus_root)
+    ist = _lies_vorhanden(opus_root)
+    zu_loeschen = [p for p in ist if p.startswith(praefix)]
+    bytes_frei = 0
+    for pfad in zu_loeschen:
+        bytes_frei += ist[pfad]
+        try:
+            (opus_root / pfad).unlink()
+        except OSError:
+            pass                                  # schon weg -> trotzdem aus Liste
+    _leere_ordner_aufraeumen(opus_root, praefix)
+    neu = {p: g for p, g in ist.items() if not p.startswith(praefix)}
+    _schreibe_vorhanden_aus_dict(opus_root, neu)
+    return len(zu_loeschen), bytes_frei
+
+
+def _leere_ordner_aufraeumen(opus_root, praefix):
+    """Entfernt leere Verzeichnisse unter opus_root/praefix nach dem Loeschen
+    (von innen nach aussen), damit keine leeren Ordner-Gerippe zurueckbleiben.
+    opus_root selbst bleibt immer stehen. Nicht-leere Ordner und Fehler werden
+    uebersprungen."""
+    opus_root = Path(opus_root)
+    basis = opus_root / praefix.rstrip("/")
+    if not basis.is_dir():
+        return
+    # Tiefste zuerst (reverse sort nach Pfadtiefe), damit Eltern danach leer sind.
+    for d in sorted(basis.rglob("*"), key=lambda p: len(p.parts), reverse=True):
+        if d.is_dir():
+            try:
+                d.rmdir()                         # rmdir entfernt NUR leere Ordner
+            except OSError:
+                pass
+    try:
+        basis.rmdir()
+    except OSError:
+        pass
+
+
 # ---------------------------------------------------------------- vorhanden.txt
 
 def _schreibe_vorhanden_aus_dict(opus_root, bestand):

@@ -20,6 +20,7 @@ import tempfile
 import urllib.request
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
 from pathlib import Path
 
 import update_core
@@ -1172,7 +1173,9 @@ class AudioDownloadDialog:
         # Checkbox-Zustand + Label-Widgets je Praefix (fuer Groessen-Nachtrag).
         self._var = {}              # praefix -> tk.BooleanVar
         self._eltern = {}           # eltern-praefix -> [kind-praefix, ...]
-        self._groessen_lbl = {}     # praefix -> Label (Groesse/Rest)
+        self._groessen_lbl = {}     # praefix -> (Groesse-Label, Status-Label)
+        self._del_btn = {}          # praefix -> Muelleimer-Knopf
+        self._label = {}            # praefix -> lesbares Label (fuer Dialoge)
         self._zeilen_bauen()
 
         # --- Summenzeile + Warnhinweis ---
@@ -1234,6 +1237,7 @@ class AudioDownloadDialog:
     def _zeile(self, parent, praefix, label, beschr, einzug, ist_eltern):
         var = tk.BooleanVar(value=False)
         self._var[praefix] = var
+        self._label[praefix] = label
         zeile = tk.Frame(parent)
         zeile.pack(fill="x", anchor="w")
         cb = tk.Checkbutton(zeile, text=label, variable=var,
@@ -1245,6 +1249,15 @@ class AudioDownloadDialog:
         # die Groesse. Zwei Labels, weil 'vollstaendig' und 'zu laden' verschiedene
         # Farben tragen (Variante A: Vollstaendiges tritt grau zurueck, der zu
         # ladende Rest sticht blau-fett hervor). Text folgt nach _groessen_laden_bg.
+        # Muelleimer-Knopf ganz rechts: loescht die lokal vorhandenen Dateien
+        # dieser Teilmenge (Platz schaffen). Nur aktiv, wenn lokal etwas vorliegt
+        # -- Zustand setzt _groessen_anzeigen (soll - rest > 0). Bei M-AILABS-
+        # Eltern loescht er alle Sprecher-Kinder.
+        btn_del = tk.Button(zeile, text="🗑", width=2,
+                            command=lambda p=praefix: self._loeschen_anfrage(p),
+                            state="disabled")
+        btn_del.pack(side="right", padx=(6, 8))
+        self._del_btn[praefix] = btn_del
         lbl_status = tk.Label(zeile, text="")
         lbl_status.pack(side="right", padx=(0, 8))
         lbl_groesse = tk.Label(zeile, text="…", fg="#333")
@@ -1310,6 +1323,12 @@ class AudioDownloadDialog:
                 g = self._gruppen.get(praefix, (0, 0, 0, 0))
                 sb, rb = g[0], g[2]
             self._zeile_fuellen(lbl_groesse, lbl_status, sb, rb)
+            # Muelleimer nur aktiv, wenn lokal etwas vorliegt (soll - rest > 0),
+            # und kein Lauf aktiv. Fehlt die Teilmenge ganz, gibt es nichts zu
+            # loeschen -> Knopf grau.
+            vorhanden_b = sb - rb
+            zustand = "normal" if (vorhanden_b > 0 and not self._aktiv) else "disabled"
+            self._del_btn[praefix].config(state=zustand)
         self._log("Größenübersicht geladen.")
         self._summe_aktualisieren()
 
@@ -1412,11 +1431,15 @@ class AudioDownloadDialog:
         self._aktiv = True
         for b in (self._btn_laden, self._btn_rescan):
             b.config(state="disabled")
+        for b in self._del_btn.values():
+            b.config(state="disabled")
 
     def _lauf_beenden(self):
         self._aktiv = False
         self._btn_rescan.config(state="normal")
         self._summe_aktualisieren()       # setzt Laden-Knopf nach Auswahl
+        # Die Muelleimer-Knoepfe setzt _groessen_anzeigen nach dem folgenden
+        # _groessen_laden_bg neu (aus dem aktualisierten lokalen Bestand).
 
     # -------- Aktionen
 
@@ -1469,6 +1492,41 @@ class AudioDownloadDialog:
             return
         self._log("Bestand neu erfasst.")
         self._ui(self._lauf_beenden)
+        threading.Thread(target=self._groessen_laden_bg, daemon=True).start()
+
+    def _loeschen_anfrage(self, praefix):
+        """Muelleimer-Knopf: fragt nach und loescht dann die lokal vorhandenen
+        Dateien der Teilmenge (Platz schaffen). praefix loescht alles darunter --
+        bei M-AILABS-Eltern also alle Sprecher-Kinder."""
+        n, b = update_core.teilmenge_umfang(OPUS_ROOT, praefix)
+        if n == 0:
+            return                                # nichts lokal (Knopf sollte eh grau sein)
+        label = self._label.get(praefix, praefix)
+        if not messagebox.askyesno(
+                "Teilmenge löschen",
+                "„" + label + "“ lokal löschen?\n\n" +
+                str(n) + " Dateien werden entfernt, " + _menschlich_bytes(b) +
+                " werden frei.\n\nDie Dateien können später wieder "
+                "heruntergeladen werden.",
+                icon="warning", parent=self._win):
+            return
+        self._lauf_beginnen()
+        self._log("Lösche „" + label + "“ ...")
+        threading.Thread(target=self._loeschen_bg, args=(praefix, label),
+                         daemon=True).start()
+
+    def _loeschen_bg(self, praefix, label):
+        try:
+            geloescht, frei = update_core.teilmenge_loeschen(OPUS_ROOT, praefix)
+        except Exception as e:
+            self._log("Löschen fehlgeschlagen: " + str(e), fehler=True)
+            self._ui(self._lauf_beenden)
+            return
+        self._log("„" + label + "“ gelöscht: " + str(geloescht) +
+                  " Dateien, " + _menschlich_bytes(frei) + " frei.")
+        self._ui(self._lauf_beenden)
+        # Groessen/Rest + Muelleimer-Zustaende + Platzzeile neu (liest die frisch
+        # fortgeschriebene vorhanden.txt, kein Scan).
         threading.Thread(target=self._groessen_laden_bg, daemon=True).start()
 
     def _schliessen(self):
