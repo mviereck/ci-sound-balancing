@@ -12,6 +12,7 @@ import sys
 import json
 import fcntl
 import hashlib
+import shutil
 import threading
 import subprocess
 import time
@@ -51,6 +52,12 @@ APT_LISTS_DIR = "/var/lib/apt/lists"
 # Weg (der Updater aktualisiert, er repariert nicht).
 EIRA_CLONE = "/mnt/daten/cimbel-intern/git/eira-RaspberryPi-fork"
 EIRA_INSTALLER = EIRA_CLONE + "/installer_x86.sh"
+
+# Harte Platz-Reserve: so viel freier Platz MUSS auf der Opus-Partition nach
+# einem Audio-Download uebrig bleiben -- fuer CImbel-Updates (git pull) und
+# gespeicherte CImbel-Nutzerdaten. Ein Download, der diese Reserve unterschreiten
+# wuerde, wird gesperrt (Live-Warnung im Audio-Fenster).
+AUDIO_PLATZ_RESERVE = 750 * 1024 * 1024        # 750 MiB
 
 # --- Audio-Teilmengen (statische Landkarte des Opus-Bestands) ---
 # Der Nutzer waehlt im Audio-Download-Fenster, welche Teilmengen er laden will.
@@ -261,7 +268,7 @@ class UpdaterGUI:
         # per Checkbox, welche Teilmengen (Ordner, M-AILABS nach Sprechern) er
         # laden will, mit Groessen-/Rest-Anzeige. Oeffnen sperrt alle Knoepfe
         # (eigenes Toplevel wie der Pico-Dialog), Schliessen gibt sie frei.
-        self.btn_audio = tk.Button(self._bereich_audio, text="Audios verwalten …",
+        self.btn_audio = tk.Button(self._bereich_audio, text="Audios für Offline-Betrieb herunterladen",
                                    command=self._audio_fenster_oeffnen, state="disabled")
         self.btn_audio.pack(side="right")
 
@@ -455,7 +462,7 @@ class UpdaterGUI:
         """Audio-Knopf freigeben: online einfach waehlbar (oeffnet das
         Audio-Download-Fenster), kein Scan noetig. Im Tk-Thread aufrufen; der
         Status-Recheck ruft diese Methode nur im Online-Zweig."""
-        self.btn_audio.config(text="Audios verwalten …",
+        self.btn_audio.config(text="Audios für Offline-Betrieb herunterladen",
                               command=self._audio_fenster_oeffnen, state="normal")
 
     # ------------------------------------------------- CImbel
@@ -1230,10 +1237,15 @@ class AudioDownloadDialog:
         cb.pack(side="left", padx=(einzug, 0))
         if beschr:
             tk.Label(zeile, text="– " + beschr, fg="#666").pack(side="left", padx=(2, 0))
-        # Groesse/Rest rechtsbuendig -- Text folgt, wenn _groessen_laden_bg fertig.
-        lbl = tk.Label(zeile, text="…", fg="#333")
-        lbl.pack(side="right", padx=(0, 8))
-        self._groessen_lbl[praefix] = lbl
+        # Rechtsbuendig zwei Labels: Status (Haekchen bzw. "zu laden") und davor
+        # die Groesse. Zwei Labels, weil 'vollstaendig' und 'zu laden' verschiedene
+        # Farben tragen (Variante A: Vollstaendiges tritt grau zurueck, der zu
+        # ladende Rest sticht blau-fett hervor). Text folgt nach _groessen_laden_bg.
+        lbl_status = tk.Label(zeile, text="")
+        lbl_status.pack(side="right", padx=(0, 8))
+        lbl_groesse = tk.Label(zeile, text="…", fg="#333")
+        lbl_groesse.pack(side="right", padx=(0, 6))
+        self._groessen_lbl[praefix] = (lbl_groesse, lbl_status)
 
     # -------- Groessen/Rest
 
@@ -1273,19 +1285,27 @@ class AudioDownloadDialog:
                 sb += g[0]; sn += g[1]; rb += g[2]; rn += g[3]
         return sb, sn, rb, rn
 
-    def _zeile_text(self, soll_b, rest_b):
+    def _zeile_fuellen(self, lbl_groesse, lbl_status, soll_b, rest_b):
+        """Variante A: vollstaendig -> gruenes Haekchen + alles grau (tritt
+        zurueck); unvollstaendig -> Groesse neutral, 'zu laden' blau-fett
+        (sticht hervor, lenkt den Blick auf die offenen Zeilen)."""
         if rest_b <= 0:
-            return _menschlich_bytes(soll_b) + "  (vollständig)"
-        return _menschlich_bytes(soll_b) + "  · " + _menschlich_bytes(rest_b) + " zu laden"
+            lbl_groesse.config(text=_menschlich_bytes(soll_b), fg="#999")
+            lbl_status.config(text="✓ vollständig", fg="#2a8a2a",
+                              font=("", 9))
+        else:
+            lbl_groesse.config(text=_menschlich_bytes(soll_b), fg="#333")
+            lbl_status.config(text="· " + _menschlich_bytes(rest_b) + " zu laden",
+                              fg="#1565c0", font=("", 9, "bold"))
 
     def _groessen_anzeigen(self):
-        for praefix, lbl in self._groessen_lbl.items():
+        for praefix, (lbl_groesse, lbl_status) in self._groessen_lbl.items():
             if praefix in self._eltern:
                 sb, _, rb, _ = self._eltern_summe(praefix)
             else:
                 g = self._gruppen.get(praefix, (0, 0, 0, 0))
                 sb, rb = g[0], g[2]
-            lbl.config(text=self._zeile_text(sb, rb))
+            self._zeile_fuellen(lbl_groesse, lbl_status, sb, rb)
         self._log("Größenübersicht geladen.")
         self._summe_aktualisieren()
 
@@ -1313,6 +1333,15 @@ class AudioDownloadDialog:
                 praefixe.append(praefix)
         return praefixe
 
+    def _freier_platz(self):
+        """Freier Platz auf der Opus-Partition (Bytes). -1, wenn nicht
+        ermittelbar (dann keine Platz-Sperre -- der Download laeuft ins
+        Dateisystem-Limit, besser als faelschlich sperren)."""
+        try:
+            return shutil.disk_usage(OPUS_ROOT).free
+        except OSError:
+            return -1
+
     def _summe_aktualisieren(self):
         if not hasattr(self, "_gruppen"):
             return
@@ -1322,11 +1351,29 @@ class AudioDownloadDialog:
             g = self._gruppen.get(p)
             if g:
                 rest_b += g[2]
-        self._lbl_summe.config(
-            text="Auswahl: " + str(len(praefixe)) + " Teilmengen · " +
+
+        # Live-Platzpruefung: der zu ladende REST (Vorhandenes belegt den Platz
+        # schon) plus die harte Reserve muss in den freien Platz passen. Passt es
+        # nicht -> Summenzeile rot, Laden gesperrt (Warnung schon beim Anhaken).
+        # Nur relevant, wenn ueberhaupt etwas zu laden ist (rest_b > 0) -- bei
+        # Rest 0 wird nichts geschrieben, also keine Reserve-Sperre.
+        frei = self._freier_platz()
+        passt = (rest_b == 0) or frei < 0 or (rest_b + AUDIO_PLATZ_RESERVE) <= frei
+        basis = ("Auswahl: " + str(len(praefixe)) + " Teilmengen · " +
                  _menschlich_bytes(rest_b) + " zu laden")
-        # Laden-Knopf nur, wenn etwas gewaehlt ist (und kein Lauf aktiv).
-        if praefixe and not self._aktiv:
+        if passt:
+            self._lbl_summe.config(text=basis, fg="#000")
+        else:
+            self._lbl_summe.config(
+                text=basis + "  — zu wenig Platz! frei: " +
+                     _menschlich_bytes(max(0, frei)) + ", nötig inkl. " +
+                     _menschlich_bytes(AUDIO_PLATZ_RESERVE) + " Reserve: " +
+                     _menschlich_bytes(rest_b + AUDIO_PLATZ_RESERVE),
+                fg="#c00")
+
+        # Laden-Knopf nur, wenn etwas gewaehlt ist, der Platz reicht und kein
+        # Lauf aktiv ist.
+        if praefixe and passt and not self._aktiv:
             self._btn_laden.config(state="normal")
         else:
             self._btn_laden.config(state="disabled")
