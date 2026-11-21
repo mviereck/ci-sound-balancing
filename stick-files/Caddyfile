@@ -1,0 +1,29 @@
+# The Caddyfile is an easy way to configure your Caddy web server.
+#
+# Unless the file starts with a global options block, the first
+# uncommented line is always the address of your site.
+#
+# To use your own domain name (with automatic HTTPS), first make
+# sure your domain's A/AAAA DNS records are properly pointed to
+# this machine's public IP, then replace ":80" below with your
+# domain name.
+
+:9000 {
+      bind 127.0.0.1 ::1
+      root * /mnt/daten/git/ci-sound-balancing
+      file_server
+
+      # Stick-Kennung: eigener Response-Header, an dem CImbel erkennt, dass es
+      # vom lokalen Stick-Server ausgeliefert wird (nicht vom Webspace). Nur
+      # dann läuft der absolute Versionscheck gegen die Produktion.
+      header X-CImbel-Stick "1"
+
+      handle_path /opus/* {
+              root * /mnt/daten/opus
+              file_server
+      }
+}
+
+# Refer to the Caddy docs for more information:
+# https://caddyserver.com/docs/caddyfile
+
