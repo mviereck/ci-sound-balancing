@@ -1,0 +1,24 @@
+[Unit]
+Description=CImbel Stick: Datenpartition beim ersten Boot auf volle Stickgroesse vergroessern
+# Erst laufen, wenn das Dateisystem-Setup steht (das Skript unmountet
+# /mnt/daten selbst fuer den ntfsresize). Vor dem grafischen Login, damit
+# der Nutzer nichts davon merkt.
+After=local-fs.target
+Before=display-manager.service
+# Nur ausfuehren, solange der Erfolgs-Marker fehlt -- doppelte Absicherung
+# zusaetzlich zum Skript-internen Marker-Check und zum self-disable.
+ConditionPathExists=!/var/lib/cimbel/firstboot-grow-done
+
+[Service]
+Type=oneshot
+# WICHTIG: Das Skript liegt auf der ext4-Systempartition, NICHT auf
+# /mnt/daten -- denn es unmountet /mnt/daten fuer den ntfsresize und wuerde
+# sich sonst den eigenen Boden entziehen. Beim Image-Bau nach
+# /usr/local/sbin/ kopieren (s. INSTALL-firstboot-grow.md).
+ExecStart=/usr/local/sbin/cimbel-firstboot-grow.sh
+# Fehlschlag darf den Boot nicht blockieren (der Stick ist auch ohne
+# Vergroesserung nutzbar, nur evtl. mit weniger Platz).
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target
