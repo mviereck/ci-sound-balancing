@@ -1147,7 +1147,7 @@ class AudioDownloadDialog:
 
         self._win = tk.Toplevel(parent)
         self._win.title("Audios verwalten")
-        self._win.geometry("640x620")
+        self._win.geometry("670x620")
         self._win.protocol("WM_DELETE_WINDOW", self._schliessen)
 
         tk.Label(self._win, text="Audio-Teilmengen wählen",
