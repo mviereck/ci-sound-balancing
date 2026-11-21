@@ -1324,11 +1324,12 @@ class AudioDownloadDialog:
                 sb, rb = g[0], g[2]
             self._zeile_fuellen(lbl_groesse, lbl_status, sb, rb)
             # Muelleimer nur aktiv, wenn lokal etwas vorliegt (soll - rest > 0),
-            # und kein Lauf aktiv. Fehlt die Teilmenge ganz, gibt es nichts zu
-            # loeschen -> Knopf grau.
+            # kein Lauf aktiv, und die Teilmenge NICHT geschuetzt ist (Hagermann
+            # darf nie geloescht werden -- fuer den CImbel-Sprachtest noetig).
             vorhanden_b = sb - rb
-            zustand = "normal" if (vorhanden_b > 0 and not self._aktiv) else "disabled"
-            self._del_btn[praefix].config(state=zustand)
+            darf = (vorhanden_b > 0 and not self._aktiv
+                    and not update_core._ist_geschuetzt(praefix))
+            self._del_btn[praefix].config(state="normal" if darf else "disabled")
         self._log("Größenübersicht geladen.")
         self._summe_aktualisieren()
 

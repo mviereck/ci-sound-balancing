@@ -22,6 +22,18 @@ DEF_WEBSPACE = "https://www.ci-sound-balancing.org/opus/"
 # wie der Builder-Nachlauf verify_local_audio.
 LOESCH_SCHWELLE = 0.5
 
+# Harter Loesch-Schutz: Dateien unter diesen Praefixen werden NIE geloescht --
+# weder per Muelleimer (teilmenge_loeschen) noch als Nebeneffekt des Abgleichs
+# (audio_sync verwaist-Loeschen). Laden/Aktualisieren bleibt erlaubt. Grund:
+# die Hagermann-Testsaetze werden fuer den CImbel-Sprachtest gebraucht; ein
+# versehentliches Loeschen wuerde den Test unbrauchbar machen. Der Schutz sitzt
+# im Kern (eine Stelle), nicht nur in der GUI -- jeder Loeschweg respektiert ihn.
+GESCHUETZTE_PRAEFIXE = ("testsaetze-hagermann/",)
+
+
+def _ist_geschuetzt(pfad):
+    return any(pfad.startswith(p) for p in GESCHUETZTE_PRAEFIXE)
+
 
 def _expand(ziel):
     """~ expandieren (home-Bereich)."""
@@ -349,8 +361,10 @@ def audio_sync(opus_root, webspace, fortschritt=None, praefixe=None):
         geladen_pfade[pfad] = groesse
 
     # Verwaist = lokal da, nicht in Soll -- im Filterfall nur unter den Praefixen.
+    # Geschuetzte Praefixe (Hagermann) nie als verwaist loeschen.
     verwaist = [p for p in ist
-                if p not in soll and _unter_praefix(p, praefixe)]
+                if p not in soll and _unter_praefix(p, praefixe)
+                and not _ist_geschuetzt(p)]
     if verwaist:
         # Schrumpf-Schutz relativ zum betrachteten Bestand: ohne Filter der
         # ganze Ist-Bestand, mit Filter nur der Teil unter den Praefixen.
@@ -410,10 +424,17 @@ def teilmenge_loeschen(opus_root, praefix):
     zurueck. Rein lokal, kein Netz. Ein nicht loeschbarer Pfad (schon weg o.ae.)
     wird uebersprungen, bleibt aber aus der Liste entfernt (er ist ja nicht
     mehr da). Platzschaffen auf Nutzerwunsch -- KEIN Schrumpf-Schutz (anders als
-    audio_sync, wo Loeschen ein Nebeneffekt des Abgleichs ist)."""
+    audio_sync, wo Loeschen ein Nebeneffekt des Abgleichs ist).
+
+    Geschuetzte Praefixe (Hagermann) werden NIE geloescht: ist praefix selbst
+    geschuetzt -> ValueError (der Aufrufer darf ihn gar nicht schicken); umfasst
+    ein grober praefix geschuetzte Pfade mit, bleiben diese verschont."""
+    if _ist_geschuetzt(praefix):
+        raise ValueError("geschuetzte Teilmenge, loeschen nicht erlaubt: " + praefix)
     opus_root = Path(opus_root)
     ist = _lies_vorhanden(opus_root)
-    zu_loeschen = [p for p in ist if p.startswith(praefix)]
+    zu_loeschen = [p for p in ist
+                   if p.startswith(praefix) and not _ist_geschuetzt(p)]
     bytes_frei = 0
     for pfad in zu_loeschen:
         bytes_frei += ist[pfad]
@@ -422,7 +443,11 @@ def teilmenge_loeschen(opus_root, praefix):
         except OSError:
             pass                                  # schon weg -> trotzdem aus Liste
     _leere_ordner_aufraeumen(opus_root, praefix)
-    neu = {p: g for p, g in ist.items() if not p.startswith(praefix)}
+    # Nur die tatsaechlich geloeschten Pfade aus der Liste nehmen -- geschuetzte
+    # Pfade unter einem groben praefix bleiben erhalten (rmdir laesst ihren
+    # nicht-leeren Ordner ohnehin stehen).
+    entfernt = set(zu_loeschen)
+    neu = {p: g for p, g in ist.items() if p not in entfernt}
     _schreibe_vorhanden_aus_dict(opus_root, neu)
     return len(zu_loeschen), bytes_frei
 
