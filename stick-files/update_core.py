@@ -349,6 +349,12 @@ def audio_sync(opus_root, webspace, fortschritt=None, praefixe=None):
     unter den gewaehlten Praefixen geladen UND nur dort Verwaistes geloescht --
     nie ausserhalb der Auswahl (Rueckruf bleibt teilmengen-gebunden). Der
     Schrumpf-Schutz bezieht sich auf den Ist-Bestand UNTER den Praefixen."""
+    # Opus-Ordner + Marker-Datei zuerst sicherstellen: fehlt der Ordner ganz
+    # (vom Nutzer geloescht), wuerde _ist_bestand -> _schreibe_vorhanden auf einem
+    # nicht existenten Ordner scheitern. _ensure_opus_ping legt opus_root (und
+    # opus.ping) an -> ein geloeschter Opus-Ordner wird vom Sync selbst
+    # wiederhergestellt und die Audios frisch geladen.
+    _ensure_opus_ping(opus_root)
     soll = _lade_soll(webspace)
     if not soll:
         raise ValueError("Soll-Liste leer oder nicht erreichbar")
@@ -393,6 +399,7 @@ def audio_sync(opus_root, webspace, fortschritt=None, praefixe=None):
     for pfad in verwaist:
         neu.pop(pfad, None)
     _schreibe_vorhanden_aus_dict(opus_root, neu)
+    # opus.ping ist bereits am Anfang sichergestellt (bleibt bestehen).
     return geladen, len(verwaist)
 
 
@@ -585,6 +592,23 @@ def cmd_bundle_sync(args):
 
 # ---------------------------------------------------------------- vorhanden.txt
 
+def _ensure_opus_ping(opus_root):
+    """Legt die leere Marker-Datei opus/opus.ping an, falls sie fehlt. CImbel
+    erkennt am (relativen) HEAD-Abruf dieser Datei, dass ein LOKALER Opus-Bestand
+    neben dem Tool liegt, und laedt die Audios dann relativ (lokaler Caddy) statt
+    absolut vom Webspace (js/audio-source.js, _amLocalOpusProbe). Die Datei muss
+    in JEDER Opus-Kopie liegen; sie wird von keinem anderen Schritt erzeugt, darum
+    hier -- jeder, der den lokalen Opus-Ordner pflegt (Sync, Voll-Scan), stellt
+    sie sicher. Idempotent."""
+    try:
+        p = Path(opus_root) / "opus.ping"
+        if not p.exists():
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.touch()
+    except OSError:
+        pass   # darf den Sync nicht scheitern lassen
+
+
 def _schreibe_vorhanden_aus_dict(opus_root, bestand):
     """Schreibt opus/vorhanden.txt aus einem fertigen dict relpfad->groesse:
     je Zeile `relpfad<TAB>groesse`, alphabetisch nach Pfad. Gemeinsamer
@@ -609,10 +633,11 @@ def _schreibe_vorhanden(opus_root):
         if not p.is_file():
             continue
         rel = p.relative_to(opus_root).as_posix()
-        if rel in ("vorhanden.txt", "soll-items.txt"):
-            continue   # die Steuerdateien selbst nicht listen
+        if rel in ("vorhanden.txt", "soll-items.txt", "opus.ping"):
+            continue   # die Steuer-/Marker-Dateien selbst nicht listen
         bestand[rel] = p.stat().st_size
     _schreibe_vorhanden_aus_dict(opus_root, bestand)
+    _ensure_opus_ping(opus_root)
 
 
 def cmd_vorhanden(args):
