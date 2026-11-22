@@ -15,10 +15,13 @@
 !.htaccess
 !.nojekyll
 
-# Lokaler FTP-Ablageordner: hier liegen grosse Dateien, die NICHT ins git-Repo
-# gehoeren (Hoerbuch-Texte .txt.gz), sondern per FTP ins Webspace-Wurzel-
-# verzeichnis geladen werden. Der fuehrende Punkt haelt sie aus git heraus und
-# dient zugleich als Merker "muss ich hochladen". Bleibt lokal.
+# Lokaler FTP-Ablageordner: grosse Dateien, die NICHT ins git-Repo gehoeren
+# (sie blaehten Arbeitsbaum UND .git auf), sondern per FTP ins Webspace-Wurzel-
+# verzeichnis (neben index.html) geladen werden -- aktuell: hoerbuch-texte/
+# (.txt.gz, lazy nachgeladen), audio.bundle/ (Manifest-Buendel + bundle-soll.txt,
+# Stick-Buendel-Sync), v0.5/ (archivierte Alt-Version, nur im Web erreichbar).
+# Der fuehrende Punkt haelt alles aus git heraus und dient zugleich als Merker
+# "muss ich hochladen". Bleibt lokal.
 .assets_ftp/
 
 # Backups und lokales Arbeitsmaterial
