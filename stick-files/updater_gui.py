@@ -26,6 +26,7 @@ from pathlib import Path
 import update_core
 import pico_core
 import reset_core
+import passwort_core
 
 STICK_ROOT = update_core.DEF_STICK_ROOT
 OPUS_ROOT = update_core.DEF_OPUS_ROOT
@@ -438,6 +439,17 @@ class UpdaterGUI:
                                    command=self._reset_fenster_oeffnen)
         self.btn_reset.pack(side="right")
 
+        # Paßwort: eingebetteter Toplevel-Dialog (PasswortDialog) mit Erklaerung,
+        # Feldern (alt/neu/neu) und „Auge"-Sichtbarkeit. Der Status leitet sich
+        # aus einem Echttest ab (gilt noch das Default-Paßwort „cimbel"?), der
+        # netz-unabhaengig im Status-Recheck laeuft. Immer anwaehlbar (nur die
+        # Aktionssperre graut den Knopf kurz).
+        self.lbl_passwort, _kf = _zeile("Paßwort")
+        self.lbl_passwort.config(text="...")
+        self.btn_passwort = tk.Button(_kf, text="Paßwort ändern",
+                                      command=self._passwort_fenster_oeffnen)
+        self.btn_passwort.pack(side="right")
+
         # --- Rechte Spalte: Log (fuellt die Hoehe) + Kopieren-Knopf darunter.
         #     Keine eigene Statuszeile -- alle Meldungen gehen ins Log.
         rechts = tk.Frame(mitte)
@@ -495,7 +507,7 @@ class UpdaterGUI:
         return [self.btn_cimbel, self.btn_eira, self.btn_audio, self.btn_system,
                 self.btn_system_upgrade, self.btn_pico, self.btn_pico_force,
                 self.btn_cimbel_reparieren, self.btn_eira_reparieren,
-                self.btn_reset]
+                self.btn_reset, self.btn_passwort]
 
     def _aktion_beginnen(self):
         """Sperrt alle Aktions-Knoepfe. MUSS im Tk-Thread laufen (von dort
@@ -529,6 +541,10 @@ class UpdaterGUI:
         self._ui(lambda: self.btn_eira_reparieren.config(state="normal"))
         # Desktop-Reset ist netz-unabhaengig und immer anwaehlbar (Reparatur).
         self._ui(lambda: self.btn_reset.config(state="normal"))
+        # Paßwort ist netz-unabhaengig und immer anwaehlbar; der Statustext wird
+        # aus dem Echttest (Default-Paßwort noch aktiv?) abgeleitet.
+        self._ui(lambda: self.btn_passwort.config(state="normal"))
+        self._passwort_status()      # netz-unabhaengig (lokaler sudo-Test)
         self._pico_status()          # netz-unabhaengig (USB)
         if not self.online:
             return
@@ -987,6 +1003,31 @@ class UpdaterGUI:
         self._aktion_beginnen()
         ResetDialog(self.root, nach_schliessen_cb=self._aktion_beenden,
                     log=self._log)
+
+    # ------------------------------------------------- Paßwort (eigenes Fenster)
+
+    def _passwort_status(self):
+        """Statustext der Paßwort-Zeile aus dem Echttest ableiten: gilt noch das
+        Default-Paßwort „cimbel"? Der Test (sudo -S -k true) ist netz-unabhaengig
+        und laeuft im Hintergrund-Thread (kann kurz dauern). Fordert bei aktivem
+        Default-Paßwort zur Aenderung auf, sonst neutrale Bestaetigung."""
+        def _bg():
+            if passwort_core.default_passwort_aktiv():
+                self._ui(lambda: self.lbl_passwort.config(
+                    text="Standard-Paßwort noch aktiv – bitte ändern"))
+            else:
+                self._ui(lambda: self.lbl_passwort.config(
+                    text="Paßwort wurde bereits geändert"))
+        self._im_hintergrund(_bg)
+
+    def _passwort_fenster_oeffnen(self):
+        """Oeffnet den Paßwort-Dialog (eigenes Toplevel). Oeffnen sperrt alle
+        Knoepfe, Schliessen gibt sie frei -- dieselbe fenster-uebergreifende
+        Aktionssperre wie bei den anderen Dialogen. Nach erfolgreicher Aenderung
+        wird der Statustext neu ermittelt (nach_erfolg_cb)."""
+        self._aktion_beginnen()
+        PasswortDialog(self.root, nach_schliessen_cb=self._aktion_beenden,
+                       nach_erfolg_cb=self._passwort_status, log=self._log)
 
     # ------------------------------------------------- System (zwei Knoepfe)
     # "Auf Updates pruefen" (apt update) und "System aktualisieren" (apt
@@ -1986,6 +2027,172 @@ class ResetDialog:
     def _schliessen(self):
         if self._aktiv:
             self._log("Bitte warten, bis das Zurücksetzen fertig ist.",
+                      fehler=True)
+            return
+        if self._nach_schliessen_cb and not self._schliessen_gemeldet:
+            self._schliessen_gemeldet = True
+            self._nach_schliessen_cb()
+        self._win.destroy()
+
+
+# ----------------------------------------------------------- Paßwort-Dialog
+
+_PASSWORT_ERKLAERUNG = (
+    "Der USB-Stick wird mit dem allgemeinen und damit unsicheren Paßwort "
+    "„cimbel“ ausgeliefert. Zu Ihrer Sicherheit wird empfohlen, das Paßwort "
+    "zu ändern.\n\n"
+    "Geben Sie Ihr aktuelles Paßwort ein (bei einem neuen Stick „cimbel“) "
+    "und darunter zweimal Ihr neues Paßwort (mindestens "
+    + str(passwort_core.MINDESTLAENGE) + " Zeichen)."
+)
+
+
+class PasswortDialog:
+    """Login-Paßwort des Stick-Users aendern -- eingebetteter Toplevel-Dialog
+    des Pflegefensters.
+
+    Erklaerung und Eingabefelder (ANWEISUNG) leben im Dialog; die Erfolgs-/
+    Fehlermeldung geht zusaetzlich ins zentrale Log (log-Callback). Feld-nahe
+    Fehler (altes falsch, Wiederholung ungleich, zu kurz) erscheinen als rotes
+    Label IM Dialog, der Dialog bleibt offen. Die eigentliche Logik ruft den
+    UI-freien Kern passwort_core.aendere(...).
+    nach_schliessen_cb wird beim Schliessen genau einmal gerufen (gibt die
+    Hauptfenster-Knoepfe frei). nach_erfolg_cb wird nach erfolgreicher Aenderung
+    im Tk-Thread gerufen (Hauptfenster-Status neu ableiten)."""
+
+    def __init__(self, parent, nach_schliessen_cb=None, nach_erfolg_cb=None,
+                 log=None):
+        self._nach_schliessen_cb = nach_schliessen_cb
+        self._nach_erfolg_cb = nach_erfolg_cb
+        self._zentral_log = log or (lambda *a, **k: None)
+        self._schliessen_gemeldet = False
+        self._aktiv = False
+
+        self._win = tk.Toplevel(parent)
+        self._win.title("Paßwort ändern")
+        self._win.geometry("560x420")
+        self._win.minsize(560, 400)
+        self._win.protocol("WM_DELETE_WINDOW", self._schliessen)
+
+        # Knopfleiste ZUERST unten packen (side="bottom"), damit sie sichtbar
+        # bleibt und nicht vom Erklaerungstext unter den Rand gedraengt wird.
+        leiste = tk.Frame(self._win)
+        leiste.pack(side="bottom", pady=8)
+
+        tk.Label(self._win, text=_PASSWORT_ERKLAERUNG, justify="left",
+                 wraplength=520, anchor="w").pack(fill="x", padx=12, pady=10)
+
+        # --- Eingabefelder (alt / neu / neu). Ein „Auge"-Haken macht ALLE drei
+        #     Felder sichtbar (gemeinsame Sichtbarkeit -- der Nutzer vergleicht
+        #     neu/Wiederholung direkt). ---
+        felder = tk.Frame(self._win)
+        felder.pack(fill="x", padx=12, pady=4)
+        felder.columnconfigure(1, weight=1)
+
+        self._e_alt = self._feld(felder, 0, "Aktuelles Paßwort:")
+        self._e_neu = self._feld(felder, 1, "Neues Paßwort:")
+        self._e_wdh = self._feld(felder, 2, "Neues Paßwort (Wiederholung):")
+
+        self._sichtbar = tk.BooleanVar(value=False)
+        tk.Checkbutton(felder, text="Paßwörter anzeigen (Auge)",
+                       variable=self._sichtbar,
+                       command=self._sichtbarkeit_umschalten).grid(
+                           row=3, column=1, sticky="w", pady=(6, 0))
+
+        # Feld-naher Fehlerhinweis (rot), bleibt leer bis ein Fehler auftritt.
+        self._lbl_fehler = tk.Label(self._win, text="", justify="left",
+                                    wraplength=520, anchor="w", fg="#c00")
+        self._lbl_fehler.pack(fill="x", padx=12)
+
+        self._btn_aendern = tk.Button(leiste, text="Paßwort ändern",
+                                      command=self._aendern)
+        self._btn_aendern.pack(side="left", padx=6)
+        self._btn_schliessen = tk.Button(leiste, text="Abbrechen",
+                                         command=self._schliessen)
+        self._btn_schliessen.pack(side="left", padx=6)
+
+        self._e_alt.focus_set()
+
+    def _feld(self, parent, zeile, beschriftung):
+        """Baut eine beschriftete Paßwort-Eingabezeile (Label links, Entry
+        rechts, als Punkte maskiert) und gibt das Entry zurueck."""
+        tk.Label(parent, text=beschriftung, anchor="w").grid(
+            row=zeile, column=0, sticky="w", padx=(0, 8), pady=3)
+        e = tk.Entry(parent, show="•")
+        e.grid(row=zeile, column=1, sticky="ew", pady=3)
+        return e
+
+    def _sichtbarkeit_umschalten(self):
+        """„Auge": zeigt/maskiert alle drei Paßwort-Felder gemeinsam."""
+        zeichen = "" if self._sichtbar.get() else "•"
+        for e in (self._e_alt, self._e_neu, self._e_wdh):
+            e.config(show=zeichen)
+
+    # -------- Nebenlaeufigkeit / Log
+
+    def _im_hintergrund(self, fn):
+        threading.Thread(target=fn, daemon=True).start()
+
+    def _ui(self, fn):
+        self._win.after(0, fn)
+
+    def _log(self, text, fehler=False, ok=False):
+        self._zentral_log(text, fehler=fehler, ok=ok)
+
+    # -------- Aendern
+
+    def _aendern(self):
+        alt = self._e_alt.get()
+        neu = self._e_neu.get()
+        wdh = self._e_wdh.get()
+        # Feld-nahe Regel-Pruefung VOR dem (langsameren) sudo-Lauf: Fehler
+        # erscheinen rot im Dialog, der bleibt offen (keine Log-Zeile fuer eine
+        # reine Tipp-Korrektur).
+        try:
+            passwort_core.pruefe_neues(neu, wdh)
+        except passwort_core.PasswortFehler as e:
+            self._lbl_fehler.config(text=str(e))
+            return
+        self._lbl_fehler.config(text="")
+        self._aktiv = True
+        self._btn_aendern.config(state="disabled")
+        self._im_hintergrund(lambda: self._aendern_bg(alt, neu, wdh))
+
+    def _aendern_bg(self, alt, neu, wdh):
+        try:
+            passwort_core.aendere(alt, neu, wdh)
+        except passwort_core.PasswortFehler as e:
+            # Fehler feld-nah (rot) im Dialog; der Dialog bleibt offen zur
+            # Korrektur. Nicht ins zentrale Log (es waere eine Handlungs-
+            # korrektur, keine Information -- Rollentrennung).
+            self._ui(lambda: self._lbl_fehler.config(text=str(e)))
+            self._ui(lambda: self._btn_aendern.config(state="normal"))
+            self._aktiv = False
+            return
+        except Exception as e:
+            self._ui(lambda: self._lbl_fehler.config(
+                text="Unerwarteter Fehler: " + str(e)))
+            self._ui(lambda: self._btn_aendern.config(state="normal"))
+            self._aktiv = False
+            return
+        # Erfolg: ins zentrale Log (Information), Felder leeren, Hauptfenster-
+        # Status neu ableiten, Dialog auf „Schließen" umstellen.
+        self._aktiv = False
+        self._log("Paßwort geändert.", ok=True)
+        self._ui(self._erfolg_anzeigen)
+
+    def _erfolg_anzeigen(self):
+        for e in (self._e_alt, self._e_neu, self._e_wdh):
+            e.delete(0, "end")
+        self._lbl_fehler.config(text="Das Paßwort wurde geändert.", fg="#070")
+        self._btn_aendern.config(state="disabled")
+        self._btn_schliessen.config(text="Schließen")
+        if self._nach_erfolg_cb:
+            self._nach_erfolg_cb()
+
+    def _schliessen(self):
+        if self._aktiv:
+            self._log("Bitte warten, bis die Paßwortänderung fertig ist.",
                       fehler=True)
             return
         if self._nach_schliessen_cb and not self._schliessen_gemeldet:
