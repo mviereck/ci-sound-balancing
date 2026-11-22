@@ -424,8 +424,9 @@ class UpdaterGUI:
         _sb = tk.Scrollbar(self._log_frame, command=self.txt_log.yview)
         _sb.pack(side="right", fill="y")
         self.txt_log.config(yscrollcommand=_sb.set)
-        # Fehlerzeilen rot (tag), normale schwarz.
+        # Fehlerzeilen rot (tag), Erfolgszeilen gruen, normale schwarz.
         self.txt_log.tag_config("fehler", foreground="#c00")
+        self.txt_log.tag_config("ok", foreground="#070")
         tk.Button(rechts, text="Meldungen ins Clipboard kopieren",
                   command=self._log_kopieren).grid(row=1, column=0, sticky="e",
                                                    pady=(6, 0))
@@ -505,15 +506,16 @@ class UpdaterGUI:
         self._ui(self._audio_knopf_setzen)
         self._im_hintergrund(self._system_knoepfe_setzen)
 
-    def _log(self, text, fehler=False):
-        """Eine Zeile ins Meldungsfeld. fehler=True -> rot. Jede Aktion meldet
-        ihren Fehler an Ort und Stelle (sprechend); es gibt keine nachlaufende
-        Sammelmeldung mehr."""
+    def _log(self, text, fehler=False, ok=False):
+        """Eine Zeile ins zentrale Meldungsfeld. fehler=True -> rot, ok=True ->
+        gruen. Jede Aktion meldet ihren Fehler an Ort und Stelle (sprechend); es
+        gibt keine nachlaufende Sammelmeldung mehr. Das ist die EINE Log-Senke:
+        die Toplevel-Dialoge (Pico-Flash, Audio-Download, Reset) schreiben ueber
+        den hereingereichten log-Callback ebenfalls hierher, statt ein eigenes
+        Meldungsfeld zu fuehren."""
         def _append():
-            if fehler:
-                self.txt_log.insert("end", text + "\n", "fehler")
-            else:
-                self.txt_log.insert("end", text + "\n")
+            tag = "fehler" if fehler else ("ok" if ok else "")
+            self.txt_log.insert("end", text + "\n", tag)
             self.txt_log.see("end")
         self._ui(_append)
 
@@ -929,7 +931,8 @@ class UpdaterGUI:
         Pico-Dialog). Oeffnen sperrt alle Knoepfe, Schliessen gibt sie frei --
         dieselbe fenster-uebergreifende Aktionssperre wie beim Pico-Flash."""
         self._aktion_beginnen()
-        AudioDownloadDialog(self.root, nach_schliessen_cb=self._aktion_beenden)
+        AudioDownloadDialog(self.root, nach_schliessen_cb=self._aktion_beenden,
+                            log=self._log)
 
     # ------------------------------------------------- System (zwei Knoepfe)
     # "Auf Updates pruefen" (apt update) und "System aktualisieren" (apt
@@ -1136,7 +1139,7 @@ class UpdaterGUI:
         self._aktion_beginnen()
         PicoFlashDialog(self.root, force, self._pico_status,
                         nach_schliessen_cb=self._aktion_beenden,
-                        variante=variante)
+                        variante=variante, log=self._log)
 
 
 # ----------------------------------------------------------- Pico-Flash-Dialog
@@ -1144,13 +1147,18 @@ class UpdaterGUI:
 class PicoFlashDialog:
     """Gefuehrter Flash-Ablauf fuer den Pico-ASHA.
 
-    Eigenes Toplevel-Fenster mit eigenem Log (Machart reset_gui.py).
+    Eigenes Toplevel-Fenster -- zeigt die Schritt-fuer-Schritt-ANWEISUNG
+    (BOOTSEL-Modus etc.) in einer eigenen Anleitungszeile; alle MELDUNGEN gehen
+    ueber den hereingereichten log-Callback in das zentrale Hauptfenster-Log
+    (keine eigene Meldungsbox mehr). Rollentrennung: Anweisung im Dialog,
+    Information im zentralen Log.
     nach_flash_cb wird nach erfolgreichem Flash im Tk-Thread aufgerufen.
     nach_schliessen_cb wird beim Schliessen des Dialogs genau einmal gerufen.
+    log(text, fehler=, ok=) schreibt ins zentrale Log des Hauptfensters.
     """
 
     def __init__(self, parent, force, nach_flash_cb, nach_schliessen_cb=None,
-                 variante="default"):
+                 variante="default", log=None):
         self._force = force
         # Welche Satz-Variante geflasht wird: "default" (Patch, mess-optimiert)
         # oder "original" (unveraenderte FW). Steuert Flash, Erwartungs-Vergleich
@@ -1158,40 +1166,34 @@ class PicoFlashDialog:
         self._variante = variante
         self._nach_flash_cb = nach_flash_cb
         self._nach_schliessen_cb = nach_schliessen_cb
+        # Zentrales Log des Hauptfensters (kein eigenes Meldungsfeld im Dialog).
+        self._zentral_log = log or (lambda *a, **k: None)
         self._abbrechen = False
         self._schliessen_gemeldet = False
 
         self._win = tk.Toplevel(parent)
         self._win.title("Pico-ASHA flashen")
-        self._win.geometry("520x380")
+        self._win.geometry("520x200")
         self._win.protocol("WM_DELETE_WINDOW", self._anfrage_abbrechen)
 
         tk.Label(self._win,
                  text="Pico-ASHA Firmware-Update",
                  font=("", 12, "bold")).pack(pady=(12, 4))
 
+        # Anleitungszeile: die EINE Anweisung an den Nutzer (im Dialog, nicht im
+        # Log). Die laufenden Meldungen erscheinen im Hauptfenster-Log.
         self._lbl_anleitung = tk.Label(
             self._win, text="", justify="left", wraplength=490, anchor="w")
         self._lbl_anleitung.pack(fill="x", padx=12, pady=4)
+        tk.Label(self._win, fg="#555", justify="left", wraplength=490, anchor="w",
+                 text="Die Meldungen erscheinen im Fenster „CImbel-Systempflege“."
+                 ).pack(fill="x", padx=12, pady=(0, 4))
 
         knopfleiste = tk.Frame(self._win)
         knopfleiste.pack(side="bottom", pady=8)
-        self._btn_kopieren = tk.Button(
-            knopfleiste, text="Meldungen kopieren", command=self._meldungen_kopieren)
-        self._btn_kopieren.pack(side="left", padx=6)
         self._btn_abbrechen = tk.Button(
             knopfleiste, text="Abbrechen", command=self._anfrage_abbrechen)
         self._btn_abbrechen.pack(side="left", padx=6)
-
-        frame = tk.LabelFrame(self._win, text="Meldungen", padx=4, pady=4)
-        frame.pack(fill="both", expand=True, padx=10, pady=4)
-        self._txt = tk.Text(frame, height=8, wrap="word")
-        self._txt.pack(side="left", fill="both", expand=True)
-        sb = tk.Scrollbar(frame, command=self._txt.yview)
-        sb.pack(side="right", fill="y")
-        self._txt.config(yscrollcommand=sb.set)
-        self._txt.tag_config("fehler", foreground="#c00")
-        self._txt.tag_config("ok", foreground="#070")
 
         threading.Thread(target=self._ablauf, daemon=True).start()
 
@@ -1199,24 +1201,12 @@ class PicoFlashDialog:
         self._win.after(0, fn)
 
     def _log(self, text, fehler=False, ok=False):
-        def _append():
-            tag = "fehler" if fehler else ("ok" if ok else "")
-            self._txt.insert("end", text + "\n", tag)
-            self._txt.see("end")
-        self._ui(_append)
+        # In das zentrale Hauptfenster-Log (der Callback kuemmert sich um den
+        # Tk-Thread via self._ui des Hauptfensters).
+        self._zentral_log(text, fehler=fehler, ok=ok)
 
     def _anleitung(self, text):
         self._ui(lambda: self._lbl_anleitung.config(text=text))
-
-    def _meldungen_kopieren(self):
-        """Legt den gesamten Inhalt der Meldungen-Box ins System-Clipboard
-        (fuer Fehlerberichte). Kurze Bestaetigung am Knopf."""
-        inhalt = self._txt.get("1.0", "end-1c")
-        self._win.clipboard_clear()
-        self._win.clipboard_append(inhalt)
-        self._btn_kopieren.config(text="Kopiert ✓")
-        self._win.after(1500, lambda: self._btn_kopieren.config(
-            text="Meldungen kopieren"))
 
     def _anfrage_abbrechen(self):
         self._abbrechen = True
@@ -1373,8 +1363,10 @@ class AudioDownloadDialog:
     nach_schliessen_cb wird beim Schliessen genau einmal gerufen (gibt die
     Hauptfenster-Knoepfe frei -- fenster-uebergreifende Aktionssperre)."""
 
-    def __init__(self, parent, nach_schliessen_cb=None):
+    def __init__(self, parent, nach_schliessen_cb=None, log=None):
         self._nach_schliessen_cb = nach_schliessen_cb
+        # Zentrales Log des Hauptfensters (kein eigenes Meldungsfeld im Dialog).
+        self._zentral_log = log or (lambda *a, **k: None)
         self._schliessen_gemeldet = False
         self._aktiv = False            # laeuft gerade ein Lauf im Fenster?
 
@@ -1438,15 +1430,13 @@ class AudioDownloadDialog:
         self._btn_schliessen = tk.Button(leiste, text="Schließen", command=self._schliessen)
         self._btn_schliessen.pack(side="left", padx=6)
 
-        # --- Meldungen ---
-        mf = tk.LabelFrame(self._win, text="Meldungen", padx=4, pady=4)
-        mf.pack(side="bottom", fill="x", padx=10, pady=4)
-        self._txt = tk.Text(mf, height=5, wrap="word")
-        self._txt.pack(side="left", fill="both", expand=True)
-        msb = tk.Scrollbar(mf, command=self._txt.yview)
-        msb.pack(side="right", fill="y")
-        self._txt.config(yscrollcommand=msb.set)
-        self._txt.tag_config("fehler", foreground="#c00")
+        # Keine eigene Meldungsbox mehr -- alle Meldungen gehen ueber den
+        # hereingereichten log-Callback ins zentrale Hauptfenster-Log. Die
+        # Checkbox-Liste, der Fortschrittsbalken und die Summen-/Platzzeilen
+        # (Bedienelemente) bleiben im Dialog; nur die Text-Meldungen sind zentral.
+        tk.Label(self._win, fg="#555", justify="left", anchor="w", wraplength=660,
+                 text="Die Meldungen erscheinen im Fenster „CImbel-Systempflege“."
+                 ).pack(side="bottom", fill="x", padx=14, pady=(0, 4))
 
         # Groessen/Rest asynchron laden (Soll-Liste holen + vorhanden.txt lesen).
         self._log("Lade Größenübersicht ...")
@@ -1655,10 +1645,8 @@ class AudioDownloadDialog:
         self._win.after(0, fn)
 
     def _log(self, text, fehler=False):
-        def _append():
-            self._txt.insert("end", text + "\n", "fehler" if fehler else "")
-            self._txt.see("end")
-        self._ui(_append)
+        # In das zentrale Hauptfenster-Log (kein eigenes Meldungsfeld mehr).
+        self._zentral_log(text, fehler=fehler)
 
     def _lauf_beginnen(self):
         self._aktiv = True
