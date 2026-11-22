@@ -1825,7 +1825,7 @@ class AudioDownloadDialog:
 # ----------------------------------------------------------- Desktop-Reset-Dialog
 
 # Erklaerungs-/Warntexte (Nutzer-Text im Dialog, nicht im Log -- ANWEISUNG, keine
-# Information). Inhaltlich wie der frueher eigenstaendige reset_gui.py.
+# Information). Logik unveraendert im Kern reset_core.py (UI-frei, CLI-testbar).
 _RESET_ERKLAERUNG = (
     "Mit dieser Option setzen Sie den Desktop und die Programm-"
     "Einstellungen auf den Ursprungszustand zurück. Das hilft, wenn der "
@@ -1860,7 +1860,7 @@ _RESET_WARNUNG = (
 
 class ResetDialog:
     """Desktop auf Ursprungszustand zuruecksetzen -- eingebetteter Toplevel-Dialog
-    des Pflegefensters (frueher das eigenstaendige reset_gui.py).
+    des Pflegefensters.
 
     Erklaerung, Firefox-Vorpruefung und Verlust-Warnung (ANWEISUNG) leben im
     Dialog; alle MELDUNGEN gehen ueber den hereingereichten log-Callback ins
