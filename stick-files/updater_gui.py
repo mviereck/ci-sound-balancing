@@ -428,7 +428,7 @@ class UpdaterGUI:
         # Dialog). Immer anwaehlbar (nur die Aktionssperre graut ihn kurz).
         self.lbl_reset, _kf = _zeile("Desktop")
         self.lbl_reset.config(text="Einstellungen rückgängig machen")
-        self.btn_reset = tk.Button(_kf, text="Zurücksetzen…",
+        self.btn_reset = tk.Button(_kf, text="Zurücksetzen",
                                    command=self._reset_fenster_oeffnen)
         self.btn_reset.pack(side="right")
 
@@ -605,10 +605,22 @@ class UpdaterGUI:
 
     def _cimbel_status(self):
         """CImbel-Freigabe aus dem Status: lokale vs. Produktions-Version
-        (Ungleich-Vergleich). Knopf nur bei Abweichung."""
+        (Ungleich-Vergleich). Knopf nur bei Abweichung. Fehlt der lokale Clone
+        (oder ist die lokale Version nicht lesbar), ist das KEIN 'aktuell',
+        sondern 'fehlt oder ist beschädigt' -> Aktualisieren sperren (Reparieren
+        ist der Weg, wie bei eira)."""
         def _bg():
+            if not _clone_vollstaendig(REPO_ROOT):
+                self._ui(lambda: self.lbl_cimbel.config(
+                    text="fehlt oder ist beschädigt"))
+                self._ui(lambda: self.btn_cimbel.config(state="disabled"))
+                return
             lok, prod = _lokale_version(), _prod_version()
-            if prod and lok and prod != lok:
+            if lok is None:
+                self._ui(lambda: self.lbl_cimbel.config(
+                    text="fehlt oder ist beschädigt"))
+                self._ui(lambda: self.btn_cimbel.config(state="disabled"))
+            elif prod and prod != lok:
                 self._ui(lambda: self.lbl_cimbel.config(
                     text="Neue Version verfuegbar (" + str(prod) + ")"))
                 self._ui(lambda: self.btn_cimbel.config(state="normal"))
@@ -621,7 +633,7 @@ class UpdaterGUI:
         """Audio-Knopf freigeben: online einfach waehlbar (oeffnet das
         Audio-Download-Fenster), kein Scan noetig. Im Tk-Thread aufrufen; der
         Status-Recheck ruft diese Methode nur im Online-Zweig."""
-        self.btn_audio.config(text="Audios für Offline-Betrieb herunterladen",
+        self.btn_audio.config(text="Verwalten",
                               command=self._audio_fenster_oeffnen, state="normal")
 
     # ------------------------------------------------- CImbel
@@ -1072,7 +1084,13 @@ class UpdaterGUI:
         self._ui(lambda: self.btn_pico.config(state="disabled"))
 
         if not betrieb:
-            self._ui(lambda: self.lbl_pico.config(text="Kein Pico gefunden"))
+            # Steckt ein Pico im BOOTSEL-/Flash-Modus, ist das NICHT "kein Pico"
+            # -- er ist bereit zum Flashen (darum ist 'Neu flashen' anwaehlbar).
+            if bootsel:
+                self._ui(lambda: self.lbl_pico.config(
+                    text="Pico im Flash-Modus (bereit zum Neu-Flashen)"))
+            else:
+                self._ui(lambda: self.lbl_pico.config(text="Kein Pico gefunden"))
             return
         # Richtigen ttyACM*-Port ermitteln (nach Re-Enumeration nicht
         # zwingend /dev/ttyACM0). Faellt _pico_port auf None, greifen die
