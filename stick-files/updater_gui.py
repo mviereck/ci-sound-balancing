@@ -297,8 +297,12 @@ def _einzelinstanz_sichern():
 class UpdaterGUI:
     def __init__(self, root, nach_selbstupdate=False):
         self.root = root
-        root.title("CImbel aktualisieren")
-        root.geometry("760x720")
+        root.title("CImbel-Systempflege")
+        # Zwei-Spalten-Layout (Bereiche links, Log rechts) statt Log unter den
+        # Bereichen -> das Fenster bleibt niedrig (passt auf 1366x768). Breite
+        # auf 1024 ausgelegt, Mindestbreite 960 (Seiten-Panels fremder Desktops).
+        root.geometry("1000x520")
+        root.minsize(960, 440)
         # Fenster-X UND Beenden-Knopf gehen durch denselben Pfad
         # (_beenden_versuch): Schliessen nur, wenn gerade keine Aktion laeuft --
         # sonst wuerde eine laufende Aktion (git pull, MANIFEST, Download)
@@ -307,64 +311,84 @@ class UpdaterGUI:
 
         self.online = False
 
-        # --- Online-Status oben ---
+        # --- Online-Status oben (volle Breite) ---
         self.lbl_online = tk.Label(root, text="Pruefer Internetverbindung ...",
                                    font=("", 11, "bold"))
         self.lbl_online.pack(pady=8)
 
+        # --- Beenden ZUERST unten packen (side="bottom" vor dem expandierenden
+        #     Mittelteil), sonst draengt der mitwachsende mitte-Frame den Knopf
+        #     unter den Fensterrand. Schliesst nur, wenn keine Aktion laeuft.
+        tk.Button(root, text="Beenden", command=self._beenden_versuch).pack(
+            side="bottom", pady=8)
+
+        # --- Haupt-Raster: links Bereiche (feste Mindestbreite), rechts Log ---
+        mitte = tk.Frame(root)
+        mitte.pack(fill="both", expand=True, padx=10, pady=4)
+        mitte.columnconfigure(0, weight=0, minsize=560)  # Bereiche
+        mitte.columnconfigure(1, weight=1)               # Log nimmt den Rest
+        mitte.rowconfigure(0, weight=1)
+
+        links = tk.Frame(mitte)
+        links.grid(row=0, column=0, sticky="nsew", padx=(0, 8))
+
         # --- Bereich CImbel ---
-        self._bereich_cimbel = tk.LabelFrame(root, text="CImbel", padx=8, pady=6)
-        self._bereich_cimbel.pack(fill="x", padx=10, pady=4)
-        self.lbl_cimbel = tk.Label(self._bereich_cimbel, text="...")
-        self.lbl_cimbel.pack(side="left")
+        self._bereich_cimbel = tk.LabelFrame(links, text="CImbel", padx=8, pady=6)
+        self._bereich_cimbel.pack(fill="x", pady=3)
+        self.lbl_cimbel = tk.Label(self._bereich_cimbel, text="...",
+                                   justify="left", anchor="w", wraplength=300)
+        self.lbl_cimbel.pack(side="left", fill="x")
         # Reparatur-Knopf zuerst packen -> landet GANZ rechts; der
         # Aktualisieren-Knopf kommt mit padx links daneben. Reparieren ist IMMER
         # anwaehlbar (Notfall-Werkzeug, unabhaengig vom Versionsstand).
         self.btn_cimbel_reparieren = tk.Button(self._bereich_cimbel, text="Reparieren",
                                                command=self._cimbel_reparieren)
         self.btn_cimbel_reparieren.pack(side="right")
-        self.btn_cimbel = tk.Button(self._bereich_cimbel, text="CImbel aktualisieren",
+        self.btn_cimbel = tk.Button(self._bereich_cimbel, text="Aktualisieren",
                                     command=self._cimbel_update, state="disabled")
         self.btn_cimbel.pack(side="right", padx=(0, 6))
 
         # --- Bereich eira ---
-        self._bereich_eira = tk.LabelFrame(root, text="eira", padx=8, pady=6)
-        self._bereich_eira.pack(fill="x", padx=10, pady=4)
-        self.lbl_eira = tk.Label(self._bereich_eira, text="...")
-        self.lbl_eira.pack(side="left")
+        self._bereich_eira = tk.LabelFrame(links, text="eira", padx=8, pady=6)
+        self._bereich_eira.pack(fill="x", pady=3)
+        self.lbl_eira = tk.Label(self._bereich_eira, text="...",
+                                 justify="left", anchor="w", wraplength=300)
+        self.lbl_eira.pack(side="left", fill="x")
         self.btn_eira_reparieren = tk.Button(self._bereich_eira, text="Reparieren",
                                              command=self._eira_reparieren)
         self.btn_eira_reparieren.pack(side="right")
-        self.btn_eira = tk.Button(self._bereich_eira, text="eira aktualisieren",
+        self.btn_eira = tk.Button(self._bereich_eira, text="Aktualisieren",
                                   command=self._eira_update, state="disabled")
         self.btn_eira.pack(side="right", padx=(0, 6))
 
         # --- Bereich Pico-ASHA ---
-        self._bereich_pico = tk.LabelFrame(root, text="Pico-ASHA", padx=8, pady=6)
-        self._bereich_pico.pack(fill="x", padx=10, pady=4)
-        self.lbl_pico = tk.Label(self._bereich_pico, text="...")
-        self.lbl_pico.pack(side="left")
+        self._bereich_pico = tk.LabelFrame(links, text="Pico-ASHA", padx=8, pady=6)
+        self._bereich_pico.pack(fill="x", pady=3)
+        self.lbl_pico = tk.Label(self._bereich_pico, text="...",
+                                 justify="left", anchor="w", wraplength=300)
+        self.lbl_pico.pack(side="left", fill="x")
         # Force-Flash ist IMMER anwaehlbar (unabhaengig vom Versionsvergleich):
-        self.btn_pico_force = tk.Button(self._bereich_pico, text="Pico neu flashen",
+        self.btn_pico_force = tk.Button(self._bereich_pico, text="Neu flashen",
                                         command=self._pico_force_flash)
         self.btn_pico_force.pack(side="right")
         # Update-Button erscheint nur, wenn eine neue Version vorliegt:
-        self.btn_pico = tk.Button(self._bereich_pico, text="Pico-ASHA aktualisieren",
+        self.btn_pico = tk.Button(self._bereich_pico, text="Aktualisieren",
                                   command=lambda: self._pico_flash_dialog(force=False),
                                   state="disabled")
         self.btn_pico.pack(side="right", padx=(0, 6))
 
         # --- Bereich Audios ---
-        self._bereich_audio = tk.LabelFrame(root, text="Audios", padx=8, pady=6)
-        self._bereich_audio.pack(fill="x", padx=10, pady=4)
+        self._bereich_audio = tk.LabelFrame(links, text="Audios", padx=8, pady=6)
+        self._bereich_audio.pack(fill="x", pady=3)
         self.lbl_audio = tk.Label(self._bereich_audio,
-                                  text="Teilmengen wählen und laden")
-        self.lbl_audio.pack(side="left")
+                                  text="Audios für Offline Betrieb herunterladen",
+                                  justify="left", anchor="w", wraplength=300)
+        self.lbl_audio.pack(side="left", fill="x")
         # Ein Knopf oeffnet das Audio-Download-Fenster: dort waehlt der Nutzer
         # per Checkbox, welche Teilmengen (Ordner, M-AILABS nach Sprechern) er
         # laden will, mit Groessen-/Rest-Anzeige. Oeffnen sperrt alle Knoepfe
         # (eigenes Toplevel wie der Pico-Dialog), Schliessen gibt sie frei.
-        self.btn_audio = tk.Button(self._bereich_audio, text="Audios für Offline-Betrieb herunterladen",
+        self.btn_audio = tk.Button(self._bereich_audio, text="Verwalten",
                                    command=self._audio_fenster_oeffnen, state="disabled")
         self.btn_audio.pack(side="right")
 
@@ -374,10 +398,11 @@ class UpdaterGUI:
         # sinnvolle Aktion ausloest: pruefen nur, wenn das letzte apt update
         # laenger als SYSTEM_UPDATE_MAX_ALTER_S zurueckliegt; aktualisieren nur,
         # wenn apt list --upgradable Pakete meldet.
-        self._bereich_system = tk.LabelFrame(root, text="System", padx=8, pady=6)
-        self._bereich_system.pack(fill="x", padx=10, pady=4)
-        self.lbl_system = tk.Label(self._bereich_system, text="apt-Updates (optional)")
-        self.lbl_system.pack(side="left")
+        self._bereich_system = tk.LabelFrame(links, text="System", padx=8, pady=6)
+        self._bereich_system.pack(fill="x", pady=3)
+        self.lbl_system = tk.Label(self._bereich_system, text="apt-Updates (optional)",
+                                   justify="left", anchor="w", wraplength=300)
+        self.lbl_system.pack(side="left", fill="x")
         self.btn_system_upgrade = tk.Button(self._bereich_system, text="System aktualisieren",
                                             command=self._system_upgrade, state="disabled")
         self.btn_system_upgrade.pack(side="right")
@@ -385,24 +410,25 @@ class UpdaterGUI:
                                     command=self._system_pruefen, state="disabled")
         self.btn_system.pack(side="right", padx=(0, 6))
 
-        # --- Untere Leiste ZUERST (side="bottom"), damit sie immer sichtbar
-        #     bleibt und nicht vom expandierenden Log unter den Rand gedraengt
-        #     wird. Reihenfolge von unten nach oben: Beenden, Kopieren.
-        #     Keine eigene Statuszeile mehr -- alle Meldungen gehen ins Log.
-        tk.Button(root, text="Beenden", command=self._beenden_versuch).pack(side="bottom", pady=8)
-        tk.Button(root, text="Meldungen ins Clipboard kopieren",
-                  command=self._log_kopieren).pack(side="bottom", pady=2)
+        # --- Rechte Spalte: Log (fuellt die Hoehe) + Kopieren-Knopf darunter.
+        #     Keine eigene Statuszeile -- alle Meldungen gehen ins Log.
+        rechts = tk.Frame(mitte)
+        rechts.grid(row=0, column=1, sticky="nsew")
+        rechts.rowconfigure(0, weight=1)
+        rechts.columnconfigure(0, weight=1)
 
-        # --- Log (selektierbar, scrollbar) fuellt den Rest ---
-        self._log_frame = tk.LabelFrame(root, text="Meldungen", padx=4, pady=4)
-        self._log_frame.pack(fill="both", expand=True, padx=10, pady=4)
-        self.txt_log = tk.Text(self._log_frame, height=14, wrap="word")
+        self._log_frame = tk.LabelFrame(rechts, text="Meldungen", padx=4, pady=4)
+        self._log_frame.grid(row=0, column=0, sticky="nsew")
+        self.txt_log = tk.Text(self._log_frame, width=30, wrap="word")
         self.txt_log.pack(side="left", fill="both", expand=True)
         _sb = tk.Scrollbar(self._log_frame, command=self.txt_log.yview)
         _sb.pack(side="right", fill="y")
         self.txt_log.config(yscrollcommand=_sb.set)
         # Fehlerzeilen rot (tag), normale schwarz.
         self.txt_log.tag_config("fehler", foreground="#c00")
+        tk.Button(rechts, text="Meldungen ins Clipboard kopieren",
+                  command=self._log_kopieren).grid(row=1, column=0, sticky="e",
+                                                   pady=(6, 0))
 
         self._aktion_laeuft = False
         self._im_hintergrund(self._initialer_status)
