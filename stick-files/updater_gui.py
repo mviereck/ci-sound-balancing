@@ -2162,16 +2162,19 @@ class PasswortDialog:
         try:
             passwort_core.aendere(alt, neu, wdh)
         except passwort_core.PasswortFehler as e:
-            # Fehler feld-nah (rot) im Dialog; der Dialog bleibt offen zur
-            # Korrektur. Nicht ins zentrale Log (es waere eine Handlungs-
-            # korrektur, keine Information -- Rollentrennung).
-            self._ui(lambda: self._lbl_fehler.config(text=str(e)))
+            # Fehler feld-nah (rot) im Dialog zur Korrektur -- UND ins zentrale
+            # Log, damit die (oft technische) Meldung ueber den „Meldungen ins
+            # Clipboard kopieren"-Knopf kopierbar ist (Diagnose/Weitergabe).
+            fehlertext = str(e)
+            self._ui(lambda: self._lbl_fehler.config(text=fehlertext))
+            self._log(fehlertext, fehler=True)
             self._ui(lambda: self._btn_aendern.config(state="normal"))
             self._aktiv = False
             return
         except Exception as e:
-            self._ui(lambda: self._lbl_fehler.config(
-                text="Unerwarteter Fehler: " + str(e)))
+            fehlertext = "Unerwarteter Fehler: " + str(e)
+            self._ui(lambda: self._lbl_fehler.config(text=fehlertext))
+            self._log(fehlertext, fehler=True)
             self._ui(lambda: self._btn_aendern.config(state="normal"))
             self._aktiv = False
             return

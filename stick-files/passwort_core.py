@@ -116,10 +116,19 @@ def aendere(alt, neu, wiederholung, user=USER):
     pruefe_neues(neu, wiederholung)
 
     # Schritt 1: altes Paßwort verifizieren (und sudo-Timestamp frisch setzen).
-    if not ist_aktuelles_passwort(alt, user=user):
+    # Eigener Lauf (nicht ueber ist_aktuelles_passwort), damit die rohe
+    # sudo-Ausgabe bei Fehlschlag in die Fehlermeldung kann (Diagnose).
+    try:
+        p1 = subprocess.run(["sudo", "-S", "-k", "true"],
+                            input=alt + "\n", text=True, capture_output=True)
+    except OSError as e:
+        raise PasswortFehler("Paßwort-Werkzeug nicht ausfuehrbar (" + str(e) + ").")
+    if p1.returncode != 0:
+        roh1 = ((p1.stderr or "") + (p1.stdout or "")).strip()
         raise PasswortFehler(
             "Das aktuelle Paßwort ist falsch (oder der Benutzer darf das "
-            "Paßwort nicht aendern).")
+            "Paßwort nicht aendern). [Schritt 1: sudo-Pruefung]"
+            + (("\n\nMeldung: " + roh1) if roh1 else ""))
 
     # Schritt 2: neues Paßwort setzen. sudo ist jetzt gecacht (Schritt 1 war
     # erfolgreich), darum OHNE -k -- so verlangt sudo kein Paßwort und der
@@ -136,7 +145,7 @@ def aendere(alt, neu, wiederholung, user=USER):
         # darum eine sprechende Standardmeldung mit der rohen Ausgabe als Anhang.
         roh = ((p.stderr or "") + (p.stdout or "")).strip()
         raise PasswortFehler(
-            "Paßwortaenderung fehlgeschlagen."
+            "Paßwortaenderung fehlgeschlagen. [Schritt 2: passwd]"
             + (("\n\nMeldung: " + roh) if roh else ""))
 
 
