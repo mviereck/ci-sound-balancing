@@ -25,6 +25,7 @@ from pathlib import Path
 
 import update_core
 import pico_core
+import reset_core
 
 STICK_ROOT = update_core.DEF_STICK_ROOT
 OPUS_ROOT = update_core.DEF_OPUS_ROOT
@@ -410,6 +411,24 @@ class UpdaterGUI:
                                     command=self._system_pruefen, state="disabled")
         self.btn_system.pack(side="right", padx=(0, 6))
 
+        # --- Trennlinie: oben die Update-Gruppe, darunter die Reparatur-Gruppe.
+        ttk.Separator(links, orient="horizontal").pack(fill="x", pady=(8, 4))
+
+        # --- Bereich Desktop zuruecksetzen (Reparatur) ---
+        # Der Reset ist ein eingebetteter Toplevel-Dialog (ResetDialog); der
+        # Knopf "Zuruecksetzen..." oeffnet ihn (Erklaerung, Firefox-Vorpruefung
+        # und Verlust-Warnung leben im Dialog). Immer anwaehlbar (nur die
+        # Aktionssperre graut ihn voruebergehend) -- Reparatur-Werkzeug.
+        self._bereich_reset = tk.LabelFrame(links, text="Reparatur", padx=8, pady=6)
+        self._bereich_reset.pack(fill="x", pady=3)
+        self.lbl_reset = tk.Label(self._bereich_reset,
+                                  text="Desktopeinstellungen rückgängig machen",
+                                  justify="left", anchor="w", wraplength=300)
+        self.lbl_reset.pack(side="left", fill="x")
+        self.btn_reset = tk.Button(self._bereich_reset, text="Zurücksetzen…",
+                                   command=self._reset_fenster_oeffnen)
+        self.btn_reset.pack(side="right")
+
         # --- Rechte Spalte: Log (fuellt die Hoehe) + Kopieren-Knopf darunter.
         #     Keine eigene Statuszeile -- alle Meldungen gehen ins Log.
         rechts = tk.Frame(mitte)
@@ -466,7 +485,8 @@ class UpdaterGUI:
         Zeit); _status_recheck gibt sie danach bedingungslos wieder frei."""
         return [self.btn_cimbel, self.btn_eira, self.btn_audio, self.btn_system,
                 self.btn_system_upgrade, self.btn_pico, self.btn_pico_force,
-                self.btn_cimbel_reparieren, self.btn_eira_reparieren]
+                self.btn_cimbel_reparieren, self.btn_eira_reparieren,
+                self.btn_reset]
 
     def _aktion_beginnen(self):
         """Sperrt alle Aktions-Knoepfe. MUSS im Tk-Thread laufen (von dort
@@ -498,6 +518,8 @@ class UpdaterGUI:
         # Netz wieder frei werden.
         self._ui(lambda: self.btn_cimbel_reparieren.config(state="normal"))
         self._ui(lambda: self.btn_eira_reparieren.config(state="normal"))
+        # Desktop-Reset ist netz-unabhaengig und immer anwaehlbar (Reparatur).
+        self._ui(lambda: self.btn_reset.config(state="normal"))
         self._pico_status()          # netz-unabhaengig (USB)
         if not self.online:
             return
@@ -933,6 +955,17 @@ class UpdaterGUI:
         self._aktion_beginnen()
         AudioDownloadDialog(self.root, nach_schliessen_cb=self._aktion_beenden,
                             log=self._log)
+
+    # ------------------------------------------------- Desktop-Reset (eigenes Fenster)
+
+    def _reset_fenster_oeffnen(self):
+        """Oeffnet den Desktop-Reset-Dialog (eigenes Toplevel). Oeffnen sperrt
+        alle Knoepfe, Schliessen gibt sie frei -- dieselbe fenster-uebergreifende
+        Aktionssperre wie beim Audio-/Pico-Dialog. Erklaerung, Firefox-Vorpruefung
+        und Verlust-Warnung leben im Dialog; Meldungen gehen ins zentrale Log."""
+        self._aktion_beginnen()
+        ResetDialog(self.root, nach_schliessen_cb=self._aktion_beenden,
+                    log=self._log)
 
     # ------------------------------------------------- System (zwei Knoepfe)
     # "Auf Updates pruefen" (apt update) und "System aktualisieren" (apt
@@ -1755,6 +1788,176 @@ class AudioDownloadDialog:
         # Hauptfenster: keine Aktion mitten im Schreiben abbrechen).
         if self._aktiv:
             self._log("Bitte warten, bis der laufende Vorgang fertig ist.",
+                      fehler=True)
+            return
+        if self._nach_schliessen_cb and not self._schliessen_gemeldet:
+            self._schliessen_gemeldet = True
+            self._nach_schliessen_cb()
+        self._win.destroy()
+
+
+# ----------------------------------------------------------- Desktop-Reset-Dialog
+
+# Erklaerungs-/Warntexte (Nutzer-Text im Dialog, nicht im Log -- ANWEISUNG, keine
+# Information). Inhaltlich wie der frueher eigenstaendige reset_gui.py.
+_RESET_ERKLAERUNG = (
+    "Mit diesem Programm setzen Sie den Desktop und die Programm-"
+    "Einstellungen auf den Ursprungszustand zurück. Das hilft, wenn der "
+    "Stick verkonfiguriert wurde und nicht mehr richtig funktioniert.\n\n"
+    "Zurückgesetzt wird:\n"
+    "• Die Desktop-Einstellungen (Aussehen, Symbole).\n"
+    "• Das Firefox-Profil (Einstellungen, Verlauf und LESEZEICHEN).\n"
+    "• Die Starter auf dem Schreibtisch werden wiederhergestellt.\n\n"
+    "NICHT angetastet wird:\n"
+    "• Ihre persönlichen Dateien (Dokumente, Bilder, Musik, Downloads) "
+    "auf der Windows-Partition.\n"
+    "• Ihre eigenen Dateien auf dem Schreibtisch.\n"
+    "• Änderungen am Betriebssystem, Updates von CImbel und Audios.\n\n"
+    "WICHTIG: Ihre Firefox-Lesezeichen gehen dabei verloren. Wenn Sie "
+    "Lesezeichen behalten möchten, sichern Sie diese bitte vorher "
+    "(in Firefox: Lesezeichen → Lesezeichen verwalten → Importieren und "
+    "Sichern → Sichern)."
+)
+
+_RESET_WARNUNG = (
+    "Letzte Warnung:\n\n"
+    "Das Firefox-Profil wird jetzt auf den Ursprungszustand zurueckgesetzt. "
+    "Dabei gehen Ihre FIREFOX-LESEZEICHEN, der Verlauf und gespeicherte "
+    "Einstellungen verloren.\n\n"
+    "Ihre persoenlichen Dateien (Dokumente, Bilder, Musik, Downloads) "
+    "bleiben erhalten.\n\n"
+    "Bitte sichern Sie wichtige Lesezeichen VORHER, falls noch nicht "
+    "geschehen.\n\n"
+    "Jetzt wirklich auf den Ursprungszustand zuruecksetzen?"
+)
+
+
+class ResetDialog:
+    """Desktop auf Ursprungszustand zuruecksetzen -- eingebetteter Toplevel-Dialog
+    des Pflegefensters (frueher das eigenstaendige reset_gui.py).
+
+    Erklaerung, Firefox-Vorpruefung und Verlust-Warnung (ANWEISUNG) leben im
+    Dialog; alle MELDUNGEN gehen ueber den hereingereichten log-Callback ins
+    zentrale Hauptfenster-Log. Die eigentliche Logik ruft unveraendert den
+    UI-freien Kern reset_core.reset(protokoll=...).
+    nach_schliessen_cb wird beim Schliessen genau einmal gerufen (gibt die
+    Hauptfenster-Knoepfe frei)."""
+
+    def __init__(self, parent, nach_schliessen_cb=None, log=None):
+        self._nach_schliessen_cb = nach_schliessen_cb
+        self._zentral_log = log or (lambda *a, **k: None)
+        self._schliessen_gemeldet = False
+        self._aktiv = False
+        self._fehler_aufgetreten = False
+
+        self._win = tk.Toplevel(parent)
+        self._win.title("Desktop zurücksetzen")
+        self._win.geometry("620x420")
+        self._win.protocol("WM_DELETE_WINDOW", self._schliessen)
+
+        tk.Label(self._win, text=_RESET_ERKLAERUNG, justify="left",
+                 wraplength=580, anchor="w").pack(fill="x", padx=12, pady=10)
+        # Firefox-Hinweis (wird bei laufendem Firefox rot).
+        self._lbl_firefox = tk.Label(self._win, text="", justify="left",
+                                     wraplength=580, anchor="w", fg="#c00")
+        self._lbl_firefox.pack(fill="x", padx=12)
+        tk.Label(self._win, fg="#555", justify="left", wraplength=580, anchor="w",
+                 text="Die Meldungen erscheinen im Fenster „CImbel-Systempflege“."
+                 ).pack(fill="x", padx=12, pady=(6, 0))
+
+        leiste = tk.Frame(self._win)
+        leiste.pack(side="bottom", pady=8)
+        self._btn_reset = tk.Button(leiste, text="Auf Ursprungszustand zurücksetzen",
+                                    command=self._reset, state="disabled")
+        self._btn_reset.pack(side="left", padx=6)
+        self._btn_schliessen = tk.Button(leiste, text="Schließen",
+                                         command=self._schliessen)
+        self._btn_schliessen.pack(side="left", padx=6)
+
+        self._pruefe_firefox()
+
+    # -------- Nebenlaeufigkeit / Log
+
+    def _im_hintergrund(self, fn):
+        threading.Thread(target=fn, daemon=True).start()
+
+    def _ui(self, fn):
+        self._win.after(0, fn)
+
+    def _log(self, text, fehler=False):
+        if fehler:
+            self._fehler_aufgetreten = True
+        self._zentral_log(text, fehler=fehler)
+
+    # -------- Firefox-Vorpruefung (ANWEISUNG im Dialog)
+
+    def _pruefe_firefox(self):
+        self._im_hintergrund(self._pruefe_firefox_bg)
+
+    def _pruefe_firefox_bg(self):
+        if reset_core.firefox_laeuft():
+            self._ui(lambda: self._lbl_firefox.config(
+                text="Firefox läuft noch. Bitte schließen Sie Firefox "
+                     "vollständig und klicken Sie dann auf „Erneut prüfen“."))
+            self._ui(lambda: self._btn_reset.config(
+                text="Erneut prüfen", command=self._pruefe_firefox, state="normal"))
+        else:
+            self._ui(lambda: self._lbl_firefox.config(text=""))
+            self._ui(lambda: self._btn_reset.config(
+                text="Auf Ursprungszustand zurücksetzen", command=self._reset,
+                state="normal"))
+
+    # -------- Reset
+
+    def _reset(self):
+        if not messagebox.askyesno("Wirklich zurücksetzen?", _RESET_WARNUNG,
+                                   icon="warning", default="no", parent=self._win):
+            self._log("Abgebrochen -- es wurde nichts geändert.")
+            return
+        self._aktiv = True
+        self._fehler_aufgetreten = False
+        self._btn_reset.config(state="disabled")
+        self._im_hintergrund(self._reset_bg)
+
+    def _reset_bg(self):
+        try:
+            reset_core.reset(protokoll=lambda t: self._log(t))
+        except reset_core.ResetFehler as e:
+            self._log(str(e), fehler=True)
+            self._ui(lambda: self._btn_reset.config(
+                text="Erneut prüfen", command=self._pruefe_firefox, state="normal"))
+            self._aktiv = False
+            return
+        except Exception as e:
+            self._log("Unerwarteter Fehler: " + str(e), fehler=True)
+            self._ui(lambda: self._btn_reset.config(state="normal"))
+            self._aktiv = False
+            return
+        if not self._fehler_aufgetreten:
+            self._desktop_neu_laden()
+            self._log("Fertig: Der Desktop ist auf den Ursprungszustand "
+                      "zurückgesetzt. Sie können den Dialog jetzt schließen.")
+        self._aktiv = False
+
+    def _desktop_neu_laden(self):
+        """xfdesktop --reload: Icons + Hintergrund den frischen home-Stand neu
+        einlesen (sonst erst nach Reboot sichtbar). Fehlt xfdesktop oder
+        scheitert der Aufruf, ist das kein Reset-Fehler -- nur ein Hinweis."""
+        if not shutil.which("xfdesktop"):
+            self._log("Hinweis: Desktop-Oberfläche nicht gefunden -- bitte zum "
+                      "Anzeigen des Ursprungszustands den Rechner neu starten.")
+            return
+        try:
+            subprocess.run(["xfdesktop", "--reload"],
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            self._log("Desktop wird aktualisiert ...")
+        except OSError as e:
+            self._log("Desktop-Aktualisierung nicht möglich (" + str(e) +
+                      ") -- notfalls den Rechner neu starten.")
+
+    def _schliessen(self):
+        if self._aktiv:
+            self._log("Bitte warten, bis das Zurücksetzen fertig ist.",
                       fehler=True)
             return
         if self._nach_schliessen_cb and not self._schliessen_gemeldet:
