@@ -14,7 +14,7 @@ Type=oneshot
 # WICHTIG: Das Skript liegt auf der ext4-Systempartition, NICHT auf
 # /mnt/daten -- denn es unmountet /mnt/daten fuer den ntfsresize und wuerde
 # sich sonst den eigenen Boden entziehen. Beim Image-Bau nach
-# /usr/local/sbin/ kopieren (s. INSTALL-firstboot-grow.md).
+# /usr/local/sbin/ kopieren (s. INSTALL.md).
 ExecStart=/usr/local/sbin/cimbel-firstboot-grow.sh
 # Fehlschlag darf den Boot nicht blockieren (der Stick ist auch ohne
 # Vergroesserung nutzbar, nur evtl. mit weniger Platz).

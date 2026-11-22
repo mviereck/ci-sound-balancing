@@ -1,6 +1,6 @@
 #!/bin/bash
-# firstboot-grow.sh -- vergroessert beim ersten Boot die NTFS-Datenpartition
-# auf die volle Stickgroesse.
+# cimbel-firstboot-grow.sh -- vergroessert beim ersten Boot die NTFS-
+# Datenpartition auf die volle Stickgroesse.
 #
 # Hintergrund (Konzept_Offline_Stick.md, "Herstellung / Skalierung"):
 # Das Download-Image ist klein (~4 GB gzip); auf einen groesseren Stick
@@ -18,23 +18,23 @@
 # DIESES SKRIPT LIEGT ZUR LAUFZEIT AUF DER ext4-SYSTEMPARTITION
 # (/usr/local/sbin/), NICHT auf /mnt/daten -- es unmountet /mnt/daten und
 # wuerde sich sonst selbst den Boden entziehen. Die Repo-Kopie unter
-# stick-files/ ist die PFLEGE-Quelle; der Image-Bau kopiert sie nach
-# /usr/local/sbin/ (s. INSTALL-firstboot-grow.md).
+# stick-files/firstboot_grow/ ist die PFLEGE-Quelle; der Image-Bau kopiert
+# sie namensgleich nach /usr/local/sbin/ (s. INSTALL.md).
 #
 # Sicherheitsnetze (mehrfach, weil Partition-Resize der gefaehrlichste
 # Schritt ist):
 #   1. Marker-Datei: ist der Grow schon erfolgreich durch, sofort raus.
-#   2. Ziel-Identifikation: NUR die LETZTE Partition des BOOT-Mediums und
-#      nur, wenn sie NTFS ist. Das Boot-Medium wird aus der Root-Partition
-#      abgeleitet (findmnt /), nicht geraten -- kein Fehlgriff auf ein
-#      zweites eingestecktes Medium.
+#   2. Ziel-Identifikation (dreifach): NUR die LETZTE Partition des
+#      BOOT-Mediums, nur wenn NTFS, nur wenn Label "cimbeldaten". Das
+#      Boot-Medium wird aus der Root-Partition abgeleitet (findmnt /), nicht
+#      geraten -- kein Fehlgriff auf ein zweites eingestecktes Medium.
 #   3. Freiraum-Pruefung: nur vergroessern, wenn hinter der Partition
 #      wirklich nennenswerter freier Platz ist -- sonst No-Op (macht das
 #      Skript idempotent, auch ohne Marker).
 #   4. set -euo pipefail: bricht bei jedem Fehler ab, bevor etwas Halbes
 #      passiert; der Marker wird erst NACH erfolgreichem ntfsresize gesetzt.
 #
-# Manuell testbar:  sudo bash firstboot-grow.sh --trockenlauf
+# Manuell testbar:  sudo bash cimbel-firstboot-grow.sh --trockenlauf
 set -euo pipefail
 
 MARKER="/var/lib/cimbel/firstboot-grow-done"
@@ -102,12 +102,20 @@ if [ -z "$PART_NUM" ]; then
 fi
 
 # --- 2. ist die letzte Partition wirklich unsere NTFS-Datenpartition? -------
+# Dreifache Bedingung: letzte Partition (oben ermittelt) UND ntfs UND das
+# Volume-Label "cimbeldaten". Das Label ist der dritte Riegel zusaetzlich zur
+# Boot-Medium-Eingrenzung -- vergroessert nur die wirklich gemeinte Partition.
 FSTYPE="$(lsblk -no FSTYPE "$LAST_PART" || true)"
 if [ "$FSTYPE" != "ntfs" ]; then
     log "Letzte Partition $LAST_PART ist $FSTYPE, nicht ntfs -- NICHTS getan." >&2
     exit 1
 fi
-log "Ziel: $LAST_PART (Partition $PART_NUM auf $DISK), Dateisystem ntfs."
+LABEL="$(lsblk -no LABEL "$LAST_PART" 2>/dev/null | sed 's/[[:space:]]*$//' || true)"
+if [ "$LABEL" != "cimbeldaten" ]; then
+    log "Letzte NTFS-Partition $LAST_PART hat Label '$LABEL', nicht 'cimbeldaten' -- NICHTS getan." >&2
+    exit 1
+fi
+log "Ziel: $LAST_PART (Partition $PART_NUM auf $DISK), ntfs, Label cimbeldaten."
 
 # --- 3. gibt es ueberhaupt freien Platz dahinter? ---------------------------
 # growpart --dry-run meldet, ob/wie weit sich die Partition vergroessern

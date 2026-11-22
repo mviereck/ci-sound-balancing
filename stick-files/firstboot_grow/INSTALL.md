@@ -6,14 +6,16 @@ auf dem Master**, bevor das Auslieferungs-Image gebaut wird.
 
 ## Was wohin gehört
 
-| Datei (Repo) | Ziel auf dem Stick | Warum dorthin |
-|---|---|---|
-| `stick-files/firstboot-grow.sh` | `/usr/local/sbin/cimbel-firstboot-grow.sh` | **ext4-Systempartition**, NICHT `/mnt/daten` — das Skript unmountet `/mnt/daten` und darf nicht auf der Partition liegen, die es aushängt. |
-| `stick-files/cimbel-firstboot-grow.service` | `/etc/systemd/system/cimbel-firstboot-grow.service` | systemd-Unit-Verzeichnis. |
+Die Dateinamen sind **Repo und Ziel identisch** — beim Kopieren wird nichts
+umbenannt (das verhindert divergierende Namen).
 
-Die Kopien unter `stick-files/` sind die **Pflege-Quelle** (im Repo
-versioniert). Sie laufen nicht von dort — der Image-Bau kopiert sie an die
-Zielorte oben.
+| Datei (Repo, in `stick-files/firstboot_grow/`) | Ziel auf dem Stick | Warum dorthin |
+|---|---|---|
+| `cimbel-firstboot-grow.sh` | `/usr/local/sbin/cimbel-firstboot-grow.sh` | **ext4-Systempartition**, NICHT `/mnt/daten` — das Skript unmountet `/mnt/daten` und darf nicht auf der Partition liegen, die es aushängt. |
+| `cimbel-firstboot-grow.service` | `/etc/systemd/system/cimbel-firstboot-grow.service` | systemd-Unit-Verzeichnis. |
+
+Die Repo-Kopien sind die **Pflege-Quelle** (versioniert). Sie laufen nicht von
+dort — der Image-Bau kopiert sie namensgleich an die Zielorte oben.
 
 ## Paket-Voraussetzung
 
@@ -27,17 +29,28 @@ sudo apt install cloud-guest-utils ntfs-3g
 (`ntfs-3g` ist für die NTFS-Datenpartition ohnehin vorhanden; `growpart`
 meist noch nicht — unbedingt mit aufnehmen.)
 
+**Volume-Label `cimbeldaten` erforderlich.** Das Skript vergrößert nur eine
+Partition, deren NTFS-Label `cimbeldaten` ist (dritter Sicherheits-Riegel
+neben „letzte Partition des Bootmediums" + „ntfs"). Label prüfen/setzen
+(ungemountet):
+
+```
+sudo ntfslabel /dev/sdXN              # anzeigen
+sudo ntfslabel /dev/sdXN cimbeldaten  # setzen, falls nötig
+```
+
 ## Einrichtung (als root auf dem Master)
 
 ```
-# 1. Skript auf die Systempartition kopieren und ausführbar machen
-sudo cp /mnt/daten/cimbel-intern/git/ci-sound-balancing/stick-files/firstboot-grow.sh \
-        /usr/local/sbin/cimbel-firstboot-grow.sh
+# Quellordner (im Repo)
+SRC=/mnt/daten/cimbel-intern/git/ci-sound-balancing/stick-files/firstboot_grow
+
+# 1. Skript auf die Systempartition kopieren (namensgleich) und ausführbar machen
+sudo cp "$SRC/cimbel-firstboot-grow.sh" /usr/local/sbin/cimbel-firstboot-grow.sh
 sudo chmod 755 /usr/local/sbin/cimbel-firstboot-grow.sh
 
-# 2. systemd-Unit kopieren
-sudo cp /mnt/daten/cimbel-intern/git/ci-sound-balancing/stick-files/cimbel-firstboot-grow.service \
-        /etc/systemd/system/cimbel-firstboot-grow.service
+# 2. systemd-Unit kopieren (namensgleich)
+sudo cp "$SRC/cimbel-firstboot-grow.service" /etc/systemd/system/cimbel-firstboot-grow.service
 
 # 3. Dienst aktivieren (läuft beim nächsten Boot)
 sudo systemctl daemon-reload
