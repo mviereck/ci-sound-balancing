@@ -4,7 +4,7 @@
 Zwei Aufgaben rund um das Login-Paßwort des einen Stick-Users `cimbel`:
 
   pruefe <pw>   -- prueft, ob <pw> das aktuelle Paßwort von `cimbel` ist.
-  aendere       -- setzt ein neues Paßwort (altes + neues ueber stdin).
+  aendere       -- setzt ein neues Paßwort (altes + neues via Pseudo-Terminal).
 
 Hintergrund (siehe Konzept_Offline_Stick.md, Abschnitt „Root-Paßwort"):
 Der Stick wird mit dem allgemeinen, unsicheren Paßwort `cimbel` ausgeliefert.
@@ -13,37 +13,34 @@ auffordert und sie durchfuehrt. Es geht um Bequemlichkeit/Hygiene, nicht um
 harte Sicherheit (physischer Besitz legt die NTFS-Daten ohnehin offen); uebers
 Netz ist das Paßwort nicht angreifbar (kein SSH/Login-Dienst).
 
-SICHERHEIT (warum die Paßwoerter ueber stdin laufen, nie als Argument):
-Jedes Paßwort wird ueber stdin gereicht, steht damit NUR im Pipe-Inhalt, nie in
-der Prozeßliste (argv) oder in einem Shell-Verlauf. Es wird KEIN Paßwort in
-einer Datei oder im Skript hinterlegt (das Konzept verbietet NOPASSWD/
-hinterlegte Paßwoerter -- der Updater liegt user-beschreibbar und erneuert sich
-selbst).
+SICHERHEIT (die Paßwoerter stehen nie in argv):
+Weder Status-Pruefung noch Aenderung uebergeben ein Paßwort als Kommando-
+Argument. Der Status-Test reicht es ueber stdin an `sudo -S`; die Aenderung
+schreibt es in das Pseudo-Terminal von `passwd`. Es wird KEIN Paßwort in einer
+Datei oder im Skript hinterlegt (das Konzept verbietet NOPASSWD/hinterlegte
+Paßwoerter -- der Updater liegt user-beschreibbar und erneuert sich selbst).
 
-MECHANIK der Aenderung (warum zwei sudo-Laeufe):
-`cimbel` koennte sein eigenes Paßwort mit `passwd` auch ohne sudo aendern --
-aber `passwd` liest das ALTE Paßwort bei der Eigenaenderung bewusst nur vom
-Terminal, nicht von einer Pipe; eine rein nicht-interaktive Fuetterung ist so
-nicht moeglich. Darum ueber `sudo passwd --stdin`.
+MECHANIK der Aenderung (Pseudo-Terminal, KEIN sudo):
+`cimbel` aendert sein EIGENES Paßwort -- dafuer genuegt `passwd` (setuid-root),
+kein sudo. `passwd` liest das alte UND das neue Paßwort aber bewusst nur vom
+Terminal (nicht von einer Pipe), damit kein Skript es nicht-interaktiv
+unterschiebt. Darum wird `passwd` ueber ein Pseudo-Terminal (pty) getrieben:
+die drei Prompts (altes / neues / Wiederholung) werden POSITIONELL beantwortet
+-- auf jeden Prompt (Zeile, die mit ':' endet) die naechste Antwort schreiben,
+unabhaengig vom Wortlaut (locale-fest). Scheitert `passwd` (altes Paßwort
+falsch, Policy-Ablehnung), endet es mit nicht-null; seine Terminal-Ausgabe wird
+fuer die Diagnose zurueckgegeben.
 
-Die Herausforderung: `sudo -S` UND `passwd --stdin` wollen beide von stdin lesen
-(sudo das alte Paßwort, passwd das neue). Ein einziger stdin-Strom mit zwei
-Zeilen traegt NICHT -- bei falschem altem Paßwort verbraucht sudo die zweite
-Zeile als weiteren Fehlversuch, und die Durchreichung ans Kind ist nicht
-garantiert (sudo schliesst Zusatz-Deskriptoren, closefrom).
-
-Loesung (zwei Laeufe, je EIN stdin-Strom):
-  1. `sudo -S -k true` mit dem ALTEN Paßwort auf stdin. `-k` verwirft einen
-     evtl. gecachten Timestamp -> der Lauf prueft wirklich das alte Paßwort.
-     Erfolg bestaetigt das alte Paßwort UND setzt frisch den sudo-Timestamp.
-  2. unmittelbar danach `sudo -S passwd --stdin cimbel` mit dem NEUEN Paßwort
-     auf stdin -- OHNE `-k` (sonst wuerde es den eben gesetzten Cache wieder
-     verwerfen). sudo ist jetzt gecacht, verlangt also kein Paßwort mehr; der
-     stdin-Strom traegt NUR das neue Paßwort, das direkt bei `passwd --stdin`
-     ankommt. Keine Kollision.
-Beide Paßwoerter stehen nur im jeweiligen Pipe-Inhalt, nie in argv.
+Warum NICHT `sudo passwd --stdin` (frueherer Versuch, verworfen):
+`sudo -S` und `passwd --stdin` wollen beide von stdin lesen; ein geteilter
+sudo-Timestamp zwischen zwei Prozessen traegt nicht (ein `sudo -k`-Prueflauf
+invalidiert ihn, und sudoers cached je Terminal/PPID getrennt). Der pty-Weg
+braucht weder sudo noch einen geteilten Cache.
 """
 import argparse
+import os
+import pty
+import select
 import subprocess
 import sys
 
@@ -68,9 +65,8 @@ def ist_aktuelles_passwort(pw, user=USER):
     konservativ: im Zweifel 'nicht das Default-Paßwort', was im Pflegefenster
     nur den Statustext steuert (Aufforderung ja/nein), nie eine Aktion sperrt.
 
-    Nebenwirkung: ein fehlgeschlagener Versuch landet als sudo-Fehlversuch im
-    lokalen /var/log/auth.log -- harmlos (kein Netz), aber bei jedem
-    Fensteroeffnen nach erfolgter Aenderung eine Logzeile."""
+    Nur fuer den STATUS gedacht (gilt noch das Default-Paßwort?); die Aenderung
+    selbst laeuft ueber `aendere()` (pty), nicht ueber diesen Test."""
     try:
         p = subprocess.run(["sudo", "-S", "-k", "true"],
                            input=pw + "\n", text=True,
@@ -90,7 +86,7 @@ def pruefe_neues(neu, wiederholung):
     """Prueft das neue Paßwort gegen die Dialog-Regeln (leer verboten,
     Mindestlaenge, Wiederholung gleich). Wirft PasswortFehler mit einer
     sprechenden, nutzerlesbaren Meldung; gibt bei Erfolg None zurueck.
-    Reine Validierung, keine Systemaenderung -- so vor dem sudo-Lauf
+    Reine Validierung, keine Systemaenderung -- so vor dem passwd-Lauf
     aufrufbar (und einzeln testbar)."""
     if not neu:
         raise PasswortFehler("Das neue Paßwort darf nicht leer sein.")
@@ -102,50 +98,105 @@ def pruefe_neues(neu, wiederholung):
                              "nicht ueberein.")
 
 
+def _passwd_via_pty(user, antworten, timeout_s=10.0):
+    """Treibt `passwd <user>` ueber ein Pseudo-Terminal und beantwortet die
+    Prompts POSITIONELL mit `antworten` (Liste: altes, neues, Wiederholung).
+    Gibt (returncode, ausgabe) zurueck -- ausgabe ist die gesamte Terminal-
+    Ausgabe (Prompts + Meldungen), aus der die Paßwoerter nie erscheinen
+    (passwd echot sie nicht).
+
+    Positionell statt wortbasiert: `passwd` fragt in fester Reihenfolge und
+    zeigt vor jeder Eingabe einen Prompt, der mit ':' endet. Auf jeden solchen
+    Prompt wird die naechste Antwort geschrieben -- locale-unabhaengig (kein
+    'Current password'/'Aktuelles Kennwort'-Vergleich). Ueberzaehlige Prompts
+    (passwd fragt bei Fehler erneut) erhalten keine Antwort mehr -> passwd
+    laeuft in sein eigenes Limit und endet mit Fehler."""
+    pid, fd = pty.fork()
+    if pid == 0:
+        # Kindprozess: wird zum passwd. LANG/LC neutralisieren waere moeglich,
+        # ist aber unnoetig (positionelle Erkennung). exec ersetzt das Kind;
+        # kehrt es zurueck, ist exec gescheitert -> hart beenden.
+        try:
+            os.execvp("passwd", ["passwd", user])
+        except OSError:
+            os._exit(127)
+
+    # Elternprozess: Prompts lesen, Antworten schreiben.
+    ausgabe = []
+    rest = list(antworten)
+    puffer = ""
+    import time
+    ende = time.time() + timeout_s
+    while True:
+        if time.time() > ende:
+            break
+        r, _, _ = select.select([fd], [], [], 0.2)
+        if fd in r:
+            try:
+                daten = os.read(fd, 1024)
+            except OSError:
+                break                       # pty geschlossen (Kind fertig)
+            if not daten:
+                break
+            text = daten.decode("utf-8", "replace")
+            ausgabe.append(text)
+            puffer += text
+            # Prompt erkannt (endet mit ':' ggf. + Leerzeichen) und noch eine
+            # Antwort offen -> schreiben. Danach den Puffer leeren, damit
+            # derselbe Prompt nicht doppelt antwortet.
+            if rest and puffer.rstrip().endswith(":"):
+                antwort = rest.pop(0)
+                try:
+                    os.write(fd, (antwort + "\n").encode("utf-8"))
+                except OSError:
+                    break
+                puffer = ""
+    # Auf das Kind warten und Returncode holen.
+    try:
+        _, status = os.waitpid(pid, 0)
+    except OSError:
+        status = 1
+    try:
+        os.close(fd)
+    except OSError:
+        pass
+    rc = os.waitstatus_to_exitcode(status) if hasattr(os, "waitstatus_to_exitcode") \
+        else (status >> 8)
+    return rc, "".join(ausgabe)
+
+
 def aendere(alt, neu, wiederholung, user=USER):
-    """Setzt ein neues Login-Paßwort fuer `user`.
+    """Setzt ein neues Login-Paßwort fuer `user` (dessen eigenes Konto) ueber
+    `passwd` in einem Pseudo-Terminal. Prueft zuerst die Dialog-Regeln
+    (pruefe_neues), treibt dann `passwd` positionell mit (alt, neu, neu).
 
-    Ablauf: (0) Dialog-Regeln pruefen (pruefe_neues). (1) altes Paßwort per
-    `sudo -S -k true` verifizieren -- schlaegt es fehl, war das alte Paßwort
-    falsch (oder `user` nicht sudo-berechtigt). (2) neues Paßwort per
-    `sudo -S passwd --stdin user` (ohne -k, nutzt den eben gesetzten Cache)
-    setzen. Siehe Modul-Docstring (MECHANIK) fuer das Warum der zwei Laeufe.
-
-    Wirft PasswortFehler (sprechend) bei Regelverstoß, falschem alten Paßwort
-    oder passwd-Fehler. Gibt bei Erfolg None zurueck."""
+    Wirft PasswortFehler (sprechend, mit roher passwd-Ausgabe als Diagnose-
+    Anhang) bei Regelverstoß, falschem alten Paßwort oder passwd-Fehler
+    (Policy-Ablehnung). Gibt bei Erfolg None zurueck."""
     pruefe_neues(neu, wiederholung)
 
-    # Schritt 1: altes Paßwort verifizieren (und sudo-Timestamp frisch setzen).
-    # Eigener Lauf (nicht ueber ist_aktuelles_passwort), damit die rohe
-    # sudo-Ausgabe bei Fehlschlag in die Fehlermeldung kann (Diagnose).
     try:
-        p1 = subprocess.run(["sudo", "-S", "-k", "true"],
-                            input=alt + "\n", text=True, capture_output=True)
-    except OSError as e:
-        raise PasswortFehler("Paßwort-Werkzeug nicht ausfuehrbar (" + str(e) + ").")
-    if p1.returncode != 0:
-        roh1 = ((p1.stderr or "") + (p1.stdout or "")).strip()
-        raise PasswortFehler(
-            "Das aktuelle Paßwort ist falsch (oder der Benutzer darf das "
-            "Paßwort nicht aendern). [Schritt 1: sudo-Pruefung]"
-            + (("\n\nMeldung: " + roh1) if roh1 else ""))
-
-    # Schritt 2: neues Paßwort setzen. sudo ist jetzt gecacht (Schritt 1 war
-    # erfolgreich), darum OHNE -k -- so verlangt sudo kein Paßwort und der
-    # stdin-Strom traegt NUR das neue Paßwort fuer `passwd --stdin`.
-    try:
-        p = subprocess.run(
-            ["sudo", "-S", "passwd", "--stdin", user],
-            input=neu + "\n", text=True, capture_output=True)
+        rc, ausgabe = _passwd_via_pty(user, [alt, neu, wiederholung])
     except OSError as e:
         raise PasswortFehler("Paßwort-Werkzeug nicht ausfuehrbar (" + str(e) + ").")
 
-    if p.returncode != 0:
-        # passwd/sudo geben das Paßwort nie aus; die rohe Ausgabe ist technisch,
-        # darum eine sprechende Standardmeldung mit der rohen Ausgabe als Anhang.
-        roh = ((p.stderr or "") + (p.stdout or "")).strip()
+    if rc != 0:
+        roh = ausgabe.strip()
+        # Sicherheitsnetz: das echte `passwd` schaltet das Terminal-Echo ab, die
+        # eingegebenen Paßwoerter erscheinen also normalerweise NICHT in der
+        # Ausgabe. Falls doch (abweichendes passwd, Fehler-Nachprompt), die
+        # eingegebenen Werte aus dem Diagnose-Anhang entfernen -- der Anhang
+        # landet im kopierbaren Log, darf also kein Paßwort tragen.
+        for geheim in (alt, neu, wiederholung):
+            if geheim:
+                roh = roh.replace(geheim, "***")
+        # passwd meldet bei falschem alten Paßwort typischerweise eine
+        # Authentifizierungs-Zeile; bei Policy-Ablehnung einen BAD-PASSWORD-
+        # Hinweis. Eine sprechende Standardmeldung mit der (gefilterten) rohen
+        # Ausgabe als Anhang.
         raise PasswortFehler(
-            "Paßwortaenderung fehlgeschlagen. [Schritt 2: passwd]"
+            "Paßwortaenderung fehlgeschlagen. Haeufigste Ursache: das aktuelle "
+            "Paßwort war falsch, oder das neue genuegt den System-Regeln nicht."
             + (("\n\nMeldung: " + roh) if roh else ""))
 
 
