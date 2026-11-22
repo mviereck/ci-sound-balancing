@@ -10,6 +10,16 @@
 # Eintraege bleiben zur Dokumentation stehen (was warum lokal bleibt).
 .*
 !.gitignore
+# Ausnahmen: Punkt-Dateien, die der Webserver braucht und die daher INS Repo
+# gehoeren und mitgepusht werden (GitHub Pages / Apache-Webspace).
+!.htaccess
+!.nojekyll
+
+# Lokaler FTP-Ablageordner: hier liegen grosse Dateien, die NICHT ins git-Repo
+# gehoeren (Hoerbuch-Texte .txt.gz), sondern per FTP ins Webspace-Wurzel-
+# verzeichnis geladen werden. Der fuehrende Punkt haelt sie aus git heraus und
+# dient zugleich als Merker "muss ich hochladen". Bleibt lokal.
+.assets_ftp/
 
 # Backups und lokales Arbeitsmaterial
 .backup/

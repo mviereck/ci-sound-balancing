@@ -5528,11 +5528,15 @@ async function plReadEnsureText() {
       if (wantId !== _plReadBookId) return;   // inzwischen Traeger gewechselt
       _plReadLines = lines;                    // null bei Fehler -> keine Box
     } else {
-      // --- Quelle A: eingebackener .txt.gz-Text (LibriVox), unveraendert ---
+      // --- Quelle A: LibriVox-.txt.gz-Text (Hoerbuch-Texte liegen im Webspace,
+      //     nicht mehr im Repo) ---
       var url = car ? car.textUrl : null;
       if (!url || !/\.txt\.gz$/i.test(url)) { return; }   // finally rendert
-      // textUrl ist assets-relativ (z. B. "hoerbuch-texte/de/...-172.txt.gz").
-      var raw = await gzFetchText("assets/" + url);
+      // textUrl ist eine ABSOLUTE Webspace-URL (vom Builder gesetzt, s.
+      // quellen/librivox.py HOERBUCH_TEXT_BASE). Am Stick cross-origin gegen den
+      // Webspace (CORS per Webspace-.htaccess); gzFetchText entpackt die rohe .gz
+      // selbst (Webspace liefert sie roh aus, kein Content-Encoding).
+      var raw = await gzFetchText(url);
       if (wantId !== _plReadBookId) return;
       var _range = car ? car.textRange : null;
       _plReadLines = _plReadExtract(raw, _range);  // textRange -> Marken -> ganzer Text

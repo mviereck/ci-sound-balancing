@@ -1,0 +1,36 @@
+# Gemeinsame CORS-/Auslieferungsregeln fuer das Wurzelverzeichnis.
+# Ersetzt die frueher verstreuten .htaccess (js/, ping/, opus/). CORS wird
+# GEZIELT pro Pfad/Dateityp freigegeben -- nicht serverweit (minimale
+# Angriffsflaeche), wie bisher nur fuer version.js.
+#
+# Warum CORS ueberhaupt: Der Offline-Stick serviert die CImbel-Seite lokal
+# (http://localhost:9000), holt aber hoerbuch-texte, version.js u.a. vom
+# entfernten Webspace -> cross-origin. Auf der Website selbst ist derselbe
+# Zugriff same-origin (CORS dann schlicht ungenutzt).
+
+<IfModule mod_headers.c>
+    # version.js: absoluter Versionscheck des Sticks gegen die Produktion.
+    <Files "version.js">
+        Header set Access-Control-Allow-Origin "*"
+    </Files>
+    # ping/: Online-Test des Sticks.
+    <FilesMatch "^ping\.txt$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+    # Hoerbuch-Texte (.txt.gz) und Opus-Audio: cross-origin vom Stick geladen.
+    <FilesMatch "\.(txt\.gz|opus|ogg|mp3|m4a|flac|wav)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+
+# Hoerbuch-Texte sind .gz und werden vom Browser-Code (gzFetchText,
+# DecompressionStream) SELBST entpackt. Daher ROH ausliefern: kein
+# Content-Encoding: gzip (sonst entpackt der Browser doppelt -> Fehler).
+<IfModule mod_mime.c>
+    RemoveEncoding .gz
+    # .txt.gz als reine Oktett-Daten ausliefern (nicht als text/plain + gzip-
+    # Transferencoding), damit der Transport die Bytes unveraendert durchreicht.
+    <FilesMatch "\.txt\.gz$">
+        ForceType application/octet-stream
+    </FilesMatch>
+</IfModule>
