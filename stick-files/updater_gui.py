@@ -330,102 +330,105 @@ class UpdaterGUI:
         mitte.columnconfigure(1, weight=1)               # Log nimmt den Rest
         mitte.rowconfigure(0, weight=1)
 
+        # Linke Spalte als kompakte TABELLE (Grid): je Funktion EINE Zeile
+        # (Name | Status | Knoepfe), keine umrahmten Kaesten mehr -> hoehen-
+        # sparsam, traegt kuenftige Funktionen ohne das Fenster zu dehnen.
+        # Gruppen durch schlanke Zwischenueberschriften + Trennlinien.
+        # Spalten: 0 Name (fest), 1 Status (dehnt+umbricht), 2 Knoepfe (rechts).
         links = tk.Frame(mitte)
         links.grid(row=0, column=0, sticky="nsew", padx=(0, 8))
+        links.columnconfigure(0, weight=0, minsize=90)   # Name
+        links.columnconfigure(1, weight=1)               # Status (dehnt)
+        links.columnconfigure(2, weight=0)               # Knoepfe (rechtsbuendig)
+        self._tab_zeile = 0   # laufender Grid-Zeilenzaehler der Tabelle
 
-        # --- Bereich CImbel ---
-        self._bereich_cimbel = tk.LabelFrame(links, text="CImbel", padx=8, pady=6)
-        self._bereich_cimbel.pack(fill="x", pady=3)
-        self.lbl_cimbel = tk.Label(self._bereich_cimbel, text="...",
-                                   justify="left", anchor="w", wraplength=300)
-        self.lbl_cimbel.pack(side="left", fill="x")
-        # Reparatur-Knopf zuerst packen -> landet GANZ rechts; der
-        # Aktualisieren-Knopf kommt mit padx links daneben. Reparieren ist IMMER
-        # anwaehlbar (Notfall-Werkzeug, unabhaengig vom Versionsstand).
-        self.btn_cimbel_reparieren = tk.Button(self._bereich_cimbel, text="Reparieren",
+        def _ueberschrift(text):
+            tk.Label(links, text=text, font=("", 10, "bold"), anchor="w"
+                     ).grid(row=self._tab_zeile, column=0, columnspan=3,
+                            sticky="w", pady=(8, 2))
+            self._tab_zeile += 1
+
+        def _trennlinie():
+            ttk.Separator(links, orient="horizontal").grid(
+                row=self._tab_zeile, column=0, columnspan=3, sticky="ew",
+                pady=(6, 2))
+            self._tab_zeile += 1
+
+        def _zeile(name):
+            """Baut eine Tabellenzeile; gibt (status_label, knopf_frame) zurueck.
+            Der Name steht links, der Status dehnt sich und umbricht, die Knoepfe
+            kommen rechtsbuendig in den knopf_frame."""
+            r = self._tab_zeile
+            tk.Label(links, text=name, anchor="w").grid(
+                row=r, column=0, sticky="w", padx=(0, 6), pady=2)
+            status = tk.Label(links, text="...", justify="left", anchor="w",
+                              wraplength=260)
+            status.grid(row=r, column=1, sticky="w", pady=2)
+            knoepfe = tk.Frame(links)
+            knoepfe.grid(row=r, column=2, sticky="e", pady=2)
+            self._tab_zeile += 1
+            return status, knoepfe
+
+        # --- Gruppe Updates ---
+        _ueberschrift("Updates")
+
+        # CImbel: Reparatur-Knopf zuerst packen -> landet GANZ rechts. Reparieren
+        # ist IMMER anwaehlbar (Notfall-Werkzeug, unabhaengig vom Versionsstand).
+        self.lbl_cimbel, _kf = _zeile("CImbel")
+        self.btn_cimbel_reparieren = tk.Button(_kf, text="Reparieren",
                                                command=self._cimbel_reparieren)
         self.btn_cimbel_reparieren.pack(side="right")
-        self.btn_cimbel = tk.Button(self._bereich_cimbel, text="Aktualisieren",
+        self.btn_cimbel = tk.Button(_kf, text="Aktualisieren",
                                     command=self._cimbel_update, state="disabled")
         self.btn_cimbel.pack(side="right", padx=(0, 6))
 
-        # --- Bereich eira ---
-        self._bereich_eira = tk.LabelFrame(links, text="eira", padx=8, pady=6)
-        self._bereich_eira.pack(fill="x", pady=3)
-        self.lbl_eira = tk.Label(self._bereich_eira, text="...",
-                                 justify="left", anchor="w", wraplength=300)
-        self.lbl_eira.pack(side="left", fill="x")
-        self.btn_eira_reparieren = tk.Button(self._bereich_eira, text="Reparieren",
+        self.lbl_eira, _kf = _zeile("eira")
+        self.btn_eira_reparieren = tk.Button(_kf, text="Reparieren",
                                              command=self._eira_reparieren)
         self.btn_eira_reparieren.pack(side="right")
-        self.btn_eira = tk.Button(self._bereich_eira, text="Aktualisieren",
+        self.btn_eira = tk.Button(_kf, text="Aktualisieren",
                                   command=self._eira_update, state="disabled")
         self.btn_eira.pack(side="right", padx=(0, 6))
 
-        # --- Bereich Pico-ASHA ---
-        self._bereich_pico = tk.LabelFrame(links, text="Pico-ASHA", padx=8, pady=6)
-        self._bereich_pico.pack(fill="x", pady=3)
-        self.lbl_pico = tk.Label(self._bereich_pico, text="...",
-                                 justify="left", anchor="w", wraplength=300)
-        self.lbl_pico.pack(side="left", fill="x")
+        self.lbl_pico, _kf = _zeile("Pico-ASHA")
         # Force-Flash ist IMMER anwaehlbar (unabhaengig vom Versionsvergleich):
-        self.btn_pico_force = tk.Button(self._bereich_pico, text="Neu flashen",
+        self.btn_pico_force = tk.Button(_kf, text="Neu flashen",
                                         command=self._pico_force_flash)
         self.btn_pico_force.pack(side="right")
         # Update-Button erscheint nur, wenn eine neue Version vorliegt:
-        self.btn_pico = tk.Button(self._bereich_pico, text="Aktualisieren",
+        self.btn_pico = tk.Button(_kf, text="Aktualisieren",
                                   command=lambda: self._pico_flash_dialog(force=False),
                                   state="disabled")
         self.btn_pico.pack(side="right", padx=(0, 6))
 
-        # --- Bereich Audios ---
-        self._bereich_audio = tk.LabelFrame(links, text="Audios", padx=8, pady=6)
-        self._bereich_audio.pack(fill="x", pady=3)
-        self.lbl_audio = tk.Label(self._bereich_audio,
-                                  text="Audios für Offline Betrieb herunterladen",
-                                  justify="left", anchor="w", wraplength=300)
-        self.lbl_audio.pack(side="left", fill="x")
-        # Ein Knopf oeffnet das Audio-Download-Fenster: dort waehlt der Nutzer
-        # per Checkbox, welche Teilmengen (Ordner, M-AILABS nach Sprechern) er
-        # laden will, mit Groessen-/Rest-Anzeige. Oeffnen sperrt alle Knoepfe
-        # (eigenes Toplevel wie der Pico-Dialog), Schliessen gibt sie frei.
-        self.btn_audio = tk.Button(self._bereich_audio, text="Verwalten",
+        # Audios: ein Knopf oeffnet das Download-Fenster (Teilmengen-Auswahl).
+        self.lbl_audio, _kf = _zeile("Audios")
+        self.lbl_audio.config(text="Audios für Offline Betrieb herunterladen")
+        self.btn_audio = tk.Button(_kf, text="Verwalten",
                                    command=self._audio_fenster_oeffnen, state="disabled")
         self.btn_audio.pack(side="right")
 
-        # --- Bereich System ---
-        # Zwei getrennte Knoepfe: "Auf Updates pruefen" (apt update) und
-        # "System aktualisieren" (apt upgrade). Jeder nur waehlbar, wenn er eine
-        # sinnvolle Aktion ausloest: pruefen nur, wenn das letzte apt update
-        # laenger als SYSTEM_UPDATE_MAX_ALTER_S zurueckliegt; aktualisieren nur,
-        # wenn apt list --upgradable Pakete meldet.
-        self._bereich_system = tk.LabelFrame(links, text="System", padx=8, pady=6)
-        self._bereich_system.pack(fill="x", pady=3)
-        self.lbl_system = tk.Label(self._bereich_system, text="apt-Updates (optional)",
-                                   justify="left", anchor="w", wraplength=300)
-        self.lbl_system.pack(side="left", fill="x")
-        self.btn_system_upgrade = tk.Button(self._bereich_system, text="System aktualisieren",
+        # System: zwei getrennte Knoepfe (apt update / apt upgrade), jeder nur
+        # waehlbar, wenn er eine sinnvolle Aktion ausloest.
+        self.lbl_system, _kf = _zeile("System")
+        self.lbl_system.config(text="apt-Updates (optional)")
+        self.btn_system_upgrade = tk.Button(_kf, text="System aktualisieren",
                                             command=self._system_upgrade, state="disabled")
         self.btn_system_upgrade.pack(side="right")
-        self.btn_system = tk.Button(self._bereich_system, text="Auf Updates pruefen",
+        self.btn_system = tk.Button(_kf, text="Auf Updates pruefen",
                                     command=self._system_pruefen, state="disabled")
         self.btn_system.pack(side="right", padx=(0, 6))
 
-        # --- Trennlinie: oben die Update-Gruppe, darunter die Reparatur-Gruppe.
-        ttk.Separator(links, orient="horizontal").pack(fill="x", pady=(8, 4))
+        # --- Gruppe Sonstiges ---
+        _trennlinie()
+        _ueberschrift("Sonstiges")
 
-        # --- Bereich Desktop zuruecksetzen (Reparatur) ---
-        # Der Reset ist ein eingebetteter Toplevel-Dialog (ResetDialog); der
-        # Knopf "Zuruecksetzen..." oeffnet ihn (Erklaerung, Firefox-Vorpruefung
-        # und Verlust-Warnung leben im Dialog). Immer anwaehlbar (nur die
-        # Aktionssperre graut ihn voruebergehend) -- Reparatur-Werkzeug.
-        self._bereich_reset = tk.LabelFrame(links, text="Reparatur", padx=8, pady=6)
-        self._bereich_reset.pack(fill="x", pady=3)
-        self.lbl_reset = tk.Label(self._bereich_reset,
-                                  text="Desktopeinstellungen rückgängig machen",
-                                  justify="left", anchor="w", wraplength=300)
-        self.lbl_reset.pack(side="left", fill="x")
-        self.btn_reset = tk.Button(self._bereich_reset, text="Zurücksetzen…",
+        # Desktop-Reset: eingebetteter Toplevel-Dialog (ResetDialog); der Knopf
+        # oeffnet ihn (Erklaerung, Firefox-Vorpruefung, Verlust-Warnung im
+        # Dialog). Immer anwaehlbar (nur die Aktionssperre graut ihn kurz).
+        self.lbl_reset, _kf = _zeile("Desktop")
+        self.lbl_reset.config(text="Einstellungen rückgängig machen")
+        self.btn_reset = tk.Button(_kf, text="Zurücksetzen…",
                                    command=self._reset_fenster_oeffnen)
         self.btn_reset.pack(side="right")
 
@@ -1218,9 +1221,6 @@ class PicoFlashDialog:
         self._lbl_anleitung = tk.Label(
             self._win, text="", justify="left", wraplength=490, anchor="w")
         self._lbl_anleitung.pack(fill="x", padx=12, pady=4)
-        tk.Label(self._win, fg="#555", justify="left", wraplength=490, anchor="w",
-                 text="Die Meldungen erscheinen im Fenster „CImbel-Systempflege“."
-                 ).pack(fill="x", padx=12, pady=(0, 4))
 
         knopfleiste = tk.Frame(self._win)
         knopfleiste.pack(side="bottom", pady=8)
@@ -1467,9 +1467,6 @@ class AudioDownloadDialog:
         # hereingereichten log-Callback ins zentrale Hauptfenster-Log. Die
         # Checkbox-Liste, der Fortschrittsbalken und die Summen-/Platzzeilen
         # (Bedienelemente) bleiben im Dialog; nur die Text-Meldungen sind zentral.
-        tk.Label(self._win, fg="#555", justify="left", anchor="w", wraplength=660,
-                 text="Die Meldungen erscheinen im Fenster „CImbel-Systempflege“."
-                 ).pack(side="bottom", fill="x", padx=14, pady=(0, 4))
 
         # Groessen/Rest asynchron laden (Soll-Liste holen + vorhanden.txt lesen).
         self._log("Lade Größenübersicht ...")
@@ -1801,7 +1798,7 @@ class AudioDownloadDialog:
 # Erklaerungs-/Warntexte (Nutzer-Text im Dialog, nicht im Log -- ANWEISUNG, keine
 # Information). Inhaltlich wie der frueher eigenstaendige reset_gui.py.
 _RESET_ERKLAERUNG = (
-    "Mit diesem Programm setzen Sie den Desktop und die Programm-"
+    "Mit dieser Option setzen Sie den Desktop und die Programm-"
     "Einstellungen auf den Ursprungszustand zurück. Das hilft, wenn der "
     "Stick verkonfiguriert wurde und nicht mehr richtig funktioniert.\n\n"
     "Zurückgesetzt wird:\n"
@@ -1852,8 +1849,15 @@ class ResetDialog:
 
         self._win = tk.Toplevel(parent)
         self._win.title("Desktop zurücksetzen")
-        self._win.geometry("620x420")
+        self._win.geometry("620x560")
+        self._win.minsize(620, 520)
         self._win.protocol("WM_DELETE_WINDOW", self._schliessen)
+
+        # Knopfleiste ZUERST unten packen (side="bottom"), damit sie immer
+        # sichtbar bleibt und nicht vom langen Erklaerungstext unter den Rand
+        # gedraengt wird.
+        leiste = tk.Frame(self._win)
+        leiste.pack(side="bottom", pady=8)
 
         tk.Label(self._win, text=_RESET_ERKLAERUNG, justify="left",
                  wraplength=580, anchor="w").pack(fill="x", padx=12, pady=10)
@@ -1861,12 +1865,7 @@ class ResetDialog:
         self._lbl_firefox = tk.Label(self._win, text="", justify="left",
                                      wraplength=580, anchor="w", fg="#c00")
         self._lbl_firefox.pack(fill="x", padx=12)
-        tk.Label(self._win, fg="#555", justify="left", wraplength=580, anchor="w",
-                 text="Die Meldungen erscheinen im Fenster „CImbel-Systempflege“."
-                 ).pack(fill="x", padx=12, pady=(6, 0))
 
-        leiste = tk.Frame(self._win)
-        leiste.pack(side="bottom", pady=8)
         self._btn_reset = tk.Button(leiste, text="Auf Ursprungszustand zurücksetzen",
                                     command=self._reset, state="disabled")
         self._btn_reset.pack(side="left", padx=6)
