@@ -1083,12 +1083,17 @@ class UpdaterGUI:
             state="normal" if force_an else "disabled"))
         self._ui(lambda: self.btn_pico.config(state="disabled"))
 
+        # Drei Zustaende sauber trennen (zwei Fragen):
+        #   (1) Pico vorhanden?      betrieb ODER bootsel
+        #   (2) MIT Pico-ASHA?       nur betrieb (meldet sich als cafe:4011)
+        # - Kein Pico (A): "Kein Pico gefunden", beide Knoepfe grau.
+        # - Pico da, aber ohne Pico-ASHA (B, z.B. frischer Pico im Flash-Modus):
+        #   "Neu flashen" anwaehlbar (force_an), "Aktualisieren" grau.
+        # - Pico mit Pico-ASHA (C): weiter unten (Version/Abgleich).
         if not betrieb:
-            # Steckt ein Pico im BOOTSEL-/Flash-Modus, ist das NICHT "kein Pico"
-            # -- er ist bereit zum Flashen (darum ist 'Neu flashen' anwaehlbar).
             if bootsel:
                 self._ui(lambda: self.lbl_pico.config(
-                    text="Pico im Flash-Modus (bereit zum Neu-Flashen)"))
+                    text="Pico gefunden, aber ohne Pico-ASHA"))
             else:
                 self._ui(lambda: self.lbl_pico.config(text="Kein Pico gefunden"))
             return
