@@ -16,6 +16,11 @@ from pathlib import Path
 DEF_STICK_ROOT = "/mnt/daten/cimbel-intern/git/ci-sound-balancing/stick-files"
 DEF_OPUS_ROOT = "/mnt/daten/cimbel-intern/opus"
 DEF_WEBSPACE = "https://www.ci-sound-balancing.org/opus/"
+# audio.bundle/ liegt ausserhalb des git-Repos (wie opus/) und wird per
+# Buendel-Sync gepflegt. Lokaler Ort am Stick + Webspace-Quelle (Wurzel, neben
+# index.html -- NICHT unter /opus/).
+DEF_BUNDLE_ROOT = "/mnt/daten/cimbel-intern/audio.bundle"
+DEF_BUNDLE_WEBSPACE = "https://www.ci-sound-balancing.org/audio.bundle/"
 
 # Schrumpf-Schutz: loescht audio-sync mehr als diesen Anteil der lokal
 # vorhandenen Opus-Dateien, bricht es ab (vermuteter Unfall). Gleiche Schwelle
@@ -474,6 +479,110 @@ def _leere_ordner_aufraeumen(opus_root, praefix):
         pass
 
 
+# ---------------------------------------------------------------- Bündel-Sync
+# audio.bundle/ liegt (wie opus/) ausserhalb des git-Repos und wird per HTTP auf
+# den Stick geladen -- dieselbe Soll/Ist-Idee wie der Opus-Audio-Sync, aber mit
+# md5 statt Dateigroesse als Vergleichswert (ein inhaltlich geaendertes Buendel
+# bei gleicher Groesse bliebe sonst unerkannt). Der md5 wird BEIM DOWNLOAD in die
+# Ist-Liste geschrieben (aus der Soll-Zeile uebernommen), nicht bei jedem Abgleich
+# neu berechnet. Steuerdateien: Soll = <webspace>/audio.bundle/bundle-soll.txt
+# (vom Builder), Ist = <bundle_root>/bundle-vorhanden.txt. Kein Praefix-Filter,
+# kein Schrumpf-Schutz -- die Buendel sind pflichtig und werden als Ganzes
+# gepflegt (verwaiste lokale Buendel werden entfernt, damit aussortierte Sprachen
+# verschwinden).
+
+def _lade_paar_liste(text):
+    """Parst `pfad<TAB>wert`-Zeilen zu dict pfad->wert (wert als String). Am
+    LETZTEN Tab getrennt (Pfade duerfen Tabs/Leerzeichen enthalten)."""
+    d = {}
+    for zeile in text.splitlines():
+        zeile = zeile.rstrip("\n")
+        if not zeile or "\t" not in zeile:
+            continue
+        pfad, wert = zeile.rsplit("\t", 1)
+        d[pfad] = wert
+    return d
+
+
+def _bundle_soll(webspace):
+    """Hash-Soll-Liste vom Webspace: dict pfad->md5. Wirft bei Nichterreichbarkeit."""
+    url = webspace.rstrip("/") + "/bundle-soll.txt"
+    with urllib.request.urlopen(url) as r:
+        return _lade_paar_liste(r.read().decode("utf-8"))
+
+
+def _bundle_ist(bundle_root):
+    """Lokale Ist-Liste bundle-vorhanden.txt: dict pfad->md5. Fehlt sie, leeres
+    dict (dann gilt alles als abweichend -> Voll-Download, z.B. erster Stick)."""
+    pfad = Path(bundle_root) / "bundle-vorhanden.txt"
+    try:
+        return _lade_paar_liste(pfad.read_text(encoding="utf-8"))
+    except OSError:
+        return {}
+
+
+def _schreibe_bundle_ist(bundle_root, bestand):
+    """Schreibt bundle-vorhanden.txt aus dict pfad->md5 (alphabetisch)."""
+    ziel = Path(bundle_root) / "bundle-vorhanden.txt"
+    with open(ziel, "w", encoding="utf-8") as f:
+        for pfad, h in sorted(bestand.items()):
+            f.write(pfad + "\t" + h + "\n")
+
+
+def bundle_sync(bundle_root, webspace, fortschritt=None, voll=False):
+    """Gleicht audio.bundle/ gegen die Hash-Soll-Liste ab: fehlende/geaenderte
+    (md5 weicht ab) laden, verwaiste (lokal da, nicht in Soll) loeschen, danach
+    bundle-vorhanden.txt fortschreiben. Gibt (geladen, geloescht) zurueck.
+
+    voll=True (Reparatur): die lokale Ist-Liste wird ignoriert -> ALLES gilt als
+    abweichend und wird neu geladen (analog zum git-Neuklon). Sonst nur die
+    Abweichenden (Normalfall im CImbel-Update).
+
+    fortschritt(i, n, pfad): optionaler Callback VOR dem Laden der i-ten Datei."""
+    webspace = webspace.rstrip("/")
+    soll = _bundle_soll(webspace)
+    if not soll:
+        raise ValueError("Bündel-Soll-Liste leer oder nicht erreichbar")
+    ist = {} if voll else _bundle_ist(bundle_root)
+
+    zu_laden = [(p, h) for p, h in soll.items() if ist.get(p) != h]
+    geladen = 0
+    for i, (pfad, h) in enumerate(zu_laden, start=1):
+        if fortschritt is not None:
+            fortschritt(i, len(zu_laden), pfad)
+        _download(webspace + "/" + pfad, Path(bundle_root) / pfad)
+        geladen += 1
+
+    # Verwaist: lokal in der Ist-Liste, aber nicht mehr im Soll (aussortierte
+    # Sprache). Bei voll=True ist ist leer -> nichts verwaist; stattdessen die
+    # LOKAL vorhandenen, nicht mehr im Soll stehenden Dateien separat aufraeumen.
+    bezug = _bundle_ist(bundle_root) if voll else ist
+    verwaist = [p for p in bezug if p not in soll]
+    for pfad in verwaist:
+        try:
+            (Path(bundle_root) / pfad).unlink()
+        except OSError:
+            pass
+
+    # Ist-Liste = die Soll-Hashes der jetzt lokal liegenden Dateien. Nach einem
+    # vollstaendigen Abgleich entspricht der lokale Stand genau dem Soll.
+    neu = {p: h for p, h in soll.items()}
+    _schreibe_bundle_ist(bundle_root, neu)
+    return geladen, len(verwaist)
+
+
+def cmd_bundle_sync(args):
+    try:
+        geladen, geloescht = bundle_sync(args.bundle_root, args.bundle_webspace,
+                                         voll=args.voll)
+    except ValueError as e:
+        print("FEHLER: " + str(e) + " -> kein Sync.", file=sys.stderr)
+        return 1
+    print("Bündel-Sync fertig: " + str(geladen) + " geladen, " +
+          str(geloescht) + " geloescht.")
+    return 0
+
+
 # ---------------------------------------------------------------- vorhanden.txt
 
 def _schreibe_vorhanden_aus_dict(opus_root, bestand):
@@ -519,6 +628,7 @@ def main():
     ap.add_argument("--stick-root", default=DEF_STICK_ROOT)
     ap.add_argument("--opus-root", default=DEF_OPUS_ROOT)
     ap.add_argument("--webspace", default=DEF_WEBSPACE)
+    ap.add_argument("--bundle-root", default=DEF_BUNDLE_ROOT)
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     p_m = sub.add_parser("manifest")
@@ -528,6 +638,12 @@ def main():
     sub.add_parser("audio-status").set_defaults(func=cmd_audio_status)
     sub.add_parser("audio-sync").set_defaults(func=cmd_audio_sync)
     sub.add_parser("vorhanden").set_defaults(func=cmd_vorhanden)
+    # Buendel-Sync: --voll fuer die Reparatur (alles neu), sonst nur Abweichende.
+    # Eigene Webspace-Wurzel (nicht /opus/) -> eigener --bundle-webspace.
+    p_b = sub.add_parser("bundle-sync")
+    p_b.add_argument("--voll", action="store_true")
+    p_b.add_argument("--bundle-webspace", default=DEF_BUNDLE_WEBSPACE)
+    p_b.set_defaults(func=cmd_bundle_sync)
 
     args = ap.parse_args()
     return args.func(args)

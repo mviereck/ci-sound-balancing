@@ -22,6 +22,15 @@
               root * /mnt/daten/cimbel-intern/opus
               file_server
       }
+
+      # audio.bundle/ liegt (wie opus/) ausserhalb des git-Repos unter
+      # cimbel-intern/ und wird relativ neben index.html eingeblendet. CImbel
+      # laedt audio.bundle/index.json etc. relativ -> handle_path strippt das
+      # Praefix, root zeigt auf den ausgelagerten Ordner.
+      handle_path /audio.bundle/* {
+              root * /mnt/daten/cimbel-intern/audio.bundle
+              file_server
+      }
 }
 
 # Refer to the Caddy docs for more information:

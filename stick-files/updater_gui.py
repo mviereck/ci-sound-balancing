@@ -29,6 +29,10 @@ import pico_core
 STICK_ROOT = update_core.DEF_STICK_ROOT
 OPUS_ROOT = update_core.DEF_OPUS_ROOT
 WEBSPACE = update_core.DEF_WEBSPACE
+# audio.bundle/ liegt ausserhalb des Repos und wird per Buendel-Sync gepflegt
+# (im CImbel-Update automatisch mit; bei der Reparatur vollstaendig neu).
+BUNDLE_ROOT = update_core.DEF_BUNDLE_ROOT
+BUNDLE_WEBSPACE = update_core.DEF_BUNDLE_WEBSPACE
 REPO_ROOT = "/mnt/daten/cimbel-intern/git/ci-sound-balancing"
 LOKALE_VERSION = REPO_ROOT + "/js/version.js"
 PROD_VERSION_URL = "https://www.ci-sound-balancing.org/js/version.js"
@@ -611,8 +615,10 @@ class UpdaterGUI:
                 return
             # execv kehrt bei Erfolg nie zurueck; ab hier kein Code.
 
-        # Updater-Code unveraendert -> MANIFEST in dieser Instanz anwenden.
+        # Updater-Code unveraendert -> MANIFEST in dieser Instanz anwenden,
+        # danach die Audio-Buendel abgleichen (nur Abweichende).
         self._manifest_anwenden_lokal()
+        self._bundle_sync_lauf(voll=False)
         self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
         self._aktion_beenden()
 
@@ -639,12 +645,32 @@ class UpdaterGUI:
                 self._log("Systemdateien fehlgeschlagen (rc=" + str(rc) + ")", fehler=True)
         self._log("CImbel aktualisiert.")
 
+    def _bundle_sync_lauf(self, voll):
+        """Buendel-Sync (audio.bundle/): im CImbel-Update automatisch mit (nur
+        Abweichende), bei der Reparatur voll=True (alles neu). Laeuft im schon
+        aktiven Hintergrund-Thread; Fortschritt in die Log-Fortschrittszeile.
+        Fehler werden rot gemeldet, brechen den uebrigen Ablauf aber nicht ab
+        (CImbel-Code/MANIFEST sind dann schon aktuell)."""
+        self._log("Audio-Bündel abgleichen ..." if not voll
+                  else "Audio-Bündel vollständig neu laden ...")
+
+        def _fortschritt(i, n, pfad):
+            self._log_fortschritt("Bündel " + str(i) + "/" + str(n) + " ...")
+        try:
+            geladen, geloescht = update_core.bundle_sync(
+                BUNDLE_ROOT, BUNDLE_WEBSPACE, fortschritt=_fortschritt, voll=voll)
+            self._log("Bündel aktuell (" + str(geladen) + " geladen, " +
+                      str(geloescht) + " entfernt).")
+        except Exception as e:
+            self._log("Bündel-Abgleich fehlgeschlagen: " + str(e), fehler=True)
+
     def _nach_selbstupdate_bg(self):
         # In den beschaeftigt-Zustand (im Tk-Thread setzen), MANIFEST anwenden,
         # danach freigeben. Kein Pull, keine Hash-Pruefung.
         self._ui(self._aktion_beginnen)
         self._log("Updater neu gestartet. Wende Aktualisierung an ...")
         self._manifest_anwenden_lokal()
+        self._bundle_sync_lauf(voll=False)
         self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
         self._aktion_beenden()
 
@@ -677,6 +703,13 @@ class UpdaterGUI:
             self._log("CImbel-Reparatur fehlgeschlagen.", fehler=True)
             self._aktion_beenden()
             return
+        # audio.bundle/ liegt ausserhalb des Repos -> der git-Neuklon holt es
+        # nicht mit. Darum VOR dem Neustart die Buendel vollstaendig neu laden
+        # (voll=True: lokale Ist-Liste ignorieren -> alles neu). So macht ein
+        # einziger Reparieren-Klick den Stick wieder vollstaendig (Code + Buendel),
+        # auch wenn audio.bundle/ ganz fehlt (erster Boot). Laeuft vor execv, sonst
+        # ginge der Abgleich beim Neustart verloren.
+        self._bundle_sync_lauf(voll=True)
         # Neuklon ok -> der laufende Code wurde ersetzt. Neu starten (wie beim
         # Selbst-Update). KEIN Selbstupdate-Flag: nach einer Reparatur ist der
         # MANIFEST-Lauf nicht zwingend, und der frische Clone ist ohnehin aktuell.
