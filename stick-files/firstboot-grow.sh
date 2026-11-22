@@ -88,7 +88,10 @@ if [ -z "$LAST_PART" ]; then
 fi
 
 # Partitionsnummer aus dem Namen (z.B. /dev/sda3 -> 3; /dev/nvme0n1p3 -> 3).
-PART_NUM="$(lsblk -no PARTN "$LAST_PART" 2>/dev/null || true)"
+# WICHTIG: lsblk -no PARTN gibt die Spalte rechtsbuendig MIT fuehrenden
+# Leerzeichen aus (" 3"); growpart lehnt das ab ("must be a number"). Darum
+# jeden Whitespace entfernen.
+PART_NUM="$(lsblk -no PARTN "$LAST_PART" 2>/dev/null | tr -d '[:space:]' || true)"
 if [ -z "$PART_NUM" ]; then
     # Fallback: Ziffern am Ende des Namens.
     PART_NUM="$(echo "$LAST_PART" | grep -oE '[0-9]+$' || true)"
