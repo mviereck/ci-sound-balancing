@@ -43,15 +43,32 @@ SYSTEM_UPDATE_MAX_ALTER_S = 12 * 3600
 # update-success-stamp, den nur der APT::Periodic-Cron anlegt).
 APT_LISTS_DIR = "/var/lib/apt/lists"
 
-# --- eira (x86-Installer im lokalen git-Clone) ---
-# Zwei Clones liegen nebeneinander, je eine git-Quelle. EIRA_CLONE legt fest,
-# welcher der aktive ist; der Quellenwechsel (Fork <-> Original) erfolgt durch
-# Aendern dieser Konstante -- die kommt per CImbel-Update auf den Stick, der
-# Updater-Code aendert sich, der Selbst-Neustart greift, danach weicht der
-# eira-Hash ab und ein eira-Update wird angeboten. Die Quelle wird mit dem
-# Stick ausgeliefert und ist immer vorhanden; es gibt keinen Neuklon-/Reparatur-
-# Weg (der Updater aktualisiert, er repariert nicht).
-EIRA_CLONE = "/mnt/daten/cimbel-intern/git/eira-RaspberryPi-fork"
+# --- Klon-URLs (im eigenen Code aufbewahrt, ueberleben einen Clone-Schaden) ---
+# CImbel hat genau eine Quelle; eira hat zwei moegliche (Original und Martins
+# Fork), die beide als Konstante feststehen. EIRA_QUELLE waehlt die aktive --
+# der Quellenwechsel erfolgt durch Aendern dieser EINEN Variable (kommt per
+# CImbel-Update auf den Stick, der Selbst-Neustart greift). Aktive URL und
+# aktiver Clone-Ordner werden daraus ABGELEITET (eine Wahrheitsquelle, kein
+# Pflege-Doppel): je Quelle ein eigener Ordner, beide duerfen nebeneinander im
+# git/-Verzeichnis liegen; aktiv ist nur der zur gewaehlten Quelle. Das inaktive
+# Repo liegt (falls vorhanden) nur bereit; Status/Pull/Installer beziehen sich
+# immer auf das aktive. Der Reparatur-Knopf (unten) klont die aktive Quelle neu.
+REPO_URL = "https://github.com/mviereck/ci-sound-balancing.git"
+
+GIT_ROOT = "/mnt/daten/cimbel-intern/git"
+EIRA_URLS = {
+    "original": "https://codeberg.org/eira/eira-RaspberryPi.git",
+    "fork": "https://codeberg.org/mviereck/eira-RaspberryPi.git",
+}
+EIRA_ORDNER = {
+    "original": GIT_ROOT + "/eira-RaspberryPi-original",
+    "fork": GIT_ROOT + "/eira-RaspberryPi-fork",
+}
+# Werks-Default -- bewusst "original", damit der Reparatur-Knopf gleich etwas zu
+# tun hat (der Original-Ordner fehlt auf dem Fork-Stick noch -> "fehlt ganz").
+EIRA_QUELLE = "original"
+EIRA_URL = EIRA_URLS[EIRA_QUELLE]
+EIRA_CLONE = EIRA_ORDNER[EIRA_QUELLE]
 EIRA_INSTALLER = EIRA_CLONE + "/installer_x86.sh"
 
 # Harte Platz-Reserve: so viel freier Platz MUSS auf der Opus-Partition nach
@@ -166,6 +183,71 @@ def _updater_code_hash():
     return h.hexdigest()
 
 
+def _clone_vollstaendig(pfad):
+    """Grobe Vollstaendigkeitspruefung eines git-Clone-Ordners: existiert der
+    Ordner UND liefert 'git -C <pfad> rev-parse --git-dir' sauber (rc 0)? Das
+    faellt bei fehlendem Ordner, fehlendem .git und bei einem zerstoerten
+    .git-Verzeichnis durch (git meldet dann 'not a git repository'). Keine tiefe
+    fsck-Pruefung -- sie beantwortet nur 'ist das ueberhaupt ein brauchbares
+    Repo?', genug fuer die Reparatur-Entscheidung (die der Nutzer manuell
+    ausloest; die Pruefung steuert nur den Rueckfragetext)."""
+    if not os.path.isdir(pfad):
+        return False
+    p = subprocess.run(["git", "-C", pfad, "rev-parse", "--git-dir"],
+                       capture_output=True, text=True)
+    return p.returncode == 0
+
+
+def _repo_neu_klonen(url, ziel, log, fortschritt=None):
+    """Gemeinsame Neuklon-Maschine fuer CImbel und eira (ein Koerper, zwei
+    Ausloeser). Klont 'url' zunaechst in einen TEMPORAEREN Ordner neben 'ziel';
+    erst bei Erfolg wird ein evtl. vorhandenes altes 'ziel' entfernt und der
+    frische Klon an seine Stelle gerueckt (Umbenennen, atomar auf demselben
+    Dateisystem). Scheitert der Klon (z.B. Netzabbruch), bleibt 'ziel'
+    UNBERUEHRT -- kein leerer Stick. Gibt True/False zurueck; alle Meldungen
+    laufen ueber 'log(text, fehler=bool)'. 'fortschritt' (optional) erhaelt
+    git-Fortschrittszeilen.
+
+    Der Clone-Ordner traegt NUR den Clone (keine Nutzerdaten) -- das Entfernen
+    des Alt-Ordners ist darum unkritisch (am Konzept geklaert)."""
+    ziel = os.path.abspath(ziel)
+    eltern = os.path.dirname(ziel)
+    try:
+        os.makedirs(eltern, exist_ok=True)
+    except OSError as e:
+        log("Zielverzeichnis nicht anlegbar (" + str(e) + ").", fehler=True)
+        return False
+    # Temp-Ordner NEBEN dem Ziel (gleiches Dateisystem -> os.replace ist atomar).
+    tmp = tempfile.mkdtemp(prefix=".klon-", dir=eltern)
+    # mkdtemp legt den Ordner an; git clone will ihn selbst erzeugen -> wieder weg.
+    try:
+        os.rmdir(tmp)
+    except OSError:
+        pass
+    log("Klone " + url + " ...")
+    p = subprocess.run(["git", "clone", "--depth", "1", "--progress", url, tmp],
+                       capture_output=True, text=True)
+    if p.returncode != 0:
+        ausgabe = ((p.stdout or "") + (p.stderr or "")).strip()
+        if ausgabe:
+            log(ausgabe, fehler=True)
+        log("Klonen fehlgeschlagen (rc=" + str(p.returncode) + ").", fehler=True)
+        shutil.rmtree(tmp, ignore_errors=True)
+        return False
+    # Klon ok -> alten Ordner (falls da) weg, frischen an seine Stelle.
+    try:
+        if os.path.exists(ziel):
+            shutil.rmtree(ziel)
+        os.replace(tmp, ziel)
+    except OSError as e:
+        log("Ersetzen des alten Ordners fehlgeschlagen (" + str(e) + ").",
+            fehler=True)
+        shutil.rmtree(tmp, ignore_errors=True)
+        return False
+    log("Klonen erfolgreich.")
+    return True
+
+
 # Haelt den Dateideskriptor der Einzelinstanz-Sperre fuer die GANZE Programm-
 # laufzeit offen (Modul-global, nicht lokal -- sonst schloesse der Garbage
 # Collector das fd und gaebe die flock-Sperre sofort wieder frei).
@@ -231,18 +313,27 @@ class UpdaterGUI:
         self._bereich_cimbel.pack(fill="x", padx=10, pady=4)
         self.lbl_cimbel = tk.Label(self._bereich_cimbel, text="...")
         self.lbl_cimbel.pack(side="left")
+        # Reparatur-Knopf zuerst packen -> landet GANZ rechts; der
+        # Aktualisieren-Knopf kommt mit padx links daneben. Reparieren ist IMMER
+        # anwaehlbar (Notfall-Werkzeug, unabhaengig vom Versionsstand).
+        self.btn_cimbel_reparieren = tk.Button(self._bereich_cimbel, text="Reparieren",
+                                               command=self._cimbel_reparieren)
+        self.btn_cimbel_reparieren.pack(side="right")
         self.btn_cimbel = tk.Button(self._bereich_cimbel, text="CImbel aktualisieren",
                                     command=self._cimbel_update, state="disabled")
-        self.btn_cimbel.pack(side="right")
+        self.btn_cimbel.pack(side="right", padx=(0, 6))
 
         # --- Bereich eira ---
         self._bereich_eira = tk.LabelFrame(root, text="eira", padx=8, pady=6)
         self._bereich_eira.pack(fill="x", padx=10, pady=4)
         self.lbl_eira = tk.Label(self._bereich_eira, text="...")
         self.lbl_eira.pack(side="left")
+        self.btn_eira_reparieren = tk.Button(self._bereich_eira, text="Reparieren",
+                                             command=self._eira_reparieren)
+        self.btn_eira_reparieren.pack(side="right")
         self.btn_eira = tk.Button(self._bereich_eira, text="eira aktualisieren",
                                   command=self._eira_update, state="disabled")
-        self.btn_eira.pack(side="right")
+        self.btn_eira.pack(side="right", padx=(0, 6))
 
         # --- Bereich Pico-ASHA ---
         self._bereich_pico = tk.LabelFrame(root, text="Pico-ASHA", padx=8, pady=6)
@@ -338,9 +429,13 @@ class UpdaterGUI:
 
     def _aktions_knoepfe(self):
         """Alle Bereichs-Knoepfe -- die eine Liste, die der Sperr-Schritt
-        durchlaeuft (kein zweiter Ort mit festen Knopf-IDs)."""
+        durchlaeuft (kein zweiter Ort mit festen Knopf-IDs). Die Reparatur-
+        Knoepfe gehoeren dazu: sie sind sonst IMMER anwaehlbar, muessen aber
+        waehrend einer laufenden Aktion ebenfalls gesperrt sein (eine Aktion zur
+        Zeit); _status_recheck gibt sie danach bedingungslos wieder frei."""
         return [self.btn_cimbel, self.btn_eira, self.btn_audio, self.btn_system,
-                self.btn_system_upgrade, self.btn_pico, self.btn_pico_force]
+                self.btn_system_upgrade, self.btn_pico, self.btn_pico_force,
+                self.btn_cimbel_reparieren, self.btn_eira_reparieren]
 
     def _aktion_beginnen(self):
         """Sperrt alle Aktions-Knoepfe. MUSS im Tk-Thread laufen (von dort
@@ -366,6 +461,12 @@ class UpdaterGUI:
         Fenster), offline grau.
         Darf vom Hintergrund-Thread aufgerufen werden (die Teil-Checks arbeiten
         selbst mit self._ui/_im_hintergrund)."""
+        # Reparatur-Knoepfe bedingungslos freigeben: Notfall-Werkzeug, unabhaengig
+        # von Netz und Versionsstand immer anwaehlbar (nur die Aktionssperre
+        # graut sie voruebergehend). VOR dem offline-return, damit sie auch ohne
+        # Netz wieder frei werden.
+        self._ui(lambda: self.btn_cimbel_reparieren.config(state="normal"))
+        self._ui(lambda: self.btn_eira_reparieren.config(state="normal"))
         self._pico_status()          # netz-unabhaengig (USB)
         if not self.online:
             return
@@ -547,6 +648,49 @@ class UpdaterGUI:
         self._ui(lambda: self.lbl_cimbel.config(text="auf dem neuesten Stand"))
         self._aktion_beenden()
 
+    # --- Reparatur (Notfall: Clone-Ordner neu klonen) ---
+    # Manueller Notfall-Weg, falls git pull dauerhaft klemmt oder der Ordner
+    # fehlt. Erst in einen Temp-Ordner klonen, bei Erfolg den alten ersetzen
+    # (_repo_neu_klonen) -- so kann ein abgebrochener Klon den Stick nicht leer
+    # zuruecklassen. Der CImbel-Clone traegt den LAUFENDEN Updater-Code selbst
+    # (stick-files/ liegt in diesem Repo): nach erfolgreichem Neuklon MUSS der
+    # Updater neu starten (os.execv wie beim Selbst-Update), sonst arbeitet er mit
+    # Pfaden, die auf den gerade ersetzten Ordner zeigen.
+
+    def _cimbel_reparieren(self):
+        status = "fehlt oder ist beschädigt" if not _clone_vollstaendig(REPO_ROOT) \
+            else "scheint vorhanden"
+        if not messagebox.askyesno(
+                "CImbel reparieren",
+                "Der CImbel-Ordner " + status + ".\n\n"
+                "CImbel wird jetzt frisch von GitHub geklont. Der vorhandene "
+                "Ordner wird dabei ersetzt (er enthält nur das Programm, keine "
+                "persönlichen Daten).\n\n"
+                "Der Updater startet danach neu. Fortfahren?"):
+            return
+        self._aktion_beginnen()
+        self._im_hintergrund(self._cimbel_reparieren_bg)
+
+    def _cimbel_reparieren_bg(self):
+        ok = _repo_neu_klonen(REPO_URL, REPO_ROOT, self._log)
+        if not ok:
+            self._log("CImbel-Reparatur fehlgeschlagen.", fehler=True)
+            self._aktion_beenden()
+            return
+        # Neuklon ok -> der laufende Code wurde ersetzt. Neu starten (wie beim
+        # Selbst-Update). KEIN Selbstupdate-Flag: nach einer Reparatur ist der
+        # MANIFEST-Lauf nicht zwingend, und der frische Clone ist ohnehin aktuell.
+        self._log("CImbel neu geklont. Updater startet neu ...")
+        time.sleep(2.0)
+        try:
+            os.execv(sys.executable,
+                     [sys.executable, os.path.abspath(__file__)])
+        except OSError as e:
+            self._log("Automatischer Neustart fehlgeschlagen (" + str(e) +
+                      "). Bitte den Updater von Hand schließen und neu starten.",
+                      fehler=True)
+            self._aktion_beenden()
+
     # ------------------------------------------------- eira (x86-Installer)
     # eira liegt als git-Clone unter EIRA_CLONE. Status = Commit-Vergleich
     # (lokaler HEAD vs. origin nach fetch). Update = git pull --ff-only + der
@@ -566,12 +710,16 @@ class UpdaterGUI:
         self._im_hintergrund(self._eira_status_bg)
 
     def _eira_status_bg(self):
-        # Die Quelle wird mit dem Stick ausgeliefert und ist immer da; es gibt
-        # keinen Reparatur-/Neuklon-Weg (der Updater aktualisiert, er repariert
-        # nicht). Laesst sich kein belastbarer Vergleich bilden (kein Clone, kein
-        # Netz, kein Upstream), bleibt der Knopf grau -- F1: ein Knopf ist nur
-        # waehlbar, wenn er eine sinnvolle Aktion ausloest.
+        # Laesst sich kein belastbarer Vergleich bilden (kein/kaputter Clone,
+        # kein Netz, kein Upstream), bleibt der Aktualisieren-Knopf grau -- F1:
+        # ein Knopf ist nur waehlbar, wenn er eine sinnvolle Aktion ausloest.
+        # Fuer einen fehlenden/beschaedigten Ordner ist der separate
+        # Reparatur-Knopf zustaendig (immer anwaehlbar).
         self._ui(lambda: self.btn_eira.config(state="disabled"))
+        if not _clone_vollstaendig(EIRA_CLONE):
+            self._ui(lambda: self.lbl_eira.config(
+                text="Ordner fehlt/beschädigt – bitte reparieren"))
+            return
         rc, _ = self._git("fetch", "--quiet")
         if rc != 0:
             self._ui(lambda: self.lbl_eira.config(text="auf dem neuesten Stand"))
@@ -689,6 +837,31 @@ class UpdaterGUI:
             except OSError:
                 pass
         return rc
+
+    def _eira_reparieren(self):
+        # Klont die AKTIVE eira-Quelle (aus EIRA_QUELLE abgeleitet) neu nach
+        # EIRA_CLONE. Kein Neustart noetig (fremder Clone, nicht der Updater-Code);
+        # danach bewertet der Status-Recheck den eira-Knopf frisch.
+        status = "fehlt oder ist beschädigt" if not _clone_vollstaendig(EIRA_CLONE) \
+            else "scheint vorhanden"
+        if not messagebox.askyesno(
+                "eira reparieren",
+                "Der eira-Ordner (" + EIRA_QUELLE + ") " + status + ".\n\n"
+                "eira wird jetzt frisch von Codeberg geklont. Ein vorhandener "
+                "Ordner wird dabei ersetzt (er enthält nur das Programm, keine "
+                "persönlichen Daten).\n\nFortfahren?"):
+            return
+        self._aktion_beginnen()
+        self._im_hintergrund(self._eira_reparieren_bg)
+
+    def _eira_reparieren_bg(self):
+        ok = _repo_neu_klonen(EIRA_URL, EIRA_CLONE, self._log)
+        if ok:
+            self._log("eira neu geklont. Mit „eira aktualisieren“ kann jetzt "
+                      "der Installer ausgeführt werden.")
+        else:
+            self._log("eira-Reparatur fehlgeschlagen.", fehler=True)
+        self._aktion_beenden()
 
     # ------------------------------------------------- Audios (eigenes Fenster)
 
