@@ -334,38 +334,44 @@ class UpdaterGUI:
         # (Name | Status | Knoepfe), keine umrahmten Kaesten mehr -> hoehen-
         # sparsam, traegt kuenftige Funktionen ohne das Fenster zu dehnen.
         # Gruppen durch schlanke Zwischenueberschriften + Trennlinien.
-        # Spalten: 0 Name (fest), 1 Status (dehnt+umbricht), 2 Knoepfe (rechts).
+        # ZWEI Spalten: 0 Name (fest), 1 Rest (dehnt). In der Rest-Spalte liegen
+        # Status (links) UND Knoepfe (rechtsbuendig) im SELBEN Frame -- keine
+        # eigene Knopf-Spalte, damit keine sichtbare Grenze zwischen Status und
+        # Knoepfen entsteht (spart horizontalen Platz).
         links = tk.Frame(mitte)
         links.grid(row=0, column=0, sticky="nsew", padx=(0, 8))
         links.columnconfigure(0, weight=0, minsize=90)   # Name
-        links.columnconfigure(1, weight=1)               # Status (dehnt)
-        links.columnconfigure(2, weight=0)               # Knoepfe (rechtsbuendig)
+        links.columnconfigure(1, weight=1)               # Rest (Status + Knoepfe)
         self._tab_zeile = 0   # laufender Grid-Zeilenzaehler der Tabelle
 
         def _ueberschrift(text):
             tk.Label(links, text=text, font=("", 10, "bold"), anchor="w"
-                     ).grid(row=self._tab_zeile, column=0, columnspan=3,
+                     ).grid(row=self._tab_zeile, column=0, columnspan=2,
                             sticky="w", pady=(8, 2))
             self._tab_zeile += 1
 
         def _trennlinie():
             ttk.Separator(links, orient="horizontal").grid(
-                row=self._tab_zeile, column=0, columnspan=3, sticky="ew",
+                row=self._tab_zeile, column=0, columnspan=2, sticky="ew",
                 pady=(6, 2))
             self._tab_zeile += 1
 
         def _zeile(name):
             """Baut eine Tabellenzeile; gibt (status_label, knopf_frame) zurueck.
-            Der Name steht links, der Status dehnt sich und umbricht, die Knoepfe
-            kommen rechtsbuendig in den knopf_frame."""
+            Links der Name; rechts EIN Rest-Frame mit Status (links) und Knoepfen
+            (rechtsbuendig) -- keine getrennte Knopf-Spalte."""
             r = self._tab_zeile
             tk.Label(links, text=name, anchor="w").grid(
                 row=r, column=0, sticky="w", padx=(0, 6), pady=2)
-            status = tk.Label(links, text="...", justify="left", anchor="w",
+            rest = tk.Frame(links)
+            rest.grid(row=r, column=1, sticky="ew", pady=2)
+            status = tk.Label(rest, text="...", justify="left", anchor="w",
                               wraplength=260)
-            status.grid(row=r, column=1, sticky="w", pady=2)
-            knoepfe = tk.Frame(links)
-            knoepfe.grid(row=r, column=2, sticky="e", pady=2)
+            status.pack(side="left", fill="x")
+            # knopf_frame rechtsbuendig IM selben Rest-Frame; die Knoepfe werden
+            # vom Aufrufer mit side="right" hineingepackt.
+            knoepfe = tk.Frame(rest)
+            knoepfe.pack(side="right")
             self._tab_zeile += 1
             return status, knoepfe
 
@@ -612,13 +618,13 @@ class UpdaterGUI:
         def _bg():
             if not _clone_vollstaendig(REPO_ROOT):
                 self._ui(lambda: self.lbl_cimbel.config(
-                    text="fehlt oder ist beschädigt"))
+                    text="Ordner fehlt/beschädigt – bitte reparieren"))
                 self._ui(lambda: self.btn_cimbel.config(state="disabled"))
                 return
             lok, prod = _lokale_version(), _prod_version()
             if lok is None:
                 self._ui(lambda: self.lbl_cimbel.config(
-                    text="fehlt oder ist beschädigt"))
+                    text="Ordner fehlt/beschädigt – bitte reparieren"))
                 self._ui(lambda: self.btn_cimbel.config(state="disabled"))
             elif prod and prod != lok:
                 self._ui(lambda: self.lbl_cimbel.config(
