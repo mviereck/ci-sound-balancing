@@ -1,0 +1,37 @@
+#!/bin/bash
+# vboxclient-vm-guard -- startet VBoxClient-all NUR in einer VM.
+#
+# Hintergrund (Konzept_Offline_Stick.md, "Boot & Desktop"):
+# Der Master wird in einer VirtualBox-VM gepflegt; dort installiert die
+# Guest-Additions-Autostart-Datei /etc/xdg/autostart/vboxclient.desktop den
+# Dienst VBoxClient-all (Aufloesung/Clipboard-Komfort). Dieselbe Autostart-
+# Datei landet mit dem Image auf echter Hardware -- dort gibt es keinen
+# VirtualBox-Hypervisor, VBoxClient-all meldet beim Login, es koenne nicht
+# laufen. Laestig, aber harmlos.
+#
+# Dieser Wrapper schaltet den Start per systemd-detect-virt: nur in einer
+# VM (VirtualBox -> "oracle") wird VBoxClient-all tatsaechlich gestartet;
+# auf echter Hardware ("none") passiert nichts (stiller Exit 0, keine
+# Fehlermeldung). Erkennung wie im firstboot-grow-Dienst, nur umgekehrter
+# Zweig (dort: NICHT in VM scharf; hier: NUR in VM starten).
+#
+# DIESES SKRIPT LIEGT ZUR LAUFZEIT AUF DER ext4-SYSTEMPARTITION
+# (/usr/local/bin/). Die Repo-Kopie unter stick-files/vboxclient-vm-only/
+# ist die PFLEGE-Quelle; der Image-Bau kopiert sie namensgleich nach
+# /usr/local/bin/ (s. INSTALL.md). Angestossen wird der Wrapper vom
+# User-Override ~/.config/autostart/vboxclient.desktop, das die gleichnamige
+# Paket-Datei unter /etc/xdg/autostart/ per XDG-Regel sticht (apt-fest: ein
+# apt-Update von virtualbox-guest-utils ueberschreibt nur /etc/xdg, nicht
+# das home-Override).
+set -euo pipefail
+
+VIRT="$(systemd-detect-virt 2>/dev/null || echo none)"
+if [ "$VIRT" = "none" ]; then
+    # Echte Hardware -- kein VirtualBox-Host, nichts zu starten.
+    exit 0
+fi
+
+# In einer VM: den Original-Dienst starten (ersetzt den direkten Aufruf aus
+# der Paket-Autostart-Datei). exec, damit der Autostart-Prozess sauber in
+# VBoxClient-all uebergeht.
+exec /usr/bin/VBoxClient-all

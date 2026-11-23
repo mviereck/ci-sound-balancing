@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Version=1.0
+Name=vboxclient
+Name[C]=vboxclient
+Comment=VirtualBox User Session Services (nur in VM)
+Comment[C]=VirtualBox User Session Services (nur in VM)
+Exec=/usr/local/bin/vboxclient-vm-guard
+X-GNOME-Autostart-enabled=true
+X-KDE-autostart-after=panel
