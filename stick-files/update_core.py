@@ -171,9 +171,15 @@ def _lade_soll(webspace):
 
 
 def _lies_vorhanden(opus_root):
-    """Liest opus/vorhanden.txt -> dict relpfad -> groesse. Zeile
-    `relpfad<TAB>groesse`, am LETZTEN Tab getrennt (Pfade duerfen Leerzeichen
-    enthalten). Fehlt die Datei oder eine Zeile ohne Tab -> uebersprungen."""
+    """Liest opus/vorhanden.txt -> dict relpfad -> groesse. Format
+    `okey<TAB>relpfad<TAB>groesse` (seit der okey-Umstellung): groesse = nach
+    dem LETZTEN Tab, okey = vor dem ERSTEN Tab, Pfad = der Rest in der Mitte
+    (darf Leerzeichen enthalten, keine Tabs). Der Abgleich braucht nur
+    Pfad+Groesse; okey wird hier ignoriert (er reist nur fuer CImbel mit).
+    Abwaertskompatibel zum alten 2-Feld-Format `relpfad<TAB>groesse` (dann
+    hat der Rest vor der Groesse keinen Tab -> er IST der Pfad).
+    Muss zum Parser in _lade_soll passen. Fehlt die Datei oder eine Zeile
+    ohne Tab -> uebersprungen."""
     pfad = Path(opus_root) / "vorhanden.txt"
     ist = {}
     try:
@@ -186,7 +192,15 @@ def _lies_vorhanden(opus_root):
             continue
         if "\t" not in zeile:
             continue
-        rel, groesse = zeile.rsplit("\t", 1)
+        rest, groesse = zeile.rsplit("\t", 1)
+        # rest = "okey\tpfad" (3-Feld, neu) ODER "pfad" (2-Feld, alt). partition
+        # trennt am ERSTEN Tab: mit Tab -> okey+pfad; ohne Tab -> rest ist Pfad.
+        if "\t" in rest:
+            _okey, _, rel = rest.partition("\t")
+        else:
+            rel = rest
+        if not rel:
+            continue
         try:
             ist[rel] = int(groesse)
         except ValueError:
