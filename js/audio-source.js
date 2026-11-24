@@ -1171,7 +1171,7 @@ async function _amEnrichFromDetail(item) {
     const rec = JSON.parse(text);
     // audio: rohe (relative) URL aus der Detail-Zeile mit demselben srcBase auflösen,
     // den der Item-Bau sonst verwendet.
-    if (rec.audio != null) item.audio = _amResolveAudioUrl(rec.audio, item._detailBase || "");
+    if (rec.audio != null) item.audio = _amResolveAudioUrl(rec.audio, item._detailBase || "", item.okey);
     if (rec.text  != null) item.text  = rec.text;
     return true;
   } catch (e) {
@@ -1668,10 +1668,33 @@ function amLangsForCategory(category) {
   return out;
 }
 
-function _amResolveAudioUrl(rawAudio, sourceBase) {
+// Absolute (Server-)Opus-Wurzel. Respektiert die manuelle Uebersteuerung
+// window.CI_SB_WEBSPACE_ROOT (Dev-Test) GENAU wie amWebspaceRoot(), nimmt aber
+// NICHT die relative lokale Wurzel -- sie ist der Server-Fall fuer lokal
+// fehlende Items. Ein Ort fuer die Uebersteuerungs-Regel, kein zweites if.
+function _amAbsoluteOpusRoot() {
+  if (typeof window !== "undefined" && window.CI_SB_WEBSPACE_ROOT) {
+    var r = window.CI_SB_WEBSPACE_ROOT;
+    return r.endsWith("/") ? r : (r + "/");
+  }
+  return AM_WEBSPACE_ROOT_DEFAULT;   // absolute Server-Wurzel, endet auf "/"
+}
+
+// okey (optional): die Opus-Kennung des Items. Ist ein Bestand geladen (Stick)
+// UND das Item NICHT lokal vorhanden (okey nicht im Set), wird die ABSOLUTE
+// Server-Wurzel genommen -- so laedt ein online lokal fehlendes Stueck vom
+// Server statt an einer ins Leere zeigenden relativen URL zu haengen (§9.9,
+// Pro-Item-Wurzel). Fehlt okey (Fremd-URL faellt oben eh raus) oder ist kein
+// Bestand geladen (Web/ZIP), gilt die normale Wurzel aus amWebspaceRoot().
+function _amResolveAudioUrl(rawAudio, sourceBase, okey) {
   if (!rawAudio) return null;
   if (/^(data:|https?:|blob:)/i.test(rawAudio)) return rawAudio;
-  const root = amWebspaceRoot();
+  var root;
+  if (_amOpusBestand.set && okey && !_amOpusBestand.set.has(okey)) {
+    root = _amAbsoluteOpusRoot();      // lokal fehlend -> absolute Server-Wurzel
+  } else {
+    root = amWebspaceRoot();           // lokal vorhanden / kein Bestand -> normale Wurzel
+  }
   const base = sourceBase || "";
   // BA263: URL-Komponenten encoden, damit Pfade mit Leerzeichen
   // ("Thorsten Voice/wavs/...") und sonstigen Sonderzeichen vom Browser
@@ -1722,16 +1745,16 @@ function _amWebspaceCurrentCols(category) {
 // online: alle. offline + lokaler Opus: nur Opus-Collections (_base !== "").
 // offline ohne lokalen Opus: keine (dann liefert der Provider nichts, embed
 // uebernimmt). Opus vs. Fremd-URL steht pro Collection in col._base
-// (gesetzt "" = Fremd-URL mit voller http-URL; nicht-leer = Opus-Bestand).
-// Ist ein Opus-Item lokal vorhanden? Vergleichspfad = col._base + it.audio
-// (dieselbe Zusammensetzung wie _amResolveAudioUrl, nur ohne root). Fremd-URL-
-// Items (volle http(s):/data:) sind nie im Opus-Ordner -> immer "vorhanden".
-function _amItemImBestand(it, colBase) {
-  if (!_amOpusBestand.set) return true;               // keine Liste -> kein Filter
-  var audio = it && it.audio;
-  if (!audio) return true;                            // ohne audio nicht wegfiltern
-  if (/^(data:|https?:|blob:)/i.test(audio)) return true;  // Fremd-URL: unberuehrt
-  return _amOpusBestand.set.has((colBase || "") + audio);
+// Ist ein Opus-Item lokal vorhanden? Abgleich ueber die Kennung it.okey gegen
+// den okey-Bestand aus vorhanden.txt (BA 724/725). Fremd-URL-Items tragen keinen
+// okey (Builder vergibt ihn nur fuer Opus) -> gelten als vorhanden (nie
+// wegfiltern; sie liegen ohnehin nie im Opus-Ordner). Ohne geladene Liste
+// (Web/ZIP) kein Filter.
+function _amItemImBestand(it) {
+  if (!_amOpusBestand.set) return true;      // keine Liste -> kein Filter
+  var okey = it && it.okey;
+  if (!okey) return true;                    // kein okey (Fremd-URL/Hoerbuch) -> nicht wegfiltern
+  return _amOpusBestand.set.has(okey);
 }
 
 // §9.9.2: Opus-Collections auf die lokal vorhandenen Items reduzieren. Nur
@@ -1745,7 +1768,7 @@ function _amBestandFilterCols(cols) {
     var c = cols[i];
     if (!c) continue;
     if (c._base === "" || c._base == null) { out.push(c); continue; }  // Fremd-URL: unberuehrt
-    var items = (c.items || []).filter(function (it) { return _amItemImBestand(it, c._base); });
+    var items = (c.items || []).filter(function (it) { return _amItemImBestand(it); });
     if (items.length === 0) continue;                 // ganz leer -> Collection faellt weg
     // Flache Kopie mit gefilterten items (Original-Collection nicht mutieren).
     var copy = Object.assign({}, c);
@@ -1756,17 +1779,19 @@ function _amBestandFilterCols(cols) {
 }
 
 function _amWebspaceVisibleCols(cols) {
-  // §9.9.1 (Lage online/offline nach col._base) UND §9.9.2 (Item-Bestand)
-  // laufen durch DIESELBE Stelle; beide Provider-Methoden profitieren.
-  var lageGefiltert;
+  // §9.9.1 (Lage online/offline nach col._base) UND §9.9.2 (Item-Bestand ueber
+  // okey). Vier-Lagen-Regel: online bleiben ALLE Opus-Items sichtbar (lokal
+  // fehlende laedt _amResolveAudioUrl pro Item vom Server); offline nur die
+  // lokal vorhandenen. Der Item-Bestandsfilter greift daher NUR offline.
   if (amSourceMode !== "offline") {
-    lageGefiltert = cols;                              // online: alle Collections
-  } else if (!_amLocalOpus.present) {
-    return [];                                         // offline ohne lokalen Opus: nichts
-  } else {
-    lageGefiltert = cols.filter(function (c) { return c && c._base !== "" && c._base != null; });
+    return cols;                                       // online: alle Collections, kein Bestandsfilter
   }
-  return _amBestandFilterCols(lageGefiltert);          // §9.9.2 Item-Bestandsfilter
+  if (!_amLocalOpus.present) {
+    return [];                                         // offline ohne lokalen Opus: nichts
+  }
+  // offline + lokaler Opus: nur Opus-Collections, dann auf vorhandene Items.
+  var opusCols = cols.filter(function (c) { return c && c._base !== "" && c._base != null; });
+  return _amBestandFilterCols(opusCols);               // §9.9.2 Item-Bestandsfilter (nur offline)
 }
 
 amRegisterProvider({
@@ -1799,7 +1824,7 @@ amRegisterProvider({
           id: srcKey + ":" + (col.title || "") + "/" + (it.id || ""),
           title: it.title || it.id || "(unbenannt)",
           text: it.text || "",       // BA263: Saetze-Text durchreichen (leer bei schlankem Bündel -> per Detail nachgeladen)
-          audio: it.audio ? _amResolveAudioUrl(it.audio, srcBase) : null,
+          audio: it.audio ? _amResolveAudioUrl(it.audio, srcBase, it.okey) : null,
           duration: it.duration,
           sourceTitle: srcName || srcKey,
           license: it.license || col.license,
@@ -1876,7 +1901,7 @@ amRegisterProvider({
             return {
               id: id + "#" + (it.id || ("ch" + (i+1))),
               title: it.title || ("Kapitel " + (i+1)),
-              audio: _amResolveAudioUrl(it.audio, srcBase),
+              audio: _amResolveAudioUrl(it.audio, srcBase, it.okey),
               duration: it.duration,
               tags: _amBuildItemTags(it, col, srcDefaults),
               // Kapitel-Textfelder (textScope "chapter") durchreichen.
@@ -2361,7 +2386,7 @@ function amLocalOpusInit() {
 const AM_LOCAL_OPUS_LIST = "opus/vorhanden.txt";
 
 var _amOpusBestand = {
-  set: null,       // null = keine Liste geladen -> KEIN Filter; Set<string> = vorhandene Pfade
+  set: null,       // null = keine Liste geladen -> KEIN Filter; Set<string> = vorhandene okey
   checked: false   // true = Start-Probe abgeschlossen (einmalig)
 };
 
@@ -2373,19 +2398,19 @@ async function _amOpusBestandProbe() {
     var r = await fetch(AM_LOCAL_OPUS_LIST, { cache: "no-store" });
     if (!r || !r.ok) return null;
     var txt = await r.text();
-    // Jede Zeile ist "pfad<TAB>groesse" (die Groesse nutzt nur der Stick-
-    // Updater). Der Bestandsfilter braucht NUR den Pfad: alles vor dem
-    // LETZTEN Tab (Pfade duerfen Leerzeichen enthalten). Zeile ohne Tab ->
-    // ganze Zeile ist der Pfad (abwaertskompatibel zu einer reinen Pfadliste).
-    var pfade = txt.split("\n")
+    // Jede Zeile ist "okey<TAB>pfad<TAB>groesse" (BA 724). Das Tool gleicht den
+    // lokalen Bestand ueber die KENNUNG okey ab (erste Spalte): sie steht auch
+    // am schlanken Buendel-Item (it.okey), der Pfad hingegen nicht. Pfad+Groesse
+    // sind fuer den Updater-Abgleich, nicht fuers Tool.
+    var keys = txt.split("\n")
       .map(function (s) {
         s = s.replace(/[\r\n]+$/, "");
-        var t = s.lastIndexOf("\t");
-        return (t >= 0) ? s.slice(0, t) : s;
+        var t = s.indexOf("\t");
+        return (t >= 0) ? s.slice(0, t) : s;   // okey = vor dem ERSTEN Tab
       })
       .filter(function (s) { return s.length > 0; });
-    if (pfade.length === 0) return null;   // leer => kein Filter
-    return new Set(pfade);
+    if (keys.length === 0) return null;   // leer => kein Filter
+    return new Set(keys);
   } catch (e) {
     return null;   // nicht erreichbar (Web/ZIP/file://) => kein Filter
   }
