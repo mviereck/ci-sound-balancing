@@ -6,6 +6,7 @@ Von der grafischen Updater-Oberflaeche (eigenes Skript) aufgerufen; fuer
 bereich=system-root ruft die UI dieses Skript gebuendelt via pkexec.
 """
 import argparse
+import hashlib
 import json
 import os
 import subprocess
@@ -34,6 +35,21 @@ LOESCH_SCHWELLE = 0.5
 # versehentliches Loeschen wuerde den Test unbrauchbar machen. Der Schutz sitzt
 # im Kern (eine Stelle), nicht nur in der GUI -- jeder Loeschweg respektiert ihn.
 GESCHUETZTE_PRAEFIXE = ("testsaetze-hagermann/",)
+
+
+def _opus_okey(rel):
+    """okey eines Opus-Items aus seinem opus-relativen Pfad (= base+audio).
+    MUSS identisch zu .scripts/audio-manifest/okey.py:opus_okey sein
+    (md5(base+audio)[:16]); hier rel = der schon zusammengesetzte Pfad, daher
+    base leer. Bewusste Mini-Kopie: der Stick traegt .scripts/ nicht."""
+    return hashlib.md5(rel.encode("utf-8")).hexdigest()[:16]
+
+
+# Pfad -> okey aus der zuletzt geladenen soll-items.txt. Der Updater-Abgleich
+# selbst braucht okey nicht (er vergleicht Pfad+Groesse), aber vorhanden.txt
+# fuehrt okey fuer CImbel -- dieser Cache reicht ihn von _lade_soll an die
+# vorhanden.txt-Schreiber durch, ohne md5 auf dem Stick zu rechnen.
+_soll_okey = {}
 
 
 def _ist_geschuetzt(pfad):
@@ -138,11 +154,19 @@ def _lade_soll(webspace):
             continue
         if "\t" not in zeile:
             continue
-        pfad, groesse = zeile.rsplit("\t", 1)   # am LETZTEN Tab: Pfad darf Leerzeichen/Tabs enthalten
+        # Format: okey<TAB>pfad<TAB>groesse. groesse = nach dem LETZTEN Tab;
+        # okey = vor dem ERSTEN Tab; Pfad = der Rest in der Mitte (darf
+        # Leerzeichen enthalten, keine Tabs). Der Abgleich braucht nur
+        # Pfad+Groesse; okey reist nur fuer vorhanden.txt mit.
+        rest, groesse = zeile.rsplit("\t", 1)
+        okey, _, pfad = rest.partition("\t")
+        if not pfad:
+            continue   # Zeile ohne mittlere Pfad-Spalte -> ungueltig, auslassen
         try:
             soll[pfad] = int(groesse)
         except ValueError:
             continue
+        _soll_okey[pfad] = okey   # Pfad -> okey (fuer vorhanden.txt)
     return soll
 
 
@@ -617,7 +641,11 @@ def _schreibe_vorhanden_aus_dict(opus_root, bestand):
     ziel = Path(opus_root) / "vorhanden.txt"
     with open(ziel, "w", encoding="utf-8") as f:
         for rel, groesse in sorted(bestand.items()):
-            f.write(rel + "\t" + str(groesse) + "\n")
+            # okey<TAB>rel<TAB>groesse. okey aus der geladenen Soll (CImbel
+            # gleicht den lokalen Bestand darueber ab); fehlt er (Pfad nicht in
+            # Soll), selbst berechnen statt leer lassen (Voll-Scan-Fall).
+            okey = _soll_okey.get(rel) or _opus_okey(rel)
+            f.write(okey + "\t" + rel + "\t" + str(groesse) + "\n")
 
 
 def _schreibe_vorhanden(opus_root):
