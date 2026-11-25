@@ -1825,6 +1825,13 @@ amRegisterProvider({
           title: it.title || it.id || "(unbenannt)",
           text: it.text || "",       // BA263: Saetze-Text durchreichen (leer bei schlankem Bündel -> per Detail nachgeladen)
           audio: it.audio ? _amResolveAudioUrl(it.audio, srcBase, it.okey) : null,
+          // Opus-Kennung ans Navigations-Item durchreichen (BA 724/725): der
+          // Bestandsfilter (_amItemImBestand) UND die Pro-Item-Wurzel in der
+          // Detail-Anreicherung (_amEnrichFromDetail -> _amResolveAudioUrl)
+          // lesen it.okey. Ohne dies ist okey beim schlanken Item immer
+          // undefined -> Filter greift nie, lokal fehlende Items bekommen die
+          // relative statt der Server-Wurzel (decodeAudioData-Fehler).
+          okey: it.okey || null,
           duration: it.duration,
           sourceTitle: srcName || srcKey,
           license: it.license || col.license,
