@@ -150,7 +150,7 @@ fi
 
 # --- 6. NTFS ausdehnen -------------------------------------------------------
 # Ohne --size: ntfsresize fuellt die (jetzt groessere) Partition ganz aus.
-# ntfsresize markiert das FS fuer einen Konsistenz-Check; unter Linux (ntfs3)
+# ntfsresize markiert das FS fuer einen Konsistenz-Check; unter Linux (ntfs-3g)
 # unkritisch, nur ein spaeterer Windows-Boot zeigt einmalig chkdsk.
 log "Dehne NTFS auf $LAST_PART aus ..."
 ntfsresize --force "$LAST_PART"

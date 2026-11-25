@@ -103,6 +103,14 @@ sudo bash /usr/local/sbin/cimbel-firstboot-grow.sh --trockenlauf
 ## Hinweis Windows
 
 `ntfsresize` markiert das NTFS nach dem Vergrößern für einen Konsistenz-Check.
-Unter Linux (ntfs3) unkritisch. Steckt der Nutzer den Stick **vor** dem ersten
+Unter Linux (ntfs-3g) unkritisch. Steckt der Nutzer den Stick **vor** dem ersten
 Linux-Boot direkt in einen Windows-PC, könnte Windows einmalig `chkdsk` zeigen
 — harmlos. Normalerweise bootet der Stick zuerst Linux, dann ist das erledigt.
+
+## NTFS-Treiber: ntfs-3g statt ntfs3
+
+Die NTFS-Datenpartition und alle vom Nutzer geöffneten internen Windows-Platten
+werden bewusst über **`ntfs-3g`** (FUSE) statt den Kernel-Treiber `ntfs3`
+gemountet — `ntfs3` (6.12) hat Datenkorruption verursacht. Zwei Konfigurations-
+stellen, Einrichtung und Begründung in **`MOUNT_HAERTUNG.md`**; die udisks2-
+Muster-Datei liegt als `mount_options.conf` in diesem Ordner.
